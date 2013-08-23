@@ -729,7 +729,7 @@
 		<row><td>VBSubscribeExec.dll</td><td>{C00B1B34-F2B6-4B52-B84D-AF6FB24FD289}</td><td>BIN</td><td>0</td><td/><td>F1048467_VBSubscribeExec.dll</td><td>1</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>VBTest.dll</td><td>{5E611516-D46C-4D3F-9071-91933DCC66F7}</td><td>BIN</td><td>0</td><td/><td>F33823_VBTest.dll</td><td>1</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>VersionReporting.dll</td><td>{8952AA17-FB67-4135-B804-988211BEE63D}</td><td>BIN</td><td>0</td><td/><td>F33852_VersionReporting.dll</td><td>1</td><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>VertexQ</td><td>{FECE32C2-006F-40AC-86E0-C354F209F61A}</td><td>INSTALLDIR</td><td>0</td><td/><td/><td>1</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>VertexQ</td><td>{FECE32C2-006F-40AC-86E0-C354F209F61A}</td><td>VERTEXQ</td><td>0</td><td/><td/><td>1</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>WebServices</td><td>{288EBF79-5026-4EC6-A406-75EC62D837B8}</td><td>WEBSERVICES</td><td>0</td><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>WebServices_AccountHierarchy</td><td>{E5574974-2414-452C-80A4-EF6117CDCB6D}</td><td>ACCOUNTHIERARCHY1</td><td>0</td><td/><td/><td>1</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>WebServices_Batch</td><td>{A4A2BA4B-134B-4B19-BF77-CFFF7BD5EB54}</td><td>BATCH2</td><td>0</td><td/><td/><td>1</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
@@ -2897,6 +2897,7 @@
 		<row><td>USAGESERVER9</td><td>PAYMENTSVRCLIENT</td><td>USAGES~1|UsageServer</td><td/><td>0</td><td/></row>
 		<row><td>USERPROFILE</td><td>TARGETDIR</td><td>.:USERPR~1|UserProfile</td><td/><td>0</td><td/></row>
 		<row><td>VALIDATION1</td><td>DIALOG5</td><td>VALIDA~1|Validation</td><td/><td>0</td><td/></row>
+		<row><td>VERTEXQ</td><td>EXTENSIONS</td><td>VertexQ</td><td/><td>0</td><td/></row>
 		<row><td>VIEWINFO</td><td>CONFIG1</td><td>viewinfo</td><td/><td>0</td><td/></row>
 		<row><td>VIEWS</td><td>DBINSTALL</td><td>views</td><td/><td>0</td><td/></row>
 		<row><td>WEBHELP</td><td>HELP3</td><td>WebHelp</td><td/><td>0</td><td/></row>

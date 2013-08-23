@@ -300,27 +300,26 @@ namespace MetraTech.Shared.Test
                   null);
         }
 
-        public static BaseRateSchedule GetFlatRcRateSchedule(decimal price)
+
+        public static BaseRateSchedule GetFlatRcRateSchedule(decimal price, DateTime? startDate = null, DateTime? endDate = null)
         {
-            return new RateSchedule<Metratech_com_FlatRecurringChargeRateEntry, Metratech_com_FlatRecurringChargeDefaultRateEntry>
+          startDate = startDate ?? DateTime.Parse("1/1/2000");
+          endDate = endDate ?? DateTime.Parse("1/1/2038");
+
+          return new RateSchedule
+            <Metratech_com_FlatRecurringChargeRateEntry, Metratech_com_FlatRecurringChargeDefaultRateEntry>
             {
-                EffectiveDate = new ProdCatTimeSpan
+              EffectiveDate = new ProdCatTimeSpan
                 {
-                    StartDate = DateTime.Parse("1/1/2000"),
-                    StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
-                    EndDate = DateTime.Parse("1/1/2038"),
-                    EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
+                  StartDate = startDate,
+                  StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
+                  EndDate = endDate,
+                  EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
                 },
-                /*
-                    sched.EffectiveDate.StartDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE;
-        sched.EffectiveDate.StartDate = DateTime.Parse("1/1/2000");
-        sched.EffectiveDate.EndDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE;
-        sched.EffectiveDate.EndDate = DateTime.Parse("1/1/2038");
-                    */
-                RateEntries = new List<Metratech_com_FlatRecurringChargeRateEntry>
-           {
-              new Metratech_com_FlatRecurringChargeRateEntry { RCAmount = price }
-           }
+              RateEntries = new List<Metratech_com_FlatRecurringChargeRateEntry>
+                {
+                  new Metratech_com_FlatRecurringChargeRateEntry {RCAmount = price}
+                }
             };
         }
 

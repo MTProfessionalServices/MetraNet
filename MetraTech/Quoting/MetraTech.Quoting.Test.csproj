@@ -264,6 +264,10 @@
       <Name>MetraTech.Domain</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Legacy_Internal\Source\MetraTech\MetraTech.Application\MetraTech.Application.csproj">
+      <Project>{A19EED27-05B5-4907-B8A7-20C43EED7F42}</Project>
+      <Name>MetraTech.Application</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

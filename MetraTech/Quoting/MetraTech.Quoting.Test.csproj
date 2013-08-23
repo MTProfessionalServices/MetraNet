@@ -68,6 +68,7 @@
     <Reference Include="Core.Quoting.Entity">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Core.Quoting.Entity.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
     <Reference Include="GenericCollection.interop">
@@ -93,16 +94,21 @@
     <Reference Include="MetraTech.BusinessEntity.Core">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.BusinessEntity.Core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.BusinessEntity.DataAccess">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.BusinessEntity.DataAccess.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.DataAccess">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DataAccess.dll</HintPath>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="MetraTech.DomainModel.ProductCatalog.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL" />
+    <Reference Include="MetraTech.DomainModel.ProductCatalog.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="MetraTech.Localization">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Localization.dll</HintPath>
@@ -141,6 +147,7 @@
     <Reference Include="MetraTech.DomainModel.ProductCatalog">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.ProductCatalog.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.UsageServer">
       <SpecificVersion>False</SpecificVersion>
@@ -163,12 +170,14 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="MTRuleSet.interop, Version=7.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MTYAAC.interop, Version=7.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTYAAC.interop.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="PropSet.interop">
       <SpecificVersion>False</SpecificVersion>
@@ -238,18 +247,22 @@
     <ProjectReference Include="..\..\..\Legacy_Internal\Source\MetraTech\ActivityServices\ServiceBase\MetraTech.ActivityServices.Services.Common.csproj">
       <Project>{15E6CE39-F476-4ACD-B73D-BFCAAE218CB2}</Project>
       <Name>MetraTech.ActivityServices.Services.Common</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Legacy_Internal\Source\MetraTech\Core\Services\MetraTech.Core.Services.csproj">
       <Project>{65B81F93-929C-4AE5-B4E7-18DA882E1DA5}</Project>
       <Name>MetraTech.Core.Services</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Legacy_Internal\Source\MetraTech\MetraTech.Domain.Test\MetraTech.Domain.Test.csproj">
       <Project>{C9D05D42-B0FB-47FE-8E00-FBB99AFB3EC3}</Project>
       <Name>MetraTech.Domain.Test</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Legacy_Internal\Source\MetraTech\MetraTech.Domain\MetraTech.Domain.csproj">
       <Project>{9C9C685C-CBF8-428F-8C34-98702FF13726}</Project>
       <Name>MetraTech.Domain</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

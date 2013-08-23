@@ -148,6 +148,7 @@
     <Reference Include="MetraTech.DomainModel.ProductCatalog">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.ProductCatalog.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.DomainModel.ProductCatalog.Generated">
       <SpecificVersion>False</SpecificVersion>
@@ -167,7 +168,7 @@
     </Reference>
     <Reference Include="MTConfigLib.interop">
       <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTConfigLib.interop.dll</HintPath>
       <Private>False</Private>
     </Reference>
@@ -178,7 +179,7 @@
     </Reference>
     <Reference Include="MTRuleSet.interop">
       <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTRuleSet.interop.dll</HintPath>
       <Private>False</Private>
     </Reference>

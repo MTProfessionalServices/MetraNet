@@ -70,7 +70,9 @@
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Core.Quoting.Entity.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="GenericCollection.interop">
       <Private>False</Private>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\GenericCollection.interop.dll</HintPath>
@@ -267,6 +269,7 @@
     <ProjectReference Include="..\..\..\Legacy_Internal\Source\MetraTech\MetraTech.Application\MetraTech.Application.csproj">
       <Project>{A19EED27-05B5-4907-B8A7-20C43EED7F42}</Project>
       <Name>MetraTech.Application</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

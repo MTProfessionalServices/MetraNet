@@ -74,15 +74,15 @@ namespace MetraTech.Quoting.Test
         productOfferingFactory.Initialize(_testContext.TestName, testRunUniqueIdentifier);
 
         var parameterTableFlatRc =
-          productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(MetratechComFlatrecurringcharge);
+          productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(SharedTestCode.MetratechComFlatrecurringcharge);
 
         var parameterTableNonRc =
-          productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(MetratechComNonrecurringcharge);
+          productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(SharedTestCode.MetratechComNonrecurringcharge);
         var parameterTableUdrcTapered =
-          productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(MetratechComUdrctapered);
+          productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(SharedTestCode.MetratechComUdrctapered);
 
         var parameterTableUdrcTiered =
-          productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(MetratechComUdrctiered);
+          productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(SharedTestCode.MetratechComUdrctiered);
 
         #region Set Allow ICB for PIs
 
@@ -91,24 +91,24 @@ namespace MetraTech.Quoting.Test
           if (possibleRC.Kind == MTPCEntityType.PCENTITY_TYPE_RECURRING_UNIT_DEPENDENT)
           {
             var piAndPTParameters = SharedTestCode.SetAllowICBForPI(possibleRC, client, productOffering.ID,
-                                                     parameterTableUdrcTapered.ID, MetratechComUdrctapered);
+                                                     parameterTableUdrcTapered.ID, SharedTestCode.MetratechComUdrctapered);
             pofConfiguration.PriceableItemsAndParameterTableForUdrc.Add(piAndPTParameters);
 
             piAndPTParameters = SharedTestCode.SetAllowICBForPI(possibleRC, client, productOffering.ID, parameterTableUdrcTiered.ID,
-                                                 MetratechComUdrctiered);
+                                                 SharedTestCode.MetratechComUdrctiered);
             pofConfiguration.PriceableItemsAndParameterTableForUdrc.Add(piAndPTParameters);
 
           }
           else if (possibleRC.Kind == MTPCEntityType.PCENTITY_TYPE_RECURRING)
           {
             var piAndPTParameters = SharedTestCode.SetAllowICBForPI(possibleRC, client, productOffering.ID, parameterTableFlatRc.ID,
-                                                     MetratechComFlatrecurringcharge);
+                                                     SharedTestCode.MetratechComFlatrecurringcharge);
             pofConfiguration.PriceableItemsAndParameterTableForRc.Add(piAndPTParameters);
           }
           else if (possibleRC.Kind == MTPCEntityType.PCENTITY_TYPE_NON_RECURRING)
           {
             var piAndPTParameters = SharedTestCode.SetAllowICBForPI(possibleRC, client, productOffering.ID, parameterTableNonRc.ID,
-                                                     MetratechComNonrecurringcharge);
+                                                     SharedTestCode.MetratechComNonrecurringcharge);
             pofConfiguration.PriceableItemsAndParameterTableForNonRc.Add(piAndPTParameters);
           }
         }
@@ -186,7 +186,7 @@ namespace MetraTech.Quoting.Test
             ProductOfferingId = productOffering.ID
           };
 
-        if (ptUDRC.ParameterTableName == MetratechComUdrctapered)
+        if (ptUDRC.ParameterTableName == SharedTestCode.MetratechComUdrctapered)
         {
           qip.RateSchedules = new List<BaseRateSchedule>
             {

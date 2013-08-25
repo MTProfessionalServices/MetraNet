@@ -118,8 +118,6 @@ namespace MetraTech.Quoting.Test
 
       //Values to use for verification
       string expectedQuoteCurrency = "USD";
-      DateTime startDateOfRcRate = DateTime.Parse("1/1/2000");
-      DateTime endDateOfRcRate = DateTime.Parse("1/1/2038");
       
       #endregion
 
@@ -171,7 +169,7 @@ namespace MetraTech.Quoting.Test
             ParameterTableId = ptrc.ParameterTableId,
             PriceableItemInstanceId = ptrc.PriceableItemId,
             ProductOfferingId = productOffering.ID,
-            RateSchedules = new List<BaseRateSchedule> { SharedTestCode.GetFlatRcRateSchedule(66.66m, startDateOfRcRate, endDateOfRcRate) }
+            RateSchedules = new List<BaseRateSchedule> { SharedTestCode.GetFlatRcRateSchedule(66.66m) }
           };
         request.IcbPrices.Add(qip);
       }
@@ -263,7 +261,7 @@ namespace MetraTech.Quoting.Test
       DateTime icb3EndDate = MetraTime.Now.AddDays(11);
 
       // Class for ICBs
-      QuoteIndividualPrice quoteIcb;
+      var quoteIcbList = new List<QuoteIndividualPrice>();
 
       // Unique values for test
       var uniqueValue = MetraTime.Now;
@@ -304,34 +302,35 @@ namespace MetraTech.Quoting.Test
         var productOfferingFactory = new ProductOfferingFactory();
         productOfferingFactory.Initialize(_testContext.TestName, testRunUniqueIdentifierStr);
 
-        // Set Allow ICB for PIs
-		// TODO: Use foreach for 2 created RC PIs
-        var piEnumerator = productOffering.GetPriceableItems().GetEnumerator();
-        piEnumerator.MoveNext();
-        var rcPiInstance = piEnumerator.Current as IMTPriceableItem;
-        Assert.IsNotNull(rcPiInstance, "Created Product Offering does not contain any Pricable Items.");
-        Assert.AreEqual(rcPiInstance.Kind, MTPCEntityType.PCENTITY_TYPE_RECURRING,
-                        "Expecting Recurring Charge type only. Non-RC Pricable item was created.");
-
-        var ptRc = productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(SharedTestCode.MetratechComFlatrecurringcharge);
-        var piAndPtParams = SharedTestCode.SetAllowICBForPI(rcPiInstance, client, productOffering.ID, ptRc.ID,
-                                             SharedTestCode.MetratechComFlatrecurringcharge);
-        pofConfiguration.PriceableItemsAndParameterTableForRc.Add(piAndPtParams);
-        
-        // Initialize ICB prices
-        quoteIcb = new QuoteIndividualPrice
-          {
-            QuoteId = testRunUniqueIdentifierInt,
-            ParameterTableId = piAndPtParams.ParameterTableId,
-            PriceableItemInstanceId = piAndPtParams.PriceableItemId,
-            ProductOfferingId = productOffering.ID,
-            RateSchedules = new List<BaseRateSchedule>
-              {
-                SharedTestCode.GetFlatRcRateSchedule(icb1Value, icb1StartDate, icb1EndDate),
-                SharedTestCode.GetFlatRcRateSchedule(icb2Value, icb2StartDate, icb2EndDate),
-                SharedTestCode.GetFlatRcRateSchedule(icb3Value, icb3StartDate, icb3EndDate)
-              }
-          };
+        // Set Allow ICB for PIs and initialize ICB prices
+        int ptRcId =
+          productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(
+            SharedTestCode.MetratechComFlatrecurringcharge).ID;
+        var piInstances = productOffering.GetPriceableItems();
+        foreach (IMTPriceableItem rcPiInstance in piInstances)
+        {
+          Assert.IsNotNull(rcPiInstance, "Created Product Offering does not contain any Pricable Items.");
+          Assert.AreEqual(rcPiInstance.Kind, MTPCEntityType.PCENTITY_TYPE_RECURRING,
+                          "Expecting Recurring Charge type only. Non-RC Pricable item was created.");
+          // Set Allow ICB
+          var piAndPtParams = SharedTestCode.SetAllowICBForPI(rcPiInstance, client, productOffering.ID, ptRcId,
+                                                              SharedTestCode.MetratechComFlatrecurringcharge);
+          pofConfiguration.PriceableItemsAndParameterTableForRc.Add(piAndPtParams);
+          // Initialize ICB prices
+          quoteIcbList.Add(new QuoteIndividualPrice
+            {
+              QuoteId = testRunUniqueIdentifierInt,
+              ParameterTableId = piAndPtParams.ParameterTableId,
+              PriceableItemInstanceId = piAndPtParams.PriceableItemId,
+              ProductOfferingId = productOffering.ID,
+              RateSchedules = new List<BaseRateSchedule>
+                {
+                  SharedTestCode.GetFlatRcRateSchedule(icb1Value, icb1StartDate, icb1EndDate),
+                  SharedTestCode.GetFlatRcRateSchedule(icb2Value, icb2StartDate, icb2EndDate),
+                  SharedTestCode.GetFlatRcRateSchedule(icb3Value, icb3StartDate, icb3EndDate)
+                }
+            });
+        }
       }
 
       #endregion
@@ -348,7 +347,7 @@ namespace MetraTech.Quoting.Test
           EffectiveDate = MetraTime.Now,
           EffectiveEndDate = MetraTime.Now,
           Localization = localization,
-          IcbPrices = new List<QuoteIndividualPrice> { quoteIcb },
+          IcbPrices = quoteIcbList,
           ReportParameters = new ReportParams
             {
               PDFReport = QuotingTestScenarios.RunPDFGenerationForAllTestsByDefault

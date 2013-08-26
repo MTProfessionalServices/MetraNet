@@ -4,7 +4,7 @@
 <%@ Register src="~/UserControls/AmpTextboxOrDropdown.ascx" tagName="AmpTextboxOrDropdown" tagPrefix="ampc1" %>
 
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-  <div class="CaptionBar">
+    <div class="CaptionBar">
     <asp:Label ID="lblTitleDecisionCycle" runat="server" Text="Decision Cycle" meta:resourcekey="lblTitleResource1"></asp:Label>
   </div>
   <table width="100%">
@@ -105,7 +105,7 @@
             TabIndex="230" />
         </td>
         <td align="right">
-          <MT:MTButton ID="btnSaveAndContinue" runat="server" OnClientClick="if (ValidateForm()) { MPC_setNeedToConfirm(false); } else { MPC_setNeedToConfirm(true); return false; }"
+          <MT:MTButton ID="btnSaveAndContinue" runat="server" OnClientClick="if(!ValidateBoxes()){return false;} else if (ValidateForm()) { MPC_setNeedToConfirm(false); } else { MPC_setNeedToConfirm(true); return false; }"
             OnClick="btnContinue_Click" CausesValidation="true" TabIndex="240" />
         </td>
       </tr>
@@ -114,23 +114,43 @@
 
 
 <script language="javascript" type="text/javascript">
+  var dictUnitOfTimes = [];
+  var dictBillingInterval = {};
+  var showDivDecisionCycle = <%=ShowDivDecisionCycle.ToString().ToLower() %> ;
+  var showDivParamTable = <%=ShowDivParamTable.ToString().ToLower() %> ;
   Ext.onReady(function () {
     // Record the initial values of the page's controls.
     // (Note:  This is called here, and not on the master page,
     // because the call to document.getElementById() returns null
     // if executed on the master page.)
     MPC_assignInitialValues();
-
     InitDictionary();
     SetDisabledDecisionEffectState();
     DecisionCycleControlShow(showDivDecisionCycle);
     ParamTableDivShow(showDivParamTable);
   });
 
-  var dictUnitOfTimes = [];
-  var dictBillingInterval = {};
-  var showDivDecisionCycle = <%=ShowDivDecisionCycle.ToString().ToLower() %> ;
-  var showDivParamTable = <%=ShowDivParamTable.ToString().ToLower() %> ;
+  function ValidateBoxes() {
+      var ddval = document.getElementById("ctl00_ContentPlaceHolder1_numberOfMonth_ddSourceType").value;
+      var zero = '<%=GetGlobalResourceObject("AmpWizard", "TEXT_FIXED_VALUE")%>';
+      if (ddval.toString() == zero.toString()) {
+          var boxval = document.getElementById("ctl00_ContentPlaceHolder1_numberOfMonth_tbNumericSource").value.toString();
+          if (boxval == "") {
+              alert('<%=GetLocalResourceObject("TEXT_ERROR_NO_VALUE_FOR_UNIT_OF_TIME")%>');
+              return false;
+          }
+      }
+      ddval = document.getElementById("ctl00_ContentPlaceHolder1_numberMonthBillingInterval_ddSourceType").value;
+      if (ddval.toString() == zero.toString()) {
+          boxval = document.getElementById("ctl00_ContentPlaceHolder1_numberMonthBillingInterval_tbNumericSource").value.toString();
+          if (boxval == "") {
+              alert('<%=GetLocalResourceObject("TEXT_ERROR_NO_VALUE_FOR_UNIT_OF_TIME")%>');
+              return false;
+          }
+      }
+      return true;
+  }
+
   function InitDictionary() {
     
       

@@ -111,6 +111,8 @@ namespace MetraTech.Quoting
       //TODO: Should we add check that pipeline/inetinfo/activityservices are running before starting quote. We think nice to have and maybe configurable
       using (new MetraTech.Debug.Diagnostics.HighResolutionTimer("StartQuote"))
       {
+        try
+        {
         CurrentResponse = new QuoteResponse();
         CurrentResponse.MessageLog = new List<QuoteLogRecord>();
 
@@ -125,6 +127,12 @@ namespace MetraTech.Quoting
         CurrentResponse.idQuote = QuotingRepository.CreateQuote(quoteRequest, SessionContext);
 
         StartQuoteInternal();
+        }
+        catch (Exception ex)
+        {
+          RecordExceptionAndCleanup(ex);
+          throw;
+        }
 
         return CurrentResponse.idQuote;
       }
@@ -310,6 +318,9 @@ namespace MetraTech.Quoting
     {
       using (new MetraTech.Debug.Diagnostics.HighResolutionTimer("FinalizeQuote"))
       {
+        try
+        {
+
         VerifyCurrentQuoteIsInProgress();
 
         FinalizeQuoteInternal();
@@ -325,6 +336,12 @@ namespace MetraTech.Quoting
         QuotingRepository.UpdateQuoteWithResponse(CurrentResponse);
         QuotingRepository.SaveQuoteLog(CurrentResponse.MessageLog);
 
+        }
+        catch (Exception ex)
+        {
+          RecordExceptionAndCleanup(ex);
+          throw;
+        }
 
         return CurrentResponse;
       }

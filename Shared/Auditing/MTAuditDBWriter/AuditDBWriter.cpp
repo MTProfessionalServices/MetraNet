@@ -99,7 +99,7 @@ STDMETHODIMP CAuditDBWriter::Write(IAuditEvent *apAuditEvent)
 			return hr;
 
 		rs->Init(_T("queries\\audit")); // TO DO: Move this to the Init... call only once.
-		rs->InitializeForStoredProc("InsertAuditEvent");
+		rs->InitializeForStoredProc("InsertAuditEvent2");
 
 		vtParam = AuditEvent->UserId;
 		rs->AddInputParameterToStoredProc("id_userid", MTTYPE_INTEGER, INPUT_PARAM, vtParam);
@@ -117,17 +117,18 @@ STDMETHODIMP CAuditDBWriter::Write(IAuditEvent *apAuditEvent)
 
 
 		// Generate audit id.
-		MetraTech_DataAccess::IIdGenerator2Ptr idGen = AuditIdGenerator::Get();
+		/*MetraTech_DataAccess::IIdGenerator2Ptr idGen = AuditIdGenerator::Get();
 		AuditEvent->AuditId = idGen->NextId;
-		rs->AddInputParameterToStoredProc("id_audit", MTTYPE_VARCHAR, INPUT_PARAM, AuditEvent->AuditId);
+		rs->AddInputParameterToStoredProc("id_audit", MTTYPE_INTEGER, INPUT_PARAM, AuditEvent->AuditId);*/
 
 		_variant_t vtNULL;
 		vtNULL.vt =  VT_NULL;
 
 		_bstr_t details = AuditEvent->Details;
 		vtParam = (details.length() > 0) ? details : vtNULL;
-		rs->AddInputParameterToStoredProc ("tx_details", MTTYPE_W_VARCHAR, INPUT_PARAM, vtParam);
+		rs->AddInputParameterToStoredProc("tx_details", MTTYPE_W_VARCHAR, INPUT_PARAM, vtParam);
 
+		rs->AddInputParameterToStoredProc("id_audit", MTTYPE_INTEGER, INPUT_PARAM, VT_EMPTY);
 		
 		_bstr_t loggedAs = AuditEvent->LoggedInAs;;
 		vtParam = (loggedAs.length() > 0) ? loggedAs : vtNULL;	
@@ -136,8 +137,11 @@ STDMETHODIMP CAuditDBWriter::Write(IAuditEvent *apAuditEvent)
 		_bstr_t applicationName = AuditEvent->ApplicationName;
 		vtParam = (applicationName.length() > 0) ? applicationName : vtNULL;		
 		rs->AddInputParameterToStoredProc("tx_application_name", MTTYPE_VARCHAR, INPUT_PARAM, vtParam);
+		rs->AddOutputParameterToStoredProc("id_audit_out", MTTYPE_INTEGER, OUTPUT_PARAM);
 
 		rs->ExecuteStoredProc();
+    
+		AuditEvent->AuditId = (int)rs->GetParameterFromStoredProc("id_audit_out");
 	}
 	catch(_com_error& e)
 	{

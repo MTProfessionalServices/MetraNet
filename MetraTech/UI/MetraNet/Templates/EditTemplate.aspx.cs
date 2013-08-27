@@ -60,7 +60,7 @@ public partial class Templates_EditTemplate : MTPage
         // CORE-6643.
         // If it is not the first access to this page properties may have temporary user input that should not be erased.
         // [TODO]: Implement better way to detect first access to this page by using Query String or View State, as UrlReferrer may be another in future.
-        bool isTheFirtsAccess = Request.UrlReferrer.AbsoluteUri.Contains("AddTemplate.aspx");
+        bool isTheFirtsAccess = Request.UrlReferrer.AbsoluteUri.Contains("AddTemplate.aspx") || Request.UrlReferrer.AbsoluteUri.Contains("TemplateSummary.aspx");
         if (isTheFirtsAccess)
         {
           Dictionary<string, List<MetraTech.DomainModel.BaseTypes.View>> vws = TempAccount.GetViews();

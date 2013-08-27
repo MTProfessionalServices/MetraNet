@@ -49,7 +49,7 @@
     <GenerateManifest>false</GenerateManifest>
     <IntDir>$(MTOUTDIR)\$(Configuration)\MetraTech\Crypto\</IntDir>
     <CustomBuildBeforeTargets>ClCompile</CustomBuildBeforeTargets>
-    <LinkKeyFile>..\..\build\keys\metratech.snk</LinkKeyFile>
+    <LinkKeyFile>..\..\..\build\keys\metratech.snk</LinkKeyFile>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <CLCompile>
@@ -104,7 +104,7 @@
     <IntDir>$(MTOUTDIR)\$(Configuration)\MetraTech\Crypto\</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <CustomBuildBeforeTargets>ClCompile</CustomBuildBeforeTargets>
-    <LinkKeyFile>..\..\build\keys\metratech.snk</LinkKeyFile>
+    <LinkKeyFile>..\..\..\build\keys\metratech.snk</LinkKeyFile>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <CLCompile>

@@ -90,6 +90,7 @@ namespace MetraTech.Pipeline.Plugins.WriteProductQueue
         private int? m_waittimeout;
         private string m_queuename;
         private string m_serializerclass;
+        private int? m_batchsize = 1;
         //GENERAL_CONFIG_VAR
         #endregion
 
@@ -98,84 +99,217 @@ namespace MetraTech.Pipeline.Plugins.WriteProductQueue
         {
             IMTConfigPropSet generalConfigProps = propSet.NextSetWithName("GeneralConfig");
             m_factoryhostname = (string)generalConfigProps.NextStringWithName("FactoryHostname");
-            generalConfigProps.Reset();
-            m_factoryprotocol = (string)generalConfigProps.NextStringWithName("FactoryProtocol");
-            generalConfigProps.Reset();
-            var val = generalConfigProps.NextStringWithName("FactoryPort");
-            if (!string.IsNullOrEmpty(val))
+            try
             {
-                m_factoryport = int.Parse(val);
+                generalConfigProps.Reset();
+                m_factoryprotocol = (string)generalConfigProps.NextStringWithName("FactoryProtocol");
             }
-            generalConfigProps.Reset();
-            m_factoryvirtualhost = (string)generalConfigProps.NextStringWithName("FactoryVirtualHost");
-            generalConfigProps.Reset();
-            val = generalConfigProps.NextStringWithName("RequestedHeartbeat");
-            if (!string.IsNullOrEmpty(val))
+            catch
             {
-                m_requestedheartbeat = int.Parse(val);
             }
-            //            m_requestedheartbeat = int.Parse(generalConfigProps.NextStringWithName("RequestedHeartbeat"));
-            generalConfigProps.Reset();
-            m_exchangename = (string)generalConfigProps.NextStringWithName("ExchangeName");
-            generalConfigProps.Reset();
-            m_applicationid = (string)generalConfigProps.NextStringWithName("ApplicationId");
-            generalConfigProps.Reset();
-            m_routingkey = (string)generalConfigProps.NextStringWithName("RoutingKey");
-            generalConfigProps.Reset();
-            val = generalConfigProps.NextStringWithName("ConfirmRouting");
-            if (!string.IsNullOrEmpty(val))
+            try
             {
-                m_confirmrouting = bool.Parse(val);
+                generalConfigProps.Reset();
+                var val = generalConfigProps.NextStringWithName("FactoryPort");
+                if (!string.IsNullOrEmpty(val))
+                {
+                    m_factoryport = int.Parse(val);
+                }
             }
-            generalConfigProps.Reset();
-            val = generalConfigProps.NextStringWithName("MandatoryRouting");
-            if (!string.IsNullOrEmpty(val))
+            catch
             {
-                m_mandatoryrouting = bool.Parse(val);
             }
-            //            m_mandatoryrouting = bool.Parse(generalConfigProps.NextStringWithName("MandatoryRouting"));
-            generalConfigProps.Reset();
-            val = generalConfigProps.NextStringWithName("ImmediateDelivery");
-            if (!string.IsNullOrEmpty(val))
+            try
             {
-                m_immediatedelivery = bool.Parse(val);
+                generalConfigProps.Reset();
+                m_factoryvirtualhost = (string)generalConfigProps.NextStringWithName("FactoryVirtualHost");
             }
-            //            m_immediatedelivery = bool.Parse(generalConfigProps.NextStringWithName("ImmediateDelivery"));
-            generalConfigProps.Reset();
-            val = generalConfigProps.NextStringWithName("PersistentDelivery");
-            if (!string.IsNullOrEmpty(val))
+            catch
             {
-                m_persistentdelivery = bool.Parse(val);
             }
-            //            m_persistentdelivery = bool.Parse(generalConfigProps.NextStringWithName("PersistentDelivery"));
-            generalConfigProps.Reset();
-            val = generalConfigProps.NextStringWithName("MessagePriority");
-            if (!string.IsNullOrEmpty(val))
+            try
             {
-                m_messagepriority = int.Parse(val);
+                generalConfigProps.Reset();
+                var val = generalConfigProps.NextStringWithName("RequestedHeartbeat");
+                if (!string.IsNullOrEmpty(val))
+                {
+                    m_requestedheartbeat = int.Parse(val);
+                }
+                //            m_requestedheartbeat = int.Parse(generalConfigProps.NextStringWithName("RequestedHeartbeat"));
             }
-            //            m_messagepriority = int.Parse(generalConfigProps.NextStringWithName("MessagePriority"));
-            generalConfigProps.Reset();
-            m_contentencoding = (string)generalConfigProps.NextStringWithName("ContentEncoding");
-            generalConfigProps.Reset();
-            m_contenttype = (string)generalConfigProps.NextStringWithName("ContentType");
-            generalConfigProps.Reset();
-            m_expiration = (string)generalConfigProps.NextStringWithName("Expiration");
-            generalConfigProps.Reset();
-            m_messagetype = (string)generalConfigProps.NextStringWithName("MessageType");
-            generalConfigProps.Reset();
-            m_userid = (string)generalConfigProps.NextStringWithName("UserId");
-            generalConfigProps.Reset();
-            val = generalConfigProps.NextStringWithName("WaitTimeout");
-            if (!string.IsNullOrEmpty(val))
+            catch
             {
-                m_waittimeout = int.Parse(val);
+            }
+            try
+            {
+                generalConfigProps.Reset();
+                m_exchangename = (string)generalConfigProps.NextStringWithName("ExchangeName");
+            }
+            catch
+            {
+            }
+            try
+            {
+                generalConfigProps.Reset();
+                m_applicationid = (string)generalConfigProps.NextStringWithName("ApplicationId");
+            }
+            catch
+            {
+            }
+            try
+            {
+                generalConfigProps.Reset();
+                m_routingkey = (string)generalConfigProps.NextStringWithName("RoutingKey");
+            }
+            catch
+            {
+            }
+            try
+            {
+                generalConfigProps.Reset();
+                var val = generalConfigProps.NextStringWithName("ConfirmRouting");
+                if (!string.IsNullOrEmpty(val))
+                {
+                    m_confirmrouting = bool.Parse(val);
+                }
+            }
+            catch
+            {
+            }
+            try
+            {
+                generalConfigProps.Reset();
+                var val = generalConfigProps.NextStringWithName("MandatoryRouting");
+                if (!string.IsNullOrEmpty(val))
+                {
+                    m_mandatoryrouting = bool.Parse(val);
+                }
+                //            m_mandatoryrouting = bool.Parse(generalConfigProps.NextStringWithName("MandatoryRouting"));
+            }
+            catch
+            {
+            }
+            try
+            {
+                generalConfigProps.Reset();
+                var val = generalConfigProps.NextStringWithName("ImmediateDelivery");
+                if (!string.IsNullOrEmpty(val))
+                {
+                    m_immediatedelivery = bool.Parse(val);
+                }
+                //            m_immediatedelivery = bool.Parse(generalConfigProps.NextStringWithName("ImmediateDelivery"));
+            }
+            catch
+            {
+            }
+            try
+            {
+                generalConfigProps.Reset();
+                var val = generalConfigProps.NextStringWithName("PersistentDelivery");
+                if (!string.IsNullOrEmpty(val))
+                {
+                    m_persistentdelivery = bool.Parse(val);
+                }
+                //            m_persistentdelivery = bool.Parse(generalConfigProps.NextStringWithName("PersistentDelivery"));
+            }
+            catch
+            {
+            }
+            try
+            {
+                generalConfigProps.Reset();
+                var val = generalConfigProps.NextStringWithName("MessagePriority");
+                if (!string.IsNullOrEmpty(val))
+                {
+                    m_messagepriority = int.Parse(val);
+                }
+                //            m_messagepriority = int.Parse(generalConfigProps.NextStringWithName("MessagePriority"));
+            }
+            catch
+            {
+            }
+            try
+            {
+                generalConfigProps.Reset();
+                m_contentencoding = (string)generalConfigProps.NextStringWithName("ContentEncoding");
+            }
+            catch
+            {
+            }
+            try
+            {
+                generalConfigProps.Reset();
+                m_contenttype = (string)generalConfigProps.NextStringWithName("ContentType");
+            }
+            catch
+            {
+            }
+            try
+            {
+                generalConfigProps.Reset();
+                m_expiration = (string)generalConfigProps.NextStringWithName("Expiration");
+            }
+            catch
+            {
+            }
+            try
+            {
+                generalConfigProps.Reset();
+                m_messagetype = (string)generalConfigProps.NextStringWithName("MessageType");
+            }
+            catch
+            {
+            }
+            try
+            {
+                generalConfigProps.Reset();
+                m_userid = (string)generalConfigProps.NextStringWithName("UserId");
+            }
+            catch
+            {
+            }
+            try
+            {
+                generalConfigProps.Reset();
+                var val = generalConfigProps.NextStringWithName("WaitTimeout");
+                if (!string.IsNullOrEmpty(val))
+                {
+                    m_waittimeout = int.Parse(val);
+                }
+            }
+            catch
+            {
             }
             //            m_asynctimeout = int.Parse(generalConfigProps.NextStringWithName("AsyncTimeout"));
-            generalConfigProps.Reset();
-            m_queuename = (string)generalConfigProps.NextStringWithName("QueueName");
-            generalConfigProps.Reset();
-            m_serializerclass = (string)generalConfigProps.NextStringWithName("SerializerClass");
+            try
+            {
+                generalConfigProps.Reset();
+                m_queuename = (string)generalConfigProps.NextStringWithName("QueueName");
+            }
+            catch
+            {
+            }
+            try
+            {
+                generalConfigProps.Reset();
+                m_serializerclass = (string)generalConfigProps.NextStringWithName("SerializerClass");
+            }
+            catch
+            {
+            }
+            try
+            {
+                generalConfigProps.Reset();
+                var val = generalConfigProps.NextStringWithName("BatchSize");
+                if (!string.IsNullOrEmpty(val))
+                {
+                    m_batchsize = int.Parse(val);
+                }
+                //            m_batchsize = bool.Parse(generalConfigProps.NextStringWithName("BatchSize"));
+            }
+            catch
+            {
+            }
             //GENERAL_CONFIG_ASSIGN
         }
         #endregion
@@ -299,6 +433,16 @@ namespace MetraTech.Pipeline.Plugins.WriteProductQueue
             get
             {
                 return m_persistentdelivery;
+            }
+        }
+        /// <summary>
+        /// Batch Size
+        /// </summary>
+        internal int? BatchSize
+        {
+            get
+            {
+                return m_batchsize;
             }
         }
         /// <summary>
@@ -1065,7 +1209,7 @@ namespace MetraTech.Pipeline.Plugins.WriteProductQueue
                         m_replyto.Value = m_session.GetStringProperty(m_replyto.ID);
                     }
                 }
-                catch 
+                catch
                 {
                     m_replyto.IsNull = true;
 #if ERROR_ON_NULL_GET

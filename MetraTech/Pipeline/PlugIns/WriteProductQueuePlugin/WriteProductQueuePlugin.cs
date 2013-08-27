@@ -103,8 +103,12 @@ namespace MetraTech.Pipeline.Plugins
                         }
 
                         // 4) loop through the sessions
-                        foreach (MetraTech.Pipeline.Plugins.WriteProductQueue.Properties props in propsCol)
+                        System.IO.MemoryStream builder = new System.IO.MemoryStream();
+                        int n = 0;
+                        for (int i = 0; i < propsCol.Count; i++)
                         {
+                            MetraTech.Pipeline.Plugins.WriteProductQueue.Properties props = propsCol[i];
+
                             Log(LogLevel.Debug, "Processing session...");
                             // set the current session for logging purposes
                             SetCurrentSession(props.Session);
@@ -114,7 +118,11 @@ namespace MetraTech.Pipeline.Plugins
                             {
                                 Log(LogLevel.Debug, "Performing synchronous queuing...");
                                 // process each session
-                                ProcessSession(props, model);
+                                ProcessSession(props, model, builder, ((i + 1) == propsCol.Count) || n++ >= GeneralConfig.BatchSize);
+                                if (n >= GeneralConfig.BatchSize)
+                                {
+                                    n = 0;
+                                }
                             }
                             catch (Exception ex)
                             {
@@ -385,161 +393,169 @@ namespace MetraTech.Pipeline.Plugins
         /// <summary>
         /// This method is called for each session in the session set.
         /// </summary>
-        protected override void ProcessSession(MetraTech.Pipeline.Plugins.WriteProductQueue.Properties props, RabbitMQ.Client.IModel model)
+        protected override void ProcessSession(MetraTech.Pipeline.Plugins.WriteProductQueue.Properties props, RabbitMQ.Client.IModel model,System.IO.MemoryStream builder, bool batchFull)
         {
             Log(LogLevel.Debug, "Start queuing session");
 
             try
             {
-                // 2) grab the basic properties
-                Log(LogLevel.Debug, "Setting message properties...");
-                var basicProperties = model.CreateBasicProperties();
-
-                // 3) configure the basic properties
-                if (!string.IsNullOrEmpty(props.Pipeline.ApplicationId))
-                {
-                    basicProperties.AppId = props.Pipeline.ApplicationId;
-                }
-                else if (!string.IsNullOrEmpty(GeneralConfig.ApplicationId))
-                {
-                    basicProperties.AppId = GeneralConfig.ApplicationId;
-                }
-
-                if (!string.IsNullOrEmpty(GeneralConfig.ContentEncoding))
-                {
-                    basicProperties.ContentEncoding = GeneralConfig.ContentEncoding;
-                }
-
-                if (!string.IsNullOrEmpty(GeneralConfig.ContentType))
-                {
-                    basicProperties.ContentType = GeneralConfig.ContentType;
-                }
-
-                if (!string.IsNullOrEmpty(props.Pipeline.CorrelationId))
-                {
-                    basicProperties.CorrelationId = props.Pipeline.CorrelationId;
-                }
-
-                if (GeneralConfig.PersistentDelivery.HasValue)
-                {
-                    basicProperties.DeliveryMode = (byte)(GeneralConfig.PersistentDelivery.Value ? 2 : 1);
-                }
-                if (!string.IsNullOrEmpty(props.Pipeline.Expiration))
-                {
-                    basicProperties.Expiration = props.Pipeline.Expiration;
-                }
-                else if (!string.IsNullOrEmpty(GeneralConfig.Expiration))
-                {
-                    basicProperties.Expiration = GeneralConfig.Expiration;
-                }
-
-                if (!string.IsNullOrEmpty(props.Pipeline.MessageId))
-                {
-                    basicProperties.MessageId = props.Pipeline.MessageId;
-                }
-                else
-                {
-                    basicProperties.MessageId = props.Session.UIDEncoded;
-                }
-
-                int? priority = null;
-                if (props.Pipeline.MessagePriority.HasValue)
-                {
-                    priority = props.Pipeline.MessagePriority.Value;
-                }
-                else if (GeneralConfig.MessagePriority.HasValue)
-                {
-                    priority = GeneralConfig.MessagePriority.Value;
-                }
-                if (priority.HasValue && (priority.Value < 0 || priority.Value > 9))
-                {
-                    throw new IndexOutOfRangeException("MessagePriority must be between 0 and 9");
-                }
-                else if (priority.HasValue)
-                {
-                    basicProperties.Priority = (byte)priority.Value;
-                }
-
-                if (!string.IsNullOrEmpty(props.Pipeline.ReplyTo))
-                {
-                    basicProperties.ReplyTo = props.Pipeline.ReplyTo;
-                }
-
-                if (props.Pipeline.Timestamp.HasValue)
-                {
-                    basicProperties.Timestamp = new RabbitMQ.Client.AmqpTimestamp((long)(props.Pipeline.Timestamp.Value - dt1970).TotalSeconds);
-                }
-
-                if (!string.IsNullOrEmpty(props.Pipeline.MessageType))
-                {
-                    basicProperties.Type = props.Pipeline.MessageType;
-                }
-                else if (!string.IsNullOrEmpty(GeneralConfig.MessageType))
-                {
-                    basicProperties.Type = GeneralConfig.MessageType;
-                }
-                else
-                {
-                    basicProperties.Type = "pv";
-                }
-
-                if (!string.IsNullOrEmpty(props.Pipeline.UserId))
-                {
-                    basicProperties.UserId = props.Pipeline.UserId;
-                }
-                else if (!string.IsNullOrEmpty(GeneralConfig.UserId))
-                {
-                    basicProperties.UserId = GeneralConfig.UserId;
-                }
-                else if (!string.IsNullOrEmpty(factory.UserName))
-                {
-                    basicProperties.UserId = factory.UserName;
-                }
-                else
-                {
-                    basicProperties.UserId = "guest";
-                }
-
-                // 4) populate/format message
-                System.Text.StringBuilder builder = new System.Text.StringBuilder();
+                // 1) populate/format message
                 Log(LogLevel.Debug, "Serializing message...");
-                var msg = serializer.SerializeSession(props.Session);
+                var bytes = serializer.SerializeSession(props.Session);
+                builder.Write(bytes,0,bytes.Length);
 
-                string exchange = string.Empty;
-                if (!string.IsNullOrEmpty(props.Pipeline.ExchangeName))
+                if (batchFull)
                 {
-                    exchange = props.Pipeline.ExchangeName;
+                    var msg = builder.ToArray();
+                    builder.SetLength(0);
+                    // 2) grab the basic properties
+                    Log(LogLevel.Debug, "Setting message properties...");
+                    var basicProperties = model.CreateBasicProperties();
+
+                    // 3) configure the basic properties
+                    if (!string.IsNullOrEmpty(props.Pipeline.ApplicationId))
+                    {
+                        basicProperties.AppId = props.Pipeline.ApplicationId;
+                    }
+                    else if (!string.IsNullOrEmpty(GeneralConfig.ApplicationId))
+                    {
+                        basicProperties.AppId = GeneralConfig.ApplicationId;
+                    }
+
+                    if (!string.IsNullOrEmpty(GeneralConfig.ContentEncoding))
+                    {
+                        basicProperties.ContentEncoding = GeneralConfig.ContentEncoding;
+                    }
+
+                    if (!string.IsNullOrEmpty(GeneralConfig.ContentType))
+                    {
+                        basicProperties.ContentType = GeneralConfig.ContentType;
+                    }
+
+                    if (!string.IsNullOrEmpty(props.Pipeline.CorrelationId))
+                    {
+                        basicProperties.CorrelationId = props.Pipeline.CorrelationId;
+                    }
+
+                    if (GeneralConfig.PersistentDelivery.HasValue)
+                    {
+                        basicProperties.DeliveryMode = (byte)(GeneralConfig.PersistentDelivery.Value ? 2 : 1);
+                    }
+                    if (!string.IsNullOrEmpty(props.Pipeline.Expiration))
+                    {
+                        basicProperties.Expiration = props.Pipeline.Expiration;
+                    }
+                    else if (!string.IsNullOrEmpty(GeneralConfig.Expiration))
+                    {
+                        basicProperties.Expiration = GeneralConfig.Expiration;
+                    }
+
+                    if (!string.IsNullOrEmpty(props.Pipeline.MessageId))
+                    {
+                        basicProperties.MessageId = props.Pipeline.MessageId;
+                    }
+                    else
+                    {
+                        basicProperties.MessageId = props.Session.UIDEncoded;
+                    }
+
+                    int? priority = null;
+                    if (props.Pipeline.MessagePriority.HasValue)
+                    {
+                        priority = props.Pipeline.MessagePriority.Value;
+                    }
+                    else if (GeneralConfig.MessagePriority.HasValue)
+                    {
+                        priority = GeneralConfig.MessagePriority.Value;
+                    }
+                    if (priority.HasValue && (priority.Value < 0 || priority.Value > 9))
+                    {
+                        throw new IndexOutOfRangeException("MessagePriority must be between 0 and 9");
+                    }
+                    else if (priority.HasValue)
+                    {
+                        basicProperties.Priority = (byte)priority.Value;
+                    }
+
+                    if (!string.IsNullOrEmpty(props.Pipeline.ReplyTo))
+                    {
+                        basicProperties.ReplyTo = props.Pipeline.ReplyTo;
+                    }
+
+                    if (props.Pipeline.Timestamp.HasValue)
+                    {
+                        basicProperties.Timestamp = new RabbitMQ.Client.AmqpTimestamp((long)(props.Pipeline.Timestamp.Value - dt1970).TotalSeconds);
+                    }
+
+                    if (!string.IsNullOrEmpty(props.Pipeline.MessageType))
+                    {
+                        basicProperties.Type = props.Pipeline.MessageType;
+                    }
+                    else if (!string.IsNullOrEmpty(GeneralConfig.MessageType))
+                    {
+                        basicProperties.Type = GeneralConfig.MessageType;
+                    }
+                    else
+                    {
+                        basicProperties.Type = "pv";
+                    }
+
+                    if (!string.IsNullOrEmpty(props.Pipeline.UserId))
+                    {
+                        basicProperties.UserId = props.Pipeline.UserId;
+                    }
+                    else if (!string.IsNullOrEmpty(GeneralConfig.UserId))
+                    {
+                        basicProperties.UserId = GeneralConfig.UserId;
+                    }
+                    else if (!string.IsNullOrEmpty(factory.UserName))
+                    {
+                        basicProperties.UserId = factory.UserName;
+                    }
+                    else
+                    {
+                        basicProperties.UserId = "guest";
+                    }
+
+                    string exchange = string.Empty;
+                    if (!string.IsNullOrEmpty(props.Pipeline.ExchangeName))
+                    {
+                        exchange = props.Pipeline.ExchangeName;
+                    }
+                    else if (!string.IsNullOrEmpty(GeneralConfig.ExchangeName))
+                    {
+                        exchange = GeneralConfig.ExchangeName;
+                    }
+                    string routingKey = string.Empty;
+                    if (!string.IsNullOrEmpty(props.Pipeline.RoutingKey))
+                    {
+                        routingKey = props.Pipeline.RoutingKey;
+                    }
+                    else if (!string.IsNullOrEmpty(GeneralConfig.RoutingKey))
+                    {
+                        routingKey = GeneralConfig.RoutingKey;
+                    }
+
+                    // 5) setup message handling confirmations/returns etc.
+                    Log(LogLevel.Debug, string.Format("Publishing message: {0} to exchange {1} and routing key {2}", msg, exchange, routingKey));
+
+                    AddConfirmation(props.Session, model.NextPublishSeqNo);
+                    // 6) publish the message
+                    model.BasicPublish(exchange, routingKey, GeneralConfig.MandatoryRouting ?? true, GeneralConfig.ImmediateDelivery ?? false, basicProperties, msg);
+
+                    Log(LogLevel.Debug, "Message published...");
                 }
-                else if (!string.IsNullOrEmpty(GeneralConfig.ExchangeName))
+                else
                 {
-                    exchange = GeneralConfig.ExchangeName;
+                    Log(LogLevel.Debug, "Adding session to batch...");
                 }
-                string routingKey = string.Empty;
-                if (!string.IsNullOrEmpty(props.Pipeline.RoutingKey))
-                {
-                    routingKey = props.Pipeline.RoutingKey;
-                }
-                else if (!string.IsNullOrEmpty(GeneralConfig.RoutingKey))
-                {
-                    routingKey = GeneralConfig.RoutingKey;
-                }
-
-                // 5) setup message handling confirmations/returns etc.
-                Log(LogLevel.Debug, string.Format("Publishing message: {0} to exchange {1} and routing key {2}", msg, exchange, routingKey));
-
-                AddConfirmation(props.Session, model.NextPublishSeqNo);
-
-                // 6) publish the message
-                model.BasicPublish(exchange, routingKey, GeneralConfig.MandatoryRouting ?? true, GeneralConfig.ImmediateDelivery ?? false, basicProperties, msg);
-
-                Log(LogLevel.Debug, "Message published...");
             }
             catch (Exception ex)
             {
                 Log("Unable to queue ProductView", ex);
                 throw;
             }
-            Log(LogLevel.Info, "Done queuing session");
+            Log(LogLevel.Debug, "Done queuing session");
         }
 
         /// <summary>

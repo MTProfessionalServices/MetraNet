@@ -47,15 +47,15 @@ BLDTYPE=release
 ################################################
 
 S_BASE_DIR         = S:
-S_METRANET_DIR     = R:
-S_METRACONNECT_DIR = V:\Legacy_Internal\MetraConnect
+S_METRANET_DIR     = V:\RMP
+S_METRACONNECT_DIR = V:\MetraConnect
 S_TECHDOC_DIR      = P:\TechDoc
 S_3RDPARTY_DIR     = $(THIRDPARTY)
 S_KEY_DIR          = $(S_BASE_DIR)\build\keys
 
 S_METRATECH_DIR    = $(S_BASE_DIR)\MetraTech
-S_MVMEXTCORE_DIR     = R:\Extensions\MvmCore
-S_MVMEXTAMP_DIR     = R:\Extensions\MvmAmp
+S_MVMEXTCORE_DIR     = $(BUILDROOT)\MetraNetMVM\RMP\Extensions\MvmCore
+S_MVMEXTAMP_DIR     = $(BUILDROOT)\MetraNetMVM\RMP\Extensions\MvmAmp
 
 
 ################################################
@@ -1304,7 +1304,7 @@ RMP_Bin:
   $(MKDIR) $(P_INTEROPS_DIR)
   $(CP) $(COM_DLLS_INTOPS) $(P_INTEROPS_DIR)
   $(CP) $(EXTRA_INTEROPS) $(P_INTEROPS_DIR)
-
+  
   @echo $(DELIM)
   @echo Working on COMDLLs directory...
   $(MKDIR) $(P_COM_DLLS_DIR)

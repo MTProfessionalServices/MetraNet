@@ -66,7 +66,7 @@ namespace MetraTech.UsageServer
         }
 
         #endregion
-
+     
         /// <summary>
         /// Synchronizes the database with partition settings in any given file
         /// </summary>
@@ -74,7 +74,7 @@ namespace MetraTech.UsageServer
         {
             _logger.LogDebug("Synchronizing partition settings from {0} configuration file",
                              UsageServerCommon.UsageServerConfigFile);
-
+          
             // Loaded values from xml now put in the database
             using (var conn = _createNonServicedConnectionDelegate())
             {
@@ -155,6 +155,11 @@ namespace MetraTech.UsageServer
                 stmt.ExecuteNonQuery();
 
             }
+
+          _enabled = _enabledFromXml;
+          _type = _typeFromXml;
+          _dataSize = _dataSizeFromXml;
+          _logSize = _logSizeFromXml;
         }
 
         /// <summary>
@@ -181,6 +186,13 @@ namespace MetraTech.UsageServer
                     sp.ExecuteNonQuery();
                 }
             }
+            
+          _storagePaths.Clear();
+          foreach (string path in _storagePathsFromXml)
+          {
+            _storagePaths.Add(path);
+          }
+           
         }
 
         /// <summary>

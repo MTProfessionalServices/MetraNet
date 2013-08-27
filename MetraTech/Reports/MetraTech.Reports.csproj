@@ -6,7 +6,7 @@
     <Platform Condition="'$(Platform)'=='Win32'">x86</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{bfc88ecc-c3c1-4736-95d6-b772441ccf4a}</ProjectGuid>
+    <ProjectGuid>{BFC88ECC-C3C1-4736-95D6-B772441CCF4A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MetraTech.Reports</RootNamespace>
@@ -80,7 +80,9 @@
     </Compile>
     <Compile Include="Exceptions.cs" />
     <Compile Include="GenericInterfaces.cs" />
-    <Compile Include="Proxy.cs" />
+    <Compile Include="Proxy.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RemoteReportOperations.cs" />
     <Compile Include="ReportConfiguration.cs" />
     <Compile Include="ReportDefinition.cs" />
@@ -91,7 +93,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Properties" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MetraTech.Common.csproj">

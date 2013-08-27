@@ -2,12 +2,13 @@ using System;
 using System.Xml;
 using System.Diagnostics;
 using MetraTech;
+using MetraTech.Interop.MTBillingReRun;
 using MetraTech.Xml;
 using MetraTech.DataAccess;
 using MetraTech.UsageServer;
-using MetraTech.Interop.MTAuth;
-
-
+using IMTSessionContext = MetraTech.Interop.MTAuth.IMTSessionContext;
+using BillingReRun = MetraTech.Interop.MTBillingReRun;
+using BillingReRunClient = MetraTech.Pipeline.ReRun;
 
 // <xmlconfig>
 //	<Program>
@@ -34,7 +35,8 @@ namespace MetraTech.UsageServer.Adapters
         private int mSessionSetSize;
         private string mConfigFile;
         private bool mFailImmediately;
-
+        private const string mUsageServerQueryPath = @"Queries\UsageServer";
+    
         //adapter capabilities
         public bool SupportsScheduledEvents { get { return false; } }
         public bool SupportsEndOfPeriodEvents { get { return true; } }
@@ -91,7 +93,7 @@ namespace MetraTech.UsageServer.Adapters
                 MetraTech.Interop.MeterRowset.IBatch batch = meterrs.CreateAdapterBatch(context.RunID,
                                                                                         "StatefulRecurringChargeAdapter",
                                                                                         "StatefulRecurringChargeAdapter");
-                batchid = batch.UID;
+                batchid = MetraTech.Utils.MSIXUtils.DecodeUIDAsString(batch.UID);
             }
             else
             {
@@ -103,6 +105,7 @@ namespace MetraTech.UsageServer.Adapters
             var meteredRecords = 0;
 
             // TODO: rerate on-demand recurring charges for this interval/billgroup
+            BackoutResubmitUsage(context);
 
             // call stored procedure to generate charges
             using (var conn = MetraTech.DataAccess.ConnectionManager.CreateConnection())
@@ -137,6 +140,52 @@ namespace MetraTech.UsageServer.Adapters
             context.RecordInfo("StatefulRecurringChargeAdapter completed...");
 
             return "";
+        }
+
+        private void BackoutResubmitUsage(IRecurringEventRunContext context)
+        {
+            IMTBillingReRun rerun = new BillingReRunClient.Client();
+            IMTSessionContext sessionContext = AdapterManager.GetSuperUserContext(); // log in as super user
+            rerun.Login((MetraTech.Interop.MTBillingReRun.IMTSessionContext)sessionContext);
+            string comment = String.Format("Backing out recurring charges, in case rates have changed.");
+            rerun.Setup(comment);
+
+            string joinClause = "left outer join t_pv_flatrecurringcharge flatrc on flatrc.id_sess = au.id_sess " +
+              "left outer join t_pv_udrecurringcharge udrc on udrc.id_sess = au.id_sess ";
+
+            string whereClause =
+              " and au.id_usage_interval = " + context.UsageIntervalID;
+
+            using (IMTConnection conn = ConnectionManager.CreateConnection("queries\\BillingRerun"))
+            {
+                using (IMTAdapterStatement stmt =
+                  conn.CreateAdapterStatement("queries\\BillingRerun", "__IDENTIFY_ACC_USAGE2__"))
+                {
+
+                    stmt.AddParam("%%STATE%%", "I");
+                    stmt.AddParam("%%TABLE_NAME%%", rerun.TableName, true);
+                    stmt.AddParam("%%JOIN_CLAUSE%%", joinClause, true);
+                    stmt.AddParam("%%WHERE_CLAUSE%%", whereClause, true);
+
+                    int rc = stmt.ExecuteNonQuery();
+                }
+            }
+
+            using (IMTConnection conn = ConnectionManager.CreateConnection(mUsageServerQueryPath))
+            {
+                using (IMTAdapterStatement stmt =
+                    conn.CreateAdapterStatement(mUsageServerQueryPath,
+                                                "__DELETE_TEMP_ACCOUNTS_TABLE_FOR_BILLING_RERUN__"))
+                {
+                    stmt.ExecuteNonQuery();
+                }
+            }
+
+            // Analyze
+            rerun.Analyze(comment);
+
+            // Backout and Resubmit
+            rerun.BackoutResubmit(comment);
         }
 
         public string Reverse(IRecurringEventRunContext context)

@@ -292,7 +292,7 @@ namespace MetraTech.Core.Services
 
           ValidateAccountTemplateInfo(templateAcctId, accountType, effectiveDate, out templateYAAC, out accType);
 
-          template = LoadTemplateDataInternal(templateAcctId, accType, effectiveDate, inheritAnscestorProperties, GetSessionContext(), true);
+          template = LoadTemplateDataInternal(templateAcctId, accType, effectiveDate, inheritAnscestorProperties, GetSessionContext(), publicTemplate);
 
           template.AccountType = accountType;
         }

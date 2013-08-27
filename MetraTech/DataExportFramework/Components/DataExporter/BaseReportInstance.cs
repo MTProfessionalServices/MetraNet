@@ -246,7 +246,8 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 
           using (IMTDataReader reader = selectst.ExecuteReader())
           {
-            while (reader.Read())
+            // Should create only one report, so read only one instance
+            if (reader.Read())
             {
               this.__reportType = Convert.ToString(reader.GetValue("c_rep_type"));
               this.__defSource = Convert.ToString(reader.GetValue("c_rep_def_source"));
@@ -277,10 +278,17 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
                 this.__outputFileName = this.__title;
               else
                 this.__outputFileName = Convert.ToString(reader.GetValue("c_output_file_name"));
-
+              
               //DefLog.MakeLogEntry("\t Gather Report Execution Parameters");
               if (this.__paramNameValues.Trim().Length > 0)
                 SetupReportInstanceParams(_config.PathToExtensionDir);
+
+              DefLog.MakeLogEntry(String.Format("Got queue report info id_work_queue='{0}' c_output_file_name='{1}' parameters='{2}', and c_rep_title='{3}'",
+                                workQId, 
+                                this.__outputFileName, 
+                                this.__paramNameValues, 
+                                this.__title), "debug");
+
               GenerateDestination();
             }
           }

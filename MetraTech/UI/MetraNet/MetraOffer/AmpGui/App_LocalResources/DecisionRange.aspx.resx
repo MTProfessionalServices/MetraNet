@@ -147,4 +147,10 @@
   <data name="rblRangeYes.Text" xml:space="preserve">
     <value>Yes</value>
   </data>
+  <data name="TEXT_ERROR_NO_VALUE_FOR_END_RANGE" xml:space="preserve">
+    <value>Error: You must specify the end of range.</value>
+  </data>
+  <data name="TEXT_ERROR_NO_VALUE_FOR_START_RANGE" xml:space="preserve">
+    <value>Error: You must specify the start of range.</value>
+  </data>
 </root>

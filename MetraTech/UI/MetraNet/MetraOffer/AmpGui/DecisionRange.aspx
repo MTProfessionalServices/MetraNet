@@ -5,119 +5,113 @@
 <%@ Register src="~/UserControls/AmpTextboxOrDropdown.ascx" tagName="AmpTextboxOrDropdown" tagPrefix="ampc2" %>
 
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div class="CaptionBar">
-        <asp:Label ID="lblTitleDecisionRange" runat="server" Text="Range" meta:resourcekey="lblTitleResource1"></asp:Label>
+<div class="CaptionBar">
+    <asp:Label ID="lblTitleDecisionRange" runat="server" Text="Range" meta:resourcekey="lblTitleResource1"></asp:Label>
+</div>
+
+<div style="line-height: 20px; padding-top: 10px; padding-left: 10px">
+    <div style="float:left">
+        <asp:Label ID="lblDecisionRange" meta:resourcekey="lblDecisionRange" runat="server" Font-Bold="False" ForeColor="Black" Font-Size="9pt" Text="The aggregate value for the Decision Type has a range of values within which the Decision Type is applicable." />
+    </div>
+    <div style="fit-position: right;" align="left">
+        <span style="color: blue; text-decoration: underline; cursor: pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_DECISION_RANGE, TEXT_AMPWIZARD_MORE_DECISION_RANGE, 450, 70)">
+            <img id="Img1" src='/Res/Images/icons/help.png' align="left" />
+        </span>
+    </div>
+</div>
+<div style="clear: both" />
+<br/>
+
+<div style="margin-left:0.85in;">
+    <div style="float:left;">
+        <asp:Label ID="lblStartOfRange" meta:resourcekey="lblStartOfRange" runat="server"
+            Font-Bold="False" ForeColor="Black" Font-Size="9pt"
+            Text="Start of range:" />
     </div>
     <div>
-        <table style="width: 100%">
-            <tr>
-                <td style="width: 2%; vertical-align: top; padding-top:10px" align="center">
-                       &nbsp;</td>
-                <td valign="top" style="width: 90%">
-                    <div style="line-height: 20px; padding-top: 10px; padding-left: 10px">
-                                <div style="float:left"><asp:Label ID="lblDecisionRange" meta:resourcekey="lblDecisionRange" runat="server"
-                            Font-Bold="False" ForeColor="Black" Font-Size="9pt" Text="The aggregate value for the Decision Type has a range of values within which the Decision Type is applicable." />
-                                </div>
-                                   <div style="fit-position: right;" align="left">
-                                       <span style="color: blue; text-decoration: underline; cursor: pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_DECISION_RANGE, TEXT_AMPWIZARD_MORE_DECISION_RANGE, 450, 70)">
-                                    <img id="Img1" src='/Res/Images/icons/help.png' align="left" /></span>
-                            </div>
-                        </div>
-                </td>
-            </tr>
-            <tr>
-                 <td style="width: 2%"></td>
-                 <td>
-                     <table>
-                      <tr>                      
-                         <td style="padding-left: 100px; width : 100px ;" align="right" >
-                           <asp:Label ID="lblStartOfRange" meta:resourcekey="lblStartOfRange" runat="server"
-                            Font-Bold="False" ForeColor="Black" Font-Size="9pt"
-                            Text="Start of range:" />
-                         </td>
-                         <td>
-                           <ampc1:AmpTextboxOrDropdown ID="startRange" runat="server" TextboxIsNumeric="true"></ampc1:AmpTextboxOrDropdown>
-                         </td>
-                      </tr>
-                      <tr>
-                        <td style="padding-left: 100px" align="right">
-                          <asp:Label ID="lblEndOfRange" meta:resourcekey="lblEndOfRange" runat="server" 
-                            Font-Bold="False" ForeColor="Black" Font-Size="9pt" 
-                            Text="End of range:" />
-                        </td>
-                        <td>
-                          <ampc2:AmpTextboxOrDropdown ID="endRange" runat="server" TextboxIsNumeric="true"></ampc2:AmpTextboxOrDropdown>
-                        </td>
-                      </tr>
-               </table>
-                 </td>
-            </tr>
-        </table>
-        
-        <div style="line-height: 20px; padding-top: 10px; padding-left: 10px">
-            <div style="float:left">
-                <asp:Label ID="Label2" runat="server" Font-Bold="False" ForeColor="DarkBlue" Font-Size="9pt" Text="<%$ Resources: lblDecisionRangeRestart.Text%>"  />
-            </div>
-            <div style="fit-position: right;" align="left">
-                <span style="color: blue; text-decoration: underline; cursor: pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_RESTART_RANGE, TEXT_AMPWIZARD_HELP_DECISION_RANGE, 450, 70)">
-                    <img id="ImageHelp" src='/Res/Images/icons/help.png' />
-                </span>
-            </div>
-        </div>
-        <br/>
-        <table>
-            <tr>
-                <td>
-                    <MT:MTDropDown ID="ddDecisionRangeRestart" runat="server" HideLabel="True" Label="Prorate at start?"  ControlWidth="160" ListWidth="200" AllowBlank="False" Editable="True"/>
-                </td>
-                <td>
-                    <div id="divRestartFromParamTableDropdownSource" >
-                        <MT:MTDropDown ID="ddRangeRestartFromParamTableSource" runat="server" HideLabel="True" ControlWidth="160" ListWidth="200" AllowBlank="True" Editable="True"/>
-                    </div>
-                </td>
-            </tr>
-        </table>
-        <div class="clearer" />
-        <br/>
-        <div style="line-height: 20px; padding-top: 10px; padding-left: 10px">
-            <div style="float:left">
-                <asp:Label ID="lblUnitOfTime"  runat="server" Font-Bold="False" ForeColor="DarkBlue" Font-Size="9pt" Text="<%$ Resources: lblProrateStart.Text%>"  />
-            </div>
-        </div>
-        <br/><br/>
-        <table>
-            <tr>
-                <td>
-                    <MT:MTDropDown ID="ddProrateStart" runat="server" HideLabel="True" Label="Prorate at start?"  ControlWidth="160" ListWidth="200" AllowBlank="False" Editable="True"/>
-                </td>
-                <td>
-                    <div id="divProrateStartFromParamTableDropdownSource" >
-                        <MT:MTDropDown ID="ddProrateStartFromParamTableDropdownSource" runat="server" HideLabel="True" ControlWidth="160" ListWidth="200" AllowBlank="True" Editable="True"/>
-                    </div>
-                </td>
-            </tr>
-        </table>
-        <div class="clearer" />
-        <br/>
-        <div style="line-height: 20px; padding-top: 10px; padding-left: 10px">
-            <div style="float:left">
-                <asp:Label ID="Label1"  runat="server" Font-Bold="False" ForeColor="DarkBlue" Font-Size="9pt" Text="<%$ Resources: lblProrateEnd.Text%>"  />
-            </div>
-        </div>
-        <br/><br/>
-        <table>
-            <tr>
-                <td>
-                    <MT:MTDropDown ID="ddProrateEnd" runat="server" HideLabel="True" Label="Prorate at end?"  ControlWidth="160" ListWidth="200" AllowBlank="False" Editable="True"/>
-                </td>
-                <td>
-                    <div id="divProrateEndFromParamTableDropdownSource" >
-                        <MT:MTDropDown ID="ddProrateEndFromParamTableDropdownSource" runat="server" HideLabel="True" ControlWidth="160" ListWidth="200" AllowBlank="True" Editable="True"/>
-                    </div>
-                </td>
-            </tr>
-        </table> 
+        <ampc1:AmpTextboxOrDropdown ID="startRange" runat="server" TextboxIsNumeric="true"></ampc1:AmpTextboxOrDropdown>
     </div>
+</div>
+<div style="clear: both" />
+<br/>
+
+<div style="margin-left:0.85in;">
+    <div style="float:left;">
+        <asp:Label ID="lblEndOfRange" meta:resourcekey="lblEndOfRange" runat="server"
+            Font-Bold="False" ForeColor="Black" Font-Size="9pt"
+            Text="End of range:" />
+    </div>
+    <div>
+        <ampc2:AmpTextboxOrDropdown ID="endRange" runat="server" TextboxIsNumeric="true"></ampc2:AmpTextboxOrDropdown>
+    </div>
+</div>
+<div style="clear: both" />
+<br/>
+     
+<div style="line-height: 20px; padding-top: 10px; padding-left: 10px">
+    <div style="float:left">
+        <asp:Label ID="Label2" runat="server" Font-Bold="False" ForeColor="Black" Font-Size="9pt" Text="<%$ Resources: lblDecisionRangeRestart.Text%>"  />
+    </div>
+    <div style="fit-position: right;" align="left">
+        <span style="color: blue; text-decoration: underline; cursor: pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_HELP_RESTART_RANGE, TEXT_AMPWIZARD_HELP_DECISION_RANGE, 450, 70)">
+            <img id="ImageHelp" src='/Res/Images/icons/help.png' />
+        </span>
+    </div>
+</div>
+<br/>
+<table>
+    <tr>
+        <td>
+            <MT:MTDropDown ID="ddDecisionRangeRestart" runat="server" HideLabel="True" Label="Prorate at start?"  ControlWidth="160" ListWidth="200" AllowBlank="False" Editable="True"/>
+        </td>
+        <td>
+            <div id="divRestartFromParamTableDropdownSource">
+                <MT:MTDropDown ID="ddRangeRestartFromParamTableSource" runat="server" HideLabel="True" ControlWidth="160" ListWidth="200" AllowBlank="True" Editable="True"/>
+            </div>
+        </td>
+    </tr>
+</table>
+<div class="clearer" />
+<br/>
+<div style="line-height: 20px; padding-top: 10px; padding-left: 10px">
+    <div style="float:left">
+        <asp:Label ID="lblUnitOfTime"  runat="server" Font-Bold="False" ForeColor="Black" Font-Size="9pt" Text="<%$ Resources: lblProrateStart.Text%>"  />
+    </div>
+</div>
+<br/><br/>
+<table>
+    <tr>
+        <td>
+            <MT:MTDropDown ID="ddProrateStart" runat="server" HideLabel="True" Label="Prorate at start?"  ControlWidth="160" ListWidth="200" AllowBlank="False" Editable="True"/>
+        </td>
+        <td>
+            <div id="divProrateStartFromParamTableDropdownSource" >
+                <MT:MTDropDown ID="ddProrateStartFromParamTableDropdownSource" runat="server" HideLabel="True" ControlWidth="160" ListWidth="200" AllowBlank="True" Editable="True"/>
+            </div>
+        </td>
+    </tr>
+</table>
+<div class="clearer" />
+<br/>
+<div style="line-height: 20px; padding-top: 10px; padding-left: 10px">
+    <div style="float:left">
+        <asp:Label ID="Label1"  runat="server" Font-Bold="False" ForeColor="Black" Font-Size="9pt" Text="<%$ Resources: lblProrateEnd.Text%>"  />
+    </div>
+</div>
+<br/><br/>
+<table>
+    <tr>
+        <td>
+            <MT:MTDropDown ID="ddProrateEnd" runat="server" HideLabel="True" Label="Prorate at end?"  ControlWidth="160" ListWidth="200" AllowBlank="False" Editable="True"/>
+        </td>
+        <td>
+            <div id="divProrateEndFromParamTableDropdownSource" >
+                <MT:MTDropDown ID="ddProrateEndFromParamTableDropdownSource" runat="server" HideLabel="True" ControlWidth="160" ListWidth="200" AllowBlank="True" Editable="True"/>
+            </div>
+        </td>
+    </tr>
+</table> 
+
            
 <div class="clearer" />
 <div style="padding-left: 0.85in; padding-top: 0.2in;">
@@ -131,7 +125,7 @@
                         TabIndex="230" />
             </td>
             <td align="right">
-                <MT:MTButton ID="btnSaveAndContinue" runat="server" OnClientClick="if (ValidateForm()) { MPC_setNeedToConfirm(false); } else { MPC_setNeedToConfirm(true); return false; }" 
+                <MT:MTButton ID="btnSaveAndContinue" runat="server" OnClientClick="if(!ValidateBoxes()){return false;} else if (ValidateForm()) { MPC_setNeedToConfirm(false); } else { MPC_setNeedToConfirm(true); return false; }"
                 OnClick="btnContinue_Click" CausesValidation="true" TabIndex="240" />                 
             </td>
         </tr>
@@ -142,6 +136,7 @@
       var showDivRestartParamTable = <%=showDivRestartParamTable.ToString().ToLower() %> ;
       var showDivProrateStartParamTable = <%=showDivProrateStartParamTable.ToString().ToLower() %> ;
       var showDivProrateEndParamTable = <%=showDivProrateEndParamTable.ToString().ToLower() %> ;
+
       ParamTableDivShow('divRestartFromParamTableDropdownSource', showDivRestartParamTable);
       ParamTableDivShow('divProrateStartFromParamTableDropdownSource', showDivProrateStartParamTable);
       ParamTableDivShow('divProrateEndFromParamTableDropdownSource', showDivProrateEndParamTable);
@@ -220,5 +215,28 @@
     function ParamTableDivShow(controlName, show) {
         document.getElementById(controlName).style.display = show ? '' : 'none';
     }
+
+
+    function ValidateBoxes() {
+        var ddval = document.getElementById("<%=startRange.ClientID%>"+"_ddSourceType").value;
+        var zero = '<%=GetGlobalResourceObject("AmpWizard", "TEXT_FIXED_VALUE")%>';
+        if (ddval.toString() == zero.toString()) {
+            var boxval = document.getElementById("<%=startRange.ClientID%>"+"_tbNumericSource").value.toString();
+            if (boxval == "") {
+                alert('<%=GetLocalResourceObject("TEXT_ERROR_NO_VALUE_FOR_START_RANGE")%>');
+                return false;
+            }
+        }
+        ddval = document.getElementById("<%=endRange.ClientID%>"+"_ddSourceType").value;
+        if (ddval.toString() == zero.toString()) {
+            boxval = document.getElementById("<%=endRange.ClientID%>"+"_tbNumericSource").value.toString();
+            if (boxval == "") {
+                alert('<%=GetLocalResourceObject("TEXT_ERROR_NO_VALUE_FOR_END_RANGE")%>');
+                return false;
+            }
+        }
+        return true;
+    }
+
     </script>
 </asp:Content>

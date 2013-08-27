@@ -324,6 +324,7 @@
   <ItemGroup>
     <Compile Include="ConfigurationTests.cs" />
     <Compile Include="QuotingEOPFunctionalTests.cs" />
+    <Compile Include="QuotingForGroupSubsFunctionalTests.cs" />
     <Compile Include="UsageIntervalDeterminationTests.cs" />
     <Compile Include="QuotePDFReportFunctionalTests.cs" />
     <Compile Include="QuotingErrorHandlingFunctionalTests.cs" />

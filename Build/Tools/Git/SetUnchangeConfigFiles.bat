@@ -40,6 +40,6 @@ git update-index --assume-unchanged QuickConfig.vbp
 @popd
 
 if NOT "%1%"=="skip_pause" (
-@pause
+pause
 )
 

@@ -332,7 +332,7 @@ namespace MetraTech.Quoting
         }
 
         //todo: Save or update data about quote in DB
-        QuotingRepository.UpdateQuoteWithResponse(CurrentResponse);
+        CurrentResponse = QuotingRepository.UpdateQuoteWithResponse(CurrentResponse);
         QuotingRepository.SaveQuoteLog(CurrentResponse.MessageLog);
 
         Cleanup();
@@ -1008,7 +1008,7 @@ namespace MetraTech.Quoting
       //TODO: Track/Handle/Return error during cleanup
       Cleanup();
 
-      QuotingRepository.UpdateQuoteWithErrorResponse(CurrentResponse.idQuote, CurrentResponse, error);
+      CurrentResponse = QuotingRepository.UpdateQuoteWithErrorResponse(CurrentResponse.idQuote, CurrentResponse, error);
 
     }
 

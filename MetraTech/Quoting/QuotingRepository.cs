@@ -20,8 +20,8 @@ namespace MetraTech.Quoting
   public interface IQuotingRepository
   {
     int CreateQuote(QuoteRequest quoteRequest, IMTSessionContext sessionContext);
-    void UpdateQuoteWithResponse(QuoteResponse quoteResponse);
-    void UpdateQuoteWithErrorResponse(int idQuote, QuoteResponse quoteResponse, string errorMessage);
+    QuoteResponse UpdateQuoteWithResponse(QuoteResponse quoteResponse);
+    QuoteResponse UpdateQuoteWithErrorResponse(int idQuote, QuoteResponse quoteResponse, string errorMessage);
     void SaveQuoteLog(List<QuoteLogRecord> logRecords);
 
     QuoteHeader GetQuoteHeader(int quoteID, bool loadAllRelatedEntities = true);
@@ -66,15 +66,15 @@ namespace MetraTech.Quoting
     /// Updates quoting BMEs in DB
     /// </summary>     
     /// <param name="quoteResponse"></param>
-    public void UpdateQuoteWithResponse(QuoteResponse quoteResponse)
+    public QuoteResponse UpdateQuoteWithResponse(QuoteResponse quoteResponse)
     {
-      SetQuoteContent(quoteResponse);
+      return SetQuoteContent(quoteResponse);
     }
 
-    public void UpdateQuoteWithErrorResponse(int quoteId, QuoteResponse quoteResponse, string errorMessage)
+    public QuoteResponse UpdateQuoteWithErrorResponse(int quoteId, QuoteResponse quoteResponse, string errorMessage)
     {
       quoteResponse.FailedMessage = errorMessage;
-      SetQuoteContent(quoteResponse);
+      return SetQuoteContent(quoteResponse);
 
       //TODO: Determine how state/error information should be saved (different method?) if we failed in generating quote
     }
@@ -277,7 +277,7 @@ namespace MetraTech.Quoting
       return quoteHeader.LoadQuoteContent() as QuoteContent;
     }
 
-    private QuoteContent SetQuoteContent(QuoteResponse q)
+    private QuoteResponse SetQuoteContent(QuoteResponse q)
     {
       using (new MetraTech.Debug.Diagnostics.HighResolutionTimer("GetQuoteContent"))
       {
@@ -294,7 +294,7 @@ namespace MetraTech.Quoting
           quoteContent.Total = q.TotalAmount;
           quoteContent.Currency = q.Currency;
           quoteContent.ReportLink = q.ReportLink;
-          quoteContent.CreationDate = q.CreationDate;
+          //quoteContent.CreationDate = q.CreationDate;
           var failedMessage = q.FailedMessage;
           if (!String.IsNullOrEmpty(failedMessage) && failedMessage.Length > 2000)
           {
@@ -312,8 +312,8 @@ namespace MetraTech.Quoting
           mLogger.LogException("Error save Quote content", ex);
           throw;
         }
-
-        return quoteContent;
+        q.CreationDate = quoteContent.CreationDate == null ? MetraTime.Now : Convert.ToDateTime(quoteContent.CreationDate);
+        return q;
       }
     }
 
@@ -507,21 +507,23 @@ namespace MetraTech.Quoting
       return quoteHeder;
     }
 
-    public void UpdateQuoteWithResponse(QuoteResponse quoteResponse)
+    public QuoteResponse UpdateQuoteWithResponse(QuoteResponse quoteResponse)
     {
       if (!requests.ContainsKey(quoteResponse.idQuote))
         throw new ArgumentException(string.Format("Quote with id {0} not found in repository", quoteResponse.idQuote), "idQuote");
 
       responses.Add(quoteResponse.idQuote, quoteResponse);
+        return quoteResponse;
 
     }
 
-    public void UpdateQuoteWithErrorResponse(int idQuote, QuoteResponse quoteResponse, string errorMessage)
+    public QuoteResponse UpdateQuoteWithErrorResponse(int idQuote, QuoteResponse quoteResponse, string errorMessage)
     {
       if (!requests.ContainsKey(idQuote))
         throw new ArgumentException(string.Format("Quote with id {0} not found in repository", idQuote), "idQuote");
 
-      //For now don't know what the dummy implementation should do so do nothing
+      return quoteResponse;
+        //For now don't know what the dummy implementation should do so do nothing
     }
 
     public void SaveQuoteLog(List<QuoteLogRecord> logRecords)

@@ -462,7 +462,7 @@ where @p_system_time between aa.vt_start and aa.vt_end
 	DECLARE @sessionId INTEGER
 	IF @templateId IS NOT NULL 
 	BEGIN
-		EXECUTE UpdatePrivateTempates @templateId
+		EXECUTE UpdatePrivateTempates @templateId, @p_system_time 
 		EXECUTE GetCurrentID 'id_template_session', @sessionId OUT
         insert into t_acc_template_session(id_session, id_template_owner, nm_acc_type, dt_submission, id_submitter, nm_host, n_status, n_accts, n_subs)
         values (@sessionId, @templateOwner, @p_acc_type, @p_system_time, 0, '', 0, 0, 0)
@@ -479,7 +479,7 @@ where @p_system_time between aa.vt_start and aa.vt_end
 		OPEN tmpl
 		FETCH NEXT FROM tmpl INTO @templateId, @templateOwner, @templateType
 		WHILE @@FETCH_STATUS = 0 BEGIN
-			EXECUTE UpdatePrivateTempates @templateId
+			EXECUTE UpdatePrivateTempates @templateId, @p_system_time 
 			EXECUTE GetCurrentID 'id_template_session', @sessionId OUT
 			insert into t_acc_template_session(id_session, id_template_owner, nm_acc_type, dt_submission, id_submitter, nm_host, n_status, n_accts, n_subs)
 			values (@sessionId, @templateOwner, @p_acc_type, @p_system_time, 0, '', 0, 0, 0)

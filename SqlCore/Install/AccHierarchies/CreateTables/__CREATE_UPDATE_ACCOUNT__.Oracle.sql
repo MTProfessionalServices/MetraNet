@@ -68,11 +68,11 @@ begin
  /* step : resolve the account if necessary*/
  if p_id_acc is NULL then
   if p_loginname is not NULL and p_namespace is not NULL then
-	accountID := dbo.lookupaccount(p_loginname, p_namespace);
-	if accountID < 0 then
-		/* MTACCOUNT_RESOLUTION_FAILED*/
-	 p_status := -509673460;
-	end if;
+    accountID := dbo.lookupaccount(p_loginname, p_namespace);
+    if accountID < 0 then
+        /* MTACCOUNT_RESOLUTION_FAILED*/
+     p_status := -509673460;
+    end if;
   else
    /* MTACCOUNT_RESOLUTION_FAILED*/
    p_status := -509673460;
@@ -92,8 +92,8 @@ end if;
  if p_loginname is not NULL and p_namespace is not NULL and p_tx_password is not NULL then
   begin
    update t_user_credentials set tx_password = p_tx_password
-		 where upper(nm_login) = upper(p_loginname) and upper(nm_space) =
-		 upper(p_namespace);
+         where upper(nm_login) = upper(p_loginname) and upper(nm_space) =
+         upper(p_namespace);
   exception when NO_DATA_FOUND then
    /* MTACCOUNT_FAILED_PASSWORD_UPDATE*/
    p_status :=  -509673461;
@@ -123,12 +123,12 @@ end if;
   end;
   
   for i in (
-	select id_usage_cycle from
-	t_acc_usage_cycle where id_acc = accountID)
-	loop
-		oldcycleID := i.id_usage_cycle;
-	end loop;
-	
+    select id_usage_cycle from
+    t_acc_usage_cycle where id_acc = accountID)
+    loop
+        oldcycleID := i.id_usage_cycle;
+    end loop;
+    
   if oldcycleID <> usagecycleID AND usagecycleID <> -1 then
 
       /* step : update the account's billing cycle*/
@@ -144,11 +144,11 @@ end if;
       select  NVL(MIN(dbo.checkgroupmembershipcycleconst(p_systemdate, groups.id_group)), 1) into p_status
       from 
       (
-		select distinct gsm.id_group id_group
-		from t_gsubmember gsm
-		inner join t_payment_redirection pay
-		on pay.id_payee = gsm.id_acc
-		where pay.id_payer = accountID or pay.id_payee = accountID
+        select distinct gsm.id_group id_group
+        from t_gsubmember gsm
+        inner join t_payment_redirection pay
+        on pay.id_payee = gsm.id_acc
+        where pay.id_payer = accountID or pay.id_payee = accountID
       ) groups;
       
 
@@ -174,17 +174,17 @@ end if;
          the future.*/
          
          
-	  delete from t_acc_usage_interval where dt_effective is not null 
+      delete from t_acc_usage_interval where dt_effective is not null 
       and id_acc = accountID AND dt_effective >= p_systemdate;
   
       /* step : figure out the interval that we should be modifying*/
       for i in
-		(select ui.dt_end dt_end
-		from t_acc_usage_interval aui
-		INNER JOIN t_usage_interval ui on ui.id_interval = aui.id_usage_interval
-		AND p_systemdate between ui.dt_start AND ui.dt_end
-		where
-		aui.id_acc = AccountID)
+        (select ui.dt_end dt_end
+        from t_acc_usage_interval aui
+        INNER JOIN t_usage_interval ui on ui.id_interval = aui.id_usage_interval
+        AND p_systemdate between ui.dt_start AND ui.dt_end
+        where
+        aui.id_acc = AccountID)
       loop
         intervalenddate := i.dt_end;
       end loop;
@@ -193,11 +193,11 @@ end if;
        of the existing interval  */
       IF intervalenddate IS NOT NULL then
           for i in
-			(select id_interval,dt_start,dt_end
-			from 
-			t_pc_interval where
-			id_cycle = usagecycleID AND
-			dbo.addsecond(intervalenddate) between dt_start AND dt_end)
+            (select id_interval,dt_start,dt_end
+            from 
+            t_pc_interval where
+            id_cycle = usagecycleID AND
+            dbo.addsecond(intervalenddate) between dt_start AND dt_end)
           loop
             intervalID := i.id_interval;
             pc_start   := i.dt_start;
@@ -221,15 +221,15 @@ end if;
            may have been created by USM*/
            
            insert into t_acc_usage_interval (id_acc,id_usage_interval,tx_status,dt_effective)
-			  SELECT accountID, 
-			         intervalID, 
-			         nvl(tx_interval_status, 'O'),
-			         intervalenddate
-			  FROM t_usage_interval 
-			  WHERE id_interval = intervalID AND 
-			        tx_interval_status != 'B' ;  
-			        
-		  /* this check is necessary if we are creating an association with an interval that begins
+              SELECT accountID, 
+                     intervalID, 
+                     nvl(tx_interval_status, 'O'),
+                     intervalenddate
+              FROM t_usage_interval 
+              WHERE id_interval = intervalID AND 
+                    tx_interval_status != 'B' ;  
+                    
+          /* this check is necessary if we are creating an association with an interval that begins
           in the past.  This could happen if you create a daily account on tuesday and then
           change to a weekly account (starting on monday) on Thursday.  not that the end date check is 
           only greater than because we want to avoid any intervals that have the same end date as
@@ -287,10 +287,10 @@ end if;
   
   /* find the old payment information*/
   for i in (
-	select vt_start,vt_end ,id_payer
-	from t_payment_redirection
-	where id_payee = AccountID and
-	dbo.overlappingdaterange(vt_start,vt_end,p_payer_startdate,dbo.mtmaxdate)=1)
+    select vt_start,vt_end ,id_payer
+    from t_payment_redirection
+    where id_payee = AccountID and
+    dbo.overlappingdaterange(vt_start,vt_end,p_payer_startdate,dbo.mtmaxdate)=1)
     loop
         oldpayerstart := i.vt_start;
         oldpayerend   := i.vt_end;
@@ -302,29 +302,29 @@ end if;
      
   if (payerID = oldpayer) then
     UpdatePaymentRecord(payerID,accountID,oldpayerstart,oldpayerend,
-						p_payer_startdate,payerenddate,p_systemdate,
-						p_enforce_same_corporation,p_account_currency,p_status);
+                        p_payer_startdate,payerenddate,p_systemdate,
+                        p_enforce_same_corporation,p_account_currency,p_status);
     if (p_status <> 1) then
-	  return;
+      return;
     end if;
   else
     select case when payerID = accountID then p_billable else null end into payerbillable from dual;
-	CreatePaymentRecord(payerID,accountID,p_payer_startdate,payerenddate,payerbillable,
-						p_systemdate,'N',p_enforce_same_corporation,p_account_currency,p_status);
-	if (p_status <> 1) then
+    CreatePaymentRecord(payerID,accountID,p_payer_startdate,payerenddate,payerbillable,
+                        p_systemdate,'N',p_enforce_same_corporation,p_account_currency,p_status);
+    if (p_status <> 1) then
       return;
     end if;
   end if;
  end if;
  
  /* check if the account has any payees before setting the account as Non-billable.  It is important
-    that this check take place after creating any payment redirection records	*/
+    that this check take place after creating any payment redirection records   */
     
  if dbo.IsAccountBillable(AccountID) = '1' AND p_billable = 'N' then
     if dbo.DoesAccountHavePayees(AccountID,p_systemdate) = 'Y' then
-		  /* MT_ACCOUNT_NON_BILLABLE_AND_HAS_NON_PAYING_SUBSCRIBERS*/
-		  p_status := -486604767;
-		  return;
+          /* MT_ACCOUNT_NON_BILLABLE_AND_HAS_NON_PAYING_SUBSCRIBERS*/
+          p_status := -486604767;
+          return;
     end if;
  end if;
  /* payer update done */
@@ -344,7 +344,7 @@ end if;
   else
    ancestorID := p_id_ancestor;
   end if;
-  MoveAccount(ancestorID,AccountID,p_hierarchy_movedate,p_enforce_same_corporation,p_systemdate,p_status,p_old_id_ancestor_out,p_ancestor_type,p_acc_type);
+  MoveAccount2(ancestorID,AccountID,p_hierarchy_movedate,p_enforce_same_corporation,p_systemdate,p_status,p_old_id_ancestor_out,p_ancestor_type,p_acc_type,'N');
   if p_status <> 1 then
    return;
   end if;
@@ -352,11 +352,11 @@ end if;
  /* ancestor update done */
  
   if (p_old_id_ancestor_out is null) then
-	  p_old_id_ancestor_out := -1;
+      p_old_id_ancestor_out := -1;
   end if;
 
   if (p_id_ancestor_out is null) then
-	  p_id_ancestor_out := -1;
+      p_id_ancestor_out := -1;
   end if;
  
  /* step : resolve the hierarchy path based on the current time*/
@@ -371,13 +371,13 @@ end if;
  /* resolve account's corporate account */
  
  begin
- 	select ancestor.id_ancestor into p_corporate_account_id from t_account_ancestor ancestor
-	inner join t_account acc on ancestor.id_ancestor = acc.id_acc
-	inner join t_account_type atype on atype.id_type = acc.id_type
-	where
-	  ancestor.id_descendent = AccountID
-	  AND atype.b_iscorporate = '1'
-	  AND p_systemdate  BETWEEN ancestor.vt_start and ancestor.vt_end;
+    select ancestor.id_ancestor into p_corporate_account_id from t_account_ancestor ancestor
+    inner join t_account acc on ancestor.id_ancestor = acc.id_acc
+    inner join t_account_type atype on atype.id_type = acc.id_type
+    where
+      ancestor.id_descendent = AccountID
+      AND atype.b_iscorporate = '1'
+      AND p_systemdate  BETWEEN ancestor.vt_start and ancestor.vt_end;
     exception when NO_DATA_FOUND then
         null;
  end;
@@ -387,4 +387,4 @@ end if;
  p_accountID := AccountID;
  p_status := 1;
 end;
-				
+                

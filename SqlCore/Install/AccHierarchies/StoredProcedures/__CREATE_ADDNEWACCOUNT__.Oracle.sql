@@ -1,5 +1,6 @@
 
-CREATE OR REPLACE PROCEDURE addnewaccount  (
+CREATE OR REPLACE 
+PROCEDURE addnewaccount  (
    p_id_acc_ext                 IN       VARCHAR2,
    p_acc_state                  IN       VARCHAR2,
    p_acc_status_ext             IN       INT,
@@ -8,7 +9,7 @@ CREATE OR REPLACE PROCEDURE addnewaccount  (
    p_nm_login                   IN       NVARCHAR2,
    p_nm_space                   IN       NVARCHAR2,
    p_tx_password                IN       NVARCHAR2,
-   p_auth_type					IN 		 INT,
+   p_auth_type                  IN       INT,
    p_langcode                   IN       VARCHAR2,
    p_profile_timezone           IN       INT,
    p_id_cycle_type              IN       INT,
@@ -73,13 +74,13 @@ AS
    id_type              INT;
    acc_type_out         VARCHAR2 (40);
    p_count              INTEGER;
-   l_polID				INTEGER;
-   l_id_parent_cap			INTEGER;
-   l_id_atomic_cap			INTEGER;
+   l_polID              INTEGER;
+   l_id_parent_cap          INTEGER;
+   l_id_atomic_cap          INTEGER;
    templateId           INTEGER;
    templateOwner        INTEGER;
    sessionId            INTEGER;
-   templateCount		INTEGER;
+   templateCount        INTEGER;
 BEGIN
    p_ancestor_type_out := 'Err';
 /* step : validate that the account does not already exist.  Note    that this check is performed by checking the t_account_mapper table.    However, we don't check the account state so the new account could
@@ -185,13 +186,13 @@ to purge the archived account before the new account could be created.
    /* check if authentification is MetraNetInternal then add user credentials */
    IF (COALESCE(p_auth_type, 1) = 1)
    THEN
-	   INSERT INTO t_user_credentials
-				   (nm_login, nm_space, tx_password
-				   )
-			VALUES (p_nm_login, LOWER (p_nm_space), p_tx_password
-				   );
+       INSERT INTO t_user_credentials
+                   (nm_login, nm_space, tx_password
+                   )
+            VALUES (p_nm_login, LOWER (p_nm_space), p_tx_password
+                   );
    END IF;
-   
+
    /* step : t_profile. This looks like it is only for timezone information */
    INSERT INTO t_profile
                (id_profile, nm_tag, val_tag, tx_desc
@@ -256,34 +257,34 @@ to purge the archived account before the new account could be created.
 
    IF (
      /* Exclude archived accounts. */
-     p_acc_state <> 'AR' 
+     p_acc_state <> 'AR'
      /* The account has already started or is about to start. */
-     AND acc_startdate < create_dt_end 
+     AND acc_startdate < create_dt_end
      /* The account has not yet ended. */
      AND acc_enddate >= p_systemdate)
    THEN
      INSERT INTO t_usage_interval(id_interval,id_usage_cycle,dt_start,dt_end,tx_interval_status)
-     SELECT ref.id_interval,ref.id_cycle,ref.dt_start,ref.dt_end, 'O' 
-     FROM 
-     t_pc_interval ref                 
+     SELECT ref.id_interval,ref.id_cycle,ref.dt_start,ref.dt_end, 'O'
+     FROM
+     t_pc_interval ref
      WHERE
      /* Only add intervals that don't exist */
      NOT EXISTS (
-       SELECT 1 FROM t_usage_interval ui 
+       SELECT 1 FROM t_usage_interval ui
        WHERE ref.id_interval = ui.id_interval)
-     AND 
+     AND
      ref.id_cycle = usagecycleid AND
      /* Reference interval must at least partially overlap the [minstart, maxend] period. */
-     (ref.dt_end >= acc_startdate AND 
+     (ref.dt_end >= acc_startdate AND
       ref.dt_start <= CASE WHEN acc_enddate < create_dt_end THEN acc_enddate ELSE create_dt_end END);
 
      INSERT INTO t_acc_usage_interval(id_acc,id_usage_interval,tx_status,dt_effective)
      SELECT accountid, ref.id_interval, ref.tx_interval_status, NULL
-     FROM t_usage_interval ref 
+     FROM t_usage_interval ref
      WHERE
      ref.id_usage_cycle = usagecycleid AND
      /* Reference interval must at least partially overlap the [minstart, maxend] period. */
-     (ref.dt_end >= acc_startdate AND 
+     (ref.dt_end >= acc_startdate AND
       ref.dt_start <= CASE WHEN acc_enddate < create_dt_end THEN acc_enddate ELSE create_dt_end END)
      /* Only add mappings for non-blocked intervals */
      AND ref.tx_interval_status <> 'B';
@@ -362,15 +363,15 @@ to purge the archived account before the new account could be created.
 
    /* -- Fix CORE-762: Check that payerid exists */
    begin
-     select count(*) into p_count  
-     from t_account 
+     select count(*) into p_count
+     from t_account
      where id_acc = payerid;
      if p_count = 0 then /* MT_CANNOT_RESOLVE_PAYING_ACCOUNT*/
        status := -486604792;
        return;
      end if;
    end;
-   
+
    IF ancestorid = -1
    THEN
       /* MT_CANNOT_RESOLVE_HIERARCHY_ACCOUNT*/
@@ -457,8 +458,8 @@ to purge the archived account before the new account could be created.
    IF (status <> 1)
    THEN
       RETURN;
-   END IF; 
-   
+   END IF;
+
       BEGIN
       SELECT tx_path
         INTO p_hierarchy_path
@@ -471,76 +472,76 @@ to purge the archived account before the new account could be created.
       THEN
          NULL;
    END;
-   
+
    /* if "Apply Default Policy" flag is set, then figure out    "ancestor" id based on account type in case the account is not    a subscriber*/
 
-	/*BP: 10/5 Make sure that t_principal_policy record is always there, otherwise ApplyRoleMembership will break*/
-	Sp_Insertpolicy( 'id_acc', accountID,'A', l_polID );
-	
-	/* 2/11/2010: TRW - We are now granting the "Manage Account Hierarchies" capability to all accounts
-		upon their creation.  They are being granted read/write access to their own account only (not to 
-		sub accounts).  This is being done to facilitate access to their own information via the MetraNet
-		ActivityServices web services, which are now checking capabilities a lot more */
-		
-	/* Insert "Manage Account Hierarchies" parent capability */
-	insert into t_capability_instance(id_cap_instance, tx_guid, id_parent_cap_instance, id_policy, id_cap_type)
-	select
-		seq_t_cap_instance.NextVal,
-    'ABCD', 
-		null,
-		l_polID,
-		id_cap_type
-	from
-		t_composite_capability_type
-	where
-		tx_name = 'Manage Account Hierarchies';
+    /*BP: 10/5 Make sure that t_principal_policy record is always there, otherwise ApplyRoleMembership will break*/
+    Sp_Insertpolicy( 'id_acc', accountID,'A', l_polID );
 
-	select seq_t_cap_instance.CURRVAL into l_id_parent_cap from dual;
+    /* 2/11/2010: TRW - We are now granting the "Manage Account Hierarchies" capability to all accounts
+        upon their creation.  They are being granted read/write access to their own account only (not to
+        sub accounts).  This is being done to facilitate access to their own information via the MetraNet
+        ActivityServices web services, which are now checking capabilities a lot more */
 
-	/* Insert MTPathCapability atomic capability */
-	insert into t_capability_instance(id_cap_instance, tx_guid, id_parent_cap_instance, id_policy, id_cap_type)
-	select
-		seq_t_cap_instance.NextVal,
-		'ABCD',
-		l_id_parent_cap,
-		l_polID,
-		id_cap_type
-	from
-		t_atomic_capability_type
-	where
-		upper(tx_name) = 'MTPATHCAPABILITY';
-		
-	select seq_t_cap_instance.CURRVAL into l_id_atomic_cap from dual;
+    /* Insert "Manage Account Hierarchies" parent capability */
+    insert into t_capability_instance(id_cap_instance, tx_guid, id_parent_cap_instance, id_policy, id_cap_type)
+    select
+        seq_t_cap_instance.NextVal,
+    'ABCD',
+        null,
+        l_polID,
+        id_cap_type
+    from
+        t_composite_capability_type
+    where
+        tx_name = 'Manage Account Hierarchies';
 
-	/* Insert into t_path_capability account's path */
-	insert into t_path_capability(id_cap_instance, tx_param_name, tx_op, param_value)
-	values( l_id_atomic_cap, null, null, p_hierarchy_path || '/');
-	
-	/* Insert MTEnumCapability atomic capability */
-	insert into t_capability_instance(id_cap_instance, tx_guid, id_parent_cap_instance, id_policy, id_cap_type)
-	select
-		seq_t_cap_instance.NextVal,
-		'ABCD',
-		l_id_parent_cap,
-		l_polID,
-		id_cap_type
-	from
-		t_atomic_capability_type
-	where
-		upper(tx_name) = 'MTENUMTYPECAPABILITY';
-		
-	select seq_t_cap_instance.CURRVAL into l_id_atomic_cap from dual;
-	
-	/* Insert into t_enum_capability to grant Write access */
-	insert into t_enum_capability(id_cap_instance, tx_param_name, tx_op, param_value)
-	select
-		l_id_atomic_cap,
-		null,
-		'=',
-		id_enum_data
-	from
-		t_enum_data
-	where
+    select seq_t_cap_instance.CURRVAL into l_id_parent_cap from dual;
+
+    /* Insert MTPathCapability atomic capability */
+    insert into t_capability_instance(id_cap_instance, tx_guid, id_parent_cap_instance, id_policy, id_cap_type)
+    select
+        seq_t_cap_instance.NextVal,
+        'ABCD',
+        l_id_parent_cap,
+        l_polID,
+        id_cap_type
+    from
+        t_atomic_capability_type
+    where
+        upper(tx_name) = 'MTPATHCAPABILITY';
+
+    select seq_t_cap_instance.CURRVAL into l_id_atomic_cap from dual;
+
+    /* Insert into t_path_capability account's path */
+    insert into t_path_capability(id_cap_instance, tx_param_name, tx_op, param_value)
+    values( l_id_atomic_cap, null, null, p_hierarchy_path || '/');
+
+    /* Insert MTEnumCapability atomic capability */
+    insert into t_capability_instance(id_cap_instance, tx_guid, id_parent_cap_instance, id_policy, id_cap_type)
+    select
+        seq_t_cap_instance.NextVal,
+        'ABCD',
+        l_id_parent_cap,
+        l_polID,
+        id_cap_type
+    from
+        t_atomic_capability_type
+    where
+        upper(tx_name) = 'MTENUMTYPECAPABILITY';
+
+    select seq_t_cap_instance.CURRVAL into l_id_atomic_cap from dual;
+
+    /* Insert into t_enum_capability to grant Write access */
+    insert into t_enum_capability(id_cap_instance, tx_param_name, tx_op, param_value)
+    select
+        l_id_atomic_cap,
+        null,
+        '=',
+        id_enum_data
+    from
+        t_enum_data
+    where
         upper(nm_enum_data) = 'GLOBAL/ACCESSLEVEL/WRITE';
 
    IF (   UPPER (p_apply_default_policy) = 'Y'
@@ -585,9 +586,9 @@ to purge the archived account before the new account could be created.
       END IF;
    END IF;
 
-	/* resolve accounts' corporation.
-	select ancestor whose ancestor is of a type that
-	has b_iscorporate set to true */
+    /* resolve accounts' corporation.
+    select ancestor whose ancestor is of a type that
+    has b_iscorporate set to true */
 
    BEGIN
       SELECT ancestor.id_ancestor
@@ -634,44 +635,6 @@ to purge the archived account before the new account could be created.
       END IF;
    END IF;
 
-    SELECT NVL(MIN(id_acc_template),-1), NVL(MIN(templOwner),-1), COUNT(*)
-        INTO templateId, templateOwner, templateCount
-        FROM
-        (
-        select  id_acc_template
-                , template.id_folder as templOwner
-            from
-                    t_acc_template template
-            INNER JOIN t_account_ancestor ancestor on template.id_folder = ancestor.id_ancestor
-            INNER JOIN t_account_mapper mapper on mapper.id_acc = ancestor.id_ancestor
-            inner join t_account_type atype on template.id_acc_type = atype.id_type
-                WHERE id_descendent = accountID AND
-                    p_systemdate between vt_start AND vt_end AND
-                    atype.name = p_acc_type
-            ORDER BY num_generations asc
-        )
-        where ROWNUM = 1;
-
-    IF (templateCount <> 0 AND templateId <> -1)
-    THEN
-        SELECT id_current INTO sessionId FROM t_current_id WHERE nm_current = 'id_template_session' FOR UPDATE OF id_current;
-        UPDATE t_current_id SET id_current=id_current+1 where nm_current='id_template_session';
-
-        insert into t_acc_template_session(id_session, id_template_owner, nm_acc_type, dt_submission, id_submitter, nm_host, n_status, n_accts, n_subs)
-        values (sessionId, templateOwner, p_acc_type, p_systemdate, 0, '', 0, 0, 0);
-        ApplyAccountTemplate(
-            accountTemplateId => templateId,
-            sessionId => sessionId,
-            systemDate => p_systemdate,
-            sub_start => p_systemdate,
-            sub_end => NULL,
-            next_cycle_after_startdate => 'N',
-            next_cycle_after_enddate   => 'N',
-            id_event_success           => NULL,
-            id_event_failure           => NULL,
-            account_id                 => accountid
-        );
-    END IF;
    /* done*/
    status := 1;
 END;

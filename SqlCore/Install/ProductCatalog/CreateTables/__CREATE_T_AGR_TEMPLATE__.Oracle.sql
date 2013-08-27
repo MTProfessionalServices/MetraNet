@@ -3,9 +3,9 @@
   (
      id_agr_template         number(10) NOT NULL,
      n_template_name         number(10) NOT NULL,
-     nm_template_name        VARCHAR(255) NOT NULL,
+     nm_template_name        VARCHAR2(255) NOT NULL,
      n_template_description  number(10) NULL,
-     nm_template_description VARCHAR(255) NULL,
+     nm_template_description VARCHAR2(255) NULL,
      created_date            DATE,
      created_by              number(10) NOT NULL,
      updated_date            DATE NULL,

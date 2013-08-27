@@ -8,8 +8,10 @@ AS
     v_dt_end       DATE := NULL;   
 BEGIN
     v_rawworkqid := HEXTORAW (TRANSLATE (p_id_work_queue, '0{-}', '0'));
-
-    INSERT INTO tt_queuedreportinfo
+	
+	execute immediate 'TRUNCATE TABLE tt_queuedreportinfo';
+    
+	INSERT INTO tt_queuedreportinfo
         (SELECT   c_rep_title,
                   c_rep_type,
                   c_rep_def_source,                  

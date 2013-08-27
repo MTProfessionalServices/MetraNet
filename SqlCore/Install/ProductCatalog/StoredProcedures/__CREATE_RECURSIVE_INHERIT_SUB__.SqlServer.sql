@@ -85,28 +85,25 @@ BEGIN
 	EXEC get_all_pts_by_sub @my_id_sub, @my_id_pt_curs OUT
 
 	FETCH @my_id_pt_curs INTO @my_id_pt, @my_id_pi_template
-
+    
 	WHILE @@FETCH_STATUS = 0
 	BEGIN
-	    print '---------LOOP1-----------'
 		SET @my_counter = 0
 		EXEC get_id_sched @my_id_sub, @my_id_pt, @my_id_pi_template, @mindate, @maxdate, @my_id_sched_curs OUT
 		
 		FETCH @my_id_sched_curs INTO @my_child_id_sched, @my_child_sched_start, @my_child_sched_end
 		WHILE @@FETCH_STATUS = 0
 		BEGIN
-	      print '---------LOOP2-----------'
 			SET @my_counter = @my_counter + 1
 			EXEC recursive_inherit @my_id_audit, @v_id_acc, @my_id_sub, @my_id_po, @my_id_pi_template, @my_child_id_sched, @my_id_pt, 1
 			FETCH @my_id_sched_curs INTO @my_child_id_sched, @my_child_sched_start, @my_child_sched_end
 		END
+		
+		CLOSE @my_id_sched_curs
+		DEALLOCATE @my_id_sched_curs
 
 		IF @my_counter = 0
-		begin
-    	      print '------- Call MT_RATE_PKG.recursive_inherit --------------'
-
 			EXEC recursive_inherit @my_id_audit, @v_id_acc, @my_id_sub, @my_id_po, @my_id_pi_template, NULL, @my_id_pt, 1
-		end
 
 		FETCH @my_id_pt_curs INTO @my_id_pt, @my_id_pi_template
 	END

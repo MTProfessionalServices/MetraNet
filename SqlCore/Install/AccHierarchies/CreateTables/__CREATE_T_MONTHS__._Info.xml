@@ -2,7 +2,6 @@
 <Query>
     <Action>CreateTable</Action>
     <Implementations>
-        <Implementation>SqlServer</Implementation>
         <Implementation>Oracle</Implementation>
     </Implementations>
     <Schemas>
@@ -14,7 +13,7 @@
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
         <CommonQuerySourceFile></CommonQuerySourceFile>
-        <SqlServerQuerySourceFile>R:\Config\Queries\DBInstall\AccountTypes\Queries.xml</SqlServerQuerySourceFile>
-        <OracleQuerySourceFile>R:\Config\Queries\DBInstall\AccountTypes\Queries_Oracle.xml</OracleQuerySourceFile>
+        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
     </ConversionAudit>
 </Query>

@@ -1,14 +1,15 @@
 
-CREATE OR REPLACE PROCEDURE InsertTmplSessionDetail
+CREATE OR REPLACE 
+PROCEDURE InsertTmplSessionDetail
 (
     sessionId NUMBER,
     detailType NUMBER,
     resultInfo NUMBER,
     textData VARCHAR2,
-    retryCount NUMBER
+    retryCount NUMBER,
+    doCommit CHAR DEFAULT 'Y'
 )
 AS
-    PRAGMA AUTONOMOUS_TRANSACTION;
 BEGIN
     INSERT INTO t_acc_template_session_detail
     (
@@ -30,6 +31,8 @@ BEGIN
         textData,
         retryCount
     );
-    
-    COMMIT;
+
+    IF (doCommit = 'Y') THEN
+        COMMIT;
+    END IF;
 END;

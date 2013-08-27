@@ -21,7 +21,7 @@ CREATE TABLE t_billing_server_settings
 	is_auto_soft_close_bg_enabled   integer NOT NULL,
 	is_block_new_accounts_enabled   integer NOT NULL,
 	is_run_scheduled_adapters       integer NOT NULL,
-	multicast_address               varchar(40) NOT NULL,
+	multicast_address               varchar2(40) NOT NULL,
 	multicast_port                  integer NOT NULL,
 	multicast_time_to_live          integer NOT NULL
 )

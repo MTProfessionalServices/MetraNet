@@ -7,7 +7,7 @@
     id_billgroup_old INT NOT NULL,
     billgroup_name_new NVARCHAR2(50) NOT NULL,
     billgroup_name_old NVARCHAR2(50) NOT NULL,
-    newStatus VARCHAR(1),
-    oldStatus VARCHAR(1) NOT NULL
+    newStatus VARCHAR2(1),
+    oldStatus VARCHAR2(1) NOT NULL
     )
 		

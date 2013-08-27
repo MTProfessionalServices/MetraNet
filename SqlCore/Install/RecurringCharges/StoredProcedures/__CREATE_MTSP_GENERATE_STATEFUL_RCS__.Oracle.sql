@@ -289,7 +289,7 @@ BEGIN
     AND bg.id_billgroup  = v_id_billgroup
     AND rcr.b_advance    = 'Y'
     )A ;
-  SELECT COUNT(1) INTO l_total_rcs FROM tmp_rc;
+  SELECT COUNT(1) INTO l_total_rcs FROM tmp_rcs;
   INSERT
   INTO t_recevent_run_details
     (
@@ -309,8 +309,8 @@ BEGIN
       || l_total_rcs
     );
   IF l_total_rcs > 0 THEN
-    SELECT COUNT(1) INTO l_total_flat FROM tmp_rc WHERE c_unitvalue IS NULL;
-    SELECT COUNT(1) INTO l_total_udrc FROM tmp_rc WHERE c_unitvalue IS NOT NULL;
+    SELECT COUNT(1) INTO l_total_flat FROM tmp_rcs WHERE c_unitvalue IS NULL;
+    SELECT COUNT(1) INTO l_total_udrc FROM tmp_rcs WHERE c_unitvalue IS NOT NULL;
     INSERT
     INTO t_recevent_run_details
       (
@@ -383,8 +383,9 @@ BEGIN
         'Batch: '
         || v_id_batch
       );
-    l_tx_batch := utl_raw.cast_to_varchar2(utl_encode.base64_decode(utl_raw.cast_to_raw (v_id_batch)));
-    INSERT
+    l_tx_batch := v_id_batch;
+	
+	INSERT
     INTO t_recevent_run_details
       (
       id_detail,

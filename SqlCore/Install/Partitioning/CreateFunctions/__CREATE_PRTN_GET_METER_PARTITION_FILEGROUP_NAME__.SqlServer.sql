@@ -3,6 +3,6 @@
 				RETURNS NVARCHAR(100)
 				AS
 				BEGIN
-					RETURN 'MeterFileGroup'
+					RETURN DB_NAME() + '_MeterFileGroup'
 				END
 				

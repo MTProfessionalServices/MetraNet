@@ -4,32 +4,38 @@ PACKAGE BODY mt_acc_template
 AS
     detailtypesubs      INT;
     detailresultfailure INT;
-       
+
     PROCEDURE subscribe_account(
        id_acc              INT,
        id_po               INT,
        id_group            INT,
        sub_start           DATE,
        sub_end             DATE,
-       systemdate          DATE
+       systemdate          DATE,
+       doCommit            CHAR DEFAULT 'Y'
     )
     AS
         v_guid                RAW(16);
         curr_id_sub           INT;
     BEGIN
-    
+
         IF (id_po IS NULL) THEN
             INSERT INTO tmp_gsubmember (id_group, id_acc, vt_start, vt_end)
                 VALUES (id_group, id_acc, sub_start, sub_end);
         ELSE
-            getcurrentid('id_subscription', curr_id_sub);
+              IF (doCommit = 'Y') THEN
+                 getcurrentid('id_subscription', curr_id_sub);
+              ELSE
+                 SELECT id_current INTO curr_id_sub FROM t_current_id WHERE nm_current = 'id_subscription' FOR UPDATE OF id_current;
+                 UPDATE t_current_id SET id_current=id_current+1 where nm_current='id_subscription';
+              END IF;
             SELECT SYS_GUID() INTO v_guid FROM dual;
             INSERT INTO tmp_sub (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end)
                 VALUES (curr_id_sub, v_guid, id_acc, NULL, id_po, systemdate, sub_start, sub_end);
         END IF;
 
     END;
-    
+
     PROCEDURE apply_subscriptions (
        template_id                INT,
        sub_start                  DATE,
@@ -58,7 +64,12 @@ AS
            THEN
               my_id_audit := apply_subscriptions.id_audit;
            ELSE
-              getcurrentid ('id_audit', my_id_audit);
+              IF (doCommit = 'Y') THEN
+                 getcurrentid ('id_audit', my_id_audit);
+              ELSE
+                 SELECT id_current INTO my_id_audit FROM t_current_id WHERE nm_current = 'id_audit' FOR UPDATE OF id_current;
+                 UPDATE t_current_id SET id_current=id_current+1 where nm_current='id_audit';
+              END IF;
 
               INSERT INTO t_audit (
                     id_audit,
@@ -82,17 +93,17 @@ AS
         IF detailtypesubs IS NULL THEN
             SELECT id_enum_data
             INTO   detailtypesubs
-            FROM   t_enum_data 
+            FROM   t_enum_data
             WHERE  nm_enum_data = 'metratech.com/accounttemplate/DetailType/Subscription';
-             
+
             SELECT id_enum_data
             INTO   detailresultfailure
-            FROM   t_enum_data 
+            FROM   t_enum_data
             WHERE  nm_enum_data = 'metratech.com/accounttemplate/DetailResult/Failure';
          END IF;
-      
+
       DELETE FROM t_acc_template_valid_subs WHERE id_acc_template_session = apply_subscriptions.id_template_session;
-      
+
       /* Detect conflicting subscriptions in the template and choice first available of them and without conflicts */
       INSERT INTO t_acc_template_valid_subs (id_acc_template_session, id_po, id_group, sub_start, sub_end, po_start, po_end)
       SELECT DISTINCT
@@ -143,56 +154,56 @@ AS
                retrycount                 => apply_subscriptions.retrycount
            );
       END LOOP;
-          
+
       maxdate := mtmaxdate();
 
-      BEGIN
+--      BEGIN
           /* Persist the data in transaction */
           mt_rate_pkg.current_id_audit := apply_subscriptions.id_audit;
-          
+
           INSERT INTO t_gsubmember (id_group, id_acc, vt_start, vt_end)
-          SELECT id_group, id_acc, vt_start, vt_end
-          FROM   tmp_gsubmember;
+          SELECT tmp.id_group, tmp.id_acc, tmp.vt_start, NVL(tmp.vt_end, maxdate)
+          FROM   tmp_gsubmember tmp;
 
           INSERT INTO t_gsubmember_historical (id_group, id_acc, vt_start, vt_end, tt_start, tt_end)
-          SELECT id_group, id_acc, vt_start, vt_end, apply_subscriptions.systemdate, maxdate
+          SELECT id_group, id_acc, vt_start, NVL(vt_end, maxdate), apply_subscriptions.systemdate, maxdate
           FROM   tmp_gsubmember;
 
           INSERT INTO t_sub (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end)
-          SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end
+          SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, NVL(vt_end, maxdate)
           FROM   tmp_sub;
-          
+
           INSERT INTO t_sub_history (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end, tt_start, tt_end)
-          SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end, apply_subscriptions.systemdate, maxdate
+          SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, NVL(vt_end, maxdate), apply_subscriptions.systemdate, maxdate
           FROM   tmp_sub;
-          
+
           INSERT INTO t_audit_details (id_auditdetails, id_audit, tx_details)
           SELECT seq_t_audit_details.nextval, tmp.my_id_audit, tmp.tx_details
           FROM   (
-                  SELECT my_id_audit,
+                  SELECT my_id_audit AS my_id_audit,
                          'Added subscription to id_groupsub ' || id_group ||
                          ' for account ' || id_acc ||
                          ' from ' || vt_start ||
-                         ' to ' || vt_end ||
+                         ' to ' || NVL(vt_end, maxdate) ||
                          ' on ' || systemdate AS tx_details
                   FROM   tmp_gsubmember
                   UNION ALL
-                  SELECT my_id_audit,
+                  SELECT my_id_audit AS my_id_audit,
                          'Added subscription to product offering ' || id_po ||
                          ' for account ' || id_acc ||
                          ' from ' || vt_start ||
-                         ' to ' || vt_end ||
+                         ' to ' || NVL(vt_end, maxdate) ||
                          ' on ' || apply_subscriptions.systemdate AS tx_details
                   FROM   tmp_sub
                  ) tmp;
-                    
+
           IF (doCommit = 'Y')
           THEN
           COMMIT;
           END IF;
-          
+
           mt_rate_pkg.current_id_audit := NULL;
-      EXCEPTION
+/*      EXCEPTION
           -- we should log this.
           WHEN OTHERS
           THEN
@@ -200,9 +211,9 @@ AS
               THEN
              ROLLBACK;
               END IF;
-          
+
              mt_rate_pkg.current_id_audit := NULL;
-             
+
              my_error := substr(SQLERRM,1,1024);
 
              IF (my_id_audit IS NULL)
@@ -211,21 +222,26 @@ AS
                 THEN
                    my_id_audit := apply_subscriptions.id_audit;
                 ELSE
+                  IF (doCommit = 'Y') THEN
                    getcurrentid ('id_audit', my_id_audit);
+                  ELSE
+                     SELECT id_current INTO my_id_audit FROM t_current_id WHERE nm_current = 'id_audit' FOR UPDATE OF id_current;
+                     UPDATE t_current_id SET id_current=id_current+1 where nm_current='id_audit';
+                  END IF;
 
                    INSERT INTO t_audit (
-                        id_audit, 
-                        id_event, 
-                        id_userid, 
-                        id_entitytype, 
-                        id_entity, 
+                        id_audit,
+                        id_event,
+                        id_userid,
+                        id_entitytype,
+                        id_entity,
                         dt_crt
                       )
                    VALUES (
-                        my_id_audit, 
-                        apply_subscriptions.id_event_failure, 
+                        my_id_audit,
+                        apply_subscriptions.id_event_failure,
                         apply_subscriptions.user_id,
-                        1, 
+                        1,
                         my_id_acc,
                         getutcdate ()
                       );
@@ -233,22 +249,23 @@ AS
              END IF;
 
             INSERT INTO t_audit_details (
-                id_auditdetails, 
-                id_audit, 
+                id_auditdetails,
+                id_audit,
                 tx_details
              )
             VALUES (
-                seq_t_audit_details.NEXTVAL, 
+                seq_t_audit_details.NEXTVAL,
                 my_id_audit,
                 'Error applying template to id_acc: '
                 || my_id_acc
                 || ': '
                 || my_error
              );
-          
+
         END;
+*/
     END;
-    
+
     PROCEDURE apply_subscriptions_to_acc (
        id_acc                     INT,
        id_acc_template            INT,
@@ -259,7 +276,8 @@ AS
        id_event_success           INT,
        systemdate                 DATE,
        id_template_session        INT,
-       retrycount                 INT
+       retrycount                 INT,
+       doCommit                   CHAR DEFAULT 'Y'
     )
     AS
        v_acc_start       DATE;
@@ -270,6 +288,7 @@ AS
        curr_id_sub       INT;
        my_id_audit       INT;
        my_user_id        INT;
+       id_acc_type       INT;
 
     BEGIN
        my_user_id := apply_subscriptions_to_acc.user_id;
@@ -283,7 +302,12 @@ AS
 
        IF (my_id_audit IS NULL)
        THEN
-          getcurrentid ('id_audit', my_id_audit);
+          IF (doCommit = 'Y') THEN
+           getcurrentid ('id_audit', my_id_audit);
+          ELSE
+             SELECT id_current INTO my_id_audit FROM t_current_id WHERE nm_current = 'id_audit' FOR UPDATE OF id_current;
+             UPDATE t_current_id SET id_current=id_current+1 where nm_current='id_audit';
+          END IF;
 
           INSERT INTO t_audit
                       (id_audit, id_event, id_userid, id_entitytype, id_entity,
@@ -298,7 +322,12 @@ AS
        INTO   v_acc_start
        FROM   t_account_state
        WHERE  id_acc = apply_subscriptions_to_acc.id_acc;
-    
+
+       SELECT id_type
+       INTO   id_acc_type
+       FROM   t_account
+       WHERE  id_acc = apply_subscriptions_to_acc.id_acc;
+
        /* Create new subscriptions */
        FOR sub in (
           SELECT ts.id_po,
@@ -368,6 +397,38 @@ AS
                                         JOIN t_pl_map mpo ON mpo.id_pi_template = ms.id_pi_template
                                  WHERE  ags.id_group = gm.id_group AND mpo.id_po = NVL(ts.id_po, gs.id_po))
           WHERE  ts.id_acc_template = apply_subscriptions_to_acc.id_acc_template
+             /* Check if the PO is available for the account's type */
+             AND (  (ts.id_po IS NOT NULL AND
+                      (  EXISTS
+                         (
+                            SELECT 1
+                            FROM   t_po_account_type_map atm
+                            WHERE  atm.id_po = ts.id_po AND atm.id_account_type = id_acc_type
+                         )
+                      OR NOT EXISTS
+                         (
+                             SELECT 1 FROM t_po_account_type_map atm WHERE atm.id_po = ts.id_po
+                         )
+                     )
+                    )
+                 OR (ts.id_group IS NOT NULL AND
+                      (  EXISTS
+                         (
+                            SELECT 1
+                            FROM   t_po_account_type_map atm
+                                   JOIN t_sub tgs ON tgs.id_po = atm.id_po
+                            WHERE  tgs.id_group = ts.id_group AND atm.id_account_type = id_acc_type
+                         )
+                     OR NOT EXISTS
+                         (
+                            SELECT 1
+                            FROM   t_po_account_type_map atm
+                                   JOIN t_sub tgs ON tgs.id_po = atm.id_po
+                            WHERE  tgs.id_group = ts.id_group
+                         )
+                      )
+                    )
+                 )
           GROUP BY ts.id_po, ts.id_group, vs.v_sub_start, vs.v_sub_end
        )
        LOOP
@@ -375,9 +436,8 @@ AS
             IF sub.conflicts = 0 THEN
                 v_vt_start := sub.my_sub_start;
                 v_vt_end := sub.my_sub_end;
-                
-                subscribe_account(apply_subscriptions_to_acc.id_acc, sub.id_po, sub.id_group, v_vt_start, v_vt_end, apply_subscriptions_to_acc.systemdate);
-                
+                subscribe_account(apply_subscriptions_to_acc.id_acc, sub.id_po, sub.id_group, v_vt_start, v_vt_end, apply_subscriptions_to_acc.systemdate, doCommit);
+
             /* 2.  There is a conflicting subscription for the same or greatest interval */
             ELSIF sub.my_sub_start >= sub.vt_start AND sub.my_sub_end <= sub.vt_end THEN
                 InsertTmplSessionDetail
@@ -386,43 +446,40 @@ AS
                     detailtypesubs,
                     detailresultfailure,
                     'Subscription for account ' || apply_subscriptions_to_acc.id_acc || ' not created due to ' || sub.conflicts || 'conflict' || CASE WHEN sub.conflicts > 1 THEN 's' ELSE '' END,
-                    apply_subscriptions_to_acc.retrycount
+                    apply_subscriptions_to_acc.retrycount,
+                    'N'
                 );
-                
             /* 3.  There is a conflicting subscription for an early period */
             ELSIF sub.my_sub_start >= sub.vt_start AND sub.my_sub_end > sub.vt_end THEN
                 v_vt_start := sub.vt_end + 1;
                 v_vt_end := sub.my_sub_end;
-                
-                subscribe_account(apply_subscriptions_to_acc.id_acc, sub.id_po, sub.id_group, v_vt_start, v_vt_end, apply_subscriptions_to_acc.systemdate);
-                
+                subscribe_account(apply_subscriptions_to_acc.id_acc, sub.id_po, sub.id_group, v_vt_start, v_vt_end, apply_subscriptions_to_acc.systemdate, doCommit);
             /* 4.  There is a conflicting subscription for a late period */
             ELSIF sub.my_sub_start < sub.vt_start AND sub.my_sub_end <= sub.vt_end THEN
                 v_vt_start := sub.my_sub_start;
                 v_vt_end := sub.vt_start - 1;
-                
-                subscribe_account(apply_subscriptions_to_acc.id_acc, sub.id_po, sub.id_group, v_vt_start, v_vt_end, apply_subscriptions_to_acc.systemdate);
-                
+                if (v_vt_start <= v_vt_end) then
+                    subscribe_account(apply_subscriptions_to_acc.id_acc, sub.id_po, sub.id_group, v_vt_start, v_vt_end, apply_subscriptions_to_acc.systemdate, doCommit);
+                end if;
             /* 5.  There is a conflicting subscription for the period inside the indicated one */
             ELSE
                 v_vt_start := sub.vt_end + 1;
                 v_vt_end := sub.my_sub_end;
-                
-                subscribe_account(apply_subscriptions_to_acc.id_acc, sub.id_po, sub.id_group, v_vt_start, v_vt_end, apply_subscriptions_to_acc.systemdate);
+                subscribe_account(apply_subscriptions_to_acc.id_acc, sub.id_po, sub.id_group, v_vt_start, v_vt_end, apply_subscriptions_to_acc.systemdate, doCommit);
 
                 v_vt_start := sub.my_sub_start;
                 v_vt_end := sub.vt_start - 1;
-                
-                subscribe_account(apply_subscriptions_to_acc.id_acc, sub.id_po, sub.id_group, v_vt_start, v_vt_end, apply_subscriptions_to_acc.systemdate);
+                subscribe_account(apply_subscriptions_to_acc.id_acc, sub.id_po, sub.id_group, v_vt_start, v_vt_end, apply_subscriptions_to_acc.systemdate, doCommit);
             END IF;
        END LOOP;
     END;
 
     PROCEDURE UpdateAccPropsFromTemplate (
       idAccountTemplate INT,
-      systemDate DATE
-    ) 
-	AS
+      systemDate DATE,
+      idAcc INT DEFAULT NULL
+    )
+    AS
         vals VARCHAR2(32767);
         dSql VARCHAR2(32767);
         conditionStatement VARCHAR2(32767);
@@ -498,9 +555,12 @@ AS
             END IF;
 
             --Completion to creation dynamic sql-string for update account view.
-            conditionStatement := conditionStatement || 'id_acc in (SELECT id_descendent FROM t_vw_get_accounts_by_tmpl_id WHERE id_template = ' || TO_CHAR(idAccountTemplate) || '  AND CAST(''' || TO_CHAR(systemDate) || ''' AS DATE) BETWEEN COALESCE(vt_start, CAST(''' || TO_CHAR(systemDate) || ''' AS DATE)) AND COALESCE(vt_end, CAST(''' || TO_CHAR(systemDate) || ''' AS DATE)))';
+            if (idAcc IS NOT NULL) THEN
+                conditionStatement := conditionStatement || 'id_acc = ' || TO_CHAR(idAcc) || ' ';
+            ELSE
+                conditionStatement := conditionStatement || 'id_acc in (SELECT id_descendent FROM t_vw_get_accounts_by_tmpl_id WHERE id_template = ' || TO_CHAR(idAccountTemplate) || '  AND CAST(''' || TO_CHAR(systemDate) || ''' AS DATE) BETWEEN COALESCE(vt_start, CAST(''' || TO_CHAR(systemDate) || ''' AS DATE)) AND COALESCE(vt_end, CAST(''' || TO_CHAR(systemDate) || ''' AS DATE)))';
+            END IF;
             dSql := 'UPDATE ' || rec.tableName || ' SET ' || vals || ' WHERE ' || conditionStatement;
-
             EXECUTE IMMEDIATE dSql;
         END LOOP;
     END;
@@ -511,7 +571,7 @@ AS
         ,OldUsageCycle INT
         ,systemDate DATE
     )
-	AS
+    AS
         p_status INT;
         intervalenddate DATE;
         intervalID INT;
@@ -645,7 +705,8 @@ AS
                             DetailTypeSubscription,
                             DetailResultInformation,
                             'No payment record changed. Return code is ' || TO_CHAR(p_status),
-                            nRetryCount
+                            nRetryCount,
+                            'N'
                         );
                         p_status := 0;
                     END IF;
@@ -659,7 +720,8 @@ AS
                             DetailTypeSubscription,
                             DetailResultInformation,
                             'No payment record created. Return code is ' || TO_CHAR(p_status),
-                            nRetryCount
+                            nRetryCount,
+                            'N'
                         );
                         p_status := 0;
                     END IF;

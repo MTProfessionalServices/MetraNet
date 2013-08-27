@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MetraTech.Quoting.Test.ConsoleForTesting
 {
   [Serializable]
   public class FakeRequest
   {
-    public int IdAccountToQuoteFor { get; set; }
-    public int IdProductOfferingToQuoteFor { get; set; }
+    public List<int> IdAccountsToQuoteFor { get; set; }
+    public List<int> IdProductOfferingsToQuoteFor { get; set; }
     public string QuoteIdentifier { get; set; }
     public bool RunPDFGenerationForAllTestsByDefault { get; set; }
     public DateTime EffectiveDate { get; set; }

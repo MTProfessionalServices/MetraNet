@@ -22,8 +22,8 @@ namespace MetraTech.Quoting.Test.ConsoleForTesting
     {
       Console.WriteLine("QuotingActivityServiceTest started");
 
-      int idAccountToQuoteFor = -1;
-      int idProductOfferingToQuoteFor = -1;
+      List<int> idAccountToQuoteFor = new List<int> {-1} ;
+      List<int> idProductOfferingToQuoteFor = new List<int> { -1 };
       string quoteIdentifier = "";
       bool runPDFGenerationForAllTestsByDefault = false;
       DateTime effectiveDate = MetraTime.Now;
@@ -44,8 +44,8 @@ namespace MetraTech.Quoting.Test.ConsoleForTesting
         var xmlRequest = new XmlSerializer(typeof (FakeRequest));
         var fakeRequest = (FakeRequest)xmlRequest.Deserialize(requestFileStream);
 
-        idAccountToQuoteFor = fakeRequest.IdAccountToQuoteFor;
-        idProductOfferingToQuoteFor = fakeRequest.IdProductOfferingToQuoteFor;
+        idAccountToQuoteFor = fakeRequest.IdAccountsToQuoteFor;
+        idProductOfferingToQuoteFor = fakeRequest.IdProductOfferingsToQuoteFor;
         quoteIdentifier = fakeRequest.QuoteIdentifier;
         runPDFGenerationForAllTestsByDefault = fakeRequest.RunPDFGenerationForAllTestsByDefault;
         effectiveDate = fakeRequest.EffectiveDate;
@@ -57,8 +57,8 @@ namespace MetraTech.Quoting.Test.ConsoleForTesting
 
         var fakeRequest = new FakeRequest
           {
-            IdAccountToQuoteFor = idAccountToQuoteFor,
-            IdProductOfferingToQuoteFor = idProductOfferingToQuoteFor,
+            IdAccountsToQuoteFor = idAccountToQuoteFor,
+            IdProductOfferingsToQuoteFor = idProductOfferingToQuoteFor,
             QuoteIdentifier = quoteIdentifier,
             RunPDFGenerationForAllTestsByDefault = runPDFGenerationForAllTestsByDefault,
             EffectiveDate = effectiveDate,
@@ -78,8 +78,8 @@ namespace MetraTech.Quoting.Test.ConsoleForTesting
 
       //
       var request = new QuoteRequest();
-      request.Accounts.Add(idAccountToQuoteFor);
-      request.ProductOfferings.Add(idProductOfferingToQuoteFor);
+      request.Accounts.AddRange(idAccountToQuoteFor);
+      request.ProductOfferings.AddRange(idProductOfferingToQuoteFor);
       request.QuoteIdentifier = quoteIdentifier;
       request.ReportParameters.PDFReport = runPDFGenerationForAllTestsByDefault;
       request.EffectiveDate = effectiveDate;

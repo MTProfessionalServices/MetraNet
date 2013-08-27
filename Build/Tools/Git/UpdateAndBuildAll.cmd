@@ -16,6 +16,8 @@ call %SCRIPTSFOLDER%\StopAllServices.bat
 call %SCRIPTSFOLDER%\StopAllServices.bat
 SET CURRENT_FOLDER=%DEVDIR%
 
+@pushd %CURRENT_FOLDER%
+
 if "%1%"=="full" (
 @echo Full VM update was forced. Deleting all MN folders
 rem Removes temporary files
@@ -36,8 +38,6 @@ FOR /D %%p IN ("%windir%\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Fi
 rem git hard reset all changes second time [TODO] should be just reverted
 call %SCRIPTSFOLDER%\Git\GitRevert.bat skip_set_unchange_config
 )
-
-@pushd %CURRENT_FOLDER%
 
 @echo Starting get latest versions from MetraNet root repository
 ::call sh --login -i -c "git mt feature push"

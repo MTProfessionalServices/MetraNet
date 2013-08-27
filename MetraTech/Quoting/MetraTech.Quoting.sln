@@ -70,6 +70,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.DomainModel.Enums
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Domain.Test", "..\MetraTech.Domain.Test\MetraTech.Domain.Test.csproj", "{C9D05D42-B0FB-47FE-8E00-FBB99AFB3EC3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MetraTech.Application", "MetraTech.Application", "{F75D44ED-FBCE-4532-A4C5-170988AF7FB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Application", "..\MetraTech.Application\MetraTech.Application.csproj", "{A19EED27-05B5-4907-B8A7-20C43EED7F42}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = MetraTech.Quoting.vsmdi
@@ -536,6 +540,24 @@ Global
 		{C9D05D42-B0FB-47FE-8E00-FBB99AFB3EC3}.Release|Mixed Platforms.Build.0 = Release|x86
 		{C9D05D42-B0FB-47FE-8E00-FBB99AFB3EC3}.Release|x86.ActiveCfg = Release|x86
 		{C9D05D42-B0FB-47FE-8E00-FBB99AFB3EC3}.Release|x86.Build.0 = Release|x86
+		{A19EED27-05B5-4907-B8A7-20C43EED7F42}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{A19EED27-05B5-4907-B8A7-20C43EED7F42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A19EED27-05B5-4907-B8A7-20C43EED7F42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A19EED27-05B5-4907-B8A7-20C43EED7F42}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{A19EED27-05B5-4907-B8A7-20C43EED7F42}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{A19EED27-05B5-4907-B8A7-20C43EED7F42}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A19EED27-05B5-4907-B8A7-20C43EED7F42}.DebugcoreQA|.NET.ActiveCfg = Debug|Any CPU
+		{A19EED27-05B5-4907-B8A7-20C43EED7F42}.DebugcoreQA|Any CPU.ActiveCfg = Debug|Any CPU
+		{A19EED27-05B5-4907-B8A7-20C43EED7F42}.DebugcoreQA|Any CPU.Build.0 = Debug|Any CPU
+		{A19EED27-05B5-4907-B8A7-20C43EED7F42}.DebugcoreQA|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{A19EED27-05B5-4907-B8A7-20C43EED7F42}.DebugcoreQA|Mixed Platforms.Build.0 = Debug|Any CPU
+		{A19EED27-05B5-4907-B8A7-20C43EED7F42}.DebugcoreQA|x86.ActiveCfg = Debug|Any CPU
+		{A19EED27-05B5-4907-B8A7-20C43EED7F42}.Release|.NET.ActiveCfg = Release|Any CPU
+		{A19EED27-05B5-4907-B8A7-20C43EED7F42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A19EED27-05B5-4907-B8A7-20C43EED7F42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A19EED27-05B5-4907-B8A7-20C43EED7F42}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{A19EED27-05B5-4907-B8A7-20C43EED7F42}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{A19EED27-05B5-4907-B8A7-20C43EED7F42}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -564,6 +586,7 @@ Global
 		{BFC88ECC-C3C1-4736-95D6-B772441CCF4A} = {F36E0B7A-D401-40AC-AAEB-EC9B19077296}
 		{9C9C685C-CBF8-428F-8C34-98702FF13726} = {9900F7CA-927A-4F12-BD99-30EA0177F2A5}
 		{C9D05D42-B0FB-47FE-8E00-FBB99AFB3EC3} = {9900F7CA-927A-4F12-BD99-30EA0177F2A5}
+		{A19EED27-05B5-4907-B8A7-20C43EED7F42} = {F75D44ED-FBCE-4532-A4C5-170988AF7FB3}
 	EndGlobalSection
 	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
 		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}

@@ -41,7 +41,7 @@
                     NVL((au.tax_county), 0.0) + NVL((au.tax_local), 0.0) + NVL((au.tax_other), 0.0)) else 0 end)
 				  /*If informational taxes, then they shouldn't be in the total */
                   - (case when au.tax_informational = 'Y' then (NVL((au.tax_federal), 0.0) + NVL((au.tax_state), 0.0) + 
-                    NVL((au.tax_county), 0.0) + NVL((au.tax_local), 0.0) + NVL((au.tax_other), 0.0)) else 0 end)
+                    NVL((au.tax_county), 0.0) + NVL((au.tax_local), 0.0) + NVL((au.tax_other), 0.0)) else 0 end))
 				  AmountWithTax
                 FROM T_USAGE_INTERVAL
                 JOIN T_ACC_USAGE au ON au.id_acc = p_id_acc AND au.id_usage_interval = p_id_interval AND au.id_pi_template IS NOT NULL

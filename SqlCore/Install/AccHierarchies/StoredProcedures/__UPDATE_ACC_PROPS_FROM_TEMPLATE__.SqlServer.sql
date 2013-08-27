@@ -1,12 +1,12 @@
 
 CREATE  PROCEDURE
 UpdateAccPropsFromTemplate (
-	@idAccountTemplate INTEGER
+	@idAccountTemplate INTEGER,
+	@accountId INTEGER = NULL
 )
 AS
 BEGIN
 	SET NOCOUNT ON;
-
 	DECLARE @values nvarchar(max)
 	DECLARE @viewName nvarchar(256)
 	DECLARE @tableName nvarchar(256)
@@ -21,7 +21,7 @@ BEGIN
 				  THEN substring(tp.nm_prop, charindex('[', tp.nm_prop)+ 1, charindex(']', tp.nm_prop) - charindex('[', tp.nm_prop) - 1)
 				  ELSE ''
 			 END as additionalOption
-		FROM t_enum_data td 
+		FROM t_enum_data td
 		JOIN t_account_type_view_map v on v.id_account_view = td.id_enum_data
 		JOIN t_account_view_prop p on v.id_type = p.id_account_view
 		JOIN t_acc_template_props tp on tp.nm_prop like v.account_view_name + '%' and tp.nm_prop like '%' + p.nm_name
@@ -34,7 +34,7 @@ BEGIN
 	BEGIN
 		SET @values = ''
 		--"Magic numbers" were took FROM MetraTech.Interop.MTYAAC.PropValType enumeration.
-		SELECT @values = @values + CASE WHEN ROW_NUMBER() OVER(ORDER BY nm_column_name) = 1 THEN '' ELSE ',' END + nm_column_name + ' ' 
+		SELECT @values = @values + CASE WHEN ROW_NUMBER() OVER(ORDER BY nm_column_name) = 1 THEN '' ELSE ',' END + nm_column_name + ' '
 					+   case when nm_prop_class in(0, 1, 4, 5, 6, 8, 9, 12, 13) then ' = ''' + REPLACE(nm_value,'''','''''') + ''' '
 								when nm_prop_class in(2, 3, 10, 11, 14)            then ' = ' + REPLACE(nm_value,'''','''''') + ' '
 								when nm_prop_class = 7                             then case when upper(nm_value) = 'TRUE' then ' = 1 ' else ' = 0 ' END
@@ -43,7 +43,7 @@ BEGIN
 			FROM t_account_type_view_map v
 			JOIN t_account_view_prop p on v.id_type = p.id_account_view
 			JOIN t_acc_template_props tp on tp.nm_prop like v.account_view_name + '%' and tp.nm_prop like '%.' + REPLACE(REPLACE(REPLACE(p.nm_name, N'\', N'\\'), N'_', N'\_'), N'%', N'\%') ESCAPE N'\'
-			WHERE tp.id_acc_template = @idAccountTemplate 
+			WHERE tp.id_acc_template = @idAccountTemplate
 				and tp.nm_prop like @viewName + '%'
 			ORDER BY nm_column_name
 		
@@ -85,7 +85,12 @@ BEGIN
 				
 		DECLARE @dSql nvarchar(max)
 		--Completion to creation dynamic sql-string for update account view.
-		SET @condition = @condition + 'id_acc in (SELECT id_descendent FROM t_vw_get_accounts_by_tmpl_id WHERE id_template = ' + convert(nvarchar, @idAccountTemplate) + ')'
+		IF @accountId IS NULL BEGIN
+			SET @condition = @condition + 'id_acc in (SELECT id_descendent FROM t_vw_get_accounts_by_tmpl_id WHERE id_template = ' + convert(nvarchar, @idAccountTemplate) + ')'
+		END 
+		ELSE BEGIN
+			SET @condition = @condition + 'id_acc = ' + convert(nvarchar, @accountId) + ' '
+		END
 		SET @dSql = 'UPDATE ' + @tableName + ' SET ' + @values + ' WHERE ' + @condition
 		execute(@dSql)
 		fetch next FROM db_cursor into @viewName, @tableName, @additionalOptionString

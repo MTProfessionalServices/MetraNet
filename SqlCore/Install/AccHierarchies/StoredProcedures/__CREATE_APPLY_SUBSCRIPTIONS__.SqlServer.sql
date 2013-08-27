@@ -11,7 +11,8 @@ CREATE PROCEDURE apply_subscriptions (
    @id_event_failure           int,
    @systemdate                 datetime,
    @id_template_session        int,
-   @retrycount                 int
+   @retrycount                 int,
+   @doCommit				   char = 'Y' /* Y or N */
 )
 AS
 	SET NOCOUNT ON
@@ -95,7 +96,7 @@ AS
 		   subs.sub_end
 	FROM
 	(
-		SELECT MAX(ts.id_po) AS id_po, NULL AS id_group, MAX(ed.dt_start) AS sub_start, MAX(ed.dt_end) AS sub_end
+		SELECT MAX(ts.id_po) AS id_po, NULL AS id_group, ISNULL(MAX(ed.dt_start), @systemdate) AS sub_start, ISNULL(MAX(ed.dt_end), dbo.MTMaxDate()) AS sub_end
 		FROM   t_acc_template_subs ts
 			   JOIN t_pl_map pm ON pm.id_po = ts.id_po
 			   JOIN t_po po ON ts.id_po = po.id_po
@@ -103,7 +104,7 @@ AS
 		WHERE  ts.id_acc_template = @template_id
 		GROUP BY pm.id_pi_template
 		UNION ALL
-		SELECT NULL AS id_po, MAX(ts.id_group) AS id_group, MAX(ed.dt_start) AS sub_start, MAX(ed.dt_end) AS sub_end
+		SELECT NULL AS id_po, MAX(ts.id_group) AS id_group, ISNULL(MAX(ed.dt_start), @systemdate) AS sub_start, ISNULL(MAX(ed.dt_end), dbo.MTMaxDate()) AS sub_end
 		FROM   t_acc_template_subs ts
 			   JOIN t_sub s ON s.id_group = ts.id_group
 			   JOIN t_pl_map pm ON pm.id_po = s.id_po
@@ -115,9 +116,9 @@ AS
 
 	DECLARE @id_acc  int
 	DECLARE accounts CURSOR LOCAL FOR
-	SELECT id_descendent AS id_acc
-	FROM   t_vw_get_accounts_by_tmpl_id v
-	WHERE  v.id_template = @template_id
+		SELECT id_descendent AS id_acc
+		FROM   t_vw_get_accounts_by_tmpl_id v
+		WHERE  v.id_template = @template_id
 
 	OPEN accounts
 	FETCH NEXT FROM accounts INTO @id_acc
@@ -148,7 +149,9 @@ AS
 	DECLARE @maxdate datetime
 	SELECT @maxdate = dbo.MTMaxDate()
 
-	BEGIN TRAN t2
+	IF @doCommit = 'Y' BEGIN
+		BEGIN TRAN t2
+	END
 
 	BEGIN TRY
 		/* Persist the data in transaction */
@@ -186,11 +189,15 @@ AS
 			   N' on ' + CAST(@systemdate AS nvarchar(20))
 		FROM   #tmp_sub
 
-		COMMIT
+		IF @doCommit = 'Y' BEGIN
+			COMMIT
+		END
 	END TRY
 	BEGIN CATCH
 		-- we should log this.
-		ROLLBACK
+		IF @doCommit = 'Y' BEGIN
+			ROLLBACK
+		END
 		 
 		SELECT @my_error = substring(error_message(), 1, 1024)
 

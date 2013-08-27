@@ -17,7 +17,7 @@ AS
        retrycount                 INT,
        doCommit                   CHAR DEFAULT 'Y'
     );
-    
+
     PROCEDURE apply_subscriptions_to_acc (
        id_acc                     INT,
        id_acc_template            INT,
@@ -28,12 +28,14 @@ AS
        id_event_success           INT,
        systemdate                 DATE,
        id_template_session        INT,
-       retrycount                 INT
+       retrycount                 INT,
+       doCommit                   CHAR DEFAULT 'Y'
     );
 
     PROCEDURE UpdateAccPropsFromTemplate (
-		idAccountTemplate INT,
-		systemDate DATE
+        idAccountTemplate INT,
+        systemDate DATE,
+        idAcc INT DEFAULT NULL
     );
 
     PROCEDURE UpdateUsageCycleFromTemplate (

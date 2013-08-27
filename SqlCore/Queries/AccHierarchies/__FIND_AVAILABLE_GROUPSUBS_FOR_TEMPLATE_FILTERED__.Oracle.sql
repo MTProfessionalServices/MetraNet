@@ -28,6 +28,7 @@
     /* CR 13655 make sure that PO is either wide open or allows template account type */
     INNER JOIN t_acc_template at ON id_acc_template = %%ACC_TEMPLATE%%
     LEFT OUTER JOIN t_po_account_type_map atm ON ts.id_po = atm.id_po
+    LEFT OUTER JOIN t_acc_tmpl_types tp ON tp.id = 1
     WHERE
       ts.id_group IS NOT NULL AND tg.id_corporate_account = %%CORPORATEACCOUNT%% 
       and rownum <= 1000
@@ -38,6 +39,6 @@
       INNER JOIN t_sub ts1 on ts1.id_group = tg1.id_group
       where id_acc_template = %%ACC_TEMPLATE%%
     )
-    AND (atm.id_account_type IS NULL OR atm.id_account_type = at.id_acc_type)
+    AND (atm.id_account_type IS NULL OR atm.id_account_type = at.id_acc_type OR tp.all_types = 1)
     %%FILTERS%%
 		

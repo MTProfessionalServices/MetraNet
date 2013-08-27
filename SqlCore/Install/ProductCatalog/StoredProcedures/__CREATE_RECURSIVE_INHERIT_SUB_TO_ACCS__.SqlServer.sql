@@ -29,5 +29,10 @@ BEGIN
             @v_id_acc   = @id_acc,
             @v_id_sub   = NULL,
             @v_id_group = @id_group
+
+		FETCH NEXT FROM accounts INTO @id_acc, @id_group
 	END
+
+	CLOSE accounts
+	DEALLOCATE accounts
 END

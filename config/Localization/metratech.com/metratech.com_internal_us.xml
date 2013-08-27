@@ -112,7 +112,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Internal/UseStdImpliedTaxAlg</Name>
-            <Value>Use Standard Implied Tax Algorithm</Value>
+            <Value>Use Standard Inclusive Tax Calculation</Value>
         </locale_entry>
     </locale_space>
 </mt_config>

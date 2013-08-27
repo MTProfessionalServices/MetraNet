@@ -38,7 +38,6 @@
             $(ROOTDIR)\Thirdparty\RSA\RsaKmc.dll;
             $(ROOTDIR)\Thirdparty\Selenium\selenium-server.jar;
 			$(ROOTDIR)\Thirdparty\Selenium\ThoughtWorks.Selenium.Core.dll;
-			$(ROOTDIR)\Thirdparty\Selenium\Newtonsoft.Json.dll;
 			$(ROOTDIR)\Thirdparty\Selenium\Ionic.Zip.dll;
 			$(ROOTDIR)\Thirdparty\signio\PFPro.dll;
             $(ROOTDIR)\Thirdparty\sqldmo\sqldmodotnet.dll;
@@ -61,7 +60,6 @@
             $(ROOTDIR)\Thirdparty\Oracle\ODPNET\*.dll;
             $(ROOTDIR)\Thirdparty\PDH\pdh.dll;
 			$(ROOTDIR)\Thirdparty\DataExportFramework\*.dll;
-			$(ROOTDIR)\ThirdParty\NLog\*.dll;
 			$(ROOTDIR)\ThirdParty\EZTax\EZTaxNET\9.0_2.0FrameWork\*.dll;
 			
 			$(ROOTDIR)\Thirdparty\RaptorDB\RaptorDB.dll;

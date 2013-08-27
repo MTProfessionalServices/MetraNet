@@ -90,6 +90,8 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   session("ownerapp_return_page") = mam_GetDictionary("RATE_SCHEDULE_DIALOG") & "?" & request.QueryString()
 
   ' Set QueryString for New Rate Schedule dialog
+  mdm_GetDictionary().remove "QUERYSTRING"
+  mdm_GetDictionary().remove "RATESCHEDULETITLE"
   mdm_GetDictionary().add "QUERYSTRING", "?" & request.QueryString
   mdm_GetDictionary().add "RATESCHEDULETITLE", Request.QueryString("RateTitle")
   
@@ -113,6 +115,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
 		End If
 	End If
 	
+  mdm_GetDictionary().add "CANICB"
   mdm_GetDictionary().add "CANICB", CStr(booICBable)   'Conditional render new personal rate button
     
 	Form_Initialize = MDMListDialog.Initialize(EventArg)

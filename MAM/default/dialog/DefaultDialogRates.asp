@@ -92,10 +92,12 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
 	if Len(Form("Group_ID")) = 0 then
   	Set MTAccountReference = objMTProductCatalog.GetAccount(mam_GetSubscriberAccountID())
 	  set currentSub = MTAccountReference.GetSubscription(CLng(Form("Sub_ID")))
-    FrameWork.Dictionary.Add "SUBSCRIPTION_NAME", ""
+	  FrameWork.Dictionary.Remove "SUBSCRIPTION_NAME"
+      FrameWork.Dictionary.Add "SUBSCRIPTION_NAME", ""
 	else
 		set currentSub = objMTProductCatalog.GetGroupSubscriptionByID(CLng(Form("Group_ID")))
-    FrameWork.Dictionary.Add "SUBSCRIPTION_NAME", currentSub.Name
+        FrameWork.Dictionary.Remove "SUBSCRIPTION_NAME"
+		FrameWork.Dictionary.Add "SUBSCRIPTION_NAME", currentSub.Name
 	end if
   
   Set ProductView.Properties.RowSet = currentSub.GetParamTablesAsRowset

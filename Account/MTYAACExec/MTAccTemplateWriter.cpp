@@ -124,6 +124,7 @@ STDMETHODIMP CMTAccTemplateWriter::SaveSubscriptions(long aTemplateID, IMTAccoun
 
 		rs->InitializeForStoredProc("UpdatePrivateTempates");
 		rs->AddInputParameterToStoredProc("id_template", MTTYPE_INTEGER, INPUT_PARAM, aTemplateID);
+		rs->AddInputParameterToStoredProc("p_systemdate", MTTYPE_DATE, INPUT_PARAM,GetMTOLETime());
 		rs->ExecuteStoredProc();
 	}
 	catch(_com_error& err) {

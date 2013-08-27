@@ -90,7 +90,7 @@
     </Compile>
     <Compile Include="ReportGenerator.cs" />
     <Compile Include="SearchAgent.cs" />
-    <Compile Include="..\..\Build\AssemblyInfo.cs" />
+    <Compile Include="..\..\..\Build\AssemblyInfo.cs" />
     <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>

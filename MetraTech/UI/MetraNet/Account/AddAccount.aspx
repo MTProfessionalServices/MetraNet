@@ -164,19 +164,30 @@ function processTemplate(tmplData) {
         if (obj != null) { obj.enable(); }
     }
     for (var el in tmplData) {
-        if (ctlMap[el] != null && typeof (ctlMap[el]) != "undefined") {
-            var ctl = Ext.get(ctlMap[el]);
-            if (ctl != null) {
-                var cb = cBoxes[ctlMap[el]];
-                if (typeof (cb) != 'undefined') {
-                    cb.setValue(tmplData[el]);
-                    cb.fireEvent('select');
+        if (el == 'Account.StartDay' && tmplData['Internal.UsageCycleType'] == 'Bi_weekly') {
+            var cb = cBoxes['<%=MTBillingCycleControl1.BiWeekly.ClientID%>'];
+            if (typeof (cb) != 'undefined') {
+                cb.setValue(tmplData[el]);
+                cb.fireEvent('select');
+            }
+            var cmp = Ext.getCmp('<%=MTBillingCycleControl1.BiWeekly.ClientID%>');
+            if (cmp != null) { cmp.disable(); }
+        }
+        else {
+            if (ctlMap[el] != null && typeof (ctlMap[el]) != "undefined") {
+                var ctl = Ext.get(ctlMap[el]);
+                if (ctl != null) {
+                    var cb = cBoxes[ctlMap[el]];
+                    if (typeof (cb) != 'undefined') {
+                        cb.setValue(tmplData[el]);
+                        cb.fireEvent('select');
+                    }
+                    else {
+                        ctl.dom.value = tmplData[el];
+                    }
+                    var cmp = Ext.getCmp(ctlMap[el]);
+                    if (cmp != null) { cmp.disable(); }
                 }
-                else {
-                    ctl.dom.value = tmplData[el];
-                }
-                var cmp = Ext.getCmp(ctlMap[el]);
-                if (cmp != null) { cmp.disable(); }
             }
         }
     }
@@ -312,11 +323,6 @@ function addTemplateEvents() {
         Checked="False" HideLabel="True" LabelSeparator=":" Listeners="{}" meta:resourcekey="cbApplyDefaultPolicyResource1"
         Name="cbApplyDefaultPolicy" OptionalExtConfig="boxLabel:'Apply Default Policy',&#13;&#10;inputValue:'policy',&#13;&#10;checked:false"
         ReadOnly="False" XType="Checkbox" XTypeNameSpace="form" />
-      <MT:MTCheckBoxControl ID="cbApplyTemplate" runat="server" BoxLabel="Apply Template"
-        Text="template" Value="template" TabIndex="245" ControlWidth="200" AllowBlank="False"
-        Checked="False" HideLabel="True" LabelSeparator=":" Listeners="{}" meta:resourcekey="cbApplyTemplateResource1"
-        Name="cbApplyTemplate" OptionalExtConfig="boxLabel:'Apply Template',&#13;&#10;inputValue:'template',&#13;&#10;checked:false"
-        ReadOnly="False" XType="Checkbox" XTypeNameSpace="form" />        
     </div>
     
     </MT:MTPanel>
@@ -396,7 +402,7 @@ function addTemplateEvents() {
       <table cellspacing="0">
         <tr>
           <td  class="x-panel-btn-td">
-            <MT:MTButton ID="btnOK" OnClientClick="if(Validate()) {enableCtrls(); return true;} else {return false;}" Width="50px" runat="server" Text="<%$Resources:Resource,TEXT_OK%>" OnClick="btnOK_Click" TabIndex="390" />
+            <MT:MTButton ID="btnOK" OnClientClick="if(Validate()) {/*enableCtrls();*/ return true;} else {return false;}" Width="50px" runat="server" Text="<%$Resources:Resource,TEXT_OK%>" OnClick="btnOK_Click" TabIndex="390" />
           </td>
           <td  class="x-panel-btn-td">
             <MT:MTButton ID="btnCancel" Width="50px" runat="server" Text="<%$Resources:Resource,TEXT_CANCEL%>" CausesValidation="False" TabIndex="400" OnClick="btnCancel_Click" />

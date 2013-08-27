@@ -228,13 +228,15 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
                         IEnumerator _enParams = this.__arParams.GetEnumerator();
                         while (_enParams.MoveNext())
                         {
-                            ReportParam _prm = (ReportParam)_enParams.Current;
+                            ReportParam _prm = (ReportParam)_enParams.Current;                            
+                            DefLog.MakeLogEntry(String.Format("Found '{0}' parameter for query with tag {1}. DEF is going to add it to the query...", _prm.ParamName, this.__queryTag), "debug");
                             if (_prm.ParamValue.ToString().Trim().Length == 0)
                                 _prm.ParamValue = "NULL";
                             if (_prm.ParamValue.ToString().Trim().ToUpper() == "NULL")
                                 queryAdapter.Item.AddParam(_prm.ParamName, _prm.ParamValue, true);
                             else
                                 queryAdapter.Item.AddParam(_prm.ParamName, "'" + _prm.ParamValue + "'", true);
+                            DefLog.MakeLogEntry(String.Format("Replaced '{0}' parameter on a '{1}' for query with tag {2}.", _prm.ParamName, _prm.ParamValue, this.__queryTag), "debug");
                         }
 
                         DefLog.MakeLogEntry(String.Format("DEF is going to execute query: \n {0}", queryAdapter.Item.GetRawSQLQuery(true)), "debug");
@@ -256,6 +258,8 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
                                 // execute GetAccByType('Root\", :p_result); ENd;
 			                          if (reg.Match(queryAdapter.Item.GetRawSQLQuery(true)).Groups["arg_with_points"].Success)
 			                          {
+                                   DefLog.MakeLogEntry("Found that qury uses call Oracle SP with out sys_refcursor parameter, so SetResultSetCount(1) will be added to the statement.", "info");
+
 			                              stmt.SetResultSetCount(1);
 			                          }
 			                      }

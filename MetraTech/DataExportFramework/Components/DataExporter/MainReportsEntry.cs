@@ -476,6 +476,9 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 	/// <summary>
 	/// Exception class that will hold information about a Report Instance that failed during initialization.
 	/// </summary>
+  /// TODO: this class and <see cref="ReportExecutionCompleteEventArgs"/> has very similar properties whci can be merged to one class
+  /// TODO: It will aloow to merge to methods MainReportsEntry.AuditExecuteStatus(ReportInstanceInitializationException riEx) and 
+  /// TODO: MainReportsEntry.AuditExecuteStatus(ReportExecutionCompleteEventArgs rE) to one generic method
 	public class ReportInstanceInitializationException : System.Exception
 	{
 		/// <summary>
@@ -514,7 +517,15 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 		/// GET/SET 
 		///		Exception detail string
 		/// </summary>
-		public string Descr { get { return this.__descr; } }
+		public string Descr 
+    { 
+      get 
+        {
+          return this.__descr.Length > ReportExecutionCompleteEventArgs.DescriptionLength
+                    ? this.__descr.Substring(0, ReportExecutionCompleteEventArgs.DescriptionLength)
+                    : this.__descr; 
+        } 
+    }
 
 		/// <summary>
 		/// Start Date Time of execution for this report instance that failed

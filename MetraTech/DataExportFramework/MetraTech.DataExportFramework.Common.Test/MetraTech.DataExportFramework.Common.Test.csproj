@@ -38,6 +38,7 @@
     <Reference Include="MetraTech.DataExportFramework.Common">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DataExportFramework.Common.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
     <Reference Include="RCD.interop">

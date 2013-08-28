@@ -651,10 +651,10 @@ namespace MetraTech.DomainModel.ProductCatalog
     }
     #endregion
 
-    #region TierProration
+    #region TierProrationValue
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isTierProrationDirty = false;
-    private TierProrationEnum m_TierProration;
+    private bool isTierProrationValueDirty = false;
+    private TierProrationEnum? m_TierProrationValue;
     /// <summary>
     /// Decisions define a range via tierStart and tierEnd.
     /// However, if an account subscribes during an interval,
@@ -662,25 +662,54 @@ namespace MetraTech.DomainModel.ProductCatalog
     /// a decision was "first 500 minutes per month are free",
     /// and the account subscribes half way through the month,
     /// we might want to only give 250 minutes free.
-    /// TBD SHOULD BE ENUM
     /// </summary>
     [MTDataMember(Description = "TierProration defines whether the decision range should be scaled for accounts that subscribe during the interval", Length = 40)]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public TierProrationEnum TierProration
+    public TierProrationEnum? TierProrationValue
     {
-        get { return m_TierProration; }
+        get { return m_TierProrationValue; }
         set
         {
-            m_TierProration = value;
-            isTierProrationDirty = true;
+            m_TierProrationValue = value;
+            isTierProrationValueDirty = true;
         }
     }
     [ScriptIgnore]
-    public bool IsTierProrationDirty
+    public bool IsTierProrationValueDirty
     {
-        get { return isTierProrationDirty; }
+        get { return isTierProrationValueDirty; }
     }
-    #endregion   
+    #endregion
+
+    #region TierProrationColumnName
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isTierProrationColumnNameDirty = false;
+    private string m_TierProrationColumnName;
+    /// <summary>
+    /// Decisions define a range via tierStart and tierEnd.
+    /// However, if an account subscribes during an interval,
+    /// we might want to scale the range.  For example, if
+    /// a decision was "first 500 minutes per month are free",
+    /// and the account subscribes half way through the month,
+    /// we might want to only give 250 minutes free.
+    /// </summary>
+    [MTDataMember(Description = "TierProration defines whether the decision range should be scaled for accounts that subscribe during the interval", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public string TierProrationColumnName
+    {
+        get { return m_TierProrationColumnName; }
+        set
+        {
+            m_TierProrationColumnName = value;
+            isTierProrationColumnNameDirty = true;
+        }
+    }
+    [ScriptIgnore]
+    public bool IsTierProrationColumnNameDirty
+    {
+        get { return isTierProrationColumnNameDirty; }
+    }
+    #endregion
 
     #region CycleUnitTypeValue
     [DataMember(IsRequired = false, EmitDefaultValue = false)]

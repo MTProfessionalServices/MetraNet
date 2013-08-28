@@ -124,16 +124,16 @@
     <value>Prorate the range at subscription activation and/or termination?</value>
   </data>
   <data name="lblDecisionRangeRestart.Text" xml:space="preserve">
-    <value>Restart count at end of range</value>
+    <value>Restart the count after the end of the range has been reached?</value>
   </data>
   <data name="lblEndOfRange.Text" xml:space="preserve">
     <value>End of range:</value>
   </data>
   <data name="lblProrateEnd.Text" xml:space="preserve">
-    <value>Termination</value>
+    <value>Prorate the range on termination?</value>
   </data>
   <data name="lblProrateStart.Text" xml:space="preserve">
-    <value>Activation</value>
+    <value>Prorate the range on activation?</value>
   </data>
   <data name="lblStartOfRange.Text" xml:space="preserve">
     <value>Start of range:</value>

@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblDecisionRange.Text" xml:space="preserve">
-    <value>The aggregate value for the Decision Type has a range of values within which the Decision is applicable.</value>
+    <value>The aggregate value for the Decision Type has a range of values within which the Decision Type is applicable.</value>
   </data>
   <data name="lblDecisionRangeProration.Text" xml:space="preserve">
-    <value>Proration: &lt;br/&gt; You can prorate the range based on subscription activation and/or termination.</value>
+    <value>Prorate the range at subscription activation and/or termination?</value>
   </data>
   <data name="lblDecisionRangeRestart.Text" xml:space="preserve">
     <value>Restart the count after the end of the range has been reached?</value>
@@ -139,7 +139,7 @@
     <value>Start of range:</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Decision Range</value>
+    <value>5. Range for {0}</value>
   </data>
   <data name="rblRangeNo.Text" xml:space="preserve">
     <value>No</value>

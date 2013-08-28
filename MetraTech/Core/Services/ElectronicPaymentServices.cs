@@ -729,6 +729,8 @@ namespace MetraTech.Core.Services
           throw new MASBasicException("Access denied");
         }
 
+          string currency = GetAccountCurrency(accountID);
+
         if (paymentMethod.RawAccountNumber.Length < 4)
         {
           throw new MASBasicException("Account number length is invalid");
@@ -757,7 +759,7 @@ namespace MetraTech.Core.Services
           {
             client = InitializeServiceCall(CalculateServiceName(paymentMethod, null, accountID));
             // add the payment instrument to the payment server
-            client.AddPaymentMethod(paymentMethod, out token);
+            client.AddPaymentMethod(paymentMethod, currency, out token);
             client.Close();
             client = null;
           }
@@ -1437,7 +1439,9 @@ namespace MetraTech.Core.Services
           throw new MASBasicException("Access denied");
         }
 
-        using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required,
+          var currency = GetAccountCurrency(accountID);
+
+          using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required,
                                                              new TransactionOptions(),
                                                              EnterpriseServicesInteropOption.Full))
         {
@@ -1490,7 +1494,7 @@ namespace MetraTech.Core.Services
             client = InitializeServiceCall(CalculateServiceName(paymentMethod, null, accountID));
 
             //Call the service method
-            client.UpdatePaymentMethod(token, paymentMethod);
+            client.UpdatePaymentMethod(token, paymentMethod, currency);
             client.Close();
             client = null;
           }
@@ -1718,7 +1722,31 @@ namespace MetraTech.Core.Services
       }
     }
 
-    [OperationCapability("Manage Account Hierarchies")]
+      private string GetAccountCurrency(int accountID)
+      {
+          string currency = "USD";
+          IMTQueryAdapter qa = new MTQueryAdapter();
+          qa.Init("Queries\\ElectronicPaymentService");
+          qa.SetQueryTag("__GET_CURRENCY_FOR_ACCOUNT__");
+          string txInfo = qa.GetQuery();
+          using (IMTConnection conn = ConnectionManager.CreateConnection())
+          {
+              using (IMTPreparedStatement stmt = conn.CreatePreparedStatement(txInfo))
+              {
+                  stmt.AddParam("id_acc", MTParameterType.Integer, accountID);
+                  using (IMTDataReader dataReader = stmt.ExecuteReader())
+                  {
+                      if (dataReader.Read())
+                      {
+                          currency = dataReader.GetString("c_currency");
+                      }
+                  }
+              }
+          }
+          return currency;
+      }
+
+      [OperationCapability("Manage Account Hierarchies")]
     public void UpdatePriority(AccountIdentifier acct, Guid token, int priority)
     {
       using (HighResolutionTimer timer = new HighResolutionTimer("UpdatePriority"))

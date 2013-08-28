@@ -25,7 +25,7 @@
   
   <div>
   <div style="float:left;">
-      <MT:MTCheckBoxControl ID="FromParamTableCheckBox" runat="server" BoxLabel="From Parameter Table" XType="Checkbox" XTypeNameSpace="form" />
+      <MT:MTCheckBoxControl ID="FromParamTableCheckBox" runat="server" LabelWidth="0"  BoxLabel="<%$Resources:Resource,TEXT_FROM_PARAM_TABLE%>" XType="Checkbox" XTypeNameSpace="form" />
   </div>
   <div style="float:left">
       <div id="divAmountChainGroupFromParamTableDropdownSource" runat="server">

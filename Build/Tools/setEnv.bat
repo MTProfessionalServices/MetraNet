@@ -35,7 +35,7 @@ setx TMP %TEMP% /M
 setx ROOTDIR s: /M
 setx RMPDIR r: /M
 setx MTOUTDIR o: /M
-setx VERSION debug /M
+setx VERSION Debug /M
 setx DEBUG 1 /M
 setx MAKE_MODE win32 /M
 setx HOMEDRIVE C: /M

@@ -8,14 +8,8 @@
 <tr>
 <td Width="200px" valign=top>
   <MT:MTPanel ID="AmpWizardNavigationPanel" runat="server" Collapsible="False"  Width="200px">
-    <div>
-      <div style="line-height:18px;font-weight:bold;font-size:9pt;text-align:center;color:DarkBlue;padding-bottom:.15in;" >
-        <asp:Label ID="lblHeader" runat="server" 
-          Text="<%$ Resources:AmpWizard,NAV_PANEL_HEADER %>" ></asp:Label>
-        <br />
-        <asp:Label ID="lblDecisionName" runat="server" ForeColor="Black"
-          Text="" ></asp:Label>
-      </div>
+    <div style="width: 200px">
+      
       
       <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" 
         SiteMapProvider="AmpWizardProvider" ShowStartingNode="False"/>

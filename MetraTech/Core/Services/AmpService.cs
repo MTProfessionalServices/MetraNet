@@ -3507,13 +3507,18 @@ namespace MetraTech.Core.Services
             }
             else if (attributeName.Equals("Amount Chain Group"))
             {
-                decision.PvToAmountChainMapping = attributeValue;
-                if (attributeColumnName != null)
+                if ((attributeValue == null) && (attributeColumnName == null))
                 {
-                    // don't expect column name
-                    m_Logger.LogError(
-                        "StoreAttributeInDomainModel: parameter {0} should not be set via column name",
-                        attributeName);
+                    decision.PvToAmountChainMappingColumnName = null;
+                    decision.PvToAmountChainMappingValue = null;
+                }
+                else if (attributeValue != null)
+                {
+                    decision.PvToAmountChainMappingValue = attributeValue;
+                }
+                else
+                {
+                    decision.PvToAmountChainMappingColumnName = attributeColumnName;
                 }
             }
             else if (attributeName.Equals("Charge On Inbound"))
@@ -3644,15 +3649,14 @@ namespace MetraTech.Core.Services
                     decision.PriorityValue = null;
                     decision.PriorityColumnName = null;
                 }
+                else if (attributeValue != null)
+                {
+                    decision.PriorityValue = Int32.Parse(attributeValue);
+                }
                 else
-                    if (attributeValue != null)
-                    {
-                        decision.PriorityValue = Int32.Parse(attributeValue);
-                    }
-                    else
-                    {
-                        decision.PriorityColumnName = attributeColumnName;
-                    }
+                {
+                    decision.PriorityColumnName = attributeColumnName;
+                }
             }
             else if (attributeName.Equals("Charge On Outbound"))
             {
@@ -3699,19 +3703,24 @@ namespace MetraTech.Core.Services
             }
             else if (attributeName.Equals("Tier Unit Type"))
             {
-                if (attributeValue != null)
+                if ((attributeValue == null) && (attributeColumnName == null))
+                {
+                    decision.ItemAggregatedValue = null;
+                    decision.ItemAggregatedColumnName = null;
+                }
+                else if (attributeValue != null)
                 {
                     if (attributeValue.ToUpper().Equals("AMOUNT"))
                     {
-                        decision.ItemAggregated = Decision.ItemAggregatedEnum.AGGREGATE_AMOUNT;
+                        decision.ItemAggregatedValue = Decision.ItemAggregatedEnum.AGGREGATE_AMOUNT;
                     }
                     else if (attributeValue.ToUpper().Equals("EVENTS"))
                     {
-                        decision.ItemAggregated = Decision.ItemAggregatedEnum.AGGREGATE_USAGE_EVENTS;
+                        decision.ItemAggregatedValue = Decision.ItemAggregatedEnum.AGGREGATE_USAGE_EVENTS;
                     }
                     else if (attributeValue.ToUpper().Equals("UNITS"))
                     {
-                        decision.ItemAggregated = Decision.ItemAggregatedEnum.AGGREGATE_UNITS_OF_USAGE;
+                        decision.ItemAggregatedValue = Decision.ItemAggregatedEnum.AGGREGATE_UNITS_OF_USAGE;
                     }
                     else
                     {
@@ -3722,11 +3731,9 @@ namespace MetraTech.Core.Services
                 }
                 else
                 {
-                    // don't expect column name
-                    m_Logger.LogError(
-                        "StoreAttributeInDomainModel: parameter {0} should not be set via column name",
-                        attributeName);
+                    decision.ItemAggregatedColumnName = attributeColumnName;
                 }
+
             }
             else if (attributeName.Equals("Cycle Units Per Tier"))
             {
@@ -3746,44 +3753,50 @@ namespace MetraTech.Core.Services
             }
             else if (attributeName.Equals("Cycle Unit Type"))
             {
-              if (attributeValue != null)
-              {
-                if (attributeValue.ToUpper().Equals("INTERVAL"))
+                if ((attributeValue == null) && (attributeColumnName == null))
                 {
-                  decision.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_SAME_AS_BILLING_INTERVAL;
+                    decision.CycleUnitTypeValue = null;
+                    decision.CycleUnitTypeColumnName = null;
                 }
-                else if (attributeValue.ToUpper().Equals("DAILY"))
+                else if (attributeValue != null)
                 {
-                  decision.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_DAILY;
-                }
-                else if (attributeValue.ToUpper().Equals("WEEKLY"))
-                {
-                  decision.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_WEEKLY;
-                }
-                else if (attributeValue.ToUpper().Equals("MONTHLY"))
-                {
-                  decision.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_MONTHLY;
-                }
-                else if (attributeValue.ToUpper().Equals("QUARTERLY"))
-                {
-                  decision.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_QUARTERLY;
-                }
-                else if (attributeValue.ToUpper().Equals("ANNUALLY"))
-                {
-                  decision.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_ANNUALLY;
+                    if (attributeValue.ToUpper().Equals("INTERVAL"))
+                    {
+                        decision.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_SAME_AS_BILLING_INTERVAL;
+                    }
+                    else if (attributeValue.ToUpper().Equals("DAILY"))
+                    {
+                        decision.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_DAILY;
+                    }
+                    else if (attributeValue.ToUpper().Equals("WEEKLY"))
+                    {
+                        decision.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_WEEKLY;
+                    }
+                    else if (attributeValue.ToUpper().Equals("MONTHLY"))
+                    {
+                        decision.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_MONTHLY;
+                    }
+                    else if (attributeValue.ToUpper().Equals("QUARTERLY"))
+                    {
+                        decision.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_QUARTERLY;
+                    }
+                    else if (attributeValue.ToUpper().Equals("ANNUALLY"))
+                    {
+                        decision.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_ANNUALLY;
+                    }
+                    else
+                    {
+                        m_Logger.LogError(
+                            "StoreAttributeInDomainModel: parameter {0} contains unexpected value {1}",
+                            attributeName, attributeValue);
+                    }
                 }
                 else
                 {
-                  m_Logger.LogError(
-                      "StoreAttributeInDomainModel: parameter {0} contains unexpected value {1}",
-                      attributeName, attributeValue);
+                    // attribute is a column name
+                    decision.CycleUnitTypeValue = Decision.CycleUnitTypeEnum.CYCLE_GET_FROM_PARAMETER_TABLE;
+                    decision.CycleUnitTypeColumnName = attributeColumnName;
                 }
-              }
-              else
-              {
-                  // attribute is a column name
-                  decision.CycleUnitTypeColumnName = attributeColumnName;
-              }
             }
             else if (attributeName.Equals("Usage Qualification Group"))
             {
@@ -3854,15 +3867,14 @@ namespace MetraTech.Core.Services
                     decision.PerUnitRateValue = null;
                     decision.PerUnitRateColumnName = null;
                 }
+                else if (attributeValue != null)
+                {
+                    decision.PerUnitRateValue = Decimal.Parse(attributeValue);
+                }
                 else
-                    if (attributeValue != null)
-                    {
-                        decision.PerUnitRateValue = Decimal.Parse(attributeValue);
-                    }
-                    else
-                    {
-                        decision.PerUnitRateColumnName = attributeColumnName;
-                    }
+                {
+                    decision.PerUnitRateColumnName = attributeColumnName;
+                }
             }
             else if (attributeName.Equals("Tier Qualified Usage"))
             {
@@ -4006,7 +4018,8 @@ namespace MetraTech.Core.Services
             }
             else
             {
-                m_Logger.LogDebug("StoreAttributeInDomainModel: unhandled attribute {0} being stored in OtherAttributes",
+                m_Logger.LogDebug(
+                    "StoreAttributeInDomainModel: unhandled attribute {0} being stored in OtherAttributes",
                     attributeName);
                 DecisionAttributeValue decisionAttributeValue = new DecisionAttributeValue();
                 decisionAttributeValue.HardCodedValue = attributeValue;
@@ -4044,7 +4057,8 @@ namespace MetraTech.Core.Services
                 decision.CycleUnitsOffsetValue.HasValue ? decision.CycleUnitsOffsetValue.ToString() : null,
                 decision.CycleUnitsOffsetColumnName, decision.ParameterTableName);
             StoreAttributeInDb(decision.UniqueId, "Amount Chain Group",
-                decision.PvToAmountChainMapping, null, decision.ParameterTableName);
+                decision.PvToAmountChainMappingValue,
+                decision.PvToAmountChainMappingColumnName, decision.ParameterTableName);
             StoreAttributeInDb(decision.UniqueId, "Generated Charge",
                 decision.GeneratedCharge, null, decision.ParameterTableName);
             switch (decision.ChargeCondition)
@@ -4141,19 +4155,30 @@ namespace MetraTech.Core.Services
             StoreAttributeInDb(decision.UniqueId, "Tier Discount",
                 decision.TierDiscountValue.HasValue ? decision.TierDiscountValue.ToString() : null,
                 decision.TierDiscountColumnName, decision.ParameterTableName);
-            switch (decision.ItemAggregated)
+            if (decision.ItemAggregatedValue.HasValue)
             {
-                case Decision.ItemAggregatedEnum.AGGREGATE_AMOUNT:
-                    StoreAttributeInDb(decision.UniqueId, "Tier Unit Type", "amount", null, decision.ParameterTableName);
-                    break;
+                switch (decision.ItemAggregatedValue)
+                {
+                    case Decision.ItemAggregatedEnum.AGGREGATE_AMOUNT:
+                        StoreAttributeInDb(decision.UniqueId, "Tier Unit Type", "amount", null,
+                                           decision.ParameterTableName);
+                        break;
 
-                case Decision.ItemAggregatedEnum.AGGREGATE_USAGE_EVENTS:
-                    StoreAttributeInDb(decision.UniqueId, "Tier Unit Type", "events", null, decision.ParameterTableName);
-                    break;
+                    case Decision.ItemAggregatedEnum.AGGREGATE_USAGE_EVENTS:
+                        StoreAttributeInDb(decision.UniqueId, "Tier Unit Type", "events", null,
+                                           decision.ParameterTableName);
+                        break;
 
-                case Decision.ItemAggregatedEnum.AGGREGATE_UNITS_OF_USAGE:
-                    StoreAttributeInDb(decision.UniqueId, "Tier Unit Type", "units", null, decision.ParameterTableName);
-                    break;
+                    case Decision.ItemAggregatedEnum.AGGREGATE_UNITS_OF_USAGE:
+                        StoreAttributeInDb(decision.UniqueId, "Tier Unit Type", "units", null,
+                                           decision.ParameterTableName);
+                        break;
+                }
+            }
+            else
+            {
+                // Tier Unit Type is coming from a parameter table column
+                StoreAttributeInDb(decision.UniqueId, "Tier Unit Type", null, decision.ItemAggregatedColumnName, decision.ParameterTableName);
             }
             StoreAttributeInDb(decision.UniqueId, "Cycle Units Per Tier",
                 decision.CycleUnitsPerTierValue.HasValue ? decision.CycleUnitsPerTierValue.ToString() : null,
@@ -4185,11 +4210,14 @@ namespace MetraTech.Core.Services
                 case Decision.CycleUnitTypeEnum.CYCLE_ANNUALLY:
                   StoreAttributeInDb(decision.UniqueId, "Cycle Unit Type", "annually", null, decision.ParameterTableName);
                   break;
+                case Decision.CycleUnitTypeEnum.CYCLE_GET_FROM_PARAMETER_TABLE:
+                  StoreAttributeInDb(decision.UniqueId, "Cycle Unit Type", null, decision.CycleUnitTypeColumnName, decision.ParameterTableName);
+                  break;
               }
             }
             else
             {
-              // Cycle Unit Type is coming frmo a parameter table column
+              // Cycle Unit Type is coming from a parameter table column
               StoreAttributeInDb(decision.UniqueId, "Cycle Unit Type", null, decision.CycleUnitTypeColumnName, decision.ParameterTableName);
             }
             StoreAttributeInDb(decision.UniqueId, "Usage Qualification Group",

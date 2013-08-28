@@ -156,24 +156,34 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
             ddRangeRestartFromParamTableSource.SelectedValue = CurrentDecisionInstance.TierRepetitionColumnName;
         }
 
-        switch (CurrentDecisionInstance.TierProration)
+        if (CurrentDecisionInstance.TierProrationValue != null)
         {
-            case Decision.TierProrationEnum.PRORATE_BOTH:
-                ddProrateStart.SelectedValue = Resources.Resource.TEXT_YES;
-                ddProrateEnd.SelectedValue = Resources.Resource.TEXT_YES;
-                break;
-            case Decision.TierProrationEnum.PRORATE_TIER_START:
-                ddProrateStart.SelectedValue = Resources.Resource.TEXT_YES;
-                ddProrateEnd.SelectedValue = Resources.Resource.TEXT_NO;
-                break;
-            case Decision.TierProrationEnum.PRORATE_TIER_END:
-                ddProrateStart.SelectedValue = Resources.Resource.TEXT_NO;
-                ddProrateEnd.SelectedValue = Resources.Resource.TEXT_YES;
-                break;
-            case Decision.TierProrationEnum.PRORATE_NONE:
-                ddProrateStart.SelectedValue = Resources.Resource.TEXT_NO;
-                ddProrateEnd.SelectedValue = Resources.Resource.TEXT_NO;
-                break;
+            switch (CurrentDecisionInstance.TierProrationValue)
+            {
+                case Decision.TierProrationEnum.PRORATE_BOTH:
+                    ddProrateStart.SelectedValue = Resources.Resource.TEXT_YES;
+                    ddProrateEnd.SelectedValue = Resources.Resource.TEXT_YES;
+                    break;
+                case Decision.TierProrationEnum.PRORATE_TIER_START:
+                    ddProrateStart.SelectedValue = Resources.Resource.TEXT_YES;
+                    ddProrateEnd.SelectedValue = Resources.Resource.TEXT_NO;
+                    break;
+                case Decision.TierProrationEnum.PRORATE_TIER_END:
+                    ddProrateStart.SelectedValue = Resources.Resource.TEXT_NO;
+                    ddProrateEnd.SelectedValue = Resources.Resource.TEXT_YES;
+                    break;
+                case Decision.TierProrationEnum.PRORATE_NONE:
+                    ddProrateStart.SelectedValue = Resources.Resource.TEXT_NO;
+                    ddProrateEnd.SelectedValue = Resources.Resource.TEXT_NO;
+                    break;
+            }
+        }
+        else
+        {
+            ddProrateStart.SelectedValue = Resources.Resource.TEXT_FROM_PARAMETER_TABLE;
+            ddProrateEnd.SelectedValue = Resources.Resource.TEXT_FROM_PARAMETER_TABLE;
+            ddProrateStartFromParamTableDropdownSource.SelectedValue = CurrentDecisionInstance.TierProrationColumnName;
+            ddProrateEndFromParamTableDropdownSource.SelectedValue = CurrentDecisionInstance.TierProrationColumnName;
         }
 
         if (ddDecisionRangeRestart.SelectedValue == Resources.Resource.TEXT_FROM_PARAMETER_TABLE)
@@ -316,28 +326,39 @@ public partial class AmpDecisionRangePage : AmpWizardBasePage
         }
 
         //setup proration properties
-        if ((ddProrateStart.SelectedValue == Resources.Resource.TEXT_YES) &&
-            (ddProrateEnd.SelectedValue == Resources.Resource.TEXT_YES))
+        if (ddProrateStart.SelectedValue != Resources.Resource.TEXT_FROM_PARAMETER_TABLE &&
+            ddProrateEnd.SelectedValue != Resources.Resource.TEXT_FROM_PARAMETER_TABLE)
         {
-            CurrentDecisionInstance.TierProration = Decision.TierProrationEnum.PRORATE_BOTH;
-        }
+            if ((ddProrateStart.SelectedValue == Resources.Resource.TEXT_YES) &&
+                (ddProrateEnd.SelectedValue == Resources.Resource.TEXT_YES))
+            {
+                CurrentDecisionInstance.TierProrationValue = Decision.TierProrationEnum.PRORATE_BOTH;
+            }
 
-        if ((ddProrateStart.SelectedValue == Resources.Resource.TEXT_YES) &&
-            (ddProrateEnd.SelectedValue == Resources.Resource.TEXT_NO))
-        {
-            CurrentDecisionInstance.TierProration = Decision.TierProrationEnum.PRORATE_TIER_START;
-        }
+            if ((ddProrateStart.SelectedValue == Resources.Resource.TEXT_YES) &&
+                (ddProrateEnd.SelectedValue == Resources.Resource.TEXT_NO))
+            {
+                CurrentDecisionInstance.TierProrationValue = Decision.TierProrationEnum.PRORATE_TIER_START;
+            }
 
-        if ((ddProrateStart.SelectedValue == Resources.Resource.TEXT_NO) &&
-            (ddProrateEnd.SelectedValue == Resources.Resource.TEXT_YES))
-        {
-            CurrentDecisionInstance.TierProration = Decision.TierProrationEnum.PRORATE_TIER_END;
-        }
+            if ((ddProrateStart.SelectedValue == Resources.Resource.TEXT_NO) &&
+                (ddProrateEnd.SelectedValue == Resources.Resource.TEXT_YES))
+            {
+                CurrentDecisionInstance.TierProrationValue = Decision.TierProrationEnum.PRORATE_TIER_END;
+            }
 
-        if ((ddProrateStart.SelectedValue == Resources.Resource.TEXT_NO) &&
-            (ddProrateEnd.SelectedValue == Resources.Resource.TEXT_NO))
+            if ((ddProrateStart.SelectedValue == Resources.Resource.TEXT_NO) &&
+                (ddProrateEnd.SelectedValue == Resources.Resource.TEXT_NO))
+            {
+                CurrentDecisionInstance.TierProrationValue = Decision.TierProrationEnum.PRORATE_NONE;
+            }
+            CurrentDecisionInstance.TierProrationColumnName = null;
+        }
+        else
         {
-            CurrentDecisionInstance.TierProration = Decision.TierProrationEnum.PRORATE_NONE;
+            // One of them is set to from parameter table, so set them both to first parameter table column
+            CurrentDecisionInstance.TierProrationValue = null;
+            CurrentDecisionInstance.TierProrationColumnName = ddProrateStartFromParamTableDropdownSource.SelectedValue;
         }
     }
 }

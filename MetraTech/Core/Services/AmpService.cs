@@ -3911,19 +3911,19 @@ namespace MetraTech.Core.Services
                 {
                     if (attributeValue.ToUpper().Equals("NO PRORATION"))
                     {
-                        decision.TierProration = Decision.TierProrationEnum.PRORATE_NONE;
+                        decision.TierProrationValue = Decision.TierProrationEnum.PRORATE_NONE;
                     }
                     else if (attributeValue.ToUpper().Equals("PRORATE ACTIVATION"))
                     {
-                        decision.TierProration = Decision.TierProrationEnum.PRORATE_TIER_START;
+                        decision.TierProrationValue = Decision.TierProrationEnum.PRORATE_TIER_START;
                     }
                     else if (attributeValue.ToUpper().Equals("PRORATE TERMINATION"))
                     {
-                        decision.TierProration = Decision.TierProrationEnum.PRORATE_TIER_END;
+                        decision.TierProrationValue = Decision.TierProrationEnum.PRORATE_TIER_END;
                     }
                     else if (attributeValue.ToUpper().Equals("PRORATE BOTH"))
                     {
-                        decision.TierProration = Decision.TierProrationEnum.PRORATE_BOTH;
+                        decision.TierProrationValue = Decision.TierProrationEnum.PRORATE_BOTH;
                     }
                     else
                     {
@@ -3931,15 +3931,12 @@ namespace MetraTech.Core.Services
                             "StoreAttributeInDomainModel: parameter {0} contains unexpected value {1}",
                             attributeName, attributeValue);
                         m_Logger.LogError("Setting decision.TierProration = PRORATE_NONE");
-                        decision.TierProration = Decision.TierProrationEnum.PRORATE_NONE;
+                        decision.TierProrationValue = Decision.TierProrationEnum.PRORATE_NONE;
                     }
                 }
                 else
                 {
-                    // don't expect column name
-                    m_Logger.LogError(
-                        "StoreAttributeInDomainModel: parameter {0} should not be set via column name",
-                        attributeName);
+                    decision.TierProrationColumnName = attributeColumnName;
                 }
             }
             else if (attributeName.Equals("Is Active"))
@@ -4240,27 +4237,35 @@ namespace MetraTech.Core.Services
                 StoreAttributeInDb(decision.UniqueId, "Tier Qualified Usage",
                     "incremental", null, decision.ParameterTableName);
             }
-            switch (decision.TierProration)
+            if (decision.TierProrationValue != null)
             {
-                case Decision.TierProrationEnum.PRORATE_NONE:
-                    StoreAttributeInDb(decision.UniqueId, "Tier Proration", "no proration",
-                        null, decision.ParameterTableName);
-                    break;
+                switch (decision.TierProrationValue)
+                {
+                    case Decision.TierProrationEnum.PRORATE_NONE:
+                        StoreAttributeInDb(decision.UniqueId, "Tier Proration", "no proration",
+                                           null, decision.ParameterTableName);
+                        break;
 
-                case Decision.TierProrationEnum.PRORATE_TIER_START:
-                    StoreAttributeInDb(decision.UniqueId, "Tier Proration", "prorate activation",
-                        null, decision.ParameterTableName);
-                    break;
+                    case Decision.TierProrationEnum.PRORATE_TIER_START:
+                        StoreAttributeInDb(decision.UniqueId, "Tier Proration", "prorate activation",
+                                           null, decision.ParameterTableName);
+                        break;
 
-                case Decision.TierProrationEnum.PRORATE_TIER_END:
-                    StoreAttributeInDb(decision.UniqueId, "Tier Proration", "prorate termination",
-                        null, decision.ParameterTableName);
-                    break;
+                    case Decision.TierProrationEnum.PRORATE_TIER_END:
+                        StoreAttributeInDb(decision.UniqueId, "Tier Proration", "prorate termination",
+                                           null, decision.ParameterTableName);
+                        break;
 
-                case Decision.TierProrationEnum.PRORATE_BOTH:
-                    StoreAttributeInDb(decision.UniqueId, "Tier Proration", "prorate both",
-                        null, decision.ParameterTableName);
-                    break;
+                    case Decision.TierProrationEnum.PRORATE_BOTH:
+                        StoreAttributeInDb(decision.UniqueId, "Tier Proration", "prorate both",
+                                           null, decision.ParameterTableName);
+                        break;
+                }
+            }
+            else
+            {
+                StoreAttributeInDb(decision.UniqueId, "Tier Proration", null,
+                                           decision.TierRepetitionColumnName, decision.ParameterTableName);
             }
             if (!decision.IsActive.HasValue)
             {

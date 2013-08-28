@@ -3673,16 +3673,27 @@ namespace MetraTech.Core.Services
             }
             else if (attributeName.Equals("Account Qualification Group"))
             {
+                if ((attributeValue == null) && (attributeColumnName == null))
+                {
+                    decision.AccountQualificationGroupValue = null;
+                    decision.AccountQualificationGroupColumnName = null;
+                }
                 if (attributeValue != null)
                 {
-                    decision.AccountQualificationGroup = attributeValue;
+                    decision.AccountQualificationGroupValue = attributeValue;
+                    decision.AccountQualificationGroupColumnName = null;
+                }
+                else if (attributeColumnName !=null)
+                {
+                    decision.AccountQualificationGroupValue = null;
+                    decision.AccountQualificationGroupColumnName = attributeColumnName;
                 }
                 else
                 {
                     // don't expect column name
                     m_Logger.LogError(
-                        "StoreAttributeInDomainModel: parameter {0} should not be set via column name",
-                        attributeName);
+                        "StoreAttributeInDomainModel: parameter {0} contains unexpected value {1} or column name {2}",
+                        attributeName, attributeValue, attributeColumnName);
                 }
             }
             else if (attributeName.Equals("Tier Discount"))
@@ -4148,7 +4159,7 @@ namespace MetraTech.Core.Services
                 decision.PriorityValue.HasValue ? decision.PriorityValue.ToString() : null,
                 decision.PriorityColumnName, decision.ParameterTableName);
             StoreAttributeInDb(decision.UniqueId, "Account Qualification Group",
-                decision.AccountQualificationGroup, null, decision.ParameterTableName);
+                !String.IsNullOrEmpty(decision.AccountQualificationGroupValue) ? decision.AccountQualificationGroupValue : null, !String.IsNullOrEmpty(decision.AccountQualificationGroupColumnName) ? decision.AccountQualificationGroupColumnName : null, decision.ParameterTableName);
             StoreAttributeInDb(decision.UniqueId, "Tier Discount",
                 decision.TierDiscountValue.HasValue ? decision.TierDiscountValue.ToString() : null,
                 decision.TierDiscountColumnName, decision.ParameterTableName);

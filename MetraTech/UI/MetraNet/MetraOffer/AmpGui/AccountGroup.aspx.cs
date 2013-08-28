@@ -37,7 +37,7 @@ public partial class AmpAccountGroupPage : AmpWizardBasePage
       {
           // Monitor changes made to the controls on the page.
           MonitorChangesInControlByClientId(hiddenAcctGroupName.ClientID);
-
+          MonitorChangesInControlByClientId(ddAccountGroupFromParamTableSource.ClientID);
           // The Continue button should NOT prompt the user if the controls have changed.
           // However, we don't need to call IgnoreChangesInControl(btnContinue) here
           // because of how OnClientClick is defined for the button.
@@ -94,6 +94,7 @@ public partial class AmpAccountGroupPage : AmpWizardBasePage
                   FromParamTableCheckBox.Checked = true;
                   ddAccountGroupFromParamTableSource.SelectedValue =
                       decisionInstance.AccountQualificationGroupColumnName;
+                  divAccountGroupGrid.Attributes.Add("style", "display: none;");
               }
 
               // Clean up client.

@@ -74,6 +74,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MetraTech.Application", "Me
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Application", "..\MetraTech.Application\MetraTech.Application.csproj", "{A19EED27-05B5-4907-B8A7-20C43EED7F42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Core.Services.Test", "U:\MetraNet_LegacySmokesTests\Core\Services\MetraTech.Core.Services.Test.csproj", "{34A4D055-90EE-4439-A22A-5358A1CE1FD1}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = MetraTech.Quoting.vsmdi
@@ -558,12 +560,31 @@ Global
 		{A19EED27-05B5-4907-B8A7-20C43EED7F42}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{A19EED27-05B5-4907-B8A7-20C43EED7F42}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{A19EED27-05B5-4907-B8A7-20C43EED7F42}.Release|x86.ActiveCfg = Release|Any CPU
+		{34A4D055-90EE-4439-A22A-5358A1CE1FD1}.Debug|.NET.ActiveCfg = Debug|x86
+		{34A4D055-90EE-4439-A22A-5358A1CE1FD1}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{34A4D055-90EE-4439-A22A-5358A1CE1FD1}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{34A4D055-90EE-4439-A22A-5358A1CE1FD1}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{34A4D055-90EE-4439-A22A-5358A1CE1FD1}.Debug|x86.ActiveCfg = Debug|x86
+		{34A4D055-90EE-4439-A22A-5358A1CE1FD1}.Debug|x86.Build.0 = Debug|x86
+		{34A4D055-90EE-4439-A22A-5358A1CE1FD1}.DebugcoreQA|.NET.ActiveCfg = Debug|x86
+		{34A4D055-90EE-4439-A22A-5358A1CE1FD1}.DebugcoreQA|Any CPU.ActiveCfg = Debug|x86
+		{34A4D055-90EE-4439-A22A-5358A1CE1FD1}.DebugcoreQA|Mixed Platforms.ActiveCfg = Debug|x86
+		{34A4D055-90EE-4439-A22A-5358A1CE1FD1}.DebugcoreQA|Mixed Platforms.Build.0 = Debug|x86
+		{34A4D055-90EE-4439-A22A-5358A1CE1FD1}.DebugcoreQA|x86.ActiveCfg = Debug|x86
+		{34A4D055-90EE-4439-A22A-5358A1CE1FD1}.DebugcoreQA|x86.Build.0 = Debug|x86
+		{34A4D055-90EE-4439-A22A-5358A1CE1FD1}.Release|.NET.ActiveCfg = Release|x86
+		{34A4D055-90EE-4439-A22A-5358A1CE1FD1}.Release|Any CPU.ActiveCfg = Release|x86
+		{34A4D055-90EE-4439-A22A-5358A1CE1FD1}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{34A4D055-90EE-4439-A22A-5358A1CE1FD1}.Release|Mixed Platforms.Build.0 = Release|x86
+		{34A4D055-90EE-4439-A22A-5358A1CE1FD1}.Release|x86.ActiveCfg = Release|x86
+		{34A4D055-90EE-4439-A22A-5358A1CE1FD1}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{65B81F93-929C-4AE5-B4E7-18DA882E1DA5} = {9435E791-9AEF-448C-9003-25D7AE18F4A0}
+		{34A4D055-90EE-4439-A22A-5358A1CE1FD1} = {9435E791-9AEF-448C-9003-25D7AE18F4A0}
 		{9F72B8F8-BBEE-4AD5-AB6C-E67C0528254E} = {DE5716B2-FBD1-4D1F-AC44-2FCC77128E12}
 		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA} = {DE5716B2-FBD1-4D1F-AC44-2FCC77128E12}
 		{43A73CF5-A0CC-431F-B626-E88904600162} = {E3C50950-0F48-4A83-9099-551AA7A881AE}

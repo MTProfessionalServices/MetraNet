@@ -6,6 +6,7 @@ IF NOT "none%1%"=="none" (
 	IF NOT "%1%"=="full" (
 		@echo '%1%' is not recognized parameter.
 		@echo Use 'full' {ALL changes will be removed} parameter to force FullCheckOut from GIT and execute makeitallparallel with clean...
+		@echo Use 'with_revert' parameter to revert all changes before do git pull by all submodules 
 		Exit /B
 	)
 )
@@ -38,6 +39,10 @@ FOR /D %%p IN ("%windir%\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Fi
 rem git hard reset all changes second time [TODO] should be just reverted
 call %SCRIPTSFOLDER%\Git\GitRevert.bat skip_set_unchange_config
 )
+
+if "%1%"=="with_revert" (
+call %SCRIPTSFOLDER%\Git\GitRevert.bat skip_set_unchange_config
+}
 
 rem whether show log in notepad: 0 - none; 1 - only MetraNet build log; 2 - MetraNet and MVM; 3 - MetraNet, MVM and ICE; 4 - MetraNet, MVM, ICE and DB installetion
 SET WILL_SHOW_LOG_IN_NOTEPAD=0
@@ -110,17 +115,17 @@ GOTO END
 
 IF WILL_SHOW_LOG_IN_NOTEPAD GEQ 1 (
 notepad++ %temp%\msbuild.log
-@echo *** Result of MN build see in opened notepad (title: msbuild.log) ***
+@echo *** Result of MN build see in opened notepad {title: msbuild.log} ***
 )
 
 IF WILL_SHOW_LOG_IN_NOTEPAD GEQ 2 (
 notepad++ %temp%\ICE_build.log
-@echo *** Result of ICE build see in opened notepad (title: ICE_build.log) ***
+@echo *** Result of ICE build see in opened notepad {title: ICE_build.log} ***
 )
 
 IF WILL_SHOW_LOG_IN_NOTEPAD GEQ 3 (
 notepad++ %temp%\MetraNetMVMBuild.log
-@echo *** Result of MVM build see in opened notepad (title: mvm_build.log) ***
+@echo *** Result of MVM build see in opened notepad {title: mvm_build.log} ***
 )
 
 :END

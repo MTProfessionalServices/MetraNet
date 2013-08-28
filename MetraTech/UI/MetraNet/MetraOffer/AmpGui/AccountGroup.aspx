@@ -3,7 +3,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-
   <div class="CaptionBar">
     <asp:Label ID="lblTitle" runat="server" Text="Select Account Group" meta:resourcekey="lblTitleResource1"></asp:Label>   
   </div>
@@ -34,11 +33,25 @@
       Text="Select the Account Group for this Decision Type:" ></asp:Label>
   </div>  
 
+    <div>
+        <div style="float:left;padding-left:10px;">
+            <MT:MTCheckBoxControl ID="FromParamTableCheckBox" runat="server" LabelWidth="0" BoxLabel="<%$Resources:Resource,TEXT_FROM_PARAM_TABLE%>" XType="Checkbox" XTypeNameSpace="form" />
+        </div>
+        <div div style="float:left">
+            <div id="divAccountGroupFromParamTableDropdownSource" runat="server">
+                <MT:MTDropDown ID="ddAccountGroupFromParamTableSource" runat="server" ControlWidth="160" ListWidth="200" HideLabel="True" AllowBlank="True" Editable="True"/>
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+
+<div id="divAccountGroupGrid" runat="server" >
+ 
   <div style="padding-left:5px;">
     <MT:MTFilterGrid ID="AccountGroupGrid" runat="server" TemplateFileName="AmpWizard.AccountGroups" ExtensionName="MvmAmp">
     </MT:MTFilterGrid>
   </div>
-   
+ </div>  
   <!-- 
     Regarding positioning of the Back and Continue buttons:
     The br element is needed; leave it there!
@@ -57,7 +70,7 @@
                          CausesValidation="false" TabIndex="230" />
           </td>
           <td align="right">
-            <MT:MTButton ID="btnSaveAndContinue" runat="server" Text="<%$Resources:Resource,TEXT_SAVE_AND_CONTINUE%>"
+            <MT:MTButton ID="btnSaveAndContinue" runat="server" Text="<%$Resources:Resource,TEXT_NEXT%>"
                          OnClientClick="if (ValidateForm()) { MPC_setNeedToConfirm(false); onContinueClick(); } else { MPC_setNeedToConfirm(true); return false; }"
                          OnClick="btnContinue_Click"
                          CausesValidation="true" TabIndex="240"/>
@@ -75,6 +88,17 @@
 
 
   <script type="text/javascript" language="javascript">
+        function updateActiveControls() {
+         var dd = Ext.getCmp('<%=ddAccountGroupFromParamTableSource.ClientID %>');
+         var cb = Ext.getCmp('<%=FromParamTableCheckBox.ClientID %>');
+         if (cb.checked == true) {
+             dd.enable();
+             document.getElementById('<%=divAccountGroupGrid.ClientID %>').style.display = "none";
+         } else {
+             dd.disable();
+             document.getElementById('<%=divAccountGroupGrid.ClientID %>').style.display = "block";
+         }
+     }
 
     OverrideRenderer_<%= AccountGroupGrid.ClientID %> = function(cm) {
       if (cm.getIndexById('Actions') != -1) {
@@ -140,9 +164,16 @@
   function onContinueClick() {
       // Store the selected account group name.
       var records = grid_<%= AccountGroupGrid.ClientID %>.getSelectionModel().getSelections();
-      if ((ampAction != 'View') && (records.length > 0))
+      var dd = Ext.getCmp('<%=ddAccountGroupFromParamTableSource.ClientID %>');
+      var cb = Ext.getCmp('<%=FromParamTableCheckBox.ClientID %>');
+      if ((ampAction != 'View'))
       {
-        Ext.get("<%=hiddenAcctGroupName.ClientID%>").dom.value = records[0].data.Name;
+          if (cb.checked) {
+              Ext.get("<%=hiddenAcctGroupName.ClientID%>").dom.value = dd.value.toString();
+          } else {
+              if(records.length>0)
+                Ext.get("<%=hiddenAcctGroupName.ClientID%>").dom.value = records[0].data.Name;
+          }
       }
     }
 
@@ -173,6 +204,14 @@
                 break;
               }
             }
+              if (i == records.length) { // It means that the loaded value was not one of the grid values and it must be from the param table.
+                  var dd = Ext.getCmp('<%=ddAccountGroupFromParamTableSource.ClientID %>');
+                  var cb = Ext.getCmp('<%=FromParamTableCheckBox.ClientID %>');
+//                  cb.Checked = true;
+                  updateActiveControls();
+  //                dd.value = currentAcctGroupName.toString();
+
+              }
           }
         );
 

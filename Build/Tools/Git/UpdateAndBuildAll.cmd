@@ -76,7 +76,7 @@ GOTO ERROR
 rem Builds MVM
 SET WILL_SHOW_LOG_IN_NOTEPAD=2
 @pushd %MTEXTENSIONS%\MVMCore_Internal\SourceCode\Mvm\
-call %MTEXTENSIONS%\Legacy_Internal\Source\build\tools\MakeItAll BuildMVM
+call msbuild MVM.sln /m /ds /p:config=%VERSION%;MyTargets=Build /fl /flp:ShowTimestamp;Verbosity=DIAG;Summary;LogFile=%temp%\MetraNetMVMBuild.log /clp:Verbosity=M;Summary /property:Platform=x86
 @popd
 IF NOT %ERRORLEVEL%==0 (
 @echo error while build MVM. See opened MetraNetMVMBuild.log in Notepad++...

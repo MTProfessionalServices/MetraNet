@@ -35,7 +35,6 @@ public partial class AmpNavigationPanelInitPage : AmpWizardBasePage
         if (!(String.IsNullOrEmpty(Request.QueryString["DecisionName"])))
         {
           AmpDecisionName = Request.QueryString["DecisionName"].ToString().Replace("&#039;", "'");
-          lblDecisionName.Text = MetraTech.UI.Tools.Utils.EncodeForHtml(String.Format("\"{0}\"", AmpDecisionName));
         }
                
         if (!(String.IsNullOrEmpty(Request.QueryString["Action"])))

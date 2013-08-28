@@ -37,6 +37,20 @@ public partial class AjaxServices_DecisionSvc : MTListServicePage
             items.CurrentPage = batchID;
 
             client.GetDecisions(ref items);
+
+            if (items != null)
+            {
+                if (items.Items != null)
+                {
+                    foreach (var decision in items.Items)
+                    {
+                        if (String.IsNullOrEmpty(decision.PvToAmountChainMappingValue))
+                        {
+                            decision.PvToAmountChainMappingValue = decision.PvToAmountChainMappingColumnName;
+                        }
+                    }
+                }
+            }
         }
         catch (Exception ex)
         {

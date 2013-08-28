@@ -666,7 +666,7 @@ ul.x-tab-strip li.x-tab-edge {
     top: 1px;
 }
 .ext-ie8 .x-tab-strip-top {
-    padding-top: 1;
+    padding-top: 1px;
 }
 .ext-border-box .ext-ie8 .x-tab-strip-top {
     padding-top: 0;
@@ -6996,4 +6996,8 @@ body.x-body-masked .x-window-plain .x-window-mc {
 
 .x-window-dlg .ext-mb-error {
     background-image:url(../images/default/window/icon-error.gif);
+}
+.checkbox
+ label {
+    margin-left: 5px;
 }

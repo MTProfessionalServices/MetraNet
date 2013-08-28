@@ -570,31 +570,6 @@ namespace MetraTech.DomainModel.ProductCatalog
     }
     #endregion
 
-    #region PvToAmountChainMapping
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isPvToAmountChainMappingDirty = false;
-    private string m_PvToAmountChainMapping;
-    /// <summary>
-    /// The PvToAmountChainMapping associates an amount chain with a product view.
-    /// </summary>
-    [MTDataMember(Description = "The PvToAmountChainMapping associates an amount chain with a product view.", Length = 40)]
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public string PvToAmountChainMapping
-    {
-        get { return m_PvToAmountChainMapping; }
-        set
-        {
-            m_PvToAmountChainMapping = value;
-            isPvToAmountChainMappingDirty = true;
-        }
-    }
-    [ScriptIgnore]
-    public bool IsPvToAmountChainMappingDirty
-    {
-        get { return isPvToAmountChainMappingDirty; }
-    }
-    #endregion
-
     #region UsageQualificationGroup
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
     private bool isUsageQualificationGroupDirty = false;
@@ -620,35 +595,62 @@ namespace MetraTech.DomainModel.ProductCatalog
     }
     #endregion
 
-    #region ItemAggregated
+    #region ItemAggregatedValue
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isItemAggregatedDirty = false;
-    private ItemAggregatedEnum m_ItemAggregated;
+    private bool isItemAggregatedValueDirty = false;
+    private ItemAggregatedEnum? m_ItemAggregatedValue;
     /// <summary>
     /// ItemAggregated defines the item that is being aggregated within this decision.
     /// e.g. if we are aggregating phone calls, ItemAggregated is "EVENTS".
     ///      if we are aggregating minutes within phone calls, ItemAggregated is "UNITS"
     ///      if we are aggregating the cost of phone calls, ItemAggregated is "CURRENCY"
-    /// TBD SHOULD BE ENUM
     /// </summary>
     [MTDataMember(Description = "ItemAggregated defines the item that is being aggregated within this decision.", Length = 40)]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public ItemAggregatedEnum ItemAggregated
+    public ItemAggregatedEnum? ItemAggregatedValue
     {
-        get { return m_ItemAggregated; }
+        get { return m_ItemAggregatedValue; }
         set
         {
-            m_ItemAggregated = value;
-            isItemAggregatedDirty = true;
+            m_ItemAggregatedValue = value;
+            isItemAggregatedValueDirty = true;
         }
     }
     [ScriptIgnore]
-    public bool IsItemAggregatedDirty
+    public bool IsItemAggregatedValueDirty
     {
-        get { return isItemAggregatedDirty; }
+        get { return isItemAggregatedValueDirty; }
     }
     #endregion
- 
+
+    #region ItemAggregatedColumnName
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isItemAggregatedColumnNameDirty = false;
+    private string m_ItemAggregatedColumnName;
+    /// <summary>
+    /// ItemAggregated defines the item that is being aggregated within this decision.
+    /// e.g. if we are aggregating phone calls, ItemAggregated is "EVENTS".
+    ///      if we are aggregating minutes within phone calls, ItemAggregated is "UNITS"
+    ///      if we are aggregating the cost of phone calls, ItemAggregated is "CURRENCY"
+    /// </summary>
+    [MTDataMember(Description = "This parameter holds the items being aggregated within this decision.", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public string ItemAggregatedColumnName
+    {
+        get { return m_ItemAggregatedColumnName; }
+        set
+        {
+            m_ItemAggregatedColumnName = value;
+            isItemAggregatedColumnNameDirty = true;
+        }
+    }
+    [ScriptIgnore]
+    public bool IsItemAggregatedColumnNameDirty
+    {
+        get { return isItemAggregatedColumnNameDirty; }
+    }
+    #endregion
+
     #region TierProration
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
     private bool isTierProrationDirty = false;
@@ -1520,5 +1522,54 @@ namespace MetraTech.DomainModel.ProductCatalog
     }
     #endregion
 
+    #region PvToAmountChainMappingValue
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isPvToAmountChainMappingValueDirty = false;
+    private string m_PvToAmountChainMappingValue;
+    /// <summary>
+    /// The PvToAmountChainMapping associates an amount chain with a product view.
+    /// </summary>
+    [MTDataMember(Description = "The PvToAmountChainMappingValue associates an amount chain with a product view. This is null if we will use a parameter table column instead to configure the PvToAmountChainMapping.", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public string PvToAmountChainMappingValue
+    {
+      get { return m_PvToAmountChainMappingValue; }
+      set
+      {
+          m_PvToAmountChainMappingValue = value;
+          isPvToAmountChainMappingValueDirty = true;
+      }
+    }
+	[ScriptIgnore]
+    public bool IsPvToAmountChainMappingValueDirty
+    {
+      get { return isPvToAmountChainMappingValueDirty; }
+    }
+    #endregion
+
+    #region PvToAmountChainMappingColumnName
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isPvToAmountChainMappingColumnNameDirty = false;
+    private string m_PvToAmountChainMappingColumnName;
+    /// <summary>
+    /// The PvToAmountChainMapping associates an amount chain with a product view.
+    /// </summary>
+    [MTDataMember(Description = "Parameter table column to configure for the PvToAmountChainMapping. The PvToAmountChainMappingValue associates an amount chain with a product view.", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public string PvToAmountChainMappingColumnName
+    {
+      get { return m_PvToAmountChainMappingColumnName; }
+      set
+      {
+          m_PvToAmountChainMappingColumnName = value;
+          isPvToAmountChainMappingColumnNameDirty = true;
+      }
+    }
+	[ScriptIgnore]
+    public bool IsPvToAmountChainMappingColumnNameDirty
+    {
+      get { return isPvToAmountChainMappingColumnNameDirty; }
+    }
+    #endregion
   }
 }

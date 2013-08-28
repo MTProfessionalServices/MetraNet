@@ -207,10 +207,7 @@
               if (i == records.length) { // It means that the loaded value was not one of the grid values and it must be from the param table.
                   var dd = Ext.getCmp('<%=ddAccountGroupFromParamTableSource.ClientID %>');
                   var cb = Ext.getCmp('<%=FromParamTableCheckBox.ClientID %>');
-//                  cb.Checked = true;
                   updateActiveControls();
-  //                dd.value = currentAcctGroupName.toString();
-
               }
           }
         );

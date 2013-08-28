@@ -2,6 +2,7 @@
 using System.Linq;
 using MetraTech.BusinessEntity.DataAccess.Persistence;
 using Core.Quoting;
+using MetraTech.Core.Services.ClientProxies;
 using MetraTech.Domain.Quoting;
 using MetraTech.ActivityServices.Common;
 using MetraTech.DataAccess;
@@ -176,6 +177,21 @@ namespace MetraTech.Shared.Test
         }
 
         Assert.IsTrue(quoteHeaderFromDB.QuoteContent.FailedMessage.Contains(partialErrorMessageToCheckFor), "Wrong FailedMessage");   
+    }
+
+    public static QuoteResponse InvokeCreateQuote(QuoteRequest request)
+    {
+        QuoteResponse response = null;
+        var client = new QuotingService_CreateQuote_Client
+        {
+            UserName = "su",
+            Password = "su123",
+            In_quoteRequest = request,
+            Out_quoteResponse = response
+        };
+        client.Invoke();
+        response = client.Out_quoteResponse;
+        return response;
     }
   }
 

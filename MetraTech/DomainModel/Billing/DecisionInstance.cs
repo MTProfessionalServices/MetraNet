@@ -144,53 +144,28 @@ namespace MetraTech.DomainModel.Billing
         }
         #endregion
 
-        #region AccountQualificationGroupColumnName
+        #region AccountQualificationGroup
         [DataMember(IsRequired = false, EmitDefaultValue = false)]
-        private bool isAccountQualificationGroupColumnNameDirty = false;
-        private string m_AccountQualificationGroupColumnName;
+        private bool isAccountQualificationGroupDirty = false;
+        private string m_AccountQualificationGroup;
         /// <summary>
         /// The AccountQualificationGroup specifies which accounts to consider when processing a decision.
         /// </summary>
         [MTDataMember(Description = "The AccountQualificationGroup specifies which accounts to consider when processing a decision.", Length = 40)]
         [DataMember(IsRequired = false, EmitDefaultValue = false)]
-        public string AccountQualificationGroupColumnName
+        public string AccountQualificationGroup
         {
-            get { return m_AccountQualificationGroupColumnName; }
+            get { return m_AccountQualificationGroup; }
             set
             {
-                m_AccountQualificationGroupColumnName = value;
-                isAccountQualificationGroupColumnNameDirty = true;
+                m_AccountQualificationGroup = value;
+                isAccountQualificationGroupDirty = true;
             }
         }
         [ScriptIgnore]
         public bool IsAccountQualificationGroupColumnNameDirty
         {
-            get { return isAccountQualificationGroupColumnNameDirty; }
-        }
-        #endregion
-
-        #region AccountQualificationGroupValue
-        [DataMember(IsRequired = false, EmitDefaultValue = false)]
-        private bool isAccountQualificationGroupValueDirty = false;
-        private string m_AccountQualificationGroupValue;
-        /// <summary>
-        /// The AccountQualificationGroup specifies which accounts to consider when processing a decision.
-        /// </summary>
-        [MTDataMember(Description = "The AccountQualificationGroup specifies which accounts to consider when processing a decision.", Length = 40)]
-        [DataMember(IsRequired = false, EmitDefaultValue = false)]
-        public string AccountQualificationGroupValue
-        {
-            get { return m_AccountQualificationGroupValue; }
-            set
-            {
-                m_AccountQualificationGroupValue = value;
-                isAccountQualificationGroupValueDirty = true;
-            }
-        }
-        [ScriptIgnore]
-        public bool IsAccountQualificationGroupValueDirty
-        {
-            get { return isAccountQualificationGroupValueDirty; }
+            get { return isAccountQualificationGroupDirty; }
         }
         #endregion
 

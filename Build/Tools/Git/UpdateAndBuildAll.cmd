@@ -3,7 +3,7 @@ rem all env variables took from %ROOTDIR%\Build\Tools\setEnv.bat
 @echo off
 
 IF NOT "none%1%"=="none" (
-	IF NOT "%1%"=="full" (
+	IF NOT "%1%"=="full" OR "%1%"=="with_revert"(
 		@echo '%1%' is not recognized parameter.
 		@echo Use 'full' {ALL changes will be removed} parameter to force FullCheckOut from GIT and execute makeitallparallel with clean...
 		@echo Use 'with_revert' parameter to revert all changes before do git pull by all submodules 

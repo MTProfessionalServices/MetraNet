@@ -203,7 +203,8 @@ namespace MetraTech.Core.Services.UnitTests
         decision.IsEditable = true;
         decision.Description = "my decision updated";
         decision.ExecutionFrequency = Decision.ExecutionFrequencyEnum.DURING_BOTH;
-        decision.PvToAmountChainMapping = "TmpPvToAmountChainMapping";
+        decision.PvToAmountChainMappingValue = "TmpPvToAmountChainMappingValue";
+        decision.PvToAmountChainMappingColumnName = "TmpPvToAmountChainMappingColumnName";
         decision.GeneratedCharge = "TmpGeneratedCharge";
         client.SaveDecision(decision);
 
@@ -212,7 +213,8 @@ namespace MetraTech.Core.Services.UnitTests
         client.GetDecision("dansDecision", out sameDecision);
         Console.WriteLine("sameDecision.TierStartValue={0}", sameDecision.TierStartValue);
         Console.WriteLine("sameDecision.TierEndValue={0}", sameDecision.TierEndValue);
-        Console.WriteLine("sameDecision.AccountQualificationGroup={0}", sameDecision.AccountQualificationGroup);
+        Console.WriteLine("sameDecision.AccountQualificationGroupValue={0}", sameDecision.AccountQualificationGroupValue);
+        Console.WriteLine("sameDecision.AccountQualificationGroupColumnName={0}", sameDecision.AccountQualificationGroupColumnName);
         Console.WriteLine("sameDecision.ItemAggregatedValue={0}", sameDecision.ItemAggregatedValue);
         Console.WriteLine("sameDecision.IsActive={0}", sameDecision.IsActive);
         Console.WriteLine("sameDecision.IsEditable={0}", sameDecision.IsEditable);
@@ -226,7 +228,8 @@ namespace MetraTech.Core.Services.UnitTests
         Assert.AreEqual(sameDecision.IsEditable, true, "IsEditable should be true");
         Assert.AreEqual(sameDecision.Description, "my decision updated", "Description should be 'my decision updated'");
         Assert.AreEqual(sameDecision.ExecutionFrequency, Decision.ExecutionFrequencyEnum.DURING_BOTH);
-        Assert.AreEqual(sameDecision.PvToAmountChainMapping, "TmpPvToAmountChainMapping");
+        Assert.AreEqual(sameDecision.PvToAmountChainMappingValue, "TmpPvToAmountChainMappingValue");
+        Assert.AreEqual(sameDecision.PvToAmountChainMappingColumnName, "TmpPvToAmountChainMappingColumnName");
         Assert.AreEqual(sameDecision.GeneratedCharge, "TmpGeneratedCharge");
         Assert.AreEqual(sameDecision.ParameterTableName, decision.ParameterTableName);
         Assert.AreEqual(sameDecision.ParameterTableDisplayName, decision.ParameterTableDisplayName);

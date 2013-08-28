@@ -201,8 +201,9 @@ namespace MetraTech.Shared.Test
         /// <summary> Helper to populate SubscriptionParameters with default UDRCInstanceValues
         /// </summary>
         /// <param name="productOffering">Product offering to populate for</param>
+        /// <param name="value">Value of UDRC metrics</param>
         /// <param name="idUDRC">Sets UDRC ID if passed (used to test failing case)</param>
-        public static Dictionary<string, List<UDRCInstanceValueBase>> GetUDRCInstanceValuesSetToMiddleValues(IMTProductOffering productOffering, int? idUDRC = null)
+        public static Dictionary<string, List<UDRCInstanceValueBase>> GetUDRCInstanceValuesSetToMiddleValues(IMTProductOffering productOffering, decimal value = 20m, int? idUDRC = null)
         {
             var dictionaryToReturn = new Dictionary<string, List<UDRCInstanceValueBase>>();
 
@@ -219,7 +220,7 @@ namespace MetraTech.Shared.Test
                         UDRC_Id = idUDRC.HasValue ? idUDRC.Value : possibleUDRC.ID,
                         StartDate = MetraTime.Now,
                         EndDate = MetraTime.Now.AddYears(1),
-                        Value = 20
+                        Value = value
                     };
 
                     if (dictionaryToReturn.ContainsKey(productOffering.ID.ToString()))
@@ -236,6 +237,7 @@ namespace MetraTech.Shared.Test
             return dictionaryToReturn;
         }
 
+
         /// <summary> Set AllowICB flag for PI
         /// </summary>
         /// <param name="pi">Pi to set flag</param>
@@ -243,9 +245,10 @@ namespace MetraTech.Shared.Test
         /// <param name="poId">Id of PO that has referred PI</param>
         /// <param name="ptId">Parameter table ID</param>
         /// <param name="ptName">Parameter table name</param>
+        /// <param name="allowICBFlag"></param>
         /// <returns></returns>
         public static PIAndPTParameters SetAllowICBForPI(IMTPriceableItem pi, PriceListServiceClient client,
-                                      int poId, int ptId, string ptName)
+                                      int poId, int ptId, string ptName, bool allowICBFlag = true)
         {
             PriceListMapping plMappingForUdrc;
             int chargeId;
@@ -269,7 +272,7 @@ namespace MetraTech.Shared.Test
                 new PCIdentifier(chargeId),
                 new PCIdentifier(ptId),
                 out plMappingForUdrc);
-            plMappingForUdrc.CanICB = true;
+            plMappingForUdrc.CanICB = allowICBFlag;
             client.SavePriceListMappingForProductOffering
                 (new PCIdentifier(poId),
                  new PCIdentifier(chargeId),

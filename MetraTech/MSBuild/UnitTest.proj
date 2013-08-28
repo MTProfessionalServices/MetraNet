@@ -3,7 +3,6 @@
 	
 	<PropertyGroup>
 		<BasePath>..\</BasePath>
-		<config>Release</config>
 		<platform>x86</platform>
 		<OutDir>$(MTOUTDIR)\UnitTests\</OutDir>
 		<BuildPath Condition="'$(BuildPath)'==''">$(MSBuildProjectDirectory)</BuildPath>

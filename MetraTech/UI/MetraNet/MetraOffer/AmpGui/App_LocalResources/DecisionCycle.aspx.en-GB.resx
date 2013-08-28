@@ -138,6 +138,9 @@
   <data name="lblNumberOfQuarters.Text" xml:space="preserve">
     <value>Number of quarters in the Decision Cycle:</value>
   </data>
+  <data name="lblNumberOfTimeUnits.Text" xml:space="preserve">
+    <value>Number of time units in the Decision Cycle:</value>
+  </data>
   <data name="lblNumberOfWeeks.Text" xml:space="preserve">
     <value>Number of weeks in the Decision Cycle:</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="lblNumberQuartersBillingInterval.Text" xml:space="preserve">
     <value>Number of quarters from the subscription start to the start of the Decision Cycle:</value>
+  </data>
+  <data name="lblNumberTimeUnitsBillingInterval.Text" xml:space="preserve">
+    <value>Number of time units from the subscription start to the start of the Decision Cycle:</value>
   </data>
   <data name="lblNumberWeeksBillingInterval.Text" xml:space="preserve">
     <value>Number of weeks from the subscription start to the start of the Decision Cycle:</value>
@@ -177,6 +183,9 @@
   <data name="rblSpecified.Text" xml:space="preserve">
     <value>For a specific number of Decision Cycles:</value>
   </data>
+  <data name="rblUnitOfTimeFromParamTable.Text" xml:space="preserve">
+    <value>Get unit of time from parameter table:</value>
+  </data>
   <data name="rblWeeks.Text" xml:space="preserve">
     <value>Weeks</value>
   </data>
@@ -191,14 +200,5 @@
   </data>
   <data name="TEXT_ERROR_NO_VALUE_SPECIFIC_NUMBER" xml:space="preserve">
     <value>Error: You must specify the number of Decision Cycles that the Decision will be in effect.</value>
-  </data>
-  <data name="rblUnitOfTimeFromParamTable.Text" xml:space="preserve">
-    <value>Get unit of time from parameter table:</value>
-  </data>
-  <data name="lblNumberOfTimeUnits.Text" xml:space="preserve">
-    <value>Number of time units in the Decision Cycle:</value>
-  </data>
-  <data name="lblNumberTimeUnitsBillingInterval.Text" xml:space="preserve">
-    <value>Number of time units from the subscription start to the start of the Decision Cycle:</value>
   </data>
 </root>

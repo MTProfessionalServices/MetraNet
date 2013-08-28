@@ -121,7 +121,7 @@
     <value>MetraNet</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Japanese</value>
+    <value>ecision Action for {0} (Japanese)</value>
   </data>
   <data name="lblIncrementalOrBulkResource1.Text" xml:space="preserve">
     <value>Japanese</value>
@@ -146,6 +146,9 @@
   </data>
   <data name="radGenChargeResource1.Text" xml:space="preserve">
     <value>Japanese</value>
+  </data>
+  <data name="noChargeResource1.Text" xml:space="preserve">
+    <value>None(Japanese)</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>Japanese</value>

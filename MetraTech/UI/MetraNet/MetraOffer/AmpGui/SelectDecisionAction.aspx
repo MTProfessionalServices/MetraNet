@@ -14,10 +14,6 @@
     <asp:Label ID="lblIncrementalOrBulk" runat="server" Font-Bold="False" ForeColor="DarkBlue" 
       Font-Size="9pt" meta:resourcekey="lblIncrementalOrBulkResource1" 
       Text="How should the Decision Type process the records?" ></asp:Label>
-    <span id="HelpLinkBulkDescription" style="color:blue;text-decoration:underline;cursor:pointer" 
-          onclick=" displayInfoMultiple(TITLE_AMPWIZARD_HELP_INCREMENTAL_OR_BULK, TEXT_AMPWIZARD_HELP_INCREMENTAL_OR_BULK, 450, 100)">
-       <img id="Img1" src='/Res/Images/icons/help.png' />
-    </span>
   </div>
   <div style="padding-left:45px;padding-top:5px;">
     <table cellpadding="0" cellspacing="0" style="width:100%;">
@@ -106,8 +102,13 @@
           <img id="Img5" src='/Res/Images/icons/help.png' />
         </span>
         </div>
-        <div style="padding-top:0px;">
-          <img id="Img6" src='/Res/Images/icons/cog_error.png' runat="server" title="<%$ Resources:AmpWizard,TEXT_ADVANCED_FEATURE %>" />
+       </td>
+    </tr>
+	<tr> <!-- Row 5 -->
+      <td colspan="2" style="padding-top:15px;" valign="top">
+        <div style="float:left;">
+        <asp:RadioButton id="noCharge" runat="server" GroupName="DecisionActionRadioButtons"
+              Text="None" meta:resourcekey="noChargeResource1" ForeColor="Black"/>
         </div>
       </td>
     </tr>
@@ -132,7 +133,7 @@
                          CausesValidation="false" TabIndex="230" />
           </td>
           <td align="right">
-            <MT:MTButton ID="btnSaveAndContinue" runat="server" Text="<%$Resources:Resource,TEXT_SAVE_AND_CONTINUE%>"
+            <MT:MTButton ID="btnSaveAndContinue" runat="server" Text="<%$Resources:Resource,TEXT_NEXT%>"
                          OnClientClick="if (ValidateForm()) { MPC_setNeedToConfirm(false); } else { MPC_setNeedToConfirm(true); return false; }"
                          OnClick="btnContinue_Click"
                          CausesValidation="true" TabIndex="240"/>
@@ -146,15 +147,16 @@
 
     // Enable or disable the fixed-value-or-PT-col controls (ctrlDiscount, ctrlUnitRate, ctrlEventRate).
     // The state of ampControlID1 and ampControlID2 is set to bEnabled,
-    // and the state of AmpControlID3 depends on whether radGenCharge is checked.
+    // and the state of AmpControlID3 depends on whether radGenCharge or noCharge is checked.
     function EnableAppropriateUserControls(bEnabled, ampControlID1, ampControlID2, ampControlID3) {
 
       var radGenCharge = document.getElementById('<%=radGenCharge.ClientID%>');
-
+      var noCharge = document.getElementById('<%=noCharge.ClientID%>');
+	  
       eval('ChangeControlStateAction_' + ampControlID1 + '(' + bEnabled + ')');
       eval('ChangeControlStateAction_' + ampControlID2 + '(' + bEnabled + ')');
       
-      if (radGenCharge.checked) {
+      if (radGenCharge.checked || noCharge.checked) {
         eval('ChangeControlStateAction_' + ampControlID3 + '(' + bEnabled + ')');
       }
       else {
@@ -168,21 +170,22 @@
       var radDiscount = document.getElementById('<%=radDiscount.ClientID%>');
       var radEventRate = document.getElementById('<%=radEventRate.ClientID%>');
       var radGenCharge = document.getElementById('<%=radGenCharge.ClientID%>');
+      var noCharge = document.getElementById('<%=noCharge.ClientID%>');
 
       // Must check for null user controls.  Can't disable them if they're invisible (not on the page).
       var unitRateUserControl = document.getElementById('<%=unitRate.ClientID%>_ddSourceType');
       var eventRateUserControl = document.getElementById('<%=eventRate.ClientID%>_ddSourceType');
       var discountUserControl = document.getElementById('<%=discount.ClientID%>_ddSourceType');
 
-      if ((radEventRate.checked || radDiscount.checked || radGenCharge.checked) && (unitRateUserControl != null))
+      if ((radEventRate.checked || radDiscount.checked || radGenCharge.checked || noCharge.checked) && (unitRateUserControl != null))
       {
         eval('DisabledControl_<%=unitRate.ClientID %>()');
       }
-      if ((radUnitRate.checked || radDiscount.checked || radGenCharge.checked) && (eventRateUserControl != null))
+      if ((radUnitRate.checked || radDiscount.checked || radGenCharge.checked || noCharge.checked) && (eventRateUserControl != null))
       {
         eval('DisabledControl_<%=eventRate.ClientID %>()');
       }
-      if ((radUnitRate.checked || radEventRate.checked || radGenCharge.checked) && (discountUserControl != null))
+      if ((radUnitRate.checked || radEventRate.checked || radGenCharge.checked || noCharge.checked) && (discountUserControl != null))
       {
         eval('DisabledControl_<%=discount.ClientID %>()');
       }

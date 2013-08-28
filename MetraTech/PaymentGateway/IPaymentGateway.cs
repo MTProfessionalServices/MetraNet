@@ -9,7 +9,7 @@ namespace MetraTech.MetraPay.PaymentGateway
   {
     void Init(string configFile);
 
-    bool ValidatePaymentMethod(MetraPaymentMethod paymentMethod);
+    bool ValidatePaymentMethod(MetraPaymentMethod paymentMethod, string currency);
     
     void AuthorizeCharge(CreditCardPaymentMethod ccPaymentMethod, ref MetraPaymentInfo paymentInfo, out string requestParms, out string warnings, double timeout = 0, string cos = "");
     void CaptureCharge(CreditCardPaymentMethod ccPaymentMethod, ref MetraPaymentInfo paymentInfo, string requestParms, out string warnings, double timeout = 0, string cos = "");

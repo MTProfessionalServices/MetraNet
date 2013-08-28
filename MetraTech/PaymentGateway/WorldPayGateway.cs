@@ -29,13 +29,13 @@ namespace MetraTech.MetraPay.PaymentGateway
             _wpConfig = WorldPayConfig.GetGlobalInstance();
         }
 
-        public bool ValidatePaymentMethod(DomainModel.MetraPay.MetraPaymentMethod paymentMethod)
+        public bool ValidatePaymentMethod(DomainModel.MetraPay.MetraPaymentMethod paymentMethod, string currency)
         {
             XmlDocument dom = WorldPayTokenizer.GetAuthorizationToken(_wpConfig,
                                                                             paymentMethod.PaymentInstrumentID,
                                                                             false,
                                                                             (decimal)1.00,
-                                                                            "USD");
+                                                                            currency);
 
             WorldPayHttpConnection wpRequest = new WorldPayHttpConnection();
             XmlDocument response = wpRequest.Send(_wpConfig, dom, false);

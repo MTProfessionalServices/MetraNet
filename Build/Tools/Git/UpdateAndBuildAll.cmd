@@ -1,4 +1,4 @@
-rem The Script was last updated on 5/24/2013
+rem The Script was last updated on 8/28/2013
 rem all env variables took from %ROOTDIR%\Build\Tools\setEnv.bat
 @echo off
 
@@ -39,7 +39,7 @@ rem git hard reset all changes second time [TODO] should be just reverted
 call %SCRIPTSFOLDER%\Git\GitRevert.bat skip_set_unchange_config
 )
 
-rem whether show log in notepad: 0 - none; 1 - only MetraNet build log; 2 - MetraNet and MVM; 3 - MetraNet, MVM and ICE; 4 - MetraNet, MVM, ICE and DB installetion
+rem whether show log in notepad: 0 - none; 1 - only MetraNet build log (depricated, because added targets to MetraNetBuild.proj); 2 - MetraNet and MVM; 3 - MetraNet, MVM and ICE; 4 - MetraNet, MVM, ICE and DB installetion
 SET WILL_SHOW_LOG_IN_NOTEPAD=0
 @echo Starting get latest versions from MetraNet root repository
 ::call sh --login -i -c "git mt feature push"
@@ -59,22 +59,13 @@ GOTO ERROR
 call %SCRIPTSFOLDER%\Git\SetUnchangeConfigFiles.bat skip_pause
 
 rem Builds MetraNet
-SET WILL_SHOW_LOG_IN_NOTEPAD=1
-call %MTEXTENSIONS%\Legacy_Internal\Source\build\tools\MakeItAllParallel
+SET WILL_SHOW_LOG_IN_NOTEPAD=2
+call %MTEXTENSIONS%\Legacy_Internal\Source\build\tools\MakeItAllParallel AllAndMVM
 IF NOT %ERRORLEVEL%==0 (
-@echo error while build MetraNet. See opened msbuild.log in Notepad++...
+@echo error while build MetraNet and MVM. See opened msbuild.log in Notepad++...
 GOTO ERROR
 )
 
-rem Builds MVM
-SET WILL_SHOW_LOG_IN_NOTEPAD=2
-@pushd %MTEXTENSIONS%\MVMCore_Internal\SourceCode\Mvm\
-call %MTEXTENSIONS%\Legacy_Internal\Source\build\tools\MakeItAll BuildMVM
-@popd
-IF NOT %ERRORLEVEL%==0 (
-@echo error while build MVM. See opened MetraNetMVMBuild.log in Notepad++...
-GOTO ERROR
-)
 
 rem Builds ICE
 SET WILL_SHOW_LOG_IN_NOTEPAD=3
@@ -98,7 +89,6 @@ call cryptosetup -encryptconfig
 
 SET WILL_SHOW_LOG_IN_NOTEPAD=4
 call %ROOTDIR%\Install\Scripts\database.vbs
-
 :DONE
 echo DONE!
 @echo *** Result of DB installation see above ... ***
@@ -107,20 +97,14 @@ GOTO END
 :ERROR
 @echo ERROR were found (errorcode=%ERRORLEVEL%), see text above for clarification
 
-
-IF WILL_SHOW_LOG_IN_NOTEPAD GEQ 1 (
-notepad++ %temp%\msbuild.log
-@echo *** Result of MN build see in opened notepad (title: msbuild.log) ***
-)
-
 IF WILL_SHOW_LOG_IN_NOTEPAD GEQ 2 (
-notepad++ %temp%\ICE_build.log
-@echo *** Result of ICE build see in opened notepad (title: ICE_build.log) ***
+notepad++ %temp%\msbuild.log
+@echo *** Result of MetraNet and MVM build see in opened notepad (title: msbuild.log) ***
 )
 
 IF WILL_SHOW_LOG_IN_NOTEPAD GEQ 3 (
-notepad++ %temp%\MetraNetMVMBuild.log
-@echo *** Result of MVM build see in opened notepad (title: mvm_build.log) ***
+notepad++ %temp%\msbuild_ICE.log
+@echo *** Result of ICE build see in opened notepad (title: msbuild_ICE.log) ***
 )
 
 :END

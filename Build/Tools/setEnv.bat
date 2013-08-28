@@ -93,6 +93,6 @@ mtsubst t: %MTEXTENSIONS%\TestsDatabase_Internal
 mtsubst o: %DEVDIR%\output
 mtsubst g: "C:\windows\assembly\gac"
 mtsubst u: %MTEXTENSIONS%\FunctionalTests_Internal
-mtsubst v: %MTEXTENSIONS%\Legacy_Internal
+mtsubst v: %MTEXTENSIONS%
 
 pause

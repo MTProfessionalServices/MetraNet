@@ -65,8 +65,7 @@
 			$(ROOTDIR)\ThirdParty\EZTax\EZTaxNET\9.0_2.0FrameWork\*.dll;
 			
 			$(ROOTDIR)\Thirdparty\RaptorDB\RaptorDB.dll;
-			$(ROOTDIR)\Thirdparty\ShellLink\ShellLink.exe;
-			$(ROOTDIR)\Thirdparty\FakeItEasy\FakeItEasy.dll;
+			$(ROOTDIR)\Thirdparty\ShellLink\ShellLink.exe;			
 			$(ROOTDIR)\Thirdparty\Castle\*.dll;
         " />
   </ItemGroup>

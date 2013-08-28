@@ -51,7 +51,7 @@
     </Reference>
     <Reference Include="MetraTech.Account.ClientProxies">
       <HintPath>$(MTRMP)\extensions\Account\bin\MetraTech.Account.ClientProxies.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="MetraTech.DomainModel.AccountTypes.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

@@ -41,7 +41,7 @@
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DocumentationFile>bin\Debug\MetraTech.Core.Services.Test.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\MetraTech.Quoting.Test.XML</DocumentationFile>
     <NoWarn>1591</NoWarn>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
@@ -108,8 +108,9 @@
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DataAccess.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="MetraTech.DomainModel.ProductCatalog.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="MetraTech.DomainModel.ProductCatalog.Generated">
       <Private>False</Private>
+	  <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.ProductCatalog.Generated.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.Localization">
       <SpecificVersion>False</SpecificVersion>
@@ -171,11 +172,12 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
-    <Reference Include="MTRuleSet.interop, Version=7.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+    <Reference Include="MTRuleSet.interop">
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <Private>False</Private>
+	  <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTRuleSet.interop.dll</HintPath>
     </Reference>
-    <Reference Include="MTYAAC.interop, Version=7.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+    <Reference Include="MTYAAC.interop">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTYAAC.interop.dll</HintPath>
@@ -190,6 +192,31 @@
     <Reference Include="MetraTech.Quoting">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Quoting.dll</HintPath>
+      <Private>False</Private>
+    </Reference>  
+	 <Reference Include="MetraTech.ActivityServices.Services.Common">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.ActivityServices.Services.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>	
+	 <Reference Include="MetraTech.Core.Services">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Core.Services.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+	 <Reference Include="MetraTech.Domain">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Domain.dll</HintPath>
+      <Private>False</Private>
+    </Reference>	
+	 <Reference Include="MetraTech.Application">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Application.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+	 <Reference Include="MetraTech.Domain.Test">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Domain.Test.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -244,33 +271,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Legacy_Internal\Source\MetraTech\ActivityServices\ServiceBase\MetraTech.ActivityServices.Services.Common.csproj">
-      <Project>{15E6CE39-F476-4ACD-B73D-BFCAAE218CB2}</Project>
-      <Name>MetraTech.ActivityServices.Services.Common</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Legacy_Internal\Source\MetraTech\Core\Services\MetraTech.Core.Services.csproj">
-      <Project>{65B81F93-929C-4AE5-B4E7-18DA882E1DA5}</Project>
-      <Name>MetraTech.Core.Services</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Legacy_Internal\Source\MetraTech\MetraTech.Domain.Test\MetraTech.Domain.Test.csproj">
-      <Project>{C9D05D42-B0FB-47FE-8E00-FBB99AFB3EC3}</Project>
-      <Name>MetraTech.Domain.Test</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Legacy_Internal\Source\MetraTech\MetraTech.Domain\MetraTech.Domain.csproj">
-      <Project>{9C9C685C-CBF8-428F-8C34-98702FF13726}</Project>
-      <Name>MetraTech.Domain</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Legacy_Internal\Source\MetraTech\MetraTech.Application\MetraTech.Application.csproj">
-      <Project>{A19EED27-05B5-4907-B8A7-20C43EED7F42}</Project>
-      <Name>MetraTech.Application</Name>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

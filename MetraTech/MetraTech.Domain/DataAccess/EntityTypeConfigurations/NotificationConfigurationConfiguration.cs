@@ -18,7 +18,7 @@ namespace MetraTech.Domain.DataAccess.EntityTypeConfigurations
         t.ToTable("NotificationConfiguration");
         t.MapInheritedProperties();
       });
-      Property(t => t.EmailTemplateXml).HasColumnName("EmailTemplate");
+      Property(t => t.MessageTemplateXml).HasColumnName("MessageTemplate");
     }
   }
 }

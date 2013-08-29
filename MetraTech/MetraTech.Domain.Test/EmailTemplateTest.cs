@@ -7,47 +7,54 @@ using System.Net.Mail;
 
 namespace MetraTech.Domain.Test
 {
-  [TestClass]
-  public class EmailTemplateTest
-  {
-    [TestMethod]
-    public void CreateMailMessageTest()
+    [TestClass]
+    public class EmailTemplateTest
     {
-      var localizedEmailTemplate = new LocalizedEmailTemplate
-      {
-        SubjectTemplate = EmailTemplates.ThresholdCrossingTemplateSubject,
-        BodyTemplate = EmailTemplates.ThresholdCrossingTemplateBody
-      };
-
-      var emailTemplate = new EmailTemplate
+        [TestMethod]
+        public void CreateMailMessageTest()
         {
-          ToRecipient = "mdesousa@metratech.com",
-          CarbonCopyRecipients = new List<string>(),
-          DeliveryLanguage = "en-us",
-          EmailTemplateDictionary = new EmailTemplateDictionary { { "en-us", localizedEmailTemplate }}
-        };
+            var localizedEmailTemplate = new LocalizedEmailTemplate
+            {
+                SubjectTemplate = EmailTemplates.ThresholdCrossingTemplateSubject,
+                BodyTemplate = EmailTemplates.ThresholdCrossingTemplateBody
+            };
 
-      var triggeredEvent = new ThresholdCrossingEvent
-      {
-        UsageQuantityForPriorTier = new Quantity(1000m, "MIN"),
-        PriceForPriorTier = new Money(0.25m, "USD"),
-        UsageQuantityForNextTier = new Quantity(2000m, "MIN"),
-        PriceForNextTier = new Money(0.20m, "USD"),
-        CurrentUsageQuantity = new Quantity(1025m, "MIN"),
-        ThresholdPeriodStart = new DateTime(2013, 1, 1),
-        ThresholdPeriodEnd = new DateTime(2014, 1, 1),
-        SubscriptionId = Guid.Empty
-      };
+            var emailTemplate = new EmailTemplate
+              {
+                  ToRecipient = "event.Account.EmailAddress",
+                  CarbonCopyRecipients = new List<string>(),
+                  DeliveryLanguage = "event.Account.LanguageCode",
+                  EmailTemplateDictionary = new EmailTemplateDictionary { { "en-us", localizedEmailTemplate } }
+              };
 
-      var fromAddress = new MailAddress("mdesousa@metratech.com");
+            var account = new Account
+                {
+                    EmailAddress = "mdesousa@metratech.com",
+                    LanguageCode = "en-us"
+                };
 
-      var message = emailTemplate.CreateMailMessage(triggeredEvent, fromAddress, null);
+            var triggeredEvent = new ThresholdCrossingEvent
+            {
+                UsageQuantityForPriorTier = new Quantity(1000m, "MIN"),
+                PriceForPriorTier = new Money(0.25m, "USD"),
+                UsageQuantityForNextTier = new Quantity(2000m, "MIN"),
+                PriceForNextTier = new Money(0.20m, "USD"),
+                CurrentUsageQuantity = new Quantity(1025m, "MIN"),
+                ThresholdPeriodStart = new DateTime(2013, 1, 1),
+                ThresholdPeriodEnd = new DateTime(2014, 1, 1),
+                SubscriptionId = Guid.Empty,
+                Account = account
+            };
 
-      Assert.AreEqual("mdesousa@metratech.com", message.From.Address);
-      Assert.AreEqual(0, message.ReplyToList.Count);
-      Assert.AreEqual("Congratulations! You have reached 1000 minutes", message.Subject);
-      Assert.AreEqual("<html><body>You have crossed a usage tier. Your next tier price is $0.20</body></html>", message.Body);
-      Assert.AreEqual(1, message.To.Count);
+            var fromAddress = new MailAddress("mdesousa@metratech.com");
+
+            var message = emailTemplate.CreateMailMessage(triggeredEvent, fromAddress, null);
+
+            Assert.AreEqual("mdesousa@metratech.com", message.From.Address);
+            Assert.AreEqual(0, message.ReplyToList.Count);
+            Assert.AreEqual("Congratulations! You have reached 1000 minutes", message.Subject);
+            Assert.AreEqual("<html><body>You have crossed a usage tier. Your next tier price is $0.20</body></html>", message.Body);
+            Assert.AreEqual(1, message.To.Count);
+        }
     }
-  }
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
+using MetraTech.Domain.Quoting;
 
 namespace MetraTech.Domain.Test.DataAccess
 {
@@ -16,6 +17,7 @@ namespace MetraTech.Domain.Test.DataAccess
     public IDbSet<Entity> Entities { get; set; }
     public IDbSet<NotificationConfiguration> NotificationConfigurations { get; set; }
     public IDbSet<NotificationEndpoint> NotificationEndpoints { get; set; }
+    public IDbSet<QuoteIndividualPrice> QuoteIndividualPrices { get; set; }
 
     public IDbSet<TEntity> Set<TEntity>() where TEntity : class
     {

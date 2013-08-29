@@ -1,4 +1,5 @@
 ﻿using MetraTech.Domain.Notifications;
+using MetraTech.Domain.Quoting;
 using System.Data.Entity;
 
 namespace MetraTech.Domain.DataAccess
@@ -11,6 +12,7 @@ namespace MetraTech.Domain.DataAccess
     IDbSet<Entity> Entities { get; set; }
     IDbSet<NotificationConfiguration> NotificationConfigurations { get; set; }
     IDbSet<NotificationEndpoint> NotificationEndpoints { get; set; }
+    IDbSet<QuoteIndividualPrice> QuoteIndividualPrices { get; set; }
 
     /// <summary>
     /// Returns a DbSet instance for access to entities of the given type in the context, the ObjectStateManager, and the underlying store.

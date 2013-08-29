@@ -6,6 +6,7 @@ namespace MetraTech.Domain.Events
 {
   [DataContract(Namespace = "MetraTech.MetraNet")]
   [KnownType(typeof(ThresholdCrossingEvent))]
+  [KnownType(typeof(ChangeNotificationEvent))]
   [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords", MessageId = "Event")]
   public class Event
   {

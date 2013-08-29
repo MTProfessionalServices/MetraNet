@@ -20,9 +20,15 @@ namespace MetraTech.Application.Test
 
       var fakeContext = new FakeMetraNetContext
         {
-          NotificationEndpoints = new List<NotificationEndpoint> {notificationEndpoint}.ToIDbSet(),
-          NotificationConfigurations = new List<NotificationConfiguration> {notificationConfiguration}.ToIDbSet()
+          NotificationEndpoints = new List<NotificationEndpoint> { notificationEndpoint }.ToIDbSet(),
+          NotificationConfigurations = new List<NotificationConfiguration> { notificationConfiguration }.ToIDbSet()
         };
+
+      var account = new Account
+      {
+        EmailAddress = "mdesousa@metratech.com",
+        LanguageCode = "en-us"
+      };
 
       var triggeredEvent = new ThresholdCrossingEvent
       {
@@ -33,7 +39,32 @@ namespace MetraTech.Application.Test
         CurrentUsageQuantity = new Quantity(1025m, "MIN"),
         ThresholdPeriodStart = new DateTime(2013, 1, 1),
         ThresholdPeriodEnd = new DateTime(2014, 1, 1),
-        SubscriptionId = Guid.Empty
+        SubscriptionId = Guid.Empty,
+        Account = account
+      };
+
+      NotificationProcessor.ProcessEvent(fakeContext, triggeredEvent);
+    }
+
+    [TestMethod]
+    public void TestApprovalNotification()
+    {
+      var notificationEndpoint = CreateTestNotificationEndpoint();
+      var notificationConfiguration = CreateTestNotificationConfiguration(notificationEndpoint,
+        EmailTemplates.ChangeApprovedTemplateSubject, EmailTemplates.ChangeApprovedTemplateBody,
+        "event.SubmitterEmail", "\"en-us\"", "Approval Notification", "ChangeNotificationEvent");
+
+      var fakeContext = new FakeMetraNetContext
+      {
+        NotificationEndpoints = new List<NotificationEndpoint> { notificationEndpoint }.ToIDbSet(),
+        NotificationConfigurations = new List<NotificationConfiguration> { notificationConfiguration }.ToIDbSet()
+      };
+
+      var triggeredEvent = new ChangeNotificationEvent()
+      {
+        ChangeId = "1234567",
+        Comment = "This is a very good change!",
+        SubmitterEmail = "mdesousa@metratech.com"
       };
 
       NotificationProcessor.ProcessEvent(fakeContext, triggeredEvent);
@@ -41,30 +72,44 @@ namespace MetraTech.Application.Test
 
     public static NotificationConfiguration CreateTestNotificationConfiguration(NotificationEndpoint notificationEndpoint)
     {
+      var subjectTemplate = EmailTemplates.ThresholdCrossingTemplateSubject;
+      var bodyTemplate = EmailTemplates.ThresholdCrossingTemplateBody;
+      const string toRecipient = "event.Account.EmailAddress";
+      const string deliveryLanguage = "event.Account.LanguageCode";
+      const string notificationConfigurationName = "Threshold Notification";
+      const string eventType = "ThresholdCrossingEvent";
+      return CreateTestNotificationConfiguration(notificationEndpoint, subjectTemplate, bodyTemplate, toRecipient, deliveryLanguage, notificationConfigurationName, eventType);
+    }
+
+    public static NotificationConfiguration CreateTestNotificationConfiguration(NotificationEndpoint notificationEndpoint,
+                                                                          string subjectTemplate, string bodyTemplate,
+                                                                          string toRecipient, string deliveryLanguage,
+                                                                          string notificationConfigurationName,
+                                                                          string eventType)
+    {
       var localizedEmailTemplate = new LocalizedEmailTemplate
-      {
-        SubjectTemplate = EmailTemplates.ThresholdCrossingTemplateSubject,
-        BodyTemplate = EmailTemplates.ThresholdCrossingTemplateBody
-      };
+        {
+          SubjectTemplate = subjectTemplate,
+          BodyTemplate = bodyTemplate
+        };
 
       var emailTemplate = new EmailTemplate
-      {
-        ToRecipient = "mdesousa@metratech.com",
-        CarbonCopyRecipients = new List<string>(),
-        DeliveryLanguage = "en-us",
-        EmailTemplateDictionary = new EmailTemplateDictionary { { "en-us", localizedEmailTemplate } }
-      };
-
+        {
+          ToRecipient = toRecipient,
+          CarbonCopyRecipients = new List<string>(),
+          DeliveryLanguage = deliveryLanguage,
+          EmailTemplateDictionary = new EmailTemplateDictionary {{"en-us", localizedEmailTemplate}}
+        };
 
       var notificationConfiguration = new NotificationConfiguration();
       notificationConfiguration.EntityId = Guid.NewGuid();
       notificationConfiguration.CreationDate = DateTime.Now;
       notificationConfiguration.ModifiedDate = DateTime.Now;
-      notificationConfiguration.Name.Add("en-us", "Threshold Notification");
-      notificationConfiguration.EventType = "ThresholdCrossingEvent";
+      notificationConfiguration.Name.Add("en-us", notificationConfigurationName);
+      notificationConfiguration.EventType = eventType;
       notificationConfiguration.NotificationType = NotificationType.Email;
       notificationConfiguration.NotificationEndpoint = notificationEndpoint;
-      notificationConfiguration.EmailTemplate = emailTemplate;
+      notificationConfiguration.MessageTemplate = emailTemplate;
       return notificationConfiguration;
     }
 

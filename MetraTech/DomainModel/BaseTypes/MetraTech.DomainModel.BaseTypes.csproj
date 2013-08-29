@@ -74,14 +74,17 @@
     <Reference Include="MetraTech.ActivityServices.Common">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.ActivityServices.Common.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.Common">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Common.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.DomainModel.Common">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Common.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -135,7 +138,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ProdCatTimeSpan.cs" />
-    <Compile Include="Quoting.cs" />
     <Compile Include="RateEntry.cs" />
     <Compile Include="RateSchedule.cs" />
     <Compile Include="ReasonCode.cs" />

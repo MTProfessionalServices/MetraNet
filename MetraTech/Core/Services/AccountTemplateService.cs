@@ -22,6 +22,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.ServiceModel;
 using System.Runtime.Serialization;
+using MetraTech.Application;
 using MetraTech.DomainModel.AccountTypes;
 using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
 using MetraTech.DomainModel.Validators;
@@ -1267,7 +1268,7 @@ String.Format("Error while applying the account template {0} to specific descend
         }
       }
 
-      ProdCatTimeSpan availableDate = GetEffectiveDate(rdr, "Available");
+      ProdCatTimeSpan availableDate = EffectiveDateUtils.GetEffectiveDate(rdr, "Available");
 
       po.AvailableTimeSpan.TimeSpanId = availableDate.TimeSpanId.Value;
       po.AvailableTimeSpan.StartDateOffset = availableDate.StartDateOffset;

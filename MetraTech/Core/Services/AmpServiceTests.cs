@@ -182,17 +182,17 @@ namespace MetraTech.Core.Services.UnitTests
         client.CreateDecision("dansDecision", "my decision", "t_pt_TieredUnitRatesPT", out decision);
         Console.WriteLine("decision.TierStartValue={0}", decision.TierStartValue);
         Console.WriteLine("decision.TierEndValue={0}", decision.TierEndValue);
-        Console.WriteLine("decision.ItemAggregated={0}", decision.ItemAggregated);
-        Console.WriteLine("decision.CycleUnitType={0}", decision.CycleUnitType);
+        Console.WriteLine("decision.ItemAggregatedValue={0}", decision.ItemAggregatedValue);
+        Console.WriteLine("decision.CycleUnitTypeValue={0}", decision.CycleUnitTypeValue);
         Console.WriteLine("decision.IsActive={0}", decision.IsActive);
         Console.WriteLine("decision.IsEditable={0}", decision.IsEditable);
         Console.WriteLine("decision.ParameterTableName={0}", decision.ParameterTableName);
         Console.WriteLine("decision.ParameterTableDisplayName={0}", decision.ParameterTableDisplayName);
         //Assert.AreEqual(decision.TierStartValue, 0, "default tier start should be 0");
         Assert.AreEqual(decision.TierEndValue, null, "FAILdefault tier end should be null");
-        Assert.AreEqual(decision.ItemAggregated, Decision.ItemAggregatedEnum.AGGREGATE_UNITS_OF_USAGE, 
+        Assert.AreEqual(decision.ItemAggregatedValue, Decision.ItemAggregatedEnum.AGGREGATE_UNITS_OF_USAGE, 
             "default item aggregated should be units-of-usage");
-        Assert.AreEqual(decision.CycleUnitType, Decision.CycleUnitTypeEnum.CYCLE_SAME_AS_BILLING_INTERVAL, 
+        Assert.AreEqual(decision.CycleUnitTypeValue, Decision.CycleUnitTypeEnum.CYCLE_SAME_AS_BILLING_INTERVAL, 
             "default cycle unit type is interval");
         Assert.AreEqual(decision.ExecutionFrequency, Decision.ExecutionFrequencyEnum.DURING_EOP);
 
@@ -203,7 +203,7 @@ namespace MetraTech.Core.Services.UnitTests
         decision.IsEditable = true;
         decision.Description = "my decision updated";
         decision.ExecutionFrequency = Decision.ExecutionFrequencyEnum.DURING_BOTH;
-        decision.PvToAmountChainMapping = "TmpPvToAmountChainMapping";
+        decision.PvToAmountChainMappingValue = "TmpPvToAmountChainMapping";
         decision.GeneratedCharge = "TmpGeneratedCharge";
         client.SaveDecision(decision);
 
@@ -213,20 +213,20 @@ namespace MetraTech.Core.Services.UnitTests
         Console.WriteLine("sameDecision.TierStartValue={0}", sameDecision.TierStartValue);
         Console.WriteLine("sameDecision.TierEndValue={0}", sameDecision.TierEndValue);
         Console.WriteLine("sameDecision.AccountQualificationGroup={0}", sameDecision.AccountQualificationGroup);
-        Console.WriteLine("sameDecision.ItemAggregated={0}", sameDecision.ItemAggregated);
+        Console.WriteLine("sameDecision.ItemAggregatedValue={0}", sameDecision.ItemAggregatedValue);
         Console.WriteLine("sameDecision.IsActive={0}", sameDecision.IsActive);
         Console.WriteLine("sameDecision.IsEditable={0}", sameDecision.IsEditable);
         Console.WriteLine("sameDecision.ParameterTableName={0}", sameDecision.ParameterTableName);
         Console.WriteLine("sameDecision.ParameterTableDisplayName={0}", sameDecision.ParameterTableDisplayName);
         Assert.AreEqual(sameDecision.TierStartValue, 100, "tier start should be 100");
         Assert.AreEqual(sameDecision.TierEndValue, 500, "tier end should be 500");
-        Assert.AreEqual(sameDecision.ItemAggregated, Decision.ItemAggregatedEnum.AGGREGATE_UNITS_OF_USAGE, 
+        Assert.AreEqual(sameDecision.ItemAggregatedValue, Decision.ItemAggregatedEnum.AGGREGATE_UNITS_OF_USAGE, 
             "default item aggregated should be units-of-usage");
         Assert.AreEqual(sameDecision.IsActive, true, "IsActive should be true");
         Assert.AreEqual(sameDecision.IsEditable, true, "IsEditable should be true");
         Assert.AreEqual(sameDecision.Description, "my decision updated", "Description should be 'my decision updated'");
         Assert.AreEqual(sameDecision.ExecutionFrequency, Decision.ExecutionFrequencyEnum.DURING_BOTH);
-        Assert.AreEqual(sameDecision.PvToAmountChainMapping, "TmpPvToAmountChainMapping");
+        Assert.AreEqual(sameDecision.PvToAmountChainMappingValue, "TmpPvToAmountChainMapping");
         Assert.AreEqual(sameDecision.GeneratedCharge, "TmpGeneratedCharge");
         Assert.AreEqual(sameDecision.ParameterTableName, decision.ParameterTableName);
         Assert.AreEqual(sameDecision.ParameterTableDisplayName, decision.ParameterTableDisplayName);
@@ -266,7 +266,7 @@ namespace MetraTech.Core.Services.UnitTests
         Console.WriteLine("decision2.ParameterTableDisplayName={0}", decision2.ParameterTableDisplayName);
         Assert.AreEqual(decision3.TierStartValue, 200, "tier start should be 200");
         Assert.AreEqual(decision3.TierEndValue, 800, "tier end should be 800");
-        Assert.AreEqual(decision3.ItemAggregated, Decision.ItemAggregatedEnum.AGGREGATE_UNITS_OF_USAGE,
+        Assert.AreEqual(decision3.ItemAggregatedValue, Decision.ItemAggregatedEnum.AGGREGATE_UNITS_OF_USAGE,
             "default item aggregated should be units-of-usage");
         Assert.AreEqual(decision3.IsActive, true, "IsActive should be true");
         Assert.AreEqual(decision3.IsEditable, true, "IsEditable should be true");
@@ -278,12 +278,12 @@ namespace MetraTech.Core.Services.UnitTests
         decision3.TierEndValue = 899;
         decision3.IsActive = false;
         decision3.IsEditable = false;
-        decision3.ItemAggregated = Decision.ItemAggregatedEnum.AGGREGATE_USAGE_EVENTS;
+        decision3.ItemAggregatedValue = Decision.ItemAggregatedEnum.AGGREGATE_USAGE_EVENTS;
         client.SaveDecision(decision3);
         client.GetDecision("ThirdDecision", out sameDecision);
         Assert.AreEqual(sameDecision.TierStartValue, 299, "tier start should be 299");
         Assert.AreEqual(sameDecision.TierEndValue, 899, "tier end should be 899");
-        Assert.AreEqual(sameDecision.ItemAggregated, Decision.ItemAggregatedEnum.AGGREGATE_USAGE_EVENTS);
+        Assert.AreEqual(sameDecision.ItemAggregatedValue, Decision.ItemAggregatedEnum.AGGREGATE_USAGE_EVENTS);
         Assert.AreEqual(sameDecision.IsActive, false, "IsActive should be false");
         Assert.AreEqual(sameDecision.IsEditable, false, "IsEditable should be false");
 
@@ -498,7 +498,7 @@ namespace MetraTech.Core.Services.UnitTests
         client.GetDecision("decisionWithCharge", out sameDecision);
         Assert.AreEqual(sameDecision.ChargeCondition, Decision.ChargeConditionEnum.CHARGE_ON_FINAL);
         Assert.AreEqual(sameDecision.ChargeAmountType, Decision.ChargeAmountTypeEnum.CHARGE_PERCENTAGE);
-        Assert.AreEqual(sameDecision.ChargeValue, 0.05);
+        Assert.AreEqual(sameDecision.ChargeValue, 0.05m);
 
         // Update charge params
         decisionWithCharge.ChargeCondition = Decision.ChargeConditionEnum.CHARGE_ON_FINAL;

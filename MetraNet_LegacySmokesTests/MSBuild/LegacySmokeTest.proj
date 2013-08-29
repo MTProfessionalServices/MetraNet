@@ -2,7 +2,8 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="All">
 	
 	<PropertyGroup>
-		<BasePath>..\</BasePath>		
+		<BasePath>..\</BasePath>
+		<config>Release</config>
 		<platform>x86</platform>
 		<OutDir>$(MTOUTDIR)\LegacySmokeTests\</OutDir>
 		<BuildPath Condition="'$(BuildPath)'==''">$(MSBuildProjectDirectory)</BuildPath>

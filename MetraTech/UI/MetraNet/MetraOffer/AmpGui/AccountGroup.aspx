@@ -173,6 +173,8 @@
           } else {
               if(records.length>0)
                 Ext.get("<%=hiddenAcctGroupName.ClientID%>").dom.value = records[0].data.Name;
+              else
+                Ext.get("<%=hiddenAcctGroupName.ClientID%>").dom.value = '';
           }
       }
     }

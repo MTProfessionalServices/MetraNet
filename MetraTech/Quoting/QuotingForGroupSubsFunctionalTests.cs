@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using MetraTech.DomainModel.AccountTypes;
-using MetraTech.DomainModel.BaseTypes;
+using MetraTech.Domain.Quoting;
 using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
 using MetraTech.Interop.MTProductCatalog;
 using MetraTech.Shared.Test;

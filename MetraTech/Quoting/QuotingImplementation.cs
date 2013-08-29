@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.InteropServices;
 using System.Transactions;
 using MetraTech.ActivityServices.Common;
@@ -352,49 +353,77 @@ namespace MetraTech.Quoting
 
     #region Internal
 
-    /// <summary>
-    /// Method that validates/sanity checks the request and throws exceptions if there are errors
-    /// </summary>
-    /// <param name="request">QuoteRequest to be checked</param>
-    protected void ValidateRequest(QuoteRequest request)
+      /// <summary>
+      /// Method that validates/sanity checks the request and throws exceptions if there are errors
+      /// </summary>
+      /// <param name="request">QuoteRequest to be checked</param>
+      /// <exception cref="ArgumentException"></exception>
+      protected void ValidateRequest(QuoteRequest request)
     {
-      //EffectiveDate must be set
-      if (request.EffectiveDate == null)
-      {
-        throw new ArgumentException("EffectiveDate must be specified", "EffectiveDate");
-      }
+        {
+            DateTime currentDate = MetraTime.Now;
+            if (request.EffectiveDate < currentDate)
+            {
+                string propertyName = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveDate);
+                throw new ArgumentException(
+                    String.Format("'{0}'='{1}' can't be less than current time '{2}'", propertyName,
+                                  request.EffectiveDate, currentDate), propertyName);
+            }
+        }
 
-      //At least one account must be specified
-      if (!(request.Accounts.Count > 0))
-      {
-        throw new ArgumentException("At least one account must be specified for the quote", "Accounts");
-      }
+        //EffectiveDate must be set
+        if (request.EffectiveDate == null || request.EffectiveDate ==  DateTime.MinValue)
+        {
+            string propertyName = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveDate);
+            throw new ArgumentException(String.Format("'{0}' must be specified", propertyName), propertyName);
+        }
 
-      //todo check for the same usage cycle for all accounts
-      //if (!(request.Accounts.Count > 0)) { throw new ArgumentException("At least one account must be specified for the quote", "Accounts"); }
+        if (request.EffectiveEndDate < request.EffectiveDate)
+        {
+            string propertyStartDate = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveDate);
+            string propertyEndDate = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveEndDate);
+            throw new ArgumentException(String.Format("The Start date can not be greater than End date. Start date '{0}'='{1}' > End date '{2}'='{3}'"
+                , propertyStartDate, request.EffectiveDate
+                , propertyEndDate, request.EffectiveEndDate)
+                , propertyEndDate);
+        }
 
-      //At least one po must be specified since we only do RCs and NRCs currently; in the future this won't be a restriction
-      if (!(request.ProductOfferings.Count > 0))
-      {
-        throw new ArgumentException("At least one product offering must be specified for the quote as quoting currently only quotes for RCs and NRC", "ProductOfferings");
-      }
+          //At least one account must be specified
+        if (!(request.Accounts.Count > 0))
+        {
+            throw new ArgumentException("At least one account must be specified for the quote"
+                , PropertyName<QuoteRequest>.GetPropertyName(p => p.Accounts));
+        }
 
-      // Ensure that all accounts are in the same billing cycle
-      var first = GetAccountBillingCycle(request.Accounts.First());
-      if (!(request.Accounts.All(e => GetAccountBillingCycle(e) == first)))
-      {
-        throw new ArgumentException("All accounts must be in the same billing cycle", "Accounts");
-      }
+        //todo check for the same usage cycle for all accounts
+        //if (!(request.Accounts.Count > 0)) { throw new ArgumentException("At least one account must be specified for the quote", "Accounts"); }
 
-      // Ensure that all payers are in the quote request
-      var idPayers = request.Accounts.Select(e => GetAccountPayer(e));
-      if (!idPayers.All(e => request.Accounts.Contains(e)))
-      {
-        throw new ArgumentException("All account payers must be included in the quote request", "Accounts");
-      }
+        //At least one po must be specified since we only do RCs and NRCs currently; in the future this won't be a restriction
+        if (!(request.ProductOfferings.Count > 0))
+        {
+            throw new ArgumentException("At least one product offering must be specified for the quote as quoting currently only quotes for RCs and NRC"
+                , PropertyName<QuoteRequest>.GetPropertyName(p => p.ProductOfferings));
+        }
 
-        if(request.IcbPrices == null)
+        // Ensure that all accounts are in the same billing cycle
+        var first = GetAccountBillingCycle(request.Accounts.First());
+        if (!(request.Accounts.All(e => GetAccountBillingCycle(e) == first)))
+        {
+            throw new ArgumentException("All accounts must be in the same billing cycle"
+                , PropertyName<QuoteRequest>.GetPropertyName(p => p.Accounts));
+        }
+
+        // Ensure that all payers are in the quote request
+        var idPayers = request.Accounts.Select(e => GetAccountPayer(e));
+        if (!idPayers.All(e => request.Accounts.Contains(e)))
+        {
+            throw new ArgumentException("All account payers must be included in the quote request"
+                , PropertyName<QuoteRequest>.GetPropertyName(p => p.Accounts));
+        }
+
+        if (request.IcbPrices == null)
             request.IcbPrices = new List<QuoteIndividualPrice>();
+
     }
 
     protected int GetAccountBillingCycle(int idAccount)

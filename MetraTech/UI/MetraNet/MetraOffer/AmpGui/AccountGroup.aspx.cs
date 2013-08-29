@@ -171,6 +171,12 @@ public partial class AmpAccountGroupPage : AmpWizardBasePage
           ampSvcStoreDecisionClient.ClientCredentials.UserName.UserName = UI.User.UserName;
           ampSvcStoreDecisionClient.ClientCredentials.UserName.Password = UI.User.SessionPassword;
         }
+        if ((AmpAction != "View") && (hiddenAcctGroupName.Value == String.Empty))
+        {
+            SetError(GetLocalResourceObject("TEXT_ERROR_NO_ACCOUNT_GROUP").ToString());
+            logger.LogError(String.Format("No Account Group was selected for Decision '{0}'", AmpDecisionName));
+            return;  // Stay on same page.
+        }
 
         if (AmpAction != "View")
         {

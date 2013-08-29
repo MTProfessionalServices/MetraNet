@@ -63,18 +63,6 @@ namespace MetraTech.Approvals.Test
         Assert.Fail(string.Format("{0} : Change has been applied when it should be pending", unitTestName));
       }
 
-      ////Negative Test Case: Approve the change as the submitter of the change (will throw an exception)
-      //try
-      //{
-      //  approvalFramework.ApproveChange(myChangeId, "This should fail");
-      //  Assert.Fail("ApproveChange succeeded even though submitter tried to approve the change");
-      //}
-      //catch (Exception ex)
-      //{
-      //  //Make sure exception is that we don't have permission to approve this change
-      //  Assert.IsTrue(ex.Message.Contains("Approver cannot be the submitter of the change"));
-      //}
-
       //Save the Last Modified Date so we can verify it was updated after approval
       DateTime lastModifiedPriorToApproval = SharedTestCodeApprovals.GetChangeByIdFromDatabase(newChangeId, approvalFramework).ChangeLastModifiedDate;
 
@@ -153,48 +141,6 @@ namespace MetraTech.Approvals.Test
       {
         Assert.Fail(string.Format("{0} : Change has been applied when it should be pending", unitTestName));
       }
-
-      ////Negative Test Case: Approve the change as the submitter of the change (will throw an exception)
-      //try
-      //{
-      //  approvalFramework.ApproveChange(myChangeId, "This should fail");
-      //  Assert.Fail("ApproveChange succeeded even though submitter tried to approve the change");
-      //}
-      //catch (Exception ex)
-      //{
-      //  //Make sure exception is that we don't have permission to approve this change
-      //  Assert.IsTrue(ex.Message.Contains("Approver cannot be the submitter of the change"));
-      //}
-
-      ////Save the Last Modified Date so we can verify it was updated after approval
-      //DateTime lastModifiedPriorToApproval = SharedTestCodeApprovals.GetChangeByIdFromDatabase(newChangeId, approvalFramework).ChangeLastModifiedDate;
-
-
-      ////Step 7: Approve the change
-      //approvalFramework.SessionContext = userToApproveChange;
-
-      //approvalFramework.ApproveChange(newChangeId, "Approved by approval framework unit test");
-
-      ////Step 8: Get list of pending and nonpending changes and verify
-      //MTList<ChangeSummary> pendingChangesAfterApproval = new MTList<ChangeSummary>();
-      //approvalFramework.GetPendingChangesSummary(ref pendingChangesAfterApproval);
-
-      //MTList<ChangeSummary> changesAfterApproval = new MTList<ChangeSummary>();
-      //approvalFramework.GetChangesSummary(ref changesAfterApproval);
-
-      //ChangeSummary appliedChange = SharedTestCodeApprovals.FindChangeInListOfChanges(changesAfterApproval, newChangeId);
-
-      //Assert.IsNotNull(appliedChange, "Couldn't find our change with id " + newChangeId);
-      //Assert.AreEqual(ChangeState.Applied, appliedChange.CurrentState, string.Format("Found the approved change with id {0} but the state was '{1}' and not 'Applied'", newChangeId, appliedChange.CurrentState));
-
-      //Assert.IsTrue(appliedChange.ChangeLastModifiedDate > lastModifiedPriorToApproval, "The last modified time on the approved change is not larger than the previous last modified time");
-
-      ////Step 9: Verify the change was applied with the provided method
-      //if (!methodToVerifyChangeHasBeenApplied(change, userDefinedObjectForVerificationIfNeeded))
-      //{
-      //  Assert.Fail(string.Format("{0} : Change does not appear to have been applied", unitTestName));
-      //}
-
     }
   }
 }

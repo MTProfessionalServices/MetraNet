@@ -77,7 +77,8 @@
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Enums.Generated.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.Test, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
-      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Test.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

@@ -212,7 +212,7 @@ namespace MetraTech.Core.Services.UnitTests
         client.GetDecision("dansDecision", out sameDecision);
         Console.WriteLine("sameDecision.TierStartValue={0}", sameDecision.TierStartValue);
         Console.WriteLine("sameDecision.TierEndValue={0}", sameDecision.TierEndValue);
-        Console.WriteLine("sameDecision.AccountQualificationGroup={0}", sameDecision.AccountQualificationGroup);
+        Console.WriteLine("sameDecision.AccountQualificationGroup={0}", sameDecision.AccountQualificationGroupValue);
         Console.WriteLine("sameDecision.ItemAggregatedValue={0}", sameDecision.ItemAggregatedValue);
         Console.WriteLine("sameDecision.IsActive={0}", sameDecision.IsActive);
         Console.WriteLine("sameDecision.IsEditable={0}", sameDecision.IsEditable);

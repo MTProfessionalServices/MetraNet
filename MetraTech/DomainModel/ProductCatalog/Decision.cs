@@ -595,28 +595,53 @@ namespace MetraTech.DomainModel.ProductCatalog
     }
     #endregion
 
-    #region UsageQualificationGroup
+    #region UsageQualificationGroupColumnName
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isUsageQualificationGroupDirty = false;
-    private string m_UsageQualificationGroup;
+    private bool isUsageQualificationGroupColumnNameDirty = false;
+    private string m_UsageQualificationGroupColumnName;
     /// <summary>
     /// The UsageQualificationGroup specifies which usage events to consider when processing a decision.
     /// </summary>
-    [MTDataMember(Description = "The UsageQualificationGroup specifies which usage events to consider when processing a decision.", Length = 40)]
+    [MTDataMember(Description = "The UsageQualificationGroupColumnName specifies which usage events to consider when processing a decision.", Length = 40)]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public string UsageQualificationGroup
+    public string UsageQualificationGroupColumnName
     {
-        get { return m_UsageQualificationGroup; }
+        get { return m_UsageQualificationGroupColumnName; }
         set
         {
-            m_UsageQualificationGroup = value;
-            isUsageQualificationGroupDirty = true;
+            m_UsageQualificationGroupColumnName = value;
+            isUsageQualificationGroupColumnNameDirty = true;
         }
     }
     [ScriptIgnore]
-    public bool IsUsageQualificationGroupDirty
+    public bool IsUsageQualificationGroupColumnNameDirty
     {
-        get { return isUsageQualificationGroupDirty; }
+        get { return isUsageQualificationGroupColumnNameDirty; }
+    }
+    #endregion
+
+    #region UsageQualificationGroupValue
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isUsageQualificationGroupValueDirty = false;
+    private string m_UsageQualificationGroupValue;
+    /// <summary>
+    /// The UsageQualificationGroup specifies which usage events to consider when processing a decision.
+    /// </summary>
+    [MTDataMember(Description = "The UsageQualificationGroupValue specifies which usage events to consider when processing a decision.", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public string UsageQualificationGroupValue
+    {
+        get { return m_UsageQualificationGroupValue; }
+        set
+        {
+            m_UsageQualificationGroupValue = value;
+            isUsageQualificationGroupValueDirty = true;
+        }
+    }
+    [ScriptIgnore]
+    public bool IsUsageQualificationGroupValueDirty
+    {
+        get { return isUsageQualificationGroupValueDirty; }
     }
     #endregion
 

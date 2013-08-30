@@ -52,6 +52,10 @@ public partial class AjaxServices_DecisionSvc : MTListServicePage
                         {
                             decision.AccountQualificationGroupValue = decision.AccountQualificationGroupColumnName;
                         }
+                        if (String.IsNullOrEmpty(decision.UsageQualificationGroupValue))
+                        {
+                            decision.UsageQualificationGroupValue = decision.UsageQualificationGroupColumnName;
+                        }
                     }
                 }
             }

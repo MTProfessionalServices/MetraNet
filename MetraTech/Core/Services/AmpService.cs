@@ -3811,16 +3811,20 @@ namespace MetraTech.Core.Services
             }
             else if (attributeName.Equals("Usage Qualification Group"))
             {
-                if (attributeValue != null)
+                if (attributeValue == null && attributeColumnName == null)
                 {
-                    decision.UsageQualificationGroup = attributeValue;
+                    decision.UsageQualificationGroupValue = null;
+                    decision.UsageQualificationGroupColumnName = null;
+                }
+                else if (attributeValue != null)
+                {
+                    decision.UsageQualificationGroupValue = attributeValue;
+                    decision.UsageQualificationGroupColumnName = null;
                 }
                 else
                 {
-                    // don't expect column name
-                    m_Logger.LogError(
-                        "StoreAttributeInDomainModel: parameter {0} should not be set via column name",
-                        attributeName);
+                    decision.UsageQualificationGroupColumnName = attributeColumnName;
+                    decision.UsageQualificationGroupValue = null;
                 }
             }
             else if (attributeName.Equals("Generated Charge"))
@@ -4229,7 +4233,8 @@ namespace MetraTech.Core.Services
               StoreAttributeInDb(decision.UniqueId, "Cycle Unit Type", null, decision.CycleUnitTypeColumnName, decision.ParameterTableName);
             }
             StoreAttributeInDb(decision.UniqueId, "Usage Qualification Group",
-                decision.UsageQualificationGroup, null, decision.ParameterTableName);
+                !String.IsNullOrEmpty(decision.UsageQualificationGroupValue)?decision.UsageQualificationGroupValue:null,
+                !String.IsNullOrEmpty(decision.UsageQualificationGroupColumnName)?decision.UsageQualificationGroupColumnName:null, decision.ParameterTableName);
             StoreAttributeInDb(decision.UniqueId, "Per Unit Rate",
                 decision.PerUnitRateValue.HasValue ? decision.PerUnitRateValue.ToString() : null,
                 decision.PerUnitRateColumnName, decision.ParameterTableName);

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Configuration;
 using System.Collections;
@@ -31,10 +32,11 @@ public partial class AmpSelectUsageQualificationPage : AmpWizardBasePage
     AmpCurrentPage = "SelectUsageQualification.aspx";
     AmpNextPage = "ItemsToAggregate.aspx";
     AmpPreviousPage = "AccountGroup.aspx";
-
+    setCheckBoxEventHandler();
     // Monitor changes made to the controls on the page.
     MonitorChangesInControlByClientId(hiddenUsageQualGroupName.ClientID);
-
+    MonitorChangesInControlByClientId(ddUsageQualFromParamTableSource.ClientID);
+    MonitorChangesInControlByClientId(FromParamTableCheckBox.ClientID);
     // The Continue button should NOT prompt the user if the controls have changed.
     //TBD However, we don't need to call IgnoreChangesInControl(btnContinue) here
     // because of how OnClientClick is defined for the button.
@@ -69,21 +71,33 @@ public partial class AmpSelectUsageQualificationPage : AmpWizardBasePage
 
         Decision decisionInstance;
         ampSvcGetDecisionClient.GetDecision(AmpDecisionName, out decisionInstance);
-
+        
         CurrentDecisionInstance = decisionInstance;
-
-        if (decisionInstance.UsageQualificationGroup != null)
+        List<KeyValuePair<String, String>> paramTableColumns;
+        if (GetParameterTableColumnNamesWithClient(CurrentDecisionInstance.ParameterTableName,
+                                                   out paramTableColumns))
         {
-          hiddenUsageQualGroupName.Value = decisionInstance.UsageQualificationGroup;
-
-          // Can't do anything now about selecting the radio button that
-          // corresponds to the decision's current usage qualification group.
-          // (Must wait until the grid control is loaded.
-          // After the grid control is loaded, if AmpAction is "View",
-          // we also must disable selection of other rows!)
+            setParamTableDropDown(paramTableColumns);
         }
+        if (decisionInstance.UsageQualificationGroupValue != null)
+          {
+              hiddenUsageQualGroupName.Value = decisionInstance.UsageQualificationGroupValue;
+              ddUsageQualFromParamTableSource.Enabled = false;
+              // Can't do anything now about selecting the radio button that
+              // corresponds to the decision's current usage qualification group.
+              // (Must wait until the grid control is loaded.
+              // After the grid control is loaded, if AmpAction is "View",
+              // we also must disable selection of other rows!)
+          }
+          else
+          {
+              FromParamTableCheckBox.Checked = true;
+              hiddenUsageQualGroupName.Value = decisionInstance.UsageQualificationGroupColumnName;
+              ddUsageQualFromParamTableSource.SelectedValue = hiddenUsageQualGroupName.Value;
+              divUsageQualGrid.Attributes.Add("style", "display: none;");
+          }
 
-        // Clean up client.
+          // Clean up client.
         ampSvcGetDecisionClient.Close();
         ampSvcGetDecisionClient = null;
 
@@ -102,6 +116,28 @@ public partial class AmpSelectUsageQualificationPage : AmpWizardBasePage
       }
 
     } // if (!IsPostBack)
+  }
+  private void setParamTableDropDown(List<KeyValuePair<String, String>> paramTableColumns)
+  {
+      ddUsageQualFromParamTableSource.Items.Clear();
+      foreach (var item in paramTableColumns)
+      {
+          ddUsageQualFromParamTableSource.Items.Add(new ListItem(item.Value, item.Key));
+      }
+  }
+
+  private void setCheckBoxEventHandler()
+  {
+      FromParamTableCheckBox.Listeners = @"{ 'check' : this.onChange_" + FromParamTableCheckBox.ID + @", scope: this }";
+
+      String scriptString = "<script type=\"text/javascript\">";
+      scriptString += "function onChange_" + FromParamTableCheckBox.ID + "(field, newvalue, oldvalue) \n";
+      scriptString += "{ \n";
+      scriptString += "return updateActiveControls(); \n";
+      scriptString += "} \n";
+      scriptString += "</script>";
+
+      Page.ClientScript.RegisterStartupScript(FromParamTableCheckBox.GetType(), "onChange_" + FromParamTableCheckBox.ID, scriptString);
   }
 
 
@@ -133,13 +169,30 @@ public partial class AmpSelectUsageQualificationPage : AmpWizardBasePage
         ampSvcStoreDecisionClient.ClientCredentials.UserName.UserName = UI.User.UserName;
         ampSvcStoreDecisionClient.ClientCredentials.UserName.Password = UI.User.SessionPassword;
       }
+        if (AmpAction != "View" && String.IsNullOrEmpty(hiddenUsageQualGroupName.Value))
+        {
+            SetError(GetLocalResourceObject("TEXT_ERROR_NO_USAGE_QUAL").ToString());
+            logger.LogError(String.Format("No Usage Qualification was selected for Decision '{0}'", AmpDecisionName));
+            return;  // Stay on same page.
 
-      if (AmpAction != "View")
+        }
+
+
+        if (AmpAction != "View")
       {
-        // Update decision's usage qualification group based on selected radio button.
-        CurrentDecisionInstance.UsageQualificationGroup = hiddenUsageQualGroupName.Value;
-        ampSvcStoreDecisionClient.SaveDecision(CurrentDecisionInstance);
-        logger.LogDebug(String.Format(GetGlobalResourceObject("AmpWizard", "TEXT_SUCCESS_SAVE_DECISION").ToString(), AmpDecisionName));
+          if (FromParamTableCheckBox.Checked)
+          {
+              CurrentDecisionInstance.UsageQualificationGroupColumnName = hiddenUsageQualGroupName.Value;
+              CurrentDecisionInstance.UsageQualificationGroupValue = null;
+              logger.LogError("is saving :" + CurrentDecisionInstance.UsageQualificationGroupColumnName + " " + CurrentDecisionInstance.UsageQualificationGroupValue);
+          }
+          else
+          {
+              CurrentDecisionInstance.UsageQualificationGroupValue = hiddenUsageQualGroupName.Value;
+              CurrentDecisionInstance.UsageQualificationGroupColumnName = null;
+          }
+          ampSvcStoreDecisionClient.SaveDecision(CurrentDecisionInstance);
+          logger.LogDebug(String.Format(GetGlobalResourceObject("AmpWizard", "TEXT_SUCCESS_SAVE_DECISION").ToString(), AmpDecisionName));
       }
 
       // Clean up client.

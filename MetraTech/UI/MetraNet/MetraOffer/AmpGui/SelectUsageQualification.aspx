@@ -20,12 +20,27 @@
       Font-Size="9pt" meta:resourcekey="lblSelectResource1" 
       Text="Select the Usage Qualification for this Decision Type:" ></asp:Label>
   </div>  
+  
+      <div>
+        <div style="float:left;padding-left:10px;">
+            <MT:MTCheckBoxControl ID="FromParamTableCheckBox" runat="server" LabelWidth="0" BoxLabel="<%$Resources:Resource,TEXT_FROM_PARAM_TABLE%>" XType="Checkbox" XTypeNameSpace="form" />
+        </div>
+        <div  style="float:left">
+            <div id="divUsageQualFromParamTableDropdownSource" runat="server">
+                <MT:MTDropDown ID="ddUsageQualFromParamTableSource" runat="server" ControlWidth="160" ListWidth="200" HideLabel="True" AllowBlank="True" Editable="True"/>
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+
+
+  <div id="divUsageQualGrid" runat="server" >
 
   <div style="padding-left:5px;">
     <MT:MTFilterGrid ID="UsageQualGrid" runat="server" TemplateFileName="AmpWizard.UsageQualificationGroups" ExtensionName="MvmAmp">
     </MT:MTFilterGrid>
   </div>  
-
+  </div>
   <!-- 
     Regarding positioning of the Back and Continue buttons:
     The br element is needed; leave it there!
@@ -44,7 +59,7 @@
                          CausesValidation="false" TabIndex="230" />
           </td>
           <td align="right">
-            <MT:MTButton ID="btnSaveAndContinue" runat="server" Text="<%$Resources:Resource,TEXT_SAVE_AND_CONTINUE%>"
+            <MT:MTButton ID="btnSaveAndContinue" runat="server" Text="<%$Resources:Resource,TEXT_NEXT%>"
                          OnClientClick="if (ValidateForm()) { MPC_setNeedToConfirm(false); onContinueClick(); } else { MPC_setNeedToConfirm(true); return false; }"
                          OnClick="btnContinue_Click"
                          CausesValidation="true" TabIndex="240"/>
@@ -62,14 +77,33 @@
 
 
   <script type="text/javascript" language="javascript">
-  
+    function updateActiveControls() {
+         var dd = Ext.getCmp('<%=ddUsageQualFromParamTableSource.ClientID %>');
+         var cb = Ext.getCmp('<%=FromParamTableCheckBox.ClientID %>');
+         if (cb.checked == true) {
+             dd.enable();
+             document.getElementById('<%=divUsageQualGrid.ClientID %>').style.display = "none";
+         } else {
+             dd.disable();
+             document.getElementById('<%=divUsageQualGrid.ClientID %>').style.display = "block";
+         }
+     }
+
     function onContinueClick() {
       // Store the selected usage qualification group name.
-      var records = grid_<%= UsageQualGrid.ClientID %>.getSelectionModel().getSelections();
-      if (("<%=AmpAction%>" != 'View') && (records.length > 0))
-      {
-        Ext.get("<%=hiddenUsageQualGroupName.ClientID%>").dom.value = records[0].data.Name;
-      }
+      var dd = Ext.getCmp('<%=ddUsageQualFromParamTableSource.ClientID %>');
+      var cb = Ext.getCmp('<%=FromParamTableCheckBox.ClientID %>');
+     var records = grid_<%= UsageQualGrid.ClientID %>.getSelectionModel().getSelections();
+        if (("<%=AmpAction%>" != 'View') ) {
+            if (cb.checked) {
+                Ext.get("<%=hiddenUsageQualGroupName.ClientID%>").dom.value = dd.value.toString();
+            }
+            else if (records.length > 0)
+                Ext.get("<%=hiddenUsageQualGroupName.ClientID%>").dom.value = records[0].data.Name;
+            else {
+                Ext.get("<%=hiddenUsageQualGroupName.ClientID%>").dom.value = '';
+            }
+        } 
     }
 
 
@@ -128,6 +162,8 @@
                 break;
               }
             }
+             updateActiveControls();
+
           }
         );
 

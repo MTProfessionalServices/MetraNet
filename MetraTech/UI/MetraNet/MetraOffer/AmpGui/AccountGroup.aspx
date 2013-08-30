@@ -37,7 +37,7 @@
         <div style="float:left;padding-left:10px;">
             <MT:MTCheckBoxControl ID="FromParamTableCheckBox" runat="server" LabelWidth="0" BoxLabel="<%$Resources:Resource,TEXT_FROM_PARAM_TABLE%>" XType="Checkbox" XTypeNameSpace="form" />
         </div>
-        <div div style="float:left">
+        <div style="float:left">
             <div id="divAccountGroupFromParamTableDropdownSource" runat="server">
                 <MT:MTDropDown ID="ddAccountGroupFromParamTableSource" runat="server" ControlWidth="160" ListWidth="200" HideLabel="True" AllowBlank="True" Editable="True"/>
             </div>
@@ -173,6 +173,8 @@
           } else {
               if(records.length>0)
                 Ext.get("<%=hiddenAcctGroupName.ClientID%>").dom.value = records[0].data.Name;
+              else
+                Ext.get("<%=hiddenAcctGroupName.ClientID%>").dom.value = '';
           }
       }
     }
@@ -204,11 +206,7 @@
                 break;
               }
             }
-              if (i == records.length) { // It means that the loaded value was not one of the grid values and it must be from the param table.
-                  var dd = Ext.getCmp('<%=ddAccountGroupFromParamTableSource.ClientID %>');
-                  var cb = Ext.getCmp('<%=FromParamTableCheckBox.ClientID %>');
-                  updateActiveControls();
-              }
+            updateActiveControls();
           }
         );
 

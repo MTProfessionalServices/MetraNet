@@ -129,17 +129,26 @@
   <data name="lblEndOfRange.Text" xml:space="preserve">
     <value>Italian: End of range:</value>
   </data>
-  <data name="lblProrateEnd.Text" xml:space="preserve">
-    <value>Italian: Prorate the range on termination?</value>
-  </data>
-  <data name="lblProrateStart.Text" xml:space="preserve">
-    <value>Italian: Prorate the range on activation?</value>
+  <data name="lblProrate.Text" xml:space="preserve">
+    <value>Italian: How should the decision prorate the range?</value>
   </data>
   <data name="lblStartOfRange.Text" xml:space="preserve">
     <value>Italian: Start of range:</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
     <value>Italian: 5. Range for {0}</value>
+  </data>
+  <data name="PRORATE_BOTH_TEXT" xml:space="preserve">
+    <value>Italian: Prorate the range on both activation and termination</value>
+  </data>
+  <data name="PRORATE_NONE_TEXT" xml:space="preserve">
+    <value>Italian: Do not prorate the range on activation or termination</value>
+  </data>
+  <data name="PRORATE_TIER_END_TEXT" xml:space="preserve">
+    <value>Italian: Prorate the range only on termination</value>
+  </data>
+  <data name="PRORATE_TIER_START_TEXT" xml:space="preserve">
+    <value>Italian: Prorate the range only on activation</value>
   </data>
   <data name="rblRangeNo.Text" xml:space="preserve">
     <value>Italian: No</value>

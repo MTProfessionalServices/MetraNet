@@ -4276,7 +4276,7 @@ namespace MetraTech.Core.Services
             else
             {
                 StoreAttributeInDb(decision.UniqueId, "Tier Proration", null,
-                                           decision.TierRepetitionColumnName, decision.ParameterTableName);
+                                           decision.TierProrationColumnName, decision.ParameterTableName);
             }
             if (!decision.IsActive.HasValue)
             {

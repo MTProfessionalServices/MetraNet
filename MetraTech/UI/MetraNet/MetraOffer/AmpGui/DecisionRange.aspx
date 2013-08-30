@@ -71,47 +71,27 @@
         </td>
     </tr>
 </table>
-<div class="clearer" />
+
 <br/>
+<div class="clearer" />
 <div style="line-height: 20px; padding-top: 10px; padding-left: 10px">
     <div style="float:left">
-        <asp:Label ID="lblUnitOfTime"  runat="server" Font-Bold="False" ForeColor="Black" Font-Size="9pt" Text="<%$ Resources: lblProrateStart.Text%>"  />
+        <asp:Label ID="LabelProrate"  runat="server" Font-Bold="False" ForeColor="Black" Font-Size="9pt" Text="<%$ Resources: lblProrate.Text%>"  />
     </div>
 </div>
 <br/><br/>
 <table>
     <tr>
         <td>
-            <MT:MTDropDown ID="ddProrateStart" runat="server" HideLabel="True" Label="Prorate at start?"  ControlWidth="160" ListWidth="200" AllowBlank="False" Editable="True"/>
+            <MT:MTDropDown ID="ddProrate" runat="server" HideLabel="True" ControlWidth="300" ListWidth="300" AllowBlank="False" Editable="True"/>
         </td>
         <td>
-            <div id="divProrateStartFromParamTableDropdownSource" >
-                <MT:MTDropDown ID="ddProrateStartFromParamTableDropdownSource" runat="server" HideLabel="True" ControlWidth="160" ListWidth="200" AllowBlank="True" Editable="True"/>
-            </div>
-        </td>
-    </tr>
-</table>
-<div class="clearer" />
-<br/>
-<div style="line-height: 20px; padding-top: 10px; padding-left: 10px">
-    <div style="float:left">
-        <asp:Label ID="Label1"  runat="server" Font-Bold="False" ForeColor="Black" Font-Size="9pt" Text="<%$ Resources: lblProrateEnd.Text%>"  />
-    </div>
-</div>
-<br/><br/>
-<table>
-    <tr>
-        <td>
-            <MT:MTDropDown ID="ddProrateEnd" runat="server" HideLabel="True" Label="Prorate at end?"  ControlWidth="160" ListWidth="200" AllowBlank="False" Editable="True"/>
-        </td>
-        <td>
-            <div id="divProrateEndFromParamTableDropdownSource" >
-                <MT:MTDropDown ID="ddProrateEndFromParamTableDropdownSource" runat="server" HideLabel="True" ControlWidth="160" ListWidth="200" AllowBlank="True" Editable="True"/>
+            <div id="divProrateFromParamTableDropdownSource" >
+                <MT:MTDropDown ID="ddProrateFromParamTableDropdownSource" runat="server" HideLabel="True" ControlWidth="160" ListWidth="200" AllowBlank="True" Editable="True"/>
             </div>
         </td>
     </tr>
 </table> 
-
            
 <div class="clearer" />
 <div style="padding-left: 0.85in; padding-top: 0.2in;">
@@ -134,12 +114,10 @@
 
     <script type="text/javascript" language="javascript">
       var showDivRestartParamTable = <%=showDivRestartParamTable.ToString().ToLower() %> ;
-      var showDivProrateStartParamTable = <%=showDivProrateStartParamTable.ToString().ToLower() %> ;
-      var showDivProrateEndParamTable = <%=showDivProrateEndParamTable.ToString().ToLower() %> ;
-
+      var showDivProrateParamTable = <%=showDivProrateParamTable.ToString().ToLower() %> ;
+      
       ParamTableDivShow('divRestartFromParamTableDropdownSource', showDivRestartParamTable);
-      ParamTableDivShow('divProrateStartFromParamTableDropdownSource', showDivProrateStartParamTable);
-      ParamTableDivShow('divProrateEndFromParamTableDropdownSource', showDivProrateEndParamTable);
+      ParamTableDivShow('divProrateFromParamTableDropdownSource', showDivProrateParamTable);
       
       function ChangeControlState(textBoxControl, dropDownControl, disabledTextBox) {
           var txb = Ext.getCmp(textBoxControl);
@@ -158,6 +136,7 @@
           ParamTableDivShow('divRestartFromParamTableDropdownSource', showDivRestartParamTable);
           ParamTableDivShow('divProrateStartFromParamTableDropdownSource', showDivProrateStartParamTable);
           ParamTableDivShow('divProrateEndFromParamTableDropdownSource', showDivProrateEndParamTable);
+          ParamTableDivShow('divProrateFromParamTableDropdownSource', showDivProrateParamTable);
       }
 
       function ddDecisionRangeRestartChanged()
@@ -175,35 +154,21 @@
           ddDecisionRangeRestartChanged();
       }
       
-      function ddProrateStartChanged()
+      function ddProrateChanged()
       {
-          var restart = document.getElementById('<%=ddProrateStart.ClientID%>').value;
+          var restart = document.getElementById('<%=ddProrate.ClientID%>').value;
           if (restart == '<%=Resources.Resource.TEXT_FROM_PARAMETER_TABLE %>') {
-              showDivProrateStartParamTable = true;
+              showDivProrateParamTable = true;
           } else {
-              showDivProrateStartParamTable = false;
+              showDivProrateParamTable = false;
           }
-          ParamTableDivShow('divProrateStartFromParamTableDropdownSource', showDivProrateStartParamTable);
+          ParamTableDivShow('divProrateFromParamTableDropdownSource', showDivProrateParamTable);
       }
       
-      function ddProrateStartInitialState() {
-          ddProrateStartChanged();
+      function ddProrateInitialState() {
+          ddProrateChanged();
       }
       
-      function ddProrateEndChanged()
-      {
-          var restart = document.getElementById('<%=ddProrateEnd.ClientID%>').value;
-          if (restart == '<%=Resources.Resource.TEXT_FROM_PARAMETER_TABLE %>') {
-              showDivProrateEndParamTable = true;
-          } else {
-              showDivProrateEndParamTable = false;
-          }
-          ParamTableDivShow('divProrateEndFromParamTableDropdownSource', showDivProrateEndParamTable);
-      }
-      
-      function ddProrateEndInitialState() {
-          ddProrateEndChanged();
-      }
       Ext.onReady(function () {
         // Record the initial values of the page's controls.
         // (Note:  This is called here, and not on the master page,

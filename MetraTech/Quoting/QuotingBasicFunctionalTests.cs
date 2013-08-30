@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Text;
 using System.Collections.Generic;
-using System.Linq;
 using MetraTech.DataAccess;
-using MetraTech.DomainModel.BaseTypes;
+using MetraTech.Domain.Quoting;
 using MetraTech.Interop.GenericCollection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MetraTech.Interop.MTProductCatalog;

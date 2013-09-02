@@ -1131,7 +1131,7 @@ namespace MetraTech.Shared.Test
                 piTemplate_FRRC.ChargePerParticipant = chargePerParticipant;
                 IMTPCCycle pcCycle = piTemplate_FRRC.Cycle;
                 
-                if (cycle != null)
+                if (cycle.CycleTypeID > 0)
                 {
                     pcCycle.CycleTypeID = cycle.CycleTypeID;
                     pcCycle.EndDayOfMonth = cycle.EndDayOfMonth;
@@ -2024,9 +2024,9 @@ namespace MetraTech.Shared.Test
 
         protected virtual IndependentAccount CreateIndependentAccount()
         {
-            string username = "Independent";
+            string username = "Indp";
             string nameSpace = String.Empty;
-            CoreSubscriber account = (CoreSubscriber)CreateBaseAccount("Independent", ref username, ref nameSpace);
+            IndependentAccount account = (IndependentAccount)CreateBaseAccount("IndependentAccount", ref username, ref nameSpace);
             account.AccountStartDate = MetraTime.Now;
 
             // Set the internal view

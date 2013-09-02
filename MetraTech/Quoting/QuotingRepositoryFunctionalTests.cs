@@ -108,6 +108,7 @@ namespace MetraTech.Quoting.Test
           {
             idQuote = quoteHeaderID,
             TotalAmount = 200,
+            TotalTax = 20,
             ReportLink = "Test Report Link",
             CreationDate = new DateTime(2013, 05, 10, 10, 55, 30),
             FailedMessage = "",

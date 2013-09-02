@@ -361,13 +361,13 @@ namespace MetraTech.Quoting
       protected void ValidateRequest(QuoteRequest request)
     {
         {
-            DateTime currentDate = MetraTime.Now;
-            if (request.EffectiveDate < currentDate)
+            DateTime currentDate = MetraTime.Now.Date;
+            if (request.EffectiveDate.Date < currentDate)
             {
                 string propertyName = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveDate);
                 throw new ArgumentException(
                     String.Format("'{0}'='{1}' can't be less than current time '{2}'", propertyName,
-                                  request.EffectiveDate, currentDate), propertyName);
+                                  request.EffectiveDate.Date, currentDate), propertyName);
             }
         }
 

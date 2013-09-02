@@ -928,6 +928,15 @@ namespace MetraTech.Quoting
           SessionContext);
     }
 
+    private string GetBatchIdsForQuery()
+    {
+        string sqlTemplate = "cast(N'' as xml).value('xs:base64Binary(\"{0}\")', 'binary(16)' ),";
+
+        var res = batchIds.Values.Aggregate("", (current, value) => current + String.Format(sqlTemplate, value));
+
+        return res.Substring(0, res.Length - 1);
+    }
+
     protected void CalculateQuoteTotal()
     {
       using (var conn = ConnectionManager.CreateConnection())
@@ -937,6 +946,7 @@ namespace MetraTech.Quoting
         {
           stmt.AddParam("%%USAGE_INTERVAL%%", UsageIntervalForQuote);
           stmt.AddParam("%%ACCOUNTS%%", string.Join(",", CurrentRequest.Accounts));
+          stmt.AddParam("%%BATCHIDS%%", GetBatchIdsForQuery(), true);
           using (IMTDataReader rowset = stmt.ExecuteReader())
           {
             rowset.Read();
@@ -958,8 +968,16 @@ namespace MetraTech.Quoting
             {
               CurrentResponse.Currency = "";
             }
+            try
+            {
+                CurrentResponse.TotalTax = rowset.GetDecimal("TaxTotal");
+            }
+            catch (InvalidOperationException)
+            {
+                CurrentResponse.TotalTax = 0M;
+            }
 
-            var totalMessage = string.Format("Total amount: {0} {1}", CurrentResponse.TotalAmount.ToString("N2"), CurrentResponse.Currency);
+            var totalMessage = string.Format("Total amount: {0} {1}, Total Tax: {2}", CurrentResponse.TotalAmount.ToString("N2"), CurrentResponse.Currency, CurrentResponse.TotalTax);           
 
             Log("CalculateQuoteTotal: {0}", totalMessage);
 

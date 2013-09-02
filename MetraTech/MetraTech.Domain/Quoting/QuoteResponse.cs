@@ -113,6 +113,31 @@ namespace MetraTech.Domain.Quoting
 
     #endregion
 
+    #region TotalTax
+
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isTotalTaxDirty = false;
+    private decimal m_TotalTax;
+    [MTDataMember(Description = "Quote total amount")]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public decimal TotalTax
+    {
+        get { return m_TotalTax; }
+        set
+        {
+            m_TotalTax = value;
+            isTotalTaxDirty = true;
+        }
+    }
+
+    [ScriptIgnore]
+    public bool IsTotalTaxDirty
+    {
+        get { return isTotalTaxDirty; }
+    }
+
+    #endregion
+
     #region Currency
 
     [DataMember(IsRequired = false, EmitDefaultValue = false)]

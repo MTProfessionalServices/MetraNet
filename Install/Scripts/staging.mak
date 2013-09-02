@@ -113,7 +113,7 @@ BINARIES = \
   agsXMPP.dll \
   antlr.runtime.dll \
   Antlr3.Runtime.dll \
-  Antlr4.Runtime.v4.0 \
+  Antlr4.Runtime.v4.0.dll \
   ARSetup.exe \
   ARSetup.pdb \
   autosdk.exe \

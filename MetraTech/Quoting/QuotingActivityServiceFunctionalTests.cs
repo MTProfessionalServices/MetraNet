@@ -58,6 +58,7 @@ namespace MetraTech.Quoting.Test
 
       //Values to use for verification
       decimal expectedQuoteTotal = (pofConfiguration.CountPairRCs * pofConfiguration.RCAmount * 2) + (pofConfiguration.CountNRCs * pofConfiguration.NRCAmount);
+      decimal expectedQuoteTotalTax = expectedQuoteTotal * 0.05m + expectedQuoteTotal * 0.025m * 4;	//values from dummy stage to calculate taxes (TA818)
       string expectedQuoteCurrency = "USD";
 
       #endregion
@@ -87,6 +88,7 @@ namespace MetraTech.Quoting.Test
       Assert.IsFalse(response.Status == QuoteStatus.Failed, response.FailedMessage);
       Assert.IsTrue(clientInvoked, "QuotingService_CreateQuote_Client didn't executed propely");
       Assert.AreEqual(expectedQuoteTotal, response.TotalAmount, "Wrong TotalAmount");
+      Assert.AreEqual(expectedQuoteTotalTax, response.TotalTax, String.Format("Wrong TotalTax. Actual is {0}, but expected {1}", response.TotalTax, expectedQuoteTotalTax));
       Assert.AreEqual(expectedQuoteCurrency, response.Currency, "Wrong Currency");
 
       #endregion

@@ -113,6 +113,7 @@ BINARIES = \
   agsXMPP.dll \
   antlr.runtime.dll \
   Antlr3.Runtime.dll \
+  Antlr4.Runtime.v4.0 \
   ARSetup.exe \
   ARSetup.pdb \
   autosdk.exe \
@@ -173,6 +174,7 @@ BINARIES = \
   DescLoad.pdb \
   DTCTest.exe \
   DTCTest.pdb \
+  EntityFramework.dll \
   EZTax.net.dll \
   gendm.exe \
   gendm.pdb \
@@ -303,6 +305,8 @@ BINARIES = \
   MetraTech.Debug.Diagnostics.pdb \
   MetraTech.Debug.DTCTestLib.dll \
   MetraTech.Debug.DTCTestLib.pdb \
+  MetraTech.Domain.dll \
+  MetraTech.Domain.pdb \
   MetraTech.DomainModel.AccountTypes.Generated.dll \
   MetraTech.DomainModel.AccountTypes.Generated.pdb \
   MetraTech.DomainModel.BaseTypes.dll \

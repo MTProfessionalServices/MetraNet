@@ -292,6 +292,7 @@ namespace MetraTech.Quoting
             throw new Exception(String.Format("Can't find quote header with idQuote = {0}", q.idQuote));
 
           quoteContent.Total = q.TotalAmount;
+          quoteContent.TotalTax = q.TotalTax; 
           quoteContent.Currency = q.Currency;
           quoteContent.ReportLink = q.ReportLink;
           //quoteContent.CreationDate = q.CreationDate;

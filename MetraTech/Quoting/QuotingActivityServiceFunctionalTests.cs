@@ -111,7 +111,7 @@ namespace MetraTech.Quoting.Test
       request.Accounts.Add(5555555);
       request.ProductOfferings.Add(6666666);
       request.ReportParameters = new ReportParams() { PDFReport = QuotingTestScenarios.RunPDFGenerationForAllTestsByDefault };
-      var expectedErrorMessagePartialText = "Invalid attempt to read when no data is present.";
+      var expectedErrorMessagePartialText = "has no billing cycle";
 
       #endregion
 

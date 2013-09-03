@@ -603,8 +603,8 @@ namespace MetraTech.Quoting.Test
       request.EffectiveDate = MetraTime.Now;
       request.EffectiveEndDate = MetraTime.Now;
       request.Localization = "en-US";
-      request.SubscriptionParameters.UDRCValues = SharedTestCode.GetUDRCInstanceValuesSetToMiddleValues(productOffering, 666666);
-
+      request.SubscriptionParameters.UDRCValues = SharedTestCode.GetUDRCInstanceValuesSetToMiddleValues(productOffering, idUDRC: 666666);
+      string expectedExceptionMessage = "UDRC ID added to SubscriptionParameters does not exist"; 
       try
       {
         QuoteResponse response = QuotingTestScenarios.CreateQuoteAndVerifyResults(request,
@@ -616,7 +616,7 @@ namespace MetraTech.Quoting.Test
       }
       catch (Exception ex)
       {
-        Assert.IsTrue(ex.Message.Contains("UDRC ID added to SubscriptionParameters does not exist"));
+        Assert.IsTrue(ex.Message.Contains(expectedExceptionMessage));
       }
 
       #endregion

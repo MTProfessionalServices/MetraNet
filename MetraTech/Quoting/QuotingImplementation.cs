@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Runtime.InteropServices;
 using System.Transactions;
 using MetraTech.ActivityServices.Common;
@@ -19,8 +18,6 @@ using MetraTech.UsageServer;
 using Auth = MetraTech.Interop.MTAuth;
 using MetraTech.Interop.MTProductCatalog;
 using BillingReRunClient = MetraTech.Pipeline.ReRun;
-using MetraTech.Interop.GenericCollection;
-using System.Text;
 
 namespace MetraTech.Quoting
 {
@@ -46,14 +43,21 @@ namespace MetraTech.Quoting
 
     private readonly List<MTSubscription> createdSubsciptions;
     private readonly List<IMTGroupSubscription> createdGroupSubsciptions;
-    private Dictionary<string, Interop.MeterRowset.MeterRowset> metters = new Dictionary<string, Interop.MeterRowset.MeterRowset>();
+
+    private Dictionary<string, Interop.MeterRowset.MeterRowset> metters =
+      new Dictionary<string, Interop.MeterRowset.MeterRowset>();
+
     private Dictionary<string, string> batchIds = new Dictionary<string, string>();
 
     protected readonly IQuotingRepository quotingRepository;
 
-    public IQuotingRepository QuotingRepository { get { return quotingRepository; } }
+    public IQuotingRepository QuotingRepository
+    {
+      get { return quotingRepository; }
+    }
 
-    public QuotingImplementation(QuotingConfiguration configuration, Auth.IMTSessionContext sessionContext, IQuotingRepository quotingRepository)
+    public QuotingImplementation(QuotingConfiguration configuration, Auth.IMTSessionContext sessionContext,
+                                 IQuotingRepository quotingRepository)
     {
       createdSubsciptions = new List<MTSubscription>();
       createdGroupSubsciptions = new List<IMTGroupSubscription>();
@@ -96,7 +100,13 @@ namespace MetraTech.Quoting
     #region Public
 
     protected QuoteRequest currentRequest;
-    public QuoteRequest CurrentRequest { get { return currentRequest; } } //Prototype
+
+    public QuoteRequest CurrentRequest
+    {
+      get { return currentRequest; }
+    }
+
+    //Prototype
     public QuoteResponse CurrentResponse { get; set; } //Prototype
 
 
@@ -164,7 +174,7 @@ namespace MetraTech.Quoting
             //todo: Clarify parameter sense
             stmt.AddOutputParam("p_count", MTParameterType.Integer);
             var res = stmt.ExecuteNonQuery();
-            countMeteredRecords = (int)stmt.GetOutputValue("p_count");
+            countMeteredRecords = (int) stmt.GetOutputValue("p_count");
           }
         }
 
@@ -187,8 +197,8 @@ namespace MetraTech.Quoting
           if (metters["RC"].CommittedErrorCount > 0)
           {
             string errorMessage =
-                String.Format("{0} Recurring Charge sessions failed during pipeline processing.",
-                              metters["RC"].CommittedErrorCount);
+              String.Format("{0} Recurring Charge sessions failed during pipeline processing.",
+                            metters["RC"].CommittedErrorCount);
             string pipelineErrorDetails = RetrievePipelineErrorDetailsMessage(this.batchIds["RC"]);
             errorMessage += Environment.NewLine + "Pipeline Errors:" + System.Environment.NewLine +
                             pipelineErrorDetails;
@@ -221,7 +231,9 @@ namespace MetraTech.Quoting
 
       using (IMTServicedConnection conn = ConnectionManager.CreateConnection())
       {
-        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(QUOTING_QUERY_FOLDER, "__GET_PIPELINE_ERRORS_FOR_BATCH__"))
+        using (
+          IMTAdapterStatement stmt = conn.CreateAdapterStatement(QUOTING_QUERY_FOLDER,
+                                                                 "__GET_PIPELINE_ERRORS_FOR_BATCH__"))
         {
           stmt.AddParam("%%STRING_BATCH_ID%%", batchIdEncoded);
 
@@ -240,6 +252,7 @@ namespace MetraTech.Quoting
 
       return sb.ToString();
     }
+
     /// <summary>
     /// Generate and rate non-recurring charge events for this quote 
     /// </summary>
@@ -270,18 +283,19 @@ namespace MetraTech.Quoting
             stmt.AddParam("v_id_batch", MTParameterType.String, batchIds["NRC"]);
             stmt.AddParam("v_n_batch_size", MTParameterType.Integer, Configuration.MeteringSessionSetSize);
             stmt.AddParam("v_run_date", MTParameterType.DateTime, dateTime);
-            stmt.AddParam("v_is_group_sub", MTParameterType.Integer, Convert.ToInt32(CurrentRequest.SubscriptionParameters.IsGroupSubscription));
+            stmt.AddParam("v_is_group_sub", MTParameterType.Integer,
+                          Convert.ToInt32(CurrentRequest.SubscriptionParameters.IsGroupSubscription));
             stmt.AddOutputParam("p_count", MTParameterType.Integer);
             var res = stmt.ExecuteNonQuery();
-            countMeteredRecords = (int)stmt.GetOutputValue("p_count");
+            countMeteredRecords = (int) stmt.GetOutputValue("p_count");
           }
         }
 
         if (countMeteredRecords > 0)
         {
           Log(
-              "Metered {0} records to Non-Recurring Charge with Batch ID={1} and waiting for pipeline to process",
-              countMeteredRecords, batchIds["NRC"]);
+            "Metered {0} records to Non-Recurring Charge with Batch ID={1} and waiting for pipeline to process",
+            countMeteredRecords, batchIds["NRC"]);
 
           try
           {
@@ -297,8 +311,8 @@ namespace MetraTech.Quoting
           if (metters["NRC"].CommittedErrorCount > 0)
           {
             string errorMessage =
-                String.Format("{0} Non-Recurring Charge sessions failed during pipeline processing.",
-                              metters["NRC"].CommittedErrorCount);
+              String.Format("{0} Non-Recurring Charge sessions failed during pipeline processing.",
+                            metters["NRC"].CommittedErrorCount);
             RecordErrorAndCleanup(errorMessage);
             throw new ApplicationException(errorMessage);
           }
@@ -324,20 +338,20 @@ namespace MetraTech.Quoting
         try
         {
 
-        VerifyCurrentQuoteIsInProgress();
+          VerifyCurrentQuoteIsInProgress();
 
-        FinalizeQuoteInternal();
+          FinalizeQuoteInternal();
 
-        if (CurrentRequest.ReportParameters.PDFReport)
-        {
-          GeneratePDFForCurrentQuote();
-        }
+          if (CurrentRequest.ReportParameters.PDFReport)
+          {
+            GeneratePDFForCurrentQuote();
+          }
 
-        //todo: Save or update data about quote in DB
-        CurrentResponse = QuotingRepository.UpdateQuoteWithResponse(CurrentResponse);
-        QuotingRepository.SaveQuoteLog(CurrentResponse.MessageLog);
+          //todo: Save or update data about quote in DB
+          CurrentResponse = QuotingRepository.UpdateQuoteWithResponse(CurrentResponse);
+          QuotingRepository.SaveQuoteLog(CurrentResponse.MessageLog);
 
-        Cleanup();
+          Cleanup();
 
         }
         catch (Exception ex)
@@ -354,81 +368,84 @@ namespace MetraTech.Quoting
 
     #region Internal
 
-      /// <summary>
-      /// Method that validates/sanity checks the request and throws exceptions if there are errors
-      /// </summary>
-      /// <param name="request">QuoteRequest to be checked</param>
-      /// <exception cref="ArgumentException"></exception>
+    /// <summary>
+    /// Method that validates/sanity checks the request and throws exceptions if there are errors
+    /// </summary>
+    /// <param name="request">QuoteRequest to be checked</param>
+    /// <exception cref="ArgumentException"></exception>
     protected void ValidateRequest(QuoteRequest request)
     {
-        if (request.SubscriptionParameters.IsGroupSubscription && request.IcbPrices.Count > 0)
-        {
-            throw new Exception("Current limitation of quoting: ICBs are applied only for individual subscriptions");
-        }
+      if (request.SubscriptionParameters.IsGroupSubscription && request.IcbPrices.Count > 0)
+      {
+        throw new Exception("Current limitation of quoting: ICBs are applied only for individual subscriptions");
+      }
 
-        {
-            DateTime currentDate = MetraTime.Now.Date;
-            if (request.EffectiveDate.Date < currentDate)
-            {
-                string propertyName = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveDate);
-                throw new ArgumentException(
-                    String.Format("'{0}'='{1}' can't be less than current time '{2}'", propertyName,
-                                  request.EffectiveDate.Date, currentDate), propertyName);
-            }
-        }
 
-        //EffectiveDate must be set
-        if (request.EffectiveDate == null || request.EffectiveDate ==  DateTime.MinValue)
-        {
-            string propertyName = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveDate);
-            throw new ArgumentException(String.Format("'{0}' must be specified", propertyName), propertyName);
-        }
+      DateTime currentDate = MetraTime.Now.Date;
+      if (request.EffectiveDate.Date < currentDate)
+      {
+        string propertyName = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveDate);
+        throw new ArgumentException(
+          String.Format("'{0}'='{1}' can't be less than current time '{2}'", propertyName,
+                        request.EffectiveDate.Date, currentDate), propertyName);
+      }
 
-          if (request.EffectiveEndDate < request.EffectiveDate)
-        {
-            string propertyStartDate = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveDate);
-            string propertyEndDate = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveEndDate);
-            throw new ArgumentException(String.Format("The Start date can not be greater than End date. Start date '{0}'='{1}' > End date '{2}'='{3}'"
-                , propertyStartDate, request.EffectiveDate
-                , propertyEndDate, request.EffectiveEndDate)
-                , propertyEndDate);
-        }
 
-          //At least one account must be specified
-        if (!(request.Accounts.Count > 0))
-        {
-            throw new ArgumentException("At least one account must be specified for the quote"
-                , PropertyName<QuoteRequest>.GetPropertyName(p => p.Accounts));
-        }
 
-        //todo check for the same usage cycle for all accounts
-        //if (!(request.Accounts.Count > 0)) { throw new ArgumentException("At least one account must be specified for the quote", "Accounts"); }
+      //EffectiveDate must be set
+      if (request.EffectiveDate == null || request.EffectiveDate == DateTime.MinValue)
+      {
+        string propertyName = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveDate);
+        throw new ArgumentException(String.Format("'{0}' must be specified", propertyName), propertyName);
+      }
 
-        //At least one po must be specified since we only do RCs and NRCs currently; in the future this won't be a restriction
-        if (!(request.ProductOfferings.Count > 0))
-        {
-            throw new ArgumentException("At least one product offering must be specified for the quote as quoting currently only quotes for RCs and NRC"
-                , PropertyName<QuoteRequest>.GetPropertyName(p => p.ProductOfferings));
-        }
+      if (request.EffectiveEndDate < request.EffectiveDate)
+      {
+        string propertyStartDate = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveDate);
+        string propertyEndDate = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveEndDate);
+        throw new ArgumentException(
+          String.Format("The Start date can not be greater than End date. Start date '{0}'='{1}' > End date '{2}'='{3}'"
+                        , propertyStartDate, request.EffectiveDate
+                        , propertyEndDate, request.EffectiveEndDate)
+          , propertyEndDate);
+      }
 
-        // Ensure that all accounts are in the same billing cycle
-        var first = GetAccountBillingCycle(request.Accounts.First());
-        if (!(request.Accounts.All(e => GetAccountBillingCycle(e) == first)))
-        {
-            throw new ArgumentException("All accounts must be in the same billing cycle"
-                , PropertyName<QuoteRequest>.GetPropertyName(p => p.Accounts));
-        }
+      //At least one account must be specified
+      if (!(request.Accounts.Count > 0))
+      {
+        throw new ArgumentException("At least one account must be specified for the quote"
+                                    , PropertyName<QuoteRequest>.GetPropertyName(p => p.Accounts));
+      }
 
-        // Ensure that all payers are in the quote request
-        var idPayers = request.Accounts.Select(e => GetAccountPayer(e));
-        if (!idPayers.All(e => request.Accounts.Contains(e)))
-        {
-            throw new ArgumentException("All account payers must be included in the quote request"
-                , PropertyName<QuoteRequest>.GetPropertyName(p => p.Accounts));
-        }
+      //todo check for the same usage cycle for all accounts
+      //if (!(request.Accounts.Count > 0)) { throw new ArgumentException("At least one account must be specified for the quote", "Accounts"); }
 
-        if (request.IcbPrices == null)
-            request.IcbPrices = new List<QuoteIndividualPrice>();
+      //At least one po must be specified since we only do RCs and NRCs currently; in the future this won't be a restriction
+      if (!(request.ProductOfferings.Count > 0))
+      {
+        throw new ArgumentException(
+          "At least one product offering must be specified for the quote as quoting currently only quotes for RCs and NRC"
+          , PropertyName<QuoteRequest>.GetPropertyName(p => p.ProductOfferings));
+      }
+
+      // Ensure that all accounts are in the same billing cycle
+      var first = GetAccountBillingCycle(request.Accounts.First());
+      if (!(request.Accounts.All(e => GetAccountBillingCycle(e) == first)))
+      {
+        throw new ArgumentException("All accounts must be in the same billing cycle"
+                                    , PropertyName<QuoteRequest>.GetPropertyName(p => p.Accounts));
+      }
+
+      // Ensure that all payers are in the quote request
+      var idPayers = request.Accounts.Select(e => GetAccountPayer(e));
+      if (!idPayers.All(e => request.Accounts.Contains(e)))
+      {
+        throw new ArgumentException("All account payers must be included in the quote request"
+                                    , PropertyName<QuoteRequest>.GetPropertyName(p => p.Accounts));
+      }
+
+      if (request.IcbPrices == null)
+        request.IcbPrices = new List<QuoteIndividualPrice>();
 
     }
 
@@ -436,14 +453,15 @@ namespace MetraTech.Quoting
     {
       using (var conn = ConnectionManager.CreateNonServicedConnection())
       {
-        using (var stmt = conn.CreateAdapterStatement(QUOTING_QUERY_FOLDER, Configuration.GetAccountBillingCycleQueryTag))
+        using (
+          var stmt = conn.CreateAdapterStatement(QUOTING_QUERY_FOLDER, Configuration.GetAccountBillingCycleQueryTag))
         {
           stmt.AddParam("%%ACCOUNT_ID%%", idAccount);
           using (var rowset = stmt.ExecuteReader())
           {
             if (!rowset.Read())
               throw new ApplicationException(string.Format("The account {0} has no billing cycle", idAccount));
-            
+
             return rowset.GetInt32("AccountCycleType");
           }
         }
@@ -456,7 +474,9 @@ namespace MetraTech.Quoting
 
       using (IMTNonServicedConnection conn = ConnectionManager.CreateNonServicedConnection())
       {
-        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(QUOTING_QUERY_FOLDER, Configuration.GetAccountPayerQueryTag))
+        using (
+          IMTAdapterStatement stmt = conn.CreateAdapterStatement(QUOTING_QUERY_FOLDER,
+                                                                 Configuration.GetAccountPayerQueryTag))
         {
           stmt.AddParam("%%ACCOUNT_ID%%", idAccount);
           using (IMTDataReader rowset = stmt.ExecuteReader())
@@ -482,7 +502,8 @@ namespace MetraTech.Quoting
         switch (CurrentResponse.Status)
         {
           case QuoteStatus.Failed:
-            throw new ApplicationException("Current quote has failed and can no longer be worked with. Check CurrentResponse.Status and CurrentResponse.FailedMessage.");
+            throw new ApplicationException(
+              "Current quote has failed and can no longer be worked with. Check CurrentResponse.Status and CurrentResponse.FailedMessage.");
           case QuoteStatus.Complete:
             throw new ApplicationException("Current quote has completed and can no longer be worked with.");
           default:
@@ -587,7 +608,8 @@ namespace MetraTech.Quoting
           return 2059;
       }
 
-      mLogger.LogWarning("Unable to convert culture of {0} to MetraTech language code database id; using 840 for 'en-US'", temp);
+      mLogger.LogWarning(
+        "Unable to convert culture of {0} to MetraTech language code database id; using 840 for 'en-US'", temp);
 
       return 840;
 
@@ -632,292 +654,241 @@ namespace MetraTech.Quoting
 
     protected void CreateNeededSubscriptions()
     {
-        //TODO: Determine if this lock is necessary and if so, give it a better/more descriptive name and comment
-        lock (_obj)
+      //TODO: Determine if this lock is necessary and if so, give it a better/more descriptive name and comment
+      lock (_obj)
+      {
+        #region Check and turn off InstantRCs if needed
+
+        bool instantRCsEnabled = true;
+        //Check and turn off InstantRCs
+        using (IMTConnection conn = ConnectionManager.CreateConnection())
         {
-            #region Check and turn off InstantRCs if needed
-
-            bool instantRCsEnabled = true;
-            //Check and turn off InstantRCs
-            using (IMTConnection conn = ConnectionManager.CreateConnection())
+          using (var stmt = conn.CreateAdapterStatement(@"Queries\ProductCatalog", "__GET_INSTANTRC_VALUE__"))
+          {
+            using (IMTDataReader reader = stmt.ExecuteReader())
             {
-                using (var stmt = conn.CreateAdapterStatement(@"Queries\ProductCatalog", "__GET_INSTANTRC_VALUE__"))
-                {
-                    using (IMTDataReader reader = stmt.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            instantRCsEnabled = reader.GetBoolean("InstantRCValue");
-                        }
-                        else
-                        {
-                            string errorMessage = "Unable to retrieve InstantRC setting";
-                            RecordErrorAndCleanup(errorMessage);
-                            throw new ApplicationException(errorMessage);
-                        }
-                    }
-                }
-
-                if (instantRCsEnabled)
-                {
-                    using (IMTStatement stmt = conn.CreateStatement(GetQueryToUpdateInstantRCConfigurationValue(false)))
-                    {
-                        stmt.ExecuteNonQuery();
-                    }
-                }
+              if (reader.Read())
+              {
+                instantRCsEnabled = reader.GetBoolean("InstantRCValue");
+              }
+              else
+              {
+                string errorMessage = "Unable to retrieve InstantRC setting";
+                RecordErrorAndCleanup(errorMessage);
+                throw new ApplicationException(errorMessage);
+              }
             }
+          }
 
-            #endregion
-
-            var transactionOption = new TransactionOptions();
-            transactionOption.IsolationLevel = IsolationLevel.ReadUncommitted;
-            if (!CurrentRequest.SubscriptionParameters.IsGroupSubscription)
+          if (instantRCsEnabled)
+          {
+            using (IMTStatement stmt = conn.CreateStatement(GetQueryToUpdateInstantRCConfigurationValue(false)))
             {
-                #region Indvidual subscription
-
-                //Create individual subscriptions for each account
-                using (TransactionScope scope = new TransactionScope(TransactionScopeOption.RequiresNew,
-                                                                  transactionOption,
-                                                                  EnterpriseServicesInteropOption.Full))
-                {
-                    foreach (int idAccount in CurrentRequest.Accounts)
-                    {
-                        var acc = CurrentProductCatalog.GetAccount(idAccount);
-                        foreach (int po in CurrentRequest.ProductOfferings)
-                        {
-                            CreateIndividualSubscriptionForQuote(acc, po);
-                        }                       
-                    }
-
-                    scope.Complete();
-                }               
-
-                #endregion
+              stmt.ExecuteNonQuery();
             }
-            else
-            {             
-                using (TransactionScope scope = new TransactionScope(TransactionScopeOption.RequiresNew,
-                                                                     new TransactionOptions(),
-                                                                     EnterpriseServicesInteropOption.Full))
-                {                    
-
-                    foreach (int idPO in CurrentRequest.ProductOfferings)
-                    {
-                        CreateGroupSubscriptionForQuote(idPO, CurrentRequest.SubscriptionParameters.CorporateAccountId, CurrentRequest.Accounts);
-                    }
-
-                    scope.Complete();
-                }
-            }
-
-            #region Turn InstantRCs back on
-            if (instantRCsEnabled)
-            {
-                using (IMTConnection conn = ConnectionManager.CreateConnection())
-                {
-                    using (IMTStatement stmt = conn.CreateStatement(GetQueryToUpdateInstantRCConfigurationValue(instantRCsEnabled)))
-                    {
-                        stmt.ExecuteNonQuery();
-                    }
-                }
-            }
-
-            #endregion
+          }
         }
+
+        #endregion
+
+        var transactionOption = new TransactionOptions();
+        transactionOption.IsolationLevel = IsolationLevel.ReadUncommitted;
+        using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew,
+                                                transactionOption,
+                                                EnterpriseServicesInteropOption.Full))
+        {
+          if (!CurrentRequest.SubscriptionParameters.IsGroupSubscription)
+            foreach (var idAccount in CurrentRequest.Accounts)
+            {
+              var acc = CurrentProductCatalog.GetAccount(idAccount);
+              foreach (int po in CurrentRequest.ProductOfferings)
+              {
+                CreateIndividualSubscriptionForQuote(acc, po);
+              }
+            }
+          else
+            foreach (var offerId in CurrentRequest.ProductOfferings)
+            {
+              CreateGroupSubscriptionForQuote(offerId,
+                                              CurrentRequest.SubscriptionParameters.CorporateAccountId,
+                                              CurrentRequest.Accounts);
+            }
+          scope.Complete();
+        }
+
+
+        #region Turn InstantRCs back on
+
+        if (instantRCsEnabled)
+        {
+          using (IMTConnection conn = ConnectionManager.CreateConnection())
+          {
+            using (
+              IMTStatement stmt = conn.CreateStatement(GetQueryToUpdateInstantRCConfigurationValue(instantRCsEnabled)))
+            {
+              stmt.ExecuteNonQuery();
+            }
+          }
+        }
+
+        #endregion
+      }
     }
-      /// <summary>
-      /// Create Group Subscription and add its ID into createdGroupSubsciptions
-      /// </summary>
-      /// <param name="idPO"></param>
-      /// <param name="corporateAccountId"></param>
-      /// <param name="idAccounts"></param>
-      /// /// <remarks>Should be run in one transaction with the same call for all POs in QuoteRequest</remarks>
-      private void CreateGroupSubscriptionForQuote(int idPO, int corporateAccountId, List<int> idAccounts)
+
+    /// <summary>
+    /// Create Group Subscription and add its ID into createdGroupSubsciptions
+    /// </summary>
+    /// <param name="offerId"></param>
+    /// <param name="corporateAccountId"></param>
+    /// <param name="accountList"></param>
+    /// /// <remarks>Should be run in one transaction with the same call for all POs in QuoteRequest</remarks>
+    private void CreateGroupSubscriptionForQuote(int offerId, int corporateAccountId, IEnumerable<int> accountList)
+    {
+      var effectiveDate = new MTPCTimeSpanClass
+        {
+          StartDate = CurrentRequest.EffectiveDate,
+          StartDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE,
+          EndDate = CurrentRequest.EffectiveEndDate,
+          EndDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE
+        };
+
+      //TODO: Figure out correct cycle for group sub or if it should be passed
+      var groupSubscriptionCycle = new MTPCCycle
+        {
+          CycleTypeID = 1,
+          EndDayOfMonth = 31
+        };
+
+      IMTGroupSubscription mtGroupSubscription = CurrentProductCatalog.CreateGroupSubscription();
+      mtGroupSubscription.EffectiveDate = effectiveDate;
+      mtGroupSubscription.ProductOfferingID = offerId;
+      mtGroupSubscription.ProportionalDistribution = true; //Part of request?
+      //if (!groupSubscription.ProportionalDistribution)
+      //{
+      //  mtGroupSubscription.DistributionAccount = groupSubscription.DiscountAccountId.Value;
+      //}
+      mtGroupSubscription.Name = string.Format("TempQuoteGSForPO_{0}Quote_{1}", offerId,
+                                               CurrentResponse.idQuote);
+      mtGroupSubscription.Description = "Group subscription for Quoting. ProductOffering: " + offerId;
+      mtGroupSubscription.SupportGroupOps = true; // Part of request?
+      mtGroupSubscription.CorporateAccount = corporateAccountId;
+      mtGroupSubscription.Cycle = groupSubscriptionCycle;
+
+      const int FLAT_RC_TYPE_ID = 214;
+      const int FLAT_UDRC_TYPE_ID = 245;
+
+      foreach (
+        MTPriceableItem pi in CurrentProductCatalog.GetProductOffering(offerId).GetPriceableItemsOfType(FLAT_RC_TYPE_ID)
+        )
       {
-          var effectiveDate = new MTPCTimeSpanClass
-              {
-                  StartDate = CurrentRequest.EffectiveDate,
-                  StartDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE,
-                  EndDate = CurrentRequest.EffectiveEndDate,
-                  EndDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE
-              };
-
-          //TODO: Figure out correct cycle for group sub or if it should be passed
-          var groupSubscriptionCycle = new MTPCCycle
-              {
-                  CycleTypeID = 1,
-                  EndDayOfMonth = 31
-              };
-
-          IMTGroupSubscription mtGroupSubscription = CurrentProductCatalog.CreateGroupSubscription();
-          mtGroupSubscription.EffectiveDate = effectiveDate;
-          mtGroupSubscription.ProductOfferingID = idPO;
-          mtGroupSubscription.ProportionalDistribution = true; //Part of request?
-          //if (!groupSubscription.ProportionalDistribution)
-          //{
-          //  mtGroupSubscription.DistributionAccount = groupSubscription.DiscountAccountId.Value;
-          //}
-          mtGroupSubscription.Name = string.Format("TempQuoteGSForPO_{0}Quote_{1}", idPO,
-                                                   CurrentResponse.idQuote);
-          mtGroupSubscription.Description = "Group subscription for Quoting. ProductOffering: " + idPO;
-          mtGroupSubscription.SupportGroupOps = true; // Part of request?
-          mtGroupSubscription.CorporateAccount = corporateAccountId;
-          mtGroupSubscription.Cycle = groupSubscriptionCycle;
-
-          const int FLAT_RC_TYPE_ID = 214;
-          const int FLAT_UDRC_TYPE_ID = 245;
-
-          foreach (MTPriceableItem pi in CurrentProductCatalog.GetProductOffering(idPO).GetPriceableItemsOfType(FLAT_RC_TYPE_ID))
-          {
-              mtGroupSubscription.SetChargeAccount(pi.ID, corporateAccountId,
-                                                   CurrentRequest.EffectiveDate, CurrentRequest.EffectiveEndDate);
-          }
-
-          foreach (MTPriceableItem pi in CurrentProductCatalog.GetProductOffering(idPO).GetPriceableItemsOfType(FLAT_UDRC_TYPE_ID))
-          {
-              mtGroupSubscription.SetChargeAccount(pi.ID, corporateAccountId,
-                                                   CurrentRequest.EffectiveDate, CurrentRequest.EffectiveEndDate);
-
-              //Update UDRC values
-              // Set recurring charge unit values
-              try
-              {
-                  if (CurrentRequest.SubscriptionParameters.UDRCValues.ContainsKey(idPO.ToString()))
-                  {
-                      foreach (var udrcInstanceValue in CurrentRequest.SubscriptionParameters.UDRCValues[idPO.ToString()])
-                      {
-                          mtGroupSubscription.SetRecurringChargeUnitValue(udrcInstanceValue.UDRC_Id,
-                                                                          udrcInstanceValue.Value,
-                                                                          udrcInstanceValue.StartDate,
-                                                                          udrcInstanceValue.EndDate);
-                      }
-                  }
-              }
-              catch (COMException come)
-              {
-                  if (come.Message.Contains("not found in database"))
-                  {
-                      LogError(come.Message);
-                      throw new ArgumentException("Subscription failed with message: " + come.Message +
-                                                  "\nUDRC ID added to SubscriptionParameters does not exist");
-                  }
-
-                  throw;
-              }
-          }
-
-          mtGroupSubscription.Save();
-          createdGroupSubsciptions.Add(mtGroupSubscription);
-
-          MTGSubMember mtGsubMember = null;
-
-          if (idAccounts.Count == 1)
-          {
-              mtGsubMember = new MTGSubMember();
-              mtGsubMember.AccountID = idAccounts[0];
-              mtGsubMember.StartDate = CurrentRequest.EffectiveDate;
-              mtGsubMember.EndDate = CurrentRequest.EffectiveEndDate;
-
-              mtGroupSubscription.AddAccount(mtGsubMember);
-          }
-          else if (idAccounts.Count > 1)
-          {
-              var mtCollection = new MTCollection() as MetraTech.Interop.MTProductCatalog.IMTCollection;
-
-              foreach (int idAccount in idAccounts)
-              {
-                  mtGsubMember = new MTGSubMember();
-                  mtGsubMember.AccountID = idAccount;
-                  mtGsubMember.StartDate = CurrentRequest.EffectiveDate;
-                  mtGsubMember.EndDate = CurrentRequest.EffectiveEndDate;
-
-                  if (mtCollection != null) 
-                      mtCollection.Add(mtGsubMember);
-              }
-
-              bool modified;
-              var errorRowset = mtGroupSubscription.AddAccountBatch(mtCollection, null, out modified, null);
-
-              #region Handle exception from AddAccountBatch
-
-              if (errorRowset.RecordCount > 0)
-              {
-                  StringBuilder errorString = new StringBuilder();
-                  string curError = "Error adding group subscription members";
-                  errorString.Append(curError + System.Environment.NewLine);
-
-                  while (!System.Convert.ToBoolean(errorRowset.EOF))
-                  {
-                      curError = "Account " +
-                                 ((int) errorRowset.Value["id_acc"]).ToString() +
-                                 ": " +
-                                 (string) errorRowset.Value["description"];
-
-                      errorString.Append(curError + System.Environment.NewLine);
-
-                      errorRowset.MoveNext();
-                  }
-                  errorRowset.MoveFirst();
-                  RecordErrorAndCleanup(errorString.ToString());
-              }
-
-              #endregion
-          }
-
-          mtGroupSubscription.Save();
-          createdGroupSubsciptions.Add(mtGroupSubscription);
+        mtGroupSubscription.SetChargeAccount(pi.ID, corporateAccountId,
+                                             CurrentRequest.EffectiveDate, CurrentRequest.EffectiveEndDate);
       }
 
-      /// <summary>
-      /// Create Individual Subscription, apply ICBs and add its ID into CreatedSubscription
-      /// </summary>
-      /// <param name="acc"></param>
-      /// <param name="po"></param>
-      /// <remarks>Should be run in one transaction with the same call for all accounts and POs in QuoteRequest</remarks>
-      private void CreateIndividualSubscriptionForQuote(MTPCAccount acc, int po)
+      foreach (
+        MTPriceableItem pi in
+          CurrentProductCatalog.GetProductOffering(offerId).GetPriceableItemsOfType(FLAT_UDRC_TYPE_ID))
       {
-          var effDate = new MTPCTimeSpanClass
-              {
-                  StartDate = CurrentRequest.EffectiveDate,
-                  StartDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE
-              };
+        mtGroupSubscription.SetChargeAccount(pi.ID, corporateAccountId,
+                                             CurrentRequest.EffectiveDate, CurrentRequest.EffectiveEndDate);
 
-          object modifiedDate = MetraTime.Now;
-          var subscription = acc.Subscribe(po, effDate, out modifiedDate);
-
-          try
+        //Update UDRC values
+        // Set recurring charge unit values
+        try
+        {
+          if (CurrentRequest.SubscriptionParameters.UDRCValues.ContainsKey(offerId.ToString()))
           {
-              if (CurrentRequest.SubscriptionParameters.UDRCValues.ContainsKey(po.ToString()))
-              {
-                  foreach (
-                      var udrcInstanceValue in
-                          CurrentRequest.SubscriptionParameters.UDRCValues[po.ToString()])
-                  {
-                      subscription.SetRecurringChargeUnitValue(udrcInstanceValue.UDRC_Id,
-                                                               udrcInstanceValue.Value,
-                                                               udrcInstanceValue.StartDate,
-                                                               udrcInstanceValue.EndDate);
-                  }
-              }
+            foreach (var udrcInstanceValue in CurrentRequest.SubscriptionParameters.UDRCValues[offerId.ToString()])
+            {
+              mtGroupSubscription.SetRecurringChargeUnitValue(udrcInstanceValue.UDRC_Id,
+                                                              udrcInstanceValue.Value,
+                                                              udrcInstanceValue.StartDate,
+                                                              udrcInstanceValue.EndDate);
+            }
           }
-          catch (COMException come)
+        }
+        catch (COMException come)
+        {
+          if (come.Message.Contains("not found in database"))
           {
-              if (come.Message.Contains("not found in database"))
-              {
-                  LogError(come.Message);
-                  throw new ArgumentException("Subscription failed with message: " + come.Message +
-                                              "\nUDRC ID added to SubscriptionParameters does not exist");
-              }
-
-              throw;
+            LogError(come.Message);
+            throw new ArgumentException("Subscription failed with message: " + come.Message +
+                                        "\nUDRC ID added to SubscriptionParameters does not exist");
           }
-
-          subscription.Save();
-
-          ApplyIcbPricesToSubscription(subscription.ProductOfferingID, subscription.ID);
-          
-          createdSubsciptions.Add(subscription);          
+          throw;
+        }
       }
+
+      mtGroupSubscription.Save();
+      createdGroupSubsciptions.Add(mtGroupSubscription);
+      foreach (var mtGsubMember in accountList.Select(id => GetSubMember(id, CurrentRequest)))
+      {
+        mtGroupSubscription.AddAccount(mtGsubMember);
+      }
+      mtGroupSubscription.Save();
+      createdGroupSubsciptions.Add(mtGroupSubscription);
+    }
+
+    private static MTGSubMember GetSubMember(int accountId, QuoteRequest quoteRequest)
+    {
+      return new MTGSubMember
+        {
+          AccountID = accountId,
+          StartDate = quoteRequest.EffectiveDate,
+          EndDate = quoteRequest.EffectiveEndDate
+        };
+    }
+
+    /// <summary>
+    /// Create Individual Subscription, apply ICBs and add its ID into CreatedSubscription
+    /// </summary>
+    /// <param name="acc"></param>
+    /// <param name="po"></param>
+    /// <remarks>Should be run in one transaction with the same call for all accounts and POs in QuoteRequest</remarks>
+    private void CreateIndividualSubscriptionForQuote(MTPCAccount acc, int po)
+    {
+      var effDate = new MTPCTimeSpanClass
+        {
+          StartDate = CurrentRequest.EffectiveDate,
+          StartDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE
+        };
+
+      object modifiedDate = MetraTime.Now;
+      var subscription = acc.Subscribe(po, effDate, out modifiedDate);
+
+      try
+      {
+        if (CurrentRequest.SubscriptionParameters.UDRCValues.ContainsKey(po.ToString()))
+        {
+          foreach (
+            var udrcInstanceValue in
+              CurrentRequest.SubscriptionParameters.UDRCValues[po.ToString()])
+          {
+            subscription.SetRecurringChargeUnitValue(udrcInstanceValue.UDRC_Id,
+                                                     udrcInstanceValue.Value,
+                                                     udrcInstanceValue.StartDate,
+                                                     udrcInstanceValue.EndDate);
+          }
+        }
+      }
+      catch (COMException come)
+      {
+        if (come.Message.Contains("not found in database"))
+        {
+          LogError(come.Message);
+          throw new ArgumentException("Subscription failed with message: " + come.Message +
+                                      "\nUDRC ID added to SubscriptionParameters does not exist");
+        }
+
+        throw;
+      }
+
+      subscription.Save();
+
+      ApplyIcbPricesToSubscription(subscription.ProductOfferingID, subscription.ID);
+
+      createdSubsciptions.Add(subscription);
+    }
 
     private void ApplyIcbPricesToSubscription(int productOfferingId, int subscriptionId)
     {
@@ -936,43 +907,43 @@ namespace MetraTech.Quoting
 
     private string GetBatchIdsForQuery()
     {
-        string sqlTemplate = "cast(N'' as xml).value('xs:base64Binary(\"{0}\")', 'binary(16)' ),";
+      string sqlTemplate = "cast(N'' as xml).value('xs:base64Binary(\"{0}\")', 'binary(16)' ),";
 
-        var res = batchIds.Values.Aggregate("", (current, value) => current + String.Format(sqlTemplate, value));
+      var res = batchIds.Values.Aggregate("", (current, value) => current + String.Format(sqlTemplate, value));
 
-        return res.Substring(0, res.Length - 1);
+      return res.Substring(0, res.Length - 1);
     }
 
     private decimal GetDecimalProperty(IMTDataReader rowset, string property)
     {
-        try
-        {
-            return rowset.GetDecimal(property);
-        }
-        catch (InvalidOperationException)
-        {
-            return 0M;
-        }
-        catch (SqlNullValueException)
-        {
-            return 0M;
-        }
+      try
+      {
+        return rowset.GetDecimal(property);
+      }
+      catch (InvalidOperationException)
+      {
+        return 0M;
+      }
+      catch (SqlNullValueException)
+      {
+        return 0M;
+      }
     }
 
     private string GetStringProperty(IMTDataReader rowset, string property)
     {
-        try
-        {
-            return rowset.GetString(property);
-        }
-        catch (InvalidOperationException)
-        {
-            return "";
-        }
-        catch (SqlNullValueException)
-        {
-            return "";
-        }
+      try
+      {
+        return rowset.GetString(property);
+      }
+      catch (InvalidOperationException)
+      {
+        return "";
+      }
+      catch (SqlNullValueException)
+      {
+        return "";
+      }
     }
 
     protected void CalculateQuoteTotal()
@@ -980,20 +951,22 @@ namespace MetraTech.Quoting
       using (var conn = ConnectionManager.CreateConnection())
       {
         using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(QUOTING_QUERY_FOLDER,
-                                                                 Configuration.CalculateQuoteTotalAmountQueryTag))
+                                                                      Configuration.CalculateQuoteTotalAmountQueryTag))
         {
           stmt.AddParam("%%USAGE_INTERVAL%%", UsageIntervalForQuote);
           stmt.AddParam("%%ACCOUNTS%%", string.Join(",", CurrentRequest.Accounts));
           stmt.AddParam("%%BATCHIDS%%", GetBatchIdsForQuery(), true);
           using (IMTDataReader rowset = stmt.ExecuteReader())
           {
-              rowset.Read();
+            rowset.Read();
 
-              CurrentResponse.TotalAmount = GetDecimalProperty(rowset, "Amount");
-              CurrentResponse.TotalTax = GetDecimalProperty(rowset, "TaxTotal");
-              CurrentResponse.Currency = GetStringProperty(rowset, "Currency");                        
+            CurrentResponse.TotalAmount = GetDecimalProperty(rowset, "Amount");
+            CurrentResponse.TotalTax = GetDecimalProperty(rowset, "TaxTotal");
+            CurrentResponse.Currency = GetStringProperty(rowset, "Currency");
 
-            var totalMessage = string.Format("Total amount: {0} {1}, Total Tax: {2}", CurrentResponse.TotalAmount.ToString("N2"), CurrentResponse.Currency, CurrentResponse.TotalTax);           
+            var totalMessage = string.Format("Total amount: {0} {1}, Total Tax: {2}",
+                                             CurrentResponse.TotalAmount.ToString("N2"), CurrentResponse.Currency,
+                                             CurrentResponse.TotalTax);
 
             Log("CalculateQuoteTotal: {0}", totalMessage);
 
@@ -1017,7 +990,9 @@ namespace MetraTech.Quoting
 
       using (var conn = ConnectionManager.CreateConnection())
       {
-        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(QUOTING_QUERY_FOLDER, Configuration.GetUsageIntervalIdForQuotingQueryTag))
+        using (
+          IMTAdapterStatement stmt = conn.CreateAdapterStatement(QUOTING_QUERY_FOLDER,
+                                                                 Configuration.GetUsageIntervalIdForQuotingQueryTag))
         {
           stmt.AddParam("%%EFFECTIVE_DATE%%", effectiveDate);
           stmt.AddParam("%%ACCOUNT_ID%%", idAccount);
@@ -1034,19 +1009,28 @@ namespace MetraTech.Quoting
               //Perhaps in the future this can be resolved by obtaining the next open interval and using that for the quote
               if (string.Compare(usageIntervalState, "O", true) != 0)
               {
-                throw new Exception(string.Format("The interval {0} running from {1} to {2}, currently has a state of '{3}' and cannot be used for quoting. Please select an effective date other than {4}", idUsageInterval, usageIntervalStart, usageIntervalEnd, usageIntervalState, effectiveDate));
+                throw new Exception(
+                  string.Format(
+                    "The interval {0} running from {1} to {2}, currently has a state of '{3}' and cannot be used for quoting. Please select an effective date other than {4}",
+                    idUsageInterval, usageIntervalStart, usageIntervalEnd, usageIntervalState, effectiveDate));
               }
 
               //Hopefully this limitation can be removed or automatically resolved in the future
               if (rowset.IsDBNull("NextUsageIntervalId"))
               {
-                throw new Exception(string.Format("It is a current limitation of quoting recurring charge generation that the 'next' usage interval exists. For the interval {0} running from {1} to {2}, no usage interval exists for the next cycle starting {3}. Please create this usage interval.", idUsageInterval, usageIntervalStart, usageIntervalEnd, usageIntervalEnd.AddSeconds(1)));
+                throw new Exception(
+                  string.Format(
+                    "It is a current limitation of quoting recurring charge generation that the 'next' usage interval exists. For the interval {0} running from {1} to {2}, no usage interval exists for the next cycle starting {3}. Please create this usage interval.",
+                    idUsageInterval, usageIntervalStart, usageIntervalEnd, usageIntervalEnd.AddSeconds(1)));
               }
 
             }
             else
             {
-              throw new Exception(string.Format("Usage interval to use for quoting not found for effective date of {0} and account {1}. Please create this usage interval or use a different effective date.", effectiveDate, idAccount));
+              throw new Exception(
+                string.Format(
+                  "Usage interval to use for quoting not found for effective date of {0} and account {1}. Please create this usage interval or use a different effective date.",
+                  effectiveDate, idAccount));
             }
 
           }
@@ -1092,7 +1076,7 @@ namespace MetraTech.Quoting
       else
       {
         //Cleanup the usage data
-        ArrayList batches = new ArrayList { batchIds["RC"], batchIds["NRC"] };
+        ArrayList batches = new ArrayList {batchIds["RC"], batchIds["NRC"]};
         CleanupBackoutUsageData(batches);
       }
 
@@ -1103,16 +1087,16 @@ namespace MetraTech.Quoting
       // Remove individual subscriptions
       foreach (var subscription in createdSubsciptions)
       {
-          try
-          {
-              var account = CurrentProductCatalog.GetAccount(subscription.AccountID);
-              CleanupUDRCMetricValues(subscription.ID);
-              account.RemoveSubscription(subscription.ID);
-          }
-          catch (Exception ex)
-          {
-              Log("Problem with clean up subscription {0}: {1}", subscription.ID, ex);
-          }
+        try
+        {
+          var account = CurrentProductCatalog.GetAccount(subscription.AccountID);
+          CleanupUDRCMetricValues(subscription.ID);
+          account.RemoveSubscription(subscription.ID);
+        }
+        catch (Exception ex)
+        {
+          Log("Problem with clean up subscription {0}: {1}", subscription.ID, ex);
+        }
       }
 
       // Remove group subscriptions
@@ -1126,7 +1110,7 @@ namespace MetraTech.Quoting
 
           if (subscription.FindMember(idAccount, CurrentRequest.EffectiveDate) != null)
           {
-            subscription.UnsubscribeMember((MTGSubMember)gsmember);
+            subscription.UnsubscribeMember((MTGSubMember) gsmember);
           }
         }
 
@@ -1150,7 +1134,9 @@ namespace MetraTech.Quoting
     {
       using (IMTNonServicedConnection conn = ConnectionManager.CreateNonServicedConnection())
       {
-        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(QUOTING_QUERY_FOLDER, Configuration.RemoveRCMetricValuesQueryTag))
+        using (
+          IMTAdapterStatement stmt = conn.CreateAdapterStatement(QUOTING_QUERY_FOLDER,
+                                                                 Configuration.RemoveRCMetricValuesQueryTag))
         {
           stmt.AddParam("%%ID_SUB%%", idSubscription);
           stmt.ExecuteNonQuery();
@@ -1164,8 +1150,9 @@ namespace MetraTech.Quoting
 
       IMTBillingReRun rerun = new BillingReRunClient.Client();
       var sessionContext = AdapterManager.GetSuperUserContext(); // log in as super user
-      rerun.Login((Interop.MTBillingReRun.IMTSessionContext)sessionContext);
-      var comment = String.Format("Quoting functionality; Reversing work associated with QuoteId {0}", CurrentResponse.idQuote);
+      rerun.Login((Interop.MTBillingReRun.IMTSessionContext) sessionContext);
+      var comment = String.Format("Quoting functionality; Reversing work associated with QuoteId {0}",
+                                  CurrentResponse.idQuote);
       rerun.Setup(comment);
 
       var pipeline = new PipelineManager();
@@ -1240,11 +1227,11 @@ namespace MetraTech.Quoting
       mLogger.LogError("Quote[{0}]: [{1}]", CurrentResponse.idQuote, suppliedMessage);
 
       var logRecord = new QuoteLogRecord
-      {
-        QuoteIdentifier = CurrentRequest.QuoteIdentifier,
-        DateAdded = MetraTime.Now,
-        Message = suppliedMessage
-      };
+        {
+          QuoteIdentifier = CurrentRequest.QuoteIdentifier,
+          DateAdded = MetraTime.Now,
+          Message = suppliedMessage
+        };
 
       CurrentResponse.MessageLog.Add(logRecord);
     }
@@ -1252,7 +1239,9 @@ namespace MetraTech.Quoting
     #endregion
 
     #region ProductCatalogHelpers
+
     private IMTProductCatalog mProductCatalog;
+
     protected IMTProductCatalog CurrentProductCatalog
     {
       get
@@ -1278,7 +1267,7 @@ namespace MetraTech.Quoting
       const string suPassword = "su123";
       try
       {
-        return (Interop.MTProductCatalog.IMTSessionContext)loginContext.Login(suName, "system_user", suPassword);
+        return (Interop.MTProductCatalog.IMTSessionContext) loginContext.Login(suName, "system_user", suPassword);
       }
       catch (Exception ex)
       {
@@ -1286,6 +1275,7 @@ namespace MetraTech.Quoting
       }
 
     }
+
     #endregion
 
     #region Authorization
@@ -1307,6 +1297,7 @@ namespace MetraTech.Quoting
         throw new Exception("SessionContext must be set. Unable to authorize user.");
       }
     }
+
     #endregion
   }
 }

@@ -74,7 +74,8 @@ where 1=1
 /*Also no old unit values*/
     AND NOT EXISTS (SELECT 1 FROM t_recur_value trv WHERE trv.id_sub = rw.c__SubscriptionID AND trv.tt_end < dbo.MTMaxDate())
 /* Don't meter in the current interval for initial*/
-    AND ui.dt_start < metratime(1,'RC')
+    AND pci.dt_start < metratime(1,'RC')
+	and ui.dt_start <= rw.c_SubscriptionStart 
     ;
 
    insertChargesIntoSvcTables('Initial','Initial');

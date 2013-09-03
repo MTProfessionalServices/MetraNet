@@ -58,7 +58,9 @@ namespace MetraTech.Quoting.Test
 
       //Values to use for verification
       decimal expectedQuoteTotal = (pofConfiguration.CountPairRCs * pofConfiguration.RCAmount * 2) + (pofConfiguration.CountNRCs * pofConfiguration.NRCAmount);
-      decimal expectedQuoteTotalTax = expectedQuoteTotal * 0.05m + expectedQuoteTotal * 0.025m * 4;	//values from dummy stage to calculate taxes (TA818)
+      //decimal expectedQuoteTotalTax = expectedQuoteTotal * 0.05m + expectedQuoteTotal * 0.025m * 4;	//values from dummy stage to calculate taxes (TA818)
+        decimal expectedQuoteTotalTax = 0;
+
       string expectedQuoteCurrency = "USD";
 
       #endregion

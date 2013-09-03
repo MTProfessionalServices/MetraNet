@@ -303,6 +303,8 @@ BINARIES = \
   MetraTech.Debug.Diagnostics.pdb \
   MetraTech.Debug.DTCTestLib.dll \
   MetraTech.Debug.DTCTestLib.pdb \
+  MetraTech.Domain.dll \
+  MetraTech.Domain.pdb \
   MetraTech.DomainModel.AccountTypes.Generated.dll \
   MetraTech.DomainModel.AccountTypes.Generated.pdb \
   MetraTech.DomainModel.BaseTypes.dll \

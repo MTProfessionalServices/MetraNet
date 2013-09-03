@@ -359,8 +359,13 @@ namespace MetraTech.Quoting
       /// </summary>
       /// <param name="request">QuoteRequest to be checked</param>
       /// <exception cref="ArgumentException"></exception>
-      protected void ValidateRequest(QuoteRequest request)
+    protected void ValidateRequest(QuoteRequest request)
     {
+        if (request.SubscriptionParameters.IsGroupSubscription && request.IcbPrices.Count > 0)
+        {
+            throw new Exception("Current limitation of quoting: ICBs are applied only for individual subscriptions");
+        }
+
         {
             DateTime currentDate = MetraTime.Now.Date;
             if (request.EffectiveDate.Date < currentDate)
@@ -379,7 +384,7 @@ namespace MetraTech.Quoting
             throw new ArgumentException(String.Format("'{0}' must be specified", propertyName), propertyName);
         }
 
-        if (request.EffectiveEndDate < request.EffectiveDate)
+          if (request.EffectiveEndDate < request.EffectiveDate)
         {
             string propertyStartDate = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveDate);
             string propertyEndDate = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveEndDate);

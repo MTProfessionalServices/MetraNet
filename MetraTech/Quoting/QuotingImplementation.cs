@@ -1087,10 +1087,16 @@ namespace MetraTech.Quoting
       // Remove individual subscriptions
       foreach (var subscription in createdSubsciptions)
       {
-        var account = CurrentProductCatalog.GetAccount(subscription.AccountID);
-        CleanupUDRCMetricValues(subscription.ID);
-        // TODO: Check whether the subscription is fully deleted or just ended
-        account.RemoveSubscription(subscription.ID);
+          try
+          {
+              var account = CurrentProductCatalog.GetAccount(subscription.AccountID);
+              CleanupUDRCMetricValues(subscription.ID);
+              account.RemoveSubscription(subscription.ID);
+          }
+          catch (Exception ex)
+          {
+              Log("Problem with clean up subscription {0}: {1}", subscription.ID, ex);
+          }
       }
 
       // Remove group subscriptions

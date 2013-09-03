@@ -1130,8 +1130,8 @@ namespace MetraTech.Shared.Test
                 piTemplate_FRRC.FixedProrationLength = false;
                 piTemplate_FRRC.ChargePerParticipant = chargePerParticipant;
                 IMTPCCycle pcCycle = piTemplate_FRRC.Cycle;
-                
-                if (cycle.CycleTypeID > 0)
+
+                if (cycle != null && cycle.CycleTypeID > 0)
                 {
                     pcCycle.CycleTypeID = cycle.CycleTypeID;
                     pcCycle.EndDayOfMonth = cycle.EndDayOfMonth;

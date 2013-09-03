@@ -218,7 +218,7 @@ namespace MetraTech.Quoting.Test
       var accountIdsToQuoteFor = new List<int> { 666666 };
       var poIdsToQuoteFor = new List<int> { idPoToQuoteFor };
 
-      string expectedErrorMessagePartial = "Invalid attempt to read when no data is present.";
+      string expectedErrorMessagePartial = "has no billing cycle";
 
       QuotingTestScenarios.RunTestCheckingBadInputs(accountIdsToQuoteFor, poIdsToQuoteFor, expectedErrorMessagePartial);
 

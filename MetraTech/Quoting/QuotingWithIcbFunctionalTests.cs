@@ -843,7 +843,7 @@ namespace MetraTech.Quoting.Test
     /// <summary>
     /// TC_QICB_71
     /// </summary>
-    [TestMethod]
+    //[TestMethod]      
     public void QuotingWithICB_NoPrice_NegativeTest()
     {
         #region Prepare

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
@@ -358,8 +359,13 @@ namespace MetraTech.Quoting
       /// </summary>
       /// <param name="request">QuoteRequest to be checked</param>
       /// <exception cref="ArgumentException"></exception>
-      protected void ValidateRequest(QuoteRequest request)
+    protected void ValidateRequest(QuoteRequest request)
     {
+        if (request.SubscriptionParameters.IsGroupSubscription && request.IcbPrices.Count > 0)
+        {
+            throw new Exception("Current limitation of quoting: ICBs are applied only for individual subscriptions");
+        }
+
         {
             DateTime currentDate = MetraTime.Now.Date;
             if (request.EffectiveDate.Date < currentDate)
@@ -378,7 +384,7 @@ namespace MetraTech.Quoting
             throw new ArgumentException(String.Format("'{0}' must be specified", propertyName), propertyName);
         }
 
-        if (request.EffectiveEndDate < request.EffectiveDate)
+          if (request.EffectiveEndDate < request.EffectiveDate)
         {
             string propertyStartDate = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveDate);
             string propertyEndDate = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveEndDate);
@@ -937,6 +943,38 @@ namespace MetraTech.Quoting
         return res.Substring(0, res.Length - 1);
     }
 
+    private decimal GetDecimalProperty(IMTDataReader rowset, string property)
+    {
+        try
+        {
+            return rowset.GetDecimal(property);
+        }
+        catch (InvalidOperationException)
+        {
+            return 0M;
+        }
+        catch (SqlNullValueException)
+        {
+            return 0M;
+        }
+    }
+
+    private string GetStringProperty(IMTDataReader rowset, string property)
+    {
+        try
+        {
+            return rowset.GetString(property);
+        }
+        catch (InvalidOperationException)
+        {
+            return "";
+        }
+        catch (SqlNullValueException)
+        {
+            return "";
+        }
+    }
+
     protected void CalculateQuoteTotal()
     {
       using (var conn = ConnectionManager.CreateConnection())
@@ -949,33 +987,11 @@ namespace MetraTech.Quoting
           stmt.AddParam("%%BATCHIDS%%", GetBatchIdsForQuery(), true);
           using (IMTDataReader rowset = stmt.ExecuteReader())
           {
-            rowset.Read();
+              rowset.Read();
 
-            try
-            {
-              CurrentResponse.TotalAmount = rowset.GetDecimal("Amount");
-            }
-            catch (InvalidOperationException)
-            {
-              CurrentResponse.TotalAmount = 0M;
-            }
-
-            try
-            {
-              CurrentResponse.Currency = rowset.GetString("Currency");
-            }
-            catch (InvalidOperationException)
-            {
-              CurrentResponse.Currency = "";
-            }
-            try
-            {
-                CurrentResponse.TotalTax = rowset.GetDecimal("TaxTotal");
-            }
-            catch (InvalidOperationException)
-            {
-                CurrentResponse.TotalTax = 0M;
-            }
+              CurrentResponse.TotalAmount = GetDecimalProperty(rowset, "Amount");
+              CurrentResponse.TotalTax = GetDecimalProperty(rowset, "TaxTotal");
+              CurrentResponse.Currency = GetStringProperty(rowset, "Currency");                        
 
             var totalMessage = string.Format("Total amount: {0} {1}, Total Tax: {2}", CurrentResponse.TotalAmount.ToString("N2"), CurrentResponse.Currency, CurrentResponse.TotalTax);           
 

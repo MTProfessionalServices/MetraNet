@@ -196,6 +196,10 @@
       <Name>MetraTech.Common</Name>
 	  <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\MetraTech.Common.csproj">
+      <Project>{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}</Project>
+      <Name>MetraTech.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

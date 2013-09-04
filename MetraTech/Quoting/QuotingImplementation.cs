@@ -375,6 +375,10 @@ namespace MetraTech.Quoting
     /// <exception cref="ArgumentException"></exception>
     protected void ValidateRequest(QuoteRequest request)
     {
+
+      if (request.IcbPrices == null)
+            request.IcbPrices = new List<QuoteIndividualPrice>();
+
       if (request.SubscriptionParameters.IsGroupSubscription && request.IcbPrices.Count > 0)
       {
         throw new Exception("Current limitation of quoting: ICBs are applied only for individual subscriptions");
@@ -442,11 +446,7 @@ namespace MetraTech.Quoting
       {
         throw new ArgumentException("All account payers must be included in the quote request"
                                     , PropertyName<QuoteRequest>.GetPropertyName(p => p.Accounts));
-      }
-
-      if (request.IcbPrices == null)
-        request.IcbPrices = new List<QuoteIndividualPrice>();
-
+      }     
     }
 
     protected int GetAccountBillingCycle(int idAccount)
@@ -703,7 +703,7 @@ namespace MetraTech.Quoting
               var acc = CurrentProductCatalog.GetAccount(idAccount);
               foreach (int po in CurrentRequest.ProductOfferings)
               {
-                CreateIndividualSubscriptionForQuote(acc, po);
+                CreateIndividualSubscriptionForQuote(acc, po, idAccount);
               }
             }
           else
@@ -838,7 +838,7 @@ namespace MetraTech.Quoting
     /// <param name="acc"></param>
     /// <param name="po"></param>
     /// <remarks>Should be run in one transaction with the same call for all accounts and POs in QuoteRequest</remarks>
-    private void CreateIndividualSubscriptionForQuote(MTPCAccount acc, int po)
+    private void CreateIndividualSubscriptionForQuote(MTPCAccount acc, int po, int idAccount)
     {
       var effDate = new MTPCTimeSpanClass
         {
@@ -878,16 +878,16 @@ namespace MetraTech.Quoting
 
       subscription.Save();
 
-      ApplyIcbPricesToSubscription(subscription.ProductOfferingID, subscription.ID);
+      ApplyIcbPricesToSubscription(subscription.ProductOfferingID, subscription.ID, idAccount);
 
       createdSubsciptions.Add(subscription);
     }
 
-    private void ApplyIcbPricesToSubscription(int productOfferingId, int subscriptionId)
+    private void ApplyIcbPricesToSubscription(int productOfferingId, int subscriptionId, int accountId)
     {
       if (currentRequest.IcbPrices == null) return;
 
-      var icbPrices = currentRequest.IcbPrices.Where(ip => ip.ProductOfferingId == productOfferingId);
+      var icbPrices = currentRequest.IcbPrices.Where(ip => ip.ProductOfferingId == productOfferingId && ip.AccountId == accountId);
       foreach (var price in icbPrices)
         Application.ProductManagement.PriceListService.SaveRateSchedulesForSubscription(
           subscriptionId,

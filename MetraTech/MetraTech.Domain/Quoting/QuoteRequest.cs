@@ -13,7 +13,7 @@ namespace MetraTech.Domain.Quoting
     #region Accounts
 
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isAccountsDirty = false;
+    private bool isAccountsDirty;
     private List<int> _accounts;
     [MTDataMember(Description = "List of accounts to create quote for")]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
@@ -38,7 +38,7 @@ namespace MetraTech.Domain.Quoting
     #region ProductOfferings
 
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isProductOfferingsDirty = false;
+    private bool isProductOfferingsDirty;
     private List<int> _productOfferings;
     [MTDataMember(Description = "List of product offerings to create quote for")]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
@@ -63,7 +63,7 @@ namespace MetraTech.Domain.Quoting
     #region QuoteIdentifier
 
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isQuoteIdentifierDirty = false;
+    private bool isQuoteIdentifierDirty;
     private string m_QuoteIdentifier;
     [MTDataMember(Description = "Quote identifier", Length = 40)]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
@@ -88,7 +88,7 @@ namespace MetraTech.Domain.Quoting
     #region QuoteDescription
 
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isQuoteDescriptionDirty = false;
+    private bool isQuoteDescriptionDirty;
     private string m_QuoteDescription;
     [MTDataMember(Description = "Quote identifier", Length = 40)]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
@@ -133,7 +133,7 @@ namespace MetraTech.Domain.Quoting
     #region EffectiveDate
 
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isEffectiveDateDirty = false;
+    private bool isEffectiveDateDirty;
     private DateTime m_EffectiveDate;
     [MTDataMember(Description = "Quote effective date", Length = 40)]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
@@ -158,7 +158,7 @@ namespace MetraTech.Domain.Quoting
     #region EffectiveEndDate
 
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isEffectiveEndDateDirty = false;
+    private bool isEffectiveEndDateDirty;
     private DateTime m_EffectiveEndDate;
     [MTDataMember(Description = "Quote effective end date", Length = 40)]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
@@ -183,7 +183,7 @@ namespace MetraTech.Domain.Quoting
     #region Localization
 
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isLocalizationDirty = false;
+    private bool isLocalizationDirty;
     private string m_Localization;
     [MTDataMember(Description = "Quote localization", Length = 40)]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
@@ -208,7 +208,7 @@ namespace MetraTech.Domain.Quoting
     #region ReportParameters
 
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isReportParametersDirty = false;
+    private bool isReportParametersDirty;
     private ReportParams m_ReportParameters;
     [MTDataMember(Description = "Quote report parameters", Length = 40)]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
@@ -233,7 +233,7 @@ namespace MetraTech.Domain.Quoting
     #region SubscriptionParameters
 
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isSubscriptionParametersDirty = false;
+    private bool isSubscriptionParametersDirty;
     private SubscriptionParameters m_SubscriptionParameters;
     [MTDataMember(Description = "Quote Subscription parameters", Length = 40)]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
@@ -261,7 +261,7 @@ namespace MetraTech.Domain.Quoting
     /// When debugging do not clean up usage data after quote run
     /// </summary>
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isDebugDoNotCleanupUsageDirty = false;
+    private bool isDebugDoNotCleanupUsageDirty;
     private bool m_DebugDoNotCleanupUsage;
     [MTDataMember(Description = "When debugging do not clean up usage data after quote run", Length = 40)]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
@@ -293,7 +293,7 @@ namespace MetraTech.Domain.Quoting
       EffectiveDate = MetraTime.Now;
       EffectiveEndDate = MetraTime.Now;
 
-      ReportParameters = new ReportParams() { PDFReport = false };
+      ReportParameters = new ReportParams { PDFReport = false };
 
       DebugDoNotCleanupUsage = true;
     }

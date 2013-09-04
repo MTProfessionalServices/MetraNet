@@ -48,6 +48,8 @@ public partial class AmpAccountGroupPage : AmpWizardBasePage
           {
             btnContinue.Visible = true;
             btnSaveAndContinue.Visible = false;
+            FromParamTableCheckBox.Enabled = false;
+            ddAccountGroupFromParamTableSource.ReadOnly = true;
           }
           else // If we are editing a decision, show the "Save & Continue" button
           {
@@ -82,6 +84,10 @@ public partial class AmpAccountGroupPage : AmpWizardBasePage
               {
                   hiddenAcctGroupName.Value = decisionInstance.AccountQualificationGroupValue;
 
+                  if (AmpAction == "View")
+                  {
+                      divAccountGroupFromParamTableDropdownSource.Attributes.Add("style", "display: none;");
+                  }
                   // Can't do anything now about selecting the radio button that
                   // corresponds to the decision's current account qualification group.
                   // (Must wait until the grid control is loaded.

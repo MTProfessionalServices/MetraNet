@@ -774,48 +774,41 @@ namespace MetraTech.Quoting
       mtGroupSubscription.CorporateAccount = corporateAccountId;
       mtGroupSubscription.Cycle = groupSubscriptionCycle;
 
-      const int FLAT_RC_TYPE_ID = 214;
-      const int FLAT_UDRC_TYPE_ID = 245;
-
-      foreach (
-        MTPriceableItem pi in CurrentProductCatalog.GetProductOffering(offerId).GetPriceableItemsOfType(FLAT_RC_TYPE_ID)
-        )
+      foreach (MTPriceableItem pi in CurrentProductCatalog.GetProductOffering(offerId).GetPriceableItems())
       {
-        mtGroupSubscription.SetChargeAccount(pi.ID, corporateAccountId,
-                                             CurrentRequest.EffectiveDate, CurrentRequest.EffectiveEndDate);
-      }
-
-      foreach (
-        MTPriceableItem pi in
-          CurrentProductCatalog.GetProductOffering(offerId).GetPriceableItemsOfType(FLAT_UDRC_TYPE_ID))
-      {
-        mtGroupSubscription.SetChargeAccount(pi.ID, corporateAccountId,
-                                             CurrentRequest.EffectiveDate, CurrentRequest.EffectiveEndDate);
-
-        //Update UDRC values
-        // Set recurring charge unit values
-        try
+        switch (pi.Kind)
         {
-          if (CurrentRequest.SubscriptionParameters.UDRCValues.ContainsKey(offerId.ToString()))
-          {
-            foreach (var udrcInstanceValue in CurrentRequest.SubscriptionParameters.UDRCValues[offerId.ToString()])
+          case MTPCEntityType.PCENTITY_TYPE_RECURRING:
+            mtGroupSubscription.SetChargeAccount(pi.ID, corporateAccountId,
+                                                 CurrentRequest.EffectiveDate, CurrentRequest.EffectiveEndDate);
+            break;
+          case MTPCEntityType.PCENTITY_TYPE_RECURRING_UNIT_DEPENDENT:
+            mtGroupSubscription.SetChargeAccount(pi.ID, corporateAccountId,
+                                                 CurrentRequest.EffectiveDate, CurrentRequest.EffectiveEndDate);
+            try
             {
-              mtGroupSubscription.SetRecurringChargeUnitValue(udrcInstanceValue.UDRC_Id,
-                                                              udrcInstanceValue.Value,
-                                                              udrcInstanceValue.StartDate,
-                                                              udrcInstanceValue.EndDate);
+              if (CurrentRequest.SubscriptionParameters.UDRCValues.ContainsKey(offerId.ToString()))
+              {
+                foreach (var udrcInstanceValue in CurrentRequest.SubscriptionParameters.UDRCValues[offerId.ToString()])
+                {
+                  mtGroupSubscription.SetRecurringChargeUnitValue(udrcInstanceValue.UDRC_Id,
+                                                                  udrcInstanceValue.Value,
+                                                                  udrcInstanceValue.StartDate,
+                                                                  udrcInstanceValue.EndDate);
+                }
+              }
             }
-          }
-        }
-        catch (COMException come)
-        {
-          if (come.Message.Contains("not found in database"))
-          {
-            LogError(come.Message);
-            throw new ArgumentException("Subscription failed with message: " + come.Message +
-                                        "\nUDRC ID added to SubscriptionParameters does not exist");
-          }
-          throw;
+            catch (COMException come)
+            {
+              if (come.Message.Contains("not found in database"))
+              {
+                LogError(come.Message);
+                throw new ArgumentException("Subscription failed with message: " + come.Message +
+                                            "\nUDRC ID added to SubscriptionParameters does not exist");
+              }
+              throw;
+            }
+            break;
         }
       }
 

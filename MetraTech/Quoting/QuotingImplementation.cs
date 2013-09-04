@@ -375,6 +375,10 @@ namespace MetraTech.Quoting
     /// <exception cref="ArgumentException"></exception>
     protected void ValidateRequest(QuoteRequest request)
     {
+
+      if (request.IcbPrices == null)
+            request.IcbPrices = new List<QuoteIndividualPrice>();
+
       if (request.SubscriptionParameters.IsGroupSubscription && request.IcbPrices.Count > 0)
       {
         throw new Exception("Current limitation of quoting: ICBs are applied only for individual subscriptions");
@@ -442,11 +446,7 @@ namespace MetraTech.Quoting
       {
         throw new ArgumentException("All account payers must be included in the quote request"
                                     , PropertyName<QuoteRequest>.GetPropertyName(p => p.Accounts));
-      }
-
-      if (request.IcbPrices == null)
-        request.IcbPrices = new List<QuoteIndividualPrice>();
-
+      }     
     }
 
     protected int GetAccountBillingCycle(int idAccount)

@@ -25,6 +25,10 @@ namespace MetraTech.Domain.Quoting
 
         [Required]
         [DataMember]
+        public int AccountId { get; set; }
+
+        [Required]
+        [DataMember]
         public int ProductOfferingId { get; set; }
 
         [Required]
@@ -46,4 +50,5 @@ namespace MetraTech.Domain.Quoting
             set { RateSchedules = string.IsNullOrEmpty(value) ? null : SerializationHelper.Deserialize<List<BaseRateSchedule>>(value); }
         }
     }
+
 }

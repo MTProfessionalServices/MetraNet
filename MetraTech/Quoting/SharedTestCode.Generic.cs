@@ -563,9 +563,9 @@ namespace MetraTech.Shared.Test
                     productOfferingHolder.CreateFlatRateRecurringCharge(false, countRCs, cycle);
 
 
-                productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList = productOfferingHolder.CreateUDRC(true, countUDRCs);
+                productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList = productOfferingHolder.CreateUDRC(true, countUDRCs, cycle);
 
-                productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, countUDRCs);
+                productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, countUDRCs, cycle);
 
                 //Create a Product Offering
                 charges.AddRange(productOfferingHolder.piTemplate_FRRC_ChargePerParticipantList);
@@ -594,8 +594,8 @@ namespace MetraTech.Shared.Test
                                                                MTNonRecurringEventType.NREVENT_TYPE_SUBSCRIBE, configuration.CountNRCs);
             productOfferingHolder.piTemplate_FRRC_ChargePerParticipantList = productOfferingHolder.CreateFlatRateRecurringCharge(true, configuration.CountPairRCs, configuration.Cycle);
             productOfferingHolder.piTemplate_FRRC_ChargePerSubList = productOfferingHolder.CreateFlatRateRecurringCharge(false, configuration.CountPairRCs, configuration.Cycle);
-            productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList = productOfferingHolder.CreateUDRC(true, configuration.CountPairUDRCs);
-            productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, configuration.CountPairUDRCs);
+            productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList = productOfferingHolder.CreateUDRC(true, configuration.CountPairUDRCs, configuration.Cycle);
+            productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, configuration.CountPairUDRCs, configuration.Cycle);
 
 
             //Create Product Offering
@@ -655,7 +655,7 @@ namespace MetraTech.Shared.Test
 
             //Create priceableitems
             productOfferingHolder.piTemplate_FRRC_ChargePerSubList = productOfferingHolder.CreateFlatRateRecurringCharge(false, configuration.CountPairRCs, configuration.Cycle);
-            productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, configuration.CountPairUDRCs);
+            productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, configuration.CountPairUDRCs, configuration.Cycle);
             productOfferingHolder.piTemplate_NRC_ChargeOnSubscribeList = productOfferingHolder.AddNonRecurringCharge("Setup Charge",
               MTNonRecurringEventType.NREVENT_TYPE_SUBSCRIBE, configuration.CountNRCs);
 
@@ -711,9 +711,9 @@ namespace MetraTech.Shared.Test
             productOfferingHolder.piTemplate_FRRC_ChargePerSubList = productOfferingHolder.CreateFlatRateRecurringCharge(false, countRCs, cycle);
 
 
-            productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList = productOfferingHolder.CreateUDRC(true, countUDRCs);
+            productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList = productOfferingHolder.CreateUDRC(true, countUDRCs, cycle);
 
-            productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, countUDRCs);
+            productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, countUDRCs, cycle);
 
 
             //Create a Product Offering
@@ -783,9 +783,9 @@ namespace MetraTech.Shared.Test
             productOfferingHolder.piTemplate_FRRC_ChargePerSubList = productOfferingHolder.CreateFlatRateRecurringCharge(false, countRCs, cycle);
 
 
-            productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList = productOfferingHolder.CreateUDRC(true, countUDRCs);
+            productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList = productOfferingHolder.CreateUDRC(true, countUDRCs, cycle);
 
-            productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, countUDRCs);
+            productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, countUDRCs, cycle);
 
 
             //Create a Product Offering
@@ -1156,7 +1156,7 @@ namespace MetraTech.Shared.Test
             return recuringChargeList;
         }
 
-        private List<IMTRecurringCharge> CreateUDRC(bool chargePerParticipant, short countUDRCs)
+        private List<IMTRecurringCharge> CreateUDRC(bool chargePerParticipant, short countUDRCs, IMTPCCycle cycle)
         {
             IMTPriceableItemType priceableItemTypeUDRC =
                 ProductCatalog.GetPriceableItemTypeByName("Unit Dependent Recurring Charge");
@@ -1191,8 +1191,24 @@ namespace MetraTech.Shared.Test
                 piTemplateUdrc.MinUnitValue = 10;
                 piTemplateUdrc.MaxUnitValue = 1000;
                 IMTPCCycle pcCycle = piTemplateUdrc.Cycle;
-                pcCycle.CycleTypeID = 1;
-                pcCycle.EndDayOfMonth = 31;
+
+                if (cycle != null && cycle.CycleTypeID > 0)
+                {
+                    pcCycle.CycleTypeID = cycle.CycleTypeID;
+                    pcCycle.EndDayOfMonth = cycle.EndDayOfMonth;
+                    pcCycle.EndDayOfMonth2 = cycle.EndDayOfMonth2;
+                    pcCycle.EndDayOfWeek = cycle.EndDayOfWeek;
+                    pcCycle.Mode = cycle.Mode;
+                    pcCycle.StartDay = cycle.StartDay;
+                    pcCycle.StartMonth = cycle.StartMonth;
+                    pcCycle.StartYear = cycle.StartYear;
+                }
+                else
+                {
+                    pcCycle.CycleTypeID = (int)CycleType.Monthly;
+                    pcCycle.EndDayOfMonth = 31;
+                }
+
                 piTemplateUdrc.Save();
 
                 udrList.Add(piTemplateUdrc);

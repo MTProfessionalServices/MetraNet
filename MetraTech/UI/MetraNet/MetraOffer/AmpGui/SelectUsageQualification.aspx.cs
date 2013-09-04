@@ -1,21 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Configuration;
-using System.Collections;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
 using MetraTech.Core.Services.ClientProxies;
-using MetraTech.UI.Common;
 using MetraTech.UI.Controls;
-using MetraTech.UsageServer;
 using MetraTech.UI.MetraNet.App_Code;
 using MetraTech.DomainModel.ProductCatalog;
-
 
 public partial class AmpSelectUsageQualificationPage : AmpWizardBasePage
 {
@@ -41,7 +30,6 @@ public partial class AmpSelectUsageQualificationPage : AmpWizardBasePage
         //TBD However, we don't need to call IgnoreChangesInControl(btnContinue) here
         // because of how OnClientClick is defined for the button.
         //IgnoreChangesInControl(btnContinue);
-
 
         if (!IsPostBack)
         {

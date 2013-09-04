@@ -1009,5 +1009,222 @@ namespace MetraTech.Quoting.Test
         #endregion
     }
 
+    [TestMethod]
+    [TestCategory("FunctionalTest")]
+    public void QuotingWithIcbForMultipleAccounts()
+    {
+        string billcycle = "Annually";
+
+        #region Prepare
+
+        string testName = "QuotingWithIcbForMultipleAccounts_BillingCycles_" + billcycle;
+        string testShortName = "Q_GSub";//Account name and perhaps others need a 'short' (less than 40 when combined with testRunUniqueIdentifier
+
+        string testRunUniqueIdentifier = MetraTime.NowWithMilliSec; //Identifier to make this run unique
+
+        #region create accounts
+
+        List<MetraTech.DomainModel.BaseTypes.Account> Hierarchy = SharedTestCode.CreateHierarchyofAccounts(billcycle, testShortName,
+                                                                              testRunUniqueIdentifier);
+        Hierarchy.AddRange(SharedTestCode.CreateHierarchyofAccounts(billcycle, testShortName + "_2", testRunUniqueIdentifier + "_2"));
+
+        var independent = new IndependentAccountFactory(testShortName, testRunUniqueIdentifier);
+        independent.CycleType = UsageCycleType.Annually;
+        independent.Instantiate();
+
+        var independent2 = new IndependentAccountFactory(testShortName + "_2", testRunUniqueIdentifier + "_2");
+        independent2.CycleType = UsageCycleType.Annually;
+        independent2.Instantiate();
+
+        #endregion
+
+        #region Create/Verify Product Offering Exists
+
+        IMTProductOffering productOffering;
+        var pofConfiguration = SharedTestCode.CreateProductOfferingConfiguration(testName, testRunUniqueIdentifier, out productOffering);//set count of PIs inside this method
+
+        #endregion
+
+
+        int idProductOfferingToQuoteFor = productOffering.ID;
+
+        using (var client = new PriceListServiceClient())
+        {
+            if (client.ClientCredentials != null)
+            {
+                client.ClientCredentials.UserName.UserName = "su";
+                client.ClientCredentials.UserName.Password = "su123";
+            }
+
+            IMTCollection instances = productOffering.GetPriceableItems();
+
+            var productOfferingFactory = new ProductOfferingFactory();
+            productOfferingFactory.Initialize(testName, testRunUniqueIdentifier);
+
+            var parameterTableFlatRc = productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(SharedTestCode.MetratechComFlatrecurringcharge);
+
+            var parameterTableNonRc = productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(SharedTestCode.MetratechComNonrecurringcharge);
+            var parameterTableUdrcTapered = productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(SharedTestCode.MetratechComUdrctapered);
+
+            var parameterTableUdrcTiered = productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(SharedTestCode.MetratechComUdrctiered);
+
+            #region Set Allow ICB for PIs
+
+            foreach (IMTPriceableItem possibleRC in instances)
+            {
+                if (possibleRC.Kind == MTPCEntityType.PCENTITY_TYPE_RECURRING_UNIT_DEPENDENT)
+                {
+                    var piAndPTParameters = SharedTestCode.SetAllowICBForPI(possibleRC, client, productOffering.ID, parameterTableUdrcTapered.ID, SharedTestCode.MetratechComUdrctapered);
+                    pofConfiguration.PriceableItemsAndParameterTableForUdrc.Add(piAndPTParameters);
+
+                    piAndPTParameters = SharedTestCode.SetAllowICBForPI(possibleRC, client, productOffering.ID, parameterTableUdrcTiered.ID, SharedTestCode.MetratechComUdrctiered);
+                    pofConfiguration.PriceableItemsAndParameterTableForUdrc.Add(piAndPTParameters);
+
+                }
+                else if (possibleRC.Kind == MTPCEntityType.PCENTITY_TYPE_RECURRING)
+                {
+                    var piAndPTParameters = SharedTestCode.SetAllowICBForPI(possibleRC, client, productOffering.ID, parameterTableFlatRc.ID, SharedTestCode.MetratechComFlatrecurringcharge);
+                    pofConfiguration.PriceableItemsAndParameterTableForRc.Add(piAndPTParameters);
+                }
+                else if (possibleRC.Kind == MTPCEntityType.PCENTITY_TYPE_NON_RECURRING)
+                {
+                    var piAndPTParameters = SharedTestCode.SetAllowICBForPI(possibleRC, client, productOffering.ID, parameterTableNonRc.ID, SharedTestCode.MetratechComNonrecurringcharge);
+                    pofConfiguration.PriceableItemsAndParameterTableForNonRc.Add(piAndPTParameters);
+                }
+            }
+
+            #endregion
+        }
+
+        //Values to use for verification
+        string expectedQuoteCurrency = "USD";
+
+        #endregion
+
+        #region Test
+
+        // Ask backend to start quote
+
+        //Prepare request
+        QuoteRequest request = new QuoteRequest();
+
+        foreach (var hierarhy in Hierarchy)
+        {
+            request.Accounts.Add(hierarhy._AccountID.Value);
+        }
+
+        request.Accounts.Add((int)independent.Item._AccountID);
+        request.Accounts.Add((int)independent2.Item._AccountID);
+
+        request.ProductOfferings.Add(idProductOfferingToQuoteFor);
+        request.QuoteIdentifier = "MyQuoteId-" + testShortName + "-1234";
+        request.QuoteDescription = "Quote generated by Automated Test: " + testName;
+        request.ReportParameters = new ReportParams()
+        {
+            PDFReport = QuotingTestScenarios.RunPDFGenerationForAllTestsByDefault
+        };
+        request.EffectiveDate = MetraTime.Now;
+        request.EffectiveEndDate = MetraTime.Now;
+        request.Localization = "en-US";
+        request.SubscriptionParameters.UDRCValues =
+            SharedTestCode.GetUDRCInstanceValuesSetToMiddleValues(productOffering);
+
+        int numOfAccounts = request.Accounts.Count;
+        int expectedQuoteNRCsCount = pofConfiguration.CountNRCs * numOfAccounts;
+        int expectedQuoteFlatRCsCount = (pofConfiguration.CountPairRCs * numOfAccounts) * 2;
+        int expectedQuoteUDRCsCount = (pofConfiguration.CountPairUDRCs * numOfAccounts) * 2;
+
+        pofConfiguration.RCAmount = 66.66m;
+        pofConfiguration.NRCAmount = 77.77m;
+        decimal totalAmountForUDRC = 15 * 16.6m + 5 * 13m;
+
+        decimal expectedQuoteTotal = (expectedQuoteFlatRCsCount * pofConfiguration.RCAmount) +
+                                     (expectedQuoteUDRCsCount * totalAmountForUDRC) +
+                                     (expectedQuoteNRCsCount * pofConfiguration.NRCAmount);
+
+        #region Initialize ICB prices
+
+        var quoteId = DateTime.Now.Millisecond;
+
+        request.IcbPrices = new List<QuoteIndividualPrice>();
+
+        foreach (var account in request.Accounts)
+        {
+            foreach (var ptrc in pofConfiguration.PriceableItemsAndParameterTableForRc)
+            {
+                var qip = new QuoteIndividualPrice
+                {
+                    QuoteId = quoteId,
+                    AccountId = account,
+                    ParameterTableId = ptrc.ParameterTableId,
+                    PriceableItemInstanceId = ptrc.PriceableItemId,
+                    ProductOfferingId = productOffering.ID,
+                    RateSchedules = new List<BaseRateSchedule> { SharedTestCode.GetFlatRcRateSchedule(66.66m) }
+                };
+                request.IcbPrices.Add(qip);
+            }
+
+            foreach (var ptUDRC in pofConfiguration.PriceableItemsAndParameterTableForUdrc)
+            {
+                var qip = new QuoteIndividualPrice
+                {
+                    QuoteId = quoteId,
+                    AccountId = account,
+                    ParameterTableId = ptUDRC.ParameterTableId,
+                    PriceableItemInstanceId = ptUDRC.PriceableItemId,
+                    ProductOfferingId = productOffering.ID
+                };
+
+                if (ptUDRC.ParameterTableName == SharedTestCode.MetratechComUdrctapered)
+                {
+                    qip.RateSchedules = new List<BaseRateSchedule>
+                        {
+                            SharedTestCode.GetTaperedUdrcRateSchedule(new Dictionary<decimal, decimal>
+                                {
+                                    {15, 16.6m},
+                                    {40, 13m}
+                                })
+                        };
+                }
+                else
+                {
+                    qip.RateSchedules = new List<BaseRateSchedule>
+                        {
+                            SharedTestCode.GetTieredUdrcRateSchedule(20, 16.6m, 10m)
+                        };
+                }
+
+                request.IcbPrices.Add(qip);
+            }
+
+            foreach (var ptNRC in pofConfiguration.PriceableItemsAndParameterTableForNonRc)
+            {
+                var qip = new QuoteIndividualPrice
+                {
+                    QuoteId = quoteId,
+                    AccountId = account,
+                    ParameterTableId = ptNRC.ParameterTableId,
+                    PriceableItemInstanceId = ptNRC.PriceableItemId,
+                    ProductOfferingId = productOffering.ID,
+                    RateSchedules = new List<BaseRateSchedule> { SharedTestCode.GetNonRcRateSchedule(77.77m) }
+                };
+                request.IcbPrices.Add(qip);
+            }
+        }
+
+        #endregion
+
+        //Give request to testing scenario along with expected results for verification; get back response for further verification
+        QuoteResponse response = QuotingTestScenarios.CreateQuoteAndVerifyResults(request,
+                                                                                  expectedQuoteTotal,
+                                                                                  expectedQuoteCurrency,
+                                                                                  expectedQuoteFlatRCsCount,
+                                                                                  expectedQuoteNRCsCount,
+                                                                                  expectedQuoteUDRCsCount);
+
+
+        #endregion
+    }
+
   }
 }

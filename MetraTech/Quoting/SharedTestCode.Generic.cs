@@ -299,31 +299,31 @@ namespace MetraTech.Shared.Test
                   new PCIdentifier(price.PriceableItemInstanceId),
                   new PCIdentifier(price.ParameterTableId),
                   price.RateSchedules,
-                  null, 
+                  null,
                   null);
         }
 
 
         public static BaseRateSchedule GetFlatRcRateSchedule(decimal price, DateTime? startDate = null, DateTime? endDate = null)
         {
-          startDate = startDate ?? DateTime.Parse("1/1/2000");
-          endDate = endDate ?? DateTime.Parse("1/1/2038");
+            startDate = startDate ?? DateTime.Parse("1/1/2000");
+            endDate = endDate ?? DateTime.Parse("1/1/2038");
 
-          return new RateSchedule
-            <Metratech_com_FlatRecurringChargeRateEntry, Metratech_com_FlatRecurringChargeDefaultRateEntry>
-            {
-              EffectiveDate = new ProdCatTimeSpan
-                {
-                  StartDate = startDate,
-                  StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
-                  EndDate = endDate,
-                  EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
-                },
-              RateEntries = new List<Metratech_com_FlatRecurringChargeRateEntry>
+            return new RateSchedule
+              <Metratech_com_FlatRecurringChargeRateEntry, Metratech_com_FlatRecurringChargeDefaultRateEntry>
+              {
+                  EffectiveDate = new ProdCatTimeSpan
+                    {
+                        StartDate = startDate,
+                        StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
+                        EndDate = endDate,
+                        EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
+                    },
+                  RateEntries = new List<Metratech_com_FlatRecurringChargeRateEntry>
                 {
                   new Metratech_com_FlatRecurringChargeRateEntry {RCAmount = price}
                 }
-            };
+              };
         }
 
         public static BaseRateSchedule GetNonRcRateSchedule(decimal price)
@@ -396,6 +396,106 @@ namespace MetraTech.Shared.Test
                 RateEntries = rates
             };
         }
+
+        public static ProductOfferingFactoryConfiguration CreateProductOfferingConfiguration(string testName, string testRunUniqueIdentifier,
+                                                                           out IMTProductOffering productOffering)
+        {
+            var pofConfiguration = new ProductOfferingFactoryConfiguration(testName, testRunUniqueIdentifier);
+            pofConfiguration.CountNRCs = 1;
+            pofConfiguration.CountPairRCs = 1;
+            pofConfiguration.CountPairUDRCs = 1;
+            pofConfiguration.Cycle.CycleTypeID = (int)CycleType.Annually;
+            pofConfiguration.Cycle.StartDay = 1;
+            pofConfiguration.Cycle.StartMonth = 1;
+
+            productOffering = ProductOfferingFactory.Create(pofConfiguration);
+            //Assert.IsNotNull(productOffering.ID, "Unable to create PO for test run");
+            Console.WriteLine("Product Offering for quote:" + productOffering.ID + "; " + productOffering.DisplayName);
+            return pofConfiguration;
+        }
+
+        public static List<MetraTech.DomainModel.BaseTypes.Account> CreateHierarchyofAccounts(string billcycle, string testShortName,
+                                                                       string testRunUniqueIdentifier)
+        {
+            var Hierarchy = new List<DomainModel.BaseTypes.Account>();
+            var corpAccountHolder = new CorporateAccountFactory(testShortName + "0", testRunUniqueIdentifier);
+            testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
+            var deptAccountHolder1 = new DepartmentAccountFactory(testShortName + "1", testRunUniqueIdentifier);
+            testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
+            var coresubscriberAccountHolder = new CoreSubscriberAccountFactory(testShortName, testRunUniqueIdentifier);
+            switch (billcycle)
+            {
+                case "Semi_Annually":
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Semi_Annually);
+                    break;
+
+                case "Quarterly":
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Quarterly);
+                    break;
+                case "Monthly":
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Monthly);
+                    break;
+                case "Semi_monthly":
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Semi_monthly);
+                    break;
+                case "Bi_weekly":
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Bi_weekly);
+                    break;
+                case "Weekly":
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Weekly);
+                    break;
+                case "Daily":
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Monthly);
+                    break;
+                default:
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Annually);
+                    break;
+            }
+            Hierarchy.Add(corpAccountHolder.Item);
+            Hierarchy.Add(deptAccountHolder1.Item);
+            Hierarchy.Add(coresubscriberAccountHolder.Item);
+            Console.WriteLine("Billing Cycle:" + corpAccountHolder.CycleType);
+            Console.WriteLine("Corporate Account:" + corpAccountHolder.Item._AccountID + "; Account name:" + corpAccountHolder.Item.UserName);
+            Console.WriteLine("1st Department Account:" + deptAccountHolder1.Item._AccountID + "; Account name:" + deptAccountHolder1.Item.UserName);
+            Console.WriteLine("CoreSubscriber Account:" + coresubscriberAccountHolder.Item._AccountID + "; Account name:" + coresubscriberAccountHolder.Item.UserName);
+            return Hierarchy;
+        }
+        private static void GetHierarchy(ref CorporateAccountFactory corpAccountHolder,
+                            ref DepartmentAccountFactory deptAccountHolder1,
+                            ref CoreSubscriberAccountFactory coresubscriberAccountHolder, UsageCycleType usageCycleType)
+        {
+            // Create account #1 Corporate root
+            corpAccountHolder.CycleType = usageCycleType;
+            corpAccountHolder.Instantiate();
+            //Assert.IsNotNull(corpAccountHolder.Item._AccountID, "Unable to create corporate account for test run");
+            // Create account #2 Department child
+            deptAccountHolder1.CycleType = usageCycleType;
+            deptAccountHolder1 = createDeptAccount(deptAccountHolder1, corpAccountHolder.Item._AccountID.Value);
+            //Create account #3 CoreSubscriber child
+            //coresubscriberAccountHolder.is
+            //coresubscriberAccountHolder = deptAccountHolder2.AddCoreSubscriber("User");
+            coresubscriberAccountHolder.AncestorID = deptAccountHolder1.Item._AccountID.Value;
+            coresubscriberAccountHolder.CycleType = usageCycleType;
+            coresubscriberAccountHolder.Instantiate();
+            //Assert.IsNotNull(coresubscriberAccountHolder.Item._AccountID, "Unable to create CoreSubscriber account for test run");
+        }
+
+        public static DepartmentAccountFactory createDeptAccount(DepartmentAccountFactory dept, int ancestorID)
+        {
+            dept.AncestorID = ancestorID;
+            dept.Instantiate();
+            //Assert.IsNotNull(dept.Item._AccountID, "Unable to create department account for test run");
+            return dept;
+        }
+
     }
 
     #region Product Catalog Related Classes
@@ -1045,7 +1145,7 @@ namespace MetraTech.Shared.Test
             productOffering.Name = string.Format("{0}_PO_{1}", BaseName, UniqueInstanceIdentifier);
             productOffering.DisplayName = productOffering.Name;
             ((MetraTech.Localization.LocalizedEntity)productOffering.DisplayNames).SetMapping("DE", "{DE} " + productOffering.DisplayName);
-            
+
             productOffering.Description = productOffering.Name;
             productOffering.SelfSubscribable = true;
             productOffering.SelfUnsubscribable = false;

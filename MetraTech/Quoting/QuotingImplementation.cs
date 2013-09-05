@@ -837,6 +837,7 @@ namespace MetraTech.Quoting
     /// </summary>
     /// <param name="acc"></param>
     /// <param name="po"></param>
+    /// <param name="idAccount"></param>
     /// <remarks>Should be run in one transaction with the same call for all accounts and POs in QuoteRequest</remarks>
     private void CreateIndividualSubscriptionForQuote(MTPCAccount acc, int po, int idAccount)
     {
@@ -1068,9 +1069,16 @@ namespace MetraTech.Quoting
       }
       else
       {
-        //Cleanup the usage data
-        ArrayList batches = new ArrayList {batchIds["RC"], batchIds["NRC"]};
-        CleanupBackoutUsageData(batches);
+          if (batchIds.Count > 0)
+          {
+              //Cleanup the usage data
+              var batches = new ArrayList();
+              if (batchIds.ContainsKey("RC"))
+                  batches.Add(batchIds["RC"]);
+              if (batchIds.ContainsKey("NRC"))
+                  batches.Add(batchIds["NRC"]);
+              CleanupBackoutUsageData(batches);
+          }
       }
 
     }
@@ -1095,31 +1103,39 @@ namespace MetraTech.Quoting
       // Remove group subscriptions
       foreach (var subscription in createdGroupSubsciptions)
       {
-        // Unsubscribe members
-        foreach (var idAccount in CurrentRequest.Accounts)
-        {
-          IMTGSubMember gsmember = new MTGSubMemberClass();
-          gsmember.AccountID = idAccount;
-
-          if (subscription.FindMember(idAccount, CurrentRequest.EffectiveDate) != null)
+          try
           {
-            subscription.UnsubscribeMember((MTGSubMember) gsmember);
-          }
-        }
+              // Unsubscribe members
+              foreach (var idAccount in CurrentRequest.Accounts)
+              {
+                  IMTGSubMember gsmember = new MTGSubMemberClass();
+                  gsmember.AccountID = idAccount;
 
-        using (IMTNonServicedConnection conn = ConnectionManager.CreateNonServicedConnection())
-        {
-          using (IMTCallableStatement stmt = conn.CreateCallableStatement("RemoveGroupSubscription_Quoting"))
+                  if (subscription.FindMember(idAccount, CurrentRequest.EffectiveDate) != null)
+                  {
+                      subscription.UnsubscribeMember((MTGSubMember) gsmember);
+                  }
+              }
+
+              using (IMTNonServicedConnection conn = ConnectionManager.CreateNonServicedConnection())
+              {
+                  using (IMTCallableStatement stmt = conn.CreateCallableStatement("RemoveGroupSubscription_Quoting"))
+                  {
+                      int status = 0;
+                      stmt.AddParam("p_id_sub", MTParameterType.Integer, subscription.ID);
+                      stmt.AddParam("p_systemdate", MTParameterType.DateTime, CurrentRequest.EffectiveDate);
+                      stmt.AddParam("p_status", MTParameterType.Integer, status);
+                      stmt.ExecuteNonQuery();
+                  }
+              }
+
+              CleanupUDRCMetricValues(subscription.ID);
+          }
+          catch (Exception ex)
           {
-            int status = 0;
-            stmt.AddParam("p_id_sub", MTParameterType.Integer, subscription.ID);
-            stmt.AddParam("p_systemdate", MTParameterType.DateTime, CurrentRequest.EffectiveDate);
-            stmt.AddParam("p_status", MTParameterType.Integer, status);
-            stmt.ExecuteNonQuery();
+              Log("Problem with clean up subscription {0}: {1}", subscription.ID, ex);
           }
-        }
 
-        CleanupUDRCMetricValues(subscription.ID);
       }
     }
 

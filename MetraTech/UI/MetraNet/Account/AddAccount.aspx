@@ -402,7 +402,7 @@ function addTemplateEvents() {
       <table cellspacing="0">
         <tr>
           <td  class="x-panel-btn-td">
-            <MT:MTButton ID="btnOK" OnClientClick="if(Validate()) {/*enableCtrls();*/ return true;} else {return false;}" Width="50px" runat="server" Text="<%$Resources:Resource,TEXT_OK%>" OnClick="btnOK_Click" TabIndex="390" />
+            <MT:MTButton ID="btnOK" OnClientClick="if(Validate()) {enableCtrls(); return true;} else {return false;}" Width="50px" runat="server" Text="<%$Resources:Resource,TEXT_OK%>" OnClick="btnOK_Click" TabIndex="390" />
           </td>
           <td  class="x-panel-btn-td">
             <MT:MTButton ID="btnCancel" Width="50px" runat="server" Text="<%$Resources:Resource,TEXT_CANCEL%>" CausesValidation="False" TabIndex="400" OnClick="btnCancel_Click" />

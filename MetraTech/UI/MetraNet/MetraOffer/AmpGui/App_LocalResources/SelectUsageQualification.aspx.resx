@@ -151,6 +151,6 @@
     <value>Select the Usage Qualification for this Decision Type:</value>
   </data>
   <data name="TEXT_ERROR_NO_USAGE_QUAL" xml:space="preserve">
-    <value>No Account Group was selected for Decision </value>
+    <value>No usage qualification was selected for Decision </value>
   </data>
 </root>

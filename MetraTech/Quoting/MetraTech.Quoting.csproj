@@ -187,6 +187,7 @@
     <Compile Include="..\..\build\versionInfo.cs">
       <Link>VersionInfo.cs</Link>
     </Compile>
+    <Compile Include="IQuotingImplementation.cs" />
     <Compile Include="PropertyName.cs" />
     <Compile Include="QuotePDFReport.cs" />
     <Compile Include="QuoteXmlReport.cs" />

@@ -32,7 +32,8 @@ public partial class AjaxServices_GeneratedChargeSvc : MTListServicePage
   private String _numericSource = String.Empty;
   private String _ddSource = String.Empty;
   private String _whenGenerate = String.Empty;
-  private String _howApply = String.Empty;
+  private String _howApply_v = String.Empty;
+  private String _howApply_cn = String.Empty;
 
   protected bool ExtractDataInternal(AmpServiceClient client, ref MTList<GeneratedCharge> items, int batchID, int limit)
   {
@@ -107,7 +108,8 @@ public partial class AjaxServices_GeneratedChargeSvc : MTListServicePage
     _numericSource = String.Empty;
     _ddSource = String.Empty;
     _whenGenerate = String.Empty;
-    _howApply = String.Empty;
+    _howApply_v = String.Empty;
+    _howApply_cn = String.Empty;
 
     if (Request["command"] != null)
     {
@@ -139,9 +141,13 @@ public partial class AjaxServices_GeneratedChargeSvc : MTListServicePage
       _whenGenerate = Request["whenGenerate"];
     }
 
-    if (Request["howApply"] != null)
+    if (Request["howApply_v"] != null)
     {
-      _howApply = Request["howApply"];
+      _howApply_v = Request["howApply_v"];
+    }
+    if (Request["howApply_cn"] != null)
+    {
+      _howApply_cn = Request["howApply_v"];
     }
   }
 
@@ -179,8 +185,10 @@ public partial class AjaxServices_GeneratedChargeSvc : MTListServicePage
         decisionInstance.ChargeCondition = selectedChargeCondition;
 
         Decision.ChargeAmountTypeEnum selectedAmountType;
-        Enum.TryParse(_howApply, out selectedAmountType);
-        decisionInstance.ChargeAmountType = selectedAmountType;
+        Enum.TryParse(_howApply_v, out selectedAmountType);
+        decisionInstance.ChargeAmountTypeValue = selectedAmountType;
+        if(selectedAmountType.Equals(Decision.ChargeAmountTypeEnum.CHARGE_FROM_PARAM_TABLE))
+            decisionInstance.ChargeAmountTypeColumnName = _howApply_cn;
 
         ampSvcClient.SaveDecision(decisionInstance);
         Logger.LogDebug(String.Format("Successfully saved Decision '{0}'", _ampDecisionName));

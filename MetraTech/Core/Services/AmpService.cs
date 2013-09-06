@@ -3386,7 +3386,7 @@ namespace MetraTech.Core.Services
             if ((attributeValue != null) && (attributeColumnName != null))
             {
                 m_Logger.LogError(
-                    "StoreAttributeInDomainModel: both hard coded and column name were specified" +
+                    "StoreAttributeInDomainModel: both hard coded and column name were specified " +
                     "for parameter {0}, discarding the hard coded value {1}",
                     attributeName, attributeValue);
                 attributeValue = null;
@@ -3538,39 +3538,31 @@ namespace MetraTech.Core.Services
             {
                 if ((attributeValue == null) && (attributeColumnName == null))
                 {
-                    decision.ChargeAmountType = Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_FLAT;
+                    decision.ChargeAmountTypeValue = Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_FLAT;
                 }
                 else if (attributeValue != null)
                 {
                     if (attributeValue.ToUpper().Equals("FLAT"))
                     {
-                        decision.ChargeAmountType = Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_FLAT;
+                        decision.ChargeAmountTypeValue = Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_FLAT;
                     }
                     else if (attributeValue.ToUpper().Equals("PROPORTIONAL"))
                     {
-                        decision.ChargeAmountType = Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_PROPORTIONAL;
+                        decision.ChargeAmountTypeValue = Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_PROPORTIONAL;
                     }
                     else if (attributeValue.ToUpper().Equals("INVERSE_PROPORTIONAL"))
                     {
-                        decision.ChargeAmountType = Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_INVERSE_PROPORTIONAL;
+                        decision.ChargeAmountTypeValue = Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_INVERSE_PROPORTIONAL;
                     }
                     else if (attributeValue.ToUpper().Equals("PERCENTAGE"))
                     {
-                        decision.ChargeAmountType = Decision.ChargeAmountTypeEnum.CHARGE_PERCENTAGE;
-                    }
-                    else
-                    {
-                        m_Logger.LogError(
-                            "StoreAttributeInDomainModel: parameter {0} contains unexpected value {1}",
-                            attributeName, attributeValue);
+                        decision.ChargeAmountTypeValue = Decision.ChargeAmountTypeEnum.CHARGE_PERCENTAGE;
                     }
                 }
                 else
                 {
-                    // don't expect column name
-                    m_Logger.LogError(
-                        "StoreAttributeInDomainModel: parameter {0} should not be set via column name",
-                        attributeName);
+                    decision.ChargeAmountTypeValue = Decision.ChargeAmountTypeEnum.CHARGE_FROM_PARAM_TABLE;
+                    decision.ChargeAmountTypeColumnName = attributeColumnName;
                 }
             }
             else if (attributeName.Equals("Cycles"))
@@ -3831,18 +3823,18 @@ namespace MetraTech.Core.Services
             {
                 if ((attributeValue == null) && (attributeColumnName == null))
                 {
-                    decision.GeneratedCharge = null;
+                    decision.GeneratedChargeValue = null;
+                    decision.GeneratedChargeColumnName = null;
                 }
                 else if (attributeValue != null)
                 {
-                    decision.GeneratedCharge = attributeValue;
+                    decision.GeneratedChargeValue = attributeValue;
+                    decision.GeneratedChargeColumnName = null;
                 }
                 else
                 {
-                    // don't expect column name
-                    m_Logger.LogError(
-                        "StoreAttributeInDomainModel: parameter {0} should not be set via column name",
-                        attributeName);
+                    decision.GeneratedChargeValue = null;
+                    decision.GeneratedChargeColumnName = attributeColumnName;
                 }
             }
             else if (attributeName.Equals("Tier Domain Impact"))
@@ -4072,7 +4064,8 @@ namespace MetraTech.Core.Services
                 decision.PvToAmountChainMappingValue,
                 decision.PvToAmountChainMappingColumnName, decision.ParameterTableName);
             StoreAttributeInDb(decision.UniqueId, "Generated Charge",
-                decision.GeneratedCharge, null, decision.ParameterTableName);
+                String.IsNullOrEmpty(decision.GeneratedChargeValue) ? null : decision.GeneratedChargeValue, 
+                String.IsNullOrEmpty(decision.GeneratedChargeColumnName) ? null : decision.GeneratedChargeColumnName, decision.ParameterTableName);
             switch (decision.ChargeCondition)
             {
                 case Decision.ChargeConditionEnum.CHARGE_NONE:
@@ -4118,7 +4111,7 @@ namespace MetraTech.Core.Services
                         decision.ChargeColumnName, decision.ParameterTableName);
                     break;
             }
-            switch (decision.ChargeAmountType)
+            switch (decision.ChargeAmountTypeValue)
             {
                 case Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_FLAT:
                     StoreAttributeInDb(decision.UniqueId, "Charge Type", "flat", null, decision.ParameterTableName);
@@ -4134,6 +4127,9 @@ namespace MetraTech.Core.Services
 
                 case Decision.ChargeAmountTypeEnum.CHARGE_PERCENTAGE:
                     StoreAttributeInDb(decision.UniqueId, "Charge Type", "percentage", null, decision.ParameterTableName);
+                    break;
+                case Decision.ChargeAmountTypeEnum.CHARGE_FROM_PARAM_TABLE:
+                    StoreAttributeInDb(decision.UniqueId, "Charge Type", null , decision.ChargeAmountTypeColumnName, decision.ParameterTableName);
                     break;
             }
             StoreAttributeInDb(decision.UniqueId, "Cycles",

@@ -863,16 +863,16 @@ namespace MetraTech.Quoting
 
       subscription.Save();
 
-      ApplyIcbPricesToSubscription(subscription.ProductOfferingID, subscription.ID, idAccount);
+      ApplyIcbPricesToSubscription(subscription.ProductOfferingID, subscription.ID);
 
       createdSubsciptions.Add(subscription);
     }
 
-    private void ApplyIcbPricesToSubscription(int productOfferingId, int subscriptionId, int accountId)
+    private void ApplyIcbPricesToSubscription(int productOfferingId, int subscriptionId)
     {
       if (currentRequest.IcbPrices == null) return;
 
-      var icbPrices = currentRequest.IcbPrices.Where(ip => ip.ProductOfferingId == productOfferingId && ip.AccountId == accountId);
+      var icbPrices = currentRequest.IcbPrices.Where(ip => ip.ProductOfferingId == productOfferingId);
       foreach (var price in icbPrices)
         Application.ProductManagement.PriceListService.SaveRateSchedulesForSubscription(
           subscriptionId,

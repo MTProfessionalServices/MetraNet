@@ -34,8 +34,8 @@ namespace MetraTech.Quoting
 
     private int UsageIntervalForQuote { get; set; }
 
-    private readonly List<MTSubscription> createdSubsciptions;
-    private readonly List<IMTGroupSubscription> createdGroupSubsciptions;
+    private readonly List<MTSubscription> createdSubsciptions = new List<MTSubscription>();
+    private readonly List<IMTGroupSubscription> createdGroupSubsciptions = new List<IMTGroupSubscription>();
 
     private Dictionary<string, Interop.MeterRowset.MeterRowset> metters =
       new Dictionary<string, Interop.MeterRowset.MeterRowset>();

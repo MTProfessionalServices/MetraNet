@@ -25,10 +25,6 @@ namespace MetraTech.Domain.Quoting
 
         [Required]
         [DataMember]
-        public int AccountId { get; set; }
-
-        [Required]
-        [DataMember]
         public int ProductOfferingId { get; set; }
 
         [Required]

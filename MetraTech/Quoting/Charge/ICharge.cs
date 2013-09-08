@@ -23,18 +23,32 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using MetraTech.DataAccess;
+using MetraTech.Domain.Quoting;
 
-namespace MetraTech.Quoting
+namespace MetraTech.Quoting.Charge
 {
-  using MetraTech.Domain.Quoting;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
 
-  /// <summary>
-  /// Interface for quote creation
-  /// </summary>
-  public interface IQuotingImplementation
-  {
-    QuoteResponse CreateQuote(QuoteRequest quoteRequest);
+    /// <summary>
+    /// Chrages for Quote
+    /// </summary>
+    public interface ICharge
+    {
+        /// <summary>
+        /// Gets current charge type
+        /// </summary>
+        ChargeType ChargeType { get; }
 
-    IQuotingRepository QuotingRepository { get; }
-  }
+        /// <summary>
+        /// Adds Chrages by <see cref="MetraTech.Domain.Quoting.QuoteRequest"/> in DataBase and save result to existing <see cref="MetraTech.Domain.Quoting.QuoteResponse"/>
+        /// </summary>
+        /// <param name="transacConnection">uses connection to add charges. The connection should be in transaction scope, to have posibility to revert changes</param>
+        /// <param name="quoteRequest">Initial state of Quote</param>
+        /// <returns>Metadata about added charges</returns>
+        ChargeData Add(IMTServicedConnection transacConnection, QuoteRequest quoteRequest);
+    }
 }

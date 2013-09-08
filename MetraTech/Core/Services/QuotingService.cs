@@ -102,18 +102,7 @@ namespace MetraTech.Core.Services
 
           IQuotingImplementation quotingImplementation = new QuotingImplementation(cachedQuotingConfiguration, sessionContext);
 
-          quotingImplementation.StartQuote(quoteRequest);
-
-          // Ask backend to calculate RCs
-          quotingImplementation.AddRecurringChargesToQuote();
-
-          // Ask backend to calculate NRCs
-          quotingImplementation.AddNonRecurringChargesToQuote();
-
-          // Ask backend to finalize quote
-          quoteResponse = quotingImplementation.FinalizeQuote();
-
-          //return preparedQuote;
+          quoteResponse = quotingImplementation.CreateQuote(quoteRequest); 
 
         }
         catch (CommunicationException e)

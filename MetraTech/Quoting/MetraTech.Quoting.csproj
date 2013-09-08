@@ -167,7 +167,13 @@
     <Compile Include="..\..\build\versionInfo.cs">
       <Link>VersionInfo.cs</Link>
     </Compile>
+    <Compile Include="Charge\BaseCharge.cs" />
+    <Compile Include="Charge\ICharge.cs" />
+    <Compile Include="Charge\NonReccuringCharge.cs" />
+    <Compile Include="Charge\ReccurringCharge.cs" />
+    <Compile Include="IChargeMetering.cs" />
     <Compile Include="IQuotingImplementation.cs" />
+    <Compile Include="ChargeMetering.cs" />
     <Compile Include="PropertyName.cs" />
     <Compile Include="QuotePDFReport.cs" />
     <Compile Include="QuoteXmlReport.cs" />
@@ -299,6 +305,7 @@
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

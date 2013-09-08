@@ -110,7 +110,7 @@
     </Reference>
     <Reference Include="MetraTech.DomainModel.ProductCatalog.Generated">
       <Private>False</Private>
-	  <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.ProductCatalog.Generated.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.ProductCatalog.Generated.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.Localization">
       <SpecificVersion>False</SpecificVersion>
@@ -175,7 +175,7 @@
     <Reference Include="MTRuleSet.interop">
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <Private>False</Private>
-	  <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTRuleSet.interop.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTRuleSet.interop.dll</HintPath>
     </Reference>
     <Reference Include="MTYAAC.interop">
       <SpecificVersion>False</SpecificVersion>
@@ -193,23 +193,23 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Quoting.dll</HintPath>
       <Private>False</Private>
-    </Reference>  
-	 <Reference Include="MetraTech.ActivityServices.Services.Common">
+    </Reference>
+    <Reference Include="MetraTech.ActivityServices.Services.Common">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.ActivityServices.Services.Common.dll</HintPath>
       <Private>False</Private>
-    </Reference>	
-	 <Reference Include="MetraTech.Core.Services">
+    </Reference>
+    <Reference Include="MetraTech.Core.Services">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Core.Services.dll</HintPath>
       <Private>False</Private>
     </Reference>
-	 <Reference Include="MetraTech.Domain">
+    <Reference Include="MetraTech.Domain">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Domain.dll</HintPath>
       <Private>False</Private>
-    </Reference>	
-	 <Reference Include="MetraTech.Application">
+    </Reference>
+    <Reference Include="MetraTech.Application">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Application.dll</HintPath>
       <Private>False</Private>
@@ -235,7 +235,6 @@
     <Compile Include="QuotingEOPFunctionalTests.cs" />
     <Compile Include="QuotingForGroupSubsFunctionalTests.cs" />
     <Compile Include="QuotingWithIcbFunctionalTests.cs" />
-    <Compile Include="UsageIntervalDeterminationTests.cs" />
     <Compile Include="QuotePDFReportFunctionalTests.cs" />
     <Compile Include="QuotingErrorHandlingFunctionalTests.cs" />
     <Compile Include="QuotingAccountSubscriptionVariationsFunctionalTests.cs" />
@@ -267,7 +266,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-<ItemGroup>    
+  <ItemGroup>
     <ProjectReference Include="$(ROOTDIR)\MetraTech\MetraTech.Domain.Test\MetraTech.Domain.Test.csproj">
       <Project>{C9D05D42-B0FB-47FE-8E00-FBB99AFB3EC3}</Project>
       <Name>MetraTech.Domain.Test</Name>

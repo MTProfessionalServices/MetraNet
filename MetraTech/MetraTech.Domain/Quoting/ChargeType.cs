@@ -23,18 +23,15 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-
-namespace MetraTech.Quoting
+namespace MetraTech.Domain.Quoting
 {
-  using MetraTech.Domain.Quoting;
-
-  /// <summary>
-  /// Interface for quote creation
-  /// </summary>
-  public interface IQuotingImplementation
-  {
-    QuoteResponse CreateQuote(QuoteRequest quoteRequest);
-
-    IQuotingRepository QuotingRepository { get; }
-  }
+    /// <summary>
+    /// Chrage type
+    /// </summary>
+    public enum ChargeType
+    {
+        None = 0,
+        RecurringCharge = 1,
+        NonRecurringCharge = 2
+    }
 }

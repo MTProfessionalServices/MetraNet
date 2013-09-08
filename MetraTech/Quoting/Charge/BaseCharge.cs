@@ -23,18 +23,35 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using MetraTech.DataAccess;
+using MetraTech.Domain.Quoting;
 
-namespace MetraTech.Quoting
+namespace MetraTech.Quoting.Charge
 {
-  using MetraTech.Domain.Quoting;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
 
-  /// <summary>
-  /// Interface for quote creation
-  /// </summary>
-  public interface IQuotingImplementation
-  {
-    QuoteResponse CreateQuote(QuoteRequest quoteRequest);
+    /// <summary>
+    /// Base class for Chrages for Quote
+    /// </summary>
+    public abstract class BaseCharge : ICharge
+    {
+        protected QuotingConfiguration Config { get; private set; }
+        protected IChargeMetering Metering { get; private set; }
+        protected ILogger Log { get; private set; }
 
-    IQuotingRepository QuotingRepository { get; }
-  }
+        protected BaseCharge(QuotingConfiguration configuration,  IChargeMetering metering,  ILogger log)
+        {
+            Config = configuration;
+            Metering = metering;
+            Log = log;
+        }
+
+        public abstract ChargeType ChargeType { get; }
+
+        public abstract ChargeData Add(IMTServicedConnection transacConnection, QuoteRequest quoteRequest);
+
+    }
 }

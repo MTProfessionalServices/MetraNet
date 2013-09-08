@@ -5,10 +5,12 @@ using System.Data.SqlTypes;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Transactions;
 using MetraTech.ActivityServices.Common;
 using MetraTech.Basic.Config;
+using MetraTech.Basic.Exception;
 using MetraTech.DataAccess;
 using MetraTech.Domain.Quoting;
 // TODO: Add auditor to Quote
@@ -16,6 +18,7 @@ using MetraTech.Domain.Quoting;
 using MetraTech.Interop.MTBillingReRun;
 using MetraTech.Interop.QueryAdapter;
 using MetraTech.Pipeline;
+using MetraTech.Quoting.Charge;
 using MetraTech.UsageServer;
 using Auth = MetraTech.Interop.MTAuth;
 using MetraTech.Interop.MTProductCatalog;
@@ -29,38 +32,55 @@ namespace MetraTech.Quoting
     // TODO: Add auditor to Quote
     //private Auditor quotingAuditor = new Auditor();
     private static ILogger _log;
-
-    private const string QUOTING_QUERY_FOLDER = "Queries\\Quoting";
+    private IList<ICharge> _charges;
 
     private int UsageIntervalForQuote { get; set; }
 
     private readonly List<MTSubscription> createdSubsciptions = new List<MTSubscription>();
     private readonly List<IMTGroupSubscription> createdGroupSubsciptions = new List<IMTGroupSubscription>();
 
-    private Dictionary<string, Interop.MeterRowset.MeterRowset> metters =
-      new Dictionary<string, Interop.MeterRowset.MeterRowset>();
-
-    private Dictionary<string, string> batchIds = new Dictionary<string, string>();
-
-    protected readonly IQuotingRepository quotingRepository;
+    #region Constructors
 
     public QuotingImplementation(QuotingConfiguration configuration, Auth.IMTSessionContext sessionContext,
-                                    IQuotingRepository quotingRepository, ILogger log)
+                                    IQuotingRepository quotingRepository, IList<ICharge> charges, ILogger log)
+    {
+        Init(configuration, sessionContext, quotingRepository, charges, log);
+    }
+
+    private void Init(QuotingConfiguration configuration, Auth.IMTSessionContext sessionContext,
+                      IQuotingRepository quotingRepository, IList<ICharge> charges, ILogger log)
     {
         Configuration = configuration;
         SessionContext = sessionContext;
         QuotingRepository = quotingRepository;
+        _charges = charges;
         _log = log;
     }
 
-    public IQuotingRepository QuotingRepository { get; private set; }
-
     public QuotingImplementation(QuotingConfiguration configuration, Auth.IMTSessionContext sessionContext,
-                                    IQuotingRepository quotingRepository)
+                                    IQuotingRepository quotingRepository, IList<ICharge> charges)
         : this(
-            configuration, sessionContext, quotingRepository,
+            configuration, sessionContext, quotingRepository, charges,
             new Logger(String.Format("[{0}]", typeof(QuotingImplementation))))
     {
+    }
+
+    private IList<ICharge> InitDefaultChrages()
+    {
+        return new List<ICharge>
+        { 
+            new ReccurringCharge(Configuration, new ChargeMetering(Configuration, _log), _log),
+            new NonReccuringCharge(Configuration, new ChargeMetering(Configuration, _log), _log)
+        };
+    }
+
+      public QuotingImplementation(QuotingConfiguration configuration, Auth.IMTSessionContext sessionContext,
+                                    IQuotingRepository quotingRepository)
+    {
+        Init(configuration, sessionContext, quotingRepository, null ,
+            new Logger(String.Format("[{0}]", typeof(QuotingImplementation))));
+
+        _charges = InitDefaultChrages();
     }
 
     public QuotingImplementation(QuotingConfiguration configuration, Auth.IMTSessionContext sessionContext) :
@@ -79,27 +99,26 @@ namespace MetraTech.Quoting
     {
     }
 
+    #endregion Constructors
+
     #region Public
 
-    protected QuoteRequest currentRequest;
+    public IQuotingRepository QuotingRepository { get; private set; }
 
-    public QuoteRequest CurrentRequest
-    {
-      get { return currentRequest; }
-    }
-
-    //Prototype
-    public QuoteResponse CurrentResponse { get; set; } //Prototype
+    public QuoteRequest CurrentRequest { get; private set; }
+    
+    public QuoteResponse CurrentResponse { get; private set; } 
 
 
     /// <summary>
-    /// Validate request and prepare data for metering
+    /// Validate request, prepare data for metering and finaly creats quote
     /// </summary>
-    /// <param name="quoteRequest">Parameters of the quote</param>
-    public int StartQuote(QuoteRequest quoteRequest)
+    /// <param name="quoteRequest"></param>
+    /// <returns>QuoteResponse</returns>
+    public QuoteResponse CreateQuote(QuoteRequest quoteRequest)
     {
       //TODO: Should we add check that pipeline/inetinfo/activityservices are running before starting quote. We think nice to have and maybe configurable
-      using (new MetraTech.Debug.Diagnostics.HighResolutionTimer("StartQuote"))
+        using (new MetraTech.Debug.Diagnostics.HighResolutionTimer(MethodInfo.GetCurrentMethod().Name))
       {
         CurrentResponse = new QuoteResponse();
 
@@ -112,22 +131,46 @@ namespace MetraTech.Quoting
 
         ValidateRequest(quoteRequest);
 
-        currentRequest = quoteRequest;
+        CurrentRequest = quoteRequest;
 
         try
         {
-          //Add this quote into repository and get a new quote id
-          CurrentResponse.idQuote = QuotingRepository.CreateQuote(quoteRequest, SessionContext);
+            //Add this quote into repository and get a new quote id
+            CurrentResponse.idQuote = QuotingRepository.CreateQuote(quoteRequest, SessionContext);
 
-          StartQuoteInternal();
+            StartQuoteInternal();
+
+            //If we need here, here is the place for things that need to be generated, totaled, etc. before we
+            //generate PDF and return results
+            CalculateQuoteTotal(CurrentResponse);
+
+            if (CurrentRequest.ReportParameters.PDFReport)
+            {
+                GeneratePDFForCurrentQuote();
+            }
+
+            //todo: Save or update data about quote in DB
+            CurrentResponse = QuotingRepository.UpdateQuoteWithResponse(CurrentResponse);
+            QuotingRepository.SaveQuoteLog(CurrentResponse.MessageLog);
+            
         }
         catch (Exception ex)
         {
-          RecordExceptionAndCleanup(ex);
-          throw;
+            _log.LogError("Current quote failed and being cleaned up: {0}", ex);
+
+            CurrentResponse.Status = QuoteStatus.Failed;
+            CurrentResponse.FailedMessage = ex.GetaAllMessages();
+
+            CurrentResponse = QuotingRepository.UpdateQuoteWithErrorResponse(CurrentResponse.idQuote, CurrentResponse,
+                                                                             ex.Message);
+            throw;
+        }
+        finally
+        {
+            Cleanup(CurrentResponse.ChargesCollection);
         }
 
-        return CurrentResponse.idQuote;
+        return CurrentResponse;
       }
     }
 
@@ -147,205 +190,6 @@ namespace MetraTech.Quoting
 
             return newFormater;
         });
-    }
-
-    /// <summary>
-    /// Generate and rate recurring charge events for this quote, including UDRCs    
-    /// </summary>
-    public void AddRecurringChargesToQuote()
-    {
-      using (new Debug.Diagnostics.HighResolutionTimer("AddRecurringChargesToQuote"))
-      {
-        VerifyCurrentQuoteIsInProgress();
-
-        _log.LogDebug("Preparing Recurring Charges");
-
-        var countMeteredRecords = 0;
-
-        // call stored procedure to generate charges
-        using (var conn = MetraTech.DataAccess.ConnectionManager.CreateConnection())
-        {
-          using (var stmt = conn.CreateCallableStatement(Configuration.RecurringChargeStoredProcedureQueryTag))
-          {
-            stmt.AddParam("v_id_interval", MTParameterType.Integer, UsageIntervalForQuote);
-            stmt.AddParam("v_id_billgroup", MTParameterType.Integer, 0); //reserved for future
-            stmt.AddParam("v_id_run", MTParameterType.Integer, 0); //reserved for future
-            stmt.AddParam("v_id_accounts", MTParameterType.String, string.Join(",", CurrentRequest.Accounts));
-            stmt.AddParam("v_id_batch", MTParameterType.String, batchIds["RC"]);
-            stmt.AddParam("v_n_batch_size", MTParameterType.Integer, Configuration.MeteringSessionSetSize);
-            stmt.AddParam("v_run_date", MTParameterType.DateTime, MetraTime.Now);
-            //todo: Clarify parameter sense
-            stmt.AddOutputParam("p_count", MTParameterType.Integer);
-            var res = stmt.ExecuteNonQuery();
-            countMeteredRecords = (int) stmt.GetOutputValue("p_count");
-          }
-        }
-
-        MeterRecodrsInPipeline(countMeteredRecords, "Recurring Charge", batchIds["RC"], metters["RC"]);
-
-        _log.LogDebug("Done Preparing Recurring Charges");
-      }
-
-    }
-
-    private void MeterRecodrsInPipeline(int countMeteredRecords, string chargeName, string batchId,
-                                                       Interop.MeterRowset.MeterRowset rowSet)
-    {
-        if (countMeteredRecords > 0)
-        {
-            _log.LogDebug(
-                String.Format("Metered {0} records to {1} with Batch ID={2} and waiting for pipeline to process",
-                              countMeteredRecords, chargeName, batchId));
-
-            try
-            {
-                rowSet.WaitForCommit(countMeteredRecords, 120);
-            }
-            catch (Exception ex)
-            {
-                RecordExceptionAndCleanup(ex);
-                throw;
-            }
-
-            // Check for error during pipeline processing
-            if (rowSet.CommittedErrorCount > 0)
-            {
-                string errorMessage =
-                    String.Format(@"'{0}' {1} sessions failed during pipeline processing.
-                          Pipeline Errors: 
-                          {2}",
-                                  rowSet.CommittedErrorCount
-                                  , chargeName
-                                  , RetrievePipelineErrorDetailsMessage(batchId));
-
-                RecordErrorAndCleanup(errorMessage);
-                throw new ApplicationException(errorMessage);
-            }
-        }
-        else
-        {
-            _log.LogDebug(String.Format("No {0} for this quote", chargeName));
-        }
-    }
-
-    /// <summary>
-    /// Helper method to retrieve detailed error messages for any failures
-    /// that occured in the pipeline
-    /// </summary>
-    /// <param name="batchIdEncoded">metered batch id to retrieve errors for</param>
-    /// <returns></returns>
-    private string RetrievePipelineErrorDetailsMessage(string batchIdEncoded)
-    {
-      //select tx_StageName, tx_Plugin, tx_ErrorMessage from t_failed_transaction where tx_Batch_Encoded = 'Csj8TlVRaiFpU0YM/f93+w=='
-
-      MTStringBuilder sb = new MTStringBuilder();
-
-      using (IMTServicedConnection conn = ConnectionManager.CreateConnection())
-      {
-        using (
-          IMTAdapterStatement stmt = conn.CreateAdapterStatement(QUOTING_QUERY_FOLDER,
-                                                                 "__GET_PIPELINE_ERRORS_FOR_BATCH__"))
-        {
-          stmt.AddParam("%%STRING_BATCH_ID%%", batchIdEncoded);
-
-          using (IMTDataReader reader = stmt.ExecuteReader())
-          {
-            while (reader.Read())
-            {
-              sb.Append(string.Format("Stage[{0}] Plugin[{1}] Error[{2}]" + System.Environment.NewLine,
-                                      reader.GetString("tx_StageName"),
-                                      reader.GetString("tx_Plugin"),
-                                      reader.GetString("tx_ErrorMessage")));
-            }
-          }
-        }
-      }
-
-      return sb.ToString();
-    }
-
-    /// <summary>
-    /// Generate and rate non-recurring charge events for this quote 
-    /// </summary>
-    public void AddNonRecurringChargesToQuote()
-    {
-      using (new Debug.Diagnostics.HighResolutionTimer("AddNonRecurringChargesToQuote"))
-      {
-
-        VerifyCurrentQuoteIsInProgress();
-
-        _log.LogDebug("Preparing Non-Recurring Subscription Start Charges");
-
-        int countMeteredRecords;
-        using (var conn = ConnectionManager.CreateConnection())
-        {
-          using (
-            var stmt = conn.CreateCallableStatement(Configuration.NonRecurringChargeStoredProcedureQueryTag))
-          {
-            //ToDo: Get start and end date according to billing cycle
-            var dateTime = MetraTime.Now;
-            var firstDayOfTheMonth = new DateTime(dateTime.Year, dateTime.Month, 1);
-            var firstDayOfTheNextMonth = firstDayOfTheMonth.AddMonths(1);
-
-            stmt.AddParam("dt_start", MTParameterType.DateTime, firstDayOfTheMonth);
-            stmt.AddParam("dt_end", MTParameterType.DateTime, firstDayOfTheNextMonth);
-            stmt.AddParam("v_id_interval", MTParameterType.Integer, UsageIntervalForQuote);
-            stmt.AddParam("v_id_accounts", MTParameterType.String, string.Join(",", CurrentRequest.Accounts));
-            stmt.AddParam("v_id_batch", MTParameterType.String, batchIds["NRC"]);
-            stmt.AddParam("v_n_batch_size", MTParameterType.Integer, Configuration.MeteringSessionSetSize);
-            stmt.AddParam("v_run_date", MTParameterType.DateTime, dateTime);
-            stmt.AddParam("v_is_group_sub", MTParameterType.Integer,
-                          Convert.ToInt32(CurrentRequest.SubscriptionParameters.IsGroupSubscription));
-            stmt.AddOutputParam("p_count", MTParameterType.Integer);
-            var res = stmt.ExecuteNonQuery();
-            countMeteredRecords = (int) stmt.GetOutputValue("p_count");
-          }
-        }
-
-        MeterRecodrsInPipeline(countMeteredRecords, "Non-Recurring Charge", batchIds["NRC"],
-                                                  metters["NRC"]);
-
-        _log.LogDebug("Done Preparing Non-Recurring Subscription Start Charges");
-      }
-    }
-
-
-
-    /// <summary>
-    /// Complete quote, generate reports and summaries and clean up
-    /// </summary>
-    /// <returns></returns>
-    public QuoteResponse FinalizeQuote()
-    {
-      using (new Debug.Diagnostics.HighResolutionTimer("FinalizeQuote"))
-      {
-        try
-        {
-
-          VerifyCurrentQuoteIsInProgress();
-
-          FinalizeQuoteInternal();
-
-          if (CurrentRequest.ReportParameters.PDFReport)
-          {
-            GeneratePDFForCurrentQuote();
-          }
-
-          //todo: Save or update data about quote in DB
-          CurrentResponse = QuotingRepository.UpdateQuoteWithResponse(CurrentResponse);
-          QuotingRepository.SaveQuoteLog(CurrentResponse.MessageLog);
-
-          Cleanup();
-
-        }
-        catch (Exception ex)
-        {
-          RecordExceptionAndCleanup(ex);
-          throw;
-        }
-
-        return CurrentResponse;
-      }
     }
 
     #endregion
@@ -438,7 +282,7 @@ namespace MetraTech.Quoting
       using (var conn = ConnectionManager.CreateNonServicedConnection())
       {
         using (
-          var stmt = conn.CreateAdapterStatement(QUOTING_QUERY_FOLDER, Configuration.GetAccountBillingCycleQueryTag))
+          var stmt = conn.CreateAdapterStatement(Configuration.QuotingQueryFolder, Configuration.GetAccountBillingCycleQueryTag))
         {
           stmt.AddParam("%%ACCOUNT_ID%%", idAccount);
           using (var rowset = stmt.ExecuteReader())
@@ -459,7 +303,7 @@ namespace MetraTech.Quoting
       using (IMTNonServicedConnection conn = ConnectionManager.CreateNonServicedConnection())
       {
         using (
-          IMTAdapterStatement stmt = conn.CreateAdapterStatement(QUOTING_QUERY_FOLDER,
+          IMTAdapterStatement stmt = conn.CreateAdapterStatement(Configuration.QuotingQueryFolder,
                                                                  Configuration.GetAccountPayerQueryTag))
         {
           stmt.AddParam("%%ACCOUNT_ID%%", idAccount);
@@ -474,55 +318,28 @@ namespace MetraTech.Quoting
       return payer;
     }
 
-    protected void VerifyCurrentQuoteIsInProgress()
-    {
-      if (CurrentResponse == null)
-      {
-        throw new ApplicationException("Quote has not been started. Call StartQuote to create a new quote.");
-      }
-
-      if (CurrentResponse.Status != QuoteStatus.InProgress)
-      {
-        switch (CurrentResponse.Status)
-        {
-          case QuoteStatus.Failed:
-            throw new ApplicationException(
-              "Current quote has failed and can no longer be worked with. Check CurrentResponse.Status and CurrentResponse.FailedMessage.");
-          case QuoteStatus.Complete:
-            throw new ApplicationException("Current quote has completed and can no longer be worked with.");
-          default:
-            throw new ArgumentOutOfRangeException();
-        }
-      }
-    }
-
     protected void StartQuoteInternal()
     {
-      //Initialize metering and create new batch id to use when metering for this quote
-      InitMetering();
-
       //Create the needed subscriptions for this quote
       CreateNeededSubscriptions();
 
-      //Determine Usage Interval to use when quoting
-      UsageIntervalForQuote = GetUsageIntervalForQuote(CurrentRequest.EffectiveDate, CurrentRequest.Accounts[0]);
-    }
+        using (var conn = ConnectionManager.CreateConnection())
+        {
+            foreach (ICharge charge in _charges)
+            {
+                CurrentResponse.ChargesCollection.Add(charge.Add(conn, CurrentRequest));
+            }
+        }
 
-    protected void FinalizeQuoteInternal()
-    {
-      //If we need here, here is the place for things that need to be generated, totaled, etc. before we
-      //generate PDF and return results
-      CalculateQuoteTotal();
+      //Determine Usage Interval to use when quoting
+      UsageIntervalForQuote = ChargeMetering.GetUsageInterval(Configuration, CurrentRequest);
     }
 
     protected void GeneratePDFForCurrentQuote()
     {
       using (new Debug.Diagnostics.HighResolutionTimer("GeneratePDFForCurrentQuote"))
       {
-        try
-        {
-
-          //TODO: Eventually cache/only load configuration as needed
+         //TODO: Eventually cache/only load configuration as needed
           var quoteReportingConfiguration = QuoteReportingConfigurationManager.LoadConfiguration(this.Configuration);
           var quotePDFReport = new QuotePDFReport(quoteReportingConfiguration);
 
@@ -536,12 +353,6 @@ namespace MetraTech.Quoting
                                                                       CurrentRequest.Accounts[0],
                                                                       CurrentRequest.ReportParameters.ReportTemplateName,
                                                                       GetLanguageCodeIdForCurrentRequest());
-        }
-        catch (Exception ex)
-        {
-          RecordExceptionAndCleanup(ex);
-          throw;
-        }
       }
     }
 
@@ -549,7 +360,7 @@ namespace MetraTech.Quoting
     {
       //TODO: Sort out using cultures for real and match them against either enum or database
 
-      string temp = currentRequest.Localization;
+      string temp = CurrentRequest.Localization;
       if (string.IsNullOrEmpty(temp))
       {
         //Not specified, default to "en-US"
@@ -599,19 +410,6 @@ namespace MetraTech.Quoting
 
     }
 
-    /// <summary>
-    /// Initialize the metering rowset to use for this quote and create a new batch id to use for metering
-    /// </summary>
-    protected void InitMetering()
-    {
-      metters.Add("RC", new Interop.MeterRowset.MeterRowsetClass());
-      metters["RC"].InitSDK(Configuration.RecurringChargeServerToMeterTo);
-      metters.Add("NRC", new Interop.MeterRowset.MeterRowsetClass());
-      metters["NRC"].InitSDK(Configuration.RecurringChargeServerToMeterTo);
-      batchIds.Add("RC", metters["RC"].GenerateBatchID());
-      batchIds.Add("NRC", metters["NRC"].GenerateBatchID());
-    }
-
     protected int GetPrimaryAccountId()
     {
       //For now, assume that the first account specified for the quote is the 'primary'
@@ -635,7 +433,7 @@ namespace MetraTech.Quoting
 
     private static readonly object _obj = new object();
 
-
+      //TODO: Should be refacored. It should be in seperate class
     protected void CreateNeededSubscriptions()
     {
       //TODO: Determine if this lock is necessary and if so, give it a better/more descriptive name and comment
@@ -658,7 +456,6 @@ namespace MetraTech.Quoting
               else
               {
                 string errorMessage = "Unable to retrieve InstantRC setting";
-                RecordErrorAndCleanup(errorMessage);
                 throw new ApplicationException(errorMessage);
               }
             }
@@ -870,9 +667,9 @@ namespace MetraTech.Quoting
 
     private void ApplyIcbPricesToSubscription(int productOfferingId, int subscriptionId)
     {
-      if (currentRequest.IcbPrices == null) return;
+      if (CurrentRequest.IcbPrices == null) return;
 
-      var icbPrices = currentRequest.IcbPrices.Where(ip => ip.ProductOfferingId == productOfferingId);
+      var icbPrices = CurrentRequest.IcbPrices.Where(ip => ip.ProductOfferingId == productOfferingId);
       foreach (var price in icbPrices)
         Application.ProductManagement.PriceListService.SaveRateSchedulesForSubscription(
           subscriptionId,
@@ -883,11 +680,11 @@ namespace MetraTech.Quoting
           SessionContext);
     }
 
-    private string GetBatchIdsForQuery()
+    private string GetBatchIdsForQuery(IEnumerable<ChargeData> charges)
     {
       string sqlTemplate = "cast(N'' as xml).value('xs:base64Binary(\"{0}\")', 'binary(16)' ),";
 
-      var res = batchIds.Values.Aggregate("", (current, value) => current + String.Format(sqlTemplate, value));
+      var res = charges.Aggregate("", (current, charge) => current + String.Format(sqlTemplate, charge.IdBatch));
 
       return res.Substring(0, res.Length - 1);
     }
@@ -924,16 +721,16 @@ namespace MetraTech.Quoting
       }
     }
 
-    protected void CalculateQuoteTotal()
+    protected void CalculateQuoteTotal(QuoteResponse quoteResponse)
     {
       using (var conn = ConnectionManager.CreateConnection())
       {
-        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(QUOTING_QUERY_FOLDER,
+          using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(Configuration.QuotingQueryFolder,
                                                                       Configuration.CalculateQuoteTotalAmountQueryTag))
         {
           stmt.AddParam("%%USAGE_INTERVAL%%", UsageIntervalForQuote);
           stmt.AddParam("%%ACCOUNTS%%", string.Join(",", CurrentRequest.Accounts));
-          stmt.AddParam("%%BATCHIDS%%", GetBatchIdsForQuery(), true);
+          stmt.AddParam("%%BATCHIDS%%", GetBatchIdsForQuery(quoteResponse.ChargesCollection), true);
           using (IMTDataReader rowset = stmt.ExecuteReader())
           {
             rowset.Read();
@@ -955,89 +752,7 @@ namespace MetraTech.Quoting
       }
     }
 
-
-    /// <summary>
-    /// Method to lookup the usage interval to use for this quote
-    /// </summary>
-    /// <param name="effectiveDate"></param>
-    /// <param name="idAccount"></param>
-    /// <returns></returns>
-    public Int32 GetUsageIntervalForQuote(DateTime effectiveDate, int idAccount)
-    {
-      Int32 idUsageInterval;
-
-      using (var conn = ConnectionManager.CreateConnection())
-      {
-        using (
-          IMTAdapterStatement stmt = conn.CreateAdapterStatement(QUOTING_QUERY_FOLDER,
-                                                                 Configuration.GetUsageIntervalIdForQuotingQueryTag))
-        {
-          stmt.AddParam("%%EFFECTIVE_DATE%%", effectiveDate);
-          stmt.AddParam("%%ACCOUNT_ID%%", idAccount);
-
-          using (IMTDataReader rowset = stmt.ExecuteReader())
-          {
-            if (rowset.Read())
-            {
-              idUsageInterval = rowset.GetInt32("UsageIntervalId");
-              string usageIntervalState = rowset.GetString("UsageIntervalState");
-              DateTime usageIntervalStart = rowset.GetDateTime("UsageIntervalStart");
-              DateTime usageIntervalEnd = rowset.GetDateTime("UsageIntervalEnd");
-
-              //Perhaps in the future this can be resolved by obtaining the next open interval and using that for the quote
-              if (string.Compare(usageIntervalState, "O", true) != 0)
-              {
-                throw new Exception(
-                  string.Format(
-                    "The interval {0} running from {1} to {2}, currently has a state of '{3}' and cannot be used for quoting. Please select an effective date other than {4}",
-                    idUsageInterval, usageIntervalStart, usageIntervalEnd, usageIntervalState, effectiveDate));
-              }
-
-              //Hopefully this limitation can be removed or automatically resolved in the future
-              if (rowset.IsDBNull("NextUsageIntervalId"))
-              {
-                throw new Exception(
-                  string.Format(
-                    "It is a current limitation of quoting recurring charge generation that the 'next' usage interval exists. For the interval {0} running from {1} to {2}, no usage interval exists for the next cycle starting {3}. Please create this usage interval.",
-                    idUsageInterval, usageIntervalStart, usageIntervalEnd, usageIntervalEnd.AddSeconds(1)));
-              }
-
-            }
-            else
-            {
-              throw new Exception(
-                string.Format(
-                  "Usage interval to use for quoting not found for effective date of {0} and account {1}. Please create this usage interval or use a different effective date.",
-                  effectiveDate, idAccount));
-            }
-
-          }
-        }
-      }
-
-      return idUsageInterval;
-    }
-
-    protected void RecordExceptionAndCleanup(Exception ex)
-    {
-      RecordErrorAndCleanup(ex.ToString());
-    }
-
-    protected void RecordErrorAndCleanup(string error)
-    {
-      CurrentResponse.Status = QuoteStatus.Failed;
-      CurrentResponse.FailedMessage = error;
-
-      _log.LogError("Current quote failed and being cleaned up: {0}", error);
-
-      //TODO: Track/Handle/Return error during cleanup
-      Cleanup();
-
-      CurrentResponse = QuotingRepository.UpdateQuoteWithErrorResponse(CurrentResponse.idQuote, CurrentResponse, error);
-
-    }
-
-    protected void Cleanup()
+    protected void Cleanup(IEnumerable<ChargeData> charges)
     {
       //If needed, cleanup should be completed here.
       //Happens when quote is finalized, pdf generated and returned
@@ -1053,18 +768,8 @@ namespace MetraTech.Quoting
       }
       else
       {
-          if (batchIds.Count > 0)
-          {
-              //Cleanup the usage data
-              var batches = new ArrayList();
-              if (batchIds.ContainsKey("RC"))
-                  batches.Add(batchIds["RC"]);
-              if (batchIds.ContainsKey("NRC"))
-                  batches.Add(batchIds["NRC"]);
-              CleanupBackoutUsageData(batches);
-          }
+         CleanupBackoutUsageData(charges);
       }
-
     }
 
     protected void CleanupSubscriptionsCreated()
@@ -1128,7 +833,7 @@ namespace MetraTech.Quoting
       using (IMTNonServicedConnection conn = ConnectionManager.CreateNonServicedConnection())
       {
         using (
-          IMTAdapterStatement stmt = conn.CreateAdapterStatement(QUOTING_QUERY_FOLDER,
+          IMTAdapterStatement stmt = conn.CreateAdapterStatement(Configuration.QuotingQueryFolder,
                                                                  Configuration.RemoveRCMetricValuesQueryTag))
         {
           stmt.AddParam("%%ID_SUB%%", idSubscription);
@@ -1137,9 +842,9 @@ namespace MetraTech.Quoting
       }
     }
 
-    protected void CleanupBackoutUsageData(ArrayList batches)
+    protected void CleanupBackoutUsageData(IEnumerable<ChargeData> charges)
     {
-      _log.LogInfo("Reversing {0} batch(es) associated with this quote", batches.Count);
+        _log.LogInfo("Reversing {0} batch(es) associated with this quote", charges.Count());
 
       IMTBillingReRun rerun = new BillingReRunClient.Client();
       var sessionContext = AdapterManager.GetSuperUserContext(); // log in as super user
@@ -1156,12 +861,12 @@ namespace MetraTech.Quoting
 
         // identify all batches (ideally we could do this in one call to Identify)
         // instead of doing individual billing reruns per batch (CR12581)
-        foreach (string batchID in batches)
+        foreach (ChargeData charge in charges)
         {
-          _log.LogDebug("Backingout batch with id {0} associated with this quote", batchID);
+          _log.LogDebug("Backingout batch with id {0} associated with this quote", charge.IdBatch);
 
           IMTIdentificationFilter filter = rerun.CreateFilter();
-          filter.BatchID = batchID;
+          filter.BatchID = charge.IdBatch;
 
           // filters on the billing group ID if the billing group ID is set on the context
           // NOTE: it won't be set for scheduled or EOP interval-only adapters)

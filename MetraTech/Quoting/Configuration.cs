@@ -31,6 +31,8 @@ namespace MetraTech.Quoting
     public string GetAccountBillingCycleQueryTag { get; set; }
     public string GetAccountPayerQueryTag { get; set; }
 
+    public string QuotingQueryFolder { get; set; }
+
     //Read from the system configuration, this value allows quoting to know
     //if it is on a development or production system (currently used only for controlling if
     //usage can be saved for debugging quotes and reports)
@@ -58,6 +60,7 @@ namespace MetraTech.Quoting
     const bool DEFAULT_CURRENT_SYSTEM_IS_PRODUCTION_SYSTEM = false;
     const string DEFAULT_REPORT_DEFAULT_TEMPLATE_NAME = "Quote Report";
     const string DEFAULT_REPORT_INSTANCE_PARTIAL_PATH = @"\Quotes\{AccountId}\Quote_{QuoteId}";
+    const string QUOTING_QUERY_FOLDER = @"Queries\Quoting";
 
     public static string DefaultSystemConfigurationFilePath {
       get { return Path.Combine(SystemConfig.GetRmpDir(), "config", "Quoting", "QuotingConfiguration.xml"); }
@@ -127,7 +130,10 @@ namespace MetraTech.Quoting
                                                                       DEFAULT_REPORT_DEFAULT_TEMPLATE_NAME),
                                     ReportInstancePartialPath =
                                       config.GetElementValueOrDefault("ReportInstancePartialPath",
-                                                                      DEFAULT_REPORT_INSTANCE_PARTIAL_PATH)
+                                                                      DEFAULT_REPORT_INSTANCE_PARTIAL_PATH),
+
+                                    QuotingQueryFolder = config.GetElementValueOrDefault("QuotingQueryFolder",
+                                                                      QUOTING_QUERY_FOLDER)
                                   };
 
             loadedConfiguration = configuration.First();

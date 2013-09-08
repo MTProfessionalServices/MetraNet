@@ -117,6 +117,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Events\ThresholdCrossingEvent.cs" />
     <Compile Include="Quantity.cs" />
+    <Compile Include="Quoting\ChargeData.cs" />
+    <Compile Include="Quoting\ChargeType.cs" />
     <Compile Include="Quoting\QuoteIndividualPrice.cs" />
     <Compile Include="Quoting\QuoteLogRecord.cs" />
     <Compile Include="Quoting\QuoteRequest.cs" />
@@ -194,7 +196,7 @@
     <ProjectReference Include="..\MetraTech.Common.csproj">
       <Project>{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}</Project>
       <Name>MetraTech.Common</Name>
-	  <Private>False</Private>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\MetraTech.Common.csproj">
       <Project>{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}</Project>

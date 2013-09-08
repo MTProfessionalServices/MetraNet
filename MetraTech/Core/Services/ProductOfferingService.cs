@@ -1860,7 +1860,7 @@ namespace MetraTech.Core.Services
           {
             case PriceableItemKinds.NonRecurring:
               mLogger.LogDebug("Adding NonRecurring specific properties");
-              #region Insert NonRecurringCharge Properties
+              #region Insert NonReccuringCharge Properties
               using (IMTAdapterStatement adapterStmt = conn.CreateAdapterStatement(PCWS_QUERY_FOLDER, "__INSERT_NRC_PROPERTIES_BY_ID_PCWS__"))
               {
                 adapterStmt.AddParam("%%ID_PROP%%", piInstance.ID);

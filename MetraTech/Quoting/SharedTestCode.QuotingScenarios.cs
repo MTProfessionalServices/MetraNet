@@ -46,29 +46,19 @@ namespace MetraTech.Shared.Test
 
       #region CreateQuote
 
-      int idCurrentQuote = quotingImplementation.StartQuote(request);
+      QuoteResponse preparedQuote = quotingImplementation.CreateQuote(request);
 
       int duringQuoteHeadersCount = quotingRepositoryForTestRun.GetQuoteHeaderCount();
       int duringQuoteContentsCount = quotingRepositoryForTestRun.GetQuoteContentCount();
       int duringQuoteAccountsCount = quotingRepositoryForTestRun.GetAccountForQuoteCount();
       int duringQuotePOsCount = quotingRepositoryForTestRun.GetPOForQuoteCount();
 
-      SharedTestCodeQuoting.VerifyQuoteRequestCorrectInRepository(idCurrentQuote, request, quotingImplementation.QuotingRepository);
+      SharedTestCodeQuoting.VerifyQuoteRequestCorrectInRepository(preparedQuote.idQuote, request, quotingImplementation.QuotingRepository);
         
-      // Ask backend to calculate RCs
-      quotingImplementation.AddRecurringChargesToQuote();
-
       int duringQuoteFlatRCsCount = SharedTestCodeQuoting.GetFlatRCsCount();
-        
-      // Ask backend to calculate NRCs
-      quotingImplementation.AddNonRecurringChargesToQuote();
-
       int duringQuoteNRCsCount = SharedTestCodeQuoting.GetNRCsCount();
 
       int duringQuoteUDRCsCount = SharedTestCodeQuoting.GetUDRCsCount();
-
-      // Ask backend to finalize quote
-      QuoteResponse preparedQuote = quotingImplementation.FinalizeQuote();
 
       int afterQuoteFlatRCsCount = SharedTestCodeQuoting.GetFlatRCsCount();
       int afterQuoteNRCsCount = SharedTestCodeQuoting.GetNRCsCount();
@@ -114,7 +104,7 @@ namespace MetraTech.Shared.Test
       Assert.AreEqual(expectedQuoteCurrency, preparedQuote.Currency);
 
       //Verify response is in repository
-      SharedTestCodeQuoting.VerifyQuoteResponseCorrectInRepository(idCurrentQuote, preparedQuote,
+      SharedTestCodeQuoting.VerifyQuoteResponseCorrectInRepository(preparedQuote.idQuote, preparedQuote,
                                                                    quotingImplementation.QuotingRepository);
 
       //Todo: Verify PDF generated

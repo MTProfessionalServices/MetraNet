@@ -12,4 +12,5 @@
   <CurrentSystemIsProductionSystem>true</CurrentSystemIsProductionSystem>
   <ReportDefaultTemplateName>Quote Report</ReportDefaultTemplateName>
   <ReportInstancePartialPath>\Quotes\{AccountId}\Quote_{QuoteId}</ReportInstancePartialPath>
+  <QuotingQueryFolder>Queries\Quoting</QuotingQueryFolder>
 </QuotingConfiguration>

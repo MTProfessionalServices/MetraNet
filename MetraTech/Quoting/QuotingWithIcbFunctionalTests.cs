@@ -1155,7 +1155,6 @@ namespace MetraTech.Quoting.Test
                 var qip = new QuoteIndividualPrice
                 {
                     QuoteId = quoteId,
-                    AccountId = account,
                     ParameterTableId = ptrc.ParameterTableId,
                     PriceableItemInstanceId = ptrc.PriceableItemId,
                     ProductOfferingId = productOffering.ID,
@@ -1169,7 +1168,6 @@ namespace MetraTech.Quoting.Test
                 var qip = new QuoteIndividualPrice
                 {
                     QuoteId = quoteId,
-                    AccountId = account,
                     ParameterTableId = ptUDRC.ParameterTableId,
                     PriceableItemInstanceId = ptUDRC.PriceableItemId,
                     ProductOfferingId = productOffering.ID
@@ -1202,7 +1200,6 @@ namespace MetraTech.Quoting.Test
                 var qip = new QuoteIndividualPrice
                 {
                     QuoteId = quoteId,
-                    AccountId = account,
                     ParameterTableId = ptNRC.ParameterTableId,
                     PriceableItemInstanceId = ptNRC.PriceableItemId,
                     ProductOfferingId = productOffering.ID,

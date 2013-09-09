@@ -289,7 +289,14 @@ namespace MetraTech.Quoting
         try
         {
           if (quoteContent == null)
-            throw new Exception(String.Format("Can't find quote header with idQuote = {0}", q.idQuote));
+          {
+            throw new Exception(String.Format("Can't find quote header with idQuote = {0}{1}Inner Exceptions:{1}{2}",
+                                              q.idQuote,
+                                              Environment.NewLine,
+                                              q.MessageLog.Aggregate("",
+                                                                     (current, message) =>
+                                                                     current + (message.Message + Environment.NewLine))));
+          }
 
           quoteContent.Total = q.TotalAmount;
           quoteContent.TotalTax = q.TotalTax; 

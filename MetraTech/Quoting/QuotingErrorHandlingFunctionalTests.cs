@@ -106,7 +106,7 @@ namespace MetraTech.Quoting.Test
       //quotingImplementation.CurrentMessageLog.Count
 
       //Verify that the repository has recorded this failure an error message
-      SharedTestCodeQuoting.VerifyQuoteResponseIsErrorInRepository(erroredResponse.idQuote, expectedErrorMessagePartialText, quotingImplementation.QuotingRepository);
+      SharedTestCodeQuoting.VerifyQuoteResponseIsErrorInRepository(erroredResponse.IdQuote, expectedErrorMessagePartialText, quotingImplementation.QuotingRepository);
 
       #endregion
     }
@@ -178,7 +178,8 @@ namespace MetraTech.Quoting.Test
       catch (Exception ex)
       {
         //Assert.AreEqual("Parameter cannot be null or empty.", ex.Message);
-        Assert.IsTrue(ex.Message.Contains(expectedErrorMessagePartialText), "Expected message about pipeline missing rates");
+        Assert.IsTrue(ex.Message.Contains(expectedErrorMessagePartialText)
+          , String.Format("Expected message about pipeline missing rates. The current message is : {0}", expectedErrorMessagePartialText));
       }
 
       QuoteResponse erroredResponse = quotingImplementation.CurrentResponse;
@@ -191,7 +192,7 @@ namespace MetraTech.Quoting.Test
       Assert.IsTrue(erroredResponse.FailedMessage.Contains(expectedErrorMessagePartialText));
 
       //Verify that the repository has recorded this failure an error message
-      SharedTestCodeQuoting.VerifyQuoteResponseIsErrorInRepository(erroredResponse.idQuote, expectedErrorMessagePartialText, quotingImplementation.QuotingRepository);
+      SharedTestCodeQuoting.VerifyQuoteResponseIsErrorInRepository(erroredResponse.IdQuote, expectedErrorMessagePartialText, quotingImplementation.QuotingRepository);
 
       #endregion
     }

@@ -106,7 +106,7 @@ namespace MetraTech.Quoting.Test
 
       var response = new QuoteResponse
           {
-            idQuote = quoteHeaderID,
+            IdQuote = quoteHeaderID,
             TotalAmount = 200,
             TotalTax = 20,
             ReportLink = "Test Report Link",

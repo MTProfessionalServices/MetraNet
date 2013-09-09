@@ -46,72 +46,85 @@ namespace MetraTech.Shared.Test
 
       #region CreateQuote
 
-      QuoteResponse preparedQuote = quotingImplementation.CreateQuote(request);
+      QuoteResponse preparedQuote = null;
 
-      int duringQuoteHeadersCount = quotingRepositoryForTestRun.GetQuoteHeaderCount();
-      int duringQuoteContentsCount = quotingRepositoryForTestRun.GetQuoteContentCount();
-      int duringQuoteAccountsCount = quotingRepositoryForTestRun.GetAccountForQuoteCount();
-      int duringQuotePOsCount = quotingRepositoryForTestRun.GetPOForQuoteCount();
+      try
+      {
+         preparedQuote = quotingImplementation.CreateQuote(request);
+#warning We do not get the exception there due to all exceptions are blocked in Line 114. 123 in ...\Source\MetraTech\Core\Services\QuotingService.cs.  Why we need to process Qoute Status and FailedMessage?
+#warning Currently I didn't recive the clear message that header was not created, The test was not stoped and continue executed by the end... (took a lot of time)
 
-      SharedTestCodeQuoting.VerifyQuoteRequestCorrectInRepository(preparedQuote.idQuote, request, quotingImplementation.QuotingRepository);
+         int duringQuoteHeadersCount = quotingRepositoryForTestRun.GetQuoteHeaderCount();
+        int duringQuoteContentsCount = quotingRepositoryForTestRun.GetQuoteContentCount();
+        int duringQuoteAccountsCount = quotingRepositoryForTestRun.GetAccountForQuoteCount();
+        int duringQuotePOsCount = quotingRepositoryForTestRun.GetPOForQuoteCount();
+
+        SharedTestCodeQuoting.VerifyQuoteRequestCorrectInRepository(preparedQuote.IdQuote, request, quotingImplementation.QuotingRepository);
         
-      int duringQuoteFlatRCsCount = SharedTestCodeQuoting.GetFlatRCsCount();
-      int duringQuoteNRCsCount = SharedTestCodeQuoting.GetNRCsCount();
+        int duringQuoteFlatRCsCount = SharedTestCodeQuoting.GetFlatRCsCount();
+        int duringQuoteNRCsCount = SharedTestCodeQuoting.GetNRCsCount();
 
-      int duringQuoteUDRCsCount = SharedTestCodeQuoting.GetUDRCsCount();
+        int duringQuoteUDRCsCount = SharedTestCodeQuoting.GetUDRCsCount();
 
-      int afterQuoteFlatRCsCount = SharedTestCodeQuoting.GetFlatRCsCount();
-      int afterQuoteNRCsCount = SharedTestCodeQuoting.GetNRCsCount();
-      int afterQuoteUDRCsCount = SharedTestCodeQuoting.GetUDRCsCount();
+        #endregion
 
-      #endregion
+        #region Check
 
-      #region Check
+        //Verify the number of charges was as expected
+        Assert.AreEqual(expectedQuoteFlatRCsCount, duringQuoteFlatRCsCount - beforeQuoteFlatRCsCount,
+                        "Quoting process did not generate expected number of RCs");
+        Assert.AreEqual(expectedQuoteNRCsCount, duringQuoteNRCsCount - beforeQuoteNRCsCount,
+                        "Quoting process did not generate expected number of NRCs");
 
-      //Verify the number of charges was as expected
-      Assert.AreEqual(expectedQuoteFlatRCsCount, duringQuoteFlatRCsCount - beforeQuoteFlatRCsCount,
-                      "Quoting process did not generate expected number of RCs");
-      Assert.AreEqual(expectedQuoteNRCsCount, duringQuoteNRCsCount - beforeQuoteNRCsCount,
-                      "Quoting process did not generate expected number of NRCs");
+        // Verify the number of UDRCs if needed
+        if (expectedQuoteUDRCsCount.HasValue)
+        {
+          Assert.AreEqual(expectedQuoteUDRCsCount, duringQuoteUDRCsCount - beforeQuoteUDRCsCount,
+                          "Quoting process did not generate expected number of UDRCs");
+        }
 
-      // Verify the number of UDRCs if needed
-      if (expectedQuoteUDRCsCount.HasValue)
-      {
-        Assert.AreEqual(expectedQuoteUDRCsCount, duringQuoteUDRCsCount - beforeQuoteUDRCsCount,
-                        "Quoting process did not generate expected number of UDRCs");
-      }
+        //Verify the number of instances in the tables for quoting was as expected
+        Assert.AreEqual(expectedQuoteHeadersCount, duringQuoteHeadersCount - beforeQuoteHeadersCount,
+                        "Quoting process did not generate expected number of headers for quote");
+        Assert.AreEqual(expectedQuoteContentsCount, duringQuoteContentsCount - beforeQuoteContentsCount,
+                        "Quoting process did not generate expected number of contents for quote");
+        Assert.AreEqual(expectedAccountsForQuoteCount, duringQuoteAccountsCount - beforeAccountsForQuoteCount,
+                        "Quoting process did not generate expected number of accounts for quote");
+        Assert.AreEqual(expectedPOsforQuoteCount, duringQuotePOsCount - beforePOsforQuoteCount,
+                        "Quoting process did not generate expected number of POs for quote");
 
-      //Verify the number of instances in the tables for quoting was as expected
-      Assert.AreEqual(expectedQuoteHeadersCount, duringQuoteHeadersCount - beforeQuoteHeadersCount,
-                      "Quoting process did not generate expected number of headers for quote");
-      Assert.AreEqual(expectedQuoteContentsCount, duringQuoteContentsCount - beforeQuoteContentsCount,
-                      "Quoting process did not generate expected number of contents for quote");
-      Assert.AreEqual(expectedAccountsForQuoteCount, duringQuoteAccountsCount - beforeAccountsForQuoteCount,
-                      "Quoting process did not generate expected number of accounts for quote");
-      Assert.AreEqual(expectedPOsforQuoteCount, duringQuotePOsCount - beforePOsforQuoteCount,
-                      "Quoting process did not generate expected number of POs for quote");
-
-      // Verify the quote total is as expected. If UDRCs are expected than TotalAmount with them is greater than without 
-      Assert.AreEqual(expectedQuoteTotal, preparedQuote.TotalAmount, "Created quote total is not what was expected");
-      /*if (expectedQuoteUDRCsCount.HasValue)
-      {
-        Assert.AreEqual(expectedQuoteTotal < preparedQuote.TotalAmount, "Created quote total does not contain UDRCs amount");
-      }
-      else
-      {
+        // Verify the quote total is as expected. If UDRCs are expected than TotalAmount with them is greater than without 
         Assert.AreEqual(expectedQuoteTotal, preparedQuote.TotalAmount, "Created quote total is not what was expected");
-      }*/
-      Assert.AreEqual(expectedQuoteCurrency, preparedQuote.Currency);
+        /*if (expectedQuoteUDRCsCount.HasValue)
+        {
+          Assert.AreEqual(expectedQuoteTotal < preparedQuote.TotalAmount, "Created quote total does not contain UDRCs amount");
+        }
+        else
+        {
+          Assert.AreEqual(expectedQuoteTotal, preparedQuote.TotalAmount, "Created quote total is not what was expected");
+        }*/
+        Assert.AreEqual(expectedQuoteCurrency, preparedQuote.Currency);
 
-      //Verify response is in repository
-      SharedTestCodeQuoting.VerifyQuoteResponseCorrectInRepository(preparedQuote.idQuote, preparedQuote,
-                                                                   quotingImplementation.QuotingRepository);
+        //Verify response is in repository
+        SharedTestCodeQuoting.VerifyQuoteResponseCorrectInRepository(preparedQuote.IdQuote, preparedQuote,
+                                                                     quotingImplementation.QuotingRepository);
 
-      //Todo: Verify PDF generated
+        //Todo: Verify PDF generated
 
-      //Verify usage cleaned up: check count of RCs and NRCs before and after
-      if (!request.DebugDoNotCleanupUsage)
+      }
+      finally
       {
+        if (!quotingImplementation.Configuration.IsCleanupQuoteAutomaticaly && preparedQuote != null)
+        {
+          quotingImplementation.Cleanup(preparedQuote.Artefacts);
+         
+        }
+
+        //Verify usage cleaned up: check count of RCs and NRCs before and after
+        int afterQuoteFlatRCsCount = SharedTestCodeQuoting.GetFlatRCsCount();
+        int afterQuoteNRCsCount = SharedTestCodeQuoting.GetNRCsCount();
+        int afterQuoteUDRCsCount = SharedTestCodeQuoting.GetUDRCsCount();
+
         Assert.AreEqual(beforeQuoteFlatRCsCount, afterQuoteFlatRCsCount, "Quoting left behind/didn't cleanup usage");
         Assert.AreEqual(beforeQuoteNRCsCount, afterQuoteNRCsCount, "Quoting left behind/didn't cleanup usage");
         Assert.AreEqual(beforeQuoteUDRCsCount, afterQuoteUDRCsCount, "Quoting left behind/didn't cleanup usage");
@@ -130,9 +143,11 @@ namespace MetraTech.Shared.Test
       if (quotingRepositoryForTestRun == null)
         quotingRepositoryForTestRun = new QuotingRepositoryInMemory();
 
-      var quotingImplementation = new QuotingImplementation(QuotingConfigurationManager.LoadConfigurationFromDefaultSystemLocation(),
-                                                                              SharedTestCode.LoginAsAdmin(),
-                                                                              quotingRepositoryForTestRun);
+      var config = QuotingConfigurationManager.LoadConfigurationFromDefaultSystemLocation();
+      config.IsCleanupQuoteAutomaticaly = false;
+      var quotingImplementation = new QuotingImplementation(config,
+                                                              SharedTestCode.LoginAsAdmin(),
+                                                              quotingRepositoryForTestRun);
       return quotingImplementation;
     }
 

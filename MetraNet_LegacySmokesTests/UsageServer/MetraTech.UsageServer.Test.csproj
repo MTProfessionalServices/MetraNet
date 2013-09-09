@@ -112,6 +112,12 @@
       <SpecificVersion>false</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\PipelineTransaction.interop.dll</HintPath>
     </Reference>
+    <Reference Include="QueryAdapter.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>False</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\QueryAdapter.interop.dll</HintPath>      
+    </Reference>
     <Reference Include="RCD.Interop">
       <EmbedInteropTypes>false</EmbedInteropTypes>
       <Private>False</Private>
@@ -200,10 +206,11 @@
     <Compile Include="Global.cs" />
     <Compile Include="IntervalTests.cs" />
     <Compile Include="InvoiceAdapterTest.cs" />
+    <Compile Include="PartitionInfrastructureTests.cs" />
     <Compile Include="PartitionTests.cs" />
     <Compile Include="PartitionTypesTests.cs" />
     <Compile Include="RecurrenceTests.cs" />
-    <Compile Include="SqlNativePartitionTests.cs" />
+    <Compile Include="PartitionInfrastructureOnlyMssqlTests.cs" />
     <Compile Include="timezone.cs" />
     <Compile Include="TimeZoneTest.cs" />
     <Compile Include="Util.cs" />

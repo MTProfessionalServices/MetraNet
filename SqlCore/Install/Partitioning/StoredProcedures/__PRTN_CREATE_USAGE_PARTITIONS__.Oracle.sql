@@ -1,13 +1,13 @@
 
 /*
-  Proc: CreateUsagePartitions
+  Proc: prtn_create_usage_partitions
 
   Creates usage partitions for active and unassigned intervals.  Updates
   the t_partition to match.
 
 */
 CREATE OR REPLACE
-procedure CreateUsagePartitions(
+procedure prtn_create_usage_partitions(
   p_cur out sys_refcursor
   )
 authid current_user
@@ -125,5 +125,5 @@ begin
   open p_cur for 
     select * from tmp_partns order by dt_start;
 
-end CreateUsagePartitions;
+end prtn_create_usage_partitions;
        

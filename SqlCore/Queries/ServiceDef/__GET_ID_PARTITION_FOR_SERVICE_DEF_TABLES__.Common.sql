@@ -1,0 +1,1 @@
+SELECT MAX(current_id_partition) AS current_id_partition FROM t_archive_queue_partition

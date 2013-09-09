@@ -1,80 +1,100 @@
-
 /* 
-  Proc: DupPartitionedTable
+  Proc: prtn_deploy_table
 
-  Creates a partitioned version of a table.  Copies column types,
-  null constraints, the data, the primary key, and non-unique
-  indexes.
-  
+  Creates a partitioned version of a table.
+  Copies column types, null constraints, the data, the primary key, and non-unique indexes.
   Drops the non-partitioned source table.
-
 */
+
 CREATE OR REPLACE
-procedure DupPartitionedTable(
-  p_tab varchar2  /* table to convert */
-  )
+PROCEDURE prtn_deploy_table(
+    p_tab                       VARCHAR2,       /* Table to convert */
+    p_tab_type                  VARCHAR2        /* Takes only 2 values: "USAGE" or "METER" */
+)
 authid current_user
 AS
-   cnt            INT;
-   partn_tab      VARCHAR2 (30); /* temp name for new partitioned table */
-   def_partn      VARCHAR2 (30); /* default partition name */
-   partn_ddl      VARCHAR2 (4000);
-   exchg_ddl      VARCHAR2 (4000);
-   partn_clause   VARCHAR2 (100);
-   ix             INT;
-   idx_ddl        str_tab;
-   cons_ddl       str_tab;
-   cons_ddl1      str_tab;
-   idx_drop       str_tab;
-   cons_drop      str_tab;
-   cons_drop1     str_tab;
-   nl             CHAR (1)        := CHR (10);
-   tab            CHAR (2)        := '  ';
-   nlt            CHAR (3)        := nl || tab;
+    partn_tab                   VARCHAR2 (30);  /* temp name for new partitioned table */
+    def_partn_name              VARCHAR2 (30);  /* default partition name */
+    partn_ddl                   VARCHAR2 (4000);
+    exchg_ddl                   VARCHAR2 (4000);
+    partition_by_clause         VARCHAR2 (100); /* Example: 'partition by LIST (id_partition)' */ 
+    def_prtn_condition          VARCHAR2 (100); /* Condition for default partition */
+    is_part_enabled     		VARCHAR2(1);
+    current_id_part             INT;
+    idx_ddl                     str_tab;
+    cons_ddl                    str_tab;
+    cons_ddl1                   str_tab;
+    idx_drop                    str_tab;
+    cons_drop                   str_tab;
+    cons_drop1                  str_tab;
+    cnt                         INT; 
+    ix                          INT;
+    nl                          CHAR (1) := CHR (10);
+    tab                         CHAR (2) := '  ';
+    nlt                         CHAR (3) := nl || tab;
 BEGIN
-   DBMS_OUTPUT.put_line ('DupPartitionedTable: ' || p_tab);
-                         /* Abort if system isn't enabled for partitioning */
 
-   IF dbo.issystempartitioned () = 0
-   THEN
-      raise_application_error (-20000,
-                               'System not enabled for partitioning.');
-   END IF;
+    DBMS_OUTPUT.put_line ('prtn_deploy_table: ' || p_tab);
+    
+    SELECT UPPER(b_partitioning_enabled) INTO is_part_enabled FROM t_usage_server;
+    /* Nothing to do if system isn't enabled for partitioning */
+    IF is_part_enabled <> 'Y' THEN 
+        dbms_output.put_line('System not enabled for partitioning.');
+        RETURN;
+    END IF;
 
-   /* Make sure this table isn't already partitioned */
-   SELECT COUNT (1)
-     INTO cnt
-     FROM DUAL
-    WHERE EXISTS (SELECT 1
-                    FROM user_part_tables
-                   WHERE UPPER (table_name) = UPPER (p_tab));
+    /* Make sure this table isn't already partitioned */
+    SELECT COUNT(1) INTO cnt
+    FROM   DUAL
+    WHERE  EXISTS ( SELECT 1
+                    FROM   user_part_tables
+                    WHERE  UPPER(table_name) = UPPER(p_tab));
 
-   IF cnt > 0
-   THEN
-      DBMS_OUTPUT.put_line (   'DupPartitionedTable: '
-                            || p_tab
-                            || ' is already partitioned.'
-                           );
-      RETURN;
-   END IF;
-/* 1. Gather ddl commands for partition table conversion      2. Execute ddl   */
-/* Get the 'create table' ddl         Create DDL:         create table p_acc_usage           partition by range (id_usage_interval) (             partition d_acc_usage values less than (9999999999)             )                  Oracle defines range partitions using:            VALUES LESS THAN (<rangespec>)            The <rangespec> is one more than the value in id_interval_end        in t_partition for that partition and 9999999999 if it's the
-default partition.
-*/
+    IF cnt > 0 THEN
+        DBMS_OUTPUT.put_line ('prtn_deploy_table: ' || p_tab || ' is already partitioned.');
+        RETURN;
+    END IF;
 
    /* Temp name for new table, expecting name with form 't_whatever' */
    partn_tab := 'p' || SUBSTR (p_tab, 2);
-   def_partn := 'd' || SUBSTR (p_tab, 2);
+   
+    /* Initialize Default Partition info (tablespace, parition values) for Usage or Meter table tablespace name */
+    IF p_tab_type = 'USAGE' THEN
+        BEGIN
+            partition_by_clause := 'partition by RANGE (id_usage_interval)';
+            def_prtn_condition := 'less than (9999999999)';
+			def_partn_name := 'd' || SUBSTR (p_tab, 2);
+        END;
+    ELSE
+    	IF p_tab_type = 'METER' THEN
+			BEGIN
+			partition_by_clause := 'partition by LIST (id_partition)';
+
+			SELECT MAX(current_id_partition) INTO current_id_part FROM t_archive_queue_partition;
+			def_prtn_condition := '(' || current_id_part || ')';
+			def_partn_name := 'p' || current_id_part;
+			END;
+		ELSE
+			raise_application_error (-20000, '"p_tab_type" input parameter may take only 2 values: "USAGE" or "METER"');
+		END IF;
+    END IF;
+
+    /* 1. Gather ddl commands for partition table conversion      2. Execute ddl   */
+    /* For Usage Partitioning:
+    * Get the 'create table' ddl         Create DDL:         create table p_acc_usage           partition by range (id_usage_interval) (             partition d_acc_usage values less than (9999999999)             )                  Oracle defines range partitions using:            VALUES LESS THAN (<rangespec>)            The <rangespec> is one more than the value in id_interval_end        in t_partition for that partition and 9999999999 if it's the
+    default partition.
+    */
+
    /* ddl for partitioned table with default partition only */
    partn_ddl :=
          '  create table '
       || partn_tab
       || nlt
-      || 'partition by range (id_usage_interval) ('
+      || partition_by_clause || ' ('
       || nlt
       || '    partition '
-      || def_partn
-      || ' values less than (9999999999))'
+      || def_partn_name
+      || ' values ' || def_prtn_condition || ')'
       || nlt
       || '  as select * from '
       || p_tab
@@ -84,12 +104,11 @@ default partition.
          'alter table '
       || partn_tab
       || ' exchange partition '
-      || def_partn
+      || def_partn_name
       || ' with table '
       || p_tab;
 
-   /* Get primary key constraint ddl from source table
-   */
+   /* Get primary key constraint ddl from source table */
    SELECT      'alter table '
             || partn_tab
             || ' add constraint '
@@ -143,8 +162,7 @@ default partition.
              ORDER BY POSITION)
    GROUP BY table_name, constraint_name;
 
-   /* Get ddl for non-unique indexes on source table.
-   */
+   /* Get ddl for non-unique indexes on source table. */
    SELECT      'create index '
             || index_name
             || ' on '
@@ -164,6 +182,25 @@ default partition.
              ORDER BY uic.table_name, uic.index_name, uic.column_position)
    GROUP BY table_name, index_name;
 
+   /* CORE-6638. Some workaround about this issue. */
+   /* Get default constraint ddl from source table */
+   /*
+   SELECT      'ALTER TABLE '
+            || partn_tab
+            || ' MODIFY '
+            || COLUMN_NAME
+            || ' DEFAULT '
+            || DATA_DEFAULT  -- an error here. Long should be converted to varchar
+   BULK COLLECT INTO def_cons_ddl1
+       FROM (
+            SELECT COLUMN_NAME,
+                    DATA_DEFAULT
+            FROM   USER_TAB_COLUMNS
+            WHERE  LOWER(TABLE_NAME) = LOWER(p_tab)
+       );
+    */
+
+
    /* Collected all the ddl statements we need, time to exec.
 
        1. Create new partitioned table with default partition only.
@@ -174,19 +211,16 @@ default partition.
 
    */
 
-   /* Create new partitioned table with default partition only.
-   */
-   DBMS_OUTPUT.put_line (   'DupPartitionedTable: Creating partitioned table '
-                         || partn_tab
-                        );
+   /* Create new partitioned table with default partition only. */
+   DBMS_OUTPUT.put_line ( 'prtn_deploy_table: Creating partitioned table '
+                         || partn_tab );
    DBMS_OUTPUT.put_line (partn_ddl);
 
    EXECUTE IMMEDIATE partn_ddl;
 
-   /* Drop constraints from old table.
-   */
+   /* Drop constraints from old table. */
    DBMS_OUTPUT.put_line
-               ('DupPartitionedTable: Dropping primary key/unique constraints');
+               ('prtn_deploy_table: Dropping primary key/unique constraints');
 
    IF cons_drop.FIRST IS NOT NULL
    THEN
@@ -208,7 +242,7 @@ default partition.
       END LOOP;
    END IF;
 
-   DBMS_OUTPUT.put_line ('DupPartitionedTable: Dropping non-unique indexes');
+   DBMS_OUTPUT.put_line ('prtn_deploy_table: Dropping non-unique indexes');
 
    IF idx_drop.FIRST IS NOT NULL
    THEN
@@ -222,10 +256,9 @@ default partition.
 
    /* Add primary key/unqiue constraints  in disabled mode to avoid
       validation during exchange operation.  No need to build the
-      underlying indexes at this moment.
-   */
+      underlying indexes at this moment. */
    DBMS_OUTPUT.put_line
-      ('DupPartitionedTable: Adding primary key/unique constraints (disabled)');
+      ('prtn_deploy_table: Adding primary key/unique constraints (disabled)');
 
    IF cons_ddl.FIRST IS NOT NULL
    THEN
@@ -250,7 +283,7 @@ default partition.
    /* Add non-unique local indexes
    */
    DBMS_OUTPUT.put_line
-                     ('DupPartitionedTable: Creating non-unique local indexes');
+                     ('prtn_deploy_table: Creating non-unique local indexes');
 
    IF idx_ddl.FIRST IS NOT NULL
    THEN
@@ -262,7 +295,17 @@ default partition.
       END LOOP;
    END IF;
 
-   DBMS_OUTPUT.put_line (   'DupPartitionedTable: Exchanging '
+	IF p_tab_type = 'METER' THEN
+		/* Add DEFAULT constraint 'id_partition' column for METER tables
+		*/
+		DBMS_OUTPUT.put_line('prtn_deploy_table: Apply DEFAULT constraint "id_partition" column');
+
+		EXECUTE IMMEDIATE 'ALTER TABLE ' || partn_tab
+						|| ' MODIFY id_partition'
+						|| ' DEFAULT ' || current_id_part;
+	END IF;
+
+   DBMS_OUTPUT.put_line (   'prtn_deploy_table: Exchanging '
                          || p_tab
                          || ' and default partition'
                         );
@@ -272,16 +315,13 @@ default partition.
 
    /* Partiton table is created and loaded. Drop the old and rename new.
    */
-   DBMS_OUTPUT.put_line ('DupPartitionedTable: Dropping table ' || p_tab);
+   DBMS_OUTPUT.put_line ('prtn_deploy_table: Dropping table ' || p_tab);
 
    EXECUTE IMMEDIATE 'drop table ' || p_tab || ' cascade constraints purge';
 
-   DBMS_OUTPUT.put_line (   'DupPartitionedTable: Renaming '
-                         || partn_tab
-                         || ' to '
-                         || p_tab
-                        );
+   DBMS_OUTPUT.put_line ( 'prtn_deploy_table: Renaming ' || partn_tab
+                         || ' to ' || p_tab );
 
    EXECUTE IMMEDIATE 'alter table ' || partn_tab || ' rename to ' || p_tab;
-END duppartitionedtable;
-   
+
+END prtn_deploy_table;

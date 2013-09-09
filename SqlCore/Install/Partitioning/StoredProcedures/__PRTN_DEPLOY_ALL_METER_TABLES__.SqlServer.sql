@@ -1,4 +1,4 @@
-	CREATE PROCEDURE prtn_DeployAllMeterPartitionedTables
+	CREATE PROCEDURE prtn_deploy_all_meter_tables
 	AS
 	BEGIN
 		DECLARE @svc_table_name VARCHAR(50),
@@ -21,7 +21,7 @@
 			FETCH NEXT FROM svctablecur INTO @svc_table_name 
 			WHILE (@@FETCH_STATUS = 0) 
 			BEGIN
-				EXEC prtn_CreatePartitionedTable 
+				EXEC prtn_deploy_table 
 						@svc_table_name, 
 						N'id_source_sess ASC, id_partition ASC',
 						@meter_partition_schema,
@@ -33,25 +33,25 @@
 			-------------------------------------------------------------------------
 			-----------------Deploy message and session tables-----------------------
 			-------------------------------------------------------------------------
-			EXEC prtn_CreatePartitionedTable
+			EXEC prtn_deploy_table
 						N't_message', 
 						N'id_message ASC, id_partition ASC',
 						@meter_partition_schema,
 						N'id_partition'  
 
-			EXEC prtn_CreatePartitionedTable 
+			EXEC prtn_deploy_table 
 						N't_session', 
 						N'id_ss ASC, id_source_sess ASC, id_partition ASC',
 						@meter_partition_schema,
 						N'id_partition' 
 
-			EXEC prtn_CreatePartitionedTable 
+			EXEC prtn_deploy_table 
 						N't_session_set', 
 						N'id_ss ASC, id_partition ASC',
 						@meter_partition_schema,
 						N'id_partition' 
 
-			EXEC prtn_CreatePartitionedTable 
+			EXEC prtn_deploy_table 
 						N't_session_state', 
 						N'id_sess ASC, dt_end ASC, tx_state ASC, id_partition ASC',
 						@meter_partition_schema,

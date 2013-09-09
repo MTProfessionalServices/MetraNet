@@ -1,16 +1,12 @@
 
-                CREATE PROCEDURE prtn_CreateMeterPartitionSchema
-					@current_dt DATETIME = NULL
+                CREATE PROCEDURE prtn_create_meter_partitions
 				AS
 				DECLARE @meter_partition_function_name NVARCHAR(50),
 						@meter_partition_schema_name NVARCHAR(50),
 						@meter_partition_filegroup_name NVARCHAR(50),
 						@meter_partition_id INT,
 						@sqlCommand NVARCHAR(MAX)
-						
-				IF @current_dt IS NULL
-					SET @current_dt = GETDATE()
-					
+											
 				BEGIN TRY
 
 					IF dbo.IsSystemPartitioned()=0
@@ -26,7 +22,7 @@
 						------------------------------------------------------------------------------
 						----------create file group for meter partition ----------------------------
 						------------------------------------------------------------------------------ 
-								EXEC prtn_AddFileGroup @meter_partition_filegroup_name
+								EXEC prtn_add_file_group @meter_partition_filegroup_name
 
 					    ------------------------------------------------------------------------------
 						----------create meter partition function-------------------------------------------

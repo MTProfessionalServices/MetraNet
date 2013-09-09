@@ -172,9 +172,11 @@
     </property>
     <property name="Status" column="c_Status">
       <meta attribute="label">Status</meta>
-      <meta attribute="description">0 - In progress
-1 - Failed
-2 - Completed</meta>
+      <meta attribute="description">
+0 - None
+1 - In progress
+2 - Failed
+3 - Completed</meta>
       <meta attribute="defaultvalue">0</meta>
       <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>

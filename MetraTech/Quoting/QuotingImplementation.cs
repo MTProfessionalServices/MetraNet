@@ -28,7 +28,7 @@ namespace MetraTech.Quoting
 {
   public class QuotingImplementation : IQuotingImplementation
   {
-    protected QuotingConfiguration Configuration { get; set; }
+    public QuotingConfiguration Configuration { get; private set; }
     // TODO: Add auditor to Quote
     //private Auditor quotingAuditor = new Auditor();
     private static ILogger _log;
@@ -120,29 +120,30 @@ namespace MetraTech.Quoting
       //TODO: Should we add check that pipeline/inetinfo/activityservices are running before starting quote. We think nice to have and maybe configurable
         using (new MetraTech.Debug.Diagnostics.HighResolutionTimer(MethodInfo.GetCurrentMethod().Name))
       {
-        CurrentResponse = new QuoteResponse();
+        CurrentResponse = new QuoteResponse(new QuoteResponseArtefacts());
 
         SetNewQuoteLogFormater(quoteRequest, CurrentResponse);
-
-        CurrentResponse.MessageLog = new List<QuoteLogRecord>();
 
         createdSubsciptions.Clear();
         createdGroupSubsciptions.Clear();
 
-        ValidateRequest(quoteRequest);
-
-        CurrentRequest = quoteRequest;
-
         try
         {
-            //Add this quote into repository and get a new quote id
-            CurrentResponse.idQuote = QuotingRepository.CreateQuote(quoteRequest, SessionContext);
+            CurrentResponse.Status = QuoteStatus.InProgress;
 
-            StartQuoteInternal();
+            ValidateRequest(quoteRequest);
+
+            CurrentRequest = quoteRequest;
+
+            //Add this quote into repository and gets a newly creatd quote id
+            CurrentResponse.IdQuote = QuotingRepository.CreateQuote(quoteRequest, SessionContext);
+
+            StartQuoteInternal(CurrentResponse);
 
             //If we need here, here is the place for things that need to be generated, totaled, etc. before we
             //generate PDF and return results
             CalculateQuoteTotal(CurrentResponse);
+            CurrentResponse.Status = QuoteStatus.Complete;
 
             if (CurrentRequest.ReportParameters.PDFReport)
             {
@@ -161,13 +162,20 @@ namespace MetraTech.Quoting
             CurrentResponse.Status = QuoteStatus.Failed;
             CurrentResponse.FailedMessage = ex.GetaAllMessages();
 
-            CurrentResponse = QuotingRepository.UpdateQuoteWithErrorResponse(CurrentResponse.idQuote, CurrentResponse,
+            CurrentResponse = QuotingRepository.UpdateQuoteWithErrorResponse(CurrentResponse.IdQuote, CurrentResponse,
                                                                              ex.Message);
             throw;
         }
         finally
         {
-            Cleanup(CurrentResponse.ChargesCollection);
+            if (Configuration.IsCleanupQuoteAutomaticaly)
+            {
+                Cleanup(CurrentResponse.Artefacts);
+            }
+            else
+            {
+                _log.LogWarning("Not cleaning up subsciption (includes group) and usage data for quote");
+            }
         }
 
         return CurrentResponse;
@@ -179,7 +187,7 @@ namespace MetraTech.Quoting
         _log.SetFormatter((message, args) =>
         {
             string newFormater
-                = String.Format("Quote[{0}]: [{1}]", currentResponse.idQuote, String.Format(message, args));
+                = String.Format("Quote[{0}]: [{1}]", currentResponse.IdQuote, String.Format(message, args));
 
             CurrentResponse.MessageLog.Add(new QuoteLogRecord
             {
@@ -318,7 +326,7 @@ namespace MetraTech.Quoting
       return payer;
     }
 
-    protected void StartQuoteInternal()
+    protected void StartQuoteInternal(QuoteResponse quoteResponse)
     {
       //Create the needed subscriptions for this quote
       CreateNeededSubscriptions();
@@ -327,12 +335,12 @@ namespace MetraTech.Quoting
         {
             foreach (ICharge charge in _charges)
             {
-                CurrentResponse.ChargesCollection.Add(charge.Add(conn, CurrentRequest));
+              quoteResponse.Artefacts.ChargesCollection.Add(charge.Add(conn, CurrentRequest));
             }
         }
 
       //Determine Usage Interval to use when quoting
-      UsageIntervalForQuote = ChargeMetering.GetUsageInterval(Configuration, CurrentRequest);
+      quoteResponse.Artefacts.IdUsageInterval = ChargeMetering.GetUsageInterval(Configuration, CurrentRequest);
     }
 
     protected void GeneratePDFForCurrentQuote()
@@ -349,7 +357,7 @@ namespace MetraTech.Quoting
             CurrentRequest.ReportParameters.ReportTemplateName = this.Configuration.ReportDefaultTemplateName;
           }
 
-          CurrentResponse.ReportLink = quotePDFReport.CreatePDFReport(CurrentResponse.idQuote,
+          CurrentResponse.ReportLink = quotePDFReport.CreatePDFReport(CurrentResponse.IdQuote,
                                                                       CurrentRequest.Accounts[0],
                                                                       CurrentRequest.ReportParameters.ReportTemplateName,
                                                                       GetLanguageCodeIdForCurrentRequest());
@@ -549,7 +557,7 @@ namespace MetraTech.Quoting
       //  mtGroupSubscription.DistributionAccount = groupSubscription.DiscountAccountId.Value;
       //}
       mtGroupSubscription.Name = string.Format("TempQuoteGSForPO_{0}Quote_{1}", offerId,
-                                               CurrentResponse.idQuote);
+                                               CurrentResponse.IdQuote);
       mtGroupSubscription.Description = "Group subscription for Quoting. ProductOffering: " + offerId;
       mtGroupSubscription.SupportGroupOps = true; // Part of request?
       mtGroupSubscription.CorporateAccount = corporateAccountId;
@@ -728,9 +736,9 @@ namespace MetraTech.Quoting
           using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(Configuration.QuotingQueryFolder,
                                                                       Configuration.CalculateQuoteTotalAmountQueryTag))
         {
-          stmt.AddParam("%%USAGE_INTERVAL%%", UsageIntervalForQuote);
+          stmt.AddParam("%%USAGE_INTERVAL%%", quoteResponse.Artefacts.IdUsageInterval);
           stmt.AddParam("%%ACCOUNTS%%", string.Join(",", CurrentRequest.Accounts));
-          stmt.AddParam("%%BATCHIDS%%", GetBatchIdsForQuery(quoteResponse.ChargesCollection), true);
+          stmt.AddParam("%%BATCHIDS%%", GetBatchIdsForQuery(quoteResponse.Artefacts.ChargesCollection), true);
           using (IMTDataReader rowset = stmt.ExecuteReader())
           {
             rowset.Read();
@@ -752,28 +760,26 @@ namespace MetraTech.Quoting
       }
     }
 
-    protected void Cleanup(IEnumerable<ChargeData> charges)
+
+    /// <summary>
+    /// CleanUp quoters artifacts in case IsCleanupQuoteAutomaticaly = fales in <see cref=""/>
+    /// </summary>
+    /// <param name="quoteArtefact">Sents data for cleaning up Quote Artefacts</param>
+    public void Cleanup(QuoteResponseArtefacts quoteArtefact)
     {
       //If needed, cleanup should be completed here.
       //Happens when quote is finalized, pdf generated and returned
       //or if an error happens during processing
 
-      CleanupSubscriptionsCreated();
+        CleanupSubscriptionsCreated(quoteArtefact.Subscription);
 
-      //Cleanup the usage data and an failed transactions
-      if (CurrentRequest.DebugDoNotCleanupUsage && !Configuration.CurrentSystemIsProductionSystem)
-      {
-          //For debugging purposes, leave the usage data
-          _log.LogWarning("Not cleaning up usage data for quote run");
-      }
-      else
-      {
-         CleanupBackoutUsageData(charges);
-      }
+      CleanupBackoutUsageData(quoteArtefact.ChargesCollection);
+      
     }
 
-    protected void CleanupSubscriptionsCreated()
+    protected void CleanupSubscriptionsCreated(SubscriptionResponseData subscriptionResponse)
     {
+      // TODO: Should use SubscriptionResponseData instead of saved response!
       // Remove individual subscriptions
       foreach (var subscription in createdSubsciptions)
       {
@@ -850,7 +856,7 @@ namespace MetraTech.Quoting
       var sessionContext = AdapterManager.GetSuperUserContext(); // log in as super user
       rerun.Login((Interop.MTBillingReRun.IMTSessionContext) sessionContext);
       var comment = String.Format("Quoting functionality; Reversing work associated with QuoteId {0}",
-                                  CurrentResponse.idQuote);
+                                  CurrentResponse.IdQuote);
       rerun.Setup(comment);
 
       var pipeline = new PipelineManager();

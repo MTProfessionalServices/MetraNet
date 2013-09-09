@@ -36,7 +36,7 @@
                 --      Information about the partitions can be obtained
                 --      from the view v_partition_info via "select * from v_partition_info"
                 -- 
-                create proc CreateTaxDetailPartitions
+                create proc prtn_create_tax_partitions
                 as
                 begin
                     -- Stored procedure return value

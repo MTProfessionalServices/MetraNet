@@ -2,7 +2,6 @@
 <Query>
     <Action>StoredProcedure</Action>
     <Implementations>
-        <Implementation>SqlServer</Implementation>
         <Implementation>Oracle</Implementation>
     </Implementations>
     <Schemas>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Query>
-    <Action>CreateTable</Action>
+    <Action>StoredProcedure</Action>
     <Implementations>
-        <Implementation>Oracle</Implementation>
+        <Implementation>SqlServer</Implementation>
+		 <Implementation>Oracle</Implementation>
     </Implementations>
     <Schemas>
         <Schema>NetMeter</Schema>
@@ -14,6 +15,6 @@
         <ConversionDuplicateName></ConversionDuplicateName>
         <CommonQuerySourceFile></CommonQuerySourceFile>
         <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
-        <OracleQuerySourceFile>R:\Config\Queries\DBInstall\Pipeline\Queries_Oracle.xml</OracleQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
     </ConversionAudit>
 </Query>

@@ -1,5 +1,5 @@
 
-				CREATE PROCEDURE CreateUsagePartitions
+				CREATE PROCEDURE prtn_create_usage_partitions
 				AS
 				BEGIN TRY
 				IF dbo.IsSystemPartitioned() = 0
@@ -35,7 +35,7 @@
 					
 					IF NOT EXISTS (SELECT * FROM sys.partition_schemes WHERE name = dbo.prtn_GetUsagePartitionSchemaName())
 					BEGIN
-						EXEC prtn_CreatePartitionSchema @id_interval_end, @dt_end, @partition_name OUT
+						EXEC prtn_create_partition_schema @id_interval_end, @dt_end, @partition_name OUT
 						
 						-- insert information about default partition						
 						INSERT INTO t_partition
@@ -49,7 +49,7 @@
 					END
 					ELSE
 					BEGIN
-						EXEC prtn_AlterPartitionSchema @id_interval_end, @dt_end, @partition_name OUT
+						EXEC prtn_alter_partition_schema @id_interval_end, @dt_end, @partition_name OUT
 						
 						-- update start of default partition
 						UPDATE t_partition

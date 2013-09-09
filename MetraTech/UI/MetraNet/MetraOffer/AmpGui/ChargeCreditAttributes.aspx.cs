@@ -56,7 +56,6 @@ public partial class AmpChargeCreditAttributesPage : AmpWizardBasePage
                 radListWhenGenerate.SelectedValue = CurrentDecisionInstance.ChargeCondition.ToString();
             }
 
-            SetRadListDisableListeners();
 
             if (radListWhenGenerate.SelectedIndex == 3)
             {
@@ -221,14 +220,15 @@ public partial class AmpChargeCreditAttributesPage : AmpWizardBasePage
         }
         else
         {
-          radListHowApply.Attributes.Add("disabled", "true");
-          lbHowApply.Attributes.Add("disabled", "true");
+            divHow.Attributes.Add("display","none;");
         }
 
         // The "beforerowselect" event handler defined in ChargeCreditAttributes.aspx
         // takes care of preventing changes to GeneratedChargesGrid.
 
-        btnSaveAndContinue.Visible = false;
+          FromParamTableCheckBox.Enabled = false;
+          ddChargeCreditAttrFromParamTableSource2.Enabled = false;
+          btnSaveAndContinue.Visible = false;
       }
       else // Edit or Create mode
       {
@@ -239,11 +239,6 @@ public partial class AmpChargeCreditAttributesPage : AmpWizardBasePage
                                             "location.href= 'ChargeCreditProductView.aspx?GenChargeAction=View&GenChargeName=' + name; } " +
                                             "</script>");
 
-        if (radListWhenGenerate.SelectedIndex != 3)
-        {
-            radListHowApply.Enabled = false;
-            lbHowApply.Enabled = false;
-        }
 
         btnContinue.Visible = false;
       }
@@ -300,14 +295,6 @@ public partial class AmpChargeCreditAttributesPage : AmpWizardBasePage
         return true;
     }
     
-
-    private void SetRadListDisableListeners()
-    {
-        radListWhenGenerate.Items[0].Attributes.Add("onClick", "return ChangeHowApplyState(true)");
-        radListWhenGenerate.Items[1].Attributes.Add("onClick", "return ChangeHowApplyState(true)");
-        radListWhenGenerate.Items[2].Attributes.Add("onClick", "return ChangeHowApplyState(true)");
-        radListWhenGenerate.Items[3].Attributes.Add("onClick", "return ChangeHowApplyState(false)");
-    }
 
     private void SetControlMonitorChanges()
     {

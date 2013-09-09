@@ -61,7 +61,7 @@
         </tr>
     </table>
         
-    <div style="padding-left:50px; padding-top:10px;">
+    <div id="divHow" runat="server" style="padding-left:50px; padding-top:10px;">
 
                     <asp:Label ID="lbHowApply" runat="server" Font-Bold="False" ForeColor="DarkBlue" 
                         Font-Size="9pt" meta:resourcekey="lbHowApplied" 
@@ -77,7 +77,7 @@
                 <asp:ListItem Text="<%$ Resources:radInvPropText %>" Value="CHARGE_AMOUNT_INVERSE_PROPORTIONAL" />
                 <asp:ListItem Text="<%$ Resources:radAggrMultText %>" Value="CHARGE_PERCENTAGE" />
                 <asp:ListItem Text="<%$ Resources:radEntireValueText %>" Value="CHARGE_AMOUNT_FLAT" />
-                <asp:ListItem Text="<%$ Resources:radParamTableText %>" Value="CHARGE_FROM_PARAM_TABLE" />
+                <asp:ListItem Text="<%$ Resources:radParamTableText %>" Value="CHARGE_FROM_PARAM_TABLE"  />
             </asp:RadioButtonList>
                 <div  style="fit-position: right">
                     <div id="divChargeCreditAttrFromParamTableDropdownSource" runat="server">
@@ -148,24 +148,25 @@
 
 
   <script type="text/javascript" language="javascript">
-       function updateActiveControls() {
+
+      $(document).ready(function() {
+          refresh_divhow();
+          $('#<%=radListWhenGenerate.ClientID%>').change(function() {
+              refresh_divhow();
+          });
+      });
+
+      function refresh_divhow() {
+                  if($('#<%=radListWhenGenerate.ClientID%>'+'_3').is(':checked'))
+                    $('#<%=divHow.ClientID%>').show();
+                  else
+                    $('#<%=divHow.ClientID%>').hide();
+      }
+
+      function updateActiveControls() {
          var dd1 = Ext.getCmp('<%=ddChargeCreditAttrFromParamTableSource1.ClientID %>');
          var dd2 = Ext.getCmp('<%=ddChargeCreditAttrFromParamTableSource2.ClientID %>');
          var cb = Ext.getCmp('<%=FromParamTableCheckBox.ClientID %>');
-
-          if (Ext.get("<%=radListWhenGenerate.ClientID%>" + '_3').dom.checked) {
-                for (var i = 0; i < '<%= radListHowApply.Items.Count %>'; i++) {
-                    document.getElementById("<%=radListHowApply.ClientID%>"+"_"+i).disabled = false;
-                }
-                     
-         } else {
-                for (var i = 0; i < '<%= radListHowApply.Items.Count %>'; i++) {
-                    document.getElementById("<%=radListHowApply.ClientID%>"+"_"+i).disabled = true;
-                }
-                    dd1.disable();
-                     
-
-         }
 
          if (cb.checked == true) {
              dd2.enable();
@@ -175,11 +176,10 @@
              dd2.disable();
              document.getElementById('<%=divGrid.ClientID %>').style.display = "block";
          }
-         if (Ext.get("<%=radListHowApply.ClientID%>" + '_4').dom.checked &&Ext.get("<%=radListWhenGenerate.ClientID%>" + '_3').dom.checked) {
-             dd1.enable();
-         } else {
-               dd1.disable();
-         }
+             if (Ext.get("<%=radListHowApply.ClientID%>"+'_4').dom.checked) {
+                 dd1.enable();
+             } else
+                 dd1.disable();
        }  
       function ChangeHowApplyState(bDisabled) {
           ChangeControlState("<%=lbHowApply.ClientID %>", bDisabled);
@@ -193,7 +193,7 @@
       // This flag is needed to enable us to select the current generated charge
       // in the grid after loading the grid, even if the user is just viewing the decision type.
       var initializingGridSelection = false;
-
+      
 
       Ext.onReady(function () {
         // Define an event handler for the grid control's Load event,

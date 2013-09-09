@@ -80,6 +80,8 @@ namespace MetraTech.Product.Hooks
 
         public const string IdPartitionDefaultValue = "%%DEFAULT_VALUE%%";
 
+        public const string PkNameParam = "%%PK_NAME%%";
+
       #endregion Constants from AdapterQuery
 
     }

@@ -272,6 +272,7 @@ public partial class AmpUsageQualificationPage : AmpWizardBasePage
       {
         prodViewNames = new MTList<ProductViewNameInstance>();
         ampSvcClient.GetProductViewNamesWithLocalizedNames(ref prodViewNames);
+          if (TableDropDown.Items.Count > 0) return;
         TableDropDown.Items.Add(new ListItem {Text = "t_acc_usage", Value = "t_acc_usage"});
         if (prodViewNames.Items.Count > 0)
         {

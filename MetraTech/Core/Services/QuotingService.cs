@@ -110,7 +110,8 @@ namespace MetraTech.Core.Services
             mLogger.LogException("Cannot retrieve data for quoting from system ", e);
             quoteResponse.Status=QuoteStatus.Failed;
             quoteResponse.FailedMessage = e.Message;
-            //throw;
+#warning Why MASBasicException is not thrwon in a Client?
+          //throw;
         }
 
         catch (Exception e)
@@ -118,7 +119,8 @@ namespace MetraTech.Core.Services
             mLogger.LogException("Error creating quote ", e);
             quoteResponse.Status = QuoteStatus.Failed;
             quoteResponse.FailedMessage = e.Message;
-            //throw new MASBasicException("Error create quote: " + e.Message);
+#warning Why MASBasicException is not thrwon in a Client?
+          //throw new MASBasicException("Error create quote: " + e.Message);
         }
       }
 

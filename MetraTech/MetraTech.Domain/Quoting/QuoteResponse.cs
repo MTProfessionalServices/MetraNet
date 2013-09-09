@@ -10,7 +10,7 @@ namespace MetraTech.Domain.Quoting
   [Serializable]
   public class QuoteResponse
   {
-    #region ReportParameters
+    #region IdQuote
 
     /// <summary>
     /// When debugging do not clean up usage data after quote run
@@ -19,22 +19,11 @@ namespace MetraTech.Domain.Quoting
     private int _idQuote;
     [MTDataMember(Description = "Quote Id")]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public int idQuote
-    {
-      get { return _idQuote; }
-      set
-      {
-        _idQuote = value;
-        IsIdQuoteDirty = true;
-      }
-    }
+    public int IdQuote { get; set; }
 
-    [ScriptIgnore]
-    public bool IsIdQuoteDirty { get; private set; }
+    #endregion IdQuote
 
-      #endregion
-
-    #region StatusDirty
+    #region QuoteStatus
 
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
     private QuoteStatus _status;
@@ -53,7 +42,7 @@ namespace MetraTech.Domain.Quoting
     [ScriptIgnore]
     public bool IsStatusDirty { get; private set; }
 
-    #endregion
+    #endregion QuoteStatus
 
     #region FailedMessage
 
@@ -202,40 +191,25 @@ namespace MetraTech.Domain.Quoting
 
     #endregion
 
-    #region ID Usege Interval
-    /// <summary>
-    /// ID Usege Interval
-    /// </summary>
+    #region Artefacts 
+    
+    [MTDataMember(Description = "Contains Quote artefacts: subscription Ids, Usage Interval, Charges batches and etc.")]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private int _idUsageInterval;
-    [MTDataMember(Description = "ID Usage Interval")]
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public int IdUsageInterval
-    {
-        get { return _idUsageInterval; }
-        set
-        {
-            _idUsageInterval = value;
-            IsIdUsageIntervalDirty = true;
-        }
-    }
-
-    [ScriptIgnore]
-    public bool IsIdUsageIntervalDirty { get; private set; }
-
-    #endregion ID Usege Interval
-
-    #region Charges
-
-    [MTDataMember(Description = "Charges Colletion")]
-    [DataMember(IsRequired = true, EmitDefaultValue = false)]
-    public List<ChargeData> ChargesCollection{ get; private set; }
-
-    #endregion Charges
+    public QuoteResponseArtefacts Artefacts { get; set; }
+      
+    #endregion Artefacts
 
     public QuoteResponse()
     {
-        ChargesCollection = new List<ChargeData>();
+        MessageLog = new List<QuoteLogRecord>();
+        Artefacts = null;
+    }
+
+    public QuoteResponse(QuoteResponseArtefacts qouteArtefacts) 
+      : this()
+
+    {
+        Artefacts = qouteArtefacts;
     }
   }
 }

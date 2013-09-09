@@ -284,14 +284,14 @@ namespace MetraTech.Quoting
         RepositoryAccess.Instance.Initialize();
 
         //get quoteContent BME
-        var quoteContent = GetQuoteContent(q.idQuote);
+        var quoteContent = GetQuoteContent(q.IdQuote);
 
         try
         {
           if (quoteContent == null)
           {
             throw new Exception(String.Format("Can't find quote header with idQuote = {0}{1}Inner Exceptions:{1}{2}",
-                                              q.idQuote,
+                                              q.IdQuote,
                                               Environment.NewLine,
                                               q.MessageLog.Aggregate("",
                                                                      (current, message) =>
@@ -517,10 +517,10 @@ namespace MetraTech.Quoting
 
     public QuoteResponse UpdateQuoteWithResponse(QuoteResponse quoteResponse)
     {
-      if (!requests.ContainsKey(quoteResponse.idQuote))
-        throw new ArgumentException(string.Format("Quote with id {0} not found in repository", quoteResponse.idQuote), "idQuote");
+      if (!requests.ContainsKey(quoteResponse.IdQuote))
+        throw new ArgumentException(string.Format("Quote with id {0} not found in repository", quoteResponse.IdQuote), "idQuote");
 
-      responses.Add(quoteResponse.idQuote, quoteResponse);
+      responses.Add(quoteResponse.IdQuote, quoteResponse);
         return quoteResponse;
 
     }

@@ -255,34 +255,6 @@ namespace MetraTech.Domain.Quoting
 
     #endregion
 
-    #region DebugDoNotCleanupUsage
-
-    /// <summary>
-    /// When debugging do not clean up usage data after quote run
-    /// </summary>
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isDebugDoNotCleanupUsageDirty;
-    private bool m_DebugDoNotCleanupUsage;
-    [MTDataMember(Description = "When debugging do not clean up usage data after quote run", Length = 40)]
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public bool DebugDoNotCleanupUsage
-    {
-      get { return m_DebugDoNotCleanupUsage; }
-      set
-      {
-        m_DebugDoNotCleanupUsage = value;
-        isDebugDoNotCleanupUsageDirty = true;
-      }
-    }
-
-    [ScriptIgnore]
-    public bool IsDebugDoNotCleanupUsageDirty
-    {
-      get { return isDebugDoNotCleanupUsageDirty; }
-    }
-
-    #endregion
-
     public QuoteRequest()
     {
       Accounts = new List<int>();
@@ -294,8 +266,6 @@ namespace MetraTech.Domain.Quoting
       EffectiveEndDate = MetraTime.Now;
 
       ReportParameters = new ReportParams { PDFReport = false };
-
-      DebugDoNotCleanupUsage = true;
     }
   }
 }

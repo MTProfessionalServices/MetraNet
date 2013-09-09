@@ -30,13 +30,16 @@ namespace MetraTech.Quoting
     public string RemoveRCMetricValuesQueryTag { get; set; }
     public string GetAccountBillingCycleQueryTag { get; set; }
     public string GetAccountPayerQueryTag { get; set; }
-
     public string QuotingQueryFolder { get; set; }
 
-    //Read from the system configuration, this value allows quoting to know
-    //if it is on a development or production system (currently used only for controlling if
-    //usage can be saved for debugging quotes and reports)
-    public bool CurrentSystemIsProductionSystem { get; set; }
+    /// <summary>
+    /// Should Quote artefacts be removed after call CreateQuote()
+    /// By default is should be removed.
+    /// </summary>
+    /// <remarks>This options is used for debugin and for tests.
+    /// If IsCleanupQuoteAutomaticaly = false all subscriptions (includes group subscriptions) and all usages were not removed automaticaly.
+    /// To cleanup artifacts Cleaup() methods should be used</remarks>
+    public bool IsCleanupQuoteAutomaticaly { get; set; }
 
   }
 
@@ -45,7 +48,7 @@ namespace MetraTech.Quoting
   /// </summary>
   public class QuotingConfigurationManager
   {
-    private static Logger m_Logger = new Logger("[Quoting Configuration Manager]");
+    private static ILogger m_Logger = new Logger("[Quoting Configuration Manager]");
 
     // Default configuration values
     const string DEFAULT_RECCURING_CHARGE_SERVER_TO_METER_TO = "DiscountServer";
@@ -56,11 +59,11 @@ namespace MetraTech.Quoting
     const string DEFAULT_REMOVE_RC_METRIC_VALUES_QUERY_TAG = "__REMOVE_RC_METRIC_VALUES__";
     const string DEFAULT_GET_ACCOUNT_BILLING_CYCLE_QUERY_TAG = "__GET_ACCOUNT_BILLING_CYCLE__";
     const string DEFAULT_GET_ACCOUNT_PAYER_QUERY_TAG = "__GET_ACCOUNT_PAYER__";
-    const int DEFAULT_METERING_SESSION_SET_SIZE = 500;
-    const bool DEFAULT_CURRENT_SYSTEM_IS_PRODUCTION_SYSTEM = false;
+    const int    DEFAULT_METERING_SESSION_SET_SIZE = 500;
     const string DEFAULT_REPORT_DEFAULT_TEMPLATE_NAME = "Quote Report";
     const string DEFAULT_REPORT_INSTANCE_PARTIAL_PATH = @"\Quotes\{AccountId}\Quote_{QuoteId}";
-    const string QUOTING_QUERY_FOLDER = @"Queries\Quoting";
+    const string DEFAULT_QUOTING_QUERY_FOLDER = @"Queries\Quoting";
+    const bool   DEFAULT_IS_CLEANUP_QUOTE_AUTOMATICALY = true;
 
     public static string DefaultSystemConfigurationFilePath {
       get { return Path.Combine(SystemConfig.GetRmpDir(), "config", "Quoting", "QuotingConfiguration.xml"); }
@@ -122,9 +125,7 @@ namespace MetraTech.Quoting
                                     MeteringSessionSetSize =
                                       config.GetElementValueOrDefault("MeteringSessionSetSize",
                                                                       DEFAULT_METERING_SESSION_SET_SIZE),
-                                    CurrentSystemIsProductionSystem =
-                                      config.GetElementValueOrDefault("CurrentSystemIsProductionSystem",
-                                                                      DEFAULT_CURRENT_SYSTEM_IS_PRODUCTION_SYSTEM),
+
                                     ReportDefaultTemplateName =
                                       config.GetElementValueOrDefault("ReportDefaultTemplateName",
                                                                       DEFAULT_REPORT_DEFAULT_TEMPLATE_NAME),
@@ -133,7 +134,10 @@ namespace MetraTech.Quoting
                                                                       DEFAULT_REPORT_INSTANCE_PARTIAL_PATH),
 
                                     QuotingQueryFolder = config.GetElementValueOrDefault("QuotingQueryFolder",
-                                                                      QUOTING_QUERY_FOLDER)
+                                                                      DEFAULT_QUOTING_QUERY_FOLDER),
+
+                                    IsCleanupQuoteAutomaticaly = config.GetElementValueOrDefault("IsCleanupQuoteAutomaticaly",
+                                                                      DEFAULT_IS_CLEANUP_QUOTE_AUTOMATICALY)
                                   };
 
             loadedConfiguration = configuration.First();
@@ -194,9 +198,11 @@ namespace MetraTech.Quoting
                   new XElement("GetAccountBillingCycleQueryTag", configuration.GetAccountBillingCycleQueryTag),
                   new XElement("GetAccountPayerQueryTag", configuration.GetAccountPayerQueryTag),
                   new XElement("MeteringSessionSetSize", configuration.MeteringSessionSetSize),
-                  new XElement("CurrentSystemIsProductionSystem", configuration.CurrentSystemIsProductionSystem),
                   new XElement("ReportDefaultTemplateName", configuration.ReportDefaultTemplateName),
-                  new XElement("ReportInstancePartialPath", configuration.ReportInstancePartialPath));
+                  new XElement("ReportInstancePartialPath", configuration.ReportInstancePartialPath),
+                  new XElement("QuotingQueryFolder",    configuration.QuotingQueryFolder),
+                  new XElement("IsCleanupQuoteAutomaticaly", configuration.IsCleanupQuoteAutomaticaly)
+                  );
 
 
         doc.Save(filePath);
@@ -221,10 +227,11 @@ namespace MetraTech.Quoting
       configuration.GetAccountBillingCycleQueryTag = DEFAULT_GET_ACCOUNT_BILLING_CYCLE_QUERY_TAG;
       configuration.GetAccountPayerQueryTag = DEFAULT_GET_ACCOUNT_PAYER_QUERY_TAG;
       configuration.MeteringSessionSetSize = DEFAULT_METERING_SESSION_SET_SIZE;
-      configuration.CurrentSystemIsProductionSystem = DEFAULT_CURRENT_SYSTEM_IS_PRODUCTION_SYSTEM;
       configuration.ReportDefaultTemplateName = DEFAULT_REPORT_DEFAULT_TEMPLATE_NAME;
       configuration.ReportInstancePartialPath = DEFAULT_REPORT_INSTANCE_PARTIAL_PATH;
-
+      configuration.QuotingQueryFolder = DEFAULT_QUOTING_QUERY_FOLDER;
+      configuration.IsCleanupQuoteAutomaticaly = DEFAULT_IS_CLEANUP_QUOTE_AUTOMATICALY;
+      
       WriteConfigurationToFile(configuration, filePath);
 
       return configuration;

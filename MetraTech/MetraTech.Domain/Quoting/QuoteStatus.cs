@@ -8,10 +8,12 @@ namespace MetraTech.Domain.Quoting
   public enum QuoteStatus
   {
     [EnumMember]
-    InProgress,
+    None = 0,
     [EnumMember]
-    Failed,
+    InProgress = 1,
     [EnumMember]
-    Complete
+    Failed = 2,
+    [EnumMember]
+    Complete = 3
   };
 }

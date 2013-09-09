@@ -136,7 +136,7 @@ namespace MetraTech.Quoting
         //string accountEnum = "metratech.com/accountcreation/contacttype/bill-to";
 
         //string aRecordSelectionFormula = string.Format("{{t_be_cor_qu_quoteheader.c_QuoteID}} = {0} and " +
-        //                                                "{{t_enum_data.nm_enum_data}} = \"{1}\"", idQuote, accountEnum);
+        //                                                "{{t_enum_data.nm_enum_data}} = \"{1}\"", IdQuote, accountEnum);
         string aRecordSelectionFormula = "";
         string aGroupSelectionFormula = "";
 

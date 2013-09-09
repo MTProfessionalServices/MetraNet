@@ -62,52 +62,50 @@ namespace MetraTech.Quoting
 
           using (var conn = ConnectionManager.CreateConnection())
           {
-            using (
-              IMTAdapterStatement stmt = conn.CreateAdapterStatement(config.QuotingQueryFolder,
+            using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(config.QuotingQueryFolder,
                                                                      config.GetUsageIntervalIdForQuotingQueryTag))
             {
                 stmt.AddParam("%%EFFECTIVE_DATE%%", quoteRequest.EffectiveDate);
-            
-            #warning Why only first account is used for searchin Usage ID?
+           
                 stmt.AddParam("%%ACCOUNT_ID%%", quoteRequest.Accounts[0]);
 
-              using (IMTDataReader rowset = stmt.ExecuteReader())
-              {
-                if (rowset.Read())
+                using (IMTDataReader rowset = stmt.ExecuteReader())
                 {
-                  idUsageInterval = rowset.GetInt32("UsageIntervalId");
-                  string usageIntervalState = rowset.GetString("UsageIntervalState");
-                  DateTime usageIntervalStart = rowset.GetDateTime("UsageIntervalStart");
-                  DateTime usageIntervalEnd = rowset.GetDateTime("UsageIntervalEnd");
+                  if (rowset.Read())
+                  {
+                    idUsageInterval = rowset.GetInt32("UsageIntervalId");
+                    string usageIntervalState = rowset.GetString("UsageIntervalState");
+                    DateTime usageIntervalStart = rowset.GetDateTime("UsageIntervalStart");
+                    DateTime usageIntervalEnd = rowset.GetDateTime("UsageIntervalEnd");
 
-                  //Perhaps in the future this can be resolved by obtaining the next open interval and using that for the quote
-                  if (string.Compare(usageIntervalState, "O", true) != 0)
+                    //Perhaps in the future this can be resolved by obtaining the next open interval and using that for the quote
+                    if (string.Compare(usageIntervalState, "O", true) != 0)
+                    {
+                      throw new Exception(
+                        string.Format(
+                          "The interval {0} running from {1} to {2}, currently has a state of '{3}' and cannot be used for quoting. Please select an effective date other than {4}",
+                          idUsageInterval, usageIntervalStart, usageIntervalEnd, usageIntervalState, quoteRequest.EffectiveDate));
+                    }
+
+                    //Hopefully this limitation can be removed or automatically resolved in the future
+                    if (rowset.IsDBNull("NextUsageIntervalId"))
+                    {
+                      throw new Exception(
+                        string.Format(
+                          "It is a current limitation of quoting recurring charge generation that the 'next' usage interval exists. For the interval {0} running from {1} to {2}, no usage interval exists for the next cycle starting {3}. Please create this usage interval.",
+                          idUsageInterval, usageIntervalStart, usageIntervalEnd, usageIntervalEnd.AddSeconds(1)));
+                    }
+
+                  }
+                  else
                   {
                     throw new Exception(
                       string.Format(
-                        "The interval {0} running from {1} to {2}, currently has a state of '{3}' and cannot be used for quoting. Please select an effective date other than {4}",
-                        idUsageInterval, usageIntervalStart, usageIntervalEnd, usageIntervalState, quoteRequest.EffectiveDate));
-                  }
-
-                  //Hopefully this limitation can be removed or automatically resolved in the future
-                  if (rowset.IsDBNull("NextUsageIntervalId"))
-                  {
-                    throw new Exception(
-                      string.Format(
-                        "It is a current limitation of quoting recurring charge generation that the 'next' usage interval exists. For the interval {0} running from {1} to {2}, no usage interval exists for the next cycle starting {3}. Please create this usage interval.",
-                        idUsageInterval, usageIntervalStart, usageIntervalEnd, usageIntervalEnd.AddSeconds(1)));
+                        "Usage interval to use for quoting not found for effective date of {0} and account {1}. Please create this usage interval or use a different effective date.",
+                        quoteRequest.EffectiveDate, quoteRequest.Accounts[0]));
                   }
 
                 }
-                else
-                {
-                  throw new Exception(
-                    string.Format(
-                      "Usage interval to use for quoting not found for effective date of {0} and account {1}. Please create this usage interval or use a different effective date.",
-                      quoteRequest.EffectiveDate, quoteRequest.Accounts[0]));
-                }
-
-              }
             }
           }
 

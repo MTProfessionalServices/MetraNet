@@ -109,6 +109,7 @@
     <Compile Include="Notifications\NotificationEndpointConfiguration.cs" />
     <Compile Include="Notifications\NotificationEndpoint.cs" />
     <Compile Include="Notifications\NotificationType.cs" />
+    <Compile Include="PairKeyValueSerializable.cs" />
     <Compile Include="Parsers\ExpressionBuilder.cs" />
     <Compile Include="Parsers\ExpressionErrorListener.cs" />
     <Compile Include="Parsers\ExpressionLanguageHelper.cs" />
@@ -123,8 +124,10 @@
     <Compile Include="Quoting\QuoteLogRecord.cs" />
     <Compile Include="Quoting\QuoteRequest.cs" />
     <Compile Include="Quoting\QuoteResponse.cs" />
+    <Compile Include="Quoting\QuoteResponseArtefacts.cs" />
     <Compile Include="Quoting\QuoteStatus.cs" />
     <Compile Include="Quoting\ReportParams.cs" />
+    <Compile Include="Quoting\SubscriptionResponseData.cs" />
     <Compile Include="Quoting\SubscriptionParameters.cs" />
     <Compile Include="StringExtensions.cs" />
   </ItemGroup>

@@ -60,7 +60,7 @@ namespace MetraTech.UsageServer.Test
         "MetraTechDataExportService"
       };
 
-    private readonly SqlNativePartitionTests _nativePartitionTests = new SqlNativePartitionTests();
+        private readonly PartitionInfrastructureTests _nativePartitionInfrastructureTests = new PartitionInfrastructureTests();
 
     #region Tests
 
@@ -128,18 +128,25 @@ namespace MetraTech.UsageServer.Test
       RunUsm();
 
       //Test checks partition function and schema, checks that all product view tables under partitioning.
-      _nativePartitionTests.TestPartitioningAppliedOnPartitionTables();
+            _nativePartitionInfrastructureTests.TestPartitioningAppliedOnPartitionTables();
 
       //Test checks that partition filegroups are created correctly and match partition_names from t_partition table.
-      _nativePartitionTests.TestPartitionFilegroups();
+            _nativePartitionInfrastructureTests.TestPartitionFilegroupsOrTablespace();
 
       //Test checks that data distributed to appropriate filegroups.
-      _nativePartitionTests.TestPVDataDistributedCorrectlyBetweenPartitions();
-      _nativePartitionTests.TestAMPDataDistributedCorrectlyBetweenPartitions();
+            _nativePartitionInfrastructureTests.TestPVDataDistributedCorrectlyBetweenPartitions();
+            _nativePartitionInfrastructureTests.TestAMPDataDistributedCorrectlyBetweenPartitions();
 
       //Test checks that constraint Unique key tables are created correctly for product view tables. 
-      _nativePartitionTests.TestUniqueKeyTables();
-    }
+            using (var conn = ConnectionManager.CreateConnection())
+            {
+                if (!conn.ConnectionInfo.IsSqlServer)
+                {
+                    var onlyMssql = new PartitionInfrastructureOnlyMssqlTests();
+                    onlyMssql.TestUniqueKeyTables();
+                }
+            }
+        }
 
     private void RunUsm()
     {

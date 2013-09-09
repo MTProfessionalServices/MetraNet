@@ -855,7 +855,8 @@ namespace MetraTech.Quoting.Test
         var erroredResponse = new QuoteResponse();
 
         try
-        {
+        {   
+#warning Does it correct that Quoute is not created in the test?
             //erroredResponse = SharedTestCodeQuoting.InvokeCreateQuote(request);
         }
         catch (Exception ex)

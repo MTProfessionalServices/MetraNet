@@ -47,13 +47,13 @@ namespace MetraTech.Quoting.Test
     //[TestMethod]
     //public void GeneratePDFForQuote()
     //{
-    //  int idQuote = 20;
+    //  int IdQuote = 20;
 
     //  QuoteReportingConfiguration quoteReportingConfiguration = QuoteReportingConfigurationManager.LoadConfiguration(null);
 
     //  QuotePDFReport quotePDFReport = new QuotePDFReport(quoteReportingConfiguration);
 
-    //  quotePDFReport.CreatePDFReport(idQuote, 999, "Quote Report", 840);
+    //  quotePDFReport.CreatePDFReport(IdQuote, 999, "Quote Report", 840);
     //} 
 
   }

@@ -81,7 +81,7 @@
     </Reference>
     <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Source\Thirdparty\NUnit260\bin\framework\nunit.framework.dll</HintPath>
+      <HintPath>$(ROOTDIR)\Thirdparty\NUnit260\bin\framework\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="PipelineTransaction.interop">
       <EmbedInteropTypes>false</EmbedInteropTypes>
@@ -109,6 +109,10 @@
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Common.dll</HintPath>
       <Private>false</Private>
     </Reference>
+	<Reference Include="MetraTech.Test">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Test.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -120,13 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Test\MetraTech.Test.csproj">
-      <Project>{E95B8F73-F559-48AE-BCC2-7B0A9B3AC5A2}</Project>
-      <Name>MetraTech.Test</Name>
-    </ProjectReference>
-  </ItemGroup>
+  </ItemGroup> 
   <ItemGroup>
     <None Include="..\..\..\Source\build\keys\metratech.snk">
       <Link>metratech.snk</Link>

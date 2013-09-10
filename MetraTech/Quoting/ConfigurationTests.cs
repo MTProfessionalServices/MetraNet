@@ -30,7 +30,7 @@ namespace MetraTech.Quoting.Test
       const string REPORT_DEFAULT_TEMPLATE_NAME = "Quote Report";
       const string REPORT_INSTANCE_PARTIAL_PATH = @"\Quotes\{AccountId}\Quote_{QuoteId}";
       const string DEFAULT_QUOTING_QUERY_FOLDER = @"Queries\Quoting";
-      const bool   DEFAULT_IS_CLEANUP_QUOTE_AUTOMATICALY = false;
+      const bool   DEFAULT_IS_CLEANUP_QUOTE_AUTOMATICALY = true;
 
       var configurationToWrite = new QuotingConfiguration();
 

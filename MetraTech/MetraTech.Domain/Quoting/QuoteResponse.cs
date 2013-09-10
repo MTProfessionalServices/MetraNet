@@ -19,7 +19,18 @@ namespace MetraTech.Domain.Quoting
     private int _idQuote;
     [MTDataMember(Description = "Quote Id")]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public int IdQuote { get; set; }
+    public int IdQuote
+    {
+      get { return _idQuote; }
+      set
+      {
+        _idQuote = value;
+        if (Artefacts != null)
+        {
+          Artefacts.IdQuote = value;
+        }
+      }
+    }
 
     #endregion IdQuote
 
@@ -202,14 +213,15 @@ namespace MetraTech.Domain.Quoting
     public QuoteResponse()
     {
         MessageLog = new List<QuoteLogRecord>();
-        Artefacts = null;
+        Artefacts = new QuoteResponseArtefacts();
     }
 
-    public QuoteResponse(QuoteResponseArtefacts qouteArtefacts) 
+    public QuoteResponse(int idQuote)
       : this()
 
     {
-        Artefacts = qouteArtefacts;
+      IdQuote = idQuote;
+      Artefacts = new QuoteResponseArtefacts(idQuote);
     }
   }
 }

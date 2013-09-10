@@ -32,7 +32,7 @@ namespace MetraTech.Quoting
     // TODO: Add auditor to Quote
     //private Auditor quotingAuditor = new Auditor();
     private static ILogger _log;
-    private IList<ICharge> _charges;
+    private IChargeMetering _chargeMetering;
 
     private int UsageIntervalForQuote { get; set; }
 
@@ -42,36 +42,38 @@ namespace MetraTech.Quoting
     #region Constructors
 
     public QuotingImplementation(QuotingConfiguration configuration, Auth.IMTSessionContext sessionContext,
-                                    IQuotingRepository quotingRepository, IList<ICharge> charges, ILogger log)
+                                    IQuotingRepository quotingRepository, IChargeMetering chargeMetering, ILogger log)
     {
-        Init(configuration, sessionContext, quotingRepository, charges, log);
+      Init(configuration, sessionContext, quotingRepository, chargeMetering, log);
     }
 
     private void Init(QuotingConfiguration configuration, Auth.IMTSessionContext sessionContext,
-                      IQuotingRepository quotingRepository, IList<ICharge> charges, ILogger log)
+                      IQuotingRepository quotingRepository, IChargeMetering chargeMetering, ILogger log)
     {
         Configuration = configuration;
         SessionContext = sessionContext;
         QuotingRepository = quotingRepository;
-        _charges = charges;
+        _chargeMetering = chargeMetering;
         _log = log;
     }
 
     public QuotingImplementation(QuotingConfiguration configuration, Auth.IMTSessionContext sessionContext,
-                                    IQuotingRepository quotingRepository, IList<ICharge> charges)
+                                    IQuotingRepository quotingRepository, IChargeMetering chargeMetering)
         : this(
-            configuration, sessionContext, quotingRepository, charges,
+            configuration, sessionContext, quotingRepository, chargeMetering,
             new Logger(String.Format("[{0}]", typeof(QuotingImplementation))))
     {
     }
 
-    private IList<ICharge> InitDefaultChrages()
+    private IChargeMetering InitDefaultChragesMetering()
     {
-        return new List<ICharge>
-        { 
-            new ReccurringCharge(Configuration, new ChargeMetering(Configuration, _log), _log),
-            new NonReccuringCharge(Configuration, new ChargeMetering(Configuration, _log), _log)
-        };
+      return new ChargeMetering(Configuration
+                                , new List<ICharge>
+                                        { 
+                                           new ReccurringCharge(Configuration, _log),
+                                           new NonReccuringCharge(Configuration, _log)
+                                        } 
+                                 ,_log);
     }
 
       public QuotingImplementation(QuotingConfiguration configuration, Auth.IMTSessionContext sessionContext,
@@ -80,7 +82,7 @@ namespace MetraTech.Quoting
         Init(configuration, sessionContext, quotingRepository, null ,
             new Logger(String.Format("[{0}]", typeof(QuotingImplementation))));
 
-        _charges = InitDefaultChrages();
+        _chargeMetering = InitDefaultChragesMetering();
     }
 
     public QuotingImplementation(QuotingConfiguration configuration, Auth.IMTSessionContext sessionContext) :
@@ -120,7 +122,7 @@ namespace MetraTech.Quoting
       //TODO: Should we add check that pipeline/inetinfo/activityservices are running before starting quote. We think nice to have and maybe configurable
         using (new MetraTech.Debug.Diagnostics.HighResolutionTimer(MethodInfo.GetCurrentMethod().Name))
       {
-        CurrentResponse = new QuoteResponse(new QuoteResponseArtefacts());
+        CurrentResponse = new QuoteResponse();
 
         SetNewQuoteLogFormater(quoteRequest, CurrentResponse);
 
@@ -331,16 +333,13 @@ namespace MetraTech.Quoting
       //Create the needed subscriptions for this quote
       CreateNeededSubscriptions();
 
-        using (var conn = ConnectionManager.CreateConnection())
-        {
-            foreach (ICharge charge in _charges)
-            {
-              quoteResponse.Artefacts.ChargesCollection.Add(charge.Add(conn, CurrentRequest));
-            }
-        }
+      using (var conn = ConnectionManager.CreateConnection())
+      {
+        quoteResponse.Artefacts.ChargesCollection.AddRange(_chargeMetering.AddCharges(conn, CurrentRequest));
+      }
 
       //Determine Usage Interval to use when quoting
-      quoteResponse.Artefacts.IdUsageInterval = ChargeMetering.GetUsageInterval(Configuration, CurrentRequest);
+      quoteResponse.Artefacts.IdUsageInterval = _chargeMetering.GetUsageInterval(CurrentRequest);
     }
 
     protected void GeneratePDFForCurrentQuote()
@@ -771,10 +770,9 @@ namespace MetraTech.Quoting
       //Happens when quote is finalized, pdf generated and returned
       //or if an error happens during processing
 
-        CleanupSubscriptionsCreated(quoteArtefact.Subscription);
+      CleanupSubscriptionsCreated(quoteArtefact.Subscription);
 
-      CleanupBackoutUsageData(quoteArtefact.ChargesCollection);
-      
+      _chargeMetering.CleanupUsageData(quoteArtefact.IdQuote, quoteArtefact.ChargesCollection);
     }
 
     protected void CleanupSubscriptionsCreated(SubscriptionResponseData subscriptionResponse)
@@ -846,60 +844,6 @@ namespace MetraTech.Quoting
           stmt.ExecuteNonQuery();
         }
       }
-    }
-
-    protected void CleanupBackoutUsageData(IEnumerable<ChargeData> charges)
-    {
-        _log.LogInfo("Reversing {0} batch(es) associated with this quote", charges.Count());
-
-      IMTBillingReRun rerun = new BillingReRunClient.Client();
-      var sessionContext = AdapterManager.GetSuperUserContext(); // log in as super user
-      rerun.Login((Interop.MTBillingReRun.IMTSessionContext) sessionContext);
-      var comment = String.Format("Quoting functionality; Reversing work associated with QuoteId {0}",
-                                  CurrentResponse.IdQuote);
-      rerun.Setup(comment);
-
-      var pipeline = new PipelineManager();
-      try
-      {
-        // pauses all pipelines so identify isn't chasing a moving target
-        pipeline.PauseAllProcessing();
-
-        // identify all batches (ideally we could do this in one call to Identify)
-        // instead of doing individual billing reruns per batch (CR12581)
-        foreach (ChargeData charge in charges)
-        {
-          _log.LogDebug("Backingout batch with id {0} associated with this quote", charge.IdBatch);
-
-          IMTIdentificationFilter filter = rerun.CreateFilter();
-          filter.BatchID = charge.IdBatch;
-
-          // filters on the billing group ID if the billing group ID is set on the context
-          // NOTE: it won't be set for scheduled or EOP interval-only adapters)
-
-          // filters on the interval ID if the interval ID is set on the context
-          // NOTE: it won't be set for scheduled adapters).  This is important for
-          // performance when partitioning is enabled.
-
-          filter.IsIdentifySuspendedTransactions = true;
-          filter.IsIdentifyPendingTransactions = true;
-          filter.SuspendedInterval = 0;
-
-          rerun.Identify(filter, comment);
-        }
-
-        rerun.Analyze(comment);
-        rerun.BackoutDelete(comment);
-        rerun.Abandon(comment);
-      }
-      finally
-      {
-        // always resume processing no matter what!
-        pipeline.ResumeAllProcessing();
-      }
-
-      _log.LogDebug("Completed backing out batches associated with this quote");
-
     }
 
     #endregion

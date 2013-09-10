@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="ILogger.cs" company="MetraTech">
+// <copyright file="ICharge.cs" company="MetraTech">
 // **************************************************************************
 // Copyright 2011 by MetraTech
 // All rights reserved.
@@ -28,11 +28,6 @@ using MetraTech.Domain.Quoting;
 
 namespace MetraTech.Quoting.Charge
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
     /// <summary>
     /// Chrages for Quote
     /// </summary>
@@ -43,12 +38,14 @@ namespace MetraTech.Quoting.Charge
         /// </summary>
         ChargeType ChargeType { get; }
 
-        /// <summary>
-        /// Adds Chrages by <see cref="MetraTech.Domain.Quoting.QuoteRequest"/> in DataBase and save result to existing <see cref="MetraTech.Domain.Quoting.QuoteResponse"/>
-        /// </summary>
-        /// <param name="transacConnection">uses connection to add charges. The connection should be in transaction scope, to have posibility to revert changes</param>
-        /// <param name="quoteRequest">Initial state of Quote</param>
-        /// <returns>Metadata about added charges</returns>
-        ChargeData Add(IMTServicedConnection transacConnection, QuoteRequest quoteRequest);
+      /// <summary>
+      /// Adds Chrages by <see cref="MetraTech.Domain.Quoting.QuoteRequest"/> in DataBase and save result to existing <see cref="MetraTech.Domain.Quoting.QuoteResponse"/>
+      /// </summary>
+      /// <param name="transacConnection">uses connection to add charges. The connection should be in transaction scope, to have posibility to revert changes</param>
+      /// <param name="quoteRequest">Initial state of Quote</param>
+      /// <param name="batchId">generated bathc id for the charges</param>
+      /// <param name="usageInterval">current usage interval</param>
+      /// <returns>Metadata about added charges</returns>
+      ChargeData Add(IMTServicedConnection transacConnection, QuoteRequest quoteRequest, string batchId, int usageInterval);
     }
 }

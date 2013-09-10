@@ -1,8 +1,10 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="IMetering.cs" company="Microsoft">
+// <copyright file="IChargeMetering.cs" company="Microsoft">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
+
+using MetraTech.DataAccess;
 
 namespace MetraTech.Quoting
 {
@@ -13,21 +15,35 @@ namespace MetraTech.Quoting
     using MetraTech.Domain.Quoting;
 
     /// <summary>
-    /// TODO: Update summary.
+    /// Interface for creation\removing charges from DB
     /// </summary>
     public interface IChargeMetering
     {
-        /// <summary>
-        /// Generates ID Batch and return it
-        /// </summary>
-        /// <returns>ID Batch</returns>
-        string InitBatch();
+      /// <summary>
+      /// Gets MetreNet loger in case for using in other classes
+      /// </summary>
+      ILogger Log { get; }
 
-        /// <summary>
-        /// SAtarting meter Charges
-        /// </summary>
-        /// <param name="chargeData"><see cref="MetraTech.Domain.Quoting.ChargeData"/></param>
-        void MeterRecodrs(ChargeData chargeData);
+      /// <summary>
+      /// Adds charges to DB and initiate metering
+      /// </summary>
+      /// <param name="transacConnection"></param>
+      /// <param name="quoteRequest"></param>
+      /// <returns></returns>
+      IList<ChargeData> AddCharges(IMTServicedConnection transacConnection, QuoteRequest quoteRequest);
 
+      /// <summary>
+      /// Gets Usage Inteval ID
+      /// </summary>
+      /// <param name="quoteRequest"></param>
+      /// <returns></returns>
+      int GetUsageInterval(QuoteRequest quoteRequest);
+
+      /// <summary>
+      /// Removes charges from DB
+      /// </summary>
+      /// <param name="idQuote"></param>
+      /// <param name="charges"></param>
+      void CleanupUsageData(int idQuote, IEnumerable<ChargeData> charges);
     }
 }

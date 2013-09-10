@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="ILogger.cs" company="MetraTech">
+// <copyright file="ReccurringCharge.cs" company="MetraTech">
 // **************************************************************************
 // Copyright 2011 by MetraTech
 // All rights reserved.
@@ -29,18 +29,14 @@ using MetraTech.Domain.Quoting;
 
 namespace MetraTech.Quoting.Charge
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
+   
     /// <summary>
     ///  Recurring charges for Quote
     /// </summary>
     public class ReccurringCharge : BaseCharge
     {
-        public ReccurringCharge(QuotingConfiguration configuration, IChargeMetering metering, ILogger log) 
-            : base(configuration, metering, log)
+        public ReccurringCharge(QuotingConfiguration configuration, ILogger log) 
+            : base(configuration, log)
         {
         }
 
@@ -49,36 +45,34 @@ namespace MetraTech.Quoting.Charge
             get { return ChargeType.RecurringCharge; }
         }
 
-        public override ChargeData Add(IMTServicedConnection transacConnection, QuoteRequest quoteRequest)
+        public override ChargeData Add(IMTServicedConnection transacConnection, QuoteRequest quoteRequest, string batchId, int usageInterval)
         {
-            ChargeData reccuringCharge = ChargeData.CreateInstance(this.ChargeType, Metering.InitBatch());
+          ChargeData reccuringCharge = ChargeData.CreateInstance(this.ChargeType, batchId);
 
             using (new Debug.Diagnostics.HighResolutionTimer(MethodInfo.GetCurrentMethod().Name))
             {
-                Log.LogDebug("Preparing Recurring Charges...");
+              Log.LogDebug("Insert Recurring Charges to DB... ");
 
                 using (var conn = ConnectionManager.CreateConnection())
                 {
                     using (var stmt = conn.CreateCallableStatement(Config.RecurringChargeStoredProcedureQueryTag)
                         )
                     {
-                        stmt.AddParam("v_id_interval", MTParameterType.Integer, ChargeMetering.GetUsageInterval(Config, quoteRequest));
-                        stmt.AddParam("v_id_billgroup", MTParameterType.Integer, 0); //reserved for future
-                        stmt.AddParam("v_id_run", MTParameterType.Integer, 0); //reserved for future
-                        stmt.AddParam("v_id_accounts", MTParameterType.String, string.Join(",", quoteRequest.Accounts));
-                        stmt.AddParam("v_id_batch", MTParameterType.String, reccuringCharge.IdBatch);
-                        stmt.AddParam("v_n_batch_size", MTParameterType.Integer, Config.MeteringSessionSetSize);
-                        stmt.AddParam("v_run_date", MTParameterType.DateTime, MetraTime.Now);
-                        //todo: Clarify parameter sense
-                        stmt.AddOutputParam("p_count", MTParameterType.Integer);
-                        stmt.ExecuteNonQuery();
-                        reccuringCharge.CountMeteredRecords = (int)stmt.GetOutputValue("p_count");
+                      stmt.AddParam("v_id_interval", MTParameterType.Integer, usageInterval);
+                      stmt.AddParam("v_id_billgroup", MTParameterType.Integer, 0); //reserved for future
+                      stmt.AddParam("v_id_run", MTParameterType.Integer, 0); //reserved for future
+                      stmt.AddParam("v_id_accounts", MTParameterType.String, string.Join(",", quoteRequest.Accounts));
+                      stmt.AddParam("v_id_batch", MTParameterType.String, reccuringCharge.IdBatch);
+                      stmt.AddParam("v_n_batch_size", MTParameterType.Integer, Config.MeteringSessionSetSize);
+                      stmt.AddParam("v_run_date", MTParameterType.DateTime, MetraTime.Now);
+                      //todo: Clarify parameter sense
+                      stmt.AddOutputParam("p_count", MTParameterType.Integer);
+                      stmt.ExecuteNonQuery();
+                      reccuringCharge.CountMeteredRecords = (int)stmt.GetOutputValue("p_count");
                     }
                 }
 
-                Metering.MeterRecodrs(reccuringCharge);
-
-                Log.LogDebug("Done Preparing Recurring Charges");
+                Log.LogDebug("Recurring Charges have already added to DB.");
             }
 
             return reccuringCharge;

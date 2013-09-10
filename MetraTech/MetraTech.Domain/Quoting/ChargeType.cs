@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="ILogger.cs" company="MetraTech">
+// <copyright file="ChargeType.cs" company="MetraTech">
 // **************************************************************************
 // Copyright 2011 by MetraTech
 // All rights reserved.

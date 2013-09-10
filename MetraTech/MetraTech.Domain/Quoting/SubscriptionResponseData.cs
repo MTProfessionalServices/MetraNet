@@ -27,10 +27,7 @@ using MetraTech.DomainModel.Common;
 
 namespace MetraTech.Domain.Quoting
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
 
     /// <summary>
     /// Uses in <see cref="QuoteResponse"/> class as data for created subscriptions while quots generations 

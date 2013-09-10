@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="ILogger.cs" company="MetraTech">
+// <copyright file="BaseCharge.cs" company="MetraTech">
 // **************************************************************************
 // Copyright 2011 by MetraTech
 // All rights reserved.
@@ -28,30 +28,23 @@ using MetraTech.Domain.Quoting;
 
 namespace MetraTech.Quoting.Charge
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
     /// <summary>
-    /// Base class for Chrages for Quote
+    /// Base class for Chrages of Quote
     /// </summary>
     public abstract class BaseCharge : ICharge
     {
         protected QuotingConfiguration Config { get; private set; }
-        protected IChargeMetering Metering { get; private set; }
         protected ILogger Log { get; private set; }
 
-        protected BaseCharge(QuotingConfiguration configuration,  IChargeMetering metering,  ILogger log)
+        protected BaseCharge(QuotingConfiguration configuration, ILogger log)
         {
             Config = configuration;
-            Metering = metering;
             Log = log;
         }
 
         public abstract ChargeType ChargeType { get; }
 
-        public abstract ChargeData Add(IMTServicedConnection transacConnection, QuoteRequest quoteRequest);
+        public abstract ChargeData Add(IMTServicedConnection transacConnection, QuoteRequest quoteRequest, string batchId, int usageInterval);
 
     }
 }

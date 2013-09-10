@@ -39,6 +39,18 @@ namespace MetraTech.Domain.Quoting
     [Serializable]
     public class QuoteResponseArtefacts
     {
+      #region IdQuote
+
+      /// <summary>
+      /// The same field with the same value exists in <see cref="QuoteResponse"/>.
+      /// The field is added for the simplify cleanup quote
+      /// </summary>
+      [MTDataMember(Description = "Quote Id")]
+      [DataMember(IsRequired = false, EmitDefaultValue = false)]
+      public int IdQuote { get; set; }
+
+      #endregion IdQuote
+        
         #region IdUsageInterval
         
         /// <summary>
@@ -76,6 +88,12 @@ namespace MetraTech.Domain.Quoting
         {
             Subscription = new SubscriptionResponseData();
             ChargesCollection = new List<ChargeData>();
+        }
+
+        public QuoteResponseArtefacts(int idQuote) 
+          : this()
+        {
+          IdQuote = idQuote;
         }
     }
 }

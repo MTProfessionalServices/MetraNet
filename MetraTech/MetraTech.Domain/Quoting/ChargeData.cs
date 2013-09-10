@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="ILogger.cs" company="MetraTech">
+// <copyright file="ChargeData.cs" company="MetraTech">
 // **************************************************************************
 // Copyright 2011 by MetraTech
 // All rights reserved.
@@ -26,7 +26,6 @@
 using System;
 using System.Diagnostics;
 using System.Runtime.Serialization;
-using System.Web.Script.Serialization;
 using MetraTech.DomainModel.Common;
 
 namespace MetraTech.Domain.Quoting
@@ -41,14 +40,14 @@ namespace MetraTech.Domain.Quoting
         #region Additional Methods for DataContract
         public static ChargeData CreateInstance(ChargeType chargeType, string idBatch)
         {
-            return new ChargeData{ChargeType = chargeType, IdBatch = idBatch};
+            return new ChargeData { ChargeType = chargeType, IdBatch = idBatch };
         }
 
         [OnSerializingAttribute]
         private void OnSerialization(StreamingContext ctx)
         {
-           Debug.Assert(!(this.ChargeType == ChargeType.None
-               || String.IsNullOrEmpty(IdBatch)), String.Format("The ChargeType or IdBatch properties are not set in the {0} instance. Use CreateInstance method for right initialization.", typeof(ChargeType)));
+            Debug.Assert(!(this.ChargeType == ChargeType.None
+                || String.IsNullOrEmpty(IdBatch)), String.Format("The ChargeType or IdBatch properties are not set in the {0} instance. Use CreateInstance method for right initialization.", typeof(ChargeType)));
         }
 
         #endregion Additional Methods for DataContract
@@ -68,14 +67,12 @@ namespace MetraTech.Domain.Quoting
         /// <summary>
         /// Batch ID
         /// </summary>
-        [DataMember(IsRequired = false, EmitDefaultValue = false)]
-        private string _idBatch;
         [MTDataMember(Description = "ID Batch")]
         [DataMember(IsRequired = false, EmitDefaultValue = false)]
         public string IdBatch { get; private set; }
 
         #endregion Batch ID
-        
+
         #region Count metered records
 
         /// <summary>

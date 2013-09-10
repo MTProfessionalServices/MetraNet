@@ -119,27 +119,27 @@
       <Private>False</Private>
       <EmbedInteropTypes>false</EmbedInteropTypes>
     </ProjectReference>
-    <ProjectReference Include="..\BaseTypes\MetraTech.DomainModel.BaseTypes.csproj">
+    <ProjectReference Include="S:\MetraTech\DomainModel\BaseTypes\MetraTech.DomainModel.BaseTypes.csproj">
       <Project>{433B0483-4990-476C-BA07-FABF884D12CB}</Project>
       <Name>MetraTech.DomainModel.BaseTypes</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\CodeGenerator\MetraTech.DomainModel.CodeGenerator.csproj">
+    <ProjectReference Include="S:\MetraTech\DomainModel\CodeGenerator\MetraTech.DomainModel.CodeGenerator.csproj">
       <Project>{1364A70F-FE41-4A31-9E76-40379836D63B}</Project>
       <Name>MetraTech.DomainModel.CodeGenerator</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\Common\MetraTech.DomainModel.Common.csproj">
+    <ProjectReference Include="S:\MetraTech\DomainModel\Common\MetraTech.DomainModel.Common.csproj">
       <Project>{E21F8EE1-FA01-465E-B651-A21CC2E1D6AA}</Project>
       <Name>MetraTech.DomainModel.Common</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\Enums\MetraTech.DomainModel.Enums.csproj">
+    <ProjectReference Include="S:\MetraTech\DomainModel\Enums\MetraTech.DomainModel.Enums.csproj">
       <Project>{C36E2EB0-9715-48BB-81F4-6228C917E071}</Project>
       <Name>MetraTech.DomainModel.Enums</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\GenerateDMAssemblies\GenerateDMAssemblies.csproj">
+    <ProjectReference Include="S:\MetraTech\DomainModel\GenerateDMAssemblies\GenerateDMAssemblies.csproj">
       <Project>{6D53C578-C802-4882-9A87-FFEFD7A98D2E}</Project>
       <Name>GenerateDMAssemblies</Name>
       <Private>False</Private>

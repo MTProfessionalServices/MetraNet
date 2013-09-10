@@ -1,0 +1,47 @@
+<ArrayOfBaseRateSchedule xmlns="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.BaseTypes" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <BaseRateSchedule i:type="RateScheduleOfMetratech_com_minchargeRateEntryMetratech_com_minchargeDefaultRateEntryZtvVtA9_S">
+    <EffectiveDate>
+      <EndDate>2013-07-31T00:00:00</EndDate>
+      <EndDateType>Absolute</EndDateType>
+      <StartDate>2013-07-01T00:00:00</StartDate>
+      <StartDateType>Absolute</StartDateType>
+    </EffectiveDate>
+    <isEffectiveDateDirty>true</isEffectiveDateDirty>
+    <DefaultRateEntry xmlns:a="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.ProductCatalog">
+      <a:ConfChargeMinimum>33.00</a:ConfChargeMinimum>
+      <a:isConfChargeMinimumDirty>true</a:isConfChargeMinimumDirty>
+    </DefaultRateEntry>
+    <RateEntries xmlns:a="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.ProductCatalog">
+      <a:Metratech_com_minchargeRateEntry>
+        <a:ConfChargeMinimum>23.00</a:ConfChargeMinimum>
+        <a:ConfChargeMinimumApplicBool>true</a:ConfChargeMinimumApplicBool>
+        <a:isConfChargeMinimumApplicBoolDirty>true</a:isConfChargeMinimumApplicBoolDirty>
+        <a:isConfChargeMinimumDirty>true</a:isConfChargeMinimumDirty>
+      </a:Metratech_com_minchargeRateEntry>
+    </RateEntries>
+    <isDefaultRateEntryDirty>true</isDefaultRateEntryDirty>
+    <isRateEntriesDirty>true</isRateEntriesDirty>
+  </BaseRateSchedule>
+  <BaseRateSchedule i:type="RateScheduleOfMetratech_com_minchargeRateEntryMetratech_com_minchargeDefaultRateEntryZtvVtA9_S">
+    <EffectiveDate>
+      <EndDateType>Null</EndDateType>
+      <StartDate>2013-08-01T00:00:00</StartDate>
+      <StartDateType>Absolute</StartDateType>
+    </EffectiveDate>
+    <isEffectiveDateDirty>true</isEffectiveDateDirty>
+    <DefaultRateEntry xmlns:a="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.ProductCatalog">
+      <a:ConfChargeMinimum>37.00</a:ConfChargeMinimum>
+      <a:isConfChargeMinimumDirty>true</a:isConfChargeMinimumDirty>
+    </DefaultRateEntry>
+    <RateEntries xmlns:a="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.ProductCatalog">
+      <a:Metratech_com_minchargeRateEntry>
+        <a:ConfChargeMinimum>27.00</a:ConfChargeMinimum>
+        <a:ConfChargeMinimumApplicBool>true</a:ConfChargeMinimumApplicBool>
+        <a:isConfChargeMinimumApplicBoolDirty>true</a:isConfChargeMinimumApplicBoolDirty>
+        <a:isConfChargeMinimumDirty>true</a:isConfChargeMinimumDirty>
+      </a:Metratech_com_minchargeRateEntry>
+    </RateEntries>
+    <isDefaultRateEntryDirty>true</isDefaultRateEntryDirty>
+    <isRateEntriesDirty>true</isRateEntriesDirty>
+  </BaseRateSchedule>
+</ArrayOfBaseRateSchedule>

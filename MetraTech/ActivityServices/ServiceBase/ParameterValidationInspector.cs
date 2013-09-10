@@ -75,7 +75,8 @@ namespace MetraTech.ActivityServices.Services.Common
                                   "System.UInt16",
                                   "System.UInt32",
                                   "System.UInt64",
-                                  "System.UIntPtr"
+                                  "System.UIntPtr",
+                                  "MetraTech.Domain.Quoting.QuoteIndividualPrice"
                               };          
         }
 

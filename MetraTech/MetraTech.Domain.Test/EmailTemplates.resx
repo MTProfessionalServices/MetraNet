@@ -117,6 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ChangeApprovedTemplateBody" xml:space="preserve">
+    <value>&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:ms="urn:schemas-microsoft-com:xslt" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="MetraTech.MetraNet" xmlns:extendedFunctions="urn:extendedFunctions" xmlns:user="urn:my-scripts" version="1.0" exclude-result-prefixes="msxsl ms a i extendedFunctions user"&gt;
+	&lt;xsl:output method="html" indent="yes" /&gt;
+	&lt;xsl:template match="/i:Event"&gt;
+		&lt;html&gt;
+			&lt;body&gt;
+				&lt;p&gt;The changes associated with Change Id &lt;xsl:value-of select="/i:Event/i:ChangeId" /&gt; have been approved.&lt;/p&gt;
+				&lt;p&gt;Comments from the Approver: &lt;b&gt;&lt;xsl:value-of select="/i:Event/i:Comment" /&gt;&lt;/b&gt;&lt;/p&gt;
+			&lt;/body&gt;
+		&lt;/html&gt;
+	&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</value>
+  </data>
+  <data name="ChangeApprovedTemplateSubject" xml:space="preserve">
+    <value>&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:ms="urn:schemas-microsoft-com:xslt" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="MetraTech.MetraNet" xmlns:extendedFunctions="urn:extendedFunctions" xmlns:user="urn:my-scripts" version="1.0"&gt;
+	&lt;xsl:output method="text" indent="yes" /&gt;
+	&lt;xsl:template match="/i:Event"&gt;Change ID &lt;xsl:value-of select="/i:Event/i:ChangeId" /&gt; has been approved&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</value>
+  </data>
   <data name="ThresholdCrossingTemplateBody" xml:space="preserve">
     <value>&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:ms="urn:schemas-microsoft-com:xslt" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="MetraTech.MetraNet" xmlns:extendedFunctions="urn:extendedFunctions" xmlns:user="urn:my-scripts" version="1.0" exclude-result-prefixes="msxsl ms a i extendedFunctions user"&gt;
   &lt;xsl:output method="html" indent="yes" /&gt;

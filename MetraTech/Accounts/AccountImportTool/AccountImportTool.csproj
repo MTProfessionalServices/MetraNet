@@ -40,7 +40,7 @@
   <ItemGroup>
     <Reference Include="MetraTech.Account.ClientProxies, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+      <Private>True</Private>
       <HintPath>$(MTRMP)\Extensions\Account\bin\MetraTech.Account.ClientProxies.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.Core.Services.ClientProxies, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">

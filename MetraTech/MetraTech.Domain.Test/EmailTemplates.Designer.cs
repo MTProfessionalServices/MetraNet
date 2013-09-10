@@ -62,6 +62,32 @@ namespace MetraTech.Domain.Test {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:msxsl=&quot;urn:schemas-microsoft-com:xslt&quot; xmlns:ms=&quot;urn:schemas-microsoft-com:xslt&quot; xmlns:a=&quot;http://schemas.microsoft.com/2003/10/Serialization/Arrays&quot; xmlns:i=&quot;MetraTech.MetraNet&quot; xmlns:extendedFunctions=&quot;urn:extendedFunctions&quot; xmlns:user=&quot;urn:my-scripts&quot; version=&quot;1.0&quot; exclude-result-prefixes=&quot;msxsl ms a i extendedFunctions user&quot;&gt;
+        ///	&lt;xsl:output method=&quot;html&quot; indent=&quot;yes&quot; /&gt;
+        ///	&lt;xsl:template match=&quot;/i:Event&quot;&gt;
+        ///		&lt;html&gt;
+        ///			&lt;body&gt;
+        ///				&lt;p&gt;The [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string ChangeApprovedTemplateBody {
+            get {
+                return ResourceManager.GetString("ChangeApprovedTemplateBody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:msxsl=&quot;urn:schemas-microsoft-com:xslt&quot; xmlns:ms=&quot;urn:schemas-microsoft-com:xslt&quot; xmlns:a=&quot;http://schemas.microsoft.com/2003/10/Serialization/Arrays&quot; xmlns:i=&quot;MetraTech.MetraNet&quot; xmlns:extendedFunctions=&quot;urn:extendedFunctions&quot; xmlns:user=&quot;urn:my-scripts&quot; version=&quot;1.0&quot;&gt;
+        ///	&lt;xsl:output method=&quot;text&quot; indent=&quot;yes&quot; /&gt;
+        ///	&lt;xsl:template match=&quot;/i:Event&quot;&gt;Change ID &lt;xsl:value-of select=&quot;/i:Event/i:ChangeId&quot; /&gt; has been approved&lt;/xsl:template&gt;
+        ///&lt;/xsl [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string ChangeApprovedTemplateSubject {
+            get {
+                return ResourceManager.GetString("ChangeApprovedTemplateSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:msxsl=&quot;urn:schemas-microsoft-com:xslt&quot; xmlns:ms=&quot;urn:schemas-microsoft-com:xslt&quot; xmlns:a=&quot;http://schemas.microsoft.com/2003/10/Serialization/Arrays&quot; xmlns:i=&quot;MetraTech.MetraNet&quot; xmlns:extendedFunctions=&quot;urn:extendedFunctions&quot; xmlns:user=&quot;urn:my-scripts&quot; version=&quot;1.0&quot; exclude-result-prefixes=&quot;msxsl ms a i extendedFunctions user&quot;&gt;
         ///  &lt;xsl:output method=&quot;html&quot; indent=&quot;yes&quot; /&gt;
         ///  &lt;xsl:template match=&quot;/i:Event&quot;&gt;
         ///    &lt;html&gt;

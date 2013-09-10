@@ -156,6 +156,10 @@
       <Version>Debug</Version>
       <DestinationName>zlib.lib</DestinationName>
     </CopySourceLibsVersionDependent>
+	<CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\antlr\Antlr4.Runtime.v4.0.dll">
+      <Version>Debug</Version>
+      <DestinationName>Antlr4.Runtime.v4.0.dll</DestinationName>
+    </CopySourceLibsVersionDependent>
     <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\Boost\lib\libboost_test_exec_monitor-vc100-mt-1_43.lib">
       <Version>Release</Version>
       <DestinationName>libboost_test_exec_monitor-vc100-mt-1_43.lib</DestinationName>
@@ -203,6 +207,10 @@
     <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\zlib\zlib-release.lib">
       <Version>Release</Version>
       <DestinationName>zlib.lib</DestinationName>
+    </CopySourceLibsVersionDependent>
+	<CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\antlr\Antlr4.Runtime.v4.0.dll">
+      <Version>Release</Version>
+      <DestinationName>Antlr4.Runtime.v4.0.dll</DestinationName>
     </CopySourceLibsVersionDependent>
   </ItemGroup>
 
@@ -315,6 +323,12 @@
       Exclude="$(ROOTDIR)\MetraTech\SecurityFramework\Tests\**\*.csproj">
     </SecurityFramework>
   </ItemGroup>
+  
+  <ItemGroup>
+    <MVMProject 
+      Include="$(RMPDIR)\Extensions\MVMCore_Internal\SourceCode\Mvm\MVM.sln">
+    </MVMProject>
+  </ItemGroup>  
   
   <ItemGroup>
     <Logging
@@ -654,6 +668,19 @@
 
 	</Target>
 	
+  <Target Name="BuildMVM">
+    <Message Text="Building MVM project" Importance="high"/>
+    <!-- Build MVM the projects -->
+    <MSBuild Projects="@(MVMProject);@(Logging)"
+				Targets="$(MyTargets)"
+				Properties="Configuration=$(config)"
+				StopOnFirstFailure="$(StopOnFirstError)"
+				RebaseOutputs="true" 
+        BuildInParallel="true" />    
+    <!-- Display the output from the custom task -->
+		<Message Text="$(TaskResult)"  Importance="high" />
+  </Target>
+	
   <Target Name="BuildTests">
     <Message Text="Compiling Test Projects..." Importance="high"/>
 	
@@ -742,11 +769,14 @@
   <!-- High Level Build Operations -->
   <!-- Removed Copyfiles target from Incremental as part cleanup effort. SZ 07/19/12 -->
   <Target Name="Incremental" DependsOnTargets="BuildSources;UI" />
+  <Target Name="IncrementalAndMVM" DependsOnTargets="Incremental;BuildMVM" />
   <Target Name="All" DependsOnTargets="CopyFiles;BuildRuntimeMessages;BuildIDLs;BuildSources;UI" />
+  <Target Name="AllAndMVM" DependsOnTargets="All;BuildMVM" />
   <Target Name="CopyFiles" DependsOnTargets="MakeDirectories;CopySourceDLLs;CopyVersionDependentSourceDLLs;CopySourceLibs;CopyVersionDependentSourceLibs" />
   <Target Name="BuildRuntimeMessages" DependsOnTargets="MakeDirectories;BuildMCFiles;CompileMessageMCFiles;CompileMessageRCFiles;LinkMessageResourceDLLs" />
   <Target Name="BuildIDLs" DependsOnTargets="MakeDirectories;BuildTlbs;RegisterTlbs;BuildInteropAssemblies" />
   <Target Name="BuildSources" DependsOnTargets="MakeDirectories;SFBuild;PerformTlbImp;Build;BuildVBProjects" />
+  <!--Target Name="BuildSources" DependsOnTargets="MakeDirectories;SFBuild;PerformTlbImp;Build;BuildVBProjects;BuildMVM" /-->
   <!--<Target Name="BuildSources" DependsOnTargets="MakeDirectories;SFBuild;Build;BuildVBProjects" />-->
   <Target Name="UI" DependsOnTargets="Refresh;MetraNetUI;MetraViewUI" />
   <!--High Level Build Operations for Build Machines />-->

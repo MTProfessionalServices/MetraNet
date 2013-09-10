@@ -1,15 +1,22 @@
 ﻿using System;
 using System.Xml.Linq;
-using Core.Quoting;
 using MetraTech.DataAccess;
-using MetraTech.DomainModel.BaseTypes;
 using MetraTech.Interop.QueryAdapter;
 
 namespace MetraTech.Quoting
 {
   public static class QuotingHelper
   {
-    public static TEl GetElementValue<TEl>(this XElement configuration, string paramName, TEl defaultValue)
+    /// <summary>
+    /// Helper function to read string value from xml XElement or if not defined, return the specified default
+    /// Should be moved to generic/shared library of extension methods
+    /// </summary>
+    /// <typeparam name="TEl"></typeparam>
+    /// <param name="configuration"></param>
+    /// <param name="paramName"></param>
+    /// <param name="defaultValue"></param>
+    /// <returns></returns>
+    public static TEl GetElementValueOrDefault<TEl>(this XElement configuration, string paramName, TEl defaultValue)
     {
       var value = configuration.Element(paramName) != null ? configuration.Element(paramName).Value : defaultValue.ToString();
 
@@ -27,16 +34,7 @@ namespace MetraTech.Quoting
       return returnValue;
     }
 
-    public static QuoteLog ConvertToQuoteLog(this QuoteLogRecord record)
-    {
-      return new QuoteLog()
-      {
-        QuoteIdentifier = record.QuoteIdentifier,
-        DateAdded = record.DateAdded,
-        Message = record.Message
-      };
-    }
-
+    #region InstantRC helper methods
     public static bool GetInstanceRCStateAndSwitchItOff()
     {
       bool instantRCsEnabled = true;
@@ -95,5 +93,6 @@ namespace MetraTech.Quoting
 
       return qa.GetQuery().Trim();
     }
+    #endregion
   }
 }

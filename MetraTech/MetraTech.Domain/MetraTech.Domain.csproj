@@ -1,5 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{9C9C685C-CBF8-428F-8C34-98702FF13726}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MetraTech.Domain</RootNamespace>
+    <AssemblyName>MetraTech.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\Bin</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -40,14 +77,27 @@
     <AssemblyOriginatorKeyFile>..\..\build\keys\MetraTech.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
+    <Reference Include="Antlr4.Runtime.v4.0">
+      <HintPath>..\..\Thirdparty\antlr\Antlr4.Runtime.v4.0.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MTProductCatalog.interop, Version=7.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTProductCatalog.interop.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,13 +105,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\DatabaseUtils.cs" />
+    <Compile Include="DataAccess\Dynamic.cs" />
     <Compile Include="DataAccess\EntityTypeConfigurations\EntityConfiguration.cs" />
     <Compile Include="DataAccess\EntityTypeConfigurations\NotificationConfigurationConfiguration.cs" />
     <Compile Include="DataAccess\EntityTypeConfigurations\NotificationEndpointConfiguration.cs" />
+    <Compile Include="DataAccess\EntityTypeConfigurations\QuoteIndividualPriceConfiguration.cs" />
     <Compile Include="DataAccess\IMetraNetContext.cs" />
     <Compile Include="DataAccess\SerializationHelper.cs" />
+    <Compile Include="Events\ChangeNotificationEvent.cs" />
     <Compile Include="Events\Event.cs" />
     <Compile Include="DataAccess\MetraNetContext.cs" />
+    <Compile Include="Expressions\BinaryExpression.cs" />
+    <Compile Include="Expressions\BinaryOperator.cs" />
+    <Compile Include="Expressions\OperatorHelper.cs" />
+    <Compile Include="Expressions\ConstantExpression.cs" />
+    <Compile Include="Expressions\Expression.cs" />
+    <Compile Include="Expressions\IdentifierExpression.cs" />
+    <Compile Include="Expressions\PropertyExpression.cs" />
+    <Compile Include="Expressions\UnaryExpression.cs" />
+    <Compile Include="Expressions\UnaryOperator.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="Money.cs" />
     <Compile Include="Notifications\AuthenticationConfiguration.cs" />
     <Compile Include="Entity.cs" />
@@ -71,14 +135,65 @@
     <Compile Include="Notifications\ExtendedXsltFunctions.cs" />
     <Compile Include="Notifications\LocalizedEmailTemplate.cs" />
     <Compile Include="Notifications\EmailTemplateDictionary.cs" />
+    <Compile Include="Notifications\MessageTemplate.cs" />
     <Compile Include="Notifications\NetworkAuthenticationConfiguration.cs" />
     <Compile Include="Notifications\NotificationConfiguration.cs" />
     <Compile Include="Notifications\NotificationEndpointConfiguration.cs" />
     <Compile Include="Notifications\NotificationEndpoint.cs" />
     <Compile Include="Notifications\NotificationType.cs" />
+    <Compile Include="Parsers\ExpressionBuilder.cs" />
+    <Compile Include="Parsers\ExpressionErrorListener.cs" />
+    <Compile Include="Parsers\ExpressionLanguageHelper.cs" />
+    <Compile Include="Parsers\ExpressionParsingException.cs" />
+    <Compile Include="Parsers\SyntaxErrorDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Events\ThresholdCrossingEvent.cs" />
     <Compile Include="Quantity.cs" />
+    <Compile Include="Quoting\QuoteIndividualPrice.cs" />
+    <Compile Include="Quoting\QuoteLogRecord.cs" />
+    <Compile Include="Quoting\QuoteRequest.cs" />
+    <Compile Include="Quoting\QuoteResponse.cs" />
+    <Compile Include="Quoting\QuoteStatus.cs" />
+    <Compile Include="Quoting\ReportParams.cs" />
+    <Compile Include="Quoting\SubscriptionParameters.cs" />
+    <Compile Include="StringExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Antlr4 Include="Parsers\ExpressionLanguage.g4">
+      <Generator>MSBuild:Compile</Generator>
+      <DebugGrammar>False</DebugGrammar>
+      <ProfileGrammar>False</ProfileGrammar>
+    </Antlr4>
+    <Compile Include="Parsers\ExpressionLanguageLexer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpressionLanguage.g4</DependentUpon>
+    </Compile>
+    <Compile Include="Parsers\ExpressionLanguageParser.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpressionLanguage.g4</DependentUpon>
+    </Compile>
+    <Compile Include="Parsers\ExpressionLanguageListener.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpressionLanguage.g4</DependentUpon>
+    </Compile>
+    <Compile Include="Parsers\ExpressionLanguageBaseListener.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpressionLanguage.g4</DependentUpon>
+    </Compile>
+    <Compile Include="Parsers\ExpressionLanguageVisitor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpressionLanguage.g4</DependentUpon>
+    </Compile>
+    <Compile Include="Parsers\ExpressionLanguageBaseVisitor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpressionLanguage.g4</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\build\keys\MetraTech.snk">
@@ -87,8 +202,45 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\MetraTech.DataAccess.csproj">
+      <Project>{1B40F4E4-8DDC-43E0-BE45-959BEE94422F}</Project>
+      <Name>MetraTech.DataAccess</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainModel\BaseTypes\MetraTech.DomainModel.BaseTypes.csproj">
+      <Project>{433B0483-4990-476C-BA07-FABF884D12CB}</Project>
+      <Name>MetraTech.DomainModel.BaseTypes</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainModel\Common\MetraTech.DomainModel.Common.csproj">
+      <Project>{E21F8EE1-FA01-465E-B651-A21CC2E1D6AA}</Project>
+      <Name>MetraTech.DomainModel.Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainModel\Enums\MetraTech.DomainModel.Enums.csproj">
+      <Project>{C36E2EB0-9715-48BB-81F4-6228C917E071}</Project>
+      <Name>MetraTech.DomainModel.Enums</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\MetraTech.Common.csproj">
+      <Project>{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}</Project>
+      <Name>MetraTech.Common</Name>
+	  <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <PropertyGroup>
+    <!-- Folder containing AntlrBuildTask.dll -->
+    <Antlr4BuildTaskPath>$(ProjectDir)..\..\Thirdparty\antlr</Antlr4BuildTaskPath>
+    <!-- Path to the ANTLR Tool itself. -->
+    <Antlr4ToolPath>$(ProjectDir)..\..\Thirdparty\antlr\antlr4-csharp-4.0.1-SNAPSHOT-complete.jar</Antlr4ToolPath>
+    <Antlr4ToolPath>$(ProjectDir)..\..\Thirdparty\antlr\antlr4-csharp-4.0.1-SNAPSHOT-complete.jar</Antlr4ToolPath>
+  </PropertyGroup>
+  <!-- Remove the comments in the following line before making changes are made to ExpressionEngine.g4 -->
+  <!-- Do not commit this line without comments. Antlr4 requires the Java Runtime 7, which is not available on build servers -->
+  <!-- Import Project="$(ProjectDir)..\..\Thirdparty\antlr\Antlr4.targets" /-->
+  <Import Project="$(ProjectDir)..\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -22,5 +22,19 @@ namespace MetraTech.Domain.Events
     public DateTime ThresholdPeriodEnd { get; set; }
     [DataMember]
     public Guid SubscriptionId { get; set; }
+    [DataMember]
+    public Account Account { get; set; }
+  }
+
+  /// <summary>
+  /// This should really be the Domain Account class
+  /// </summary>
+  [DataContract(Namespace = "MetraTech.MetraNet")]
+  public class Account : Event
+  {
+      [DataMember]
+      public string EmailAddress { get; set; }
+      [DataMember]
+      public string LanguageCode { get; set; }
   }
 }

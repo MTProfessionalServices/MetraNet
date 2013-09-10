@@ -23,6 +23,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System.Collections.Generic;
 using System.Reflection;
 using MetraTech.DataAccess;
 using MetraTech.Domain.Quoting;
@@ -66,7 +67,8 @@ namespace MetraTech.Quoting.Charge
           stmt.AddParam("dt_start", MTParameterType.DateTime, firstDayOfTheMonth);
           stmt.AddParam("dt_end", MTParameterType.DateTime, firstDayOfTheNextMonth);
           stmt.AddParam("v_id_interval", MTParameterType.Integer, usageInterval);
-          stmt.AddParam("v_id_accounts", MTParameterType.String, string.Join(",", quoteRequest.Accounts));
+          stmt.AddParam("v_id_accounts", MTParameterType.String, string.Join(",", quoteRequest.Accounts));          
+          stmt.AddParam("v_id_poid", MTParameterType.String, string.Join(",", quoteRequest.ProductOfferings));
           stmt.AddParam("v_id_batch", MTParameterType.String, nonReccuringCharge.IdBatch);
           stmt.AddParam("v_n_batch_size", MTParameterType.Integer, Config.MeteringSessionSetSize);
           stmt.AddParam("v_run_date", MTParameterType.DateTime, dateTime);

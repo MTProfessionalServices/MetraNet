@@ -48,7 +48,7 @@ namespace MetraTech.Approvals.Test
         {
           string dummy = string.Format("{0}={1} [{2}]", action.PropertyName, action.PropertyValue.ToString(), action.PropertyType.ToString());
           if (action.PropertyType == Interop.MTRuleSet.PropValType.PROP_TYPE_DECIMAL)
-            action.PropertyValue = action.PropertyValue * 2;
+            action.PropertyValue = Convert.ToInt32(action.PropertyValue) * 2;
         }
       }
       rateSchedule.SaveWithRules();
@@ -104,7 +104,7 @@ namespace MetraTech.Approvals.Test
         {
           string dummy = string.Format("{0}={1} [{2}]", action.PropertyName, action.PropertyValue.ToString(), action.PropertyType.ToString());
           if (action.PropertyType == Interop.MTRuleSet.PropValType.PROP_TYPE_DECIMAL)
-            action.PropertyValue = action.PropertyValue * 2;
+              action.PropertyValue = Convert.ToInt32(action.PropertyValue) * 2;
         }
       }
       rateSchedule.SaveWithRules();
@@ -160,7 +160,7 @@ namespace MetraTech.Approvals.Test
         {
           string dummy = string.Format("{0}={1} [{2}]", action.PropertyName, action.PropertyValue.ToString(), action.PropertyType.ToString());
           if (action.PropertyType == Interop.MTRuleSet.PropValType.PROP_TYPE_DECIMAL)
-            action.PropertyValue = action.PropertyValue * 2;
+              action.PropertyValue = Convert.ToInt32(action.PropertyValue) * 2;
         }
       }
       rateSchedule.SaveWithRules();
@@ -215,7 +215,7 @@ namespace MetraTech.Approvals.Test
         {
           string dummy = string.Format("{0}={1} [{2}]", action.PropertyName, action.PropertyValue.ToString(), action.PropertyType.ToString());
           if (action.PropertyType == Interop.MTRuleSet.PropValType.PROP_TYPE_DECIMAL)
-            action.PropertyValue = action.PropertyValue * 2;
+              action.PropertyValue = Convert.ToInt32(action.PropertyValue) * 2;
         }
       }
       rateSchedule.SaveWithRules();
@@ -267,7 +267,7 @@ namespace MetraTech.Approvals.Test
         {
           string dummy = string.Format("{0}={1} [{2}]", action.PropertyName, action.PropertyValue.ToString(), action.PropertyType.ToString());
           if (action.PropertyType == Interop.MTRuleSet.PropValType.PROP_TYPE_DECIMAL)
-            action.PropertyValue = action.PropertyValue * 2;
+              action.PropertyValue = Convert.ToInt32(action.PropertyValue) * 2;
         }
       }
       rateSchedule.SaveWithRules();

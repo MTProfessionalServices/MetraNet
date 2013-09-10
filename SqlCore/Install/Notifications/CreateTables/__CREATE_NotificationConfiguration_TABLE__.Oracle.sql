@@ -1,16 +1,32 @@
+/* TODO: Implement "NotificationConfiguration" table for Oracle.
+Comment out this stub, as it causes Oracle Installation to fail
 
-		    CREATE TABLE NotificationEndpoint(
-                       id_approval Int NOT NULL,
-                       c_SubmittedDate date DEFAULT sysdate NULL,
-                       c_SubmitterId number(10) NOT NULL,
-                       c_ChangeType varchar2(100) NOT NULL,
-                       c_ChangeDetails BLOB NOT NULL,
-                       c_ApproverId number(10) NULL,
-                       c_ChangeLastModifiedDate date NULL,
-                       c_ItemDisplayName varchar2(100) NULL,
-                       c_UniqueItemId varchar2(100) NULL,
-                       c_Comment varchar2(255) NULL,
-                       c_CurrentState varchar2(50) NOT NULL,
+MSSQL:
 
-                       CONSTRAINT PK_t_approvals PRIMARY KEY (id_approval))
-			 
+CREATE TABLE [NotificationConfiguration](
+	[EntityId] [uniqueidentifier] NOT NULL,
+	[ExternalId] [nvarchar](max) NULL,
+	[Name] [nvarchar](max) NULL,
+	[Description] [nvarchar](max) NULL,
+	[CreationDate] [datetime] NOT NULL,
+	[ModifiedDate] [datetime] NOT NULL,
+	[EventType] [nvarchar](max) NULL,
+	[Criteria] [nvarchar](max) NULL,
+	[NotificationEndpointEntityId] [uniqueidentifier] NOT NULL,
+	[MessageTemplate] [nvarchar](max) NULL,
+ CONSTRAINT [PK_NotificationConfiguration] PRIMARY KEY CLUSTERED 
+(
+	[EntityId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+ALTER TABLE NotificationConfiguration  WITH CHECK ADD  CONSTRAINT [FK_NotificationConfiguration_NotificationEndpoint_NotificationEndpointEntityId] FOREIGN KEY([NotificationEndpointEntityId])
+REFERENCES NotificationEndpoint ([EntityId])
+GO
+
+ALTER TABLE NotificationConfiguration CHECK CONSTRAINT [FK_NotificationConfiguration_NotificationEndpoint_NotificationEndpointEntityId]
+GO
+
+*/

@@ -39,20 +39,20 @@ namespace MetraTech.Domain.Quoting
     [Serializable]
     public class QuoteResponseArtefacts
     {
-      #region IdQuote
+        #region IdQuote
 
-      /// <summary>
-      /// The same field with the same value exists in <see cref="QuoteResponse"/>.
-      /// The field is added for the simplify cleanup quote
-      /// </summary>
-      [MTDataMember(Description = "Quote Id")]
-      [DataMember(IsRequired = false, EmitDefaultValue = false)]
-      public int IdQuote { get; set; }
+        /// <summary>
+        /// The same field with the same value exists in <see cref="QuoteResponse"/>.
+        /// The field is added for the simplify cleanup quote
+        /// </summary>
+        [MTDataMember(Description = "Quote Id")]
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        public int IdQuote { get; set; }
 
-      #endregion IdQuote
-        
+        #endregion IdQuote
+
         #region IdUsageInterval
-        
+
         /// <summary>
         /// ID Usege Interval
         /// </summary>
@@ -80,7 +80,7 @@ namespace MetraTech.Domain.Quoting
         /// </summary>
         [MTDataMember(Description = "Charges Colletion")]
         [DataMember(IsRequired = true, EmitDefaultValue = false)]
-        public List<ChargeData> ChargesCollection{ get; private set; }
+        public List<ChargeData> ChargesCollection { get; private set; }
 
         #endregion Charges
 
@@ -90,10 +90,10 @@ namespace MetraTech.Domain.Quoting
             ChargesCollection = new List<ChargeData>();
         }
 
-        public QuoteResponseArtefacts(int idQuote) 
-          : this()
+        public QuoteResponseArtefacts(int idQuote)
+            : this()
         {
-          IdQuote = idQuote;
+            IdQuote = idQuote;
         }
     }
 }

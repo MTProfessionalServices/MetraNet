@@ -6,179 +6,181 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MetraTech.Shared.Test
 {
-  public class QuotingTestScenarios
-  {
-    public const bool RunPDFGenerationForAllTestsByDefault = false; //Might eventually be a test setting
-
-    public static QuoteResponse CreateQuoteAndVerifyResults(QuoteRequest request,
-                                                            decimal expectedQuoteTotal,
-                                                            string expectedQuoteCurrency,
-                                                            int expectedQuoteFlatRCsCount,
-                                                            int expectedQuoteNRCsCount,
-                                                            int? expectedQuoteUDRCsCount = null,
-                                                            QuotingImplementation quotingImplementation = null)
+    public class QuotingTestScenarios
     {
-      //Instantiate our implementation
-      var quotingRepositoryForTestRun = new QuotingRepository();
+        public const bool RunPDFGenerationForAllTestsByDefault = false; //Might eventually be a test setting
 
-      //Record pv counts before test
-      int beforeQuoteNRCsCount = SharedTestCodeQuoting.GetNRCsCount();
-      int beforeQuoteFlatRCsCount = SharedTestCodeQuoting.GetFlatRCsCount();
-      int beforeQuoteUDRCsCount = SharedTestCodeQuoting.GetUDRCsCount();
-      int beforeQuoteHeadersCount = quotingRepositoryForTestRun.GetQuoteHeaderCount();
-      int beforeQuoteContentsCount = quotingRepositoryForTestRun.GetQuoteContentCount();
-      int beforeAccountsForQuoteCount = quotingRepositoryForTestRun.GetAccountForQuoteCount();
-      int beforePOsforQuoteCount = quotingRepositoryForTestRun.GetPOForQuoteCount();
+        public static QuoteResponse CreateQuoteAndVerifyResults(QuoteRequest request,
+                                                                decimal expectedQuoteTotal,
+                                                                string expectedQuoteCurrency,
+                                                                int expectedQuoteFlatRCsCount,
+                                                                int expectedQuoteNRCsCount,
+                                                                int? expectedQuoteUDRCsCount = null,
+                                                                QuotingImplementation quotingImplementation = null)
+        {
+            // sets that request should contain Quote Artefacts (Chrages, Batch ID, Usage Intervals, Subscriptrions IDs and etc.)
+            request.ShowQuoteArtefacts = true;
+            //Instantiate our implementation
+            var quotingRepositoryForTestRun = new QuotingRepository();
 
-      UsageAndFailedTransactionCount usageAndFailedTransactionCount = UsageAndFailedTransactionCount.CreateSnapshot();
+            //Record pv counts before test
+            int beforeQuoteNRCsCount = SharedTestCodeQuoting.GetNRCsCount();
+            int beforeQuoteFlatRCsCount = SharedTestCodeQuoting.GetFlatRCsCount();
+            int beforeQuoteUDRCsCount = SharedTestCodeQuoting.GetUDRCsCount();
+            int beforeQuoteHeadersCount = quotingRepositoryForTestRun.GetQuoteHeaderCount();
+            int beforeQuoteContentsCount = quotingRepositoryForTestRun.GetQuoteContentCount();
+            int beforeAccountsForQuoteCount = quotingRepositoryForTestRun.GetAccountForQuoteCount();
+            int beforePOsforQuoteCount = quotingRepositoryForTestRun.GetPOForQuoteCount();
 
-      // Record expected values
-      const int expectedQuoteHeadersCount = 1;
-      const int expectedQuoteContentsCount = 1;
-      int expectedAccountsForQuoteCount = request.Accounts.Count;
-      int expectedPOsforQuoteCount = request.ProductOfferings.Count;
+            UsageAndFailedTransactionCount usageAndFailedTransactionCount = UsageAndFailedTransactionCount.CreateSnapshot();
 
-      //Instantiate our implementation
-      if (quotingImplementation == null)
-      {
-        quotingImplementation = GetDefaultQuotingImplementationForTestRun(quotingRepositoryForTestRun);
-      }
+            // Record expected values
+            const int expectedQuoteHeadersCount = 1;
+            const int expectedQuoteContentsCount = 1;
+            int expectedAccountsForQuoteCount = request.Accounts.Count;
+            int expectedPOsforQuoteCount = request.ProductOfferings.Count;
 
-      #region CreateQuote
+            //Instantiate our implementation
+            if (quotingImplementation == null)
+            {
+                quotingImplementation = GetDefaultQuotingImplementationForTestRun(quotingRepositoryForTestRun);
+            }
 
-      QuoteResponse preparedQuote = null;
+            #region CreateQuote
 
-      try
-      {
-         preparedQuote = quotingImplementation.CreateQuote(request);
+            QuoteResponse preparedQuote = null;
+
+            try
+            {
+                preparedQuote = quotingImplementation.CreateQuote(request);
 #warning We do not get the exception there due to all exceptions are blocked in Line 114. 123 in ...\Source\MetraTech\Core\Services\QuotingService.cs.  Why we need to process Qoute Status and FailedMessage?
 #warning Currently I didn't recive the clear message that header was not created, The test was not stoped and continue executed by the end... (took a lot of time)
 
-         int duringQuoteHeadersCount = quotingRepositoryForTestRun.GetQuoteHeaderCount();
-        int duringQuoteContentsCount = quotingRepositoryForTestRun.GetQuoteContentCount();
-        int duringQuoteAccountsCount = quotingRepositoryForTestRun.GetAccountForQuoteCount();
-        int duringQuotePOsCount = quotingRepositoryForTestRun.GetPOForQuoteCount();
+                int duringQuoteHeadersCount = quotingRepositoryForTestRun.GetQuoteHeaderCount();
+                int duringQuoteContentsCount = quotingRepositoryForTestRun.GetQuoteContentCount();
+                int duringQuoteAccountsCount = quotingRepositoryForTestRun.GetAccountForQuoteCount();
+                int duringQuotePOsCount = quotingRepositoryForTestRun.GetPOForQuoteCount();
 
-        SharedTestCodeQuoting.VerifyQuoteRequestCorrectInRepository(preparedQuote.IdQuote, request, quotingImplementation.QuotingRepository);
-        
-        int duringQuoteFlatRCsCount = SharedTestCodeQuoting.GetFlatRCsCount();
-        int duringQuoteNRCsCount = SharedTestCodeQuoting.GetNRCsCount();
+                SharedTestCodeQuoting.VerifyQuoteRequestCorrectInRepository(preparedQuote.IdQuote, request, quotingImplementation.QuotingRepository);
 
-        int duringQuoteUDRCsCount = SharedTestCodeQuoting.GetUDRCsCount();
+                int duringQuoteFlatRCsCount = SharedTestCodeQuoting.GetFlatRCsCount();
+                int duringQuoteNRCsCount = SharedTestCodeQuoting.GetNRCsCount();
 
-        #endregion
+                int duringQuoteUDRCsCount = SharedTestCodeQuoting.GetUDRCsCount();
 
-        #region Check
+            #endregion
 
-        //Verify the number of charges was as expected
-        Assert.AreEqual(expectedQuoteFlatRCsCount, duringQuoteFlatRCsCount - beforeQuoteFlatRCsCount,
-                        "Quoting process did not generate expected number of RCs");
-        Assert.AreEqual(expectedQuoteNRCsCount, duringQuoteNRCsCount - beforeQuoteNRCsCount,
-                        "Quoting process did not generate expected number of NRCs");
+                #region Check
 
-        // Verify the number of UDRCs if needed
-        if (expectedQuoteUDRCsCount.HasValue)
-        {
-          Assert.AreEqual(expectedQuoteUDRCsCount, duringQuoteUDRCsCount - beforeQuoteUDRCsCount,
-                          "Quoting process did not generate expected number of UDRCs");
+                //Verify the number of charges was as expected
+                Assert.AreEqual(expectedQuoteFlatRCsCount, duringQuoteFlatRCsCount - beforeQuoteFlatRCsCount,
+                                "Quoting process did not generate expected number of RCs");
+                Assert.AreEqual(expectedQuoteNRCsCount, duringQuoteNRCsCount - beforeQuoteNRCsCount,
+                                "Quoting process did not generate expected number of NRCs");
+
+                // Verify the number of UDRCs if needed
+                if (expectedQuoteUDRCsCount.HasValue)
+                {
+                    Assert.AreEqual(expectedQuoteUDRCsCount, duringQuoteUDRCsCount - beforeQuoteUDRCsCount,
+                                    "Quoting process did not generate expected number of UDRCs");
+                }
+
+                //Verify the number of instances in the tables for quoting was as expected
+                Assert.AreEqual(expectedQuoteHeadersCount, duringQuoteHeadersCount - beforeQuoteHeadersCount,
+                                "Quoting process did not generate expected number of headers for quote");
+                Assert.AreEqual(expectedQuoteContentsCount, duringQuoteContentsCount - beforeQuoteContentsCount,
+                                "Quoting process did not generate expected number of contents for quote");
+                Assert.AreEqual(expectedAccountsForQuoteCount, duringQuoteAccountsCount - beforeAccountsForQuoteCount,
+                                "Quoting process did not generate expected number of accounts for quote");
+                Assert.AreEqual(expectedPOsforQuoteCount, duringQuotePOsCount - beforePOsforQuoteCount,
+                                "Quoting process did not generate expected number of POs for quote");
+
+                // Verify the quote total is as expected. If UDRCs are expected than TotalAmount with them is greater than without 
+                Assert.AreEqual(expectedQuoteTotal, preparedQuote.TotalAmount, "Created quote total is not what was expected");
+                /*if (expectedQuoteUDRCsCount.HasValue)
+                {
+                  Assert.AreEqual(expectedQuoteTotal < preparedQuote.TotalAmount, "Created quote total does not contain UDRCs amount");
+                }
+                else
+                {
+                  Assert.AreEqual(expectedQuoteTotal, preparedQuote.TotalAmount, "Created quote total is not what was expected");
+                }*/
+                Assert.AreEqual(expectedQuoteCurrency, preparedQuote.Currency);
+
+                //Verify response is in repository
+                SharedTestCodeQuoting.VerifyQuoteResponseCorrectInRepository(preparedQuote.IdQuote, preparedQuote,
+                                                                             quotingImplementation.QuotingRepository);
+
+                //Todo: Verify PDF generated
+
+            }
+            finally
+            {
+                if (!quotingImplementation.Configuration.IsCleanupQuoteAutomaticaly && preparedQuote != null)
+                {
+                    quotingImplementation.Cleanup(preparedQuote.Artefacts);
+
+                }
+
+                //Verify usage cleaned up: check count of RCs and NRCs before and after
+                int afterQuoteFlatRCsCount = SharedTestCodeQuoting.GetFlatRCsCount();
+                int afterQuoteNRCsCount = SharedTestCodeQuoting.GetNRCsCount();
+                int afterQuoteUDRCsCount = SharedTestCodeQuoting.GetUDRCsCount();
+
+                Assert.AreEqual(beforeQuoteFlatRCsCount, afterQuoteFlatRCsCount, "Quoting left behind/didn't cleanup usage");
+                Assert.AreEqual(beforeQuoteNRCsCount, afterQuoteNRCsCount, "Quoting left behind/didn't cleanup usage");
+                Assert.AreEqual(beforeQuoteUDRCsCount, afterQuoteUDRCsCount, "Quoting left behind/didn't cleanup usage");
+
+                usageAndFailedTransactionCount.VerifyNoChange();
+            }
+
+                #endregion
+
+            return preparedQuote;
         }
 
-        //Verify the number of instances in the tables for quoting was as expected
-        Assert.AreEqual(expectedQuoteHeadersCount, duringQuoteHeadersCount - beforeQuoteHeadersCount,
-                        "Quoting process did not generate expected number of headers for quote");
-        Assert.AreEqual(expectedQuoteContentsCount, duringQuoteContentsCount - beforeQuoteContentsCount,
-                        "Quoting process did not generate expected number of contents for quote");
-        Assert.AreEqual(expectedAccountsForQuoteCount, duringQuoteAccountsCount - beforeAccountsForQuoteCount,
-                        "Quoting process did not generate expected number of accounts for quote");
-        Assert.AreEqual(expectedPOsforQuoteCount, duringQuotePOsCount - beforePOsforQuoteCount,
-                        "Quoting process did not generate expected number of POs for quote");
-
-        // Verify the quote total is as expected. If UDRCs are expected than TotalAmount with them is greater than without 
-        Assert.AreEqual(expectedQuoteTotal, preparedQuote.TotalAmount, "Created quote total is not what was expected");
-        /*if (expectedQuoteUDRCsCount.HasValue)
+        public static QuotingImplementation GetDefaultQuotingImplementationForTestRun(IQuotingRepository quotingRepositoryForTestRun = null)
         {
-          Assert.AreEqual(expectedQuoteTotal < preparedQuote.TotalAmount, "Created quote total does not contain UDRCs amount");
-        }
-        else
-        {
-          Assert.AreEqual(expectedQuoteTotal, preparedQuote.TotalAmount, "Created quote total is not what was expected");
-        }*/
-        Assert.AreEqual(expectedQuoteCurrency, preparedQuote.Currency);
+            //Instantiate our implementation
+            if (quotingRepositoryForTestRun == null)
+                quotingRepositoryForTestRun = new QuotingRepositoryInMemory();
 
-        //Verify response is in repository
-        SharedTestCodeQuoting.VerifyQuoteResponseCorrectInRepository(preparedQuote.IdQuote, preparedQuote,
-                                                                     quotingImplementation.QuotingRepository);
-
-        //Todo: Verify PDF generated
-
-      }
-      finally
-      {
-        if (!quotingImplementation.Configuration.IsCleanupQuoteAutomaticaly && preparedQuote != null)
-        {
-          quotingImplementation.Cleanup(preparedQuote.Artefacts);
-         
+            var config = QuotingConfigurationManager.LoadConfigurationFromDefaultSystemLocation();
+            config.IsCleanupQuoteAutomaticaly = false;
+            var quotingImplementation = new QuotingImplementation(config,
+                                                                    SharedTestCode.LoginAsAdmin(),
+                                                                    quotingRepositoryForTestRun);
+            return quotingImplementation;
         }
 
-        //Verify usage cleaned up: check count of RCs and NRCs before and after
-        int afterQuoteFlatRCsCount = SharedTestCodeQuoting.GetFlatRCsCount();
-        int afterQuoteNRCsCount = SharedTestCodeQuoting.GetNRCsCount();
-        int afterQuoteUDRCsCount = SharedTestCodeQuoting.GetUDRCsCount();
-
-        Assert.AreEqual(beforeQuoteFlatRCsCount, afterQuoteFlatRCsCount, "Quoting left behind/didn't cleanup usage");
-        Assert.AreEqual(beforeQuoteNRCsCount, afterQuoteNRCsCount, "Quoting left behind/didn't cleanup usage");
-        Assert.AreEqual(beforeQuoteUDRCsCount, afterQuoteUDRCsCount, "Quoting left behind/didn't cleanup usage");
-
-        usageAndFailedTransactionCount.VerifyNoChange();
-      }
-
-      #endregion
-
-      return preparedQuote;
-    }
-
-    public static QuotingImplementation GetDefaultQuotingImplementationForTestRun(IQuotingRepository quotingRepositoryForTestRun = null)
-    {
-      //Instantiate our implementation
-      if (quotingRepositoryForTestRun == null)
-        quotingRepositoryForTestRun = new QuotingRepositoryInMemory();
-
-      var config = QuotingConfigurationManager.LoadConfigurationFromDefaultSystemLocation();
-      config.IsCleanupQuoteAutomaticaly = false;
-      var quotingImplementation = new QuotingImplementation(config,
-                                                              SharedTestCode.LoginAsAdmin(),
-                                                              quotingRepositoryForTestRun);
-      return quotingImplementation;
-    }
-
-    public static void RunTestCheckingBadInputs(IEnumerable<int> accountIds, IEnumerable<int> poIds, string expectedErrorMessagePartial)
-    {
-      var request = new QuoteRequest();
-
-      request.Accounts.AddRange(accountIds);
-
-      request.ProductOfferings.AddRange(poIds);
-
-      request.ReportParameters = new ReportParams()
+        public static void RunTestCheckingBadInputs(IEnumerable<int> accountIds, IEnumerable<int> poIds, string expectedErrorMessagePartial)
         {
-          PDFReport = RunPDFGenerationForAllTestsByDefault
-        };
+            var request = new QuoteRequest();
 
-      // Run quote and make sure it throws the expected message
-      try
-      {
-        CreateQuoteAndVerifyResults(request, 0, string.Empty, 0, 0);
+            request.Accounts.AddRange(accountIds);
 
-        //If we got here we didn't get an exception when we expected one
-        Assert.Fail("Expected exception with text '{0]' but didn't get an exception", expectedErrorMessagePartial);
-      }
-      catch (Exception ex)
-      {
-        Assert.IsTrue(ex.Message.Contains(expectedErrorMessagePartial), "Expected exception with text '{0}' but got exception with text '{1}'", expectedErrorMessagePartial, ex.Message);
-        return;
-      }
+            request.ProductOfferings.AddRange(poIds);
+
+            request.ReportParameters = new ReportParams()
+              {
+                  PDFReport = RunPDFGenerationForAllTestsByDefault
+              };
+
+            // Run quote and make sure it throws the expected message
+            try
+            {
+                CreateQuoteAndVerifyResults(request, 0, string.Empty, 0, 0);
+
+                //If we got here we didn't get an exception when we expected one
+                Assert.Fail("Expected exception with text '{0]' but didn't get an exception", expectedErrorMessagePartial);
+            }
+            catch (Exception ex)
+            {
+                Assert.IsTrue(ex.Message.Contains(expectedErrorMessagePartial), "Expected exception with text '{0}' but got exception with text '{1}'", expectedErrorMessagePartial, ex.Message);
+                return;
+            }
 
 
+        }
     }
-  }
 }

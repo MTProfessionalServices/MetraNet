@@ -537,7 +537,10 @@
   <data name="TEXT_BACK" xml:space="preserve">
     <value>Previous</value>
   </data>
-  <data name="TEXT_NEXT" xml:space="preserve">
+	<data name="TEXT_FROM_PARAM_TABLE" xml:space="preserve">
+    <value>From Parameter Table</value>
+  </data>
+	<data name="TEXT_NEXT" xml:space="preserve">
     <value>Next</value>
   </data>
   <data name="TEXT_SAVE_AND_CONTINUE" xml:space="preserve">

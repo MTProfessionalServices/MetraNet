@@ -15,6 +15,8 @@ using MetraTech.DataAccess;
 using MetraTech.Domain.Quoting;
 // TODO: Add auditor to Quote
 // using MetraTech.Interop.MTAuditEvents;
+using MetraTech.DomainModel.BaseTypes;
+using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.Interop.MTBillingReRun;
 using MetraTech.Interop.QueryAdapter;
 using MetraTech.Pipeline;
@@ -23,6 +25,7 @@ using MetraTech.UsageServer;
 using Auth = MetraTech.Interop.MTAuth;
 using MetraTech.Interop.MTProductCatalog;
 using BillingReRunClient = MetraTech.Pipeline.ReRun;
+using IMTCollection = MetraTech.Interop.MTProductCatalog.IMTCollection;
 
 namespace MetraTech.Quoting
 {
@@ -38,6 +41,16 @@ namespace MetraTech.Quoting
 
         private readonly List<MTSubscription> createdSubsciptions = new List<MTSubscription>();
         private readonly List<IMTGroupSubscription> createdGroupSubsciptions = new List<IMTGroupSubscription>();
+        
+        private const string MetratechComFlatrecurringcharge = "metratech.com/flatrecurringcharge";
+        private const string MetratechComUdrctapered = "metratech.com/udrctapered";
+        private const string MetratechComNonrecurringcharge = "metratech.com/nonrecurringcharge";
+        private const string MetratechComUdrctiered = "metratech.com/udrctiered";
+
+        private MTParamTableDefinition parameterTableFlatRc;
+        private MTParamTableDefinition parameterTableNonRc;
+        private MTParamTableDefinition parameterTableUdrcTapered;
+        private MTParamTableDefinition parameterTableUdrcTiered;
 
         #region Constructors
 
@@ -218,7 +231,7 @@ namespace MetraTech.Quoting
         {
 
             if (request.IcbPrices == null)
-                request.IcbPrices = new List<QuoteIndividualPrice>();
+                request.IcbPrices = new List<IndividualPrice>();
 
             if (request.SubscriptionParameters.IsGroupSubscription && request.IcbPrices.Count > 0)
             {
@@ -482,6 +495,8 @@ namespace MetraTech.Quoting
 
                 #endregion
 
+                GetParamTables();
+
                 var transactionOption = new TransactionOptions();
                 transactionOption.IsolationLevel = IsolationLevel.ReadUncommitted;
                 using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew,
@@ -523,6 +538,17 @@ namespace MetraTech.Quoting
                 }
 
                 #endregion
+            }
+        }
+
+        private void GetParamTables()
+        {
+            if (CurrentRequest.IcbPrices.Count > 0)
+            {
+                parameterTableFlatRc = CurrentProductCatalog.GetParamTableDefinitionByName(MetratechComFlatrecurringcharge);
+                parameterTableNonRc = CurrentProductCatalog.GetParamTableDefinitionByName(MetratechComNonrecurringcharge);
+                parameterTableUdrcTapered = CurrentProductCatalog.GetParamTableDefinitionByName(MetratechComUdrctapered);
+                parameterTableUdrcTiered = CurrentProductCatalog.GetParamTableDefinitionByName(MetratechComUdrctiered);
             }
         }
 
@@ -677,17 +703,199 @@ namespace MetraTech.Quoting
 
         private void ApplyIcbPricesToSubscription(int productOfferingId, int subscriptionId)
         {
-            if (CurrentRequest.IcbPrices == null) return;
+            if (CurrentRequest.IcbPrices.Count == 0) return;
 
-            var icbPrices = CurrentRequest.IcbPrices.Where(ip => ip.ProductOfferingId == productOfferingId);
-            foreach (var price in icbPrices)
-                Application.ProductManagement.PriceListService.SaveRateSchedulesForSubscription(
-                  subscriptionId,
-                  new PCIdentifier(price.PriceableItemInstanceId),
-                  new PCIdentifier(price.ParameterTableId),
-                  price.RateSchedules,
-                  _log,
-                  SessionContext);
+            var po = CurrentProductCatalog.GetProductOffering(productOfferingId);
+            IMTCollection pis = po.GetPriceableItems();
+            int ptId;
+            List<BaseRateSchedule> rs = new List<BaseRateSchedule>();
+
+            foreach (IMTPriceableItem pi in pis)
+            {
+                var icbPrices = new List<IndividualPrice>();
+                switch (pi.Kind)
+                {
+                    case MTPCEntityType.PCENTITY_TYPE_RECURRING:
+                        icbPrices =
+                            CurrentRequest.IcbPrices.Where(i => i.CurrentChargeType == ChargeType.RecurringCharge).ToList();
+                        break;
+                    case MTPCEntityType.PCENTITY_TYPE_RECURRING_UNIT_DEPENDENT:
+                        icbPrices =
+                            CurrentRequest.IcbPrices.Where(i => i.CurrentChargeType == ChargeType.UDRCTapered).ToList();
+                        break;
+                    case MTPCEntityType.PCENTITY_TYPE_NON_RECURRING:
+                        icbPrices =
+                            CurrentRequest.IcbPrices.Where(i => i.CurrentChargeType == ChargeType.NonRecurringCharge).ToList();
+                        break;
+                }
+
+                //Can't sorted out that UDRCs is Tiered or Tappered
+                try
+                {
+                    rs = GetRateSchedules(icbPrices, out ptId);
+
+                    Application.ProductManagement.PriceListService.SaveRateSchedulesForSubscription(
+                            subscriptionId,
+                            new PCIdentifier(pi.ID),
+                            new PCIdentifier(ptId),
+                            rs,
+                            _log,
+                            SessionContext);
+                }
+                catch (Exception ex)
+                {
+                    if (pi.Kind == MTPCEntityType.PCENTITY_TYPE_RECURRING_UNIT_DEPENDENT)
+                    {
+                        icbPrices = CurrentRequest.IcbPrices.Where(i => i.CurrentChargeType == ChargeType.UDRCTiered).ToList();
+
+                        rs = GetRateSchedules(icbPrices, out ptId);
+
+                        Application.ProductManagement.PriceListService.SaveRateSchedulesForSubscription(
+                                subscriptionId,
+                                new PCIdentifier(pi.ID),
+                                new PCIdentifier(ptId),
+                                rs,
+                                _log,
+                                SessionContext);
+                    }
+                    else
+                    {
+                        throw ex;
+                    }
+                }
+                
+            }
+        }
+
+        private List<BaseRateSchedule> GetRateSchedules(List<IndividualPrice> icbPrices, out int ptId)
+        {
+            
+            ptId = 0;
+
+            var rs = new List<BaseRateSchedule>();
+
+            foreach (var icbPrice in icbPrices)
+            {
+                switch (icbPrice.CurrentChargeType)
+                {
+                    case ChargeType.RecurringCharge:
+                        ptId = parameterTableFlatRc.ID;
+                        rs.AddRange(
+                            icbPrice.ChargesRates.Select(chargesRate => GetFlatRcRateSchedule(chargesRate.Price)));
+                        return rs;
+                    case ChargeType.NonRecurringCharge:
+                        ptId = parameterTableNonRc.ID;
+                        rs.AddRange(icbPrice.ChargesRates.Select(chargesRate => GetNonRcRateSchedule(chargesRate.Price)));
+                        return rs;
+                    case ChargeType.UDRCTapered:
+                        ptId = parameterTableUdrcTapered.ID;
+                        rs.Add(GetTaperedUdrcRateSchedule(icbPrice.ChargesRates));
+                        return rs;
+                    case ChargeType.UDRCTiered:
+                        ptId = parameterTableUdrcTiered.ID;
+                        rs.AddRange(
+                            icbPrice.ChargesRates.Select(
+                                chargesRate =>
+                                GetTieredUdrcRateSchedule(chargesRate.UnitValue, chargesRate.UnitAmount,
+                                                          chargesRate.BaseAmount)));
+                        return rs;
+                }
+            }
+
+            return rs;
+        }
+
+        public static BaseRateSchedule GetFlatRcRateSchedule(decimal price, DateTime? startDate = null, DateTime? endDate = null)
+        {
+            startDate = startDate ?? DateTime.Parse("1/1/2000");
+            endDate = endDate ?? DateTime.Parse("1/1/2038");
+
+            return new RateSchedule
+              <Metratech_com_FlatRecurringChargeRateEntry, Metratech_com_FlatRecurringChargeDefaultRateEntry>
+            {
+                EffectiveDate = new ProdCatTimeSpan
+                {
+                    StartDate = startDate,
+                    StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
+                    EndDate = endDate,
+                    EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
+                },
+                RateEntries = new List<Metratech_com_FlatRecurringChargeRateEntry>
+                {
+                  new Metratech_com_FlatRecurringChargeRateEntry {RCAmount = price}
+                }
+            };
+        }
+
+        public static BaseRateSchedule GetNonRcRateSchedule(decimal price)
+        {
+            return new RateSchedule<Metratech_com_NonRecurringChargeRateEntry, Metratech_com_NonRecurringChargeDefaultRateEntry>
+            {
+                EffectiveDate = new ProdCatTimeSpan
+                {
+                    StartDate = DateTime.Parse("1/1/2000"),
+                    StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
+                    EndDate = DateTime.Parse("1/1/2038"),
+                    EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
+                },
+                RateEntries = new List<Metratech_com_NonRecurringChargeRateEntry>
+           {
+              new Metratech_com_NonRecurringChargeRateEntry { NRCAmount = price }
+           }
+            };
+        }
+
+        public static BaseRateSchedule GetTaperedUdrcRateSchedule(List<ChargesRate> caChargesRate)
+        {
+            var rates = new List<Metratech_com_UDRCTaperedRateEntry>();
+            var i = 0;
+            foreach (var val in caChargesRate)
+            {
+                rates.Add(new Metratech_com_UDRCTaperedRateEntry
+                {
+                    Index = i,
+                    UnitValue = val.UnitValue,
+                    UnitAmount = val.UnitAmount
+                });
+                i++;
+            }
+
+            return new RateSchedule<Metratech_com_UDRCTaperedRateEntry, Metratech_com_UDRCTaperedDefaultRateEntry>
+            {
+                EffectiveDate = new ProdCatTimeSpan
+                {
+                    StartDate = DateTime.Parse("1/1/2000"),
+                    StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
+                    EndDate = DateTime.Parse("1/1/2038"),
+                    EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
+                },
+                RateEntries = rates
+            };
+        }
+
+        public static BaseRateSchedule GetTieredUdrcRateSchedule(decimal unitValue, decimal unitAmount, decimal baseAmount)
+        {
+            var rates = new List<Metratech_com_UDRCTieredRateEntry>();
+            var i = 0;
+            rates.Add(new Metratech_com_UDRCTieredRateEntry
+            {
+                Index = i,
+                UnitValue = unitValue,
+                UnitAmount = unitAmount,
+                BaseAmount = baseAmount
+            });
+
+            return new RateSchedule<Metratech_com_UDRCTieredRateEntry, Metratech_com_UDRCTieredDefaultRateEntry>
+            {
+                EffectiveDate = new ProdCatTimeSpan
+                {
+                    StartDate = DateTime.Parse("1/1/2000"),
+                    StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
+                    EndDate = DateTime.Parse("1/1/2038"),
+                    EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
+                },
+                RateEntries = rates
+            };
         }
 
         private string GetBatchIdsForQuery(IEnumerable<ChargeData> charges)

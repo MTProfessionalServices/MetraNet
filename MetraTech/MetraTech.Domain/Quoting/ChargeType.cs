@@ -23,15 +23,27 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System;
+using System.Runtime.Serialization;
+
 namespace MetraTech.Domain.Quoting
 {
     /// <summary>
     /// Chrage type
     /// </summary>
+    [DataContract]
+    [Serializable]
     public enum ChargeType
     {
+        [EnumMember]
         None = 0,
+        [EnumMember]
         RecurringCharge = 1,
-        NonRecurringCharge = 2
+        [EnumMember]
+        NonRecurringCharge = 2,
+        [EnumMember]
+        UDRCTiered = 3,
+        [EnumMember]
+        UDRCTapered = 4
     }
 }

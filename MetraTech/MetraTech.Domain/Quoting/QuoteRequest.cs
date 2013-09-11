@@ -108,15 +108,15 @@ namespace MetraTech.Domain.Quoting
 
         #region Quoting parameters
 
-        private List<QuoteIndividualPrice> _icbPrices;
+        private List<IndividualPrice> _icbPrices;
         [DataMember(IsRequired = false, EmitDefaultValue = false)]
-        [MTDataMember(Description = "Quote individual price parameters", Length = 40)]
-        public List<QuoteIndividualPrice> IcbPrices
+        [MTDataMember(Description = "Individual price parameters", Length = 40)]
+        public List<IndividualPrice> IcbPrices
         {
             get { return _icbPrices; }
             set
             {
-                _icbPrices = value ?? new List<QuoteIndividualPrice>();
+                _icbPrices = value ?? new List<IndividualPrice>();
                 IsIcbPricesDirty = true;
             }
         }
@@ -255,7 +255,7 @@ namespace MetraTech.Domain.Quoting
             Accounts = new List<int>();
             ProductOfferings = new List<int>();
             SubscriptionParameters = new SubscriptionParameters();
-            IcbPrices = new List<QuoteIndividualPrice>();
+            IcbPrices = new List<IndividualPrice>();
 
             EffectiveDate = MetraTime.Now;
             EffectiveEndDate = MetraTime.Now;

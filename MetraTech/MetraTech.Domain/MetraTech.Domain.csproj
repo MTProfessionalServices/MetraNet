@@ -120,6 +120,7 @@
     <Compile Include="Quantity.cs" />
     <Compile Include="Quoting\ChargeData.cs" />
     <Compile Include="Quoting\ChargeType.cs" />
+    <Compile Include="Quoting\IndividualPrice.cs" />
     <Compile Include="Quoting\QuoteIndividualPrice.cs" />
     <Compile Include="Quoting\QuoteLogRecord.cs" />
     <Compile Include="Quoting\QuoteRequest.cs" />

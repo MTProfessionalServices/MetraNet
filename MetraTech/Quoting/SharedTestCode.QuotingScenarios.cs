@@ -73,6 +73,9 @@ namespace MetraTech.Shared.Test
 
                 #region Check
 
+                Assert.AreEqual(preparedQuote.Status, QuoteStatus.Complete,
+                                  "Quote wasn't completed. Failed message: "+preparedQuote.FailedMessage);
+                
                 //Verify the number of charges was as expected
                 Assert.AreEqual(expectedQuoteFlatRCsCount, duringQuoteFlatRCsCount - beforeQuoteFlatRCsCount,
                                 "Quoting process did not generate expected number of RCs");

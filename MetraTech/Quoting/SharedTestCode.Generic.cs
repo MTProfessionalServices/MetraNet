@@ -403,7 +403,7 @@ namespace MetraTech.Shared.Test
             var pofConfiguration = new ProductOfferingFactoryConfiguration(testName, testRunUniqueIdentifier);
             pofConfiguration.CountNRCs = 1;
             pofConfiguration.CountPairRCs = 1;
-            pofConfiguration.CountPairUDRCs = 1;
+            pofConfiguration.CountPairUDRCs = 0;
             pofConfiguration.Cycle.CycleTypeID = (int)CycleType.Annually;
             pofConfiguration.Cycle.StartDay = 1;
             pofConfiguration.Cycle.StartMonth = 1;

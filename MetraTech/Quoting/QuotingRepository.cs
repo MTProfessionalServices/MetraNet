@@ -239,6 +239,7 @@ namespace MetraTech.Quoting
 
             #region Save ICB prices
 
+              /*
             using (var connection = ConnectionBase.GetDbConnection(new DataAccess.ConnectionInfo("NetMeter"), false))
             using (var dbContext = new MetraNetContext(connection))
             {
@@ -250,6 +251,7 @@ namespace MetraTech.Quoting
               }
               dbContext.SaveChanges();
             }
+              */
 
             #endregion
 

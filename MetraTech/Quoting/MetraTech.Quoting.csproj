@@ -70,6 +70,11 @@
       <Private>False</Private>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MeterRowset.interop.dll</HintPath>
     </Reference>
+    <Reference Include="MetraTech.DomainModel.ProductCatalog.Generated">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DomainModel.ProductCatalog.Generated.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MTAuditEvents.interop">
       <SpecificVersion>False</SpecificVersion>

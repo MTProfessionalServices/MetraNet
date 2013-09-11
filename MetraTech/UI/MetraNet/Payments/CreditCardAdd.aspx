@@ -50,17 +50,12 @@
 
       // Use JSONP pattern to communicate with payment broker.
       // See http://en.wikipedia.org/wiki/JSONP for more details.
-//      var head = document.getElementsByTagName('head')[0];
-//      removePreviousBrokerRequest(head);
-//      var script = document.createElement('script');
-//      script.setAttribute('src', request);
-//      script.addEventListener('error', completeErrorRequest);
-//      head.appendChild(script);
-      //      return false;
+      var head = document.getElementsByTagName('head')[0];
+      removePreviousBrokerRequest(head);
       var script = document.createElement('script');
       script.setAttribute('src', request);
       script.addEventListener('error', completeErrorRequest);
-      document.getElementsByTagName('head')[0].appendChild(script);
+      head.appendChild(script);
       return false;
     }
 

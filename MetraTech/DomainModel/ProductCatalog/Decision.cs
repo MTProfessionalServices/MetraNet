@@ -229,7 +229,8 @@ namespace MetraTech.DomainModel.ProductCatalog
         /// IMPORTANT - only applies when ChargeType==CHARGE_ON_FINAL
         /// chargeAmount = aggregatedQuantity * Charge value
         /// </summary>
-        CHARGE_PERCENTAGE
+        CHARGE_PERCENTAGE,
+        CHARGE_FROM_PARAM_TABLE
     };
 
     /// <summary>
@@ -545,53 +546,103 @@ namespace MetraTech.DomainModel.ProductCatalog
     }
     #endregion
 
-    #region AccountQualificationGroup
+    #region AccountQualificationGroupColumnName
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isAccountQualificationGroupDirty = false;
-    private string m_AccountQualificationGroup;
+    private bool isAccountQualificationGroupColumnNameDirty = false;
+    private string m_AccountQualificationGroupColumnName;
     /// <summary>
     /// The AccountQualificationGroup specifies which accounts to consider when processing a decision.
     /// </summary>
     [MTDataMember(Description = "The AccountQualificationGroup specifies which accounts to consider when processing a decision.", Length = 40)]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public string AccountQualificationGroup
+    public string AccountQualificationGroupColumnName
     {
-        get { return m_AccountQualificationGroup; }
+        get { return m_AccountQualificationGroupColumnName; }
         set
         {
-            m_AccountQualificationGroup = value;
-            isAccountQualificationGroupDirty = true;
+            m_AccountQualificationGroupColumnName = value;
+            isAccountQualificationGroupColumnNameDirty = true;
         }
     }
     [ScriptIgnore]
-    public bool IsAccountQualificationGroupDirty
+    public bool IsAccountQualificationGroupColumnNameDirty
     {
-        get { return isAccountQualificationGroupDirty; }
+        get { return isAccountQualificationGroupColumnNameDirty; }
     }
     #endregion
 
-    #region UsageQualificationGroup
+    #region AccountQualificationGroupValue
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isUsageQualificationGroupDirty = false;
-    private string m_UsageQualificationGroup;
+    private bool isAccountQualificationGroupValueDirty = false;
+    private string m_AccountQualificationGroupValue;
     /// <summary>
-    /// The UsageQualificationGroup specifies which usage events to consider when processing a decision.
+    /// The AccountQualificationGroup specifies which accounts to consider when processing a decision.
     /// </summary>
-    [MTDataMember(Description = "The UsageQualificationGroup specifies which usage events to consider when processing a decision.", Length = 40)]
+    [MTDataMember(Description = "The AccountQualificationGroup specifies which accounts to consider when processing a decision.", Length = 40)]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public string UsageQualificationGroup
+    public string AccountQualificationGroupValue
     {
-        get { return m_UsageQualificationGroup; }
+        get { return m_AccountQualificationGroupValue; }
         set
         {
-            m_UsageQualificationGroup = value;
-            isUsageQualificationGroupDirty = true;
+            m_AccountQualificationGroupValue = value;
+            isAccountQualificationGroupValueDirty = true;
         }
     }
     [ScriptIgnore]
-    public bool IsUsageQualificationGroupDirty
+    public bool IsAccountQualificationGroupValueDirty
     {
-        get { return isUsageQualificationGroupDirty; }
+        get { return isAccountQualificationGroupValueDirty; }
+    }
+    #endregion
+
+    #region UsageQualificationGroupColumnName
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isUsageQualificationGroupColumnNameDirty = false;
+    private string m_UsageQualificationGroupColumnName;
+    /// <summary>
+    /// The UsageQualificationGroup specifies which usage events to consider when processing a decision.
+    /// </summary>
+    [MTDataMember(Description = "The UsageQualificationGroupColumnName specifies which usage events to consider when processing a decision.", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public string UsageQualificationGroupColumnName
+    {
+        get { return m_UsageQualificationGroupColumnName; }
+        set
+        {
+            m_UsageQualificationGroupColumnName = value;
+            isUsageQualificationGroupColumnNameDirty = true;
+        }
+    }
+    [ScriptIgnore]
+    public bool IsUsageQualificationGroupColumnNameDirty
+    {
+        get { return isUsageQualificationGroupColumnNameDirty; }
+    }
+    #endregion
+
+    #region UsageQualificationGroupValue
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isUsageQualificationGroupValueDirty = false;
+    private string m_UsageQualificationGroupValue;
+    /// <summary>
+    /// The UsageQualificationGroup specifies which usage events to consider when processing a decision.
+    /// </summary>
+    [MTDataMember(Description = "The UsageQualificationGroupValue specifies which usage events to consider when processing a decision.", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public string UsageQualificationGroupValue
+    {
+        get { return m_UsageQualificationGroupValue; }
+        set
+        {
+            m_UsageQualificationGroupValue = value;
+            isUsageQualificationGroupValueDirty = true;
+        }
+    }
+    [ScriptIgnore]
+    public bool IsUsageQualificationGroupValueDirty
+    {
+        get { return isUsageQualificationGroupValueDirty; }
     }
     #endregion
 
@@ -651,10 +702,10 @@ namespace MetraTech.DomainModel.ProductCatalog
     }
     #endregion
 
-    #region TierProration
+    #region TierProrationValue
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isTierProrationDirty = false;
-    private TierProrationEnum m_TierProration;
+    private bool isTierProrationValueDirty = false;
+    private TierProrationEnum? m_TierProrationValue;
     /// <summary>
     /// Decisions define a range via tierStart and tierEnd.
     /// However, if an account subscribes during an interval,
@@ -662,25 +713,54 @@ namespace MetraTech.DomainModel.ProductCatalog
     /// a decision was "first 500 minutes per month are free",
     /// and the account subscribes half way through the month,
     /// we might want to only give 250 minutes free.
-    /// TBD SHOULD BE ENUM
     /// </summary>
     [MTDataMember(Description = "TierProration defines whether the decision range should be scaled for accounts that subscribe during the interval", Length = 40)]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public TierProrationEnum TierProration
+    public TierProrationEnum? TierProrationValue
     {
-        get { return m_TierProration; }
+        get { return m_TierProrationValue; }
         set
         {
-            m_TierProration = value;
-            isTierProrationDirty = true;
+            m_TierProrationValue = value;
+            isTierProrationValueDirty = true;
         }
     }
     [ScriptIgnore]
-    public bool IsTierProrationDirty
+    public bool IsTierProrationValueDirty
     {
-        get { return isTierProrationDirty; }
+        get { return isTierProrationValueDirty; }
     }
-    #endregion   
+    #endregion
+
+    #region TierProrationColumnName
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isTierProrationColumnNameDirty = false;
+    private string m_TierProrationColumnName;
+    /// <summary>
+    /// Decisions define a range via tierStart and tierEnd.
+    /// However, if an account subscribes during an interval,
+    /// we might want to scale the range.  For example, if
+    /// a decision was "first 500 minutes per month are free",
+    /// and the account subscribes half way through the month,
+    /// we might want to only give 250 minutes free.
+    /// </summary>
+    [MTDataMember(Description = "TierProration defines whether the decision range should be scaled for accounts that subscribe during the interval", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public string TierProrationColumnName
+    {
+        get { return m_TierProrationColumnName; }
+        set
+        {
+            m_TierProrationColumnName = value;
+            isTierProrationColumnNameDirty = true;
+        }
+    }
+    [ScriptIgnore]
+    public bool IsTierProrationColumnNameDirty
+    {
+        get { return isTierProrationColumnNameDirty; }
+    }
+    #endregion
 
     #region CycleUnitTypeValue
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
@@ -1148,29 +1228,55 @@ namespace MetraTech.DomainModel.ProductCatalog
     }
     #endregion   
 
-    #region ChargeAmountType
+    #region ChargeAmountTypeValue
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isChargeAmountTypeDirty = false;
-    private ChargeAmountTypeEnum m_ChargeAmountType;
+    private bool isChargeAmountTypeValueDirty = false;
+    private ChargeAmountTypeEnum m_ChargeAmountTypeValue;
     /// <summary>
     /// This value defines the algorithm that should be used to compute the
     /// actual charge amount.
     /// </summary>
-    [MTDataMember(Description = "ChargeAmountType defines the algorithm that should be used to compute the actual charge amount", Length = 40)]
+    [MTDataMember(Description = "ChargeAmountTypeValue defines the algorithm that should be used to compute the actual charge amount", Length = 40)]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public ChargeAmountTypeEnum ChargeAmountType
+    public ChargeAmountTypeEnum ChargeAmountTypeValue
     {
-        get { return m_ChargeAmountType; }
+        get { return m_ChargeAmountTypeValue; }
         set
         {
-            m_ChargeAmountType = value;
-            isChargeAmountTypeDirty = true;
+            m_ChargeAmountTypeValue = value;
+            isChargeAmountTypeValueDirty = true;
         }
     }
     [ScriptIgnore]
-    public bool IsChargeAmountTypeDirty
+    public bool IsChargeAmountTypeValueDirty
     {
-        get { return isChargeAmountTypeDirty; }
+        get { return isChargeAmountTypeValueDirty; }
+    }
+    #endregion   
+
+    #region ChargeAmountTypeColumnName
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isChargeAmountTypeColumnNameDirty = false;
+    private String m_ChargeAmountTypeColumnName;
+    /// <summary>
+    /// This value defines the algorithm that should be used to compute the
+    /// actual charge amount.
+    /// </summary>
+    [MTDataMember(Description = "ChargeAmountTypeValue defines the algorithm that should be used to compute the actual charge amount", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public String ChargeAmountTypeColumnName
+    {
+        get { return m_ChargeAmountTypeColumnName; }
+        set
+        {
+            m_ChargeAmountTypeColumnName = value;
+            isChargeAmountTypeColumnNameDirty = true;
+        }
+    }
+    [ScriptIgnore]
+    public bool IsChargeAmountTypeColumnNameDirty
+    {
+        get { return isChargeAmountTypeColumnNameDirty; }
     }
     #endregion   
 
@@ -1250,10 +1356,10 @@ namespace MetraTech.DomainModel.ProductCatalog
     }
     #endregion
 
-    #region GeneratedCharge
+    #region GeneratedChargeValue
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isGeneratedChargeDirty = false;
-    private string m_GeneratedCharge;
+    private bool isGeneratedChargeValueDirty = false;
+    private string m_GeneratedChargeValue;
     /// <summary>
     /// One of the actions that decision can take is to create a new
     /// charge.  For example, if your minutes exceed 1000, then your
@@ -1263,21 +1369,53 @@ namespace MetraTech.DomainModel.ProductCatalog
     /// </summary>
     [MTDataMember(Description = "name of the generated charge", Length = 40)]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public string GeneratedCharge
+    public string GeneratedChargeValue
     {
-        get { return m_GeneratedCharge; }
+        get { return m_GeneratedChargeValue; }
         set
         {
-            m_GeneratedCharge = value;
-            isGeneratedChargeDirty = true;
+            m_GeneratedChargeValue = value;
+            isGeneratedChargeValueDirty = true;
         }
     }
     [ScriptIgnore]
-    public bool IsGeneratedChargeDirty
+    public bool IsGeneratedChargeValueDirty
     {
-        get { return isGeneratedChargeDirty; }
+        get { return isGeneratedChargeValueDirty; }
     }
     #endregion   
+
+    #region GeneratedChargeColumnName
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isGeneratedChargeColumnNameDirty = false;
+    private string m_GeneratedChargeColumnName;
+    /// <summary>
+    /// One of the actions that decision can take is to create a new
+    /// charge.  For example, if your minutes exceed 1000, then your
+    /// account will incur a $50 charge.  The GeneratedCharge object
+    /// tells AMP how to fill the columns related to the new charge.
+    /// This member holds the name of the GeneratedCharge.
+    /// </summary>
+    [MTDataMember(Description = "name of the generated charge", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public string GeneratedChargeColumnName
+    {
+        get { return m_GeneratedChargeColumnName; }
+        set
+        {
+            m_GeneratedChargeColumnName = value;
+            isGeneratedChargeColumnNameDirty = true;
+        }
+    }
+    [ScriptIgnore]
+    public bool IsGeneratedChargeColumnNameDirty
+    {
+        get { return isGeneratedChargeColumnNameDirty; }
+    }
+    #endregion   
+
+
+
 
     #region IsUsageConsumed
     [DataMember(IsRequired = false, EmitDefaultValue = false)]

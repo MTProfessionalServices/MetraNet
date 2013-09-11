@@ -141,7 +141,10 @@
   <data name="radAggrMultText" xml:space="preserve">
     <value>As an aggregate multiplier</value>
   </data>
-  <data name="radEntireValueText" xml:space="preserve">
+	<data name="radParamTableText" xml:space="preserve">
+    <value>From parameter table</value>
+  </data>
+	<data name="radEntireValueText" xml:space="preserve">
     <value>Apply the entire charge/credit value</value>
   </data>
   <data name="radEveryTimeText" xml:space="preserve">

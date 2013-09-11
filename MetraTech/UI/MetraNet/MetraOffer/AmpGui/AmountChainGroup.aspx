@@ -24,8 +24,8 @@
   </div>
   
   <div>
-  <div style="float:left;">
-      <MT:MTCheckBoxControl ID="FromParamTableCheckBox" runat="server" BoxLabel="From Parameter Table" XType="Checkbox" XTypeNameSpace="form" />
+  <div style="float:left;padding-left:10px;">
+      <MT:MTCheckBoxControl ID="FromParamTableCheckBox" runat="server" LabelWidth="0"  BoxLabel="<%$Resources:Resource,TEXT_FROM_PARAM_TABLE%>" XType="Checkbox" XTypeNameSpace="form" />
   </div>
   <div style="float:left">
       <div id="divAmountChainGroupFromParamTableDropdownSource" runat="server">
@@ -125,10 +125,8 @@
         // Define an event handler for the grid control's Load event,
         // which will select the radio button that corresponds to the 
         // decision type's current amount chain group.
-         var dd = Ext.getCmp('<%=ddAmountChainGroupFromParamTableSource.ClientID %>');
          var cb = Ext.getCmp('<%=FromParamTableCheckBox.ClientID %>');
           if (cb.checked != true) {
-              dd.disable();
              document.getElementById('<%=divAmountChainGroupGrid.ClientID %>').style.display = "block";
           }
 

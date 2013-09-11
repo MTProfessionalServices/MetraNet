@@ -53,8 +53,9 @@ namespace MetraTech.Shared.Test
             try
             {
                 preparedQuote = quotingImplementation.CreateQuote(request);
-#warning We do not get the exception there due to all exceptions are blocked in Line 114. 123 in ...\Source\MetraTech\Core\Services\QuotingService.cs.  Why we need to process Qoute Status and FailedMessage?
-#warning Currently I didn't recive the clear message that header was not created, The test was not stoped and continue executed by the end... (took a lot of time)
+
+                if (preparedQuote.Status == QuoteStatus.Failed)
+                    throw new Exception(String.Format("CreteQuote() method returns QuoteStatus.Failed, so generate exception on Client side: {0}", preparedQuote.FailedMessage));
 
                 int duringQuoteHeadersCount = quotingRepositoryForTestRun.GetQuoteHeaderCount();
                 int duringQuoteContentsCount = quotingRepositoryForTestRun.GetQuoteContentCount();

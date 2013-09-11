@@ -135,14 +135,6 @@ namespace MetraTech.Quoting.Test
       Assert.IsNotNull(productOffering.ID, "Unable to create PO for test run");
       int idProductOfferingToQuoteFor = productOffering.ID;
 
-      ////Values to use for verification
-      decimal expectedQuoteTotal = 39.95M;
-      string expectedQuoteCurrency = "USD";
-
-      int expectedQuoteNRCsCount = 1;
-      int expectedQuoteFlatRCsCount = 2;
-
-
       string expectedErrorMessagePartialText = "pipeline";
       #endregion
 
@@ -159,41 +151,23 @@ namespace MetraTech.Quoting.Test
       request.EffectiveEndDate = MetraTime.Now;
       request.Localization = "en-US";
 
-      //Give request to testing scenario along with expected results for verification; get back response for further verification
+      var erroredResponse = new QuoteResponse();
 
-      //Create and pass the implementation so we can further check the error result
-      QuotingImplementation quotingImplementation = QuotingTestScenarios.GetDefaultQuotingImplementationForTestRun(new QuotingRepository());
-
-      //We are expecting error/exception
       try
       {
-      QuoteResponse response = QuotingTestScenarios.CreateQuoteAndVerifyResults(request,
-                                                                                expectedQuoteTotal,
-                                                                                expectedQuoteCurrency,
-                                                                                expectedQuoteFlatRCsCount,
-                                                                                expectedQuoteNRCsCount,
-                                                                                quotingImplementation: quotingImplementation);
-        Assert.Fail("An exception should have been thrown");
+        erroredResponse = SharedTestCodeQuoting.InvokeCreateQuote(request);
       }
       catch (Exception ex)
       {
-        //Assert.AreEqual("Parameter cannot be null or empty.", ex.Message);
-        Assert.IsTrue(ex.Message.Contains(expectedErrorMessagePartialText)
-          , String.Format("Expected message about pipeline missing rates. The current message is : {0}", expectedErrorMessagePartialText));
+        Assert.Fail("QuotingService_CreateQuote_Client thrown an exception: " + ex.Message);
       }
 
-      QuoteResponse erroredResponse = quotingImplementation.CurrentResponse;
-
-      //Verify it is an errored response
-      Assert.IsTrue(erroredResponse.Status == QuoteStatus.Failed);
+      Assert.IsTrue(erroredResponse.Status == QuoteStatus.Failed, "Expected response quote status must be failed");
       Assert.IsTrue(!string.IsNullOrEmpty(erroredResponse.FailedMessage), "Failed quote does not have FailedMessage set");
 
       //Verify the message we expect is there
-      Assert.IsTrue(erroredResponse.FailedMessage.Contains(expectedErrorMessagePartialText));
-
-      //Verify that the repository has recorded this failure an error message
-      SharedTestCodeQuoting.VerifyQuoteResponseIsErrorInRepository(erroredResponse.IdQuote, expectedErrorMessagePartialText, quotingImplementation.QuotingRepository);
-
+      Assert.IsTrue(erroredResponse.FailedMessage.Contains(expectedErrorMessagePartialText), "Expected failure message with text '{0}' but got failure message '{1}'", expectedErrorMessagePartialText, erroredResponse.FailedMessage);
+      
       #endregion
     }
 

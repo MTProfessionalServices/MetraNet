@@ -12,7 +12,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MetraTech.Quoting.Test
 {
-  [TestClass]
+  //[TestClass]
   public class QuotingEOPFunctionalTests
   {
     #region Setup/Teardown

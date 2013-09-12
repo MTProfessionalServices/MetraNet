@@ -84,7 +84,14 @@
         document.getElementById('<%=tbCCNumber.ClientID%>').value = 'Error occurred';
       } else {
         document.getElementById('<%=paymentInstrumentId.ClientID%>').value = obj.ResponseValue;
-        document.getElementById('<%=tbCCNumber.ClientID%>').value = "******" + document.getElementById('<%=tbCCNumber.ClientID%>').value.substr(12);
+        var number = document.getElementById('<%=tbCCNumber.ClientID%>').value;
+        if (number != null) {
+          var encryptedNumber = '';
+          for (var i = 0; i < number.length - 4; i++)
+            encryptedNumber += '*';
+          document.getElementById('<%=tbCCNumber.ClientID%>').value = encryptedNumber + number.substr(-4);
+        }
+        document.getElementById('<%=tbCCNumber.ClientID%>').setAttribute('readonly', 'true');
         document.getElementById('divSafeCC').style.display = 'none';
         document.getElementById('divBtnOk').style.display = 'block';
       }

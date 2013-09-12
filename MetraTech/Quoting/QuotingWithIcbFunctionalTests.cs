@@ -828,7 +828,7 @@ namespace MetraTech.Quoting.Test
 
             try
             {
-#warning Does it correct that Quoute is not created in the test?
+//#warning Does it correct that Quoute is not created in the test?
                 //erroredResponse = SharedTestCodeQuoting.InvokeCreateQuote(request);
             }
             catch (Exception ex)

@@ -63,12 +63,14 @@ namespace MetraTech.Quoting.Test
       var subscription = acc.Subscribe(idExisitingProductOffering, effDate, out modifiedDate);
 
       //Values to use for verification
-      pofConfiguration.TotalAmount = pofConfiguration.CountPairRCs * pofConfiguration.RCAmount * 2 +
-                                     pofConfiguration.CountNRCs * pofConfiguration.NRCAmount;
-      pofConfiguration.Currency = "USD";
 
-      int expectedQuoteNRCsCount = 2;
-      int expectedQuoteFlatRCsCount = 4;
+      int numOfAccounts = 1;
+      int expectedQuoteNRCsCount = pofConfiguration.CountNRCs * numOfAccounts;
+      int expectedQuoteFlatRCsCount = pofConfiguration.CountPairRCs + (pofConfiguration.CountPairRCs * numOfAccounts);
+      
+      pofConfiguration.TotalAmount = (expectedQuoteFlatRCsCount * pofConfiguration.RCAmount) +
+                                   (expectedQuoteNRCsCount * pofConfiguration.NRCAmount);
+      pofConfiguration.Currency = "USD";
 
       #endregion
 
@@ -95,7 +97,7 @@ namespace MetraTech.Quoting.Test
         request.Localization = "en-US";
 
         QuoteResponse response = QuotingTestScenarios.CreateQuoteAndVerifyResults(request,
-                                                                                  pofConfiguration.TotalAmount * 2,
+                                                                                  pofConfiguration.TotalAmount,
                                                                                   pofConfiguration.Currency,
                                                                                   expectedQuoteFlatRCsCount,
                                                                                   expectedQuoteNRCsCount);

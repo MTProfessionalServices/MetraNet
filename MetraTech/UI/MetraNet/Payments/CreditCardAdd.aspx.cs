@@ -132,8 +132,8 @@ public partial class Payments_CreditCardAdd : MTPage
     CreditCard.ExpirationDate = ddExpMonth.SelectedValue + "/" + ddExpYear.SelectedValue;
     CreditCard.ExpirationDateFormat = MTExpDateFormat.MT_MM_slash_YYYY;
     CreditCard.Priority = Int32.Parse(ddPriority.SelectedValue);
-    CreditCard.AccountNumber = paymentInstrumentId.Value;
-    CreditCard.SafeAccountNumber = tbCCNumber.Text;
+    CreditCard.AccountNumber = UsePaymentBroker == true ? paymentInstrumentId.Value : tbCCNumber.Text;
+    CreditCard.SafeAccountNumber = UsePaymentBroker == true ? tbCCNumber.Text : string.Empty;
     
     var client = new RecurringPaymentsServiceClient();
     try

@@ -232,6 +232,31 @@ namespace MetraTech.Quoting
 
         #region Internal
 
+        private void ValidateICBs(IEnumerable<IndividualPrice> icbs)
+        {
+            foreach (var icb in icbs)
+            {
+                switch (icb.CurrentChargeType)
+                {                                      
+                    case ChargeType.UDRCTapered:
+                        if ((icb.ChargesRates.First().UnitAmount == 0)&&
+                            (icb.ChargesRates.First().UnitValue == 0))
+                            throw new ArgumentException("Invalid ICBs");
+                        break;
+                    case ChargeType.UDRCTiered:
+                        if ((icb.ChargesRates.First().UnitAmount == 0) &&
+                            (icb.ChargesRates.First().UnitValue == 0) &&
+                            (icb.ChargesRates.First().BaseAmount == 0))
+                            throw new ArgumentException("Invalid ICBs");
+                        break;
+                    default:
+                        if (icb.ChargesRates.First().Price == 0)
+                            throw new ArgumentException("Invalid ICBs");
+                        break;
+                }
+            }           
+        }
+
         /// <summary>
         /// Method that validates/sanity checks the request and throws exceptions if there are errors
         /// </summary>
@@ -258,10 +283,7 @@ namespace MetraTech.Quoting
                 throw new ArgumentException("PO with id = 0 is invalid");
             }
 
-            if (request.IcbPrices.Any(i => (i.ChargesRates.First().BaseAmount == 0) && (i.ChargesRates.First().Price == 0)))
-            {
-                throw new ArgumentException("Invalid ICBs");
-            }
+            ValidateICBs(request.IcbPrices);
 
             if (request.SubscriptionParameters.UDRCValues.Any(i => i.Key == ""))
             {

@@ -2,6 +2,7 @@
 using System.ServiceModel;
 using MetraTech.ActivityServices.Common;
 using MetraTech.ActivityServices.Services.Common;
+using MetraTech.Basic.Exception;
 using MetraTech.Debug.Diagnostics;
 using MetraTech.Domain.Quoting;
 using MetraTech.Quoting;
@@ -109,18 +110,14 @@ namespace MetraTech.Core.Services
         {
             mLogger.LogException("Cannot retrieve data for quoting from system ", e);
             quoteResponse.Status=QuoteStatus.Failed;
-            quoteResponse.FailedMessage = e.Message;
-#warning Why MASBasicException is not thrwon in a Client?
-          //throw;
+            quoteResponse.FailedMessage = e.GetaAllMessages(); 
         }
 
         catch (Exception e)
         {
             mLogger.LogException("Error creating quote ", e);
             quoteResponse.Status = QuoteStatus.Failed;
-            quoteResponse.FailedMessage = e.Message;
-#warning Why MASBasicException is not thrwon in a Client?
-          //throw new MASBasicException("Error create quote: " + e.Message);
+            quoteResponse.FailedMessage = e.GetaAllMessages(); 
         }
       }
 

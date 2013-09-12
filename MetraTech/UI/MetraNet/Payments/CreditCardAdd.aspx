@@ -10,7 +10,9 @@
   <script language="javascript" type="text/javascript">
     function sendCardToPaymentBroker() {
       if (ValidateForm() == false) return false;
-      if (Boolean("<%=UsePaymentBroker%>") != true) { return true; }
+      if (Boolean("<%=UsePaymentBroker%>") != true) {
+        return true;
+      }
       // Collect information from user inputs.
       var serverAddress = "<%=PaymentBrokerAddress%>";
       var firstName = document.getElementById('<%=tbFirstName.ClientID%>').value;
@@ -32,26 +34,27 @@
       // Form a request string based on collected information.
       // Add random value as the last parameter to avoid caching in IE.
       var request = 'https://' + serverAddress + '/paymentmethod/creditcard?' +
-      'address1=' + escape(address1) +
-      '&address2=' + escape(address2) +
-      '&cardVerificationNumber=' + escape(verificationCode) +
-      '&city=' + escape(city) +
-      '&country=' + escape(country) +
-      '&creditCardNumber=' + escape(cardNumber) +
-      '&creditCardType=' + escape(type) +
-      '&expirationDate=' + escape(expirationMonth + '/' + expirationYear) +
-      '&email=' + escape(email) +
-      '&firstName=' + escape(firstName) +
-      '&lastName=' + escape(lastName) +
-      '&middleName=' + escape(middleInitial) +
-      '&postal=' + escape(zip) +
-      '&state=' + escape(state) +
-      '&random=' + Math.random();
+        'address1=' + escape(address1) +
+        '&address2=' + escape(address2) +
+        '&cardVerificationNumber=' + escape(verificationCode) +
+        '&city=' + escape(city) +
+        '&country=' + escape(country) +
+        '&creditCardNumber=' + escape(cardNumber) +
+        '&creditCardType=' + escape(type) +
+        '&expirationDate=' + escape(expirationMonth + '/' + expirationYear) +
+        '&email=' + escape(email) +
+        '&firstName=' + escape(firstName) +
+        '&lastName=' + escape(lastName) +
+        '&middleName=' + escape(middleInitial) +
+        '&postal=' + escape(zip) +
+        '&state=' + escape(state) +
+        '&random=' + Math.random();
 
       // Use JSONP pattern to communicate with payment broker.
       // See http://en.wikipedia.org/wiki/JSONP for more details.
       var head = document.getElementsByTagName('head')[0];
       removePreviousBrokerRequest(head);
+
       var script = document.createElement('script');
       script.setAttribute('src', request);
       script.addEventListener('error', completeErrorRequest);
@@ -59,36 +62,34 @@
       return false;
     }
 
-       // Removes from the document's header <script> element
-       // created during previous request to the payment broker
-       function removePreviousBrokerRequest(head) {
-         var scripts = head.getElementsByTagName("script");
-           for (var i = scripts.length; i >= 0; i--)
-               if (scripts[i] && scripts[i].getAttribute("src") != null && scripts[i].getAttribute("src").indexOf('/paymentmethod/creditcard?address1=') != -1) {
-                   head.removeChild(scripts[i]);
-                   break;
-               }
-       }
+    function removePreviousBrokerRequest(head) {
+      // Removes from the document's header <script> element
+      // created during previous request to the payment broker
+      var scripts = head.getElementsByTagName("script");
+      for (var i = scripts.length; i >= 0; i--)
+        if (scripts[i] && scripts[i].getAttribute("src") != null && scripts[i].getAttribute("src").indexOf('/paymentmethod/creditcard?address1=') != -1) {
+          head.removeChild(scripts[i]);
+          break;
+        }
+    }
 
-       // Handle errors which occur while requesting the payment broker.
-       function completeErrorRequest() {
-           document.getElementById('<%=tbCCNumber.ClientID%>').value = 'Error occurred';
-       }
+    function completeErrorRequest() {
+      // Handle errors which occur while requesting the payment broker.
+      document.getElementById('<%=tbCCNumber.ClientID%>').value = 'Error occurred';
+    }
 
-       // Process response from the payment broker.
-       function callback(obj) {
-           if (obj.ResponseType != 'Success') {
-               document.getElementById('<%=tbCCNumber.ClientID%>').value = 'Error occurred';
-           }
-           else {
-               document.getElementById('<%=tbCCSafeNumber.ClientID%>').value = "******" + document.getElementById('<%=tbCCNumber.ClientID%>').value.substr(12);//document.getElementById('<%=tbCCNumber.ClientID%>').length - 4);
-               document.getElementById('<%=tbCCNumber.ClientID%>').value = obj.ResponseValue;
-               document.getElementById('divSafeCC').style.display = 'none';
-               document.getElementById('divBtnOk').style.display = 'block';
-               
-           } 
-       }
-   </script>
+    function callback(obj) {
+      // Process response from the payment broker.
+      if (obj.ResponseType != 'Success') {
+        document.getElementById('<%=tbCCNumber.ClientID%>').value = 'Error occurred';
+      } else {
+        document.getElementById('<%=paymentInstrumentId.ClientID%>').value = obj.ResponseValue;
+        document.getElementById('<%=tbCCNumber.ClientID%>').value = "******" + document.getElementById('<%=tbCCNumber.ClientID%>').value.substr(12);
+        document.getElementById('divSafeCC').style.display = 'none';
+        document.getElementById('divBtnOk').style.display = 'block';
+      }
+    }
+  </script>
 
   <div style="width:810px">
     <!-- BILLING INFORMATION --> 
@@ -101,10 +102,6 @@
       TabIndex="10" ControlWidth="200" OptionalExtConfig="maxLength:24"
        HideLabel="False" LabelWidth="120"   VType="credit_card_number"
      meta:resourcekey="tbCCNumberResource1" ReadOnly="False" XTypeNameSpace="form"  />
-
-     <MT:MTTextBoxControl ID="tbCCSafeNumber" runat="server" AllowBlank="True" ControlWidth="200"
-      Label="CC safe #" TabIndex="90" ControlHeight="18" HideLabel="False" LabelWidth="120"  ReadOnly="true"
-      XType="TextField" XTypeNameSpace="form" />
     
     <MT:MTTextBoxControl ID="tbCVNNumber" runat="server" AllowBlank="False" Label="CVN Number"
       TabIndex="20" ControlWidth="50" OptionalExtConfig="maxLength:4"  ControlHeight="18" HideLabel="False" LabelWidth="120"    
@@ -190,6 +187,7 @@
     </div>
   </div>
   </div>
+  <asp:HiddenField ID="paymentInstrumentId" ClientIDMode="Static" runat="server" />
 
   <MT:MTDataBinder ID="MTDataBinder1" runat="server">
     <DataBindingItems>
@@ -197,11 +195,8 @@
         BindingSource="CreditCard" BindingSourceMember="CreditCardType" ControlId="ddCardType"
         ErrorMessageLocation="None">
       </MT:MTDataBindingItem>
-      <MT:MTDataBindingItem ID="MTDataBindingItem4" runat="server" BindingSource="CreditCard"
-        BindingSourceMember="AccountNumber" ControlId="tbCCNumber" ErrorMessageLocation="RedTextAndIconBelow">
-      </MT:MTDataBindingItem>
       <MT:MTDataBindingItem ID="MTDataBindingItem9" runat="server" BindingSource="CreditCard"
-        BindingSourceMember="SafeAccountNumber" ControlId="tbCCSafeNumber" ErrorMessageLocation="RedTextAndIconBelow">
+        BindingSourceMember="SafeAccountNumber" ControlId="tbCCNumber" ErrorMessageLocation="RedTextAndIconBelow">
       </MT:MTDataBindingItem>
       <MT:MTDataBindingItem runat="server" BindingSource="CreditCard" BindingSourceMember="FirstName"
         ControlId="tbFirstName" ErrorMessageLocation="RedTextAndIconBelow">

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 using System.ComponentModel.DataAnnotations;
 
@@ -14,14 +15,21 @@ namespace MetraTech.Domain.Quoting
     {
         [Required]
         [DataMember]
+        [NotMapped]
         public ChargeType CurrentChargeType { get; set; }
 
+        [Required]
         [DataMember]
+        public int ProductOfferingId { get; set; }
+
+        [Required]
+        [DataMember]
+        [NotMapped]
         public List<ChargesRate> ChargesRates { get; set; }
 
         public IndividualPrice()
         {
-                ChargesRates= new List<ChargesRate>();
+            ChargesRates= new List<ChargesRate>();
         }
     }
 

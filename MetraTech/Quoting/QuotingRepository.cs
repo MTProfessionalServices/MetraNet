@@ -238,22 +238,24 @@ namespace MetraTech.Quoting
             #endregion
 
             #region Save ICB prices
-
-              /*
+              
             using (var connection = ConnectionBase.GetDbConnection(new DataAccess.ConnectionInfo("NetMeter"), false))
             using (var dbContext = new MetraNetContext(connection))
             {
-              foreach (var price in quoteRequest.IcbPrices)
-              {
-                price.Id = Guid.NewGuid();
-                price.QuoteId = quoteHeader.QuoteID.GetValueOrDefault();
-                dbContext.QuoteIndividualPrices.Add(price);
-              }
-              dbContext.SaveChanges();
+                foreach (var price in quoteRequest.IcbPrices)
+                {
+                    var qip = new QuoteIndividualPrice();
+                    qip.Id = Guid.NewGuid();
+                    qip.QuoteId = quoteHeader.QuoteID.GetValueOrDefault();
+                    qip.ProductOfferingId = price.ProductOfferingId;
+                    qip.CurrentChargeType = price.CurrentChargeType;
+                    qip.ChargesRatesXml = price.ChargesRates.Serialize();
+                    dbContext.QuoteIndividualPrices.Add(qip);
+                }
+                dbContext.SaveChanges();
             }
-              */
 
-            #endregion
+              #endregion
 
             scope.Complete();
           }

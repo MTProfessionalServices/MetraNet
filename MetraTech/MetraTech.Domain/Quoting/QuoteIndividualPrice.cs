@@ -12,7 +12,7 @@ namespace MetraTech.Domain.Quoting
     /// The QuoteIndividualPrice class represents a ICB price in MetraNet.
     /// </summary>
     [DataContract(Namespace = "MetraTech.MetraNet")]
-    public class QuoteIndividualPrice
+    public class QuoteIndividualPrice : IndividualPrice
     {
         [Key]
         [Required]
@@ -22,28 +22,22 @@ namespace MetraTech.Domain.Quoting
         [Required]
         [DataMember]
         public int QuoteId { get; set; }
-
-        [Required]
-        [DataMember]
-        public int ProductOfferingId { get; set; }
-
-        [Required]
-        [DataMember]
-        public int PriceableItemInstanceId { get; set; }
-
-        [Required]
-        [DataMember]        
-        public int ParameterTableId { get; set; }
-
-        [NotMapped]
-        public List<BaseRateSchedule> RateSchedules { get; set; }
-
-        [Required]
-        [DataMember]
-        public string RateSchedulesXml
+        
+        public string CurrentChargeTypeString
         {
-            get { return RateSchedules == null ? null : RateSchedules.Serialize(); }
-            set { RateSchedules = string.IsNullOrEmpty(value) ? null : SerializationHelper.Deserialize<List<BaseRateSchedule>>(value); }
+            get { return CurrentChargeType.ToString(); }
+            set
+            {
+                ChargeType couponAmountType;
+                if (Enum.TryParse(value, true, out couponAmountType))
+                    CurrentChargeType = couponAmountType;
+            }
+        }
+        
+        public string ChargesRatesXml
+        {
+            get { return ChargesRates == null ? null : ChargesRates.Serialize(); }
+            set { ChargesRates = string.IsNullOrEmpty(value) ? null : SerializationHelper.Deserialize<List<ChargesRate>>(value); }
         }
     }
 

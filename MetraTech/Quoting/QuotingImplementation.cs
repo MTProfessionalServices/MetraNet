@@ -717,15 +717,15 @@ namespace MetraTech.Quoting
                 {
                     case MTPCEntityType.PCENTITY_TYPE_RECURRING:
                         icbPrices =
-                            CurrentRequest.IcbPrices.Where(i => i.CurrentChargeType == ChargeType.RecurringCharge).ToList();
+                            CurrentRequest.IcbPrices.Where(i => i.ProductOfferingId == productOfferingId && i.CurrentChargeType == ChargeType.RecurringCharge).ToList();
                         break;
                     case MTPCEntityType.PCENTITY_TYPE_RECURRING_UNIT_DEPENDENT:
                         icbPrices =
-                            CurrentRequest.IcbPrices.Where(i => i.CurrentChargeType == ChargeType.UDRCTapered).ToList();
+                            CurrentRequest.IcbPrices.Where(i => i.ProductOfferingId == productOfferingId && i.CurrentChargeType == ChargeType.UDRCTapered).ToList();
                         break;
                     case MTPCEntityType.PCENTITY_TYPE_NON_RECURRING:
                         icbPrices =
-                            CurrentRequest.IcbPrices.Where(i => i.CurrentChargeType == ChargeType.NonRecurringCharge).ToList();
+                            CurrentRequest.IcbPrices.Where(i => i.ProductOfferingId == productOfferingId && i.CurrentChargeType == ChargeType.NonRecurringCharge).ToList();
                         break;
                 }
 
@@ -746,7 +746,7 @@ namespace MetraTech.Quoting
                 {
                     if (pi.Kind == MTPCEntityType.PCENTITY_TYPE_RECURRING_UNIT_DEPENDENT)
                     {
-                        icbPrices = CurrentRequest.IcbPrices.Where(i => i.CurrentChargeType == ChargeType.UDRCTiered).ToList();
+                        icbPrices = CurrentRequest.IcbPrices.Where(i => i.ProductOfferingId == productOfferingId && i.CurrentChargeType == ChargeType.UDRCTiered).ToList();
 
                         rs = GetRateSchedules(icbPrices, out ptId);
 

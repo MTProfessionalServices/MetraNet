@@ -41,7 +41,7 @@ namespace MetraTech.Quoting
 
         private readonly List<MTSubscription> createdSubsciptions = new List<MTSubscription>();
         private readonly List<IMTGroupSubscription> createdGroupSubsciptions = new List<IMTGroupSubscription>();
-        
+
         private const string MetratechComFlatrecurringcharge = "metratech.com/flatrecurringcharge";
         private const string MetratechComUdrctapered = "metratech.com/udrctapered";
         private const string MetratechComNonrecurringcharge = "metratech.com/nonrecurringcharge";
@@ -144,9 +144,19 @@ namespace MetraTech.Quoting
 
                 try
                 {
-                    CurrentResponse.Status = QuoteStatus.InProgress;
-
                     ValidateRequest(quoteRequest);
+                }
+                catch (Exception ex)
+                {
+                    CurrentResponse.Status = QuoteStatus.Failed;
+                    CurrentResponse.FailedMessage = ex.GetaAllMessages();
+                    return CurrentResponse;
+                }
+
+
+                try
+                {
+                    CurrentResponse.Status = QuoteStatus.InProgress;
 
                     CurrentRequest = quoteRequest;
 
@@ -222,6 +232,31 @@ namespace MetraTech.Quoting
 
         #region Internal
 
+        private void ValidateICBs(IEnumerable<IndividualPrice> icbs)
+        {
+            foreach (var icb in icbs)
+            {
+                switch (icb.CurrentChargeType)
+                {                                      
+                    case ChargeType.UDRCTapered:
+                        if ((icb.ChargesRates.First().UnitAmount == 0)&&
+                            (icb.ChargesRates.First().UnitValue == 0))
+                            throw new ArgumentException("Invalid ICBs");
+                        break;
+                    case ChargeType.UDRCTiered:
+                        if ((icb.ChargesRates.First().UnitAmount == 0) &&
+                            (icb.ChargesRates.First().UnitValue == 0) &&
+                            (icb.ChargesRates.First().BaseAmount == 0))
+                            throw new ArgumentException("Invalid ICBs");
+                        break;
+                    default:
+                        if (icb.ChargesRates.First().Price == 0)
+                            throw new ArgumentException("Invalid ICBs");
+                        break;
+                }
+            }           
+        }
+
         /// <summary>
         /// Method that validates/sanity checks the request and throws exceptions if there are errors
         /// </summary>
@@ -236,6 +271,23 @@ namespace MetraTech.Quoting
             if (request.SubscriptionParameters.IsGroupSubscription && request.IcbPrices.Count > 0)
             {
                 throw new Exception("Current limitation of quoting: ICBs are applied only for individual subscriptions");
+            }
+
+            //0 values Request validation
+            if (request.Accounts.Contains(0))
+            {
+                throw new ArgumentException("Accounts with id = 0 is invalid");
+            }
+            if (request.ProductOfferings.Contains(0))
+            {
+                throw new ArgumentException("PO with id = 0 is invalid");
+            }
+
+            ValidateICBs(request.IcbPrices);
+
+            if (request.SubscriptionParameters.UDRCValues.Any(i => i.Key == ""))
+            {
+                throw new ArgumentException("Invalid UDRC metrics");
             }
 
 
@@ -763,13 +815,13 @@ namespace MetraTech.Quoting
                         throw ex;
                     }
                 }
-                
+
             }
         }
 
         private List<BaseRateSchedule> GetRateSchedules(List<IndividualPrice> icbPrices, out int ptId)
         {
-            
+
             ptId = 0;
 
             var rs = new List<BaseRateSchedule>();
@@ -972,7 +1024,7 @@ namespace MetraTech.Quoting
 
 
         /// <summary>
-        /// CleanUp quoters artifacts in case IsCleanupQuoteAutomaticaly = fales in <see cref=""/>
+        /// CleanUp quoters artifacts in case IsCleanupQuoteAutomaticaly = fales in 
         /// </summary>
         /// <param name="quoteArtefact">Sents data for cleaning up Quote Artefacts</param>
         public void Cleanup(QuoteResponseArtefacts quoteArtefact)

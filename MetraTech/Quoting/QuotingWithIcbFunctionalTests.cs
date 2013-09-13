@@ -171,6 +171,7 @@ namespace MetraTech.Quoting.Test
                 var qip = new IndividualPrice
                     {
                         CurrentChargeType = ChargeType.RecurringCharge,
+                        ProductOfferingId = idProductOfferingToQuoteFor,
                         ChargesRates = new List<ChargesRate> { chargeRate }
                     };
 
@@ -180,7 +181,11 @@ namespace MetraTech.Quoting.Test
             if (pofConfiguration.PriceableItemsAndParameterTableForUdrc != null &&
                 pofConfiguration.PriceableItemsAndParameterTableForUdrc.Count > 0)
             {
-                var qip = new IndividualPrice { CurrentChargeType = ChargeType.UDRCTapered };
+                var qip = new IndividualPrice
+                    {
+                        CurrentChargeType = ChargeType.UDRCTapered,
+                        ProductOfferingId = idProductOfferingToQuoteFor
+                    };
                 var chargeRates = new List<ChargesRate>
                     {
                         new ChargesRate {UnitValue = 15, UnitAmount = 16.6m},
@@ -193,6 +198,7 @@ namespace MetraTech.Quoting.Test
                 qip = new IndividualPrice
                     {
                         CurrentChargeType = ChargeType.UDRCTiered,
+                        ProductOfferingId = idProductOfferingToQuoteFor,
                         ChargesRates = new List<ChargesRate> { chargeRate }
                     };
 
@@ -202,12 +208,11 @@ namespace MetraTech.Quoting.Test
             if (pofConfiguration.PriceableItemsAndParameterTableForRc != null &&
                 pofConfiguration.PriceableItemsAndParameterTableForRc.Count > 0)
             {
-
-
                 var chargeRate = new ChargesRate { Price = 77.77m };
                 var qip = new IndividualPrice
                 {
                     CurrentChargeType = ChargeType.NonRecurringCharge,
+                    ProductOfferingId = idProductOfferingToQuoteFor,
                     ChargesRates = new List<ChargesRate> { chargeRate }
                 };
 
@@ -351,6 +356,7 @@ namespace MetraTech.Quoting.Test
                 var qip = new IndividualPrice
                 {
                     CurrentChargeType = ChargeType.RecurringCharge,
+                    ProductOfferingId = idProductOfferingToQuoteFor,
                     ChargesRates = new List<ChargesRate> { chargeRate }
                 };
 
@@ -360,7 +366,11 @@ namespace MetraTech.Quoting.Test
             if (pofConfiguration.PriceableItemsAndParameterTableForUdrc != null &&
                 pofConfiguration.PriceableItemsAndParameterTableForUdrc.Count > 0)
             {
-                var qip = new IndividualPrice { CurrentChargeType = ChargeType.UDRCTapered };
+                var qip = new IndividualPrice
+                {
+                    CurrentChargeType = ChargeType.UDRCTapered,
+                    ProductOfferingId = idProductOfferingToQuoteFor,
+                };
                 var chargeRates = new List<ChargesRate>
                     {
                         new ChargesRate {UnitValue = 15, UnitAmount = 16.6m},
@@ -373,6 +383,7 @@ namespace MetraTech.Quoting.Test
                 qip = new IndividualPrice
                 {
                     CurrentChargeType = ChargeType.UDRCTiered,
+                    ProductOfferingId = idProductOfferingToQuoteFor,
                     ChargesRates = new List<ChargesRate> { chargeRate }
                 };
 
@@ -388,6 +399,7 @@ namespace MetraTech.Quoting.Test
                 var qip = new IndividualPrice
                 {
                     CurrentChargeType = ChargeType.NonRecurringCharge,
+                    ProductOfferingId = idProductOfferingToQuoteFor,
                     ChargesRates = new List<ChargesRate> { chargeRate }
                 };
 
@@ -522,6 +534,7 @@ namespace MetraTech.Quoting.Test
                 var chargeRate = new ChargesRate { Price = 66.66m };
                 var qip = new IndividualPrice
                 {
+                    ProductOfferingId = idProductOfferingToQuoteFor1,
                     CurrentChargeType = ChargeType.RecurringCharge,
                     ChargesRates = new List<ChargesRate> { chargeRate }
                 };
@@ -567,6 +580,7 @@ namespace MetraTech.Quoting.Test
                 var chargeRate = new ChargesRate { Price = 66.66m };
                 var qip = new IndividualPrice
                 {
+                    ProductOfferingId = idProductOfferingToQuoteFor2,
                     CurrentChargeType = ChargeType.RecurringCharge,
                     ChargesRates = new List<ChargesRate> { chargeRate }
                 };
@@ -797,13 +811,16 @@ namespace MetraTech.Quoting.Test
 
             #region Initialize ICB prices
 
-
             request.IcbPrices = new List<IndividualPrice>();
 
             if (pofConfiguration.PriceableItemsAndParameterTableForUdrc != null &&
                 pofConfiguration.PriceableItemsAndParameterTableForUdrc.Count > 0)
             {
-                var qip = new IndividualPrice { CurrentChargeType = ChargeType.UDRCTapered };
+                var qip = new IndividualPrice
+                    {
+                        CurrentChargeType = ChargeType.UDRCTapered,
+                        ProductOfferingId = idProductOfferingToQuoteFor1
+                    };
                 var chargeRates = new List<ChargesRate>
                     {
                         new ChargesRate {UnitValue = 30, UnitAmount = 55.5m},
@@ -815,6 +832,7 @@ namespace MetraTech.Quoting.Test
                 qip = new IndividualPrice
                 {
                     CurrentChargeType = ChargeType.UDRCTiered,
+                    ProductOfferingId = idProductOfferingToQuoteFor1,
                     ChargesRates = new List<ChargesRate> { chargeRate }
                 };
 
@@ -990,6 +1008,7 @@ namespace MetraTech.Quoting.Test
                 var qip = new IndividualPrice
                 {
                     CurrentChargeType = ChargeType.RecurringCharge,
+                    ProductOfferingId = idProductOfferingToQuoteFor,
                     ChargesRates = new List<ChargesRate> { chargeRate }
                 };
 
@@ -999,7 +1018,11 @@ namespace MetraTech.Quoting.Test
             if (pofConfiguration.PriceableItemsAndParameterTableForUdrc != null &&
                 pofConfiguration.PriceableItemsAndParameterTableForUdrc.Count > 0)
             {
-                var qip = new IndividualPrice { CurrentChargeType = ChargeType.UDRCTapered };
+                var qip = new IndividualPrice
+                {
+                    CurrentChargeType = ChargeType.UDRCTapered,
+                    ProductOfferingId = idProductOfferingToQuoteFor
+                };
                 var chargeRates = new List<ChargesRate>
                     {
                         new ChargesRate {UnitValue = 15, UnitAmount = 16.6m},
@@ -1012,6 +1035,7 @@ namespace MetraTech.Quoting.Test
                 qip = new IndividualPrice
                 {
                     CurrentChargeType = ChargeType.UDRCTiered,
+                    ProductOfferingId = idProductOfferingToQuoteFor,
                     ChargesRates = new List<ChargesRate> { chargeRate }
                 };
 
@@ -1027,6 +1051,7 @@ namespace MetraTech.Quoting.Test
                 var qip = new IndividualPrice
                 {
                     CurrentChargeType = ChargeType.NonRecurringCharge,
+                    ProductOfferingId = idProductOfferingToQuoteFor,
                     ChargesRates = new List<ChargesRate> { chargeRate }
                 };
 

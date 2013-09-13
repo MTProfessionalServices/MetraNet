@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Collections.Generic;
 using MetraTech.DataAccess;
@@ -153,7 +154,7 @@ namespace MetraTech.Quoting.Test
       #endregion
     }
 
-    [TestMethod]
+    //[TestMethod]
     public void QuotingWithMultipleProductOfferings()
     {
       #region Prepare
@@ -221,7 +222,7 @@ namespace MetraTech.Quoting.Test
       #endregion
     }
 
-    [TestMethod]
+    //[TestMethod]
     public void QuotingWithMultipleAccounts()
     {
       #region Prepare
@@ -1011,10 +1012,9 @@ namespace MetraTech.Quoting.Test
                                                                                 expectedQuoteUDRCsCount);
 
       var createdGroupSubsciptions = new List<IMTGroupSubscription>();
-
+      //create group subscription
       try
-      {
-        //Create quote subscriptions as subscriptions
+      {        
         var effectiveDate = new MTPCTimeSpanClass
           {
             StartDate = request.EffectiveDate,
@@ -1041,49 +1041,39 @@ namespace MetraTech.Quoting.Test
         mtGroupSubscription.CorporateAccount = request.SubscriptionParameters.CorporateAccountId;
         mtGroupSubscription.Cycle = groupSubscriptionCycle;
 
-        const int FLAT_RC_TYPE_ID = 214;
-        const int FLAT_UDRC_TYPE_ID = 245;
-
-        foreach (
-          MTPriceableItem pi in
-            SharedTestCode.CurrentProductCatalog.GetProductOffering(idProductOfferingToQuoteFor)
-                          .GetPriceableItemsOfType(FLAT_RC_TYPE_ID))
+        foreach (MTPriceableItem pi in SharedTestCode.CurrentProductCatalog.GetProductOffering(idProductOfferingToQuoteFor).GetPriceableItems())
         {
-          mtGroupSubscription.SetChargeAccount(pi.ID, request.SubscriptionParameters.CorporateAccountId,
-                                               request.EffectiveDate, request.EffectiveEndDate);
-        }
-
-        foreach (
-          MTPriceableItem pi in
-            SharedTestCode.CurrentProductCatalog.GetProductOffering(idProductOfferingToQuoteFor)
-                          .GetPriceableItemsOfType(FLAT_UDRC_TYPE_ID))
-        {
-          mtGroupSubscription.SetChargeAccount(pi.ID, request.SubscriptionParameters.CorporateAccountId,
-                                               request.EffectiveDate, request.EffectiveEndDate);
-
-          //Update UDRC values
-          // Set recurring charge unit values
-          if (request.SubscriptionParameters.UDRCValues.ContainsKey(idProductOfferingToQuoteFor.ToString()))
+          switch (pi.Kind)
           {
-            foreach (
-              var udrcInstanceValue in request.SubscriptionParameters.UDRCValues[idProductOfferingToQuoteFor.ToString()]
-              )
-            {
-              mtGroupSubscription.SetRecurringChargeUnitValue(udrcInstanceValue.UDRC_Id,
-                                                              udrcInstanceValue.Value,
-                                                              udrcInstanceValue.StartDate,
-                                                              udrcInstanceValue.EndDate);
-            }
+            case MTPCEntityType.PCENTITY_TYPE_RECURRING:
+              mtGroupSubscription.SetChargeAccount(pi.ID, request.SubscriptionParameters.CorporateAccountId,
+                                                   request.EffectiveDate, request.EffectiveEndDate);
+              break;
+            case MTPCEntityType.PCENTITY_TYPE_RECURRING_UNIT_DEPENDENT:
+              {
+                mtGroupSubscription.SetChargeAccount(pi.ID, request.SubscriptionParameters.CorporateAccountId,
+                                                     request.EffectiveDate, request.EffectiveEndDate);
+
+
+                if (request.SubscriptionParameters.UDRCValues.ContainsKey(idProductOfferingToQuoteFor.ToString()))
+                {
+                  foreach (var udrcInstanceValue in request.SubscriptionParameters.UDRCValues[idProductOfferingToQuoteFor.ToString()])
+                  {
+                    mtGroupSubscription.SetRecurringChargeUnitValue(udrcInstanceValue.UDRC_Id,
+                                                                    udrcInstanceValue.Value,
+                                                                    udrcInstanceValue.StartDate,
+                                                                    udrcInstanceValue.EndDate);
+                  }
+                }
+                break;
+              }
           }
-        }
+        }        
 
         mtGroupSubscription.Save();
-        createdGroupSubsciptions.Add(mtGroupSubscription);
+        //createdGroupSubsciptions.Add(mtGroupSubscription);
 
         MTGSubMember mtGsubMember = null;
-
-        MetraTech.Interop.MTProductCatalog.IMTCollection mtCollection =
-          new MTCollection() as MetraTech.Interop.MTProductCatalog.IMTCollection;
 
         foreach (int idAccount in request.Accounts)
         {
@@ -1092,36 +1082,8 @@ namespace MetraTech.Quoting.Test
           mtGsubMember.StartDate = request.EffectiveDate;
           mtGsubMember.EndDate = request.EffectiveEndDate;
 
-          mtCollection.Add(mtGsubMember);
+          mtGroupSubscription.AddAccount(mtGsubMember);
         }
-
-        bool modified;
-        MetraTech.Interop.MTProductCatalog.IMTRowSet errorRowset =
-          mtGroupSubscription.AddAccountBatch(mtCollection, null, out modified, null);
-
-        #region Handle exception from AddAccountBatch
-
-        if (errorRowset.RecordCount > 0)
-        {
-          StringBuilder errorString = new StringBuilder();
-          string curError = "Error adding group subscription members";
-          errorString.Append(curError + System.Environment.NewLine);
-
-          while (!System.Convert.ToBoolean(errorRowset.EOF))
-          {
-            curError = "Account " +
-                       ((int) errorRowset.get_Value("id_acc")).ToString() +
-                       ": " +
-                       (string) errorRowset.get_Value("description");
-
-            errorString.Append(curError + System.Environment.NewLine);
-
-            errorRowset.MoveNext();
-          }
-          errorRowset.MoveFirst();
-        }
-
-        #endregion
 
         mtGroupSubscription.Save();
         createdGroupSubsciptions.Add(mtGroupSubscription);

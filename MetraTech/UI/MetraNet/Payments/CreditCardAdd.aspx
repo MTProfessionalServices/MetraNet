@@ -57,7 +57,11 @@
 
       var script = document.createElement('script');
       script.setAttribute('src', request);
-      script.addEventListener('error', completeErrorRequest);
+      if (script.addEventListener)
+        script.addEventListener('error', completeErrorRequest);
+      else if (script.attachEvent) {
+        script.attachEvent('error', completeErrorRequest); // for support IE7
+      }
       head.appendChild(script);
       return false;
     }
@@ -89,9 +93,9 @@
           var encryptedNumber = '';
           for (var i = 0; i < number.length - 4; i++)
             encryptedNumber += '*';
-          document.getElementById('<%=tbCCNumber.ClientID%>').value = encryptedNumber + number.substr(-4);
+          document.getElementById('<%=tbCCNumber.ClientID%>').value = encryptedNumber + number.substr(number.length - 4, number.length - 4); // for support IE7
         }
-        document.getElementById('<%=tbCCNumber.ClientID%>').setAttribute('readonly', 'true');
+        document.getElementById('<%=tbCCNumber.ClientID%>').setAttribute('readOnly', 'true'); // readOnly - for support IE7
         document.getElementById('divSafeCC').style.display = 'none';
         document.getElementById('divBtnOk').style.display = 'block';
       }

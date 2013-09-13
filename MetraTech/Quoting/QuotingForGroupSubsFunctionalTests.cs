@@ -57,12 +57,6 @@ namespace MetraTech.Quoting.Test
       QuotingGroupSbsCorpAccount_diffBillingCycle("Monthly");
     }
 
-    [TestMethod] //#5
-    public void QuotingCorpSemiMonthlyAccount()
-    {
-      QuotingGroupSbsCorpAccount_diffBillingCycle("Semi_monthly");
-    }
-
     [TestMethod] //#8
     public void QuotingCorpDailyAccount()
     {
@@ -272,6 +266,12 @@ namespace MetraTech.Quoting.Test
     public void QuotingCorpWeeklyAccount()
     {
       QuotingGroupSbsCorpAccount_diffBillingCycle("Weekly");
+    }
+
+   // [TestMethod] //#5
+    public void QuotingCorpSemiMonthlyAccount()
+    {
+      QuotingGroupSbsCorpAccount_diffBillingCycle("Semi_monthly");
     }
 
     #region EOP

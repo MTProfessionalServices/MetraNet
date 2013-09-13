@@ -125,35 +125,35 @@ public partial class Payments_CreditCardAdd : MTPage
 
   protected void btnOK_Click(object sender, EventArgs e)
   {
-
-    if (!this.MTDataBinder1.Unbind())
+    if (!MTDataBinder1.Unbind())
     {
-      this.Logger.LogError(this.MTDataBinder1.BindingErrors.ToHtml());
+      Logger.LogError(MTDataBinder1.BindingErrors.ToHtml());
     }
     CreditCard.ExpirationDate = ddExpMonth.SelectedValue + "/" + ddExpYear.SelectedValue;
     CreditCard.ExpirationDateFormat = MTExpDateFormat.MT_MM_slash_YYYY;
     CreditCard.Priority = Int32.Parse(ddPriority.SelectedValue);
-    CreditCard.AccountNumber = tbCCNumber.Text;
-    CreditCard.SafeAccountNumber = tbCCSafeNumber.Text;
+    CreditCard.AccountNumber = UsePaymentBroker == true ? paymentInstrumentId.Value : tbCCNumber.Text;
+    CreditCard.SafeAccountNumber = UsePaymentBroker == true ? tbCCNumber.Text : string.Empty;
     
-    RecurringPaymentsServiceClient client = null;
+    var client = new RecurringPaymentsServiceClient();
     try
     {
-      client = new RecurringPaymentsServiceClient();
+      if (client.ClientCredentials != null)
+      {
+        client.ClientCredentials.UserName.UserName = UI.User.UserName;
+        client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+      }
 
-      client.ClientCredentials.UserName.UserName = UI.User.UserName;
-      client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
-
-      AccountIdentifier acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
-      Guid paymentInstrumentID;
-      client.AddPaymentMethod(acct, CreditCard, out paymentInstrumentID);
+      var acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
+      Guid instrumentId;
+      client.AddPaymentMethod(acct, CreditCard, out instrumentId);
       Response.Redirect("CreditCardList.aspx", false);
       client.Close();
     }
     catch (Exception ex)
     {
       SetError(Resources.ErrorMessages.ERROR_CC_ADD);
-      this.Logger.LogError(ex.Message);
+      Logger.LogError(ex.Message);
       client.Abort();
     }
   }

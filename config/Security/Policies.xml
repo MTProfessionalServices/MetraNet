@@ -5,10 +5,10 @@
 <subscriberassignable>n</subscriberassignable>
 <policies>
 <policy type="a">
-<compositecapabilities>
-  <compositecapability name="Unlimited Capability" guid="">
-  </compositecapability>
-</compositecapabilities>
+<cs>
+  <c name="Unlimited Capability" guid="">
+  </c>
+</cs>
 </policy>
 </policies>
 </principal>
@@ -19,15 +19,15 @@
 <subscriberassignable>n</subscriberassignable>
 <policies>
 <policy type="a">
-<compositecapabilities>
-  <compositecapability name="Application LogOn" guid="">
-  <atomiccapabilities>
-      <mtenumtypecapability>
-        <value>MCM</value>
-      </mtenumtypecapability>
-    </atomiccapabilities>
-  </compositecapability>
-</compositecapabilities>
+<cs>
+  <c name="Application LogOn" guid="">
+  <as>
+      <ec>
+        <v>MCM</v>
+      </ec>
+    </as>
+  </c>
+</cs>
 </policy>
 </policies>
 </principal>
@@ -39,17 +39,17 @@
 <subscriberassignable>n</subscriberassignable>
 <policies>
 <policy type="a">
-<compositecapabilities>
-  <compositecapability name="Application LogOn" guid="">
-  <atomiccapabilities>
-      <mtenumtypecapability>
-        <value>MOM</value>
-      </mtenumtypecapability>
-    </atomiccapabilities>
-  </compositecapability>
-  <compositecapability name="Update Failed Transactions" guid="">
-  </compositecapability>
-</compositecapabilities>
+<cs>
+  <c name="Application LogOn" guid="">
+  <as>
+      <ec>
+        <v>MOM</v>
+      </ec>
+    </as>
+  </c>
+  <c name="Update Failed Transactions" guid="">
+  </c>
+</cs>
 </policy>
 </policies>
 </principal>
@@ -61,41 +61,41 @@
 <subscriberassignable>y</subscriberassignable>
 <policies>
 <policy type="a">
-<compositecapabilities>
-  <compositecapability name="Application LogOn" guid="">
-  <atomiccapabilities>
-      <mtenumtypecapability>
-        <value>MPS</value>
-      </mtenumtypecapability>
-    </atomiccapabilities>
-  </compositecapability>
+<cs>
+  <c name="Application LogOn" guid="">
+  <as>
+      <ec>
+        <v>MPS</v>
+      </ec>
+    </as>
+  </c>
 
-  <compositecapability name="Create Subscription" guid="">
-  </compositecapability>
-  <compositecapability name="Update Corporate Accounts" guid="">
-  </compositecapability>
-  <compositecapability name="Update subscriber accounts" guid="">
-  </compositecapability>
+  <c name="Create Subscription" guid="">
+  </c>
+  <c name="Update Corporate Accounts" guid="">
+  </c>
+  <c name="Update subscriber accounts" guid="">
+  </c>
 
-  <compositecapability name="View Subscriptions" guid="">
-  </compositecapability>
+  <c name="View Subscriptions" guid="">
+  </c>
 
-  <compositecapability name="Write Business Modeling Entities" guid="">
-  <atomiccapabilities>
-      <mtenumtypecapability>
-        <value>Core</value>
-      </mtenumtypecapability>
-    </atomiccapabilities>
-  </compositecapability>
+  <c name="Write Business Modeling Entities" guid="">
+  <as>
+      <ec>
+        <v>Core</v>
+      </ec>
+    </as>
+  </c>
 
-  <compositecapability name="Read Business Modeling Entities" guid="">
-  <atomiccapabilities>
-      <mtenumtypecapability>
-        <value>Core</value>
-      </mtenumtypecapability>
-    </atomiccapabilities>
-  </compositecapability>
-</compositecapabilities>
+  <c name="Read Business Modeling Entities" guid="">
+  <as>
+      <ec>
+        <v>Core</v>
+      </ec>
+    </as>
+  </c>
+</cs>
 </policy>
 </policies>
 </principal>
@@ -107,32 +107,32 @@
 <subscriberassignable>n</subscriberassignable>
 <policies>
 <policy type="a">
-<compositecapabilities>
-  <compositecapability name="Application LogOn" guid="">
-  <atomiccapabilities>
-      <mtenumtypecapability>
-        <value>MAM</value>
-      </mtenumtypecapability>
-    </atomiccapabilities>
-  </compositecapability>
-  <compositecapability name="View Online Bill" guid="">
-  </compositecapability>
-  <compositecapability name="Manage Owned Accounts" guid="">
-    <atomiccapabilities>
-      <mtenumtypecapability>
-        <value>Write</value>
-      </mtenumtypecapability>
-      <mtpathcapability>
-        <wildcard>*</wildcard>
-        <value>/</value>
-      </mtpathcapability>      
-    </atomiccapabilities>  
-  </compositecapability>
-  <compositecapability name="View Subscriptions" guid="">
-  </compositecapability>
-  <compositecapability name="View Group Subscriptions" guid="">
-  </compositecapability>  
-</compositecapabilities>
+<cs>
+  <c name="Application LogOn" guid="">
+  <as>
+      <ec>
+        <v>MAM</v>
+      </ec>
+    </as>
+  </c>
+  <c name="View Online Bill" guid="">
+  </c>
+  <c name="Manage Owned Accounts" guid="">
+    <as>
+      <ec>
+        <v>Write</v>
+      </ec>
+      <pc>
+        <wc>*</wc>
+        <v>/</v>
+      </pc>      
+    </as>  
+  </c>
+  <c name="View Subscriptions" guid="">
+  </c>
+  <c name="View Group Subscriptions" guid="">
+  </c>  
+</cs>
 </policy>
 </policies>
 </principal>
@@ -144,17 +144,17 @@
 <subscriberassignable>n</subscriberassignable>
 <policies>
 <policy type="a">
-<compositecapabilities>
-  <compositecapability name="Application LogOn" guid="">
-  <atomiccapabilities>
-      <mtenumtypecapability>
-        <value>MAM</value>
-      </mtenumtypecapability>
-    </atomiccapabilities>
-  </compositecapability>
-	<compositecapability name="Impersonation" guid="">
-	</compositecapability>
-</compositecapabilities>
+<cs>
+  <c name="Application LogOn" guid="">
+  <as>
+      <ec>
+        <v>MAM</v>
+      </ec>
+    </as>
+  </c>
+	<c name="Impersonation" guid="">
+	</c>
+</cs>
 </policy>
 </policies>
 </principal>
@@ -166,28 +166,28 @@
 <subscriberassignable>n</subscriberassignable>
 <policies>
 <policy type="a">
-<compositecapabilities>
-  <compositecapability name="Application LogOn" guid="">
-  <atomiccapabilities>
-      <mtenumtypecapability>
-        <value>MAM</value>
-      </mtenumtypecapability>
-    </atomiccapabilities>
-  </compositecapability>
-  <compositecapability name="Apply Adjustments" guid="">
-  <atomiccapabilities>
-      <mtdecimalcapability>
+<cs>
+  <c name="Application LogOn" guid="">
+  <as>
+      <ec>
+        <v>MAM</v>
+      </ec>
+    </as>
+  </c>
+  <c name="Apply Adjustments" guid="">
+  <as>
+      <dc>
         <op><![CDATA[<=]]></op>
-        <value>100.00</value>
-      </mtdecimalcapability>
-      <mtenumtypecapability>
-        <value>USD</value>
-      </mtenumtypecapability>
-    </atomiccapabilities>
-  </compositecapability>
-	<compositecapability name="Impersonation" guid="">
-	</compositecapability>
-</compositecapabilities>
+        <v>100.00</v>
+      </dc>
+      <ec>
+        <v>USD</v>
+      </ec>
+    </as>
+  </c>
+	<c name="Impersonation" guid="">
+	</c>
+</cs>
 </policy>
 </policies>
 </principal>
@@ -199,19 +199,19 @@
 <subscriberassignable>n</subscriberassignable>
 <policies>
 <policy type="a">
-<compositecapabilities>
-  <compositecapability name="Application LogOn" guid="">
-  <atomiccapabilities>
-      <mtenumtypecapability>
-        <value>MAM</value>
-      </mtenumtypecapability>
-    </atomiccapabilities>
-  </compositecapability>
-  <compositecapability name="Manage Adjustments" guid="">
-  </compositecapability>
-	<compositecapability name="Impersonation" guid="">
-	</compositecapability>
-</compositecapabilities>
+<cs>
+  <c name="Application LogOn" guid="">
+  <as>
+      <ec>
+        <v>MAM</v>
+      </ec>
+    </as>
+  </c>
+  <c name="Manage Adjustments" guid="">
+  </c>
+	<c name="Impersonation" guid="">
+	</c>
+</cs>
 </policy>
 </policies>
 </principal>
@@ -219,9 +219,9 @@
 <principal type="account" name = "demo" namespace = "mt">
 <policies>
 <policy type="a">
- <roles>
-  <role name="Subscriber (MetraView)" guid=""/>
- </roles>
+ <rs>
+  <r name="Subscriber (MetraView)" guid=""/>
+ </rs>
 	</policy>
 </policies>
 </principal>
@@ -229,13 +229,13 @@
 <principal type="account" name = "MetraViewAdmin" namespace = "mt">
   <policies>
     <policy type="a">
-     <roles>
-      <role name="Subscriber (MetraView)" guid=""/>
-     </roles>
-     <compositecapabilities> 
-       <compositecapability name="MetraView Admin" guid="">
-      </compositecapability>
-     </compositecapabilities>  
+     <rs>
+      <r name="Subscriber (MetraView)" guid=""/>
+     </rs>
+     <cs> 
+       <c name="MetraView Admin" guid="">
+      </c>
+     </cs>  
     </policy>
   </policies>
 </principal>
@@ -243,9 +243,9 @@
 <principal type="account" name = "Admin" namespace = "system_user">
 <policies>
 <policy type="a">
- <roles>
-  <role name="Super User" guid=""/>
- </roles>
+ <rs>
+  <r name="Super User" guid=""/>
+ </rs>
 	</policy>
 </policies>
 </principal>
@@ -253,20 +253,20 @@
 <principal type="account" name = "csr1" namespace = "system_user">
 <policies>
 <policy type="a">
-<compositecapabilities>
-  <compositecapability name="Application LogOn" guid="">
-    <atomiccapabilities>
-      <mtenumtypecapability>
-        <value>MAM</value>
-      </mtenumtypecapability>
-    </atomiccapabilities>
-  </compositecapability>
-	<compositecapability name="Impersonation" guid="">
-	</compositecapability>
-</compositecapabilities>
-<roles>
-      <role name="CSR (MetraCare)" guid=""/>
-</roles>
+<cs>
+  <c name="Application LogOn" guid="">
+    <as>
+      <ec>
+        <v>MAM</v>
+      </ec>
+    </as>
+  </c>
+	<c name="Impersonation" guid="">
+	</c>
+</cs>
+<rs>
+      <r name="CSR (MetraCare)" guid=""/>
+</rs>
 </policy>
 </policies>
 </principal>
@@ -274,15 +274,15 @@
 <principal type="account" name = "ops" namespace = "system_user">
 <policies>
 <policy type="a">
-<compositecapabilities>
-  <compositecapability name="Application LogOn" guid="">
-    <atomiccapabilities>
-      <mtenumtypecapability>
-        <value>MOM</value>
-      </mtenumtypecapability>
-    </atomiccapabilities>
-  </compositecapability>
- </compositecapabilities>
+<cs>
+  <c name="Application LogOn" guid="">
+    <as>
+      <ec>
+        <v>MOM</v>
+      </ec>
+    </as>
+  </c>
+ </cs>
 </policy>
 </policies>
 </principal>
@@ -290,15 +290,15 @@
 <principal type="account" name = "mcm1" namespace = "system_user">
 <policies>
 <policy type="a">
-<compositecapabilities>
-  <compositecapability name="Application LogOn" guid="">
-    <atomiccapabilities>
-      <mtenumtypecapability>
-        <value>MCM</value>
-      </mtenumtypecapability>
-    </atomiccapabilities>
-  </compositecapability>
-</compositecapabilities>
+<cs>
+  <c name="Application LogOn" guid="">
+    <as>
+      <ec>
+        <v>MCM</v>
+      </ec>
+    </as>
+  </c>
+</cs>
 </policy>
 </policies>
 </principal>
@@ -312,9 +312,9 @@
 <principal type="account" name = "csr_folder">
 <policies>
   <policy type="d">
-    <roles>
-      <role name="CSR (MetraCare)" guid=""/>
-    </roles>
+    <rs>
+      <r name="CSR (MetraCare)" guid=""/>
+    </rs>
   </policy>
 </policies>
 </principal>
@@ -323,9 +323,9 @@
 <principal type="account" name = "mcm_folder">
 <policies>
   <policy type="d">
-    <roles>
-      <role name="Product Administrator (MetraOffer)" guid=""/>
-    </roles>
+    <rs>
+      <r name="Product Administrator (MetraOffer)" guid=""/>
+    </rs>
   </policy>
 </policies>
 </principal>
@@ -335,9 +335,9 @@
 <principal type="account" name = "mps_folder">
 <policies>
   <policy type="d">
-    <roles>
-      <role name="Subscriber (MetraView)" guid=""/>
-    </roles>
+    <rs>
+      <r name="Subscriber (MetraView)" guid=""/>
+    </rs>
   </policy>
 </policies>
 </principal>
@@ -345,9 +345,9 @@
 <principal type="account" name = "mom_folder">
 <policies>
   <policy type="d">
-    <roles>
-      <role name="Operations Staff (MetraControl)" guid=""/>
-    </roles>
+    <rs>
+      <r name="Operations Staff (MetraControl)" guid=""/>
+    </rs>
   </policy>
 </policies>
 </principal>

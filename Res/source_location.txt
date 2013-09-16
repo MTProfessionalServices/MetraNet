@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 ..\..\Extensions\Legacy_Internal\Source\MetraTech\UI\Res
-=======
-..\..\..\Source\MetraTech\UI\Res
->>>>>>> a515e0e3c66f6a63d8b201787070cab6fb068202

@@ -1,3 +1,4 @@
+using MetraTech.TestCommon;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
 
@@ -9,7 +10,7 @@ namespace MetraTech.Quoting.Test
 
     #region tests
     
-    [TestMethod]
+    [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
     public void WriteConfigurationToFile()
     {
       #region Prepare
@@ -73,7 +74,7 @@ namespace MetraTech.Quoting.Test
       #endregion
     }
 
-    [TestMethod]
+    [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
     public void LoadConfigurationFromFile()
     {
       var loadedConfiguration = QuotingConfigurationManager.LoadConfigurationFromDefaultSystemLocation();

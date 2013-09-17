@@ -232,6 +232,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationTests.cs" />
+    <Compile Include="Domain\QuoteVerifyData.cs" />
+    <Compile Include="Domain\QuoteImplementationData.cs" />
     <Compile Include="QuotingEOPFunctionalTests.cs" />
     <Compile Include="QuotingForGroupSubsFunctionalTests.cs" />
     <Compile Include="QuotingWithIcbFunctionalTests.cs" />
@@ -271,6 +273,10 @@
       <Project>{C9D05D42-B0FB-47FE-8E00-FBB99AFB3EC3}</Project>
       <Name>MetraTech.Domain.Test</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="$(ROOTDIR)\MetraTech\TestCommon\MetraTech.TestCommon.csproj">
+      <Project>{20307E5D-BFC9-4F27-9ECC-A61EE854E8B5}</Project>
+      <Name>MetraTech.TestCommon</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

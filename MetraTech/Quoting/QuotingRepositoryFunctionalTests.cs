@@ -8,6 +8,7 @@ using MetraTech.Domain.Test.Quoting;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.Interop.MTProductCatalog;
+using MetraTech.TestCommon;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MetraTech.Shared.Test;
 
@@ -16,8 +17,6 @@ namespace MetraTech.Quoting.Test
   [TestClass]
   public class QuotingRepositoryFunctionalTests
   {
-    private const string FunctionalTestCategory = "FunctionalTest";
-
     #region Setup/Teardown
 
     [ClassInitialize]
@@ -31,8 +30,7 @@ namespace MetraTech.Quoting.Test
     /// <summary>
     /// Test check whether QuoteHeader and QuoteContent saved in db based on  QuoteRequest and QuoteResponse
     /// </summary>
-    [TestMethod]
-    [TestCategory(FunctionalTestCategory)]
+    [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
     public void QuotingRepositorySaveBMEsFunctionalTest()
     {
       #region prepare QuoteRequest
@@ -149,8 +147,7 @@ namespace MetraTech.Quoting.Test
 
     }
 
-    [TestMethod]
-    [TestCategory(FunctionalTestCategory)]
+    [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
     public void QuotingRepositorySaveLogRecordsFunctionalTests()
     {
       var repository = new QuotingRepository();
@@ -167,9 +164,8 @@ namespace MetraTech.Quoting.Test
       Assert.AreEqual(initialRecordsCount + 2, currentRecordsCount);
     }
 
-      
-    [TestMethod]
-    [TestCategory(FunctionalTestCategory)]
+
+   [TestMethod, MTFunctionalTest(TestAreas.Quoting), Ignore]
     public void QuotingRepositorySaveIcbPricesPositiveTest()
     {
       // Prepare product offering

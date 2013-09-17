@@ -9,6 +9,7 @@ using MetraTech.Core.Services.ClientProxies;
 using MetraTech.DataAccess;
 using MetraTech.Domain.Quoting;
 using MetraTech.DomainModel.BaseTypes;
+using MetraTech.TestCommon;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MetraTech.Interop.MTProductCatalog;
 using MetraTech.Shared.Test;
@@ -30,8 +31,7 @@ namespace MetraTech.Quoting.Test
         }
 
         #endregion
-
-        [TestMethod]
+        [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
         public void QuotingActivityServiceCreateQuote_BasicScenario_QuoteCreated()
         {
             #region Prepare
@@ -109,7 +109,7 @@ namespace MetraTech.Quoting.Test
             #endregion
         }
 
-        [TestMethod]
+        [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
         public void QuotingActivityServiceCreateQuote_WrongAccWrongPO_Exception()
         {
 
@@ -150,7 +150,7 @@ namespace MetraTech.Quoting.Test
             #endregion
         }
 
-        [TestMethod]
+         [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
         public void QuotingActivityServiceCreateQuote_TwoQuotesInParallel_QuotesCreated()
         {
             string testShortName = "Q_AS_D_PO"; //Account name and perhaps others need a 'short' (less than 40 when combined with testRunUniqueIdentifier
@@ -202,7 +202,7 @@ namespace MetraTech.Quoting.Test
                                                       testShortName));
         }
 
-        [TestMethod]
+        [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
         public void QuotingActivityServiceCreateQuote_TwoQuotesInParallelWithSamePO_QuotesCreated()
         {
             string testShortName = "Q_AS_S_PO"; //Account name and perhaps others need a 'short' (less than 40 when combined with testRunUniqueIdentifier
@@ -240,7 +240,7 @@ namespace MetraTech.Quoting.Test
                                       _testContext.TestName, testShortName));
         }
 
-        [TestMethod]
+        [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
         public void QuotingActivityServiceCreateQuote_TwoQuotesInParallelWithSamePOAndSameAcc_QuotesCreated()
         {
             string testShortName = "Q_AS_S_PO"; //Account name and perhaps others need a 'short' (less than 40 when combined with testRunUniqueIdentifier
@@ -275,7 +275,7 @@ namespace MetraTech.Quoting.Test
         }
 
 
-        [TestMethod]
+       [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
         // TODO: Do we need the test, looks like it's the same as  
         public void QuotingActivityServiceCreateQuote_GenerateQuoteTwoTimesNonParallel_QuoteCreated()
         {

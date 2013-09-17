@@ -180,6 +180,7 @@
     <Compile Include="IQuotingImplementation.cs" />
     <Compile Include="ChargeMetering.cs" />
     <Compile Include="PropertyName.cs" />
+    <Compile Include="QuoteException.cs" />
     <Compile Include="QuotePDFReport.cs" />
     <Compile Include="QuoteXmlReport.cs" />
     <Compile Include="Configuration.cs" />

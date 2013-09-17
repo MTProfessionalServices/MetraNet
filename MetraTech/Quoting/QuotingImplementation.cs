@@ -257,6 +257,24 @@ namespace MetraTech.Quoting
             }           
         }
 
+        private void ValidateUDRCMetrics(Dictionary<string, List<UDRCInstanceValueBase>> udrcMetrics, int poId)
+        {
+            var po = CurrentProductCatalog.GetProductOffering(poId);
+            IMTCollection pis = po.GetPriceableItems();
+            foreach (IMTPriceableItem pi in pis)
+            {
+                if (pi.Kind == MTPCEntityType.PCENTITY_TYPE_RECURRING_UNIT_DEPENDENT)
+                {
+                    List<UDRCInstanceValueBase> udrcMetricsForPo;
+                    if(udrcMetrics.TryGetValue(poId.ToString(), out udrcMetricsForPo))
+	                    if (udrcMetricsForPo.All(udrcMetric => udrcMetric.UDRC_Id != pi.ID))
+	                    {
+	                        throw new ArgumentException(String.Format("UDRC metrics not specified properly for PI {0}", pi.ID));
+	                    }
+                }
+            }
+        }
+
         /// <summary>
         /// Method that validates/sanity checks the request and throws exceptions if there are errors
         /// </summary>
@@ -299,9 +317,7 @@ namespace MetraTech.Quoting
                   String.Format("'{0}'='{1}' can't be less than current time '{2}'", propertyName,
                                 request.EffectiveDate.Date, currentDate), propertyName);
             }
-
-
-
+            
             //EffectiveDate must be set
             if (request.EffectiveDate == null || request.EffectiveDate == DateTime.MinValue)
             {
@@ -353,6 +369,9 @@ namespace MetraTech.Quoting
                 throw new ArgumentException("All account payers must be included in the quote request"
                                             , PropertyName<QuoteRequest>.GetPropertyName(p => p.Accounts));
             }
+
+            foreach(var po in request.ProductOfferings)
+                ValidateUDRCMetrics(request.SubscriptionParameters.UDRCValues,po);
         }
 
         protected int GetAccountBillingCycle(int idAccount)

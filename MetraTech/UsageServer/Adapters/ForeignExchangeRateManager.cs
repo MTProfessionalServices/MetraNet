@@ -557,7 +557,7 @@ namespace MetraTech.ForeignExchange
         public static int GetIdSched(int idCsr, int idPricelist, string nmPt, int idPt, int idPiTemplate,
                                      DateTime date)
         {
-            var dtStart = date.ToUniversalTime();
+            var dtStart = date;
             var dtEnd = dtStart.AddDays(1).AddSeconds(-1);
 
             var idSched = -1;

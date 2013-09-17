@@ -36,17 +36,17 @@
     <WarningLevel>4</WarningLevel>
     <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech</BaseIntermediateOutputPath>
   </PropertyGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Quoting\MetraTech.Quoting.csproj">
-      <Project>{C4914DDD-93C8-475F-B5DB-1CDB6C8ECA17}</Project>
-      <Name>MetraTech.Quoting %28MetraTech.Quoting\MetraTech.Quoting%29</Name>
-    </ProjectReference>
+  <ItemGroup>   
     <ProjectReference Include="..\..\TestCommon\MetraTech.TestCommon.csproj">
       <Project>{20307E5D-BFC9-4F27-9ECC-A61EE854E8B5}</Project>
       <Name>MetraTech.TestCommon</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+   <Reference Include="MetraTech.Quoting">
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Quoting.dll</HintPath>
+    </Reference>
     <Reference Include="MetraTech.ActivityServices.Common">
       <Private>False</Private>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.ActivityServices.Common.dll</HintPath>
@@ -115,8 +115,8 @@
     <Compile Include="QuotingServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Local.testsettings" />
-    <None Include="TraceAndTestImpact.testsettings" />
+    <None Include="$(ROOTDIR)\MetraTech\Local.testsettings" />
+    <None Include="$(ROOTDIR)\MetraTech\TraceAndTestImpact.testsettings" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

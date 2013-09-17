@@ -135,8 +135,9 @@ namespace MetraTech.Quoting
             //TODO: Should we add check that pipeline/inetinfo/activityservices are running before starting quote. We think nice to have and maybe configurable
             using (new MetraTech.Debug.Diagnostics.HighResolutionTimer(MethodInfo.GetCurrentMethod().Name))
             {
+                CurrentRequest = quoteRequest;
                 CurrentResponse = new QuoteResponse();
-
+                
                 SetNewQuoteLogFormater(quoteRequest, CurrentResponse);
 
                 createdSubsciptions.Clear();
@@ -144,21 +145,8 @@ namespace MetraTech.Quoting
 
                 try
                 {
-                    ValidateRequest(quoteRequest);
-                }
-                catch (Exception ex)
-                {
-                    CurrentResponse.Status = QuoteStatus.Failed;
-                    CurrentResponse.FailedMessage = ex.GetaAllMessages();
-                    return CurrentResponse;
-                }
-
-
-                try
-                {
+                    ValidateRequest(CurrentRequest);
                     CurrentResponse.Status = QuoteStatus.InProgress;
-
-                    CurrentRequest = quoteRequest;
 
                     //Add this quote into repository and gets a newly creatd quote id
                     CurrentResponse.IdQuote = QuotingRepository.CreateQuote(quoteRequest, SessionContext);
@@ -182,24 +170,30 @@ namespace MetraTech.Quoting
                 }
                 catch (Exception ex)
                 {
-                    _log.LogError("Current quote failed and being cleaned up: {0}", ex);
-
                     CurrentResponse.Status = QuoteStatus.Failed;
                     CurrentResponse.FailedMessage = ex.GetaAllMessages();
 
-                    CurrentResponse = QuotingRepository.UpdateQuoteWithErrorResponse(CurrentResponse.IdQuote, CurrentResponse,
+                    if (CurrentResponse.IsInitialized())
+                    {
+                        _log.LogError("Current quote failed and being cleaned up: {0}", ex);
+                        CurrentResponse = QuotingRepository.UpdateQuoteWithErrorResponse(CurrentResponse.IdQuote, CurrentResponse,
                                                                                      ex.Message);
-                    throw;
+                    }
+
+                    throw new QuoteException(CurrentResponse, ex.Message, ex);
                 }
                 finally
                 {
-                    if (Configuration.IsCleanupQuoteAutomaticaly)
+                    if (CurrentResponse.IsInitialized())
                     {
-                        Cleanup(CurrentResponse.Artefacts);
-                    }
-                    else
-                    {
-                        _log.LogWarning("Not cleaning up subsciption (includes group) and usage data for quote");
+                        if (Configuration.IsCleanupQuoteAutomaticaly)
+                        {
+                            Cleanup(CurrentResponse.Artefacts);
+                        }
+                        else
+                        {
+                            _log.LogWarning("Not cleaning up subsciption (includes group) and usage data for quote");
+                        }
                     }
                 }
 
@@ -288,7 +282,7 @@ namespace MetraTech.Quoting
 
             if (request.SubscriptionParameters.IsGroupSubscription && request.IcbPrices.Count > 0)
             {
-                throw new Exception("Current limitation of quoting: ICBs are applied only for individual subscriptions");
+                throw new ArgumentException("Current limitation of quoting: ICBs are applied only for individual subscriptions");
             }
 
             //0 values Request validation
@@ -315,7 +309,7 @@ namespace MetraTech.Quoting
                 string propertyName = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveDate);
                 throw new ArgumentException(
                   String.Format("'{0}'='{1}' can't be less than current time '{2}'", propertyName,
-                                request.EffectiveDate.Date, currentDate), propertyName);
+                                request.EffectiveDate, currentDate), propertyName);
             }
             
             //EffectiveDate must be set

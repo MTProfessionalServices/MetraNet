@@ -13,6 +13,6 @@ namespace MetraTech.Quoting.Test.ConsoleForTesting
     public bool RunPDFGenerationForAllTestsByDefault { get; set; }
     public DateTime EffectiveDate { get; set; }
     public DateTime EffectiveEndDate { get; set; }
-    public List<QuoteIndividualPrice> IcbPrices { get; set; }
+    public List<IndividualPrice> IcbPrices { get; set; }
     }
 }

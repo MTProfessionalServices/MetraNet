@@ -27,7 +27,7 @@ namespace MetraTech.Quoting.Test.ConsoleForTesting
       bool runPDFGenerationForAllTestsByDefault = false;
       DateTime effectiveDate = MetraTime.Now;
       DateTime effectiveEndDate = MetraTime.Now;
-      var icbPrices = new List<QuoteIndividualPrice>();
+      var icbPrices = new List<IndividualPrice>();
 
       var folder = Path.Combine(Environment.CurrentDirectory, "Quoting");
       if (!Directory.Exists(folder))

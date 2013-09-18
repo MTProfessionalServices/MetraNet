@@ -175,7 +175,6 @@ namespace MetraTech.Accounts.Type.Test
     }
 
     [Test]
-    [Ignore("Failing - Ignore Test")]
     public void T13MoveCoreSubscriber()
     {
       //move the account subAccount2 under deptaccount (deptAccount)
@@ -192,7 +191,6 @@ namespace MetraTech.Accounts.Type.Test
     }
 
     [Test]
-    [Ignore("Failing - Ignore Test")]
     public void T14ChangePayerCoreSubscriber()
     {
       //change the payer of subAccount2 to be the corporate account
@@ -242,7 +240,6 @@ namespace MetraTech.Accounts.Type.Test
     }
 
     [Test]
-    [Ignore("Failing - Ignore Test")]
     public void T17DisconnectGSMAccount()
     {
       DateTime disconnectTime = MetraTime.Now;

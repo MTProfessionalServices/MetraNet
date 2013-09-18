@@ -26,15 +26,35 @@
 
 namespace MetraTech.Quoting
 {
-  using MetraTech.Domain.Quoting;
+    using MetraTech.Domain.Quoting;
 
-  /// <summary>
-  /// Interface for quote creation
-  /// </summary>
-  public interface IQuotingImplementation
-  {
-    QuoteResponse CreateQuote(QuoteRequest quoteRequest);
+    /// <summary>
+    /// Interface for quote creation
+    /// </summary>
+    public interface IQuotingImplementation
+    {
+        /// <summary>
+        /// Gets quote configuration data
+        /// </summary>
+        QuotingConfiguration Configuration { get; }
 
-    IQuotingRepository QuotingRepository { get; }
-  }
+        /// <summary>
+        /// Gets <see cref="QuotingRepository"/>
+        /// </summary>
+        IQuotingRepository QuotingRepository { get; }
+
+        /// <summary>
+        /// Creates quote anf if <see cref="QuotingConfiguration.IsCleanupQuoteAutomaticaly"/> = true the Cleanup() will be call automaticaly.
+        /// </summary>
+        /// <param name="quoteRequest">data for initialization and creation quote<see cref="QuoteRequest"/></param>
+        /// <returns>response of creation quote <see cref="QuoteResponse"/></returns>
+        QuoteResponse CreateQuote(QuoteRequest quoteRequest);
+
+        /// <summary>
+        /// Cleanups quote artefacts in case it was not cleanedup in CreateQuote() method, because <see cref="QuotingConfiguration.IsCleanupQuoteAutomaticaly"/> = false.
+        /// The method uses in fuctional tests and can be used by integrators.
+        /// </summary>
+        /// <param name="quoteArtefact"></param>
+        void Cleanup(QuoteResponseArtefacts quoteArtefact);
+    }
 }

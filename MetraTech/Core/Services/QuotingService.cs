@@ -112,12 +112,16 @@ namespace MetraTech.Core.Services
             quoteResponse.Status=QuoteStatus.Failed;
             quoteResponse.FailedMessage = e.GetaAllMessages(); 
         }
-
+        catch (QuoteException e)
+        {
+            mLogger.LogException("Error creating quote ", e);
+            quoteResponse = e.Response;
+        }
         catch (Exception e)
         {
             mLogger.LogException("Error creating quote ", e);
             quoteResponse.Status = QuoteStatus.Failed;
-            quoteResponse.FailedMessage = e.GetaAllMessages(); 
+            quoteResponse.FailedMessage = e.GetaAllMessages();
         }
       }
 

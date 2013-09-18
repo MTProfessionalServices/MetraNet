@@ -73,7 +73,7 @@ namespace MetraTech.Product.Hooks.DynamicTableUpdate
                                             @level1type=N'TABLE',@level1name='%%tabname%%',
                                             @level2type=N'COLUMN',@level2name='%%colname%%'";
 
-        const string mExecuteImmediateStatement = @" EXECUTE IMMEDIATE '%%DDL%%';";
+        const string mExecuteImmediateStatement = @" EXECUTE IMMEDIATE q'[%%DDL%%]';";
         const string mAddColumnDescriptionOracle = @" COMMENT ON COLUMN %%tabname%%.%%colname%% IS '%%description%%'";
 
         // rename column 
@@ -810,7 +810,7 @@ namespace MetraTech.Product.Hooks.DynamicTableUpdate
             if (conn.ConnectionInfo.IsOracle)
             {
                 result.AppendLine(mExecuteImmediateStatement.Replace("%%DDL%%", mAddColumn));
-                result.AppendLine(mExecuteImmediateStatement.Replace("%%DDL%%", mAddColumnDescriptionOracle.Replace("'","''")));
+                result.AppendLine(mExecuteImmediateStatement.Replace("%%DDL%%", mAddColumnDescriptionOracle));
             }
 
             return conn.ConnectionInfo.IsSqlServer
@@ -1634,7 +1634,12 @@ namespace MetraTech.Product.Hooks.DynamicTableUpdate
         private int RetrieveTheEnumCode(string enumstring, IMTConnection conn)
         {
             int enumcode = 0;
-            using (IMTCallableStatement callstmt = conn.CreateCallableStatement("RetrieveEnumCode"))
+            string procname = "";
+			if (mIsOracle)
+								procname = "RetrieveEnumCodeProc";
+						else
+								procname = "RetrieveEnumCode";
+			using (IMTCallableStatement callstmt = conn.CreateCallableStatement(procname))
             {
               callstmt.AddReturnValue(MTParameterType.Integer);
               //callstmt.AddParam( "table", MTParameterType.String, table );

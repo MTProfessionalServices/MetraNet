@@ -586,7 +586,7 @@ namespace MetraTech.Product.Hooks.Test
 	                using (IMTCallableStatement delmeta =
 	                    conn.CreateCallableStatement("DeleteProductViewMetadata"))
 	                {
-	                    delmeta.AddParam("tablename", MTParameterType.String, m6.PVTableName);
+	                    delmeta.AddParam("tabname", MTParameterType.String, m6.PVTableName);
 	                    delmeta.ExecuteNonQuery();
 	                }
 

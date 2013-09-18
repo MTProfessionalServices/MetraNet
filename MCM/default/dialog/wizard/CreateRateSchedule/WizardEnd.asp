@@ -115,6 +115,9 @@ Select Case UCase(session(strWizardName & "_startdate_pick"))
 
 		else 
 			objNewRateSchedule.EffectiveDate.StartDate = CDate(tmpVal)
+            objNewRateSchedule.EffectiveDate.StartDate=DateAdd("h",-Hour(objNewRateSchedule.EffectiveDate.StartDate), objNewRateSchedule.EffectiveDate.StartDate)
+            objNewRateSchedule.EffectiveDate.StartDate=DateAdd("n",-Minute(objNewRateSchedule.EffectiveDate.StartDate), objNewRateSchedule.EffectiveDate.StartDate)
+            objNewRateSchedule.EffectiveDate.StartDate=DateAdd("s",-Second(objNewRateSchedule.EffectiveDate.StartDate), objNewRateSchedule.EffectiveDate.StartDate)
 		end if
 	Case "SUBS"
 		objNewRateSchedule.EffectiveDate.StartDateType = PCDATE_TYPE_SUBSCRIPTION
@@ -131,6 +134,9 @@ Select Case UCase(session(strWizardName & "_startdate_pick"))
 
 		else 
 			objNewRateSchedule.EffectiveDate.StartDate = CDate(tmpVal)
+            objNewRateSchedule.EffectiveDate.StartDate=DateAdd("h",-Hour(objNewRateSchedule.EffectiveDate.StartDate), objNewRateSchedule.EffectiveDate.StartDate)
+            objNewRateSchedule.EffectiveDate.StartDate=DateAdd("n",-Minute(objNewRateSchedule.EffectiveDate.StartDate), objNewRateSchedule.EffectiveDate.StartDate)
+            objNewRateSchedule.EffectiveDate.StartDate=DateAdd("s",-Second(objNewRateSchedule.EffectiveDate.StartDate), objNewRateSchedule.EffectiveDate.StartDate)
 		end if
 End Select
 
@@ -146,6 +152,9 @@ Select Case UCase(session(strWizardName & "_enddate_pick"))
 
 		else 
 			objNewRateSchedule.EffectiveDate.EndDate = CDate(tmpVal)
+            objNewRateSchedule.EffectiveDate.EndDate=DateAdd("h",23-Hour(objNewRateSchedule.EffectiveDate.EndDate), objNewRateSchedule.EffectiveDate.EndDate)
+            objNewRateSchedule.EffectiveDate.EndDate=DateAdd("n",59-Minute(objNewRateSchedule.EffectiveDate.EndDate), objNewRateSchedule.EffectiveDate.EndDate)
+            objNewRateSchedule.EffectiveDate.EndDate=DateAdd("s",59-Second(objNewRateSchedule.EffectiveDate.EndDate), objNewRateSchedule.EffectiveDate.EndDate)
 		end if
 	Case "SUBS"
 		objNewRateSchedule.EffectiveDate.EndDateType = PCDATE_TYPE_SUBSCRIPTION
@@ -162,6 +171,9 @@ Select Case UCase(session(strWizardName & "_enddate_pick"))
 
 		else 
 			objNewRateSchedule.EffectiveDate.EndDate = CDate(tmpVal)
+            objNewRateSchedule.EffectiveDate.EndDate=DateAdd("h",23-Hour(objNewRateSchedule.EffectiveDate.EndDate), objNewRateSchedule.EffectiveDate.EndDate)
+            objNewRateSchedule.EffectiveDate.EndDate=DateAdd("n",59-Minute(objNewRateSchedule.EffectiveDate.EndDate), objNewRateSchedule.EffectiveDate.EndDate)
+            objNewRateSchedule.EffectiveDate.EndDate=DateAdd("s",59-Second(objNewRateSchedule.EffectiveDate.EndDate), objNewRateSchedule.EffectiveDate.EndDate)
 		end if
 End Select
 

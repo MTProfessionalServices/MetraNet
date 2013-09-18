@@ -186,7 +186,7 @@
               if (ddval.toString() == zero.toString()) {
                   var newrate = document.getElementById("ctl00_ContentPlaceHolder1_unitRate_tbNumericSource").value;
                   if (newrate == "") {
-                      alert('<%=GetLocalResourceObject("TEXT_ERROR_NO_VALUE_FOR_RATE")%>');
+                      alert('<%=GetLocalResourceObject("TEXT_ERROR_NO_VALUE_FOR_RATE_FOR_UNITS")%>');
                       return false;
                   }
               }
@@ -195,7 +195,7 @@
               if (ddval.toString() == zero.toString()) {
                   var discountrate = document.getElementById("ctl00_ContentPlaceHolder1_discount_tbNumericSource").value.toString();
                   if (discountrate == "") {
-                      alert('<%=GetLocalResourceObject("TEXT_ERROR_NO_VALUE_FOR_RATE")%>');
+                      alert('<%=GetLocalResourceObject("TEXT_ERROR_NO_VALUE_FOR_DISCOUNT")%>');
                       return false;
                   }
               }
@@ -204,7 +204,7 @@
               if (ddval.toString() == zero.toString()) {
                   var eventrate = document.getElementById("ctl00_ContentPlaceHolder1_eventRate_tbNumericSource").value.toString();
                   if (eventrate == "") {
-                      alert('<%=GetLocalResourceObject("TEXT_ERROR_NO_VALUE_FOR_RATE")%>');
+                      alert('<%=GetLocalResourceObject("TEXT_ERROR_NO_VALUE_FOR_RATE_FOR_EVENTS")%>');
                       return false;
                   }
               }

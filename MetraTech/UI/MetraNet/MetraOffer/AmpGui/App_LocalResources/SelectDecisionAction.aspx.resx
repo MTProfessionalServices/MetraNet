@@ -183,7 +183,13 @@
   <data name="TEXT_ERROR_NO_DISCOUNT_VALUE" xml:space="preserve">
     <value>Error: You must specify the percentage discount to be applied by this Decision Type</value>
   </data>
-  <data name="TEXT_ERROR_NO_VALUE_FOR_RATE" xml:space="preserve">
-    <value>Error: You must select a value for rate</value>
+  <data name="TEXT_ERROR_NO_VALUE_FOR_RATE_FOR_UNITS" xml:space="preserve">
+    <value>Error: You must specify a rate for units</value>
+  </data>
+  <data name="TEXT_ERROR_NO_VALUE_FOR_DISCOUNT" xml:space="preserve">
+    <value>Error: You must specify a percentage for discount</value>
+  </data>
+  <data name="TEXT_ERROR_NO_VALUE_FOR_RATE_FOR_EVENTS" xml:space="preserve">
+    <value>Error: You must specify a rate for events</value>
   </data>
 </root>

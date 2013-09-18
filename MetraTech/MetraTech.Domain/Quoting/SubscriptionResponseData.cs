@@ -1,7 +1,7 @@
 ﻿// -----------------------------------------------------------------------
 // <copyright file="SubscriptionResponseData.cs" company="Microsoft">
 //
-// Copyright 2011 by MetraTech
+// Copyright 2013 by MetraTech
 // All rights reserved.
 //
 // THIS SOFTWARE IS PROVIDED "AS IS", AND MetraTech MAKES NO

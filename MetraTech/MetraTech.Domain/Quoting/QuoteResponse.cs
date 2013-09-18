@@ -210,15 +210,21 @@ namespace MetraTech.Domain.Quoting
 
         public QuoteResponse()
         {
+            IdQuote = -1;
             MessageLog = new List<QuoteLogRecord>();
-            Artefacts = new QuoteResponseArtefacts();
+            Artefacts = new QuoteResponseArtefacts(-1);
         }
 
         public QuoteResponse(int idQuote)
             : this()
         {
             IdQuote = idQuote;
-            Artefacts = new QuoteResponseArtefacts(idQuote);
+            Artefacts.IdQuote = IdQuote;
+        }
+
+        public bool IsInitialized()
+        {
+            return IdQuote > 0;
         }
     }
 }

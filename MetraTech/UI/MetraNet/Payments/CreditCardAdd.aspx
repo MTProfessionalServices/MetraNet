@@ -3,10 +3,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-<MT:MTTitle ID="MTTitle1" Text="Add Credit Card" runat="server" meta:resourcekey="MTTitle1Resource1" /><br />
+  <MT:MTTitle ID="MTTitle1" Text="Add Credit Card" runat="server" meta:resourcekey="MTTitle1Resource1" /><br />
 
-<asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="ErrorMessage" Width="100%" />
-<asp:Label ID="lblErrorMessage" runat="server" CssClass="ErrorMessage" Text="Error Messages" Visible="False" meta:resourcekey="lblErrorMessageResource1"></asp:Label>
+  <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="ErrorMessage" Width="100%" />
+  <asp:Label ID="lblErrorMessage" runat="server" CssClass="ErrorMessage" Text="Error Messages" Visible="False" meta:resourcekey="lblErrorMessageResource1"></asp:Label>
+  <script language="javascript" type="text/javascript" src="PaymentBroker.js"></script>
   <script language="javascript" type="text/javascript">
     function sendCardToPaymentBroker() {
       if (ValidateForm() == false) return false;
@@ -25,7 +26,7 @@
       var state = document.getElementById('<%=tbState.ClientID%>').value;
       var zip = document.getElementById('<%=tbZipCode.ClientID%>').value;
       var email = document.getElementById('<%=tbEmail.ClientID%>').value;
-      var type = document.getElementById('<%=ddCardType.ClientID%>').value;
+      var type = GetPaymentBrokerCreditCardType(document.getElementById('<%=ddCardType.ClientID%>').value);
       var cardNumber = document.getElementById('<%=tbCCNumber.ClientID%>').value;
       var verificationCode = document.getElementById('<%=tbCVNNumber.ClientID%>').value;
       var expirationMonth = document.getElementById('<%=ddExpMonth.ClientID%>').value;

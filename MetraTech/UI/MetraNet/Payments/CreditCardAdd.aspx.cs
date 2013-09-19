@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Linq;
@@ -22,7 +23,10 @@ public partial class Payments_CreditCardAdd : MTPage
       }
       return ViewState["CreditCard"] as CreditCardPaymentMethod;
     }
-    set { ViewState["CreditCard"] = value; }
+    set
+    {
+      ViewState["CreditCard"] = value;
+    }
   }
 
   protected bool? UsePaymentBroker
@@ -39,35 +43,34 @@ public partial class Payments_CreditCardAdd : MTPage
 
   protected void PopulatePriority()
   {
-    int totalCards = GetTotalCards() + 1;
+    var totalCards = GetTotalCards() + 1;
 
-    for (int i = 1; i <= totalCards; i++)
+    for (var i = 1; i <= totalCards; i++)
     {
-      ddPriority.Items.Add(new ListItem(i.ToString(), i.ToString()));
+      ddPriority.Items.Add(new ListItem(i.ToString(CultureInfo.CurrentCulture), i.ToString(CultureInfo.CurrentCulture)));
     }
   }
 
   protected int GetTotalCards()
   {
-    RecurringPaymentsServiceClient client = null;
-
+    var client = new RecurringPaymentsServiceClient();
     try
     {
-      client = new RecurringPaymentsServiceClient();
+      if (client.ClientCredentials != null)
+      {
+        client.ClientCredentials.UserName.UserName = UI.User.UserName;
+        client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+      }
 
-      client.ClientCredentials.UserName.UserName = UI.User.UserName;
-      client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
-
-      AccountIdentifier acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
-      MTList<MetraPaymentMethod> cardList = new MTList<MetraPaymentMethod>();
+      var acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
+      var cardList = new MTList<MetraPaymentMethod>();
       client.GetPaymentMethodSummaries(acct, ref cardList);
       client.Close();
       return cardList.TotalRows;
     }
-
     catch (Exception ex)
     {
-      this.Logger.LogError(ex.Message);
+      Logger.LogError(ex.Message);
       client.Abort();
       throw;
     }
@@ -75,52 +78,49 @@ public partial class Payments_CreditCardAdd : MTPage
 
   protected void Page_Load(object sender, EventArgs e)
   {
-    if (!IsPostBack)
+    if (IsPostBack) return;
+    
+    MetraTech.Interop.RCD.IMTRcd rcd = new MetraTech.Interop.RCD.MTRcd();
+    var configFile = Path.Combine(rcd.ExtensionDir, @"PaymentSvr\config\Gateway\Gateway.xml");
+    if (!File.Exists(configFile))
+      return;
+
+    var doc = new MTXmlDocument();
+    doc.Load(configFile);
+    UsePaymentBroker = false;
+    if (doc.GetNodeValueAsBool("/configuration/usePaymentBroker", false))
     {
-      MetraTech.Interop.RCD.IMTRcd rcd = new MetraTech.Interop.RCD.MTRcd();
-      string configFile = Path.Combine(rcd.ExtensionDir, @"PaymentSvr\config\Gateway\Gateway.xml");
-      if (!File.Exists(configFile))
-        return;
-
-      MTXmlDocument doc = new MTXmlDocument();
-      doc.Load(configFile);
-      if (doc.GetNodeValueAsBool("/configuration/usePaymentBroker", false))
-      {
-        UsePaymentBroker = true;
-        PaymentBrokerAddress = doc.GetNodeValueAsString("/configuration/paymentBrokerAddress", "dummy");
-      }
-      else
-      {
-        UsePaymentBroker = false;
-      }
-      //populate priorities
-      PopulatePriority();
-
-      //populate months
-      for (int i = 1; i <= 12; i++)
-      {
-        String month = (i < 10) ? "0" + i.ToString() : i.ToString();
-        ddExpMonth.Items.Add(month);
-      }
-
-      //populate years
-      int curYear = DateTime.Today.Year;
-      for (int i = 0; i <= 20; i++)
-      {
-        ddExpYear.Items.Add((curYear + i).ToString());
-      }
-
-      if (!this.MTDataBinder1.DataBind())
-      {
-        this.Logger.LogError(this.MTDataBinder1.BindingErrors.ToHtml());
-      }
-
-      //set country default to USA
-      ddCountry.SelectedValue = PaymentMethodCountry.USA.ToString();
-
-      GetIsoCode();
-      Response.AppendHeader("Access-Control-Allow-Origin", "*");
+      UsePaymentBroker = true;
+      PaymentBrokerAddress = doc.GetNodeValueAsString("/configuration/paymentBrokerAddress", "dummy");
     }
+
+    //populate priorities
+    PopulatePriority();
+
+    //populate months
+    for (var i = 1; i <= 12; i++)
+    {
+      var month = (i < 10) ? "0" + i.ToString(CultureInfo.CurrentCulture) : i.ToString(CultureInfo.CurrentCulture);
+      ddExpMonth.Items.Add(month);
+    }
+
+    //populate years
+    var curYear = DateTime.Today.Year;
+    for (var i = 0; i <= 20; i++)
+    {
+      ddExpYear.Items.Add((curYear + i).ToString(CultureInfo.CurrentCulture));
+    }
+
+    if (!MTDataBinder1.DataBind())
+    {
+      Logger.LogError(MTDataBinder1.BindingErrors.ToHtml());
+    }
+
+    //set country default to USA
+    ddCountry.SelectedValue = PaymentMethodCountry.USA.ToString();
+
+    GetIsoCode();
+    Response.AppendHeader("Access-Control-Allow-Origin", "*");
   }
 
   protected void btnOK_Click(object sender, EventArgs e)

@@ -1,9 +1,11 @@
 
 //NUnit-Console.exe /assembly:MetraTech.Accounts.Type.Test.dll /fixture:MetraTech.Accounts.Type.Test.TestAccountTypes
 
+using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
-using System.EnterpriseServices;
-
+using System.Xml.Linq;
+using MetraTech.Interop.RCD;
 
 [assembly: GuidAttribute("AE338FE4-F760-43bd-8CD4-F20494BE960F")]
 [assembly: ComVisible(false)]
@@ -14,7 +16,6 @@ namespace MetraTech.Accounts.Type.Test
   using NUnit.Framework;
   using MetraTech.Test;
   using Account = MetraTech.Accounts.Type;
-  using Rowset = MetraTech.Interop.Rowset;
   using MTAccountType = MetraTech.Interop.IMTAccountType;
   using MetraTech.Pipeline;
   using MetraTech.Interop.MTProductCatalog;
@@ -87,29 +88,33 @@ namespace MetraTech.Accounts.Type.Test
     public void T02GetPropertiesForAccountType()
     {
       TestLibrary.Trace("Executing: GetPropertiesForAccountType for CoreSubscriber");
-			
-      Account.AccountType coreAccount = new Account.AccountType();
-      coreAccount.InitializeByName("CoreSubscriber");
-      
-      ServiceDefinition sd = coreAccount.GetMSIXProperties() as ServiceDefinition;
-      int numberOfProps = 0;
+      const string accountType = "CoreSubscriber";
+      var expectedPropsCount = GetExpectedAccountPropsCount(accountType);
 
+      var coreAccount = new AccountType();
+      coreAccount.InitializeByName(accountType);
+      
+      var sd = coreAccount.GetMSIXProperties() as ServiceDefinition;
+      var numberOfProps = 0;
+
+      Assert.IsNotNull(sd, "sd (GetMSIXProperties) have a wrong type");
       foreach(IMTPropertyMetaData prop in sd.Properties)
       {
-        TestLibrary.Trace(prop.Name + " - " + prop.DataType);
+        TestLibrary.Trace("{0} - {1}", prop.Name, prop.DataType);
         numberOfProps++;  
       }
 
-      if(numberOfProps == 70)
-        TestLibrary.Trace ("Found correct number of properties for CoreSubscriber account type: " + numberOfProps);
-      else
-        Assert.Fail("Core Subscriber wrong number of properties from GetMSIXProperties()" + 
-		    "Expected 70 properties. Saw " + numberOfProps);
+      Assert.AreEqual(expectedPropsCount, numberOfProps,
+        "Core Subscriber wrong number of properties from GetMSIXProperties(). Expected {0} properties. Saw {1}",
+        expectedPropsCount, numberOfProps);
+
+      TestLibrary.Trace("Found correct number of properties for CoreSubscriber account type: {0} {1} Done",
+        numberOfProps, 
+        Environment.NewLine);
       
-      TestLibrary.Trace("Done");
     }
 
-		[Test]
+    [Test]
     public void T03TestAccountTypeManagerWithName()
 		{
 			IAccountTypeManager atm = new AccountTypeManager();
@@ -127,8 +132,40 @@ namespace MetraTech.Accounts.Type.Test
 			MTAccountType.IMTAccountType at = atm.GetAccountTypeByID(mSUCtx, compareto.ID);
 			Assert.IsNotNull(at);
 			Assert.AreEqual("CoreSubscriber", at.Name);
-		}
+    }
 
+    #region private methods
+
+    private static int GetExpectedAccountPropsCount(string accountType)
+    {
+      var additionalPropertiesCount = 0;
+      //Count of properties with MTDataMember attribute in the MetraTech.DomainModel.BaseTypes.Account
+      var baseAccountProperties = typeof(DomainModel.BaseTypes.Account).GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
+      var baseAccountPropertiesCount = baseAccountProperties.Count(x => Attribute.IsDefined(x, typeof(DomainModel.Common.MTDataMemberAttribute)));
+
+      IMTRcd rcd = new MTRcdClass();
+      rcd.Init();
+      switch (accountType)
+      {
+        case "CoreSubscriber":
+          additionalPropertiesCount += GetPropertiesCountFromMsixdef(rcd.ExtensionDir + @"\Account\config\AccountView\metratech.com\Internal.msixdef");
+          additionalPropertiesCount += GetPropertiesCountFromMsixdef(rcd.ExtensionDir + @"\Account\config\AccountView\metratech.com\Contact.msixdef");
+          break;
+        default:
+          throw new NotImplementedException("Unknown account type: " + accountType);
+      }
+
+      return baseAccountPropertiesCount + additionalPropertiesCount;
+    }
+
+    private static int GetPropertiesCountFromMsixdef(string filePath)
+    {
+      var msixdef = XDocument.Load(filePath);
+      var nodes = msixdef.Descendants("ptype");
+      return nodes.Count();
+    }
+
+    #endregion private methods
   }
 } 
 

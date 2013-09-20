@@ -179,8 +179,8 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
       discount.Visible = true;
       discount.UseDropdown = true;
       discount.DropdownSelectedText = CurrentDecisionInstance.TierDiscountColumnName;
-    } 
-    else if (CurrentDecisionInstance.GeneratedCharge != null)
+    }
+    else if (CurrentDecisionInstance.GeneratedChargeValue != null || CurrentDecisionInstance.GeneratedChargeColumnName != null)
     {
         radGenCharge.Checked = true;
     }
@@ -339,7 +339,7 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
     if (!radGenCharge.Checked)
     {
       // Clear out any existing info about generated charges.
-      CurrentDecisionInstance.GeneratedCharge = null;
+      CurrentDecisionInstance.GeneratedChargeValue = null;
       CurrentDecisionInstance.ChargeCondition = Decision.ChargeConditionEnum.CHARGE_NONE;
     }
 

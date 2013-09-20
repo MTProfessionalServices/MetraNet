@@ -1,21 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Configuration;
-using System.Collections;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
 using MetraTech.Core.Services.ClientProxies;
-using MetraTech.UI.Common;
-using MetraTech.UI.Controls;
-using MetraTech.UsageServer;
 using MetraTech.UI.MetraNet.App_Code;
 using MetraTech.DomainModel.ProductCatalog;
-
 
 public partial class AmpAmountChainGroupPage : AmpWizardBasePage
 {
@@ -36,7 +24,6 @@ public partial class AmpAmountChainGroupPage : AmpWizardBasePage
         // Monitor changes made to the controls on the page.
         MonitorChangesInControlByClientId(hiddenAmtChainGroupName.ClientID);
         MonitorChangesInControl(ddAmountChainGroupFromParamTableSource);
-
 
         setCheckBoxEventHandler();
 
@@ -87,7 +74,7 @@ public partial class AmpAmountChainGroupPage : AmpWizardBasePage
                     setParamTableDropDown(paramTableColumns);
                 }
 
-                if (decisionInstance.PvToAmountChainMappingValue != null)
+                if (!String.IsNullOrEmpty(decisionInstance.PvToAmountChainMappingValue))
                 {
                     hiddenAmtChainGroupName.Value = decisionInstance.PvToAmountChainMappingValue;
                     FromParamTableCheckBox.Checked = false;

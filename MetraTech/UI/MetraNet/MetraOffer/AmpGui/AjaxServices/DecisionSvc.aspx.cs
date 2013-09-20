@@ -48,6 +48,14 @@ public partial class AjaxServices_DecisionSvc : MTListServicePage
                         {
                             decision.PvToAmountChainMappingValue = decision.PvToAmountChainMappingColumnName;
                         }
+                        if (String.IsNullOrEmpty(decision.AccountQualificationGroupValue))
+                        {
+                            decision.AccountQualificationGroupValue = decision.AccountQualificationGroupColumnName;
+                        }
+                        if (String.IsNullOrEmpty(decision.UsageQualificationGroupValue))
+                        {
+                            decision.UsageQualificationGroupValue = decision.UsageQualificationGroupColumnName;
+                        }
                     }
                 }
             }

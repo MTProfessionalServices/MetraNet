@@ -89,8 +89,7 @@
         <ampc3:AmpTextboxOrDropdown ID="discount" runat="server" TextboxIsNumeric="true"></ampc3:AmpTextboxOrDropdown>
       </td>
       <td style="padding-top:11px;" align="left" valign="middle">
-        <span style="color:Black; font-size:x-small"><asp:Literal ID="Literal1" Text="%" runat="server"></asp:Literal></span>
-      </td>
+          &nbsp;</td>
     </tr>
     <tr> <!-- Row 4 -->
       <td colspan="2" style="padding-top:15px;" valign="top">

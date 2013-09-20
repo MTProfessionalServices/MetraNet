@@ -58,6 +58,7 @@ public partial class AmpDecisionCyclePage : AmpWizardBasePage
 
     protected void btnContinue_Click(object sender, EventArgs e)
     {
+
         if (AmpAction != "View")
         {
             if (!SetDecisionCycleProperties())
@@ -197,17 +198,24 @@ public partial class AmpDecisionCyclePage : AmpWizardBasePage
     {
         // set unit of time for decision cycle
         SetDecisionCycleUnitOfTime();
-            if (numberOfMonth.UseTextbox && !String.IsNullOrEmpty(numberOfMonth.TextboxText))
+        if (numberOfMonth.UseTextbox && !String.IsNullOrEmpty(numberOfMonth.TextboxText))
             {
                 CurrentDecisionInstance.CycleUnitsPerTierValue = Int32.Parse(numberOfMonth.TextboxText);
                 CurrentDecisionInstance.CycleUnitsPerTierColumnName = null;
             }
-            else if (!String.IsNullOrEmpty(numberOfMonth.DropdownSelectedText))
+        else if (numberOfMonth.UseTextbox &&  String.IsNullOrEmpty(numberOfMonth.TextboxText))
+            {
+                SetError(Convert.ToString(GetLocalResourceObject("TEXT_ERROR_NO_VALUE_FOR_UNIT_OF_TIME")));
+                logger.LogError(String.Format("No value for the unit of time for the Decision Cycle'{0}'",
+                                          AmpDecisionName));
+                return false;
+            }
+        else if (!String.IsNullOrEmpty(numberOfMonth.DropdownSelectedText))
             {
                 CurrentDecisionInstance.CycleUnitsPerTierColumnName = numberOfMonth.DropdownSelectedText;
                 CurrentDecisionInstance.CycleUnitsPerTierValue = null;
             }
-            else
+        else
             {
                 SetError(Convert.ToString(GetLocalResourceObject("TEXT_ERROR_NO_VALUE_FOR_UNIT_OF_TIME")));
                 logger.LogError(String.Format("No value for the unit of time for the Decision Cycle'{0}'",
@@ -220,6 +228,15 @@ public partial class AmpDecisionCyclePage : AmpWizardBasePage
             {
                 CurrentDecisionInstance.CycleUnitsOffsetValue = Int32.Parse(numberMonthBillingInterval.TextboxText);
                 CurrentDecisionInstance.CycleUnitsOffsetColumnName = null;
+            }
+            else if (numberMonthBillingInterval.UseTextbox &&  String.IsNullOrEmpty(numberMonthBillingInterval.TextboxText))
+            {
+                SetError(GetLocalResourceObject("TEXT_ERROR_NO_VALUE_FOR_UNIT_OF_TIME_INTERVAL").ToString());
+                logger.LogError(
+                    String.Format(
+                        "No value for the unit of time from the beginning of the billing interval to the start of the Decision Cycle'{0}'",
+                        AmpDecisionName));
+                return false;
             }
             else if (!String.IsNullOrEmpty(numberMonthBillingInterval.DropdownSelectedText))
             {

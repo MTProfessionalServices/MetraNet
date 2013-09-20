@@ -3386,7 +3386,7 @@ namespace MetraTech.Core.Services
             if ((attributeValue != null) && (attributeColumnName != null))
             {
                 m_Logger.LogError(
-                    "StoreAttributeInDomainModel: both hard coded and column name were specified" +
+                    "StoreAttributeInDomainModel: both hard coded and column name were specified " +
                     "for parameter {0}, discarding the hard coded value {1}",
                     attributeName, attributeValue);
                 attributeValue = null;
@@ -3538,39 +3538,31 @@ namespace MetraTech.Core.Services
             {
                 if ((attributeValue == null) && (attributeColumnName == null))
                 {
-                    decision.ChargeAmountType = Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_FLAT;
+                    decision.ChargeAmountTypeValue = Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_FLAT;
                 }
                 else if (attributeValue != null)
                 {
                     if (attributeValue.ToUpper().Equals("FLAT"))
                     {
-                        decision.ChargeAmountType = Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_FLAT;
+                        decision.ChargeAmountTypeValue = Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_FLAT;
                     }
                     else if (attributeValue.ToUpper().Equals("PROPORTIONAL"))
                     {
-                        decision.ChargeAmountType = Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_PROPORTIONAL;
+                        decision.ChargeAmountTypeValue = Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_PROPORTIONAL;
                     }
                     else if (attributeValue.ToUpper().Equals("INVERSE_PROPORTIONAL"))
                     {
-                        decision.ChargeAmountType = Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_INVERSE_PROPORTIONAL;
+                        decision.ChargeAmountTypeValue = Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_INVERSE_PROPORTIONAL;
                     }
                     else if (attributeValue.ToUpper().Equals("PERCENTAGE"))
                     {
-                        decision.ChargeAmountType = Decision.ChargeAmountTypeEnum.CHARGE_PERCENTAGE;
-                    }
-                    else
-                    {
-                        m_Logger.LogError(
-                            "StoreAttributeInDomainModel: parameter {0} contains unexpected value {1}",
-                            attributeName, attributeValue);
+                        decision.ChargeAmountTypeValue = Decision.ChargeAmountTypeEnum.CHARGE_PERCENTAGE;
                     }
                 }
                 else
                 {
-                    // don't expect column name
-                    m_Logger.LogError(
-                        "StoreAttributeInDomainModel: parameter {0} should not be set via column name",
-                        attributeName);
+                    decision.ChargeAmountTypeValue = Decision.ChargeAmountTypeEnum.CHARGE_FROM_PARAM_TABLE;
+                    decision.ChargeAmountTypeColumnName = attributeColumnName;
                 }
             }
             else if (attributeName.Equals("Cycles"))
@@ -3673,16 +3665,27 @@ namespace MetraTech.Core.Services
             }
             else if (attributeName.Equals("Account Qualification Group"))
             {
+                if ((attributeValue == null) && (attributeColumnName == null))
+                {
+                    decision.AccountQualificationGroupValue = null;
+                    decision.AccountQualificationGroupColumnName = null;
+                }
                 if (attributeValue != null)
                 {
-                    decision.AccountQualificationGroup = attributeValue;
+                    decision.AccountQualificationGroupValue = attributeValue;
+                    decision.AccountQualificationGroupColumnName = null;
+                }
+                else if (attributeColumnName !=null)
+                {
+                    decision.AccountQualificationGroupValue = null;
+                    decision.AccountQualificationGroupColumnName = attributeColumnName;
                 }
                 else
                 {
                     // don't expect column name
                     m_Logger.LogError(
-                        "StoreAttributeInDomainModel: parameter {0} should not be set via column name",
-                        attributeName);
+                        "StoreAttributeInDomainModel: parameter {0} contains unexpected value {1} or column name {2}",
+                        attributeName, attributeValue, attributeColumnName);
                 }
             }
             else if (attributeName.Equals("Tier Discount"))
@@ -3800,34 +3803,38 @@ namespace MetraTech.Core.Services
             }
             else if (attributeName.Equals("Usage Qualification Group"))
             {
-                if (attributeValue != null)
+                if (attributeValue == null && attributeColumnName == null)
                 {
-                    decision.UsageQualificationGroup = attributeValue;
+                    decision.UsageQualificationGroupValue = null;
+                    decision.UsageQualificationGroupColumnName = null;
+                }
+                else if (attributeValue != null)
+                {
+                    decision.UsageQualificationGroupValue = attributeValue;
+                    decision.UsageQualificationGroupColumnName = null;
                 }
                 else
                 {
-                    // don't expect column name
-                    m_Logger.LogError(
-                        "StoreAttributeInDomainModel: parameter {0} should not be set via column name",
-                        attributeName);
+                    decision.UsageQualificationGroupColumnName = attributeColumnName;
+                    decision.UsageQualificationGroupValue = null;
                 }
             }
             else if (attributeName.Equals("Generated Charge"))
             {
                 if ((attributeValue == null) && (attributeColumnName == null))
                 {
-                    decision.GeneratedCharge = null;
+                    decision.GeneratedChargeValue = null;
+                    decision.GeneratedChargeColumnName = null;
                 }
                 else if (attributeValue != null)
                 {
-                    decision.GeneratedCharge = attributeValue;
+                    decision.GeneratedChargeValue = attributeValue;
+                    decision.GeneratedChargeColumnName = null;
                 }
                 else
                 {
-                    // don't expect column name
-                    m_Logger.LogError(
-                        "StoreAttributeInDomainModel: parameter {0} should not be set via column name",
-                        attributeName);
+                    decision.GeneratedChargeValue = null;
+                    decision.GeneratedChargeColumnName = attributeColumnName;
                 }
             }
             else if (attributeName.Equals("Tier Domain Impact"))
@@ -3911,19 +3918,19 @@ namespace MetraTech.Core.Services
                 {
                     if (attributeValue.ToUpper().Equals("NO PRORATION"))
                     {
-                        decision.TierProration = Decision.TierProrationEnum.PRORATE_NONE;
+                        decision.TierProrationValue = Decision.TierProrationEnum.PRORATE_NONE;
                     }
                     else if (attributeValue.ToUpper().Equals("PRORATE ACTIVATION"))
                     {
-                        decision.TierProration = Decision.TierProrationEnum.PRORATE_TIER_START;
+                        decision.TierProrationValue = Decision.TierProrationEnum.PRORATE_TIER_START;
                     }
                     else if (attributeValue.ToUpper().Equals("PRORATE TERMINATION"))
                     {
-                        decision.TierProration = Decision.TierProrationEnum.PRORATE_TIER_END;
+                        decision.TierProrationValue = Decision.TierProrationEnum.PRORATE_TIER_END;
                     }
                     else if (attributeValue.ToUpper().Equals("PRORATE BOTH"))
                     {
-                        decision.TierProration = Decision.TierProrationEnum.PRORATE_BOTH;
+                        decision.TierProrationValue = Decision.TierProrationEnum.PRORATE_BOTH;
                     }
                     else
                     {
@@ -3931,15 +3938,12 @@ namespace MetraTech.Core.Services
                             "StoreAttributeInDomainModel: parameter {0} contains unexpected value {1}",
                             attributeName, attributeValue);
                         m_Logger.LogError("Setting decision.TierProration = PRORATE_NONE");
-                        decision.TierProration = Decision.TierProrationEnum.PRORATE_NONE;
+                        decision.TierProrationValue = Decision.TierProrationEnum.PRORATE_NONE;
                     }
                 }
                 else
                 {
-                    // don't expect column name
-                    m_Logger.LogError(
-                        "StoreAttributeInDomainModel: parameter {0} should not be set via column name",
-                        attributeName);
+                    decision.TierProrationColumnName = attributeColumnName;
                 }
             }
             else if (attributeName.Equals("Is Active"))
@@ -4060,7 +4064,8 @@ namespace MetraTech.Core.Services
                 decision.PvToAmountChainMappingValue,
                 decision.PvToAmountChainMappingColumnName, decision.ParameterTableName);
             StoreAttributeInDb(decision.UniqueId, "Generated Charge",
-                decision.GeneratedCharge, null, decision.ParameterTableName);
+                String.IsNullOrEmpty(decision.GeneratedChargeValue) ? null : decision.GeneratedChargeValue, 
+                String.IsNullOrEmpty(decision.GeneratedChargeColumnName) ? null : decision.GeneratedChargeColumnName, decision.ParameterTableName);
             switch (decision.ChargeCondition)
             {
                 case Decision.ChargeConditionEnum.CHARGE_NONE:
@@ -4106,7 +4111,7 @@ namespace MetraTech.Core.Services
                         decision.ChargeColumnName, decision.ParameterTableName);
                     break;
             }
-            switch (decision.ChargeAmountType)
+            switch (decision.ChargeAmountTypeValue)
             {
                 case Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_FLAT:
                     StoreAttributeInDb(decision.UniqueId, "Charge Type", "flat", null, decision.ParameterTableName);
@@ -4122,6 +4127,9 @@ namespace MetraTech.Core.Services
 
                 case Decision.ChargeAmountTypeEnum.CHARGE_PERCENTAGE:
                     StoreAttributeInDb(decision.UniqueId, "Charge Type", "percentage", null, decision.ParameterTableName);
+                    break;
+                case Decision.ChargeAmountTypeEnum.CHARGE_FROM_PARAM_TABLE:
+                    StoreAttributeInDb(decision.UniqueId, "Charge Type", null , decision.ChargeAmountTypeColumnName, decision.ParameterTableName);
                     break;
             }
             StoreAttributeInDb(decision.UniqueId, "Cycles",
@@ -4151,7 +4159,7 @@ namespace MetraTech.Core.Services
                 decision.PriorityValue.HasValue ? decision.PriorityValue.ToString() : null,
                 decision.PriorityColumnName, decision.ParameterTableName);
             StoreAttributeInDb(decision.UniqueId, "Account Qualification Group",
-                decision.AccountQualificationGroup, null, decision.ParameterTableName);
+                !String.IsNullOrEmpty(decision.AccountQualificationGroupValue) ? decision.AccountQualificationGroupValue : null, !String.IsNullOrEmpty(decision.AccountQualificationGroupColumnName) ? decision.AccountQualificationGroupColumnName : null, decision.ParameterTableName);
             StoreAttributeInDb(decision.UniqueId, "Tier Discount",
                 decision.TierDiscountValue.HasValue ? decision.TierDiscountValue.ToString() : null,
                 decision.TierDiscountColumnName, decision.ParameterTableName);
@@ -4221,7 +4229,8 @@ namespace MetraTech.Core.Services
               StoreAttributeInDb(decision.UniqueId, "Cycle Unit Type", null, decision.CycleUnitTypeColumnName, decision.ParameterTableName);
             }
             StoreAttributeInDb(decision.UniqueId, "Usage Qualification Group",
-                decision.UsageQualificationGroup, null, decision.ParameterTableName);
+                !String.IsNullOrEmpty(decision.UsageQualificationGroupValue)?decision.UsageQualificationGroupValue:null,
+                !String.IsNullOrEmpty(decision.UsageQualificationGroupColumnName)?decision.UsageQualificationGroupColumnName:null, decision.ParameterTableName);
             StoreAttributeInDb(decision.UniqueId, "Per Unit Rate",
                 decision.PerUnitRateValue.HasValue ? decision.PerUnitRateValue.ToString() : null,
                 decision.PerUnitRateColumnName, decision.ParameterTableName);
@@ -4240,27 +4249,35 @@ namespace MetraTech.Core.Services
                 StoreAttributeInDb(decision.UniqueId, "Tier Qualified Usage",
                     "incremental", null, decision.ParameterTableName);
             }
-            switch (decision.TierProration)
+            if (decision.TierProrationValue != null)
             {
-                case Decision.TierProrationEnum.PRORATE_NONE:
-                    StoreAttributeInDb(decision.UniqueId, "Tier Proration", "no proration",
-                        null, decision.ParameterTableName);
-                    break;
+                switch (decision.TierProrationValue)
+                {
+                    case Decision.TierProrationEnum.PRORATE_NONE:
+                        StoreAttributeInDb(decision.UniqueId, "Tier Proration", "no proration",
+                                           null, decision.ParameterTableName);
+                        break;
 
-                case Decision.TierProrationEnum.PRORATE_TIER_START:
-                    StoreAttributeInDb(decision.UniqueId, "Tier Proration", "prorate activation",
-                        null, decision.ParameterTableName);
-                    break;
+                    case Decision.TierProrationEnum.PRORATE_TIER_START:
+                        StoreAttributeInDb(decision.UniqueId, "Tier Proration", "prorate activation",
+                                           null, decision.ParameterTableName);
+                        break;
 
-                case Decision.TierProrationEnum.PRORATE_TIER_END:
-                    StoreAttributeInDb(decision.UniqueId, "Tier Proration", "prorate termination",
-                        null, decision.ParameterTableName);
-                    break;
+                    case Decision.TierProrationEnum.PRORATE_TIER_END:
+                        StoreAttributeInDb(decision.UniqueId, "Tier Proration", "prorate termination",
+                                           null, decision.ParameterTableName);
+                        break;
 
-                case Decision.TierProrationEnum.PRORATE_BOTH:
-                    StoreAttributeInDb(decision.UniqueId, "Tier Proration", "prorate both",
-                        null, decision.ParameterTableName);
-                    break;
+                    case Decision.TierProrationEnum.PRORATE_BOTH:
+                        StoreAttributeInDb(decision.UniqueId, "Tier Proration", "prorate both",
+                                           null, decision.ParameterTableName);
+                        break;
+                }
+            }
+            else
+            {
+                StoreAttributeInDb(decision.UniqueId, "Tier Proration", null,
+                                           decision.TierProrationColumnName, decision.ParameterTableName);
             }
             if (!decision.IsActive.HasValue)
             {

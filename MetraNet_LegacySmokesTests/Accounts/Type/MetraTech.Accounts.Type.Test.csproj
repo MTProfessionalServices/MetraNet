@@ -101,6 +101,8 @@
     <Reference Include="RCD.interop">
       <EmbedInteropTypes>false</EmbedInteropTypes>
       <Private>false</Private>
+	  <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\RCD.interop.dll</HintPath>
     </Reference>
     <Reference Include="Rowset.interop">
       <EmbedInteropTypes>false</EmbedInteropTypes>

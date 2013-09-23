@@ -250,13 +250,13 @@ HRESULT DeployProductView::ExecuteHook(VARIANT var, long* pVal)
 		 // Partitoned Views ...
 		 // The table is now created in the NetMeter database.  If partitioned
 		 // views are enbaled it now needs to be depolyed to the partition 
-		 // databases.  The stored proc DeployPartitionedTable performs this
-		 // action.  DeployPartitionedTable exits pleasantly if partitioning
+		 // databases.  The stored proc prtn_deploy_usage_table performs this
+		 // action.  prtn_deploy_usage_table exits pleasantly if partitioning
 		 // is not enabled, so no need to check if partitioning is enabled
 		 // beforehand.
 
 		 // the snap...
-		 if (!DBAccess::InitializeForStoredProc(L"DeployPartitionedTable"))
+		 if (!DBAccess::InitializeForStoredProc(L"prtn_deploy_usage_table"))
 		 {
 			 // bad snap
 			 SetError(DBAccess::GetLastError());

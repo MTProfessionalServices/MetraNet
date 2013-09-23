@@ -1,5 +1,5 @@
 
-CREATE PROCEDURE prtn_GetNextAllowRunDate
+CREATE PROCEDURE prtn_get_next_allow_run_date
 	@current_datetime DATETIME = NULL,
 	@next_allow_run_date DATETIME OUT
 AS

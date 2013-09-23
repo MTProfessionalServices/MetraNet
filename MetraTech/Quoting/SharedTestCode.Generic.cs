@@ -287,115 +287,105 @@ namespace MetraTech.Shared.Test
             };
         }
 
-
-        public static void ApplyIcbPricesToSubscription(int productOfferingId, int subscriptionId, List<QuoteIndividualPrice> IcbPrices)
+        public static ProductOfferingFactoryConfiguration CreateProductOfferingConfiguration(string testName, string testRunUniqueIdentifier,
+                                                                           out IMTProductOffering productOffering)
         {
-            if (IcbPrices == null) return;
+            var pofConfiguration = new ProductOfferingFactoryConfiguration(testName, testRunUniqueIdentifier);
+            pofConfiguration.CountNRCs = 1;
+            pofConfiguration.CountPairRCs = 1;
+            pofConfiguration.CountPairUDRCs = 0;
+            pofConfiguration.Cycle.CycleTypeID = (int)CycleType.Annually;
+            pofConfiguration.Cycle.StartDay = 1;
+            pofConfiguration.Cycle.StartMonth = 1;
 
-            var icbPrices = IcbPrices.Where(ip => ip.ProductOfferingId == productOfferingId);
-            foreach (var price in icbPrices)
-                Application.ProductManagement.PriceListService.SaveRateSchedulesForSubscription(
-                  subscriptionId,
-                  new PCIdentifier(price.PriceableItemInstanceId),
-                  new PCIdentifier(price.ParameterTableId),
-                  price.RateSchedules,
-                  null, 
-                  null);
+            productOffering = ProductOfferingFactory.Create(pofConfiguration);
+            //Assert.IsNotNull(productOffering.ID, "Unable to create PO for test run");
+            Console.WriteLine("Product Offering for quote:" + productOffering.ID + "; " + productOffering.DisplayName);
+            return pofConfiguration;
         }
 
-
-        public static BaseRateSchedule GetFlatRcRateSchedule(decimal price, DateTime? startDate = null, DateTime? endDate = null)
+        public static List<MetraTech.DomainModel.BaseTypes.Account> CreateHierarchyofAccounts(string billcycle, string testShortName,
+                                                                       string testRunUniqueIdentifier)
         {
-          startDate = startDate ?? DateTime.Parse("1/1/2000");
-          endDate = endDate ?? DateTime.Parse("1/1/2038");
-
-          return new RateSchedule
-            <Metratech_com_FlatRecurringChargeRateEntry, Metratech_com_FlatRecurringChargeDefaultRateEntry>
+            var Hierarchy = new List<DomainModel.BaseTypes.Account>();
+            var corpAccountHolder = new CorporateAccountFactory(testShortName + "0", testRunUniqueIdentifier);
+            testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
+            var deptAccountHolder1 = new DepartmentAccountFactory(testShortName + "1", testRunUniqueIdentifier);
+            testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
+            var coresubscriberAccountHolder = new CoreSubscriberAccountFactory(testShortName, testRunUniqueIdentifier);
+            switch (billcycle)
             {
-              EffectiveDate = new ProdCatTimeSpan
-                {
-                  StartDate = startDate,
-                  StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
-                  EndDate = endDate,
-                  EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
-                },
-              RateEntries = new List<Metratech_com_FlatRecurringChargeRateEntry>
-                {
-                  new Metratech_com_FlatRecurringChargeRateEntry {RCAmount = price}
-                }
-            };
-        }
+                case "Semi_Annually":
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Semi_Annually);
+                    break;
 
-        public static BaseRateSchedule GetNonRcRateSchedule(decimal price)
-        {
-            return new RateSchedule<Metratech_com_NonRecurringChargeRateEntry, Metratech_com_NonRecurringChargeDefaultRateEntry>
-            {
-                EffectiveDate = new ProdCatTimeSpan
-                {
-                    StartDate = MetraTime.Now,
-                    StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
-                    EndDate = MetraTime.Now.AddHours(1),
-                    EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
-                },
-                RateEntries = new List<Metratech_com_NonRecurringChargeRateEntry>
-           {
-              new Metratech_com_NonRecurringChargeRateEntry { NRCAmount = price }
-           }
-            };
-        }
-
-        public static BaseRateSchedule GetTaperedUdrcRateSchedule(Dictionary<decimal, decimal> unitValuesAndAmounts)
-        {
-            var rates = new List<Metratech_com_UDRCTaperedRateEntry>();
-            var i = 0;
-            foreach (var val in unitValuesAndAmounts)
-            {
-                rates.Add(new Metratech_com_UDRCTaperedRateEntry
-                {
-                    Index = i,
-                    UnitValue = val.Key,
-                    UnitAmount = val.Value
-                });
-                i++;
+                case "Quarterly":
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Quarterly);
+                    break;
+                case "Monthly":
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Monthly);
+                    break;
+                case "Semi_monthly":
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Semi_monthly);
+                    break;
+                case "Bi_weekly":
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Bi_weekly);
+                    break;
+                case "Weekly":
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Weekly);
+                    break;
+                case "Daily":
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Monthly);
+                    break;
+                default:
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Annually);
+                    break;
             }
-
-            return new RateSchedule<Metratech_com_UDRCTaperedRateEntry, Metratech_com_UDRCTaperedDefaultRateEntry>
-            {
-                EffectiveDate = new ProdCatTimeSpan
-                {
-                    StartDate = DateTime.Parse("1/1/2000"),
-                    StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
-                    EndDate = DateTime.Parse("1/1/2038"),
-                    EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
-                },
-                RateEntries = rates
-            };
+            Hierarchy.Add(corpAccountHolder.Item);
+            Hierarchy.Add(deptAccountHolder1.Item);
+            Hierarchy.Add(coresubscriberAccountHolder.Item);
+            Console.WriteLine("Billing Cycle:" + corpAccountHolder.CycleType);
+            Console.WriteLine("Corporate Account:" + corpAccountHolder.Item._AccountID + "; Account name:" + corpAccountHolder.Item.UserName);
+            Console.WriteLine("1st Department Account:" + deptAccountHolder1.Item._AccountID + "; Account name:" + deptAccountHolder1.Item.UserName);
+            Console.WriteLine("CoreSubscriber Account:" + coresubscriberAccountHolder.Item._AccountID + "; Account name:" + coresubscriberAccountHolder.Item.UserName);
+            return Hierarchy;
         }
-
-        public static BaseRateSchedule GetTieredUdrcRateSchedule(decimal unitValue, decimal unitAmount, decimal baseAmount)
+        private static void GetHierarchy(ref CorporateAccountFactory corpAccountHolder,
+                            ref DepartmentAccountFactory deptAccountHolder1,
+                            ref CoreSubscriberAccountFactory coresubscriberAccountHolder, UsageCycleType usageCycleType)
         {
-            var rates = new List<Metratech_com_UDRCTieredRateEntry>();
-            var i = 0;
-            rates.Add(new Metratech_com_UDRCTieredRateEntry
-            {
-                Index = i,
-                UnitValue = unitValue,
-                UnitAmount = unitAmount,
-                BaseAmount = baseAmount
-            });
-
-            return new RateSchedule<Metratech_com_UDRCTieredRateEntry, Metratech_com_UDRCTieredDefaultRateEntry>
-            {
-                EffectiveDate = new ProdCatTimeSpan
-                {
-                    StartDate = DateTime.Parse("1/1/2000"),
-                    StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
-                    EndDate = DateTime.Parse("1/1/2038"),
-                    EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
-                },
-                RateEntries = rates
-            };
+            // Create account #1 Corporate root
+            corpAccountHolder.CycleType = usageCycleType;
+            corpAccountHolder.Instantiate();
+            //Assert.IsNotNull(corpAccountHolder.Item._AccountID, "Unable to create corporate account for test run");
+            // Create account #2 Department child
+            deptAccountHolder1.CycleType = usageCycleType;
+            deptAccountHolder1 = createDeptAccount(deptAccountHolder1, corpAccountHolder.Item._AccountID.Value);
+            //Create account #3 CoreSubscriber child
+            //coresubscriberAccountHolder.is
+            //coresubscriberAccountHolder = deptAccountHolder2.AddCoreSubscriber("User");
+            coresubscriberAccountHolder.AncestorID = deptAccountHolder1.Item._AccountID.Value;
+            coresubscriberAccountHolder.CycleType = usageCycleType;
+            coresubscriberAccountHolder.Instantiate();
+            //Assert.IsNotNull(coresubscriberAccountHolder.Item._AccountID, "Unable to create CoreSubscriber account for test run");
         }
+
+        public static DepartmentAccountFactory createDeptAccount(DepartmentAccountFactory dept, int ancestorID)
+        {
+            dept.AncestorID = ancestorID;
+            dept.Instantiate();
+            //Assert.IsNotNull(dept.Item._AccountID, "Unable to create department account for test run");
+            return dept;
+        }
+
     }
 
     #region Product Catalog Related Classes
@@ -408,6 +398,8 @@ namespace MetraTech.Shared.Test
         public string Name { get; set; }
         public string DisplayName { get; set; }
         public string UniqueIdentifier { get; set; }
+
+        public IMTPCCycle Cycle { get; set; }
 
         public string Currency { get; set; }
 
@@ -467,6 +459,8 @@ namespace MetraTech.Shared.Test
             PriceableItemsAndParameterTableForRc = new List<PIAndPTParameters>();
             PriceableItemsAndParameterTableForNonRc = new List<PIAndPTParameters>();
             PriceableItemsAndParameterTableForUdrc = new List<PIAndPTParameters>();
+
+            Cycle = new MTPCCycle();
         }
     }
 
@@ -527,7 +521,18 @@ namespace MetraTech.Shared.Test
             return (MetraTech.Interop.MTProductCatalog.IMTSessionContext)SharedTestCode.LoginAsSU();
         }
 
-        public static IMTProductOffering Create(string name, string uniqueIdentifier, bool addCharges = true,
+        /// <summary>
+        /// <see cref="MetraTech.Core.Services.BaseSubscriptionService.CastCycle(Cycle)"/>
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="uniqueIdentifier"></param>
+        /// <param name="cycle"></param>
+        /// <param name="addCharges"></param>
+        /// <param name="countNRCs"></param>
+        /// <param name="countRCs"></param>
+        /// <param name="countUDRCs"></param>
+        /// <returns></returns>
+        public static IMTProductOffering Create(string name, string uniqueIdentifier, IMTPCCycle cycle, bool addCharges = true,
                                                 Int16 countNRCs = 1, Int16 countRCs = 1, Int16 countUDRCs = 0)
         {
             ProductOfferingFactory productOfferingHolder = new ProductOfferingFactory();
@@ -542,15 +547,15 @@ namespace MetraTech.Shared.Test
                       productOfferingHolder.AddNonRecurringCharge("Setup Charge_" + uniqueIdentifier,
                                                                 MTNonRecurringEventType.NREVENT_TYPE_SUBSCRIBE, countNRCs);
                 productOfferingHolder.piTemplate_FRRC_ChargePerParticipantList =
-                      productOfferingHolder.CreateFlatRateRecurringCharge(true, countRCs);
+                      productOfferingHolder.CreateFlatRateRecurringCharge(true, countRCs, cycle);
 
                 productOfferingHolder.piTemplate_FRRC_ChargePerSubList =
-                    productOfferingHolder.CreateFlatRateRecurringCharge(false, countRCs);
+                    productOfferingHolder.CreateFlatRateRecurringCharge(false, countRCs, cycle);
 
 
-                productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList = productOfferingHolder.CreateUDRC(true, countUDRCs);
+                productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList = productOfferingHolder.CreateUDRC(true, countUDRCs, cycle);
 
-                productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, countUDRCs);
+                productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, countUDRCs, cycle);
 
                 //Create a Product Offering
                 charges.AddRange(productOfferingHolder.piTemplate_FRRC_ChargePerParticipantList);
@@ -564,6 +569,11 @@ namespace MetraTech.Shared.Test
             return productOfferingHolder.mProductOffering;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="configuration"></param>
+        /// <returns></returns>
         public static IMTProductOffering Create(ProductOfferingFactoryConfiguration configuration)
         {
             var productOfferingHolder = new ProductOfferingFactory();
@@ -572,10 +582,10 @@ namespace MetraTech.Shared.Test
             //Create priceableitems
             productOfferingHolder.piTemplate_NRC_ChargeOnSubscribeList = productOfferingHolder.AddNonRecurringCharge("Setup Charge",
                                                                MTNonRecurringEventType.NREVENT_TYPE_SUBSCRIBE, configuration.CountNRCs);
-            productOfferingHolder.piTemplate_FRRC_ChargePerParticipantList = productOfferingHolder.CreateFlatRateRecurringCharge(true, configuration.CountPairRCs);
-            productOfferingHolder.piTemplate_FRRC_ChargePerSubList = productOfferingHolder.CreateFlatRateRecurringCharge(false, configuration.CountPairRCs);
-            productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList = productOfferingHolder.CreateUDRC(true, configuration.CountPairUDRCs);
-            productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, configuration.CountPairUDRCs);
+            productOfferingHolder.piTemplate_FRRC_ChargePerParticipantList = productOfferingHolder.CreateFlatRateRecurringCharge(true, configuration.CountPairRCs, configuration.Cycle);
+            productOfferingHolder.piTemplate_FRRC_ChargePerSubList = productOfferingHolder.CreateFlatRateRecurringCharge(false, configuration.CountPairRCs, configuration.Cycle);
+            productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList = productOfferingHolder.CreateUDRC(true, configuration.CountPairUDRCs, configuration.Cycle);
+            productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, configuration.CountPairUDRCs, configuration.Cycle);
 
 
             //Create Product Offering
@@ -634,8 +644,8 @@ namespace MetraTech.Shared.Test
             productOfferingHolder.Initialize(configuration.Name, configuration.UniqueIdentifier);
 
             //Create priceableitems
-            productOfferingHolder.piTemplate_FRRC_ChargePerSubList = productOfferingHolder.CreateFlatRateRecurringCharge(false, configuration.CountPairRCs);
-            productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, configuration.CountPairUDRCs);
+            productOfferingHolder.piTemplate_FRRC_ChargePerSubList = productOfferingHolder.CreateFlatRateRecurringCharge(false, configuration.CountPairRCs, configuration.Cycle);
+            productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, configuration.CountPairUDRCs, configuration.Cycle);
             productOfferingHolder.piTemplate_NRC_ChargeOnSubscribeList = productOfferingHolder.AddNonRecurringCharge("Setup Charge",
               MTNonRecurringEventType.NREVENT_TYPE_SUBSCRIBE, configuration.CountNRCs);
 
@@ -676,7 +686,7 @@ namespace MetraTech.Shared.Test
             return productOfferingHolder.mProductOffering;
         }
 
-        public static IMTProductOffering CreateWithRCMissingRates(string name, string uniqueIdentifier, Int16 countRCs = 1, Int16 countUDRCs = 0)
+        public static IMTProductOffering CreateWithRCMissingRates(string name, string uniqueIdentifier, IMTPCCycle cycle = null, Int16 countRCs = 1, Int16 countUDRCs = 0)
         {
             var productOfferingHolder = new ProductOfferingFactory();
             productOfferingHolder.Initialize(name, uniqueIdentifier);
@@ -686,14 +696,14 @@ namespace MetraTech.Shared.Test
             //productOfferingHolder.piTemplate_NRC_ChargeOnSubscribe = productOfferingHolder.AddNonRecurringCharge("Setup Charge",
             //                                                   MTNonRecurringEventType.NREVENT_TYPE_SUBSCRIBE);
 
-            productOfferingHolder.piTemplate_FRRC_ChargePerParticipantList = productOfferingHolder.CreateFlatRateRecurringCharge(true, countRCs);
+            productOfferingHolder.piTemplate_FRRC_ChargePerParticipantList = productOfferingHolder.CreateFlatRateRecurringCharge(true, countRCs, cycle);
 
-            productOfferingHolder.piTemplate_FRRC_ChargePerSubList = productOfferingHolder.CreateFlatRateRecurringCharge(false, countRCs);
+            productOfferingHolder.piTemplate_FRRC_ChargePerSubList = productOfferingHolder.CreateFlatRateRecurringCharge(false, countRCs, cycle);
 
 
-            productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList = productOfferingHolder.CreateUDRC(true, countUDRCs);
+            productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList = productOfferingHolder.CreateUDRC(true, countUDRCs, cycle);
 
-            productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, countUDRCs);
+            productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, countUDRCs, cycle);
 
 
             //Create a Product Offering
@@ -749,7 +759,7 @@ namespace MetraTech.Shared.Test
             return productOfferingHolder.mProductOffering;
         }
 
-        public static IMTProductOffering CreateWithNRCMissingRates(string name, string uniqueIdentifier, Int16 countRCs = 1, Int16 countUDRCs = 0)
+        public static IMTProductOffering CreateWithNRCMissingRates(string name, string uniqueIdentifier, IMTPCCycle cycle = null, Int16 countRCs = 1, Int16 countUDRCs = 0)
         {
             ProductOfferingFactory productOfferingHolder = new ProductOfferingFactory();
             productOfferingHolder.Initialize(name, uniqueIdentifier);
@@ -758,14 +768,14 @@ namespace MetraTech.Shared.Test
 
             productOfferingHolder.piTemplate_NRC_ChargeOnSubscribeList = productOfferingHolder.AddNonRecurringCharge("Setup Charge_" + uniqueIdentifier, MTNonRecurringEventType.NREVENT_TYPE_SUBSCRIBE, 1);
 
-            productOfferingHolder.piTemplate_FRRC_ChargePerParticipantList = productOfferingHolder.CreateFlatRateRecurringCharge(true, countRCs);
+            productOfferingHolder.piTemplate_FRRC_ChargePerParticipantList = productOfferingHolder.CreateFlatRateRecurringCharge(true, countRCs, cycle);
 
-            productOfferingHolder.piTemplate_FRRC_ChargePerSubList = productOfferingHolder.CreateFlatRateRecurringCharge(false, countRCs);
+            productOfferingHolder.piTemplate_FRRC_ChargePerSubList = productOfferingHolder.CreateFlatRateRecurringCharge(false, countRCs, cycle);
 
 
-            productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList = productOfferingHolder.CreateUDRC(true, countUDRCs);
+            productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList = productOfferingHolder.CreateUDRC(true, countUDRCs, cycle);
 
-            productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, countUDRCs);
+            productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, countUDRCs, cycle);
 
 
             //Create a Product Offering
@@ -1025,7 +1035,7 @@ namespace MetraTech.Shared.Test
             productOffering.Name = string.Format("{0}_PO_{1}", BaseName, UniqueInstanceIdentifier);
             productOffering.DisplayName = productOffering.Name;
             ((MetraTech.Localization.LocalizedEntity)productOffering.DisplayNames).SetMapping("DE", "{DE} " + productOffering.DisplayName);
-            
+
             productOffering.Description = productOffering.Name;
             productOffering.SelfSubscribable = true;
             productOffering.SelfUnsubscribable = false;
@@ -1080,7 +1090,7 @@ namespace MetraTech.Shared.Test
             return piTemplate_NRCList;
         }
 
-        public List<IMTRecurringCharge> CreateFlatRateRecurringCharge(bool chargePerParticipant, short countRCs)
+        public List<IMTRecurringCharge> CreateFlatRateRecurringCharge(bool chargePerParticipant, short countRCs, IMTPCCycle cycle)
         {
             IMTPriceableItemType priceableItemTypeFRRC = ProductCatalog.GetPriceableItemTypeByName("Flat Rate Recurring Charge");
 
@@ -1110,8 +1120,24 @@ namespace MetraTech.Shared.Test
                 piTemplate_FRRC.FixedProrationLength = false;
                 piTemplate_FRRC.ChargePerParticipant = chargePerParticipant;
                 IMTPCCycle pcCycle = piTemplate_FRRC.Cycle;
-                pcCycle.CycleTypeID = 1;
-                pcCycle.EndDayOfMonth = 31;
+
+                if (cycle != null && cycle.CycleTypeID > 0)
+                {
+                    pcCycle.CycleTypeID = cycle.CycleTypeID;
+                    pcCycle.EndDayOfMonth = cycle.EndDayOfMonth;
+                    pcCycle.EndDayOfMonth2 = cycle.EndDayOfMonth2;
+                    pcCycle.EndDayOfWeek = cycle.EndDayOfWeek;
+                    pcCycle.Mode = cycle.Mode;
+                    pcCycle.StartDay = cycle.StartDay;
+                    pcCycle.StartMonth = cycle.StartMonth;
+                    pcCycle.StartYear = cycle.StartYear;
+                }
+                else
+                {
+                    pcCycle.CycleTypeID = (int)CycleType.Monthly;
+                    pcCycle.EndDayOfMonth = 31;
+                }
+
                 piTemplate_FRRC.Save();
 
                 recuringChargeList.Add(piTemplate_FRRC);
@@ -1120,7 +1146,7 @@ namespace MetraTech.Shared.Test
             return recuringChargeList;
         }
 
-        private List<IMTRecurringCharge> CreateUDRC(bool chargePerParticipant, short countUDRCs)
+        private List<IMTRecurringCharge> CreateUDRC(bool chargePerParticipant, short countUDRCs, IMTPCCycle cycle)
         {
             IMTPriceableItemType priceableItemTypeUDRC =
                 ProductCatalog.GetPriceableItemTypeByName("Unit Dependent Recurring Charge");
@@ -1155,8 +1181,24 @@ namespace MetraTech.Shared.Test
                 piTemplateUdrc.MinUnitValue = 10;
                 piTemplateUdrc.MaxUnitValue = 1000;
                 IMTPCCycle pcCycle = piTemplateUdrc.Cycle;
-                pcCycle.CycleTypeID = 1;
-                pcCycle.EndDayOfMonth = 31;
+
+                if (cycle != null && cycle.CycleTypeID > 0)
+                {
+                    pcCycle.CycleTypeID = cycle.CycleTypeID;
+                    pcCycle.EndDayOfMonth = cycle.EndDayOfMonth;
+                    pcCycle.EndDayOfMonth2 = cycle.EndDayOfMonth2;
+                    pcCycle.EndDayOfWeek = cycle.EndDayOfWeek;
+                    pcCycle.Mode = cycle.Mode;
+                    pcCycle.StartDay = cycle.StartDay;
+                    pcCycle.StartMonth = cycle.StartMonth;
+                    pcCycle.StartYear = cycle.StartYear;
+                }
+                else
+                {
+                    pcCycle.CycleTypeID = (int)CycleType.Monthly;
+                    pcCycle.EndDayOfMonth = 31;
+                }
+
                 piTemplateUdrc.Save();
 
                 udrList.Add(piTemplateUdrc);
@@ -1821,6 +1863,203 @@ namespace MetraTech.Shared.Test
         }
 
         private MetraTech.DomainModel.BaseTypes.Account CreateBaseAccount(string typeName, ref string userName, ref string nameSpace)
+        {
+            MetraTech.DomainModel.BaseTypes.Account account =
+              MetraTech.DomainModel.BaseTypes.Account.CreateAccount(typeName);
+
+            //userName = typeName + "_" + DateTime.Now.ToString("MM/dd HH:mm:ss.") + DateTime.Now.Millisecond.ToString();
+
+            userName = string.Format("{0}_{1}_{2}", userName, BaseName, UniqueInstanceIdentifier);
+
+            if (userName.Length > 40)
+            {
+                throw new Exception(string.Format("Username '{0}' is too long. It is {1} and should be 40 or less.", userName, userName.Length));
+            }
+
+            if (String.IsNullOrEmpty(nameSpace))
+            {
+                nameSpace = "mt";
+            }
+
+            account.UserName = userName;
+            account.Password_ = "123";
+            account.Name_Space = nameSpace;
+            account.DayOfMonth = 1;
+            account.AccountStatus = AccountStatus.Active;
+
+            return account;
+        }
+    }
+
+    public class IndependentAccountFactory
+    {
+        protected IndependentAccount mIndependentAccount;
+        public IndependentAccount Item
+        {
+            get { return mIndependentAccount; }
+        }
+
+        protected string baseName = "";
+        protected virtual string BaseName
+        {
+            get { return baseName; }
+        }
+
+        protected string uniqueInstanceIdentifier = "";
+        protected virtual string UniqueInstanceIdentifier
+        {
+            get { return uniqueInstanceIdentifier; }
+        }
+
+        protected UsageCycleType usageCycleType = UsageCycleType.Monthly;
+        public UsageCycleType CycleType
+        {
+            get { return usageCycleType; }
+            set { usageCycleType = value; }
+        }
+
+        protected int? payerID = null;
+        public int? PayerID
+        {
+            get { return payerID; }
+            set { payerID = value; }
+        }
+
+        protected int ancestorID = 1;
+        public int AncestorID
+        {
+            get { return ancestorID; }
+            set { ancestorID = value; }
+        }
+
+        protected InternalView internalView;
+        protected ContactView billToContactView;
+        protected ContactView shipToContactView;
+
+        AccountCreation_AddAccount_Client webServiceClient;
+
+        public virtual MetraTech.Interop.MTAuth.IMTSessionContext GetSessionContextForCreate()
+        {
+            return SharedTestCode.LoginAsSU();
+        }
+
+        public virtual AccountCreation_AddAccount_Client WebServiceClient
+        {
+            get
+            {
+                if (webServiceClient == null)
+                {
+                    webServiceClient = new AccountCreation_AddAccount_Client();
+                    webServiceClient.UserName = "su";
+                    webServiceClient.Password = "su123";
+                }
+
+                return webServiceClient;
+            }
+        }
+
+        private IndependentAccountFactory() { }
+        public IndependentAccountFactory(string name, string uniqueIdentifier)
+        {
+            baseName = name;
+            uniqueInstanceIdentifier = uniqueIdentifier;
+        }
+
+        public static IndependentAccount Create(string name, string uniqueIdentifier)
+        {
+            IndependentAccountFactory accountHolder = new IndependentAccountFactory(name, uniqueIdentifier);
+            accountHolder.Instantiate();
+
+            return accountHolder.Item;
+        }
+
+        public virtual void Instantiate()
+        {
+            // Create the internal view
+            internalView = (InternalView)View.CreateView(@"metratech.com/internal");
+            internalView.UsageCycleType = CycleType;
+            internalView.Billable = true;
+            internalView.SecurityQuestion = SecurityQuestion.MothersMaidenName;
+            internalView.Language = LanguageCode.US;
+            internalView.Currency = SystemCurrencies.USD.ToString();
+            internalView.TimezoneID = TimeZoneID._GMT_05_00__Eastern_Time__US___Canada_;
+
+            // Create the billToContactView
+            billToContactView = (ContactView)View.CreateView(@"metratech.com/contact");
+            billToContactView.ContactType = ContactType.Bill_To;
+            billToContactView.FirstName = "Rudi";
+            billToContactView.LastName = "Perkins";
+            billToContactView.Address1 = "c/o Test " + baseName + " " + uniqueInstanceIdentifier;
+            billToContactView.Address2 = "528 Wellman Ave.";
+            billToContactView.City = "North Chelmsford";
+            billToContactView.Country = CountryName.USA;
+            billToContactView.Company = string.Format("{0}, Inc.", baseName);
+            billToContactView.Email = "rperkins@amit.com";
+            billToContactView.PhoneNumber = "617-555-1212";
+            billToContactView.Zip = "01863";
+
+            // Create the shipToContactView
+            shipToContactView = (ContactView)View.CreateView(@"metratech.com/contact");
+            shipToContactView.ContactType = ContactType.Ship_To;
+            shipToContactView.FirstName = string.Format("Ship_to_{0}", baseName);
+            shipToContactView.LastName = string.Format("Ship_to_{0}", uniqueInstanceIdentifier);
+            shipToContactView.Country = CountryName.India;
+            shipToContactView.City = string.Format("City for ship to {0}", baseName);
+            shipToContactView.Company = string.Format("Company for ship to {0}", baseName);
+            shipToContactView.Email = string.Format("Email for ship to {0}", baseName);
+            shipToContactView.PhoneNumber = string.Format("Phone number for ship to {0}", baseName);
+            shipToContactView.Address1 = string.Format("Address for ship to {0}", baseName);
+            shipToContactView.Zip = string.Format("ZIP code for ship to {0}", baseName);
+
+            mIndependentAccount = CreateIndependentAccount();
+
+            //Add role for login to MetraView
+            if (mIndependentAccount._AccountID != null)
+            {
+                var ctx = SharedTestCode.LoginAsSU();
+                IMTSecurity sec = new MTSecurityClass();
+
+                IMTYAAC cap1 = sec.GetAccountByID((MTSessionContext)ctx, (int)mIndependentAccount._AccountID, MetraTime.Now);
+
+                MTRole specifiedRole = sec.GetRoleByName((MTSessionContext)ctx, "Subscriber (MetraView)");
+
+                cap1.GetActivePolicy((MTSessionContext)ctx).AddRole(specifiedRole);
+                cap1.GetActivePolicy((MTSessionContext)ctx).Save();
+            }
+        }
+
+        protected virtual IndependentAccount CreateIndependentAccount()
+        {
+            string username = "Indp";
+            string nameSpace = String.Empty;
+            IndependentAccount account = (IndependentAccount)CreateBaseAccount("IndependentAccount", ref username, ref nameSpace);
+            account.AccountStartDate = MetraTime.Now;
+
+            // Set the internal view
+            account.Internal = internalView;
+
+            // Add the contact views
+            account.LDAP.Add(shipToContactView);
+            account.LDAP.Add(billToContactView);
+
+            account.StartMonth = MonthOfTheYear.January;
+            account.FirstDayOfMonth = 1;
+            account.StartDay = 1;
+            account.DayOfMonth = 1;
+            account.DayOfWeek = DayOfTheWeek.Sunday;
+            account.StartYear = DateTime.Now.Year;
+            account.SecondDayOfMonth = 15;
+
+            account.PayerID = PayerID;
+
+            // Create the account
+            WebServiceClient.InOut_Account = account;
+            WebServiceClient.Invoke();
+
+            return (IndependentAccount)WebServiceClient.InOut_Account;
+        }
+
+        private DomainModel.BaseTypes.Account CreateBaseAccount(string typeName, ref string userName, ref string nameSpace)
         {
             MetraTech.DomainModel.BaseTypes.Account account =
               MetraTech.DomainModel.BaseTypes.Account.CreateAccount(typeName);

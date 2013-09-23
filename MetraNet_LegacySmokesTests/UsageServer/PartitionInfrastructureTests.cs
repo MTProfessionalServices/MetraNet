@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.IO;
 using System.Xml;
 using MetraTech.DataAccess;
+using MetraTech.Interop.QueryAdapter;
 using MetraTech.Test;
 using MetraTech.Xml;
 using MetraTech.Interop.MTHookHandler;
@@ -13,9 +14,8 @@ using NUnit.Framework;
 namespace MetraTech.UsageServer.Test
 {
     [TestFixture]
-    [Category("NoAutoRun")]
     [ComVisible(false)]
-    public class SqlNativePartitionTests
+    public class PartitionInfrastructureTests
     {
         private const string QueryPath = "Queries\\SmokeTest";
         private const string UsageServerConfigFile = @"UsageServer\usageserver.xml";
@@ -29,13 +29,6 @@ namespace MetraTech.UsageServer.Test
         private readonly string _ampChangreIdSessTableName = String.Format("##{0}_iserteddata", AmpChangreTableName);
 
         readonly IMTHookHandler _hookHandler = new MTHookHandlerClass();
-
-        #region msixdef metadata for PV tables
-        private readonly string _pathToPvFile = Path.Combine(MTXmlDocument.ExtensionDir,
-                                                             @"SmokeTest\config\productview\metratech.com\stocks.msixdef");
-        private readonly string _pathToPvFileBackup = Path.Combine(MTXmlDocument.ExtensionDir,
-                                                             @"SmokeTest\config\productview\metratech.com\stocks.bak");
-        #endregion msixdef metadata for PV tables
 
         #region msixdef metadata for SVC tables
         private static readonly string _pathToSvcFile= Path.Combine(MTXmlDocument.ExtensionDir,
@@ -55,14 +48,6 @@ namespace MetraTech.UsageServer.Test
             {
                 Assert.Ignore("'Sql Native Partition Tests' are running only when partitioning is enabled.");
             }
-
-            using (var conn = ConnectionManager.CreateConnection())
-            {
-                if (!conn.ConnectionInfo.IsSqlServer)
-                {
-                    Assert.Ignore("'Sql Native Partition Tests' are running only on SQL server.");
-                }
-            }
         }
 
         #region Tests
@@ -77,11 +62,14 @@ namespace MetraTech.UsageServer.Test
 
             using (IMTConnection netMeterConn = ConnectionManager.CreateConnection())
             {
-                Assert.IsTrue(UsagePartitionFunctionExists(netMeterConn), "Usage partition function wasn't created.");
-                Assert.IsTrue(UsagePartitionSchemaExists(netMeterConn), "Usage partition schema wasn't created.");
+                if (netMeterConn.ConnectionInfo.IsSqlServer)
+                {
+                    Assert.IsTrue(UsagePartitionFunctionExists(netMeterConn), "Usage partition function wasn't created.");
+                    Assert.IsTrue(UsagePartitionSchemaExists(netMeterConn), "Usage partition schema wasn't created.");
 
-                Assert.IsTrue(MeterPartitionFunctionExists(netMeterConn), "Meter partition function wasn't created.");
-                Assert.IsTrue(MeterPartitionSchemaExists(netMeterConn), "Meter partition schema wasn't created.");
+                    Assert.IsTrue(MeterPartitionFunctionExists(netMeterConn), "Meter partition function wasn't created.");
+                    Assert.IsTrue(MeterPartitionSchemaExists(netMeterConn), "Meter partition schema wasn't created.");
+                }
 
                 var tablesUnderPartition = RetrieveAllTablesWithPartitioning(netMeterConn);
                 TestLibrary.Trace("\n--------------------------------------------\n{0} tables are under UsagePartitionSchema.",
@@ -99,17 +87,36 @@ namespace MetraTech.UsageServer.Test
         /// Test verifies that all filegroups were created for UsagePartitionSchema.
         /// </summary>
         [Test]
-        public void TestPartitionFilegroups()
+        public void TestPartitionFilegroupsOrTablespace()
         {
             using (IMTConnection netMeterConn = ConnectionManager.CreateConnection())
             {
-				TestLibrary.Trace("\n--------------------------------------------\nChecking that Usage filegroups are created for Usage Partition Schema...");
-                Assert.IsTrue(CheckUsagePartitionFileGroups(netMeterConn), "Some Usage filegroups weren't created");
+                // Filegroups (MSSQL) or tablespace (Orcale) for Usage partition tables
+                TestLibrary.Trace(String.Format("\n--------------------------------------------\n{0}",
+                    netMeterConn.ConnectionInfo.IsSqlServer 
+                        ? "Checking that Usage filegroups were created for Usage Partition Schema..."
+                        : "Checking that tablespace were created for Usage partitioned tables..."));
 
+                Assert.IsTrue(CheckUsagePartitionFileGroups(netMeterConn), netMeterConn.ConnectionInfo.IsSqlServer
+                    ? "Some filegroups for Usage Partition Schema weren't created for MSSQL DB"
+                    : "Some tablespace for Usage partitioned tables weren't created for Oracle DB");
+
+
+                TestLibrary.Trace(String.Format("\n--------------------------------------------\n{0}",
+                   netMeterConn.ConnectionInfo.IsSqlServer
+                       ? "Checking that Meter filegroup are created for Meter Partition Schema for MSSQL DB..."
+                       : "Checking that tablespace for Meter partition tables are created for Orcale DB..."));
+                
+                // Filegroups (MSSQL) or tablespace (Orcale) for Meter partition tables
                 int countMetreFileGroups = GetCountMeterPartitionFileGroups(netMeterConn);
-                TestLibrary.Trace("\n--------------------------------------------\nChecking that Meter filegroup are created for Meter Partition Schema...");
-                Assert.AreNotEqual(0, countMetreFileGroups,  "Meter filegroup wasn't created for the Meter Partition Scheme");
-                Assert.True(countMetreFileGroups == 1, "Meter Partition Scheme contains more then One filegroups");
+                
+                Assert.AreNotEqual(0, countMetreFileGroups, netMeterConn.ConnectionInfo.IsSqlServer 
+                    ? "Meter filegroup wasn't created for the Meter Partition Scheme"
+                    : "Tablespace for Meter partition tables wasn't created for Oracle DB");
+
+                Assert.True(countMetreFileGroups == 1, netMeterConn.ConnectionInfo.IsSqlServer 
+                    ? "Meter Partition Scheme contains more then One filegroups"
+                    : "Meter partition tables contains more then One tablespaces");
             }
 
         }
@@ -122,11 +129,16 @@ namespace MetraTech.UsageServer.Test
         [Test]
         public void TestPVDataDistributedCorrectlyBetweenPartitions()
         {
-            TestLibrary.Trace("Starting test that data distributed correctly between partitions for '{0}' table...",
-                              PvTableName);
-
-            using (IMTConnection netMeterConn = ConnectionManager.CreateConnection())
+           using (IMTConnection netMeterConn = ConnectionManager.CreateConnection())
             {
+                if (!netMeterConn.ConnectionInfo.IsSqlServer)
+                {
+                    Assert.Ignore("'Sql Native Partition Tests' are running only on SQL server.");
+                }
+
+                TestLibrary.Trace("Starting test that data distributed correctly between partitions for '{0}' table...",
+                             PvTableName);
+
                 try
                 {
                     InsertTestDataToPVStocks(netMeterConn, _pvIdSessTableName);
@@ -149,11 +161,16 @@ namespace MetraTech.UsageServer.Test
         [Test]
         public void TestAMPDataDistributedCorrectlyBetweenPartitions()
         {
-            TestLibrary.Trace("Starting test that data distributed correctly between partitions for '{0}' and '{1}' tables...",
-              AmpUsageTableName, AmpChangreTableName);
-
             using (IMTConnection netMeterConn = ConnectionManager.CreateConnection())
             {
+                if (!netMeterConn.ConnectionInfo.IsSqlServer)
+                {
+                    Assert.Ignore("'Sql Native Partition Tests' are running only on SQL server.");
+                }
+
+                TestLibrary.Trace("Starting test that data distributed correctly between partitions for '{0}' and '{1}' tables...",
+                    AmpUsageTableName, AmpChangreTableName);
+
                 try
                 {
                     InsertTestDataToAmpUsageTable(netMeterConn, _ampUsageIdSessTableName);
@@ -173,96 +190,6 @@ namespace MetraTech.UsageServer.Test
         }
 
         /// <summary>
-        /// Tests that Unique Key tables approach works correctly.
-        /// </summary>
-        [Test]
-        public void TestUniqueKeyTables()
-        {
-            const string testConstraintName = "testUniqueKey";
-            string ukTableName = String.Format("t_uk_{0}", testConstraintName);
-
-            //Backup PV file
-            File.Copy(_pathToPvFile, _pathToPvFileBackup, true);
-            bool isNewPvFileCreated = false;
-            bool isNewPvTableCreated = false;
-            try
-            {
-                XmlDocument doc = new XmlDocument();
-                doc.Load(_pathToPvFile);
-
-                XmlNode rootNode = doc.SelectSingleNode("defineservice");
-                Assert.IsNotNull(rootNode);
-
-                RemoveExistingUniqueKeys(rootNode);
-
-                // Testing UkTables on 'int', 'datetime', 'numeric' and 'nvarchar' data types
-                var testUkNode = doc.CreateElement("uniquekey");
-                testUkNode.InnerXml =
-                  String.Format(
-                    @"<name>{0}</name><col>{1}</col><col>{2}</col><col>{3}</col><col>{4}</col>",
-                    testConstraintName, "quantity", "ordertime", "price", "broker");
-                rootNode.AppendChild(testUkNode);
-                doc.Save(_pathToPvFile);
-                isNewPvFileCreated = true;
-
-                RunPvHook();
-                isNewPvTableCreated = true;
-
-                Assert.IsTrue(IsUkTableExists(ukTableName), "Unique Key table '{0}' for constraint '{1}' wasn't created",
-                              ukTableName, testConstraintName);
-
-                const int testQuantity = 1;
-                DateTime testOrderTime = DateTime.Now;
-                const double testPrice = 999.999;
-                const string testBrokerName = "TestBrokerName";
-
-                bool exceptionThrown = false;
-
-                using (var conn = ConnectionManager.CreateConnection())
-                {
-                    var insert = conn.CreateAdapterStatement(QueryPath, "__UK_TABLE_INSERT_DATA__");
-                    insert.AddParam("%%UK_TABLE_NAME%%", ukTableName, true);
-                    insert.AddParam("%%TEST_QUANTITY%%", testQuantity, true);
-                    insert.AddParam("%%TEST_ORDER_TIME%%", testOrderTime, true);
-                    insert.AddParam("%%TEST_PRICE%%", testPrice, true);
-                    insert.AddParam("%%TEST_BROKER%%", testBrokerName, true);
-                    insert.ExecuteNonQuery();
-                    try
-                    {
-                        insert.ExecuteNonQuery();
-                    }
-                    catch (SqlException ex)
-                    {
-                        if (ex.Message.Contains("Violation of UNIQUE KEY constraint"))
-                            exceptionThrown = true;
-                        else
-                        {
-                            throw;
-                        }
-                    }
-                }
-
-                Assert.IsTrue(exceptionThrown,
-                              "Expected 'Violation of UNIQUE KEY constraint' SqlException wasn't thrown after inserting non-unique data.");
-            }
-            finally
-            {
-                if (isNewPvFileCreated)
-                {
-                    //Restore original PV
-                    File.Copy(_pathToPvFileBackup, _pathToPvFile, true);
-                    File.Delete(_pathToPvFileBackup);
-
-                    if (isNewPvTableCreated)
-                    {
-                        RunPvHook();
-                    }
-                }
-            }
-        }
-
-
-        /// <summary>
         /// Tests verifies that new created SVC table put under partitioning.
         /// </summary>
         [Test]
@@ -272,19 +199,25 @@ namespace MetraTech.UsageServer.Test
             bool isNewSvcTableCreatedAndUnderPartition = false;
             try
             {
-                XmlDocument doc = new XmlDocument();
-                doc.Load(_pathToSvcFile);
-
-                XmlNode nameNode = doc.SelectSingleNode("defineservice/name");
-                Assert.IsNotNull(nameNode);
-
-                nameNode.InnerText = _newSvcExtension;
-                doc.Save(_pathToNewSvcFile);
-
-                RunSvcHook();
-
                 using (var conn = ConnectionManager.CreateConnection())
                 {
+                    if (!conn.ConnectionInfo.IsSqlServer)
+                    {
+                        Assert.Ignore("'Sql Native Partition Tests' are running only on SQL server.");
+                    }
+
+                    XmlDocument doc = new XmlDocument();
+                    doc.Load(_pathToSvcFile);
+
+                    XmlNode nameNode = doc.SelectSingleNode("defineservice/name");
+                    Assert.IsNotNull(nameNode);
+
+                    nameNode.InnerText = _newSvcExtension;
+                    doc.Save(_pathToNewSvcFile);
+
+                    RunSvcHook();
+
+                
                     var checkQuery = conn.CreateAdapterStatement(QueryPath, "__TABLE_EXISTS__");
                     checkQuery.AddParam("%%TABLE_NAME%%", _newSvcTable, true);
                     var rdr = checkQuery.ExecuteReader();
@@ -394,11 +327,24 @@ namespace MetraTech.UsageServer.Test
 
         private bool CheckUsagePartitionFileGroups(IMTConnection netMeterConn)
         {
-            var filegroupsFromUsagePartitionTable = netMeterConn.CreateAdapterStatement(QueryPath, "__CHECK_USAGE_PARTITION_FILEGROUPS__");
-            var rdr = filegroupsFromUsagePartitionTable.ExecuteReader();
-            while (rdr.Read())
+            using (MTComSmartPtr<IMTQueryAdapter> queryAdapter = new MTComSmartPtr<IMTQueryAdapter>())
             {
-                return rdr.GetBoolean("check_usage_filegroups");
+                queryAdapter.Item = new MTQueryAdapterClass();
+                queryAdapter.Item.Init(QueryPath);
+                queryAdapter.Item.SetQueryTag("__CHECK_USAGE_PARTITION_FILEGROUPS__");
+
+                using (IMTPreparedStatement stmt =
+                        netMeterConn.CreatePreparedStatement(queryAdapter.Item.GetRawSQLQuery(true)))
+                {
+                    stmt.SetResultSetCount(1);
+                    using (IMTDataReader reader = stmt.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            return reader.GetBoolean("check_usage_filegroups");
+                        }
+                    }
+                }
             }
             return false;
         }
@@ -472,40 +418,10 @@ namespace MetraTech.UsageServer.Test
             stmnt.ExecuteNonQuery();
         }
 
-        private void RunPvHook()
-        {
-            int x = 0;
-            _hookHandler.RunHookWithProgid("MetraHook.DeployProductView.1", null, ref x);
-        }
-
         private void RunSvcHook()
         {
             int x = 0;
             _hookHandler.RunHookWithProgid("MetraTech.Product.Hooks.ServiceDefHook", null, ref x);
-        }
-
-        private bool IsUkTableExists(string ukTableName)
-        {
-            using (var conn = ConnectionManager.CreateConnection())
-            {
-                var checkQuery = conn.CreateAdapterStatement(QueryPath, "__TABLE_EXISTS__");
-                checkQuery.AddParam("%%TABLE_NAME%%", ukTableName, true);
-                var rdr = checkQuery.ExecuteReader();
-                rdr.Read();
-                return rdr.GetBoolean("table_exists");
-            }
-        }
-
-        private void RemoveExistingUniqueKeys(XmlNode rootNode)
-        {
-            var existingUniqueKeys = rootNode.SelectNodes("uniquekey");
-            if (existingUniqueKeys != null)
-            {
-                foreach (XmlNode existingUniqueKey in existingUniqueKeys)
-                {
-                    rootNode.RemoveChild(existingUniqueKey);
-                }
-            }
         }
 
         #region Private methods to test meter partition

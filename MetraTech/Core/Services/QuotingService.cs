@@ -2,6 +2,7 @@
 using System.ServiceModel;
 using MetraTech.ActivityServices.Common;
 using MetraTech.ActivityServices.Services.Common;
+using MetraTech.Basic.Exception;
 using MetraTech.Debug.Diagnostics;
 using MetraTech.Domain.Quoting;
 using MetraTech.Quoting;
@@ -102,34 +103,25 @@ namespace MetraTech.Core.Services
 
           IQuotingImplementation quotingImplementation = new QuotingImplementation(cachedQuotingConfiguration, sessionContext);
 
-          quotingImplementation.StartQuote(quoteRequest);
-
-          // Ask backend to calculate RCs
-          quotingImplementation.AddRecurringChargesToQuote();
-
-          // Ask backend to calculate NRCs
-          quotingImplementation.AddNonRecurringChargesToQuote();
-
-          // Ask backend to finalize quote
-          quoteResponse = quotingImplementation.FinalizeQuote();
-
-          //return preparedQuote;
+          quoteResponse = quotingImplementation.CreateQuote(quoteRequest); 
 
         }
         catch (CommunicationException e)
         {
             mLogger.LogException("Cannot retrieve data for quoting from system ", e);
             quoteResponse.Status=QuoteStatus.Failed;
-            quoteResponse.FailedMessage = e.Message;
-            //throw;
+            quoteResponse.FailedMessage = e.GetaAllMessages(); 
         }
-
+        catch (QuoteException e)
+        {
+            mLogger.LogException("Error creating quote ", e);
+            quoteResponse = e.Response;
+        }
         catch (Exception e)
         {
             mLogger.LogException("Error creating quote ", e);
             quoteResponse.Status = QuoteStatus.Failed;
-            quoteResponse.FailedMessage = e.Message;
-            //throw new MASBasicException("Error create quote: " + e.Message);
+            quoteResponse.FailedMessage = e.GetaAllMessages();
         }
       }
 

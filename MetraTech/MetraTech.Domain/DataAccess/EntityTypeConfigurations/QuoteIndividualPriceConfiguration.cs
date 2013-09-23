@@ -18,7 +18,8 @@ namespace MetraTech.Domain.DataAccess.EntityTypeConfigurations
                 t.ToTable("QuoteIndividualPrice");
                 t.MapInheritedProperties();
             });
-            Property(t => t.RateSchedulesXml).HasColumnName("RateSchedules");
+            Property(t => t.ChargesRatesXml).HasColumnName("ChargesRates");
+            Property(t => t.CurrentChargeTypeString).HasColumnName("CurrentChargeType");
         }
     }
 }

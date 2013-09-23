@@ -49,6 +49,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\FakeItEasy.1.13.1\lib\net40\FakeItEasy.dll</HintPath>
     </Reference>
+   <Reference Include="MetraTech.Quoting">
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Quoting.dll</HintPath>
+    </Reference>
     <Reference Include="MetraTech.ActivityServices.Common">
       <Private>False</Private>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.ActivityServices.Common.dll</HintPath>
@@ -114,6 +118,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="$(ROOTDIR)\MetraTech\Local.testsettings" />
+    <None Include="$(ROOTDIR)\MetraTech\TraceAndTestImpact.testsettings" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -75,9 +75,10 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UsagePartitionManagerTest.cs" />
+    <Compile Include="Unit\UsagePartitionManagerUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Functional\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>

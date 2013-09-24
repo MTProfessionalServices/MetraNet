@@ -5,7 +5,7 @@ using MetraTech.TestCommon;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
 
-namespace MetraTech.Core.Services.Test
+namespace MetraTech.Core.Services.Test.Functional
 {
     [TestClass]
     public class DataExportReportManagementServiceFunctionalTest

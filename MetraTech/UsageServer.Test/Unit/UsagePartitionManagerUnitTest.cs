@@ -4,10 +4,10 @@ using FakeItEasy;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MetraTech.TestCommon;
 
-namespace MetraTech.UsageServer.Test
+namespace MetraTech.UsageServer.Test.Unit
 {
     [TestClass]
-    public class UsagePartitionManagerTest
+    public class UsagePartitionManagerUnitTest
     {
         private IPartitionConfig _fakePartitionConfig;
         private ILogger _fakeLogger;
@@ -76,6 +76,7 @@ namespace MetraTech.UsageServer.Test
 
             #region THEN
 
+            // verify that calls CreateUsagePartitions() method was called which incule using UsagePartitionManager.CreateUsagePartitionsSp
             A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateUsagePartitionsSp))
              .MustHaveHappened();
             A.CallTo(() => fakeUsageCallableStatement.ExecuteReader()).MustHaveHappened();
@@ -92,17 +93,17 @@ namespace MetraTech.UsageServer.Test
             A.CallTo(() => fakeUsageDataReader.Dispose()).MustHaveHappened();
             A.CallTo(() => fakeUsageCallableStatement.Dispose()).MustHaveHappened();
 
+            // verify that calls CreateMeterPartition() method was called which incule using UsagePartitionManager.CreateMeterPartitionsSp
+            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateMeterPartitionsSp))
+            .MustHaveHappened();
+            A.CallTo(() => fakeMeterCallableStatement.ExecuteNonQuery()).MustHaveHappened();
+            A.CallTo(() => fakeMeterCallableStatement.Dispose()).MustHaveHappened();
+
+            // // verify that calls CreateTaxDetailPartitions() method was called which incule using UsagePartitionManager.CreateTaxPartitionsSp
             A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateTaxPartitionsSp))
              .MustHaveHappened();
             A.CallTo(() => fakeTaxCallableStatement.ExecuteNonQuery()).MustHaveHappened();
             A.CallTo(() => fakeTaxCallableStatement.Dispose()).MustHaveHappened();
-
-            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateMeterPartitionsSp))
-             .MustHaveHappened();
-            A.CallTo(() => fakeMeterCallableStatement.AddParam("current_dt", MTParameterType.DateTime, A<DateTime>._))
-             .MustHaveHappened();
-            A.CallTo(() => fakeMeterCallableStatement.ExecuteNonQuery()).MustHaveHappened();
-            A.CallTo(() => fakeMeterCallableStatement.Dispose()).MustHaveHappened();
 
             A.CallTo(() => _fakeConnection.Dispose()).MustHaveHappened();
 

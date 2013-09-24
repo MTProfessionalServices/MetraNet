@@ -1800,12 +1800,17 @@ namespace MetraTech.Core.Services
                                         {
                                             payment.CreditCardType = null;
                                         }
-
-
-
                                         if (!reader.IsDBNull("check_or_card_number"))
                                         {
                                             payment.CheckOrCardNumber = reader.GetString("check_or_card_number");
+                                        }
+                                        if (!reader.IsDBNull("PaymentTxnID"))
+                                        {
+                                            payment.PaymentTxnID = reader.GetString("PaymentTxnID");
+                                        }
+                                        if (!reader.IsDBNull("ReferenceID"))
+                                        {
+                                            payment.ReferenceID = reader.GetString("ReferenceID");
                                         }
 
                                         payments.Items.Add(payment);
@@ -1986,6 +1991,14 @@ namespace MetraTech.Core.Services
 
                 case "CheckOrCardNumber":
                     return "check_or_card_number";
+                    break;
+                
+                case "PaymentTxnID":
+                    return "c_PaymentTxnID";
+                    break;
+                
+                case "ReferenceID":
+                    return "c_ReferenceID";
                     break;
 
                 default:

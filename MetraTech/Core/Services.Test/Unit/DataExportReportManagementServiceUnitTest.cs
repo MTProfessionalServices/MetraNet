@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 // FakeItEasy requires Castle assemblies. All required assemblies are under S:\Thirdparty\FakeItEasy\ and S:\Thirdparty\Castle\
 using FakeItEasy;
 
-namespace MetraTech.Core.Services.Test
+namespace MetraTech.Core.Services.Test.Unit
 {
     /// <summary>
     /// Due to storing logic in Stored Procedure whole business logic cannot be covered.
@@ -14,7 +14,7 @@ namespace MetraTech.Core.Services.Test
     /// If stored procedure throwing exception it is handled as required.
     /// </summary>
     [TestClass]
-    public class DataExportReportManagementServiceTest
+    public class DataExportReportManagementServiceUnitTest
     {
         // [MTUnitTest] gives a method TestCategory = "UnitTest".
         // This is required for test to be executed during automation runs.
@@ -84,11 +84,11 @@ namespace MetraTech.Core.Services.Test
             // CreateCallableStatement was called with input value = "Export_InsertReportDefinition"?
             A.CallTo(() => mockConnection.CreateCallableStatement("Export_InsertReportDefinition")).MustHaveHappened();
 
-            // AddParam() was executed exactly 7 times?
+            // AddParam() was executed exactly 6 times?
             // Parameters name, type and value also may be specified.
             A.CallTo(() =>
               mockCallableStatement.AddParam(A<string>.Ignored, A<MTParameterType>.Ignored, A<object>.Ignored)
-            ).MustHaveHappened(Repeated.Exactly.Times(7));
+            ).MustHaveHappened(Repeated.Exactly.Times(6));
 
             // ExecuteReader() method was executed?
             A.CallTo(() => mockCallableStatement.ExecuteReader()).MustHaveHappened();
@@ -230,7 +230,7 @@ namespace MetraTech.Core.Services.Test
             {
                 // Ensure that AddParam(), ExecuteReader(), Dispose() method took place before excuption was thrown
                 A.CallTo(() => mockCallableStatement.AddParam(A<string>.Ignored, A<MTParameterType>.Ignored, A<object>.Ignored))
-                    .MustHaveHappened(Repeated.Exactly.Times(7));
+                    .MustHaveHappened(Repeated.Exactly.Times(6));
                 A.CallTo(() => mockCallableStatement.ExecuteReader()).MustHaveHappened();
                 A.CallTo(() => mockCallableStatement.Dispose()).MustHaveHappened();
                 A.CallTo(() => mockConnection.Dispose()).MustHaveHappened();

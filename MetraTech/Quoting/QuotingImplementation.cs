@@ -125,6 +125,7 @@ namespace MetraTech.Quoting
         public QuoteResponse CurrentResponse { get; private set; }
 
 
+        
         /// <summary>
         /// Validate request, prepare data for metering and finaly creats quote
         /// </summary>
@@ -143,6 +144,17 @@ namespace MetraTech.Quoting
                 createdSubsciptions.Clear();
                 createdGroupSubsciptions.Clear();
 
+                CurrentRequest.EffectiveDate = new DateTime(
+                    CurrentRequest.EffectiveDate.Year, 
+                    CurrentRequest.EffectiveDate.Month, 
+                    CurrentRequest.EffectiveDate.Day,
+                    0,0,0);
+                CurrentRequest.EffectiveEndDate = new DateTime(
+                    CurrentRequest.EffectiveEndDate.Year, 
+                    CurrentRequest.EffectiveEndDate.Month, 
+                    CurrentRequest.EffectiveEndDate.Day, 
+                    23,59,59);
+                
                 try
                 {
                     ValidateRequest(CurrentRequest);
@@ -726,7 +738,9 @@ namespace MetraTech.Quoting
             var effDate = new MTPCTimeSpanClass
               {
                   StartDate = CurrentRequest.EffectiveDate,
-                  StartDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE
+                  StartDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE,
+                  EndDate = CurrentRequest.EffectiveEndDate,
+                  EndDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE
               };
 
             object modifiedDate = MetraTime.Now;

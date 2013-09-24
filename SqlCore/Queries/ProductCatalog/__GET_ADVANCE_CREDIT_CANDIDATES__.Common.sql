@@ -88,7 +88,7 @@ INNER JOIN t_usage_interval billed ON billed.id_usage_cycle=tmp.b_id_usage_cycle
 /* ESR-2969 and ESR-3073 start */ 
 /* DB fix change alias, Rev two */
 INNER JOIN t_recur recinstance ON tmp.id_pi_instance=recinstance.id_prop
-INNER JOIN t_acc_usage_interval prevaccafterbilled /*prevaccafterbilled */ ON prevaccafterbilled.id_acc=tmp.id_acc
+INNER JOIN t_acc_usage_interval prevaccafterbilled /*prevaccafterbilled */ ON prevaccafterbilled.id_acc=tmp.id_payer
 INNER JOIN t_usage_interval afterbilled ON afterbilled.id_interval=prevaccafterbilled.id_usage_interval
 /* ESR-2669 and ESR-3073 */
 /* DB: Really subtle logic to properly handle bill cycle changes; unfortuntely fixed cycle and BCR */
@@ -100,7 +100,7 @@ rci.dt_start BETWEEN CASE WHEN recinstance.tx_cycle_mode='Fixed' THEN coalesce(d
   afterbilled.dt_start > tmp.s_dt_start
   AND
   afterbilled.dt_start < tmp.s_dt_end1
-INNER JOIN t_acc_usage_interval prevaccbilled ON prevaccbilled.id_acc=tmp.id_acc 
+INNER JOIN t_acc_usage_interval prevaccbilled ON prevaccbilled.id_acc=tmp.id_payer
 INNER JOIN t_usage_interval billed ON billed.id_interval=prevaccbilled.id_usage_interval 
 /* ESR-2668 AND ESR-3073  this predicate does apply */
 AND coalesce(dbo.AddSecond(prevaccbilled.dt_effective), afterbilled.dt_start)=dbo.AddSecond(billed.dt_end)

@@ -41,7 +41,7 @@ namespace MetraTech.Quoting.Test
       QuotingGroupSbsCorpAccount_diffBillingCycle("");
     }
 
-    [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#2
+    [TestMethod, MTFunctionalTest(TestAreas.Quoting), Ignore] //#2
     public void QuotingCorpSemiAnnualAccount()
     {
       QuotingGroupSbsCorpAccount_diffBillingCycle("Semi_Annually");
@@ -69,7 +69,37 @@ namespace MetraTech.Quoting.Test
     
     #region Test Methods
 
-    public void QuotingGroupSbsCorpAccount_diffBillingCycle(string billcycle)
+      private DateTime AddTimeForCycle(DateTime initial, string billcycle)
+      {
+          switch (billcycle)
+          {
+              case "Semi_Annually":
+                  return initial.AddMonths(7);
+
+              case "Quarterly":
+                  return initial.AddMonths(4);
+                  
+              case "Monthly":
+                  return initial.AddMonths(2);
+
+              case "Semi_monthly":
+                  return initial.AddMonths(1);
+
+              case "Bi_weekly":
+                  return initial.AddDays(15);
+
+              case "Weekly":
+                  return initial.AddDays(8);
+
+              case "Daily":
+                  return initial.AddDays(2);
+
+              default:
+                  return initial;
+          }
+      }
+
+      public void QuotingGroupSbsCorpAccount_diffBillingCycle(string billcycle)
     {
       string testName = "QuotingWithGroupSubscription_AccountBillingCycles" + billcycle;
       string testShortName = "Q_GSub";//Account name and perhaps others need a 'short' (less than 40 when combined with testRunUniqueIdentifier
@@ -125,7 +155,7 @@ namespace MetraTech.Quoting.Test
           PDFReport = QuotingTestScenarios.RunPDFGenerationForAllTestsByDefault
         };
       quoteImpl.Request.EffectiveDate = MetraTime.Now;
-      quoteImpl.Request.EffectiveEndDate = MetraTime.Now.AddHours(1);
+      quoteImpl.Request.EffectiveEndDate = AddTimeForCycle(MetraTime.Now, billcycle);
       quoteImpl.Request.Localization = "en-US";
       quoteImpl.Request.SubscriptionParameters.UDRCValues = SharedTestCode.GetUDRCInstanceValuesSetToMiddleValues(productOffering);
       quoteImpl.Request.SubscriptionParameters.CorporateAccountId = Hierarchy[0]._AccountID.Value;
@@ -256,7 +286,7 @@ namespace MetraTech.Quoting.Test
     #endregion
 
     #region Commented tests
-    [TestMethod, MTFunctionalTest(TestAreas.Quoting), Ignore] //#6
+    [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#6
     public void QuotingCorpBiweeklyAccount()
     {
       QuotingGroupSbsCorpAccount_diffBillingCycle("Bi_weekly");
@@ -268,7 +298,7 @@ namespace MetraTech.Quoting.Test
       QuotingGroupSbsCorpAccount_diffBillingCycle("Weekly");
     }
 
-    [TestMethod, MTFunctionalTest(TestAreas.Quoting), Ignore] //#5
+    [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#5
     public void QuotingCorpSemiMonthlyAccount()
     {
         QuotingGroupSbsCorpAccount_diffBillingCycle("Semi_monthly");

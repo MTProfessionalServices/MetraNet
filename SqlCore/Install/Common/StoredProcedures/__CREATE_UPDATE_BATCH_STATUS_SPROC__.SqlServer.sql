@@ -8,6 +8,7 @@ as
 declare @initialStatus char(1)
 declare @finalStatus char(1)
 
+BEGIN TRANSACTION
 if not exists (select * from t_batch with(updlock) where tx_batch = @tx_batch)
 begin
   insert into t_batch (tx_namespace, tx_name, tx_batch, tx_batch_encoded, tx_status, n_completed, n_failed, dt_first, dt_crt)
@@ -41,5 +42,14 @@ update t_batch
        case when t_batch.n_completed = 0 then @sysdate else t_batch.dt_first end
   where tx_batch = @tx_batch
 
+ IF ( @@ERROR != 0 ) 
+
+     BEGIN 
+        ROLLBACK TRANSACTION 
+     END   
+         
+COMMIT TRANSACTION
+
+  
 select @finalStatus = tx_status from t_batch where tx_batch = @tx_batch
 			

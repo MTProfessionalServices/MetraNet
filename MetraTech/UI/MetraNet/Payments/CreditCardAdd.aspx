@@ -7,26 +7,33 @@
 
   <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="ErrorMessage" Width="100%" />
   <asp:Label ID="lblErrorMessage" runat="server" CssClass="ErrorMessage" Text="Error Messages" Visible="False" meta:resourcekey="lblErrorMessageResource1"></asp:Label>
-  <script language="javascript" type="text/javascript" src="PaymentBroker.js"></script>
+  <script language="javascript" type="text/javascript" src="PaymentBroker.js?v=1.2"></script>
   <script language="javascript" type="text/javascript">
-    function sendCardToPaymentBroker() {
-      if (ValidateForm() == false) return false;
+    function sendCardToPaymentBroker() {     
+      if (window.ValidateForm() == false) return false;
       if (Boolean("<%=UsePaymentBroker%>") != true) {
         return true;
       }
+      
       // Collect information from user inputs.
+      var typeName = document.getElementById('<%=ddCardType.ClientID%>').value;
+      var type = GetPaymentBrokerCreditCardType(typeName);
+      if (type == 'Unknown') {
+        window.Ext.Msg.alert(window.TEXT_INFO, typeName + ' ' + '<%=CreditCardTypeErrorMessage%>');
+        return false;
+      }
+      
       var serverAddress = "<%=PaymentBrokerAddress%>";
       var firstName = document.getElementById('<%=tbFirstName.ClientID%>').value;
       var middleInitial = document.getElementById('<%=tbMiddleInitial.ClientID%>').value;
       var lastName = document.getElementById('<%=tbLastName.ClientID%>').value;
       var address1 = document.getElementById('<%=tbAddress.ClientID%>').value;
       var address2 = document.getElementById('<%=tbAddress2.ClientID%>').value;
-      var country = GetIsoCode(document.getElementById('<%=ddCountry.ClientID%>').value);
+      var country = window.GetIsoCode(document.getElementById('<%=ddCountry.ClientID%>').value);
       var city = document.getElementById('<%=tbCity.ClientID%>').value;
       var state = document.getElementById('<%=tbState.ClientID%>').value;
       var zip = document.getElementById('<%=tbZipCode.ClientID%>').value;
       var email = document.getElementById('<%=tbEmail.ClientID%>').value;
-      var type = GetPaymentBrokerCreditCardType(document.getElementById('<%=ddCardType.ClientID%>').value);
       var cardNumber = document.getElementById('<%=tbCCNumber.ClientID%>').value;
       var verificationCode = document.getElementById('<%=tbCVNNumber.ClientID%>').value;
       var expirationMonth = document.getElementById('<%=ddExpMonth.ClientID%>').value;
@@ -106,33 +113,32 @@
   <div style="width:810px">
     <!-- BILLING INFORMATION --> 
     <MT:MTPanel ID="pnlBillingInfo" runat="server"  meta:resourcekey="MTSection1Resource1" Collapsible="false">
-  <div id="leftColumn" class="LeftColumn">
-    <MT:MTDropDown ID="ddPriority" runat="server" AllowBlank="false" ControlWidth="70" ListWidth="70"
-      TabIndex="5" meta:resourcekey="ddPriorityResource1" ReadOnly="false"></MT:MTDropDown>  
-    <MT:MTDropDown ID="ddCardType" runat="server" AllowBlank="False" Label="Credit Card Type" TabIndex="4" ControlWidth="200" HideLabel="False"  meta:resourcekey="ddCardTypeResource1" ReadOnly="False"></MT:MTDropDown>
-    <MT:MTTextBoxControl ID="tbCCNumber" runat="server" AllowBlank="False" Label="Card Number"
-      TabIndex="10" ControlWidth="200" OptionalExtConfig="maxLength:24"
-       HideLabel="False" LabelWidth="120"   VType="credit_card_number"
-     meta:resourcekey="tbCCNumberResource1" ReadOnly="False" XTypeNameSpace="form"  />
+    <div id="leftColumn" class="LeftColumn">
+      <MT:MTDropDown ID="ddPriority" runat="server" AllowBlank="false" ControlWidth="70" ListWidth="70"
+        TabIndex="5" meta:resourcekey="ddPriorityResource1" ReadOnly="false"></MT:MTDropDown>
+      <MT:MTDropDown ID="ddCardType" runat="server" AllowBlank="False" Label="Credit Card Type" TabIndex="4" ControlWidth="200" HideLabel="False"  meta:resourcekey="ddCardTypeResource1" ReadOnly="False"></MT:MTDropDown>
+      <MT:MTTextBoxControl ID="tbCCNumber" runat="server" AllowBlank="False" Label="Card Number"
+        TabIndex="10" ControlWidth="200" OptionalExtConfig="maxLength:24"
+         HideLabel="False" LabelWidth="120"   VType="credit_card_number"
+       meta:resourcekey="tbCCNumberResource1" ReadOnly="False" XTypeNameSpace="form"  />
     
-    <MT:MTTextBoxControl ID="tbCVNNumber" runat="server" AllowBlank="False" Label="CVN Number"
-      TabIndex="20" ControlWidth="50" OptionalExtConfig="maxLength:4"  ControlHeight="18" HideLabel="False" LabelWidth="120"    
-      meta:resourcekey="tbCVNNumberResource1" ReadOnly="False" VType="cv_number" XTypeNameSpace="form" />
+      <MT:MTTextBoxControl ID="tbCVNNumber" runat="server" AllowBlank="False" Label="CVN Number"
+        TabIndex="20" ControlWidth="50" OptionalExtConfig="maxLength:4"  ControlHeight="18" HideLabel="False" LabelWidth="120"    
+        meta:resourcekey="tbCVNNumberResource1" ReadOnly="False" VType="cv_number" XTypeNameSpace="form" />
       
       <div id="Div1" style="float:left; width:200px;">
-      <MT:MTDropDown ID="ddExpMonth" runat="server" AllowBlank="False" TabIndex="30" ControlWidth="70" Width="70"
-         Label="Expiration Date" HideLabel="False"  meta:resourcekey="ddExpMonthResource1" ReadOnly="False">               
-         </MT:MTDropDown>
-         </div>
-         <div id="Div2" style="float:left; width:100px;">
-     <MT:MTDropDown ID="ddExpYear" runat="server" AllowBlank="False" ControlWidth="70"
-       HideLabel="False" LabelWidth="10" LabelSeparator="" Label="/" meta:resourcekey="ddExpYearResource1"
-       OptionalExtConfig="" ReadOnly="False" TabIndex="40" Width="70">
-      </MT:MTDropDown>  
-      </div>  
-     
-   
-  </div>
+        <MT:MTDropDown ID="ddExpMonth" runat="server" AllowBlank="False" TabIndex="30" ControlWidth="70" Width="70"
+            Label="Expiration Date" HideLabel="False"  meta:resourcekey="ddExpMonthResource1" ReadOnly="False">               
+            </MT:MTDropDown>
+      </div>
+      <div id="Div2" style="float:left; width:100px;">
+        <MT:MTDropDown ID="ddExpYear" runat="server" AllowBlank="False" ControlWidth="70"
+          HideLabel="False" LabelWidth="10" LabelSeparator="" Label="/" meta:resourcekey="ddExpYearResource1"
+          OptionalExtConfig="" ReadOnly="False" TabIndex="40" Width="70">
+        </MT:MTDropDown>  
+      </div>
+    </div>
+
   <div id="rightColumn" class="RightColumn">
     <MT:MTTextBoxControl ID="tbFirstName" runat="server" AllowBlank="False" Label="First Name" TabIndex="50" ControlWidth="200" ControlHeight="18" HideLabel="False" LabelWidth="120"  meta:resourcekey="tbFirstNameResource1" ReadOnly="False" XType="TextField" XTypeNameSpace="form" />
     <MT:MTTextBoxControl ID="tbMiddleInitial" runat="server" AllowBlank="True" Label="Middle Initial" OptionalExtConfig="maxLength:1" TabIndex="60" ControlWidth="200" ControlHeight="18" HideLabel="False" LabelWidth="120"  meta:resourcekey="tbMiddleInitialResource1" ReadOnly="False" XType="TextField" XTypeNameSpace="form" />
@@ -152,8 +158,6 @@
      ControlWidth="200" ControlHeight="18" HideLabel="False" LabelWidth="120"  meta:resourcekey="tbEmail" ReadOnly="False" XType="TextField" XTypeNameSpace="form" />
     <MT:MTDropDown ID="ddCountry" runat="server" AllowBlank="False" ControlWidth="200"
       Label="Country" TabIndex="140" ControlHeight="18" HideLabel="False" LabelWidth="120"  meta:resourcekey="tbCountryResource1" ReadOnly="False"/>       
-    <MT:MTTextBoxControl ID="tbFailureReason" runat="server" AllowBlank="True" meta:resourcekey="tbFailureReasonResource1" ReadOnly="False" 
-       XType="TextField" XTypeNameSpace="form" Visible="False" />
   </div>
    
    <div style="clear:both"></div>

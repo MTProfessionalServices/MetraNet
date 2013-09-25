@@ -6,8 +6,7 @@ using System.Runtime.InteropServices;
 using MetraTech.Interop.Rowset;
 using MetraTech.Interop.MTProductCatalog;
 using MetraTech.DataAccess;
-
-
+using MetraTech.Interop.QueryAdapter;
 
 namespace  MetraTech.Adjustments
 {
@@ -59,44 +58,65 @@ namespace  MetraTech.Adjustments
       }
       return FormulaID;
     }
-    
+
+    /// <summary>
+    /// Helper method to load a particular query and return the text so it
+    /// can be used in a parameterized query
+    /// </summary>
+    /// <param name="queryTag"></param>
+    /// <returns></returns>
+    private static string GetQueryText(string initFolder, string queryTag)
+    {
+        if (string.IsNullOrEmpty(initFolder))
+        {
+            throw new ArgumentException("The argument \"initFolder\" must not be null or empty.");
+        } 
+        
+        if (string.IsNullOrEmpty(queryTag))
+        {
+            throw new ArgumentException("The argument \"queryTag\" must not be null or empty.");
+        }
+
+        using (MTComSmartPtr<IMTQueryAdapter> queryAdapter = new MTComSmartPtr<IMTQueryAdapter>())
+        {
+            queryAdapter.Item = new MTQueryAdapterClass();
+            queryAdapter.Item.Init(initFolder);
+            queryAdapter.Item.SetQueryTag(queryTag);
+            return queryAdapter.Item.GetRawSQLQuery(true);
+        }
+    }
+
     [AutoComplete]
     public void Update(IMTSessionContext apCTX, ICalculationFormula pFormula)
     {
-			//CR 11770
-			//compile first
-			pFormula.Compile();
-      using(IMTServicedConnection conn = ConnectionManager.CreateConnection())
+      pFormula.Compile();
+      using (IMTServicedConnection conn = ConnectionManager.CreateConnection())
       {
-          using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("queries\\Adjustments", "__UPDATE_CALC_FORMULA__"))
-          {
-              stmt.AddParam("%%TX_TEXT%%", pFormula.Text);
-              stmt.AddParam("%%ID_ENGINE%%", (int)pFormula.EngineType);
-              stmt.AddParam("%%ID_FORMULA%%", pFormula.ID);
-              stmt.ExecuteNonQuery();
-          }
+        using (IMTPreparedStatement stmt = conn.CreatePreparedStatement(FormulaWriter.GetQueryText("Queries\\\\Adjustments", "__UPDATE_CALC_FORMULA__")))
+        {
+          stmt.AddParam("TX_TEXT", MTParameterType.WideString, pFormula.Text);
+          stmt.AddParam("ID_ENGINE", MTParameterType.Integer, (int)pFormula.EngineType);
+          stmt.AddParam("ID_FORMULA", MTParameterType.Integer, pFormula.ID);
+          stmt.ExecuteNonQuery();
+        }
       }
-    
     }
 
-		[AutoComplete]
-		public void UpdateByAdjustmentTypeID(IMTSessionContext apCTX, ICalculationFormula pFormula,  int aAdjustmentTypeID)
-		{
-			//CR 11770
-			//compile first
-			pFormula.Compile();
-			using(IMTServicedConnection conn = ConnectionManager.CreateConnection())
-			{
-                using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("queries\\Adjustments", "__UPDATE_CALC_FORMULA_BY_ADJUSMENT_TYPE_ID__"))
-                {
-                    stmt.AddParam("%%TX_TEXT%%", pFormula.Text);
-                    stmt.AddParam("%%ID_ENGINE%%", (int)pFormula.EngineType);
-                    stmt.AddParam("%%ID_AJ_TYPE%%", aAdjustmentTypeID);
-                    stmt.ExecuteNonQuery();
-                }
-			}
-    
-		}
+    [AutoComplete]
+    public void UpdateByAdjustmentTypeID(IMTSessionContext apCTX, ICalculationFormula pFormula, int aAdjustmentTypeID)
+    {
+      pFormula.Compile();
+      using (IMTServicedConnection conn = ConnectionManager.CreateConnection())
+      {
+        using (IMTPreparedStatement stmt = conn.CreatePreparedStatement(FormulaWriter.GetQueryText("Queries\\\\Adjustments", "__UPDATE_CALC_FORMULA_BY_ADJUSMENT_TYPE_ID__")))
+        {
+          stmt.AddParam("TX_TEXT", MTParameterType.WideString, pFormula.Text);
+          stmt.AddParam("ID_ENGINE", MTParameterType.Integer, (int)pFormula.EngineType);
+          stmt.AddParam("ID_AJ_TYPE", MTParameterType.Integer, aAdjustmentTypeID);
+          stmt.ExecuteNonQuery();
+        }
+      }
+    }
 
     [AutoComplete]
     public void Remove(IMTSessionContext apCTX, IAdjustment pAdjustment)

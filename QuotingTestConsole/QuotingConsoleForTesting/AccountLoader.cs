@@ -51,14 +51,32 @@ namespace QuotingConsoleForTesting
       return accounts.Items;
     }
 
-    public static KeyValuePair<int, string> GetAccountInfo(Account account)
+    public static KeyValuePair<int, string> GetAccountListBoxItem(Account account)
     {
       Debug.Assert(account._AccountID != null, "Error: AccountID is null.");
+      var tabs = "";
+      if (account.UserName.Length < 8)
+      {
+        tabs = "\t\t\t";
+      }
+      else if (account.UserName.Length < 16)
+      {
+        tabs = "\t\t";
+      }
+      else if (account.UserName.Length < 32)
+      {
+        tabs = "\t";
+      }
 
-      return new KeyValuePair<int, string>(account._AccountID.Value, String.Format("{0}\t{1}\t{2}",
-                                                                             account._AccountID,
-                                                                             account.UserName,
-                                                                             account.AccountType));
+      var formattedDisplayString = String.Format("{0}\t{1}{2}{3}",
+                                                 account._AccountID,
+                                                 account.UserName,
+                                                 tabs,
+                                                 account.AccountType);
+
+      return new KeyValuePair<int, string>(account._AccountID.Value, formattedDisplayString);
     }
+
+
   }
 }

@@ -32,7 +32,7 @@ namespace QuotingConsoleForTesting
 
       foreach (var item in AccountLoader.GetAccounts())
       {
-        listBoxAccounts.Items.Add(AccountLoader.GetAccountInfo(item));
+        listBoxAccounts.Items.Add(AccountLoader.GetAccountListBoxItem(item));
       }
       //load POs
 

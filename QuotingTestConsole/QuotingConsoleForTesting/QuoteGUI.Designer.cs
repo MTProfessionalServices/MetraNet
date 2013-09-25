@@ -115,6 +115,7 @@
       // 
       // listBoxAccounts
       // 
+	  this.listBoxAccounts.DisplayMember = "Value";
       this.listBoxAccounts.Dock = System.Windows.Forms.DockStyle.Left;
       this.listBoxAccounts.FormattingEnabled = true;
       this.listBoxAccounts.Location = new System.Drawing.Point(3, 16);

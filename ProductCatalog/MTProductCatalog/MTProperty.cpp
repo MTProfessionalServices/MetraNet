@@ -113,7 +113,10 @@ STDMETHODIMP CMTProperty::put_Value(VARIANT newVal)
 							//Internally Enum properties are stored as strings;
 							//the below method is only needed to validate the correctness of passed in value
 							
-							lVal = enumConfig->GetID(bstrEnumSpace, bstrEnumType, (_bstr_t)vNewVal);
+							if (_bstr_t(vNewVal).length() != 0) //ESR-6206 Approvals /extendedprop.Edition Error on Product offer edit
+	                        {//tried set NULL Value
+	 	                    lVal = enumConfig->GetID(bstrEnumSpace, bstrEnumType, (_bstr_t)vNewVal);
+	                        }
 							mValue = vNewVal;
 							break;
 						}

@@ -13,9 +13,6 @@
     case 'JCB':
       result = 'JapanCreditBureau';
       break;
-    case 'Maestro':
-      result = 'MasterCard';
-      break;
     case 'MasterCard':
       result = 'MasterCard';
       break;

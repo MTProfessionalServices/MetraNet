@@ -173,12 +173,9 @@ namespace MetraTech.Approvals
                             if (EnumHelper.IsEnumType(pi.PropertyType))
                             {
                                 // Get the generated enum based on rowset value (t_enum_data.id_enum_data)
-                              int temp = 0;
-                              if (System.Int32.TryParse(entry.Value.ToString(), out temp))
+                              if (!String.IsNullOrEmpty(entry.Value.ToString()))
                               {
-
-                                object mtEnum = EnumHelper.GetEnumByValue(Nullable.GetUnderlyingType(pi.PropertyType) ?? pi.PropertyType, entry.Value.ToString());
-                               
+                                object mtEnum =EnumHelper.GetEnumByValue( Nullable.GetUnderlyingType(pi.PropertyType) ?? pi.PropertyType, entry.Value.ToString());
 
                                 if (mtEnum == null)
                                 {
@@ -187,35 +184,123 @@ namespace MetraTech.Approvals
 
                                 pi.SetValue(to, mtEnum, null);
                               }
+                              else
+                              {
+                                pi.SetValue(to, null, null); 
+                              }
 
                             }
-                            else if (pi.PropertyType.Equals(typeof (System.Boolean)) ||
-                                  pi.PropertyType.Equals(typeof (Nullable<System.Boolean>)))
+                            else if (pi.PropertyType.FullName.Contains("Boolean"))
+                            {
+                              bool tmp = false;
+                              if (System.Boolean.TryParse(entry.Value.ToString(), out tmp))
                               {
-                                bool tmp = false;
-                                if (System.Boolean.TryParse(entry.Value.ToString(), out tmp))
+                                pi.SetValue(to, entry.Value, null);
+                              }
+                              else
+                              {
+                                string temp = entry.Value.ToString();
+                                if (!String.IsNullOrEmpty(temp))
                                 {
-                                  pi.SetValue(to, entry.Value, null);
-                                }
-                                else
-                                {
-                                  string temp = entry.Value.ToString();
-                                  if (temp == "Y" || temp == "1")
+                                  if (temp == "Y" || temp == "1" || temp == "T")
                                   {
                                     pi.SetValue(to, true, null);
                                   }
 
-                                  if (temp == "N" || temp == "0")
+                                  if (temp == "N" || temp == "0" || temp == "F")
                                   {
                                     pi.SetValue(to, false, null);
                                   }
-
                                 }
+                                else
+                                {
+                                  pi.SetValue(to, null, null); 
+                                }
+                              }
+                        }
+                            else if (pi.PropertyType.FullName.Contains("Decimal"))
+                            {
+                              if (!String.IsNullOrEmpty(entry.Value.ToString()))
+                              {
+                                pi.SetValue(to, System.Convert.ToDecimal(entry.Value), null);
                               }
                               else
                               {
-                                pi.SetValue(to, entry.Value, null);
+                                pi.SetValue(to, null, null);
                               }
+                            }
+                            else if (pi.PropertyType.FullName.Contains("Double"))
+                            {
+                              if (!String.IsNullOrEmpty(entry.Value.ToString()))
+                              {
+                                pi.SetValue(to, System.Convert.ToDouble(entry.Value), null);
+                              }
+                              else
+                              {
+                                pi.SetValue(to, null, null);
+                              }
+                            }
+                            else if (pi.PropertyType.FullName.Contains("Float"))
+                            {
+                              if (!String.IsNullOrEmpty(entry.Value.ToString()))
+                              {
+                                pi.SetValue(to, System.Convert.ToDecimal(entry.Value), null);
+                              }
+                              else
+                              {
+                                pi.SetValue(to, null, null);
+                              }
+                            }
+                            else if (pi.PropertyType.FullName.Contains("Int64"))
+                            {
+                              if (!String.IsNullOrEmpty(entry.Value.ToString()))
+                              {
+                                pi.SetValue(to, System.Convert.ToInt64(entry.Value), null);
+                              }
+                              else
+                              {
+                                pi.SetValue(to, null, null);
+                              }
+
+                            }
+                            else if (pi.PropertyType.FullName.Contains("String"))
+                            {
+                              if (!String.IsNullOrEmpty(entry.Value.ToString()))
+                              {
+                                pi.SetValue(to, entry.Value.ToString(), null);
+                              }
+                              else
+                              {
+                                pi.SetValue(to, null, null);
+                              }
+                            }
+                            else if (pi.PropertyType.FullName.Contains("Int32"))
+                            {
+                              if (!String.IsNullOrEmpty(entry.Value.ToString()))
+                              {
+                                pi.SetValue(to, System.Convert.ToInt32(entry.Value), null);
+                              }
+                              else
+                              {
+                                pi.SetValue(to, null, null);
+                              }
+                            }
+                            else if (pi.PropertyType.FullName.Contains("DateTime"))
+                            {
+                             if (!String.IsNullOrEmpty(entry.Value.ToString()))
+                              {
+                                pi.SetValue(to, System.Convert.ToDateTime(entry.Value), null);
+                              }
+                             else
+                             {
+                               pi.SetValue(to, null, null); 
+                             }
+                             
+                            }
+                            else
+                            {
+                              pi.SetValue(to, entry.Value, null);
+                            }
                         }
                         catch (Exception ex)
                         {

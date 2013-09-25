@@ -781,6 +781,15 @@ namespace MetraTech.DataAccess
             {
                 param.Value = MTEmptyString.Value;
             }
+			else if (Command is MTOracleCommand &&
+							(type == MTParameterType.String ||
+							 type == MTParameterType.WideString ||
+							 type == MTParameterType.NText ||
+							 type == MTParameterType.Text) &&
+							 value.ToString() != "")
+			{
+				param.Value = ParseOutODBCEscapes(value.ToString());
+			}
 			else
                 param.Value = value;
 
@@ -921,8 +930,37 @@ namespace MetraTech.DataAccess
         {
             Dispose();
 	}
-	}
+	
+	private string ParseOutODBCEscapes(string source)
+        {
+          // timestamp escapes: {ts '...' }
+          Regex tsmatcher = new Regex(@"(\{ts\s[0-9\-\:\.\s\']+})");
+          Match m = tsmatcher.Match(source);
+          while (m.Success)
+          {
+            string val = m.Value;
+            int start = m.Index;
+            int length = m.Length;
+            string todate = val.Replace("{ts ", "to_timestamp(");
+            todate = todate.Replace("}", ", 'YYYY/MM/DD HH24:MI:SS.FF')");
+            source = source.Replace(val, todate);
+            m = m.NextMatch();
+          }
 
+          // ifnull function escapes: {fn ifnull(...)}
+          // (now supports nesting)
+          string pattern = @"\{\s*fn\s+ifnull\s*([^\{^\}]*)\s*\}";
+          while (Regex.IsMatch(source, pattern, RegexOptions.IgnoreCase))
+          {
+            source = Regex.Replace(source,
+              pattern,	// match: {fn ifnull(...)}
+              @"nvl$1",	// replace with: nvl(...)
+              RegexOptions.IgnoreCase);	// ignore case
+          }
+
+          return source;
+        }
+	}
 	/// <remarks>
 	/// A prepared statement represents a parameterized SQL statement.
 	/// These statements can have any number of positional parameters

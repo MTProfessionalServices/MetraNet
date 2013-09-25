@@ -18,7 +18,7 @@
   <div style="padding-left:45px;padding-top:5px;">
     <table cellpadding="0" cellspacing="0" style="width:100%;">
     <tr> <!-- Row 1 -->
-      <td style="width:180px;padding-top:15px;" valign="top">
+      <td style="width:180px; padding-top:15px;" valign="top">
       <asp:RadioButton ID="multiBucket" runat="server" GroupName="BucketRadioButtons" 
               Text="Multi-Bucket" meta:resourcekey="rblIncrementallyResource1" ForeColor="Black"/>       
         <span style="color:blue;text-decoration:underline;cursor:pointer" 
@@ -28,13 +28,27 @@
       </td>
 	</tr>
 	<tr> <!-- Row 2 -->
-      <td style="width:180px;padding-top:15px;" valign="top">
+      <td style="width:180px; padding-top:15px;" valign="top">
       <asp:RadioButton ID="singleBucket" runat="server" GroupName="BucketRadioButtons" 
               Text="Single-Bucket" meta:resourcekey="rblInBulkResource1" ForeColor="Black"/>       
         <span style="color:blue;text-decoration:underline;cursor:pointer" 
             onclick=" displayInfoMultiple(TITLE_AMPWIZARD_HELP_SINGLEBUCKET, TEXT_AMPWIZARD_HELP_SINGLEBUCKET, 450, 100)">
           <img id="Img2" src='/Res/Images/icons/help.png' />
         </span>
+      </td>
+	</tr>
+	<tr> <!-- Row 3 -->
+      <td style="width:180px; padding-top:15px;" valign="top">
+      <div style="float: left">
+          <div>
+              <asp:RadioButton ID="rbGetFromParamTable" runat="server" GroupName="BucketRadioButtons" 
+              Text="From Parameter table" meta:resourcekey="rblParamTableResource1" ForeColor="Black"/>       
+              
+          </div>
+      </div>
+                <div style="float: left;horiz-align: left">
+                <MT:MTDropDown ID="ddBucketFromParamTableSource" runat="server" HideLabel="True"  ControlWidth="160" ListWidth="200" AllowBlank="True" Editable="True"/>
+      </div>
       </td>
 	</tr>
 	</table>
@@ -133,7 +147,7 @@
           </td>
           <td align="right">
             <MT:MTButton ID="btnSaveAndContinue" runat="server" Text="<%$Resources:Resource,TEXT_NEXT%>"
-                         OnClientClick="if (ValidateForm()) { MPC_setNeedToConfirm(false); } else { MPC_setNeedToConfirm(true); return false; }"
+                         OnClientClick="if(!ValidateBoxes()){return false;} else if (ValidateForm()) { MPC_setNeedToConfirm(false); } else { MPC_setNeedToConfirm(true); return false; }"
                          OnClick="btnContinue_Click"
                          CausesValidation="true" TabIndex="240"/>
           </td>
@@ -147,7 +161,60 @@
     // Enable or disable the fixed-value-or-PT-col controls (ctrlDiscount, ctrlUnitRate, ctrlEventRate).
     // The state of ampControlID1 and ampControlID2 is set to bEnabled,
     // and the state of AmpControlID3 depends on whether radGenCharge or noCharge is checked.
-    function EnableAppropriateUserControls(bEnabled, ampControlID1, ampControlID2, ampControlID3) {
+      function Toggledd() {
+          var radBucketFromPT = document.getElementById('<%=rbGetFromParamTable.ClientID%>');
+          if (radBucketFromPT.checked) {
+              Ext.getCmp('<%=ddBucketFromParamTableSource.ClientID %>').enable();
+          } else {
+              Ext.getCmp('<%=ddBucketFromParamTableSource.ClientID %>').disable();
+          }
+      }
+
+      function ValidateBoxes() {
+          var radUnitRate = document.getElementById('<%=radUnitRate.ClientID%>');
+          var radDiscount = document.getElementById('<%=radDiscount.ClientID%>');
+          var radEventRate = document.getElementById('<%=radEventRate.ClientID%>');
+          var radGenCharge = document.getElementById('<%=radGenCharge.ClientID%>');
+      var noCharge = document.getElementById('<%=noCharge.ClientID%>');
+
+      if (radGenCharge.checked || noCharge.checked) {
+          return true;
+      }
+      var zero = '<%=GetGlobalResourceObject("AmpWizard", "TEXT_FIXED_VALUE")%>';
+      if (radUnitRate.checked) {
+              var ddval = document.getElementById("ctl00_ContentPlaceHolder1_unitRate_ddSourceType").value;
+              if (ddval.toString() == zero.toString()) {
+                  var newrate = document.getElementById("ctl00_ContentPlaceHolder1_unitRate_tbNumericSource").value;
+                  if (newrate == "") {
+                      alert('<%=GetLocalResourceObject("TEXT_ERROR_NO_VALUE_FOR_RATE_FOR_UNITS")%>');
+                      return false;
+                  }
+              }
+          } else if (radDiscount.checked) {
+              var ddval = document.getElementById("ctl00_ContentPlaceHolder1_unitRate_ddSourceType").value;
+              if (ddval.toString() == zero.toString()) {
+                  var discountrate = document.getElementById("ctl00_ContentPlaceHolder1_discount_tbNumericSource").value.toString();
+                  if (discountrate == "") {
+                      alert('<%=GetLocalResourceObject("TEXT_ERROR_NO_VALUE_FOR_DISCOUNT")%>');
+                      return false;
+                  }
+              }
+          } else {
+              var ddval = document.getElementById("ctl00_ContentPlaceHolder1_eventRate_ddSourceType").value;
+              if (ddval.toString() == zero.toString()) {
+                  var eventrate = document.getElementById("ctl00_ContentPlaceHolder1_eventRate_tbNumericSource").value.toString();
+                  if (eventrate == "") {
+                      alert('<%=GetLocalResourceObject("TEXT_ERROR_NO_VALUE_FOR_RATE_FOR_EVENTS")%>');
+                      return false;
+                  }
+              }
+          }
+
+          return true;
+      }
+
+
+      function EnableAppropriateUserControls(bEnabled, ampControlID1, ampControlID2, ampControlID3) {
 
       var radGenCharge = document.getElementById('<%=radGenCharge.ClientID%>');
       var noCharge = document.getElementById('<%=noCharge.ClientID%>');
@@ -161,7 +228,7 @@
       else {
         eval('ChangeControlStateAction_' + ampControlID3 + '(' + !bEnabled + ')');
       }
-    }
+}
         
     // Disable user controls based on radio button selection.
     function DisableAppropriateUserControls() {
@@ -201,7 +268,7 @@
         // if executed on the master page.)
         MPC_assignInitialValues();
 
-    });  // Ext.onReady
+    });   // Ext.onReady
     
   </script>
 

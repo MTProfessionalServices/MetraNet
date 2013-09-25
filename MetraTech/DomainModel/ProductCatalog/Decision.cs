@@ -1000,40 +1000,47 @@ namespace MetraTech.DomainModel.ProductCatalog
     }
     #endregion   
 
-    #region IsBulkDecision
+    #region TierQualifiedUsageValue
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isIsBulkDecisionDirty = false;
-    private bool? m_IsBulkDecision;
-    /// <summary>
-    /// <para>
-    /// Determines if the "total so far" or "total within interval" should be
-    /// used for the criteria.
-    /// </para>
-    /// <para>
-    /// isBulk==true,   If the total-within_interval, after processing all usage events
-    ///                 within the interval falls within the tier, then apply the
-    ///                 specified action to all usage events within the interval
-    /// </para>
-    /// <para>
-    /// isBulk==false,  Apply the action to usage events where the total-so-far
-    ///                 falls within the tier.
-    /// </para>
-    /// </summary>
-    [MTDataMember(Description = "if true, applies to all usage events within the interval", Length = 40)]
+    private bool isTierQualifiedUsageValueDirty = false;
+    private string m_TierQualifiedUsageValue;
+    [MTDataMember(Description = "How decision is applied to all usage events", Length = 40)]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public bool? IsBulkDecision
+    public string TierQualifiedUsageValue
     {
-        get { return m_IsBulkDecision; }
+        get { return m_TierQualifiedUsageValue; }
         set
         {
-            m_IsBulkDecision = value;
-            isIsBulkDecisionDirty = true;
+            m_TierQualifiedUsageValue = value;
+            isTierQualifiedUsageValueDirty = true;
         }
     }
     [ScriptIgnore]
-    public bool IsIsBulkDecisionDirty
+    public bool IsTierQualifiedUsageValueDirty
     {
-        get { return isIsBulkDecisionDirty; }
+        get { return isTierQualifiedUsageValueDirty; }
+    }
+    #endregion   
+
+    #region TierQualifiedUsageColumnName
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    private bool isTierQualifiedUsageColumnNameDirty = false;
+    private string m_TierQualifiedUsageColumnName;
+    [MTDataMember(Description = "How decision is applies to all usage events", Length = 40)]
+    [DataMember(IsRequired = false, EmitDefaultValue = false)]
+    public string TierQualifiedUsageColumnName
+    {
+        get { return m_TierQualifiedUsageColumnName; }
+        set
+        {
+            m_TierQualifiedUsageColumnName = value;
+            isTierQualifiedUsageColumnNameDirty = true;
+        }
+    }
+    [ScriptIgnore]
+    public bool IsTierQualifiedUsageColumnNameDirty
+    {
+        get { return isTierQualifiedUsageColumnNameDirty; }
     }
     #endregion   
 

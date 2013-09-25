@@ -3889,27 +3889,37 @@ namespace MetraTech.Core.Services
                 {
                     if (attributeValue.ToUpper().Equals("INCREMENTAL"))
                     {
-                        decision.IsBulkDecision = false;
+                        decision.TierQualifiedUsageValue = "incremental";
+                        decision.TierQualifiedUsageColumnName = null;
                     }
                     else if (attributeValue.ToUpper().Equals("BULK"))
                     {
-                        decision.IsBulkDecision = true;
+                        decision.TierQualifiedUsageValue = "bulk";
+                        decision.TierQualifiedUsageColumnName = null;
                     }
                     else
                     {
                         m_Logger.LogError(
                             "StoreAttributeInDomainModel: parameter {0} contains unexpected value {1}",
                             attributeName, attributeValue);
-                        m_Logger.LogError("Setting decision.IsBulk = false");
-                        decision.IsBulkDecision = false;
+                        m_Logger.LogError("Setting decision as incremetal");
+                        decision.TierQualifiedUsageValue = "incremental";
+                        decision.TierQualifiedUsageColumnName = null;
                     }
                 }
                 else
                 {
-                    // don't expect column name
-                    m_Logger.LogError(
-                        "StoreAttributeInDomainModel: parameter {0} should not be set via column name",
-                        attributeName);
+                    if (attributeColumnName != null)
+                    {
+                        decision.TierQualifiedUsageValue = null;
+                        decision.TierQualifiedUsageColumnName = attributeColumnName;
+                    }
+                    else
+                    {
+                        m_Logger.LogError(
+                            "StoreAttributeInDomainModel: parameter {0} should not be null",
+                            attributeName);
+                    }
                 }
             }
             else if (attributeName.Equals("Tier Proration"))
@@ -4234,21 +4244,8 @@ namespace MetraTech.Core.Services
             StoreAttributeInDb(decision.UniqueId, "Per Unit Rate",
                 decision.PerUnitRateValue.HasValue ? decision.PerUnitRateValue.ToString() : null,
                 decision.PerUnitRateColumnName, decision.ParameterTableName);
-            if (!decision.IsBulkDecision.HasValue)
-            {
                 StoreAttributeInDb(decision.UniqueId, "Tier Qualified Usage",
-                    null, null, decision.ParameterTableName);
-            }
-            else if (decision.IsBulkDecision.Value)
-            {
-                StoreAttributeInDb(decision.UniqueId, "Tier Qualified Usage",
-                    "bulk", null, decision.ParameterTableName);
-            }
-            else
-            {
-                StoreAttributeInDb(decision.UniqueId, "Tier Qualified Usage",
-                    "incremental", null, decision.ParameterTableName);
-            }
+                    decision.TierQualifiedUsageValue, decision.TierQualifiedUsageColumnName, decision.ParameterTableName);
             if (decision.TierProrationValue != null)
             {
                 switch (decision.TierProrationValue)

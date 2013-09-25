@@ -41,6 +41,8 @@ public partial class Payments_CreditCardAdd : MTPage
     set { ViewState["PaymentBrokerAddress"] = value; }
   }
 
+  protected string CreditCardTypeErrorMessage { get { return (string) GetLocalResourceObject("CreditCardTypeError"); } }
+
   protected void PopulatePriority()
   {
     var totalCards = GetTotalCards() + 1;

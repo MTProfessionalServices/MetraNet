@@ -245,6 +245,7 @@
       this.createQuoteToolStripMenuItem.Name = "createQuoteToolStripMenuItem";
       this.createQuoteToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
       this.createQuoteToolStripMenuItem.Text = "Create quote";
+      this.createQuoteToolStripMenuItem.Click += new System.EventHandler(this.createQuoteToolStripMenuItem_Click);
       // 
       // exitToolStripMenuItem
       // 
@@ -272,6 +273,7 @@
       this.listBoxUDRCs.Name = "listBoxUDRCs";
       this.listBoxUDRCs.Size = new System.Drawing.Size(400, 163);
       this.listBoxUDRCs.TabIndex = 1;
+      this.listBoxUDRCs.SelectedIndexChanged += new System.EventHandler(this.listBoxUDRCs_SelectedIndexChanged);
       // 
       // groupBoxICBs
       // 

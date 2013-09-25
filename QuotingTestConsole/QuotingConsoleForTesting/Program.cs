@@ -4,6 +4,8 @@ using System.IO;
 using System.Xml.Serialization;
 using MetraTech.Domain.Quoting;
 using MetraTech.Core.Services.ClientProxies;
+using System.Windows.Forms;
+using QuotingConsoleForTesting;
 
 namespace MetraTech.Quoting.Test.ConsoleForTesting
 {
@@ -13,7 +15,12 @@ namespace MetraTech.Quoting.Test.ConsoleForTesting
     static void Main(string[] args)
     {
       //MainFunctionalTest();
-      QuotingActivityServiceTest();
+      //QuotingActivityServiceTest();
+
+      Application.EnableVisualStyles();
+      Application.SetCompatibleTextRenderingDefault(false);
+      Application.Run(new formQuoteGUI());
+
 
     }
 

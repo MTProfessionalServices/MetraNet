@@ -410,6 +410,7 @@ Function InstallDatabase()
    If Not RunHook        ("Tax Framework",       "MetraTech.Tax.Framework.Hooks.VendorParamsHook") Then Exit Function
    If Not RunSecuredHook ("DB Properties",       "MetraTech.Product.Hooks.DatabaseProperties")    Then Exit Function
    If Not RunHook        ("BusinessEntity",      "MetraTech.BusinessEntity.Hook.BusinessEntityHook") Then Exit Function
+   If Not RunHook        ("Expression Engine Metadata",      "MetraTech.ExpressionEngine.Metadata.Hook.MetadataHook")    Then Exit Function
 
    WriteLog "     Creating Usage Intervals and Partitions (if enabled)"
    If Not ExecuteCommand (MakeBinPath("usm.exe -create")) Then Exit Function
@@ -555,6 +556,8 @@ Function SynchronizeExtensions()
   If Not RunHook        ("Tax Framework",      "MetraTech.Tax.Framework.Hooks.VendorParamsHook") Then Exit Function
 
   If Not RunSecuredHook ("DB Properties",      "MetraTech.Product.Hooks.DatabaseProperties")    Then Exit Function
+  
+  If Not RunHook ("Expression Engine Metadata",      "MetraTech.ExpressionEngine.Metadata.Hook.MetadataHook")    Then Exit Function
 
   SynchronizeExtensions = kRetVal_SUCCESS
 End Function

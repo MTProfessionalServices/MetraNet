@@ -224,10 +224,8 @@ public partial class AjaxServices_Hierarchy : MTPage
         }
 
         Response.Write(",'icon':'"); Response.Write(imageURLPath.ToString());
-/*
         Response.Write("','canBeManaged':'");
         Response.Write(node.CanWrite.ToString());
-*/
         // Response.Write(",'cls':'");  Response.Write(node.ItemType.ToString());
         Response.Write("'}");
 

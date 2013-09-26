@@ -80,10 +80,12 @@
     <Reference Include="Core.FileLandingService.Entity, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Core.FileLandingService.Entity.dll</HintPath>
+      <Private>False</Private>
     </Reference>
-	<Reference Include="Core.Quoting.Entity, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="Core.Quoting.Entity, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Core.Quoting.Entity.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Core.Interface, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -337,6 +339,16 @@
       <Private>False</Private>
       <EmbedInteropTypes>false</EmbedInteropTypes>
     </ProjectReference>
+    <ProjectReference Include="..\..\MetraTech.Application\MetraTech.Application.csproj">
+      <Project>{A19EED27-05B5-4907-B8A7-20C43EED7F42}</Project>
+      <Name>MetraTech.Application</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetraTech.Domain\MetraTech.Domain.csproj">
+      <Project>{9C9C685C-CBF8-428F-8C34-98702FF13726}</Project>
+      <Name>MetraTech.Domain</Name>
+      <Private>False</Private>
+    </ProjectReference>
     <ProjectReference Include="..\..\Pipeline\ReRun\MetraTech.Pipeline.Rerun.csproj">
       <Project>{bc2dc75e-9076-45ae-b592-7ebe2ab11ba7}</Project>
       <Name>MetraTech.Pipeline.Rerun</Name>
@@ -389,6 +401,7 @@
     <ProjectReference Include="..\..\Approvals\MetraTech.Approvals.csproj">
       <Project>{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}</Project>
       <Name>MetraTech.Approvals %28MetraTech.Approvals\MetraTech.Approvals%29</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\Basic\MetraTech.Basic.csproj">
       <Project>{B0909156-962B-4C97-AB1C-4073E3DA6DC1}</Project>
@@ -429,6 +442,7 @@
     <ProjectReference Include="..\..\DomainModel\Billing\MetraTech.DomainModel.Billing.csproj">
       <Project>{CF76E976-7EAB-422A-9081-B7F0AF485FDE}</Project>
       <Name>MetraTech.DomainModel.Billing</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\DomainModel\Common\MetraTech.DomainModel.Common.csproj">
       <Project>{E21F8EE1-FA01-465E-B651-A21CC2E1D6AA}</Project>
@@ -478,6 +492,7 @@
     <ProjectReference Include="..\..\Quoting\MetraTech.Quoting.csproj">
       <Project>{C4914DDD-93C8-475F-B5DB-1CDB6C8ECA17}</Project>
       <Name>MetraTech.Quoting %28MetraTech.Quoting\MetraTech.Quoting%29</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\Security\MetraTech.Security.csproj">
       <Project>{269C212E-1D9A-4177-81A3-0DFE538DE6E6}</Project>
@@ -492,6 +507,7 @@
     <ProjectReference Include="..\Activities\MetraTech.Core.Activities.csproj">
       <Project>{E7B6902F-00C4-4BB9-AF12-D7648577EDE3}</Project>
       <Name>MetraTech.Core.Activities</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\Client\MetraTech.Core.Client.csproj">
       <Project>{5B65875A-C6CE-42C4-B801-90DB3428271B}</Project>

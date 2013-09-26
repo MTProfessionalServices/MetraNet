@@ -729,6 +729,7 @@
 		<row><td>VBSubscribeExec.dll</td><td>{C00B1B34-F2B6-4B52-B84D-AF6FB24FD289}</td><td>BIN</td><td>0</td><td/><td>F1048467_VBSubscribeExec.dll</td><td>1</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>VBTest.dll</td><td>{5E611516-D46C-4D3F-9071-91933DCC66F7}</td><td>BIN</td><td>0</td><td/><td>F33823_VBTest.dll</td><td>1</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>VersionReporting.dll</td><td>{8952AA17-FB67-4135-B804-988211BEE63D}</td><td>BIN</td><td>0</td><td/><td>F33852_VersionReporting.dll</td><td>1</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>VertexQ</td><td>{FECE32C2-006F-40AC-86E0-C354F209F61A}</td><td>VERTEXQ</td><td>0</td><td/><td/><td>1</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>WebServices</td><td>{288EBF79-5026-4EC6-A406-75EC62D837B8}</td><td>WEBSERVICES</td><td>0</td><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>WebServices_AccountHierarchy</td><td>{E5574974-2414-452C-80A4-EF6117CDCB6D}</td><td>ACCOUNTHIERARCHY1</td><td>0</td><td/><td/><td>1</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>WebServices_Batch</td><td>{A4A2BA4B-134B-4B19-BF77-CFFF7BD5EB54}</td><td>BATCH2</td><td>0</td><td/><td/><td>1</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
@@ -2896,6 +2897,7 @@
 		<row><td>USAGESERVER9</td><td>PAYMENTSVRCLIENT</td><td>USAGES~1|UsageServer</td><td/><td>0</td><td/></row>
 		<row><td>USERPROFILE</td><td>TARGETDIR</td><td>.:USERPR~1|UserProfile</td><td/><td>0</td><td/></row>
 		<row><td>VALIDATION1</td><td>DIALOG5</td><td>VALIDA~1|Validation</td><td/><td>0</td><td/></row>
+		<row><td>VERTEXQ</td><td>EXTENSIONS</td><td>VertexQ</td><td/><td>0</td><td/></row>
 		<row><td>VIEWINFO</td><td>CONFIG1</td><td>viewinfo</td><td/><td>0</td><td/></row>
 		<row><td>VIEWS</td><td>DBINSTALL</td><td>views</td><td/><td>0</td><td/></row>
 		<row><td>WEBHELP</td><td>HELP3</td><td>WebHelp</td><td/><td>0</td><td/></row>
@@ -3188,10 +3190,10 @@
 		<col def="S255">ISFeatureCabName</col>
 		<col def="S255">ISProFeatureName</col>
 		<row><td>ARSample</td><td>ARSupport</td><td>##NEW_STRING577##</td><td/><td>2</td><td>120</td><td>ARSAMPLE</td><td>8</td><td/><td/><td/><td/></row>
-		<row><td>ARSupport</td><td>RMP</td><td>##NEW_STRING575##</td><td>##ID_STRING98##</td><td>78</td><td>110</td><td>AR3</td><td>8</td><td/><td>Extends MetraNet functionality to integrate with third-party AR products.</td><td/><td/></row>
+		<row><td>ARSupport</td><td>RMP</td><td>##NEW_STRING575##</td><td>##ID_STRING98##</td><td>82</td><td>110</td><td>AR3</td><td>8</td><td/><td>Extends MetraNet functionality to integrate with third-party AR products.</td><td/><td/></row>
 		<row><td>AppSight</td><td>RMP</td><td>##ID_STRING76##</td><td>##ID_STRING77##</td><td>0</td><td>1</td><td>BBXSERVICE_DIR</td><td>16</td><td/><td>Install feature for the AppSight BlackBox redist.</td><td/><td/></row>
 		<row><td>BillSoft</td><td>Tax</td><td>##ID_STRING91##</td><td>##ID_STRING94##</td><td>4</td><td>110</td><td>INSTALLDIR</td><td>8</td><td/><td>This feature is used for calculating taxes using BillSoft.</td><td/><td/></row>
-		<row><td>Database</td><td>RMP</td><td>##NEW_STRING13##</td><td>##NEW_STRING14##</td><td>80</td><td>10</td><td>MTDATABASE</td><td>8</td><td/><td>Sets up the database components required by all MetraNet servers.</td><td/><td/></row>
+		<row><td>Database</td><td>RMP</td><td>##NEW_STRING13##</td><td>##NEW_STRING14##</td><td>84</td><td>10</td><td>MTDATABASE</td><td>8</td><td/><td>Sets up the database components required by all MetraNet servers.</td><td/><td/></row>
 		<row><td>Extensions</td><td>RMP</td><td>##ID_STRING82##</td><td>##ID_STRING83##</td><td>0</td><td>1</td><td>INSTALLDIR</td><td>24</td><td/><td>This feature consists of extensions required for a minimal install of the MetraNet product.</td><td/><td/></row>
 		<row><td>GACDlls</td><td>RMP</td><td>##ID_STRING101##</td><td/><td>0</td><td>1</td><td>INSTALLDIR</td><td>16</td><td/><td/><td/><td/></row>
 		<row><td>GPSetupFiles</td><td>ARSupport</td><td>##ID_STRING3##</td><td/><td>6</td><td>110</td><td>GREATPLAINSSETUP1</td><td>8</td><td/><td/><td/><td/></row>
@@ -3204,15 +3206,16 @@
 		<row><td>MPS</td><td>UI</td><td>##NEW_STRING558##</td><td>##NEW_STRING559##</td><td>0</td><td>10</td><td/><td>8</td><td/><td/><td/><td/></row>
 		<row><td>MetraTax</td><td>Tax</td><td>##ID_STRING89##</td><td>##ID_STRING93##</td><td>2</td><td>110</td><td>INSTALLDIR</td><td>8</td><td/><td>Provides a vendor-independent framework for calculating taxes. </td><td/><td/></row>
 		<row><td>PS</td><td>PSClient</td><td>##NEW_STRING26##</td><td>##NEW_STRING27##</td><td>2</td><td>10</td><td>PAYMENTSVR</td><td>8</td><td/><td/><td/><td/></row>
-		<row><td>PSClient</td><td>RMP</td><td>##NEW_STRING28##</td><td>##NEW_STRING29##</td><td>44</td><td>10</td><td>PAYMENTSVR</td><td>8</td><td/><td/><td/><td/></row>
+		<row><td>PSClient</td><td>RMP</td><td>##NEW_STRING28##</td><td>##NEW_STRING29##</td><td>56</td><td>10</td><td>PAYMENTSVR</td><td>8</td><td/><td/><td/><td/></row>
 		<row><td>RMP</td><td/><td>##NEW_STRING7##</td><td>##NEW_STRING8##</td><td>5</td><td>1</td><td>INSTALLDIR</td><td>24</td><td/><td/><td/><td/></row>
-		<row><td>Reporting</td><td>RMP</td><td>##NEW_STRING511##</td><td>##NEW_STRING512##</td><td>54</td><td>110</td><td>REPORTING2</td><td>8</td><td/><td/><td/><td/></row>
+		<row><td>Reporting</td><td>RMP</td><td>##NEW_STRING511##</td><td>##NEW_STRING512##</td><td>80</td><td>110</td><td>REPORTING2</td><td>8</td><td/><td/><td/><td/></row>
 		<row><td>Resource</td><td>RMP</td><td>##ID_STRING27##</td><td>##ID_STRING34##</td><td>0</td><td>1</td><td>INSTALLDIR</td><td>8</td><td/><td/><td/><td/></row>
-		<row><td>Tax</td><td>RMP</td><td>##ID_STRING92##</td><td>##ID_STRING99##</td><td>3</td><td>1</td><td>INSTALLDIR</td><td>8</td><td/><td>Installs Tax related features.</td><td/><td/></row>
+		<row><td>Tax</td><td>RMP</td><td>##ID_STRING92##</td><td>##ID_STRING99##</td><td>5</td><td>1</td><td>INSTALLDIR</td><td>8</td><td/><td>Installs Tax related features.</td><td/><td/></row>
 		<row><td>Taxware</td><td>Tax</td><td>##ID_STRING90##</td><td>##ID_STRING95##</td><td>6</td><td>110</td><td>INSTALLDIR</td><td>8</td><td/><td>Install feature for Taxware.</td><td/><td/></row>
-		<row><td>UI</td><td>RMP</td><td>##ID_STRING19##</td><td>##ID_STRING96##</td><td>4</td><td>10</td><td>UI</td><td>8</td><td/><td>Integrates product management, billing execution, account management, and subscriber services. </td><td/><td/></row>
+		<row><td>UI</td><td>RMP</td><td>##ID_STRING19##</td><td>##ID_STRING96##</td><td>10</td><td>10</td><td>UI</td><td>8</td><td/><td>Integrates product management, billing execution, account management, and subscriber services. </td><td/><td/></row>
 		<row><td>UtilityExes</td><td>RMP</td><td>##ID_STRING87##</td><td/><td>0</td><td>1</td><td>INSTALLDIR</td><td>24</td><td/><td/><td/><td/></row>
-		<row><td>WS</td><td>RMP</td><td>##ID_STRING22##</td><td>##ID_STRING97##</td><td>8</td><td>10</td><td>WEBSERVICES</td><td>8</td><td/><td>Exposes services to clients using browsers and other web service interfaces.</td><td/><td/></row>
+		<row><td>VertexQ</td><td>RMP</td><td>##ID_STRING108##</td><td/><td>4</td><td>110</td><td>INSTALLDIR</td><td>8</td><td/><td/><td/><td/></row>
+		<row><td>WS</td><td>RMP</td><td>##ID_STRING22##</td><td>##ID_STRING97##</td><td>46</td><td>10</td><td>WEBSERVICES</td><td>8</td><td/><td>Exposes services to clients using browsers and other web service interfaces.</td><td/><td/></row>
 		<row><td>WinServices</td><td>RMP</td><td>##ID_STRING85##</td><td/><td>0</td><td>1</td><td>INSTALLDIR</td><td>16</td><td/><td/><td/><td/></row>
 		<row><td>de</td><td>Resource</td><td>##ID_STRING27##</td><td/><td>0</td><td>1</td><td>INSTALLDIR</td><td>8</td><td/><td/><td/><td/></row>
 		<row><td>en</td><td>Resource</td><td>##ID_STRING28##</td><td/><td>0</td><td>1</td><td>INSTALLDIR</td><td>8</td><td/><td/><td/><td/></row>
@@ -3562,6 +3565,7 @@
 		<row><td>UI</td><td>UI_Root</td></row>
 		<row><td>UtilityExes</td><td>BMESyncExe</td></row>
 		<row><td>UtilityExes</td><td>GenDMExe</td></row>
+		<row><td>VertexQ</td><td>VertexQ</td></row>
 		<row><td>WS</td><td>WebServices</td></row>
 		<row><td>WinServices</td><td>MASHostService.exe</td></row>
 		<row><td>WinServices</td><td>MTServices.exe</td></row>
@@ -4430,6 +4434,7 @@
 		<row><td>VBSubscribeExec.dll</td><td/><td/><td>_EE010D83_35C5_48CD_9ACC_93FB8B86B9D0_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>VBTest.dll</td><td/><td/><td>_A2805185_5CB4_428D_AB43_24FD3C838607_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>VersionReporting.dll</td><td/><td/><td>_CB5E9043_5A2A_430B_9C30_A53B226C069B_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>VertexQ</td><td/><td/><td>_279F1388_9069_447D_97E2_808C0134F57D_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>WebServices</td><td/><td/><td>_0CB4D2D3_B526_4116_9322_7807812BD3D2_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>WebServices_AccountHierarchy</td><td/><td/><td>_2E622E57_8E4E_4C13_82D6_F57822306B3B_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>WebServices_Batch</td><td/><td/><td>_EA17E4AD_EE25_4DD9_B14C_723835720E7C_FILTER</td><td/><td/><td/><td/></row>
@@ -4557,6 +4562,7 @@
 		<row><td>UI_Res</td><td>&lt;InstallRelDir&gt;\ui\res</td><td>4</td><td/><td/><td>2</td></row>
 		<row><td>UI_Root</td><td>&lt;InstallRelDir&gt;\ui\root</td><td>4</td><td/><td/><td>2</td></row>
 		<row><td>UI_Suggest</td><td>&lt;InstallRelDir&gt;\ui\suggest</td><td>4</td><td/><td/><td>2</td></row>
+		<row><td>VertexQ</td><td>&lt;InstallRelDir&gt;\optionalextensions\vertexq</td><td>4</td><td/><td>.git</td><td>2</td></row>
 		<row><td>WebServices</td><td>&lt;InstallRelDir&gt;\webservices</td><td>4</td><td/><td/><td>0</td></row>
 		<row><td>WebServices_AccountHierarchy</td><td>&lt;InstallRelDir&gt;\webservices\accounthierarchy</td><td>4</td><td/><td/><td>2</td></row>
 		<row><td>WebServices_Batch</td><td>&lt;InstallRelDir&gt;\webservices\batch</td><td>4</td><td/><td/><td>2</td></row>
@@ -6200,6 +6206,7 @@
 		<row><td>ID_STRING105</td><td>1033</td><td>Please select account templates option.</td><td>0</td><td/><td>1981810026</td></row>
 		<row><td>ID_STRING106</td><td>1033</td><td>[ProductName] - InstallShield Wizard</td><td>0</td><td/><td>1981867178</td></row>
 		<row><td>ID_STRING107</td><td>1033</td><td>&amp;Next &gt;</td><td>0</td><td/><td>1981867178</td></row>
+		<row><td>ID_STRING108</td><td>1033</td><td>VertexQ</td><td>0</td><td/><td>1277269256</td></row>
 		<row><td>ID_STRING11</td><td>1033</td><td>{&amp;Tahoma8}InstallShield</td><td>0</td><td/><td>-904385689</td></row>
 		<row><td>ID_STRING12</td><td>1033</td><td>*=-PATH</td><td>0</td><td/><td>-1516729518</td></row>
 		<row><td>ID_STRING13</td><td>1033</td><td>[~];[INSTALLDIR]RMP\Bin</td><td>0</td><td/><td>-1382496406</td></row>

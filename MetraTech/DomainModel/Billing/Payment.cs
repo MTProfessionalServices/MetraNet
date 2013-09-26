@@ -291,5 +291,49 @@ namespace MetraTech.DomainModel.Billing
             get { return isCheckOrCardNumberDirty; }
         }
         #endregion
+
+        #region PaymentTxnID
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        private bool isPaymentTxnIDDirty = false;
+        private string m_PaymentTxnID;
+        [MTDataMember(Description = "This is the Payment Txn ID.", Length = 40)]
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        public string PaymentTxnID
+        {
+            get { return m_PaymentTxnID; }
+            set
+            {
+                m_PaymentTxnID = value;
+                isPaymentTxnIDDirty = true;
+            }
+        }
+        [ScriptIgnore]
+        public bool IsPaymentTxnIDDirty
+        {
+            get { return isPaymentTxnIDDirty; }
+        }
+        #endregion
+        
+        #region ReferenceID
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        private bool isReferenceIDDirty = false;
+        private string m_ReferenceID;
+        [MTDataMember(Description = "This is the Reference ID.", Length = 40)]
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        public string ReferenceID
+        {
+            get { return m_ReferenceID; }
+            set
+            {
+                m_ReferenceID = value;
+                isReferenceIDDirty = true;
+            }
+        }
+        [ScriptIgnore]
+        public bool IsReferenceIDDirty
+        {
+            get { return IsReferenceIDDirty; }
+        }
+        #endregion
     }
 }

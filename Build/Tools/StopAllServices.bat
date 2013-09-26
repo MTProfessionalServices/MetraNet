@@ -12,3 +12,4 @@ Net stop MetraTechDataExportService
 REM Kill MetraTime
 taskkill /IM metratime.exe
 taskkill /IM consolehost.exe
+taskkill /IM MVM.exe /F 

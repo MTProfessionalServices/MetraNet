@@ -33,13 +33,13 @@ namespace MetraTech.MetraPay
     [FaultContract(typeof(MASBasicFaultDetail))]
     [FaultContract(typeof(PaymentProcessorFaultDetail))]
     [TransactionFlow(TransactionFlowOption.Allowed)]
-    void AddPaymentMethod(MetraPaymentMethod paymentMethod, out Guid token);
+    void AddPaymentMethod(MetraPaymentMethod paymentMethod, string currency, out Guid token);
 
     [OperationContract]
     [FaultContract(typeof(MASBasicFaultDetail))]
     [FaultContract(typeof(PaymentProcessorFaultDetail))]
     [TransactionFlow(TransactionFlowOption.Allowed)]
-    void UpdatePaymentMethod(Guid token, MetraPaymentMethod paymentMethod);
+    void UpdatePaymentMethod(Guid token, MetraPaymentMethod paymentMethod, string currency);
 
     [OperationContract]
     [FaultContract(typeof(MASBasicFaultDetail))]
@@ -172,14 +172,15 @@ namespace MetraTech.MetraPay
 
     #region IPaymentInstrumentMgmtSvc Members
 
-    /// <summary>
-    /// Adds payment instrument, e.g. Credit Card or ACH Payment
-    /// </summary>
-    /// <param name="paymentInstrument">Contains payment instrument properties to add</param>
-    /// <param name="accID">Account Identifier that identifies the user to whose account the payment instrument is being added to</param>
-    /// <param name="paymentInstrumentId">Returns the payment instrument id of the newly added record</param>
-    [OperationBehavior(TransactionAutoComplete = true, TransactionScopeRequired = true)]
-    public void AddPaymentMethod(MetraPaymentMethod paymentInstrument, out Guid paymentInstrumentId)
+      /// <summary>
+      /// Adds payment instrument, e.g. Credit Card or ACH Payment
+      /// </summary>
+      /// <param name="paymentInstrument">Contains payment instrument properties to add</param>
+      /// <param name="accID">Account Identifier that identifies the user to whose account the payment instrument is being added to</param>
+      /// <param name="currency">The currency for this CC</param>
+      /// <param name="paymentInstrumentId">Returns the payment instrument id of the newly added record</param>
+      [OperationBehavior(TransactionAutoComplete = true, TransactionScopeRequired = true)]
+    public void AddPaymentMethod(MetraPaymentMethod paymentInstrument, string currency, out Guid paymentInstrumentId)
     {
       paymentInstrumentId = Guid.NewGuid();
       bool bValidated = false;
@@ -187,7 +188,7 @@ namespace MetraTech.MetraPay
       //validate credit card through payment gateway
       try
       {
-        bValidated = m_Gateway.ValidatePaymentMethod(paymentInstrument);
+        bValidated = m_Gateway.ValidatePaymentMethod(paymentInstrument, currency);
 
         if (bValidated)
         {
@@ -246,7 +247,7 @@ namespace MetraTech.MetraPay
     /// <param name="paymentInstrumentId"></param>
     /// <param name="paymentInstrument"></param>
     [OperationBehavior(TransactionAutoComplete = true, TransactionScopeRequired = true)]
-    public void UpdatePaymentMethod(Guid paymentInstrumentId, MetraPaymentMethod paymentInstrument)
+    public void UpdatePaymentMethod(Guid paymentInstrumentId, MetraPaymentMethod paymentInstrument, string currency)
     {
       MetraPaymentMethod pm;
 
@@ -287,7 +288,7 @@ namespace MetraTech.MetraPay
       bool bIsValidAccountNumber = false;
       try
       {
-        bIsValidAccountNumber = m_Gateway.ValidatePaymentMethod(updatedMethod);
+        bIsValidAccountNumber = m_Gateway.ValidatePaymentMethod(updatedMethod, currency);
       }
       catch (PaymentProcessorException ppe)
       {
@@ -939,7 +940,7 @@ namespace MetraTech.MetraPay
     [OperationBehavior(TransactionAutoComplete = true, TransactionScopeRequired = true)]
     public void ValidatePaymentMethod(MetraPaymentMethod paymentMethod, ref MetraPaymentInfo paymentInfo)
     {
-      if (!m_Gateway.ValidatePaymentMethod(paymentMethod))
+      if (!m_Gateway.ValidatePaymentMethod(paymentMethod, paymentInfo.Currency))
       {
         m_Logger.LogError(String.Format("Invalid Payment Instrument id: {0} has been provided", paymentMethod.PaymentInstrumentID.ToString()));
         throw new MASBasicException("Invalid Payment Intrument id.");

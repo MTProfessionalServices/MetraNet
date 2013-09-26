@@ -163,7 +163,7 @@ namespace MetraTech.DomainModel.Billing
             }
         }
         [ScriptIgnore]
-        public bool IsAccountQualificationGroupDirty
+        public bool IsAccountQualificationGroupColumnNameDirty
         {
             get { return isAccountQualificationGroupDirty; }
         }

@@ -133,17 +133,22 @@
       this.checkBoxIsGroupSubscription.TabIndex = 1;
       this.checkBoxIsGroupSubscription.Text = "Is Group Subscription";
       this.checkBoxIsGroupSubscription.UseVisualStyleBackColor = true;
+	  this.checkBoxIsGroupSubscription.CheckedChanged += new System.EventHandler(this.checkBoxIsGroupSubscription_CheckedChanged);
       // 
       // comboBoxCorporateAccount
       // 
+	  this.comboBoxCorporateAccount.DisplayMember = "Value";
+	  this.comboBoxCorporateAccount.Enabled = false;
       this.comboBoxCorporateAccount.FormattingEnabled = true;
       this.comboBoxCorporateAccount.Location = new System.Drawing.Point(450, 71);
       this.comboBoxCorporateAccount.Name = "comboBoxCorporateAccount";
       this.comboBoxCorporateAccount.Size = new System.Drawing.Size(331, 21);
       this.comboBoxCorporateAccount.TabIndex = 2;
+	  this.comboBoxCorporateAccount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       // 
       // label2
       // 
+	  this.label2.Enabled = false;
       this.label2.AutoSize = true;
       this.label2.Location = new System.Drawing.Point(449, 46);
       this.label2.Name = "label2";

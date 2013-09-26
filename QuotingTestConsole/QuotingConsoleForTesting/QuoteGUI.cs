@@ -12,7 +12,6 @@ namespace QuotingConsoleForTesting
 {
   public partial class formQuoteGUI : Form
   {
-
     private QuoteRequest request;
     public formQuoteGUI()
     {
@@ -34,6 +33,7 @@ namespace QuotingConsoleForTesting
       foreach (var item in ListBoxLoader.GetAccounts())
       {
         listBoxAccounts.Items.Add(ListBoxLoader.GetAccountListBoxItem(item));
+        comboBoxCorporateAccount.Items.Add(ListBoxLoader.GetAccountListBoxItem(item));
       }
 
       //load POs
@@ -41,7 +41,6 @@ namespace QuotingConsoleForTesting
       {
         listBoxPOs.Items.Add(ListBoxLoader.GetProductOfferingListBoxItem(item));
       }
-
     }
 
     private void createQuoteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -57,6 +56,12 @@ namespace QuotingConsoleForTesting
     private void SetRequest()
     {
 
+    }
+
+    private void checkBoxIsGroupSubscription_CheckedChanged(object sender, EventArgs e)
+    {
+      comboBoxCorporateAccount.Enabled = checkBoxIsGroupSubscription.Checked;
+      label2.Enabled = checkBoxIsGroupSubscription.Checked;
     }
   }
 }

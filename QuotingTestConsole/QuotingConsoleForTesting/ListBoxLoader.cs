@@ -45,6 +45,7 @@ namespace QuotingConsoleForTesting
 
     public static KeyValuePair<int, string> GetAccountListBoxItem(Account account)
     {
+      /*
       var tabs = "";
       if (account.UserName.Length < 8)
       {
@@ -58,10 +59,10 @@ namespace QuotingConsoleForTesting
       {
         tabs = "\t";
       }
-
-      var formattedDisplayString = String.Format("{0}{1}{2}",
+      */
+      var formattedDisplayString = String.Format("{0} - {1}",
                                                  account.UserName,
-                                                 tabs,
+                                              // tabs,
                                                  account.AccountType); // [TODO] Display Usage cycle
 
       Debug.Assert(account._AccountID != null, "Error: AccountID is null.");

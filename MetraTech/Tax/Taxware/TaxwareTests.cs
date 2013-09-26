@@ -154,7 +154,7 @@ namespace MetraTech.Tax.Taxware.Test
                 "round_digits)" +
                 "VALUES" +
                 "({1}, 20202, 300.00, " +                       // id_tax_charge, id_acc, amount
-                "{2}, 'unused', 'Office Supplier 01'," +      // invoice_date, product_code, customer_name
+                "{2}, 'unused', 'Office Supplier 01'," +        // invoice_date, product_code, customer_name
                 "'BV0000001', '', ''," +                        // customer_code, los_address, los_city
                 "'', '', '', " +                                // los_state_province, los_postal_code, los_country
                 "'', 1683, ''," +                               // los_location_code, los_geo_code, bill_to_address
@@ -163,7 +163,7 @@ namespace MetraTech.Tax.Taxware.Test
                 "'', '', ''," +                                 // ship_to_address, ship_to_city, ship_to_state_province
                 "'', '', ''," +                                 // ship_to_postal_code, ship_to_country, ship_to_location_code
                 "1683, '2040181', '60400003100'," +             // ship_to_geo_code, good_or_service_code, sku
-                "'USD', 'FALSE', 'none'," +                           // currency, is_implied_tax, round_alg
+                "'USD', 'false', 'none'," +                     // currency, is_implied_tax, round_alg
                 "0)",                                           // round_digits
                 taxManager.TaxRunId, GetUniqueIdTaxCharge(), GetInvoiceDate());
             SqlWizard.execute(insertStatement, m_isSqlServer);

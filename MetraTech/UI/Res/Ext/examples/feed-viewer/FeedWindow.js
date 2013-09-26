@@ -1,74 +1,88 @@
-/*!
- * Ext JS Library 3.4.0
- * Copyright(c) 2006-2011 Sencha Inc.
- * licensing@sencha.com
- * http://www.sencha.com/license
- */
-FeedWindow = function() {
-    this.feedUrl = new Ext.form.ComboBox({
-        id: 'feed-url',
-        fieldLabel: 'Enter the URL of the feed to add',
-        emptyText: 'http://example.com/blog/feed',
-        width: 450,
-        validationEvent: false,
-        validateOnBlur: false,
-        msgTarget: 'under',
-        triggerAction: 'all',
-        displayField: 'url',
-        mode: 'local',
+/*
+This file is part of Ext JS 3.4
 
-        listeners:{
-            valid: this.syncShadow,
-            invalid: this.syncShadow,
-            scope: this
-        },
-        tpl: new Ext.XTemplate(
-                '<tpl for="."><div class="x-combo-list-item">',
-                '<em>{url}</em><strong>{text}</strong>',
-                '<div class="x-clear"></div>',
-                '</div></tpl>'),
-        store: new Ext.data.ArrayStore({
-            fields: ['url', 'text'],
-            data : this.defaultFeeds
-        })
-    });
+Copyright (c) 2011-2013 Sencha Inc
 
-    this.form = new Ext.FormPanel({
-        labelAlign:'top',
-        items:this.feedUrl,
-        border: false,
-        bodyStyle:'background:transparent;padding:10px;'
-    });
+Contact:  http://www.sencha.com/contact
 
-    FeedWindow.superclass.constructor.call(this, {
-        title: 'Add Feed',
-        iconCls: 'feed-icon',
-        id: 'add-feed-win',
-        autoHeight: true,
-        width: 500,
-        resizable: false,
-        plain:true,
-        modal: true,
-        y: 100,
-        autoScroll: true,
-        closeAction: 'hide',
+Commercial Usage
+Licensees holding valid commercial licenses may use this file in accordance with the Commercial
+Software License Agreement provided with the Software or, alternatively, in accordance with the
+terms contained in a written agreement between you and Sencha.
 
-        buttons:[{
-            text: 'Add Feed!',
-            handler: this.onFeedAdd,
-            scope: this
-        },{
-            text: 'Cancel',
-            handler: this.hide.createDelegate(this, [])
-        }],
+If you are unsure which license is appropriate for your use, please contact the sales department
+at http://www.sencha.com/contact.
 
-        items: this.form
-    });
+Build date: 2013-04-03 15:07:25
+*/
+Ext.define('FeedWindow', {
 
-    this.addEvents({add:true});
-}
+    extend: 'Ext.Window',
+    
+    constructor: function() {
+        this.feedUrl = new Ext.form.ComboBox({
+            id: 'feed-url',
+            fieldLabel: 'Enter the URL of the feed to add',
+            emptyText: 'http://example.com/blog/feed',
+            width: 450,
+            validationEvent: false,
+            validateOnBlur: false,
+            msgTarget: 'under',
+            triggerAction: 'all',
+            displayField: 'url',
+            mode: 'local',
 
-Ext.extend(FeedWindow, Ext.Window, {
+            listeners:{
+                valid: this.syncShadow,
+                invalid: this.syncShadow,
+                scope: this
+            },
+            tpl: new Ext.XTemplate(
+                    '<tpl for="."><div class="x-combo-list-item">',
+                    '<em>{url}</em><strong>{text}</strong>',
+                    '<div class="x-clear"></div>',
+                    '</div></tpl>'),
+            store: new Ext.data.ArrayStore({
+                fields: ['url', 'text'],
+                data : this.defaultFeeds
+            })
+        });
+
+        this.form = new Ext.FormPanel({
+            labelAlign:'top',
+            items:this.feedUrl,
+            border: false,
+            bodyStyle:'background:transparent;padding:10px;'
+        });
+
+        this.callParent([{
+            title: 'Add Feed',
+            iconCls: 'feed-icon',
+            id: 'add-feed-win',
+            autoHeight: true,
+            width: 500,
+            resizable: false,
+            plain:true,
+            modal: true,
+            y: 100,
+            autoScroll: true,
+            closeAction: 'hide',
+
+            buttons:[{
+                text: 'Add Feed!',
+                handler: this.onFeedAdd,
+                scope: this
+            },{
+                text: 'Cancel',
+                handler: this.hide.createDelegate(this, [])
+            }],
+
+            items: this.form
+        }]);
+
+        this.addEvents({add:true});
+    },
+
     defaultFeeds : [
         ['http://www.divergingpath.com/rss.cfm?mode=full', 'Aaron Conran\'s Blog'],
         ['http://feeds.yuiblog.com/YahooUserInterfaceBlog',  'Yahoo! UI Blog'],

@@ -1401,7 +1401,7 @@ namespace MetraTech.DataAccess
             m_InnerQuery = base.Command.CommandText;
             base.Command.CommandText = "";
         }
-		
+		#endregion
 		
 		    public class PreparedFilterSortForExport : Statement, IMTPreparedFilterSortStatement, IDisposable
     {
@@ -1905,55 +1905,6 @@ namespace MetraTech.DataAccess
 	
 }
 
-/*
-namespace MetraTech.DataAccess.OleDb
-{
-	/// <remarks>
-	/// Use an OleDbStatement to execute a non-parameterized SQL statement.
-	/// </remarks>
-	public class OleDbStatement : StatementBase, IMTStatement
-	{
-		public OleDbStatement(OleDbCommand cmd, String queryText)
-			: 
-			base(cmd, queryText){}
-	}
-
-	/// <remarks>
-	/// A callable statement represents a stored procedure that can be executed against
-	/// a database.  Stored procedures can have a number of input parameters, a number of
-	/// output parameters and can return a result set.
-	/// </remarks>
-	public class OleDbCallableStatement : CallableStatementBase, IMTCallableStatement
-	{
-		public OleDbCallableStatement(OleDbCommand cmd, String sprocName)
-			: 
-			base(cmd, sprocName){}
-		
-	}
-
-	/// <remarks>
-	/// A prepared statement represents a parameterized SQL statement.
-	/// These statements can have any number of positional parameters
-	/// </remarks>
-	public class OleDbPreparedStatement : PreparedStatementBase, IMTPreparedStatement
-	{
-		public OleDbPreparedStatement(OleDbCommand cmd, String sqlText)
-			: 
-			base(cmd, sqlText){}
-	}
-
-
-	public class OleDbAdapterStatement : AdapterStatementBase, IMTAdapterStatement
-	{
-		public OleDbAdapterStatement(OleDbCommand cmd, String configPath, String queryTag) 
-			: base(cmd, configPath, queryTag){}
-		
-		public OleDbAdapterStatement(OleDbCommand cmd, String aQueryString) : base(cmd, aQueryString){}
-		
-	}
-
-}
-*/
 namespace MetraTech.DataAccess.Oracle
 {
     using MetraTech.Performance;
@@ -1996,6 +1947,5 @@ namespace MetraTech.DataAccess.Oracle
 	}
 
     }
-
-
+}
 }

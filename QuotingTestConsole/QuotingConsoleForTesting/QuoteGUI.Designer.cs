@@ -144,7 +144,8 @@
       this.comboBoxCorporateAccount.Name = "comboBoxCorporateAccount";
       this.comboBoxCorporateAccount.Size = new System.Drawing.Size(331, 21);
       this.comboBoxCorporateAccount.TabIndex = 2;
-	  this.comboBoxCorporateAccount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.comboBoxCorporateAccount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.comboBoxCorporateAccount.SelectionChangeCommitted += new System.EventHandler(this.comboBoxCorporateAccount_SelectionChanged);
       // 
       // label2
       // 

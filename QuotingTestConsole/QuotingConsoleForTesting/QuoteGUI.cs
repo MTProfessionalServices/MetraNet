@@ -28,6 +28,8 @@ namespace QuotingConsoleForTesting
     {
       listBoxAccounts.Items.Clear();
       listBoxPOs.Items.Clear();
+      dateTimePickerStartDate.Value = DateTime.Today.AddDays(1);
+      dateTimePickerEndDate.Value = DateTime.Today.AddDays(1);
 
       //load Accounts
       foreach (var item in ListBoxLoader.GetAccounts())
@@ -60,8 +62,16 @@ namespace QuotingConsoleForTesting
 
     private void checkBoxIsGroupSubscription_CheckedChanged(object sender, EventArgs e)
     {
-      comboBoxCorporateAccount.Enabled = checkBoxIsGroupSubscription.Checked;
-      label2.Enabled = checkBoxIsGroupSubscription.Checked;
+      var isGroupSubscription = checkBoxIsGroupSubscription.Checked;
+      request.SubscriptionParameters.IsGroupSubscription = isGroupSubscription;
+      comboBoxCorporateAccount.Enabled = isGroupSubscription;
+      label2.Enabled = isGroupSubscription;
+    }
+
+    private void comboBoxCorporateAccount_SelectionChanged(object sender, EventArgs e)
+    {
+      var corpAccItem = (KeyValuePair<int, string>)comboBoxCorporateAccount.SelectedItem;
+      request.SubscriptionParameters.CorporateAccountId = corpAccItem.Key;
     }
   }
 }

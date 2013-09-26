@@ -269,7 +269,9 @@ function GetFiltersToParamList_{control_id}()
         // If Text property is not set or empty for the date picker control, don't filter on the default selected Value in the date picker. 
         value1 = filter.dates.after.menu.picker.Text;
         value2 = filter.dates.before.menu.picker.Text;
-
+		//add one day for end date
+        value2 = Date.parseDate(value2,DATE_FORMAT).add('d',1).format(DATE_FORMAT);
+		
         if (value1 != undefined && value1 != '')
         {
 			value1 = filter.dates.after.menu.picker.value.format(DATE_FORMAT);
@@ -308,7 +310,7 @@ function GetFiltersToParamList_{control_id}()
         else
         {
           params['filter[' + j + '][field]'] = filter.dataIndex;
-          params['filter[' + j + '][operation]'] = op;
+           params['filter[' + j + '][data][comparison]'] = op;
           params['filter[' + j + '][visible]'] = filter.showFilter;
           params['filter[' + j + '][data][type]'] = filter.type;
           params['filter[' + j + '][data][value]'] = value1;

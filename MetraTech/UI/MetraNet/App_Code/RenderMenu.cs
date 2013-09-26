@@ -275,8 +275,10 @@ public static class MenuRenderer
 
                         sb.AppendLine();
 
-						sb.AppendFormat("hrefTarget : '{0}',", menuItem.Target); sb.AppendLine();
-						sb.AppendFormat("icon : '{0}'", menuItem.Icon); sb.AppendLine();
+                        sb.AppendFormat("hrefTarget : '{0}',", menuItem.Target);
+                        sb.AppendLine();
+                        sb.AppendFormat("icon : '{0}'", menuItem.Icon);
+                        sb.AppendLine();
 						sb.Append("}");
 						sb.AppendLine();
                         firstItem = false;

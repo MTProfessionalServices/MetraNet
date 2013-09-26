@@ -61,7 +61,7 @@ public partial class AmpGeneralInformationPage : AmpWizardBasePage
 
           if (AmpAction == "Create")
           {
-            lblCantChangeParamTable.Visible = true;
+              lblTitle.Text = String.Format(lblTitle.Text, " New Decision");
           }
 
           // Monitor changes made to the controls on the page.
@@ -119,7 +119,7 @@ public partial class AmpGeneralInformationPage : AmpWizardBasePage
         if (AmpAction != "Create")
         {
 
-          AmpServiceClient ampSvcGetDecisionClient = null;
+            AmpServiceClient ampSvcGetDecisionClient = null;
           try
           {
 
@@ -134,6 +134,7 @@ public partial class AmpGeneralInformationPage : AmpWizardBasePage
             ampSvcGetDecisionClient.GetDecision(AmpDecisionName, out decisionInstance);
 
             CurrentDecisionInstance = decisionInstance;
+            lblTitle.Text = String.Format(lblTitle.Text, CurrentDecisionInstance.Name);
 
             if (decisionInstance.Name != null)
             {

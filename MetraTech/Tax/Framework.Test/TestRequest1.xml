@@ -1,0 +1,10 @@
+<VertexTaxParams>
+  <OriginLocationMode>010014152</OriginLocationMode>
+  <OriginGeoCode>010014152</OriginGeoCode>
+  <TerminationLocationMode>0</TerminationLocationMode>
+  <TerminationGeoCode>010014152</TerminationGeoCode>
+  <InvoiceDate>7242013</InvoiceDate>
+  <TaxableAmount>100</TaxableAmount>
+  <CategoryCode>01</CategoryCode>
+  <ServiceCode>01</ServiceCode>
+</VertexTaxParams>

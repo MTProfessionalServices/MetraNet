@@ -428,6 +428,10 @@ namespace MetraTech.UI.MetraNet.App_Code
       }
     }
 
+    public static void SetCheckBoxViewAction(WebControl cb_control)
+    {
+        cb_control.Enabled = false;
+    }
     #endregion
 
     // Saves to the database the Decision defined by CurrentDecisionInstance.

@@ -6,7 +6,7 @@
     <ProjectType>Local</ProjectType>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{AA0E9A63-4C1C-4129-992A-8C1CC5AB3527}</ProjectGuid>
+    <ProjectGuid>{62D8F8F9-BF07-4698-989B-4D0F3E57071A}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ApplicationIcon>
@@ -199,10 +199,12 @@
     <ProjectReference Include="..\..\..\DataAccess\MetraTech.DataAccess.csproj">
       <Project>{1B40F4E4-8DDC-43E0-BE45-959BEE94422F}</Project>
       <Name>MetraTech.DataAccess</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\..\MetraTech.Common.csproj">
       <Project>{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}</Project>
       <Name>MetraTech.Common</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Pipeline\MetraTech.Pipeline.csproj">
       <Project>{A5B6D6A0-C62E-481F-BF26-D005B1573934}</Project>
@@ -214,7 +216,8 @@
     </ProjectReference>
     <ProjectReference Include="..\..\Framework\MetraTech.Tax.Framework.csproj">
       <Project>{86440C21-21F3-41A4-A3A5-686A30DD3988}</Project>
-      <Name>Framework</Name>
+      <Name>MetraTech.Tax.Framework</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

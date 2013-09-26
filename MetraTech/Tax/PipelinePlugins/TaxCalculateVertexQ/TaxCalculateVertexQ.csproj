@@ -86,7 +86,7 @@
     <!--END_DEFINE_CONSTANTS_RELEASE-->
     <DocumentationFile>
     </DocumentationFile>
-    <DebugSymbols>false</DebugSymbols>
+    <DebugSymbols>true</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
     <NoWarn>
@@ -96,7 +96,7 @@
     <RemoveIntegerChecks>false</RemoveIntegerChecks>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <WarningLevel>4</WarningLevel>
-    <DebugType>none</DebugType>
+    <DebugType>pdbonly</DebugType>
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -133,14 +133,27 @@
     <Reference Include="MetraTech.DomainModel.Enums.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTRMPBIN)\MetraTech.DomainModel.Enums.Generated.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.Pipeline, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>O:\debug\Bin\MetraTech.Pipeline.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.Pipeline.PlugIns, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTRMPBIN)\MetraTech.Pipeline.PlugIns.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.Pipeline.SessServer, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTRMPBIN)\\MetraTech.Pipeline.SessServer.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.Xml, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>O:\debug\Bin\MetraTech.Xml.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MTPipelineLib.interop, Version=5.1.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -197,22 +210,17 @@
     <ProjectReference Include="..\..\..\DataAccess\MetraTech.DataAccess.csproj">
       <Project>{1B40F4E4-8DDC-43E0-BE45-959BEE94422F}</Project>
       <Name>MetraTech.DataAccess</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\..\MetraTech.Common.csproj">
       <Project>{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}</Project>
       <Name>MetraTech.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Pipeline\MetraTech.Pipeline.csproj">
-      <Project>{A5B6D6A0-C62E-481F-BF26-D005B1573934}</Project>
-      <Name>MetraTech.Pipeline</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Xml\MetraTech.Xml.csproj">
-      <Project>{7D9556DF-CB87-458A-B66B-F5DD5B7C384E}</Project>
-      <Name>MetraTech.Xml</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\Framework\MetraTech.Tax.Framework.csproj">
       <Project>{86440C21-21F3-41A4-A3A5-686A30DD3988}</Project>
-      <Name>Framework</Name>
+      <Name>MetraTech.Tax.Framework</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

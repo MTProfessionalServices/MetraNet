@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ServiceModel;
-
 using MetraTech.ActivityServices.Common;
 using MetraTech.ActivityServices.Services.Common;
 using MetraTech.Debug.Diagnostics;
+using MetraTech.Domain.Quoting;
 using MetraTech.Quoting;
-using MetraTech.DomainModel.BaseTypes;
-
 
 namespace MetraTech.Core.Services
 {
@@ -32,14 +29,14 @@ namespace MetraTech.Core.Services
     #region Startup/Initialization
     static QuotingService()
     {
-      CMASServiceBase.ServiceStarting += new ServiceStartingEventHandler(CMASServiceBase_ServiceStarting);
+      ServiceStarting += CMASServiceBase_ServiceStarting;
     }
 
     private static void CMASServiceBase_ServiceStarting()
     {
       try
       {
-        cachedQuotingConfiguration = QuotingConfigurationManager.LoadConfigurationFromFile();
+        cachedQuotingConfiguration = QuotingConfigurationManager.LoadConfigurationFromDefaultSystemLocation();
       }
       catch (Exception ex)
       {
@@ -91,7 +88,7 @@ namespace MetraTech.Core.Services
         try
         {
           //Retrieve the security context for this request
-          MetraTech.Interop.MTAuth.IMTSessionContext sessionContext = null;
+          Interop.MTAuth.IMTSessionContext sessionContext = null;
           if (ServiceSecurityContext.Current != null)
           {
             // Get identity context.

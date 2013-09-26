@@ -252,8 +252,8 @@ namespace MetraTech.Core.Services
         [OperationCapability("Manage Account Hierarchies")]
         public void GetAccountList(DateTime metraTimeStamp, ref MTList<BaseTypes.Account> accounts, bool displayAliases)
         {
-            using (HighResolutionTimer timer = new HighResolutionTimer("GetAccountList", 20000))
-            {
+                int GetAccountListTimeOut = m_ConfigSection.GetAccountListTimeOut;
+                using (HighResolutionTimer timer = new HighResolutionTimer("GetAccountList", GetAccountListTimeOut))            {
                 // Get the session context from the WCF ambient service security context
                 CMASClientIdentity clientIdentity = ServiceSecurityContext.Current.PrimaryIdentity as CMASClientIdentity;
                 if (clientIdentity == null)

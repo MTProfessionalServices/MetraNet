@@ -2,7 +2,6 @@
 using MetraTech.DataAccess;
 using MetraTech.ActivityServices.Common;
 using MetraTech.TestCommon;
-using MetraTech.Quoting;
 using MetraTech.DomainModel.BaseTypes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 // FakeItEasy requires Castle assemblies. All required assemblies are under S:\Thirdparty\FakeItEasy\ and S:\Thirdparty\Castle\

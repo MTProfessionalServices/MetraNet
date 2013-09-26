@@ -1,21 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 using MetraTech.Basic.Config;
 
 namespace MetraTech.Quoting
 {
+  /// <summary>
+  /// Class containing all the data members representing the quoting configuration options
+  /// </summary>
   public class QuotingConfiguration
   {
-    //Configuration stuff needed
-    //Hard code for now and then we can worry about reading/writing
-
+    //When metering to pipeline, batch metering size to use
     public int MeteringSessionSetSize { get; set; }
+
+    //Server to meter to
     public string RecurringChargeServerToMeterTo { get; set; }
+
+    //Configuration options for reporting
+    public string ReportDefaultTemplateName { get; set; }
+    public string ReportInstancePartialPath { get; set; }
+
+    //Configurable query tags for quoting
     public string RecurringChargeStoredProcedureQueryTag { get; set; }
     public string NonRecurringChargeStoredProcedureQueryTag { get; set; }
     public string GetUsageIntervalIdForQuotingQueryTag { get; set; }
@@ -24,9 +31,6 @@ namespace MetraTech.Quoting
     public string GetAccountBillingCycleQueryTag { get; set; }
     public string GetAccountPayerQueryTag { get; set; }
 
-    public string ReportDefaultTemplateName { get; set; }
-    public string ReportInstancePartialPath { get; set; }
-
     //Read from the system configuration, this value allows quoting to know
     //if it is on a development or production system (currently used only for controlling if
     //usage can be saved for debugging quotes and reports)
@@ -34,12 +38,12 @@ namespace MetraTech.Quoting
 
   }
 
+  /// <summary>
+  /// Class for reading/writing the quoting configuration
+  /// </summary>
   public class QuotingConfigurationManager
   {
     private static Logger m_Logger = new Logger("[Quoting Configuration Manager]");
-
-    const string FILE_NAME = "QuotingConfiguration.xml";
-    static string filePath = Path.Combine(SystemConfig.GetRmpDir(), "config", "Quoting", FILE_NAME);
 
     // Default configuration values
     const string DEFAULT_RECCURING_CHARGE_SERVER_TO_METER_TO = "DiscountServer";
@@ -55,23 +59,108 @@ namespace MetraTech.Quoting
     const string DEFAULT_REPORT_DEFAULT_TEMPLATE_NAME = "Quote Report";
     const string DEFAULT_REPORT_INSTANCE_PARTIAL_PATH = @"\Quotes\{AccountId}\Quote_{QuoteId}";
 
-    public static string FilePath
-    {
-      get
-      {
-        return filePath;
-      }
-      set
-      {
-        filePath = value;
-      }
+    public static string DefaultSystemConfigurationFilePath {
+      get { return Path.Combine(SystemConfig.GetRmpDir(), "config", "Quoting", "QuotingConfiguration.xml"); }
     }
-    
-    public static void WriteConfigurationToFile(QuotingConfiguration configuration)
+
+    /// <summary>
+    /// Load the quoting configuration from the default system location
+    /// </summary>
+    /// <returns></returns>
+    public static QuotingConfiguration LoadConfigurationFromDefaultSystemLocation()
+    {
+      return LoadConfigurationFromFile(DefaultSystemConfigurationFilePath);
+    }
+
+    /// <summary>
+    /// Load the quoting configuration from the specified file
+    /// </summary>
+    /// <param name="filePath"></param>
+    /// <returns></returns>
+    public static QuotingConfiguration LoadConfigurationFromFile(string filePath)
+    {
+      QuotingConfiguration loadedConfiguration;
+
+      try
+      {
+        if (File.Exists(filePath))
+        {
+          XElement doc = XElement.Load(filePath);
+
+          if (doc.HasElements)
+          {
+            var configuration = from config in doc.DescendantsAndSelf()
+                                select new QuotingConfiguration()
+                                  {
+                                    RecurringChargeServerToMeterTo =
+                                      config.GetElementValueOrDefault("RecurringChargeServerToMeterTo",
+                                                                      DEFAULT_RECCURING_CHARGE_SERVER_TO_METER_TO),
+                                    RecurringChargeStoredProcedureQueryTag =
+                                      config.GetElementValueOrDefault("RecurringChargeStoredProcedureQueryTag",
+                                                                      DEFAULT_RECCURING_CHARGE_STORED_PROCEDURE_QUERY_TAG),
+                                    NonRecurringChargeStoredProcedureQueryTag =
+                                      config.GetElementValueOrDefault("NonRecurringChargeStoredProcedureQueryTag",
+                                                                      DEFAULT_NON_RECCURING_CHARGE_STORED_PROCEDURE_QUERY_TAG),
+                                    GetUsageIntervalIdForQuotingQueryTag =
+                                      config.GetElementValueOrDefault("GetUsageIntervalIdForQuotingQueryTag",
+                                                                      DEFAULT_GET_USAGE_INTERVAL_ID_FOR_QUOTING_QUERY_TAG),
+                                    CalculateQuoteTotalAmountQueryTag =
+                                      config.GetElementValueOrDefault("CalculateQuoteTotalAmountQueryTag",
+                                                                      DEFAULT_CALCULATE_QUOTE_TOTAL_AMOUNT_QUERY_TAG),
+                                    RemoveRCMetricValuesQueryTag =
+                                      config.GetElementValueOrDefault("RemoveRCMetricValuesQueryTag",
+                                                                      DEFAULT_REMOVE_RC_METRIC_VALUES_QUERY_TAG),
+                                    GetAccountBillingCycleQueryTag =
+                                      config.GetElementValueOrDefault("GetAccountBillingCycleQueryTag",
+                                                                      DEFAULT_GET_ACCOUNT_BILLING_CYCLE_QUERY_TAG),
+                                    GetAccountPayerQueryTag =
+                                      config.GetElementValueOrDefault("GetAccountPayerQueryTag",
+                                                                      DEFAULT_GET_ACCOUNT_PAYER_QUERY_TAG),
+                                    MeteringSessionSetSize =
+                                      config.GetElementValueOrDefault("MeteringSessionSetSize",
+                                                                      DEFAULT_METERING_SESSION_SET_SIZE),
+                                    CurrentSystemIsProductionSystem =
+                                      config.GetElementValueOrDefault("CurrentSystemIsProductionSystem",
+                                                                      DEFAULT_CURRENT_SYSTEM_IS_PRODUCTION_SYSTEM),
+                                    ReportDefaultTemplateName =
+                                      config.GetElementValueOrDefault("ReportDefaultTemplateName",
+                                                                      DEFAULT_REPORT_DEFAULT_TEMPLATE_NAME),
+                                    ReportInstancePartialPath =
+                                      config.GetElementValueOrDefault("ReportInstancePartialPath",
+                                                                      DEFAULT_REPORT_INSTANCE_PARTIAL_PATH)
+                                  };
+
+            loadedConfiguration = configuration.First();
+          }
+          else
+          {
+            string message =
+              string.Format("Expected quoting configuration in file {0} but file did not contain elements", filePath);
+            throw new Exception(message);
+          }
+
+        }
+        else
+        {
+          string message = string.Format("Quoting configuration file does not exist: {0}", filePath);
+          throw new Exception(message);
+        }
+      }
+      catch (Exception ex)
+      {
+        m_Logger.LogException(string.Format("Exception while loading quoting configuration from file {0}", filePath), ex);
+        throw;
+      }
+
+      return loadedConfiguration;
+    }
+
+    #region Write methods, useful for testing and eventually to aid in configuration editing from places such as ICE
+    public static void WriteConfigurationToFile(QuotingConfiguration configuration, string filePath)
     {
       try
       {
-        if (!File.Exists(FilePath))
+        if (!File.Exists(filePath))
         {
           XmlDocument document = new XmlDocument();
 
@@ -82,11 +171,11 @@ namespace MetraTech.Quoting
           node = document.CreateNode(XmlNodeType.Element, "QuotingConfiguration", "");
           document.AppendChild(node);
 
-          document.Save(FilePath);
+          document.Save(filePath);
         }
 
-        XElement doc = XElement.Load(FilePath);
-        
+        XElement doc = XElement.Load(filePath);
+
         doc.ReplaceAll(new XElement("RecurringChargeServerToMeterTo", configuration.RecurringChargeServerToMeterTo),
                   new XElement("RecurringChargeStoredProcedureQueryTag",
                                configuration.RecurringChargeStoredProcedureQueryTag),
@@ -104,16 +193,16 @@ namespace MetraTech.Quoting
                   new XElement("ReportInstancePartialPath", configuration.ReportInstancePartialPath));
 
 
-        doc.Save(FilePath);
+        doc.Save(filePath);
       }
       catch (Exception ex)
       {
-        m_Logger.LogException("Exception while writting configuration", ex);
-        throw ex;
+        m_Logger.LogException(string.Format("Exception while writting configuration to file {0}", filePath), ex);
+        throw;
       }
     }
 
-    public static QuotingConfiguration WriteDefaultConfigurationToFile()
+    public static QuotingConfiguration WriteDefaultConfigurationToFile(string filePath)
     {
       QuotingConfiguration configuration = new QuotingConfiguration();
 
@@ -130,59 +219,11 @@ namespace MetraTech.Quoting
       configuration.ReportDefaultTemplateName = DEFAULT_REPORT_DEFAULT_TEMPLATE_NAME;
       configuration.ReportInstancePartialPath = DEFAULT_REPORT_INSTANCE_PARTIAL_PATH;
 
-      WriteConfigurationToFile(configuration);
+      WriteConfigurationToFile(configuration, filePath);
 
       return configuration;
     }
+    #endregion
 
-    public static QuotingConfiguration LoadConfigurationFromFile()
-    {
-      QuotingConfiguration loadedConfiguration;
-
-      try
-      {
-        if (File.Exists(filePath))
-        {
-          XElement doc = XElement.Load(filePath);
-
-          if (doc.HasElements)
-          {
-            var configuration = from config in doc.DescendantsAndSelf()
-                                select new QuotingConfiguration()
-                                {
-                                  RecurringChargeServerToMeterTo = config.GetElementValue("RecurringChargeServerToMeterTo", DEFAULT_RECCURING_CHARGE_SERVER_TO_METER_TO),
-                                  RecurringChargeStoredProcedureQueryTag = config.GetElementValue("RecurringChargeStoredProcedureQueryTag", DEFAULT_RECCURING_CHARGE_STORED_PROCEDURE_QUERY_TAG),
-                                  NonRecurringChargeStoredProcedureQueryTag = config.GetElementValue("NonRecurringChargeStoredProcedureQueryTag", DEFAULT_NON_RECCURING_CHARGE_STORED_PROCEDURE_QUERY_TAG),
-                                  GetUsageIntervalIdForQuotingQueryTag = config.GetElementValue("GetUsageIntervalIdForQuotingQueryTag", DEFAULT_GET_USAGE_INTERVAL_ID_FOR_QUOTING_QUERY_TAG),
-                                  CalculateQuoteTotalAmountQueryTag = config.GetElementValue("CalculateQuoteTotalAmountQueryTag", DEFAULT_CALCULATE_QUOTE_TOTAL_AMOUNT_QUERY_TAG),
-                                  RemoveRCMetricValuesQueryTag = config.GetElementValue("RemoveRCMetricValuesQueryTag", DEFAULT_REMOVE_RC_METRIC_VALUES_QUERY_TAG),
-                                  GetAccountBillingCycleQueryTag = config.GetElementValue("GetAccountBillingCycleQueryTag", DEFAULT_GET_ACCOUNT_BILLING_CYCLE_QUERY_TAG),
-                                  GetAccountPayerQueryTag = config.GetElementValue("GetAccountPayerQueryTag", DEFAULT_GET_ACCOUNT_PAYER_QUERY_TAG),
-                                  MeteringSessionSetSize = config.GetElementValue("MeteringSessionSetSize", DEFAULT_METERING_SESSION_SET_SIZE),
-                                  CurrentSystemIsProductionSystem = config.GetElementValue("CurrentSystemIsProductionSystem", DEFAULT_CURRENT_SYSTEM_IS_PRODUCTION_SYSTEM),
-                                  ReportDefaultTemplateName = config.GetElementValue("ReportDefaultTemplateName", DEFAULT_REPORT_DEFAULT_TEMPLATE_NAME),
-                                  ReportInstancePartialPath = config.GetElementValue("ReportInstancePartialPath", DEFAULT_REPORT_INSTANCE_PARTIAL_PATH)
-                                };
-
-            loadedConfiguration = configuration.First();
-          }
-          else
-          {
-            loadedConfiguration = WriteDefaultConfigurationToFile();
-          }
-        }
-        else
-        {
-          loadedConfiguration = WriteDefaultConfigurationToFile();
-        }
-      }
-      catch (Exception ex)
-      {
-        m_Logger.LogException("Exception while loading configuration", ex);
-        throw ex;
-      }
-
-      return loadedConfiguration;
-    }
   }
 }

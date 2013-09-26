@@ -30,6 +30,10 @@ namespace MetraTech.Approvals
     public MethodConfiguration MethodForApply { get; set; }
     public MethodConfiguration MethodForSubmit { get; set; }
     public MethodConfiguration MethodForDeny { get; set; }
+      
+    public NotificationEventConfiguration NotifyOnSubmit { get; set; }
+    public NotificationEventConfiguration NotifyOnApproved { get; set; }
+    public NotificationEventConfiguration NotifyOnDenied { get; set; }
 
     public WebPageConfiguration WebpageForView { get; set; }
     public WebPageConfiguration WebpageForEdit { get; set; }
@@ -39,6 +43,13 @@ namespace MetraTech.Approvals
 
     [XmlIgnoreAttribute]
     public string ConfigFilePath { get; set; }
+
+    public ChangeTypeConfiguration()
+    {
+      NotifyOnSubmit = new NotificationEventConfiguration();
+      NotifyOnApproved = new NotificationEventConfiguration();
+      NotifyOnDenied = new NotificationEventConfiguration();
+    }
   }
 
   public class MethodConfiguration
@@ -71,6 +82,16 @@ namespace MetraTech.Approvals
   public class WebPageConfiguration
   {
     public string URL { get; set; }
+  }
+
+  public class NotificationEventConfiguration
+  {
+    public bool Enabled { get; set; }
+
+    public NotificationEventConfiguration()
+    {
+      Enabled = false;
+    }
   }
 
   public class ApprovalsConfiguration : Dictionary<string, ChangeTypeConfiguration>

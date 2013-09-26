@@ -308,7 +308,7 @@ function GetFiltersToParamList_{control_id}()
         else
         {
           params['filter[' + j + '][field]'] = filter.dataIndex;
-          params['filter[' + j + '][operation]'] = op;
+           params['filter[' + j + '][data][comparison]'] = op;
           params['filter[' + j + '][visible]'] = filter.showFilter;
           params['filter[' + j + '][data][type]'] = filter.type;
           params['filter[' + j + '][data][value]'] = value1;

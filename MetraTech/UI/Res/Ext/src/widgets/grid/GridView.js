@@ -1,9 +1,20 @@
-/*!
- * Ext JS Library 3.4.0
- * Copyright(c) 2006-2011 Sencha Inc.
- * licensing@sencha.com
- * http://www.sencha.com/license
- */
+/*
+This file is part of Ext JS 3.4
+
+Copyright (c) 2011-2013 Sencha Inc
+
+Contact:  http://www.sencha.com/contact
+
+Commercial Usage
+Licensees holding valid commercial licenses may use this file in accordance with the Commercial
+Software License Agreement provided with the Software or, alternatively, in accordance with the
+terms contained in a written agreement between you and Sencha.
+
+If you are unsure which license is appropriate for your use, please contact the sales department
+at http://www.sencha.com/contact.
+
+Build date: 2013-04-03 15:07:25
+*/
 /**
  * @class Ext.grid.GridView
  * @extends Ext.util.Observable
@@ -142,6 +153,11 @@ viewConfig: {
      * @cfg {String} sortDescText The text displayed in the 'Sort Descending' menu item (defaults to <tt>'Sort Descending'</tt>)
      */
     sortDescText : 'Sort Descending',
+    
+    /**
+     * @cfg {Boolean} hideSortIcons True to hide the sorting icons if sorting is disabled for a column. Defaults to <tt>false</tt>
+     */
+    hideSortIcons: false,
 
     /**
      * @cfg {String} columnsText The text displayed in the 'Columns' menu item (defaults to <tt>'Columns'</tt>)
@@ -342,7 +358,7 @@ viewConfig: {
      */
     cellTpl: new Ext.Template(
         '<td class="x-grid3-col x-grid3-cell x-grid3-td-{id} {css}" style="{style}" tabIndex="0" {cellAttr}>',
-            '<div class="x-grid3-cell-inner x-grid3-col-{id}" unselectable="on" {attr}>{value}</div>',
+            '<div class="x-grid3-cell-inner x-grid3-col-{id} x-unselectable" unselectable="on" {attr}>{value}</div>',
         '</td>'
     ),
     
@@ -963,7 +979,10 @@ viewConfig: {
                     beforeshow: this.beforeColMenuShow,
                     itemclick : this.handleHdMenuClick
                 });
-                this.hmenu.add('-', {
+                this.hmenu.add({
+                    itemId: 'sortSep',
+                    xtype: 'menuseparator'
+                }, {
                     itemId:'columns',
                     hideOnClick: false,
                     text: this.columnsText,
@@ -1485,7 +1504,7 @@ viewConfig: {
             borderWidth = this.borderWidth;
         
         if (Ext.isNumber(columnWidth)) {
-            if (Ext.isBorderBox || (Ext.isWebKit && !Ext.isSafari2)) {
+            if (Ext.isBorderBox) {
                 return columnWidth + "px";
             } else {
                 return Math.max(columnWidth - borderWidth, 0) + "px";
@@ -2273,13 +2292,23 @@ viewConfig: {
                 sortable  = colModel.isSortable(index),
                 menu      = this.hmenu,
                 menuItems = menu.items,
-                menuCls   = this.headerMenuOpenCls;
+                menuCls   = this.headerMenuOpenCls,
+                sep;
             
             this.hdCtxIndex = index;
             
             Ext.fly(header).addClass(menuCls);
-            menuItems.get('asc').setDisabled(!sortable);
-            menuItems.get('desc').setDisabled(!sortable);
+            if (this.hideSortIcons) {
+                menuItems.get('asc').setVisible(sortable);
+                menuItems.get('desc').setVisible(sortable);
+                sep = menuItems.get('sortSep');
+                if (sep) {
+                    sep.setVisible(sortable);    
+                }
+            } else {
+                menuItems.get('asc').setDisabled(!sortable);
+                menuItems.get('desc').setDisabled(!sortable);
+            }
             
             menu.on('hide', function() {
                 Ext.fly(header).removeClass(menuCls);
@@ -2374,7 +2403,7 @@ viewConfig: {
     handleHdOut : function(e, target) {
         var header = this.findHeaderCell(target);
         
-        if (header && (!Ext.isIE || !e.within(header, true))) {
+        if (header && (!Ext.isIE9m || !e.within(header, true))) {
             this.activeHdRef = null;
             this.fly(header).removeClass('x-grid3-hd-over');
             header.style.cursor = '';

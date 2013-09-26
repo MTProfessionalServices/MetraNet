@@ -27,14 +27,20 @@ namespace QuotingConsoleForTesting
 
     private void formQuoteGUI_Load(object sender, EventArgs e)
     {
-      //load Accounts
       listBoxAccounts.Items.Clear();
+      listBoxPOs.Items.Clear();
 
-      foreach (var item in AccountLoader.GetAccounts())
+      //load Accounts
+      foreach (var item in ListBoxLoader.GetAccounts())
       {
-        listBoxAccounts.Items.Add(AccountLoader.GetAccountListBoxItem(item));
+        listBoxAccounts.Items.Add(ListBoxLoader.GetAccountListBoxItem(item));
       }
+
       //load POs
+      foreach (var item in ListBoxLoader.GetProductOfferings())
+      {
+        listBoxPOs.Items.Add(ListBoxLoader.GetProductOfferingListBoxItem(item));
+      }
 
     }
 

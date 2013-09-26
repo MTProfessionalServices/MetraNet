@@ -167,6 +167,7 @@
       // 
       // listBoxPOs
       // 
+	  this.listBoxPOs.DisplayMember = "Value";
       this.listBoxPOs.Dock = System.Windows.Forms.DockStyle.Left;
       this.listBoxPOs.FormattingEnabled = true;
       this.listBoxPOs.Location = new System.Drawing.Point(3, 16);

@@ -54,6 +54,7 @@
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DomainModel.BaseTypes.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="MetraTech.DomainModel.ProductCatalog.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL" />
     <Reference Include="MetraTech.Quoting">
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Quoting.dll</HintPath>
       <Private>False</Private>
@@ -73,7 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountLoader.cs" />
+    <Compile Include="ListBoxLoader.cs" />
     <Compile Include="FakeRequest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

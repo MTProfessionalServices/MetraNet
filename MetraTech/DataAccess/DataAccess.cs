@@ -354,6 +354,7 @@ namespace MetraTech.DataAccess
     IMTCallableStatement CreateCallableStatement(String sprocName);
     IMTPreparedStatement CreatePreparedStatement(String queryText);
     IMTPreparedFilterSortStatement CreatePreparedFilterSortStatement(string sqlText);
+    IMTPreparedFilterSortStatement CreatePreparedFilterSortForExport(string sqlText,string nameTable);
     DataTable DescribeTable(string tableName);
 
     ConnectionInfo ConnectionInfo

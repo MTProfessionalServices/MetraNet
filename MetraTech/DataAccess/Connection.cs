@@ -161,6 +161,15 @@ namespace MetraTech.DataAccess
       astmt.BeforeExecute += new ExecuteEventHandler(LogQuery);
       return astmt;
     }
+	
+	 protected PreparedFilterSortForExport InternalCreatePreparedFilterSortForExport(string queryText,string nameTable)
+        {
+          IDbCommand command = mConnection.CreateCommand();
+          PreparedFilterSortForExport astmt = new PreparedFilterSortForExport(command, queryText,nameTable);
+          astmt.Command.CommandTimeout = mConnectionInfo.Timeout;
+          astmt.BeforeExecute += new ExecuteEventHandler(LogQuery);
+          return astmt;
+        }
 
     protected Statement InternalCreateStatement(String queryText)
     {
@@ -404,6 +413,13 @@ namespace MetraTech.DataAccess
       return astmt;
     }
 
+	public IMTPreparedFilterSortStatement CreatePreparedFilterSortForExport(string sqlText,string nameTable)
+    {
+        PreparedFilterSortForExport astmt = InternalCreatePreparedFilterSortForExport(sqlText,nameTable);
+        astmt.BeforeExecute += new ExecuteEventHandler(EnlistInTransaction);
+        return astmt;
+    }
+	
     public IMTStatement CreateStatement(String queryText)
     {
       Statement astmt = InternalCreateStatement(queryText);
@@ -498,6 +514,12 @@ namespace MetraTech.DataAccess
       return astmt;
     }
 
+	    public IMTPreparedFilterSortStatement CreatePreparedFilterSortForExport(String sqlText,string nameTable)
+       {
+           PreparedFilterSortForExport astmt = InternalCreatePreparedFilterSortForExport(sqlText,nameTable);
+           return astmt;
+        }
+	
     public IMTStatement CreateStatement(String queryText)
     {
       Statement astmt = InternalCreateStatement(queryText);
@@ -589,6 +611,12 @@ namespace MetraTech.DataAccess.OleDb
       PreparedFilterSortStatement astmt = InternalCreatePreparedFilterSortStatement(sqlText);
       return astmt;
     }
+
+	        public IMTPreparedFilterSortStatement CreatePreparedFilterSortForExport(String sqlText,string nameTable )
+        {
+          PreparedFilterSortForExport astmt = InternalCreatePreparedFilterSortForExport(sqlText,nameTable);
+          return astmt;
+        }
 
     public IMTStatement CreateStatement(String queryText)
     {

@@ -423,11 +423,7 @@ namespace MetraTech.Accounts.Hierarchy.WebService
           var spOra = oConn.CreateCallableStatement("GetAccountsWithPermission");
           spOra.AddParam("AccountID", MTParameterType.Integer, sessionContext.SecurityContext.AccountID);
           spOra.ExecuteNonQuery(); 
-        }
-        else
-        {
-            oStmt.AddParam("%%CURRENT_USER%%", sessionContext.SecurityContext.AccountID);
-        }
+        }  
 
         // Execute the query
         IMTDataReader oReader = oStmt.ExecuteReader();

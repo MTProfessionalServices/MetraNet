@@ -156,8 +156,7 @@ namespace MetraTech.Accounts.Hierarchy.WebService
       }
 
       //Currency
-      Currency = oReader.GetValue("Currency").ToString();
-      CanWrite = oReader.GetValue("WritePermission").ToString().Equals("1") || oReader.GetValue("WritePermission").ToString().Equals("True");    
+      Currency = oReader.GetValue("Currency").ToString();            
     }
   }
 }

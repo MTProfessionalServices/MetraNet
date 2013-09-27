@@ -244,10 +244,7 @@ Account = {
 
         Ext.Ajax.request({
             url: '/MetraNet/AjaxServices/AccountContextMenu.aspx',
-            params: {
-                id_acc: node.id,
-                canManage: node.attributes.canBeManaged
-            },
+            params: { id_acc: node.id },
             timeout: 10000,
             success: function (response) {
                 itemMask.hide();

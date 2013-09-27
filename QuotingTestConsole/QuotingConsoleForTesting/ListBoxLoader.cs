@@ -138,5 +138,26 @@ namespace QuotingConsoleForTesting
       var formattedDisplayString = String.Format("{0}", priceableItem.Name);
       return new KeyValuePair<int, string>(priceableItem.ID.Value, formattedDisplayString);
     }
+
+    public static List<BasePriceableItemInstance> GetPIWithAllowICBs(List<int> poIds)
+    {
+      var resultPiList = new List<BasePriceableItemInstance>();
+
+      var client = new ProductOfferingServiceClient();
+      client.ClientCredentials.UserName.UserName = "su";
+      client.ClientCredentials.UserName.Password = "su123";
+
+      foreach (var poId in poIds)
+      {
+        var priceableItems = new MTList<BasePriceableItemInstance>();
+        client.GetPIInstancesForPO(new PCIdentifier(poId), ref priceableItems);
+        
+        //var udrcPiList = priceableItems.Items.Where(pi => pi.PIKind == PriceableItemKinds.UnitDependentRecurring);
+        //todo filter only PIs with allow ICBs
+        resultPiList.AddRange(priceableItems.Items);
+      }
+
+      return resultPiList;
+    }
   }
 }

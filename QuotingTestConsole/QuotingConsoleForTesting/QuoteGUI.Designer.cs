@@ -52,10 +52,10 @@
       this.groupBoxICBs = new System.Windows.Forms.GroupBox();
       this.listBoxICBs = new System.Windows.Forms.ListBox();
       this.groupBoxUDRCPIs = new System.Windows.Forms.GroupBox();
+      this.gridViewUDRCs = new System.Windows.Forms.DataGridView();
       this.menuStrip1 = new System.Windows.Forms.MenuStrip();
       this.createQuoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.gridViewUDRCs = new System.Windows.Forms.DataGridView();
       this.groupBoxMetraNetServer.SuspendLayout();
       this.groupBoxAccounts.SuspendLayout();
       this.groupBoxPO.SuspendLayout();
@@ -63,8 +63,8 @@
       this.groupBoxUDRCSandICBs.SuspendLayout();
       this.groupBoxICBs.SuspendLayout();
       this.groupBoxUDRCPIs.SuspendLayout();
-      this.menuStrip1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.gridViewUDRCs)).BeginInit();
+      this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
       // groupBoxMetraNetServer
@@ -210,9 +210,9 @@
       // 
       this.loadPiButton.Location = new System.Drawing.Point(450, 107);
       this.loadPiButton.Name = "loadPiButton";
-      this.loadPiButton.Size = new System.Drawing.Size(94, 23);
+      this.loadPiButton.Size = new System.Drawing.Size(127, 23);
       this.loadPiButton.TabIndex = 3;
-      this.loadPiButton.Text = "Load Price Lists";
+      this.loadPiButton.Text = "Load Pricable Items";
       this.loadPiButton.UseVisualStyleBackColor = true;
       this.loadPiButton.Click += new System.EventHandler(this.loadPiButton_Click);
       // 
@@ -305,6 +305,7 @@
       this.listBoxICBs.Name = "listBoxICBs";
       this.listBoxICBs.Size = new System.Drawing.Size(408, 163);
       this.listBoxICBs.TabIndex = 1;
+      this.listBoxICBs.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxICBs_MouseDoubleClick);
       // 
       // groupBoxUDRCPIs
       // 
@@ -316,6 +317,17 @@
       this.groupBoxUDRCPIs.TabIndex = 0;
       this.groupBoxUDRCPIs.TabStop = false;
       this.groupBoxUDRCPIs.Text = "UDRC to set metrics for";
+      // 
+      // gridViewUDRCs
+      // 
+      this.gridViewUDRCs.AllowUserToAddRows = false;
+      this.gridViewUDRCs.AllowUserToDeleteRows = false;
+      this.gridViewUDRCs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+      this.gridViewUDRCs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.gridViewUDRCs.Location = new System.Drawing.Point(9, 16);
+      this.gridViewUDRCs.Name = "gridViewUDRCs";
+      this.gridViewUDRCs.Size = new System.Drawing.Size(391, 160);
+      this.gridViewUDRCs.TabIndex = 0;
       // 
       // menuStrip1
       // 
@@ -342,17 +354,6 @@
       this.exitToolStripMenuItem.Text = "Exit";
       this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
       // 
-      // gridViewUDRCs
-      // 
-      this.gridViewUDRCs.AllowUserToAddRows = false;
-      this.gridViewUDRCs.AllowUserToDeleteRows = false;
-      this.gridViewUDRCs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-      this.gridViewUDRCs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.gridViewUDRCs.Location = new System.Drawing.Point(9, 16);
-      this.gridViewUDRCs.Name = "gridViewUDRCs";
-      this.gridViewUDRCs.Size = new System.Drawing.Size(391, 160);
-      this.gridViewUDRCs.TabIndex = 0;
-      // 
       // formQuoteGUI
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -378,9 +379,9 @@
       this.groupBoxUDRCSandICBs.ResumeLayout(false);
       this.groupBoxICBs.ResumeLayout(false);
       this.groupBoxUDRCPIs.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.gridViewUDRCs)).EndInit();
       this.menuStrip1.ResumeLayout(false);
       this.menuStrip1.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.gridViewUDRCs)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 

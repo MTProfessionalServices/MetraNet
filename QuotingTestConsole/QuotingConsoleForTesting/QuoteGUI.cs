@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using MetraTech.Domain.Quoting;
+using MetraTech.DomainModel.BaseTypes;
 
 namespace QuotingConsoleForTesting
 {
@@ -90,6 +91,31 @@ namespace QuotingConsoleForTesting
       foreach (var item in ListBoxLoader.GetPriceListsWithUdrcs(poIds))
       {
         gridViewUDRCs.Rows.Add(item.Name, DefaultUdrcValue);
+      }
+
+      //load PIS with Allowed ICBS
+      piWithIcbs = ListBoxLoader.GetPIWithAllowICBs(poIds);
+      foreach (var item in piWithIcbs)
+      {
+        listBoxPOs.Items.Add(item.Name);
+      }
+      
+    }
+
+    private List<BasePriceableItemInstance> piWithIcbs;
+    private List<IndividualPrice> icbs;
+
+    private void listBoxICBs_MouseDoubleClick(object sender, MouseEventArgs e)
+    {
+      if ((listBoxICBs.Items.Count > 0) && (listBoxICBs.SelectedIndex >= 0))
+      {
+        var selectedPI = piWithIcbs[listBoxICBs.SelectedIndex];
+        var icbForm = new ICBForm(selectedPI, icbs.Where(indPrices => indPrices.PriceableItemId == selectedPI.ID).ToList());
+        if (icbForm.ShowDialog() == DialogResult.OK)
+        {
+          icbs.RemoveAll(i => i.PriceableItemId == selectedPI.ID);
+          icbs.AddRange(icbForm.icbsLocal);
+        }
       }
     }
   }

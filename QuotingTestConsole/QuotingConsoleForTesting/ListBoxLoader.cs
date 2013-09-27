@@ -111,5 +111,32 @@ namespace QuotingConsoleForTesting
       var formattedDisplayString = String.Format("{0}", po.Name);
       return new KeyValuePair<int, string>(po.ProductOfferingId.Value, formattedDisplayString);
     }
+
+    public static List<BasePriceableItemInstance> GetPriceListsWithUdrcs(List<int> poIds)
+    {
+      var resultPiList = new List<BasePriceableItemInstance>();
+
+      var client = new ProductOfferingServiceClient();
+      client.ClientCredentials.UserName.UserName = "su";
+      client.ClientCredentials.UserName.Password = "su123";
+
+      foreach (var poId in poIds)
+      {
+        var priceableItems = new MTList<BasePriceableItemInstance>();
+        client.GetPIInstancesForPO(new PCIdentifier(poId), ref priceableItems);
+        var udrcPiList = priceableItems.Items.Where(pi => pi.PIKind == PriceableItemKinds.UnitDependentRecurring);
+        resultPiList.AddRange(udrcPiList);
+      }
+
+      return resultPiList;
+    }
+
+    public static KeyValuePair<int, string> GetPriceListItem(BasePriceableItemInstance priceableItem)
+    {
+      Debug.Assert(priceableItem.ID != null, "Error: Priceable Item Id is null.");
+
+      var formattedDisplayString = String.Format("{0}", priceableItem.Name);
+      return new KeyValuePair<int, string>(priceableItem.ID.Value, formattedDisplayString);
+    }
   }
 }

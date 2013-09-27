@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using MetraTech.Domain.Quoting;
 
@@ -12,11 +8,20 @@ namespace QuotingConsoleForTesting
 {
   public partial class formQuoteGUI : Form
   {
+    private const string PiNameColumn = "PiName";
+    private const string UdrcValueColumn = "UdrcValue";
+    private const int DefaultUdrcValue = 30;
+
     private QuoteRequest request;
     public formQuoteGUI()
     {
       request = new QuoteRequest();
       InitializeComponent();
+
+      gridViewUDRCs.Columns.Add(PiNameColumn, "Priceable Item");
+      gridViewUDRCs.Columns.Add(UdrcValueColumn, "UDRC Value");
+      gridViewUDRCs.Columns[PiNameColumn].ReadOnly = true;
+      gridViewUDRCs.Columns[UdrcValueColumn].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
     }
 
     private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -50,11 +55,6 @@ namespace QuotingConsoleForTesting
       richTextBoxResults.Text = QuoteInvoker.InvokeCreateQuote(request).ToString();
     }
 
-    private void listBoxUDRCs_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-
     private void SetRequest()
     {
 
@@ -70,8 +70,27 @@ namespace QuotingConsoleForTesting
 
     private void comboBoxCorporateAccount_SelectionChanged(object sender, EventArgs e)
     {
-      var corpAccItem = (KeyValuePair<int, string>)comboBoxCorporateAccount.SelectedItem;
-      request.SubscriptionParameters.CorporateAccountId = corpAccItem.Key;
+      var selectedCorpAccItem = (KeyValuePair<int, string>)comboBoxCorporateAccount.SelectedItem;
+      request.SubscriptionParameters.CorporateAccountId = selectedCorpAccItem.Key;
+    }
+
+    private void loadPiButton_Click(object sender, EventArgs e)
+    {
+      var poIds = (from KeyValuePair<int, string> po in listBoxPOs.SelectedItems select po.Key).ToList();
+
+      //[TODO] Use this example of retrieving UDRC info
+      foreach (DataGridViewRow row in gridViewUDRCs.Rows)
+      {
+        string piWithUdrcName = row.Cells[PiNameColumn].Value.ToString();
+        int udrcValue = Convert.ToInt32(row.Cells[UdrcValueColumn].Value);
+      }
+
+      //load PLs
+      gridViewUDRCs.Rows.Clear();
+      foreach (var item in ListBoxLoader.GetPriceListsWithUdrcs(poIds))
+      {
+        gridViewUDRCs.Rows.Add(item.Name, DefaultUdrcValue);
+      }
     }
   }
 }

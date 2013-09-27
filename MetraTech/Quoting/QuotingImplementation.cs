@@ -125,7 +125,7 @@ namespace MetraTech.Quoting
         public QuoteResponse CurrentResponse { get; private set; }
 
 
-        
+
         /// <summary>
         /// Validate request, prepare data for metering and finaly creats quote
         /// </summary>
@@ -138,23 +138,23 @@ namespace MetraTech.Quoting
             {
                 CurrentRequest = quoteRequest;
                 CurrentResponse = new QuoteResponse();
-                
+
                 SetNewQuoteLogFormater(quoteRequest, CurrentResponse);
 
                 createdSubsciptions.Clear();
                 createdGroupSubsciptions.Clear();
 
                 CurrentRequest.EffectiveDate = new DateTime(
-                    CurrentRequest.EffectiveDate.Year, 
-                    CurrentRequest.EffectiveDate.Month, 
+                    CurrentRequest.EffectiveDate.Year,
+                    CurrentRequest.EffectiveDate.Month,
                     CurrentRequest.EffectiveDate.Day,
-                    0,0,0);
+                    0, 0, 0);
                 CurrentRequest.EffectiveEndDate = new DateTime(
-                    CurrentRequest.EffectiveEndDate.Year, 
-                    CurrentRequest.EffectiveEndDate.Month, 
-                    CurrentRequest.EffectiveEndDate.Day, 
-                    23,59,59);
-                
+                    CurrentRequest.EffectiveEndDate.Year,
+                    CurrentRequest.EffectiveEndDate.Month,
+                    CurrentRequest.EffectiveEndDate.Day,
+                    23, 59, 59);
+
                 try
                 {
                     ValidateRequest(CurrentRequest);
@@ -243,9 +243,9 @@ namespace MetraTech.Quoting
             foreach (var icb in icbs)
             {
                 switch (icb.CurrentChargeType)
-                {                                      
+                {
                     case ChargeType.UDRCTapered:
-                        if ((icb.ChargesRates.First().UnitAmount == 0)&&
+                        if ((icb.ChargesRates.First().UnitAmount == 0) &&
                             (icb.ChargesRates.First().UnitValue == 0))
                             throw new ArgumentException("Invalid ICBs");
                         break;
@@ -260,7 +260,7 @@ namespace MetraTech.Quoting
                             throw new ArgumentException("Invalid ICBs");
                         break;
                 }
-            }           
+            }
         }
 
         private void ValidateUDRCMetrics(Dictionary<string, List<UDRCInstanceValueBase>> udrcMetrics, int poId)
@@ -272,11 +272,11 @@ namespace MetraTech.Quoting
                 if (pi.Kind == MTPCEntityType.PCENTITY_TYPE_RECURRING_UNIT_DEPENDENT)
                 {
                     List<UDRCInstanceValueBase> udrcMetricsForPo;
-                    if(udrcMetrics.TryGetValue(poId.ToString(), out udrcMetricsForPo))
-	                    if (udrcMetricsForPo.All(udrcMetric => udrcMetric.UDRC_Id != pi.ID))
-	                    {
-	                        throw new ArgumentException(String.Format("UDRC metrics not specified properly for PI {0}", pi.ID));
-	                    }
+                    if (udrcMetrics.TryGetValue(poId.ToString(), out udrcMetricsForPo))
+                        if (udrcMetricsForPo.All(udrcMetric => udrcMetric.UDRC_Id != pi.ID))
+                        {
+                            throw new ArgumentException(String.Format("UDRC metrics not specified properly for PI {0}", pi.ID));
+                        }
                 }
             }
         }
@@ -323,7 +323,7 @@ namespace MetraTech.Quoting
                   String.Format("'{0}'='{1}' can't be less than current time '{2}'", propertyName,
                                 request.EffectiveDate, currentDate), propertyName);
             }
-            
+
             //EffectiveDate must be set
             if (request.EffectiveDate == null || request.EffectiveDate == DateTime.MinValue)
             {
@@ -376,8 +376,8 @@ namespace MetraTech.Quoting
                                             , PropertyName<QuoteRequest>.GetPropertyName(p => p.Accounts));
             }
 
-            foreach(var po in request.ProductOfferings)
-                ValidateUDRCMetrics(request.SubscriptionParameters.UDRCValues,po);
+            foreach (var po in request.ProductOfferings)
+                ValidateUDRCMetrics(request.SubscriptionParameters.UDRCValues, po);
         }
 
         protected int GetAccountBillingCycle(int idAccount)
@@ -786,32 +786,34 @@ namespace MetraTech.Quoting
 
             var po = CurrentProductCatalog.GetProductOffering(productOfferingId);
             IMTCollection pis = po.GetPriceableItems();
-            int ptId;
-            List<BaseRateSchedule> rs = new List<BaseRateSchedule>();
 
             foreach (IMTPriceableItem pi in pis)
             {
                 var icbPrices = new List<IndividualPrice>();
+                var icbPricesWithPI = new List<IndividualPrice>();
                 switch (pi.Kind)
                 {
                     case MTPCEntityType.PCENTITY_TYPE_RECURRING:
-                        icbPrices =
-                            CurrentRequest.IcbPrices.Where(i => i.ProductOfferingId == productOfferingId && i.CurrentChargeType == ChargeType.RecurringCharge).ToList();
+                        icbPrices = GetIcbPrices(productOfferingId, ChargeType.RecurringCharge, null);
+                        icbPricesWithPI = GetIcbPrices(productOfferingId, ChargeType.RecurringCharge, pi.ID);
                         break;
                     case MTPCEntityType.PCENTITY_TYPE_RECURRING_UNIT_DEPENDENT:
-                        icbPrices =
-                            CurrentRequest.IcbPrices.Where(i => i.ProductOfferingId == productOfferingId && i.CurrentChargeType == ChargeType.UDRCTapered).ToList();
+                        icbPrices = GetIcbPrices(productOfferingId, ChargeType.UDRCTapered, null);
+                        icbPricesWithPI = GetIcbPrices(productOfferingId, ChargeType.UDRCTapered, pi.ID);
                         break;
                     case MTPCEntityType.PCENTITY_TYPE_NON_RECURRING:
-                        icbPrices =
-                            CurrentRequest.IcbPrices.Where(i => i.ProductOfferingId == productOfferingId && i.CurrentChargeType == ChargeType.NonRecurringCharge).ToList();
+                        icbPrices = GetIcbPrices(productOfferingId, ChargeType.NonRecurringCharge, null);
+                        icbPricesWithPI = GetIcbPrices(productOfferingId, ChargeType.NonRecurringCharge, pi.ID);
                         break;
                 }
 
                 //Can't sorted out that UDRCs is Tiered or Tappered
+                List<BaseRateSchedule> rs;
+                int ptId = 0;
                 try
                 {
-                    rs = GetRateSchedules(icbPrices, out ptId);
+                    rs = GetRateSchedules(icbPrices, ref ptId);
+                    rs.AddRange(GetRateSchedules(icbPricesWithPI, ref ptId));
 
                     Application.ProductManagement.PriceListService.SaveRateSchedulesForSubscription(
                             subscriptionId,
@@ -820,14 +822,17 @@ namespace MetraTech.Quoting
                             rs,
                             _log,
                             SessionContext);
+
                 }
                 catch (Exception ex)
                 {
                     if (pi.Kind == MTPCEntityType.PCENTITY_TYPE_RECURRING_UNIT_DEPENDENT)
                     {
-                        icbPrices = CurrentRequest.IcbPrices.Where(i => i.ProductOfferingId == productOfferingId && i.CurrentChargeType == ChargeType.UDRCTiered).ToList();
+                        icbPrices = GetIcbPrices(productOfferingId, ChargeType.UDRCTiered, null);
+                        icbPricesWithPI = GetIcbPrices(productOfferingId, ChargeType.UDRCTiered, pi.ID);
 
-                        rs = GetRateSchedules(icbPrices, out ptId);
+                        rs = GetRateSchedules(icbPrices, ref ptId);
+                        rs.AddRange(GetRateSchedules(icbPricesWithPI, ref ptId));
 
                         Application.ProductManagement.PriceListService.SaveRateSchedulesForSubscription(
                                 subscriptionId,
@@ -836,6 +841,7 @@ namespace MetraTech.Quoting
                                 rs,
                                 _log,
                                 SessionContext);
+
                     }
                     else
                     {
@@ -846,11 +852,17 @@ namespace MetraTech.Quoting
             }
         }
 
-        private List<BaseRateSchedule> GetRateSchedules(List<IndividualPrice> icbPrices, out int ptId)
+        private List<IndividualPrice> GetIcbPrices(int productOfferingId, ChargeType chargeType, int? priceableItemId)
         {
+            return
+                CurrentRequest.IcbPrices.Where(
+                    i =>
+                    i.ProductOfferingId == productOfferingId && i.CurrentChargeType == chargeType &&
+                    i.PriceableItemId == priceableItemId).ToList();
+        }
 
-            ptId = 0;
-
+        private List<BaseRateSchedule> GetRateSchedules(List<IndividualPrice> icbPrices, ref int ptId)
+        {
             var rs = new List<BaseRateSchedule>();
 
             foreach (var icbPrice in icbPrices)

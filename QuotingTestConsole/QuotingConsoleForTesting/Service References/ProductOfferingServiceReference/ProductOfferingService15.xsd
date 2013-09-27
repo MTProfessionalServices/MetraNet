@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.AudioConf.Metratech_com_audioconfcommon" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.AudioConf.Metratech_com_audioconfcommon" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="ServiceLevel">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Basic" />
+      <xs:enumeration value="Standard" />
+      <xs:enumeration value="Executive" />
+      <xs:enumeration value="Premiere" />
+      <xs:enumeration value="Automated" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ServiceLevel" nillable="true" type="tns:ServiceLevel" />
+  <xs:simpleType name="ChargeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Fixed" />
+      <xs:enumeration value="PerPort" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ChargeType" nillable="true" type="tns:ChargeType" />
+  <xs:simpleType name="PortChargeDef">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Simple" />
+      <xs:enumeration value="Threshold" />
+      <xs:enumeration value="Advanced" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PortChargeDef" nillable="true" type="tns:PortChargeDef" />
+  <xs:simpleType name="RoundMethod">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CEILING" />
+      <xs:enumeration value="FLOOR" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RoundMethod" nillable="true" type="tns:RoundMethod" />
+</xs:schema>

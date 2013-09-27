@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.SystemConfig.Metratech_com_failedtransaction" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.SystemConfig.Metratech_com_failedtransaction" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="InvestigationReasonCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AccountResolution" />
+      <xs:enumeration value="RateResolution" />
+      <xs:enumeration value="OperationsIssue" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="InvestigationReasonCode" nillable="true" type="tns:InvestigationReasonCode" />
+  <xs:simpleType name="DismissedReasonCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Test" />
+      <xs:enumeration value="ResendOriginal" />
+      <xs:enumeration value="UnableToResolve" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DismissedReasonCode" nillable="true" type="tns:DismissedReasonCode" />
+</xs:schema>

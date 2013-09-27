@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Core.Metratech_com" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Core.Metratech_com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="CreditCardType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Visa" />
+      <xs:enumeration value="MasterCard" />
+      <xs:enumeration value="American_Express" />
+      <xs:enumeration value="Discover" />
+      <xs:enumeration value="JCB" />
+      <xs:enumeration value="Diners_Club" />
+      <xs:enumeration value="Maestro" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CreditCardType" nillable="true" type="tns:CreditCardType" />
+  <xs:simpleType name="SubscriberCreditAccountRequestStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PENDING" />
+      <xs:enumeration value="APPROVED" />
+      <xs:enumeration value="DENIED" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SubscriberCreditAccountRequestStatus" nillable="true" type="tns:SubscriberCreditAccountRequestStatus" />
+  <xs:simpleType name="SubscriberCreditAccountRequestReason">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DroppedCall" />
+      <xs:enumeration value="PoorConnection" />
+      <xs:enumeration value="BadService" />
+      <xs:enumeration value="GeneralDissatisfaction" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SubscriberCreditAccountRequestReason" nillable="true" type="tns:SubscriberCreditAccountRequestReason" />
+  <xs:simpleType name="Position">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Executive" />
+      <xs:enumeration value="Manager" />
+      <xs:enumeration value="Engineer" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Position" nillable="true" type="tns:Position" />
+  <xs:simpleType name="Operation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Add" />
+      <xs:enumeration value="Update" />
+      <xs:enumeration value="Delete" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Operation" nillable="true" type="tns:Operation" />
+  <xs:simpleType name="TransactionTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BeginLocal" />
+      <xs:enumeration value="BeginDistributed" />
+      <xs:enumeration value="JoinDistributed" />
+      <xs:enumeration value="Commit" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TransactionTypes" nillable="true" type="tns:TransactionTypes" />
+  <xs:simpleType name="SaleForceRelationship">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Executive_Sponsor" />
+      <xs:enumeration value="Account_Executive" />
+      <xs:enumeration value="Technical_Sales_Support" />
+      <xs:enumeration value="Account_Development" />
+      <xs:enumeration value="Program_Manager" />
+      <xs:enumeration value="Project_Manager" />
+      <xs:enumeration value="Channel_Manager" />
+      <xs:enumeration value="Sales_Agent" />
+      <xs:enumeration value="Operations_Support" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SaleForceRelationship" nillable="true" type="tns:SaleForceRelationship" />
+  <xs:simpleType name="BillMessageType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="HEADER" />
+      <xs:enumeration value="INSERT" />
+      <xs:enumeration value="FOOTER" />
+      <xs:enumeration value="OTHER" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BillMessageType" nillable="true" type="tns:BillMessageType" />
+</xs:schema>

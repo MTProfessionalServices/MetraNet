@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Core.Metratech_com_NonStandardCharge" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Core.Metratech_com_NonStandardCharge" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="NonStandardChargeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="NonStandardChargeType" nillable="true" type="tns:NonStandardChargeType" />
+  <xs:simpleType name="AdditionalCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AdditionalCode" nillable="true" type="tns:AdditionalCode" />
+  <xs:simpleType name="NonStandardChargeReason">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Credit" />
+      <xs:enumeration value="Debit" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="NonStandardChargeReason" nillable="true" type="tns:NonStandardChargeReason" />
+</xs:schema>

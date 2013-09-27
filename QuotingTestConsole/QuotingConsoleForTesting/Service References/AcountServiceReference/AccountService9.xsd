@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.SmokeTest.Metratech_com_SmokeTest" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.SmokeTest.Metratech_com_SmokeTest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="SpecialCharacters">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ampersand" />
+      <xs:enumeration value="LessThan__GreaterThan" />
+      <xs:enumeration value="Ampersand_Name" />
+      <xs:enumeration value="Double_Quote" />
+      <xs:enumeration value="Single_Quote" />
+      <xs:enumeration value="Everything________________________________" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SpecialCharacters" nillable="true" type="tns:SpecialCharacters" />
+</xs:schema>

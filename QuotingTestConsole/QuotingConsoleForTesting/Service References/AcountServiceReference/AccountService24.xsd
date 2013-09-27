@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="UsageCycleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Monthly" />
+      <xs:enumeration value="Daily" />
+      <xs:enumeration value="Weekly" />
+      <xs:enumeration value="Bi_weekly" />
+      <xs:enumeration value="Semi_monthly" />
+      <xs:enumeration value="Quarterly" />
+      <xs:enumeration value="Annually" />
+      <xs:enumeration value="Semi_Annually" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="UsageCycleType" nillable="true" type="tns:UsageCycleType" />
+</xs:schema>

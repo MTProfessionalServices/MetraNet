@@ -1,0 +1,1267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AccountService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:ProtectionToken>
+              <wsp:Policy>
+                <sp:SecureConversationToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                  <wsp:Policy>
+                    <sp:RequireDerivedKeys />
+                    <sp:BootstrapPolicy>
+                      <wsp:Policy>
+                        <sp:SignedParts>
+                          <sp:Body />
+                          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+                        </sp:SignedParts>
+                        <sp:EncryptedParts>
+                          <sp:Body />
+                        </sp:EncryptedParts>
+                        <sp:SymmetricBinding>
+                          <wsp:Policy>
+                            <sp:ProtectionToken>
+                              <wsp:Policy>
+                                <mssp:SslContextToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient" xmlns:mssp="http://schemas.microsoft.com/ws/2005/07/securitypolicy">
+                                  <wsp:Policy>
+                                    <sp:RequireDerivedKeys />
+                                  </wsp:Policy>
+                                </mssp:SslContextToken>
+                              </wsp:Policy>
+                            </sp:ProtectionToken>
+                            <sp:AlgorithmSuite>
+                              <wsp:Policy>
+                                <sp:Basic256 />
+                              </wsp:Policy>
+                            </sp:AlgorithmSuite>
+                            <sp:Layout>
+                              <wsp:Policy>
+                                <sp:Strict />
+                              </wsp:Policy>
+                            </sp:Layout>
+                            <sp:IncludeTimestamp />
+                            <sp:EncryptSignature />
+                            <sp:OnlySignEntireHeadersAndBody />
+                          </wsp:Policy>
+                        </sp:SymmetricBinding>
+                        <sp:SignedSupportingTokens>
+                          <wsp:Policy>
+                            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                              <wsp:Policy>
+                                <sp:WssUsernameToken10 />
+                              </wsp:Policy>
+                            </sp:UsernameToken>
+                          </wsp:Policy>
+                        </sp:SignedSupportingTokens>
+                        <sp:Wss11>
+                          <wsp:Policy />
+                        </sp:Wss11>
+                        <sp:Trust10>
+                          <wsp:Policy>
+                            <sp:MustSupportIssuedTokens />
+                            <sp:RequireClientEntropy />
+                            <sp:RequireServerEntropy />
+                          </wsp:Policy>
+                        </sp:Trust10>
+                      </wsp:Policy>
+                    </sp:BootstrapPolicy>
+                  </wsp:Policy>
+                </sp:SecureConversationToken>
+              </wsp:Policy>
+            </sp:ProtectionToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+            <sp:EncryptSignature />
+            <sp:OnlySignEntireHeadersAndBody />
+          </wsp:Policy>
+        </sp:SymmetricBinding>
+        <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy />
+        </sp:Wss11>
+        <sp:Trust10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:MustSupportIssuedTokens />
+            <sp:RequireClientEntropy />
+            <sp:RequireServerEntropy />
+          </wsp:Policy>
+        </sp:Trust10>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_GetAccountList_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_GetAccountList_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_GetAccountList_MASBasicFaultDetailFault_Fault">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_GetAccountListTotalRows_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_GetAccountListTotalRows_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_GetAccountListTotalRows_MASBasicFaultDetailFault_Fault">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_LoadAccount_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_LoadAccount_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_LoadAccount_MASBasicFaultDetailFault_Fault">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_LoadAccountWithViews_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_LoadAccountWithViews_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_LoadAccountWithViews_MASBasicFaultDetailFault_Fault">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_LoadView_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_LoadView_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_LoadView_MASBasicFaultDetailFault_Fault">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_MoveAccounts_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_MoveAccounts_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_MoveAccounts_MASBasicFaultDetailFault_Fault">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_GetAccountIdList_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_GetAccountIdList_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_GetAccountIdList_MASBasicFaultDetailFault_Fault">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_AddAccountWithoutWorkflow_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_AddAccountWithoutWorkflow_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_AddAccountWithoutWorkflow_MASBasicFaultDetailFault_Fault">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_GetAllAccountsTypeName_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_GetAllAccountsTypeName_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_GetAllAccountsTypeName_MASBasicFaultDetailFault_Fault">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_GetAccountTypeName_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_GetAccountTypeName_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IAccountService_GetAccountTypeName_MASBasicFaultDetailFault_Fault">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IAccountService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:SslTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <sp:EndorsingSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:SecureConversationToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:BootstrapPolicy>
+                  <wsp:Policy>
+                    <sp:SignedParts>
+                      <sp:Body />
+                      <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                      <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+                    </sp:SignedParts>
+                    <sp:EncryptedParts>
+                      <sp:Body />
+                    </sp:EncryptedParts>
+                    <sp:TransportBinding>
+                      <wsp:Policy>
+                        <sp:TransportToken>
+                          <wsp:Policy>
+                            <msf:SslTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy" />
+                          </wsp:Policy>
+                        </sp:TransportToken>
+                        <sp:AlgorithmSuite>
+                          <wsp:Policy>
+                            <sp:Basic256 />
+                          </wsp:Policy>
+                        </sp:AlgorithmSuite>
+                        <sp:Layout>
+                          <wsp:Policy>
+                            <sp:Strict />
+                          </wsp:Policy>
+                        </sp:Layout>
+                        <sp:IncludeTimestamp />
+                      </wsp:Policy>
+                    </sp:TransportBinding>
+                    <sp:SignedSupportingTokens>
+                      <wsp:Policy>
+                        <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                          <wsp:Policy>
+                            <sp:WssUsernameToken10 />
+                          </wsp:Policy>
+                        </sp:UsernameToken>
+                      </wsp:Policy>
+                    </sp:SignedSupportingTokens>
+                    <sp:Wss11>
+                      <wsp:Policy />
+                    </sp:Wss11>
+                    <sp:Trust10>
+                      <wsp:Policy>
+                        <sp:MustSupportIssuedTokens />
+                        <sp:RequireClientEntropy />
+                        <sp:RequireServerEntropy />
+                      </wsp:Policy>
+                    </sp:Trust10>
+                  </wsp:Policy>
+                </sp:BootstrapPolicy>
+              </wsp:Policy>
+            </sp:SecureConversationToken>
+          </wsp:Policy>
+        </sp:EndorsingSupportingTokens>
+        <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy />
+        </sp:Wss11>
+        <sp:Trust10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:MustSupportIssuedTokens />
+            <sp:RequireClientEntropy />
+            <sp:RequireServerEntropy />
+          </wsp:Policy>
+        </sp:Trust10>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MetraTech.ActivityServices.Common" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Account.Metratech_com_accountcreation" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Account.Metratech_com_accounttemplate" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.ARSample.Metratech_com_ARSalesPersonCreation" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.AudioConf.Metratech_com_audioconfcommon" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.AudioConf.Metratech_com_audioconfconnection" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.AudioConf.Metratech_com_audioconfFeature" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Core.Global_SystemCurrencies" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Core.Global" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Core.Metratech_com" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Core.Metratech_com_addCharge" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Core.Metratech_com_audit" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Core.Metratech_com_balanceadjustments" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Core.Metratech_com_calendar" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Core.Metratech_com_Dispute" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd18" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Core.Metratech_com_DisputeStatus" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd19" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Core.Metratech_com_FileLandingService" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd20" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Core.Metratech_com_NonStandardCharge" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd21" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Core.Metratech_com_ServiceEndpoint" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd22" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Core.Metratech_com_tariffs" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd23" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Core.UI" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd24" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.GSMSample.Metratech_com_GSMCreation" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd25" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.PaymentSvrClient.Metratech_com_paymentserver" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd26" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Pcsample.Metratech_com_accountcreationtest" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd27" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Pcsample.Metratech_com_ancillarycharges" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd28" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Pcsample.Metratech_com_Conferencing" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd29" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.SmokeTest.Metratech_com_SmokeTest" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd30" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.SMS.Metratech_com_SMSType" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd31" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.SystemConfig.Metratech_com_BusinessEntity" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd32" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.SystemConfig.Metratech_com_failedtransaction" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd33" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.Tax.Metratech_com_tax" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd34" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd35" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Common" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd36" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.BaseTypes" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd37" namespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.AccountTypes" />
+      <xsd:import schemaLocation="http://devtmploraw:8010/AccountService?xsd=xsd38" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAccountService_GetAccountList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountList" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountList_MASBasicFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/MetraTech.ActivityServices.Common" name="detail" element="q1:MASBasicFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountListTotalRows_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountListTotalRows" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountListTotalRows_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountListTotalRowsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountListTotalRows_MASBasicFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/MetraTech.ActivityServices.Common" name="detail" element="q2:MASBasicFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoadAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAccount" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoadAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoadAccount_MASBasicFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/MetraTech.ActivityServices.Common" name="detail" element="q3:MASBasicFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoadAccountWithViews_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAccountWithViews" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoadAccountWithViews_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAccountWithViewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoadAccountWithViews_MASBasicFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/MetraTech.ActivityServices.Common" name="detail" element="q4:MASBasicFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoadView_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadView" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoadView_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadViewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_LoadView_MASBasicFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/MetraTech.ActivityServices.Common" name="detail" element="q5:MASBasicFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_MoveAccounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:MoveAccounts" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_MoveAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MoveAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_MoveAccounts_MASBasicFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/MetraTech.ActivityServices.Common" name="detail" element="q6:MASBasicFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountIdList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountIdList" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountIdList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountIdListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountIdList_MASBasicFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/MetraTech.ActivityServices.Common" name="detail" element="q7:MASBasicFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AddAccountWithoutWorkflow_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAccountWithoutWorkflow" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AddAccountWithoutWorkflow_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAccountWithoutWorkflowResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_AddAccountWithoutWorkflow_MASBasicFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/MetraTech.ActivityServices.Common" name="detail" element="q8:MASBasicFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAllAccountsTypeName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAccountsTypeName" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAllAccountsTypeName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAccountsTypeNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAllAccountsTypeName_MASBasicFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/MetraTech.ActivityServices.Common" name="detail" element="q9:MASBasicFaultDetail" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountTypeName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountTypeName" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountTypeName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountTypeNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_GetAccountTypeName_MASBasicFaultDetailFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/MetraTech.ActivityServices.Common" name="detail" element="q10:MASBasicFaultDetail" />
+  </wsdl:message>
+  <wsdl:portType name="IAccountService">
+    <wsdl:operation name="GetAccountList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetAccountList" message="tns:IAccountService_GetAccountList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetAccountListResponse" message="tns:IAccountService_GetAccountList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAccountService/GetAccountListMASBasicFaultDetailFault" name="MASBasicFaultDetailFault" message="tns:IAccountService_GetAccountList_MASBasicFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountListTotalRows">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetAccountListTotalRows" message="tns:IAccountService_GetAccountListTotalRows_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetAccountListTotalRowsResponse" message="tns:IAccountService_GetAccountListTotalRows_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAccountService/GetAccountListTotalRowsMASBasicFaultDetailFault" name="MASBasicFaultDetailFault" message="tns:IAccountService_GetAccountListTotalRows_MASBasicFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/LoadAccount" message="tns:IAccountService_LoadAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/LoadAccountResponse" message="tns:IAccountService_LoadAccount_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAccountService/LoadAccountMASBasicFaultDetailFault" name="MASBasicFaultDetailFault" message="tns:IAccountService_LoadAccount_MASBasicFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAccountWithViews">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/LoadAccountWithViews" message="tns:IAccountService_LoadAccountWithViews_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/LoadAccountWithViewsResponse" message="tns:IAccountService_LoadAccountWithViews_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAccountService/LoadAccountWithViewsMASBasicFaultDetailFault" name="MASBasicFaultDetailFault" message="tns:IAccountService_LoadAccountWithViews_MASBasicFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadView">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/LoadView" message="tns:IAccountService_LoadView_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/LoadViewResponse" message="tns:IAccountService_LoadView_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAccountService/LoadViewMASBasicFaultDetailFault" name="MASBasicFaultDetailFault" message="tns:IAccountService_LoadView_MASBasicFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveAccounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/MoveAccounts" message="tns:IAccountService_MoveAccounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/MoveAccountsResponse" message="tns:IAccountService_MoveAccounts_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAccountService/MoveAccountsMASBasicFaultDetailFault" name="MASBasicFaultDetailFault" message="tns:IAccountService_MoveAccounts_MASBasicFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountIdList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetAccountIdList" message="tns:IAccountService_GetAccountIdList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetAccountIdListResponse" message="tns:IAccountService_GetAccountIdList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAccountService/GetAccountIdListMASBasicFaultDetailFault" name="MASBasicFaultDetailFault" message="tns:IAccountService_GetAccountIdList_MASBasicFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAccountWithoutWorkflow">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/AddAccountWithoutWorkflow" message="tns:IAccountService_AddAccountWithoutWorkflow_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/AddAccountWithoutWorkflowResponse" message="tns:IAccountService_AddAccountWithoutWorkflow_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAccountService/AddAccountWithoutWorkflowMASBasicFaultDetailFault" name="MASBasicFaultDetailFault" message="tns:IAccountService_AddAccountWithoutWorkflow_MASBasicFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAccountsTypeName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetAllAccountsTypeName" message="tns:IAccountService_GetAllAccountsTypeName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetAllAccountsTypeNameResponse" message="tns:IAccountService_GetAllAccountsTypeName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAccountService/GetAllAccountsTypeNameMASBasicFaultDetailFault" name="MASBasicFaultDetailFault" message="tns:IAccountService_GetAllAccountsTypeName_MASBasicFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountTypeName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetAccountTypeName" message="tns:IAccountService_GetAccountTypeName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetAccountTypeNameResponse" message="tns:IAccountService_GetAccountTypeName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAccountService/GetAccountTypeNameMASBasicFaultDetailFault" name="MASBasicFaultDetailFault" message="tns:IAccountService_GetAccountTypeName_MASBasicFaultDetailFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IAccountService" type="tns:IAccountService">
+    <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAccountList">
+      <soap12:operation soapAction="http://tempuri.org/IAccountService/GetAccountList" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_GetAccountList_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_GetAccountList_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MASBasicFaultDetailFault">
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_GetAccountList_MASBasicFaultDetailFault_Fault" />
+        <soap12:fault use="literal" name="MASBasicFaultDetailFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountListTotalRows">
+      <soap12:operation soapAction="http://tempuri.org/IAccountService/GetAccountListTotalRows" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_GetAccountListTotalRows_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_GetAccountListTotalRows_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MASBasicFaultDetailFault">
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_GetAccountListTotalRows_MASBasicFaultDetailFault_Fault" />
+        <soap12:fault use="literal" name="MASBasicFaultDetailFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAccount">
+      <soap12:operation soapAction="http://tempuri.org/IAccountService/LoadAccount" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_LoadAccount_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_LoadAccount_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MASBasicFaultDetailFault">
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_LoadAccount_MASBasicFaultDetailFault_Fault" />
+        <soap12:fault use="literal" name="MASBasicFaultDetailFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAccountWithViews">
+      <soap12:operation soapAction="http://tempuri.org/IAccountService/LoadAccountWithViews" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_LoadAccountWithViews_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_LoadAccountWithViews_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MASBasicFaultDetailFault">
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_LoadAccountWithViews_MASBasicFaultDetailFault_Fault" />
+        <soap12:fault use="literal" name="MASBasicFaultDetailFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoadView">
+      <soap12:operation soapAction="http://tempuri.org/IAccountService/LoadView" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_LoadView_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_LoadView_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MASBasicFaultDetailFault">
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_LoadView_MASBasicFaultDetailFault_Fault" />
+        <soap12:fault use="literal" name="MASBasicFaultDetailFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MoveAccounts">
+      <soap12:operation soapAction="http://tempuri.org/IAccountService/MoveAccounts" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_MoveAccounts_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_MoveAccounts_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MASBasicFaultDetailFault">
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_MoveAccounts_MASBasicFaultDetailFault_Fault" />
+        <soap12:fault use="literal" name="MASBasicFaultDetailFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountIdList">
+      <soap12:operation soapAction="http://tempuri.org/IAccountService/GetAccountIdList" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_GetAccountIdList_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_GetAccountIdList_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MASBasicFaultDetailFault">
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_GetAccountIdList_MASBasicFaultDetailFault_Fault" />
+        <soap12:fault use="literal" name="MASBasicFaultDetailFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddAccountWithoutWorkflow">
+      <soap12:operation soapAction="http://tempuri.org/IAccountService/AddAccountWithoutWorkflow" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_AddAccountWithoutWorkflow_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_AddAccountWithoutWorkflow_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MASBasicFaultDetailFault">
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_AddAccountWithoutWorkflow_MASBasicFaultDetailFault_Fault" />
+        <soap12:fault use="literal" name="MASBasicFaultDetailFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAccountsTypeName">
+      <soap12:operation soapAction="http://tempuri.org/IAccountService/GetAllAccountsTypeName" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_GetAllAccountsTypeName_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_GetAllAccountsTypeName_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MASBasicFaultDetailFault">
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_GetAllAccountsTypeName_MASBasicFaultDetailFault_Fault" />
+        <soap12:fault use="literal" name="MASBasicFaultDetailFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountTypeName">
+      <soap12:operation soapAction="http://tempuri.org/IAccountService/GetAccountTypeName" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_GetAccountTypeName_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_GetAccountTypeName_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MASBasicFaultDetailFault">
+        <wsp:PolicyReference URI="#WSHttpBinding_IAccountService_GetAccountTypeName_MASBasicFaultDetailFault_Fault" />
+        <soap12:fault use="literal" name="MASBasicFaultDetailFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IAccountService" type="tns:IAccountService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IAccountService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetAccountList">
+      <soap12:operation soapAction="http://tempuri.org/IAccountService/GetAccountList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MASBasicFaultDetailFault">
+        <soap12:fault use="literal" name="MASBasicFaultDetailFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountListTotalRows">
+      <soap12:operation soapAction="http://tempuri.org/IAccountService/GetAccountListTotalRows" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MASBasicFaultDetailFault">
+        <soap12:fault use="literal" name="MASBasicFaultDetailFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAccount">
+      <soap12:operation soapAction="http://tempuri.org/IAccountService/LoadAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MASBasicFaultDetailFault">
+        <soap12:fault use="literal" name="MASBasicFaultDetailFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAccountWithViews">
+      <soap12:operation soapAction="http://tempuri.org/IAccountService/LoadAccountWithViews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MASBasicFaultDetailFault">
+        <soap12:fault use="literal" name="MASBasicFaultDetailFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoadView">
+      <soap12:operation soapAction="http://tempuri.org/IAccountService/LoadView" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MASBasicFaultDetailFault">
+        <soap12:fault use="literal" name="MASBasicFaultDetailFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MoveAccounts">
+      <soap12:operation soapAction="http://tempuri.org/IAccountService/MoveAccounts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MASBasicFaultDetailFault">
+        <soap12:fault use="literal" name="MASBasicFaultDetailFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountIdList">
+      <soap12:operation soapAction="http://tempuri.org/IAccountService/GetAccountIdList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MASBasicFaultDetailFault">
+        <soap12:fault use="literal" name="MASBasicFaultDetailFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddAccountWithoutWorkflow">
+      <soap12:operation soapAction="http://tempuri.org/IAccountService/AddAccountWithoutWorkflow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MASBasicFaultDetailFault">
+        <soap12:fault use="literal" name="MASBasicFaultDetailFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAccountsTypeName">
+      <soap12:operation soapAction="http://tempuri.org/IAccountService/GetAllAccountsTypeName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MASBasicFaultDetailFault">
+        <soap12:fault use="literal" name="MASBasicFaultDetailFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountTypeName">
+      <soap12:operation soapAction="http://tempuri.org/IAccountService/GetAccountTypeName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MASBasicFaultDetailFault">
+        <soap12:fault use="literal" name="MASBasicFaultDetailFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AccountService">
+    <wsdl:port name="WSHttpBinding_IAccountService" binding="tns:WSHttpBinding_IAccountService">
+      <soap12:address location="http://devtmploraw:8001/AccountService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://devtmploraw:8001/AccountService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+            <X509Data>
+              <X509Certificate>MIICFzCCAYCgAwIBAgIQ59j1uCw7P7JKjl3NFFehJTANBgkqhkiG9w0BAQQFADAfMR0wGwYDVQQDExRBY3Rpdml0eVNlcnZpY2VzQ2VydDAeFw0xMDA3MjkxNTI3NDlaFw0zOTEyMzEyMzU5NTlaMB8xHTAbBgNVBAMTFEFjdGl2aXR5U2VydmljZXNDZXJ0MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCnrx4g2aNW/l7DjieQjiajm68JWhdAx1TRYfPnPDpcVz63VgpFcqDdV3mFJl9j8csJNZTEP2OLPSdlKDQ/9PHnnloNcR9SJmQFHv8YxAOkM9VhkzgyOk+gPvaOcIOdb7UA1r0zq9Ba99mMc/Vfj4pRlcY7kEjTvqJYZOyEx0OhZwIDAQABo1QwUjBQBgNVHQEESTBHgBCFMkGPJtMgDkovHsp+Gfd8oSEwHzEdMBsGA1UEAxMUQWN0aXZpdHlTZXJ2aWNlc0NlcnSCEOfY9bgsOz+ySo5dzRRXoSUwDQYJKoZIhvcNAQEEBQADgYEAI2EJoF1cFv6b+pMHOfsVmQB02NUgl4TUVVXHqfST4gti9mDC9HVyxl1NIavnALGdy2CNFwDpKUAW04r4HzPhg3vNB6sHwP4vc84KgYysEYarlCGgKaUUG1NUsaV3aC7bvHWElU3r9o0wK+r5o4IdkeqbafUNBCAbdMP6sn5ATNo=</X509Certificate>
+            </X509Data>
+          </KeyInfo>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IAccountService" binding="tns:NetTcpBinding_IAccountService">
+      <soap12:address location="net.tcp://devtmploraw:99/AccountService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://devtmploraw:99/AccountService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>ActivityServicesCert</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

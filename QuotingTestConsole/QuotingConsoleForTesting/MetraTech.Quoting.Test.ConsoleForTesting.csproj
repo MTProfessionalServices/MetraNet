@@ -85,6 +85,21 @@
       <DependentUpon>QuoteGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="QuoteInvoker.cs" />
+    <Compile Include="Service References\AcountServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ProductOfferingServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\QuotingServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Source\MetraTech\ActivityServices\Common\MetraTech.ActivityServices.Common.csproj">
@@ -122,11 +137,341 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\MetraTech.DomainModel.BaseTypes.Account.datasource" />
+    <None Include="Properties\DataSources\MetraTech.DomainModel.BaseTypes.BasePriceableItemInstance.datasource" />
+    <None Include="Properties\DataSources\MetraTech.DomainModel.BaseTypes.View.datasource" />
+    <None Include="Properties\DataSources\MetraTech.DomainModel.ProductCatalog.ProductOffering.datasource" />
+    <None Include="Service References\AcountServiceReference\AccountService.wsdl" />
+    <None Include="Service References\AcountServiceReference\AccountService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService15.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService16.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService17.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService18.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService19.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService20.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService22.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService23.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService24.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService25.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService26.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService27.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService28.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService29.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService30.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService32.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService33.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService34.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService35.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService36.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService37.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService38.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\AccountService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AcountServiceReference\QuotingConsoleForTesting.AcountServiceReference.MTListOfAccount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService.wsdl" />
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService15.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService16.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService17.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService18.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService19.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService20.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService22.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService23.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService24.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService25.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService26.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService27.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService28.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService29.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService30.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService32.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService33.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService34.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService35.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService36.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService37.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService38.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService39.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\QuotingConsoleForTesting.ProductOfferingServiceReference.MTListOfBasePriceableItemInstance.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProductOfferingServiceReference\QuotingConsoleForTesting.ProductOfferingServiceReference.MTListOfProductOffering.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QuotingServiceReference\QuotingConsoleForTesting.QuotingServiceReference.QuoteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QuotingServiceReference\QuotingService.wsdl" />
+    <None Include="Service References\QuotingServiceReference\QuotingService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QuotingServiceReference\QuotingService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QuotingServiceReference\QuotingService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QuotingServiceReference\QuotingService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QuotingServiceReference\QuotingService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QuotingServiceReference\QuotingService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QuotingServiceReference\QuotingService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="QuoteGUI.resx">
       <DependentUpon>QuoteGUI.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AcountServiceReference\" />
+    <WCFMetadataStorage Include="Service References\ProductOfferingServiceReference\" />
+    <WCFMetadataStorage Include="Service References\QuotingServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AcountServiceReference\AccountService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AcountServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AcountServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AcountServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\QuotingServiceReference\QuotingService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\QuotingServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\QuotingServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\QuotingServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProductOfferingServiceReference\ProductOfferingService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProductOfferingServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProductOfferingServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProductOfferingServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

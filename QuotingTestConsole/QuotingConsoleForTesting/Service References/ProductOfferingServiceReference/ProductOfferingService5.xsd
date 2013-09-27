@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.AudioConf.Metratech_com_audioconfFeature" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MetraTech.DomainModel.Enums.AudioConf.Metratech_com_audioconfFeature" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="FeatureType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PlaybackSetup" />
+      <xs:enumeration value="QA" />
+      <xs:enumeration value="Polling" />
+      <xs:enumeration value="Record" />
+      <xs:enumeration value="TapesOriginals" />
+      <xs:enumeration value="TapesCopies" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FeatureType" nillable="true" type="tns:FeatureType" />
+  <xs:simpleType name="FeatureUOM">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Seconds" />
+      <xs:enumeration value="Minutes" />
+      <xs:enumeration value="Hours" />
+      <xs:enumeration value="Days" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FeatureUOM" nillable="true" type="tns:FeatureUOM" />
+</xs:schema>

@@ -174,7 +174,8 @@ namespace MetraTech.Quoting.Test
                     {
                         CurrentChargeType = ChargeType.RecurringCharge,
                         ProductOfferingId = idProductOfferingToQuoteFor,
-                        ChargesRates = new List<ChargesRate> { chargeRate }
+                        ChargesRates = new List<ChargesRate> { chargeRate },
+                        PriceableItemId = null
                     };
 
                 quoteImpl.Request.IcbPrices.Add(qip);
@@ -186,7 +187,8 @@ namespace MetraTech.Quoting.Test
                 var qip = new IndividualPrice
                     {
                         CurrentChargeType = ChargeType.UDRCTapered,
-                        ProductOfferingId = idProductOfferingToQuoteFor
+                        ProductOfferingId = idProductOfferingToQuoteFor,
+                        PriceableItemId = null
                     };
                 var chargeRates = new List<ChargesRate>
                     {
@@ -201,7 +203,8 @@ namespace MetraTech.Quoting.Test
                     {
                         CurrentChargeType = ChargeType.UDRCTiered,
                         ProductOfferingId = idProductOfferingToQuoteFor,
-                        ChargesRates = new List<ChargesRate> { chargeRate }
+                        ChargesRates = new List<ChargesRate> { chargeRate },
+                        PriceableItemId = null
                     };
 
                 quoteImpl.Request.IcbPrices.Add(qip);
@@ -215,7 +218,8 @@ namespace MetraTech.Quoting.Test
                 {
                     CurrentChargeType = ChargeType.NonRecurringCharge,
                     ProductOfferingId = idProductOfferingToQuoteFor,
-                    ChargesRates = new List<ChargesRate> { chargeRate }
+                    ChargesRates = new List<ChargesRate> { chargeRate },
+                    PriceableItemId = null
                 };
 
                 quoteImpl.Request.IcbPrices.Add(qip);
@@ -353,7 +357,8 @@ namespace MetraTech.Quoting.Test
                 {
                     CurrentChargeType = ChargeType.RecurringCharge,
                     ProductOfferingId = idProductOfferingToQuoteFor,
-                    ChargesRates = new List<ChargesRate> { chargeRate }
+                    ChargesRates = new List<ChargesRate> { chargeRate },
+                    PriceableItemId = null
                 };
 
                 request.IcbPrices.Add(qip);
@@ -380,7 +385,8 @@ namespace MetraTech.Quoting.Test
                 {
                     CurrentChargeType = ChargeType.UDRCTiered,
                     ProductOfferingId = idProductOfferingToQuoteFor,
-                    ChargesRates = new List<ChargesRate> { chargeRate }
+                    ChargesRates = new List<ChargesRate> { chargeRate },
+                    PriceableItemId = null
                 };
 
                 request.IcbPrices.Add(qip);
@@ -396,7 +402,8 @@ namespace MetraTech.Quoting.Test
                 {
                     CurrentChargeType = ChargeType.NonRecurringCharge,
                     ProductOfferingId = idProductOfferingToQuoteFor,
-                    ChargesRates = new List<ChargesRate> { chargeRate }
+                    ChargesRates = new List<ChargesRate> { chargeRate },
+                    PriceableItemId = null
                 };
 
                 request.IcbPrices.Add(qip);
@@ -829,7 +836,8 @@ namespace MetraTech.Quoting.Test
                 {
                     CurrentChargeType = ChargeType.UDRCTiered,
                     ProductOfferingId = idProductOfferingToQuoteFor1,
-                    ChargesRates = new List<ChargesRate> { chargeRate }
+                    ChargesRates = new List<ChargesRate> { chargeRate },
+                    PriceableItemId = null
                 };
 
                 request.IcbPrices.Add(qip);
@@ -842,7 +850,7 @@ namespace MetraTech.Quoting.Test
 
             try
             {
-//#warning Does it correct that Quoute is not created in the test?
+                //#warning Does it correct that Quoute is not created in the test?
                 //erroredResponse = SharedTestCodeQuoting.InvokeCreateQuote(request);
             }
             catch (Exception ex)
@@ -1006,7 +1014,8 @@ namespace MetraTech.Quoting.Test
                 {
                     CurrentChargeType = ChargeType.RecurringCharge,
                     ProductOfferingId = idProductOfferingToQuoteFor,
-                    ChargesRates = new List<ChargesRate> { chargeRate }
+                    ChargesRates = new List<ChargesRate> { chargeRate },
+                    PriceableItemId = null
                 };
 
                 quoteImpl.Request.IcbPrices.Add(qip);
@@ -1018,7 +1027,8 @@ namespace MetraTech.Quoting.Test
                 var qip = new IndividualPrice
                 {
                     CurrentChargeType = ChargeType.UDRCTapered,
-                    ProductOfferingId = idProductOfferingToQuoteFor
+                    ProductOfferingId = idProductOfferingToQuoteFor,
+                    PriceableItemId = null
                 };
                 var chargeRates = new List<ChargesRate>
                     {
@@ -1033,7 +1043,8 @@ namespace MetraTech.Quoting.Test
                 {
                     CurrentChargeType = ChargeType.UDRCTiered,
                     ProductOfferingId = idProductOfferingToQuoteFor,
-                    ChargesRates = new List<ChargesRate> { chargeRate }
+                    ChargesRates = new List<ChargesRate> { chargeRate },
+                    PriceableItemId = null
                 };
 
                 quoteImpl.Request.IcbPrices.Add(qip);
@@ -1049,7 +1060,8 @@ namespace MetraTech.Quoting.Test
                 {
                     CurrentChargeType = ChargeType.NonRecurringCharge,
                     ProductOfferingId = idProductOfferingToQuoteFor,
-                    ChargesRates = new List<ChargesRate> { chargeRate }
+                    ChargesRates = new List<ChargesRate> { chargeRate },
+                    PriceableItemId = null
                 };
 
                 quoteImpl.Request.IcbPrices.Add(qip);

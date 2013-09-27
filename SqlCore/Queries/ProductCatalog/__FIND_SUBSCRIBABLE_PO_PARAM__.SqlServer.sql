@@ -1,4 +1,4 @@
-
+/*__FIND_SUBSCRIABLE_PO_PARAM__*/
 					SELECT
 					distinct(t_po.id_po),
 					t_po.id_eff_date, 
@@ -112,6 +112,6 @@
 					ta.n_begintype <> 0 AND
 					t_base_props.id_prop = t_po.id_po AND
 					t_po.id_po = template_po_map.id_po AND
-					t_po.id_po in (select id_po from vw_acc_po_restrictions where id_acc=@idAcc) AND
-					t_po.b_user_susbcribe!='N'
+					t_po.id_po in (select id_po from vw_acc_po_restrictions where id_acc=@idAcc) AND 
+				    %%CURRENCYFILTER3%%
 				

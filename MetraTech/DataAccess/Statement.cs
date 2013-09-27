@@ -1,21 +1,17 @@
-using MetraTech.Xml;
-using System.IO;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 using System.Data;
-using System.Diagnostics;
 using System.Data.OleDb;
-using System.Xml;
-
-using Oracle.DataAccess.Types;
+using System.Diagnostics;
+using System.Text.RegularExpressions;
+using MetraTech.DataAccess.OleDb;
+using MetraTech.DataAccess.Oracle;
+using MetraTech.Performance;
 using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Types;
   
 namespace MetraTech.DataAccess
 {
-	using MetraTech.DataAccess.Oracle;
-	using MetraTech.DataAccess.OleDb;
-    using MetraTech.Performance;
-    using System.Text.RegularExpressions;
 	/// <remarks>
 	/// </remarks>
 	public class Statement : IMTStatement, IDisposable
@@ -388,7 +384,7 @@ namespace MetraTech.DataAccess
     #endregion
   }
 
-  public class FilterSortStatement : AdapterStatement, IMTFilterSortStatement, IDisposable
+  public class FilterSortStatement : MetraTech.DataAccess.PreparedFilterSortStatement.AdapterStatement, IMTFilterSortStatement, IDisposable
   {
     #region Private Members
     private List<BaseFilterElement> m_Filters = new List<BaseFilterElement>();
@@ -648,7 +644,7 @@ namespace MetraTech.DataAccess
     #endregion
   }
 
-  public class MTMultiSelectAdapterStatement : AdapterStatement, IMTMultiSelectAdapterStatement, IDisposable
+  public class MTMultiSelectAdapterStatement : MetraTech.DataAccess.PreparedFilterSortStatement.AdapterStatement, IMTMultiSelectAdapterStatement, IDisposable
   {
       #region Private Members
       private int m_SelectCount = 0;
@@ -935,30 +931,7 @@ namespace MetraTech.DataAccess
 		/// Adds a positional parameter.
 		/// </summary>
 		public virtual void AddParam(MetraTech.DataAccess.MTParameterType type, Object value)
-		{
-            //IDataParameter param = Command.CreateParameter();
-            //Convert(type, Command, ref param);
-            //param.Direction = ParameterDirection.Input;
-            //param.ParameterName = string.Format("{0}{1}", 
-            //    (Command is MTOracleCommand ? ':' : '@'),
-            //    Command.Parameters.Count + 1);
-
-            //if (value == null)
-            //    param.Value = DBNull.Value;
-            //else
-            //{
-            //    if (Command is MTOracleCommand && 
-            //        ((type == MetraTech.DataAccess.MTParameterType.String ||
-            //          type == MetraTech.DataAccess.MTParameterType.WideString ||
-            //          type == MetraTech.DataAccess.MTParameterType.NText ||
-            //          type == MetraTech.DataAccess.MTParameterType.Text) &&
-            //         value.ToString() == ""))
-            //        param.Value = MTEmptyString.Value;
-            //    else
-            //        param.Value = value;
-            //}
-
-            //Command.Parameters.Add(param);
+		{           
             AddParam((Command.Parameters.Count + 1).ToString(), type, value);
 		}
 
@@ -970,7 +943,6 @@ namespace MetraTech.DataAccess
             param.ParameterName = string.Format("{0}{1}", 
                 (Command is MTOracleCommand ? ':' : '@'),
                 paramName);
-
 
             if (value == null)
                 param.Value = DBNull.Value;
@@ -1403,7 +1375,7 @@ namespace MetraTech.DataAccess
         }
 		#endregion
 		
-		    public class PreparedFilterSortForExport : Statement, IMTPreparedFilterSortStatement, IDisposable
+	public class PreparedFilterSortForExport : Statement, IMTPreparedFilterSortStatement, IDisposable
     {
       #region Private Members
       private string m_Query;
@@ -1905,6 +1877,7 @@ namespace MetraTech.DataAccess
 	
 }
 
+}
 namespace MetraTech.DataAccess.Oracle
 {
     using MetraTech.Performance;
@@ -1947,5 +1920,4 @@ namespace MetraTech.DataAccess.Oracle
 	}
 
     }
-}
 }

@@ -12,7 +12,6 @@ using MetraTech.DomainModel.ProductCatalog;
 
 namespace QuotingConsoleForTesting
 {
-
   /// <summary>
   /// Class for service calls
   /// </summary>
@@ -53,7 +52,7 @@ namespace QuotingConsoleForTesting
 
       try
       {
-        poClient = new ProductOfferingServiceClient();
+        poClient = new ProductOfferingServiceClient(GetBinding("WSHttpBinding_IProductOfferingService"), GetEndpoint(gateway, "ProductOfferingService"));
         SetCredantional(poClient.ClientCredentials);
         poClient.GetProductOfferings(ref pos);
       }
@@ -75,13 +74,12 @@ namespace QuotingConsoleForTesting
       return pos.Items;
     }
     
-    public static List<BasePriceableItemInstance> GetPriceListsWithUdrcs(int poId)
+    public static List<BasePriceableItemInstance> GetPriceListsWithUdrcs(string gateway, int poId)
     {
       var resultPiList = new List<BasePriceableItemInstance>();
 
-      var client = new ProductOfferingServiceClient();
-      client.ClientCredentials.UserName.UserName = "su";
-      client.ClientCredentials.UserName.Password = "su123";
+      var client = new ProductOfferingServiceClient(GetBinding("WSHttpBinding_IProductOfferingService"), GetEndpoint(gateway, "ProductOfferingService"));
+      SetCredantional(client.ClientCredentials);
 
       var priceableItems = new MTList<BasePriceableItemInstance>();
       client.GetPIInstancesForPO(new PCIdentifier(poId), ref priceableItems);
@@ -90,14 +88,13 @@ namespace QuotingConsoleForTesting
 
       return resultPiList;
     }
-    
-    public static List<BasePriceableItemInstance> GetPIWithAllowICBs(List<int> poIds)
+
+    public static List<BasePriceableItemInstance> GetPIWithAllowICBs(string gateway, List<int> poIds)
     {
       var resultPiList = new List<BasePriceableItemInstance>();
 
-      var client = new ProductOfferingServiceClient();
-      client.ClientCredentials.UserName.UserName = "su";
-      client.ClientCredentials.UserName.Password = "su123";
+      var client = new ProductOfferingServiceClient(GetBinding("WSHttpBinding_IProductOfferingService"), GetEndpoint(gateway, "ProductOfferingService"));
+      SetCredantional(client.ClientCredentials);
 
       foreach (var poId in poIds)
       {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading;
@@ -28,16 +29,41 @@ namespace QuotingConsoleForTesting
     {
       _request = new QuoteRequest();
       InitializeComponent();
+      const string name = "Priceable Item";
+      var nameColumn = new DataGridViewColumn
+        {
+          Name = PiNameColumn,
+          HeaderText = name,
+          ReadOnly = true
+        };
+      gridViewUDRCs.Columns.Add(nameColumn);
 
-      gridViewUDRCs.Columns.Add(PiNameColumn, "Priceable Item");
-      gridViewUDRCs.Columns.Add(UdrcValueColumn, "UDRC Value");
-      gridViewUDRCs.Columns.Add(PiIdColumn, "PiId");
-      gridViewUDRCs.Columns.Add(PoIdColumn, "PoId");
+      const string udrc = "UDRC Value";
+      var valueColumn = new DataGridViewColumn
+        {
+          Name = UdrcValueColumn,
+          HeaderText = udrc,
+          AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
+        };
+      gridViewUDRCs.Columns.Add(valueColumn);
 
-      gridViewUDRCs.Columns[PiNameColumn].ReadOnly = true;
-      gridViewUDRCs.Columns[UdrcValueColumn].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-      gridViewUDRCs.Columns[PiIdColumn].Visible = false;
-      gridViewUDRCs.Columns[PoIdColumn].Visible = false;
+      const string piId = "PiId";
+      var piIdColumn = new DataGridViewColumn
+        {
+          Name = PiIdColumn,
+          HeaderText = piId,
+          Visible = false
+        };
+      gridViewUDRCs.Columns.Add(piIdColumn);
+
+      const string poId = "PoId";
+      var poIdColumn = new DataGridViewColumn
+        {
+          Name = PoIdColumn,
+          HeaderText = poId,
+          Visible = false
+        };
+      gridViewUDRCs.Columns.Add(poIdColumn);
 
       _quoteWorker.DoWork += QuoteDoWork;
       _quoteWorker.ProgressChanged += QuoteProgressChanged;
@@ -58,6 +84,7 @@ namespace QuotingConsoleForTesting
       dateTimePickerStartDate.Value = DateTime.Today.AddDays(1);
       dateTimePickerEndDate.Value = DateTime.Today.AddDays(1);
       var gateway = GetGatewy();
+      textBoxMetraNetServer.Text = gateway;
       RefreshServices(gateway);
     }
 
@@ -87,20 +114,16 @@ namespace QuotingConsoleForTesting
 
       //load PIs
       gridViewUDRCs.Rows.Clear();
+      var gateway = GetGatewy();
       foreach (var poId in poIds)
-      {
-        foreach (var item in ServiceHelper.GetPriceListsWithUdrcs(poId))
-        {
+        foreach (var item in ServiceHelper.GetPriceListsWithUdrcs(gateway, poId))
           gridViewUDRCs.Rows.Add(item.Name, DefaultUdrcValue, item.ID, poId);
-        }
-      }
+        
 
       //load PIS with Allowed ICBS
-      _piWithIcbs = ServiceHelper.GetPIWithAllowICBs(poIds);
+      _piWithIcbs = ServiceHelper.GetPIWithAllowICBs(gateway, poIds);
       foreach (var item in _piWithIcbs)
-      {
         listBoxPOs.Items.Add(item.Name);
-      }
     }
 
     private void listBoxICBs_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -204,7 +227,7 @@ namespace QuotingConsoleForTesting
         }
         else
         {
-          dictionaryToReturn.Add(poId, new List<UDRCInstanceValueBase> {udrc});
+          dictionaryToReturn.Add(poId, new List<UDRCInstanceValueBase> { udrc });
         }
       }
 
@@ -231,13 +254,39 @@ namespace QuotingConsoleForTesting
 
     private static string GetGatewy()
     {
-      return "localhost:8001";
+      var config = GetConfig();
+      if (config.AppSettings.Settings.Count == 0)
+        return DefaultGateway;
+      if (config.AppSettings.Settings[ServiceGateway] == null)
+        return DefaultGateway;
+      var gateway = config.AppSettings.Settings[ServiceGateway].Value;
+      return string.IsNullOrEmpty(gateway) ? DefaultGateway : gateway;
     }
 
     private static void SetGateway(string gateway)
     {
-      //do something
+      var config = GetConfig();
+      if (config.AppSettings.Settings[ServiceGateway] == null)
+        config.AppSettings.Settings.Add(ServiceGateway, gateway);
+      else
+        config.AppSettings.Settings[ServiceGateway].Value = gateway;
+      config.Save();
     }
+
+    private static Configuration GetConfig()
+    {
+      // Get the configuration file. The file name has this format appname.exe.config.
+#if DEBUG
+      var applicationName = Environment.GetCommandLineArgs()[0];
+#else
+      var applicationName = Environment.GetCommandLineArgs()[0]+ ".exe";
+#endif
+      var exePath = System.IO.Path.Combine(Environment.CurrentDirectory, applicationName);
+      return ConfigurationManager.OpenExeConfiguration(exePath);
+    }
+
+    private const string ServiceGateway = "ServiceGateway";
+    private const string DefaultGateway = "localhost:8001";
 
     #endregion
   }

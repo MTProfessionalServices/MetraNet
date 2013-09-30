@@ -226,6 +226,7 @@
       this.checkBoxPDF.TabIndex = 2;
       this.checkBoxPDF.Text = "Generate PDF";
       this.checkBoxPDF.UseVisualStyleBackColor = true;
+      this.checkBoxPDF.CheckedChanged += new System.EventHandler(this.checkBoxPDF_CheckedChanged);
       // 
       // label5
       // 

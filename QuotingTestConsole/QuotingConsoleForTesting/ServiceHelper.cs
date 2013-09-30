@@ -45,7 +45,7 @@ namespace QuotingConsoleForTesting
         }
       }
 
-      return accounts.Items; //[TODO]: Where type not System User?
+      return accounts.Items; //[TODO]: Return accounts of MT extensino only. (not System User or Auth)
     }
     
     public static List<ProductOffering> GetProductOfferings(string gateway)
@@ -55,7 +55,7 @@ namespace QuotingConsoleForTesting
 
       try
       {
-        poClient = new ProductOfferingServiceClient(GetBinding("WSHttpBinding_IProductOfferingService"), GetEndpoint(gateway, "ProductOfferingService"));
+        poClient = new ProductOfferingServiceClient();
         if (poClient.ClientCredentials != null)
         {
           poClient.ClientCredentials.UserName.UserName = "su";
@@ -81,7 +81,7 @@ namespace QuotingConsoleForTesting
       return pos.Items;
     }
     
-    public static List<BasePriceableItemInstance> GetPriceListsWithUdrcs(List<int> poIds)
+    public static List<BasePriceableItemInstance> GetPriceListsWithUdrcs(int poId)
     {
       var resultPiList = new List<BasePriceableItemInstance>();
 
@@ -89,13 +89,10 @@ namespace QuotingConsoleForTesting
       client.ClientCredentials.UserName.UserName = "su";
       client.ClientCredentials.UserName.Password = "su123";
 
-      foreach (var poId in poIds)
-      {
-        var priceableItems = new MTList<BasePriceableItemInstance>();
-        client.GetPIInstancesForPO(new PCIdentifier(poId), ref priceableItems);
-        var udrcPiList = priceableItems.Items.Where(pi => pi.PIKind == PriceableItemKinds.UnitDependentRecurring);
-        resultPiList.AddRange(udrcPiList);
-      }
+      var priceableItems = new MTList<BasePriceableItemInstance>();
+      client.GetPIInstancesForPO(new PCIdentifier(poId), ref priceableItems);
+      var udrcPiList = priceableItems.Items.Where(pi => pi.PIKind == PriceableItemKinds.UnitDependentRecurring);
+      resultPiList.AddRange(udrcPiList);
 
       return resultPiList;
     }

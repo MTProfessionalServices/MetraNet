@@ -45,10 +45,8 @@ create table t_message
   
   /* IP address of the sender of this message*/
   tx_ip_address VARCHAR2(15) NOT NULL,
+  
+  /* Uses for archive_queue functionality */
   id_partition number(10) DEFAULT 1 NOT NULL
-)
-PARTITION BY LIST(ID_PARTITION)
-(
-  PARTITION P1 VALUES(1)
 )
 			

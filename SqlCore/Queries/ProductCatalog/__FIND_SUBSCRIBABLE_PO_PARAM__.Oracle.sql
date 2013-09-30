@@ -169,6 +169,6 @@ WHERE te.id_eff_date  = t_po.id_eff_date
    (SELECT id_po 
    FROM vw_acc_po_restrictions 
    WHERE id_acc = :idAcc
-   )
-   and t_po.b_user_subscribe <> 'N'
+   ) AND
+   %%CURRENCYFILTER3%%
    

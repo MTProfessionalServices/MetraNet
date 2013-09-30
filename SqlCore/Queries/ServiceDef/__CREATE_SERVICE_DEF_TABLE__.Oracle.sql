@@ -6,9 +6,8 @@
             id_external raw(16)			
 			%%ADDITIONAL_COLUMNS%%
 			%%RESERVED_COLUMNS%% ,
-			id_partition number(10) DEFAULT 1 NOT NULL)
-			
-			PARTITION BY LIST (ID_PARTITION) (PARTITION P1 VALUES(1))
+			id_partition number(10) DEFAULT %%DEFAULT_VALUE%% NOT NULL,
+			constraint %%PK_NAME%% primary key (id_source_sess, id_partition))
 			';
 			%%CREATE_TABLE_DESCRIPTION%%
 			%%CREATE_COLUMNS_DESCRIPTION%%

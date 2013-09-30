@@ -168,7 +168,6 @@
       this.comboBoxCorporateAccount.Name = "comboBoxCorporateAccount";
       this.comboBoxCorporateAccount.Size = new System.Drawing.Size(331, 21);
       this.comboBoxCorporateAccount.TabIndex = 2;
-      this.comboBoxCorporateAccount.SelectionChangeCommitted += new System.EventHandler(this.comboBoxCorporateAccount_SelectionChanged);
       // 
       // checkBoxIsGroupSubscription
       // 
@@ -226,7 +225,6 @@
       this.checkBoxPDF.TabIndex = 2;
       this.checkBoxPDF.Text = "Generate PDF";
       this.checkBoxPDF.UseVisualStyleBackColor = true;
-      this.checkBoxPDF.CheckedChanged += new System.EventHandler(this.checkBoxPDF_CheckedChanged);
       // 
       // label5
       // 

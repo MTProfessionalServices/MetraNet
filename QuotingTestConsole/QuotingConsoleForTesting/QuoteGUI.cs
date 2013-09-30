@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetraTech.Domain.Quoting;
 using MetraTech.DomainModel.BaseTypes;
-using MetraTech.Interop.MTProductCatalog;
 
 namespace QuotingConsoleForTesting
 {
@@ -20,6 +22,8 @@ namespace QuotingConsoleForTesting
     private List<BasePriceableItemInstance> _piWithIcbs;
     private List<IndividualPrice> _icbs;
 
+    private readonly BackgroundWorker _quoteWorker = new BackgroundWorker {WorkerReportsProgress = true};
+
     public formQuoteGUI()
     {
       _request = new QuoteRequest();
@@ -34,9 +38,13 @@ namespace QuotingConsoleForTesting
       gridViewUDRCs.Columns[UdrcValueColumn].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
       gridViewUDRCs.Columns[PiIdColumn].Visible = false;
       gridViewUDRCs.Columns[PoIdColumn].Visible = false;
+
+      _quoteWorker.DoWork += QuoteDoWork;
+      _quoteWorker.ProgressChanged += QuoteProgressChanged;
+      _quoteWorker.RunWorkerCompleted += QuoteRunWorkerCompleted;
     }
 
-    #region Control Event Listeners
+    #region Event Listeners
 
     private void exitToolStripMenuItem_Click(object sender, EventArgs e)
     {
@@ -62,19 +70,15 @@ namespace QuotingConsoleForTesting
     private void createQuoteToolStripMenuItem_Click(object sender, EventArgs e)
     {
       SetRequest();
-      richTextBoxResults.Text = QuoteInvoker.InvokeCreateQuote(_request).ToString();
+      richTextBoxResults.Text = string.Format("Sending quote request...{0}Waiting for response...", Environment.NewLine);
+      createQuoteToolStripMenuItem.Enabled = false;
+      _quoteWorker.RunWorkerAsync();
     }
 
     private void checkBoxIsGroupSubscription_CheckedChanged(object sender, EventArgs e)
     {
       comboBoxCorporateAccount.Enabled = checkBoxIsGroupSubscription.Checked;
       label2.Enabled = checkBoxIsGroupSubscription.Checked;
-    }
-
-    private void comboBoxCorporateAccount_SelectionChanged(object sender, EventArgs e)
-    {
-      var selectedCorpAccItem = (KeyValuePair<int, string>) comboBoxCorporateAccount.SelectedItem;
-      _request.SubscriptionParameters.CorporateAccountId = selectedCorpAccItem.Key;
     }
 
     private void loadPiButton_Click(object sender, EventArgs e)
@@ -114,10 +118,34 @@ namespace QuotingConsoleForTesting
       }
     }
 
-    private void checkBoxPDF_CheckedChanged(object sender, EventArgs e)
+    #region Background Worker Event Listeners
+
+    private void QuoteDoWork(object sender, DoWorkEventArgs e)
     {
-      _request.ReportParameters.PDFReport = checkBoxPDF.Checked;
+      var quoteTask = Task<string>.Factory.StartNew(() => QuoteInvoker.InvokeCreateQuote(_request).ToString());
+
+      while (!quoteTask.IsCompleted)
+      {
+        _quoteWorker.ReportProgress(1);
+        Thread.Sleep(500);
+      }
+
+      e.Result = quoteTask.Result;
     }
+
+    private void QuoteProgressChanged(object sender, ProgressChangedEventArgs e)
+    {
+      richTextBoxResults.Text = string.Format("{0}.", richTextBoxResults.Text);
+    }
+
+    private void QuoteRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+    {
+      richTextBoxResults.Text = string.Format("{0}{1}Response received:{1}{2}",
+                                              richTextBoxResults.Text, Environment.NewLine, e.Result);
+      createQuoteToolStripMenuItem.Enabled = true;
+    }
+
+    #endregion
 
     #endregion
 
@@ -138,7 +166,7 @@ namespace QuotingConsoleForTesting
       if (checkBoxIsGroupSubscription.Checked)
       {
         _request.SubscriptionParameters.IsGroupSubscription = true;
-        var selectedCorpAccItem = (KeyValuePair<int, string>)comboBoxCorporateAccount.SelectedItem;
+        var selectedCorpAccItem = (KeyValuePair<int, string>) comboBoxCorporateAccount.SelectedItem;
         _request.SubscriptionParameters.CorporateAccountId = selectedCorpAccItem.Key;
       }
     }
@@ -163,12 +191,12 @@ namespace QuotingConsoleForTesting
         var poId = row.Cells[PoIdColumn].Value.ToString();
 
         var udrc = new UDRCInstanceValueBase
-        {
-          UDRC_Id = piId,
-          StartDate = DateTime.Now,
-          EndDate = DateTime.Now.AddYears(1),
-          Value = Convert.ToInt32(row.Cells[UdrcValueColumn].Value)
-        };
+          {
+            UDRC_Id = piId,
+            StartDate = DateTime.Now,
+            EndDate = DateTime.Now.AddYears(1),
+            Value = Convert.ToInt32(row.Cells[UdrcValueColumn].Value)
+          };
 
         if (dictionaryToReturn.ContainsKey(poId))
         {
@@ -176,7 +204,7 @@ namespace QuotingConsoleForTesting
         }
         else
         {
-          dictionaryToReturn.Add(poId, new List<UDRCInstanceValueBase>() { udrc });
+          dictionaryToReturn.Add(poId, new List<UDRCInstanceValueBase> {udrc});
         }
       }
 

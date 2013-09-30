@@ -1,5 +1,7 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.ServiceModel;
 using MetraTech.ActivityServices.Common;
 using MetraTech.Core.Services.ClientProxies;
@@ -8,11 +10,11 @@ using MetraTech.DomainModel.ProductCatalog;
 
 namespace QuotingConsoleForTesting
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Linq;
 
-  public class ListBoxLoader
+  /// <summary>
+  /// Class for service calls
+  /// </summary>
+  public class ServiceHelper
   {
     public static List<Account> GetAccounts(string gateway)
     {
@@ -45,33 +47,7 @@ namespace QuotingConsoleForTesting
 
       return accounts.Items; //[TODO]: Where type not System User?
     }
-
-    public static KeyValuePair<int, string> GetAccountListBoxItem(Account account)
-    {
-      /*
-      var tabs = "";
-      if (account.UserName.Length < 8)
-      {
-        tabs = "\t\t\t";
-      }
-      else if (account.UserName.Length < 16)
-      {
-        tabs = "\t\t";
-      }
-      else if (account.UserName.Length < 32)
-      {
-        tabs = "\t";
-      }
-      */
-      var formattedDisplayString = String.Format("{0} - {1}",
-                                                 account.UserName,
-                                              // tabs,
-                                                 account.AccountType); // [TODO] Display Usage cycle
-
-      Debug.Assert(account._AccountID != null, "Error: AccountID is null.");
-      return new KeyValuePair<int, string>(account._AccountID.Value, formattedDisplayString);
-    }
-
+    
     public static List<ProductOffering> GetProductOfferings(string gateway)
     {
       ProductOfferingServiceClient poClient = null;
@@ -104,14 +80,7 @@ namespace QuotingConsoleForTesting
 
       return pos.Items;
     }
-
-    public static KeyValuePair<int, string> GetProductOfferingListBoxItem(ProductOffering po)
-    {
-      Debug.Assert(po.ProductOfferingId != null, "Error: ProductOfferingId is null.");
-      var formattedDisplayString = String.Format("{0}", po.Name);
-      return new KeyValuePair<int, string>(po.ProductOfferingId.Value, formattedDisplayString);
-    }
-
+    
     public static List<BasePriceableItemInstance> GetPriceListsWithUdrcs(List<int> poIds)
     {
       var resultPiList = new List<BasePriceableItemInstance>();
@@ -130,15 +99,7 @@ namespace QuotingConsoleForTesting
 
       return resultPiList;
     }
-
-    public static KeyValuePair<int, string> GetPriceListItem(BasePriceableItemInstance priceableItem)
-    {
-      Debug.Assert(priceableItem.ID != null, "Error: Priceable Item Id is null.");
-
-      var formattedDisplayString = String.Format("{0}", priceableItem.Name);
-      return new KeyValuePair<int, string>(priceableItem.ID.Value, formattedDisplayString);
-    }
-
+    
     public static List<BasePriceableItemInstance> GetPIWithAllowICBs(List<int> poIds)
     {
       var resultPiList = new List<BasePriceableItemInstance>();
@@ -151,7 +112,7 @@ namespace QuotingConsoleForTesting
       {
         var priceableItems = new MTList<BasePriceableItemInstance>();
         client.GetPIInstancesForPO(new PCIdentifier(poId), ref priceableItems);
-        
+
         //var udrcPiList = priceableItems.Items.Where(pi => pi.PIKind == PriceableItemKinds.UnitDependentRecurring);
         //todo filter only PIs with allow ICBs
         resultPiList.AddRange(priceableItems.Items);
@@ -165,18 +126,18 @@ namespace QuotingConsoleForTesting
     private static WSHttpBinding GetBinding(string bindingName)
     {
       var binding = new WSHttpBinding
-                    {
-                      Name = bindingName,
-                      Security =
-                        {
-                          Mode = SecurityMode.Message,
-                          Message = {ClientCredentialType = MessageCredentialType.UserName, NegotiateServiceCredential = true, EstablishSecurityContext = true}
-                        },
-                      OpenTimeout = new TimeSpan(0, 3, 0),
-                      CloseTimeout = new TimeSpan(0, 3, 0),
-                      SendTimeout = new TimeSpan(0, 3, 0),
-                      ReceiveTimeout = new TimeSpan(0, 10, 0)
-                    };
+      {
+        Name = bindingName,
+        Security =
+        {
+          Mode = SecurityMode.Message,
+          Message = { ClientCredentialType = MessageCredentialType.UserName, NegotiateServiceCredential = true, EstablishSecurityContext = true }
+        },
+        OpenTimeout = new TimeSpan(0, 3, 0),
+        CloseTimeout = new TimeSpan(0, 3, 0),
+        SendTimeout = new TimeSpan(0, 3, 0),
+        ReceiveTimeout = new TimeSpan(0, 10, 0)
+      };
       return binding;
     }
 
@@ -189,6 +150,7 @@ namespace QuotingConsoleForTesting
       var endpoint = new EndpointAddress(uri);
       return endpoint;
     }
+
     #endregion
   }
 }

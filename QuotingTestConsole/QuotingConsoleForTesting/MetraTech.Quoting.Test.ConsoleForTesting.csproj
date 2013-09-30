@@ -80,7 +80,7 @@
     <Compile Include="ICBForm.Designer.cs">
       <DependentUpon>ICBForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListBoxLoader.cs" />
+    <Compile Include="ContentLoader.cs" />
     <Compile Include="FakeRequest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,6 +91,7 @@
       <DependentUpon>QuoteGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="QuoteInvoker.cs" />
+    <Compile Include="ServiceHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Source\MetraTech\ActivityServices\Common\MetraTech.ActivityServices.Common.csproj">

@@ -13,10 +13,13 @@ namespace QuotingConsoleForTesting
     private const string UdrcValueColumn = "UdrcValue";
     private const int DefaultUdrcValue = 30;
 
-    private QuoteRequest request;
+    private readonly QuoteRequest _request;
+    private List<BasePriceableItemInstance> _piWithIcbs;
+    private List<IndividualPrice> _icbs;
+
     public formQuoteGUI()
     {
-      request = new QuoteRequest();
+      _request = new QuoteRequest();
       InitializeComponent();
 
       gridViewUDRCs.Columns.Add(PiNameColumn, "Priceable Item");
@@ -50,7 +53,7 @@ namespace QuotingConsoleForTesting
 
     private void createQuoteToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      richTextBoxResults.Text = QuoteInvoker.InvokeCreateQuote(request).ToString();
+      richTextBoxResults.Text = QuoteInvoker.InvokeCreateQuote(_request).ToString();
     }
 
     private void SetRequest()
@@ -61,7 +64,7 @@ namespace QuotingConsoleForTesting
     private void checkBoxIsGroupSubscription_CheckedChanged(object sender, EventArgs e)
     {
       var isGroupSubscription = checkBoxIsGroupSubscription.Checked;
-      request.SubscriptionParameters.IsGroupSubscription = isGroupSubscription;
+      _request.SubscriptionParameters.IsGroupSubscription = isGroupSubscription;
       comboBoxCorporateAccount.Enabled = isGroupSubscription;
       label2.Enabled = isGroupSubscription;
     }
@@ -69,7 +72,7 @@ namespace QuotingConsoleForTesting
     private void comboBoxCorporateAccount_SelectionChanged(object sender, EventArgs e)
     {
       var selectedCorpAccItem = (KeyValuePair<int, string>)comboBoxCorporateAccount.SelectedItem;
-      request.SubscriptionParameters.CorporateAccountId = selectedCorpAccItem.Key;
+      _request.SubscriptionParameters.CorporateAccountId = selectedCorpAccItem.Key;
     }
 
     private void loadPiButton_Click(object sender, EventArgs e)
@@ -85,33 +88,30 @@ namespace QuotingConsoleForTesting
 
       //load PLs
       gridViewUDRCs.Rows.Clear();
-      foreach (var item in ListBoxLoader.GetPriceListsWithUdrcs(poIds))
+      foreach (var item in ServiceHelper.GetPriceListsWithUdrcs(poIds))
       {
         gridViewUDRCs.Rows.Add(item.Name, DefaultUdrcValue);
       }
 
       //load PIS with Allowed ICBS
-      piWithIcbs = ListBoxLoader.GetPIWithAllowICBs(poIds);
-      foreach (var item in piWithIcbs)
+      _piWithIcbs = ServiceHelper.GetPIWithAllowICBs(poIds);
+      foreach (var item in _piWithIcbs)
       {
         listBoxPOs.Items.Add(item.Name);
       }
       
     }
 
-    private List<BasePriceableItemInstance> piWithIcbs;
-    private List<IndividualPrice> icbs;
-
     private void listBoxICBs_MouseDoubleClick(object sender, MouseEventArgs e)
     {
       if ((listBoxICBs.Items.Count > 0) && (listBoxICBs.SelectedIndex >= 0))
       {
-        var selectedPI = piWithIcbs[listBoxICBs.SelectedIndex];
-        var icbForm = new ICBForm(selectedPI, icbs.Where(indPrices => indPrices.PriceableItemId == selectedPI.ID).ToList());
+        var selectedPI = _piWithIcbs[listBoxICBs.SelectedIndex];
+        var icbForm = new ICBForm(selectedPI, _icbs.Where(indPrices => indPrices.PriceableItemId == selectedPI.ID).ToList());
         if (icbForm.ShowDialog() == DialogResult.OK)
         {
-          icbs.RemoveAll(i => i.PriceableItemId == selectedPI.ID);
-          icbs.AddRange(icbForm.icbsLocal);
+          _icbs.RemoveAll(i => i.PriceableItemId == selectedPI.ID);
+          _icbs.AddRange(icbForm.icbsLocal);
         }
       }
     }
@@ -123,16 +123,16 @@ namespace QuotingConsoleForTesting
       SetGateway(gateway);
 
       //load Accounts
-      foreach (var item in ListBoxLoader.GetAccounts(gateway))
+      foreach (var item in ServiceHelper.GetAccounts(gateway))
       {
-        listBoxAccounts.Items.Add(ListBoxLoader.GetAccountListBoxItem(item));
-        comboBoxCorporateAccount.Items.Add(ListBoxLoader.GetAccountListBoxItem(item));
+        listBoxAccounts.Items.Add(ContentLoader.GetAccountListBoxItem(item));
+        comboBoxCorporateAccount.Items.Add(ContentLoader.GetAccountListBoxItem(item));
       }
 
       //load POs
-      foreach (var item in ListBoxLoader.GetProductOfferings(gateway))
+      foreach (var item in ServiceHelper.GetProductOfferings(gateway))
       {
-        listBoxPOs.Items.Add(ListBoxLoader.GetProductOfferingListBoxItem(item));
+        listBoxPOs.Items.Add(ContentLoader.GetProductOfferingListBoxItem(item));
       }
     }
 

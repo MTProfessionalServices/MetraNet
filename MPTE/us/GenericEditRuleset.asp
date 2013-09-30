@@ -446,11 +446,14 @@ sub Save(istrIndex)
   
   '------------------------------------------------------------------
   ' loop through all the actions and write them out.  Actions are required and
-  ' cannot be empty, so write all of them.  If one is empty, use the default value
+  ' cannot be empty, so write all of them.  If one is empty, use the default value.
+  ' ESR-6319 Don't write an empty, non-required enum action (because the
+  ' default value of -1 will cause an error when the user clicks on Save).
   '------------------------------------------------------------------
   for each objActionData in mobjTRReader.ActionDatas
 
-    if not ucase(objActionData.ColumnType) = "LABEL" then
+    if (mdctValues.exists(objActionData.PropertyName & i) or objActionData.Required) _
+        and (not ucase(objActionData.ColumnType) = "LABEL") then
     
      set objRSAction = Server.CreateObject("MTAssignmentAction.MTAssignmentAction.1")
      objRSAction.PropertyName = objActionData.PropertyName  

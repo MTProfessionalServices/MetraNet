@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics;
-using VertexServerTest.Properties;
+using VertexServer.Test.Properties;
 using VertexSocketService;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace VertexServerTest
+namespace VertexServer.Test
 {
   [TestClass]
   [Ignore]

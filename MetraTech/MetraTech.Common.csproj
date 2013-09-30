@@ -78,11 +78,12 @@
     <Compile Include="BaseProperties.cs" />
     <Compile Include="CommandLineParser.cs" />
     <Compile Include="COMObject.cs" />
+    <Compile Include="ILogger.cs" />
     <Compile Include="InstalledServicedComponent.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Kernel32.cs" />
-    <Compile Include="Log.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="MTComSmartPtr.cs" />
     <Compile Include="MTStringBuilder.cs" />
     <Compile Include="PCBase.cs" />

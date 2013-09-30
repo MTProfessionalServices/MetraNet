@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Globalization;
 using System.ServiceModel;
 using MetraTech.ActivityServices.Common;
 using MetraTech.Core.Services.ClientProxies;
@@ -10,19 +11,21 @@ namespace QuotingConsoleForTesting
   using System;
   using System.Collections.Generic;
   using System.Linq;
-  using System.Text;
 
   public class ListBoxLoader
   {
-    public static List<Account> GetAccounts()
+    public static List<Account> GetAccounts(string gateway)
     {
       AccountServiceClient acs = null;
       var accounts = new MTList<Account>();
       try
       {
-        acs = new AccountServiceClient();
-        acs.ClientCredentials.UserName.UserName = "su";
-        acs.ClientCredentials.UserName.Password = "su123";
+        acs = new AccountServiceClient();//GetBinding("WSHttpBinding_IAccountService"), GetEndpoint(gateway, "AccountService"));
+        if (acs.ClientCredentials != null)
+        {
+          acs.ClientCredentials.UserName.UserName = "su";
+          acs.ClientCredentials.UserName.Password = "su123";
+        }
         acs.GetAccountList(DateTime.Now, ref accounts, false);
       }
       finally
@@ -68,24 +71,21 @@ namespace QuotingConsoleForTesting
       Debug.Assert(account._AccountID != null, "Error: AccountID is null.");
       return new KeyValuePair<int, string>(account._AccountID.Value, formattedDisplayString);
     }
-    
-    public static List<ProductOffering> GetProductOfferings()
+
+    public static List<ProductOffering> GetProductOfferings(string gateway)
     {
       ProductOfferingServiceClient poClient = null;
       var pos = new MTList<ProductOffering>();
 
       try
       {
-        poClient = new ProductOfferingServiceClient();
-        poClient.ClientCredentials.UserName.UserName = "su";
-        poClient.ClientCredentials.UserName.Password = "su123";
+        poClient = new ProductOfferingServiceClient(GetBinding("WSHttpBinding_IProductOfferingService"), GetEndpoint(gateway, "ProductOfferingService"));
+        if (poClient.ClientCredentials != null)
+        {
+          poClient.ClientCredentials.UserName.UserName = "su";
+          poClient.ClientCredentials.UserName.Password = "su123";
+        }
         poClient.GetProductOfferings(ref pos);
-      }
-      catch (FaultException<MASBasicFaultDetail> fe)
-      {
-        // [TODO] Exceptions handling
-        // pos.Items.Add(new ProductOffering {Name = String.Format("Exception was occured '{0}'", fe.Message)});
-        throw;
       }
       finally
       {
@@ -159,5 +159,36 @@ namespace QuotingConsoleForTesting
 
       return resultPiList;
     }
+
+    #region Prepare Client for Services
+
+    private static WSHttpBinding GetBinding(string bindingName)
+    {
+      var binding = new WSHttpBinding
+                    {
+                      Name = bindingName,
+                      Security =
+                        {
+                          Mode = SecurityMode.Message,
+                          Message = {ClientCredentialType = MessageCredentialType.UserName, NegotiateServiceCredential = true, EstablishSecurityContext = true}
+                        },
+                      OpenTimeout = new TimeSpan(0, 3, 0),
+                      CloseTimeout = new TimeSpan(0, 3, 0),
+                      SendTimeout = new TimeSpan(0, 3, 0),
+                      ReceiveTimeout = new TimeSpan(0, 10, 0)
+                    };
+      return binding;
+    }
+
+    private static EndpointAddress GetEndpoint(string gateway, string serviceName)
+    {
+      var uri = new Uri(String.Format(CultureInfo.InvariantCulture,
+                                      "http://{0}/{1}",
+                                      gateway,
+                                      serviceName));
+      var endpoint = new EndpointAddress(uri);
+      return endpoint;
+    }
+    #endregion
   }
 }

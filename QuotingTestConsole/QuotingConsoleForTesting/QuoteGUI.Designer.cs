@@ -56,6 +56,7 @@
       this.menuStrip1 = new System.Windows.Forms.MenuStrip();
       this.createQuoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.btnRefresh = new System.Windows.Forms.Button();
       this.groupBoxMetraNetServer.SuspendLayout();
       this.groupBoxAccounts.SuspendLayout();
       this.groupBoxPO.SuspendLayout();
@@ -69,10 +70,10 @@
       // 
       // groupBoxMetraNetServer
       // 
+      this.groupBoxMetraNetServer.Controls.Add(this.btnRefresh);
       this.groupBoxMetraNetServer.Controls.Add(this.label1);
       this.groupBoxMetraNetServer.Controls.Add(this.textBoxMetraNetServer);
       this.groupBoxMetraNetServer.Dock = System.Windows.Forms.DockStyle.Top;
-      this.groupBoxMetraNetServer.Enabled = false;
       this.groupBoxMetraNetServer.Location = new System.Drawing.Point(0, 24);
       this.groupBoxMetraNetServer.Name = "groupBoxMetraNetServer";
       this.groupBoxMetraNetServer.Size = new System.Drawing.Size(826, 40);
@@ -93,7 +94,7 @@
       // 
       this.textBoxMetraNetServer.Location = new System.Drawing.Point(98, 12);
       this.textBoxMetraNetServer.Name = "textBoxMetraNetServer";
-      this.textBoxMetraNetServer.Size = new System.Drawing.Size(130, 20);
+      this.textBoxMetraNetServer.Size = new System.Drawing.Size(212, 20);
       this.textBoxMetraNetServer.TabIndex = 0;
       this.textBoxMetraNetServer.Text = "localhost";
       // 
@@ -354,6 +355,16 @@
       this.exitToolStripMenuItem.Text = "Exit";
       this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
       // 
+      // btnRefresh
+      // 
+      this.btnRefresh.Location = new System.Drawing.Point(328, 11);
+      this.btnRefresh.Name = "btnRefresh";
+      this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+      this.btnRefresh.TabIndex = 2;
+      this.btnRefresh.Text = "Refresh";
+      this.btnRefresh.UseVisualStyleBackColor = true;
+      this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+      // 
       // formQuoteGUI
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -417,5 +428,6 @@
     private System.Windows.Forms.CheckBox checkBoxPDF;
     private System.Windows.Forms.Button loadPiButton;
     private System.Windows.Forms.DataGridView gridViewUDRCs;
+    private System.Windows.Forms.Button btnRefresh;
   }
 }

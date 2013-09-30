@@ -36,19 +36,16 @@ namespace QuotingConsoleForTesting
       listBoxPOs.Items.Clear();
       dateTimePickerStartDate.Value = DateTime.Today.AddDays(1);
       dateTimePickerEndDate.Value = DateTime.Today.AddDays(1);
+      var gateway = GetGatewy();
+      RefreshServices(gateway);
+    }
 
-      //load Accounts
-      foreach (var item in ListBoxLoader.GetAccounts())
-      {
-        listBoxAccounts.Items.Add(ListBoxLoader.GetAccountListBoxItem(item));
-        comboBoxCorporateAccount.Items.Add(ListBoxLoader.GetAccountListBoxItem(item));
-      }
-
-      //load POs
-      foreach (var item in ListBoxLoader.GetProductOfferings())
-      {
-        listBoxPOs.Items.Add(ListBoxLoader.GetProductOfferingListBoxItem(item));
-      }
+    private void btnRefresh_Click(object sender, EventArgs e)
+    {
+      var gateway = "localhost";
+      if (!string.IsNullOrEmpty(textBoxMetraNetServer.Text))
+        gateway = textBoxMetraNetServer.Text;
+      RefreshServices(gateway);
     }
 
     private void createQuoteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -118,5 +115,37 @@ namespace QuotingConsoleForTesting
         }
       }
     }
+
+    #region Additional methods
+
+    private void RefreshServices(string gateway)
+    {
+      SetGateway(gateway);
+
+      //load Accounts
+      foreach (var item in ListBoxLoader.GetAccounts(gateway))
+      {
+        listBoxAccounts.Items.Add(ListBoxLoader.GetAccountListBoxItem(item));
+        comboBoxCorporateAccount.Items.Add(ListBoxLoader.GetAccountListBoxItem(item));
+      }
+
+      //load POs
+      foreach (var item in ListBoxLoader.GetProductOfferings(gateway))
+      {
+        listBoxPOs.Items.Add(ListBoxLoader.GetProductOfferingListBoxItem(item));
+      }
+    }
+
+    private static string GetGatewy()
+    {
+      return "10.200.89.242:8010";
+    }
+
+    private static void SetGateway(string gateway)
+    {
+      //do something
+    }
+
+    #endregion
   }
 }

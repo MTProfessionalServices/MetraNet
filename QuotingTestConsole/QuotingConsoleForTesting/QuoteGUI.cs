@@ -55,9 +55,7 @@ namespace QuotingConsoleForTesting
 
     private void btnRefresh_Click(object sender, EventArgs e)
     {
-      var gateway = "localhost";
-      if (!string.IsNullOrEmpty(textBoxMetraNetServer.Text))
-        gateway = textBoxMetraNetServer.Text;
+      var gateway = string.IsNullOrEmpty(textBoxMetraNetServer.Text) ? GetGatewy() : textBoxMetraNetServer.Text;
       RefreshServices(gateway);
     }
 
@@ -205,7 +203,7 @@ namespace QuotingConsoleForTesting
 
     private static string GetGatewy()
     {
-      return "10.200.89.242:8010";
+      return "localhost:8001";
     }
 
     private static void SetGateway(string gateway)

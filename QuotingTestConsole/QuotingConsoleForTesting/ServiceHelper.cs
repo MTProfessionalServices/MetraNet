@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.ServiceModel;
+using System.ServiceModel.Security;
+using System.Text;
 using MetraTech.ActivityServices.Common;
 using MetraTech.Core.Services.ClientProxies;
 using MetraTech.DomainModel.BaseTypes;
@@ -22,12 +24,8 @@ namespace QuotingConsoleForTesting
       var accounts = new MTList<Account>();
       try
       {
-        acs = new AccountServiceClient();//GetBinding("WSHttpBinding_IAccountService"), GetEndpoint(gateway, "AccountService"));
-        if (acs.ClientCredentials != null)
-        {
-          acs.ClientCredentials.UserName.UserName = "su";
-          acs.ClientCredentials.UserName.Password = "su123";
-        }
+        acs = new AccountServiceClient(GetBinding("WSHttpBinding_IAccountService"), GetEndpoint(gateway, "AccountService"));
+        SetCredantional(acs.ClientCredentials);
         acs.GetAccountList(DateTime.Now, ref accounts, false);
       }
       finally
@@ -56,11 +54,7 @@ namespace QuotingConsoleForTesting
       try
       {
         poClient = new ProductOfferingServiceClient();
-        if (poClient.ClientCredentials != null)
-        {
-          poClient.ClientCredentials.UserName.UserName = "su";
-          poClient.ClientCredentials.UserName.Password = "su123";
-        }
+        SetCredantional(poClient.ClientCredentials);
         poClient.GetProductOfferings(ref pos);
       }
       finally
@@ -122,14 +116,20 @@ namespace QuotingConsoleForTesting
 
     private static WSHttpBinding GetBinding(string bindingName)
     {
-      var binding = new WSHttpBinding
+      var binding = new WSHttpBinding(bindingName)
       {
-        Name = bindingName,
         Security =
         {
           Mode = SecurityMode.Message,
-          Message = { ClientCredentialType = MessageCredentialType.UserName, NegotiateServiceCredential = true, EstablishSecurityContext = true }
+          Message = { ClientCredentialType = MessageCredentialType.UserName, NegotiateServiceCredential = true, EstablishSecurityContext = true, AlgorithmSuite = SecurityAlgorithmSuite.Default}
         },
+        BypassProxyOnLocal = false,
+        TransactionFlow = false,
+        HostNameComparisonMode = HostNameComparisonMode.StrongWildcard,
+        MessageEncoding = WSMessageEncoding.Text,
+        TextEncoding = Encoding.UTF8,
+        UseDefaultWebProxy = true,
+        AllowCookies = false,
         OpenTimeout = new TimeSpan(0, 3, 0),
         CloseTimeout = new TimeSpan(0, 3, 0),
         SendTimeout = new TimeSpan(0, 3, 0),
@@ -141,11 +141,21 @@ namespace QuotingConsoleForTesting
     private static EndpointAddress GetEndpoint(string gateway, string serviceName)
     {
       var uri = new Uri(String.Format(CultureInfo.InvariantCulture,
-                                      "http://{0}/{1}",
+                                      @"http://{0}/{1}",
                                       gateway,
                                       serviceName));
-      var endpoint = new EndpointAddress(uri);
+      var identity = new DnsEndpointIdentity("ActivityServicesCert");
+      var endpoint = new EndpointAddress(uri, identity);
       return endpoint;
+    }
+
+    private static void SetCredantional(System.ServiceModel.Description.ClientCredentials clientCredentials)
+    {
+      if (clientCredentials == null)
+        throw new InvalidOperationException("Client credentials is null");
+
+      clientCredentials.UserName.UserName = "su";
+      clientCredentials.UserName.Password = "su123";
     }
 
     #endregion

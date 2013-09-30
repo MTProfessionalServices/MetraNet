@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{DABA4CDB-2CD3-466C-AD17-F24685BDE517}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>QuotingConsoleForTesting</RootNamespace>
     <AssemblyName>QuotingConsoleForTesting</AssemblyName>
@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MetraTech.Common">
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Common.dll</HintPath>
@@ -54,7 +57,9 @@
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DomainModel.BaseTypes.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="MetraTech.DomainModel.ProductCatalog.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL" />
+    <Reference Include="MetraTech.DomainModel.ProductCatalog.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="MetraTech.Quoting">
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Quoting.dll</HintPath>
       <Private>False</Private>
@@ -68,6 +73,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
@@ -107,7 +113,7 @@
     <ProjectReference Include="..\..\..\Source\MetraTech\Core\Services\MetraTech.Core.Services.csproj">
       <Project>{65B81F93-929C-4AE5-B4E7-18DA882E1DA5}</Project>
       <Name>MetraTech.Core.Services</Name>
-      <Private>True</Private>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Source\MetraTech\DataAccess\MetraTech.DataAccess.csproj">
       <Project>{1B40F4E4-8DDC-43E0-BE45-959BEE94422F}</Project>

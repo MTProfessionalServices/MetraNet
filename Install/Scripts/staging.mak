@@ -249,6 +249,8 @@ BINARIES = \
   MetraTech.ActivityServices.Services.Common.pdb \
   MetraTech.Agreements.dll \
   MetraTech.Agreements.pdb \
+  MetraTech.Application.dll \
+  MetraTech.Application.pdb \
   MetraTech.Approvals.dll \
   MetraTech.Approvals.pdb \
   MetraTech.AR.eConnectCOMShim.dll \

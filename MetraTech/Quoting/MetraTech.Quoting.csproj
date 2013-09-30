@@ -55,12 +55,12 @@
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\GenericCollection.interop.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Core.Interface, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="Core.Interface">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Core.Interface.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Core.Quoting.Entity, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="Core.Quoting.Entity">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Core.Quoting.Entity.dll</HintPath>
       <Private>False</Private>
@@ -70,24 +70,9 @@
       <Private>False</Private>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MeterRowset.interop.dll</HintPath>
     </Reference>
-    <Reference Include="MetraTech.Debug.Diagnostics, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+    <Reference Include="MetraTech.DomainModel.ProductCatalog.Generated">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Debug.Diagnostics.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MetraTech.Pipeline">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Pipeline.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MetraTech.UI.Tools, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.UI.Tools.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MetraTech.UsageServer">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.UsageServer.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DomainModel.ProductCatalog.Generated.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -103,13 +88,13 @@
       <Private>False</Private>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTAuth.interop.dll</HintPath>
     </Reference>
-    <Reference Include="MTBillingReRun.interop, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+    <Reference Include="MTBillingReRun.interop">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTBillingReRun.interop.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="MTProductCatalog.interop, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+    <Reference Include="MTProductCatalog.interop">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTProductCatalog.interop.dll</HintPath>
@@ -121,13 +106,13 @@
       <SpecificVersion>false</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MTServerAccess.interop.dll</HintPath>
     </Reference>
-    <Reference Include="QueryAdapter.interop, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+    <Reference Include="QueryAdapter.interop">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\QueryAdapter.interop.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="RCD.interop, Version=7.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+    <Reference Include="RCD.interop">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\RCD.interop.dll</HintPath>
@@ -187,6 +172,15 @@
     <Compile Include="..\..\build\versionInfo.cs">
       <Link>VersionInfo.cs</Link>
     </Compile>
+    <Compile Include="Charge\BaseCharge.cs" />
+    <Compile Include="Charge\ICharge.cs" />
+    <Compile Include="Charge\NonReccuringCharge.cs" />
+    <Compile Include="Charge\ReccurringCharge.cs" />
+    <Compile Include="IChargeMetering.cs" />
+    <Compile Include="IQuotingImplementation.cs" />
+    <Compile Include="ChargeMetering.cs" />
+    <Compile Include="PropertyName.cs" />
+    <Compile Include="QuoteException.cs" />
     <Compile Include="QuotePDFReport.cs" />
     <Compile Include="QuoteXmlReport.cs" />
     <Compile Include="Configuration.cs" />
@@ -233,6 +227,10 @@
       <Name>MetraTech.DataAccess</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\Debug\Diagnostics\MetraTech.Debug.Diagnostics.csproj">
+      <Project>{DFD0BE07-801F-4535-B742-FED22E50FA0E}</Project>
+      <Name>MetraTech.Debug.Diagnostics</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DomainModel\BaseTypes\MetraTech.DomainModel.BaseTypes.csproj">
       <Project>{433B0483-4990-476C-BA07-FABF884D12CB}</Project>
       <Name>MetraTech.DomainModel.BaseTypes</Name>
@@ -252,6 +250,10 @@
       <Project>{9C9C685C-CBF8-428F-8C34-98702FF13726}</Project>
       <Name>MetraTech.Domain</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Pipeline\MetraTech.Pipeline.csproj">
+      <Project>{A5B6D6A0-C62E-481F-BF26-D005B1573934}</Project>
+      <Name>MetraTech.Pipeline</Name>
     </ProjectReference>
     <ProjectReference Include="..\Pipeline\ReRun\MetraTech.Pipeline.Rerun.csproj">
       <Project>{BC2DC75E-9076-45AE-B592-7EBE2AB11BA7}</Project>
@@ -295,12 +297,21 @@
       <Project>{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}</Project>
       <Name>MetraTech.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UI\Tools\MetraTech.UI.Tools.csproj">
+      <Project>{8C1A9D8B-FB15-43AE-A7C7-62AD8AFB65C2}</Project>
+      <Name>MetraTech.UI.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UsageServer\MetraTech.UsageServer.csproj">
+      <Project>{2AE4B0CA-70B7-4F5E-AF71-0191CBC3C8AC}</Project>
+      <Name>MetraTech.UsageServer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Xml\MetraTech.Xml.csproj">
       <Project>{7D9556DF-CB87-458A-B66B-F5DD5B7C384E}</Project>
       <Name>MetraTech.Xml</Name>
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

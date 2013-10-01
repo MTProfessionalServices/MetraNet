@@ -39,6 +39,14 @@ namespace MetraTech.Domain.Quoting
     [Serializable]
     public class QuoteResponseArtefacts
     {
+        #region QuoteIdentifier
+
+        [MTDataMember(Description = "Quote identifier", Length = 40)]
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        public string QuoteIdentifier { get; private set; }
+
+        #endregion QuoteIdentifier
+
         #region IdQuote
 
         /// <summary>
@@ -50,6 +58,14 @@ namespace MetraTech.Domain.Quoting
         public int IdQuote { get; set; }
 
         #endregion IdQuote
+
+        #region EffectiveDate
+
+        [MTDataMember(Description = "Quote effective date (got from request)", Length = 40)]
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        public DateTime EffectiveDate { get; private set; }
+
+        #endregion
 
         #region IdUsageInterval
 
@@ -90,8 +106,17 @@ namespace MetraTech.Domain.Quoting
             ChargesCollection = new List<ChargeData>();
         }
 
-        public QuoteResponseArtefacts(int idQuote)
-            : this()
+        public QuoteResponseArtefacts(QuoteRequest request)
+        {
+            QuoteIdentifier = request.QuoteIdentifier;
+            EffectiveDate = request.EffectiveDate;
+
+            Subscription = new SubscriptionResponseData(request);
+            ChargesCollection = new List<ChargeData>();
+        }
+
+        public QuoteResponseArtefacts(QuoteRequest request, int idQuote)
+            : this(request)
         {
             IdQuote = idQuote;
         }

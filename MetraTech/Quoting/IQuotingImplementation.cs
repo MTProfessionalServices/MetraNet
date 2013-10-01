@@ -24,6 +24,8 @@
 // -----------------------------------------------------------------------
 
 
+using System.Collections.Generic;
+
 namespace MetraTech.Quoting
 {
     using MetraTech.Domain.Quoting;
@@ -55,6 +57,7 @@ namespace MetraTech.Quoting
         /// The method uses in fuctional tests and can be used by integrators.
         /// </summary>
         /// <param name="quoteArtefact"></param>
-        void Cleanup(QuoteResponseArtefacts quoteArtefact);
+        /// <returns>Logging collection info which can contains posible suppressed exceptions. The exception is suppressed due to we need perform cleanup for all subscriptions</returns>
+        List<QuoteLogRecord> Cleanup(QuoteResponseArtefacts quoteArtefact);
     }
 }

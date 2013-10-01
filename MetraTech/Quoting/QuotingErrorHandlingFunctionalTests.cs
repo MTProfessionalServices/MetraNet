@@ -135,7 +135,7 @@ namespace MetraTech.Quoting.Test
             request.EffectiveEndDate = MetraTime.Now;
             request.Localization = "en-US";
 
-            var erroredResponse = new QuoteResponse();
+            QuoteResponse erroredResponse = null;
 
             try
             {

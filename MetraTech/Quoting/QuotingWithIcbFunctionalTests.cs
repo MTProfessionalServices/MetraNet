@@ -411,7 +411,7 @@ namespace MetraTech.Quoting.Test
 
             #endregion
 
-            var erroredResponse = new QuoteResponse();
+            QuoteResponse erroredResponse = null;
 
             try
             {
@@ -547,7 +547,7 @@ namespace MetraTech.Quoting.Test
 
             #endregion
 
-            var response1 = new QuoteResponse();
+            QuoteResponse response1 = null;
             bool clientInvoked = false;
             try
             {
@@ -593,7 +593,7 @@ namespace MetraTech.Quoting.Test
 
             #endregion
 
-            var response2 = new QuoteResponse();
+            QuoteResponse response2 = null;
 
             clientInvoked = false;
             try
@@ -846,12 +846,11 @@ namespace MetraTech.Quoting.Test
             #endregion
 
             // QuoteResponse response = QuotingTestScenarios.CreateQuoteAndVerifyResults(request,0,"0",0,0,0);
-            var erroredResponse = new QuoteResponse();
+            QuoteResponse erroredResponse = null;
 
             try
             {
-                //#warning Does it correct that Quoute is not created in the test?
-                //erroredResponse = SharedTestCodeQuoting.InvokeCreateQuote(request);
+                erroredResponse = SharedTestCodeQuoting.InvokeCreateQuote(request);
             }
             catch (Exception ex)
             {

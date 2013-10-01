@@ -130,7 +130,8 @@ namespace QuotingConsoleForTesting
         OpenTimeout = new TimeSpan(0, 3, 0),
         CloseTimeout = new TimeSpan(0, 3, 0),
         SendTimeout = new TimeSpan(0, 3, 0),
-        ReceiveTimeout = new TimeSpan(0, 10, 0)
+        ReceiveTimeout = new TimeSpan(0, 10, 0),
+        MaxReceivedMessageSize = int.MaxValue
       };
       return binding;
     }

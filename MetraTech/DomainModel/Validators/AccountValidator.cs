@@ -431,9 +431,17 @@ namespace MetraTech.DomainModel.Validators
       UsageCycleType? usageCycleType = ((InternalView)account.GetInternalView()).UsageCycleType;
       if (!usageCycleType.HasValue)
       {
-        validationErrors.Add(String.Format(MISSING_USAGE_CYCLE_TYPE,
-                                           account.UserName));
-        return false;
+        AccountTypeCollection mAccountTypeCollection = new AccountTypeCollection();
+        var accountType = mAccountTypeCollection.GetAccountType(account.AccountType);
+
+        if ((accountType.CanBePayer || accountType.CanSubscribe || accountType.CanParticipateInGSub))
+        {
+          validationErrors.Add(String.Format(MISSING_USAGE_CYCLE_TYPE,
+                                             account.UserName));
+          return false;
+        }
+
+        return true;
       }
 
       switch (usageCycleType)

@@ -44,7 +44,7 @@ namespace MetraTech.Quoting.Charge
 
         public abstract ChargeType ChargeType { get; }
 
-        public abstract ChargeData Add(IMTServicedConnection transacConnection, QuoteRequest quoteRequest, string batchId, int usageInterval);
+        public abstract ChargeData Add(QuoteRequest quoteRequest, string batchId, int usageInterval);
 
     }
 }

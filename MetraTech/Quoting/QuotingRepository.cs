@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Transactions;
 using MetraTech.ActivityServices.Common;
@@ -167,107 +168,116 @@ namespace MetraTech.Quoting
         RepositoryAccess.Instance.Initialize();
 
         var quoteHeader = new QuoteHeader();
-        try
-        {
-          using (var scope = new TransactionScope(TransactionScopeOption.Required))
+          try
           {
-            #region Save quote header
-
-            quoteHeader.CustomDescription = quoteRequest.QuoteDescription;
-            quoteHeader.CustomIdentifier = quoteRequest.QuoteIdentifier;
-            quoteHeader.StartDate = quoteRequest.EffectiveDate;
-            quoteHeader.EndDate = quoteRequest.EffectiveEndDate;
-
-            if (sessionContext != null)
-              quoteHeader.UID = sessionContext.AccountID;
-
-            quoteHeader.Save();
-
-            #endregion
-
-            #region Save accounts for quote
-
-            foreach (
-              var accountForQuoteBME in
-                quoteRequest.Accounts.Select(account => new AccountForQuote {AccountID = account}))
-            {
-              accountForQuoteBME.QuoteHeader = quoteHeader;
-              accountForQuoteBME.Save();
-            }
-
-            #endregion
-
-            #region Save product offering
-
-            var poOrder = 0;
-            foreach (var POforQuoteBME in quoteRequest.ProductOfferings.Select(po => new POforQuote {POID = po}))
-            {
-              POforQuoteBME.QuoteHeader = quoteHeader;
-              POforQuoteBME.Order = poOrder++;
-              POforQuoteBME.Save();
-
-              if (quoteRequest.SubscriptionParameters.UDRCValues.ContainsKey(POforQuoteBME.POID.ToString()))
+              using (var scope = new TransactionScope(TransactionScopeOption.Required))
               {
+                  #region Save quote header
 
-                foreach (var UDRCValue in quoteRequest.SubscriptionParameters.UDRCValues[POforQuoteBME.POID.ToString()])
-                {
-                  var udrcValuesForQuote = new UDRCForQuoting();
-                  udrcValuesForQuote.CreationDate = MetraTime.Now;
-                  udrcValuesForQuote.StartDate = UDRCValue.StartDate;
-                  udrcValuesForQuote.EndDate = UDRCValue.EndDate;
-                  udrcValuesForQuote.POforQuote = POforQuoteBME;
-                  udrcValuesForQuote.Value = UDRCValue.Value;
-                  udrcValuesForQuote.PI_Id = UDRCValue.UDRC_Id;
+                  quoteHeader.CustomDescription = quoteRequest.QuoteDescription;
+                  quoteHeader.CustomIdentifier = quoteRequest.QuoteIdentifier;
+                  quoteHeader.StartDate = quoteRequest.EffectiveDate;
+                  quoteHeader.EndDate = quoteRequest.EffectiveEndDate;
 
-                  udrcValuesForQuote.Save();
-                }
+                  if (sessionContext != null)
+                      quoteHeader.UID = sessionContext.AccountID;
+
+                  quoteHeader.Save();
+
+                  #endregion
+
+                  #region Save accounts for quote
+
+                  foreach (
+                      var accountForQuoteBME in
+                          quoteRequest.Accounts.Select(account => new AccountForQuote {AccountID = account}))
+                  {
+                      accountForQuoteBME.QuoteHeader = quoteHeader;
+                      accountForQuoteBME.Save();
+                  }
+
+                  #endregion
+
+                  #region Save product offering
+
+                  var poOrder = 0;
+                  foreach (var POforQuoteBME in quoteRequest.ProductOfferings.Select(po => new POforQuote {POID = po}))
+                  {
+                      POforQuoteBME.QuoteHeader = quoteHeader;
+                      POforQuoteBME.Order = poOrder++;
+                      POforQuoteBME.Save();
+
+                      if (quoteRequest.SubscriptionParameters.UDRCValues.ContainsKey(POforQuoteBME.POID.ToString()))
+                      {
+
+                          foreach (
+                              var UDRCValue in
+                                  quoteRequest.SubscriptionParameters.UDRCValues[POforQuoteBME.POID.ToString()])
+                          {
+                              var udrcValuesForQuote = new UDRCForQuoting();
+                              udrcValuesForQuote.CreationDate = MetraTime.Now;
+                              udrcValuesForQuote.StartDate = UDRCValue.StartDate;
+                              udrcValuesForQuote.EndDate = UDRCValue.EndDate;
+                              udrcValuesForQuote.POforQuote = POforQuoteBME;
+                              udrcValuesForQuote.Value = UDRCValue.Value;
+                              udrcValuesForQuote.PI_Id = UDRCValue.UDRC_Id;
+
+                              udrcValuesForQuote.Save();
+                          }
+                      }
+                  }
+
+                  #endregion
+
+                  #region Save quote content
+
+                  var quoteContent = new QuoteContent
+                      {
+                          Status = 1,
+                          QuoteHeader = quoteHeader
+                      };
+                  quoteContent.Save();
+
+                  #endregion
+
+                  #region Save ICB prices
+
+                  using (
+                      var connection = ConnectionBase.GetDbConnection(new DataAccess.ConnectionInfo("NetMeter"), false))
+                  using (var dbContext = new MetraNetContext(connection))
+                  {
+                      foreach (var price in quoteRequest.IcbPrices)
+                      {
+                          var qip = new QuoteIndividualPrice();
+                          qip.Id = Guid.NewGuid();
+                          qip.QuoteId = quoteHeader.QuoteID.GetValueOrDefault();
+                          qip.ProductOfferingId = price.ProductOfferingId;
+                          qip.PriceableItemId = price.PriceableItemId;
+                          qip.CurrentChargeType = price.CurrentChargeType;
+                          qip.ChargesRatesXml = price.ChargesRates.Serialize();
+                          dbContext.QuoteIndividualPrices.Add(qip);
+                      }
+                      dbContext.SaveChanges();
+                  }
+
+                  #endregion
+
+                  scope.Complete();
               }
-            }
 
-            #endregion
-
-            #region Save quote content
-
-            var quoteContent = new QuoteContent
-              {
-                Status = 1,
-                QuoteHeader = quoteHeader
-              };
-            quoteContent.Save();
-
-            #endregion
-
-            #region Save ICB prices
-              
-            using (var connection = ConnectionBase.GetDbConnection(new DataAccess.ConnectionInfo("NetMeter"), false))
-            using (var dbContext = new MetraNetContext(connection))
-            {
-                foreach (var price in quoteRequest.IcbPrices)
-                {
-                    var qip = new QuoteIndividualPrice();
-                    qip.Id = Guid.NewGuid();
-                    qip.QuoteId = quoteHeader.QuoteID.GetValueOrDefault();
-                    qip.ProductOfferingId = price.ProductOfferingId;
-                    qip.CurrentChargeType = price.CurrentChargeType;
-                    qip.ChargesRatesXml = price.ChargesRates.Serialize();
-                    dbContext.QuoteIndividualPrices.Add(qip);
-                }
-                dbContext.SaveChanges();
-            }
-
-              #endregion
-
-            scope.Complete();
+          }
+          catch (DbEntityValidationException e)
+          {
+              mLogger.LogException("Error save Quote header", e);
+              throw;
+          }
+          catch (Exception ex)
+          {
+              mLogger.LogException("Error save Quote header", ex);
+              throw;
           }
 
-        }
-        catch (Exception ex)
-        {
-          mLogger.LogException("Error save Quote header", ex);
-          throw;
-        }
-
-        return quoteHeader;
+          return quoteHeader;
       }
     }
 

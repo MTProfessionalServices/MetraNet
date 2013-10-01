@@ -60,16 +60,16 @@ namespace MetraTech.Quoting
 
     public ILogger Log { get; private set; }
 
-    public IList<ChargeData> AddCharges(IMTServicedConnection transacConnection, QuoteRequest quoteRequest)
+    public IList<ChargeData> AddCharges(QuoteRequest quoteRequest)
     {
       IList<ChargeData> chargeList = new List<ChargeData>();
       int usageInterval = GetUsageInterval(quoteRequest);
 
       foreach (ICharge charge in _charges)
       {
+          //TODO: Maybe _rowSet.InitSDK() can be moved to constructor to improve the performance
         _rowSet.InitSDK(_config.RecurringChargeServerToMeterTo);
-        ChargeData chargeData = charge.Add(transacConnection
-                                        , quoteRequest
+        ChargeData chargeData = charge.Add(quoteRequest
                                         , _rowSet.GenerateBatchID()
                                         , usageInterval);
         MeterRecodrs(chargeData);
@@ -233,7 +233,7 @@ namespace MetraTech.Quoting
         pipeline.ResumeAllProcessing();
       }
 
-      Log.LogDebug("Completed backing out batches associated with this quote");
+      Log.LogDebug("Completed backing out batches associated with the quote");
 
     }
 
@@ -272,8 +272,7 @@ namespace MetraTech.Quoting
 
       using (IMTServicedConnection conn = ConnectionManager.CreateConnection())
       {
-        using (
-            IMTAdapterStatement stmt = conn.CreateAdapterStatement(_config.QuotingQueryFolder,
+        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(_config.QuotingQueryFolder,
                                                                    "__GET_PIPELINE_ERRORS_FOR_BATCH__"))
         {
           stmt.AddParam("%%STRING_BATCH_ID%%", batchIdEncoded);

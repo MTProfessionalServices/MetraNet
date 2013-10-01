@@ -95,10 +95,7 @@ namespace MetraTech.Quoting.Test.ConsoleForTesting
       request.EffectiveEndDate = effectiveEndDate;
       request.IcbPrices = icbPrices;
 
-      var response = new QuoteResponse();
-      
-      var quotingRepository = new QuotingRepository();
-      //var quoteHeaderID = quotingRepository.CreateQuote(request);
+      var response = new QuoteResponse(request);
 
       //Prepare request
       

@@ -30,13 +30,13 @@ using MetraTech.Domain.Quoting;
 
 namespace MetraTech.Quoting.Charge
 {
-   
+
     /// <summary>
     ///  Recurring charges for Quote
     /// </summary>
     public class ReccurringCharge : BaseCharge
     {
-        public ReccurringCharge(QuotingConfiguration configuration, ILogger log) 
+        public ReccurringCharge(QuotingConfiguration configuration, ILogger log)
             : base(configuration, log)
         {
         }
@@ -46,31 +46,30 @@ namespace MetraTech.Quoting.Charge
             get { return ChargeType.RecurringCharge; }
         }
 
-        public override ChargeData Add(IMTServicedConnection transacConnection, QuoteRequest quoteRequest, string batchId, int usageInterval)
+        public override ChargeData Add(QuoteRequest quoteRequest, string batchId, int usageInterval)
         {
-          ChargeData reccuringCharge = ChargeData.CreateInstance(this.ChargeType, batchId);
+            ChargeData reccuringCharge = ChargeData.CreateInstance(this.ChargeType, batchId);
 
             using (new Debug.Diagnostics.HighResolutionTimer(MethodInfo.GetCurrentMethod().Name))
             {
-              Log.LogDebug("Insert Recurring Charges to DB... ");
-
-                using (var conn = ConnectionManager.CreateConnection())
+                Log.LogDebug("Insert Recurring Charges to DB... ");
+                using (IMTServicedConnection conn = ConnectionManager.CreateConnection())
                 {
-                    using (var stmt = conn.CreateCallableStatement(Config.RecurringChargeStoredProcedureQueryTag)
-                        )
+                    using (var stmt = conn.CreateCallableStatement(Config.RecurringChargeStoredProcedureQueryTag))
                     {
-                      stmt.AddParam("v_id_interval", MTParameterType.Integer, usageInterval);
-                      stmt.AddParam("v_id_billgroup", MTParameterType.Integer, 0); //reserved for future
-                      stmt.AddParam("v_id_run", MTParameterType.Integer, 0); //reserved for future
-                      stmt.AddParam("v_id_accounts", MTParameterType.String, string.Join(",", quoteRequest.Accounts));                      
-                      stmt.AddParam("v_id_poid", MTParameterType.String, string.Join(",", quoteRequest.ProductOfferings));
-                      stmt.AddParam("v_id_batch", MTParameterType.String, reccuringCharge.IdBatch);
-                      stmt.AddParam("v_n_batch_size", MTParameterType.Integer, Config.MeteringSessionSetSize);
-                      stmt.AddParam("v_run_date", MTParameterType.DateTime, MetraTime.Now);
-                      //todo: Clarify parameter sense
-                      stmt.AddOutputParam("p_count", MTParameterType.Integer);
-                      stmt.ExecuteNonQuery();
-                      reccuringCharge.CountMeteredRecords = (int)stmt.GetOutputValue("p_count");
+                        stmt.AddParam("v_id_interval", MTParameterType.Integer, usageInterval);
+                        stmt.AddParam("v_id_billgroup", MTParameterType.Integer, 0); //reserved for future
+                        stmt.AddParam("v_id_run", MTParameterType.Integer, 0); //reserved for future
+                        stmt.AddParam("v_id_accounts", MTParameterType.String, string.Join(",", quoteRequest.Accounts));
+                        stmt.AddParam("v_id_poid", MTParameterType.String,
+                                      string.Join(",", quoteRequest.ProductOfferings));
+                        stmt.AddParam("v_id_batch", MTParameterType.String, reccuringCharge.IdBatch);
+                        stmt.AddParam("v_n_batch_size", MTParameterType.Integer, Config.MeteringSessionSetSize);
+                        stmt.AddParam("v_run_date", MTParameterType.DateTime, MetraTime.Now);
+                        //todo: Clarify parameter sense
+                        stmt.AddOutputParam("p_count", MTParameterType.Integer);
+                        stmt.ExecuteNonQuery();
+                        reccuringCharge.CountMeteredRecords = (int)stmt.GetOutputValue("p_count");
                     }
                 }
 

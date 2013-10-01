@@ -87,7 +87,7 @@ namespace MetraTech.Quoting.Test
             request.Localization = "en-US";
             request.SubscriptionParameters.UDRCValues = SharedTestCode.GetUDRCInstanceValuesSetToMiddleValues(productOffering);
             
-            var response = new QuoteResponse();
+            QuoteResponse response = null;
 
             bool clientInvoked = false;
             try
@@ -130,7 +130,7 @@ namespace MetraTech.Quoting.Test
 
             #region Test and Verify
 
-            var erroredResponse = new QuoteResponse();
+            QuoteResponse erroredResponse = null;
 
             try
             {
@@ -317,7 +317,7 @@ namespace MetraTech.Quoting.Test
             request.EffectiveDate = MetraTime.Now;
             request.EffectiveEndDate = MetraTime.Now;
 
-            var response = new QuoteResponse();
+            QuoteResponse response = null;
 
             bool clientInvoked = false;
             try
@@ -335,7 +335,7 @@ namespace MetraTech.Quoting.Test
             Assert.AreEqual(expectedQuoteTotal, response.TotalAmount, "Wrong TotalAmount");
             Assert.AreEqual(expectedQuoteCurrency, response.Currency, "Wrong Currency");
 
-            var response2 = new QuoteResponse();
+            QuoteResponse response2 = null;
 
             clientInvoked = false;
             try
@@ -395,7 +395,7 @@ namespace MetraTech.Quoting.Test
             request.EffectiveDate = MetraTime.Now;
             request.EffectiveEndDate = MetraTime.Now.AddMonths(2);
 
-            var response = new QuoteResponse();
+            QuoteResponse response = null;
 
             bool clientInvoked = false;
             try

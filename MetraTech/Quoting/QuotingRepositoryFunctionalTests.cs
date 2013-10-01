@@ -102,7 +102,7 @@ namespace MetraTech.Quoting.Test
 
       #region prepare QuoteResponse
 
-      var response = new QuoteResponse
+      var response = new QuoteResponse(request)
           {
             IdQuote = quoteHeaderID,
             TotalAmount = 200,

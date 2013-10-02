@@ -7,7 +7,6 @@ using MetraTech.DomainModel.Enums.Account.Metratech_com_accountcreation;
 using MetraTech.DomainModel.Enums.Core.Global;
 using MetraTech.DomainModel.Enums.Core.Global_SystemCurrencies;
 using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
-using MetraTech.Test.Common;
 using NUnit.Framework;
 using MetraTech.Core.Activities;
 using MetraTech.Core.Workflows;
@@ -17,6 +16,7 @@ using MetraTech.ActivityServices.Common;
 using MetraTech.Core.Services.ClientProxies;
 using MetraTech.DomainModel.AccountTypes;
 using MetraTech.DomainModel.Enums;
+using MetraTech.Test.Common;
 using MetraTech.Account.ClientProxies;
 using MetraTech.DomainModel.BaseTypes;
 

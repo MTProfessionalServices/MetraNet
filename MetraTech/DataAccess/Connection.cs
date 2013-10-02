@@ -1,28 +1,24 @@
-using System.Data.Common;
-using System.Text;
-using MetraTech.Xml;
-using System.IO;
 using System;
 using System.Data;
-using System.Diagnostics;
+using System.Data.Common;
 using System.Data.OleDb;
-using System.Xml;
+using System.Diagnostics;
 using System.EnterpriseServices;
-using System.Text.RegularExpressions;
+using System.IO;
 using System.Runtime.InteropServices;
-
-
-using Oracle.DataAccess.Client;
+using System.Text;
+using System.Text.RegularExpressions;
 using MetraTech.DataAccess.Oracle;
+using MetraTech.Interop.SysContext;
+using Oracle.DataAccess.Client;
 
 [assembly: GuidAttribute("fa1115ec-c6f9-41c2-be33-3a57edffce5f")]
-
 namespace MetraTech.DataAccess
 {
   /// <remarks>
   /// </remarks>
   public class ConnectionBase : IDisposable
-  {
+  {      
     private MetraTech.Interop.SysContext.IMTLog mLogger;
     private MetraTech.Interop.SysContext.IMTLog mQueryLogger;
 
@@ -83,18 +79,18 @@ namespace MetraTech.DataAccess
       }
     }
 
-    protected AdapterStatement InternalCreateAdapterStatement(String configDir, String queryTag)
+    protected MetraTech.DataAccess.PreparedFilterSortStatement.AdapterStatement InternalCreateAdapterStatement(String configDir, String queryTag)
     {
       IDbCommand command = mConnection.CreateCommand();
-      AdapterStatement astmt = new AdapterStatement(command, configDir, queryTag);
+      MetraTech.DataAccess.PreparedFilterSortStatement.AdapterStatement astmt = new MetraTech.DataAccess.PreparedFilterSortStatement.AdapterStatement(command, configDir, queryTag);
       astmt.Command.CommandTimeout = mConnectionInfo.Timeout;
       astmt.BeforeExecute += new ExecuteEventHandler(LogQuery);
       return astmt;
     }
-    protected AdapterStatement InternalCreateAdapterStatement(String aQueryString)
+    protected MetraTech.DataAccess.PreparedFilterSortStatement.AdapterStatement InternalCreateAdapterStatement(String aQueryString)
     {
       IDbCommand command = mConnection.CreateCommand();
-      AdapterStatement astmt = new AdapterStatement(command, aQueryString);
+      MetraTech.DataAccess.PreparedFilterSortStatement.AdapterStatement astmt = new MetraTech.DataAccess.PreparedFilterSortStatement.AdapterStatement(command, aQueryString);
       astmt.Command.CommandTimeout = mConnectionInfo.Timeout;
       astmt.BeforeExecute += new ExecuteEventHandler(LogQuery);
       return astmt;
@@ -161,6 +157,15 @@ namespace MetraTech.DataAccess
       astmt.BeforeExecute += new ExecuteEventHandler(LogQuery);
       return astmt;
     }
+	
+	 protected MetraTech.DataAccess.PreparedFilterSortStatement.PreparedFilterSortForExport InternalCreatePreparedFilterSortForExport(string queryText,string nameTable)
+        {
+          IDbCommand command = mConnection.CreateCommand();
+          MetraTech.DataAccess.PreparedFilterSortStatement.PreparedFilterSortForExport astmt = new MetraTech.DataAccess.PreparedFilterSortStatement.PreparedFilterSortForExport(command, queryText,nameTable);
+          astmt.Command.CommandTimeout = mConnectionInfo.Timeout;
+          astmt.BeforeExecute += new ExecuteEventHandler(LogQuery);
+          return astmt;
+        }
 
     protected Statement InternalCreateStatement(String queryText)
     {
@@ -346,13 +351,13 @@ namespace MetraTech.DataAccess
 
     public IMTAdapterStatement CreateAdapterStatement(String configDir, String queryTag)
     {
-      AdapterStatement astmt = InternalCreateAdapterStatement(configDir, queryTag);
+      MetraTech.DataAccess.PreparedFilterSortStatement.AdapterStatement astmt = InternalCreateAdapterStatement(configDir, queryTag);
       astmt.BeforeExecute += new ExecuteEventHandler(EnlistInTransaction);
       return astmt;
     }
     public IMTAdapterStatement CreateAdapterStatement(String aQueryString)
     {
-      AdapterStatement astmt = InternalCreateAdapterStatement(aQueryString);
+      MetraTech.DataAccess.PreparedFilterSortStatement.AdapterStatement astmt = InternalCreateAdapterStatement(aQueryString);
       astmt.BeforeExecute += new ExecuteEventHandler(EnlistInTransaction);
       return astmt;
     }
@@ -404,6 +409,13 @@ namespace MetraTech.DataAccess
       return astmt;
     }
 
+	public IMTPreparedFilterSortStatement CreatePreparedFilterSortForExport(string sqlText,string nameTable)
+    {
+        MetraTech.DataAccess.PreparedFilterSortStatement.PreparedFilterSortForExport astmt = InternalCreatePreparedFilterSortForExport(sqlText,nameTable);
+        astmt.BeforeExecute += new ExecuteEventHandler(EnlistInTransaction);
+        return astmt;
+    }
+	
     public IMTStatement CreateStatement(String queryText)
     {
       Statement astmt = InternalCreateStatement(queryText);
@@ -447,13 +459,13 @@ namespace MetraTech.DataAccess
   {
     public IMTAdapterStatement CreateAdapterStatement(String configDir, String queryTag)
     {
-      AdapterStatement astmt = InternalCreateAdapterStatement(configDir, queryTag);
+      MetraTech.DataAccess.PreparedFilterSortStatement.AdapterStatement astmt = InternalCreateAdapterStatement(configDir, queryTag);
       return astmt;
     }
 
     public IMTAdapterStatement CreateAdapterStatement(String aQueryString)
     {
-      AdapterStatement astmt = InternalCreateAdapterStatement(aQueryString);
+      MetraTech.DataAccess.PreparedFilterSortStatement.AdapterStatement astmt = InternalCreateAdapterStatement(aQueryString);
       return astmt;
     }
 
@@ -498,6 +510,12 @@ namespace MetraTech.DataAccess
       return astmt;
     }
 
+	    public IMTPreparedFilterSortStatement CreatePreparedFilterSortForExport(String sqlText,string nameTable)
+       {
+           MetraTech.DataAccess.PreparedFilterSortStatement.PreparedFilterSortForExport astmt = InternalCreatePreparedFilterSortForExport(sqlText,nameTable);
+           return astmt;
+        }
+	
     public IMTStatement CreateStatement(String queryText)
     {
       Statement astmt = InternalCreateStatement(queryText);
@@ -540,13 +558,13 @@ namespace MetraTech.DataAccess.OleDb
   {
     public IMTAdapterStatement CreateAdapterStatement(String configDir, String queryTag)
     {
-      AdapterStatement astmt = InternalCreateAdapterStatement(configDir, queryTag);
+      MetraTech.DataAccess.PreparedFilterSortStatement.AdapterStatement astmt = InternalCreateAdapterStatement(configDir, queryTag);
       return astmt;
     }
 
     public IMTAdapterStatement CreateAdapterStatement(String aQueryString)
     {
-      AdapterStatement astmt = InternalCreateAdapterStatement(aQueryString);
+      MetraTech.DataAccess.PreparedFilterSortStatement.AdapterStatement astmt = InternalCreateAdapterStatement(aQueryString);
       return astmt;
     }
 
@@ -589,6 +607,12 @@ namespace MetraTech.DataAccess.OleDb
       PreparedFilterSortStatement astmt = InternalCreatePreparedFilterSortStatement(sqlText);
       return astmt;
     }
+
+	        public IMTPreparedFilterSortStatement CreatePreparedFilterSortForExport(String sqlText,string nameTable )
+        {
+          MetraTech.DataAccess.PreparedFilterSortStatement.PreparedFilterSortForExport astmt = InternalCreatePreparedFilterSortForExport(sqlText,nameTable);
+          return astmt;
+        }
 
     public IMTStatement CreateStatement(String queryText)
     {

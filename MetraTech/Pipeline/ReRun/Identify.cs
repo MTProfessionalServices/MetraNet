@@ -99,11 +99,18 @@ namespace MetraTech.Pipeline.ReRun
 				//
 				if (identifyFilter.IntervalID != -1)
 				{
-					dbfilter.Add("au.id_usage_interval",
-											 (int) MetraTech.Interop.Rowset.MTOperatorType.OPERATOR_TYPE_EQUAL,
+						dbfilter.Add("au.id_usage_interval",
+                        //Fix for backing out AMP pushed usage ESR-6336
+                        //If AMP is being used it is possible that originally specified interval for usage
+                        //has been altered (pushed) to later interval by AMP
+                        //when backing original batch look for identifying batch and potentially later intervalid
+                        //only when batchid is specfied
+                       (identifyFilter.BatchID != null && identifyFilter.BatchID.Length > 0) ? 
+                          (int) MetraTech.Interop.Rowset.MTOperatorType.OPERATOR_TYPE_GREATER_EQUAL :
+											    (int) MetraTech.Interop.Rowset.MTOperatorType.OPERATOR_TYPE_EQUAL,
 											 identifyFilter.IntervalID);
-				}
-
+ 	                                }
+									
 				//
 				// billing group ID
 				//

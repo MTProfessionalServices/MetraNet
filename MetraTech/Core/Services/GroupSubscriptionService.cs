@@ -291,25 +291,12 @@ namespace MetraTech.Core.Services
             using (IMTFilterSortStatement stmt = conn.CreateFilterSortStatement("queries\\AccHierarchies",
                                                                            "__FIND_GROUP_SUBS_BY_DATE_RANGE__"))
             {
-              IMTProductCatalog prodCatalog = new MTProductCatalogClass();
-              if (prodCatalog.IsBusinessRuleEnabled(MTPC_BUSINESS_RULE.MTPC_BUSINESS_RULE_Hierarchy_RestrictedOperations) == false)
-              {
-                // Get a filter/sort statement
-                string filterlist = "";
-
-                stmt.AddParam("%%TIMESTAMP%%", MetraTime.Now);
-                stmt.AddParam("%%FILTERS%%", filterlist);
-              }
-
-              else
-              {
                 // Get a filter/sort statement
                 stmt.ConfigPath = "queries\\AccHierarchies";
                 stmt.QueryTag = "__FIND_ELIGIBLE_GROUP_SUBS__";
                 // Set the parameters
                 stmt.AddParam("%%CORPORATEACCOUNT%%", corpID);
                 stmt.AddParam("%%ID_ACC%%", id_acc);
-              }
 
               ApplyFilterSortCriteria<GroupSubscription>(stmt, groupSubs, new FilterColumnResolver(GetColumnNameFromGroupSubPropertyName), metaData);
 

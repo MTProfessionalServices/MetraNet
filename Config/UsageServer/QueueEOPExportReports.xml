@@ -5,6 +5,7 @@
                         <path>..\Extensions\DataExport\Config\SqlCore\Queries\Service</path>
                         <querytag>__INSERT_EOPQUEUEREPORTS__</querytag>
                         <reversequerytag>__REVERSE_EOPQUEUEREPORTS__</reversequerytag>
+						<pulllisttag>__DUMMY_PULL_LIST_QUERY__</pulllisttag>
             </queueeopquery>
  
             <eopcompletequery>

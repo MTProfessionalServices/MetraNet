@@ -203,8 +203,8 @@ namespace MetraTech.Core.Services.UnitTests
         decision.IsEditable = true;
         decision.Description = "my decision updated";
         decision.ExecutionFrequency = Decision.ExecutionFrequencyEnum.DURING_BOTH;
-        decision.PvToAmountChainMappingValue = "TmpPvToAmountChainMappingValue";
-        decision.GeneratedChargeValue = "TmpGeneratedCharge";
+        decision.PvToAmountChainMappingValue = "TmpPvToAmountChainMapping";
+        decision.GeneratedCharge = "TmpGeneratedCharge";
         client.SaveDecision(decision);
 
         // Retrieve the same decision from the DB.
@@ -212,7 +212,7 @@ namespace MetraTech.Core.Services.UnitTests
         client.GetDecision("dansDecision", out sameDecision);
         Console.WriteLine("sameDecision.TierStartValue={0}", sameDecision.TierStartValue);
         Console.WriteLine("sameDecision.TierEndValue={0}", sameDecision.TierEndValue);
-        Console.WriteLine("sameDecision.AccountQualificationGroupValue={0}", sameDecision.AccountQualificationGroupValue);
+        Console.WriteLine("sameDecision.AccountQualificationGroup={0}", sameDecision.AccountQualificationGroup);
         Console.WriteLine("sameDecision.ItemAggregatedValue={0}", sameDecision.ItemAggregatedValue);
         Console.WriteLine("sameDecision.IsActive={0}", sameDecision.IsActive);
         Console.WriteLine("sameDecision.IsEditable={0}", sameDecision.IsEditable);
@@ -226,8 +226,8 @@ namespace MetraTech.Core.Services.UnitTests
         Assert.AreEqual(sameDecision.IsEditable, true, "IsEditable should be true");
         Assert.AreEqual(sameDecision.Description, "my decision updated", "Description should be 'my decision updated'");
         Assert.AreEqual(sameDecision.ExecutionFrequency, Decision.ExecutionFrequencyEnum.DURING_BOTH);
-        Assert.AreEqual(sameDecision.PvToAmountChainMappingValue, "TmpPvToAmountChainMappingValue");
-        Assert.AreEqual(sameDecision.GeneratedChargeValue, "TmpGeneratedCharge");
+        Assert.AreEqual(sameDecision.PvToAmountChainMappingValue, "TmpPvToAmountChainMapping");
+        Assert.AreEqual(sameDecision.GeneratedCharge, "TmpGeneratedCharge");
         Assert.AreEqual(sameDecision.ParameterTableName, decision.ParameterTableName);
         Assert.AreEqual(sameDecision.ParameterTableDisplayName, decision.ParameterTableDisplayName);
 
@@ -477,7 +477,7 @@ namespace MetraTech.Core.Services.UnitTests
 
         // Update decision with a charge
         decisionWithCharge.ChargeCondition = Decision.ChargeConditionEnum.CHARGE_ON_INBOUND;
-        decisionWithCharge.ChargeAmountTypeValue = Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_FLAT;
+        decisionWithCharge.ChargeAmountType = Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_FLAT;
         decisionWithCharge.ChargeValue = 500;
         client.SaveDecision(decisionWithCharge);
 
@@ -485,31 +485,31 @@ namespace MetraTech.Core.Services.UnitTests
         Decision sameDecision;
         client.GetDecision("decisionWithCharge", out sameDecision);
         Assert.AreEqual(sameDecision.ChargeCondition, Decision.ChargeConditionEnum.CHARGE_ON_INBOUND);
-        Assert.AreEqual(sameDecision.ChargeAmountTypeValue, Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_FLAT);
+        Assert.AreEqual(sameDecision.ChargeAmountType, Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_FLAT);
         Assert.AreEqual(sameDecision.ChargeValue, 500);
 
         // Update charge params
         decisionWithCharge.ChargeCondition = Decision.ChargeConditionEnum.CHARGE_ON_FINAL;
-        decisionWithCharge.ChargeAmountTypeValue = Decision.ChargeAmountTypeEnum.CHARGE_PERCENTAGE;
+        decisionWithCharge.ChargeAmountType = Decision.ChargeAmountTypeEnum.CHARGE_PERCENTAGE;
         decisionWithCharge.ChargeValue = 0.05M;
         client.SaveDecision(decisionWithCharge);
 
         // Retrieve the same decision from the DB.
         client.GetDecision("decisionWithCharge", out sameDecision);
         Assert.AreEqual(sameDecision.ChargeCondition, Decision.ChargeConditionEnum.CHARGE_ON_FINAL);
-        Assert.AreEqual(sameDecision.ChargeAmountTypeValue, Decision.ChargeAmountTypeEnum.CHARGE_PERCENTAGE);
+        Assert.AreEqual(sameDecision.ChargeAmountType, Decision.ChargeAmountTypeEnum.CHARGE_PERCENTAGE);
         Assert.AreEqual(sameDecision.ChargeValue, 0.05m);
 
         // Update charge params
         decisionWithCharge.ChargeCondition = Decision.ChargeConditionEnum.CHARGE_ON_FINAL;
-        decisionWithCharge.ChargeAmountTypeValue = Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_PROPORTIONAL;
+        decisionWithCharge.ChargeAmountType = Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_PROPORTIONAL;
         decisionWithCharge.ChargeValue = 300.10M;
         client.SaveDecision(decisionWithCharge);
 
         // Retrieve the same decision from the DB.
         client.GetDecision("decisionWithCharge", out sameDecision);
         Assert.AreEqual(sameDecision.ChargeCondition, Decision.ChargeConditionEnum.CHARGE_ON_FINAL);
-        Assert.AreEqual(sameDecision.ChargeAmountTypeValue, Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_PROPORTIONAL);
+        Assert.AreEqual(sameDecision.ChargeAmountType, Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_PROPORTIONAL);
         Assert.AreEqual(sameDecision.ChargeValue, 300.10M);
     }
 

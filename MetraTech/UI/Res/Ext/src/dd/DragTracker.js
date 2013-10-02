@@ -1,9 +1,20 @@
-/*!
- * Ext JS Library 3.4.0
- * Copyright(c) 2006-2011 Sencha Inc.
- * licensing@sencha.com
- * http://www.sencha.com/license
- */
+/*
+This file is part of Ext JS 3.4
+
+Copyright (c) 2011-2013 Sencha Inc
+
+Contact:  http://www.sencha.com/contact
+
+Commercial Usage
+Licensees holding valid commercial licenses may use this file in accordance with the Commercial
+Software License Agreement provided with the Software or, alternatively, in accordance with the
+terms contained in a written agreement between you and Sencha.
+
+If you are unsure which license is appropriate for your use, please contact the sales department
+at http://www.sencha.com/contact.
+
+Build date: 2013-04-03 15:07:25
+*/
 /**
  * @class Ext.dd.DragTracker
  * @extends Ext.util.Observable
@@ -112,8 +123,9 @@ Ext.dd.DragTracker = Ext.extend(Ext.util.Observable,  {
     },
 
     onMouseMove: function(e, target){
-        // HACK: IE hack to see if button was released outside of window. */
-        if(this.active && Ext.isIE && !e.browserEvent.button){
+        // HACK: IE hack to see if button was released outside of window. Resolved in IE9.
+        var ieCheck = Ext.isIE6 || Ext.isIE7 || Ext.isIE8;
+        if(this.active && ieCheck && !e.browserEvent.button){
             e.preventDefault();
             this.onMouseUp(e);
             return;

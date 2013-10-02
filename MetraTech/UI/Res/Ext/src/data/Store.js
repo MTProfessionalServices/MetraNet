@@ -1,9 +1,20 @@
-/*!
- * Ext JS Library 3.4.0
- * Copyright(c) 2006-2011 Sencha Inc.
- * licensing@sencha.com
- * http://www.sencha.com/license
- */
+/*
+This file is part of Ext JS 3.4
+
+Copyright (c) 2011-2013 Sencha Inc
+
+Contact:  http://www.sencha.com/contact
+
+Commercial Usage
+Licensees holding valid commercial licenses may use this file in accordance with the Commercial
+Software License Agreement provided with the Software or, alternatively, in accordance with the
+terms contained in a written agreement between you and Sencha.
+
+If you are unsure which license is appropriate for your use, please contact the sales department
+at http://www.sencha.com/contact.
+
+Build date: 2013-04-03 15:07:25
+*/
 /**
  * @class Ext.data.Store
  * @extends Ext.util.Observable
@@ -145,7 +156,6 @@ var store = new Ext.data.Store({
      * for more details.</p>
      * This property may be modified after creation using the <code>{@link #setBaseParam}</code>
      * method.
-     * @property
      */
     /**
      * @cfg {Object} sortInfo A config object to specify the sort order in the request of a Store's
@@ -258,7 +268,7 @@ sortInfo: {
         dir : 'dir'
     },
 
-    isDestroyed: false,    
+    isDestroyed: false,
     hasMultiSort: false,
 
     // private
@@ -266,22 +276,22 @@ sortInfo: {
 
     constructor : function(config){
         /**
-         * @property multiSort
+         * @property hasMultiSort
          * @type Boolean
          * True if this store is currently sorted by more than one field/direction combination.
          */
-        
+
         /**
          * @property isDestroyed
          * @type Boolean
          * True if the store has been destroyed already. Read only
          */
-        
+
         this.data = new Ext.util.MixedCollection(false);
         this.data.getKey = function(o){
             return o.id;
         };
-        
+
 
         // temporary removed-records cache
         this.removed = [];
@@ -627,29 +637,29 @@ sortInfo: {
      */
     add : function(records) {
         var i, len, record, index;
-        
+
         records = [].concat(records);
         if (records.length < 1) {
             return;
         }
-        
+
         for (i = 0, len = records.length; i < len; i++) {
             record = records[i];
-            
+
             record.join(this);
-            
+
             if (record.dirty || record.phantom) {
                 this.modified.push(record);
             }
         }
-        
+
         index = this.data.length;
         this.data.addAll(records);
-        
+
         if (this.snapshot) {
             this.snapshot.addAll(records);
         }
-        
+
         this.fireEvent('add', this, records, index);
     },
 
@@ -662,7 +672,7 @@ sortInfo: {
         var index = this.findInsertIndex(record);
         this.insert(index, record);
     },
-    
+
     /**
      * @private
      * Update a record within the store with a new reference
@@ -671,7 +681,7 @@ sortInfo: {
         var id = rec.id;
         // unjoin the old record
         this.getById(id).join(null);
-        
+
         this.data.replace(id, rec);
         if (this.snapshot) {
             this.snapshot.replace(id, rec);
@@ -751,23 +761,23 @@ sortInfo: {
      */
     insert : function(index, records) {
         var i, len, record;
-        
+
         records = [].concat(records);
         for (i = 0, len = records.length; i < len; i++) {
             record = records[i];
-            
+
             this.data.insert(index + i, record);
             record.join(this);
-            
+
             if (record.dirty || record.phantom) {
                 this.modified.push(record);
             }
         }
-        
+
         if (this.snapshot) {
             this.snapshot.addAll(records);
         }
-        
+
         this.fireEvent('add', this, records, index);
     },
 
@@ -906,13 +916,13 @@ sortInfo: {
         var modified = this.modified,
             length   = records.length,
             record, i;
-        
+
         for (i = 0; i < length; i++) {
             record = records[i];
-            
+
             if (record.phantom && record.isValid()) {
                 record.markDirty();  // <-- Mark new records dirty (Ed: why?)
-                
+
                 if (modified.indexOf(record) == -1) {
                     modified.push(record);
                 }
@@ -1258,7 +1268,7 @@ myStore.reload(lastOptions);
     // Called as a callback by the Reader during a load operation.
     loadRecords : function(o, options, success){
         var i, len;
-        
+
         if (this.isDestroyed === true) {
             return;
         }
@@ -1356,8 +1366,8 @@ myStore.reload(lastOptions);
     /**
      * Returns an object describing the current sort state of this Store.
      * @return {Object} The sort state of the Store. An object with two properties:<ul>
-     * <li><b>field : String<p class="sub-desc">The name of the field by which the Records are sorted.</p></li>
-     * <li><b>direction : String<p class="sub-desc">The sort order, 'ASC' or 'DESC' (case-sensitive).</p></li>
+     * <li><b>field : String</b><p class="sub-desc">The name of the field by which the Records are sorted.</p></li>
+     * <li><b>direction : String</b><p class="sub-desc">The sort order, 'ASC' or 'DESC' (case-sensitive).</p></li>
      * </ul>
      * See <tt>{@link #sortInfo}</tt> for additional details.
      */
@@ -1396,7 +1406,7 @@ myStore.reload(lastOptions);
         for (var i=0, j = sorters.length; i < j; i++) {
             sortFns.push(this.createSortFunction(sorters[i].field, sorters[i].direction));
         }
-        
+
         if (sortFns.length == 0) {
             return;
         }
@@ -1563,7 +1573,7 @@ myStore.reload(lastOptions);
             sorters  : sorters,
             direction: direction
         };
-        
+
         if (this.remoteSort) {
             this.singleSort(sorters[0].field, sorters[0].direction);
 
@@ -1688,7 +1698,7 @@ myStore.reload(lastOptions);
      * against the field.
      * @param {Boolean} anyMatch (optional) <tt>true</tt> to match any part not just the beginning
      * @param {Boolean} caseSensitive (optional) <tt>true</tt> for case sensitive comparison
-     * @param {Boolean} exactMatch True to force exact match (^ and $ characters added to the regex). Defaults to false. Ignored if anyMatch is true.
+     * @param {Boolean} exactMatch (optional) True to force exact match (^ and $ characters added to the regex). Defaults to false. Ignored if anyMatch is true.
      */
     filter : function(property, value, anyMatch, caseSensitive, exactMatch){
         var fn;
@@ -1889,11 +1899,11 @@ myStore.reload(lastOptions);
         var modified = this.modified.slice(0),
             length   = modified.length,
             i;
-            
+
         for (i = 0; i < length; i++){
             modified[i].commit();
         }
-        
+
         this.modified = [];
         this.removed  = [];
     },
@@ -1907,16 +1917,16 @@ myStore.reload(lastOptions);
             mLength  = modified.length,
             rLength  = removed.length,
             i;
-        
+
         for (i = 0; i < mLength; i++) {
             modified[i].reject();
         }
-        
+
         for (i = 0; i < rLength; i++) {
             this.insert(removed[i].lastIndex || 0, removed[i]);
             removed[i].reject();
         }
-        
+
         this.modified = [];
         this.removed  = [];
     },

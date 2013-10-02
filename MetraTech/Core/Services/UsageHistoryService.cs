@@ -77,6 +77,14 @@ namespace MetraTech.Core.Services
                                 bool populateAdjustmentInfo,
                                 ref List<BaseProductView> usageDetails);
 
+		 [OperationContract]
+        [FaultContract(typeof(MASBasicFaultDetail))]
+        void GetUsageDetailsForExport(ReportParameters repParams,
+                                SingleProductSlice productSlice,
+                                AccountSlice accountSlice,
+                                string nameTable,
+                                ref MTList<BaseProductView> usageDetails);						
+								
         [OperationContract]
         [FaultContract(typeof(MASBasicFaultDetail))]
         void GetCompoundChildUsageSummaries(ReportParameters repParams,
@@ -1800,12 +1808,17 @@ namespace MetraTech.Core.Services
                                         {
                                             payment.CreditCardType = null;
                                         }
-
-
-
                                         if (!reader.IsDBNull("check_or_card_number"))
                                         {
                                             payment.CheckOrCardNumber = reader.GetString("check_or_card_number");
+                                        }
+                                        if (!reader.IsDBNull("PaymentTxnID"))
+                                        {
+                                            payment.PaymentTxnID = reader.GetString("PaymentTxnID");
+                                        }
+                                        if (!reader.IsDBNull("ReferenceID"))
+                                        {
+                                            payment.ReferenceID = reader.GetString("ReferenceID");
                                         }
 
                                         payments.Items.Add(payment);
@@ -1919,6 +1932,297 @@ namespace MetraTech.Core.Services
         }
         #endregion
 
+		
+		 [OperationCapability("Manage Account Hierarchies")]
+        public void GetUsageDetailsForExport(ReportParameters repParams,
+                                    SingleProductSlice productSlice,
+                                    AccountSlice accountSlice,
+                                    string nameTable,
+                                     ref MTList<BaseProductView> usageDetails)
+        {
+          try
+          {
+            #region Check Caller Has "Manage Account Hierarchies" capability
+
+            #region GetAccountIDs
+            List<int> acctIds = new List<int>();
+
+            if (accountSlice.GetType() == typeof(PayerAccountSlice))
+            {
+              int payerId = AccountIdentifierResolver.ResolveAccountIdentifier((AccountIdentifier)accountSlice.GetValue("PayerID"));
+              if (payerId > 0)
+              {
+                acctIds.Add(payerId);
+              }
+            }
+            if (accountSlice.GetType() == typeof(PayeeAccountSlice))
+            {
+              int payeeId = AccountIdentifierResolver.ResolveAccountIdentifier((AccountIdentifier)accountSlice.GetValue("PayeeID"));
+              if (payeeId > 0)
+              {
+                acctIds.Add(payeeId);
+              }
+            }
+            if (accountSlice.GetType() == typeof(MetraTech.DomainModel.Billing.PayerAndPayeeSlice))
+            {
+              int payerId = AccountIdentifierResolver.ResolveAccountIdentifier((AccountIdentifier)accountSlice.GetValue("PayerAccountId"));
+              if (payerId > 0)
+              {
+                acctIds.Add(payerId);
+              }
+              int payeeId = AccountIdentifierResolver.ResolveAccountIdentifier((AccountIdentifier)accountSlice.GetValue("PayeeAccountId"));
+              if (payeeId > 0)
+              {
+                acctIds.Add(payeeId);
+              }
+            }
+            if (accountSlice.GetType() == typeof(MetraTech.DomainModel.Billing.DescendentPayeeSlice))
+            {
+              int ancId = AccountIdentifierResolver.ResolveAccountIdentifier((AccountIdentifier)accountSlice.GetValue("AncestorAccountId"));
+              if (ancId > 0)
+              {
+                acctIds.Add(ancId);
+              }
+            }
+            #endregion
+
+            bool bHasAccess = false;
+            foreach (int acctId in acctIds)
+            {
+              if (HasManageAccHeirarchyAccess(acctId, MetraTech.DomainModel.Enums.Core.Global.AccessLevel.READ,
+                  MetraTech.Interop.MTAuth.MTHierarchyPathWildCard.SINGLE))
+              {
+                bHasAccess = true;
+                break;
+              }
+            }
+
+            if (!bHasAccess)
+            {
+              mLogger.LogError("You do not have 'Manage Account Hierarchies' capability");
+              throw new MASBasicException("You do not have 'Manage Account Hierarchies' capability");
+            }
+            #endregion
+			
+            string queryText = GetUsageDetailQuery(repParams, productSlice, accountSlice);
+
+            using (IMTConnection conn = ConnectionManager.CreateConnection(METRAVIEW_QUERY_FOLDER, true))
+            {
+                using (IMTPreparedFilterSortStatement stmt = conn.CreatePreparedFilterSortForExport(queryText,nameTable))
+                {
+                  int level = 0;
+                  AddSliceParameters(stmt, repParams.DateRange, ref level);
+                  AddSliceParameters(stmt, productSlice, ref level);
+                  AddSliceParameters(stmt, accountSlice, ref level);
+
+
+                  if (System.Text.RegularExpressions.Regex.Match(queryText, "@langCode",
+                                                                 System.Text.RegularExpressions.RegexOptions.IgnoreCase)
+                        .Success
+                      ||
+                      System.Text.RegularExpressions.Regex.Match(queryText, ":langCode",
+                                                                 System.Text.RegularExpressions.RegexOptions.IgnoreCase)
+                        .Success)
+                  {
+                    stmt.AddParam("langCode", MTParameterType.Integer,
+                                  Convert.ToInt32(EnumHelper.GetValueByEnum(repParams.Language, 1)));
+                  }
+
+                  BaseProductView bpview;
+
+                  PCIdentifier viewId = (PCIdentifier) productSlice.GetValue("ViewID");
+                  bpview = GetProductViewInstance(viewId);
+                  Type viewType = bpview.GetType();
+                  object helper = Activator.CreateInstance(viewType);
+                  ApplyFilterSortCriteria<BaseProductView>(stmt, usageDetails, new FilterColumnResolver(ResolveUiEnums),
+                                                           helper);
+
+                  using (IMTDataReader reader = stmt.ExecuteReader())
+                  {
+                    while (reader.Read())
+                    {
+                      bpview = GetProductViewInstance(viewId);
+                      if (bpview != null)
+                      {
+                        #region Populate BaseProductView instance.
+
+                        bpview.Currency = reader.GetString("Currency");
+                        bpview.AccountID = new AccountIdentifier(reader.GetInt32("AccountID"));
+                        bpview.Amount = reader.GetDecimal("Amount");
+                        bpview.AmountWithTax = reader.GetDecimal("AmountWithTax");
+                        bpview.AmountWithTaxAsString = LocalizeCurrencyString(bpview.AmountWithTax, repParams.Language,
+                                                                              bpview.Currency);
+                        bpview.AtomicAdjustmentInfo = new MetraTech.DomainModel.BaseTypes.Adjustments();
+
+                        MetraTech.DomainModel.BaseTypes.Adjustments atomicAdj =
+                          new MetraTech.DomainModel.BaseTypes.Adjustments();
+                        atomicAdj.PostBillAdjustedAmount = reader.GetDecimal("AtomicPostbillAdjedAmt");
+                        atomicAdj.PostBillAdjustedAmountAsString =
+                          LocalizeCurrencyString(atomicAdj.PostBillAdjustedAmount, repParams.Language, bpview.Currency);
+                        atomicAdj.PostBillAdjustmentAmount = reader.GetDecimal("AtomicPostbillAdjAmt");
+                        atomicAdj.PostBillAdjustmentAmountAsString =
+                          LocalizeCurrencyString(atomicAdj.PostBillAdjustmentAmount, repParams.Language, bpview.Currency);
+                        atomicAdj.PreBillAdjustedAmount = reader.GetDecimal("AtomicPrebillAdjustedAmt");
+                        atomicAdj.PreBillAdjustedAmountAsString = LocalizeCurrencyString(
+                          atomicAdj.PreBillAdjustedAmount, repParams.Language, bpview.Currency);
+                        atomicAdj.PreBillAdjustmentAmount = reader.GetDecimal("AtomicPrebillAdjAmt");
+                        atomicAdj.PreBillAdjustmentAmountAsString =
+                          LocalizeCurrencyString(atomicAdj.PreBillAdjustmentAmount, repParams.Language, bpview.Currency);
+                        bpview.AtomicAdjustmentInfo = atomicAdj;
+
+                        bpview.AtomicCountyTaxAdjustments = PopulateTaxAdjustments(reader, bpview.Currency,
+                                                                                   repParams.Language,
+                                                                                   TaxType.Cnty,
+                                                                                   AtomicOrCompoundType.Atomic);
+                        bpview.AtomicFederalTaxAdjustments = PopulateTaxAdjustments(reader, bpview.Currency,
+                                                                                    repParams.Language,
+                                                                                    TaxType.Fed,
+                                                                                    AtomicOrCompoundType.Atomic);
+                        bpview.AtomicStateTaxAdjustments = PopulateTaxAdjustments(reader, bpview.Currency,
+                                                                                  repParams.Language,
+                                                                                  TaxType.State,
+                                                                                  AtomicOrCompoundType.Atomic);
+                        bpview.AtomicLocalTaxAdjustments = PopulateTaxAdjustments(reader, bpview.Currency,
+                                                                                  repParams.Language,
+                                                                                  TaxType.Local,
+                                                                                  AtomicOrCompoundType.Atomic);
+                        bpview.AtomicOtherTaxAdjustments = PopulateTaxAdjustments(reader, bpview.Currency,
+                                                                                  repParams.Language,
+                                                                                  TaxType.Other,
+                                                                                  AtomicOrCompoundType.Atomic);
+                        bpview.AtomicTotalTaxAdjustments = PopulateTaxAdjustments(reader, bpview.Currency,
+                                                                                  repParams.Language,
+                                                                                  TaxType.Total,
+                                                                                  AtomicOrCompoundType.Atomic);
+                        bpview.CanAdjust = reader.GetBoolean("CanAdjust");
+                        bpview.CanManageAdjustments = reader.GetBoolean("CanManageAdjustments");
+                        bpview.CanRebill = reader.GetBoolean("CanRebill");
+
+                        MetraTech.DomainModel.BaseTypes.Adjustments compoundAdj =
+                          new MetraTech.DomainModel.BaseTypes.Adjustments();
+                        compoundAdj.PostBillAdjustedAmount = reader.GetDecimal("CompoundPostbillAdjedAmt");
+                        compoundAdj.PostBillAdjustedAmountAsString =
+                          LocalizeCurrencyString(compoundAdj.PostBillAdjustedAmount, repParams.Language, bpview.Currency);
+                        compoundAdj.PostBillAdjustmentAmount = reader.GetDecimal("CompoundPostbillAdjAmt");
+                        compoundAdj.PostBillAdjustmentAmountAsString =
+                          LocalizeCurrencyString(compoundAdj.PostBillAdjustmentAmount, repParams.Language,
+                                                 bpview.Currency);
+                        compoundAdj.PreBillAdjustedAmount = reader.GetDecimal("CompoundPrebillAdjedAmt");
+                        compoundAdj.PreBillAdjustedAmountAsString =
+                          LocalizeCurrencyString(compoundAdj.PreBillAdjustedAmount, repParams.Language, bpview.Currency);
+                        compoundAdj.PreBillAdjustmentAmount = reader.GetDecimal("CompoundPrebillAdjAmt");
+                        compoundAdj.PreBillAdjustmentAmountAsString =
+                          LocalizeCurrencyString(compoundAdj.PreBillAdjustmentAmount, repParams.Language,
+                                                 bpview.Currency);
+                        bpview.CompoundAdjustmentInfo = compoundAdj;
+
+                        bpview.CompoundCountyTaxAdjustments = PopulateTaxAdjustments(reader, bpview.Currency,
+                                                                                     repParams.Language,
+                                                                                     TaxType.Cnty,
+                                                                                     AtomicOrCompoundType.Compound);
+                        bpview.CompoundFederalTaxAdjustments = PopulateTaxAdjustments(reader, bpview.Currency,
+                                                                                      repParams.Language,
+                                                                                      TaxType.Fed,
+                                                                                      AtomicOrCompoundType.Compound);
+                        bpview.CompoundStateTaxAdjustments = PopulateTaxAdjustments(reader, bpview.Currency,
+                                                                                    repParams.Language,
+                                                                                    TaxType.State,
+                                                                                    AtomicOrCompoundType.Compound);
+                        bpview.CompoundLocalTaxAdjustments = PopulateTaxAdjustments(reader, bpview.Currency,
+                                                                                    repParams.Language,
+                                                                                    TaxType.Local,
+                                                                                    AtomicOrCompoundType.Compound);
+                        bpview.CompoundOtherTaxAdjustments = PopulateTaxAdjustments(reader, bpview.Currency,
+                                                                                    repParams.Language,
+                                                                                    TaxType.Other,
+                                                                                    AtomicOrCompoundType.Compound);
+                        bpview.CompoundTotalTaxAdjustments = PopulateTaxAdjustments(reader, bpview.Currency,
+                                                                                    repParams.Language,
+                                                                                    TaxType.Total,
+                                                                                    AtomicOrCompoundType.Compound);
+
+                        bpview.CountyTaxAmount = reader.GetDecimal("CountyTaxAmount");
+                        bpview.CountyTaxAmountAsString = LocalizeCurrencyString(bpview.CountyTaxAmount,
+                                                                                repParams.Language, bpview.Currency);
+                        bpview.DisplayAmount = reader.GetDecimal("DisplayAmount");
+                        bpview.DisplayAmountAsString = LocalizeCurrencyString(bpview.DisplayAmount, repParams.Language,
+                                                                              bpview.Currency);
+
+                        bpview.FederalTaxAmount = reader.GetDecimal("FederalTaxAmount");
+                        bpview.FederalTaxAmountAsString = LocalizeCurrencyString(bpview.FederalTaxAmount,
+                                                                                 repParams.Language, bpview.Currency);
+                        bpview.StateTaxAmount = reader.GetDecimal("StateTaxAmount");
+                        bpview.StateTaxAmountAsString = LocalizeCurrencyString(bpview.StateTaxAmount, repParams.Language,
+                                                                               bpview.Currency);
+                        bpview.LocalTaxAmount = reader.GetDecimal("LocalTaxAmount");
+                        bpview.LocalTaxAmountAsString = LocalizeCurrencyString(bpview.LocalTaxAmount, repParams.Language,
+                                                                               bpview.Currency);
+                        bpview.OtherTaxAmount = reader.GetDecimal("OtherTaxAmount");
+                        bpview.OtherTaxAmountAsString = LocalizeCurrencyString(bpview.OtherTaxAmount, repParams.Language,
+                                                                               bpview.Currency);
+
+                        bpview.IntervalID = reader.GetInt32("IntervalID");
+                        bpview.IsAdjusted = reader.GetBoolean("IsAdjusted");
+                        bpview.IsIntervalSoftClosed = reader.GetBoolean("IsIntervalSoftClosed");
+                        bpview.IsPostBillAdjusted = reader.GetBoolean("IsPostBillAdjusted");
+                        bpview.IsPreBillAdjusted = reader.GetBoolean("IsPrebillAdjusted");
+                        bpview.IsPreBillTransaction = reader.GetBoolean("IsPrebillTransaction");
+
+                        if (!reader.IsDBNull("PIInstance"))
+                        {
+                          bpview.PIInstance = reader.GetInt32("PIInstance");
+                        }
+
+                        if (!reader.IsDBNull("PITemplate"))
+                        {
+                          bpview.PITemplate = reader.GetInt32("PITemplate");
+                        }
+
+                        bpview.PostBillAdjustmentID = reader.GetInt32("PostbillAdjustmentID");
+                        bpview.PreBillAdjustmentID = reader.GetInt32("PrebillAdjustmentID");
+                        bpview.SessionID = reader.GetInt64("SessionID");
+
+                        if (!reader.IsDBNull("ParentSessionID"))
+                        {
+                          bpview.ParentSessionID = reader.GetInt64("ParentSessionID");
+                        }
+
+                        bpview.SessionType =
+                          (SessionType) Enum.Parse(typeof (SessionType), reader.GetString("SessionType"));
+
+                        bpview.TaxAmount = reader.GetDecimal("TaxAmount");
+                        bpview.TaxAmountAsString = LocalizeCurrencyString(bpview.TaxAmount, repParams.Language,
+                                                                          bpview.Currency);
+
+                        bpview.TimeStamp = reader.GetDateTime("Timestamp");
+                        bpview.ViewID = reader.GetInt32("ViewID");
+
+                        PopulateProdViewSpecificData(reader, bpview);
+
+                        #endregion
+
+                        usageDetails.Items.Add(bpview);
+                      }
+                    }
+                    // reader.Close();
+                    usageDetails.TotalRows = stmt.TotalRows;
+                  }
+                }
+              }
+          }
+          catch (MASBasicException masE)
+          {
+            mLogger.LogException("Error while processing Get Usage Details", masE);
+            throw;
+          }
+          catch (Exception e)
+          {
+            mLogger.LogException("Error while processing Get Usage Details", e);
+
+            throw new MASBasicException("Error while retrieving Usage Details");
+          }
+        }
+		
         #region Protected member methods
 
         protected string ResolveUiEnums(string propName, ref object propValue, object helper)
@@ -1986,6 +2290,14 @@ namespace MetraTech.Core.Services
 
                 case "CheckOrCardNumber":
                     return "check_or_card_number";
+                    break;
+                
+                case "PaymentTxnID":
+                    return "c_PaymentTxnID";
+                    break;
+                
+                case "ReferenceID":
+                    return "c_ReferenceID";
                     break;
 
                 default:
@@ -2833,9 +3145,7 @@ namespace MetraTech.Core.Services
 
                     level.Charges.Add(repCharge);
                 }
-
-            }
-
+				}
         }
 
         private MetraTech.DomainModel.BaseTypes.Adjustments PopulateAdjustment(IMTDataReader reader, LanguageCode languageID, string currency)
@@ -2856,8 +3166,6 @@ namespace MetraTech.Core.Services
             adj.PreBillAdjustmentAmountAsString = LocalizeCurrencyString(adj.PreBillAdjustmentAmount, languageID, currency);
 
             return adj;
-
-
         }
 
         private TaxData PopulateTaxData(IMTDataReader reader, string currency, LanguageCode languageID, TaxType taxType)
@@ -2915,7 +3223,6 @@ namespace MetraTech.Core.Services
 
         private void PopulateReportLevelData(IMTDataReader reader, LanguageCode languageID, ReportLevel reportData)
         {
-
             reportData.Currency = reader.GetString("Currency");
 
             reportData.AdjustmentInfo = PopulateAdjustment(reader, languageID, reportData.Currency);
@@ -3071,6 +3378,7 @@ namespace MetraTech.Core.Services
         {
             return IsDataMartEnabled() ? "_DATAMART" : "";
         }
+		
         private bool IsDataMartEnabled()
         {
             if (mMVManager == null)
@@ -3805,7 +4113,8 @@ namespace MetraTech.Core.Services
             }
 
             return prodView;
-        }
+        }	
+
         #endregion
     }
 }

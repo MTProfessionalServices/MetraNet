@@ -713,6 +713,8 @@ HRESULT CMTRuleSet::InputRuleSetData(MTConfigLib::IMTConfigPropSetPtr aPropSet)
 	mRules.Clear();
 
 	IMTConfigPropSetPtr	propSet;
+	  if (aPropSet !=NULL)
+	        {
 	// 1. default actions
 	if (aPropSet->NextMatches(DEFAULT_ACTIONS, MTConfigLib::PROP_TYPE_SET) == VARIANT_TRUE)
 	{
@@ -747,7 +749,7 @@ HRESULT CMTRuleSet::InputRuleSetData(MTConfigLib::IMTConfigPropSetPtr aPropSet)
 		// next rule
 		propSet = aPropSet->NextSetWithName(CONSTRAINT_SET);
 	}
-
+}
 	return TRUE;
 }
 

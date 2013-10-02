@@ -131,23 +131,33 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
                 Form_DisplayCell = TRUE
 
             Case 3 'Date History
+             if (InStr(ProductView.Properties.RowSet.PopulatedRecordSet.Source,"Date History") <> 0) then
                 dateTime = ProductView.Properties.RowSet.Value("Date History")
                 dateTimeFormat = Framework.GetDictionary("DATE_TIME_FORMAT")
                 EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "' align='left'>" & Framework.Format(dateTime, dateTimeFormat) & "</td>"
                 Form_DisplayCell = TRUE
-
+              else
+                Form_DisplayCell = Inherited("Form_DisplayCell(EventArg)")
+             end if
             Case 10 'Date First
+             if (InStr(ProductView.Properties.RowSet.PopulatedRecordSet.Source,"Date First") <> 0) then
                 dateTime = ProductView.Properties.RowSet.Value("Date First")
                 dateTimeFormat = Framework.GetDictionary("DATE_TIME_FORMAT")
                 EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "' align='left'>" & Framework.Format(dateTime, dateTimeFormat) & "</td>"
                 Form_DisplayCell = TRUE
+              else
+                Form_DisplayCell = Inherited("Form_DisplayCell(EventArg)")
+             end if
 
             Case 11 'Date Last
+             if (InStr(ProductView.Properties.RowSet.PopulatedRecordSet.Source,"Date Last") <> 0)  then
                 dateTime = ProductView.Properties.RowSet.Value("Date Last")
                 dateTimeFormat = Framework.GetDictionary("DATE_TIME_FORMAT")
                 EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "' align='left'>" & Framework.Format(dateTime, dateTimeFormat) & "</td>"
                 Form_DisplayCell = TRUE
-
+              else
+                Form_DisplayCell = Inherited("Form_DisplayCell(EventArg)")
+             end if
             Case else
                 Form_DisplayCell = Inherited("Form_DisplayCell(EventArg)")
 

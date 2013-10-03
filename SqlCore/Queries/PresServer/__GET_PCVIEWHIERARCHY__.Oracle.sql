@@ -28,7 +28,7 @@ count(au.id_sess) Count,
 au.am_currency Currency, sum((nvl((au.tax_federal), 
 0.0) + nvl((au.tax_state), 0.0) + nvl((au.tax_county), 0.0) + 
 nvl((au.tax_local), 0.0) + nvl((au.tax_other), 0.0))) TaxAmount, 
-au.amount + 
+sum(au.amount + 
 	/*If implied taxes, then taxes are already included, don't add them again */
 	(case when au.is_implied_tax = 'N' then (NVL((au.tax_federal), 0.0) + NVL((au.tax_state), 0.0) + 
        NVL((au.tax_county), 0.0) + NVL((au.tax_local), 0.0) + NVL((au.tax_other), 0.0)) else 0 end)

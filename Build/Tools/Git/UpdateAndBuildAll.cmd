@@ -4,20 +4,18 @@ rem all env variables took from %ROOTDIR%\Build\Tools\setEnv.bat
 
 Set TARGET=%1%
 
-IF "none%TARGET%"=="none" (
-Set TARGET=skip_pull
-)
-
-IF NOT "%TARGET%"=="skip_pull" (
-	IF NOT  "%TARGET%"=="with_revert" (
-		IF NOT  "%TARGET%"=="full" (
-			@echo The target '%TARGET%' is not recognized parameter.
-			@echo Use 'full' {ALL changes will be removed} parameter to force FullCheckOut from GIT and execute makeitallparallel with clean...
-			@echo Use 'with_revert' parameter to revert all changes before do git pull by all submodules 
-			@echo Use 'skip_pull' to avoid pull for all submodules
-			@echo Press any key to exit . . .
-			pause > nul
-			Exit /B
+IF NOT "none%TARGET%"=="none" (
+	IF NOT "%TARGET%"=="skip_pull" (
+		IF NOT  "%TARGET%"=="with_revert" (
+			IF NOT  "%TARGET%"=="full" (
+				@echo The target '%TARGET%' is not recognized parameter.
+				@echo Use 'full' {ALL changes will be removed} parameter to force FullCheckOut from GIT and execute makeitallparallel with clean...
+				@echo Use 'with_revert' parameter to revert all changes before do git pull by all submodules 
+				@echo Use 'skip_pull' to avoid pull for all submodules
+				@echo Press any key to exit . . .
+				pause > nul
+				Exit /B
+			)
 		)
 	)
 )
@@ -42,14 +40,17 @@ IF "%TARGET%"=="full" (
 
 IF "%TARGET%"=="skip_pull" (
 @echo - Revert all uncommitted changes
-@echo - Get latest from all submodules
 )
 
+@echo - Get latest from all submodules
 @echo - Buld MetraNet
 @echo - Buld MVM
 @echo - Buld ICE
-if NOT "%TARGET%"=="skip_pull" (
-@echo - Create security key for encripting passwords
+IF NOT "none%TARGET%"=="none" (
+	IF NOT "%TARGET%"=="skip_pull" (
+		@echo - Create security key for encripting passwords
+		SET CREATE_SECURE_KEY=1
+	)
 )
 @echo - Encripts password
 @echo - Install  MSSQL DB
@@ -147,7 +148,7 @@ cd %DEVDIR%
 @echo Starting install DB
 rem Installs DB 
 
-if NOT "%TARGET%"=="skip_pull" (
+IF DEFINED CREATE_SECURE_KEY (
 	call cryptosetup -createkeys	
 )
 call cryptosetup -encryptconfig

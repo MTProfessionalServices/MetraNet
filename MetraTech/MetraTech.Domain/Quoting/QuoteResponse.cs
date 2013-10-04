@@ -235,12 +235,5 @@ namespace MetraTech.Domain.Quoting
         {
             return IdQuote > 0;
         }
-
-        public override string ToString()
-        {
-          return Status == QuoteStatus.Complete 
-            ? String.Format("COMPLETE: Creation date: {0}; Total amount: {1} {2}; Total tax: {3} {2}; Report link {4}", CreationDate, TotalAmount, Currency, TotalTax, ReportLink) 
-            : String.Format("FAILED: Creation date: {0}; Message: {1} ", CreationDate, FailedMessage);
-        }
     }
 }

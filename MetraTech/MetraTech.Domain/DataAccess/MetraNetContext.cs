@@ -15,7 +15,6 @@ namespace MetraTech.Domain.DataAccess
     public IDbSet<Entity> Entities { get; set; }
     public IDbSet<NotificationConfiguration> NotificationConfigurations { get; set; }
     public IDbSet<NotificationEndpoint> NotificationEndpoints { get; set; }
-    public IDbSet<QuoteIndividualPrice> QuoteIndividualPrices { get; set; }
 
     /// <summary>
     /// The constructor for default MetraNet context

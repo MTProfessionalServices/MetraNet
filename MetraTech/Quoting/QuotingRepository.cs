@@ -225,6 +225,24 @@ namespace MetraTech.Quoting
                               udrcValuesForQuote.Save();
                           }
                       }
+
+                      #region Save ICB prices
+
+                      var prices = quoteRequest.IcbPrices.Where(i => i.ProductOfferingId == POforQuoteBME.POID);
+                      foreach (var price in prices)
+                      {
+                          var qip = new QuoteICB
+                              {
+                                  QuoteHeader = quoteHeader,
+                                  POforQuote = POforQuoteBME,
+                                  CurrentChargeType = price.CurrentChargeType.ToString(),
+                                  PriceableItemId = price.PriceableItemId,
+                                  ChargesRates = System.Text.Encoding.UTF8.GetBytes(price.ChargesRates.Serialize())
+                              };
+                          qip.Save();
+                      }
+
+                      #endregion
                   }
 
                   #endregion
@@ -237,28 +255,6 @@ namespace MetraTech.Quoting
                           QuoteHeader = quoteHeader
                       };
                   quoteContent.Save();
-
-                  #endregion
-
-                  #region Save ICB prices
-
-                  using (
-                      var connection = ConnectionBase.GetDbConnection(new DataAccess.ConnectionInfo("NetMeter"), false))
-                  using (var dbContext = new MetraNetContext(connection))
-                  {
-                      foreach (var price in quoteRequest.IcbPrices)
-                      {
-                          var qip = new QuoteIndividualPrice();
-                          qip.Id = Guid.NewGuid();
-                          qip.QuoteId = quoteHeader.QuoteID.GetValueOrDefault();
-                          qip.ProductOfferingId = price.ProductOfferingId;
-                          qip.PriceableItemId = price.PriceableItemId;
-                          qip.CurrentChargeType = price.CurrentChargeType;
-                          qip.ChargesRatesXml = price.ChargesRates.Serialize();
-                          dbContext.QuoteIndividualPrices.Add(qip);
-                      }
-                      dbContext.SaveChanges();
-                  }
 
                   #endregion
 

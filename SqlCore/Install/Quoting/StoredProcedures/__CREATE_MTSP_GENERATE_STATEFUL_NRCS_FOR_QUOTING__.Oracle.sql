@@ -4,6 +4,7 @@ CREATE OR REPLACE PROCEDURE MTSP_GENERATE_ST_NRCS_QUOTING
   v_dt_start    DATE,
   v_dt_end      DATE,
   v_id_accounts VARCHAR2,
+  v_id_poid VARCHAR2,
   v_id_interval INT,
   v_id_batch    VARCHAR2,
   v_n_batch_size INT,
@@ -23,6 +24,10 @@ BEGIN
    DELETE FROM TMP_NRC_ACCOUNTS_FOR_RUN;
    INSERT INTO TMP_NRC_ACCOUNTS_FOR_RUN ( ID_ACC )
         SELECT * FROM table(cast(dbo.CSVToInt(v_id_accounts) as  tab_id_instance));
+        
+   DELETE FROM TMP_NRC_POS_FOR_RUN;
+   INSERT INTO TMP_NRC_POS_FOR_RUN ( ID_PO )
+        SELECT * FROM table(cast(dbo.CSVToInt(v_id_poid) as  tab_id_instance));
 
    DELETE FROM TMP_NRC;
 
@@ -44,8 +49,7 @@ BEGIN
             c__ProductOfferingID,
             c__SubscriptionID,
             c__IntervalID,
-            c__Resubmit,
-            c__CollectionID
+            c__Resubmit            
        )
             SELECT SYS_GUID() AS id_source_sess,
               nrc.n_event_type AS c_NRCEventType,
@@ -59,13 +63,14 @@ BEGIN
               sub.id_po AS c__ProductOfferingID,
               sub.id_sub AS c__SubscriptionID,
               v_id_interval AS c__IntervalID,
-              '0' AS c__Resubmit,
-              v_tx_batch AS c__CollectionID
+              '0' AS c__Resubmit               
             FROM t_sub sub
                   JOIN t_gsubmember mem
                    ON mem.id_group = sub.id_group
                   JOIN TMP_NRC_ACCOUNTS_FOR_RUN acc
                    ON acc.id_acc = sub.id_acc
+                  JOIN TMP_NRC_POS_FOR_RUN po
+                   ON po.id_po = sub.id_po
                   JOIN t_po
                    ON sub.id_po = t_po.id_po
                   JOIN t_pl_map plm
@@ -99,8 +104,7 @@ BEGIN
             c__ProductOfferingID,
             c__SubscriptionID,
             c__IntervalID,
-            c__Resubmit,
-            c__CollectionID
+            c__Resubmit            
        )
             SELECT SYS_GUID() AS id_source_sess,
               nrc.n_event_type AS c_NRCEventType,
@@ -114,11 +118,12 @@ BEGIN
               sub.id_po AS c__ProductOfferingID,
               sub.id_sub AS c__SubscriptionID,
               v_id_interval AS c__IntervalID,
-              '0' AS c__Resubmit,
-              v_tx_batch AS c__CollectionID
+              '0' AS c__Resubmit
             FROM t_sub sub
                   JOIN TMP_NRC_ACCOUNTS_FOR_RUN acc
                    ON acc.id_acc = sub.id_acc
+                  JOIN TMP_NRC_POS_FOR_RUN po
+                   ON po.id_po = sub.id_po
                   JOIN t_po
                    ON sub.id_po = t_po.id_po
                   JOIN t_pl_map plm
@@ -230,7 +235,7 @@ BEGIN
           c__IntervalID,
           c__Resubmit,
           NULL as c__TransactionCookie,
-          c__CollectionID
+          v_tx_batch as c__CollectionID
        FROM tmp_nrc  );
 
     DELETE FROM TMP_NRC;

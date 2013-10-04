@@ -4,6 +4,7 @@ CREATE OR REPLACE PROCEDURE MTSP_GENERATE_ST_RCS_QUOTING
     v_id_billgroup INT ,
     v_id_run       INT ,
     v_id_accounts VARCHAR2,
+	v_id_poid VARCHAR2,
     v_id_batch NVARCHAR2 ,
     v_n_batch_size INT ,
     v_run_date DATE ,
@@ -24,6 +25,10 @@ BEGIN
    DELETE FROM TMP_RC_ACCOUNTS_FOR_RUN;
    INSERT INTO TMP_RC_ACCOUNTS_FOR_RUN ( ID_ACC )
         SELECT * FROM table(cast(dbo.CSVToInt(v_id_accounts) as  tab_id_instance));
+		
+   DELETE FROM TMP_RC_POS_FOR_RUN;
+   INSERT INTO TMP_RC_POS_FOR_RUN ( ID_PO )
+        SELECT * FROM table(cast(dbo.CSVToInt(v_id_poid) as  tab_id_instance));
 
    DELETE FROM TMP_RCS;
    INSERT INTO TMP_RCS
@@ -146,6 +151,8 @@ BEGIN
           /* interval overlaps with subscription */
           AND rw.c_unitvaluestart < ui.dt_end
           AND rw.c_unitvalueend > ui.dt_start
+		  JOIN TMP_RC_POS_FOR_RUN po 
+		  on po.id_po = rw.c__ProductOfferingID
           JOIN t_recur rcr
           ON rw.c__priceableiteminstanceid = rcr.id_prop
           JOIN t_usage_cycle ccl
@@ -253,7 +260,9 @@ BEGIN
               /* next interval overlaps with subscription */
               AND rw.c_unitvaluestart < nui.dt_end
               AND rw.c_unitvalueend > nui.dt_start
-              JOIN t_recur rcr
+              JOIN TMP_RC_POS_FOR_RUN po 
+			   on po.id_po = rw.c__ProductOfferingID
+			  JOIN t_recur rcr
                ON rw.c__priceableiteminstanceid = rcr.id_prop
               JOIN t_usage_cycle ccl
                ON ccl.id_usage_cycle = CASE

@@ -32,10 +32,10 @@ IF "%TARGET%"=="skip_pull" (
 @echo.
 
 IF "%TARGET%"=="full" (
-@echo The most time-consuming process, bit new MetraNet will be fresh. The target will do:
+@echo The most time-consuming process, bit new MetraNet will be fresh. The target will do:&echo.
 @echo - Remove all binary and source code
 ) ELSE (
-@echo The current target will do:
+@echo The current target will do:&echo.
 )
 
 IF "%TARGET%"=="skip_pull" (

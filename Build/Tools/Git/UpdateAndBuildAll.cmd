@@ -33,24 +33,26 @@ IF "%TARGET%"=="skip_pull" (
 
 IF "%TARGET%"=="full" (
 @echo The most time-consuming process, bit new MetraNet will be fresh. The target will do:&echo.
+@echo - Stop all MetraTech services
 @echo - Remove all binary and source code
 ) ELSE (
 @echo The current target will do:&echo.
+@echo - Stop all MetraTech services
 )
 
 IF "%TARGET%"=="skip_pull" (
-@echo - Revert all uncommitted changes;
-@echo - Get latest from all submodules;
+@echo - Revert all uncommitted changes
+@echo - Get latest from all submodules
 )
 
-@echo - Buld MetraNet;
-@echo - Buld MVM;
-@echo - Buld ICE;
+@echo - Buld MetraNet
+@echo - Buld MVM
+@echo - Buld ICE
 if NOT "%TARGET%"=="skip_pull" (
-@echo - Create security key for encripting passwords;
+@echo - Create security key for encripting passwords
 )
-@echo - Encripts password;
-@echo - Install  MSSQL DB;
+@echo - Encripts password
+@echo - Install  MSSQL DB
 @echo.
 pause
 

@@ -2,8 +2,7 @@
 <Query>
     <Action>StoredProcedure</Action>
     <Implementations>
-        <Implementation>SqlServer</Implementation>
-        <Implementation>Oracle</Implementation>
+        <Implementation>SqlServer</Implementation>        
     </Implementations>
     <Schemas>
         <Schema>NetMeter</Schema>
@@ -22,6 +21,6 @@
         <ConversionDuplicateName></ConversionDuplicateName>
         <CommonQuerySourceFile></CommonQuerySourceFile>
         <SqlServerQuerySourceFile>R:\Config\Queries\DBInstall\Queries.xml</SqlServerQuerySourceFile>
-        <OracleQuerySourceFile>R:\Config\Queries\DBInstall\Queries_Oracle.xml</OracleQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
     </ConversionAudit>
 </Query>

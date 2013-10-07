@@ -297,7 +297,7 @@ namespace MetraTech.Pipeline.Plugins.Test
                                                            };
             }
             
-            using (IMTConnection conn = ConnectionManager.CreateConnection(@"Queries\PCWS"))
+            using (IMTConnection conn = ConnectionManager.CreateConnection(@"SqlCore\Queries\PCWS"))
             {
                 foreach (SpecCharValueStruct specCharValue in _specCharValues)
                 {
@@ -314,7 +314,7 @@ namespace MetraTech.Pipeline.Plugins.Test
                     if (!existsRecod)
                     {
                         // creates
-                        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(@"Queries\PCWS",
+                        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(@"SqlCore\Queries\PCWS",
                                                                                       "__ADD_SPEC_CHAR_VAL__"))
                         {
 
@@ -368,7 +368,7 @@ namespace MetraTech.Pipeline.Plugins.Test
                                                            };
             }
 
-            using (IMTConnection conn = ConnectionManager.CreateConnection(@"Queries\ProductCatalog"))
+            using (IMTConnection conn = ConnectionManager.CreateConnection(@"SqlCore\Queries\ProductCatalog"))
             {
                     foreach (CharValueStruct cv in _expectedValues)
                     {
@@ -385,7 +385,7 @@ namespace MetraTech.Pipeline.Plugins.Test
                         if (!existsRecod)
                         {
                             // creates
-                            using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(@"Queries\ProductCatalog",
+                            using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(@"SqlCore\Queries\ProductCatalog",
                                                                                           "__SAVE_CHAR_VALS_FOR_SUB__"))
                             {
                                 stmt.AddParam("%%SPEC_CHAR_VAL_ID%%", cv.SpecCharValId);
@@ -410,9 +410,9 @@ namespace MetraTech.Pipeline.Plugins.Test
         private int GetPoId(string poName)
         {
             int result = -1;
-            using (IMTConnection conn = ConnectionManager.CreateConnection(@"Queries\PCWS"))
+            using (IMTConnection conn = ConnectionManager.CreateConnection(@"SqlCore\Queries\PCWS"))
             {
-                using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(@"Queries\PCWS",
+                using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(@"SqlCore\Queries\PCWS",
                                                                                  "__GET_PO_HL_DETAILS__"))
                 {
                     using (IMTDataReader dataReader = stmt.ExecuteReader())
@@ -438,7 +438,7 @@ namespace MetraTech.Pipeline.Plugins.Test
             using (IMTConnection conn = ConnectionManager.CreateConnection())
             {
                 // Get a filter/sort statement
-                using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(@"queries\ProductCatalog", "__GET_ALL_SUBSCRIPTIONS__"))
+                using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(@"SqlCore\Queries\ProductCatalog", "__GET_ALL_SUBSCRIPTIONS__"))
                 {
                     // Set the parameters
                     stmt.AddParam("%%ID_ACC%%", idAcc);
@@ -567,7 +567,7 @@ namespace MetraTech.Pipeline.Plugins.Test
                                     <CountRecords>CountRecords</CountRecords>
                                 </PipelineBinding>
 				                <GeneralConfig>
-                                    <QueryPath>Queries\PCWS</QueryPath>
+                                    <QueryPath>SqlCore\Queries\PCWS</QueryPath>
                                     <QueryTagForSubscription>__GET_CHAR_VALS_FOR_SUB__</QueryTagForSubscription>
                                     <QueryTagForGroupSubscription>__GET_CHAR_VALS_FOR_GROUP_SUB__</QueryTagForGroupSubscription>
                                 </GeneralConfig>

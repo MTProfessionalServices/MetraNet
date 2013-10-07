@@ -1,14 +1,6 @@
+using MetraTech.TestCommon;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 using System.IO;
-using MetraTech.Basic.Config;
-using MetraTech.ActivityServices.Common;
-using MetraTech.Interop.MTAuth;
-using System;
-using MetraTech.DomainModel.BaseTypes;
-using System.Xml.Serialization;
-using MetraTech.Xml;
-using System.Xml;
 
 namespace MetraTech.Quoting.Test
 {
@@ -16,11 +8,9 @@ namespace MetraTech.Quoting.Test
   public class ConfigurationTests 
   {
 
-    private Logger m_Logger = new Logger("Quoting Configuration Tests]");
-
     #region tests
     
-    [TestMethod]
+    [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
     public void WriteConfigurationToFile()
     {
       #region Prepare
@@ -37,11 +27,13 @@ namespace MetraTech.Quoting.Test
       const string DEFAULT_GET_ACCOUNT_BILLING_CYCLE_QUERY_TAG = "__GET_ACCOUNT_BILLING_CYCLE__";
       const string DEFAULT_GET_ACCOUNT_PAYER_QUERY_TAG = "__GET_ACCOUNT_PAYER__";
       const int METERING_SESSION_SET_SIZE = 500;
-      const bool CURRENT_SYSTEM_IS_PRODUCTION_SYSTEM = false;
+    
       const string REPORT_DEFAULT_TEMPLATE_NAME = "Quote Report";
       const string REPORT_INSTANCE_PARTIAL_PATH = @"\Quotes\{AccountId}\Quote_{QuoteId}";
+      const string DEFAULT_QUOTING_QUERY_FOLDER = @"Queries\Quoting";
+      const bool   DEFAULT_IS_CLEANUP_QUOTE_AUTOMATICALY = true;
 
-      QuotingConfiguration configurationToWrite = new QuotingConfiguration();
+      var configurationToWrite = new QuotingConfiguration();
 
       configurationToWrite.RecurringChargeServerToMeterTo = RECCURING_CHARGE_SERVER_TO_METER_TO;
       configurationToWrite.RecurringChargeStoredProcedureQueryTag = RECCURING_CHARGE_STORED_PROCEDURE_QUERY_TAG;
@@ -52,18 +44,18 @@ namespace MetraTech.Quoting.Test
       configurationToWrite.GetAccountBillingCycleQueryTag = DEFAULT_GET_ACCOUNT_BILLING_CYCLE_QUERY_TAG;
       configurationToWrite.GetAccountPayerQueryTag = DEFAULT_GET_ACCOUNT_PAYER_QUERY_TAG;
       configurationToWrite.MeteringSessionSetSize = METERING_SESSION_SET_SIZE;
-      configurationToWrite.CurrentSystemIsProductionSystem = CURRENT_SYSTEM_IS_PRODUCTION_SYSTEM;
       configurationToWrite.ReportDefaultTemplateName = REPORT_DEFAULT_TEMPLATE_NAME;
       configurationToWrite.ReportInstancePartialPath = REPORT_INSTANCE_PARTIAL_PATH;
+      configurationToWrite.QuotingQueryFolder = DEFAULT_QUOTING_QUERY_FOLDER;
+      configurationToWrite.IsCleanupQuoteAutomaticaly = DEFAULT_IS_CLEANUP_QUOTE_AUTOMATICALY;
+      
       
       #endregion
 
       #region Run and Verify
 
-      QuotingConfigurationManager.FilePath = filePathToTestFile;
-
-      QuotingConfigurationManager.WriteConfigurationToFile(configurationToWrite);
-      QuotingConfiguration readConfiguration = QuotingConfigurationManager.LoadConfigurationFromFile();
+      QuotingConfigurationManager.WriteConfigurationToFile(configurationToWrite, filePathToTestFile);
+      QuotingConfiguration readConfiguration = QuotingConfigurationManager.LoadConfigurationFromDefaultSystemLocation();
 
       Assert.AreEqual(configurationToWrite.GetUsageIntervalIdForQuotingQueryTag, readConfiguration.GetUsageIntervalIdForQuotingQueryTag);
       Assert.AreEqual(configurationToWrite.MeteringSessionSetSize, readConfiguration.MeteringSessionSetSize);
@@ -76,17 +68,16 @@ namespace MetraTech.Quoting.Test
       Assert.AreEqual(configurationToWrite.RemoveRCMetricValuesQueryTag, readConfiguration.RemoveRCMetricValuesQueryTag);
       Assert.AreEqual(configurationToWrite.GetAccountBillingCycleQueryTag, readConfiguration.GetAccountBillingCycleQueryTag);
       Assert.AreEqual(configurationToWrite.GetAccountPayerQueryTag, readConfiguration.GetAccountPayerQueryTag);
-      Assert.AreEqual(configurationToWrite.CurrentSystemIsProductionSystem, readConfiguration.CurrentSystemIsProductionSystem);
+      Assert.AreEqual(configurationToWrite.QuotingQueryFolder, readConfiguration.QuotingQueryFolder);
+      Assert.AreEqual(configurationToWrite.IsCleanupQuoteAutomaticaly, readConfiguration.IsCleanupQuoteAutomaticaly);
 
       #endregion
     }
 
-    [TestMethod]
+    [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
     public void LoadConfigurationFromFile()
     {
-      var loadedConfiguration = QuotingConfigurationManager.LoadConfigurationFromFile();
-
-      Assert.IsTrue(File.Exists(QuotingConfigurationManager.FilePath));
+      var loadedConfiguration = QuotingConfigurationManager.LoadConfigurationFromDefaultSystemLocation();
 
       Assert.IsFalse(string.IsNullOrEmpty(loadedConfiguration.GetUsageIntervalIdForQuotingQueryTag));
       Assert.IsFalse(string.IsNullOrEmpty(loadedConfiguration.NonRecurringChargeStoredProcedureQueryTag));
@@ -98,6 +89,8 @@ namespace MetraTech.Quoting.Test
       Assert.IsFalse(string.IsNullOrEmpty(loadedConfiguration.RemoveRCMetricValuesQueryTag));
       Assert.IsFalse(string.IsNullOrEmpty(loadedConfiguration.GetAccountBillingCycleQueryTag));
       Assert.IsFalse(string.IsNullOrEmpty(loadedConfiguration.GetAccountPayerQueryTag));
+      Assert.IsFalse(string.IsNullOrEmpty(loadedConfiguration.QuotingQueryFolder));
+
     }
 
     #endregion

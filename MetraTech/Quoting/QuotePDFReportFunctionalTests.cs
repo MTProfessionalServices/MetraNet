@@ -6,6 +6,7 @@ using System.Linq;
 using MetraTech.Core.Services.ClientProxies;
 using MetraTech.DataAccess;
 using MetraTech.DomainModel.BaseTypes;
+using MetraTech.TestCommon;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MetraTech.Interop.MTProductCatalog;
 using MetraTech.Shared.Test;
@@ -29,7 +30,7 @@ namespace MetraTech.Quoting.Test
     /// <summary>
     /// 
     /// </summary>
-    [TestMethod]
+    [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
     public void LoadQuoteReportingConfiguration()
     {
       //Quoting Configuration is needed to initialize
@@ -44,16 +45,16 @@ namespace MetraTech.Quoting.Test
     ///// <summary>
     ///// 
     ///// </summary>
-    //[TestMethod]
+    //[TestMethod, MTFunctionalTest(TestAreas.Quoting)]
     //public void GeneratePDFForQuote()
     //{
-    //  int idQuote = 20;
+    //  int IdQuote = 20;
 
     //  QuoteReportingConfiguration quoteReportingConfiguration = QuoteReportingConfigurationManager.LoadConfiguration(null);
 
     //  QuotePDFReport quotePDFReport = new QuotePDFReport(quoteReportingConfiguration);
 
-    //  quotePDFReport.CreatePDFReport(idQuote, 999, "Quote Report", 840);
+    //  quotePDFReport.CreatePDFReport(IdQuote, 999, "Quote Report", 840);
     //} 
 
   }

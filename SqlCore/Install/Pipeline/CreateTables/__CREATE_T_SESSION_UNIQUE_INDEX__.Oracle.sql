@@ -1,4 +1,5 @@
 	
-	  CREATE UNIQUE INDEX PK_t_session
-	  ON t_session (id_ss, id_source_sess, ID_PARTITION) LOCAL
-	  
+	  ALTER TABLE T_SESSION ADD (
+	  CONSTRAINT PK_T_SESSION 
+	  PRIMARY KEY (id_ss, id_source_sess, ID_PARTITION)
+		USING INDEX)

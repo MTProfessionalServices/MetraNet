@@ -35,7 +35,7 @@ namespace MetraTech.Application.ProductManagement
     /// <param name="logger">MetraNet logger</param>
     /// <param name="sessionContext">current session context</param>
     public static void SaveRateSchedulesForSubscription(int subId, PCIdentifier piInstanceID, PCIdentifier paramTableID,
-                                                         List<BaseRateSchedule> rscheds, Logger logger, IMTSessionContext sessionContext)
+                                                         List<BaseRateSchedule> rscheds, ILogger logger, IMTSessionContext sessionContext)
     {
       try
       {
@@ -165,7 +165,8 @@ namespace MetraTech.Application.ProductManagement
                                                        PriceListTypes plType,
                                                        int templateId,
                                                        int paramTableId,
-                                                       IList rateSchedules, Logger logger,
+                                                       IList rateSchedules, 
+                                                       ILogger logger,
                                                        IMTSessionContext sessionContext)
     {
       var existingSchedules = new Dictionary<int, RateScheduleHolder>();

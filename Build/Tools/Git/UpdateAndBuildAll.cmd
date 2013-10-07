@@ -5,10 +5,13 @@ rem all env variables took from %ROOTDIR%\Build\Tools\setEnv.bat
 IF NOT "none%1%"=="none" (
 	IF NOT "%1%"=="full" (
 		IF NOT  "%1%"=="with_revert" (
-			@echo '%1%' is not recognized parameter.
-			@echo Use 'full' {ALL changes will be removed} parameter to force FullCheckOut from GIT and execute makeitallparallel with clean...
-			@echo Use 'with_revert' parameter to revert all changes before do git pull by all submodules 
-			Exit /B
+			IF NOT  "%1%"=="skip_pull" (
+				@echo '%1%' is not recognized parameter.
+				@echo Use 'full' {ALL changes will be removed} parameter to force FullCheckOut from GIT and execute makeitallparallel with clean...
+				@echo Use 'with_revert' parameter to revert all changes before do git pull by all submodules 
+				@echo Use 'skip_pull' to avoid pull for all submodules
+				Exit /B
+			)
 		)
 	)
 )
@@ -20,6 +23,10 @@ call %SCRIPTSFOLDER%\StopAllServices.bat
 SET CURRENT_FOLDER=%DEVDIR%
 
 @pushd %CURRENT_FOLDER%
+
+if "%1%"=="skip_pull" (
+GOTO SKIP_PULL
+)
 
 if "%1%"=="full" (
 @echo Full VM update was forced. Deleting all MN folders
@@ -62,6 +69,8 @@ IF NOT %ERRORLEVEL%==0 (
 @echo error while git pull forech submodules...
 GOTO ERROR
 )
+
+:SKIP_PULL
 
 call %SCRIPTSFOLDER%\Git\SetUnchangeConfigFiles.bat skip_pause
 

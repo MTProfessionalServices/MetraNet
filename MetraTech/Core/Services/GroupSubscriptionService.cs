@@ -166,7 +166,8 @@ namespace MetraTech.Core.Services
           // open the connection
           using (IMTConnection conn = ConnectionManager.CreateConnection())
           {
-
+            
+            bool isOracle = conn.ConnectionInfo.IsOracle;
             using (IMTFilterSortStatement stmt = conn.CreateFilterSortStatement("queries\\AccHierarchies",
                                                                            "__FIND_GROUP_SUBS_BY_DATE_RANGE__"))
             {
@@ -202,7 +203,7 @@ namespace MetraTech.Core.Services
                 // process the results
                 while (rdr.Read())
                 {
-                  grpSub = PopulateGroupSubscription(metaData, rdr);
+                  grpSub = PopulateGroupSubscription(metaData, rdr, isOracle);
                   groupSubs.Items.Add(grpSub);
                   groupSubs.TotalRows++;
 
@@ -286,6 +287,7 @@ namespace MetraTech.Core.Services
           // open the connection
           using (IMTConnection conn = ConnectionManager.CreateConnection())
           {
+            bool isOracle = conn.ConnectionInfo.IsOracle;
             using (IMTFilterSortStatement stmt = conn.CreateFilterSortStatement("queries\\AccHierarchies",
                                                                            "__FIND_GROUP_SUBS_BY_DATE_RANGE__"))
             {
@@ -318,7 +320,7 @@ namespace MetraTech.Core.Services
                 // process the results
                 while (rdr.Read())
                 {
-                  grpSub = PopulateGroupSubscription(metaData, rdr);
+                  grpSub = PopulateGroupSubscription(metaData, rdr, isOracle);
                   groupSubs.Items.Add(grpSub);
                   groupSubs.TotalRows++;
 
@@ -372,6 +374,7 @@ namespace MetraTech.Core.Services
           // open the connection
           using (IMTConnection conn = ConnectionManager.CreateConnection())
           {
+            bool isOracle = conn.ConnectionInfo.IsOracle;
             using (IMTFilterSortStatement stmt = conn.CreateFilterSortStatement("queries\\AccHierarchies",
                                                                            "__FIND_GROUP_SUBS_BY_DATE_RANGE__"))
             {
@@ -403,7 +406,7 @@ namespace MetraTech.Core.Services
                 // process the results
                 while (rdr.Read())
                 {
-                  grpSub = PopulateGroupSubscription(metaData, rdr);
+                  grpSub = PopulateGroupSubscription(metaData, rdr, isOracle);
                   groupSubs.Items.Add(grpSub);
                   groupSubs.TotalRows++;
 
@@ -2141,7 +2144,7 @@ namespace MetraTech.Core.Services
     }
 
     #region Private Members
-    private GroupSubscription PopulateGroupSubscription(MetraTech.Interop.MTProductCatalog.IMTPropertyMetaDataSet metaData, IMTDataReader rdr)
+    private GroupSubscription PopulateGroupSubscription(MetraTech.Interop.MTProductCatalog.IMTPropertyMetaDataSet metaData, IMTDataReader rdr, bool isOracle)
     {
       GroupSubscription gsub = new GroupSubscription();
       ProductOffering prodOffering = new ProductOffering();
@@ -2269,43 +2272,78 @@ namespace MetraTech.Core.Services
                   }
                 }
                 else
+                if (!rdr.IsDBNull(i))
                 {
-                  if (!rdr.IsDBNull(i))
-                  {
-                    if (propInfo.PropertyType.FullName.Contains("Boolean"))
+                    //ESR-5743 Get Group SubscriptionList fails when Extended PO properties contains a boolean column
+                    if (isOracle &&
+                        (propInfo.PropertyType == typeof (System.Boolean) ||
+                            propInfo.PropertyType == typeof (bool?)))
                     {
-                      propInfo.SetValue(prodOffering, rdr.GetBoolean(i), null);
+                        var temp = rdr.GetValue(i).ToString();
+                        if (temp == "Y" || temp == "1")
+                        {
+                            propInfo.SetValue(prodOffering, true, null);
+                        }
+
+                        if (temp == "N" || temp == "0")
+                        {
+                            propInfo.SetValue(prodOffering, false, null);
+                        }
+
                     }
-                    else if (propInfo.PropertyType.FullName.Contains("Decimal"))
-                    {
-                      propInfo.SetValue(prodOffering, rdr.GetDecimal(i), null);
-                    }
-                    else if (propInfo.PropertyType.FullName.Contains("Double"))
-                    {
-                      propInfo.SetValue(prodOffering, rdr.GetDecimal(i), null);
-                    }
-                    else if (propInfo.PropertyType.FullName.Contains("Float"))
-                    {
-                      propInfo.SetValue(prodOffering, rdr.GetDecimal(i), null);
-                    }
-                    else if (propInfo.PropertyType.FullName.Contains("Int64"))
-                    {
-                      propInfo.SetValue(prodOffering, rdr.GetInt64(i), null);
-                    }
-                    else if (propInfo.PropertyType.FullName.Contains("String"))
-                    {
-                      propInfo.SetValue(prodOffering, rdr.GetString(i), null);
-                    }
-                    else if (propInfo.PropertyType.FullName.Contains("Int32"))
-                    {
-                      propInfo.SetValue(prodOffering, rdr.GetInt32(i), null);
-                    }
-                    else if (propInfo.PropertyType.FullName.Contains("DateTime"))
-                    {
-                      propInfo.SetValue(prodOffering, rdr.GetDateTime(i), null);
-                    }
-                  }
+                    else
+                        if (propInfo.PropertyType == typeof (System.Boolean) ||
+                            propInfo.PropertyType == typeof (bool?))
+                        {
+                            var tmp = false;
+                            if (System.Boolean.TryParse(rdr.GetValue(i).ToString(), out tmp))
+                            {
+                                propInfo.SetValue(prodOffering, rdr.GetValue(i), null);
+                            }
+                            else
+                            {
+                                var temp = rdr.GetValue(i).ToString();
+                                if (temp == "Y" || temp == "1")
+                                {
+                                    propInfo.SetValue(prodOffering, true, null);
+                                }
+
+                                if (temp == "N" || temp == "0")
+                                {
+                                    propInfo.SetValue(prodOffering, false, null);
+                                }
+
+                            }
+                        }
+                else if (propInfo.PropertyType.FullName.Contains("Decimal"))
+                {
+                    propInfo.SetValue(prodOffering, rdr.GetDecimal(i), null);
                 }
+                else if (propInfo.PropertyType.FullName.Contains("Double"))
+                {
+                    propInfo.SetValue(prodOffering, rdr.GetDecimal(i), null);
+                }
+                else if (propInfo.PropertyType.FullName.Contains("Float"))
+                {
+                    propInfo.SetValue(prodOffering, rdr.GetDecimal(i), null);
+                }
+                else if (propInfo.PropertyType.FullName.Contains("Int64"))
+                {
+                    propInfo.SetValue(prodOffering, rdr.GetInt64(i), null);
+                }
+                else if (propInfo.PropertyType.FullName.Contains("String"))
+                {
+                    propInfo.SetValue(prodOffering, rdr.GetString(i), null);
+                }
+                else if (propInfo.PropertyType.FullName.Contains("Int32"))
+                {
+                    propInfo.SetValue(prodOffering, rdr.GetInt32(i), null);
+                }
+                else if (propInfo.PropertyType.FullName.Contains("DateTime"))
+                {
+                    propInfo.SetValue(prodOffering, rdr.GetDateTime(i), null);
+                }
+            }
               }
             }
             break;

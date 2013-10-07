@@ -126,6 +126,6 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent />
-    <PostBuildEvent>xcopy v:\FunctionalTests_Internal\MetraTech\SecurityFramework\SecurityFrameworkUnitTests\TestConfigs\*.xml %25RMPDIR%25\config\Security\Validation\TestConfigs\*.xml /Y</PostBuildEvent>
+    <PostBuildEvent>xcopy %25RMPDIR%25\Extensions\FunctionalTests_Internal\MetraTech\SecurityFramework\SecurityFrameworkUnitTests\TestConfigs\*.xml %25RMPDIR%25\config\Security\Validation\TestConfigs\*.xml /Y</PostBuildEvent>
   </PropertyGroup>
 </Project>

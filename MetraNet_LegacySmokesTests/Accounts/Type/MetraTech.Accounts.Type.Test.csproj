@@ -58,6 +58,18 @@
       <SpecificVersion>false</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\IMTAccountType.interop.dll</HintPath>
     </Reference>
+    <Reference Include="MetraTech.DomainModel.BaseTypes">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DomainModel.BaseTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.Common">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DomainModel.Common.dll</HintPath>
+    </Reference>
     <Reference Include="MTAuth.interop">
       <EmbedInteropTypes>false</EmbedInteropTypes>
       <Private>false</Private>
@@ -86,13 +98,19 @@
       <SpecificVersion>false</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\QueryAdapter.interop.dll</HintPath>
     </Reference>
+    <Reference Include="RCD.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+	  <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\RCD.interop.dll</HintPath>
+    </Reference>
     <Reference Include="Rowset.interop">
       <EmbedInteropTypes>false</EmbedInteropTypes>
       <Private>false</Private>
       <SpecificVersion>false</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Rowset.interop.dll</HintPath>
     </Reference>
-        <Reference Include="MetraTech.DataAccess">
+    <Reference Include="MetraTech.DataAccess">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DataAccess.dll</HintPath>
       <Private>false</Private>
     </Reference>
@@ -116,11 +134,13 @@
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Accounts.Type.dll</HintPath>
       <Private>false</Private>
     </Reference>
-	<Reference Include="System" />
+    <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <!--<Compile Include="..\..\..\..\build\AssemblyInfo.cs">

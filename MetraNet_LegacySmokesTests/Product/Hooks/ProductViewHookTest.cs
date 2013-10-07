@@ -568,10 +568,19 @@ namespace MetraTech.Product.Hooks.Test
 	            using (IMTServicedConnection conn =
 	                ConnectionManager.CreateConnection())
 	            {
-
 	                // drop the unique key tables
 	                if (partOps.UseUkTables)
-	                    partOps.DropUniqueKeyTables(m6.uniqueKeys, conn);
+                    foreach (UniqueKey uk in m6.uniqueKeys)
+                    {
+                      using (
+                        IMTAdapterStatement droptable = conn.CreateAdapterStatement("queries\\Common",
+                                                                                    "__DROP_TABLE_IF_EXISTS__"))
+                      {
+                        mLog.LogDebug(string.Format("Dropping unique key table [{0}]", uk.TableName));
+                        droptable.AddParam("%%TABLE_NAME%%", uk.TableName);
+                        droptable.ExecuteNonQuery();
+                      }
+                    }
 
 	                // drop the product view tables
 	                using (
@@ -586,7 +595,7 @@ namespace MetraTech.Product.Hooks.Test
 	                using (IMTCallableStatement delmeta =
 	                    conn.CreateCallableStatement("DeleteProductViewMetadata"))
 	                {
-	                    delmeta.AddParam("tablename", MTParameterType.String, m6.PVTableName);
+	                    delmeta.AddParam("tabname", MTParameterType.String, m6.PVTableName);
 	                    delmeta.ExecuteNonQuery();
 	                }
 

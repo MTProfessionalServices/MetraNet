@@ -1,16 +1,16 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Text;
 using System.Collections.Generic;
 using System.Linq;
-using MetraTech.Core.Services.ClientProxies;
 using MetraTech.DataAccess;
+using MetraTech.Domain.DataAccess;
+using MetraTech.Domain.Quoting;
+using MetraTech.Domain.Test.Quoting;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.ProductCatalog;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MetraTech.Interop.MTProductCatalog;
+using MetraTech.TestCommon;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MetraTech.Shared.Test;
-using Core.Quoting;
 
 namespace MetraTech.Quoting.Test
 {
@@ -23,7 +23,6 @@ namespace MetraTech.Quoting.Test
     public static void InitTests(TestContext testContext)
     {
       SharedTestCode.MakeSureServiceIsStarted("ActivityServices");
-      //SharedTestCode.MakeSureServiceIsStarted("Pipeline");
     }
 
     #endregion
@@ -31,7 +30,7 @@ namespace MetraTech.Quoting.Test
     /// <summary>
     /// Test check whether QuoteHeader and QuoteContent saved in db based on  QuoteRequest and QuoteResponse
     /// </summary>
-    [TestMethod]
+    [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
     public void QuotingRepositorySaveBMEsFunctionalTest()
     {
       #region prepare QuoteRequest
@@ -105,8 +104,9 @@ namespace MetraTech.Quoting.Test
 
       var response = new QuoteResponse
           {
-            idQuote = quoteHeaderID,
+            IdQuote = quoteHeaderID,
             TotalAmount = 200,
+            TotalTax = 20,
             ReportLink = "Test Report Link",
             CreationDate = new DateTime(2013, 05, 10, 10, 55, 30),
             FailedMessage = "",
@@ -147,7 +147,7 @@ namespace MetraTech.Quoting.Test
 
     }
 
-    [TestMethod]
+    [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
     public void QuotingRepositorySaveLogRecordsFunctionalTests()
     {
       var repository = new QuotingRepository();
@@ -162,6 +162,47 @@ namespace MetraTech.Quoting.Test
       int currentRecordsCount = repository.GetQuoteLogRecordsCount();
 
       Assert.AreEqual(initialRecordsCount + 2, currentRecordsCount);
+    }
+
+
+   [TestMethod, MTFunctionalTest(TestAreas.Quoting), Ignore]
+    public void QuotingRepositorySaveIcbPricesPositiveTest()
+    {
+      // Prepare product offering
+     /* var poConfiguration = new ProductOfferingFactoryConfiguration("QuotingRepositorySaveIcbPrices", Guid.NewGuid().ToString());
+      var productOffering = ProductOfferingFactory.Create(poConfiguration);
+      var priceableItem = productOffering.GetPriceableItems().Cast<IMTPriceableItem>().First();
+
+      // Prepare ICB price
+      var price = new IndividualPrice
+        {
+          ProductOfferingId = productOffering.ID,
+          ChargesRates = QuoteIndividualPriceTest.PrepareSampleChargesRates()
+        };
+
+      // Prepare quote request
+      var quoteRequest = new QuoteRequest
+      {
+        QuoteIdentifier = "QuoteId" + Guid.NewGuid(),
+        ReportParameters = new ReportParams { PDFReport = false },
+        EffectiveDate = DateTime.UtcNow,
+        EffectiveEndDate = DateTime.UtcNow,
+        Accounts = new List<int> { 123 },
+        ProductOfferings = new List<int> { productOffering.ID },
+        IcbPrices = new List<IndividualPrice> { price }
+      };
+
+      // Create quote
+      var quotingRepository = new QuotingRepository();
+      quotingRepository.CreateQuote(quoteRequest, null);
+      
+      QuoteIndividualPrice createdPrice;
+      using (var connection = ConnectionBase.GetDbConnection(new ConnectionInfo("NetMeter"), false))
+      using (var dbContext = new MetraNetContext(connection))
+        createdPrice = dbContext.QuoteIndividualPrices.SingleOrDefault(p => p.QuoteId == price.QuoteId);
+      
+      Assert.IsNotNull(createdPrice);
+      QuoteIndividualPriceTest.CompareQuoteIndividualPrice(price, createdPrice);*/
     }
   }
 }

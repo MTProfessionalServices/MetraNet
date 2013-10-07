@@ -151,27 +151,27 @@
       <Private>False</Private>
       <EmbedInteropTypes>false</EmbedInteropTypes>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\ActivityServices\Common\MetraTech.ActivityServices.Common.csproj">
+    <ProjectReference Include="S:\MetraTech\ActivityServices\Common\MetraTech.ActivityServices.Common.csproj">
       <Project>{E80F2D42-759F-4B7D-95C6-D04C1500569F}</Project>
       <Name>MetraTech.ActivityServices.Common</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\BusinessEntity\Core\MetraTech.BusinessEntity.Core.csproj">
+    <ProjectReference Include="S:\MetraTech\BusinessEntity\Core\MetraTech.BusinessEntity.Core.csproj">
       <Project>{B24AE6DC-D760-4835-80FE-53BF024AC59A}</Project>
       <Name>MetraTech.BusinessEntity.Core</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\BusinessEntity\DataAccess\MetraTech.BusinessEntity.DataAccess.csproj">
+    <ProjectReference Include="S:\MetraTech\BusinessEntity\DataAccess\MetraTech.BusinessEntity.DataAccess.csproj">
       <Project>{D5FA3D3B-0457-4602-924A-371793668FD3}</Project>
       <Name>MetraTech.BusinessEntity.DataAccess</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\BusinessEntity\GenerateBMEAssemblies\GenerateBMEAssemblies.csproj">
+    <ProjectReference Include="S:\MetraTech\BusinessEntity\GenerateBMEAssemblies\GenerateBMEAssemblies.csproj">
       <Project>{54FF611F-7227-44E0-AB36-F7CCCA822882}</Project>
       <Name>GenerateBMEAssemblies</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\DomainModel\GenerateDMAssemblies\GenerateDMAssemblies.csproj">
+    <ProjectReference Include="S:\MetraTech\DomainModel\GenerateDMAssemblies\GenerateDMAssemblies.csproj">
       <Project>{6D53C578-C802-4882-9A87-FFEFD7A98D2E}</Project>
       <Name>GenerateDMAssemblies</Name>
       <Private>False</Private>

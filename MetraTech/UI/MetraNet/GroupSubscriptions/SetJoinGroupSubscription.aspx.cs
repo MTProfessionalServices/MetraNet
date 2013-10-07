@@ -91,7 +91,7 @@ public partial class GroupSubscriptions_SetJoinGroupSubscription : MTPage
       gsm.AccountId = UI.Subscriber.SelectedAccount._AccountID.Value;
       gsm.AccountName = UI.Subscriber.SelectedAccount.UserName;
       gsm.MembershipSpan.StartDate = Convert.ToDateTime(this.MTEffecStartDatePicker.Text);
-      gsm.MembershipSpan.EndDate = Convert.ToDateTime(this.MTEffecEndDatePicker.Text);
+      gsm.MembershipSpan.EndDate = Convert.ToDateTime(this.MTEffecEndDatePicker.Text).AddDays(1).AddSeconds(-1);
       gsm.GroupId = GroupSubscriptionId;
 
       //Moving this to page load event 

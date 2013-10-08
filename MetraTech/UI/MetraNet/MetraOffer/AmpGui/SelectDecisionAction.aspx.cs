@@ -220,6 +220,8 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
       // Disable the unselected radio buttons.
       multiBucket.Enabled = multiBucket.Checked;
       singleBucket.Enabled = singleBucket.Checked;
+      rbGetFromParamTable.Enabled = rbGetFromParamTable.Checked;
+      ddBucketFromParamTableSource.ReadOnly = true;
 	  radUnitRate.Enabled = radUnitRate.Checked;
       radEventRate.Enabled = radEventRate.Checked;
       radDiscount.Enabled = radDiscount.Checked;

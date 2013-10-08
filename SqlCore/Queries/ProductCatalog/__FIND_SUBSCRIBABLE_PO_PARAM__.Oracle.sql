@@ -1,4 +1,3 @@
-
 SELECT DISTINCT (t_po.id_po), 
    t_po.id_eff_date, 
    t_po.id_avail, 

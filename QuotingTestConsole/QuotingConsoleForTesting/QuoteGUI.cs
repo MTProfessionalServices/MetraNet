@@ -136,7 +136,7 @@ namespace QuotingConsoleForTesting
         if (icbForm.ShowDialog() == DialogResult.OK)
         {
           _icbs.RemoveAll(i => i.PriceableItemId == selectedPI.ID);
-          _icbs.AddRange(icbForm.icbsLocal);
+          _icbs.AddRange(icbForm.IcbsLocal);
         }
       }
     }

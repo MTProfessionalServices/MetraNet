@@ -8,7 +8,7 @@ CREATE OR REPLACE PROCEDURE MTSP_GENERATE_ST_RCS_QUOTING
     v_id_batch NVARCHAR2 ,
     v_n_batch_size INT ,
     v_run_date DATE ,
-    v_p_count OUT INT)
+    p_count OUT INT)
 AS
   v_total_rcs  INT;
   v_total_flat INT;
@@ -296,20 +296,20 @@ BEGIN
               AND rcr.b_advance = 'Y'
         )  A;
 
-   SELECT COUNT(1) INTO v_total_rcs FROM TMP_RC ;
+   SELECT COUNT(1) INTO v_total_rcs FROM TMP_RCS ;
 
    IF v_total_rcs > 0 THEN
    BEGIN
-      SELECT COUNT(1) INTO v_total_flat FROM TMP_RC WHERE c_unitvalue IS NULL;
+      SELECT COUNT(1) INTO v_total_flat FROM TMP_RCS WHERE c_unitvalue IS NULL;
 
-      SELECT COUNT(1) INTO v_total_udrc FROM TMP_RC WHERE c_unitvalue IS NOT NULL;
+      SELECT COUNT(1) INTO v_total_udrc FROM TMP_RCS WHERE c_unitvalue IS NOT NULL;
 
       --INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Flat RC Candidate Count: ' + CAST(@total_flat AS VARCHAR));
       --INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'UDRC RC Candidate Count: ' + CAST(@total_udrc AS VARCHAR));
       --INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Session Set Count: ' + CAST(@v_n_batch_size AS VARCHAR));
       --INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Batch: ' + @v_id_batch);
       --INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Batch ID: ' + CAST(@tx_batch AS varchar));
-      v_tx_batch := utl_raw.cast_to_varchar2(utl_encode.base64_decode(utl_raw.cast_to_raw (v_id_batch)));
+      v_tx_batch :=  v_id_batch;	  
 
       IF v_total_flat > 0 THEN
       BEGIN
@@ -577,6 +577,6 @@ BEGIN
    END IF;
 
    /*INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Done inserting UDRC RCs');*/
-   v_p_count := v_total_rcs;
+   p_count := v_total_rcs;
    /*INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Info', 'Finished submitting RCs, count: ' + CAST(@total_rcs AS VARCHAR));*/
 END;

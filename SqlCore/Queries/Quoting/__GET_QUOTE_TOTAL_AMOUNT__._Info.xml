@@ -2,7 +2,8 @@
 <Query>
     <Action>Unknown</Action>
     <Implementations>
-        <Implementation>Common</Implementation>
+       <Implementation>SqlServer</Implementation>
+       <Implementation>Oracle</Implementation>
     </Implementations>
     <Parameters>
         <Parameter>
@@ -18,7 +19,7 @@
             <Description></Description>
         </Parameter>
 		<Parameter>
-            <Name>BATCHIDS</Name>
+            <Name>POS</Name>
             <DataType>string</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>

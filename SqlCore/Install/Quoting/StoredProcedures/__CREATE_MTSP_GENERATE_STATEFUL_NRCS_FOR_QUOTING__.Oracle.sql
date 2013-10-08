@@ -10,7 +10,7 @@ CREATE OR REPLACE PROCEDURE MTSP_GENERATE_ST_NRCS_QUOTING
   v_n_batch_size INT,
   v_run_date    DATE,
   v_is_group_sub INT,
-  v_p_count OUT INT
+  p_count OUT INT
 )
 AS
    v_id_nonrec  INT;
@@ -31,7 +31,7 @@ BEGIN
 
    DELETE FROM TMP_NRC;
 
-    v_tx_batch := utl_raw.cast_to_varchar2(utl_encode.base64_decode(utl_raw.cast_to_raw (v_id_batch)));
+   v_tx_batch := v_id_batch;
 
    IF v_is_group_sub > 0 THEN
    BEGIN
@@ -143,7 +143,7 @@ BEGIN
 
    SELECT COUNT(*)
      INTO v_total_nrcs
-     FROM tmp_nrc ;
+     FROM TMP_NRC ;
 
    SELECT id_enum_data
      INTO v_id_nonrec
@@ -152,13 +152,9 @@ BEGIN
 
    v_n_batches := (v_total_nrcs / v_n_batch_size) + 1;
 
-   GetIdBlock(v_n_batches,
-              'id_dbqueuesch',
-              v_id_message);
+   GetIdBlock(v_n_batches, 'id_dbqueuesch', v_id_message);
 
-   GetIdBlock(v_n_batches,
-              'id_dbqueuess',
-              v_id_ss);
+   GetIdBlock(v_n_batches, 'id_dbqueuess', v_id_ss);
 
    INSERT INTO t_message
      ( id_message, id_route, dt_crt, dt_metered, dt_assigned, id_listener, id_pipeline, dt_completed, id_feedback, tx_TransactionID, tx_sc_username, tx_sc_password, tx_sc_namespace, tx_sc_serialized, tx_ip_address )
@@ -240,6 +236,6 @@ BEGIN
 
     DELETE FROM TMP_NRC;
 
-   v_p_count := v_total_nrcs;
+   p_count := v_total_nrcs;
 
 END;

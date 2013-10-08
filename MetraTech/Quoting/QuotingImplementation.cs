@@ -644,7 +644,7 @@ namespace MetraTech.Quoting
             //TODO: Figure out correct cycle for group sub or if it should be passed
             var groupSubscriptionCycle = new MTPCCycle
               {
-                  CycleTypeID = 1,
+                  CycleTypeID = (int) MTUsageCycleType.MONTHLY_CYCLE,
                   EndDayOfMonth = 31
               };
 

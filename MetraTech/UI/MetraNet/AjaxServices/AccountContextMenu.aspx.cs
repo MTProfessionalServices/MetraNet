@@ -21,6 +21,13 @@ public partial class AjaxServices_AccountContextMenu : MTPage
             throw new Exception("Account not indicated");
         }
 
+		string canManageStr = Request.Form["canManage"];
+		bool canManage;
+		if (!bool.TryParse(canManageStr, out canManage))
+		{
+		  canManage = false;
+		}
+		
         // Getting selected account type name
         AccountService_GetAccountTypeName_Client client = new AccountService_GetAccountTypeName_Client();
         client.UserName = UI.User.UserName;
@@ -62,6 +69,12 @@ public partial class AjaxServices_AccountContextMenu : MTPage
         {
             menu.RemoveMenuItemById("SelfCarePortal");
         }
+		
+		if (!canManage)
+		{
+		  menu.RemoveMenuItemById("UpdateAccount");
+		  menu.RemoveMenuItemById("UpdateContact");
+		}
 
         string menuScript = MenuRenderer.RenderMenuContext(menu, UI);
         Response.Write(menuScript);

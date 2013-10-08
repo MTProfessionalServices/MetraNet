@@ -26,7 +26,6 @@ public partial class AjaxServices_Hierarchy : MTPage
        //var certManager = new CertManager();
        //certManager.EnableDeveloperCert(ConfigurationManager.AppSettings["FullyQualifiedMachineName"]);
     }
-    
     if (Request["DropID"] != null)
     {
       string dropID = Request["DropID"];
@@ -224,10 +223,9 @@ public partial class AjaxServices_Hierarchy : MTPage
         }
 
         Response.Write(",'icon':'"); Response.Write(imageURLPath.ToString());
-/*
         Response.Write("','canBeManaged':'");
         Response.Write(node.CanWrite.ToString());
-*/
+		
         // Response.Write(",'cls':'");  Response.Write(node.ItemType.ToString());
         Response.Write("'}");
 

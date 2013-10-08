@@ -49,6 +49,12 @@
       <SpecificVersion>false</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\GenericCollection.interop.dll</HintPath>
     </Reference>
+    <Reference Include="MetraTech.Test">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Test.dll</HintPath>
+    </Reference>
     <Reference Include="MTAuth.interop">
       <EmbedInteropTypes>false</EmbedInteropTypes>
       <Private>false</Private>
@@ -120,13 +126,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Test\MetraTech.Test.csproj">
-      <Project>{e95b8f73-f559-48ae-bcc2-7b0a9b3ac5a2}</Project>
-      <Name>MetraTech.Test</Name>
-      <Private>false</Private>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Core\Services\App.config">

@@ -1,4 +1,3 @@
-
 SELECT DISTINCT (t_po.id_po), 
    t_po.id_eff_date, 
    t_po.id_avail, 
@@ -169,6 +168,6 @@ WHERE te.id_eff_date  = t_po.id_eff_date
    (SELECT id_po 
    FROM vw_acc_po_restrictions 
    WHERE id_acc = :idAcc
-   )
-   and %%CURRENCYFILTER3%%
+   ) AND
+   %%CURRENCYFILTER3%%
    

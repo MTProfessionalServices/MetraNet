@@ -41,7 +41,7 @@ tav.c_currency currency,
 accstate.status status,
 accs.numpayees,
                 accs.tx_path,
-				tapg.WritePermission
+				1 AS WritePermission
 			FROM (
 				SELECT  parent.id_ancestor,
 parent.id_descendent,
@@ -57,7 +57,6 @@ AND %%DESCENDENT_RANGE_CHECK%%
 %%REF_DATE%% BETWEEN parent.vt_start AND parent.vt_end
 GROUP BY id_ancestor, id_descendent, tx_path, b_children
 ) accs
-		INNER JOIN tmp_acc_permission_grouped tapg ON tapg.accountid = accs.id_descendent
 INNER JOIN t_account acc on acc.id_acc = accs.id_descendent
 INNER JOIN t_account_type at on at.id_type = acc.id_type
 INNER  JOIN t_av_internal tav ON tav.id_acc = accs.id_descendent %%FOLDERCHECK%%

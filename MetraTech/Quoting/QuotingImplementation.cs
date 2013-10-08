@@ -626,8 +626,10 @@ namespace MetraTech.Quoting
         /// Create Group Subscription and add its ID into createdGroupSubsciptions
         /// </summary>
         /// <param name="offerId"></param>
+        /// <param name="request"></param>
         /// <param name="corporateAccountId"></param>
         /// <param name="accountList"></param>
+        /// <param name="response"></param>
         /// /// <remarks>Should be run in one transaction with the same call for all POs in QuoteRequest</remarks>
         private void CreateGroupSubscriptionForQuote(QuoteRequest request, QuoteResponse response, int offerId, int corporateAccountId, IEnumerable<int> accountList)
         {
@@ -723,14 +725,16 @@ namespace MetraTech.Quoting
               };
         }
 
-        /// <summary>
-        /// Create Individual Subscription, apply ICBs and add its ID into CreatedSubscription
-        /// </summary>
-        /// <param name="acc"></param>
-        /// <param name="po"></param>
-        /// <remarks>Should be run in one transaction with the same call for all accounts and POs in QuoteRequest</remarks>
-        /// <returns>newly created id subscription</returns>
-        private void CreateSubscriptionForQuote(QuoteRequest request, QuoteResponse response, MTPCAccount acc, int po)
+      /// <summary>
+      /// Create Individual Subscription, apply ICBs and add its ID into CreatedSubscription
+      /// </summary>
+      /// <param name="response"></param>
+      /// <param name="acc"></param>
+      /// <param name="po"></param>
+      /// <param name="request"></param>
+      /// <remarks>Should be run in one transaction with the same call for all accounts and POs in QuoteRequest</remarks>
+      /// <returns>newly created id subscription</returns>
+      private void CreateSubscriptionForQuote(QuoteRequest request, QuoteResponse response, MTPCAccount acc, int po)
         {
             var effDate = new MTPCTimeSpanClass
               {
@@ -994,15 +998,6 @@ namespace MetraTech.Quoting
             };
         }
 
-        private string GetBatchIdsForQuery(IEnumerable<ChargeData> charges)
-        {
-            string sqlTemplate = "cast(N'' as xml).value('xs:base64Binary(\"{0}\")', 'binary(16)' ),";
-
-            var res = charges.Aggregate("", (current, charge) => current + String.Format(sqlTemplate, charge.IdBatch));
-
-            return res.Substring(0, res.Length - 1);
-        }
-
         private decimal GetDecimalProperty(IMTDataReader rowset, string property)
         {
             try
@@ -1059,7 +1054,7 @@ namespace MetraTech.Quoting
                 {
                     stmt.AddParam("%%USAGE_INTERVAL%%", response.Artefacts.IdUsageInterval);
                     stmt.AddParam("%%ACCOUNTS%%", string.Join(",", request.Accounts));
-                    stmt.AddParam("%%BATCHIDS%%", GetBatchIdsForQuery(response.Artefacts.ChargesCollection), true);
+                    stmt.AddParam("%%POS%%", string.Join(",", request.ProductOfferings));
                     using (IMTDataReader rowset = stmt.ExecuteReader())
                     {
                         rowset.Read();

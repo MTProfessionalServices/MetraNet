@@ -69,7 +69,7 @@ namespace MetraTech.Quoting.Charge
                         stmt.AddParam("v_id_interval", MTParameterType.Integer, usageInterval);
                         stmt.AddParam("v_id_accounts", MTParameterType.String, string.Join(",", quoteRequest.Accounts));
                         stmt.AddParam("v_id_poid", MTParameterType.String, string.Join(",", quoteRequest.ProductOfferings));
-                        stmt.AddParam("v_id_batch", MTParameterType.String, nonReccuringCharge.IdBatch);
+                        stmt.AddParam("v_id_batch", MTParameterType.String, Utils.MSIXUtils.DecodeUIDAsString(nonReccuringCharge.IdBatch));
                         stmt.AddParam("v_n_batch_size", MTParameterType.Integer, Config.MeteringSessionSetSize);
                         stmt.AddParam("v_run_date", MTParameterType.DateTime, dateTime);
                         stmt.AddParam("v_is_group_sub", MTParameterType.Integer,

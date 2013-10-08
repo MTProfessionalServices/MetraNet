@@ -1,4 +1,5 @@
-﻿
+﻿using System.IO;
+using System.Xml;
 using System;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.Interop.MTProductCatalog;
@@ -42,11 +43,41 @@ namespace MetraTech.Approvals.ChangeTypes
         IMTRateSchedule rateScheduleToUpdate = paramTable.GetRateSchedule(idRateSchedule);
 
         MetraTech.Interop.PropSet.IMTConfig propset = new MetraTech.Interop.PropSet.MTConfig();
+		
+		
+		//ESR-5906
+	        //check for existing rule in the schedule
+	        bool ruleExists;
+	
+	        try
+	        {
+	          XmlReaderSettings settings = new XmlReaderSettings();
+	          settings.IgnoreWhitespace = true;
+	          settings.IgnoreComments = true;
+	          using (XmlReader reader = XmlReader.Create(new StringReader(updatedRulesXml)))
+	          {
+	            reader.MoveToContent();
+	            string content = reader.ReadInnerXml();
+            ruleExists = !String.IsNullOrEmpty(content);
+	          }
+	        }
+	        catch (Exception ex)
+	        {
+	          throw new ArgumentException("Could not parse UpdatedRuleSet", ex);
+	        }
+	
+	        if (ruleExists)
+        {
         bool checksumsMatch;
         MetraTech.Interop.PropSet.IMTConfigPropSet configSetIn = propset.ReadConfigurationFromString(updatedRulesXml, out checksumsMatch);
 
         rateScheduleToUpdate.RuleSet.ReadFromSet((PC.IMTConfigPropSet)configSetIn);
-
+ }
+        else
+	        {
+	          rateScheduleToUpdate.RuleSet.ReadFromSet(null);
+	        }
+		
         rateScheduleToUpdate.SaveWithRules();
       }
 

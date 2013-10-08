@@ -240,7 +240,7 @@ namespace MetraTech.Quoting.Test
                                       _testContext.TestName, testShortName));
         }
 
-        [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
+        [TestMethod, MTFunctionalTest(TestAreas.Quoting), Ignore]
         public void QuotingActivityServiceCreateQuote_TwoQuotesInParallelWithSamePOAndSameAcc_QuotesCreated()
         {
             string testShortName = "Q_AS_S_PO"; //Account name and perhaps others need a 'short' (less than 40 when combined with testRunUniqueIdentifier

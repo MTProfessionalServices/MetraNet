@@ -90,7 +90,9 @@
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
-                <MenuSection>
+				
+                <!-- 
+				<MenuSection>
                     <ID>NotificationConfiguration</ID>
                     <Caption>
                         <Value><![CDATA[Notification]]></Value>
@@ -111,7 +113,8 @@
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>				
-                
+                -->
+				
           <!-- MenuSection>
           <ID>AgreementTemplates</ID>
           <Caption>

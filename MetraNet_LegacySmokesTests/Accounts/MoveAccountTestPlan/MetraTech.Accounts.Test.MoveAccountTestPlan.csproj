@@ -128,6 +128,11 @@
       <Private>false</Private>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Core\Services\App.config">
+      <Link>App.config</Link>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent />

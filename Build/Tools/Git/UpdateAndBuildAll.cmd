@@ -154,7 +154,8 @@ IF DEFINED CREATE_SECURE_KEY (
 call cryptosetup -encryptconfig
 
 SET WILL_SHOW_LOG_IN_NOTEPAD=4
-call %ROOTDIR%\Install\Scripts\database.vbs
+@echo call 'database.vbs' under 32-bit command prompt ...
+%windir%\SysWoW64\cmd.exe /k %ROOTDIR%\Install\Scripts\database.vbs
 
 :DONE
 echo DONE!

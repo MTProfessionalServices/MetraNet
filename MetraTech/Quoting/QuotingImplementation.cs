@@ -163,6 +163,12 @@ namespace MetraTech.Quoting
                 }
                 catch (Exception ex)
                 {
+                    if (ex is AddChargeMeteringException)
+                    {
+                        // always saves chrages in case exception was occured
+                        response.Artefacts.ChargesCollection.AddRange(((AddChargeMeteringException)ex).ChargeDataCollection);
+                    }
+
                     response.Status = QuoteStatus.Failed;
                     response.FailedMessage = ex.GetaAllMessages();
 
@@ -644,7 +650,7 @@ namespace MetraTech.Quoting
             //TODO: Figure out correct cycle for group sub or if it should be passed
             var groupSubscriptionCycle = new MTPCCycle
               {
-                  CycleTypeID = (int) MTUsageCycleType.MONTHLY_CYCLE,
+                  CycleTypeID = (int)MTUsageCycleType.MONTHLY_CYCLE,
                   EndDayOfMonth = 31
               };
 
@@ -704,15 +710,15 @@ namespace MetraTech.Quoting
             mtGroupSubscription.Save();
             List<int> accountIds = new List<int>();
 
+            // add subscription to Quote Artefact
+            response.Artefacts.Subscription.AddSubscriptions(mtGroupSubscription.GroupID, accountIds);
+
             foreach (var mtGsubMember in accountList.Select(id => GetSubMember(id, request)))
             {
                 mtGroupSubscription.AddAccount(mtGsubMember);
                 accountIds.Add(mtGsubMember.AccountID);
             }
             mtGroupSubscription.Save();
-
-            // add subscription to Quote Artefact
-            response.Artefacts.Subscription.AddSubscriptions(mtGroupSubscription.GroupID, accountIds);
         }
 
         private static MTGSubMember GetSubMember(int accountId, QuoteRequest quoteRequest)
@@ -725,16 +731,16 @@ namespace MetraTech.Quoting
               };
         }
 
-      /// <summary>
-      /// Create Individual Subscription, apply ICBs and add its ID into CreatedSubscription
-      /// </summary>
-      /// <param name="response"></param>
-      /// <param name="acc"></param>
-      /// <param name="po"></param>
-      /// <param name="request"></param>
-      /// <remarks>Should be run in one transaction with the same call for all accounts and POs in QuoteRequest</remarks>
-      /// <returns>newly created id subscription</returns>
-      private void CreateSubscriptionForQuote(QuoteRequest request, QuoteResponse response, MTPCAccount acc, int po)
+        /// <summary>
+        /// Create Individual Subscription, apply ICBs and add its ID into CreatedSubscription
+        /// </summary>
+        /// <param name="response"></param>
+        /// <param name="acc"></param>
+        /// <param name="po"></param>
+        /// <param name="request"></param>
+        /// <remarks>Should be run in one transaction with the same call for all accounts and POs in QuoteRequest</remarks>
+        /// <returns>newly created id subscription</returns>
+        private void CreateSubscriptionForQuote(QuoteRequest request, QuoteResponse response, MTPCAccount acc, int po)
         {
             var effDate = new MTPCTimeSpanClass
               {

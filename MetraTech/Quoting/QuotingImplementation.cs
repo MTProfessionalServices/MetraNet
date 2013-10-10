@@ -233,9 +233,165 @@ namespace MetraTech.Quoting
 
         #region Validation
 
-        private void ValidateICBs(IEnumerable<IndividualPrice> icbs)
+        /// <summary>
+        /// Method that validates/sanity checks the request and throws exceptions if there are errors
+        /// </summary>
+        /// <param name="request">QuoteRequest to be checked</param>
+        /// <exception cref="ArgumentException"></exception>
+        protected void ValidateRequest(QuoteRequest request)
         {
-            foreach (var icb in icbs)
+            //TODO: Simple validation should be moved to QuoteRequest class
+
+            if (request.SubscriptionParameters.IsGroupSubscription && request.IcbPrices.Count > 0)
+            {
+                throw new ArgumentException("Current limitation of quoting: ICBs are applied only for individual subscriptions");
+            }
+
+            FirstMajorValidation(request);
+           
+			ValidateEffectiveDate(request);
+
+            ValidateAccount(request);
+			
+			ValidateProducOffering(request);
+
+            ValidateICBs(request);
+        }
+
+        private static void FirstMajorValidation(QuoteRequest request)
+        {
+            //At least one po must be specified since we only do RCs and NRCs currently; in the future this won't be a restriction
+            if (request.ProductOfferings == null 
+				|| request.ProductOfferings.Count == 0)
+                throw new ArgumentException(
+                    "At least one product offering must be specified for the quote as quoting currently only quotes for RCs and NRC"
+                    , PropertyName<QuoteRequest>.GetPropertyName(p => p.ProductOfferings));
+
+
+            if (request.SubscriptionParameters == null)
+                throw new ArgumentException(
+                    "Subcriptions should be set for Quoting");
+
+            if (request.Accounts == null)
+                // Accounts can be null in case creates Quoting with Group subscription
+                request.Accounts = new List<int>();
+
+            if (request.IcbPrices == null)
+                request.IcbPrices = new List<IndividualPrice>();
+			
+        }
+
+        private void ValidateAccount(QuoteRequest request)
+        {
+            //0 values Request validation
+            if (request.Accounts.Contains(0))
+            {
+                throw new ArgumentException("Accounts with id = 0 is invalid");
+            }
+
+            //At least one account must be specified
+            if (request.SubscriptionParameters.IsGroupSubscription == false
+                && request.Accounts.Count == 0)
+            {
+                throw new ArgumentException("At least one account must be specified for the quote"
+                                            , PropertyName<QuoteRequest>.GetPropertyName(p => p.Accounts));
+            }
+
+            if (request.SubscriptionParameters.IsGroupSubscription)
+            {
+                if (request.SubscriptionParameters.CorporateAccountId <= 0)
+                    throw new ArgumentException(
+                        "Corporate Account does not set for Group Subscription. Corporate Account is mandatory for Group subscription");
+            }
+            else
+            {
+                // Ensure that all accounts are in the same billing cycle
+                var first = GetAccountBillingCycle(request.Accounts.First());
+                if (!(request.Accounts.All(e => GetAccountBillingCycle(e) == first)))
+                {
+                    throw new ArgumentException("All accounts must be in the same billing cycle"
+                                                , PropertyName<QuoteRequest>.GetPropertyName(p => p.Accounts));
+                }
+            }
+			
+            // Ensure that all payers are in the quote request
+            var idPayers = request.Accounts.Select(e => GetAccountPayer(e));
+            if (!idPayers.All(e => request.Accounts.Contains(e)))
+            {
+                throw new ArgumentException("All account payers must be included in the quote request"
+                                            , PropertyName<QuoteRequest>.GetPropertyName(p => p.Accounts));
+            }
+        }
+
+        private void ValidateProducOffering(QuoteRequest request)
+        {
+
+            if (request.ProductOfferings.Contains(0))
+            {
+                throw new ArgumentException("PO with id = 0 is invalid");
+            }
+
+
+
+            foreach (var po in request.ProductOfferings)
+                ValidateUDRCMetrics(request.SubscriptionParameters.UDRCValues, po);
+        }
+
+        private static void ValidateEffectiveDate(QuoteRequest request)
+        {
+            // Sets time 00:00:00 for Start date
+            request.EffectiveDate = new DateTime(
+                   request.EffectiveDate.Year,
+                   request.EffectiveDate.Month,
+                   request.EffectiveDate.Day,
+                   0, 0, 0);
+
+            // Sets time 23:59:59 for End date
+            request.EffectiveEndDate = new DateTime(
+                request.EffectiveEndDate.Year,
+                request.EffectiveEndDate.Month,
+                request.EffectiveEndDate.Day,
+                23, 59, 59);
+
+
+            DateTime currentDate = MetraTime.Now.Date;
+            if (request.EffectiveDate.Date < currentDate)
+            {
+                string propertyName = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveDate);
+                throw new ArgumentException(
+                    String.Format("'{0}'='{1}' can't be less than current time '{2}'", propertyName,
+                                  request.EffectiveDate, currentDate), propertyName);
+            }
+
+            //EffectiveDate must be set
+            if (request.EffectiveDate == DateTime.MinValue)
+            {
+                string propertyName = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveDate);
+                throw new ArgumentException(String.Format("'{0}' must be specified", propertyName), propertyName);
+            }
+
+            if (request.EffectiveEndDate < request.EffectiveDate)
+            {
+                string propertyStartDate = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveDate);
+                string propertyEndDate = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveEndDate);
+                throw new ArgumentException(
+                    String.Format(
+                        "The Start date can not be greater than End date. Start date '{0}'='{1}' > End date '{2}'='{3}'"
+                        , propertyStartDate, request.EffectiveDate
+                        , propertyEndDate, request.EffectiveEndDate)
+                    , propertyEndDate);
+            }
+        }
+
+        private static void ValidateICBs(QuoteRequest request)
+        {
+            if (request.SubscriptionParameters.UDRCValues.Any(i => i.Key == ""))
+            {
+                throw new ArgumentException("Invalid UDRC metrics");
+            }
+
+
+            foreach (var icb in request.IcbPrices)
             {
                 switch (icb.CurrentChargeType)
                 {
@@ -276,122 +432,9 @@ namespace MetraTech.Quoting
             }
         }
 
-        /// <summary>
-        /// Method that validates/sanity checks the request and throws exceptions if there are errors
-        /// </summary>
-        /// <param name="request">QuoteRequest to be checked</param>
-        /// <exception cref="ArgumentException"></exception>
-        protected void ValidateRequest(QuoteRequest request)
-        {
-            // Sets time 00:00:00 for Start date
-            request.EffectiveDate = new DateTime(
-                   request.EffectiveDate.Year,
-                   request.EffectiveDate.Month,
-                   request.EffectiveDate.Day,
-                   0, 0, 0);
-
-            // Sets time 23:59:59 for End date
-            request.EffectiveEndDate = new DateTime(
-                request.EffectiveEndDate.Year,
-                request.EffectiveEndDate.Month,
-                request.EffectiveEndDate.Day,
-                23, 59, 59);
-
-
-            if (request.IcbPrices == null)
-                request.IcbPrices = new List<IndividualPrice>();
-
-            if (request.SubscriptionParameters.IsGroupSubscription && request.IcbPrices.Count > 0)
-            {
-                throw new ArgumentException("Current limitation of quoting: ICBs are applied only for individual subscriptions");
-            }
-
-            //0 values Request validation
-            if (request.Accounts.Contains(0))
-            {
-                throw new ArgumentException("Accounts with id = 0 is invalid");
-            }
-            if (request.ProductOfferings.Contains(0))
-            {
-                throw new ArgumentException("PO with id = 0 is invalid");
-            }
-
-            ValidateICBs(request.IcbPrices);
-
-            if (request.SubscriptionParameters.UDRCValues.Any(i => i.Key == ""))
-            {
-                throw new ArgumentException("Invalid UDRC metrics");
-            }
-
-
-            DateTime currentDate = MetraTime.Now.Date;
-            if (request.EffectiveDate.Date < currentDate)
-            {
-                string propertyName = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveDate);
-                throw new ArgumentException(
-                  String.Format("'{0}'='{1}' can't be less than current time '{2}'", propertyName,
-                                request.EffectiveDate, currentDate), propertyName);
-            }
-
-            //EffectiveDate must be set
-            if (request.EffectiveDate == null || request.EffectiveDate == DateTime.MinValue)
-            {
-                string propertyName = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveDate);
-                throw new ArgumentException(String.Format("'{0}' must be specified", propertyName), propertyName);
-            }
-
-            if (request.EffectiveEndDate < request.EffectiveDate)
-            {
-                string propertyStartDate = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveDate);
-                string propertyEndDate = PropertyName<QuoteRequest>.GetPropertyName(p => p.EffectiveEndDate);
-                throw new ArgumentException(
-                  String.Format("The Start date can not be greater than End date. Start date '{0}'='{1}' > End date '{2}'='{3}'"
-                                , propertyStartDate, request.EffectiveDate
-                                , propertyEndDate, request.EffectiveEndDate)
-                  , propertyEndDate);
-            }
-
-            //At least one account must be specified
-            if (!(request.Accounts.Count > 0))
-            {
-                throw new ArgumentException("At least one account must be specified for the quote"
-                                            , PropertyName<QuoteRequest>.GetPropertyName(p => p.Accounts));
-            }
-
-            //todo check for the same usage cycle for all accounts
-            //if (!(request.Accounts.Count > 0)) { throw new ArgumentException("At least one account must be specified for the quote", "Accounts"); }
-
-            //At least one po must be specified since we only do RCs and NRCs currently; in the future this won't be a restriction
-            if (!(request.ProductOfferings.Count > 0))
-            {
-                throw new ArgumentException(
-                  "At least one product offering must be specified for the quote as quoting currently only quotes for RCs and NRC"
-                  , PropertyName<QuoteRequest>.GetPropertyName(p => p.ProductOfferings));
-            }
-
-            // Ensure that all accounts are in the same billing cycle
-            var first = GetAccountBillingCycle(request.Accounts.First());
-            if (!(request.Accounts.All(e => GetAccountBillingCycle(e) == first)))
-            {
-                throw new ArgumentException("All accounts must be in the same billing cycle"
-                                            , PropertyName<QuoteRequest>.GetPropertyName(p => p.Accounts));
-            }
-
-            // Ensure that all payers are in the quote request
-            var idPayers = request.Accounts.Select(e => GetAccountPayer(e));
-            if (!idPayers.All(e => request.Accounts.Contains(e)))
-            {
-                throw new ArgumentException("All account payers must be included in the quote request"
-                                            , PropertyName<QuoteRequest>.GetPropertyName(p => p.Accounts));
-            }
-
-            foreach (var po in request.ProductOfferings)
-                ValidateUDRCMetrics(request.SubscriptionParameters.UDRCValues, po);
-        }
-
         #endregion Validation
 
-        protected int GetAccountBillingCycle(int idAccount)
+        protected MTUsageCycleType GetAccountBillingCycle(int idAccount)
         {
             using (var conn = ConnectionManager.CreateNonServicedConnection())
             {
@@ -404,7 +447,7 @@ namespace MetraTech.Quoting
                         if (!rowset.Read())
                             throw new ApplicationException(string.Format("The account {0} has no billing cycle", idAccount));
 
-                        return rowset.GetInt32("AccountCycleType");
+                        return (MTUsageCycleType) Enum.ToObject(typeof(MTUsageCycleType), rowset.GetInt32("AccountCycleType"));
                     }
                 }
             }
@@ -590,9 +633,7 @@ namespace MetraTech.Quoting
                     {
                         foreach (var offerId in request.ProductOfferings)
                         {
-                            CreateGroupSubscriptionForQuote(request, response, offerId,
-                                                            request.SubscriptionParameters.CorporateAccountId,
-                                                            request.Accounts);
+                            CreateGroupSubscriptionForQuote(request, response, offerId);
                         }
                     }
                     scope.Complete();
@@ -637,7 +678,7 @@ namespace MetraTech.Quoting
         /// <param name="accountList"></param>
         /// <param name="response"></param>
         /// /// <remarks>Should be run in one transaction with the same call for all POs in QuoteRequest</remarks>
-        private void CreateGroupSubscriptionForQuote(QuoteRequest request, QuoteResponse response, int offerId, int corporateAccountId, IEnumerable<int> accountList)
+        private void CreateGroupSubscriptionForQuote(QuoteRequest request, QuoteResponse response, int offerId)
         {
             var effectiveDate = new MTPCTimeSpanClass
               {
@@ -645,13 +686,6 @@ namespace MetraTech.Quoting
                   StartDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE,
                   EndDate = request.EffectiveEndDate,
                   EndDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE
-              };
-
-            //TODO: Figure out correct cycle for group sub or if it should be passed
-            var groupSubscriptionCycle = new MTPCCycle
-              {
-                  CycleTypeID = (int)MTUsageCycleType.MONTHLY_CYCLE,
-                  EndDayOfMonth = 31
               };
 
             IMTGroupSubscription mtGroupSubscription = CurrentProductCatalog.CreateGroupSubscription();
@@ -666,19 +700,19 @@ namespace MetraTech.Quoting
                                                      response.IdQuote);
             mtGroupSubscription.Description = "Group subscription for Quoting. ProductOffering: " + offerId;
             mtGroupSubscription.SupportGroupOps = true; // Part of request?
-            mtGroupSubscription.CorporateAccount = corporateAccountId;
-            mtGroupSubscription.Cycle = groupSubscriptionCycle;
+            mtGroupSubscription.CorporateAccount = request.SubscriptionParameters.CorporateAccountId;
+            mtGroupSubscription.Cycle = CreateCycleForGroupSubscription(request, response);
 
             foreach (MTPriceableItem pi in CurrentProductCatalog.GetProductOffering(offerId).GetPriceableItems())
             {
                 switch (pi.Kind)
                 {
                     case MTPCEntityType.PCENTITY_TYPE_RECURRING:
-                        mtGroupSubscription.SetChargeAccount(pi.ID, corporateAccountId,
+                        mtGroupSubscription.SetChargeAccount(pi.ID, request.SubscriptionParameters.CorporateAccountId,
                                                              request.EffectiveDate, request.EffectiveEndDate);
                         break;
                     case MTPCEntityType.PCENTITY_TYPE_RECURRING_UNIT_DEPENDENT:
-                        mtGroupSubscription.SetChargeAccount(pi.ID, corporateAccountId,
+                        mtGroupSubscription.SetChargeAccount(pi.ID, request.SubscriptionParameters.CorporateAccountId,
                                                              request.EffectiveDate, request.EffectiveEndDate);
                         try
                         {
@@ -713,12 +747,33 @@ namespace MetraTech.Quoting
             // add subscription to Quote Artefact
             response.Artefacts.Subscription.AddSubscriptions(mtGroupSubscription.GroupID, accountIds);
 
-            foreach (var mtGsubMember in accountList.Select(id => GetSubMember(id, request)))
+            foreach (var mtGsubMember in request.Accounts.Select(id => GetSubMember(id, request)))
             {
                 mtGroupSubscription.AddAccount(mtGsubMember);
                 accountIds.Add(mtGsubMember.AccountID);
             }
             mtGroupSubscription.Save();
+        }
+
+        /// <summary>
+        /// Creates <see cref="MTPCCycle"/> for group subscription by Corporate account.
+        /// The basic scenarios were taken from <see cref="MetraTech.DomainModel.Validators.AccountValidator.ValidateUsageCycle"/>
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="response"></param>
+        /// <returns><see cref="MTPCCycle"/></returns>
+        private MTPCCycle CreateCycleForGroupSubscription(QuoteRequest request, QuoteResponse response)
+        {
+            System.Diagnostics.Debug.Assert(!(request.SubscriptionParameters.IsGroupSubscription == false), "Should be call only for Quoting with Group Subscription");
+
+            MTPCCycle result = new MTPCCycleClass(); 
+
+            MTUsageCycleType copAccBillingCycle =
+                GetAccountBillingCycle(request.SubscriptionParameters.CorporateAccountId);
+
+            result.CycleTypeID = (int) copAccBillingCycle;
+            //TODO: All othetr parameters should be taken from corportae account, so need to use MAS
+            return result;
         }
 
         private static MTGSubMember GetSubMember(int accountId, QuoteRequest quoteRequest)

@@ -65,23 +65,13 @@ BEGIN
               v_id_interval AS c__IntervalID,
               '0' AS c__Resubmit               
             FROM t_sub sub
-                  JOIN t_gsubmember mem
-                   ON mem.id_group = sub.id_group
-                  JOIN TMP_NRC_ACCOUNTS_FOR_RUN acc
-                   ON acc.id_acc = sub.id_acc
-                  JOIN TMP_NRC_POS_FOR_RUN po
-                   ON po.id_po = sub.id_po
-                  JOIN t_po
-                   ON sub.id_po = t_po.id_po
-                  JOIN t_pl_map plm
-                   ON sub.id_po = plm.id_po
-                  AND plm.id_paramtable IS NULL
-                  JOIN t_base_props bp
-                   ON bp.id_prop = plm.id_pi_instance
-                  AND bp.n_kind = 30
-                  JOIN t_nonrecur nrc
-                   ON nrc.id_prop = bp.id_prop
-                  AND nrc.n_event_type = 1
+                  JOIN t_gsubmember mem ON mem.id_group = sub.id_group
+                  JOIN TMP_NRC_ACCOUNTS_FOR_RUN acc ON acc.id_acc = mem.id_acc
+                  JOIN TMP_NRC_POS_FOR_RUN po ON po.id_po = sub.id_po
+                  JOIN t_po ON sub.id_po = t_po.id_po
+                  JOIN t_pl_map plm ON sub.id_po = plm.id_po AND plm.id_paramtable IS NULL
+                  JOIN t_base_props bp ON bp.id_prop = plm.id_pi_instance AND bp.n_kind = 30
+                  JOIN t_nonrecur nrc ON nrc.id_prop = bp.id_prop AND nrc.n_event_type = 1
             WHERE sub.vt_start >= v_dt_start
                   AND sub.vt_start < v_dt_end
         ;
@@ -119,22 +109,13 @@ BEGIN
               sub.id_sub AS c__SubscriptionID,
               v_id_interval AS c__IntervalID,
               '0' AS c__Resubmit
-            FROM t_sub sub
-                  JOIN TMP_NRC_ACCOUNTS_FOR_RUN acc
-                   ON acc.id_acc = sub.id_acc
-                  JOIN TMP_NRC_POS_FOR_RUN po
-                   ON po.id_po = sub.id_po
-                  JOIN t_po
-                   ON sub.id_po = t_po.id_po
-                  JOIN t_pl_map plm
-                   ON sub.id_po = plm.id_po
-                  AND plm.id_paramtable IS NULL
-                  JOIN t_base_props bp
-                   ON bp.id_prop = plm.id_pi_instance
-                  AND bp.n_kind = 30
-                  JOIN t_nonrecur nrc
-                   ON nrc.id_prop = bp.id_prop
-                  AND nrc.n_event_type = 1
+            FROM t_sub sub 
+                  JOIN TMP_NRC_ACCOUNTS_FOR_RUN acc ON acc.id_acc = sub.id_acc
+                  JOIN TMP_NRC_POS_FOR_RUN po ON po.id_po = sub.id_po
+                  JOIN t_po ON sub.id_po = t_po.id_po
+                  JOIN t_pl_map plm ON sub.id_po = plm.id_po AND plm.id_paramtable IS NULL
+                  JOIN t_base_props bp ON bp.id_prop = plm.id_pi_instance AND bp.n_kind = 30
+                  JOIN t_nonrecur nrc ON nrc.id_prop = bp.id_prop AND nrc.n_event_type = 1
             WHERE sub.vt_start >= v_dt_start
                   AND sub.vt_start < v_dt_end
         ;

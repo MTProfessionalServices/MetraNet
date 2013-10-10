@@ -1291,65 +1291,19 @@ namespace MetraTech.Core.Services
             throw new MASBasicException("Error finding group subscription");
           }
 
-          MTGSubMember mtGsubMember = null;
-          MetraTech.Interop.MTProductCatalog.IMTCollection mtCollection =
-            new MTCollection() as MetraTech.Interop.MTProductCatalog.IMTCollection;
-
-          if (groupSubscriptionMembers.Count == 1)
+          foreach (var groupSubMember in groupSubscriptionMembers)
           {
-            mtGsubMember = new MTGSubMember();
-            mtGsubMember.AccountID = groupSubscriptionMembers[0].AccountId.Value;
-            mtGsubMember.StartDate = groupSubscriptionMembers[0].MembershipSpan.StartDate.Value;
-            if (groupSubscriptionMembers[0].MembershipSpan.EndDate.HasValue)
+            var mtGsubMember = new MTGSubMember
+              {
+                AccountID = groupSubMember.AccountId.Value,
+                StartDate = groupSubMember.MembershipSpan.StartDate.Value
+              };
+            if (groupSubMember.MembershipSpan.EndDate.HasValue)
             {
-              mtGsubMember.EndDate = groupSubscriptionMembers[0].MembershipSpan.EndDate.Value;
+              mtGsubMember.EndDate = groupSubMember.MembershipSpan.EndDate.Value;
             }
-
             mtGroupSubscription.AddAccount(mtGsubMember);
-
           }
-          else
-          {
-            foreach (GroupSubscriptionMember groupSubMember in groupSubscriptionMembers)
-            {
-              mtGsubMember = new MTGSubMember();
-              mtGsubMember.AccountID = groupSubMember.AccountId.Value;
-              mtGsubMember.StartDate = groupSubMember.MembershipSpan.StartDate.Value;
-              if (groupSubMember.MembershipSpan.EndDate.HasValue)
-              {
-                mtGsubMember.EndDate = groupSubMember.MembershipSpan.EndDate.Value;
-              }
-              mtCollection.Add(mtGsubMember);
-            }
-
-            bool modified;
-            MetraTech.Interop.MTProductCatalog.IMTRowSet errorRowset =
-                mtGroupSubscription.AddAccountBatch(mtCollection, null, out modified, null);
-
-            if (errorRowset.RecordCount > 0)
-            {
-              StringBuilder errorString = new StringBuilder();
-              string curError = "Error adding group subscription members";
-              m_Logger.LogError(curError);
-              errorString.Append(curError + "<br/>");
-
-              while (!System.Convert.ToBoolean(errorRowset.EOF))
-              {
-                curError = "Account " +
-                    ((int)errorRowset.get_Value("id_acc")).ToString() +
-                    ": " +
-                    (string)errorRowset.get_Value("description");
-
-                m_Logger.LogError(curError);
-                errorString.Append("<li>" + curError + "</li>");
-
-                errorRowset.MoveNext();
-              }
-              errorRowset.MoveFirst();
-              throw new MASBasicException(errorString.ToString());
-            }
-          }
-
         }
         catch (MASBasicException masBasic)
         {

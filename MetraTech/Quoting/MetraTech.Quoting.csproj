@@ -176,6 +176,7 @@
     <Compile Include="..\..\build\versionInfo.cs">
       <Link>VersionInfo.cs</Link>
     </Compile>
+    <Compile Include="ChargeMeteringException.cs" />
     <Compile Include="Charge\BaseCharge.cs" />
     <Compile Include="Charge\ICharge.cs" />
     <Compile Include="Charge\NonReccuringCharge.cs" />

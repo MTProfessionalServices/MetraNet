@@ -2,9 +2,7 @@
 namespace MetraTech.DataAccess.Test
 {
   using System;
-  using System.Diagnostics;
-  using MetraTech.DataAccess;
-  using MetraTech.DataAccess.OleDb;
+  using DataAccess;
   using NUnit.Framework;
 
   // nunit-console /fixture:MetraTech.DataAccess.Test.ConnectionTests  /assembly:O:\debug\bin\MetraTech.DataAccess.Test.dll
@@ -67,7 +65,11 @@ namespace MetraTech.DataAccess.Test
 
       string n = dbNameHash.GetDBName(h);
 
-      Assert.AreEqual(n.Length, 0);
+      if (ConnInfo.IsSqlServer)
+        Assert.AreEqual(h, n);
+      else
+        Assert.AreEqual(n.Length, 0);
+
       dbNameHash.showHash();
     }
 

@@ -47,6 +47,9 @@ namespace MetraTech.Quoting
 
         #region Constructors
 
+        public delegate void LoadAccountDelegate(
+            AccountIdentifier acct, DateTime timeStamp, out DomainModel.BaseTypes.Account account);
+
         public QuotingImplementation(QuotingConfiguration configuration, Auth.IMTSessionContext sessionContext,
                                         IQuotingRepository quotingRepository, IChargeMetering chargeMetering, ILogger log)
         {
@@ -433,26 +436,7 @@ namespace MetraTech.Quoting
         }
 
         #endregion Validation
-
-        protected MTUsageCycleType GetAccountBillingCycle(int idAccount)
-        {
-            using (var conn = ConnectionManager.CreateNonServicedConnection())
-            {
-                using (
-                  var stmt = conn.CreateAdapterStatement(Configuration.QuotingQueryFolder, Configuration.GetAccountBillingCycleQueryTag))
-                {
-                    stmt.AddParam("%%ACCOUNT_ID%%", idAccount);
-                    using (var rowset = stmt.ExecuteReader())
-                    {
-                        if (!rowset.Read())
-                            throw new ApplicationException(string.Format("The account {0} has no billing cycle", idAccount));
-
-                        return (MTUsageCycleType) Enum.ToObject(typeof(MTUsageCycleType), rowset.GetInt32("AccountCycleType"));
-                    }
-                }
-            }
-        }
-
+       
         protected int GetAccountPayer(int idAccount)
         {
             int payer;
@@ -701,7 +685,7 @@ namespace MetraTech.Quoting
             mtGroupSubscription.Description = "Group subscription for Quoting. ProductOffering: " + offerId;
             mtGroupSubscription.SupportGroupOps = true; // Part of request?
             mtGroupSubscription.CorporateAccount = request.SubscriptionParameters.CorporateAccountId;
-            mtGroupSubscription.Cycle = CreateCycleForGroupSubscription(request, response);
+            mtGroupSubscription.Cycle = GetAccountBillingCycleAllData(request.SubscriptionParameters.CorporateAccountId);
 
             foreach (MTPriceableItem pi in CurrentProductCatalog.GetProductOffering(offerId).GetPriceableItems())
             {
@@ -755,26 +739,70 @@ namespace MetraTech.Quoting
             mtGroupSubscription.Save();
         }
 
+        #region Account Billing Cycle
+
+        private delegate T AdditionalMethod<T>(MTUsageCycleType cyclyType, IMTDataReader rowset);
+
+        private T GetAccountBillingCycle<T>(int idAccount, AdditionalMethod<T> additionalMethod )
+        {
+            using (var conn = ConnectionManager.CreateNonServicedConnection())
+            {
+                using (
+                  var stmt = conn.CreateAdapterStatement(Configuration.QuotingQueryFolder, Configuration.GetAccountBillingCycleQueryTag))
+                {
+                    stmt.AddParam("%%ACCOUNT_ID%%", idAccount);
+                    using (var rowset = stmt.ExecuteReader())
+                    {
+                        if (!rowset.Read() || rowset.IsDBNull("AccountCycleType"))
+                            throw new SqlNullValueException(string.Format("The account {0} has no billing cycle", idAccount));
+
+                        MTUsageCycleType cyclyType = (MTUsageCycleType)Enum.ToObject(typeof(MTUsageCycleType)
+                                                        , rowset.GetInt32("AccountCycleType"));
+
+                        return additionalMethod(cyclyType, rowset);
+                    }
+                }
+            }
+        }
+
+        protected MTUsageCycleType GetAccountBillingCycle(int idAccount)
+        {
+            return GetAccountBillingCycle(idAccount, (cyclyType, rowset) =>  { return cyclyType; });
+        }
+
         /// <summary>
         /// Creates <see cref="MTPCCycle"/> for group subscription by Corporate account.
         /// The basic scenarios were taken from <see cref="MetraTech.DomainModel.Validators.AccountValidator.ValidateUsageCycle"/>
         /// </summary>
-        /// <param name="request"></param>
-        /// <param name="response"></param>
-        /// <returns><see cref="MTPCCycle"/></returns>
-        private MTPCCycle CreateCycleForGroupSubscription(QuoteRequest request, QuoteResponse response)
+        /// <param name="idAccount"></param>
+        /// <returns></returns>
+        protected MTPCCycle GetAccountBillingCycleAllData(int idAccount)
         {
-            System.Diagnostics.Debug.Assert(!(request.SubscriptionParameters.IsGroupSubscription == false), "Should be call only for Quoting with Group Subscription");
+            AdditionalMethod<MTPCCycle> additionalMethod = (cyclyType, rowset) =>
+                {
+                    MTPCCycle result = new MTPCCycleClass();
 
-            MTPCCycle result = new MTPCCycleClass(); 
+                    result.CycleTypeID = (int)cyclyType;
+                    result.EndDayOfMonth = rowset.IsDBNull("DayOfMonth") ? 0 : rowset.GetInt32("DayOfMonth");
+                    result.EndDayOfMonth2 = rowset.IsDBNull("SecondDayOfMonth") ? 0 : rowset.GetInt32("SecondDayOfMonth");
+                    result.EndDayOfWeek = rowset.IsDBNull("DayOfWeek") ? 0 : rowset.GetInt32("DayOfWeek");
+                    result.StartDay = rowset.IsDBNull("StartDay") ? 0 : rowset.GetInt32("StartDay");
+                    result.StartMonth = rowset.IsDBNull("StartMonth") ? 0 : rowset.GetInt32("StartMonth");
+                    result.StartYear = rowset.IsDBNull("StartYear") ? 0 : rowset.GetInt32("StartYear");
 
-            MTUsageCycleType copAccBillingCycle =
-                GetAccountBillingCycle(request.SubscriptionParameters.CorporateAccountId);
+                    if (MTUsageCycleType.SEMIMONTHLY_CYCLE == cyclyType)
+                        result.EndDayOfMonth = rowset.IsDBNull("FirtsDayOfMonth") ? 0 : rowset.GetInt32("FirtsDayOfMonth");
 
-            result.CycleTypeID = (int) copAccBillingCycle;
-            //TODO: All othetr parameters should be taken from corportae account, so need to use MAS
-            return result;
+                    _log.LogDebug("Retrived Cycle from account={0}: CycleTypeID={1}; EndDayOfMonth={2}; EndDayOfWeek={3}; StartDay={4}; StartMonth={5}; StartYear={6}",
+                                   idAccount, cyclyType, result.EndDayOfMonth, result.EndDayOfWeek, result.StartDay, result.StartMonth, result.StartYear);
+
+                    return result;
+                };
+
+            return GetAccountBillingCycle(idAccount, additionalMethod);
         }
+
+        #endregion Account Billing Cycle
 
         private static MTGSubMember GetSubMember(int accountId, QuoteRequest quoteRequest)
         {

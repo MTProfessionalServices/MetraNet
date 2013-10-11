@@ -1224,18 +1224,17 @@ namespace MetraTech.Core.Services
 
             #endregion
 
-            #region Add the Group Subscription Members
-
-            if (groupSubscription.Members != null && groupSubscription.Members.Items.Count > 0)
-            {
-              AddMembersToGroupSubscription(groupSubscription.GroupId.Value, groupSubscription.Members.Items);
-            }
-
-            #endregion
-
             scope.Complete();
           }
 
+          #region Add the Group Subscription Members
+
+          if (groupSubscription.Members != null && groupSubscription.Members.Items.Count > 0)
+          {
+            AddMembersToGroupSubscription(groupSubscription.GroupId.Value, groupSubscription.Members.Items);
+          }
+
+          #endregion
         }
         catch (MASBasicException masBasic)
         {

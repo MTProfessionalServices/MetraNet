@@ -4,10 +4,10 @@ using FakeItEasy;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MetraTech.TestCommon;
 
-namespace MetraTech.UsageServer.Test
+namespace MetraTech.UsageServer.Test.Unit
 {
     [TestClass]
-    public class UsagePartitionManagerTest
+    public class UsagePartitionManagerUnitTest
     {
         private IPartitionConfig _fakePartitionConfig;
         private ILogger _fakeLogger;
@@ -53,11 +53,11 @@ namespace MetraTech.UsageServer.Test
 
             A.CallTo(() => _fakePartitionConfig.IsPartitionEnabled).Returns(true);
 
-            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateUsagePartitionSchemaSp))
+            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateUsagePartitionsSp))
              .Returns(fakeUsageCallableStatement);
-            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateTaxPartitionSchemaSp))
+            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateTaxPartitionsSp))
              .Returns(fakeTaxCallableStatement);
-            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateMeterPartitionSchemaSp))
+            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateMeterPartitionsSp))
              .Returns(fakeMeterCallableStatement);
 
             A.CallTo(() => fakeUsageCallableStatement.ExecuteReader()).Returns(fakeUsageDataReader);
@@ -76,7 +76,8 @@ namespace MetraTech.UsageServer.Test
 
             #region THEN
 
-            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateUsagePartitionSchemaSp))
+            // verify that calls CreateUsagePartitions() method was called which incule using UsagePartitionManager.CreateUsagePartitionsSp
+            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateUsagePartitionsSp))
              .MustHaveHappened();
             A.CallTo(() => fakeUsageCallableStatement.ExecuteReader()).MustHaveHappened();
             A.CallTo(() => fakeUsageDataReader.GetString(partitionNameParam))
@@ -92,17 +93,17 @@ namespace MetraTech.UsageServer.Test
             A.CallTo(() => fakeUsageDataReader.Dispose()).MustHaveHappened();
             A.CallTo(() => fakeUsageCallableStatement.Dispose()).MustHaveHappened();
 
-            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateTaxPartitionSchemaSp))
+            // verify that calls CreateMeterPartition() method was called which incule using UsagePartitionManager.CreateMeterPartitionsSp
+            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateMeterPartitionsSp))
+            .MustHaveHappened();
+            A.CallTo(() => fakeMeterCallableStatement.ExecuteNonQuery()).MustHaveHappened();
+            A.CallTo(() => fakeMeterCallableStatement.Dispose()).MustHaveHappened();
+
+            // // verify that calls CreateTaxDetailPartitions() method was called which incule using UsagePartitionManager.CreateTaxPartitionsSp
+            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateTaxPartitionsSp))
              .MustHaveHappened();
             A.CallTo(() => fakeTaxCallableStatement.ExecuteNonQuery()).MustHaveHappened();
             A.CallTo(() => fakeTaxCallableStatement.Dispose()).MustHaveHappened();
-
-            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateMeterPartitionSchemaSp))
-             .MustHaveHappened();
-            A.CallTo(() => fakeMeterCallableStatement.AddParam("current_dt", MTParameterType.DateTime, A<DateTime>._))
-             .MustHaveHappened();
-            A.CallTo(() => fakeMeterCallableStatement.ExecuteNonQuery()).MustHaveHappened();
-            A.CallTo(() => fakeMeterCallableStatement.Dispose()).MustHaveHappened();
 
             A.CallTo(() => _fakeConnection.Dispose()).MustHaveHappened();
 
@@ -123,7 +124,7 @@ namespace MetraTech.UsageServer.Test
             var fakeCallableStatement = A.Fake<IMTCallableStatement>();
 
             A.CallTo(() => _fakePartitionConfig.IsPartitionEnabled).Returns(false);
-            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateTaxPartitionSchemaSp))
+            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateTaxPartitionsSp))
              .Returns(fakeCallableStatement);
 
             var partitionManager = new UsagePartitionManager(() => _fakeConnection, _fakePartitionConfig, _fakeLogger);
@@ -138,7 +139,7 @@ namespace MetraTech.UsageServer.Test
 
             #region THEN
 
-            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateTaxPartitionSchemaSp))
+            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateTaxPartitionsSp))
              .MustHaveHappened();
             A.CallTo(() => fakeCallableStatement.ExecuteNonQuery()).MustHaveHappened();
             A.CallTo(() => _fakeLogger.LogInfo(A<string>._)).MustHaveHappened();
@@ -164,7 +165,7 @@ namespace MetraTech.UsageServer.Test
             var fakeCallableStatement = A.Fake<IMTCallableStatement>();
 
             A.CallTo(() => _fakePartitionConfig.IsPartitionEnabled).Returns(true);
-            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateUsagePartitionSchemaSp))
+            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateUsagePartitionsSp))
              .Returns(fakeCallableStatement);
             A.CallTo(() => fakeCallableStatement.ExecuteReader()).Throws(UnitTestHelper.GetSqlException());
 
@@ -181,7 +182,7 @@ namespace MetraTech.UsageServer.Test
             catch
             {
                 A.CallTo(
-                    () => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateUsagePartitionSchemaSp))
+                    () => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateUsagePartitionsSp))
                  .MustHaveHappened();
                 A.CallTo(() => fakeCallableStatement.ExecuteReader()).MustHaveHappened();
 
@@ -214,7 +215,7 @@ namespace MetraTech.UsageServer.Test
             var fakeCallableStatement = A.Fake<IMTCallableStatement>();
 
             A.CallTo(() => _fakePartitionConfig.IsPartitionEnabled).Returns(true);
-            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateMeterPartitionSchemaSp))
+            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateMeterPartitionsSp))
              .Returns(fakeCallableStatement);
             A.CallTo(() => fakeCallableStatement.ExecuteNonQuery()).Throws(UnitTestHelper.GetSqlException());
 
@@ -231,7 +232,7 @@ namespace MetraTech.UsageServer.Test
             catch
             {
                 A.CallTo(
-                    () => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateMeterPartitionSchemaSp))
+                    () => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateMeterPartitionsSp))
                  .MustHaveHappened();
                 A.CallTo(() => fakeCallableStatement.ExecuteNonQuery()).MustHaveHappened();
 
@@ -263,7 +264,7 @@ namespace MetraTech.UsageServer.Test
 
             var fakeCallableStatement = A.Fake<IMTCallableStatement>();
 
-            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateTaxPartitionSchemaSp))
+            A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateTaxPartitionsSp))
              .Returns(fakeCallableStatement);
             A.CallTo(() => fakeCallableStatement.ExecuteNonQuery()).Throws(UnitTestHelper.GetSqlException());
 
@@ -279,7 +280,7 @@ namespace MetraTech.UsageServer.Test
             }
             catch
             {
-                A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateTaxPartitionSchemaSp))
+                A.CallTo(() => _fakeConnection.CreateCallableStatement(UsagePartitionManager.CreateTaxPartitionsSp))
                  .MustHaveHappened();
                 A.CallTo(() => fakeCallableStatement.ExecuteNonQuery()).MustHaveHappened();
 

@@ -1,5 +1,5 @@
 
-                CREATE PROCEDURE prtn_AddFileGroup				        
+                CREATE PROCEDURE prtn_add_file_group				        
 				@partition_name NVARCHAR(100)
 				AS
 				BEGIN TRY

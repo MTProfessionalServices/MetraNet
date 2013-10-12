@@ -5,57 +5,6 @@ using System.Reflection;
 
 namespace MetraTech
 {
-	public interface ILogger
-	{
-		//
-		// FATAL
-		// 
-		void LogFatal(string format, params object[] args);
-		void LogFatal(string str);
-
-		//
-		// ERROR
-		//
-		void LogError(string format, params object[] args);
-		void LogError(string str);
-
-		//
-		// WARNING
-		//
-		void LogWarning(string format, params object[] args);
-		void LogWarning(string str);
-
-		//
-		// INFO
-		//
-		void LogInfo(string format, params object[] args);
-		void LogInfo(string str);
-
-		//
-		// DEBUG
-		//
-		bool WillLogDebug
-		{ get; }
-        bool WillLogError
-        { get; }
-        bool WillLogWarning
-        { get; }
-        bool WillLogInfo
-        { get; }
-        bool WillLogFatal
-        { get; }
-        bool WillLogTrace
-        { get; }
-
-		void LogDebug(string format, params object[] args);
-		void LogDebug(string str);
-
-        void LogTrace(string format, params object[] args);
-        void LogTrace(string str);
-
-    void LogException(string str, Exception e);
-	}
-
 	public class Logger : ILogger
 	{
 		public Logger(string directory, string tag, bool initialize)
@@ -63,7 +12,9 @@ namespace MetraTech
 			mDirectory = directory;
 			mTag = tag;
 			if (initialize)
-				Init(mDirectory, mTag);
+			{
+			  Init(mDirectory, mTag);
+			}
 		}
 
 		public Logger(string directory, string tag)
@@ -93,6 +44,8 @@ namespace MetraTech
 			mLogger.Init(directory, tag);
 		}
 
+        //TODO: Such methods are used everywhere, in LogFatal, LogError and so on methods for verification is Log init or not.
+        // We should not always call AutoInit() and verifay initialization, due to we have big impact in logging performance.
 		public void AutoInit()
 		{
 			if (!IsInitialized)
@@ -106,21 +59,21 @@ namespace MetraTech
 				return mLogger != null;
 			}
 		}
-
-		//
+   
 		// FATAL
 		// 
 		public void LogFatal(string format, params object[] args)
 		{
 			AutoInit();
-			LogFatal(string.Format(format, args));
+            LogFatal(string.Format(format, args));
 		}
 
 		public void LogFatal(string str)
 		{
 			AutoInit();
-      
-      mLogger.LogString(MetraTech.Interop.SysContext.PlugInLogLevel.PLUGIN_LOG_FATAL, str);
+
+            mLogger.LogString(MetraTech.Interop.SysContext.PlugInLogLevel.PLUGIN_LOG_FATAL
+                , FormaterFunc(str));
 		}
 
 		//
@@ -136,8 +89,9 @@ namespace MetraTech
 		{
 			AutoInit();
 
-      mLogger.LogString(MetraTech.Interop.SysContext.PlugInLogLevel.PLUGIN_LOG_ERROR, str);
-    }
+            mLogger.LogString(MetraTech.Interop.SysContext.PlugInLogLevel.PLUGIN_LOG_ERROR
+                , FormaterFunc(str));
+        }
 
 		//
 		// WARNING
@@ -151,8 +105,8 @@ namespace MetraTech
 		public void LogWarning(string str)
 		{
 			AutoInit();
-			mLogger.LogString(MetraTech.Interop.SysContext.PlugInLogLevel.PLUGIN_LOG_WARNING,
-												str);
+			mLogger.LogString(MetraTech.Interop.SysContext.PlugInLogLevel.PLUGIN_LOG_WARNING
+        , FormaterFunc(str));
 		}
 
 		//
@@ -167,8 +121,8 @@ namespace MetraTech
 		public void LogInfo(string str)
 		{
 			AutoInit();
-			mLogger.LogString(MetraTech.Interop.SysContext.PlugInLogLevel.PLUGIN_LOG_INFO,
-												str);
+			mLogger.LogString(MetraTech.Interop.SysContext.PlugInLogLevel.PLUGIN_LOG_INFO
+        , FormaterFunc(str));
 		}
 
 		//
@@ -228,58 +182,56 @@ namespace MetraTech
 		public void LogDebug(string str)
 		{
 			AutoInit();
-			mLogger.LogString(MetraTech.Interop.SysContext.PlugInLogLevel.PLUGIN_LOG_DEBUG,
-												str);
+			mLogger.LogString(MetraTech.Interop.SysContext.PlugInLogLevel.PLUGIN_LOG_DEBUG
+        , FormaterFunc(str));
 		}
     
-    public void LogStackFrame(MetraTech.Interop.SysContext.PlugInLogLevel level)
-    {
-      StackTrace stackTrace = new StackTrace();
-      StackFrame stackFrame;
-      MethodBase stackFrameMethod;
-      int frameCount = 0;
-      string typeName;
-      do 
-      {
-        frameCount++;
-        stackFrame = stackTrace.GetFrame(frameCount);
-        stackFrameMethod = stackFrame.GetMethod();
-        typeName = stackFrameMethod.ReflectedType.FullName;
-      } while (typeName.StartsWith("System") ||
-               typeName.EndsWith("Exception") ||
-               typeName.EndsWith("Logger"));
+        public void LogStackFrame(MetraTech.Interop.SysContext.PlugInLogLevel level)
+        {
+          StackTrace stackTrace = new StackTrace();
+          StackFrame stackFrame;
+          MethodBase stackFrameMethod;
+          int frameCount = 0;
+          string typeName;
+          do 
+          {
+            frameCount++;
+            stackFrame = stackTrace.GetFrame(frameCount);
+            stackFrameMethod = stackFrame.GetMethod();
+            typeName = stackFrameMethod.ReflectedType.FullName;
+          } while (typeName.StartsWith("System") ||
+                   typeName.EndsWith("Exception") ||
+                   typeName.EndsWith("Logger"));
 
-      StackFrame sf = new StackFrame(frameCount, true);
-      mLogger.LogString(level, sf.ToString());
-    }
+          StackFrame sf = new StackFrame(frameCount, true);
+          mLogger.LogString(level, sf.ToString());
+        }
 
-    public void LogException(string msg, Exception e)
-    {
-      AutoInit();
+        public void LogException(string msg, Exception e)
+        {
+          AutoInit();
 
-      mLogger.LogString(MetraTech.Interop.SysContext.PlugInLogLevel.PLUGIN_LOG_ERROR, msg);
+          mLogger.LogString(MetraTech.Interop.SysContext.PlugInLogLevel.PLUGIN_LOG_ERROR
+            , FormaterFunc(msg));
 
-      string errMsg = string.Format("Error message was: {0}\n", e.Message);
-      errMsg += string.Format("Exception at: {0}\n", e.StackTrace);
+          string errMsg = string.Format("Error message was: {0}\n", e.Message);
+          errMsg += string.Format("Exception at: {0}\n", e.StackTrace);
 
-      Exception inner = e.InnerException;
-      while (inner != null)
-      {
-        errMsg += string.Format("Inner error message was: {0}\n", inner.Message);
-        errMsg += string.Format("Inner exception at: {0}\n", inner.StackTrace);
+          Exception inner = e.InnerException;
+          while (inner != null)
+          {
+            errMsg += string.Format("Inner error message was: {0}\n", inner.Message);
+            errMsg += string.Format("Inner exception at: {0}\n", inner.StackTrace);
 
-        inner = inner.InnerException;
-      }
+            inner = inner.InnerException;
+          }
 
-      mLogger.LogString(MetraTech.Interop.SysContext.PlugInLogLevel.PLUGIN_LOG_ERROR, errMsg);
-    }
+          mLogger.LogString(MetraTech.Interop.SysContext.PlugInLogLevel.PLUGIN_LOG_ERROR, errMsg);
+        }
 
 		private MetraTech.Interop.SysContext.IMTLog mLogger;
 		private string mDirectory;
 		private string mTag;
-
-        #region ILogger Members
-
 
         public bool WillLogTrace
         {
@@ -303,6 +255,25 @@ namespace MetraTech
                                                 str);
         }
 
-        #endregion
+        #region Log message formater
+
+        public void SetFormatter(MessageFormaterDelegate formater)
+        {
+            FormaterFunc = formater;
+        }
+
+        public void ClearFormatter()
+        {
+            FormaterFunc = DefaultFormatter();
+        }
+
+        private static MessageFormaterDelegate DefaultFormatter()
+        {
+            return (message, args) => message;
+        }
+
+        private MessageFormaterDelegate FormaterFunc = DefaultFormatter();
+
+        #endregion Log message formater
     }
 }

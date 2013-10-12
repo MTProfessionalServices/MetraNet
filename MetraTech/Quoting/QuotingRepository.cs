@@ -238,20 +238,24 @@ namespace MetraTech.Quoting
             #endregion
 
             #region Save ICB prices
-
+              
             using (var connection = ConnectionBase.GetDbConnection(new DataAccess.ConnectionInfo("NetMeter"), false))
             using (var dbContext = new MetraNetContext(connection))
             {
-              foreach (var price in quoteRequest.IcbPrices)
-              {
-                price.Id = Guid.NewGuid();
-                price.QuoteId = quoteHeader.QuoteID.GetValueOrDefault();
-                dbContext.QuoteIndividualPrices.Add(price);
-              }
-              dbContext.SaveChanges();
+                foreach (var price in quoteRequest.IcbPrices)
+                {
+                    var qip = new QuoteIndividualPrice();
+                    qip.Id = Guid.NewGuid();
+                    qip.QuoteId = quoteHeader.QuoteID.GetValueOrDefault();
+                    qip.ProductOfferingId = price.ProductOfferingId;
+                    qip.CurrentChargeType = price.CurrentChargeType;
+                    qip.ChargesRatesXml = price.ChargesRates.Serialize();
+                    dbContext.QuoteIndividualPrices.Add(qip);
+                }
+                dbContext.SaveChanges();
             }
 
-            #endregion
+              #endregion
 
             scope.Complete();
           }
@@ -284,14 +288,22 @@ namespace MetraTech.Quoting
         RepositoryAccess.Instance.Initialize();
 
         //get quoteContent BME
-        var quoteContent = GetQuoteContent(q.idQuote);
+        var quoteContent = GetQuoteContent(q.IdQuote);
 
         try
         {
           if (quoteContent == null)
-            throw new Exception(String.Format("Can't find quote header with idQuote = {0}", q.idQuote));
+          {
+            throw new Exception(String.Format("Can't find quote header with idQuote = {0}{1}Inner Exceptions:{1}{2}",
+                                              q.IdQuote,
+                                              Environment.NewLine,
+                                              q.MessageLog.Aggregate("",
+                                                                     (current, message) =>
+                                                                     current + (message.Message + Environment.NewLine))));
+          }
 
           quoteContent.Total = q.TotalAmount;
+          quoteContent.TotalTax = q.TotalTax; 
           quoteContent.Currency = q.Currency;
           quoteContent.ReportLink = q.ReportLink;
           //quoteContent.CreationDate = q.CreationDate;
@@ -509,10 +521,10 @@ namespace MetraTech.Quoting
 
     public QuoteResponse UpdateQuoteWithResponse(QuoteResponse quoteResponse)
     {
-      if (!requests.ContainsKey(quoteResponse.idQuote))
-        throw new ArgumentException(string.Format("Quote with id {0} not found in repository", quoteResponse.idQuote), "idQuote");
+      if (!requests.ContainsKey(quoteResponse.IdQuote))
+        throw new ArgumentException(string.Format("Quote with id {0} not found in repository", quoteResponse.IdQuote), "idQuote");
 
-      responses.Add(quoteResponse.idQuote, quoteResponse);
+      responses.Add(quoteResponse.IdQuote, quoteResponse);
         return quoteResponse;
 
     }

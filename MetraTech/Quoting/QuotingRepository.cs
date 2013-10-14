@@ -202,7 +202,7 @@ namespace MetraTech.Quoting
                   quoteHeader.CustomIdentifier = quoteRequest.QuoteIdentifier;
                   quoteHeader.StartDate = quoteRequest.EffectiveDate;
                   quoteHeader.EndDate = quoteRequest.EffectiveEndDate;
-                  quoteHeader.QuoteID = quoteId;
+                  quoteHeader.QuoteID = quoteId + 1;
 
                   if (sessionContext != null)
                       quoteHeader.UID = sessionContext.AccountID;

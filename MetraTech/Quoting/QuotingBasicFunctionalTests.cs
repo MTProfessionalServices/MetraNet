@@ -694,9 +694,8 @@ namespace MetraTech.Quoting.Test
       expected.TotalForUDRCs = 30;//introduce formula based on PT
 
       expected.Total = (expected.CountFlatRCs * pofConfiguration.RCAmount) +
-                                   (expected.CountUDRCs.Value
-                                   * expected.TotalForUDRCs) +
-                                   (expected.CountNRCs * pofConfiguration.NRCAmount);
+                      (expected.CountUDRCs.Value * expected.TotalForUDRCs) +
+                      (expected.CountNRCs * pofConfiguration.NRCAmount);
 
       //Give request to testing scenario along with expected results for verification; get back response for further verification
 

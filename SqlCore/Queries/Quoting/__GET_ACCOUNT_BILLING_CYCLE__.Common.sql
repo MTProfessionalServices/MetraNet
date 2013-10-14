@@ -1,7 +1,7 @@
 SELECT  id_cycle_type as AccountCycleType, 
         day_of_month as DayOfMonth,
 		day_of_week as DayOfWeek,
-		first_day_of_month as FirtsDayOfMonth,
+		first_day_of_month as FirstDayOfMonth,
 		second_day_of_month as SecondDayOfMonth,
 		start_day as StartDay,
 		start_month as StartMonth,

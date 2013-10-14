@@ -13,4 +13,5 @@
   <ReportInstancePartialPath>\Quotes\{AccountId}\Quote_{QuoteId}</ReportInstancePartialPath>
   <QuotingQueryFolder>Queries\Quoting</QuotingQueryFolder>
   <IsCleanupQuoteAutomaticaly>true</IsCleanupQuoteAutomaticaly>
+  <IsAllowedUseActivityService>true</IsAllowedUseActivityService>
 </QuotingConfiguration>

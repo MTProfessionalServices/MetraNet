@@ -29,23 +29,3 @@ update t_batch
      on errorsumm.tx_batch = summ.tx_batch
    ) count_summ
    where count_summ.tx_batch = t_batch.tx_batch)
-where exists
-(
-select 1 from 
-   (
-    select nvl(summ.tx_batch, errorsumm.tx_batch) as tx_batch, summ.backout_count, errorsumm.error_count
-    from
-    (select au.tx_batch, count(*) as backout_count from %%TABLE_NAME%% rr left outer join
-      t_acc_usage au on au.id_sess = rr.id_sess and au.id_usage_interval = rr.id_interval
-      where rr.id_sess is not null and au.tx_batch is not null and rr.tx_state = 'A'
-      group by au.tx_batch) summ
-      full outer join
-    -- count of errors we're backing out
-    (select ft.tx_batch, count(*) as error_count from %%TABLE_NAME%% rr inner join
-      t_failed_transaction ft on ft.tx_FailureCompoundID = rr.id_source_sess
-      where rr.tx_state = 'E'
-      and ft.State <> 'R'
-      group by ft.tx_batch) errorsumm
-     on errorsumm.tx_batch = summ.tx_batch
-   ) count_summ
-   where count_summ.tx_batch = t_batch.tx_batch)

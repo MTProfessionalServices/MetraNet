@@ -20,7 +20,7 @@ namespace MetraTech.Quoting
   /// </summary>
   public interface IQuotingRepository
   {
-    int CreateQuote(QuoteRequest quoteRequest, IMTSessionContext sessionContext);
+    int CreateQuote(QuoteRequest quoteRequest, IMTSessionContext sessionContext, QuotingConfiguration configuration);
     QuoteResponse UpdateQuoteWithResponse(QuoteResponse quoteResponse);
     QuoteResponse UpdateQuoteWithErrorResponse(int idQuote, QuoteResponse quoteResponse, string errorMessage);
     void SaveQuoteLog(List<QuoteLogRecord> logRecords);
@@ -50,16 +50,18 @@ namespace MetraTech.Quoting
   {
     private static Logger mLogger = new Logger("[QuotingRepository]");
 
-    /// <summary>
-    /// Creates quoting BMEs and save them into DB
-    /// </summary>
-    /// <param name="quoteRequest"></param>
-    /// <param name="sessionContext">SessionContext used for knowing which user is performing the action</param>/// 
-    /// <returns>ID of created quote</returns>
-    public int CreateQuote(QuoteRequest quoteRequest, IMTSessionContext sessionContext)
+      /// <summary>
+      /// Creates quoting BMEs and save them into DB
+      /// </summary>
+      /// <param name="quoteRequest"></param>
+      /// <param name="sessionContext">SessionContext used for knowing which user is performing the action</param>
+      /// <param name="configuration">Quoting configuration</param>
+      /// /// 
+      /// <returns>ID of created quote</returns>
+      public int CreateQuote(QuoteRequest quoteRequest, IMTSessionContext sessionContext, QuotingConfiguration configuration)
     {
-      var quoteHeader = SetQuoteHeader(quoteRequest, sessionContext);
-      return quoteHeader.QuoteID ?? -1;
+      var quoteHeader = SetQuoteHeader(quoteRequest, sessionContext, configuration);
+      return quoteHeader.QuoteID;
 
     }
 
@@ -161,7 +163,7 @@ namespace MetraTech.Quoting
       }
     }
 
-    private static QuoteHeader SetQuoteHeader(QuoteRequest quoteRequest, IMTSessionContext sessionContext)
+    private static QuoteHeader SetQuoteHeader(QuoteRequest quoteRequest, IMTSessionContext sessionContext, QuotingConfiguration configuration)
     {
       using (new HighResolutionTimer("SetQuoteHeader"))
       {
@@ -172,12 +174,35 @@ namespace MetraTech.Quoting
           {
               using (var scope = new TransactionScope(TransactionScopeOption.Required))
               {
+                  int quoteId;
+
+                  #region Get max quote id
+
+                  using (var conn = ConnectionManager.CreateConnection())
+                  {
+
+                      // calculate Total
+                      using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(configuration.QuotingQueryFolder, configuration.GetMaxQuoteIdQueryTag))
+                      {
+                          using (IMTDataReader rowset = stmt.ExecuteReader())
+                          {
+                              rowset.Read();
+
+                              var quoteIdTmp = rowset.GetValue("QuoteId");
+                              Int32.TryParse(quoteIdTmp.ToString(), out quoteId);
+                          }
+                      }
+                  }
+
+                  #endregion
+
                   #region Save quote header
 
                   quoteHeader.CustomDescription = quoteRequest.QuoteDescription;
                   quoteHeader.CustomIdentifier = quoteRequest.QuoteIdentifier;
                   quoteHeader.StartDate = quoteRequest.EffectiveDate;
                   quoteHeader.EndDate = quoteRequest.EffectiveEndDate;
+                  quoteHeader.QuoteID = quoteId;
 
                   if (sessionContext != null)
                       quoteHeader.UID = sessionContext.AccountID;
@@ -493,7 +518,7 @@ namespace MetraTech.Quoting
 
     #region IQuotingRepository Members
 
-    public int CreateQuote(QuoteRequest quoteRequest, IMTSessionContext sessionContext)
+    public int CreateQuote(QuoteRequest quoteRequest, IMTSessionContext sessionContext, QuotingConfiguration configuration)
     {
       int newId = idCurrent++;
       requests.Add(newId, quoteRequest);

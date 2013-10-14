@@ -128,9 +128,9 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
-    <property name="QuoteID" generated="always" column = "c_QuoteID" update="false" insert="false">
+    <property name="QuoteID" column="c_QuoteID" not-null="true">
       <meta attribute="label">QuoteID</meta>
-      <meta attribute="description">Quoute number. Should be unique.</meta>
+	  <meta attribute="description">Quoute number. Should be unique.</meta>
       <meta attribute="defaultvalue" />
       <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>
@@ -217,50 +217,4 @@
       <one-to-many class="Core.Quoting.QuoteICB, Core.Quoting.Entity" />
     </bag>
   </class>
-  <database-object>
-    <create>
-		ALTER TABLE t_be_cor_qu_quoteheader DROP COLUMN c_QuoteID 	
-		ALTER TABLE t_be_cor_qu_quoteheader ADD c_QuoteID int identity(1,1)		
-	</create>
-    <drop />
-    <dialect-scope name="NHibernate.Dialect.MsSql2008Dialect" />
-  </database-object>
-  <database-object>
-    <create>	
-		DECLARE 
-		X    NUMBER;
-		BEGIN
-			SELECT COUNT(*) INTO X FROM user_sequences WHERE SEQUENCE_NAME = 'QU_QUOTEHEADER_SEQUENCE';
-			IF X = 0 THEN
-				EXECUTE IMMEDIATE 'Create sequence QU_QUOTEHEADER_SEQUENCE start with 1 increment by 1';
-			END IF;
-		END;	
-				
-	</create>
-    <drop />
-    <dialect-scope name="NHibernate.Dialect.Oracle10gDialect" />
-  </database-object>
-  <database-object>
-    <create>	
-		DECLARE 
-		X    NUMBER;
-		BEGIN
-			SELECT COUNT(*) INTO X FROM DBA_OBJECTS WHERE OBJECT_TYPE = 'TRIGGER' AND OBJECT_NAME = 'QUOTEHEADER_QUOTEID_INCREMENT';
-			IF X = 0 THEN
-				EXECUTE IMMEDIATE 
-					'create or replace trigger QUOTEHEADER_QUOTEID_INCREMENT 
-						before insert  
-						on t_be_cor_qu_quoteheader
-						for each row
-					begin
-						select QU_QUOTEHEADER_SEQUENCE.nextval
-						into :new.c_QuoteID
-						from dual;
-					end;';
-			END IF;
-		END;						
-	</create>
-    <drop />
-    <dialect-scope name="NHibernate.Dialect.Oracle10gDialect" />
-  </database-object>
 </hibernate-mapping>

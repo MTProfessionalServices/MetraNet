@@ -23,9 +23,13 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System.ServiceModel;
+using System.Text;
+using MetraTech.ActivityServices.Common;
 using MetraTech.DataAccess;
 using MetraTech.Domain.Quoting;
 using MetraTech.Interop.MTBillingReRun;
+using MetraTech.Interop.MeterRowset;
 using MetraTech.Pipeline;
 using MetraTech.Quoting.Charge;
 using MetraTech.UsageServer;
@@ -52,7 +56,7 @@ namespace MetraTech.Quoting
             _charges = charges;
             Log = logger;
 
-            _rowSet = new Interop.MeterRowset.MeterRowsetClass();
+            _rowSet = new MeterRowsetClass();
         }
 
 
@@ -64,7 +68,6 @@ namespace MetraTech.Quoting
         /// Adds charges to DB
         /// </summary>
         /// <param name="quoteRequest"></param>
-        /// <returns>IList<<see cref="ChargeData"/>></returns>
         /// <exception cref="AddChargeMeteringException">The exception contains charges which should be cleanuped</exception>
         public IList<ChargeData> AddCharges(QuoteRequest quoteRequest)
         {
@@ -86,7 +89,7 @@ namespace MetraTech.Quoting
                                                     , _rowSet.GenerateBatchID()
                                                     , usageInterval);
                     chargeList.Add(chargeData);
-                    MeterRecodrs(chargeData);
+                    MeterRecodrs(_rowSet, chargeData);
                 }
             }
             catch (Exception ex)
@@ -164,10 +167,11 @@ namespace MetraTech.Quoting
         /// <summary>
         /// Meter records in Pipeline
         /// </summary>
+        /// <param name="rowSet"><see cref="MeterRowset"/></param>
         /// <param name="chargeData"><see cref="ChargeData"/></param>
         /// <exception cref="ChargeMeteringException"></exception>
         /// <exception cref="Exception"></exception>
-        protected void MeterRecodrs(ChargeData chargeData)
+        protected void MeterRecodrs(MeterRowset rowSet, ChargeData chargeData)
         {
             if (chargeData.CountMeteredRecords > 0)
             {
@@ -179,16 +183,16 @@ namespace MetraTech.Quoting
                 if (!ValidatChargeData(chargeData, out errorMessage))
                     throw new ChargeMeteringException(errorMessage);
 
-                _rowSet.WaitForCommit(chargeData.CountMeteredRecords, 120);
+                rowSet.WaitForCommit(chargeData.CountMeteredRecords, 120);
 
                 // Check for error during pipeline processing
-                if (_rowSet.CommittedErrorCount > 0)
+                if (rowSet.CommittedErrorCount > 0)
                 {
                     errorMessage =
                         String.Format(@"'{0}' {1} sessions failed during pipeline processing.
                           Pipeline Errors: 
                           {2}",
-                                      _rowSet.CommittedErrorCount
+                                      rowSet.CommittedErrorCount
                                       , chargeData.ChargeType
                                       , RetrievePipelineErrorDetailsMessage(chargeData.IdBatch));
 
@@ -244,6 +248,18 @@ namespace MetraTech.Quoting
                 rerun.Analyze(comment);
                 rerun.BackoutDelete(comment);
                 rerun.Abandon(comment);
+            }
+            catch (FaultException<MASBasicFaultDetail> fe)
+            {
+                StringBuilder err =
+                  new StringBuilder(String.Format("Error while cleanup Usage Data : {0}", fe.Message));
+
+                foreach (string msg in fe.Detail.ErrorMessages)
+                {
+                    err.AppendLine(msg);
+                }
+
+                throw new Exception(err.ToString(), fe);
             }
             finally
             {

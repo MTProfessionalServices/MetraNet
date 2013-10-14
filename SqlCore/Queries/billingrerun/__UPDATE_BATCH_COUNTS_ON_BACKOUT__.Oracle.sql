@@ -1,15 +1,15 @@
-update t_batch
-  set (n_completed,n_failed,n_dismissed,tx_status,dt_first,dt_last)
-  = (select t_batch.n_completed - nvl(count_summ.backout_count, 0),
-            (select count(*) from t_failed_transaction ft where ft.tx_Batch_Encoded=t_batch.tx_Batch_Encoded and ft.State='N') - nvl(count_summ.error_count,0),
-            (select count(*) from t_failed_transaction ft where ft.tx_Batch_Encoded=t_batch.tx_Batch_Encoded and ft.State='P'),
-     case when (t_batch.n_completed - nvl(count_summ.backout_count, 0)) = 0 then 'B'
-          when (t_batch.n_completed + t_batch.n_failed + nvl(t_batch.n_dismissed, 0)) < t_batch.n_expected then 'A'
-          else t_batch.tx_status end,
-     case when (t_batch.n_completed - nvl(count_summ.backout_count, 0)) = 0 then null
-                            else t_batch.dt_first end,
-     case when (t_batch.n_completed - nvl(count_summ.backout_count, 0)) = 0 then null
-                            else t_batch.dt_last end
+DECLARE
+   CURSOR tx_batch_cur
+   IS
+   select tx_batch from %%TABLE_NAME%% rr group by tx_batch;
+BEGIN
+   FOR tx_batch_value 
+   IN tx_batch_cur
+   LOOP
+
+  update t_batch
+         set (n_completed)
+     = (select t_batch.n_completed - nvl(count_summ.backout_count, 0) as n_completed
   from
     -- count of completed sessions we're backing out
    (
@@ -27,5 +27,10 @@ update t_batch
       and ft.State <> 'R'
       group by ft.tx_batch) errorsumm
      on errorsumm.tx_batch = summ.tx_batch
-   ) count_summ
-   where count_summ.tx_batch = t_batch.tx_batch)
+   ) count_summ 
+   where t_batch.tx_batch = count_summ.tx_batch  
+   ) 
+    WHERE t_batch.tx_batch = tx_batch_value.tx_batch;
+   
+   END LOOP;
+END;

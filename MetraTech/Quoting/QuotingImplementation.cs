@@ -146,7 +146,7 @@ namespace MetraTech.Quoting
                         response.Status = QuoteStatus.InProgress;
 
                         //Add this quote into repository and gets a newly creatd quote id
-                        response.IdQuote = QuotingRepository.CreateQuote(quoteRequest, SessionContext);
+                        response.IdQuote = QuotingRepository.CreateQuote(quoteRequest, SessionContext, Configuration);
 
                         //If we need here, here is the place for things that need to be generated, totaled, etc. before we
                         //generate PDF and return results

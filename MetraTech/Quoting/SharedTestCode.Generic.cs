@@ -218,8 +218,10 @@ namespace MetraTech.Shared.Test
                     var udrcValue = new UDRCInstanceValueBase
                     {
                         UDRC_Id = idUDRC.HasValue ? idUDRC.Value : possibleUDRC.ID,
-                        StartDate = MetraTime.Now,
-                        EndDate = MetraTime.Now.AddYears(1),
+						//StartDate = MetraTime.Now,
+                        //EndDate = MetraTime.Now.AddYears(1),
+                        StartDate = new DateTime(2000,01,01),
+                        EndDate = new DateTime(2020, 01, 01),
                         Value = value
                     };
 

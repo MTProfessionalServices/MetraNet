@@ -67,10 +67,9 @@ tav.c_currency currency,
 accstate.status status,
 accs.numpayees,
 accs.tx_path,
-awp.WritePermission
+1 AS WritePermission
 
 FROM my_drivers accs
- inner join GetAccountsWithPermission(%%CURRENT_USER%%) awp on accs.id_descendent = awp.AccountID
  inner join t_account acc on acc.id_acc = accs.id_descendent
  inner join t_account_type at on at.id_type = acc.id_type
   INNER  JOIN t_av_internal tav ON tav.id_acc = accs.id_descendent %%FOLDERCHECK%%

@@ -307,9 +307,21 @@ namespace MetraTech.Accounts.Hierarchy.WebService
     {
       try
       {
+        MetraTech.Interop.MTYAAC.IMTSessionContext sessionContext = (MetraTech.Interop.MTYAAC.IMTSessionContext)new MTSessionContext();
+        sessionContext.FromXML(serializedContext);
+        IMTAdapterStatement oStmt;
+        // Super User role by definition has access to all accounts, so it is not necessary to restrict access to only hierarchies the logged in accout has manage account hierarchies permission for
+        // when loading the hierarchy level from the db
+        if (sessionContext.SecurityContext.IsInRole("Super User"))
+        {
+            oStmt = oConn.CreateAdapterStatement("Queries\\AccHierarchies", "__LOAD_HIERACHY_LEVEL_FOR_SUPER_USER__");
+        }
+        else
+        {
+            oStmt = oConn.CreateAdapterStatement("Queries\\AccHierarchies", "__LOAD_HIERACHY_LEVEL__");
+        }
         //MetraTech.DataAccess.ConnectionInfo oInfo;
-        IMTAdapterStatement oStmt = oConn.CreateAdapterStatement("Queries\\AccHierarchies", "__LOAD_HIERACHY_LEVEL__");
-
+        
         //%%FOLDERCHECK%%
         //%%REF_DATE%%
         //%%EXCLUDED_STATES%%
@@ -318,11 +330,17 @@ namespace MetraTech.Accounts.Hierarchy.WebService
         //%%TYPE_SPACE%% 
         //%%PAGE_SIZE%%
         //%%PAGE_NUMBER%%
-      
-        MetraTech.Interop.MTYAAC.IMTSessionContext sessionContext = (MetraTech.Interop.MTYAAC.IMTSessionContext)new MTSessionContext();
-        sessionContext.FromXML(serializedContext);
-        //Ref Date and Account ID            
-				oStmt.AddParam("%%REF_DATE%%", DBUtil.ToDBString(dRefDate), true);
+
+        //Ref Date and Account ID
+        if (oConn.ConnectionInfo.IsOracle)
+        {
+            oStmt.AddParam("%%REF_DATE%%", "TO_DATE(" + DBUtil.ToDBString(dRefDate).Replace("{ts ", "").Replace("}", ",'YYYY-MM-DD HH24:MI:SS'") + ")", true);
+        }
+        else
+        {
+            oStmt.AddParam("%%REF_DATE%%", DBUtil.ToDBString(dRefDate), true);
+        }
+          
         oStmt.AddParam("%%ANCESTOR%%", lAccountID.ToString());
 
         // what type of account
@@ -424,6 +442,13 @@ namespace MetraTech.Accounts.Hierarchy.WebService
           spOra.AddParam("AccountID", MTParameterType.Integer, sessionContext.SecurityContext.AccountID);
           spOra.ExecuteNonQuery(); 
         }  
+		else
+		{
+		    if (!sessionContext.SecurityContext.IsInRole("Super User"))
+		    {
+		        oStmt.AddParam("%%CURRENT_USER%%", sessionContext.SecurityContext.AccountID);
+		    }
+		}
 
         // Execute the query
         IMTDataReader oReader = oStmt.ExecuteReader();

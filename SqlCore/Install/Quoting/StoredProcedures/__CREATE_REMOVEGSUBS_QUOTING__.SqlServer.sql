@@ -1,4 +1,4 @@
-CREATE PROCEDURE [dbo].[RemoveGroupSubscription_Quoting](
+CREATE PROCEDURE [dbo].[REMOVEGSUBS_QUOTING](
   @p_id_sub int,
   @p_systemdate datetime,
   @p_status int OUTPUT)

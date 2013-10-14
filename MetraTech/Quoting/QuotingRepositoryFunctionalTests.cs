@@ -82,7 +82,7 @@ namespace MetraTech.Quoting.Test
       var quoteHeaderID = -1;
       try
       {
-        quoteHeaderID = quotingRepository.CreateQuote(request, null);
+        quoteHeaderID = quotingRepository.CreateQuote(request, null, new QuotingConfiguration());
         requestSaved = true;
       }
       catch (Exception ex)

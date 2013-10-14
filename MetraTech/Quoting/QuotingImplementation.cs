@@ -1121,14 +1121,16 @@ DayOfWeek={5}; StartDay={6}; StartMonth={7}; StartYear={7}",
 
                     grpSub.Members = new MTList<GroupSubscriptionMember>();
 
-                    foreach (var gSubMember in request.Accounts.Select(accountId => 
-                      new GroupSubscriptionMember
+                    var accountIds = new List<int>();
+                    foreach (var accountId in request.Accounts)
+                    {
+                      var gSubMember = new GroupSubscriptionMember
                       {
                         AccountId = accountId,
                         MembershipSpan = new ProdCatTimeSpan {StartDate = grpSub.SubscriptionSpan.StartDate}
-                      }))
-                    {
+                      };                                       
                       grpSub.Members.Items.Add(gSubMember);
+                      accountIds.Add(accountId);                      
                     }
 
                     gsClient.AddGroupSubscription(ref grpSub);
@@ -1138,7 +1140,8 @@ DayOfWeek={5}; StartDay={6}; StartMonth={7}; StartYear={7}",
                             String.Format("The GroupSubacription was created(Name={0}), but GroupId is null.",
                                           grpSub.Name));
 
-                    var accountIds = new List<int>();
+                    
+
                     response.Artefacts.Subscription.AddSubscriptions(grpSub.GroupId.Value, accountIds);                    
                 }
                 catch (FaultException<MASBasicFaultDetail> fe)

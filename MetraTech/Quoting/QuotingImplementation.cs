@@ -1465,13 +1465,17 @@ DayOfWeek={5}; StartDay={6}; StartMonth={7}; StartYear={7}",
             {
                 return 0M;
             }
+            catch (InvalidCastException)
+            {
+              return 0M;
+            }
             catch (SqlNullValueException)
             {
                 return 0M;
             }
         }
 
-        private string GetStringProperty(IMTDataReader rowset, string property)
+        private string GetStringProperty(IMTDataReader rowset, string property, string defaultValue = null)
         {
             try
             {
@@ -1479,11 +1483,15 @@ DayOfWeek={5}; StartDay={6}; StartMonth={7}; StartYear={7}",
             }
             catch (InvalidOperationException)
             {
-                return "";
+              return defaultValue ?? "";
+            }
+            catch (InvalidCastException)
+            {
+              return defaultValue ?? "";
             }
             catch (SqlNullValueException)
             {
-                return "";
+              return defaultValue ?? "";
             }
         }
 
@@ -1623,7 +1631,7 @@ DayOfWeek={5}; StartDay={6}; StartMonth={7}; StartYear={7}",
               {
                 using (
                     IMTCallableStatement stmt =
-                        conn.CreateCallableStatement("RemoveGroupSubscription_Quoting"))
+                        conn.CreateCallableStatement("REMOVEGSUBS_QUOTING"))
                 {
                   int status = 0;
                   stmt.AddParam("p_id_sub", MTParameterType.Integer, groupSubscription.ID);

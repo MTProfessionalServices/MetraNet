@@ -27,6 +27,7 @@ namespace MetraTech.Quoting
     public string NonRecurringChargeStoredProcedureQueryTag { get; set; }
     public string GetUsageIntervalIdForQuotingQueryTag { get; set; }
     public string CalculateQuoteTotalAmountQueryTag { get; set; }
+    public string GetMaxQuoteIdQueryTag { get; set; }
     public string RemoveRCMetricValuesQueryTag { get; set; }
     public string GetAccountBillingCycleQueryTag { get; set; }
     public string GetAccountPayerQueryTag { get; set; }
@@ -56,6 +57,7 @@ namespace MetraTech.Quoting
     const string DEFAULT_NON_RECCURING_CHARGE_STORED_PROCEDURE_QUERY_TAG = "MTSP_GENERATE_ST_NRCS_QUOTING"; // "mtsp_generate_stateful_nrcs";
     const string DEFAULT_GET_USAGE_INTERVAL_ID_FOR_QUOTING_QUERY_TAG = "__GET_USAGE_INTERVAL_ID_FOR_QUOTING__";
     const string DEFAULT_CALCULATE_QUOTE_TOTAL_AMOUNT_QUERY_TAG = "__GET_QUOTE_TOTAL_AMOUNT__";
+    const string DEFAULT_GET_MAX_QUOTE_ID_QUERY_TAG = "__GET_MAX_QUOTE_ID__";
     const string DEFAULT_REMOVE_RC_METRIC_VALUES_QUERY_TAG = "__REMOVE_RC_METRIC_VALUES__";
     const string DEFAULT_GET_ACCOUNT_BILLING_CYCLE_QUERY_TAG = "__GET_ACCOUNT_BILLING_CYCLE__";
     const string DEFAULT_GET_ACCOUNT_PAYER_QUERY_TAG = "__GET_ACCOUNT_PAYER__";
@@ -113,6 +115,9 @@ namespace MetraTech.Quoting
                                     CalculateQuoteTotalAmountQueryTag =
                                       config.GetElementValueOrDefault("CalculateQuoteTotalAmountQueryTag",
                                                                       DEFAULT_CALCULATE_QUOTE_TOTAL_AMOUNT_QUERY_TAG),
+                                    GetMaxQuoteIdQueryTag =
+                                      config.GetElementValueOrDefault("GetMaxQuoteIdQueryTag",
+                                                                      DEFAULT_GET_MAX_QUOTE_ID_QUERY_TAG),
                                     RemoveRCMetricValuesQueryTag =
                                       config.GetElementValueOrDefault("RemoveRCMetricValuesQueryTag",
                                                                       DEFAULT_REMOVE_RC_METRIC_VALUES_QUERY_TAG),
@@ -194,6 +199,7 @@ namespace MetraTech.Quoting
                   new XElement("GetUsageIntervalIdForQuotingQueryTag",
                                configuration.GetUsageIntervalIdForQuotingQueryTag),
                   new XElement("CalculateQuoteTotalAmountQueryTag", configuration.CalculateQuoteTotalAmountQueryTag),
+                  new XElement("GetMaxQuoteIdQueryTag", configuration.GetMaxQuoteIdQueryTag),
                   new XElement("RemoveRCMetricValuesQueryTag", configuration.RemoveRCMetricValuesQueryTag),
                   new XElement("GetAccountBillingCycleQueryTag", configuration.GetAccountBillingCycleQueryTag),
                   new XElement("GetAccountPayerQueryTag", configuration.GetAccountPayerQueryTag),
@@ -223,6 +229,7 @@ namespace MetraTech.Quoting
       configuration.NonRecurringChargeStoredProcedureQueryTag = DEFAULT_NON_RECCURING_CHARGE_STORED_PROCEDURE_QUERY_TAG;
       configuration.GetUsageIntervalIdForQuotingQueryTag = DEFAULT_GET_USAGE_INTERVAL_ID_FOR_QUOTING_QUERY_TAG;
       configuration.CalculateQuoteTotalAmountQueryTag = DEFAULT_CALCULATE_QUOTE_TOTAL_AMOUNT_QUERY_TAG;
+      configuration.CalculateQuoteTotalAmountQueryTag = DEFAULT_GET_MAX_QUOTE_ID_QUERY_TAG;
       configuration.RemoveRCMetricValuesQueryTag = DEFAULT_REMOVE_RC_METRIC_VALUES_QUERY_TAG;
       configuration.GetAccountBillingCycleQueryTag = DEFAULT_GET_ACCOUNT_BILLING_CYCLE_QUERY_TAG;
       configuration.GetAccountPayerQueryTag = DEFAULT_GET_ACCOUNT_PAYER_QUERY_TAG;

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <hibernate-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" auto-import="false" xmlns="urn:nhibernate-mapping-2.2">
   <meta attribute="category">ConfigDriven</meta>
-  <class name="Core.Quoting.QuoteICB, Core.Quoting.Entity" table="t_be_cor_quo_quoteicb">
+  <class name="Core.Quoting.QuoteICB, Core.Quoting.Entity" table="t_be_cor_qu_quoteicb">
     <meta attribute="description" />
     <meta attribute="label">QuoteICB</meta>
     <meta attribute="plural-name">QuoteICBs</meta>

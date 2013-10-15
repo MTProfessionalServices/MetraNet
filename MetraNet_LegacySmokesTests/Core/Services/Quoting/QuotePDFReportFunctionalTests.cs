@@ -1,19 +1,9 @@
-﻿using System;
-using System.Diagnostics;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using MetraTech.Core.Services.ClientProxies;
 using MetraTech.Core.Services.Quoting;
-using MetraTech.DataAccess;
-using MetraTech.DomainModel.BaseTypes;
 using MetraTech.TestCommon;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MetraTech.Interop.MTProductCatalog;
-using MetraTech.Shared.Test;
-using Core.Quoting;
+using TestContext = NUnit.Framework.TestContext;
 
-namespace MetraTech.Quoting.Test
+namespace MetraTech.Core.Services.Test.Quoting
 {
   [TestClass]
   public class QuotePDFReportFunctionalTests

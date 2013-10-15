@@ -1,13 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using MetraTech.Core.Services.Quoting;
+using MetraTech.Core.Services.Test.Quoting.Domain;
 using MetraTech.Domain.Quoting;
-using MetraTech.Quoting;
-using MetraTech.Quoting.Test;
-using MetraTech.Quoting.Test.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MetraTech.Shared.Test
+namespace MetraTech.Core.Services.Test.Quoting
 {
     public class QuotingTestScenarios
     {

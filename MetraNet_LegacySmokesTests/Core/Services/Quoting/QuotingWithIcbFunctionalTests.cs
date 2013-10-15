@@ -1,21 +1,18 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using MetraTech.ActivityServices.Common;
 using MetraTech.Core.Services.ClientProxies;
+using MetraTech.Core.Services.Test.Quoting.Domain;
 using MetraTech.Domain.Quoting;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
-using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.Interop.MTProductCatalog;
-using MetraTech.Quoting.Test.Domain;
 using MetraTech.TestCommon;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MetraTech.Shared.Test;
 
-namespace MetraTech.Quoting.Test
+namespace MetraTech.Core.Services.Test.Quoting
 {
     [TestClass]
     public class QuotingWithIcbFunctionalTests

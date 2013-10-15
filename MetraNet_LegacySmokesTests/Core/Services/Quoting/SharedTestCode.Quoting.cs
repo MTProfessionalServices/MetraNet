@@ -1,16 +1,16 @@
-﻿using System;
+using System;
 using System.Linq;
-using MetraTech.BusinessEntity.DataAccess.Persistence;
 using Core.Quoting;
+using Core.Quoting.Interface;
+using MetraTech.ActivityServices.Common;
+using MetraTech.BusinessEntity.DataAccess.Persistence;
 using MetraTech.Core.Services.ClientProxies;
 using MetraTech.Core.Services.Quoting;
-using MetraTech.Domain.Quoting;
-using MetraTech.ActivityServices.Common;
 using MetraTech.DataAccess;
-using MetraTech.Quoting;
+using MetraTech.Domain.Quoting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MetraTech.Shared.Test
+namespace MetraTech.Core.Services.Test.Quoting
 {
   #region Shared Helper Methods For Quoting Tests
 
@@ -121,19 +121,19 @@ namespace MetraTech.Shared.Test
       foreach (var accountID in quoteRequest.Accounts)
       {
         Assert.IsTrue(
-          quoteHeaderFromDB.AccountForQuotes.Any(accountForQuote => accountForQuote.AccountID == accountID),
+          Enumerable.Any<IAccountForQuote>(quoteHeaderFromDB.AccountForQuotes, accountForQuote => accountForQuote.AccountID == accountID),
           "AccountID is missed in QuoteHeader");
       }
 
       foreach (var poID in quoteRequest.ProductOfferings)
       {
-        Assert.IsTrue(quoteHeaderFromDB.POforQuotes.Any(accountForQuote => accountForQuote.POID == poID),
+        Assert.IsTrue(Enumerable.Any<IPOforQuote>(quoteHeaderFromDB.POforQuotes, accountForQuote => accountForQuote.POID == poID),
                       "POID is missed in QuoteHeader");
 
         if (quoteRequest.SubscriptionParameters.UDRCValues.ContainsKey(poID.ToString()))
         {
           var udrcValues = quoteRequest.SubscriptionParameters.UDRCValues[poID.ToString()];
-          var po = quoteHeaderFromDB.POforQuotes.FirstOrDefault(p => p.POID == poID);
+          var po = Enumerable.FirstOrDefault<IPOforQuote>(quoteHeaderFromDB.POforQuotes, p => p.POID == poID);
 
           foreach (var udrcInstanceValueBase in udrcValues)
           {
@@ -163,7 +163,7 @@ namespace MetraTech.Shared.Test
         Assert.AreEqual(quoteHeaderFromDB.QuoteContent.Currency ?? "", quoteResponse.Currency, "Wrong Currency");
         Assert.AreEqual(quoteHeaderFromDB.QuoteContent.ReportLink, quoteResponse.ReportLink, "Wrong ReportLink");
         Assert.AreEqual(quoteHeaderFromDB.QuoteContent.FailedMessage, quoteResponse.FailedMessage, "Wrong FailedMessage");
-        Assert.AreEqual(quoteHeaderFromDB.QuoteContent.Status, Convert.ToInt32(quoteResponse.Status), "Wrong Status");
+        Assert.AreEqual(quoteHeaderFromDB.QuoteContent.Status, Convert.ToInt32((object) quoteResponse.Status), "Wrong Status");
     }
 
     public static void VerifyQuoteResponseIsErrorInRepository(int idQuote, string partialErrorMessageToCheckFor, IQuotingRepository quotingRepository)

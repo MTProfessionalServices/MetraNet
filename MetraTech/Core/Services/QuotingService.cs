@@ -3,9 +3,9 @@ using System.ServiceModel;
 using MetraTech.ActivityServices.Common;
 using MetraTech.ActivityServices.Services.Common;
 using MetraTech.Basic.Exception;
+using MetraTech.Core.Services.Quoting;
 using MetraTech.Debug.Diagnostics;
 using MetraTech.Domain.Quoting;
-using MetraTech.Quoting;
 
 namespace MetraTech.Core.Services
 {

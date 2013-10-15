@@ -1,19 +1,19 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Transactions;
+using Core.Quoting;
 using MetraTech.ActivityServices.Common;
 using MetraTech.BusinessEntity.DataAccess.Metadata;
 using MetraTech.BusinessEntity.DataAccess.Persistence;
-using Core.Quoting;
 using MetraTech.DataAccess;
 using MetraTech.Debug.Diagnostics;
 using MetraTech.Domain.DataAccess;
 using MetraTech.Domain.Quoting;
-using IMTSessionContext = MetraTech.Interop.MTAuth.IMTSessionContext;
+using MetraTech.Interop.MTAuth;
 
-namespace MetraTech.Quoting
+namespace MetraTech.Core.Services.Quoting
 {
   /// <summary>
   /// Encapsulates the storage and retrieval of quoting objects in the repository

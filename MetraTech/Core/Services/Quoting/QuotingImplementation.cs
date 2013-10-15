@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.ServiceModel;
@@ -15,24 +13,19 @@ using System.Transactions;
 using MetraTech.ActivityServices.Common;
 using MetraTech.Basic.Config;
 using MetraTech.Basic.Exception;
-using MetraTech.Core.Services.ClientProxies;
+using MetraTech.Core.Services.Quoting.Charge;
 using MetraTech.DataAccess;
-using MetraTech.Domain;
 using MetraTech.Domain.Quoting;
-// TODO: Add auditor to Quote
-// using MetraTech.Interop.MTAuditEvents;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.Enums.Core.Global;
 using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
 using MetraTech.DomainModel.ProductCatalog;
-using MetraTech.Interop.QueryAdapter;
-using MetraTech.Quoting.Charge;
-using Auth = MetraTech.Interop.MTAuth;
 using MetraTech.Interop.MTProductCatalog;
-using BillingReRunClient = MetraTech.Pipeline.ReRun;
-using IMTCollection = MetraTech.Interop.MTProductCatalog.IMTCollection;
+using MetraTech.Interop.QueryAdapter;
+// TODO: Add auditor to Quote
+// using MetraTech.Interop.MTAuditEvents;
 
-namespace MetraTech.Quoting
+namespace MetraTech.Core.Services.Quoting
 {
     public class QuotingImplementation : IQuotingImplementation
     {
@@ -57,13 +50,13 @@ namespace MetraTech.Quoting
         public delegate void LoadAccountDelegate(
             AccountIdentifier acct, DateTime timeStamp, out DomainModel.BaseTypes.Account account);
 
-        public QuotingImplementation(QuotingConfiguration configuration, Auth.IMTSessionContext sessionContext,
+        public QuotingImplementation(QuotingConfiguration configuration, Interop.MTAuth.IMTSessionContext sessionContext,
                                         IQuotingRepository quotingRepository, IChargeMetering chargeMetering, ILogger log)
         {
             Init(configuration, sessionContext, quotingRepository, chargeMetering, log);
         }
 
-        private void Init(QuotingConfiguration configuration, Auth.IMTSessionContext sessionContext,
+        private void Init(QuotingConfiguration configuration, Interop.MTAuth.IMTSessionContext sessionContext,
                           IQuotingRepository quotingRepository, IChargeMetering chargeMetering, ILogger log)
         {
             Configuration = configuration;
@@ -73,7 +66,7 @@ namespace MetraTech.Quoting
             _log = log;
         }
 
-        public QuotingImplementation(QuotingConfiguration configuration, Auth.IMTSessionContext sessionContext,
+        public QuotingImplementation(QuotingConfiguration configuration, Interop.MTAuth.IMTSessionContext sessionContext,
                                         IQuotingRepository quotingRepository, IChargeMetering chargeMetering)
             : this(
                 configuration, sessionContext, quotingRepository, chargeMetering,
@@ -92,7 +85,7 @@ namespace MetraTech.Quoting
                                        , _log);
         }
 
-        public QuotingImplementation(QuotingConfiguration configuration, Auth.IMTSessionContext sessionContext,
+        public QuotingImplementation(QuotingConfiguration configuration, Interop.MTAuth.IMTSessionContext sessionContext,
                                       IQuotingRepository quotingRepository)
         {
             Init(configuration, sessionContext, quotingRepository, null,
@@ -101,7 +94,7 @@ namespace MetraTech.Quoting
             _chargeMetering = InitDefaultChragesMetering();
         }
 
-        public QuotingImplementation(QuotingConfiguration configuration, Auth.IMTSessionContext sessionContext) :
+        public QuotingImplementation(QuotingConfiguration configuration, Interop.MTAuth.IMTSessionContext sessionContext) :
             this(configuration, sessionContext, new QuotingRepository())
         {
         }
@@ -982,66 +975,40 @@ DayOfWeek={5}; StartDay={6}; StartMonth={7}; StartYear={7}",
         /// <returns>newly created id subscription</returns>
         private void CreateAllSubscriptionForQuoteByService(QuoteRequest request, QuoteResponse response)
         {
+            var subService = new SubscriptionService();
+
             var productTimeSpan = new ProdCatTimeSpan
-            {
-                StartDate = request.EffectiveDate,
-                StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
-                EndDate = request.EffectiveEndDate,
-                EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
-            };
-
-            var Client = new SubscriptionServiceClient(GetBinding(), GetEndpoint("localhost", 8001, "SubscriptionService"));
-            try
-            {
-                Client.ClientCredentials.UserName.UserName = "su";
-                Client.ClientCredentials.UserName.Password = "su123";
-
-                foreach (var idAccount in request.Accounts)
                 {
-                    
-                    foreach (int po in request.ProductOfferings)
+                    StartDate = request.EffectiveDate,
+                    StartDateType = ProdCatTimeSpan.MTPCDateType.Absolute,
+                    EndDate = request.EffectiveEndDate,
+                    EndDateType = ProdCatTimeSpan.MTPCDateType.Absolute
+                };
+
+            foreach (var idAccount in request.Accounts)
+            {
+
+                foreach (int po in request.ProductOfferings)
+                {
+                    var sub = new Subscription {ProductOfferingId = po, SubscriptionSpan = productTimeSpan};
+
+                    if (request.SubscriptionParameters.UDRCValues.ContainsKey(po.ToString(CultureInfo.InvariantCulture)))
                     {
-                        var sub = new Subscription();
+                        sub.UDRCValues =
+                            ConvertUDRCCollection(
+                                request.SubscriptionParameters.UDRCValues[po.ToString(CultureInfo.InvariantCulture)]);
+                    }
 
-                        sub.ProductOfferingId = po;
-                        sub.SubscriptionSpan = productTimeSpan;
+                    subService.AddSubscription(new AccountIdentifier(idAccount), ref sub);
 
-                        if (request.SubscriptionParameters.UDRCValues.ContainsKey(po.ToString()))
-                        {
-                            sub.UDRCValues = ConvertUDRCCollection(request.SubscriptionParameters.UDRCValues[po.ToString()]);
-                        }
+                    if (sub.SubscriptionId != null)
+                    {
+                        response.Artefacts.Subscription.AddSubscriptions((int) sub.SubscriptionId,
+                                                                         new List<int> {idAccount});
 
-
-                        Client.AddSubscription(new AccountIdentifier(idAccount), ref sub);
-
-                        if (sub.SubscriptionId != null)
-                        {
-                            response.Artefacts.Subscription.AddSubscriptions((int)sub.SubscriptionId, new List<int> { idAccount });
-
-                            ApplyIcbPricesToSubscription(request, sub.ProductOfferingId, (int)sub.SubscriptionId);
-                        }
+                        ApplyIcbPricesToSubscription(request, sub.ProductOfferingId, (int) sub.SubscriptionId);
                     }
                 }
-
-            }
-            catch (FaultException<MASBasicFaultDetail> fe)
-            {
-                StringBuilder err =
-                  new StringBuilder(String.Format("Error while adding subscription through MAS : {0}", fe.Message));
-
-                foreach (string msg in fe.Detail.ErrorMessages)
-                {
-                    err.AppendLine(msg);
-                }
-
-                throw new Exception(err.ToString(), fe);
-            }
-            finally
-            {
-                if (Client.State == CommunicationState.Faulted)
-                    Client.Abort();
-                else
-                    Client.Close();
             }
         }
 
@@ -1051,124 +1018,96 @@ DayOfWeek={5}; StartDay={6}; StartMonth={7}; StartYear={7}",
         /// <param name="response"></param>
         /// <param name="request"></param>
         /// <remarks>Should be run in one transaction with the same call for all accounts and POs in QuoteRequest</remarks>
-       private void CreateAllGroupSubscriptionForQuoteByService(QuoteRequest request, QuoteResponse response)
+        private void CreateAllGroupSubscriptionForQuoteByService(QuoteRequest request, QuoteResponse response)
         {
-          var gsClient = new GroupSubscriptionServiceClient(GetBinding(), GetEndpoint("localhost", 8001, "GroupSubscriptionService"));
-          gsClient.ClientCredentials.UserName.UserName = "su";
-          gsClient.ClientCredentials.UserName.Password = "su123";
-
-          var sClient = new SubscriptionServiceClient(GetBinding(), GetEndpoint("localhost", 8001, "SubscriptionService"));
-          sClient.ClientCredentials.UserName.UserName = "su";
-          sClient.ClientCredentials.UserName.Password = "su123";
+            var groupSubService = new GroupSubscriptionService();
+            var subService = new SubscriptionService();
 
             foreach (var offerId in request.ProductOfferings)
             {
-                try
-                {                   
-                    var grpSub = new GroupSubscription();
-                    grpSub.SubscriptionSpan.StartDate = request.EffectiveDate;
-                    grpSub.SubscriptionSpan.EndDate = request.EffectiveEndDate;
-                    grpSub.ProductOfferingId = offerId;
-                    grpSub.ProportionalDistribution = true; //Part of request?
-                    grpSub.Name = string.Format("TempQuoteGSForPO_{0}Quote_{1}", offerId,
-                                                response.IdQuote);
-                    grpSub.Description = "Group subscription for Quoting. ProductOffering: " + offerId;
-                    grpSub.SupportsGroupOperations = true; // Part of request?
-                    grpSub.CorporateAccountId = request.SubscriptionParameters.CorporateAccountId;
-                    grpSub.Cycle = CreateCycleByAccount(request.SubscriptionParameters.CorporateAccountId);
-                    
-                   
-                    #region Create UDRCInstanceValue's
-
-                    List<UDRCInstance> udrcInstances;
-                    sClient.GetUDRCInstancesForPO(offerId, out udrcInstances); 
-
-                    foreach (var udrcInstance in udrcInstances.Where(udrcInstance => !udrcInstance.ChargePerParticipant))
+                var grpSub = new GroupSubscription
                     {
-                        udrcInstance.ChargeAccountId = grpSub.CorporateAccountId;
-                        udrcInstance.ChargeAccountSpan = new ProdCatTimeSpan
-                            {
-                                StartDate = grpSub.SubscriptionSpan.StartDate
-                            };
-                    }
+                        SubscriptionSpan = {StartDate = request.EffectiveDate, EndDate = request.EffectiveEndDate},
+                        ProductOfferingId = offerId,
+                        ProportionalDistribution = true,
+                        Name = string.Format("TempQuoteGSForPO_{0}Quote_{1}", offerId,
+                                             response.IdQuote),
+                        Description = "Group subscription for Quoting. ProductOffering: " + offerId,
+                        SupportsGroupOperations = true,
+                        CorporateAccountId = request.SubscriptionParameters.CorporateAccountId,
+                        Cycle = CreateCycleByAccount(request.SubscriptionParameters.CorporateAccountId)
+                    };
 
-                    // Set the UDRCValues and UDRCInstances
-                     if (request.SubscriptionParameters.UDRCValues.Count > 0
-                        && request.SubscriptionParameters.UDRCValues.ContainsKey(offerId.ToString()))
-                    {
-                        grpSub.UDRCValues =
-                            ConvertUDRCCollection(request.SubscriptionParameters.UDRCValues[offerId.ToString()]);
-                    }
-                    grpSub.UDRCInstances = udrcInstances;
-                    #endregion
+                #region Create UDRCInstanceValue's
 
-                    #region Set Flat Rate Recurring Charge Accounts
-                    List<FlatRateRecurringChargeInstance> flatRateRecurringChargeInstances;
-                    gsClient.GetFlatRateRecurringChargeInstancesForPO(offerId, out flatRateRecurringChargeInstances);
-                    
-                    
-                    foreach (var flatRateRC in flatRateRecurringChargeInstances.Where(flatRateRC => !flatRateRC.ChargePerParticipant))
-                    {
-                        flatRateRC.ChargeAccountId = grpSub.CorporateAccountId;
-                        flatRateRC.ChargeAccountSpan = new ProdCatTimeSpan
-                            {
-                                StartDate = grpSub.SubscriptionSpan.StartDate
-                            };
-                    }
+                List<UDRCInstance> udrcInstances;
+                subService.GetUDRCInstancesForPO(offerId, out udrcInstances);
 
-                    grpSub.FlatRateRecurringChargeInstances = flatRateRecurringChargeInstances;
-                    #endregion
-
-                    grpSub.Members = new MTList<GroupSubscriptionMember>();
-
-                    var accountIds = new List<int>();
-                    foreach (var accountId in request.Accounts)
-                    {
-                      var gSubMember = new GroupSubscriptionMember
-                      {
-                        AccountId = accountId,
-                        MembershipSpan = new ProdCatTimeSpan {StartDate = grpSub.SubscriptionSpan.StartDate}
-                      };                                       
-                      grpSub.Members.Items.Add(gSubMember);
-                      accountIds.Add(accountId);                      
-                    }
-
-                    gsClient.AddGroupSubscription(ref grpSub);
-                    // add subscription to Quote Artefact
-                    if (!grpSub.GroupId.HasValue)
-                        throw new NullReferenceException(
-                            String.Format("The GroupSubacription was created(Name={0}), but GroupId is null.",
-                                          grpSub.Name));
-
-                    
-
-                    response.Artefacts.Subscription.AddSubscriptions(grpSub.GroupId.Value, accountIds);                    
-                }
-                catch (FaultException<MASBasicFaultDetail> fe)
+                foreach (var udrcInstance in udrcInstances.Where(udrcInstance => !udrcInstance.ChargePerParticipant))
                 {
-                    StringBuilder err =
-                        new StringBuilder(String.Format("Error while adding GroupSubscription through MAS : {0}",
-                                                        fe.Message));
-
-                    foreach (string msg in fe.Detail.ErrorMessages)
-                    {
-                        err.AppendLine(msg);
-                    }
-
-                    throw new Exception(err.ToString(), fe);
+                    udrcInstance.ChargeAccountId = grpSub.CorporateAccountId;
+                    udrcInstance.ChargeAccountSpan = new ProdCatTimeSpan
+                        {
+                            StartDate = grpSub.SubscriptionSpan.StartDate
+                        };
                 }
-                finally
+
+                // Set the UDRCValues and UDRCInstances
+                if (request.SubscriptionParameters.UDRCValues.Count > 0
+                    &&
+                    request.SubscriptionParameters.UDRCValues.ContainsKey(offerId.ToString(CultureInfo.InvariantCulture)))
                 {
-                    if (gsClient.State == CommunicationState.Faulted)
-                        gsClient.Abort();
-                    else
-                        gsClient.Close();
-
-                    if (sClient.State == CommunicationState.Faulted)
-                        sClient.Abort();
-                    else
-                        sClient.Close();
+                    grpSub.UDRCValues =
+                        ConvertUDRCCollection(
+                            request.SubscriptionParameters.UDRCValues[offerId.ToString(CultureInfo.InvariantCulture)]);
                 }
+                grpSub.UDRCInstances = udrcInstances;
+
+                #endregion
+
+                #region Set Flat Rate Recurring Charge Accounts
+
+                List<FlatRateRecurringChargeInstance> flatRateRecurringChargeInstances;
+                groupSubService.GetFlatRateRecurringChargeInstancesForPO(offerId, out flatRateRecurringChargeInstances);
+
+
+                foreach (
+                    var flatRateRC in
+                        flatRateRecurringChargeInstances.Where(flatRateRC => !flatRateRC.ChargePerParticipant))
+                {
+                    flatRateRC.ChargeAccountId = grpSub.CorporateAccountId;
+                    flatRateRC.ChargeAccountSpan = new ProdCatTimeSpan
+                        {
+                            StartDate = grpSub.SubscriptionSpan.StartDate
+                        };
+                }
+
+                grpSub.FlatRateRecurringChargeInstances = flatRateRecurringChargeInstances;
+
+                #endregion
+
+                grpSub.Members = new MTList<GroupSubscriptionMember>();
+
+                var accountIds = new List<int>();
+                foreach (var accountId in request.Accounts)
+                {
+                    var gSubMember = new GroupSubscriptionMember
+                        {
+                            AccountId = accountId,
+                            MembershipSpan = new ProdCatTimeSpan {StartDate = grpSub.SubscriptionSpan.StartDate}
+                        };
+                    grpSub.Members.Items.Add(gSubMember);
+                    accountIds.Add(accountId);
+                }
+
+                groupSubService.AddGroupSubscription(ref grpSub);
+                // add subscription to Quote Artefact
+                if (!grpSub.GroupId.HasValue)
+                    throw new NullReferenceException(
+                        String.Format("The GroupSubacription was created(Name={0}), but GroupId is null.",
+                                      grpSub.Name));
+
+                response.Artefacts.Subscription.AddSubscriptions(grpSub.GroupId.Value, accountIds);
             }
         }
 
@@ -1595,11 +1534,6 @@ DayOfWeek={5}; StartDay={6}; StartMonth={7}; StartYear={7}",
 
       private void CleanupAllGroupSubscriptions(QuoteResponseArtefacts quoteArtefact)
       {
-        var gsClient = new GroupSubscriptionServiceClient(GetBinding(),
-                                                          GetEndpoint("localhost", 8001, "GroupSubscriptionService"));
-        gsClient.ClientCredentials.UserName.UserName = "su";
-        gsClient.ClientCredentials.UserName.Password = "su123";
-
         // Remove group subscriptions
         foreach (var subscription in quoteArtefact.Subscription.Collection)
         {
@@ -1651,34 +1585,19 @@ DayOfWeek={5}; StartDay={6}; StartMonth={7}; StartYear={7}",
                       , groupSubscription != null ? groupSubscription.GroupID : -1)
                   , ex);
             }
-          
-          //try
-          //{
-          //  var groupSubscriptionMembers = new MTList<GroupSubscriptionMember>();
-          //  gsClient.GetMembersForGroupSubscription2(subscription.Key, ref groupSubscriptionMembers);
-          //  gsClient.DeleteMembersFromGroupSubscription(subscription.Key, groupSubscriptionMembers.Items);
-          //  gsClient.DeleteGroupSubscription(subscription.Key);
-          //  CleanupUDRCMetricValues(subscription.Key);
-          //}
-          //catch (Exception ex)
-          //{
-          //  _log.LogException(String.Format("Problem with clean up subscription {0}.", subscription.Key), ex);
-          //}
         }
       }
 
       private void CleanupAllSubscriptions(QuoteResponseArtefacts quoteArtefact)
       {
-        var sClient = new SubscriptionServiceClient(GetBinding(), GetEndpoint("localhost", 8001, "SubscriptionService"));
-        sClient.ClientCredentials.UserName.UserName = "su";
-        sClient.ClientCredentials.UserName.Password = "su123";
+        var subService = new SubscriptionService();
 
         // Remove group subscriptions
         foreach (var subscription in quoteArtefact.Subscription.Collection)
         {
           try
           {
-            sClient.DeleteSubscription(new AccountIdentifier(subscription.Value[0]), subscription.Key);
+              subService.DeleteSubscription(new AccountIdentifier(subscription.Value[0]), subscription.Key);
             CleanupUDRCMetricValues(subscription.Key);
           }
           catch (Exception ex)
@@ -1725,7 +1644,7 @@ DayOfWeek={5}; StartDay={6}; StartMonth={7}; StartYear={7}",
         protected Interop.MTProductCatalog.IMTSessionContext GetSessionContextForProductCatalog()
         {
             //Todo: Fix to read from server access file if we decide to use SuperUser as opposed to user generating quote
-            Auth.IMTLoginContext loginContext = new Auth.MTLoginContextClass();
+            Interop.MTAuth.IMTLoginContext loginContext = new Interop.MTAuth.MTLoginContextClass();
             //ServerAccess.IMTServerAccessDataSet sa = new MetraTech.Interop.MTServerAccess.MTServerAccessDataSet();
             //sa.Initialize();
             //ServerAccess.IMTServerAccessData accessData = sa.FindAndReturnObject("SuperUser");
@@ -1744,6 +1663,6 @@ DayOfWeek={5}; StartDay={6}; StartMonth={7}; StartYear={7}",
 
         #endregion
 
-        public Auth.IMTSessionContext SessionContext { get; private set; }
+        public Interop.MTAuth.IMTSessionContext SessionContext { get; private set; }
     }
 }

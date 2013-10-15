@@ -1,4 +1,4 @@
-﻿// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 // <copyright file="ChargeMetering.cs" company="MetraTech">
 // **************************************************************************
 // Copyright 2011 by MetraTech
@@ -23,25 +23,23 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using MetraTech.ActivityServices.Common;
+using MetraTech.Core.Services.Quoting.Charge;
 using MetraTech.DataAccess;
 using MetraTech.Domain.Quoting;
 using MetraTech.Interop.MTBillingReRun;
 using MetraTech.Interop.MeterRowset;
 using MetraTech.Pipeline;
-using MetraTech.Quoting.Charge;
 using MetraTech.UsageServer;
-using BillingReRunClient = MetraTech.Pipeline.ReRun;
 
-namespace MetraTech.Quoting
+namespace MetraTech.Core.Services.Quoting
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
-    /// <summary>
+  /// <summary>
     /// Metering
     /// </summary>
     public class ChargeMetering : IChargeMetering
@@ -167,7 +165,7 @@ namespace MetraTech.Quoting
         /// <summary>
         /// Meter records in Pipeline
         /// </summary>
-        /// <param name="rowSet"><see cref="MeterRowset"/></param>
+        /// <param name="rowSet"><see cref="MetraTech.Interop.MeterRowset.MeterRowset"/></param>
         /// <param name="chargeData"><see cref="ChargeData"/></param>
         /// <exception cref="ChargeMeteringException"></exception>
         /// <exception cref="Exception"></exception>
@@ -209,7 +207,7 @@ namespace MetraTech.Quoting
         {
             Log.LogInfo("Reversing {0} batch(es) associated with this quote", charges.Count());
 
-            IMTBillingReRun rerun = new BillingReRunClient.Client();
+            IMTBillingReRun rerun = new Pipeline.ReRun.Client();
             var sessionContext = AdapterManager.GetSuperUserContext(); // log in as super user
             rerun.Login((Interop.MTBillingReRun.IMTSessionContext)sessionContext);
             var comment = String.Format("Quoting functionality; Reversing work associated with QuoteId {0}",

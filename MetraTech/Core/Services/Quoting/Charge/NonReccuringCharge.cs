@@ -1,4 +1,4 @@
-﻿// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 // <copyright file="NonReccurringCharge.cs" company="MetraTech">
 // **************************************************************************
 // Copyright 2011 by MetraTech
@@ -23,15 +23,14 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System;
 using System.Reflection;
 using MetraTech.DataAccess;
 using MetraTech.Domain.Quoting;
 
-namespace MetraTech.Quoting.Charge
+namespace MetraTech.Core.Services.Quoting.Charge
 {
-    using System;
-
-    /// <summary>
+  /// <summary>
     /// NonRecurring charges for Quote
     /// </summary>
     public class NonReccuringCharge : BaseCharge

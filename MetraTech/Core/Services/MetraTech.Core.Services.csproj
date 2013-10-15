@@ -92,6 +92,7 @@
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Core.Interface.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
     <Reference Include="GenericCollection.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
@@ -101,6 +102,17 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\IMTAccountType.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="MeterRowset.interop">
+      <Name>MeterRowset.interop</Name>
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MeterRowset.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="Rowset.interop">
+      <EmbedInteropTypes>false</EmbedInteropTypes>
+      <Private>false</Private>
+      <SpecificVersion>false</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Rowset.interop.dll</HintPath>
     </Reference>
     <Reference Include="MTAccount.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -126,6 +138,11 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.ProductCatalog.Generated.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.Utils">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Utils.dll</HintPath>
     </Reference>
     <Reference Include="MTAuditEvents.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -224,6 +241,7 @@
     <Reference Include="System.Workflow.Activities, processorArchitecture=MSIL" />
     <Reference Include="System.Workflow.Runtime, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\..\build\VersionInfo.cs">
@@ -242,6 +260,22 @@
     <Compile Include="QuotingService.cs" />
     <Compile Include="FLSManagementService.cs" />
     <Compile Include="ProductOfferingService.cs" />
+    <Compile Include="Quoting\ChargeMetering.cs" />
+    <Compile Include="Quoting\ChargeMeteringException.cs" />
+    <Compile Include="Quoting\Charge\BaseCharge.cs" />
+    <Compile Include="Quoting\Charge\ICharge.cs" />
+    <Compile Include="Quoting\Charge\NonReccuringCharge.cs" />
+    <Compile Include="Quoting\Charge\ReccurringCharge.cs" />
+    <Compile Include="Quoting\Configuration.cs" />
+    <Compile Include="Quoting\IChargeMetering.cs" />
+    <Compile Include="Quoting\IQuotingImplementation.cs" />
+    <Compile Include="Quoting\PropertyName.cs" />
+    <Compile Include="Quoting\QuoteException.cs" />
+    <Compile Include="Quoting\QuotePDFReport.cs" />
+    <Compile Include="Quoting\QuoteXmlReport.cs" />
+    <Compile Include="Quoting\QuotingHelper.cs" />
+    <Compile Include="Quoting\QuotingImplementation.cs" />
+    <Compile Include="Quoting\QuotingRepository.cs" />
     <Compile Include="RelationshipService.cs" />
     <Compile Include="DataExportReportManagementService.cs" />
     <Compile Include="ScheduleAdapterService.cs" />
@@ -489,9 +523,13 @@
       <Name>MetraTech.Common</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\..\Quoting\MetraTech.Quoting.csproj">
-      <Project>{C4914DDD-93C8-475F-B5DB-1CDB6C8ECA17}</Project>
-      <Name>MetraTech.Quoting %28MetraTech.Quoting\MetraTech.Quoting%29</Name>
+    <ProjectReference Include="..\..\Reports\MetraTech.Reports.csproj">
+      <Project>{BFC88ECC-C3C1-4736-95D6-B772441CCF4A}</Project>
+      <Name>MetraTech.Reports %28MetraTech.Reports\MetraTech.Reports%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Reports\CrystalEnterprise\MetraTech.Reports.CrystalEnterprise.csproj">
+      <Project>{E6F85B9C-27EB-4261-A723-52C7A0483493}</Project>
+      <Name>MetraTech.Reports.CrystalEnterprise</Name>
       <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\Security\MetraTech.Security.csproj">
@@ -528,6 +566,10 @@
       <Project>{2AE4B0CA-70B7-4F5E-AF71-0191CBC3C8AC}</Project>
       <Name>MetraTech.UsageServer</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UI\Tools\MetraTech.UI.Tools.csproj">
+      <Project>{8C1A9D8B-FB15-43AE-A7C7-62AD8AFB65C2}</Project>
+      <Name>MetraTech.UI.Tools</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

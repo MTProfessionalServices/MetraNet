@@ -1,4 +1,4 @@
-﻿// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 // <copyright file="IChargeMetering.cs" company="Microsoft">
 // **************************************************************************
 // Copyright 2011 by MetraTech
@@ -23,14 +23,12 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using MetraTech.DataAccess;
+using System.Collections.Generic;
+using MetraTech.Domain.Quoting;
 
-namespace MetraTech.Quoting
+namespace MetraTech.Core.Services.Quoting
 {
-    using System.Collections.Generic;
-    using MetraTech.Domain.Quoting;
-
-    /// <summary>
+  /// <summary>
     /// Interface for creation\removing charges from DB
     /// </summary>
     public interface IChargeMetering

@@ -1,17 +1,13 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using System.Text;
+using System;
 using System.Collections.Generic;
+using MetraTech.Core.Services.Test.Quoting.Domain;
 using MetraTech.DataAccess;
 using MetraTech.Domain.Quoting;
-using MetraTech.Interop.GenericCollection;
-using MetraTech.Quoting.Test.Domain;
+using MetraTech.Interop.MTProductCatalog;
 using MetraTech.TestCommon;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MetraTech.Interop.MTProductCatalog;
-using MetraTech.Shared.Test;
 
-namespace MetraTech.Quoting.Test
+namespace MetraTech.Core.Services.Test.Quoting
 {
   [TestClass]
   public class QuotingBasicFunctionalTests

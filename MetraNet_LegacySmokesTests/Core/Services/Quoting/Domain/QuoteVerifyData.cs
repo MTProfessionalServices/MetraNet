@@ -1,4 +1,4 @@
-﻿// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 // <copyright file="QuoteVerifyData.cs" company="Microsoft">
 //
 // Copyright 2013 by MetraTech
@@ -22,16 +22,9 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using MetraTech.Domain.Quoting;
-
-namespace MetraTech.Quoting.Test.Domain
+namespace MetraTech.Core.Services.Test.Quoting.Domain
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
-    /// <summary>
+  /// <summary>
     /// Uses in test for verifying 
     /// </summary>
     public class QuoteVerifyData

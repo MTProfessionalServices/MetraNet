@@ -69,6 +69,7 @@
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Core.Interface.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Core.Quoting.Entity, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL" />
     <Reference Include="GenericCollection.interop">
       <Private>False</Private>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\GenericCollection.interop.dll</HintPath>
@@ -114,19 +115,33 @@
       <Private>False</Private>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.ProductCatalog.Generated.dll</HintPath>
     </Reference>
-    <Reference Include="MTAuth.interop">
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="MTAuth.interop, Version=7.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
-      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTAuth.interop.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>O:\Debug\Bin\MTAuth.interop.dll</HintPath>
     </Reference>
     <Reference Include="MTProductCatalog.interop">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTProductCatalog.interop.dll</HintPath>
     </Reference>
+    <Reference Include="MTRuleSet.interop, Version=7.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MTServices.interop, Version=7.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>O:\Debug\Bin\MTServices.interop.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(ROOTDIR)\Thirdparty\NUnit260\bin\framework\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="PropSet.interop, Version=7.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>O:\Debug\Bin\PropSet.interop.dll</HintPath>
     </Reference>
     <Reference Include="RCD.interop">
       <SpecificVersion>False</SpecificVersion>
@@ -171,6 +186,22 @@
     <Compile Include="PriceListService.Tests.cs" />
     <Compile Include="ProductCatalogService.Tests.cs" />
     <Compile Include="ProductOfferingServiceTests.cs" />
+    <Compile Include="Quoting\ConfigurationTests.cs" />
+    <Compile Include="Quoting\Domain\QuoteImplementationData.cs" />
+    <Compile Include="Quoting\Domain\QuoteVerifyData.cs" />
+    <Compile Include="Quoting\QuotePDFReportFunctionalTests.cs" />
+    <Compile Include="Quoting\QuotingAccountSubscriptionVariationsFunctionalTests.cs" />
+    <Compile Include="Quoting\QuotingActivityServiceFunctionalTests.cs" />
+    <Compile Include="Quoting\QuotingBasicFunctionalTests.cs" />
+    <Compile Include="Quoting\QuotingEOPFunctionalTests.cs" />
+    <Compile Include="Quoting\QuotingErrorHandlingFunctionalTests.cs" />
+    <Compile Include="Quoting\QuotingForGroupSubsFunctionalTests.cs" />
+    <Compile Include="Quoting\QuotingRecurringChargeVariationsFunctionalTests.cs" />
+    <Compile Include="Quoting\QuotingRepositoryFunctionalTests.cs" />
+    <Compile Include="Quoting\QuotingWithIcbFunctionalTests.cs" />
+    <Compile Include="Quoting\SharedTestCode.Generic.cs" />
+    <Compile Include="Quoting\SharedTestCode.Quoting.cs" />
+    <Compile Include="Quoting\SharedTestCode.QuotingScenarios.cs" />
     <Compile Include="ScheduleAdapterServiceTests.cs" />
     <Compile Include="ServiceTestsBase.cs" />
     <Compile Include="SubscriptionServiceTests.cs" />
@@ -273,6 +304,14 @@
     <ProjectReference Include="..\..\Test\MetraTech.Test.csproj">
       <Project>{E95B8F73-F559-48AE-BCC2-7B0A9B3AC5A2}</Project>
       <Name>MetraTech.Test</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\dev\MetraNet\RMP\Extensions\Legacy_Internal\Source\MetraTech\MetraTech.Domain\MetraTech.Domain.csproj">
+      <Project>{9C9C685C-CBF8-428F-8C34-98702FF13726}</Project>
+      <Name>MetraTech.Domain %28MetraTEch.Domain\MetraTech.Domain%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\dev\MetraNet\RMP\Extensions\Legacy_Internal\Source\MetraTech\TestCommon\MetraTech.TestCommon.csproj">
+      <Project>{20307E5D-BFC9-4F27-9ECC-A61EE854E8B5}</Project>
+      <Name>MetraTech.TestCommon</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

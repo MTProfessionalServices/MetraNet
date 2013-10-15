@@ -1,18 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using MetraTech.Domain.Quoting;
-using MetraTech.DomainModel.BaseTypes;
-using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
-using MetraTech.Interop.MTProductCatalog;
-using MetraTech.Interop.MeterRowset;
-using MetraTech.Quoting.Test.Domain;
-using MetraTech.Shared.Test;
-using MetraTech.TestCommon;
-using MetraTech.UsageServer;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace MetraTech.Quoting.Test
+namespace MetraTech.Core.Services.Test.Quoting
 {
 //    /// <summary>
 //    /// The tests are not for automation purpose. Before using some pre-steps should be performed

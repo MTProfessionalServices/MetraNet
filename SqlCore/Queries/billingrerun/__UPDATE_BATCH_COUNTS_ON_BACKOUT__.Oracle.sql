@@ -8,8 +8,17 @@ BEGIN
    LOOP
 
   update t_batch
-         set (n_completed)
-     = (select t_batch.n_completed - nvl(count_summ.backout_count, 0) as n_completed
+         set (n_completed,n_failed,n_dismissed,tx_status,dt_first,dt_last)
+  = (select t_batch.n_completed - nvl(count_summ.backout_count, 0),
+            (select count(*) from t_failed_transaction ft where ft.tx_Batch_Encoded=t_batch.tx_Batch_Encoded and ft.State='N') - nvl(count_summ.error_count,0),
+            (select count(*) from t_failed_transaction ft where ft.tx_Batch_Encoded=t_batch.tx_Batch_Encoded and ft.State='P'),
+     case when (t_batch.n_completed - nvl(count_summ.backout_count, 0)) = 0 then 'B'
+          when (t_batch.n_completed + t_batch.n_failed + nvl(t_batch.n_dismissed, 0)) < t_batch.n_expected then 'A'
+          else t_batch.tx_status end,
+     case when (t_batch.n_completed - nvl(count_summ.backout_count, 0)) = 0 then null
+                            else t_batch.dt_first end,
+     case when (t_batch.n_completed - nvl(count_summ.backout_count, 0)) = 0 then null
+                            else t_batch.dt_last end
   from
     -- count of completed sessions we're backing out
    (

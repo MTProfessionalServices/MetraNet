@@ -21,6 +21,7 @@
 ELSE
   /*inserting or updating*/
   BEGIN
+   DELETE FROM tmp_newrw;
    UPDATE t_recur_window trw  
       SET trw.c_MembershipStart = :new.vt_start,
           trw.c_MembershipEnd = :new.vt_end

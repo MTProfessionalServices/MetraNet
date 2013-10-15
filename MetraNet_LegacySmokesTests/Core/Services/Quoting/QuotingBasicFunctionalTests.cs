@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using MetraTech.Core.Services.Test.Quoting.Domain;
 using MetraTech.DataAccess;
 using MetraTech.Domain.Quoting;
@@ -28,29 +29,31 @@ namespace MetraTech.Core.Services.Test.Quoting
     public void BasicQuotingEndToEnd()
     {
       #region Prepare
-      string testName = "Quote_Basic";
-      string testShortName = "Q_Basic"; //Account name and perhaps others need a 'short' (less than 40 when combined with testRunUniqueIdentifier
-      string testRunUniqueIdentifier = MetraTime.Now.ToString(); //Identifier to make this run unique
+      const string testName = "Quote_Basic";
+      const string testShortName = "Q_Basic"; //Account name and perhaps others need a 'short' (less than 40 when combined with testRunUniqueIdentifier
+      var testRunUniqueIdentifier = MetraTime.Now.ToString(CultureInfo.CurrentCulture); //Identifier to make this run unique
 
-      QuoteImplementationData quoteImpl = new QuoteImplementationData();
-      QuoteVerifyData expected = new QuoteVerifyData();
+      var quoteImpl = new QuoteImplementationData();
+      var expected = new QuoteVerifyData();
 
       // Create account
-      CorporateAccountFactory corpAccountHolder = new CorporateAccountFactory(testShortName, testRunUniqueIdentifier);
+      var corpAccountHolder = new CorporateAccountFactory(testShortName, testRunUniqueIdentifier);
       corpAccountHolder.Instantiate();
 
       Assert.IsNotNull(corpAccountHolder.Item._AccountID, "Unable to create account for test run");
-      int idAccountToQuoteFor = (int)corpAccountHolder.Item._AccountID;
+      var idAccountToQuoteFor = (int)corpAccountHolder.Item._AccountID;
 
       // Create/Verify Product Offering Exists
-      var pofConfiguration = new ProductOfferingFactoryConfiguration(testName, testRunUniqueIdentifier);
-      pofConfiguration.CountNRCs = 1;
-      pofConfiguration.CountPairRCs = 1; //????
-      pofConfiguration.CountPairUDRCs = 1;
+      var pofConfiguration = new ProductOfferingFactoryConfiguration(testName, testRunUniqueIdentifier)
+        {
+          CountNRCs = 1,
+          CountPairRCs = 1,
+          CountPairUDRCs = 1
+        };
 
-      IMTProductOffering productOffering = ProductOfferingFactory.Create(pofConfiguration);
+      var productOffering = ProductOfferingFactory.Create(pofConfiguration);
       Assert.IsNotNull(productOffering.ID, "Unable to create PO for test run");
-      int idProductOfferingToQuoteFor = productOffering.ID;
+      var idProductOfferingToQuoteFor = productOffering.ID;
 
       //Values to use for verification
       

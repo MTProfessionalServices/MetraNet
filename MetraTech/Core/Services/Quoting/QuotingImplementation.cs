@@ -596,11 +596,7 @@ namespace MetraTech.Core.Services.Quoting
 
                 GetParamTables(request);
 
-                var transactionOption = new TransactionOptions();
-                transactionOption.IsolationLevel = IsolationLevel.ReadUncommitted;
-                using (var scope = new TransactionScope(TransactionScopeOption.RequiresNew,
-                                                        transactionOption,
-                                                        EnterpriseServicesInteropOption.Full))
+                using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions(), EnterpriseServicesInteropOption.Full))
                 {
                     if (!request.SubscriptionParameters.IsGroupSubscription)
                     {
@@ -975,7 +971,7 @@ DayOfWeek={5}; StartDay={6}; StartMonth={7}; StartYear={7}",
         /// <returns>newly created id subscription</returns>
         private void CreateAllSubscriptionForQuoteByService(QuoteRequest request, QuoteResponse response)
         {
-            var subService = new SubscriptionService();
+            var subService = new SubscriptionService(SessionContext);
 
             var productTimeSpan = new ProdCatTimeSpan
                 {
@@ -1020,8 +1016,8 @@ DayOfWeek={5}; StartDay={6}; StartMonth={7}; StartYear={7}",
         /// <remarks>Should be run in one transaction with the same call for all accounts and POs in QuoteRequest</remarks>
         private void CreateAllGroupSubscriptionForQuoteByService(QuoteRequest request, QuoteResponse response)
         {
-            var groupSubService = new GroupSubscriptionService();
-            var subService = new SubscriptionService();
+            var groupSubService = new GroupSubscriptionService(SessionContext);
+            var subService = new SubscriptionService(SessionContext);
 
             foreach (var offerId in request.ProductOfferings)
             {
@@ -1590,7 +1586,7 @@ DayOfWeek={5}; StartDay={6}; StartMonth={7}; StartYear={7}",
 
       private void CleanupAllSubscriptions(QuoteResponseArtefacts quoteArtefact)
       {
-        var subService = new SubscriptionService();
+        var subService = new SubscriptionService(SessionContext);
 
         // Remove group subscriptions
         foreach (var subscription in quoteArtefact.Subscription.Collection)

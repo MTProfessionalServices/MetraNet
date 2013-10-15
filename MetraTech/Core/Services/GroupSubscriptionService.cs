@@ -141,6 +141,9 @@ namespace MetraTech.Core.Services
   [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, InstanceContextMode = InstanceContextMode.Single)]
   public class GroupSubscriptionService : BaseSubscriptionService, IGroupSubscriptionService
   {
+    public GroupSubscriptionService(){}
+    public GroupSubscriptionService(MTAuth.IMTSessionContext sessionContext) : base(sessionContext) { }
+      
     private Logger m_Logger = new Logger("[GroupSubscriptionService]");
 
     #region ISubscriptionService Members

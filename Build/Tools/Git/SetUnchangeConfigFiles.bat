@@ -7,6 +7,10 @@ git update-index --assume-unchanged servers.xml
 git update-index --assume-unchanged protectedpropertylist.xml
 @popd
 
+@pushd %MTEXTENSIONS%\AR\config\ServerAccess
+git update-index --assume-unchanged servers.xml
+@popd
+
 @pushd %MTEXTENSIONS%\PaymentSvr\config\Gateway
 git update-index --assume-unchanged WorldPayConfig.xml
 @popd

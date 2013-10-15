@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
 using MetraTech.Basic.Config;
 
-namespace MetraTech.Quoting
+namespace MetraTech.Core.Services.Quoting
 {
     /// <summary>
     /// Class containing all the data members representing the quoting configuration options
@@ -108,54 +108,54 @@ namespace MetraTech.Quoting
                                             select new QuotingConfiguration()
                                               {
                                                   RecurringChargeServerToMeterTo =
-                                                    config.GetElementValueOrDefault("RecurringChargeServerToMeterTo",
+                                                    QuotingHelper.GetElementValueOrDefault(config, "RecurringChargeServerToMeterTo",
                                                                                     DEFAULT_RECCURING_CHARGE_SERVER_TO_METER_TO),
                                                   RecurringChargeStoredProcedureQueryTag =
-                                                    config.GetElementValueOrDefault("RecurringChargeStoredProcedureQueryTag",
+                                                    QuotingHelper.GetElementValueOrDefault(config, "RecurringChargeStoredProcedureQueryTag",
                                                                                     DEFAULT_RECCURING_CHARGE_STORED_PROCEDURE_QUERY_TAG),
                                                   NonRecurringChargeStoredProcedureQueryTag =
-                                                    config.GetElementValueOrDefault("NonRecurringChargeStoredProcedureQueryTag",
+                                                    QuotingHelper.GetElementValueOrDefault(config, "NonRecurringChargeStoredProcedureQueryTag",
                                                                                     DEFAULT_NON_RECCURING_CHARGE_STORED_PROCEDURE_QUERY_TAG),
                                                   GetUsageIntervalIdForQuotingQueryTag =
-                                                    config.GetElementValueOrDefault("GetUsageIntervalIdForQuotingQueryTag",
+                                                    QuotingHelper.GetElementValueOrDefault(config, "GetUsageIntervalIdForQuotingQueryTag",
                                                                                     DEFAULT_GET_USAGE_INTERVAL_ID_FOR_QUOTING_QUERY_TAG),
                                                   CalculateQuoteTotalAmountQueryTag =
-                                                    config.GetElementValueOrDefault("CalculateQuoteTotalAmountQueryTag",
+                                                    QuotingHelper.GetElementValueOrDefault(config, "CalculateQuoteTotalAmountQueryTag",
                                                                                     DEFAULT_CALCULATE_QUOTE_TOTAL_AMOUNT_QUERY_TAG),
                                                   GetMaxQuoteIdQueryTag =
-                                                    config.GetElementValueOrDefault("GetMaxQuoteIdQueryTag",
+                                                    QuotingHelper.GetElementValueOrDefault(config, "GetMaxQuoteIdQueryTag",
                                                                                     DEFAULT_GET_MAX_QUOTE_ID_QUERY_TAG),
                                                   RemoveRCMetricValuesQueryTag =
-                                                    config.GetElementValueOrDefault("RemoveRCMetricValuesQueryTag",
+                                                    QuotingHelper.GetElementValueOrDefault(config, "RemoveRCMetricValuesQueryTag",
                                                                                     DEFAULT_REMOVE_RC_METRIC_VALUES_QUERY_TAG),
                                                   GetAccountBillingCycleQueryTag =
-                                                    config.GetElementValueOrDefault("GetAccountBillingCycleQueryTag",
+                                                    QuotingHelper.GetElementValueOrDefault(config, "GetAccountBillingCycleQueryTag",
                                                                                     DEFAULT_GET_ACCOUNT_BILLING_CYCLE_QUERY_TAG),
                                                   GetAccountPayerQueryTag =
-                                                    config.GetElementValueOrDefault("GetAccountPayerQueryTag",
+                                                    QuotingHelper.GetElementValueOrDefault(config, "GetAccountPayerQueryTag",
                                                                                     DEFAULT_GET_ACCOUNT_PAYER_QUERY_TAG),
                                                   MeteringSessionSetSize =
-                                                    config.GetElementValueOrDefault("MeteringSessionSetSize",
+                                                    QuotingHelper.GetElementValueOrDefault(config, "MeteringSessionSetSize",
                                                                                     DEFAULT_METERING_SESSION_SET_SIZE),
 
                                                   ReportDefaultTemplateName =
-                                                    config.GetElementValueOrDefault("ReportDefaultTemplateName",
+                                                    QuotingHelper.GetElementValueOrDefault(config, "ReportDefaultTemplateName",
                                                                                     DEFAULT_REPORT_DEFAULT_TEMPLATE_NAME),
                                                   ReportInstancePartialPath =
-                                                    config.GetElementValueOrDefault("ReportInstancePartialPath",
+                                                    QuotingHelper.GetElementValueOrDefault(config, "ReportInstancePartialPath",
                                                                                     DEFAULT_REPORT_INSTANCE_PARTIAL_PATH),
 
-                                                  QuotingQueryFolder = config.GetElementValueOrDefault("QuotingQueryFolder",
+                                                  QuotingQueryFolder = QuotingHelper.GetElementValueOrDefault(config, "QuotingQueryFolder",
                                                                                     DEFAULT_QUOTING_QUERY_FOLDER),
 
-                                                  IsCleanupQuoteAutomaticaly = config.GetElementValueOrDefault("IsCleanupQuoteAutomaticaly",
+                                                  IsCleanupQuoteAutomaticaly = QuotingHelper.GetElementValueOrDefault(config, "IsCleanupQuoteAutomaticaly",
                                                                                     DEFAULT_IS_CLEANUP_QUOTE_AUTOMATICALY),
 
-                                                  IsAllowedUseActivityService = config.GetElementValueOrDefault("IsAllowedUseActivityService",
+                                                  IsAllowedUseActivityService = QuotingHelper.GetElementValueOrDefault(config, "IsAllowedUseActivityService",
                                                                                     DEFAULT_IS_ALLOWED_USE_ACTIVITY_SERVICE_FOR_QUOTE_CREATION)
                                               };
 
-                        loadedConfiguration = configuration.First();
+                        loadedConfiguration = Enumerable.First<QuotingConfiguration>(configuration);
                     }
                     else
                     {

@@ -1,4 +1,4 @@
-﻿// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 // <copyright file="ILogger.cs" company="MetraTech">
 // **************************************************************************
 // Copyright 2011 by MetraTech
@@ -25,12 +25,11 @@
 
 
 using System.Collections.Generic;
+using MetraTech.Domain.Quoting;
 
-namespace MetraTech.Quoting
+namespace MetraTech.Core.Services.Quoting
 {
-    using MetraTech.Domain.Quoting;
-
-    /// <summary>
+  /// <summary>
     /// Interface for quote creation
     /// </summary>
     public interface IQuotingImplementation

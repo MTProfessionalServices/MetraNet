@@ -1,4 +1,4 @@
-﻿// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 // <copyright file="ReccurringCharge.cs" company="MetraTech">
 // **************************************************************************
 // Copyright 2011 by MetraTech
@@ -23,12 +23,11 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using System.Collections.Generic;
 using System.Reflection;
 using MetraTech.DataAccess;
 using MetraTech.Domain.Quoting;
 
-namespace MetraTech.Quoting.Charge
+namespace MetraTech.Core.Services.Quoting.Charge
 {
 
     /// <summary>

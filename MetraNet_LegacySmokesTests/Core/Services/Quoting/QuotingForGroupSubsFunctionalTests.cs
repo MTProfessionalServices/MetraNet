@@ -1,14 +1,13 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using MetraTech.Core.Services.Test.Quoting.Domain;
 using MetraTech.Domain.Quoting;
 using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
 using MetraTech.Interop.MTProductCatalog;
-using MetraTech.Quoting.Test.Domain;
-using MetraTech.Shared.Test;
 using MetraTech.TestCommon;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MetraTech.Quoting.Test
+namespace MetraTech.Core.Services.Test.Quoting
 {
     /// <summary>
     ///   Quoting for Group Subscription. Functional tests.

@@ -1,14 +1,13 @@
+using System.IO;
 using MetraTech.Core.Services.Quoting;
 using MetraTech.TestCommon;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.IO;
 
-namespace MetraTech.Quoting.Test
+namespace MetraTech.Core.Services.Test.Quoting
 {
     [TestClass]
     public class ConfigurationTests
     {
-
         #region tests
 
         [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
@@ -101,5 +100,4 @@ namespace MetraTech.Quoting.Test
 
         #endregion
     }
-
 }

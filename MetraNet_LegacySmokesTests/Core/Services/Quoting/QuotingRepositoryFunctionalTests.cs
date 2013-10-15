@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using MetraTech.Core.Services.Quoting;
@@ -7,9 +7,8 @@ using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.TestCommon;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MetraTech.Shared.Test;
 
-namespace MetraTech.Quoting.Test
+namespace MetraTech.Core.Services.Test.Quoting
 {
   [TestClass]
   public class QuotingRepositoryFunctionalTests

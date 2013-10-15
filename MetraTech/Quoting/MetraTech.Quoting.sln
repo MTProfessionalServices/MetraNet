@@ -30,10 +30,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Approvals.Test", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Approvals", "..\Approvals\MetraTech.Approvals.csproj", "{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MetraTech.Quoting", "MetraTech.Quoting", "{8A53BEBA-F1E9-4653-BE3E-7E130812087E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Quoting.Test", "C:\dev\MetraNet\RMP\Extensions\FunctionalTests_Internal\MetraTech\Quoting\MetraTech.Quoting.Test.csproj", "{42857A3C-817A-4E05-8DEA-E78385BFE2DA}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Pipeline.Rerun", "..\Pipeline\ReRun\MetraTech.Pipeline.Rerun.csproj", "{BC2DC75E-9076-45AE-B592-7EBE2AB11BA7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.TestCommon", "..\TestCommon\MetraTech.TestCommon.csproj", "{20307E5D-BFC9-4F27-9ECC-A61EE854E8B5}"
@@ -43,10 +39,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Local.testsettings = Local.testsettings
 		MetraTech.Quoting.vsmdi = MetraTech.Quoting.vsmdi
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Quoting.Test.ConsoleForTesting", "C:\dev\MetraNet\RMP\Extensions\Legacy_Internal\PrototypeCode\QuotingTestConsole\QuotingConsoleForTesting\MetraTech.Quoting.Test.ConsoleForTesting.csproj", "{DABA4CDB-2CD3-466C-AD17-F24685BDE517}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Quoting.Test.ConsoleForTestingCrystal", "C:\dev\MetraNet\RMP\Extensions\Legacy_Internal\PrototypeCode\QuotingTestConsole\QuotingConsoleForTestingCrystal\MetraTech.Quoting.Test.ConsoleForTestingCrystal.csproj", "{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.DomainModel.ProductCatalog", "..\DomainModel\ProductCatalog\MetraTech.DomainModel.ProductCatalog.csproj", "{43A73CF5-A0CC-431F-B626-E88904600162}"
 EndProject
@@ -318,24 +310,6 @@ Global
 		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Release|Mixed Platforms.Build.0 = Release|x86
 		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Release|x86.ActiveCfg = Release|x86
 		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Release|x86.Build.0 = Release|x86
-		{42857A3C-817A-4E05-8DEA-E78385BFE2DA}.Debug|.NET.ActiveCfg = Debug|x86
-		{42857A3C-817A-4E05-8DEA-E78385BFE2DA}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{42857A3C-817A-4E05-8DEA-E78385BFE2DA}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{42857A3C-817A-4E05-8DEA-E78385BFE2DA}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{42857A3C-817A-4E05-8DEA-E78385BFE2DA}.Debug|x86.ActiveCfg = Debug|x86
-		{42857A3C-817A-4E05-8DEA-E78385BFE2DA}.Debug|x86.Build.0 = Debug|x86
-		{42857A3C-817A-4E05-8DEA-E78385BFE2DA}.DebugcoreQA|.NET.ActiveCfg = Debug|x86
-		{42857A3C-817A-4E05-8DEA-E78385BFE2DA}.DebugcoreQA|Any CPU.ActiveCfg = Debug|x86
-		{42857A3C-817A-4E05-8DEA-E78385BFE2DA}.DebugcoreQA|Mixed Platforms.ActiveCfg = Debug|x86
-		{42857A3C-817A-4E05-8DEA-E78385BFE2DA}.DebugcoreQA|Mixed Platforms.Build.0 = Debug|x86
-		{42857A3C-817A-4E05-8DEA-E78385BFE2DA}.DebugcoreQA|x86.ActiveCfg = Debug|x86
-		{42857A3C-817A-4E05-8DEA-E78385BFE2DA}.DebugcoreQA|x86.Build.0 = Debug|x86
-		{42857A3C-817A-4E05-8DEA-E78385BFE2DA}.Release|.NET.ActiveCfg = Release|x86
-		{42857A3C-817A-4E05-8DEA-E78385BFE2DA}.Release|Any CPU.ActiveCfg = Release|x86
-		{42857A3C-817A-4E05-8DEA-E78385BFE2DA}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{42857A3C-817A-4E05-8DEA-E78385BFE2DA}.Release|Mixed Platforms.Build.0 = Release|x86
-		{42857A3C-817A-4E05-8DEA-E78385BFE2DA}.Release|x86.ActiveCfg = Release|x86
-		{42857A3C-817A-4E05-8DEA-E78385BFE2DA}.Release|x86.Build.0 = Release|x86
 		{BC2DC75E-9076-45AE-B592-7EBE2AB11BA7}.Debug|.NET.ActiveCfg = Debug|x86
 		{BC2DC75E-9076-45AE-B592-7EBE2AB11BA7}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{BC2DC75E-9076-45AE-B592-7EBE2AB11BA7}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
@@ -368,42 +342,6 @@ Global
 		{20307E5D-BFC9-4F27-9ECC-A61EE854E8B5}.Release|Any CPU.ActiveCfg = Release|x86
 		{20307E5D-BFC9-4F27-9ECC-A61EE854E8B5}.Release|Mixed Platforms.ActiveCfg = Release|x86
 		{20307E5D-BFC9-4F27-9ECC-A61EE854E8B5}.Release|x86.ActiveCfg = Release|x86
-		{DABA4CDB-2CD3-466C-AD17-F24685BDE517}.Debug|.NET.ActiveCfg = Debug|x86
-		{DABA4CDB-2CD3-466C-AD17-F24685BDE517}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{DABA4CDB-2CD3-466C-AD17-F24685BDE517}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{DABA4CDB-2CD3-466C-AD17-F24685BDE517}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{DABA4CDB-2CD3-466C-AD17-F24685BDE517}.Debug|x86.ActiveCfg = Debug|x86
-		{DABA4CDB-2CD3-466C-AD17-F24685BDE517}.Debug|x86.Build.0 = Debug|x86
-		{DABA4CDB-2CD3-466C-AD17-F24685BDE517}.DebugcoreQA|.NET.ActiveCfg = Debug|x86
-		{DABA4CDB-2CD3-466C-AD17-F24685BDE517}.DebugcoreQA|Any CPU.ActiveCfg = Debug|x86
-		{DABA4CDB-2CD3-466C-AD17-F24685BDE517}.DebugcoreQA|Mixed Platforms.ActiveCfg = Debug|x86
-		{DABA4CDB-2CD3-466C-AD17-F24685BDE517}.DebugcoreQA|Mixed Platforms.Build.0 = Debug|x86
-		{DABA4CDB-2CD3-466C-AD17-F24685BDE517}.DebugcoreQA|x86.ActiveCfg = Debug|x86
-		{DABA4CDB-2CD3-466C-AD17-F24685BDE517}.DebugcoreQA|x86.Build.0 = Debug|x86
-		{DABA4CDB-2CD3-466C-AD17-F24685BDE517}.Release|.NET.ActiveCfg = Release|x86
-		{DABA4CDB-2CD3-466C-AD17-F24685BDE517}.Release|Any CPU.ActiveCfg = Release|x86
-		{DABA4CDB-2CD3-466C-AD17-F24685BDE517}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{DABA4CDB-2CD3-466C-AD17-F24685BDE517}.Release|Mixed Platforms.Build.0 = Release|x86
-		{DABA4CDB-2CD3-466C-AD17-F24685BDE517}.Release|x86.ActiveCfg = Release|x86
-		{DABA4CDB-2CD3-466C-AD17-F24685BDE517}.Release|x86.Build.0 = Release|x86
-		{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79}.Debug|.NET.ActiveCfg = Debug|x86
-		{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79}.Debug|x86.ActiveCfg = Debug|x86
-		{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79}.Debug|x86.Build.0 = Debug|x86
-		{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79}.DebugcoreQA|.NET.ActiveCfg = Debug|x86
-		{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79}.DebugcoreQA|Any CPU.ActiveCfg = Debug|x86
-		{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79}.DebugcoreQA|Mixed Platforms.ActiveCfg = Debug|x86
-		{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79}.DebugcoreQA|Mixed Platforms.Build.0 = Debug|x86
-		{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79}.DebugcoreQA|x86.ActiveCfg = Debug|x86
-		{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79}.DebugcoreQA|x86.Build.0 = Debug|x86
-		{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79}.Release|.NET.ActiveCfg = Release|x86
-		{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79}.Release|Any CPU.ActiveCfg = Release|x86
-		{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79}.Release|Mixed Platforms.Build.0 = Release|x86
-		{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79}.Release|x86.ActiveCfg = Release|x86
-		{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79}.Release|x86.Build.0 = Release|x86
 		{43A73CF5-A0CC-431F-B626-E88904600162}.Debug|.NET.ActiveCfg = Debug|x86
 		{43A73CF5-A0CC-431F-B626-E88904600162}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{43A73CF5-A0CC-431F-B626-E88904600162}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
@@ -684,9 +622,6 @@ Global
 		{A5B6D6A0-C62E-481F-BF26-D005B1573934} = {E6977DF2-D1C3-4AB5-8EAC-D56BF76F6EEE}
 		{8C1A9D8B-FB15-43AE-A7C7-62AD8AFB65C2} = {E6977DF2-D1C3-4AB5-8EAC-D56BF76F6EEE}
 		{2AE4B0CA-70B7-4F5E-AF71-0191CBC3C8AC} = {E6977DF2-D1C3-4AB5-8EAC-D56BF76F6EEE}
-		{42857A3C-817A-4E05-8DEA-E78385BFE2DA} = {8A53BEBA-F1E9-4653-BE3E-7E130812087E}
-		{DABA4CDB-2CD3-466C-AD17-F24685BDE517} = {8A53BEBA-F1E9-4653-BE3E-7E130812087E}
-		{151A8A2D-445D-40EF-A2F0-7CCD4CB57F79} = {8A53BEBA-F1E9-4653-BE3E-7E130812087E}
 		{E6F85B9C-27EB-4261-A723-52C7A0483493} = {F36E0B7A-D401-40AC-AAEB-EC9B19077296}
 		{BFC88ECC-C3C1-4736-95D6-B772441CCF4A} = {F36E0B7A-D401-40AC-AAEB-EC9B19077296}
 		{9C9C685C-CBF8-428F-8C34-98702FF13726} = {9900F7CA-927A-4F12-BD99-30EA0177F2A5}

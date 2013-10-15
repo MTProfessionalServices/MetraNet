@@ -1397,9 +1397,9 @@ namespace MetraTech.Core.Services.Test.Quoting
 
             userName = string.Format("{0}_{1}_{2}", userName, BaseName, UniqueInstanceIdentifier);
 
-            if (userName.Length > 40)
+            if (userName.Length > 255)
             {
-                throw new Exception(string.Format("Username '{0}' is too long. It is {1} and should be 40 or less.", userName, userName.Length));
+                throw new Exception(string.Format("Username '{0}' is too long. It is {1} and should be 255 or less.", userName, userName.Length));
             }
 
             if (String.IsNullOrEmpty(nameSpace))

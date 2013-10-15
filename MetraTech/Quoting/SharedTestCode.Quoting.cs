@@ -3,6 +3,7 @@ using System.Linq;
 using MetraTech.BusinessEntity.DataAccess.Persistence;
 using Core.Quoting;
 using MetraTech.Core.Services.ClientProxies;
+using MetraTech.Core.Services.Quoting;
 using MetraTech.Domain.Quoting;
 using MetraTech.ActivityServices.Common;
 using MetraTech.DataAccess;

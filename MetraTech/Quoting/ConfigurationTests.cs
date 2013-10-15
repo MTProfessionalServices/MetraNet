@@ -1,3 +1,4 @@
+using MetraTech.Core.Services.Quoting;
 using MetraTech.TestCommon;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;

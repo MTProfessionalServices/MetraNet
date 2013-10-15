@@ -4,6 +4,7 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using MetraTech.Core.Services.ClientProxies;
+using MetraTech.Core.Services.Quoting;
 using MetraTech.DataAccess;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.TestCommon;

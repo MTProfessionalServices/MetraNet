@@ -117,11 +117,6 @@
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Localization.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="MetraTech.Quoting">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Quoting.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="MetraTech.Common">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Common.dll</HintPath>

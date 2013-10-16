@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.ServiceModel;
 using Core.Quoting;
 using Core.Quoting.Interface;
 using MetraTech.ActivityServices.Common;
@@ -183,17 +184,28 @@ namespace MetraTech.Core.Services.Test.Quoting
 
     public static QuoteResponse InvokeCreateQuote(QuoteRequest request)
     {
+      QuotingServiceClient qsc = new QuotingServiceClient();
+
+      try
+      {
         QuoteResponse response = null;
-        var client = new QuotingService_CreateQuote_Client
-        {
-            UserName = "su",
-            Password = "su123",
-            In_quoteRequest = request,
-            Out_quoteResponse = response
-        };
-        client.Invoke();
-        response = client.Out_quoteResponse;
+        qsc.ClientCredentials.UserName.UserName = "su";
+        qsc.ClientCredentials.UserName.Password = "su123";
+        qsc.CreateQuote(request, out response);
+
         return response;
+      }
+      finally
+      {
+                if (qsc.State == CommunicationState.Opened)
+                  {
+                    qsc.Close();
+                  }
+                  else
+                  {
+                    qsc.Abort();
+                  }
+      }
     }
   }
 

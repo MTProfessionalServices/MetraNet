@@ -1106,24 +1106,25 @@ DayOfWeek={5}; StartDay={6}; StartMonth={7}; StartYear={7}",
 
         grpSub.Members = new MTList<GroupSubscriptionMember>();
 
-        var accountIds = new List<int>();
-        foreach (var accountId in request.Accounts)
-        {
-          var gSubMember = new GroupSubscriptionMember
-            {
-              AccountId = accountId,
-              MembershipSpan = new ProdCatTimeSpan {StartDate = grpSub.SubscriptionSpan.StartDate}
-            };
-          grpSub.Members.Items.Add(gSubMember);
-          accountIds.Add(accountId);
-        }
-
         groupSubService.AddGroupSubscription(ref grpSub);
         // add subscription to Quote Artefact
         if (!grpSub.GroupId.HasValue)
           throw new NullReferenceException(
             String.Format("The GroupSubacription was created(Name={0}), but GroupId is null.",
                           grpSub.Name));
+
+        var accountIds = new List<int>();
+        foreach (var accountId in request.Accounts)
+        {
+          var gSubMember = new GroupSubscriptionMember
+          {
+            AccountId = accountId,
+            MembershipSpan = new ProdCatTimeSpan { StartDate = grpSub.SubscriptionSpan.StartDate }
+          };
+          //grpSub.Members.Items.Add(gSubMember);
+          groupSubService.AddMembersToGroupSubscription(grpSub.GroupId.Value, new List<GroupSubscriptionMember>() { gSubMember });
+          accountIds.Add(accountId);
+        }
 
         response.Artefacts.Subscription.AddSubscriptions(grpSub.GroupId.Value, accountIds);
       }

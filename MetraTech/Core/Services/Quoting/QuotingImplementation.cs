@@ -559,83 +559,61 @@ namespace MetraTech.Core.Services.Quoting
     //TODO: Should be refacored. It should be in seperate class
     protected void CreateNeededSubscriptions(QuoteRequest request, QuoteResponse response)
     {
-      //TODO: Determine if this lock is necessary and if so, give it a better/more descriptive name and comment
-      lock (_obj)
+      #region Check and turn off InstantRCs if needed
+
+      bool instantRCsEnabled;
+      //Check and turn off InstantRCs
+      using (IMTConnection conn = ConnectionManager.CreateConnection())
       {
-        #region Check and turn off InstantRCs if needed
-
-        bool instantRCsEnabled = true;
-        //Check and turn off InstantRCs
-        using (IMTConnection conn = ConnectionManager.CreateConnection())
+        using (var stmt = conn.CreateAdapterStatement(@"Queries\ProductCatalog", "__GET_INSTANTRC_VALUE__"))
+        using (var reader = stmt.ExecuteReader())
         {
-          using (var stmt = conn.CreateAdapterStatement(@"Queries\ProductCatalog", "__GET_INSTANTRC_VALUE__"))
+          if (reader.Read())
           {
-            using (IMTDataReader reader = stmt.ExecuteReader())
-            {
-              if (reader.Read())
-              {
-                instantRCsEnabled = reader.GetBoolean("InstantRCValue");
-              }
-              else
-              {
-                string errorMessage = "Unable to retrieve InstantRC setting";
-                throw new ApplicationException(errorMessage);
-              }
-            }
-          }
-
-          if (instantRCsEnabled)
-          {
-            using (IMTStatement stmt = conn.CreateStatement(GetQueryToUpdateInstantRCConfigurationValue(false)))
-            {
-              stmt.ExecuteNonQuery();
-            }
-          }
-        }
-
-        #endregion
-
-        GetParamTables(request);
-
-        using (
-          var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions(),
-                                           EnterpriseServicesInteropOption.Full))
-        {
-          if (!request.SubscriptionParameters.IsGroupSubscription)
-          {
-            if (Configuration.IsAllowedUseActivityService)
-              CreateAllSubscriptionForQuoteByService(request, response);
-            else
-              CreateAllSubscriptionForQuote(request, response);
+            instantRCsEnabled = reader.GetBoolean("InstantRCValue");
           }
           else
           {
-
-            if (Configuration.IsAllowedUseActivityService)
-              CreateAllGroupSubscriptionForQuoteByService(request, response);
-            else
-              CreateGroupSubscriptionForQuote(request, response);
+            throw new ApplicationException("Unable to retrieve InstantRC setting");
           }
+        }
+
+        if (instantRCsEnabled)
+          using (var stmt = conn.CreateStatement(GetQueryToUpdateInstantRCConfigurationValue(false)))
+            stmt.ExecuteNonQuery();
+      }
+
+      #endregion
+
+      GetParamTables(request);
+
+      if (Configuration.IsAllowedUseActivityService)
+      {
+        if (request.SubscriptionParameters.IsGroupSubscription)
+          CreateAllGroupSubscriptionForQuoteByService(request, response);
+        else
+          CreateAllSubscriptionForQuoteByService(request, response);
+      }
+      else
+        using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions(),
+                                                EnterpriseServicesInteropOption.Full))
+        {
+          if (request.SubscriptionParameters.IsGroupSubscription)
+            CreateGroupSubscriptionForQuote(request, response);
+          else
+            CreateAllSubscriptionForQuote(request, response);
           scope.Complete();
         }
 
+      #region Turn InstantRCs back on
 
-        #region Turn InstantRCs back on
+      if (!instantRCsEnabled) return;
 
-        if (instantRCsEnabled)
-        {
-          using (IMTConnection conn = ConnectionManager.CreateConnection())
-          {
-            using (
-              IMTStatement stmt = conn.CreateStatement(GetQueryToUpdateInstantRCConfigurationValue(instantRCsEnabled)))
-            {
-              stmt.ExecuteNonQuery();
-            }
-          }
-        }
+      using (var conn = ConnectionManager.CreateConnection())
+      using (var stmt = conn.CreateStatement(GetQueryToUpdateInstantRCConfigurationValue(instantRCsEnabled)))
+        stmt.ExecuteNonQuery();
 
-        #endregion
-      }
+      #endregion
     }
 
     private void GetParamTables(QuoteRequest request)

@@ -118,7 +118,7 @@ namespace MetraTech.Core.Services.Test.Quoting
             Assert.IsNotNull(productOffering.ID, "Unable to create PO for test run");
             int idProductOfferingToQuoteFor = productOffering.ID;
 
-            string expectedErrorMessagePartialText = "pipeline";
+            string expectedErrorMessagePartialText = "NonRecurringCharge";
             #endregion
 
 

@@ -93,9 +93,8 @@ namespace MetraTech.Core.Services.Test.Quoting
             Assert.IsFalse(string.IsNullOrEmpty(loadedConfiguration.GetAccountBillingCycleQueryTag));
             Assert.IsFalse(string.IsNullOrEmpty(loadedConfiguration.GetAccountPayerQueryTag));
             Assert.IsFalse(string.IsNullOrEmpty(loadedConfiguration.QuotingQueryFolder));
-            Assert.IsFalse(loadedConfiguration.IsCleanupQuoteAutomaticaly);
-            Assert.IsFalse(loadedConfiguration.IsAllowedUseActivityService);
-
+            Assert.IsTrue(loadedConfiguration.IsCleanupQuoteAutomaticaly);
+            Assert.IsTrue(loadedConfiguration.IsAllowedUseActivityService);
         }
 
         #endregion

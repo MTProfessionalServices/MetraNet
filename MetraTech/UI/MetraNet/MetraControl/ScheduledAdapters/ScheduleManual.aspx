@@ -4,7 +4,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
 <script type="text/javascript">
- 
+    Ext.onReady(function () {
+        // Record the initial values of the page's controls.
+        // (Note:  This is called here, and not on the master page,
+        // because the call to document.getElementById() returns null
+        // if executed on the master page.)
+        var el = document.getElementById("ctl00_PanelActiveAccount");
+        if (el != null)
+            el.style.display = 'none';
+    });
+
   function goBack() {
     parent.parent.location.href = "/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.List.asp";
   } 

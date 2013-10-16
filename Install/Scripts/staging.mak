@@ -354,8 +354,6 @@ BINARIES = \
   MetraTech.MetraPay.Client.pdb \
   MetraTech.MetraPay.PaymentGateway.dll \
   MetraTech.MetraPay.PaymentGateway.pdb \
-  MetraTech.Quoting.dll \
-  MetraTech.Quoting.pdb \
   MetraTech.Security.Common.dll \
   MetraTech.Security.Common.pdb \
   MetraTech.Security.Crypto.dll \

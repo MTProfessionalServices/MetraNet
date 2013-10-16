@@ -815,7 +815,7 @@ namespace MetraTech.Core.Services.Quoting
             result.StartYear = rowset.GetInt32("StartYear");
 
           if (MTUsageCycleType.SEMIMONTHLY_CYCLE == cyclyType)
-            result.FirstDayOfMonth = rowset.IsDBNull("FirtsDayOfMonth") ? 0 : rowset.GetInt32("FirtsDayOfMonth");
+            result.FirstDayOfMonth = rowset.IsDBNull("FirstDayOfMonth") ? 0 : rowset.GetInt32("FirstDayOfMonth");
 
           _log.LogDebug(@"Retrived Cycle from account={0}: CycleTypeID={1}; 
 DayOfMonth={2}; FirstDayOfMonth={3}; SecondDayOfMonth={4}

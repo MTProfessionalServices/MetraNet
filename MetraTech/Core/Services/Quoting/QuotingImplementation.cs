@@ -171,9 +171,8 @@ namespace MetraTech.Core.Services.Quoting
             // always saves chrages in case exception was occured
             response.Artefacts.ChargesCollection.AddRange(((AddChargeMeteringException) ex).ChargeDataCollection);
           }
-          else
 
-            response.Status = QuoteStatus.Failed;
+          response.Status = QuoteStatus.Failed;
           response.FailedMessage = ex.GetaAllMessages();
 
           if (response.IsInitialized())

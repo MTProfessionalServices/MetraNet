@@ -23,6 +23,7 @@ create or replace TRIGGER trig_recur_window_sub AFTER INSERT OR UPDATE OR DELETE
       SET c_SubscriptionStart = :new.vt_start, c_SubscriptionEnd     = :new.vt_end
         WHERE c__AccountID      = :new.id_acc AND c__SubscriptionID   = :new.id_sub;
 
+	DELETE FROM TMP_NEWRW;
     INSERT INTO TMP_NEWRW
     SELECT :new.vt_start c_CycleEffectiveDate,
       :new.vt_start c_CycleEffectiveStart,

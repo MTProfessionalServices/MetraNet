@@ -1,0 +1,3 @@
+mn_space                                          loggin                                            Acc_Type                                          
+                                                mt,                                     syntheticroot,                                              Root,
+                                                mt,                                              root,                                              Root,

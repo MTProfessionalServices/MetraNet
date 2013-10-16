@@ -57,7 +57,7 @@ namespace MetraTech.Core.Services.Test.Quoting
             expected.CountFlatRCs = 2;
 
 
-            string expectedErrorMessagePartialText = "pipeline";
+            string expectedErrorMessagePartialText = "RecurringCharge";
             #endregion
 
             #region Test and Verify
@@ -81,12 +81,12 @@ namespace MetraTech.Core.Services.Test.Quoting
             {
                 QuotingTestScenarios.CreateQuoteAndVerifyResults(quoteImpl, expected);
 
-                Assert.Fail("An exception should have been thrown due to missing rate errors in pipeline");
+                Assert.Fail("An exception should have been thrown due to failed adding RC charges");
             }
             catch(QuoteException ex)
             {
                 //Assert.AreEqual("Parameter cannot be null or empty.", ex.Message);
-                Assert.IsTrue(ex.Message.Contains(expectedErrorMessagePartialText), "Expected message about pipeline missing rates");
+                Assert.IsTrue(ex.Message.Contains(expectedErrorMessagePartialText), "Expected message about failed adding RC charges");
                 Assert.IsTrue(!string.IsNullOrEmpty(ex.Response.FailedMessage), "Failed quote does not have FailedMessage set");
                 SharedTestCodeQuoting.VerifyQuoteResponseIsErrorInRepository(ex.Response.IdQuote, expectedErrorMessagePartialText, quoteImpl.QuoteImplementation.QuotingRepository);
             }
@@ -219,19 +219,8 @@ namespace MetraTech.Core.Services.Test.Quoting
             QuotingTestScenarios.RunTestCheckingBadInputs(accountIdsToQuoteFor, poIdsToQuoteFor, expectedErrorMessagePartial);
 
             #endregion
-
-            #region Empty List Of Accounts
-
-            expectedErrorMessagePartial = "At least one account must be specified for the quote";
-
-            accountIdsToQuoteFor = new List<int>();
-            poIdsToQuoteFor = new List<int>();
-
-            QuotingTestScenarios.RunTestCheckingBadInputs(accountIdsToQuoteFor, poIdsToQuoteFor, expectedErrorMessagePartial);
-
-            #endregion
-
-            #region Empty List Of Accounts
+            
+            #region Empty List Of POs
 
             expectedErrorMessagePartial = "At least one product offering must be specified for the quote";
 

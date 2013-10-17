@@ -67,13 +67,13 @@ create or replace TRIGGER trig_recur_window_sub AFTER INSERT OR UPDATE OR DELETE
     AND (bp.n_kind    = 20
     OR rv.id_prop    IS NOT NULL);
   END;
-END IF;
 
-UPDATE tmp_newrw SET c_BilledThroughDate = metratime(1,'RC');
-  
-insert into t_recur_window select * from tmp_newrw;
-MeterInitialFromRecurWindow;
-MeterCreditFromRecurWindow;
+	UPDATE tmp_newrw SET c_BilledThroughDate = metratime(1,'RC');
+	  
+	insert into t_recur_window select * from tmp_newrw;
+	MeterInitialFromRecurWindow;
+	MeterCreditFromRecurWindow;
+END IF;
 
 END;
 

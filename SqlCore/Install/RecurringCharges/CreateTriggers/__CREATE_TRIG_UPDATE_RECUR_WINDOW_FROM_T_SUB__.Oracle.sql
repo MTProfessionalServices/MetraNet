@@ -6,7 +6,8 @@ create or replace TRIGGER trig_recur_window_sub AFTER INSERT OR UPDATE OR DELETE
 	BEGIN
 	  IF deleting THEN
         DELETE FROM t_recur_window
-           WHERE c__SubscriptionID   = :old.id_sub;
+           WHERE c__AccountID      = :old.id_acc AND c__SubscriptionID   = :old.id_sub
+             AND c_SubscriptionStart = :old.vt_start AND c_SubscriptionEnd   = :old.vt_end;
     
     ELSE 
 	/*inserting or deleting*/

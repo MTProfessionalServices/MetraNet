@@ -32,6 +32,16 @@ namespace MetraTech.Core.Services.Test.Quoting
       return GetProductViewCount("t_pv_UDRecurringCharge");
     }
 
+    public static int GetSubsCount()
+    {
+      return GetProductViewCount("t_sub");
+    }
+
+    public static int GetRecurWindowsCount()
+    {
+      return GetProductViewCount("t_recur_window");
+    }
+
     public static int GetProductViewCount(string productViewTableName)
     {
       int count = -1;
@@ -161,9 +171,9 @@ namespace MetraTech.Core.Services.Test.Quoting
         
         Assert.AreEqual(quoteHeaderFromDB.QuoteContent.Total, quoteResponse.TotalAmount, "Wrong TotalAmount");
         Assert.AreEqual(quoteHeaderFromDB.QuoteContent.TotalTax, quoteResponse.TotalTax, "Wrong TotalTax");
-        Assert.AreEqual(quoteHeaderFromDB.QuoteContent.Currency, quoteResponse.Currency, "Wrong Currency");
+        Assert.AreEqual(quoteHeaderFromDB.QuoteContent.Currency ?? string.Empty, quoteResponse.Currency ?? string.Empty, "Wrong Currency");
         Assert.AreEqual(quoteHeaderFromDB.QuoteContent.ReportLink, quoteResponse.ReportLink, "Wrong ReportLink");
-        Assert.AreEqual(quoteHeaderFromDB.QuoteContent.FailedMessage, quoteResponse.FailedMessage, "Wrong FailedMessage");
+        Assert.AreEqual(quoteHeaderFromDB.QuoteContent.FailedMessage ?? string.Empty, quoteResponse.FailedMessage ?? string.Empty, "Wrong FailedMessage");
         Assert.AreEqual(quoteHeaderFromDB.QuoteContent.Status, Convert.ToInt32((object) quoteResponse.Status), "Wrong Status");
     }
 

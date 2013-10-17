@@ -39,6 +39,8 @@ namespace MetraTech.Core.Services.Test.Quoting.Domain
         public int CountFlatRCs { get; set; }
         public int CountNRCs { get; set; }
         public int? CountUDRCs { get; set; }
+        public int CountSubs { get; set; }
+        public int CountRecurWindows { get; set; }
 
         public QuoteVerifyData()
         {

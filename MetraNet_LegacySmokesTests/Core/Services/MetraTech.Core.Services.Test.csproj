@@ -232,6 +232,7 @@
     <Compile Include="ServiceTestsBase.cs" />
     <Compile Include="SubscriptionServiceTests.cs" />
     <Compile Include="TicketingServiceTest.cs" />
+    <Compile Include="Unit\QuotingImplementationUnitTest.cs" />
     <Compile Include="UsageHistoryService.Tests.cs" />
     <Compile Include="UsmServiceTest.cs" />
   </ItemGroup>

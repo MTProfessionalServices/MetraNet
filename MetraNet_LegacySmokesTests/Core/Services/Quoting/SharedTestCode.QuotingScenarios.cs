@@ -40,6 +40,9 @@ namespace MetraTech.Core.Services.Test.Quoting
             beforeCreateQuote.CountNRCs = SharedTestCodeQuoting.GetNRCsCount();
             beforeCreateQuote.CountFlatRCs = SharedTestCodeQuoting.GetFlatRCsCount();
             beforeCreateQuote.CountUDRCs = SharedTestCodeQuoting.GetUDRCsCount();
+            beforeCreateQuote.CountSubs = SharedTestCodeQuoting.GetSubsCount();
+            beforeCreateQuote.CountRecurWindows = SharedTestCodeQuoting.GetRecurWindowsCount();
+
             beforeCreateQuote.CountHeaders = quotingRepositoryForTestRun.GetQuoteHeaderCount();
             beforeCreateQuote.CountContents = quotingRepositoryForTestRun.GetQuoteContentCount();
             beforeCreateQuote.CountAccounts = quotingRepositoryForTestRun.GetAccountForQuoteCount();
@@ -67,15 +70,16 @@ namespace MetraTech.Core.Services.Test.Quoting
                 beforeCleanQuote.CountContents = quotingRepositoryForTestRun.GetQuoteContentCount();
                 beforeCleanQuote.CountAccounts = quotingRepositoryForTestRun.GetAccountForQuoteCount();
                 beforeCleanQuote.CountProducts = quotingRepositoryForTestRun.GetPOForQuoteCount();
-
+                
                 SharedTestCodeQuoting.VerifyQuoteRequestCorrectInRepository(result.IdQuote, quoteImp.Request,
                                                                             quoteImp.QuoteImplementation
                                                                                     .QuotingRepository);
 
                 beforeCleanQuote.CountFlatRCs = SharedTestCodeQuoting.GetFlatRCsCount();
                 beforeCleanQuote.CountNRCs = SharedTestCodeQuoting.GetNRCsCount();
-
                 beforeCleanQuote.CountUDRCs = SharedTestCodeQuoting.GetUDRCsCount();
+                beforeCleanQuote.CountSubs = SharedTestCodeQuoting.GetSubsCount();
+                beforeCleanQuote.CountRecurWindows = SharedTestCodeQuoting.GetRecurWindowsCount();
 
                 #endregion
 
@@ -144,10 +148,19 @@ namespace MetraTech.Core.Services.Test.Quoting
                 afterCleanQuote.CountFlatRCs = SharedTestCodeQuoting.GetFlatRCsCount();
                 afterCleanQuote.CountNRCs = SharedTestCodeQuoting.GetNRCsCount();
                 afterCleanQuote.CountUDRCs = SharedTestCodeQuoting.GetUDRCsCount();
+                afterCleanQuote.CountSubs = SharedTestCodeQuoting.GetSubsCount();
+                afterCleanQuote.CountRecurWindows = SharedTestCodeQuoting.GetRecurWindowsCount();
+
 
                 Assert.AreEqual(beforeCreateQuote.CountFlatRCs, afterCleanQuote.CountFlatRCs, "Quoting left behind/didn't cleanup usage");
                 Assert.AreEqual(beforeCreateQuote.CountNRCs, afterCleanQuote.CountNRCs, "Quoting left behind/didn't cleanup usage");
                 Assert.AreEqual(beforeCreateQuote.CountUDRCs, afterCleanQuote.CountUDRCs, "Quoting left behind/didn't cleanup usage");
+              Assert.AreEqual(beforeCreateQuote.CountSubs, afterCleanQuote.CountSubs,
+                              "Quoting left behind/didn't cleanup subs " +
+                              (afterCleanQuote.CountSubs - beforeCreateQuote.CountSubs).ToString());
+              Assert.AreEqual(beforeCreateQuote.CountRecurWindows, afterCleanQuote.CountRecurWindows,
+                              "Quoting left behind/didn't cleanup recur windows " +
+                              (afterCleanQuote.CountRecurWindows - beforeCreateQuote.CountRecurWindows).ToString());
 
                 usageAndFailedTransactionCount.VerifyNoChange();
             }

@@ -67,45 +67,53 @@
     <Platform Condition="'$(Platform)'=='Win32'">x86</Platform>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="COMDBObjects.interop, Version=6.2.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="COMDBObjects.interop">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\COMDBObjects.interop.dll</HintPath>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Core.Core.Entity, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="Core.Core.Entity">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Core.Core.Entity.dll</HintPath>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Core.FileLandingService.Entity, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="Core.FileLandingService.Entity">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Core.FileLandingService.Entity.dll</HintPath>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Core.Quoting.Entity, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="Core.Quoting.Entity">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Core.Quoting.Entity.dll</HintPath>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Core.Interface, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="Core.Interface">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Core.Interface.dll</HintPath>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
     <Reference Include="GenericCollection.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\GenericCollection.interop.dll</HintPath>
     </Reference>
-    <Reference Include="IMTAccountType.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="IMTAccountType.interop">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\IMTAccountType.interop.dll</HintPath>
     </Reference>
     <Reference Include="MeterRowset.interop">
       <Name>MeterRowset.interop</Name>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MeterRowset.interop.dll</HintPath>
     </Reference>
     <Reference Include="Rowset.interop">
@@ -114,116 +122,136 @@
       <SpecificVersion>false</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Rowset.interop.dll</HintPath>
     </Reference>
-    <Reference Include="MTAccount.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="MTAccount.interop">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTAccount.interop.dll</HintPath>
     </Reference>
-    <Reference Include="MetraTech.DomainModel.AccountTypes.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="MetraTech.DomainModel.AccountTypes.Generated">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.AccountTypes.Generated.dll</HintPath>
     </Reference>
-    <Reference Include="MetraTech.DomainModel.Billing.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="MetraTech.DomainModel.Billing.Generated">
       <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Billing.Generated.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="MetraTech.DomainModel.Enums.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="MetraTech.DomainModel.Enums.Generated">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Enums.Generated.dll</HintPath>
     </Reference>
-    <Reference Include="MetraTech.DomainModel.ProductCatalog.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="MetraTech.DomainModel.ProductCatalog.Generated">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.ProductCatalog.Generated.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.Utils">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Utils.dll</HintPath>
     </Reference>
-    <Reference Include="MTAuditEvents.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="MTAuditEvents.interop">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTAuditEvents.interop.dll</HintPath>
     </Reference>
-    <Reference Include="MTAuth.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="MTAuth.interop">
       <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <Private>False</Private>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTAuth.interop.dll</HintPath>
     </Reference>
-    <Reference Include="MTAuthCapabilities.interop, Version=6.2.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="MTAuthCapabilities.interop">
       <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTAuthCapabilities.interop.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="MTAuthExec.interop, Version=6.2.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="MTAuthExec.interop">
       <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTAuthExec.interop.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="MTBillingReRun.interop, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+    <Reference Include="MTBillingReRun.interop">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTBillingReRun.interop.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="MTHierarchyReports.interop, Version=6.2.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="MTHierarchyReports.interop">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTHierarchyReports.interop.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="MTProductCatalog.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="MTProductCatalog.interop">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTProductCatalog.interop.dll</HintPath>
     </Reference>
-    <Reference Include="MTProductView.interop, Version=6.2.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="MTProductView.interop">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTProductView.interop.dll</HintPath>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
-    <Reference Include="MTServerAccess.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="MTServerAccess.interop">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTServerAccess.interop.dll</HintPath>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
-    <Reference Include="MTYAAC.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="MTYAAC.interop">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTYAAC.interop.dll</HintPath>
     </Reference>
-    <Reference Include="NameID.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="NameID.interop">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\NameID.interop.dll</HintPath>
     </Reference>
-    <Reference Include="QueryAdapter.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="QueryAdapter.interop">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\QueryAdapter.interop.dll</HintPath>
     </Reference>
-    <Reference Include="RCD.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="RCD.interop">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\RCD.interop.dll</HintPath>
     </Reference>
-    <Reference Include="Rowset.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="Rowset.interop">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Rowset.interop.dll</HintPath>
     </Reference>
-    <Reference Include="Subscription.interop, Version=6.0.3.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="Subscription.interop">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Subscription.interop.dll</HintPath>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
-    <Reference Include="SysContext.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="SysContext.interop">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\SysContext.interop.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -295,6 +323,7 @@
     <Compile Include="SubscriptionService.cs" />
     <Compile Include="TaxService.cs" />
     <Compile Include="UDRLoaderService.cs" />
+    <Compile Include="Unit\Quoting\Class1.cs" />
     <Compile Include="UsageHistoryService.cs" />
     <Compile Include="UsageHistoryService2.cs" />
     <Compile Include="UsmService.cs" />

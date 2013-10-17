@@ -323,7 +323,6 @@
     <Compile Include="SubscriptionService.cs" />
     <Compile Include="TaxService.cs" />
     <Compile Include="UDRLoaderService.cs" />
-    <Compile Include="Unit\Quoting\Class1.cs" />
     <Compile Include="UsageHistoryService.cs" />
     <Compile Include="UsageHistoryService2.cs" />
     <Compile Include="UsmService.cs" />

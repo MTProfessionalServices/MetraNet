@@ -384,6 +384,7 @@ namespace MetraTech.Tax.Framework.Taxware
             // Let TWE store/commit the audit info each time we submit the
             // calculate document request.
             cdRequest.calculateDocumentRequest1.isAudit = IsAuditingNeeded;
+            cdRequest.calculateDocumentRequest1.isAuditSpecified = true;
 
             // This is the tax calculation type.
             // The code that identifies the tax calculation type.
@@ -614,7 +615,7 @@ namespace MetraTech.Tax.Framework.Taxware
                                    DateTime.Now.ToString("yyyyMMddHHmmss", DateTimeFormatInfo.InvariantInfo));
             m_Logger.LogDebug("uniqueTransactionId={0}", uniqueTransactionId);
             cdRequest.calculateDocumentRequest1.doc.trnDocNm = uniqueTransactionId;
-            cdRequest.calculateDocumentRequest1.trnId = uniqueTransactionId;
+            cdRequest.calculateDocumentRequest1.doc.trnSrc = Environment.MachineName;
 
             // determines the verbosity of the calculateDocumentResponse
             cdRequest.calculateDocumentRequest1.rsltLvl = 1;

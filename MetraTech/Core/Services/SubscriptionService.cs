@@ -86,6 +86,9 @@ namespace MetraTech.Core.Services
     [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, InstanceContextMode = InstanceContextMode.Single)]
     public class SubscriptionService : BaseSubscriptionService, ISubscriptionService
     {
+        public SubscriptionService(){}
+        public SubscriptionService(MTAuth.IMTSessionContext sessionContext) : base(sessionContext) { }
+
         private Logger m_Logger = new Logger("[SubscriptionService]");
 
         /// <summary>

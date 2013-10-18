@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 // FakeItEasy requires Castle assemblies. All required assemblies are under S:\Thirdparty\FakeItEasy\ and S:\Thirdparty\Castle\
 using FakeItEasy;
 
-namespace MetraTech.Core.Services.Test
+namespace MetraTech.Core.Services.Test.Unit
 {
     /// <summary>
     /// Due to storing logic in Stored Procedure whole business logic cannot be covered.
@@ -15,7 +15,7 @@ namespace MetraTech.Core.Services.Test
     /// If stored procedure throwing exception it is handled as required.
     /// </summary>
     [TestClass]
-    public class QuotingServiceTest
+    public class QuotingServiceUnitTest
     {
         // [MTUnitTest] gives a method TestCategory = "UnitTest".
         // This is required for test to be executed during automation runs.

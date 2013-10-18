@@ -69,7 +69,7 @@ namespace MetraTech.Product.Hooks
         }
 
         [AutoComplete]
-        public void AddServiceDef(string query, string indexQuery, string uindexQuery, string pkConstraintQuery, string stagingQuery,
+        public void AddServiceDef(string query, string indexQuery, string stagingQuery,
             string svcName, string chksum, string tableName, string stageTableName)
         {
             // all we need to do is execute the create table query and 
@@ -86,27 +86,7 @@ namespace MetraTech.Product.Hooks
                             addDeclare.AddParam("%%DDL%%", query, true);
                             addDeclare.ExecuteNonQuery();
                             addDeclare.ClearQuery();
-
-                            if (!string.IsNullOrEmpty(uindexQuery))
-                            {
-                                execddl.AddParam("%%DDL%%", uindexQuery);
-
-                                addDeclare.AddParam("%%DDL%%", execddl.Query, true);
-                                addDeclare.ExecuteNonQuery();
-                                execddl.ClearQuery();
-                                addDeclare.ClearQuery();
-                            }
-
-                            if (!string.IsNullOrEmpty(pkConstraintQuery))
-                            {
-                                execddl.AddParam("%%DDL%%", pkConstraintQuery);
-
-                                addDeclare.AddParam("%%DDL%%", execddl.Query, true);
-                                addDeclare.ExecuteNonQuery();
-                                execddl.ClearQuery();
-                                addDeclare.ClearQuery();
-                            }
-
+                            
                             //create an index on id_parent_sess
                             execddl.AddParam("%%DDL%%", indexQuery);
                             addDeclare.AddParam("%%DDL%%", execddl.Query, true);
@@ -324,9 +304,11 @@ namespace MetraTech.Product.Hooks
                 using (IMTAdapterStatement adpStmt = conn.CreateAdapterStatement(Common.ServiceDefQueryPath, gueryTagName))
                 {
                     adpStmt.AddParam(Common.TableNameParam, tableName);
-                    if (!staging && conn.ConnectionInfo.IsSqlServer)
+                    if (!staging)
                     {
                         adpStmt.AddParam(Common.IdPartitionDefaultValue, GetIdPartitionDefaultValue());
+                        if (conn.ConnectionInfo.IsOracle)
+                            adpStmt.AddParam(Common.PkNameParam, GetPkName(tableName));
                     }
                     adpStmt.AddParam(Common.AdditionalColumnsParam, additionalColumns.ToString());
                     adpStmt.AddParam(Common.ReservedColumnsParam, reservedColumns.ToString());
@@ -356,60 +338,7 @@ namespace MetraTech.Product.Hooks
                 }
             }
         }
-
-        public string GenerateCreateUniqueIndexStatement()
-        {
-            if (_connInfoBase.IsOracle)
-            {
-                using (IMTConnection conn = ConnectionManager.CreateConnection())
-                {
-                    using (
-                      IMTAdapterStatement adpStmt = conn.CreateAdapterStatement(Common.ServiceDefQueryPath,
-                                                                                "__CREATE_UNIQUE_INDEX__"))
-                    {
-                        string nm = GetTableName();
-                        nm = "pk_svc_" + nm.Substring(7, nm.Length - 7);
-
-                        adpStmt.AddParam(Common.NameSpaceParam, nm);
-                        adpStmt.AddParam(Common.TableNameParam, GetTableName());
-
-                        return adpStmt.Query;
-                    }
-                }
-            }
-            else
-            {
-                return string.Empty;
-            }
-        }
-
-        public string GenerateCreatePrimaryKeyConstraintStatement()
-        {
-            if (_connInfoBase.IsOracle)
-            {
-                using (IMTConnection conn = ConnectionManager.CreateConnection())
-                {
-                    using (
-                      IMTAdapterStatement adpStmt = conn.CreateAdapterStatement(Common.ServiceDefQueryPath,
-                                                                                "__ALTER_PRIMARY_KEY_CONSTRAINT__"))
-                    {
-
-                        string nm = GetTableName();
-                        nm = "pk_svc_" + nm.Substring(7, nm.Length - 7);
-
-                        adpStmt.AddParam(Common.NameSpaceParam, nm);
-                        adpStmt.AddParam(Common.TableNameParam, GetTableName());
-
-                        return adpStmt.Query;
-                    }
-                }
-            }
-            else
-            {
-                return string.Empty;
-            }
-        }
-
+        
         /// <summary>
         /// Gets resererfer table columns name and theirs types
         /// </summary>
@@ -525,7 +454,7 @@ namespace MetraTech.Product.Hooks
         /// Get current default value for id_partition column of service definition table.
         /// Is called when svc is not staging table.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>current id partition for meter tables</returns>
         private Int32 GetIdPartitionDefaultValue()
         {
             Int32 id_partition_default_value = 0;
@@ -538,12 +467,25 @@ namespace MetraTech.Product.Hooks
                     {
                         if (reader.Read())
                         {
-                            id_partition_default_value = reader.GetInt32(0);
+                            id_partition_default_value = reader.GetInt32("current_id_partition");
                         }
                     }
                 }
             }
             return id_partition_default_value;
+        }
+
+        /// <summary>
+        /// Returns PK name, that fits 30 symbols. This is Oracle restriction for naming.
+        /// </summary>
+        /// <param name="tableName">Name of the table</param>
+        /// <returns>Primary Key name, that is not longer than 30 symbols</returns>
+        private string GetPkName(string tableName)
+        {
+            var pkName = "pk_svc_" + tableName.Substring(6, tableName.Length - 6);
+            if (pkName.Length > 30)
+                pkName = pkName.Substring(0, 30);
+            return pkName;
         }
 
         private string _tableName = null;
@@ -616,16 +558,12 @@ namespace MetraTech.Product.Hooks
         {
             using (IMTConnection conn = ConnectionManager.CreateConnection())
             {
-                if (conn.ConnectionInfo.IsSqlServer)
+                using (IMTCallableStatement stmt = conn.CreateCallableStatement("prtn_deploy_serv_def_table"))
                 {
-                    using (IMTCallableStatement stmt = conn.CreateCallableStatement("prtn_DeployServiceDefinitionPartitionedTable"))
-                    {
-                        stmt.AddParam("svc_table_name", MTParameterType.String, tableName);
-                        stmt.ExecuteNonQuery();
-                    }
+                    stmt.AddParam("svc_table_name", MTParameterType.String, tableName);
+                    stmt.ExecuteNonQuery();
                 }
             }
-
         }
 
         public void Execute(/*[in]*/ object var,/*[in, out]*/ ref int pVal)
@@ -690,8 +628,6 @@ namespace MetraTech.Product.Hooks
                         string query = creator.GenerateCreateTableStatement(false);
                         string stagingQuery = creator.GenerateCreateTableStatement(true);
                         string indexQuery = creator.GenerateCreateIndexStatement();
-                        string uindexQuery = creator.GenerateCreateUniqueIndexStatement();
-                        string pkConstraintQuery = creator.GenerateCreatePrimaryKeyConstraintStatement();
 
                         //generate chksum.  The msixdef file is being read twice...
                         MetraTech.Interop.PropSet.IMTConfig config = new MetraTech.Interop.PropSet.MTConfig();
@@ -704,7 +640,7 @@ namespace MetraTech.Product.Hooks
                         //finally do the database work.
                         ServiceDefWriter writer = new ServiceDefWriter();
 
-                        writer.AddServiceDef(query, indexQuery, uindexQuery, pkConstraintQuery, stagingQuery, svcDefName,
+                        writer.AddServiceDef(query, indexQuery, stagingQuery, svcDefName,
                           chkSum, creator.GetTableName(), creator.GetFullStageTableName());
 
                         // if DB is partitioned and partition schema is exists and newly created svc table not under partition schema 

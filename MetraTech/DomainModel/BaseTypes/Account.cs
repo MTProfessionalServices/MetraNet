@@ -2,16 +2,12 @@ using System;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Collections;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Reflection;
-using System.IO;
-
 using MetraTech.DomainModel.Common;
 using MetraTech.DomainModel.Enums.Account.Metratech_com_accountcreation;
 using MetraTech.DomainModel.Enums.Core.Global;
 using System.Web.Script.Serialization;
-using MetraTech.Interop.MTAuditEvents;
 
 namespace MetraTech.DomainModel.BaseTypes
 {
@@ -257,7 +253,7 @@ namespace MetraTech.DomainModel.BaseTypes
     [System.Runtime.Serialization.DataMemberAttribute(IsRequired = false, EmitDefaultValue = false)]
     private bool isUserNameDirty = false;
     private string userName;
-    [MTDataMember(Description = "The name of the user (required).", Length = 40)]
+    [MTDataMember(Description = "The name of the user (required).", Length = 255)]
     [DataMember(IsRequired = false, EmitDefaultValue = false)]
     public string UserName
     {

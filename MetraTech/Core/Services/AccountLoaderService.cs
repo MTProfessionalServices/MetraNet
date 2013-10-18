@@ -14,6 +14,7 @@ using MetraTech.Debug.Diagnostics;
 using MetraTech.DomainModel.Common;
 using System;
 using System.Collections.Generic;
+using MetraTech.Interop.MTAuth;
 
 namespace MetraTech.Core.Services
 {
@@ -22,6 +23,9 @@ namespace MetraTech.Core.Services
   /// </summary>
   public class AccountLoaderService : CMASServiceBase
   {
+    public AccountLoaderService(){}
+    public AccountLoaderService(IMTSessionContext sessionContext) : base(sessionContext) { }
+
     private string mQueryPath = @"Queries\Account";
     private Hashtable mViewPropertiesMap = new Hashtable();
     protected Logger mLogger = new Logger("[AccountService]");

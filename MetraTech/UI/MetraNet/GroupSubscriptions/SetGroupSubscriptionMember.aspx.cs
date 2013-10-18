@@ -100,6 +100,8 @@ public partial class GroupSubscriptions_SetGroupSubscriptionMember : MTPage
       MTDataBinder1.Unbind();
       GroupSubscriptionsEvents_OKSetGroupSubscriptionMember_Client setGroupSubMember = new GroupSubscriptionsEvents_OKSetGroupSubscriptionMember_Client();
       setGroupSubMember.In_AccountId = new AccountIdentifier(UI.User.AccountId);
+      DateTime? temp = GroupSubscriptionMember.MembershipSpan.EndDate.Value;
+      GroupSubscriptionMember.MembershipSpan.EndDate = temp.Value.AddDays(1).AddSeconds(-1);
       setGroupSubMember.In_GroupSubscriptionMember = GroupSubscriptionMember;
 
      //Moving this to page load event

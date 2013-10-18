@@ -63,8 +63,8 @@
     <Reference Include="Core.Core.Entity">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Core.Core.Entity.dll</HintPath>
-      <Private>False</Private>
       <EmbedInteropTypes>False</EmbedInteropTypes>
+	  <Private>False</Private>
     </Reference>
     <Reference Include="Core.Interface">
       <SpecificVersion>False</SpecificVersion>
@@ -72,7 +72,12 @@
       <Private>False</Private>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Core.Quoting.Entity" />
+    <Reference Include="Core.Quoting.Entity">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Core.Quoting.Entity.dll</HintPath>
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
     <Reference Include="GenericCollection.interop">
       <Private>False</Private>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\GenericCollection.interop.dll</HintPath>
@@ -143,13 +148,13 @@
     <Reference Include="MTRuleSet.interop">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTRuleSet.interop.dll</HintPath>
     </Reference>
     <Reference Include="MTServices.interop">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTServices.interop.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
@@ -161,7 +166,7 @@
     <Reference Include="PropSet.interop">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\PropSet.interop.dll</HintPath>
     </Reference>
     <Reference Include="RCD.interop">

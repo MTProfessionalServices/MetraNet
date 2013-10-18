@@ -39,38 +39,6 @@
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9C9C685C-CBF8-428F-8C34-98702FF13726}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MetraTech.Domain</RootNamespace>
-    <AssemblyName>MetraTech.Domain</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
@@ -78,8 +46,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Antlr4.Runtime.v4.0">
-      <HintPath>..\..\Thirdparty\antlr\Antlr4.Runtime.v4.0.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\Antlr4.Runtime.v4.0.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
@@ -110,7 +78,6 @@
     <Compile Include="DataAccess\EntityTypeConfigurations\EntityConfiguration.cs" />
     <Compile Include="DataAccess\EntityTypeConfigurations\NotificationConfigurationConfiguration.cs" />
     <Compile Include="DataAccess\EntityTypeConfigurations\NotificationEndpointConfiguration.cs" />
-    <Compile Include="DataAccess\EntityTypeConfigurations\QuoteIndividualPriceConfiguration.cs" />
     <Compile Include="DataAccess\IMetraNetContext.cs" />
     <Compile Include="DataAccess\SerializationHelper.cs" />
     <Compile Include="Events\ChangeNotificationEvent.cs" />
@@ -141,6 +108,7 @@
     <Compile Include="Notifications\NotificationEndpointConfiguration.cs" />
     <Compile Include="Notifications\NotificationEndpoint.cs" />
     <Compile Include="Notifications\NotificationType.cs" />
+    <Compile Include="PairKeyValueSerializable.cs" />
     <Compile Include="Parsers\ExpressionBuilder.cs" />
     <Compile Include="Parsers\ExpressionErrorListener.cs" />
     <Compile Include="Parsers\ExpressionLanguageHelper.cs" />
@@ -149,12 +117,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Events\ThresholdCrossingEvent.cs" />
     <Compile Include="Quantity.cs" />
-    <Compile Include="Quoting\QuoteIndividualPrice.cs" />
+    <Compile Include="Quoting\ChargeData.cs" />
+    <Compile Include="Quoting\ChargeType.cs" />
+    <Compile Include="Quoting\IndividualPrice.cs" />
     <Compile Include="Quoting\QuoteLogRecord.cs" />
     <Compile Include="Quoting\QuoteRequest.cs" />
     <Compile Include="Quoting\QuoteResponse.cs" />
+    <Compile Include="Quoting\QuoteResponseArtefacts.cs" />
     <Compile Include="Quoting\QuoteStatus.cs" />
     <Compile Include="Quoting\ReportParams.cs" />
+    <Compile Include="Quoting\SubscriptionResponseData.cs" />
     <Compile Include="Quoting\SubscriptionParameters.cs" />
     <Compile Include="StringExtensions.cs" />
   </ItemGroup>
@@ -226,7 +198,11 @@
     <ProjectReference Include="..\MetraTech.Common.csproj">
       <Project>{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}</Project>
       <Name>MetraTech.Common</Name>
-	  <Private>False</Private>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\MetraTech.Common.csproj">
+      <Project>{F03EF01B-1630-428C-B6B5-A7648D1ACE2C}</Project>
+      <Name>MetraTech.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

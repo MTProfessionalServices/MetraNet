@@ -284,7 +284,7 @@ namespace MetraTech.FunctionalTests
             MetangaGateway target = new MetangaGateway();
             target.Init(string.Empty);
             MetraPaymentMethod paymentMethod = InitializeCCMethod();
-            Assert.IsTrue(target.ValidatePaymentMethod(paymentMethod));
+            Assert.IsTrue(target.ValidatePaymentMethod(paymentMethod, "USD"));
         }
 
         /// <summary>
@@ -356,7 +356,7 @@ namespace MetraTech.FunctionalTests
             string requestParams = string.Empty;
             string warnings = string.Empty;
             LogPaymentHistory(ccPaymentMethod, paymentInfo);
-            Assert.IsTrue(target.ValidatePaymentMethod(ccPaymentMethod));
+            Assert.IsTrue(target.ValidatePaymentMethod(ccPaymentMethod, "USD"));
             target.Debit(ccPaymentMethod, ref paymentInfo, out warnings, 0, string.Empty);
             Assert.AreEqual(warnings, string.Empty);
             paymentInfo.Amount /= 2;
@@ -376,7 +376,7 @@ namespace MetraTech.FunctionalTests
             var paymentInfo = GetPaymentInfo();
             string requestParams = string.Empty;
             string warnings = string.Empty;
-            Assert.IsTrue(target.ValidatePaymentMethod(ccPaymentMethod));
+            Assert.IsTrue(target.ValidatePaymentMethod(ccPaymentMethod, "USD"));
             target.Debit(ccPaymentMethod, ref paymentInfo, out warnings, 0, string.Empty);
             Assert.AreEqual(warnings, string.Empty);
         }
@@ -395,7 +395,7 @@ namespace MetraTech.FunctionalTests
             string requestParams = string.Empty;
             string warnings = string.Empty;
             LogPaymentHistory(ccPaymentMethod, paymentInfo);
-            Assert.IsTrue(target.ValidatePaymentMethod(ccPaymentMethod));
+            Assert.IsTrue(target.ValidatePaymentMethod(ccPaymentMethod, "USD"));
             target.Debit(ccPaymentMethod, ref paymentInfo, out warnings, 0, string.Empty);
             target.Void(ccPaymentMethod, ref paymentInfo, out warnings, 0, string.Empty);
             Assert.AreEqual(string.Empty, warnings);

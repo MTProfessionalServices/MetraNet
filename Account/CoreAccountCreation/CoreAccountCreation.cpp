@@ -184,7 +184,7 @@ MTCoreAccountMgr::CreateAccount(RowSetInterfacesLib::IMTSQLRowsetPtr& aRowset,
   // encode the password using MD5
   string sEncodedStr;
   
-    if(mParams.mAuthenticationType.lVal == METRANET_INTERNAL)
+    if(mParams.mPassword.vt != VT_NULL && mParams.mAuthenticationType.lVal == METRANET_INTERNAL)
     {
       string passwordToBeHashed;
       wstring widePassword = _bstr_t(mParams.mPassword);
@@ -461,7 +461,7 @@ MTCoreAccountMgr::UpdateAccount(RowSetInterfacesLib::IMTSQLRowsetPtr& aRowset,
       mbCreatedDeleteDelta = true;
     }
 
-    if(mParams.mAuthenticationType.lVal == METRANET_INTERNAL)
+    if(mParams.mPassword.vt != VT_NULL && mParams.mAuthenticationType.lVal == METRANET_INTERNAL)
     {
       string sEncodedStr;
       string passwordToBeHashed;

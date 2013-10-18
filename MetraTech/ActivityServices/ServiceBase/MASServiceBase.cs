@@ -27,6 +27,12 @@ namespace MetraTech.ActivityServices.Services.Common
 {
     public class CMASServiceBase : IServiceBehavior, IErrorHandler
     {
+        public CMASServiceBase(){}
+        public CMASServiceBase(IMTSessionContext sessionContext)
+        {
+            m_SessionContext = sessionContext;
+        }
+
         #region Private Members
         private static Logger m_Logger;
 

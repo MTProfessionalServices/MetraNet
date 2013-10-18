@@ -15,11 +15,11 @@ namespace MetraTech.UsageServer
     public class UsagePartitionManager
     {
         // Names of stored procedures for creation partition schema and applying it on tables
-        public const string CreateTaxPartitionSchemaSp = "CreateTaxDetailPartitions";
-        public const string CreateUsagePartitionSchemaSp = "CreateUsagePartitions";
-        public const string CreateMeterPartitionSchemaSp = "prtn_CreateMeterPartitionSchema";
-        public const string DeployAllUsagePartitionedTablesSp = "DeployAllPartitionedTables";
-        public const string DeployAllMeterPartitionedTablesSp = "prtn_DeployAllMeterPartitionedTables";
+        public const string CreateTaxPartitionsSp = "prtn_create_tax_partitions";
+        public const string CreateUsagePartitionsSp = "prtn_create_usage_partitions";
+        public const string CreateMeterPartitionsSp = "prtn_create_meter_partitions";
+        public const string DeployAllUsagePartitionedTablesSp = "prtn_deploy_all_usage_tables";
+        public const string DeployAllMeterPartitionedTablesSp = "prtn_deploy_all_meter_tables";
 
         private readonly ILogger _logger;
         private readonly IPartitionConfig _partitionConfig;
@@ -66,10 +66,7 @@ namespace MetraTech.UsageServer
                 if (_partitionConfig.IsPartitionEnabled)
                 {
                     CreateUsagePartition(conn);
-                    if (conn.ConnectionInfo.IsSqlServer)
-                    {
-                      CreateMeterPartition(conn);
-                    }
+                    CreateMeterPartition(conn);
                 }
 
                 // either partition or non-partition 't_tax_details' will be created
@@ -88,10 +85,7 @@ namespace MetraTech.UsageServer
                 using (var conn = _createConnectionDelegate())
                 {
                     DeployAllUsagePartitonedTables(conn);
-                    if (conn.ConnectionInfo.IsSqlServer)
-                    {
-                      DeployAllMeterPartitonedTables(conn);
-                    }
+                    DeployAllMeterPartitonedTables(conn);
                 }
             }
         }
@@ -103,7 +97,7 @@ namespace MetraTech.UsageServer
             LogInfo("Creating tax detail partitions...");
             try
             {
-                using (var stmt = conn.CreateCallableStatement(CreateTaxPartitionSchemaSp))
+                using (var stmt = conn.CreateCallableStatement(CreateTaxPartitionsSp))
                 {
                     stmt.ExecuteNonQuery();
                 }
@@ -121,7 +115,7 @@ namespace MetraTech.UsageServer
                 var pl = new List<PartitionInfo>();
                 LogInfo("Creating usage partitions...");
 
-                using (var stmt = conn.CreateCallableStatement(CreateUsagePartitionSchemaSp))
+                using (var stmt = conn.CreateCallableStatement(CreateUsagePartitionsSp))
                 {
                     using (var rdr = stmt.ExecuteReader())
                     {
@@ -156,9 +150,8 @@ namespace MetraTech.UsageServer
             LogInfo("Creating meter partitions...");
             try
             {
-                using (var stmt = conn.CreateCallableStatement(CreateMeterPartitionSchemaSp))
+                using (var stmt = conn.CreateCallableStatement(CreateMeterPartitionsSp))
                 {
-                    stmt.AddParam("current_dt", MTParameterType.DateTime, MetraTime.Now.ToLocalTime());
                     stmt.ExecuteNonQuery();
                 }
             }

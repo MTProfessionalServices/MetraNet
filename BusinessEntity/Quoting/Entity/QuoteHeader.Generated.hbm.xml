@@ -128,9 +128,9 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
-    <property name="QuoteID" generated="always" column = "c_QuoteID" update="false" insert="false">
-	  <meta attribute="label">QuoteID</meta>
-      <meta attribute="description">Quoute number. Should be unique.</meta>
+    <property name="QuoteID" column="c_QuoteID" not-null="true">
+      <meta attribute="label">QuoteID</meta>
+	  <meta attribute="description">Quoute number. Should be unique.</meta>
       <meta attribute="defaultvalue" />
       <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>
@@ -142,23 +142,6 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <one-to-one name="QuoteContent" class="Core.Quoting.QuoteContent, Core.Quoting.Entity" cascade="delete">
-      <meta attribute="relationship-type">OneToOne</meta>
-      <meta attribute="relationship-name">QuoteHeader_QuoteContent</meta>
-      <meta attribute="has-join-table">false</meta>
-      <meta attribute="is-default">true</meta>
-      <meta attribute="is-self-relationship">false</meta>
-      <meta attribute="is-bidirectional">false</meta>
-      <meta attribute="source-multiplicity">One</meta>
-      <meta attribute="source-entity-name">Core.Quoting.QuoteHeader</meta>
-      <meta attribute="source-key-column">c_QuoteHeader_Id</meta>
-      <meta attribute="source-property-name-for-target">QuoteContent</meta>
-      <meta attribute="target-multiplicity">One</meta>
-      <meta attribute="target-entity-name">Core.Quoting.QuoteContent</meta>
-      <meta attribute="target-key-column">c_QuoteContent_Id</meta>
-      <meta attribute="target-property-name-for-source">QuoteHeader</meta>
-      <meta attribute="cascade">true</meta>
-    </one-to-one>
     <bag name="AccountForQuotes" access="field.camelcase-underscore" inverse="true" cascade="delete">
       <meta attribute="relationship-type">OneToMany</meta>
       <meta attribute="relationship-name">QuoteHeader_AccountForQuotes</meta>
@@ -197,52 +180,41 @@
       <key column="c_QuoteHeader_Id" />
       <one-to-many class="Core.Quoting.POforQuote, Core.Quoting.Entity" />
     </bag>
+    <one-to-one name="QuoteContent" class="Core.Quoting.QuoteContent, Core.Quoting.Entity" cascade="delete">
+      <meta attribute="relationship-type">OneToOne</meta>
+      <meta attribute="relationship-name">QuoteHeader_QuoteContent</meta>
+      <meta attribute="has-join-table">false</meta>
+      <meta attribute="is-default">true</meta>
+      <meta attribute="is-self-relationship">false</meta>
+      <meta attribute="is-bidirectional">false</meta>
+      <meta attribute="source-multiplicity">One</meta>
+      <meta attribute="source-entity-name">Core.Quoting.QuoteHeader</meta>
+      <meta attribute="source-key-column">c_QuoteHeader_Id</meta>
+      <meta attribute="source-property-name-for-target">QuoteContent</meta>
+      <meta attribute="target-multiplicity">One</meta>
+      <meta attribute="target-entity-name">Core.Quoting.QuoteContent</meta>
+      <meta attribute="target-key-column">c_QuoteContent_Id</meta>
+      <meta attribute="target-property-name-for-source">QuoteHeader</meta>
+      <meta attribute="cascade">true</meta>
+    </one-to-one>
+    <bag name="QuoteICBs" access="field.camelcase-underscore" inverse="true" cascade="delete">
+      <meta attribute="relationship-type">OneToMany</meta>
+      <meta attribute="relationship-name">QuoteHeader_QuoteICBs</meta>
+      <meta attribute="has-join-table">false</meta>
+      <meta attribute="is-default">true</meta>
+      <meta attribute="is-self-relationship">false</meta>
+      <meta attribute="is-bidirectional">false</meta>
+      <meta attribute="source-multiplicity">One</meta>
+      <meta attribute="source-entity-name">Core.Quoting.QuoteHeader</meta>
+      <meta attribute="source-key-column">c_QuoteHeader_Id</meta>
+      <meta attribute="source-property-name-for-target">QuoteICBs</meta>
+      <meta attribute="target-multiplicity">Many</meta>
+      <meta attribute="target-entity-name">Core.Quoting.QuoteICB</meta>
+      <meta attribute="target-key-column">c_QuoteICB_Id</meta>
+      <meta attribute="target-property-name-for-source">QuoteHeader</meta>
+      <meta attribute="cascade">true</meta>
+      <key column="c_QuoteHeader_Id" />
+      <one-to-many class="Core.Quoting.QuoteICB, Core.Quoting.Entity" />
+    </bag>
   </class>
-  <database-object>
-    <create>
-		ALTER TABLE t_be_cor_qu_quoteheader DROP COLUMN c_QuoteID 	
-		ALTER TABLE t_be_cor_qu_quoteheader ADD c_QuoteID int identity(1,1)		
-	</create>
-    <drop />
-    <dialect-scope name="NHibernate.Dialect.MsSql2008Dialect" />	
-  </database-object>
-  <database-object>
-    <create>	
-		DECLARE 
-		X    NUMBER;
-		BEGIN
-			SELECT COUNT(*) INTO X FROM user_sequences WHERE SEQUENCE_NAME = 'QU_QUOTEHEADER_SEQUENCE';
-			IF X = 0 THEN
-				EXECUTE IMMEDIATE 'Create sequence QU_QUOTEHEADER_SEQUENCE start with 1 increment by 1';
-			END IF;
-		END;	
-				
-	</create>
-    <drop />
-    <dialect-scope name="NHibernate.Dialect.Oracle10gDialect" />
-  </database-object>
-  <database-object>
-    <create>	
-		DECLARE 
-		X    NUMBER;
-		BEGIN
-			SELECT COUNT(*) INTO X FROM DBA_OBJECTS WHERE OBJECT_TYPE = 'TRIGGER' AND OBJECT_NAME = 'QUOTEHEADER_QUOTEID_INCREMENT';
-			IF X = 0 THEN
-				EXECUTE IMMEDIATE 
-					'create or replace trigger QUOTEHEADER_QUOTEID_INCREMENT 
-						before insert  
-						on t_be_cor_qu_quoteheader
-						for each row
-					begin
-						select QU_QUOTEHEADER_SEQUENCE.nextval
-						into :new.c_QuoteID
-						from dual;
-					end;';
-			END IF;
-		END;						
-	</create>
-    <drop />
-    <dialect-scope name="NHibernate.Dialect.Oracle10gDialect" />
-  </database-object>
-  
 </hibernate-mapping>

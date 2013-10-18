@@ -816,11 +816,8 @@ namespace MetraTech.Core.Services.Quoting
           if (MTUsageCycleType.SEMIMONTHLY_CYCLE == cyclyType)
             result.FirstDayOfMonth = rowset.IsDBNull("FirstDayOfMonth") ? 0 : rowset.GetInt32("FirstDayOfMonth");
 
-          _log.LogDebug(@"Retrived Cycle from account={0}: CycleTypeID={1}; 
-DayOfMonth={2}; FirstDayOfMonth={3}; SecondDayOfMonth={4}
-DayOfWeek={5}; StartDay={6}; StartMonth={7}; StartYear={7}",
-                        idAccount, cyclyType, result.DayOfMonth, result.FirstDayOfMonth, result.SecondDayOfMonth,
-                        result.SecondDayOfMonth, result.DayOfWeek, result.StartDay, result.StartMonth, result.StartYear);
+          _log.LogDebug(@"Retrived Cycle from account={0}: CycleTypeID={1}; DayOfMonth={2}; FirstDayOfMonth={3}; SecondDayOfMonth={4} DayOfWeek={5}; StartDay={6}; StartMonth={7}; StartYear={8}",
+                        idAccount, cyclyType, result.DayOfMonth, result.FirstDayOfMonth, result.SecondDayOfMonth, result.DayOfWeek, result.StartDay, result.StartMonth, result.StartYear);
 
           return result;
         };
@@ -1041,10 +1038,7 @@ DayOfWeek={5}; StartDay={6}; StartMonth={7}; StartYear={7}",
         foreach (var udrcInstance in udrcInstances.Where(udrcInstance => !udrcInstance.ChargePerParticipant))
         {
           udrcInstance.ChargeAccountId = grpSub.CorporateAccountId;
-          udrcInstance.ChargeAccountSpan = new ProdCatTimeSpan
-            {
-              StartDate = grpSub.SubscriptionSpan.StartDate
-            };
+          udrcInstance.ChargeAccountSpan = subscriptionSpan;
         }
 
         // Set the UDRCValues and UDRCInstances
@@ -1071,10 +1065,7 @@ DayOfWeek={5}; StartDay={6}; StartMonth={7}; StartYear={7}",
             flatRateRecurringChargeInstances.Where(flatRateRC => !flatRateRC.ChargePerParticipant))
         {
           flatRateRC.ChargeAccountId = grpSub.CorporateAccountId;
-          flatRateRC.ChargeAccountSpan = new ProdCatTimeSpan
-            {
-              StartDate = grpSub.SubscriptionSpan.StartDate
-            };
+          flatRateRC.ChargeAccountSpan = subscriptionSpan;
         }
 
         grpSub.FlatRateRecurringChargeInstances = flatRateRecurringChargeInstances;
@@ -1096,7 +1087,7 @@ DayOfWeek={5}; StartDay={6}; StartMonth={7}; StartYear={7}",
           var gSubMember = new GroupSubscriptionMember
           {
             AccountId = accountId,
-            MembershipSpan = new ProdCatTimeSpan { StartDate = grpSub.SubscriptionSpan.StartDate }
+            MembershipSpan = subscriptionSpan
           };
           //grpSub.Members.Items.Add(gSubMember);
           groupSubService.AddMembersToGroupSubscription(grpSub.GroupId.Value, new List<GroupSubscriptionMember>() { gSubMember });

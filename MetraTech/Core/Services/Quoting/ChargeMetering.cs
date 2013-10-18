@@ -181,7 +181,7 @@ namespace MetraTech.Core.Services.Quoting
                 if (!ValidatChargeData(chargeData, out errorMessage))
                     throw new ChargeMeteringException(errorMessage);
 
-                rowSet.WaitForCommit(chargeData.CountMeteredRecords, 120);
+                rowSet.WaitForCommit(chargeData.CountMeteredRecords, 300);
 
                 // Check for error during pipeline processing
                 if (rowSet.CommittedErrorCount > 0)

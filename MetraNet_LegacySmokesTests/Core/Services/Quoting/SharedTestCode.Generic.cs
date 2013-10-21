@@ -1,31 +1,27 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.ServiceProcess;
-using MetraTech.Domain.Quoting;
-using MetraTech.Interop.MTAuth;
-using MetraTech.Interop.MTProductCatalog;
-using MetraTech.Core.Services.ClientProxies;
-using MetraTech.ActivityServices.Common;
-using MetraTech.DomainModel.ProductCatalog;
+using System.Text;
 using MetraTech.Account.ClientProxies;
-using MetraTech.DomainModel.BaseTypes;
+using MetraTech.ActivityServices.Common;
+using MetraTech.Core.Services.ClientProxies;
+using MetraTech.DataAccess;
 using MetraTech.DomainModel.AccountTypes;
-using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
+using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.Enums.Account.Metratech_com_accountcreation;
 using MetraTech.DomainModel.Enums.Core.Global;
 using MetraTech.DomainModel.Enums.Core.Global_SystemCurrencies;
-using MetraTech.DataAccess;
+using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
+using MetraTech.DomainModel.ProductCatalog;
+using MetraTech.Interop.MTAuth;
+using MetraTech.Interop.MTProductCatalog;
 using MetraTech.Interop.MTRuleSet;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Auth = MetraTech.Interop.MTAuth;
-using System.Text;
 using IMTConfigPropSet = MetraTech.Interop.MTProductCatalog.IMTConfigPropSet;
 using IMTRule = MetraTech.Interop.MTProductCatalog.IMTRule;
-using MetraTech.Interop.PropSet;
 
-namespace MetraTech.Shared.Test
+namespace MetraTech.Core.Services.Test.Quoting
 {
     #region Shared Helper Methods That Should Be In Different Library
 
@@ -80,7 +76,7 @@ namespace MetraTech.Shared.Test
         #endregion
 
         #region Authorization/Authentication Related
-        public static MetraTech.Interop.MTAuth.IMTSessionContext LoginAsSU()
+        public static Interop.MTAuth.IMTSessionContext LoginAsSU()
         {
             IMTLoginContext loginContext = new MTLoginContextClass();
             //ServerAccess.IMTServerAccessDataSet sa = new MetraTech.Interop.MTServerAccess.MTServerAccessDataSet();
@@ -103,7 +99,7 @@ namespace MetraTech.Shared.Test
         //This is the 'hacky' way of trying both ways so we don't depend on when the unit test is run
         //or if someone has logged in already manually
         protected static string adminPasswordToTryFirst = "123";
-        public static MetraTech.Interop.MTAuth.IMTSessionContext LoginAsAdmin()
+        public static Interop.MTAuth.IMTSessionContext LoginAsAdmin()
         {
             IMTLoginContext loginContext = new MTLoginContextClass();
 
@@ -179,7 +175,7 @@ namespace MetraTech.Shared.Test
         protected static MetraTech.Interop.MTProductCatalog.IMTSessionContext GetSessionContextForProductCatalog()
         {
             //Todo: Fix to read from server access file if we decide to use SuperUser as opposed to user generating quote
-            Auth.IMTLoginContext loginContext = new Auth.MTLoginContextClass();
+            Interop.MTAuth.IMTLoginContext loginContext = new Interop.MTAuth.MTLoginContextClass();
             //ServerAccess.IMTServerAccessDataSet sa = new MetraTech.Interop.MTServerAccess.MTServerAccessDataSet();
             //sa.Initialize();
             //ServerAccess.IMTServerAccessData accessData = sa.FindAndReturnObject("SuperUser");
@@ -218,8 +214,10 @@ namespace MetraTech.Shared.Test
                     var udrcValue = new UDRCInstanceValueBase
                     {
                         UDRC_Id = idUDRC.HasValue ? idUDRC.Value : possibleUDRC.ID,
-                        StartDate = MetraTime.Now,
-                        EndDate = MetraTime.Now.AddYears(1),
+						//StartDate = MetraTime.Now,
+                        //EndDate = MetraTime.Now.AddYears(1),
+                        StartDate = new DateTime(2000,01,01),
+                        EndDate = new DateTime(2020, 01, 01),
                         Value = value
                     };
 
@@ -949,10 +947,10 @@ namespace MetraTech.Shared.Test
         {
             IMTRateSchedule sched = CreateRateSchedule(paramTableName, idPriceList, idPITemplate);
 
-            MetraTech.Interop.PropSet.IMTConfig propset = new MetraTech.Interop.PropSet.MTConfig();
+            Interop.PropSet.IMTConfig propset = new Interop.PropSet.MTConfig();
 
             bool checksumsMatch;
-            MetraTech.Interop.PropSet.IMTConfigPropSet configSetIn = propset.ReadConfigurationFromString(xmlRuleSetBuffer, out checksumsMatch);
+            Interop.PropSet.IMTConfigPropSet configSetIn = propset.ReadConfigurationFromString(xmlRuleSetBuffer, out checksumsMatch);
 
             sched.RuleSet.ReadFromSet((IMTConfigPropSet)configSetIn);
 
@@ -1399,9 +1397,9 @@ namespace MetraTech.Shared.Test
 
             userName = string.Format("{0}_{1}_{2}", userName, BaseName, UniqueInstanceIdentifier);
 
-            if (userName.Length > 40)
+            if (userName.Length > 255)
             {
-                throw new Exception(string.Format("Username '{0}' is too long. It is {1} and should be 40 or less.", userName, userName.Length));
+                throw new Exception(string.Format("Username '{0}' is too long. It is {1} and should be 255 or less.", userName, userName.Length));
             }
 
             if (String.IsNullOrEmpty(nameSpace))

@@ -297,14 +297,27 @@ PRIVATE FUNCTION mdm_PopulateCOMInstanceWithQueryString(objUIItems,EventArg,objS
             End If
             
             ' If a date msix property is set to empty string, we will set it to empty, to avoid type mismatch
-            If(objServiceInstance.Properties.Item(CStr(objVar.Name)).PropertyType=MSIXDEF_TYPE_TIMESTAMP)Then
+            If(objServiceInstance.Properties.Item(CStr(objVar.Name)).PropertyType=MSIXDEF_TYPE_TIMESTAMP OR objServiceInstance.Properties.Item(CStr(objVar.Name)).PropertyType=MSIXDEF_TYPE_BOOLEAN )Then
             
                  If(objUIItems(objVar.Name).Value="")Then
                 
                     objUIItems(objVar.Name).Value = Empty
                 End If            
-            End If            
-
+            End If   
+			
+            If(objServiceInstance.Properties.Item(CStr(objVar.Name)).PropertyType=MSIXDEF_TYPE_ENUM) Then
+	
+	                If(objUIItems(objVar.Name).Value="")Then
+	
+	                   objUIItems(objVar.Name).Value = Empty
+ 	               End If
+ 	           End If
+ 	           If objServiceInstance.Properties.Item(CStr(objVar.Name)).PropertyType = MSIXDEF_TYPE_DECIMAL OR objServiceInstance.Properties.Item(CStr(objVar.Name)).PropertyType = MSIXDEF_TYPE_DOUBLE OR objServiceInstance.Properties.Item(CStr(objVar.Name)).PropertyType = MSIXDEF_TYPE_FLOAT Then
+ 	              If(objUIItems(objVar.Name).Value="")Then
+ 	
+ 	                 objUIItems(objVar.Name).Value = Empty
+ 	               End If
+ 	           End If
             If objServiceInstance.Properties.Item(CStr(objVar.Name)).PropertyType = MSIXDEF_TYPE_DECIMAL OR objServiceInstance.Properties.Item(CStr(objVar.Name)).PropertyType = MSIXDEF_TYPE_DOUBLE OR objServiceInstance.Properties.Item(CStr(objVar.Name)).PropertyType = MSIXDEF_TYPE_FLOAT Then
               objServiceInstance.Properties.Item(CStr(objVar.Name)).Value(CBool(booRaiseError)) = Replace(objUIItems(objVar.Name),mdm_GetDictionary().GetValue("DECIMAL_SEPARATOR"),".")
             ElseIf objServiceInstance.Properties.Item(CStr(objVar.Name)).PropertyType = MSIXDEF_TYPE_TIMESTAMP Then

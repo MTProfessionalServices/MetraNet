@@ -1,20 +1,11 @@
-﻿using System;
-using System.Diagnostics;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
+using System;
 using System.Threading.Tasks;
-using MetraTech.Core.Services.ClientProxies;
-using MetraTech.DataAccess;
 using MetraTech.Domain.Quoting;
-using MetraTech.DomainModel.BaseTypes;
+using MetraTech.Interop.MTProductCatalog;
 using MetraTech.TestCommon;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MetraTech.Interop.MTProductCatalog;
-using MetraTech.Shared.Test;
 
-namespace MetraTech.Quoting.Test
+namespace MetraTech.Core.Services.Test.Quoting
 {
     [TestClass]
     public class QuotingActivityServiceFunctionalTests
@@ -87,7 +78,7 @@ namespace MetraTech.Quoting.Test
             request.Localization = "en-US";
             request.SubscriptionParameters.UDRCValues = SharedTestCode.GetUDRCInstanceValuesSetToMiddleValues(productOffering);
             
-            var response = new QuoteResponse();
+            QuoteResponse response = null;
 
             bool clientInvoked = false;
             try
@@ -130,7 +121,7 @@ namespace MetraTech.Quoting.Test
 
             #region Test and Verify
 
-            var erroredResponse = new QuoteResponse();
+            QuoteResponse erroredResponse = null;
 
             try
             {
@@ -240,7 +231,7 @@ namespace MetraTech.Quoting.Test
                                       _testContext.TestName, testShortName));
         }
 
-        [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
+        [TestMethod, MTFunctionalTest(TestAreas.Quoting), Ignore]
         public void QuotingActivityServiceCreateQuote_TwoQuotesInParallelWithSamePOAndSameAcc_QuotesCreated()
         {
             string testShortName = "Q_AS_S_PO"; //Account name and perhaps others need a 'short' (less than 40 when combined with testRunUniqueIdentifier
@@ -317,7 +308,7 @@ namespace MetraTech.Quoting.Test
             request.EffectiveDate = MetraTime.Now;
             request.EffectiveEndDate = MetraTime.Now;
 
-            var response = new QuoteResponse();
+            QuoteResponse response = null;
 
             bool clientInvoked = false;
             try
@@ -335,7 +326,7 @@ namespace MetraTech.Quoting.Test
             Assert.AreEqual(expectedQuoteTotal, response.TotalAmount, "Wrong TotalAmount");
             Assert.AreEqual(expectedQuoteCurrency, response.Currency, "Wrong Currency");
 
-            var response2 = new QuoteResponse();
+            QuoteResponse response2 = null;
 
             clientInvoked = false;
             try
@@ -395,7 +386,7 @@ namespace MetraTech.Quoting.Test
             request.EffectiveDate = MetraTime.Now;
             request.EffectiveEndDate = MetraTime.Now.AddMonths(2);
 
-            var response = new QuoteResponse();
+            QuoteResponse response = null;
 
             bool clientInvoked = false;
             try

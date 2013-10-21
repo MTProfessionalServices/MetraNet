@@ -1,4 +1,8 @@
-﻿
+﻿/*Padding in between radio buttons and their text for IE10 and Chrome*/
+input[type=radio] {
+    margin-right: .25em;
+}
+ 
 /* css for Viewing the Description in the GeneralInformaion page */
 table.GeneralInformationViewDescription {
   width: 410;

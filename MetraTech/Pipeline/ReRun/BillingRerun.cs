@@ -226,31 +226,43 @@ namespace MetraTech.Pipeline.ReRun
 					}
 	         
 					// get data from t_acc_usage and t_failed_transaction
-					using (IMTConnection conn = ConnectionManager.CreateConnection(@"Queries\BillingRerun"))
-					{
-						StringBuilder joinClauseBuilder = new StringBuilder();
-						StringBuilder failedJoinClauseBuilder = new StringBuilder();
-						if (lookAtSourceData)
-						{
-							joinClauseBuilder.Append(" inner join ");
-							joinClauseBuilder.Append(sourceTableName);
-							joinClauseBuilder.Append(" src on src.id_source_sess = au.tx_uid ");
+                    using (IMTConnection conn = ConnectionManager.CreateConnection(@"Queries\BillingRerun"))
+                    {
+                        StringBuilder joinClauseBuilder = new StringBuilder();
+                        StringBuilder failedJoinClauseBuilder = new StringBuilder();
+                        if (lookAtSourceData)
+                        {
+                            //joinClauseBuilder.Append(" inner join ");
+                            //joinClauseBuilder.Append(sourceTableName);
+                            //joinClauseBuilder.Append(" src on src.id_source_sess = au.tx_uid ");
 
-							failedJoinClauseBuilder.Append(" inner join ");
-							failedJoinClauseBuilder.Append(sourceTableName);
-							failedJoinClauseBuilder.Append(" src on (src.id_source_sess = ft.tx_FailureID or src.id_source_sess = ft.tx_failureCompoundID) ");
-						}
-	            
-						if (sessionIDsSpecified)
-						{
-							joinClauseBuilder.Append("  inner join ");
-							joinClauseBuilder.Append(uidTableName);
-							joinClauseBuilder.Append(" sessionIds on sessionIds.id_source_sess = au.tx_uid ");
+                            joinClauseBuilder.Append(" inner join t_uk_acc_usage_tx_uid uau on uau.id_sess = au.id_sess ");
 
-							failedJoinClauseBuilder.Append(" inner join ");
-							failedJoinClauseBuilder.Append(uidTableName);
-							failedJoinClauseBuilder.Append(" sessionIds on (sessionIds.id_source_sess = ft.tx_failureID or sessionIds.id_source_sess = ft.tx_failureCompoundID) ");
-						}
+                            joinClauseBuilder.Append(" inner join ");
+                            joinClauseBuilder.Append(sourceTableName);
+                            joinClauseBuilder.Append(" src on src.id_source_sess = uau.tx_uid ");
+
+                            failedJoinClauseBuilder.Append(" inner join ");
+                            failedJoinClauseBuilder.Append(sourceTableName);
+                            failedJoinClauseBuilder.Append(" src on (src.id_source_sess = ft.tx_FailureID or src.id_source_sess = ft.tx_failureCompoundID) ");
+                        }
+
+                        if (sessionIDsSpecified)
+                        {
+                            //joinClauseBuilder.Append("  inner join ");
+                            //joinClauseBuilder.Append(uidTableName);
+                            //joinClauseBuilder.Append(" sessionIds on sessionIds.id_source_sess = au.tx_uid ");
+                            joinClauseBuilder.Append(" inner join t_uk_acc_usage_tx_uid uau on uau.id_sess = au.id_sess ");
+
+                            joinClauseBuilder.Append("  inner join ");
+                            joinClauseBuilder.Append(uidTableName);
+                            joinClauseBuilder.Append(" sessionIds on sessionIds.id_source_sess = uau.tx_uid ");
+
+
+                            failedJoinClauseBuilder.Append(" inner join ");
+                            failedJoinClauseBuilder.Append(uidTableName);
+                            failedJoinClauseBuilder.Append(" sessionIds on (sessionIds.id_source_sess = ft.tx_failureID or sessionIds.id_source_sess = ft.tx_failureCompoundID) ");
+                        }
 
 						string joinClause = joinClauseBuilder.ToString();
 						string failedJoinClause = failedJoinClauseBuilder.ToString();

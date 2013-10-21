@@ -4,24 +4,35 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
 <script type="text/javascript">
-  function onCheck() {
-    if (Ext.get("<%=radMinutely.ClientID%>").dom.checked) {
-      Ext.get("ctl00_ContentPlaceHolder1_schedulePatternPage").dom.src = "<%=strMinutelyURL%>";
+    Ext.onReady(function () {
+        // Record the initial values of the page's controls.
+        // (Note:  This is called here, and not on the master page,
+        // because the call to document.getElementById() returns null
+        // if executed on the master page.)
+        var el = document.getElementById("ctl00_PanelActiveAccount");
+        if(el!=null)
+               el.style.display = 'none';
+    });
+
+
+    function onCheck() {
+        if (Ext.get("<%=radMinutely.ClientID%>").dom.checked) {
+            Ext.get("ctl00_ContentPlaceHolder1_schedulePatternPage").dom.src = "<%=strMinutelyURL%>";
+        }
+        else if (Ext.get("<%=radDaily.ClientID%>").dom.checked) {
+            Ext.get("ctl00_ContentPlaceHolder1_schedulePatternPage").dom.src = "<%=strDailyURL%>";
+        }
+        else if (Ext.get("<%=radWeekly.ClientID%>").dom.checked) {
+            Ext.get("ctl00_ContentPlaceHolder1_schedulePatternPage").dom.src = "<%=strWeeklyURL%>";
+        }
+        else if (Ext.get("<%=radMonthly.ClientID%>").dom.checked) {
+            Ext.get("ctl00_ContentPlaceHolder1_schedulePatternPage").dom.src = "<%=strMonthlyURL%>";
+        }
+        else if (Ext.get("<%=radManual.ClientID%>").dom.checked) {
+            Ext.get("ctl00_ContentPlaceHolder1_schedulePatternPage").dom.src = "<%=strManualURL%>";
+        }    
     }
-    else if (Ext.get("<%=radDaily.ClientID%>").dom.checked) {
-      Ext.get("ctl00_ContentPlaceHolder1_schedulePatternPage").dom.src = "<%=strDailyURL%>";
-    }
-    else if (Ext.get("<%=radWeekly.ClientID%>").dom.checked) {
-      Ext.get("ctl00_ContentPlaceHolder1_schedulePatternPage").dom.src = "<%=strWeeklyURL%>";
-    }
-    else if (Ext.get("<%=radMonthly.ClientID%>").dom.checked) {
-      Ext.get("ctl00_ContentPlaceHolder1_schedulePatternPage").dom.src = "<%=strMonthlyURL%>";
-    }
-    else if (Ext.get("<%=radManual.ClientID%>").dom.checked) {
-      Ext.get("ctl00_ContentPlaceHolder1_schedulePatternPage").dom.src = "<%=strManualURL%>";
-    }    
-  }
-  </script>
+</script>
  <br />
 <div class="Left" >    
  

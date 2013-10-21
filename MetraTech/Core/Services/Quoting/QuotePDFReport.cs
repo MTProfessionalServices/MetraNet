@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using MetraTech.Reports;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using MetraTech.Interop.MTServerAccess;
+using MetraTech.Reports;
 
-namespace MetraTech.Quoting
+namespace MetraTech.Core.Services.Quoting
 {
   /// <summary>
   /// Class representing the reporting configuration needed by quoting

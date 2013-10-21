@@ -18,7 +18,7 @@ namespace MetraTech.Domain.Quoting
         [DataMember(IsRequired = false, EmitDefaultValue = false)]
         public List<int> Accounts
         {
-            get { return _accounts; }
+            get { return _accounts ?? (_accounts = new List<int>()); }
             set
             {
                 _accounts = value ?? new List<int>();
@@ -113,7 +113,7 @@ namespace MetraTech.Domain.Quoting
         [MTDataMember(Description = "Individual price parameters", Length = 40)]
         public List<IndividualPrice> IcbPrices
         {
-            get { return _icbPrices; }
+            get { return _icbPrices ?? (_icbPrices = new List<IndividualPrice>()); }
             set
             {
                 _icbPrices = value ?? new List<IndividualPrice>();

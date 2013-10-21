@@ -532,12 +532,19 @@ Public Function HTMLProcessor(ByRef strHTML As String, ByVal strTag As String, o
                                         ' BUG:8487 - Process special chare like "
                                         ' #LOCAL strValue = strHTMLAttributeDisable & " Value=""" & FormatData(ProcessHTMLChar("" & objProperty.Value), objProperty.Format) & """ "      ' Set the attribute value
                                         'SECENG:
+										On Error Resume Next
                                         If Not IsValueEmpty(objProperty.Value) Then
                                             strValue = strHTMLAttributeDisable & " Value=""" & FormatDataLocalized(SFCOM.ForHtmlAttr(objProperty.Value), objDictionary) & """ "      ' Set the attribute value
                                         Else
                                             strValue = strHTMLAttributeDisable & " Value=""" & FormatDataLocalized(objProperty.Value, objDictionary) & """ "      ' Set the attribute value
                                         End If
-                                    
+										
+										If (Err.Number) Then
+	                                         strValue = strHTMLAttributeDisable
+ 	                                         Err.Clear
+ 	                                    End If
+ 	                                    On Error GoTo ErrMgr
+										   
                                         If (objProperty.Length) Then strValue = strValue & " MaxLength=""" & objProperty.Length & """ "      ' Set the MaxLen is defined
                                     End If
                                     

@@ -739,7 +739,27 @@ void CMTPropertyMetaDataSet::LoadTableMap( map<string,MTMapItem>& arTableMap,
 				{
 					_variant_t val(aprop->GetValue());
 					if (V_VT(&val) == VT_NULL)
-					  strcpy(buf,"NULL");
+					  {
+					   //ESR-6206 Approvals /extendedprop.Edition Error on Product offer edit
+					   //tried set default value
+					   _variant_t valDef =  metadata->GetDefaultValue();
+					   if (V_VT(&valDef) == VT_NULL)
+					   {
+								strcpy(buf,"NULL");
+							   }
+								else
+					   {
+						   std::wstring widebuf;
+						   _bstr_t bstrTemp = (_bstr_t)valDef;
+			#if 0
+						   FormatValueForDB(bstrTemp, false, widebuf);
+			#else
+						   FormatValueForDB(bstrTemp, true, widebuf);
+			#endif
+						   string tempstr = ascii(widebuf);
+						   sprintf(buf,"%s",tempstr.c_str());
+					   }
+					 } 
 					else
           {
 						std::wstring widebuf;
@@ -757,12 +777,22 @@ void CMTPropertyMetaDataSet::LoadTableMap( map<string,MTMapItem>& arTableMap,
 				case MTPRODUCTCATALOGLib::PROP_TYPE_BOOLEAN:
 					{
 						_variant_t aResult = aprop->GetValue();
-						if(aResult.vt == VT_BSTR)
-            {
-							sprintf(buf,"'%s'",(const char*)_bstr_t(aResult));
+						if ((V_VT(&aResult) == VT_NULL) || ((V_VT(&aResult) == VT_EMPTY)) || (_bstr_t(aResult).length() == 0) )
+						{
+						  //ESR-6206 Approvals /extendedprop.Edition Error on Product offer edit
+						  //tried set default value
+						  _variant_t valDef =  metadata->GetDefaultValue();
+							if  ((V_VT(&valDef) == VT_NULL) || ((V_VT(&valDef) == VT_EMPTY)) || (_bstr_t(valDef).length() == 0) )
+							{
+							   strcpy(buf, "NULL");
+							}
+							else
+							{
+							   strcpy(buf, _bstr_t(valDef));
+							}
 						}
 						else
-            {
+						{
 							// if the variant is not something that convert to a bool,
 							// the variant_t will throw an error
 							sprintf(buf,"'%s'",(bool)aResult == true ? "Y" : "N");
@@ -774,20 +804,32 @@ void CMTPropertyMetaDataSet::LoadTableMap( map<string,MTMapItem>& arTableMap,
 						//Convert Enums back to description ids
 						//for database inserts
 						try
-            {
-               _variant_t val = aprop->GetValue();
-               if ((V_VT(&val) == VT_NULL) || ((V_VT(&val) == VT_EMPTY)))
-               {
-                 strcpy(buf, "NULL");
-               }
-               else
-               {
-							    MTENUMCONFIGLib::IEnumConfigPtr enumConfig(MTPROGID_ENUM_CONFIG);
-							    long lVal = enumConfig->GetID(aprop->GetEnumSpace(),
-									    													aprop->GetEnumType(),
-											    											(_bstr_t) aprop->GetValue());
-    						  strcpy(buf, _bstr_t(lVal));
-               }
+						{
+						   _variant_t val = aprop->GetValue();
+						   if ((V_VT(&val) == VT_NULL) || ((V_VT(&val) == VT_EMPTY)) || (_bstr_t(val).length() == 0) )
+							{ 
+							  //ESR-6206 Approvals /extendedprop.Edition Error on Product offer edit
+								//tried set default value
+								_variant_t valDef =  metadata->GetDefaultValue();
+							   if  ((V_VT(&valDef) == VT_NULL) || ((V_VT(&valDef) == VT_EMPTY)) || (_bstr_t(valDef).length() == 0) )
+							  {
+							   strcpy(buf, "NULL");
+							  }
+							 else
+							  {
+							   strcpy(buf, _bstr_t(valDef));
+								}
+				
+				
+							  }
+							 else
+							  {
+								MTENUMCONFIGLib::IEnumConfigPtr enumConfig(MTPROGID_ENUM_CONFIG);
+								long lVal = enumConfig->GetID(aprop->GetEnumSpace(),
+								aprop->GetEnumType(),
+								(_bstr_t) aprop->GetValue());
+							    strcpy(buf, _bstr_t(lVal));
+						   }
 						}
 						catch(_com_error& e)
             {
@@ -800,15 +842,26 @@ void CMTPropertyMetaDataSet::LoadTableMap( map<string,MTMapItem>& arTableMap,
 				case MTPRODUCTCATALOGLib::PROP_TYPE_BIGINTEGER:
 				case MTPRODUCTCATALOGLib::PROP_TYPE_DOUBLE: 
 				case MTPRODUCTCATALOGLib::PROP_TYPE_DECIMAL:
-        {
- 					_variant_t val(aprop->GetValue());
-					if (V_VT(&val) == VT_NULL)
-              strcpy(buf,"NULL");
-          else
-    					strcpy(buf,_bstr_t(val));
+				{
+							_variant_t val(aprop->GetValue());
+							if (V_VT(&val) == VT_NULL || _bstr_t(val).length() == 0)
+							 {
+					  //tried set default value
+					  _variant_t valDef(metadata->GetDefaultValue());
+					  if (V_VT(&valDef) == VT_NULL || _bstr_t(valDef).length() == 0)
+					   {
+					  strcpy(buf,"NULL");
+					 }
+					  else
+					  {
+					   strcpy(buf,_bstr_t(valDef));
+					  }
+					}
+				  else
+					strcpy(buf,_bstr_t(val));
 
-          break;
-        }
+				  break;
+				}
 
 				case MTPRODUCTCATALOGLib::PROP_TYPE_TIME: 
 				

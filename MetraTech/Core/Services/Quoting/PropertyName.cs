@@ -1,15 +1,15 @@
-﻿// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 // <copyright file="PropertyName.cs" company="Microsoft">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace MetraTech.Quoting
-{
-    using System;
-    using System.Linq.Expressions;
+using System;
+using System.Linq.Expressions;
 
-    /// <summary>
+namespace MetraTech.Core.Services.Quoting
+{
+  /// <summary>
     /// Gets property cals as string
     /// </summary>
     public class PropertyName<Class>

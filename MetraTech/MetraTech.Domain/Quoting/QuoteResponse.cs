@@ -210,16 +210,25 @@ namespace MetraTech.Domain.Quoting
 
         public QuoteResponse()
         {
+            Artefacts = new QuoteResponseArtefacts();
             IdQuote = -1;
             MessageLog = new List<QuoteLogRecord>();
-            Artefacts = new QuoteResponseArtefacts(-1);
         }
 
-        public QuoteResponse(int idQuote)
-            : this()
+        public QuoteResponse(QuoteRequest request)
+        {
+            if (request == null)
+                throw new ArgumentException(String.Format("The '{0}' can NOT be null.", typeof(QuoteRequest)));
+                
+            Artefacts = new QuoteResponseArtefacts(request);
+            IdQuote = -1;
+            MessageLog = new List<QuoteLogRecord>();
+        }
+
+        public QuoteResponse(QuoteRequest request, int idQuote)
+            : this(request)
         {
             IdQuote = idQuote;
-            Artefacts.IdQuote = IdQuote;
         }
 
         public bool IsInitialized()

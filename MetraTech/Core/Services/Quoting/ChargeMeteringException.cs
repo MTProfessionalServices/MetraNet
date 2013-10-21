@@ -1,5 +1,5 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="BaseCharge.cs" company="MetraTech">
+// -----------------------------------------------------------------------
+// <copyright file="ChargeMeteringException.cs" company="Microsoft">
 // **************************************************************************
 // Copyright 2011 by MetraTech
 // All rights reserved.
@@ -23,28 +23,34 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using MetraTech.DataAccess;
+using System;
+using System.Collections.Generic;
 using MetraTech.Domain.Quoting;
 
-namespace MetraTech.Quoting.Charge
+namespace MetraTech.Core.Services.Quoting
 {
-    /// <summary>
-    /// Base class for Chrages of Quote
+  /// <summary>
+    /// Exceptions for ChargeMetering
     /// </summary>
-    public abstract class BaseCharge : ICharge
+    public class ChargeMeteringException : Exception{
+        
+        public ChargeMeteringException(string errorMessage, Exception ex) :
+            base(errorMessage, ex){}
+
+        public ChargeMeteringException(string errorMessage)
+            : base(errorMessage) { }
+    }
+
+    /// <summary>
+    /// Raise the exception in case Charges were added, but not mettered 
+    /// </summary>
+    public class AddChargeMeteringException : Exception
     {
-        protected QuotingConfiguration Config { get; private set; }
-        protected ILogger Log { get; private set; }
-
-        protected BaseCharge(QuotingConfiguration configuration, ILogger log)
+        public IList<ChargeData> ChargeDataCollection { get; private set; }
+        public AddChargeMeteringException(IList<ChargeData> chargeDayaCollection, string errorMessage, Exception ex)
+            : base(errorMessage, ex)
         {
-            Config = configuration;
-            Log = log;
+            ChargeDataCollection = chargeDayaCollection;
         }
-
-        public abstract ChargeType ChargeType { get; }
-
-        public abstract ChargeData Add(IMTServicedConnection transacConnection, QuoteRequest quoteRequest, string batchId, int usageInterval);
-
     }
 }

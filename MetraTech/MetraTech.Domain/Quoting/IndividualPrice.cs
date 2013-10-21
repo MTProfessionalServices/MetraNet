@@ -22,6 +22,9 @@ namespace MetraTech.Domain.Quoting
         [DataMember]
         public int ProductOfferingId { get; set; }
 
+        [DataMember]
+        public int? PriceableItemId { get; set; }
+
         [Required]
         [DataMember]
         [NotMapped]
@@ -29,7 +32,8 @@ namespace MetraTech.Domain.Quoting
 
         public IndividualPrice()
         {
-            ChargesRates= new List<ChargesRate>();
+            ChargesRates = new List<ChargesRate>();
+            PriceableItemId = null;
         }
     }
 

@@ -22,7 +22,10 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System;
+using System.Collections;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 using MetraTech.DomainModel.Common;
 
 namespace MetraTech.Domain.Quoting
@@ -32,7 +35,9 @@ namespace MetraTech.Domain.Quoting
     /// <summary>
     /// Uses in <see cref="QuoteResponse"/> class as data for created subscriptions while quots generations 
     /// </summary>
-    public class SubscriptionResponseData
+    [Serializable]
+    [XmlRoot("Subscriptions")]
+    public class SubscriptionResponseData : IEnumerable<PairKeyValueSerializable<int, List<int>>>
     {
         #region IsGroupSubcription
 
@@ -43,19 +48,62 @@ namespace MetraTech.Domain.Quoting
         [DataMember(IsRequired = false, EmitDefaultValue = false)]
         public bool IsGroupSubcription { get; private set; }
 
+        public void SetIsGroupSubscriptionType(bool isGroupSubscription)
+        {
+            IsGroupSubcription = isGroupSubscription;
+        }
+
         #endregion IsGroupSubcription
 
-        #region SubscriptionsCollection
-
-        [MTDataMember(Description = "Subscriptions data colletion")]
+        #region Subscription Collection
+        [XmlArray(ElementName = "Collection")]
+        [XmlArrayItem(typeof(int),
+            ElementName = "IdSubscription"),
+         XmlArrayItem(typeof(List<int>),
+             ElementName = "SubscribedAccounts")]
+        [MTDataMember(Description = "Contains subscription, where Key - ID subscription and value - list of Subscribed ID accounts. If IsGroupSubcription == true that meand that Key contains 'Group Subscription Id'")]
         [DataMember(IsRequired = true, EmitDefaultValue = false)]
-        public List<PairKeyValueSerializable<int, List<int>>> SubscriptionsCollection { get; private set; }
+        public List<PairKeyValueSerializable<int, List<int>>> Collection { get; private set; }
 
-        #endregion SubscriptionsCollection
+
+        public void AddSubscriptions(int idSubscription, List<int> idSubscribedAccounts)
+        {
+            Collection.Add(new PairKeyValueSerializable<int, List<int>>(idSubscription, idSubscribedAccounts));
+        }
+
+        public List<int> this[int idSubscription]
+        {
+            get
+            {
+                return Collection[idSubscription].Value;
+            }
+        }
+
+        #endregion Subscription Collection
 
         public SubscriptionResponseData()
         {
-            SubscriptionsCollection = new List<PairKeyValueSerializable<int, List<int>>>();
+            Collection = new List<PairKeyValueSerializable<int, List<int>>>();
         }
+
+        public SubscriptionResponseData(QuoteRequest request)
+            : this()
+        {
+            IsGroupSubcription = request.SubscriptionParameters.IsGroupSubscription;
+        }
+
+        #region IEnumerable Members
+
+        public IEnumerator<PairKeyValueSerializable<int, List<int>>> GetEnumerator()
+        {
+            return Collection.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        #endregion
     }
 }

@@ -1,4 +1,4 @@
-﻿// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 // <copyright file="ILogger.cs" company="MetraTech">
 // **************************************************************************
 // Copyright 2011 by MetraTech
@@ -24,11 +24,12 @@
 // -----------------------------------------------------------------------
 
 
-namespace MetraTech.Quoting
-{
-    using MetraTech.Domain.Quoting;
+using System.Collections.Generic;
+using MetraTech.Domain.Quoting;
 
-    /// <summary>
+namespace MetraTech.Core.Services.Quoting
+{
+  /// <summary>
     /// Interface for quote creation
     /// </summary>
     public interface IQuotingImplementation
@@ -55,6 +56,7 @@ namespace MetraTech.Quoting
         /// The method uses in fuctional tests and can be used by integrators.
         /// </summary>
         /// <param name="quoteArtefact"></param>
-        void Cleanup(QuoteResponseArtefacts quoteArtefact);
+        /// <returns>Logging collection info which can contains posible suppressed exceptions. The exception is suppressed due to we need perform cleanup for all subscriptions</returns>
+        List<QuoteLogRecord> Cleanup(QuoteResponseArtefacts quoteArtefact);
     }
 }

@@ -1,20 +1,61 @@
-rem The Script was last updated on 5/24/2013
+rem The Script was last updated on 10/04/2013
 rem all env variables took from %ROOTDIR%\Build\Tools\setEnv.bat
 @echo off
 
-IF NOT "none%1%"=="none" (
-	IF NOT "%1%"=="full" (
-		IF NOT  "%1%"=="with_revert" (
-			IF NOT  "%1%"=="skip_pull" (
-				@echo '%1%' is not recognized parameter.
+Set TARGET=%1%
+
+IF NOT "none%TARGET%"=="none" (
+	IF NOT "%TARGET%"=="skip_pull" (
+		IF NOT  "%TARGET%"=="with_revert" (
+			IF NOT  "%TARGET%"=="full" (
+				@echo The target '%TARGET%' is not recognized parameter.
 				@echo Use 'full' {ALL changes will be removed} parameter to force FullCheckOut from GIT and execute makeitallparallel with clean...
 				@echo Use 'with_revert' parameter to revert all changes before do git pull by all submodules 
 				@echo Use 'skip_pull' to avoid pull for all submodules
+				@echo Press any key to exit . . .
+				pause > nul
 				Exit /B
 			)
 		)
 	)
 )
+
+@echo.
+@echo.
+IF "%TARGET%"=="skip_pull" (
+@echo Sets DEFAULT '%TARGET%' target ...
+) ELSE (
+@echo Sets '%TARGET%' target ...
+)
+@echo.
+
+IF "%TARGET%"=="full" (
+@echo The most time-consuming process, bit new MetraNet will be fresh. The target will do:&echo.
+@echo - Stop all MetraTech services
+@echo - Remove all binary and source code
+) ELSE (
+@echo The current target will do:&echo.
+@echo - Stop all MetraTech services
+)
+
+IF "%TARGET%"=="skip_pull" (
+@echo - Revert all uncommitted changes
+)
+
+@echo - Get latest from all submodules
+@echo - Buld MetraNet
+@echo - Buld MVM
+@echo - Buld ICE
+IF NOT "none%TARGET%"=="none" (
+	IF NOT "%TARGET%"=="skip_pull" (
+		@echo - Create security key for encripting passwords
+		SET CREATE_SECURE_KEY=1
+	)
+)
+@echo - Encripts password
+@echo - Install  MSSQL DB
+@echo.
+pause
 
 Set SCRIPTSFOLDER=%ROOTDIR%\Build\Tools
 
@@ -24,11 +65,11 @@ SET CURRENT_FOLDER=%DEVDIR%
 
 @pushd %CURRENT_FOLDER%
 
-if "%1%"=="skip_pull" (
+if "%TARGET%"=="skip_pull" (
 GOTO SKIP_PULL
 )
 
-if "%1%"=="full" (
+if "%TARGET%"=="full" (
 @echo Full VM update was forced. Deleting all MN folders
 rem Removes temporary files
 FOR /D %%p IN ("O:\debug\*.*") DO rmdir "%%p" /s /q
@@ -49,7 +90,7 @@ rem git hard reset all changes second time [TODO] should be just reverted
 call %SCRIPTSFOLDER%\Git\GitRevert.bat skip_set_unchange_config
 )
 
-if "%1%"=="with_revert" (
+if "%TARGET%"=="with_revert" (
 call %SCRIPTSFOLDER%\Git\GitRevert.bat skip_set_unchange_config
 }
 
@@ -107,13 +148,14 @@ cd %DEVDIR%
 @echo Starting install DB
 rem Installs DB 
 
-if "%1%"=="full" (
+IF DEFINED CREATE_SECURE_KEY (
 	call cryptosetup -createkeys	
 )
 call cryptosetup -encryptconfig
 
 SET WILL_SHOW_LOG_IN_NOTEPAD=4
-call %ROOTDIR%\Install\Scripts\database.vbs
+@echo call 'database.vbs' under 32-bit command prompt ...
+%windir%\SysWoW64\cmd.exe /k %ROOTDIR%\Install\Scripts\database.vbs
 
 :DONE
 echo DONE!

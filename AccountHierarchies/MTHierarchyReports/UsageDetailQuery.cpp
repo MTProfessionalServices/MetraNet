@@ -228,9 +228,9 @@ _bstr_t CUsageDetailQuery::GenerateQueryStringInternal(long aLocaleId, ITimeSlic
 				wchar_t buf [512];
 				// From Clause : t_description desc71
 				int lDescID = property->DescriptionID;
-				swprintf_s(buf, 512, L"\n%s t_description desc%d ON desc%d.id_desc = pv.%s AND desc%d.id_lang_code = %d", 
+				swprintf_s(buf, 512, L"\n%s t_description desc%d ON desc%d.id_desc = pv.%s AND desc%d.id_lang_code = %d AND pv.%s > 0",
 								 ((property->required == VARIANT_TRUE) ? L"INNER JOIN" : L"LEFT OUTER JOIN"),
-								 lDescID, lDescID, (const wchar_t *)property->ColumnName, lDescID, aLocaleId);
+								 lDescID, lDescID, (const wchar_t *)property->ColumnName, lDescID, aLocaleId, (const wchar_t *)property->ColumnName);
 				fromClause += _bstr_t(buf);
 				// Select List :  desc71.tx_desc ColumnName
 				swprintf_s(buf, 512, L", desc%d.tx_desc %s", 

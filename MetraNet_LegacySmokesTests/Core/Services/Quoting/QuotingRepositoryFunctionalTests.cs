@@ -1,18 +1,14 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using MetraTech.DataAccess;
-using MetraTech.Domain.DataAccess;
+using MetraTech.Core.Services.Quoting;
 using MetraTech.Domain.Quoting;
-using MetraTech.Domain.Test.Quoting;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.ProductCatalog;
-using MetraTech.Interop.MTProductCatalog;
 using MetraTech.TestCommon;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MetraTech.Shared.Test;
 
-namespace MetraTech.Quoting.Test
+namespace MetraTech.Core.Services.Test.Quoting
 {
   [TestClass]
   public class QuotingRepositoryFunctionalTests
@@ -86,7 +82,8 @@ namespace MetraTech.Quoting.Test
       var quoteHeaderID = -1;
       try
       {
-        quoteHeaderID = quotingRepository.CreateQuote(request, null);
+        var config = QuotingConfigurationManager.LoadConfigurationFromDefaultSystemLocation();
+        quoteHeaderID = quotingRepository.CreateQuote(request, null, config);
         requestSaved = true;
       }
       catch (Exception ex)
@@ -102,7 +99,7 @@ namespace MetraTech.Quoting.Test
 
       #region prepare QuoteResponse
 
-      var response = new QuoteResponse
+      var response = new QuoteResponse(request)
           {
             IdQuote = quoteHeaderID,
             TotalAmount = 200,

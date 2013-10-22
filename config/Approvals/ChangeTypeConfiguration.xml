@@ -21,7 +21,7 @@
     <AllowMoreThanOnePendingChange>false</AllowMoreThanOnePendingChange>
     <CapabilityRequiredForApproveOrDeny>Approve AccountChanges</CapabilityRequiredForApproveOrDeny>
     <MethodForApply>
-      <Name>UpdateAccountView</Name>
+      <Name>UpdateAccount</Name>
       <ClientProxyType>MetraTech.Account.ClientProxies.AccountCreationClient, MetraTech.Account.ClientProxies</ClientProxyType>
       <ConfigFileLocation>extensions\Core\config\Approvals\ActivityServices.config</ConfigFileLocation>
       <EndPointName>WSHttpBinding_IAccountCreation</EndPointName>

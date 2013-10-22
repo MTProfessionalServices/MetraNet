@@ -368,7 +368,8 @@ namespace MetraTech.Core.Services
             using (IMTFilterSortStatement stmt = conn.CreateFilterSortStatement("queries\\AccHierarchies",
                                                                            "__FIND_GROUP_SUBS_BY_DATE_RANGE__"))
             {
-              IMTProductCatalog prodCatalog = new MTProductCatalogClass();
+              // Commented according to the ESR-6546
+              /*IMTProductCatalog prodCatalog = new MTProductCatalogClass();
               if (prodCatalog.IsBusinessRuleEnabled(MTPC_BUSINESS_RULE.MTPC_BUSINESS_RULE_Hierarchy_RestrictedOperations) == false)
               {
                 // Get a filter/sort statement
@@ -379,13 +380,13 @@ namespace MetraTech.Core.Services
               }
 
               else
-              {
+              {*/
                 // Get a filter/sort statement
                 stmt.ConfigPath = "queries\\AccHierarchies";
                 stmt.QueryTag = "__FIND_GROUP_SUBS_BY_CORPORATE_ACCOUNT__";
                 // Set the parameters
                 stmt.AddParam("%%CORPORATEACCOUNT%%", id_acc);
-              }
+              //}
 
               ApplyFilterSortCriteria<GroupSubscription>(stmt, groupSubs, new FilterColumnResolver(GetColumnNameFromGroupSubPropertyName), metaData);
 

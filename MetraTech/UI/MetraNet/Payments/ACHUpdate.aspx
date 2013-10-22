@@ -37,7 +37,7 @@
       <MT:MTTextBoxControl ID="tbCity" runat="server" AllowBlank="False" ControlWidth="200"
         Label="City" TabIndex="100" ControlHeight="18" HideLabel="False" LabelWidth="120" Listeners="{}" meta:resourcekey="tbCityResource1" ReadOnly="False" XType="TextField" XTypeNameSpace="form" />
       <MT:MTTextBoxControl ID="tbState" runat="server" AllowBlank="True" ControlWidth="50"
-        Label="State/Province" OptionalExtConfig="maxLength:2" TabIndex="110" ControlHeight="18" HideLabel="False" LabelWidth="120" Listeners="{}" meta:resourcekey="tbStateResource1" ReadOnly="False" XType="TextField" XTypeNameSpace="form" />
+        Label="State/Province" OptionalExtConfig="maxLength:2,regex:/\w/" TabIndex="110" ControlHeight="18" HideLabel="False" LabelWidth="120" Listeners="{}" meta:resourcekey="tbStateResource1" ReadOnly="False" XType="TextField" XTypeNameSpace="form" />
       <MT:MTTextBoxControl ID="tbZipCode" runat="server" AllowBlank="False" ControlWidth="100"
         Label="Zip/Postal Code" OptionalExtConfig="maxLength:10" TabIndex="120" ControlHeight="18" HideLabel="False" LabelWidth="120" Listeners="{}" meta:resourcekey="tbZipCodeResource1" ReadOnly="False" XType="TextField" XTypeNameSpace="form" />
       <MT:MTDropDown ID="ddCountry" runat="server" AllowBlank="False" ControlWidth="200"

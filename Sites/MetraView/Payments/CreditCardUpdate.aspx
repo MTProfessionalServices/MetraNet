@@ -40,7 +40,7 @@
           Listeners="{}" meta:resourcekey="tbCityResource1" ReadOnly="False" XType="TextField"
           XTypeNameSpace="form" />
         <MT:MTTextBoxControl ID="tbState" runat="server" AllowBlank="True" ControlWidth="50"
-          Label="State/Province" OptionalExtConfig="maxLength:2" TabIndex="110" ControlHeight="18"
+          Label="State/Province" OptionalExtConfig="maxLength:2,regex:/\w/" TabIndex="110" ControlHeight="18"
           HideLabel="False" LabelWidth="120" Listeners="{}" meta:resourcekey="tbStateResource1"
           ReadOnly="False" XType="TextField" XTypeNameSpace="form" />
         <MT:MTTextBoxControl ID="tbZipCode" runat="server" AllowBlank="False" ControlWidth="100"

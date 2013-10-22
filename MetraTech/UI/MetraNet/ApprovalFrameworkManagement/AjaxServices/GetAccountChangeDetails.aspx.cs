@@ -86,6 +86,15 @@ public partial class ApprovalFrameworkManagement_AjaxServices_GetAccountChangeDe
             // Load the "actual" Account object from the database using the accountId.
             Account staleAccount = AccountLib.LoadAccount((int)newAccount._AccountID, UI.User, ApplicationTime);
 
+            if (staleAccount.PayerID != newAccount.PayerID)
+ 	          {
+ 	            ChangeDetailsDisplay changeDetailsDisplay = new ChangeDetailsDisplay();
+ 	            changeDetailsDisplay.PropertyName = "PayerID";
+ 	            changeDetailsDisplay.OldValue = staleAccount.PayerID.ToString();
+ 	            changeDetailsDisplay.UpdatedValue = newAccount.PayerID.ToString();
+ 	            items.Items.Add(changeDetailsDisplay);
+ 	          }
+
             // Creating a dictionary here with stale account property --> value as the key --> value pairs
             Dictionary<string, object> staleAccountViewKeyValues = new Dictionary<string, object>();
             Dictionary<string, List<View>> staleAccountViews = staleAccount.GetViews();

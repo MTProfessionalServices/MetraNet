@@ -6,4 +6,5 @@
         and id_billgroup is null
         and dt_start = %%DT_START%%
         and dt_end = %%DT_END%%
+		and is_audited = '%%IS_AUDITED%%'
       

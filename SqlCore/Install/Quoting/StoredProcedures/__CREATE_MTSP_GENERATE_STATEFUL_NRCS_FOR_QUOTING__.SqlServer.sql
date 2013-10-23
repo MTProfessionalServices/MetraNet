@@ -3,6 +3,7 @@ CREATE PROCEDURE [dbo].[MTSP_GENERATE_ST_NRCS_QUOTING]
 @dt_start datetime,
 @dt_end datetime,
 @v_id_accounts VARCHAR(4000),
+@v_id_poid VARCHAR(4000),
 @v_id_interval int,
 @v_id_batch varchar(256),
 @v_n_batch_size int,
@@ -21,6 +22,9 @@ DECLARE @id_nonrec int,
 		
 IF OBJECT_ID('tempdb..#TMP_NRC_ACCOUNTS_FOR_RUN') IS NOT NULL
 DROP TABLE #TMP_NRC_ACCOUNTS_FOR_RUN
+
+IF OBJECT_ID('tempdb..#TMP_RC_POID_FOR_RUN') IS NOT NULL
+DROP TABLE #TMP_RC_POID_FOR_RUN
 
 IF OBJECT_ID('tempdb..#TMP_NRC') IS NOT NULL
 DROP TABLE #TMP_NRC
@@ -46,8 +50,9 @@ CREATE TABLE #TMP_NRC
 
 
 SELECT * INTO #TMP_NRC_ACCOUNTS_FOR_RUN FROM(SELECT value as id_acc FROM CSVToInt(@v_id_accounts)) A;
+SELECT * INTO #TMP_RC_POID_FOR_RUN FROM(SELECT value as id_po FROM CSVToInt(@v_id_poid)) A;
 
-SELECT @tx_batch = cast(N'' as xml).value('xs:base64Binary(sql:variable("@v_id_batch"))', 'binary(16)');
+SELECT @tx_batch = cast(N'' as xml).value('xs:hexBinary(sql:variable("@v_id_batch"))', 'binary(16)');
 
 IF @v_is_group_sub > 0
 BEGIN
@@ -90,6 +95,7 @@ BEGIN
 	FROM	t_sub sub
 			inner join t_gsubmember mem on mem.id_group = sub.id_group
 			inner join #TMP_NRC_ACCOUNTS_FOR_RUN acc on acc.id_acc = mem.id_acc
+			inner join #TMP_RC_POID_FOR_RUN po on po.id_po = sub.id_po
 			inner join t_po on sub.id_po = t_po.id_po
 			inner join t_pl_map plm on sub.id_po = plm.id_po and plm.id_paramtable IS NULL
 			inner join t_base_props bp on bp.id_prop = plm.id_pi_instance and bp.n_kind = 30
@@ -99,7 +105,7 @@ BEGIN
 
 END
 ELSE
-BEGIN 
+BEGIN
 
 	INSERT INTO #TMP_NRC
 	(
@@ -137,6 +143,7 @@ BEGIN
 			@tx_batch AS c__CollectionID
 	FROM	t_sub sub
 			inner join #TMP_NRC_ACCOUNTS_FOR_RUN acc on acc.id_acc = sub.id_acc
+			inner join #TMP_RC_POID_FOR_RUN po on po.id_po = sub.id_po
 			inner join t_po on sub.id_po = t_po.id_po
 			inner join t_pl_map plm on sub.id_po = plm.id_po and plm.id_paramtable IS NULL
 			inner join t_base_props bp on bp.id_prop = plm.id_pi_instance and bp.n_kind = 30

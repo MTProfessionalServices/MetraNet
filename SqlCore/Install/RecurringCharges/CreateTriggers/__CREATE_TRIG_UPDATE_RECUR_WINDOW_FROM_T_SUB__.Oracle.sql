@@ -23,6 +23,7 @@ create or replace TRIGGER trig_recur_window_sub AFTER INSERT OR UPDATE OR DELETE
       SET c_SubscriptionStart = :new.vt_start, c_SubscriptionEnd     = :new.vt_end
         WHERE c__AccountID      = :new.id_acc AND c__SubscriptionID   = :new.id_sub;
 
+	DELETE FROM TMP_NEWRW;
     INSERT INTO TMP_NEWRW
     SELECT :new.vt_start c_CycleEffectiveDate,
       :new.vt_start c_CycleEffectiveStart,
@@ -67,13 +68,13 @@ create or replace TRIGGER trig_recur_window_sub AFTER INSERT OR UPDATE OR DELETE
     AND (bp.n_kind    = 20
     OR rv.id_prop    IS NOT NULL);
   END;
-END IF;
 
-UPDATE tmp_newrw SET c_BilledThroughDate = metratime(1,'RC');
-  
-insert into t_recur_window select * from tmp_newrw;
-MeterInitialFromRecurWindow;
-MeterCreditFromRecurWindow;
+	UPDATE tmp_newrw SET c_BilledThroughDate = metratime(1,'RC');
+	  
+	insert into t_recur_window select * from tmp_newrw;
+	MeterInitialFromRecurWindow;
+	MeterCreditFromRecurWindow;
+END IF;
 
 END;
 

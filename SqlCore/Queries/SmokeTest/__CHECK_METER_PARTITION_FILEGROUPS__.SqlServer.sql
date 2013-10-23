@@ -1,4 +1,4 @@
-SELECT fg.name [file_group_name], ps.name [meter_paririon_schema]
+SELECT fg.name [file_group_name]
 FROM sys.partition_schemes ps
 	INNER JOIN sys.destination_data_spaces dds 
 		ON dds.partition_scheme_id = ps.data_space_id
@@ -10,4 +10,4 @@ FROM sys.partition_schemes ps
 	LEFT JOIN sysfiles sf ON sf.name = fg.name
 WHERE ps.name = dbo.prtn_GetMeterPartitionSchemaName()
 		AND fg.name = dbo.prtn_GetMeterPartitionFileGroupName()
-GROUP BY fg.name, ps.name
+GROUP BY fg.name

@@ -130,7 +130,7 @@
     </property>
     <property name="QuoteID" column="c_QuoteID" not-null="true">
       <meta attribute="label">QuoteID</meta>
-	  <meta attribute="description">Quoute number. Should be unique.</meta>
+      <meta attribute="description">Quoute number. Should be unique.</meta>
       <meta attribute="defaultvalue" />
       <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>

@@ -55,7 +55,7 @@
             <ObjectName>MetraTech.DomainModel.Billing.ExportReportDefinition</ObjectName>
             <ID>ReportTitle</ID>
             <DataType>String</DataType>
-            <IsIdentity>true</IsIdentity>
+            <IsIdentity>false</IsIdentity>
             <DataIndex>ReportTitle</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>

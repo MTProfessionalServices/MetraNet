@@ -73,7 +73,7 @@ namespace MetraTech.Product.Hooks.DynamicTableUpdate
                                             @level1type=N'TABLE',@level1name='%%tabname%%',
                                             @level2type=N'COLUMN',@level2name='%%colname%%'";
 
-        const string mExecuteImmediateStatement = @" EXECUTE IMMEDIATE '%%DDL%%';";
+        const string mExecuteImmediateStatement = @" EXECUTE IMMEDIATE q'[%%DDL%%]';";
         const string mAddColumnDescriptionOracle = @" COMMENT ON COLUMN %%tabname%%.%%colname%% IS '%%description%%'";
 
         // rename column 
@@ -436,13 +436,8 @@ namespace MetraTech.Product.Hooks.DynamicTableUpdate
 
             // Check reserved properties.
             if (mReservedProperties != null)
-            {
-              foreach (DictionaryEntry item in mReservedProperties)
-                {
-                    if (item.Key.ToString().ToUpper() == columnname.ToUpper())
-                        return null;
-                }
-            }
+              if (mReservedProperties.Keys.Cast<object>().Any(item => String.Equals(item.ToString(), columnname, StringComparison.CurrentCultureIgnoreCase)))
+                return null;
 
             columnname = columnname.Remove(0, 2); //removing the starting c_
             mColumns.Add(columnname);
@@ -810,7 +805,7 @@ namespace MetraTech.Product.Hooks.DynamicTableUpdate
             if (conn.ConnectionInfo.IsOracle)
             {
                 result.AppendLine(mExecuteImmediateStatement.Replace("%%DDL%%", mAddColumn));
-                result.AppendLine(mExecuteImmediateStatement.Replace("%%DDL%%", mAddColumnDescriptionOracle.Replace("'","''")));
+                result.AppendLine(mExecuteImmediateStatement.Replace("%%DDL%%", mAddColumnDescriptionOracle));
             }
 
             return conn.ConnectionInfo.IsSqlServer
@@ -1195,7 +1190,7 @@ namespace MetraTech.Product.Hooks.DynamicTableUpdate
                         throw new ApplicationException(msg);
                     }
                 }
-                else if (propdata.DataType == MetraTech.Interop.MTProductCatalog.PropValType.PROP_TYPE_ENUM && IsDefaultValueSet(propdata))
+                else if (propdata.DataType == MetraTech.Interop.MTProductCatalog.PropValType.PROP_TYPE_ENUM)
                 {
                     mLog.LogDebug("Property {0} was enum. Retrieving the enumcode for the default value set.", propdata.DBColumnName);
                     int enumvalue = RetrieveTheEnumCode(propdata.EnumSpace + "/" + propdata.EnumType + "/" + defvalue, conn);
@@ -1491,8 +1486,7 @@ namespace MetraTech.Product.Hooks.DynamicTableUpdate
                     stmt.AddParam("%%pk_id%%", mIsOracle ? "seq_" + mPropTableName + ".nextval," : "");
                     stmt.AddParam("%%fk_id%%", mPropFKID);
                     stmt.AddParam("%%nm_name%%", propdata.Name);
-                    // ESR-5004 a clone of ESR-4660 use GetColTypeDDL to get the datatype and precision
-                    stmt.AddParam("%%nm_data_type%%", GetColTypeDDL(propdata)); 
+                    stmt.AddParam("%%nm_data_type%%", propdata.DataTypeAsString);
 
                     stmt.AddParam("%%nm_column_name%%", propdata.DBColumnName);
                     stmt.AddParam("%%b_required%%", propdata.Required ? "Y" : "N");
@@ -1626,30 +1620,27 @@ namespace MetraTech.Product.Hooks.DynamicTableUpdate
         /// <summary>
         /// Returns the id_enum_data for the passed enum string
         /// </summary>
-        /// <param name="table"></param>
-        /// <param name="column"></param>
         /// <param name="enumstring"></param>
         /// <param name="conn"></param>
         /// <returns></returns>
         private int RetrieveTheEnumCode(string enumstring, IMTConnection conn)
         {
-            int enumcode = 0;
-            using (IMTCallableStatement callstmt = conn.CreateCallableStatement("RetrieveEnumCode"))
-            {
-              callstmt.AddReturnValue(MTParameterType.Integer);
-              //callstmt.AddParam( "table", MTParameterType.String, table );
-              //callstmt.AddParam( "column", MTParameterType.String, column );
-              callstmt.AddParam("enum_string", MTParameterType.String, enumstring);
-              
-              callstmt.ExecuteNonQuery();
-              if (callstmt.ReturnValue == null || (int)callstmt.ReturnValue == 0)
-              {
-                throw new ApplicationException("Enum string not found in database: " + enumstring);
-              }
-              enumcode = (int)callstmt.ReturnValue;
-            }
+          int enumcode;
+          var procname = mIsOracle ? "RetrieveEnumCodeProc" : "RetrieveEnumCode";
+          using (var callstmt = conn.CreateCallableStatement(procname))
+          {
+            //callstmt.AddParam( "table", MTParameterType.String, table );
+            //callstmt.AddParam( "column", MTParameterType.String, column );
+            callstmt.AddParam("enum_string", MTParameterType.String, enumstring);
 
-            return enumcode;
+            using (var reader = callstmt.ExecuteReader())
+            {
+              if (!reader.Read())
+                throw new ApplicationException("Enum string not found in database: " + enumstring);
+              enumcode = Convert.ToInt32(reader.GetValue(0));
+            }
+          }
+          return enumcode;
         }
 
         /// <summary>

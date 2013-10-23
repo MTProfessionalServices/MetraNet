@@ -4,12 +4,13 @@ CREATE OR REPLACE PROCEDURE MTSP_GENERATE_ST_NRCS_QUOTING
   v_dt_start    DATE,
   v_dt_end      DATE,
   v_id_accounts VARCHAR2,
+  v_id_poid VARCHAR2,
   v_id_interval INT,
   v_id_batch    VARCHAR2,
   v_n_batch_size INT,
   v_run_date    DATE,
   v_is_group_sub INT,
-  v_p_count OUT INT
+  p_count OUT INT
 )
 AS
    v_id_nonrec  INT;
@@ -23,10 +24,14 @@ BEGIN
    DELETE FROM TMP_NRC_ACCOUNTS_FOR_RUN;
    INSERT INTO TMP_NRC_ACCOUNTS_FOR_RUN ( ID_ACC )
         SELECT * FROM table(cast(dbo.CSVToInt(v_id_accounts) as  tab_id_instance));
+        
+   DELETE FROM TMP_NRC_POS_FOR_RUN;
+   INSERT INTO TMP_NRC_POS_FOR_RUN ( ID_PO )
+        SELECT * FROM table(cast(dbo.CSVToInt(v_id_poid) as  tab_id_instance));
 
    DELETE FROM TMP_NRC;
 
-    v_tx_batch := utl_raw.cast_to_varchar2(utl_encode.base64_decode(utl_raw.cast_to_raw (v_id_batch)));
+   v_tx_batch := v_id_batch;
 
    IF v_is_group_sub > 0 THEN
    BEGIN
@@ -44,8 +49,7 @@ BEGIN
             c__ProductOfferingID,
             c__SubscriptionID,
             c__IntervalID,
-            c__Resubmit,
-            c__CollectionID
+            c__Resubmit            
        )
             SELECT SYS_GUID() AS id_source_sess,
               nrc.n_event_type AS c_NRCEventType,
@@ -59,24 +63,15 @@ BEGIN
               sub.id_po AS c__ProductOfferingID,
               sub.id_sub AS c__SubscriptionID,
               v_id_interval AS c__IntervalID,
-              '0' AS c__Resubmit,
-              v_tx_batch AS c__CollectionID
+              '0' AS c__Resubmit               
             FROM t_sub sub
-                  JOIN t_gsubmember mem
-                   ON mem.id_group = sub.id_group
-                  JOIN TMP_NRC_ACCOUNTS_FOR_RUN acc
-                   ON acc.id_acc = sub.id_acc
-                  JOIN t_po
-                   ON sub.id_po = t_po.id_po
-                  JOIN t_pl_map plm
-                   ON sub.id_po = plm.id_po
-                  AND plm.id_paramtable IS NULL
-                  JOIN t_base_props bp
-                   ON bp.id_prop = plm.id_pi_instance
-                  AND bp.n_kind = 30
-                  JOIN t_nonrecur nrc
-                   ON nrc.id_prop = bp.id_prop
-                  AND nrc.n_event_type = 1
+                  JOIN t_gsubmember mem ON mem.id_group = sub.id_group
+                  JOIN TMP_NRC_ACCOUNTS_FOR_RUN acc ON acc.id_acc = mem.id_acc
+                  JOIN TMP_NRC_POS_FOR_RUN po ON po.id_po = sub.id_po
+                  JOIN t_po ON sub.id_po = t_po.id_po
+                  JOIN t_pl_map plm ON sub.id_po = plm.id_po AND plm.id_paramtable IS NULL
+                  JOIN t_base_props bp ON bp.id_prop = plm.id_pi_instance AND bp.n_kind = 30
+                  JOIN t_nonrecur nrc ON nrc.id_prop = bp.id_prop AND nrc.n_event_type = 1
             WHERE sub.vt_start >= v_dt_start
                   AND sub.vt_start < v_dt_end
         ;
@@ -99,8 +94,7 @@ BEGIN
             c__ProductOfferingID,
             c__SubscriptionID,
             c__IntervalID,
-            c__Resubmit,
-            c__CollectionID
+            c__Resubmit            
        )
             SELECT SYS_GUID() AS id_source_sess,
               nrc.n_event_type AS c_NRCEventType,
@@ -114,22 +108,14 @@ BEGIN
               sub.id_po AS c__ProductOfferingID,
               sub.id_sub AS c__SubscriptionID,
               v_id_interval AS c__IntervalID,
-              '0' AS c__Resubmit,
-              v_tx_batch AS c__CollectionID
-            FROM t_sub sub
-                  JOIN TMP_NRC_ACCOUNTS_FOR_RUN acc
-                   ON acc.id_acc = sub.id_acc
-                  JOIN t_po
-                   ON sub.id_po = t_po.id_po
-                  JOIN t_pl_map plm
-                   ON sub.id_po = plm.id_po
-                  AND plm.id_paramtable IS NULL
-                  JOIN t_base_props bp
-                   ON bp.id_prop = plm.id_pi_instance
-                  AND bp.n_kind = 30
-                  JOIN t_nonrecur nrc
-                   ON nrc.id_prop = bp.id_prop
-                  AND nrc.n_event_type = 1
+              '0' AS c__Resubmit
+            FROM t_sub sub 
+                  JOIN TMP_NRC_ACCOUNTS_FOR_RUN acc ON acc.id_acc = sub.id_acc
+                  JOIN TMP_NRC_POS_FOR_RUN po ON po.id_po = sub.id_po
+                  JOIN t_po ON sub.id_po = t_po.id_po
+                  JOIN t_pl_map plm ON sub.id_po = plm.id_po AND plm.id_paramtable IS NULL
+                  JOIN t_base_props bp ON bp.id_prop = plm.id_pi_instance AND bp.n_kind = 30
+                  JOIN t_nonrecur nrc ON nrc.id_prop = bp.id_prop AND nrc.n_event_type = 1
             WHERE sub.vt_start >= v_dt_start
                   AND sub.vt_start < v_dt_end
         ;
@@ -138,7 +124,7 @@ BEGIN
 
    SELECT COUNT(*)
      INTO v_total_nrcs
-     FROM tmp_nrc ;
+     FROM TMP_NRC ;
 
    SELECT id_enum_data
      INTO v_id_nonrec
@@ -147,13 +133,9 @@ BEGIN
 
    v_n_batches := (v_total_nrcs / v_n_batch_size) + 1;
 
-   GetIdBlock(v_n_batches,
-              'id_dbqueuesch',
-              v_id_message);
+   GetIdBlock(v_n_batches, 'id_dbqueuesch', v_id_message);
 
-   GetIdBlock(v_n_batches,
-              'id_dbqueuess',
-              v_id_ss);
+   GetIdBlock(v_n_batches, 'id_dbqueuess', v_id_ss);
 
    INSERT INTO t_message
      ( id_message, id_route, dt_crt, dt_metered, dt_assigned, id_listener, id_pipeline, dt_completed, id_feedback, tx_TransactionID, tx_sc_username, tx_sc_password, tx_sc_namespace, tx_sc_serialized, tx_ip_address )
@@ -230,11 +212,11 @@ BEGIN
           c__IntervalID,
           c__Resubmit,
           NULL as c__TransactionCookie,
-          c__CollectionID
+          v_tx_batch as c__CollectionID
        FROM tmp_nrc  );
 
     DELETE FROM TMP_NRC;
 
-   v_p_count := v_total_nrcs;
+   p_count := v_total_nrcs;
 
 END;

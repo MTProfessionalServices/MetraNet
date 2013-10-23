@@ -153,9 +153,9 @@ public partial class Account_ContactUpdate : MTPage
       ContactUpdateEvents_OKUpdateContact_Client update = new ContactUpdateEvents_OKUpdateContact_Client();
       update.In_SelectedContact = Contact;
       update.In_AccountId = new AccountIdentifier(UI.User.AccountId);
+      update.In_LoadTime = ApplicationTime;
 
-            PageNav.Execute(update);    
-       
+      PageNav.Execute(update);    
     }
   }
 

@@ -117,6 +117,7 @@ public partial class StartWorkFlow : MTPage
             UpdateAccountEvents_StartUpdateAccount_Client acc = new UpdateAccountEvents_StartUpdateAccount_Client();
             acc.In_AccountId = new AccountIdentifier(UI.User.AccountId);
             acc.In_UpdateAccountId = new AccountIdentifier(int.Parse(UI.Subscriber["_AccountID"].ToString()));
+            acc.In_LoadTime = ApplicationTime;
             PageNav.Execute(acc);
             break;
           }

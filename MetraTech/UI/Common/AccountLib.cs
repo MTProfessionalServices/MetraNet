@@ -76,25 +76,23 @@ namespace MetraTech.UI.Common
     public static ContactView LoadContactView(Account acc, ContactType contactType)
     {
       ContactView contactView = null;
-
-      try
+      if (Utils.CheckingExistenceOfProperty(acc, "LDAP"))
       {
-        object prop = Utils.GetProperty(acc, "LDAP");
-        List<MetraTech.DomainModel.AccountTypes.ContactView> p = prop as List<MetraTech.DomainModel.AccountTypes.ContactView>;
-
-        foreach (ContactView v in (List<ContactView>)Utils.GetProperty(acc, "LDAP"))
+        try
         {
-          if (v.ContactType == contactType)
+              foreach (ContactView v in (List<ContactView>)Utils.GetProperty(acc, "LDAP"))
           {
-            contactView = v;
+            if (v.ContactType == contactType)
+            {
+              contactView = v;
+            }
           }
         }
+        catch (Exception exp)
+        {
+          Utils.CommonLogger.LogException("Could not load contact view.", exp);
+        }
       }
-      catch (Exception exp)
-      {
-        Utils.CommonLogger.LogException("Could not load contact view.", exp);
-      }
-
       return contactView;
     }
 

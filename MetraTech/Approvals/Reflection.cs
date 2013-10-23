@@ -198,9 +198,7 @@ namespace MetraTech.Approvals
             }
             else
             {
-              throw new Exception(
-                string.Format("The configured method {0} requires the argument {1} which was not passed.",
-                              methodConfig.Name, paramInfo.Name));
+              parametersArray[paramCounter++] = null;
             }
           }
 

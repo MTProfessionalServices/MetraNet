@@ -6,211 +6,234 @@ using MetraTech.DomainModel.Common;
 
 namespace MetraTech.Domain.Quoting
 {
-  [DataContract]
-  [Serializable]
-  public class QuoteResponse
-  {
-    #region ReportParameters
-
-    /// <summary>
-    /// When debugging do not clean up usage data after quote run
-    /// </summary>
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isIdQuoteDirty = false;
-    private int m_idQuote;
-    [MTDataMember(Description = "Quote Id")]
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public int idQuote
+    [DataContract]
+    [Serializable]
+    public class QuoteResponse
     {
-      get { return m_idQuote; }
-      set
-      {
-        m_idQuote = value;
-        isIdQuoteDirty = true;
-      }
+        #region IdQuote
+
+        private int _idQuote;
+        /// <summary>
+        /// When debugging do not clean up usage data after quote run
+        /// </summary>
+        [MTDataMember(Description = "Quote Id")]
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        public int IdQuote
+        {
+            get { return _idQuote; }
+            set
+            {
+                _idQuote = value;
+                if (Artefacts != null)
+                {
+                    Artefacts.IdQuote = value;
+                }
+            }
+        }
+
+        #endregion IdQuote
+
+        #region QuoteStatus
+
+        private QuoteStatus _status;
+
+        [MTDataMember(Description = "Quote status")]
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        public QuoteStatus Status
+        {
+            get { return _status; }
+            set
+            {
+                _status = value;
+                IsStatusDirty = true;
+            }
+        }
+
+        [ScriptIgnore]
+        public bool IsStatusDirty { get; private set; }
+
+        #endregion QuoteStatus
+
+        #region FailedMessage
+
+        private string _failedMessage;
+
+        [MTDataMember(Description = "Quote failed message")]
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        public string FailedMessage
+        {
+            get { return _failedMessage; }
+            set
+            {
+                _failedMessage = value;
+                IsFailedMessageDirty = true;
+            }
+        }
+
+        [ScriptIgnore]
+        public bool IsFailedMessageDirty { get; private set; }
+
+        #endregion
+
+        #region TotalAmount
+
+        private decimal _totalAmount;
+
+        [MTDataMember(Description = "Quote total amount")]
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        public decimal TotalAmount
+        {
+            get { return _totalAmount; }
+            set
+            {
+                _totalAmount = value;
+                IsTotalAmountDirty = true;
+            }
+        }
+
+        [ScriptIgnore]
+        public bool IsTotalAmountDirty { get; private set; }
+
+        #endregion
+
+        #region TotalTax
+
+        private decimal _totalTax;
+
+        [MTDataMember(Description = "Quote total amount")]
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        public decimal TotalTax
+        {
+            get { return _totalTax; }
+            set
+            {
+                _totalTax = value;
+                IsTotalTaxDirty = true;
+            }
+        }
+
+        [ScriptIgnore]
+        public bool IsTotalTaxDirty { get; private set; }
+
+        #endregion
+
+        #region Currency
+
+        private string _currency;
+
+        [MTDataMember(Description = "Quote currency")]
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        public string Currency
+        {
+            get { return _currency; }
+            set
+            {
+                _currency = value;
+                IsCurrencyDirty = true;
+            }
+        }
+
+        [ScriptIgnore]
+        public bool IsCurrencyDirty { get; private set; }
+
+        #endregion
+
+        #region ReportLink
+
+        private string _reportLink;
+
+        [MTDataMember(Description = "Quote report link")]
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        public string ReportLink
+        {
+            get { return _reportLink; }
+            set
+            {
+                _reportLink = value;
+                IsReportLinkDirty = true;
+            }
+        }
+
+        [ScriptIgnore]
+        public bool IsReportLinkDirty { get; private set; }
+
+        #endregion
+
+        #region CreationDate
+
+        private DateTime _creationDate;
+        [MTDataMember(Description = "Quote creation date")]
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        public DateTime CreationDate
+        {
+            get { return _creationDate; }
+            set
+            {
+                _creationDate = value;
+                IsCreationDateDirty = true;
+            }
+        }
+
+        [ScriptIgnore]
+        public bool IsCreationDateDirty { get; private set; }
+
+        #endregion
+
+        #region MessageLog
+
+        private List<QuoteLogRecord> _messageLog;
+
+        [MTDataMember(Description = "Quote message log")]
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        public List<QuoteLogRecord> MessageLog
+        {
+            get { return _messageLog; }
+            set
+            {
+                _messageLog = value;
+                IsMessageLogDirty = true;
+            }
+        }
+
+        [ScriptIgnore]
+        public bool IsMessageLogDirty { get; private set; }
+
+        #endregion
+
+        #region Artefacts
+
+        [MTDataMember(Description = "Contains Quote artefacts: subscription Ids, Usage Interval, Charges batches and etc.")]
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        public QuoteResponseArtefacts Artefacts { get; set; }
+
+        #endregion Artefacts
+
+        public QuoteResponse()
+        {
+            Artefacts = new QuoteResponseArtefacts();
+            IdQuote = -1;
+            MessageLog = new List<QuoteLogRecord>();
+        }
+
+        public QuoteResponse(QuoteRequest request)
+        {
+            if (request == null)
+                throw new ArgumentException(String.Format("The '{0}' can NOT be null.", typeof(QuoteRequest)));
+                
+            Artefacts = new QuoteResponseArtefacts(request);
+            IdQuote = -1;
+            MessageLog = new List<QuoteLogRecord>();
+        }
+
+        public QuoteResponse(QuoteRequest request, int idQuote)
+            : this(request)
+        {
+            IdQuote = idQuote;
+        }
+
+        public bool IsInitialized()
+        {
+            return IdQuote > 0;
+        }
     }
-
-    [ScriptIgnore]
-    public bool IsIdQuoteDirty
-    {
-      get { return isIdQuoteDirty; }
-    }
-
-    #endregion
-
-    #region StatusDirty
-
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isStatusDirty = false;
-    private QuoteStatus m_Status;
-    [MTDataMember(Description = "Quote status")]
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public QuoteStatus Status
-    {
-      get { return m_Status; }
-      set
-      {
-        m_Status = value;
-        isStatusDirty = true;
-      }
-    }
-
-    [ScriptIgnore]
-    public bool IsStatusDirty
-    {
-      get { return isStatusDirty; }
-    }
-
-    #endregion
-
-    #region FailedMessage
-
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isFailedMessageDirty = false;
-    private string m_FailedMessage;
-    [MTDataMember(Description = "Quote failed message")]
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public string FailedMessage
-    {
-      get { return m_FailedMessage; }
-      set
-      {
-        m_FailedMessage = value;
-        isFailedMessageDirty = true;
-      }
-    }
-
-    [ScriptIgnore]
-    public bool IsFailedMessageDirty
-    {
-      get { return isFailedMessageDirty; }
-    }
-
-    #endregion
-
-    #region TotalAmount
-
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isTotalAmountDirty = false;
-    private decimal m_TotalAmount;
-    [MTDataMember(Description = "Quote total amount")]
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public decimal TotalAmount
-    {
-      get { return m_TotalAmount; }
-      set
-      {
-        m_TotalAmount = value;
-        isTotalAmountDirty = true;
-      }
-    }
-
-    [ScriptIgnore]
-    public bool IsTotalAmountDirty
-    {
-      get { return isTotalAmountDirty; }
-    }
-
-    #endregion
-
-    #region Currency
-
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isCurrencyDirty = false;
-    private string m_Currency;
-    [MTDataMember(Description = "Quote currency")]
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public string Currency
-    {
-      get { return m_Currency; }
-      set
-      {
-        m_Currency = value;
-        isCurrencyDirty = true;
-      }
-    }
-
-    [ScriptIgnore]
-    public bool IsCurrencyDirty
-    {
-      get { return isCurrencyDirty; }
-    }
-
-    #endregion
-
-    #region ReportLink
-
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isReportLinkDirty = false;
-    private string m_ReportLink;
-    [MTDataMember(Description = "Quote report link")]
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public string ReportLink
-    {
-      get { return m_ReportLink; }
-      set
-      {
-        m_ReportLink = value;
-        isReportLinkDirty = true;
-      }
-    }
-
-    [ScriptIgnore]
-    public bool IsReportLinkDirty
-    {
-      get { return isReportLinkDirty; }
-    }
-
-    #endregion
-
-    #region CreationDate
-
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isCreationDateDirty = false;
-    private DateTime m_CreationDate;
-    [MTDataMember(Description = "Quote creation date")]
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public DateTime CreationDate
-    {
-      get { return m_CreationDate; }
-      set
-      {
-        m_CreationDate = value;
-        isCreationDateDirty = true;
-      }
-    }
-
-    [ScriptIgnore]
-    public bool IsCreationDateDirty
-    {
-      get { return isCreationDateDirty; }
-    }
-
-    #endregion
-
-    #region MessageLog
-
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    private bool isMessageLogDirty = false;
-    private List<QuoteLogRecord> m_MessageLog;
-    [MTDataMember(Description = "Quote message log")]
-    [DataMember(IsRequired = false, EmitDefaultValue = false)]
-    public List<QuoteLogRecord> MessageLog
-    {
-      get { return m_MessageLog; }
-      set
-      {
-        m_MessageLog = value;
-        isMessageLogDirty = true;
-      }
-    }
-
-    [ScriptIgnore]
-    public bool IsMessageLogDirty
-    {
-      get { return isMessageLogDirty; }
-    }
-
-    #endregion
-  }
 }

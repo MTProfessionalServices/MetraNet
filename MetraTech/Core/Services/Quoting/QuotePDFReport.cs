@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using MetraTech.Reports;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using MetraTech.Interop.MTServerAccess;
+using MetraTech.Reports;
 
-namespace MetraTech.Quoting
+namespace MetraTech.Core.Services.Quoting
 {
   /// <summary>
   /// Class representing the reporting configuration needed by quoting
@@ -136,7 +136,7 @@ namespace MetraTech.Quoting
         //string accountEnum = "metratech.com/accountcreation/contacttype/bill-to";
 
         //string aRecordSelectionFormula = string.Format("{{t_be_cor_qu_quoteheader.c_QuoteID}} = {0} and " +
-        //                                                "{{t_enum_data.nm_enum_data}} = \"{1}\"", idQuote, accountEnum);
+        //                                                "{{t_enum_data.nm_enum_data}} = \"{1}\"", IdQuote, accountEnum);
         string aRecordSelectionFormula = "";
         string aGroupSelectionFormula = "";
 

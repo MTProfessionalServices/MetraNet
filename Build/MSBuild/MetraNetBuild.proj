@@ -11,6 +11,7 @@
   <PropertyGroup>
     <BuildPath Condition="'$(BuildPath)'==''">$(MSBuildProjectDirectory)</BuildPath>
     <TasksPath Condition="'$(TasksPath)'==''">$(BuildPath)\bin\Debug</TasksPath>
+	<TestResultsFolder Condition="'$(TestResultsFolder)'==''">c:\TestResults</TestResultsFolder>    
     <MyTargets Condition="'$(MyTargets)'==''">Build</MyTargets>
     <ProjectPath Condition="'$(ProjectPath)'==''">$(ROOTDIR)\**</ProjectPath>
       <StopOnFirstError Condition="'$(StopOnFirstError)'==''">true</StopOnFirstError>
@@ -77,6 +78,10 @@
       <Version>Debug</Version>
       <DestinationName>zlib.dll</DestinationName>
     </CopySourceDLLsVersionDependent>
+	<CopySourceDLLsVersionDependent Include="$(ROOTDIR)\Thirdparty\antlr\Antlr4.Runtime.v4.0.dll">
+      <Version>Debug</Version>
+      <DestinationName>Antlr4.Runtime.v4.0.dll</DestinationName>
+    </CopySourceDLLsVersionDependent>
 
     <CopySourceDLLsVersionDependent Include="$(ROOTDIR)\Thirdparty\tcmalloc\Release\libtcmalloc_minimal.dll">
       <Version>Release</Version>
@@ -85,6 +90,10 @@
     <CopySourceDLLsVersionDependent Include="$(ROOTDIR)\Thirdparty\zlib\zlib-release.dll">
       <Version>Release</Version>
       <DestinationName>zlib.dll</DestinationName>
+    </CopySourceDLLsVersionDependent>
+	<CopySourceDLLsVersionDependent Include="$(ROOTDIR)\Thirdparty\antlr\Antlr4.Runtime.v4.0.dll">
+      <Version>Release</Version>
+      <DestinationName>Antlr4.Runtime.v4.0.dll</DestinationName>
     </CopySourceDLLsVersionDependent>
   </ItemGroup>
   
@@ -153,10 +162,6 @@
       <Version>Debug</Version>
       <DestinationName>zlib.lib</DestinationName>
     </CopySourceLibsVersionDependent>
-	<CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\antlr\Antlr4.Runtime.v4.0.dll">
-      <Version>Debug</Version>
-      <DestinationName>Antlr4.Runtime.v4.0.dll</DestinationName>
-    </CopySourceLibsVersionDependent>
     <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\Boost\lib\libboost_test_exec_monitor-vc100-mt-1_43.lib">
       <Version>Release</Version>
       <DestinationName>libboost_test_exec_monitor-vc100-mt-1_43.lib</DestinationName>
@@ -204,10 +209,6 @@
     <CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\zlib\zlib-release.lib">
       <Version>Release</Version>
       <DestinationName>zlib.lib</DestinationName>
-    </CopySourceLibsVersionDependent>
-	<CopySourceLibsVersionDependent Include="$(ROOTDIR)\Thirdparty\antlr\Antlr4.Runtime.v4.0.dll">
-      <Version>Release</Version>
-      <DestinationName>Antlr4.Runtime.v4.0.dll</DestinationName>
     </CopySourceLibsVersionDependent>
   </ItemGroup>
 
@@ -433,7 +434,7 @@
   <!-- Specific Build Step Definitions -->
   <Target Name="MakeDirectories">
     <!-- Create base directories-->
-    <MakeDir Directories="$(MTOUTDIR)\$(config);$(MTOUTDIR)\$(config)\Bin;$(MTOUTDIR)\$(config)\Lib;$(MTOUTDIR)\$(config)\Msg;$(MTOUTDIR)\$(config)\Include"
+        <MakeDir Directories="$(MTOUTDIR)\$(config);$(MTOUTDIR)\$(config)\Bin;$(MTOUTDIR)\$(config)\Lib;$(MTOUTDIR)\$(config)\Msg;$(MTOUTDIR)\$(config)\Include;$(MTOUTDIR)\$(config)\TestResults"
               ContinueOnError="true" />
   </Target>
 
@@ -678,21 +679,6 @@
 		<Message Text="$(TaskResult)"  Importance="high" />
   </Target>
 	
-  <Target Name="BuildTests">
-    <Message Text="Compiling Test Projects..." Importance="high"/>
-	
-    <!-- Build all test projects -->
-    <MSBuild Projects="@(TestProjects)"
-				Targets="$(MyTargets)"
-				Properties="Configuration=$(config)"
-				StopOnFirstFailure="$(StopOnFirstError)"
-				RebaseOutputs="true" 
-				BuildInParallel="true"
-				/>
-    
-	<Message Text="$(TaskResult)"  Importance="high" /> 
-  </Target>
-	
 	  <Target Name="BuildCsharp">
     <Message Text="Target: $(MyTargets)" Importance="high"/>
     
@@ -761,25 +747,66 @@
   <Target Name="PerformTlbImp" Inputs="@(TlbImpInputFile)" Outputs="@(TlbImpOutputFile)">
     <Exec Condition="Exists('C:\Windows\SysWow64\TLBINF32.DLL')" Command="tlbimp.exe @(TlbImpInputFile) /silent /namespace:TLI /machine:X86 /out:@(TlbImpOutputFile) /sysarray /transform:DispRet" />
     <Exec Condition="Exists('C:\WINDOWS\system32\TLBINF32.DLL')" Command="tlbimp.exe @(TlbImpInputFile2) /silent /namespace:TLI /machine:X86 /out:@(TlbImpOutputFile) /sysarray /transform:DispRet" />
+  </Target>  
+  
+  
+  <!-- Get Assemblies -->
+	<Target Name="GetAllTestAssemblies">
+		<CreateItem
+			Include="$(MTOUTDIR)\$(config)\bin\*.Test.dll"			
+			AdditionalMetadata="TestContainerPrefix=/testcontainer:">
+			<Output TaskParameter="Include"
+			ItemName="UnitTestAssemblies"/>
+		</CreateItem>
+	</Target>  
+  
+  <!-- Tests -->
+  <Target Name="BuildTests">
+    <Message Text="Compiling Test Projects..." Importance="high"/>
+	
+    <!-- Build all test projects -->
+    <MSBuild Projects="@(TestProjects)"
+				Targets="$(MyTargets)"
+				Properties="Configuration=$(config)"
+				StopOnFirstFailure="$(StopOnFirstError)"
+				RebaseOutputs="true" 
+				BuildInParallel="true"
+				/>
+    
+	<Message Text="$(TaskResult)"  Importance="high" /> 
   </Target>
   
+	<Target Name="RunUnitTests" DependsOnTargets="GetAllTestAssemblies">
+		<Message Text="Running Unit Tests..."/>
+		<Exec Condition="Exists ('$(TestResultsFolder)\UnitTestResult.trx')" Command="del $(TestResultsFolder)\UnitTestResult.trx"/>
+		<Exec Command="MsTest.exe @(UnitTestAssemblies->'%(TestContainerPrefix)%22%(FullPath)%22',' ') /category:UnitTest /testsettings:$(ROOTDIR)\MetraTech\Local.testsettings /resultsfile:$(TestResultsFolder)\UnitTestResult.trx"/>
+		<Message Text="Unit Testing Done"/>
+	</Target>
+  
+  <Target Name="RunFunctionalTests" DependsOnTargets="GetAllTestAssemblies">
+                               <Message Text="Running Functional Tests..."/>
+                               <Exec Condition="Exists ('$(TestResultsFolder)\ FunctionalTestResult.trx')" Command="del $(TestResultsFolder)\FunctionalTestResult.trx"/>
+                               <Exec Command="MsTest.exe @(UnitTestAssemblies->'%(TestContainerPrefix)%22%(FullPath)%22',' ') /category: FunctionalTest/testsettings:$(ROOTDIR)\MetraTech\Local.testsettings /resultsfile:$(TestResultsFolder)\FunctionalTestResult.trx"/>
+                               <Message Text="Unit Testing Done"/>
+   </Target>
+
+
   <!-- High Level Build Operations -->
   <!-- Removed Copyfiles target from Incremental as part cleanup effort. SZ 07/19/12 -->
   <Target Name="Incremental" DependsOnTargets="BuildSources;UI" />
-  <Target Name="IncrementalAndMVM" DependsOnTargets="Incremental;BuildMVM" />
-  <Target Name="All" DependsOnTargets="CopyFiles;BuildRuntimeMessages;BuildIDLs;BuildSources;UI" />
-  <Target Name="AllAndMVM" DependsOnTargets="All;BuildMVM" />
+  <Target Name="IncrementalWithUT" DependsOnTargets="Incremental;BuildAndRunUnitTests" />
+  <Target Name="IncrementalAndMVM" DependsOnTargets="Incremental;BuildMVM;BuildAndRunUnitTests" />
+  <Target Name="All" DependsOnTargets="CopyFiles;BuildRuntimeMessages;BuildIDLs;Incremental" />
   <Target Name="CopyFiles" DependsOnTargets="MakeDirectories;CopySourceDLLs;CopyVersionDependentSourceDLLs;CopySourceLibs;CopyVersionDependentSourceLibs" />
   <Target Name="BuildRuntimeMessages" DependsOnTargets="MakeDirectories;BuildMCFiles;CompileMessageMCFiles;CompileMessageRCFiles;LinkMessageResourceDLLs" />
   <Target Name="BuildIDLs" DependsOnTargets="MakeDirectories;BuildTlbs;RegisterTlbs;BuildInteropAssemblies" />
   <Target Name="BuildSources" DependsOnTargets="MakeDirectories;SFBuild;PerformTlbImp;Build;BuildVBProjects" />
   <!--Target Name="BuildSources" DependsOnTargets="MakeDirectories;SFBuild;PerformTlbImp;Build;BuildVBProjects;BuildMVM" /-->
-  <!--<Target Name="BuildSources" DependsOnTargets="MakeDirectories;SFBuild;Build;BuildVBProjects" />-->
+  <Target Name="BuildAndRunUnitTests" DependsOnTargets="BuildTests;RunUnitTests" />
   <Target Name="UI" DependsOnTargets="Refresh;MetraNetUI;MetraViewUI" />
   <!--High Level Build Operations for Build Machines />-->
   <Target Name="MNAll" DependsOnTargets="CopyFiles;BuildRuntimeMessages;BuildIDLs;BuildSources;MNUI" />
   <Target Name="MNIncremental" DependsOnTargets="CopyFiles;BuildSources;MNUI" />
   <Target Name="MNUI" DependsOnTargets="Refresh;MetraNetUI;MetraViewUI" />
-
-
+  
 </Project>

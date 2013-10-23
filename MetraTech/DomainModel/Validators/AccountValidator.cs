@@ -1,14 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Reflection;
-using System.Diagnostics;
 using System.Globalization;
 using MetraTech.DomainModel.Enums.Account.Metratech_com_accountcreation;
 using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
 using MetraTech.Interop.IMTAccountType;
 using MetraTech.Accounts.Type;
-using MetraTech.DomainModel.Common;
 using MetraTech.DomainModel.AccountTypes;
 using MetraTech.DomainModel.Enums;
 using MetraTech.ActivityServices.Services.Common;
@@ -19,9 +16,6 @@ namespace MetraTech.DomainModel.Validators
 {
   public class AccountValidator : IValidator
   {
-    #region Properties
-    #endregion
-
     #region IValidator Methods
     public bool Validate(object obj, out List<string> validationErrors)
     {
@@ -153,7 +147,7 @@ namespace MetraTech.DomainModel.Validators
       }
       else
       {
-        if (account.UserName.Length > 40)
+        if (account.UserName.Length > 255)
         {
           validationErrors.Add(String.Format(INVALID_ACCOUNT_USERNAME, account.UserName));
           isValid = false;
@@ -431,9 +425,17 @@ namespace MetraTech.DomainModel.Validators
       UsageCycleType? usageCycleType = ((InternalView)account.GetInternalView()).UsageCycleType;
       if (!usageCycleType.HasValue)
       {
-        validationErrors.Add(String.Format(MISSING_USAGE_CYCLE_TYPE,
-                                           account.UserName));
-        return false;
+        AccountTypeCollection mAccountTypeCollection = new AccountTypeCollection();
+        var accountType = mAccountTypeCollection.GetAccountType(account.AccountType);
+
+        if ((accountType.CanBePayer || accountType.CanSubscribe || accountType.CanParticipateInGSub))
+        {
+          validationErrors.Add(String.Format(MISSING_USAGE_CYCLE_TYPE,
+                                             account.UserName));
+          return false;
+        }
+
+        return true;
       }
 
       switch (usageCycleType)
@@ -824,7 +826,7 @@ namespace MetraTech.DomainModel.Validators
     public const string MISSING_PAYER_NAMESPACE = "The account '{0}' has a payer login '{1}' but no namespace information.";
     public const string MISSING_LOGIN_APP = "The system account '{0}' must have a login application";
     public const string INVALID_ACCOUNT_ANCESTOR = "The account '{0}' has an invalid ancestor id of -1";
-    public const string INVALID_ACCOUNT_USERNAME = "The account '{0}' cannot have a username greater than 40 characters.";
+    public const string INVALID_ACCOUNT_USERNAME = "The account '{0}' cannot have a username greater than 255 characters.";
     public const string INVALID_ACCOUNT_PASSWORD = "The account '{0}' cannot have a password greater than 1024 characters.";
     public const string INVALID_START_YEAR = "The account '{0}' must have a start year that is between 1970 and 2037.";
     public const string INVALID_START_DAY = "The account '{0}' has a start day that is greater than the number of days for the month '{1}' in year '{2}'.";

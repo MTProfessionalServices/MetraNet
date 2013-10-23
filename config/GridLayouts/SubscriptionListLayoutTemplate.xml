@@ -42,8 +42,8 @@
     <ShowGridHeader>true</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <NoRecordsText>
-      <LocalizationTag>NoRecordsFound.HeaderText</LocalizationTag>
-      <ResourceClassKey></ResourceClassKey>
+        <LocalizationTag>NoRecordsFound.HeaderText</LocalizationTag>
+        <ResourceClassKey></ResourceClassKey>
     </NoRecordsText>
     <Resizeable>true</Resizeable>
     <SearchOnLoad>true</SearchOnLoad>
@@ -52,6 +52,7 @@
     <CustomImplementationFilePath></CustomImplementationFilePath>
     <DataSourceURL></DataSourceURL>
     <SubGrid></SubGrid>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
@@ -197,7 +198,7 @@
             <ObjectName>MetraTech.DomainModel.ProductCatalog.Subscription</ObjectName>
             <ID>ProductOffering.ProductOfferingId</ID>
             <DataType>Numeric</DataType>
-            <IsIdentity>true</IsIdentity>
+            <IsIdentity>false</IsIdentity>
             <DataIndex>ProductOffering.ProductOfferingId</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>

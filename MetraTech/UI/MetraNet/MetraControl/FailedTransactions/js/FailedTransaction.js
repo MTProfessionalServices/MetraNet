@@ -141,7 +141,7 @@ function statusColRenderer(value, meta, record, rowIndex, colIndex, store) {
     var statusChangePage = "/MetraNet/MetraControl/FailedTransactions/ChangeStatus.aspx?Action=" + action;
     if(ids != "all")
     {
-      statusChangePage += "&FailureIDs=" + ids;
+      statusChangePage += "&FailureIDs=" + encodeURIComponent(ids);
   }
     var tpl = new Ext.XTemplate(
             '<tpl for=".">',

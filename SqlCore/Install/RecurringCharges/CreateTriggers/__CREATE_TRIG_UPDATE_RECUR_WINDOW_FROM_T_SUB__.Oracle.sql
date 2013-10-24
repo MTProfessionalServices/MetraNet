@@ -70,8 +70,21 @@ create or replace TRIGGER trig_recur_window_sub AFTER INSERT OR UPDATE OR DELETE
 END IF;
 
 UPDATE tmp_newrw SET c_BilledThroughDate = metratime(1,'RC');
+
+DELETE FROM tmp_newrw a
+      WHERE a.ROWID > ANY (SELECT b.ROWID
+                             FROM tmp_newrw b
+                            WHERE a.c__AccountID = b.c__AccountID
+                              AND a.c__SubscriptionID = b.c__SubscriptionID);
   
-insert into t_recur_window select * from tmp_newrw;
+INSERT INTO t_recur_window select * from tmp_newrw;
+
+DELETE FROM T_RECUR_WINDOW a
+      WHERE a.ROWID > ANY (SELECT b.ROWID
+                             FROM T_RECUR_WINDOW b
+                            WHERE a.c__AccountID = b.c__AccountID
+                              AND a.c__SubscriptionID = b.c__SubscriptionID);
+
 MeterInitialFromRecurWindow;
 MeterCreditFromRecurWindow;
 

@@ -1,19 +1,14 @@
 using System;
 using System.Collections;
-using System.Collections.Specialized;
 using System.Linq;
-using System.Diagnostics;
 using System.Xml;
 using System.Text;
 using System.Runtime.InteropServices;
 using MetraTech.Xml;
-using MetraTech;
 using MetraTech.Collections;
 using MetraTech.DataAccess;
 using MetraTech.Product.Hooks.UIValidation;
 using MetraTech.Interop.MTProductCatalog;
-using MetraTech.Interop.SysContext;
-using sqldmodotnet;
 using MetraTech.Interop.RCD;
 using MetraTech.Pipeline;
 using System.Reflection;
@@ -1626,35 +1621,24 @@ namespace MetraTech.Product.Hooks.DynamicTableUpdate
         /// <summary>
         /// Returns the id_enum_data for the passed enum string
         /// </summary>
-        /// <param name="table"></param>
-        /// <param name="column"></param>
         /// <param name="enumstring"></param>
         /// <param name="conn"></param>
         /// <returns></returns>
-        private int RetrieveTheEnumCode(string enumstring, IMTConnection conn)
+        private static int RetrieveTheEnumCode(string enumstring, IMTConnection conn)
         {
-            int enumcode = 0;
-            string procname = "";
-			if (mIsOracle)
-								procname = "RetrieveEnumCodeProc";
-						else
-								procname = "RetrieveEnumCode";
-			using (IMTCallableStatement callstmt = conn.CreateCallableStatement(procname))
+          int enumcode;
+          using (var callstmt = conn.CreateCallableStatement("RetrieveEnumCode"))
+          {
+            callstmt.AddReturnValue(MTParameterType.Integer);
+            callstmt.AddParam("enum_string", MTParameterType.String, enumstring);
+            callstmt.ExecuteNonQuery();
+            if (callstmt.ReturnValue == null || (int)callstmt.ReturnValue == 0)
             {
-              callstmt.AddReturnValue(MTParameterType.Integer);
-              //callstmt.AddParam( "table", MTParameterType.String, table );
-              //callstmt.AddParam( "column", MTParameterType.String, column );
-              callstmt.AddParam("enum_string", MTParameterType.String, enumstring);
-              
-              callstmt.ExecuteNonQuery();
-              if (callstmt.ReturnValue == null || (int)callstmt.ReturnValue == 0)
-              {
-                throw new ApplicationException("Enum string not found in database: " + enumstring);
-              }
-              enumcode = (int)callstmt.ReturnValue;
+              throw new ApplicationException("Enum string not found in database: " + enumstring);
             }
-
-            return enumcode;
+            enumcode = (int) callstmt.ReturnValue;
+          }
+          return enumcode;
         }
 
         /// <summary>

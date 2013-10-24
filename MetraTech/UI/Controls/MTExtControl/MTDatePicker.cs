@@ -17,7 +17,8 @@ namespace MetraTech.UI.Controls
                              altFormats:DATE_TIME_FORMAT,
                              minValue:%%MIN_VALUE%%,
                              maxValue:%%MAX_VALUE%%,
-                             regex:%%VALIDATION_REGEX%%";
+                             regex:%%VALIDATION_REGEX%%,
+                             compareValue:%%COMPARE_VALUE%%";
     #endregion
 
 
@@ -79,6 +80,25 @@ namespace MetraTech.UI.Controls
         ViewState["MinValue"] = value;
       }
     }
+
+    [Bindable(true)]
+    [Category("Appearance")]
+    [DefaultValue("")]
+    [Localizable(true)]
+    [NotifyParentProperty(true)]
+    public string CompareValue
+    {
+      get
+      {
+        String s = (String)ViewState["CompareValue"];
+        return s;
+      }
+
+      set
+      {
+        ViewState["CompareValue"] = value;
+      }
+    }
     #endregion
 
     #region Events
@@ -97,6 +117,7 @@ namespace MetraTech.UI.Controls
       string options = Options.Replace("%%MAX_VALUE%%", (String.IsNullOrEmpty(MaxValue)? "null" : "'" + MaxValue + "'"));
       options = options.Replace("%%MIN_VALUE%%", (String.IsNullOrEmpty(MinValue) ? "null" : "'" + MinValue + "'"));
       options = options.Replace("%%VALIDATION_REGEX%%", (String.IsNullOrEmpty(ValidationRegex) ? "null" : ValidationRegex));
+      options = options.Replace("%%COMPARE_VALUE%%", (String.IsNullOrEmpty(CompareValue) ? "null" : CompareValue));
 
       //attach options to OptionalExtConfig. NOTE: there is no duplicate resolution
       OptionalExtConfig = (String.IsNullOrEmpty(OptionalExtConfig) ? options : options + "," + OptionalExtConfig);

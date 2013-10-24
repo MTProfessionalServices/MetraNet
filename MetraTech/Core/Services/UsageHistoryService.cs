@@ -3962,7 +3962,7 @@ namespace MetraTech.Core.Services
                             {
                                 int descId = prodViewProp.DescriptionID;
                                 fromClause += string.Format(
-                                    "\n{0} t_description desc{1} ON desc{1}.id_desc = pv.{2} and desc{1}.id_lang_code = {3}langCode",
+                                    "\n{0} t_description desc{1} ON desc{1}.id_desc = pv.{2} and desc{1}.id_lang_code = {3}langCode and pv.{2} > 0",
                                     (prodViewProp.required ? "INNER JOIN" : "LEFT OUTER JOIN"),  // ESR-6199
                                     descId, 
                                     prodViewProp.ColumnName, 

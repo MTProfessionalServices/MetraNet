@@ -254,15 +254,89 @@ BOOL PipelineFailureWriter::FinalizeWriteError(MTPipelineLib::IMTTransactionPtr 
   {
     if (mIsOracle)
     {
-      mArrayInsertToFailureTable->ExecuteBatch();
+         int rc = 0;
+         
+         rc = mArrayInsertToFailureTable->ExecuteBatch();
+         if (rc < 0)
+         {
+           std::string buffer;
+           buffer = "Failed to write failed transactions: ";
+           buffer += functionName;
+           mLogger.LogThis(LOG_ERROR, buffer.c_str());
+         }
+         else if (rc == 0)
+         {
+           std::string buffer;
+           buffer = "Did not write any failed transactions: ";
+           buffer += functionName;
+           mLogger.LogThis(LOG_WARNING, buffer.c_str());
+         }
       mConnection->CommitTransaction();
-      mArrayInsertToFailureSessionStateTable->ExecuteBatch();
+      rc = mArrayInsertToFailureSessionStateTable->ExecuteBatch();
+      if (rc < 0)
+      {
+        std::string buffer;
+        buffer = "Failed to write failed session states: ";
+        buffer += functionName;
+        mLogger.LogThis(LOG_ERROR, buffer.c_str());
+      }
+      else if (rc == 0)
+      {
+        std::string buffer;
+        buffer = "Did not write any failed session states: ";
+        buffer += functionName;
+        mLogger.LogThis(LOG_WARNING, buffer.c_str());
+      }
       mStateConnection->CommitTransaction();
     }
     else
     {
-      mBcpInsertToFailureTable->ExecuteBatch();
-      mBcpInsertToFailureSessionStateTable->ExecuteBatch();
+      int rc = 0;
+      rc = mBcpInsertToFailureTable->ExecuteBatch();
+      if (rc < 0)
+      {
+        std::string buffer;
+        buffer = "Failed to write failed transactions: ";
+        buffer += functionName;
+        mLogger.LogThis(LOG_ERROR, buffer.c_str());
+      }
+      else if (rc == 0)
+      {
+        std::string buffer;
+        buffer = "Did not write any failed transactions: ";
+        buffer += functionName;
+        mLogger.LogThis(LOG_WARNING, buffer.c_str());
+      }
+      rc = mBcpInsertToFailureSessionStateTable->ExecuteBatch();
+      if (rc < 0)
+      {
+        std::string buffer;
+        buffer = "Failed to write failed session states: ";
+        buffer += functionName;
+        mLogger.LogThis(LOG_ERROR, buffer.c_str());
+      }
+      else if (rc == 0)
+      {
+        std::string buffer;
+        buffer = "Did not write any failed session states: ";
+        buffer += functionName;
+        mLogger.LogThis(LOG_WARNING, buffer.c_str());
+      }
+      rc = mBcpInsertToFailureSessionStateTable->ExecuteBatch();
+      if (rc < 0)
+      {
+        std::string buffer;
+        buffer = "Failed to write failed session states: ";
+        buffer += functionName;
+        mLogger.LogThis(LOG_ERROR, buffer.c_str());
+      }
+      else if (rc == 0)
+      {
+        std::string buffer;
+        buffer = "Did not write any failed session states: ";
+        buffer += functionName;
+        mLogger.LogThis(LOG_WARNING, buffer.c_str());
+      }
     }
 	  	
 

@@ -1,14 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using MetraTech.DomainModel.Common;
 using MetraTech.UI.Controls.MTLayout;
 using System.IO;
 using System.Xml.Serialization;
 using MetraTech.UI.Common;
 using System.Reflection;
 using MetraTech.UI.Tools;
-using System.Web.UI;
 using System.Web;
 using System.Configuration;
 using MetraTech.BusinessEntity.DataAccess.Metadata;
@@ -16,14 +13,12 @@ using MetraTech.BusinessEntity.Service.ClientProxies;
 
 namespace MetraTech.UI.Controls
 {
-  
   public class MTGridSerializer
   {
     #region utility methods
-    private string layoutName;
-    private MetraTech.Logger mtLog = new Logger("[MTGridSerializer]");
-    private Dictionary<string, object> objectCache = new Dictionary<string, object>();
-    private MTPage pageReference = null;
+    private readonly Logger _mtLog = new Logger("[MTGridSerializer]");
+    private readonly Dictionary<string, object> _objectCache = new Dictionary<string, object>();
+    private MTPage _pageReference;
 
     /// <summary>
     /// Creates and returns an object instance of type objectName from assembly specified by asmFilename
@@ -35,13 +30,13 @@ namespace MetraTech.UI.Controls
     {
       if (String.IsNullOrEmpty(objectName))
       {
-        mtLog.LogWarning("Object name is empty. Unable to create object");
+        _mtLog.LogWarning("Object name is empty. Unable to create object");
         return null;
       }
 
       if (String.IsNullOrEmpty(asmFilename))
       {
-        mtLog.LogWarning("Assembly Name is missing. Unable to create object");
+        _mtLog.LogWarning("Assembly Name is missing. Unable to create object");
         return null;
       }
 
@@ -58,42 +53,7 @@ namespace MetraTech.UI.Controls
       }
       catch (Exception ex)
       {
-        mtLog.LogInfo("Unable to create object " + objectName + ": " + ex.Message);
-        return null;
-      }
-    }
-
-    /// <summary>
-    /// Gets the value of propertyName within object specified by dynamicObject
-    /// </summary>
-    /// <param name="dynamicObject"></param>
-    /// <param name="propertyName"></param>
-    /// <returns></returns>
-    private object GetPropertyValue(object dynamicObject, string propertyName)
-    {
-      try
-      {
-        if (string.IsNullOrEmpty(propertyName))
-        {
-          mtLog.LogWarning("Property name is empty. Unable to retrieve");
-          return null;
-        }
-
-        if (dynamicObject == null)
-        {
-          mtLog.LogWarning("Unable to retrieve property from null object");
-          return null;
-        }
-
-        PropertyInfo pi = dynamicObject.GetType().GetProperty(propertyName);
-        object propValue = pi.GetValue(dynamicObject, null);
-
-        return propValue;
-      }
-      catch (Exception ex)
-      {
-        mtLog.LogException("Error getting property value",ex);
-        mtLog.LogInfo("Unable to retrieve property " + propertyName);
+        _mtLog.LogInfo("Unable to create object " + objectName + ": " + ex.Message);
         return null;
       }
     }
@@ -107,14 +67,14 @@ namespace MetraTech.UI.Controls
 
       //if item is in cache, return it
       string key = assemblyFilename + "|" + objectName;
-      if (objectCache.ContainsKey(key))
+      if (_objectCache.ContainsKey(key))
       {
-        return objectCache[key];
+        return _objectCache[key];
       }
 
       //item not in cache
       object dynObj = CreateObject(assemblyFilename, objectName);
-      objectCache.Add(key, dynObj);
+      _objectCache.Add(key, dynObj);
 
       return dynObj;
     }
@@ -127,53 +87,50 @@ namespace MetraTech.UI.Controls
     /// <returns></returns>
     public string GetElementDisplayName(ElementLayout layoutElement, object masterObject)
     {
-      string strValue = String.Empty;
-
+      var strValue = string.Empty;
       //in case of product views we'll get the master object corresponding to the PV
       if (masterObject != null)
       {
-        string rawElementID = layoutElement.ID;
-        if ((rawElementID.EndsWith("ValueDisplayName")) && (rawElementID.Length > "ValueDisplayName".Length))
+        var rawElementId = layoutElement.ID;
+        if ((rawElementId.EndsWith("ValueDisplayName")) && (rawElementId.Length > "ValueDisplayName".Length))
         {
           //strip ValueDisplayName from the string
-          rawElementID = rawElementID.Replace("ValueDisplayName", "");
+          rawElementId = rawElementId.Replace("ValueDisplayName", "");
         }
 
-        string propName = rawElementID + "DisplayName";
-        BindingFlags bflags = BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance;
-
-        if (masterObject.GetType().GetProperty(propName, bflags) != null)
+        var propName = rawElementId + "DisplayName";
+        var property = Utils.GetPropertyInfo(masterObject, propName);
+        if (property != null)
         {
           try
           {
-            object propValue = Utils.GetPropertyEx(masterObject, propName);
+            var propValue = Utils.GetPropertyEx(masterObject, property.Name);
             return propValue.ToString();
           }
           catch (Exception ex)
           {
-            mtLog.LogException("Unable to extract display name for property " + propName, ex);
+            _mtLog.LogException("Unable to extract display name for property " + propName, ex);
             return string.Empty;
           }
-
         }
       }
 
       if (!String.IsNullOrEmpty(layoutElement.ObjectName))
       {
-        object dynamicObject = GetObject(layoutElement.AssemblyFilename, layoutElement.ObjectName);
+        var dynamicObject = GetObject(layoutElement.AssemblyFilename, layoutElement.ObjectName);
         if (dynamicObject != null)
         {
-          string rawElementID = layoutElement.ID;
-          if ((rawElementID.EndsWith("ValueDisplayName")) && (rawElementID.Length > "ValueDisplayName".Length))
+          var rawElementId = layoutElement.ID;
+          if ((rawElementId.EndsWith("ValueDisplayName")) && (rawElementId.Length > "ValueDisplayName".Length))
           {
             //strip ValueDisplayName from the string
-            rawElementID = rawElementID.Replace("ValueDisplayName", "");
+            rawElementId = rawElementId.Replace("ValueDisplayName", "");
           }
 
-          string propName = rawElementID + "DisplayName";
+          var propName = rawElementId + "DisplayName";
 
           //strip everything before last . or /
-          int separatorPos = propName.LastIndexOfAny(new char[] { '.', '/' });
+          var separatorPos = propName.LastIndexOfAny(new[] {'.', '/'});
           if ((separatorPos >= 0) && (separatorPos != propName.Length))
           {
             propName = propName.Substring(separatorPos + 1);
@@ -182,53 +139,50 @@ namespace MetraTech.UI.Controls
           try
           {
             //property exists in the dynamic object
-            if (dynamicObject.GetType().GetProperty(propName) != null)
+            var property = Utils.GetPropertyInfo(dynamicObject, propName);
+            if (property != null)
             {
-              object propValue = Utils.GetPropertyEx(dynamicObject, propName);
-
+              var propValue = Utils.GetPropertyEx(dynamicObject, property.Name);
               return propValue == null ? String.Empty : propValue.ToString();
             }
-            else
+
             //attempt to get it from BE's
+            if (_pageReference != null)
             {
-              if (pageReference != null)
+              // If we are dealing with a Business Entity, then we need to get the label differently
+              // we call the metadata service.
+
+              if (dynamicObject is DataObject)
               {
-                // If we are dealing with a Business Entity, then we need to get the label differently
-                // we call the metadata service.
+                var metadataService = new MetadataService_GetEntity_Client();
+                metadataService.UserName = _pageReference.UI.User.UserName;
+                metadataService.Password = _pageReference.UI.User.SessionPassword;
+                metadataService.In_entityName = layoutElement.ObjectName;
+                metadataService.Invoke();
+                var entity = metadataService.Out_entity;
 
-                if (dynamicObject is DataObject)
+                if (entity != null)
                 {
-                  var metadataService = new MetadataService_GetEntity_Client();
-                  metadataService.UserName = pageReference.UI.User.UserName;
-                  metadataService.Password = pageReference.UI.User.SessionPassword;
-                  metadataService.In_entityName = layoutElement.ObjectName;
-                  metadataService.Invoke();
-                  var entity = metadataService.Out_entity;
-
-                  if (entity != null)
+                  //retrieve the property of the object by the ID field of the element
+                  Property prop = entity[layoutElement.ID];
+                  if (prop == null)
                   {
-                    //retrieve the property of the object by the ID field of the element
-                    Property prop = entity[layoutElement.ID];
-                    if (prop == null)
-                    {
-                      return layoutElement.ID;
-                    }
-
-                    return prop.GetLocalizedLabel();
+                    return layoutElement.ID;
                   }
-                }
-                else
-                {
-                  return string.Empty;
-                }
 
+                  return prop.GetLocalizedLabel();
+                }
+              }
+              else
+              {
+                return string.Empty;
               }
             }
           }
           catch (Exception ex)
           {
-              mtLog.LogException("Error getting property value", ex);
-              mtLog.LogInfo("Unable to retrieve property " + propName);
+            _mtLog.LogException("Error getting property value", ex);
+            _mtLog.LogInfo("Unable to retrieve property " + propName);
             return strValue;
           }
         }
@@ -242,7 +196,6 @@ namespace MetraTech.UI.Controls
       {
         strValue = "{" + layoutElement.ID + "}";
       }
-
       return strValue;
     }
 
@@ -319,7 +272,7 @@ namespace MetraTech.UI.Controls
 
     public void PopulateGridFromLayout(MTFilterGrid grid, string layoutFile, MTPage page)
     {
-      pageReference = page;
+      _pageReference = page;
       HttpApplicationState app = page.Application;
       
       GridLayout gl;
@@ -361,8 +314,6 @@ namespace MetraTech.UI.Controls
     {
       // If we are rendering a ProductView we get the object name and the assembly passed into the grid.
       LoadProductViewFromLayout(grid, gl);
-
-      layoutName = gl.Name;
 
       if (gl.NoRecordsText != null)
         grid.NoRecordsText = gl.NoRecordsText.GetValue();
@@ -761,38 +712,33 @@ namespace MetraTech.UI.Controls
         }
       }
 
-      object dynObject = GetObject(elementLayout.AssemblyFilename, elementLayout.ObjectName);
+      var dynObject = GetObject(elementLayout.AssemblyFilename, elementLayout.ObjectName);
       if (dynObject == null)
       {
         return false;
       }
 
       //if elementID contains the object path, strip it, so we only have the actual property part of it
-      string elementIDLeaf = elementID;
-      if ((elementIDLeaf.LastIndexOf(".") > 0) && (elementIDLeaf.LastIndexOf(".") < elementIDLeaf.Length - 1))
+      var elementIdLeaf = elementID;
+      if ((elementIdLeaf.LastIndexOf(".") > 0) && (elementIdLeaf.LastIndexOf(".") < elementIdLeaf.Length - 1))
       {
-        elementIDLeaf = elementIDLeaf.Substring(elementIDLeaf.LastIndexOf(".") + 1);
+        elementIdLeaf = elementIdLeaf.Substring(elementIdLeaf.LastIndexOf(".") + 1);
       }
 
-      if (dynObject.GetType().GetProperty(elementIDLeaf) == null)
+      var property = Utils.GetPropertyInfo(dynObject, elementIdLeaf);
+      if (property == null)
       {
         return false;
       }
 
-      if (dynObject.GetType().GetProperty(elementIDLeaf).PropertyType.IsEnum)
+      if (property.PropertyType.IsEnum)
       {
         return true;
       }
 
-      Type[] types = dynObject.GetType().GetProperty(elementIDLeaf).PropertyType.GetGenericArguments();
-      if (types.Length > 0)
-      {
-        return types[0].IsEnum;
-      }
-
-      return false;
+      var types = property.PropertyType.GetGenericArguments();
+      return types.Length > 0 && types[0].IsEnum;
     }
-
 
     protected void LoadSectionFromLayout(MTGridExpanderSection gridSection, Section layoutSection, GridLayout gridLayout)
     {

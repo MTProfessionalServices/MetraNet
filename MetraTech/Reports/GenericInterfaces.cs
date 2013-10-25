@@ -42,7 +42,7 @@ namespace MetraTech.Reports
 		/// This method is a first method to be called by reporting adapters. Logon information is read by adapters from 
 		/// <code>extensions\Reporting\config\ServerAccess\servers.xml</code> file
 		/// <summary>
-		void LoginToReportingServer(string aServerName, string aUserName, string aPassword);
+		void LoginToReportingServer(string aServerName, string aUserName, string aPassword, string aDataSource);
 
 		/// <summary>
 		/// Set parameters for reporting database

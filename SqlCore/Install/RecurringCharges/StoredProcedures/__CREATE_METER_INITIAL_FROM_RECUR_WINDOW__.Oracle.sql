@@ -68,14 +68,14 @@ PROCEDURE METERinitialFROMRECURWINDOW AS
 	inner join t_usage_interval currentui on metratime(1,'RC') between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = ui.id_usage_cycle
 where 1=1
 /*Only meter new subscriptions as initial -- so select only items that have at most one entry in t_sub_history*/
-    AND NOT EXISTS (SELECT 1 FROM t_sub_history tsh WHERE tsh.id_sub = rw.C__SubscriptionID AND tsh.id_acc = rw.c__AccountID
+    AND NOT EXISTS (SELECT 1 FROM t_sub_history tsh WHERE tsh.id_sub = rw.c__SubscriptionID AND tsh.id_acc = rw.c__AccountID
       AND tsh.tt_end < metratime(1,'RC'))
 /*Also no old unit values*/
     AND NOT EXISTS (SELECT 1 FROM t_recur_value trv WHERE trv.id_sub = rw.c__SubscriptionID AND trv.tt_end < dbo.MTMaxDate())
 /* Don't meter in the current interval for initial*/
     AND ui.dt_start < metratime(1,'RC')
     ;
-
+	
    insertChargesIntoSvcTables('Initial','Initial');
 
 end METERinitialFROMRECURWINDOW;

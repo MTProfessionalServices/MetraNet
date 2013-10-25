@@ -155,10 +155,31 @@ namespace MetraCareWorkflowLibrary
 
     public void LoadAccountActivity_ExecuteCode(object sender, EventArgs e)
     {
-      LoadAccount_Timestamp = MetraTime.Now;
-    }
+      LoadAccount_Timestamp = LoadTime;
+ 	  }
 
+ 	  public static DependencyProperty LoadTimeProperty = System.Workflow.ComponentModel.DependencyProperty.Register("LoadTime", typeof(DateTime), typeof(UpdateAccountWorkflow));
+ 	
+ 	  [Description("This is the description which appears in the Property Browser")]
+ 	  [Category("This is the category which will be displayed in the Property Browser")]
+ 	  [Browsable(true)]
+ 	  [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+ 	  [EventInputArg("Start_UpdateAccount")]
+ 	  [EventInputArg("OK_UpdateAccount")]
+ 	  public DateTime LoadTime
+ 	  {
+ 	    get
+ 	    {
+ 	      return ((DateTime)(base.GetValue(UpdateAccountWorkflow.LoadTimeProperty)));
+ 	    }
+ 	    set
+ 	    {
+ 	      base.SetValue(UpdateAccountWorkflow.LoadTimeProperty, value);
+ 	    }
+ 	  }
+    
     public DateTime LoadAccount_Timestamp = default(System.DateTime);
+
     public static DependencyProperty PageStateGuidProperty = DependencyProperty.Register("PageStateGuid", typeof(System.Guid), typeof(MetraCareWorkflowLibrary.UpdateAccountWorkflow));
 
     [DesignerSerializationVisibilityAttribute(DesignerSerializationVisibility.Visible)]

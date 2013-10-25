@@ -114,6 +114,20 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Decimal, mscorlib" />
     </property>
+	<property name="TotalTax" column="c_TotalTax" precision="22" scale="10">
+      <meta attribute="label">Total tax</meta>
+      <meta attribute="description">Total sum of taxes in quote</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Decimal, mscorlib" />
+    </property>
 	<property name="Currency" column="c_Currency" length="255">
       <meta attribute="label">ReportLink</meta>
       <meta attribute="description">Currency of quote amount</meta>

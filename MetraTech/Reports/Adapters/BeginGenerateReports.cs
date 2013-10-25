@@ -115,6 +115,7 @@ namespace MetraTech.Reports.Adapters
 			string apsname = ReportConfiguration.GetInstance().APSName;
 			string apsuser = ReportConfiguration.GetInstance().APSUser;
 			string apspassword = ReportConfiguration.GetInstance().APSPassword;
+			string apsdatasource = ReportConfiguration.GetInstance().APSDataSource;
             // g. cieplik 8/25/2009 CORE-1472 
             string apsdatabasename = ReportConfiguration.GetInstance().APSDatabaseName;
 
@@ -155,7 +156,7 @@ namespace MetraTech.Reports.Adapters
 				aContext.RecordInfo(string.Format("Adapter {0} is executing in {1} mode", mEvent, mode));
 
 				// Login into reporting server
-				mgr.LoginToReportingServer(apsname, apsuser, apspassword);
+				mgr.LoginToReportingServer(apsname, apsuser, apspassword, apsdatasource);
 
 				// Set reporting database parameters
 				// first we need to resolve an entry in case it was localhost or 127.0.0.1
@@ -426,6 +427,7 @@ namespace MetraTech.Reports.Adapters
 			string apsname = ReportConfiguration.GetInstance().APSName;
 			string apsuser = ReportConfiguration.GetInstance().APSUser;
 			string apspassword = ReportConfiguration.GetInstance().APSPassword;
+			string apsdatasource = ReportConfiguration.GetInstance().APSDataSource;
 
 			// Get provider specific Report Manager object
 			mMgr = ReportConfiguration.GetInstance().GetReportManager();
@@ -441,7 +443,7 @@ namespace MetraTech.Reports.Adapters
 
 			//login into reporting server
 			aContext.RecordInfo(string.Format("Logging into reporting provider server. Provider: {0}, Machine: {1}, User: {2}.", mMgr.ProviderName, apsname, apsuser));
-			mMgr.LoginToReportingServer(apsname, apsuser, apspassword);
+			mMgr.LoginToReportingServer(apsname, apsuser, apspassword, apsdatasource);
 
             // Check if there is anything to revese. If t_report_instance_gen table is missing chances are
             // we are reversing because BeginGenerateReport failed to execute.

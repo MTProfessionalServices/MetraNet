@@ -764,11 +764,9 @@ void CMTPropertyMetaDataSet::LoadTableMap( map<string,MTMapItem>& arTableMap,
           {
 						std::wstring widebuf;
 						_bstr_t bstrTemp = (_bstr_t)val;
-#if 0
-						FormatValueForDB(bstrTemp, false, widebuf);
-#else
-						FormatValueForDB(bstrTemp, true, widebuf);
-#endif
+
+						FormatValueForDB(bstrTemp, mIsOracle, widebuf);
+
 						string tempstr = ascii(widebuf);
 						sprintf(buf,"%s",tempstr.c_str());
 					}

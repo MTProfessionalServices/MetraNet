@@ -155,11 +155,7 @@ public partial class UserControls_AccountMenu : System.Web.UI.UserControl
       }
 
        //remove UpdateContact if the managed user doesn't have contact information 
-       try 
-       { 
-        object prop = Utils.GetProperty(page.UI.Subscriber.SelectedAccount, "LDAP"); 
-       } 
-       catch (Exception exp) 
+       if (!Utils.CheckingExistenceOfProperty(page.UI.Subscriber.SelectedAccount, "LDAP"))
        { 
         menu.RemoveMenuItemById("UpdateContact"); 
        } 

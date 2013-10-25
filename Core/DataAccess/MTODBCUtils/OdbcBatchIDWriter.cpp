@@ -162,17 +162,14 @@ void COdbcBatchIDWriter::WriteBatchIDs(const std::map<std::wstring, int> & arBat
     }
     else
     {
-        mpStatement->ExecuteUpdate("insert into t_batch (tx_batch, tx_batch_encoded, tx_status, n_completed, n_failed, dt_first, dt_crt) "
-                                                             "select tx_batch, tx_batch_encoded, 'A', 0, 0, " + dateBuffer + ", " + dateBuffer + " from " + mBatchSummaryTable +
-                                                             " where tx_batch not in (select tx_batch from t_batch WITH(UPDLOCK))");
-
-        mpStatement->ExecuteUpdate("update t_batch "
-                                                             " set t_batch.n_completed = t_batch.n_completed + summ.n_completed, "
-                                                             "     t_batch.dt_first = case when t_batch.dt_first is null then " + dateBuffer + " else t_batch.dt_first end, "
-                                                             "     t_batch.tx_status = case when t_batch.tx_status = 'A' and (t_batch.n_completed + summ.n_completed) >= t_batch.n_expected then 'C' else t_batch.tx_status end, "
-                                                             "     t_batch.dt_last = " + dateBuffer +
-                                                             " from " + mBatchSummaryTable + " summ"
-                                                             " where t_batch.tx_batch = summ.tx_batch ");
+      RowSetInterfacesLib::IMTSQLRowsetPtr rowset(MTPROGID_SQLROWSET);
+      rowset->Init("queries\\MTBatch");
+      rowset->SetQueryTag("__BULK_UPDATE_BATCH_STATUS__");
+      _variant_t vtParam;
+      vtParam = mBatchSummaryTable.c_str();
+      // Dates are useless, use %%%SYSTEMDATE%%%
+      rowset->AddParam("%%TABLENAME%%", vtParam);
+      rowset->Execute();    
     }
 
 #else
@@ -185,14 +182,14 @@ void COdbcBatchIDWriter::WriteBatchIDs(const std::map<std::wstring, int> & arBat
         const std::wstring & id = it->first;
         long count = it->second;
 
-        // --- increment n_completed of t_batch for batchUID using sproc ---
-        rowset->InitializeForStoredProc("UpdateBatchStatus");
-
-        // --- pass in batchUID as safeArray ---
+        std::string batchUidStr;
+        ::WideStringToUTF8(id.c_str(), batchUidStr);
 
         // decodes the UID back to binary 
         unsigned char batchUID[DB_UID_SIZE];
-        MSIXUidGenerator::Decode(batchUID, WideStringToString(id.c_str()));
+        MSIXUidGenerator::Decode(batchUID, batchUidStr);
+
+        // --- pass in batchUID as safeArray ---
 
         // create safe array
         SAFEARRAYBOUND sabound[1] ;
@@ -212,17 +209,22 @@ void COdbcBatchIDWriter::WriteBatchIDs(const std::map<std::wstring, int> & arBat
         // Release lock on safe array
         ::SafeArrayUnaccessData(pSA);
 
+               // Prepare the stored procedure and execute
+        RowSetInterfacesLib::IMTSQLRowsetPtr rowset(MTPROGID_SQLROWSET);
+        rowset->Init("queries\\MTBatch");
+        rowset->InitializeForStoredProc("UpdateBatchStatus");
+
         // assign the safe array to the variant ...
         _variant_t vtValue;
         vtValue.vt = (VT_ARRAY | VT_UI1);
         vtValue.parray = pSA ;
-        rowset->AddInputParameterToStoredProc ( "a_tx_batch", MTTYPE_VARBINARY, INPUT_PARAM, vtValue);
-
-        // --- pass in n_completed ---
+        
+        rowset->AddInputParameterToStoredProc("tx_batch",         MTTYPE_VARBINARY, INPUT_PARAM, vtValue);
+        rowset->AddInputParameterToStoredProc("tx_batch_encoded", MTTYPE_VARCHAR,   INPUT_PARAM, id.c_str());
         vtValue = count;
-        rowset->AddInputParameterToStoredProc ( "a_n_completed", MTTYPE_INTEGER, INPUT_PARAM, vtValue);
-    
-        // -- execute it
+        rowset->AddInputParameterToStoredProc("n_completed",      MTTYPE_INTEGER,   INPUT_PARAM, vtValue);
+        rowset->AddInputParameterToStoredProc("sysdate",          MTTYPE_DATE,INPUT_PARAM,GetMTOLETime());
+                
         rowset->ExecuteStoredProc();
 
     }
@@ -391,24 +393,14 @@ void COdbcBatchIDWriter::UpdateErrorCounts(
     }
     else
     {
-        mpStatement->ExecuteUpdate("insert into t_batch (tx_namespace, tx_name, tx_batch, tx_batch_encoded, tx_status, n_completed, n_failed, n_expected, n_metered, dt_first, dt_crt) "
-                                                             "select 'pipeline', tx_batch_encoded, tx_batch, tx_batch_encoded, 'A', 0, 0, 0, 0, " + dateBuffer + ", " + dateBuffer + " from " + mBatchSummaryTable +
-                                                             " where tx_batch not in (select tx_batch from t_batch WITH(UPDLOCK))");
-
-        mpStatement->ExecuteUpdate("update t_batch "
-                                                             " set t_batch.n_failed = t_batch.n_failed + summ.n_completed, "
-                                                             "     t_batch.dt_first = case when t_batch.dt_first is null then " + dateBuffer + " else t_batch.dt_first end, "
-                                                             "     t_batch.dt_last = " + dateBuffer + ", "
-                                                             "     t_batch.tx_status = "
-                                                             // ESR-4575 MetraControl- failed batches have completed status. Corrected batches have failed status
-                                                             // Added a condition to mark batches with failed transections as Failed
-                                                             "       case when t_batch.tx_status = 'A' and ((t_batch.n_failed + summ.n_completed) > 0) then 'F' when t_batch.tx_status = 'A' and (((t_batch.n_completed + summ.n_completed + t_batch.n_failed) = t_batch.n_expected) or "
-                                                             "                                             ((t_batch.n_completed + summ.n_completed + t_batch.n_failed) = t_batch.n_metered)) then 'C' "
-                                                             "       when (t_batch.tx_status = 'A' and ((t_batch.n_completed + summ.n_completed + t_batch.n_failed) > t_batch.n_expected and t_batch.n_expected > 0) "
-                                                             "                or ((t_batch.n_completed + summ.n_completed + t_batch.n_failed) > t_batch.n_metered and t_batch.n_metered > 0)) "
-                                                             " then 'F' "
-                               "       else t_batch.tx_status end "
-                                                             " from " + mBatchSummaryTable + " summ "
-                                                             " where t_batch.tx_batch = summ.tx_batch ");
+        RowSetInterfacesLib::IMTSQLRowsetPtr rowset(MTPROGID_SQLROWSET);
+        rowset->Init("queries\\MTBatch");
+        rowset->SetQueryTag("__BULK_UPDATE_BATCH_FAILURES__");
+	
+        _variant_t vtParam;
+        vtParam = mBatchSummaryTable.c_str();
+        rowset->AddParam("%%TABLENAME%%", vtParam);
+        // Dates are useless, use %%%SYSTEMDATE%%%
+        rowset->Execute();
     }
 }

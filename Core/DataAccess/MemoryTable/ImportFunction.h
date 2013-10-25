@@ -2647,7 +2647,7 @@ public:
     //if (*inputBufferIt++ != ' ') return ParseDescriptor::PARSE_ERROR;
     if (*inputBufferIt++ == ' ') //return ParseDescriptor::PARSE_ERROR;
     {
-      logger->logWarning("This is 12 hr format ");
+
       if (*inputBufferIt == 'P') 
     {
       if (t.wHour < 12)
@@ -2674,7 +2674,7 @@ public:
     }
     else
     {
-    logger->logWarning("This is 24 hr format ");
+
     input.consume(19);
     }
     
@@ -2742,7 +2742,7 @@ public:
     if (*inputBufferIt++ != ' ') //return ParseDescriptor::PARSE_ERROR;
     //if (*inputBufferIt++ != ' ') return ParseDescriptor::PARSE_ERROR;
     {
-     logger->logWarning("This is 12 hr format ");
+
       if (*inputBufferIt == 'P') 
     {
       t.tm_hour += 12;
@@ -2759,7 +2759,7 @@ public:
     }
     else
     {
-      logger->logWarning("This is 24 hr format ");
+
       input.consume(19);
     }
     

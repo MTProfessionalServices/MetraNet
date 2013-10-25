@@ -431,13 +431,8 @@ namespace MetraTech.Product.Hooks.DynamicTableUpdate
 
             // Check reserved properties.
             if (mReservedProperties != null)
-            {
-              foreach (DictionaryEntry item in mReservedProperties)
-                {
-                    if (item.Key.ToString().ToUpper() == columnname.ToUpper())
-                        return null;
-                }
-            }
+              if (mReservedProperties.Keys.Cast<object>().Any(item => String.Equals(item.ToString(), columnname, StringComparison.CurrentCultureIgnoreCase)))
+                return null;
 
             columnname = columnname.Remove(0, 2); //removing the starting c_
             mColumns.Add(columnname);
@@ -1190,7 +1185,7 @@ namespace MetraTech.Product.Hooks.DynamicTableUpdate
                         throw new ApplicationException(msg);
                     }
                 }
-                else if (propdata.DataType == MetraTech.Interop.MTProductCatalog.PropValType.PROP_TYPE_ENUM && IsDefaultValueSet(propdata))
+                else if (propdata.DataType == MetraTech.Interop.MTProductCatalog.PropValType.PROP_TYPE_ENUM)
                 {
                     mLog.LogDebug("Property {0} was enum. Retrieving the enumcode for the default value set.", propdata.DBColumnName);
                     int enumvalue = RetrieveTheEnumCode(propdata.EnumSpace + "/" + propdata.EnumType + "/" + defvalue, conn);
@@ -1486,8 +1481,7 @@ namespace MetraTech.Product.Hooks.DynamicTableUpdate
                     stmt.AddParam("%%pk_id%%", mIsOracle ? "seq_" + mPropTableName + ".nextval," : "");
                     stmt.AddParam("%%fk_id%%", mPropFKID);
                     stmt.AddParam("%%nm_name%%", propdata.Name);
-                    // ESR-5004 a clone of ESR-4660 use GetColTypeDDL to get the datatype and precision
-                    stmt.AddParam("%%nm_data_type%%", GetColTypeDDL(propdata)); 
+                    stmt.AddParam("%%nm_data_type%%", propdata.DataTypeAsString);
 
                     stmt.AddParam("%%nm_column_name%%", propdata.DBColumnName);
                     stmt.AddParam("%%b_required%%", propdata.Required ? "Y" : "N");

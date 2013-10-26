@@ -609,6 +609,9 @@ namespace MetraTech.UI.Tools
     /// <returns></returns>
     public static PropertyInfo GetPropertyInfo(object obj, string propertyName)
     {
+      if (obj == null || string.IsNullOrEmpty(propertyName))
+        return null;
+
       var list = obj.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.SetProperty);
       return list.FirstOrDefault(propertyInfo => string.Compare(propertyInfo.Name, propertyName, StringComparison.OrdinalIgnoreCase) == 0);
     }

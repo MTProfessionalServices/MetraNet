@@ -684,48 +684,31 @@ namespace MetraTech.UI.Controls
       return null;
     }
     
-    public bool IsEnumField(GridLayout gridLayout, ElementLayout eltLayout, string elementID)
+    public bool IsEnumField(GridLayout gridLayout, ElementLayout eltLayout, string elementId)
     {
-
-      ElementLayout elementLayout = eltLayout;
-      if (elementLayout == null)
-      {
-        elementLayout = ElementLayoutLookup(elementID, gridLayout);
-      }
+      var elementLayout = eltLayout ?? ElementLayoutLookup(elementId, gridLayout);
       
       if (elementLayout == null)
       {
         return false;
       }
 
-      if (String.IsNullOrEmpty(elementLayout.AssemblyFilename) || (String.IsNullOrEmpty(elementLayout.ObjectName)))
-      {
-        return false;
-      }
-
       // For BE's we look at the datatype to see if it is a list, if it is, it "must" be a an enum
-      if (gridLayout.IsBusinessEntityLayout)
+      if (gridLayout.IsBusinessEntityLayout && !String.IsNullOrEmpty(elementLayout.DataType))
       {
-        if (!String.IsNullOrEmpty(elementLayout.DataType))
-        {
-          return elementLayout.DataType.ToLower() == "list";
-        }
-      }
-
-      var dynObject = GetObject(elementLayout.AssemblyFilename, elementLayout.ObjectName);
-      if (dynObject == null)
-      {
-        return false;
+        return elementLayout.DataType.ToLower() == "list";
       }
 
       //if elementID contains the object path, strip it, so we only have the actual property part of it
-      var elementIdLeaf = elementID;
-      if ((elementIdLeaf.LastIndexOf(".") > 0) && (elementIdLeaf.LastIndexOf(".") < elementIdLeaf.Length - 1))
+      var elementIdLeaf = elementId;
+      var lastIndex = elementIdLeaf.LastIndexOf(".", StringComparison.Ordinal);
+      if ((lastIndex > 0) && (lastIndex < elementIdLeaf.Length - 1))
       {
-        elementIdLeaf = elementIdLeaf.Substring(elementIdLeaf.LastIndexOf(".") + 1);
+        elementIdLeaf = elementIdLeaf.Substring(lastIndex + 1);
       }
 
-      var property = Utils.GetPropertyInfo(dynObject, elementIdLeaf);
+      var obj = GetObject(elementLayout.AssemblyFilename, elementLayout.ObjectName);
+      var property = Utils.GetPropertyInfo(obj, elementIdLeaf);
       if (property == null)
       {
         return false;
@@ -745,14 +728,12 @@ namespace MetraTech.UI.Controls
       gridSection.Name = layoutSection.Name;
       gridSection.Title = layoutSection.Title;
 
-      foreach (MetraTech.UI.Controls.MTLayout.Column layoutColumn in layoutSection.Columns)
+      foreach (var layoutColumn in layoutSection.Columns)
       {
-        Column gridColumn = new Column();
-
-        foreach (MetraTech.UI.Controls.MTLayout.Field layoutField in layoutColumn.Fields)
+        var gridColumn = new Column();
+        foreach (var layoutField in layoutColumn.Fields)
         {
-          Field gridField = new Field();
-          gridField.Name = layoutField.Name;
+          var gridField = new Field { Name = layoutField.Name };
 
           //If this is an enum, we need to use ValueDisplayName field
           if (IsEnumField(gridLayout, null, layoutField.Name))
@@ -932,34 +913,21 @@ namespace MetraTech.UI.Controls
       gridElement.RangeFilter = layoutElement.RangeFilter;
       gridElement.MultiValue = layoutElement.MultiValue;
 
-      object masterObject = null;
-      if (!string.IsNullOrEmpty(grid.ProductViewAssemblyName) && !string.IsNullOrEmpty(grid.ProductViewObjectName))
-      {
-        masterObject = GetObject(grid.ProductViewAssemblyName, grid.ProductViewObjectName);
-      }
-      string elementLocalizedDisplayName = GetElementDisplayName(layoutElement, masterObject);
+      var masterObject = GetObject(grid.ProductViewAssemblyName, grid.ProductViewObjectName);
+      var elementLocalizedDisplayName = GetElementDisplayName(layoutElement, masterObject);
 
-      if (!LocalizableString.IsEmpty(layoutElement.HeaderText))
-      {
-        gridElement.HeaderText = layoutElement.HeaderText.GetValue();
-      }
-      else
-      {
-        gridElement.HeaderText = elementLocalizedDisplayName;
-      }
+      gridElement.HeaderText = !LocalizableString.IsEmpty(layoutElement.HeaderText) 
+        ? layoutElement.HeaderText.GetValue() 
+        : elementLocalizedDisplayName;
 
-      if (!LocalizableString.IsEmpty(layoutElement.FilterLabel))
-      {
-        gridElement.FilterLabel = layoutElement.FilterLabel.GetValue();
-      }
-      else
-      {
-        gridElement.FilterLabel = gridElement.HeaderText;
-      }
+      gridElement.FilterLabel = !LocalizableString.IsEmpty(layoutElement.FilterLabel) 
+        ? layoutElement.FilterLabel.GetValue() 
+        : gridElement.HeaderText;
 
       if (!String.IsNullOrEmpty(layoutElement.DataIndex))
       {
-        gridElement.DataIndex = layoutElement.DataIndex;
+        var property = Utils.GetPropertyInfo(masterObject, layoutElement.DataIndex);
+        gridElement.DataIndex = property != null ? property.Name : layoutElement.DataIndex;
       }
 
       if (layoutElement.DataType != null)
@@ -971,6 +939,7 @@ namespace MetraTech.UI.Controls
       {
         gridElement.ElementValue = layoutElement.ElementValue;
       }
+
       if (layoutElement.ElementValue2 != null)
       {
         gridElement.ElementValue2 = layoutElement.ElementValue2;
@@ -1012,7 +981,7 @@ namespace MetraTech.UI.Controls
 
       foreach (DropdownItemLayout layoutDropdownItem in layoutElement.DropdownItems)
       {
-        MTFilterDropdownItem fdi = new MTFilterDropdownItem();
+        var fdi = new MTFilterDropdownItem();
         LoadDropdownFromLayout(fdi, layoutDropdownItem);
         gridElement.FilterDropdownItems.Add(fdi);
       }

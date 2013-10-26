@@ -18,10 +18,10 @@ namespace MetraTech.UsageServer.Test
     {
       AdapterTestManager.Logger.LogInfo(String.Format("Cleaning invoice data for interval '{0}'", interval.Id));
 
-      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.queryPath))
+      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.QueryPath))
       {
           using (IMTAdapterStatement stmt =
-            conn.CreateAdapterStatement(Util.queryPath, "__DELETE_INVOICES__"))
+            conn.CreateAdapterStatement(Util.QueryPath, "__DELETE_INVOICES__"))
           {
 
               stmt.AddParam("%%ID_INTERVAL%%", interval.Id, true);
@@ -31,7 +31,7 @@ namespace MetraTech.UsageServer.Test
           }
 
           using (IMTAdapterStatement stmt1 =
-            conn.CreateAdapterStatement(Util.queryPath, "__DELETE_INVOICE_RANGE__"))
+            conn.CreateAdapterStatement(Util.QueryPath, "__DELETE_INVOICE_RANGE__"))
           {
 
               stmt1.AddParam("%%ID_INTERVAL%%", interval.Id, true);
@@ -95,12 +95,12 @@ namespace MetraTech.UsageServer.Test
       StringBuilder errorBuilder = new StringBuilder();
 
       // Ensure that each of the accounts in billingGroup has an entry in t_invoice
-      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.queryPath))
+      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.QueryPath))
       {
           foreach (Account account in billingGroup.Accounts)
           {
               using (IMTAdapterStatement stmt =
-                conn.CreateAdapterStatement(Util.queryPath, "__VERIFY_INVOICE__"))
+                conn.CreateAdapterStatement(Util.QueryPath, "__VERIFY_INVOICE__"))
               {
 
                   stmt.AddParam("%%ID_INTERVAL%%", interval.Id, true);

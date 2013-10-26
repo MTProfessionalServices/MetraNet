@@ -3,19 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Globalization;
+using System.Linq;
 using System.Reflection;
 using System.Text;
-
 using NUnit.Framework;
-
-using MetraTech;
 using MetraTech.DataAccess;
 using Auth = MetraTech.Interop.MTAuth;
-using MetraTech.Test;
-using MetraTech.Test.Common;
-using MetraTech.Interop.COMMeter;
 using MetraTech.Accounts.Type.Test;
-using MetraTech.UsageServer;
 using Rowset = MetraTech.Interop.Rowset;
 using MetraTech.Interop.NameID;
 
@@ -48,60 +42,9 @@ namespace MetraTech.UsageServer.Test
 	/// </summary>
   public class Util
   {
-    #region Public Static Methods
-    public static Util GetUtil()
-    {
-      // Support multithreaded applications through 
-      // 'Double checked locking' pattern which (once 
-      // the instance exists) avoids locking each 
-      // time the method is invoked 
-      if (instance == null)
-      {
-        lock (syncLock)
-        {
-          if (instance == null)
-          {
-            instance = new Util();
-          }
-        }
-      }
-
-      return instance;
-    }
-    #endregion
-
     #region Public Methods
- 
-    public void Log(string message) 
-    {
-      TestLibrary.Trace(message);
-      logger.LogDebug(message);
-    }
 
-    public void LogError(string message) 
-    {
-      TestLibrary.Trace(message);
-      logger.LogError(message);
-    }
-
-    public void Initialize()
-    {
-      connectionInfo = new ConnectionInfo("NetMeter");
-      logger = new Logger("[BillingGroupTest]");
-      billingGroupManager = new BillingGroupManager();
-      usageIntervalManager = new UsageIntervalManager();
-      startDate = new DateTime(2000, 6, 1);
-      endDate = DateTime.Now; // new DateTime(2001, 12, 1);
-      accountCreator = new TestCreateUpdateAccounts();
-      accountCounter = 1;
-      corporateAccountUserName = String.Empty;
-      recurringEventMap = new Hashtable();
-      InitializeAccounts();
-      SetupClient();
-      SetupRecurringEvents();
-    }
-
-    /// <summary>
+	  /// <summary>
     ///   Get an interval with paying accounts 
     ///   that has not been materialized and that is
     ///   not hard closed.
@@ -127,8 +70,8 @@ namespace MetraTech.UsageServer.Test
     public IUsageIntervalFilter GetUsageIntervalFilter()
     {
       IUsageIntervalTimeSpan usageIntervaTimeSpan = new UsageIntervalTimeSpan();
-      usageIntervaTimeSpan.StartDate = startDate;
-      usageIntervaTimeSpan.EndDate = endDate;
+      usageIntervaTimeSpan.StartDate = _startDate;
+      usageIntervaTimeSpan.EndDate = _endDate;
       usageIntervaTimeSpan.StartDateInclusive = true;
 
       IUsageIntervalFilter usageIntervalFilter = new UsageIntervalFilter();
@@ -144,25 +87,23 @@ namespace MetraTech.UsageServer.Test
     /// <returns></returns>
     public int GetIntervalWithoutPayers() 
     { 
-      int intervalId = Int32.MinValue;
+      int intervalId;
     
       // See if there's an interval without payers
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__GET_INTERVAL_WITHOUT_PAYERS__");
 
       rowset.AddParam("%%INTERVAL_LIST%%", 
-        GetCommaSeparatedIds(this.availableIntervals), 
+        GetCommaSeparatedIds(_availableIntervals), 
         true);
 
-      logger.LogInfo("Executing Query [Util.GetUsageIntervalFilter]: -----------------------------------");
-      logger.LogInfo(rowset.GetQueryString());
       rowset.Execute();
       
 
       if (rowset.RecordCount == 1) 
       {
-        intervalId = (int)rowset.get_Value("id_interval");
+        intervalId = (int)rowset.Value["id_interval"];
         return intervalId;
       }
 
@@ -195,21 +136,21 @@ namespace MetraTech.UsageServer.Test
     /// <returns></returns>
     public int GetHardClosedInterval() 
     { 
-      int intervalId = Int32.MinValue;
+      int intervalId;
     
       // See if there's an interval without payers
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__GET_HARD_CLOSED_INTERVAL__");
 
       rowset.AddParam("%%INTERVAL_LIST%%", 
-        GetCommaSeparatedIds(this.availableIntervals), 
+        GetCommaSeparatedIds(_availableIntervals), 
         true);
       rowset.Execute();
 
       if (rowset.RecordCount == 1) 
       {
-        intervalId = (int)rowset.get_Value("id_interval");
+        intervalId = (int)rowset.Value["id_interval"];
         return intervalId;
       }
 
@@ -252,12 +193,12 @@ namespace MetraTech.UsageServer.Test
       filter.NonPullList = nonPullList;
    
       Rowset.IMTSQLRowset rowset =
-        billingGroupManager.GetBillingGroupsRowset(filter);
+        _billingGroupManager.GetBillingGroupsRowset(filter);
 
-      while (!System.Convert.ToBoolean(rowset.EOF))
+      while (!Convert.ToBoolean(rowset.EOF))
       {
         billingGroup =
-          billingGroupManager.GetBillingGroup((int)rowset.get_Value("BillingGroupID"));
+          _billingGroupManager.GetBillingGroup((int)rowset.Value["BillingGroupID"]);
         break;
       }
 
@@ -267,44 +208,26 @@ namespace MetraTech.UsageServer.Test
       return billingGroup;
     }
 
-    /// <summary>
-    ///    Create a dummy row in t_recevent_inst for an end of period adapter
-    ///    for the given interval id
-    /// </summary>
-    /// <param name="intervalId"></param>
-    public int CreateDummyAdapterRow(object[] parameters)
+	  /// <summary>
+	  ///    Create a dummy row in t_recevent_inst for an end of period adapter
+	  ///    for the given interval id
+	  /// </summary>
+	  /// <param name="parameters"></param>
+	  public void CreateDummyAdapterRow(object[] parameters)
     {
       Assert.IsTrue(parameters.Length == 2, 
         "CreateDummyAdapterRow called with incorrect number of parameter");
 
-      int intervalId = (int)parameters[0];
-      string status = (string)parameters[1];
-
-      int instanceId = Int32.MinValue;
+      var intervalId = (int)parameters[0];
+      var status = (string)parameters[1];
 
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__CREATE_DUMMY_ADAPTER_ROW__");
       rowset.AddParam("%%EVENT_NAME%%", "AggregateCharges", true);
       rowset.AddParam("%%ID_INTERVAL%%", intervalId, true);
       rowset.AddParam("%%STATUS%%", status, true);
-
       rowset.Execute();
-
-      //rowset.Clear();
-
-      //rowset.SetQueryTag("__GET_MAX_ADAPTER_INSTANCE_ID__");
-      //rowset.Execute();
-
-      //if (rowset.RecordCount == 1) 
-      //{
-      //  instanceId = (int)rowset.get_Value("id_instance");
-      //}
-
-      //Assert.AreNotEqual(Int32.MinValue, instanceId, 
-      //  "Could not create a dummy adapter instance!"); 
-
-      return instanceId;
     }
 
     /// <summary>
@@ -314,7 +237,9 @@ namespace MetraTech.UsageServer.Test
     ///    Return the materialization id.
     /// </summary>
     /// <param name="intervalId"></param>
-    /// <param name="status"></param>
+    /// <param name="materializationStatus"></param>
+    /// <param name="materializationType"></param>
+    /// <param name="userAccountId"></param>
     /// <returns></returns>
     public static int CreateMaterializationRow
       (int intervalId,
@@ -322,10 +247,10 @@ namespace MetraTech.UsageServer.Test
        MaterializationType materializationType,
        int userAccountId)
     {
-      int materializationId = Int32.MinValue;
+      var materializationId = Int32.MinValue;
 
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
 
       rowset.SetQueryTag("__CREATE_DUMMY_MATERIALIZATION_ROW__");
 
@@ -337,10 +262,10 @@ namespace MetraTech.UsageServer.Test
 
       rowset.Execute();
 
-      using (IMTConnection conn = ConnectionManager.CreateConnection(queryPath))
+      using (IMTConnection conn = ConnectionManager.CreateConnection(QueryPath))
       {
           using (IMTAdapterStatement stmt =
-            conn.CreateAdapterStatement(queryPath, "__GET_MAX_MATERIALIZATION_ID__"))
+            conn.CreateAdapterStatement(QueryPath, "__GET_MAX_MATERIALIZATION_ID__"))
           {
 
               using (IMTDataReader reader = stmt.ExecuteReader())
@@ -365,10 +290,10 @@ namespace MetraTech.UsageServer.Test
     {
       int maxBillGroupId = 0;
 
-      using (IMTConnection conn = ConnectionManager.CreateConnection(queryPath))
+      using (IMTConnection conn = ConnectionManager.CreateConnection(QueryPath))
       {
           using (IMTAdapterStatement stmt =
-            conn.CreateAdapterStatement(queryPath, "__GET_MAX_BILLGROUP_ID__"))
+            conn.CreateAdapterStatement(QueryPath, "__GET_MAX_BILLGROUP_ID__"))
           {
 
               using (IMTDataReader reader = stmt.ExecuteReader())
@@ -390,18 +315,17 @@ namespace MetraTech.UsageServer.Test
     ///     [1] = materialization id
     ///     [2] = account id
     /// </summary>
-    /// <param name="materializationId"></param>
-    /// <param name="accountId"></param>
+    /// <param name="parameters"></param>
     public void CreateDummyBillGroupSourceAccRow(object[] parameters)
     {
       Assert.IsTrue(parameters.Length == 3, 
         "CreateDummyBillGroupSourceAccRow called with incorrect number of parameters");
 
-      int materializationId = (int)parameters[1];
-      int accountId = (int)parameters[2];
+      var materializationId = (int)parameters[1];
+      var accountId = (int)parameters[2];
 
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__CREATE_DUMMY_BILLGROUP_SOURCE_ACC_ROW__");
       rowset.AddParam("%%ID_MATERIALIZATION%%", materializationId, true);
       rowset.AddParam("%%ID_ACC%%", accountId, true);
@@ -417,19 +341,18 @@ namespace MetraTech.UsageServer.Test
     ///     [2] = group id
     ///     [3] = account id
     /// </summary>
-    /// <param name="materializationId"></param>
-    /// <param name="accountId"></param>
+    /// <param name="parameters"></param>
     public void CreateDummyBillGroupConstraintTmpRow(object[] parameters)
     {
       Assert.IsTrue(parameters.Length == 4, 
         "CreateDummyBillGroupConstraintTmpRow called with incorrect number of parameters");
 
-      int intervalId = (int)parameters[0];
-      int groupId = (int)parameters[2];
-      int accountId = (int)parameters[3];
+      var intervalId = (int)parameters[0];
+      var groupId = (int)parameters[2];
+      var accountId = (int)parameters[3];
 
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__CREATE_DUMMY_BILLGROUP_CONSTRAINT_TMP_ROW__");
       rowset.AddParam("%%ID_INTERVAL%%", intervalId, true);
       rowset.AddParam("%%ID_GROUP%%", groupId, true);
@@ -446,19 +369,18 @@ namespace MetraTech.UsageServer.Test
     ///     [2] = billgroupName
     ///     [3] = accountId
     /// </summary>
-    /// <param name="materializationId"></param>
-    /// <param name="accountId"></param>
+    /// <param name="parameters"></param>
     public void CreateDummyBillGroupMemberTmpRow(object[] parameters)
     {
       Assert.IsTrue(parameters.Length == 4, 
         "CreateDummyBillGroupMemberTmpRow called with incorrect number of parameters");
 
-      int materializationId = (int)parameters[1];
-      string billgroupName = (string)parameters[2];
-      int accountId = (int)parameters[3];
+      var materializationId = (int)parameters[1];
+      var billgroupName = (string)parameters[2];
+      var accountId = (int)parameters[3];
 
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__CREATE_DUMMY_BILLGROUP_MEMBER_TMP_ROW__");
       rowset.AddParam("%%ID_MATERIALIZATION%%", materializationId, true);
       rowset.AddParam("%%TX_NAME%%", billgroupName, true);
@@ -474,18 +396,17 @@ namespace MetraTech.UsageServer.Test
     ///     [1] = materialization id
     ///     [2] = billgroupName
     /// </summary>
-    /// <param name="materializationId"></param>
-    /// <param name="accountId"></param>
+    /// <param name="parameters"></param>
     public void CreateDummyBillGroupTmpRow(object[] parameters)
     {
       Assert.IsTrue(parameters.Length == 3, 
         "CreateDummyBillGroupTmpRow called with incorrect number of parameters");
 
-      int materializationId = (int)parameters[1];
-      string billgroupName = (string)parameters[2];
+      var materializationId = (int)parameters[1];
+      var billgroupName = (string)parameters[2];
 
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__CREATE_DUMMY_BILLGROUP_TMP_ROW__");
       rowset.AddParam("%%ID_MATERIALIZATION%%", materializationId, true);
       rowset.AddParam("%%TX_NAME%%", billgroupName, true);
@@ -501,18 +422,17 @@ namespace MetraTech.UsageServer.Test
     ///     [1] = materialization id
     ///     [2] = paying accountId
     /// </summary>
-    /// <param name="materializationId"></param>
-    /// <param name="accountId"></param>
+    /// <param name="parameters"></param>
     public void DeleteBillGroupMemberTmpRow(object[] parameters)
     {
       Assert.IsTrue(parameters.Length == 3, 
         "DeleteBillGroupMemberTmpRow called with incorrect number of parameters");
 
-      int materializationId = (int)parameters[1];
-      int accountId = (int)parameters[2];
+      var materializationId = (int)parameters[1];
+      var accountId = (int)parameters[2];
 
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__DELETE_BILLGROUP_MEMBER_TMP_ROW__");
       rowset.AddParam("%%ID_MATERIALIZATION%%", materializationId, true);
       rowset.AddParam("%%ID_ACC%%", accountId, true);
@@ -527,18 +447,17 @@ namespace MetraTech.UsageServer.Test
     ///     [1] = materialization id
     ///     [2] = comma separated string of account id's
     /// </summary>
-    /// <param name="materializationId"></param>
-    /// <param name="accountId"></param>
+    /// <param name="parameters"></param>
     public void DeleteAccountsForBillGroup(object[] parameters)
     {
       Assert.IsTrue(parameters.Length == 3, 
         "DeleteAccountsForBillGroup called with incorrect number of parameters");
 
-      int materializationId = (int)parameters[1];
-      string accountIds = (string)parameters[2];
+      var materializationId = (int)parameters[1];
+      var accountIds = (string)parameters[2];
 
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__DELETE_ACCOUNTS_FOR_BILLGROUP__");
       rowset.AddParam("%%ID_MATERIALIZATION%%", materializationId, true);
       rowset.AddParam("%%ACCOUNT_LIST%%", accountIds, true);
@@ -549,11 +468,11 @@ namespace MetraTech.UsageServer.Test
     ///    Delete the row in t_recevent_inst which was created with 
     ///    CreateDummyAdapterRow
     /// </summary>
-    /// <param name="intervalId"></param>
+    /// <param name="instanceId"></param>
     public void DeleteDummyAdapterRow(int instanceId)
     {
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__DELETE_DUMMY_ADAPTER_ROW__");
       rowset.AddParam("%%ID_INSTANCE%%", instanceId, true);
      
@@ -564,11 +483,11 @@ namespace MetraTech.UsageServer.Test
     ///    Delete the row in t_recevent_inst which was created with 
     ///    CreateDummyAdapterRow by specifying the status
     /// </summary>
-    /// <param name="intervalId"></param>
+    /// <param name="status"></param>
     public void DeleteDummyAdapterRow(string status)
     {
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__DELETE_DUMMY_ADAPTER_ROWS__");
       rowset.AddParam("%%STATUS%%", status, true);
 
@@ -579,11 +498,11 @@ namespace MetraTech.UsageServer.Test
     ///    Delete the row in t_billgroup_materialization which was created with 
     ///    CreateDummyMaterializationRow
     /// </summary>
-    /// <param name="intervalId"></param>
+    /// <param name="materializationId"></param>
     public void DeleteDummyMaterializationRow(int materializationId)
     {
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__DELETE_DUMMY_MATERIALIZATION_ROW__");
       rowset.AddParam("%%ID_MATERIALIZATION%%", materializationId, true);
      
@@ -596,43 +515,38 @@ namespace MetraTech.UsageServer.Test
     /// <param name="intervalId"></param>
     public int GetNextOpenInterval(int intervalId)
     {
-      int nextIntervalId = 0;
-
-      IUsageInterval usageInterval = 
-        UsageIntervalManager.GetUsageInterval(intervalId);
-
-      DateTime startDate = usageInterval.StartDate.AddDays(7);
-      DateTime endDate = usageInterval.EndDate.AddDays(7);
+      var usageInterval = UsageIntervalManager.GetUsageInterval(intervalId);
 
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__GET_INTERVAL__");
-      rowset.AddParam("%%DT_START%%", startDate, true);
-      rowset.AddParam("%%DT_END%%", endDate, true);
+      rowset.AddParam("%%DT_START%%", usageInterval.StartDate.AddDays(7), true);
+      rowset.AddParam("%%DT_END%%", usageInterval.EndDate.AddDays(7), true);
      
       rowset.Execute();
 
       Assert.AreEqual(1, rowset.RecordCount, "'GetNextOpenInterval' - rowset count mismatch");
 
-      nextIntervalId = (int)rowset.get_Value("id_interval");
+      var nextIntervalId = (int)rowset.Value["id_interval"];
 
       Assert.AreNotEqual(0, nextIntervalId, "'GetNextOpenInterval' - invalid interval");
 
       return nextIntervalId;
     }
 
-    /// <summary>
-    ///   Verify that the each of the accounts in accounts have
-    ///   the given status in t_acc_usage_interval.
-    /// </summary>
-    /// <param name="accounts"></param>
-    /// <param name="status"></param>
-    public void VerifyAccountStatus(ArrayList accounts, int intervalId, string status)
+	  /// <summary>
+	  ///   Verify that the each of the accounts in accounts have
+	  ///   the given status in t_acc_usage_interval.
+	  /// </summary>
+	  /// <param name="accounts"></param>
+	  /// <param name="intervalId"></param>
+	  /// <param name="status"></param>
+	  public void VerifyAccountStatus(ArrayList accounts, int intervalId, string status)
     {
-      string accountIds = GetCommaSeparatedIds(accounts);
+      var accountIds = GetCommaSeparatedIds(accounts);
 
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__GET_ACCOUNT_STATUS__");
       rowset.AddParam("%%ACCOUNT_LIST%%", accountIds, true);
       rowset.AddParam("%%ID_INTERVAL%%", intervalId, true);
@@ -642,11 +556,10 @@ namespace MetraTech.UsageServer.Test
       Assert.AreEqual(1, rowset.RecordCount, 
         "'VerifyAccountStatus' rowset count mismatch");
 
-      string foundStatus = (string)rowset.get_Value("tx_status");
+      var foundStatus = (string)rowset.Value["tx_status"];
 
       Assert.AreEqual(status.ToUpper(), foundStatus.ToUpper(),
         "'VerifyAccountStatus' - mismatched status");
-
     }
 
     /// <summary>
@@ -654,13 +567,13 @@ namespace MetraTech.UsageServer.Test
     ///   the given interval.
     /// </summary>
     /// <param name="accounts"></param>
-    /// <param name="status"></param>
+    /// <param name="intervalId"></param>
     public static void DeleteUsage(ArrayList accounts, int intervalId)
     {
       string accountIds = GetCommaSeparatedIds(accounts);
 
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__DELETE_USAGE__");
       rowset.AddParam("%%ACCOUNT_LIST%%", accountIds, true);
       rowset.AddParam("%%ID_INTERVAL%%", intervalId, true);
@@ -672,14 +585,14 @@ namespace MetraTech.UsageServer.Test
     ///   Update the status of intervals to hard closed for those
     ///   intervals which have a start date earlier than the given date.
     /// </summary>
-    /// <param name="date"></param>
+    /// <param name="intervalId"></param>
     public void UpdatePreviousIntervalsToHardClosed(int intervalId)
     {
       IUsageInterval usageInterval = 
         UsageIntervalManager.GetUsageInterval(intervalId);
 
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__UPDATE_PREVIOUS_INTERVAL_STATUS_TO_HARD_CLOSED__");
       rowset.AddParam("%%DT_START%%", usageInterval.StartDate, true);
     
@@ -695,13 +608,12 @@ namespace MetraTech.UsageServer.Test
     ///   Given an ArrayList of id's (integers), get a comma separated string
     ///   of the corresponding id's.
     /// </summary>
-    /// <param name="accountNames"></param>
+    /// <param name="idList"></param>
     /// <returns></returns>
     public static string GetCommaSeparatedIds(ArrayList idList) 
     {
-      StringBuilder commaSeparatedString = new StringBuilder();
-
-      bool firstId = true;
+      var commaSeparatedString = new StringBuilder();
+      var firstId = true;
 
       foreach(int id in idList) 
       {
@@ -722,22 +634,22 @@ namespace MetraTech.UsageServer.Test
 
     public void AddToUsAccountIds(ArrayList extraAccounts) 
     {
-      usAccounts.AddRange(extraAccounts);
+      _usAccounts.AddRange(extraAccounts);
     }
 
     public void AddToPayeeAccountIds(ArrayList extraAccounts) 
     {
-      payeeAccountIds.AddRange(extraAccounts);
+      _payeeAccountIds.AddRange(extraAccounts);
     }
 
     public void AddToPayerAccountIds(ArrayList extraAccounts) 
     {
-      payerAccountIds.AddRange(extraAccounts);
+      _payerAccountIds.AddRange(extraAccounts);
     }
 
     public IRecurringEvent GetRecurringEvent(string eventName) 
     {
-      IRecurringEvent recurringEvent = (IRecurringEvent)recurringEventMap[eventName];
+      var recurringEvent = (IRecurringEvent)_recurringEventMap[eventName];
       Assert.AreNotEqual(null, recurringEvent, 
         String.Format("Recurring event '{0}' not found", eventName));
       return recurringEvent;
@@ -751,15 +663,12 @@ namespace MetraTech.UsageServer.Test
     /// <returns></returns>
     public IRecurringEvent GetRecurringEventFromClassNameAndProgId(string classNameAndProgId)
     {
-      IRecurringEvent recurringEvent = null;
-      foreach(IRecurringEvent tmpRecurringEvent in recurringEventMap.Values)
-      {
-        if (String.Compare(classNameAndProgId, tmpRecurringEvent.ClassName, true) == 0)
-        {
-          recurringEvent = tmpRecurringEvent;
-          break;
-        }
-      }
+      var recurringEvent =
+        _recurringEventMap.Values.Cast<IRecurringEvent>()
+                         .FirstOrDefault(
+                           tmpRecurringEvent =>
+                           String.Compare(classNameAndProgId, tmpRecurringEvent.ClassName,
+                                          StringComparison.OrdinalIgnoreCase) == 0);
       Assert.AreNotEqual(null, recurringEvent, 
         String.Format("Recurring event '{0}' not found", classNameAndProgId));
       return recurringEvent;
@@ -774,11 +683,9 @@ namespace MetraTech.UsageServer.Test
     /// <param name="fileName"></param>
     public void SetupAdapterDependencies(string fileName)
     {
-      
-
       // Synchronize config file
       ArrayList addedEvents, removedEvents, modifiedEvents;
-      if (fileName == null || fileName == String.Empty) 
+      if (string.IsNullOrEmpty(fileName)) 
       {
         Client.Synchronize(out addedEvents, out removedEvents, out modifiedEvents);
       }
@@ -789,9 +696,9 @@ namespace MetraTech.UsageServer.Test
 
       // Reset event dates
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__RESET_EVENT_DATES__");
-      rowset.AddParam("%%START_DATE%%", startDate, true);
+      rowset.AddParam("%%START_DATE%%", _startDate, true);
       rowset.Execute(); 
 
       // Refresh event Hashtable
@@ -801,13 +708,13 @@ namespace MetraTech.UsageServer.Test
     /// <summary>
     ///   Return true if the given calendarName exists in the database.
     /// </summary>
-    /// <param name="calendarName"></param>
+    /// <param name="productOfferingName"></param>
     /// <returns></returns>
     public static bool CheckProductOfferingExists(string productOfferingName) 
     {
-      bool offeringExists = false;
+      var offeringExists = false;
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__GET_PRODUCT_OFFERING_NAME__");
 
       rowset.AddParam("%%PRODUCT_OFFERING_NAME%%", productOfferingName, true);
@@ -821,27 +728,21 @@ namespace MetraTech.UsageServer.Test
       return offeringExists;
     }
 
-    /// <summary>
-    ///    
-    /// </summary>
-    /// <param name="intervalId"></param>
-    public void DeleteTestPI()
+    public void DeleteTestPi()
     {
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__DELETE_PV_TESTPI__");
-      // rowset.AddParam("%%ID_INTERVAL%%", intervalId, true);
-     
       rowset.Execute();
     }
 
-    public bool CheckPvTestPI(int timeZoneId, CalendarCodeEnum calendarCodeEnum) 
+    public bool CheckPvTestPi(int timeZoneId, CalendarCodeEnum calendarCodeEnum) 
     {
-      bool foundRow = false;
-      int calendarCodeId = GetCalendarCodeId(calendarCodeEnum);
+      var foundRow = false;
+      var calendarCodeId = GetCalendarCodeId(calendarCodeEnum);
 
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__CHECK_PV_TESTPI__");
       rowset.AddParam("%%TIME_ZONE_ID%%", timeZoneId, true);
       rowset.AddParam("%%CALENDAR_CODE_ID%%", calendarCodeId, true);
@@ -865,10 +766,10 @@ namespace MetraTech.UsageServer.Test
     /// <returns></returns>
     public bool CheckAccountIntervalMapping(int accountId, int intervalId)
     {
-      bool mappingExists = false;
+      var mappingExists = false;
 
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__CHECK_ACCOUNT_INTERVAL_MAPPING__");
       rowset.AddParam("%%ID_ACC%%", accountId, true);
       rowset.AddParam("%%ID_INTERVAL%%", intervalId, true);
@@ -891,8 +792,8 @@ namespace MetraTech.UsageServer.Test
     /// <returns></returns>
     public int GetCalendarCodeId(CalendarCodeEnum calendarCodeEnum) 
     {
-      string prefix = @"metratech.com/calendar/CalendarCode/";
-      string suffix = calendarCodeEnum.ToString();
+      const string prefix = @"metratech.com/calendar/CalendarCode/";
+      var suffix = calendarCodeEnum.ToString();
 
       if (calendarCodeEnum == CalendarCodeEnum.OffPeak) 
       {
@@ -906,11 +807,16 @@ namespace MetraTech.UsageServer.Test
     #endregion
 
     #region Properties
+	  public static Util Instance
+	  {
+      get { return _instance; }
+	  }
+
     public Client Client
     {
       get 
       {
-        return client;
+        return _client;
       }
     }
 
@@ -918,7 +824,7 @@ namespace MetraTech.UsageServer.Test
     {
       get 
       {
-        return sessionContext;
+        return _sessionContext;
       }
     }
 
@@ -926,7 +832,7 @@ namespace MetraTech.UsageServer.Test
     {
       get 
       {
-        return billingGroupManager;
+        return _billingGroupManager;
       }
     }
 
@@ -934,7 +840,7 @@ namespace MetraTech.UsageServer.Test
     {
       get 
       {
-        return usageIntervalManager;
+        return _usageIntervalManager;
       }
     }
 
@@ -950,7 +856,7 @@ namespace MetraTech.UsageServer.Test
     {
       get 
       {
-        return startDate;
+        return _startDate;
       }
     }
 
@@ -958,7 +864,7 @@ namespace MetraTech.UsageServer.Test
     {
       get 
       {
-        return endDate;
+        return _endDate;
       }
     }
 
@@ -966,7 +872,7 @@ namespace MetraTech.UsageServer.Test
     {
       get 
       {
-        return (ArrayList)payerAccountIds.Clone();
+        return (ArrayList)_payerAccountIds.Clone();
       }
     }
 
@@ -974,7 +880,7 @@ namespace MetraTech.UsageServer.Test
     {
       get 
       {
-        return (ArrayList)payeeAccountIds.Clone();
+        return (ArrayList)_payeeAccountIds.Clone();
       }
     }
 
@@ -982,7 +888,7 @@ namespace MetraTech.UsageServer.Test
     {
       get 
       {
-        return (ArrayList)usAccounts.Clone();
+        return (ArrayList)_usAccounts.Clone();
       }
     }
 
@@ -990,7 +896,7 @@ namespace MetraTech.UsageServer.Test
     {
       get 
       {
-        return (ArrayList)ukAccounts.Clone();
+        return (ArrayList)_ukAccounts.Clone();
       }
     }
 
@@ -998,7 +904,7 @@ namespace MetraTech.UsageServer.Test
     {
       get 
       {
-        return (ArrayList)brazilAccounts.Clone();
+        return (ArrayList)_brazilAccounts.Clone();
       }
     }
 
@@ -1006,22 +912,14 @@ namespace MetraTech.UsageServer.Test
     {
       get 
       {
-        return corporateAccountUserName;
+        return _corporateAccountUserName;
       }
     }
     public TestCreateUpdateAccounts AccountCreator
     {
       get 
       {
-        return accountCreator;
-      }
-    }
-
-    public Logger Logger
-    {
-      get 
-      {
-        return logger;
+        return _accountCreator;
       }
     }
 
@@ -1029,7 +927,7 @@ namespace MetraTech.UsageServer.Test
     {
       get 
       {
-        return connectionInfo.DatabaseType == DBType.Oracle;
+        return _connectionInfo.DatabaseType == DBType.Oracle;
       }
     }
 
@@ -1037,29 +935,39 @@ namespace MetraTech.UsageServer.Test
     {
       get 
       {
-        ArrayList billingGroupAccountIds = new ArrayList();
-        billingGroupAccountIds.AddRange(payerAccountIds);
-        billingGroupAccountIds.AddRange(payeeAccountIds);
+        var billingGroupAccountIds = new ArrayList();
+        billingGroupAccountIds.AddRange(_payerAccountIds);
+        billingGroupAccountIds.AddRange(_payeeAccountIds);
         return billingGroupAccountIds;
       }
     }
 
     #endregion
 
-    #region Protected Methods
-      protected Util()
-		{
-      Initialize();
-		}
-    #endregion
+	  #region Private Methods
 
-    #region Private Methods
+	  private Util()
+	  {
+	    _connectionInfo = new ConnectionInfo("NetMeter");
+	    _billingGroupManager = new BillingGroupManager();
+	    _usageIntervalManager = new UsageIntervalManager();
+	    _startDate = new DateTime(2000, 6, 1);
+	    _endDate = DateTime.Now; // new DateTime(2001, 12, 1);
+	    _accountCreator = new TestCreateUpdateAccounts();
+	    _accountCounter = 1;
+	    _corporateAccountUserName = String.Empty;
+	    _recurringEventMap = new Hashtable();
+	    InitializeAccounts();
+	    SetupClient();
+	    SetupRecurringEvents();
+	  }
+    
     private void SetupClient()
     {
-      client = new Client();
+      _client = new Client();
       Auth.IMTLoginContext loginContext = new Auth.MTLoginContext();
-      sessionContext = loginContext.Login("su", "system_user", "su123");
-      client.SessionContext = sessionContext;
+      _sessionContext = loginContext.Login("su", "system_user", "su123");
+      _client.SessionContext = _sessionContext;
     }
 
     /// <summary>
@@ -1067,50 +975,32 @@ namespace MetraTech.UsageServer.Test
     /// </summary>
     private void SetupRecurringEvents()
     {
-      recurringEventMap.Clear();
-      RecurringEventManager manager = new RecurringEventManager();
-      recurringEventMap = manager.LoadEventsFromDB();
+      _recurringEventMap.Clear();
+      var manager = new RecurringEventManager();
+      _recurringEventMap = manager.LoadEventsFromDB();
     }
 
     private void InitializeAccounts() 
     {
       ClearData();
 
-      logger.LogDebug("Creating accounts for billing group testing...");
-
       // Create the corporate account
-      corporateAccountUserName = GetUserName();
-      CreateCorporateAccount(corporateAccountUserName);
-
-//      AccountSpecification accountSpecification = new AccountSpecification();
-//      accountSpecification.usernamePrefix = "BlGrpTest";
-//      accountSpecification.accountType = "DepartmentAccount";
-//      accountSpecification.usageCycleType = "weekly";
-//      accountSpecification.startDate = startDate;
-//      accountSpecification.numberOfBillableAccounts = 
-//        Util.numberOfPayerAccounts - 1;  // one paying account has already been created
-//      accountSpecification.numberOfNonBillableAccounts = Util.numberOfPayeeAccounts;
-//      accountSpecification.corporateAccountName = corpAccountUserName;
+      _corporateAccountUserName = GetUserName();
+      CreateCorporateAccount(_corporateAccountUserName);
 
       // Create accounts and collect results
-      CreateAccounts(corporateAccountUserName,
-                     out availableIntervals, 
-                     out payerAccountIds,
-                     out payeeAccountIds);
+      CreateAccounts(_corporateAccountUserName,
+                     out _availableIntervals, 
+                     out _payerAccountIds,
+                     out _payeeAccountIds);
 
-      Assert.IsTrue(availableIntervals.Count > 0, "Expected one or more intervals");
-      Assert.IsTrue(Util.numberOfPayerAccounts == payerAccountIds.Count, "Number of payer accounts mismatched");
-      Assert.IsTrue(Util.numberOfPayeeAccounts == payeeAccountIds.Count, "Number of payee accounts mismatched");
+      Assert.IsTrue(_availableIntervals.Count > 0, "Expected one or more intervals");
+      Assert.IsTrue(NumberOfPayerAccounts == _payerAccountIds.Count, "Number of payer accounts mismatched");
+      Assert.IsTrue(NumberOfPayeeAccounts == _payeeAccountIds.Count, "Number of payee accounts mismatched");
 
 
       // Set the country codes on the paying accounts 
       SetCountryCodes();
-
-      logger.LogDebug("Created {0} billable and {1} non-billable accounts which " +
-                      "were mapped to {2} intervals.", 
-                      payerAccountIds.Count,
-                      payeeAccountIds.Count,
-                      availableIntervals.Count);
     }
 
     /// <summary>
@@ -1121,86 +1011,87 @@ namespace MetraTech.UsageServer.Test
     /// </summary>
     private void SetCountryCodes() 
     {
-      int accountId = 0;
-
-      ukAccounts = new ArrayList();
-      brazilAccounts = new ArrayList();
-      usAccounts = new ArrayList();
+      int accountId;
+      _ukAccounts = new ArrayList();
+      _brazilAccounts = new ArrayList();
+      _usAccounts = new ArrayList();
 
       // total number of accounts
-      int numAccountsPerGroup = payerAccountIds.Count / 3;
+      var numAccountsPerGroup = _payerAccountIds.Count / 3;
 
       // Set 'UK'
-      for (int i = 0; i < numAccountsPerGroup; i++) 
+      for (var i = 0; i < numAccountsPerGroup; i++) 
       {
-        accountId = (int)payerAccountIds[i];
-        SetCountryCode(accountId, Util.ukCountryName);
-        ukAccounts.Add(accountId);
+        accountId = (int)_payerAccountIds[i];
+        SetCountryCode(accountId, UkCountryName);
+        _ukAccounts.Add(accountId);
       }
 
       // Set 'Brazil'
       for (int i = numAccountsPerGroup; i < (2 * numAccountsPerGroup); i++) 
       {
-        accountId = (int)payerAccountIds[i];
-        SetCountryCode(accountId, Util.brazilCountryName);
-        brazilAccounts.Add(accountId);
+        accountId = (int)_payerAccountIds[i];
+        SetCountryCode(accountId, BrazilCountryName);
+        _brazilAccounts.Add(accountId);
       }
 
-      for (int i = 2 * numAccountsPerGroup; i < payerAccountIds.Count; i++) 
+      for (int i = 2 * numAccountsPerGroup; i < _payerAccountIds.Count; i++) 
       {
-        usAccounts.Add((int)payerAccountIds[i]);
+        _usAccounts.Add((int)_payerAccountIds[i]);
       }
 
-      usAccounts.AddRange(payeeAccountIds);
+      _usAccounts.AddRange(_payeeAccountIds);
     }
 
     /// <summary>
     ///   Move the given accountId from the payer list to the payee list.
     /// </summary>
-    /// <param name="accountId"></param>
+    /// <param name="accountToUpdate"></param>
+    /// <param name="dateOfChange"></param>
+    /// <param name="payerId"></param>
     public void MoveAccountFromPayerToPayee(int accountToUpdate, 
                                             DateTime dateOfChange,
                                             int payerId)
     {
       // Create a NameValueCollection and populate it with the following properties
       // payerID, payment_startdate, billable
-      NameValueCollection propertyBag = new NameValueCollection();
+      var propertyBag = new NameValueCollection();
       propertyBag["payerID"] = Convert.ToString(payerId);
-      propertyBag["payment_startdate"] = dateOfChange.ToString();
+      propertyBag["payment_startdate"] = dateOfChange.ToString(CultureInfo.InvariantCulture);
       propertyBag["billable"] = "F";
-      propertyBag["accounttype"] = Util.accountType;
+      propertyBag["accounttype"] = AccountType;
       propertyBag["operation"] = "update";
       propertyBag["actiontype"] = "Both";
-      propertyBag["name_space"] = Util.accountNamespace;
+      propertyBag["name_space"] = AccountNamespace;
 	  
       // Update the account. 
       // Change its status. 
       // Change its payer. 
       // Specify its payment start date.
-      accountCreator.UpdateAccount("metratech.com/accountcreation",
+      _accountCreator.UpdateAccount("metratech.com/accountcreation",
                                     GetAccountName(accountToUpdate),
                                     propertyBag);
 
-      if (payerAccountIds.Contains(accountToUpdate))
+      if (_payerAccountIds.Contains(accountToUpdate))
       {
-        payerAccountIds.Remove(accountToUpdate);
+        _payerAccountIds.Remove(accountToUpdate);
       }
       else 
       {
         Assert.Fail("Unable to locate account id in the list of paying accounts");
       }
 
-      payeeAccountIds.Add(accountToUpdate);
+      _payeeAccountIds.Add(accountToUpdate);
     }
     /// <summary>
     ///    Set the country code for the given account id and the given country name.
     /// </summary>
     /// <param name="accountId"></param>
-    /// <param name="countryCode"></param>
-    private void SetCountryCode(int accountId, string countryName) 
+    /// <param name="countryName"></param>
+    private static void SetCountryCode(int accountId, string countryName) 
     {
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__SET_COUNTRY_CODE__");
 
       rowset.AddParam("%%COUNTRY_NAME%%", countryName, true);
@@ -1222,27 +1113,27 @@ namespace MetraTech.UsageServer.Test
     {
        
       // Create billable accounts
-      this.payerUserNames = CreateAccount(true);
+      _payerUserNames = CreateAccount(true);
       // Convert payerUserNames to payer account id's
-      payerAccountIds = ConvertUserNameToAccountId(payerUserNames);
+      payerAccountIds = ConvertUserNameToAccountId(_payerUserNames);
       
       // Add the corporate account 
       int corporateAccountId = GetAccountId(parentAccountUserName);
 
       payerAccountIds.Add(corporateAccountId);
-      payerUserNames.Add(parentAccountUserName);
+      _payerUserNames.Add(parentAccountUserName);
 
       // Create non billable accounts
-      this.payeeUserNames = CreateAccount(false);
+      _payeeUserNames = CreateAccount(false);
       // Convert payeeUserNames to payee account id's
-      payeeAccountIds = ConvertUserNameToAccountId(payeeUserNames);
+      payeeAccountIds = ConvertUserNameToAccountId(_payeeUserNames);
 
       // Create a comma separated string of the payer and payee account id's
-      string accounts = 
+      var accounts = 
         GetCommaSeparatedIds(payerAccountIds) + "," + 
         GetCommaSeparatedIds(payeeAccountIds);
 
-      int numAccounts = payerAccountIds.Count + payeeAccountIds.Count;
+      var numAccounts = payerAccountIds.Count + payeeAccountIds.Count;
 
       intervals = GetIntervals(accounts, numAccounts);
     }
@@ -1253,19 +1144,19 @@ namespace MetraTech.UsageServer.Test
     /// <returns></returns>
     private void CreateCorporateAccount(string accountName)
     {
-      accountCreator.YetAnotherCreateAccount
+      _accountCreator.YetAnotherCreateAccount
         (accountName,
          "USD",                               
-         Util.cycleType,
+         CycleType,
          "CorporateAccount",
          "TestCorporation",
          true, 
          "", 
          "", 
          @"metratech.com/accountcreation",
-         Util.dayOfMonthOrWeek, 
-         startDate,
-         countryName,
+         DayOfMonthOrWeek, 
+         _startDate,
+         CountryName,
          -1,
          null,
          false);
@@ -1278,26 +1169,24 @@ namespace MetraTech.UsageServer.Test
     ///    
     ///    Return the list of account names created.
     /// </summary>
-    /// <param name="accountSpecification"></param>
     /// <param name="isPayer"></param>
     private ArrayList CreateAccount(bool isPayer) 
     {
-      int count = 0;
-      string username = String.Empty;
-      ArrayList usernames = new ArrayList();
+      int count;
+      var usernames = new ArrayList();
 
       if (isPayer)
       {
-        count = Util.numberOfPayerAccounts - 1; // we've already created a corporate acc 
+        count = NumberOfPayerAccounts - 1; // we've already created a corporate acc 
       }
       else 
       {
-        count = Util.numberOfPayeeAccounts;
+        count = NumberOfPayeeAccounts;
       }
 
       for (int i = 0; i < count; i++) 
       {
-        username = GetUserName();
+        var username = GetUserName();
 
         // Create the account
         CreateAccount(username, isPayer);
@@ -1319,22 +1208,22 @@ namespace MetraTech.UsageServer.Test
       string payerAccount = String.Empty;
       if (!isPayer)
       {
-        payerAccount = corporateAccountUserName;
+        payerAccount = _corporateAccountUserName;
       }
    
-      accountCreator.YetAnotherCreateAccount
+      _accountCreator.YetAnotherCreateAccount
         (accountUserName,
         "USD",                               
-        Util.cycleType,
-        accountType,
+        CycleType,
+        AccountType,
         "TestCorporation",
         isPayer, 
         payerAccount, // payer
-        corporateAccountUserName, // ancestor
+        _corporateAccountUserName, // ancestor
         @"metratech.com/accountcreation",
-        Util.dayOfMonthOrWeek, 
-        startDate,
-        countryName,
+        DayOfMonthOrWeek, 
+        _startDate,
+        CountryName,
         -1,
         null,
         false);
@@ -1350,6 +1239,8 @@ namespace MetraTech.UsageServer.Test
     /// </summary>
     /// <param name="accountUserName"></param>
     /// <param name="isPayer"></param>
+    /// <param name="ancestorAccount"></param>
+    /// <param name="applyTemplates"></param>
     public int CreateAccount(string accountUserName,
                              bool isPayer,
                              string ancestorAccount,
@@ -1361,19 +1252,19 @@ namespace MetraTech.UsageServer.Test
         payerAccount = ancestorAccount;
       }
    
-      accountCreator.YetAnotherCreateAccount
+      _accountCreator.YetAnotherCreateAccount
         (accountUserName,
         "USD",                               
-        Util.cycleType,
-        accountType,
+        CycleType,
+        AccountType,
         "TestCorporation",
         isPayer, 
         payerAccount, // payer
         ancestorAccount, // ancestor
         @"metratech.com/accountcreation",
-        Util.dayOfMonthOrWeek, 
-        startDate,
-        countryName,
+        DayOfMonthOrWeek, 
+        _startDate,
+        CountryName,
         -1,
         null,
         applyTemplates);
@@ -1387,6 +1278,8 @@ namespace MetraTech.UsageServer.Test
     /// </summary>
     /// <param name="accountUserName"></param>
     /// <param name="isPayer"></param>
+    /// <param name="timeZoneId"></param>
+    /// <param name="pricelist"></param>
     public int CreateAccount(string accountUserName,
                              bool isPayer,
                              int timeZoneId,
@@ -1395,22 +1288,22 @@ namespace MetraTech.UsageServer.Test
       string payerAccount = String.Empty;
       if (!isPayer)
       {
-        payerAccount = corporateAccountUserName;
+        payerAccount = _corporateAccountUserName;
       }
    
-      accountCreator.YetAnotherCreateAccount
+      _accountCreator.YetAnotherCreateAccount
         (accountUserName,
         "USD",                               
-        Util.cycleType,
-        accountType,
+        CycleType,
+        AccountType,
         "TestCorporation",
         isPayer, 
         payerAccount, // payer
-        corporateAccountUserName, // ancestor
+        _corporateAccountUserName, // ancestor
         @"metratech.com/accountcreation",
-        Util.dayOfMonthOrWeek, 
-        startDate,
-        countryName,
+        DayOfMonthOrWeek, 
+        _startDate,
+        CountryName,
         timeZoneId,
         pricelist,
         false);
@@ -1422,29 +1315,27 @@ namespace MetraTech.UsageServer.Test
     ///    Return a user name based on the prefix and counter of the form:
     ///    prefix_1_Wednesday_May_16_2001_3:02:15_AM
     /// </summary>
-    /// <param name="prefix"></param>
-    /// <param name="counter"></param>
     /// <returns></returns>
     public string GetUserName() 
     {
-      DateTime now = MetraTime.Now;
-      return userNamePrefix + "_" + 
-             accountCounter++ + "_" + 
-             now.ToString("s", DateTimeFormatInfo.InvariantInfo);
+      return UserNamePrefix + "_" + 
+             _accountCounter++ + "_" +
+             MetraTime.Now.ToString("s", DateTimeFormatInfo.InvariantInfo);
     }
 
     /// <summary>
     ///    Return the list of intervals which have account mappings for 
     ///    only those account id's specified in 'commaSeparatedAccountIds'. 
     /// </summary>
-    /// <param name="username"></param>
+    /// <param name="commaSeparatedAccountIds"></param>
+    /// <param name="numAccounts"></param>
     /// <returns>list of interval id's</returns>
-    private ArrayList GetIntervals(string commaSeparatedAccountIds, int numAccounts)
+    private static ArrayList GetIntervals(string commaSeparatedAccountIds, int numAccounts)
     {
-      ArrayList intervals = new ArrayList();
+      var intervals = new ArrayList();
 
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__GET_INTERVALS_FOR_BILLING_GROUP_TESTS__");
 
       rowset.AddParam("%%COMMA_SEPARATED_ACCOUNT_IDS%%", commaSeparatedAccountIds, true);
@@ -1452,58 +1343,58 @@ namespace MetraTech.UsageServer.Test
 
       rowset.Execute();
      
-      while (!System.Convert.ToBoolean(rowset.EOF))
+      while (!Convert.ToBoolean(rowset.EOF))
       {
-        intervals.Add((int)rowset.get_Value("id_usage_interval"));
+        intervals.Add((int)rowset.Value["id_usage_interval"]);
         rowset.MoveNext();
       }
 
       return intervals;
     }
 
-    
 
-    /// <summary>
-    ///   Return the account id for the given user name. 
-    ///   Return Int32.MinValue if the account is not found.
-    /// </summary>
-    /// <param name="username"></param>
-    /// <returns>account id or Int32.MinValue if it's not found</returns>
-    public int GetAccountId(string username)
+
+	  /// <summary>
+	  ///   Return the account id for the given user name. 
+	  ///   Return Int32.MinValue if the account is not found.
+	  /// </summary>
+	  /// <param name="username"></param>
+	  /// <returns>account id or Int32.MinValue if it's not found</returns>
+	  public int GetAccountId(string username)
+	  {
+	    var accountId = Int32.MinValue;
+
+	    Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
+	    rowset.Init(QueryPath);
+	    rowset.SetQueryTag("__GET_ACCOUNT_ID_USG_TEST__");
+
+	    rowset.AddParam("%%USER_NAME%%", username, true);
+	    rowset.AddParam("%%NAMESPACE%%", AccountNamespace, true);
+	    rowset.Execute();
+
+	    if (rowset.RecordCount == 1)
+	    {
+	      accountId = (int) rowset.Value["id_acc"];
+	    }
+
+	    return accountId;
+	  }
+
+	  public static string GetAccountName(int accountId)
     {
-      int accountId = Int32.MinValue;
+      var accountName = String.Empty;
 
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
-      rowset.SetQueryTag("__GET_ACCOUNT_ID_USG_TEST__");
-
-      rowset.AddParam("%%USER_NAME%%", username, true);
-	  rowset.AddParam("%%NAMESPACE%%", Util.accountNamespace, true);
-      rowset.Execute();
-
-      if (rowset.RecordCount == 1) 
-      {
-        accountId = (int)rowset.get_Value("id_acc");
-      }
-
-      return accountId;
-    }
-
-    public static string GetAccountName(int accountId)
-    {
-      string accountName = String.Empty;
-
-      Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__GET_ACCOUNT_NAME__");
 
       rowset.AddParam("%%ID_ACC%%", accountId, true);
-	  rowset.AddParam("%%NAMESPACE%%", Util.accountNamespace, true);
+	  rowset.AddParam("%%NAMESPACE%%", AccountNamespace, true);
       rowset.Execute();
 
       if (rowset.RecordCount == 1) 
       {
-        accountName = (string)rowset.get_Value("nm_login");
+        accountName = (string)rowset.Value["nm_login"];
       }
 
       return accountName;
@@ -1516,7 +1407,7 @@ namespace MetraTech.UsageServer.Test
     /// <returns></returns>
     public ArrayList GetAccountNames(ArrayList accountIds) 
     {
-      ArrayList accountNames = new ArrayList();
+      var accountNames = new ArrayList();
 
       foreach(int accountId in accountIds) 
       {
@@ -1534,15 +1425,15 @@ namespace MetraTech.UsageServer.Test
     /// </summary>
     /// <param name="accountId"></param>
     /// <param name="intervalId"></param>
+    /// <param name="exists"></param>
+    /// <param name="numberOfSessions"></param>
     public static void VerifyUsage(int accountId, 
                             int intervalId, 
                             bool exists,
                             int numberOfSessions) 
     {
-      int numUsage = 0;
-
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__VERIFY_USAGE__");
 
       rowset.AddParam("%%ID_ACC%%", accountId, true);
@@ -1552,18 +1443,10 @@ namespace MetraTech.UsageServer.Test
       Assert.AreEqual(1, rowset.RecordCount, 
                       "'VerifyUsage' - mismatch in record count");
      
-      numUsage = Convert.ToInt32(rowset.get_Value("numUsage"));
-      
-      if (exists)
-      {
-        Assert.AreEqual(numberOfSessions, numUsage,
-                        "'VerifyUsage' - Mismatch in number of usage items");
-      }
-      else 
-      {
-        Assert.AreEqual(0, numUsage,
-                        "'VerifyUsage' - Mismatch in number of usage items");
-      }
+      var numUsage = Convert.ToInt32(rowset.Value["numUsage"]);
+
+      Assert.AreEqual(exists ? numberOfSessions : 0, numUsage,
+                      "'VerifyUsage' - Mismatch in number of usage items");
     }
 
     /// <summary>
@@ -1575,14 +1458,15 @@ namespace MetraTech.UsageServer.Test
     /// </summary>
     /// <param name="payerAccountId"></param>
     /// <param name="payeeAccountId"></param>
-    /// <param name="id_interval"></param>
+    /// <param name="intervalId"></param>
+    /// <param name="exists"></param>
     public void VerifyPaymentRedirection(int payerAccountId,
                                          int payeeAccountId,
                                          int intervalId,
                                          bool exists)
     {
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__GET_ACCOUNTS__");
 
       rowset.AddParam("%%ID_INTERVAL%%", intervalId, true);
@@ -1593,12 +1477,12 @@ namespace MetraTech.UsageServer.Test
       if (exists)
       {
         Assert.AreEqual(2, rowset.RecordCount, "Mismatch in record count for positive case");
-        int dbAccountId1 = (int)rowset.get_Value("id_acc");
-        decimal dbAmount1 = (decimal)rowset.get_Value("amount");
+        var dbAccountId1 = (int)rowset.Value["id_acc"];
+        var dbAmount1 = (decimal)rowset.Value["amount"];
 
         rowset.MoveNext();
-        int dbAccountId2 = (int)rowset.get_Value("id_acc");
-        decimal dbAmount2 = (decimal)rowset.get_Value("amount");
+        var dbAccountId2 = (int)rowset.Value["id_acc"];
+        var dbAmount2 = (decimal)rowset.Value["amount"];
 
         if (dbAccountId1 == payerAccountId) 
         {
@@ -1630,33 +1514,28 @@ namespace MetraTech.UsageServer.Test
     /// <returns></returns>
     public int GetUsageCount(int intervalId) 
     {
-      int numRows = 0;
-
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
       rowset.SetQueryTag("__GET_USAGE_COUNT__");
 
       rowset.AddParam("%%ID_INTERVAL%%", intervalId, true);
       rowset.Execute();
 
-      numRows = (int)rowset.get_Value("UsageCount");
-
-      return numRows;
+      return (int)rowset.Value["UsageCount"];
     }
     /// <summary>
     ///    Return a list of account id's corresponding to the list of
     ///    user names in userNames.
     /// </summary>
-    /// <param name="userNames"></param>
+    /// <param name="usernames"></param>
     /// <returns></returns>
     private ArrayList ConvertUserNameToAccountId(ArrayList usernames) 
     {
-      ArrayList accountIds = new ArrayList();
-      int accountId;
+      var accountIds = new ArrayList();
 
       foreach(string username in usernames) 
       {
-        accountId = GetAccountId(username);
+        var accountId = GetAccountId(username);
         // Assert if the username is not found 
         Assert.AreNotEqual(Int32.MinValue, accountId, 
                             String.Format("The username {0} was not found " +
@@ -1673,22 +1552,18 @@ namespace MetraTech.UsageServer.Test
     private void ClearData() 
     {
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
-      rowset.Init(queryPath);
+      rowset.Init(QueryPath);
 
       // Clear out adapter data from t_recevent_inst ...
       rowset.SetQueryTag("__CLEAR_ADAPTER_DATA__");
       rowset.AddParam("%%ADAPTER_WHERE_CLAUSE%%", GetAdapterWhereClause(), true);
-      logger.LogInfo("Executing Query [Util.ClearData 1]: -----------------------------------");
-      logger.LogInfo(rowset.GetQueryString());
       rowset.Execute();
       
 
       // Reset event dates
       rowset.Clear();
       rowset.SetQueryTag("__RESET_EVENT_DATES__");
-      rowset.AddParam("%%START_DATE%%", startDate, true);
-      logger.LogInfo("Executing Query [Util.ClearData 2]: -----------------------------------");
-      logger.LogInfo(rowset.GetQueryString());
+      rowset.AddParam("%%START_DATE%%", _startDate, true);
       rowset.Execute();
       
 
@@ -1698,8 +1573,6 @@ namespace MetraTech.UsageServer.Test
       rowset.SetQueryTag("__CLEAR_BILLGROUP_AND_ACCOUNT_DATA__");
       rowset.AddParam("%%USAGE_PREDICATE%%", GetUsageWhereClause(), true);
       rowset.AddParam("%%BILLING_GROUP_PREDICATE%%", GetBillingGroupWhereClause(), true);
-      logger.LogInfo("Executing Query [Util.ClearData 3]: -----------------------------------");
-      logger.LogInfo(rowset.GetQueryString());
       rowset.Execute();
       
 
@@ -1707,8 +1580,6 @@ namespace MetraTech.UsageServer.Test
       rowset.Clear();
       rowset.SetQueryTag("__CLEAR_INVOICE_DATA__");
       rowset.AddParam("%%USAGE_PREDICATE%%", GetUsageWhereClause(), true);
-      logger.LogInfo("Executing Query [Util.ClearData 4]: -----------------------------------");
-      logger.LogInfo(rowset.GetQueryString());
       rowset.Execute();
       
 
@@ -1716,11 +1587,7 @@ namespace MetraTech.UsageServer.Test
       rowset.Clear();
       rowset.SetQueryTag("__RESET_INTERVAL_STATUS__");
       rowset.AddParam("%%USAGE_PREDICATE%%", GetUsageWhereClause(), true);
-      logger.LogInfo("Executing Query [Util.ClearData 5]: -----------------------------------");
-      logger.LogInfo(rowset.GetQueryString());
       rowset.Execute();
-      
-      
     }
 
     private string GetUsageWhereClause() 
@@ -1729,17 +1596,17 @@ namespace MetraTech.UsageServer.Test
                            "ui.dt_start < {1} AND " +
                            "uct.tx_desc = '{2}' AND " +
                            "uc.day_of_week = {3} ",
-                           GetDBDateString(startDate), 
-                           GetDBDateString(endDate),
-                           Util.cycleType,
-                           Util.dayOfMonthOrWeek);
+                           GetDBDateString(_startDate), 
+                           GetDBDateString(_endDate),
+                           CycleType,
+                           DayOfMonthOrWeek);
     }
 
     private string GetBillingGroupWhereClause() 
     {
       return String.Format("ui.dt_start >= {0} AND ui.dt_start < {1} ", 
-                           GetDBDateString(startDate), 
-                           GetDBDateString(endDate));
+                           GetDBDateString(_startDate), 
+                           GetDBDateString(_endDate));
     }
 
     private string GetAdapterWhereClause() 
@@ -1753,10 +1620,10 @@ namespace MetraTech.UsageServer.Test
                            "        ri.dt_arg_start >= {2} AND " +
                            "        ri.dt_arg_start < {3} " +
                            "       ) ", 
-                           GetDBDateString(startDate), 
-                           GetDBDateString(endDate),
-                           GetDBDateString(startDate), 
-                           GetDBDateString(endDate));
+                           GetDBDateString(_startDate), 
+                           GetDBDateString(_endDate),
+                           GetDBDateString(_startDate), 
+                           GetDBDateString(_endDate));
     }
 
     private string GetDBDateString(DateTime date)
@@ -1779,89 +1646,85 @@ namespace MetraTech.UsageServer.Test
     #region Data
     // The following three must match the billing group names created
     // by the out-of-the-box assignment query.
-    public const string europeBillingGroupName = "Europe";
-    public const string northAmericaBillingGroupName = "North America";
-    public const string southAmericaBillingGroupName = "South America";
-    public const int numBillingGroups = 3;
-    public const int numberOfNewAccountsForUserDefinedGroup = 3;
-    public const int numberOfNewAccountsToBeHardClosed = 3;
-    public const int numberOfSessions = 3;
-	public const string accountNamespace = "MT";
-    public const string testDir = "T:\\Development\\Core\\UsageServer\\";
-    public const string originalRecurringEventFile = "R:\\config\\UsageServer\\recurring_events.xml";
-    public const string hardCloseCheckpointName = "HardCloseCheckpoint";
-    public const string testPullListName = "Test pull list";
-    public const string testPullListDescr = "Testing pull list creation";
-    public const string userDefinedGroupName = "Test user defined group";
-    public const string userDefinedGroupDescription = "Test user defined group description";
-    public const string startRootName = "_StartRoot";
-    public const string endRootName = "_EndRoot";
-    public const string root = "Root";
+    public const string EuropeBillingGroupName = "Europe";
+    public const string NorthAmericaBillingGroupName = "North America";
+    public const string SouthAmericaBillingGroupName = "South America";
+    public const int NumBillingGroups = 3;
+    public const int NumberOfNewAccountsForUserDefinedGroup = 3;
+    public const int NumberOfNewAccountsToBeHardClosed = 3;
+    public const int NumberOfSessions = 3;
+	  public const string AccountNamespace = "MT";
+    public const string TestDir = "T:\\Development\\Core\\UsageServer\\";
+    public const string OriginalRecurringEventFile = "R:\\config\\UsageServer\\recurring_events.xml";
+    public const string HardCloseCheckpointName = "HardCloseCheckpoint";
+    public const string TestPullListName = "Test pull list";
+    public const string TestPullListDescr = "Testing pull list creation";
+    public const string UserDefinedGroupName = "Test user defined group";
+    public const string UserDefinedGroupDescription = "Test user defined group description";
+    public const string StartRootName = "_StartRoot";
+    public const string EndRootName = "_EndRoot";
+    public const string Root = "Root";
     public const string checkpoint = "Checkpoint";
-    public const string invoiceAdapterClassName = 
+    public const string InvoiceAdapterClassName = 
       "MetraTech.UsageServer.Adapters.InvoiceAdapter,MetraTech.UsageServer.Adapters";
-    public const string payerChangeAdapterClassName = 
+    public const string PayerChangeAdapterClassName = 
       "MetraTech.AR.Adapters.PayerChangeAdapter,MetraTech.AR.Adapters";
 
         
-    public const string intervalAccountAdapterFileName = "bg_interval_account_adapter_dependency_test.xml";
-    public const string intervalBillingGroupAdapterFileName = "bg_interval_billing_group_adapter_dependency_test.xml";
-    public const string intervalIntervalAdapterFileName = "bg_interval_interval_adapter_dependency_test.xml";
+    public const string IntervalAccountAdapterFileName = "bg_interval_account_adapter_dependency_test.xml";
+    public const string IntervalBillingGroupAdapterFileName = "bg_interval_billing_group_adapter_dependency_test.xml";
+    public const string IntervalIntervalAdapterFileName = "bg_interval_interval_adapter_dependency_test.xml";
     
-    public const string billingGroupAccountAdapterFileName = "bg_billing_group_account_adapter_dependency_test.xml";
-    public const string billingGroupBillingGroupAdapterFileName = "bg_billing_group_billing_group_adapter_dependency_test.xml";
-    public const string billingGroupIntervalAdapterFileName = "bg_billing_group_interval_adapter_dependency_test.xml";
+    public const string BillingGroupAccountAdapterFileName = "bg_billing_group_account_adapter_dependency_test.xml";
+    public const string BillingGroupBillingGroupAdapterFileName = "bg_billing_group_billing_group_adapter_dependency_test.xml";
+    public const string BillingGroupIntervalAdapterFileName = "bg_billing_group_interval_adapter_dependency_test.xml";
 
-    public const string accountAccountAdapterFileName = "bg_account_account_adapter_dependency_test.xml";
-    public const string accountBillingGroupAdapterFileName = "bg_account_billing_group_adapter_dependency_test.xml";
-    public const string accountIntervalAdapterFileName = "bg_account_interval_adapter_dependency_test.xml";
+    public const string AccountAccountAdapterFileName = "bg_account_account_adapter_dependency_test.xml";
+    public const string AccountBillingGroupAdapterFileName = "bg_account_billing_group_adapter_dependency_test.xml";
+    public const string AccountIntervalAdapterFileName = "bg_account_interval_adapter_dependency_test.xml";
 
-    public const string accountType = "DepartmentAccount";
+    public const string AccountType = "DepartmentAccount";
 
-    public const string timeZoneDataFileName = "TimeZoneTest.xml";
-    public const string timeZoneMappingFileName = "ModifiedTimezone.xml";
+    public const string TimeZoneDataFileName = "TimeZoneTest.xml";
+    public const string TimeZoneMappingFileName = "ModifiedTimezone.xml";
 
-    private static Util instance;
-    private Auth.IMTSessionContext sessionContext;
-    private BillingGroupManager billingGroupManager;
-    private UsageIntervalManager usageIntervalManager;
-    private Client client;
-    private Logger logger;
-    TestCreateUpdateAccounts accountCreator;
+    private static readonly Util _instance = new Util();
+    private Auth.IMTSessionContext _sessionContext;
+    private readonly BillingGroupManager _billingGroupManager;
+    private readonly UsageIntervalManager _usageIntervalManager;
+    private Client _client;
+    readonly TestCreateUpdateAccounts _accountCreator;
 
     // eventName <--> IRecurringEvent
-    private Hashtable recurringEventMap;
-    private ArrayList availableIntervals;
-    private ArrayList payerAccountIds;
-    private ArrayList payeeAccountIds;
-    private ArrayList payerUserNames;
-    private ArrayList payeeUserNames;
-    private ArrayList ukAccounts;
-    private ArrayList brazilAccounts;
-    private ArrayList usAccounts;
-    private DateTime startDate; 
-    private DateTime endDate;
-    private int accountCounter;
-    private string corporateAccountUserName;
-    private const string userNamePrefix = "BlGrpTest";
-    private const string cycleType = "Weekly";
-    public const string dailyCycleType = "Daily";
-    private const int dayOfMonthOrWeek = 7;
-    private const string countryName = "USA";
-    private const string corporateAccountName = "BillGroupTestCorp";
-    public const string queryPath = @"Queries\UsageServer\Test";
-    private const string ukCountryName = "Global/CountryName/United Kingdom";
-    private const string brazilCountryName = "Global/CountryName/Brazil";
-    private int userId = 123;
-    private const int numberOfPayerAccounts = 9;
-    private const int numberOfPayeeAccounts = 3;
+    private Hashtable _recurringEventMap;
+    private ArrayList _availableIntervals;
+    private ArrayList _payerAccountIds;
+    private ArrayList _payeeAccountIds;
+    private ArrayList _payerUserNames;
+    private ArrayList _payeeUserNames;
+    private ArrayList _ukAccounts;
+    private ArrayList _brazilAccounts;
+    private ArrayList _usAccounts;
+    private readonly DateTime _startDate;
+    private readonly DateTime _endDate;
+    private int _accountCounter;
+    private string _corporateAccountUserName;
+    private const string UserNamePrefix = "BlGrpTest";
+    private const string CycleType = "Weekly";
+    public const string DailyCycleType = "Daily";
+    private const int DayOfMonthOrWeek = 7;
+    private const string CountryName = "USA";
+	  public const string QueryPath = @"Queries\UsageServer\Test";
+    private const string UkCountryName = "Global/CountryName/United Kingdom";
+    private const string BrazilCountryName = "Global/CountryName/Brazil";
+	  private const int userId = 123;
+	  private const int NumberOfPayerAccounts = 9;
+    private const int NumberOfPayeeAccounts = 3;
 
-    // Lock synchronization object 
-    private static object syncLock = new object();
-    private ConnectionInfo connectionInfo;
+    private readonly ConnectionInfo _connectionInfo;
 
     #region Time Zones
-    public const int tz_Asia_Kabul = 1;
+    public const int TzAsiaKabul = 1;
     #endregion
     
     #endregion
@@ -1875,10 +1738,10 @@ namespace MetraTech.UsageServer.Test
           Type type = value.GetType();
 
           FieldInfo fi = type.GetField(value.ToString());
-          StringValue[] attrs =
+          var attrs =
               fi.GetCustomAttributes(typeof(StringValue),
                                       false) as StringValue[];
-          if (attrs.Length > 0)
+          if (attrs != null && attrs.Length > 0)
           {
               output = attrs[0].Value;
           }
@@ -1887,9 +1750,9 @@ namespace MetraTech.UsageServer.Test
       }
   }
 
-  public class StringValue : System.Attribute
+  public class StringValue : Attribute
   {
-      private string _value;
+      private readonly string _value;
 
       public StringValue(string value)
       {

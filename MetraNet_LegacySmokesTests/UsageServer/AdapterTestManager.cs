@@ -8,7 +8,6 @@ using System.IO;
 using System.Xml.Serialization;
 
 using MetraTech.DataAccess;
-using MetraTech.UsageServer;
 
 namespace MetraTech.UsageServer.Test
 {
@@ -26,12 +25,12 @@ namespace MetraTech.UsageServer.Test
 
     public static AdapterTestConfig GetAdapterTestConfig(string configFile)
     {
-      AdapterTestConfig adapterTestConfig = null;
+      AdapterTestConfig adapterTestConfig;
 
-      using (FileStream fileStream = new FileStream(configFile, FileMode.Open))
+      using (var fileStream = new FileStream(configFile, FileMode.Open))
       {
-        XmlSerializer serializer = new XmlSerializer(typeof(AdapterTestConfig));
-        adapterTestConfig = (AdapterTestConfig)serializer.Deserialize(fileStream);
+        var serializer = new XmlSerializer(typeof (AdapterTestConfig));
+        adapterTestConfig = (AdapterTestConfig) serializer.Deserialize(fileStream);
       }
 
       return adapterTestConfig;
@@ -56,7 +55,7 @@ namespace MetraTech.UsageServer.Test
     public static bool ValidateConfiguration(AdapterTestConfig adapterTestConfig, out string errors)
     {
       bool isValid = true;
-      StringBuilder errorBuilder = new StringBuilder();
+      var errorBuilder = new StringBuilder();
       string error = String.Empty;
 
       if (adapterTestConfig.Intervals == null)
@@ -129,14 +128,14 @@ namespace MetraTech.UsageServer.Test
           isValid = false;
         }
 
-        
+
         foreach (BillingGroup billingGroup in interval.BillingGroups)
         {
           // Billing group must have atleast one account
           if (billingGroup.Accounts == null || billingGroup.Accounts.Length == 0)
           {
             error = String.Format("Must specify one or more accounts for billing group '{0}' for interval '{1}'",
-                                   billingGroup.Name, interval.Id);
+                                  billingGroup.Name, interval.Id);
             Logger.LogError(error);
             errorBuilder.AppendLine(error);
             isValid = false;
@@ -148,7 +147,7 @@ namespace MetraTech.UsageServer.Test
         if (duplicateAccounts.Count > 0)
         {
           error = String.Format("The following accounts '{0}' are repeated for interval '{1}'",
-                                 AdapterTestConfig.GetCommaSeparatedIds(duplicateAccounts), interval.Id);
+                                AdapterTestConfig.GetCommaSeparatedIds(duplicateAccounts), interval.Id);
           Logger.LogError(error);
           errorBuilder.AppendLine(error);
           isValid = false;
@@ -160,8 +159,10 @@ namespace MetraTech.UsageServer.Test
 
         if (missingIds.Count > 0)
         {
-          error = String.Format("The following account/interval mappings were not found for accounts '{0}' and interval '{1}'",
-                                AdapterTestConfig.GetCommaSeparatedIds(missingIds), interval.Id);
+          error =
+            String.Format(
+              "The following account/interval mappings were not found for accounts '{0}' and interval '{1}'",
+              AdapterTestConfig.GetCommaSeparatedIds(missingIds), interval.Id);
           Logger.LogError(error);
           errorBuilder.AppendLine(error);
           isValid = false;
@@ -170,7 +171,7 @@ namespace MetraTech.UsageServer.Test
 
       foreach (Adapter adapter in adapterTestConfig.Adapters)
       {
-        
+
         if (adapter.Intervals != null)
         {
           foreach (Interval interval in adapter.Intervals)
@@ -194,8 +195,10 @@ namespace MetraTech.UsageServer.Test
                 {
                   if (!actualInterval.HasBillingGroup(billingGroup.Name))
                   {
-                    error = String.Format("The billing group '{0}' for interval '{1}' for adapter '{2}' has not been specified in the config file.",
-                                           billingGroup.Name, interval.Id, adapter.Name);
+                    error =
+                      String.Format(
+                        "The billing group '{0}' for interval '{1}' for adapter '{2}' has not been specified in the config file.",
+                        billingGroup.Name, interval.Id, adapter.Name);
                     Logger.LogError(error);
                     errorBuilder.AppendLine(error);
                     isValid = false;
@@ -251,7 +254,7 @@ namespace MetraTech.UsageServer.Test
       ResetEventDates(new DateTime(2001, 1, 1));
     }
 
-    
+
 
     /// <summary>
     ///   Create billing group data for the given intervals/billing groups/accounts
@@ -265,7 +268,7 @@ namespace MetraTech.UsageServer.Test
         if (interval.BillingGroups != null && interval.BillingGroups.Length > 0)
         {
           // Create a row in t_billgroup_materialization
-          interval.MaterializationId = 
+          interval.MaterializationId =
             Util.CreateMaterializationRow(interval.Id,
                                           MaterializationStatus.Succeeded,
                                           MaterializationType.Full,
@@ -277,7 +280,7 @@ namespace MetraTech.UsageServer.Test
             int billGroupId = Util.GetMaxBillGroupId() + 1;
             CreateBillGroupRow(billGroupId, billingGroup.Name, billingGroup.Description, interval.Id);
             billingGroup.Id = billGroupId;
-            
+
             // Create rows in t_billgroup_member
             foreach (Account account in billingGroup.Accounts)
             {
@@ -363,7 +366,7 @@ namespace MetraTech.UsageServer.Test
         // clean and initialize 
         adapterTest.CleanData(completeInterval);
         adapterTest.InitializeData(completeInterval);
-        
+
         // test adapter
         TestAdapter(adapter, completeInterval, recurringEvent, adapterTest, out error);
         if (!String.IsNullOrEmpty(error))
@@ -375,8 +378,8 @@ namespace MetraTech.UsageServer.Test
       errors = errorBuilder.ToString();
     }
 
-    public static void TestAdapter(Adapter adapter, 
-                                   Interval interval, 
+    public static void TestAdapter(Adapter adapter,
+                                   Interval interval,
                                    RecurringEvent recurringEvent,
                                    IAdapterTest adapterTest,
                                    out string errors)
@@ -390,12 +393,12 @@ namespace MetraTech.UsageServer.Test
       {
         if (interval.BillingGroups == null || interval.BillingGroups.Length == 0)
         {
-          errors = 
+          errors =
             (String.Format
               ("Unable to process adapter '{0}' for interval '{1}' because no billing group was specified",
                adapter.Name, interval.Id));
           Logger.LogError(errors);
-           
+
           return;
         }
 
@@ -444,7 +447,7 @@ namespace MetraTech.UsageServer.Test
 
       // Create AdapterInstance
       Logger.LogDebug("Creating instance of the '{0}' adapter with class name '{1}'",
-                       recurringEvent.Name, recurringEvent.ClassName);
+                      recurringEvent.Name, recurringEvent.ClassName);
       bool isLegacyAdapter;
       IRecurringEventAdapter2 adapterInstance =
         AdapterManager.CreateAdapterInstance(recurringEvent.ClassName, out isLegacyAdapter);
@@ -468,12 +471,13 @@ namespace MetraTech.UsageServer.Test
       if (adapterTest.ValidateExecution(interval, billingGroup, out error))
       {
         Logger.LogDebug("Validated execution of adapter '{0}' for interval '{1}' and billing group '{2}'",
-                         recurringEvent.Name, interval.Id, billingGroup.Name);
+                        recurringEvent.Name, interval.Id, billingGroup.Name);
       }
       else
       {
-        Logger.LogError("Unable to validate execution of adapter '{0}' for interval '{1}' and billing group '{2}'. Error: '{3}'",
-                         recurringEvent.Name, interval.Id, billingGroup.Name, error);
+        Logger.LogError(
+          "Unable to validate execution of adapter '{0}' for interval '{1}' and billing group '{2}'. Error: '{3}'",
+          recurringEvent.Name, interval.Id, billingGroup.Name, error);
       }
 
       // Reverse 
@@ -489,12 +493,13 @@ namespace MetraTech.UsageServer.Test
           if (adapterTest.ValidateReversal(interval, billingGroup, out error))
           {
             Logger.LogDebug("Validated reversal of adapter '{0}' for interval '{1}' and billing group '{2}'",
-                             recurringEvent.Name, interval.Id, billingGroup.Name);
+                            recurringEvent.Name, interval.Id, billingGroup.Name);
           }
           else
           {
-            Logger.LogError("Unable to validate reversal of adapter '{0}' for interval '{1}' and billing group '{2}'. Error: '{3}'",
-                             recurringEvent.Name, interval.Id, billingGroup.Name, error);
+            Logger.LogError(
+              "Unable to validate reversal of adapter '{0}' for interval '{1}' and billing group '{2}'. Error: '{3}'",
+              recurringEvent.Name, interval.Id, billingGroup.Name, error);
           }
         }
       }
@@ -509,13 +514,13 @@ namespace MetraTech.UsageServer.Test
       MethodInfo methodInfo = GetMethodInfo(testInstance.GetType(), AdapterTestManager.CleanDataMethod);
       Debug.Assert(methodInfo != null);
 
-      methodInfo.Invoke(testInstance, new object[] { interval });
+      methodInfo.Invoke(testInstance, new object[] {interval});
 
       // initialize
       methodInfo = GetMethodInfo(testInstance.GetType(), AdapterTestManager.InitializeDataMethod);
       Debug.Assert(methodInfo != null);
 
-      methodInfo.Invoke(testInstance, new object[] { interval });
+      methodInfo.Invoke(testInstance, new object[] {interval});
     }
 
     public static bool ValidateAdapterExecution(object testInstance, Interval interval, out string errorMessage)
@@ -528,8 +533,8 @@ namespace MetraTech.UsageServer.Test
 
       object[] parameters = new object[2];
       parameters[0] = interval;
-      bool isValid = (bool)methodInfo.Invoke(testInstance, parameters);
-      errorMessage = (string)parameters[1];
+      bool isValid = (bool) methodInfo.Invoke(testInstance, parameters);
+      errorMessage = (string) parameters[1];
 
       return isValid;
     }
@@ -560,7 +565,7 @@ namespace MetraTech.UsageServer.Test
       {
         Logger.LogError
           (String.Format
-            ("The testClass specification '{0}' for adapter '{1}' is not valid.", adapter.TestClass, adapter.Name));
+             ("The testClass specification '{0}' for adapter '{1}' is not valid.", adapter.TestClass, adapter.Name));
 
         return testInstance;
       }
@@ -574,7 +579,7 @@ namespace MetraTech.UsageServer.Test
       {
         Logger.LogError
           (String.Format
-            ("Unable to load assembly '{0}' for adapter '{2}'", assemblyName, adapter.Name));
+             ("Unable to load assembly '{0}' for adapter '{2}'", assemblyName, adapter.Name));
 
         return testInstance;
       }
@@ -586,7 +591,8 @@ namespace MetraTech.UsageServer.Test
       {
         Logger.LogError
           (String.Format
-            ("Unable to create type '{0}' from assembly '{1}' for adapter '{2}'", testClassName, assemblyName, adapter.Name));
+             ("Unable to create type '{0}' from assembly '{1}' for adapter '{2}'", testClassName, assemblyName,
+              adapter.Name));
 
         return testInstance;
       }
@@ -596,7 +602,8 @@ namespace MetraTech.UsageServer.Test
       {
         Logger.LogError
           (String.Format
-            ("Unable to create instance of type '{0}' from assembly '{1}' for adapter '{2}'", testClassName, assemblyName, adapter.Name));
+             ("Unable to create instance of type '{0}' from assembly '{1}' for adapter '{2}'", testClassName,
+              assemblyName, adapter.Name));
 
         return testInstance;
       }
@@ -605,22 +612,23 @@ namespace MetraTech.UsageServer.Test
     }
 
     #region SQL Methods
+
     public static void ClearUsageServerData(List<int> intervals)
     {
       string intervalList = Util.GetCommaSeparatedIds(intervals);
 
       Logger.LogInfo(String.Format("Clearing usage server data for intervals '{0}'", intervalList));
 
-      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.queryPath))
+      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.QueryPath))
       {
-          using (IMTAdapterStatement stmt =
-            conn.CreateAdapterStatement(Util.queryPath, "__CLEAR_ADAPTER_DATA_2__"))
-          {
+        using (IMTAdapterStatement stmt =
+          conn.CreateAdapterStatement(Util.QueryPath, "__CLEAR_ADAPTER_DATA_2__"))
+        {
 
-              stmt.AddParam("%%INTERVALS%%", intervalList, true);
+          stmt.AddParam("%%INTERVALS%%", intervalList, true);
 
-              stmt.ExecuteNonQuery();
-          }
+          stmt.ExecuteNonQuery();
+        }
       }
     }
 
@@ -630,16 +638,16 @@ namespace MetraTech.UsageServer.Test
 
       Logger.LogInfo(String.Format("Clearing billing group data for intervals '{0}'", intervals));
 
-      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.queryPath))
+      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.QueryPath))
       {
-          using (IMTAdapterStatement stmt =
-            conn.CreateAdapterStatement(Util.queryPath, "__CLEAR_BILLGROUP_DATA__"))
-          {
+        using (IMTAdapterStatement stmt =
+          conn.CreateAdapterStatement(Util.QueryPath, "__CLEAR_BILLGROUP_DATA__"))
+        {
 
-              stmt.AddParam("%%INTERVALS%%", intervalList, true);
+          stmt.AddParam("%%INTERVALS%%", intervalList, true);
 
-              stmt.ExecuteNonQuery();
-          }
+          stmt.ExecuteNonQuery();
+        }
       }
     }
 
@@ -658,18 +666,18 @@ namespace MetraTech.UsageServer.Test
           foreach (Account account in billingGroup.Accounts)
           {
             // TODO Very inefficient
-              using (IMTConnection conn = ConnectionManager.CreateConnection(Util.queryPath))
+            using (IMTConnection conn = ConnectionManager.CreateConnection(Util.QueryPath))
+            {
+              using (IMTAdapterStatement stmt =
+                conn.CreateAdapterStatement(Util.QueryPath, "__UPDATE_ACCOUNT_INTERVAL_STATUS__"))
               {
-                  using (IMTAdapterStatement stmt =
-                    conn.CreateAdapterStatement(Util.queryPath, "__UPDATE_ACCOUNT_INTERVAL_STATUS__"))
-                  {
 
-                      stmt.AddParam("%%ID_INTERVAL%%", interval.Id, true);
-                      stmt.AddParam("%%ID_ACC%%", account.Id, true);
+                stmt.AddParam("%%ID_INTERVAL%%", interval.Id, true);
+                stmt.AddParam("%%ID_ACC%%", account.Id, true);
 
-                      stmt.ExecuteNonQuery();
-                  }
+                stmt.ExecuteNonQuery();
               }
+            }
           }
         }
       }
@@ -681,38 +689,38 @@ namespace MetraTech.UsageServer.Test
 
       Logger.LogInfo(String.Format("Updating status to 'O' for intervals '{0}'", intervals));
 
-      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.queryPath))
+      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.QueryPath))
       {
-          using (IMTAdapterStatement stmt =
-            conn.CreateAdapterStatement(Util.queryPath, "__UPDATE_INTERVAL_STATUS__"))
-          {
+        using (IMTAdapterStatement stmt =
+          conn.CreateAdapterStatement(Util.QueryPath, "__UPDATE_INTERVAL_STATUS__"))
+        {
 
-              stmt.AddParam("%%INTERVALS%%", intervalList, true);
+          stmt.AddParam("%%INTERVALS%%", intervalList, true);
 
-              stmt.ExecuteNonQuery();
-          }
+          stmt.ExecuteNonQuery();
+        }
       }
     }
 
     public static void CreateBillGroupRow(int billgroupId, string name, string description, int intervalId)
     {
-      Logger.LogInfo(String.Format("Creating billing group with name '{0}' and id '{1}' for interval '{2}'", 
+      Logger.LogInfo(String.Format("Creating billing group with name '{0}' and id '{1}' for interval '{2}'",
                                    name, billgroupId, intervalId));
 
-      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.queryPath))
+      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.QueryPath))
       {
-          using (IMTAdapterStatement stmt =
-            conn.CreateAdapterStatement(Util.queryPath, "__CREATE_BILLGROUP_ROW__"))
-          {
+        using (IMTAdapterStatement stmt =
+          conn.CreateAdapterStatement(Util.QueryPath, "__CREATE_BILLGROUP_ROW__"))
+        {
 
-              stmt.AddParam("%%ID_BILLGROUP%%", billgroupId, true);
-              stmt.AddParam("%%NAME%%", name, true);
-              stmt.AddParam("%%DESCRIPTION%%", description, true);
-              stmt.AddParam("%%ID_USAGE_INTERVAL%%", intervalId, true);
+          stmt.AddParam("%%ID_BILLGROUP%%", billgroupId, true);
+          stmt.AddParam("%%NAME%%", name, true);
+          stmt.AddParam("%%DESCRIPTION%%", description, true);
+          stmt.AddParam("%%ID_USAGE_INTERVAL%%", intervalId, true);
 
-              stmt.ExecuteNonQuery();
+          stmt.ExecuteNonQuery();
 
-          }
+        }
       }
     }
 
@@ -721,19 +729,19 @@ namespace MetraTech.UsageServer.Test
       Logger.LogInfo(String.Format("Creating billing group member '{0}' for billing group '{1}'",
                                    id_acc, id_billgroup));
 
-      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.queryPath))
+      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.QueryPath))
       {
-          using (IMTAdapterStatement stmt =
-            conn.CreateAdapterStatement(Util.queryPath, "__CREATE_BILLGROUP_MEMBER_ROW__"))
-          {
+        using (IMTAdapterStatement stmt =
+          conn.CreateAdapterStatement(Util.QueryPath, "__CREATE_BILLGROUP_MEMBER_ROW__"))
+        {
 
-              stmt.AddParam("%%ID_BILLGROUP%%", id_billgroup, true);
-              stmt.AddParam("%%ID_ACC%%", id_acc, true);
-              stmt.AddParam("%%ID_MATERIALIZATION%%", id_materialization, true);
+          stmt.AddParam("%%ID_BILLGROUP%%", id_billgroup, true);
+          stmt.AddParam("%%ID_ACC%%", id_acc, true);
+          stmt.AddParam("%%ID_MATERIALIZATION%%", id_materialization, true);
 
-              stmt.ExecuteNonQuery();
+          stmt.ExecuteNonQuery();
 
-          }
+        }
       }
     }
 
@@ -741,17 +749,17 @@ namespace MetraTech.UsageServer.Test
     {
       Logger.LogInfo(String.Format("Resetting event dates in t_recevent to '{0}'", date));
 
-      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.queryPath))
+      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.QueryPath))
       {
-          using (IMTAdapterStatement stmt =
-            conn.CreateAdapterStatement(Util.queryPath, "__RESET_EVENT_DATES__"))
-          {
+        using (IMTAdapterStatement stmt =
+          conn.CreateAdapterStatement(Util.QueryPath, "__RESET_EVENT_DATES__"))
+        {
 
-              stmt.AddParam("%%START_DATE%%", date, true);
+          stmt.AddParam("%%START_DATE%%", date, true);
 
-              stmt.ExecuteNonQuery();
+          stmt.ExecuteNonQuery();
 
-          }
+        }
       }
     }
 
@@ -762,8 +770,8 @@ namespace MetraTech.UsageServer.Test
     /// <param name="id_interval"></param>
     /// <param name="id_billgroup"></param>
     /// <returns></returns>
-    public static int CreateAdapterInstanceRow(int id_event, 
-                                               int id_interval, 
+    public static int CreateAdapterInstanceRow(int id_event,
+                                               int id_interval,
                                                int id_billgroup)
     {
       Logger.LogInfo(String.Format("Creating adapter instance for event '{0}', interval '{1}', billing group '{2}'",
@@ -771,30 +779,30 @@ namespace MetraTech.UsageServer.Test
 
       int instanceId = Int32.MinValue;
 
-      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.queryPath))
+      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.QueryPath))
       {
-          using (IMTAdapterStatement stmt =
-            conn.CreateAdapterStatement(Util.queryPath, "__CREATE_ADAPTER_INSTANCE_ROW__"))
+        using (IMTAdapterStatement stmt =
+          conn.CreateAdapterStatement(Util.QueryPath, "__CREATE_ADAPTER_INSTANCE_ROW__"))
+        {
+
+          stmt.AddParam("%%ID_EVENT%%", id_event, true);
+          stmt.AddParam("%%ID_INTERVAL%%", id_interval, true);
+          stmt.AddParam("%%ID_BILLGROUP%%", id_billgroup, true);
+
+          stmt.ExecuteNonQuery();
+        }
+
+        using (IMTAdapterStatement stmt1 =
+          conn.CreateAdapterStatement(Util.QueryPath, "__GET_MAX_ADAPTER_INSTANCE_ID__"))
+        {
+          using (IMTDataReader reader = stmt1.ExecuteReader())
           {
-
-              stmt.AddParam("%%ID_EVENT%%", id_event, true);
-              stmt.AddParam("%%ID_INTERVAL%%", id_interval, true);
-              stmt.AddParam("%%ID_BILLGROUP%%", id_billgroup, true);
-
-              stmt.ExecuteNonQuery();
+            while (reader.Read())
+            {
+              instanceId = reader.GetInt32("id_instance");
+            }
           }
-
-          using (IMTAdapterStatement stmt1 =
-              conn.CreateAdapterStatement(Util.queryPath, "__GET_MAX_ADAPTER_INSTANCE_ID__"))
-          {
-              using (IMTDataReader reader = stmt1.ExecuteReader())
-              {
-                  while (reader.Read())
-                  {
-                      instanceId = reader.GetInt32("id_instance");
-                  }
-              }
-          }
+        }
       }
 
       return instanceId;
@@ -803,20 +811,21 @@ namespace MetraTech.UsageServer.Test
 
     public static void UpdateAccountStatus(string commaSeparatedAccountIds, int intervalId)
     {
-      Logger.LogInfo(String.Format("Updating status of accounts in t_acc_usage_interval '{0}' to 'C' for interval '{1}'", 
-                                   commaSeparatedAccountIds, intervalId));
+      Logger.LogInfo(String.Format(
+        "Updating status of accounts in t_acc_usage_interval '{0}' to 'C' for interval '{1}'",
+        commaSeparatedAccountIds, intervalId));
 
-      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.queryPath))
+      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.QueryPath))
       {
-          using (IMTAdapterStatement stmt =
-            conn.CreateAdapterStatement(Util.queryPath, "__UPDATE_ACCOUNT_STATUS__"))
-          {
+        using (IMTAdapterStatement stmt =
+          conn.CreateAdapterStatement(Util.QueryPath, "__UPDATE_ACCOUNT_STATUS__"))
+        {
 
-              stmt.AddParam("%%ID_INTERVAL%%", intervalId, true);
-              stmt.AddParam("%%ACCOUNT_IDS%%", commaSeparatedAccountIds, true);
+          stmt.AddParam("%%ID_INTERVAL%%", intervalId, true);
+          stmt.AddParam("%%ACCOUNT_IDS%%", commaSeparatedAccountIds, true);
 
-              stmt.ExecuteNonQuery();
-          }
+          stmt.ExecuteNonQuery();
+        }
       }
     }
 
@@ -831,22 +840,22 @@ namespace MetraTech.UsageServer.Test
 
       List<int> invalidIntervals = new List<int>();
 
-      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.queryPath))
+      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.QueryPath))
       {
-          using (IMTAdapterStatement stmt =
-            conn.CreateAdapterStatement(Util.queryPath, "__VERIFY_INTERVALS__"))
+        using (IMTAdapterStatement stmt =
+          conn.CreateAdapterStatement(Util.QueryPath, "__VERIFY_INTERVALS__"))
+        {
+
+          stmt.AddParam("%%INTERVAL_IDS%%", commaSeparatedIntervalIds, true);
+
+          using (IMTDataReader reader = stmt.ExecuteReader())
           {
-
-              stmt.AddParam("%%INTERVAL_IDS%%", commaSeparatedIntervalIds, true);
-
-              using (IMTDataReader reader = stmt.ExecuteReader())
-              {
-                  while (reader.Read())
-                  {
-                      invalidIntervals.Add(reader.GetInt32("id_interval"));
-                  }
-              }
+            while (reader.Read())
+            {
+              invalidIntervals.Add(reader.GetInt32("id_interval"));
+            }
           }
+        }
       }
 
       return invalidIntervals;
@@ -864,22 +873,22 @@ namespace MetraTech.UsageServer.Test
 
       List<int> invalidAccounts = new List<int>();
 
-      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.queryPath))
+      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.QueryPath))
       {
-          using (IMTAdapterStatement stmt =
-            conn.CreateAdapterStatement(Util.queryPath, "__VERIFY_ACCOUNTS__"))
+        using (IMTAdapterStatement stmt =
+          conn.CreateAdapterStatement(Util.QueryPath, "__VERIFY_ACCOUNTS__"))
+        {
+
+          stmt.AddParam("%%ACCOUNT_IDS%%", commaSeparatedAccountIds, true);
+
+          using (IMTDataReader reader = stmt.ExecuteReader())
           {
-
-              stmt.AddParam("%%ACCOUNT_IDS%%", commaSeparatedAccountIds, true);
-
-              using (IMTDataReader reader = stmt.ExecuteReader())
-              {
-                  while (reader.Read())
-                  {
-                      invalidAccounts.Add(reader.GetInt32("id_acc"));
-                  }
-              }
+            while (reader.Read())
+            {
+              invalidAccounts.Add(reader.GetInt32("id_acc"));
+            }
           }
+        }
       }
 
       return invalidAccounts;
@@ -893,38 +902,40 @@ namespace MetraTech.UsageServer.Test
     /// <returns></returns>
     public static List<int> VerifyAccountIntervalMappings(int intervalId, string commaSeparatedAccountIds)
     {
-      Logger.LogInfo(String.Format("Verifying account/interval mappings for accounts '{0}' and interval '{1}'", 
+      Logger.LogInfo(String.Format("Verifying account/interval mappings for accounts '{0}' and interval '{1}'",
                                    commaSeparatedAccountIds, intervalId));
 
       List<int> invalidAccounts = new List<int>();
 
-      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.queryPath))
+      using (IMTConnection conn = ConnectionManager.CreateConnection(Util.QueryPath))
       {
-          using (IMTAdapterStatement stmt =
-            conn.CreateAdapterStatement(Util.queryPath, "__VERIFY_ACCOUNT_INTERVAL_MAPPING__"))
+        using (IMTAdapterStatement stmt =
+          conn.CreateAdapterStatement(Util.QueryPath, "__VERIFY_ACCOUNT_INTERVAL_MAPPING__"))
+        {
+
+          stmt.AddParam("%%ACCOUNT_IDS%%", commaSeparatedAccountIds, true);
+          stmt.AddParam("%%ID_INTERVAL%%", intervalId, true);
+
+          using (IMTDataReader reader = stmt.ExecuteReader())
           {
-
-              stmt.AddParam("%%ACCOUNT_IDS%%", commaSeparatedAccountIds, true);
-              stmt.AddParam("%%ID_INTERVAL%%", intervalId, true);
-
-              using (IMTDataReader reader = stmt.ExecuteReader())
-              {
-                  while (reader.Read())
-                  {
-                      invalidAccounts.Add(reader.GetInt32("id_acc"));
-                  }
-              }
+            while (reader.Read())
+            {
+              invalidAccounts.Add(reader.GetInt32("id_acc"));
+            }
           }
+        }
       }
 
       return invalidAccounts;
 
     }
+
     #endregion
 
     #endregion
 
     #region Data
+
     public static Logger Logger = new Logger("[AdapterTest]");
     private const string CleanDataMethod = "CleanData";
     private const string InitializeDataMethod = "InitializeData";
@@ -933,18 +944,15 @@ namespace MetraTech.UsageServer.Test
 
     #endregion
   }
-  
-   [XmlRoot("adapterTestConfig")]
+
+  [XmlRoot("adapterTestConfig")]
   public class AdapterTestConfig
   {
-    [XmlElement(ElementName = "userId", Type = typeof(int))]
-    public int UserId;
+    [XmlElement(ElementName = "userId", Type = typeof (int))] public int UserId;
 
-    [XmlElement(ElementName = "interval", Type = typeof(Interval))]
-    public Interval[] Intervals;
+    [XmlElement(ElementName = "interval", Type = typeof (Interval))] public Interval[] Intervals;
 
-    [XmlElement(ElementName = "adapter", Type = typeof(Adapter))]
-    public Adapter[] Adapters;
+    [XmlElement(ElementName = "adapter", Type = typeof (Adapter))] public Adapter[] Adapters;
 
     /// <summary>
     ///   Return the specified list of intervals
@@ -989,7 +997,7 @@ namespace MetraTech.UsageServer.Test
     public List<int> GetAccounts()
     {
       List<int> accounts = new List<int>();
-    
+
       foreach (Interval interval in Intervals)
       {
         if (interval.BillingGroups != null)
@@ -1108,11 +1116,9 @@ namespace MetraTech.UsageServer.Test
   [XmlRoot("interval")]
   public class Interval
   {
-    [XmlAttribute("id")]
-    public int Id;
+    [XmlAttribute("id")] public int Id;
 
-    [XmlElement(ElementName = "billingGroup", Type = typeof(BillingGroup))]
-    public BillingGroup[] BillingGroups;
+    [XmlElement(ElementName = "billingGroup", Type = typeof (BillingGroup))] public BillingGroup[] BillingGroups;
 
     public int MaterializationId;
 
@@ -1193,7 +1199,7 @@ namespace MetraTech.UsageServer.Test
         }
       }
 
-      return duplicates; 
+      return duplicates;
     }
 
     public List<int> GetDuplicateAccountsAcrossBillingGroups()
@@ -1227,16 +1233,13 @@ namespace MetraTech.UsageServer.Test
   [XmlRoot("BillingGroup")]
   public class BillingGroup
   {
-    [XmlAttribute("name")]
-    public string Name;
+    [XmlAttribute("name")] public string Name;
 
-    [XmlAttribute("description")]
-    public string Description;
+    [XmlAttribute("description")] public string Description;
 
     public int Id;
 
-    [XmlElement(ElementName = "account", Type = typeof(Account))]
-    public Account[] Accounts;
+    [XmlElement(ElementName = "account", Type = typeof (Account))] public Account[] Accounts;
 
     public List<int> GetAccounts()
     {
@@ -1280,29 +1283,21 @@ namespace MetraTech.UsageServer.Test
   [XmlRoot("account")]
   public class Account
   {
-    [XmlAttribute("id")]
-    public int Id;
+    [XmlAttribute("id")] public int Id;
   }
 
   [Serializable]
   [XmlRoot("adapter")]
   public class Adapter
   {
-    [XmlAttribute("name")]
-    public string Name;
+    [XmlAttribute("name")] public string Name;
 
-    [XmlAttribute("testClass")]
-    public string TestClass;
-    
-    [XmlAttribute("ignore")]
-    public bool Ignore;
+    [XmlAttribute("testClass")] public string TestClass;
 
-    [XmlAttribute("reverse")]
-    public bool Reverse;
+    [XmlAttribute("ignore")] public bool Ignore;
 
-    [XmlElement(ElementName = "interval", Type = typeof(Interval))]
-    public Interval[] Intervals;
+    [XmlAttribute("reverse")] public bool Reverse;
+
+    [XmlElement(ElementName = "interval", Type = typeof (Interval))] public Interval[] Intervals;
   }
-
-
 }

@@ -36,7 +36,7 @@ namespace MetraTech.UsageServer.Adapters
         private string mConfigFile;
         private bool mFailImmediately;
         private const string mUsageServerQueryPath = @"Queries\UsageServer";
-    
+
         //adapter capabilities
         public bool SupportsScheduledEvents { get { return false; } }
         public bool SupportsEndOfPeriodEvents { get { return true; } }
@@ -150,32 +150,31 @@ namespace MetraTech.UsageServer.Adapters
             string comment = String.Format("Backing out recurring charges, in case rates have changed.");
             rerun.Setup(comment);
 
-            string joinClause = "left outer join t_pv_flatrecurringcharge flatrc on flatrc.id_sess = au.id_sess " +
-              "left outer join t_pv_udrecurringcharge udrc on udrc.id_sess = au.id_sess ";
+            const string joinClause =
+                "inner join t_billgroup_member bgm on au.id_acc = bgm.id_acc " +
+                "inner join t_billgroup bg on bg.id_usage_interval = au.id_usage_interval and bg.id_billgroup = bgm.id_billgroup " +
+                "inner join t_enum_data ted on ted.id_enum_data = au.id_view";
 
             string whereClause =
-              " and au.id_usage_interval = " + context.UsageIntervalID;
+            " and au.id_usage_interval = " + context.UsageIntervalID +
+            " and bg.id_billgroup = " + context.BillingGroupID +
+            " and ted.nm_enum_data in ('metratech.com/flatrecurringcharge','metratech.com/udrecurringcharge')";
 
             using (IMTConnection conn = ConnectionManager.CreateConnection("queries\\BillingRerun"))
             {
-                using (IMTAdapterStatement stmt =
-                  conn.CreateAdapterStatement("queries\\BillingRerun", "__IDENTIFY_ACC_USAGE2__"))
+                using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("queries\\BillingRerun", "_IDENTIFY_ACC_USAGE2_"))
                 {
-
                     stmt.AddParam("%%STATE%%", "I");
                     stmt.AddParam("%%TABLE_NAME%%", rerun.TableName, true);
                     stmt.AddParam("%%JOIN_CLAUSE%%", joinClause, true);
                     stmt.AddParam("%%WHERE_CLAUSE%%", whereClause, true);
-
                     int rc = stmt.ExecuteNonQuery();
                 }
             }
 
             using (IMTConnection conn = ConnectionManager.CreateConnection(mUsageServerQueryPath))
             {
-                using (IMTAdapterStatement stmt =
-                    conn.CreateAdapterStatement(mUsageServerQueryPath,
-                                                "__DELETE_TEMP_ACCOUNTS_TABLE_FOR_BILLING_RERUN__"))
+                using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(mUsageServerQueryPath, "_DELETE_TEMP_ACCOUNTS_TABLE_FOR_BILLING_RERUN_"))
                 {
                     stmt.ExecuteNonQuery();
                 }
@@ -183,7 +182,6 @@ namespace MetraTech.UsageServer.Adapters
 
             // Analyze
             rerun.Analyze(comment);
-
             // Backout and Resubmit
             rerun.BackoutResubmit(comment);
         }

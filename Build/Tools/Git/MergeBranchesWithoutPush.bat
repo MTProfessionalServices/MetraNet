@@ -24,4 +24,5 @@
 git merge %1
 git submodule foreach git merge %submoduleName%
 
+@popd
 @pause

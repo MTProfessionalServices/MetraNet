@@ -96,6 +96,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         public void UpdateFlow(Context context)
         {
+//TODO: Why  do I need to do this here???
             if (Flow == null)
                 Flow = new BaseFlow();
             Flow.InitialProperties = new PropertyCollection(null);

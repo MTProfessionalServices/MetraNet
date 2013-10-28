@@ -210,6 +210,7 @@ namespace MetraTech.ExpressionEngine.PropertyBags
 
         public virtual void AddCoreProperties()
         {
+//TODO: not sure why I need this here. I'm getting crash when trying to create a multipoint parent in the flow
             if (Properties == null)
                 return;
 

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Query>
-    <Action>CreateTrigger</Action>
+    <Action>UnknownDdl</Action>
     <Implementations>
         <Implementation>SqlServer</Implementation>
         <Implementation>Oracle</Implementation>

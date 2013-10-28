@@ -162,7 +162,7 @@ namespace MetraTech.UsageServer.Adapters
 
             using (IMTConnection conn = ConnectionManager.CreateConnection("queries\\BillingRerun"))
             {
-                using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("queries\\BillingRerun", "_IDENTIFY_ACC_USAGE2_"))
+                using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("queries\\BillingRerun", "__IDENTIFY_ACC_USAGE2__"))
                 {
                     stmt.AddParam("%%STATE%%", "I");
                     stmt.AddParam("%%TABLE_NAME%%", rerun.TableName, true);
@@ -174,7 +174,7 @@ namespace MetraTech.UsageServer.Adapters
 
             using (IMTConnection conn = ConnectionManager.CreateConnection(mUsageServerQueryPath))
             {
-                using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(mUsageServerQueryPath, "_DELETE_TEMP_ACCOUNTS_TABLE_FOR_BILLING_RERUN_"))
+                using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(mUsageServerQueryPath, "__DELETE_TEMP_ACCOUNTS_TABLE_FOR_BILLING_RERUN__"))
                 {
                     stmt.ExecuteNonQuery();
                 }

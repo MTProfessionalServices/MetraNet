@@ -125,12 +125,12 @@ namespace MetraTech.UsageServer.Adapters
             }
 
             //
-            // waits until all sessions commit
+            // Waits until all sessions commit
             //
             context.RecordInfo(string.Format("Waiting for sessions to commit (timeout = {0} seconds)", mCommitTimeout));
             meterrs.WaitForCommit(meteredRecords, mCommitTimeout);
             //
-            // check for error during pipeline processing
+            // Check for error during pipeline processing
             //
             if (meterrs.CommittedErrorCount > 0)
             {

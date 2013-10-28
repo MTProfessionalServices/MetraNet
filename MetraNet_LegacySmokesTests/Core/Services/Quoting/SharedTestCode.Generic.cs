@@ -1212,51 +1212,98 @@ namespace MetraTech.Core.Services.Test.Quoting
 
     #region Account Related Classes
 
-    public class CorporateAccountFactory
+    public class BaseAccountFactory : DomainModel.BaseTypes.Account
+    {
+      protected int ancestorID = 1;
+      public int AncestorID
+      {
+        get { return ancestorID; }
+        set { ancestorID = value; }
+      }
+      
+      protected int? payerID = null;
+      public int? PayerID
+      {
+        get { return payerID; }
+        set { payerID = value; }
+      }
+
+      protected string baseName = "";
+      protected virtual string BaseName
+      {
+        get { return baseName; }
+      }
+
+      protected string uniqueInstanceIdentifier = "";
+      protected virtual string UniqueInstanceIdentifier
+      {
+        get { return uniqueInstanceIdentifier; }
+      }
+
+      protected InternalView internalView;
+      protected UsageCycleType usageCycleType = UsageCycleType.Monthly;
+      public UsageCycleType CycleType
+      {
+        get { return usageCycleType; }
+        set { usageCycleType = value; }
+      }
+      protected ContactView billToContactView;
+      protected ContactView shipToContactView;
+
+      protected DomainModel.BaseTypes.Account CreateBaseAccount(string typeName, ref string userName, ref string nameSpace)
+      {
+        var account = CreateAccount(typeName);
+        userName = string.Format("{0}_{1}_{2}", userName, BaseName, UniqueInstanceIdentifier);
+
+        if (userName.Length > 255)
+        {
+          throw new Exception(string.Format("Username '{0}' is too long. It is {1} and should be 255 or less.", userName, userName.Length));
+        }
+
+        if (String.IsNullOrEmpty(nameSpace))
+        {
+          nameSpace = "mt";
+        }
+
+        account.PayerID = PayerID;
+        account.UserName = userName;
+        account.Password_ = "123";
+        account.Name_Space = nameSpace;
+        account.AccountStatus = DomainModel.Enums.Account.Metratech_com_accountcreation.AccountStatus.Active;
+
+        account.AncestorAccountID = AncestorID;
+        account.AccountStartDate = MetraTime.Now;
+
+        //var dateTime = DateTime.Today;
+        //var y2k = new DateTime(2000, 1, 1);
+        //TimeSpan tsDiffBnNowAndY2K = dateTime.Subtract(y2k);
+        //int diffDaysBnNowAndY2K = Math.Abs(tsDiffBnNowAndY2K.Days);
+        //if (account.StartDay >= 14)
+        //{
+        //  account.StartDay = (diffDaysBnNowAndY2K + 1) % 14;
+        //}
+        account.StartDay = 1; //DateTime.Now.Day;
+        account.StartMonth = MonthOfTheYear.January; //DateTime.Now.Year;
+        account.StartYear = 2000; //(MonthOfTheYear)(DateTime.Now.Month - 1);
+
+        account.DayOfMonth = 1;
+        account.DayOfWeek = DayOfTheWeek.Sunday;
+
+        account.FirstDayOfMonth = 1;
+        account.SecondDayOfMonth = 15;
+        
+        return account;
+      }
+    }
+
+    public class CorporateAccountFactory : BaseAccountFactory
     {
         protected CorporateAccount mCorporateAccount;
         public CorporateAccount Item
         {
             get { return mCorporateAccount; }
         }
-
-        protected string baseName = "";
-        protected virtual string BaseName
-        {
-            get { return baseName; }
-        }
-
-        protected string uniqueInstanceIdentifier = "";
-        protected virtual string UniqueInstanceIdentifier
-        {
-            get { return uniqueInstanceIdentifier; }
-        }
-
-        protected UsageCycleType usageCycleType = UsageCycleType.Monthly;
-        public UsageCycleType CycleType
-        {
-            get { return usageCycleType; }
-            set { usageCycleType = value; }
-        }
-
-        protected int? payerID = null;
-        public int? PayerID
-        {
-            get { return payerID; }
-            set { payerID = value; }
-        }
-
-        protected int ancestorID = 1;
-        public int AncestorID
-        {
-            get { return ancestorID; }
-            set { ancestorID = value; }
-        }
-
-        protected InternalView internalView;
-        protected ContactView billToContactView;
-        protected ContactView shipToContactView;
-
+      
         AccountCreation_AddAccount_Client webServiceClient;
 
         public virtual MetraTech.Interop.MTAuth.IMTSessionContext GetSessionContextForCreate()
@@ -1293,11 +1340,9 @@ namespace MetraTech.Core.Services.Test.Quoting
 
             return accountHolder.Item;
         }
-
-
+      
         public virtual void Instantiate()
         {
-
             // Create the internal view
             internalView = (InternalView)View.CreateView(@"metratech.com/internal");
             internalView.UsageCycleType = CycleType;
@@ -1350,72 +1395,26 @@ namespace MetraTech.Core.Services.Test.Quoting
                 cap1.GetActivePolicy((MTSessionContext)ctx).Save();
             }
         }
-
-
+      
         protected virtual CorporateAccount CreateCorporateAccount()
         {
             string username = "Corp";
             string nameSpace = String.Empty;
-            CorporateAccount account = (CorporateAccount)CreateBaseAccount("CorporateAccount", ref username, ref nameSpace);
-            account.AncestorAccountID = AncestorID;
-            account.AccountStartDate = MetraTime.Now;
-
-
+            var account = (CorporateAccount)CreateBaseAccount("CorporateAccount", ref username, ref nameSpace);
+            
             // Set the internal view
             account.Internal = internalView;
 
             // Add the contact views
             account.LDAP.Add(shipToContactView);
             account.LDAP.Add(billToContactView);
-
-            account.StartMonth = MonthOfTheYear.January;
-            account.FirstDayOfMonth = 1;
-            account.StartDay = 1;
-            account.DayOfMonth = 1;
-            account.DayOfWeek = MetraTech.DomainModel.Enums.Core.Global.DayOfTheWeek.Sunday;
-            account.StartYear = DateTime.Now.Year;
-            account.SecondDayOfMonth = 15;
-
-
-
-
-            account.PayerID = PayerID;
-
+            
             // Create the account
             WebServiceClient.InOut_Account = account;
             WebServiceClient.Invoke();
-
             return (CorporateAccount)WebServiceClient.InOut_Account;
         }
-
-        private MetraTech.DomainModel.BaseTypes.Account CreateBaseAccount(string typeName, ref string userName, ref string nameSpace)
-        {
-            MetraTech.DomainModel.BaseTypes.Account account =
-              MetraTech.DomainModel.BaseTypes.Account.CreateAccount(typeName);
-
-            //userName = typeName + "_" + DateTime.Now.ToString("MM/dd HH:mm:ss.") + DateTime.Now.Millisecond.ToString();
-
-            userName = string.Format("{0}_{1}_{2}", userName, BaseName, UniqueInstanceIdentifier);
-
-            if (userName.Length > 255)
-            {
-                throw new Exception(string.Format("Username '{0}' is too long. It is {1} and should be 255 or less.", userName, userName.Length));
-            }
-
-            if (String.IsNullOrEmpty(nameSpace))
-            {
-                nameSpace = "mt";
-            }
-
-            account.UserName = userName;
-            account.Password_ = "123";
-            account.Name_Space = nameSpace;
-            account.DayOfMonth = 1;
-            account.AccountStatus = AccountStatus.Active;
-
-            return account;
-        }
-
+      
         public CoreSubscriber AddCoreSubscriber(string name)
         {
             string username = name;
@@ -1451,50 +1450,13 @@ namespace MetraTech.Core.Services.Test.Quoting
         }
     }
 
-    public class DepartmentAccountFactory
+    public class DepartmentAccountFactory : BaseAccountFactory
     {
         protected DepartmentAccount mDepartmentAccount;
         public DepartmentAccount Item
         {
             get { return mDepartmentAccount; }
         }
-
-        protected string baseName = "";
-        protected virtual string BaseName
-        {
-            get { return baseName; }
-        }
-
-        protected string uniqueInstanceIdentifier = "";
-        protected virtual string UniqueInstanceIdentifier
-        {
-            get { return uniqueInstanceIdentifier; }
-        }
-
-        protected UsageCycleType usageCycleType = UsageCycleType.Monthly;
-        public UsageCycleType CycleType
-        {
-            get { return usageCycleType; }
-            set { usageCycleType = value; }
-        }
-
-        protected int? payerID = null;
-        public int? PayerID
-        {
-            get { return payerID; }
-            set { payerID = value; }
-        }
-
-        protected int ancestorID = 1;
-        public int AncestorID
-        {
-            get { return ancestorID; }
-            set { ancestorID = value; }
-        }
-
-        protected InternalView internalView;
-        protected ContactView billToContactView;
-        protected ContactView shipToContactView;
 
         AccountCreation_AddAccount_Client webServiceClient;
 
@@ -1591,11 +1553,9 @@ namespace MetraTech.Core.Services.Test.Quoting
 
         protected virtual DepartmentAccount CreateDepartmentAccount()
         {
-            string username = "Dep";
-            string nameSpace = String.Empty;
-            DepartmentAccount account = (DepartmentAccount)CreateBaseAccount("DepartmentAccount", ref username, ref nameSpace);
-            account.AncestorAccountID = AncestorID;
-            account.AccountStartDate = MetraTime.Now;
+            var username = "Dep";
+            var nameSpace = String.Empty;
+            var account = (DepartmentAccount)CreateBaseAccount("DepartmentAccount", ref username, ref nameSpace);
 
             // Set the internal view
             account.Internal = internalView;
@@ -1604,16 +1564,6 @@ namespace MetraTech.Core.Services.Test.Quoting
             account.LDAP.Add(shipToContactView);
             account.LDAP.Add(billToContactView);
 
-            account.StartMonth = MonthOfTheYear.January;
-            account.FirstDayOfMonth = 1;
-            account.StartDay = 1;
-            account.DayOfMonth = 1;
-            account.DayOfWeek = MetraTech.DomainModel.Enums.Core.Global.DayOfTheWeek.Sunday;
-            account.StartYear = DateTime.Now.Year;
-            account.SecondDayOfMonth = 15;
-
-            account.PayerID = PayerID;
-
             // Create the account
             WebServiceClient.InOut_Account = account;
             WebServiceClient.Invoke();
@@ -1621,52 +1571,15 @@ namespace MetraTech.Core.Services.Test.Quoting
             return (DepartmentAccount)WebServiceClient.InOut_Account;
         }
 
-        private MetraTech.DomainModel.BaseTypes.Account CreateBaseAccount(string typeName, ref string userName, ref string nameSpace)
-        {
-            MetraTech.DomainModel.BaseTypes.Account account =
-              MetraTech.DomainModel.BaseTypes.Account.CreateAccount(typeName);
-
-            //userName = typeName + "_" + DateTime.Now.ToString("MM/dd HH:mm:ss.") + DateTime.Now.Millisecond.ToString();
-
-            userName = string.Format("{0}_{1}_{2}", userName, BaseName, UniqueInstanceIdentifier);
-
-            if (userName.Length > 40)
-            {
-                throw new Exception(string.Format("Username '{0}' is too long. It is {1} and should be 40 or less.", userName, userName.Length));
-            }
-
-            if (String.IsNullOrEmpty(nameSpace))
-            {
-                nameSpace = "mt";
-            }
-
-            account.UserName = userName;
-            account.Password_ = "123";
-            account.Name_Space = nameSpace;
-            account.DayOfMonth = 1;
-            account.AccountStatus = AccountStatus.Active;
-
-            return account;
-        }
-
         public CoreSubscriber AddCoreSubscriber(string name)
         {
             string username = name;
             string nameSpace = String.Empty;
 
-            CoreSubscriber account = (CoreSubscriber)CreateBaseAccount("CoreSubscriber", ref username, ref nameSpace);
+            var account = (CoreSubscriber)CreateBaseAccount("CoreSubscriber", ref username, ref nameSpace);
             account.AncestorAccountID = mDepartmentAccount._AccountID;
-            account.AccountStartDate = MetraTime.Now;
-            account.StartMonth = MonthOfTheYear.January;
-            account.FirstDayOfMonth = 1;
-            account.StartDay = 1;
-            account.DayOfMonth = 1;
-            account.DayOfWeek = MetraTech.DomainModel.Enums.Core.Global.DayOfTheWeek.Sunday;
-            account.StartYear = DateTime.Now.Year;
-            account.SecondDayOfMonth = 15;
             account.Internal = internalView;
-
-
+          
             // Add the contact views
             //account.LDAP.Add(shipToContactView);
             //account.LDAP.Add(billToContactView);
@@ -1691,7 +1604,7 @@ namespace MetraTech.Core.Services.Test.Quoting
         }
     }
 
-    public class CoreSubscriberAccountFactory
+    public class CoreSubscriberAccountFactory : BaseAccountFactory
     {
         protected CoreSubscriber mCoreSubscriberAccount;
         public CoreSubscriber Item
@@ -1699,46 +1612,9 @@ namespace MetraTech.Core.Services.Test.Quoting
             get { return mCoreSubscriberAccount; }
         }
 
-        protected string baseName = "";
-        protected virtual string BaseName
-        {
-            get { return baseName; }
-        }
-
-        protected string uniqueInstanceIdentifier = "";
-        protected virtual string UniqueInstanceIdentifier
-        {
-            get { return uniqueInstanceIdentifier; }
-        }
-
-        protected UsageCycleType usageCycleType = UsageCycleType.Monthly;
-        public UsageCycleType CycleType
-        {
-            get { return usageCycleType; }
-            set { usageCycleType = value; }
-        }
-
-        protected int? payerID = null;
-        public int? PayerID
-        {
-            get { return payerID; }
-            set { payerID = value; }
-        }
-
-        protected int ancestorID = 1;
-        public int AncestorID
-        {
-            get { return ancestorID; }
-            set { ancestorID = value; }
-        }
-
-        protected InternalView internalView;
-        protected ContactView billToContactView;
-        protected ContactView shipToContactView;
-
         AccountCreation_AddAccount_Client webServiceClient;
 
-        public virtual MetraTech.Interop.MTAuth.IMTSessionContext GetSessionContextForCreate()
+        public virtual Interop.MTAuth.IMTSessionContext GetSessionContextForCreate()
         {
             return SharedTestCode.LoginAsSU();
         }
@@ -1830,11 +1706,9 @@ namespace MetraTech.Core.Services.Test.Quoting
 
         protected virtual CoreSubscriber CreateCoreSubscriberAccount()
         {
-            string username = "CoreSub";
-            string nameSpace = String.Empty;
-            CoreSubscriber account = (CoreSubscriber)CreateBaseAccount("CoreSubscriber", ref username, ref nameSpace);
-            account.AncestorAccountID = AncestorID;
-            account.AccountStartDate = MetraTime.Now;
+            var username = "CoreSub";
+            var nameSpace = String.Empty;
+            var account = (CoreSubscriber)CreateBaseAccount("CoreSubscriber", ref username, ref nameSpace);
 
             // Set the internal view
             account.Internal = internalView;
@@ -1843,49 +1717,11 @@ namespace MetraTech.Core.Services.Test.Quoting
             account.LDAP.Add(shipToContactView);
             account.LDAP.Add(billToContactView);
 
-            account.StartMonth = MonthOfTheYear.January;
-            account.FirstDayOfMonth = 1;
-            account.StartDay = 1;
-            account.DayOfMonth = 1;
-            account.DayOfWeek = MetraTech.DomainModel.Enums.Core.Global.DayOfTheWeek.Sunday;
-            account.StartYear = DateTime.Now.Year;
-            account.SecondDayOfMonth = 15;
-
-            account.PayerID = PayerID;
-
             // Create the account
             WebServiceClient.InOut_Account = account;
             WebServiceClient.Invoke();
 
             return (CoreSubscriber)WebServiceClient.InOut_Account;
-        }
-
-        private MetraTech.DomainModel.BaseTypes.Account CreateBaseAccount(string typeName, ref string userName, ref string nameSpace)
-        {
-            MetraTech.DomainModel.BaseTypes.Account account =
-              MetraTech.DomainModel.BaseTypes.Account.CreateAccount(typeName);
-
-            //userName = typeName + "_" + DateTime.Now.ToString("MM/dd HH:mm:ss.") + DateTime.Now.Millisecond.ToString();
-
-            userName = string.Format("{0}_{1}_{2}", userName, BaseName, UniqueInstanceIdentifier);
-
-            if (userName.Length > 40)
-            {
-                throw new Exception(string.Format("Username '{0}' is too long. It is {1} and should be 40 or less.", userName, userName.Length));
-            }
-
-            if (String.IsNullOrEmpty(nameSpace))
-            {
-                nameSpace = "mt";
-            }
-
-            account.UserName = userName;
-            account.Password_ = "123";
-            account.Name_Space = nameSpace;
-            account.DayOfMonth = 1;
-            account.AccountStatus = AccountStatus.Active;
-
-            return account;
         }
     }
 
@@ -2040,12 +1876,13 @@ namespace MetraTech.Core.Services.Test.Quoting
             account.LDAP.Add(shipToContactView);
             account.LDAP.Add(billToContactView);
 
-            account.StartMonth = MonthOfTheYear.January;
+            account.StartYear = DateTime.Now.Year;
+            account.StartMonth = (MonthOfTheYear)(DateTime.Now.Month - 1);
+            account.StartDay = DateTime.Now.Day; 
+            
             account.FirstDayOfMonth = 1;
-            account.StartDay = 1;
             account.DayOfMonth = 1;
             account.DayOfWeek = DayOfTheWeek.Sunday;
-            account.StartYear = DateTime.Now.Year;
             account.SecondDayOfMonth = 15;
 
             account.PayerID = PayerID;

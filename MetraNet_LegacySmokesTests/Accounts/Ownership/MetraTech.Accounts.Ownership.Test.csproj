@@ -43,6 +43,14 @@
       <SpecificVersion>false</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\GenericCollection.interop.dll</HintPath>
     </Reference>
+    <Reference Include="MetraTech.DomainModel.BaseTypes, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DomainModel.BaseTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.TestCommon, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.TestCommon.dll</HintPath>
+    </Reference>
     <Reference Include="MTAuth.interop">
       <EmbedInteropTypes>false</EmbedInteropTypes>
       <Private>false</Private>
@@ -102,12 +110,13 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthTests.cs" />
     <Compile Include="ErrorHandlingTests.cs" />
     <Compile Include="Tests.cs" />
+    <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
@@ -116,6 +125,10 @@
     <ProjectReference Include="..\..\Test\MetraTech.Test.csproj">
       <Project>{E95B8F73-F559-48AE-BCC2-7B0A9B3AC5A2}</Project>
       <Name>MetraTech.Test</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Type\MetraTech.Accounts.Type.Test.csproj">
+      <Project>{DF8B7653-1067-4785-AEA1-531A2720BC6D}</Project>
+      <Name>MetraTech.Accounts.Type.Test</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -1,20 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
+using MetraTech.TestCommon;
+using System;
+using System.Runtime.InteropServices;
+using NUnit.Framework;
+using YAAC = MetraTech.Interop.MTYAAC;
+using RS = MetraTech.Interop.Rowset;
+using MetraTech.Interop.MTAuth;
+using ServerAccess = MetraTech.Interop.MTServerAccess;
+using Coll = MetraTech.Interop.GenericCollection;
+
 namespace MetraTech.Accounts.Ownership.Test
 {
-  using System;
-  using System.Runtime.InteropServices;
-  using System.Collections;
-
-  using NUnit.Framework;
-  using YAAC=MetraTech.Interop.MTYAAC;
-  using RS=MetraTech.Interop.Rowset;
-  using MetraTech.Interop.MTAuth;
-  using ServerAccess = MetraTech.Interop.MTServerAccess;
-  using MetraTech.Interop.MTEnumConfig;
-  using MetraTech.Localization;
-  using MetraTech.Test;
-  using Coll = MetraTech.Interop.GenericCollection;
-  using MetraTech.DataAccess;
-
   //
   // To run the this test fixture:
   // nunit-console /fixture:MetraTech.Accounts.Ownership.Tests /assembly:O:\debug\bin\MetraTech.Accounts.Ownership.Test.dll
@@ -22,394 +19,276 @@ namespace MetraTech.Accounts.Ownership.Test
   [Category("NoAutoRun")]
   [TestFixture]
   [ComVisible(false)]
-  public class Tests 
+  public class Tests
   {
-    const string mTestDir = "t:\\Development\\Core\\AccountHierarchies\\";
-    private IEnumConfig mEnumConfig = new EnumConfigClass();
+    private Util _util;
+    private int _dougSalesAccountId;
+    private int _scottSalesAccountId;
+    private int _metraTechAccountId;
+    private int _servicesAccountId;
+    private string _dougSalesUserName;
+    private string _scottSalesUserName;
+    private IMTSessionContext _suSessionContext;
+    private IMTSessionContext _dougSalesSessionContext;
+
+    #region Test Initialization and Cleanup
+
+    /// <summary>
+    ///   Initialize data for ownership tests.
+    /// </summary>
+    [TestFixtureSetUp]
+    public void Setup()
+    {
+      _util = Util.Instance;
+      var user = _util.AccountsList["DougSales"];
+      var dougAccountId = user._AccountID;
+      if (dougAccountId != null)
+        _dougSalesAccountId = (int)dougAccountId;
+      _dougSalesUserName = user.UserName;
+
+      user = _util.AccountsList["ScottSales"];
+      var scottAccountId = user._AccountID;
+      if (scottAccountId != null)
+        _scottSalesAccountId = (int)scottAccountId;
+      _scottSalesUserName = user.UserName;
+      
+      user = _util.AccountsList["MetraTech"];
+      var metraTechAccountId = user._AccountID;
+      if (metraTechAccountId != null)
+        _metraTechAccountId = (int)metraTechAccountId;
+      
+      user = _util.AccountsList["Services"];
+      var servisesAccountId = user._AccountID;
+      if (servisesAccountId != null)
+        _servicesAccountId = (int)servisesAccountId;
+
+      _suSessionContext = MetraTech.Test.Common.Utils.LoginAsSU();
+      _dougSalesSessionContext = Util.Login(_dougSalesUserName, "system_user", "123");
+    }
+
+    /// <summary>
+    /// Restore system to state prior the test run.  This currently does nothing.
+    /// </summary>
+    [TestFixtureTearDown]
+    public void TearDown()
+    {
+      // Do nothing
+    }
+
+    #endregion
 
     /// <summary>
     /// Tests Creation of ownersip manager from YAAC object
     /// </summary>
     [Test]
+    [Category("Fast")]
     public void T01TestCreateOwnershipManager()
     {
-      //Doug
-      int id_acc = Utils.GetAccountID("dougsales");
-      IMTSessionContext ctx = Utils.LoginAsSU();
-      IOwnershipMgr mgr = Utils.CreateOwnershipManager(id_acc, ctx);
+      Util.CreateOwnershipManager(_dougSalesAccountId, _suSessionContext);
+      // TODO assert
     }
 
     /// <summary>
     /// Create ownership relationship, fetch it back as rowset and
     /// verify correctness
     /// </summary>
-    /// 
     [Test]
+    [Category("Fast")]
     public void T02TestCreateOwnerships()
     {
       TruncateOwnershipTable();
       CreateOwnerships();
     }
-
+    
     /// <summary>
     /// Create ownership relationships by incapable user
     /// </summary>
-   [Test]
-   [ExpectedException(typeof(COMException))]
+    [Test]
+    [Category("Fast")]
     public void T03TestCreateOwnershipAccessDenied()
     {
-      try
-      {
-        IMTSessionContext ctx = Utils.Login("DaveSales", "system_user", "123");
+      var mgr = Util.CreateOwnershipManager(_dougSalesAccountId, _dougSalesSessionContext);
+      var assoc = mgr.CreateAssociationAsOwner();
 
-        IOwnershipMgr mgr = Utils.CreateOwnershipManager(Utils.GetAccountID("dougsales"), ctx);
-        IOwnershipAssociation assoc = mgr.CreateAssociationAsOwner();
-        assoc.OwnedAccount = Utils.GetSubscriberAccountID("metratech");
-        assoc.RelationType = "Account Executive";
-        assoc.PercentOwnership = 100;
-        assoc.StartDate = MetraTime.Now;
-        assoc.EndDate = MetraTime.Max;
-        mgr.AddOwnership(assoc);
-      }
-      catch(Exception e)
-      {
-        Utils.Trace(e.Message); throw;
-      }
-
-      
+      ExceptionAssert.Expected<COMException>(() => mgr.AddOwnership(assoc),
+        "Access Denied: Required Capability: 'Manage Sales Force Hierarchies': (WRITE, /) ");
     }
 
     /// <summary>
     /// Delete ownership relationships by incapable user
     /// </summary>
     [Test]
-    [ExpectedException(typeof(COMException))]
-   public void T04TestRemoveOwnershipAccessDenied()
+    [Category("Fast")]
+    public void T04TestRemoveOwnershipAccessDenied()
     {
-      try
-      {
-        IMTSessionContext ctx = Utils.Login("DaveSales", "system_user", "123");
+      var mgr = Util.CreateOwnershipManager(_dougSalesAccountId, _dougSalesSessionContext);
+      var assoc = mgr.CreateAssociationAsOwner();
 
-        IOwnershipMgr mgr = Utils.CreateOwnershipManager(Utils.GetAccountID("dougsales"), ctx);
-        IOwnershipAssociation assoc = mgr.CreateAssociationAsOwner();
-        assoc.OwnedAccount = Utils.GetSubscriberAccountID("metratech");
-        assoc.StartDate = MetraTime.Now;
-        assoc.EndDate = MetraTime.Max;
-        mgr.RemoveOwnership(assoc);
-      }
-      catch(Exception e)
-      {
-        Utils.Trace(e.Message); throw;
-      }
+      ExceptionAssert.Expected<COMException>(() => mgr.RemoveOwnership(assoc),
+        "Access Denied: Required Capability: 'Manage Sales Force Hierarchies': (WRITE, /) ");
     }
-
-
-    
-
-    
 
     /// <summary>
     /// Create ownership relationships in batch
     /// </summary>
-
     [Test]
+    [Category("Fast")]
     public void T05TestCreateOwnershipBatch()
     {
-      BatchCreateOwnership(Utils.GetAccountID("vladsales"));
+      var mgr = Util.CreateOwnershipManager(_scottSalesAccountId, _suSessionContext);
+      var assocs = GetAssociations(mgr);
+      var rowset = mgr.AddOwnershipBatch(assocs, null);
+      //TODO Assert rowset
     }
-    
+
     /// <summary>
     /// Create ownership relationships in batch by incapable user
     /// </summary>
     [Test]
-    [ExpectedException(typeof(COMException))]
+    [Category("Fast")]
     public void T06TestCreateOwnershipBatchAccessDenied()
     {
-      try
-      {
-        IMTSessionContext ctx = Utils.Login("DaveSales", "system_user", "123");
-        IMTSQLRowset accounts = Utils.GetAccountsForBatchOwnership();
-        IOwnershipMgr mgr = Utils.CreateOwnershipManager(Utils.GetAccountID("vladsales"), ctx);
-        IMTCollection assocs = (IMTCollection)new Coll.MTCollectionClass();
-        int i = 0;
-        while(System.Convert.ToBoolean(accounts.EOF) == false)
-        {
-          int owned  = (int)accounts.get_Value("id_acc");
-          IOwnershipAssociation assoc = mgr.CreateAssociationAsOwner();
-          assoc.OwnedAccount = owned;
-          assoc.RelationType = "Account Executive";
-          assoc.PercentOwnership = i++;
-          assoc.StartDate = MetraTime.Now;
-          assoc.EndDate = MetraTime.Max;
-          assocs.Add(assoc);
-          accounts.MoveNext();
-        }
-        mgr.AddOwnershipBatch(assocs, null);
-      }
-      catch(Exception e)
-      {
-        Utils.Trace(e.Message); throw;
-      }
+      var mgr = Util.CreateOwnershipManager(_scottSalesAccountId, _dougSalesSessionContext);
+      var assocs = GetAssociations(mgr);
+      ExceptionAssert.Expected<COMException>(() => mgr.AddOwnershipBatch(assocs, null),
+        "Access Denied: Required Capability: 'Manage Sales Force Hierarchies': (WRITE, /) ");
     }
 
-    
     /// <summary>
     /// Remove ownership relationships in batch
     /// </summary>
-
     [Test]
+    [Category("Fast")]
     public void T07TestRemoveOwnershipBatch()
     {
-      BatchRemoveOwnership(Utils.GetAccountID("vladsales"));
+      var mgr = Util.CreateOwnershipManager(_scottSalesAccountId, _suSessionContext);
+      var assocs = GetAssociations(mgr);
+      mgr.RemoveOwnershipBatch(assocs, null);
+      //TODO Assert rowset
+
     }
 
     /// <summary>
     /// Remove ownership relationships in batch by incapable user
     /// </summary>
     [Test]
-    [ExpectedException(typeof(COMException))]
+    [Category("Fast")]
     public void T08TestRemoveOwnershipBatchAccessDenied()
     {
-      try
-      {
-        IMTSessionContext ctx = Utils.Login("DaveSales", "system_user", "123");
-        IMTSQLRowset accounts = Utils.GetAccountsForBatchOwnership();
-        IOwnershipMgr mgr = Utils.CreateOwnershipManager(Utils.GetAccountID("vladsales"), ctx);
-        IMTCollection assocs = (IMTCollection)new Coll.MTCollectionClass();
-        int i = 0;
-        while(System.Convert.ToBoolean(accounts.EOF) == false)
-        {
-          int owned  = (int)accounts.get_Value("id_acc");
-          IOwnershipAssociation assoc = mgr.CreateAssociationAsOwner();
-          assoc.OwnedAccount = owned;
-          assoc.RelationType = "Account Executive";
-          assoc.PercentOwnership = i++;
-          assoc.StartDate = MetraTime.Now;
-          assoc.EndDate = MetraTime.Max;
-          assocs.Add(assoc);
-          accounts.MoveNext();
-        }
-        mgr.RemoveOwnershipBatch(assocs, null);
-      }
-      catch(Exception e)
-      {
-        Utils.Trace(e.Message); throw;
-      }
+      var mgr = Util.CreateOwnershipManager(_scottSalesAccountId, _dougSalesSessionContext);
+      var assocs = GetAssociations(mgr);
+      ExceptionAssert.Expected<COMException>(() => mgr.RemoveOwnershipBatch(assocs, null),
+        String.Format("Access Denied: Required Capability: 'Manage Sales Force Hierarchies': (WRITE, /) "));
     }
 
-    
-
-
     /// <summary>
-    /// Fetch accounts owned by Vlad
+    /// Fetch accounts owned by Scott
     /// </summary>
     [Test]
+    [Category("Fast")]
     public void T09TestViewOwnedAccounts()
     {
-      IMTSessionContext ctx = Utils.LoginAsSU();
-
-      IOwnershipMgr mgr = Utils.CreateOwnershipManager(Utils.GetAccountID("vladsales"), ctx);
-      
-      IMTSQLRowset owned = mgr.GetOwnedAccountsAsRowset(MetraTime.Now);
-      Assert.IsTrue(owned.RecordCount > 0);
-      owned.MoveFirst();
-      int owneracc = (int)owned.get_Value("id_owner");
-      int ownedacc = (int)owned.get_Value("id_owned");
-      string name = (string)owned.get_Value("hierarchyname");
-      int rel = (int)owned.get_Value("id_relation_type");
-      int percent = (int)owned.get_Value("n_percent");
-      string relation = (string)owned.get_Value("RelationType");
-      string msg = string.Format("Fetched ownership record: Owner: {0}, Owned: {1}, Owner Acc Name: {2}, Relation: {3}, Percent: {4}, Relation Enum Value: {5}",
-        owneracc, ownedacc, name, relation, percent, rel);
-      Utils.Trace(msg);
-      
+      var mgr = Util.CreateOwnershipManager(_scottSalesAccountId, _suSessionContext);
+      TruncateOwnershipTable();
+      CreateOwnership(_scottSalesAccountId, _metraTechAccountId);
+      var owned = mgr.GetOwnedAccountsAsRowset(MetraTime.Now);
+      CheckRowset(owned, _scottSalesAccountId, _metraTechAccountId);
     }
 
     /// <summary>
-    /// Fetch accounts owned by Vlad
+    /// Fetch accounts owned by Scott
     /// </summary>
     [Test]
-    [ExpectedException(typeof(COMException))]
+    [Category("Fast")]
     public void T10TestViewOwnedAccountsAccessDenied()
     {
-      try
-      {
-        IMTSessionContext ctx = Utils.Login("DaveSales", "system_user", "123");
-
-        IOwnershipMgr mgr = Utils.CreateOwnershipManager(Utils.GetAccountID("vladsales"), ctx);
-      
-        //check out the results
-        //as of now, the only account owning MetraTech is Doug
-        IMTSQLRowset owned = mgr.GetOwnedAccountsAsRowset(MetraTime.Now);
-        Assert.IsTrue(owned.RecordCount > 0);
-        owned.MoveFirst();
-        int owneracc = (int)owned.get_Value("id_owner");
-        int ownedacc = (int)owned.get_Value("id_owned");
-        Assert.AreEqual(Utils.GetSubscriberAccountID("metratech"), ownedacc);
-        string name = (string)owned.get_Value("hierarchyname");
-        int rel = (int)owned.get_Value("id_relation_type");
-        int percent = (int)owned.get_Value("n_percent");
-        string relation = (string)owned.get_Value("RelationType");
-        string msg = string.Format("Fetched ownership record: Owner: {0}, Owned: {1}, Owner Acc Name: {2}, Relation: {3}, Percent: {4}, Relation Enum Value: {5}",
-          owneracc, ownedacc, name, relation, percent, rel);
-        Utils.Trace(msg);
-      }
-      catch(Exception e)
-      {
-        Utils.Trace(e.Message); throw;
-      }
-      
+      // todo CheckReadManageSFH(ctx); igrore other code
+      var mgr = Util.CreateOwnershipManager(_scottSalesAccountId, _dougSalesSessionContext);
+      ExceptionAssert.Expected<COMException>(() => mgr.GetOwnedAccountsAsRowset(MetraTime.Now),
+        String.Format("Access Denied: Required Capability: 'Manage Sales Force Hierarchies': (READ, /) "));
     }
-
-
 
     /// <summary>
     /// Fetch relationship create in the previous test from
     /// an owned account perspective
     /// </summary>
     [Test]
+    [Category("Fast")]
     public void T11TestViewOwners()
     {
-      int id_owned = Utils.GetSubscriberAccountID("metratech");
-      IMTSessionContext ctx = Utils.LoginAsSU();
-
-      IOwnershipMgr mgr = Utils.CreateOwnershipManager(id_owned, ctx);
-      
-      //check out the results
-      //as of now, the only account owning MetraTech is Doug
-      IMTSQLRowset owned = mgr.GetOwnerAccountsAsRowset(MetraTime.Now);
-      Assert.IsTrue(owned.RecordCount > 0);
-      owned.MoveFirst();
-      int owneracc = (int)owned.get_Value("id_owner");
-      int ownedacc = (int)owned.get_Value("id_owned");
-      Assert.AreEqual(Utils.GetSubscriberAccountID("metratech"), ownedacc);
-      string name = (string)owned.get_Value("hierarchyname");
-      int rel = (int)owned.get_Value("id_relation_type");
-      int percent = (int)owned.get_Value("n_percent");
-      string relation = (string)owned.get_Value("RelationType");
-      string msg = string.Format("Fetched ownership record: Owner: {0}, Owned: {1}, Owner Acc Name: {2}, Relation: {3}, Percent: {4}, Relation Enum Value: {5}",
-        owneracc, ownedacc, name, relation, percent, rel);
-      Utils.Trace(msg);
-      
+      var mgr = Util.CreateOwnershipManager(_metraTechAccountId, _suSessionContext);
+      TruncateOwnershipTable();
+      CreateOwnership(_scottSalesAccountId, _metraTechAccountId);
+      var owner = mgr.GetOwnerAccountsAsRowset(MetraTime.Now);
+      CheckRowset(owner, _scottSalesAccountId, _metraTechAccountId);
     }
 
     /// <summary>
     /// Fetch relationship by incapable user
     /// </summary>
     [Test]
-    [ExpectedException(typeof(COMException))]
+    [Category("Fast")]
     public void T12TestViewOwnersAccessDenied()
     {
-      try
-      {
-        int id_owned = Utils.GetSubscriberAccountID("metratech");
-        IMTSessionContext ctx = Utils.Login("DaveSales", "system_user", "123");
-
-        IOwnershipMgr mgr = Utils.CreateOwnershipManager(id_owned, ctx);
-      
-        //check out the results
-        //as of now, the only account owning MetraTech is Doug
-        IMTSQLRowset owned = mgr.GetOwnerAccountsAsRowset(MetraTime.Now);
-      }
-      catch(Exception e)
-      {
-        Utils.Trace(e.Message); throw;
-      }
+      var mgr = Util.CreateOwnershipManager(_metraTechAccountId, _dougSalesSessionContext);
+      ExceptionAssert.Expected<COMException>(() => mgr.GetOwnerAccountsAsRowset(MetraTime.Now),
+        String.Format("Access Denied: Required Capability: 'Manage Sales Force Hierarchies': (READ, /) "));
     }
 
     /// <summary>
     /// Fetch all ownwerhips, while being logged in as SU
     /// </summary>
     [Test]
+    [Category("Fast")]
     public void T13TestViewOwnedAccountsHierarchicalAsSU()
     {
-      //Scott Swartz
-      int id_owner = Utils.GetAccountID("scottsales");
-      IMTSessionContext ctx = Utils.LoginAsSU();
+      TruncateOwnershipTable();
+      CreateOwnership(_scottSalesAccountId, _metraTechAccountId);
+      CreateOwnership(_dougSalesAccountId, _servicesAccountId);
 
-      IOwnershipMgr mgr = Utils.CreateOwnershipManager(id_owner, ctx);
-      
+      var mgr = Util.CreateOwnershipManager(_scottSalesAccountId, _suSessionContext);
+
       //check out the results
       //as of now, the only account owning MetraTech is Doug
-      IMTSQLRowset owned = mgr.GetOwnedAccountsHierarchicalAsRowset(ViewHint.Direct);
-      Assert.AreEqual(1, owned.RecordCount);
-      int owneracc = (int)owned.get_Value("id_owner");
-      Assert.AreEqual(id_owner, owneracc);
-      int ownedacc = (int)owned.get_Value("id_owned");
-      Assert.AreEqual(Utils.GetSubscriberAccountID("metratech"), ownedacc);
-      string OwnerName = (string)owned.get_Value("OwnerName");
-      string OwnedName = (string)owned.get_Value("OwnedName");
-      int rel = (int)owned.get_Value("id_relation_type");
-      int percent = (int)owned.get_Value("n_percent");
-      string relation = (string)owned.get_Value("RelationType");
-      
-      string msg = string.Format("{0} ({1}) directly owns {2}", id_owner, OwnerName, OwnedName);
-      Utils.Trace(msg);
-
+      var owned = mgr.GetOwnedAccountsHierarchicalAsRowset(ViewHint.Direct);
+      CheckRowset(owned, _scottSalesAccountId, _metraTechAccountId);
       owned = mgr.GetOwnedAccountsHierarchicalAsRowset(ViewHint.DirectDescendents);
-      //same number of rows as with Direct hint, because no one directly under Scott owns anything
-      Assert.AreEqual(1, owned.RecordCount);
-
+      CheckRowset(owned, _scottSalesAccountId, _metraTechAccountId);
       owned = mgr.GetOwnedAccountsHierarchicalAsRowset(ViewHint.AllDescendents);
-
+      CheckRowset(owned, _scottSalesAccountId, _metraTechAccountId);
+      
       //Remove Scott's ownership to MetraTech
-      RemoveOwnership(Utils.GetAccountID("scottsales"), Utils.GetSubscriberAccountID("metratech"), MetraTime.Now, MetraTime.Max);
-
-      owned = mgr.GetOwnedAccountsHierarchicalAsRowset(ViewHint.Direct);
-      Assert.AreEqual(0, owned.RecordCount);
-      owned = mgr.GetOwnedAccountsHierarchicalAsRowset(ViewHint.DirectDescendents);
-      Assert.AreEqual(0, owned.RecordCount);
-      owned = mgr.GetOwnedAccountsHierarchicalAsRowset(ViewHint.AllDescendents);
+      RemoveOwnership(_scottSalesAccountId, _metraTechAccountId);
+      CheckOwnedCountAfterRemove(mgr);
       
-      //Remove Vlad -> Sales ownership
-      RemoveOwnership( Utils.GetAccountID("vladsales"), Utils.GetSubscriberAccountID("sales"), MetraTime.Now, MetraTime.Max);
-
-      owned = mgr.GetOwnedAccountsHierarchicalAsRowset(ViewHint.Direct);
-      Assert.AreEqual(0, owned.RecordCount);
-      owned = mgr.GetOwnedAccountsHierarchicalAsRowset(ViewHint.DirectDescendents);
-      Assert.AreEqual(0, owned.RecordCount);
-      owned = mgr.GetOwnedAccountsHierarchicalAsRowset(ViewHint.AllDescendents);
-      
-
       //Reinitialize Mgr as Doug and examine the same
-      mgr = Utils.CreateOwnershipManager(Utils.GetAccountID("dougsales"), ctx);
+      mgr = Util.CreateOwnershipManager(_dougSalesAccountId, _suSessionContext);
       owned = mgr.GetOwnedAccountsHierarchicalAsRowset(ViewHint.AllDescendents);
-      Assert.AreEqual(1, owned.RecordCount);
-
-      //Remove Doug -> Services ownership
-      RemoveOwnership(Utils.GetAccountID("dougsales"), Utils.GetSubscriberAccountID("services"), MetraTime.Now, MetraTime.Max);
+      CheckRowset(owned, _dougSalesAccountId, _servicesAccountId);
       
-      owned = mgr.GetOwnedAccountsHierarchicalAsRowset(ViewHint.Direct);
-      Assert.AreEqual(0, owned.RecordCount);
-      owned = mgr.GetOwnedAccountsHierarchicalAsRowset(ViewHint.DirectDescendents);
-      Assert.AreEqual(0, owned.RecordCount);
-      owned = mgr.GetOwnedAccountsHierarchicalAsRowset(ViewHint.AllDescendents);
-      Assert.AreEqual(0, owned.RecordCount);
+      //Remove Doug -> Services ownership
+      RemoveOwnership(_dougSalesAccountId, _servicesAccountId);
+      CheckOwnedCountAfterRemove(mgr);
     }
-
-    
 
     /// <summary>
     /// Fetch all ownwerhips, while being logged in corresponding users
     /// </summary>
     [Test]
+    [Category("Fast")]
     public void T14TestViewOwnedAccountsHierarchical()
     {
-      //reset all ownerships
-      CreateOwnerships();
-      //Scott Swartz
-      IMTSessionContext scottctx = Utils.Login("scottsales", "system_user", "123");
-      IMTSessionContext baghactx = Utils.Login("DharminderSales", "system_user", "123");
-      IMTSessionContext dougctx = Utils.Login("dougsales", "system_user", "123");
-      IMTSessionContext vladctx = Utils.Login("vladsales", "system_user", "123");
+      SetCapabilities(_scottSalesAccountId);
+      var scottctx = Util.Login(_scottSalesUserName, "system_user", "123");
+      
+      CreateOwnership(_scottSalesAccountId, _metraTechAccountId);
+      var mgr = Util.CreateOwnershipManager(scottctx.AccountID, scottctx);
 
-      IOwnershipMgr mgr = Utils.CreateOwnershipManager(scottctx.AccountID, scottctx);
-      
       //Scott has a capability to see his own owned accounts
-      IMTSQLRowset owned = mgr.GetOwnedAccountsHierarchicalAsRowset(ViewHint.Direct);
+      var owned = mgr.GetOwnedAccountsHierarchicalAsRowset(ViewHint.Direct);
+      //todo assert values in owned
       Assert.AreEqual(1, owned.RecordCount);
-      
-      
+
       owned = mgr.GetOwnedAccountsHierarchicalAsRowset(ViewHint.DirectDescendents);
       //same number of rows as with Direct hint, because no one directly under Scott owns anything
       Assert.AreEqual(1, owned.RecordCount);
@@ -418,58 +297,19 @@ namespace MetraTech.Accounts.Ownership.Test
       //Scott has a capability to see his own owned accounts, so
       //we should still get only one row
       Assert.AreEqual(1, owned.RecordCount);
-
-      //Reinitialize Mgr as Vlad and examine the same
-      mgr = Utils.CreateOwnershipManager(vladctx.AccountID, vladctx);
-      owned = mgr.GetOwnedAccountsHierarchicalAsRowset(ViewHint.AllDescendents);
-      //Vlad has a capability to see all descendents
-      //SFH got reshuffled - so no the below assert fails (Vlad has no descendents)
-      //TODO: fix it in SFH
-      //Assert.AreEqual(2, owned.RecordCount);
-
     }
 
     /// <summary>
     /// Test batch operation using AccountCatalog
     /// </summary>
     [Test]
+    [Category("Slow")]
     public void T15TestBatchCreateOwnershipWithAccountCatalog()
     {
-      IMTSessionContext ctx = Utils.LoginAsSU();
-      YAAC.IMTAccountCatalog cat = new YAAC.MTAccountCatalogClass();
-      cat.Init((MetraTech.Interop.MTYAAC.IMTSessionContext)ctx);
-      IMTSQLRowset owned = Utils.GetAccountsForBatchOwnership();
-      IMTSQLRowset owners = Utils.GetCSRs();
-      YAAC.IMTCollection assocs = (YAAC.IMTCollection)new Coll.MTCollectionClass();
-      int i = 0;
-      bool alo = false;
-      DateTime mtNow = MetraTime.Now;
-      DateTime mtMax = MetraTime.Max;
-
-      while(System.Convert.ToBoolean(owners.EOF) == false)
-      {
-        
-        int owner  = (int)owners.get_Value("id_acc");
-        while(System.Convert.ToBoolean(owned.EOF) == false)
-        {
-          alo = true;
-          IOwnershipAssociation assoc = new OwnershipAssociation();
-          int ownedid  = (int)owned.get_Value("id_acc");
-          assoc.OwnerAccount = owner;
-          assoc.OwnedAccount = ownedid;
-          assoc.RelationType = "Account Executive";
-          if (i > 100) i = 0;
-          assoc.PercentOwnership = i++;
-          assoc.StartDate = mtNow;
-          assoc.EndDate = mtMax;
-          assocs.Add(assoc);
-          owned.MoveNext();
-        }
-        if(alo)
-          owned.MoveFirst();
-        owners.MoveNext();
-      }
-      Utils.DumpErrorRowset((MetraTech.Interop.MTAuth.IMTSQLRowset)cat.BatchCreateOrUpdateOwnerhip(assocs, null, System.Reflection.Missing.Value));
+      var cat = PrepareCatalog();
+      var assocs = PrepareAssociations();
+      var rowset = (IMTSQLRowset) cat.BatchCreateOrUpdateOwnerhip(assocs, null, System.Reflection.Missing.Value);
+      // TODO Assert
     }
 
     /// <summary>
@@ -477,140 +317,86 @@ namespace MetraTech.Accounts.Ownership.Test
     /// </summary>
     /// 
     [Test]
+    [Category("Slow")]
     public void T16TestBatchRemoveOwnershipWithAccountCatalog()
     {
-      IMTSessionContext ctx = Utils.LoginAsSU();
-      YAAC.IMTAccountCatalog cat = new YAAC.MTAccountCatalogClass();
-      cat.Init((MetraTech.Interop.MTYAAC.IMTSessionContext)ctx);
-      IMTSQLRowset owned = Utils.GetAccountsForBatchOwnership();
-      IMTSQLRowset owners = Utils.GetCSRs();
-      YAAC.IMTCollection assocs = (YAAC.IMTCollection)new Coll.MTCollectionClass();
-      int i = 0;
-      bool alo = false;
-      DateTime mtNow = MetraTime.Now;
-      DateTime mtMax = MetraTime.Max;
-
-      while(System.Convert.ToBoolean(owners.EOF) == false)
-      {
-        
-        int owner  = (int)owners.get_Value("id_acc");
-        while(System.Convert.ToBoolean(owned.EOF) == false)
-        {
-          alo = true;
-          IOwnershipAssociation assoc = new OwnershipAssociation();
-          int ownedid  = (int)owned.get_Value("id_acc");
-          assoc.OwnerAccount = owner;
-          assoc.OwnedAccount = ownedid;
-          assoc.RelationType = "Account Executive";
-          if (i > 100) i = 0;
-          assoc.PercentOwnership = i++;
-          assoc.StartDate = mtNow;
-          assoc.EndDate = mtMax;
-          assocs.Add(assoc);
-          owned.MoveNext();
-        }
-        if(alo)
-          owned.MoveFirst();
-        owners.MoveNext();
-      }
-      Utils.DumpErrorRowset((MetraTech.Interop.MTAuth.IMTSQLRowset)cat.BatchDeleteOwnerhip(assocs, null, System.Reflection.Missing.Value));
+      var cat = PrepareCatalog();
+      var assocs = PrepareAssociations();
+      var rowset = (IMTSQLRowset) cat.BatchDeleteOwnerhip(assocs, null, System.Reflection.Missing.Value);
+      // TODO Assert
     }
 
+    #region Private methods
 
-    private void BatchCreateOwnership(int id_owner)
+    private static void CheckOwnedCountAfterRemove(IOwnershipMgr mgr)
     {
-      IMTSessionContext ctx = Utils.LoginAsSU();
-      IMTSQLRowset accounts = Utils.GetAccountsForBatchOwnership();
-      IOwnershipMgr mgr = Utils.CreateOwnershipManager(id_owner, ctx);
-      IMTCollection assocs = (IMTCollection)new Coll.MTCollectionClass();
-      int i = 0;
-      while(System.Convert.ToBoolean(accounts.EOF) == false)
+      var owned = mgr.GetOwnedAccountsHierarchicalAsRowset(ViewHint.Direct);
+      Assert.AreEqual(0, owned.RecordCount);
+      owned = mgr.GetOwnedAccountsHierarchicalAsRowset(ViewHint.DirectDescendents);
+      Assert.AreEqual(0, owned.RecordCount);
+      owned = mgr.GetOwnedAccountsHierarchicalAsRowset(ViewHint.AllDescendents);
+      Assert.AreEqual(0, owned.RecordCount);
+    }
+
+    private static IMTCollection GetAssociations(IOwnershipMgr mgr)
+    {
+      var accounts = Util.GetAccountsForBatchOwnership();
+      var assocs = (IMTCollection) new Coll.MTCollectionClass();
+      var i = 0;
+      while (Convert.ToBoolean(accounts.EOF) == false)
       {
-        int owned  = (int)accounts.get_Value("id_acc");
-        IOwnershipAssociation assoc = mgr.CreateAssociationAsOwner();
+        var owned = (int) accounts.Value["id_acc"];
+        var assoc = mgr.CreateAssociationAsOwner();
         assoc.OwnedAccount = owned;
         assoc.RelationType = "Account Executive";
         assoc.PercentOwnership = i++;
-        assoc.StartDate = MetraTime.Now;
+        assoc.StartDate = MetraTime.Now.AddMinutes(-1);
         assoc.EndDate = MetraTime.Max;
         assocs.Add(assoc);
         accounts.MoveNext();
       }
-      mgr.AddOwnershipBatch(assocs, null);
+      return assocs;
     }
-    
-    private void BatchRemoveOwnership(int id_owner)
+
+    private static IOwnershipAssociation GetAssociacion(IMTSQLRowset owned, int owner, ref int i)
     {
-      IMTSessionContext ctx = Utils.LoginAsSU();
-      IMTSQLRowset accounts = Utils.GetAccountsForBatchOwnership();
-      IOwnershipMgr mgr = Utils.CreateOwnershipManager(id_owner, ctx);
-      IMTCollection assocs = (IMTCollection)new Coll.MTCollectionClass();
-      int i = 0;
-      while(System.Convert.ToBoolean(accounts.EOF) == false)
-      {
-        int owned  = (int)accounts.get_Value("id_acc");
-        IOwnershipAssociation assoc = mgr.CreateAssociationAsOwner();
-        assoc.OwnedAccount = owned;
-        assoc.RelationType = "Account Executive";
-        assoc.PercentOwnership = i++;
-        assoc.StartDate = MetraTime.Now;
-        assoc.EndDate = MetraTime.Max;
-        assocs.Add(assoc);
-        accounts.MoveNext();
-      }
-      mgr.RemoveOwnershipBatch(assocs, null);
+      IOwnershipAssociation assoc = new OwnershipAssociation();
+      var ownedid = (int) owned.Value["id_acc"];
+      assoc.OwnerAccount = owner;
+      assoc.OwnedAccount = ownedid;
+      assoc.RelationType = "Account Executive";
+      if (i > 100) i = 0;
+      assoc.PercentOwnership = i++;
+      assoc.StartDate = MetraTime.Now.AddMinutes(-1);
+      assoc.EndDate = MetraTime.Max;
+      return assoc;
     }
-
-  
-
-    
-
-    private void TruncateOwnershipTable()
-    {
-      IMTSQLRowset rs = (IMTSQLRowset)new RS.MTSQLRowsetClass();
-      rs.Init(@"Queries\AccHierarchies");
-      rs.SetQueryString("delete from t_acc_ownership");
-      rs.ExecuteDisconnected();
-      return;
-    }
-
-
-
 
     /// <summary>
     /// Remove ownership relationship, verify removals
     /// </summary>
-    private void RemoveOwnership(int id_owner, int id_owned, DateTime start, DateTime end)
+    private void RemoveOwnership(int idOwner, int idOwned)
     {
-      IMTSessionContext ctx = Utils.LoginAsSU();
-
-      IOwnershipMgr mgr = Utils.CreateOwnershipManager(id_owner, ctx);
-      IOwnershipAssociation assoc = mgr.CreateAssociationAsOwner();
-      Assert.AreEqual(assoc.OwnerAccount, id_owner);
-      assoc.OwnedAccount = id_owned;
-      assoc.StartDate = MetraTime.Now;
+      var mgr = Util.CreateOwnershipManager(idOwner, _suSessionContext);
+      var assoc = mgr.CreateAssociationAsOwner();
+      Assert.AreEqual(assoc.OwnerAccount, idOwner);
+      assoc.OwnedAccount = idOwned;
+      assoc.StartDate = MetraTime.Now.AddMinutes(-1);
       assoc.EndDate = MetraTime.Max;
       mgr.RemoveOwnership(assoc);
     }
 
-
-    
-
-    private void CreateOwnership(int id_owner, int id_owned, DateTime start, DateTime end)
+    private void CreateOwnership(int idOwner, int idOwned)
     {
-      IMTSessionContext ctx = Utils.LoginAsSU();
-
-      IOwnershipMgr mgr = Utils.CreateOwnershipManager(id_owner, ctx);
-      IOwnershipAssociation assoc = mgr.CreateAssociationAsOwner();
-      Assert.AreEqual(assoc.OwnerAccount, id_owner);
-      assoc.OwnedAccount = id_owned;
+      var mgr = Util.CreateOwnershipManager(idOwner, _suSessionContext);
+      var assoc = mgr.CreateAssociationAsOwner();
+      Assert.AreEqual(assoc.OwnerAccount, idOwner);
+      assoc.OwnedAccount = idOwned;
       assoc.RelationType = "Account Executive";
       assoc.PercentOwnership = 100;
-      assoc.StartDate = start;
-      assoc.EndDate = end;
+      assoc.StartDate = MetraTime.Now.AddMinutes(-1);
+      assoc.EndDate = MetraTime.Max;
       mgr.AddOwnership(assoc);
-
-      
     }
 
     /// <summary>
@@ -618,231 +404,89 @@ namespace MetraTech.Accounts.Ownership.Test
     /// </summary>
     private void CreateOwnerships()
     {
-      SFHAccountIds ids = new SFHAccountIds();
-
-      CreateOwnership(/*Scott*/ids["scottsales"], Utils.GetSubscriberAccountID("metratech")/*MetraTech 137*/, MetraTime.Now, MetraTime.Max);
-      CreateOwnership(/*Bagha*/ids["dharmindersales"], Utils.GetSubscriberAccountID("Marketing")/*Marketing 181*/, MetraTime.Now, MetraTime.Max);
-      CreateOwnership(/*Vlad*/ids["vladsales"], Utils.GetSubscriberAccountID("Sales")/*Sales 177*/, MetraTime.Now, MetraTime.Max);
-      CreateOwnership(/*Doug*/ids["dougsales"], Utils.GetSubscriberAccountID("Services")/*Services 171*/, MetraTime.Now, MetraTime.Max);
+      CreateOwnership(_scottSalesAccountId, _metraTechAccountId);
+      CreateOwnership(_dougSalesAccountId, _servicesAccountId);
     }
 
-  }
-
-
-  public class SubscriberAccountIds
-  {
-    private static Hashtable mAccIDs;
-
-    static SubscriberAccountIds()
+    private static void CheckRowset(IMTSQLRowset owned, int idOwner, int idOwned)
     {
-      mAccIDs = new Hashtable();
+      Assert.AreEqual(1, owned.RecordCount);
+      owned.MoveFirst();
+      var owneracc = (int) owned.Value["id_owner"];
+      Assert.AreEqual(idOwner, owneracc);
+      var ownedacc = (int) owned.Value["id_owned"];
+      Assert.AreEqual(idOwned, ownedacc);
+      
+      //var ownerName = (string)owned.Value["OwnerName"];
+      //var ownedName = (string)owned.Value["OwnedName"];
+      //var rel = (int)owned.Value["id_relation_type"];
+      //var percent = (int)owned.Value["n_percent"];
+      //var relation = (string)owned.Value["RelationType"];
+      //var name = (string) owned.Value["hierarchyname"];
     }
-    public int this [string loginname]   // Indexer declaration
+
+    private static void TruncateOwnershipTable()
     {
-      get
+      var rs = (IMTSQLRowset) new RS.MTSQLRowsetClass();
+      rs.Init(@"Queries\AccHierarchies");
+      rs.SetQueryString("delete from t_acc_ownership");
+      rs.ExecuteDisconnected();
+    }
+
+    private YAAC.MTAccountCatalogClass PrepareCatalog()
+    {
+      var cat = new YAAC.MTAccountCatalogClass();
+      cat.Init((Interop.MTYAAC.IMTSessionContext)_suSessionContext);
+      return cat;
+    }
+
+    private static YAAC.IMTCollection PrepareAssociations()
+    {
+      var owned = Util.GetAccountsForBatchOwnership();
+      var owners = Util.GetCSRs();
+      var assocs = (YAAC.IMTCollection) new Coll.MTCollectionClass();
+      var i = 0;
+      var alo = false;
+
+      while (Convert.ToBoolean(owners.EOF) == false)
       {
-        if(mAccIDs.ContainsKey(loginname.ToUpper()) == false)
+        var owner = (int) owners.Value["id_acc"];
+        while (Convert.ToBoolean(owned.EOF) == false)
         {
-          IMTSessionContext ctx = Utils.LoginAsSU();
-          YAAC.IMTAccountCatalog cat = new YAAC.MTAccountCatalogClass();
-          cat.Init((MetraTech.Interop.MTYAAC.IMTSessionContext)ctx);
-          YAAC.IMTYAAC acc = cat.GetAccountByName(loginname + Utils.GetTestId(), "mt", MetraTime.Now);
-          mAccIDs.Add(loginname.ToUpper(), acc.AccountID);
+          alo = true;
+          var assoc = GetAssociacion(owned, owner, ref i);
+          assocs.Add(assoc);
+          owned.MoveNext();
         }
-        return (int)mAccIDs[loginname.ToUpper()];
+        if (alo)
+          owned.MoveFirst();
+        owners.MoveNext();
       }
+      return assocs;
     }
 
-  }
-
-  public class SFHAccountIds
-  {
-    private static Hashtable mAccIDs;
-
-    static SFHAccountIds()
+    /// <summary>
+    /// Tests Manage Owned Accounts capability
+    /// </summary>
+    private void SetCapabilities(int accountId)
     {
-      mAccIDs = new Hashtable();
-    }
-    public int this [string loginname]   // Indexer declaration
-    {
-      get
-      {
-        if(mAccIDs.ContainsKey(loginname.ToUpper()) == false)
-        {
-          IMTSessionContext ctx = Utils.LoginAsSU();
-          YAAC.IMTAccountCatalog cat = new YAAC.MTAccountCatalogClass();
-          cat.Init((MetraTech.Interop.MTYAAC.IMTSessionContext)ctx);
-          YAAC.IMTYAAC acc = cat.GetAccountByName(loginname + Utils.GetTestId(), "system_user", MetraTime.Now);
-          mAccIDs.Add(loginname.ToUpper(), acc.AccountID);
-        }
-        return (int)mAccIDs[loginname.ToUpper()];
-      }
-    }
-
-  }
-
-  public class Utils
-  {
-    public static bool bTrace = false;
-    public static SFHAccountIds mAccIDs;
-    public static SubscriberAccountIds mSubAccIDs;
-    public static string mTestId = "";
-
-    public static ConnectionInfo connInfo = new ConnectionInfo("NetMeter");
-
-    public static int GetAccountID(string login)
-    {
-      if(mAccIDs == null)
-        mAccIDs = new SFHAccountIds();
-      return mAccIDs[login];
-    }
-
-    public static int GetSubscriberAccountID(string login)
-    {
-      if(mSubAccIDs == null)
-        mSubAccIDs = new SubscriberAccountIds();
-      return mSubAccIDs[login];
-    }
-
-    public static void Trace(string message)
-    {
-      if(bTrace)
-        TestLibrary.Trace(message);
-    }
-    public static IMTSessionContext LoginAsSU()
-    {
-      // sets the SU session context on the client
-      IMTLoginContext loginContext = new MTLoginContextClass();
-      ServerAccess.IMTServerAccessDataSet sa = new MetraTech.Interop.MTServerAccess.MTServerAccessDataSet();
-      sa.Initialize();
-      ServerAccess.IMTServerAccessData accessData = sa.FindAndReturnObject("SuperUser");
-      string suName = accessData.UserName;
-      string suPassword = accessData.Password;
-      return loginContext.Login(suName, "system_user", suPassword);
-    }
-
-    public static string GetTestId()
-    {
-      if(mTestId.Equals(""))
-      {
-        try
-        {
-          PropertyBag config = new PropertyBag();
-          config.Initialize("SmokeTest");
-          mTestId = config["TestID"].ToString();
-        }
-        catch
-        { 
-          // no suffix
-        }
-      }
-      return mTestId;
-    }
-
-    public static IMTSessionContext Login(string name, string ns, string password)
-    {
-      // sets the SU session context on the client
-      IMTLoginContext loginContext = new MTLoginContextClass();
-      return loginContext.Login(name + GetTestId(), ns, password);
-    }
-
-    public static IMTYAAC GetAccountAsResource(string name, string ns, IMTSessionContext ctx)
-    {
+      IMTSecurity sec = new MTSecurityClass();
       YAAC.IMTAccountCatalog cat = new YAAC.MTAccountCatalogClass();
-      cat.Init((MetraTech.Interop.MTYAAC.IMTSessionContext)ctx);
-      return (IMTYAAC)cat.GetAccountByName(name + GetTestId(), ns, MetraTime.Now);
+      cat.Init((Interop.MTYAAC.IMTSessionContext) _suSessionContext);
+
+      var scott = sec.GetAccountByID((MTSessionContext)_suSessionContext, accountId, MetraTime.Now);
+
+      var scottMoa = sec.GetCapabilityTypeByName("Manage Owned Accounts").CreateInstance();
+      scottMoa.GetAtomicEnumCapability().SetParameter("WRITE");
+      scottMoa.GetAtomicPathCapability().SetParameter("/", MTHierarchyPathWildCard.SINGLE);
+
+      //only give Scott, Doug and Bagha capability to view their directly owned accounts
+      scott.GetActivePolicy((MTSessionContext)_suSessionContext).AddCapability(scottMoa);
+      scott.GetActivePolicy((MTSessionContext)_suSessionContext).Save();
     }
 
-    public static IOwnershipMgr CreateOwnershipManager(int id_acc, IMTSessionContext ctx)
-    {
-      IMTYAAC acc = (IMTYAAC)new YAAC.MTYAACClass();
-      acc.InitAsSecuredResource(id_acc, (MTSessionContext)ctx, MetraTime.Now);
-      IOwnershipMgr mgr = (IOwnershipMgr)acc.GetOwnershipMgr();
-      IOwnershipMgr mgr1 = (IOwnershipMgr)acc.GetOwnershipMgr();
-      object mgr2 = acc.GetOwnershipMgr();
-      Assert.IsNotNull(mgr);
-      Assert.IsNotNull(mgr1);
-      Assert.IsNotNull(mgr2);
-      return mgr;
-    }
+    #endregion
 
-    public static void DumpErrorRowset(IMTSQLRowset rowset)
-    {
-      bool atleastone = false;
-      while(System.Convert.ToBoolean(rowset.EOF) == false)
-      {
-        atleastone = true;
-        int owned  = (int)rowset.get_Value("id_acc");
-        string ownedname  = (string)rowset.get_Value("accountname");
-        string description  = (string)rowset.get_Value("description");
-        string msg = string.Format("Error Rowset Row: id_owned: {0}, OwnedName: {1}, Description: {2}", 
-          owned, ownedname, description); 
 
-        Utils.Trace(msg);
-
-        rowset.MoveNext();
-      }
-      if(atleastone)
-        rowset.MoveFirst();
-    }
-
-    public static IMTSQLRowset GetAccountsForBatchOwnership()
-    {
-      IMTSQLRowset accounts = (IMTSQLRowset)new RS.MTSQLRowsetClass();
-      accounts.Init(@"Queries\AccHierarchies");
-
-      if (connInfo.IsSqlServer)
-      {
-          accounts.SetQueryString(@"SELECT TOP 500 name.id_acc FROM vw_hierarchyname name " +
-            " INNER JOIN t_account acc on acc.id_acc = name.id_acc INNER JOIN t_account_type atype on atype.id_type = acc.id_type WHERE atype.name = 'CORESUBSCRIBER'");
-      }
-      else
-      {
-          accounts.SetQueryString(@"select id_acc from (select name.id_acc from  vw_hierarchyname name " +
-            " INNER JOIN t_account acc on acc.id_acc = name.id_acc " +
-            " INNER JOIN t_account_type atype on atype.id_type = acc.id_type " +
-            " WHERE upper(atype.name) = 'CORESUBSCRIBER' " +
-            " order by name.id_acc) " +
-            " where rownum <= 500 ");
-      }
-
-      accounts.ExecuteDisconnected();
-      return accounts;
-    }
-
-    public static IMTSQLRowset GetNonSubscribers()
-    {
-      IMTSQLRowset accounts = (IMTSQLRowset)new RS.MTSQLRowsetClass();
-      accounts.Init(@"Queries\AccHierarchies");
-      if (connInfo.IsSqlServer)
-      {
-          accounts.SetQueryString(@"SELECT TOP 5 id_acc FROM t_account acc INNER JOIN t_account_type atype on atype.id_type = acc.id_type WHERE atype.name = 'CORESUBSCRIBER'");
-      }
-      else
-      {
-          accounts.SetQueryString(@"SELECT id_acc from ( select id_acc from t_account acc inner join t_account_type atype on atype.id_type = acc.id_type where upper(atype.name) = 'CORESUBSCRIBER' " +
-                                    " order by acc.id_acc) where rownum <= 5");
-      }
-      accounts.ExecuteDisconnected();
-      return accounts;
-    }
-
-    public static IMTSQLRowset GetCSRs()
-    {
-      IMTSQLRowset accounts = (IMTSQLRowset)new RS.MTSQLRowsetClass();
-      accounts.Init(@"Queries\AccHierarchies");
-      if (connInfo.IsSqlServer)
-      {
-          accounts.SetQueryString(@"SELECT TOP 50 acc.id_acc FROM t_account acc " +
-        " INNER JOIN t_account_mapper map on acc.id_acc = map.id_acc INNER JOIN t_account_type atype on atype.id_type = acc.id_type WHERE atype.name = 'SYSTEMACCOUNT'");
-      }
-      else
-      {
-           accounts.SetQueryString(@"select id_acc from (SELECT acc.id_acc FROM t_account acc " +
-        " INNER JOIN t_account_mapper map on acc.id_acc = map.id_acc INNER JOIN t_account_type atype on atype.id_type = acc.id_type WHERE UPPER(atype.name) = 'SYSTEMACCOUNT' order by acc.id_acc) where rownum <= 50");
-      }
-      accounts.ExecuteDisconnected();
-      return accounts;
-    }
   }
 }

@@ -13,16 +13,14 @@ namespace VertexServer.Test
     ///A test for CalculateTaxes
     ///</summary>
     [TestMethod]
-    [DeploymentItem("VertexSocketService.exe")]
     public void CalculateVertexTaxesTest()
     {
-      var target = new Vertex_Accessor();
-      target.InitializeVertex();
+      var po = new PrivateObject(typeof (Vertex));
       var st = new Stopwatch();
       st.Start();
       for (var i = 0; i < 5000; i++)
       {
-        var actual = target.CalculateTaxes(Resources.TestRequest);
+        var actual = po.Invoke("CalculateTaxes", new object[] {Resources.TestRequest});
         Assert.AreEqual(Resources.TestResponse, actual);
       }
       st.Stop();

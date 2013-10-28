@@ -11,7 +11,7 @@
         <processor>
             <name>SetAmount</name>
             <progid>MetraPipeline.MTSQLInterpreter.1</progid>
-
+            <description>Description for SetAmount</description>
             <!-- Processor specific configuration data -->
             <configdata>
                 <Program><![CDATA[

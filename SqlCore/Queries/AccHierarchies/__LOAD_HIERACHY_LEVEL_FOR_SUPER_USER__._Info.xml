@@ -8,9 +8,8 @@
     <Parameters>
         <Parameter>
             <Name>REF_DATE</Name>
-            <DataType>sqlsubstitution</DataType>
+            <DataType>timestamp</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck>20010101</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
         <Parameter>

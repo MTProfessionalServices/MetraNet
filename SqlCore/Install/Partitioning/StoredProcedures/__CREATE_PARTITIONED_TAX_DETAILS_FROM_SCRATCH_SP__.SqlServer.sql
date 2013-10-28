@@ -22,8 +22,8 @@
                     -- CREATE PARTITION SCHEME [testPs] AS PARTITION [testPf] TO ( [fgIntervalIdLessThan1013252096], 
                     -- [fgIntervalId1013252096_1015283712], [PRIMARY])
                     --
-                    declare @partitionFunctionCommand varchar(500)
-                    declare @partitionSchemeCommand varchar(500)
+                    declare @partitionFunctionCommand varchar(MAX)
+                    declare @partitionSchemeCommand varchar(MAX)
 
                     exec PrepareTaxDetailPartitions @intervalStatus, @partitionFunctionCommand output, @partitionSchemeCommand output
                     if (@@ERROR <> 0) 

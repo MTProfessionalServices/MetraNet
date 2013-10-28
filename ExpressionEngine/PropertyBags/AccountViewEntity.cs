@@ -32,7 +32,8 @@ namespace MetraTech.ExpressionEngine.PropertyBags
         {
             return CoreProperties;
         }
-        private static void AddCoreProperties()
+
+        private new static void AddCoreProperties()
         {
             CoreProperties = new PropertyCollection(null);
 

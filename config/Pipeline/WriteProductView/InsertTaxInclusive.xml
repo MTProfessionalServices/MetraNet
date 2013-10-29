@@ -6,13 +6,13 @@
         <processor>
             <name>InsertTaxInclusive</name>
             <progid>MetraPipeline.MTSQLInterpreter.1</progid>
-            <description></description>
+            <description>Insert tax inclusive</description>
             <!-- Processor specific configuration data -->
             <configdata>
                 <Program><![CDATA[CREATE PROCEDURE InsertTaxInclusive
-@_TaxInclusive VARCHAR(1)
-@_TaxInformational  VARCHAR(1)
-@_TaxCalculated VARCHAR(1)
+@_TaxInclusive VARCHAR(1) OUTPUT
+@_TaxInformational  VARCHAR(1) OUTPUT
+@_TaxCalculated VARCHAR(1) OUTPUT
 as
 
 if (@_TaxInclusive is null)

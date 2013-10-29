@@ -217,23 +217,30 @@ SELECT DISTINCT
  /* Now determine if th interval and if the RC adapter has run, if no remove those adavanced charge credits */
     DECLARE @prev_interval INT, @cur_interval INT, @do_credit INT
 
-	SELECT @prev_interval = prev_interval.id_interval, @cur_interval = cur_interval.id_interval
-	FROM t_usage_interval prev_interval
-	INNER JOIN (
-		SELECT * from t_usage_interval ui1 
-		WHERE dbo.metratime(1,'RC') between ui1.dt_start and ui1.dt_end 
-	) cur_interval 
-	ON prev_interval.dt_end = dbo.SubtractSecond( cur_interval.dt_start )
-
-    select @do_credit = (CASE WHEN ISNULL(rei.id_arg_interval, 0) = 0 THEN 0 
-	       ELSE 
-		      CASE WHEN rei.tx_status = 'Succeeded' THEN 1 ELSE 0 END 
-		   END)
-    from t_recevent re
-    left outer join t_recevent_inst rei on re.id_event = rei.id_event and rei.id_arg_interval = @prev_interval  
-    where 1=1
-    and re.dt_deactivated is null 
-    and re.tx_name = 'RecurringCharges'
+select @prev_interval = pui.id_interval, @cur_interval = cui.id_interval
+from t_usage_interval cui WITH(NOLOCK) 
+inner join #temp_rc_1 on #temp_rc_1.c__IntervalID = cui.id_interval 
+inner join t_usage_cycle uc WITH(NOLOCK) on cui.id_usage_cycle = uc.id_usage_cycle
+inner join t_usage_interval pui WITH(NOLOCK) ON pui.dt_end = dbo.SubtractSecond( cui.dt_start ) AND pui.id_usage_cycle = cui.id_usage_cycle
+select @do_credit = (CASE WHEN ISNULL(rei.id_arg_interval, 0) = 0 THEN 0 
+ELSE 
+CASE WHEN (rr.tx_type = 'Execute' AND rei.tx_status = 'Succeeded') THEN 1 ELSE 0 END 
+END)
+from t_recevent re
+left outer join t_recevent_inst rei on re.id_event = rei.id_event and rei.id_arg_interval = @prev_interval
+left outer join t_recevent_run rr on rr.id_instance = rei.id_instance 
+where 1=1
+and re.dt_deactivated is null 
+and re.tx_name = 'RecurringCharges'
+and rr.id_run = ( 
+select MAX(rr.id_run)
+from t_recevent re
+left outer join t_recevent_inst rei on re.id_event = rei.id_event and rei.id_arg_interval = @prev_interval
+left outer join t_recevent_run rr on rr.id_instance = rei.id_instance 
+where 1=1
+and re.dt_deactivated is null 
+and re.tx_name = 'RecurringCharges'
+)
 
     IF @do_credit = 0
     BEGIN

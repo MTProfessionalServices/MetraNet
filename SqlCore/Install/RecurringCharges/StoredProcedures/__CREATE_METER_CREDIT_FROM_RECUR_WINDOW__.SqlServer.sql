@@ -219,7 +219,7 @@ SELECT DISTINCT
 
 select @prev_interval = pui.id_interval, @cur_interval = cui.id_interval
 from t_usage_interval cui WITH(NOLOCK) 
-inner join #temp_rc_1 on #temp_rc_1.c__IntervalID = cui.id_interval 
+inner join #tmp_rc_1 on #tmp_rc_1.c__IntervalID = cui.id_interval 
 inner join t_usage_cycle uc WITH(NOLOCK) on cui.id_usage_cycle = uc.id_usage_cycle
 inner join t_usage_interval pui WITH(NOLOCK) ON pui.dt_end = dbo.SubtractSecond( cui.dt_start ) AND pui.id_usage_cycle = cui.id_usage_cycle
 select @do_credit = (CASE WHEN ISNULL(rei.id_arg_interval, 0) = 0 THEN 0 

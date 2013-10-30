@@ -321,6 +321,8 @@ CLASS CTransactionUIFinder
                       
                           Service.Properties("_" & prop.dn).SetPropertyType "ENUM", Prop.EnumNamespace, prop.EnumEnumeration
                           Service.Properties("_" & prop.dn).Value = ""
+                          Service.Properties("_" & prop.dn).EnumTypeSupportEmpty = true 'CORE-6952 Fix so that when not populating enum filters, MSIXProperty.cls does not try to fill in a default value when no value is selected before performing the search
+
                           strHTML = strHTML & "<TR><TD class='captionEW'><MDMLABEL Name='[PROPERTYNAME]' Type='Caption'></MDMLABEL>:</td><TD class=''><SELECT Class='clsInputBox' Name='[PROPERTYNAME]'></SELECT></TD></TR>" & vbNewLine
                       Else
                           strHTML = strHTML & "<TR><TD class='captionEW'><MDMLABEL Name='[PROPERTYNAME]' Type='Caption'></MDMLABEL>:</td><TD class=''><INPUT Size=30 Type='Text' Class='clsInputBox' Name='[PROPERTYNAME]'></TD></TR>" & vbNewLine
@@ -366,7 +368,6 @@ CLASS CTransactionUIFinder
                 If(Len(Service.Properties("_" & Prop.dn).Value))Then
 
                     If (Service.Properties("_" & Prop.dn).IsEnumType)And(Service.Properties("_" & Prop.dn).PropertyType<>MSIXDEF_TYPE_BOOLEAN) Then
-                    
                         lnginternalDBId = Service.Tools.GetEnumIDFromValue(Service.Properties("_" & Prop.dn).EnumType.NameSpace,Service.Properties("_" & Prop.dn).EnumType.Name,Service.Properties("_" & Prop.dn).Value)
                         ProductSlice.AddProductViewPropertyPredicate Prop, Clng(lnginternalDBId)
                     Else

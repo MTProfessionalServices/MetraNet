@@ -26,6 +26,7 @@ namespace MetraTech.Metering.Test
 	//
   [Category("NoAutoRun")]
   [TestFixture]
+  [Ignore]
 	public class MeteringTests
 	{			
     #region Fixture Setup

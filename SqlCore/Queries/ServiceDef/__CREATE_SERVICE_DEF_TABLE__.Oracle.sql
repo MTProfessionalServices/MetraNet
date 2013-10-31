@@ -22,7 +22,7 @@
 			COMMENT ON COLUMN %%TABLE_NAME%%.id_external IS ''Required column. External identifier.''
 			';
 			execute IMMEDIATE '
-			COMMENT ON COLUMN %%TABLE_NAME%%.id_partition IS ''Required column. The partition value that specifies on which partition 1,2,…X the current data is saved. Column for meter partitioning. It uses to simplify archive functionality.''
+			COMMENT ON COLUMN %%TABLE_NAME%%.id_partition IS ''Required column. The partition value that specifies on which partition 1,2,ï¿½X the current data is saved. Column for meter partitioning. It uses to simplify archive functionality.''
 			';
 			
 		

@@ -1,6 +1,5 @@
 @pushd c:\Dev\MetraNet
 
-git clean -d -f
-git submodule foreach git clean -d -f
+git submodule foreach git clean -df -xf
 @popd
 @pause

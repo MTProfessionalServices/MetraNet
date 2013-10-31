@@ -1,21 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.UI;
 using System.Reflection;
 using System.ComponentModel;
+using MetraTech.UI.Tools;
 
 namespace MetraTech.UI.Controls
 {
   public class CodeWidget : BaseWidget
   {
-    private MetraTech.Logger mtLog = new Logger("[Dashboard]");
-
-    public CodeWidget()
-    {
-      
-    }
+    private readonly Logger _mtLog = new Logger("[Dashboard]");
 
     protected override void OnLoad(EventArgs e)
     {
@@ -25,33 +17,30 @@ namespace MetraTech.UI.Controls
 
     protected override void CreateChildControls()
     {
-      string controlPath = this.Path; 
+      var controlPath = Path; 
       try
       {
-        Control uc = (Control)Page.LoadControl(controlPath);
-        uc.ID = base.Name + "_uc";
+        var uc = Page.LoadControl(controlPath);
+        uc.ID = Name + "_uc";
 
-        foreach (WidgetParameter param in Parameters)
+        foreach (var param in Parameters)
         {
           try
           {
-            PropertyInfo pi = uc.GetType().GetProperty(param.Name);
-            //object val = CoherceStringToPropertyType(uc, pi, param.ParameterValue);
+            var pi = Utils.GetPropertyInfo(uc, param.Name);
             if (pi != null)
             {
-            //string val = param.Value;
-            object val = CoherceStringToPropertyType(null, pi, param.Value);
+            var val = CoherceStringToPropertyType(null, pi, param.Value);
             pi.SetValue(uc, val, null);
           }
             else
             {
-              mtLog.LogWarning(string.Format("Object does not contain property {0}", param.Name));
+              _mtLog.LogWarning(string.Format("Object does not contain property {0}", param.Name));
             }
           }
           catch (Exception e)
           {
-            mtLog.LogException(String.Format("Unable to process parameter {0}", param.Name), e);
-            continue;
+            _mtLog.LogException(String.Format("Unable to process parameter {0}", param.Name), e);
           }
         }
         
@@ -59,7 +48,7 @@ namespace MetraTech.UI.Controls
       }
       catch (Exception e)
       {
-        mtLog.LogException(String.Format("Unable to load control from {0}", controlPath), e);
+        _mtLog.LogException(String.Format("Unable to load control from {0}", controlPath), e);
       }
       base.CreateChildControls();
     }
@@ -77,27 +66,20 @@ namespace MetraTech.UI.Controls
       
       if (pi != null && value != null)
       {
-        Type propertyType = pi.PropertyType;
-
+        var propertyType = pi.PropertyType;
         if (propertyType == value.GetType())
         {
           return value;
         }
 
-        TypeConverter converter = TypeDescriptor.GetConverter(propertyType);
-
-        if (converter != null)
+        var converter = TypeDescriptor.GetConverter(propertyType);
+        if (converter.CanConvertFrom(value.GetType()))
         {
-
-          if (converter.CanConvertFrom(value.GetType()))
-          {
-            result = converter.ConvertFrom(value);
-          }
+          result = converter.ConvertFrom(value);
         }
       }
+
       return result;
     }
-
-    
   }
 }

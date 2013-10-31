@@ -32,13 +32,13 @@ IF "%TARGET%"=="skip_pull" (
 IF "%TARGET%"=="full" (
 @echo The most time-consuming process, bit new MetraNet will be fresh. The target will do:&echo.
 @echo - Stop all MetraTech services
-@echo - Remove all binary and source code
+@echo - Remove all binary and source code (includes uncommited changes)
 ) ELSE (
 @echo The current target will do:&echo.
 @echo - Stop all MetraTech services
 )
 
-IF "%TARGET%"=="skip_pull" (
+IF "%TARGET%"=="with_revert" (
 @echo - Revert all uncommitted changes
 )
 

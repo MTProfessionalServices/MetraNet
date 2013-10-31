@@ -2,6 +2,7 @@
 // nunit-console /assembly:MetraTech.Accounts.Type.Test.dll /fixture:MetraTech.Accounts.Type.Test.TestCreateUpdateAccounts
 using System.Runtime.InteropServices;
 using System.EnterpriseServices;
+using MetraTech.Security;
 
 
 namespace MetraTech.Accounts.Type.Test
@@ -498,36 +499,36 @@ namespace MetraTech.Accounts.Type.Test
     }
 
 
-    public void YetAnotherCreateAccount(string username, string currency, 
-                                        string cycleType, string accType, 
-                                        string fName, bool billable, 
-                                        string payerAcc, string ancAcc, 
-                                        string serviceDef, int day, 
-                                        DateTime startDate, string country,
-                                        int timeZoneID, string pricelist, bool applyAccountTemplate)
+    public void YetAnotherCreateAccount(string username, string currency,
+      string cycleType, string accType,
+      string fName, bool billable,
+      string payerAcc, string ancAcc,
+      string serviceDef, int day,
+      DateTime startDate, string country,
+      int timeZoneID, string pricelist, bool applyAccountTemplate)
     {
-      TestLibrary.Trace("Creating account {0}", username);
-
       ISessionSet sessionSet = sdk.CreateSessionSet();
       sessionSet.SessionContextUserName = suName;
       sessionSet.SessionContextPassword = suPassword;
       sessionSet.SessionContextNamespace = "system_user";
 
+      var auth = new Auth();
+      auth.Initialize(username, "system_user");
+      var password = auth.HashNewPassword("123");
+
       ISession session = sessionSet.CreateSession(serviceDef);
-      session.InitProperty("actiontype", "both");	// account/contact/both
-      session.InitProperty("password_", "123");
+      session.InitProperty("actiontype", "both"); // account/contact/both
+      session.InitProperty("password_", password);
       session.InitProperty("_Accountid", 0);
-     
+
       session.InitProperty("username", username);
       session.InitProperty("operation", "Add");
       session.InitProperty("accounttype", accType);
-      if (accType.ToUpper() !=  "SYSTEMACCOUNT")
-        session.InitProperty("name_space", "MT");
-      else
-        session.InitProperty("name_space", "system_user");
+      var nameSpace = accType.ToUpper() != "SYSTEMACCOUNT" ? "MT" : "system_user";
+      session.InitProperty("name_space", nameSpace);
 
       //t_av_internal properties
-      
+
       session.InitProperty("statusreason", "0");
       if (billable)
         session.InitProperty("billable", true);
@@ -540,11 +541,12 @@ namespace MetraTech.Accounts.Type.Test
         session.InitProperty("folder", false);
       else if ((accType.ToUpper() == "DEPARTMENTACCOUNT") ||
                (accType.ToUpper() == "CORPORATEACCOUNT"))
-        session.InitProperty("folder", true); //I don't care about the folder, but the load hierarchy queries use it.. need to remove them
+        session.InitProperty("folder", true);
+          //I don't care about the folder, but the load hierarchy queries use it.. need to remove them
       session.InitProperty("language", "US");
       if (currency != "")
         session.InitProperty("currency", currency);
-      
+
       if (cycleType != "")
       {
         session.InitProperty("usagecycletype", cycleType);
@@ -561,26 +563,19 @@ namespace MetraTech.Accounts.Type.Test
         }
       }
 
-      if (timeZoneID == -1) 
-      {
-      session.InitProperty("timezoneID", 18);
-      }
-      else 
-      {
-        session.InitProperty("timezoneID", timeZoneID);
-      }
+      session.InitProperty("timezoneID", timeZoneID == -1 ? 18 : timeZoneID);
 
 
-      if (pricelist != null) 
+      if (pricelist != null)
       {
         session.InitProperty("pricelist", pricelist);
       }
 
       session.InitProperty("taxexempt", false);
-      
+
       if (accType.ToUpper() != "GSMSERVICEACCOUNT")
         session.InitProperty("paymentmethod", "CashOrCheck");
-      
+
       //t_av_contact properties.
       if (accType.ToUpper() != "GSMSERVICEACCOUNT")
       {
@@ -611,10 +606,7 @@ namespace MetraTech.Accounts.Type.Test
         else
         {
           session.InitProperty("ancestorAccount", ancAcc);
-          if (accType.ToUpper() !=  "SYSTEMACCOUNT")
-            session.InitProperty("ancestorAccountNS", "MT");
-          else
-            session.InitProperty("ancestorAccountNS", "system_user");
+          session.InitProperty("ancestorAccountNS", nameSpace);
         }
       }
       if (payerAcc != "")
@@ -628,7 +620,7 @@ namespace MetraTech.Accounts.Type.Test
 
       session.InitProperty("accountstartdate", startDate);
 
-      if (applyAccountTemplate) 
+      if (applyAccountTemplate)
       {
         session.InitProperty("ApplyAccountTemplate", true);
       }
@@ -636,7 +628,7 @@ namespace MetraTech.Accounts.Type.Test
       session.RequestResponse = true;
 
       sessionSet.Close();
-      
+
     }
 
 

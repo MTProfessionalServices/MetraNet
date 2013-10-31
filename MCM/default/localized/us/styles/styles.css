@@ -1481,6 +1481,18 @@ CURSOR: hand;
 TEXT-ALIGN: center;
 }
 
+.clsButton
+{
+PADDING-RIGHT: 3px;
+PADDING-LEFT: 3px;
+BACKGROUND: none transparent scroll repeat 0% 0%;
+MARGIN: 0px;
+FONT: 11px tahoma,verdana,helvetica;
+OVERFLOW: visible;
+WIDTH: auto;
+CURSOR: pointer;
+}
+
 /* INTERVAL PROGRESS */
   #progressContainer {
     position:absolute;

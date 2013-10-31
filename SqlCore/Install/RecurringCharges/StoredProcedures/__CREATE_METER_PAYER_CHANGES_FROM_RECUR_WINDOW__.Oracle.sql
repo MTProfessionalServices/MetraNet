@@ -22,13 +22,13 @@ PROCEDURE MeterPayerChangeFromRecWind AS
       /*Booleans are, stupidly enough, stored as Y/N in one table, but 0/1 in another table.  Convert them.*/
       ,case when rw.c_advance  ='Y' then '1' else '0' end          AS c_Advance
       ,case when rcr.b_prorate_on_activate ='Y' then '1' else '0' end         AS c_ProrateOnSubscription
-      ,CASE WHEN rcr.b_fixed_proration_length = 'Y' THEN fxd.n_proration_length ELSE 0 END          AS c_ProrationCycleLength
+      ,case when rcr.b_prorate_instantly  ='Y' then '1' else '0' end          AS c_ProrateInstantly
       ,rw.c_UnitValueStart AS c_UnitValueStart
       ,rw.c_UnitValueEnd AS c_UnitValueEnd
       ,rw.c_UnitValue AS c_UnitValue
       ,rcr.n_rating_type AS c_RatingType
-      ,case when rcr.b_prorate_instantly  ='Y' then '1' else '0' end          AS c_ProrateInstantly 
       ,case when rcr.b_prorate_on_deactivate  ='Y' then '1' else '0' end          AS c_ProrateOnUnsubscription
+      ,CASE WHEN rcr.b_fixed_proration_length = 'Y' THEN fxd.n_proration_length ELSE 0 END          AS c_ProrationCycleLength
       ,rw.c__accountid AS c__AccountID
       ,rw.c__payingaccount      AS c__PayingAccountCredit
       ,rwnew.c__payingaccount AS c__PayingAccountDebit
@@ -67,12 +67,13 @@ PROCEDURE MeterPayerChangeFromRecWind AS
                                    AND rwnew.c_membershipstart     < pci.dt_end AND rwnew.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
                                    AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
                                    AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
+								   and pci.dt_start < metratime(1,'RC') /* Don't go into the future*/      
       INNER JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
       inner join t_usage_interval currentui on metratime(1,'RC') between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = ui.id_usage_cycle
    where 1=1;
 	  
 	  insert INTO tmp_rc 
- 		SELECT 'Credit' AS c_RCActionType
+ 		SELECT 'InitialCredit' AS c_RCActionType
            ,c_RCIntervalStart
            ,c_RCIntervalEnd
            ,c_BillingIntervalStart
@@ -101,7 +102,7 @@ PROCEDURE MeterPayerChangeFromRecWind AS
            ,sys_guid() AS idSourceSess FROM TMP_PAYER_CHANGES 
            
            UNION ALL
-           		SELECT 'Debit' AS c_RCActionType
+           		SELECT 'InitialDebit' AS c_RCActionType
            ,c_RCIntervalStart
            ,c_RCIntervalEnd
            ,c_BillingIntervalStart
@@ -129,8 +130,9 @@ PROCEDURE MeterPayerChangeFromRecWind AS
            ,c__IntervalID
            ,sys_guid() AS idSourceSess FROM TMP_PAYER_CHANGES ;
           
-    InsertChargesIntoSvcTables('Credit','Debit');
+    InsertChargesIntoSvcTables('InitialCredit','InitialDebit');
 
 end MeterPayerChangeFromRecWind;
+
 
  

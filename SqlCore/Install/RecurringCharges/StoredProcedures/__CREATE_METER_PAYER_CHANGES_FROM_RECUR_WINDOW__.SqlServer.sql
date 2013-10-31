@@ -52,7 +52,10 @@ BEGIN
         AND ((rw.c_PayerStart >= rwnew.c_PayerStart AND rw.c_PayerEnd <= rwnew.c_PayerEnd)
             OR (rw.c_PayerStart <= rwnew.c_PayerStart AND rw.c_PayerEnd >= rwnew.c_PayerEnd)) 
       INNER JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
-      INNER JOIN t_usage_cycle ccl ON ccl.id_usage_cycle = CASE WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) ELSE NULL END -- TODO: which dates to use
+      INNER JOIN t_usage_cycle ccl ON ccl.id_usage_cycle = CASE WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle 
+	    WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle 
+	    WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) 
+	    ELSE NULL END
       JOIN t_acc_usage_cycle auc on auc.id_acc = rw.c__AccountID and auc.id_usage_cycle = ccl.id_usage_cycle
       /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
       INNER JOIN t_pc_interval pci ON pci.id_cycle = ccl.id_usage_cycle
@@ -64,11 +67,12 @@ BEGIN
                                    AND rwnew.c_membershipstart     < pci.dt_end AND rwnew.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
                                    AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
                                    AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
+								   and pci.dt_start < @currentDate /* Don't go into the future*/
       INNER JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
       inner join t_usage_interval currentui on @currentDate between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = ui.id_usage_cycle
 	  where 1=1;
 
-		SELECT 'Debit' AS c_RCActionType
+		SELECT 'InitialDebit' AS c_RCActionType
            ,c_RCIntervalStart
            ,c_RCIntervalEnd
            ,c_BillingIntervalStart
@@ -97,7 +101,7 @@ BEGIN
            ,NEWID() AS idSourceSess INTO #tmp_rc FROM #tmp_rc_1 
            
            UNION ALL
-           		SELECT 'Credit' AS c_RCActionType
+           		SELECT 'InitialCredit' AS c_RCActionType
            ,c_RCIntervalStart
            ,c_RCIntervalEnd
            ,c_BillingIntervalStart

@@ -1,11 +1,7 @@
 
 if object_id( '%%TEMPDEBUG%%tmp_subscribe_batch' ) is not null
-  BEGIN
-  /* DROP TABLE %%DEBUG%%tmp_subscribe_batch */
-  TRUNCATE TABLE %%DEBUG%%tmp_subscribe_batch
-  END
-else  
-BEGIN
+  DROP TABLE %%DEBUG%%tmp_subscribe_batch
+
 CREATE TABLE %%DEBUG%%tmp_subscribe_batch
 (
       id_acc int NOT NULL,
@@ -31,4 +27,4 @@ CREATE TABLE %%DEBUG%%tmp_subscribe_batch
 )
 
 CREATE CLUSTERED INDEX idx_acc_group_sub ON %%DEBUG%%tmp_subscribe_batch(id_acc, id_group)
-END		
+		

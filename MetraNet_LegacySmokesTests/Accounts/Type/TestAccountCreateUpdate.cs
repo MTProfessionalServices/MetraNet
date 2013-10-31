@@ -542,10 +542,10 @@ namespace MetraTech.Accounts.Type.Test
                (accType.ToUpper() == "CORPORATEACCOUNT"))
         session.InitProperty("folder", true); //I don't care about the folder, but the load hierarchy queries use it.. need to remove them
       session.InitProperty("language", "US");
-      if (currency != "")
+      if (!String.IsNullOrEmpty(currency))
         session.InitProperty("currency", currency);
       
-      if (cycleType != "")
+      if (!String.IsNullOrEmpty(cycleType))
       {
         session.InitProperty("usagecycletype", cycleType);
         switch (cycleType.ToLower())
@@ -571,7 +571,7 @@ namespace MetraTech.Accounts.Type.Test
       }
 
 
-      if (pricelist != null) 
+      if (!String.IsNullOrEmpty(pricelist)) 
       {
         session.InitProperty("pricelist", pricelist);
       }
@@ -602,7 +602,7 @@ namespace MetraTech.Accounts.Type.Test
       }
 
       session.InitProperty("accountstatus", "Active");
-      if (ancAcc != "")
+      if (!String.IsNullOrEmpty(ancAcc))
       {
         if (ancAcc == "SyntheticRoot")
         {
@@ -617,7 +617,7 @@ namespace MetraTech.Accounts.Type.Test
             session.InitProperty("ancestorAccountNS", "system_user");
         }
       }
-      if (payerAcc != "")
+      if (!String.IsNullOrEmpty(payerAcc))
       {
         session.InitProperty("PayerAccount", payerAcc);
         session.InitProperty("PayerAccountNS", "MT");

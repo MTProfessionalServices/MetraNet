@@ -68,8 +68,8 @@ create or replace TRIGGER trig_recur_window_recur_map
         )
       AND :new.tt_end  = dbo.mtmaxdate()
       AND rcr.b_charge_per_participant = 'N' 
-      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)
-    ;
+      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)	      
+	  AND AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.id_sub, sub.vt_end) = 1;
     END;
   END IF;
   

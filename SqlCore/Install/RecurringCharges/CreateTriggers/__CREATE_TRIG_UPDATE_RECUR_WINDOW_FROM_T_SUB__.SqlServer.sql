@@ -64,6 +64,7 @@ declare @temp datetime
               AND c__SubscriptionID = sub.id_sub)
               AND sub.id_group IS NULL
               AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)
+		   AND dbo.AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.id_sub, sub.vt_end) = 1
 
    select @temp = max(tsh.tt_start) from t_sub_history tsh join inserted sub on tsh.id_acc = sub.id_acc and tsh.id_sub = sub.id_sub;
    EXEC MeterInitialFromRecurWindow @currentDate = @temp;

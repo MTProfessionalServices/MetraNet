@@ -99,12 +99,12 @@ mkdir %temp%\2\
 FOR /D %%p IN ("%windir%\Microsoft.NET\Framework\v2.0.50727\Temporary ASP.NET Files\*.*") DO rmdir "%%p" /s /q
 FOR /D %%p IN ("%windir%\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\*.*") DO rmdir "%%p" /s /q
 rem git hard reset all changes second time [TODO] should be just reverted
-call %SCRIPTSFOLDER%\Git\GitClean.bat
+call %SCRIPTSFOLDER%\Git\GitClean.bat skip_pause
 call %SCRIPTSFOLDER%\Git\GitRevert.bat skip_set_unchange_config
 )
 
 if "%TARGET%"=="with_revert" (
-call %SCRIPTSFOLDER%\Git\GitClean.bat
+call %SCRIPTSFOLDER%\Git\GitClean.bat skip_pause
 call %SCRIPTSFOLDER%\Git\GitRevert.bat skip_set_unchange_config
 }
 

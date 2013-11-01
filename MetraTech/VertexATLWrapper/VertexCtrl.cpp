@@ -35,7 +35,8 @@ const CComBSTR END_ERROR_XML = _T("</Error>");
 }
 
 #define DELETE_TIMINGS \
-  for( int i = 0; i < m_vTiming.size(); i++ ) \
+  int size = m_vTiming.size(); \
+  for( int i = 0; i < size; i++ ) \
 { \
   delete m_vTiming[i]; \
 } \
@@ -1769,7 +1770,8 @@ CString CVertexCtrl::ReportTimings()
     LARGE_INTEGER leStart = m_vTiming[0]->m_leTiming;
     LARGE_INTEGER leBegin = leStart;
     LARGE_INTEGER leStop;
-    for(int i = 0; i < m_vTiming.size(); i++ )
+	int size = m_vTiming.size();
+    for(int i = 0; i < size; i++ )
     {
       strRet += _T("<Interval><Desc>");
       strRet += m_vTiming[i]->strDesc;

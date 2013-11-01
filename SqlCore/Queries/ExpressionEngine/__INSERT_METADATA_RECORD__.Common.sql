@@ -5,5 +5,5 @@ content
 )
 VALUES
 (
-?, ?
+@timecreate, @content
 )

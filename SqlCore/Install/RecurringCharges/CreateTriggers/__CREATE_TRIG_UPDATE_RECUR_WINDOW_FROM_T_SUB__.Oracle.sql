@@ -64,8 +64,8 @@ create or replace TRIGGER trig_recur_window_sub AFTER INSERT OR UPDATE OR DELETE
         AND c__SubscriptionID = :new.id_sub
       )
     AND :new.id_group IS NULL
-    AND (bp.n_kind    = 20
-    OR rv.id_prop    IS NOT NULL);
+    AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)	    
+    AND AllowInitialArrersCharge(rcr.b_advance, :new.id_acc, :new.id_sub, :new.vt_end) = 1;
   END;
   UPDATE tmp_newrw SET c_BilledThroughDate = metratime(1,'RC');
 

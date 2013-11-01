@@ -172,7 +172,7 @@
         <value>End Date must be after the Start Date</value>
     </data>
     <data name="ERROR_LAST_LOGIN" xml:space="preserve">
-        <value>The last login for {0} was on {1}.  There have been {2} failed login attempts since the last successful login.</value>
+        <value>Account Locked. Account was locked out due to too many unsuccessful login attempts.</value>
     </data>
     <data name="ERROR_LOGIN_INVALID" xml:space="preserve">
         <value>Invalid username or password.</value>

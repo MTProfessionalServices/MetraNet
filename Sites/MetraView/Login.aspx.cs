@@ -147,7 +147,7 @@ public partial class login : MTPage
         break;
 
       case MetraTech.Security.LoginStatus.FailedPasswordExpired:
-        strErrText = Resources.ErrorMessages.ERROR_LOGIN_LOCKED;
+        strErrText = Resources.ErrorMessages.ERROR_PASSWORD_EXPIRED;
         break;
 
       case MetraTech.Security.LoginStatus.NoCapabilityToLogonToThisApplication:
@@ -260,6 +260,14 @@ public partial class login : MTPage
         break;
 
       case MetraTech.Security.LoginStatus.FailedPasswordExpired:
+        err = Resources.ErrorMessages.ERROR_PASSWORD_EXPIRED;
+        break;
+
+      case MetraTech.Security.LoginStatus.FailedLoginAccountLocked:
+        err = Resources.ErrorMessages.ERROR_LAST_LOGIN;
+        break;
+
+      case MetraTech.Security.LoginStatus.FailedLoginAccountLockedSecurity:
         err = Resources.ErrorMessages.ERROR_LOGIN_LOCKED;
         break;
 

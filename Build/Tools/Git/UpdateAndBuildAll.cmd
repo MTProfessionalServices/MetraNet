@@ -3,7 +3,6 @@ rem all env variables took from %ROOTDIR%\Build\Tools\setEnv.bat
 @echo off
 
 Set TARGET=%1%
-Set DBOPTION=%2%
 
 IF NOT "none%TARGET%"=="none" (
 	IF NOT "%TARGET%"=="skip_pull" (
@@ -55,17 +54,6 @@ IF NOT "none%TARGET%"=="none" (
 )
 @echo - Encripts password
 @echo - Install MSSQL DB
-
-IF NOT "none%DBOPTION%"=="none" (
-	IF NOT "%DBOPTION%"=="with_oracle" (
-		@echo The 2-nd target '%DBOPTION%' is not recognized parameter.
-		@echo Use 'with_oracle' to install Oracle DB after MSSQL DB installation.
-		@echo Press any key to exit . . .
-		pause > nul
-		Exit /B
-	)
-	@echo - Install Oracle DB
-)
 @echo.
 pause
 
@@ -99,12 +87,10 @@ mkdir %temp%\2\
 FOR /D %%p IN ("%windir%\Microsoft.NET\Framework\v2.0.50727\Temporary ASP.NET Files\*.*") DO rmdir "%%p" /s /q
 FOR /D %%p IN ("%windir%\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\*.*") DO rmdir "%%p" /s /q
 rem git hard reset all changes second time [TODO] should be just reverted
-call %SCRIPTSFOLDER%\Git\GitClean.bat skip_pause
 call %SCRIPTSFOLDER%\Git\GitRevert.bat skip_set_unchange_config
 )
 
 if "%TARGET%"=="with_revert" (
-call %SCRIPTSFOLDER%\Git\GitClean.bat skip_pause
 call %SCRIPTSFOLDER%\Git\GitRevert.bat skip_set_unchange_config
 }
 
@@ -170,20 +156,6 @@ call cryptosetup -encryptconfig
 SET WILL_SHOW_LOG_IN_NOTEPAD=4
 @echo call 'database.vbs' under 32-bit command prompt ...
 %windir%\SysWoW64\cmd.exe /k %ROOTDIR%\Install\Scripts\database.vbs
-
-
-IF "%DBOPTION%"=="with_oracle" (
-copy /Y C:\Tools\ServerAccessFiles\Ora\RMP\config\ServerAccess\servers.xml %MTRMP%\config\ServerAccess\servers.xml
-copy /Y C:\Tools\ServerAccessFiles\Ora\RMP\extensions\Reporting\Config\ServerAccess\servers.xml %MTRMP%\extensions\Reporting\Config\ServerAccess\servers.xml
-
-net start OracleServiceMT
-net start OracleOraDb11g_home1TNSListener
-call C:\Tools\CreateDB_Oracle_local.cmd
-
-copy /Y C:\Tools\ServerAccessFiles\SQL\RMP\config\ServerAccess\servers.xml %MTRMP%\config\ServerAccess\servers.xml
-copy /Y C:\Tools\ServerAccessFiles\SQL\RMP\extensions\Reporting\Config\ServerAccess\servers.xml %MTRMP%\extensions\Reporting\Config\ServerAccess\servers.xml
-}
-
 
 :DONE
 echo DONE!

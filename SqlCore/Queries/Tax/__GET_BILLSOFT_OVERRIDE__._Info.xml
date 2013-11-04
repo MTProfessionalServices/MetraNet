@@ -8,7 +8,7 @@
     <Parameters>
         <Parameter>
             <Name>uniqueId</Name>
-            <DataType>uniqueidentifier</DataType>
+            <DataType>int32</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
             <Description></Description>
         </Parameter>

@@ -14,6 +14,7 @@ using MetraTech.Interop.MTProductCatalog;
 using MetraTech.Interop.NameID;
 using MetraTech.Metering.DatabaseMetering;
 using MetraTech.Test;
+using MetraTech.TestCommon;
 using NUnit.Framework;
 using Coll = MetraTech.Interop.GenericCollection;
 using Auth = MetraTech.Interop.MTAuth;
@@ -71,8 +72,8 @@ namespace MetraTech.UsageServer.Test
     /// <param name="expectedName"></param>
     /// <param name="expectedAccounts">account id's</param>
     private static void CheckBillingGroup(IBillingGroup billingGroup,
-                                   string expectedName,
-                                   ArrayList expectedAccounts)
+                                          string expectedName,
+                                          ArrayList expectedAccounts)
     {
       Assert.AreNotEqual(null, billingGroup, "Null billing group!");
       Assert.AreEqual(expectedName, billingGroup.Name, "Billing group name mismatch!");
@@ -86,8 +87,8 @@ namespace MetraTech.UsageServer.Test
     /// <param name="expectedName"></param>
     /// <param name="expectedAccounts"></param>
     private static void CheckBillingGroup(int billingGroupId,
-                                   string expectedName,
-                                   ArrayList expectedAccounts)
+                                          string expectedName,
+                                          ArrayList expectedAccounts)
     {
       var billingGroup =
         _util.BillingGroupManager.GetBillingGroup(billingGroupId);
@@ -104,8 +105,8 @@ namespace MetraTech.UsageServer.Test
     /// <param name="accountIds"></param>
     /// <param name="isPresent"></param>
     private static void CheckBillingGroupAccountMembership(int billingGroupId,
-                                                    ArrayList accountIds,
-                                                    bool isPresent)
+                                                           ArrayList accountIds,
+                                                           bool isPresent)
     {
       if (isPresent)
       {
@@ -136,12 +137,12 @@ namespace MetraTech.UsageServer.Test
     /// <param name="billingGroup"></param>
     /// <param name="accountIds"></param>
     private static void CheckBillingGroupAccounts(IBillingGroup billingGroup,
-                                           ArrayList accountIds)
+                                                  ArrayList accountIds)
     {
       // Get the billing group accounts
       var rowset =
         _util.BillingGroupManager.
-             GetBillingGroupMembersRowset(billingGroup.BillingGroupID, null);
+              GetBillingGroupMembersRowset(billingGroup.BillingGroupID, null);
 
       Assert.AreEqual(accountIds.Count, rowset.RecordCount,
                       "Mismatch in billing group accounts!");
@@ -167,7 +168,7 @@ namespace MetraTech.UsageServer.Test
     /// <param name="materializationStatus"></param>
     /// <returns></returns>
     private static bool CheckMaterializationStatus(int materializationId,
-                                            MaterializationStatus materializationStatus)
+                                                   MaterializationStatus materializationStatus)
     {
       var match = false;
 
@@ -189,7 +190,7 @@ namespace MetraTech.UsageServer.Test
     /// </summary>
     /// <returns></returns>
     private static int CreateMaterialization(MaterializationType materializationType,
-                                      out int intervalId)
+                                             out int intervalId)
     {
       // Get an interval for materialization
       intervalId = _util.GetIntervalForFullMaterialization();
@@ -197,11 +198,11 @@ namespace MetraTech.UsageServer.Test
       // Create a materialization
       var materializationId =
         _util.BillingGroupManager.
-             CreateMaterialization(intervalId,
-                                   _util.UserId,
-                                   MetraTime.Now,
-                                   null,
-                                   materializationType.ToString());
+              CreateMaterialization(intervalId,
+                                    _util.UserId,
+                                    MetraTime.Now,
+                                    null,
+                                    materializationType.ToString());
 
       return materializationId;
     }
@@ -220,10 +221,10 @@ namespace MetraTech.UsageServer.Test
 
       // Clean up the materialization
       _util.BillingGroupManager.
-           CleanupMaterialization(materializationId,
-                                  MetraTime.Now,
-                                  MaterializationStatus.Failed,
-                                  "Cleaning up unit test failure");
+            CleanupMaterialization(materializationId,
+                                   MetraTime.Now,
+                                   MaterializationStatus.Failed,
+                                   "Cleaning up unit test failure");
 
       // Check that the materialization has a status of Failed
       Assert.IsTrue(CheckMaterializationStatus(materializationId,
@@ -250,12 +251,12 @@ namespace MetraTech.UsageServer.Test
     /// <param name="parameters"></param>
     /// <param name="doValidation"></param>
     private static void CreateTemporaryBillingGroups(out int intervalId,
-                                              out int materializationId,
-                                              bool callDelegateBeforeCreatingBillingGroups,
-                                              UtilDelegate utilDelegate,
-                                              int numOfTimesToInvokeDelegate,
-                                              object[] parameters,
-                                              bool doValidation)
+                                                     out int materializationId,
+                                                     bool callDelegateBeforeCreatingBillingGroups,
+                                                     UtilDelegate utilDelegate,
+                                                     int numOfTimesToInvokeDelegate,
+                                                     object[] parameters,
+                                                     bool doValidation)
     {
       var billingGroupManager = _util.BillingGroupManager;
 
@@ -383,7 +384,7 @@ namespace MetraTech.UsageServer.Test
     /// <param name="billingGroups"></param>
     /// <returns></returns>
     private static bool CheckBillingGroupExists(int billingGroupId,
-                                         IEnumerable billingGroups)
+                                                IEnumerable billingGroups)
     {
       if (billingGroups == null) throw new ArgumentNullException("billingGroups");
       return billingGroups.Cast<IBillingGroup>().Any(billingGroup => billingGroup.BillingGroupID == billingGroupId);
@@ -397,7 +398,7 @@ namespace MetraTech.UsageServer.Test
     /// <param name="billingGroups"></param>
     /// <returns></returns>
     private static bool CheckBillingGroupExists(string billingGroupName,
-                                         IEnumerable billingGroups)
+                                                IEnumerable billingGroups)
     {
       if (billingGroups == null) throw new ArgumentNullException("billingGroups");
       return billingGroups.Cast<IBillingGroup>().Any(billingGroup => billingGroup.Name.Equals(billingGroupName));
@@ -511,9 +512,9 @@ namespace MetraTech.UsageServer.Test
     /// <param name="pricelist"></param>
     /// <returns></returns>
     private static ArrayList CreateAccounts(int numAccounts,
-                                     bool isPayer,
-                                     int timeZoneId = -1,
-                                     string pricelist = null)
+                                            bool isPayer,
+                                            int timeZoneId = -1,
+                                            string pricelist = null)
     {
       var accountIds = new ArrayList();
 
@@ -560,7 +561,7 @@ namespace MetraTech.UsageServer.Test
     /// <param name="billingGroups"></param>
     /// <param name="recurringEventDataList"></param>
     private static void CheckAdapterInstances(ArrayList billingGroups,
-                                       ArrayList recurringEventDataList)
+                                              ArrayList recurringEventDataList)
     {
       foreach (IBillingGroup billingGroup in billingGroups)
       {
@@ -578,8 +579,8 @@ namespace MetraTech.UsageServer.Test
     /// <param name="billingGroupId">will be ignored if it's -1</param>
     /// <param name="recurringEventDataList">Array of RecurringEventData items</param>
     private static void CheckAdapterInstances(int intervalId,
-                                       int billingGroupId,
-                                       ArrayList recurringEventDataList)
+                                              int billingGroupId,
+                                              ArrayList recurringEventDataList)
     {
       if (intervalId == -1 && billingGroupId == -1)
       {
@@ -602,7 +603,7 @@ namespace MetraTech.UsageServer.Test
 
         // Store eventName <--> RecurringEventInstanceStatus from the db
         adapters[recurringEventInstance.IdBillgroup].Add(recurringEventInstance.EventName,
-                                                          recurringEventInstance.RecurringEventInstanceStatus);
+                                                         recurringEventInstance.RecurringEventInstanceStatus);
       }
 
       // Check that each of the recurring events in recurringEventDataList
@@ -643,7 +644,7 @@ namespace MetraTech.UsageServer.Test
     /// <param name="pullList"></param>
     /// <param name="parentBillingGroup"></param>
     private static void CheckAdapterInstancesForPullList(IBillingGroup pullList,
-                                                  IBillingGroup parentBillingGroup)
+                                                         IBillingGroup parentBillingGroup)
     {
       // Get the instances for the pull list
       var pullListInstances = GetRecurringEventInstances(pullList);
@@ -673,7 +674,7 @@ namespace MetraTech.UsageServer.Test
     /// <param name="aBillingGroup"></param>
     /// <param name="allRunSuccessfully"></param>
     private static void CheckAdapterInstances(IBillingGroup aBillingGroup,
-                                       bool allRunSuccessfully)
+                                              bool allRunSuccessfully)
     {
       // refresh the billing group
       var billingGroup = GetBillingGroup(aBillingGroup.BillingGroupID);
@@ -690,11 +691,18 @@ namespace MetraTech.UsageServer.Test
       var notYetRunAdapterCount = 0;
       var failedAdapterInstances = new ArrayList();
 
-      foreach (var recurringEventInstance in from RecurringEventInstance recurringEventInstance in recurringEventInstances 
-                                             where String.Compare(recurringEventInstance.EventType, Util.Root, StringComparison.OrdinalIgnoreCase) != 0 
-                                             && String.Compare(recurringEventInstance.EventType, Util.checkpoint, StringComparison.OrdinalIgnoreCase) != 0 
-                                             where billingGroup.MaterializationType != MaterializationType.PullList || 
-                                             recurringEventInstance.BillingGroupSupportType != BillingGroupSupportType.BillingGroup select recurringEventInstance)
+      foreach (
+        var recurringEventInstance in from RecurringEventInstance recurringEventInstance in recurringEventInstances
+                                      where
+                                        String.Compare(recurringEventInstance.EventType, Util.Root,
+                                                       StringComparison.OrdinalIgnoreCase) != 0
+                                        &&
+                                        String.Compare(recurringEventInstance.EventType, Util.checkpoint,
+                                                       StringComparison.OrdinalIgnoreCase) != 0
+                                      where billingGroup.MaterializationType != MaterializationType.PullList ||
+                                            recurringEventInstance.BillingGroupSupportType !=
+                                            BillingGroupSupportType.BillingGroup
+                                      select recurringEventInstance)
       {
         totalAdapterCount++;
         if (recurringEventInstance.RecurringEventInstanceStatus ==
@@ -775,7 +783,7 @@ namespace MetraTech.UsageServer.Test
     {
       // Soft close it
       _util.BillingGroupManager.
-           SoftCloseBillingGroup(billingGroupId);
+            SoftCloseBillingGroup(billingGroupId);
 
       // Refresh billing group
       var billingGroup =
@@ -850,8 +858,9 @@ namespace MetraTech.UsageServer.Test
     /// <param name="dateTimeProperty"></param>
     /// <param name="serviceDef"></param>
     /// <param name="numberOfSessions"></param>
-    private static void MeterUsage(ArrayList accountIds, int intervalId, int intervalIdSpecialProperty, 
-      bool checkFailedTransactions, DateTime dateTimeProperty, string serviceDef, int numberOfSessions)
+    private static void MeterUsage(ArrayList accountIds, int intervalId, int intervalIdSpecialProperty,
+                                   bool checkFailedTransactions, DateTime dateTimeProperty, string serviceDef,
+                                   int numberOfSessions)
     {
       // Delete existing usage
       Util.DeleteUsage(accountIds, intervalId);
@@ -920,7 +929,7 @@ namespace MetraTech.UsageServer.Test
     /// <param name="batches">list of BatchAccountData items</param>
     /// <param name="payerAccountIds"></param>
     private static void VerifyFailedTransactions(ArrayList batches,
-                                          ArrayList payerAccountIds)
+                                                 ArrayList payerAccountIds)
     {
       var commaSeparatedIds = Util.GetCommaSeparatedIds(payerAccountIds);
 
@@ -1001,7 +1010,8 @@ namespace MetraTech.UsageServer.Test
     /// <param name="intervalId"></param>
     /// <param name="exists"></param>
     /// <param name="numberOfSessions"></param>
-    private static void VerifyUsage(IEnumerable accountIds, int intervalId, bool exists, int numberOfSessions = Util.NumberOfSessions)
+    private static void VerifyUsage(IEnumerable accountIds, int intervalId, bool exists,
+                                    int numberOfSessions = Util.NumberOfSessions)
     {
       if (accountIds == null) throw new ArgumentNullException("accountIds");
       foreach (int accountId in accountIds)
@@ -1093,9 +1103,9 @@ namespace MetraTech.UsageServer.Test
     /// <param name="recurringEventDataList"></param>
     /// <param name="ignoreDependencies"></param>
     private static void ExecuteAdapters(int intervalId,
-                                 int billingGroupId,
-                                 ArrayList recurringEventDataList,
-                                 bool ignoreDependencies)
+                                        int billingGroupId,
+                                        ArrayList recurringEventDataList,
+                                        bool ignoreDependencies)
     {
       if (intervalId == -1 && billingGroupId == -1)
       {
@@ -1123,7 +1133,7 @@ namespace MetraTech.UsageServer.Test
 
       // Process the events
       _util.Client.ProcessEvents(out executions, out executionFailures,
-                                          out reversals, out reversalFailures);
+                                 out reversals, out reversalFailures);
 
       // Check that the adapters have the expected status
       CheckAdapterInstances(intervalId, billingGroupId, recurringEventDataList);
@@ -1134,11 +1144,11 @@ namespace MetraTech.UsageServer.Test
     ///   the status of the adapter matches expectedStatus
     /// </summary>
     private static void ExecuteAdapter(int intervalId,
-                                int billingGroupId,
-                                string adapterClassName,
-                                bool execute,
-                                bool ignoreDependencies,
-                                RecurringEventInstanceStatus expectedStatus)
+                                       int billingGroupId,
+                                       string adapterClassName,
+                                       bool execute,
+                                       bool ignoreDependencies,
+                                       RecurringEventInstanceStatus expectedStatus)
     {
       // Create RecurringEventData
       var recurringEventData = new RecurringEventData
@@ -1149,7 +1159,7 @@ namespace MetraTech.UsageServer.Test
           ExpectedStatus = expectedStatus
         };
 
-      var recurringEventDataList = new ArrayList { recurringEventData };
+      var recurringEventDataList = new ArrayList {recurringEventData};
       ExecuteAdapters(intervalId, billingGroupId, recurringEventDataList, ignoreDependencies);
     }
 
@@ -1180,7 +1190,7 @@ namespace MetraTech.UsageServer.Test
       int reversalFailures;
 
       _util.Client.ProcessEvents(out executions, out executionFailures,
-                                out reversals, out reversalFailures);
+                                 out reversals, out reversalFailures);
 
       // Check that all the adapter instances have been run successfully
       CheckAdapterInstances(billingGroup, true);
@@ -1210,7 +1220,7 @@ namespace MetraTech.UsageServer.Test
       int reversalFailures;
 
       _util.Client.ProcessEvents(out executions, out executionFailures,
-                                          out reversals, out reversalFailures);
+                                 out reversals, out reversalFailures);
 
       var scheduledInstances = GetScheduledRecurringEventInstance();
 
@@ -1237,11 +1247,11 @@ namespace MetraTech.UsageServer.Test
     /// <param name="isExecution"></param>
     /// <param name="ignoreDependencies"></param>
     private static void SubmitEvent(string eventName,
-                             int intervalId,
-                             int billingGroupId,
-                             RecurringEventType recurringEventType,
-                             bool isExecution,
-                             bool ignoreDependencies)
+                                    int intervalId,
+                                    int billingGroupId,
+                                    RecurringEventType recurringEventType,
+                                    bool isExecution,
+                                    bool ignoreDependencies)
     {
       // Retrieve the adapter instance id's for this billing group
       var filter = new RecurringEventInstanceFilter {EventName = eventName};
@@ -1267,12 +1277,12 @@ namespace MetraTech.UsageServer.Test
         if (isExecution)
         {
           _util.Client.
-               SubmitEventForExecution(instanceId, ignoreDependencies, AdapterComment);
+                SubmitEventForExecution(instanceId, ignoreDependencies, AdapterComment);
         }
         else
         {
           _util.Client.
-               SubmitEventForReversal(instanceId, ignoreDependencies, AdapterComment);
+                SubmitEventForReversal(instanceId, ignoreDependencies, AdapterComment);
         }
       }
     }
@@ -1289,10 +1299,10 @@ namespace MetraTech.UsageServer.Test
     /// <param name="eventType"></param>
     /// <param name="isExecution"></param>
     private static void SubmitEvents(int billingGroupId,
-                              int intervalId,
-                              IEnumerable<RecurringEventInstanceStatus> statuses,
-                              RecurringEventType eventType,
-                              bool isExecution)
+                                     int intervalId,
+                                     IEnumerable<RecurringEventInstanceStatus> statuses,
+                                     RecurringEventType eventType,
+                                     bool isExecution)
     {
       // Retrieve the adapter instance id's for this billing group
       var filter = new RecurringEventInstanceFilter();
@@ -1542,14 +1552,14 @@ namespace MetraTech.UsageServer.Test
     /// <param name="pullOneAccount"></param>
     /// <returns></returns>
     private static IBillingGroup CreatePullList(IBillingGroup parentBillingGroup,
-                                         string pullListName,
-                                         ArrayList accountsForPullList,
-                                         bool pullOneAccount)
+                                                string pullListName,
+                                                ArrayList accountsForPullList,
+                                                bool pullOneAccount)
     {
       // Get the members of the billing group
       var parentMembers =
         _util.BillingGroupManager.
-             GetBillingGroupMembers(parentBillingGroup.BillingGroupID);
+              GetBillingGroupMembers(parentBillingGroup.BillingGroupID);
 
       ArrayList pullListMembers;
 
@@ -1585,12 +1595,12 @@ namespace MetraTech.UsageServer.Test
       // Start creating a pull list
       var materializationId =
         _util.BillingGroupManager.
-             StartChildGroupCreationFromAccounts(pullListName,
-                                                 pullListDescription,
-                                                 parentBillingGroup.BillingGroupID,
-                                                 pullListAccounts,
-                                                 out needsExtraAccounts,
-                                                 _util.UserId);
+              StartChildGroupCreationFromAccounts(pullListName,
+                                                  pullListDescription,
+                                                  parentBillingGroup.BillingGroupID,
+                                                  pullListAccounts,
+                                                  out needsExtraAccounts,
+                                                  _util.UserId);
 
       // Get the extra accounts which may have been added to satisfy constraints
       var rowset =
@@ -1604,7 +1614,7 @@ namespace MetraTech.UsageServer.Test
       // Check that new pull list exists
       rowset =
         _util.BillingGroupManager.
-             GetDescendantBillingGroupsRowset(parentBillingGroup.BillingGroupID);
+              GetDescendantBillingGroupsRowset(parentBillingGroup.BillingGroupID);
 
       var foundPullList = false;
       var pullListId = 0;
@@ -2244,7 +2254,7 @@ namespace MetraTech.UsageServer.Test
       // Check t_pv_testpi
       return
         _util.CheckPvTestPi(timeZoneTestData.EnumDataTimeZoneId,
-                           timeZoneTestData.CalendarCode);
+                            timeZoneTestData.CalendarCode);
       //     String.Format("Could not find time zone '{0}' and " +
       //                   "calendar code '{1}'", globalTimeZoneId, expectedCalendarCode.ToString());
     }
@@ -3391,7 +3401,7 @@ namespace MetraTech.UsageServer.Test
 
       // Create an user defined billing group
       _util.BillingGroupManager.
-           CreateUserDefinedBillingGroupFromAllUnassignedAccounts
+            CreateUserDefinedBillingGroupFromAllUnassignedAccounts
         (intervalId,
          _util.UserId,
          Util.UserDefinedGroupName,
@@ -3432,19 +3442,19 @@ namespace MetraTech.UsageServer.Test
     [Category("Billing")]
     public void T06TestRematerialization()
     {
-      
+
 
       // Before rematerializing, open the parent billing group and
       // the pull list created in the TestCreatePullList test
       _util.BillingGroupManager.
-           OpenBillingGroup(_testParentBillingGroupId, false, false);
+            OpenBillingGroup(_testParentBillingGroupId, false, false);
       _util.BillingGroupManager.
-           OpenBillingGroup(_testPullListId, false, false);
+            OpenBillingGroup(_testPullListId, false, false);
 
       // Rematerialize the interval for which a pull list has been created
       var intervalId = GetPullListIntervalId();
       _util.BillingGroupManager.
-           MaterializeBillingGroups(intervalId, _util.UserId);
+            MaterializeBillingGroups(intervalId, _util.UserId);
 
       // Check that the pull list has gone away
       var billingGroups = GetBillingGroups(intervalId);
@@ -3527,10 +3537,10 @@ namespace MetraTech.UsageServer.Test
         loginContext.Login("su", "system_user", "su123");
 
       _util.BillingGroupManager.
-           SetAccountStatusToHardClosedForInterval(GetCollection(accounts),
-                                                   intervalId,
-                                                   true,
-                                                   sessionContext);
+            SetAccountStatusToHardClosedForInterval(GetCollection(accounts),
+                                                    intervalId,
+                                                    true,
+                                                    sessionContext);
 
       // should probably poll t_message every few secs instead of arbitrary sleep
       Thread.Sleep(5000*3);
@@ -3566,7 +3576,7 @@ namespace MetraTech.UsageServer.Test
       // Meter usage to US accounts with the time associated
       // with the current interval and verify that the usage did land
       // in the given interval
-      
+
       MeterUsage(_util.UkAccountIds, intervalId, true);
     }
 
@@ -3593,7 +3603,7 @@ namespace MetraTech.UsageServer.Test
       // Meter usage to US accounts with the time associated
       // with the current interval and verify that the usage did not land
       // in the given interval
-      
+
       MeterUsage(_util.UkAccountIds, intervalId, false);
 
       // Verify that the usage did land in the next open interval
@@ -3809,7 +3819,9 @@ namespace MetraTech.UsageServer.Test
 
       // The two new accounts will be in the North America billing group because
       // they were created as US accounts
-      var northAmericaBillingGroup = billingGroups.Cast<IBillingGroup>().FirstOrDefault(billingGroup => billingGroup.Name.Equals(Util.NorthAmericaBillingGroupName));
+      var northAmericaBillingGroup =
+        billingGroups.Cast<IBillingGroup>()
+                     .FirstOrDefault(billingGroup => billingGroup.Name.Equals(Util.NorthAmericaBillingGroupName));
 
       // Check that we have a North America billing group
       Assert.IsNotNull(northAmericaBillingGroup, "Expected to find a 'North America' billing group");
@@ -3837,7 +3849,9 @@ namespace MetraTech.UsageServer.Test
       billingGroups = CreateAndSoftCloseBillingGroups(nextIntervalId, true);
 
       // Get the North America billing group. This time it should have account1 but not account2
-      northAmericaBillingGroup = billingGroups.Cast<IBillingGroup>().FirstOrDefault(billingGroup => billingGroup.Name.Equals(Util.NorthAmericaBillingGroupName));
+      northAmericaBillingGroup =
+        billingGroups.Cast<IBillingGroup>()
+                     .FirstOrDefault(billingGroup => billingGroup.Name.Equals(Util.NorthAmericaBillingGroupName));
 
       // Check that we have a North America billing group
       Assert.IsNotNull(northAmericaBillingGroup, "Expected to find a 'North America' billing group");
@@ -4409,14 +4423,14 @@ namespace MetraTech.UsageServer.Test
     [Test]
     [Category("Fast")]
     [Category("Billing")]
-    [ExpectedException(typeof (MaterializingIntervalWithoutPayersException))]
     public void T39TestCreateMaterializationForIntervalWithNoPayingAccounts()
     {
       // Get an interval for materialization
       var intervalId = _util.GetIntervalWithoutPayers();
 
       // Create billing groups  
-      _util.BillingGroupManager.CreateMaterialization(intervalId, _util.UserId);
+      ExceptionAssert.Expected<MaterializingIntervalWithoutPayersException>(
+        () => _util.BillingGroupManager.CreateMaterialization(intervalId, _util.UserId));
     }
 
     /// <summary>
@@ -4427,13 +4441,13 @@ namespace MetraTech.UsageServer.Test
     [Test]
     [Category("Fast")]
     [Category("Billing")]
-    [ExpectedException(typeof (MaterializingHardClosedIntervalException))]
     public void T40TestCreateMaterializationForHardClosedInterval()
     {
       // Get a hard closed interval
       var intervalId = _util.GetHardClosedInterval();
       // Create billing groups  
-      _util.BillingGroupManager.MaterializeBillingGroups(intervalId, _util.UserId);
+      ExceptionAssert.Expected<MaterializingHardClosedIntervalException>(
+        () => _util.BillingGroupManager.MaterializeBillingGroups(intervalId, _util.UserId));
     }
 
     /// <summary>
@@ -4446,7 +4460,6 @@ namespace MetraTech.UsageServer.Test
     [Test]
     [Category("Fast")]
     [Category("Billing")]
-    [ExpectedException(typeof (MaterializingWhileAdapterProcessingException))]
     public void T41TestCreateMaterializationWhileAdapterInstanceRunning()
     {
       // Get an interval for materialization
@@ -4456,15 +4469,11 @@ namespace MetraTech.UsageServer.Test
       _util.CreateDummyAdapterRow(new object[] {intervalId, "Running"});
 
       // Create billing groups  
-      try
-      {
-        _util.BillingGroupManager.CreateMaterialization(intervalId, _util.UserId);
-      }
-      finally
-      {
-        // Delete the dummy adapter instance row created earlier
-        _util.DeleteDummyAdapterRow("Running");
-      }
+      ExceptionAssert.Expected<MaterializingWhileAdapterProcessingException>(
+        () => _util.BillingGroupManager.CreateMaterialization(intervalId, _util.UserId));
+
+      // Delete the dummy adapter instance row created earlier
+      _util.DeleteDummyAdapterRow("Running");
     }
 
     /// <summary>
@@ -4477,7 +4486,6 @@ namespace MetraTech.UsageServer.Test
     [Test]
     [Category("Fast")]
     [Category("Billing")]
-    [ExpectedException(typeof (MaterializationInProgressException))]
     public void T42TestCreateMaterializationWhileAnotherIsInProgress()
     {
       // Get an interval for materialization
@@ -4491,15 +4499,11 @@ namespace MetraTech.UsageServer.Test
                                       _util.UserId);
 
       // Create billing groups  
-      try
-      {
-        _util.BillingGroupManager.CreateMaterialization(intervalId, _util.UserId);
-      }
-      finally
-      {
-        // Delete the dummy adapter materialization row created earlier
-        _util.DeleteDummyMaterializationRow(materializationId);
-      }
+      ExceptionAssert.Expected<MaterializationInProgressException>(
+        () => _util.BillingGroupManager.CreateMaterialization(intervalId, _util.UserId));
+
+      // Delete the dummy adapter materialization row created earlier
+      _util.DeleteDummyMaterializationRow(materializationId);
     }
 
     /// <summary>
@@ -4512,7 +4516,6 @@ namespace MetraTech.UsageServer.Test
     [Test]
     [Category("Fast")]
     [Category("Billing")]
-    [ExpectedException(typeof (RepeatFullMaterializationException))]
     public void T43TestRepeatFullMaterialization()
     {
       // Get an interval for materialization
@@ -4525,20 +4528,17 @@ namespace MetraTech.UsageServer.Test
                                       MaterializationType.Full,
                                       _util.UserId);
       // Create billing groups   
-      try
-      {
-        _util.BillingGroupManager.
-             CreateMaterialization(intervalId,
-                                   _util.UserId,
-                                   MetraTime.Now,
-                                   null,
-                                   MaterializationType.Full.ToString());
-      }
-      finally
-      {
-        // Delete the dummy adapter materialization row created earlier
-        _util.DeleteDummyMaterializationRow(materializationId);
-      }
+      ExceptionAssert.Expected<RepeatFullMaterializationException>(() =>
+                                                                   _util.BillingGroupManager.
+                                                                         CreateMaterialization(intervalId,
+                                                                                               _util.UserId,
+                                                                                               MetraTime.Now,
+                                                                                               null,
+                                                                                               MaterializationType
+                                                                                                 .Full.ToString()));
+
+      // Delete the dummy adapter materialization row created earlier
+      _util.DeleteDummyMaterializationRow(materializationId);
     }
 
     /// <summary>
@@ -4551,7 +4551,6 @@ namespace MetraTech.UsageServer.Test
     [Test]
     [Category("Fast")]
     [Category("Billing")]
-    [ExpectedException(typeof (DuplicateAccountsInConstraintGroupsException))]
     public void T44TestDuplicateAccountsInBillGroupConstraint()
     {
       var materializationId = 0;
@@ -4565,21 +4564,17 @@ namespace MetraTech.UsageServer.Test
         };
 
       // Create billing groups  
-      try
-      {
-        int intervalId;
-        CreateTemporaryBillingGroups(out intervalId,
-                                     out materializationId,
-                                     true,
-                                     utilDelegate,
-                                     2,
-                                     parameters,
-                                     false);
-      }
-      finally
-      {
-        UpdateMaterializationFromProgressToFailed(materializationId);
-      }
+      int intervalId;
+      ExceptionAssert.Expected<DuplicateAccountsInConstraintGroupsException>(() =>
+                                                                             CreateTemporaryBillingGroups(
+                                                                               out intervalId,
+                                                                               out materializationId,
+                                                                               true,
+                                                                               utilDelegate,
+                                                                               2,
+                                                                               parameters,
+                                                                               false));
+      UpdateMaterializationFromProgressToFailed(materializationId);
     }
 
     /// <summary>
@@ -4592,7 +4587,6 @@ namespace MetraTech.UsageServer.Test
     [Test]
     [Category("Fast")]
     [Category("Billing")]
-    [ExpectedException(typeof (NonPayerAccountsInConstraintGroupsException))]
     public void T45TestNonPayerAccountInBillGroupConstraint()
     {
       UtilDelegate utilDelegate =
@@ -4608,21 +4602,17 @@ namespace MetraTech.UsageServer.Test
 
       var materializationId = 0;
       // Create billing groups  
-      try
-      {
-        int intervalId;
-        CreateTemporaryBillingGroups(out intervalId,
-                                     out materializationId,
-                                     true,
-                                     utilDelegate,
-                                     1,
-                                     parameters,
-                                     false);
-      }
-      finally
-      {
-        UpdateMaterializationFromProgressToFailed(materializationId);
-      }
+      int intervalId;
+      ExceptionAssert.Expected<NonPayerAccountsInConstraintGroupsException>(() =>
+                                                                            CreateTemporaryBillingGroups(
+                                                                              out intervalId,
+                                                                              out materializationId,
+                                                                              true,
+                                                                              utilDelegate,
+                                                                              1,
+                                                                              parameters,
+                                                                              false));
+      UpdateMaterializationFromProgressToFailed(materializationId);
     }
 
     /// <summary>
@@ -4635,7 +4625,6 @@ namespace MetraTech.UsageServer.Test
     [Test]
     [Category("Fast")]
     [Category("Billing")]
-    [ExpectedException(typeof (IncorrectConstraintGroupIdException))]
     public void T46TestIncorrectGroupIdInBillGroupConstraint()
     {
       UtilDelegate utilDelegate =
@@ -4649,21 +4638,16 @@ namespace MetraTech.UsageServer.Test
       var materializationId = 0;
 
       // Create billing groups  
-      try
-      {
-        int intervalId;
-        CreateTemporaryBillingGroups(out intervalId,
-                                     out materializationId,
-                                     true,
-                                     utilDelegate,
-                                     1,
-                                     parameters,
-                                     false);
-      }
-      finally
-      {
-        UpdateMaterializationFromProgressToFailed(materializationId);
-      }
+      int intervalId;
+      ExceptionAssert.Expected<IncorrectConstraintGroupIdException>(() =>
+                                                                    CreateTemporaryBillingGroups(out intervalId,
+                                                                                                 out materializationId,
+                                                                                                 true,
+                                                                                                 utilDelegate,
+                                                                                                 1,
+                                                                                                 parameters,
+                                                                                                 false));
+      UpdateMaterializationFromProgressToFailed(materializationId);
     }
 
     /// <summary>
@@ -4675,7 +4659,6 @@ namespace MetraTech.UsageServer.Test
     [Test]
     [Category("Fast")]
     [Category("Billing")]
-    [ExpectedException(typeof (DuplicateAccountsInBillgroupSourceAccException))]
     public void T47TestDuplicateAccountsInBillGroupSourceAcc()
     {
       var materializationId = 0;
@@ -4685,21 +4668,17 @@ namespace MetraTech.UsageServer.Test
 
       var parameters = new object[] {(int) _util.PayerAccountIds[0]};
 
-      try
-      {
-        int intervalId;
-        CreateTemporaryBillingGroups(out intervalId,
-                                     out materializationId,
-                                     false,
-                                     utilDelegate,
-                                     1,
-                                     parameters,
-                                     true);
-      }
-      finally
-      {
-        UpdateMaterializationFromProgressToFailed(materializationId);
-      }
+      int intervalId;
+      ExceptionAssert.Expected<DuplicateAccountsInBillgroupSourceAccException>(() =>
+                                                                               CreateTemporaryBillingGroups(
+                                                                                 out intervalId,
+                                                                                 out materializationId,
+                                                                                 false,
+                                                                                 utilDelegate,
+                                                                                 1,
+                                                                                 parameters,
+                                                                                 true));
+      UpdateMaterializationFromProgressToFailed(materializationId);
     }
 
     /// <summary>
@@ -4711,7 +4690,6 @@ namespace MetraTech.UsageServer.Test
     [Test]
     [Category("Fast")]
     [Category("Billing")]
-    [ExpectedException(typeof (DuplicateAccountsInBillgroupMemberTmpException))]
     public void T48TestDuplicateAccountsInBillGroupMemberTmp()
     {
       var materializationId = 0;
@@ -4725,21 +4703,12 @@ namespace MetraTech.UsageServer.Test
           (int) _util.PayerAccountIds[0]
         };
 
-      try
-      {
-        int intervalId;
-        CreateTemporaryBillingGroups(out intervalId,
-                                     out materializationId,
-                                     false,
-                                     utilDelegate,
-                                     1,
-                                     parameters,
-                                     true);
-      }
-      finally
-      {
-        UpdateMaterializationFromProgressToFailed(materializationId);
-      }
+      int intervalId;
+      ExceptionAssert.Expected<DuplicateAccountsInBillgroupMemberTmpException>(
+        () =>
+        CreateTemporaryBillingGroups(out intervalId, out materializationId, false, utilDelegate, 1, parameters, true));
+
+      UpdateMaterializationFromProgressToFailed(materializationId);
     }
 
     /// <summary>
@@ -4751,7 +4720,6 @@ namespace MetraTech.UsageServer.Test
     [Test]
     [Category("Fast")]
     [Category("Billing")]
-    [ExpectedException(typeof (MissingAccountsFromBillgroupMemberTmpException))]
     public void T49TestMissingAccountsFromBillgroupMemberTmp()
     {
       var materializationId = 0;
@@ -4761,21 +4729,16 @@ namespace MetraTech.UsageServer.Test
 
       var parameters = new object[] {(int) _util.PayerAccountIds[0]};
 
-      try
-      {
-        int intervalId;
-        CreateTemporaryBillingGroups(out intervalId,
-                                     out materializationId,
-                                     false,
-                                     utilDelegate,
-                                     1,
-                                     parameters,
-                                     true);
-      }
-      finally
-      {
-        UpdateMaterializationFromProgressToFailed(materializationId);
-      }
+      int intervalId;
+      ExceptionAssert.Expected<MissingAccountsFromBillgroupMemberTmpException>(
+        () => CreateTemporaryBillingGroups(out intervalId,
+                                           out materializationId,
+                                           false,
+                                           utilDelegate,
+                                           1,
+                                           parameters,
+                                           true));
+      UpdateMaterializationFromProgressToFailed(materializationId);
     }
 
     /// <summary>
@@ -4787,7 +4750,6 @@ namespace MetraTech.UsageServer.Test
     [Test]
     [Category("Fast")]
     [Category("Billing")]
-    [ExpectedException(typeof (EmptyBillingGroupInTmpException))]
     public void T50TestEmptyBillingGroupInTmp()
     {
       var materializationId = 0;
@@ -4800,21 +4762,16 @@ namespace MetraTech.UsageServer.Test
 
       var parameters = new object[] {commaSeparatedAccountIds};
 
-      try
-      {
-        int intervalId;
-        CreateTemporaryBillingGroups(out intervalId,
-                                     out materializationId,
-                                     false,
-                                     utilDelegate,
-                                     1,
-                                     parameters,
-                                     true);
-      }
-      finally
-      {
-        UpdateMaterializationFromProgressToFailed(materializationId);
-      }
+      int intervalId;
+      ExceptionAssert.Expected<EmptyBillingGroupInTmpException>(() => CreateTemporaryBillingGroups(out intervalId,
+                                                                                                   out
+                                                                                                     materializationId,
+                                                                                                   false,
+                                                                                                   utilDelegate,
+                                                                                                   1,
+                                                                                                   parameters,
+                                                                                                   true));
+      UpdateMaterializationFromProgressToFailed(materializationId);
     }
 
     /// <summary>
@@ -4827,7 +4784,6 @@ namespace MetraTech.UsageServer.Test
     [Test]
     [Category("Fast")]
     [Category("Billing")]
-    [ExpectedException(typeof (DuplicateBillingGroupNamesInBillGroupTmpException))]
     public void T51TestDuplicateBillingGroupNamesInBillGroupTmp()
     {
       var materializationId = 0;
@@ -4837,21 +4793,16 @@ namespace MetraTech.UsageServer.Test
 
       var parameters = new object[] {Util.NorthAmericaBillingGroupName};
 
-      try
-      {
-        int intervalId;
-        CreateTemporaryBillingGroups(out intervalId,
-                                     out materializationId,
-                                     false,
-                                     utilDelegate,
-                                     1,
-                                     parameters,
-                                     true);
-      }
-      finally
-      {
-        UpdateMaterializationFromProgressToFailed(materializationId);
-      }
+      int intervalId;
+      ExceptionAssert.Expected<DuplicateBillingGroupNamesInBillGroupTmpException>(
+        () => CreateTemporaryBillingGroups(out intervalId,
+                                           out materializationId,
+                                           false,
+                                           utilDelegate,
+                                           1,
+                                           parameters,
+                                           true));
+      UpdateMaterializationFromProgressToFailed(materializationId);
     }
 
     /// <summary>
@@ -4860,7 +4811,6 @@ namespace MetraTech.UsageServer.Test
     [Test]
     [Category("Fast")]
     [Category("Billing")]
-    [ExpectedException(typeof (UnableToParseAccountsException))]
     public void T52TestCreatePullListWithNoAccounts()
     {
       // Create billing groups for a non-materialized interval 
@@ -4876,13 +4826,14 @@ namespace MetraTech.UsageServer.Test
       bool needsExtraAccounts;
 
       // Start creating a pull list
-      _util.BillingGroupManager.
-           StartChildGroupCreationFromAccounts(Util.TestPullListName,
-                                               Util.TestPullListDescr,
-                                               parentBillingGroup.BillingGroupID,
-                                               pullListAccounts,
-                                               out needsExtraAccounts,
-                                               _util.UserId);
+      ExceptionAssert.Expected<UnableToParseAccountsException>(() => _util.BillingGroupManager.
+                                                                           StartChildGroupCreationFromAccounts(
+                                                                             Util.TestPullListName,
+                                                                             Util.TestPullListDescr,
+                                                                             parentBillingGroup.BillingGroupID,
+                                                                             pullListAccounts,
+                                                                             out needsExtraAccounts,
+                                                                             _util.UserId));
     }
 
     /// <summary>
@@ -4891,7 +4842,6 @@ namespace MetraTech.UsageServer.Test
     [Test]
     [Category("Fast")]
     [Category("Billing")]
-    [ExpectedException(typeof (CreatingPullListWithAllParentMembersException))]
     public void T53TestCreatePullListFromAllParentAccounts()
     {
       // Create billing groups for a non-materialized interval 
@@ -4906,7 +4856,8 @@ namespace MetraTech.UsageServer.Test
       var parentMembers =
         _util.BillingGroupManager.GetBillingGroupMembers(parentBillingGroup.BillingGroupID);
 
-      CreatePullList(parentBillingGroup, Util.TestPullListName, parentMembers, false);
+      ExceptionAssert.Expected<CreatingPullListWithAllParentMembersException>(
+        () => CreatePullList(parentBillingGroup, Util.TestPullListName, parentMembers, false));
     }
 
     /// <summary>
@@ -4915,7 +4866,6 @@ namespace MetraTech.UsageServer.Test
     [Test]
     [Category("Fast")]
     [Category("Billing")]
-    [ExpectedException(typeof (CreatingPullListWithNonParentMembersException))]
     public void T54TestCreatePullListFromNonParentAccounts()
     {
       // Create billing groups for a non-materialized interval 
@@ -4932,7 +4882,8 @@ namespace MetraTech.UsageServer.Test
         _util.BillingGroupManager.
              GetBillingGroupMembers(nonParentBillingGroup.BillingGroupID);
 
-      CreatePullList(parentBillingGroup, Util.TestPullListName, nonParentMembers, false);
+      ExceptionAssert.Expected<CreatingPullListWithNonParentMembersException>(
+        () => CreatePullList(parentBillingGroup, Util.TestPullListName, nonParentMembers, false));
     }
 
     /// <summary>
@@ -4941,7 +4892,6 @@ namespace MetraTech.UsageServer.Test
     [Test]
     [Category("Fast")]
     [Category("Billing")]
-    [ExpectedException(typeof (CreatingPullListWithDuplicateAccountsException))]
     public void T55TestCreatePullListFromDuplicateAccounts()
     {
       // Create billing groups for a non-materialized interval 
@@ -4960,7 +4910,8 @@ namespace MetraTech.UsageServer.Test
       // Create a duplicate
       pullListMembers.Add((int) pullListMembers[0]);
 
-      CreatePullList(parentBillingGroup, Util.TestPullListName, pullListMembers, false);
+      ExceptionAssert.Expected<CreatingPullListWithDuplicateAccountsException>(
+        () => CreatePullList(parentBillingGroup, Util.TestPullListName, pullListMembers, false));
     }
 
     /// <summary>
@@ -4971,14 +4922,14 @@ namespace MetraTech.UsageServer.Test
     [Test]
     [Category("Fast")]
     [Category("Billing")]
-    [ExpectedException(typeof (UnableToHardCloseIntervalException))]
     public void T56TestHardCloseIntervalWithNonHardClosedPayerAccounts()
     {
       // Get an interval for materialization
       var intervalId = _util.GetIntervalForFullMaterialization();
 
       // Create billing groups  
-      _util.BillingGroupManager.HardCloseInterval(intervalId, false);
+      ExceptionAssert.Expected<UnableToHardCloseIntervalException>(
+        () => _util.BillingGroupManager.HardCloseInterval(intervalId, false));
     }
 
     /// <summary>

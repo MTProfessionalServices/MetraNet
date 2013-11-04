@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Query>
-    <Action>Unknown</Action>
+    <Action>Snippet</Action>
     <Implementations>
         <Implementation>SqlServer</Implementation>
         <Implementation>Oracle</Implementation>
@@ -20,7 +20,7 @@
             <SubstitutionSyntaxCheck>SELECT id_acc AS _AccountID, nm_login AS username, nm_space AS name_space FROM t_account_mapper</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
-		<Parameter>
+        <Parameter>
             <Name>ACCOUNTIDLIST</Name>
             <DataType>sqlsubstitution</DataType>
             <ReplacementType>DoublePercent</ReplacementType>

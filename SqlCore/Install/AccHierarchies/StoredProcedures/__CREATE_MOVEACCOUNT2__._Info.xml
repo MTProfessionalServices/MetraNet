@@ -1,76 +1,89 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Query>
-    <Action>UnknownDdl</Action>
+    <Action>StoredProcedure</Action>
     <Implementations>
-        <Implementation>SqlServer</Implementation>
         <Implementation>Oracle</Implementation>
     </Implementations>
+    <Schemas>
+        <Schema>NetMeter</Schema>
+    </Schemas>
+    <InstallTime>PreSync</InstallTime>
     <Parameters>
         <Parameter>
-            <Name>TABLE_NAME</Name>
-            <DataType>sqlsubstitution</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck>t_account_mapper</SubstitutionSyntaxCheck>
-            <Description></Description>
-        </Parameter>
-        <Parameter>
-            <Name>COLUMN_DESCRIPTION</Name>
-            <DataType>string</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <Description></Description>
-        </Parameter>
-        <Parameter>
-            <Name>COLUMN_NAME</Name>
-            <DataType>sqlsubstitution</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck>nm_login</SubstitutionSyntaxCheck>
-            <Description></Description>
-        </Parameter>
-        <Parameter>
-            <Name>name</Name>
-            <DataType>string</DataType>
+            <Name>new_parent</Name>
+            <DataType>unknown</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
             <Description></Description>
         </Parameter>
         <Parameter>
-            <Name>value</Name>
-            <DataType>string</DataType>
+            <Name>account_being_moved</Name>
+            <DataType>unknown</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
             <Description></Description>
         </Parameter>
         <Parameter>
-            <Name>level0type</Name>
+            <Name>p_enforce_same_corporation</Name>
+            <DataType>unknown</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>p_system_time</Name>
+            <DataType>timestamp</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>status</Name>
+            <DataType>unknown</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>p_id_ancestor_out</Name>
             <DataType>int32</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
             <Description></Description>
         </Parameter>
         <Parameter>
-            <Name>level0name</Name>
-            <DataType>string</DataType>
-            <ReplacementType>SqlParameter</ReplacementType>
-            <Description></Description>
-        </Parameter>
-        <Parameter>
-            <Name>level1type</Name>
+            <Name>p_ancestor_type</Name>
             <DataType>int32</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
             <Description></Description>
         </Parameter>
         <Parameter>
-            <Name>level1name</Name>
-            <DataType>string</DataType>
-            <ReplacementType>SqlParameter</ReplacementType>
-            <Description></Description>
-        </Parameter>
-        <Parameter>
-            <Name>level2type</Name>
+            <Name>p_acc_type</Name>
             <DataType>int32</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
             <Description></Description>
         </Parameter>
         <Parameter>
-            <Name>level2name</Name>
-            <DataType>string</DataType>
+            <Name>b_is_ancestor_folder</Name>
+            <DataType>unknown</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>rowcount</Name>
+            <DataType>unknown</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>record</Name>
+            <DataType>unknown</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>TODO</Name>
+            <DataType>unknown</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>p_status</Name>
+            <DataType>unknown</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
             <Description></Description>
         </Parameter>
@@ -79,7 +92,7 @@
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
         <CommonQuerySourceFile></CommonQuerySourceFile>
-        <SqlServerQuerySourceFile>R:\Config\Queries\DynamicTable\Queries.xml</SqlServerQuerySourceFile>
-        <OracleQuerySourceFile>R:\Config\Queries\DynamicTable\Queries_Oracle.xml</OracleQuerySourceFile>
+        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
     </ConversionAudit>
 </Query>

@@ -31,7 +31,7 @@
 		au.id_se,
 		au.div_currency,
 		au.div_amount,
-		au.is_tax_implied,
+		au.is_implied_tax,
         au.tax_informational,
 
 		

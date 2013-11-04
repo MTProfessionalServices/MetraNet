@@ -48,10 +48,6 @@ namespace MetraTech.Security
     /// </summary>
     FailedUsernameIsLocked = 202,
     /// <summary>
-    ///   FailedLoginAccountLockedSecurity
-    /// </summary>
-    FailedLoginAccountLockedSecurity = 203,
-    /// <summary>
     ///   NoCapabilityToLogonToThisApplication
     /// </summary>
     NoCapabilityToLogonToThisApplication = 300
@@ -354,7 +350,7 @@ namespace MetraTech.Security
       }
       
       // Set the password expiry date the first time the user logs in
-      if ((credentials.ExpireDate == null) || (credentials.ExpireDate == MetraTime.Max))
+      if (credentials.ExpireDate == null)
       {
         PasswordManager.SetPasswordExpiryDate();
       }
@@ -363,20 +359,13 @@ namespace MetraTech.Security
         // Has password expired?
         if (MetraTime.Now > credentials.ExpireDate)
         {
-          if (credentials.LastLoginDate == MetraTime.Max)
-          {
-            passwordManager.SetPasswordExpiryDate();
-          }
-          else
-          {
-            auditor.FireFailureEvent((int)MTAuditEvent.AUDITEVENT_LOGIN_PASSWORD_EXPIRED_FAILED,
-                               -1,
-                               (int)MTAuditEntityType.AUDITENTITY_TYPE_LOGIN,
-                               -1,
-                               String.Format("Login failed for username={0} namespace={1}", credentials.UserName, credentials.Name_Space));
-
-            return LoginStatus.FailedPasswordExpired;
-          }
+          auditor.FireFailureEvent((int)MTAuditEvent.AUDITEVENT_LOGIN_PASSWORD_EXPIRED_FAILED,
+                             -1, 
+                             (int)MTAuditEntityType.AUDITENTITY_TYPE_LOGIN,
+                             -1,
+                             String.Format("Login failed for username={0} namespace={1}", credentials.UserName, credentials.Name_Space));
+          
+          return LoginStatus.FailedPasswordExpired;
         }
       }
       
@@ -396,14 +385,7 @@ namespace MetraTech.Security
                              (int)MTAuditEntityType.AUDITENTITY_TYPE_LOGIN,
                              -1,
                              String.Format("Login failed for username={0} namespace={1}", credentials.UserName, credentials.Name_Space)); 
-          if (credentials.IsEnabled)
-          {
-            return LoginStatus.FailedUsernameIsLocked;
-          }
-          else
-          {
-            return LoginStatus.FailedLoginAccountLockedSecurity;
-          }
+          return LoginStatus.FailedUsernameIsLocked;
         }
       }
 

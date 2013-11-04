@@ -55,6 +55,7 @@
       <SpecificVersion>false</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\IMTAccountType.Interop.dll</HintPath>
     </Reference>
+    <Reference Include="MetraTech.TestCommon, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86" />
     <Reference Include="MTAuth.interop">
       <EmbedInteropTypes>false</EmbedInteropTypes>
       <Private>False</Private>
@@ -116,7 +117,7 @@
       <EmbedInteropTypes>false</EmbedInteropTypes>
       <Private>False</Private>
       <SpecificVersion>false</SpecificVersion>
-      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\QueryAdapter.interop.dll</HintPath>      
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\QueryAdapter.interop.dll</HintPath>
     </Reference>
     <Reference Include="RCD.Interop">
       <EmbedInteropTypes>false</EmbedInteropTypes>

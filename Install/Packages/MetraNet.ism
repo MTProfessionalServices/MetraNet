@@ -1464,7 +1464,6 @@
 		<row><td>MT_DBCreate</td><td>editDBPartitioningPaths</td><td>Enable</td><td>MT_DB_PARTITIONING_TYPE&lt;&gt;0</td></row>
 		<row><td>MT_DBCreate</td><td>editDBPartitioningPaths</td><td>Hide</td><td>MT_DB_STATUS=9</td></row>
 		<row><td>MT_DBCreate</td><td>groupBoxCoreDB</td><td>Hide</td><td>MT_DB_STATUS=9</td></row>
-		<row><td>MT_DBCreate</td><td>groupBoxPartitioning</td><td>Disable</td><td>MT_DBMS_TYPE &lt;&gt; 1</td></row>
 		<row><td>MT_DBCreate</td><td>groupBoxPartitioning</td><td>Hide</td><td>MT_DB_STATUS=9</td></row>
 		<row><td>MT_DBCreate</td><td>lblCoreDBDataFile</td><td>Hide</td><td>MT_DB_STATUS=9</td></row>
 		<row><td>MT_DBCreate</td><td>lblCoreDBLogFile</td><td>Hide</td><td>MT_DB_STATUS=9</td></row>

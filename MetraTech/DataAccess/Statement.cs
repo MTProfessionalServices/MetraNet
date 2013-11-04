@@ -349,35 +349,30 @@ namespace MetraTech.DataAccess
       // IN operator processing
       if (m_OperationType == OperationType.In)
       {
-          retval = string.Format("({0})", m_Value != null ? m_Value : "null");
+          retval = string.Format("({0})", m_Value ?? "null");
       }
       else if (m_Value != null) // other operators
       {
         switch (m_Value.GetType().ToString())
         {
+          case "System.boolean":
           case "System.String":
             retval = string.Format("'{0}'", m_Value.ToString().Replace("'", "''"));
             if (db == DBType.Oracle)
             {
-              retval = retval.ToLower();
+              retval = retval.ToUpper();
             }
             break;
           case "System.Time":
-          case "System.boolean":
             retval = string.Format("'{0}'", m_Value.ToString().Replace("'","''"));
             break;
           case "System.DateTime":
-            if (db == DBType.Oracle)
-            {
-              retval = string.Format("TO_DATE('{0}', 'MM/DD/YYYY HH:MI:SS AM')", m_Value.ToString());
-            }
-            else
-            {
-              retval = string.Format("'{0}'", m_Value.ToString().Replace("'", "''"));
-            }
+            retval = db == DBType.Oracle 
+              ? string.Format("TO_DATE('{0}', 'MM/DD/YYYY HH:MI:SS AM')", m_Value) 
+              : string.Format("'{0}'", m_Value.ToString().Replace("'", "''"));
             break;
           default:
-            retval = string.Format("{0}", m_Value.ToString());
+            retval = string.Format("{0}", m_Value);
             break;
         }
       }

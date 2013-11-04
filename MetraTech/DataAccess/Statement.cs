@@ -274,12 +274,25 @@ namespace MetraTech.DataAccess
 
     public override string FilterClause(DBType db)
     {
-      string propertyName =
-          db == DBType.Oracle && m_PropertyName != null ?
-          string.Format("{0}(\"{1}\")", Operation == OperationType.In ? string.Empty : "lower", m_PropertyName.ToUpper()) :
-          m_PropertyName;
-
-      string clause = string.Format("{0} {1} {2}", propertyName, FormatOperation(), FormatValue(db));
+      string propertyName;
+      string propertyValue;
+      if ((m_Value.GetType().ToString() == "System.String") || (m_Value.GetType().ToString() == "System.Boolean"))
+      {
+        propertyName =
+          db == DBType.Oracle
+            ? string.Format("{0}({1})", Operation == OperationType.In ? string.Empty : "upper", m_PropertyName)
+            : m_PropertyName;
+        propertyValue =
+          db == DBType.Oracle
+            ? string.Format("{0}({1})", Operation == OperationType.In ? string.Empty : "upper", FormatValue(db))
+            : FormatValue(db);
+      }
+      else
+      {
+        propertyName = m_PropertyName;
+        propertyValue = FormatValue(db);
+      }
+      string clause = string.Format("{0} {1} {2}", propertyName, FormatOperation(), propertyValue);
 
       return clause;
     }

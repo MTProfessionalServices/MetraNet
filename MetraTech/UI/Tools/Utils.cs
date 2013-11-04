@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Reflection;
@@ -601,6 +602,18 @@ namespace MetraTech.UI.Tools
     public static object GetProperty(object Object, string Property)
     {
       return Object.GetType().GetProperty(Property, Utils.MemberAccess).GetValue(Object, null);
+    }
+
+    /// <summary>
+    /// Check the existence of object property  dynamically.
+    /// </summary>
+    /// <param name="Object">Object to make the call on</param>
+    /// <param name="Property">Property to find</param>
+    /// <returns>return true if the property exists</returns>
+    public static bool CheckingExistenceOfProperty (object Object, string Property)
+    {
+      var objProperties = Object.GetType().GetProperties();
+      return objProperties.Any(t => t.Name.Equals(Property, StringComparison.OrdinalIgnoreCase));
     }
 
     /// <summary>

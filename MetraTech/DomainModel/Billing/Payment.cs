@@ -332,7 +332,7 @@ namespace MetraTech.DomainModel.Billing
         [ScriptIgnore]
         public bool IsReferenceIDDirty
         {
-            get { return IsReferenceIDDirty; }
+            get { return isReferenceIDDirty; }
         }
         #endregion
     }

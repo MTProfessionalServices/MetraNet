@@ -915,7 +915,7 @@ namespace MetraTech.UI.Utility
             SR.Close();
 
             sHeaderTemplate = sHeaderTemplate.Replace("<!--%%INSERT_RULESET_NAME%%-->", mParamTableName);
-            sHeaderTemplate = sHeaderTemplate.Replace("<!--%%INSERT_RULESET_DISPLAY_NAME%%-->", mParamTableDisplayName);
+            sHeaderTemplate = sHeaderTemplate.Replace("<!--%%INSERT_RULESET_DISPLAY_NAME%%-->", EscapeXMLSpecialCharacters(mParamTableDisplayName));
 
             return sHeaderTemplate;
 

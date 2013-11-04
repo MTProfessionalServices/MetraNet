@@ -1159,7 +1159,7 @@ STDMETHODIMP CMTSubscriptionReader::GetCountOfSubscribersWithCycleConflicts(
 
 		_bstr_t cycleTypeFilter = "";
 		if (cycle->Mode == CYCLE_MODE_EBCR)
-			rowset->AddParam("%%CYCLE_TYPE_FILTER%%", "(dbo.CheckEBCRCycleTypeCompatible(%%CYCLE_TYPE%%, uc.id_cycle_type) = 0)");
+			rowset->AddParam("%%CYCLE_TYPE_FILTER%%", "(dbo.CheckEBCRCycleTypeCompatible(%%CYCLE_TYPE%%, uc.id_cycle_type) = 0)"); //check if the cycle type is compatible
 		else if (cycle->Mode == CYCLE_MODE_BCR_CONSTRAINED)
 			rowset->AddParam("%%CYCLE_TYPE_FILTER%%", "uc.id_cycle_type <> %%CYCLE_TYPE%%");
 		else

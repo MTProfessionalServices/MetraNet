@@ -1,6 +1,8 @@
 @pushd c:\Dev\MetraNet
 
-git clean -d -f
-git submodule foreach git clean -d -f
+git submodule foreach git clean -df -xf
 @popd
+
+IF NOT "%1%"=="skip_pause" (
 @pause
+)

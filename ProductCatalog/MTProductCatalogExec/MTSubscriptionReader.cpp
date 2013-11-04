@@ -1159,7 +1159,7 @@ STDMETHODIMP CMTSubscriptionReader::GetCountOfSubscribersWithCycleConflicts(
 
 		_bstr_t cycleTypeFilter = "";
 		if (cycle->Mode == CYCLE_MODE_EBCR)
-			rowset->AddParam("%%CYCLE_TYPE_FILTER%%", "(dbo.CheckEBCRCycleTypeCompatibility(%%CYCLE_TYPE%%, uc.id_cycle_type) = 0)");
+			rowset->AddParam("%%CYCLE_TYPE_FILTER%%", "(dbo.CheckEBCRCycleTypeCompatible(%%CYCLE_TYPE%%, uc.id_cycle_type) = 0)");
 		else if (cycle->Mode == CYCLE_MODE_BCR_CONSTRAINED)
 			rowset->AddParam("%%CYCLE_TYPE_FILTER%%", "uc.id_cycle_type <> %%CYCLE_TYPE%%");
 		else
@@ -1333,7 +1333,6 @@ STDMETHODIMP CMTSubscriptionReader::GetUnitValue(IMTSessionContext* apCtxt,
   {
     if (!apUnitValue)
       return E_POINTER;
-
     
     ROWSETLib::IMTSQLRowsetPtr rowset(MTPROGID_SQLROWSET);
     rowset->Init(CONFIG_DIR);

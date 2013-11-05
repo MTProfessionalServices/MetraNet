@@ -17,8 +17,12 @@ IF "none%MSSQLServer%"=="none" SET /P MSSQLServer="Enter MSSQL server name [ by 
 IF "none%MSSQLServer%"=="none" SET MSSQLServer=localhost
 
 SET DBName=%4%
-IF "none%DBName%"=="none" SET /P DBName="Enter MSSQL server name [ by default "NetMeter" ]: "
+IF "none%DBName%"=="none" SET /P DBName="Enter Database name [ by default "NetMeter" ]: "
 IF "none%DBName%"=="none" SET DBName=NetMeter
+
+SET StageDBName=%5%
+IF "none%StageDBName%"=="none" SET /P StageDBName="Enter Stage Database name [ by default "NetMeter_Stage" ]: "
+IF "none%StageDBName%"=="none" SET StageDBName=NetMeter_Stage
 
 SET BCP_FOLDER="c:\Program Files\Microsoft SQL Server\110\Tools\Binn\"
 
@@ -37,6 +41,7 @@ FOR /R %%s IN (*.sql) DO (
 )
 )
 
+%BCP_FOLDER%\sqlcmd -S %MSSQLServer% -U %UserName% -P %Password% -d %StageDBName% -i %WorkDir%\upgradeStageDb.sql -o %WorkDir%\sql_upgrade_stage.log
 
 
 cd %CurrentDir%

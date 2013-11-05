@@ -2,20 +2,31 @@ create or replace
 function AllowInitialArrersCharge(
 p_b_advance IN char,
 p_id_acc IN integer,
-p_id_sub IN integer,
-p_sub_end IN DATE) 
+p_sub_end IN date,
+p_current_date IN date) 
 RETURN smallint
 IS
 p_is_allow_create  smallint;
 begin
- if p_b_advance = 'Y' then	
-	   /* allows to create initial for ADVANCE */
-		 p_is_allow_create := 1;
-  else
-  /* forbidden to create initial for ARREARS 
-	  * [TODO] Need implement that if end date of Sub is fit in billing acc interval it should be allowed to create Initila charge 
-	  */
-    p_is_allow_create := 0;
+	if p_b_advance = 'Y' then	
+		/* allows to create initial for ADVANCE */
+		p_is_allow_create := 1;
+	else 
+		/* Creates Initial charges in case it fits inder current interval*/
+		select case when exists(select 1 from t_usage_interval us_int
+					join t_acc_usage_cycle acc
+					on us_int.id_usage_cycle = acc.id_usage_cycle
+					where acc.id_acc = p_id_acc
+					AND NVL(p_current_date, metratime(0,null)) BETWEEN DT_START AND DT_END
+					AND p_sub_end BETWEEN DT_START AND DT_END
+					)
+				then 1
+				else 0
+			  end
+		into p_is_allow_create
+		from dual;
+	  
 	end	if;	 
+	  
 	return p_is_allow_create;
 end;

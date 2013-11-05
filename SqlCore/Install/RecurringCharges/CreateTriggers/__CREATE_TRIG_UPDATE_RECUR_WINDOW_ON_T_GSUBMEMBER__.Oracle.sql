@@ -75,7 +75,7 @@ ELSE
 		  and c__PriceableItemTemplateID = plm.id_pi_template)
       AND rcr.b_charge_per_participant = 'Y'
       AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL) 
-	  AND AllowInitialArrersCharge(rcr.b_advance, :new.id_acc, sub.id_sub, :new.vt_end) = 1;
+	  AND AllowInitialArrersCharge(rcr.b_advance, :new.id_acc, :new.vt_end, :new.dt_crt) = 1;
   END;
   UPDATE tmp_newrw SET c_BilledThroughDate = metratime(1,'RC');
   INSERT INTO t_recur_window

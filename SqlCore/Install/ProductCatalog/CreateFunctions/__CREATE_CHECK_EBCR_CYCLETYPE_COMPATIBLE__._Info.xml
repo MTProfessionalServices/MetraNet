@@ -27,5 +27,6 @@
         <ConversionDuplicateName></ConversionDuplicateName>
         <CommonQuerySourceFile></CommonQuerySourceFile>
         <SqlServerQuerySourceFile>R:\Config\Queries\DBInstall\ProductCatalog\Queries.xml</SqlServerQuerySourceFile>        
+		<OracleQuerySourceFile></OracleQuerySourceFile>
     </ConversionAudit>
 </Query>

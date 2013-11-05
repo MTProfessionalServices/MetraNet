@@ -15,7 +15,6 @@ namespace MetraTech.Core.Services.Test
 {
   using MetraTech;
   using MetraTech.Test.Common;
-  using MetraTech.DomainModel.Common;
   using MetraTech.Core.Services;
   using System.ServiceModel;
   using MetraTech.Core.Services.ClientProxies;

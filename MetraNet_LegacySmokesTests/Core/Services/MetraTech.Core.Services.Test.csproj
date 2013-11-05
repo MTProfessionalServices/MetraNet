@@ -69,11 +69,6 @@
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Core.Interface.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="GenericCollection.interop">
-      <Private>False</Private>
-      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\GenericCollection.interop.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
     <Reference Include="MetraTech.Account.ClientProxies">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
@@ -98,11 +93,6 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.AccountTypes.Generated.dll</HintPath>
-    </Reference>
-    <Reference Include="MetraTech.DomainModel.Billing.Generated">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Billing.Generated.dll</HintPath>
-      <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.DomainModel.Enums.Generated">
       <SpecificVersion>False</SpecificVersion>
@@ -147,13 +137,11 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceProcess" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -199,21 +187,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="MetraTech.Localization">
-      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Localization.dll</HintPath>
-      <Private>False</Private>
-      <EmbedInteropTypes>false</EmbedInteropTypes>
-    </Reference>
     <Reference Include="MetraTech.ActivityServices.Common">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.ActivityServices.Common.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="CoreServicesClientProxyHook">
-      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\CoreServicesClientProxyHook.exe</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MetraTech.ActivityServices.Runtime">
-      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.ActivityServices.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.BusinessEntity.Core">
@@ -234,14 +209,6 @@
     </Reference>
     <Reference Include="MetraTech.DomainModel.Billing">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Billing.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MetraTech.DomainModel.Common">
-      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Common.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="GenerateDMAssemblies">
-      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\GenerateDMAssemblies.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.DomainModel.MetraPay">

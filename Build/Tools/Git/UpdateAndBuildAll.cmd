@@ -53,7 +53,7 @@ IF NOT "none%TARGET%"=="none" (
 	)
 )
 @echo - Encripts password
-@echo - Install  MSSQL DB
+@echo - Install MSSQL DB
 @echo.
 pause
 
@@ -149,7 +149,7 @@ cd %DEVDIR%
 rem Installs DB 
 
 IF DEFINED CREATE_SECURE_KEY (
-	call cryptosetup -createkeys	
+	call cryptosetup -createkeys
 )
 call cryptosetup -encryptconfig
 

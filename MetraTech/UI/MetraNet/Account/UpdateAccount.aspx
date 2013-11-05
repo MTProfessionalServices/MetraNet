@@ -176,7 +176,7 @@ function addTemplateEvents() {
   </MT:MTPanel>
   
   <!-- TAX INFORMATION --> 
-  <MTCDT:MTGenericForm ID="MTGenericFormTax" runat="server" DataBinderInstanceName="MTDataBinder1"></MTCDT:MTGenericForm>
+  <MTCDT:MTGenericForm ID="MTGenericFormTax" runat="server" DataBinderInstanceName="MTDataBinder1" TabIndex="1000"></MTCDT:MTGenericForm>
 
   <div style="clear:both"></div>
   

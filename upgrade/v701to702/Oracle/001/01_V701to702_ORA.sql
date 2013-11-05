@@ -80,35 +80,6 @@ COMMENT ON COLUMN t_be_cor_qu_udrcforquoting.c_pi_name IS 'Priceable item name';
 ALTER TABLE t_acc_template_session ADD (n_templates NUMBER(10) DEFAULT 0 NOT NULL,n_templates_applied NUMBER(10) DEFAULT 0 NOT NULL);
 
 
-/* Upgrading tmp_tmp_t_acc_usage */
-UPDATE tmp_tmp_t_acc_usage
-SET    tax_inclusive = 'N'
-WHERE  tax_inclusive IS NULL;
-
-UPDATE tmp_tmp_t_acc_usage
-SET    tax_informational = 'N'
-WHERE  tax_informational IS NULL;
-
-ALTER TABLE
-   tmp_tmp_t_acc_usage
-ADD(
-       is_implied_tax CHAR NOT NULL,
-       tax_calculated_temp CHAR NOT NULL,
-       tax_informational_temp CHAR NOT NULL
-   );
-
-UPDATE tmp_tmp_t_acc_usage
-SET    is_implied_tax = tax_inclusive,
-       tax_calculated_temp = tax_calculated,
-       tax_informational_temp = tax_informational;
-       
-ALTER TABLE tmp_tmp_t_acc_usage DROP (tax_inclusive, tax_calculated, tax_informational);
-
-ALTER TABLE tmp_tmp_t_acc_usage RENAME COLUMN tax_calculated_temp TO tax_calculated;
-
-ALTER TABLE tmp_tmp_t_acc_usage RENAME COLUMN tax_informational_temp TO tax_informational;
-
-
 /* Upgrading t_acc_usage */
 UPDATE t_acc_usage
 SET    tax_inclusive = 'N'
@@ -302,7 +273,7 @@ BEGIN
         textData,
         retryCount
     );
-    
+
     IF (doCommit = 'Y') THEN
         COMMIT;
     END IF;
@@ -311,7 +282,8 @@ END;
 
 /* BEGIN of "mt_acc_template" and "mt_rate_pkg" Packages declaration and definition*/
 
-CREATE PACKAGE mt_acc_template
+CREATE OR REPLACE 
+PACKAGE mt_acc_template
 AS
     PROCEDURE apply_subscriptions (
        template_id                INT,
@@ -328,7 +300,7 @@ AS
        retrycount                 INT,
        doCommit                   CHAR DEFAULT 'Y'
     );
-    
+
     PROCEDURE apply_subscriptions_to_acc (
        id_acc                     INT,
        id_acc_template            INT,
@@ -339,12 +311,14 @@ AS
        id_event_success           INT,
        systemdate                 DATE,
        id_template_session        INT,
-       retrycount                 INT
+       retrycount                 INT,
+       doCommit                   CHAR DEFAULT 'Y'
     );
 
     PROCEDURE UpdateAccPropsFromTemplate (
         idAccountTemplate INT,
-        systemDate DATE
+        systemDate DATE,
+        idAcc INT DEFAULT NULL
     );
 
     PROCEDURE UpdateUsageCycleFromTemplate (
@@ -543,37 +517,44 @@ AS
 END mt_rate_pkg;
 /
 
+
 CREATE OR REPLACE 
 PACKAGE BODY mt_acc_template
 AS
     detailtypesubs      INT;
     detailresultfailure INT;
-       
+
     PROCEDURE subscribe_account(
        id_acc              INT,
        id_po               INT,
        id_group            INT,
        sub_start           DATE,
        sub_end             DATE,
-       systemdate          DATE
+       systemdate          DATE,
+       doCommit            CHAR DEFAULT 'Y'
     )
     AS
         v_guid                RAW(16);
         curr_id_sub           INT;
     BEGIN
-    
-        IF (id_po IS NULL) THEN
+
+        IF (id_group IS NOT NULL) THEN
             INSERT INTO tmp_gsubmember (id_group, id_acc, vt_start, vt_end)
                 VALUES (id_group, id_acc, sub_start, sub_end);
         ELSE
-            getcurrentid('id_subscription', curr_id_sub);
+              IF (doCommit = 'Y') THEN
+                 getcurrentid('id_subscription', curr_id_sub);
+              ELSE
+                 SELECT id_current INTO curr_id_sub FROM t_current_id WHERE nm_current = 'id_subscription' FOR UPDATE OF id_current;
+                 UPDATE t_current_id SET id_current=id_current+1 WHERE nm_current='id_subscription';
+              END IF;
             SELECT SYS_GUID() INTO v_guid FROM dual;
             INSERT INTO tmp_sub (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end)
                 VALUES (curr_id_sub, v_guid, id_acc, NULL, id_po, systemdate, sub_start, sub_end);
         END IF;
 
     END;
-    
+
     PROCEDURE apply_subscriptions (
        template_id                INT,
        sub_start                  DATE,
@@ -602,7 +583,12 @@ AS
            THEN
               my_id_audit := apply_subscriptions.id_audit;
            ELSE
-              getcurrentid ('id_audit', my_id_audit);
+              IF (doCommit = 'Y') THEN
+                 getcurrentid ('id_audit', my_id_audit);
+              ELSE
+                 SELECT id_current INTO my_id_audit FROM t_current_id WHERE nm_current = 'id_audit' FOR UPDATE OF id_current;
+                 UPDATE t_current_id SET id_current=id_current+1 WHERE nm_current='id_audit';
+              END IF;
 
               INSERT INTO t_audit (
                     id_audit,
@@ -628,15 +614,15 @@ AS
             INTO   detailtypesubs
             FROM   t_enum_data
             WHERE  nm_enum_data = 'metratech.com/accounttemplate/DetailType/Subscription';
-             
+
             SELECT id_enum_data
             INTO   detailresultfailure
             FROM   t_enum_data
             WHERE  nm_enum_data = 'metratech.com/accounttemplate/DetailResult/Failure';
          END IF;
-      
+
       DELETE FROM t_acc_template_valid_subs WHERE id_acc_template_session = apply_subscriptions.id_template_session;
-      
+
       /* Detect conflicting subscriptions in the template and choice first available of them and without conflicts */
       INSERT INTO t_acc_template_valid_subs (id_acc_template_session, id_po, id_group, sub_start, sub_end, po_start, po_end)
       SELECT DISTINCT
@@ -649,22 +635,16 @@ AS
            subs.sub_end
       FROM
         (
-            SELECT MAX(ts.id_po) AS id_po, NULL AS id_group, MAX(ed.dt_start) AS sub_start, NVL(MAX(ed.dt_end), mtmaxdate()) AS sub_end
-            FROM   t_acc_template_subs ts
-                   JOIN t_pl_map pm ON pm.id_po = ts.id_po
-                   JOIN t_po po ON ts.id_po = po.id_po
-                   JOIN t_effectivedate ed ON po.id_eff_date = ed.id_eff_date
-            WHERE  ts.id_acc_template = apply_subscriptions.template_id
-            GROUP BY pm.id_pi_template
-            UNION ALL
-            SELECT NULL AS id_po, MAX(ts.id_group) AS id_group, MAX(ed.dt_start) AS sub_start, NVL(MAX(ed.dt_end), mtmaxdate()) AS sub_end
-            FROM   t_acc_template_subs ts
-                   JOIN t_sub s ON s.id_group = ts.id_group
-                   JOIN t_pl_map pm ON pm.id_po = s.id_po
-                   JOIN t_po po ON po.id_po = s.id_po
-                   JOIN t_effectivedate ed ON po.id_eff_date = ed.id_eff_date
-            WHERE  ts.id_acc_template = apply_subscriptions.template_id
-            GROUP BY pm.id_pi_template
+            SELECT t1.id_po, MAX(t1.id_group) AS id_group, MAX(ed.dt_start) AS sub_start, NVL(MAX(ed.dt_end), mtmaxdate()) AS sub_end
+                FROM (
+                    SELECT NVL(ts.id_po,s.id_po) AS id_po, s.id_group
+                        FROM t_acc_template_subs ts
+                        LEFT JOIN t_sub s ON s.id_group = ts.id_group
+                        WHERE ts.id_acc_template = apply_subscriptions.template_id
+                ) t1
+                JOIN t_po po ON po.id_po = t1.id_po
+                JOIN t_effectivedate ed ON po.id_eff_date = ed.id_eff_date
+                GROUP BY t1.id_po
         ) subs;
 
        /* Applying subscriptions to accounts */
@@ -687,112 +667,54 @@ AS
                retrycount                 => apply_subscriptions.retrycount
            );
       END LOOP;
-          
+
       maxdate := mtmaxdate();
 
-      BEGIN
-          /* Persist the data in transaction */
-          mt_rate_pkg.current_id_audit := apply_subscriptions.id_audit;
-          
-          INSERT INTO t_gsubmember (id_group, id_acc, vt_start, vt_end)
-          SELECT id_group, id_acc, vt_start, vt_end
-          FROM   tmp_gsubmember;
+      mt_rate_pkg.current_id_audit := apply_subscriptions.id_audit;
+      INSERT INTO t_gsubmember (id_group, id_acc, vt_start, vt_end)
+      SELECT tmp.id_group, tmp.id_acc, tmp.vt_start, NVL(tmp.vt_end, maxdate)
+      FROM   tmp_gsubmember tmp;
 
-          INSERT INTO t_gsubmember_historical (id_group, id_acc, vt_start, vt_end, tt_start, tt_end)
-          SELECT id_group, id_acc, vt_start, vt_end, apply_subscriptions.systemdate, maxdate
-          FROM   tmp_gsubmember;
+      --INSERT INTO t_gsubmember_historical (id_group, id_acc, vt_start, vt_end, tt_start, tt_end)
+      --SELECT id_group, id_acc, vt_start, NVL(vt_end, maxdate), apply_subscriptions.systemdate, maxdate
+      --FROM   tmp_gsubmember;
 
-          INSERT INTO t_sub (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end)
-          SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end
-          FROM   tmp_sub;
-          
-          INSERT INTO t_sub_history (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end, tt_start, tt_end)
-          SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end, apply_subscriptions.systemdate, maxdate
-          FROM   tmp_sub;
-          
-          INSERT INTO t_audit_details (id_auditdetails, id_audit, tx_details)
-          SELECT seq_t_audit_details.nextval, tmp.my_id_audit, tmp.tx_details
-          FROM   (
-                  SELECT my_id_audit AS my_id_audit,
-                         'Added subscription to id_groupsub ' || id_group ||
-                         ' for account ' || id_acc ||
-                         ' from ' || vt_start ||
-                         ' to ' || vt_end ||
-                         ' on ' || systemdate AS tx_details
-                  FROM   tmp_gsubmember
-                  UNION ALL
-                  SELECT my_id_audit AS my_id_audit,
-                         'Added subscription to product offering ' || id_po ||
-                         ' for account ' || id_acc ||
-                         ' from ' || vt_start ||
-                         ' to ' || vt_end ||
-                         ' on ' || apply_subscriptions.systemdate AS tx_details
-                  FROM   tmp_sub
-                 ) tmp;
-                    
-          IF (doCommit = 'Y')
-          THEN
-          COMMIT;
-          END IF;
-          
-          mt_rate_pkg.current_id_audit := NULL;
-      EXCEPTION
-          -- we should log this.
-          WHEN OTHERS
-          THEN
-              IF (doCommit = 'Y')
-              THEN
-             ROLLBACK;
-              END IF;
-          
-             mt_rate_pkg.current_id_audit := NULL;
-             
-             my_error := substr(SQLERRM,1,1024);
+      INSERT INTO t_sub (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end)
+      SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, NVL(vt_end, maxdate)
+      FROM   tmp_sub;
 
-             IF (my_id_audit IS NULL)
-             THEN
-                IF (apply_subscriptions.id_audit IS NOT NULL)
-                THEN
-                   my_id_audit := apply_subscriptions.id_audit;
-                ELSE
-                   getcurrentid ('id_audit', my_id_audit);
+      --INSERT INTO t_sub_history (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end, tt_start, tt_end)
+      --SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, NVL(vt_end, maxdate), apply_subscriptions.systemdate, maxdate
+      --FROM   tmp_sub;
 
-                   INSERT INTO t_audit (
-                        id_audit,
-                        id_event,
-                        id_userid,
-                        id_entitytype,
-                        id_entity,
-                        dt_crt
-                      )
-                   VALUES (
-                        my_id_audit,
-                        apply_subscriptions.id_event_failure,
-                        apply_subscriptions.user_id,
-                        1,
-                        my_id_acc,
-                        getutcdate ()
-                      );
-                END IF;
-             END IF;
+      INSERT INTO t_audit_details (id_auditdetails, id_audit, tx_details)
+      SELECT seq_t_audit_details.NEXTVAL, tmp.my_id_audit, tmp.tx_details
+      FROM   (
+              SELECT my_id_audit AS my_id_audit,
+                     'Added subscription to id_groupsub ' || id_group ||
+                     ' for account ' || id_acc ||
+                     ' from ' || vt_start ||
+                     ' to ' || NVL(vt_end, maxdate) ||
+                     ' on ' || systemdate AS tx_details
+              FROM   tmp_gsubmember
+              UNION ALL
+              SELECT my_id_audit AS my_id_audit,
+                     'Added subscription to product offering ' || id_po ||
+                     ' for account ' || id_acc ||
+                     ' from ' || vt_start ||
+                     ' to ' || NVL(vt_end, maxdate) ||
+                     ' on ' || apply_subscriptions.systemdate AS tx_details
+              FROM   tmp_sub
+             ) tmp;
+      IF (doCommit = 'Y')
+      THEN
+      COMMIT;
+      END IF;
 
-            INSERT INTO t_audit_details (
-                id_auditdetails,
-                id_audit,
-                tx_details
-             )
-            VALUES (
-                seq_t_audit_details.NEXTVAL,
-                my_id_audit,
-                'Error applying template to id_acc: '
-                || my_id_acc
-                || ': '
-                || my_error
-             );
-          
-        END;
+      mt_rate_pkg.current_id_audit := NULL;
+      DELETE FROM t_acc_template_valid_subs WHERE id_acc_template_session = apply_subscriptions.id_template_session;
     END;
-    
+
     PROCEDURE apply_subscriptions_to_acc (
        id_acc                     INT,
        id_acc_template            INT,
@@ -803,7 +725,8 @@ AS
        id_event_success           INT,
        systemdate                 DATE,
        id_template_session        INT,
-       retrycount                 INT
+       retrycount                 INT,
+       doCommit                   CHAR DEFAULT 'Y'
     )
     AS
        v_acc_start       DATE;
@@ -815,6 +738,8 @@ AS
        my_id_audit       INT;
        my_user_id        INT;
        id_acc_type       INT;
+       v_prev_start DATE;
+       v_prev_end   DATE;
 
     BEGIN
        my_user_id := apply_subscriptions_to_acc.user_id;
@@ -828,7 +753,12 @@ AS
 
        IF (my_id_audit IS NULL)
        THEN
-          getcurrentid ('id_audit', my_id_audit);
+          IF (doCommit = 'Y') THEN
+           getcurrentid ('id_audit', my_id_audit);
+          ELSE
+             SELECT id_current INTO my_id_audit FROM t_current_id WHERE nm_current = 'id_audit' FOR UPDATE OF id_current;
+             UPDATE t_current_id SET id_current=id_current+1 WHERE nm_current='id_audit';
+          END IF;
 
           INSERT INTO t_audit
                       (id_audit, id_event, id_userid, id_entitytype, id_entity,
@@ -843,177 +773,87 @@ AS
        INTO   v_acc_start
        FROM   t_account_state
        WHERE  id_acc = apply_subscriptions_to_acc.id_acc;
-       
+
        SELECT id_type
        INTO   id_acc_type
        FROM   t_account
        WHERE  id_acc = apply_subscriptions_to_acc.id_acc;
-    
-       /* Create new subscriptions */
-       FOR sub in (
-          SELECT ts.id_po,
-                 ts.id_group,
-                 CASE
-                     WHEN MIN(s.vt_start) IS NULL THEN MIN(gm.vt_start)
-                     WHEN MIN(gm.vt_start) IS NULL THEN MIN(s.vt_start)
-                     ELSE LEAST(MIN(s.vt_start), MIN(gm.vt_start))
-                 END AS vt_start,
-                 CASE
-                     WHEN MAX(s.vt_end) IS NULL THEN MAX(gm.vt_end)
-                     WHEN MAX(gm.vt_end) IS NULL THEN MAX(s.vt_end)
-                     ELSE GREATEST(MAX(s.vt_end), MAX(gm.vt_end))
-                 END AS vt_end,
-                 SUM(CASE WHEN s.id_sub IS NULL THEN 0 ELSE 1 END) + SUM(CASE WHEN gm.id_group IS NULL THEN 0 ELSE 1 END) conflicts,
-                 vs.v_sub_start AS my_sub_start,
-                 vs.v_sub_end AS my_sub_end
-          FROM   t_acc_template_subs ts
-                 JOIN (
-                       SELECT id_acc_template_session,
-                              id_po,
-                              id_group,
-                               CASE
-                                  WHEN apply_subscriptions_to_acc.next_cycle_after_startdate = 'Y'
-                                  THEN
-                                      (
-                                        SELECT GREATEST(tpc.dt_end + numtodsinterval(1, 'second'), tvs.po_start)
-                                        FROM   t_pc_interval tpc
-                                               INNER JOIN t_acc_usage_cycle tauc ON tpc.id_cycle = tauc.id_usage_cycle
-                                        WHERE  tauc.id_acc = apply_subscriptions_to_acc.id_acc
-                                           AND tvs.sub_start BETWEEN tpc.dt_start AND tpc.dt_end
-                                      )
-                                  ELSE tvs.sub_start
-                              END AS v_sub_start,
-                              CASE
-                                  WHEN apply_subscriptions_to_acc.next_cycle_after_enddate = 'Y'
-                                  THEN
-                                      (
-                                        SELECT LEAST(LEAST(tpc.dt_end + numtodsinterval(1, 'second'), mtmaxdate()), tvs.po_end)
-                                        FROM   t_pc_interval tpc
-                                               INNER JOIN t_acc_usage_cycle tauc ON tpc.id_cycle = tauc.id_usage_cycle
-                                        WHERE  tauc.id_acc = apply_subscriptions_to_acc.id_acc
-                                           AND tvs.sub_end BETWEEN tpc.dt_start AND tpc.dt_end
-                                      )
-                                  ELSE tvs.sub_end
-                              END AS v_sub_end
 
-                       FROM   t_acc_template_valid_subs tvs
-                 ) vs  ON    vs.id_acc_template_session = apply_subscriptions_to_acc.id_template_session
-                         AND (vs.id_po = ts.id_po OR vs.id_group = ts.id_group)
-                 LEFT JOIN t_sub gs ON gs.id_group = ts.id_group
-                 LEFT JOIN t_sub s
-                  ON     s.id_acc = apply_subscriptions_to_acc.id_acc
-                     AND s.vt_start <= vs.v_sub_end
-                     AND s.vt_end >= vs.v_sub_start
-                     AND EXISTS (SELECT 1
-                                 FROM   t_pl_map mpo
-                                        JOIN t_pl_map ms ON mpo.id_pi_template = ms.id_pi_template
-                                 WHERE  mpo.id_po = NVL(ts.id_po, gs.id_po) AND ms.id_po = s.id_po)
-                 LEFT JOIN t_gsubmember gm
-                  ON     gm.id_acc = apply_subscriptions_to_acc.id_acc
-                     AND gm.vt_start <= vs.v_sub_end
-                     AND gm.vt_end >= vs.v_sub_start
-                     AND EXISTS (SELECT 1
-                                 FROM   t_sub ags
-                                        JOIN t_pl_map ms ON ms.id_po = ags.id_po
-                                        JOIN t_pl_map mpo ON mpo.id_pi_template = ms.id_pi_template
-                                 WHERE  ags.id_group = gm.id_group AND mpo.id_po = NVL(ts.id_po, gs.id_po))
-          WHERE  ts.id_acc_template = apply_subscriptions_to_acc.id_acc_template
-             /* Check if the PO is available for the account's type */
-             AND (  (ts.id_po IS NOT NULL AND
-                      (  EXISTS
-                         (
-                            SELECT 1
-                            FROM   t_po_account_type_map atm
-                            WHERE  atm.id_po = ts.id_po AND atm.id_account_type = id_acc_type
-                         )
-                      OR NOT EXISTS
-                         (
-                             SELECT 1 FROM t_po_account_type_map atm WHERE atm.id_po = ts.id_po
-                         )
-                     )
+       /* Create new subscriptions */
+       FOR sub IN (
+        SELECT
+            id_po,
+            id_group,
+            CASE
+                WHEN apply_subscriptions_to_acc.next_cycle_after_startdate = 'Y'
+                THEN
+                    (
+                        SELECT GREATEST(tpc.dt_end + numtodsinterval(1, 'second'), tvs.po_start)
+                            FROM   t_pc_interval tpc
+                            INNER JOIN t_acc_usage_cycle tauc ON tpc.id_cycle = tauc.id_usage_cycle
+                            WHERE  tauc.id_acc = apply_subscriptions_to_acc.id_acc
+                            AND tvs.sub_start BETWEEN tpc.dt_start AND tpc.dt_end
                     )
-                 OR (ts.id_group IS NOT NULL AND
-                      (  EXISTS
-                         (
-                            SELECT 1
-                            FROM   t_po_account_type_map atm
-                                   JOIN t_sub tgs ON tgs.id_po = atm.id_po
-                            WHERE  tgs.id_group = ts.id_group AND atm.id_account_type = id_acc_type
-                         )
-                     OR NOT EXISTS
-                         (
-                            SELECT 1
-                            FROM   t_po_account_type_map atm
-                                   JOIN t_sub tgs ON tgs.id_po = atm.id_po
-                            WHERE  tgs.id_group = ts.id_group
-                         )
-                      )
+                ELSE tvs.sub_start
+            END AS v_sub_start,
+            CASE
+                WHEN apply_subscriptions_to_acc.next_cycle_after_enddate = 'Y'
+                THEN
+                    (
+                        SELECT LEAST(LEAST(tpc.dt_end + numtodsinterval(1, 'second'), mtmaxdate()), tvs.po_end)
+                            FROM   t_pc_interval tpc
+                            INNER JOIN t_acc_usage_cycle tauc ON tpc.id_cycle = tauc.id_usage_cycle
+                            WHERE  tauc.id_acc = apply_subscriptions_to_acc.id_acc
+                            AND tvs.sub_end BETWEEN tpc.dt_start AND tpc.dt_end
                     )
-                 )
-          GROUP BY ts.id_po, ts.id_group, vs.v_sub_start, vs.v_sub_end
+                ELSE tvs.sub_end
+            END AS v_sub_end
+            FROM t_acc_template_valid_subs tvs
+            WHERE tvs.id_acc_template_session = apply_subscriptions_to_acc.id_template_session
        )
        LOOP
-            /* 1.  There is no conflicting subscription */
-            IF sub.conflicts = 0 THEN
-                v_vt_start := sub.my_sub_start;
-                v_vt_end := sub.my_sub_end;
-                
-                subscribe_account(apply_subscriptions_to_acc.id_acc, sub.id_po, sub.id_group, v_vt_start, v_vt_end, apply_subscriptions_to_acc.systemdate);
-                
-            /* 2.  There is a conflicting subscription for the same or greatest interval */
-            ELSIF sub.my_sub_start >= sub.vt_start AND sub.my_sub_end <= sub.vt_end THEN
-                InsertTmplSessionDetail
-                (
-                    apply_subscriptions_to_acc.id_template_session,
-                    detailtypesubs,
-                    detailresultfailure,
-                    'Subscription for account ' || apply_subscriptions_to_acc.id_acc || ' not created due to ' || sub.conflicts || 'conflict' || CASE WHEN sub.conflicts > 1 THEN 's' ELSE '' END,
-                    apply_subscriptions_to_acc.retrycount,
-                    'N'
-                );
-                
-            /* 3.  There is a conflicting subscription for an early period */
-            ELSIF sub.my_sub_start >= sub.vt_start AND sub.my_sub_end > sub.vt_end THEN
-                v_vt_start := sub.vt_end + 1;
-                v_vt_end := sub.my_sub_end;
-                
-                subscribe_account(apply_subscriptions_to_acc.id_acc, sub.id_po, sub.id_group, v_vt_start, v_vt_end, apply_subscriptions_to_acc.systemdate);
-                
-            /* 4.  There is a conflicting subscription for a late period */
-            ELSIF sub.my_sub_start < sub.vt_start AND sub.my_sub_end <= sub.vt_end THEN
-                v_vt_start := sub.my_sub_start;
-                v_vt_end := sub.vt_start - 1;
-                
-                subscribe_account(apply_subscriptions_to_acc.id_acc, sub.id_po, sub.id_group, v_vt_start, v_vt_end, apply_subscriptions_to_acc.systemdate);
-                
-            /* 5.  There is a conflicting subscription for the period inside the indicated one */
-            ELSE
-                v_vt_start := sub.vt_end + 1;
-                v_vt_end := sub.my_sub_end;
-                
-                subscribe_account(apply_subscriptions_to_acc.id_acc, sub.id_po, sub.id_group, v_vt_start, v_vt_end, apply_subscriptions_to_acc.systemdate);
-
-                v_vt_start := sub.my_sub_start;
-                v_vt_end := sub.vt_start - 1;
-                
-                subscribe_account(apply_subscriptions_to_acc.id_acc, sub.id_po, sub.id_group, v_vt_start, v_vt_end, apply_subscriptions_to_acc.systemdate);
+            v_prev_end := sub.v_sub_start - 1;
+            FOR c_sub IN (
+                SELECT S.*
+                    FROM t_sub s
+                    WHERE s.vt_end >= sub.v_sub_start 
+                        AND s.vt_start <= sub.v_sub_end
+                        AND s.id_acc = apply_subscriptions_to_acc.id_acc
+                        AND s.id_po = sub.id_po
+                    ORDER BY s.vt_start
+            ) 
+            LOOP
+                IF c_sub.vt_start > v_prev_end THEN 
+                    v_vt_start := v_prev_end + 1;
+                    v_vt_end := c_sub.vt_start - 1;
+                END IF;
+                IF v_vt_start <= v_vt_end THEN 
+                    subscribe_account(apply_subscriptions_to_acc.id_acc, sub.id_po, sub.id_group, v_vt_start, v_vt_end, apply_subscriptions_to_acc.systemdate, doCommit);
+                END IF;
+                v_prev_end := c_sub.vt_end;
+            END LOOP;
+            IF (v_prev_end < sub.v_sub_end) THEN
+                v_vt_start := v_prev_end + 1;
+                v_vt_end := sub.v_sub_end;
+                subscribe_account(apply_subscriptions_to_acc.id_acc, sub.id_po, sub.id_group, v_vt_start, v_vt_end, apply_subscriptions_to_acc.systemdate, doCommit);
             END IF;
        END LOOP;
     END;
 
     PROCEDURE UpdateAccPropsFromTemplate (
       idAccountTemplate INT,
-      systemDate DATE
+      systemDate DATE,
+      idAcc INT DEFAULT NULL
     )
     AS
         vals VARCHAR2(32767);
         dSql VARCHAR2(32767);
         conditionStatement VARCHAR2(32767);
-        enumValue varchar2(256);
-        val1 varchar2(256);
-        val2 varchar2(256);
+        enumValue VARCHAR2(256);
+        val1 VARCHAR2(256);
+        val2 VARCHAR2(256);
     BEGIN
-        FOR rec in (
+        FOR rec IN (
             SELECT
                 DISTINCT(v.account_view_name) AS viewName,
                 't_av_'|| SUBSTR(td.nm_enum_data, INSTR (td.nm_enum_data, '/') + 1, LENGTH(td.nm_enum_data)) AS tableName,
@@ -1021,21 +861,21 @@ AS
                 THEN SUBSTR(tp.nm_prop, INSTR(tp.nm_prop, '[') + 1, INSTR(tp.nm_prop, ']') - INSTR(tp.nm_prop, '[') - 1)
                 ELSE NULL
                 END AS additionalOptionString
-            FROM t_enum_data td JOIN t_account_type_view_map v on v.id_account_view = td.id_enum_data
-            JOIN t_account_view_prop p on v.id_type = p.id_account_view
-            JOIN t_acc_template_props tp on tp.nm_prop like v.account_view_name || '%' and tp.nm_prop like '%' || p.nm_name
+            FROM t_enum_data td JOIN t_account_type_view_map v ON v.id_account_view = td.id_enum_data
+            JOIN t_account_view_prop p ON v.id_type = p.id_account_view
+            JOIN t_acc_template_props tp ON tp.nm_prop LIKE v.account_view_name || '%' AND tp.nm_prop LIKE '%' || p.nm_name
             WHERE tp.id_acc_template = idAccountTemplate)
         LOOP
             vals := NULL;
-            FOR val in (
+            FOR val IN (
                 SELECT
                     --"Magic numbers" were took FROM MetraTech.Interop.MTYAAC.PropValType enumeration.
                     CASE WHEN ROWNUM = 1 THEN NULL ELSE ',' END ||
                     nm_column_name || ' ' ||
                         CASE
-                            WHEN nm_prop_class in(0, 1, 4, 5, 6, 8, 9, 12, 13)
+                            WHEN nm_prop_class IN(0, 1, 4, 5, 6, 8, 9, 12, 13)
                             THEN ' = ''' || REPLACE(TO_CHAR(nm_value), '''', '''''') || ''' '
-                            WHEN nm_prop_class in(2, 3, 10, 11, 14)
+                            WHEN nm_prop_class IN(2, 3, 10, 11, 14)
                             THEN ' = ' || REPLACE(TO_CHAR(nm_value), '''', '''''') || ' '
                             WHEN nm_prop_class = 7
                             THEN
@@ -1048,9 +888,9 @@ AS
                         END AS colVal
 
                 FROM t_account_type_view_map v
-                JOIN t_account_view_prop p on v.id_type = p.id_account_view
-                JOIN t_acc_template_props tp on tp.nm_prop like v.account_view_name || '%' and tp.nm_prop like '%.' || REPLACE(REPLACE(REPLACE(p.nm_name, N'\', N'\\'), N'_', N'\_'), N'%', N'\%') ESCAPE N'\'
-                WHERE tp.id_acc_template = idAccountTemplate and tp.nm_prop like rec.viewName || '%')
+                JOIN t_account_view_prop p ON v.id_type = p.id_account_view
+                JOIN t_acc_template_props tp ON tp.nm_prop LIKE v.account_view_name || '%' AND tp.nm_prop LIKE '%.' || REPLACE(REPLACE(REPLACE(p.nm_name, N'\', N'\\'), N'_', N'\_'), N'%', N'\%') ESCAPE N'\'
+                WHERE tp.id_acc_template = idAccountTemplate AND tp.nm_prop LIKE rec.viewName || '%')
             LOOP
                 vals := vals || val.colVal;
             END LOOP;
@@ -1058,7 +898,7 @@ AS
             conditionStatement := NULL;
             IF(rec.additionalOptionString IS NOT NULL) THEN
                 -- Processing enum values
-                FOR item in (SELECT items AS conditionItem FROM TABLE(SplitStringByChar(rec.additionalOptionString,',')))
+                FOR item IN (SELECT items AS conditionItem FROM TABLE(SplitStringByChar(rec.additionalOptionString,',')))
                 LOOP
 
                     val1 := SUBSTR(item.conditionItem, 0, INSTR(item.conditionItem, '=') - 1);
@@ -1072,7 +912,7 @@ AS
                       FROM t_enum_data
                      WHERE UPPER(nm_enum_data) =
                         (SELECT UPPER(nm_space || '/' || nm_enum || '/' || val2)
-                        FROM t_account_type_view_map v JOIN t_account_view_prop p on v.id_type = p.id_account_view
+                        FROM t_account_type_view_map v JOIN t_account_view_prop p ON v.id_type = p.id_account_view
                         WHERE UPPER(account_view_name) = UPPER(rec.viewName) AND UPPER(nm_name) = UPPER(val1));
 
                     --Creation additional condition for update account view properties for each account view.
@@ -1081,9 +921,12 @@ AS
             END IF;
 
             --Completion to creation dynamic sql-string for update account view.
-            conditionStatement := conditionStatement || 'id_acc in (SELECT id_descendent FROM t_vw_get_accounts_by_tmpl_id WHERE id_template = ' || TO_CHAR(idAccountTemplate) || '  AND CAST(''' || TO_CHAR(systemDate) || ''' AS DATE) BETWEEN COALESCE(vt_start, CAST(''' || TO_CHAR(systemDate) || ''' AS DATE)) AND COALESCE(vt_end, CAST(''' || TO_CHAR(systemDate) || ''' AS DATE)))';
+            IF (idAcc IS NOT NULL) THEN
+                conditionStatement := conditionStatement || 'id_acc = ' || TO_CHAR(idAcc) || ' ';
+            ELSE
+                conditionStatement := conditionStatement || 'id_acc in (SELECT id_descendent FROM t_vw_get_accounts_by_tmpl_id WHERE id_template = ' || TO_CHAR(idAccountTemplate) || '  AND CAST(''' || TO_CHAR(systemDate) || ''' AS DATE) BETWEEN COALESCE(vt_start, CAST(''' || TO_CHAR(systemDate) || ''' AS DATE)) AND COALESCE(vt_end, CAST(''' || TO_CHAR(systemDate) || ''' AS DATE)))';
+            END IF;
             dSql := 'UPDATE ' || rec.tableName || ' SET ' || vals || ' WHERE ' || conditionStatement;
-
             EXECUTE IMMEDIATE dSql;
         END LOOP;
     END;
@@ -1205,7 +1048,7 @@ AS
         payerbillable VARCHAR2(1);
         accExists INT;
     BEGIN
-        SELECT COUNT(1) INTO accExists FROM t_account where id_acc = PayerID;
+        SELECT COUNT(1) INTO accExists FROM t_account WHERE id_acc = PayerID;
         IF accExists > 0 THEN
             payerenddate := dbo.MTMaxDate();
             -- find the old payment information
@@ -1256,7 +1099,8 @@ AS
 END mt_acc_template;
 /
 
-CREATE PACKAGE BODY mt_rate_pkg
+
+CREATE OR REPLACE PACKAGE BODY mt_rate_pkg
 AS
     /* initialize the param table column definition array */
     PROCEDURE mt_load_param_defs(
@@ -1338,7 +1182,8 @@ AS
         
         my_id_audit := NVL(v_id_audit, current_id_audit);
         IF my_id_audit IS NULL THEN
-            getcurrentid('id_audit', my_id_audit);
+             SELECT id_current INTO my_id_audit FROM t_current_id WHERE nm_current = 'id_audit' FOR UPDATE OF id_current;
+             UPDATE t_current_id SET id_current=id_current+1 where nm_current='id_audit';
             
             insertauditevent(
                 temp_id_userid      => NULL,
@@ -2825,7 +2670,6 @@ END mt_rate_pkg;
 /* END of "mt_acc_template" and "mt_rate_pkg" Packages declaration and definition*/
 create table t_day_of_week (num NUMBER(10) not null,name VARCHAR2(50) not null,constraint pk_t_day_of_week PRIMARY KEY(name));
 
-
 DELETE FROM T_DAY_OF_WEEK;
 INSERT INTO T_DAY_OF_WEEK(NUM, NAME) VALUES(1,'SUNDAY');
 INSERT INTO T_DAY_OF_WEEK(NUM, NAME) VALUES(2,'MONDAY');
@@ -2834,8 +2678,6 @@ INSERT INTO T_DAY_OF_WEEK(NUM, NAME) VALUES(4,'WEDNESDAY');
 INSERT INTO T_DAY_OF_WEEK(NUM, NAME) VALUES(5,'THURSDAY');
 INSERT INTO T_DAY_OF_WEEK(NUM, NAME) VALUES(6,'FRIDAY');
 INSERT INTO T_DAY_OF_WEEK(NUM, NAME) SELECT 7 as num, 'SATURDAY' as name FROM dual WHERE (SELECT count(*) from t_day_of_week WHERE name = 'SATURDAY') = 0;
-
-/
 
 CREATE OR REPLACE 
 PROCEDURE ApplyTemplateToAccounts(
@@ -2899,10 +2741,11 @@ BEGIN
       FROM t_enum_data
      WHERE nm_enum_data = 'metratech.com/accounttemplate/DetailType/Subscription';
 
-    BEGIN
+--    BEGIN
         mt_acc_template.UpdateAccPropsFromTemplate (
             idAccountTemplate => idAccountTemplate,
-            systemDate        => systemDate
+            systemDate        => systemDate,
+            idAcc             => account_id
         );
         -- Apply billing cycles and payment redirection settings
         SELECT NVL(MAX(tuc.id_usage_cycle), -1), NVL(MAX(ttp.PayerID), -1)
@@ -2940,7 +2783,7 @@ BEGIN
                     LEFT JOIN t_enum_data tedw ON tedw.id_enum_data = tp.DayOfWeek
                     LEFT JOIN t_months m ON UPPER(m.name) = UPPER(SUBSTR(tedm.nm_enum_data, INSTR(tedm.nm_enum_data, '/', -1) + 1))
                     LEFT JOIN t_day_of_week dw ON dw.name = UPPER(SUBSTR(tedw.nm_enum_data, INSTR(tedw.nm_enum_data, '/', -1) + 1))
-                    LEFT JOIN t_usage_cycle_type tuct ON UPPER(tuct.tx_desc) = UPPER(SUBSTR(tedc.nm_enum_data, INSTR(tedc.nm_enum_data, '/', -1) + 1))
+                    LEFT JOIN t_usage_cycle_type tuct ON UPPER(tuct.tx_desc) LIKE REPLACE(UPPER(SUBSTR(tedc.nm_enum_data, INSTR(tedc.nm_enum_data, '/', -1) + 1)), '-', '%')
 
             ) ttp ON
                   tuc.id_cycle_type = ttp.id_cycle_type
@@ -2997,7 +2840,7 @@ BEGIN
         COMMIT;
         END IF;
 
-    EXCEPTION
+/*    EXCEPTION
         WHEN OTHERS THEN
             IF (doCommit = 'Y')
             THEN
@@ -3013,7 +2856,7 @@ BEGIN
                 doCommit
             );
     END;
-
+*/
     mt_acc_template.apply_subscriptions(
         template_id                => idAccountTemplate,
         sub_start                  => sub_start,
@@ -3027,11 +2870,12 @@ BEGIN
         systemdate                 => systemDate,
         id_template_session        => sessionId,
         retrycount                 => nRetryCount,
-        doCommit                   => 'N'
+        doCommit                   => doCommit
     );
 
 END;
 /
+
 
 
 CREATE OR REPLACE 
@@ -3111,7 +2955,7 @@ BEGIN
         SELECT tat.id_acc_template
           FROM t_account_ancestor taa
           JOIN t_acc_template tat ON taa.id_descendent = tat.id_folder AND tat.id_acc_type = id_acc_type
-         WHERE taa.id_ancestor = id_acc)
+         WHERE taa.id_ancestor = id_acc AND systemDate BETWEEN taa.vt_start AND taa.vt_end)
     LOOP
 
         --Apply account template to appropriate account list.
@@ -3153,7 +2997,9 @@ BEGIN
            JOIN t_policy_role pr ON pr.id_policy = pp.id_policy
            JOIN t_acc_template t ON aa.id_ancestor = t.id_folder AND t.b_applydefaultpolicy = 'Y'
     WHERE  t.id_acc_template = accountTemplateId
-       AND aa.num_generations > 0
+       AND aa.num_generations > 0 
+       AND systemDate BETWEEN aa.vt_start AND aa.vt_end
+       AND systemDate BETWEEN ap.vt_start AND ap.vt_end
        AND NOT EXISTS (SELECT 1 FROM t_policy_role pr2 WHERE pr2.id_policy = pd.id_policy AND pr2.id_role = pr.id_role);
 
     /* Finalize session state */
@@ -3673,7 +3519,6 @@ BEGIN
            ON fxd.id_cycle_type = ccl.id_cycle_type
           WHERE 1 = 1
           AND ui.id_interval = v_id_interval
-          /*and bg.id_billgroup = @v_id_billgroup*/
           AND rcr.b_advance <> 'Y'
         UNION ALL
                
@@ -3775,7 +3620,6 @@ BEGIN
                ON fxd.id_cycle_type = ccl.id_cycle_type
           WHERE 1 = 1
               AND ui.id_interval = v_id_interval
-              /*and bg.id_billgroup = @v_id_billgroup*/
               AND rcr.b_advance = 'Y'
         )  A;
 
@@ -3787,11 +3631,6 @@ BEGIN
 
       SELECT COUNT(1) INTO v_total_udrc FROM TMP_RC WHERE c_unitvalue IS NOT NULL;
 
-      --INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Flat RC Candidate Count: ' + CAST(@total_flat AS VARCHAR));
-      --INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'UDRC RC Candidate Count: ' + CAST(@total_udrc AS VARCHAR));
-      --INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Session Set Count: ' + CAST(@v_n_batch_size AS VARCHAR));
-      --INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Batch: ' + @v_id_batch);
-      --INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Batch ID: ' + CAST(@tx_batch AS varchar));
       v_tx_batch := utl_raw.cast_to_varchar2(utl_encode.base64_decode(utl_raw.cast_to_raw (v_id_batch)));
 
       IF v_total_flat > 0 THEN
@@ -3920,7 +3759,6 @@ BEGIN
       END;
       END IF;
 
-      /*INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Done inserting Flat RCs');*/
       IF v_total_udrc > 0 THEN
       BEGIN
          SELECT id_enum_data
@@ -4059,12 +3897,9 @@ BEGIN
    END;
    END IF;
 
-   /*INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Done inserting UDRC RCs');*/
    v_p_count := v_total_rcs;
-   /*INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Info', 'Finished submitting RCs, count: ' + CAST(@total_rcs AS VARCHAR));*/
 END;
 /
-
 
 CREATE OR REPLACE 
 PROCEDURE inserttemplatesession
@@ -4095,522 +3930,6 @@ BEGIN
     IF (doCommit = 'Y') THEN
         COMMIT;
     END IF;
-END;
-/
-
-
-create  or replace 
-procedure MoveAccount
-    (p_new_parent int,
-     p_account_being_moved int,
-   p_vt_move_start date,
-   p_enforce_same_corporation varchar2,
-   p_system_time date,
-   p_status out int ,
-   p_id_ancestor_out out int,
-   p_ancestor_type out varchar2,
-   p_acc_type out varchar2
-)
-as
-vt_move_end date;
-varMaxDateTime  date;
-v_AccCreateDate  date;
-v_AccMaxCreateDate  date;
-v_dt_start date;
-v_realstartdate  date;
-v_id_ancestor  int;
-v_id_descendent  int;
-v_ancestor_acc_type  varchar(5);
-v_descendent_acc_type  varchar(5);
-originalAncestor int;
-syntheticroot varchar2(1);
-dummy_type int;
-p_vt_move_start_trunc date;
-allTypesSupported int;
-templateId int;
-templateOwner int;
-templateCount int;
-sessionId int;
-begin
-    vt_move_end := dbo.MTMaxDate();
-    
-    p_vt_move_start_trunc := dbo.MTStartofDay(p_vt_move_start);
-
-    /* plug business rules back in*/
-
-    v_dt_start      := p_vt_move_start_trunc;
-    v_id_ancestor   := p_new_parent;
-    v_id_descendent := p_account_being_moved;
-
-    v_realstartdate := dbo.mtstartofday(v_dt_start) ;
-        select max(vt_end) into varMaxDateTime from t_account_ancestor where id_descendent = v_id_descendent
-        and id_ancestor = 1;
-
-    begin
-
-        select
-        dbo.mtminoftwodates(dbo.mtstartofday(ancestor.dt_crt),dbo.mtstartofday(descendent.dt_crt)),
-        ancestor.id_type, descendent.id_type
-        into v_AccCreateDate,v_ancestor_acc_type,v_descendent_acc_type
-        from t_account ancestor
-        inner join t_account descendent ON
-        ancestor.id_acc = v_id_ancestor and
-        descendent.id_acc = v_id_descendent;
-    exception
-    when no_data_found then
-        null;
-    end;
-
-select name into p_ancestor_type
-from t_account_type
-where id_type = v_ancestor_acc_type;
-
-
-select name into p_acc_type
-from t_account_type
-where id_type = v_descendent_acc_type;
-
-    begin
-        select
-        dbo.mtmaxoftwodates(dbo.mtstartofday(ancestor.dt_crt),dbo.mtstartofday(descendent.dt_crt))
-        into v_AccMaxCreateDate
-        from t_account ancestor,t_account descendent where ancestor.id_acc = v_id_ancestor and
-        descendent.id_acc = v_id_descendent;
-    exception
-            when no_data_found then
-            null;
-    end;
-
-    if dbo.mtstartofday(v_dt_start) < dbo.mtstartofday(v_AccMaxCreateDate)  then
-        /* MT_CANNOT_MOVE_ACCOUNT_BEFORE_START_DATE*/
-        p_status := -486604750;
-        return;
-    end if;
-
-
-    /* step : make sure that the new ancestor is not actually a child*/
-    select count(*) into p_status
-    from t_account_ancestor
-    where id_ancestor = v_id_descendent
-    and id_descendent = v_id_ancestor AND
-    v_realstartdate between vt_start AND vt_end;
-
-    if p_status > 0 then
-        /* MT_NEW_PARENT_IS_A_CHILD*/
-        p_status := -486604797;
-        return;
-    end if;
-
-    select count(*) into p_status
-    from t_account_ancestor
-    where id_ancestor = v_id_ancestor
-    and id_descendent = v_id_descendent
-    and num_generations = 1
-    and v_realstartdate >= vt_start
-    and vt_end = varMaxDateTime;
-
-    if p_status > 0 then
-        /* MT_NEW_ANCESTOR_IS_ALREADY_ A_ANCESTOR*/
-        p_status := 1;
-        return;
-    end if;
-
-      /* step : make sure that the account is not archived or closed*/
-    select count(*)  into p_status from t_account_state
-    where id_acc = v_id_descendent
-    and (dbo.IsClosed(p_status) = 1 OR dbo.isArchived(p_status) = 1)
-    and v_realstartdate between vt_start AND vt_end;
-    if (p_status > 0 ) then
-        /* OPERATION_NOT_ALLOWED_IN_CLOSED_OR_ARCHIVED*/
-        p_status := -469368827;
-        return;
-    end if;
-
-    /* step : make sure that the account is not a corporate account*/
-    /*only check next 2 business rules if p_enforce_same_corporation rule is turned on*/
-    if p_enforce_same_corporation = 1 then
-        if (dbo.iscorporateaccount(v_id_descendent,v_dt_start) = 1)
-        then
-            /* MT_CANNOT_MOVE_CORPORATE_ACCOUNT*/
-            p_status := -486604770;
-            return;
-    end if;
-        /* do this check if the original ancestor of the account being moved is not -1
-         or the new ancestor is not -1 */
-        select id_ancestor into originalAncestor from t_account_ancestor
-            where id_descendent =  v_id_descendent
-            and num_generations = 1
-            and p_vt_move_start_trunc >= vt_start and p_vt_move_start_trunc <= vt_end;
-
-        if (originalAncestor <> -1 AND v_id_ancestor <> -1 AND
-        dbo.IsInSameCorporateAccount(v_id_ancestor,v_id_descendent,v_realstartdate) <> 1)
-        then
-            /* MT_CANNOT_MOVE_BETWEEN_CORPORATE_HIERARCHIES*/
-            p_status := -486604759;
-            return;
-        end if;
-    end if;
-
-    /*check that both ancestor and descendent are subscriber accounts.  This check has to be recast.. you can
-     only move if the new ancestor allows children of type @descendent_acc_type */
-
-    select count(*) into dummy_type from dual
-    where exists (select 1 from t_acctype_descendenttype_map
-    where id_type = v_ancestor_acc_type
-    and id_descendent_type = v_descendent_acc_type);
-    if (dummy_type = 0)
-    then
-        /* MT_ANCESTOR_OF_INCORRECT_TYPE */
-        p_status := -486604714;
-        return;
-    END if;
-    
-    /* check that only accounts whose type says b_canHaveSyntheticRoot is true can have -1 as an ancestor.*/
-    if (v_id_ancestor = -1)
-    then
-    select b_CanhaveSyntheticRoot into syntheticroot from t_account_type where id_type = v_descendent_acc_type;
-    if (syntheticroot <> '1')
-    then
-    /* MT_ANCESTOR_INVALID_SYNTHETIC_ROOT */
-        p_status := -486604713;
-        return;
-    END if;
-    END if;
-
-    /* end business rules*/
-
-/*METRAVIEW DATAMART */
-
-insert into tmp_t_dm_account  select * from t_dm_account where id_acc in
-(
-select distinct id_descendent from t_account_ancestor where id_ancestor = p_account_being_moved
-);
-/* Deleting all the entries from ancestor table */
-delete from t_dm_account_ancestor where id_dm_descendent in (select id_dm_acc from tmp_t_dm_account);
-delete from t_dm_account where id_dm_acc in (select id_dm_acc from tmp_t_dm_account);
-
-    insert into tmp_deletethese
-    select
-    aa2.id_ancestor,
-    aa2.id_descendent,
-    aa2.num_generations,
-    aa2.b_children,
-    dbo.MTMaxOfTwoDates(p_vt_move_start_trunc, dbo.MTMaxOfTwoDates(dbo.MTMaxOfTwoDates(aa1.vt_start, aa2.vt_start), aa3.vt_start)) as vt_start,
-    dbo.MTMinOfTwoDates(vt_move_end, dbo.MTMinOfTwoDates(dbo.MTMinOfTwoDates(aa1.vt_end, aa2.vt_end), aa3.vt_end)) as vt_end,
-    aa2.tx_path
-    from
-    t_account_ancestor aa1
-    inner join t_account_ancestor aa2 on aa1.id_ancestor=aa2.id_ancestor and aa1.vt_start <= aa2.vt_end and aa2.vt_start <= aa1.vt_end and aa2.vt_start <= vt_move_end and p_vt_move_start_trunc <= aa2.vt_end
-    inner join t_account_ancestor aa3 on aa2.id_descendent=aa3.id_descendent and aa3.vt_start <= aa2.vt_end and aa2.vt_start <= aa3.vt_end and aa3.vt_start <= vt_move_end and p_vt_move_start_trunc <= aa3.vt_end
-    where
-    aa1.id_descendent=p_account_being_moved
-    and
-    aa1.num_generations > 0
-    and
-    aa1.vt_start <= vt_move_end
-    and
-    p_vt_move_start_trunc <= aa1.vt_end
-    and
-    aa3.id_ancestor=p_account_being_moved;
-
-    /* select old direct ancestor id*/
-    begin
-        select id_ancestor into p_id_ancestor_out from tmp_deletethese
-        where num_generations = 1 and p_vt_move_start_trunc between vt_start and vt_end;
-    exception
-        when no_data_found then
-        null;
-    end;
-
-    /*select * from #deletethese
-     The four statements of the sequenced delete follow.  Watch carefully :-)
-
-     Create a new interval for the case in which the applicability interval of the update
-     is contained inside the period of validity of the existing interval
-     [------------------] (existing)
-        [-----------] (update)*/
-
-    insert into t_account_ancestor(id_ancestor, id_descendent, num_generations,b_children, vt_start, vt_end,tx_path)
-    select aa.id_ancestor, aa.id_descendent, aa.num_generations, d.b_children,d.vt_start, d.vt_end,
-    case when aa.id_descendent = 1 then
-        aa.tx_path || d.tx_path
-        else
-        d.tx_path || '/' || aa.tx_path
-        end
-    from
-    t_account_ancestor aa
-    inner join tmp_deletethese d on aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and
-        aa.num_generations=d.num_generations and aa.vt_start < d.vt_start and aa.vt_end > d.vt_end;
-
-    /* Update end date of existing records for which the applicability interval of the update
-     starts strictly inside the existing record:
-     [---------] (existing)
-        [-----------] (update)
-     or
-     [---------------] (existing)
-        [-----------] (update)*/
-    update t_account_ancestor aa
-    set
-    vt_end = (select dbo.subtractsecond(d.vt_start) from
-                            tmp_deletethese d where aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and
-                            aa.num_generations=d.num_generations and aa.vt_start < d.vt_start and aa.vt_end > d.vt_start)
-        where exists
-        (select 1 from
-                            tmp_deletethese d where aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and
-                            aa.num_generations=d.num_generations and aa.vt_start < d.vt_start and aa.vt_end > d.vt_start);
-
-    /* Update start date of existing records for which the effectivity interval of the update
-     ends strictly inside the existing record:
-                  [---------] (existing)
-        [-----------] (update)*/
-    update t_account_ancestor aa
-    set
-    vt_start = (select dbo.addsecond(d.vt_end)
-    from tmp_deletethese d where aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and
-        aa.num_generations=d.num_generations and aa.vt_start <= d.vt_end and aa.vt_end > d.vt_end)
-    where exists
-    (select 1
-    from tmp_deletethese d where aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and
-        aa.num_generations=d.num_generations and aa.vt_start <= d.vt_end and aa.vt_end > d.vt_end);
-
-    /* Delete existing records for which the effectivity interval of the update
-     contains the existing record:
-           [---------] (existing)
-         [---------------] (update)*/
-    delete t_account_ancestor aa
-    where exists
-    (select 1
-    from tmp_deletethese d where aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and
-        aa.num_generations=d.num_generations and aa.vt_start >= d.vt_start and aa.vt_end <= d.vt_end);
-
-    /* SEQUENCED INSERT JOIN*/
-    /* Now do the sequenced insert into select from with the sequenced*/
-    /* cross join as the source of the data.*/
-
-    insert into t_account_ancestor(id_ancestor, id_descendent, num_generations,b_children, vt_start, vt_end,tx_path)
-    select aa1.id_ancestor,
-    aa2.id_descendent,
-    aa1.num_generations+aa2.num_generations+1 as num_generations,
-    aa2.b_children,
-    dbo.MTMaxOfTwoDates(p_vt_move_start_trunc, dbo.MTMaxOfTwoDates(aa1.vt_start, aa2.vt_start)) as vt_start,
-    dbo.MTMinOfTwoDates(vt_move_end, dbo.MTMinOfTwoDates(aa1.vt_end, aa2.vt_end)) as vt_end,
-    case when aa2.id_descendent = 1 then
-        aa1.tx_path || aa2.tx_path
-        else
-        aa1.tx_path || '/' || aa2.tx_path
-        end
-    from
-    t_account_ancestor aa1
-    inner join t_account_ancestor aa2 on aa1.vt_start < aa2.vt_end and aa2.vt_start < aa1.vt_end and aa2.vt_start < vt_move_end and p_vt_move_start_trunc < aa2.vt_end
-    where
-    aa1.id_descendent = p_new_parent
-    and
-    aa1.vt_start < vt_move_end
-    and
-    p_vt_move_start_trunc < aa1.vt_end
-    and
-    aa2.id_ancestor = p_account_being_moved;
-
-    /* Implement the coalescing step.*/
-    /* TODO: Improve efficiency by restricting the updates to the rows that*/
-    /* might need coalesing.*/
-    update t_account_ancestor aa
-    set vt_end = (
-        select max(aa2.vt_end)
-        from
-        t_account_ancestor aa2
-        where
-        aa.id_ancestor=aa2.id_ancestor
-        and
-        aa.id_descendent=aa2.id_descendent
-        and
-        aa.num_generations=aa2.num_generations
-        and
-        aa.vt_start < aa2.vt_start
-        and
-        dbo.addsecond(aa.vt_end) >= aa2.vt_start
-        and
-        aa.vt_end < aa2.vt_end
-        and
-        aa.tx_path=aa2.tx_path
-    )
-    where
-    exists (
-        select *
-        from
-        t_account_ancestor aa2
-        where
-        aa.id_ancestor=aa2.id_ancestor
-        and
-        aa.id_descendent=aa2.id_descendent
-        and
-        aa.num_generations=aa2.num_generations
-        and
-        aa.vt_start < aa2.vt_start
-        and
-        dbo.addsecond(aa.vt_end) >= aa2.vt_start
-        and
-        aa.vt_end < aa2.vt_end
-        and
-        aa.tx_path=aa2.tx_path
-    )
-    and aa.id_descendent in (select id_descendent from tmp_deletethese);
-
-    delete from t_account_ancestor AA
-    where
-    exists (
-        select *
-        from t_account_ancestor aa2
-        where
-        AA.id_ancestor=aa2.id_ancestor
-        and
-        AA.id_descendent=aa2.id_descendent
-        and
-        AA.num_generations=aa2.num_generations
-        and
-        AA.tx_path=aa2.tx_path
-        and
-        (
-        (aa2.vt_start < AA.vt_start and AA.vt_end <= aa2.vt_end)
-        or
-        (aa2.vt_start <= AA.vt_start and AA.vt_end < aa2.vt_end)
-        )
-    )
-    and id_descendent in (select id_descendent from TMP_deletethese);
-
-    
-   update t_path_capability
-    set param_value = (
-        select distinct aa.tx_path || '/'
-        from
-        t_account_ancestor aa
-        inner join TMP_deletethese d on aa.id_descendent=d.id_descendent and aa.id_ancestor = 1
-        inner join t_principal_policy p on p.id_acc = aa.id_descendent
-        inner join t_capability_instance ci on ci.id_policy = p.id_policy
-        where ci.id_cap_instance = t_path_capability.id_cap_instance
-        and p_system_time between aa.vt_start and aa.vt_end
-    )
-    where exists (
-        select 1
-        from
-        t_account_ancestor aa
-        inner join TMP_deletethese d on aa.id_descendent=d.id_descendent and aa.id_ancestor = 1
-        inner join t_principal_policy p on p.id_acc = aa.id_descendent
-        inner join t_capability_instance ci on ci.id_policy = p.id_policy
-        where ci.id_cap_instance = t_path_capability.id_cap_instance
-        and p_system_time between aa.vt_start and aa.vt_end
-   );
-
-    update t_account_ancestor set b_Children = 'Y' where
-    id_descendent = p_new_parent
-    and b_children ='N';
-
-    update t_account_ancestor old set b_Children = 'N' where
-    id_descendent = p_id_ancestor_out and
-    not exists (select 1 from t_account_ancestor new where new.id_ancestor=old.id_descendent
-    and num_generations <>0 );
-
-/* DataMart insert new id_dm_acc for moving account and descendents */
-        insert into t_dm_account(id_dm_acc,id_acc,vt_start,vt_end) select seq_t_dm_account.nextval,anc.id_descendent, anc.vt_start, anc.vt_end
-        from t_account_ancestor anc
-        inner join tmp_t_dm_account acc on anc.id_descendent = acc.id_acc
-        where anc.id_ancestor=1
-        and acc.vt_end = varMaxDateTime;
-    
-        insert into t_dm_account_ancestor
-        select dm2.id_dm_acc, dm1.id_dm_acc, aa1.num_generations
-        from
-        t_account_ancestor aa1
-        inner join t_dm_account dm1 on aa1.id_descendent=dm1.id_acc and aa1.vt_start <= dm1.vt_end and dm1.vt_start <= aa1.vt_end
-        inner join t_dm_account dm2 on aa1.id_ancestor=dm2.id_acc and aa1.vt_start <= dm2.vt_end and dm2.vt_start <= aa1.vt_end
-        inner join tmp_t_dm_account acc on aa1.id_descendent = acc.id_acc
-        where dm1.id_acc <> dm2.id_acc
-        and dm1.vt_start >= dm2.vt_start
-        and dm1.vt_end <= dm2.vt_end
-        and acc.vt_end = varMaxDateTime;
-
-        /*we are adding 0 level record for all children of moving account */
-        insert into t_dm_account_ancestor select dm1.id_dm_acc,dm1.id_dm_acc,0
-        from
-        t_dm_account dm1
-        inner join tmp_t_dm_account acc on dm1.id_acc = acc.id_acc
-        and acc.vt_end = varMaxDateTime;
-    
-        delete from tmp_t_dm_account;
-        delete from tmp_deletethese;
-
-        
-    SELECT NVL(MAX(all_types),0)
-        INTO allTypesSupported
-        FROM t_acc_tmpl_types;
-    SELECT NVL(MIN(id_acc_template),-1), NVL(MIN(templOwner),-1), COUNT(*)
-        INTO templateId, templateOwner, templateCount
-        FROM
-        (
-        select  id_acc_template
-                , template.id_folder as templOwner
-            from
-                    t_acc_template template
-            INNER JOIN t_account_ancestor ancestor on template.id_folder = ancestor.id_ancestor
-            INNER JOIN t_account_mapper mapper on mapper.id_acc = ancestor.id_ancestor
-            inner join t_account_type atype on template.id_acc_type = atype.id_type
-                WHERE id_descendent = p_new_parent AND
-                    p_system_time between vt_start AND vt_end AND
-                    (atype.name = p_acc_type OR allTypesSupported = 1)
-            ORDER BY num_generations asc
-        )
-        where ROWNUM = 1;
-
-    IF (templateCount <> 0 AND templateId <> -1)
-    THEN
-        updateprivatetempates(
-            id_template => templateId
-        );
-        inserttemplatesession(templateOwner, p_acc_type, 0, ' ', 0, 0, 0, sessionId, 'N');
-        ApplyAccountTemplate(
-            accountTemplateId => templateId,
-            sessionId => sessionId,
-            systemDate => p_system_time,
-            sub_start => p_system_time,
-            sub_end => NULL,
-            next_cycle_after_startdate => 'N',
-            next_cycle_after_enddate   => 'N',
-            id_event_success           => NULL,
-            id_event_failure           => NULL,
-            account_id                 => NULL,
-            doCommit                   => 'N'
-        );
-    ELSE
-        FOR tmpl IN (
-            SELECT template.id_acc_template, template.id_folder, atype.name
-                FROM t_account_ancestor ancestor
-                JOIN t_acc_template template ON ancestor.id_descendent = template.id_folder
-                JOIN t_account_type atype on template.id_acc_type = atype.id_type
-                WHERE ancestor.id_ancestor = p_new_parent
-        )
-        LOOP
-            updateprivatetempates(
-                id_template => tmpl.id_acc_template
-            );
-            inserttemplatesession(templateOwner, p_acc_type, 0, ' ', 0, 0, 0, sessionId, 'N');
-            ApplyAccountTemplate(
-                accountTemplateId => tmpl.id_acc_template,
-                sessionId => sessionId,
-                systemDate => p_system_time,
-                sub_start => p_system_time,
-                sub_end => NULL,
-                next_cycle_after_startdate => 'N',
-                next_cycle_after_enddate   => 'N',
-                id_event_success           => NULL,
-                id_event_failure           => NULL,
-                account_id                 => NULL,
-                doCommit                   => 'N'
-            );
-        END LOOP;
-        
-    END IF;
-
-    p_status:=1;
 END;
 /
 
@@ -5139,7 +4458,7 @@ then
         INNER join t_usage_interval ui ON aui.id_usage_interval = ui.id_interval
         AND ui.id_interval IN (SELECT id_usage_interval
                                                                                                 FROM t_billgroup
-                                                                                                WHERE id_billgroup = p_id_billgroup)/*= @id_interval*/
+                                                                                                WHERE id_billgroup = p_id_billgroup)
         INNER join t_payment_redirection pr ON tmpall.id_acc = pr.id_payee
             AND ui.dt_end BETWEEN pr.vt_start AND pr.vt_end
         INNER join t_acc_usage_interval auipay ON auipay.id_acc = pr.id_payer
@@ -5158,7 +4477,7 @@ then
         AND au1.id_parent_sess is NULL
     AND au1.id_usage_interval IN (SELECT id_usage_interval
                                                                                                     FROM t_billgroup
-                                                                                                    WHERE id_billgroup = p_id_billgroup) /*= @id_interval*/
+                                                                                                    WHERE id_billgroup = p_id_billgroup) 
         AND ((au1.id_pi_template is null and au1.id_parent_sess is null) or (au1.id_pi_template is not null and piTemplated2.id_template_parent is null))
         ) au ON
             au.id_acc = tmpall.id_acc
@@ -5287,7 +4606,7 @@ begin
                                              AND dm.id_usage_interval IN (SELECT id_usage_interval
                                                                           FROM t_billgroup
                                                                           WHERE id_billgroup =
-                                                                          ' || to_char(p_id_billgroup) || ') /*= @id_interval*/
+                                                                          ' || to_char(p_id_billgroup) || ') 
                              LEFT OUTER JOIN t_enum_data ed ON dm.id_view =
                                                                  ed.id_enum_data /*  non-join conditions */
                         WHERE ('|| p_exclude_billable ||' = ''0'' OR avi.c_billable = ''0'')
@@ -6498,10 +5817,12 @@ BEGIN
 END;
 /
 
+
 CREATE OR REPLACE
 PROCEDURE UpdatePrivateTempates
 (
-  id_template int
+  id_template int,
+  p_systemdate  date
 )    
 AS
   id_account int;
@@ -6519,7 +5840,7 @@ BEGIN
         (SELECT t.id_acc_template
            FROM t_account_ancestor aa
                 JOIN t_acc_template t on aa.id_descendent = t.id_folder AND t.id_acc_type = UpdatePrivateTempates.id_acc_type
-          WHERE aa.id_ancestor = UpdatePrivateTempates.id_account);
+          WHERE aa.id_ancestor = UpdatePrivateTempates.id_account AND p_systemdate between aa.vt_start AND aa.vt_end);
   
   /*delete old values for subscriptions of private templates of current account and child accounts*/
   DELETE
@@ -6528,7 +5849,7 @@ BEGIN
         (SELECT t.id_acc_template
            FROM t_account_ancestor aa
                 JOIN t_acc_template t on aa.id_descendent = t.id_folder AND t.id_acc_type = UpdatePrivateTempates.id_acc_type
-          WHERE aa.id_ancestor = UpdatePrivateTempates.id_account);
+          WHERE aa.id_ancestor = UpdatePrivateTempates.id_account AND p_systemdate between aa.vt_start AND aa.vt_end);
   
   /*insert new values for private template from public template for all sub-tree of current account.*/
   INSERT INTO t_acc_template_props
@@ -6539,7 +5860,7 @@ BEGIN
         (SELECT t.id_acc_template
            FROM t_account_ancestor aa
                 JOIN t_acc_template t on aa.id_descendent = t.id_folder AND t.id_acc_type = UpdatePrivateTempates.id_acc_type
-          WHERE aa.id_ancestor = UpdatePrivateTempates.id_account);
+          WHERE aa.id_ancestor = UpdatePrivateTempates.id_account AND p_systemdate between aa.vt_start AND aa.vt_end);
 
   INSERT INTO t_acc_template_subs
           (id_po, id_group, id_acc_template, vt_start, vt_end)
@@ -6549,7 +5870,7 @@ BEGIN
         (SELECT t.id_acc_template
            FROM t_account_ancestor aa
                 JOIN t_acc_template t on aa.id_descendent = t.id_folder AND t.id_acc_type = UpdatePrivateTempates.id_acc_type
-          WHERE aa.id_ancestor = UpdatePrivateTempates.id_account);
+          WHERE aa.id_ancestor = UpdatePrivateTempates.id_account AND p_systemdate between aa.vt_start AND aa.vt_end);
 
 /*  INSERT INTO t_acc_template_props 
           (id_prop, id_acc_template, nm_prop_class, nm_prop, nm_value)
@@ -6576,7 +5897,7 @@ BEGIN
                    FROM (SELECT aa.num_generations, t.id_acc_template
                            FROM t_account_ancestor aa
                                 JOIN t_acc_template t ON aa.id_ancestor = t.id_folder AND t.id_acc_type = UpdatePrivateTempates.id_acc_type
-                          WHERE aa.id_descendent = id_account AND aa.id_descendent <> aa.id_ancestor
+                          WHERE aa.id_descendent = id_account AND aa.id_descendent <> aa.id_ancestor AND p_systemdate between aa.vt_start AND aa.vt_end
                         ORDER BY aa.num_generations) b
                 ) a ON tatpp.id_acc_template = a.id_acc_template
      WHERE a.rownumber = 1
@@ -6590,7 +5911,7 @@ BEGIN
                    FROM (SELECT aa.num_generations, t.id_acc_template
                            FROM t_account_ancestor aa
                                 JOIN t_acc_template t ON aa.id_ancestor = t.id_folder AND t.id_acc_type = UpdatePrivateTempates.id_acc_type
-                          WHERE aa.id_descendent = id_account AND aa.id_descendent <> aa.id_ancestor
+                          WHERE aa.id_descendent = id_account AND aa.id_descendent <> aa.id_ancestor AND p_systemdate between aa.vt_start AND aa.vt_end
                         ORDER BY aa.num_generations) b
                 ) a ON tatps.id_acc_template = a.id_acc_template
      WHERE a.rownumber = 1
@@ -6607,12 +5928,15 @@ BEGIN
                                JOIN t_acc_template t2 ON a3.id_ancestor = t2.id_folder AND t2.id_acc_type = UpdatePrivateTempates.id_acc_type
                         WHERE  num_generations =
                                 (SELECT MIN(num_generations)
-                                FROM   t_account_ancestor ac
+                                    FROM   t_account_ancestor ac
                                        JOIN t_acc_template t3 ON ac.id_ancestor = t3.id_folder
-                                WHERE  ac.id_descendent = a3.id_descendent AND num_generations > 0)
+                                    WHERE  ac.id_descendent = a3.id_descendent AND num_generations > 0 
+                                        AND p_systemdate between ac.vt_start AND ac.vt_end
+                                )
+                               AND p_systemdate between a3.vt_start AND a3.vt_end
 
                      ) pa ON pa.id_descendent = aa.id_descendent
-               WHERE aa.id_ancestor = id_account AND aa.num_generations > 0
+               WHERE aa.id_ancestor = id_account AND aa.num_generations > 0 AND p_systemdate between aa.vt_start AND aa.vt_end
               ORDER BY aa.num_generations ASC
              ) LOOP
     /*recursive merge properties to private template of each level of child account from private template of current account */
@@ -6799,26 +6123,53 @@ BEGIN
                 WHERE id_descendent = accountID AND
                     p_systemdate between vt_start AND vt_end AND
                     (atype.name = p_acc_type or tatt.all_types = 1)
+                    AND num_generations <> 0
             ORDER BY num_generations asc
         )
         where ROWNUM = 1;
-
+    IF (templateCount <> 0 AND templateId <> -1)
+    THEN
+        updateprivatetempates(ID_TEMPLATE=>templateId, P_SYSTEMDATE=>p_systemdate);
+    END IF;
+    
+    SELECT NVL(MIN(id_acc_template),-1), NVL(MIN(templOwner),-1), COUNT(*)
+        INTO templateId, templateOwner, templateCount
+        FROM
+        (
+        select  id_acc_template
+                , template.id_folder as templOwner
+            from
+                    t_acc_template template
+            INNER JOIN t_account_ancestor ancestor on template.id_folder = ancestor.id_ancestor
+            INNER JOIN t_account_mapper mapper on mapper.id_acc = ancestor.id_ancestor
+            inner join t_account_type atype on template.id_acc_type = atype.id_type
+            left join t_acc_tmpl_types tatt on tatt.id = 1
+                WHERE id_descendent = accountID AND
+                    p_systemdate between vt_start AND vt_end AND
+                    (atype.name = p_acc_type or tatt.all_types = 1)
+            ORDER BY num_generations asc
+        )
+        where ROWNUM = 1;
     IF (templateCount <> 0 AND templateId <> -1)
     THEN
         inserttemplatesession(templateOwner, p_acc_type, 0, ' ', 0, 0, 0, sessionId, 'N');
-        ApplyAccountTemplate(
-            accountTemplateId => templateId,
-            sessionId => sessionId,
-            systemDate => p_systemdate,
-            sub_start => p_systemdate,
-            sub_end => NULL,
+        ApplyTemplateToAccounts
+        (
+            idAccountTemplate          => templateId,
+            sessionId                  => sessionId,
+            nRetryCount                => 0,
+            systemDate                 => p_systemdate,
+            sub_start                  => p_systemdate,
+            sub_end                    => mtmaxdate(),
             next_cycle_after_startdate => 'N',
             next_cycle_after_enddate   => 'N',
+            user_id                    => 0,
             id_event_success           => NULL,
             id_event_failure           => NULL,
-            account_id                 => accountid,
+            account_id                 => accountID,
             doCommit                   => 'N'
         );
+        
     END IF;
 END;
 /
@@ -6843,6 +6194,7 @@ BEGIN
     END IF;
 END;
 /
+
 
 CREATE OR REPLACE PROCEDURE deleteaccounts (
    p_account_id_list               NVARCHAR2, /* accounts to be deleted */
@@ -7895,6 +7247,1208 @@ EXCEPTION
 END deleteaccounts;
 /            
 
+
+create  or replace 
+procedure MoveAccount2
+    (p_new_parent int,
+     p_account_being_moved int,
+   p_vt_move_start date,
+   p_enforce_same_corporation varchar2,
+   p_system_time date,
+   p_status out int ,
+   p_id_ancestor_out out int,
+   p_ancestor_type out varchar2,
+   p_acc_type out varchar2,
+   do_apply_template char default 'N'
+)
+as
+vt_move_end date;
+varMaxDateTime  date;
+v_AccCreateDate  date;
+v_AccMaxCreateDate  date;
+v_dt_start date;
+v_realstartdate  date;
+v_id_ancestor  int;
+v_id_descendent  int;
+v_ancestor_acc_type  varchar(5);
+v_descendent_acc_type  varchar(5);
+originalAncestor int;
+syntheticroot varchar2(1);
+dummy_type int;
+p_vt_move_start_trunc date;
+allTypesSupported int;
+templateId int;
+templateOwner int;
+templateCount int;
+sessionId int;
+begin
+    vt_move_end := dbo.MTMaxDate();
+
+    p_vt_move_start_trunc := dbo.MTStartofDay(p_vt_move_start);
+
+    /* plug business rules back in*/
+
+    v_dt_start      := p_vt_move_start_trunc;
+    v_id_ancestor   := p_new_parent;
+    v_id_descendent := p_account_being_moved;
+
+    v_realstartdate := dbo.mtstartofday(v_dt_start) ;
+        select max(vt_end) into varMaxDateTime from t_account_ancestor where id_descendent = v_id_descendent
+        and id_ancestor = 1;
+
+    begin
+
+        select
+        dbo.mtminoftwodates(dbo.mtstartofday(ancestor.dt_crt),dbo.mtstartofday(descendent.dt_crt)),
+        ancestor.id_type, descendent.id_type
+        into v_AccCreateDate,v_ancestor_acc_type,v_descendent_acc_type
+        from t_account ancestor
+        inner join t_account descendent ON
+        ancestor.id_acc = v_id_ancestor and
+        descendent.id_acc = v_id_descendent;
+    exception
+    when no_data_found then
+        null;
+    end;
+
+select name into p_ancestor_type
+from t_account_type
+where id_type = v_ancestor_acc_type;
+
+
+select name into p_acc_type
+from t_account_type
+where id_type = v_descendent_acc_type;
+
+    begin
+        select
+        dbo.mtmaxoftwodates(dbo.mtstartofday(ancestor.dt_crt),dbo.mtstartofday(descendent.dt_crt))
+        into v_AccMaxCreateDate
+        from t_account ancestor,t_account descendent where ancestor.id_acc = v_id_ancestor and
+        descendent.id_acc = v_id_descendent;
+    exception
+            when no_data_found then
+            null;
+    end;
+
+    if dbo.mtstartofday(v_dt_start) < dbo.mtstartofday(v_AccMaxCreateDate)  then
+        /* MT_CANNOT_MOVE_ACCOUNT_BEFORE_START_DATE*/
+        p_status := -486604750;
+        return;
+    end if;
+
+
+    /* step : make sure that the new ancestor is not actually a child*/
+    select count(*) into p_status
+    from t_account_ancestor
+    where id_ancestor = v_id_descendent
+    and id_descendent = v_id_ancestor AND
+    v_realstartdate between vt_start AND vt_end;
+
+    if p_status > 0 then
+        /* MT_NEW_PARENT_IS_A_CHILD*/
+        p_status := -486604797;
+        return;
+    end if;
+
+    select count(*) into p_status
+    from t_account_ancestor
+    where id_ancestor = v_id_ancestor
+    and id_descendent = v_id_descendent
+    and num_generations = 1
+    and v_realstartdate >= vt_start
+    and vt_end = varMaxDateTime;
+
+    if p_status > 0 then
+        /* MT_NEW_ANCESTOR_IS_ALREADY_ A_ANCESTOR*/
+        p_status := 1;
+        return;
+    end if;
+
+      /* step : make sure that the account is not archived or closed*/
+    select count(*)  into p_status from t_account_state
+    where id_acc = v_id_descendent
+    and (dbo.IsClosed(p_status) = 1 OR dbo.isArchived(p_status) = 1)
+    and v_realstartdate between vt_start AND vt_end;
+    if (p_status > 0 ) then
+        /* OPERATION_NOT_ALLOWED_IN_CLOSED_OR_ARCHIVED*/
+        p_status := -469368827;
+        return;
+    end if;
+
+    /* step : make sure that the account is not a corporate account*/
+    /*only check next 2 business rules if p_enforce_same_corporation rule is turned on*/
+    if p_enforce_same_corporation = 1 then
+        if (dbo.iscorporateaccount(v_id_descendent,v_dt_start) = 1)
+        then
+            /* MT_CANNOT_MOVE_CORPORATE_ACCOUNT*/
+            p_status := -486604770;
+            return;
+    end if;
+        /* do this check if the original ancestor of the account being moved is not -1
+         or the new ancestor is not -1 */
+        select id_ancestor into originalAncestor from t_account_ancestor
+            where id_descendent =  v_id_descendent
+            and num_generations = 1
+            and p_vt_move_start_trunc >= vt_start and p_vt_move_start_trunc <= vt_end;
+
+        if (originalAncestor <> -1 AND v_id_ancestor <> -1 AND
+        dbo.IsInSameCorporateAccount(v_id_ancestor,v_id_descendent,v_realstartdate) <> 1)
+        then
+            /* MT_CANNOT_MOVE_BETWEEN_CORPORATE_HIERARCHIES*/
+            p_status := -486604759;
+            return;
+        end if;
+    end if;
+
+    /*check that both ancestor and descendent are subscriber accounts.  This check has to be recast.. you can
+     only move if the new ancestor allows children of type escendent_acc_type */
+
+    select count(*) into dummy_type from dual
+    where exists (select 1 from t_acctype_descendenttype_map
+    where id_type = v_ancestor_acc_type
+    and id_descendent_type = v_descendent_acc_type);
+    if (dummy_type = 0)
+    then
+        /* MT_ANCESTOR_OF_INCORRECT_TYPE */
+        p_status := -486604714;
+        return;
+    END if;
+
+    /* check that only accounts whose type says b_canHaveSyntheticRoot is true can have -1 as an ancestor.*/
+    if (v_id_ancestor = -1)
+    then
+    select b_CanhaveSyntheticRoot into syntheticroot from t_account_type where id_type = v_descendent_acc_type;
+    if (syntheticroot <> '1')
+    then
+    /* MT_ANCESTOR_INVALID_SYNTHETIC_ROOT */
+        p_status := -486604713;
+        return;
+    END if;
+    END if;
+
+    /* end business rules*/
+
+/*METRAVIEW DATAMART */
+
+insert into tmp_t_dm_account  select * from t_dm_account where id_acc in
+(
+select distinct id_descendent from t_account_ancestor where id_ancestor = p_account_being_moved
+);
+/* Deleting all the entries from ancestor table */
+delete from t_dm_account_ancestor where id_dm_descendent in (select id_dm_acc from tmp_t_dm_account);
+delete from t_dm_account where id_dm_acc in (select id_dm_acc from tmp_t_dm_account);
+
+    insert into tmp_deletethese
+    select
+    aa2.id_ancestor,
+    aa2.id_descendent,
+    aa2.num_generations,
+    aa2.b_children,
+    dbo.MTMaxOfTwoDates(p_vt_move_start_trunc, dbo.MTMaxOfTwoDates(dbo.MTMaxOfTwoDates(aa1.vt_start, aa2.vt_start), aa3.vt_start)) as vt_start,
+    dbo.MTMinOfTwoDates(vt_move_end, dbo.MTMinOfTwoDates(dbo.MTMinOfTwoDates(aa1.vt_end, aa2.vt_end), aa3.vt_end)) as vt_end,
+    aa2.tx_path
+    from
+    t_account_ancestor aa1
+    inner join t_account_ancestor aa2 on aa1.id_ancestor=aa2.id_ancestor and aa1.vt_start <= aa2.vt_end and aa2.vt_start <= aa1.vt_end and aa2.vt_start <= vt_move_end and p_vt_move_start_trunc <= aa2.vt_end
+    inner join t_account_ancestor aa3 on aa2.id_descendent=aa3.id_descendent and aa3.vt_start <= aa2.vt_end and aa2.vt_start <= aa3.vt_end and aa3.vt_start <= vt_move_end and p_vt_move_start_trunc <= aa3.vt_end
+    where
+    aa1.id_descendent=p_account_being_moved
+    and
+    aa1.num_generations > 0
+    and
+    aa1.vt_start <= vt_move_end
+    and
+    p_vt_move_start_trunc <= aa1.vt_end
+    and
+    aa3.id_ancestor=p_account_being_moved;
+
+    /* select old direct ancestor id*/
+    begin
+        select id_ancestor into p_id_ancestor_out from tmp_deletethese
+        where num_generations = 1 and p_vt_move_start_trunc between vt_start and vt_end;
+    exception
+        when no_data_found then
+        null;
+    end;
+
+    /*select * from #deletethese
+     The four statements of the sequenced delete follow.  Watch carefully :-)
+
+     Create a new interval for the case in which the applicability interval of the update
+     is contained inside the period of validity of the existing interval
+     [------------------] (existing)
+        [-----------] (update)*/
+
+    insert into t_account_ancestor(id_ancestor, id_descendent, num_generations,b_children, vt_start, vt_end,tx_path)
+    select aa.id_ancestor, aa.id_descendent, aa.num_generations, d.b_children,d.vt_start, d.vt_end,
+    case when aa.id_descendent = 1 then
+        aa.tx_path || d.tx_path
+        else
+        d.tx_path || '/' || aa.tx_path
+        end
+    from
+    t_account_ancestor aa
+    inner join tmp_deletethese d on aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and
+        aa.num_generations=d.num_generations and aa.vt_start < d.vt_start and aa.vt_end > d.vt_end;
+
+    /* Update end date of existing records for which the applicability interval of the update
+     starts strictly inside the existing record:
+     [---------] (existing)
+        [-----------] (update)
+     or
+     [---------------] (existing)
+        [-----------] (update)*/
+    update t_account_ancestor aa
+    set
+    vt_end = (select dbo.subtractsecond(d.vt_start) from
+                            tmp_deletethese d where aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and
+                            aa.num_generations=d.num_generations and aa.vt_start < d.vt_start and aa.vt_end > d.vt_start)
+        where exists
+        (select 1 from
+                            tmp_deletethese d where aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and
+                            aa.num_generations=d.num_generations and aa.vt_start < d.vt_start and aa.vt_end > d.vt_start);
+
+    /* Update start date of existing records for which the effectivity interval of the update
+     ends strictly inside the existing record:
+                  [---------] (existing)
+        [-----------] (update)*/
+    update t_account_ancestor aa
+    set
+    vt_start = (select dbo.addsecond(d.vt_end)
+    from tmp_deletethese d where aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and
+        aa.num_generations=d.num_generations and aa.vt_start <= d.vt_end and aa.vt_end > d.vt_end)
+    where exists
+    (select 1
+    from tmp_deletethese d where aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and
+        aa.num_generations=d.num_generations and aa.vt_start <= d.vt_end and aa.vt_end > d.vt_end);
+
+    /* Delete existing records for which the effectivity interval of the update
+     contains the existing record:
+           [---------] (existing)
+         [---------------] (update)*/
+    delete t_account_ancestor aa
+    where exists
+    (select 1
+    from tmp_deletethese d where aa.id_ancestor=d.id_ancestor and aa.id_descendent=d.id_descendent and
+        aa.num_generations=d.num_generations and aa.vt_start >= d.vt_start and aa.vt_end <= d.vt_end);
+
+    /* SEQUENCED INSERT JOIN*/
+    /* Now do the sequenced insert into select from with the sequenced*/
+    /* cross join as the source of the data.*/
+
+    insert into t_account_ancestor(id_ancestor, id_descendent, num_generations,b_children, vt_start, vt_end,tx_path)
+    select aa1.id_ancestor,
+    aa2.id_descendent,
+    aa1.num_generations+aa2.num_generations+1 as num_generations,
+    aa2.b_children,
+    dbo.MTMaxOfTwoDates(p_vt_move_start_trunc, dbo.MTMaxOfTwoDates(aa1.vt_start, aa2.vt_start)) as vt_start,
+    dbo.MTMinOfTwoDates(vt_move_end, dbo.MTMinOfTwoDates(aa1.vt_end, aa2.vt_end)) as vt_end,
+    case when aa2.id_descendent = 1 then
+        aa1.tx_path || aa2.tx_path
+        else
+        aa1.tx_path || '/' || aa2.tx_path
+        end
+    from
+    t_account_ancestor aa1
+    inner join t_account_ancestor aa2 on aa1.vt_start < aa2.vt_end and aa2.vt_start < aa1.vt_end and aa2.vt_start < vt_move_end and p_vt_move_start_trunc < aa2.vt_end
+    where
+    aa1.id_descendent = p_new_parent
+    and
+    aa1.vt_start < vt_move_end
+    and
+    p_vt_move_start_trunc < aa1.vt_end
+    and
+    aa2.id_ancestor = p_account_being_moved;
+
+    /* Implement the coalescing step.*/
+    /* TODO: Improve efficiency by restricting the updates to the rows that*/
+    /* might need coalesing.*/
+    update t_account_ancestor aa
+    set vt_end = (
+        select max(aa2.vt_end)
+        from
+        t_account_ancestor aa2
+        where
+        aa.id_ancestor=aa2.id_ancestor
+        and
+        aa.id_descendent=aa2.id_descendent
+        and
+        aa.num_generations=aa2.num_generations
+        and
+        aa.vt_start < aa2.vt_start
+        and
+        dbo.addsecond(aa.vt_end) >= aa2.vt_start
+        and
+        aa.vt_end < aa2.vt_end
+        and
+        aa.tx_path=aa2.tx_path
+    )
+    where
+    exists (
+        select *
+        from
+        t_account_ancestor aa2
+        where
+        aa.id_ancestor=aa2.id_ancestor
+        and
+        aa.id_descendent=aa2.id_descendent
+        and
+        aa.num_generations=aa2.num_generations
+        and
+        aa.vt_start < aa2.vt_start
+        and
+        dbo.addsecond(aa.vt_end) >= aa2.vt_start
+        and
+        aa.vt_end < aa2.vt_end
+        and
+        aa.tx_path=aa2.tx_path
+    )
+    and aa.id_descendent in (select id_descendent from tmp_deletethese);
+
+    delete from t_account_ancestor AA
+    where
+    exists (
+        select *
+        from t_account_ancestor aa2
+        where
+        AA.id_ancestor=aa2.id_ancestor
+        and
+        AA.id_descendent=aa2.id_descendent
+        and
+        AA.num_generations=aa2.num_generations
+        and
+        AA.tx_path=aa2.tx_path
+        and
+        (
+        (aa2.vt_start < AA.vt_start and AA.vt_end <= aa2.vt_end)
+        or
+        (aa2.vt_start <= AA.vt_start and AA.vt_end < aa2.vt_end)
+        )
+    )
+    and id_descendent in (select id_descendent from TMP_deletethese);
+
+
+   update t_path_capability
+    set param_value = (
+        select distinct aa.tx_path || '/'
+        from
+        t_account_ancestor aa
+        inner join TMP_deletethese d on aa.id_descendent=d.id_descendent and aa.id_ancestor = 1
+        inner join t_principal_policy p on p.id_acc = aa.id_descendent
+        inner join t_capability_instance ci on ci.id_policy = p.id_policy
+        where ci.id_cap_instance = t_path_capability.id_cap_instance
+        and p_system_time between aa.vt_start and aa.vt_end
+    )
+    where exists (
+        select 1
+        from
+        t_account_ancestor aa
+        inner join TMP_deletethese d on aa.id_descendent=d.id_descendent and aa.id_ancestor = 1
+        inner join t_principal_policy p on p.id_acc = aa.id_descendent
+        inner join t_capability_instance ci on ci.id_policy = p.id_policy
+        where ci.id_cap_instance = t_path_capability.id_cap_instance
+        and p_system_time between aa.vt_start and aa.vt_end
+   );
+
+    update t_account_ancestor set b_Children = 'Y' where
+    id_descendent = p_new_parent
+    and b_children ='N';
+
+    update t_account_ancestor old set b_Children = 'N' where
+    id_descendent = p_id_ancestor_out and
+    not exists (select 1 from t_account_ancestor new where new.id_ancestor=old.id_descendent
+    and num_generations <>0 );
+
+/* DataMart insert new id_dm_acc for moving account and descendents */
+        insert into t_dm_account(id_dm_acc,id_acc,vt_start,vt_end) select seq_t_dm_account.nextval,anc.id_descendent, anc.vt_start, anc.vt_end
+        from t_account_ancestor anc
+        inner join tmp_t_dm_account acc on anc.id_descendent = acc.id_acc
+        where anc.id_ancestor=1
+        and acc.vt_end = varMaxDateTime;
+
+        insert into t_dm_account_ancestor
+        select dm2.id_dm_acc, dm1.id_dm_acc, aa1.num_generations
+        from
+        t_account_ancestor aa1
+        inner join t_dm_account dm1 on aa1.id_descendent=dm1.id_acc and aa1.vt_start <= dm1.vt_end and dm1.vt_start <= aa1.vt_end
+        inner join t_dm_account dm2 on aa1.id_ancestor=dm2.id_acc and aa1.vt_start <= dm2.vt_end and dm2.vt_start <= aa1.vt_end
+        inner join tmp_t_dm_account acc on aa1.id_descendent = acc.id_acc
+        where dm1.id_acc <> dm2.id_acc
+        and dm1.vt_start >= dm2.vt_start
+        and dm1.vt_end <= dm2.vt_end
+        and acc.vt_end = varMaxDateTime;
+
+        /*we are adding 0 level record for all children of moving account */
+        insert into t_dm_account_ancestor select dm1.id_dm_acc,dm1.id_dm_acc,0
+        from
+        t_dm_account dm1
+        inner join tmp_t_dm_account acc on dm1.id_acc = acc.id_acc
+        and acc.vt_end = varMaxDateTime;
+
+        delete from tmp_t_dm_account;
+        delete from tmp_deletethese;
+
+
+    SELECT NVL(MAX(all_types),0)
+        INTO allTypesSupported
+        FROM t_acc_tmpl_types;
+    SELECT NVL(MIN(id_acc_template),-1), NVL(MIN(templOwner),-1), COUNT(*)
+        INTO templateId, templateOwner, templateCount
+        FROM
+        (
+        select  id_acc_template
+                , template.id_folder as templOwner
+            from
+                    t_acc_template template
+            INNER JOIN t_account_ancestor ancestor on template.id_folder = ancestor.id_ancestor
+            INNER JOIN t_account_mapper mapper on mapper.id_acc = ancestor.id_ancestor
+            inner join t_account_type atype on template.id_acc_type = atype.id_type
+                WHERE id_descendent = p_new_parent AND
+                    p_system_time between vt_start AND vt_end AND
+                    (atype.name = p_acc_type OR allTypesSupported = 1)
+            ORDER BY num_generations asc
+        )
+        where ROWNUM = 1;
+    IF (do_apply_template = 'Y')
+    THEN
+        IF (templateCount <> 0 AND templateId <> -1)
+        THEN
+            updateprivatetempates(
+                id_template => templateId,
+                p_systemdate => p_system_time
+            );
+            inserttemplatesession(templateOwner, p_acc_type, 0, ' ', 0, 0, 0, sessionId, 'N');
+            ApplyAccountTemplate(
+                accountTemplateId => templateId,
+                sessionId => sessionId,
+                systemDate => p_system_time,
+                sub_start => p_system_time,
+                sub_end => NULL,
+                next_cycle_after_startdate => 'N',
+                next_cycle_after_enddate   => 'N',
+                id_event_success           => NULL,
+                id_event_failure           => NULL,
+                account_id                 => p_account_being_moved,
+                doCommit                   => 'N'
+            );
+        ELSE
+            FOR tmpl IN (
+                SELECT template.id_acc_template, template.id_folder, atype.name
+                    FROM t_account_ancestor ancestor
+                    JOIN t_acc_template template ON ancestor.id_descendent = template.id_folder
+                    JOIN t_account_type atype on template.id_acc_type = atype.id_type
+                    WHERE ancestor.id_ancestor = p_new_parent AND
+                        p_system_time between vt_start AND vt_end AND
+                        (atype.name = p_acc_type OR allTypesSupported = 1)
+            )
+            LOOP
+                updateprivatetempates(
+                    id_template => tmpl.id_acc_template,
+                    p_systemdate => p_system_time
+                );
+                inserttemplatesession(templateOwner, p_acc_type, 0, ' ', 0, 0, 0, sessionId, 'N');
+                ApplyAccountTemplate(
+                    accountTemplateId => tmpl.id_acc_template,
+                    sessionId => sessionId,
+                    systemDate => p_system_time,
+                    sub_start => p_system_time,
+                    sub_end => NULL,
+                    next_cycle_after_startdate => 'N',
+                    next_cycle_after_enddate   => 'N',
+                    id_event_success           => NULL,
+                    id_event_failure           => NULL,
+                    account_id                 => p_account_being_moved,
+                    doCommit                   => 'N'
+                );
+            END LOOP;
+        END IF;
+    END IF;
+
+    p_status:=1;
+END;
+/
+
+CREATE OR REPLACE 
+procedure updateaccount (
+p_loginname IN nvarchar2,
+p_namespace IN nvarchar2,
+p_id_acc IN int,
+p_acc_state in varchar2,
+p_acc_state_ext in int,
+p_acc_statestart in date,
+p_tx_password IN nvarchar2,
+p_ID_CYCLE_TYPE IN integer,
+p_DAY_OF_MONTH IN integer,
+p_DAY_OF_WEEK IN integer,
+p_FIRST_DAY_OF_MONTH IN integer,
+p_SECOND_DAY_OF_MONTH IN integer,
+p_START_DAY IN integer,
+p_START_MONTH IN integer,
+p_START_YEAR IN integer,
+p_id_payer IN integer,
+p_payer_login IN nvarchar2,
+p_payer_namespace IN nvarchar2,
+p_payer_startdate IN date,
+p_payer_enddate IN date,
+p_id_ancestor IN int,
+p_ancestor_name IN nvarchar2,
+p_ancestor_namespace IN nvarchar2,
+p_hierarchy_movedate IN date,
+p_systemdate IN date,
+p_billable IN varchar2,
+p_enforce_same_corporation varchar2,
+p_account_currency nvarchar2,
+p_status OUT int,
+p_cyclechanged OUT int,
+p_newcycle OUT int,
+p_accountID OUT int,
+p_hierarchy_path OUT varchar2,
+p_old_id_ancestor_out OUT int ,
+p_id_ancestor_out OUT int ,
+p_corporate_account_id OUT int,
+p_ancestor_type OUT varchar2,
+p_acc_type out varchar2 
+)
+as
+accountID integer;
+oldcycleID integer;
+usagecycleID integer;
+intervalenddate date;
+intervalID integer;
+pc_start date;
+pc_end date;
+oldpayerstart date;
+oldpayerend date;
+oldpayer integer;
+payerenddate date;
+payerID integer;
+AncestorID integer;
+payerbillable varchar2(1);
+p_count integer;
+begin
+ accountID  := -1;
+ oldcycleID := 0;
+ p_status   := 0;
+
+ p_ancestor_type := ' ';
+
+ p_old_id_ancestor_out := p_id_ancestor;
+
+ /* step : resolve the account if necessary*/
+ if p_id_acc is NULL then
+  if p_loginname is not NULL and p_namespace is not NULL then
+    accountID := dbo.lookupaccount(p_loginname, p_namespace);
+    if accountID < 0 then
+        /* MTACCOUNT_RESOLUTION_FAILED*/
+     p_status := -509673460;
+    end if;
+  else
+   /* MTACCOUNT_RESOLUTION_FAILED*/
+   p_status := -509673460;
+  end if;
+else
+  accountID := p_id_acc;
+end if;
+
+if p_status < 0 then
+  return;
+end if;
+
+ /* step : update the account password if necessary.  catch error
+  if the account does not exist or the login name is not valid.  The system
+  should check that both the login name, namespace, and password are 
+  required to change the password.*/
+ if p_loginname is not NULL and p_namespace is not NULL and p_tx_password is not NULL then
+  begin
+   update t_user_credentials set tx_password = p_tx_password
+         where upper(nm_login) = upper(p_loginname) and upper(nm_space) =
+         upper(p_namespace);
+  exception when NO_DATA_FOUND then
+   /* MTACCOUNT_FAILED_PASSWORD_UPDATE*/
+   p_status :=  -509673461;
+  end;
+ end if;
+ 
+ /* step : figure out if we need to update the account's billing cycle.  this
+  may fail because the usage cycle information may not be present.*/
+  begin
+   for i in (
+   select id_usage_cycle
+   from t_usage_cycle cycle where
+   cycle.id_cycle_type = p_ID_CYCLE_TYPE 
+   AND (p_DAY_OF_MONTH = cycle.day_of_month or p_DAY_OF_MONTH is NULL)
+   AND (p_DAY_OF_WEEK = cycle.day_of_week or p_DAY_OF_WEEK is NULL)
+   AND (p_FIRST_DAY_OF_MONTH= cycle.FIRST_DAY_OF_MONTH  or p_FIRST_DAY_OF_MONTH is NULL)
+   AND (p_SECOND_DAY_OF_MONTH = cycle.SECOND_DAY_OF_MONTH or p_SECOND_DAY_OF_MONTH is NULL)
+   AND (p_START_DAY= cycle.START_DAY or p_START_DAY is NULL)
+   AND (p_START_MONTH= cycle.START_MONTH or p_START_MONTH is NULL)
+   AND (p_START_YEAR = cycle.START_YEAR or p_START_YEAR is NULL))
+   loop
+       usagecycleID := i.id_usage_cycle ;
+   end loop;
+   if usagecycleID is null then
+       usagecycleID := -1;
+   end if;
+  end;
+  
+  for i in (
+    select id_usage_cycle from
+    t_acc_usage_cycle where id_acc = accountID)
+    loop
+        oldcycleID := i.id_usage_cycle;
+    end loop;
+    
+  if oldcycleID <> usagecycleID AND usagecycleID <> -1 then
+
+      /* step : update the account's billing cycle*/
+      update t_acc_usage_cycle set id_usage_cycle = usagecycleID
+      where id_acc = accountID;
+
+      /* post-operation business rule check (relies on rollback of work done up until this point)
+       CR9906: checks to make sure the account's new billing cycle matches all of it's and/or payee's 
+       group subscription BCR constraints.  TODO:  The function CheckGroupMembershipCycleConstraint is not ported yet!!!!!
+       uncomment the following after it is ported */
+      
+      
+      select  NVL(MIN(dbo.checkgroupmembershipcycleconst(p_systemdate, groups.id_group)), 1) into p_status
+      from 
+      (
+        select distinct gsm.id_group id_group
+        from t_gsubmember gsm
+        inner join t_payment_redirection pay
+        on pay.id_payee = gsm.id_acc
+        where pay.id_payer = accountID or pay.id_payee = accountID
+      ) groups;
+      
+
+      IF p_status <> 1 then
+        RETURN;
+      end if; 
+
+      /* step : delete any records in t_acc_usage_interval that
+       exist in the future with the old interval*/
+       
+      delete from t_acc_usage_interval aui
+      where aui.id_acc = AccountID AND id_usage_interval IN 
+      ( 
+       select id_interval from t_usage_interval ui
+       INNER JOIN t_acc_usage_interval aui on aui.id_acc = accountID AND
+       aui.id_usage_interval = ui.id_interval
+       where
+       dt_start > p_systemdate
+      );
+      
+      /* step : delete any previous updates in t_acc_usage_interval 
+         (only one can have dt-effective set) and the effective date is in 
+         the future.*/
+         
+         
+      delete from t_acc_usage_interval where dt_effective is not null 
+      and id_acc = accountID AND dt_effective >= p_systemdate;
+  
+      /* step : figure out the interval that we should be modifying*/
+      for i in
+        (select ui.dt_end dt_end
+        from t_acc_usage_interval aui
+        INNER JOIN t_usage_interval ui on ui.id_interval = aui.id_usage_interval
+        AND p_systemdate between ui.dt_start AND ui.dt_end
+        where
+        aui.id_acc = AccountID)
+      loop
+        intervalenddate := i.dt_end;
+      end loop;
+
+      /* step : figure out the new interval ID based on the end date
+       of the existing interval  */
+      IF intervalenddate IS NOT NULL then
+          for i in
+            (select id_interval,dt_start,dt_end
+            from 
+            t_pc_interval where
+            id_cycle = usagecycleID AND
+            dbo.addsecond(intervalenddate) between dt_start AND dt_end)
+          loop
+            intervalID := i.id_interval;
+            pc_start   := i.dt_start;
+            pc_end     := i.dt_end;
+          end loop;
+          
+          /* step : create new usage interval if it is missing.  Make sure we use
+           the end date of the existing interval plus one second AND the new 
+           interval id.  populate the usage interval if necessary*/
+           
+          insert into t_usage_interval
+          select
+          intervalID,usagecycleID,pc_start,pc_end,'O'
+          from dual
+          where 
+          intervalID not in (select id_interval from t_usage_interval);
+          
+          /* step : create the t_acc_usage_interval mappings.  the new one is effective
+           at the end of the interval.  We also must make sure to 
+           populate t_acc_usage_interval with any other intervals in the future that
+           may have been created by USM*/
+           
+           insert into t_acc_usage_interval (id_acc,id_usage_interval,tx_status,dt_effective)
+              SELECT accountID, 
+                     intervalID, 
+                     nvl(tx_interval_status, 'O'),
+                     intervalenddate
+              FROM t_usage_interval 
+              WHERE id_interval = intervalID AND 
+                    tx_interval_status != 'B' ;  
+                    
+          /* this check is necessary if we are creating an association with an interval that begins
+          in the past.  This could happen if you create a daily account on tuesday and then
+          change to a weekly account (starting on monday) on Thursday.  not that the end date check is 
+          only greater than because we want to avoid any intervals that have the same end date as
+          intervalenddate.  The second part of the condition is to pick up intervals that are in the future.
+          and ((intervalenddate >= dt_start AND intervalenddate < dt_end) OR
+          dt_start > intervalenddate);*/
+                  
+      END IF;
+ 
+      /* indicate that the cycle changed*/
+      p_newcycle := UsageCycleID;
+      p_cyclechanged := 1;
+
+  else
+      /* indicate that the cycle did not change*/
+      p_newcycle := UsageCycleID;
+      p_cyclechanged := 0;
+  end if;
+
+ /* step : update the payment redirection information.  Only update
+  the payment information if the payer and payer_startdate is specified*/
+  
+ if (p_id_payer is NOT NULL OR (p_payer_login is not NULL AND 
+  p_payer_namespace is not NULL)) AND p_payer_startdate is NOT NULL then
+  
+  /* resolve the paying account id if necessary*/
+  if p_payer_login is not null and p_payer_namespace is not null then
+   payerID := dbo.LookupAccount(p_payer_login,p_payer_namespace) ;
+   if payerID = -1 then
+    /* MT_CANNOT_RESOLVE_PAYING_ACCOUNT*/
+    p_status := -486604792;
+    return;
+   end if;
+  else
+   /* Fix CORE-762: Check that payerid exists */
+   begin
+     select count(*) into p_count  
+     from t_account 
+     where id_acc = p_id_payer;
+     
+     if p_count = 0 then
+       p_status := -486604792;
+       return;
+     end if;
+   end;
+   payerID := p_id_payer;
+  end if;
+  
+  /* default the payer end date to the end of the account*/
+  if p_payer_enddate is NULL then
+   payerenddate := dbo.mtmaxdate;
+  else
+   payerenddate := p_payer_enddate;
+  end if;
+  
+  /* find the old payment information*/
+  for i in (
+    select vt_start,vt_end ,id_payer
+    from t_payment_redirection
+    where id_payee = AccountID and
+    dbo.overlappingdaterange(vt_start,vt_end,p_payer_startdate,dbo.mtmaxdate)=1)
+    loop
+        oldpayerstart := i.vt_start;
+        oldpayerend   := i.vt_end;
+        oldpayer      := i.id_payer;
+    end loop;
+    
+  /* if the new record is in range of the old record and the payer is the same as the older payer,
+     update the record*/
+     
+  if (payerID = oldpayer) then
+    UpdatePaymentRecord(payerID,accountID,oldpayerstart,oldpayerend,
+                        p_payer_startdate,payerenddate,p_systemdate,
+                        p_enforce_same_corporation,p_account_currency,p_status);
+    if (p_status <> 1) then
+      return;
+    end if;
+  else
+    select case when payerID = accountID then p_billable else null end into payerbillable from dual;
+    CreatePaymentRecord(payerID,accountID,p_payer_startdate,payerenddate,payerbillable,
+                        p_systemdate,'N',p_enforce_same_corporation,p_account_currency,p_status);
+    if (p_status <> 1) then
+      return;
+    end if;
+  end if;
+ end if;
+ 
+ /* check if the account has any payees before setting the account as Non-billable.  It is important
+    that this check take place after creating any payment redirection records   */
+    
+ if dbo.IsAccountBillable(AccountID) = '1' AND p_billable = 'N' then
+    if dbo.DoesAccountHavePayees(AccountID,p_systemdate) = 'Y' then
+          /* MT_ACCOUNT_NON_BILLABLE_AND_HAS_NON_PAYING_SUBSCRIBERS*/
+          p_status := -486604767;
+          return;
+    end if;
+ end if;
+ /* payer update done */
+ 
+ /* ancestor update begin */
+ if ((p_ancestor_name is not null AND p_ancestor_namespace is not NULL)
+ or p_id_ancestor is not null) AND p_hierarchy_movedate is not null then
+ 
+  if p_ancestor_name is not NULL and p_ancestor_namespace is not NULL then
+   ancestorID := dbo.LookupAccount(p_ancestor_name,p_ancestor_namespace) ;
+   p_id_ancestor_out := ancestorID;
+   if ancestorID = -1 then
+    /* MT_CANNOT_RESOLVE_HIERARCHY_ACCOUNT*/
+    p_status := -486604791;
+    return;
+   end if;
+  else
+   ancestorID := p_id_ancestor;
+  end if;
+  MoveAccount2(ancestorID,AccountID,p_hierarchy_movedate,p_enforce_same_corporation,p_systemdate,p_status,p_old_id_ancestor_out,p_ancestor_type,p_acc_type,'N');
+  if p_status <> 1 then
+   return;
+  end if;
+ end if;
+ /* ancestor update done */
+ 
+  if (p_old_id_ancestor_out is null) then
+      p_old_id_ancestor_out := -1;
+  end if;
+
+  if (p_id_ancestor_out is null) then
+      p_id_ancestor_out := -1;
+  end if;
+ 
+ /* step : resolve the hierarchy path based on the current time*/
+ begin
+  select tx_path into p_hierarchy_path from t_account_ancestor
+  where id_ancestor =1  and id_descendent = AccountID and
+  p_systemdate between vt_start and vt_end;
+  exception when NO_DATA_FOUND then
+  p_hierarchy_path := '/';  
+ end;
+ 
+ /* resolve account's corporate account */
+ 
+ begin
+    select ancestor.id_ancestor into p_corporate_account_id from t_account_ancestor ancestor
+    inner join t_account acc on ancestor.id_ancestor = acc.id_acc
+    inner join t_account_type atype on atype.id_type = acc.id_type
+    where
+      ancestor.id_descendent = AccountID
+      AND atype.b_iscorporate = '1'
+      AND p_systemdate  BETWEEN ancestor.vt_start and ancestor.vt_end;
+    exception when NO_DATA_FOUND then
+        null;
+ end;
+
+ /* done*/
+
+ p_accountID := AccountID;
+ p_status := 1;
+end;
+/
+
+create  or replace 
+procedure MoveAccount
+    (p_new_parent int,
+     p_account_being_moved int,
+   p_vt_move_start date,
+   p_enforce_same_corporation varchar2,
+   p_system_time date,
+   p_status out int ,
+   p_id_ancestor_out out int,
+   p_ancestor_type out varchar2,
+   p_acc_type out varchar2
+)
+as
+begin
+    moveaccount2(
+        P_NEW_PARENT=>p_new_parent
+        , P_ACCOUNT_BEING_MOVED=>p_account_being_moved
+        , P_VT_MOVE_START=>p_vt_move_start
+        , P_ENFORCE_SAME_CORPORATION=>p_enforce_same_corporation
+        , P_SYSTEM_TIME=>p_system_time
+        , P_STATUS=>p_status
+        , P_ID_ANCESTOR_OUT=>p_id_ancestor_out
+        , P_ANCESTOR_TYPE=>p_ancestor_type
+        , P_ACC_TYPE=>p_acc_type
+        , DO_APPLY_TEMPLATE=>'Y'
+    );
+END;
+/
+
+create or replace
+procedure insertChargesIntoSvcTables (meterType1 in VARCHAR2, meterType2 in varchar2) as
+    idRun INT;
+    idMessage INT;
+    idServiceFlat int;
+    idServiceUdrc int;
+    numBlocks int;
+    v_block_next t_current_id.id_current%TYPE;    
+begin
+    select count(1) into numBlocks from tmp_rc where (c_RCActionType like meterType1 or c_RcActionType like meterType2);
+    if (numBlocks = 0) then return; end if;
+    
+/*    getidblock(numBlocks, 'id_dbqueuesch', idMessage);*/
+
+    UPDATE t_current_id
+        SET id_current    = id_current + numBlocks
+        WHERE nm_current = 'id_dbqueuesch'
+        RETURNING id_current
+        INTO v_block_next;
+
+    IF sql%FOUND
+    THEN
+        idMessage   := v_block_next - numBlocks;
+    ELSE
+        raise_application_error (-20001,
+                                'T_CURRENT_ID Update failed for ' || 'id_dbqueuesch'
+        );
+    END IF;
+
+    
+/*    getIdBlock(numBlocks, 'id_dbqueuess', idRun);*/
+    UPDATE t_current_id
+        SET id_current    = id_current + numBlocks
+        WHERE nm_current = 'id_dbqueuess'
+        RETURNING id_current
+        INTO v_block_next;
+
+    IF sql%FOUND
+    THEN
+        idRun   := v_block_next - numBlocks;
+    ELSE
+        raise_application_error (-20001,
+                                'T_CURRENT_ID Update failed for ' || 'id_dbqueuess'
+        );
+    END IF;
+
+
+    SELECT id_enum_data into idServiceFlat FROM t_enum_data ted WHERE ted.nm_enum_data LIKE
+         'metratech.com/flatrecurringcharge';
+    SELECT id_enum_data into idServiceUdrc FROM t_enum_data ted WHERE ted.nm_enum_data LIKE
+         'metratech.com/udrecurringcharge';  
+       
+    INSERT INTO t_session
+      SELECT idRun + ROW_NUMBER() OVER (ORDER BY id_Source_Sess) - 1 AS id_ss,
+        id_source_sess,
+        1 as id_partition
+      FROM tmp_rc
+        where (c_RCActionType like meterType1 or c_RcActionType like meterType2);
+
+    INSERT INTO t_session_set
+      SELECT idMessage + ROW_NUMBER() OVER (ORDER BY id_Source_Sess) - 1 AS id_message,
+      idRun + ROW_NUMBER() OVER (ORDER BY id_Source_Sess) - 1 AS id_ss,
+      case when c_unitValue IS NULL then idServiceFlat ELSE idServiceUdrc END AS id_svc,
+      1 AS b_root,
+      1 AS session_count,
+      1 as id_partition
+    FROM tmp_rc
+      where (c_RCActionType like meterType1 or c_RcActionType like meterType2);
+    
+    INSERT INTO t_message
+    select idMessage + ROW_NUMBER() OVER (ORDER BY id_Source_Sess) - 1 AS id_message,
+        NULL as id_route,
+        metratime(1,'RC') as dt_crt ,
+        metratime(1,'RC') as dt_metered ,
+        NULL as dt_assigned,
+        NULL as id_listener,
+        NULL as id_pipeline,
+        NULL as dt_completed,
+        NULL as id_feedback,
+        NULL as tx_TransactionID,
+        NULL as tx_sc_username,
+        NULL as tx_sc_password,
+        NULL as tx_sc_namespace,
+        NULL as tx_sc_serialized,
+        '127.0.0.1' as tx_ip_address,
+      1 as id_partition
+   FROM tmp_rc 
+     where (c_RCActionType like meterType1 or c_RcActionType like meterType2);
+    
+    INSERT INTO t_svc_FlatRecurringCharge
+    (id_source_sess
+    ,id_parent_source_sess
+    ,id_external
+    ,c_RCActionType
+    ,c_RCIntervalStart
+    ,c_RCIntervalEnd
+    ,c_BillingIntervalStart
+    ,c_BillingIntervalEnd
+    ,c_RCIntervalSubscriptionStart
+    ,c_RCIntervalSubscriptionEnd
+    ,c_SubscriptionStart
+    ,c_SubscriptionEnd
+    ,c_Advance
+    ,c_ProrateOnSubscription
+    ,c_ProrateInstantly 
+    ,c_ProrateOnUnsubscription
+    ,c_ProrationCycleLength
+    ,c__AccountID
+    ,c__PayingAccount
+    ,c__PriceableItemInstanceID
+    ,c__PriceableItemTemplateID
+    ,c__ProductOfferingID
+    ,c_BilledRateDate
+    ,c__SubscriptionID
+    ,c__IntervalID
+    ,c__Resubmit
+    ,c__TransactionCookie
+    ,c__CollectionID,
+    id_partition)
+    SELECT 
+    id_source_sess
+    ,NULL AS id_parent_source_sess
+    ,NULL AS id_external
+    ,c_RCActionType
+    ,c_RCIntervalStart
+    ,c_RCIntervalEnd
+    ,c_BillingIntervalStart
+    ,c_BillingIntervalEnd
+    ,c_RCIntervalSubscriptionStart
+    ,c_RCIntervalSubscriptionEnd
+    ,c_SubscriptionStart
+    ,c_SubscriptionEnd
+    ,c_Advance
+    ,c_ProrateOnSubscription
+    ,c_ProrateInstantly 
+    ,c_ProrateOnUnsubscription
+    ,c_ProrationCycleLength
+    ,c__AccountID
+    ,c__PayingAccount
+    ,c__PriceableItemInstanceID
+    ,c__PriceableItemTemplateID
+    ,c__ProductOfferingID
+    ,c_BilledRateDate
+    ,c__SubscriptionID
+    ,c__IntervalID
+    ,'0' AS c__Resubmit
+    ,NULL AS c__TransactionCookie
+    ,null AS c__CollectionID,
+    1 as id_partition
+FROM tmp_rc where c_UnitValue is null
+    and (c_RCActionType like meterType1 or c_RcActionType like meterType2);
+     
+    INSERT INTO t_svc_UDRecurringCharge(
+    id_source_sess
+    ,id_parent_source_sess
+    ,id_external
+    ,c_RCActionType
+    ,c_RCIntervalStart
+    ,c_RCIntervalEnd
+    ,c_BillingIntervalStart
+    ,c_BillingIntervalEnd
+    ,c_RCIntervalSubscriptionStart
+    ,c_RCIntervalSubscriptionEnd
+    ,c_SubscriptionStart
+    ,c_SubscriptionEnd
+    ,c_Advance
+    ,c_ProrateOnSubscription
+    ,c_UnitValueStart
+    ,c_UnitValueEnd
+    ,c_UnitValue
+    ,c_RatingType
+    ,c_ProrateOnUnsubscription
+    ,c_ProrationCycleLength
+    ,c_BilledRateDate
+    ,c__SubscriptionID
+    ,c__AccountID
+    ,c__PayingAccount
+    ,c__PriceableItemInstanceID
+    ,c__PriceableItemTemplateID
+    ,c__ProductOfferingID
+    ,c__IntervalID
+    ,c__Resubmit
+    ,c__TransactionCookie
+    ,c__CollectionID
+    ,id_partition)
+SELECT 
+    id_source_sess
+    ,NULL AS id_parent_source_sess
+    ,NULL AS id_external
+    ,c_RCActionType
+    ,c_RCIntervalStart
+    ,c_RCIntervalEnd
+    ,c_BillingIntervalStart
+    ,c_BillingIntervalEnd
+    ,c_RCIntervalSubscriptionStart
+    ,c_RCIntervalSubscriptionEnd
+    ,c_SubscriptionStart
+    ,c_SubscriptionEnd
+    ,c_Advance
+    ,c_ProrateOnSubscription
+    ,c_UnitValueStart
+    ,c_UnitValueEnd
+    ,c_UnitValue
+    ,c_RatingType
+    ,c_ProrateOnUnsubscription
+    ,c_ProrationCycleLength
+    ,c_BilledRateDate
+    ,c__SubscriptionID
+    ,c__AccountID
+    ,c__PayingAccount
+    ,c__PriceableItemInstanceID
+    ,c__PriceableItemTemplateID
+    ,c__ProductOfferingID
+    ,c__IntervalID
+    ,'0' AS c__Resubmit
+    ,NULL AS c__TransactionCookie
+    ,null AS c__CollectionID
+    ,1 as id_partition
+   FROM tmp_rc where c_UnitValue is not null
+     and (c_RCActionType like meterType1 or c_RcActionType like meterType2);
+     
+delete FROM tmp_rc where (c_RCActionType like meterType1 or c_RcActionType like meterType2);
+end insertchargesintosvctables;
+/
+
+
+CREATE OR REPLACE PROCEDURE InsertAuditEvent2 (
+    temp_id_userid number,
+    temp_id_event number,
+    temp_id_entity_type number,
+    temp_id_entity number,
+    temp_dt_timestamp date,
+    temp_tx_details varchar2,
+    temp_id_audit number,
+    tx_logged_in_as nvarchar2,
+    tx_application_name nvarchar2,
+    id_audit_out OUT number
+)
+AS
+BEGIN
+    IF (temp_id_audit IS NULL OR temp_id_audit = 0) THEN
+         SELECT id_current INTO id_audit_out FROM t_current_id WHERE nm_current = 'id_audit' FOR UPDATE OF id_current;
+         UPDATE t_current_id SET id_current=id_current+1 where nm_current='id_audit';
+    ELSE
+        id_audit_out := temp_id_audit;
+    END IF;
+
+    InsertAuditEvent(
+        temp_id_userid      => temp_id_userid,
+        temp_id_event       => temp_id_event,
+        temp_id_entity_type => temp_id_entity_type,
+        temp_id_entity      => temp_id_entity,
+        temp_dt_timestamp   => temp_dt_timestamp,
+        temp_id_audit       => id_audit_out,
+        temp_tx_details     => temp_tx_details,
+        tx_logged_in_as     => tx_logged_in_as,
+        tx_application_name => tx_application_name
+    );
+END;
+/
+
 DECLARE
     last_upgrade_id NUMBER;
 BEGIN
@@ -7909,3 +8463,839 @@ BEGIN
     WHERE upgrade_id = last_upgrade_id; 
 END;
 /
+
+create or replace
+PROCEDURE METERinitialFROMRECURWINDOW AS
+
+  enabled varchar2(10);
+  BEGIN
+   SELECT value into enabled FROM t_db_values WHERE parameter = N'InstantRc';
+   IF (enabled = 'false')then return;  end if;
+    
+   INSERT INTO tmp_rc
+ SELECT 
+    'Initial' AS c_RCActionType
+    ,pci.dt_start      AS c_RCIntervalStart
+    ,pci.dt_end      AS c_RCIntervalEnd
+    ,ui.dt_start      AS c_BillingIntervalStart
+    ,ui.dt_end          AS c_BillingIntervalEnd
+    ,dbo.mtmaxoftwodates(pci.dt_start, rw.c_SubscriptionStart)          AS c_RCIntervalSubscriptionStart
+    ,dbo.mtminoftwodates(pci.dt_end, rw.c_SubscriptionEnd)          AS c_RCIntervalSubscriptionEnd
+    ,rw.c_SubscriptionStart          AS c_SubscriptionStart
+    ,rw.c_SubscriptionEnd          AS c_SubscriptionEnd
+    /*Booleans are, stupidly enough, stored as Y/N in one table, but 0/1 in another table.  Convert them.*/
+    ,case when rw.c_advance  ='Y' then '1' else '0' end          AS c_Advance
+    ,case when rcr.b_prorate_on_activate ='Y' then '1' else '0' end         AS c_ProrateOnSubscription
+    ,case when rcr.b_prorate_instantly  ='Y' then '1' else '0' end          AS c_ProrateInstantly
+    ,rw.c_UnitValueStart AS c_UnitValueStart
+    ,rw.c_UnitValueEnd AS c_UnitValueEnd
+    ,rw.c_UnitValue AS c_UnitValue
+    ,rcr.n_rating_type AS c_RatingType
+    ,case when rcr.b_prorate_on_deactivate  ='Y' then '1' else '0' end          AS c_ProrateOnUnsubscription
+    ,CASE WHEN rcr.b_fixed_proration_length = 'Y' THEN fxd.n_proration_length ELSE 0 END          AS c_ProrationCycleLength
+    ,rw.c__accountid AS c__AccountID
+    ,rw.c__payingaccount      AS c__PayingAccount
+    ,rw.c__priceableiteminstanceid      AS c__PriceableItemInstanceID
+    ,rw.c__priceableitemtemplateid      AS c__PriceableItemTemplateID
+    ,rw.c__productofferingid      AS c__ProductOfferingID
+     ,dbo.MTMinOfTwoDates(pci.dt_end,rw.c_SubscriptionEnd)  AS c_BilledRateDate
+    ,rw.c__subscriptionid      AS c__SubscriptionID
+    ,currentui.id_interval AS c__IntervalID 
+      ,SYS_GUID () as id_source_sess
+     FROM t_usage_interval ui
+      INNER JOIN tmp_newrw rw on
+        rw.c_payerstart          < ui.dt_end AND rw.c_payerend          > ui.dt_start /* next interval overlaps with payer */
+    AND rw.c_cycleeffectivestart < ui.dt_end AND rw.c_cycleeffectiveend > ui.dt_start /* next interval overlaps with cycle */
+    AND rw.c_membershipstart     < ui.dt_end AND rw.c_membershipend     > ui.dt_start /* next interval overlaps with membership */
+    AND rw.c_SubscriptionStart < ui.dt_end AND rw.c_SubscriptionEnd > ui.dt_start
+    AND rw.c_unitvaluestart      < ui.dt_end AND rw.c_unitvalueend      > ui.dt_start /* next interval overlaps with UDRC */
+    INNER JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
+    JOIN t_acc_usage_cycle auc ON auc.id_acc = rw.c__AccountID AND auc.id_usage_cycle = ui.id_usage_cycle
+    /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
+    INNER JOIN t_pc_interval pci
+      ON pci.id_cycle = CASE 
+        WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle 
+        WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle 
+        WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) 
+        ELSE NULL END
+    AND ((rcr.b_advance = 'Y' AND pci.dt_start BETWEEN ui.dt_start     AND ui.dt_end) /* If this is in advance, check if rc start falls in this interval */
+                or pci.dt_end BETWEEN ui.dt_start     AND ui.dt_end                           /* or check if the cycle end falls into this interval */
+		or (pci.dt_start < ui.dt_start and pci.dt_end > ui.dt_end))                   /* or this interval could be in the middle of the cycle */
+    AND pci.dt_end BETWEEN rw.c_payerstart  AND rw.c_payerend                         /* rc start goes to this payer */
+    AND rw.c_unitvaluestart      < pci.dt_end AND rw.c_unitvalueend      > pci.dt_start /* rc overlaps with this UDRC */
+    AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
+    AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
+    AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
+    INNER JOIN t_usage_cycle ccl ON ccl.id_usage_cycle = CASE 
+        WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle 
+        WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle 
+        WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) 
+        ELSE NULL END 
+    INNER JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
+	inner join t_usage_interval currentui on metratime(1,'RC') between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = ui.id_usage_cycle
+where 1=1
+/*Only meter new subscriptions as initial -- so select only items that have at most one entry in t_sub_history*/
+    AND NOT EXISTS (SELECT 1 FROM t_sub_history tsh WHERE tsh.id_sub = rw.C__SubscriptionID AND tsh.id_acc = rw.c__AccountID
+      AND tsh.tt_end < metratime(1,'RC'))
+/*Also no old unit values*/
+    AND NOT EXISTS (SELECT 1 FROM t_recur_value trv WHERE trv.id_sub = rw.c__SubscriptionID AND trv.tt_end < dbo.MTMaxDate())
+/* Don't meter in the current interval for initial*/
+    AND pci.dt_start < metratime(1,'RC')
+	and ui.dt_start <= rw.c_SubscriptionStart 
+    ;
+
+   insertChargesIntoSvcTables('Initial','Initial');
+
+end METERinitialFROMRECURWINDOW;
+/
+
+create or replace
+PROCEDURE mtsp_generate_stateful_rcs(
+    v_id_interval  INT ,
+    v_id_billgroup INT ,
+    v_id_run       INT ,
+    v_id_batch NVARCHAR2 ,
+    v_n_batch_size INT ,
+    v_run_date DATE ,
+    p_count OUT INT)
+AS
+  l_total_rcs  INT;
+  l_total_flat INT;
+  l_total_udrc INT;
+  l_n_batches  INT;
+  l_id_flat    INT;
+  l_id_udrc    INT;
+  l_id_message NUMBER;
+  l_id_ss      INT;
+  l_tx_batch   VARCHAR2(256);
+BEGIN
+  INSERT
+  INTO t_recevent_run_details
+    (
+	id_detail,
+      id_run,
+      dt_crt,
+      tx_type,
+      tx_detail
+    )
+    VALUES
+    (
+	seq_t_recevent_run_details.nextval,
+      v_id_run,
+      GETUTCDATE(),
+      'Debug',
+      'Retrieving RC candidates'
+    );
+  INSERT
+  INTO TMP_RCS
+    (
+      idSourceSess,
+      c_RCActionType,
+      c_RCIntervalStart,
+      c_RCIntervalEnd,
+      c_BillingIntervalStart,
+      c_BillingIntervalEnd,
+      c_RCIntervalSubscriptionStart,
+      c_RCIntervalSubscriptionEnd,
+      c_SubscriptionStart,
+      c_SubscriptionEnd,
+      c_Advance,
+      c_ProrateOnSubscription,
+      c_ProrateInstantly,
+      c_ProrateOnUnsubscription,
+      c_ProrationCycleLength,
+      c__AccountID,
+      c__PayingAccount,
+      c__PriceableItemInstanceID,
+      c__PriceableItemTemplateID,
+      c__ProductOfferingID,
+      c_BilledRateDate,
+      c__SubscriptionID,
+      c_payerstart,
+      c_payerend,
+      c_unitvaluestart,
+      c_unitvalueend,
+      c_unitvalue,
+	  c_RatingType
+    )
+  SELECT idSourceSess,
+    c_RCActionType,
+    c_RCIntervalStart,
+    c_RCIntervalEnd,
+    c_BillingIntervalStart,
+    c_BillingIntervalEnd,
+    c_RCIntervalSubscriptionStart,
+    c_RCIntervalSubscriptionEnd,
+    c_SubscriptionStart,
+    c_SubscriptionEnd,
+    c_Advance,
+    c_ProrateOnSubscription,
+    c_ProrateInstantly,
+    c_ProrateOnUnsubscription,
+    c_ProrationCycleLength,
+    c__AccountID,
+    c__PayingAccount,
+    c__PriceableItemInstanceID,
+    c__PriceableItemTemplateID,
+    c__ProductOfferingID,
+    c_BilledRateDate,
+    c__SubscriptionID,
+    c_payerstart,
+    c_payerend,
+    c_unitvaluestart,
+    c_unitvalueend,
+    c_unitvalue,
+	c_ratingtype
+  FROM
+    (SELECT sys_guid()                                          AS idSourceSess,
+      'Arrears'                                                 AS c_RCActionType ,
+      pci.dt_start                                              AS c_RCIntervalStart ,
+      pci.dt_end                                                AS c_RCIntervalEnd ,
+      ui.dt_start                                               AS c_BillingIntervalStart ,
+      ui.dt_end                                                 AS c_BillingIntervalEnd ,
+      dbo.mtmaxoftwodates(pci.dt_start, rw.c_SubscriptionStart) AS c_RCIntervalSubscriptionStart ,
+      dbo.mtminoftwodates(pci.dt_end, rw.c_SubscriptionEnd)     AS c_RCIntervalSubscriptionEnd ,
+      rw.c_SubscriptionStart                                    AS c_SubscriptionStart ,
+      rw.c_SubscriptionEnd                                      AS c_SubscriptionEnd ,
+      case when rw.c_advance  ='Y' then '1' else '0' end          AS c_Advance,
+      case when rcr.b_prorate_on_activate ='Y' then '1' else '0' end         AS c_ProrateOnSubscription,
+      case when rcr.b_prorate_instantly  ='Y' then '1' else '0' end          AS c_ProrateInstantly ,
+      case when rcr.b_prorate_on_deactivate  ='Y' then '1' else '0' end          AS c_ProrateOnUnsubscription,
+      CASE
+        WHEN rcr.b_fixed_proration_length = 'Y'
+        THEN fxd.n_proration_length
+        ELSE 0
+      END                           AS c_ProrationCycleLength ,
+      rw.c__accountid               AS c__AccountID ,
+      rw.c__payingaccount           AS c__PayingAccount ,
+      rw.c__priceableiteminstanceid AS c__PriceableItemInstanceID ,
+      rw.c__priceableitemtemplateid AS c__PriceableItemTemplateID ,
+      rw.c__productofferingid       AS c__ProductOfferingID ,
+      pci.dt_end                    AS c_BilledRateDate ,
+      rw.c__subscriptionid          AS c__SubscriptionID ,
+      rw.c_payerstart,
+      rw.c_payerend,
+      CASE
+        WHEN rw.c_unitvaluestart < TO_DATE('19700101000000', 'YYYYMMDDHH24MISS')
+        THEN TO_DATE('19700101000000', 'YYYYMMDDHH24MISS')
+        ELSE rw.c_unitvaluestart
+      END AS c_unitvaluestart ,
+      rw.c_unitvalueend ,
+      rw.c_unitvalue ,
+	  rcr.n_rating_type AS c_RatingType
+    FROM t_usage_interval ui
+    INNER JOIN t_billgroup bg
+    ON bg.id_usage_interval = ui.id_interval
+    INNER JOIN t_billgroup_member bgm
+    ON bg.id_billgroup = bgm.id_billgroup
+    INNER JOIN t_recur_window rw
+    ON bgm.id_acc       = rw.c__payingaccount
+    AND rw.c_payerstart < ui.dt_end
+    AND rw.c_payerend   > ui.dt_start
+      /* interval overlaps with payer */
+    AND rw.c_cycleeffectivestart < ui.dt_end
+    AND rw.c_cycleeffectiveend   > ui.dt_start
+      /* interval overlaps with cycle */
+    AND rw.c_membershipstart < ui.dt_end
+    AND rw.c_membershipend   > ui.dt_start
+      /* interval overlaps with membership */
+    AND rw.c_subscriptionstart < ui.dt_end
+    AND rw.c_subscriptionend   > ui.dt_start
+      /* interval overlaps with subscription */
+    AND rw.c_unitvaluestart < ui.dt_end
+    AND rw.c_unitvalueend   > ui.dt_start
+      /* interval overlaps with UDRC */
+    INNER JOIN t_recur rcr
+    ON rw.c__priceableiteminstanceid = rcr.id_prop
+    INNER JOIN t_usage_cycle ccl
+    ON ccl.id_usage_cycle =
+      CASE
+        WHEN rcr.tx_cycle_mode = 'Fixed'
+        THEN rcr.id_usage_cycle
+        WHEN rcr.tx_cycle_mode = 'BCR Constrained'
+        THEN ui.id_usage_cycle
+        WHEN rcr.tx_cycle_mode = 'EBCR'
+        THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type)
+        ELSE NULL
+      END
+      /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
+    INNER JOIN t_pc_interval pci
+    ON pci.id_cycle = ccl.id_usage_cycle
+    AND pci.dt_end BETWEEN ui.dt_start AND ui.dt_end
+      /* rc end falls in this interval */
+    AND pci.dt_end BETWEEN rw.c_payerstart AND rw.c_payerend
+      /* rc end goes to this payer */
+    AND rw.c_unitvaluestart < pci.dt_end
+    AND rw.c_unitvalueend   > pci.dt_start
+      /* rc overlaps with this UDRC */
+    AND rw.c_membershipstart < pci.dt_end
+    AND rw.c_membershipend   > pci.dt_start
+      /* rc overlaps with this membership */
+    AND rw.c_cycleeffectivestart < pci.dt_end
+    AND rw.c_cycleeffectiveend   > pci.dt_start
+      /* rc overlaps with this cycle */
+    AND rw.c_SubscriptionStart < pci.dt_end
+    AND rw.c_subscriptionend   > pci.dt_start
+      /* rc overlaps with this subscription */
+    INNER JOIN t_usage_cycle_type fxd
+    ON fxd.id_cycle_type = ccl.id_cycle_type
+    WHERE 1              =1
+    AND ui.id_interval   = v_id_interval
+    AND bg.id_billgroup  = v_id_billgroup
+    AND rcr.b_advance   <> 'Y'
+    UNION ALL
+    SELECT sys_guid()                                AS idSourceSess,
+      'Advance'                                      AS c_RCActionType ,
+      pci.dt_start      AS c_RCIntervalStart,
+      pci.dt_end      AS c_RCIntervalEnd,
+      nui.dt_start      AS c_BillingIntervalStart,
+      nui.dt_end          AS c_BillingIntervalEnd,
+      CASE
+        WHEN rcr.tx_cycle_mode <> 'Fixed'
+        AND nui.dt_start       <> c_cycleEffectiveDate
+        THEN dbo.MTMaxOfTwoDates(dbo.AddSecond(c_cycleEffectiveDate), pci.dt_start)
+        ELSE pci.dt_start
+      END                                                                                       AS c_RCIntervalSubscriptionStart ,
+      dbo.mtminoftwodates(pci.dt_end, rw.c_SubscriptionEnd) AS c_RCIntervalSubscriptionEnd ,
+      rw.c_SubscriptionStart                                                                    AS c_SubscriptionStart ,
+      rw.c_SubscriptionEnd                                                                      AS c_SubscriptionEnd ,
+      case when rw.c_advance  ='Y' then '1' else '0' end          AS c_Advance,
+      case when rcr.b_prorate_on_activate ='Y' then '1' else '0' end         AS c_ProrateOnSubscription,
+      case when rcr.b_prorate_instantly  ='Y' then '1' else '0' end          AS c_ProrateInstantly ,
+      case when rcr.b_prorate_on_deactivate  ='Y' then '1' else '0' end          AS c_ProrateOnUnsubscription,
+      CASE
+        WHEN rcr.b_fixed_proration_length = 'Y'
+        THEN fxd.n_proration_length
+        ELSE 0
+      END                           AS c_ProrationCycleLength ,
+      rw.c__accountid               AS c__AccountID ,
+      rw.c__payingaccount           AS c__PayingAccount ,
+      rw.c__priceableiteminstanceid AS c__PriceableItemInstanceID ,
+      rw.c__priceableitemtemplateid AS c__PriceableItemTemplateID ,
+      rw.c__productofferingid       AS c__ProductOfferingID ,
+      pci.dt_start                  AS c_BilledRateDate ,
+      rw.c__subscriptionid          AS c__SubscriptionID ,
+      rw.c_payerstart,
+      rw.c_payerend,
+      CASE
+        WHEN rw.c_unitvaluestart < TO_DATE('19700101000000', 'YYYYMMDDHH24MISS')
+        THEN TO_DATE('19700101000000', 'YYYYMMDDHH24MISS')
+        ELSE rw.c_unitvaluestart
+      END AS c_unitvaluestart,
+      rw.c_unitvalueend ,
+      rw.c_unitvalue ,
+	  rcr.n_rating_type AS c_RatingType
+    FROM t_usage_interval ui
+    INNER JOIN t_usage_interval nui
+    ON ui.id_usage_cycle         = nui.id_usage_cycle
+    AND dbo.AddSecond(ui.dt_end) = nui.dt_start
+    INNER JOIN t_billgroup bg
+    ON bg.id_usage_interval = ui.id_interval
+    INNER JOIN t_billgroup_member bgm
+    ON bg.id_billgroup = bgm.id_billgroup
+    INNER JOIN t_recur_window rw
+     ON bgm.id_acc = rw.c__payingaccount 
+                                   AND rw.c_payerstart          < nui.dt_end AND rw.c_payerend          > nui.dt_start /* next interval overlaps with payer */
+                                   AND rw.c_cycleeffectivestart < nui.dt_end AND rw.c_cycleeffectiveend > nui.dt_start /* next interval overlaps with cycle */
+                                   AND rw.c_membershipstart     < nui.dt_end AND rw.c_membershipend     > nui.dt_start /* next interval overlaps with membership */
+                                   AND rw.c_subscriptionstart   < ui.dt_end AND rw.c_subscriptionend   > nui.dt_start /* next interval overlaps with subscription */
+                                   AND rw.c_unitvaluestart      < nui.dt_end AND rw.c_unitvalueend      > nui.dt_start /* next interval overlaps with UDRC */
+    INNER JOIN t_recur rcr
+    ON rw.c__priceableiteminstanceid = rcr.id_prop
+    INNER JOIN t_usage_cycle ccl
+    ON ccl.id_usage_cycle =
+      CASE
+        WHEN rcr.tx_cycle_mode = 'Fixed'
+        THEN rcr.id_usage_cycle
+        WHEN rcr.tx_cycle_mode = 'BCR Constrained'
+        THEN ui.id_usage_cycle
+        WHEN rcr.tx_cycle_mode = 'EBCR'
+        THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type)
+        ELSE NULL
+      END
+    INNER JOIN t_pc_interval pci
+    ON
+      pci.id_cycle = ccl.id_usage_cycle
+    AND pci.dt_start BETWEEN nui.dt_start AND nui.dt_end
+      /* rc start falls in this interval */
+    AND pci.dt_start BETWEEN rw.c_payerstart  AND rw.c_payerend                         /* rc start goes to this payer */
+    AND rw.c_unitvaluestart < pci.dt_end
+    AND rw.c_unitvalueend   > pci.dt_start
+      /* rc overlaps with this UDRC */
+    AND rw.c_membershipstart < pci.dt_end
+    AND rw.c_membershipend   > pci.dt_start
+      /* rc overlaps with this membership */
+    AND rw.c_cycleeffectivestart < pci.dt_end
+    AND rw.c_cycleeffectiveend   > pci.dt_start
+      /* rc overlaps with this cycle */
+    AND rw.c_SubscriptionStart < pci.dt_end
+    AND rw.c_subscriptionend   > pci.dt_start
+      /* rc overlaps with this subscription */
+    INNER JOIN t_usage_cycle_type fxd
+    ON fxd.id_cycle_type = ccl.id_cycle_type
+    WHERE 1              =1
+    AND ui.id_interval   = v_id_interval
+    AND bg.id_billgroup  = v_id_billgroup
+    AND rcr.b_advance    = 'Y'
+    )A ;
+  SELECT COUNT(1) INTO l_total_rcs FROM tmp_rcs;
+  INSERT
+  INTO t_recevent_run_details
+    (
+    	id_detail,
+      id_run,
+      dt_crt,
+      tx_type,
+      tx_detail
+    )
+    VALUES
+    (
+    seq_t_recevent_run_details.nextval,
+      v_id_run,
+      GETUTCDATE(),
+      'Debug',
+      'RC Candidate Count: '
+      || l_total_rcs
+    );
+  IF l_total_rcs > 0 THEN
+    SELECT COUNT(1) INTO l_total_flat FROM tmp_rcs WHERE c_unitvalue IS NULL;
+    SELECT COUNT(1) INTO l_total_udrc FROM tmp_rcs WHERE c_unitvalue IS NOT NULL;
+    INSERT
+    INTO t_recevent_run_details
+      (
+      	id_detail,
+        id_run,
+        dt_crt,
+        tx_type,
+        tx_detail
+      )
+      VALUES
+      (
+          seq_t_recevent_run_details.nextval,
+        v_id_run,
+        GETUTCDATE(),
+        'Debug',
+        'Flat RC Candidate Count: '
+        || l_total_flat
+      );
+    INSERT
+    INTO t_recevent_run_details
+      (
+      id_detail,
+        id_run,
+        dt_crt,
+        tx_type,
+        tx_detail
+      )
+      VALUES
+      (
+          seq_t_recevent_run_details.nextval,
+        v_id_run,
+        GETUTCDATE(),
+        'Debug',
+        'UDRC RC Candidate Count: '
+        || l_total_udrc
+      );
+    INSERT
+    INTO t_recevent_run_details
+      (
+      id_detail,
+        id_run,
+        dt_crt,
+        tx_type,
+        tx_detail
+      )
+      VALUES
+      (
+          seq_t_recevent_run_details.nextval,
+        v_id_run,
+        GETUTCDATE(),
+        'Debug',
+        'Session Set Count: '
+        || v_n_batch_size
+      );
+    INSERT
+    INTO t_recevent_run_details
+      (
+      id_detail,
+        id_run,
+        dt_crt,
+        tx_type,
+        tx_detail
+      )
+      VALUES
+      (
+          seq_t_recevent_run_details.nextval,
+        v_id_run,
+        GETUTCDATE(),
+        'Debug',
+        'Batch: '
+        || v_id_batch
+      );
+    l_tx_batch := v_id_batch;
+	
+	INSERT
+    INTO t_recevent_run_details
+      (
+      id_detail,
+        id_run,
+        dt_crt,
+        tx_type,
+        tx_detail
+      )
+      VALUES
+      (
+          seq_t_recevent_run_details.nextval,
+        v_id_run,
+        GETUTCDATE(),
+        'Debug',
+        'Batch ID: '
+        || l_tx_batch
+      );
+    IF l_total_flat > 0 THEN
+      SELECT id_enum_data
+      INTO l_id_flat
+      FROM t_enum_data ted
+      WHERE ted.nm_enum_data = 'metratech.com/flatrecurringcharge';
+      l_n_batches           := (l_total_flat / v_n_batch_size) + 1;
+      GetIdBlock( l_n_batches, 'id_dbqueuesch', l_id_message);
+      GetIdBlock( l_n_batches, 'id_dbqueuess', l_id_ss);
+      INSERT INTO t_session
+        (id_ss, id_source_sess
+        )
+      SELECT l_id_ss + (MOD(ROW_NUMBER() OVER (ORDER BY idSourceSess), l_n_batches)) AS id_ss,
+        idSourceSess                                                                 AS id_source_sess
+      FROM tmp_rcs
+      WHERE c_unitvalue IS NULL;
+      INSERT INTO t_session_set
+        (id_message, id_ss, id_svc, b_root, session_count
+        )
+      SELECT id_message,
+        id_ss,
+        id_svc,
+        b_root,
+        COUNT(1) AS session_count
+      FROM
+        (SELECT l_id_message + (MOD(ROW_NUMBER() OVER (ORDER BY idSourceSess), l_n_batches)) AS id_message,
+          l_id_ss + (MOD(ROW_NUMBER() OVER (ORDER BY idSourceSess), l_n_batches)) AS id_ss,
+          l_id_flat                                                               AS id_svc,
+          1                                                                       AS b_root
+        FROM tmp_rcs
+        WHERE c_unitvalue IS NULL
+        ) a
+      GROUP BY a.id_message,
+        a.id_ss,
+        a.id_svc,
+        a.b_root;
+      INSERT
+      INTO t_svc_FlatRecurringCharge
+        (
+          id_source_sess ,
+          id_parent_source_sess ,
+          id_external ,
+          c_RCActionType ,
+          c_RCIntervalStart ,
+          c_RCIntervalEnd ,
+          c_BillingIntervalStart ,
+          c_BillingIntervalEnd ,
+          c_RCIntervalSubscriptionStart ,
+          c_RCIntervalSubscriptionEnd ,
+          c_SubscriptionStart ,
+          c_SubscriptionEnd ,
+          c_Advance ,
+          c_ProrateOnSubscription ,
+          c_ProrateInstantly ,
+          c_ProrateOnUnsubscription ,
+          c_ProrationCycleLength ,
+          c__AccountID ,
+          c__PayingAccount ,
+          c__PriceableItemInstanceID ,
+          c__PriceableItemTemplateID ,
+          c__ProductOfferingID ,
+          c_BilledRateDate ,
+          c__SubscriptionID ,
+          c__IntervalID ,
+          c__Resubmit ,
+          c__TransactionCookie ,
+          c__CollectionID
+        )
+      SELECT idSourceSess AS id_source_sess ,
+        NULL              AS id_parent_source_sess ,
+        NULL              AS id_external
+        /*If the old subscription ends later than the current one, then we owe a credit, otherwise a debit.
+        * But in either case, take the earlier date as the beginning, the other date as the end.
+        */
+        ,
+        c_RCActionType ,
+        c_RCIntervalStart ,
+        c_RCIntervalEnd ,
+        c_BillingIntervalStart ,
+        c_BillingIntervalEnd ,
+        c_RCIntervalSubscriptionStart ,
+        c_RCIntervalSubscriptionEnd ,
+        c_SubscriptionStart ,
+        c_SubscriptionEnd ,
+        c_Advance ,
+        c_ProrateOnSubscription ,
+        c_ProrateInstantly ,
+        c_ProrateOnUnsubscription ,
+        c_ProrationCycleLength ,
+        c__AccountID ,
+        c__PayingAccount ,
+        c__PriceableItemInstanceID ,
+        c__PriceableItemTemplateID ,
+        c__ProductOfferingID ,
+        c_BilledRateDate ,
+        c__SubscriptionID ,
+        v_id_interval AS c__IntervalID ,
+        '0'           AS c__Resubmit ,
+        NULL          AS c__TransactionCookie ,
+        l_tx_batch    AS c__CollectionID
+      FROM tmp_rcs
+      WHERE c_unitvalue IS NULL;
+          INSERT
+          INTO t_message
+            (
+              id_message,
+              id_route,
+              dt_crt,
+              dt_metered,
+              dt_assigned,
+              id_listener,
+              id_pipeline,
+              dt_completed,
+              id_feedback,
+              tx_TransactionID,
+              tx_sc_username,
+              tx_sc_password,
+              tx_sc_namespace,
+              tx_sc_serialized,
+              tx_ip_address
+            )
+            SELECT
+              id_message,
+              NULL,
+              v_run_date,
+              v_run_date,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              '127.0.0.1'
+            FROM
+              (SELECT l_id_message + (MOD(ROW_NUMBER() OVER (ORDER BY idSourceSess), l_n_batches)) AS id_message
+              FROM tmp_rcs
+              WHERE c_unitvalue IS NULL
+              ) a
+            GROUP BY a.id_message;
+      INSERT
+      INTO t_recevent_run_details
+        (
+        id_detail,
+          id_run,
+          dt_crt,
+          tx_type,
+          tx_detail
+        )
+        VALUES
+        (
+            seq_t_recevent_run_details.nextval,
+          v_id_run,
+          GETUTCDATE(),
+          'Debug',
+          'Done inserting Flat RCs'
+        );
+    END IF;
+    IF l_total_udrc > 0 THEN
+      SELECT id_enum_data
+      INTO l_id_udrc
+      FROM t_enum_data ted
+      WHERE ted.nm_enum_data = 'metratech.com/udrecurringcharge';
+      l_n_batches           := (l_total_udrc / v_n_batch_size) + 1;
+      GetIdBlock( l_n_batches, 'id_dbqueuesch', l_id_message);
+      GetIdBlock( l_n_batches, 'id_dbqueuess', l_id_ss);
+      INSERT INTO t_session
+        (id_ss, id_source_sess
+        )
+      SELECT l_id_ss + (MOD(ROW_NUMBER() OVER (ORDER BY idSourceSess), l_n_batches)) AS id_ss,
+        idSourceSess                                                                 AS id_source_sess
+      FROM tmp_rcs
+      WHERE c_unitvalue IS NOT NULL;
+      INSERT INTO t_session_set
+        (id_message, id_ss, id_svc, b_root, session_count
+        )
+      SELECT id_message,
+        id_ss,
+        id_svc,
+        b_root,
+        COUNT(1) AS session_count
+      FROM
+        (SELECT l_id_message + (MOD(ROW_NUMBER() OVER (ORDER BY idSourceSess), l_n_batches)) AS id_message,
+          l_id_ss + (MOD(ROW_NUMBER() OVER (ORDER BY idSourceSess), l_n_batches)) AS id_ss,
+          l_id_udrc                                                               AS id_svc,
+          1                                                                       AS b_root
+        FROM tmp_rcs
+        WHERE c_unitvalue IS NOT NULL
+        ) a
+      GROUP BY a.id_message,
+        a.id_ss,
+        a.id_svc,
+        a.b_root;
+      INSERT
+      INTO t_svc_UDRecurringCharge
+        (
+          id_source_sess,
+          id_parent_source_sess,
+          id_external,
+          c_RCActionType,
+          c_RCIntervalStart,
+          c_RCIntervalEnd,
+          c_BillingIntervalStart,
+          c_BillingIntervalEnd ,
+          c_RCIntervalSubscriptionStart ,
+          c_RCIntervalSubscriptionEnd ,
+          c_SubscriptionStart ,
+          c_SubscriptionEnd ,
+          c_Advance ,
+          c_ProrateOnSubscription ,
+          /*    c_ProrateInstantly , */
+          c_ProrateOnUnsubscription ,
+          c_ProrationCycleLength ,
+          c__AccountID ,
+          c__PayingAccount ,
+          c__PriceableItemInstanceID ,
+          c__PriceableItemTemplateID ,
+          c__ProductOfferingID ,
+          c_BilledRateDate ,
+          c__SubscriptionID ,
+          c__IntervalID ,
+          c__Resubmit ,
+          c__TransactionCookie ,
+          c__CollectionID ,
+		  c_unitvaluestart ,
+		  c_unitvalueend ,
+		  c_unitvalue ,
+		  c_ratingtype
+        )
+      SELECT idSourceSess AS id_source_sess ,
+        NULL              AS id_parent_source_sess ,
+        NULL              AS id_external ,
+        c_RCActionType ,
+        c_RCIntervalStart ,
+        c_RCIntervalEnd ,
+        c_BillingIntervalStart ,
+        c_BillingIntervalEnd ,
+        c_RCIntervalSubscriptionStart ,
+        c_RCIntervalSubscriptionEnd ,
+        c_SubscriptionStart ,
+        c_SubscriptionEnd ,
+        c_Advance ,
+        c_ProrateOnSubscription ,
+        /* c_ProrateInstantly , */
+        c_ProrateOnUnsubscription ,
+        c_ProrationCycleLength ,
+        c__AccountID ,
+        c__PayingAccount ,
+        c__PriceableItemInstanceID ,
+        c__PriceableItemTemplateID ,
+        c__ProductOfferingID ,
+        c_BilledRateDate ,
+        c__SubscriptionID ,
+        v_id_interval AS c__IntervalID ,
+        '0'           AS c__Resubmit ,
+        NULL          AS c__TransactionCookie ,
+        l_tx_batch    AS c__CollectionID ,
+		c_unitvaluestart ,
+		c_unitvalueend ,
+		c_unitvalue ,
+		c_ratingtype
+      FROM tmp_rcs
+      WHERE c_unitvalue IS NOT NULL;
+          INSERT
+          INTO t_message
+            (
+              id_message,
+              id_route,
+              dt_crt,
+              dt_metered,
+              dt_assigned,
+              id_listener,
+              id_pipeline,
+              dt_completed,
+              id_feedback,
+              tx_TransactionID,
+              tx_sc_username,
+              tx_sc_password,
+              tx_sc_namespace,
+              tx_sc_serialized,
+              tx_ip_address
+            )
+            SELECT
+              id_message,
+              NULL,
+              v_run_date,
+              v_run_date,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              '127.0.0.1'
+            FROM
+              (SELECT l_id_message + (MOD(ROW_NUMBER() OVER (ORDER BY idSourceSess), l_n_batches)) AS id_message
+              FROM tmp_rcs
+              WHERE c_unitvalue IS NOT NULL
+              ) a
+            GROUP BY a.id_message;
+      INSERT
+      INTO t_recevent_run_details
+        (
+        id_detail,
+          id_run,
+          dt_crt,
+          tx_type,
+          tx_detail
+        )
+        VALUES
+        (
+            seq_t_recevent_run_details.nextval,
+          v_id_run,
+          GETUTCDATE(),
+          'Debug',
+          'Done inserting UDRC RCs'
+        );
+    END IF;
+  END IF;
+  p_count := l_total_rcs;
+  INSERT
+  INTO t_recevent_run_details
+    (
+    id_detail,
+      id_run,
+      dt_crt,
+      tx_type,
+      tx_detail
+    )
+    VALUES
+    (
+        seq_t_recevent_run_details.nextval,
+      v_id_run,
+      GETUTCDATE(),
+      'Info',
+      'Finished submitting RCs, count: '
+      || l_total_rcs
+    );
+END mtsp_generate_stateful_rcs; 
+/
+	  

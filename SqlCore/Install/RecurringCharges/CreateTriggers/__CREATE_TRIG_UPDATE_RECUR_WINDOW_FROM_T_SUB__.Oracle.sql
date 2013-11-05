@@ -6,8 +6,7 @@ create or replace TRIGGER trig_recur_window_sub AFTER INSERT OR UPDATE OR DELETE
 	BEGIN
 	  IF deleting THEN
         DELETE FROM t_recur_window
-           WHERE c__AccountID      = :old.id_acc AND c__SubscriptionID   = :old.id_sub
-             AND c_SubscriptionStart = :old.vt_start AND c_SubscriptionEnd   = :old.vt_end;
+           WHERE c__SubscriptionID   = :old.id_sub;
     
     ELSE 
 	/*inserting or deleting*/
@@ -22,7 +21,8 @@ create or replace TRIGGER trig_recur_window_sub AFTER INSERT OR UPDATE OR DELETE
     UPDATE t_recur_window
       SET c_SubscriptionStart = :new.vt_start, c_SubscriptionEnd     = :new.vt_end
         WHERE c__AccountID      = :new.id_acc AND c__SubscriptionID   = :new.id_sub;
-
+		
+	DELETE FROM TMP_NEWRW;
     INSERT INTO TMP_NEWRW
     SELECT :new.vt_start c_CycleEffectiveDate,
       :new.vt_start c_CycleEffectiveStart,
@@ -67,26 +67,14 @@ create or replace TRIGGER trig_recur_window_sub AFTER INSERT OR UPDATE OR DELETE
     AND (bp.n_kind    = 20
     OR rv.id_prop    IS NOT NULL);
   END;
+  UPDATE tmp_newrw SET c_BilledThroughDate = metratime(1,'RC');
+
+	INSERT INTO t_recur_window select * from tmp_newrw;
+
+	MeterInitialFromRecurWindow;
+	MeterCreditFromRecurWindow;
+
 END IF;
-
-UPDATE tmp_newrw SET c_BilledThroughDate = metratime(1,'RC');
-
-DELETE FROM tmp_newrw a
-      WHERE a.ROWID > ANY (SELECT b.ROWID
-                             FROM tmp_newrw b
-                            WHERE a.c__AccountID = b.c__AccountID
-                              AND a.c__SubscriptionID = b.c__SubscriptionID);
-  
-INSERT INTO t_recur_window select * from tmp_newrw;
-
-DELETE FROM T_RECUR_WINDOW a
-      WHERE a.ROWID > ANY (SELECT b.ROWID
-                             FROM T_RECUR_WINDOW b
-                            WHERE a.c__AccountID = b.c__AccountID
-                              AND a.c__SubscriptionID = b.c__SubscriptionID);
-
-MeterInitialFromRecurWindow;
-MeterCreditFromRecurWindow;
 
 END;
 

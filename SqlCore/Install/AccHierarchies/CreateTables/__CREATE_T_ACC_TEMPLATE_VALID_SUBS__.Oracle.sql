@@ -1,5 +1,5 @@
 
-CREATE GLOBAL TEMPORARY TABLE t_acc_template_valid_subs (
+CREATE TABLE t_acc_template_valid_subs (
     id_acc_template_session number(10) not null,
     id_po                   number(10),
     id_group                number(10),
@@ -7,4 +7,4 @@ CREATE GLOBAL TEMPORARY TABLE t_acc_template_valid_subs (
     sub_end                 date,
     po_start                date,
     po_end                  date
-) ON COMMIT DELETE ROWS;
+);

@@ -50,9 +50,12 @@ newid() AS idSourceSess,
       ,rw.c__productofferingid      AS c__ProductOfferingID
       ,pci.dt_end      AS c_BilledRateDate
       ,rw.c__subscriptionid      AS c__SubscriptionID
-,rw.c_payerstart,rw.c_payerend,case when rw.c_unitvaluestart < '1970-01-01 00:00:00' THEN '1970-01-01 00:00:00' ELSE rw.c_unitvaluestart END AS c_unitvaluestart ,rw.c_unitvalueend
-, rw.c_unitvalue
-, rcr.n_rating_type AS c_RatingType
+	  ,rw.c_payerstart
+	  ,rw.c_payerend
+	  ,case when rw.c_unitvaluestart < '1970-01-01 00:00:00' THEN '1970-01-01 00:00:00' ELSE rw.c_unitvaluestart END AS c_unitvaluestart 
+	  ,rw.c_unitvalueend
+	  ,rw.c_unitvalue
+	  ,rcr.n_rating_type AS c_RatingType
       FROM t_usage_interval ui
       INNER LOOP JOIN t_billgroup bg ON bg.id_usage_interval = ui.id_interval
       INNER LOOP JOIN t_billgroup_member bgm ON bg.id_billgroup = bgm.id_billgroup
@@ -110,9 +113,12 @@ newid() AS idSourceSess,
       ,rw.c__productofferingid      AS c__ProductOfferingID
       ,pci.dt_start      AS c_BilledRateDate
       ,rw.c__subscriptionid      AS c__SubscriptionID
-,rw.c_payerstart,rw.c_payerend,case when rw.c_unitvaluestart < '1970-01-01 00:00:00' THEN '1970-01-01 00:00:00' ELSE rw.c_unitvaluestart END AS c_unitvaluestart,rw.c_unitvalueend
-, rw.c_unitvalue
-, rcr.n_rating_type AS c_RatingType
+	  ,rw.c_payerstart
+	  ,rw.c_payerend
+	  ,case when rw.c_unitvaluestart < '1970-01-01 00:00:00' THEN '1970-01-01 00:00:00' ELSE rw.c_unitvaluestart END AS c_unitvaluestart 
+	  ,rw.c_unitvalueend
+	  ,rw.c_unitvalue
+	  ,rcr.n_rating_type AS c_RatingType
       FROM t_usage_interval ui
       INNER LOOP JOIN t_usage_interval nui ON ui.id_usage_cycle = nui.id_usage_cycle AND dbo.AddSecond(ui.dt_end) = nui.dt_start
       INNER LOOP JOIN t_billgroup bg ON bg.id_usage_interval = ui.id_interval

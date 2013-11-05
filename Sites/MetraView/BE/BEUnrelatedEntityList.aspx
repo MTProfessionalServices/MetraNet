@@ -60,7 +60,7 @@
                     var parameters = {name: entityName, id: internalId}; 
                     // make the call back to the server
                     Ext.Ajax.request({
-                        url: '/MetraView/AjaxServices/BEDeleteSvc.aspx?UnRelated=true',
+                        url: '<%=Request.ApplicationPath%>/AjaxServices/BEDeleteSvc.aspx?UnRelated=true',
                         params: parameters,
                         scope: this,
                         disableCaching: true,
@@ -149,7 +149,7 @@
     var parameters = {name: entityName, id: ids}; 
               // make the call back to the server
               Ext.Ajax.request({
-                  url: '/MetraView/AjaxServices/BEListSvc.aspx?CreateRelationship=true&TargetEntityIds=' + ids + "&parentId=" + parentId + "&parentName=" + parentName +"&Name=" + entityName,
+                  url: '<%=Request.ApplicationPath%>/AjaxServices/BEListSvc.aspx?CreateRelationship=true&TargetEntityIds=' + ids + "&parentId=" + parentId + "&parentName=" + parentName +"&Name=" + entityName,
                   params: parameters,
                   scope: this,
                   disableCaching: true,
@@ -203,7 +203,7 @@
                      var parameters = {name: entityName, id: ids}; 
                     // make the call back to the server
                     Ext.Ajax.request({
-                        url: '/MetraView/AjaxServices/BEDeleteSvc.aspx',
+                        url: '<%=Request.ApplicationPath%>//AjaxServices/BEDeleteSvc.aspx',
                         params: parameters,
                         scope: this,
                         disableCaching: true,

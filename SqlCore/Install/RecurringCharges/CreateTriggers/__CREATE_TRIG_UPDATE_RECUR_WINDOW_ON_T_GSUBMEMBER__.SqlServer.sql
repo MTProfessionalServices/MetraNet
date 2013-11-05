@@ -73,7 +73,7 @@ WHEN matched AND t_recur_window.c__SubscriptionID = source.id_sub
 		  and c__PriceableItemTemplateID = plm.id_pi_template)
       AND rcr.b_charge_per_participant = 'Y'
       AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)
-	  AND dbo.AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.id_sub, sub.vt_end) = 1;
+	  AND dbo.AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.vt_end, sub.dt_crt) = 1;
 select @temp = max(tgsh.tt_start) from t_gsubmember_historical tgsh join inserted gsm on tgsh.id_acc = gsm.id_acc and tgsh.id_group = gsm.id_group;
       EXEC MeterInitialFromRecurWindow @currentDate = @temp;
       EXEC MeterCreditFromRecurWindow @currentDate = @temp;

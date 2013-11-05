@@ -51,10 +51,10 @@ newid() AS idSourceSess,
       ,dbo.mtminoftwodates(pci.dt_end, rw.c_SubscriptionEnd)          AS c_RCIntervalSubscriptionEnd
       ,rw.c_SubscriptionStart          AS c_SubscriptionStart
       ,rw.c_SubscriptionEnd          AS c_SubscriptionEnd
-      ,rw.c_advance          AS c_Advance
-      ,rcr.b_prorate_on_activate          AS c_ProrateOnSubscription
-      ,rcr.b_prorate_instantly          AS c_ProrateInstantly
-      ,rcr.b_prorate_on_deactivate          AS c_ProrateOnUnsubscription
+      ,case when rw.c_advance  ='Y' then '1' else '0' end          AS c_Advance
+      ,case when rcr.b_prorate_on_activate ='Y' then '1' else '0' end         AS c_ProrateOnSubscription
+      ,case when rcr.b_prorate_instantly  ='Y' then '1' else '0' end          AS c_ProrateInstantly
+      ,case when rcr.b_prorate_on_deactivate ='Y' then '1' else '0' end       AS c_ProrateOnUnsubscription
       ,CASE WHEN rcr.b_fixed_proration_length = 'Y' THEN fxd.n_proration_length ELSE 0 END          AS c_ProrationCycleLength
       ,rw.c__accountid AS c__AccountID
       ,rw.c__payingaccount      AS c__PayingAccount
@@ -63,9 +63,12 @@ newid() AS idSourceSess,
       ,rw.c__productofferingid      AS c__ProductOfferingID
       ,pci.dt_end      AS c_BilledRateDate
       ,rw.c__subscriptionid      AS c__SubscriptionID
-,rw.c_payerstart,rw.c_payerend,case when rw.c_unitvaluestart < '1970-01-01 00:00:00' THEN '1970-01-01 00:00:00' ELSE rw.c_unitvaluestart END AS c_unitvaluestart ,rw.c_unitvalueend
-, rw.c_unitvalue
-, rcr.n_rating_type AS c_RatingType
+	  ,rw.c_payerstart
+	  ,rw.c_payerend
+	  ,case when rw.c_unitvaluestart < '1970-01-01 00:00:00' THEN '1970-01-01 00:00:00' ELSE rw.c_unitvaluestart END AS c_unitvaluestart 
+	  ,rw.c_unitvalueend
+	  ,rw.c_unitvalue
+	  ,rcr.n_rating_type AS c_RatingType
       FROM t_usage_interval ui
       /*INNER LOOP JOIN t_billgroup bg ON bg.id_usage_interval = ui.id_interval
       INNER LOOP JOIN t_billgroup_member bgm ON bg.id_billgroup = bgm.id_billgroup*/
@@ -107,10 +110,10 @@ newid() AS idSourceSess,
       ,dbo.mtminoftwodates(pci.dt_end, rw.c_SubscriptionEnd)          AS c_RCIntervalSubscriptionEnd
       ,rw.c_SubscriptionStart          AS c_SubscriptionStart
       ,rw.c_SubscriptionEnd          AS c_SubscriptionEnd
-      ,rw.c_advance          AS c_Advance
-      ,rcr.b_prorate_on_activate          AS c_ProrateOnSubscription
-      ,rcr.b_prorate_instantly          AS c_ProrateInstantly
-      ,rcr.b_prorate_on_deactivate          AS c_ProrateOnUnsubscription
+      ,case when rw.c_advance  ='Y' then '1' else '0' end          AS c_Advance
+      ,case when rcr.b_prorate_on_activate ='Y' then '1' else '0' end         AS c_ProrateOnSubscription
+      ,case when rcr.b_prorate_instantly  ='Y' then '1' else '0' end          AS c_ProrateInstantly
+      ,case when rcr.b_prorate_on_deactivate ='Y' then '1' else '0' end       AS c_ProrateOnUnsubscription
       ,CASE WHEN rcr.b_fixed_proration_length = 'Y' THEN fxd.n_proration_length ELSE 0 END          AS c_ProrationCycleLength
       ,rw.c__accountid AS c__AccountID
       ,rw.c__payingaccount      AS c__PayingAccount
@@ -119,10 +122,13 @@ newid() AS idSourceSess,
       ,rw.c__productofferingid      AS c__ProductOfferingID
       ,pci.dt_start      AS c_BilledRateDate
       ,rw.c__subscriptionid      AS c__SubscriptionID
-,rw.c_payerstart,rw.c_payerend,case when rw.c_unitvaluestart < '1970-01-01 00:00:00' THEN '1970-01-01 00:00:00' ELSE rw.c_unitvaluestart END AS c_unitvaluestart,rw.c_unitvalueend
-, rw.c_unitvalue
-, rcr.n_rating_type AS c_RatingType
-      FROM t_usage_interval ui
+	  ,rw.c_payerstart
+	  ,rw.c_payerend
+	  ,case when rw.c_unitvaluestart < '1970-01-01 00:00:00' THEN '1970-01-01 00:00:00' ELSE rw.c_unitvaluestart END AS c_unitvaluestart 
+	  ,rw.c_unitvalueend
+	  ,rw.c_unitvalue
+	  ,rcr.n_rating_type AS c_RatingType
+     FROM t_usage_interval ui
       INNER LOOP JOIN t_usage_interval nui ON ui.id_usage_cycle = nui.id_usage_cycle AND dbo.AddSecond(ui.dt_end) = nui.dt_start
       /*INNER LOOP JOIN t_billgroup bg ON bg.id_usage_interval = ui.id_interval
       INNER LOOP JOIN t_billgroup_member bgm ON bg.id_billgroup = bgm.id_billgroup*/

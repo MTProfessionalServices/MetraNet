@@ -49,7 +49,7 @@ declare @temp datetime
         INTO #recur_window_holder
         FROM inserted sub
           INNER JOIN t_payment_redirection pay ON pay.id_payee = sub.id_acc 
-            AND pay.vt_start < sub.vt_end AND pay.vt_end > sub.vt_start
+         --   AND pay.vt_start < sub.vt_end AND pay.vt_end > sub.vt_start
           INNER JOIN t_pl_map plm ON plm.id_po = sub.id_po AND plm.id_paramtable IS NULL
           INNER JOIN t_recur rcr ON plm.id_pi_instance = rcr.id_prop
           INNER JOIN t_base_props bp ON bp.id_prop = rcr.id_prop

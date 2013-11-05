@@ -7,7 +7,7 @@
     <Parameters>
         <Parameter>
             <Name>id_payment_transaction</Name>
-            <DataType>int32</DataType>
+            <DataType>string</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
             <Description></Description>
         </Parameter>

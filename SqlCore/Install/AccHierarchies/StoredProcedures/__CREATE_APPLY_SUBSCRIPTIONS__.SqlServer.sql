@@ -96,6 +96,21 @@ AS
 		   subs.sub_end
 	FROM
 	(
+		SELECT t1.id_po
+				, MAX(t1.id_group) AS id_group
+				, MAX(ed.dt_start) AS sub_start
+				, ISNULL(MAX(ed.dt_end), dbo.MTMaxDate()) AS sub_end
+			FROM (
+				SELECT ISNULL(ts.id_po,s.id_po) AS id_po, s.id_group
+					FROM t_acc_template_subs ts
+					LEFT JOIN t_sub s ON s.id_group = ts.id_group
+					WHERE ts.id_acc_template = @template_id
+			) t1
+			JOIN t_po po ON po.id_po = t1.id_po
+			JOIN t_effectivedate ed ON po.id_eff_date = ed.id_eff_date
+			GROUP BY t1.id_po
+
+/*
 		SELECT MAX(ts.id_po) AS id_po, NULL AS id_group, ISNULL(MAX(ed.dt_start), @systemdate) AS sub_start, ISNULL(MAX(ed.dt_end), dbo.MTMaxDate()) AS sub_end
 		FROM   t_acc_template_subs ts
 			   JOIN t_pl_map pm ON pm.id_po = ts.id_po
@@ -112,6 +127,7 @@ AS
 			   JOIN t_effectivedate ed ON po.id_eff_date = ed.id_eff_date
 		WHERE  ts.id_acc_template = @template_id
 		GROUP BY pm.id_pi_template
+*/
 	) subs
 
 	DECLARE @id_acc  int
@@ -159,18 +175,18 @@ AS
 		SELECT id_group, id_acc, vt_start, vt_end
 		FROM   #tmp_gsubmember
 
-		INSERT INTO t_gsubmember_historical (id_group, id_acc, vt_start, vt_end, tt_start, tt_end)
-		SELECT id_group, id_acc, vt_start, vt_end, @systemdate, @maxdate
-		FROM   #tmp_gsubmember
+		--INSERT INTO t_gsubmember_historical (id_group, id_acc, vt_start, vt_end, tt_start, tt_end)
+		--SELECT id_group, id_acc, vt_start, vt_end, @systemdate, @maxdate
+		--FROM   #tmp_gsubmember
 
 		INSERT INTO t_sub (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end)
 		SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end
 		FROM   #tmp_sub
 
-		INSERT INTO t_sub_history
-			  (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end, tt_start, tt_end)
-		SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end, @systemdate, @maxdate
-		FROM   #tmp_sub
+		--INSERT INTO t_sub_history
+		--	  (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end, tt_start, tt_end)
+		--SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end, @systemdate, @maxdate
+		--FROM   #tmp_sub
 
 		INSERT INTO t_audit_details (id_audit, tx_details)
 		SELECT @my_id_audit,

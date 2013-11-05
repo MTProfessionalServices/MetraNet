@@ -33,322 +33,6 @@ INSERT INTO [dbo].[t_sys_upgrade]
 VALUES
 ('7.0.2', getdate(), 'R')
 GO
-PRINT N'Dropping extended properties'
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', NULL, NULL
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'am_currency'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'amount'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'div_amount'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'div_currency'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'dt_crt'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'dt_session'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'id_acc'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'id_parent_sess'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'id_payee'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'id_pi_instance'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'id_pi_template'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'id_prod'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'id_se'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'id_sess'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'id_svc'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'id_usage_interval'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'id_view'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'tax_calculated'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'tax_county'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'tax_federal'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'tax_inclusive'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'tax_informational'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'tax_local'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'tax_other'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'tax_state'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'tx_batch'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_dropextendedproperty N'MS_Description', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'tx_UID'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_acc_usage]'
-GO
-ALTER TABLE [dbo].[t_acc_usage] DROP CONSTRAINT [fk2_t_acc_usage]
-ALTER TABLE [dbo].[t_acc_usage] DROP CONSTRAINT [fk3_t_acc_usage]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_amp_accountqualifi]'
-GO
-ALTER TABLE [dbo].[t_amp_accountqualifi] DROP CONSTRAINT [FK__t_amp_acc__c_Acc__3943762B]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_amp_chargeattribut]'
-GO
-ALTER TABLE [dbo].[t_amp_chargeattribut] DROP CONSTRAINT [FK__t_amp_cha__c_Cha__3D14070F]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_amp_chargequalific]'
-GO
-ALTER TABLE [dbo].[t_amp_chargequalific] DROP CONSTRAINT [FK__t_amp_cha__c_Cha__2EFAF1E2]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_amp_decisionattrib]'
-GO
-ALTER TABLE [dbo].[t_amp_decisionattrib] DROP CONSTRAINT [FK__t_amp_dec__c_Dec__40E497F3]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_amp_genchargedirective]'
-GO
-ALTER TABLE [dbo].[t_amp_genchargedirective] DROP CONSTRAINT [FK__t_amp_gen__c_Gen__44B528D7]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_amp_usagequalifica]'
-GO
-ALTER TABLE [dbo].[t_amp_usagequalifica] DROP CONSTRAINT [FK__t_amp_usa__c_Usa__420DC656]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_ep_usage]'
-GO
-ALTER TABLE [dbo].[t_ep_usage] DROP CONSTRAINT [FK__t_ep_usag__id_pr__1E105D02]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_ep_aggregate]'
-GO
-ALTER TABLE [dbo].[t_ep_aggregate] DROP CONSTRAINT [FK__t_ep_aggr__id_pr__0A096455]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_ep_discount]'
-GO
-ALTER TABLE [dbo].[t_ep_discount] DROP CONSTRAINT [FK__t_ep_disc__id_pr__0CE5D100]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_ep_nonrecurring]'
-GO
-ALTER TABLE [dbo].[t_ep_nonrecurring] DROP CONSTRAINT [FK__t_ep_nonr__id_pr__0FC23DAB]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_ep_po]'
-GO
-ALTER TABLE [dbo].[t_ep_po] DROP CONSTRAINT [FK__t_ep_po__id_prop__129EAA56]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_ep_pricelist]'
-GO
-ALTER TABLE [dbo].[t_ep_pricelist] DROP CONSTRAINT [FK__t_ep_pric__id_pr__157B1701]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_ep_recurring]'
-GO
-ALTER TABLE [dbo].[t_ep_recurring] DROP CONSTRAINT [FK__t_ep_recu__id_pr__185783AC]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_ep_unit_dependent_recurring]'
-GO
-ALTER TABLE [dbo].[t_ep_unit_dependent_recurring] DROP CONSTRAINT [FK__t_ep_unit__id_pr__1B33F057]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_mview_base_tables]'
-GO
-ALTER TABLE [dbo].[t_mview_base_tables] DROP CONSTRAINT [FK__t_mview_b__id_ev__31B762FC]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_mview_event]'
-GO
-ALTER TABLE [dbo].[t_mview_event] DROP CONSTRAINT [FK__t_mview_e__id_mv__2DE6D218]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_mview_queries]'
-GO
-ALTER TABLE [dbo].[t_mview_queries] DROP CONSTRAINT [FK__t_mview_q__id_ev__2FCF1A8A]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-
 PRINT N'Dropping all constraints from T_PT_* tables ...'
 GO
 BEGIN
@@ -384,245 +68,6 @@ IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION
 GO
 
 
-PRINT N'Dropping foreign keys from [dbo].[t_be_cor_bil_billmessageacc]'
-GO
-ALTER TABLE [dbo].[t_be_cor_bil_billmessageacc] DROP CONSTRAINT [FKC3D2CEB6CE386231]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_be_cor_cor_chargeadj735343]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_chargeadj735343] DROP CONSTRAINT [FKF85D1B8A2326DEF8]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_be_cor_cor_invoiceadjustm]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_invoiceadjustm] DROP CONSTRAINT [FK223B6613ED4EB850]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_be_cor_cor_chargeadjustme]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_chargeadjustme] DROP CONSTRAINT [FK64309022ED4EB850]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_be_cor_fil_r_target_argume]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_argume] DROP CONSTRAINT [FK715CFF2F6CCCAD37]
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_argume] DROP CONSTRAINT [FK715CFF2F8FE654D4]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_be_cor_fil_r_progra_assemb]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_progra_assemb] DROP CONSTRAINT [FKA563E2DAA260F339]
-ALTER TABLE [dbo].[t_be_cor_fil_r_progra_assemb] DROP CONSTRAINT [FKA563E2DAC3F32C3E]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_be_cor_fil_r_invoca_filebe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_invoca_filebe] DROP CONSTRAINT [FKC2912D0FC1661E1]
-ALTER TABLE [dbo].[t_be_cor_fil_r_invoca_filebe] DROP CONSTRAINT [FKC2912D02F02B46F]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_be_cor_fil_r_target_progra]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_progra] DROP CONSTRAINT [FK5595C3E5C3F32C3E]
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_progra] DROP CONSTRAINT [FK5595C3E58FE654D4]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_be_cor_fil_r_target_invoca]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_invoca] DROP CONSTRAINT [FK1C394D548FE654D4]
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_invoca] DROP CONSTRAINT [FK1C394D542F02B46F]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_be_cor_mr_r_machin_machin]'
-GO
-ALTER TABLE [dbo].[t_be_cor_mr_r_machin_machin] DROP CONSTRAINT [FKB9DA71B95BAD365B]
-ALTER TABLE [dbo].[t_be_cor_mr_r_machin_machin] DROP CONSTRAINT [FKB9DA71B9FE7400DB]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_be_cor_ui_r_Site_BillS]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_BillS] DROP CONSTRAINT [FK84B207BFF0387E4C]
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_BillS] DROP CONSTRAINT [FK84B207BF9E01EF1D]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_be_cor_ui_r_Column_Widget]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Column_Widget] DROP CONSTRAINT [FK4266DABE2132732D]
-ALTER TABLE [dbo].[t_be_cor_ui_r_Column_Widget] DROP CONSTRAINT [FK4266DABE7BD375DD]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_be_cor_ui_r_Dashbo_Column]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Dashbo_Column] DROP CONSTRAINT [FK681EC3DE2132732D]
-ALTER TABLE [dbo].[t_be_cor_ui_r_Dashbo_Column] DROP CONSTRAINT [FK681EC3DED31D9D5]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_be_cor_ui_r_Site_Dashb]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Dashb] DROP CONSTRAINT [FK4364355BD31D9D5]
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Dashb] DROP CONSTRAINT [FK4364355B9E01EF1D]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_be_cor_ui_r_Site_Entry]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Entry] DROP CONSTRAINT [FK6B593A9EF237B3CA]
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Entry] DROP CONSTRAINT [FK6B593A9E9E01EF1D]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_be_cor_ui_r_Widget_Param]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Widget_Param] DROP CONSTRAINT [FK38F61CAB7231A6B3]
-ALTER TABLE [dbo].[t_be_cor_ui_r_Widget_Param] DROP CONSTRAINT [FK38F61CAB7BD375DD]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_be_cor_qu_quotecontent]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_quotecontent] DROP CONSTRAINT [FK11F4836B4018C0CD]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_be_cor_qu_poforquote]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_poforquote] DROP CONSTRAINT [FK4D75E5624018C0CD]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_be_cor_qu_accountforquote]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_accountforquote] DROP CONSTRAINT [FK72F3DB6E4018C0CD]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_be_cor_ui_r_Site_Produ]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Produ] DROP CONSTRAINT [FK2EE4ACACFCBF9B9]
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Produ] DROP CONSTRAINT [FK2EE4ACAC9E01EF1D]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_be_cor_ui_r_SavedS_Searc]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_SavedS_Searc] DROP CONSTRAINT [FKBE0A9C77A4FB35B5]
-ALTER TABLE [dbo].[t_be_cor_ui_r_SavedS_Searc] DROP CONSTRAINT [FKBE0A9C77BA5036E7]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_be_cor_ui_r_Site_Repor]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Repor] DROP CONSTRAINT [FK9102A9F29E01EF1D]
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Repor] DROP CONSTRAINT [FK9102A9F235A41245]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping foreign keys from [dbo].[t_open_transactions]'
-GO
-ALTER TABLE [dbo].[t_open_transactions] DROP CONSTRAINT [FK_t_open_transactions_table]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_batch]'
-GO
-ALTER TABLE [dbo].[t_batch] DROP CONSTRAINT [UK_7_t_batch]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_batch]'
-GO
-ALTER TABLE [dbo].[t_batch] DROP CONSTRAINT [DF__t_batch__n_dismi__6166761E]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_recevent_scheduled]'
-GO
-ALTER TABLE [dbo].[t_recevent_scheduled] DROP CONSTRAINT [CK2_t_recevent_scheduled]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_recevent_scheduled]'
-GO
-ALTER TABLE [dbo].[t_recevent_scheduled] DROP CONSTRAINT [DF__t_receven__is_pa__1ABEEF0B]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_acc_usage]'
-GO
-ALTER TABLE [dbo].[t_acc_usage] DROP CONSTRAINT [pk_t_acc_usage]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
 PRINT N'Dropping constraints from [dbo].[mvm_scheduled_tasks]'
 GO
 ALTER TABLE [dbo].[mvm_scheduled_tasks] DROP CONSTRAINT [pk_mvm_scheduled_tasks]
@@ -631,2071 +76,9 @@ IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
 GO
 IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
 GO
-PRINT N'Dropping constraints from [dbo].[mvm_scheduled_tasks]'
-GO
-ALTER TABLE [dbo].[mvm_scheduled_tasks] DROP CONSTRAINT [DF__mvm_sched__mvm_s__65570293]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[mvm_scheduled_tasks]'
-GO
-ALTER TABLE [dbo].[mvm_scheduled_tasks] DROP CONSTRAINT [DF__mvm_sched__mvm_s__664B26CC]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[mvm_scheduled_tasks]'
-GO
-ALTER TABLE [dbo].[mvm_scheduled_tasks] DROP CONSTRAINT [DF__mvm_sched__mvm_s__673F4B05]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[mvm_scheduled_tasks]'
-GO
-ALTER TABLE [dbo].[mvm_scheduled_tasks] DROP CONSTRAINT [DF__mvm_sched__mvm_t__68336F3E]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[mvm_scheduled_tasks]'
-GO
-ALTER TABLE [dbo].[mvm_scheduled_tasks] DROP CONSTRAINT [DF__mvm_sched__mvm_p__69279377]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_accountqualgro]'
-GO
-ALTER TABLE [dbo].[t_amp_accountqualgro] DROP CONSTRAINT [PK__t_amp_ac__4567929F61FCB3B7]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_accountqualgro]'
-GO
-ALTER TABLE [dbo].[t_amp_accountqualgro] DROP CONSTRAINT [UQ__t_amp_ac__D6E7B384FDCC7705]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_accountqualifi]'
-GO
-ALTER TABLE [dbo].[t_amp_accountqualifi] DROP CONSTRAINT [PK__t_amp_ac__52934E36A2AD74E1]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_accountqualifi]'
-GO
-ALTER TABLE [dbo].[t_amp_accountqualifi] DROP CONSTRAINT [UQ__t_amp_ac__8BE5C40C9A940B06]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_amountchain]'
-GO
-ALTER TABLE [dbo].[t_amp_amountchain] DROP CONSTRAINT [PK__t_amp_am__CBAD18CDC388C9FB]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_amountchain]'
-GO
-ALTER TABLE [dbo].[t_amp_amountchain] DROP CONSTRAINT [UQ__t_amp_am__8BE5C40CBE839F39]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_amountchainfield]'
-GO
-ALTER TABLE [dbo].[t_amp_amountchainfield] DROP CONSTRAINT [PK__t_amp_am__7E526D7969FE075B]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_amountchainfield]'
-GO
-ALTER TABLE [dbo].[t_amp_amountchainfield] DROP CONSTRAINT [UQ__t_amp_am__8BE5C40C0AF30803]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_chargeattribut]'
-GO
-ALTER TABLE [dbo].[t_amp_chargeattribut] DROP CONSTRAINT [PK__t_amp_ch__A3537F36FE4E1B02]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_chargeattribut]'
-GO
-ALTER TABLE [dbo].[t_amp_chargeattribut] DROP CONSTRAINT [UQ__t_amp_ch__8BE5C40C7E2F2ADB]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_chargedefiniti]'
-GO
-ALTER TABLE [dbo].[t_amp_chargedefiniti] DROP CONSTRAINT [PK__t_amp_ch__6C04A96E42BD1066]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_chargedefiniti]'
-GO
-ALTER TABLE [dbo].[t_amp_chargedefiniti] DROP CONSTRAINT [UQ__t_amp_ch__D6E7B384E10FA7A3]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_chargequalgroup]'
-GO
-ALTER TABLE [dbo].[t_amp_chargequalgroup] DROP CONSTRAINT [PK__t_amp_ch__F505F7314CD6B0E3]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_chargequalgroup]'
-GO
-ALTER TABLE [dbo].[t_amp_chargequalgroup] DROP CONSTRAINT [UQ__t_amp_ch__D6E7B384ED7C459B]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_chargequalific]'
-GO
-ALTER TABLE [dbo].[t_amp_chargequalific] DROP CONSTRAINT [PK__t_amp_ch__67CF2EE1599C09D3]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_chargequalific]'
-GO
-ALTER TABLE [dbo].[t_amp_chargequalific] DROP CONSTRAINT [UQ__t_amp_ch__8BE5C40CAA646A80]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_decisionattrib]'
-GO
-ALTER TABLE [dbo].[t_amp_decisionattrib] DROP CONSTRAINT [PK__t_amp_de__2D4726597D591FE9]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_decisionattrib]'
-GO
-ALTER TABLE [dbo].[t_amp_decisionattrib] DROP CONSTRAINT [UQ__t_amp_de__8BE5C40C5D103427]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_decisionglobal]'
-GO
-ALTER TABLE [dbo].[t_amp_decisionglobal] DROP CONSTRAINT [PK__t_amp_de__975CC17195515E0A]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_decisionglobal]'
-GO
-ALTER TABLE [dbo].[t_amp_decisionglobal] DROP CONSTRAINT [UQ__t_amp_de__D6E7B384F6EDE90C]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_decisiontype]'
-GO
-ALTER TABLE [dbo].[t_amp_decisiontype] DROP CONSTRAINT [PK__t_amp_de__8EB515C36596F7D6]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_decisiontype]'
-GO
-ALTER TABLE [dbo].[t_amp_decisiontype] DROP CONSTRAINT [UQ__t_amp_de__D6E7B38414783E5C]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_genchargedirective]'
-GO
-ALTER TABLE [dbo].[t_amp_genchargedirective] DROP CONSTRAINT [PK__t_amp_ge__8EC2E9F8F638C831]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_genchargedirective]'
-GO
-ALTER TABLE [dbo].[t_amp_genchargedirective] DROP CONSTRAINT [UQ__t_amp_ge__8BE5C40C86A4BBEE]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_generatedcharge]'
-GO
-ALTER TABLE [dbo].[t_amp_generatedcharge] DROP CONSTRAINT [PK__t_amp_ge__65798ACAE745DB3E]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_generatedcharge]'
-GO
-ALTER TABLE [dbo].[t_amp_generatedcharge] DROP CONSTRAINT [UQ__t_amp_ge__D6E7B3844E6E3863]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_pvtoamountchain]'
-GO
-ALTER TABLE [dbo].[t_amp_pvtoamountchain] DROP CONSTRAINT [PK__t_amp_pv__0B2535713ED8DB31]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_usagechargefie]'
-GO
-ALTER TABLE [dbo].[t_amp_usagechargefie] DROP CONSTRAINT [PK__t_amp_us__0B14729550BE22F5]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_usagechargefie]'
-GO
-ALTER TABLE [dbo].[t_amp_usagechargefie] DROP CONSTRAINT [UQ__t_amp_us__8BE5C40C459CD1A6]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_usagequalgroup]'
-GO
-ALTER TABLE [dbo].[t_amp_usagequalgroup] DROP CONSTRAINT [PK__t_amp_us__8748199447C78B88]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_usagequalgroup]'
-GO
-ALTER TABLE [dbo].[t_amp_usagequalgroup] DROP CONSTRAINT [UQ__t_amp_us__D6E7B384DA91F044]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_usagequalifica]'
-GO
-ALTER TABLE [dbo].[t_amp_usagequalifica] DROP CONSTRAINT [PK__t_amp_us__7C7AC52F9BD7DDEB]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_amp_usagequalifica]'
-GO
-ALTER TABLE [dbo].[t_amp_usagequalifica] DROP CONSTRAINT [UQ__t_amp_us__8BE5C40C64780DA7]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_ar_bucket_def]'
-GO
-ALTER TABLE [dbo].[t_ar_bucket_def] DROP CONSTRAINT [UQ__t_ar_buc__1FF858C802ECD01E]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_ar_bucket_def]'
-GO
-ALTER TABLE [dbo].[t_ar_bucket_def] DROP CONSTRAINT [UQ__t_ar_buc__DA9CDC05CE8D488A]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_ar_bucket_def]'
-GO
-ALTER TABLE [dbo].[t_ar_bucket_def] DROP CONSTRAINT [UQ__t_ar_buc__BC0C50A202FE71AA]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_bil_billmessage]'
-GO
-ALTER TABLE [dbo].[t_be_cor_bil_billmessage] DROP CONSTRAINT [PK__t_be_cor__31268A863CA42AF4]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_bil_billmessage]'
-GO
-ALTER TABLE [dbo].[t_be_cor_bil_billmessage] DROP CONSTRAINT [UQ__t_be_cor__4388A78320909F6F]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_bil_billmessage_h]'
-GO
-ALTER TABLE [dbo].[t_be_cor_bil_billmessage_h] DROP CONSTRAINT [PK__t_be_cor__79AAFCECCFB62369]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_bil_billmessage_h]'
-GO
-ALTER TABLE [dbo].[t_be_cor_bil_billmessage_h] DROP CONSTRAINT [DF__t_be_cor___c_Bil__34F3C25A]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_bil_billmessageac_h]'
-GO
-ALTER TABLE [dbo].[t_be_cor_bil_billmessageac_h] DROP CONSTRAINT [PK__t_be_cor__6533DD862845818C]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_bil_billmessageac_h]'
-GO
-ALTER TABLE [dbo].[t_be_cor_bil_billmessageac_h] DROP CONSTRAINT [DF__t_be_cor___c_Bil__321755AF]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_bil_billmessageacc]'
-GO
-ALTER TABLE [dbo].[t_be_cor_bil_billmessageacc] DROP CONSTRAINT [PK__t_be_cor__52FD14A83769BA88]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_bil_billmessageacc]'
-GO
-ALTER TABLE [dbo].[t_be_cor_bil_billmessageacc] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C5E0132F2]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_cor_chargeadj735343]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_chargeadj735343] DROP CONSTRAINT [PK__t_be_cor__33964C7B77F73761]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_cor_chargeadj735343]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_chargeadj735343] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C23C53C26]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_cor_chargeadjustme]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_chargeadjustme] DROP CONSTRAINT [PK__t_be_cor__66160E620035126B]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_cor_chargeadjustme]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_chargeadjustme] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40CC4CD0780]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_cor_dispute]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_dispute] DROP CONSTRAINT [PK__t_be_cor__49EE887E89BAC145]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_cor_dispute]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_dispute] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C14497BDB]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_cor_dispute_h]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_dispute_h] DROP CONSTRAINT [PK__t_be_cor__88370B473B1C1475]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_cor_dispute_h]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_dispute_h] DROP CONSTRAINT [DF__t_be_cor___c_Dis__40657506]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_cor_division]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_division] DROP CONSTRAINT [PK__t_be_cor__0B44EF1F1A240A2B]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_cor_division]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_division] DROP CONSTRAINT [UQ__t_be_cor__D6E7B384C5598456]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_cor_invoiceadjustm]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_invoiceadjustm] DROP CONSTRAINT [PK__t_be_cor__A37952F7AA5A306A]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_cor_invoiceadjustm]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_invoiceadjustm] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40CEA6CB6CC]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_cor_invoiceadjustm]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_invoiceadjustm] DROP CONSTRAINT [UQ__t_be_cor__0DA3484692C00A8A]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_argumentbe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_argumentbe] DROP CONSTRAINT [PK__t_be_cor__7A1C372256ED4E96]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_argumentbe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_argumentbe] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C6E739F50]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_assemblyrefere]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_assemblyrefere] DROP CONSTRAINT [PK__t_be_cor__4128FED9F0C7BDAE]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_assemblyrefere]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_assemblyrefere] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C47A8F19C]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_configurationbe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_configurationbe] DROP CONSTRAINT [PK__t_be_cor__A791EE00FE7FEEBB]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_configurationbe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_configurationbe] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40CF5251374]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_filebe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_filebe] DROP CONSTRAINT [PK__t_be_cor__C587AE31FDF3EC2C]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_filebe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_filebe] DROP CONSTRAINT [UQ__t_be_cor__E8A8046F2BAC70EB]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_programcodebe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_programcodebe] DROP CONSTRAINT [PK__t_be_cor__BC432029568D7C15]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_programcodebe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_programcodebe] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C0482B4DD]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_r_invoca_filebe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_invoca_filebe] DROP CONSTRAINT [PK__t_be_cor__F0D1B52C7506D363]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_r_invoca_filebe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_invoca_filebe] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40CFBBAE3AF]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_r_invoca_filebe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_invoca_filebe] DROP CONSTRAINT [UQ__t_be_cor__920873A4E69DF313]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_r_progra_assemb]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_progra_assemb] DROP CONSTRAINT [PK__t_be_cor__39A3130C680A7E23]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_r_progra_assemb]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_progra_assemb] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C8677BE22]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_r_progra_assemb]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_progra_assemb] DROP CONSTRAINT [UQ__t_be_cor__3851AFC5D028BFA2]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_r_target_argume]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_argume] DROP CONSTRAINT [PK__t_be_cor__1AA9FC84081AADEE]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_r_target_argume]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_argume] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40CA768E67B]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_r_target_argume]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_argume] DROP CONSTRAINT [UQ__t_be_cor__DB633BC1EA234BB9]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_r_target_invoca]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_invoca] DROP CONSTRAINT [PK__t_be_cor__6337642FCE4C3DF7]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_r_target_invoca]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_invoca] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C9F03D371]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_r_target_invoca]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_invoca] DROP CONSTRAINT [UQ__t_be_cor__9527F8276ABDB581]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_invocationrec_h]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_invocationrec_h] DROP CONSTRAINT [PK__t_be_cor__392FAD4ED270729C]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_invocationrec_h]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_invocationrec_h] DROP CONSTRAINT [DF__t_be_cor___c_Inv__583CFE97]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_r_target_progra]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_progra] DROP CONSTRAINT [PK__t_be_cor__9AE48002E0B06448]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_r_target_progra]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_progra] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C79422909]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_r_target_progra]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_progra] DROP CONSTRAINT [UQ__t_be_cor__6706CAB152204021]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_servicehostbe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_servicehostbe] DROP CONSTRAINT [PK__t_be_cor__523737B03BBFCE74]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_servicehostbe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_servicehostbe] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C906F34FE]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_invocationreco]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_invocationreco] DROP CONSTRAINT [PK__t_be_cor__9E5009462C7526E0]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_invocationreco]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_invocationreco] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C896FD444]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_targetbe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_targetbe] DROP CONSTRAINT [PK__t_be_cor__ECC2F8B2DD495A6B]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_fil_targetbe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_targetbe] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C6C2D71A0]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_mr_machine]'
-GO
-ALTER TABLE [dbo].[t_be_cor_mr_machine] DROP CONSTRAINT [PK__t_be_cor__129EAD80B56DD263]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_mr_machine]'
-GO
-ALTER TABLE [dbo].[t_be_cor_mr_machine] DROP CONSTRAINT [UQ__t_be_cor__F1214B34D483FCC7]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_BillSetting]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_BillSetting] DROP CONSTRAINT [PK__t_be_cor__4B2508C9477067EC]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_BillSetting]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_BillSetting] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C03A346F2]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_mr_machinerole]'
-GO
-ALTER TABLE [dbo].[t_be_cor_mr_machinerole] DROP CONSTRAINT [PK__t_be_cor__0B02FAF1A3577367]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_mr_machinerole]'
-GO
-ALTER TABLE [dbo].[t_be_cor_mr_machinerole] DROP CONSTRAINT [UQ__t_be_cor__D6E7B38426730093]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_Column]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_Column] DROP CONSTRAINT [PK__t_be_cor__C310FB0DFA908EF6]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_Column]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_Column] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40CCC8431F7]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_mr_r_machin_machin]'
-GO
-ALTER TABLE [dbo].[t_be_cor_mr_r_machin_machin] DROP CONSTRAINT [PK__t_be_cor__B2A94D9A6D26A7C3]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_mr_r_machin_machin]'
-GO
-ALTER TABLE [dbo].[t_be_cor_mr_r_machin_machin] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C50B72FCD]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_mr_r_machin_machin]'
-GO
-ALTER TABLE [dbo].[t_be_cor_mr_r_machin_machin] DROP CONSTRAINT [UQ__t_be_cor__122E822EAFF40A5F]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_qu_accountforquote]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_accountforquote] DROP CONSTRAINT [PK__t_be_cor__EA8F1EA8578C4E42]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_qu_accountforquote]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_accountforquote] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40CC3120721]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_Dashboard]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_Dashboard] DROP CONSTRAINT [PK__t_be_cor__EDEEA87AAEAD1D90]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_Dashboard]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_Dashboard] DROP CONSTRAINT [UQ__t_be_cor__D6E7B384FCBCDCF3]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_qu_poforquote]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_poforquote] DROP CONSTRAINT [PK__t_be_cor__798F89775912A0E0]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_qu_poforquote]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_poforquote] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C7DCE9A94]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_qu_quotecontent]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_quotecontent] DROP CONSTRAINT [PK__t_be_cor__EDAA540DB5E25FCD]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_qu_quotecontent]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_quotecontent] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40CAB83584F]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_EntryPoint]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_EntryPoint] DROP CONSTRAINT [PK__t_be_cor__82489D77EB1BFAF6]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_EntryPoint]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_EntryPoint] DROP CONSTRAINT [UQ__t_be_cor__F608815B6308CA2A]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_Parameter]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_Parameter] DROP CONSTRAINT [PK__t_be_cor__748F2AC27776E60C]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_Parameter]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_Parameter] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C78332476]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_qu_quoteheader]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_quoteheader] DROP CONSTRAINT [PK__t_be_cor__CFDDFCDB5613ABF7]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_qu_quoteheader]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_quoteheader] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40CF7226CE0]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_ProductViewMap]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_ProductViewMap] DROP CONSTRAINT [PK__t_be_cor__2F015F0C06179A91]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_ProductViewMap]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_ProductViewMap] DROP CONSTRAINT [UQ__t_be_cor__941911CBD81E0BA6]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_qu_quotelog]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_quotelog] DROP CONSTRAINT [PK__t_be_cor__89F8C596CD7D3E2F]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_qu_quotelog]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_quotelog] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C9FBB2C88]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Column_Widget]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Column_Widget] DROP CONSTRAINT [PK__t_be_cor__4E5B33FF942CBBAB]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Column_Widget]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Column_Widget] DROP CONSTRAINT [UQ__t_be_cor__37A9EB1A47CF9276]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Column_Widget]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Column_Widget] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C1DD62E8B]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Dashbo_Column]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Dashbo_Column] DROP CONSTRAINT [PK__t_be_cor__2DED47EBD95793D1]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Dashbo_Column]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Dashbo_Column] DROP CONSTRAINT [UQ__t_be_cor__21DFA7CB00B2A29E]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Dashbo_Column]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Dashbo_Column] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C70C2298D]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_SavedS_Searc]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_SavedS_Searc] DROP CONSTRAINT [PK__t_be_cor__F732420EA8FBB9F9]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_SavedS_Searc]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_SavedS_Searc] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40CDD575576]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_SavedS_Searc]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_SavedS_Searc] DROP CONSTRAINT [UQ__t_be_cor__609BEF650C43CBE5]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Site_BillS]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_BillS] DROP CONSTRAINT [PK__t_be_cor__464566B21600721B]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Site_BillS]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_BillS] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C4FB6D44C]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Site_BillS]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_BillS] DROP CONSTRAINT [UQ__t_be_cor__01740A3C9A04F700]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Site_Dashb]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Dashb] DROP CONSTRAINT [PK__t_be_cor__184281CFAC4FD5AE]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Site_Dashb]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Dashb] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C3B0EC75D]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Site_Dashb]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Dashb] DROP CONSTRAINT [UQ__t_be_cor__3B18B037E54BCC3E]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Site_Entry]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Entry] DROP CONSTRAINT [PK__t_be_cor__FF5B0EE097BC25EA]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Site_Entry]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Entry] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C14BA2B3E]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Site_Entry]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Entry] DROP CONSTRAINT [UQ__t_be_cor__EDE2D367257A969A]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Site_Produ]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Produ] DROP CONSTRAINT [PK__t_be_cor__4C67E4AB9142C4E0]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Site_Produ]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Produ] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C7B1AD6FE]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Site_Produ]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Produ] DROP CONSTRAINT [UQ__t_be_cor__57364F40E5702BDA]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Site_Repor]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Repor] DROP CONSTRAINT [PK__t_be_cor__5864EDC499C0A43F]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Site_Repor]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Repor] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C2209060D]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Site_Repor]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Repor] DROP CONSTRAINT [UQ__t_be_cor__7CDEC6FA5D698303]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Widget_Param]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Widget_Param] DROP CONSTRAINT [PK__t_be_cor__76BDD5DCCB938C60]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Widget_Param]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Widget_Param] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C27BA3050]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_r_Widget_Param]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Widget_Param] DROP CONSTRAINT [UQ__t_be_cor__7CD9F3C340C204D3]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_ReportInventory]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_ReportInventory] DROP CONSTRAINT [PK__t_be_cor__9189C4AE00C4AE91]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_ReportInventory]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_ReportInventory] DROP CONSTRAINT [UQ__t_be_cor__D6E7B384F6EADEB1]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_SavedSearch]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_SavedSearch] DROP CONSTRAINT [PK__t_be_cor__9E711A60B7764E97]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_SavedSearch]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_SavedSearch] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C6E90A694]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_SearchFilter]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_SearchFilter] DROP CONSTRAINT [PK__t_be_cor__EEAF504E1764A883]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_SearchFilter]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_SearchFilter] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C65A666BF]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_Site]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_Site] DROP CONSTRAINT [PK__t_be_cor__85C65AB1E8F51A76]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_Site]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_Site] DROP CONSTRAINT [UQ__t_be_cor__E61A4021B3704E26]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_UserProfile]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_UserProfile] DROP CONSTRAINT [PK__t_be_cor__C5AA59BCA8F8874F]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_UserProfile]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_UserProfile] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40C8795CD8B]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_Widget]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_Widget] DROP CONSTRAINT [PK__t_be_cor__4B91016E820BDEF2]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_Widget]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_Widget] DROP CONSTRAINT [UQ__t_be_cor__8BE5C40CE4B626FD]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_WidgetInventory]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_WidgetInventory] DROP CONSTRAINT [PK__t_be_cor__132027E382905540]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_cor_ui_WidgetInventory]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_WidgetInventory] DROP CONSTRAINT [UQ__t_be_cor__D6E7B384DDBE2D3E]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_be_entity_sync_data]'
-GO
-ALTER TABLE [dbo].[t_be_entity_sync_data] DROP CONSTRAINT [PK__t_be_ent__3213E83F8266C3E9]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_mf_tracking_env]'
-GO
-ALTER TABLE [dbo].[t_mf_tracking_env] DROP CONSTRAINT [PK__t_mf_tra__97B38449EED094A4]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_mf_tracking_instructions]'
-GO
-ALTER TABLE [dbo].[t_mf_tracking_instructions] DROP CONSTRAINT [PK__t_mf_tra__8CC1656619B5DB37]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_mf_tracking_scripts]'
-GO
-ALTER TABLE [dbo].[t_mf_tracking_scripts] DROP CONSTRAINT [PK__t_mf_tra__8877058D7C0BA760]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_mview_catalog] DROP CONSTRAINT [PK__t_mview___01488BAE382FED60]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_mview_event]'
-GO
-ALTER TABLE [dbo].[t_mview_event] DROP CONSTRAINT [PK__t_mview___913E426FBD57E8AF]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_open_transactions]'
-GO
-ALTER TABLE [dbo].[t_open_transactions] DROP CONSTRAINT [PK__t_open_t__C994A84C676EF222]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_message]'
-GO
-ALTER TABLE [dbo].[t_message] DROP CONSTRAINT [pk_t_message]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_message]'
-GO
-ALTER TABLE [dbo].[t_message] DROP CONSTRAINT [DF__t_message__id_pa__30592A6F]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_session]'
-GO
-ALTER TABLE [dbo].[t_session] DROP CONSTRAINT [pk_t_session]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_session]'
-GO
-ALTER TABLE [dbo].[t_session] DROP CONSTRAINT [DF__t_session__id_pa__3DB3258D]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_session_set]'
-GO
-ALTER TABLE [dbo].[t_session_set] DROP CONSTRAINT [pk_t_session_set]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_session_set]'
-GO
-ALTER TABLE [dbo].[t_session_set] DROP CONSTRAINT [DF__t_session__id_pa__37FA4C37]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_session_state]'
-GO
-ALTER TABLE [dbo].[t_session_state] DROP CONSTRAINT [pk_t_session_state]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_session_state]'
-GO
-ALTER TABLE [dbo].[t_session_state] DROP CONSTRAINT [DF__t_session__id_pa__3AD6B8E2]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_stored_procedure_table_lock]'
-GO
-ALTER TABLE [dbo].[t_stored_procedure_table_lock] DROP CONSTRAINT [UQ__t_stored__4019333AF9D56090]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_AccountCreation]'
-GO
-ALTER TABLE [dbo].[t_svc_AccountCreation] DROP CONSTRAINT [pk_t_svc_AccountCreation]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_AccountCreation]'
-GO
-ALTER TABLE [dbo].[t_svc_AccountCreation] DROP CONSTRAINT [DF__t_svc_Acc__id_pa__3E2826D9]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_AccountCredit]'
-GO
-ALTER TABLE [dbo].[t_svc_AccountCredit] DROP CONSTRAINT [pk_t_svc_AccountCredit]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_AccountCredit]'
-GO
-ALTER TABLE [dbo].[t_svc_AccountCredit] DROP CONSTRAINT [DF__t_svc_Acc__id_pa__43E1002F]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_AccountCreditRequest]'
-GO
-ALTER TABLE [dbo].[t_svc_AccountCreditRequest] DROP CONSTRAINT [pk_t_svc_AccountCreditRequest]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_AccountCreditRequest]'
-GO
-ALTER TABLE [dbo].[t_svc_AccountCreditRequest] DROP CONSTRAINT [DF__t_svc_Acc__id_pa__46BD6CDA]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_AccountMapping]'
-GO
-ALTER TABLE [dbo].[t_svc_AccountMapping] DROP CONSTRAINT [pk_t_svc_AccountMapping]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_AccountMapping]'
-GO
-ALTER TABLE [dbo].[t_svc_AccountMapping] DROP CONSTRAINT [DF__t_svc_Acc__id_pa__4999D985]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_AddCharge]'
-GO
-ALTER TABLE [dbo].[t_svc_AddCharge] DROP CONSTRAINT [pk_t_svc_AddCharge]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_AddCharge]'
-GO
-ALTER TABLE [dbo].[t_svc_AddCharge] DROP CONSTRAINT [DF__t_svc_Add__id_pa__4C764630]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_ARAdjustment]'
-GO
-ALTER TABLE [dbo].[t_svc_ARAdjustment] DROP CONSTRAINT [pk_t_svc_ARAdjustment]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_ARAdjustment]'
-GO
-ALTER TABLE [dbo].[t_svc_ARAdjustment] DROP CONSTRAINT [DF__t_svc_ARA__id_pa__4F52B2DB]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_Commitment]'
-GO
-ALTER TABLE [dbo].[t_svc_Commitment] DROP CONSTRAINT [pk_t_svc_Commitment]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_Commitment]'
-GO
-ALTER TABLE [dbo].[t_svc_Commitment] DROP CONSTRAINT [DF__t_svc_Com__id_pa__7D197D8B]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_DTCGetWhereAbouts]'
-GO
-ALTER TABLE [dbo].[t_svc_DTCGetWhereAbouts] DROP CONSTRAINT [pk_t_svc_DTCGetWhereAbouts]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_DTCGetWhereAbouts]'
-GO
-ALTER TABLE [dbo].[t_svc_DTCGetWhereAbouts] DROP CONSTRAINT [DF__t_svc_DTC__id_pa__522F1F86]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_FlatDiscount]'
-GO
-ALTER TABLE [dbo].[t_svc_FlatDiscount] DROP CONSTRAINT [pk_t_svc_FlatDiscount]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_FlatDiscount]'
-GO
-ALTER TABLE [dbo].[t_svc_FlatDiscount] DROP CONSTRAINT [DF__t_svc_Fla__id_pa__550B8C31]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_FlatDiscount_NoCond]'
-GO
-ALTER TABLE [dbo].[t_svc_FlatDiscount_NoCond] DROP CONSTRAINT [pk_t_svc_FlatDiscount_NoCond]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_FlatDiscount_NoCond]'
-GO
-ALTER TABLE [dbo].[t_svc_FlatDiscount_NoCond] DROP CONSTRAINT [DF__t_svc_Fla__id_pa__57E7F8DC]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_FlatRecurringCharge]'
-GO
-ALTER TABLE [dbo].[t_svc_FlatRecurringCharge] DROP CONSTRAINT [pk_t_svc_FlatRecurringCharge]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_FlatRecurringCharge]'
-GO
-ALTER TABLE [dbo].[t_svc_FlatRecurringCharge] DROP CONSTRAINT [DF__t_svc_Fla__id_pa__5AC46587]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_FreeUsage]'
-GO
-ALTER TABLE [dbo].[t_svc_FreeUsage] DROP CONSTRAINT [pk_t_svc_FreeUsage]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_FreeUsage]'
-GO
-ALTER TABLE [dbo].[t_svc_FreeUsage] DROP CONSTRAINT [DF__t_svc_Fre__id_pa__7FF5EA36]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_Login]'
-GO
-ALTER TABLE [dbo].[t_svc_Login] DROP CONSTRAINT [pk_t_svc_Login]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_Login]'
-GO
-ALTER TABLE [dbo].[t_svc_Login] DROP CONSTRAINT [DF__t_svc_Log__id_pa__5DA0D232]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_MultiBucketDiscount]'
-GO
-ALTER TABLE [dbo].[t_svc_MultiBucketDiscount] DROP CONSTRAINT [pk_t_svc_MultiBucketDiscount]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_MultiBucketDiscount]'
-GO
-ALTER TABLE [dbo].[t_svc_MultiBucketDiscount] DROP CONSTRAINT [DF__t_svc_Mul__id_pa__02D256E1]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_MultiBucketPricing]'
-GO
-ALTER TABLE [dbo].[t_svc_MultiBucketPricing] DROP CONSTRAINT [pk_t_svc_MultiBucketPricing]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_MultiBucketPricing]'
-GO
-ALTER TABLE [dbo].[t_svc_MultiBucketPricing] DROP CONSTRAINT [DF__t_svc_Mul__id_pa__05AEC38C]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_NonRecurringCharge]'
-GO
-ALTER TABLE [dbo].[t_svc_NonRecurringCharge] DROP CONSTRAINT [pk_t_svc_NonRecurringCharge]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_NonRecurringCharge]'
-GO
-ALTER TABLE [dbo].[t_svc_NonRecurringCharge] DROP CONSTRAINT [DF__t_svc_Non__id_pa__607D3EDD]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_NonStandardCharge]'
-GO
-ALTER TABLE [dbo].[t_svc_NonStandardCharge] DROP CONSTRAINT [pk_t_svc_NonStandardCharge]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_NonStandardCharge]'
-GO
-ALTER TABLE [dbo].[t_svc_NonStandardCharge] DROP CONSTRAINT [DF__t_svc_Non__id_pa__6359AB88]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_NonStandardChargeRequest]'
-GO
-ALTER TABLE [dbo].[t_svc_NonStandardChargeRequest] DROP CONSTRAINT [pk_t_svc_NonStandardChargeRequest]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_NonStandardChargeRequest]'
-GO
-ALTER TABLE [dbo].[t_svc_NonStandardChargeRequest] DROP CONSTRAINT [DF__t_svc_Non__id_pa__66361833]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_Payment]'
-GO
-ALTER TABLE [dbo].[t_svc_Payment] DROP CONSTRAINT [pk_t_svc_Payment]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_Payment]'
-GO
-ALTER TABLE [dbo].[t_svc_Payment] DROP CONSTRAINT [DF__t_svc_Pay__id_pa__691284DE]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_PaymentDetails]'
-GO
-ALTER TABLE [dbo].[t_svc_PaymentDetails] DROP CONSTRAINT [pk_t_svc_PaymentDetails]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_PaymentDetails]'
-GO
-ALTER TABLE [dbo].[t_svc_PaymentDetails] DROP CONSTRAINT [DF__t_svc_Pay__id_pa__6BEEF189]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_PercentDiscount]'
-GO
-ALTER TABLE [dbo].[t_svc_PercentDiscount] DROP CONSTRAINT [pk_t_svc_PercentDiscount]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_PercentDiscount]'
-GO
-ALTER TABLE [dbo].[t_svc_PercentDiscount] DROP CONSTRAINT [DF__t_svc_Per__id_pa__6ECB5E34]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_PercentDiscount_NoCond]'
-GO
-ALTER TABLE [dbo].[t_svc_PercentDiscount_NoCond] DROP CONSTRAINT [pk_t_svc_PercentDiscount_NoCond]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_PercentDiscount_NoCond]'
-GO
-ALTER TABLE [dbo].[t_svc_PercentDiscount_NoCond] DROP CONSTRAINT [DF__t_svc_Per__id_pa__71A7CADF]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_SingleBucketPricing]'
-GO
-ALTER TABLE [dbo].[t_svc_SingleBucketPricing] DROP CONSTRAINT [pk_t_svc_SingleBucketPricing]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_SingleBucketPricing]'
-GO
-ALTER TABLE [dbo].[t_svc_SingleBucketPricing] DROP CONSTRAINT [DF__t_svc_Sin__id_pa__088B3037]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_SystemAccountCreation]'
-GO
-ALTER TABLE [dbo].[t_svc_SystemAccountCreation] DROP CONSTRAINT [pk_t_svc_SystemAccountCreation]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_SystemAccountCreation]'
-GO
-ALTER TABLE [dbo].[t_svc_SystemAccountCreation] DROP CONSTRAINT [DF__t_svc_Sys__id_pa__41049384]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_TestParent]'
-GO
-ALTER TABLE [dbo].[t_svc_TestParent] DROP CONSTRAINT [pk_t_svc_TestParent]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_TestParent]'
-GO
-ALTER TABLE [dbo].[t_svc_TestParent] DROP CONSTRAINT [DF__t_svc_Tes__id_pa__7484378A]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_TestService]'
-GO
-ALTER TABLE [dbo].[t_svc_TestService] DROP CONSTRAINT [pk_t_svc_TestService]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_TestService]'
-GO
-ALTER TABLE [dbo].[t_svc_TestService] DROP CONSTRAINT [DF__t_svc_Tes__id_pa__7760A435]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_UDRecurringCharge]'
-GO
-ALTER TABLE [dbo].[t_svc_UDRecurringCharge] DROP CONSTRAINT [pk_t_svc_UDRecurringCharge]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_svc_UDRecurringCharge]'
-GO
-ALTER TABLE [dbo].[t_svc_UDRecurringCharge] DROP CONSTRAINT [DF__t_svc_UDR__id_pa__7A3D10E0]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_tax_billsoft_pc_map]'
-GO
-ALTER TABLE [dbo].[t_tax_billsoft_pc_map] DROP CONSTRAINT [pk_t_tax_billsoft_pc_map]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_tax_billsoft_pc_map]'
-GO
-ALTER TABLE [dbo].[t_tax_billsoft_pc_map] DROP CONSTRAINT [DF__t_tax_bil__produ__35DCF99B]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[tmp_billing_rerun_accounts]'
-GO
-ALTER TABLE [dbo].[tmp_billing_rerun_accounts] DROP CONSTRAINT [PK__tmp_bill__6BE8F064D84B8E5B]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_agr_template]'
-GO
-ALTER TABLE [dbo].[t_agr_template] DROP CONSTRAINT [DF__t_agr_tem__avail__5E1FF51F]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_agr_template]'
-GO
-ALTER TABLE [dbo].[t_agr_template] DROP CONSTRAINT [DF__t_agr_tem__avail__5F141958]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_batch_history]'
-GO
-ALTER TABLE [dbo].[t_batch_history] DROP CONSTRAINT [DF__t_batch_h__n_dis__5BAD9CC8]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_batch_history]'
-GO
-ALTER TABLE [dbo].[t_batch_history] DROP CONSTRAINT [DF__t_batch_h__dt_hi__5CA1C101]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_email_adapter_tracking]'
-GO
-ALTER TABLE [dbo].[t_email_adapter_tracking] DROP CONSTRAINT [DF__t_email_a__n_fai__47919582]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_failed_transaction]'
-GO
-ALTER TABLE [dbo].[t_failed_transaction] DROP CONSTRAINT [DF__t_failed___id_Po__7C1A6C5A]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_payment_audit]'
-GO
-ALTER TABLE [dbo].[t_payment_audit] DROP CONSTRAINT [DF__t_payment__dt_oc__0C1BC9F9]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_po]'
-GO
-ALTER TABLE [dbo].[t_po] DROP CONSTRAINT [DF__t_po__b_hidden__2AF556D4]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_principals]'
-GO
-ALTER TABLE [dbo].[t_principals] DROP CONSTRAINT [DF__t_princip__nm_pk__119F9925]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_tax_billsoft_override]'
-GO
-ALTER TABLE [dbo].[t_tax_billsoft_override] DROP CONSTRAINT [DF__t_tax_bil__level__3118447E]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_tax_billsoft_override]'
-GO
-ALTER TABLE [dbo].[t_tax_billsoft_override] DROP CONSTRAINT [DF__t_tax_bil__repla__320C68B7]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_tax_billsoft_override]'
-GO
-ALTER TABLE [dbo].[t_tax_billsoft_override] DROP CONSTRAINT [DF__t_tax_bil__exces__33008CF0]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_usage_server]'
-GO
-ALTER TABLE [dbo].[t_usage_server] DROP CONSTRAINT [DF__t_usage_s__b_par__5FD33367]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_usage_server]'
-GO
-ALTER TABLE [dbo].[t_usage_server] DROP CONSTRAINT [DF__t_usage_s__parti__60C757A0]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_usage_server]'
-GO
-ALTER TABLE [dbo].[t_usage_server] DROP CONSTRAINT [DF__t_usage_s__parti__61BB7BD9]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_usage_server]'
-GO
-ALTER TABLE [dbo].[t_usage_server] DROP CONSTRAINT [DF__t_usage_s__parti__62AFA012]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping constraints from [dbo].[t_usage_server]'
-GO
-ALTER TABLE [dbo].[t_usage_server] DROP CONSTRAINT [DF__t_usage_s__parti__63A3C44B]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping index [idx_acc_ui_view_ind] from [dbo].[t_acc_usage]'
-GO
-DROP INDEX [idx_acc_ui_view_ind] ON [dbo].[t_acc_usage]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
 PRINT N'Dropping table [dbo].[t_months]'
 GO
 DROP TABLE [dbo].[t_months]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping index [idx_payee_ind] from [dbo].[t_acc_usage]'
-GO
-DROP INDEX [idx_payee_ind] ON [dbo].[t_acc_usage]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping index [parent_idx_t_acc_usage] from [dbo].[t_acc_usage]'
-GO
-DROP INDEX [parent_idx_t_acc_usage] ON [dbo].[t_acc_usage]
 GO
 IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
 GO
@@ -5604,101 +2987,18 @@ IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
 GO
 IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
 GO
+
 PRINT N'Rebuilding [dbo].[t_acc_usage]'
+
+EXEC sp_RENAME 't_acc_usage.tax_inclusive' , 'is_implied_tax', 'COLUMN'
 GO
-CREATE TABLE [dbo].[tmp_rg_xx_t_acc_usage]
-(
-[id_sess] [bigint] NOT NULL,
-[tx_UID] [varbinary] (16) NOT NULL,
-[id_acc] [int] NOT NULL,
-[id_payee] [int] NOT NULL,
-[id_view] [int] NOT NULL,
-[id_usage_interval] [int] NOT NULL,
-[id_parent_sess] [bigint] NULL,
-[id_prod] [int] NULL,
-[id_svc] [int] NOT NULL,
-[dt_session] [datetime] NOT NULL,
-[amount] [numeric] (22, 10) NOT NULL,
-[am_currency] [nvarchar] (3) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-[dt_crt] [datetime] NOT NULL,
-[tx_batch] [varbinary] (16) NULL,
-[tax_federal] [numeric] (22, 10) NULL,
-[tax_state] [numeric] (22, 10) NULL,
-[tax_county] [numeric] (22, 10) NULL,
-[tax_local] [numeric] (22, 10) NULL,
-[tax_other] [numeric] (22, 10) NULL,
-[id_pi_instance] [int] NULL,
-[id_pi_template] [int] NULL,
-[id_se] [int] NOT NULL,
-[div_currency] [nvarchar] (3) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[div_amount] [numeric] (22, 10) NULL,
-[is_implied_tax] [nvarchar] (1) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-[tax_calculated] [nvarchar] (1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[tax_informational] [nvarchar] (1) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
-)
+UPDATE t_acc_usage SET is_implied_tax='N' WHERE is_implied_tax IS NULL
+UPDATE t_acc_usage SET tax_informational='N' WHERE tax_informational IS NULL
 GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+ALTER TABLE t_acc_usage ALTER COLUMN is_implied_tax NVARCHAR(1) NOT NULL
+ALTER TABLE t_acc_usage ALTER COLUMN tax_informational NVARCHAR(1) NOT NULL
 GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-INSERT INTO [dbo].[tmp_rg_xx_t_acc_usage]
-([id_sess], [tx_UID], [id_acc], [id_payee], [id_view], 
- [id_usage_interval], [id_parent_sess], [id_prod], [id_svc], [dt_session], 
- [amount], [am_currency], [dt_crt], [tx_batch], [tax_federal],
- [tax_state], [tax_county], [tax_local], [tax_other], [id_pi_instance],
- [id_pi_template], [id_se], [div_currency], [div_amount], 
- [is_implied_tax], [tax_calculated], [tax_informational]) 
- SELECT [id_sess], [tx_UID], [id_acc], [id_payee], [id_view], 
- [id_usage_interval], [id_parent_sess], [id_prod], [id_svc], [dt_session], 
- [amount], [am_currency], [dt_crt], [tx_batch], [tax_federal],
- [tax_state], [tax_county], [tax_local], [tax_other], [id_pi_instance], 
- [id_pi_template], [id_se], [div_currency], [div_amount], 
- [tax_inclusive], [tax_calculated], ISNULL([tax_informational], 'N') FROM [dbo].[t_acc_usage]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-DROP TABLE [dbo].[t_acc_usage]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_rename N'[dbo].[tmp_rg_xx_t_acc_usage]', N't_acc_usage'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_acc_usage] on [dbo].[t_acc_usage]'
-GO
-ALTER TABLE [dbo].[t_acc_usage] ADD CONSTRAINT [pk_t_acc_usage] PRIMARY KEY CLUSTERED  ([id_sess], [id_usage_interval])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating index [idx_acc_ui_view_ind] on [dbo].[t_acc_usage]'
-GO
-CREATE NONCLUSTERED INDEX [idx_acc_ui_view_ind] ON [dbo].[t_acc_usage] ([id_acc], [id_usage_interval], [id_view])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating index [idx_payee_ind] on [dbo].[t_acc_usage]'
-GO
-CREATE NONCLUSTERED INDEX [idx_payee_ind] ON [dbo].[t_acc_usage] ([dt_session], [id_payee])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating index [parent_idx_t_acc_usage] on [dbo].[t_acc_usage]'
-GO
-CREATE NONCLUSTERED INDEX [parent_idx_t_acc_usage] ON [dbo].[t_acc_usage] ([id_parent_sess])
-GO
+
 IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
 GO
 IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
@@ -7023,25 +4323,27 @@ IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION
 GO
 PRINT N'Creating [dbo].[subscribe_account]'
 GO
-CREATE PROCEDURE [dbo].[subscribe_account](
-   @id_acc              INT,
-   @id_po               INT,
-   @id_group            INT,
-   @sub_start           DATETIME,
-   @sub_end             DATETIME,
-   @systemdate          DATETIME
+
+CREATE PROCEDURE subscribe_account 
+(
+   @id_acc              int,
+   @id_po               int,
+   @id_group            int,
+   @sub_start           datetime,
+   @sub_end             datetime,
+   @systemdate          datetime
 )
 AS
 BEGIN
 	SET NOCOUNT ON
 	
-	DECLARE @v_guid      UNIQUEIDENTIFIER
-	DECLARE @curr_id_sub INT
-	DECLARE @maxdate     DATETIME
+	DECLARE @v_guid      uniqueidentifier
+	DECLARE @curr_id_sub int
+	DECLARE @maxdate     datetime
 
 	SET @maxdate = dbo.MTMaxDate()
 
-	IF @id_po IS NULL
+	IF @id_group IS NOT NULL
 	BEGIN
 		INSERT INTO #tmp_gsubmember (id_group, id_acc, vt_start, vt_end)
 			VALUES (@id_group, @id_acc, @sub_start, @sub_end)
@@ -7062,6 +4364,7 @@ IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION
 GO
 PRINT N'Creating [dbo].[apply_subscriptions_to_acc]'
 GO
+
 
 CREATE PROCEDURE apply_subscriptions_to_acc (
     @id_acc                     int,
@@ -7115,159 +4418,238 @@ AS
     DECLARE @my_sub_end       datetime
     
     DECLARE subs CURSOR LOCAL FOR
-      SELECT ts.id_po,
-             ts.id_group,
-             dbo.GreatestDate(dbo.LeastDate(MIN(s.vt_start), MIN(gm.vt_start)), @v_acc_start) AS vt_start,
-             dbo.GreatestDate(MAX(s.vt_end), MAX(gm.vt_end)) AS vt_end,
-             SUM(CASE WHEN s.id_sub IS NULL THEN 0 ELSE 1 END) + SUM(CASE WHEN gm.id_group IS NULL THEN 0 ELSE 1 END) conflicts,
-             vs.v_sub_start AS my_sub_start,
-             vs.v_sub_end AS my_sub_end
-      FROM   t_acc_template_subs ts
-             JOIN (
-                    SELECT id_po,
-                           id_group,
-                            CASE
-                               WHEN @next_cycle_after_startdate = 'Y'
-                               THEN
-                                   (
-                                     SELECT dbo.GreatestDate(DATEADD(s, 1, tpc.dt_end), tvs.po_start)
-                                     FROM   t_pc_interval tpc
-                                            INNER JOIN t_acc_usage_cycle tauc ON tpc.id_cycle = tauc.id_usage_cycle
-                                     WHERE  tauc.id_acc = @id_acc
-                                        AND tvs.sub_start BETWEEN tpc.dt_start AND tpc.dt_end
-                                   )
-                               ELSE tvs.sub_start
-                           END AS v_sub_start,
-                           CASE
-                               WHEN @next_cycle_after_enddate = 'Y'
-                               THEN
-                                   (
-                                     SELECT dbo.LeastDate(dbo.LeastDate(DATEADD(s, 1, tpc.dt_end), dbo.MTMaxDate()), tvs.po_end)
-                                     FROM   t_pc_interval tpc
-                                            INNER JOIN t_acc_usage_cycle tauc ON tpc.id_cycle = tauc.id_usage_cycle
-                                     WHERE  tauc.id_acc = @id_acc
-                                        AND tvs.sub_end BETWEEN tpc.dt_start AND tpc.dt_end
-                                   )
-                               ELSE tvs.sub_end
-                           END AS v_sub_end
+		SELECT  id_po,
+				id_group,
+				dbo.GreatestDate(t1.v_sub_start, @v_acc_start) AS vt_start,
+				t1.v_sub_end,
+				dbo.GreatestDate(t1.v_sub_start, @v_acc_start) AS v_sub_start,
+				t1.v_sub_end
+			FROM (
+				SELECT
+					id_po,
+					id_group,
+					CASE
+						WHEN @next_cycle_after_startdate = 'Y'
+						THEN
+							(
+								SELECT dbo.GreatestDate(DATEADD(s, 1, tpc.dt_end), tvs.po_start)
+									FROM   t_pc_interval tpc
+									INNER JOIN t_acc_usage_cycle tauc ON tpc.id_cycle = tauc.id_usage_cycle
+									WHERE  tauc.id_acc = @id_acc
+									AND tvs.sub_start BETWEEN tpc.dt_start AND tpc.dt_end
+							)
+						ELSE tvs.sub_start
+					END AS v_sub_start,
+					CASE
+						WHEN @next_cycle_after_enddate = 'Y'
+						THEN
+							(
+								SELECT dbo.LeastDate(dbo.LeastDate(DATEADD(s, 1, tpc.dt_end), dbo.MTMaxDate()), tvs.po_end)
+									FROM   t_pc_interval tpc
+									INNER JOIN t_acc_usage_cycle tauc ON tpc.id_cycle = tauc.id_usage_cycle
+									WHERE  tauc.id_acc = @id_acc
+									AND tvs.sub_end BETWEEN tpc.dt_start AND tpc.dt_end
+							)
+						ELSE tvs.sub_end
+					END AS v_sub_end
+					FROM #t_acc_template_valid_subs tvs
+			) t1
+--            WHERE tvs.id_acc_template_session = apply_subscriptions_to_acc.id_template_session
 
-                    FROM   #t_acc_template_valid_subs tvs
-             ) vs ON vs.id_po = ts.id_po OR vs.id_group = ts.id_group
-             LEFT JOIN t_sub gs ON gs.id_group = ts.id_group
-             LEFT JOIN t_sub s
-              ON     s.id_acc = @id_acc
-                 AND s.vt_start <= vs.v_sub_end
-                 AND s.vt_end >= vs.v_sub_start
-                 AND EXISTS (SELECT 1
-                             FROM   t_pl_map mpo
-                                    JOIN t_pl_map ms ON mpo.id_pi_template = ms.id_pi_template
-                             WHERE  mpo.id_po = ISNULL(ts.id_po, gs.id_po) AND ms.id_po = s.id_po)
-             LEFT JOIN t_gsubmember gm
-              ON     gm.id_acc = @id_acc
-                 AND gm.vt_start <= vs.v_sub_end
-                 AND gm.vt_end >= vs.v_sub_start
-                 AND EXISTS (SELECT 1
-                             FROM   t_sub ags
-                                    JOIN t_pl_map ms ON ms.id_po = ags.id_po
-                                    JOIN t_pl_map mpo ON mpo.id_pi_template = ms.id_pi_template
-                             WHERE  ags.id_group = gm.id_group AND mpo.id_po = ISNULL(ts.id_po, gs.id_po))
-      WHERE  ts.id_acc_template = @id_acc_template
-	     /* Check if the PO is available for the account's type */
-	     AND (  (ts.id_po IS NOT NULL AND
-		          (  EXISTS
-		             (
-				        SELECT 1
-					    FROM   t_po_account_type_map atm
-					    WHERE  atm.id_po = ts.id_po AND atm.id_account_type = @id_acc_type
-				     )
-				  OR NOT EXISTS
-				     (
-					     SELECT 1 FROM t_po_account_type_map atm WHERE atm.id_po = ts.id_po
-					 )
-				 )
-				)
-		     OR (ts.id_group IS NOT NULL AND
-			      (  EXISTS
-			         (
-				        SELECT 1
-					    FROM   t_po_account_type_map atm
-					           JOIN t_sub tgs ON tgs.id_po = atm.id_po
-					    WHERE  tgs.id_group = ts.id_group AND atm.id_account_type = @id_acc_type
-				     )
-				 OR NOT EXISTS
-				     (
-						SELECT 1
-					    FROM   t_po_account_type_map atm
-					           JOIN t_sub tgs ON tgs.id_po = atm.id_po
-					    WHERE  tgs.id_group = ts.id_group
-					 )
-				  )
-				)
-		     )
-      GROUP BY ts.id_po, ts.id_group, vs.v_sub_start, vs.v_sub_end
+
+    --  SELECT ts.id_po,
+    --         ts.id_group,
+    --         dbo.GreatestDate(dbo.LeastDate(MIN(s.vt_start), MIN(gm.vt_start)), @v_acc_start) AS vt_start,
+    --         dbo.GreatestDate(MAX(s.vt_end), MAX(gm.vt_end)) AS vt_end,
+    --         SUM(CASE WHEN s.id_sub IS NULL THEN 0 ELSE 1 END) + SUM(CASE WHEN gm.id_group IS NULL THEN 0 ELSE 1 END) conflicts,
+    --         vs.v_sub_start AS my_sub_start,
+    --         vs.v_sub_end AS my_sub_end
+    --  FROM   t_acc_template_subs ts
+    --         JOIN (
+    --                SELECT id_po,
+    --                       id_group,
+    --                        CASE
+    --                           WHEN @next_cycle_after_startdate = 'Y'
+    --                           THEN
+    --                               (
+    --                                 SELECT dbo.GreatestDate(DATEADD(s, 1, tpc.dt_end), tvs.po_start)
+    --                                 FROM   t_pc_interval tpc
+    --                                        INNER JOIN t_acc_usage_cycle tauc ON tpc.id_cycle = tauc.id_usage_cycle
+    --                                 WHERE  tauc.id_acc = @id_acc
+    --                                    AND tvs.sub_start BETWEEN tpc.dt_start AND tpc.dt_end
+    --                               )
+    --                           ELSE tvs.sub_start
+    --                       END AS v_sub_start,
+    --                       CASE
+    --                           WHEN @next_cycle_after_enddate = 'Y'
+    --                           THEN
+    --                               (
+    --                                 SELECT dbo.LeastDate(dbo.LeastDate(DATEADD(s, 1, tpc.dt_end), dbo.MTMaxDate()), tvs.po_end)
+    --                                 FROM   t_pc_interval tpc
+    --                                        INNER JOIN t_acc_usage_cycle tauc ON tpc.id_cycle = tauc.id_usage_cycle
+    --                                 WHERE  tauc.id_acc = @id_acc
+    --                                    AND tvs.sub_end BETWEEN tpc.dt_start AND tpc.dt_end
+    --                               )
+    --                           ELSE tvs.sub_end
+    --                       END AS v_sub_end
+
+    --                FROM   #t_acc_template_valid_subs tvs
+    --         ) vs ON vs.id_po = ts.id_po OR vs.id_group = ts.id_group
+    --         LEFT JOIN t_sub gs ON gs.id_group = ts.id_group
+    --         LEFT JOIN t_sub s
+    --          ON     s.id_acc = @id_acc
+    --             AND s.vt_start <= vs.v_sub_end
+    --             AND s.vt_end >= vs.v_sub_start
+    --             AND EXISTS (SELECT 1
+    --                         FROM   t_pl_map mpo
+    --                                JOIN t_pl_map ms ON mpo.id_pi_template = ms.id_pi_template
+    --                         WHERE  mpo.id_po = ISNULL(ts.id_po, gs.id_po) AND ms.id_po = s.id_po)
+    --         LEFT JOIN t_gsubmember gm
+    --          ON     gm.id_acc = @id_acc
+    --             AND gm.vt_start <= vs.v_sub_end
+    --             AND gm.vt_end >= vs.v_sub_start
+    --             AND EXISTS (SELECT 1
+    --                         FROM   t_sub ags
+    --                                JOIN t_pl_map ms ON ms.id_po = ags.id_po
+    --                                JOIN t_pl_map mpo ON mpo.id_pi_template = ms.id_pi_template
+    --                         WHERE  ags.id_group = gm.id_group AND mpo.id_po = ISNULL(ts.id_po, gs.id_po))
+    --  WHERE  ts.id_acc_template = @id_acc_template
+	   --  /* Check if the PO is available for the account's type */
+	   --  AND (  (ts.id_po IS NOT NULL AND
+		  --        (  EXISTS
+		  --           (
+				--        SELECT 1
+				--	    FROM   t_po_account_type_map atm
+				--	    WHERE  atm.id_po = ts.id_po AND atm.id_account_type = @id_acc_type
+				--     )
+				--  OR NOT EXISTS
+				--     (
+				--	     SELECT 1 FROM t_po_account_type_map atm WHERE atm.id_po = ts.id_po
+				--	 )
+				-- )
+				--)
+		  --   OR (ts.id_group IS NOT NULL AND
+			 --     (  EXISTS
+			 --        (
+				--        SELECT 1
+				--	    FROM   t_po_account_type_map atm
+				--	           JOIN t_sub tgs ON tgs.id_po = atm.id_po
+				--	    WHERE  tgs.id_group = ts.id_group AND atm.id_account_type = @id_acc_type
+				--     )
+				-- OR NOT EXISTS
+				--     (
+				--		SELECT 1
+				--	    FROM   t_po_account_type_map atm
+				--	           JOIN t_sub tgs ON tgs.id_po = atm.id_po
+				--	    WHERE  tgs.id_group = ts.id_group
+				--	 )
+				--  )
+				--)
+		  --   )
+    --  GROUP BY ts.id_po, ts.id_group, vs.v_sub_start, vs.v_sub_end
     
     OPEN subs
-    FETCH NEXT FROM subs INTO @id_po, @id_group, @vt_start, @vt_end, @conflicts, @my_sub_start, @my_sub_end
+    FETCH NEXT FROM subs INTO @id_po, @id_group, @vt_start, @vt_end, @my_sub_start, @my_sub_end
 
     /* Create new subscriptions */
     WHILE @@FETCH_STATUS = 0
     BEGIN
-        /* 1.  There is no conflicting subscription */
-        IF @conflicts = 0
-        BEGIN
-            SELECT @v_vt_start = @my_sub_start, @v_vt_end = @my_sub_end
-            
-            EXEC subscribe_account @id_acc, @id_po, @id_group, @v_vt_start, @v_vt_end, @systemdate
-        END
-        /* 2.  There is a conflicting subscription for the same or greatest interval */
-        ELSE IF @my_sub_start >= @vt_start AND @my_sub_end <= @vt_end
-        BEGIN
-            INSERT INTO t_acc_template_session_detail
-                (
-                    id_session,
-                    n_detail_type,
-                    n_result,
-                    dt_detail,
-                    nm_text,
-                    n_retry_count
-                )
-            VALUES
-                (
-                    @id_template_session,
-                    @detailtypesubs,
-                    @detailresultfailure,
-                    getdate(),
-                    N'Subscription for account ' + CAST(@id_acc AS nvarchar(10)) + N' not created due to ' + CAST(@conflicts AS nvarchar(10)) + N'conflict' + CASE WHEN @conflicts > 1 THEN 's' ELSE '' END,
-                    @retrycount
-                )
-        END
-        /* 3.  There is a conflicting subscription for an early period */
-        ELSE IF @my_sub_start >= @vt_start AND @my_sub_end > @vt_end
-        BEGIN
-            SELECT @v_vt_start = DATEADD(d, 1, @vt_end), @v_vt_end = @my_sub_end
-            
-            EXEC subscribe_account @id_acc, @id_po, @id_group, @v_vt_start, @v_vt_end, @systemdate
-        END
-        /* 4.  There is a conflicting subscription for a late period */
-        ELSE IF @my_sub_start < @vt_start AND @my_sub_end <= @vt_end
-        BEGIN
-            SELECT @v_vt_start = @my_sub_start, @v_vt_end = DATEADD(d, -1, @vt_start)
-            
-            EXEC subscribe_account @id_acc, @id_po, @id_group, @v_vt_start, @v_vt_end, @systemdate
-        END
-        /* 5.  There is a conflicting subscription for the period inside the indicated one */
-        ELSE
-        BEGIN
-            SELECT @v_vt_start = DATEADD(d, 1, @vt_end), @v_vt_end = @my_sub_end
-            
-            EXEC subscribe_account @id_acc, @id_po, @id_group, @v_vt_start, @v_vt_end, @systemdate
+		DECLARE @v_prev_end DATETIME
+		DECLARE @c_vt_start DATETIME
+		DECLARE @c_vt_end DATETIME
+		SET @v_prev_end = DATEADD(d, -1, @my_sub_start)
+		DECLARE csubs CURSOR FOR
+            SELECT s.vt_start, s.vt_end
+                FROM t_sub s
+                WHERE s.vt_end >= @my_sub_start 
+                    AND s.vt_start <= @my_sub_end
+                    AND s.id_acc = @id_acc
+                    AND s.id_po = @id_po
+                ORDER BY s.vt_start
 
-            SELECT @v_vt_start = @my_sub_start, @v_vt_end = DATEADD(d, -1, @vt_start)
-            
-            EXEC subscribe_account @id_acc, @id_po, @id_group, @v_vt_start, @v_vt_end, @systemdate
+		OPEN csubs
+		FETCH NEXT FROM csubs INTO @c_vt_start, @c_vt_end
+
+		WHILE @@FETCH_STATUS = 0
+		BEGIN
+            IF @c_vt_start > @v_prev_end 
+			BEGIN
+                SET @v_vt_start = DATEADD(d, 1, @v_prev_end)
+                SET @v_vt_end = DATEADD(d, -1, @c_vt_start)
+            END
+            IF @v_vt_start <= @v_vt_end
+			BEGIN
+                EXEC subscribe_account @id_acc, @id_po, @id_group, @v_vt_start, @v_vt_end, @systemdate
+            END
+            SET @v_prev_end = @c_vt_end
+
+			FETCH NEXT FROM csubs INTO @c_vt_start, @c_vt_end
+		END 
+		CLOSE csubs
+		DEALLOCATE csubs
+        IF @v_prev_end < @my_sub_end
+		BEGIN
+            SET @v_vt_start = DATEADD(d,1,@v_prev_end)
+            SET @v_vt_end = @my_sub_end
+                EXEC subscribe_account @id_acc, @id_po, @id_group, @v_vt_start, @v_vt_end, @systemdate
         END
 
-        FETCH NEXT FROM subs INTO @id_po, @id_group, @vt_start, @vt_end, @conflicts, @my_sub_start, @my_sub_end
+        --/* 1.  There is no conflicting subscription */
+        --IF @conflicts = 0
+        --BEGIN
+        --    SELECT @v_vt_start = @my_sub_start, @v_vt_end = @my_sub_end
+            
+        --    EXEC subscribe_account @id_acc, @id_po, @id_group, @v_vt_start, @v_vt_end, @systemdate
+        --END
+        --/* 2.  There is a conflicting subscription for the same or greatest interval */
+        --ELSE IF @my_sub_start >= @vt_start AND @my_sub_end <= @vt_end
+        --BEGIN
+        --    INSERT INTO t_acc_template_session_detail
+        --        (
+        --            id_session,
+        --            n_detail_type,
+        --            n_result,
+        --            dt_detail,
+        --            nm_text,
+        --            n_retry_count
+        --        )
+        --    VALUES
+        --        (
+        --            @id_template_session,
+        --            @detailtypesubs,
+        --            @detailresultfailure,
+        --            getdate(),
+        --            N'Subscription for account ' + CAST(@id_acc AS nvarchar(10)) + N' not created due to ' + CAST(@conflicts AS nvarchar(10)) + N'conflict' + CASE WHEN @conflicts > 1 THEN 's' ELSE '' END,
+        --            @retrycount
+        --        )
+        --END
+        --/* 3.  There is a conflicting subscription for an early period */
+        --ELSE IF @my_sub_start >= @vt_start AND @my_sub_end > @vt_end
+        --BEGIN
+        --    SELECT @v_vt_start = DATEADD(d, 1, @vt_end), @v_vt_end = @my_sub_end
+            
+        --    EXEC subscribe_account @id_acc, @id_po, @id_group, @v_vt_start, @v_vt_end, @systemdate
+        --END
+        --/* 4.  There is a conflicting subscription for a late period */
+        --ELSE IF @my_sub_start < @vt_start AND @my_sub_end <= @vt_end
+        --BEGIN
+        --    SELECT @v_vt_start = @my_sub_start, @v_vt_end = DATEADD(d, -1, @vt_start)
+            
+        --    EXEC subscribe_account @id_acc, @id_po, @id_group, @v_vt_start, @v_vt_end, @systemdate
+        --END
+        --/* 5.  There is a conflicting subscription for the period inside the indicated one */
+        --ELSE
+        --BEGIN
+        --    SELECT @v_vt_start = DATEADD(d, 1, @vt_end), @v_vt_end = @my_sub_end
+            
+        --    EXEC subscribe_account @id_acc, @id_po, @id_group, @v_vt_start, @v_vt_end, @systemdate
+
+        --    SELECT @v_vt_start = @my_sub_start, @v_vt_end = DATEADD(d, -1, @vt_start)
+            
+        --    EXEC subscribe_account @id_acc, @id_po, @id_group, @v_vt_start, @v_vt_end, @systemdate
+        --END
+
+        FETCH NEXT FROM subs INTO @id_po, @id_group, @vt_start, @vt_end, @my_sub_start, @my_sub_end
     END
 
     CLOSE subs
@@ -7376,6 +4758,21 @@ AS
 		   subs.sub_end
 	FROM
 	(
+		SELECT t1.id_po
+				, MAX(t1.id_group) AS id_group
+				, MAX(ed.dt_start) AS sub_start
+				, ISNULL(MAX(ed.dt_end), dbo.MTMaxDate()) AS sub_end
+			FROM (
+				SELECT ISNULL(ts.id_po,s.id_po) AS id_po, s.id_group
+					FROM t_acc_template_subs ts
+					LEFT JOIN t_sub s ON s.id_group = ts.id_group
+					WHERE ts.id_acc_template = @template_id
+			) t1
+			JOIN t_po po ON po.id_po = t1.id_po
+			JOIN t_effectivedate ed ON po.id_eff_date = ed.id_eff_date
+			GROUP BY t1.id_po
+
+/*
 		SELECT MAX(ts.id_po) AS id_po, NULL AS id_group, ISNULL(MAX(ed.dt_start), @systemdate) AS sub_start, ISNULL(MAX(ed.dt_end), dbo.MTMaxDate()) AS sub_end
 		FROM   t_acc_template_subs ts
 			   JOIN t_pl_map pm ON pm.id_po = ts.id_po
@@ -7392,6 +4789,7 @@ AS
 			   JOIN t_effectivedate ed ON po.id_eff_date = ed.id_eff_date
 		WHERE  ts.id_acc_template = @template_id
 		GROUP BY pm.id_pi_template
+*/
 	) subs
 
 	DECLARE @id_acc  int
@@ -7439,18 +4837,18 @@ AS
 		SELECT id_group, id_acc, vt_start, vt_end
 		FROM   #tmp_gsubmember
 
-		INSERT INTO t_gsubmember_historical (id_group, id_acc, vt_start, vt_end, tt_start, tt_end)
-		SELECT id_group, id_acc, vt_start, vt_end, @systemdate, @maxdate
-		FROM   #tmp_gsubmember
+		--INSERT INTO t_gsubmember_historical (id_group, id_acc, vt_start, vt_end, tt_start, tt_end)
+		--SELECT id_group, id_acc, vt_start, vt_end, @systemdate, @maxdate
+		--FROM   #tmp_gsubmember
 
 		INSERT INTO t_sub (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end)
 		SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end
 		FROM   #tmp_sub
 
-		INSERT INTO t_sub_history
-			  (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end, tt_start, tt_end)
-		SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end, @systemdate, @maxdate
-		FROM   #tmp_sub
+		--INSERT INTO t_sub_history
+		--	  (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end, tt_start, tt_end)
+		--SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end, @systemdate, @maxdate
+		--FROM   #tmp_sub
 
 		INSERT INTO t_audit_details (id_audit, tx_details)
 		SELECT @my_id_audit,
@@ -7682,7 +5080,7 @@ as
 					LEFT JOIN t_enum_data tedw ON tedw.id_enum_data = tp.DayOfWeek
 					LEFT JOIN fn_months() m ON tedm.nm_enum_data LIKE '%' + m.name
 					LEFT JOIN fn_day_of_week() dw ON tedw.nm_enum_data LIKE '%' + dw.name
-					LEFT JOIN t_usage_cycle_type tuct ON UPPER(tuct.tx_desc) = UPPER(SUBSTRING(tedc.nm_enum_data, LEN(tedc.nm_enum_data) - CHARINDEX('/',REVERSE(tedc.nm_enum_data))+2, CHARINDEX('/',REVERSE(tedc.nm_enum_data))))
+					LEFT JOIN t_usage_cycle_type tuct ON UPPER(tuct.tx_desc) LIKE REPLACE(UPPER(SUBSTRING(tedc.nm_enum_data, LEN(tedc.nm_enum_data) - CHARINDEX('/',REVERSE(tedc.nm_enum_data))+2, CHARINDEX('/',REVERSE(tedc.nm_enum_data)))), '-', '%')
 			) tprop ON tprop.DayOfMonth = ISNULL(tuc.day_of_month, tprop.DayOfMonth)
 			  AND tprop.StartDay = ISNULL(tuc.start_day,tprop.StartDay)
 			  AND tprop.StartMonth = ISNULL(tuc.start_month,tprop.StartMonth)
@@ -8900,7 +6298,7 @@ WHERE @p_system_time BETWEEN aa.vt_start AND aa.vt_end
 	DECLARE @sessionId INTEGER
 	IF @templateId IS NOT NULL
 	BEGIN
-		EXECUTE UpdatePrivateTempates @templateId
+		EXECUTE UpdatePrivateTempates @templateId, @p_system_time
 		EXECUTE GetCurrentID 'id_template_session', @sessionId OUT
         INSERT INTO t_acc_template_session(id_session, id_template_owner, nm_acc_type, dt_submission, id_submitter, nm_host, n_status, n_accts, n_subs)
         VALUES (@sessionId, @templateOwner, @p_acc_type, @p_system_time, 0, '', 0, 0, 0)
@@ -8917,7 +6315,7 @@ WHERE @p_system_time BETWEEN aa.vt_start AND aa.vt_end
 		OPEN tmpl
 		FETCH NEXT FROM tmpl INTO @templateId, @templateOwner, @templateType
 		WHILE @@FETCH_STATUS = 0 BEGIN
-			EXECUTE UpdatePrivateTempates @templateId
+			EXECUTE UpdatePrivateTempates @templateId, @p_system_time
 			EXECUTE GetCurrentID 'id_template_session', @sessionId OUT
 			INSERT INTO t_acc_template_session(id_session, id_template_owner, nm_acc_type, dt_submission, id_submitter, nm_host, n_status, n_accts, n_subs)
 			VALUES (@sessionId, @templateOwner, @p_acc_type, @p_system_time, 0, '', 0, 0, 0)
@@ -9176,452 +6574,6 @@ IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
 GO
 IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
 GO
-PRINT N'Creating [dbo].[at_SysAccountCreation_0_at_AV70SQL]'
-GO
-CREATE TABLE [dbo].[at_SysAccountCreation_0_at_AV70SQL]
-(
-[AccountType$#] [varchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[requestid] [int] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__at_SysAc__E3C6D2492B97C941] on [dbo].[at_SysAccountCreation_0_at_AV70SQL]'
-GO
-ALTER TABLE [dbo].[at_SysAccountCreation_0_at_AV70SQL] ADD CONSTRAINT [PK__at_SysAc__E3C6D2492B97C941] PRIMARY KEY CLUSTERED  ([requestid])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[atl_AccountCreation_0_atl_AV70SQL]'
-GO
-CREATE TABLE [dbo].[atl_AccountCreation_0_atl_AV70SQL]
-(
-[AccountType$#] [varchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[requestid] [int] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__atl_Acco__E3C6D249DA30E60D] on [dbo].[atl_AccountCreation_0_atl_AV70SQL]'
-GO
-ALTER TABLE [dbo].[atl_AccountCreation_0_atl_AV70SQL] ADD CONSTRAINT [PK__atl_Acco__E3C6D249DA30E60D] PRIMARY KEY CLUSTERED  ([requestid])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[pll_AccountCreation_0_pll_AV70SQL]'
-GO
-CREATE TABLE [dbo].[pll_AccountCreation_0_pll_AV70SQL]
-(
-[pricelist$#] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[requestid] [int] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__pll_Acco__E3C6D249F101F2B6] on [dbo].[pll_AccountCreation_0_pll_AV70SQL]'
-GO
-ALTER TABLE [dbo].[pll_AccountCreation_0_pll_AV70SQL] ADD CONSTRAINT [PK__pll_Acco__E3C6D249F101F2B6] PRIMARY KEY CLUSTERED  ([requestid])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_acctres_AccountCreation_0_AccountResolution_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_acctres_AccountCreation_0_AccountResolution_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[nm_login] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[nm_space] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[id_acc] [int] NULL,
-[restime] [datetime] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_acctres_AccountCredit_0_AccountResolutionByID_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_acctres_AccountCredit_0_AccountResolutionByID_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[nm_login] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[nm_space] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[id_acc] [int] NULL,
-[restime] [datetime] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_acctres_AccountCredit_0_AccountResolutionByName_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_acctres_AccountCredit_0_AccountResolutionByName_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[nm_login] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[nm_space] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[id_acc] [int] NULL,
-[restime] [datetime] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_acctres_AccountCreditRequest_0_AccountResolutionByID_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_acctres_AccountCreditRequest_0_AccountResolutionByID_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[nm_login] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[nm_space] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[id_acc] [int] NULL,
-[restime] [datetime] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_acctres_AccountMapping_0_AccountResolution_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_acctres_AccountMapping_0_AccountResolution_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[nm_login] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[nm_space] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[id_acc] [int] NULL,
-[restime] [datetime] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_acctres_AddCharge_0_AccountResolutionByID_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_acctres_AddCharge_0_AccountResolutionByID_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[nm_login] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[nm_space] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[id_acc] [int] NULL,
-[restime] [datetime] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_acctres_AddCharge_0_AccountResolutionByName_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_acctres_AddCharge_0_AccountResolutionByName_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[nm_login] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[nm_space] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[id_acc] [int] NULL,
-[restime] [datetime] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_acctres_BalanceAdjustments_0_AccountResolutionByID_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_acctres_BalanceAdjustments_0_AccountResolutionByID_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[nm_login] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[nm_space] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[id_acc] [int] NULL,
-[restime] [datetime] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_acctres_BalanceAdjustments_0_AccountResolutionByName_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_acctres_BalanceAdjustments_0_AccountResolutionByName_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[nm_login] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[nm_space] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[id_acc] [int] NULL,
-[restime] [datetime] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_acctres_FlatDiscount_0_AccountResolution_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_acctres_FlatDiscount_0_AccountResolution_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[nm_login] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[nm_space] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[id_acc] [int] NULL,
-[restime] [datetime] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_acctres_FlatRecurringCharge_0_AccountResolution_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_acctres_FlatRecurringCharge_0_AccountResolution_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[nm_login] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[nm_space] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[id_acc] [int] NULL,
-[restime] [datetime] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_acctres_FlatUnconditionalDiscount_0_AccountResolution_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_acctres_FlatUnconditionalDiscount_0_AccountResolution_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[nm_login] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[nm_space] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[id_acc] [int] NULL,
-[restime] [datetime] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_acctres_NonRecurringCharge_0_AccountResolution_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_acctres_NonRecurringCharge_0_AccountResolution_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[nm_login] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[nm_space] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[id_acc] [int] NULL,
-[restime] [datetime] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_acctres_NonStandardCharge_0_AccountResolutionByID_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_acctres_NonStandardCharge_0_AccountResolutionByID_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[nm_login] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[nm_space] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[id_acc] [int] NULL,
-[restime] [datetime] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_acctres_NonStandardCharge_0_AccountResolutionByName_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_acctres_NonStandardCharge_0_AccountResolutionByName_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[nm_login] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[nm_space] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[id_acc] [int] NULL,
-[restime] [datetime] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_acctres_NonStandardChargeRequest_0_AccountResolutionByID_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_acctres_NonStandardChargeRequest_0_AccountResolutionByID_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[nm_login] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[nm_space] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[id_acc] [int] NULL,
-[restime] [datetime] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_acctres_PercentDiscount_0_AccountResolution_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_acctres_PercentDiscount_0_AccountResolution_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[nm_login] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[nm_space] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[id_acc] [int] NULL,
-[restime] [datetime] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_acctres_PercentUnconditionalDiscount_0_AccountResolution_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_acctres_PercentUnconditionalDiscount_0_AccountResolution_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[nm_login] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[nm_space] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[id_acc] [int] NULL,
-[restime] [datetime] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_acctres_SysAccountCreation_0_AccountResolution_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_acctres_SysAccountCreation_0_AccountResolution_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[nm_login] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[nm_space] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[id_acc] [int] NULL,
-[restime] [datetime] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_acctres_Test_0_AccountResolution_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_acctres_Test_0_AccountResolution_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[nm_login] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[nm_space] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[id_acc] [int] NULL,
-[restime] [datetime] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_acctres_TestParent_0_AccountResolution_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_acctres_TestParent_0_AccountResolution_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[nm_login] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[nm_space] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[id_acc] [int] NULL,
-[restime] [datetime] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_acctres_UnitDependentRecurringCharge_0_AccountResolution_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_acctres_UnitDependentRecurringCharge_0_AccountResolution_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[nm_login] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[nm_space] [nvarchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[id_acc] [int] NULL,
-[restime] [datetime] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_getconversionrate_WriteProductView_0_GetConversionRate_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_getconversionrate_WriteProductView_0_GetConversionRate_AV70SQL]
-(
-[_Currency$#] [varchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[_DivisionCurrency$#] [varchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[_Timestamp$#] [datetime] NULL,
-[requestid] [int] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__tmp_getc__E3C6D249BA16E59F] on [dbo].[tmp_getconversionrate_WriteProductView_0_GetConversionRate_AV70SQL]'
-GO
-ALTER TABLE [dbo].[tmp_getconversionrate_WriteProductView_0_GetConversionRate_AV70SQL] ADD CONSTRAINT [PK__tmp_getc__E3C6D249BA16E59F] PRIMARY KEY CLUSTERED  ([requestid])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_getdivisioncurrency_WriteProductView_0_GetDivisionCurrency_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_getdivisioncurrency_WriteProductView_0_GetDivisionCurrency_AV70SQL]
-(
-[_AccountID$#] [int] NULL,
-[requestid] [int] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__tmp_getd__E3C6D249AF1E11AF] on [dbo].[tmp_getdivisioncurrency_WriteProductView_0_GetDivisionCurrency_AV70SQL]'
-GO
-ALTER TABLE [dbo].[tmp_getdivisioncurrency_WriteProductView_0_GetDivisionCurrency_AV70SQL] ADD CONSTRAINT [PK__tmp_getd__E3C6D249AF1E11AF] PRIMARY KEY CLUSTERED  ([requestid])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating [dbo].[tmp_intres_WriteProductView_0_IntervalResolution_AV70SQL]'
-GO
-CREATE TABLE [dbo].[tmp_intres_WriteProductView_0_IntervalResolution_AV70SQL]
-(
-[id_request] [int] NOT NULL,
-[id_acc] [int] NOT NULL,
-[dt_session] [datetime] NOT NULL,
-[b_override] [int] NOT NULL
-)
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
 PRINT N'Creating index [acc_template_subs_pub_idx1] on [dbo].[t_acc_template_subs_pub]'
 GO
 CREATE CLUSTERED INDEX [acc_template_subs_pub_idx1] ON [dbo].[t_acc_template_subs_pub] ([id_acc_template], [id_po])
@@ -9638,2178 +6590,9 @@ IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
 GO
 IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
 GO
-PRINT N'Creating primary key [PK__t_amp_ac__4567929FD4E448B5] on [dbo].[t_amp_accountqualgro]'
-GO
-ALTER TABLE [dbo].[t_amp_accountqualgro] ADD CONSTRAINT [PK__t_amp_ac__4567929FD4E448B5] PRIMARY KEY CLUSTERED  ([c_AccountQualGroup_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_amp_ac__52934E369F25123B] on [dbo].[t_amp_accountqualifi]'
-GO
-ALTER TABLE [dbo].[t_amp_accountqualifi] ADD CONSTRAINT [PK__t_amp_ac__52934E369F25123B] PRIMARY KEY CLUSTERED  ([c_AccountQualification_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_amp_am__CBAD18CD8B2CAC67] on [dbo].[t_amp_amountchain]'
-GO
-ALTER TABLE [dbo].[t_amp_amountchain] ADD CONSTRAINT [PK__t_amp_am__CBAD18CD8B2CAC67] PRIMARY KEY CLUSTERED  ([c_AmountChain_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_amp_am__7E526D79F4953C26] on [dbo].[t_amp_amountchainfield]'
-GO
-ALTER TABLE [dbo].[t_amp_amountchainfield] ADD CONSTRAINT [PK__t_amp_am__7E526D79F4953C26] PRIMARY KEY CLUSTERED  ([c_AmountChainField_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_amp_ch__A3537F3607A3C651] on [dbo].[t_amp_chargeattribut]'
-GO
-ALTER TABLE [dbo].[t_amp_chargeattribut] ADD CONSTRAINT [PK__t_amp_ch__A3537F3607A3C651] PRIMARY KEY CLUSTERED  ([c_ChargeAttributeMapping_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_amp_ch__6C04A96E14C03222] on [dbo].[t_amp_chargedefiniti]'
-GO
-ALTER TABLE [dbo].[t_amp_chargedefiniti] ADD CONSTRAINT [PK__t_amp_ch__6C04A96E14C03222] PRIMARY KEY CLUSTERED  ([c_ChargeDefinition_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_amp_ch__F505F731CFDD3625] on [dbo].[t_amp_chargequalgroup]'
-GO
-ALTER TABLE [dbo].[t_amp_chargequalgroup] ADD CONSTRAINT [PK__t_amp_ch__F505F731CFDD3625] PRIMARY KEY CLUSTERED  ([c_ChargeQualGroup_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_amp_ch__67CF2EE1CA2E530B] on [dbo].[t_amp_chargequalific]'
-GO
-ALTER TABLE [dbo].[t_amp_chargequalific] ADD CONSTRAINT [PK__t_amp_ch__67CF2EE1CA2E530B] PRIMARY KEY CLUSTERED  ([c_ChargeQualification_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_amp_de__2D472659CCB3ED19] on [dbo].[t_amp_decisionattrib]'
-GO
-ALTER TABLE [dbo].[t_amp_decisionattrib] ADD CONSTRAINT [PK__t_amp_de__2D472659CCB3ED19] PRIMARY KEY CLUSTERED  ([c_DecisionAttributeMapping_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_amp_de__975CC171F860A69F] on [dbo].[t_amp_decisionglobal]'
-GO
-ALTER TABLE [dbo].[t_amp_decisionglobal] ADD CONSTRAINT [PK__t_amp_de__975CC171F860A69F] PRIMARY KEY CLUSTERED  ([c_DecisionGlobalDefault_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_amp_de__8EB515C31B817478] on [dbo].[t_amp_decisiontype]'
-GO
-ALTER TABLE [dbo].[t_amp_decisiontype] ADD CONSTRAINT [PK__t_amp_de__8EB515C31B817478] PRIMARY KEY CLUSTERED  ([c_DecisionType_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_amp_ge__8EC2E9F8DF8ABC45] on [dbo].[t_amp_genchargedirective]'
-GO
-ALTER TABLE [dbo].[t_amp_genchargedirective] ADD CONSTRAINT [PK__t_amp_ge__8EC2E9F8DF8ABC45] PRIMARY KEY CLUSTERED  ([c_Directive_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_amp_ge__65798ACAE7DA537F] on [dbo].[t_amp_generatedcharge]'
-GO
-ALTER TABLE [dbo].[t_amp_generatedcharge] ADD CONSTRAINT [PK__t_amp_ge__65798ACAE7DA537F] PRIMARY KEY CLUSTERED  ([c_GenCharge_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_amp_pv__0B25357101AB940F] on [dbo].[t_amp_pvtoamountchain]'
-GO
-ALTER TABLE [dbo].[t_amp_pvtoamountchain] ADD CONSTRAINT [PK__t_amp_pv__0B25357101AB940F] PRIMARY KEY CLUSTERED  ([c_PvToAmountChain_Id], [c_ProductViewName])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_amp_us__0B147295992F8E62] on [dbo].[t_amp_usagechargefie]'
-GO
-ALTER TABLE [dbo].[t_amp_usagechargefie] ADD CONSTRAINT [PK__t_amp_us__0B147295992F8E62] PRIMARY KEY CLUSTERED  ([c_UsageChargeField_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_amp_us__87481994AD57E36F] on [dbo].[t_amp_usagequalgroup]'
-GO
-ALTER TABLE [dbo].[t_amp_usagequalgroup] ADD CONSTRAINT [PK__t_amp_us__87481994AD57E36F] PRIMARY KEY CLUSTERED  ([c_UsageQualGroup_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_amp_us__7C7AC52F97F98C54] on [dbo].[t_amp_usagequalifica]'
-GO
-ALTER TABLE [dbo].[t_amp_usagequalifica] ADD CONSTRAINT [PK__t_amp_us__7C7AC52F97F98C54] PRIMARY KEY CLUSTERED  ([c_UsageQualification_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__31268A86038D3810] on [dbo].[t_be_cor_bil_billmessage]'
-GO
-ALTER TABLE [dbo].[t_be_cor_bil_billmessage] ADD CONSTRAINT [PK__t_be_cor__31268A86038D3810] PRIMARY KEY CLUSTERED  ([c_BillMessage_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__79AAFCECE9FAF84A] on [dbo].[t_be_cor_bil_billmessage_h]'
-GO
-ALTER TABLE [dbo].[t_be_cor_bil_billmessage_h] ADD CONSTRAINT [PK__t_be_cor__79AAFCECE9FAF84A] PRIMARY KEY CLUSTERED  ([c_BillMessageHistory_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__6533DD868686B2FB] on [dbo].[t_be_cor_bil_billmessageac_h]'
-GO
-ALTER TABLE [dbo].[t_be_cor_bil_billmessageac_h] ADD CONSTRAINT [PK__t_be_cor__6533DD868686B2FB] PRIMARY KEY CLUSTERED  ([c_BillMessageAccountHistor_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__52FD14A856645650] on [dbo].[t_be_cor_bil_billmessageacc]'
-GO
-ALTER TABLE [dbo].[t_be_cor_bil_billmessageacc] ADD CONSTRAINT [PK__t_be_cor__52FD14A856645650] PRIMARY KEY CLUSTERED  ([c_BillMessageAccount_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__33964C7BBBF40FDC] on [dbo].[t_be_cor_cor_chargeadj735343]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_chargeadj735343] ADD CONSTRAINT [PK__t_be_cor__33964C7BBBF40FDC] PRIMARY KEY CLUSTERED  ([c_ChargeAdjustmentSession_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__66160E62F725EF39] on [dbo].[t_be_cor_cor_chargeadjustme]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_chargeadjustme] ADD CONSTRAINT [PK__t_be_cor__66160E62F725EF39] PRIMARY KEY CLUSTERED  ([c_ChargeAdjustment_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__49EE887E07589C93] on [dbo].[t_be_cor_cor_dispute]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_dispute] ADD CONSTRAINT [PK__t_be_cor__49EE887E07589C93] PRIMARY KEY CLUSTERED  ([c_Dispute_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__88370B478D91D382] on [dbo].[t_be_cor_cor_dispute_h]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_dispute_h] ADD CONSTRAINT [PK__t_be_cor__88370B478D91D382] PRIMARY KEY CLUSTERED  ([c_DisputeHistory_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__0B44EF1F328496C9] on [dbo].[t_be_cor_cor_division]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_division] ADD CONSTRAINT [PK__t_be_cor__0B44EF1F328496C9] PRIMARY KEY CLUSTERED  ([c_Division_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__A37952F7E03CBD9D] on [dbo].[t_be_cor_cor_invoiceadjustm]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_invoiceadjustm] ADD CONSTRAINT [PK__t_be_cor__A37952F7E03CBD9D] PRIMARY KEY CLUSTERED  ([c_InvoiceAdjustment_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__7A1C3722257D5930] on [dbo].[t_be_cor_fil_argumentbe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_argumentbe] ADD CONSTRAINT [PK__t_be_cor__7A1C3722257D5930] PRIMARY KEY CLUSTERED  ([c_ArgumentBE_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__4128FED9BC01952D] on [dbo].[t_be_cor_fil_assemblyrefere]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_assemblyrefere] ADD CONSTRAINT [PK__t_be_cor__4128FED9BC01952D] PRIMARY KEY CLUSTERED  ([c_AssemblyReferenceBE_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__A791EE00993DA3AF] on [dbo].[t_be_cor_fil_configurationbe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_configurationbe] ADD CONSTRAINT [PK__t_be_cor__A791EE00993DA3AF] PRIMARY KEY CLUSTERED  ([c_ConfigurationBE_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__C587AE317286537A] on [dbo].[t_be_cor_fil_filebe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_filebe] ADD CONSTRAINT [PK__t_be_cor__C587AE317286537A] PRIMARY KEY CLUSTERED  ([c_FileBE_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__BC432029B5E296D0] on [dbo].[t_be_cor_fil_programcodebe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_programcodebe] ADD CONSTRAINT [PK__t_be_cor__BC432029B5E296D0] PRIMARY KEY CLUSTERED  ([c_ProgramCodeBE_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__F0D1B52C4286DC84] on [dbo].[t_be_cor_fil_r_invoca_filebe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_invoca_filebe] ADD CONSTRAINT [PK__t_be_cor__F0D1B52C4286DC84] PRIMARY KEY CLUSTERED  ([c_InvocationRecordBE_FileB_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__39A3130C6932141B] on [dbo].[t_be_cor_fil_r_progra_assemb]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_progra_assemb] ADD CONSTRAINT [PK__t_be_cor__39A3130C6932141B] PRIMARY KEY CLUSTERED  ([c_ProgramCodeBE_AssemblyRe_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__1AA9FC84DF7A67E2] on [dbo].[t_be_cor_fil_r_target_argume]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_argume] ADD CONSTRAINT [PK__t_be_cor__1AA9FC84DF7A67E2] PRIMARY KEY CLUSTERED  ([c_TargetBE_ArgumentBE_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__6337642F3FC54433] on [dbo].[t_be_cor_fil_r_target_invoca]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_invoca] ADD CONSTRAINT [PK__t_be_cor__6337642F3FC54433] PRIMARY KEY CLUSTERED  ([c_TargetBE_InvocationRecor_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__392FAD4E34CE3637] on [dbo].[t_be_cor_fil_invocationrec_h]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_invocationrec_h] ADD CONSTRAINT [PK__t_be_cor__392FAD4E34CE3637] PRIMARY KEY CLUSTERED  ([c_InvocationRecordBEHistory_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__9AE480021FFB5C08] on [dbo].[t_be_cor_fil_r_target_progra]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_progra] ADD CONSTRAINT [PK__t_be_cor__9AE480021FFB5C08] PRIMARY KEY CLUSTERED  ([c_TargetBE_ProgramCodeBE_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__523737B0577FD9E3] on [dbo].[t_be_cor_fil_servicehostbe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_servicehostbe] ADD CONSTRAINT [PK__t_be_cor__523737B0577FD9E3] PRIMARY KEY CLUSTERED  ([c_ServiceHostBE_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__9E50094640359148] on [dbo].[t_be_cor_fil_invocationreco]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_invocationreco] ADD CONSTRAINT [PK__t_be_cor__9E50094640359148] PRIMARY KEY CLUSTERED  ([c_InvocationRecordBE_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__ECC2F8B2BCA7CB02] on [dbo].[t_be_cor_fil_targetbe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_targetbe] ADD CONSTRAINT [PK__t_be_cor__ECC2F8B2BCA7CB02] PRIMARY KEY CLUSTERED  ([c_TargetBE_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__129EAD80D578B78C] on [dbo].[t_be_cor_mr_machine]'
-GO
-ALTER TABLE [dbo].[t_be_cor_mr_machine] ADD CONSTRAINT [PK__t_be_cor__129EAD80D578B78C] PRIMARY KEY CLUSTERED  ([c_Machine_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__4B2508C9CBD33FCA] on [dbo].[t_be_cor_ui_BillSetting]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_BillSetting] ADD CONSTRAINT [PK__t_be_cor__4B2508C9CBD33FCA] PRIMARY KEY CLUSTERED  ([c_BillSetting_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__0B02FAF1B30B1A0F] on [dbo].[t_be_cor_mr_machinerole]'
-GO
-ALTER TABLE [dbo].[t_be_cor_mr_machinerole] ADD CONSTRAINT [PK__t_be_cor__0B02FAF1B30B1A0F] PRIMARY KEY CLUSTERED  ([c_MachineRole_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__C310FB0D5978A664] on [dbo].[t_be_cor_ui_Column]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_Column] ADD CONSTRAINT [PK__t_be_cor__C310FB0D5978A664] PRIMARY KEY CLUSTERED  ([c_Column_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__B2A94D9A08819D28] on [dbo].[t_be_cor_mr_r_machin_machin]'
-GO
-ALTER TABLE [dbo].[t_be_cor_mr_r_machin_machin] ADD CONSTRAINT [PK__t_be_cor__B2A94D9A08819D28] PRIMARY KEY CLUSTERED  ([c_Machine_MachineRole_Mach_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__EA8F1EA80CF8AB96] on [dbo].[t_be_cor_qu_accountforquote]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_accountforquote] ADD CONSTRAINT [PK__t_be_cor__EA8F1EA80CF8AB96] PRIMARY KEY CLUSTERED  ([c_AccountForQuote_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__EDEEA87A53C6EFA4] on [dbo].[t_be_cor_ui_Dashboard]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_Dashboard] ADD CONSTRAINT [PK__t_be_cor__EDEEA87A53C6EFA4] PRIMARY KEY CLUSTERED  ([c_Dashboard_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__798F8977747C6DF2] on [dbo].[t_be_cor_qu_poforquote]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_poforquote] ADD CONSTRAINT [PK__t_be_cor__798F8977747C6DF2] PRIMARY KEY CLUSTERED  ([c_POforQuote_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__EDAA540DD73FA822] on [dbo].[t_be_cor_qu_quotecontent]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_quotecontent] ADD CONSTRAINT [PK__t_be_cor__EDAA540DD73FA822] PRIMARY KEY CLUSTERED  ([c_QuoteContent_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__82489D773CF09CE6] on [dbo].[t_be_cor_ui_EntryPoint]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_EntryPoint] ADD CONSTRAINT [PK__t_be_cor__82489D773CF09CE6] PRIMARY KEY CLUSTERED  ([c_EntryPoint_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__748F2AC2F2331BB9] on [dbo].[t_be_cor_ui_Parameter]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_Parameter] ADD CONSTRAINT [PK__t_be_cor__748F2AC2F2331BB9] PRIMARY KEY CLUSTERED  ([c_Parameter_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__CFDDFCDB5D8D1EF5] on [dbo].[t_be_cor_qu_quoteheader]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_quoteheader] ADD CONSTRAINT [PK__t_be_cor__CFDDFCDB5D8D1EF5] PRIMARY KEY CLUSTERED  ([c_QuoteHeader_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__2F015F0C2823437A] on [dbo].[t_be_cor_ui_ProductViewMap]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_ProductViewMap] ADD CONSTRAINT [PK__t_be_cor__2F015F0C2823437A] PRIMARY KEY CLUSTERED  ([c_ProductViewMapping_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__89F8C596C4F87F2E] on [dbo].[t_be_cor_qu_quotelog]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_quotelog] ADD CONSTRAINT [PK__t_be_cor__89F8C596C4F87F2E] PRIMARY KEY CLUSTERED  ([c_QuoteLog_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__4E5B33FFB802FB2D] on [dbo].[t_be_cor_ui_r_Column_Widget]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Column_Widget] ADD CONSTRAINT [PK__t_be_cor__4E5B33FFB802FB2D] PRIMARY KEY CLUSTERED  ([c_Column_Widget_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__2DED47EBB127AF66] on [dbo].[t_be_cor_ui_r_Dashbo_Column]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Dashbo_Column] ADD CONSTRAINT [PK__t_be_cor__2DED47EBB127AF66] PRIMARY KEY CLUSTERED  ([c_Dashboard_Column_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__F732420E656561FE] on [dbo].[t_be_cor_ui_r_SavedS_Searc]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_SavedS_Searc] ADD CONSTRAINT [PK__t_be_cor__F732420E656561FE] PRIMARY KEY CLUSTERED  ([c_SavedSearch_SearchFilter_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__464566B2A7414A4F] on [dbo].[t_be_cor_ui_r_Site_BillS]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_BillS] ADD CONSTRAINT [PK__t_be_cor__464566B2A7414A4F] PRIMARY KEY CLUSTERED  ([c_Site_BillSetting_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__184281CFF76EA772] on [dbo].[t_be_cor_ui_r_Site_Dashb]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Dashb] ADD CONSTRAINT [PK__t_be_cor__184281CFF76EA772] PRIMARY KEY CLUSTERED  ([c_Site_Dashboard_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__FF5B0EE0932CBC9F] on [dbo].[t_be_cor_ui_r_Site_Entry]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Entry] ADD CONSTRAINT [PK__t_be_cor__FF5B0EE0932CBC9F] PRIMARY KEY CLUSTERED  ([c_Site_EntryPoint_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__4C67E4ABAFDD7A5B] on [dbo].[t_be_cor_ui_r_Site_Produ]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Produ] ADD CONSTRAINT [PK__t_be_cor__4C67E4ABAFDD7A5B] PRIMARY KEY CLUSTERED  ([c_Site_ProductViewMapping_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__5864EDC457A0328F] on [dbo].[t_be_cor_ui_r_Site_Repor]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Repor] ADD CONSTRAINT [PK__t_be_cor__5864EDC457A0328F] PRIMARY KEY CLUSTERED  ([c_Site_ReportInventory_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__76BDD5DCF7E883AB] on [dbo].[t_be_cor_ui_r_Widget_Param]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Widget_Param] ADD CONSTRAINT [PK__t_be_cor__76BDD5DCF7E883AB] PRIMARY KEY CLUSTERED  ([c_Widget_Parameter_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__9189C4AEF52876A5] on [dbo].[t_be_cor_ui_ReportInventory]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_ReportInventory] ADD CONSTRAINT [PK__t_be_cor__9189C4AEF52876A5] PRIMARY KEY CLUSTERED  ([c_ReportInventory_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__9E711A6028387F58] on [dbo].[t_be_cor_ui_SavedSearch]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_SavedSearch] ADD CONSTRAINT [PK__t_be_cor__9E711A6028387F58] PRIMARY KEY CLUSTERED  ([c_SavedSearch_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__EEAF504EFC81C492] on [dbo].[t_be_cor_ui_SearchFilter]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_SearchFilter] ADD CONSTRAINT [PK__t_be_cor__EEAF504EFC81C492] PRIMARY KEY CLUSTERED  ([c_SearchFilter_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__85C65AB17A973868] on [dbo].[t_be_cor_ui_Site]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_Site] ADD CONSTRAINT [PK__t_be_cor__85C65AB17A973868] PRIMARY KEY CLUSTERED  ([c_Site_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__C5AA59BC36B059A2] on [dbo].[t_be_cor_ui_UserProfile]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_UserProfile] ADD CONSTRAINT [PK__t_be_cor__C5AA59BC36B059A2] PRIMARY KEY CLUSTERED  ([c_UserProfile_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__4B91016EEA6897F7] on [dbo].[t_be_cor_ui_Widget]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_Widget] ADD CONSTRAINT [PK__t_be_cor__4B91016EEA6897F7] PRIMARY KEY CLUSTERED  ([c_Widget_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_cor__132027E34AED2D00] on [dbo].[t_be_cor_ui_WidgetInventory]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_WidgetInventory] ADD CONSTRAINT [PK__t_be_cor__132027E34AED2D00] PRIMARY KEY CLUSTERED  ([c_WidgetInventory_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_be_ent__3213E83FA6A782D3] on [dbo].[t_be_entity_sync_data]'
-GO
-ALTER TABLE [dbo].[t_be_entity_sync_data] ADD CONSTRAINT [PK__t_be_ent__3213E83FA6A782D3] PRIMARY KEY CLUSTERED  ([id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_mf_tra__97B38449A3240A4C] on [dbo].[t_mf_tracking_env]'
-GO
-ALTER TABLE [dbo].[t_mf_tracking_env] ADD CONSTRAINT [PK__t_mf_tra__97B38449A3240A4C] PRIMARY KEY CLUSTERED  ([id_tracking], [seq_no], [name])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_mf_tra__8CC165665B509A34] on [dbo].[t_mf_tracking_instructions]'
-GO
-ALTER TABLE [dbo].[t_mf_tracking_instructions] ADD CONSTRAINT [PK__t_mf_tra__8CC165665B509A34] PRIMARY KEY CLUSTERED  ([id_tracking], [seq_no])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_mf_tra__8877058D18ADB202] on [dbo].[t_mf_tracking_scripts]'
-GO
-ALTER TABLE [dbo].[t_mf_tracking_scripts] ADD CONSTRAINT [PK__t_mf_tra__8877058D18ADB202] PRIMARY KEY CLUSTERED  ([id_tracking])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_mview___01488BAEAA5D1F09] on [dbo].[t_mview_catalog]'
-GO
-ALTER TABLE [dbo].[t_mview_catalog] ADD CONSTRAINT [PK__t_mview___01488BAEAA5D1F09] PRIMARY KEY CLUSTERED  ([id_mv])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_mview___913E426F63B51C8E] on [dbo].[t_mview_event]'
-GO
-ALTER TABLE [dbo].[t_mview_event] ADD CONSTRAINT [PK__t_mview___913E426F63B51C8E] PRIMARY KEY CLUSTERED  ([id_event])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__t_open_t__C994A84C1E59CABA] on [dbo].[t_open_transactions]'
-GO
-ALTER TABLE [dbo].[t_open_transactions] ADD CONSTRAINT [PK__t_open_t__C994A84C1E59CABA] PRIMARY KEY CLUSTERED  ([id_payment_transaction])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_message] on [dbo].[t_message]'
-GO
-ALTER TABLE [dbo].[t_message] ADD CONSTRAINT [pk_t_message] PRIMARY KEY CLUSTERED  ([id_message], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_session] on [dbo].[t_session]'
-GO
-ALTER TABLE [dbo].[t_session] ADD CONSTRAINT [pk_t_session] PRIMARY KEY CLUSTERED  ([id_ss], [id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_session_set] on [dbo].[t_session_set]'
-GO
-ALTER TABLE [dbo].[t_session_set] ADD CONSTRAINT [pk_t_session_set] PRIMARY KEY CLUSTERED  ([id_ss], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_session_state] on [dbo].[t_session_state]'
-GO
-ALTER TABLE [dbo].[t_session_state] ADD CONSTRAINT [pk_t_session_state] PRIMARY KEY CLUSTERED  ([id_sess], [dt_end], [tx_state], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_AccountCreation] on [dbo].[t_svc_AccountCreation]'
-GO
-ALTER TABLE [dbo].[t_svc_AccountCreation] ADD CONSTRAINT [pk_t_svc_AccountCreation] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_AccountCredit] on [dbo].[t_svc_AccountCredit]'
-GO
-ALTER TABLE [dbo].[t_svc_AccountCredit] ADD CONSTRAINT [pk_t_svc_AccountCredit] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_AccountCreditRequest] on [dbo].[t_svc_AccountCreditRequest]'
-GO
-ALTER TABLE [dbo].[t_svc_AccountCreditRequest] ADD CONSTRAINT [pk_t_svc_AccountCreditRequest] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_AccountMapping] on [dbo].[t_svc_AccountMapping]'
-GO
-ALTER TABLE [dbo].[t_svc_AccountMapping] ADD CONSTRAINT [pk_t_svc_AccountMapping] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_AddCharge] on [dbo].[t_svc_AddCharge]'
-GO
-ALTER TABLE [dbo].[t_svc_AddCharge] ADD CONSTRAINT [pk_t_svc_AddCharge] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_ARAdjustment] on [dbo].[t_svc_ARAdjustment]'
-GO
-ALTER TABLE [dbo].[t_svc_ARAdjustment] ADD CONSTRAINT [pk_t_svc_ARAdjustment] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_Commitment] on [dbo].[t_svc_Commitment]'
-GO
-ALTER TABLE [dbo].[t_svc_Commitment] ADD CONSTRAINT [pk_t_svc_Commitment] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_DTCGetWhereAbouts] on [dbo].[t_svc_DTCGetWhereAbouts]'
-GO
-ALTER TABLE [dbo].[t_svc_DTCGetWhereAbouts] ADD CONSTRAINT [pk_t_svc_DTCGetWhereAbouts] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_FlatDiscount] on [dbo].[t_svc_FlatDiscount]'
-GO
-ALTER TABLE [dbo].[t_svc_FlatDiscount] ADD CONSTRAINT [pk_t_svc_FlatDiscount] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_FlatDiscount_NoCond] on [dbo].[t_svc_FlatDiscount_NoCond]'
-GO
-ALTER TABLE [dbo].[t_svc_FlatDiscount_NoCond] ADD CONSTRAINT [pk_t_svc_FlatDiscount_NoCond] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_FlatRecurringCharge] on [dbo].[t_svc_FlatRecurringCharge]'
-GO
-ALTER TABLE [dbo].[t_svc_FlatRecurringCharge] ADD CONSTRAINT [pk_t_svc_FlatRecurringCharge] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_FreeUsage] on [dbo].[t_svc_FreeUsage]'
-GO
-ALTER TABLE [dbo].[t_svc_FreeUsage] ADD CONSTRAINT [pk_t_svc_FreeUsage] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_Login] on [dbo].[t_svc_Login]'
-GO
-ALTER TABLE [dbo].[t_svc_Login] ADD CONSTRAINT [pk_t_svc_Login] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_MultiBucketDiscount] on [dbo].[t_svc_MultiBucketDiscount]'
-GO
-ALTER TABLE [dbo].[t_svc_MultiBucketDiscount] ADD CONSTRAINT [pk_t_svc_MultiBucketDiscount] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_MultiBucketPricing] on [dbo].[t_svc_MultiBucketPricing]'
-GO
-ALTER TABLE [dbo].[t_svc_MultiBucketPricing] ADD CONSTRAINT [pk_t_svc_MultiBucketPricing] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_NonRecurringCharge] on [dbo].[t_svc_NonRecurringCharge]'
-GO
-ALTER TABLE [dbo].[t_svc_NonRecurringCharge] ADD CONSTRAINT [pk_t_svc_NonRecurringCharge] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_NonStandardCharge] on [dbo].[t_svc_NonStandardCharge]'
-GO
-ALTER TABLE [dbo].[t_svc_NonStandardCharge] ADD CONSTRAINT [pk_t_svc_NonStandardCharge] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_NonStandardChargeRequest] on [dbo].[t_svc_NonStandardChargeRequest]'
-GO
-ALTER TABLE [dbo].[t_svc_NonStandardChargeRequest] ADD CONSTRAINT [pk_t_svc_NonStandardChargeRequest] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_Payment] on [dbo].[t_svc_Payment]'
-GO
-ALTER TABLE [dbo].[t_svc_Payment] ADD CONSTRAINT [pk_t_svc_Payment] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_PaymentDetails] on [dbo].[t_svc_PaymentDetails]'
-GO
-ALTER TABLE [dbo].[t_svc_PaymentDetails] ADD CONSTRAINT [pk_t_svc_PaymentDetails] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_PercentDiscount] on [dbo].[t_svc_PercentDiscount]'
-GO
-ALTER TABLE [dbo].[t_svc_PercentDiscount] ADD CONSTRAINT [pk_t_svc_PercentDiscount] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_PercentDiscount_NoCond] on [dbo].[t_svc_PercentDiscount_NoCond]'
-GO
-ALTER TABLE [dbo].[t_svc_PercentDiscount_NoCond] ADD CONSTRAINT [pk_t_svc_PercentDiscount_NoCond] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_SingleBucketPricing] on [dbo].[t_svc_SingleBucketPricing]'
-GO
-ALTER TABLE [dbo].[t_svc_SingleBucketPricing] ADD CONSTRAINT [pk_t_svc_SingleBucketPricing] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_SystemAccountCreation] on [dbo].[t_svc_SystemAccountCreation]'
-GO
-ALTER TABLE [dbo].[t_svc_SystemAccountCreation] ADD CONSTRAINT [pk_t_svc_SystemAccountCreation] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_TestParent] on [dbo].[t_svc_TestParent]'
-GO
-ALTER TABLE [dbo].[t_svc_TestParent] ADD CONSTRAINT [pk_t_svc_TestParent] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_TestService] on [dbo].[t_svc_TestService]'
-GO
-ALTER TABLE [dbo].[t_svc_TestService] ADD CONSTRAINT [pk_t_svc_TestService] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_svc_UDRecurringCharge] on [dbo].[t_svc_UDRecurringCharge]'
-GO
-ALTER TABLE [dbo].[t_svc_UDRecurringCharge] ADD CONSTRAINT [pk_t_svc_UDRecurringCharge] PRIMARY KEY CLUSTERED  ([id_source_sess], [id_partition])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [pk_t_tax_billsoft_pc_map] on [dbo].[t_tax_billsoft_pc_map]'
-GO
-ALTER TABLE [dbo].[t_tax_billsoft_pc_map] ADD CONSTRAINT [pk_t_tax_billsoft_pc_map] PRIMARY KEY CLUSTERED  ([product_code])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Creating primary key [PK__tmp_bill__6BE8F0648A4201AA] on [dbo].[tmp_billing_rerun_accounts]'
-GO
-ALTER TABLE [dbo].[tmp_billing_rerun_accounts] ADD CONSTRAINT [PK__tmp_bill__6BE8F0648A4201AA] PRIMARY KEY CLUSTERED  ([id_acc])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
 PRINT N'Creating index [acc_template_subs_pub_idx2] on [dbo].[t_acc_template_subs_pub]'
 GO
 CREATE NONCLUSTERED INDEX [acc_template_subs_pub_idx2] ON [dbo].[t_acc_template_subs_pub] ([id_acc_template], [id_group])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_batch]'
-GO
-ALTER TABLE [dbo].[t_batch] ADD CONSTRAINT [UK_7_t_batch] CHECK (([n_dismissed]>=(0)))
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_batch] ADD CONSTRAINT [DF__t_batch__n_dismi__65370702] DEFAULT ((0)) FOR [n_dismissed]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_recevent_scheduled]'
-GO
-ALTER TABLE [dbo].[t_recevent_scheduled] ADD CONSTRAINT [CK2_t_recevent_scheduled] CHECK (([is_paused]='N' OR [is_paused]='Y'))
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_recevent_scheduled] ADD CONSTRAINT [DF__t_receven__is_pa__226010D3] DEFAULT ('N') FOR [is_paused]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_amp_accountqualgro]'
-GO
-ALTER TABLE [dbo].[t_amp_accountqualgro] ADD CONSTRAINT [UQ__t_amp_ac__D6E7B3848706C3C2] UNIQUE NONCLUSTERED  ([c_Name])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_amp_accountqualifi]'
-GO
-ALTER TABLE [dbo].[t_amp_accountqualifi] ADD CONSTRAINT [UQ__t_amp_ac__8BE5C40CC129FD1B] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_amp_amountchain]'
-GO
-ALTER TABLE [dbo].[t_amp_amountchain] ADD CONSTRAINT [UQ__t_amp_am__8BE5C40C15B9E6FC] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_amp_amountchainfield]'
-GO
-ALTER TABLE [dbo].[t_amp_amountchainfield] ADD CONSTRAINT [UQ__t_amp_am__8BE5C40CEF7220A6] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_amp_chargeattribut]'
-GO
-ALTER TABLE [dbo].[t_amp_chargeattribut] ADD CONSTRAINT [UQ__t_amp_ch__8BE5C40C6CD2A5E6] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_amp_chargedefiniti]'
-GO
-ALTER TABLE [dbo].[t_amp_chargedefiniti] ADD CONSTRAINT [UQ__t_amp_ch__D6E7B3848701618E] UNIQUE NONCLUSTERED  ([c_Name])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_amp_chargequalgroup]'
-GO
-ALTER TABLE [dbo].[t_amp_chargequalgroup] ADD CONSTRAINT [UQ__t_amp_ch__D6E7B384CF0D0EAC] UNIQUE NONCLUSTERED  ([c_Name])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_amp_chargequalific]'
-GO
-ALTER TABLE [dbo].[t_amp_chargequalific] ADD CONSTRAINT [UQ__t_amp_ch__8BE5C40C92C5A3C0] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_amp_decisionattrib]'
-GO
-ALTER TABLE [dbo].[t_amp_decisionattrib] ADD CONSTRAINT [UQ__t_amp_de__8BE5C40C44E3305B] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_amp_decisionglobal]'
-GO
-ALTER TABLE [dbo].[t_amp_decisionglobal] ADD CONSTRAINT [UQ__t_amp_de__D6E7B384FADB22B4] UNIQUE NONCLUSTERED  ([c_Name])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_amp_decisiontype]'
-GO
-ALTER TABLE [dbo].[t_amp_decisiontype] ADD CONSTRAINT [UQ__t_amp_de__D6E7B384359093C6] UNIQUE NONCLUSTERED  ([c_Name])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_amp_genchargedirective]'
-GO
-ALTER TABLE [dbo].[t_amp_genchargedirective] ADD CONSTRAINT [UQ__t_amp_ge__8BE5C40C2F02C41B] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_amp_generatedcharge]'
-GO
-ALTER TABLE [dbo].[t_amp_generatedcharge] ADD CONSTRAINT [UQ__t_amp_ge__D6E7B3843921E49D] UNIQUE NONCLUSTERED  ([c_Name])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_amp_usagechargefie]'
-GO
-ALTER TABLE [dbo].[t_amp_usagechargefie] ADD CONSTRAINT [UQ__t_amp_us__8BE5C40CD993790E] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_amp_usagequalgroup]'
-GO
-ALTER TABLE [dbo].[t_amp_usagequalgroup] ADD CONSTRAINT [UQ__t_amp_us__D6E7B384F2F4B758] UNIQUE NONCLUSTERED  ([c_Name])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_amp_usagequalifica]'
-GO
-ALTER TABLE [dbo].[t_amp_usagequalifica] ADD CONSTRAINT [UQ__t_amp_us__8BE5C40C8D6FABDE] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_ar_bucket_def]'
-GO
-ALTER TABLE [dbo].[t_ar_bucket_def] ADD CONSTRAINT [UQ__t_ar_buc__1FF858C801C886B4] UNIQUE NONCLUSTERED  ([id_bucket_def])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_ar_bucket_def] ADD CONSTRAINT [UQ__t_ar_buc__DA9CDC05F6D8A2E4] UNIQUE NONCLUSTERED  ([n_end_day])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_ar_bucket_def] ADD CONSTRAINT [UQ__t_ar_buc__BC0C50A2833779AB] UNIQUE NONCLUSTERED  ([n_start_day])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_bil_billmessage]'
-GO
-ALTER TABLE [dbo].[t_be_cor_bil_billmessage] ADD CONSTRAINT [UQ__t_be_cor__4388A783E4A86B97] UNIQUE NONCLUSTERED  ([c_MessageCode])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_bil_billmessageacc]'
-GO
-ALTER TABLE [dbo].[t_be_cor_bil_billmessageacc] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40CBCCC34EC] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_cor_chargeadj735343]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_chargeadj735343] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C042A49B1] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_cor_chargeadjustme]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_chargeadjustme] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C36083D67] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_cor_dispute]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_dispute] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C4642FC0C] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_cor_division]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_division] ADD CONSTRAINT [UQ__t_be_cor__D6E7B384441592A7] UNIQUE NONCLUSTERED  ([c_Name])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_cor_invoiceadjustm]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_invoiceadjustm] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40CA918441D] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_invoiceadjustm] ADD CONSTRAINT [UQ__t_be_cor__0DA34846957E7823] UNIQUE NONCLUSTERED  ([id_prop])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_fil_argumentbe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_argumentbe] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40CCEDC3840] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_fil_assemblyrefere]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_assemblyrefere] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C57D9155E] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_fil_configurationbe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_configurationbe] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C62C5785F] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_fil_filebe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_filebe] ADD CONSTRAINT [UQ__t_be_cor__E8A8046F68F2B0FD] UNIQUE NONCLUSTERED  ([c__FullName])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_fil_programcodebe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_programcodebe] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C58A7FCB2] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_fil_r_invoca_filebe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_invoca_filebe] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C73A1B3AF] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_invoca_filebe] ADD CONSTRAINT [UQ__t_be_cor__920873A44722BE38] UNIQUE NONCLUSTERED  ([c_InvocationRecordBE_Id], [c_FileBE_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_fil_r_progra_assemb]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_progra_assemb] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40CB30D3C3A] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_progra_assemb] ADD CONSTRAINT [UQ__t_be_cor__3851AFC562AE4285] UNIQUE NONCLUSTERED  ([c_ProgramCodeBE_Id], [c_AssemblyReferenceBE_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_fil_r_target_argume]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_argume] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C54FD550B] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_argume] ADD CONSTRAINT [UQ__t_be_cor__DB633BC144A309B5] UNIQUE NONCLUSTERED  ([c_TargetBE_Id], [c_ArgumentBE_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_fil_r_target_invoca]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_invoca] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C53B1DE34] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_invoca] ADD CONSTRAINT [UQ__t_be_cor__9527F827818ABD9B] UNIQUE NONCLUSTERED  ([c_TargetBE_Id], [c_InvocationRecordBE_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_fil_r_target_progra]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_progra] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C3C862AEF] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_progra] ADD CONSTRAINT [UQ__t_be_cor__6706CAB1D4403516] UNIQUE NONCLUSTERED  ([c_TargetBE_Id], [c_ProgramCodeBE_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_fil_servicehostbe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_servicehostbe] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C3E24498E] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_fil_invocationreco]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_invocationreco] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C157B6C54] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_qu_udrcforquoting]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_udrcforquoting] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C3EB7C8F4] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_fil_targetbe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_targetbe] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C4139DFEE] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_mr_machine]'
-GO
-ALTER TABLE [dbo].[t_be_cor_mr_machine] ADD CONSTRAINT [UQ__t_be_cor__F1214B34D250B4DB] UNIQUE NONCLUSTERED  ([c_MachineIdentifier])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_ui_BillSetting]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_BillSetting] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C1FFAF189] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_mr_machinerole]'
-GO
-ALTER TABLE [dbo].[t_be_cor_mr_machinerole] ADD CONSTRAINT [UQ__t_be_cor__D6E7B3845CAF107F] UNIQUE NONCLUSTERED  ([c_Name])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_ui_Column]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_Column] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40CD97C9BED] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_mr_r_machin_machin]'
-GO
-ALTER TABLE [dbo].[t_be_cor_mr_r_machin_machin] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C12977345] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_be_cor_mr_r_machin_machin] ADD CONSTRAINT [UQ__t_be_cor__122E822EC06F1269] UNIQUE NONCLUSTERED  ([c_Machine_Id], [c_MachineRole_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_qu_accountforquote]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_accountforquote] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40CC0F2F835] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_ui_Dashboard]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_Dashboard] ADD CONSTRAINT [UQ__t_be_cor__D6E7B3846ECB1B98] UNIQUE NONCLUSTERED  ([c_Name])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_qu_poforquote]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_poforquote] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40CBBB4C7AF] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_qu_quotecontent]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_quotecontent] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40CED4AF74B] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_ui_EntryPoint]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_EntryPoint] ADD CONSTRAINT [UQ__t_be_cor__F608815BC5A5B8ED] UNIQUE NONCLUSTERED  ([c_EntryPointName])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_ui_Parameter]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_Parameter] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C757485C6] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_qu_quoteheader]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_quoteheader] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C24F91CF7] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_ui_ProductViewMap]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_ProductViewMap] ADD CONSTRAINT [UQ__t_be_cor__941911CB2F52AE68] UNIQUE NONCLUSTERED  ([c_ProductViewName])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_qu_quotelog]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_quotelog] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C35FEB8D5] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_ui_r_Column_Widget]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Column_Widget] ADD CONSTRAINT [UQ__t_be_cor__37A9EB1A67A444D8] UNIQUE NONCLUSTERED  ([c_Column_Id], [c_Widget_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Column_Widget] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C432C373B] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_ui_r_Dashbo_Column]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Dashbo_Column] ADD CONSTRAINT [UQ__t_be_cor__21DFA7CB229DA135] UNIQUE NONCLUSTERED  ([c_Dashboard_Id], [c_Column_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Dashbo_Column] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C466E4B20] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_ui_r_SavedS_Searc]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_SavedS_Searc] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40CED9B856F] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_SavedS_Searc] ADD CONSTRAINT [UQ__t_be_cor__609BEF65960525C7] UNIQUE NONCLUSTERED  ([c_SavedSearch_Id], [c_SearchFilter_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_ui_r_Site_BillS]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_BillS] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40CF93DB417] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_BillS] ADD CONSTRAINT [UQ__t_be_cor__01740A3C04C3DC9E] UNIQUE NONCLUSTERED  ([c_Site_Id], [c_BillSetting_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_ui_r_Site_Dashb]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Dashb] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40CDB1137E5] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Dashb] ADD CONSTRAINT [UQ__t_be_cor__3B18B037A48290E6] UNIQUE NONCLUSTERED  ([c_Site_Id], [c_Dashboard_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_ui_r_Site_Entry]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Entry] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40CBB304415] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Entry] ADD CONSTRAINT [UQ__t_be_cor__EDE2D36704BF5346] UNIQUE NONCLUSTERED  ([c_Site_Id], [c_EntryPoint_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_ui_r_Site_Produ]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Produ] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C53409150] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Produ] ADD CONSTRAINT [UQ__t_be_cor__57364F40EB41A986] UNIQUE NONCLUSTERED  ([c_Site_Id], [c_ProductViewMapping_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_ui_r_Site_Repor]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Repor] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C97715F9C] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Repor] ADD CONSTRAINT [UQ__t_be_cor__7CDEC6FABE0D29E3] UNIQUE NONCLUSTERED  ([c_Site_Id], [c_ReportInventory_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_ui_r_Widget_Param]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Widget_Param] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C55EC6880] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Widget_Param] ADD CONSTRAINT [UQ__t_be_cor__7CD9F3C3BC2B7822] UNIQUE NONCLUSTERED  ([c_Widget_Id], [c_Parameter_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_ui_ReportInventory]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_ReportInventory] ADD CONSTRAINT [UQ__t_be_cor__D6E7B38456C3FD7C] UNIQUE NONCLUSTERED  ([c_Name])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_ui_SavedSearch]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_SavedSearch] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40CA51ADB0B] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_ui_SearchFilter]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_SearchFilter] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C2742E719] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_ui_Site]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_Site] ADD CONSTRAINT [UQ__t_be_cor__E61A40211850ACD9] UNIQUE NONCLUSTERED  ([c_SiteName])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_ui_UserProfile]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_UserProfile] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C753739CF] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_ui_Widget]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_Widget] ADD CONSTRAINT [UQ__t_be_cor__8BE5C40C955F6A7D] UNIQUE NONCLUSTERED  ([c_internal_key])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_ui_WidgetInventory]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_WidgetInventory] ADD CONSTRAINT [UQ__t_be_cor__D6E7B384B0AB78C0] UNIQUE NONCLUSTERED  ([c_Name])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_stored_procedure_table_lock]'
-GO
-ALTER TABLE [dbo].[t_stored_procedure_table_lock] ADD CONSTRAINT [UQ__t_stored__4019333A06FC0F3B] UNIQUE NONCLUSTERED  ([c_stored_procedure_name])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[mvm_scheduled_tasks]'
-GO
-ALTER TABLE [dbo].[mvm_scheduled_tasks] ADD CONSTRAINT [DF__mvm_sched__mvm_s__6CF8245B] DEFAULT (GETDATE()) FOR [mvm_scheduled_dt]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[mvm_scheduled_tasks] ADD CONSTRAINT [DF__mvm_sched__mvm_s__6DEC4894] DEFAULT ('scheduled') FOR [mvm_status]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[mvm_scheduled_tasks] ADD CONSTRAINT [DF__mvm_sched__mvm_s__6EE06CCD] DEFAULT (GETDATE()) FOR [mvm_status_dt]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[mvm_scheduled_tasks] ADD CONSTRAINT [DF__mvm_sched__mvm_t__6FD49106] DEFAULT (NEWID()) FOR [mvm_task_guid]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[mvm_scheduled_tasks] ADD CONSTRAINT [DF__mvm_sched__mvm_p__70C8B53F] DEFAULT ('0') FOR [mvm_poll_guid]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_agr_template]'
-GO
-ALTER TABLE [dbo].[t_agr_template] ADD CONSTRAINT [DF__t_agr_tem__avail__61F08603] DEFAULT (GETDATE()) FOR [available_start_date]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_agr_template] ADD CONSTRAINT [DF__t_agr_tem__avail__62E4AA3C] DEFAULT ('2038-01-01') FOR [available_end_date]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_bil_billmessage_h]'
-GO
-ALTER TABLE [dbo].[t_be_cor_bil_billmessage_h] ADD CONSTRAINT [DF__t_be_cor___c_Bil__5A254709] DEFAULT (NEWSEQUENTIALID()) FOR [c_BillMessageHistory_Id]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_bil_billmessageac_h]'
-GO
-ALTER TABLE [dbo].[t_be_cor_bil_billmessageac_h] ADD CONSTRAINT [DF__t_be_cor___c_Bil__5748DA5E] DEFAULT (NEWSEQUENTIALID()) FOR [c_BillMessageAccountHistor_Id]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_cor_dispute_h]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_dispute_h] ADD CONSTRAINT [DF__t_be_cor___c_Dis__6596F9B5] DEFAULT (NEWSEQUENTIALID()) FOR [c_DisputeHistory_Id]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_batch_history]'
-GO
-ALTER TABLE [dbo].[t_batch_history] ADD CONSTRAINT [DF__t_batch_h__n_dis__5F7E2DAC] DEFAULT ((0)) FOR [n_dismissed]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_batch_history] ADD CONSTRAINT [DF__t_batch_h__dt_hi__607251E5] DEFAULT (GETUTCDATE()) FOR [dt_history_crt]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_be_cor_fil_invocationrec_h]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_invocationrec_h] ADD CONSTRAINT [DF__t_be_cor___c_Inv__7D6E8346] DEFAULT (NEWSEQUENTIALID()) FOR [c_InvocationRecordBEHistory_Id]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_email_adapter_tracking]'
-GO
-ALTER TABLE [dbo].[t_email_adapter_tracking] ADD CONSTRAINT [DF__t_email_a__n_fai__4F32B74A] DEFAULT ((0)) FOR [n_failed_attempts]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_failed_transaction]'
-GO
-ALTER TABLE [dbo].[t_failed_transaction] ADD CONSTRAINT [DF__t_failed___id_Po__7FEAFD3E] DEFAULT ('-1') FOR [id_PossiblePayerID]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_payment_audit]'
-GO
-ALTER TABLE [dbo].[t_payment_audit] ADD CONSTRAINT [DF__t_payment__dt_oc__0FEC5ADD] DEFAULT (GETUTCDATE()) FOR [dt_occurred]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_message]'
-GO
-ALTER TABLE [dbo].[t_message] ADD CONSTRAINT [DF__t_message__id_pa__3429BB53] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_po]'
-GO
-ALTER TABLE [dbo].[t_po] ADD CONSTRAINT [DF__t_po__b_hidden__3296789C] DEFAULT ('N') FOR [b_hidden]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_principals]'
-GO
-ALTER TABLE [dbo].[t_principals] ADD CONSTRAINT [DF__t_princip__nm_pk__15702A09] DEFAULT ('id_prop') FOR [nm_pk]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_session]'
-GO
-ALTER TABLE [dbo].[t_session] ADD CONSTRAINT [DF__t_session__id_pa__4183B671] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_session_set]'
-GO
-ALTER TABLE [dbo].[t_session_set] ADD CONSTRAINT [DF__t_session__id_pa__3BCADD1B] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_session_state]'
-GO
-ALTER TABLE [dbo].[t_session_state] ADD CONSTRAINT [DF__t_session__id_pa__3EA749C6] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_AccountCreation]'
-GO
-ALTER TABLE [dbo].[t_svc_AccountCreation] ADD CONSTRAINT [DF__t_svc_Acc__id_pa__6359AB88] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_AccountCredit]'
-GO
-ALTER TABLE [dbo].[t_svc_AccountCredit] ADD CONSTRAINT [DF__t_svc_Acc__id_pa__691284DE] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_AccountCreditRequest]'
-GO
-ALTER TABLE [dbo].[t_svc_AccountCreditRequest] ADD CONSTRAINT [DF__t_svc_Acc__id_pa__6BEEF189] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_AccountMapping]'
-GO
-ALTER TABLE [dbo].[t_svc_AccountMapping] ADD CONSTRAINT [DF__t_svc_Acc__id_pa__6ECB5E34] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_AddCharge]'
-GO
-ALTER TABLE [dbo].[t_svc_AddCharge] ADD CONSTRAINT [DF__t_svc_Add__id_pa__71A7CADF] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_ARAdjustment]'
-GO
-ALTER TABLE [dbo].[t_svc_ARAdjustment] ADD CONSTRAINT [DF__t_svc_ARA__id_pa__7484378A] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_Commitment]'
-GO
-ALTER TABLE [dbo].[t_svc_Commitment] ADD CONSTRAINT [DF__t_svc_Com__id_pa__224B023A] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_DTCGetWhereAbouts]'
-GO
-ALTER TABLE [dbo].[t_svc_DTCGetWhereAbouts] ADD CONSTRAINT [DF__t_svc_DTC__id_pa__7760A435] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_FlatDiscount]'
-GO
-ALTER TABLE [dbo].[t_svc_FlatDiscount] ADD CONSTRAINT [DF__t_svc_Fla__id_pa__7A3D10E0] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_FlatDiscount_NoCond]'
-GO
-ALTER TABLE [dbo].[t_svc_FlatDiscount_NoCond] ADD CONSTRAINT [DF__t_svc_Fla__id_pa__7D197D8B] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_FlatRecurringCharge]'
-GO
-ALTER TABLE [dbo].[t_svc_FlatRecurringCharge] ADD CONSTRAINT [DF__t_svc_Fla__id_pa__7FF5EA36] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_FreeUsage]'
-GO
-ALTER TABLE [dbo].[t_svc_FreeUsage] ADD CONSTRAINT [DF__t_svc_Fre__id_pa__25276EE5] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_Login]'
-GO
-ALTER TABLE [dbo].[t_svc_Login] ADD CONSTRAINT [DF__t_svc_Log__id_pa__02D256E1] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_MultiBucketDiscount]'
-GO
-ALTER TABLE [dbo].[t_svc_MultiBucketDiscount] ADD CONSTRAINT [DF__t_svc_Mul__id_pa__2803DB90] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_MultiBucketPricing]'
-GO
-ALTER TABLE [dbo].[t_svc_MultiBucketPricing] ADD CONSTRAINT [DF__t_svc_Mul__id_pa__2AE0483B] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_NonRecurringCharge]'
-GO
-ALTER TABLE [dbo].[t_svc_NonRecurringCharge] ADD CONSTRAINT [DF__t_svc_Non__id_pa__05AEC38C] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_NonStandardCharge]'
-GO
-ALTER TABLE [dbo].[t_svc_NonStandardCharge] ADD CONSTRAINT [DF__t_svc_Non__id_pa__088B3037] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_NonStandardChargeRequest]'
-GO
-ALTER TABLE [dbo].[t_svc_NonStandardChargeRequest] ADD CONSTRAINT [DF__t_svc_Non__id_pa__0B679CE2] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_Payment]'
-GO
-ALTER TABLE [dbo].[t_svc_Payment] ADD CONSTRAINT [DF__t_svc_Pay__id_pa__0E44098D] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_PaymentDetails]'
-GO
-ALTER TABLE [dbo].[t_svc_PaymentDetails] ADD CONSTRAINT [DF__t_svc_Pay__id_pa__11207638] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_PercentDiscount]'
-GO
-ALTER TABLE [dbo].[t_svc_PercentDiscount] ADD CONSTRAINT [DF__t_svc_Per__id_pa__13FCE2E3] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_PercentDiscount_NoCond]'
-GO
-ALTER TABLE [dbo].[t_svc_PercentDiscount_NoCond] ADD CONSTRAINT [DF__t_svc_Per__id_pa__16D94F8E] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_SingleBucketPricing]'
-GO
-ALTER TABLE [dbo].[t_svc_SingleBucketPricing] ADD CONSTRAINT [DF__t_svc_Sin__id_pa__2DBCB4E6] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_SystemAccountCreation]'
-GO
-ALTER TABLE [dbo].[t_svc_SystemAccountCreation] ADD CONSTRAINT [DF__t_svc_Sys__id_pa__66361833] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_TestParent]'
-GO
-ALTER TABLE [dbo].[t_svc_TestParent] ADD CONSTRAINT [DF__t_svc_Tes__id_pa__19B5BC39] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_TestService]'
-GO
-ALTER TABLE [dbo].[t_svc_TestService] ADD CONSTRAINT [DF__t_svc_Tes__id_pa__1C9228E4] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_svc_UDRecurringCharge]'
-GO
-ALTER TABLE [dbo].[t_svc_UDRecurringCharge] ADD CONSTRAINT [DF__t_svc_UDR__id_pa__1F6E958F] DEFAULT ((1)) FOR [id_partition]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_tax_billsoft_override]'
-GO
-ALTER TABLE [dbo].[t_tax_billsoft_override] ADD CONSTRAINT [DF__t_tax_bil__level__34E8D562] DEFAULT ('FALSE') FOR [levelExempt]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_tax_billsoft_override] ADD CONSTRAINT [DF__t_tax_bil__repla__35DCF99B] DEFAULT ('FALSE') FOR [replace_jur]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_tax_billsoft_override] ADD CONSTRAINT [DF__t_tax_bil__exces__36D11DD4] DEFAULT ((0)) FOR [excess]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_tax_billsoft_pc_map]'
-GO
-ALTER TABLE [dbo].[t_tax_billsoft_pc_map] ADD CONSTRAINT [DF__t_tax_bil__produ__39AD8A7F] DEFAULT ('BADCODE') FOR [product_code]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding constraints to [dbo].[t_usage_server]'
-GO
-ALTER TABLE [dbo].[t_usage_server] ADD CONSTRAINT [DF__t_usage_s__b_par__63A3C44B] DEFAULT ('N') FOR [b_partitioning_enabled]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_usage_server] ADD CONSTRAINT [DF__t_usage_s__parti__6497E884] DEFAULT ((30)) FOR [partition_cycle]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_usage_server] ADD CONSTRAINT [DF__t_usage_s__parti__658C0CBD] DEFAULT ('Monthly') FOR [partition_type]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_usage_server] ADD CONSTRAINT [DF__t_usage_s__parti__668030F6] DEFAULT ((100)) FOR [partition_data_size]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-ALTER TABLE [dbo].[t_usage_server] ADD CONSTRAINT [DF__t_usage_s__parti__6774552F] DEFAULT ((25)) FOR [partition_log_size]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_acc_usage]'
-GO
-ALTER TABLE [dbo].[t_acc_usage] ADD CONSTRAINT [fk2_t_acc_usage] FOREIGN KEY ([id_payee]) REFERENCES [dbo].[t_account] ([id_acc])
-ALTER TABLE [dbo].[t_acc_usage] ADD CONSTRAINT [fk3_t_acc_usage] FOREIGN KEY ([id_prod]) REFERENCES [dbo].[t_po] ([id_po])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_amp_accountqualifi]'
-GO
-ALTER TABLE [dbo].[t_amp_accountqualifi] ADD CONSTRAINT [FK__t_amp_acc__c_Acc__40E497F3] FOREIGN KEY ([c_AccountQualGroup_Id]) REFERENCES [dbo].[t_amp_accountqualgro] ([c_AccountQualGroup_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_amp_chargeattribut]'
-GO
-ALTER TABLE [dbo].[t_amp_chargeattribut] ADD CONSTRAINT [FK__t_amp_cha__c_Cha__44B528D7] FOREIGN KEY ([c_ChargeDefinition_Id]) REFERENCES [dbo].[t_amp_chargedefiniti] ([c_ChargeDefinition_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_amp_chargequalific]'
-GO
-ALTER TABLE [dbo].[t_amp_chargequalific] ADD CONSTRAINT [FK__t_amp_cha__c_Cha__369C13AA] FOREIGN KEY ([c_ChargeQualGroup_Id]) REFERENCES [dbo].[t_amp_chargequalgroup] ([c_ChargeQualGroup_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_amp_decisionattrib]'
-GO
-ALTER TABLE [dbo].[t_amp_decisionattrib] ADD CONSTRAINT [FK__t_amp_dec__c_Dec__4885B9BB] FOREIGN KEY ([c_DecisionType_Id]) REFERENCES [dbo].[t_amp_decisiontype] ([c_DecisionType_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_amp_genchargedirective]'
-GO
-ALTER TABLE [dbo].[t_amp_genchargedirective] ADD CONSTRAINT [FK__t_amp_gen__c_Gen__4C564A9F] FOREIGN KEY ([c_GenCharge_Id]) REFERENCES [dbo].[t_amp_generatedcharge] ([c_GenCharge_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_amp_usagequalifica]'
-GO
-ALTER TABLE [dbo].[t_amp_usagequalifica] ADD CONSTRAINT [FK__t_amp_usa__c_Usa__49AEE81E] FOREIGN KEY ([c_UsageQualGroup_Id]) REFERENCES [dbo].[t_amp_usagequalgroup] ([c_UsageQualGroup_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_qu_udrcforquoting]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_udrcforquoting] ADD CONSTRAINT [FKD99B29231956655E] FOREIGN KEY ([c_POforQuote_Id]) REFERENCES [dbo].[t_be_cor_qu_poforquote] ([c_POforQuote_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_ep_usage]'
-GO
-ALTER TABLE [dbo].[t_ep_usage] ADD CONSTRAINT [FK__t_ep_usag__id_pr__4341E1B1] FOREIGN KEY ([id_prop]) REFERENCES [dbo].[t_base_props] ([id_prop])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_ep_aggregate]'
-GO
-ALTER TABLE [dbo].[t_ep_aggregate] ADD CONSTRAINT [FK__t_ep_aggr__id_pr__2F3AE904] FOREIGN KEY ([id_prop]) REFERENCES [dbo].[t_base_props] ([id_prop])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_ep_discount]'
-GO
-ALTER TABLE [dbo].[t_ep_discount] ADD CONSTRAINT [FK__t_ep_disc__id_pr__321755AF] FOREIGN KEY ([id_prop]) REFERENCES [dbo].[t_base_props] ([id_prop])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_ep_nonrecurring]'
-GO
-ALTER TABLE [dbo].[t_ep_nonrecurring] ADD CONSTRAINT [FK__t_ep_nonr__id_pr__34F3C25A] FOREIGN KEY ([id_prop]) REFERENCES [dbo].[t_base_props] ([id_prop])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_ep_po]'
-GO
-ALTER TABLE [dbo].[t_ep_po] ADD CONSTRAINT [FK__t_ep_po__id_prop__37D02F05] FOREIGN KEY ([id_prop]) REFERENCES [dbo].[t_base_props] ([id_prop])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_ep_pricelist]'
-GO
-ALTER TABLE [dbo].[t_ep_pricelist] ADD CONSTRAINT [FK__t_ep_pric__id_pr__3AAC9BB0] FOREIGN KEY ([id_prop]) REFERENCES [dbo].[t_base_props] ([id_prop])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_ep_recurring]'
-GO
-ALTER TABLE [dbo].[t_ep_recurring] ADD CONSTRAINT [FK__t_ep_recu__id_pr__3D89085B] FOREIGN KEY ([id_prop]) REFERENCES [dbo].[t_base_props] ([id_prop])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_ep_unit_dependent_recurring]'
-GO
-ALTER TABLE [dbo].[t_ep_unit_dependent_recurring] ADD CONSTRAINT [FK__t_ep_unit__id_pr__40657506] FOREIGN KEY ([id_prop]) REFERENCES [dbo].[t_base_props] ([id_prop])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_mview_base_tables]'
-GO
-ALTER TABLE [dbo].[t_mview_base_tables] ADD CONSTRAINT [FK__t_mview_b__id_ev__3587F3E0] FOREIGN KEY ([id_event]) REFERENCES [dbo].[t_mview_event] ([id_event])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_mview_event]'
-GO
-ALTER TABLE [dbo].[t_mview_event] ADD CONSTRAINT [FK__t_mview_e__id_mv__31B762FC] FOREIGN KEY ([id_mv]) REFERENCES [dbo].[t_mview_catalog] ([id_mv])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_mview_queries]'
-GO
-ALTER TABLE [dbo].[t_mview_queries] ADD CONSTRAINT [FK__t_mview_q__id_ev__339FAB6E] FOREIGN KEY ([id_event]) REFERENCES [dbo].[t_mview_event] ([id_event])
 GO
 IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
 GO
@@ -11826,368 +6609,7 @@ IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
 GO
 IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
 GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_bil_billmessageacc]'
-GO
-ALTER TABLE [dbo].[t_be_cor_bil_billmessageacc] ADD CONSTRAINT [FKC3D2CEB6CE386231] FOREIGN KEY ([c_BillMessage_Id]) REFERENCES [dbo].[t_be_cor_bil_billmessage] ([c_BillMessage_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_cor_chargeadj735343]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_chargeadj735343] ADD CONSTRAINT [FKF85D1B8A2326DEF8] FOREIGN KEY ([c_ChargeAdjustment_Id]) REFERENCES [dbo].[t_be_cor_cor_chargeadjustme] ([c_ChargeAdjustment_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_cor_invoiceadjustm]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_invoiceadjustm] ADD CONSTRAINT [FK223B6613ED4EB850] FOREIGN KEY ([c_Dispute_Id]) REFERENCES [dbo].[t_be_cor_cor_dispute] ([c_Dispute_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_cor_chargeadjustme]'
-GO
-ALTER TABLE [dbo].[t_be_cor_cor_chargeadjustme] ADD CONSTRAINT [FK64309022ED4EB850] FOREIGN KEY ([c_Dispute_Id]) REFERENCES [dbo].[t_be_cor_cor_dispute] ([c_Dispute_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_fil_r_target_argume]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_argume] ADD CONSTRAINT [FK715CFF2F6CCCAD37] FOREIGN KEY ([c_ArgumentBE_Id]) REFERENCES [dbo].[t_be_cor_fil_argumentbe] ([c_ArgumentBE_Id])
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_argume] ADD CONSTRAINT [FK715CFF2F8FE654D4] FOREIGN KEY ([c_TargetBE_Id]) REFERENCES [dbo].[t_be_cor_fil_targetbe] ([c_TargetBE_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_fil_r_progra_assemb]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_progra_assemb] ADD CONSTRAINT [FKA563E2DAA260F339] FOREIGN KEY ([c_AssemblyReferenceBE_Id]) REFERENCES [dbo].[t_be_cor_fil_assemblyrefere] ([c_AssemblyReferenceBE_Id])
-ALTER TABLE [dbo].[t_be_cor_fil_r_progra_assemb] ADD CONSTRAINT [FKA563E2DAC3F32C3E] FOREIGN KEY ([c_ProgramCodeBE_Id]) REFERENCES [dbo].[t_be_cor_fil_programcodebe] ([c_ProgramCodeBE_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_fil_r_invoca_filebe]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_invoca_filebe] ADD CONSTRAINT [FKC2912D0FC1661E1] FOREIGN KEY ([c_FileBE_Id]) REFERENCES [dbo].[t_be_cor_fil_filebe] ([c_FileBE_Id])
-ALTER TABLE [dbo].[t_be_cor_fil_r_invoca_filebe] ADD CONSTRAINT [FKC2912D02F02B46F] FOREIGN KEY ([c_InvocationRecordBE_Id]) REFERENCES [dbo].[t_be_cor_fil_invocationreco] ([c_InvocationRecordBE_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_fil_r_target_progra]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_progra] ADD CONSTRAINT [FK5595C3E5C3F32C3E] FOREIGN KEY ([c_ProgramCodeBE_Id]) REFERENCES [dbo].[t_be_cor_fil_programcodebe] ([c_ProgramCodeBE_Id])
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_progra] ADD CONSTRAINT [FK5595C3E58FE654D4] FOREIGN KEY ([c_TargetBE_Id]) REFERENCES [dbo].[t_be_cor_fil_targetbe] ([c_TargetBE_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_fil_r_target_invoca]'
-GO
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_invoca] ADD CONSTRAINT [FK1C394D548FE654D4] FOREIGN KEY ([c_TargetBE_Id]) REFERENCES [dbo].[t_be_cor_fil_targetbe] ([c_TargetBE_Id])
-ALTER TABLE [dbo].[t_be_cor_fil_r_target_invoca] ADD CONSTRAINT [FK1C394D542F02B46F] FOREIGN KEY ([c_InvocationRecordBE_Id]) REFERENCES [dbo].[t_be_cor_fil_invocationreco] ([c_InvocationRecordBE_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_mr_r_machin_machin]'
-GO
-ALTER TABLE [dbo].[t_be_cor_mr_r_machin_machin] ADD CONSTRAINT [FKB9DA71B95BAD365B] FOREIGN KEY ([c_Machine_Id]) REFERENCES [dbo].[t_be_cor_mr_machine] ([c_Machine_Id])
-ALTER TABLE [dbo].[t_be_cor_mr_r_machin_machin] ADD CONSTRAINT [FKB9DA71B9FE7400DB] FOREIGN KEY ([c_MachineRole_Id]) REFERENCES [dbo].[t_be_cor_mr_machinerole] ([c_MachineRole_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_ui_r_Site_BillS]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_BillS] ADD CONSTRAINT [FK84B207BFF0387E4C] FOREIGN KEY ([c_BillSetting_Id]) REFERENCES [dbo].[t_be_cor_ui_BillSetting] ([c_BillSetting_Id])
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_BillS] ADD CONSTRAINT [FK84B207BF9E01EF1D] FOREIGN KEY ([c_Site_Id]) REFERENCES [dbo].[t_be_cor_ui_Site] ([c_Site_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_ui_r_Column_Widget]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Column_Widget] ADD CONSTRAINT [FK4266DABE2132732D] FOREIGN KEY ([c_Column_Id]) REFERENCES [dbo].[t_be_cor_ui_Column] ([c_Column_Id])
-ALTER TABLE [dbo].[t_be_cor_ui_r_Column_Widget] ADD CONSTRAINT [FK4266DABE7BD375DD] FOREIGN KEY ([c_Widget_Id]) REFERENCES [dbo].[t_be_cor_ui_Widget] ([c_Widget_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_ui_r_Dashbo_Column]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Dashbo_Column] ADD CONSTRAINT [FK681EC3DE2132732D] FOREIGN KEY ([c_Column_Id]) REFERENCES [dbo].[t_be_cor_ui_Column] ([c_Column_Id])
-ALTER TABLE [dbo].[t_be_cor_ui_r_Dashbo_Column] ADD CONSTRAINT [FK681EC3DED31D9D5] FOREIGN KEY ([c_Dashboard_Id]) REFERENCES [dbo].[t_be_cor_ui_Dashboard] ([c_Dashboard_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_ui_r_Site_Dashb]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Dashb] ADD CONSTRAINT [FK4364355BD31D9D5] FOREIGN KEY ([c_Dashboard_Id]) REFERENCES [dbo].[t_be_cor_ui_Dashboard] ([c_Dashboard_Id])
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Dashb] ADD CONSTRAINT [FK4364355B9E01EF1D] FOREIGN KEY ([c_Site_Id]) REFERENCES [dbo].[t_be_cor_ui_Site] ([c_Site_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_ui_r_Site_Entry]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Entry] ADD CONSTRAINT [FK6B593A9EF237B3CA] FOREIGN KEY ([c_EntryPoint_Id]) REFERENCES [dbo].[t_be_cor_ui_EntryPoint] ([c_EntryPoint_Id])
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Entry] ADD CONSTRAINT [FK6B593A9E9E01EF1D] FOREIGN KEY ([c_Site_Id]) REFERENCES [dbo].[t_be_cor_ui_Site] ([c_Site_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_ui_r_Widget_Param]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Widget_Param] ADD CONSTRAINT [FK38F61CAB7231A6B3] FOREIGN KEY ([c_Parameter_Id]) REFERENCES [dbo].[t_be_cor_ui_Parameter] ([c_Parameter_Id])
-ALTER TABLE [dbo].[t_be_cor_ui_r_Widget_Param] ADD CONSTRAINT [FK38F61CAB7BD375DD] FOREIGN KEY ([c_Widget_Id]) REFERENCES [dbo].[t_be_cor_ui_Widget] ([c_Widget_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_qu_quotecontent]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_quotecontent] ADD CONSTRAINT [FK11F4836B4018C0CD] FOREIGN KEY ([c_QuoteHeader_Id]) REFERENCES [dbo].[t_be_cor_qu_quoteheader] ([c_QuoteHeader_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_qu_poforquote]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_poforquote] ADD CONSTRAINT [FK4D75E5624018C0CD] FOREIGN KEY ([c_QuoteHeader_Id]) REFERENCES [dbo].[t_be_cor_qu_quoteheader] ([c_QuoteHeader_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_qu_accountforquote]'
-GO
-ALTER TABLE [dbo].[t_be_cor_qu_accountforquote] ADD CONSTRAINT [FK72F3DB6E4018C0CD] FOREIGN KEY ([c_QuoteHeader_Id]) REFERENCES [dbo].[t_be_cor_qu_quoteheader] ([c_QuoteHeader_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_ui_r_Site_Produ]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Produ] ADD CONSTRAINT [FK2EE4ACACFCBF9B9] FOREIGN KEY ([c_ProductViewMapping_Id]) REFERENCES [dbo].[t_be_cor_ui_ProductViewMap] ([c_ProductViewMapping_Id])
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Produ] ADD CONSTRAINT [FK2EE4ACAC9E01EF1D] FOREIGN KEY ([c_Site_Id]) REFERENCES [dbo].[t_be_cor_ui_Site] ([c_Site_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_ui_r_SavedS_Searc]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_SavedS_Searc] ADD CONSTRAINT [FKBE0A9C77A4FB35B5] FOREIGN KEY ([c_SavedSearch_Id]) REFERENCES [dbo].[t_be_cor_ui_SavedSearch] ([c_SavedSearch_Id])
-ALTER TABLE [dbo].[t_be_cor_ui_r_SavedS_Searc] ADD CONSTRAINT [FKBE0A9C77BA5036E7] FOREIGN KEY ([c_SearchFilter_Id]) REFERENCES [dbo].[t_be_cor_ui_SearchFilter] ([c_SearchFilter_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_be_cor_ui_r_Site_Repor]'
-GO
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Repor] ADD CONSTRAINT [FK9102A9F29E01EF1D] FOREIGN KEY ([c_Site_Id]) REFERENCES [dbo].[t_be_cor_ui_Site] ([c_Site_Id])
-ALTER TABLE [dbo].[t_be_cor_ui_r_Site_Repor] ADD CONSTRAINT [FK9102A9F235A41245] FOREIGN KEY ([c_ReportInventory_Id]) REFERENCES [dbo].[t_be_cor_ui_ReportInventory] ([c_ReportInventory_Id])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Adding foreign keys to [dbo].[t_open_transactions]'
-GO
-ALTER TABLE [dbo].[t_open_transactions] ADD CONSTRAINT [FK_t_open_transactions_table] FOREIGN KEY ([id_payment_transaction]) REFERENCES [dbo].[t_payment_history] ([id_payment_transaction])
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
 PRINT N'Creating extended properties'
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'This table contains information about all the rated usage data that is common to all product views (Package: Usage Metering)', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', NULL, NULL
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'The currency code of the monetary amounts calculated for the session', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'am_currency'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'The monetary amount calculated for the session', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'amount'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'Division amount', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'div_amount'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'Division currency ', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'div_currency'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'The date and time the session was added to the database', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'dt_crt'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'The date and time the usage occurred', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'dt_session'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'The payer identifier', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'id_acc'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'The parent session identifier', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'id_parent_sess'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'The account identifier', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'id_payee'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'The database ID for the priceable item instance associated with the usage', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'id_pi_instance'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'The database ID for the priceable item template associated with the usage', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'id_pi_template'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'The Product Offering identifier', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'id_prod'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'The database identifier for associated service endpoint', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'id_se'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'MetraNet generated surrogate key for session', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'id_sess'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'The service identifier', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'id_svc'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'The billing period identifier', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'id_usage_interval'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'The product view identifier', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'id_view'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'Has the tax already been calculated', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'tax_calculated'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'The monetary amount of country tax calculated for the session', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'tax_county'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'The monetary amount of federal tax calculated for the session', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'tax_federal'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'Is this tax informational-only', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'tax_informational'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'The monetary amount of local tax calculated for the session', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'tax_local'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'The monetary amount of other tax calculated for the session', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'tax_other'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'The monetary amount of state tax calculated for the session', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'tax_state'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'The batch session identifier', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'tx_batch'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-EXEC sp_addextendedproperty N'MS_Description', 'The unique external session identifier', 'SCHEMA', N'dbo', 'TABLE', N't_acc_usage', 'COLUMN', N'tx_UID'
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
 GO
 EXEC sp_addextendedproperty N'MS_Description', 'Tells the calculate tax adapters which algorithm to use when calculating the tax amount for tax inclusive amounts. If set to True, then the standard implied tax algorithm is tax=amount - amount/(1.0+rate). If set to False, the alternate implied tax algorithm is tax=amount*rate.', 'SCHEMA', N'dbo', 'TABLE', N't_av_Internal', 'COLUMN', N'c_UseStdImpliedTaxAlg'
 GO
@@ -12260,7 +6682,8 @@ PRINT N'Altering UpdatePrivateTempates procedure'
 GO
 ALTER PROCEDURE UpdatePrivateTempates
 (
-	@id_template INT
+	@id_template INT,
+	@p_systemdate  DATETIME
 )    
 AS
 BEGIN
@@ -12740,6 +7163,8 @@ GO
 IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
 GO
 
+PRINT N'Creating procedure recursive_inherit_sub_by_rsch'
+GO
 CREATE PROCEDURE recursive_inherit_sub_by_rsch
 (
 	@v_id_rsched   int
@@ -12757,6 +7182,787 @@ AS
 
 	IF @id_sub IS NOT NULL
 		EXEC recursive_inherit_sub_to_accs @v_id_sub = @id_sub
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+
+PRINT N'Altering procedure mtsp_generate_stateful_rcs'
+GO
+ALTER PROCEDURE [dbo].[mtsp_generate_stateful_rcs]
+                                            @v_id_interval  int
+                                           ,@v_id_billgroup int
+                                           ,@v_id_run       int
+                                           ,@v_id_batch     varchar(256)
+                                           ,@v_n_batch_size int
+                                                               ,@v_run_date   datetime
+                                           ,@p_count      int OUTPUT
+AS
+BEGIN
+      /* SET NOCOUNT ON added to prevent extra result sets from
+         interfering with SELECT statements. */
+      SET NOCOUNT ON;
+  DECLARE @total_rcs  int,
+          @total_flat int,
+          @total_udrc int,
+          @n_batches  int,
+          @id_flat    int,
+          @id_udrc    int,
+          @id_message bigint,
+          @id_ss      int,
+          @tx_batch   binary(16);
+INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Retrieving RC candidates');
+SELECT
+*
+INTO
+#TMP_RC
+FROM(
+SELECT
+newid() AS idSourceSess,
+      'Arrears' AS c_RCActionType
+      ,pci.dt_start      AS c_RCIntervalStart
+      ,pci.dt_end      AS c_RCIntervalEnd
+      ,ui.dt_start      AS c_BillingIntervalStart
+      ,ui.dt_end          AS c_BillingIntervalEnd
+      ,dbo.mtmaxoftwodates(pci.dt_start, rw.c_SubscriptionStart)          AS c_RCIntervalSubscriptionStart
+      ,dbo.mtminoftwodates(pci.dt_end, rw.c_SubscriptionEnd)          AS c_RCIntervalSubscriptionEnd
+      ,rw.c_SubscriptionStart          AS c_SubscriptionStart
+      ,rw.c_SubscriptionEnd          AS c_SubscriptionEnd
+      ,case when rw.c_advance  ='Y' then '1' else '0' end          AS c_Advance
+      ,case when rcr.b_prorate_on_activate ='Y' then '1' else '0' end         AS c_ProrateOnSubscription
+      ,case when rcr.b_prorate_instantly  ='Y' then '1' else '0' end          AS c_ProrateInstantly
+      ,case when rcr.b_prorate_on_deactivate ='Y' then '1' else '0' end       AS c_ProrateOnUnsubscription
+      ,CASE WHEN rcr.b_fixed_proration_length = 'Y' THEN fxd.n_proration_length ELSE 0 END          AS c_ProrationCycleLength
+      ,rw.c__accountid AS c__AccountID
+      ,rw.c__payingaccount      AS c__PayingAccount
+      ,rw.c__priceableiteminstanceid      AS c__PriceableItemInstanceID
+      ,rw.c__priceableitemtemplateid      AS c__PriceableItemTemplateID
+      ,rw.c__productofferingid      AS c__ProductOfferingID
+      ,pci.dt_end      AS c_BilledRateDate
+      ,rw.c__subscriptionid      AS c__SubscriptionID
+,rw.c_payerstart,rw.c_payerend,case when rw.c_unitvaluestart < '1970-01-01 00:00:00' THEN '1970-01-01 00:00:00' ELSE rw.c_unitvaluestart END AS c_unitvaluestart ,rw.c_unitvalueend
+, rw.c_unitvalue
+, rcr.n_rating_type AS c_RatingType
+      FROM t_usage_interval ui
+      INNER LOOP JOIN t_billgroup bg ON bg.id_usage_interval = ui.id_interval
+      INNER LOOP JOIN t_billgroup_member bgm ON bg.id_billgroup = bgm.id_billgroup
+      INNER LOOP JOIN t_recur_window rw WITH(INDEX(rc_window_time_idx)) ON bgm.id_acc = rw.c__payingaccount 
+                                   AND rw.c_payerstart          < ui.dt_end AND rw.c_payerend          > ui.dt_start /* interval overlaps with payer */
+                                   AND rw.c_cycleeffectivestart < ui.dt_end AND rw.c_cycleeffectiveend > ui.dt_start /* interval overlaps with cycle */
+                                   AND rw.c_membershipstart     < ui.dt_end AND rw.c_membershipend     > ui.dt_start /* interval overlaps with membership */
+                                   AND rw.c_subscriptionstart   < ui.dt_end AND rw.c_subscriptionend   > ui.dt_start /* interval overlaps with subscription */
+                                   AND rw.c_unitvaluestart      < ui.dt_end AND rw.c_unitvalueend      > ui.dt_start /* interval overlaps with UDRC */
+      INNER LOOP JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
+      INNER LOOP JOIN t_usage_cycle ccl ON ccl.id_usage_cycle = CASE WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) ELSE NULL END
+      /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
+      INNER LOOP JOIN t_pc_interval pci WITH(INDEX(cycle_time_pc_interval_index)) ON pci.id_cycle = ccl.id_usage_cycle
+                                   AND pci.dt_end BETWEEN ui.dt_start        AND ui.dt_end                             /* rc end falls in this interval */
+                                   AND pci.dt_end BETWEEN rw.c_payerstart    AND rw.c_payerend                         /* rc end goes to this payer */
+                                   AND rw.c_unitvaluestart      < pci.dt_end AND rw.c_unitvalueend      > pci.dt_start /* rc overlaps with this UDRC */
+                                   AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
+                                   AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
+                                   AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
+      INNER LOOP JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
+      where 1=1
+      and ui.id_interval = @v_id_interval
+      and bg.id_billgroup = @v_id_billgroup
+      and rcr.b_advance <> 'Y'
+UNION ALL
+SELECT
+newid() AS idSourceSess,
+      'Advance' AS c_RCActionType
+      ,pci.dt_start      AS c_RCIntervalStart
+      ,pci.dt_end      AS c_RCIntervalEnd
+      ,nui.dt_start      AS c_BillingIntervalStart
+      ,nui.dt_end          AS c_BillingIntervalEnd
+      ,CASE WHEN rcr.tx_cycle_mode <> 'Fixed' AND nui.dt_start <> c_cycleEffectiveDate 
+       THEN dbo.MTMaxOfTwoDates(dbo.AddSecond(c_cycleEffectiveDate), pci.dt_start)
+       ELSE pci.dt_start END as c_RCIntervalSubscriptionStart
+      ,dbo.mtminoftwodates(pci.dt_end, rw.c_SubscriptionEnd)          AS c_RCIntervalSubscriptionEnd
+      ,rw.c_SubscriptionStart          AS c_SubscriptionStart
+      ,rw.c_SubscriptionEnd          AS c_SubscriptionEnd
+      ,case when rw.c_advance  ='Y' then '1' else '0' end          AS c_Advance
+      ,case when rcr.b_prorate_on_activate ='Y' then '1' else '0' end         AS c_ProrateOnSubscription
+      ,case when rcr.b_prorate_instantly  ='Y' then '1' else '0' end          AS c_ProrateInstantly
+      ,case when rcr.b_prorate_on_deactivate ='Y' then '1' else '0' end       AS c_ProrateOnUnsubscription
+      ,CASE WHEN rcr.b_fixed_proration_length = 'Y' THEN fxd.n_proration_length ELSE 0 END          AS c_ProrationCycleLength
+      ,rw.c__accountid AS c__AccountID
+      ,rw.c__payingaccount      AS c__PayingAccount
+      ,rw.c__priceableiteminstanceid      AS c__PriceableItemInstanceID
+      ,rw.c__priceableitemtemplateid      AS c__PriceableItemTemplateID
+      ,rw.c__productofferingid      AS c__ProductOfferingID
+      ,pci.dt_start      AS c_BilledRateDate
+      ,rw.c__subscriptionid      AS c__SubscriptionID
+,rw.c_payerstart,rw.c_payerend,case when rw.c_unitvaluestart < '1970-01-01 00:00:00' THEN '1970-01-01 00:00:00' ELSE rw.c_unitvaluestart END AS c_unitvaluestart,rw.c_unitvalueend
+, rw.c_unitvalue
+, rcr.n_rating_type AS c_RatingType
+      FROM t_usage_interval ui
+      INNER LOOP JOIN t_usage_interval nui ON ui.id_usage_cycle = nui.id_usage_cycle AND dbo.AddSecond(ui.dt_end) = nui.dt_start
+      INNER LOOP JOIN t_billgroup bg ON bg.id_usage_interval = ui.id_interval
+      INNER LOOP JOIN t_billgroup_member bgm ON bg.id_billgroup = bgm.id_billgroup
+      INNER LOOP JOIN t_recur_window rw WITH(INDEX(rc_window_time_idx)) ON bgm.id_acc = rw.c__payingaccount 
+                                   AND rw.c_payerstart          < nui.dt_end AND rw.c_payerend          > nui.dt_start /* next interval overlaps with payer */
+                                   AND rw.c_cycleeffectivestart < nui.dt_end AND rw.c_cycleeffectiveend > nui.dt_start /* next interval overlaps with cycle */
+                                   AND rw.c_membershipstart     < nui.dt_end AND rw.c_membershipend     > nui.dt_start /* next interval overlaps with membership */
+                                   AND rw.c_subscriptionstart   < ui.dt_end AND rw.c_subscriptionend   > nui.dt_start /* next interval overlaps with subscription */
+                                   AND rw.c_unitvaluestart      < nui.dt_end AND rw.c_unitvalueend      > nui.dt_start /* next interval overlaps with UDRC */
+      INNER LOOP JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
+      INNER LOOP JOIN t_usage_cycle ccl ON ccl.id_usage_cycle = CASE WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) ELSE NULL END
+      INNER LOOP JOIN t_pc_interval pci WITH(INDEX(cycle_time_pc_interval_index)) ON pci.id_cycle = ccl.id_usage_cycle
+                                   AND pci.dt_start BETWEEN nui.dt_start     AND nui.dt_end                            /* rc start falls in this interval */
+                                   AND pci.dt_start BETWEEN rw.c_payerstart  AND rw.c_payerend                         /* rc start goes to this payer */
+                                   AND rw.c_unitvaluestart      < pci.dt_end AND rw.c_unitvalueend      > pci.dt_start /* rc overlaps with this UDRC */
+                                   AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
+                                   AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
+                                   AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
+      INNER LOOP JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
+      where 1=1
+      and ui.id_interval = @v_id_interval
+      and bg.id_billgroup = @v_id_billgroup
+      and rcr.b_advance = 'Y'
+)A      ;
+
+SELECT @total_rcs  = COUNT(1) FROM #tmp_rc;
+
+INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'RC Candidate Count: ' + CAST(@total_rcs AS VARCHAR));
+
+if @total_rcs > 0
+BEGIN
+
+SELECT @total_flat = COUNT(1) FROM #tmp_rc where c_unitvalue is null;
+SELECT @total_udrc = COUNT(1) FROM #tmp_rc where c_unitvalue is not null;
+
+INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Flat RC Candidate Count: ' + CAST(@total_flat AS VARCHAR));
+INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'UDRC RC Candidate Count: ' + CAST(@total_udrc AS VARCHAR));
+
+INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Session Set Count: ' + CAST(@v_n_batch_size AS VARCHAR));
+INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Batch: ' + @v_id_batch);
+
+SELECT @tx_batch = cast(N'' as xml).value('xs:hexBinary(sql:variable("@v_id_batch"))', 'binary(16)');
+INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Batch ID: ' + CAST(@tx_batch AS varchar));
+
+if @total_flat > 0
+begin
+
+    
+set @id_flat = (SELECT id_enum_data FROM t_enum_data ted WHERE ted.nm_enum_data =
+      'metratech.com/flatrecurringcharge');
+    
+SET @n_batches = (@total_flat / @v_n_batch_size) + 1;
+    EXEC GetIdBlock @n_batches, 'id_dbqueuesch', @id_message OUTPUT;
+    EXEC GetIdBlock @n_batches, 'id_dbqueuess',  @id_ss OUTPUT;
+
+INSERT INTO t_session 
+(id_ss, id_source_sess)
+SELECT @id_ss + (ROW_NUMBER() OVER (ORDER BY idSourceSess) % @n_batches) AS id_ss,
+    idSourceSess AS id_source_sess
+FROM #tmp_rc where c_unitvalue is null;
+         
+INSERT INTO t_session_set
+(id_message, id_ss, id_svc, b_root, session_count)
+SELECT id_message, id_ss, id_svc, b_root, COUNT(1) as session_count
+FROM
+(SELECT @id_message + (ROW_NUMBER() OVER (ORDER BY idSourceSess) % @n_batches) AS id_message,
+    @id_ss + (ROW_NUMBER() OVER (ORDER BY idSourceSess) % @n_batches) AS id_ss,
+    @id_flat AS id_svc,
+    1 AS b_root
+FROM #tmp_rc
+where c_unitvalue is null) a
+GROUP BY a.id_message, a.id_ss, a.id_svc, a.b_root;
+
+INSERT INTO t_svc_FlatRecurringCharge
+(id_source_sess
+    ,id_parent_source_sess
+    ,id_external
+    ,c_RCActionType
+    ,c_RCIntervalStart
+    ,c_RCIntervalEnd
+    ,c_BillingIntervalStart
+    ,c_BillingIntervalEnd
+    ,c_RCIntervalSubscriptionStart
+    ,c_RCIntervalSubscriptionEnd
+    ,c_SubscriptionStart
+    ,c_SubscriptionEnd
+    ,c_Advance
+    ,c_ProrateOnSubscription
+    ,c_ProrateInstantly 
+    ,c_ProrateOnUnsubscription
+    ,c_ProrationCycleLength
+    ,c__AccountID
+    ,c__PayingAccount
+    ,c__PriceableItemInstanceID
+    ,c__PriceableItemTemplateID
+    ,c__ProductOfferingID
+    ,c_BilledRateDate
+    ,c__SubscriptionID
+    ,c__IntervalID
+    ,c__Resubmit
+    ,c__TransactionCookie
+    ,c__CollectionID)
+SELECT 
+    idSourceSess AS id_source_sess
+    ,NULL AS id_parent_source_sess
+    ,NULL AS id_external
+    ,c_RCActionType
+    ,c_RCIntervalStart
+    ,c_RCIntervalEnd
+    ,c_BillingIntervalStart
+    ,c_BillingIntervalEnd
+    ,c_RCIntervalSubscriptionStart
+    ,c_RCIntervalSubscriptionEnd
+    ,c_SubscriptionStart
+    ,c_SubscriptionEnd
+    ,c_Advance
+    ,c_ProrateOnSubscription
+    ,c_ProrateInstantly 
+    ,c_ProrateOnUnsubscription
+    ,c_ProrationCycleLength
+    ,c__AccountID
+    ,c__PayingAccount
+    ,c__PriceableItemInstanceID
+    ,c__PriceableItemTemplateID
+    ,c__ProductOfferingID
+    ,c_BilledRateDate
+    ,c__SubscriptionID
+    ,@v_id_interval AS c__IntervalID
+    ,'0' AS c__Resubmit
+    ,NULL AS c__TransactionCookie
+    ,@tx_batch AS c__CollectionID
+FROM #tmp_rc
+where c_unitvalue is null;
+          INSERT
+          INTO t_message
+            (
+              id_message,
+              id_route,
+              dt_crt,
+              dt_metered,
+              dt_assigned,
+              id_listener,
+              id_pipeline,
+              dt_completed,
+              id_feedback,
+              tx_TransactionID,
+              tx_sc_username,
+              tx_sc_password,
+              tx_sc_namespace,
+              tx_sc_serialized,
+              tx_ip_address
+            )
+            SELECT
+              id_message,
+              NULL,
+              @v_run_date,
+              @v_run_date,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              '127.0.0.1'
+            FROM
+              (SELECT @id_message + (ROW_NUMBER() OVER (ORDER BY idSourceSess) % @n_batches) AS id_message
+              FROM #tmp_rc
+              WHERE c_unitvalue IS NULL
+              ) a
+            GROUP BY a.id_message;
+
+INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Done inserting Flat RCs');
+
+END;
+if @total_udrc > 0
+begin
+
+set @id_udrc = (SELECT id_enum_data FROM t_enum_data ted WHERE ted.nm_enum_data =
+      'metratech.com/udrecurringcharge');
+    
+SET @n_batches = (@total_udrc / @v_n_batch_size) + 1;
+    EXEC GetIdBlock @n_batches, 'id_dbqueuesch', @id_message OUTPUT;
+    EXEC GetIdBlock @n_batches, 'id_dbqueuess',  @id_ss OUTPUT;
+
+INSERT INTO t_session 
+(id_ss, id_source_sess)
+SELECT @id_ss + (ROW_NUMBER() OVER (ORDER BY idSourceSess) % @n_batches) AS id_ss,
+    idSourceSess AS id_source_sess
+FROM #tmp_rc where c_unitvalue is not null;
+         
+INSERT INTO t_session_set
+(id_message, id_ss, id_svc, b_root, session_count)
+SELECT id_message, id_ss, id_svc, b_root, COUNT(1) as session_count
+FROM
+(SELECT @id_message + (ROW_NUMBER() OVER (ORDER BY idSourceSess) % @n_batches) AS id_message,
+    @id_ss + (ROW_NUMBER() OVER (ORDER BY idSourceSess) % @n_batches) AS id_ss,
+    @id_udrc AS id_svc,
+    1 AS b_root
+FROM #tmp_rc
+where c_unitvalue is not null) a
+GROUP BY a.id_message, a.id_ss, a.id_svc, a.b_root;
+
+INSERT INTO t_svc_UDRecurringCharge
+(id_source_sess, id_parent_source_sess, id_external, c_RCActionType, c_RCIntervalStart,c_RCIntervalEnd,c_BillingIntervalStart,c_BillingIntervalEnd
+    ,c_RCIntervalSubscriptionStart
+    ,c_RCIntervalSubscriptionEnd
+    ,c_SubscriptionStart
+    ,c_SubscriptionEnd
+    ,c_Advance
+    ,c_ProrateOnSubscription
+/*    ,c_ProrateInstantly */
+    ,c_ProrateOnUnsubscription
+    ,c_ProrationCycleLength
+    ,c__AccountID
+    ,c__PayingAccount
+    ,c__PriceableItemInstanceID
+    ,c__PriceableItemTemplateID
+    ,c__ProductOfferingID
+    ,c_BilledRateDate
+    ,c__SubscriptionID
+    ,c__IntervalID
+    ,c__Resubmit
+    ,c__TransactionCookie
+    ,c__CollectionID
+      ,c_unitvaluestart
+      ,c_unitvalueend
+      ,c_unitvalue
+      ,c_ratingtype)
+SELECT 
+    idSourceSess AS id_source_sess
+    ,NULL AS id_parent_source_sess
+    ,NULL AS id_external
+    ,c_RCActionType
+    ,c_RCIntervalStart
+    ,c_RCIntervalEnd
+    ,c_BillingIntervalStart
+    ,c_BillingIntervalEnd
+    ,c_RCIntervalSubscriptionStart
+    ,c_RCIntervalSubscriptionEnd
+    ,c_SubscriptionStart
+    ,c_SubscriptionEnd
+    ,c_Advance
+    ,c_ProrateOnSubscription
+/*    ,c_ProrateInstantly */
+    ,c_ProrateOnUnsubscription
+    ,c_ProrationCycleLength
+    ,c__AccountID
+    ,c__PayingAccount
+    ,c__PriceableItemInstanceID
+    ,c__PriceableItemTemplateID
+    ,c__ProductOfferingID
+    ,c_BilledRateDate
+    ,c__SubscriptionID
+    ,@v_id_interval AS c__IntervalID
+    ,'0' AS c__Resubmit
+    ,NULL AS c__TransactionCookie
+    ,@tx_batch AS c__CollectionID
+      ,c_unitvaluestart
+      ,c_unitvalueend
+      ,c_unitvalue
+      ,c_ratingtype
+FROM #tmp_rc
+where c_unitvalue is not null;
+
+          INSERT
+          INTO t_message
+            (
+              id_message,
+              id_route,
+              dt_crt,
+              dt_metered,
+              dt_assigned,
+              id_listener,
+              id_pipeline,
+              dt_completed,
+              id_feedback,
+              tx_TransactionID,
+              tx_sc_username,
+              tx_sc_password,
+              tx_sc_namespace,
+              tx_sc_serialized,
+              tx_ip_address
+            )
+            SELECT
+              id_message,
+              NULL,
+              @v_run_date,
+              @v_run_date,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              NULL,
+              '127.0.0.1'
+            FROM
+              (SELECT @id_message + (ROW_NUMBER() OVER (ORDER BY idSourceSess) % @n_batches) AS id_message
+              FROM #tmp_rc
+              WHERE c_unitvalue IS NOT NULL
+              ) a
+            GROUP BY a.id_message;
+
+                  INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Done inserting UDRC RCs');
+
+END;
+
+ END;
+
+ SET @p_count = @total_rcs;
+
+INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Info', 'Finished submitting RCs, count: ' + CAST(@total_rcs AS VARCHAR));
+
+END;
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+
+PRINT N'Altering procedure CreateUsagePartitions'
+GO
+ALTER PROCEDURE CreateUsagePartitions
+AS
+BEGIN TRY
+IF dbo.IsSystemPartitioned() = 0
+	RAISERROR('System not enabled for partitioning.', 16, 1)
+
+/* Vars for iterating through the new partition list
+*/
+DECLARE @cur CURSOR  
+DECLARE @dt_start DATETIME
+DECLARE @dt_end DATETIME
+DECLARE @id_interval_start INT
+DECLARE @id_interval_end INT
+DECLARE @parts TABLE (
+			partition_name NVARCHAR(100),
+			dt_start DATETIME,
+			dt_end DATETIME,
+			interval_start INT,
+			interval_end INT
+		)
+					
+EXEC GeneratePartitionSequence @cur OUT
+
+/* Get first row of partition info*/
+FETCH @cur INTO	@dt_start, @dt_end, @id_interval_start, @id_interval_end
+
+/* pause pipeline to reduce contention */
+IF (@@FETCH_STATUS = 0) EXEC PausePipelineProcessing 1
+
+/* Iterate through partition sequence */
+WHILE (@@fetch_status = 0)
+BEGIN
+	DECLARE @partition_name NVARCHAR(100)
+	
+	IF NOT EXISTS (SELECT * FROM sys.partition_schemes WHERE name = dbo.prtn_GetUsagePartitionSchemaName())
+	BEGIN
+		EXEC prtn_CreatePartitionSchema @id_interval_end, @dt_end, @partition_name OUT
+		
+		-- insert information about default partition						
+		INSERT INTO t_partition
+		(partition_name, b_default, dt_start, dt_end, id_interval_start, id_interval_end, b_active)
+		VALUES
+		(dbo.prtn_GetDefaultPartitionName(), 'Y', DATEADD(DAY, 1, @dt_end), dbo.MTMaxdate(), @id_interval_end + 1, 2147483647, 'N')
+		
+		INSERT INTO @parts
+		VALUES
+		(dbo.prtn_GetDefaultPartitionName(), DATEADD(DAY, 1, @dt_end), dbo.MTMaxdate(), @id_interval_end + 1, 2147483647)
+	END
+	ELSE
+	BEGIN
+		EXEC prtn_AlterPartitionSchema @id_interval_end, @dt_end, @partition_name OUT
+		
+		-- update start of default partition
+		UPDATE t_partition
+		SET
+			dt_start = DATEADD(DAY, 1, @dt_end),			
+			id_interval_start = @id_interval_end + 1
+		WHERE  b_default = 'Y'
+	END
+	
+	-- insert information about created partition			
+	INSERT INTO t_partition
+		(partition_name, b_default, dt_start, dt_end, id_interval_start, id_interval_end, b_active)
+		VALUES
+		(@partition_name, 'N', @dt_start, @dt_end, @id_interval_start, @id_interval_end, 'Y')
+		
+	INSERT INTO @parts
+		VALUES
+		(@partition_name, @dt_start, @dt_end, @id_interval_start, @id_interval_end)
+	
+	/* Get next patition info */
+	FETCH @cur INTO @dt_start, @dt_end, @id_interval_start, @id_interval_end 
+END
+
+/* Deallocate the cursor */
+CLOSE @cur
+DEALLOCATE @cur
+
+/* unpause pipeline */
+EXEC PausePipelineProcessing 0
+
+/* Correct default partition start if it was just created */
+UPDATE @parts
+SET							
+	dt_start = DATEADD(DAY, 1, @dt_end),							
+	interval_start = @id_interval_end + 1
+WHERE dt_end = dbo.MTMaxdate() 
+
+/* Returning partition info*/
+SELECT * FROM @parts ORDER BY dt_start
+
+END TRY
+BEGIN CATCH
+	DECLARE @ErrorMessage NVARCHAR(4000), @ErrorSeverity INT, @ErrorState INT	
+	SELECT @ErrorMessage = ERROR_MESSAGE(), @ErrorSeverity = ERROR_SEVERITY(), @ErrorState = ERROR_STATE()
+	EXEC PausePipelineProcessing 0
+	RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState)
+END CATCH
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+
+PRINT N'Altering trigger trig_update_recur_window_on_t_sub'
+GO
+ALTER trigger trig_update_recur_window_on_t_sub
+ON t_sub
+for INSERT, UPDATE, delete
+as 
+BEGIN  
+declare @temp datetime
+  delete from t_recur_window where exists (
+    select 1 from deleted sub where
+      t_recur_window.c__AccountID = sub.id_acc
+      and t_recur_window.c__SubscriptionID = sub.id_sub
+      AND t_recur_window.c_SubscriptionStart = sub.vt_start
+      AND t_recur_window.c_SubscriptionEnd = sub.vt_end);
+
+  MERGE into t_recur_window USING (
+    select distinct sub.id_sub, sub.id_acc, sub.vt_start, sub.vt_end, plm.id_pi_template, plm.id_pi_instance
+    FROM INSERTED sub inner join t_recur_window trw on trw.c__AccountID = sub.id_acc
+       AND trw.c__SubscriptionID = sub.id_sub
+       inner join t_pl_map plm on sub.id_po = plm.id_po
+            and plm.id_sub = sub.id_sub and plm.id_paramtable = null	) AS source
+        ON (t_recur_window.c__SubscriptionID = source.id_sub
+             and t_recur_window.c__AccountID = source.id_acc)
+    WHEN matched AND t_recur_window.c__SubscriptionID = source.id_sub and t_recur_window.c__AccountID = source.id_acc
+      THEN UPDATE SET c_SubscriptionStart = source.vt_start, c_SubscriptionEnd = source.vt_end;
+    
+  SELECT sub.vt_start AS c_CycleEffectiveDate
+        ,sub.vt_start AS c_CycleEffectiveStart
+        ,sub.vt_end   AS c_CycleEffectiveEnd
+        ,sub.vt_start AS c_SubscriptionStart
+        ,sub.vt_end   AS c_SubscriptionEnd
+        ,rcr.b_advance  AS c_Advance
+        ,pay.id_payee AS c__AccountID
+        ,pay.id_payer AS c__PayingAccount
+        ,plm.id_pi_instance AS c__PriceableItemInstanceID
+        ,plm.id_pi_template AS c__PriceableItemTemplateID
+        ,plm.id_po    AS c__ProductOfferingID
+        ,pay.vt_start AS c_PayerStart
+        ,pay.vt_end   AS c_PayerEnd
+        ,sub.id_sub   AS c__SubscriptionID
+        ,IsNull(rv.vt_start, dbo.mtmindate()) AS c_UnitValueStart
+        ,IsNull(rv.vt_end, dbo.mtmaxdate()) AS c_UnitValueEnd
+        ,rv.n_value   AS c_UnitValue
+        ,dbo.mtmindate() as c_BilledThroughDate
+        ,-1 AS c_LastIdRun
+        ,dbo.mtmindate() AS c_MembershipStart
+        ,dbo.mtmaxdate() AS c_MembershipEnd
+
+      --We'll use #recur_window_holder in the stored proc that operates only on the latest data
+        INTO #recur_window_holder
+        FROM inserted sub
+          INNER JOIN t_payment_redirection pay ON pay.id_payee = sub.id_acc 
+         --   AND pay.vt_start < sub.vt_end AND pay.vt_end > sub.vt_start
+          INNER JOIN t_pl_map plm ON plm.id_po = sub.id_po AND plm.id_paramtable IS NULL
+          INNER JOIN t_recur rcr ON plm.id_pi_instance = rcr.id_prop
+          INNER JOIN t_base_props bp ON bp.id_prop = rcr.id_prop
+          LEFT OUTER JOIN t_recur_value rv ON rv.id_prop = rcr.id_prop AND sub.id_sub = rv.id_sub 
+            AND rv.tt_end = dbo.MTMaxDate() 
+            AND rv.vt_start < sub.vt_end AND rv.vt_end > sub.vt_start 
+            AND rv.vt_start < pay.vt_end AND rv.vt_end > pay.vt_start
+         WHERE 1=1
+        --Make sure not to insert a row that already takes care of this account/sub id
+           AND not EXISTS
+           (SELECT 1 FROM T_RECUR_WINDOW where c__AccountID = sub.id_acc
+              AND c__SubscriptionID = sub.id_sub)
+              AND sub.id_group IS NULL
+              AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)
+
+   select @temp = max(tsh.tt_start) from t_sub_history tsh join inserted sub on tsh.id_acc = sub.id_acc and tsh.id_sub = sub.id_sub;
+   EXEC MeterInitialFromRecurWindow @currentDate = @temp;
+   EXEC MeterCreditFromRecurWindow @currentDate = @temp;
+	  
+   UPDATE #recur_window_holder 
+     SET c_BilledThroughDate = dbo.metratime(1,'RC');
+  
+   INSERT INTO t_recur_window SELECT * FROM #recur_window_holder;
+
+ end;
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+
+PRINT N'Creating procedure MeterInitialFromRecurWindow'
+GO
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'MeterInitialFromRecurWindow')
+	DROP PROCEDURE MeterInitialFromRecurWindow
+GO
+
+CREATE PROCEDURE [dbo].[MeterInitialFromRecurWindow]
+     @currentDate dateTime
+    AS
+    BEGIN
+	IF ((SELECT value FROM t_db_values WHERE parameter = N'InstantRc') = 'false') return;
+	
+	-- SET NOCOUNT ON added to prevent extra result sets from
+-- interfering with SELECT statements.
+SET NOCOUNT ON;
+
+SELECT       
+    'Initial' AS c_RCActionType
+    ,pci.dt_start      AS c_RCIntervalStart
+    ,pci.dt_end      AS c_RCIntervalEnd
+    ,ui.dt_start      AS c_BillingIntervalStart
+    ,ui.dt_end          AS c_BillingIntervalEnd
+    ,dbo.mtmaxoftwodates(pci.dt_start, rw.c_SubscriptionStart)          AS c_RCIntervalSubscriptionStart
+    ,dbo.mtminoftwodates(pci.dt_end, rw.c_SubscriptionEnd)          AS c_RCIntervalSubscriptionEnd
+    ,rw.c_SubscriptionStart          AS c_SubscriptionStart
+    ,rw.c_SubscriptionEnd          AS c_SubscriptionEnd
+    --Booleans are, stupidly enough, stored as Y/N in one table, but 0/1 in another table.  Convert them.
+    ,case when rw.c_advance  ='Y' then '1' else '0' end          AS c_Advance
+    ,case when rcr.b_prorate_on_activate ='Y' then '1' else '0' end         AS c_ProrateOnSubscription
+    ,case when rcr.b_prorate_instantly  ='Y' then '1' else '0' end          AS c_ProrateInstantly
+    ,rw.c_UnitValueStart AS c_UnitValueStart
+    ,rw.c_UnitValueEnd AS c_UnitValueEnd
+    ,rw.c_UnitValue AS c_UnitValue
+    ,rcr.n_rating_type AS c_RatingType
+    ,case when rcr.b_prorate_on_deactivate  ='Y' then '1' else '0' end          AS c_ProrateOnUnsubscription
+    ,CASE WHEN rcr.b_fixed_proration_length = 'Y' THEN fxd.n_proration_length ELSE 0 END          AS c_ProrationCycleLength
+    ,dbo.MTMinOfTwoDates(pci.dt_end,rw.c_SubscriptionEnd)  AS c_BilledRateDate
+    ,rw.c__subscriptionid      AS c__SubscriptionID
+    ,rw.c__accountid AS c__AccountID
+    ,rw.c__payingaccount      AS c__PayingAccount
+    ,rw.c__priceableiteminstanceid      AS c__PriceableItemInstanceID
+    ,rw.c__priceableitemtemplateid      AS c__PriceableItemTemplateID
+    ,rw.c__productofferingid      AS c__ProductOfferingID
+    ,currentui.id_interval AS c__IntervalID 
+    ,NEWID() AS idSourceSess 
+INTO #tmp_rc
+FROM #recur_window_holder rw 
+    INNER JOIN t_usage_interval ui on 
+        rw.c_payerstart          < ui.dt_end AND rw.c_payerend          > ui.dt_start /* next interval overlaps with payer */
+    AND rw.c_cycleeffectivestart < ui.dt_end AND rw.c_cycleeffectiveend > ui.dt_start /* next interval overlaps with cycle */
+    AND rw.c_membershipstart     < ui.dt_end AND rw.c_membershipend     > ui.dt_start /* next interval overlaps with membership */
+    AND rw.c_SubscriptionStart < ui.dt_end AND rw.c_SubscriptionEnd > ui.dt_start
+    AND rw.c_unitvaluestart      < ui.dt_end AND rw.c_unitvalueend      > ui.dt_start /* next interval overlaps with UDRC */
+    INNER LOOP JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
+    INNER LOOP JOIN t_acc_usage_cycle auc ON auc.id_acc = rw.c__AccountID AND auc.id_usage_cycle = ui.id_usage_cycle
+    /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
+    INNER LOOP JOIN t_pc_interval pci WITH(INDEX(fk1idx_t_pc_interval))
+      ON pci.id_cycle = CASE 
+        WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle 
+        WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle 
+        WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) 
+        ELSE NULL END
+    AND ((rcr.b_advance = 'Y' AND pci.dt_start BETWEEN ui.dt_start     AND ui.dt_end) /* If this is in advance, check if rc start falls in this interval */
+        or pci.dt_end BETWEEN ui.dt_start     AND ui.dt_end                           /* or check if the cycle end falls into this interval */
+		or (pci.dt_start < ui.dt_start and pci.dt_end > ui.dt_end))                   /* or this interval could be in the middle of the cycle */
+    AND pci.dt_end BETWEEN rw.c_payerstart  AND rw.c_payerend                         /* rc start goes to this payer */
+    AND rw.c_unitvaluestart      < pci.dt_end AND rw.c_unitvalueend      > pci.dt_start /* rc overlaps with this UDRC */
+    AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
+    AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
+    AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
+    INNER LOOP JOIN t_usage_cycle ccl ON ccl.id_usage_cycle = CASE 
+        WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle 
+        WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle 
+        WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) 
+        ELSE NULL END 
+    INNER LOOP JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
+	inner join t_usage_interval currentui on @currentDate between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = ui.id_usage_cycle
+where 1=1
+--Only meter new subscriptions as initial -- so select only items that have at most one entry in t_sub_history
+    AND NOT EXISTS (SELECT 1 FROM t_sub_history tsh WHERE tsh.id_sub = rw.C__SubscriptionID AND tsh.id_acc = rw.c__AccountID
+      AND tsh.tt_end < dbo.MTMaxDate())
+--Also no old unit values
+    AND NOT EXISTS (SELECT 1 FROM t_recur_value trv WHERE trv.id_sub = rw.c__SubscriptionID AND trv.tt_end < dbo.MTMaxDate())
+-- Don't meter in the current interval for initial
+    AND pci.dt_start < @currentDate
+	AND ui.dt_start <= rw.c_SubscriptionStart 
+    ;
+    
+
+--If no charges to meter, return immediately
+    IF (NOT EXISTS (SELECT 1 FROM #tmp_rc)) RETURN;
+
+   EXEC InsertChargesIntoSvcTables; 
+
+UPDATE #recur_window_holder 
+SET c_BilledThroughDate = dbo.metratime(1,'RC');
+    END
+
+
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+
+PRINT N'Creating procedure InsertAuditEvent2'
+GO
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'InsertAuditEvent2')
+	DROP PROCEDURE InsertAuditEvent2
+GO
+
+CREATE PROCEDURE InsertAuditEvent2
+	@id_userid int,
+	@id_event int,
+	@id_entity_type int,
+	@id_entity int,
+	@dt_timestamp datetime,
+	@tx_details nvarchar(4000),
+	@id_audit int = NULL,
+	@tx_logged_in_as nvarchar(50) = NULL,
+	@tx_application_name nvarchar(50) = NULL,
+	@id_audit_out int out
+AS
+BEGIN
+	DECLARE @new_id int
+	IF @id_audit IS NULL OR @id_audit = 0
+		EXEC GetCurrentId 'id_audit', @new_id out
+	ELSE
+		SET @id_audit_out = @id_audit
+
+	EXEC InsertAuditEvent
+		@id_userid           = @id_userid,
+		@id_event            = @id_event,
+		@id_entity_type      = @id_entity_type,
+		@id_entity           = @id_entity,
+		@dt_timestamp        = @dt_timestamp,
+		@id_audit            = @new_id,
+		@tx_details          = @tx_details,
+		@tx_logged_in_as     = @tx_logged_in_as,
+		@tx_application_name = @tx_application_name
+
+	SET @id_audit_out = @new_id
+END
+GO
+
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
 GO
 
 PRINT N'Updating upgrade information to [dbo].[t_sys_upgrade] table'

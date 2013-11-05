@@ -17,7 +17,7 @@ BEGIN
 
 	SET @maxdate = dbo.MTMaxDate()
 
-	IF @id_po IS NULL
+	IF @id_group IS NOT NULL
 	BEGIN
 		INSERT INTO #tmp_gsubmember (id_group, id_acc, vt_start, vt_end)
 			VALUES (@id_group, @id_acc, @sub_start, @sub_end)

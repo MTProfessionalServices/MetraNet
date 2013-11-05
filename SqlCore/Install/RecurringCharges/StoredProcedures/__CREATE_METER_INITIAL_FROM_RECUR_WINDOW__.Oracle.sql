@@ -53,7 +53,8 @@ PROCEDURE METERinitialFROMRECURWINDOW AS
         WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) 
         ELSE NULL END
     AND ((rcr.b_advance = 'Y' AND pci.dt_start BETWEEN ui.dt_start     AND ui.dt_end) /* If this is in advance, check if rc start falls in this interval */
-        or pci.dt_end BETWEEN ui.dt_start     AND ui.dt_end)                          /* but always check if the cycle end falls into this interval */
+                or pci.dt_end BETWEEN ui.dt_start     AND ui.dt_end                           /* or check if the cycle end falls into this interval */
+		or (pci.dt_start < ui.dt_start and pci.dt_end > ui.dt_end))                   /* or this interval could be in the middle of the cycle */
     AND pci.dt_end BETWEEN rw.c_payerstart  AND rw.c_payerend                         /* rc start goes to this payer */
     AND rw.c_unitvaluestart      < pci.dt_end AND rw.c_unitvalueend      > pci.dt_start /* rc overlaps with this UDRC */
     AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
@@ -68,12 +69,13 @@ PROCEDURE METERinitialFROMRECURWINDOW AS
 	inner join t_usage_interval currentui on metratime(1,'RC') between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = ui.id_usage_cycle
 where 1=1
 /*Only meter new subscriptions as initial -- so select only items that have at most one entry in t_sub_history*/
-    AND NOT EXISTS (SELECT 1 FROM t_sub_history tsh WHERE tsh.id_sub = rw.C__SubscriptionID AND tsh.id_acc = rw.c__AccountID
+    AND NOT EXISTS (SELECT 1 FROM t_sub_history tsh WHERE tsh.id_sub = rw.c__SubscriptionID AND tsh.id_acc = rw.c__AccountID
       AND tsh.tt_end < metratime(1,'RC'))
 /*Also no old unit values*/
     AND NOT EXISTS (SELECT 1 FROM t_recur_value trv WHERE trv.id_sub = rw.c__SubscriptionID AND trv.tt_end < dbo.MTMaxDate())
 /* Don't meter in the current interval for initial*/
-    AND ui.dt_start < metratime(1,'RC')
+    AND pci.dt_start < metratime(1,'RC')
+	and ui.dt_start <= rw.c_SubscriptionStart 
     ;
 
    insertChargesIntoSvcTables('Initial','Initial');

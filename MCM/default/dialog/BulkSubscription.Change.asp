@@ -102,14 +102,13 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
   Set destPO = objMTProductCatalog.GetProductOffering(CLng(Service.Properties("POIDDestination").Value))
 
     dim objPriceableItems
-    set objPriceableItems = po.GetPriceableItems
-    
+    set objPriceableItems = destPO.GetPriceableItems
     dim FoundUDRCs
     FoundUDRCs = FALSE
     
     dim objPI
     for each objPI in objPriceableItems
-      If IsTypeUDRC(objPI.PriceAbleItemType) then
+      If ProductCatalogHelper.IsTypeUDRC(objPI.PriceAbleItemType) then
         FoundUDRCs = TRUE
         Exit Function
       End If
@@ -124,7 +123,7 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
 
   On Error Resume Next
   objMTProductCatalog.BulkSubscriptionChange CLng(Service.Properties("POIDSource").Value), _
-		CLng(Service.Properties("POIDDEstination").Value), _
+		CLng(Service.Properties("POIDDestination").Value), _
 		Service.Properties("EffectiveDate").Value, _
 		Service.Properties("BillingCycleRelative").Value
     

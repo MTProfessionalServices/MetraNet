@@ -1,14 +1,23 @@
-CREATE FUNCTION AllowInitialArrersCharge(@b_advance char, @id_acc int, @id_sub int, @sub_end datetime) RETURNS bit 
+CREATE FUNCTION AllowInitialArrersCharge(@b_advance char, @id_acc int, @sub_end datetime, @current_date datetime) RETURNS bit
 AS
 BEGIN
 	IF @b_advance = 'Y'
 	BEGIN
 	   /* allows to create initial for ADVANCE */
 		RETURN 1
-	END	
+	END
 
-	 /* forbidden to create initial for ARREARS 
-	  * [TODO] Need implement that if end date of Sub is fit in billing acc interval it should be allowed to create Initila charge 
-	  */
-	RETURN 0	
+	IF @current_date IS NULL
+		SET @current_date = GETDATE();
+
+	IF EXISTS (select count(us_int.id_interval) from t_usage_interval us_int
+				join t_acc_usage_cycle acc
+				on us_int.id_usage_cycle = acc.id_usage_cycle
+				where acc.id_acc = @id_acc
+				AND @current_date BETWEEN DT_START AND DT_END
+				AND @sub_end BETWEEN DT_START AND DT_END)
+				/* Creates Initial charges in case it fits inder current interval*/
+		RETURN 1
+
+	RETURN 0
 END

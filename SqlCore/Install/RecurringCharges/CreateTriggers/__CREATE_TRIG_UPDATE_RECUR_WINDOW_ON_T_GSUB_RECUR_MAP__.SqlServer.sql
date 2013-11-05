@@ -69,7 +69,7 @@ FROM inserted grm
       AND grm.tt_end = dbo.mtmaxdate()
       AND rcr.b_charge_per_participant = 'N'
       AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)
-	  AND dbo.AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.id_sub, sub.vt_end) = 1;
+	  AND dbo.AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.vt_end, sub.dt_crt) = 1;
       select @temp = tt_start from inserted
       EXEC MeterInitialFromRecurWindow @currentDate = @temp;
       EXEC MeterCreditFromRecurWindow @currentDate = @temp;

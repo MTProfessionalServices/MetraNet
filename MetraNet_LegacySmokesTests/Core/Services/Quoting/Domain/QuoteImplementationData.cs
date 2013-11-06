@@ -1,18 +1,14 @@
-﻿// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 // <copyright file="QuoteVerifyImplementation.cs" company="Microsoft">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
 
+using MetraTech.Core.Services.Quoting;
 using MetraTech.Domain.Quoting;
 
-namespace MetraTech.Quoting.Test.Domain
+namespace MetraTech.Core.Services.Test.Quoting.Domain
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
     /// <summary>
     /// Uses in test for verifying 
     /// </summary>

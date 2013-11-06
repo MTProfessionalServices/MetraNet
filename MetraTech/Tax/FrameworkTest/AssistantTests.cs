@@ -73,6 +73,7 @@ namespace MetraTech.Tax.Framework.Test
             assistant.ReadConfigFile(@"R:\extensions\MetraTax\config\UsageServer\MetraTaxAdapter.xml");
             Assert.AreEqual(MetraTech.DomainModel.Enums.Tax.Metratech_com_tax.TaxVendor.MetraTax, assistant.vendor);
             Assert.AreEqual(false, assistant.TaxDetailsNeeded);
+			assistant.IsAuditingNeeded = true;
 
             RecurringEventRunContext context = new RecurringEventRunContext();
             context.UsageIntervalID = 1;
@@ -81,9 +82,51 @@ namespace MetraTech.Tax.Framework.Test
 
             assistant.SetAdapterContext(context);
             assistant.GenerateTaxRunForContext();
+            Console.WriteLine("XXXXX assistant.TaxRunId={0}", assistant.TaxRunId);
+            int taxRunId1 = assistant.TaxRunId;
             assistant.CreateTaxInputTable();
             assistant.PopulateTaxInputTableWithCharges();
             assistant.CreateTaxInputIndexes();
+            // If the "context" is identical, generating the tax run should fail
+            try
+            {
+              assistant.GenerateTaxRunForContext();
+              Assert.Fail("This should fail when the context is the same");
+            }
+            catch (Exception e)
+            {
+              Console.WriteLine("Caught exception e={0}, test PASSED", e.ToString());
+            }
+            // Change the context by setting IsAuditingNeeded=false.
+            // Now, we should be able to GenerateTaxRunForContext
+            assistant.IsAuditingNeeded = false;
+            assistant.GenerateTaxRunForContext();
+            Console.WriteLine("XXXXX assistant.TaxRunId={0}", assistant.TaxRunId);
+            int taxRunId2 = assistant.TaxRunId;
+            Assert.IsTrue(taxRunId1 != taxRunId2, "TaxRunIds should never be the same for seperate invocations of GenerateTaxRunForContext");
+
+            context = new RecurringEventRunContext();
+            context.EventType = RecurringEventType.Scheduled;
+            context.StartDate = DateTime.Now.AddDays(-10);
+            context.EndDate = DateTime.Now.AddDays(-5);
+            assistant.SetAdapterContext(context);
+            assistant.IsAuditingNeeded = true;
+            assistant.GenerateTaxRunForContext();
+            Console.WriteLine("XXXXX assistant.TaxRunId={0}", assistant.TaxRunId);
+
+            try
+            {
+              assistant.GenerateTaxRunForContext();
+              Assert.Fail("This should fail when the context is the same");
+            }
+            catch (Exception e)
+            {
+              Console.WriteLine("Caught exception e={0}, test PASSED", e.ToString());
+            }
+
+            assistant.IsAuditingNeeded = false;
+            assistant.GenerateTaxRunForContext();
+            Console.WriteLine("XXXXX assistant.TaxRunId={0}", assistant.TaxRunId);
         }
 
         [TestMethod]
@@ -112,6 +155,21 @@ namespace MetraTech.Tax.Framework.Test
         //[TestMethod]
         [ExpectedException(typeof(DuplicatedContextException))]
         public void TestTaxRunPersistenceScheduled()
+        {
+            RecurringEventRunContext context = new RecurringEventRunContext();
+            context.StartDate = DateTime.Now.AddDays(-10);
+            context.EndDate = DateTime.Now.AddDays(-5);
+            context.EventType = RecurringEventType.Scheduled;
+            int taxRunId = GenerateTaxRun(context);
+            Assert.AreNotEqual(-1, taxRunId, "some id must be generated");
+            int taxRunId2 = LoadTaxRun(context);
+            Assert.AreEqual(taxRunId, taxRunId2, "scheduled context not picked up");
+            GenerateTaxRun(context);//should get an error here as tax run already have been generated
+        }
+		
+        //[Test]
+        [ExpectedException(typeof(DuplicatedContextException))]
+        public void TestTaxRunPersistenceScheduledWithAuditChange()
         {
             RecurringEventRunContext context = new RecurringEventRunContext();
             context.StartDate = DateTime.Now.AddDays(-10);

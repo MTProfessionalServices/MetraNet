@@ -249,9 +249,9 @@ BEGIN
               /* rc overlaps with this UDRC */
               AND rw.c_membershipstart < pci.dt_end AND rw.c_membershipend > pci.dt_start
               /* rc overlaps with this membership */
-              AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start
+              AND rw.c_cycleeffectiveend > pci.dt_start
               /* rc overlaps with this cycle */
-              AND rw.c_SubscriptionStart < pci.dt_end AND rw.c_subscriptionend > pci.dt_start
+              AND rw.c_subscriptionend > pci.dt_start
               JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
           WHERE 1 = 1
               AND ui.id_interval = v_id_interval

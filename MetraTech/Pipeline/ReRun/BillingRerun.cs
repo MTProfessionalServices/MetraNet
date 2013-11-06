@@ -14,7 +14,7 @@ namespace MetraTech.Pipeline.ReRun
 	using MetraTech.Interop.MTAuditEvents;
 	using MetraTime = MetraTech.Interop.MetraTime;
 	using PCExec = MetraTech.Interop.MTProductCatalogExec;
-    using MetraTech.UsageServer;
+
   class ViewServicePair
   {
     private int mViewID;
@@ -72,14 +72,12 @@ namespace MetraTech.Pipeline.ReRun
 	[Guid("44D17582-8604-481a-B886-CCE4FE08C867")]
 	public class BillingRerun:IBillingRerun
 	{
-        private PartitionConfig _partitionConfig = new PartitionConfig();
-        public int Setup(int accID, string comment)
+		public int Setup(int accID, string comment)
 		{
 			int id = -1;
 			try
 			{
-
-                id = CreateSetup(accID, comment);
+				id = CreateSetup(accID, comment);
 
 				//create the t_rerun_idrerun table
 				//Oracle does not allow you to run DDL statements inside of DTC.
@@ -237,17 +235,14 @@ namespace MetraTech.Pipeline.ReRun
                             //joinClauseBuilder.Append(" inner join ");
                             //joinClauseBuilder.Append(sourceTableName);
                             //joinClauseBuilder.Append(" src on src.id_source_sess = au.tx_uid ");
-                            if(_partitionConfig.IsPartitionEnabled)
-                                joinClauseBuilder.Append(" inner join t_uk_acc_usage_tx_uid uau on uau.id_sess = au.id_sess ");
+
+                            joinClauseBuilder.Append(" inner join t_uk_acc_usage_tx_uid uau on uau.id_sess = au.id_sess ");
 
                             joinClauseBuilder.Append(" inner join ");
                             joinClauseBuilder.Append(sourceTableName);
+                            joinClauseBuilder.Append(" src on src.id_source_sess = uau.tx_uid ");
 
-                            if(_partitionConfig.IsPartitionEnabled)
-                                joinClauseBuilder.Append(" src on src.id_source_sess = uau.tx_uid ");
-                            else
-                                joinClauseBuilder.Append(" src on src.id_source_sess = au.tx_uid ");
-                                failedJoinClauseBuilder.Append(" inner join ");
+                            failedJoinClauseBuilder.Append(" inner join ");
                             failedJoinClauseBuilder.Append(sourceTableName);
                             failedJoinClauseBuilder.Append(" src on (src.id_source_sess = ft.tx_FailureID or src.id_source_sess = ft.tx_failureCompoundID) ");
                         }
@@ -257,15 +252,13 @@ namespace MetraTech.Pipeline.ReRun
                             //joinClauseBuilder.Append("  inner join ");
                             //joinClauseBuilder.Append(uidTableName);
                             //joinClauseBuilder.Append(" sessionIds on sessionIds.id_source_sess = au.tx_uid ");
-                            if (_partitionConfig.IsPartitionEnabled)
-                                joinClauseBuilder.Append(" inner join t_uk_acc_usage_tx_uid uau on uau.id_sess = au.id_sess ");
+                            joinClauseBuilder.Append(" inner join t_uk_acc_usage_tx_uid uau on uau.id_sess = au.id_sess ");
 
                             joinClauseBuilder.Append("  inner join ");
                             joinClauseBuilder.Append(uidTableName);
-                            if (_partitionConfig.IsPartitionEnabled)
-                                joinClauseBuilder.Append(" sessionIds on sessionIds.id_source_sess = uau.tx_uid ");
-                            else
-                                joinClauseBuilder.Append(" sessionIds on sessionIds.id_source_sess = au.tx_uid ");
+                            joinClauseBuilder.Append(" sessionIds on sessionIds.id_source_sess = uau.tx_uid ");
+
+
                             failedJoinClauseBuilder.Append(" inner join ");
                             failedJoinClauseBuilder.Append(uidTableName);
                             failedJoinClauseBuilder.Append(" sessionIds on (sessionIds.id_source_sess = ft.tx_failureID or sessionIds.id_source_sess = ft.tx_failureCompoundID) ");

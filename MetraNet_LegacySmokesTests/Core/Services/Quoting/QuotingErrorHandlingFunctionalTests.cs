@@ -1,8 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using MetraTech.ActivityServices.Common;
+using MetraTech.Core.Services.ClientProxies;
 using MetraTech.Core.Services.Quoting;
 using MetraTech.Core.Services.Test.Quoting.Domain;
 using MetraTech.Domain.Quoting;
+using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
 using MetraTech.Interop.MTProductCatalog;
 using MetraTech.TestCommon;
@@ -13,19 +18,23 @@ namespace MetraTech.Core.Services.Test.Quoting
     [TestClass]
     public class QuotingErrorHandlingFunctionalTests
     {
+        private static TestContext _testContext;
+
         #region Setup/Teardown
 
         [ClassInitialize]
         public static void InitTests(TestContext testContext)
         {
+            _testContext = testContext;
             SharedTestCode.MakeSureServiceIsStarted("ActivityServices");
             SharedTestCode.MakeSureServiceIsStarted("Pipeline");
+
         }
 
         #endregion
 
         [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
-        public void ProductOfferingWithMissingRCRatesReturnsClearErrorMessage()
+        public void QuotingServiceCreateQuote_QuoteForPOWithMissingRCRates_NegativeTest()
         {
             //FEAT-2540
             #region Prepare
@@ -77,25 +86,29 @@ namespace MetraTech.Core.Services.Test.Quoting
             quoteImpl.QuoteImplementation = QuotingTestScenarios.GetDefaultQuotingImplementationForTestRun(new QuotingRepository());
 
             //We are expecting error/exception
+
+            QuoteResponse erroredResponse = null;
+
             try
             {
-                QuotingTestScenarios.CreateQuoteAndVerifyResults(quoteImpl, expected);
-
-                Assert.Fail("An exception should have been thrown due to failed adding RC charges");
+                erroredResponse = SharedTestCodeQuoting.InvokeCreateQuote(quoteImpl.Request);
             }
-            catch(QuoteException ex)
+            catch (Exception ex)
             {
-                //Assert.AreEqual("Parameter cannot be null or empty.", ex.Message);
-                Assert.IsTrue(ex.Message.Contains(expectedErrorMessagePartialText), "Expected message about failed adding RC charges");
-                Assert.IsTrue(!string.IsNullOrEmpty(ex.Response.FailedMessage), "Failed quote does not have FailedMessage set");
-                SharedTestCodeQuoting.VerifyQuoteResponseIsErrorInRepository(ex.Response.IdQuote, expectedErrorMessagePartialText, quoteImpl.QuoteImplementation.QuotingRepository);
+                Assert.Fail("QuotingService_CreateQuote_Client thrown an exception: " + ex.Message);
             }
+
+            Assert.IsTrue(erroredResponse.Status == QuoteStatus.Failed, "Expected response quote status must be failed");
+            Assert.IsTrue(!string.IsNullOrEmpty(erroredResponse.FailedMessage), "Failed quote does not have FailedMessage set");
+
+            //Verify the message we expect is there
+            Assert.IsTrue(erroredResponse.FailedMessage.Contains(expectedErrorMessagePartialText), "Expected failure message with text '{0}' but got failure message '{1}'", expectedErrorMessagePartialText, erroredResponse.FailedMessage);
 
             #endregion
         }
 
         [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
-        public void ProductOfferingWithMissingNRCRatesReturnsClearErrorMessage()
+        public void QuotingServiceCreateQuote_QuoteForPOWithMissingNRCRates_NegativeTest()
         {
             //TODO: FEAT-2541
 
@@ -231,5 +244,676 @@ namespace MetraTech.Core.Services.Test.Quoting
 
             #endregion
         }
+
+        [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
+        public void QuotingServiceCreateQuote_QuoteWithIcb_NegativeTest()
+        {
+            #region Prepare
+
+            //string testName = "QuotingWithIcb_NegativeTest";
+            string testShortName = "TC_QICB_63"; //Account name and perhaps others need a 'short' (less than 40 when combined with testRunUniqueIdentifier
+
+            string testRunUniqueIdentifier = MetraTime.Now.ToString(CultureInfo.InvariantCulture);
+
+            // Create account
+            var corpAccountHolder = new CorporateAccountFactory(testShortName, testRunUniqueIdentifier);
+            corpAccountHolder.Instantiate();
+            var idAccountToQuoteFor = (int)corpAccountHolder.Item._AccountID;
+
+            // Create/Verify Product Offering Exists
+            var pofConfiguration = new ProductOfferingFactoryConfiguration(_testContext.TestName, testRunUniqueIdentifier);
+            pofConfiguration.CountNRCs = 1;
+            pofConfiguration.CountPairRCs = 1;
+            pofConfiguration.CountPairUDRCs = 1;
+
+            //IMTProductOffering productOffering = ProductOfferingFactory.Create(pofConfiguration);
+            var productOffering = ProductOfferingFactory.Create(pofConfiguration);
+            int idProductOfferingToQuoteFor = productOffering.ID;
+
+            using (var client = new PriceListServiceClient())
+            {
+                if (client.ClientCredentials != null)
+                {
+                    client.ClientCredentials.UserName.UserName = "su";
+                    client.ClientCredentials.UserName.Password = "su123";
+                }
+
+                IMTCollection instances = productOffering.GetPriceableItems();
+
+                var productOfferingFactory = new ProductOfferingFactory();
+                productOfferingFactory.Initialize(_testContext.TestName, testRunUniqueIdentifier);
+
+                var parameterTableFlatRc =
+                    productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(SharedTestCode.MetratechComFlatrecurringcharge);
+                var parameterTableUdrcTapered =
+                    productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(SharedTestCode.MetratechComUdrctapered);
+                var parameterTableUdrcTiered =
+                    productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(SharedTestCode.MetratechComUdrctiered);
+                var parameterTableNonRc =
+                    productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(SharedTestCode.MetratechComNonrecurringcharge);
+
+                #region Set Allow ICB for PIs
+
+                foreach (IMTPriceableItem possibleRC in instances)
+                {
+                    switch (possibleRC.Kind)
+                    {
+                        case MTPCEntityType.PCENTITY_TYPE_RECURRING_UNIT_DEPENDENT:
+                            {
+                                var piAndPTParameters = SharedTestCode.SetAllowICBForPI(possibleRC, client, productOffering.ID,
+                                                                                        parameterTableUdrcTapered.ID, SharedTestCode.MetratechComUdrctapered);
+                                pofConfiguration.PriceableItemsAndParameterTableForUdrc.Add(piAndPTParameters);
+
+                                piAndPTParameters = SharedTestCode.SetAllowICBForPI(possibleRC, client, productOffering.ID, parameterTableUdrcTiered.ID,
+                                                                                    SharedTestCode.MetratechComUdrctiered);
+                                pofConfiguration.PriceableItemsAndParameterTableForUdrc.Add(piAndPTParameters);
+
+                            }
+                            break;
+                        case MTPCEntityType.PCENTITY_TYPE_RECURRING:
+                            {
+                                var piAndPTParameters = SharedTestCode.SetAllowICBForPI(possibleRC, client, productOffering.ID, parameterTableFlatRc.ID,
+                                                                                        SharedTestCode.MetratechComFlatrecurringcharge);
+                                pofConfiguration.PriceableItemsAndParameterTableForRc.Add(piAndPTParameters);
+                            }
+                            break;
+                        case MTPCEntityType.PCENTITY_TYPE_NON_RECURRING: //ICB not allowed!
+                            {
+                                var piAndPTParameters = SharedTestCode.SetAllowICBForPI(possibleRC, client, productOffering.ID, parameterTableNonRc.ID,
+                                                            SharedTestCode.MetratechComNonrecurringcharge, false);
+                                pofConfiguration.PriceableItemsAndParameterTableForNonRc.Add(piAndPTParameters);
+
+                            }
+                            break;
+                    }
+                }
+
+                #endregion
+            }
+
+            //Values to use for verification
+            var expectedErrorMessagePartialText = "ICB rates are not allowed for this parameter table on this product offering";
+
+            #endregion
+
+            #region Test
+
+            // Ask backend to start quote
+
+            //Prepare request
+            var request = new QuoteRequest();
+            request.Accounts.Add(idAccountToQuoteFor);
+            request.ProductOfferings.Add(idProductOfferingToQuoteFor);
+            request.QuoteIdentifier = "MyQuoteId-" + testShortName + "-1234";
+            request.QuoteDescription = "Quote generated by Automated Test: " + _testContext.TestName;
+            request.ReportParameters = new ReportParams()
+            {
+                PDFReport = QuotingTestScenarios.RunPDFGenerationForAllTestsByDefault
+            };
+            request.EffectiveDate = MetraTime.Now;
+            request.EffectiveEndDate = MetraTime.Now;
+            request.Localization = "en-US";
+            request.SubscriptionParameters.UDRCValues =
+              SharedTestCode.GetUDRCInstanceValuesSetToMiddleValues(productOffering);
+
+            #region Initialize ICB prices
+
+            request.IcbPrices = new List<IndividualPrice>();
+
+            if (pofConfiguration.PriceableItemsAndParameterTableForRc != null &&
+                pofConfiguration.PriceableItemsAndParameterTableForRc.Count > 0)
+            {
+                var chargeRate = new ChargesRate { Price = 66.66m };
+                var qip = new IndividualPrice
+                {
+                    CurrentChargeType = ChargeType.RecurringCharge,
+                    ProductOfferingId = idProductOfferingToQuoteFor,
+                    ChargesRates = new List<ChargesRate> { chargeRate },
+                    PriceableItemId = null
+                };
+
+                request.IcbPrices.Add(qip);
+            }
+
+            if (pofConfiguration.PriceableItemsAndParameterTableForUdrc != null &&
+                pofConfiguration.PriceableItemsAndParameterTableForUdrc.Count > 0)
+            {
+                var qip = new IndividualPrice
+                {
+                    CurrentChargeType = ChargeType.UDRCTapered,
+                    ProductOfferingId = idProductOfferingToQuoteFor,
+                };
+                var chargeRates = new List<ChargesRate>
+                    {
+                        new ChargesRate {UnitValue = 15, UnitAmount = 16.6m},
+                        new ChargesRate {UnitValue = 40, UnitAmount = 13m}
+                    };
+                qip.ChargesRates.AddRange(chargeRates);
+                request.IcbPrices.Add(qip);
+
+                var chargeRate = new ChargesRate { UnitValue = 20, UnitAmount = 16.6m, BaseAmount = 10m };
+                qip = new IndividualPrice
+                {
+                    CurrentChargeType = ChargeType.UDRCTiered,
+                    ProductOfferingId = idProductOfferingToQuoteFor,
+                    ChargesRates = new List<ChargesRate> { chargeRate },
+                    PriceableItemId = null
+                };
+
+                request.IcbPrices.Add(qip);
+            }
+
+            if (pofConfiguration.PriceableItemsAndParameterTableForRc != null &&
+                pofConfiguration.PriceableItemsAndParameterTableForRc.Count > 0)
+            {
+
+
+                var chargeRate = new ChargesRate { Price = 77.77m };
+                var qip = new IndividualPrice
+                {
+                    CurrentChargeType = ChargeType.NonRecurringCharge,
+                    ProductOfferingId = idProductOfferingToQuoteFor,
+                    ChargesRates = new List<ChargesRate> { chargeRate },
+                    PriceableItemId = null
+                };
+
+                request.IcbPrices.Add(qip);
+            }
+
+            #endregion
+
+            QuoteResponse erroredResponse = null;
+
+            try
+            {
+                erroredResponse = SharedTestCodeQuoting.InvokeCreateQuote(request);
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail("QuotingService_CreateQuote_Client thrown an exception: " + ex.Message);
+            }
+
+            Assert.IsTrue(erroredResponse.Status == QuoteStatus.Failed, "Expected response quote status must be failed");
+            Assert.IsTrue(!string.IsNullOrEmpty(erroredResponse.FailedMessage), "Failed quote does not have FailedMessage set");
+
+            //Verify the message we expect is there
+            Assert.IsTrue(erroredResponse.FailedMessage.Contains(expectedErrorMessagePartialText), "Expected failure message with text '{0}' but got failure message '{1}'", expectedErrorMessagePartialText, erroredResponse.FailedMessage);
+
+            #endregion
+
+        }
+
+        /// <summary>
+        /// TC_QICB_71
+        /// </summary>
+        [TestMethod, MTFunctionalTest(TestAreas.Quoting), Ignore]
+        public void QuotingServiceCreateQuote_QuoteWithIcbNoPrice_NegativeTest()
+        {
+            #region Prepare
+            string testName = "QuotingWithICBNoPriceNegativeTest ";
+            string testShortName = "TC_QICB_71"; //Account name and perhaps others need a 'short' (less than 40 when combined with testRunUniqueIdentifier
+            string testRunUniqueIdentifier = MetraTime.Now.ToString(); //Identifier to make this run unique
+
+            // Create account
+            CorporateAccountFactory corpAccountHolder = new CorporateAccountFactory(testShortName, testRunUniqueIdentifier);
+            corpAccountHolder.Instantiate();
+
+            Assert.IsNotNull(corpAccountHolder.Item._AccountID, "Unable to create account for test run");
+            int idAccountToQuoteFor = (int)corpAccountHolder.Item._AccountID;
+
+            // Create/Verify Product Offerings Exists
+            var pofConfiguration = new ProductOfferingFactoryConfiguration(testName, testRunUniqueIdentifier + "1")
+            {
+                CountNRCs = 0,
+                CountPairRCs = 0,
+                CountPairUDRCs = 1
+            };
+
+            var productOffering = ProductOfferingFactory.Create(pofConfiguration);
+            int idProductOfferingToQuoteFor1 = productOffering.ID;
+
+            using (var client = new PriceListServiceClient())
+            {
+                if (client.ClientCredentials != null)
+                {
+                    client.ClientCredentials.UserName.UserName = "su";
+                    client.ClientCredentials.UserName.Password = "su123";
+                }
+
+                IMTCollection instances = productOffering.GetPriceableItems();
+
+                var productOfferingFactory = new ProductOfferingFactory();
+                productOfferingFactory.Initialize(testName, testRunUniqueIdentifier);
+
+                var parameterTableUdrcTapered =
+                    productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(SharedTestCode.MetratechComUdrctapered);
+                var parameterTableUdrcTiered =
+                    productOfferingFactory.ProductCatalog.GetParamTableDefinitionByName(SharedTestCode.MetratechComUdrctiered);
+
+                #region Set Allow ICB for PIs
+                foreach (IMTPriceableItem possibleRC in instances)
+                {
+                    if (possibleRC.Kind == MTPCEntityType.PCENTITY_TYPE_RECURRING_UNIT_DEPENDENT)
+                    {
+                        var piAndPTParameters = SharedTestCode.SetAllowICBForPI(possibleRC, client, productOffering.ID,
+                                                                                parameterTableUdrcTapered.ID, SharedTestCode.MetratechComUdrctapered);
+                        pofConfiguration.PriceableItemsAndParameterTableForUdrc.Add(piAndPTParameters);
+
+                        piAndPTParameters = SharedTestCode.SetAllowICBForPI(possibleRC, client, productOffering.ID, parameterTableUdrcTiered.ID,
+                                                                            SharedTestCode.MetratechComUdrctiered);
+                        pofConfiguration.PriceableItemsAndParameterTableForUdrc.Add(piAndPTParameters);
+
+
+                        ////todo remove dafault rate for PI
+                        var rscheds = new List<BaseRateSchedule>();
+                        List<BaseRateSchedule> tmprscheds;
+
+                        client.GetRateSchedulesForProductOffering(
+                            new PCIdentifier(productOffering.ID),
+                            new PCIdentifier(possibleRC.ID),
+                            new PCIdentifier(parameterTableUdrcTiered.ID),
+                            out tmprscheds);
+                        rscheds.AddRange(tmprscheds);
+
+                        client.GetRateSchedulesForProductOffering(
+                             new PCIdentifier(productOffering.ID),
+                             new PCIdentifier(possibleRC.ID),
+                             new PCIdentifier(parameterTableUdrcTapered.ID),
+                             out rscheds);
+                        rscheds.AddRange(tmprscheds);
+
+                        foreach (var rsched in rscheds.Where(rsched => rsched.ID != null))
+                        {
+                            client.RemoveRateScheduleFromProductOffering(
+                                new PCIdentifier(productOffering.ID),
+                                Convert.ToInt32(rsched.ID));
+                        }
+
+                    }
+                }
+
+                #endregion
+            }
+
+            //Values to use for verification
+            var expectedErrorMessagePartialText = "ICB rates are not allowed for this parameter table on this product offering";
+
+            #endregion
+
+            #region Test and Verify
+
+            var request = new QuoteRequest();
+            request.Accounts.Add(idAccountToQuoteFor);
+            request.ProductOfferings.Add(idProductOfferingToQuoteFor1);
+            request.QuoteIdentifier = "MyQuoteId-" + testShortName + "-1234";
+            request.QuoteDescription = "Quote generated by Automated Test: " + testName;
+            request.ReportParameters = new ReportParams() { PDFReport = QuotingTestScenarios.RunPDFGenerationForAllTestsByDefault };
+            request.EffectiveDate = MetraTime.Now;
+            request.EffectiveEndDate = MetraTime.Now;
+            request.SubscriptionParameters.UDRCValues = SharedTestCode.GetUDRCInstanceValuesSetToMiddleValues(productOffering, value: 40m);
+
+            #region Initialize ICB prices
+
+            request.IcbPrices = new List<IndividualPrice>();
+
+            if (pofConfiguration.PriceableItemsAndParameterTableForUdrc != null &&
+                pofConfiguration.PriceableItemsAndParameterTableForUdrc.Count > 0)
+            {
+                var qip = new IndividualPrice
+                {
+                    CurrentChargeType = ChargeType.UDRCTapered,
+                    ProductOfferingId = idProductOfferingToQuoteFor1
+                };
+                var chargeRates = new List<ChargesRate>
+                    {
+                        new ChargesRate {UnitValue = 30, UnitAmount = 55.5m},
+                    };
+                qip.ChargesRates.AddRange(chargeRates);
+                request.IcbPrices.Add(qip);
+
+                var chargeRate = new ChargesRate { UnitValue = 30, UnitAmount = 55.5m, BaseAmount = 30m };
+                qip = new IndividualPrice
+                {
+                    CurrentChargeType = ChargeType.UDRCTiered,
+                    ProductOfferingId = idProductOfferingToQuoteFor1,
+                    ChargesRates = new List<ChargesRate> { chargeRate },
+                    PriceableItemId = null
+                };
+
+                request.IcbPrices.Add(qip);
+            }
+
+            #endregion
+
+            // QuoteResponse response = QuotingTestScenarios.CreateQuoteAndVerifyResults(request,0,"0",0,0,0);
+            QuoteResponse erroredResponse = null;
+
+            try
+            {
+                erroredResponse = SharedTestCodeQuoting.InvokeCreateQuote(request);
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail("QuotingService_CreateQuote_Client thrown an exception: " + ex.Message);
+            }
+
+            Assert.IsTrue(erroredResponse.Status == QuoteStatus.Failed, "Expected response quote status must be failed");
+            Assert.IsTrue(!string.IsNullOrEmpty(erroredResponse.FailedMessage), "Failed quote does not have FailedMessage set");
+
+            //Verify the message we expect is there
+            Assert.IsTrue(erroredResponse.FailedMessage.Contains(expectedErrorMessagePartialText), "Expected failure message with text '{0}' but got failure message '{1}'", expectedErrorMessagePartialText, erroredResponse.FailedMessage);
+
+
+            #endregion
+        }
+
+        [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
+        public void QuotingServiceCreateQuote_WrongAccWrongPO_NegativeTest()
+        {
+
+            //TODO: Add an activity service test for a failed case to make sure we get error back and can understand it
+            #region Prepare
+            //string testShortName = "Q_AS_Basic_Exception"; //Account name and perhaps others need a 'short' (less than 40 when combined with testRunUniqueIdentifier
+            //string testDescription = @"";
+            string testRunUniqueIdentifier = MetraTime.Now.ToString(); //Identifier to make this run unique
+
+            // Create request with wrong Account and PO
+            var request = new QuoteRequest();
+            request.Accounts.Add(5555555);
+            request.ProductOfferings.Add(6666666);
+            request.ReportParameters = new ReportParams() { PDFReport = QuotingTestScenarios.RunPDFGenerationForAllTestsByDefault };
+            var expectedErrorMessagePartialText = "has no billing cycle";
+
+            #endregion
+
+            #region Test and Verify
+
+            QuoteResponse erroredResponse = null;
+
+            try
+            {
+                erroredResponse = SharedTestCodeQuoting.InvokeCreateQuote(request);
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail("QuotingService_CreateQuote_Client thrown an exception: " + ex.Message);
+            }
+
+            Assert.IsTrue(erroredResponse.Status == QuoteStatus.Failed, "Expected response quote status must be failed");
+            Assert.IsTrue(!string.IsNullOrEmpty(erroredResponse.FailedMessage), "Failed quote does not have FailedMessage set");
+
+            //Verify the message we expect is there
+            Assert.IsTrue(erroredResponse.FailedMessage.Contains(expectedErrorMessagePartialText), "Expected failure message with text '{0}' but got failure message '{1}'", expectedErrorMessagePartialText, erroredResponse.FailedMessage);
+
+            #endregion
+        }
+
+        [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
+        public void QuotingForUDRCWithBadMetricValues_NegativeTest()
+        {
+            #region Prepare
+
+            string testName = "QuotingWithUDRCWithBadMetricValues";
+            string testShortName = "Q_NMV"; //Account name and perhaps others need a 'short' (less than 40 when combined with testRunUniqueIdentifier
+            string testRunUniqueIdentifier = MetraTime.Now.ToString(); //Identifier to make this run unique
+
+            QuoteImplementationData quoteImpl = new QuoteImplementationData();
+            QuoteVerifyData expected = new QuoteVerifyData();
+
+            // Create account
+            CorporateAccountFactory corpAccountHolder = new CorporateAccountFactory(testShortName, testRunUniqueIdentifier);
+            corpAccountHolder.Instantiate();
+
+            Assert.IsNotNull(corpAccountHolder.Item._AccountID, "Unable to create account for test run");
+            int idAccountToQuoteFor = (int)corpAccountHolder.Item._AccountID;
+
+            // Create/Verify Product Offering Exists
+            var pofConfiguration = new ProductOfferingFactoryConfiguration(testName, testRunUniqueIdentifier);
+            pofConfiguration.CountNRCs = 1;
+            pofConfiguration.CountPairRCs = 1; //????
+            pofConfiguration.CountPairUDRCs = 1;
+
+            IMTProductOffering productOffering = ProductOfferingFactory.Create(pofConfiguration);
+            Assert.IsNotNull(productOffering.ID, "Unable to create PO for test run");
+            int idProductOfferingToQuoteFor = productOffering.ID;
+
+            //Values to use for verification
+            expected.Total = (pofConfiguration.CountPairRCs * pofConfiguration.RCAmount * 2) + (pofConfiguration.CountNRCs * pofConfiguration.NRCAmount);
+            expected.Currency = "USD";
+
+            expected.CountNRCs = 1;
+            expected.CountFlatRCs = 2;
+
+            #endregion
+
+            #region Test
+
+            // Ask backend to start quote
+
+            //Prepare request
+            quoteImpl.Request.Accounts.Add(idAccountToQuoteFor);
+            quoteImpl.Request.ProductOfferings.Add(idProductOfferingToQuoteFor);
+            quoteImpl.Request.QuoteIdentifier = "MyQuoteId-" + testShortName + "-1234";
+            quoteImpl.Request.QuoteDescription = "Quote generated by Automated Test: " + testName;
+            quoteImpl.Request.ReportParameters = new ReportParams() { PDFReport = QuotingTestScenarios.RunPDFGenerationForAllTestsByDefault };
+            quoteImpl.Request.EffectiveDate = MetraTime.Now;
+            quoteImpl.Request.EffectiveEndDate = MetraTime.Now;
+            quoteImpl.Request.Localization = "en-US";
+            quoteImpl.Request.SubscriptionParameters.UDRCValues = SharedTestCode.GetUDRCInstanceValuesSetToMiddleValues(productOffering, idUDRC: 666666);
+            string expectedExceptionMessage = "UDRC metrics not specified properly";
+            try
+            {
+                quoteImpl.Response = QuotingTestScenarios.CreateQuoteAndVerifyResults(quoteImpl, expected);
+
+                Assert.Fail("Quote should've been failed because of wrong UDRC ID");
+            }
+            catch (Exception ex)
+            {
+                Assert.IsTrue(ex.Message.Contains(expectedExceptionMessage), String.Format("Recived error message : {0}", ex.Message));
+            }
+
+            #endregion
+        }
+
+        [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
+        public void QuotingServiceCreateQuote_QuoteWithExistingSubscriptionToConflictedPO_NegativeTest()
+        {
+            #region Prepare
+            string testName = "QuotingWithExistingSubscriptionToConflictedPO";
+            string testShortName = "Q_OtherPOCon"; //Account name and perhaps others need a 'short' (less than 40 when combined with testRunUniqueIdentifier
+            //string testDescription = @"";
+            string testRunUniqueIdentifier = MetraTime.Now.ToString(); //Identifier to make this run unique
+
+            QuoteImplementationData quoteImpl = new QuoteImplementationData();
+            QuoteVerifyData expected = new QuoteVerifyData();
+
+            // Create account
+            CorporateAccountFactory corpAccountHolder = new CorporateAccountFactory(testShortName, testRunUniqueIdentifier);
+            corpAccountHolder.Instantiate();
+
+            Assert.IsNotNull(corpAccountHolder.Item._AccountID, "Unable to create account for test run");
+            int idAccountToQuoteFor = (int)corpAccountHolder.Item._AccountID;
+
+            // Create/Verify Product Offering Exists
+            var pofConfiguration = new ProductOfferingFactoryConfiguration(testName, testRunUniqueIdentifier);
+
+            pofConfiguration.CountNRCs = 2;
+            pofConfiguration.CountPairRCs = 2;
+
+            IMTProductOffering productOffering = ProductOfferingFactory.Create(pofConfiguration);
+            Assert.IsNotNull(productOffering.ID, "Unable to create PO for test run");
+
+            //Values to use for verification
+            pofConfiguration.TotalAmount = pofConfiguration.CountPairRCs * pofConfiguration.RCAmount * 2 +
+                                           pofConfiguration.CountNRCs * pofConfiguration.NRCAmount;
+            pofConfiguration.Currency = "USD";
+
+            int idExisitingProductOffering = productOffering.ID;
+
+            // Subscribe account to PO
+            var effDate = new MTPCTimeSpanClass
+            {
+                StartDate = MetraTime.Now,
+                StartDateType = MTPCDateType.PCDATE_TYPE_ABSOLUTE
+            };
+
+
+            object modifiedDate = MetraTime.Now;
+
+            IMTProductCatalog productCatalog = new MTProductCatalogClass();
+            IMTSessionContext sessionContext = (IMTSessionContext)SharedTestCode.LoginAsSU();
+
+            productCatalog.SetSessionContext(sessionContext);
+
+            var acc = productCatalog.GetAccount(idAccountToQuoteFor);
+
+            var subscription = acc.Subscribe(idExisitingProductOffering, effDate, out modifiedDate);
+
+            //Values to use for verification
+            expected.Total = 0M;
+            expected.Currency = "";
+
+            expected.CountNRCs = 0;
+            expected.CountFlatRCs = 0;
+
+            const string expectedErrorMessagePartialText = "already subscribed";
+
+            #endregion
+
+            #region Test and Verify
+
+            //Prepare quote request
+            quoteImpl.Request.Accounts.Add(idAccountToQuoteFor);
+            quoteImpl.Request.ProductOfferings.Add(idExisitingProductOffering);
+            quoteImpl.Request.QuoteIdentifier = "MyQuoteId-" + testShortName + "-1234";
+            quoteImpl.Request.QuoteDescription = "Quote generated by Automated Test: " + testName;
+            quoteImpl.Request.ReportParameters = new ReportParams { PDFReport = QuotingTestScenarios.RunPDFGenerationForAllTestsByDefault };
+            quoteImpl.Request.EffectiveDate = MetraTime.Now;
+            quoteImpl.Request.EffectiveEndDate = MetraTime.Now;
+            quoteImpl.Request.Localization = "en-US";
+
+            try
+            {
+                quoteImpl.Response = SharedTestCodeQuoting.InvokeCreateQuote(quoteImpl.Request);
+            }
+            finally
+            {
+                // Remove created subscription
+                acc.RemoveSubscription(subscription.ID);
+            }
+
+            Assert.IsTrue(quoteImpl.Response.Status == QuoteStatus.Failed, "Expected response quote status must be failed");
+            Assert.IsTrue(!string.IsNullOrEmpty(quoteImpl.Response.FailedMessage), "Failed quote does not have FailedMessage set");
+
+            //Verify the message we expect is there
+            Assert.IsTrue(quoteImpl.Response.FailedMessage.Contains(expectedErrorMessagePartialText),
+              "Expected failure message with text '{0}' but got failure message '{1}'", expectedErrorMessagePartialText, quoteImpl.Response.FailedMessage);
+
+
+            #endregion
+        }
+
+        [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
+        public void QuotingWithAccountsWithDifferentPayersInDifferentSet_NegativeTest()
+        {
+            #region Prepare
+
+            string testName = "QuotingWithAccountsWithDifferentPayersInDifferentSet";
+            string testShortName = "Q_DifPS"; //Account name and perhaps others need a 'short' (less than 40 when combined with testRunUniqueIdentifier
+            string testRunUniqueIdentifier = MetraTime.NowWithMilliSec; //Identifier to make this run unique
+
+            QuoteImplementationData quoteImpl = new QuoteImplementationData();
+            QuoteVerifyData expected = new QuoteVerifyData();
+
+            // Create account #1 Corporate payer
+            var corpAccountHolder = new CorporateAccountFactory(testShortName, testRunUniqueIdentifier);
+            corpAccountHolder.Instantiate();
+
+            Assert.IsNotNull(corpAccountHolder.Item._AccountID, "Unable to create account for test run");
+            int idAccountToQuoteFor = corpAccountHolder.Item._AccountID.Value;
+
+            // Create account #2 Department payee
+            testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
+
+            var deptAccountHolder = new DepartmentAccountFactory(testShortName, testRunUniqueIdentifier);
+            deptAccountHolder.AncestorID = idAccountToQuoteFor;
+            deptAccountHolder.PayerID = idAccountToQuoteFor;
+            deptAccountHolder.Instantiate();
+
+            Assert.IsNotNull(deptAccountHolder.Item._AccountID, "Unable to create account for test run");
+            int idAccountToQuoteFor2 = deptAccountHolder.Item._AccountID.Value;
+
+            // Create account #3 Department outside of the account set
+            testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
+
+            deptAccountHolder = new DepartmentAccountFactory(testShortName, testRunUniqueIdentifier);
+            deptAccountHolder.AncestorID = idAccountToQuoteFor;
+            deptAccountHolder.Instantiate();
+
+            Assert.IsNotNull(deptAccountHolder.Item._AccountID, "Unable to create account for test run");
+            int idAccountToQuoteFor3 = deptAccountHolder.Item._AccountID.Value;
+
+            // Create account #4 Department payee by an account outside of the account set
+            testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
+
+            deptAccountHolder = new DepartmentAccountFactory(testShortName, testRunUniqueIdentifier);
+            deptAccountHolder.AncestorID = idAccountToQuoteFor;
+            deptAccountHolder.PayerID = idAccountToQuoteFor3;
+            deptAccountHolder.Instantiate();
+
+            Assert.IsNotNull(deptAccountHolder.Item._AccountID, "Unable to create account for test run");
+            int idAccountToQuoteFor4 = deptAccountHolder.Item._AccountID.Value;
+
+            // Create/Verify Product Offering Exists
+            var pofConfiguration = new ProductOfferingFactoryConfiguration(testShortName, testRunUniqueIdentifier);
+
+            pofConfiguration.CountNRCs = 2;
+            pofConfiguration.CountPairRCs = 1;
+
+            IMTProductOffering productOffering = ProductOfferingFactory.Create(pofConfiguration);
+            Assert.IsNotNull(productOffering.ID, "Unable to create PO for test run");
+            int idProductOfferingToQuoteFor = productOffering.ID;
+
+            expected.CountAccounts = 3;
+
+            //Values to use for verification
+            expected.CountNRCs = expected.CountAccounts * pofConfiguration.CountNRCs;
+            expected.CountFlatRCs = expected.CountAccounts * pofConfiguration.CountPairRCs * 2;
+
+            expected.Total = expected.CountAccounts * (pofConfiguration.CountPairRCs * pofConfiguration.RCAmount * 2 + pofConfiguration.CountNRCs * pofConfiguration.NRCAmount);
+            expected.Currency = "USD";
+
+            #endregion
+
+            #region Test and Verify
+
+            //Prepare request
+            quoteImpl.Request.Accounts.Add(idAccountToQuoteFor);
+            quoteImpl.Request.Accounts.Add(idAccountToQuoteFor2);
+            quoteImpl.Request.Accounts.Add(idAccountToQuoteFor4);
+            quoteImpl.Request.ProductOfferings.Add(idProductOfferingToQuoteFor);
+            quoteImpl.Request.QuoteIdentifier = "MyQuoteId-" + testShortName + "-1234";
+            quoteImpl.Request.QuoteDescription = "Quote generated by Automated Test: " + testName;
+            quoteImpl.Request.ReportParameters = new ReportParams() { PDFReport = QuotingTestScenarios.RunPDFGenerationForAllTestsByDefault };
+            quoteImpl.Request.EffectiveDate = MetraTime.Now;
+            quoteImpl.Request.EffectiveEndDate = MetraTime.Now;
+            quoteImpl.Request.Localization = "en-US";
+
+            try
+            {
+                quoteImpl.Response = QuotingTestScenarios.CreateQuoteAndVerifyResults(quoteImpl, expected);
+
+                Assert.Fail("An exception should have been thrown due to missing payer account in the quote request");
+            }
+            catch (Exception ex)
+            {
+                Assert.IsTrue(ex.Message.Contains("All account payers must be included in the quote request"), "Wrong exception message: " + ex);
+            }
+
+            #endregion
+        }
+
     }
+
+
 }

@@ -80,12 +80,12 @@ namespace MetraTech.Core.Services.Test.Unit.Quoting
 
         // [MTUnitTest] gives a method TestCategory = "UnitTest".
         // This is required for test to be executed during automation runs.
-        /// <summary>
-        /// Test Method name 'AddNewReportDefinition_SuccessfulExecution_ReaderExecutedWithAllParameters' means that:
-        /// 1. Method is tested here: 'AddNewReportDefinition'
-        /// 2. Scenario of this test is: 'SuccessfulExecution'. Other words: on exception occurs.
-        /// 3. We're expect that: 'ReaderExecutedWithAllParameters'. Other words: all 7 parameters were set and reaser was executed.
-        /// </summary>
+        // <summary>
+        // Test Method name 'AddNewReportDefinition_SuccessfulExecution_ReaderExecutedWithAllParameters' means that:
+        // 1. Method is tested here: 'AddNewReportDefinition'
+        // 2. Scenario of this test is: 'SuccessfulExecution'. Other words: on exception occurs.
+        // 3. We're expect that: 'ReaderExecutedWithAllParameters'. Other words: all 7 parameters were set and reaser was executed.
+        // </summary>
         //[TestMethod, MTUnitTest]
         //public void StartQuote_CallValidateRequest_RequestValidatedSuccessful()
         //{

@@ -6,7 +6,7 @@ using TestContext = NUnit.Framework.TestContext;
 namespace MetraTech.Core.Services.Test.Quoting
 {
   [TestClass]
-  public class QuotePDFReportFunctionalTests
+  public class QuotingPDFReportFunctionalTests
   {
     #region Setup/Teardown
 

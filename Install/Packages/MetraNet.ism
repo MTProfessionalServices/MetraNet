@@ -1701,19 +1701,13 @@
 		<row><td>MT_DBUser</td><td>btnBack</td><td>NewDialog</td><td>MT_DBMSType</td><td>1</td><td>1</td></row>
 		<row><td>MT_DBUser</td><td>btnCancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>1</td></row>
 		<row><td>MT_DBUser</td><td>btnNext</td><td>DoAction</td><td>custact_PrepareToInstallDB</td><td>MT_PARAMS_OK = "Yes"</td><td>2</td></row>
-		<row><td>MT_DBUser</td><td>btnNext</td><td>DoAction</td><td>custact_SetDlgSeq_DBCreate</td><td>MT_PARAMS_OK = "Yes" AND MT_DATABASE_REMOTE = 1</td><td>5</td></row>
 		<row><td>MT_DBUser</td><td>btnNext</td><td>DoAction</td><td>custact_Validate_DBOUser</td><td>MT_PARAMS_OK = "Yes"</td><td>3</td></row>
 		<row><td>MT_DBUser</td><td>btnNext</td><td>DoAction</td><td>custact_Validate_DB_UserLoginParams</td><td>1</td><td>1</td></row>
-		<row><td>MT_DBUser</td><td>btnNext</td><td>NewDialog</td><td>MT_DBCreate</td><td>MT_PARAMS_OK = "Yes" AND MT_DATABASE_REMOTE = 0</td><td>4</td></row>
-		<row><td>MT_DBUser</td><td>btnNext</td><td>NewDialog</td><td>MT_GreatPlains</td><td>MT_PARAMS_OK = "Yes" AND MT_DATABASE_REMOTE = 1 AND MT_NEXT_DIALOG = "MT_GreatPlains"</td><td>8</td></row>
-		<row><td>MT_DBUser</td><td>btnNext</td><td>NewDialog</td><td>MT_PaySvr</td><td>MT_PARAMS_OK = "Yes" AND MT_DATABASE_REMOTE = 1 AND MT_NEXT_DIALOG = "MT_PaySvr"</td><td>6</td></row>
-		<row><td>MT_DBUser</td><td>btnNext</td><td>NewDialog</td><td>MT_Reporting</td><td>MT_PARAMS_OK = "Yes" AND MT_DATABASE_REMOTE = 1 AND MT_NEXT_DIALOG = "MT_Reporting"</td><td>7</td></row>
-		<row><td>MT_DBUser</td><td>btnNext</td><td>NewDialog</td><td>ReadyToInstall</td><td>MT_PARAMS_OK = "Yes" AND MT_DATABASE_REMOTE = 1 AND MT_NEXT_DIALOG = "END"</td><td>9</td></row>
+		<row><td>MT_DBUser</td><td>btnNext</td><td>NewDialog</td><td>MT_DBCreate</td><td>MT_PARAMS_OK = "Yes"</td><td>4</td></row>
 		<row><td>MT_GreatPlains</td><td>btnBack</td><td>DoAction</td><td>custact_SetDlgSeq_GreatPlains</td><td>1</td><td>1</td></row>
 		<row><td>MT_GreatPlains</td><td>btnBack</td><td>NewDialog</td><td>CustomSetup</td><td>MT_PREV_DIALOG = "BEGIN"</td><td>2</td></row>
 		<row><td>MT_GreatPlains</td><td>btnBack</td><td>NewDialog</td><td>MT_Crypto_ORIG</td><td>MT_PREV_DIALOG = "MT_Crypto"</td><td>3</td></row>
-		<row><td>MT_GreatPlains</td><td>btnBack</td><td>NewDialog</td><td>MT_DBCreate</td><td>MT_PREV_DIALOG = "MT_DBCreate" AND MT_DATABASE_REMOTE = 0</td><td>5</td></row>
-		<row><td>MT_GreatPlains</td><td>btnBack</td><td>NewDialog</td><td>MT_DBUser</td><td>MT_PREV_DIALOG = "MT_DBCreate" AND MT_DATABASE_REMOTE = 1</td><td>7</td></row>
+		<row><td>MT_GreatPlains</td><td>btnBack</td><td>NewDialog</td><td>MT_DBCreate</td><td>MT_PREV_DIALOG = "MT_DBCreate"</td><td>5</td></row>
 		<row><td>MT_GreatPlains</td><td>btnBack</td><td>NewDialog</td><td>MT_PaySvr</td><td>MT_PREV_DIALOG = "MT_PaySvr"</td><td>4</td></row>
 		<row><td>MT_GreatPlains</td><td>btnBack</td><td>NewDialog</td><td>MT_Reporting</td><td>MT_PREV_DIALOG = "MT_Reporting"</td><td>6</td></row>
 		<row><td>MT_GreatPlains</td><td>btnCancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>1</td></row>
@@ -1722,8 +1716,7 @@
 		<row><td>MT_PaySvr</td><td>btnBack</td><td>DoAction</td><td>custact_SetDlgSeq_PaySvr</td><td>1</td><td>1</td></row>
 		<row><td>MT_PaySvr</td><td>btnBack</td><td>NewDialog</td><td>CustomSetup</td><td>MT_PREV_DIALOG = "BEGIN"</td><td>2</td></row>
 		<row><td>MT_PaySvr</td><td>btnBack</td><td>NewDialog</td><td>MT_Crypto_ORIG</td><td>MT_PREV_DIALOG = "MT_Crypto"</td><td>3</td></row>
-		<row><td>MT_PaySvr</td><td>btnBack</td><td>NewDialog</td><td>MT_DBCreate</td><td>MT_PREV_DIALOG = "MT_DBCreate" AND MT_DATABASE_REMOTE = 0</td><td>4</td></row>
-		<row><td>MT_PaySvr</td><td>btnBack</td><td>NewDialog</td><td>MT_DBUser</td><td>MT_PREV_DIALOG = "MT_DBCreate" AND MT_DATABASE_REMOTE = 1</td><td>5</td></row>
+		<row><td>MT_PaySvr</td><td>btnBack</td><td>NewDialog</td><td>MT_DBCreate</td><td>MT_PREV_DIALOG = "MT_DBCreate"</td><td>4</td></row>
 		<row><td>MT_PaySvr</td><td>btnCancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>1</td></row>
 		<row><td>MT_PaySvr</td><td>btnNext</td><td>DoAction</td><td>custact_SetDlgSeq_PaySvr</td><td>MT_PARAMS_OK = "Yes"</td><td>3</td></row>
 		<row><td>MT_PaySvr</td><td>btnNext</td><td>DoAction</td><td>custact_Validate_CryptoPaySvr_Params</td><td>MT_PARAMS_OK = "Yes" AND &amp;PS &lt;&gt; -1</td><td>2</td></row>
@@ -1735,8 +1728,7 @@
 		<row><td>MT_Reporting</td><td>btnBack</td><td>DoAction</td><td>custact_SetDlgSeq_Reporting</td><td>1</td><td>1</td></row>
 		<row><td>MT_Reporting</td><td>btnBack</td><td>NewDialog</td><td>CustomSetup</td><td>MT_PREV_DIALOG = "BEGIN"</td><td>2</td></row>
 		<row><td>MT_Reporting</td><td>btnBack</td><td>NewDialog</td><td>MT_Crypto_ORIG</td><td>MT_PREV_DIALOG = "MT_Crypto"</td><td>3</td></row>
-		<row><td>MT_Reporting</td><td>btnBack</td><td>NewDialog</td><td>MT_DBCreate</td><td>MT_PREV_DIALOG = "MT_DBCreate" AND MT_DATABASE_REMOTE = 0</td><td>5</td></row>
-		<row><td>MT_Reporting</td><td>btnBack</td><td>NewDialog</td><td>MT_DBUser</td><td>MT_PREV_DIALOG = "MT_DBCreate" AND MT_DATABASE_REMOTE = 1</td><td>6</td></row>
+		<row><td>MT_Reporting</td><td>btnBack</td><td>NewDialog</td><td>MT_DBCreate</td><td>MT_PREV_DIALOG = "MT_DBCreate"</td><td>5</td></row>
 		<row><td>MT_Reporting</td><td>btnBack</td><td>NewDialog</td><td>MT_PaySvr</td><td>MT_PREV_DIALOG = "MT_PaySvr"</td><td>4</td></row>
 		<row><td>MT_Reporting</td><td>btnCancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>1</td></row>
 		<row><td>MT_Reporting</td><td>btnNext</td><td>DoAction</td><td>custact_SetDlgSeq_Reporting</td><td>MT_PARAMS_OK = "Yes"</td><td>2</td></row>
@@ -1783,8 +1775,7 @@
 		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>CustomSetup</td><td>MT_PREV_DIALOG = "BEGIN" AND (Installed OR _IsSetupTypeMin &lt;&gt; "Typical")</td><td>3</td></row>
 		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>MT_Crypto_Default</td><td>MT_PREV_DIALOG = "MT_Crypto" AND MT_CRYPTO_TYPE = 1</td><td>4</td></row>
 		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>MT_Crypto_RSAKeyClasses</td><td>MT_PREV_DIALOG = "MT_Crypto" AND MT_CRYPTO_TYPE = 2</td><td>5</td></row>
-		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>MT_DBCreate</td><td>MT_PREV_DIALOG = "MT_DBCreate" AND MT_DATABASE_REMOTE = 0</td><td>7</td></row>
-		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>MT_DBUser</td><td>MT_PREV_DIALOG = "MT_DBCreate" AND MT_DATABASE_REMOTE = 1</td><td>10</td></row>
+		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>MT_DBCreate</td><td>MT_PREV_DIALOG = "MT_DBCreate"</td><td>7</td></row>
 		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>MT_GreatPlains</td><td>MT_PREV_DIALOG = "MT_GreatPlains"</td><td>9</td></row>
 		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>MT_PaySvr</td><td>MT_PREV_DIALOG = "MT_PaySvr"</td><td>6</td></row>
 		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>MT_Reporting</td><td>MT_PREV_DIALOG = "MT_Reporting"</td><td>8</td></row>

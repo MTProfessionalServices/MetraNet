@@ -57,6 +57,7 @@ WHEN matched AND t_recur_window.c__SubscriptionID = source.id_sub
       , -1 AS c_LastIdRun
       , dbo.mtmindate() AS c_MembershipStart
       , dbo.mtmaxdate() AS c_MembershipEnd
+	  , dbo.AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.vt_end, sub.dt_crt) AS c__IsAllowGenChargeByTrigger
       into #recur_window_holder
       FROM INSERTED gsm
       INNER JOIN t_sub sub ON sub.id_group = gsm.id_group
@@ -72,8 +73,7 @@ WHEN matched AND t_recur_window.c__SubscriptionID = source.id_sub
 		  and c__PriceableItemInstanceID = plm.id_pi_instance
 		  and c__PriceableItemTemplateID = plm.id_pi_template)
       AND rcr.b_charge_per_participant = 'Y'
-      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)
-	  AND dbo.AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.vt_end, sub.dt_crt) = 1;
+      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL);
 select @temp = max(tgsh.tt_start) from t_gsubmember_historical tgsh join inserted gsm on tgsh.id_acc = gsm.id_acc and tgsh.id_group = gsm.id_group;
       EXEC MeterInitialFromRecurWindow @currentDate = @temp;
       EXEC MeterCreditFromRecurWindow @currentDate = @temp;
@@ -110,4 +110,4 @@ UPDATE t_recur_window
     AND t_recur_window.c__payingaccount = w2.c__payingaccount 
     AND w2.c_CycleEffectiveDate > t_recur_window.c_CycleEffectiveDate)
 ;
-end
+END;

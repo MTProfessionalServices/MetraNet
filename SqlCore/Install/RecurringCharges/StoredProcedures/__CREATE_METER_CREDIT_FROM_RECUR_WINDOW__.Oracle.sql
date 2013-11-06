@@ -76,6 +76,7 @@ SELECT DISTINCT
     * elsewhere.
     */
     AND NOT (rcr.b_advance = 'N' AND current_sub.vt_end > pci.dt_end AND new_sub.vt_end < pci.dt_end)
+	AND rw.c__IsAllowGenChargeByTrigger = 1
  UNION
  SELECT DISTINCT
 /* Now, credit or debit the difference in the start of the subscription.  If the new one is earlier, this will be a debit, otherwise a credit*/
@@ -145,6 +146,7 @@ SELECT DISTINCT
     * We'll deal with this elsewhere.
     */
     AND NOT (rcr.b_advance = 'N' AND current_sub.vt_end > pci.dt_end AND new_sub.vt_end < pci.dt_end)
+	AND rw.c__IsAllowGenChargeByTrigger = 1
     
  UNION
   SELECT DISTINCT
@@ -213,10 +215,18 @@ SELECT DISTINCT
     /* We have one exceptional case: (a) an arrears charge, (b) old sub end date was after the end of the pci, (c) new sub end date is inside the pci.  We'll deal with this 
     * elsewhere.
     */
-    AND (rcr.b_advance = 'N' AND current_sub.vt_end > pci.dt_end AND new_sub.vt_end < pci.dt_end) ;	
+    AND (rcr.b_advance = 'N' AND current_sub.vt_end > pci.dt_end AND new_sub.vt_end < pci.dt_end) 
+	AND rw.c__IsAllowGenChargeByTrigger = 1;
+	
     update tmp_rc set id_source_sess = sys_guid();
 	
     insertChargesIntoSvcTables('%Credit','%Debit');
+	
+	UPDATE tmp_newrw rw
+	SET c_BilledThroughDate = metratime(1,'RC')	
+	where rw.c__IsAllowGenChargeByTrigger = 1;
+
+	
 /*We can get an no data exception if there are no previous subscriptions; just return in this case.*/   
    EXCEPTION WHEN NO_DATA_FOUND THEN return;
 end METERCreditFROMRECURWINDOW;

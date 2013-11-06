@@ -17,7 +17,7 @@ begin
 					join t_acc_usage_cycle acc
 					on us_int.id_usage_cycle = acc.id_usage_cycle
 					where acc.id_acc = p_id_acc
-					AND NVL(p_current_date, metratime(0,null)) BETWEEN DT_START AND DT_END
+					AND NVL(p_current_date, metratime(1,'RC')) BETWEEN DT_START AND DT_END
 					AND p_sub_end BETWEEN DT_START AND DT_END
 					)
 				then 1

@@ -8,7 +8,7 @@ CREATE PROCEDURE [dbo].[MeterInitialFromRecurWindow]
 -- interfering with SELECT statements.
 SET NOCOUNT ON;
 
-SELECT       
+SELECT
     'Initial' AS c_RCActionType
     ,pci.dt_start      AS c_RCIntervalStart
     ,pci.dt_end      AS c_RCIntervalEnd
@@ -35,11 +35,11 @@ SELECT
     ,rw.c__priceableiteminstanceid      AS c__PriceableItemInstanceID
     ,rw.c__priceableitemtemplateid      AS c__PriceableItemTemplateID
     ,rw.c__productofferingid      AS c__ProductOfferingID
-    ,currentui.id_interval AS c__IntervalID 
-    ,NEWID() AS idSourceSess 
+    ,currentui.id_interval AS c__IntervalID
+    ,NEWID() AS idSourceSess
 INTO #tmp_rc
-FROM #recur_window_holder rw 
-    INNER JOIN t_usage_interval ui on 
+FROM #recur_window_holder rw
+    INNER JOIN t_usage_interval ui on
         rw.c_payerstart          < ui.dt_end AND rw.c_payerend          > ui.dt_start /* next interval overlaps with payer */
     AND rw.c_cycleeffectivestart < ui.dt_end AND rw.c_cycleeffectiveend > ui.dt_start /* next interval overlaps with cycle */
     AND rw.c_membershipstart     < ui.dt_end AND rw.c_membershipend     > ui.dt_start /* next interval overlaps with membership */
@@ -49,10 +49,10 @@ FROM #recur_window_holder rw
     INNER LOOP JOIN t_acc_usage_cycle auc ON auc.id_acc = rw.c__AccountID AND auc.id_usage_cycle = ui.id_usage_cycle
     /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
     INNER LOOP JOIN t_pc_interval pci WITH(INDEX(fk1idx_t_pc_interval))
-      ON pci.id_cycle = CASE 
-        WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle 
-        WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle 
-        WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) 
+      ON pci.id_cycle = CASE
+        WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle
+        WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle
+        WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type)
         ELSE NULL END
     AND ((rcr.b_advance = 'Y' AND pci.dt_start BETWEEN ui.dt_start     AND ui.dt_end) /* If this is in advance, check if rc start falls in this interval */
         or pci.dt_end BETWEEN ui.dt_start     AND ui.dt_end                           /* or check if the cycle end falls into this interval */
@@ -62,11 +62,11 @@ FROM #recur_window_holder rw
     AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
     AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
     AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
-    INNER LOOP JOIN t_usage_cycle ccl ON ccl.id_usage_cycle = CASE 
-        WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle 
-        WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle 
-        WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) 
-        ELSE NULL END 
+    INNER LOOP JOIN t_usage_cycle ccl ON ccl.id_usage_cycle = CASE
+        WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle
+        WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle
+        WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type)
+        ELSE NULL END
     INNER LOOP JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
 	inner join t_usage_interval currentui on @currentDate between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = ui.id_usage_cycle
 where 1=1
@@ -77,16 +77,17 @@ where 1=1
     AND NOT EXISTS (SELECT 1 FROM t_recur_value trv WHERE trv.id_sub = rw.c__SubscriptionID AND trv.tt_end < dbo.MTMaxDate())
 -- Don't meter in the current interval for initial
     AND pci.dt_start < @currentDate
-	AND ui.dt_start <= rw.c_SubscriptionStart 
-    ;
+	AND ui.dt_start <= rw.c_SubscriptionStart
+	AND rw.c__IsAllowGenChargeByTrigger = 1;
     
 
 --If no charges to meter, return immediately
     IF (NOT EXISTS (SELECT 1 FROM #tmp_rc)) RETURN;
 
-   EXEC InsertChargesIntoSvcTables; 
+   EXEC InsertChargesIntoSvcTables;
 
-UPDATE #recur_window_holder 
-SET c_BilledThroughDate = dbo.metratime(1,'RC');
-    END
-
+	UPDATE rw
+	SET c_BilledThroughDate = dbo.metratime(1,'RC')
+	FROM #recur_window_holder rw
+	where rw.c__IsAllowGenChargeByTrigger = 1;
+END

@@ -31,6 +31,9 @@
 		au.id_se,
 		au.div_currency,
 		au.div_amount,
+		au.is_implied_tax,
+        au.tax_informational,
+
 		
         -- 1. Return Different Amounts: 
 

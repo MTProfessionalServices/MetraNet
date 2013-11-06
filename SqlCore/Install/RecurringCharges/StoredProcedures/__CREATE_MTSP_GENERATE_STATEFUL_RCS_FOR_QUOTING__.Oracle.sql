@@ -199,6 +199,7 @@ BEGIN
 			THEN fxd.n_proration_length
 			ELSE 0
 		  END                           AS c_ProrationCycleLength ,
+          rw.c__accountid AS c_AccountID,
 		  rw.c__payingaccount AS c_PayingAccount,
           rw.c__priceableiteminstanceid AS c_PriceableItemInstanceID,
           rw.c__priceableitemtemplateid AS c_PriceableItemTemplateID,

@@ -99,7 +99,7 @@ newid() AS idSourceSess,
       ,pci.dt_end		AS c_RCIntervalEnd			/* End date of Next RC Interval - the one we'll pay for In Advance in current interval */
       ,ui.dt_start		AS c_BillingIntervalStart	/* Start date of Current Billing Interval */
       ,ui.dt_end		AS c_BillingIntervalEnd		/* End date of Current Billing Interval */
-      ,CASE WHEN rcr.tx_cycle_mode <> 'Fixed' AND ui.dt_start <> c_cycleEffectiveDate 
+      ,CASE WHEN rcr.tx_cycle_mode <> 'Fixed' AND nui.dt_start <> c_cycleEffectiveDate 
        THEN dbo.MTMaxOfTwoDates(dbo.AddSecond(c_cycleEffectiveDate), pci.dt_start)
        ELSE pci.dt_start END as c_RCIntervalSubscriptionStart
       ,dbo.mtminoftwodates(pci.dt_end, rw.c_SubscriptionEnd)          AS c_RCIntervalSubscriptionEnd

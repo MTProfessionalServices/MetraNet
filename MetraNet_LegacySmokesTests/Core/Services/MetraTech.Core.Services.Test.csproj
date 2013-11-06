@@ -35,6 +35,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <Platform Condition="'$(Platform)'==''">x86</Platform>
     <Platform Condition="'$(Platform)'=='Win32'">x86</Platform>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -62,78 +63,132 @@
     <Reference Include="Core.Core.Entity">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Core.Core.Entity.dll</HintPath>
-      <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+	  <Private>False</Private>
     </Reference>
     <Reference Include="Core.Interface">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Core.Interface.dll</HintPath>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Core.Quoting.Entity">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Core.Quoting.Entity.dll</HintPath>
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="GenericCollection.interop">
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\GenericCollection.interop.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="MetraTech.Account.ClientProxies">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Account.ClientProxies.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.ActivityServices.Services.Common">
       <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.ActivityServices.Services.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.Approvals">
       <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Approvals.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.Core.Services.ClientProxies">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Core.Services.ClientProxies.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.DomainModel.AccountTypes.Generated">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.AccountTypes.Generated.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.Billing.Generated">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Billing.Generated.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.DomainModel.Enums.Generated">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Enums.Generated.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.DomainModel.ProductCatalog.Generated">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.ProductCatalog.Generated.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="MTAuth.interop">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTAuth.interop.dll</HintPath>
     </Reference>
     <Reference Include="MTProductCatalog.interop">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTProductCatalog.interop.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+    <Reference Include="MTRuleSet.interop">
       <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTRuleSet.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="MTServices.interop">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTServices.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(ROOTDIR)\Thirdparty\NUnit260\bin\framework\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="PropSet.interop">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\PropSet.interop.dll</HintPath>
     </Reference>
     <Reference Include="RCD.interop">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\RCD.interop.dll</HintPath>
     </Reference>
     <Reference Include="Rowset.interop">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Rowset.interop.dll</HintPath>
     </Reference>
     <Reference Include="SysContext.interop">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\SysContext.interop.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -142,6 +197,8 @@
     </Reference>
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -159,10 +216,27 @@
     <Compile Include="PriceListService.Tests.cs" />
     <Compile Include="ProductCatalogService.Tests.cs" />
     <Compile Include="ProductOfferingServiceTests.cs" />
+    <Compile Include="Quoting\ConfigurationTests.cs" />
+    <Compile Include="Quoting\Domain\QuoteImplementationData.cs" />
+    <Compile Include="Quoting\Domain\QuoteVerifyData.cs" />
+    <Compile Include="Quoting\QuotePDFReportFunctionalTests.cs" />
+    <Compile Include="Quoting\QuotingAccountSubscriptionVariationsFunctionalTests.cs" />
+    <Compile Include="Quoting\QuotingActivityServiceFunctionalTests.cs" />
+    <Compile Include="Quoting\QuotingBasicFunctionalTests.cs" />
+    <Compile Include="Quoting\QuotingEOPFunctionalTests.cs" />
+    <Compile Include="Quoting\QuotingErrorHandlingFunctionalTests.cs" />
+    <Compile Include="Quoting\QuotingForGroupSubsFunctionalTests.cs" />
+    <Compile Include="Quoting\QuotingRecurringChargeVariationsFunctionalTests.cs" />
+    <Compile Include="Quoting\QuotingRepositoryFunctionalTests.cs" />
+    <Compile Include="Quoting\QuotingWithIcbFunctionalTests.cs" />
+    <Compile Include="Quoting\SharedTestCode.Generic.cs" />
+    <Compile Include="Quoting\SharedTestCode.Quoting.cs" />
+    <Compile Include="Quoting\SharedTestCode.QuotingScenarios.cs" />
     <Compile Include="ScheduleAdapterServiceTests.cs" />
     <Compile Include="ServiceTestsBase.cs" />
     <Compile Include="SubscriptionServiceTests.cs" />
     <Compile Include="TicketingServiceTest.cs" />
+    <Compile Include="Unit\QuotingImplementationUnitTest.cs" />
     <Compile Include="UsageHistoryService.Tests.cs" />
     <Compile Include="UsmServiceTest.cs" />
   </ItemGroup>
@@ -187,17 +261,39 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="MetraTech.Localization">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Localization.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
     <Reference Include="MetraTech.ActivityServices.Common">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.ActivityServices.Common.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CoreServicesClientProxyHook">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\CoreServicesClientProxyHook.exe</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MetraTech.ActivityServices.Runtime">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.ActivityServices.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.BusinessEntity.Core">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.BusinessEntity.Core.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="MetraTech.BusinessEntity.DataAccess">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.BusinessEntity.DataAccess.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="MetraTech.DataAccess">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DataAccess.dll</HintPath>
@@ -205,23 +301,41 @@
     </Reference>
     <Reference Include="MetraTech.DomainModel.BaseTypes">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.BaseTypes.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="MetraTech.DomainModel.Billing">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Billing.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="MetraTech.DomainModel.Common">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Common.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="GenerateDMAssemblies">
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\GenerateDMAssemblies.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="MetraTech.DomainModel.MetraPay">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.MetraPay.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="MetraTech.DomainModel.ProductCatalog">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.ProductCatalog.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="MetraTech.Common">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Common.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="MetraTech.Security">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Security.dll</HintPath>
@@ -229,17 +343,39 @@
     </Reference>
     <Reference Include="MetraTech.UsageServer">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.UsageServer.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="MetraTech.Core.Services">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Core.Services.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MetraTech.Common">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.Test">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Test.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.Domain">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Domain.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Test\MetraTech.Test.csproj">
-      <Project>{E95B8F73-F559-48AE-BCC2-7B0A9B3AC5A2}</Project>
-      <Name>MetraTech.Test</Name>
+    <ProjectReference Include="$(ROOTDIR)\MetraTech\TestCommon\MetraTech.TestCommon.csproj">
+      <Project>{20307E5D-BFC9-4F27-9ECC-A61EE854E8B5}</Project>
+      <Name>MetraTech.TestCommon</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

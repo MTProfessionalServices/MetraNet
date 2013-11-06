@@ -1,312 +1,311 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using MetraTech.Core.Services.Test.Quoting.Domain;
 using MetraTech.Domain.Quoting;
 using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
 using MetraTech.Interop.MTProductCatalog;
-using MetraTech.Quoting.Test.Domain;
-using MetraTech.Shared.Test;
 using MetraTech.TestCommon;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MetraTech.Quoting.Test
+namespace MetraTech.Core.Services.Test.Quoting
 {
-  /// <summary>
-  ///   Quoting for Group Subscription. Functional tests.
-  /// </summary>
-  [TestClass]
-  public class QuotingForGroupSubsFunctionalTests
-  {
-    #region Setup/Teardown
-
-    [ClassInitialize]
-    public static void InitTests(TestContext testContext)
+    /// <summary>
+    ///   Quoting for Group Subscription. Functional tests.
+    /// </summary>
+    [TestClass]
+    public class QuotingForGroupSubsFunctionalTests
     {
-      SharedTestCode.MakeSureServiceIsStarted("ActivityServices");
-      SharedTestCode.MakeSureServiceIsStarted("Pipeline");
-    }
+        #region Setup/Teardown
 
-    #endregion
-
-    #region Quoting for 1 account. Tests for GroupSBs with 2 RC (flat RC), 1 NRC, 2 UDRC. Hierarchy: Corporate account->Department account->Department account->Core Subscriber account.Different types of billing cycles
-
-    [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#1
-    public void QuotingCorpAnnualAccount()
-    {
-      /*
-       Account: Corporate. Billing Cycle: Annual
-       Effective date: Today
-       Action: Invoke CreateQuote with 1 such user
-       */
-
-      QuotingGroupSbsCorpAccount_diffBillingCycle("");
-    }
-
-    [TestMethod, MTFunctionalTest(TestAreas.Quoting), Ignore] //#2
-    public void QuotingCorpSemiAnnualAccount()
-    {
-      QuotingGroupSbsCorpAccount_diffBillingCycle("Semi_Annually");
-    }
-
-    [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#3
-    public void QuotingCorpQuarterlyAccount()
-    {
-      QuotingGroupSbsCorpAccount_diffBillingCycle("Quarterly");
-    }
-
-    [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#4
-    public void QuotingCorpMonthlyAccount()
-    {
-      QuotingGroupSbsCorpAccount_diffBillingCycle("Monthly");
-    }
-    
-    [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#8
-    public void QuotingCorpDailyAccount()
-    {
-      QuotingGroupSbsCorpAccount_diffBillingCycle("Daily");
-    }
-
-    #endregion
-    
-    #region Test Methods
-
-      private DateTime AddTimeForCycle(DateTime initial, string billcycle)
-      {
-          switch (billcycle)
-          {
-              case "Semi_Annually":
-                  return initial.AddMonths(7);
-
-              case "Quarterly":
-                  return initial.AddMonths(4);
-                  
-              case "Monthly":
-                  return initial.AddMonths(2);
-
-              case "Semi_monthly":
-                  return initial.AddMonths(1);
-
-              case "Bi_weekly":
-                  return initial.AddDays(15);
-
-              case "Weekly":
-                  return initial.AddDays(8);
-
-              case "Daily":
-                  return initial.AddDays(2);
-
-              default:
-                  return initial;
-          }
-      }
-
-      public void QuotingGroupSbsCorpAccount_diffBillingCycle(string billcycle)
-    {
-      string testName = "QuotingWithGroupSubscription_AccountBillingCycles" + billcycle;
-      string testShortName = "Q_GSub";//Account name and perhaps others need a 'short' (less than 40 when combined with testRunUniqueIdentifier
-
-      string testRunUniqueIdentifier = MetraTime.NowWithMilliSec; //Identifier to make this run unique
-
-      QuoteImplementationData quoteImpl = new QuoteImplementationData();
-      QuoteVerifyData expected = new QuoteVerifyData();
-
-      #region create accounts
-
-      List<DomainModel.BaseTypes.Account> Hierarchy = CreateHierarchyofAccounts(billcycle, testShortName,
-                                                                                testRunUniqueIdentifier);
-
-      #endregion
-
-      #region Create/Verify Product Offering Exists
-      
-      IMTProductOffering productOffering;
-      var pofConfiguration = CreateProductOfferingConfiguration(testName, testRunUniqueIdentifier, out productOffering);//set count of PIs inside this method
-
-      #endregion
-
-      #region Test
-
-      // Ask backend to start quote
-
-      //Prepare request
-      
-     /* foreach (DomainModel.BaseTypes.Account acc in Hierarchy)
-      {
-        request.Accounts.Add(acc._AccountID.Value);
-        break;
-      }*/
-     /* testRunUniqueIdentifier = MetraTime.NowWithMilliSec; 
-      var deptAccountHolder = new DepartmentAccountFactory(testShortName, testRunUniqueIdentifier);
-      deptAccountHolder.CycleType = UsageCycleType.Monthly;
-      deptAccountHolder.AncestorID = Hierarchy[2]._AccountID.Value;
-      deptAccountHolder.Instantiate();*/
-
-      quoteImpl.Request.Accounts.Add(Hierarchy[0]._AccountID.Value);
-      quoteImpl.Request.Accounts.Add(Hierarchy[1]._AccountID.Value);
-      quoteImpl.Request.Accounts.Add(Hierarchy[2]._AccountID.Value);
-      quoteImpl.Request.Accounts.Add(Hierarchy[3]._AccountID.Value);
-      //request.Accounts.Add(deptAccountHolder.Item._AccountID.Value);
-
-
-      quoteImpl.Request.ProductOfferings.Add(productOffering.ID);
-      quoteImpl.Request.QuoteIdentifier = "MyQuoteId-" + testShortName + "-1234";
-      quoteImpl.Request.QuoteDescription = "Quote generated by Automated Test: " + testName;
-      quoteImpl.Request.ReportParameters = new ReportParams
+        [ClassInitialize]
+        public static void InitTests(TestContext testContext)
         {
-          PDFReport = QuotingTestScenarios.RunPDFGenerationForAllTestsByDefault
-        };
-      quoteImpl.Request.EffectiveDate = MetraTime.Now;
-      quoteImpl.Request.EffectiveEndDate = AddTimeForCycle(MetraTime.Now, billcycle);
-      quoteImpl.Request.Localization = "en-US";
-      quoteImpl.Request.SubscriptionParameters.UDRCValues = SharedTestCode.GetUDRCInstanceValuesSetToMiddleValues(productOffering);
-      quoteImpl.Request.SubscriptionParameters.CorporateAccountId = Hierarchy[0]._AccountID.Value;
-      quoteImpl.Request.SubscriptionParameters.IsGroupSubscription = true;
+            SharedTestCode.MakeSureServiceIsStarted("ActivityServices");
+            SharedTestCode.MakeSureServiceIsStarted("Pipeline");}
 
-      expected.CountAccounts = quoteImpl.Request.Accounts.Count;
-      expected.CountNRCs = pofConfiguration.CountNRCs * expected.CountAccounts;
-      expected.CountFlatRCs = pofConfiguration.CountPairRCs + (pofConfiguration.CountPairRCs * expected.CountAccounts);
-      expected.CountUDRCs = pofConfiguration.CountPairUDRCs + (pofConfiguration.CountPairUDRCs * expected.CountAccounts);
+        #endregion
 
-      expected.TotalForUDRCs = 30; //introduce formula based on PT
+        #region Quoting for 1 account. Tests for GroupSBs with 2 RC (flat RC), 1 NRC, 2 UDRC. Hierarchy: Corporate account->Department account->Department account->Core Subscriber account.Different types of billing cycles
 
-      expected.Total = (expected.CountFlatRCs * pofConfiguration.RCAmount) +
-                                   (expected.CountUDRCs.Value * expected.TotalForUDRCs) +
-                                   (expected.CountNRCs *pofConfiguration.NRCAmount);
-      expected.Currency = "USD";
+        [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#1
+        public void QuotingCorpAnnualAccount()
+        {
+            /*
+             Account: Corporate. Billing Cycle: Annual
+             Effective date: Today
+             Action: Invoke CreateQuote with 1 such user
+             */
 
-      //Give request to testing scenario along with expected results for verification; get back response for further verification
-      quoteImpl.Response = QuotingTestScenarios.CreateQuoteAndVerifyResults(quoteImpl, expected);
+            QuotingGroupSbsCorpAccount_diffBillingCycle("");
+        }
 
-      #endregion
-    }
+        [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#2
+        public void QuotingCorpSemiAnnualAccount()
+        {
+            QuotingGroupSbsCorpAccount_diffBillingCycle("Semi_Annually");
+        }
 
-    private static ProductOfferingFactoryConfiguration CreateProductOfferingConfiguration(string testName, string testRunUniqueIdentifier,
-                                                                             out IMTProductOffering productOffering)
-    {
-      var pofConfiguration = new ProductOfferingFactoryConfiguration(testName, testRunUniqueIdentifier);
-      pofConfiguration.CountNRCs = 1;
-      pofConfiguration.CountPairRCs = 1;
-      pofConfiguration.CountPairUDRCs = 1;
-      productOffering = ProductOfferingFactory.Create(pofConfiguration);
-      Assert.IsNotNull(productOffering.ID, "Unable to create PO for test run");
-      Console.WriteLine("Product Offering for quote:" + productOffering.ID + "; " + productOffering.DisplayName);
-      return pofConfiguration;
-    }
+        [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#3
+        public void QuotingCorpQuarterlyAccount()
+        {
+            QuotingGroupSbsCorpAccount_diffBillingCycle("Quarterly");
+        }
 
-    public DepartmentAccountFactory createDeptAccount(DepartmentAccountFactory dept, int ancestorID)
-    {
-      dept.AncestorID = ancestorID;
-      dept.Instantiate();
-      Assert.IsNotNull(dept.Item._AccountID, "Unable to create department account for test run");
-      return dept;
-    }
+        [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#4
+        public void QuotingCorpMonthlyAccount()
+        {
+            QuotingGroupSbsCorpAccount_diffBillingCycle("Monthly");
+        }
 
-    public List<DomainModel.BaseTypes.Account> CreateHierarchyofAccounts(string billcycle, string testShortName,
-                                                                         string testRunUniqueIdentifier)
-    {
-      var Hierarchy = new List<DomainModel.BaseTypes.Account>();
-      var corpAccountHolder = new CorporateAccountFactory(testShortName + "0", testRunUniqueIdentifier);
-      testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
-      var deptAccountHolder1 = new DepartmentAccountFactory(testShortName+"1", testRunUniqueIdentifier);
-      testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
-      var deptAccountHolder2 = new DepartmentAccountFactory(testShortName+"2", testRunUniqueIdentifier);
-      testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
-      var coresubscriberAccountHolder = new CoreSubscriberAccountFactory(testShortName, testRunUniqueIdentifier);
-      switch (billcycle)
-      {
-        case "Semi_Annually":
-          GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
-                       ref coresubscriberAccountHolder, UsageCycleType.Semi_Annually);
-          break;
+        [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#8
+        public void QuotingCorpDailyAccount()
+        {
+            QuotingGroupSbsCorpAccount_diffBillingCycle("Daily");
+        }
 
-        case "Quarterly":
-          GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
-                       ref coresubscriberAccountHolder, UsageCycleType.Quarterly);
-          break;
-        case "Monthly":
-          GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
-                       ref coresubscriberAccountHolder, UsageCycleType.Monthly);
-          break;
-        case "Semi_monthly":
-          GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
-                       ref coresubscriberAccountHolder, UsageCycleType.Semi_monthly);
-          break;
-        case "Bi_weekly":
-          GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
-                       ref coresubscriberAccountHolder, UsageCycleType.Bi_weekly);
-          break;
-        case "Weekly":
-          GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
-                       ref coresubscriberAccountHolder, UsageCycleType.Weekly);
-          break;
-        case "Daily":
-          GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
-                       ref coresubscriberAccountHolder, UsageCycleType.Monthly);
-          break;
-        default:
-          GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
-                       ref coresubscriberAccountHolder, UsageCycleType.Annually);
-          break;
-      }
-      Hierarchy.Add(corpAccountHolder.Item);
-      Hierarchy.Add(deptAccountHolder1.Item);
-      Hierarchy.Add(deptAccountHolder2.Item);
-      Hierarchy.Add(coresubscriberAccountHolder.Item);
-      Console.WriteLine("Billing Cycle:" + corpAccountHolder.CycleType);
-      Console.WriteLine("Corporate Account:" + corpAccountHolder.Item._AccountID + "; Account name:"+corpAccountHolder.Item.UserName);
-      Console.WriteLine("1st Department Account:" + deptAccountHolder1.Item._AccountID + "; Account name:" + deptAccountHolder1.Item.UserName);
-      Console.WriteLine("2nd Department Account:" + deptAccountHolder2.Item._AccountID + "; Account name:" + deptAccountHolder2.Item.UserName);
-      Console.WriteLine("CoreSubscriber Account:" + coresubscriberAccountHolder.Item._AccountID + "; Account name:" + coresubscriberAccountHolder.Item.UserName);
-      return Hierarchy;
-    }
+        #endregion
 
-    private void GetHierarchy(ref CorporateAccountFactory corpAccountHolder,
-                              ref DepartmentAccountFactory deptAccountHolder1,
-                              ref DepartmentAccountFactory deptAccountHolder2,
-                              ref CoreSubscriberAccountFactory coresubscriberAccountHolder, UsageCycleType usageCycleType)
-    {
-      // Create account #1 Corporate root
-      corpAccountHolder.CycleType = usageCycleType;
-      corpAccountHolder.Instantiate();
-      Assert.IsNotNull(corpAccountHolder.Item._AccountID, "Unable to create corporate account for test run");
-      // Create account #2 Department child
-      deptAccountHolder1.CycleType = usageCycleType;
-      deptAccountHolder1 = createDeptAccount(deptAccountHolder1, corpAccountHolder.Item._AccountID.Value);
-      // Create account #3 Department child
-      deptAccountHolder2.CycleType = usageCycleType;
-      deptAccountHolder2 = createDeptAccount(deptAccountHolder2, deptAccountHolder1.Item._AccountID.Value);
-      //Create account #4 CoreSubscriber child
-      //coresubscriberAccountHolder.is
-      //coresubscriberAccountHolder = deptAccountHolder2.AddCoreSubscriber("User");
-      coresubscriberAccountHolder.AncestorID = deptAccountHolder2.Item._AccountID.Value;
-      coresubscriberAccountHolder.CycleType = usageCycleType;
-      coresubscriberAccountHolder.Instantiate();
-      Assert.IsNotNull(coresubscriberAccountHolder.Item._AccountID, "Unable to create CoreSubscriber account for test run");
-    }
+        #region Test Methods
 
-    #endregion
+        private DateTime AddTimeForCycle(DateTime initial, string billcycle)
+        {
+            switch (billcycle)
+            {
+                case "Semi_Annually":
+                    return initial.AddMonths(7);
 
-    #region Commented tests
-    [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#6
-    public void QuotingCorpBiweeklyAccount()
-    {
-      QuotingGroupSbsCorpAccount_diffBillingCycle("Bi_weekly");
-    }
+                case "Quarterly":
+                    return initial.AddMonths(4);
 
-    [TestMethod, MTFunctionalTest(TestAreas.Quoting), Ignore] //#7
-    public void QuotingCorpWeeklyAccount()
-    {
-      QuotingGroupSbsCorpAccount_diffBillingCycle("Weekly");
-    }
+                case "Monthly":
+                    return initial.AddMonths(2);
 
-    [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#5
-    public void QuotingCorpSemiMonthlyAccount()
-    {
-        QuotingGroupSbsCorpAccount_diffBillingCycle("Semi_monthly");
-    }
+                case "Semi_monthly":
+                    return initial.AddMonths(1);
 
-    #region EOP
+                case "Bi_weekly":
+                    return initial.AddDays(15);
 
-    /*
+                case "Weekly":
+                    return initial.AddDays(8);
+
+                case "Daily":
+                    return initial.AddDays(2);
+
+                default:
+                    return initial;
+            }
+        }
+        
+        public void QuotingGroupSbsCorpAccount_diffBillingCycle(string billcycle)
+        {
+            string testName = "QuotingWithGroupSubscription_AccountBillingCycles" + billcycle;
+            string testShortName = "Q_GSub";//Account name and perhaps others need a 'short' (less than 40 when combined with testRunUniqueIdentifier
+
+            string testRunUniqueIdentifier = MetraTime.NowWithMilliSec; //Identifier to make this run unique
+
+            QuoteImplementationData quoteImpl = new QuoteImplementationData();
+
+            QuoteVerifyData expected = new QuoteVerifyData();
+
+            #region create accounts
+
+            List<DomainModel.BaseTypes.Account> Hierarchy = CreateHierarchyofAccounts(billcycle, testShortName,
+                                                                                      testRunUniqueIdentifier);
+
+            #endregion
+
+            #region Create/Verify Product Offering Exists
+
+            IMTProductOffering productOffering;
+            var pofConfiguration = CreateProductOfferingConfiguration(testName, testRunUniqueIdentifier, out productOffering);//set count of PIs inside this method
+
+            #endregion
+
+            #region Test
+
+            // Ask backend to start quote
+
+            //Prepare request
+
+            /* foreach (DomainModel.BaseTypes.Account acc in Hierarchy)
+             {
+               request.Accounts.Add(acc._AccountID.Value);
+               break;
+             }*/
+            /* testRunUniqueIdentifier = MetraTime.NowWithMilliSec; 
+             var deptAccountHolder = new DepartmentAccountFactory(testShortName, testRunUniqueIdentifier);
+             deptAccountHolder.CycleType = UsageCycleType.Monthly;
+             deptAccountHolder.AncestorID = Hierarchy[2]._AccountID.Value;
+             deptAccountHolder.Instantiate();*/
+
+            quoteImpl.Request.Accounts.Add(Hierarchy[0]._AccountID.Value);
+            quoteImpl.Request.Accounts.Add(Hierarchy[1]._AccountID.Value);
+            quoteImpl.Request.Accounts.Add(Hierarchy[2]._AccountID.Value);
+            quoteImpl.Request.Accounts.Add(Hierarchy[3]._AccountID.Value);
+            //request.Accounts.Add(deptAccountHolder.Item._AccountID.Value);
+
+
+            quoteImpl.Request.ProductOfferings.Add(productOffering.ID);
+            quoteImpl.Request.QuoteIdentifier = "MyQuoteId-" + testShortName + "-1234";
+            quoteImpl.Request.QuoteDescription = "Quote generated by Automated Test: " + testName;
+            quoteImpl.Request.ReportParameters = new ReportParams
+              {
+                  PDFReport = QuotingTestScenarios.RunPDFGenerationForAllTestsByDefault
+              };
+            quoteImpl.Request.EffectiveDate = MetraTime.Now;
+            quoteImpl.Request.EffectiveEndDate = AddTimeForCycle(MetraTime.Now, billcycle);
+            quoteImpl.Request.Localization = "en-US";
+            quoteImpl.Request.SubscriptionParameters.UDRCValues = SharedTestCode.GetUDRCInstanceValuesSetToMiddleValues(productOffering);
+            quoteImpl.Request.SubscriptionParameters.CorporateAccountId = Hierarchy[0]._AccountID.Value;
+            quoteImpl.Request.SubscriptionParameters.IsGroupSubscription = true;
+
+            expected.CountAccounts = quoteImpl.Request.Accounts.Count;
+            expected.CountNRCs = pofConfiguration.CountNRCs * expected.CountAccounts;
+            expected.CountFlatRCs = pofConfiguration.CountPairRCs + (pofConfiguration.CountPairRCs * expected.CountAccounts);
+            expected.CountUDRCs = pofConfiguration.CountPairUDRCs + (pofConfiguration.CountPairUDRCs * expected.CountAccounts);
+
+            expected.TotalForUDRCs = 30; //introduce formula based on PT
+
+            expected.Total = (expected.CountFlatRCs * pofConfiguration.RCAmount) +
+                                         (expected.CountUDRCs.Value * expected.TotalForUDRCs) +
+                                         (expected.CountNRCs * pofConfiguration.NRCAmount);
+            expected.Currency = "USD";
+
+            //Give request to testing scenario along with expected results for verification; get back response for further verification
+            quoteImpl.Response = QuotingTestScenarios.CreateQuoteAndVerifyResults(quoteImpl, expected);
+
+            #endregion
+        }
+
+        private static ProductOfferingFactoryConfiguration CreateProductOfferingConfiguration(string testName, string testRunUniqueIdentifier,
+                                                                                 out IMTProductOffering productOffering)
+        {
+            var pofConfiguration = new ProductOfferingFactoryConfiguration(testName, testRunUniqueIdentifier);
+            pofConfiguration.CountNRCs = 1;
+            pofConfiguration.CountPairRCs = 1;
+            pofConfiguration.CountPairUDRCs = 1;
+            productOffering = ProductOfferingFactory.Create(pofConfiguration);
+            Assert.IsNotNull(productOffering.ID, "Unable to create PO for test run");
+            Console.WriteLine("Product Offering for quote:" + productOffering.ID + "; " + productOffering.DisplayName);
+            return pofConfiguration;
+        }
+
+        public DepartmentAccountFactory createDeptAccount(DepartmentAccountFactory dept, int ancestorID)
+        {
+            dept.AncestorID = ancestorID;
+            dept.Instantiate();
+            Assert.IsNotNull(dept.Item._AccountID, "Unable to create department account for test run");
+            return dept;
+        }
+
+        public List<DomainModel.BaseTypes.Account> CreateHierarchyofAccounts(string billcycle, string testShortName,
+                                                                             string testRunUniqueIdentifier)
+        {
+            var Hierarchy = new List<DomainModel.BaseTypes.Account>();
+            var corpAccountHolder = new CorporateAccountFactory(testShortName + "0", testRunUniqueIdentifier);
+            testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
+            var deptAccountHolder1 = new DepartmentAccountFactory(testShortName + "1", testRunUniqueIdentifier);
+            testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
+            var deptAccountHolder2 = new DepartmentAccountFactory(testShortName + "2", testRunUniqueIdentifier);
+            testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
+            var coresubscriberAccountHolder = new CoreSubscriberAccountFactory(testShortName, testRunUniqueIdentifier);
+            switch (billcycle)
+            {
+                case "Semi_Annually":
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Semi_Annually);
+                    break;
+
+                case "Quarterly":
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Quarterly);
+                    break;
+                case "Monthly":
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Monthly);
+                    break;
+                case "Semi_monthly":
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Semi_monthly);
+                    break;
+                case "Bi_weekly":
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Bi_weekly);
+                    break;
+                case "Weekly":
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Weekly);
+                    break;
+                case "Daily":
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Monthly);
+                    break;
+                default:
+                    GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
+                                 ref coresubscriberAccountHolder, UsageCycleType.Annually);
+                    break;
+            }
+            Hierarchy.Add(corpAccountHolder.Item);
+            Hierarchy.Add(deptAccountHolder1.Item);
+            Hierarchy.Add(deptAccountHolder2.Item);
+            Hierarchy.Add(coresubscriberAccountHolder.Item);
+            Console.WriteLine("Billing Cycle:" + corpAccountHolder.CycleType);
+            Console.WriteLine("Corporate Account:" + corpAccountHolder.Item._AccountID + "; Account name:" + corpAccountHolder.Item.UserName);
+            Console.WriteLine("1st Department Account:" + deptAccountHolder1.Item._AccountID + "; Account name:" + deptAccountHolder1.Item.UserName);
+            Console.WriteLine("2nd Department Account:" + deptAccountHolder2.Item._AccountID + "; Account name:" + deptAccountHolder2.Item.UserName);
+            Console.WriteLine("CoreSubscriber Account:" + coresubscriberAccountHolder.Item._AccountID + "; Account name:" + coresubscriberAccountHolder.Item.UserName);
+            return Hierarchy;
+        }
+
+        private void GetHierarchy(ref CorporateAccountFactory corpAccountHolder,
+                                  ref DepartmentAccountFactory deptAccountHolder1,
+                                  ref DepartmentAccountFactory deptAccountHolder2,
+                                  ref CoreSubscriberAccountFactory coresubscriberAccountHolder, UsageCycleType usageCycleType)
+        {
+            // Create account #1 Corporate root
+            corpAccountHolder.CycleType = usageCycleType;
+            corpAccountHolder.Instantiate();
+            Assert.IsNotNull(corpAccountHolder.Item._AccountID, "Unable to create corporate account for test run");
+            // Create account #2 Department child
+            deptAccountHolder1.CycleType = usageCycleType;
+            deptAccountHolder1 = createDeptAccount(deptAccountHolder1, corpAccountHolder.Item._AccountID.Value);
+            // Create account #3 Department child
+            deptAccountHolder2.CycleType = usageCycleType;
+            deptAccountHolder2 = createDeptAccount(deptAccountHolder2, deptAccountHolder1.Item._AccountID.Value);
+            //Create account #4 CoreSubscriber child
+            //coresubscriberAccountHolder.is
+            //coresubscriberAccountHolder = deptAccountHolder2.AddCoreSubscriber("User");
+            coresubscriberAccountHolder.AncestorID = deptAccountHolder2.Item._AccountID.Value;
+            coresubscriberAccountHolder.CycleType = usageCycleType;
+            coresubscriberAccountHolder.Instantiate();
+            Assert.IsNotNull(coresubscriberAccountHolder.Item._AccountID, "Unable to create CoreSubscriber account for test run");
+        }
+
+        #endregion
+
+        #region Commented tests
+        [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#6
+        public void QuotingCorpBiweeklyAccount()
+        {
+            QuotingGroupSbsCorpAccount_diffBillingCycle("Bi_weekly");
+        }
+
+        [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#7
+        public void QuotingCorpWeeklyAccount()
+        {
+            QuotingGroupSbsCorpAccount_diffBillingCycle("Weekly");
+        }
+
+        [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#5
+        public void QuotingCorpSemiMonthlyAccount()
+        {
+            QuotingGroupSbsCorpAccount_diffBillingCycle("Semi_monthly");
+        }
+
+        #region EOP
+
+        /*
     [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#6
     public void QuotingSubscribedAccountforUDRC_NRC_RC_EOP()
     {
@@ -1438,6 +1437,6 @@ namespace MetraTech.Quoting.Test
      */
 
     #endregion
-    #endregion
-  }
+        #endregion
+    }
 }

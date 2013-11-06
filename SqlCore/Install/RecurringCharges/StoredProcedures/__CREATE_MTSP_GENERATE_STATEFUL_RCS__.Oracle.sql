@@ -179,10 +179,14 @@ BEGIN
     UNION ALL
     SELECT sys_guid()                                AS idSourceSess,
       'Advance'                                      AS c_RCActionType ,
-      pci.dt_start      AS c_RCIntervalStart,
-      pci.dt_end      AS c_RCIntervalEnd,
-      nui.dt_start      AS c_BillingIntervalStart,
-      nui.dt_end          AS c_BillingIntervalEnd,
+
+      /* [TODO] Next account interval should be paied In Advance in case it is bigger than RC interval. (Will clarify with Andy)
+      Add condition to choose whether to use RC interval "pci.dt_start", "pci.dt_end" OR Next Billing Interval of account "nui.dt_start", "nui.dt_end" for In Advance payment*/
+
+      pci.dt_start		AS c_RCIntervalStart,		/* Start date of Next RC Interval - the one we'll pay for In Advance in current interval */
+      pci.dt_end		AS c_RCIntervalEnd,			/* End date of Next RC Interval - the one we'll pay for In Advance in current interval */
+      ui.dt_start		AS c_BillingIntervalStart,	/* Start date of Current Billing Interval */
+      ui.dt_end		AS c_BillingIntervalEnd,		/* End date of Current Billing Interval */
       CASE
         WHEN rcr.tx_cycle_mode <> 'Fixed'
         AND nui.dt_start       <> c_cycleEffectiveDate
@@ -247,8 +251,8 @@ BEGIN
         ELSE NULL
       END
     INNER JOIN t_pc_interval pci ON pci.id_cycle = ccl.id_usage_cycle
-    AND pci.dt_start BETWEEN ui.dt_start AND ui.dt_end
-      /* rc start falls in this interval */
+    AND pci.dt_start BETWEEN nui.dt_start AND nui.dt_end
+      /* rc start falls in Next interval */
     AND pci.dt_start BETWEEN rw.c_payerstart  AND rw.c_payerend                         
 	/* rc start goes to this payer */
     AND rw.c_unitvaluestart < pci.dt_end AND rw.c_unitvalueend   > pci.dt_start

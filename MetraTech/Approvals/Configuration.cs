@@ -309,7 +309,7 @@ namespace MetraTech.Approvals
       XmlNode nodeNewChangeType = SerializeObjectToXmlNode(changeType);
 
       XmlNode nodeChangeType =
-        doc.SelectSingleNode("/ChangeTypes/ChangeTypeConfiguration[Name='" + changeType.Name + "']");
+        doc.SelectSingleNode("/ArrayOfChangeTypeConfiguration/ChangeTypeConfiguration[Name='" + changeType.Name + "']");
 
       if (nodeChangeType == null)
       {

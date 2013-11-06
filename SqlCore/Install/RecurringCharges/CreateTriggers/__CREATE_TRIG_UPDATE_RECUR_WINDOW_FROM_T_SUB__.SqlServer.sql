@@ -1,4 +1,3 @@
-
 CREATE trigger trig_update_recur_window_on_t_sub
 ON t_sub
 for INSERT, UPDATE, delete
@@ -44,7 +43,7 @@ declare @temp datetime
         ,-1 AS c_LastIdRun
         ,dbo.mtmindate() AS c_MembershipStart
         ,dbo.mtmaxdate() AS c_MembershipEnd
-
+		, dbo.AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.vt_end, sub.dt_crt) AS c__IsAllowGenChargeByTrigger
       --We'll use #recur_window_holder in the stored proc that operates only on the latest data
         INTO #recur_window_holder
         FROM inserted sub
@@ -64,15 +63,33 @@ declare @temp datetime
               AND c__SubscriptionID = sub.id_sub)
               AND sub.id_group IS NULL
               AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)
-		   AND dbo.AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.vt_end, sub.dt_crt) = 1
 
    select @temp = max(tsh.tt_start) from t_sub_history tsh join inserted sub on tsh.id_acc = sub.id_acc and tsh.id_sub = sub.id_sub;
    EXEC MeterInitialFromRecurWindow @currentDate = @temp;
-   EXEC MeterCreditFromRecurWindow @currentDate = @temp;
-	  
-   UPDATE #recur_window_holder 
-     SET c_BilledThroughDate = dbo.metratime(1,'RC');
+   EXEC MeterCreditFromRecurWindow @currentDate = @temp;  
   
-   INSERT INTO t_recur_window SELECT * FROM #recur_window_holder;
+   INSERT INTO t_recur_window    
+	SELECT c_CycleEffectiveDate,
+	c_CycleEffectiveStart,
+	c_CycleEffectiveEnd,
+	c_SubscriptionStart,
+	c_SubscriptionEnd,
+	c_Advance,
+	c__AccountID,
+	c__PayingAccount,
+	c__PriceableItemInstanceID,
+	c__PriceableItemTemplateID,
+	c__ProductOfferingID,
+	c_PayerStart,
+	c_PayerEnd,
+	c__SubscriptionID,
+	c_UnitValueStart,
+	c_UnitValueEnd,
+	c_UnitValue,
+	c_BilledThroughDate,
+	c_LastIdRun,
+	c_MembershipStart,
+	c_MembershipEnd
+	FROM #recur_window_holder;
 
- end;
+ END;

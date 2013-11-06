@@ -8,7 +8,7 @@ BEGIN
 	END
 
 	IF @current_date IS NULL
-		SET @current_date = dbo.metratime(0,null)
+		SET @current_date = dbo.metratime(1,'RC')
 		
 	/* Creates Initial charges in case it fits inder current interval*/
 	IF EXISTS (select 1 from t_usage_interval us_int

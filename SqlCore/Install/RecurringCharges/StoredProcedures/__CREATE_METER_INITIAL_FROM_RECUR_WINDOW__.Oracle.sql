@@ -4,7 +4,8 @@ PROCEDURE METERinitialFROMRECURWINDOW AS
   enabled varchar2(10);
   BEGIN
    SELECT value into enabled FROM t_db_values WHERE parameter = N'InstantRc';
-   IF (enabled = 'false')then return;  end if;
+   IF (enabled = 'false')then return;  
+   end if;
     
    INSERT INTO tmp_rc
  SELECT 
@@ -75,9 +76,13 @@ where 1=1
     AND NOT EXISTS (SELECT 1 FROM t_recur_value trv WHERE trv.id_sub = rw.c__SubscriptionID AND trv.tt_end < dbo.MTMaxDate())
 /* Don't meter in the current interval for initial*/
     AND pci.dt_start < metratime(1,'RC')
-	and ui.dt_start <= rw.c_SubscriptionStart 
-    ;
+	and ui.dt_start <= rw.c_SubscriptionStart    
+	AND rw.c__IsAllowGenChargeByTrigger = 1;
 
    insertChargesIntoSvcTables('Initial','Initial');
+   
+  UPDATE tmp_newrw rw
+	SET c_BilledThroughDate = metratime(1,'RC')	
+	where rw.c__IsAllowGenChargeByTrigger = 1;
 
 end METERinitialFROMRECURWINDOW;

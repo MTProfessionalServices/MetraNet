@@ -15,8 +15,7 @@ create or replace TRIGGER trig_recur_window_recur_map
 			and t_recur_window.c__PriceableItemTemplateID = plm.id_pi_template		  
        );
     ELSE 
-	/*inserting or updating*/
-      BEGIN
+	/*inserting or updating*/     
         UPDATE t_recur_window 
           SET c_MembershipStart = :new.vt_start,
               c_MembershipEnd     = :new.vt_end
@@ -26,6 +25,7 @@ create or replace TRIGGER trig_recur_window_recur_map
               AND trw.c__SubscriptionID = sub.id_sub
               where sub.id_group = :new.id_group
       ) ;
+	  
     insert into t_recur_window
     SELECT sub.vt_start c_CycleEffectiveDate,
       sub.vt_start c_CycleEffectiveStart,
@@ -68,11 +68,11 @@ create or replace TRIGGER trig_recur_window_recur_map
         )
       AND :new.tt_end  = dbo.mtmaxdate()
       AND rcr.b_charge_per_participant = 'N' 
-      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)	      
-	  AND AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.vt_end, sub.dt_crt) = 1;
-    END;
+      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL);
+	  
   END IF;
   
+  /* TODO: Looks like call of two sp can be commited out due to tmp_newrw is empty*/
   MeterInitialFromRecurWindow;
   MeterCreditFromRecurWindow;
   UPDATE t_recur_window w1

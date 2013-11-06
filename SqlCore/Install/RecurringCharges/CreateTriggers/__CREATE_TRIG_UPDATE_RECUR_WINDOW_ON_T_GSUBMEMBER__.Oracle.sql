@@ -19,9 +19,9 @@
         AND t_recur_window.c__accountid      = sub.id_acc
     );
 ELSE
-  /*inserting or updating*/
-  BEGIN
+  /*inserting or updating*/  
    DELETE FROM tmp_newrw;
+   
    UPDATE t_recur_window trw  
       SET trw.c_MembershipStart = :new.vt_start,
           trw.c_MembershipEnd = :new.vt_end
@@ -60,6 +60,7 @@ ELSE
       , -1 AS c_LastIdRun
       , dbo.mtmindate() AS c_MembershipStart
       , dbo.mtmaxdate() AS c_MembershipEnd
+	  , AllowInitialArrersCharge(rcr.b_advance, :new.id_acc, :new.vt_end, :new.dt_crt) c__IsAllowGenChargeByTrigger
       FROM t_sub sub 
       INNER JOIN t_payment_redirection pay ON pay.id_payee = :new.id_acc AND pay.vt_start < sub.vt_end AND pay.vt_end > sub.vt_start AND pay.vt_start < :new.vt_end AND pay.vt_end > :new.vt_start
       INNER JOIN t_pl_map plm ON plm.id_po = sub.id_po AND plm.id_paramtable IS NULL
@@ -74,9 +75,8 @@ ELSE
 		  and c__PriceableItemInstanceID = plm.id_pi_instance
 		  and c__PriceableItemTemplateID = plm.id_pi_template)
       AND rcr.b_charge_per_participant = 'Y'
-      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL) 
-	  AND AllowInitialArrersCharge(rcr.b_advance, :new.id_acc, :new.vt_end, :new.dt_crt) = 1;
-  END;
+      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL);
+  
   UPDATE tmp_newrw SET c_BilledThroughDate = metratime(1,'RC');
   INSERT INTO t_recur_window
   SELECT * FROM tmp_newrw;

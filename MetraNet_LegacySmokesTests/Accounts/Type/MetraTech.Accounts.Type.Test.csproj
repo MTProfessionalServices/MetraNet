@@ -70,9 +70,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.DomainModel.Common.dll</HintPath>
     </Reference>
-    <Reference Include="MetraTech.Security, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+    <Reference Include="MetraTech.Security">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(MTOUTDIR)\$(Configuration)\MetraTech.Security.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Security.dll</HintPath>
     </Reference>
     <Reference Include="MTAuth.interop">
       <EmbedInteropTypes>false</EmbedInteropTypes>

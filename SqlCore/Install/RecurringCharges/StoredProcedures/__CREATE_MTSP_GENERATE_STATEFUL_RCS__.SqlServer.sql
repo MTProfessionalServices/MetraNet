@@ -11,6 +11,7 @@ BEGIN
       /* SET NOCOUNT ON added to prevent extra result sets from
          interfering with SELECT statements. */
       SET NOCOUNT ON;
+	  SET XACT_ABORT ON;
   DECLARE @total_rcs  int,
           @total_flat int,
           @total_udrc int,
@@ -76,14 +77,25 @@ newid() AS idSourceSess,
       and ui.id_interval = @v_id_interval
       and bg.id_billgroup = @v_id_billgroup
       and rcr.b_advance <> 'Y'
+ /* Exclude any accounts which have been billed through the charge range.
+	     This is because they will have been billed through to the end of last period (advanced charged)
+		 OR they will have ended their subscription in which case all of the charging has been done.
+		 ONLY subscriptions which are scheduled to end this period which have not been ended by subscription change will be caught 
+		 in these queries
+		 */
+	  and rw.c_BilledThroughDate < dbo.mtmaxoftwodates(pci.dt_start, rw.c_SubscriptionStart)
 UNION ALL
 SELECT
 newid() AS idSourceSess,
       'Advance' AS c_RCActionType
-      ,pci.dt_start      AS c_RCIntervalStart
-      ,pci.dt_end      AS c_RCIntervalEnd
-      ,nui.dt_start      AS c_BillingIntervalStart
-      ,nui.dt_end          AS c_BillingIntervalEnd
+
+      /* [TODO] Next account interval should be paied In Advance in case it is bigger than RC interval. (Will clarify with Andy)
+      Add condition to choose whether to use RC interval "pci.dt_start", "pci.dt_end" OR Next Billing Interval of account "nui.dt_start", "nui.dt_end" for In Advance payment*/
+
+      ,pci.dt_start		AS c_RCIntervalStart		/* Start date of Next RC Interval - the one we'll pay for In Advance in current interval */
+      ,pci.dt_end		AS c_RCIntervalEnd			/* End date of Next RC Interval - the one we'll pay for In Advance in current interval */
+      ,ui.dt_start		AS c_BillingIntervalStart	/* Start date of Current Billing Interval */
+      ,ui.dt_end		AS c_BillingIntervalEnd		/* End date of Current Billing Interval */
       ,CASE WHEN rcr.tx_cycle_mode <> 'Fixed' AND nui.dt_start <> c_cycleEffectiveDate 
        THEN dbo.MTMaxOfTwoDates(dbo.AddSecond(c_cycleEffectiveDate), pci.dt_start)
        ELSE pci.dt_start END as c_RCIntervalSubscriptionStart
@@ -113,22 +125,31 @@ newid() AS idSourceSess,
                                    AND rw.c_payerstart          < nui.dt_end AND rw.c_payerend          > nui.dt_start /* next interval overlaps with payer */
                                    AND rw.c_cycleeffectivestart < nui.dt_end AND rw.c_cycleeffectiveend > nui.dt_start /* next interval overlaps with cycle */
                                    AND rw.c_membershipstart     < nui.dt_end AND rw.c_membershipend     > nui.dt_start /* next interval overlaps with membership */
-                                   AND rw.c_subscriptionstart   < ui.dt_end AND rw.c_subscriptionend   > nui.dt_start /* next interval overlaps with subscription */
+                                   AND rw.c_subscriptionstart   < nui.dt_end AND rw.c_subscriptionend   > nui.dt_start /* next interval overlaps with subscription */
                                    AND rw.c_unitvaluestart      < nui.dt_end AND rw.c_unitvalueend      > nui.dt_start /* next interval overlaps with UDRC */
       INNER LOOP JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
       INNER LOOP JOIN t_usage_cycle ccl ON ccl.id_usage_cycle = CASE WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) ELSE NULL END
       INNER LOOP JOIN t_pc_interval pci WITH(INDEX(cycle_time_pc_interval_index)) ON pci.id_cycle = ccl.id_usage_cycle
-                                   AND pci.dt_start BETWEEN nui.dt_start     AND nui.dt_end                            /* rc start falls in this interval */
+                                   AND pci.dt_start BETWEEN nui.dt_start     AND nui.dt_end                            /* rc start falls in Next interval */
                                    AND pci.dt_start BETWEEN rw.c_payerstart  AND rw.c_payerend                         /* rc start goes to this payer */
                                    AND rw.c_unitvaluestart      < pci.dt_end AND rw.c_unitvalueend      > pci.dt_start /* rc overlaps with this UDRC */
                                    AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
-                                   AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
-                                   AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
+                                   AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
+                                   AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
       INNER LOOP JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
       where 1=1
       and ui.id_interval = @v_id_interval
       and bg.id_billgroup = @v_id_billgroup
       and rcr.b_advance = 'Y'
+ /* Exclude any accounts which have been billed through the charge range.
+	     This is because they will have been billed through to the end of last period (advanced charged)
+		 OR they will have ended their subscription in which case all of the charging has been done.
+		 ONLY subscriptions which are scheduled to end this period which have not been ended by subscription change will be caught 
+		 in these queries
+		 */
+	  and rw.c_BilledThroughDate < (CASE WHEN rcr.tx_cycle_mode <> 'Fixed' AND nui.dt_start <> c_cycleEffectiveDate 
+                                    THEN dbo.MTMaxOfTwoDates(dbo.AddSecond(c_cycleEffectiveDate), pci.dt_start)
+                                    ELSE pci.dt_start END)
 )A      ;
 
 SELECT @total_rcs  = COUNT(1) FROM #tmp_rc;
@@ -149,6 +170,11 @@ INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_d
 
 SELECT @tx_batch = cast(N'' as xml).value('xs:hexBinary(sql:variable("@v_id_batch"))', 'binary(16)');
 INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Batch ID: ' + CAST(@tx_batch AS varchar));
+
+IF (@tx_batch IS NOT NULL)
+BEGIN
+UPDATE t_batch SET n_metered = @total_rcs, n_expected = @total_rcs WHERE tx_batch = @tx_batch;
+END;
 
 if @total_flat > 0
 begin
@@ -418,6 +444,16 @@ where c_unitvalue is not null;
 
                   INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Done inserting UDRC RCs');
 
+    /** UPDATE THE BILLED THROUGH DATE TO THE END OF THE ADVANCED CHARGE 
+			 ** (IN CASE THE END THE SUB BEFORE THE END OF THE MONTH)
+			 ** THIS WILL MAKE SURE THE CREDIT IS CORRECT AND MAKE SURE THERE ARE NOT CHARGES 
+			 ** REGENERATED FOR ALL THE MONTHS WHERE RC ADAPTER RAN (But forgot to mark)
+			 ** Only for advanced charges.
+		     **/
+            UPDATE trw 
+			SET trw.c_BilledThroughDate = trc.c_RCIntervalSubscriptionEnd
+			FROM t_recur_window trw
+			INNER JOIN #tmp_rc trc ON trc.c_RCActionType = 'Advance' AND trw.c__AccountID = trc.c__AccountID AND trw.c__SubscriptionID = trc.c__SubscriptionID
 END;
 
  END;

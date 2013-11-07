@@ -59,6 +59,7 @@ SELECT DISTINCT
       AND pci.dt_start < dbo.MTMaxOfTwoDates(current_sub.vt_end, new_sub.vt_end) 
       AND pci.dt_end > dbo.MTMinOfTwoDates(current_sub.vt_start, new_sub.vt_start)
 	  AND pci.dt_end BETWEEN rw.c_payerstart  AND rw.c_payerend                         /* rc start goes to this payer */
+	  AND pci.dt_start < @currentDate /* Don't go into the future*/
       AND rw.c_unitvaluestart      < pci.dt_end AND rw.c_unitvalueend      > pci.dt_start /* rc overlaps with this UDRC */
       AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
       INNER LOOP JOIN t_usage_interval paymentInterval ON pci.dt_start between paymentInterval.dt_start AND paymentInterval.dt_end
@@ -72,7 +73,7 @@ SELECT DISTINCT
     inner join t_usage_interval currentui on @currentDate between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = paymentInterval.id_usage_cycle
    where 1=1
     AND EXISTS (SELECT 1 FROM t_sub_history tsh WHERE tsh.id_sub = rw.C__SubscriptionID AND tsh.id_acc = rw.c__AccountID AND tsh.tt_end < dbo.MTMaxDate())
-    /* We have one exceptional case: (a) an arrears charge, (b) old sub end date was after the end of the pci, (c) new sub end date is inside the pci.  We'll deal with this 
+	/* We have one exceptional case: (a) an arrears charge, (b) old sub end date was after the end of the pci, (c) new sub end date is inside the pci.  We'll deal with this 
     * elsewhere.
     */
     AND NOT (rcr.b_advance = 'N' AND current_sub.vt_end > pci.dt_end AND new_sub.vt_end < pci.dt_end)
@@ -125,6 +126,7 @@ SELECT DISTINCT
       AND pci.dt_start < dbo.MTMaxOfTwoDates(current_sub.vt_end, new_sub.vt_end) 
       AND pci.dt_end > dbo.MTMinOfTwoDates(current_sub.vt_start, new_sub.vt_start)
       AND pci.dt_end BETWEEN rw.c_payerstart  AND rw.c_payerend                         /* rc start goes to this payer */
+	  AND pci.dt_start < @currentDate /* Don't go into the future*/
       AND rw.c_unitvaluestart      < pci.dt_end AND rw.c_unitvalueend      > pci.dt_start /* rc overlaps with this UDRC */
       AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
           INNER LOOP JOIN t_usage_interval paymentInterval ON pci.dt_start between paymentInterval.dt_start AND paymentInterval.dt_end
@@ -138,7 +140,6 @@ SELECT DISTINCT
 	inner join t_usage_interval currentui on @currentDate between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = paymentInterval.id_usage_cycle
  where 1=1
     AND EXISTS (SELECT 1 FROM t_sub_history tsh WHERE tsh.id_sub = rw.C__SubscriptionID AND tsh.id_acc = rw.c__AccountID AND tsh.tt_end < dbo.MTMaxDate())
-    
     /* We have one exceptional case: (a) an arrears charge, (b) old sub end date was after the end of the pci, (c) new sub end date is inside the pci.  
     * We'll deal with this elsewhere.
     */
@@ -212,6 +213,40 @@ SELECT DISTINCT
     AND (rcr.b_advance = 'N' AND current_sub.vt_end > pci.dt_end AND new_sub.vt_end < pci.dt_end) ;
 	
 	
+ /* Now determine if th interval and if the RC adapter has run, if no remove those adavanced charge credits */
+    DECLARE @prev_interval INT, @cur_interval INT, @do_credit INT
+
+select @prev_interval = pui.id_interval, @cur_interval = cui.id_interval
+from t_usage_interval cui WITH(NOLOCK) 
+inner join #tmp_rc_1 on #tmp_rc_1.c__IntervalID = cui.id_interval 
+inner join t_usage_cycle uc WITH(NOLOCK) on cui.id_usage_cycle = uc.id_usage_cycle
+inner join t_usage_interval pui WITH(NOLOCK) ON pui.dt_end = dbo.SubtractSecond( cui.dt_start ) AND pui.id_usage_cycle = cui.id_usage_cycle
+select @do_credit = (CASE WHEN ISNULL(rei.id_arg_interval, 0) = 0 THEN 0 
+ELSE 
+CASE WHEN (rr.tx_type = 'Execute' AND rei.tx_status = 'Succeeded') THEN 1 ELSE 0 END 
+END)
+from t_recevent re
+left outer join t_recevent_inst rei on re.id_event = rei.id_event and rei.id_arg_interval = @prev_interval
+left outer join t_recevent_run rr on rr.id_instance = rei.id_instance 
+where 1=1
+and re.dt_deactivated is null 
+and re.tx_name = 'RecurringCharges'
+and rr.id_run = ( 
+select MAX(rr.id_run)
+from t_recevent re
+left outer join t_recevent_inst rei on re.id_event = rei.id_event and rei.id_arg_interval = @prev_interval
+left outer join t_recevent_run rr on rr.id_instance = rei.id_instance 
+where 1=1
+and re.dt_deactivated is null 
+and re.tx_name = 'RecurringCharges'
+)
+
+    IF @do_credit = 0
+    BEGIN
+        delete rcred 
+        from #tmp_rc_1 rcred
+        inner join t_usage_interval ui on ui.id_interval = @cur_interval and rcred.c_BillingIntervalStart = ui.dt_start
+    END;
 	SELECT *,NEWID() AS idSourceSess INTO #tmp_rc FROM #tmp_rc_1;
 --If no charges to meter, return immediately
     IF (NOT EXISTS (SELECT 1 FROM #tmp_rc)) RETURN;

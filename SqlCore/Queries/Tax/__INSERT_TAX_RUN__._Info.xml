@@ -41,6 +41,12 @@
             <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>
         </Parameter>
+		<Parameter>
+            <Name>IS_AUDITED</Name>
+            <DataType>string</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <Description></Description>
+        </Parameter>
     </Parameters>
     <Description></Description>
     <ConversionAudit>

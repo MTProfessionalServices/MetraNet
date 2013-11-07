@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Query>
-    <Action>StoredProcedure</Action>
+    <Action>CreateFunction</Action>
     <Implementations>
-        <Implementation>SqlServer</Implementation>        
+        <Implementation>SqlServer</Implementation>		
     </Implementations>
     <Schemas>
         <Schema>NetMeter</Schema>
@@ -10,8 +10,14 @@
     <InstallTime>PreSync</InstallTime>
     <Parameters>
         <Parameter>
-            <Name>enum_string</Name>
-            <DataType>unknown</DataType>
+            <Name>EBCRCycleType</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>OtherCycleType</Name>
+            <DataType>int32</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
             <Description></Description>
         </Parameter>
@@ -20,7 +26,6 @@
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
         <CommonQuerySourceFile></CommonQuerySourceFile>
-        <SqlServerQuerySourceFile>R:\Config\Queries\DBInstall\Queries.xml</SqlServerQuerySourceFile>
-        <OracleQuerySourceFile></OracleQuerySourceFile>
+        <SqlServerQuerySourceFile>R:\Config\Queries\DBInstall\ProductCatalog\Queries.xml</SqlServerQuerySourceFile>        
     </ConversionAudit>
 </Query>

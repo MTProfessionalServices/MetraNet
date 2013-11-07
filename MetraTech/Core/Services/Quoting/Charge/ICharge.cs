@@ -1,4 +1,4 @@
-﻿// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 // <copyright file="ICharge.cs" company="MetraTech">
 // **************************************************************************
 // Copyright 2011 by MetraTech
@@ -23,10 +23,9 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using MetraTech.DataAccess;
 using MetraTech.Domain.Quoting;
 
-namespace MetraTech.Quoting.Charge
+namespace MetraTech.Core.Services.Quoting.Charge
 {
     /// <summary>
     /// Chrages for Quote
@@ -41,11 +40,10 @@ namespace MetraTech.Quoting.Charge
       /// <summary>
       /// Adds Chrages by <see cref="MetraTech.Domain.Quoting.QuoteRequest"/> in DataBase and save result to existing <see cref="MetraTech.Domain.Quoting.QuoteResponse"/>
       /// </summary>
-      /// <param name="transacConnection">uses connection to add charges. The connection should be in transaction scope, to have posibility to revert changes</param>
       /// <param name="quoteRequest">Initial state of Quote</param>
       /// <param name="batchId">generated bathc id for the charges</param>
       /// <param name="usageInterval">current usage interval</param>
       /// <returns>Metadata about added charges</returns>
-      ChargeData Add(IMTServicedConnection transacConnection, QuoteRequest quoteRequest, string batchId, int usageInterval);
+      ChargeData Add(QuoteRequest quoteRequest, string batchId, int usageInterval);
     }
 }

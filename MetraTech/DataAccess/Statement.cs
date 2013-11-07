@@ -274,12 +274,25 @@ namespace MetraTech.DataAccess
 
     public override string FilterClause(DBType db)
     {
-      string propertyName =
-          db == DBType.Oracle && m_PropertyName != null ?
-          string.Format("{0}(\"{1}\")", Operation == OperationType.In ? string.Empty : "lower", m_PropertyName.ToUpper()) :
-          m_PropertyName;
-
-      string clause = string.Format("{0} {1} {2}", propertyName, FormatOperation(), FormatValue(db));
+      string propertyName;
+      string propertyValue;
+      if ((m_Value.GetType().ToString() == "System.String") || (m_Value.GetType().ToString() == "System.Boolean"))
+      {
+        propertyName =
+          db == DBType.Oracle
+            ? string.Format("{0}({1})", Operation == OperationType.In ? string.Empty : "upper", m_PropertyName)
+            : m_PropertyName;
+        propertyValue =
+          db == DBType.Oracle
+            ? string.Format("{0}({1})", Operation == OperationType.In ? string.Empty : "upper", FormatValue(db))
+            : FormatValue(db);
+      }
+      else
+      {
+        propertyName = m_PropertyName;
+        propertyValue = FormatValue(db);
+      }
+      string clause = string.Format("{0} {1} {2}", propertyName, FormatOperation(), propertyValue);
 
       return clause;
     }
@@ -336,35 +349,30 @@ namespace MetraTech.DataAccess
       // IN operator processing
       if (m_OperationType == OperationType.In)
       {
-          retval = string.Format("({0})", m_Value != null ? m_Value : "null");
+          retval = string.Format("({0})", m_Value ?? "null");
       }
       else if (m_Value != null) // other operators
       {
         switch (m_Value.GetType().ToString())
         {
+          case "System.boolean":
           case "System.String":
             retval = string.Format("'{0}'", m_Value.ToString().Replace("'", "''"));
             if (db == DBType.Oracle)
             {
-              retval = retval.ToLower();
+              retval = retval.ToUpper();
             }
             break;
           case "System.Time":
-          case "System.boolean":
             retval = string.Format("'{0}'", m_Value.ToString().Replace("'","''"));
             break;
           case "System.DateTime":
-            if (db == DBType.Oracle)
-            {
-              retval = string.Format("TO_DATE('{0}', 'MM/DD/YYYY HH:MI:SS AM')", m_Value.ToString());
-            }
-            else
-            {
-              retval = string.Format("'{0}'", m_Value.ToString().Replace("'", "''"));
-            }
+            retval = db == DBType.Oracle 
+              ? string.Format("TO_DATE('{0}', 'MM/DD/YYYY HH:MI:SS AM')", m_Value) 
+              : string.Format("'{0}'", m_Value.ToString().Replace("'", "''"));
             break;
           default:
-            retval = string.Format("{0}", m_Value.ToString());
+            retval = string.Format("{0}", m_Value);
             break;
         }
       }
@@ -515,8 +523,6 @@ namespace MetraTech.DataAccess
     {
       IMTDataReader ret = null;
 
-      OnBeforeExecute();
-
       //Guid tblid = Guid.NewGuid();
         
       //string tmpTable = string.Format("{0}_{1}", TEMP_TABLE_BASE, Math.Abs(tblid.ToString("N").GetHashCode()));
@@ -572,6 +578,8 @@ namespace MetraTech.DataAccess
         oraParam.ParameterName = "Rows";
         Command.Parameters.Add(oraParam);
       }
+
+      OnBeforeExecute();
 
       var performanceStopWatch = new PerformanceStopWatch();
       performanceStopWatch.Start();
@@ -777,6 +785,15 @@ namespace MetraTech.DataAccess
             {
                 param.Value = MTEmptyString.Value;
             }
+			else if (Command is MTOracleCommand &&
+							(type == MTParameterType.String ||
+							 type == MTParameterType.WideString ||
+							 type == MTParameterType.NText ||
+							 type == MTParameterType.Text) &&
+							 value.ToString() != "")
+			{
+				param.Value = ParseOutODBCEscapes(value.ToString());
+			}
 			else
                 param.Value = value;
 
@@ -917,8 +934,37 @@ namespace MetraTech.DataAccess
         {
             Dispose();
 	}
-	}
+	
+	private string ParseOutODBCEscapes(string source)
+        {
+          // timestamp escapes: {ts '...' }
+          Regex tsmatcher = new Regex(@"(\{ts\s[0-9\-\:\.\s\']+})");
+          Match m = tsmatcher.Match(source);
+          while (m.Success)
+          {
+            string val = m.Value;
+            int start = m.Index;
+            int length = m.Length;
+            string todate = val.Replace("{ts ", "to_timestamp(");
+            todate = todate.Replace("}", ", 'YYYY/MM/DD HH24:MI:SS.FF')");
+            source = source.Replace(val, todate);
+            m = m.NextMatch();
+          }
 
+          // ifnull function escapes: {fn ifnull(...)}
+          // (now supports nesting)
+          string pattern = @"\{\s*fn\s+ifnull\s*([^\{^\}]*)\s*\}";
+          while (Regex.IsMatch(source, pattern, RegexOptions.IgnoreCase))
+          {
+            source = Regex.Replace(source,
+              pattern,	// match: {fn ifnull(...)}
+              @"nvl$1",	// replace with: nvl(...)
+              RegexOptions.IgnoreCase);	// ignore case
+          }
+
+          return source;
+        }
+	}
 	/// <remarks>
 	/// A prepared statement represents a parameterized SQL statement.
 	/// These statements can have any number of positional parameters

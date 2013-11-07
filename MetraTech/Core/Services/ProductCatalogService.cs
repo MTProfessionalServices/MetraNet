@@ -3716,7 +3716,7 @@ namespace MetraTech.Core.Services
                         case "ratingtype":
                           ratingType = templateReader.GetInt32(i); ;
                           break;
-                        case "integral":
+                        case "integerunitvalue":
                           bIntegral = templateReader.GetBoolean(i);
                           break;
                         case "maxunitvalue":

@@ -1,10 +1,10 @@
 using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Reflection;
 using Microsoft.Win32;
-
 using System.Xml;
 using System.Xml.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -13,8 +13,6 @@ using System.Globalization;
 using System.Web;
 using System.Collections;
 using System.ComponentModel;
-
-using MetraTech;
 using MetraTech.DataAccess;
 using MetraTech.Interop.Rowset;
 using MetraTech.DomainModel.Enums;
@@ -595,12 +593,39 @@ namespace MetraTech.UI.Tools
     /// Retrieve a property value from an object dynamically. This is a simple version
     /// that uses Reflection calls directly. It doesn't support indexers.
     /// </summary>
-    /// <param name="Object">Object to make the call on</param>
-    /// <param name="Property">Property to retrieve</param>
+    /// <param name="obj">Object to make the call on</param>
+    /// <param name="propertyName">Property to retrieve</param>
     /// <returns>Object - cast to proper type</returns>
-    public static object GetProperty(object Object, string Property)
+    public static object GetProperty(object obj, string propertyName)
     {
-      return Object.GetType().GetProperty(Property, Utils.MemberAccess).GetValue(Object, null);
+      return obj.GetType().GetProperty(propertyName, MemberAccess).GetValue(obj, null);
+    }
+    
+    /// <summary>
+    /// Retrieve a property info from an object dynamically.
+    /// </summary>
+    /// <param name="obj">object instance</param>
+    /// <param name="propertyName">property name</param>
+    /// <returns></returns>
+    public static PropertyInfo GetPropertyInfo(object obj, string propertyName)
+    {
+      if (obj == null || string.IsNullOrEmpty(propertyName))
+        return null;
+
+      var list = obj.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.SetProperty);
+      return list.FirstOrDefault(propertyInfo => string.Compare(propertyInfo.Name, propertyName, StringComparison.OrdinalIgnoreCase) == 0);
+    }
+
+    /// <summary>
+    /// Check the existence of object property  dynamically.
+    /// </summary>
+    /// <param name="Object">Object to make the call on</param>
+    /// <param name="Property">Property to find</param>
+    /// <returns>return true if the property exists</returns>
+    public static bool CheckingExistenceOfProperty (object Object, string Property)
+    {
+      var objProperties = Object.GetType().GetProperties();
+      return objProperties.Any(t => t.Name.Equals(Property, StringComparison.OrdinalIgnoreCase));
     }
 
     /// <summary>
@@ -2144,7 +2169,7 @@ namespace MetraTech.UI.Tools
     /// </summary>
     /// <param name="M"></param>
     /// <returns></returns>
-    private string ExpandUrlsRegExEvaluator(System.Text.RegularExpressions.Match M)
+    private string ExpandUrlsRegExEvaluator(Match M)
     {
       string Href = M.Groups[0].Value;
       string Text = Href;
@@ -2164,9 +2189,5 @@ namespace MetraTech.UI.Tools
       return "<a href='" + Href + "'" + Targ +
               ">" + Text + "</a>";
     }
-
   }
 }
-
-
-

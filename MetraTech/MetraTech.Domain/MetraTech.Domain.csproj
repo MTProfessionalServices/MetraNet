@@ -78,7 +78,6 @@
     <Compile Include="DataAccess\EntityTypeConfigurations\EntityConfiguration.cs" />
     <Compile Include="DataAccess\EntityTypeConfigurations\NotificationConfigurationConfiguration.cs" />
     <Compile Include="DataAccess\EntityTypeConfigurations\NotificationEndpointConfiguration.cs" />
-    <Compile Include="DataAccess\EntityTypeConfigurations\QuoteIndividualPriceConfiguration.cs" />
     <Compile Include="DataAccess\IMetraNetContext.cs" />
     <Compile Include="DataAccess\SerializationHelper.cs" />
     <Compile Include="Events\ChangeNotificationEvent.cs" />
@@ -121,7 +120,6 @@
     <Compile Include="Quoting\ChargeData.cs" />
     <Compile Include="Quoting\ChargeType.cs" />
     <Compile Include="Quoting\IndividualPrice.cs" />
-    <Compile Include="Quoting\QuoteIndividualPrice.cs" />
     <Compile Include="Quoting\QuoteLogRecord.cs" />
     <Compile Include="Quoting\QuoteRequest.cs" />
     <Compile Include="Quoting\QuoteResponse.cs" />

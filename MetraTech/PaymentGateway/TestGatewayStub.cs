@@ -167,6 +167,12 @@ namespace MetraTech.MetraPay.PaymentGateway
         FailureCheck(timeout);
     }
 
+    public void UpdatePaymentMethod(MetraPaymentMethod paymentMethod, string currency)
+    {
+      if (paymentMethod == null) throw new ArgumentNullException("paymentMethod");
+      if (string.IsNullOrEmpty(currency)) throw new ArgumentNullException("currency");
+    }
+
     private void FailureCheck(double timeout)
     {
       if ((m_FailureInterval != 0) || (m_TimeoutInterval != 0) || (m_SleepTooLongInterval != 0))

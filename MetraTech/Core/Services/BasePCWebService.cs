@@ -149,7 +149,7 @@ namespace MetraTech.Core.Services
 
             foreach (PropertyInfo prop in props)
             {
-                if (instance.IsDirty(prop))
+                if (instance.IsDirty(prop) || prop.GetValue(instance, null) == null)
                 {
                     object instValue = prop.GetValue(instance, null);
 

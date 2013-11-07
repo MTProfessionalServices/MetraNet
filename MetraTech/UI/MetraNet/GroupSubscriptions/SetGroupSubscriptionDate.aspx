@@ -33,7 +33,12 @@
          Ext.get("ctl00_ContentPlaceHolder1_MTBillingCycleControl1").dom.setAttribute('disabled' , false);
       }
 
- }
+  }
+  function CheckEndDate() 
+  {
+    var endDate = Ext.getCmp("ctl00_ContentPlaceHolder1_tbSubscriptionSpan_EndDate");
+    endDate.compareValue = this.value;
+  }
 
   </script>
 

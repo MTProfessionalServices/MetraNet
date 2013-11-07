@@ -85,7 +85,7 @@ STDMETHODIMP CMTCounterParamWriter::Create(IMTSessionContext *apCtxt, long alCou
       INPUT_PARAM, val);
     
     val = CounterParamPtr->Value;
-    if((V_VT(&val) == VT_NULL) || (V_VT(&val) == VT_EMPTY))
+    if((V_VT(&val) == VT_NULL) || (V_VT(&val) == VT_EMPTY) ||(_bstr_t(&val).length() == 0) )
 			MT_THROW_COM_ERROR("Counter Parameter value not set");
 
     rs->AddInputParameterToStoredProc (L"nm_counter_value", MTTYPE_VARCHAR, 

@@ -2924,8 +2924,6 @@ namespace MetraTech.Core.Services
 
         private void PopulateProdViewSpecificData(IMTDataReader reader, BaseProductView prodView)
         {
-            string columnName;
-
             foreach (PropertyInfo prop in prodView.GetType().GetProperties())
             {
                 object[] attribs = prop.GetCustomAttributes(typeof(MTProductViewMetadataAttribute), false);
@@ -2934,17 +2932,20 @@ namespace MetraTech.Core.Services
                     MTProductViewMetadataAttribute pvattrib = (MTProductViewMetadataAttribute)attribs[0];
                     if (pvattrib.UserVisible)
                     {
-                        columnName = String.Format("{0}", pvattrib.ColumnName);
-                        //prodView.SetValue(prop, reader.GetValue(columnName));
-                        //prodView.SetValue(prop, BasePCWebService.GetValue(columnName, prop.PropertyType, reader));
-                        prop.SetValue(prodView, BasePCWebService.GetValue(columnName, prop.PropertyType, reader),
-                                      null);
-
+                        string columnName = String.Format("{0}", pvattrib.ColumnName);
+                        var objTemp = BasePCWebService.GetValue(columnName, prop.PropertyType, reader);
+                        if (prop.PropertyType == typeof(Double) || prop.PropertyType == typeof(double?))
+                        {
+                            var tempDouble = Convert.ToDouble(objTemp);
+                            prop.SetValue(prodView, tempDouble, null);
+                        }
+                        else
+                        {
+                            prop.SetValue(prodView, objTemp, null);
+                        }
                     }
                 }
-
             }
-
         }
 
         private TaxAdjustments PopulateTaxAdjustments(IMTDataReader reader, string currency, LanguageCode languageID, TaxType taxType, AtomicOrCompoundType atomicOrCompType)
@@ -3962,7 +3963,7 @@ namespace MetraTech.Core.Services
                             {
                                 int descId = prodViewProp.DescriptionID;
                                 fromClause += string.Format(
-                                    "\n{0} t_description desc{1} ON desc{1}.id_desc = pv.{2} and desc{1}.id_lang_code = {3}langCode",
+                                    "\n{0} t_description desc{1} ON desc{1}.id_desc = pv.{2} and desc{1}.id_lang_code = {3}langCode and pv.{2} > 0",
                                     (prodViewProp.required ? "INNER JOIN" : "LEFT OUTER JOIN"),  // ESR-6199
                                     descId, 
                                     prodViewProp.ColumnName, 

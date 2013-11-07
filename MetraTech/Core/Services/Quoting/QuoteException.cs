@@ -1,19 +1,15 @@
-﻿// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 // <copyright file="QuoteException.cs" company="Microsoft">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System;
 using MetraTech.Domain.Quoting;
 
-namespace MetraTech.Quoting
+namespace MetraTech.Core.Services.Quoting
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
-    /// <summary>
+  /// <summary>
     /// Exception for quoting functionaliy
     /// </summary>
     public class QuoteException : Exception

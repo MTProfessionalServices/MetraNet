@@ -12,7 +12,7 @@ namespace MetraTech.Domain
     using System;
 
     /// <summary>
-    /// Pair key value to use instaed od Dictionary for Serialization
+    /// Pair key value to use instead of Dictionary for Serialization
     /// </summary>
     [Serializable]
     public class PairKeyValueSerializable<TKey, TVal>

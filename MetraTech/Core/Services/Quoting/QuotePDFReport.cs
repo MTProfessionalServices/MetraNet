@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using MetraTech.Reports;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using MetraTech.Interop.MTServerAccess;
+using MetraTech.Reports;
 
-namespace MetraTech.Quoting
+namespace MetraTech.Core.Services.Quoting
 {
   /// <summary>
   /// Class representing the reporting configuration needed by quoting
@@ -120,8 +120,11 @@ namespace MetraTech.Quoting
         reportManager.LoggerObject = new Logger("[QuotingImplementation]");
         //reportManager.RecurringEventRunContext = null;
 
+        var apsDataSource = ReportConfiguration.GetInstance().APSDataSource;
+        
         reportManager.LoggerObject.LogDebug("CreatePDFReport: Connecting to reporting server {0}", configuration.ReportingServerName);
-        reportManager.LoginToReportingServer(configuration.ReportingServerName, configuration.ReportingServerUsername, configuration.ReportingServerPassword);
+        reportManager.LoginToReportingServer(configuration.ReportingServerName, configuration.ReportingServerUsername,
+          configuration.ReportingServerPassword, apsDataSource);
 
         //Need to tell the reporting server the details of the database it should connect to/run the reports against
         reportManager.LoggerObject.LogDebug("CreatePDFReport: Setting the database server for processing report {0} {1}", configuration.ReportingDatabaseServerName, configuration.ReportingDatabaseName);

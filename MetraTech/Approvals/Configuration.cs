@@ -189,7 +189,7 @@ namespace MetraTech.Approvals
                                            "MetraTech.Account.ClientProxies.AccountCreationClient, MetraTech.Account.ClientProxies",
                                          EndPointName = "WSHttpBinding_IAccountCreation",
                                          ConfigFileLocation = @"extensions\Account\bin\MetraTech.Account.config",
-                                         Name = "UpdateAccountView"
+                                         Name = "UpdateAccount"
                                        };
       results.Add(accountUpdate.Name, accountUpdate);
 

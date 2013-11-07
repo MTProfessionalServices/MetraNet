@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Xml.Linq;
 using MetraTech.DataAccess;
 using MetraTech.Interop.QueryAdapter;
 
-namespace MetraTech.Quoting
+namespace MetraTech.Core.Services.Quoting
 {
   public static class QuotingHelper
   {

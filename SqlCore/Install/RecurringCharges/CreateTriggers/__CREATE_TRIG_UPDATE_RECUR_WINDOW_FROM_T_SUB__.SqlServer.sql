@@ -64,7 +64,11 @@ declare @temp datetime
               AND sub.id_group IS NULL
               AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)
 
-   select @temp = max(tsh.tt_start) from t_sub_history tsh join inserted sub on tsh.id_acc = sub.id_acc and tsh.id_sub = sub.id_sub;
+   select @temp = max(tsh.tt_start) from t_sub_history tsh 
+   join inserted sub 
+   on tsh.id_acc = sub.id_acc and tsh.id_sub = sub.id_sub;
+   
+   /* adds charges to METER tables */
    EXEC MeterInitialFromRecurWindow @currentDate = @temp;
    EXEC MeterCreditFromRecurWindow @currentDate = @temp;  
   

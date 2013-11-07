@@ -1,4 +1,3 @@
-
 create or replace TRIGGER trig_recur_window_recur_map 
   AFTER INSERT OR UPDATE OR DELETE ON t_gsub_recur_map
     REFERENCING NEW AS new OLD AS OLD FOR EACH row 
@@ -26,7 +25,7 @@ create or replace TRIGGER trig_recur_window_recur_map
               where sub.id_group = :new.id_group
       ) ;
 	  
-    insert into t_recur_window
+    insert into TMP_NEWRW
     SELECT sub.vt_start c_CycleEffectiveDate,
       sub.vt_start c_CycleEffectiveStart,
       sub.vt_end c_CycleEffectiveEnd,
@@ -47,7 +46,8 @@ create or replace TRIGGER trig_recur_window_recur_map
       metratime(1,'RC') c_BilledThroughDate,
       -1 c_LastIdRun,
       :new.vt_start c_MembershipStart,
-      :new.vt_end c_MembershipEnd
+      :new.vt_end c_MembershipEnd,
+	   AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.vt_end, sub.dt_crt) c__IsAllowGenChargeByTrigger
       from t_sub sub INNER JOIN t_payment_redirection pay
          ON pay.id_payee = :new.id_acc AND pay.vt_start < sub.vt_end
           AND pay.vt_end > sub.vt_start
@@ -72,9 +72,34 @@ create or replace TRIGGER trig_recur_window_recur_map
 	  
   END IF;
   
-  /* TODO: Looks like call of two sp can be commited out due to tmp_newrw is empty*/
+  /* adds charges to METER tables */
   MeterInitialFromRecurWindow;
   MeterCreditFromRecurWindow;
+  
+  INSERT INTO t_recur_window
+    SELECT c_CycleEffectiveDate,
+    c_CycleEffectiveStart,
+    c_CycleEffectiveEnd,
+    c_SubscriptionStart,
+    c_SubscriptionEnd,
+    c_Advance,
+    c__AccountID,
+    c__PayingAccount,
+    c__PriceableItemInstanceID,
+    c__PriceableItemTemplateID,
+    c__ProductOfferingID,
+    c_PayerStart,
+    c_PayerEnd,
+    c__SubscriptionID,
+    c_UnitValueStart,
+    c_UnitValueEnd,
+    c_UnitValue,
+    c_BilledThroughDate,
+    c_LastIdRun,
+    c_MembershipStart,
+    c_MembershipEnd
+    FROM tmp_newrw;
+  
   UPDATE t_recur_window w1
     SET c_CycleEffectiveEnd =
     (SELECT MIN(NVL(w2.c_CycleEffectiveDate,w2.c_SubscriptionEnd))
@@ -98,5 +123,3 @@ create or replace TRIGGER trig_recur_window_recur_map
       AND w2.c_CycleEffectiveDate > w1.c_CycleEffectiveDate
   ) ;
 END;
-
-  

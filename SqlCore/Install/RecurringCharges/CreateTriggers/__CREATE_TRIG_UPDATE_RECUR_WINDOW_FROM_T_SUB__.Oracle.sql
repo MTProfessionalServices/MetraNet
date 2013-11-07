@@ -66,9 +66,12 @@ create or replace TRIGGER trig_recur_window_sub AFTER INSERT OR UPDATE OR DELETE
         )
       AND :new.id_group IS NULL
       AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL);  
- 	MeterInitialFromRecurWindow;
+ 	
+	 /* adds charges to METER tables */
+	MeterInitialFromRecurWindow;
     MeterCreditFromRecurWindow;  
-    INSERT INTO t_recur_window
+    
+	INSERT INTO t_recur_window
     SELECT c_CycleEffectiveDate,
     c_CycleEffectiveStart,
     c_CycleEffectiveEnd,

@@ -8,6 +8,7 @@
 			vt_start datetime not null,
 			vt_end datetime not null,
 			id_group int null,
+			CONSTRAINT pk_t_sub  PRIMARY KEY(id_sub),
 			CONSTRAINT date_sub_check1 check ( vt_start <= vt_end)
 			)
-				CREATE CLUSTERED INDEX idx_t_sub ON t_sub (id_sub)
+				

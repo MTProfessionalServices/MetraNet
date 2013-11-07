@@ -2,13 +2,15 @@
 <Query>
     <Action>Unknown</Action>
     <Implementations>
-        <Implementation>Common</Implementation>
+        <Implementation>SqlServer</Implementation>
+        <Implementation>Oracle</Implementation>
     </Implementations>
     <Parameters>
         <Parameter>
             <Name>ACCOUNTS</Name>
-            <DataType>string</DataType>
+            <DataType>sqlsubstitution</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>123,137</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
         <Parameter>
@@ -17,10 +19,11 @@
             <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>
         </Parameter>
-		<Parameter>
-            <Name>BATCHIDS</Name>
-            <DataType>string</DataType>
+        <Parameter>
+            <Name>POS</Name>
+            <DataType>sqlsubstitution</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>123,137</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
     </Parameters>

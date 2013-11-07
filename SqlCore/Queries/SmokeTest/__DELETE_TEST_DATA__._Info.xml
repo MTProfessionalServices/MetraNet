@@ -1,10 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Query>
-    <Action>Unknown</Action>
+    <Action>Snippet</Action>
     <Implementations>
         <Implementation>SqlServer</Implementation>
     </Implementations>
-    <Parameters></Parameters>
+    <Parameters>
+        <Parameter>
+            <Name>PART_TABLE</Name>
+            <DataType>string</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>TABLE_WITH_TEST_IDSESS</Name>
+            <DataType>string</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <Description></Description>
+        </Parameter>
+    </Parameters>
     <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>

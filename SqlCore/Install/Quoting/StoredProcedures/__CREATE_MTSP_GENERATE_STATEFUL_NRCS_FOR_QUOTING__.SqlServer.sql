@@ -52,7 +52,7 @@ CREATE TABLE #TMP_NRC
 SELECT * INTO #TMP_NRC_ACCOUNTS_FOR_RUN FROM(SELECT value as id_acc FROM CSVToInt(@v_id_accounts)) A;
 SELECT * INTO #TMP_RC_POID_FOR_RUN FROM(SELECT value as id_po FROM CSVToInt(@v_id_poid)) A;
 
-SELECT @tx_batch = cast(N'' as xml).value('xs:base64Binary(sql:variable("@v_id_batch"))', 'binary(16)');
+SELECT @tx_batch = cast(N'' as xml).value('xs:hexBinary(sql:variable("@v_id_batch"))', 'binary(16)');
 
 IF @v_is_group_sub > 0
 BEGIN

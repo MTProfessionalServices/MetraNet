@@ -130,9 +130,9 @@ namespace MetraTech.Pipeline.ReRun
       return id;
     }
 
-    public void Identify(mb.IMTSessionContext context, int accID, int rerunID, mb.IMTIdentificationFilter filter, string comment)
+    public void Identify(mb.IMTSessionContext context, int accId, int rerunId, mb.IMTIdentificationFilter filter, string comment)
     {
-      AddHistoryRow(accID, rerunID, comment, "START IDENTIFY");
+      AddHistoryRow(accId, rerunId, comment, "START IDENTIFY");
       try
       {
         //remember, identify can be called multiple times for a given id_rerun
@@ -143,9 +143,9 @@ namespace MetraTech.Pipeline.ReRun
         var lookAtFailedData = filter.IsFailedTransactionMatchPossible();
         var sessionIdsSpecified = filter.SessionIDs.Count > 0;
 
-        var rerunTableName = GetTableName(rerunID);
-        var sourceTableName = GetSourceTableName(rerunID);
-        var uidTableName = GetUIDTableName(rerunID);
+        var rerunTableName = GetTableName(rerunId);
+        var sourceTableName = GetSourceTableName(rerunId);
+        var uidTableName = GetUIDTableName(rerunId);
 
         var identifyQueryGenerator = new DBIdentify(isOracle);
 
@@ -231,19 +231,19 @@ namespace MetraTech.Pipeline.ReRun
           }
         }
         mAuditor.FireEvent((int)MTAuditEvent.AUDITEVENT_IDENTIFY_SUCCESS,
-                           accID,
+                           accId,
                            (int)MTAuditEntityType.AUDITENTITY_TYPE_BILLINGRERUN,
-                           rerunID,
+                           rerunId,
                            "Rerun Identify Succeeded");
-        AddHistoryRow(accID, rerunID, comment, "END IDENTIFY");
+        AddHistoryRow(accId, rerunId, comment, "END IDENTIFY");
       }
       catch (Exception ex)
       {
         mLogger.LogError(ex.ToString());
         mAuditor.FireFailureEvent((int)MTAuditEvent.AUDITEVENT_IDENTIFY_FAILED,
-                                  accID,
+                                  accId,
                                   (int)MTAuditEntityType.AUDITENTITY_TYPE_BILLINGRERUN,
-                                  rerunID,
+                                  rerunId,
                                   "Rerun Identify Failed. " + ex.Message);
         throw;
       }

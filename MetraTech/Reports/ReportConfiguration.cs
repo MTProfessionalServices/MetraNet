@@ -40,6 +40,7 @@ namespace MetraTech.Reports
 		private string mAPSName;
 		private string mAPSUser;
 		private string mAPSPassword;
+		private string mAPSDataSource;
 		private int mAPSSecure;
 		private int mAPSPort;
         // g. cieplik 8/25/2009 CORE-1472 use mMPSDatabaseName to overload with SI_NAME
@@ -82,6 +83,7 @@ namespace MetraTech.Reports
 		public string APSName			{ get { return mAPSName; }}
 		public string APSUser			{ get { return mAPSUser; }}
 		public string APSPassword		{ get { return mAPSPassword; }}
+		public string APSDataSource     { get { return mAPSDataSource; } }
 		public int APSSecure			{ get { return mAPSSecure; }}
 		public int APSPort				{ get { return mAPSPort; }}
         // g. cieplik 8/25/2009 CORE-1472 use mMPSDatabaseName to overload with SI_NAME
@@ -382,6 +384,7 @@ namespace MetraTech.Reports
 				mAPSName = Aps.ServerName;
 				mAPSUser = Aps.UserName;
 				mAPSPassword = Aps.Password;
+				mAPSDataSource = Aps.DataSource;
 				mAPSSecure = Aps.Secure;
 				mAPSPort = Aps.PortNumber;
                 // g. cieplik 8/25/2009 CORE-1472 use mMPSDatabaseName to overload with SI_NAME

@@ -133,11 +133,12 @@ namespace MetraTech.UI.Controls
             }
              
             monthly.store.loadData(qmData);
- 
+/* 
             if(!bFromPageLoad)
             {
               oldValue = qmData[0][0];
             }
+*/
             monthly.setValue(oldValue);                  
           }
 

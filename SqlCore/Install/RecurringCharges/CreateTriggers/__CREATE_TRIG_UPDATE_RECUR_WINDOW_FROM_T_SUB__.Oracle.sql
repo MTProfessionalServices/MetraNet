@@ -1,14 +1,20 @@
-create or replace TRIGGER trig_recur_window_sub AFTER INSERT OR UPDATE OR DELETE 
-    ON t_sub 
-    REFERENCING NEW AS new old as old
-    FOR EACH row 
+CREATE OR REPLACE TRIGGER trig_recur_window_sub AFTER INSERT OR UPDATE OR DELETE
+ON t_sub
+REFERENCING NEW AS new old as old
+FOR EACH row
+DECLARE currentDate DATE;
+BEGIN
+	IF deleting THEN
 	BEGIN
-	  IF deleting THEN
+		/* dt_crt is nullable. Use SystemDate as workaround not disable possibility of fail on production */
+        SELECT NVL(:old.dt_crt, metratime(1,'RC')) INTO currentDate FROM dual;
         DELETE FROM t_recur_window
            WHERE c__SubscriptionID   = :old.id_sub;
-    
-    ELSE 
-	/*inserting or deleting*/    
+    END;
+    ELSE
+	/*inserting or deleting*/
+		/* dt_crt is nullable. Use SystemDate as workaround not disable possibility of fail on production */
+		SELECT NVL(:new.dt_crt, metratime(1,'RC')) INTO currentDate FROM dual;
       UPDATE t_recur_window 
             SET c_SubscriptionStart = :new.vt_start, c_SubscriptionEnd     = :new.vt_end
             WHERE EXISTS
@@ -67,10 +73,10 @@ create or replace TRIGGER trig_recur_window_sub AFTER INSERT OR UPDATE OR DELETE
       AND :new.id_group IS NULL
       AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL);  
  	
-	 /* adds charges to METER tables */
-	MeterInitialFromRecurWindow;
-    MeterCreditFromRecurWindow;  
-    
+	/* adds charges to METER tables */
+	MeterInitialFromRecurWindow(currentDate);
+	MeterCreditFromRecurWindow(currentDate);
+
 	INSERT INTO t_recur_window
     SELECT c_CycleEffectiveDate,
     c_CycleEffectiveStart,
@@ -94,6 +100,5 @@ create or replace TRIGGER trig_recur_window_sub AFTER INSERT OR UPDATE OR DELETE
     c_MembershipStart,
     c_MembershipEnd
     FROM tmp_newrw;
-  END IF;
-
+	END IF;
 END;

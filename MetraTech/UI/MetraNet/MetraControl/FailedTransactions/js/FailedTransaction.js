@@ -125,7 +125,22 @@ function onEditFailedTransaction(idFailedTransaction, title, idFailureCompoundSe
     ? "/MetraNet/TicketToMOMNoMenu.aspx?Title=Edit Failed Transaction&URL=/mom/default/dialog/FailedTransactionEditCompoundFrame.asp?IdFailure=" + idFailedTransaction + "**FailureCompoundSessionId=" + idFailureCompoundSession
     : "/MetraNet/TicketToMOMNoMenu.aspx?Title=Edit Failed Transaction&URL=/mom/default/dialog/FailedTransactionEditAtomic.asp?IdFailure=" + idFailedTransaction + "**MDMReload=TRUE**FailureCompoundSessionId=" + idFailureCompoundSession;
   var grid = window.Ext.getCmp(gridId);
-  ShowPopup(grid, title, page, 1000, 800);
+  ShowWindow(grid, title, page);
+}
+
+function ShowWindow(grid, title, page) {
+  var params = "resizable=yes";
+  var myWin = window.open(page, "updateTransaction", params);
+  myWin.focus();
+  setTimeout(function() {
+    if (myWin.closed) {
+      grid.getSelectionModel().deselectAll(true);
+      grid.store.reload();
+    }
+    else
+      setTimeout(arguments.callee, 10);
+  }, 10);
+  winGridToRefresh = grid; 
 }
 
 function popupStatusChange(ids, respJson, action, grid) {
@@ -161,15 +176,14 @@ function ShowPopup(grid, title, page, width, height) {
   var tpl = new window.Ext.XTemplate(
     '<tpl for=".">',
     '<p>{Title}</p>',
-    '<iframe src="' + page + '" width="100%" height="100%" id="statusUpdate">',
+    '<iframe src="' + page.replace("+", "%2B") + '" width="100%" height="100%" id="statusUpdate">',
     '</tpl>'
   );
 
   winGridToRefresh = grid; //Some of the closing code relys on knowing which grid to refresh
   tpl.overwrite(win.body, { Title: title });
-  //win.body.load({ url: page, scripts: true });
   win.setSize(width, height);
-  win.setPosition(0, 0);
+  win.setPosition(30, 30);
   win.show(this);
 }
 

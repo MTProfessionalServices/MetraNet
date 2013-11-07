@@ -1,5 +1,5 @@
-create trigger [dbo].[trig_update_recur_window_on_t_gsub_recur_map]
-ON [dbo].[t_gsub_recur_map]
+create trigger dbo.trig_update_recur_window_on_t_gsub_recur_map
+ON dbo.t_gsub_recur_map
 for insert, UPDATE, delete
 as 
 begin
@@ -71,10 +71,35 @@ FROM inserted grm
       AND rcr.b_charge_per_participant = 'N'
       AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL);
       select @temp = tt_start from inserted
-      EXEC MeterInitialFromRecurWindow @currentDate = @temp;
-      EXEC MeterCreditFromRecurWindow @currentDate = @temp;
+    
+	/* adds charges to METER tables */
+	EXEC MeterInitialFromRecurWindow @currentDate = @temp;
+    EXEC MeterCreditFromRecurWindow @currentDate = @temp;
 	 
-	 insert into t_recur_window select * from #recur_window_holder; 
+	INSERT INTO t_recur_window    
+	SELECT c_CycleEffectiveDate,
+	c_CycleEffectiveStart,
+	c_CycleEffectiveEnd,
+	c_SubscriptionStart,
+	c_SubscriptionEnd,
+	c_Advance,
+	c__AccountID,
+	c__PayingAccount,
+	c__PriceableItemInstanceID,
+	c__PriceableItemTemplateID,
+	c__ProductOfferingID,
+	c_PayerStart,
+	c_PayerEnd,
+	c__SubscriptionID,
+	c_UnitValueStart,
+	c_UnitValueEnd,
+	c_UnitValue,
+	c_BilledThroughDate,
+	c_LastIdRun,
+	c_MembershipStart,
+	c_MembershipEnd
+	FROM #recur_window_holder;
+	
 /* step 2) update the cycle effective windows */
 UPDATE t_recur_window
  SET c_CycleEffectiveEnd = 

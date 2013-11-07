@@ -1,5 +1,4 @@
-
-	    create trigger trig_update_recur_window_on_t_gsubmember
+create trigger trig_update_recur_window_on_t_gsubmember
 ON t_gsubmember
 for insert, UPDATE, delete
 as 
@@ -57,7 +56,7 @@ WHEN matched AND t_recur_window.c__SubscriptionID = source.id_sub
       , -1 AS c_LastIdRun
       , dbo.mtmindate() AS c_MembershipStart
       , dbo.mtmaxdate() AS c_MembershipEnd
-	  , dbo.AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.vt_end, sub.dt_crt) AS c__IsAllowGenChargeByTrigger
+	  , dbo.AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.vt_end, NULL) AS c__IsAllowGenChargeByTrigger
       into #recur_window_holder
       FROM INSERTED gsm
       INNER JOIN t_sub sub ON sub.id_group = gsm.id_group
@@ -74,11 +73,39 @@ WHEN matched AND t_recur_window.c__SubscriptionID = source.id_sub
 		  and c__PriceableItemTemplateID = plm.id_pi_template)
       AND rcr.b_charge_per_participant = 'Y'
       AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL);
-select @temp = max(tgsh.tt_start) from t_gsubmember_historical tgsh join inserted gsm on tgsh.id_acc = gsm.id_acc and tgsh.id_group = gsm.id_group;
-      EXEC MeterInitialFromRecurWindow @currentDate = @temp;
-      EXEC MeterCreditFromRecurWindow @currentDate = @temp;
 	  
-	   INSERT INTO t_recur_window SELECT * FROM #recur_window_holder;
+	select @temp = max(tgsh.tt_start) from t_gsubmember_historical tgsh 
+	join inserted gsm 
+	on tgsh.id_acc = gsm.id_acc and tgsh.id_group = gsm.id_group;
+	
+	/* adds charges to METER tables */
+    EXEC MeterInitialFromRecurWindow @currentDate = @temp;
+    EXEC MeterCreditFromRecurWindow @currentDate = @temp;
+	  
+	INSERT INTO t_recur_window    
+	SELECT c_CycleEffectiveDate,
+	c_CycleEffectiveStart,
+	c_CycleEffectiveEnd,
+	c_SubscriptionStart,
+	c_SubscriptionEnd,
+	c_Advance,
+	c__AccountID,
+	c__PayingAccount,
+	c__PriceableItemInstanceID,
+	c__PriceableItemTemplateID,
+	c__ProductOfferingID,
+	c_PayerStart,
+	c_PayerEnd,
+	c__SubscriptionID,
+	c_UnitValueStart,
+	c_UnitValueEnd,
+	c_UnitValue,
+	c_BilledThroughDate,
+	c_LastIdRun,
+	c_MembershipStart,
+	c_MembershipEnd
+	FROM #recur_window_holder;
+	
 /* step 2) update the cycle effective windows */
 
 /* sql */

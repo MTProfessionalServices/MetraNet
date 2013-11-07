@@ -32,13 +32,13 @@ IF "%TARGET%"=="skip_pull" (
 IF "%TARGET%"=="full" (
 @echo The most time-consuming process, bit new MetraNet will be fresh. The target will do:&echo.
 @echo - Stop all MetraTech services
-@echo - Remove all binary and source code
+@echo - Remove all binary and source code (includes uncommited changes)
 ) ELSE (
 @echo The current target will do:&echo.
 @echo - Stop all MetraTech services
 )
 
-IF "%TARGET%"=="skip_pull" (
+IF "%TARGET%"=="with_revert" (
 @echo - Revert all uncommitted changes
 )
 
@@ -53,7 +53,7 @@ IF NOT "none%TARGET%"=="none" (
 	)
 )
 @echo - Encripts password
-@echo - Install  MSSQL DB
+@echo - Install MSSQL DB
 @echo.
 pause
 
@@ -149,7 +149,7 @@ cd %DEVDIR%
 rem Installs DB 
 
 IF DEFINED CREATE_SECURE_KEY (
-	call cryptosetup -createkeys	
+	call cryptosetup -createkeys
 )
 call cryptosetup -encryptconfig
 

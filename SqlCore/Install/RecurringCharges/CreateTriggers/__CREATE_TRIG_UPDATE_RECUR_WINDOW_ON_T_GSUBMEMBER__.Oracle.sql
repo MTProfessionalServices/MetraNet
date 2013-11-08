@@ -1,10 +1,11 @@
-CREATE OR REPLACE TRIGGER trg_rec_win_on_t_gsubmember AFTER
+create or replace
+TRIGGER trg_rec_win_on_t_gsubmember AFTER
   INSERT OR
   DELETE OR
   UPDATE ON t_gsubmember REFERENCING NEW AS new OLD AS OLD
-  FOR EACH row 
+  FOR EACH row
   DECLARE currentDate DATE;
-  BEGIN 
+  BEGIN
   IF deleting THEN
   DELETE FROM t_recur_window
   WHERE EXISTS
@@ -19,27 +20,25 @@ CREATE OR REPLACE TRIGGER trg_rec_win_on_t_gsubmember AFTER
         AND t_recur_window.c__accountid      = sub.id_acc
     );
 ELSE
-  /*inserting or updating*/  
+  /*inserting or updating*/
    DELETE FROM tmp_newrw;
    
-   UPDATE t_recur_window trw  
+   UPDATE t_recur_window trw
       SET trw.c_MembershipStart = :new.vt_start,
           trw.c_MembershipEnd = :new.vt_end
-      where exists 
+      where exists
       (SELECT 1
          FROM t_sub ts inner join t_pl_map plm on ts.id_po = plm.id_po
             and plm.id_sub = null and plm.id_paramtable = null
-   where   
+   where
               trw.c__accountid       = :new.id_acc
               AND ts.id_group           = :new.id_group
               AND trw.c__subscriptionid = ts.id_sub
            and trw.c__PriceableItemInstanceID = plm.id_pi_instance
-              AND trw.c__PriceableItemTemplateID = plm.id_pi_template 
+              AND trw.c__PriceableItemTemplateID = plm.id_pi_template
       );
-
-	select currentDate = max(tgsh.tt_start) from t_gsubmember_historical tgsh 
-	where tgsh.id_acc = :new.id_acc 
-		  and tgsh.id_group = :new.id_group;
+	  
+	SELECT metratime(1,'RC') INTO currentDate FROM dual;	
       
   INSERT INTO tmp_newrw
   SELECT
@@ -65,20 +64,20 @@ ELSE
       , dbo.mtmindate() AS c_MembershipStart
       , dbo.mtmaxdate() AS c_MembershipEnd
       , AllowInitialArrersCharge(rcr.b_advance, :new.id_acc, :new.vt_end, currentDate) c__IsAllowGenChargeByTrigger
-      FROM t_sub sub 
+      FROM t_sub sub
       INNER JOIN t_payment_redirection pay ON pay.id_payee = :new.id_acc AND pay.vt_start < sub.vt_end AND pay.vt_end > sub.vt_start AND pay.vt_start < :new.vt_end AND pay.vt_end > :new.vt_start
       INNER JOIN t_pl_map plm ON plm.id_po = sub.id_po AND plm.id_paramtable IS NULL
       INNER JOIN t_recur rcr ON plm.id_pi_instance = rcr.id_prop
       INNER JOIN t_base_props bp ON bp.id_prop = rcr.id_prop
       LEFT OUTER JOIN t_recur_value rv ON rv.id_prop = rcr.id_prop AND sub.id_sub = rv.id_sub AND rv.tt_end = dbo.MTMaxDate() AND rv.vt_start < sub.vt_end AND rv.vt_end > sub.vt_start AND rv.vt_start < pay.vt_end AND rv.vt_end > pay.vt_start AND rv.vt_start < :new.vt_end AND rv.vt_end > :new.vt_start
       WHERE sub.id_group = :new.id_group
-       AND not EXISTS 
-        (SELECT 1 FROM T_RECUR_WINDOW where c__AccountID = :new.id_acc 
+       AND not EXISTS
+        (SELECT 1 FROM T_RECUR_WINDOW where c__AccountID = :new.id_acc
           AND c__SubscriptionID = sub.id_sub
     and c__PriceableItemInstanceID = plm.id_pi_instance
     and c__PriceableItemTemplateID = plm.id_pi_template)
       AND rcr.b_charge_per_participant = 'Y'
-      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL);  
+      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL);
   
 	/* adds charges to METER tables */
 	MeterInitialFromRecurWindow(currentDate);

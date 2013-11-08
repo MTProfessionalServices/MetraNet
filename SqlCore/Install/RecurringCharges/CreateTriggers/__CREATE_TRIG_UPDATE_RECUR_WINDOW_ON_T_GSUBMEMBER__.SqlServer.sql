@@ -3,7 +3,7 @@ ON t_gsubmember
 for insert, UPDATE, delete
 as 
 begin
-declare @temp datetime;
+declare @startDate datetime;
 delete from t_recur_window where exists (
   select 1 from deleted gsm 
          join t_sub sub on gsm.id_group = sub.id_group and
@@ -32,10 +32,9 @@ WHEN matched AND t_recur_window.c__SubscriptionID = source.id_sub
     AND t_recur_window.c__PriceableItemTemplateID = source.id_pi_template	THEN
 	UPDATE SET c_MembershipStart = source.vt_start,
 	           c_MembershipEnd = source.vt_end;
-
-	select @temp = max(tgsh.tt_start) from t_gsubmember_historical tgsh 
-	join inserted gsm 
-	on tgsh.id_acc = gsm.id_acc and tgsh.id_group = gsm.id_group;
+	
+	
+	SET @startDate = dbo.metratime(1,'RC');
 			   
 	SELECT
        gsm.vt_start AS c_CycleEffectiveDate
@@ -55,11 +54,11 @@ WHEN matched AND t_recur_window.c__SubscriptionID = source.id_sub
       , IsNull(rv.vt_start, dbo.mtmindate()) AS c_UnitValueStart
       , IsNull(rv.vt_end, dbo.mtmaxdate()) AS c_UnitValueEnd
       , rv.n_value AS c_UnitValue
-      , dbo.metratime(1,'RC') as c_BilledThroughDate
+      , @startDate as c_BilledThroughDate
       , -1 AS c_LastIdRun
       , dbo.mtmindate() AS c_MembershipStart
       , dbo.mtmaxdate() AS c_MembershipEnd
-	  , dbo.AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.vt_end, @temp) AS c__IsAllowGenChargeByTrigger
+	  , dbo.AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.vt_end, @startDate) AS c__IsAllowGenChargeByTrigger
 	INTO #recur_window_holder
     FROM INSERTED gsm
       INNER JOIN t_sub sub ON sub.id_group = gsm.id_group
@@ -78,8 +77,8 @@ WHEN matched AND t_recur_window.c__SubscriptionID = source.id_sub
       AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL);
 	
 	/* adds charges to METER tables */
-    EXEC MeterInitialFromRecurWindow @currentDate = @temp;
-    EXEC MeterCreditFromRecurWindow @currentDate = @temp;
+    EXEC MeterInitialFromRecurWindow @currentDate = @startDate;
+    EXEC MeterCreditFromRecurWindow @currentDate = @startDate;
 	  
 	INSERT INTO t_recur_window    
 	SELECT c_CycleEffectiveDate,

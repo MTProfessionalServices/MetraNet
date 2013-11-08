@@ -6,7 +6,8 @@
         id_usage_interval,
         id_billgroup,
         dt_start,
-        dt_end
+        dt_end,
+		is_audited
         ) VALUES 
         (
         %%ID_TAX_RUN%%,
@@ -14,6 +15,7 @@
         %%ID_USAGE_INTERVAL%%,
         %%ID_BILLGROUP%%,
         %%DT_START%%,
-        %%DT_END%%
+        %%DT_END%%,
+		'%%IS_AUDITED%%'
         )
       

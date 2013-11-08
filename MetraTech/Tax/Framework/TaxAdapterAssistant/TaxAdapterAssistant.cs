@@ -108,6 +108,7 @@ namespace MetraTech.Tax.Framework
                         stmt.AddParam("%%ID_VENDOR%%", (int)DomainModel.Enums.EnumHelper.GetDbValueByEnum(vendor));
                         stmt.AddParam("%%ID_USAGE_INTERVAL%%", mContext.UsageIntervalID);
                         stmt.AddParam("%%ID_BILLGROUP%%", mContext.BillingGroupID);
+                        stmt.AddParam("%%IS_AUDITED%%", mIsAuditingNeeded ? "Y" : "N");
                         reader = stmt.ExecuteReader();
                     }
                 }
@@ -118,6 +119,7 @@ namespace MetraTech.Tax.Framework
                         stmt.AddParam("%%ID_VENDOR%%", (int)DomainModel.Enums.EnumHelper.GetDbValueByEnum(vendor));
                         stmt.AddParam("%%DT_START%%", mContext.StartDate);
                         stmt.AddParam("%%DT_END%%", mContext.EndDate);
+                        stmt.AddParam("%%IS_AUDITED%%", mIsAuditingNeeded ? "Y" : "N");
                         reader = stmt.ExecuteReader();
                     }
                 }
@@ -200,6 +202,7 @@ namespace MetraTech.Tax.Framework
                         stmt.AddParam("%%DT_END%%", DBNull.Value);
                     else
                         stmt.AddParam("%%DT_END%%", mContext.EndDate);
+                    stmt.AddParam("%%IS_AUDITED%%", mIsAuditingNeeded ? "Y" : "N");
                     stmt.ExecuteNonQuery();
                 }
             }

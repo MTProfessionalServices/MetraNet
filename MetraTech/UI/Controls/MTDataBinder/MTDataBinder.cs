@@ -1140,38 +1140,6 @@ else
 			this.AutoShow = true;
 		}
 
-		// Helper method to safely set a component’s property
-		private void SetProperty(string propertyName, object value)
-		{
-			// Get property
-			PropertyDescriptor property = TypeDescriptor.GetProperties(mDataBinder)[propertyName];
-
-			// Set property value
-			property.SetValue(mDataBinder, value);
-		}
-
-		// Helper method to return the Category string from a
-		// CategoryAttribute assigned to a property exposed by 
-		// the specified object
-		private string GetCategory(object source, string propertyName)
-		{
-			PropertyInfo property = source.GetType().GetProperty(propertyName);
-			CategoryAttribute attribute = (CategoryAttribute)property.GetCustomAttributes(typeof(CategoryAttribute), false)[0];
-			if (attribute == null) return null;
-			return attribute.Category;
-		}
-
-		// Helper method to return the Description string from a
-		// DescriptionAttribute assigned to a property exposed by 
-		// the specified object
-		private string GetDescription(object source, string propertyName)
-		{
-			PropertyInfo property = source.GetType().GetProperty(propertyName);
-			DescriptionAttribute attribute = (DescriptionAttribute)property.GetCustomAttributes(typeof(DescriptionAttribute), false)[0];
-			if (attribute == null) return null;
-			return attribute.Description;
-		}
-
 		// LaunchICE designer action method implementation
 		public void LaunchICE()
 		{

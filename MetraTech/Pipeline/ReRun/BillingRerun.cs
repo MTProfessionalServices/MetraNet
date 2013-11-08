@@ -47,12 +47,12 @@ namespace MetraTech.Pipeline.ReRun
   [Guid("44D17582-8604-481a-B886-CCE4FE08C867")]
   public class BillingRerun : IBillingRerun
   {
-    public int Setup(int accID, string comment)
+    public int Setup(int accId, string comment)
     {
-      int id = -1;
+      var id = -1;
       try
       {
-        id = CreateSetup(accID, comment);
+        id = CreateSetup(accId, comment);
 
         //create the t_rerun_idrerun table
         //Oracle does not allow you to run DDL statements inside of DTC.
@@ -92,9 +92,9 @@ namespace MetraTech.Pipeline.ReRun
             {
               stmt1.AddParam("%%TABLE_NAME%%", GetTableName(id));
               string createTableQuery = stmt1.Query;
-              mLogger.LogDebug("Creating rerun session table '{0}'", GetTableName(id));
+              _logger.LogDebug("Creating rerun session table '{0}'", GetTableName(id));
               writer.ExecuteStatement(createTableQuery, @"Queries\BillingRerun");
-              mLogger.LogDebug("Successfully created rerun session table '{0}'", GetTableName(id));
+              _logger.LogDebug("Successfully created rerun session table '{0}'", GetTableName(id));
             }
 
             // add index on id_sess, tx_state to this table
@@ -102,26 +102,26 @@ namespace MetraTech.Pipeline.ReRun
             {
               stmt2.AddParam("%%TABLE_NAME%%", GetTableName(id));
               string addIndexQuery = stmt2.Query;
-              mLogger.LogDebug("Adding index to table '{0}'", GetTableName(id));
+              _logger.LogDebug("Adding index to table '{0}'", GetTableName(id));
               writer.ExecuteStatement(addIndexQuery, @"Queries\BillingRerun");
-              mLogger.LogDebug("Successfully added index to table '{0}'", GetTableName(id));
+              _logger.LogDebug("Successfully added index to table '{0}'", GetTableName(id));
             }
           }
 
           // conn.Dispose();
         }
         //EventId, UserId, EntityTypeId, EntityId, BSTR Details
-        mAuditor.FireEvent((int)MTAuditEvent.AUDITEVENT_RERUNCREATE_SUCCESS,
-        accID,
+        _auditor.FireEvent((int)MTAuditEvent.AUDITEVENT_RERUNCREATE_SUCCESS,
+        accId,
         (int)MTAuditEntityType.AUDITENTITY_TYPE_BILLINGRERUN,
         id,
         "Rerun Created");
       }
       catch (Exception ex)
       {
-        mLogger.LogError(ex.ToString());
-        mAuditor.FireFailureEvent((int)MTAuditEvent.AUDITEVENT_RERUNCREATE_FAILED,
-          accID,
+        _logger.LogError(ex.ToString());
+        _auditor.FireFailureEvent((int)MTAuditEvent.AUDITEVENT_RERUNCREATE_FAILED,
+          accId,
           (int)MTAuditEntityType.AUDITENTITY_TYPE_BILLINGRERUN,
           id,
           "Rerun Create Failed. " + ex.Message);
@@ -147,7 +147,7 @@ namespace MetraTech.Pipeline.ReRun
         var sourceTableName = GetSourceTableName(rerunId);
         var uidTableName = GetUIDTableName(rerunId);
 
-        var identifyQueryGenerator = new DBIdentify(isOracle);
+        var identifyQueryGenerator = new DBIdentify(_connInfo.IsOracle);
 
         if (!noFilterSpecified)
         {
@@ -165,24 +165,25 @@ namespace MetraTech.Pipeline.ReRun
           {
             var joinClauseBuilder = new StringBuilder();
             var failedJoinClauseBuilder = new StringBuilder();
+            var isPartition = DatabaseUtils.IsPartitionEnabled();
 
             if (lookAtSourceData)
             {
-              PrepareSourceJoin(joinClauseBuilder, sourceTableName, isOracle);
+              PrepareSourceJoin(joinClauseBuilder, sourceTableName, _connInfo.IsSqlServer, isPartition);
               PrepareSourceFailedJoin(failedJoinClauseBuilder, sourceTableName);
             }
 
             if (sessionIdsSpecified)
             {
-              PrepareSessinJoin(joinClauseBuilder, uidTableName, isOracle);
+              PrepareSessinJoin(joinClauseBuilder, uidTableName, _connInfo.IsSqlServer, isPartition);
               PrepareSessinFailedJoin(failedJoinClauseBuilder, uidTableName);
             }
 
             var joinClause = joinClauseBuilder.ToString();
             var failedJoinClause = failedJoinClauseBuilder.ToString();
 
-            mLogger.LogDebug("The join clause for identifying successful sessions is: {0}", joinClause);
-            mLogger.LogDebug("The join clause for identifying failed sessions is: {0}", failedJoinClause);
+            _logger.LogDebug("The join clause for identifying successful sessions is: {0}", joinClause);
+            _logger.LogDebug("The join clause for identifying failed sessions is: {0}", failedJoinClause);
 
             var databaseFilter = identifyQueryGenerator.GenerateDatabaseFilter(context, filter, uidTableName, true);
             var whereClause = databaseFilter.FilterString;
@@ -201,7 +202,7 @@ namespace MetraTech.Pipeline.ReRun
                   successWhereClause.Append(" and ");
                   successWhereClause.Append(whereClause);
                 }
-                mLogger.LogDebug("The where clause for identifying successful sessions is: {0}",
+                _logger.LogDebug("The where clause for identifying successful sessions is: {0}",
                                  successWhereClause.ToString());
                 stmt.AddParam("%%WHERE_CLAUSE%%", successWhereClause.ToString(), true);
                 stmt.ExecuteNonQuery();
@@ -213,7 +214,7 @@ namespace MetraTech.Pipeline.ReRun
               //identify data from t_failed_transaction
               //replace the au in the where clause with ft (for failed transaction)
               var dbFilter = identifyQueryGenerator.GenerateDatabaseFilterForFailedTransactions(filter, uidTableName, true);
-              mLogger.LogDebug("The where clause for identifying failed sessions is: {0}", dbFilter);
+              _logger.LogDebug("The where clause for identifying failed sessions is: {0}", dbFilter);
 
               if (dbFilter != "" || sessionIdsSpecified)
                 using (var stmt = conn.CreateAdapterStatement("queries\\BillingRerun", "__IDENTIFY_FAILED_USAGE__"))
@@ -230,7 +231,7 @@ namespace MetraTech.Pipeline.ReRun
               IdentifySuspendAndPanding(identifyQueryGenerator, filter, rerunTableName, conn);
           }
         }
-        mAuditor.FireEvent((int)MTAuditEvent.AUDITEVENT_IDENTIFY_SUCCESS,
+        _auditor.FireEvent((int)MTAuditEvent.AUDITEVENT_IDENTIFY_SUCCESS,
                            accId,
                            (int)MTAuditEntityType.AUDITENTITY_TYPE_BILLINGRERUN,
                            rerunId,
@@ -239,8 +240,8 @@ namespace MetraTech.Pipeline.ReRun
       }
       catch (Exception ex)
       {
-        mLogger.LogError(ex.ToString());
-        mAuditor.FireFailureEvent((int)MTAuditEvent.AUDITEVENT_IDENTIFY_FAILED,
+        _logger.LogError(ex.ToString());
+        _auditor.FireFailureEvent((int)MTAuditEvent.AUDITEVENT_IDENTIFY_FAILED,
                                   accId,
                                   (int)MTAuditEntityType.AUDITENTITY_TYPE_BILLINGRERUN,
                                   rerunId,
@@ -249,20 +250,20 @@ namespace MetraTech.Pipeline.ReRun
       }
     }
 
-    private static void PrepareSourceJoin(StringBuilder joinClauseBuilder, string sourceTableName, bool isOracle)
+    private static void PrepareSourceJoin(StringBuilder joinClauseBuilder, string sourceTableName, bool isSqlServer, bool isPartition)
     {
-      if (isOracle)
-      {
-        joinClauseBuilder.Append(" inner join ");
-        joinClauseBuilder.Append(sourceTableName);
-        joinClauseBuilder.Append(" src on src.id_source_sess = au.tx_uid ");
-      }
-      else
+      if (isSqlServer && isPartition)
       {
         joinClauseBuilder.Append(" inner join t_uk_acc_usage_tx_uid uau on uau.id_sess = au.id_sess ");
         joinClauseBuilder.Append(" inner join ");
         joinClauseBuilder.Append(sourceTableName);
         joinClauseBuilder.Append(" src on src.id_source_sess = uau.tx_uid ");
+      }
+      else
+      {
+        joinClauseBuilder.Append(" inner join ");
+        joinClauseBuilder.Append(sourceTableName);
+        joinClauseBuilder.Append(" src on src.id_source_sess = au.tx_uid ");
       }
     }
 
@@ -274,20 +275,20 @@ namespace MetraTech.Pipeline.ReRun
         " src on (src.id_source_sess = ft.tx_FailureID or src.id_source_sess = ft.tx_failureCompoundID) ");
     }
 
-    private static void PrepareSessinJoin(StringBuilder joinClauseBuilder, string uidTableName, bool isOracle)
+    private static void PrepareSessinJoin(StringBuilder joinClauseBuilder, string uidTableName, bool isSqlServer, bool isPartition)
     {
-      if (isOracle)
-      {
-        joinClauseBuilder.Append("  inner join ");
-        joinClauseBuilder.Append(uidTableName);
-        joinClauseBuilder.Append(" sessionIds on sessionIds.id_source_sess = au.tx_uid ");
-      }
-      else
+      if (isSqlServer && isPartition)
       {
         joinClauseBuilder.Append(" inner join t_uk_acc_usage_tx_uid uau on uau.id_sess = au.id_sess ");
         joinClauseBuilder.Append("  inner join ");
         joinClauseBuilder.Append(uidTableName);
         joinClauseBuilder.Append(" sessionIds on sessionIds.id_source_sess = uau.tx_uid ");
+      }
+      else
+      {
+        joinClauseBuilder.Append("  inner join ");
+        joinClauseBuilder.Append(uidTableName);
+        joinClauseBuilder.Append(" sessionIds on sessionIds.id_source_sess = au.tx_uid ");
       }
     }
 
@@ -304,7 +305,7 @@ namespace MetraTech.Pipeline.ReRun
                                  string sourceTableName)
     {
       var sourceQuery = identifyQueryGenerator.GetSourceDataQuery(filter, sourceTableName);
-      mLogger.LogDebug("The source query is: {0}", sourceQuery);
+      _logger.LogDebug("The source query is: {0}", sourceQuery);
 
       // create a temp table with just id_source_sess in them, base the name on id_rerun
       PCExec.IMTDDLWriter writer = new PCExec.MTDDLWriterClass();
@@ -342,7 +343,7 @@ namespace MetraTech.Pipeline.ReRun
       var whereClauseNp = identifyQueryGenerator.GenerateQueryForNotProcessedTransactions(filter);
       if (whereClauseNp == "") return;
 
-      mLogger.LogDebug(whereClauseNp);
+      _logger.LogDebug(whereClauseNp);
       using (var stmt = conn.CreateAdapterStatement("queries\\BillingRerun",
                                                     "__IDENTIFY_ALL_SUSPENDED_AND_PENDING_USAGE__"))
       {
@@ -369,7 +370,7 @@ namespace MetraTech.Pipeline.ReRun
         // run the various analyze tasks
         foreach (string taskClass in Tasks.AnalysisTasks)
         {
-          mLogger.LogDebug("Running analysis task with class name/prog ID {0}", taskClass);
+          _logger.LogDebug("Running analysis task with class name/prog ID {0}", taskClass);
           IReRunTask task = Tasks.LoadTask(taskClass);
           task.Analyze(context, rerunID, GetTableName(rerunID), true);
         }
@@ -377,7 +378,7 @@ namespace MetraTech.Pipeline.ReRun
         // sleep for a second - safeguard against analyze have same start analyze and end analyze time
         System.Threading.Thread.Sleep(1000);
 
-        mAuditor.FireEvent((int)MTAuditEvent.AUDITEVENT_ANALYZE_SUCCESS,
+        _auditor.FireEvent((int)MTAuditEvent.AUDITEVENT_ANALYZE_SUCCESS,
                 accID,
                 (int)MTAuditEntityType.AUDITENTITY_TYPE_BILLINGRERUN,
                 rerunID,
@@ -386,8 +387,8 @@ namespace MetraTech.Pipeline.ReRun
       }
       catch (Exception ex)
       {
-        mLogger.LogError(ex.ToString());
-        mAuditor.FireFailureEvent((int)MTAuditEvent.AUDITEVENT_ANALYZE_FAILED,
+        _logger.LogError(ex.ToString());
+        _auditor.FireFailureEvent((int)MTAuditEvent.AUDITEVENT_ANALYZE_FAILED,
                     accID,
                     (int)MTAuditEntityType.AUDITENTITY_TYPE_BILLINGRERUN,
                     rerunID,
@@ -410,7 +411,7 @@ namespace MetraTech.Pipeline.ReRun
         //call the backout tasks here...
         foreach (string taskClass in Tasks.BackoutTasks)
         {
-          mLogger.LogDebug("Running backout task with class name/prog ID {0}", taskClass);
+          _logger.LogDebug("Running backout task with class name/prog ID {0}", taskClass);
           IReRunTask task = Tasks.LoadTask(taskClass);
           task.Backout(context, rerunID, tableName, true);
         }
@@ -431,7 +432,7 @@ namespace MetraTech.Pipeline.ReRun
             stmt2.ExecuteNonQuery();
           }
         }
-        mAuditor.FireEvent((int)MTAuditEvent.AUDITEVENT_BACKOUTDELETE_SUCCESS,
+        _auditor.FireEvent((int)MTAuditEvent.AUDITEVENT_BACKOUTDELETE_SUCCESS,
                   accID,
                   (int)MTAuditEntityType.AUDITENTITY_TYPE_BILLINGRERUN,
                   rerunID,
@@ -440,8 +441,8 @@ namespace MetraTech.Pipeline.ReRun
       }
       catch (Exception ex)
       {
-        mLogger.LogError(ex.ToString());
-        mAuditor.FireFailureEvent((int)MTAuditEvent.AUDITEVENT_BACKOUTDELETE_FAILED,
+        _logger.LogError(ex.ToString());
+        _auditor.FireFailureEvent((int)MTAuditEvent.AUDITEVENT_BACKOUTDELETE_FAILED,
                     accID,
                     (int)MTAuditEntityType.AUDITENTITY_TYPE_BILLINGRERUN,
                     rerunID,
@@ -463,7 +464,7 @@ namespace MetraTech.Pipeline.ReRun
         //call the backout tasks here...
         foreach (string taskClass in Tasks.BackoutTasks)
         {
-          mLogger.LogDebug("Running backout task with class name/prog ID {0}", taskClass);
+          _logger.LogDebug("Running backout task with class name/prog ID {0}", taskClass);
           IReRunTask task = Tasks.LoadTask(taskClass);
           task.Backout(context, rerunID, tableName, true);
         }
@@ -568,7 +569,7 @@ namespace MetraTech.Pipeline.ReRun
           resubmitSessions(conn, tableName, strcontext, rerunID);
 
         }
-        mAuditor.FireEvent((int)MTAuditEvent.AUDITEVENT_BACKOUTRESUBMIT_SUCCESS,
+        _auditor.FireEvent((int)MTAuditEvent.AUDITEVENT_BACKOUTRESUBMIT_SUCCESS,
                   accID,
                   (int)MTAuditEntityType.AUDITENTITY_TYPE_BILLINGRERUN,
                   rerunID,
@@ -577,12 +578,12 @@ namespace MetraTech.Pipeline.ReRun
       }
       catch (System.Exception ex)
       {
-        mAuditor.FireFailureEvent((int)MTAuditEvent.AUDITEVENT_BACKOUTRESUBMIT_FAILED,
+        _auditor.FireFailureEvent((int)MTAuditEvent.AUDITEVENT_BACKOUTRESUBMIT_FAILED,
                       accID,
                       (int)MTAuditEntityType.AUDITENTITY_TYPE_BILLINGRERUN,
                       rerunID,
                       "Rerun BackoutResubmit Failed");
-        mLogger.LogError(ex.ToString());
+        _logger.LogError(ex.ToString());
         throw;
       }
       return return_code;
@@ -610,18 +611,18 @@ namespace MetraTech.Pipeline.ReRun
               }
               catch
               {
-                mLogger.LogError(
+                _logger.LogError(
                   "Unable to log event. Not Resubmitted Failed transaction with encoded FailureCompoundID '{0}' not exist.",
                   id);
                 throw;
               }
 
               //todo:create (int)MTAuditEvent.AUDITEVENT__UPDATE_TRANSACTION_STATUS = 1701
-              mAuditor.FireEvent(1701, accID, (int)MTAuditEntityType.AUDITENTITY_TYPE_FAILEDTRANSACTION, failTrID,
+              _auditor.FireEvent(1701, accID, (int)MTAuditEntityType.AUDITENTITY_TYPE_FAILEDTRANSACTION, failTrID,
                                  details);
               if (reader.Read())
               {
-                mLogger.LogError(
+                _logger.LogError(
                   "More than one Not Resubmitted Failed transaction was found. Encoded FailureCompoundID = '{0}'.", id);
               }
             }
@@ -646,7 +647,7 @@ namespace MetraTech.Pipeline.ReRun
       //In case of sql server, these are local temp tables, so need to be created here.  In case of oracle,
       //we need to create sequences to insert data in the aggregate, aggregate_large and child_session_sets tables.
 
-      if (!isOracle)
+      if (_connInfo.IsSqlServer)
       {
         using (IMTAdapterStatement stmt1 = conn.CreateAdapterStatement("Queries\\billingrerun", "__CREATE_PER_RESUBMIT_TEMP_TABLES__"))
         {
@@ -676,8 +677,8 @@ namespace MetraTech.Pipeline.ReRun
       foreach (int parentSvc in parentSvcs)
       {
         // check for missing records
-        int num_children_svcs = 0;
-        string svcTableName = "";
+        var num_children_svcs = 0;
+        var svcTableName = string.Empty;
         checkForMissingRecords(conn, parentSvc, tableName, ref num_children_svcs, ref svcTableName);
 
         int largest_compound;
@@ -688,26 +689,26 @@ namespace MetraTech.Pipeline.ReRun
         // child_session_sets.  In case of sql server, we can execute ddl stmts inside of DTC transaction.  Not
         // so in oracle.
 
-        if (!isOracle)
+        if (_connInfo.IsSqlServer)
         {
-          using (IMTAdapterStatement stmt2 = conn.CreateAdapterStatement("Queries\\billingrerun", "__CREATE_PER_PARENT_SVC_TEMP_TABLES__"))
+          using (var stmt = conn.CreateAdapterStatement("Queries\\billingrerun", "__CREATE_PER_PARENT_SVC_TEMP_TABLES__"))
           {
-            stmt2.AddParamIfFound("%%RERUN_ID%%", rerunID.ToString());
-            stmt2.ExecuteNonQuery();
+            stmt.AddParamIfFound("%%RERUN_ID%%", rerunID.ToString());
+            stmt.ExecuteNonQuery();
           }
         }
         else
         {
-          using (IMTAdapterStatement stmt2 = conn.CreateAdapterStatement("Queries\\billingrerun", "__CREATE_RESUBMIT_SEQUENCES__"))
+          using (var stmt = conn.CreateAdapterStatement("Queries\\billingrerun", "__CREATE_RESUBMIT_SEQUENCES__"))
           {
-            stmt2.AddParamIfFound("%%RERUN_ID%%", rerunID.ToString());
-            string createTempTables = stmt2.Query;
+            stmt.AddParamIfFound("%%RERUN_ID%%", rerunID.ToString());
+            var createTempTables = stmt.Query;
             writer.ExecuteStatement(createTempTables, @"Queries\BillingRerun");
           }
 
-          using (IMTAdapterStatement stmt2 = conn.CreateAdapterStatement("Queries\\billingrerun", "__TRUNCATE_TEMP_TABLES__"))
+          using (var stmt = conn.CreateAdapterStatement("Queries\\billingrerun", "__TRUNCATE_TEMP_TABLES__"))
           {
-            stmt2.ExecuteNonQuery();
+            stmt.ExecuteNonQuery();
           }
         }
 
@@ -730,7 +731,7 @@ namespace MetraTech.Pipeline.ReRun
             largest_compound = (int)callStmt.GetOutputValue("largest_compound");
             if (largest_compound > msgSize)
             {
-              mLogger.LogWarning("At least one message larger than the message size specified in configuration file found .. consider increasing message size for resubmit");
+              _logger.LogWarning("At least one message larger than the message size specified in configuration file found .. consider increasing message size for resubmit");
             }
           }
         }
@@ -759,45 +760,45 @@ namespace MetraTech.Pipeline.ReRun
       } //end for loop for each parent svc
 
       //finally add all the messages, session sets to the real tables (copy from tmp tables to real tables)
-      using (IMTAdapterStatement stmt2 = conn.CreateAdapterStatement("Queries\\billingrerun", "__COPY_INTO_REAL_SESSION_TABLES__"))
+      using (var stmt = conn.CreateAdapterStatement("Queries\\billingrerun", "__COPY_INTO_REAL_SESSION_TABLES__"))
       {
-        stmt2.AddParam("%%METRADATE%%", MetraTech.MetraTime.Now);
-        stmt2.AddParam("%%CONTEXT%%", strcontext);
-        stmt2.ExecuteNonQuery();
+        stmt.AddParam("%%METRADATE%%", MetraTime.Now);
+        stmt.AddParam("%%CONTEXT%%", strcontext);
+        stmt.ExecuteNonQuery();
       }
 
       //cleanup sequences that were created.. only to be done in case of oracle.  No op for sql server
       //TODO: do this only in case of oracle.
-      if (isOracle)
+      if (_connInfo.IsOracle)
       {
         // clean up the tmp views before we exit the tx
-        using (IMTAdapterStatement stmt2 = conn.CreateAdapterStatement("Queries\\billingrerun", "__DELETE_BR_TTT_TABLES__"))
+        using (var stmt = conn.CreateAdapterStatement("Queries\\billingrerun", "__DELETE_BR_TTT_TABLES__"))
         {
-          stmt2.ExecuteNonQuery();
+          stmt.ExecuteNonQuery();
         }
 
-        using (IMTAdapterStatement stmt2 = conn.CreateAdapterStatement("Queries\\billingrerun", "__CLEANUP_TEMP_RESUBMIT_TABLES__"))
+        using (var stmt = conn.CreateAdapterStatement("Queries\\billingrerun", "__CLEANUP_TEMP_RESUBMIT_TABLES__"))
         {
-          stmt2.AddParam("%%RERUN_ID%%", rerunID.ToString());
-          string cleanupTempTables = stmt2.Query;
+          stmt.AddParam("%%RERUN_ID%%", rerunID.ToString());
+          string cleanupTempTables = stmt.Query;
           writer.ExecuteStatement(cleanupTempTables, @"Queries\BillingRerun");
         }
       }
 
       //adjust session state for all sessions resubmitted.
-      using (IMTAdapterStatement stmt2 = conn.CreateAdapterStatement("Queries\\billingrerun", "__UPDATE_SESSION_STATE_ON_RESUBMIT__"))
+      using (var stmt = conn.CreateAdapterStatement("Queries\\billingrerun", "__UPDATE_SESSION_STATE_ON_RESUBMIT__"))
       {
-        stmt2.AddParam("%%RERUN_TABLE_NAME%%", tableName);
-        stmt2.AddParam("%%METRADATE%%", MetraTech.MetraTime.Now);
-        stmt2.ExecuteNonQuery();
+        stmt.AddParam("%%RERUN_TABLE_NAME%%", tableName);
+        stmt.AddParam("%%METRADATE%%", MetraTime.Now);
+        stmt.ExecuteNonQuery();
       }
 
       //adjust failed transaction state on resubmit.
-      using (IMTAdapterStatement stmt2 = conn.CreateAdapterStatement("Queries\\billingrerun", "__UPDATE_FAILED_TRANSACTION_STATE_ON_RESUBMIT__"))
+      using (var stmt = conn.CreateAdapterStatement("Queries\\billingrerun", "__UPDATE_FAILED_TRANSACTION_STATE_ON_RESUBMIT__"))
       {
-        stmt2.AddParam("%%RERUN_TABLE_NAME%%", tableName);
-        stmt2.AddParam("%%METRADATE%%", MetraTech.MetraTime.Now);
-        stmt2.ExecuteNonQuery();
+        stmt.AddParam("%%RERUN_TABLE_NAME%%", tableName);
+        stmt.AddParam("%%METRADATE%%", MetraTime.Now);
+        stmt.ExecuteNonQuery();
       }
       //done!
     }
@@ -1005,10 +1006,9 @@ namespace MetraTech.Pipeline.ReRun
       }
     }
 
-    public int Abandon(int accID, int rerunID, string comment)
+    public int Abandon(int accId, int rerunId, string comment)
     {
-      int return_code = 0;
-      AddHistoryRow(accID, rerunID, comment, "START ABANDON");
+      AddHistoryRow(accId, rerunId, comment, "START ABANDON");
 
       // Oracle wants to asynchronously release locks on tables
       // so cleanup will fail on occasion.  We accept this behavior
@@ -1017,30 +1017,23 @@ namespace MetraTech.Pipeline.ReRun
       // the next one executed will take care of it.
       using (IMTConnection conn = ConnectionManager.CreateConnection(@"Queries\BillingRerun"))
       {
-        System.Collections.Generic.List<int> rerunsToAbandon = new System.Collections.Generic.List<int>();
+        var rerunsToAbandon = new System.Collections.Generic.List<int>();
+        using (var stmt = conn.CreateAdapterStatement("Queries\\billingrerun", "__GET_PENDING_ABANDONS__"))
+        using (var reader = stmt.ExecuteReader())
+          while (reader.Read())
+            rerunsToAbandon.Add(reader.GetInt32("id_rerun"));
 
-        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("Queries\\billingrerun", "__GET_PENDING_ABANDONS__"))
+        foreach (var rerunToAbandon in rerunsToAbandon)
         {
-          using (IMTDataReader reader = stmt.ExecuteReader())
-          {
-            while (reader.Read())
-            {
-              rerunsToAbandon.Add(reader.GetInt32("id_rerun"));
-            }
-          }
-        }
-
-        foreach (int rerunToAbandon in rerunsToAbandon)
-        {
-          using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("Queries\\billingrerun", "__ABANDON_RERUN_TABLES__"))
+          using (var stmt = conn.CreateAdapterStatement("Queries\\billingrerun", "__ABANDON_RERUN_TABLES__"))
           {
             stmt.AddParam("%%RERUN_ID%%", rerunToAbandon.ToString());
             try
             {
-              if (isOracle)
+              if (_connInfo.IsOracle)
               {
                 PCExec.IMTDDLWriter writer = new PCExec.MTDDLWriterClass();
-                string abandonTempTables = stmt.Query;
+                var abandonTempTables = stmt.Query;
                 writer.ExecuteStatement(abandonTempTables, @"Queries\BillingRerun");
               }
               else
@@ -1049,51 +1042,46 @@ namespace MetraTech.Pipeline.ReRun
               }
               // sleep for a second - safeguard against abandon have same start abandon and end abandon
               System.Threading.Thread.Sleep(1000);
-
-              AddHistoryRow(accID, rerunToAbandon, comment, "END ABANDON");
+              AddHistoryRow(accId, rerunToAbandon, comment, "END ABANDON");
             }
             catch (Exception ex)
             {
-              mLogger.LogWarning("Failed to abandon rerun with id = " + rerunToAbandon +
-                                 ", system will retry on next billing rerun abandon operation:" + ex.ToString());
+              _logger.LogWarning("Failed to abandon rerun with id = " + rerunToAbandon +
+                                 ", system will retry on next billing rerun abandon operation:" + ex);
             }
           }
         }
       }
 
-      return return_code;
+      return 0;
     }
 
-    private void AddHistoryRow(int accID, int rerunID, string comment, string action)
+    private static void AddHistoryRow(int accId, int rerunId, string comment, string action)
     {
-      TxnRequiresNewHelper helper = new TxnRequiresNewHelper();
-      helper.AddHistoryRow(accID, rerunID, comment, action);
+      var helper = new TxnRequiresNewHelper();
+      helper.AddHistoryRow(accId, rerunId, comment, action);
       helper.Dispose();
     }
 
-    private int CreateSetup(int accID, string comment)
+    private static int CreateSetup(int accId, string comment)
     {
-      TxnRequiresNewHelper helper = new TxnRequiresNewHelper();
-      int rerunID = helper.CreateSetup(accID, comment);
+      var helper = new TxnRequiresNewHelper();
+      var rerunId = helper.CreateSetup(accId, comment);
       helper.Dispose();
-      return rerunID;
+      return rerunId;
     }
 
-    private int GetMessageSize()
+    private static int GetMessageSize()
     {
-      string configFile = "billingrerun\\billingrerun.xml";
-      int messageSize = -1;
-      MTXmlDocument doc = new MTXmlDocument();
-
+      const string configFile = "billingrerun\\billingrerun.xml";
+      var doc = new MTXmlDocument();
       doc.LoadConfigFile(configFile);
-      messageSize = doc.GetNodeValueAsInt("/xmlconfig/defaultMessageSize");
-
-      return (messageSize);
+      return doc.GetNodeValueAsInt("/xmlconfig/defaultMessageSize");
     }
 
     public string GetTableName(int rerunID)
     {
-      StringBuilder tableName = new StringBuilder();
+      var tableName = new StringBuilder();
       tableName.Append("t_rerun_session_");
       tableName.Append(rerunID.ToString());
       return tableName.ToString();
@@ -1101,7 +1089,7 @@ namespace MetraTech.Pipeline.ReRun
 
     public string GetUIDTableName(int rerunID)
     {
-      StringBuilder tableName = new StringBuilder();
+      var tableName = new StringBuilder();
       tableName.Append("t_UIDList_");
       tableName.Append(rerunID.ToString());
       return tableName.ToString();
@@ -1109,19 +1097,14 @@ namespace MetraTech.Pipeline.ReRun
 
     public string GetSourceTableName(int rerunID)
     {
-      StringBuilder tableName = new StringBuilder();
+      var tableName = new StringBuilder();
       tableName.Append("t_source_rerun_session_");
       tableName.Append(rerunID.ToString());
       return tableName.ToString();
     }
-    private Logger mLogger = new Logger("[BillingReRun]");
-    private Auditor mAuditor = new Auditor();
-    private ConnectionInfo mConnInfo = new ConnectionInfo("NetMeter");
-    private bool isOracle
-    {
-      get { return mConnInfo.DatabaseType == DBType.Oracle; }
-    }
-
-  }
+    private readonly Logger _logger = new Logger("[BillingReRun]");
+    private readonly Auditor _auditor = new Auditor();
+    private readonly ConnectionInfo _connInfo = new ConnectionInfo("NetMeter");
+   }
 }
 

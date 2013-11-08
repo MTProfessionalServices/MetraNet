@@ -1,5 +1,6 @@
 create or replace
 TRIGGER TRG_UPDATE_REC_WIND_ON_REC_VAL FOR INSERT ON T_RECUR_VALUE COMPOUND TRIGGER
+startDate date;
 	AFTER EACH ROW
 IS
 BEGIN
@@ -15,9 +16,11 @@ BEGIN
       :new.tt_end
     );
 END AFTER EACH row;
+
 AFTER STATEMENT
 
 IS
+
 BEGIN
   /*Get the old vt_start and vt_end for recur values that have changed*/
   INSERT INTO tmp_new_units
@@ -33,6 +36,10 @@ BEGIN
     and rdnew.id_sub = rdold.id_sub
     AND rdold.tt_end    < dbo.MTMaxDate()
     ) ;
+	
+  /*TODO: look at MSSQL version... now it different */
+  SELECT metratime(1,'RC') INTO startDate FROM dual; 
+  
   /*Get the old windows for recur values that have changed*/
   INSERT INTO tmp_newrw
   SELECT sub.vt_start c_CycleEffectiveDate ,
@@ -56,7 +63,7 @@ BEGIN
     -1 c_LastIdRun ,
     dbo.mtmindate() c_MembershipStart ,
     dbo.mtmaxdate() c_MembershipEnd,
-    AllowInitialArrersCharge(rcr.b_advance, pay.id_acc, sub.vt_end, :new.tt_start) c__IsAllowGenChargeByTrigger
+    AllowInitialArrersCharge(rcr.b_advance, pay.id_payee, sub.vt_end, startDate) c__IsAllowGenChargeByTrigger
     from t_sub sub
       INNER JOIN t_payment_redirection pay ON pay.id_payee = sub.id_acc AND pay.vt_start < sub.vt_end AND pay.vt_end > sub.vt_start
       INNER JOIN t_pl_map plm ON plm.id_po = sub.id_po AND plm.id_paramtable IS NULL
@@ -92,7 +99,7 @@ BEGIN
     -1 c_LastIdRun ,
     dbo.mtmindate() c_MembershipStart ,
     dbo.mtmaxdate() c_MembershipEnd,
-    AllowInitialArrersCharge(rcr.b_advance, pay.id_acc, gsm.vt_end, :new.tt_start) c__IsAllowGenChargeByTrigger
+    AllowInitialArrersCharge(rcr.b_advance, pay.id_payee, gsm.vt_end, startDate) c__IsAllowGenChargeByTrigger
     FROM t_gsubmember gsm
       INNER JOIN t_sub sub ON sub.id_group = gsm.id_group
       INNER JOIN t_payment_redirection pay ON pay.id_payee = gsm.id_acc
@@ -134,7 +141,7 @@ BEGIN
     -1 c_LastIdRun ,
     grm.vt_start c_MembershipStart ,
     grm.vt_end c_MembershipEnd,
-    AllowInitialArrersCharge(rcr.b_advance, pay.id_acc, sub.vt_end, :new.tt_start) c__IsAllowGenChargeByTrigger
+    AllowInitialArrersCharge(rcr.b_advance, pay.id_payee, sub.vt_end, null) c__IsAllowGenChargeByTrigger
     FROM t_gsub_recur_map grm
       /* TODO: GRM dates or sub dates or both for filtering */
       INNER JOIN t_sub sub ON grm.id_group = sub.id_group
@@ -188,8 +195,8 @@ DELETE FROM tmp_newrw WHERE EXISTS
 );
 
   /* Should be analozed for Arrears RC*/
-  MeterInitialFromRecurWindow(:new.tt_start);
-  MeterUdrcFromRecurWindow(:new.tt_start);
+  MeterInitialFromRecurWindow(startDate);
+  MeterUdrcFromRecurWindow(startDate);
   
   /*Delete old values from t_recur_window*/
   DELETE FROM t_recur_window

@@ -1,10 +1,11 @@
-create or replace
-PROCEDURE METERinitialFROMRECURWINDOW AS
+CREATE OR REPLACE
+PROCEDURE METERinitialFROMRECURWINDOW (currentDate date) AS
 
   enabled varchar2(10);
   BEGIN
    SELECT value into enabled FROM t_db_values WHERE parameter = N'InstantRc';
-   IF (enabled = 'false')then return;  end if;
+   IF (enabled = 'false')then return;  
+   end if;
     
    INSERT INTO tmp_rc
  SELECT 
@@ -66,18 +67,21 @@ PROCEDURE METERinitialFROMRECURWINDOW AS
         WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) 
         ELSE NULL END 
     INNER JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
-	inner join t_usage_interval currentui on metratime(1,'RC') between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = ui.id_usage_cycle
+	inner join t_usage_interval currentui on currentDate between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = ui.id_usage_cycle
 where 1=1
 /*Only meter new subscriptions as initial -- so select only items that have at most one entry in t_sub_history*/
     AND NOT EXISTS (SELECT 1 FROM t_sub_history tsh WHERE tsh.id_sub = rw.c__SubscriptionID AND tsh.id_acc = rw.c__AccountID
-      AND tsh.tt_end < metratime(1,'RC'))
+      AND tsh.tt_end < currentDate)
 /*Also no old unit values*/
     AND NOT EXISTS (SELECT 1 FROM t_recur_value trv WHERE trv.id_sub = rw.c__SubscriptionID AND trv.tt_end < dbo.MTMaxDate())
 /* Don't meter in the current interval for initial*/
-    AND pci.dt_start < metratime(1,'RC')
-	and ui.dt_start <= rw.c_SubscriptionStart 
-    ;
+    AND ui.dt_start < currentDate
+	AND rw.c__IsAllowGenChargeByTrigger = 1;
 
    insertChargesIntoSvcTables('Initial','Initial');
+
+	UPDATE tmp_newrw rw
+	SET c_BilledThroughDate = currentDate	
+	where rw.c__IsAllowGenChargeByTrigger = 1;
 
 end METERinitialFROMRECURWINDOW;

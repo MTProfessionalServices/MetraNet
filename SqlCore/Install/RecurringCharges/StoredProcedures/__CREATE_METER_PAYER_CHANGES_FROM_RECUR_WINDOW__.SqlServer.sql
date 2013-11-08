@@ -70,7 +70,7 @@ BEGIN
 								   and pci.dt_start < @currentDate /* Don't go into the future*/
       INNER JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
       inner join t_usage_interval currentui on @currentDate between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = ui.id_usage_cycle
-	  where 1=1;
+	  where rwnew.c__IsAllowGenChargeByTrigger = 1;
 
 		SELECT 'InitialDebit' AS c_RCActionType
            ,c_RCIntervalStart
@@ -131,6 +131,14 @@ BEGIN
            
 	--If no charges to meter, return immediately
     IF NOT EXISTS (SELECT 1 FROM #tmp_rc) RETURN;
- exec InsertChargesIntoSvcTables;
-    END;
+	
+	exec InsertChargesIntoSvcTables;
+	
+	  
+	UPDATE rw
+	SET c_BilledThroughDate = @currentDate
+	FROM #tmp_newrw rw
+	where rw.c__IsAllowGenChargeByTrigger = 1;
+
+END;
  

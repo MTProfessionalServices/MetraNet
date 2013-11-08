@@ -1,17 +1,18 @@
-
-    CREATE OR REPLACE TRIGGER trg_rec_win_on_t_gsubmember AFTER
+create or replace
+TRIGGER trg_rec_win_on_t_gsubmember AFTER
   INSERT OR
   DELETE OR
   UPDATE ON t_gsubmember REFERENCING NEW AS new OLD AS OLD
-  FOR EACH row 
-  BEGIN 
+  FOR EACH row
+  DECLARE currentDate DATE;
+  BEGIN
   IF deleting THEN
   DELETE FROM t_recur_window
   WHERE EXISTS
     (SELECT 1
     FROM t_sub sub INNER JOIN t_pl_map plm on sub.id_po = plm.id_po
-	   inner join t_recur_window trw on trw.c__subscriptionid = sub.id_sub
-	          and trw.c__PriceableItemInstanceID = plm.id_pi_instance
+    inner join t_recur_window trw on trw.c__subscriptionid = sub.id_sub
+           and trw.c__PriceableItemInstanceID = plm.id_pi_instance
               AND trw.c__PriceableItemTemplateID = plm.id_pi_template
       WHERE sub.id_acc = :old.id_acc
         AND sub.id_group = :old.id_group
@@ -20,22 +21,24 @@
     );
 ELSE
   /*inserting or updating*/
-  BEGIN
    DELETE FROM tmp_newrw;
-   UPDATE t_recur_window trw  
+   
+   UPDATE t_recur_window trw
       SET trw.c_MembershipStart = :new.vt_start,
           trw.c_MembershipEnd = :new.vt_end
-      where exists 
+      where exists
       (SELECT 1
          FROM t_sub ts inner join t_pl_map plm on ts.id_po = plm.id_po
             and plm.id_sub = null and plm.id_paramtable = null
-			where   
+   where
               trw.c__accountid       = :new.id_acc
               AND ts.id_group           = :new.id_group
               AND trw.c__subscriptionid = ts.id_sub
-	          and trw.c__PriceableItemInstanceID = plm.id_pi_instance
-              AND trw.c__PriceableItemTemplateID = plm.id_pi_template	
+           and trw.c__PriceableItemInstanceID = plm.id_pi_instance
+              AND trw.c__PriceableItemTemplateID = plm.id_pi_template
       );
+	  
+	SELECT metratime(1,'RC') INTO currentDate FROM dual;	
       
   INSERT INTO tmp_newrw
   SELECT
@@ -60,30 +63,53 @@ ELSE
       , -1 AS c_LastIdRun
       , dbo.mtmindate() AS c_MembershipStart
       , dbo.mtmaxdate() AS c_MembershipEnd
-      FROM t_sub sub 
+      , AllowInitialArrersCharge(rcr.b_advance, :new.id_acc, :new.vt_end, currentDate) c__IsAllowGenChargeByTrigger
+      FROM t_sub sub
       INNER JOIN t_payment_redirection pay ON pay.id_payee = :new.id_acc AND pay.vt_start < sub.vt_end AND pay.vt_end > sub.vt_start AND pay.vt_start < :new.vt_end AND pay.vt_end > :new.vt_start
       INNER JOIN t_pl_map plm ON plm.id_po = sub.id_po AND plm.id_paramtable IS NULL
       INNER JOIN t_recur rcr ON plm.id_pi_instance = rcr.id_prop
       INNER JOIN t_base_props bp ON bp.id_prop = rcr.id_prop
       LEFT OUTER JOIN t_recur_value rv ON rv.id_prop = rcr.id_prop AND sub.id_sub = rv.id_sub AND rv.tt_end = dbo.MTMaxDate() AND rv.vt_start < sub.vt_end AND rv.vt_end > sub.vt_start AND rv.vt_start < pay.vt_end AND rv.vt_end > pay.vt_start AND rv.vt_start < :new.vt_end AND rv.vt_end > :new.vt_start
-      WHERE 1=1
-       and sub.id_group = :new.id_group
-       AND not EXISTS 
-        (SELECT 1 FROM T_RECUR_WINDOW where c__AccountID = :new.id_acc 
+      WHERE sub.id_group = :new.id_group
+       AND not EXISTS
+        (SELECT 1 FROM T_RECUR_WINDOW where c__AccountID = :new.id_acc
           AND c__SubscriptionID = sub.id_sub
-		  and c__PriceableItemInstanceID = plm.id_pi_instance
-		  and c__PriceableItemTemplateID = plm.id_pi_template)
+    and c__PriceableItemInstanceID = plm.id_pi_instance
+    and c__PriceableItemTemplateID = plm.id_pi_template)
       AND rcr.b_charge_per_participant = 'Y'
-      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)
-;
-  END;
-  UPDATE tmp_newrw SET c_BilledThroughDate = metratime(1,'RC');
-  INSERT INTO t_recur_window
-  SELECT * FROM tmp_newrw;
-
- MeterInitialFromRecurWindow;
- MeterCreditFromRecurWindow;
+      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL);
+  
+	/* adds charges to METER tables */
+	MeterInitialFromRecurWindow(currentDate);
+	MeterCreditFromRecurWindow(currentDate);
+ 
+	INSERT INTO t_recur_window
+    SELECT c_CycleEffectiveDate,
+    c_CycleEffectiveStart,
+    c_CycleEffectiveEnd,
+    c_SubscriptionStart,
+    c_SubscriptionEnd,
+    c_Advance,
+    c__AccountID,
+    c__PayingAccount,
+    c__PriceableItemInstanceID,
+    c__PriceableItemTemplateID,
+    c__ProductOfferingID,
+    c_PayerStart,
+    c_PayerEnd,
+    c__SubscriptionID,
+    c_UnitValueStart,
+    c_UnitValueEnd,
+    c_UnitValue,
+    c_BilledThroughDate,
+    c_LastIdRun,
+    c_MembershipStart,
+    c_MembershipEnd
+    FROM tmp_newrw;
+ 
 END IF;
+
+/* TODO: do we need it for delete action? */
 UPDATE t_recur_window w1
 SET c_CycleEffectiveEnd =
   (SELECT MIN(NVL(w2.c_CycleEffectiveDate,w2.c_SubscriptionEnd))
@@ -95,8 +121,7 @@ SET c_CycleEffectiveEnd =
   AND w1.c_UnitValueEnd       = w2.c_UnitValueEnd
   AND w2.c_CycleEffectiveDate > w1.c_CycleEffectiveDate
   )
-WHERE 1=1
-AND EXISTS
+WHERE EXISTS
   (SELECT 1
   FROM t_recur_window w2
   WHERE w2.c__SubscriptionID  = w1.c__SubscriptionID

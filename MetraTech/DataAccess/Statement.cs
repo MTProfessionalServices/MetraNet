@@ -523,8 +523,6 @@ namespace MetraTech.DataAccess
     {
       IMTDataReader ret = null;
 
-      OnBeforeExecute();
-
       //Guid tblid = Guid.NewGuid();
         
       //string tmpTable = string.Format("{0}_{1}", TEMP_TABLE_BASE, Math.Abs(tblid.ToString("N").GetHashCode()));
@@ -580,6 +578,8 @@ namespace MetraTech.DataAccess
         oraParam.ParameterName = "Rows";
         Command.Parameters.Add(oraParam);
       }
+
+      OnBeforeExecute();
 
       var performanceStopWatch = new PerformanceStopWatch();
       performanceStopWatch.Start();

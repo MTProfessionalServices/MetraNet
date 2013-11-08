@@ -69,9 +69,10 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
                                             SubscriptionInstance.ProductOffering.EffectiveTimeSpan.StartDate,
                                             SubscriptionInstance.ProductOffering.EffectiveTimeSpan.EndDate);
 
-        EndDate.Options += String.Format(",minValue:'{0}',maxValue:'{1}'",
+        EndDate.Options += String.Format(",minValue:'{0}',maxValue:'{1}',compareValue:'{2}'",
                                             SubscriptionInstance.ProductOffering.EffectiveTimeSpan.StartDate,
-                                            SubscriptionInstance.ProductOffering.EffectiveTimeSpan.EndDate);
+                                            SubscriptionInstance.ProductOffering.EffectiveTimeSpan.EndDate,
+                                            DateTime.Today);
 
         if (SubscriptionInstance.SubscriptionSpan.StartDateType == ProdCatTimeSpan.MTPCDateType.NextBillingPeriod)
         {

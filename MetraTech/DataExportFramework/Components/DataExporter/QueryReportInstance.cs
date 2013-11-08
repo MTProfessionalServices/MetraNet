@@ -15,76 +15,53 @@ using MetraTech.DataExportFramework.Components.DataFormatters;
 
 namespace MetraTech.DataExportFramework.Components.DataExporter
 {
-	public class QueryReportInstance : BaseReportInstance
-	{
-		private ArrayList __arFieldDefs = new ArrayList(); 
-		private string __extensionLocation;
-		private bool __showHeaderFields = true;
-		private string __delimiter = ",";
-		private bool __includeNonListedFields = true;
+  public class QueryReportInstance : BaseReportInstance
+  {
+    private ArrayList __arFieldDefs = new ArrayList();
+    private string __extensionLocation;
+    private bool __showHeaderFields = true;
+    private string __delimiter = ",";
+    private bool __includeNonListedFields = true;
 
-		public QueryReportInstance() : base() { }
+    public QueryReportInstance() : base() { }
 
-		public QueryReportInstance (string workQID, int iReportId, int iReportInstanceId, int iScheduleId, string sScheduleType, string sTitle) : base(workQID, iReportId, iReportInstanceId, iScheduleId, sScheduleType, sTitle)
-		{
-			//this.__logger = new Logger("[QUERYREPORTINSTANCE]");
-			this.Select(this.__workQId);
-			InitializeFromConfig();
-		}
-	
-		public override void Execute()
-		{
-			base.Execute ();
-			try 
-			{
-				this.CreateReport();
-			}
-			catch (Exception ex)
-			{
-				//Console.WriteLine(ex.ToString());
-				throw(ex);
-			}
-		}
+    public QueryReportInstance(string workQID, int iReportId, int iReportInstanceId, int iScheduleId, string sScheduleType, string sTitle)
+      : base(workQID, iReportId, iReportInstanceId, iScheduleId, sScheduleType, sTitle)
+    {
+      //this.__logger = new Logger("[QUERYREPORTINSTANCE]");
+      this.Select(this.__workQId);
+      InitializeFromConfig();
+    }
 
-		protected override void InitializeFromConfig()
-		{
-			IMTRcd _rcd = new MTRcdClass();
-			_rcd.Init();
-			__extensionLocation = _rcd.ExtensionDir;
-			__arFieldDefs.Clear();
-      
+    public override void Execute()
+    {
+      base.Execute();
+      try
+      {
+        this.CreateReport();
+      }
+      catch (Exception ex)
+      {
+        //Console.WriteLine(ex.ToString());
+        throw (ex);
+      }
+    }
+
+    protected override void InitializeFromConfig()
+    {
+      IMTRcd _rcd = new MTRcdClass();
+      _rcd.Init();
+      __extensionLocation = _rcd.ExtensionDir;
+      __arFieldDefs.Clear();
+
       if (__outputType == "txt")
       {
         XmlDocument fieldDefConfigXml;
+
         try
         {
-          try
-          {
-            fieldDefConfigXml =
-              LoadFieldDefConfigXML(Path.Combine(_config.PathToReportFieldDefDir,String.Format("{0}_{1}.xml",__title,__reportInstanceId)));
-          }
-          catch (FieldDefConfigFileLoadException)
-          {
-            try
-            {
-              fieldDefConfigXml = LoadFieldDefConfigXML(Path.Combine(_config.PathToReportFieldDefDir, String.Format("{0}.xml", __title)));
-            }
-            catch (FieldDefConfigFileLoadException)
-            {
-              DefLog.MakeLogEntry(String.Format("{0} Config XML with field defintions not found for the txt formatted report, defaulting to stream all fields",__loggerMsg),"info");
-              try
-              {
-                //awk-Added logic to use default instead of throwing error.
-                fieldDefConfigXml =
-                  LoadFieldDefConfigXML(Path.Combine(_config.PathToReportFieldDefDir, String.Format("default_{0}.xml", __outputType)));
-              }
-              catch (FieldDefConfigFileLoadException)
-              {
-                throw;
-              }
-            }
-          }
-          
+          fieldDefConfigXml = GetFieldDefConfigXml();
+
           XmlNode _node = fieldDefConfigXml.SelectSingleNode("xmlconfig/reportfielddef/fielddef");
           if (_node != null)
           {
@@ -102,7 +79,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
             }
             catch
             {
-                DefLog.MakeLogEntry("No delimiter specified - falling back to default of \",\"", "debug");
+              DefLog.MakeLogEntry("No delimiter specified - falling back to default of \",\"", "debug");
             }
 
             if (_node.Attributes["includenonlistedfields"] != null)
@@ -122,7 +99,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
             }
             else
             {
-                DefLog.MakeLogEntry("IncludeNonListedfields flag not defined - defaulting to assume this as YES", "debug");
+              DefLog.MakeLogEntry("IncludeNonListedfields flag not defined - defaulting to assume this as YES", "debug");
               __includeNonListedFields = true;
             }
 
@@ -194,140 +171,182 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
           //All fields are streamed to the output file - nothing to do here - exit out!
           if (__outputType == "csv")
           {
-              DefLog.MakeLogEntry(String.Format("{0} Config XML with field defintions not found for the csv formatted report, defaulting to stream all fields", __loggerMsg), "info");
+            DefLog.MakeLogEntry(String.Format("{0} Config XML with field defintions not found for the csv formatted report, defaulting to stream all fields", __loggerMsg), "info");
           }
           else if (__outputType == "xml")
           {
-              DefLog.MakeLogEntry(String.Format("{0} Config XML with field definitions not found for the xml formatted report, defaulting to stream all fields", __loggerMsg), "info");
+            DefLog.MakeLogEntry(String.Format("{0} Config XML with field definitions not found for the xml formatted report, defaulting to stream all fields", __loggerMsg), "info");
           }
           else
           {
-                  DefLog.MakeLogEntry(String.Format("{0} Field Def Config XML not found for the textformatted Report", __loggerMsg), "error");
+            DefLog.MakeLogEntry(String.Format("{0} Field Def Config XML not found for the textformatted Report", __loggerMsg), "error");
             throw;
           }
         }
         catch (Exception ex)
         {
-            DefLog.MakeLogEntry(String.Format("{0} Unknown Error\n {1}", __loggerMsg, ex), "error");
-            throw;
+          DefLog.MakeLogEntry(String.Format("{0} Unknown Error\n {1}", __loggerMsg, ex), "error");
+          throw;
         }
       }
-		}
+    }
 
-		private void CreateReport()
-		{
-			try 
-			{
-                using (IMTConnection _cn = ConnectionManager.CreateConnection())
-				{
-				     using (MTComSmartPtr<IMTQueryAdapter> queryAdapter = new MTComSmartPtr<IMTQueryAdapter>())
-                    {
-                        queryAdapter.Item = new MTQueryAdapterClass();
-                        queryAdapter.Item.Init(_config.PathToCustomQueryDir);
-                        queryAdapter.Item.SetQueryTag(this.__queryTag);
-                        IEnumerator _enParams = this.__arParams.GetEnumerator();
-                        while (_enParams.MoveNext())
-                        {
-                            ReportParam _prm = (ReportParam)_enParams.Current;                            
-                            DefLog.MakeLogEntry(String.Format("Found '{0}' parameter for query with tag {1}. DEF is going to add it to the query...", _prm.ParamName, this.__queryTag), "debug");
-                            if (_prm.ParamValue.ToString().Trim().Length == 0)
-                                _prm.ParamValue = "NULL";
-                            if (_prm.ParamValue.ToString().Trim().ToUpper() == "NULL")
-                                queryAdapter.Item.AddParam(_prm.ParamName, _prm.ParamValue, true);
-                            else
-                                queryAdapter.Item.AddParam(_prm.ParamName, "'" + _prm.ParamValue + "'", true);
-                            DefLog.MakeLogEntry(String.Format("Replaced '{0}' parameter on a '{1}' for query with tag {2}.", _prm.ParamName, _prm.ParamValue, this.__queryTag), "debug");
-                        }
+    private XmlDocument GetFieldDefConfigXml()
+    {
+      XmlDocument fieldDefConfigXml;
+      try
+      {
+        fieldDefConfigXml =
+          LoadFieldDefConfigXML(Path.Combine(_config.PathToReportFieldDefDir,
+                                             String.Format("{0}.xml", __outputFileName)));
+      }
+      catch (FieldDefConfigFileLoadException)
+      {
+        try
+        {
+          fieldDefConfigXml =
+            LoadFieldDefConfigXML(Path.Combine(_config.PathToReportFieldDefDir,
+                                               String.Format("{0}_{1}.xml", __title, __reportInstanceId)));
+        }
+        catch (FieldDefConfigFileLoadException)
+        {
+          try
+          {
+            fieldDefConfigXml =
+              LoadFieldDefConfigXML(Path.Combine(_config.PathToReportFieldDefDir,
+                                                 String.Format("{0}.xml", __title)));
+          }
+          catch (FieldDefConfigFileLoadException)
+          {
+            DefLog.MakeLogEntry(
+              String.Format(
+                "{0} Config XML with field defintions not found for the txt formatted report, defaulting to stream all fields",
+                __loggerMsg), "info");
 
-                        DefLog.MakeLogEntry(String.Format("DEF is going to execute query: \n {0}", queryAdapter.Item.GetRawSQLQuery(true)), "debug");
+            //awk-Added logic to use default instead of throwing error.
+            fieldDefConfigXml =
+              LoadFieldDefConfigXML(Path.Combine(_config.PathToReportFieldDefDir,
+                                                 String.Format("default_{0}.xml", __outputType)));
+          }
+        }
+      }
+      return fieldDefConfigXml;
+    }
+
+    private void CreateReport()
+    {
+      try
+      {
+        using (IMTConnection _cn = ConnectionManager.CreateConnection())
+        {
+          using (MTComSmartPtr<IMTQueryAdapter> queryAdapter = new MTComSmartPtr<IMTQueryAdapter>())
+          {
+            queryAdapter.Item = new MTQueryAdapterClass();
+            queryAdapter.Item.Init(_config.PathToCustomQueryDir);
+            queryAdapter.Item.SetQueryTag(this.__queryTag);
+            IEnumerator _enParams = this.__arParams.GetEnumerator();
+            while (_enParams.MoveNext())
+            {
+              ReportParam _prm = (ReportParam)_enParams.Current;
+              DefLog.MakeLogEntry(String.Format("Found '{0}' parameter for query with tag {1}. DEF is going to add it to the query...", _prm.ParamName, this.__queryTag), "debug");
+              if (_prm.ParamValue.ToString().Trim().Length == 0)
+                _prm.ParamValue = "NULL";
+              if (_prm.ParamValue.ToString().Trim().ToUpper() == "NULL")
+                queryAdapter.Item.AddParam(_prm.ParamName, _prm.ParamValue, true);
+              else
+                queryAdapter.Item.AddParam(_prm.ParamName, "'" + _prm.ParamValue + "'", true);
+              DefLog.MakeLogEntry(String.Format("Replaced '{0}' parameter on a '{1}' for query with tag {2}.", _prm.ParamName, _prm.ParamValue, this.__queryTag), "debug");
+            }
+
+            DefLog.MakeLogEntry(String.Format("DEF is going to execute query: \n {0}", queryAdapter.Item.GetRawSQLQuery(true)), "debug");
 
 
-                        using (IMTPreparedStatement stmt = _cn.CreatePreparedStatement(queryAdapter.Item.GetRawSQLQuery(true)))
-                        {
-                            if (_cn.ConnectionInfo.IsOracle)
-			                      {
-			                          // if statement just call oracle sp for example " oracle(13, :1my_cursor); end;" the output param should be added
-                              Regex reg = new Regex(@"\b[A-Za-z]\w+\((,?\s*(?:(?:['""]?\w+['""]?)|(?<arg_with_points>:\w+)))*\);?\s*(?:end;)?$", 
-                                                      RegexOptions.Multiline | RegexOptions.IgnoreCase);
-                                // the pattern checks:
-                                // open :1 for select * from t_acc_usage;
-			                          // exec sp_abc(1,3,:1);
-			                          // declare begin sp_abc(1,2,:1); end;
-			                          // exec sp_abc2(:1, 3, "asdf");
-			                          // exec sp_abc2 ("a:2",2);
-                                // execute GetAccByType('Root\", :p_result); ENd;
-			                          if (reg.Match(queryAdapter.Item.GetRawSQLQuery(true)).Groups["arg_with_points"].Success)
-			                          {
-                                   DefLog.MakeLogEntry("Found that qury uses call Oracle SP with out sys_refcursor parameter, so SetResultSetCount(1) will be added to the statement.", "info");
+            using (IMTPreparedStatement stmt = _cn.CreatePreparedStatement(queryAdapter.Item.GetRawSQLQuery(true)))
+            {
+              if (_cn.ConnectionInfo.IsOracle)
+              {
+                // if statement just call oracle sp for example " oracle(13, :1my_cursor); end;" the output param should be added
+                Regex reg = new Regex(@"\b[A-Za-z]\w+\((,?\s*(?:(?:['""]?\w+['""]?)|(?<arg_with_points>:\w+)))*\);?\s*(?:end;)?$",
+                                        RegexOptions.Multiline | RegexOptions.IgnoreCase);
+                // the pattern checks:
+                // open :1 for select * from t_acc_usage;
+                // exec sp_abc(1,3,:1);
+                // declare begin sp_abc(1,2,:1); end;
+                // exec sp_abc2(:1, 3, "asdf");
+                // exec sp_abc2 ("a:2",2);
+                // execute GetAccByType('Root\", :p_result); ENd;
+                if (reg.Match(queryAdapter.Item.GetRawSQLQuery(true)).Groups["arg_with_points"].Success)
+                {
+                  DefLog.MakeLogEntry("Found that qury uses call Oracle SP with out sys_refcursor parameter, so SetResultSetCount(1) will be added to the statement.", "info");
 
-			                              stmt.SetResultSetCount(1);
-			                          }
-			                      }
+                  stmt.SetResultSetCount(1);
+                }
+              }
 
-                            using (IMTDataReader reader = stmt.ExecuteReader())
-                            {
-                                var formatter = GetFormatter(this.__outputType);
+              using (IMTDataReader reader = stmt.ExecuteReader())
+              {
+                var formatter = GetFormatter(this.__outputType);
 
 
-                                formatter.Delimiter = this.__delimiter;
-                                formatter.IncludeNonListedFields = this.__includeNonListedFields;
+                formatter.Delimiter = this.__delimiter;
+                formatter.IncludeNonListedFields = this.__includeNonListedFields;
 
-                                formatter.MTLogger = DefLog.LoggerInstance();
-                                formatter.SpecialFormatInfo = this.__arFieldDefs;
+                formatter.MTLogger = DefLog.LoggerInstance();
+                formatter.SpecialFormatInfo = this.__arFieldDefs;
 
-                                //int _rowCount = _ftm.GenerateOutFile(_rdr, this.__tempReportFile, __showHeaderFields);
-                                formatter.UseQuotedIdentifiers = this.__useQuotedIdentifiers;
-                                formatter.BeginFileWrite(this.__tempReportFile, this.__showHeaderFields);
+                //int _rowCount = _ftm.GenerateOutFile(_rdr, this.__tempReportFile, __showHeaderFields);
+                formatter.UseQuotedIdentifiers = this.__useQuotedIdentifiers;
+                formatter.BeginFileWrite(this.__tempReportFile, this.__showHeaderFields);
 
-                                if (this.__outputExecuteParamInfo)
-                                {
-                                    string _sExecuteParamInfo = ExecuteParameterInfo();
-                                    formatter.DoWriteFile(_sExecuteParamInfo);
-                                }
-                                int _rowCount = formatter.DoWriteFile(reader, this.__showHeaderFields);
-                                formatter.EndFileWrite();
+                if (this.__outputExecuteParamInfo)
+                {
+                  string _sExecuteParamInfo = ExecuteParameterInfo();
+                  formatter.DoWriteFile(_sExecuteParamInfo);
+                }
+                int _rowCount = formatter.DoWriteFile(reader, this.__showHeaderFields);
+                formatter.EndFileWrite();
 
-                                DefLog.MakeLogEntry(this.__loggerMsg + "- " + _rowCount + " rows of data written to the output file");
+                DefLog.MakeLogEntry(this.__loggerMsg + "- " + _rowCount + " rows of data written to the output file");
 
-                                this.MoveReportToDestination();
+                this.MoveReportToDestination();
 
-                                this.__isComplete = true;
-                            }
-                        }
-                    }
-				}
-			}
-			catch (Exception ex)
-			{
-                string rptExc = ex.ToString();
-                if (rptExc.Contains("deadlock"))
-                    rptExc = rptExc.Replace("deadlock", "_REPORT_EXECUTE_ERROR_");
+                this.__isComplete = true;
+              }
+            }
+          }
+        }
+      }
+      catch (Exception ex)
+      {
+        string rptExc = ex.ToString();
+        if (rptExc.Contains("deadlock"))
+          rptExc = rptExc.Replace("deadlock", "_REPORT_EXECUTE_ERROR_");
 
-                DefLog.MakeLogEntry(this.__loggerMsg + " Report writing error\n" + rptExc, "Error");
-                throw (new Exception(rptExc));
-			}
-		}
+        DefLog.MakeLogEntry(this.__loggerMsg + " Report writing error\n" + rptExc, "Error");
+        throw (new Exception(rptExc));
+      }
+    }
 
-	    private BaseFormatter GetFormatter(string outputType)
-	    {
-	        BaseFormatter formatter = null;
+    private BaseFormatter GetFormatter(string outputType)
+    {
+      BaseFormatter formatter = null;
 
-	        switch (outputType)
-	        {
-                case "csv":
-                    formatter = new CharDelimitedFormatter();
-                    break;
-                case "txt":
-                    formatter = new FixedLengthFormatter();
-                    break;
-                case "xml":
-                    formatter = new XMLFormatter();
-                    break;
-                default:
-	                throw new ArgumentException(String.Format("DataExport framework does not support {0} formater.",
-	                                                          outputType));
-	        }
-	        return formatter;
-	    }
-	}
+      switch (outputType)
+      {
+        case "csv":
+          formatter = new CharDelimitedFormatter();
+          break;
+        case "txt":
+          formatter = new FixedLengthFormatter();
+          break;
+        case "xml":
+          formatter = new XMLFormatter();
+          break;
+        default:
+          throw new ArgumentException(String.Format("DataExport framework does not support {0} formater.",
+                                                    outputType));
+      }
+      return formatter;
+    }
+  }
 }

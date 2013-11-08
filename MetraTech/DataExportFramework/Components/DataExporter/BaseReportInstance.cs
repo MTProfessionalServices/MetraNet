@@ -817,23 +817,19 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 	
 		protected XmlDocument LoadFieldDefConfigXML(string sPath)
 		{
-			XmlDocument _doc = new XmlDocument();
+			var _doc = new XmlDocument();
 			try 
 			{
 				_doc.Load(sPath);
 				return _doc;
 			}
-			catch(System.IO.FileNotFoundException fiEx)
+			catch(FileNotFoundException fiEx)
 			{
 				throw new FieldDefConfigFileLoadException("FieldDefinition Config File Not Found", fiEx);
 			}
-			catch (System.IO.DirectoryNotFoundException diEx)
+			catch (DirectoryNotFoundException diEx)
 			{
 				throw new FieldDefConfigFileLoadException("FieldDefinition Config File Not Found - Directory Does not exist", diEx);
-			}
-			catch (Exception)
-			{
-				throw;
 			}
 		}
 
@@ -844,7 +840,7 @@ namespace MetraTech.DataExportFramework.Components.DataExporter
 				Crc32 _crc = new Crc32();
 				if (File.Exists(_config.WorkingFolder+@"\"+this.__resultFileName+".zip"))
           File.Delete(_config.WorkingFolder + @"\" + this.__resultFileName + ".zip");
-        ZipOutputStream _zp = new ZipOutputStream(System.IO.File.Create(_config.WorkingFolder+ @"\" + this.__resultFileName + ".zip"));
+        ZipOutputStream _zp = new ZipOutputStream(File.Create(_config.WorkingFolder+ @"\" + this.__resultFileName + ".zip"));
 				_zp.SetLevel(6);
 			
 				FileStream _fs = File.OpenRead(this.__deliverThisFile);

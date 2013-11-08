@@ -491,7 +491,7 @@ Function WriteSummary(strWizardName)
                                             "", false, "", "", Array("right", "left"))
   strHTML = strHTML & gobjMTGrid.AddGridRow(Array(FrameWork.GetDictionary("TEXT_FIELD_DESCRIPTION"), SafeForHtmlAttr(session(strWizardName & "_Description"))), _
                                             "", false, "", "", Array("right", "left"))
-  strHTML = strHTML & gobjMTGrid.AddGridRow(Array(FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_STARTDATE"), SafeForHtmlAttr(session(strWizardName & "_effectivedatestart"))), _
+  strHTML = strHTML & gobjMTGrid.AddGridRow(Array(FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_STARTDATE"), SafeForHtmlAttr(mdm_Format(session(strWizardName & "_effectivedatestart"), FrameWork.GetDictionary("DATE_FORMAT")))), _
                                             "", false, "", "", Array("right", "left"))
   strHTML = strHTML & gobjMTGrid.AddGridRow(Array(FrameWork.GetDictionary("TEXT_CURRENCY"), SafeForHtmlAttr(session(strWizardName & "_CurrencyCode"))), _
                                             "", false, "", "", Array("right", "left"))

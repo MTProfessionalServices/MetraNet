@@ -1,4 +1,8 @@
+<!-- #INCLUDE VIRTUAL="/mdm/SecurityFramework.asp" -->
 <%
+' SECENG: Fix CORE-4827 CLONE - MSOL BSS 18388 Metracare: No clickjacking protection (SecEx, Public-beta, 3)
+response.write CjProtectionCode
+
 PUBLIC CONST TIME_OUT_MESSAGE = "Your session has timed out.  Please Log In again."
 
 PRIVATE FUNCTION auth_GetApplicationName()
@@ -38,5 +42,9 @@ If(session("isAuthenticated")<>TRUE)then ' Purpose of this file is to ensure tha
       
   response.Write "</script>" & vbNewLine  
   response.end
+Else
+  'SECENG: 
+  'RUN SAFE INPUT FILTER ONLY FOR AUTHENTICATED SESSIONS
+  RunSafeInputFilter("Invalid input data. Please check your URL.")
 End If
 %>

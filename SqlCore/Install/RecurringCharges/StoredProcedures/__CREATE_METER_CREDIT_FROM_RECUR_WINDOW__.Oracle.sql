@@ -223,7 +223,7 @@ SELECT DISTINCT
     insertChargesIntoSvcTables('%Credit','%Debit');
 	
 	UPDATE tmp_newrw rw
-	SET c_BilledThroughDate = metratime(1,'RC')	
+	SET c_BilledThroughDate = currentDate	
 	where rw.c__IsAllowGenChargeByTrigger = 1;
 
 	

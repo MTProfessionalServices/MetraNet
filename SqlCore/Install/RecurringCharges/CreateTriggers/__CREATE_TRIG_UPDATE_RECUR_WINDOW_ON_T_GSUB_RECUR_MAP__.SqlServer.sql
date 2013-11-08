@@ -26,7 +26,8 @@ delete from t_recur_window where exists (
    WHEN matched AND t_recur_window.c__AccountID = source.id_acc THEN
 	UPDATE SET c_MembershipStart = source.vt_start,
 	           c_MembershipEnd = source.vt_end;
-	           
+			   
+	select @temp = tt_start from inserted           
 	           
  SELECT
        sub.vt_start AS c_CycleEffectiveDate
@@ -46,7 +47,7 @@ delete from t_recur_window where exists (
       , IsNull(rv.vt_start, dbo.mtmindate()) AS c_UnitValueStart
       , IsNull(rv.vt_end, dbo.mtmaxdate()) AS c_UnitValueEnd
       , rv.n_value AS c_UnitValue
-      , dbo.metratime(1,'RC') as c_BilledThroughDate
+      , @temp as c_BilledThroughDate
       , -1 AS c_LastIdRun
       , grm.vt_start AS c_MembershipStart
       , grm.vt_end AS c_MembershipEnd
@@ -63,14 +64,17 @@ FROM inserted grm
         AND rv.tt_end = dbo.MTMaxDate() 
         AND rv.vt_start < sub.vt_end AND rv.vt_end > sub.vt_start 
         AND rv.vt_start < pay.vt_end AND rv.vt_end > pay.vt_start
-      WHERE 1=1
-       AND not EXISTS 
-        (SELECT 1 FROM T_RECUR_WINDOW where c__AccountID = grm.id_acc 
-          AND c__SubscriptionID = sub.id_sub and c__priceableiteminstanceid = grm.id_prop and c__priceableitemtemplateid = plm.id_pi_template)
-      AND grm.tt_end = dbo.mtmaxdate()
-      AND rcr.b_charge_per_participant = 'N'
-      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL);
-      select @temp = tt_start from inserted
+      WHERE 
+		not EXISTS 
+	        (SELECT 1 FROM T_RECUR_WINDOW where c__AccountID = grm.id_acc 
+	          	AND c__SubscriptionID = sub.id_sub 
+				AND c__priceableiteminstanceid = grm.id_prop 
+				AND c__priceableitemtemplateid = plm.id_pi_template
+			)
+	      AND grm.tt_end = dbo.mtmaxdate()
+	      AND rcr.b_charge_per_participant = 'N'
+	      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL);
+      
     
 	/* adds charges to METER tables */
 	EXEC MeterInitialFromRecurWindow @currentDate = @temp;

@@ -1,7 +1,8 @@
 create or replace TRIGGER trig_recur_window_recur_map 
-  AFTER INSERT OR UPDATE OR DELETE ON t_gsub_recur_map
-    REFERENCING NEW AS new OLD AS OLD FOR EACH row 
-    
+AFTER INSERT OR UPDATE OR DELETE ON t_gsub_recur_map
+REFERENCING NEW AS new OLD AS OLD 
+FOR EACH row 
+DECLARE currentDate DATE;    
   BEGIN 
     IF deleting THEN
       DELETE FROM t_recur_window WHERE EXISTS
@@ -24,6 +25,8 @@ create or replace TRIGGER trig_recur_window_recur_map
               AND trw.c__SubscriptionID = sub.id_sub
               where sub.id_group = :new.id_group
       ) ;
+	
+	SELECT NVL(:new.tt_start, metratime(1,'RC')) INTO currentDate FROM dual;	
 	  
     insert into TMP_NEWRW
     SELECT sub.vt_start c_CycleEffectiveDate,
@@ -43,11 +46,11 @@ create or replace TRIGGER trig_recur_window_recur_map
       NVL(rv.vt_start, dbo.mtmindate()) c_UnitValueStart,
       NVL(rv.vt_end, dbo.mtmaxdate()) c_UnitValueEnd,
       rv.n_value c_UnitValue,
-      metratime(1,'RC') c_BilledThroughDate,
+      currentDate c_BilledThroughDate,
       -1 c_LastIdRun,
       :new.vt_start c_MembershipStart,
       :new.vt_end c_MembershipEnd,
-	   AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.vt_end, sub.dt_crt) c__IsAllowGenChargeByTrigger
+	   AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.vt_end, currentDate) c__IsAllowGenChargeByTrigger
       from t_sub sub INNER JOIN t_payment_redirection pay
          ON pay.id_payee = :new.id_acc AND pay.vt_start < sub.vt_end
           AND pay.vt_end > sub.vt_start
@@ -59,22 +62,22 @@ create or replace TRIGGER trig_recur_window_recur_map
         AND sub.id_sub = rv.id_sub AND rv.tt_end = dbo.MTMaxDate() 
         AND rv.vt_start < sub.vt_end AND rv.vt_end > sub.vt_start 
         AND rv.vt_start < pay.vt_end AND rv.vt_end > pay.vt_start
-      WHERE 1 = 1
-      AND sub.id_group = :new.id_group
-      AND NOT EXISTS
-        (SELECT 1
-          FROM T_RECUR_WINDOW WHERE c__AccountID = :new.id_acc
-            AND c__SubscriptionID = sub.id_sub
-        )
-      AND :new.tt_end  = dbo.mtmaxdate()
-      AND rcr.b_charge_per_participant = 'N' 
-      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL);
+      WHERE 
+      	sub.id_group = :new.id_group
+      	AND NOT EXISTS
+	        (SELECT 1
+	          FROM T_RECUR_WINDOW WHERE c__AccountID = :new.id_acc
+	            AND c__SubscriptionID = sub.id_sub
+	        )
+	    AND :new.tt_end  = dbo.mtmaxdate()
+	    AND rcr.b_charge_per_participant = 'N' 
+	    AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL);
 	  
   END IF;
   
   /* adds charges to METER tables */
-  MeterInitialFromRecurWindow;
-  MeterCreditFromRecurWindow;
+  MeterInitialFromRecurWindow(currentDate);
+  MeterCreditFromRecurWindow(currentDate);
   
   INSERT INTO t_recur_window
     SELECT c_CycleEffectiveDate,

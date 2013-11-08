@@ -86,7 +86,7 @@ where 1=1
    EXEC InsertChargesIntoSvcTables;
 
 	UPDATE rw
-	SET c_BilledThroughDate = dbo.metratime(1,'RC')
+	SET c_BilledThroughDate = @currentDate
 	FROM #recur_window_holder rw
 	where rw.c__IsAllowGenChargeByTrigger = 1;
 END

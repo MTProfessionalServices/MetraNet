@@ -5,6 +5,7 @@ TRIGGER trig_recur_window_pay_redir
   AFTER
   INSERT ON t_payment_redirection REFERENCING NEW AS NEW
   FOR EACH row
+  DECLARE currentDate DATE;   
   BEGIN
     /*Get the old vt_start and vt_end for payees that have changed*/
     insert into tmp_redir
@@ -24,6 +25,8 @@ TRIGGER trig_recur_window_pay_redir
         ON trw.c__AccountID  = tmp_redir.id_payee
         AND trw.c_PayerStart = tmp_redir.vt_start
         AND trw.c_PayerEnd   = tmp_redir.vt_end;
+
+SELECT metratime(1,'RC') INTO currentDate FROM dual;	
 
 insert into tmp_newrw
   SELECT orw.c_CycleEffectiveDate ,
@@ -47,11 +50,11 @@ insert into tmp_newrw
     orw.c_LastIdRun ,
     orw.c_MembershipStart ,
     orw.c_MembershipEnd,
-    1 c__IsAllowGenChargeByTrigger
+    AllowInitialArrersCharge(orw.c_Advance, orw.c__AccountID, orw.c_SubscriptionEnd, currentDate) c__IsAllowGenChargeByTrigger
   FROM tmp_oldrw orw
   WHERE orw.c__AccountId = :new.id_payee;
   
-  MeterPayerChangeFromRecWind;
+  MeterPayerChangeFromRecWind(currentDate);
   
   DELETE
   FROM t_recur_window
@@ -65,9 +68,7 @@ insert into tmp_newrw
     AND t_recur_window.c__SubscriptionID    = orw.c__SubscriptionID
     );
   
-  UPDATE tmp_newrw SET c_BilledThroughDate =metratime(1,'RC');
- 
- INSERT INTO t_recur_window
+  INSERT INTO t_recur_window
     SELECT c_CycleEffectiveDate,
     c_CycleEffectiveStart,
     c_CycleEffectiveEnd,
@@ -102,8 +103,7 @@ insert into tmp_newrw
     AND w1.c_UnitValueEnd       = w2.c_UnitValueEnd
     AND w2.c_CycleEffectiveDate > w1.c_CycleEffectiveDate
     )
-  WHERE 1=1
-  AND EXISTS
+  WHERE EXISTS
     (SELECT 1
     FROM t_recur_window w2
     WHERE w2.c__SubscriptionID  = w1.c__SubscriptionID

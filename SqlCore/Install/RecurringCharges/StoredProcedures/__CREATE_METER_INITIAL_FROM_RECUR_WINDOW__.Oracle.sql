@@ -81,8 +81,8 @@ where 1=1
 
    insertChargesIntoSvcTables('Initial','Initial');
 
-  UPDATE tmp_newrw rw
-	SET c_BilledThroughDate = metratime(1,'RC')	
+	UPDATE tmp_newrw rw
+	SET c_BilledThroughDate = currentDate	
 	where rw.c__IsAllowGenChargeByTrigger = 1;
 
 end METERinitialFROMRECURWINDOW;

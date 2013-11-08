@@ -56,7 +56,7 @@ BEGIN
     -1 c_LastIdRun ,
     dbo.mtmindate() c_MembershipStart ,
     dbo.mtmaxdate() c_MembershipEnd,
-    1 c__IsAllowGenChargeByTrigger
+    AllowInitialArrersCharge(rcr.b_advance, pay.id_acc, sub.vt_end, :new.tt_start) c__IsAllowGenChargeByTrigger
     from t_sub sub
       INNER JOIN t_payment_redirection pay ON pay.id_payee = sub.id_acc AND pay.vt_start < sub.vt_end AND pay.vt_end > sub.vt_start
       INNER JOIN t_pl_map plm ON plm.id_po = sub.id_po AND plm.id_paramtable IS NULL
@@ -65,9 +65,9 @@ BEGIN
       JOIN tmp_new_units rv ON rv.id_prop = rcr.id_prop AND sub.id_sub = rv.id_sub AND rv.tt_end = dbo.MTMaxDate()
         AND rv.vt_start < sub.vt_end AND rv.vt_end > sub.vt_start
         AND rv.vt_start < pay.vt_end AND rv.vt_end > pay.vt_start
-      WHERE 1=1
-      AND sub.id_group IS NULL
-      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)
+      WHERE
+      		sub.id_group IS NULL
+      		AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)
   
   UNION ALL
   
@@ -92,8 +92,8 @@ BEGIN
     -1 c_LastIdRun ,
     dbo.mtmindate() c_MembershipStart ,
     dbo.mtmaxdate() c_MembershipEnd,
-    1 c__IsAllowGenChargeByTrigger
-      FROM t_gsubmember gsm
+    AllowInitialArrersCharge(rcr.b_advance, pay.id_acc, gsm.vt_end, :new.tt_start) c__IsAllowGenChargeByTrigger
+    FROM t_gsubmember gsm
       INNER JOIN t_sub sub ON sub.id_group = gsm.id_group
       INNER JOIN t_payment_redirection pay ON pay.id_payee = gsm.id_acc
         AND pay.vt_start < sub.vt_end AND pay.vt_end > sub.vt_start
@@ -107,9 +107,9 @@ BEGIN
         AND rv.vt_start < sub.vt_end AND rv.vt_end > sub.vt_start
         AND rv.vt_start < pay.vt_end AND rv.vt_end > pay.vt_start
         AND rv.vt_start < gsm.vt_end AND rv.vt_end > gsm.vt_start
-      WHERE 1=1
-      AND rcr.b_charge_per_participant = 'Y'
-      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)
+	WHERE
+		rcr.b_charge_per_participant = 'Y'
+      	AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)
   
   UNION ALL
   
@@ -134,8 +134,8 @@ BEGIN
     -1 c_LastIdRun ,
     grm.vt_start c_MembershipStart ,
     grm.vt_end c_MembershipEnd,
-    1 c__IsAllowGenChargeByTrigger
-      FROM t_gsub_recur_map grm
+    AllowInitialArrersCharge(rcr.b_advance, pay.id_acc, sub.vt_end, :new.tt_start) c__IsAllowGenChargeByTrigger
+    FROM t_gsub_recur_map grm
       /* TODO: GRM dates or sub dates or both for filtering */
       INNER JOIN t_sub sub ON grm.id_group = sub.id_group
       INNER JOIN t_payment_redirection pay ON pay.id_payee = grm.id_acc AND pay.vt_start < sub.vt_end AND pay.vt_end > sub.vt_start
@@ -146,10 +146,10 @@ BEGIN
       AND rv.tt_end = dbo.MTMaxDate()
       AND rv.vt_start < sub.vt_end AND rv.vt_end > sub.vt_start
       AND rv.vt_start < pay.vt_end AND rv.vt_end > pay.vt_start
-      WHERE 1=1
-      AND grm.tt_end = dbo.mtmaxdate()
-      AND rcr.b_charge_per_participant = 'N'
-      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL);
+	WHERE
+		grm.tt_end = dbo.mtmaxdate()
+      	AND rcr.b_charge_per_participant = 'N'
+      	AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL);
 
   /*Get the old vt_start and vt_end for recur values that have changed*/
   INSERT INTO tmp_old_units
@@ -188,8 +188,8 @@ DELETE FROM tmp_newrw WHERE EXISTS
 );
 
   /* Should be analozed for Arrears RC*/
-  MeterInitialFromRecurWindow;
-  MeterUdrcFromRecurWindow;
+  MeterInitialFromRecurWindow(:new.tt_start);
+  MeterUdrcFromRecurWindow(:new.tt_start);
   
   /*Delete old values from t_recur_window*/
   DELETE FROM t_recur_window
@@ -203,9 +203,6 @@ DELETE FROM tmp_newrw WHERE EXISTS
   and plm.id_pi_instance = t_recur_window.c__PriceableItemInstanceID
   and plm.id_pi_template = t_recur_window.c__PriceableItemTemplateID
   );
-  
-  /* Looks like it's redudnat */
-  UPDATE tmp_newrw SET c_BilledThroughDate = metratime(1,'RC');
   
    INSERT INTO t_recur_window
     SELECT DISTINCT c_CycleEffectiveDate,

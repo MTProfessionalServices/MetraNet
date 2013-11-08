@@ -147,6 +147,7 @@ namespace MetraTech.Core.Services
                   po.LocalizedDisplayNames = localizedNames;
                   po.LocalizedDescriptions = localizedDesc;
 
+                  PopulateExtendedProperties(po, po.ProductOfferingId.Value);
                   poDictionary.Add(po.ProductOfferingId.Value, po);
                   productOfferings.Items.Add(po);
                 }

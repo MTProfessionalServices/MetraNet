@@ -249,5 +249,3 @@ WHERE EXISTS
     AND w2.c_CycleEffectiveDate > t_recur_window.c_CycleEffectiveDate)
     ;
 end;
-                
-          

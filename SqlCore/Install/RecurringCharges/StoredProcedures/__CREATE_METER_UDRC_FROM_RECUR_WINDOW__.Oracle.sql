@@ -68,7 +68,7 @@ BEGIN
       NOT EXISTS (SELECT 1 FROM tmp_old_units tou WHERE rw_new.c_UnitValueStart = tou.vt_start OR rw_new.c_UnitValueEnd = tou.vt_end)
       /*Only issue corrections if there's a previous iteration.*/
       AND EXISTS (SELECT 1 FROM t_recur_value trv WHERE trv.id_sub = rw_new.c__SubscriptionID AND trv.tt_end < dbo.MTMaxDate())
-	  AND tmp_newrw.c__IsAllowGenChargeByTrigger = 1;
+	  AND rw_new.c__IsAllowGenChargeByTrigger = 1;
 	  
     insert INTO tmp_rc  
     SELECT 'AdvanceCorrection' AS c_RCActionType

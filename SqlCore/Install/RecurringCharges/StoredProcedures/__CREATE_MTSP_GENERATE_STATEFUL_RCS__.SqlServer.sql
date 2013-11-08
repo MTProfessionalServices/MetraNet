@@ -91,10 +91,6 @@ UNION ALL
 SELECT
 newid() AS idSourceSess,
       'Advance' AS c_RCActionType
-
-      /* [TODO] Next account interval should be paied In Advance in case it is bigger than RC interval. (Will clarify with Andy)
-      Add condition to choose whether to use RC interval "pci.dt_start", "pci.dt_end" OR Next Billing Interval of account "nui.dt_start", "nui.dt_end" for In Advance payment*/
-
       ,pci.dt_start		AS c_RCIntervalStart		/* Start date of Next RC Interval - the one we'll pay for In Advance in current interval */
       ,pci.dt_end		AS c_RCIntervalEnd			/* End date of Next RC Interval - the one we'll pay for In Advance in current interval */
       ,ui.dt_start		AS c_BillingIntervalStart	/* Start date of Current Billing Interval */

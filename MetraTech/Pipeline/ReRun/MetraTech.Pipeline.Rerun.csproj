@@ -6,7 +6,7 @@
     <Platform Condition="'$(Platform)'=='Win32'">x86</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{bc2dc75e-9076-45ae-b592-7ebe2ab11ba7}</ProjectGuid>
+    <ProjectGuid>{BC2DC75E-9076-45AE-B592-7EBE2AB11BA7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MetraTech.Pipeline.ReRun</RootNamespace>
@@ -45,6 +45,10 @@
       <Private>false</Private>
       <SpecificVersion>false</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\GenericCollection.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="MetraTech.UsageServer, Version=6.7.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>O:\debug\Bin\MetraTech.UsageServer.dll</HintPath>
     </Reference>
     <Reference Include="MetraTime.interop">
       <EmbedInteropTypes>false</EmbedInteropTypes>
@@ -182,7 +186,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Properties" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Pipeline\Pipeline.NET\interop\PipelineInterop.vcxproj">

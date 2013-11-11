@@ -20,7 +20,8 @@ v_id_sub INTEGER;
 	/*inserting or updating*/    
 		SELECT sub.id_sub INTO v_id_sub
 		  FROM t_sub sub
-		  WHERE sub.id_group = :new.id_group;
+		  WHERE sub.id_group = :new.id_group
+			AND ROWNUM = 1;
 		
 		DELETE FROM TMP_NEWRW WHERE c__SubscriptionID = v_id_sub;
         UPDATE t_recur_window 

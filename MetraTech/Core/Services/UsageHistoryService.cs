@@ -2924,8 +2924,6 @@ namespace MetraTech.Core.Services
 
         private void PopulateProdViewSpecificData(IMTDataReader reader, BaseProductView prodView)
         {
-            string columnName;
-
             foreach (PropertyInfo prop in prodView.GetType().GetProperties())
             {
                 object[] attribs = prop.GetCustomAttributes(typeof(MTProductViewMetadataAttribute), false);
@@ -2934,17 +2932,20 @@ namespace MetraTech.Core.Services
                     MTProductViewMetadataAttribute pvattrib = (MTProductViewMetadataAttribute)attribs[0];
                     if (pvattrib.UserVisible)
                     {
-                        columnName = String.Format("{0}", pvattrib.ColumnName);
-                        //prodView.SetValue(prop, reader.GetValue(columnName));
-                        //prodView.SetValue(prop, BasePCWebService.GetValue(columnName, prop.PropertyType, reader));
-                        prop.SetValue(prodView, BasePCWebService.GetValue(columnName, prop.PropertyType, reader),
-                                      null);
-
+                        string columnName = String.Format("{0}", pvattrib.ColumnName);
+                        var objTemp = BasePCWebService.GetValue(columnName, prop.PropertyType, reader);
+                        if (prop.PropertyType == typeof(Double) || prop.PropertyType == typeof(double?))
+                        {
+                            var tempDouble = Convert.ToDouble(objTemp);
+                            prop.SetValue(prodView, tempDouble, null);
+                        }
+                        else
+                        {
+                            prop.SetValue(prodView, objTemp, null);
+                        }
                     }
                 }
-
             }
-
         }
 
         private TaxAdjustments PopulateTaxAdjustments(IMTDataReader reader, string currency, LanguageCode languageID, TaxType taxType, AtomicOrCompoundType atomicOrCompType)

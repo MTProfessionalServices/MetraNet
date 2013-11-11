@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data;
-using MetraTech.DataAccess;
 
 namespace MetraTech.DataAccess
 {
@@ -12,14 +7,14 @@ namespace MetraTech.DataAccess
   /// </summary>
   /// <param name="reader">The cursor to read</param>
   /// <returns>whether to continue processing</returns>
-  public delegate bool CursorProcessor ( IMTDataReader reader );
+  public delegate bool CursorProcessor(IMTDataReader reader);
 
   /// <summary>
   /// Delegate to bind parameters to a statement
   /// </summary>
   /// <param name="queryId">the query id of the statement being bound (for logging)</param>
   /// <param name="stmt">the statement to bind the parameters to</param>
-  public delegate void ParameterBinder ( string queryId, IMTAdapterStatement stmt );
+  public delegate void ParameterBinder(string queryId, IMTAdapterStatement stmt);
 
   /// <summary>
   /// How to handle enumeration bindings
@@ -29,33 +24,34 @@ namespace MetraTech.DataAccess
     /// <summary>
     /// Use the name of the enumeration value, e.g., USD for currency
     /// </summary>
-    [System.Diagnostics.CodeAnalysis.SuppressMessage ( "Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores" )]
-    [System.Diagnostics.CodeAnalysis.SuppressMessage ( "Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "USE" )]
-    [System.Diagnostics.CodeAnalysis.SuppressMessage ( "Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "NAME" )]
-    [System.Diagnostics.CodeAnalysis.SuppressMessage ( "Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ENUM" )]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "USE")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "NAME")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ENUM")]
     USE_ENUM_NAME,
     /// <summary>
     /// Use the id_enum_data id of the enumeration value, e.g., 2379 for USD
     /// </summary>
-    [System.Diagnostics.CodeAnalysis.SuppressMessage ( "Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores" )]
-    [System.Diagnostics.CodeAnalysis.SuppressMessage ( "Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "USE" )]
-    [System.Diagnostics.CodeAnalysis.SuppressMessage ( "Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ID" )]
-    [System.Diagnostics.CodeAnalysis.SuppressMessage ( "Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ENUM" )]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "USE")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ID")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ENUM")]
     USE_ENUM_ID,
     /// <summary>
     /// Use the internal enumeration value, e.g, 0
     /// </summary>
-    [System.Diagnostics.CodeAnalysis.SuppressMessage ( "Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "USE" )]
-    [System.Diagnostics.CodeAnalysis.SuppressMessage ( "Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores" )]
-    [System.Diagnostics.CodeAnalysis.SuppressMessage ( "Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "VAL" )]
-    [System.Diagnostics.CodeAnalysis.SuppressMessage ( "Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ENUM" )]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "USE")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "VAL")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ENUM")]
     USE_ENUM_VAL
   }
 
   /// <summary>
   /// Database utility methods.
   /// </summary>
-  [System.Diagnostics.CodeAnalysis.SuppressMessage ( "Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "Utils" )]
+  [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
+      MessageId = "Utils")]
   public static class DatabaseUtils
   {
     /// <summary>
@@ -68,19 +64,20 @@ namespace MetraTech.DataAccess
     /// <param name="binder">Parameters to pass to this query</param>
     /// <param name="processor">Cursor processor</param>
     /// <returns>How many rows were processed, or null if no processor was passed in.</returns>
-    public static int? ExecuteQuery (Logger logger, string queryPath, string queryTag, ParameterBinder binder, CursorProcessor processor )
+    public static int? ExecuteQuery(Logger logger, string queryPath, string queryTag, ParameterBinder binder,
+                                    CursorProcessor processor)
     {
-      if ( string.IsNullOrEmpty ( queryPath ) )
+      if (string.IsNullOrEmpty(queryPath))
       {
-        throw new ArgumentNullException ( "queryPath", "QueryPath must be set" );
+        throw new ArgumentNullException("queryPath", "QueryPath must be set");
       }
-      if ( string.IsNullOrEmpty ( queryTag ) )
+      if (string.IsNullOrEmpty(queryTag))
       {
-        throw new ArgumentNullException ( "queryTag", "QueryTag must be set" );
+        throw new ArgumentNullException("queryTag", "QueryTag must be set");
       }
-      using ( IMTConnection conn = ConnectionManager.CreateConnection () )
+      using (IMTConnection conn = ConnectionManager.CreateConnection())
       {
-        return ExecuteQuery ( logger, queryPath, queryTag, conn, binder, processor );
+        return ExecuteQuery(logger, queryPath, queryTag, conn, binder, processor);
       }
     }
 
@@ -95,19 +92,20 @@ namespace MetraTech.DataAccess
     /// <param name="binder">Parameters to pass to this query</param>
     /// <param name="processor">Cursor processor</param>
     /// <returns>How many rows were processed, or null if no processor was passed in.</returns>
-    public static int? ExecuteQuery ( Logger logger, string queryId, string queryPath, string queryTag, ParameterBinder binder, CursorProcessor processor )
+    public static int? ExecuteQuery(Logger logger, string queryId, string queryPath, string queryTag,
+                                    ParameterBinder binder, CursorProcessor processor)
     {
-      if ( string.IsNullOrEmpty ( queryPath ) )
+      if (string.IsNullOrEmpty(queryPath))
       {
-        throw new ArgumentNullException ( "queryPath", "QueryPath must be set" );
+        throw new ArgumentNullException("queryPath", "QueryPath must be set");
       }
-      if ( string.IsNullOrEmpty ( queryTag ) )
+      if (string.IsNullOrEmpty(queryTag))
       {
-        throw new ArgumentNullException ( "queryTag", "QueryTag must be set" );
+        throw new ArgumentNullException("queryTag", "QueryTag must be set");
       }
-      using ( IMTConnection conn = ConnectionManager.CreateConnection () )
+      using (IMTConnection conn = ConnectionManager.CreateConnection())
       {
-        return ExecuteQuery ( logger, queryId, queryPath, queryTag, conn, binder, processor );
+        return ExecuteQuery(logger, queryId, queryPath, queryTag, conn, binder, processor);
       }
     }
 
@@ -122,24 +120,25 @@ namespace MetraTech.DataAccess
     /// <param name="binder">Parameters to pass to this query</param>
     /// <param name="processor">Cursor processor</param>
     /// <returns>How many rows were processed, or null if no processor was passed in.</returns>
-    public static int? ExecuteQuery ( Logger logger, string queryPath, string queryTag, IMTConnection conn, ParameterBinder binder, CursorProcessor processor )
+    public static int? ExecuteQuery(Logger logger, string queryPath, string queryTag, IMTConnection conn,
+                                    ParameterBinder binder, CursorProcessor processor)
     {
-      if ( string.IsNullOrEmpty ( queryPath ) )
+      if (string.IsNullOrEmpty(queryPath))
       {
-        throw new ArgumentNullException ( "queryPath", "QueryPath must be set" );
+        throw new ArgumentNullException("queryPath", "QueryPath must be set");
       }
-      if ( string.IsNullOrEmpty ( queryTag ) )
+      if (string.IsNullOrEmpty(queryTag))
       {
-        throw new ArgumentNullException ( "queryTag", "QueryTag must be set" );
+        throw new ArgumentNullException("queryTag", "QueryTag must be set");
       }
-      if ( conn == null )
+      if (conn == null)
       {
-        throw new ArgumentNullException ( "conn" );
+        throw new ArgumentNullException("conn");
       }
       string queryId = queryTag;
-      using ( IMTAdapterStatement stmt = conn.CreateAdapterStatement ( queryPath, queryTag ) )
+      using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(queryPath, queryTag))
       {
-        return ExecuteQuery ( logger, queryId, stmt, binder, processor );
+        return ExecuteQuery(logger, queryId, stmt, binder, processor);
       }
     }
 
@@ -155,25 +154,27 @@ namespace MetraTech.DataAccess
     /// <param name="binder">Parameters to pass to this query</param>
     /// <param name="processor">Cursor processor</param>
     /// <returns>How many rows were processed, or null if no processor was passed in.</returns>
-    public static int? ExecuteQuery ( Logger logger, string queryId, string queryPath, string queryTag, IMTConnection conn, ParameterBinder binder, CursorProcessor processor )
+    public static int? ExecuteQuery(Logger logger, string queryId, string queryPath, string queryTag,
+                                    IMTConnection conn, ParameterBinder binder, CursorProcessor processor)
     {
-      if ( string.IsNullOrEmpty ( queryPath ) )
+      if (string.IsNullOrEmpty(queryPath))
       {
-        throw new ArgumentNullException ( "queryPath", "QueryPath must be set" );
+        throw new ArgumentNullException("queryPath", "QueryPath must be set");
       }
-      if ( string.IsNullOrEmpty ( queryTag ) )
+      if (string.IsNullOrEmpty(queryTag))
       {
-        throw new ArgumentNullException ( "queryTag", "QueryTag must be set" );
+        throw new ArgumentNullException("queryTag", "QueryTag must be set");
       }
-      if ( conn == null )
+      if (conn == null)
       {
-        throw new ArgumentNullException ( "conn" );
+        throw new ArgumentNullException("conn");
       }
-      using ( IMTAdapterStatement stmt = conn.CreateAdapterStatement ( queryPath, queryTag ) )
+      using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(queryPath, queryTag))
       {
-        return ExecuteQuery ( logger, queryId, stmt, binder, processor );
+        return ExecuteQuery(logger, queryId, stmt, binder, processor);
       }
     }
+
     /// <summary>
     /// Execute a statement with a unique query id using supplied connection.
     /// This method can throw an exception.
@@ -184,53 +185,54 @@ namespace MetraTech.DataAccess
     /// <param name="binder">Parameters to pass to this query</param>
     /// <param name="processor">Cursor processor</param>
     /// <returns>How many rows were processed, or null if no processor was passed in.</returns>
-    public static int? ExecuteQuery ( Logger logger, string queryId, IMTAdapterStatement stmt, ParameterBinder binder, CursorProcessor processor )
+    public static int? ExecuteQuery(Logger logger, string queryId, IMTAdapterStatement stmt, ParameterBinder binder,
+                                    CursorProcessor processor)
     {
-      if ( string.IsNullOrEmpty ( queryId ) )
+      if (string.IsNullOrEmpty(queryId))
       {
-        throw new ArgumentNullException ( "queryId", "QueryID is required" );
+        throw new ArgumentNullException("queryId", "QueryID is required");
       }
-      if ( stmt == null )
+      if (stmt == null)
       {
-        throw new ArgumentNullException ( "stmt" );
+        throw new ArgumentNullException("stmt");
       }
-      if ( binder != null )
+      if (binder != null)
       {
-        binder.Invoke ( queryId, stmt );
+        binder.Invoke(queryId, stmt);
       }
-      if ( logger != null && logger.WillLogDebug )
+      if (logger != null && logger.WillLogDebug)
       {
-        logger.LogDebug ( "Executing SQL: {0} for {1}", stmt.Query, queryId );
+        logger.LogDebug("Executing SQL: {0} for {1}", stmt.Query, queryId);
       }
-     
+
       {
         int count = 0;
         try
         {
-          using ( IMTDataReader reader = stmt.ExecuteReader () )
+          using (IMTDataReader reader = stmt.ExecuteReader())
           {
-            if ( processor == null )
+            if (processor == null)
             {
               return null;
             }
-            while ( reader.Read () && processor.Invoke ( reader ) )
+            while (reader.Read() && processor.Invoke(reader))
             {
               count++;
             }
 
-            if ( logger != null && logger.WillLogDebug)
+            if (logger != null && logger.WillLogDebug)
             {
-              logger.LogDebug ( "Processed {0} rows for {1}", count, queryId);
+              logger.LogDebug("Processed {0} rows for {1}", count, queryId);
             }
             return count;
           }
         }
-        catch ( Exception )
+        catch (Exception)
         {
 
-          if ( logger != null && logger.WillLogDebug)
+          if (logger != null && logger.WillLogDebug)
           {
-            logger.LogDebug ( "Query failed after processing {0} rows for {1}", count, queryId);
+            logger.LogDebug("Query failed after processing {0} rows for {1}", count, queryId);
           }
           throw;
         }
@@ -245,19 +247,20 @@ namespace MetraTech.DataAccess
     /// <param name="queryTag">the query tag</param>
     /// <param name="binder">the input binder</param>
     /// <returns>the cursor</returns>
-    public static IMTDataReader ExecuteQuery ( Logger logger, string queryPath, string queryTag, ParameterBinder binder )
+    public static IMTDataReader ExecuteQuery(Logger logger, string queryPath, string queryTag,
+                                             ParameterBinder binder)
     {
-      if ( string.IsNullOrEmpty ( queryPath ) )
+      if (string.IsNullOrEmpty(queryPath))
       {
-        throw new ArgumentNullException ( "queryPath", "QueryPath must be set" );
+        throw new ArgumentNullException("queryPath", "QueryPath must be set");
       }
-      if ( string.IsNullOrEmpty ( queryTag ) )
+      if (string.IsNullOrEmpty(queryTag))
       {
-        throw new ArgumentNullException ( "queryTag", "QueryTag must be set" );
+        throw new ArgumentNullException("queryTag", "QueryTag must be set");
       }
-      using ( IMTConnection conn = ConnectionManager.CreateConnection () )
+      using (IMTConnection conn = ConnectionManager.CreateConnection())
       {
-        return ExecuteQuery ( logger, queryPath, queryTag, conn, binder );
+        return ExecuteQuery(logger, queryPath, queryTag, conn, binder);
       }
     }
 
@@ -270,19 +273,20 @@ namespace MetraTech.DataAccess
     /// <param name="queryTag">the query tag</param>
     /// <param name="binder">the input binder</param>
     /// <returns>the cursor</returns>
-    public static IMTDataReader ExecuteQuery ( Logger logger, string queryId, string queryPath, string queryTag, ParameterBinder binder )
+    public static IMTDataReader ExecuteQuery(Logger logger, string queryId, string queryPath, string queryTag,
+                                             ParameterBinder binder)
     {
-      if ( string.IsNullOrEmpty ( queryPath ) )
+      if (string.IsNullOrEmpty(queryPath))
       {
-        throw new ArgumentNullException ( "queryPath", "QueryPath must be set" );
+        throw new ArgumentNullException("queryPath", "QueryPath must be set");
       }
-      if ( string.IsNullOrEmpty ( queryTag ) )
+      if (string.IsNullOrEmpty(queryTag))
       {
-        throw new ArgumentNullException ( "queryTag", "QueryTag must be set" );
+        throw new ArgumentNullException("queryTag", "QueryTag must be set");
       }
-      using ( IMTConnection conn = ConnectionManager.CreateConnection () )
+      using (IMTConnection conn = ConnectionManager.CreateConnection())
       {
-        return ExecuteQuery ( logger, queryId, queryPath, queryTag, conn, binder );
+        return ExecuteQuery(logger, queryId, queryPath, queryTag, conn, binder);
       }
     }
 
@@ -295,24 +299,25 @@ namespace MetraTech.DataAccess
     /// <param name="conn">the connection</param>
     /// <param name="binder">the input binder</param>
     /// <returns>the cursor</returns>
-    public static IMTDataReader ExecuteQuery ( Logger logger, string queryPath, string queryTag, IMTConnection conn, ParameterBinder binder )
+    public static IMTDataReader ExecuteQuery(Logger logger, string queryPath, string queryTag, IMTConnection conn,
+                                             ParameterBinder binder)
     {
-      if ( string.IsNullOrEmpty ( queryPath ) )
+      if (string.IsNullOrEmpty(queryPath))
       {
-        throw new ArgumentNullException ( "queryPath", "QueryPath must be set" );
+        throw new ArgumentNullException("queryPath", "QueryPath must be set");
       }
-      if ( string.IsNullOrEmpty ( queryTag ) )
+      if (string.IsNullOrEmpty(queryTag))
       {
-        throw new ArgumentNullException ( "queryTag", "QueryTag must be set" );
+        throw new ArgumentNullException("queryTag", "QueryTag must be set");
       }
-      if ( conn == null )
+      if (conn == null)
       {
-        throw new ArgumentNullException ( "conn" );
+        throw new ArgumentNullException("conn");
       }
       string queryId = queryTag;
-      using ( IMTAdapterStatement stmt = conn.CreateAdapterStatement ( queryPath, queryTag ) )
+      using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(queryPath, queryTag))
       {
-        return ExecuteQuery ( logger, queryId, stmt, binder );
+        return ExecuteQuery(logger, queryId, stmt, binder);
       }
     }
 
@@ -326,23 +331,24 @@ namespace MetraTech.DataAccess
     /// <param name="conn">the connection</param>
     /// <param name="binder">the input binder</param>
     /// <returns>the cursor</returns>
-    public static IMTDataReader ExecuteQuery ( Logger logger, string queryId, string queryPath, string queryTag, IMTConnection conn, ParameterBinder binder )
+    public static IMTDataReader ExecuteQuery(Logger logger, string queryId, string queryPath, string queryTag,
+                                             IMTConnection conn, ParameterBinder binder)
     {
-      if ( string.IsNullOrEmpty ( queryPath ) )
+      if (string.IsNullOrEmpty(queryPath))
       {
-        throw new ArgumentNullException ( "queryPath", "QueryPath must be set" );
+        throw new ArgumentNullException("queryPath", "QueryPath must be set");
       }
-      if ( string.IsNullOrEmpty ( queryTag ) )
+      if (string.IsNullOrEmpty(queryTag))
       {
-        throw new ArgumentNullException ( "queryTag", "QueryTag must be set" );
+        throw new ArgumentNullException("queryTag", "QueryTag must be set");
       }
-      if ( conn == null )
+      if (conn == null)
       {
-        throw new ArgumentNullException ( "conn" );
+        throw new ArgumentNullException("conn");
       }
-      using ( IMTAdapterStatement stmt = conn.CreateAdapterStatement ( queryPath, queryTag ) )
+      using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(queryPath, queryTag))
       {
-        return ExecuteQuery ( logger, queryId, stmt, binder );
+        return ExecuteQuery(logger, queryId, stmt, binder);
       }
     }
 
@@ -354,42 +360,43 @@ namespace MetraTech.DataAccess
     /// <param name="stmt">the statement</param>
     /// <param name="binder">the input binder</param>
     /// <returns>the cursor</returns>
-    public static IMTDataReader ExecuteQuery ( Logger logger, string queryId, IMTAdapterStatement stmt, ParameterBinder binder )
+    public static IMTDataReader ExecuteQuery(Logger logger, string queryId, IMTAdapterStatement stmt,
+                                             ParameterBinder binder)
     {
-      if ( string.IsNullOrEmpty ( queryId ) )
+      if (string.IsNullOrEmpty(queryId))
       {
-        throw new ArgumentNullException ( "queryId", "QueryID is required" );
+        throw new ArgumentNullException("queryId", "QueryID is required");
       }
-      if ( stmt == null )
+      if (stmt == null)
       {
-        throw new ArgumentNullException ( "stmt" );
+        throw new ArgumentNullException("stmt");
       }
-      if ( binder != null )
+      if (binder != null)
       {
-        binder.Invoke ( queryId, stmt );
+        binder.Invoke(queryId, stmt);
       }
-      if ( logger != null && logger.WillLogDebug )
+      if (logger != null && logger.WillLogDebug)
       {
-        logger.LogDebug ( "Executing SQL: {0} for {1}", stmt.Query, queryId );
+        logger.LogDebug("Executing SQL: {0} for {1}", stmt.Query, queryId);
       }
-     
+
       {
         try
         {
-          IMTDataReader reader = stmt.ExecuteReader ();
+          IMTDataReader reader = stmt.ExecuteReader();
 
-          if ( logger != null && logger.WillLogDebug)
+          if (logger != null && logger.WillLogDebug)
           {
-              logger.LogDebug("Executed query {0} ", queryId);
+            logger.LogDebug("Executed query {0} ", queryId);
           }
           return reader;
         }
-        catch ( Exception )
+        catch (Exception)
         {
 
-          if ( logger != null && logger.WillLogDebug)
+          if (logger != null && logger.WillLogDebug)
           {
-              logger.LogDebug("Query failed for {0} ", queryId);
+            logger.LogDebug("Query failed for {0} ", queryId);
           }
           throw;
         }
@@ -405,19 +412,19 @@ namespace MetraTech.DataAccess
     /// <param name="queryTag">tag of the query to execute</param>
     /// <param name="binder">parameters to pass to the query</param>
     /// <returns>the number of rows</returns>
-    public static int ExecuteNonQuery ( Logger logger, string queryPath, string queryTag, ParameterBinder binder )
+    public static int ExecuteNonQuery(Logger logger, string queryPath, string queryTag, ParameterBinder binder)
     {
-      if ( string.IsNullOrEmpty ( queryPath ) )
+      if (string.IsNullOrEmpty(queryPath))
       {
-        throw new ArgumentNullException ( "queryPath", "QueryPath must be set" );
+        throw new ArgumentNullException("queryPath", "QueryPath must be set");
       }
-      if ( string.IsNullOrEmpty ( queryTag ) )
+      if (string.IsNullOrEmpty(queryTag))
       {
-        throw new ArgumentNullException ( "queryTag", "QueryTag must be set" );
+        throw new ArgumentNullException("queryTag", "QueryTag must be set");
       }
-      using ( IMTConnection conn = ConnectionManager.CreateConnection () )
+      using (IMTConnection conn = ConnectionManager.CreateConnection())
       {
-        return ExecuteNonQuery ( logger, queryPath, queryTag, conn, binder );
+        return ExecuteNonQuery(logger, queryPath, queryTag, conn, binder);
       }
     }
 
@@ -431,19 +438,20 @@ namespace MetraTech.DataAccess
     /// <param name="queryTag">tag of the query to execute</param>
     /// <param name="binder">parameters to pass to the query</param>
     /// <returns>the number of rows</returns>
-    public static int ExecuteNonQuery ( Logger logger, string queryId, string queryPath, string queryTag, ParameterBinder binder )
+    public static int ExecuteNonQuery(Logger logger, string queryId, string queryPath, string queryTag,
+                                      ParameterBinder binder)
     {
-      if ( string.IsNullOrEmpty ( queryPath ) )
+      if (string.IsNullOrEmpty(queryPath))
       {
-        throw new ArgumentNullException ( "queryPath", "QueryPath must be set" );
+        throw new ArgumentNullException("queryPath", "QueryPath must be set");
       }
-      if ( string.IsNullOrEmpty ( queryTag ) )
+      if (string.IsNullOrEmpty(queryTag))
       {
-        throw new ArgumentNullException ( "queryTag", "QueryTag must be set" );
+        throw new ArgumentNullException("queryTag", "QueryTag must be set");
       }
-      using ( IMTConnection conn = ConnectionManager.CreateConnection () )
+      using (IMTConnection conn = ConnectionManager.CreateConnection())
       {
-        return ExecuteNonQuery ( logger, queryId, queryPath, queryTag, conn, binder );
+        return ExecuteNonQuery(logger, queryId, queryPath, queryTag, conn, binder);
       }
     }
 
@@ -457,24 +465,25 @@ namespace MetraTech.DataAccess
     /// <param name="conn">The connection to use</param>
     /// <param name="binder">parameters to pass to the query</param>
     /// <returns>the number of rows</returns>
-    public static int ExecuteNonQuery ( Logger logger, string queryPath, string queryTag, IMTConnection conn, ParameterBinder binder )
+    public static int ExecuteNonQuery(Logger logger, string queryPath, string queryTag, IMTConnection conn,
+                                      ParameterBinder binder)
     {
-      if ( string.IsNullOrEmpty ( queryPath ) )
+      if (string.IsNullOrEmpty(queryPath))
       {
-        throw new ArgumentNullException ( "queryPath", "QueryPath must be set" );
+        throw new ArgumentNullException("queryPath", "QueryPath must be set");
       }
-      if ( string.IsNullOrEmpty ( queryTag ) )
+      if (string.IsNullOrEmpty(queryTag))
       {
-        throw new ArgumentNullException ( "queryTag", "QueryTag must be set" );
+        throw new ArgumentNullException("queryTag", "QueryTag must be set");
       }
-      if ( conn == null )
+      if (conn == null)
       {
-        throw new ArgumentNullException ( "conn" );
+        throw new ArgumentNullException("conn");
       }
       string queryId = queryTag;
-      using ( IMTAdapterStatement stmt = conn.CreateAdapterStatement ( queryPath, queryTag ) )
+      using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(queryPath, queryTag))
       {
-        return ExecuteNonQuery ( logger, queryId, stmt, binder );
+        return ExecuteNonQuery(logger, queryId, stmt, binder);
       }
     }
 
@@ -489,23 +498,24 @@ namespace MetraTech.DataAccess
     /// <param name="conn">The connection to use</param>
     /// <param name="binder">parameters to pass to the query</param>
     /// <returns>the number of rows</returns>
-    public static int ExecuteNonQuery ( Logger logger, string queryId, string queryPath, string queryTag, IMTConnection conn, ParameterBinder binder )
+    public static int ExecuteNonQuery(Logger logger, string queryId, string queryPath, string queryTag,
+                                      IMTConnection conn, ParameterBinder binder)
     {
-      if ( string.IsNullOrEmpty ( queryPath ) )
+      if (string.IsNullOrEmpty(queryPath))
       {
-        throw new ArgumentNullException ( "queryPath", "QueryPath must be set" );
+        throw new ArgumentNullException("queryPath", "QueryPath must be set");
       }
-      if ( string.IsNullOrEmpty ( queryTag ) )
+      if (string.IsNullOrEmpty(queryTag))
       {
-        throw new ArgumentNullException ( "queryTag", "QueryTag must be set" );
+        throw new ArgumentNullException("queryTag", "QueryTag must be set");
       }
-      if ( conn == null )
+      if (conn == null)
       {
-        throw new ArgumentNullException ( "conn" );
+        throw new ArgumentNullException("conn");
       }
-      using ( IMTAdapterStatement stmt = conn.CreateAdapterStatement ( queryPath, queryTag ) )
+      using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(queryPath, queryTag))
       {
-        return ExecuteNonQuery ( logger, queryId, stmt, binder );
+        return ExecuteNonQuery(logger, queryId, stmt, binder);
       }
     }
 
@@ -518,47 +528,73 @@ namespace MetraTech.DataAccess
     /// <param name="stmt">The statement to execute</param>
     /// <param name="binder">parameters to pass to the query</param>
     /// <returns>the number of rows</returns>
-    public static int ExecuteNonQuery ( Logger logger, string queryId, IMTAdapterStatement stmt, ParameterBinder binder )
+    public static int ExecuteNonQuery(Logger logger, string queryId, IMTAdapterStatement stmt,
+                                      ParameterBinder binder)
     {
-      if ( string.IsNullOrEmpty ( queryId ) )
+      if (string.IsNullOrEmpty(queryId))
       {
-        throw new ArgumentNullException ("queryId", "QueryID is required" );
+        throw new ArgumentNullException("queryId", "QueryID is required");
       }
-      if ( stmt == null )
+      if (stmt == null)
       {
-        throw new ArgumentNullException ( "stmt" );
+        throw new ArgumentNullException("stmt");
       }
-      if ( binder != null )
+      if (binder != null)
       {
-        binder.Invoke ( queryId, stmt );
+        binder.Invoke(queryId, stmt);
       }
-      if ( logger != null && logger.WillLogDebug)
+      if (logger != null && logger.WillLogDebug)
       {
-          logger.LogDebug("Executing SQL: {0} for {1}", stmt.Query, queryId);
+        logger.LogDebug("Executing SQL: {0} for {1}", stmt.Query, queryId);
       }
-      
+
       {
         try
         {
-          int result = stmt.ExecuteNonQuery ();
+          int result = stmt.ExecuteNonQuery();
 
-          if ( logger != null && logger.WillLogDebug )
+          if (logger != null && logger.WillLogDebug)
           {
-            logger.LogDebug ( "Query returned {0} for {1}", result, queryId );
+            logger.LogDebug("Query returned {0} for {1}", result, queryId);
           }
           return result;
         }
-        catch ( Exception )
+        catch (Exception)
         {
 
-          if ( logger != null && logger.WillLogDebug )
+          if (logger != null && logger.WillLogDebug)
           {
-            logger.LogDebug ( "Query failed for {0}", queryId);
+            logger.LogDebug("Query failed for {0}", queryId);
           }
           throw;
         }
       }
     }
 
+    /// <summary>
+    /// Check if partition is enabled
+    /// </summary>
+    /// <returns></returns>
+    public static bool IsPartitionEnabled()
+    {
+      var enabled = false;
+      const string q = @"select b_partitioning_enabled from t_usage_server";
+      using (IMTConnection conn = ConnectionManager.CreateConnection())
+      using (var stmt = conn.CreatePreparedStatement(q))
+      using (var rdr = stmt.ExecuteReader())
+      {
+        var cnt = 0;
+        while (rdr.Read())
+        {
+          if (cnt++ > 1)
+            throw new ApplicationException("Too many rows in t_usage_server");
+          enabled = rdr.GetBoolean("b_partitioning_enabled");
+        }
+
+        if (cnt < 1)
+          throw new ApplicationException("No row found in t_usage_server");
+      }
+      return enabled;
+    }
   }
 }

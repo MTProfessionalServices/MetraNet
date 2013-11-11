@@ -446,7 +446,7 @@ namespace MetraTech.Core.Services.Test.Quoting
         /// <summary>
         /// TC_QICB_71
         /// </summary>
-        [TestMethod, MTFunctionalTest(TestAreas.Quoting), Ignore]
+        //[TestMethod, MTFunctionalTest(TestAreas.Quoting), Ignore]
         public void QuotingServiceCreateQuote_QuoteWithIcbNoPrice_NegativeTest()
         {
             #region Prepare

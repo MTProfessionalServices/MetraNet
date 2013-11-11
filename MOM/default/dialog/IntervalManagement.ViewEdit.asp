@@ -119,7 +119,7 @@ FUNCTION Form_Refresh(EventArg)
     Service.Properties("CHANGESTATE_HTML_LINK") = "&nbsp;<A href=""#"" onclick=""window.open('IntervalManagement.StateChange.asp?MDMReload=TRUE&BillingGroupID=" & Service.Properties("BillingGroupID").Value & "&IntervalId=" & Service.Properties("IntervalId").Value & "&State=" & Server.URLEncode(Service.Properties("IntervalStatus").Value) & "&StateName=" & Server.URLEncode(Service.Properties("IntervalStatus").Value) & "&IntervalEndDate=" & Server.UrlEncode(Service.Properties("IntervalEndDateTime").Value) & "','', 'height=500,width=650, resizable=yes, scrollbars=yes, status=yes')"">" & "Change State" &  "</A>"
   else 
     if bg.CanBeHardClosed then
-      Service.Properties("CHANGESTATE_HTML_LINK") = "&nbsp;&nbsp;<button class='clsButtonBlueLarge' id='ForceHardClosed'" & " onclick=""mdm_RefreshDialogUserCustom(this);"">" & "<span style='font-size: 10px;'>Force Hard Close</span>" &  "</button>"
+      Service.Properties("CHANGESTATE_HTML_LINK") = "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='ForceHardClosed'" & " onclick=""mdm_RefreshDialogUserCustom(this);"">" & "<span style='font-size: 10px;'>Force Hard Close</span>" &  "</button>"
     else
       Service.Properties("CHANGESTATE_HTML_LINK") = ""
     end if

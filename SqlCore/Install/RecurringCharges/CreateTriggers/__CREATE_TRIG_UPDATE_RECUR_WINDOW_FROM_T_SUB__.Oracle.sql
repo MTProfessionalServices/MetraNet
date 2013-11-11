@@ -15,17 +15,27 @@ BEGIN
 	/*inserting or deleting*/
 		/* dt_crt is nullable. Use SystemDate as workaround not disable possibility of fail on production */
 		SELECT NVL(:new.dt_crt, metratime(1,'RC')) INTO currentDate FROM dual;
-      UPDATE t_recur_window 
-            SET c_SubscriptionStart = :new.vt_start, c_SubscriptionEnd     = :new.vt_end
+		
+		DELETE FROM TMP_NEWRW where c__SubscriptionID = :new.id_sub;
+	
+		UPDATE t_recur_window 
+            SET c_SubscriptionStart = :new.vt_start, 
+				c_SubscriptionEnd   = :new.vt_end
             WHERE EXISTS
-             (SELECT 1 FROM t_recur_window trw JOIN t_pl_map plm on :new.id_po = plm.id_po
+             (	SELECT 1 
+				FROM t_recur_window trw 
+					JOIN t_pl_map plm on :new.id_po = plm.id_po
                 and plm.id_sub = :new.id_sub and plm.id_paramtable = null
-                  WHERE c__AccountID      = :new.id_acc AND c__SubscriptionID   = :new.id_sub
+                WHERE 
+				  c__AccountID      = :new.id_acc 
+				  AND c__SubscriptionID   = :new.id_sub
           ) ;
           
-      UPDATE t_recur_window
-          SET c_SubscriptionStart = :new.vt_start, c_SubscriptionEnd     = :new.vt_end
-            WHERE c__AccountID      = :new.id_acc AND c__SubscriptionID   = :new.id_sub;
+		UPDATE t_recur_window
+			SET 	c_SubscriptionStart = :new.vt_start,
+					c_SubscriptionEnd   = :new.vt_end
+			WHERE c__AccountID      = :new.id_acc 
+				AND c__SubscriptionID   = :new.id_sub;
       
       DELETE FROM TMP_NEWRW;
     
@@ -60,18 +70,19 @@ BEGIN
         AND :new.id_sub  = rv.id_sub AND rv.tt_end   = dbo.MTMaxDate()
         AND rv.vt_start < :new.vt_end AND rv.vt_end   > :new.vt_start
         AND rv.vt_start < pay.vt_end  AND rv.vt_end   > pay.vt_start
-      WHERE 1         = 1
-        and pay.id_payee  = :new.id_acc AND pay.vt_start < :new.vt_end
-      AND pay.vt_end   > :new.vt_start
+      WHERE 
+		pay.id_payee  = :new.id_acc 
+		AND pay.vt_start < :new.vt_end
+		AND pay.vt_end   > :new.vt_start
       /*Make sure not to insert a row that already takes care of this account/sub id*/
-      AND NOT EXISTS
-        (SELECT 1
-        FROM T_RECUR_WINDOW
-          WHERE c__AccountID    = :new.id_acc
-          AND c__SubscriptionID = :new.id_sub
-        )
-      AND :new.id_group IS NULL
-      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL);  
+		AND NOT EXISTS
+			(SELECT 1
+			FROM T_RECUR_WINDOW
+			  WHERE c__AccountID    = :new.id_acc
+			  AND c__SubscriptionID = :new.id_sub
+			)
+		AND :new.id_group IS NULL
+		AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL);  
  	
 	/* adds charges to METER tables */
 	MeterInitialFromRecurWindow(currentDate);
@@ -99,6 +110,8 @@ BEGIN
     c_LastIdRun,
     c_MembershipStart,
     c_MembershipEnd
-    FROM tmp_newrw;
+    FROM tmp_newrw
+	WHERE c__SubscriptionID = :new.id_sub;
+	
 	END IF;
 END;

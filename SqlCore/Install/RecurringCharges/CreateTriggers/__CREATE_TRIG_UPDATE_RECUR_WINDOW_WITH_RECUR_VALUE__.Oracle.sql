@@ -1,6 +1,7 @@
 create or replace
 TRIGGER TRG_UPDATE_REC_WIND_ON_REC_VAL FOR INSERT ON T_RECUR_VALUE COMPOUND TRIGGER
-startDate date;
+startDate DATE;
+v_id_sub INTEGER;
 	AFTER EACH ROW
 IS
 BEGIN
@@ -15,6 +16,7 @@ BEGIN
       :new.tt_start,
       :new.tt_end
     );
+	v_id_sub:=:new.id_sub;
 END AFTER EACH row;
 
 AFTER STATEMENT
@@ -32,14 +34,15 @@ BEGIN
     WHERE rdnew.n_value = rdold.n_value
     AND rdnew.vt_start  = rdold.vt_start
     AND rdnew.vt_end    = rdold.vt_end
-	and rdnew.id_prop = rdold.id_prop
-    and rdnew.id_sub = rdold.id_sub
+	AND rdnew.id_prop = rdold.id_prop
+    AND rdnew.id_sub = rdold.id_sub
     AND rdold.tt_end    < dbo.MTMaxDate()
     ) ;
 	
   /*TODO: look at MSSQL version... now it different */
   SELECT metratime(1,'RC') INTO startDate FROM dual; 
   
+  DELETE FROM tmp_newrw WHERE c__SubscriptionID = v_id_sub;
   /*Get the old windows for recur values that have changed*/
   INSERT INTO tmp_newrw
   SELECT sub.vt_start c_CycleEffectiveDate ,
@@ -233,7 +236,8 @@ DELETE FROM tmp_newrw WHERE EXISTS
     c_LastIdRun,
     c_MembershipStart,
     c_MembershipEnd
-    FROM tmp_newrw;
+    FROM tmp_newrw
+    WHERE c__SubscriptionID = v_id_sub;
   
 END AFTER STATEMENT;
 END;

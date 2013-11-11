@@ -1,7 +1,2 @@
-
-    SELECT DISTINCT "_ACCOUNTID" %%SORT_COLUMN%%
-	    FROM ( SELECT * 
-		       FROM (%%INNER_QUERY%%) iq1 
-		       WHERE "NAME_SPACE" = "ANCESTORACCOUNTNS"
-			 )
-			
+select distinct "_ACCOUNTID", "NAME_SPACE", "USERNAME" %%SORT_COLUMN%%
+           from (%%INNER_QUERY%%) iq1

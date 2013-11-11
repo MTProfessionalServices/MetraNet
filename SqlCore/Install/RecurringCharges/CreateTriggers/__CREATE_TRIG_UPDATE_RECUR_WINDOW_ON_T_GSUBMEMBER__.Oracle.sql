@@ -12,7 +12,8 @@ TRIGGER trg_rec_win_on_t_gsubmember AFTER
   BEGIN
 	  SELECT sub.id_sub INTO v_id_sub
 	  FROM t_sub sub
-	  where sub.id_group = :old.id_group;
+	  where sub.id_group = :old.id_group
+		AND ROWNUM = 1;
 	  
 	  DELETE FROM t_recur_window trw
 	  WHERE
@@ -21,6 +22,11 @@ TRIGGER trg_rec_win_on_t_gsubmember AFTER
   END;
 ELSE
   /*inserting or updating*/
+  SELECT sub.id_sub INTO v_id_sub
+  FROM t_sub sub
+  WHERE sub.id_group = :new.id_group
+	AND ROWNUM = 1;
+  
    DELETE FROM tmp_newrw WHERE c__subscriptionid = v_id_sub;
       
    UPDATE t_recur_window trw

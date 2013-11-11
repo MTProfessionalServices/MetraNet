@@ -8,6 +8,7 @@
 					DT_CRT DATE NULL,
 					vt_start date not null,
 					vt_end date not null,
+					CONSTRAINT pk_t_sub PRIMARY KEY (id_sub),
 					CONSTRAINT date_sub_check1 check ( vt_start <= vt_end)
 					)
 					

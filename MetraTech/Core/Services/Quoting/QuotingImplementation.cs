@@ -1081,6 +1081,7 @@ namespace MetraTech.Core.Services.Quoting
             String.Format("The GroupSubacription was created(Name={0}), but GroupId is null.",
                           grpSub.Name));
 
+        response.Artefacts.Subscription.AddSubscriptions(grpSub.GroupId.Value, request.Accounts);
         var accountIds = new List<int>();
         foreach (var accountId in request.Accounts)
         {
@@ -1093,8 +1094,6 @@ namespace MetraTech.Core.Services.Quoting
           groupSubService.AddMembersToGroupSubscription(grpSub.GroupId.Value, new List<GroupSubscriptionMember>() { gSubMember });
           accountIds.Add(accountId);
         }
-
-        response.Artefacts.Subscription.AddSubscriptions(grpSub.GroupId.Value, accountIds);
       }
     }
 

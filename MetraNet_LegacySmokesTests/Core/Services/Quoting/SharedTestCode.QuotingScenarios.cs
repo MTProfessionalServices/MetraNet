@@ -43,10 +43,10 @@ namespace MetraTech.Core.Services.Test.Quoting
             beforeCreateQuote.CountSubs = SharedTestCodeQuoting.GetSubsCount();
             beforeCreateQuote.CountRecurWindows = SharedTestCodeQuoting.GetRecurWindowsCount();
 
-            beforeCreateQuote.CountHeaders = quotingRepositoryForTestRun.GetQuoteHeaderCount();
-            beforeCreateQuote.CountContents = quotingRepositoryForTestRun.GetQuoteContentCount();
-            beforeCreateQuote.CountAccounts = quotingRepositoryForTestRun.GetAccountForQuoteCount();
-            beforeCreateQuote.CountProducts = quotingRepositoryForTestRun.GetPOForQuoteCount();
+            //beforeCreateQuote.CountHeaders = quotingRepositoryForTestRun.GetQuoteHeaderCount();
+            //beforeCreateQuote.CountContents = quotingRepositoryForTestRun.GetQuoteContentCount();
+            //beforeCreateQuote.CountAccounts = quotingRepositoryForTestRun.GetAccountForQuoteCount();
+            //beforeCreateQuote.CountProducts = quotingRepositoryForTestRun.GetPOForQuoteCount();
 
             UsageAndFailedTransactionCount usageAndFailedTransactionCount = UsageAndFailedTransactionCount.CreateSnapshot();
 
@@ -66,14 +66,14 @@ namespace MetraTech.Core.Services.Test.Quoting
             {
                 result = quoteImp.QuoteImplementation.CreateQuote(quoteImp.Request);
 
-                beforeCleanQuote.CountHeaders = quotingRepositoryForTestRun.GetQuoteHeaderCount();
-                beforeCleanQuote.CountContents = quotingRepositoryForTestRun.GetQuoteContentCount();
-                beforeCleanQuote.CountAccounts = quotingRepositoryForTestRun.GetAccountForQuoteCount();
-                beforeCleanQuote.CountProducts = quotingRepositoryForTestRun.GetPOForQuoteCount();
+                //beforeCleanQuote.CountHeaders = quotingRepositoryForTestRun.GetQuoteHeaderCount();
+                //beforeCleanQuote.CountContents = quotingRepositoryForTestRun.GetQuoteContentCount();
+                //beforeCleanQuote.CountAccounts = quotingRepositoryForTestRun.GetAccountForQuoteCount();
+                //beforeCleanQuote.CountProducts = quotingRepositoryForTestRun.GetPOForQuoteCount();
                 
-                SharedTestCodeQuoting.VerifyQuoteRequestCorrectInRepository(result.IdQuote, quoteImp.Request,
-                                                                            quoteImp.QuoteImplementation
-                                                                                    .QuotingRepository);
+                //SharedTestCodeQuoting.VerifyQuoteRequestCorrectInRepository(result.IdQuote, quoteImp.Request,
+                //                                                            quoteImp.QuoteImplementation
+                //                                                                    .QuotingRepository);
 
                 beforeCleanQuote.CountFlatRCs = SharedTestCodeQuoting.GetFlatRCsCount();
                 beforeCleanQuote.CountNRCs = SharedTestCodeQuoting.GetNRCsCount();
@@ -102,14 +102,14 @@ namespace MetraTech.Core.Services.Test.Quoting
                 }
 
                 //Verify the number of instances in the tables for quoting was as expected
-                Assert.AreEqual(expected.CountHeaders, beforeCleanQuote.CountHeaders - beforeCreateQuote.CountHeaders,
-                                "Quoting process did not generate expected number of headers for quote");
-                Assert.AreEqual(expected.CountContents, beforeCleanQuote.CountContents - beforeCreateQuote.CountContents,
-                                "Quoting process did not generate expected number of contents for quote");
-                Assert.AreEqual(expected.CountAccounts, beforeCleanQuote.CountAccounts - beforeCreateQuote.CountAccounts,
-                                "Quoting process did not generate expected number of accounts for quote");
-                Assert.AreEqual(expected.CountProducts, beforeCleanQuote.CountProducts - beforeCreateQuote.CountProducts,
-                                "Quoting process did not generate expected number of POs for quote");
+                //Assert.AreEqual(expected.CountHeaders, beforeCleanQuote.CountHeaders - beforeCreateQuote.CountHeaders,
+                //                "Quoting process did not generate expected number of headers for quote");
+                //Assert.AreEqual(expected.CountContents, beforeCleanQuote.CountContents - beforeCreateQuote.CountContents,
+                //                "Quoting process did not generate expected number of contents for quote");
+                //Assert.AreEqual(expected.CountAccounts, beforeCleanQuote.CountAccounts - beforeCreateQuote.CountAccounts,
+                //                "Quoting process did not generate expected number of accounts for quote");
+                //Assert.AreEqual(expected.CountProducts, beforeCleanQuote.CountProducts - beforeCreateQuote.CountProducts,
+                //                "Quoting process did not generate expected number of POs for quote");
 
                 // Verify the quote total is as expected. If UDRCs are expected than TotalAmount with them is greater than without 
                 Assert.AreEqual(expected.Total, result.TotalAmount, "Created quote total is not what was expected");
@@ -124,9 +124,9 @@ namespace MetraTech.Core.Services.Test.Quoting
                 Assert.AreEqual(expected.Currency, result.Currency);
 
                 //Verify response is in repository
-                SharedTestCodeQuoting.VerifyQuoteResponseCorrectInRepository(result.IdQuote, result,
-                                                                             quoteImp.QuoteImplementation
-                                                                                     .QuotingRepository);
+                //SharedTestCodeQuoting.VerifyQuoteResponseCorrectInRepository(result.IdQuote, result,
+                //                                                             quoteImp.QuoteImplementation
+                //                                                                     .QuotingRepository);
 
                 //Todo: Verify PDF generated
 

@@ -182,7 +182,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Properties" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Pipeline\Pipeline.NET\interop\PipelineInterop.vcxproj">

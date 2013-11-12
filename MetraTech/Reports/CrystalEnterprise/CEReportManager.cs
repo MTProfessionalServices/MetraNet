@@ -41,17 +41,15 @@ namespace MetraTech.Reports.CrystalEnterprise
 		private InfoStore mIS;
 		private string mUserName = string.Empty;
 		private string mPassword = string.Empty;
-        private string mDataSource = string.Empty;
 
 		private static string mToken = string.Empty;
-		public void LoginToReportingServer(string aServerName, string aUserName, string aPassword, string aDataSource)
+		public void LoginToReportingServer(string aServerName, string aUserName, string aPassword)
 		{
 			Debug.Assert(mLogger != null);
 			mUserName = aUserName;
 			mPassword = aPassword;
-			mDataSource = aDataSource;
 			RecordAndLogInfo
-				(string.Format("Logging into reporting provider server. Provider: {0}, Machine: {1}, User: {2}.", ProviderName, aServerName, aUserName, aDataSource));
+				(string.Format("Logging into reporting provider server. Provider: {0}, Machine: {1}, User: {2}.", ProviderName, aServerName, aUserName));
 
 			try
 			{
@@ -67,7 +65,7 @@ namespace MetraTech.Reports.CrystalEnterprise
 				{
 					RecordAndLogInfo
 						("Creating new logon session.");
-					InternalLogon(aServerName, aUserName, aPassword, aDataSource);
+					InternalLogon(aServerName, aUserName, aPassword);
 					RecordAndLogInfo
 						("Successfully created new logon session.");
 				}
@@ -79,7 +77,7 @@ namespace MetraTech.Reports.CrystalEnterprise
 				GC.Collect();
 				RecordAndLogInfo
 					("Creating new logon session.");
-				InternalLogon(aServerName, aUserName, aPassword, aDataSource);
+				InternalLogon(aServerName, aUserName, aPassword);
 				RecordAndLogInfo
 					("Successfully created new logon session.");
 			}
@@ -989,13 +987,13 @@ namespace MetraTech.Reports.CrystalEnterprise
 				mContext.RecordWarning(message);
 		}
 
-		private void InternalLogon(string aServerName, string aUserName, string aPassword, string aDataSource)
+		private void InternalLogon(string aServerName, string aUserName, string aPassword)
 		{
 			mMgr = new SessionMgr();
 			//APS runs at port 6400
 			if(mToken.Length == 0)
 			{
-				mES = mMgr.Logon(aUserName, aPassword, aServerName, aDataSource);
+				mES = mMgr.Logon(aUserName, aPassword, aServerName, "secWindowsNT");
 				mToken = mES.LogonTokenMgr.CreateLogonTokenEx(Dns.GetHostName(),/*local machine*/
 					60/*valid for 1 hour*/,
 					100/*max logons*/);
@@ -1012,12 +1010,12 @@ namespace MetraTech.Reports.CrystalEnterprise
 						(string.Format("Could not logon to Crystal provider using logon token: '{0}', attempting regular logon.", e.Message));
 					try
 					{
-						mES = mMgr.Logon(aUserName, aPassword, aServerName, aDataSource);
+						mES = mMgr.Logon(aUserName, aPassword, aServerName, "secWindowsNT");
 					}
 					catch(Exception)
 					{
 						GC.Collect();
-						mES = mMgr.Logon(aUserName, aPassword, aServerName, aDataSource);
+						mES = mMgr.Logon(aUserName, aPassword, aServerName, "secWindowsNT");
 					}
 				}
 			}

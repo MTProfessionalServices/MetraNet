@@ -65,7 +65,6 @@ namespace MetraTech.Reports.Hooks
 				string apsname = Aps.ServerName;
 				string apsuser = Aps.UserName;
 				string apspassword = Aps.Password;
-				string apsdatasource = Aps.DataSource;
                 // g. cieplik CORE-1472 get the apsDatabaseName, its overloaded with the SINAME
                 mSIName = Aps.DatabaseName;
 
@@ -93,14 +92,15 @@ namespace MetraTech.Reports.Hooks
 					//APS runs at port 6400
 					try
 					{
-						es = mgr.Logon(apsuser, apspassword, apsname, apsdatasource);
+						es = mgr.Logon(apsuser, apspassword, apsname, "secWindowsNT");
+						//es = mgr.Logon("administrator", "", apsname, "secEnterprise");
 					}
 					catch(Exception)
 					{
 						try
 						{
 							GC.Collect();
-							es = mgr.Logon(apsuser, apspassword, apsname, apsdatasource);
+							es = mgr.Logon(apsuser, apspassword, apsname, "secWindowsNT");
 						}
 						catch(Exception e)
 						{

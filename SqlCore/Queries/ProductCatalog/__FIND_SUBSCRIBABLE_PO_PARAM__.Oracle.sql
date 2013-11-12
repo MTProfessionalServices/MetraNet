@@ -109,12 +109,10 @@ FROM
 									and tmp2.ID_PO is null
 							GROUP BY t_pl_map.id_po, tb.n_kind
 							) template_po_map0         
-   where
-							not exists (
-
+   WHERE NOT EXISTS (
 							SELECT 1
 							FROM 
-                (select id_cycle_type
+                (SELECT id_cycle_type
 					        from t_acc_usage_cycle, t_usage_cycle
 				          where t_acc_usage_cycle.id_acc = @idAcc
 				          AND t_usage_cycle.id_usage_cycle = t_acc_usage_cycle.id_usage_cycle ) cycleType,

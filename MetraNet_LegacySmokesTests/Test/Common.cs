@@ -1728,6 +1728,7 @@ namespace MetraTech.Test.Common
       billToContactView.ContactType = ContactType.Bill_To;
       billToContactView.FirstName = "Boris";
       billToContactView.LastName = "Boruchovich";
+      billToContactView.Address1 = "330 Bear Hill Road";
       account.LDAP.Add(billToContactView);
 
       var addAccountClient = new MetraTech.Account.ClientProxies.AccountCreation_AddAccount_Client();

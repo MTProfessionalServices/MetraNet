@@ -366,6 +366,9 @@
     <data name="TEXT_DELETE" xml:space="preserve">
         <value>Supprimer</value>
     </data>
+	<data name="TEXT_BILL_MESSAGE" xml:space="preserve">
+    <value></value>
+    </data>
   <data name="TEXT_BULKUPDATE" xml:space="preserve">
     <value>Bulk Update</value>
   </data>

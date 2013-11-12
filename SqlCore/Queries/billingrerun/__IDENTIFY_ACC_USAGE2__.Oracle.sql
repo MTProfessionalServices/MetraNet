@@ -4,17 +4,17 @@
  		          id_parent_source_sess, id_payer, amount, currency)
  		  select 
 			  seq_%%TABLE_NAME%%.NEXTVAL,
-			  au.tx_uid, -- id_source_sess
-			  au.tx_batch, -- tx_batch
-			  au.id_sess, -- id_sess
-			  au.id_parent_sess, -- id_parent_sess,
-			  NULL, -- root
-			  au.id_usage_interval, -- id_interval
-			  au.id_view, -- id_view
-			  '%%STATE%%', -- tx_state
-			  au.id_svc, -- id_svc
-			  NULL, -- id_parent_source_sess
-			  au.id_acc, -- id_payer
+			  au.tx_uid, /* id_source_sess*/
+			  au.tx_batch, /* tx_batch*/
+			  au.id_sess, /* id_sess*/
+			  au.id_parent_sess, /*id_parent_sess*/
+			  NULL, /*root*/
+			  au.id_usage_interval, /* id_interval*/
+			  au.id_view, /*id_view*/
+			  '%%STATE%%', /*tx_state*/
+			  au.id_svc, /* id_svc*/
+			  NULL, /* id_parent_source_sess*/
+			  au.id_acc, /* id_payer*/
 			  au.amount,
 			  au.am_currency
 		  from t_acc_usage au

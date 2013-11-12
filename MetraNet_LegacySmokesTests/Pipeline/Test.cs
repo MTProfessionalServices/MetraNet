@@ -275,6 +275,7 @@ namespace MetraTech.Pipeline.Test
 		}
 
 		[Test]
+    [Ignore]
     public void T11TestTxnPlugIn()
 		{
 			IMeter sdk = null;

@@ -169,7 +169,6 @@ public partial class BEList : MTPage
 
       MyGrid1.ExtensionName = Request.QueryString["Extension"];
       MyGrid1.TemplateFileName = BEName + ".xml";
-
     }
   }
 
@@ -315,7 +314,9 @@ public partial class BEList : MTPage
         if (MultiSelect == "true")
         {
           MyGrid1.MultiSelect = true;
-          MyGrid1.SelectionModel = MTGridSelectionModel.Checkbox;
+          // if the BME layout file is  Core.BillMessages.BillMessageAccount.xml then don't override the SelectionModel
+          if (!String.IsNullOrEmpty(MyGrid1.TemplateFileName) && MyGrid1.TemplateFileName != "Core.BillMessages.BillMessageAccount.xml")
+              MyGrid1.SelectionModel = MTGridSelectionModel.Checkbox;
           MTGridButton gridButton1 = new MTGridButton();
           gridButton1.ButtonID = "Remove";
           gridButton1.ButtonText = Resources.Resource.TEXT_REMOVE_RELSHIP;

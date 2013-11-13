@@ -8,7 +8,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
   <MT:MTTitle ID="MTTitle1" Text="BE" runat="server" 
     meta:resourcekey="MTTitle1Resource1" />
-<uc1:BreadCrumb ID="BreadCrumb1" runat="server" />
+
 
 
   <div style="width:810px">
@@ -272,7 +272,7 @@
  
                top.Ext.MessageBox.show({
                title: TEXT_DELETE,
-               msg: " Bill Message " + id + " has " + numberofaccountsassociated + " accounts associated with it." + String.format(TEXT_DELETE_MESSAGE, id),
+               msg: String.format(TEXT_BILL_MESSAGE, id, numberofaccountsassociated) + " " + String.format(TEXT_DELETE_MESSAGE, id),
                buttons: Ext.MessageBox.OKCANCEL,
                fn: function(btn){
                  if (btn == 'ok')

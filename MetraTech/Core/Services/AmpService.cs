@@ -3505,7 +3505,7 @@ namespace MetraTech.Core.Services
                         decision.CycleUnitsOffsetColumnName = attributeColumnName;
                     }
             }
-            else if (attributeName.Equals("Amount Chain Group"))
+            else if (attributeName.Equals("Product View To Amount Chain Mapping"))
             {
                 if ((attributeValue == null) && (attributeColumnName == null))
                 {
@@ -4070,7 +4070,7 @@ namespace MetraTech.Core.Services
             StoreAttributeInDb(decision.UniqueId, "Cycle Unit Offset",
                 decision.CycleUnitsOffsetValue.HasValue ? decision.CycleUnitsOffsetValue.ToString() : null,
                 decision.CycleUnitsOffsetColumnName, decision.ParameterTableName);
-            StoreAttributeInDb(decision.UniqueId, "Amount Chain Group",
+            StoreAttributeInDb(decision.UniqueId, "Product View To Amount Chain Mapping",
                 decision.PvToAmountChainMappingValue,
                 decision.PvToAmountChainMappingColumnName, decision.ParameterTableName);
             StoreAttributeInDb(decision.UniqueId, "Generated Charge",

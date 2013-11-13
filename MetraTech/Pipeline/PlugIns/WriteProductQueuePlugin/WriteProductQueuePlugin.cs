@@ -318,6 +318,9 @@ namespace MetraTech.Pipeline.Plugins
                     props.Add(new PropertyInfo { NameID = nameId.GetNameID("_TaxInclusive"), DBColumnName = "is_implied_tax", DataType = Interop.MTProductCatalog.PropValType.PROP_TYPE_STRING });
                     props.Add(new PropertyInfo { NameID = nameId.GetNameID("_TaxCalculated"), DBColumnName = "tax_calculated", DataType = Interop.MTProductCatalog.PropValType.PROP_TYPE_STRING });
                     props.Add(new PropertyInfo { NameID = nameId.GetNameID("_TaxInformational"), DBColumnName = "tax_informational", DataType = Interop.MTProductCatalog.PropValType.PROP_TYPE_STRING });
+
+                    // Enables resubmit logic in RAMP
+                    props.Add(new PropertyInfo { NameID = nameId.GetNameID("_Resubmit"), DBColumnName = "c__resubmit", DataType = Interop.MTProductCatalog.PropValType.PROP_TYPE_BOOLEAN });
                 }
                 Log(LogLevel.Debug, "Finished loading Product View Definitions");
             }
@@ -393,7 +396,7 @@ namespace MetraTech.Pipeline.Plugins
         /// <summary>
         /// This method is called for each session in the session set.
         /// </summary>
-        protected override void ProcessSession(MetraTech.Pipeline.Plugins.WriteProductQueue.Properties props, RabbitMQ.Client.IModel model,System.IO.MemoryStream builder, bool batchFull)
+        protected override void ProcessSession(MetraTech.Pipeline.Plugins.WriteProductQueue.Properties props, RabbitMQ.Client.IModel model, System.IO.MemoryStream builder, bool batchFull)
         {
             Log(LogLevel.Debug, "Start queuing session");
 
@@ -402,7 +405,7 @@ namespace MetraTech.Pipeline.Plugins
                 // 1) populate/format message
                 Log(LogLevel.Debug, "Serializing message...");
                 var bytes = serializer.SerializeSession(props.Session);
-                builder.Write(bytes,0,bytes.Length);
+                builder.Write(bytes, 0, bytes.Length);
 
                 if (batchFull)
                 {
@@ -1003,7 +1006,7 @@ namespace MetraTech.Pipeline.Plugins
             foreach (var prop in pvd)
             {
                 var pName = prop.DBColumnName;
-//                logger.LogDebug("Adding field: " + pName);
+                //                logger.LogDebug("Adding field: " + pName);
                 if (pName.Equals("tx_batch"))
                 {
                     if (session.PropertyExists(prop.NameID, ISession.PropertyType.String))

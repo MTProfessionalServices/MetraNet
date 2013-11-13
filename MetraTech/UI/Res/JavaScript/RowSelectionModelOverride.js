@@ -182,6 +182,11 @@ Ext.override(Ext.grid.RowSelectionModel, {
             this.markInvalid(String.format(this.maxText, this.formatDate(this.maxValue)));
             return false;
         }
+        if (this.compareValue && value < this.parseDate(this.compareValue))
+        {
+          this.markInvalid(String.format(ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE));
+          return false;
+        }
         if(this.disabledDays){
             var day = value.getDay();
             for(var i = 0; i < this.disabledDays.length; i++) {

@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Net;
 using MetraTech.DomainModel.MetraPay;
 using System.IO;
-using System.Configuration;
-using System.Globalization;
 using MetraTech.ActivityServices.Common;
 
 namespace MetraTech.MetraPay.PaymentGateway
@@ -211,6 +208,12 @@ namespace MetraTech.MetraPay.PaymentGateway
 
             warnings = "";
 
+        }
+
+        public void UpdatePaymentMethod(MetraPaymentMethod paymentMethod, string currency)
+        {
+          if (paymentMethod == null) throw new ArgumentNullException("paymentMethod");
+          if (string.IsNullOrEmpty(currency)) throw new ArgumentNullException("currency");
         }
 
       /// <summary>

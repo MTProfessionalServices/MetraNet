@@ -22,6 +22,6 @@ namespace MetraTech.MetraPay.PaymentGateway
     void GetCreditCardUpdates(string transactionId, List<CreditCardPaymentMethod> cardsToUpdate, ref List<CreditCardPaymentMethod> updatedCards);
 
     void ReverseAuthorizedCharge(CreditCardPaymentMethod ccPaymentMethod, ref MetraPaymentInfo paymentInfo, string requestParams, out string warnings, double timeout = 0, string cos = "");
-
+    void UpdatePaymentMethod(MetraPaymentMethod paymentMethod, string currency);
   }
 }

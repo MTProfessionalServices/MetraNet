@@ -126,14 +126,11 @@ PUBLIC FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             HTML_LINK_EDIT = HTML_LINK_EDIT  & "<td nowrap class='[CLASS]' Width='36'>"
            
             If FrameWork.CheckCoarseCapability("Manage Owned Accounts") Then
-
-              HTML_LINK_EDIT = HTML_LINK_EDIT  & "<A href='#' onclick='JavaScript:parent.showHierarchy();parent.hierarchy.location.href=""hierarchyClient.asp?HierarchyStartNode=" & ProductView.Properties("id_owned") & """;'" 
-		   				HTML_LINK_EDIT = HTML_LINK_EDIT  & "'><img alt='" & mam_GetDictionary("TEXT_FIND_IN_HIERARCHY") & "' src='" & mam_GetImagesPath() &  "/sync.gif' Border='0'></A>"						
+              HTML_LINK_EDIT = HTML_LINK_EDIT  & "<A href='#' onclick='JavaScript:parent.getFrameMetraNet().Account.ShowHierarchyTab(" & ProductView.Properties("id_owned") & ");'><img alt='" & mam_GetDictionary("TEXT_FIND_IN_HIERARCHY") & "' src='" & mam_GetImagesPath() &  "/sync.gif' Border='0'></A>"						
 
               ' View online bill
-              If FrameWork.CheckCoarseCapability("View Online Bill") Then              
-                HTML_LINK_EDIT = HTML_LINK_EDIT  & "<A href='JavaScript:dragID=" & ProductView.Properties("id_owned") & ";loadAccount();viewOnlineBill();" 
-		   				  HTML_LINK_EDIT = HTML_LINK_EDIT  & "'><img alt='" & mam_GetDictionary("TEXT_VIEW_ONLINE_BILL") & "' src='" & mam_GetImagesPath() &  "/web.gif' Border='0'></A>"						
+              If FrameWork.CheckCoarseCapability("View Online Bill") Then  
+              HTML_LINK_EDIT = HTML_LINK_EDIT  & "<A href='JavaScript:parent.getFrameMetraNet().Account.LoadPage(" & ProductView.Properties("id_owned") & ", ""/MetraNet/ViewOnlineBill.aspx"");'><img alt='" & mam_GetDictionary("TEXT_VIEW_ONLINE_BILL") & "' src='" & mam_GetImagesPath() &  "/web.gif' Border='0'></A>"					
               End If
           
             End If

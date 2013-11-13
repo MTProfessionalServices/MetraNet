@@ -44,6 +44,8 @@ if request("ImportExportAction")="Export" then
     strFilename = Replace(strFilename, "\", "_")
 
     dim sExcelBuffer,arrErrors
+    '//ESR-5932
+    response.Clear
     set arrErrors=objRulesetConverter.ExportToExcel(objParamTable.name, session("RuleSet"), sExcelBuffer)
     
     if arrErrors.Count > 0 then

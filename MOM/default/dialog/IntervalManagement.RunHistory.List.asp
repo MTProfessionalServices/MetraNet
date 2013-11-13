@@ -175,6 +175,9 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'>" & ProductView.Properties.RowSet.Value("Action") & strForced & "</td>"
             
   			    Form_DisplayCell = TRUE
+         Case "time"
+            EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'>"  & mdm_Format(ProductView.Properties.RowSet.Value("time"),mom_GetDictionary("DATE_TIME_FORMAT")) & "</td>"
+            Form_DisplayCell = TRUE
   	     Case else
             Form_DisplayCell = Inherited("Form_DisplayCell(EventArg)")
       End Select

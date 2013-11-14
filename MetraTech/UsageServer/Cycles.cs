@@ -6,8 +6,8 @@ namespace MetraTech.UsageServer
   using System.Collections;
   using System.Runtime.InteropServices;
 
-  using MetraTech.DataAccess;
-
+  using DataAccess;
+  
   /// <summary>
   /// All possible cycle types.
   /// </summary>
@@ -67,17 +67,16 @@ namespace MetraTech.UsageServer
   // 8 start_year
   internal enum CycleQueryColumns
   {
-    id_usage_cycle = 0,
-    id_cycle_type,
-    day_of_month,
-    day_of_week,
-    first_day_of_month,
-    second_day_of_month,
-    start_day,
-    start_month,
-    start_year
+    IDUsageCycle = 0,
+    IDCycleType,
+    DayOfMonth,
+    DayOfWeek,
+    FirstDayOfMonth,
+    SecondDayOfMonth,
+    StartDay,
+    StartMonth,
+    StartYear
   }
-
 
   /// <summary>
   /// Properties used to define each cycle
@@ -88,110 +87,130 @@ namespace MetraTech.UsageServer
     /// <summary>
     /// Day of week for weekly cycle.
     /// </summary>
-    DayOfWeek DayOfWeek { get; set; }
+    DayOfWeek DayOfWeek
+    { get; set; }
 
     /// <summary>
     /// True when day of week is set.
     /// </summary>
-    bool IsDayOfWeekSet { get; }
+    bool IsDayOfWeekSet
+    { get; }
 
 
     /// <summary>
     /// Day of month for montly cycle.
     /// </summary>
-    int DayOfMonth { get; set; }
+    int DayOfMonth
+    { get; set; }
 
     /// <summary>
     /// True when day of month is set.
     /// </summary>
-    bool IsDayOfMonthSet { get; }
+    bool IsDayOfMonthSet
+    { get; }
 
 
     /// <summary>
     /// First day of month for semi-montly cycle.
     /// </summary>
-    int FirstDayOfMonth { get; set; }
+    int FirstDayOfMonth
+    { get; set; }
 
     /// <summary>
     /// True when first day of month is set.
     /// </summary>
-    bool IsFirstDayOfMonthSet { get; }
+    bool IsFirstDayOfMonthSet
+    { get; }
 
 
     /// <summary>
     /// Second day of month for semi-montly cycle.
     /// </summary>
-    int SecondDayOfMonth { get; set; }
+    int SecondDayOfMonth
+    { get; set; }
 
     /// <summary>
     /// True when second day of month is set.
     /// </summary>
-    bool IsSecondDayOfMonthSet { get; }
+    bool IsSecondDayOfMonthSet
+    { get; }
 
 
     /// <summary>
     /// Beginning month of month for bi-weekly cycle.
     /// </summary>
-    int StartMonth { get; set; }
+    int StartMonth
+    { get; set; }
 
     /// <summary>
     /// True when start month is set.
     /// </summary>
-    bool IsStartMonthSet { get; }
+    bool IsStartMonthSet
+    { get; }
 
 
     /// <summary>
     /// Beginning day of month for bi-weekly cycle.
     /// </summary>
-    int StartDay { get; set; }
+    int StartDay
+    { get; set; }
 
     /// <summary>
     /// True when start day is set.
     /// </summary>
-    bool IsStartDaySet { get; }
+    bool IsStartDaySet
+    { get; }
 
 
     /// <summary>
     /// Beginning year for bi-weekly cycle.
     /// </summary>
-    int StartYear { get; set; }
+    int StartYear
+    { get; set; }
 
     /// <summary>
     /// True when start year is set.
     /// </summary>
-    bool IsStartYearSet { get; }
+    bool IsStartYearSet
+    { get; }
 
 
     /// <summary>
     /// Cycle ID (populated from the database when known)
     /// </summary>
-    int CycleID { get; set; }
+    int CycleID
+    { get; set; }
 
     /// <summary>
     /// True when cycle ID is set.
     /// </summary>
-    bool IsCycleIDSet { get; }
+    bool IsCycleIDSet
+    { get; }
 
     /// <summary>
     /// Cycle type (when known)
     /// </summary>
-    CycleType CycleType { get; set; }
+    CycleType CycleType
+    { get; set; }
 
     /// <summary>
     /// True when cycle ID is set.
     /// </summary>
-    bool IsCycleTypeSet { get; }
+    bool IsCycleTypeSet
+    { get; }
 
 
     /// <summary>
     /// The day of the year, between 1 and 366.
     /// </summary>
-    int DayOfYear { get; set; }
+    int DayOfYear
+    { get; set; }
 
     /// <summary>
     /// True when day of year is set.
     /// </summary>
-    bool IsDayOfYearSet { get; }
+    bool IsDayOfYearSet
+    { get; }
 
 
     /// <summary>
@@ -205,25 +224,26 @@ namespace MetraTech.UsageServer
     void Populate(IMTDataReader reader);
   }
 
-
   /// <remarks>
   /// Public cycle management API.
   /// </remarks>
   [ComVisible(false)]
   public class UsageCycleManager
   {
+    private ArrayList _mAllCycles;
+    
     /// <summary>
     /// Add all possible usage cycles to the database
     /// </summary>
     public void AddUsageCycles()
     {
-      ArrayList allCycles = AllUsageCycles;
+      var allCycles = AllUsageCycles;
 
-      using (IBulkInsert bulkInsert = BulkInsertManager.CreateBulkInsert("NetMeter"))
+      using (var bulkInsert = BulkInsertManager.CreateBulkInsert("NetMeter"))
       {
         bulkInsert.PrepareForInsert("t_usage_cycle", 1000);
 
-        int n = 0;
+        var n = 0;
         foreach (ICycle cycle in allCycles)
         {
           InitRow(bulkInsert, cycle);
@@ -236,7 +256,6 @@ namespace MetraTech.UsageServer
       }
     }
 
-
     /// <summary>
     /// List of all usage cycles, in order
     /// </summary>
@@ -244,36 +263,38 @@ namespace MetraTech.UsageServer
     {
       get
       {
-        if (mAllCycles != null)
-          return mAllCycles;
+        if (_mAllCycles != null)
+          return _mAllCycles;
 
-        mAllCycles = new ArrayList();
+        _mAllCycles = new ArrayList();
 
         Type[] cycleTypeTypes =
-          {
-            typeof (DailyCycleType),
-            typeof (MonthlyCycleType),
-            typeof (WeeklyCycleType),
-            typeof (BiWeeklyCycleType),
-            typeof (SemiMonthlyCycleType),
-            typeof (QuarterlyCycleType),
-            typeof (AnnualCycleType),
-            typeof (SemiAnnualCycleType)
-          };
+        {
+          typeof (DailyCycleType),
+          typeof (MonthlyCycleType),
+          typeof (WeeklyCycleType),
+          typeof (BiWeeklyCycleType),
+          typeof (SemiMonthlyCycleType),
+          typeof (QuarterlyCycleType),
+          typeof (AnnualCycleType),
+          typeof (SemiAnnualCycleType)
+        };
 
-        int cycleID = 1;
+        var cycleID = 1;
 
         // silly names, but the real object is the CycleType... its .NET type is a CycleType Type
-        foreach (Type cycleTypeType in cycleTypeTypes)
+        foreach (var cycleTypeType in cycleTypeTypes)
         {
           // create the cycle type object
-          ICycleType cycleType = (ICycleType) cycleTypeType.GetConstructor(Type.EmptyTypes).Invoke(null);
+          var constructorInfo = cycleTypeType.GetConstructor(Type.EmptyTypes);
+          if (constructorInfo == null) continue;
+          var cycleType = (ICycleType)constructorInfo.Invoke(null);
 
           // generate all cycles for this cycle type
-          ICycle[] cycles = cycleType.GenerateCycles();
+          var cycles = cycleType.GenerateCycles();
 
           // number them
-          foreach (ICycle cycle in cycles)
+          foreach (var cycle in cycles)
           {
             // skip discontinued IDs
             if (CycleUtils.IsDiscontinuedCycleID(cycleID))
@@ -283,14 +304,14 @@ namespace MetraTech.UsageServer
             cycle.CycleID = cycleID++;
           }
 
-          mAllCycles.AddRange(cycles);
+          _mAllCycles.AddRange(cycles);
         }
 
-        return mAllCycles;
+        return _mAllCycles;
       }
     }
 
-    private void InitRow(IBulkInsert bulkInsert, ICycle cycle)
+    private static void InitRow(IBulkInsert bulkInsert, ICycle cycle)
     {
       bulkInsert.SetValue(1, MTParameterType.Integer, cycle.CycleID);
       bulkInsert.SetValue(2, MTParameterType.Integer, (int) cycle.CycleType);
@@ -319,9 +340,32 @@ namespace MetraTech.UsageServer
         bulkInsert.SetValue(10, MTParameterType.Integer, cycle.StartYear);
     }
 
-    private ArrayList mAllCycles;
-  }
+    /// <summary>
+    /// Generate all possible cycles for Annual or SemiAnnual cycle type.
+    /// </summary>
+    public static ICycle[] GenerateAnnualCycles()
+    {
+      // for each month, all possible days from the year 1999
+      // feb was not a leap year in 1999
+      // 365 days in the year
+      var calendar = new System.Globalization.GregorianCalendar();
 
+      var cycles = new ICycle[365];
+      var cycleId = 0;
+      for (var month = 1; month <= 12; month++)
+      {
+        for (var day = 1; day <= calendar.GetDaysInMonth(1999, month); day++)
+        {
+          ICycle cycle = new Cycle();
+          cycle.StartMonth = month;
+          cycle.StartDay = day;
+          cycle.CycleType = CycleType.Annual;
+          cycles[cycleId++] = cycle;
+        }
+      }
+      return cycles;
+    }
+  }
 
   /// <remarks>
   /// Base interface used to define the begin and end date of
@@ -336,9 +380,9 @@ namespace MetraTech.UsageServer
     /// given the cycle.
     /// </summary>
     void ComputeStartAndEndDate(DateTime referenceDate,
-                                ICycle cycle,
-                                out DateTime startDate,
-                                out DateTime endDate);
+      ICycle cycle,
+      out DateTime startDate,
+      out DateTime endDate);
 
 
     /// <summary>
@@ -358,9 +402,7 @@ namespace MetraTech.UsageServer
     /// previous versions of the product
     /// </summary>
     ICycle[] GenerateCycles();
-
   }
-
 
   /// <summary>
   /// Represents an exact cyclic recurrence in time. 
@@ -383,18 +425,18 @@ namespace MetraTech.UsageServer
     /// </summary>
     public void Clear()
     {
-      mDayOfWeek = DayOfWeek.Monday; // make the state of each property consistent
-      mDayOfWeekSet = false;
-      mDayOfMonth = -1;
-      mFirstDayOfMonth = -1;
-      mSecondDayOfMonth = -1;
-      mStartMonth = -1;
-      mStartDay = -1;
-      mStartYear = -1;
-      mCycleID = -1;
-      mCycleType = CycleType.All; // make the state of each property consistent
-      mCycleTypeSet = false;
-      mDayOfYear = -1;
+      _mDayOfWeek = DayOfWeek.Monday; // make the state of each property consistent
+      _mDayOfWeekSet = false;
+      _mDayOfMonth = -1;
+      _mFirstDayOfMonth = -1;
+      _mSecondDayOfMonth = -1;
+      _mStartMonth = -1;
+      _mStartDay = -1;
+      _mStartYear = -1;
+      _mCycleID = -1;
+      _mCycleType = CycleType.All; // make the state of each property consistent
+      _mCycleTypeSet = false;
+      _mDayOfYear = -1;
     }
 
     /// <summary>
@@ -403,7 +445,7 @@ namespace MetraTech.UsageServer
     /// </summary>
     public override string ToString()
     {
-      System.Text.StringBuilder builder = new System.Text.StringBuilder();
+      var builder = new System.Text.StringBuilder();
       builder.Append("Cycle:");
       if (IsDayOfWeekSet)
         builder.AppendFormat(" DayOfWeek = {0}", DayOfWeek);
@@ -426,8 +468,7 @@ namespace MetraTech.UsageServer
 
       return builder.ToString();
     }
-
-
+    
     /// <summary>
     /// Day of week for weekly cycle.
     /// </summary>
@@ -435,13 +476,12 @@ namespace MetraTech.UsageServer
     {
       get
       {
-        Debug.Assert(IsDayOfWeekSet);
-        return mDayOfWeek;
+        return _mDayOfWeek;
       }
       set
       {
-        mDayOfWeek = value;
-        mDayOfWeekSet = true;
+        _mDayOfWeek = value;
+        _mDayOfWeekSet = true;
       }
     }
 
@@ -450,9 +490,11 @@ namespace MetraTech.UsageServer
     /// </summary>
     public bool IsDayOfWeekSet
     {
-      get { return mDayOfWeekSet; }
+      get
+      {
+        return _mDayOfWeekSet;
+      }
     }
-
 
     /// <summary>
     /// Day of month for montly cycle.
@@ -461,15 +503,13 @@ namespace MetraTech.UsageServer
     {
       get
       {
-        Debug.Assert(IsDayOfMonthSet);
-        return mDayOfMonth;
+        return _mDayOfMonth;
       }
       set
       {
-        if (!(value > 0 && value <= MAX_DAYS_IN_MONTH))
-          throw new UsageServerException(
-            String.Format("Day of month value {0} is not between 1 and {1}", value, MAX_DAYS_IN_MONTH), true);
-        mDayOfMonth = value;
+        if (value <= 0 || value > MaxDaysInMonth)
+          throw new UsageServerException(String.Format("Day of month value {0} is not between 1 and {1}", value, MaxDaysInMonth), true);
+        _mDayOfMonth = value;
       }
     }
 
@@ -478,9 +518,11 @@ namespace MetraTech.UsageServer
     /// </summary>
     public bool IsDayOfMonthSet
     {
-      get { return mDayOfMonth != -1; }
+      get
+      {
+        return _mDayOfMonth != -1;
+      }
     }
-
 
     /// <summary>
     /// First day of month for semi-montly cycle.
@@ -489,18 +531,18 @@ namespace MetraTech.UsageServer
     {
       get
       {
-        Debug.Assert(IsFirstDayOfMonthSet);
-        return mFirstDayOfMonth;
+        return _mFirstDayOfMonth;
       }
       set
       {
-        //if (!(value > 0 && value <= 27))
-        //  throw new UsageServerException(String.Format("First day of month value {0} not between 1 and 27 inclusive", value), true);
+        if (value < 1 || value >= MaxDaysInMonth)
+          throw new UsageServerException(String.Format("First day value {0} must be greater or equal than 1 and less than {1}", 
+            value, MaxDaysInMonth), true);
 
-        if (IsSecondDayOfMonthSet && value < SecondDayOfMonth)
-          throw new UsageServerException("The second day must be greater than the first day", true);
+        if (IsSecondDayOfMonthSet && value >= SecondDayOfMonth)
+          throw new UsageServerException("The first day must be less than the second day", true);
 
-        mFirstDayOfMonth = value;
+        _mFirstDayOfMonth = value;
       }
     }
 
@@ -509,9 +551,11 @@ namespace MetraTech.UsageServer
     /// </summary>
     public bool IsFirstDayOfMonthSet
     {
-      get { return mFirstDayOfMonth != -1; }
+      get
+      {
+        return _mFirstDayOfMonth != -1;
+      }
     }
-
 
     /// <summary>
     /// Second day of month for semi-montly cycle.
@@ -520,19 +564,18 @@ namespace MetraTech.UsageServer
     {
       get
       {
-        Debug.Assert(IsSecondDayOfMonthSet);
-        return mSecondDayOfMonth;
+        return _mSecondDayOfMonth;
       }
       set
       {
-        if (!(value > 1 && value <= MAX_DAYS_IN_MONTH))
-          throw new UsageServerException(String.Format("Second day value {0} greater than the first day " +
-                                                       "and less than or equal to {1}", value, MAX_DAYS_IN_MONTH), true);
+        if (value <= 1 || value > MaxDaysInMonth)
+          throw new UsageServerException(String.Format("Second day value {0} must be greater than the first day " +
+                                                       "and less than or equal to {1}", value, MaxDaysInMonth), true);
 
-        if (!(!IsFirstDayOfMonthSet || value > FirstDayOfMonth))
+        if (IsFirstDayOfMonthSet && value <= FirstDayOfMonth)
           throw new UsageServerException("The second day must be greater than the first day", true);
 
-        mSecondDayOfMonth = value;
+        _mSecondDayOfMonth = value;
       }
     }
 
@@ -541,9 +584,11 @@ namespace MetraTech.UsageServer
     /// </summary>
     public bool IsSecondDayOfMonthSet
     {
-      get { return mSecondDayOfMonth != -1; }
+      get
+      {
+        return _mSecondDayOfMonth != -1;
+      }
     }
-
 
     /// <summary>
     /// Beginning month of month for bi-weekly cycle.
@@ -552,17 +597,15 @@ namespace MetraTech.UsageServer
     {
       get
       {
-        Debug.Assert(IsStartMonthSet);
-        return mStartMonth;
+        return _mStartMonth;
       }
       set
       {
         // NOTE: Quarterly cycle further assumes that the
         // month is within the first quarter
-        if (!(value >= 1 && value <= 12))
-          throw new UsageServerException(
-            String.Format("StartMonth value {0} not a valid month number between 1 and 12", value), true);
-        mStartMonth = value;
+        if (value < 1 || value > 12)
+          throw new UsageServerException(String.Format("StartMonth value {0} not a valid month number between 1 and 12", value), true);
+        _mStartMonth = value;
       }
     }
 
@@ -571,9 +614,11 @@ namespace MetraTech.UsageServer
     /// </summary>
     public bool IsStartMonthSet
     {
-      get { return mStartMonth != -1; }
+      get
+      {
+        return _mStartMonth != -1;
+      }
     }
-
 
     /// <summary>
     /// Beginning day of month for bi-weekly cycle.
@@ -582,18 +627,16 @@ namespace MetraTech.UsageServer
     {
       get
       {
-        Debug.Assert(IsStartDaySet);
-        return mStartDay;
+        return _mStartDay;
       }
       set
       {
         // this also has to be further validated later, but this
         // test must always be true.
-        if (!(value >= 1 && value <= MAX_DAYS_IN_MONTH))
-          throw new UsageServerException(
-            String.Format("StartDay {0} must be between 1 and {1}", value, MAX_DAYS_IN_MONTH), true);
+        if (value < 1 || value > MaxDaysInMonth)
+          throw new UsageServerException(String.Format("StartDay {0} must be between 1 and {1}", value, MaxDaysInMonth), true);
 
-        mStartDay = value;
+        _mStartDay = value;
       }
     }
 
@@ -602,9 +645,11 @@ namespace MetraTech.UsageServer
     /// </summary>
     public bool IsStartDaySet
     {
-      get { return mStartDay != -1; }
+      get
+      {
+        return _mStartDay != -1;
+      }
     }
-
 
     /// <summary>
     /// Beginning year for bi-weekly cycle.
@@ -613,10 +658,12 @@ namespace MetraTech.UsageServer
     {
       get
       {
-        Debug.Assert(IsStartYearSet);
-        return mStartYear;
+        return _mStartYear;
       }
-      set { mStartYear = value; }
+      set
+      {
+        _mStartYear = value;
+      }
     }
 
     /// <summary>
@@ -624,7 +671,10 @@ namespace MetraTech.UsageServer
     /// </summary>
     public bool IsStartYearSet
     {
-      get { return mStartYear != -1; }
+      get
+      {
+        return _mStartYear != -1;
+      }
     }
 
 
@@ -635,10 +685,12 @@ namespace MetraTech.UsageServer
     {
       get
       {
-        Debug.Assert(IsCycleIDSet);
-        return mCycleID;
+        return _mCycleID;
       }
-      set { mCycleID = value; }
+      set
+      {
+        _mCycleID = value;
+      }
     }
 
     /// <summary>
@@ -646,7 +698,10 @@ namespace MetraTech.UsageServer
     /// </summary>
     public bool IsCycleIDSet
     {
-      get { return mCycleID != -1; }
+      get
+      {
+        return _mCycleID != -1;
+      }
     }
 
     /// <summary>
@@ -656,13 +711,12 @@ namespace MetraTech.UsageServer
     {
       get
       {
-        Debug.Assert(IsCycleTypeSet);
-        return mCycleType;
+        return _mCycleType;
       }
       set
       {
-        mCycleType = value;
-        mCycleTypeSet = true;
+        _mCycleType = value;
+        _mCycleTypeSet = true;
       }
     }
 
@@ -671,7 +725,10 @@ namespace MetraTech.UsageServer
     /// </summary>
     public bool IsCycleTypeSet
     {
-      get { return mCycleTypeSet; }
+      get
+      {
+        return _mCycleTypeSet;
+      }
     }
 
 
@@ -682,15 +739,14 @@ namespace MetraTech.UsageServer
     {
       get
       {
-        Debug.Assert(IsDayOfYearSet);
-        return mDayOfYear;
+        return _mDayOfYear;
       }
       set
       {
         if (!(value >= 1 && value <= 365))
           throw new UsageServerException(String.Format("DayOfYear {0} must be between 1 and 365", value), true);
 
-        mDayOfYear = value;
+        _mDayOfYear = value;
       }
     }
 
@@ -699,7 +755,10 @@ namespace MetraTech.UsageServer
     /// </summary>
     public bool IsDayOfYearSet
     {
-      get { return mDayOfYear != -1; }
+      get
+      {
+        return _mDayOfYear != -1;
+      }
     }
 
     /// <summary>
@@ -707,62 +766,61 @@ namespace MetraTech.UsageServer
     /// </summary>
     public void Populate(IMTDataReader reader)
     {
-      mCycleID = reader.GetInt32((int) CycleQueryColumns.id_usage_cycle);
-      int rawCycleType = reader.GetInt32((int) CycleQueryColumns.id_cycle_type);
+      _mCycleID = reader.GetInt32((int) CycleQueryColumns.IDUsageCycle);
+      var rawCycleType = reader.GetInt32((int)CycleQueryColumns.IDCycleType);
 
       if (!CycleUtils.IsSupportedCycleType(rawCycleType))
-        throw new System.ApplicationException(String.Format("Unsupported cycle type {0}", rawCycleType));
+        throw new ApplicationException(String.Format("Unsupported cycle type {0}", rawCycleType));
 
-      CycleType cycleType = (CycleType) rawCycleType;
+      var cycleType = (CycleType)rawCycleType;
       CycleType = cycleType;
       switch (cycleType)
       {
         case CycleType.Monthly:
-          DayOfMonth = reader.GetInt32((int) CycleQueryColumns.day_of_month);
+          DayOfMonth = reader.GetInt32((int) CycleQueryColumns.DayOfMonth);
           break;
         case CycleType.Daily:
           break;
         case CycleType.Weekly:
           // be careful to correct for the fact that MetraTech uses Sunday=1; ... ; Saturday=7
           // and .NET uses Sunday=0; ... ; Saturday=6
-          DayOfWeek = (DayOfWeek) (reader.GetInt32((int) CycleQueryColumns.day_of_week) - 1);
+          DayOfWeek = (DayOfWeek) (reader.GetInt32((int) CycleQueryColumns.DayOfWeek) - 1);
           break;
 
         case CycleType.BiWeekly:
-          StartDay = reader.GetInt32((int) CycleQueryColumns.start_day);
-          StartMonth = reader.GetInt32((int) CycleQueryColumns.start_month);
-          StartYear = reader.GetInt32((int) CycleQueryColumns.start_year);
+          StartDay = reader.GetInt32((int) CycleQueryColumns.StartDay);
+          StartMonth = reader.GetInt32((int) CycleQueryColumns.StartMonth);
+          StartYear = reader.GetInt32((int) CycleQueryColumns.StartYear);
           break;
 
         case CycleType.SemiMonthly:
-          FirstDayOfMonth = reader.GetInt32((int) CycleQueryColumns.first_day_of_month);
-          SecondDayOfMonth = reader.GetInt32((int) CycleQueryColumns.second_day_of_month);
+          FirstDayOfMonth = reader.GetInt32((int) CycleQueryColumns.FirstDayOfMonth);
+          SecondDayOfMonth = reader.GetInt32((int) CycleQueryColumns.SecondDayOfMonth);
           break;
 
         case CycleType.Quarterly:
         case CycleType.SemiAnnual:
         case CycleType.Annual:
-          StartDay = reader.GetInt32((int) CycleQueryColumns.start_day);
-          StartMonth = reader.GetInt32((int) CycleQueryColumns.start_month);
+          StartDay = reader.GetInt32((int) CycleQueryColumns.StartDay);
+          StartMonth = reader.GetInt32((int) CycleQueryColumns.StartMonth);
           break;
       }
     }
 
-    public const int MAX_DAYS_IN_MONTH = 31;
-    private DayOfWeek mDayOfWeek;
-    private bool mDayOfWeekSet;
-    private int mDayOfMonth;
-    private int mFirstDayOfMonth;
-    private int mSecondDayOfMonth;
-    private int mStartMonth;
-    private int mStartDay;
-    private int mStartYear;
-    private int mCycleID;
-    private CycleType mCycleType;
-    private bool mCycleTypeSet;
-    private int mDayOfYear;
+    public const int MaxDaysInMonth = 31;
+    private DayOfWeek _mDayOfWeek;
+    private bool _mDayOfWeekSet;
+    private int _mDayOfMonth;
+    private int _mFirstDayOfMonth;
+    private int _mSecondDayOfMonth;
+    private int _mStartMonth;
+    private int _mStartDay;
+    private int _mStartYear;
+    private int _mCycleID;
+    private CycleType _mCycleType;
+    private bool _mCycleTypeSet;
+    private int _mDayOfYear;
   }
-
 
   /// <remarks>
   /// Utility functions used by the various Cycle objects.
@@ -775,7 +833,7 @@ namespace MetraTech.UsageServer
     /// </summary>
     public static bool IsSupportedCycleType(int cycleType)
     {
-      return System.Enum.IsDefined(typeof (CycleType), cycleType);
+      return Enum.IsDefined(typeof (CycleType), cycleType);
     }
 
     /// <summary>
@@ -790,29 +848,22 @@ namespace MetraTech.UsageServer
     /// <summary>
     /// Return true if the given cycle ID has been discontinued
     /// </summary>
-    public static bool IsDiscontinuedCycleID(int cycleID)
+    public static bool IsDiscontinuedCycleID(int cycleId)
     {
       // from COMUsageServer.cpp
-      if (cycleID == 1) //on-demand
-        return true;
-
-      return false;
+      return cycleId == 1;
     }
-
 
     /// <summary>
     /// last day of the given month.
     /// </summary>
     public static DateTime LastDayOfMonth(DateTime date)
     {
-      System.Globalization.Calendar calendar =
-        new System.Globalization.GregorianCalendar();
+      var calendar = new System.Globalization.GregorianCalendar();
 
       // determine real end of month
-      return date.AddDays(
-        calendar.GetDaysInMonth(date.Year, date.Month) - date.Day);
+      return date.AddDays(calendar.GetDaysInMonth(date.Year, date.Month) - date.Day);
     }
-
 
     /// <summary>
     /// return the date representing the given day of the same month
@@ -828,6 +879,7 @@ namespace MetraTech.UsageServer
         targetDay = lastDayOfMonth;
       }
       var movedDate = new DateTime(date.Year, date.Month, targetDay);
+
       return movedDate;
     }
 
@@ -836,27 +888,29 @@ namespace MetraTech.UsageServer
     /// </summary>
     public static CycleType ParseCycleType(string cycleType)
     {
-      if (String.Compare(cycleType, "Monthly", StringComparison.OrdinalIgnoreCase) == 0)
-        return CycleType.Monthly;
-      if (String.Compare(cycleType, "Daily", StringComparison.OrdinalIgnoreCase) == 0)
-        return CycleType.Daily;
-      if (String.Compare(cycleType, "Weekly", StringComparison.OrdinalIgnoreCase) == 0)
-        return CycleType.Weekly;
-      if (String.Compare(cycleType, "Bi-weekly", StringComparison.OrdinalIgnoreCase) == 0)
-        return CycleType.BiWeekly;
-      if (String.Compare(cycleType, "Semi-monthly", StringComparison.OrdinalIgnoreCase) == 0)
-        return CycleType.SemiMonthly;
-      if (String.Compare(cycleType, "Quarterly", StringComparison.OrdinalIgnoreCase) == 0)
-        return CycleType.Quarterly;
-      if (String.Compare(cycleType, "Annually", StringComparison.OrdinalIgnoreCase) == 0)
-        return CycleType.Annual;
-      if (String.Compare(cycleType, "Semi-Annually", StringComparison.OrdinalIgnoreCase) == 0 ||
-          String.Compare(cycleType, "SemiAnnually", StringComparison.OrdinalIgnoreCase) == 0)
-        return CycleType.SemiAnnual;
-      if (String.Compare(cycleType, "All", StringComparison.OrdinalIgnoreCase) == 0)
-        return CycleType.All;
-
-      throw new ArgumentException(String.Format("Invalid cycle type name {0}", cycleType));
+      switch (cycleType)
+      {
+        case "Monthly":
+          return CycleType.Monthly;
+        case "Daily":
+          return CycleType.Daily;
+        case "Weekly":
+          return CycleType.Weekly;
+        case "Bi-weekly":
+          return CycleType.BiWeekly;
+        case "Semi-monthly":
+          return CycleType.SemiMonthly;
+        case "Quarterly":
+          return CycleType.Quarterly;
+        case "Annually":
+          return CycleType.Annual;
+        case "Semi-Annually":
+          return CycleType.SemiAnnual;
+        case "All":
+          return CycleType.All;
+        default:
+          throw new ArgumentException(String.Format("Invalid cycle type name {0}", cycleType));
+      }
     }
   }
 
@@ -871,25 +925,34 @@ namespace MetraTech.UsageServer
     /// given the cycle.
     /// </summary>
     public void ComputeStartAndEndDate(DateTime referenceDate,
-                                       ICycle cycle,
-                                       out DateTime startDate,
-                                       out DateTime endDate)
+      ICycle cycle,
+      out DateTime startDate,
+      out DateTime endDate)
     {
+      CheckParams(cycle);
+
       endDate = ComputeEndDate(referenceDate, cycle);
 
       // Intervals cannot overlap and need to be continuous.
       // Calculate the start date as the day after end date of the previous interval
       // We remove a month from the end date because it is guaranteed to be in the interval
       // that is immediatly before the current one
-      DateTime endDateForPreviousInterval = ComputeEndDate(endDate.AddMonths(-1), cycle);
+      var endDateForPreviousInterval = ComputeEndDate(endDate.AddMonths(-1), cycle);
       startDate = endDateForPreviousInterval.AddDays(1);
+    }
+
+    private static void CheckParams(ICycle cycle)
+    {
+      if (cycle == null)
+        throw new ArgumentNullException("cycle");
+      if (((Cycle) cycle).DayOfMonth == -1)
+        throw new ArgumentException("cycle.DayOfMonth property must be initialized");
     }
 
     private static DateTime ComputeEndDate(DateTime referenceDate, ICycle cycle)
     {
-      DateTime endDate;
       // sets the endDate to the closing day of the current month
-      endDate = CycleUtils.MoveToDay(referenceDate, cycle.DayOfMonth);
+      var endDate = CycleUtils.MoveToDay(referenceDate, cycle.DayOfMonth);
 
       // if we are after the closing day then we need to
       // fast foward the ending date ahead one month
@@ -924,18 +987,16 @@ namespace MetraTech.UsageServer
     public ICycle[] GenerateCycles()
     {
       // 31 cycles
-
-      ICycle[] cycles = new ICycle[Cycle.MAX_DAYS_IN_MONTH];
-      int day = 1;
-      for (int cycleID = 0; cycleID < Cycle.MAX_DAYS_IN_MONTH; cycleID++)
+      var cycles = new ICycle[Cycle.MaxDaysInMonth];
+      var day = 1;
+      for (var cycleId = 0; cycleId < Cycle.MaxDaysInMonth; cycleId++)
       {
         ICycle cycle = new Cycle();
-        cycles[cycleID] = cycle;
+        cycles[cycleId] = cycle;
         cycle.DayOfMonth = day++;
         cycle.CycleType = CycleType.Monthly;
         MakeCanonical(cycle);
       }
-
       return cycles;
     }
   }
@@ -951,14 +1012,12 @@ namespace MetraTech.UsageServer
     /// given the cycle.
     /// </summary>
     public void ComputeStartAndEndDate(DateTime referenceDate,
-                                       ICycle cycle,
-                                       out DateTime startDate,
-                                       out DateTime endDate)
+      ICycle cycle,
+      out DateTime startDate,
+      out DateTime endDate)
     {
       // translated from MTStdDaily.cpp
-
-      DateTime today =
-        new DateTime(referenceDate.Year, referenceDate.Month, referenceDate.Day);
+      var today = new DateTime(referenceDate.Year, referenceDate.Month, referenceDate.Day);
 
       // daily is easy.
       // NOTE: cycle is not used
@@ -990,16 +1049,14 @@ namespace MetraTech.UsageServer
     public ICycle[] GenerateCycles()
     {
       // 1 cycle
-      ICycle[] cycles = new ICycle[1];
+      var cycles = new ICycle[1];
       ICycle cycle = new Cycle();
       // no properties to set!
       cycle.CycleType = CycleType.Daily;
       cycles[0] = cycle;
       return cycles;
     }
-
   }
-
 
   /// <summary>
   /// Weekly usage cycle type.
@@ -1012,22 +1069,22 @@ namespace MetraTech.UsageServer
     /// given the cycle.
     /// </summary>
     public void ComputeStartAndEndDate(DateTime referenceDate,
-                                       ICycle cycle,
-                                       out DateTime startDate,
-                                       out DateTime endDate)
+      ICycle cycle,
+      out DateTime startDate,
+      out DateTime endDate)
     {
-      // translated from MTStdWeekly.cpp
+      CheckParams(cycle);
 
-      DateTime today =
-        new DateTime(referenceDate.Year, referenceDate.Month, referenceDate.Day);
+      // translated from MTStdWeekly.cpp
+      var today = new DateTime(referenceDate.Year, referenceDate.Month, referenceDate.Day);
 
       // The end date is the date of the next occurence of the day of week passed in.
       // The start date can be calculated by taking the end date and subtracting 6. 
       endDate = today;
 
       // figure out the day of the next given day of the week
-      DayOfWeek dayOfWeek = endDate.DayOfWeek;
-      int advance = cycle.DayOfWeek - dayOfWeek;
+      var dayOfWeek = endDate.DayOfWeek;
+      var advance = cycle.DayOfWeek - dayOfWeek;
       if (advance < 0)
         advance += 7;
 
@@ -1035,6 +1092,12 @@ namespace MetraTech.UsageServer
 
 
       startDate = endDate.AddDays(-6);
+    }
+
+    private static void CheckParams(ICycle cycle)
+    {
+      if (cycle == null)
+        throw new ArgumentNullException("cycle");
     }
 
     /// <summary>
@@ -1060,8 +1123,8 @@ namespace MetraTech.UsageServer
     public ICycle[] GenerateCycles()
     {
       // 7 cycles - each day of week
-      ICycle[] cycles = new ICycle[7];
-      for (int day = 1; day <= 7; day++)
+      var cycles = new ICycle[7];
+      for (var day = 1; day <= 7; day++)
       {
         ICycle cycle = new Cycle();
         cycles[day - 1] = cycle;
@@ -1072,7 +1135,6 @@ namespace MetraTech.UsageServer
     }
 
   }
-
 
   /// <summary>
   /// Semi-Monthly usage cycle.
@@ -1085,14 +1147,15 @@ namespace MetraTech.UsageServer
     /// given the cycle.
     /// </summary>
     public void ComputeStartAndEndDate(DateTime referenceDate,
-                                       ICycle cycle,
-                                       out DateTime startDate,
-                                       out DateTime endDate)
+      ICycle cycle,
+      out DateTime startDate,
+      out DateTime endDate)
     {
+      CheckParams(cycle);
+
       MakeCanonical(cycle);
 
-      DateTime today =
-        new DateTime(referenceDate.Year, referenceDate.Month, referenceDate.Day);
+      var today = new DateTime(referenceDate.Year, referenceDate.Month, referenceDate.Day);
 
       // second day   first day   second day   first day
       //       |-----------|-----------|-----------|
@@ -1103,25 +1166,17 @@ namespace MetraTech.UsageServer
       //
       // figure out whether we're currently in interval 1, 2, or 3
 
-      int firstDay = cycle.FirstDayOfMonth;
-      int secondDay = cycle.SecondDayOfMonth;
-
-      DateTime lastMonthSecondDay;
-      DateTime currentMonthFirstDay;
-      DateTime currentMonthSecondDay;
-      DateTime nextMonthFirstDay;
+      var firstDay = cycle.FirstDayOfMonth;
+      var secondDay = cycle.SecondDayOfMonth;
 
       // second day of last month
-      lastMonthSecondDay = CycleUtils.MoveToDay(today.AddMonths(-1), secondDay);
-
-      currentMonthFirstDay = CycleUtils.MoveToDay(today, firstDay);
-      currentMonthSecondDay = CycleUtils.MoveToDay(today, secondDay);
-
-      nextMonthFirstDay = currentMonthFirstDay.AddMonths(1);
+      var lastMonthSecondDay = CycleUtils.MoveToDay(today.AddMonths(-1), secondDay);
+      var currentMonthFirstDay = CycleUtils.MoveToDay(today, firstDay);
+      var currentMonthSecondDay = CycleUtils.MoveToDay(today, secondDay);
+      var nextMonthFirstDay = currentMonthFirstDay.AddMonths(1);
 
       // intervals end at the end of the day.  that's why we add
       // 1 day to some of the following dates
-
       if (today < currentMonthFirstDay.AddDays(1))
       {
         startDate = lastMonthSecondDay.AddDays(1);
@@ -1137,7 +1192,16 @@ namespace MetraTech.UsageServer
         startDate = currentMonthSecondDay.AddDays(1);
         endDate = nextMonthFirstDay;
       }
+    }
 
+    private static void CheckParams(ICycle cycle)
+    {
+      if (cycle == null)
+        throw new ArgumentNullException("cycle");
+      if (((Cycle) cycle).FirstDayOfMonth == -1)
+        throw new ArgumentException("cycle.FirstDayOfMonth property must be initialized");
+      if (((Cycle) cycle).SecondDayOfMonth == -1)
+        throw new ArgumentException("cycle.SecondDayOfMonth property must be initialized");
     }
 
     /// <summary>
@@ -1174,17 +1238,16 @@ namespace MetraTech.UsageServer
       //   = sum of the first 30 integers
       //   = 30 (30 + 1) / 2
       //   = 465
-      int numDays = Cycle.MAX_DAYS_IN_MONTH - 1;
-      int numCycles = (numDays*(numDays + 1))/2;
-      ICycle[] cycles = new ICycle[numCycles];
-      int cycleID = 0;
-      for (int first = 1; first <= Cycle.MAX_DAYS_IN_MONTH - 1; first++)
+      const int numDays = Cycle.MaxDaysInMonth - 1;
+      const int numCycles = (numDays * (numDays + 1)) / 2;
+      var cycles = new ICycle[numCycles];
+      var cycleID = 0;
+      for (var first = 1; first <= Cycle.MaxDaysInMonth - 1; first++)
       {
-        for (int second = first + 1; second <= Cycle.MAX_DAYS_IN_MONTH; second++)
+        for (var second = first + 1; second <= Cycle.MaxDaysInMonth; second++)
         {
           ICycle cycle = new Cycle();
           cycles[cycleID++] = cycle;
-          Debug.Assert(second > first);
           cycle.FirstDayOfMonth = first;
           cycle.SecondDayOfMonth = second;
           cycle.CycleType = CycleType.SemiMonthly;
@@ -1207,23 +1270,20 @@ namespace MetraTech.UsageServer
     /// given the cycle.
     /// </summary>
     public void ComputeStartAndEndDate(DateTime referenceDate,
-                                       ICycle cycle,
-                                       out DateTime startDate,
-                                       out DateTime endDate)
+      ICycle cycle,
+      out DateTime startDate,
+      out DateTime endDate)
     {
+      CheckParams(cycle);
       MakeCanonical(cycle);
 
-      DateTime[] quarterStarts = new DateTime[6];
+      var quarterStarts = new DateTime[6];
 
-      DateTime today =
-        new DateTime(referenceDate.Year, referenceDate.Month, referenceDate.Day);
-
-      // this is true because cycle is in its canonical form
-      Debug.Assert(cycle.StartMonth >= 1 && cycle.StartMonth <= 3, "Starting month must be within first quarter");
+      var today = new DateTime(referenceDate.Year, referenceDate.Month, referenceDate.Day);
 
       // the beginning of each interval within the year
       quarterStarts[1] = new DateTime(today.Year, cycle.StartMonth,
-                                      Math.Min(cycle.StartDay, DateTime.DaysInMonth(today.Year, cycle.StartMonth)));
+        Math.Min(cycle.StartDay, DateTime.DaysInMonth(today.Year, cycle.StartMonth)));
       quarterStarts[2] = quarterStarts[1].AddMonths(3);
       quarterStarts[3] = quarterStarts[2].AddMonths(3);
       quarterStarts[4] = quarterStarts[3].AddMonths(3);
@@ -1237,33 +1297,25 @@ namespace MetraTech.UsageServer
       //Sometimes adding 3 months can screw you up.  You might go from 1/31 -> 4/30, 
       //  then from 4/30 -> 7/30, which is a mistake.  So check for those errors, and 
       //  set them to the right date.
-      for (int i = 0; i < quarterStarts.Length; i++)
+      for (var i = 0; i < quarterStarts.Length; i++)
       {
-        if (quarterStarts[i].Day < cycle.StartDay)
-        {
-          int correctDay = Math.Min(cycle.StartDay, DateTime.DaysInMonth(quarterStarts[i].Year, quarterStarts[i].Month));
-          quarterStarts[i] = new DateTime(quarterStarts[i].Year, quarterStarts[i].Month, correctDay);
-        }
+        if (quarterStarts[i].Day >= cycle.StartDay) continue;
+        var correctDay = Math.Min(cycle.StartDay, DateTime.DaysInMonth(quarterStarts[i].Year, quarterStarts[i].Month));
+        quarterStarts[i] = new DateTime(quarterStarts[i].Year, quarterStarts[i].Month, correctDay);
       }
       // now, which interval do we fall into?
-      for (int i = 0; i < quarterStarts.Length - 1; i++)
+      for (var i = 0; i < quarterStarts.Length - 1; i++)
       {
-        DateTime start = quarterStarts[i];
-        DateTime end = quarterStarts[i + 1];
+        var start = quarterStarts[i];
+        var end = quarterStarts[i + 1];
 
-        if (today >= start && today < end)
-        {
-          startDate = start;
-          endDate = end.AddDays(-1);
-          return;
-        }
+        if (today < start || today >= end) continue;
+        startDate = start;
+        endDate = end.AddDays(-1);
+        return;
       }
 
-      Debug.Assert(false, "Must fall into one of the intervals!");
-      // set them to some value so the compiler won't complain.
-      // this should never happen.
-      startDate = quarterStarts[0];
-      endDate = quarterStarts[0];
+      throw new UsageServerException("Must fall into one of the intervals!", true);
     }
 
     /// <summary>
@@ -1272,6 +1324,7 @@ namespace MetraTech.UsageServer
     /// </summary>
     public bool IsCanonical(ICycle cycle)
     {
+      CheckParams(cycle);
       return cycle.StartMonth >= 1 && cycle.StartMonth <= 3;
     }
 
@@ -1281,11 +1334,22 @@ namespace MetraTech.UsageServer
     /// </summary>
     public void MakeCanonical(ICycle cycle)
     {
+      CheckParams(cycle);
       // 1 = Jan, 2 = Feb, ...
       // for example: (1 - 1) % 3 + 1 = 1
       //              (4 - 1) % 3 + 1 = 1
-      int month = (cycle.StartMonth - 1)%3 + 1;
+      var month = (cycle.StartMonth - 1) % 3 + 1;
       cycle.StartMonth = month;
+    }
+
+    private static void CheckParams(ICycle cycle)
+    {
+      if (cycle == null)
+        throw new ArgumentNullException("cycle");
+      if (((Cycle) cycle).StartMonth == -1)
+        throw new ArgumentException("cycle.StartMonth property must be initialized");
+      if (((Cycle)cycle).StartDay == -1)
+        throw new ArgumentException("cycle.StartDay property must be initialized");
     }
 
     /// <summary>
@@ -1296,15 +1360,14 @@ namespace MetraTech.UsageServer
     public ICycle[] GenerateCycles()
     {
       // 3 months in a quarter, so 3 * days_in_months quarterly cycles
-
-      ICycle[] cycles = new ICycle[3*Cycle.MAX_DAYS_IN_MONTH];
-      int cycleID = 0;
-      for (int month = 1; month <= 3; month++)
+      var cycles = new ICycle[3 * Cycle.MaxDaysInMonth];
+      var cycleId = 0;
+      for (var month = 1; month <= 3; month++)
       {
-        for (int day = 1; day <= Cycle.MAX_DAYS_IN_MONTH; day++)
+        for (var day = 1; day <= Cycle.MaxDaysInMonth; day++)
         {
           ICycle cycle = new Cycle();
-          cycles[cycleID++] = cycle;
+          cycles[cycleId++] = cycle;
           cycle.StartMonth = month;
           cycle.StartDay = day;
           cycle.CycleType = CycleType.Quarterly;
@@ -1313,7 +1376,6 @@ namespace MetraTech.UsageServer
       }
       return cycles;
     }
-
   }
 
   /// <summary>
@@ -1327,27 +1389,24 @@ namespace MetraTech.UsageServer
     /// given cycle.
     /// </summary>
     public void ComputeStartAndEndDate(DateTime referenceDate,
-                                       ICycle cycle,
-                                       out DateTime startDate,
-                                       out DateTime endDate)
+      ICycle cycle,
+      out DateTime startDate,
+      out DateTime endDate)
     {
-      // translated from MTStdBiWeekly.cpp
+      CheckParams(cycle);
 
+      // translated from MTStdBiWeekly.cpp
       MakeCanonical(cycle);
 
-      DateTime today =
-        new DateTime(referenceDate.Year, referenceDate.Month, referenceDate.Day);
+      var today = new DateTime(referenceDate.Year, referenceDate.Month, referenceDate.Day);
 
-      int month = cycle.StartMonth;
-      int day = cycle.StartDay;
-      int year = cycle.StartYear;
+      var month = cycle.StartMonth;
+      var day = cycle.StartDay;
+      var year = cycle.StartYear;
 
-      // this is true because the cycle is in its canonical form
-      Debug.Assert(cycle.StartDay <= 14);
-
-      DateTime cycleReference = new DateTime(year, month, day);
-      TimeSpan diff = today - cycleReference;
-      long intervals = diff.Days/14;
+      var cycleReference = new DateTime(year, month, day);
+      var diff = (today - cycleReference).Days;
+      long intervals = diff > 0 ? diff/14 : diff/14 - 1;
 
       // choose start time that's an even number of 14 day periods
       // after the reference
@@ -1363,6 +1422,8 @@ namespace MetraTech.UsageServer
     /// </summary>
     public bool IsCanonical(ICycle cycle)
     {
+      CheckParams(cycle);
+
       return cycle.StartYear == 2000
              && cycle.StartMonth == 1
              && cycle.StartDay >= 1 && cycle.StartDay <= 14;
@@ -1374,34 +1435,48 @@ namespace MetraTech.UsageServer
     /// </summary>
     public void MakeCanonical(ICycle cycle)
     {
+      CheckParams(cycle);
       // NOTE: turning the cycle into canonical form
       // is basically as expensive as computing the cycle.
       // we check to see if it's in correct form first.
       if (IsCanonical(cycle))
         return;
 
-      int month = cycle.StartMonth;
-      int day = cycle.StartDay;
-      int year = cycle.StartYear;
+      var month = cycle.StartMonth;
+      var day = cycle.StartDay;
+      var year = cycle.StartYear;
 
-      System.Globalization.Calendar calendar =
-        new System.Globalization.GregorianCalendar();
+      var calendar = new System.Globalization.GregorianCalendar();
 
-      int daysInMonth = calendar.GetDaysInMonth(year, month);
+      var daysInMonth = calendar.GetDaysInMonth(year, month);
 
-      if (!(day <= daysInMonth))
+      if (day > daysInMonth)
         throw new UsageServerException(
           String.Format("StartDay {0} must be a valid day of month for the Bi-weekly cycle", day), true);
 
-      DateTime fixedReference = new DateTime(2000, 1, 1);
+      var fixedReference = new DateTime(2000, 1, 1);
 
-      DateTime cycleReference = new DateTime(year, month, day);
-      TimeSpan diff = cycleReference - fixedReference;
-      int startDay = diff.Days%14 + 1; // 1 - 14
+      var cycleReference = new DateTime(year, month, day);
+      var diffDays = (cycleReference - fixedReference).Days;
+      var diffDaysMod = diffDays%14;
+
+      var startDay = diffDays >= 0 ? diffDaysMod + 1 : 14 + (1 + diffDays)%14;
 
       cycle.StartYear = 2000;
       cycle.StartMonth = 1;
       cycle.StartDay = startDay;
+    }
+
+    private static void CheckParams(ICycle cycle)
+    {
+      if (cycle == null)
+        throw new ArgumentNullException("cycle");
+      if (((Cycle) cycle).StartDay == -1)
+        throw new ArgumentException("cycle.StartDay property must be initialized");
+      if (((Cycle) cycle).StartMonth == -1)
+        throw new ArgumentException("cycle.StartMonth property must be initialized");
+      if (((Cycle) cycle).StartYear == -1)
+        throw new ArgumentException("cycle.StartYear property must be initialized");
     }
 
     /// <summary>
@@ -1412,8 +1487,8 @@ namespace MetraTech.UsageServer
     public ICycle[] GenerateCycles()
     {
       // first 14 days of January 2000
-      ICycle[] cycles = new ICycle[14];
-      for (int day = 1; day <= 14; day++)
+      var cycles = new ICycle[14];
+      for (var day = 1; day <= 14; day++)
       {
         ICycle cycle = new Cycle();
         cycles[day - 1] = cycle;
@@ -1425,7 +1500,6 @@ namespace MetraTech.UsageServer
       }
       return cycles;
     }
-
   }
 
   /// <summary>
@@ -1439,27 +1513,26 @@ namespace MetraTech.UsageServer
     /// given the cycle.
     /// </summary>
     public void ComputeStartAndEndDate(DateTime referenceDate,
-                                       ICycle cycle,
-                                       out DateTime startDate,
-                                       out DateTime endDate)
+      ICycle cycle,
+      out DateTime startDate,
+      out DateTime endDate)
     {
+      CheckParams(cycle);
+
       // translated from MTStdAnnually.cpp
+      var today = new DateTime(referenceDate.Year, referenceDate.Month, referenceDate.Day);
 
-      DateTime today =
-        new DateTime(referenceDate.Year, referenceDate.Month, referenceDate.Day);
+      var month = cycle.StartMonth;
+      var day = cycle.StartDay;
 
-      int month = cycle.StartMonth;
-      int day = cycle.StartDay;
-
-      System.Globalization.Calendar calendar =
-        new System.Globalization.GregorianCalendar();
+      var calendar = new System.Globalization.GregorianCalendar();
 
       // accordeing to MTStdAnnually:
       //  "we don't care about leap year so a fixed year is ok"
-      int daysInMonth = calendar.GetDaysInMonth(1999, month);
+      var daysInMonth = calendar.GetDaysInMonth(1999, month);
 
       if (!(day >= 1 && day <= daysInMonth))
-        throw new System.ArgumentException(String.Format("StartDay must be a valid day of month", day));
+        throw new ArgumentException(String.Format("StartDay {0} must be a valid day of month", day));
 
       startDate = new DateTime(referenceDate.Year, month, day);
       endDate = startDate.AddDays(-1);
@@ -1468,6 +1541,16 @@ namespace MetraTech.UsageServer
         endDate = endDate.AddYears(1);
       else
         startDate = startDate.AddYears(-1);
+    }
+
+    private static void CheckParams(ICycle cycle)
+    {
+      if (cycle == null)
+        throw new ArgumentNullException("cycle");
+      if (((Cycle) cycle).StartDay == -1)
+        throw new ArgumentException("cycle.StartDay property must be initialized");
+      if (((Cycle) cycle).StartMonth == -1)
+        throw new ArgumentException("cycle.StartMonth property must be initialized");
     }
 
     /// <summary>
@@ -1492,30 +1575,8 @@ namespace MetraTech.UsageServer
     /// </summary>
     public ICycle[] GenerateCycles()
     {
-      // for each month, all possible days from the year 1999
-      // feb was not a leap year in 1999
-      // 365 days in the year
-
-      System.Globalization.Calendar calendar =
-        new System.Globalization.GregorianCalendar();
-
-      ICycle[] cycles = new ICycle[365];
-      int cycleID = 0;
-      for (int month = 1; month <= 12; month++)
-      {
-        for (int day = 1; day <= calendar.GetDaysInMonth(1999, month); day++)
-        {
-          ICycle cycle = new Cycle();
-          cycle.StartMonth = month;
-          cycle.StartDay = day;
-          cycle.CycleType = CycleType.Annual;
-          cycles[cycleID++] = cycle;
-        }
-      }
-      return cycles;
+      return UsageCycleManager.GenerateAnnualCycles();
     }
-
-
   }
 
   /// <summary>
@@ -1529,27 +1590,26 @@ namespace MetraTech.UsageServer
     /// given the cycle.
     /// </summary>
     public void ComputeStartAndEndDate(DateTime referenceDate,
-                                       ICycle cycle,
-                                       out DateTime startDate,
-                                       out DateTime endDate)
+      ICycle cycle,
+      out DateTime startDate,
+      out DateTime endDate)
     {
+      CheckParams(cycle);
+
       // translated from MTStdSemiAnnually.cpp
+      var today = new DateTime(referenceDate.Year, referenceDate.Month, referenceDate.Day);
 
-      DateTime today =
-        new DateTime(referenceDate.Year, referenceDate.Month, referenceDate.Day);
+      var month = cycle.StartMonth;
+      var day = cycle.StartDay;
 
-      int month = cycle.StartMonth;
-      int day = cycle.StartDay;
-
-      System.Globalization.Calendar calendar =
-        new System.Globalization.GregorianCalendar();
+      var calendar = new System.Globalization.GregorianCalendar();
 
       // according to MTStdAnnually:
       //  "we don't care about leap year so a fixed year is ok"
-      int daysInMonth = calendar.GetDaysInMonth(1999, month);
+      var daysInMonth = calendar.GetDaysInMonth(1999, month);
 
       if (!(day >= 1 && day <= daysInMonth))
-        throw new System.ArgumentException(String.Format("StartDay must be a valid day of month", day));
+        throw new ArgumentException(String.Format("StartDay {0} must be a valid day of month", day));
 
       startDate = new DateTime(referenceDate.Year, month, day);
       endDate = startDate.AddMonths(6);
@@ -1577,6 +1637,16 @@ namespace MetraTech.UsageServer
       endDate = endDate.AddDays(-1);
     }
 
+    private static void CheckParams(ICycle cycle)
+    {
+      if (cycle == null)
+        throw new ArgumentNullException("cycle");
+      if (((Cycle) cycle).StartDay == -1)
+        throw new ArgumentException("cycle.StartDay property must be initialized");
+      if (((Cycle) cycle).StartMonth == -1)
+        throw new ArgumentException("cycle.StartMonth property must be initialized");
+    }
+
     /// <summary>
     /// Always true
     /// </summary>
@@ -1599,26 +1669,7 @@ namespace MetraTech.UsageServer
     /// </summary>
     public ICycle[] GenerateCycles()
     {
-      // Generate a cycle for each day in the first half of the year
-      // feb was not a leap year in 1999
-
-      System.Globalization.Calendar calendar =
-        new System.Globalization.GregorianCalendar();
-
-      ICycle[] cycles = new ICycle[365];
-      int cycleID = 0;
-      for (int month = 1; month <= 12; month++)
-      {
-        for (int day = 1; day <= calendar.GetDaysInMonth(1999, month); day++)
-        {
-          ICycle cycle = new Cycle();
-          cycle.StartMonth = month;
-          cycle.StartDay = day;
-          cycle.CycleType = CycleType.SemiAnnual;
-          cycles[cycleID++] = cycle;
-        }
-      }
-      return cycles;
+      return UsageCycleManager.GenerateAnnualCycles();
     }
   }
 }

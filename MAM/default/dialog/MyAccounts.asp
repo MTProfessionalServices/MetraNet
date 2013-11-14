@@ -126,11 +126,12 @@ PUBLIC FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             HTML_LINK_EDIT = HTML_LINK_EDIT  & "<td nowrap class='[CLASS]' Width='36'>"
            
             If FrameWork.CheckCoarseCapability("Manage Owned Accounts") Then
-              HTML_LINK_EDIT = HTML_LINK_EDIT  & "<A href='#' onclick='JavaScript:parent.getFrameMetraNet().Account.ShowHierarchyTab(" & ProductView.Properties("id_owned") & ");'><img alt='" & mam_GetDictionary("TEXT_FIND_IN_HIERARCHY") & "' src='" & mam_GetImagesPath() &  "/sync.gif' Border='0'></A>"
-              
-                            ' View online bill
-            If FrameWork.CheckCoarseCapability("View Online Bill") Then              
-              HTML_LINK_EDIT = HTML_LINK_EDIT  & "<A href='JavaScript:parent.getFrameMetraNet().Account.LoadPage(" & ProductView.Properties("id_owned") & ", ""/MetraNet/ViewOnlineBill.aspx"");'><img alt='" & mam_GetDictionary("TEXT_VIEW_ONLINE_BILL") & "' src='" & mam_GetImagesPath() &  "/web.gif' Border='0'></A>"              End If
+              HTML_LINK_EDIT = HTML_LINK_EDIT  & "<A href='#' onclick='JavaScript:parent.getFrameMetraNet().Account.ShowHierarchyTab(" & ProductView.Properties("id_owned") & ");'><img alt='" & mam_GetDictionary("TEXT_FIND_IN_HIERARCHY") & "' src='" & mam_GetImagesPath() &  "/sync.gif' Border='0'></A>"						
+
+              ' View online bill
+              If FrameWork.CheckCoarseCapability("View Online Bill") Then  
+              HTML_LINK_EDIT = HTML_LINK_EDIT  & "<A href='JavaScript:parent.getFrameMetraNet().Account.LoadPage(" & ProductView.Properties("id_owned") & ", ""/MetraNet/ViewOnlineBill.aspx"");'><img alt='" & mam_GetDictionary("TEXT_VIEW_ONLINE_BILL") & "' src='" & mam_GetImagesPath() &  "/web.gif' Border='0'></A>"					
+              End If
           
             End If
                           

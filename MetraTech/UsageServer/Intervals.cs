@@ -187,10 +187,10 @@ namespace MetraTech.UsageServer
                             while (reader.Read())
                             {
                                 cycle.Clear();
-                                int rawCycleType = reader.GetInt32((int)CycleQueryColumns.id_cycle_type);
+                                int rawCycleType = reader.GetInt32((int)CycleQueryColumns.IDCycleType);
 
 
-                                int cycleID = reader.GetInt32((int)CycleQueryColumns.id_usage_cycle);
+                                int cycleID = reader.GetInt32((int)CycleQueryColumns.IDUsageCycle);
 
                                 //
                                 // see if both the cycle ID and cycle type are supported

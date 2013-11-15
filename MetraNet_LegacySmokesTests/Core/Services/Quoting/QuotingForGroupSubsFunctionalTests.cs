@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using MetraTech.Core.Services.Test.Quoting.Domain;
 using MetraTech.Domain.Quoting;
+using MetraTech.DomainModel.BaseTypes;
+using MetraTech.DomainModel.Enums.Core.Global;
 using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
 using MetraTech.Interop.MTProductCatalog;
 using MetraTech.TestCommon;
@@ -35,61 +37,77 @@ namespace MetraTech.Core.Services.Test.Quoting
              Effective date: Today
              Action: Invoke CreateQuote with 1 such user
              */
-
-            QuotingGroupSbsCorpAccount_diffBillingCycle("");
+            IMTPCCycle billCycle = new MTPCCycle();
+            billCycle.CycleID = (int)CycleType.Annually;
+            billCycle.StartDay = 1;
+            billCycle.StartMonth = 1;
+            QuotingGroupSbsCorpAccount_diffBillingCycle(billCycle);
         }
 
         [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#2
         public void QuotingCorpSemiAnnualAccount()
         {
-            QuotingGroupSbsCorpAccount_diffBillingCycle("Semi_Annually");
+            IMTPCCycle billCycle = new MTPCCycle();
+            billCycle.CycleID = (int)CycleType.Semi_Annually;
+            billCycle.StartDay = 1;
+            billCycle.StartMonth = 1;
+            QuotingGroupSbsCorpAccount_diffBillingCycle(billCycle);
         }
 
         [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#3
         public void QuotingCorpQuarterlyAccount()
         {
-            QuotingGroupSbsCorpAccount_diffBillingCycle("Quarterly");
+            IMTPCCycle billCycle = new MTPCCycle();
+            billCycle.CycleID = (int)CycleType.Quarterly;
+            billCycle.StartDay = 1;
+            billCycle.StartMonth = 1;
+            QuotingGroupSbsCorpAccount_diffBillingCycle(billCycle);
         }
 
         [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#4
         public void QuotingCorpMonthlyAccount()
         {
-            QuotingGroupSbsCorpAccount_diffBillingCycle("Monthly");
+            IMTPCCycle billCycle = new MTPCCycle();
+            billCycle.CycleID = (int)CycleType.Monthly;
+            billCycle.EndDayOfMonth = 31;
+            QuotingGroupSbsCorpAccount_diffBillingCycle(billCycle);
         }
 
         [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#8
         public void QuotingCorpDailyAccount()
         {
-            QuotingGroupSbsCorpAccount_diffBillingCycle("Daily");
+            IMTPCCycle billCycle = new MTPCCycle();
+            billCycle.CycleID = (int)CycleType.Daily;
+            QuotingGroupSbsCorpAccount_diffBillingCycle(billCycle);
         }
 
         #endregion
 
         #region Test Methods
 
-        private DateTime AddTimeForCycle(DateTime initial, string billcycle)
+        private DateTime AddTimeForCycle(DateTime initial, int billcycle)
         {
-            switch (billcycle)
+            switch ((CycleType)billcycle)
             {
-                case "Semi_Annually":
+                case CycleType.Semi_Annually:
                     return initial.AddMonths(7);
 
-                case "Quarterly":
+                case CycleType.Quarterly:
                     return initial.AddMonths(4);
 
-                case "Monthly":
+                case CycleType.Monthly:
                     return initial.AddMonths(2);
 
-                case "Semi_monthly":
+                case CycleType.Semi_Monthly:
                     return initial.AddMonths(1);
 
-                case "Bi_weekly":
+                case CycleType.Bi_Weekly:
                     return initial.AddDays(15);
 
-                case "Weekly":
+                case CycleType.Weekly:
                     return initial.AddDays(8);
 
-                case "Daily":
+                case CycleType.Daily:
                     return initial.AddDays(2);
 
                 default:
@@ -97,9 +115,10 @@ namespace MetraTech.Core.Services.Test.Quoting
             }
         }
         
-        public void QuotingGroupSbsCorpAccount_diffBillingCycle(string billcycle)
+        public void QuotingGroupSbsCorpAccount_diffBillingCycle(IMTPCCycle billcycle)
         {
-            string testName = "QuotingWithGroupSubscription_AccountBillingCycles" + billcycle;
+            var billCycleStr = ((CycleType) billcycle.CycleTypeID).ToString();
+            string testName = "QuotingWithGroupSubscription_AccountBillingCycles" + billCycleStr;
             string testShortName = "Q_GSub";//Account name and perhaps others need a 'short' (less than 40 when combined with testRunUniqueIdentifier
 
             string testRunUniqueIdentifier = MetraTime.NowWithMilliSec; //Identifier to make this run unique
@@ -110,7 +129,7 @@ namespace MetraTech.Core.Services.Test.Quoting
 
             #region create accounts
 
-            List<DomainModel.BaseTypes.Account> Hierarchy = CreateHierarchyofAccounts(billcycle, testShortName,
+            List<DomainModel.BaseTypes.Account> Hierarchy = CreateHierarchyofAccounts((CycleType)billcycle.CycleTypeID, testShortName,
                                                                                       testRunUniqueIdentifier);
 
             #endregion
@@ -118,7 +137,7 @@ namespace MetraTech.Core.Services.Test.Quoting
             #region Create/Verify Product Offering Exists
 
             IMTProductOffering productOffering;
-            var pofConfiguration = CreateProductOfferingConfiguration(testName, testRunUniqueIdentifier, out productOffering);//set count of PIs inside this method
+            var pofConfiguration = CreateProductOfferingConfiguration(testName, testRunUniqueIdentifier, billcycle, out productOffering);//set count of PIs inside this method
 
             #endregion
 
@@ -154,7 +173,7 @@ namespace MetraTech.Core.Services.Test.Quoting
                   PDFReport = QuotingTestScenarios.RunPDFGenerationForAllTestsByDefault
               };
             quoteImpl.Request.EffectiveDate = MetraTime.Now;
-            quoteImpl.Request.EffectiveEndDate = AddTimeForCycle(MetraTime.Now, billcycle);
+            quoteImpl.Request.EffectiveEndDate = AddTimeForCycle(MetraTime.Now, billcycle.CycleTypeID);
             quoteImpl.Request.Localization = "en-US";
             quoteImpl.Request.SubscriptionParameters.UDRCValues = SharedTestCode.GetUDRCInstanceValuesSetToMiddleValues(productOffering);
             quoteImpl.Request.SubscriptionParameters.CorporateAccountId = Hierarchy[0]._AccountID.Value;
@@ -178,13 +197,15 @@ namespace MetraTech.Core.Services.Test.Quoting
             #endregion
         }
 
-        private static ProductOfferingFactoryConfiguration CreateProductOfferingConfiguration(string testName, string testRunUniqueIdentifier,
+        private static ProductOfferingFactoryConfiguration CreateProductOfferingConfiguration(string testName, string testRunUniqueIdentifier, IMTPCCycle billcycle,
                                                                                  out IMTProductOffering productOffering)
         {
             var pofConfiguration = new ProductOfferingFactoryConfiguration(testName, testRunUniqueIdentifier);
             pofConfiguration.CountNRCs = 1;
             pofConfiguration.CountPairRCs = 1;
             pofConfiguration.CountPairUDRCs = 1;
+            pofConfiguration.Cycle = billcycle;
+
             productOffering = ProductOfferingFactory.Create(pofConfiguration);
             Assert.IsNotNull(productOffering.ID, "Unable to create PO for test run");
             Console.WriteLine("Product Offering for quote:" + productOffering.ID + "; " + productOffering.DisplayName);
@@ -199,7 +220,7 @@ namespace MetraTech.Core.Services.Test.Quoting
             return dept;
         }
 
-        public List<DomainModel.BaseTypes.Account> CreateHierarchyofAccounts(string billcycle, string testShortName,
+        public List<DomainModel.BaseTypes.Account> CreateHierarchyofAccounts(CycleType billcycle, string testShortName,
                                                                              string testRunUniqueIdentifier)
         {
             var Hierarchy = new List<DomainModel.BaseTypes.Account>();
@@ -212,32 +233,32 @@ namespace MetraTech.Core.Services.Test.Quoting
             var coresubscriberAccountHolder = new CoreSubscriberAccountFactory(testShortName, testRunUniqueIdentifier);
             switch (billcycle)
             {
-                case "Semi_Annually":
+                case CycleType.Semi_Annually:
                     GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
                                  ref coresubscriberAccountHolder, UsageCycleType.Semi_Annually);
                     break;
 
-                case "Quarterly":
+                case CycleType.Quarterly:
                     GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
                                  ref coresubscriberAccountHolder, UsageCycleType.Quarterly);
                     break;
-                case "Monthly":
+                case CycleType.Monthly:
                     GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
                                  ref coresubscriberAccountHolder, UsageCycleType.Monthly);
                     break;
-                case "Semi_monthly":
+                case CycleType.Semi_Monthly:
                     GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
                                  ref coresubscriberAccountHolder, UsageCycleType.Semi_monthly);
                     break;
-                case "Bi_weekly":
+                case CycleType.Bi_Weekly:
                     GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
                                  ref coresubscriberAccountHolder, UsageCycleType.Bi_weekly);
                     break;
-                case "Weekly":
+                case CycleType.Weekly:
                     GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
                                  ref coresubscriberAccountHolder, UsageCycleType.Weekly);
                     break;
-                case "Daily":
+                case CycleType.Daily:
                     GetHierarchy(ref corpAccountHolder, ref deptAccountHolder1, ref deptAccountHolder2,
                                  ref coresubscriberAccountHolder, UsageCycleType.Monthly);
                     break;
@@ -288,19 +309,33 @@ namespace MetraTech.Core.Services.Test.Quoting
         [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#6
         public void QuotingCorpBiweeklyAccount()
         {
-            QuotingGroupSbsCorpAccount_diffBillingCycle("Bi_weekly");
+            IMTPCCycle billCycle = new MTPCCycle();
+            billCycle.CycleID = (int) CycleType.Bi_Weekly;
+            billCycle.StartDay = 1;
+            billCycle.StartMonth = 1;
+            billCycle.StartYear = 1;
+
+            QuotingGroupSbsCorpAccount_diffBillingCycle(billCycle);
         }
 
         [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#7
         public void QuotingCorpWeeklyAccount()
         {
-            QuotingGroupSbsCorpAccount_diffBillingCycle("Weekly");
+            IMTPCCycle billCycle = new MTPCCycle();
+            billCycle.CycleID = (int)CycleType.Weekly;
+            billCycle.EndDayOfWeek = (int) DayOfTheWeek.Saturday;
+
+            QuotingGroupSbsCorpAccount_diffBillingCycle(billCycle);
         }
 
         [TestMethod, MTFunctionalTest(TestAreas.Quoting)] //#5
         public void QuotingCorpSemiMonthlyAccount()
         {
-            QuotingGroupSbsCorpAccount_diffBillingCycle("Semi_monthly");
+            IMTPCCycle billCycle = new MTPCCycle();
+            billCycle.CycleID = (int)CycleType.Semi_Monthly;
+            billCycle.EndDayOfMonth = 15;
+            billCycle.EndDayOfMonth2 = 31;
+            QuotingGroupSbsCorpAccount_diffBillingCycle(billCycle);
         }
 
         #region EOP

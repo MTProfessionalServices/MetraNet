@@ -64,7 +64,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\Core.Core.Entity.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
-	  <Private>False</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Core.Interface">
       <SpecificVersion>False</SpecificVersion>
@@ -219,16 +219,13 @@
     <Compile Include="Quoting\ConfigurationTests.cs" />
     <Compile Include="Quoting\Domain\QuoteImplementationData.cs" />
     <Compile Include="Quoting\Domain\QuoteVerifyData.cs" />
-    <Compile Include="Quoting\QuotePDFReportFunctionalTests.cs" />
-    <Compile Include="Quoting\QuotingAccountSubscriptionVariationsFunctionalTests.cs" />
+    <Compile Include="Quoting\QuotingPDFReportFunctionalTests.cs" />
     <Compile Include="Quoting\QuotingActivityServiceFunctionalTests.cs" />
-    <Compile Include="Quoting\QuotingBasicFunctionalTests.cs" />
+    <Compile Include="Quoting\QuotingBackendFunctionalTests.cs" />
     <Compile Include="Quoting\QuotingEOPFunctionalTests.cs" />
     <Compile Include="Quoting\QuotingErrorHandlingFunctionalTests.cs" />
     <Compile Include="Quoting\QuotingForGroupSubsFunctionalTests.cs" />
-    <Compile Include="Quoting\QuotingRecurringChargeVariationsFunctionalTests.cs" />
     <Compile Include="Quoting\QuotingRepositoryFunctionalTests.cs" />
-    <Compile Include="Quoting\QuotingWithIcbFunctionalTests.cs" />
     <Compile Include="Quoting\SharedTestCode.Generic.cs" />
     <Compile Include="Quoting\SharedTestCode.Quoting.cs" />
     <Compile Include="Quoting\SharedTestCode.QuotingScenarios.cs" />

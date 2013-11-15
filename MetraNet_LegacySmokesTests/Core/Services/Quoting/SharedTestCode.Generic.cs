@@ -424,6 +424,8 @@ namespace MetraTech.Core.Services.Test.Quoting
         public List<PIAndPTParameters> PriceableItemsAndParameterTableForNonRc { get; set; }
         public List<PIAndPTParameters> PriceableItemsAndParameterTableForUdrc { get; set; }
 
+        public RCParameters rcParameters { get; set; }
+
         protected ProductOfferingFactoryConfiguration()
         {
             SetDefaults();
@@ -459,7 +461,19 @@ namespace MetraTech.Core.Services.Test.Quoting
             PriceableItemsAndParameterTableForUdrc = new List<PIAndPTParameters>();
 
             Cycle = new MTPCCycle();
+
+            rcParameters = new RCParameters();
         }
+    }
+
+    public class RCParameters
+    {
+         public bool ChargeInAdvance;
+         public bool ProrateOnActivation;
+         public bool ProrateOnDeactivation;
+         public bool ProrateOnRateChange;
+         public bool FixedProrationLength;
+         public bool ChargePerParticipant;
     }
 
     public class PIAndPTParameters
@@ -533,185 +547,185 @@ namespace MetraTech.Core.Services.Test.Quoting
         public static IMTProductOffering Create(string name, string uniqueIdentifier, IMTPCCycle cycle, bool addCharges = true,
                                                 Int16 countNRCs = 1, Int16 countRCs = 1, Int16 countUDRCs = 0)
         {
-            ProductOfferingFactory productOfferingHolder = new ProductOfferingFactory();
-            productOfferingHolder.Initialize(name, uniqueIdentifier);
+            var poHolder = new ProductOfferingFactory();
+            poHolder.Initialize(name, uniqueIdentifier);
 
             //Create priceableitems
-            List<IMTRecurringCharge> charges = new List<IMTRecurringCharge>();
+            var charges = new List<IMTRecurringCharge>();
 
             if (addCharges)
             {
-                productOfferingHolder.piTemplate_NRC_ChargeOnSubscribeList =
-                      productOfferingHolder.AddNonRecurringCharge("Setup Charge_" + uniqueIdentifier,
+                poHolder.piTemplate_NRC_ChargeOnSubscribeList =
+                      poHolder.AddNonRecurringCharge("Setup Charge_" + uniqueIdentifier,
                                                                 MTNonRecurringEventType.NREVENT_TYPE_SUBSCRIBE, countNRCs);
-                productOfferingHolder.piTemplate_FRRC_ChargePerParticipantList =
-                      productOfferingHolder.CreateFlatRateRecurringCharge(true, countRCs, cycle);
+                poHolder.piTemplate_FRRC_ChargePerParticipantList =
+                      poHolder.CreateFlatRateRecurringCharge(countRCs, cycle, new RCParameters() { ChargePerParticipant = true});
 
-                productOfferingHolder.piTemplate_FRRC_ChargePerSubList =
-                    productOfferingHolder.CreateFlatRateRecurringCharge(false, countRCs, cycle);
+                poHolder.piTemplate_FRRC_ChargePerSubList =
+                    poHolder.CreateFlatRateRecurringCharge(countRCs, cycle, new RCParameters() { ChargePerParticipant = false});
 
 
-                productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList = productOfferingHolder.CreateUDRC(true, countUDRCs, cycle);
+                poHolder.piTemplate_UDRC_ChargePerParticipantList = poHolder.CreateUDRC(countUDRCs, cycle, new RCParameters() { ChargePerParticipant = true });
 
-                productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, countUDRCs, cycle);
+                poHolder.piTemplate_UDRC_ChargePerSubList = poHolder.CreateUDRC(countUDRCs, cycle, new RCParameters() { ChargePerParticipant = false });
 
                 //Create a Product Offering
-                charges.AddRange(productOfferingHolder.piTemplate_FRRC_ChargePerParticipantList);
-                charges.AddRange(productOfferingHolder.piTemplate_FRRC_ChargePerSubList);
-                charges.AddRange(productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList);
-                charges.AddRange(productOfferingHolder.piTemplate_UDRC_ChargePerSubList);
+                charges.AddRange(poHolder.piTemplate_FRRC_ChargePerParticipantList);
+                charges.AddRange(poHolder.piTemplate_FRRC_ChargePerSubList);
+                charges.AddRange(poHolder.piTemplate_UDRC_ChargePerParticipantList);
+                charges.AddRange(poHolder.piTemplate_UDRC_ChargePerSubList);
             }
 
-            productOfferingHolder.mProductOffering = productOfferingHolder.CreateProductOffering(charges);
+            poHolder.mProductOffering = poHolder.CreateProductOffering(charges);
 
-            return productOfferingHolder.mProductOffering;
+            return poHolder.mProductOffering;
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="configuration"></param>
+        /// <param name="config"></param>
         /// <returns></returns>
-        public static IMTProductOffering Create(ProductOfferingFactoryConfiguration configuration)
+        public static IMTProductOffering Create(ProductOfferingFactoryConfiguration config)
         {
-            var productOfferingHolder = new ProductOfferingFactory();
-            productOfferingHolder.Initialize(configuration.Name, configuration.UniqueIdentifier);
+            var poHolder = new ProductOfferingFactory();
+            poHolder.Initialize(config.Name, config.UniqueIdentifier);
 
             //Create priceableitems
-            productOfferingHolder.piTemplate_NRC_ChargeOnSubscribeList = productOfferingHolder.AddNonRecurringCharge("Setup Charge",
-                                                               MTNonRecurringEventType.NREVENT_TYPE_SUBSCRIBE, configuration.CountNRCs);
-            productOfferingHolder.piTemplate_FRRC_ChargePerParticipantList = productOfferingHolder.CreateFlatRateRecurringCharge(true, configuration.CountPairRCs, configuration.Cycle);
-            productOfferingHolder.piTemplate_FRRC_ChargePerSubList = productOfferingHolder.CreateFlatRateRecurringCharge(false, configuration.CountPairRCs, configuration.Cycle);
-            productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList = productOfferingHolder.CreateUDRC(true, configuration.CountPairUDRCs, configuration.Cycle);
-            productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, configuration.CountPairUDRCs, configuration.Cycle);
+            poHolder.piTemplate_NRC_ChargeOnSubscribeList = poHolder.AddNonRecurringCharge("Setup Charge",
+                                                               MTNonRecurringEventType.NREVENT_TYPE_SUBSCRIBE, config.CountNRCs);
+            config.rcParameters.ChargePerParticipant = true;
+            poHolder.piTemplate_FRRC_ChargePerParticipantList = poHolder.CreateFlatRateRecurringCharge(config.CountPairRCs, config.Cycle, config.rcParameters);
+            poHolder.piTemplate_UDRC_ChargePerParticipantList = poHolder.CreateUDRC(config.CountPairUDRCs, config.Cycle, config.rcParameters);
+            config.rcParameters.ChargePerParticipant = false;
+            poHolder.piTemplate_FRRC_ChargePerSubList = poHolder.CreateFlatRateRecurringCharge(config.CountPairRCs, config.Cycle, config.rcParameters);
+            poHolder.piTemplate_UDRC_ChargePerSubList = poHolder.CreateUDRC(config.CountPairUDRCs, config.Cycle, config.rcParameters);
 
 
             //Create Product Offering
             var charges = new List<IMTPriceableItem>();
-            charges.AddRange(productOfferingHolder.piTemplate_NRC_ChargeOnSubscribeList);
-            charges.AddRange(productOfferingHolder.piTemplate_FRRC_ChargePerParticipantList);
-            charges.AddRange(productOfferingHolder.piTemplate_FRRC_ChargePerSubList);
-            charges.AddRange(productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList);
-            charges.AddRange(productOfferingHolder.piTemplate_UDRC_ChargePerSubList);
-            productOfferingHolder.mProductOffering = productOfferingHolder.CreateProductOffering(charges);
+            charges.AddRange(poHolder.piTemplate_NRC_ChargeOnSubscribeList);
+            charges.AddRange(poHolder.piTemplate_FRRC_ChargePerParticipantList);
+            charges.AddRange(poHolder.piTemplate_FRRC_ChargePerSubList);
+            charges.AddRange(poHolder.piTemplate_UDRC_ChargePerParticipantList);
+            charges.AddRange(poHolder.piTemplate_UDRC_ChargePerSubList);
+            poHolder.mProductOffering = poHolder.CreateProductOffering(charges);
 
             //Add rate schedules and rates
-            for (var i = 0; i < configuration.CountNRCs; i++) // nonrecurringcharge
+            for (var i = 0; i < config.CountNRCs; i++) // nonrecurringcharge
             {
-                productOfferingHolder.CreateRateScheduleWithRulesFromFile("metratech.com/nonrecurringcharge",
-                                                                          productOfferingHolder.mProductOffering.NonSharedPriceListID,
-                                                                          productOfferingHolder.piTemplate_NRC_ChargeOnSubscribeList[i].ID,
+                poHolder.CreateRateScheduleWithRulesFromFile("metratech.com/nonrecurringcharge",
+                                                                          poHolder.mProductOffering.NonSharedPriceListID,
+                                                                          poHolder.piTemplate_NRC_ChargeOnSubscribeList[i].ID,
                                                                           string.Format("{0}\\Development\\Core\\MTProductCatalog\\{1}",
                                                                             Environment.GetEnvironmentVariable("METRATECHTESTDATABASE"), "nrcsubrules1.xml"));
             }
-            for (var i = 0; i < configuration.CountPairRCs; i++) // flatrecurringcharge
+            for (var i = 0; i < config.CountPairRCs; i++) // flatrecurringcharge
             {
-                productOfferingHolder.CreateRateScheduleWithRulesFromFile("metratech.com/flatrecurringcharge",
-                                                                          productOfferingHolder.mProductOffering.NonSharedPriceListID,
-                                                                          productOfferingHolder.piTemplate_FRRC_ChargePerSubList[i].ID,
+                poHolder.CreateRateScheduleWithRulesFromFile("metratech.com/flatrecurringcharge",
+                                                                          poHolder.mProductOffering.NonSharedPriceListID,
+                                                                          poHolder.piTemplate_FRRC_ChargePerSubList[i].ID,
                                                                           string.Format("{0}\\Development\\Core\\MTProductCatalog\\{1}",
                                                                             Environment.GetEnvironmentVariable("METRATECHTESTDATABASE"), "flatrcrules1.xml"));
 
-                productOfferingHolder.CreateRateScheduleWithRulesFromFile("metratech.com/flatrecurringcharge",
-                                                                          productOfferingHolder.mProductOffering.NonSharedPriceListID,
-                                                                          productOfferingHolder.piTemplate_FRRC_ChargePerParticipantList[i].ID,
+                poHolder.CreateRateScheduleWithRulesFromFile("metratech.com/flatrecurringcharge",
+                                                                          poHolder.mProductOffering.NonSharedPriceListID,
+                                                                          poHolder.piTemplate_FRRC_ChargePerParticipantList[i].ID,
                                                                           string.Format("{0}\\Development\\Core\\MTProductCatalog\\{1}",
                                                                             Environment.GetEnvironmentVariable("METRATECHTESTDATABASE"), "flatrcrules1.xml"));
             }
-            for (var i = 0; i < configuration.CountPairUDRCs; i++) // udrc
+            for (var i = 0; i < config.CountPairUDRCs; i++) // udrc
             {
-                productOfferingHolder.CreateRateScheduleWithRulesFromFile("metratech.com/udrctapered",
-                                                                          productOfferingHolder.mProductOffering.NonSharedPriceListID,
-                                                                          productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList[i].ID,
+                poHolder.CreateRateScheduleWithRulesFromFile("metratech.com/udrctapered",
+                                                                          poHolder.mProductOffering.NonSharedPriceListID,
+                                                                          poHolder.piTemplate_UDRC_ChargePerParticipantList[i].ID,
                                                                           string.Format("{0}\\Development\\Core\\MTProductCatalog\\{1}",
                                                                             Environment.GetEnvironmentVariable("METRATECHTESTDATABASE"), "udrctaperrulespersub1.xml"));
 
-                productOfferingHolder.CreateRateScheduleWithRulesFromFile("metratech.com/udrctapered",
-                                                                           productOfferingHolder.mProductOffering.NonSharedPriceListID,
-                                                                           productOfferingHolder.piTemplate_UDRC_ChargePerSubList[i].ID,
+                poHolder.CreateRateScheduleWithRulesFromFile("metratech.com/udrctapered",
+                                                                           poHolder.mProductOffering.NonSharedPriceListID,
+                                                                           poHolder.piTemplate_UDRC_ChargePerSubList[i].ID,
                                                                            string.Format("{0}\\Development\\Core\\MTProductCatalog\\{1}",
                                                                             Environment.GetEnvironmentVariable("METRATECHTESTDATABASE"), "udrctaperrulespersub1.xml"));
             }
 
-            return productOfferingHolder.mProductOffering;
+            return poHolder.mProductOffering;
         }
 
-        public static IMTProductOffering CreateWithoutPerParticipantCharges(ProductOfferingFactoryConfiguration configuration, out ProductOfferingFactory productOfferingHolder)
+        public static IMTProductOffering CreateWithoutPerParticipantCharges(ProductOfferingFactoryConfiguration config, out ProductOfferingFactory poHolder)
         {
-            productOfferingHolder = new ProductOfferingFactory();
-            productOfferingHolder.Initialize(configuration.Name, configuration.UniqueIdentifier);
+            poHolder = new ProductOfferingFactory();
+            poHolder.Initialize(config.Name, config.UniqueIdentifier);
 
             //Create priceableitems
-            productOfferingHolder.piTemplate_FRRC_ChargePerSubList = productOfferingHolder.CreateFlatRateRecurringCharge(false, configuration.CountPairRCs, configuration.Cycle);
-            productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, configuration.CountPairUDRCs, configuration.Cycle);
-            productOfferingHolder.piTemplate_NRC_ChargeOnSubscribeList = productOfferingHolder.AddNonRecurringCharge("Setup Charge",
-              MTNonRecurringEventType.NREVENT_TYPE_SUBSCRIBE, configuration.CountNRCs);
+            config.rcParameters.ChargePerParticipant = false;
+            poHolder.piTemplate_FRRC_ChargePerSubList = poHolder.CreateFlatRateRecurringCharge(config.CountPairRCs, config.Cycle, config.rcParameters);
+            poHolder.piTemplate_UDRC_ChargePerSubList = poHolder.CreateUDRC(config.CountPairUDRCs, config.Cycle, config.rcParameters);
+            poHolder.piTemplate_NRC_ChargeOnSubscribeList = poHolder.AddNonRecurringCharge("Setup Charge",
+              MTNonRecurringEventType.NREVENT_TYPE_SUBSCRIBE, config.CountNRCs);
 
 
             //Create Product Offering
             var charges = new List<IMTPriceableItem>();
-            charges.AddRange(productOfferingHolder.piTemplate_NRC_ChargeOnSubscribeList);
-            charges.AddRange(productOfferingHolder.piTemplate_FRRC_ChargePerSubList);
-            charges.AddRange(productOfferingHolder.piTemplate_UDRC_ChargePerSubList);
-            productOfferingHolder.mProductOffering = productOfferingHolder.CreateProductOffering(charges);
+            charges.AddRange(poHolder.piTemplate_NRC_ChargeOnSubscribeList);
+            charges.AddRange(poHolder.piTemplate_FRRC_ChargePerSubList);
+            charges.AddRange(poHolder.piTemplate_UDRC_ChargePerSubList);
+            poHolder.mProductOffering = poHolder.CreateProductOffering(charges);
 
             //Add rate schedules and rates
-            for (var i = 0; i < configuration.CountNRCs; i++) // nonrecurringcharge
+            for (var i = 0; i < config.CountNRCs; i++) // nonrecurringcharge
             {
-                productOfferingHolder.CreateRateScheduleWithRulesFromFile("metratech.com/nonrecurringcharge",
-                                                                          productOfferingHolder.mProductOffering.NonSharedPriceListID,
-                                                                          productOfferingHolder.piTemplate_NRC_ChargeOnSubscribeList[i].ID,
+                poHolder.CreateRateScheduleWithRulesFromFile("metratech.com/nonrecurringcharge",
+                                                                          poHolder.mProductOffering.NonSharedPriceListID,
+                                                                          poHolder.piTemplate_NRC_ChargeOnSubscribeList[i].ID,
                                                                           string.Format("{0}\\Development\\Core\\MTProductCatalog\\{1}",
                                                                             Environment.GetEnvironmentVariable("METRATECHTESTDATABASE"), "nrcsubrules1.xml"));
             }
-            for (var i = 0; i < configuration.CountPairRCs; i++) // flatrecurringcharge
+            for (var i = 0; i < config.CountPairRCs; i++) // flatrecurringcharge
             {
-                productOfferingHolder.CreateRateScheduleWithRulesFromFile("metratech.com/flatrecurringcharge",
-                                                                          productOfferingHolder.mProductOffering.NonSharedPriceListID,
-                                                                          productOfferingHolder.piTemplate_FRRC_ChargePerSubList[i].ID,
+                poHolder.CreateRateScheduleWithRulesFromFile("metratech.com/flatrecurringcharge",
+                                                                          poHolder.mProductOffering.NonSharedPriceListID,
+                                                                          poHolder.piTemplate_FRRC_ChargePerSubList[i].ID,
                                                                           string.Format("{0}\\Development\\Core\\MTProductCatalog\\{1}",
                                                                             Environment.GetEnvironmentVariable("METRATECHTESTDATABASE"), "flatrcrules1.xml"));
             }
-            for (var i = 0; i < configuration.CountPairUDRCs; i++) // udrc
+            for (var i = 0; i < config.CountPairUDRCs; i++) // udrc
             {
-                productOfferingHolder.CreateRateScheduleWithRulesFromFile("metratech.com/udrctapered",
-                                                                           productOfferingHolder.mProductOffering.NonSharedPriceListID,
-                                                                           productOfferingHolder.piTemplate_UDRC_ChargePerSubList[i].ID,
+                poHolder.CreateRateScheduleWithRulesFromFile("metratech.com/udrctapered",
+                                                                           poHolder.mProductOffering.NonSharedPriceListID,
+                                                                           poHolder.piTemplate_UDRC_ChargePerSubList[i].ID,
                                                                            string.Format("{0}\\Development\\Core\\MTProductCatalog\\{1}",
                                                                             Environment.GetEnvironmentVariable("METRATECHTESTDATABASE"), "udrctaperrulespersub1.xml"));
             }
 
-            return productOfferingHolder.mProductOffering;
+            return poHolder.mProductOffering;
         }
 
         public static IMTProductOffering CreateWithRCMissingRates(string name, string uniqueIdentifier, IMTPCCycle cycle = null, Int16 countRCs = 1, Int16 countUDRCs = 0)
         {
-            var productOfferingHolder = new ProductOfferingFactory();
-            productOfferingHolder.Initialize(name, uniqueIdentifier);
+            var poHolder = new ProductOfferingFactory();
+            poHolder.Initialize(name, uniqueIdentifier);
 
             //Create priceableitems
 
             //productOfferingHolder.piTemplate_NRC_ChargeOnSubscribe = productOfferingHolder.AddNonRecurringCharge("Setup Charge",
             //                                                   MTNonRecurringEventType.NREVENT_TYPE_SUBSCRIBE);
 
-            productOfferingHolder.piTemplate_FRRC_ChargePerParticipantList = productOfferingHolder.CreateFlatRateRecurringCharge(true, countRCs, cycle);
+            poHolder.piTemplate_FRRC_ChargePerParticipantList = poHolder.CreateFlatRateRecurringCharge(countRCs, cycle, new RCParameters() { ChargePerParticipant = true });
+            poHolder.piTemplate_UDRC_ChargePerParticipantList = poHolder.CreateUDRC(countUDRCs, cycle, new RCParameters() { ChargePerParticipant = true });
 
-            productOfferingHolder.piTemplate_FRRC_ChargePerSubList = productOfferingHolder.CreateFlatRateRecurringCharge(false, countRCs, cycle);
-
-
-            productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList = productOfferingHolder.CreateUDRC(true, countUDRCs, cycle);
-
-            productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, countUDRCs, cycle);
+            poHolder.piTemplate_FRRC_ChargePerSubList = poHolder.CreateFlatRateRecurringCharge(countRCs, cycle, new RCParameters() { ChargePerParticipant = false });
+            poHolder.piTemplate_UDRC_ChargePerSubList = poHolder.CreateUDRC(countUDRCs, cycle, new RCParameters() { ChargePerParticipant = false });
 
 
             //Create a Product Offering
             List<IMTPriceableItem> charges = new List<IMTPriceableItem>();
-            charges.AddRange(productOfferingHolder.piTemplate_FRRC_ChargePerParticipantList);
-            charges.AddRange(productOfferingHolder.piTemplate_FRRC_ChargePerSubList);
-            charges.AddRange(productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList);
-            charges.AddRange(productOfferingHolder.piTemplate_UDRC_ChargePerSubList);
+            charges.AddRange(poHolder.piTemplate_FRRC_ChargePerParticipantList);
+            charges.AddRange(poHolder.piTemplate_FRRC_ChargePerSubList);
+            charges.AddRange(poHolder.piTemplate_UDRC_ChargePerParticipantList);
+            charges.AddRange(poHolder.piTemplate_UDRC_ChargePerSubList);
 
-            productOfferingHolder.mProductOffering = productOfferingHolder.CreateProductOffering(charges);
+            poHolder.mProductOffering = poHolder.CreateProductOffering(charges);
 
             ////Add rate schedules and rates
             //productOfferingHolder.CreateRateScheduleWithRulesFromFile("metratech.com/nonrecurringcharge",
@@ -754,37 +768,34 @@ namespace MetraTech.Core.Services.Test.Quoting
             //                                            Environment.GetEnvironmentVariable("METRATECHTESTDATABASE"),
             //                                            "udrctaperrulespersub1.xml"));
 
-            return productOfferingHolder.mProductOffering;
+            return poHolder.mProductOffering;
         }
 
         public static IMTProductOffering CreateWithNRCMissingRates(string name, string uniqueIdentifier, IMTPCCycle cycle = null, Int16 countRCs = 1, Int16 countUDRCs = 0)
         {
-            ProductOfferingFactory productOfferingHolder = new ProductOfferingFactory();
-            productOfferingHolder.Initialize(name, uniqueIdentifier);
+            var poHolder = new ProductOfferingFactory();
+            poHolder.Initialize(name, uniqueIdentifier);
 
             //Create priceableitems
 
-            productOfferingHolder.piTemplate_NRC_ChargeOnSubscribeList = productOfferingHolder.AddNonRecurringCharge("Setup Charge_" + uniqueIdentifier, MTNonRecurringEventType.NREVENT_TYPE_SUBSCRIBE, 1);
+            poHolder.piTemplate_NRC_ChargeOnSubscribeList = poHolder.AddNonRecurringCharge("Setup Charge_" + uniqueIdentifier, MTNonRecurringEventType.NREVENT_TYPE_SUBSCRIBE, 1);
 
-            productOfferingHolder.piTemplate_FRRC_ChargePerParticipantList = productOfferingHolder.CreateFlatRateRecurringCharge(true, countRCs, cycle);
+            poHolder.piTemplate_FRRC_ChargePerParticipantList = poHolder.CreateFlatRateRecurringCharge(countRCs, cycle, new RCParameters() { ChargePerParticipant = true });
+            poHolder.piTemplate_UDRC_ChargePerParticipantList = poHolder.CreateUDRC(countUDRCs, cycle, new RCParameters() { ChargePerParticipant = true });
 
-            productOfferingHolder.piTemplate_FRRC_ChargePerSubList = productOfferingHolder.CreateFlatRateRecurringCharge(false, countRCs, cycle);
-
-
-            productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList = productOfferingHolder.CreateUDRC(true, countUDRCs, cycle);
-
-            productOfferingHolder.piTemplate_UDRC_ChargePerSubList = productOfferingHolder.CreateUDRC(false, countUDRCs, cycle);
+            poHolder.piTemplate_FRRC_ChargePerSubList = poHolder.CreateFlatRateRecurringCharge(countRCs, cycle, new RCParameters() { ChargePerParticipant = false });
+            poHolder.piTemplate_UDRC_ChargePerSubList = poHolder.CreateUDRC(countUDRCs, cycle, new RCParameters() { ChargePerParticipant = false });
 
 
             //Create a Product Offering
             List<IMTPriceableItem> charges = new List<IMTPriceableItem>();
-            charges.AddRange(productOfferingHolder.piTemplate_NRC_ChargeOnSubscribeList);
-            charges.AddRange(productOfferingHolder.piTemplate_FRRC_ChargePerParticipantList);
-            charges.AddRange(productOfferingHolder.piTemplate_FRRC_ChargePerSubList);
-            charges.AddRange(productOfferingHolder.piTemplate_UDRC_ChargePerParticipantList);
-            charges.AddRange(productOfferingHolder.piTemplate_UDRC_ChargePerSubList);
+            charges.AddRange(poHolder.piTemplate_NRC_ChargeOnSubscribeList);
+            charges.AddRange(poHolder.piTemplate_FRRC_ChargePerParticipantList);
+            charges.AddRange(poHolder.piTemplate_FRRC_ChargePerSubList);
+            charges.AddRange(poHolder.piTemplate_UDRC_ChargePerParticipantList);
+            charges.AddRange(poHolder.piTemplate_UDRC_ChargePerSubList);
 
-            productOfferingHolder.mProductOffering = productOfferingHolder.CreateProductOffering(charges);
+            poHolder.mProductOffering = poHolder.CreateProductOffering(charges);
 
             ////Add rate schedules and rates
             //productOfferingHolder.CreateRateScheduleWithRulesFromFile("metratech.com/nonrecurringcharge",
@@ -796,20 +807,20 @@ namespace MetraTech.Core.Services.Test.Quoting
 
             for (int i = 0; i < countRCs; i++)
             {
-                productOfferingHolder.CreateRateScheduleWithRulesFromFile("metratech.com/flatrecurringcharge",
-                                                                          productOfferingHolder.mProductOffering
+                poHolder.CreateRateScheduleWithRulesFromFile("metratech.com/flatrecurringcharge",
+                                                                          poHolder.mProductOffering
                                                                                                .NonSharedPriceListID,
-                                                                          productOfferingHolder.piTemplate_FRRC_ChargePerSubList[i].ID,
+                                                                          poHolder.piTemplate_FRRC_ChargePerSubList[i].ID,
                                                                           string.Format(
                                                                               "{0}\\Development\\Core\\MTProductCatalog\\{1}",
                                                                               Environment.GetEnvironmentVariable(
                                                                                   "METRATECHTESTDATABASE"),
                                                                               "flatrcrules1.xml"));
 
-                productOfferingHolder.CreateRateScheduleWithRulesFromFile("metratech.com/flatrecurringcharge",
-                                                                          productOfferingHolder.mProductOffering
+                poHolder.CreateRateScheduleWithRulesFromFile("metratech.com/flatrecurringcharge",
+                                                                          poHolder.mProductOffering
                                                                                                .NonSharedPriceListID,
-                                                                          productOfferingHolder
+                                                                          poHolder
                                                                               .piTemplate_FRRC_ChargePerParticipantList[i].ID,
                                                                           string.Format(
                                                                               "{0}\\Development\\Core\\MTProductCatalog\\{1}",
@@ -846,7 +857,7 @@ namespace MetraTech.Core.Services.Test.Quoting
             //                                            Environment.GetEnvironmentVariable("METRATECHTESTDATABASE"),
             //                                            "udrctaperrulespersub1.xml"));
 
-            return productOfferingHolder.mProductOffering;
+            return poHolder.mProductOffering;
         }
 
         //TODO: Fix this to be able to set rates in test instead of loading from file
@@ -1088,7 +1099,7 @@ namespace MetraTech.Core.Services.Test.Quoting
             return piTemplate_NRCList;
         }
 
-        public List<IMTRecurringCharge> CreateFlatRateRecurringCharge(bool chargePerParticipant, short countRCs, IMTPCCycle cycle)
+        public List<IMTRecurringCharge> CreateFlatRateRecurringCharge(short countRCs, IMTPCCycle cycle, RCParameters rcParameters)
         {
             IMTPriceableItemType priceableItemTypeFRRC = ProductCatalog.GetPriceableItemTypeByName("Flat Rate Recurring Charge");
 
@@ -1101,7 +1112,7 @@ namespace MetraTech.Core.Services.Test.Quoting
 
             for (var i = 0; i < countRCs; i++)
             {
-                var name = chargePerParticipant ? "FRRC_CPP" : "FRRC_CPS";
+                var name = rcParameters.ChargePerParticipant ? "FRRC_CPP" : "FRRC_CPS";
 
                 var fullName = string.Format("{0}_{1}_{2}_#{3}", name, ChargeCounter, UniqueInstanceIdentifier, i);
 
@@ -1111,12 +1122,12 @@ namespace MetraTech.Core.Services.Test.Quoting
                 ((Localization.LocalizedEntity)piTemplate_FRRC.DisplayNames).SetMapping("DE", "{DE} " + piTemplate_FRRC.DisplayName);
 
                 piTemplate_FRRC.Description = fullName;
-                piTemplate_FRRC.ChargeInAdvance = false;
-                piTemplate_FRRC.ProrateOnActivation = true;
-                piTemplate_FRRC.ProrateOnDeactivation = true;
-                piTemplate_FRRC.ProrateOnRateChange = true;
-                piTemplate_FRRC.FixedProrationLength = false;
-                piTemplate_FRRC.ChargePerParticipant = chargePerParticipant;
+                piTemplate_FRRC.ChargeInAdvance = rcParameters.ChargeInAdvance;
+                piTemplate_FRRC.ProrateOnActivation = rcParameters.ProrateOnActivation;
+                piTemplate_FRRC.ProrateOnDeactivation = rcParameters.ProrateOnDeactivation;
+                piTemplate_FRRC.ProrateOnRateChange = rcParameters.ProrateOnRateChange;
+                piTemplate_FRRC.FixedProrationLength = rcParameters.FixedProrationLength;
+                piTemplate_FRRC.ChargePerParticipant = rcParameters.ChargePerParticipant;
                 IMTPCCycle pcCycle = piTemplate_FRRC.Cycle;
 
                 if (cycle != null && cycle.CycleTypeID > 0)
@@ -1144,7 +1155,7 @@ namespace MetraTech.Core.Services.Test.Quoting
             return recuringChargeList;
         }
 
-        private List<IMTRecurringCharge> CreateUDRC(bool chargePerParticipant, short countUDRCs, IMTPCCycle cycle)
+        private List<IMTRecurringCharge> CreateUDRC(short countUDRCs, IMTPCCycle cycle, RCParameters rcParameters)
         {
             IMTPriceableItemType priceableItemTypeUDRC =
                 ProductCatalog.GetPriceableItemTypeByName("Unit Dependent Recurring Charge");
@@ -1158,7 +1169,7 @@ namespace MetraTech.Core.Services.Test.Quoting
 
             for (short i = 0; i < countUDRCs; i++)
             {
-                var name = chargePerParticipant
+                var name = rcParameters.ChargePerParticipant
                   ? string.Format("UDRC_CPP_{0}_{1}_{2}", ChargeCounter, UniqueInstanceIdentifier, i)
                   : string.Format("UDRC_CPS_{0}_{1}_{2}", ChargeCounter, UniqueInstanceIdentifier, i);
 
@@ -1167,12 +1178,12 @@ namespace MetraTech.Core.Services.Test.Quoting
                 piTemplateUdrc.DisplayName = name;
                 ((Localization.LocalizedEntity)piTemplateUdrc.DisplayNames).SetMapping("DE", "{DE} " + piTemplateUdrc.DisplayName);
                 piTemplateUdrc.Description = name;
-                piTemplateUdrc.ChargeInAdvance = false;
-                piTemplateUdrc.ProrateOnActivation = true;
-                piTemplateUdrc.ProrateOnDeactivation = true;
-                piTemplateUdrc.ProrateOnRateChange = true;
-                piTemplateUdrc.FixedProrationLength = false;
-                piTemplateUdrc.ChargePerParticipant = chargePerParticipant;
+                piTemplateUdrc.ChargeInAdvance = rcParameters.ChargeInAdvance;
+                piTemplateUdrc.ProrateOnActivation = rcParameters.ProrateOnActivation;
+                piTemplateUdrc.ProrateOnDeactivation = rcParameters.ProrateOnDeactivation;
+                piTemplateUdrc.ProrateOnRateChange = rcParameters.ProrateOnRateChange;
+                piTemplateUdrc.FixedProrationLength = rcParameters.FixedProrationLength;
+                piTemplateUdrc.ChargePerParticipant = rcParameters.ChargePerParticipant;
                 piTemplateUdrc.UnitName = string.Format("UNIT_{0}_{1}", ChargeCounter, UniqueInstanceIdentifier);
                 piTemplateUdrc.RatingType = MTUDRCRatingType.UDRCRATING_TYPE_TAPERED;
                 piTemplateUdrc.IntegerUnitValue = true;
@@ -1222,7 +1233,7 @@ namespace MetraTech.Core.Services.Test.Quoting
       }
       
       protected int? payerID = null;
-      public int? PayerID
+      public new int? PayerID
       {
         get { return payerID; }
         set { payerID = value; }

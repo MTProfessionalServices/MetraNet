@@ -120,11 +120,8 @@ namespace MetraTech.Core.Services.Quoting
         reportManager.LoggerObject = new Logger("[QuotingImplementation]");
         //reportManager.RecurringEventRunContext = null;
 
-        var apsDataSource = ReportConfiguration.GetInstance().APSDataSource;
-        
         reportManager.LoggerObject.LogDebug("CreatePDFReport: Connecting to reporting server {0}", configuration.ReportingServerName);
-        reportManager.LoginToReportingServer(configuration.ReportingServerName, configuration.ReportingServerUsername,
-          configuration.ReportingServerPassword, apsDataSource);
+        reportManager.LoginToReportingServer(configuration.ReportingServerName, configuration.ReportingServerUsername, configuration.ReportingServerPassword);
 
         //Need to tell the reporting server the details of the database it should connect to/run the reports against
         reportManager.LoggerObject.LogDebug("CreatePDFReport: Setting the database server for processing report {0} {1}", configuration.ReportingDatabaseServerName, configuration.ReportingDatabaseName);

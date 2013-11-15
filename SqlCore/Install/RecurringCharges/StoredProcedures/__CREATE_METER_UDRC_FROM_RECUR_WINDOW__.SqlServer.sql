@@ -68,14 +68,13 @@ IF ((SELECT value FROM t_db_values WHERE parameter = N'InstantRc') = 'false') re
     INNER JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
 	inner join t_usage_interval currentui on @currentDate between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = ui.id_usage_cycle
     INNER JOIN #tmp_old_units tou ON tou.n_value IS NOT NULL
-  where 1=1
+  where
       --Don't issue corrections for old values that are going to stay the same.
-      AND NOT EXISTS (SELECT 1 FROM #tmp_old_units tou WHERE rw_new.c_UnitValueStart = tou.vt_start OR rw_new.c_UnitValueEnd = tou.vt_end)
+      NOT EXISTS (SELECT 1 FROM #tmp_old_units tou WHERE rw_new.c_UnitValueStart = tou.vt_start OR rw_new.c_UnitValueEnd = tou.vt_end)
       --Only issue corrections if there's a previous iteration.
       AND EXISTS (SELECT 1 FROM t_recur_value trv WHERE trv.id_sub = rw_new.c__SubscriptionID AND trv.tt_end < dbo.MTMaxDate())
       AND rw_new.c_UnitValue IS NOT NULL
-      ;
-
+      AND rw_new.c__IsAllowGenChargeByTrigger = 1;
  
       	SELECT 'AdvanceCorrection' AS c_RCActionType
            ,c_RCIntervalStart
@@ -138,10 +137,12 @@ IF ((SELECT value FROM t_db_values WHERE parameter = N'InstantRc') = 'false') re
     IF (NOT EXISTS (SELECT 1 FROM #tmp_rc)) RETURN;
      
      EXEC InsertChargesIntoSvcTables;
- 
+	 
+	UPDATE rw
+	SET c_BilledThroughDate = @currentDate
+	FROM #recur_window_holder rw
+	where rw.c__IsAllowGenChargeByTrigger = 1;
 
-	  UPDATE #recur_window_holder 
-  SET c_BilledThroughDate = dbo.metratime(1,'RC');
   
  end;
  

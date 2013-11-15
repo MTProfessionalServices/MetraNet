@@ -47,43 +47,6 @@ Account = {
             //renderTo: crumb,
             border: true,
             loader: new Ext.tree.TreeLoader(),
-            listeners:
-      {
-          click: function (n) {
-              //"-111" is id of node which load siblings from dataUrl.
-              if (n.id < 0) {
-                  var nextPageNumber = parseInt(n.previousSibling.attributes.pageNumber) + parseInt(1);
-                  Ext.Ajax.request({
-                      url: '/MetraNet/AjaxServices/Hierarchy.aspx',
-                      params: {
-                          type: 'system_mps',
-                          startAccountNameInPage: n.previousSibling.attributes.text,
-                          node: n.parentNode.id,
-                          pageNumber: nextPageNumber
-                      },
-                      timeout: 10000,
-                      success: function (response) {
-                          var result = Ext.decode(response.responseText);
-                          for (i = 0; i < result.length; i++) {
-                              var newNode = Account.CreateNode(result[i]);
-
-                              n.parentNode.insertBefore(newNode, n.parentNode.lastChild);
-                          }
-
-                          if (result.length == 0) {
-                              n.parentNode.removeChild(n.parentNode.lastChild);
-                          }
-                      },
-                      failure: function () {
-                          alert('failure');
-                      }
-                  });
-              }
-              else {
-                  HierarhyNodeId = n.id;
-              }
-          }
-      },
             root: new Ext.tree.TreeNode({
                 text: '',
                 expanded: true,
@@ -91,9 +54,7 @@ Account = {
                 id: 'root'
             })
         });
-
-        tp.getLoader().dataUrl = '/MetraNet/AjaxServices/Hierarchy.aspx?type=system_mps';
-
+        
         Ext.Ajax.request({
             url: '/MetraNet/AjaxServices/AncestorList.aspx',
             params: { id: accountID },
@@ -168,10 +129,7 @@ Account = {
                     appendNode = treeNode;
                     childID = result.records[i].id_ancestor;
                 }
-
-                if (appendNode) {
-                    Account.LoadSiblings(childID, appendNode);
-                }
+                
             },
             failure: function () {
                 var crumb = Ext.get("path1");
@@ -187,47 +145,6 @@ Account = {
             scope: this
         });
 
-    },
-
-    LoadSiblings: function (nodeId, node) {
-        Ext.Ajax.request({
-            url: '/MetraNet/AjaxServices/Hierarchy.aspx',
-            params: { node: nodeId, type: 'system_mps' },
-            timeout: 10000,
-            success: function (response) {
-                var result = Ext.decode(response.responseText);
-
-                var isExpandable = (i == (result.length - 1)) ? false : true;
-                node.attributes.expandable = isExpandable;
-
-                for (i = 0; i < result.length; i++) {
-
-                    var newNode = new Ext.tree.TreeNode({
-                        pageNumber: result[i].pageNumber,
-                        text: result[i].text,
-                        expandable: false,
-                        leaf: result[i].leaf,
-                        draggable: true,
-                        icon: result[i].icon,
-                        allowDrag: true,
-                        id: result[i].id
-                    });
-
-                    node.appendChild(newNode);
-                    //Ignore spetial node which dowload next n-childs.
-                    if (newNode.id != -111) {
-                        newNode.on('click', function (node, e) {
-                            var nodeID = node.id;
-                            getFrameMetraNet().MainContentIframe.location.href = "/MetraNet/ManageAccount.aspx?id=" + nodeID + "&page=" + "/MetraNet/AdvancedFind.aspx?AncestorAccountID=" + nodeID;
-                        });
-                    }
-                }
-
-            },
-            failure: function () {
-                alert('failure');
-            }
-        });
     },
 
     MenuItemIsDisabled: function (account, menuItem) {
@@ -543,6 +460,120 @@ Account = {
         }
 
     },
+    ShowHierarchyTab: function (accountID) {
+      Account.ShowHierarchyTabWithHighlight(accountID, true);
+    },
+    ShowHierarchyTabWithHighlight: function (accountID, highlight) {
+      var east = Ext.getCmp('east-panel');
+      if (east != null) {
+      east.expand();
+      }
+      var tabs = AcctTabPanel;
+      if (tabs != null) {
+      tabs.setActiveTab(tabs.items.items[0]);
+      }
+      Ext.Ajax.request({
+        url: '/MetraNet/AjaxServices/HierarchyPath.aspx',
+        params: { node: accountID, type: 'system_mps' },
+        timeout: 10000,
+        success: function (response) {
+          var tree = GlobalTree;
+          if (tree != null) {
+            var result = Ext.decode(response.responseText);
+            var c = tree.root;
+            if (c != null && !c.expanded) {
+              tree.setRootNode(new Ext.tree.TreeNode(c.attributes));
+              c = tree.root;
+              tree.root.reload = function () {
+                GlobalTree.setRootNode(new Ext.tree.AsyncTreeNode(GlobalTree.root.attributes));
+                GlobalTree.root.reload();
+              }
+            }
+            for (i = 0; i < result.length; i++) {
+              var nId = result[i].id;
+              var n = tree.getNodeById(nId);
+              if (n == null) {
+                var pId = result[i].parentid;
+                var p = tree.getNodeById(pId);
+                if (p != null) {
+                  if (p != null && p.loaded != null && !p.loaded) {
+                    var newp = new Ext.tree.TreeNode(p.attributes);
+                    newp.reload = function () {
+                      var oldp = new Ext.tree.AsyncTreeNode(this.attributes);
+                      this.parentNode.replaceChild(oldp, this);
+                      oldp.ensureVisible();
+                      if (this.is_highlight) {
+                        oldp.getUI().addClass('x-tree-highlighted');
+                      }
+                      Account.ShowHierarchyTabWithHighlight(this.id, this.highlight);
+                    }
+                    p.parentNode.replaceChild(newp, p);
+                    newp.ensureVisible();
+                    if (p.is_highlight != null && p.is_highlight == true) {
+                      newp.is_highlight = true;
+                      var ui = newp.getUI();
+                      if (ui != null) {
+                        ui.addClass('x-tree-highlighted');
+                      }
+                    }
+                    p = newp;
+                  }
+                  if (result[i].leaf || i < result.length - 1) {
+                    result[i].is_static = true;
+                    var x = new Ext.tree.TreeNode(result[i]); //Account.CreateNode(result[i]);
+                    p.appendChild(x);
+                    c = n = x;
+                    x.reload = function () {
+                      var newp = new Ext.tree.AsyncTreeNode(this.attributes);
+                      this.parentNode.replaceChild(newp, this);
+                      newp.ensureVisible();
+                      if (this.is_highlight) {
+                        newp.getUI().addClass('x-tree-highlighted');
+                      }
+                      Account.ShowHierarchyTabWithHighlight(this.id, this.highlight);
+                    }
+                  }
+                  else {
+                    var x = new Ext.tree.AsyncTreeNode(result[i]); //Account.CreateNode(result[i]);
+                    p.appendChild(x);
+                    c = n = x;
+                  }
+                  if (Account.SortHierarchyChildre != undefined) {
+                    p.sort(Account.SortHierarchyChildren);
+                  }
+                }
+              }
+              else {
+                var pId = result[i].parentid;
+                if (n.parentNode.id != pId) {
+                  n.parentNode.removeChild(n);
+                  var p = tree.getNodeById(pId);
+                  p.appendChild(n);
+                  p.sort(Account.SortHierarchyChildren);
+                }
+                c = n;
+              }
+            }
+            if (c != null) {
+              if (highlight) {
+                c.is_highlight = true;
+                c.ensureVisible();
+                var ui = c.getUI();
+                if (ui != null) {
+                  ui.addClass('x-tree-highlighted');
+                }
+              }
+              if (tree.getSelectionModel() != null) {
+                tree.getSelectionModel().select(c, null, true);
+              }
+            }
+          }
+        },
+        failure: function () {
+          alert('failed to load hierarchy');
+        }
+      });
+    },
 
     HierarchyLoaded: function (bSuccess, oLastNode) {
         if (bSuccess) {
@@ -677,7 +708,7 @@ Account = {
             timeout: 10000,
             success: function (response) {
                 var tree = GlobalTree;
-                /*	    if (tree != null) {
+                /*      if (tree != null) {
                 var path = "/1" + response.responseText;
                 tree.expandPath(path, null, Account.HierarchyLoaded);
                 }*/

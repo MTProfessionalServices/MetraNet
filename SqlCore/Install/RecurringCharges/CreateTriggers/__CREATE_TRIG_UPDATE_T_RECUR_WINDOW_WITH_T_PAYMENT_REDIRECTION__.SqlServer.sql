@@ -17,7 +17,10 @@ select distinct redirold.id_payer, redirold.id_payee, redirold.vt_start, redirol
 --Get the old windows for payees that have changed
 select *  into #tmp_oldrw from t_recur_window trw JOIN #tmp_redir ON trw.c__AccountID = #tmp_redir.id_payee
   AND trw.c_PayerStart = #tmp_redir.vt_start AND trw.c_PayerEnd = #tmp_redir.vt_end; 
-  
+ 
+DECLARE @currentDate DATETIME
+SET @currentDate = dbo.metratime(1,'RC');
+ 
 SELECT orw.c_CycleEffectiveDate
        ,orw.c_CycleEffectiveStart
        ,orw.c_CycleEffectiveEnd
@@ -39,10 +42,9 @@ SELECT orw.c_CycleEffectiveDate
        ,orw.c_LastIdRun
        ,orw.c_MembershipStart
        ,orw.c_MembershipEnd
-        INTO #tmp_newrw FROM #tmp_oldrw orw JOIN INSERTED ON orw.c__AccountId = INSERTED.id_payee;
+	   , dbo.AllowInitialArrersCharge(orw.c_Advance, orw.c__AccountID, orw.c_SubscriptionEnd, @currentDate) AS c__IsAllowGenChargeByTrigger
 
-DECLARE @currentDate DATETIME
-SET @currentDate = dbo.metratime(1,'RC');
+        INTO #tmp_newrw FROM #tmp_oldrw orw JOIN INSERTED ON orw.c__AccountId = INSERTED.id_payee;
 
 exec MeterPayerChangesFromRecurWindow @currentDate;
 
@@ -53,13 +55,32 @@ delete FROM t_recur_window WHERE EXISTS (SELECT 1 FROM
        and t_recur_window.c_PayerStart = orw.c_PayerStart
        and t_recur_window.c_PayerEnd = orw.c_PayerEnd
        and t_recur_window.c__SubscriptionID = orw.c__SubscriptionID
-);
-
-	  UPDATE  #tmp_newrw SET c_BilledThroughDate = dbo.metratime(1,'RC');
+);	 
   
-INSERT INTO T_RECUR_WINDOW
-SELECT DISTINCT * FROM #tmp_newrw
-;
+INSERT INTO t_recur_window    
+	SELECT DISTINCT c_CycleEffectiveDate,
+	c_CycleEffectiveStart,
+	c_CycleEffectiveEnd,
+	c_SubscriptionStart,
+	c_SubscriptionEnd,
+	c_Advance,
+	c__AccountID,
+	c__PayingAccount,
+	c__PriceableItemInstanceID,
+	c__PriceableItemTemplateID,
+	c__ProductOfferingID,
+	c_PayerStart,
+	c_PayerEnd,
+	c__SubscriptionID,
+	c_UnitValueStart,
+	c_UnitValueEnd,
+	c_UnitValue,
+	c_BilledThroughDate,
+	c_LastIdRun,
+	c_MembershipStart,
+	c_MembershipEnd
+	FROM #tmp_newrw;
+
 
 UPDATE t_recur_window
 SET c_CycleEffectiveEnd = 

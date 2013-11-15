@@ -1,5 +1,5 @@
-create trigger [dbo].[trig_update_recur_window_on_t_gsub_recur_map]
-ON [dbo].[t_gsub_recur_map]
+create trigger dbo.trig_update_recur_window_on_t_gsub_recur_map
+ON dbo.t_gsub_recur_map
 for insert, UPDATE, delete
 as 
 begin
@@ -26,7 +26,8 @@ delete from t_recur_window where exists (
    WHEN matched AND t_recur_window.c__AccountID = source.id_acc THEN
 	UPDATE SET c_MembershipStart = source.vt_start,
 	           c_MembershipEnd = source.vt_end;
-	           
+			   
+	select @temp = tt_start from inserted           
 	           
  SELECT
        sub.vt_start AS c_CycleEffectiveDate
@@ -46,10 +47,11 @@ delete from t_recur_window where exists (
       , IsNull(rv.vt_start, dbo.mtmindate()) AS c_UnitValueStart
       , IsNull(rv.vt_end, dbo.mtmaxdate()) AS c_UnitValueEnd
       , rv.n_value AS c_UnitValue
-      , dbo.metratime(1,'RC') as c_BilledThroughDate
+      , @temp as c_BilledThroughDate
       , -1 AS c_LastIdRun
       , grm.vt_start AS c_MembershipStart
       , grm.vt_end AS c_MembershipEnd
+	  , dbo.AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.vt_end, sub.dt_crt) AS c__IsAllowGenChargeByTrigger
 	  into #recur_window_holder
 FROM inserted grm
       /* TODO: GRM dates or sub dates or both for filtering */
@@ -62,19 +64,46 @@ FROM inserted grm
         AND rv.tt_end = dbo.MTMaxDate() 
         AND rv.vt_start < sub.vt_end AND rv.vt_end > sub.vt_start 
         AND rv.vt_start < pay.vt_end AND rv.vt_end > pay.vt_start
-      WHERE 1=1
-       AND not EXISTS 
-        (SELECT 1 FROM T_RECUR_WINDOW where c__AccountID = grm.id_acc 
-          AND c__SubscriptionID = sub.id_sub and c__priceableiteminstanceid = grm.id_prop and c__priceableitemtemplateid = plm.id_pi_template)
-      AND grm.tt_end = dbo.mtmaxdate()
-      AND rcr.b_charge_per_participant = 'N'
-      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)
-;
-      select @temp = tt_start from inserted
-      EXEC MeterInitialFromRecurWindow @currentDate = @temp;
-      EXEC MeterCreditFromRecurWindow @currentDate = @temp;
+      WHERE 
+		not EXISTS 
+	        (SELECT 1 FROM T_RECUR_WINDOW where c__AccountID = grm.id_acc 
+	          	AND c__SubscriptionID = sub.id_sub 
+				AND c__priceableiteminstanceid = grm.id_prop 
+				AND c__priceableitemtemplateid = plm.id_pi_template
+			)
+	      AND grm.tt_end = dbo.mtmaxdate()
+	      AND rcr.b_charge_per_participant = 'N'
+	      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL);
+      
+    
+	/* adds charges to METER tables */
+	EXEC MeterInitialFromRecurWindow @currentDate = @temp;
+    EXEC MeterCreditFromRecurWindow @currentDate = @temp;
 	 
-	 insert into t_recur_window select * from #recur_window_holder; 
+	INSERT INTO t_recur_window    
+	SELECT c_CycleEffectiveDate,
+	c_CycleEffectiveStart,
+	c_CycleEffectiveEnd,
+	c_SubscriptionStart,
+	c_SubscriptionEnd,
+	c_Advance,
+	c__AccountID,
+	c__PayingAccount,
+	c__PriceableItemInstanceID,
+	c__PriceableItemTemplateID,
+	c__ProductOfferingID,
+	c_PayerStart,
+	c_PayerEnd,
+	c__SubscriptionID,
+	c_UnitValueStart,
+	c_UnitValueEnd,
+	c_UnitValue,
+	c_BilledThroughDate,
+	c_LastIdRun,
+	c_MembershipStart,
+	c_MembershipEnd
+	FROM #recur_window_holder;
+	
 /* step 2) update the cycle effective windows */
 UPDATE t_recur_window
  SET c_CycleEffectiveEnd = 
@@ -104,4 +133,4 @@ UPDATE t_recur_window
     AND t_recur_window.c__payingaccount = w2.c__payingaccount 
     AND w2.c_CycleEffectiveDate > t_recur_window.c_CycleEffectiveDate)
 ;
-end;
+END;

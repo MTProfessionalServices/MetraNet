@@ -50,9 +50,12 @@ newid() AS idSourceSess,
       ,rw.c__productofferingid      AS c__ProductOfferingID
       ,pci.dt_end      AS c_BilledRateDate
       ,rw.c__subscriptionid      AS c__SubscriptionID
-,rw.c_payerstart,rw.c_payerend,case when rw.c_unitvaluestart < '1970-01-01 00:00:00' THEN '1970-01-01 00:00:00' ELSE rw.c_unitvaluestart END AS c_unitvaluestart ,rw.c_unitvalueend
-, rw.c_unitvalue
-, rcr.n_rating_type AS c_RatingType
+	  ,rw.c_payerstart
+	  ,rw.c_payerend
+	  ,case when rw.c_unitvaluestart < '1970-01-01 00:00:00' THEN '1970-01-01 00:00:00' ELSE rw.c_unitvaluestart END AS c_unitvaluestart 
+	  ,rw.c_unitvalueend
+	  ,rw.c_unitvalue
+	  ,rcr.n_rating_type AS c_RatingType
       FROM t_usage_interval ui
       INNER LOOP JOIN t_billgroup bg ON bg.id_usage_interval = ui.id_interval
       INNER LOOP JOIN t_billgroup_member bgm ON bg.id_billgroup = bgm.id_billgroup
@@ -88,10 +91,6 @@ UNION ALL
 SELECT
 newid() AS idSourceSess,
       'Advance' AS c_RCActionType
-
-      /* [TODO] Next account interval should be paied In Advance in case it is bigger than RC interval. (Will clarify with Andy)
-      Add condition to choose whether to use RC interval "pci.dt_start", "pci.dt_end" OR Next Billing Interval of account "nui.dt_start", "nui.dt_end" for In Advance payment*/
-
       ,pci.dt_start		AS c_RCIntervalStart		/* Start date of Next RC Interval - the one we'll pay for In Advance in current interval */
       ,pci.dt_end		AS c_RCIntervalEnd			/* End date of Next RC Interval - the one we'll pay for In Advance in current interval */
       ,ui.dt_start		AS c_BillingIntervalStart	/* Start date of Current Billing Interval */
@@ -114,9 +113,12 @@ newid() AS idSourceSess,
       ,rw.c__productofferingid      AS c__ProductOfferingID
       ,pci.dt_start      AS c_BilledRateDate
       ,rw.c__subscriptionid      AS c__SubscriptionID
-,rw.c_payerstart,rw.c_payerend,case when rw.c_unitvaluestart < '1970-01-01 00:00:00' THEN '1970-01-01 00:00:00' ELSE rw.c_unitvaluestart END AS c_unitvaluestart,rw.c_unitvalueend
-, rw.c_unitvalue
-, rcr.n_rating_type AS c_RatingType
+	  ,rw.c_payerstart
+	  ,rw.c_payerend
+	  ,case when rw.c_unitvaluestart < '1970-01-01 00:00:00' THEN '1970-01-01 00:00:00' ELSE rw.c_unitvaluestart END AS c_unitvaluestart 
+	  ,rw.c_unitvalueend
+	  ,rw.c_unitvalue
+	  ,rcr.n_rating_type AS c_RatingType
       FROM t_usage_interval ui
       INNER LOOP JOIN t_usage_interval nui ON ui.id_usage_cycle = nui.id_usage_cycle AND dbo.AddSecond(ui.dt_end) = nui.dt_start
       INNER LOOP JOIN t_billgroup bg ON bg.id_usage_interval = ui.id_interval

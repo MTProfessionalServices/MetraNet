@@ -180,6 +180,9 @@ AS
 				--)
 		  --   )
     --  GROUP BY ts.id_po, ts.id_group, vs.v_sub_start, vs.v_sub_end
+	DECLARE @v_prev_end DATETIME
+	DECLARE @c_vt_start DATETIME
+	DECLARE @c_vt_end DATETIME
     
     OPEN subs
     FETCH NEXT FROM subs INTO @id_po, @id_group, @vt_start, @vt_end, @my_sub_start, @my_sub_end
@@ -187,45 +190,78 @@ AS
     /* Create new subscriptions */
     WHILE @@FETCH_STATUS = 0
     BEGIN
-		DECLARE @v_prev_end DATETIME
-		DECLARE @c_vt_start DATETIME
-		DECLARE @c_vt_end DATETIME
 		SET @v_prev_end = DATEADD(d, -1, @my_sub_start)
-		DECLARE csubs CURSOR FOR
-            SELECT s.vt_start, s.vt_end
-                FROM t_sub s
-                WHERE s.vt_end >= @my_sub_start 
-                    AND s.vt_start <= @my_sub_end
-                    AND s.id_acc = @id_acc
-                    AND s.id_po = @id_po
-                ORDER BY s.vt_start
+		IF @id_group IS NULL 
+		BEGIN 
+			DECLARE csubs CURSOR FOR
+				SELECT s.vt_start, s.vt_end
+					FROM (
+						SELECT ts.vt_start
+								,ts.vt_end
+							FROM t_sub ts
+							WHERE ts.vt_end >= @my_sub_start
+								AND ts.vt_start <= @my_sub_end
+								AND ts.id_acc = @id_acc
+								AND ts.id_po = @id_po
+						UNION ALL
+						SELECT ts1.vt_start
+								,ts1.vt_end
+							FROM #tmp_sub ts1
+							WHERE ts1.vt_end >= @my_sub_start
+								AND ts1.vt_start <= @my_sub_end
+								AND ts1.id_acc = @id_acc
+								AND ts1.id_po = @id_po
+					) s
+					ORDER BY s.vt_start
+		END ELSE BEGIN
+			DECLARE csubs CURSOR FOR
+				SELECT s.vt_start, s.vt_end
+					FROM (
+						SELECT ts.vt_start
+								,ts.vt_end
+							FROM t_gsubmember ts
+							WHERE ts.vt_end >= @my_sub_start
+								AND ts.vt_start <= @my_sub_end
+								AND ts.id_acc = @id_acc
+								AND ts.id_group = @id_group
+						UNION ALL
+						SELECT ts1.vt_start
+								,ts1.vt_end
+							FROM #tmp_gsubmember ts1
+							WHERE ts1.vt_end >= @my_sub_start
+								AND ts1.vt_start <= @my_sub_end
+								AND ts1.id_acc = @id_acc
+								AND ts1.id_group = @id_group
+					) s
+					ORDER BY s.vt_start
+		END
 
 		OPEN csubs
 		FETCH NEXT FROM csubs INTO @c_vt_start, @c_vt_end
 
 		WHILE @@FETCH_STATUS = 0
 		BEGIN
-            IF @c_vt_start > @v_prev_end 
+			IF @c_vt_start > @v_prev_end
 			BEGIN
-                SET @v_vt_start = DATEADD(d, 1, @v_prev_end)
-                SET @v_vt_end = DATEADD(d, -1, @c_vt_start)
-            END
-            IF @v_vt_start <= @v_vt_end
+				SET @v_vt_start = DATEADD(d, 1, @v_prev_end)
+				SET @v_vt_end = DATEADD(d, -1, @c_vt_start)
+			END
+			IF @v_vt_start <= @v_vt_end
 			BEGIN
-                EXEC subscribe_account @id_acc, @id_po, @id_group, @v_vt_start, @v_vt_end, @systemdate
-            END
-            SET @v_prev_end = @c_vt_end
+				EXEC subscribe_account @id_acc, @id_po, @id_group, @v_vt_start, @v_vt_end, @systemdate
+			END
+			SET @v_prev_end = @c_vt_end
 
 			FETCH NEXT FROM csubs INTO @c_vt_start, @c_vt_end
-		END 
+		END
 		CLOSE csubs
 		DEALLOCATE csubs
-        IF @v_prev_end < @my_sub_end
+		IF @v_prev_end < @my_sub_end
 		BEGIN
-            SET @v_vt_start = DATEADD(d,1,@v_prev_end)
-            SET @v_vt_end = @my_sub_end
-                EXEC subscribe_account @id_acc, @id_po, @id_group, @v_vt_start, @v_vt_end, @systemdate
-        END
+			SET @v_vt_start = DATEADD(d,1,@v_prev_end)
+			SET @v_vt_end = @my_sub_end
+				EXEC subscribe_account @id_acc, @id_po, @id_group, @v_vt_start, @v_vt_end, @systemdate
+		END
 
         --/* 1.  There is no conflicting subscription */
         --IF @conflicts = 0

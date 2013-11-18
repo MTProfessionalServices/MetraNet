@@ -1029,8 +1029,12 @@ namespace MetraTech.Core.Services
                         #endregion
                     }
 
-                    //finally, set the total number of records returned
-                    accounts.TotalRows = countStmt.TotalRows;
+                    /* CORE-7103:"Pagination in Advanced Find grid doesn't work properly"
+                     * Count Total rows only for the 1-st internall call. Other times TotalRows returns count of single page anly
+                     */
+                    if (applyPagination)
+                      //finally, set the total number of records returned
+                      accounts.TotalRows = countStmt.TotalRows;
                 }
             }
 

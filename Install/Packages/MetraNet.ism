@@ -3182,7 +3182,7 @@
 		<row><td>ARSample</td><td>ARSupport</td><td>##NEW_STRING577##</td><td/><td>2</td><td>120</td><td>ARSAMPLE</td><td>8</td><td/><td/><td/><td/></row>
 		<row><td>ARSupport</td><td>RMP</td><td>##NEW_STRING575##</td><td>##ID_STRING98##</td><td>82</td><td>110</td><td>AR3</td><td>8</td><td/><td>Extends MetraNet functionality to integrate with third-party AR products.</td><td/><td/></row>
 		<row><td>AppSight</td><td>RMP</td><td>##ID_STRING76##</td><td>##ID_STRING77##</td><td>0</td><td>1</td><td>BBXSERVICE_DIR</td><td>16</td><td/><td>Install feature for the AppSight BlackBox redist.</td><td/><td/></row>
-		<row><td>BillSoft</td><td>Tax</td><td>##ID_STRING91##</td><td>##ID_STRING94##</td><td>4</td><td>110</td><td>INSTALLDIR</td><td>8</td><td/><td>This feature is used for calculating taxes using BillSoft.</td><td/><td/></row>
+		<row><td>BillSoft</td><td>Tax</td><td>##ID_STRING91##</td><td>##ID_STRING94##</td><td>2</td><td>110</td><td>INSTALLDIR</td><td>8</td><td/><td>This feature is used for calculating taxes using BillSoft.</td><td/><td/></row>
 		<row><td>Database</td><td>RMP</td><td>##NEW_STRING13##</td><td>##NEW_STRING14##</td><td>84</td><td>10</td><td>MTDATABASE</td><td>8</td><td/><td>Sets up the database components required by all MetraNet servers.</td><td/><td/></row>
 		<row><td>Extensions</td><td>RMP</td><td>##ID_STRING82##</td><td>##ID_STRING83##</td><td>0</td><td>1</td><td>INSTALLDIR</td><td>24</td><td/><td>This feature consists of extensions required for a minimal install of the MetraNet product.</td><td/><td/></row>
 		<row><td>GACDlls</td><td>RMP</td><td>##ID_STRING101##</td><td/><td>0</td><td>1</td><td>INSTALLDIR</td><td>16</td><td/><td/><td/><td/></row>
@@ -3194,7 +3194,7 @@
 		<row><td>MCM</td><td>UI</td><td>##NEW_STRING38##</td><td>##NEW_STRING39##</td><td>6</td><td>10</td><td>UI</td><td>8</td><td/><td/><td/><td/></row>
 		<row><td>MOM</td><td>UI</td><td>##NEW_STRING36##</td><td>##NEW_STRING37##</td><td>8</td><td>10</td><td>UI</td><td>8</td><td/><td/><td/><td/></row>
 		<row><td>MPS</td><td>UI</td><td>##NEW_STRING558##</td><td>##NEW_STRING559##</td><td>0</td><td>10</td><td/><td>8</td><td/><td/><td/><td/></row>
-		<row><td>MetraTax</td><td>Tax</td><td>##ID_STRING89##</td><td>##ID_STRING93##</td><td>2</td><td>110</td><td>INSTALLDIR</td><td>8</td><td/><td>Provides a vendor-independent framework for calculating taxes. </td><td/><td/></row>
+		<row><td>MetraTax</td><td>Tax</td><td>##ID_STRING89##</td><td>##ID_STRING93##</td><td>4</td><td>110</td><td>INSTALLDIR</td><td>8</td><td/><td>Provides a vendor-independent framework for calculating taxes. </td><td/><td/></row>
 		<row><td>PS</td><td>PSClient</td><td>##NEW_STRING26##</td><td>##NEW_STRING27##</td><td>2</td><td>10</td><td>PAYMENTSVR</td><td>8</td><td/><td/><td/><td/></row>
 		<row><td>PSClient</td><td>RMP</td><td>##NEW_STRING28##</td><td>##NEW_STRING29##</td><td>56</td><td>10</td><td>PAYMENTSVR</td><td>8</td><td/><td/><td/><td/></row>
 		<row><td>RMP</td><td/><td>##NEW_STRING7##</td><td>##NEW_STRING8##</td><td>5</td><td>1</td><td>INSTALLDIR</td><td>24</td><td/><td/><td/><td/></row>
@@ -3202,9 +3202,9 @@
 		<row><td>Resource</td><td>RMP</td><td>##ID_STRING27##</td><td>##ID_STRING34##</td><td>0</td><td>1</td><td>INSTALLDIR</td><td>8</td><td/><td/><td/><td/></row>
 		<row><td>Tax</td><td>RMP</td><td>##ID_STRING92##</td><td>##ID_STRING99##</td><td>5</td><td>1</td><td>INSTALLDIR</td><td>8</td><td/><td>Installs Tax related features.</td><td/><td/></row>
 		<row><td>Taxware</td><td>Tax</td><td>##ID_STRING90##</td><td>##ID_STRING95##</td><td>6</td><td>110</td><td>INSTALLDIR</td><td>8</td><td/><td>Install feature for Taxware.</td><td/><td/></row>
-		<row><td>UI</td><td>RMP</td><td>##ID_STRING19##</td><td>##ID_STRING96##</td><td>10</td><td>10</td><td>UI</td><td>8</td><td/><td>Integrates product management, billing execution, account management, and subscriber services. </td><td/><td/></row>
+		<row><td>UI</td><td>RMP</td><td>##ID_STRING19##</td><td>##ID_STRING96##</td><td>6</td><td>10</td><td>UI</td><td>8</td><td/><td>Integrates product management, billing execution, account management, and subscriber services. </td><td/><td/></row>
 		<row><td>UtilityExes</td><td>RMP</td><td>##ID_STRING87##</td><td/><td>0</td><td>1</td><td>INSTALLDIR</td><td>24</td><td/><td/><td/><td/></row>
-		<row><td>VertexQ</td><td>RMP</td><td>##ID_STRING108##</td><td/><td>4</td><td>110</td><td>INSTALLDIR</td><td>8</td><td/><td/><td/><td/></row>
+		<row><td>VertexQ</td><td>Tax</td><td>##ID_STRING108##</td><td/><td>8</td><td>110</td><td>INSTALLDIR</td><td>8</td><td/><td/><td/><td/></row>
 		<row><td>WS</td><td>RMP</td><td>##ID_STRING22##</td><td>##ID_STRING97##</td><td>46</td><td>10</td><td>WEBSERVICES</td><td>8</td><td/><td>Exposes services to clients using browsers and other web service interfaces.</td><td/><td/></row>
 		<row><td>WinServices</td><td>RMP</td><td>##ID_STRING85##</td><td/><td>0</td><td>1</td><td>INSTALLDIR</td><td>16</td><td/><td/><td/><td/></row>
 		<row><td>de</td><td>Resource</td><td>##ID_STRING27##</td><td/><td>0</td><td>1</td><td>INSTALLDIR</td><td>8</td><td/><td/><td/><td/></row>

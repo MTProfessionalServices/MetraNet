@@ -130,7 +130,6 @@ namespace MetraTech.Reports.Adapters
 			string apsname = ReportConfiguration.GetInstance().APSName;
 			string apsuser = ReportConfiguration.GetInstance().APSUser;
 			string apspassword = ReportConfiguration.GetInstance().APSPassword;
-			string apsdatasource = ReportConfiguration.GetInstance().APSDataSource;
 
 			//get provider specific Report Manager object
 			IReportManager mMgr = ReportConfiguration.GetInstance().GetReportManager();
@@ -156,7 +155,7 @@ namespace MetraTech.Reports.Adapters
             }
 
 			//login into reporting server
-			mMgr.LoginToReportingServer(apsname, apsuser, apspassword, apsdatasource);
+			mMgr.LoginToReportingServer(apsname, apsuser, apspassword);
 
 			aContext.RecordInfo(string.Format("Checking for new reports scheduled by '{0}' adapter", mInitiatorAdapterName));
 

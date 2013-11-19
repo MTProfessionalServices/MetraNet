@@ -2,7 +2,7 @@
 <PageLayout>
     <IsBusinessEntityLayout>true</IsBusinessEntityLayout>
     <Name>MetraTech.Core.Quoting.QuoteHeader</Name>
-	<Description>Table for quote header</Description>
+    <Description>Table for quote header</Description>
     <Tenant>MetraTech</Tenant>
     <AssemblyName>MetraTech.Core.Quoting.Entity</AssemblyName>
     <ObjectName>MetraTech.Core.Quoting.QuoteHeader</ObjectName>
@@ -25,97 +25,10 @@
             <Name></Name>
             <Columns>
                 <Column>
-                    <Fields>
-                        <Field>
-                            <AssemblyFilename>Core.Quoting.Entity</AssemblyFilename>
-                            <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
-                            <ID>CustomIdentifier</ID>
-                            <Name>CustomIdentifier</Name>
-                            <Alignment>Left</Alignment>
-                            <ReadOnly>false</ReadOnly>
-                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
-                            <EditorValidation>
-                                <Required>false</Required>
-                                <ValidationType></ValidationType>
-                            </EditorValidation>
-                            <OptionalExtConfig></OptionalExtConfig>
-                            <Label />
-                            <RequiredCapabilities />
-                            <RequiredCapabilitiesReadonly />
-                        </Field>
-                        <Field>
-                            <AssemblyFilename>Core.Quoting.Entity</AssemblyFilename>
-                            <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
-                            <ID>StartDate</ID>
-                            <Name>StartDate</Name>
-                            <Alignment>Left</Alignment>
-                            <ReadOnly>false</ReadOnly>
-                            <ControlType>MetraTech.UI.Controls.MTDatePicker</ControlType>
-                            <EditorValidation>
-                                <Required>false</Required>
-                                <ValidationType></ValidationType>
-                            </EditorValidation>
-                            <OptionalExtConfig></OptionalExtConfig>
-                            <Label />
-                            <RequiredCapabilities />
-                            <RequiredCapabilitiesReadonly />
-                        </Field>
-                        <Field>
-                            <AssemblyFilename>Core.Quoting.Entity</AssemblyFilename>
-                            <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
-                            <ID>QuoteID</ID>
-                            <Name>QuoteID</Name>
-                            <Alignment>Left</Alignment>
-                            <ReadOnly>false</ReadOnly>
-                            <ControlType>MetraTech.UI.Controls.MTNumberField</ControlType>
-                            <EditorValidation>
-                                <Required>false</Required>
-                                <ValidationType></ValidationType>
-                            </EditorValidation>
-                            <OptionalExtConfig></OptionalExtConfig>
-                            <Label />
-                            <RequiredCapabilities />
-                            <RequiredCapabilitiesReadonly />
-                        </Field>
-                    </Fields>
+                    <Fields></Fields>
                 </Column>
                 <Column>
-                    <Fields>
-                        <Field>
-                            <AssemblyFilename>Core.Quoting.Entity</AssemblyFilename>
-                            <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
-                            <ID>CustomDescription</ID>
-                            <Name>CustomDescription</Name>
-                            <Alignment>Left</Alignment>
-                            <ReadOnly>false</ReadOnly>
-                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
-                            <EditorValidation>
-                                <Required>false</Required>
-                                <ValidationType></ValidationType>
-                            </EditorValidation>
-                            <OptionalExtConfig></OptionalExtConfig>
-                            <Label />
-                            <RequiredCapabilities />
-                            <RequiredCapabilitiesReadonly />
-                        </Field>
-                        <Field>
-                            <AssemblyFilename>Core.Quoting.Entity</AssemblyFilename>
-                            <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
-                            <ID>EndDate</ID>
-                            <Name>EndDate</Name>
-                            <Alignment>Left</Alignment>
-                            <ReadOnly>false</ReadOnly>
-                            <ControlType>MetraTech.UI.Controls.MTDatePicker</ControlType>
-                            <EditorValidation>
-                                <Required>false</Required>
-                                <ValidationType></ValidationType>
-                            </EditorValidation>
-                            <OptionalExtConfig></OptionalExtConfig>
-                            <Label />
-                            <RequiredCapabilities />
-                            <RequiredCapabilitiesReadonly />
-                        </Field>
-                    </Fields>
+                    <Fields></Fields>
                 </Column>
             </Columns>
             <ToolbarButtons></ToolbarButtons>

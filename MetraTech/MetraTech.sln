@@ -737,7 +737,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Core.Activities.Test", "..\..\..\FunctionalTests_Internal\MetraNet_LegacySmokesTests\Core\Activities\MetraTech.Core.Activities.Test.csproj", "{10F60F2C-766E-4422-8AE0-241C87F45496}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.UsageServer.Test", "UsageServer.Test\MetraTech.UsageServer.Test.csproj", "{BBAFA350-312A-45C2-9A59-CF990994A475}"
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Approvals", "Approvals\MetraTech.Approvals.csproj", "{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Approvals.Test", "..\..\..\FunctionalTests_Internal\MetraTech\Approvals\MetraTech.Approvals.Test.csproj", "{9F72B8F8-BBEE-4AD5-AB6C-E67C0528254E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VertexServer.Test", "VertexSocketService\VertexServerTest\VertexServer.Test.csproj", "{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}"
@@ -2464,6 +2464,24 @@ Global
 		{6C6B9B8E-1E8F-4957-A048-5B5316384347}.Release|Mixed Platforms.Build.0 = Release|x86
 		{6C6B9B8E-1E8F-4957-A048-5B5316384347}.Release|x86.ActiveCfg = Release|x86
 		{6C6B9B8E-1E8F-4957-A048-5B5316384347}.Release|x86.Build.0 = Release|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Debug|.NET.ActiveCfg = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Debug|x86.ActiveCfg = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Debug|x86.Build.0 = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.DebugcoreQA|.NET.ActiveCfg = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.DebugcoreQA|Any CPU.ActiveCfg = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.DebugcoreQA|Mixed Platforms.ActiveCfg = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.DebugcoreQA|Mixed Platforms.Build.0 = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.DebugcoreQA|x86.ActiveCfg = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.DebugcoreQA|x86.Build.0 = Debug|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Release|.NET.ActiveCfg = Release|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Release|Any CPU.ActiveCfg = Release|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Release|Mixed Platforms.Build.0 = Release|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Release|x86.ActiveCfg = Release|x86
+		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Release|x86.Build.0 = Release|x86
 		{91D19BBA-936C-47FB-A235-0471A600D4B1}.Debug|.NET.ActiveCfg = Debug|x86
 		{91D19BBA-936C-47FB-A235-0471A600D4B1}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{91D19BBA-936C-47FB-A235-0471A600D4B1}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
@@ -2518,24 +2536,6 @@ Global
 		{BBAFA350-312A-45C2-9A59-CF990994A475}.Release|Mixed Platforms.Build.0 = Release|x86
 		{BBAFA350-312A-45C2-9A59-CF990994A475}.Release|x86.ActiveCfg = Release|x86
 		{BBAFA350-312A-45C2-9A59-CF990994A475}.Release|x86.Build.0 = Release|x86
-		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Debug|.NET.ActiveCfg = Debug|x86
-		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Debug|x86.ActiveCfg = Debug|x86
-		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Debug|x86.Build.0 = Debug|x86
-		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.DebugcoreQA|.NET.ActiveCfg = Debug|x86
-		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.DebugcoreQA|Any CPU.ActiveCfg = Debug|x86
-		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.DebugcoreQA|Mixed Platforms.ActiveCfg = Debug|x86
-		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.DebugcoreQA|Mixed Platforms.Build.0 = Debug|x86
-		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.DebugcoreQA|x86.ActiveCfg = Debug|x86
-		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.DebugcoreQA|x86.Build.0 = Debug|x86
-		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Release|.NET.ActiveCfg = Release|x86
-		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Release|Any CPU.ActiveCfg = Release|x86
-		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Release|Mixed Platforms.Build.0 = Release|x86
-		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Release|x86.ActiveCfg = Release|x86
-		{AB9BE17B-FA71-4515-8F9C-86FFF41362EA}.Release|x86.Build.0 = Release|x86
 		{9F72B8F8-BBEE-4AD5-AB6C-E67C0528254E}.Debug|.NET.ActiveCfg = Debug|x86
 		{9F72B8F8-BBEE-4AD5-AB6C-E67C0528254E}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{9F72B8F8-BBEE-4AD5-AB6C-E67C0528254E}.Debug|Mixed Platforms.ActiveCfg = Debug|x86

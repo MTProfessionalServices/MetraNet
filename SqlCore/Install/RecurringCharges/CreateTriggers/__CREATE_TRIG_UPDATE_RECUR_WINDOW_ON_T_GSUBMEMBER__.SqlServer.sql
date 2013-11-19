@@ -1,10 +1,9 @@
-
-	    create trigger trig_update_recur_window_on_t_gsubmember
+create trigger trig_update_recur_window_on_t_gsubmember
 ON t_gsubmember
 for insert, UPDATE, delete
 as 
 begin
-declare @temp datetime;
+declare @startDate datetime;
 delete from t_recur_window where exists (
   select 1 from deleted gsm 
          join t_sub sub on gsm.id_group = sub.id_group and
@@ -33,9 +32,11 @@ WHEN matched AND t_recur_window.c__SubscriptionID = source.id_sub
     AND t_recur_window.c__PriceableItemTemplateID = source.id_pi_template	THEN
 	UPDATE SET c_MembershipStart = source.vt_start,
 	           c_MembershipEnd = source.vt_end;
-
-  --INSERT INTO T_RECUR_WINDOW
-  SELECT
+	
+	
+	SET @startDate = dbo.metratime(1,'RC');
+			   
+	SELECT
        gsm.vt_start AS c_CycleEffectiveDate
       ,gsm.vt_start AS c_CycleEffectiveStart
       ,gsm.vt_end AS c_CycleEffectiveEnd
@@ -53,32 +54,56 @@ WHEN matched AND t_recur_window.c__SubscriptionID = source.id_sub
       , IsNull(rv.vt_start, dbo.mtmindate()) AS c_UnitValueStart
       , IsNull(rv.vt_end, dbo.mtmaxdate()) AS c_UnitValueEnd
       , rv.n_value AS c_UnitValue
-      , dbo.metratime(1,'RC') as c_BilledThroughDate
+      , @startDate as c_BilledThroughDate
       , -1 AS c_LastIdRun
       , dbo.mtmindate() AS c_MembershipStart
       , dbo.mtmaxdate() AS c_MembershipEnd
-      into #recur_window_holder
-      FROM INSERTED gsm
+	  , dbo.AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.vt_end, @startDate) AS c__IsAllowGenChargeByTrigger
+	INTO #recur_window_holder
+    FROM INSERTED gsm
       INNER JOIN t_sub sub ON sub.id_group = gsm.id_group
       INNER JOIN t_payment_redirection pay ON pay.id_payee = gsm.id_acc AND pay.vt_start < sub.vt_end AND pay.vt_end > sub.vt_start AND pay.vt_start < gsm.vt_end AND pay.vt_end > gsm.vt_start
       INNER JOIN t_pl_map plm ON plm.id_po = sub.id_po AND plm.id_paramtable IS NULL
       INNER JOIN t_recur rcr ON plm.id_pi_instance = rcr.id_prop
       INNER JOIN t_base_props bp ON bp.id_prop = rcr.id_prop
       LEFT OUTER JOIN t_recur_value rv ON rv.id_prop = rcr.id_prop AND sub.id_sub = rv.id_sub AND rv.tt_end = dbo.MTMaxDate() AND rv.vt_start < sub.vt_end AND rv.vt_end > sub.vt_start AND rv.vt_start < pay.vt_end AND rv.vt_end > pay.vt_start AND rv.vt_start < gsm.vt_end AND rv.vt_end > gsm.vt_start
-      WHERE 1=1
-       AND not EXISTS 
+      WHERE 
+		not EXISTS 
         (SELECT 1 FROM T_RECUR_WINDOW where c__AccountID = gsm.id_acc 
           AND c__SubscriptionID = sub.id_sub
 		  and c__PriceableItemInstanceID = plm.id_pi_instance
 		  and c__PriceableItemTemplateID = plm.id_pi_template)
       AND rcr.b_charge_per_participant = 'Y'
-      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)
-;
-select @temp = max(tgsh.tt_start) from t_gsubmember_historical tgsh join inserted gsm on tgsh.id_acc = gsm.id_acc and tgsh.id_group = gsm.id_group;
-      EXEC MeterInitialFromRecurWindow @currentDate = @temp;
-      EXEC MeterCreditFromRecurWindow @currentDate = @temp;
+      AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL);
+	
+	/* adds charges to METER tables */
+    EXEC MeterInitialFromRecurWindow @currentDate = @startDate;
+    EXEC MeterCreditFromRecurWindow @currentDate = @startDate;
 	  
-	   INSERT INTO t_recur_window SELECT * FROM #recur_window_holder;
+	INSERT INTO t_recur_window    
+	SELECT c_CycleEffectiveDate,
+	c_CycleEffectiveStart,
+	c_CycleEffectiveEnd,
+	c_SubscriptionStart,
+	c_SubscriptionEnd,
+	c_Advance,
+	c__AccountID,
+	c__PayingAccount,
+	c__PriceableItemInstanceID,
+	c__PriceableItemTemplateID,
+	c__ProductOfferingID,
+	c_PayerStart,
+	c_PayerEnd,
+	c__SubscriptionID,
+	c_UnitValueStart,
+	c_UnitValueEnd,
+	c_UnitValue,
+	c_BilledThroughDate,
+	c_LastIdRun,
+	c_MembershipStart,
+	c_MembershipEnd
+	FROM #recur_window_holder;
+	
 /* step 2) update the cycle effective windows */
 
 /* sql */
@@ -96,8 +121,7 @@ UPDATE t_recur_window
     AND t_recur_window.c__payingaccount = w2.c__payingaccount 
     AND w2.c_CycleEffectiveDate > t_recur_window.c_CycleEffectiveDate
  )
- WHERE 1=1
- AND EXISTS 
+ WHERE EXISTS 
 (SELECT 1 FROM t_recur_window w2
     WHERE w2.c__SubscriptionId = t_recur_window.c__SubscriptionId 
     AND t_recur_window.c_PayerStart = w2.c_PayerStart 
@@ -110,4 +134,4 @@ UPDATE t_recur_window
     AND t_recur_window.c__payingaccount = w2.c__payingaccount 
     AND w2.c_CycleEffectiveDate > t_recur_window.c_CycleEffectiveDate)
 ;
-end
+END;

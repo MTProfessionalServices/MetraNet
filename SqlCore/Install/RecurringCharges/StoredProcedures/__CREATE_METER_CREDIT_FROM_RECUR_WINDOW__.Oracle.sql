@@ -1,5 +1,5 @@
 create or replace
-PROCEDURE METERCreditFROMRECURWINDOW AS
+PROCEDURE METERCreditFROMRECURWINDOW (currentDate date) AS
 
     enabled varchar2(10);
      
@@ -58,7 +58,7 @@ SELECT DISTINCT
       AND pci.dt_start < dbo.MTMaxOfTwoDates(current_sub.vt_end, new_sub.vt_end) 
       AND pci.dt_end > dbo.MTMinOfTwoDates(current_sub.vt_start, new_sub.vt_start)
       AND pci.dt_end BETWEEN rw.c_payerstart  AND rw.c_payerend                         /* rc start goes to this payer */
-	  and pci.dt_start < metratime(1,'RC') /* Don't go into the future*/
+	  and pci.dt_start < currentDate /* Don't go into the future*/
       AND rw.c_unitvaluestart      < pci.dt_end AND rw.c_unitvalueend      > pci.dt_start /* rc overlaps with this UDRC */
       AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
       INNER JOIN t_usage_interval paymentInterval ON pci.dt_start between paymentInterval.dt_start AND paymentInterval.dt_end
@@ -69,13 +69,14 @@ SELECT DISTINCT
            WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(auc.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) 
            ELSE NULL END 
     INNER JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
-    inner join t_usage_interval currentui on metratime(1,'RC') between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = paymentInterval.id_usage_cycle
+    inner join t_usage_interval currentui on currentDate between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = paymentInterval.id_usage_cycle
    where 1=1
     AND EXISTS (SELECT 1 FROM t_sub_history tsh WHERE tsh.id_sub = rw.C__SubscriptionID AND tsh.id_acc = rw.c__AccountID AND tsh.tt_end < dbo.MTMaxDate())
     /* We have one exceptional case: (a) an arrears charge, (b) old sub end date was after the end of the pci, (c) new sub end date is inside the pci.  We'll deal with this 
     * elsewhere.
     */
     AND NOT (rcr.b_advance = 'N' AND current_sub.vt_end > pci.dt_end AND new_sub.vt_end < pci.dt_end)
+	AND rw.c__IsAllowGenChargeByTrigger = 1
  UNION
  SELECT DISTINCT
 /* Now, credit or debit the difference in the start of the subscription.  If the new one is earlier, this will be a debit, otherwise a credit*/
@@ -126,7 +127,7 @@ SELECT DISTINCT
       AND pci.dt_start < dbo.MTMaxOfTwoDates(current_sub.vt_end, new_sub.vt_end) 
       AND pci.dt_end > dbo.MTMinOfTwoDates(current_sub.vt_start, new_sub.vt_start)
       AND pci.dt_end BETWEEN rw.c_payerstart  AND rw.c_payerend                         /* rc start goes to this payer */
-	  and pci.dt_start < metratime(1,'RC') /* Don't go into the future*/
+	  and pci.dt_start < currentDate /* Don't go into the future*/
       AND rw.c_unitvaluestart      < pci.dt_end AND rw.c_unitvalueend      > pci.dt_start /* rc overlaps with this UDRC */
       AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
           INNER JOIN t_usage_interval paymentInterval ON pci.dt_start between paymentInterval.dt_start AND paymentInterval.dt_end
@@ -137,7 +138,7 @@ SELECT DISTINCT
            WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(auc.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) 
            ELSE NULL END 
     INNER JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
-    inner join t_usage_interval currentui on metratime(1,'RC') between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = paymentInterval.id_usage_cycle
+    inner join t_usage_interval currentui on currentDate between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = paymentInterval.id_usage_cycle
   where 1=1
     AND EXISTS (SELECT 1 FROM t_sub_history tsh WHERE tsh.id_sub = rw.C__SubscriptionID AND tsh.id_acc = rw.c__AccountID AND tsh.tt_end < dbo.MTMaxDate())
     
@@ -145,6 +146,7 @@ SELECT DISTINCT
     * We'll deal with this elsewhere.
     */
     AND NOT (rcr.b_advance = 'N' AND current_sub.vt_end > pci.dt_end AND new_sub.vt_end < pci.dt_end)
+	AND rw.c__IsAllowGenChargeByTrigger = 1
     
  UNION
   SELECT DISTINCT
@@ -206,17 +208,25 @@ SELECT DISTINCT
            WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(auc.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) 
            ELSE NULL END 
     INNER JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
-	inner join t_usage_interval currentui on metratime(1,'RC') between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = paymentInterval.id_usage_cycle
+	inner join t_usage_interval currentui on currentDate between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = paymentInterval.id_usage_cycle
  where 1=1
     and (rcr.b_prorate_on_deactivate='Y' or pci.dt_start > dbo.mtendofday(rw.c_SubscriptionEnd))
     AND EXISTS (SELECT 1 FROM t_sub_history tsh WHERE tsh.id_sub = rw.C__SubscriptionID AND tsh.id_acc = rw.c__AccountID AND tsh.tt_end < dbo.MTMaxDate())
     /* We have one exceptional case: (a) an arrears charge, (b) old sub end date was after the end of the pci, (c) new sub end date is inside the pci.  We'll deal with this 
     * elsewhere.
     */
-    AND (rcr.b_advance = 'N' AND current_sub.vt_end > pci.dt_end AND new_sub.vt_end < pci.dt_end) ;	
+    AND (rcr.b_advance = 'N' AND current_sub.vt_end > pci.dt_end AND new_sub.vt_end < pci.dt_end) 
+	AND rw.c__IsAllowGenChargeByTrigger = 1;
+	
     update tmp_rc set id_source_sess = sys_guid();
 	
     insertChargesIntoSvcTables('%Credit','%Debit');
+	
+	UPDATE tmp_newrw rw
+	SET c_BilledThroughDate = currentDate	
+	where rw.c__IsAllowGenChargeByTrigger = 1;
+
+	
 /*We can get an no data exception if there are no previous subscriptions; just return in this case.*/   
    EXCEPTION WHEN NO_DATA_FOUND THEN return;
 end METERCreditFROMRECURWINDOW;

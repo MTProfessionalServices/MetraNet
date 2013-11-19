@@ -1,6 +1,6 @@
 
 create or replace
-PROCEDURE MeterPayerChangeFromRecWind AS
+PROCEDURE MeterPayerChangeFromRecWind (currentDate date) AS
 
   enabled varchar2(10);
   BEGIN
@@ -67,9 +67,9 @@ PROCEDURE MeterPayerChangeFromRecWind AS
                                    AND rwnew.c_membershipstart     < pci.dt_end AND rwnew.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
                                    AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
                                    AND rw.c_SubscriptionStart   < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start /* rc overlaps with this subscription */
-								   and pci.dt_start < metratime(1,'RC') /* Don't go into the future*/      
+								   and pci.dt_start < currentDate /* Don't go into the future*/      
       INNER JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
-      inner join t_usage_interval currentui on metratime(1,'RC') between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = ui.id_usage_cycle
+      inner join t_usage_interval currentui on currentDate between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = ui.id_usage_cycle
    where 1=1;
 	  
 	  insert INTO tmp_rc 
@@ -131,6 +131,10 @@ PROCEDURE MeterPayerChangeFromRecWind AS
            ,sys_guid() AS idSourceSess FROM TMP_PAYER_CHANGES ;
           
     InsertChargesIntoSvcTables('InitialCredit','InitialDebit');
+	
+	UPDATE tmp_newrw rw
+	SET c_BilledThroughDate = currentDate	
+	where rw.c__IsAllowGenChargeByTrigger = 1;
 
 end MeterPayerChangeFromRecWind;
 

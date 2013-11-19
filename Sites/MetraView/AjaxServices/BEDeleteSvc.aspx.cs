@@ -57,31 +57,6 @@ public partial class AjaxServices_BEDeleteSvc : MTPage
         client.Invoke();
 
       }
-      else if (_unRelated == "true")
-      {
-         foreach (string idString in idArray)
-        {
-
-          var entityInstance = new EntityInstance();
-          EntityInstanceService_LoadEntityInstance_Client  loadEntityInstanceClient = new EntityInstanceService_LoadEntityInstance_Client();
-          loadEntityInstanceClient.UserName = UI.User.UserName;
-          loadEntityInstanceClient.Password = UI.User.SessionPassword;
-          loadEntityInstanceClient.In_entityName = name;
-          loadEntityInstanceClient.In_id = new Guid(idString);
-          loadEntityInstanceClient.Invoke();
-          entityInstance = loadEntityInstanceClient.Out_entityInstance;
-
-
-          // Load existing entity instance for id
-          var client = new EntityInstanceService_DeleteEntityInstance_Client();
-          client.UserName = UI.User.UserName;
-          client.Password = UI.User.SessionPassword;
-          client.In_entityInstance = entityInstance;
-          client.Invoke();
-        }
-      
-      }
-
       else
       {
         foreach (string idString in idArray)

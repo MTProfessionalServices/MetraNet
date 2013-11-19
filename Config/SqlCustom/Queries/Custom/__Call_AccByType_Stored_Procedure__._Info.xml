@@ -5,7 +5,15 @@
         <Implementation>SqlServer</Implementation>
         <Implementation>Oracle</Implementation>
     </Implementations>
-    <Parameters></Parameters>
+    <Parameters>
+        <Parameter>
+            <Name>ACCTYPE</Name>
+            <DataType>sqlsubstitution</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>1</SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
+    </Parameters>
     <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>

@@ -59,6 +59,7 @@ SELECT DISTINCT
       AND pci.dt_start < dbo.MTMaxOfTwoDates(current_sub.vt_end, new_sub.vt_end) 
       AND pci.dt_end > dbo.MTMinOfTwoDates(current_sub.vt_start, new_sub.vt_start)
 	  AND pci.dt_end BETWEEN rw.c_payerstart  AND rw.c_payerend                         /* rc start goes to this payer */
+	  AND pci.dt_start < @currentDate /* Don't go into the future*/
       AND rw.c_unitvaluestart      < pci.dt_end AND rw.c_unitvalueend      > pci.dt_start /* rc overlaps with this UDRC */
       AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
       INNER LOOP JOIN t_usage_interval paymentInterval ON pci.dt_start between paymentInterval.dt_start AND paymentInterval.dt_end
@@ -125,6 +126,7 @@ SELECT DISTINCT
       AND pci.dt_start < dbo.MTMaxOfTwoDates(current_sub.vt_end, new_sub.vt_end) 
       AND pci.dt_end > dbo.MTMinOfTwoDates(current_sub.vt_start, new_sub.vt_start)
       AND pci.dt_end BETWEEN rw.c_payerstart  AND rw.c_payerend                         /* rc start goes to this payer */
+	  AND pci.dt_start < @currentDate /* Don't go into the future*/
       AND rw.c_unitvaluestart      < pci.dt_end AND rw.c_unitvalueend      > pci.dt_start /* rc overlaps with this UDRC */
       AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
           INNER LOOP JOIN t_usage_interval paymentInterval ON pci.dt_start between paymentInterval.dt_start AND paymentInterval.dt_end
@@ -212,6 +214,33 @@ SELECT DISTINCT
     AND (rcr.b_advance = 'N' AND current_sub.vt_end > pci.dt_end AND new_sub.vt_end < pci.dt_end) ;
 	
 	
+ /* Now determine if th interval and if the RC adapter has run, if no remove those adavanced charge credits */
+    DECLARE @prev_interval INT, @cur_interval INT, @do_credit INT
+
+	SELECT @prev_interval = prev_interval.id_interval, @cur_interval = cur_interval.id_interval
+	FROM t_usage_interval prev_interval
+	INNER JOIN (
+		SELECT * from t_usage_interval ui1 
+		WHERE dbo.metratime(1,'RC') between ui1.dt_start and ui1.dt_end 
+	) cur_interval 
+	ON prev_interval.dt_end = dbo.SubtractSecond( cur_interval.dt_start )
+
+    select @do_credit = (CASE WHEN ISNULL(rei.id_arg_interval, 0) = 0 THEN 0 
+	       ELSE 
+		      CASE WHEN rei.tx_status = 'Succeeded' THEN 1 ELSE 0 END 
+		   END)
+    from t_recevent re
+    left outer join t_recevent_inst rei on re.id_event = rei.id_event and rei.id_arg_interval = @prev_interval  
+    where 1=1
+    and re.dt_deactivated is null 
+    and re.tx_name = 'RecurringCharges'
+
+    IF @do_credit = 0
+    BEGIN
+        delete rcred 
+        from #tmp_rc_1 rcred
+        inner join t_usage_interval ui on ui.id_interval = @cur_interval and rcred.c_BillingIntervalStart = ui.dt_start
+    END;
 	SELECT *,NEWID() AS idSourceSess INTO #tmp_rc FROM #tmp_rc_1;
 --If no charges to meter, return immediately
     IF (NOT EXISTS (SELECT 1 FROM #tmp_rc)) RETURN;

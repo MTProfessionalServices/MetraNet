@@ -1,5 +1,5 @@
 
-                CREATE PROCEDURE prtn_CreatePartitionSchema
+                CREATE PROCEDURE prtn_create_partition_schema
 					@interval_id_end INT,
                 	@dt_end DATETIME,
                 	@partition_name NVARCHAR(100) OUTPUT
@@ -21,8 +21,8 @@
 					SET @partition_function_name = dbo.Prtn_GetUsagePartitionFunctionName()
 					SET @partition_schema_name = dbo.prtn_GetUsagePartitionSchemaName()
 					
-            	    EXEC prtn_AddFileGroup @partition_name
-            	    EXEC prtn_AddFileGroup @default_partition_name
+            	    EXEC prtn_add_file_group @partition_name
+            	    EXEC prtn_add_file_group @default_partition_name
             	    
 					SET @sqlCommand = 'CREATE PARTITION FUNCTION ' + @partition_function_name 
 						+ ' (int) AS RANGE LEFT FOR VALUES (' + CAST(@interval_id_end AS NVARCHAR(20)) + ')'		

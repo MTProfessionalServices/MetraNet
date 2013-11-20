@@ -4,10 +4,11 @@ CREATE OR REPLACE PROCEDURE MTSP_GENERATE_ST_RCS_QUOTING
     v_id_billgroup INT ,
     v_id_run       INT ,
     v_id_accounts VARCHAR2,
+	v_id_poid VARCHAR2,
     v_id_batch NVARCHAR2 ,
     v_n_batch_size INT ,
     v_run_date DATE ,
-    v_p_count OUT INT)
+    p_count OUT INT)
 AS
   v_total_rcs  INT;
   v_total_flat INT;
@@ -24,6 +25,10 @@ BEGIN
    DELETE FROM TMP_RC_ACCOUNTS_FOR_RUN;
    INSERT INTO TMP_RC_ACCOUNTS_FOR_RUN ( ID_ACC )
         SELECT * FROM table(cast(dbo.CSVToInt(v_id_accounts) as  tab_id_instance));
+		
+   DELETE FROM TMP_RC_POS_FOR_RUN;
+   INSERT INTO TMP_RC_POS_FOR_RUN ( ID_PO )
+        SELECT * FROM table(cast(dbo.CSVToInt(v_id_poid) as  tab_id_instance));
 
    DELETE FROM TMP_RCS;
    INSERT INTO TMP_RCS
@@ -146,6 +151,8 @@ BEGIN
           /* interval overlaps with subscription */
           AND rw.c_unitvaluestart < ui.dt_end
           AND rw.c_unitvalueend > ui.dt_start
+		  JOIN TMP_RC_POS_FOR_RUN po 
+		  on po.id_po = rw.c__ProductOfferingID
           JOIN t_recur rcr
           ON rw.c__priceableiteminstanceid = rcr.id_prop
           JOIN t_usage_cycle ccl
@@ -253,7 +260,9 @@ BEGIN
               /* next interval overlaps with subscription */
               AND rw.c_unitvaluestart < nui.dt_end
               AND rw.c_unitvalueend > nui.dt_start
-              JOIN t_recur rcr
+              JOIN TMP_RC_POS_FOR_RUN po 
+			   on po.id_po = rw.c__ProductOfferingID
+			  JOIN t_recur rcr
                ON rw.c__priceableiteminstanceid = rcr.id_prop
               JOIN t_usage_cycle ccl
                ON ccl.id_usage_cycle = CASE
@@ -287,20 +296,20 @@ BEGIN
               AND rcr.b_advance = 'Y'
         )  A;
 
-   SELECT COUNT(1) INTO v_total_rcs FROM TMP_RC ;
+   SELECT COUNT(1) INTO v_total_rcs FROM TMP_RCS ;
 
    IF v_total_rcs > 0 THEN
    BEGIN
-      SELECT COUNT(1) INTO v_total_flat FROM TMP_RC WHERE c_unitvalue IS NULL;
+      SELECT COUNT(1) INTO v_total_flat FROM TMP_RCS WHERE c_unitvalue IS NULL;
 
-      SELECT COUNT(1) INTO v_total_udrc FROM TMP_RC WHERE c_unitvalue IS NOT NULL;
+      SELECT COUNT(1) INTO v_total_udrc FROM TMP_RCS WHERE c_unitvalue IS NOT NULL;
 
       --INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Flat RC Candidate Count: ' + CAST(@total_flat AS VARCHAR));
       --INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'UDRC RC Candidate Count: ' + CAST(@total_udrc AS VARCHAR));
       --INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Session Set Count: ' + CAST(@v_n_batch_size AS VARCHAR));
       --INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Batch: ' + @v_id_batch);
       --INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Batch ID: ' + CAST(@tx_batch AS varchar));
-      v_tx_batch := utl_raw.cast_to_varchar2(utl_encode.base64_decode(utl_raw.cast_to_raw (v_id_batch)));
+      v_tx_batch :=  v_id_batch;	  
 
       IF v_total_flat > 0 THEN
       BEGIN
@@ -568,6 +577,6 @@ BEGIN
    END IF;
 
    /*INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Done inserting UDRC RCs');*/
-   v_p_count := v_total_rcs;
+   p_count := v_total_rcs;
    /*INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Info', 'Finished submitting RCs, count: ' + CAST(@total_rcs AS VARCHAR));*/
 END;

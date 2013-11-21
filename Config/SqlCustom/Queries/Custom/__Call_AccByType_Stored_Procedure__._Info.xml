@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Query>
-    <Action>Get</Action>
+    <Action>UnknownDdl</Action>
     <Implementations>
         <Implementation>SqlServer</Implementation>
         <Implementation>Oracle</Implementation>
@@ -12,7 +12,7 @@
             <ReplacementType>DoublePercent</ReplacementType>
             <SubstitutionSyntaxCheck>1</SubstitutionSyntaxCheck>
             <Description></Description>
-        </Parameter>
+        </Parameter>        
     </Parameters>
     <Description></Description>
     <ConversionAudit>

@@ -90,8 +90,8 @@ public partial class MetraControl_FileManagement_FileManagement : MTPage
                 DateTime dt2 = DateTime.Now;
                 DateTime dt1 = dt2.AddDays(-1);
 
-              dateElement.ElementValue = dt1.ToShortDateString();
-              dateElement.ElementValue2 = dt2.ToShortDateString();
+              dateElement.ElementValue = dt1.ToString("M/d/yyyy");
+              dateElement.ElementValue2 = dt2.ToString("M/d/yyyy");
             }
             else if (filter == "1")  // Last Week
             {

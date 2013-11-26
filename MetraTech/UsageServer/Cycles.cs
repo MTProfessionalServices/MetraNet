@@ -339,32 +339,6 @@ namespace MetraTech.UsageServer
       if (cycle.IsStartYearSet)
         bulkInsert.SetValue(10, MTParameterType.Integer, cycle.StartYear);
     }
-
-    /// <summary>
-    /// Generate all possible cycles for Annual or SemiAnnual cycle type.
-    /// </summary>
-    public static ICycle[] GenerateAnnualCycles()
-    {
-      // for each month, all possible days from the year 1999
-      // feb was not a leap year in 1999
-      // 365 days in the year
-      var calendar = new System.Globalization.GregorianCalendar();
-
-      var cycles = new ICycle[365];
-      var cycleId = 0;
-      for (var month = 1; month <= 12; month++)
-      {
-        for (var day = 1; day <= calendar.GetDaysInMonth(1999, month); day++)
-        {
-          ICycle cycle = new Cycle();
-          cycle.StartMonth = month;
-          cycle.StartDay = day;
-          cycle.CycleType = CycleType.Annual;
-          cycles[cycleId++] = cycle;
-        }
-      }
-      return cycles;
-    }
   }
 
   /// <remarks>
@@ -1569,13 +1543,29 @@ namespace MetraTech.UsageServer
     }
 
     /// <summary>
-    /// Generate all possible cycles for this cycle type.
-    /// NOTE: these cycles are generated in the correct order to match
-    /// previous versions of the product
+    /// Generate all possible cycles for Annual cycle type.
     /// </summary>
     public ICycle[] GenerateCycles()
     {
-      return UsageCycleManager.GenerateAnnualCycles();
+      // for each month, all possible days from the year 1999
+      // feb was not a leap year in 1999
+      // 365 days in the year
+      var calendar = new System.Globalization.GregorianCalendar();
+
+      var cycles = new ICycle[365];
+      var cycleId = 0;
+      for (var month = 1; month <= 12; month++)
+      {
+        for (var day = 1; day <= calendar.GetDaysInMonth(1999, month); day++)
+        {
+          ICycle cycle = new Cycle();
+          cycle.StartMonth = month;
+          cycle.StartDay = day;
+          cycle.CycleType = CycleType.Annual;
+          cycles[cycleId++] = cycle;
+        }
+      }
+      return cycles;
     }
   }
 
@@ -1663,13 +1653,29 @@ namespace MetraTech.UsageServer
     }
 
     /// <summary>
-    /// Generate all possible cycles for this cycle type.
-    /// NOTE: these cycles are generated in the correct order to match
-    /// previous versions of the product
+    /// Generate all possible cycles for SemiAnnual cycle type.
     /// </summary>
     public ICycle[] GenerateCycles()
     {
-      return UsageCycleManager.GenerateAnnualCycles();
+      // for each month, all possible days from the year 1999
+      // feb was not a leap year in 1999
+      // 365 days in the year
+      var calendar = new System.Globalization.GregorianCalendar();
+
+      var cycles = new ICycle[365];
+      var cycleId = 0;
+      for (var month = 1; month <= 12; month++)
+      {
+        for (var day = 1; day <= calendar.GetDaysInMonth(1999, month); day++)
+        {
+          ICycle cycle = new Cycle();
+          cycle.StartMonth = month;
+          cycle.StartDay = day;
+          cycle.CycleType = CycleType.SemiAnnual;
+          cycles[cycleId++] = cycle;
+        }
+      }
+      return cycles;
     }
   }
 }

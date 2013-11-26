@@ -184,7 +184,7 @@ namespace MetraTech.Core.Services.Test.Quoting
             return quotingImplementation;
         }
 
-        public static void RunTestCheckingBadInputs(IEnumerable<int> accountIds, IEnumerable<int> poIds, string expectedErrorMessagePartial)
+        public static void RunTestCheckingBadInputs(IEnumerable<int> accountIds, IEnumerable<int> poIds, string expectedErrorMessagePartial, int? corporateAccountID = null)
         {
             var request = new QuoteRequest();
 
@@ -196,6 +196,12 @@ namespace MetraTech.Core.Services.Test.Quoting
               {
                   PDFReport = RunPDFGenerationForAllTestsByDefault
               };
+
+            if (corporateAccountID != null)
+            {
+                request.SubscriptionParameters.CorporateAccountId = (int) corporateAccountID;
+                request.SubscriptionParameters.IsGroupSubscription = true;
+            }
 
             QuoteImplementationData quoteImpl = new QuoteImplementationData(request);
             QuoteVerifyData expected = new QuoteVerifyData();

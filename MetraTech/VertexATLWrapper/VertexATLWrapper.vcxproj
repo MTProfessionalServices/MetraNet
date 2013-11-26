@@ -1,0 +1,451 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{00223114-6C5F-42B7-93F2-7CF54B1C8CA5}</ProjectGuid>
+    <Keyword>AtlProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <UseOfAtl>Dynamic</UseOfAtl>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <UseOfAtl>Dynamic</UseOfAtl>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <UseOfAtl>Dynamic</UseOfAtl>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <UseOfAtl>Dynamic</UseOfAtl>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(MTOutDir)\$(Configuration)\bin\</OutDir>
+    <IntDir>$(MTOutDir)\$(Configuration)\$(ProjectName)\</IntDir>
+    <TargetName>VertexATLWrapperLib</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>VertexATLWrapperLib</TargetName>
+    <LinkDelaySign>
+    </LinkDelaySign>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <IntDir>$(MTOutDir)\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(MTOutDir)\$(Configuration)\bin\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>VertexATLWrapperLib</TargetName>
+    <LinkDelaySign />
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <IntDir>$(OutDir)obj\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>S:\ThirdParty\xerces-c-3.1.1\samples\src\DOMPrint;S:\ThirdParty\xerces-c-3.1.1\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <StringPooling>false</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <ErrorReporting>Prompt</ErrorReporting>
+      <ShowIncludes>false</ShowIncludes>
+    </ClCompile>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <HeaderFileName>VertexATLWrapper_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName>VertexATLWrapper_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>VertexATLWrapper_p.c</ProxyFileName>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(IntDir)VertexATLWrapper.tlb</TypeLibraryName>
+      <DllDataFileName>
+      </DllDataFileName>
+      <ValidateAllParameters>true</ValidateAllParameters>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <ModuleDefinitionFile>./VertexATLWrapper.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <RegisterOutput>true</RegisterOutput>
+      <AdditionalLibraryDirectories>.\..\..\..\..\..\Build\Win32\VC10\$(Configuration)\;"S:\Thirdparty\xerces-c-3.1.1\src\xercesc";%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <OutputFile>$(MTOutDir)\$(Configuration)\bin\VertexATLWrapperLib.dll</OutputFile>
+      <CLRThreadAttribute>DefaultThreadingAttribute</CLRThreadAttribute>
+      <CLRUnmanagedCodeCheck>true</CLRUnmanagedCodeCheck>
+      <SupportUnloadOfDelayLoadedDLL>false</SupportUnloadOfDelayLoadedDLL>
+      <LinkErrorReporting>PromptImmediately</LinkErrorReporting>
+      <AdditionalDependencies>$(MTOUTDIR)\$(Configuration)\bin\ctq.lib;$(MTOutDir)\$(Configuration)\bin\xerces-c_3D.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+    </Link>
+    <PreLinkEvent>
+      <Command>copy "$(SolutionDir)CTQ\*.dll" "$(MTOUTDIR)\$(Configuration)\bin" /Y
+copy "$(SolutionDir)CTQ\*.lib" "$(MTOUTDIR)\$(Configuration)\bin" /Y
+copy "S:\Thirdparty\xerces-c-3.1.1\Build\Win32\VC10\$(Configuration)\*.dll" "$(MTOUTDIR)\$(Configuration)\bin\" /Y
+copy "S:\Thirdparty\xerces-c-3.1.1\Build\Win32\VC10\$(Configuration)\*.lib" "$(MTOUTDIR)\$(Configuration)\bin\" /Y
+copy "S:\Thirdparty\xerces-c-3.1.1\Build\Win32\VC10\$(Configuration)\*.pdb" "$(MTOUTDIR)\$(Configuration)\bin\" /Y
+copy "S:\Thirdparty\xerces-c-3.1.1\Build\Win32\VC10\$(Configuration)\*.exp" "$(MTOUTDIR)\$(Configuration)\bin\" /Y
+</Command>
+    </PreLinkEvent>
+    <PostBuildEvent>
+      <Command>cd /D $(MTOUTDIR)\$(Configuration)\bin
+tlbimp VertexATLWrapperlib.dll /out:Interop.VertexATLWrapperLib.dll</Command>
+      <Message>Creating Interop dll to be used in .net projects</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <HeaderFileName>VertexATLWrapper_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName>VertexATLWrapper_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>VertexATLWrapper_p.c</ProxyFileName>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(IntDir)VertexATLWrapper.tlb</TypeLibraryName>
+      <DllDataFileName>
+      </DllDataFileName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <ModuleDefinitionFile>VertexATLWrapper.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <RegisterOutput>true</RegisterOutput>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>S:\ThirdParty\xerces-c-3.1.1\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <StringPooling>false</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+      <CompileAsManaged>
+      </CompileAsManaged>
+      <CallingConvention>Cdecl</CallingConvention>
+      <ErrorReporting>Prompt</ErrorReporting>
+      <ShowIncludes>false</ShowIncludes>
+      <UseFullPaths>false</UseFullPaths>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <OpenMPSupport>false</OpenMPSupport>
+    </ClCompile>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <HeaderFileName>VertexATLWrapper_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName>VertexATLWrapper_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>VertexATLWrapper_p.c</ProxyFileName>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(IntDir)VertexATLWrapper.tlb</TypeLibraryName>
+      <DllDataFileName>
+      </DllDataFileName>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <EnableErrorChecks>EnableCustom</EnableErrorChecks>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>
+      </PreprocessorDefinitions>
+    </ResourceCompile>
+    <Link>
+      <SubSystem>NotSet</SubSystem>
+      <ModuleDefinitionFile>./VertexATLWrapper.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <OptimizeReferences>false</OptimizeReferences>
+      <RegisterOutput>true</RegisterOutput>
+      <PerUserRedirection>false</PerUserRedirection>
+      <AdditionalLibraryDirectories>.\..\..\..\..\..\Build\Win32\VC10\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(MTOUTDIR)\$(Configuration)\bin\ctq.lib;$(MTOutDir)\$(Configuration)\bin\xerces-c_3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <LinkStatus>
+      </LinkStatus>
+      <ShowProgress>NotSet</ShowProgress>
+      <ImportLibrary>
+      </ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+      <SupportUnloadOfDelayLoadedDLL>false</SupportUnloadOfDelayLoadedDLL>
+      <CLRUnmanagedCodeCheck>true</CLRUnmanagedCodeCheck>
+      <LinkErrorReporting>PromptImmediately</LinkErrorReporting>
+      <AssemblyDebug>false</AssemblyDebug>
+      <HeapReserveSize>0</HeapReserveSize>
+      <HeapCommitSize>0</HeapCommitSize>
+      <StackReserveSize>0</StackReserveSize>
+      <StackCommitSize>0</StackCommitSize>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <TreatLinkerWarningAsErrors>
+      </TreatLinkerWarningAsErrors>
+      <OutputFile>$(MTOutDir)\$(Configuration)\bin\VertexATLWrapperLib.dll</OutputFile>
+      <MapExports>true</MapExports>
+      <CLRThreadAttribute>DefaultThreadingAttribute</CLRThreadAttribute>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <Manifest>
+      <EnableDPIAwareness>true</EnableDPIAwareness>
+    </Manifest>
+    <PreLinkEvent>
+      <Command>copy "$(SolutionDir)CTQ\*.dll" "$(MTOUTDIR)\$(Configuration)\bin" /Y
+copy "$(SolutionDir)CTQ\*.lib" "$(MTOUTDIR)\$(Configuration)\bin" /Y
+copy "S:\Thirdparty\xerces-c-3.1.1\Build\Win32\VC10\$(Configuration)\*.dll" "$(MTOUTDIR)\$(Configuration)\bin\" /Y
+copy "S:\Thirdparty\xerces-c-3.1.1\Build\Win32\VC10\$(Configuration)\*.lib" "$(MTOUTDIR)\$(Configuration)\bin\" /Y
+copy "S:\Thirdparty\xerces-c-3.1.1\Build\Win32\VC10\$(Configuration)\*.pdb" "$(MTOUTDIR)\$(Configuration)\bin\" /Y
+copy "S:\Thirdparty\xerces-c-3.1.1\Build\Win32\VC10\$(Configuration)\*.exp" "$(MTOUTDIR)\$(Configuration)\bin\" /Y
+</Command>
+    </PreLinkEvent>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <PostBuildEvent>
+      <Command>cd /D $(MTOUTDIR)\$(Configuration)\bin
+tlbimp VertexATLWrapperlib.dll /out:Interop.VertexATLWrapperLib.dll</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Creating Interop dll to be used in .net projects</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\xerces-c-3.1.1\samples\src\DOMPrint;$(ProjectDir)\xerces-c-3.1.1\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <StringPooling>false</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+      <CompileAsManaged>
+      </CompileAsManaged>
+      <CallingConvention>Cdecl</CallingConvention>
+      <ErrorReporting>Prompt</ErrorReporting>
+      <ShowIncludes>true</ShowIncludes>
+      <UseFullPaths>false</UseFullPaths>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <OpenMPSupport>false</OpenMPSupport>
+    </ClCompile>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <HeaderFileName>VertexATLWrapper_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName>VertexATLWrapper_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>VertexATLWrapper_p.c</ProxyFileName>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(IntDir)VertexATLWrapper.tlb</TypeLibraryName>
+      <DllDataFileName>
+      </DllDataFileName>
+      <EnableErrorChecks>EnableCustom</EnableErrorChecks>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>
+      </PreprocessorDefinitions>
+    </ResourceCompile>
+    <Link>
+      <SubSystem>NotSet</SubSystem>
+      <ModuleDefinitionFile>VertexATLWrapper.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <OptimizeReferences>false</OptimizeReferences>
+      <RegisterOutput>true</RegisterOutput>
+      <PerUserRedirection>true</PerUserRedirection>
+      <AdditionalLibraryDirectories>"$(OutDir)";%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ctq.lib;xerces-c_3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <LinkStatus>false</LinkStatus>
+      <ShowProgress>NotSet</ShowProgress>
+      <ImportLibrary>
+      </ImportLibrary>
+      <SupportUnloadOfDelayLoadedDLL>false</SupportUnloadOfDelayLoadedDLL>
+      <CLRUnmanagedCodeCheck>true</CLRUnmanagedCodeCheck>
+      <LinkErrorReporting>PromptImmediately</LinkErrorReporting>
+      <AssemblyDebug>false</AssemblyDebug>
+      <HeapReserveSize>0</HeapReserveSize>
+      <HeapCommitSize>0</HeapCommitSize>
+      <StackReserveSize>0</StackReserveSize>
+      <StackCommitSize>0</StackCommitSize>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <TreatLinkerWarningAsErrors>
+      </TreatLinkerWarningAsErrors>
+      <OutputFile>$(OutDir)\VertexATLWrapperLib.dll</OutputFile>
+      <MapExports>true</MapExports>
+      <CLRThreadAttribute>DefaultThreadingAttribute</CLRThreadAttribute>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <Manifest>
+      <EnableDPIAwareness>true</EnableDPIAwareness>
+    </Manifest>
+    <PreLinkEvent>
+      <Command>set
+copy "$(SolutionDir)\CTQ\*.dll" "$(OutDir)" /Y
+copy "$(SolutionDir)\CTQ\*.lib" "$(OutDir)" /Y</Command>
+    </PreLinkEvent>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="DOMTreeErrorReporter.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="VertexATLWrapper.cpp" />
+    <ClCompile Include="VertexATLWrapper_i.c">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="VertexCtrl.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ctqa.h" />
+    <ClInclude Include="dllmain.h" />
+    <ClInclude Include="DOMTreeErrorReporter.hpp" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stda.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="VertexATLWrapper_i.h" />
+    <ClInclude Include="VertexCtrl.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="VertexATLWrapper.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="VertexATLWrapper.def" />
+    <None Include="VertexATLWrapper.rgs" />
+    <None Include="VertexCtrl.rgs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="VertexATLWrapper.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Thirdparty\xerces-c-3.1.1\projects\Win32\VC10\xerces-all\XercesLib\XercesLib.vcxproj">
+      <Project>{152ce948-f659-4206-a50a-1d2b9658ef96}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

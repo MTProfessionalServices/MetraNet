@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Net;
 using MetraTech.DomainModel.MetraPay;
 using System.IO;
-using System.Configuration;
-using System.Globalization;
 using MetraTech.ActivityServices.Common;
 
 namespace MetraTech.MetraPay.PaymentGateway
@@ -29,13 +26,13 @@ namespace MetraTech.MetraPay.PaymentGateway
             _wpConfig = WorldPayConfig.GetGlobalInstance();
         }
 
-        public bool ValidatePaymentMethod(DomainModel.MetraPay.MetraPaymentMethod paymentMethod)
+        public bool ValidatePaymentMethod(DomainModel.MetraPay.MetraPaymentMethod paymentMethod, string currency)
         {
             XmlDocument dom = WorldPayTokenizer.GetAuthorizationToken(_wpConfig,
                                                                             paymentMethod.PaymentInstrumentID,
                                                                             false,
                                                                             (decimal)1.00,
-                                                                            "USD");
+                                                                            currency);
 
             WorldPayHttpConnection wpRequest = new WorldPayHttpConnection();
             XmlDocument response = wpRequest.Send(_wpConfig, dom, false);
@@ -211,6 +208,12 @@ namespace MetraTech.MetraPay.PaymentGateway
 
             warnings = "";
 
+        }
+
+        public void UpdatePaymentMethod(MetraPaymentMethod paymentMethod, string currency)
+        {
+          if (paymentMethod == null) throw new ArgumentNullException("paymentMethod");
+          if (string.IsNullOrEmpty(currency)) throw new ArgumentNullException("currency");
         }
 
       /// <summary>

@@ -1,21 +1,9 @@
 using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-
 using MetraTech.ActivityServices.Common;
-using MetraTech.DomainModel.Common;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.PageNav.ClientProxies;
 using MetraTech.SecurityFramework;
 using MetraTech.UI.Common;
-using MetraTech.DomainModel.BaseTypes;
 using MetraTech.Approvals;
 using System.Collections.Generic;
 using MetraTech.Core.Services.ClientProxies;
@@ -27,16 +15,19 @@ public partial class GroupSubscriptions_AddGroupSubscriptionMembers : MTPage
   {
     get { return ViewState["bGroupSubAddMemberHierarchiesApprovalsEnabled"] as int?; }
     set { ViewState["bGroupSubAddMemberHierarchiesApprovalsEnabled"] = value; }
-  } //so we can read it any time in the session
+  }
+
+  //so we can read it any time in the session
 
   public bool bAllowMoreThanOnePendingChange { get; set; }
   public bool bGroupSubHasPendingChange { get; set; }
   public string strChangeType { get; set; }
   //Approval Framework Code Ends Here 
-  
-  
+
+
   #region JavaScript
-    public string JAVASCRIPT = @"
+
+  public string JAVASCRIPT = @"
   <script type='text/javascript'>
   
   var myData = {accounts:[]};
@@ -186,202 +177,220 @@ public partial class GroupSubscriptions_AddGroupSubscriptionMembers : MTPage
   });
   </script>
     ";
-    #endregion
 
-    public GroupSubscription CurrentGroupSubscription
+  #endregion
+
+  public GroupSubscription CurrentGroupSubscription
+  {
+    get { return ViewState["CurrentGroupSubscription"] as GroupSubscription; }
+    set { ViewState["CurrentGroupSubscription"] = value; }
+  }
+
+
+  protected void Page_Load(object sender, EventArgs e)
+  {
+    FixJavascript();
+    if (!ClientScript.IsClientScriptBlockRegistered("gridScript"))
     {
-        get { return ViewState["CurrentGroupSubscription"] as GroupSubscription; }
-        set { ViewState["CurrentGroupSubscription"] = value; }
+      ClientScript.RegisterStartupScript(this.GetType(), "gridScript", JAVASCRIPT);
     }
 
+    CurrentGroupSubscription = PageNav.Data.Out_StateInitData["CurrentGroupSubscription"] as GroupSubscription;
 
-    protected void Page_Load(object sender, EventArgs e)
+    if (CurrentGroupSubscription.Name != "")
     {
-        FixJavascript();
-        if (!ClientScript.IsClientScriptBlockRegistered("gridScript"))
-        {
-            ClientScript.RegisterStartupScript(this.GetType(), "gridScript", JAVASCRIPT);
-        }
+      // SECENG: CORE-4749 CLONE - MSOL BSS 28320 MetraCare: Incorrect Output Encoding on Account Pages (SecEx)
+      // Added JavaScript encoding
+      //MTTitle1.Text = Server.HtmlEncode(String.Format((string)GetLocalResourceObject("MTTitle1.Text"), CurrentGroupSubscription.Name.Replace("'", "\\'")));
+      MTTitle1.Text =
+        String.Format((string) GetLocalResourceObject("MTTitle1.Text"),
+                      CurrentGroupSubscription.Name.EncodeForJavaScript()).EncodeForHtml();
+      MTPanel1.Text = GetLocalResourceObject("lblAddGroupSubMembersTitleResource1").ToString();
 
-        CurrentGroupSubscription = PageNav.Data.Out_StateInitData["CurrentGroupSubscription"] as GroupSubscription;
-
-        if (CurrentGroupSubscription.Name != "")
-        {
-            // SECENG: CORE-4749 CLONE - MSOL BSS 28320 MetraCare: Incorrect Output Encoding on Account Pages (SecEx)
-            // Added JavaScript encoding
-            //MTTitle1.Text = Server.HtmlEncode(String.Format((string)GetLocalResourceObject("MTTitle1.Text"), CurrentGroupSubscription.Name.Replace("'", "\\'")));
-            MTTitle1.Text = String.Format((string)GetLocalResourceObject("MTTitle1.Text"), CurrentGroupSubscription.Name.EncodeForJavaScript()).EncodeForHtml();
-            MTPanel1.Text = GetLocalResourceObject("lblAddGroupSubMembersTitleResource1").ToString();
-
-            if (!Page.IsPostBack)
-            {
-                MTEffecStartDatePicker.Text = CurrentGroupSubscription.SubscriptionSpan.StartDate.Value.ToShortDateString();
-                MTEffecEndDatePicker.Text = CurrentGroupSubscription.SubscriptionSpan.EndDate.Value.ToShortDateString();
-            }
-        }
-
-        string gsid = "";
-        gsid = CurrentGroupSubscription.GroupId.ToString();
-        CheckPendingChanges(gsid);
-            
-      if (!this.MTDataBinder1.DataBind())
-        {
-            this.Logger.LogError(this.MTDataBinder1.BindingErrors.ToHtml());
-        }
-
-    }
-
-    protected void FixJavascript()
-    {
-        // SECENG: CORE-4749 CLONE - MSOL BSS 28320 MetraCare: Incorrect Output Encoding on Account Pages (SecEx)
-        // Added JavaScript encoding
-        /*
-        JAVASCRIPT = JAVASCRIPT.Replace("[%CURRENT_NODE%]", GetLocalResourceObject("CURRENT_NODE").ToString().Replace("'", "\\'"));
-        JAVASCRIPT = JAVASCRIPT.Replace("[%DIRECT_DESCENDANTS%]", GetLocalResourceObject("DIRECT_DESCENDANTS").ToString().Replace("'", "\\'"));
-        JAVASCRIPT = JAVASCRIPT.Replace("[%ALL_DESCENDANTS%]", GetLocalResourceObject("ALL_DESCENDANTS").ToString().Replace("'", "\\'"));
-        JAVASCRIPT = JAVASCRIPT.Replace("[%SELECT_ACCOUNTS%]", GetLocalResourceObject("SELECT_ACCOUNTS").ToString().Replace("'", "\\'"));
-        JAVASCRIPT = JAVASCRIPT.Replace("[%USERNAME%]", GetLocalResourceObject("USERNAME").ToString().Replace("'", "\\'"));
-        JAVASCRIPT = JAVASCRIPT.Replace("[%SELECTION%]", GetLocalResourceObject("SELECTION").ToString().Replace("'", "\\'"));
-        JAVASCRIPT = JAVASCRIPT.Replace("[%ACTIONS%]", GetLocalResourceObject("ACTIONS").ToString().Replace("'", "\\'"));
-        JAVASCRIPT = JAVASCRIPT.Replace("[%GRID_TITLE%]", GetLocalResourceObject("GRID_TITLE").ToString().Replace("'", "\\'"));
-        JAVASCRIPT = JAVASCRIPT.Replace("[%REMOVE_ACCOUNT%]", GetLocalResourceObject("REMOVE_ACCOUNT").ToString().Replace("'", "\\'"));
-        */
-        JAVASCRIPT = JAVASCRIPT.Replace("[%CURRENT_NODE%]", GetLocalResourceObject("CURRENT_NODE").ToString().EncodeForJavaScript());
-        JAVASCRIPT = JAVASCRIPT.Replace("[%DIRECT_DESCENDANTS%]", GetLocalResourceObject("DIRECT_DESCENDANTS").ToString().EncodeForJavaScript());
-        JAVASCRIPT = JAVASCRIPT.Replace("[%ALL_DESCENDANTS%]", GetLocalResourceObject("ALL_DESCENDANTS").ToString().EncodeForJavaScript());
-        JAVASCRIPT = JAVASCRIPT.Replace("[%SELECT_ACCOUNTS%]", GetLocalResourceObject("SELECT_ACCOUNTS").ToString().EncodeForJavaScript());
-        JAVASCRIPT = JAVASCRIPT.Replace("[%USERNAME%]", GetLocalResourceObject("USERNAME").ToString().EncodeForJavaScript());
-        JAVASCRIPT = JAVASCRIPT.Replace("[%SELECTION%]", GetLocalResourceObject("SELECTION").ToString().EncodeForJavaScript());
-        JAVASCRIPT = JAVASCRIPT.Replace("[%ACTIONS%]", GetLocalResourceObject("ACTIONS").ToString().EncodeForJavaScript());
-        JAVASCRIPT = JAVASCRIPT.Replace("[%GRID_TITLE%]", GetLocalResourceObject("GRID_TITLE").ToString().EncodeForJavaScript());
-        JAVASCRIPT = JAVASCRIPT.Replace("[%REMOVE_ACCOUNT%]", GetLocalResourceObject("REMOVE_ACCOUNT").ToString().EncodeForJavaScript());
-
-    }
-
-    protected void CheckPendingChanges( string groupsubid)
-    {
-      ApprovalManagementServiceClient client = new ApprovalManagementServiceClient();
-
-      client.ClientCredentials.UserName.UserName = UI.User.UserName;
-      client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
-
-      strChangeType = "GroupSubscription.AddMemberHierarchies";
-      bGroupSubHasPendingChange = false;
-      bGroupSubAddMemberHierarchiesApprovalsEnabled = 0;
-
-      MTList<ChangeTypeConfiguration> mactc = new MTList<ChangeTypeConfiguration>();
-
-      client.RetrieveChangeTypeConfiguration(strChangeType, ref mactc);
-
-      if (mactc.Items[0].Enabled)
+      if (!Page.IsPostBack)
       {
-        bGroupSubAddMemberHierarchiesApprovalsEnabled = 1;// mactc.Items[0].Enabled; 
+        MTEffecStartDatePicker.Text = CurrentGroupSubscription.SubscriptionSpan.StartDate.Value.ToShortDateString();
+        MTEffecEndDatePicker.Text = CurrentGroupSubscription.SubscriptionSpan.EndDate.Value.ToShortDateString();
+      }
+    }
+
+    string gsid = "";
+    gsid = CurrentGroupSubscription.GroupId.ToString();
+    CheckPendingChanges(gsid);
+
+    if (!this.MTDataBinder1.DataBind())
+    {
+      this.Logger.LogError(this.MTDataBinder1.BindingErrors.ToHtml());
+    }
+
+  }
+
+  protected void FixJavascript()
+  {
+    // SECENG: CORE-4749 CLONE - MSOL BSS 28320 MetraCare: Incorrect Output Encoding on Account Pages (SecEx)
+    // Added JavaScript encoding
+    /*
+    JAVASCRIPT = JAVASCRIPT.Replace("[%CURRENT_NODE%]", GetLocalResourceObject("CURRENT_NODE").ToString().Replace("'", "\\'"));
+    JAVASCRIPT = JAVASCRIPT.Replace("[%DIRECT_DESCENDANTS%]", GetLocalResourceObject("DIRECT_DESCENDANTS").ToString().Replace("'", "\\'"));
+    JAVASCRIPT = JAVASCRIPT.Replace("[%ALL_DESCENDANTS%]", GetLocalResourceObject("ALL_DESCENDANTS").ToString().Replace("'", "\\'"));
+    JAVASCRIPT = JAVASCRIPT.Replace("[%SELECT_ACCOUNTS%]", GetLocalResourceObject("SELECT_ACCOUNTS").ToString().Replace("'", "\\'"));
+    JAVASCRIPT = JAVASCRIPT.Replace("[%USERNAME%]", GetLocalResourceObject("USERNAME").ToString().Replace("'", "\\'"));
+    JAVASCRIPT = JAVASCRIPT.Replace("[%SELECTION%]", GetLocalResourceObject("SELECTION").ToString().Replace("'", "\\'"));
+    JAVASCRIPT = JAVASCRIPT.Replace("[%ACTIONS%]", GetLocalResourceObject("ACTIONS").ToString().Replace("'", "\\'"));
+    JAVASCRIPT = JAVASCRIPT.Replace("[%GRID_TITLE%]", GetLocalResourceObject("GRID_TITLE").ToString().Replace("'", "\\'"));
+    JAVASCRIPT = JAVASCRIPT.Replace("[%REMOVE_ACCOUNT%]", GetLocalResourceObject("REMOVE_ACCOUNT").ToString().Replace("'", "\\'"));
+    */
+    JAVASCRIPT = JAVASCRIPT.Replace("[%CURRENT_NODE%]",
+                                    GetLocalResourceObject("CURRENT_NODE").ToString().EncodeForJavaScript());
+    JAVASCRIPT = JAVASCRIPT.Replace("[%DIRECT_DESCENDANTS%]",
+                                    GetLocalResourceObject("DIRECT_DESCENDANTS").ToString().EncodeForJavaScript());
+    JAVASCRIPT = JAVASCRIPT.Replace("[%ALL_DESCENDANTS%]",
+                                    GetLocalResourceObject("ALL_DESCENDANTS").ToString().EncodeForJavaScript());
+    JAVASCRIPT = JAVASCRIPT.Replace("[%SELECT_ACCOUNTS%]",
+                                    GetLocalResourceObject("SELECT_ACCOUNTS").ToString().EncodeForJavaScript());
+    JAVASCRIPT = JAVASCRIPT.Replace("[%USERNAME%]", GetLocalResourceObject("USERNAME").ToString().EncodeForJavaScript());
+    JAVASCRIPT = JAVASCRIPT.Replace("[%SELECTION%]",
+                                    GetLocalResourceObject("SELECTION").ToString().EncodeForJavaScript());
+    JAVASCRIPT = JAVASCRIPT.Replace("[%ACTIONS%]", GetLocalResourceObject("ACTIONS").ToString().EncodeForJavaScript());
+    JAVASCRIPT = JAVASCRIPT.Replace("[%GRID_TITLE%]",
+                                    GetLocalResourceObject("GRID_TITLE").ToString().EncodeForJavaScript());
+    JAVASCRIPT = JAVASCRIPT.Replace("[%REMOVE_ACCOUNT%]",
+                                    GetLocalResourceObject("REMOVE_ACCOUNT").ToString().EncodeForJavaScript());
+
+  }
+
+  protected void CheckPendingChanges(string groupsubid)
+  {
+    ApprovalManagementServiceClient client = new ApprovalManagementServiceClient();
+
+    client.ClientCredentials.UserName.UserName = UI.User.UserName;
+    client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+
+    strChangeType = "GroupSubscription.AddMemberHierarchies";
+    bGroupSubHasPendingChange = false;
+    bGroupSubAddMemberHierarchiesApprovalsEnabled = 0;
+
+    MTList<ChangeTypeConfiguration> mactc = new MTList<ChangeTypeConfiguration>();
+
+    client.RetrieveChangeTypeConfiguration(strChangeType, ref mactc);
+
+    if (mactc.Items[0].Enabled)
+    {
+      bGroupSubAddMemberHierarchiesApprovalsEnabled = 1; // mactc.Items[0].Enabled; 
+    }
+
+    if (bGroupSubAddMemberHierarchiesApprovalsEnabled == 1)
+    {
+      bAllowMoreThanOnePendingChange = mactc.Items[0].AllowMoreThanOnePendingChange;
+
+      List<int> pendingchangeids;
+      client.GetPendingChangeIdsForItem(strChangeType, groupsubid, out pendingchangeids);
+
+      if (pendingchangeids.Count != 0)
+      {
+        bGroupSubHasPendingChange = true;
       }
 
+      if (!bAllowMoreThanOnePendingChange)
+      {
+        if (bGroupSubHasPendingChange)
+        {
+          SetError(
+            "This Group Subscription has Add Membership Hierarchy type pending change. This type of change does not allow more than one pending changes.");
+          this.Logger.LogError(
+            string.Format(
+              "The item {0} already has a pending change of the type {1} and this type of change does not allow more than one pending change.",
+              groupsubid, strChangeType));
+        }
+
+      }
+
+      if (bGroupSubHasPendingChange)
+      {
+        string approvalframeworkmanagementurl =
+          "<a href='/MetraNet/ApprovalFrameworkManagement/ShowChangesSummary.aspx?showchangestate=PENDING'</a>";
+        string strPendingChangeWarning = "This Group Subscription has Add Membership Hierarchy type pending change." +
+                                         approvalframeworkmanagementurl + " Click here to view pending changes.";
+
+        divLblMessage.Visible = true;
+        lblMessage.Text = strPendingChangeWarning;
+      }
+    }
+    //Approval Framework Code Ends Here 
+
+  }
+
+  protected void btnOK_Click(object sender, EventArgs e)
+  {
+    try
+    {
+      Page.Validate();
+      string ses = "";
+      ses = HiddenAcctIdTextBox.Value;
+      MTDataBinder1.Unbind();
+
+      //Moving this to page load event
+      //string gsid = "";
+      //gsid = CurrentGroupSubscription.GroupId.ToString();
+      //CheckPendingChanges(gsid);
+
+      GroupSubscriptionMember gsm = new GroupSubscriptionMember();
+      gsm.MembershipSpan.StartDate = Convert.ToDateTime(this.MTEffecStartDatePicker.Text);
+      gsm.MembershipSpan.EndDate = Convert.ToDateTime(this.MTEffecEndDatePicker.Text);
+
+      GroupSubscriptionsEvents_OKAddGroupSubscriptionMembers_Client add =
+        new GroupSubscriptionsEvents_OKAddGroupSubscriptionMembers_Client();
+
+      add.In_AccountId = new AccountIdentifier(UI.User.AccountId);
+      add.In_GroupSubscriptionMember = gsm;
+      add.In_MemberIdColl = HiddenAcctIdTextBox.Value;
+
+      //Approval Framework related code starts here
       if (bGroupSubAddMemberHierarchiesApprovalsEnabled == 1)
       {
-        bAllowMoreThanOnePendingChange = mactc.Items[0].AllowMoreThanOnePendingChange;
+        add.In_IsApprovalEnabled = true;
+      }
+      else
+      {
+        add.In_IsApprovalEnabled = false;
+      }
+      //Approval Framework related code ends here
 
-        List<int> pendingchangeids;
-        client.GetPendingChangeIdsForItem(strChangeType, groupsubid, out pendingchangeids);
 
-          if (pendingchangeids.Count != 0)
-          {
-            bGroupSubHasPendingChange = true;
-          }
+      PageNav.Execute(add);
 
-          if (!bAllowMoreThanOnePendingChange)
-          {
-            if (bGroupSubHasPendingChange)
-            {
-              SetError("This Group Subscription has Add Membership Hierarchy type pending change. This type of change does not allow more than one pending changes.");
-              this.Logger.LogError(string.Format("The item {0} already has a pending change of the type {1} and this type of change does not allow more than one pending change.", groupsubid, strChangeType));
-            }
+      // Show the change submitted confirmation page if this change is submitted to the approval framework
+      if (bGroupSubAddMemberHierarchiesApprovalsEnabled == 1)
+      {
+        Session["RedirectLoc"] = Response.RedirectLocation;
+        Response.Redirect("/MetraNet/ApprovalFrameworkManagement/ChangeSubmittedConfirmation.aspx", false);
+      }
 
-          }
 
-          if (bGroupSubHasPendingChange)
-          {
-            string approvalframeworkmanagementurl = "<a href='/MetraNet/ApprovalFrameworkManagement/ShowChangesSummary.aspx?showchangestate=PENDING'</a>";
-            string strPendingChangeWarning = "This Group Subscription has Add Membership Hierarchy type pending change." + approvalframeworkmanagementurl + " Click here to view pending changes.";
-
-            divLblMessage.Visible = true;
-            lblMessage.Text = strPendingChangeWarning;
-          }
-        }
-        //Approval Framework Code Ends Here 
- 
     }
-  
-  protected void btnOK_Click(object sender, EventArgs e)
+    catch (Exception ex)
     {
-        try
-        {
-            Page.Validate();
-            string ses = "";
-            ses = HiddenAcctIdTextBox.Value;
-          MTDataBinder1.Unbind();
-
-          //Moving this to page load event
-          //string gsid = "";
-          //gsid = CurrentGroupSubscription.GroupId.ToString();
-          //CheckPendingChanges(gsid);
-
-            GroupSubscriptionMember gsm = new GroupSubscriptionMember();
-            gsm.MembershipSpan.StartDate = Convert.ToDateTime(this.MTEffecStartDatePicker.Text);
-            gsm.MembershipSpan.EndDate = Convert.ToDateTime(this.MTEffecEndDatePicker.Text);
-
-            GroupSubscriptionsEvents_OKAddGroupSubscriptionMembers_Client add =
-                new GroupSubscriptionsEvents_OKAddGroupSubscriptionMembers_Client();
-
-            add.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-            add.In_GroupSubscriptionMember = gsm;
-            add.In_MemberIdColl = HiddenAcctIdTextBox.Value;
-          
-            //Approval Framework related code starts here
-            if (bGroupSubAddMemberHierarchiesApprovalsEnabled == 1)
-            {
-              add.In_IsApprovalEnabled = true;
-            }
-            else
-            { add.In_IsApprovalEnabled = false; }
-            //Approval Framework related code ends here
-
-
-            PageNav.Execute(add);
-
-            // Show the change submitted confirmation page if this change is submitted to the approval framework
-            if (bGroupSubAddMemberHierarchiesApprovalsEnabled == 1)
-            {
-               Session["RedirectLoc"] = Response.RedirectLocation;
-               Response.Redirect("/MetraNet/ApprovalFrameworkManagement/ChangeSubmittedConfirmation.aspx", false);
-            }
-
-            
-        }
-        catch (Exception ex)
-        {
-            string Message = GetLocalResourceObject("ErrorAddGroupSubMember").ToString();
-            SetError(Message);
-            Logger.LogError(ex.Message);
-        }
+      string Message = GetLocalResourceObject("ErrorAddGroupSubMember").ToString();
+      SetError(Message);
+      Logger.LogError(ex.Message);
     }
+  }
 
-    protected void btnCancel_Click(object sender, EventArgs e)
-    {
-        GroupSubscriptionsEvents_CancelAddGroupSubscriptionMembers_Client cancel =
-            new GroupSubscriptionsEvents_CancelAddGroupSubscriptionMembers_Client();
-        cancel.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-        PageNav.Execute(cancel);
-    }
+  protected void btnCancel_Click(object sender, EventArgs e)
+  {
+    GroupSubscriptionsEvents_CancelAddGroupSubscriptionMembers_Client cancel =
+      new GroupSubscriptionsEvents_CancelAddGroupSubscriptionMembers_Client();
+    cancel.In_AccountId = new AccountIdentifier(UI.User.AccountId);
+    PageNav.Execute(cancel);
+  }
 
-    protected void btnAdd_Click(object sender, EventArgs e)
-    {
+  protected void btnAdd_Click(object sender, EventArgs e)
+  {
 
-    }
-    protected void btnRemove_Click(object sender, EventArgs e)
-    {
+  }
 
-    }
+  protected void btnRemove_Click(object sender, EventArgs e)
+  {
 
+  }
 }

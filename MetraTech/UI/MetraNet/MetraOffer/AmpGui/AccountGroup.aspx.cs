@@ -14,6 +14,7 @@ using MetraTech.UI.Controls;
 using MetraTech.UsageServer;
 using MetraTech.UI.MetraNet.App_Code;
 using MetraTech.DomainModel.ProductCatalog;
+using System.Collections.Generic;
 
 
 public partial class AmpAccountGroupPage : AmpWizardBasePage
@@ -31,12 +32,12 @@ public partial class AmpAccountGroupPage : AmpWizardBasePage
       AmpCurrentPage = "AccountGroup.aspx";
       AmpNextPage = "SelectUsageQualification.aspx";
       AmpPreviousPage = "GeneralInformation.aspx";
-
+      setCheckBoxEventHandler();
       if (!IsPostBack)
       {
           // Monitor changes made to the controls on the page.
           MonitorChangesInControlByClientId(hiddenAcctGroupName.ClientID);
-
+          MonitorChangesInControlByClientId(ddAccountGroupFromParamTableSource.ClientID);
           // The Continue button should NOT prompt the user if the controls have changed.
           // However, we don't need to call IgnoreChangesInControl(btnContinue) here
           // because of how OnClientClick is defined for the button.
@@ -47,6 +48,8 @@ public partial class AmpAccountGroupPage : AmpWizardBasePage
           {
             btnContinue.Visible = true;
             btnSaveAndContinue.Visible = false;
+            FromParamTableCheckBox.Enabled = false;
+            ddAccountGroupFromParamTableSource.ReadOnly = true;
           }
           else // If we are editing a decision, show the "Save & Continue" button
           {
@@ -70,19 +73,37 @@ public partial class AmpAccountGroupPage : AmpWizardBasePage
             ampSvcGetDecisionClient.GetDecision(AmpDecisionName, out decisionInstance);
 
             CurrentDecisionInstance = decisionInstance;
-
-            if (decisionInstance.AccountQualificationGroup != null)
+            List<KeyValuePair<String, String>> paramTableColumns;
+            if (GetParameterTableColumnNamesWithClient(CurrentDecisionInstance.ParameterTableName,
+                                                       out paramTableColumns))
             {
-              hiddenAcctGroupName.Value = decisionInstance.AccountQualificationGroup;
-
-              // Can't do anything now about selecting the radio button that
-              // corresponds to the decision's current account qualification group.
-              // (Must wait until the grid control is loaded.
-              // After the grid control is loaded, if AmpAction is "View",
-              // we also must disable selection of other rows!)
+                setParamTableDropDown(paramTableColumns);
             }
 
-            // Clean up client.
+              if (decisionInstance.AccountQualificationGroupValue != null)
+              {
+                  hiddenAcctGroupName.Value = decisionInstance.AccountQualificationGroupValue;
+
+                  if (AmpAction == "View")
+                  {
+                      divAccountGroupFromParamTableDropdownSource.Attributes.Add("style", "display: none;");
+                  }
+                  // Can't do anything now about selecting the radio button that
+                  // corresponds to the decision's current account qualification group.
+                  // (Must wait until the grid control is loaded.
+                  // After the grid control is loaded, if AmpAction is "View",
+                  // we also must disable selection of other rows!)
+              }
+              else
+              {
+                  hiddenAcctGroupName.Value = decisionInstance.AccountQualificationGroupColumnName;
+                  FromParamTableCheckBox.Checked = true;
+                  ddAccountGroupFromParamTableSource.SelectedValue =
+                      decisionInstance.AccountQualificationGroupColumnName;
+                  divAccountGroupGrid.Attributes.Add("style", "display: none;");
+              }
+
+              // Clean up client.
             ampSvcGetDecisionClient.Close();
             ampSvcGetDecisionClient = null;
 
@@ -101,6 +122,28 @@ public partial class AmpAccountGroupPage : AmpWizardBasePage
           }
 
       } // if (!IsPostBack)
+    }
+    private void setParamTableDropDown(List<KeyValuePair<String, String>> paramTableColumns)
+    {
+        ddAccountGroupFromParamTableSource.Items.Clear();
+        foreach (var item in paramTableColumns)
+        {
+            ddAccountGroupFromParamTableSource.Items.Add(new ListItem(item.Value, item.Key));
+        }
+    }
+
+    private void setCheckBoxEventHandler()
+    {
+        FromParamTableCheckBox.Listeners = @"{ 'check' : this.onChange_" + FromParamTableCheckBox.ID + @", scope: this }";
+
+        String scriptString = "<script type=\"text/javascript\">";
+        scriptString += "function onChange_" + FromParamTableCheckBox.ID + "(field, newvalue, oldvalue) \n";
+        scriptString += "{ \n";
+        scriptString += "return updateActiveControls(); \n";
+        scriptString += "} \n";
+        scriptString += "</script>";
+
+        Page.ClientScript.RegisterStartupScript(FromParamTableCheckBox.GetType(), "onChange_" + FromParamTableCheckBox.ID, scriptString);
     }
 
     /// <summary>
@@ -134,12 +177,27 @@ public partial class AmpAccountGroupPage : AmpWizardBasePage
           ampSvcStoreDecisionClient.ClientCredentials.UserName.UserName = UI.User.UserName;
           ampSvcStoreDecisionClient.ClientCredentials.UserName.Password = UI.User.SessionPassword;
         }
+        if ((AmpAction != "View") && (hiddenAcctGroupName.Value == String.Empty))
+        {
+            SetError(GetLocalResourceObject("TEXT_ERROR_NO_ACCOUNT_GROUP").ToString());
+            logger.LogError(String.Format("No Account Group was selected for Decision '{0}'", AmpDecisionName));
+            return;  // Stay on same page.
+        }
 
         if (AmpAction != "View")
         {
           // Update decision's account group based on selected radio button.
-          CurrentDecisionInstance.AccountQualificationGroup = hiddenAcctGroupName.Value;
-          ampSvcStoreDecisionClient.SaveDecision(CurrentDecisionInstance);
+            if (FromParamTableCheckBox.Checked)
+            {
+                CurrentDecisionInstance.AccountQualificationGroupValue = null;
+                CurrentDecisionInstance.AccountQualificationGroupColumnName = hiddenAcctGroupName.Value;
+            }
+            else
+            {
+                CurrentDecisionInstance.AccountQualificationGroupValue = hiddenAcctGroupName.Value;
+                CurrentDecisionInstance.AccountQualificationGroupColumnName = null;
+            } 
+            ampSvcStoreDecisionClient.SaveDecision(CurrentDecisionInstance);
           logger.LogDebug(String.Format(GetGlobalResourceObject("AmpWizard", "TEXT_SUCCESS_SAVE_DECISION").ToString(), AmpDecisionName));
         }
 

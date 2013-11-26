@@ -26,29 +26,31 @@
 #define SUBSCRIBER_ASSIGNABLE_TAG "subscriberassignable"
 #define POLICIES_TAG "policies"
 #define POLICY_TAG "policy"
-#define COMPOSITE_CAPS_TAG "compositecapabilities"
-#define COMPOSITE_CAP_TAG "compositecapability"
-#define ATOMIC_CAPS_TAG "atomiccapabilities"
-#define ATOMIC_CAP_TAG "atomiccapability"
-#define ENUMTYPE_CAP_TAG "mtenumtypecapability"
-#define PATH_CAP_TAG "mtpathcapability"
-#define DECIMAL_CAP_TAG "mtdecimalcapability"
-#define STR_COL_CAP_TAG "mtstringcolcapability"
-#define VALUE_TAG "value"
+// ESR-6421 a port of ESR-6007/ESR-5722 reduce the size of the tags
+#define COMPOSITE_CAPS_TAG "cs"  // compositecapabilities
+#define COMPOSITE_CAP_TAG "c"    // compositecapability
+#define ATOMIC_CAPS_TAG "as"     // atomiccapabilities
+#define ATOMIC_CAP_TAG "a"       // atomiccapability
+#define ENUMTYPE_CAP_TAG "ec"   // mtenumtypecapability
+#define PATH_CAP_TAG "pc"       // mtpathcapability
+#define DECIMAL_CAP_TAG "dc"    // mtdecimalcapability
+#define STR_COL_CAP_TAG "sc"    // mtstringcolcapability
+#define VALUE_TAG "v"            // value
 #define OP_TAG "op"
-#define WILDCARD_TAG "wildcard"
-
-#define ROLES_TAG "roles"
-#define ROLE_TAG "role"
+// ESR-6421 a port of ESR-6007/ESR-5722 reduce the size of the tags
+#define WILDCARD_TAG "wc" // wildcard
+#define ROLES_TAG "rs" // roles
+#define ROLE_TAG "r" // role
 #define TYPE_ATTRIB "type"
 #define NAME_ATTRIB "name"
-#define AUTH_NAME_TAG "name"
+// ESR-6421 a port of ESR-6007/ESR-5722 reduce the size of the tags
+#define AUTH_NAME_TAG "n" // name
 #define GUID_ATTRIB "guid"
-
 #define ACCOUNT_ID_TAG "id_acc"
 #define SECURITY_CONTEXT_TAG "securitycontext"
-#define DBID_TAG "dbid"
-#define AUTH_PROGID_TAG "progid"
+// ESR-6421 a port of ESR-6007/ESR-5722 reduce the size of the tags
+#define DBID_TAG "d" // dbid
+#define AUTH_PROGID_TAG "p" // progid
 #define PARAM_NAME_TAG "parametername"
 
 #define APPLICATION_NAME_TAG "applicationname"

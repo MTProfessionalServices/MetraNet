@@ -6,7 +6,7 @@
     <Platform Condition="'$(Platform)'=='Win32'">x86</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{e6f85b9c-27eb-4261-a723-52c7a0483493}</ProjectGuid>
+    <ProjectGuid>{E6F85B9C-27EB-4261-A723-52C7A0483493}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MetraTech.Reports.CrystalEnterprise</RootNamespace>
@@ -102,7 +102,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Properties" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DataAccess\MetraTech.DataAccess.csproj">

@@ -1,5 +1,5 @@
-﻿                            var win = null;
-  var winGridToRefresh = null;
+﻿var win = null;
+var winGridToRefresh = null;
 
   function onUpdateAllStatus(grid, gridname)
   {
@@ -62,10 +62,7 @@
 
 
 function caseNumberColRenderer(value, meta, record, rowIndex, colIndex, store) {
-  var str = "";
-  str += String.format("<span style='display:inline-block; vertical-align:middle'>&nbsp;<a style='cursor:hand;vertical-align:middle' id='editcase_{0}' title='{1}' href='JavaScript:onEditFailedTransaction(\"{0}\",\"{3}\",\"{2}\");'>{0}&nbsp;<img src='/Res/Images/icons/database_edit.png' alt='{1}' align='middle'/></a></span>", record.data.casenumber, TEXT_EDIT_FAILED_TRANSACTION, record.data.compound, record.data.failurecompoundsessionid);
-
-  return str;
+  return String.format("<span style='display:inline-block; vertical-align:middle'>&nbsp;<a style='cursor:hand;vertical-align:middle' id='editcase_{0}' title='{1}' href='JavaScript:onEditFailedTransaction(\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\");'>{0}&nbsp;<img src='/Res/Images/icons/database_edit.png' alt='{1}' align='middle'/></a></span>", record.data.casenumber, window.TEXT_EDIT_FAILED_TRANSACTION, record.data.failurecompoundsessionid, record.data.compound, store.sm.grid.id);
 }
 
 function actionsColRenderer(value, meta, record, rowIndex, colIndex, store) {
@@ -118,101 +115,106 @@ function statusColRenderer(value, meta, record, rowIndex, colIndex, store) {
   return str;
 }
 
-  function onEditFailedTransaction(idFailedTransaction, idFailureCompoundSession, isCompound)
-  {
-    if (isCompound == 'Y')
-    {
-      window.open("/MetraNet/TicketToMOMNoMenu.aspx?Title=Edit Failed Transaction&URL=/mom/default/dialog/FailedTransactionEditCompoundFrame.asp?IdFailure=" + idFailedTransaction + "**FailureCompoundSessionId=" + idFailureCompoundSession);
+function onViewFailedTransactionAuditLog(idFailedTransaction, idFailureCompoundSession) {
+  //http://localhost/mom/default/dialog/AuditLog.List.asp?EntityType=5&EntityId=3004&Title=Audit%20History%20For%20Failed%20Transaction%20Case%20Number%203004
+  window.open("/MetraNet/TicketToMOMNoMenu.aspx?Title=Audit Log&URL=/mom/default/dialog/AuditLog.List.asp?EntityType=5**EntityId=" + idFailedTransaction + "**Title=" + encodeURIComponent(TEXT_AUDIT_HISTORY_FAILED + idFailedTransaction));
+}
+
+function onEditFailedTransaction(idFailedTransaction, title, idFailureCompoundSession, isCompound, gridId) {
+  var page = isCompound == 'Y'
+    ? "/MetraNet/TicketToMOMNoMenu.aspx?Title=Edit Failed Transaction&URL=/mom/default/dialog/FailedTransactionEditCompoundFrame.asp?IdFailure=" + idFailedTransaction + "**FailureCompoundSessionId=" + idFailureCompoundSession
+    : "/MetraNet/TicketToMOMNoMenu.aspx?Title=Edit Failed Transaction&URL=/mom/default/dialog/FailedTransactionEditAtomic.asp?IdFailure=" + idFailedTransaction + "**MDMReload=TRUE**FailureCompoundSessionId=" + idFailureCompoundSession;
+  var grid = window.Ext.getCmp(gridId);
+  ShowWindow(grid, title, page);
+}
+
+function ShowWindow(grid, title, page) {
+  var params = "resizable=yes";
+  var myWin = window.open(page, "updateTransaction", params);
+  myWin.focus();
+  setTimeout(function() {
+    if (myWin.closed) {
+      grid.getSelectionModel().deselectAll(true);
+      grid.store.reload();
     }
     else
-    {
-      window.open("/MetraNet/TicketToMOMNoMenu.aspx?Title=Edit Failed Transaction&URL=/mom/default/dialog/FailedTransactionEditAtomic.asp?IdFailure=" + idFailedTransaction + "**MDMReload=TRUE**FailureCompoundSessionId=" + idFailureCompoundSession);
-    }
+      setTimeout(arguments.callee, 10);
+  }, 10);
+  winGridToRefresh = grid; 
+}
+
+function popupStatusChange(ids, respJson, action, grid) {
+  // Popup a window to set the status so we don't lose the current search filters.
+  var page = "/MetraNet/MetraControl/FailedTransactions/ChangeStatus.aspx?Action=" + action;
+  if (ids != "all") {
+    page += "&FailureIDs=" + encodeURIComponent(ids);
+  }
+  ShowPopup(grid, respJson["Message"], page, 600, 450);
+}
+
+function ShowPopup(grid, title, page, width, height) {
+  if (!win) {
+    win = new window.Ext.Window({
+      applyTo: 'results-win',
+      layout: 'fit',
+      closeAction: 'hide',
+      plain: true,
+      buttons: [{
+        text: window.TEXT_CLOSE,
+        handler: function () {
+          win.hide();
+        }
+      }]
+    });
+
+    win.on("hide", function () {
+      grid.getSelectionModel().deselectAll(true);
+      grid.store.reload();
+    });
   }
 
-  function onViewFailedTransactionAuditLog(idFailedTransaction, idFailureCompoundSession) {
-    //http://localhost/mom/default/dialog/AuditLog.List.asp?EntityType=5&EntityId=3004&Title=Audit%20History%20For%20Failed%20Transaction%20Case%20Number%203004
-    window.open("/MetraNet/TicketToMOMNoMenu.aspx?Title=Audit Log&URL=/mom/default/dialog/AuditLog.List.asp?EntityType=5**EntityId=" + idFailedTransaction + "**Title=" + encodeURIComponent(TEXT_AUDIT_HISTORY_FAILED + idFailedTransaction));
-  }
+  var tpl = new window.Ext.XTemplate(
+    '<tpl for=".">',
+    '<p>{Title}</p>',
+    '<iframe src="' + page.replace("+", "%2B") + '" width="100%" height="100%" id="statusUpdate">',
+    '</tpl>'
+  );
 
-    // Popup a window to set the status so we don't lose the current search filters.
-  function popupStatusChange(ids, responseJSON, action, grid)
-  {
-    var statusChangePage = "/MetraNet/MetraControl/FailedTransactions/ChangeStatus.aspx?Action=" + action;
-    if(ids != "all")
-    {
-      statusChangePage += "&FailureIDs=" + ids;
-    }
-    var tpl = new Ext.XTemplate(
-            '<tpl for=".">',
-            '<p>{Message}</p>',
-            '<iframe src="' + statusChangePage + '" width="100%" height="100%" id="statusChange">',
-            '</tpl>'
-      );
-
-    if (!win) {
-      win = new Ext.Window({
-        applyTo: 'results-win',
-        layout: 'fit',
-        width: 700,
-        height: 500,
-        closeAction: 'hide',
-        plain: true,
-        buttons: [{
-          text: TEXT_CLOSE,
-          handler: function() {
-            win.hide();
-          }
-        }]
-      });
-
-      win.on("hide", function () {
-        grid.getSelectionModel().deselectAll(true);
-        grid.store.reload();
-      });
-    }
-
-    winGridToRefresh = grid; //Some of the closing code relys on knowing which grid to refresh
-
-  tpl.overwrite(win.body, responseJSON);
+  winGridToRefresh = grid; //Some of the closing code relys on knowing which grid to refresh
+  tpl.overwrite(win.body, { Title: title });
+  win.setSize(width, height);
+  win.setPosition(30, 30);
   win.show(this);
-  }
+}
 
-  function onUpdateStatus(grid, gridname)
-  {
-      var records = grid.getSelectionModel().getSelections();
-      var ids = "";
-      for(var i=0; i < records.length; i++)
-      {
-        if(i > 0)
-        {
-          ids += ",";
-        }
-        ids += records[i].data.failurecompoundsessionid; 
-      }
-      var message = TEXT_SELECTED + records.length + TEXT_ITEMS
-      var responseJSON = {Success:true,Message:message};
-      popupStatusChange(ids, responseJSON, "prompt",grid);
+function onUpdateStatus(grid, gridname) {
+  var records = grid.getSelectionModel().getSelections();
+  var ids = "";
+  for (var i = 0; i < records.length; i++) {
+    if (i > 0) {
+      ids += ",";
+    }
+    ids += records[i].data.failurecompoundsessionid;
   }
+  var message = window.TEXT_SELECTED + records.length + window.TEXT_ITEMS
+  var responseJson = { Success: true, Message: message };
+  popupStatusChange(ids, responseJson, "prompt", grid);
+}
 
-  function onResubmitAll(grid, gridname)
-  {
-    getAllIdsAndPerformAction(grid, "resubmit");
+function onResubmitAll(grid, gridname) {
+  getAllIdsAndPerformAction(grid, "resubmit");
+}
+
+function onResubmit(grid, gridname) {
+  var records = grid.getSelectionModel().getSelections();
+  var ids = "";
+  for (var i = 0; i < records.length; i++) {
+    if (i > 0) {
+      ids += ",";
+    }
+    ids += records[i].data.failurecompoundsessionid;
   }
-  
-  function onResubmit(grid, gridname)
-  {
-      var records = grid.getSelectionModel().getSelections();
-      var ids = "";
-      for(var i=0; i < records.length; i++)
-      {
-        if(i > 0)
-        {
-          ids += ",";
-        }
-        ids += records[i].data.failurecompoundsessionid; 
-      }
-      var message = TEXT_SELECTED + records.length + TEXT_ITEMS
-      var responseJSON = {Success:true,Message:message};
-      popupStatusChange(ids, responseJSON, "resubmit", grid);
-  }
+  var message = window.TEXT_SELECTED + records.length + window.TEXT_ITEMS;
+  var responseJson = { Success: true, Message: message };
+  popupStatusChange(ids, responseJson, "resubmit", grid);
+}

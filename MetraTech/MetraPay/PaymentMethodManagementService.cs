@@ -1,17 +1,15 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Globalization;
 using System.ServiceModel;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
 using System.ServiceModel.Channels;
-
 using MetraTech.ActivityServices.Common;
 using MetraTech.DomainModel.Enums.PaymentSvrClient.Metratech_com_paymentserver;
 using MetraTech.DomainModel.MetraPay;
 using MetraTech.DataAccess;
 using MetraTech.DomainModel.Enums;
-
 using MetraTech.Security.Crypto;
 using System.Transactions;
 using MetraTech.Interop.MTEnumConfig;
@@ -20,111 +18,115 @@ using System.Runtime.InteropServices;
 using MetraTech.Interop.RCD;
 using System.IO;
 using System.Reflection;
-using System.Linq;
-using System.Linq.Expressions;
 using MetraTech.Interop.QueryAdapter;
 
 namespace MetraTech.MetraPay
 {
+
+  #region Interfaces
+
   [ServiceContract]
   public interface IPaymentInstrumentMgmtSvc
   {
     [OperationContract]
-    [FaultContract(typeof(MASBasicFaultDetail))]
-    [FaultContract(typeof(PaymentProcessorFaultDetail))]
+    [FaultContract(typeof (MASBasicFaultDetail))]
+    [FaultContract(typeof (PaymentProcessorFaultDetail))]
     [TransactionFlow(TransactionFlowOption.Allowed)]
-    void AddPaymentMethod(MetraPaymentMethod paymentMethod, out Guid token);
+    void AddPaymentMethod(MetraPaymentMethod paymentMethod, string currency, out Guid token);
 
     [OperationContract]
-    [FaultContract(typeof(MASBasicFaultDetail))]
-    [FaultContract(typeof(PaymentProcessorFaultDetail))]
+    [FaultContract(typeof (MASBasicFaultDetail))]
+    [FaultContract(typeof (PaymentProcessorFaultDetail))]
     [TransactionFlow(TransactionFlowOption.Allowed)]
-    void UpdatePaymentMethod(Guid token, MetraPaymentMethod paymentMethod);
+    void UpdatePaymentMethod(Guid token, MetraPaymentMethod paymentMethod, string currency);
 
     [OperationContract]
-    [FaultContract(typeof(MASBasicFaultDetail))]
+    [FaultContract(typeof (MASBasicFaultDetail))]
     [TransactionFlow(TransactionFlowOption.Allowed)]
     void DeletePaymentMethod(Guid token);
 
     [OperationContract]
-    [FaultContract(typeof(MASBasicFaultDetail))]
-    [FaultContract(typeof(PaymentProcessorFaultDetail))]
+    [FaultContract(typeof (MASBasicFaultDetail))]
+    [FaultContract(typeof (PaymentProcessorFaultDetail))]
     [TransactionFlow(TransactionFlowOption.Allowed)]
-    void AddCreditCardAndPreAuth(CreditCardPaymentMethod ccPaymentInstrument, ref MetraPaymentInfo paymentInfo, out Guid instrumentToken, out Guid authToken, string arRequestId);
+    void AddCreditCardAndPreAuth(CreditCardPaymentMethod ccPaymentInstrument, ref MetraPaymentInfo paymentInfo,
+                                 out Guid instrumentToken, out Guid authToken, string arRequestId);
 
     [OperationContract]
-    [FaultContract(typeof(MASBasicFaultDetail))]
+    [FaultContract(typeof (MASBasicFaultDetail))]
     [TransactionFlow(TransactionFlowOption.Allowed)]
     void UpdatePaymentMethodNoCheck(Guid token, MetraPaymentMethod paymentMethod);
-
   }
 
   [ServiceContract]
   public interface ITransactionProcessingService
   {
     [OperationContract]
-    [FaultContract(typeof(MASBasicFaultDetail))]
-    [FaultContract(typeof(PaymentProcessorFaultDetail))]
+    [FaultContract(typeof (MASBasicFaultDetail))]
+    [FaultContract(typeof (PaymentProcessorFaultDetail))]
     [TransactionFlow(TransactionFlowOption.Allowed)]
     void SubmitDebit(Guid token, ref MetraPaymentInfo paymentInfo, double timeout, string cos);
 
     [OperationContract]
-    [FaultContract(typeof(MASBasicFaultDetail))]
-    [FaultContract(typeof(PaymentProcessorFaultDetail))]
+    [FaultContract(typeof (MASBasicFaultDetail))]
+    [FaultContract(typeof (PaymentProcessorFaultDetail))]
     [TransactionFlow(TransactionFlowOption.Allowed)]
-    void SubmitOneTimeDebit(MetraPaymentMethod paymentMethod, ref MetraPaymentInfo paymentInfo, double timeout, string cos);
+    void SubmitOneTimeDebit(MetraPaymentMethod paymentMethod, ref MetraPaymentInfo paymentInfo, double timeout,
+                            string cos);
 
     [OperationContract]
-    [FaultContract(typeof(MASBasicFaultDetail))]
-    [FaultContract(typeof(PaymentProcessorFaultDetail))]
+    [FaultContract(typeof (MASBasicFaultDetail))]
+    [FaultContract(typeof (PaymentProcessorFaultDetail))]
     [TransactionFlow(TransactionFlowOption.Allowed)]
-    void SubmitPreAuth(Guid token, ref MetraPaymentInfo paymentInfo, out Guid authToken, string arRequestId, double timeout, string cos);
+    void SubmitPreAuth(Guid token, ref MetraPaymentInfo paymentInfo, out Guid authToken, string arRequestId,
+                       double timeout, string cos);
 
     [OperationContract]
-    [FaultContract(typeof(MASBasicFaultDetail))]
-    [FaultContract(typeof(PaymentProcessorFaultDetail))]
+    [FaultContract(typeof (MASBasicFaultDetail))]
+    [FaultContract(typeof (PaymentProcessorFaultDetail))]
     [TransactionFlow(TransactionFlowOption.Allowed)]
     void SubmitCapture(Guid authorizationToken, ref MetraPaymentInfo actualPaymentInfo, double timeout, string cos);
 
     [OperationContract]
-    [FaultContract(typeof(MASBasicFaultDetail))]
-    [FaultContract(typeof(PaymentProcessorFaultDetail))]
+    [FaultContract(typeof (MASBasicFaultDetail))]
+    [FaultContract(typeof (PaymentProcessorFaultDetail))]
     [TransactionFlow(TransactionFlowOption.Allowed)]
     void SubmitVoid(Guid token, ref MetraPaymentInfo paymentInfo, double timeout, string cos);
 
     [OperationContract]
-    [FaultContract(typeof(MASBasicFaultDetail))]
-    [FaultContract(typeof(PaymentProcessorFaultDetail))]
+    [FaultContract(typeof (MASBasicFaultDetail))]
+    [FaultContract(typeof (PaymentProcessorFaultDetail))]
     [TransactionFlow(TransactionFlowOption.Allowed)]
     void SubmitCredit(Guid token, ref MetraPaymentInfo paymentInfo, double timeout, string cos);
 
     [OperationContract]
-    [FaultContract(typeof(MASBasicFaultDetail))]
-    [FaultContract(typeof(PaymentProcessorFaultDetail))]
+    [FaultContract(typeof (MASBasicFaultDetail))]
+    [FaultContract(typeof (PaymentProcessorFaultDetail))]
     [TransactionFlow(TransactionFlowOption.Allowed)]
-    void SubmitOneTimeCredit(MetraPaymentMethod paymentMethod, ref MetraPaymentInfo paymentInfo, double timeout, string cos);
+    void SubmitOneTimeCredit(MetraPaymentMethod paymentMethod, ref MetraPaymentInfo paymentInfo, double timeout,
+                             string cos);
 
     [OperationContract]
-    [FaultContract(typeof(MASBasicFaultDetail))]
-    [FaultContract(typeof(PaymentProcessorFaultDetail))]
+    [FaultContract(typeof (MASBasicFaultDetail))]
+    [FaultContract(typeof (PaymentProcessorFaultDetail))]
     [TransactionFlow(TransactionFlowOption.Allowed)]
     void ValidatePaymentMethod(MetraPaymentMethod paymentMethod, ref MetraPaymentInfo paymentInfo);
 
     [OperationContract]
-    [FaultContract(typeof(MASBasicFaultDetail))]
-    [FaultContract(typeof(PaymentProcessorFaultDetail))]
+    [FaultContract(typeof (MASBasicFaultDetail))]
+    [FaultContract(typeof (PaymentProcessorFaultDetail))]
     [TransactionFlow(TransactionFlowOption.Allowed)]
     void GetACHTransactionStatus(string transactionId, out bool bProcessed);
 
     [OperationContract]
-    [FaultContract(typeof(MASBasicFaultDetail))]
-    [FaultContract(typeof(PaymentProcessorFaultDetail))]
+    [FaultContract(typeof (MASBasicFaultDetail))]
+    [FaultContract(typeof (PaymentProcessorFaultDetail))]
     [TransactionFlow(TransactionFlowOption.Allowed)]
     void DownloadACHTransactionsReport(string url);
 
     [OperationContract]
-    [FaultContract(typeof(MASBasicFaultDetail))]
-    [FaultContract(typeof(PaymentProcessorFaultDetail))]
+    [FaultContract(typeof (MASBasicFaultDetail))]
+    [FaultContract(typeof (PaymentProcessorFaultDetail))]
     void SubmitAuthReversal(Guid authToken, ref MetraPaymentInfo paymentInfo, double timeout, string cos);
   }
 
@@ -135,39 +137,40 @@ namespace MetraTech.MetraPay
     void CreditCardsUpdated(string transactionId, List<CreditCardPaymentMethod> updatedCards);
   }
 
-  [ServiceContract(CallbackContract = typeof(IBatchUpdateServiceCallback))]
+  [ServiceContract(CallbackContract = typeof (IBatchUpdateServiceCallback))]
   public interface IBatchUpdateService
   {
     [OperationContract(IsOneWay = true)]
     void UpdateCreditCards(string transactionId, List<Guid> cardsToUpdate);
   }
 
- 
+  #endregion
+
   [ComVisible(false)]
-  class PaymentInstrumentMgmtSvc : 
-    IServiceBehavior, IErrorHandler, IPaymentInstrumentMgmtSvc, ITransactionProcessingService, IBatchUpdateService
+  internal class PaymentInstrumentMgmtSvc : IServiceBehavior, IErrorHandler, IPaymentInstrumentMgmtSvc,
+                                            ITransactionProcessingService, IBatchUpdateService
   {
-    Logger m_Logger = new Logger("[PaymentInstrumentMgmtSvc]");
-    IPaymentGateway m_Gateway;
-    double m_DefaultTimeout;
+    private readonly Logger _logger = new Logger("[PaymentInstrumentMgmtSvc]");
+    private readonly IPaymentGateway _gateway;
+    private readonly double _defaultTimeout;
 
     public PaymentInstrumentMgmtSvc()
     {
-      if (OperationContext.Current != null)
-      {
-        OperationContext oc = OperationContext.Current;
-        InstanceContext ic = oc.InstanceContext;
-        MPServiceHost<PaymentInstrumentMgmtSvc> host = ic.Host as MPServiceHost<PaymentInstrumentMgmtSvc>;
+      if (OperationContext.Current == null) return;
 
-        m_Gateway = Activator.CreateInstance(Type.GetType(host.ProcessorType)) as IPaymentGateway;
-        m_DefaultTimeout = host.Timeout;
+      var oc = OperationContext.Current;
+      var ic = oc.InstanceContext;
+      var host = (MPServiceHost<PaymentInstrumentMgmtSvc>) ic.Host;
 
-        IMTRcd rcd = new MTRcdClass();
-        string fullPath = Path.Combine(rcd.ExtensionDir, host.ConfigFile);
-        m_Gateway.Init(fullPath);
+      var processorType = Type.GetType(host.ProcessorType);
+      _gateway = (IPaymentGateway) Activator.CreateInstance(processorType);
+      _defaultTimeout = host.Timeout;
 
-        m_Logger = new Logger(string.Format("[PaymentInstrumentMgmtSvc_{0}]", host.ServiceName));
-      }
+      var rcd = new MTRcdClass();
+      var fullPath = Path.Combine(rcd.ExtensionDir, host.ConfigFile);
+      _gateway.Init(fullPath);
+
+      _logger = new Logger(string.Format("[PaymentInstrumentMgmtSvc_{0}]", host.ServiceName));
     }
 
     #region IPaymentInstrumentMgmtSvc Members
@@ -176,32 +179,33 @@ namespace MetraTech.MetraPay
     /// Adds payment instrument, e.g. Credit Card or ACH Payment
     /// </summary>
     /// <param name="paymentInstrument">Contains payment instrument properties to add</param>
-    /// <param name="accID">Account Identifier that identifies the user to whose account the payment instrument is being added to</param>
+    /// <param name="currency">The currency for this CC</param>
     /// <param name="paymentInstrumentId">Returns the payment instrument id of the newly added record</param>
     [OperationBehavior(TransactionAutoComplete = true, TransactionScopeRequired = true)]
-    public void AddPaymentMethod(MetraPaymentMethod paymentInstrument, out Guid paymentInstrumentId)
+    public void AddPaymentMethod(MetraPaymentMethod paymentInstrument, string currency, out Guid paymentInstrumentId)
     {
       paymentInstrumentId = Guid.NewGuid();
-      bool bValidated = false;
+      bool bValidated;
 
       //validate credit card through payment gateway
       try
       {
-        bValidated = m_Gateway.ValidatePaymentMethod(paymentInstrument);
+        bValidated = _gateway.ValidatePaymentMethod(paymentInstrument, currency);
 
         if (bValidated)
         {
-          m_Logger.LogInfo("Validated payment method " + paymentInstrument.AccountNumber);
+          _logger.LogInfo("Validated payment method " + paymentInstrument.AccountNumber);
         }
       }
-      catch (PaymentProcessorException ppe)
+      catch (PaymentProcessorException exc)
       {
-        m_Logger.LogException("Error from payment processor validating payment method " + paymentInstrument.AccountNumber, ppe);
-        throw ppe;
+        _logger.LogException(
+          "Error from payment processor validating payment method " + paymentInstrument.AccountNumber, exc);
+        throw;
       }
       catch (Exception e)
       {
-        m_Logger.LogException("Error validating payment method " + paymentInstrument.AccountNumber, e);
+        _logger.LogException("Error validating payment method " + paymentInstrument.AccountNumber, e);
         throw new MASBasicException("Payment method information is invalid");
       }
 
@@ -214,27 +218,27 @@ namespace MetraTech.MetraPay
       //persist credit card information
       try
       {
-        if (paymentInstrument.GetType() == typeof(CreditCardPaymentMethod) ||
-            paymentInstrument.GetType().IsSubclassOf(typeof(CreditCardPaymentMethod)))
+        if (paymentInstrument.GetType() == typeof (CreditCardPaymentMethod) ||
+            paymentInstrument.GetType().IsSubclassOf(typeof (CreditCardPaymentMethod)))
         {
-          AddCreditCard((CreditCardPaymentMethod)paymentInstrument, paymentInstrumentId);
-          StorePaymentInstrument(paymentInstrumentId, (CreditCardPaymentMethod)paymentInstrument);
+          AddCreditCard((CreditCardPaymentMethod) paymentInstrument, paymentInstrumentId);
+          StorePaymentInstrument(paymentInstrumentId, paymentInstrument);
         }
         else
         {
-          AddACHDetails((ACHPaymentMethod)paymentInstrument, paymentInstrumentId);
-          StorePaymentInstrument(paymentInstrumentId, (ACHPaymentMethod)paymentInstrument);
+          AddBankAccount((ACHPaymentMethod) paymentInstrument, paymentInstrumentId);
+          StorePaymentInstrument(paymentInstrumentId, paymentInstrument);
         }
       }
       catch (Exception e)
       {
-        m_Logger.LogException("Error saving payment method information;piid=" + paymentInstrumentId.ToString()
-          + ";last 4 digits=" + paymentInstrument.AccountNumber, e);
+        _logger.LogException("Error saving payment method information;piid=" + paymentInstrumentId.ToString()
+                             + ";last 4 digits=" + paymentInstrument.AccountNumber, e);
         throw new MASBasicException("Unable to save payment method information");
       }
 
-      if (paymentInstrument.GetType() == typeof(CreditCardPaymentMethod) ||
-          paymentInstrument.GetType().IsSubclassOf(typeof(CreditCardPaymentMethod)))
+      if (paymentInstrument.GetType() == typeof (CreditCardPaymentMethod) ||
+          paymentInstrument.GetType().IsSubclassOf(typeof (CreditCardPaymentMethod)))
         WriteToPaymentAudit(paymentInstrument, null, EnumHelper.GetDbValueByEnum(PaymentRequestType.Credit_Card_Add));
       else
         WriteToPaymentAudit(paymentInstrument, null, EnumHelper.GetDbValueByEnum(PaymentRequestType.ACH_Account_Add));
@@ -245,8 +249,9 @@ namespace MetraTech.MetraPay
     /// </summary>
     /// <param name="paymentInstrumentId"></param>
     /// <param name="paymentInstrument"></param>
+    /// <param name="currency"></param>
     [OperationBehavior(TransactionAutoComplete = true, TransactionScopeRequired = true)]
-    public void UpdatePaymentMethod(Guid paymentInstrumentId, MetraPaymentMethod paymentInstrument)
+    public void UpdatePaymentMethod(Guid paymentInstrumentId, MetraPaymentMethod paymentInstrument, string currency)
     {
       MetraPaymentMethod pm;
 
@@ -257,64 +262,71 @@ namespace MetraTech.MetraPay
       }
       catch (Exception e)
       {
-        m_Logger.LogException("Error updating payment method;piid=" + paymentInstrumentId.ToString()
-          + "last 4 digits=" + paymentInstrument.AccountNumber, e);
-        throw new MASBasicException("Unable to update payment method");
+        var error = string.Format(CultureInfo.CurrentCulture,
+                                  "Error updating payment method; ID = {0}; last 4 digits = {1}",
+                                  paymentInstrumentId,
+                                  paymentInstrument.AccountNumber);
+        _logger.LogException(error, e);
+        throw new MASBasicException(error);
       }
 
       //failed to verify owner
       if (pm == null)
       {
-        string sMsg = "Invalid owner for credit card " + paymentInstrumentId.ToString();
-        m_Logger.LogError(sMsg);
-        throw new MASBasicException("Unable to update payment method");
+        var error = string.Format(CultureInfo.CurrentCulture, "Invalid owner for payment method ID = {0}",
+                                  paymentInstrumentId);
+        _logger.LogError(error);
+        throw new MASBasicException(error);
       }
 
-      MetraPaymentMethod updatedMethod = null;
+      MetraPaymentMethod updatedMethod;
       try
       {
-        //pm.ApplyDirtyProperties(paymentInstrument);
-
         updatedMethod = CloneAndApplyProperties(paymentInstrument, pm);
       }
-      catch (Exception e)
+      catch (Exception exc)
       {
-        m_Logger.LogException("Unable to load credit card info for piid=" + paymentInstrumentId.ToString(), e);
-        throw new MASBasicException("Unable to save credit card information");
+        var error = string.Format(CultureInfo.CurrentCulture,
+                                  "Unable to load payment method info for ID = {0}",
+                                  paymentInstrumentId);
+        _logger.LogException(error, exc);
+        throw new MASBasicException(error);
       }
 
-      //validate
-      bool bIsValidAccountNumber = false;
+      //Update payment method in Payment Broker
       try
       {
-        bIsValidAccountNumber = m_Gateway.ValidatePaymentMethod(updatedMethod);
+        _gateway.UpdatePaymentMethod(updatedMethod, currency);
       }
-      catch (PaymentProcessorException ppe)
+      catch (PaymentProcessorException exc)
       {
-        m_Logger.LogException("Error from payment processor validating credit card for piid=" + paymentInstrumentId.ToString(), ppe);
-        throw ppe;
+        var error = string.Format(CultureInfo.CurrentCulture,
+                                  "Error from payment processor update payment method for ID = {0}",
+                                  paymentInstrumentId);
+        _logger.LogException(error, exc);
+        throw;
       }
-      catch (Exception e)
+      catch (Exception exc)
       {
-        m_Logger.LogException("Unable to validate credit card info for piid=" + paymentInstrumentId.ToString(), e);
-        throw new MASBasicException("Unable to validate credit card information");
+        var error = string.Format(CultureInfo.CurrentCulture,
+                                  "Unable to update payment method info for ID = {0}",
+                                  paymentInstrumentId);
+        _logger.LogException(error, exc);
+        throw new MASBasicException(error);
       }
 
-      //check if valid account number
-      if (!bIsValidAccountNumber)
-      {
-        throw new MASBasicException("Credit card information is invalid");
-      }
-
-      //save
+      //Save to MetraNet DB
       try
       {
         UpdatePaymentInstrument(updatedMethod, paymentInstrumentId);
       }
-      catch (Exception e)
+      catch (Exception exc)
       {
-        m_Logger.LogException("Unable to save credit card info for piid=" + paymentInstrumentId.ToString(), e);
-        throw new MASBasicException("Unable to save credit card information");
+        var error = string.Format(CultureInfo.CurrentCulture,
+                                  "Unable to save payment method info for ID = {0}",
+                                  paymentInstrumentId);
+        _logger.LogException(error, exc);
+        throw new MASBasicException(error);
       }
 
       WriteToPaymentAudit(paymentInstrument, null, EnumHelper.GetDbValueByEnum(PaymentRequestType.Credit_Card_Update));
@@ -337,20 +349,20 @@ namespace MetraTech.MetraPay
       }
       catch (Exception e)
       {
-        m_Logger.LogException("Error updating payment method;piid=" + paymentInstrumentId.ToString()
-          + "last 4 digits=" + paymentInstrument.AccountNumber, e);
+        _logger.LogException("Error updating payment method;piid=" + paymentInstrumentId
+                             + "last 4 digits=" + paymentInstrument.AccountNumber, e);
         throw new MASBasicException("Unable to update payment method");
       }
 
       //failed to verify owner
       if (pm == null)
       {
-        string sMsg = "Invalid owner for credit card " + paymentInstrumentId.ToString();
-        m_Logger.LogError(sMsg);
+        string sMsg = "Invalid owner for credit card " + paymentInstrumentId;
+        _logger.LogError(sMsg);
         throw new MASBasicException("Unable to update payment method");
       }
 
-      MetraPaymentMethod updatedMethod = null;
+      MetraPaymentMethod updatedMethod;
       try
       {
         //pm.ApplyDirtyProperties(paymentInstrument);
@@ -359,7 +371,7 @@ namespace MetraTech.MetraPay
       }
       catch (Exception e)
       {
-        m_Logger.LogException("Unable to load credit card info for piid=" + paymentInstrumentId.ToString(), e);
+        _logger.LogException("Unable to load credit card info for piid=" + paymentInstrumentId, e);
         throw new MASBasicException("Unable to save credit card information");
       }
 
@@ -371,7 +383,7 @@ namespace MetraTech.MetraPay
       }
       catch (Exception e)
       {
-        m_Logger.LogException("Unable to save credit card info for piid=" + paymentInstrumentId.ToString(), e);
+        _logger.LogException("Unable to save credit card info for piid=" + paymentInstrumentId, e);
         throw new MASBasicException("Unable to save credit card information");
       }
 
@@ -394,7 +406,7 @@ namespace MetraTech.MetraPay
       }
       catch (Exception e)
       {
-        m_Logger.LogException("Error deleting payment method; piid=" + paymentInstrumentId.ToString(), e);
+        _logger.LogException("Error deleting payment method; piid=" + paymentInstrumentId.ToString(), e);
         throw new MASBasicException("Unable to delete credit card");
       }
 
@@ -402,20 +414,20 @@ namespace MetraTech.MetraPay
       if (pm == null)
       {
         string sMsg = "Invalid payment instrument " + paymentInstrumentId.ToString();
-        m_Logger.LogError(sMsg);
+        _logger.LogError(sMsg);
         throw new MASBasicException("Unable to delete payment instrument");
       }
 
-      if (pm.GetType() == typeof(CreditCardPaymentMethod) ||
-          pm.GetType().IsSubclassOf(typeof(CreditCardPaymentMethod)))
+      if (pm.GetType() == typeof (CreditCardPaymentMethod) ||
+          pm.GetType().IsSubclassOf(typeof (CreditCardPaymentMethod)))
       {
         try
         {
-          DeleteCreditCardByPaymentInstrumentID(paymentInstrumentId);
+          DeleteCreditCardByInstrumentId(paymentInstrumentId);
         }
         catch (Exception e)
         {
-          m_Logger.LogException("Error deleting payment method; piid=" + paymentInstrumentId.ToString(), e);
+          _logger.LogException("Error deleting payment method; piid=" + paymentInstrumentId.ToString(), e);
           throw new MASBasicException("Unable to delete credit card");
         }
 
@@ -425,11 +437,11 @@ namespace MetraTech.MetraPay
       {
         try
         {
-          DeleteACHByPaymentInstrumentID(paymentInstrumentId);
+          DeleteBankAccountByInstrumentId(paymentInstrumentId);
         }
         catch (Exception e)
         {
-          m_Logger.LogException("Error deleting payment method; piid=" + paymentInstrumentId.ToString(), e);
+          _logger.LogException("Error deleting payment method; piid=" + paymentInstrumentId.ToString(), e);
           throw new MASBasicException("Unable to delete ach");
         }
 
@@ -444,72 +456,81 @@ namespace MetraTech.MetraPay
     /// <param name="paymentInfo"></param>
     /// <param name="instrumentToken"></param>
     /// <param name="authToken"></param>
+    /// <param name="arRequestId"></param>
     [OperationBehavior(TransactionAutoComplete = true, TransactionScopeRequired = true)]
-    public void AddCreditCardAndPreAuth(CreditCardPaymentMethod ccPaymentInstrument, ref MetraPaymentInfo paymentInfo, out Guid instrumentToken, out Guid authToken, string arRequestId)
+    public void AddCreditCardAndPreAuth(CreditCardPaymentMethod ccPaymentInstrument, ref MetraPaymentInfo paymentInfo,
+                                        out Guid instrumentToken, out Guid authToken, string arRequestId)
     {
       instrumentToken = Guid.NewGuid();
       authToken = Guid.NewGuid();
 
       string requestParams;
-      string result;
-
-
       try
       {
-        m_Gateway.AuthorizeCharge(ccPaymentInstrument, ref paymentInfo, out requestParams, out result);
-        m_Logger.LogDebug(String.Format("Preauth request successful.  Recording Transaction Information for Request: {0}", result));
+        string result;
+        _gateway.AuthorizeCharge(ccPaymentInstrument, ref paymentInfo, out requestParams, out result);
+        _logger.LogDebug(String.Format(
+          "Preauth request successful.  Recording Transaction Information for Request: {0}", result));
       }
       catch (Exception e)
       {
-        m_Logger.LogException("Error deleting payment method; piid=" + instrumentToken.ToString(), e);
-        throw new MASBasicException("Unable to make preauth request"); ;
+        _logger.LogException("Error deleting payment method; piid=" + instrumentToken.ToString(), e);
+        throw new MASBasicException("Unable to make preauth request");
+        ;
       }
 
       try
       {
         AddCreditCard(ccPaymentInstrument, instrumentToken);
         StorePaymentInstrument(instrumentToken, ccPaymentInstrument);
-        WriteToPaymentAudit(ccPaymentInstrument, paymentInfo, EnumHelper.GetDbValueByEnum(PaymentRequestType.Credit_Card_Add));
-        m_Logger.LogDebug(String.Format("Credit card Added Successfully : {0}", instrumentToken));
+        WriteToPaymentAudit(ccPaymentInstrument, paymentInfo,
+                            EnumHelper.GetDbValueByEnum(PaymentRequestType.Credit_Card_Add));
+        _logger.LogDebug(String.Format("Credit card Added Successfully : {0}", instrumentToken));
       }
       catch (Exception e)
       {
-        m_Logger.LogException(string.Format("Unable to add credit card, instrument token : {0}", instrumentToken), e);
-        throw new MASBasicException("Unable to add credit card."); ;
+        _logger.LogException(string.Format("Unable to add credit card, instrument token : {0}", instrumentToken), e);
+        throw new MASBasicException("Unable to add credit card.");
       }
 
       try
       {
         StorePreAuthRequest(authToken, instrumentToken, paymentInfo, requestParams, arRequestId);
-        WriteToPaymentAudit(ccPaymentInstrument, paymentInfo, EnumHelper.GetDbValueByEnum(PaymentRequestType.Credit_Card_PreAuth));
-        m_Logger.LogDebug(string.Format("Stored preauth request for instrument token : {0}, auth token {1}", instrumentToken, authToken));
+        WriteToPaymentAudit(ccPaymentInstrument, paymentInfo,
+                            EnumHelper.GetDbValueByEnum(PaymentRequestType.Credit_Card_PreAuth));
+        _logger.LogDebug(string.Format("Stored preauth request for instrument token : {0}, auth token {1}",
+                                       instrumentToken, authToken));
       }
       catch (Exception e)
       {
-        m_Logger.LogException(string.Format("Unable to store preauth request, instrument token : {0}, aut token {1}", instrumentToken, authToken), e);
-        throw new MASBasicException("Unable to store preauth request."); ;
+        _logger.LogException(
+          string.Format("Unable to store preauth request, instrument token : {0}, aut token {1}", instrumentToken,
+                        authToken), e);
+        throw new MASBasicException("Unable to store preauth request.");
       }
-
     }
 
     #endregion
 
     #region ITransactionProcessingService Members
+
     /// <summary>
     /// The SubmitDebit method is used to submit a payment to the payment processor gateway.  It resolves the payment instrument
     /// using the token provided and payment info
     /// </summary>
     /// <param name="token"></param>
     /// <param name="paymentInfo"></param>
+    /// <param name="timeout"></param>
+    /// <param name="cos"></param>
     //[OperationBehavior(TransactionAutoComplete = true, TransactionScopeRequired = true)]
     [OperationBehavior(TransactionAutoComplete = true, TransactionScopeRequired = true)]
     public void SubmitDebit(Guid token, ref MetraPaymentInfo paymentInfo, double timeout, string cos)
     {
       if (timeout == 0)
       {
-        timeout = m_DefaultTimeout;
+        timeout = _defaultTimeout;
       }
-      DateTime endTime = DateTime.Now.AddMilliseconds(timeout);
+      var endTime = DateTime.Now.AddMilliseconds(timeout);
 
       // need set this based on PaymentMethodType
       MetraPaymentMethod paymentMethod = GetPaymentInstrument(token);
@@ -518,36 +539,39 @@ namespace MetraTech.MetraPay
 
       if (paymentMethodType == PaymentType.Credit_Card)
       {
-        processPaymentMethod = GetCCPaymentMethod(token, paymentMethod);
+        processPaymentMethod = GetCreditCardPaymentMethod(token, paymentMethod);
       }
       else if (paymentMethodType == PaymentType.ACH)
       {
-        processPaymentMethod = GetACHPaymentMethod(token, paymentMethod);
+        processPaymentMethod = GetBankAccountPaymentMethod(token, paymentMethod);
       }
       else
       {
         throw new MASBasicException("Only Credit Cards and ACH are currently supported");
       }
 
-      m_Logger.LogDebug("About to submit debit to payment processor");
+      _logger.LogDebug("About to submit debit to payment processor");
       SubmitOneTimeDebit(processPaymentMethod, ref paymentInfo, timeout, cos);
       if (endTime < DateTime.Now)
       {
         UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.FAILURE);
         throw new TimeoutException();
       }
-      m_Logger.LogDebug("Successfully submitted debit to payment processor.");
+      _logger.LogDebug("Successfully submitted debit to payment processor.");
     }
 
     /// <summary>
     /// SubmitDebit actually submits the payment processor
     /// </summary>
     /// <param name="paymentMethod"></param>
-    /// <param name="paymentInfo"></param>    
+    /// <param name="paymentInfo"></param>
+    /// <param name="timeout"></param>
+    /// <param name="cos"></param>    
     [OperationBehavior(TransactionAutoComplete = true, TransactionScopeRequired = true)]
-    public void SubmitOneTimeDebit(MetraPaymentMethod paymentMethod, ref MetraPaymentInfo paymentInfo, double timeout, string cos)
+    public void SubmitOneTimeDebit(MetraPaymentMethod paymentMethod, ref MetraPaymentInfo paymentInfo, double timeout,
+                                   string cos)
     {
-      m_Logger.LogDebug("Submitting Debit Request.");
+      _logger.LogDebug("Submitting Debit Request.");
       if (DoesTransactionExist(paymentInfo))
       {
         return;
@@ -555,91 +579,95 @@ namespace MetraTech.MetraPay
 
       if (timeout == 0)
       {
-        timeout = m_DefaultTimeout;
+        timeout = _defaultTimeout;
       }
       DateTime endTime = DateTime.Now.AddMilliseconds(timeout);
 
       string result;
       // Submit Credit Card to Cybersource
-      if (paymentMethod.GetType() == typeof(CreditCardPaymentMethod) ||
-          paymentMethod.GetType().IsSubclassOf(typeof(CreditCardPaymentMethod)))
+      if (paymentMethod.GetType() == typeof (CreditCardPaymentMethod) ||
+          paymentMethod.GetType().IsSubclassOf(typeof (CreditCardPaymentMethod)))
       {
-        CreditCardPaymentMethod process = (CreditCardPaymentMethod)paymentMethod;
+        CreditCardPaymentMethod process = (CreditCardPaymentMethod) paymentMethod;
         try
         {
           WriteToPaymentAudit(process, paymentInfo, EnumHelper.GetDbValueByEnum(PaymentRequestType.Credit_Card_Debit));
-          m_Gateway.Debit(process, ref paymentInfo, out result, timeout, cos);
+          _gateway.Debit(process, ref paymentInfo, out result, timeout, cos);
           if (endTime < DateTime.Now)
           {
             UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.FAILURE);
             throw new TimeoutException();
           }
           UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.SUCCESS);
-          m_Logger.LogDebug(String.Format("Credit Card Debit request successful.  Recording Transaction Information for Request: {0}", result));
+          _logger.LogDebug(
+            String.Format("Credit Card Debit request successful.  Recording Transaction Information for Request: {0}",
+                          result));
 
         }
         catch (TimeoutException e)
         {
           var resourceManager = new ResourcesManager();
-          m_Logger.LogException(resourceManager.GetLocalizedResource("TIMEOUT_EXCEPTION"), e);
+          _logger.LogException(resourceManager.GetLocalizedResource("TIMEOUT_EXCEPTION"), e);
           UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.FAILURE);
           throw e;
         }
         catch (PaymentProcessorException ppe)
         {
           UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.REJECTED, ppe.Message);
-          m_Logger.LogException("Error from payment processor debiting credit card.", ppe);
+          _logger.LogException("Error from payment processor debiting credit card.", ppe);
           throw ppe;
         }
         catch (Exception e)
         {
           UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.FAILURE);
-          m_Logger.LogException("Credit Card Debit request failed.", e);
+          _logger.LogException("Credit Card Debit request failed.", e);
           throw new MASBasicException(String.Format("Credit Card Debit request failed. {0}", e.ToString()));
         }
       }
       else
       {
-        ACHPaymentMethod process = (ACHPaymentMethod)paymentMethod;
+        ACHPaymentMethod process = (ACHPaymentMethod) paymentMethod;
         try
         {
           WriteToPaymentAudit(process, paymentInfo, EnumHelper.GetDbValueByEnum(PaymentRequestType.ACH_Debit));
-          m_Gateway.Debit(process, ref paymentInfo, out result, timeout);
+          _gateway.Debit(process, ref paymentInfo, out result, timeout);
           if (endTime < DateTime.Now)
           {
             UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.FAILURE);
             throw new TimeoutException();
           }
-          m_Logger.LogDebug(String.Format("ACH Debit request successful.  Recording Transaction Information for Request: {0}", result));
+          _logger.LogDebug(
+            String.Format("ACH Debit request successful.  Recording Transaction Information for Request: {0}", result));
           UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.SUCCESS);
         }
         catch (TimeoutException e)
         {
           var resourceManager = new ResourcesManager();
-          m_Logger.LogException(resourceManager.GetLocalizedResource("TIMEOUT_EXCEPTION"), e);
+          _logger.LogException(resourceManager.GetLocalizedResource("TIMEOUT_EXCEPTION"), e);
           UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.FAILURE);
           throw;
         }
         catch (PaymentProcessorException ppe)
         {
           UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.REJECTED, ppe.Message);
-          m_Logger.LogException("ACH Debit request failed.", ppe);
+          _logger.LogException("ACH Debit request failed.", ppe);
           throw ppe;
         }
         catch (Exception e)
         {
           UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.FAILURE);
-          m_Logger.LogException("ACH Debit request failed.", e);
+          _logger.LogException("ACH Debit request failed.", e);
           throw new MASBasicException(String.Format("ACH Debit request failed. {0}", e.ToString()));
         }
       }
     }
+
     [OperationBehavior(TransactionAutoComplete = true, TransactionScopeRequired = true)]
     public void SubmitVoid(Guid token, ref MetraPaymentInfo paymentInfo, double timeout, string cos)
     {
       if (timeout == 0)
       {
-        timeout = m_DefaultTimeout;
+        timeout = _defaultTimeout;
       }
 
       //Check that this transaction is in FAILURE mode.  We know that DoesTransactionExist() throws an exception if the transaction
@@ -666,7 +694,7 @@ namespace MetraTech.MetraPay
       string warnings;
       try
       {
-        m_Gateway.Void(paymentMethod, ref paymentInfo, out warnings, timeout, cos);
+        _gateway.Void(paymentMethod, ref paymentInfo, out warnings, timeout, cos);
         UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.REVERSED);
       }
       catch (MASBasicException e)
@@ -678,19 +706,20 @@ namespace MetraTech.MetraPay
         }
         else
         {
-          m_Logger.LogError(String.Format("Void failed.  An error occurred: {0}", e.ToString()));
+          _logger.LogError(String.Format("Void failed.  An error occurred: {0}", e.ToString()));
           throw;
         }
       }
       catch (Exception e)
       {
-        m_Logger.LogError(String.Format("Void failed.  An error occurred: {0}", e.ToString()));
+        _logger.LogError(String.Format("Void failed.  An error occurred: {0}", e.ToString()));
         throw new MASBasicException(String.Format("Credit card preauth failed: {0}", e.ToString()));
       }
     }
 
     [OperationBehavior(TransactionAutoComplete = true, TransactionScopeRequired = true)]
-    public void SubmitPreAuth(Guid token, ref MetraPaymentInfo paymentInfo, out Guid authToken, string arRequestId, double timeout, string cos)
+    public void SubmitPreAuth(Guid token, ref MetraPaymentInfo paymentInfo, out Guid authToken, string arRequestId,
+                              double timeout, string cos)
     {
       authToken = paymentInfo.TransactionSessionId;
       if (DoesTransactionExist(paymentInfo))
@@ -700,12 +729,12 @@ namespace MetraTech.MetraPay
 
       if (timeout == 0)
       {
-        timeout = m_DefaultTimeout;
+        timeout = _defaultTimeout;
       }
       DateTime endTime = DateTime.Now.AddMilliseconds(timeout);
 
 
-      m_Logger.LogDebug("Begin Pre Authorization request processing");
+      _logger.LogDebug("Begin Pre Authorization request processing");
 
       MetraPaymentMethod paymentMethod = GetPaymentInstrument(token);
       string result;
@@ -714,41 +743,43 @@ namespace MetraTech.MetraPay
 
 
       // Submit Credit Card to Cybersource
-      if (paymentMethod.GetType() == typeof(CreditCardPaymentMethod) ||
-          paymentMethod.GetType().IsSubclassOf(typeof(CreditCardPaymentMethod)))
+      if (paymentMethod.GetType() == typeof (CreditCardPaymentMethod) ||
+          paymentMethod.GetType().IsSubclassOf(typeof (CreditCardPaymentMethod)))
       {
-        CreditCardPaymentMethod ccMethod = (CreditCardPaymentMethod)paymentMethod;
+        CreditCardPaymentMethod ccMethod = (CreditCardPaymentMethod) paymentMethod;
         try
         {
-          WriteToPaymentAudit(paymentMethod, paymentInfo, EnumHelper.GetDbValueByEnum(PaymentRequestType.Credit_Card_PreAuth));
-          m_Gateway.AuthorizeCharge(ccMethod, ref paymentInfo, out requestParms, out result, timeout, cos);
+          WriteToPaymentAudit(paymentMethod, paymentInfo,
+                              EnumHelper.GetDbValueByEnum(PaymentRequestType.Credit_Card_PreAuth));
+          _gateway.AuthorizeCharge(ccMethod, ref paymentInfo, out requestParms, out result, timeout, cos);
           if (endTime < DateTime.Now)
           {
             UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.FAILURE);
             throw new TimeoutException();
           }
-          m_Logger.LogDebug(String.Format("Preauth request successful.  Recording Transaction Information for Request: {0}", result));
+          _logger.LogDebug(
+            String.Format("Preauth request successful.  Recording Transaction Information for Request: {0}", result));
           StorePreAuthRequest(authToken, paymentMethod.PaymentInstrumentID, paymentInfo, requestParms, arRequestId);
           UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.SUCCESS);
         }
         catch (TimeoutException e)
         {
           var resourceManager = new ResourcesManager();
-          m_Logger.LogException(resourceManager.GetLocalizedResource("TIMEOUT_EXCEPTION"), e);
+          _logger.LogException(resourceManager.GetLocalizedResource("TIMEOUT_EXCEPTION"), e);
           UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.FAILURE);
           throw;
         }
-  
+
         catch (PaymentProcessorException ppe)
         {
           UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.REJECTED, ppe.Message);
-          m_Logger.LogException("Error from payment processor authorizing charge.", ppe);
+          _logger.LogException("Error from payment processor authorizing charge.", ppe);
           throw ppe;
         }
         catch (Exception e)
         {
           UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.FAILURE);
-          m_Logger.LogError(String.Format("Credit card preauth failed.  An error occurred: {0}", e.ToString()));
+          _logger.LogError(String.Format("Credit card preauth failed.  An error occurred: {0}", e.ToString()));
           throw new MASBasicException(String.Format("Credit card preauth failed: {0}", e.ToString()));
         }
       }
@@ -759,27 +790,30 @@ namespace MetraTech.MetraPay
     }
 
     [OperationBehavior(TransactionAutoComplete = true, TransactionScopeRequired = true)]
-    public void SubmitCapture(Guid authorizationToken, ref MetraPaymentInfo actualPaymentInfo, double timeout, string cos)
+    public void SubmitCapture(Guid authorizationToken, ref MetraPaymentInfo actualPaymentInfo, double timeout,
+                              string cos)
     {
       if (timeout == 0)
       {
-        timeout = m_DefaultTimeout;
+        timeout = _defaultTimeout;
       }
       DateTime endTime = DateTime.Now.AddMilliseconds(timeout);
 
-      m_Logger.LogDebug("Begin Capture request processing");
+      _logger.LogDebug("Begin Capture request processing");
 
       string result, requestPrams, arRequestId;
 
-      Guid paymentInstrumentId = LoadPreauthRecord(authorizationToken, actualPaymentInfo, out requestPrams, out arRequestId);
+      Guid paymentInstrumentId = LoadPreauthRecord(authorizationToken, actualPaymentInfo, out requestPrams,
+                                                   out arRequestId);
 
       MetraPaymentMethod paymentMethod = GetPaymentInstrument(paymentInstrumentId);
-      CreditCardPaymentMethod cc = (CreditCardPaymentMethod)paymentMethod;
+      CreditCardPaymentMethod cc = (CreditCardPaymentMethod) paymentMethod;
 
       try
       {
-        WriteToPaymentAudit(paymentMethod, actualPaymentInfo, EnumHelper.GetDbValueByEnum(PaymentRequestType.Credit_Card_Capture));
-        m_Gateway.CaptureCharge(cc, ref actualPaymentInfo, requestPrams, out result, timeout, cos);
+        WriteToPaymentAudit(paymentMethod, actualPaymentInfo,
+                            EnumHelper.GetDbValueByEnum(PaymentRequestType.Credit_Card_Capture));
+        _gateway.CaptureCharge(cc, ref actualPaymentInfo, requestPrams, out result, timeout, cos);
         DeletePreAuthRecord(authorizationToken);
         if (endTime < DateTime.Now)
         {
@@ -787,24 +821,26 @@ namespace MetraTech.MetraPay
           throw new TimeoutException();
         }
         UpdateTransactionStatus(actualPaymentInfo.TransactionSessionId, TransactionState.SUCCESS);
-        m_Logger.LogDebug(String.Format("Credit Card Capture request success.  Recording Transaction Information for Request: {0}", result));
+        _logger.LogDebug(
+          String.Format("Credit Card Capture request success.  Recording Transaction Information for Request: {0}",
+                        result));
       }
       catch (TimeoutException e)
       {
         var resourceManager = new ResourcesManager();
-        m_Logger.LogException(resourceManager.GetLocalizedResource("TIMEOUT_EXCEPTION"), e);
+        _logger.LogException(resourceManager.GetLocalizedResource("TIMEOUT_EXCEPTION"), e);
         UpdateTransactionStatus(actualPaymentInfo.TransactionSessionId, TransactionState.FAILURE);
         throw;
       }
-  
+
       catch (PaymentProcessorException ppe)
       {
-        m_Logger.LogException("Error from payment processor capturing charge.", ppe);
+        _logger.LogException("Error from payment processor capturing charge.", ppe);
         throw ppe;
       }
       catch (Exception e)
       {
-        m_Logger.LogError(String.Format("An error occurred: {0}", e.ToString()));
+        _logger.LogError(String.Format("An error occurred: {0}", e.ToString()));
         throw new MASBasicException(String.Format("Credit card capture failed: {0}", e.ToString()));
       }
     }
@@ -814,7 +850,7 @@ namespace MetraTech.MetraPay
     {
       if (timeout == 0)
       {
-        timeout = m_DefaultTimeout;
+        timeout = _defaultTimeout;
       }
       DateTime endTime = DateTime.Now.AddMilliseconds(timeout);
 
@@ -823,14 +859,14 @@ namespace MetraTech.MetraPay
       MetraPaymentMethod processPaymentMethod = null;
       PaymentType paymentMethodType = paymentMethod.PaymentMethodType;
 
-      m_Logger.LogDebug("About to submit credit to payment processor");
+      _logger.LogDebug("About to submit credit to payment processor");
       if (paymentMethodType == PaymentType.Credit_Card)
       {
-        processPaymentMethod = GetCCPaymentMethod(token, paymentMethod);
+        processPaymentMethod = GetCreditCardPaymentMethod(token, paymentMethod);
       }
       else if (paymentMethodType == PaymentType.ACH)
       {
-        processPaymentMethod = GetACHPaymentMethod(token, paymentMethod);
+        processPaymentMethod = GetBankAccountPaymentMethod(token, paymentMethod);
       }
       else
       {
@@ -843,94 +879,101 @@ namespace MetraTech.MetraPay
         UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.FAILURE);
         throw new TimeoutException();
       }
-      m_Logger.LogDebug("Successfully submitted credit to payment processor.");
+      _logger.LogDebug("Successfully submitted credit to payment processor.");
     }
 
     [OperationBehavior(TransactionAutoComplete = true, TransactionScopeRequired = true)]
-    public void SubmitOneTimeCredit(MetraPaymentMethod paymentMethod, ref MetraPaymentInfo paymentInfo, double timeout, string cos)
+    public void SubmitOneTimeCredit(MetraPaymentMethod paymentMethod, ref MetraPaymentInfo paymentInfo, double timeout,
+                                    string cos)
     {
       if (timeout == 0)
       {
-        timeout = m_DefaultTimeout;
+        timeout = _defaultTimeout;
       }
       DateTime endTime = DateTime.Now.AddMilliseconds(timeout);
 
-      m_Logger.LogDebug("Credit being submitted to payment processor");
+      _logger.LogDebug("Credit being submitted to payment processor");
 
       string result;
 
       // Submit Credit Card to Cybersource
-      if (paymentMethod.GetType() == typeof(CreditCardPaymentMethod) ||
-          paymentMethod.GetType().IsSubclassOf(typeof(CreditCardPaymentMethod)))
+      if (paymentMethod.GetType() == typeof (CreditCardPaymentMethod) ||
+          paymentMethod.GetType().IsSubclassOf(typeof (CreditCardPaymentMethod)))
       {
-        CreditCardPaymentMethod process = (CreditCardPaymentMethod)paymentMethod;
+        CreditCardPaymentMethod process = (CreditCardPaymentMethod) paymentMethod;
         try
         {
           WriteToPaymentAudit(process, paymentInfo, EnumHelper.GetDbValueByEnum(PaymentRequestType.Credit_Card_Credit));
-          m_Gateway.Credit(process, ref paymentInfo, out result, timeout, cos);
+          _gateway.Credit(process, ref paymentInfo, out result, timeout, cos);
           if (endTime < DateTime.Now)
           {
             UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.FAILURE);
             throw new TimeoutException();
           }
           UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.SUCCESS);
-          m_Logger.LogDebug(String.Format("Credit Card Credit Processing successful.  Recording Transaction Information for Request: {0}", result));
+          _logger.LogDebug(
+            String.Format(
+              "Credit Card Credit Processing successful.  Recording Transaction Information for Request: {0}", result));
         }
         catch (TimeoutException e)
         {
           var resourceManager = new ResourcesManager();
-          m_Logger.LogException(resourceManager.GetLocalizedResource("TIMEOUT_EXCEPTION"), e);
+          _logger.LogException(resourceManager.GetLocalizedResource("TIMEOUT_EXCEPTION"), e);
           UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.FAILURE);
           throw;
         }
-  
+
         catch (PaymentProcessorException ppe)
         {
           UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.REJECTED, ppe.Message);
-          m_Logger.LogException("Error from payment processor crediting credit card.", ppe);
+          _logger.LogException("Error from payment processor crediting credit card.", ppe);
           throw ppe;
         }
         catch (Exception e)
         {
           UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.FAILURE);
-          m_Logger.LogError(String.Format("Credit Card Credit Processing failed.  An error occurred: {0}", e.ToString()));
-          throw new MASBasicException(String.Format("Credit Card Credit Processing failed.  An error occurred: {0}", e.ToString()));
+          _logger.LogError(String.Format("Credit Card Credit Processing failed.  An error occurred: {0}", e.ToString()));
+          throw new MASBasicException(String.Format("Credit Card Credit Processing failed.  An error occurred: {0}",
+                                                    e.ToString()));
         }
       }
       else
       {
-        ACHPaymentMethod process = (ACHPaymentMethod)paymentMethod;
+        ACHPaymentMethod process = (ACHPaymentMethod) paymentMethod;
         try
         {
           WriteToPaymentAudit(process, paymentInfo, EnumHelper.GetDbValueByEnum(PaymentRequestType.ACH_Credit));
-          m_Gateway.Credit(process, ref paymentInfo, out result);
+          _gateway.Credit(process, ref paymentInfo, out result);
           if (endTime < DateTime.Now)
           {
             UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.FAILURE);
             throw new TimeoutException();
           }
           UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.SUCCESS);
-          m_Logger.LogDebug(String.Format("ACH Credit Processing successful.  Recording Transaction Information for Request: {0}", result));
+          _logger.LogDebug(
+            String.Format("ACH Credit Processing successful.  Recording Transaction Information for Request: {0}",
+                          result));
         }
         catch (TimeoutException e)
         {
           var resourceManager = new ResourcesManager();
-          m_Logger.LogException(resourceManager.GetLocalizedResource("TIMEOUT_EXCEPTION"), e);
+          _logger.LogException(resourceManager.GetLocalizedResource("TIMEOUT_EXCEPTION"), e);
           UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.FAILURE);
           throw;
         }
-  
+
         catch (PaymentProcessorException ppe)
         {
           UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.REJECTED, ppe.Message);
-          m_Logger.LogException("Error from payment processor crediting ach.", ppe);
+          _logger.LogException("Error from payment processor crediting ach.", ppe);
           throw ppe;
         }
         catch (Exception e)
         {
           UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.FAILURE);
-          m_Logger.LogError(String.Format("ACH Credit Processing failed.  An error occurred: {0}", e.ToString()));
-          throw new MASBasicException(String.Format("ACH Credit Processing failed.  An error occurred: {0}", e.ToString()));
+          _logger.LogError(String.Format("ACH Credit Processing failed.  An error occurred: {0}", e.ToString()));
+          throw new MASBasicException(String.Format("ACH Credit Processing failed.  An error occurred: {0}",
+                                                    e.ToString()));
         }
       }
 
@@ -939,22 +982,25 @@ namespace MetraTech.MetraPay
     [OperationBehavior(TransactionAutoComplete = true, TransactionScopeRequired = true)]
     public void ValidatePaymentMethod(MetraPaymentMethod paymentMethod, ref MetraPaymentInfo paymentInfo)
     {
-      if (!m_Gateway.ValidatePaymentMethod(paymentMethod))
+      if (!_gateway.ValidatePaymentMethod(paymentMethod, paymentInfo.Currency))
       {
-        m_Logger.LogError(String.Format("Invalid Payment Instrument id: {0} has been provided", paymentMethod.PaymentInstrumentID.ToString()));
+        _logger.LogError(String.Format("Invalid Payment Instrument id: {0} has been provided",
+                                       paymentMethod.PaymentInstrumentID.ToString()));
         throw new MASBasicException("Invalid Payment Intrument id.");
       }
 
-      if (paymentMethod.GetType() == typeof(CreditCardPaymentMethod) ||
-          paymentMethod.GetType().IsSubclassOf(typeof(CreditCardPaymentMethod)))
+      if (paymentMethod.GetType() == typeof (CreditCardPaymentMethod) ||
+          paymentMethod.GetType().IsSubclassOf(typeof (CreditCardPaymentMethod)))
       {
-        m_Logger.LogDebug("Credit Card Validation successful.");
-        WriteToPaymentAudit(paymentMethod, paymentInfo, EnumHelper.GetDbValueByEnum(PaymentRequestType.Credit_Card_Update));
+        _logger.LogDebug("Credit Card Validation successful.");
+        WriteToPaymentAudit(paymentMethod, paymentInfo,
+                            EnumHelper.GetDbValueByEnum(PaymentRequestType.Credit_Card_Update));
       }
       else
       {
-        m_Logger.LogDebug("ACH Validation successful.");
-        WriteToPaymentAudit(paymentMethod, paymentInfo, EnumHelper.GetDbValueByEnum(PaymentRequestType.ACH_Account_Update));
+        _logger.LogDebug("ACH Validation successful.");
+        WriteToPaymentAudit(paymentMethod, paymentInfo,
+                            EnumHelper.GetDbValueByEnum(PaymentRequestType.ACH_Account_Update));
       }
     }
 
@@ -965,21 +1011,21 @@ namespace MetraTech.MetraPay
       string warnings = "";
       try
       {
-        bProcessed = m_Gateway.GetACHTransactionStatus(transactionId, out warnings);
+        bProcessed = _gateway.GetACHTransactionStatus(transactionId, out warnings);
 
         if (bProcessed)
         {
-          m_Logger.LogInfo("Transaction: {0} has been processed.", transactionId);
+          _logger.LogInfo("Transaction: {0} has been processed.", transactionId);
         }
       }
       catch (PaymentProcessorException ppe)
       {
-        m_Logger.LogException("Error validating transaction status.", ppe);
+        _logger.LogException("Error validating transaction status.", ppe);
         throw ppe;
       }
       catch (Exception e)
       {
-        m_Logger.LogException("Error validating transaction status.", e);
+        _logger.LogException("Error validating transaction status.", e);
         throw new MASBasicException("Error validating transaction status.");
       }
     }
@@ -990,16 +1036,16 @@ namespace MetraTech.MetraPay
       string warnings = "";
       try
       {
-        m_Gateway.DownloadACHTransactionsReport(url, out warnings);
+        _gateway.DownloadACHTransactionsReport(url, out warnings);
       }
       catch (PaymentProcessorException ppe)
       {
-        m_Logger.LogException("Error downloading Transaction report.", ppe);
+        _logger.LogException("Error downloading Transaction report.", ppe);
         throw ppe;
       }
       catch (Exception e)
       {
-        m_Logger.LogException("Error downloading Transaction report.", e);
+        _logger.LogException("Error downloading Transaction report.", e);
         throw new MASBasicException("Error downloading Transaction report.");
       }
     }
@@ -1009,7 +1055,7 @@ namespace MetraTech.MetraPay
     {
       if (timeout == 0)
       {
-        timeout = m_DefaultTimeout;
+        timeout = _defaultTimeout;
       }
       DateTime endTime = DateTime.Now.AddMilliseconds(timeout);
       try
@@ -1018,17 +1064,19 @@ namespace MetraTech.MetraPay
         Guid paymentInstrumentId = LoadPreauthRecord(authToken, paymentInfo, out requestPrams, out arRequestId);
 
         MetraPaymentMethod paymentMethod = GetPaymentInstrument(paymentInstrumentId);
-        m_Gateway.ReverseAuthorizedCharge((CreditCardPaymentMethod)paymentMethod, ref paymentInfo, requestPrams, out warnings, timeout, cos);
+        _gateway.ReverseAuthorizedCharge((CreditCardPaymentMethod) paymentMethod, ref paymentInfo, requestPrams,
+                                         out warnings, timeout, cos);
 
         DeletePreAuthRecord(authToken);
 
-        WriteToPaymentAudit(paymentMethod, paymentInfo, EnumHelper.GetDbValueByEnum(PaymentRequestType.Credit_Card_Auth_Reversal));
+        WriteToPaymentAudit(paymentMethod, paymentInfo,
+                            EnumHelper.GetDbValueByEnum(PaymentRequestType.Credit_Card_Auth_Reversal));
 
       }
       catch (Exception e)
       {
         UpdateTransactionStatus(paymentInfo.TransactionSessionId, TransactionState.FAILURE);
-        m_Logger.LogError(string.Format("Error while Auth Reversal Submit, Auth Token {0}", authToken), e);
+        _logger.LogError(string.Format("Error while Auth Reversal Submit, Auth Token {0}", authToken), e);
         throw new MASBasicException("Error while auth reversal submit");
       }
     }
@@ -1042,29 +1090,31 @@ namespace MetraTech.MetraPay
       return false;
     }
 
-    public void ProvideFault(Exception error, System.ServiceModel.Channels.MessageVersion version, ref System.ServiceModel.Channels.Message fault)
+    public void ProvideFault(Exception error, System.ServiceModel.Channels.MessageVersion version,
+                             ref System.ServiceModel.Channels.Message fault)
     {
       if (error is TimeoutException)
       {
         MASBasicException timeoutError = new MASBasicException(ErrorCodes.TRANSACTION_TIMED_OUT);
-        FaultException fe = ((MASBaseException)timeoutError).CreateFaultDetail();
+        FaultException fe = ((MASBaseException) timeoutError).CreateFaultDetail();
+        MessageFault messageFault = fe.CreateMessageFault();
+        fault = Message.CreateMessage(version, messageFault, fe.Action);
+      }
+      else if (error is MASBaseException)
+      {
+        FaultException fe = ((MASBaseException) error).CreateFaultDetail();
         MessageFault messageFault = fe.CreateMessageFault();
         fault = Message.CreateMessage(version, messageFault, fe.Action);
       }
       else
-      if (error is MASBaseException)
       {
-        FaultException fe = ((MASBaseException)error).CreateFaultDetail();
-        MessageFault messageFault = fe.CreateMessageFault();
-        fault = Message.CreateMessage(version, messageFault, fe.Action);
-      }
-      else
-      {
-        m_Logger.LogException("Unhandled exception in ActivityServices service", error);
+        _logger.LogException("Unhandled exception in ActivityServices service", error);
 
-        MASBasicFaultDetail faultDetail = new MASBasicFaultDetail("An unexpected error occurred in MetraNet Activity Services.");
+        MASBasicFaultDetail faultDetail =
+          new MASBasicFaultDetail("An unexpected error occurred in MetraNet Activity Services.");
 
-        FaultException<MASBasicFaultDetail> fe = new FaultException<MASBasicFaultDetail>(faultDetail, "Unhandled Exception in MetraNet Activity Services");
+        FaultException<MASBasicFaultDetail> fe = new FaultException<MASBasicFaultDetail>(faultDetail,
+                                                                                         "Unhandled Exception in MetraNet Activity Services");
         MessageFault messageFault = fe.CreateMessageFault();
         fault = Message.CreateMessage(version, messageFault, fe.Action);
       }
@@ -1074,7 +1124,9 @@ namespace MetraTech.MetraPay
 
     #region IServiceBehavior Members
 
-    public void AddBindingParameters(ServiceDescription serviceDescription, ServiceHostBase serviceHostBase, System.Collections.ObjectModel.Collection<ServiceEndpoint> endpoints, BindingParameterCollection bindingParameters)
+    public void AddBindingParameters(ServiceDescription serviceDescription, ServiceHostBase serviceHostBase,
+                                     System.Collections.ObjectModel.Collection<ServiceEndpoint> endpoints,
+                                     BindingParameterCollection bindingParameters)
     {
     }
 
@@ -1100,7 +1152,8 @@ namespace MetraTech.MetraPay
 
       try
       {
-        m_Logger.LogInfo("Updating credit cards for transaction {0}.  {1} cards to be updated", transactionId, cardsToUpdate.Count);
+        _logger.LogInfo("Updating credit cards for transaction {0}.  {1} cards to be updated", transactionId,
+                        cardsToUpdate.Count);
 
         if (cardsToUpdate.Count > 0)
         {
@@ -1120,25 +1173,26 @@ namespace MetraTech.MetraPay
             }
             catch (Exception e)
             {
-              m_Logger.LogException(string.Format("Error loading credit card for {0}, skipping", token), e);
+              _logger.LogException(string.Format("Error loading credit card for {0}, skipping", token), e);
             }
           }
 
-          m_Logger.LogDebug("Loaded {1} credit cards for transaction {0}.", transactionId, creditCards.Count);
-          m_Gateway.GetCreditCardUpdates(transactionId, creditCards, ref updatedCards);
+          _logger.LogDebug("Loaded {1} credit cards for transaction {0}.", transactionId, creditCards.Count);
+          _gateway.GetCreditCardUpdates(transactionId, creditCards, ref updatedCards);
 
-          m_Logger.LogInfo("Cards updated");
+          _logger.LogInfo("Cards updated");
 
         }
       }
       catch (Exception e)
       {
-        m_Logger.LogException(string.Format("Exception of type {0} caught in UpdateCreditCards", e.GetType().Name), e);
+        _logger.LogException(string.Format("Exception of type {0} caught in UpdateCreditCards", e.GetType().Name), e);
       }
       finally
       {
-        m_Logger.LogInfo("{0} cards need to be sent back to EPS for persistence", updatedCards.Count);
-        IBatchUpdateServiceCallback callback = OperationContext.Current.GetCallbackChannel<IBatchUpdateServiceCallback>();
+        _logger.LogInfo("{0} cards need to be sent back to EPS for persistence", updatedCards.Count);
+        IBatchUpdateServiceCallback callback =
+          OperationContext.Current.GetCallbackChannel<IBatchUpdateServiceCallback>();
         callback.CreditCardsUpdated(transactionId, updatedCards);
       }
     }
@@ -1146,15 +1200,9 @@ namespace MetraTech.MetraPay
     #endregion
 
     #region private members
-    /*
-    private void LogTransaction()
-    {
-        TxnLogger txLog = new TxnLogger();
-*/
 
-
-
-    private Guid LoadPreauthRecord(Guid authToken, MetraPaymentInfo paymentInfo, out string requestPrams, out string arRequestId)
+    private Guid LoadPreauthRecord(Guid authToken, MetraPaymentInfo paymentInfo, out string requestPrams,
+                                   out string arRequestId)
     {
       try
       {
@@ -1166,7 +1214,7 @@ namespace MetraTech.MetraPay
         using (IMTConnection conn = ConnectionManager.CreateConnection())
         {
           using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("PaymentServer",
-                "__LOAD_PREAUTH_RECORD__"))
+                                                                        "__LOAD_PREAUTH_RECORD__"))
           {
 
             // This only handles the credit card case
@@ -1183,7 +1231,7 @@ namespace MetraTech.MetraPay
               }
               else
               {
-                m_Logger.LogError(string.Format("Preauth Record not found. AuthToken : {0}", authToken));
+                _logger.LogError(string.Format("Preauth Record not found. AuthToken : {0}", authToken));
                 throw new MASBasicException(string.Format("Preauth Record not found. AuthToken : {0}", authToken));
               }
             }
@@ -1198,35 +1246,31 @@ namespace MetraTech.MetraPay
       }
       catch (Exception ex)
       {
-        m_Logger.LogException("Error at LoadPreauthRecord", ex);
+        _logger.LogException("Error at LoadPreauthRecord", ex);
         throw new MASBasicException("Error while processing LoadPreauthRecord...");
       }
     }
 
-    private void StorePaymentInstrument(Guid paymentInstrumentId, MetraPaymentMethod paymentMethod)
+    private static void StorePaymentInstrument(Guid paymentInstrumentId, MetraPaymentMethod paymentMethod)
     {
-      using (IMTConnection conn = ConnectionManager.CreateConnection())
+      using (var conn = ConnectionManager.CreateConnection())
+      using (var stmt = conn.CreateAdapterStatement("PaymentServer", "__STORE_PAYMENT_INSTRUMENT__"))
       {
-        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("PaymentServer",
-                "__STORE_PAYMENT_INSTRUMENT__"))
-        {
-
-          stmt.AddParam("%%PAYMENT_INSTRUMENT_ID%%", paymentInstrumentId.ToString());
-          stmt.AddParam("%%N_PAYMENT_METHOD_TYPE%%", BlankIfNull(EnumHelper.GetDbValueByEnum(paymentMethod.PaymentMethodType)));
-          stmt.AddParam("%%NM_ACCOUNT_NUMBER%%", EncryptString(paymentMethod.RawAccountNumber));
-          stmt.AddParam("%%NM_FIRST_NAME%%", paymentMethod.FirstName);
-          stmt.AddParam("%%NM_MIDDLE_NAME%%", paymentMethod.MiddleName);
-          stmt.AddParam("%%NM_LAST_NAME%%", paymentMethod.LastName);
-          stmt.AddParam("%%NM_ADDRESS1%%", BlankIfNull(paymentMethod.Street));
-          stmt.AddParam("%%NM_ADDRESS2%%", BlankIfNull(paymentMethod.Street2));
-          stmt.AddParam("%%NM_CITY%%", BlankIfNull(paymentMethod.City));
-          stmt.AddParam("%%NM_STATE%%", BlankIfNull(paymentMethod.State));
-          stmt.AddParam("%%NM_ZIP%%", BlankIfNull(paymentMethod.ZipCode));
-          stmt.AddParam("%%NM_COUNTRY%%", EnumHelper.GetDbValueByEnum(paymentMethod.Country));
-
-          stmt.ExecuteNonQuery();
-          stmt.ClearQuery();
-        }
+        stmt.AddParam("%%PAYMENT_INSTRUMENT_ID%%", paymentInstrumentId.ToString());
+        stmt.AddParam("%%N_PAYMENT_METHOD_TYPE%%",
+                      BlankIfNull(EnumHelper.GetDbValueByEnum(paymentMethod.PaymentMethodType)));
+        stmt.AddParam("%%NM_ACCOUNT_NUMBER%%", EncryptString(paymentMethod.RawAccountNumber));
+        stmt.AddParam("%%NM_FIRST_NAME%%", paymentMethod.FirstName);
+        stmt.AddParam("%%NM_MIDDLE_NAME%%", paymentMethod.MiddleName);
+        stmt.AddParam("%%NM_LAST_NAME%%", paymentMethod.LastName);
+        stmt.AddParam("%%NM_ADDRESS1%%", BlankIfNull(paymentMethod.Street));
+        stmt.AddParam("%%NM_ADDRESS2%%", BlankIfNull(paymentMethod.Street2));
+        stmt.AddParam("%%NM_CITY%%", BlankIfNull(paymentMethod.City));
+        stmt.AddParam("%%NM_STATE%%", BlankIfNull(paymentMethod.State));
+        stmt.AddParam("%%NM_ZIP%%", BlankIfNull(paymentMethod.ZipCode));
+        stmt.AddParam("%%NM_COUNTRY%%", EnumHelper.GetDbValueByEnum(paymentMethod.Country));
+        stmt.ExecuteNonQuery();
+        stmt.ClearQuery();
       }
     }
 
@@ -1234,161 +1278,30 @@ namespace MetraTech.MetraPay
     /// Deletes a payment instrument by Payment Instrument ID
     /// </summary>
     /// <param name="paymentInstrumentId">Identifies credit card to delete</param>
-    private void DeleteCreditCardByPaymentInstrumentID(Guid paymentInstrumentID)
+    private static void DeleteCreditCardByInstrumentId(Guid paymentInstrumentId)
     {
-      using (IMTConnection conn = ConnectionManager.CreateConnection())
+      using (var conn = ConnectionManager.CreateConnection())
+      using (var stmt = conn.CreateAdapterStatement("PaymentServer", "__DELETE_CREDIT_CARD_BY_PAYMENT_INSTRUMENT_ID__"))
       {
-        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("PaymentServer",
-                "__DELETE_CREDIT_CARD_BY_PAYMENT_INSTRUMENT_ID__"))
-        {
-
-          stmt.AddParam("%%PAYMENT_INSTRUMENT_ID%%", paymentInstrumentID.ToString());
-
-          stmt.ExecuteNonQuery();
-          stmt.ClearQuery();
-        }
+        stmt.AddParam("%%PAYMENT_INSTRUMENT_ID%%", paymentInstrumentId.ToString());
+        stmt.ExecuteNonQuery();
+        stmt.ClearQuery();
       }
     }
 
-    private void DeleteACHByPaymentInstrumentID(Guid paymentInstrumentID)
+    private static void DeleteBankAccountByInstrumentId(Guid paymentInstrumentId)
     {
-      using (IMTConnection conn = ConnectionManager.CreateConnection())
+      using (var conn = ConnectionManager.CreateConnection())
+      using (var stmt = conn.CreateAdapterStatement("PaymentServer", "__DELETE_ACH_BY_PAYMENT_INSTRUMENT_ID__"))
       {
-        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("PaymentServer",
-                "__DELETE_ACH_BY_PAYMENT_INSTRUMENT_ID__"))
-        {
+        stmt.AddParam("%%PAYMENT_INSTRUMENT_ID%%", paymentInstrumentId.ToString());
 
-          stmt.AddParam("%%PAYMENT_INSTRUMENT_ID%%", paymentInstrumentID.ToString());
-
-          stmt.ExecuteNonQuery();
-          stmt.ClearQuery();
-        }
-      }
-    }
-    /// <summary> 
-    /// Persists temporary accountID/LIVE PUID Mapping
-    /// </summary>
-    /// <param name="accountID"></param>
-    /// <param name="PUID"></param>
-    private void SaveTempAccountID(int accountID, string PUID)
-    {
-      using (IMTConnection conn = ConnectionManager.CreateConnection())
-      {
-        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("PaymentServer",
-                "__INSERT_T_PS_TEMPACCID_PUID_XREF_TABLE__"))
-        {
-
-          stmt.AddParam("%%TEMP_ACCOUNT_ID%%", accountID);
-          stmt.AddParam("%%PUID%%", PUID);
-          stmt.AddParam("%%TIMESTAMP%%", MetraTime.Now);
-
-          stmt.ExecuteNonQuery();
-          stmt.ClearQuery();
-        }
+        stmt.ExecuteNonQuery();
+        stmt.ClearQuery();
       }
     }
 
-    private bool AccountHasAnyPaymentMethods(int accountID)
-    {
-      using (IMTConnection conn = ConnectionManager.CreateConnection())
-      {
-        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("PaymentServer",
-                "__SELECT_ALL_T_PS_ACCOUNT_TABLE__"))
-        {
-
-          stmt.AddParam("%%ACCOUNT_ID%%", accountID);
-
-          using (IMTDataReader dataReader = stmt.ExecuteReader())
-          {
-
-            //if there are records, return true
-            if (dataReader.Read())
-            {
-              return true;
-            }
-          }
-        }
-      }
-
-      return false;
-    }
-
-    /// <summary>
-    /// Verifies if the accountID in accountIdentifier is the one that created the payment method
-    /// associated with the token
-    /// </summary>
-    /// <param name="token"></param>
-    /// <param name="accountIdentifier"></param>
-    /// <returns></returns>
-    /* private MetraPaymentMethod VerifyPaymentMethodOwner(Guid token)
-     {
-       MetraPaymentMethod pm;
-       using (IMTConnection conn = ConnectionManager.CreateConnection())
-       {
-         using(IMTAdapterStatement stmt = conn.CreateAdapterStatement("PaymentServer",
-               "__GET_PAYMENT_METHOD_TYPE__"))
-      {
-
-         stmt.AddParam("%%PAYMENT_INSTRUMENT_ID%%", token.ToString());
-
-         using (IMTDataReader dataReader = stmt.ExecuteReader())
-         {
-
-           //if there are records, then this user is the owner of the record - ok
-           if (dataReader.Read())
-           {
-             PaymentType paymentType = (PaymentType)EnumHelper.GetCSharpEnum(dataReader.GetInt32("n_payment_method_type"));
-             if (paymentType == PaymentType.Credit_Card)
-             {
-               pm = GetCCPaymentMethod(token, paymentMethod);
-             }
-             else if (paymentType == PaymentType.ACH)
-             {
-               pm = GetACHPaymentMethod(token, paymentMethod);
-             }
-             return pm;
-           }
-         }
-       }
-      }
-       return pm;
-     }*/
-
-
-    private int GetTempAccountID(string PUID)
-    {
-      int accountID = 0;
-
-      GetTempAccountID(PUID, out accountID);
-      return accountID;
-    }
-
-    private void GetTempAccountID(string PUID, out int accountID)
-    {
-      accountID = 0;
-
-      using (IMTConnection conn = ConnectionManager.CreateConnection())
-      {
-        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("PaymentServer",
-                "__SELECT_T_PS_TEMPACCID_PUID_XREF_BY_PUID__"))
-        {
-
-          stmt.AddParam("%%PUID%%", PUID);
-
-          using (IMTDataReader dataReader = stmt.ExecuteReader())
-          {
-
-            //if there are records, then we do have this credit card on file
-            if (dataReader.Read())
-            {
-              accountID = dataReader.GetInt32("temp_acc_id");
-            }
-          }
-        }
-      }
-    }
-
-    private object BlankIfNull(object input)
+    private static object BlankIfNull(object input)
     {
       if ((input == null) || (input == DBNull.Value))
       {
@@ -1397,166 +1310,121 @@ namespace MetraTech.MetraPay
       return input;
     }
 
-    /// <summary>
-    /// Preserve the credit card information
-    /// </summary>
-    /// <param name="paymentMethod">Credit card information</param>
-    /// <param name="accountID">Account ID of the user who is adding this card to his profile</param>
-    /// <param name="paymentInstrumentId">GUID identifying payment instrument id</param>
-    private void AddCreditCard(CreditCardPaymentMethod paymentMethod, Guid paymentInstrumentId)
+    private static void AddCreditCard(CreditCardPaymentMethod paymentMethod, Guid paymentInstrumentId)
     {
       //tie a credit card to the account
-      using (IMTConnection conn = ConnectionManager.CreateConnection())
+      using (var conn = ConnectionManager.CreateConnection())
+      using (var stmt = conn.CreateAdapterStatement("PaymentServer", "__INSERT_T_PS_CREDITCARD_TABLE__"))
       {
-        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("PaymentServer",
-                "__INSERT_T_PS_CREDITCARD_TABLE__"))
-        {
+        stmt.AddParam("%%PAYMENT_INSTRUMENT_ID%%", BlankIfNull(paymentInstrumentId.ToString()));
+        stmt.AddParam("%%N_CREDIT_CARD_TYPE%%", EnumHelper.GetDbValueByEnum(paymentMethod.CreditCardType));
+        stmt.AddParam("%%NM_EXPIRATIONDT%%", BlankIfNull(paymentMethod.ExpirationDate));
+        stmt.AddParam("%%NM_EXPIRATIONDT_FORMAT%%", (int) paymentMethod.ExpirationDateFormat);
+        stmt.AddParam("%%NM_START_DATE%%", BlankIfNull(paymentMethod.StartDate));
+        stmt.AddParam("%%NM_ISSUER_NUMBER%%", BlankIfNull(paymentMethod.IssuerNumber));
 
-          stmt.AddParam("%%PAYMENT_INSTRUMENT_ID%%", BlankIfNull(paymentInstrumentId.ToString()));
-          stmt.AddParam("%%N_CREDIT_CARD_TYPE%%", EnumHelper.GetDbValueByEnum(paymentMethod.CreditCardType));
-          stmt.AddParam("%%NM_EXPIRATIONDT%%", BlankIfNull(paymentMethod.ExpirationDate));
-          stmt.AddParam("%%NM_EXPIRATIONDT_FORMAT%%", (int)paymentMethod.ExpirationDateFormat);
-          stmt.AddParam("%%NM_START_DATE%%", BlankIfNull(paymentMethod.StartDate));
-          stmt.AddParam("%%NM_ISSUER_NUMBER%%", BlankIfNull(paymentMethod.IssuerNumber));
-
-          stmt.ExecuteNonQuery();
-          stmt.ClearQuery();
-        }
+        stmt.ExecuteNonQuery();
+        stmt.ClearQuery();
       }
     }
 
-    private void AddACHDetails(ACHPaymentMethod paymentMethod, Guid paymentInstrumentId)
+    private static void AddBankAccount(ACHPaymentMethod paymentMethod, Guid paymentInstrumentId)
     {
-      using (IMTConnection conn = ConnectionManager.CreateConnection())
+      using (var conn = ConnectionManager.CreateConnection())
+      using (var stmt = conn.CreateAdapterStatement("PaymentServer", "__INSERT_T_PS_ACH__"))
       {
-        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("PaymentServer",
-                "__INSERT_T_PS_ACH__"))
-        {
-
-          stmt.AddParam("%%PAYMENT_INSTRUMENT_ID%%", BlankIfNull(paymentInstrumentId.ToString()));
-          stmt.AddParam("%%NM_ROUTING_NUMBER%%", BlankIfNull(paymentMethod.RoutingNumber));
-          stmt.AddParam("%%NM_BANK_NAME%%", BlankIfNull(paymentMethod.BankName));
-          stmt.AddParam("%%NM_BANK_ADDRESS%%", BlankIfNull(paymentMethod.BankAddress));
-          stmt.AddParam("%%NM_BANK_CITY%%", BlankIfNull(paymentMethod.BankCity));
-          stmt.AddParam("%%NM_BANK_STATE%%", BlankIfNull(paymentMethod.BankState));
-          stmt.AddParam("%%NM_BANK_ZIP%%", BlankIfNull(paymentMethod.BankState));
-          stmt.AddParam("%%NM_COUNTRY%%", EnumHelper.GetDbValueByEnum(paymentMethod.Country));
-          stmt.ExecuteNonQuery();
-          stmt.ClearQuery();
-        }
+        stmt.AddParam("%%PAYMENT_INSTRUMENT_ID%%", BlankIfNull(paymentInstrumentId.ToString()));
+        stmt.AddParam("%%NM_ROUTING_NUMBER%%", BlankIfNull(paymentMethod.RoutingNumber));
+        stmt.AddParam("%%NM_BANK_NAME%%", BlankIfNull(paymentMethod.BankName));
+        stmt.AddParam("%%NM_BANK_ADDRESS%%", BlankIfNull(paymentMethod.BankAddress));
+        stmt.AddParam("%%NM_BANK_CITY%%", BlankIfNull(paymentMethod.BankCity));
+        stmt.AddParam("%%NM_BANK_STATE%%", BlankIfNull(paymentMethod.BankState));
+        stmt.AddParam("%%NM_BANK_ZIP%%", BlankIfNull(paymentMethod.BankState));
+        stmt.AddParam("%%NM_COUNTRY%%", EnumHelper.GetDbValueByEnum(paymentMethod.Country));
+        stmt.ExecuteNonQuery();
+        stmt.ClearQuery();
       }
     }
 
-    private void AssignPaymentInstrumentToAccountInternal(Guid token, AccountIdentifier acct)
+    private static void UpdatePaymentInstrument(MetraPaymentMethod paymentMethod, Guid paymentInstrumentId)
     {
-      using (IMTConnection conn = ConnectionManager.CreateConnection())
+      using (var conn = ConnectionManager.CreateConnection())
+      using (var stmt = conn.CreateAdapterStatement("PaymentServer", "__UPDATE_PS_PAYMENT_INSTRUMENT__"))
       {
-        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("PaymentServer",
-                "__ASSIGN_PAYMENT_INSTRUMENT_TO_ACCOUNT__"))
-        {
+        if (paymentMethod.GetType() == typeof (CreditCardPaymentMethod) ||
+            paymentMethod.GetType().IsSubclassOf(typeof (CreditCardPaymentMethod)))
+          stmt.AddParam("%%N_PAYMENT_METHOD_TYPE%%", BlankIfNull(EnumHelper.GetDbValueByEnum(PaymentType.Credit_Card)));
+        else
+          stmt.AddParam("%%N_PAYMENT_METHOD_TYPE%%", BlankIfNull(EnumHelper.GetDbValueByEnum(PaymentType.ACH)));
 
-          stmt.AddParam("%%ACCOUNT_ID%%", acct.AccountID.Value);
-          stmt.AddParam("%%PAYMENT_INSTRUMENT_ID%%", token.ToString());
-
-          stmt.ExecuteNonQuery();
-          stmt.ClearQuery();
-        }
-      }
-    }
-
-    private void UpdatePaymentInstrument(MetraPaymentMethod paymentMethod, Guid paymentInstrumentId)
-    {
-      using (IMTConnection conn = ConnectionManager.CreateConnection())
-      {
-        using (IMTAdapterStatement stmt2 = conn.CreateAdapterStatement("PaymentServer",
-                "__UPDATE_PS_PAYMENT_INSTRUMENT__"))
-        {
-
-          if (paymentMethod.GetType() == typeof(CreditCardPaymentMethod) ||
-            paymentMethod.GetType().IsSubclassOf(typeof(CreditCardPaymentMethod)))
-            stmt2.AddParam("%%N_PAYMENT_METHOD_TYPE%%", BlankIfNull(EnumHelper.GetDbValueByEnum(PaymentType.Credit_Card)));
-          else
-            stmt2.AddParam("%%N_PAYMENT_METHOD_TYPE%%", BlankIfNull(EnumHelper.GetDbValueByEnum(PaymentType.ACH)));
-
-          stmt2.AddParam("%%NM_ACCOUNT_NUMBER%%", EncryptString(paymentMethod.RawAccountNumber));
-          stmt2.AddParam("%%NM_FIRST_NAME%%", paymentMethod.FirstName);
-          stmt2.AddParam("%%NM_MIDDLE_NAME%%", paymentMethod.MiddleName);
-          stmt2.AddParam("%%NM_LAST_NAME%%", paymentMethod.LastName);
-          stmt2.AddParam("%%NM_ADDRESS1%%", BlankIfNull(paymentMethod.Street));
-          stmt2.AddParam("%%NM_ADDRESS2%%", BlankIfNull(paymentMethod.Street2));
-          stmt2.AddParam("%%NM_CITY%%", BlankIfNull(paymentMethod.City));
-          stmt2.AddParam("%%NM_STATE%%", BlankIfNull(paymentMethod.State));
-          stmt2.AddParam("%%NM_ZIP%%", BlankIfNull(paymentMethod.ZipCode));
-          stmt2.AddParam("%%NM_COUNTRY%%", EnumHelper.GetDbValueByEnum(paymentMethod.Country));
-          stmt2.AddParam("%%PAYMENT_INSTRUMENT_ID%%", paymentInstrumentId.ToString());
-
-          stmt2.ExecuteNonQuery();
-          stmt2.ClearQuery();
-        }
+        stmt.AddParam("%%NM_ACCOUNT_NUMBER%%", EncryptString(paymentMethod.RawAccountNumber));
+        stmt.AddParam("%%NM_FIRST_NAME%%", paymentMethod.FirstName);
+        stmt.AddParam("%%NM_MIDDLE_NAME%%", paymentMethod.MiddleName);
+        stmt.AddParam("%%NM_LAST_NAME%%", paymentMethod.LastName);
+        stmt.AddParam("%%NM_ADDRESS1%%", BlankIfNull(paymentMethod.Street));
+        stmt.AddParam("%%NM_ADDRESS2%%", BlankIfNull(paymentMethod.Street2));
+        stmt.AddParam("%%NM_CITY%%", BlankIfNull(paymentMethod.City));
+        stmt.AddParam("%%NM_STATE%%", BlankIfNull(paymentMethod.State));
+        stmt.AddParam("%%NM_ZIP%%", BlankIfNull(paymentMethod.ZipCode));
+        stmt.AddParam("%%NM_COUNTRY%%", EnumHelper.GetDbValueByEnum(paymentMethod.Country));
+        stmt.AddParam("%%PAYMENT_INSTRUMENT_ID%%", paymentInstrumentId.ToString());
+        stmt.ExecuteNonQuery();
+        stmt.ClearQuery();
       }
 
-      if (paymentMethod.GetType() == typeof(CreditCardPaymentMethod) ||
-          paymentMethod.GetType().IsSubclassOf(typeof(CreditCardPaymentMethod)))
+      if (paymentMethod.GetType() == typeof (CreditCardPaymentMethod) ||
+          paymentMethod.GetType().IsSubclassOf(typeof (CreditCardPaymentMethod)))
       {
-        UpdateCCInstrument((CreditCardPaymentMethod)paymentMethod, paymentInstrumentId);
+        UpdateCreditCardInstrument((CreditCardPaymentMethod) paymentMethod, paymentInstrumentId);
       }
       else
       {
-        UpdateACHInstrument((ACHPaymentMethod)paymentMethod, paymentInstrumentId);
+        UpdateBankAccountInstrument((ACHPaymentMethod) paymentMethod, paymentInstrumentId);
       }
     }
 
-    private void UpdateCCInstrument(CreditCardPaymentMethod paymentMethod, Guid paymentInstrumentId)
+    private static void UpdateCreditCardInstrument(CreditCardPaymentMethod paymentMethod, Guid paymentInstrumentId)
     {
-      using (IMTConnection conn = ConnectionManager.CreateConnection())
+      using (var conn = ConnectionManager.CreateConnection())
+      using (var stmt = conn.CreateAdapterStatement("PaymentServer", "__UPDATE_CREDIT_CARD_BY_PAYMENT_INSTRUMENT_ID__"))
       {
-        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("PaymentServer",
-                  "__UPDATE_CREDIT_CARD_BY_PAYMENT_INSTRUMENT_ID__"))
-        {
-
-          stmt.AddParam("%%N_CREDIT_CARD_TYPE%%", EnumHelper.GetDbValueByEnum(paymentMethod.CreditCardType));
-          stmt.AddParam("%%EXP_DATE%%", BlankIfNull(paymentMethod.ExpirationDate));
-          stmt.AddParam("%%EXP_DATE_FORMAT%%", BlankIfNull((int)paymentMethod.ExpirationDateFormat));
-          stmt.AddParam("%%START_DATE%%", BlankIfNull(paymentMethod.StartDate));
-          stmt.AddParam("%%ISSUER_NUMBER%%", BlankIfNull(paymentMethod.IssuerNumber));
-          stmt.AddParam("%%PAYMENT_INSTRUMENT_ID%%", paymentInstrumentId.ToString());
-
-          stmt.ExecuteNonQuery();
-          stmt.ClearQuery();
-        }
+        stmt.AddParam("%%N_CREDIT_CARD_TYPE%%", EnumHelper.GetDbValueByEnum(paymentMethod.CreditCardType));
+        stmt.AddParam("%%EXP_DATE%%", BlankIfNull(paymentMethod.ExpirationDate));
+        stmt.AddParam("%%EXP_DATE_FORMAT%%", BlankIfNull((int) paymentMethod.ExpirationDateFormat));
+        stmt.AddParam("%%START_DATE%%", BlankIfNull(paymentMethod.StartDate));
+        stmt.AddParam("%%ISSUER_NUMBER%%", BlankIfNull(paymentMethod.IssuerNumber));
+        stmt.AddParam("%%PAYMENT_INSTRUMENT_ID%%", paymentInstrumentId.ToString());
+        stmt.ExecuteNonQuery();
+        stmt.ClearQuery();
       }
     }
 
-    private void UpdateACHInstrument(ACHPaymentMethod paymentMethod, Guid paymentInstrumentId)
+    private static void UpdateBankAccountInstrument(ACHPaymentMethod paymentMethod, Guid paymentInstrumentId)
     {
-      using (IMTConnection conn = ConnectionManager.CreateConnection())
+      using (var conn = ConnectionManager.CreateConnection())
+      using (var stmt = conn.CreateAdapterStatement("PaymentServer", "__UPDATE_ACH_BY_PAYMENT_INSTRUMENT_ID__"))
       {
-        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("PaymentServer",
-                  "__UPDATE_ACH_BY_PAYMENT_INSTRUMENT_ID__"))
-        {
-
-          stmt.AddParam("%%NM_ROUTING_NUMBER%%", BlankIfNull(paymentMethod.RoutingNumber));
-          stmt.AddParam("%%NM_BANK_NAME%%", BlankIfNull(paymentMethod.BankName));
-          stmt.AddParam("%%NM_BANK_ADDRESS%%", BlankIfNull(paymentMethod.BankAddress));
-          stmt.AddParam("%%NM_BANK_CITY%%", BlankIfNull(paymentMethod.BankCity));
-          stmt.AddParam("%%NM_BANK_STATE%%", BlankIfNull(paymentMethod.BankState));
-          stmt.AddParam("%%NM_BANK_ZIP%%", BlankIfNull(paymentMethod.BankState));
-          stmt.AddParam("%%NM_COUNTRY%%", EnumHelper.GetDbValueByEnum(paymentMethod.Country));
-          stmt.AddParam("%%PAYMENT_INSTRUMENT_ID%%", paymentInstrumentId.ToString());
-
-          stmt.ExecuteNonQuery();
-          stmt.ClearQuery();
-        }
+        stmt.AddParam("%%NM_ROUTING_NUMBER%%", BlankIfNull(paymentMethod.RoutingNumber));
+        stmt.AddParam("%%NM_BANK_NAME%%", BlankIfNull(paymentMethod.BankName));
+        stmt.AddParam("%%NM_BANK_ADDRESS%%", BlankIfNull(paymentMethod.BankAddress));
+        stmt.AddParam("%%NM_BANK_CITY%%", BlankIfNull(paymentMethod.BankCity));
+        stmt.AddParam("%%NM_BANK_STATE%%", BlankIfNull(paymentMethod.BankState));
+        stmt.AddParam("%%NM_BANK_ZIP%%", BlankIfNull(paymentMethod.BankState));
+        stmt.AddParam("%%NM_COUNTRY%%", EnumHelper.GetDbValueByEnum(paymentMethod.Country));
+        stmt.AddParam("%%PAYMENT_INSTRUMENT_ID%%", paymentInstrumentId.ToString());
+        stmt.ExecuteNonQuery();
+        stmt.ClearQuery();
       }
     }
 
-    public ACHPaymentMethod GetACHPaymentMethod(Guid token, MetraPaymentMethod paymentMethod)
+    public ACHPaymentMethod GetBankAccountPaymentMethod(Guid token, MetraPaymentMethod paymentMethod)
     {
-      ACHPaymentMethod achPaymentMethod = (ACHPaymentMethod)paymentMethod;
+      ACHPaymentMethod achPaymentMethod = (ACHPaymentMethod) paymentMethod;
       using (IMTConnection conn = ConnectionManager.CreateConnection())
       {
         using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("PaymentServer",
-                "__SELECT_ACH_DETAILS_BY_PAYMENT_INSTRUMENT_ID__"))
+                                                                      "__SELECT_ACH_DETAILS_BY_PAYMENT_INSTRUMENT_ID__")
+          )
         {
 
           stmt.AddParam("%%PAYMENT_INSTRUMENT_ID%%", token.ToString());
@@ -1571,7 +1439,8 @@ namespace MetraTech.MetraPay
               achPaymentMethod.BankName = dataReader.GetString("nm_bank_name");
               achPaymentMethod.BankState = dataReader.GetString("nm_bank_state");
               achPaymentMethod.BankZipCode = dataReader.GetString("nm_bank_zip");
-              achPaymentMethod.BankCountry = (PaymentMethodCountry)EnumHelper.GetCSharpEnum(dataReader.GetInt32("id_country"));
+              achPaymentMethod.BankCountry =
+                (PaymentMethodCountry) EnumHelper.GetCSharpEnum(dataReader.GetInt32("id_country"));
             }
           }
         }
@@ -1579,52 +1448,15 @@ namespace MetraTech.MetraPay
       return achPaymentMethod;
     }
 
-    /// <summary>
-    /// Retrieve credit card number and type by payment instrument ID
-    /// </summary>
-    /// <param name="paymentInstrumentID"></param>
-    /// <param name="paymentMethod"></param>
-    private void GetCCInfo(Guid paymentInstrumentID, CreditCardPaymentMethod paymentMethod)
-    {
-      using (IMTConnection conn = ConnectionManager.CreateConnection())
-      {
-        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("PaymentServer",
-                "__SELECT_CC_NUM_BY_PAYMENT_INSTRUMENT_ID__"))
-        {
-
-          stmt.AddParam("%%PAYMENT_INSTRUMENT_ID%%", paymentInstrumentID.ToString());
-
-          using (IMTDataReader dataReader = stmt.ExecuteReader())
-          {
-
-            //if there are records, then we do have this credit card on file
-            if (dataReader.Read())
-            {
-              // TODO: this might not be a good idea storing the decrypted cc number, but folloiwng the old code,!!!!
-              paymentMethod.AccountNumber = DecryptString(dataReader.GetString("nm_account_number"));
-
-              EnumConfig enumCfg = new EnumConfig();
-              string ccTypeEnumValue = enumCfg.GetEnumeratorByID((int)dataReader.GetInt32("n_credit_card_type"));
-
-              paymentMethod.CreditCardType = (MetraTech.DomainModel.Enums.Core.Metratech_com.CreditCardType)EnumHelper.GetGeneratedEnumByEntry(
-                  typeof(MetraTech.DomainModel.Enums.Core.Metratech_com.CreditCardType),
-                  ccTypeEnumValue);
-            }
-          }
-        }
-      }
-    }
-
-
     private MetraPaymentMethod GetPaymentInstrument(Guid token)
     {
       MetraPaymentMethod paymentMethod = null;
       PaymentType pt = PaymentType.Credit_Card;
       using (IMTConnection conn = ConnectionManager.CreateConnection())
       {
-        m_Logger.LogDebug("Retrieving payment instrument info");
+        _logger.LogDebug("Retrieving payment instrument info");
         using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("PaymentServer",
-                "__LOAD_PAYMENT_METHOD_TYPE__"))
+                                                                      "__LOAD_PAYMENT_METHOD_TYPE__"))
         {
 
           stmt.AddParam("%%PAYMENT_INSTRUMENT_ID%%", token.ToString());
@@ -1635,8 +1467,8 @@ namespace MetraTech.MetraPay
             while (dataReader.Read())
             {
               EnumConfig enumCfg = new EnumConfig();
-              string paymentTypeEnumValue = enumCfg.GetEnumeratorByID((int)dataReader.GetInt32("n_payment_method_type"));
-              pt = (PaymentType)EnumHelper.GetGeneratedEnumByEntry(typeof(PaymentType), paymentTypeEnumValue);
+              string paymentTypeEnumValue = enumCfg.GetEnumeratorByID((int) dataReader.GetInt32("n_payment_method_type"));
+              pt = (PaymentType) EnumHelper.GetGeneratedEnumByEntry(typeof (PaymentType), paymentTypeEnumValue);
 
               if (pt == PaymentType.Credit_Card)
                 paymentMethod = new CreditCardPaymentMethod();
@@ -1653,7 +1485,7 @@ namespace MetraTech.MetraPay
               paymentMethod.City = dataReader.GetString("nm_city");
               paymentMethod.State = dataReader.GetString("nm_state");
               paymentMethod.ZipCode = dataReader.GetString("nm_zip");
-              paymentMethod.Country = (PaymentMethodCountry)EnumHelper.GetCSharpEnum(dataReader.GetInt32("id_country"));
+              paymentMethod.Country = (PaymentMethodCountry) EnumHelper.GetCSharpEnum(dataReader.GetInt32("id_country"));
             }
           }
         }
@@ -1661,25 +1493,26 @@ namespace MetraTech.MetraPay
 
       if (pt == PaymentType.Credit_Card)
       {
-        CreditCardPaymentMethod ccInfo = (CreditCardPaymentMethod)paymentMethod;
-        GetCCPaymentMethod(token, ccInfo);
+        CreditCardPaymentMethod ccInfo = (CreditCardPaymentMethod) paymentMethod;
+        GetCreditCardPaymentMethod(token, ccInfo);
         return ccInfo;
       }
       else
       {
-        ACHPaymentMethod achInfo = (ACHPaymentMethod)paymentMethod;
-        GetACHPaymentMethod(token, achInfo);
+        ACHPaymentMethod achInfo = (ACHPaymentMethod) paymentMethod;
+        GetBankAccountPaymentMethod(token, achInfo);
         return achInfo;
       }
 
     }
 
-    private void StorePreAuthRequest(Guid authToken, Guid piId, MetraPaymentInfo mpi, string requestParams, string arRequestId)
+    private static void StorePreAuthRequest(Guid authToken, Guid piId, MetraPaymentInfo mpi, string requestParams,
+                                            string arRequestId)
     {
       using (IMTConnection conn = ConnectionManager.CreateConnection())
       {
         using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("PaymentServer",
-              "__INSERT_INTO_T_PS_PREAUTH__"))
+                                                                      "__INSERT_INTO_T_PS_PREAUTH__"))
         {
 
           // This only handles the credit card case
@@ -1725,7 +1558,7 @@ namespace MetraTech.MetraPay
               }
             }
             else
-            //if (!string.IsNullOrEmpty(mpi.InvoiceNum) || mpi.IsInvoiceDateDirty || !string.IsNullOrEmpty(mpi.PONum))
+              //if (!string.IsNullOrEmpty(mpi.InvoiceNum) || mpi.IsInvoiceDateDirty || !string.IsNullOrEmpty(mpi.PONum))
             {
               // This only handles the credit card case
               stmt.AddParam(MTParameterType.Integer, i);
@@ -1745,12 +1578,12 @@ namespace MetraTech.MetraPay
 
     }
 
-    private void DeletePreAuthRecord(Guid authToken)
+    private static void DeletePreAuthRecord(Guid authToken)
     {
       using (IMTConnection conn = ConnectionManager.CreateConnection())
       {
         using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("PaymentServer",
-              "__DELETE_PREAUTH_RECORD__"))
+                                                                      "__DELETE_PREAUTH_RECORD__"))
         {
 
           // This only handles the credit card case
@@ -1763,7 +1596,7 @@ namespace MetraTech.MetraPay
       }
     }
 
-    private string EncryptString(string input)
+    private static string EncryptString(string input)
     {
       CryptoManager cm = new CryptoManager();
 
@@ -1771,36 +1604,14 @@ namespace MetraTech.MetraPay
       return encryptedString;
     }
 
-    private string DecryptString(string encryptedString)
+    private static string DecryptString(string encryptedString)
     {
       CryptoManager cm = new CryptoManager();
       string decryptedString = cm.Decrypt(CryptKeyClass.PaymentInstrument, encryptedString);
       return decryptedString;
     }
 
-    /// <summary>
-    /// Returns the last four characters of a given string
-    /// </summary>
-    /// <param name="accountNumber">input string</param>
-    /// <returns>last four chars of accountNumber string</returns>
-    private string GetLastFourDigits(string accountNumber)
-    {
-      if (String.IsNullOrEmpty(accountNumber))
-      {
-        return string.Empty;
-      }
-
-      int strLen = accountNumber.Length;
-      if (strLen <= 4)
-      {
-        return accountNumber;
-      }
-
-      string lastFour = accountNumber.Substring(strLen - 4, 4);
-      return lastFour;
-    }
-
-    private bool DoesTransactionExist(MetraPaymentInfo paymentInfo)
+    private static bool DoesTransactionExist(MetraPaymentInfo paymentInfo)
     {
       var resourceManager = new ResourcesManager();
       string alreadySubmittedMessage = resourceManager.GetLocalizedResource("TX_ALREADY_SUBMITTED");
@@ -1810,8 +1621,8 @@ namespace MetraTech.MetraPay
       qa.SetQueryTag("__GET_PS_TRANSACTION_STATUS__");
       string numTx = qa.GetQuery();
       using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Suppress,
-                                          new TransactionOptions(),
-                                          EnterpriseServicesInteropOption.Full))
+                                                           new TransactionOptions(),
+                                                           EnterpriseServicesInteropOption.Full))
       {
         using (IMTConnection conn = ConnectionManager.CreateConnection())
         {
@@ -1828,8 +1639,8 @@ namespace MetraTech.MetraPay
               if (dataReader.Read())
               {
                 TransactionState state =
-                    (TransactionState)
-                    Enum.Parse(typeof(TransactionState), dataReader.GetString("n_state"));
+                  (TransactionState)
+                  Enum.Parse(typeof (TransactionState), dataReader.GetString("n_state"));
                 if (state == TransactionState.SUCCESS)
                 {
                   return true;
@@ -1837,30 +1648,33 @@ namespace MetraTech.MetraPay
                 else if (state == TransactionState.REJECTED)
                 {
                   throw new MASBasicException(
-                      String.Format(alreadySubmittedMessage, paymentInfo.TransactionSessionId),
-                      ErrorCodes.TRANSACTION_ALREADY_REJECTED);
+                    String.Format(alreadySubmittedMessage, paymentInfo.TransactionSessionId),
+                    ErrorCodes.TRANSACTION_ALREADY_REJECTED);
                 }
                 else
                 {
                   throw new MASBasicException(
-                      String.Format(alreadySubmittedMessage, paymentInfo.TransactionSessionId),
-                      ErrorCodes.TRANSACTION_ALREADY_FAILED);
+                    String.Format(alreadySubmittedMessage, paymentInfo.TransactionSessionId),
+                    ErrorCodes.TRANSACTION_ALREADY_FAILED);
                 }
               }
-              else { return false; }
+              else
+              {
+                return false;
+              }
             }
           }
         }
       }
     }
 
-    private CreditCardPaymentMethod GetCCPaymentMethod(Guid token, MetraPaymentMethod paymentMethod)
+    private static CreditCardPaymentMethod GetCreditCardPaymentMethod(Guid token, MetraPaymentMethod paymentMethod)
     {
-      CreditCardPaymentMethod ccPaymentMethod = (CreditCardPaymentMethod)paymentMethod;
+      CreditCardPaymentMethod ccPaymentMethod = (CreditCardPaymentMethod) paymentMethod;
       using (IMTConnection conn = ConnectionManager.CreateConnection())
       {
         using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("PaymentServer",
-                "__SELECT_ALL_CC_DATA__"))
+                                                                      "__SELECT_ALL_CC_DATA__"))
         {
 
           stmt.AddParam("%%PAYMENT_INSTRUMENT_ID%%", token.ToString());
@@ -1872,14 +1686,15 @@ namespace MetraTech.MetraPay
             {
 
               EnumConfig enumCfg = new EnumConfig();
-              string ccTypeEnumValue = enumCfg.GetEnumeratorByID((int)dataReader.GetInt32("n_credit_card_type"));
+              string ccTypeEnumValue = enumCfg.GetEnumeratorByID((int) dataReader.GetInt32("n_credit_card_type"));
 
-              ccPaymentMethod.CreditCardType = (MetraTech.DomainModel.Enums.Core.Metratech_com.CreditCardType)EnumHelper.GetGeneratedEnumByEntry(
-                  typeof(MetraTech.DomainModel.Enums.Core.Metratech_com.CreditCardType),
+              ccPaymentMethod.CreditCardType =
+                (MetraTech.DomainModel.Enums.Core.Metratech_com.CreditCardType) EnumHelper.GetGeneratedEnumByEntry(
+                  typeof (MetraTech.DomainModel.Enums.Core.Metratech_com.CreditCardType),
                   ccTypeEnumValue);
 
               ccPaymentMethod.ExpirationDate = dataReader.GetString("nm_expirationdt");
-              ccPaymentMethod.ExpirationDateFormat = (MTExpDateFormat)dataReader.GetInt32("nm_expirationdt_format");
+              ccPaymentMethod.ExpirationDateFormat = (MTExpDateFormat) dataReader.GetInt32("nm_expirationdt_format");
 
               // these might be maestro specific, so might need to add check on cctype
               ccPaymentMethod.StartDate = dataReader.GetString("nm_startdate");
@@ -1892,7 +1707,7 @@ namespace MetraTech.MetraPay
       return ccPaymentMethod;
     }
 
-    private void UpdateTransactionStatus(Guid transactionId, TransactionState status, string response = "")
+    private static void UpdateTransactionStatus(Guid transactionId, TransactionState status, string response = "")
     {
       IMTQueryAdapter qa = new MTQueryAdapter();
       qa.Init("PaymentServer");
@@ -1900,8 +1715,8 @@ namespace MetraTech.MetraPay
       string psTxStmt = qa.GetQuery();
       //Transaction state updates shouldn't be rolled back in case of failure.
       using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Suppress,
-                                                new TransactionOptions(),
-                                                EnterpriseServicesInteropOption.Full))
+                                                           new TransactionOptions(),
+                                                           EnterpriseServicesInteropOption.Full))
       {
         using (IMTConnection conn = ConnectionManager.CreateConnection())
         {
@@ -1918,7 +1733,8 @@ namespace MetraTech.MetraPay
       }
     }
 
-    private void WriteToPaymentAudit(MetraPaymentMethod paymentMethod, MetraPaymentInfo paymentInfo, object requestType)
+    private static void WriteToPaymentAudit(MetraPaymentMethod paymentMethod, MetraPaymentInfo paymentInfo,
+                                            object requestType)
     {
       PaymentType pmt = PaymentType.Credit_Card;
       bool nullPaymentInfo = false;
@@ -1935,8 +1751,8 @@ namespace MetraTech.MetraPay
         paymentInfo.TransactionSessionId = Guid.NewGuid();
       }
 
-      if (paymentMethod.GetType() == typeof(CreditCardPaymentMethod) ||
-          paymentMethod.GetType().IsSubclassOf(typeof(CreditCardPaymentMethod)))
+      if (paymentMethod.GetType() == typeof (CreditCardPaymentMethod) ||
+          paymentMethod.GetType().IsSubclassOf(typeof (CreditCardPaymentMethod)))
       {
         pmt = PaymentType.Credit_Card;
       }
@@ -1947,8 +1763,8 @@ namespace MetraTech.MetraPay
       Guid nextAuditID = Guid.NewGuid();
 
       using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Suppress,
-                                                new TransactionOptions(),
-                                                EnterpriseServicesInteropOption.Full))
+                                                           new TransactionOptions(),
+                                                           EnterpriseServicesInteropOption.Full))
       {
         using (IMTConnection conn = ConnectionManager.CreateConnection())
         {
@@ -1965,19 +1781,21 @@ namespace MetraTech.MetraPay
             stmt.AddParam("id_request_type", MTParameterType.Integer, BlankIfNull(requestType));
             stmt.AddParam("id_transaction", MTParameterType.String, BlankIfNull(paymentInfo.TransactionID));
             stmt.AddParam("dt_transaction", MTParameterType.DateTime, MetraTime.Now);
-            stmt.AddParam("n_payment_method_type", MTParameterType.Integer, BlankIfNull(EnumHelper.GetDbValueByEnum(pmt)));
+            stmt.AddParam("n_payment_method_type", MTParameterType.Integer,
+                          BlankIfNull(EnumHelper.GetDbValueByEnum(pmt)));
             stmt.AddParam("nm_truncd_acct_num", MTParameterType.String, BlankIfNull(paymentMethod.AccountNumber));
 
-            if (paymentMethod.GetType() == typeof(CreditCardPaymentMethod) ||
-              paymentMethod.GetType().IsSubclassOf(typeof(CreditCardPaymentMethod)))
+            if (paymentMethod.GetType() == typeof (CreditCardPaymentMethod) ||
+                paymentMethod.GetType().IsSubclassOf(typeof (CreditCardPaymentMethod)))
             {
-              CreditCardPaymentMethod cc = (CreditCardPaymentMethod)paymentMethod;
-              stmt.AddParam("n_creditcard_type", MTParameterType.Integer, BlankIfNull(EnumHelper.GetDbValueByEnum(cc.CreditCardType)));
+              CreditCardPaymentMethod cc = (CreditCardPaymentMethod) paymentMethod;
+              stmt.AddParam("n_creditcard_type", MTParameterType.Integer,
+                            BlankIfNull(EnumHelper.GetDbValueByEnum(cc.CreditCardType)));
               stmt.AddParam("n_account_type", MTParameterType.Integer, 0);
             }
             else
             {
-              ACHPaymentMethod ach = (ACHPaymentMethod)paymentMethod;
+              ACHPaymentMethod ach = (ACHPaymentMethod) paymentMethod;
               stmt.AddParam("n_creditcard_type", MTParameterType.Integer, 0);
               stmt.AddParam("n_account_type", MTParameterType.Integer, ach.AccountType);
             }
@@ -1985,7 +1803,8 @@ namespace MetraTech.MetraPay
             stmt.AddParam("nm_description", MTParameterType.String, BlankIfNull(paymentInfo.Description));
             stmt.AddParam("n_currency", MTParameterType.String, BlankIfNull(paymentInfo.Currency));
             stmt.AddParam("n_amount", MTParameterType.Decimal, BlankIfNull(paymentInfo.Amount));
-            stmt.AddParam("id_transaction_session_id", MTParameterType.String, paymentInfo.TransactionSessionId.ToString());
+            stmt.AddParam("id_transaction_session_id", MTParameterType.String,
+                          paymentInfo.TransactionSessionId.ToString());
             //If there's no PaymentInfo, assume that it's a one-off transaction, and that it's completed immediately.
             if (nullPaymentInfo)
             {
@@ -2027,7 +1846,7 @@ namespace MetraTech.MetraPay
                 }
               }
               else
-              //if (!string.IsNullOrEmpty(paymentInfo.InvoiceNum) || paymentInfo.IsInvoiceDateDirty || !string.IsNullOrEmpty(paymentInfo.PONum))
+                //if (!string.IsNullOrEmpty(paymentInfo.InvoiceNum) || paymentInfo.IsInvoiceDateDirty || !string.IsNullOrEmpty(paymentInfo.PONum))
               {
                 stmt.AddParam(MTParameterType.Integer, i);
                 stmt.AddParam(MTParameterType.String, nextAuditID.ToString());
@@ -2048,7 +1867,8 @@ namespace MetraTech.MetraPay
       }
     }
 
-    private MetraPaymentMethod CloneAndApplyProperties(MetraPaymentMethod updatedPaymentMethod, MetraPaymentMethod existingPaymentMethod)
+    private static MetraPaymentMethod CloneAndApplyProperties(MetraPaymentMethod updatedPaymentMethod,
+                                                              MetraPaymentMethod existingPaymentMethod)
     {
       MetraPaymentMethod updatedMethod = null;
 
@@ -2079,12 +1899,13 @@ namespace MetraTech.MetraPay
       }
       else
       {
-        throw new MASBasicException("Updated payment method type is not the same or a subclass of the original payment method");
+        throw new MASBasicException(
+          "Updated payment method type is not the same or a subclass of the original payment method");
       }
 
       return updatedMethod;
     }
-    #endregion
 
+    #endregion
   }
 }

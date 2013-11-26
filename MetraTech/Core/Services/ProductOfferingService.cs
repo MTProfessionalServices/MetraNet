@@ -12,7 +12,10 @@ using MetraTech.Accounts;
 using MetraTech.Accounts.Type;
 using MetraTech.ActivityServices.Common;
 using MetraTech.ActivityServices.Services.Common;
+using MetraTech.Application;
+using MetraTech.Application.ProductManagement;
 using MetraTech.DataAccess;
+using MetraTech.Domain;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.Enums;
 using MetraTech.DomainModel.Enums.Core.Global;
@@ -25,6 +28,7 @@ using MetraTech.DomainModel.Common;
 using System.Collections;
 using MetraTech.DomainModel.Enums.Core.Global_SystemCurrencies;
 using MetraTech.Debug.Diagnostics;
+using DatabaseUtils = MetraTech.Domain.DataAccess.DatabaseUtils;
 
 namespace MetraTech.Core.Services
 {
@@ -119,8 +123,8 @@ namespace MetraTech.Core.Services
                   po.Currency = (SystemCurrencies)EnumHelper.GetEnumByValue(typeof(SystemCurrencies), dataReader.GetString("Currency"));
 
                   // set up effective and avail dates
-                  ProdCatTimeSpan effectiveDate = GetEffectiveDate(dataReader, "Effective");
-                  ProdCatTimeSpan availableDate = GetEffectiveDate(dataReader, "Available");
+                  ProdCatTimeSpan effectiveDate = EffectiveDateUtils.GetEffectiveDate(dataReader, "Effective");
+                  ProdCatTimeSpan availableDate = EffectiveDateUtils.GetEffectiveDate(dataReader, "Available");
 
                   po.EffectiveTimeSpan.TimeSpanId = effectiveDate.TimeSpanId.Value;
                   po.EffectiveTimeSpan.StartDateOffset = effectiveDate.StartDateOffset;
@@ -143,6 +147,7 @@ namespace MetraTech.Core.Services
                   po.LocalizedDisplayNames = localizedNames;
                   po.LocalizedDescriptions = localizedDesc;
 
+                  PopulateExtendedProperties(po, po.ProductOfferingId.Value);
                   poDictionary.Add(po.ProductOfferingId.Value, po);
                   productOfferings.Items.Add(po);
                 }
@@ -241,8 +246,8 @@ namespace MetraTech.Core.Services
                     productOffering.IsHidden = poReader.GetBoolean("IsHidden");
                     productOffering.Currency = (SystemCurrencies)EnumHelper.GetEnumByValue(typeof(SystemCurrencies), poReader.GetString("Currency"));
 
-                    ProdCatTimeSpan effectiveDate = GetEffectiveDate(poReader, "Effective");
-                    ProdCatTimeSpan availableDate = GetEffectiveDate(poReader, "Available");
+                    ProdCatTimeSpan effectiveDate = EffectiveDateUtils.GetEffectiveDate(poReader, "Effective");
+                    ProdCatTimeSpan availableDate = EffectiveDateUtils.GetEffectiveDate(poReader, "Available");
 
                     productOffering.EffectiveTimeSpan.TimeSpanId = effectiveDate.TimeSpanId.Value;
                     productOffering.EffectiveTimeSpan.StartDateOffset = effectiveDate.StartDateOffset;
@@ -376,8 +381,8 @@ namespace MetraTech.Core.Services
                     productOffering.IsHidden = poReader.GetBoolean("IsHidden");
                     productOffering.Currency = (SystemCurrencies)EnumHelper.GetEnumByValue(typeof(SystemCurrencies), poReader.GetString("Currency"));
 
-                    ProdCatTimeSpan effectiveDate = GetEffectiveDate(poReader, "Effective");
-                    ProdCatTimeSpan availableDate = GetEffectiveDate(poReader, "Available");
+                    ProdCatTimeSpan effectiveDate = EffectiveDateUtils.GetEffectiveDate(poReader, "Effective");
+                    ProdCatTimeSpan availableDate = EffectiveDateUtils.GetEffectiveDate(poReader, "Available");
 
                     productOffering.EffectiveTimeSpan.TimeSpanId = effectiveDate.TimeSpanId.Value;
                     productOffering.EffectiveTimeSpan.StartDateOffset = effectiveDate.StartDateOffset;
@@ -539,7 +544,7 @@ namespace MetraTech.Core.Services
                 #region Update Base Props, UpdatePO, UpdateExtendedProperties
                 if (productOffering.IsDescriptionDirty || productOffering.IsDisplayNameDirty)
                 {
-                  UpdateBaseProps(context,
+                  BasePropsUtils.UpdateBaseProps(context,
                                   productOffering.Description,
                                   productOffering.IsDescriptionDirty,
                                   productOffering.DisplayName,
@@ -671,7 +676,7 @@ namespace MetraTech.Core.Services
                 if (productOffering.EffectiveTimeSpan == null)
                   productOffering.EffectiveTimeSpan = new ProdCatTimeSpan();
 
-                productOffering.EffectiveTimeSpan.TimeSpanId = CreateEffectiveDate(context, productOffering.EffectiveTimeSpan);
+                productOffering.EffectiveTimeSpan.TimeSpanId = EffectiveDateUtils.CreateEffectiveDate(context, productOffering.EffectiveTimeSpan);
 
                 // Create availbility date id for the available date
                 if (productOffering.AvailableTimeSpan == null)
@@ -684,7 +689,7 @@ namespace MetraTech.Core.Services
                 }
 
                 //Create availability date using Empty to allow "check for po modification" rule to allow adding PI Instances during new PO addition.
-                productOffering.AvailableTimeSpan.TimeSpanId = CreateEffectiveDate(context, new ProdCatTimeSpan());
+                productOffering.AvailableTimeSpan.TimeSpanId = EffectiveDateUtils.CreateEffectiveDate(context, new ProdCatTimeSpan());
 
                 #endregion
 
@@ -695,7 +700,7 @@ namespace MetraTech.Core.Services
                 nonSharedPl.Currency = productOffering.Currency;
                 nonSharedPl.Name = String.Format("Nonshared PL for:{0}", productOffering.Name);
                 nonSharedPl.Description = String.Format("Nonshared PL for:{0}", productOffering.Description);
-                int nsPlId = CreateBaseProps(context, nonSharedPl.Name, nonSharedPl.Description, "", PRICELIST_KIND);
+                int nsPlId = BasePropsUtils.CreateBaseProps(context, nonSharedPl.Name, nonSharedPl.Description, "", PRICELIST_KIND);
                 nonSharedPl.ID = nsPlId;
 
                 using (IMTAdapterStatement createPlStmt = conn.CreateAdapterStatement("queries\\PCWS", "__ADD_PRICELIST_PCWS__"))
@@ -709,7 +714,7 @@ namespace MetraTech.Core.Services
 
                 #region Add po to system
                 // Add Product Offering to system
-                int idPo = CreateBaseProps(context, productOffering.Name, productOffering.Description, productOffering.DisplayName, PRODUCT_OFFERING_KIND);
+                int idPo = BasePropsUtils.CreateBaseProps(context, productOffering.Name, productOffering.Description, productOffering.DisplayName, PRODUCT_OFFERING_KIND);
                 using (IMTAdapterStatement createPoStmt = conn.CreateAdapterStatement("queries\\PCWS", "__ADD_PO_PCWS__"))
                 {
 
@@ -1371,7 +1376,7 @@ namespace MetraTech.Core.Services
               }
               else
               {
-                predicate = string.Format("nm_name = {0}", FormatValueForDB(piInstance.Name));
+                predicate = string.Format("nm_name = {0}", DatabaseUtils.FormatValueForDB(piInstance.Name));
               }
 
               stmt.AddParam("%%PREDICATE%%", predicate, true);
@@ -1793,7 +1798,7 @@ namespace MetraTech.Core.Services
       {
         #region Create base properties
         mLogger.LogDebug("Call CreateBaseProps to insert PO base props");
-        piInstance.ID = CreateBaseProps(GetSessionContext(), piInstance.Name, piInstance.Description, piInstance.DisplayName, (int)piInstance.PIKind);
+        piInstance.ID = BasePropsUtils.CreateBaseProps(GetSessionContext(), piInstance.Name, piInstance.Description, piInstance.DisplayName, (int)piInstance.PIKind);
 
         int piTemplateID = PCIdentifierResolver.ResolvePriceableItemTemplate(piInstance.PITemplate);
         if (piTemplateID == -1)
@@ -1856,7 +1861,7 @@ namespace MetraTech.Core.Services
           {
             case PriceableItemKinds.NonRecurring:
               mLogger.LogDebug("Adding NonRecurring specific properties");
-              #region Insert NonRecurringCharge Properties
+              #region Insert NonReccuringCharge Properties
               using (IMTAdapterStatement adapterStmt = conn.CreateAdapterStatement(PCWS_QUERY_FOLDER, "__INSERT_NRC_PROPERTIES_BY_ID_PCWS__"))
               {
                 adapterStmt.AddParam("%%ID_PROP%%", piInstance.ID);
@@ -2102,7 +2107,7 @@ namespace MetraTech.Core.Services
               }
 
               IList rsList = prop.GetValue(piInstance, null) as IList;
-              UpsertRateSchedulesForPricelist(pricelistId, PricelistTypes.DEFAULT, piInstance.PITemplate.ID.Value, CacheManager.ParamTableNameToIdMap[ptName.ToUpper()].ID, rsList);
+              Application.ProductManagement.PriceListService.UpsertRateSchedulesForPricelist(pricelistId, PriceListTypes.DEFAULT, piInstance.PITemplate.ID.Value, CacheManager.ParamTableNameToIdMap[ptName.ToUpper()].ID, rsList, mLogger, GetSessionContext());
             }
           }
         }
@@ -2142,7 +2147,7 @@ namespace MetraTech.Core.Services
                 MTAdjustmentTypeAttribute attrib = attribs[0] as MTAdjustmentTypeAttribute;
 
                 mLogger.LogDebug("Adding adjustment instance: {0} for type", adjInst.Name, attrib.Type);
-                adjInst.ID = CreateBaseProps(GetSessionContext(), adjInst.Name, adjInst.Description, adjInst.DisplayName, ADJUSTMENT_TYPE);
+                adjInst.ID = BasePropsUtils.CreateBaseProps(GetSessionContext(), adjInst.Name, adjInst.Description, adjInst.DisplayName, ADJUSTMENT_TYPE);
 
                 using (IMTConnection conn = ConnectionManager.CreateConnection())
                 {
@@ -2225,7 +2230,7 @@ namespace MetraTech.Core.Services
                   {
                     mLogger.LogDebug("Updating adjustment instance: {0} for type {1}", adjInst.Name, attrib.Type);
 
-                    UpdateBaseProps(GetSessionContext(),
+                    BasePropsUtils.UpdateBaseProps(GetSessionContext(),
                                     adjInst.Description,
                                     adjInst.IsDescriptionDirty,
                                     adjInst.DisplayName,
@@ -2261,7 +2266,7 @@ namespace MetraTech.Core.Services
                   if (adjInst != null)
                   {
                     mLogger.LogDebug("Adding adjustment instance: {0} for type {1}", adjInst.Name, attrib.Type);
-                    adjInst.ID = CreateBaseProps(GetSessionContext(), adjInst.Name, adjInst.Description, adjInst.DisplayName, ADJUSTMENT_TYPE);
+                    adjInst.ID = BasePropsUtils.CreateBaseProps(GetSessionContext(), adjInst.Name, adjInst.Description, adjInst.DisplayName, ADJUSTMENT_TYPE);
 
                     using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(PCWS_QUERY_FOLDER, "__INSERT_ADJUSTMENT_INSTANCE__"))
                     {
@@ -2481,7 +2486,7 @@ namespace MetraTech.Core.Services
 
         if (piInstance.IsDescriptionDirty || piInstance.IsDisplayNameDirty)
         {
-          UpdateBaseProps(GetSessionContext(),
+          BasePropsUtils.UpdateBaseProps(GetSessionContext(),
                           piInstance.Description,
                           piInstance.IsDescriptionDirty & PCConfigManager.IsPropertyOverridable((int)piInstance.PIKind, "Description"),
                           piInstance.DisplayName,
@@ -2798,7 +2803,7 @@ namespace MetraTech.Core.Services
           {
             bRunUpdate = true;
 
-            updateStr.Append(String.Format(",nm_unit_display_name = {0}", FormatValueForDB(udrcInstance.UnitDisplayName)));
+            updateStr.Append(String.Format(",nm_unit_display_name = {0}", DatabaseUtils.FormatValueForDB(udrcInstance.UnitDisplayName)));
           }
 
           if (udrcInstance.IsLocalizedUnitDisplayNamesDirty)

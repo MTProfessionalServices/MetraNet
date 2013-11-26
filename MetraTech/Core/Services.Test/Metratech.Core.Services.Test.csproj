@@ -14,6 +14,8 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -37,16 +39,20 @@
     <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech</BaseIntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Quoting\MetraTech.Quoting.csproj">
-      <Project>{C4914DDD-93C8-475F-B5DB-1CDB6C8ECA17}</Project>
-      <Name>MetraTech.Quoting %28MetraTech.Quoting\MetraTech.Quoting%29</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\TestCommon\MetraTech.TestCommon.csproj">
       <Project>{20307E5D-BFC9-4F27-9ECC-A61EE854E8B5}</Project>
       <Name>MetraTech.TestCommon</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="FakeItEasy">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\FakeItEasy.1.13.1\lib\net40\FakeItEasy.dll</HintPath>
+    </Reference>
+   <Reference Include="MetraTech.Quoting">
+      <Private>False</Private>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Quoting.dll</HintPath>
+    </Reference>
     <Reference Include="MetraTech.ActivityServices.Common">
       <Private>False</Private>
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.ActivityServices.Common.dll</HintPath>
@@ -73,10 +79,6 @@
     </Reference>
     <Reference Include="MetraTech.Xml">
       <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Xml.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="FakeItEasy">
-      <HintPath>..\..\..\Thirdparty\FakeItEasy\FakeItEasy.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Castle.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
@@ -110,14 +112,16 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="DataExportReportManagementServiceTest.cs" />
-    <Compile Include="DataExportReportManagementServiceFunctionalTest.cs" />
-    <Compile Include="QuotingServiceTest.cs" />
+    <Compile Include="Unit\DataExportReportManagementServiceUnitTest.cs" />
+    <Compile Include="Functional\DataExportReportManagementServiceFunctionalTest.cs" />
+    <Compile Include="Unit\QuotingServiceUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Local.testsettings" />
-    <None Include="TraceAndTestImpact.testsettings" />
+    <None Include="packages.config" />
+    <None Include="$(ROOTDIR)\MetraTech\Local.testsettings" />
+    <None Include="$(ROOTDIR)\MetraTech\TraceAndTestImpact.testsettings" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
@@ -138,6 +142,8 @@
   </Choose>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(ProjectDir)\..\..\.nuget\nuget.targets" />
+
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

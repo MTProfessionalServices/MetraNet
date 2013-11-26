@@ -34,7 +34,7 @@ namespace MetraTech.MetraPay.PaymentGateway
       m_VoidSettledInterval = int.Parse(config.AppSettings.Settings["VoidSettledInterval"].Value);
     }
 
-    public bool ValidatePaymentMethod(MetraPaymentMethod paymentMethod)
+    public bool ValidatePaymentMethod(MetraPaymentMethod paymentMethod, string currency)
     {
       Random rnd = new Random();
       Thread.Sleep(rnd.Next(300, 600)); 
@@ -165,6 +165,12 @@ namespace MetraTech.MetraPay.PaymentGateway
         Thread.Sleep(rnd.Next(300, 600));
 
         FailureCheck(timeout);
+    }
+
+    public void UpdatePaymentMethod(MetraPaymentMethod paymentMethod, string currency)
+    {
+      if (paymentMethod == null) throw new ArgumentNullException("paymentMethod");
+      if (string.IsNullOrEmpty(currency)) throw new ArgumentNullException("currency");
     }
 
     private void FailureCheck(double timeout)

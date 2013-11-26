@@ -4,25 +4,35 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
 <script type="text/javascript">
-  function onSaveClick() {
-    if ((Ext.getCmp("<%=sbMonthly.ClientID %>").getValue() == '') || (Ext.getCmp("<%=ddMonths.ClientID %>").getValue() == '') || (Ext.getCmp("<%=tbStartTime.ClientID %>").getValue() == '')) {
-      top.Ext.Msg.show({
-        title: TEXT_ERROR_MSG,
-        msg: TEXT_INVALID_RECUR_PATTERN,
-        buttons: Ext.Msg.OK,
-        icon: Ext.MessageBox.INFO
-      });     
+    Ext.onReady(function () {
+        // Record the initial values of the page's controls.
+        // (Note:  This is called here, and not on the master page,
+        // because the call to document.getElementById() returns null
+        // if executed on the master page.)
+        var el = document.getElementById("ctl00_PanelActiveAccount");
+        if (el != null)
+            el.style.display = 'none';
+    });
+
+    function onSaveClick() {
+        if ((Ext.getCmp("<%=sbMonthly.ClientID %>").getValue() == '') || (Ext.getCmp("<%=ddMonths.ClientID %>").getValue() == '') || (Ext.getCmp("<%=tbStartTime.ClientID %>").getValue() == '')) {
+            top.Ext.Msg.show({
+                title: TEXT_ERROR_MSG,
+                msg: TEXT_INVALID_RECUR_PATTERN,
+                buttons: Ext.Msg.OK,
+                icon: Ext.MessageBox.INFO
+            });     
+        }
+
+        Ext.get("<%=monthlyPattern.ClientID %>").dom.value = Ext.getCmp("<%=sbMonthly.ClientID %>").getValue();
+        return ValidateForm();
     }
 
-    Ext.get("<%=monthlyPattern.ClientID %>").dom.value = Ext.getCmp("<%=sbMonthly.ClientID %>").getValue();
-    return ValidateForm();
-  }
+    function goBack() {
+        parent.parent.location.href = "/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.List.asp";
+    }
 
-  function goBack() {
-    parent.parent.location.href = "/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/ScheduledAdapter.List.asp";
-  }
-  
-  </script> 
+</script> 
    
   <MT:MTPanel ID="RecurrencePatternPanel" runat="server" meta:resourcekey="RecurrencePatternPanelResource1" Text="Recurrence Pattern" Width="600" >
      <MT:MTLiteralControl ID="RecurEveryLiteral" runat="server" Label="Recur every" LabelWidth="170" LabelSeparator="" meta:resourcekey="RecurEveryLiteralResource1"/> 

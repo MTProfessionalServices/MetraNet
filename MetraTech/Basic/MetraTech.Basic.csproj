@@ -119,6 +119,7 @@
     <Compile Include="Exception\ErrorCode.cs" />
     <Compile Include="Exception\DesignByContractException.cs" />
     <Compile Include="Exception\ErrorObject.cs" />
+    <Compile Include="Exception\ExceptionExtension.cs" />
     <Compile Include="Exception\InvariantException.cs" />
     <Compile Include="Exception\PostconditionException.cs" />
     <Compile Include="Exception\PreconditionException.cs" />
@@ -127,6 +128,7 @@
     <Compile Include="NullEncodingStringWriter.cs" />
     <Compile Include="QualifiedName.cs" />
     <Compile Include="ReferenceAssembly.cs" />
+    <Compile Include="SerializationHelper.cs" />
     <Compile Include="SortElement.cs" />
     <Compile Include="StringUtil.cs" />
   </ItemGroup>

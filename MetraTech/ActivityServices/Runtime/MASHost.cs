@@ -64,6 +64,8 @@ namespace MetraTech.ActivityServices.Runtime
 
 		private static Thread m_HostThread;
 		private static AutoResetEvent m_TerminateEvent = new AutoResetEvent(false);
+		private static readonly AutoResetEvent StartingServAutoEvent = new AutoResetEvent(false);
+		private static readonly AutoResetEvent StoppingServAutoEvent = new AutoResetEvent(false);
 		private static string m_AbortReason = null;
 
 		private Logger m_Logger;
@@ -154,7 +156,8 @@ namespace MetraTech.ActivityServices.Runtime
 					m_HostThread = new Thread(new ThreadStart(HostEntryPoint));
 					m_HostThread.Start();
 
-					while (m_HostThread.IsAlive && !m_bThreadStarted) ;
+					// Wait for signal about the successful MAS start...
+					StartingServAutoEvent.WaitOne();
 
 					if (m_bThreadStarted)
 					{
@@ -200,7 +203,7 @@ namespace MetraTech.ActivityServices.Runtime
 		{
 			m_TerminateEvent.Set();
 
-			while (m_HostThread.IsAlive) ;
+			StoppingServAutoEvent.WaitOne();
 		}
 		#endregion
 
@@ -302,6 +305,7 @@ namespace MetraTech.ActivityServices.Runtime
 				}
 
 				m_bThreadStarted = true;
+				StartingServAutoEvent.Set();
 
 				m_Logger.LogDebug("ActivityServices Host Running");
 				m_TerminateEvent.WaitOne();
@@ -328,6 +332,8 @@ namespace MetraTech.ActivityServices.Runtime
 			{
 				TearDownSingletons();
 				m_bThreadStarted = false;
+				StoppingServAutoEvent.Set();
+				StartingServAutoEvent.Set();
 			}
 
 			if (!string.IsNullOrEmpty(m_AbortReason))

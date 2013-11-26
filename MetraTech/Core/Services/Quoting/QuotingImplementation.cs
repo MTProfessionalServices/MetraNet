@@ -283,7 +283,7 @@ namespace MetraTech.Core.Services.Quoting
         request.IcbPrices = new List<IndividualPrice>();
 
     }
-
+     
     private void ValidateAccount(QuoteRequest request)
     {
       //0 values Request validation
@@ -305,6 +305,8 @@ namespace MetraTech.Core.Services.Quoting
         if (request.SubscriptionParameters.CorporateAccountId <= 0)
           throw new ArgumentException(
             "Corporate Account does not set for Group Subscription. Corporate Account is mandatory for Group subscription");
+        if(!request.Accounts.Contains(request.SubscriptionParameters.CorporateAccountId))
+          throw new ArgumentException("Corporate Account should be in set of accounts to quote for.");
       }
       else
       {
@@ -333,8 +335,6 @@ namespace MetraTech.Core.Services.Quoting
       {
         throw new ArgumentException("PO with id = 0 is invalid");
       }
-
-
 
       foreach (var po in request.ProductOfferings)
         ValidateUDRCMetrics(request.SubscriptionParameters.UDRCValues, po);
@@ -1081,6 +1081,7 @@ namespace MetraTech.Core.Services.Quoting
             String.Format("The GroupSubacription was created(Name={0}), but GroupId is null.",
                           grpSub.Name));
 
+        response.Artefacts.Subscription.AddSubscriptions(grpSub.GroupId.Value, request.Accounts);
         var accountIds = new List<int>();
         foreach (var accountId in request.Accounts)
         {
@@ -1093,8 +1094,6 @@ namespace MetraTech.Core.Services.Quoting
           groupSubService.AddMembersToGroupSubscription(grpSub.GroupId.Value, new List<GroupSubscriptionMember>() { gSubMember });
           accountIds.Add(accountId);
         }
-
-        response.Artefacts.Subscription.AddSubscriptions(grpSub.GroupId.Value, accountIds);
       }
     }
 

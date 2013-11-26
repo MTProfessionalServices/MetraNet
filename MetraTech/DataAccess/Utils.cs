@@ -1,5 +1,7 @@
 
 
+using System.Globalization;
+
 namespace MetraTech.DataAccess
 {
   using System;
@@ -33,6 +35,9 @@ namespace MetraTech.DataAccess
                     int blockSize);
 
     int NextId
+    { get; }
+
+    int NextIdForImportExport
     { get; }
 
     int BlockSize
@@ -80,6 +85,22 @@ namespace MetraTech.DataAccess
           if (mCurrentBlockStart == mCurrentBlockEnd)
           {
             GetNextBlock();
+            Debug.Assert(mCurrentBlockStart < mCurrentBlockEnd);
+          }
+          return mCurrentBlockStart++;
+        }
+      }
+    }
+
+    public int NextIdForImportExport
+    {
+      get
+      {
+        lock (this)
+        {
+          if (mCurrentBlockStart == mCurrentBlockEnd)
+          {
+            GetNextBlockForImportExport();
             Debug.Assert(mCurrentBlockStart < mCurrentBlockEnd);
           }
           return mCurrentBlockStart++;
@@ -190,6 +211,17 @@ namespace MetraTech.DataAccess
         mCurrentBlockEnd = mCurrentBlockStart + mBlockSize;
         mMinimumId = minId;
       }
+    }
+    
+    private void GetNextBlockForImportExport()
+    {
+      var blockAllocator = new IdBlockAllocatorTransactional();
+      int blockStart, minId;
+      blockAllocator.GetNextBlock(mColumnName, mBlockSize, out blockStart, out minId);
+
+      mCurrentBlockStart = blockStart;
+      mCurrentBlockEnd = mCurrentBlockStart + mBlockSize;
+      mMinimumId = minId;
     }
 
     //private void GetNextBlock()
@@ -345,6 +377,61 @@ namespace MetraTech.DataAccess
           }
           
           conn.CommitTransaction();
+      }
+    }
+  }
+
+  [ClassInterface(ClassInterfaceType.None)]
+  [Transaction(TransactionOption.Supported)]
+  [ComVisible(true)]
+  [Guid("B1889E7E-8933-429E-8DDB-CCE4C37D90DC")]
+  public class IdBlockAllocatorTransactional : IIdBlockAllocator
+  {
+    public void GetNextBlock(string blockName, int blockSize, out int blockStart, out int minId)
+    {
+      blockStart = -1;
+      minId = -1;
+      
+      using (var tran = new TransactionScope())
+      {
+        using (var conn = ConnectionManager.CreateNonServicedConnection())
+        {
+          var selectQuery = String.Format(CultureInfo.InvariantCulture,
+                                          conn.ConnectionInfo.DatabaseType == DBType.SQLServer
+                                            ? "SELECT id_current, id_min_id FROM t_current_id WITH(UPDLOCK) WHERE nm_current = '{0}'"
+                                            : "SELECT id_current, id_min_id FROM t_current_id WHERE nm_current = '{0}' FOR UPDATE OF id_current",
+                                          blockName);
+
+          var updateQuery = String.Format(CultureInfo.InvariantCulture,
+                                          "UPDATE t_current_id SET id_current=id_current+{0} where nm_current='{1}'",
+                                          blockSize, blockName);
+
+          using (var stmt = conn.CreateStatement(selectQuery))
+          {
+            using (var reader = stmt.ExecuteReader())
+            {
+              if (!reader.Read())
+                throw new DataAccessException("No rows returned from query to t_current_id");
+
+              var start = reader.GetInt32(0);
+
+              blockStart = start;
+
+              if (!reader.IsDBNull(1))
+                minId = reader.GetInt32(1);
+
+              if (reader.Read())
+                throw new DataAccessException("More than one row returned from query to t_current_id");
+            }
+          }
+
+          using (var stmt = conn.CreateStatement(updateQuery))
+          {
+            stmt.ExecuteNonQuery();
+          }
+
+          tran.Complete();
+        }
       }
     }
   }

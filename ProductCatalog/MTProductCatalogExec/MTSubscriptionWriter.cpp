@@ -2182,7 +2182,7 @@ STDMETHODIMP CMTSubscriptionWriter::SubscribeToGroups(IMTSessionContext*    apCt
         pQueryAdapter->AddParam(L"%%VT_END%%", _variant_t(memberPtr->SubsEndDate, VT_DATE)) ;
         pQueryAdapter->AddParam(L"%%TT_NOW%%", _variant_t(now, VT_DATE)) ;
         pQueryAdapter->AddParam(L"%%ID_GSUB_CORP%%", _variant_t(memberPtr->CorporateAccountID));
-        pQueryAdapter->AddParam(L"%%ID_AUDIT%%", _variant_t(idAuditGenerator->NextId)) ;
+        pQueryAdapter->AddParam(L"%%ID_AUDIT%%", _variant_t(idAuditGenerator->NextIdForImportExport)) ;
         pQueryAdapter->AddParam(L"%%ID_EVENT%%", _variant_t(long(AuditEventsLib::AUDITEVENT_GSUB_MEMBER_ADD))) ;
         pQueryAdapter->AddParam(L"%%ID_USERID%%", _variant_t(lAccountId)) ;
         pQueryAdapter->AddParam(L"%%ID_ENTITYTYPE%%", _variant_t(long(AuditEventsLib::AUDITENTITY_TYPE_ACCOUNT))) ;

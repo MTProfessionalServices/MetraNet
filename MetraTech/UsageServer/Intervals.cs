@@ -881,63 +881,67 @@ namespace MetraTech.UsageServer
                 }
             }
         }
-		
-
-		/// <summary>
-		/// Helper to used to create reference cycles for a given cycle type.
-		/// </summary>
-		private int CreateReferenceCycles(IBulkInsert bulkInsert, ref int intervalID,
-			ICycleType cycleType,
-			Cycle cycle,
-			DateTime startDate, DateTime endDate)
-		{
-			// The epoch is the reference date for the interval key calc.
-			DateTime epoch = new DateTime(1970, 1, 1);
-			DateTime refDate = startDate;
-			int intervalsAdded = 0;
-			while (refDate < endDate)
-			{
-				DateTime intervalStart, intervalEnd;
-
-				cycleType.ComputeStartAndEndDate(refDate, cycle, out intervalStart, out intervalEnd);
-
-				if (intervalStart >= startDate)
-				{
-					// add 23:59:59
-					intervalEnd = intervalEnd.AddSeconds(EndOfDaySeconds);
-
-					// insert interval
-					//  id_interval
-					//  id_cycle
-					//  dt_start
-					//  dt_end 
-
-					// Interval Id is the interval end date and cycle id encoded
-					// into 32 bits.
-					// Upper two bytes is number of days from the epoch 1970/01/01
-					//						 to the end of the interval.
-					// Lower two bytes is the CycleID
-					intervalID = (65536 * (intervalEnd - epoch).Days) + cycle.CycleID;
-					bulkInsert.SetValue(1, MTParameterType.Integer,  intervalID);
-					bulkInsert.SetValue(2, MTParameterType.Integer,  cycle.CycleID);
-					bulkInsert.SetValue(3, MTParameterType.DateTime, intervalStart);
-					bulkInsert.SetValue(4, MTParameterType.DateTime, intervalEnd);
-					bulkInsert.AddBatch();
-					intervalsAdded++;
-
-          // Execute the batch every 1k rows
-          if (bulkInsert.BatchCount() % 1000 == 0)
-            bulkInsert.ExecuteBatch();
-
-				}
-
-				refDate = intervalEnd.AddDays(1);
-			}
-			return intervalsAdded;
-		}
 
 
-		/// <summary>
+	  /// <summary>
+	  /// Helper to used to create reference cycles for a given cycle type.
+	  /// </summary>
+	  private int CreateReferenceCycles(IBulkInsert bulkInsert, ref int intervalID,
+	                                    ICycleType cycleType,
+	                                    Cycle cycle,
+	                                    DateTime startDate, DateTime endDate)
+	  {
+	    // The epoch is the reference date for the interval key calc.
+	    DateTime epoch = new DateTime(1970, 1, 1);
+	    DateTime refDate = startDate;
+	    int intervalsAdded = 0;
+	    while (refDate < endDate)
+	    {
+	      DateTime intervalStart, intervalEnd;
+
+	      cycleType.ComputeStartAndEndDate(refDate, cycle, out intervalStart, out intervalEnd);
+
+	      if (intervalStart >= startDate)
+	      {
+	        // add 23:59:59
+	        intervalEnd = intervalEnd.AddSeconds(EndOfDaySeconds);
+
+	        // insert interval
+	        //  id_interval
+	        //  id_cycle
+	        //  dt_start
+	        //  dt_end 
+
+	        // Interval Id is the interval end date and cycle id encoded
+	        // into 32 bits.
+	        // Upper two bytes is number of days from the epoch 1970/01/01
+	        //						 to the end of the interval.
+	        // Lower two bytes is the CycleID
+	        intervalID = (65536*(intervalEnd - epoch).Days) + cycle.CycleID;
+	        bulkInsert.SetValue(1, MTParameterType.Integer, intervalID);
+	        bulkInsert.SetValue(2, MTParameterType.Integer, cycle.CycleID);
+	        bulkInsert.SetValue(3, MTParameterType.DateTime, intervalStart);
+	        bulkInsert.SetValue(4, MTParameterType.DateTime, intervalEnd);
+	        bulkInsert.AddBatch();
+	        intervalsAdded++;
+
+	        // Execute the batch every 1k rows
+	        if (bulkInsert.BatchCount()%1000 == 0)
+	          bulkInsert.ExecuteBatch();
+
+	        refDate = intervalEnd.AddDays(1);
+	      }
+	      else
+	      {
+	        refDate = refDate.AddDays(1);
+	      }
+
+	    }
+	    return intervalsAdded;
+	  }
+
+
+	  /// <summary>
 		/// Retrieve the next interval ID to be used.
 		/// </summary>
         private int GetNextIntervalID(IMTConnection conn)

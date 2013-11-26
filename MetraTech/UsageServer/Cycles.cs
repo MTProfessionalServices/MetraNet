@@ -543,8 +543,8 @@ namespace MetraTech.UsageServer
       set
       {
         if (value <= 1 || value > MaxDaysInMonth)
-          throw new UsageServerException(String.Format("Second day value {0} must be greater than the first day " +
-                                                       "and less than or equal to {1}", value, MaxDaysInMonth), true);
+          throw new UsageServerException(String.Format("Second day value {0} must be greater or equal than 1 " +
+                                                       "and less than {1}", value, MaxDaysInMonth), true);
 
         if (IsFirstDayOfMonthSet && value <= FirstDayOfMonth)
           throw new UsageServerException("The second day must be greater than the first day", true);

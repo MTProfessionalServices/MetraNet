@@ -272,8 +272,7 @@
  
                top.Ext.MessageBox.show({
                title: TEXT_DELETE,
-               msg: " Bill Message " + id + " has " + numberofaccountsassociated + " accounts associated with it." + String.format(TEXT_DELETE_MESSAGE, id),
-               //msg: String.format(TEXT_BILL_MESSAGE, id, numberofaccountsassociated) + " " + String.format(TEXT_DELETE_MESSAGE, id),
+               msg: String.format(TEXT_BILL_MESSAGE, id, numberofaccountsassociated) + " " + String.format(TEXT_DELETE_MESSAGE, id),
                buttons: Ext.MessageBox.OKCANCEL,
                fn: function(btn){
                  if (btn == 'ok')

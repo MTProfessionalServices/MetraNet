@@ -51,7 +51,7 @@ public partial class AjaxServices_FindAccountSvc : MTListServicePage
                 output.Items.Add(wrappedAccount);
                 i++;
             }
-            output.TotalRows = i;
+            output.TotalRows = input.TotalRows;
         }
         catch (Exception ex)
         {

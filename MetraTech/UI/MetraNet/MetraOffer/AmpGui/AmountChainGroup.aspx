@@ -14,17 +14,33 @@
       Text="An &lt;i&gt;Amount Chain&lt;/i&gt; is a collection of usage charge fields that are related to the charge amount.  Some fields are used to determine the amount; some fields are derived from the amount.  An &lt;i&gt;Amount Chain Group&lt;/i&gt; is a set of Amount Chains that are associated with a Decision Type."/>
     <br />
     <div style="padding-top:5px;">
-      <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_MORE_INFO, TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP, 450, 100)" id="moreLink" ><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:AmpWizard,TEXT_MORE %>" /></span>
+      <span style="color:blue;text-decoration:underline;cursor:pointer" onclick="displayInfoMultiple(TITLE_AMPWIZARD_MORE_INFO, TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP, 450, 125)" id="moreLink" ><asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:AmpWizard,TEXT_MORE %>" /></span>
     </div>
     <br />
+
     <asp:Label ID="lblSelect" runat="server" Font-Bold="False" ForeColor="DarkBlue" 
       Font-Size="9pt" meta:resourcekey="lblSelectResource1" 
       Text="Select the Amount Chain Group for this Decision Type:" ></asp:Label>
-  </div>  
-
+  </div>
+  
+  <div>
+  <div style="float:left;padding-left:10px;">
+      <MT:MTCheckBoxControl ID="FromParamTableCheckBox" runat="server" LabelWidth="0"  BoxLabel="<%$Resources:Resource,TEXT_FROM_PARAM_TABLE%>" XType="Checkbox" XTypeNameSpace="form" />
+  </div>
+  <div style="float:left">
+      <div id="divAmountChainGroupFromParamTableDropdownSource" runat="server">
+          <MT:MTDropDown ID="ddAmountChainGroupFromParamTableSource" runat="server" ControlWidth="160" ListWidth="200" 
+          HideLabel="True" AllowBlank="True" Editable="True"/>
+      </div>
+  </div>
+  <div style="clear:both;"></div>
+  </div>
+  
+  <div id="divAmountChainGroupGrid" runat="server" >
   <div style="padding-left:5px;">
     <MT:MTFilterGrid ID="AmountChainGroupGrid" runat="server" TemplateFileName="AmpWizard.AmountChainGroups" ExtensionName="MvmAmp">
     </MT:MTFilterGrid>
+  </div>
   </div>
 
   <!-- 
@@ -45,7 +61,7 @@
                          CausesValidation="false" TabIndex="230" />
           </td>
           <td align="right">
-            <MT:MTButton ID="btnSaveAndContinue" runat="server" Text="<%$Resources:Resource,TEXT_SAVE_AND_CONTINUE%>"
+            <MT:MTButton ID="btnSaveAndContinue" runat="server" Text="<%$Resources:Resource,TEXT_NEXT%>"
                          OnClientClick="if (ValidateForm()) { MPC_setNeedToConfirm(false); return onContinueClick(); } else { MPC_setNeedToConfirm(true); return false; }"
                          OnClick="btnContinue_Click"
                          CausesValidation="true" TabIndex="240"/>
@@ -63,7 +79,18 @@
 
 
   <script type="text/javascript" language="javascript">
-  
+      function updateActiveControls() {
+         var dd = Ext.getCmp('<%=ddAmountChainGroupFromParamTableSource.ClientID %>');
+         var cb = Ext.getCmp('<%=FromParamTableCheckBox.ClientID %>');
+         if (cb.checked == true) {
+             dd.enable();
+             document.getElementById('<%=divAmountChainGroupGrid.ClientID %>').style.display = "none";
+         } else {
+             dd.disable();
+             document.getElementById('<%=divAmountChainGroupGrid.ClientID %>').style.display = "block";
+         }
+     }
+     
     function onContinueClick() {
       // Check the selected amount chain group name.
       var records = grid_<%= AmountChainGroupGrid.ClientID %>.getSelectionModel().getSelections();
@@ -77,7 +104,11 @@
         else
         {
           // Pass empty string to the code-behind.
-          Ext.get("<%=hiddenAmtChainGroupName.ClientID%>").dom.value = "";
+            var cb = Ext.getCmp('<%=FromParamTableCheckBox.ClientID %>');
+         if (cb.checked == true)
+                Ext.get("<%=hiddenAmtChainGroupName.ClientID%>").dom.value = document.getElementById('<%=ddAmountChainGroupFromParamTableSource.ClientID %>').value;
+            else 
+                Ext.get("<%=hiddenAmtChainGroupName.ClientID%>").dom.value = '';
         }
       }
     }
@@ -94,7 +125,12 @@
         // Define an event handler for the grid control's Load event,
         // which will select the radio button that corresponds to the 
         // decision type's current amount chain group.
-        dataStore_<%= AmountChainGroupGrid.ClientID %>.on(
+         var cb = Ext.getCmp('<%=FromParamTableCheckBox.ClientID %>');
+          if (cb.checked != true) {
+             document.getElementById('<%=divAmountChainGroupGrid.ClientID %>').style.display = "block";
+          }
+
+          dataStore_<%= AmountChainGroupGrid.ClientID %>.on(
           "load",
           function(store, records, options)
           {

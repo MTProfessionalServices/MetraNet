@@ -1,9 +1,20 @@
-/*!
- * Ext JS Library 3.4.0
- * Copyright(c) 2006-2011 Sencha Inc.
- * licensing@sencha.com
- * http://www.sencha.com/license
- */
+/*
+This file is part of Ext JS 3.4
+
+Copyright (c) 2011-2013 Sencha Inc
+
+Contact:  http://www.sencha.com/contact
+
+Commercial Usage
+Licensees holding valid commercial licenses may use this file in accordance with the Commercial
+Software License Agreement provided with the Software or, alternatively, in accordance with the
+terms contained in a written agreement between you and Sencha.
+
+If you are unsure which license is appropriate for your use, please contact the sales department
+at http://www.sencha.com/contact.
+
+Build date: 2013-04-03 15:07:25
+*/
 /**
  * @class Ext.Resizable
  * @extends Ext.util.Observable
@@ -68,7 +79,7 @@ Ext.Resizable = Ext.extend(Ext.util.Observable, {
          * The proxy Element that is resized in place of the real Element during the resize operation.
          * This may be queried using {@link Ext.Element#getBox} to provide the new area to resize to.
          * Read only.
-         * @type Ext.Element.
+         * @type Ext.Element
          * @property proxy
          */
         this.proxy = this.el.createProxy({tag: 'div', cls: 'x-resizable-proxy', id: this.el.id + '-rzproxy'}, Ext.getBody());
@@ -384,7 +395,7 @@ Ext.Resizable = Ext.extend(Ext.util.Observable, {
             // The first call enables instant resizing and
             // the second call corrects scroll bars if they
             // exist
-            if(Ext.isIE){
+            if(Ext.isIE9m){
                 setTimeout(function(){
                     if(el.dom.offsetWidth){
                         var b = el.getSize(true);

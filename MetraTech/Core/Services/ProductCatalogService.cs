@@ -6,6 +6,8 @@ using System.Text;
 using System.Reflection;
 using System.ServiceModel;
 using MetraTech.ActivityServices.Common;
+using MetraTech.Application;
+using MetraTech.Domain;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.DomainModel.BaseTypes;
 using MTAuth = MetraTech.Interop.MTAuth;
@@ -21,6 +23,7 @@ using MetraTech.Interop.RCD;
 using System.Transactions;
 using MetraTech.DomainModel.Enums.Core.Metratech_com_calendar;
 using MetraTech.Debug.Diagnostics;
+using DatabaseUtils = MetraTech.Domain.DataAccess.DatabaseUtils;
 
 namespace MetraTech.Core.Services
 {
@@ -1106,7 +1109,7 @@ namespace MetraTech.Core.Services
 
         using (IMTConnection conn = ConnectionManager.CreateConnection(PCWS_QUERY_FOLDER))
         {
-          piTemplate.ID = CreateBaseProps(context, piTemplate.Name, piTemplate.Description, piTemplate.DisplayName, (int)piTemplate.PIKind);
+          piTemplate.ID = BasePropsUtils.CreateBaseProps(context, piTemplate.Name, piTemplate.Description, piTemplate.DisplayName, (int)piTemplate.PIKind);
 
           //PCIdentifierResolver.ResolvePriceableItemTemplate(new PCIdentifier(piTemplate.ID.Value), true);
 
@@ -1140,7 +1143,7 @@ namespace MetraTech.Core.Services
           using (IMTAdapterStatement createStmt = conn.CreateAdapterStatement(PCWS_QUERY_FOLDER, "__ADD_PI_TMPL_PCWS__"))
           {
             createStmt.AddParam("%%ID_TMPL%%", piTemplate.ID.Value);
-            createStmt.AddParam("%%ID_TMPL_PARENT%%", parentTemplateId.HasValue ? FormatValueForDB(parentTemplateId.Value) : FormatValueForDB(null));
+            createStmt.AddParam("%%ID_TMPL_PARENT%%", parentTemplateId.HasValue ? DatabaseUtils.FormatValueForDB(parentTemplateId.Value) : DatabaseUtils.FormatValueForDB(null));
             createStmt.AddParam("%%ID_PI%%", piTypeID);
             createStmt.ExecuteNonQuery();
           }
@@ -1388,7 +1391,7 @@ namespace MetraTech.Core.Services
 
         using (IMTConnection conn = ConnectionManager.CreateConnection(PCWS_QUERY_FOLDER))
         {
-          UpdateBaseProps(GetSessionContext(), piTemplate.Description, piTemplate.IsDescriptionDirty,
+          BasePropsUtils.UpdateBaseProps(GetSessionContext(), piTemplate.Description, piTemplate.IsDescriptionDirty,
                           piTemplate.DisplayName, piTemplate.IsDisplayNameDirty, piTemplate.ID.Value);
 
           #region Update Kind Specific Details.
@@ -1584,7 +1587,7 @@ namespace MetraTech.Core.Services
                 m_Logger.LogDebug("Updating adjustment template: {0} for type {1}", adjustTemplate.Name, attrib.Type);
 
                 #region Update BaseProps, Process localization and Update Reasoncode map.
-                UpdateBaseProps(GetSessionContext(),
+                BasePropsUtils.UpdateBaseProps(GetSessionContext(),
                                 adjustTemplate.Description,
                                 adjustTemplate.IsDescriptionDirty,
                                 adjustTemplate.DisplayName,
@@ -1721,10 +1724,10 @@ namespace MetraTech.Core.Services
                 using (IMTCallableStatement updStmt = conn.CreateCallableStatement("UpdateCounterInstance"))
                 {
                   updStmt.AddParam("id_lang_code", MTParameterType.Integer, GetSessionContext().LanguageID);
-                  updStmt.AddParam("id_prop", MTParameterType.Integer, FormatValueForDB(counter.ID.Value));
-                  updStmt.AddParam("counter_type_id", MTParameterType.Integer, FormatValueForDB(counterTypeId));
-                  updStmt.AddParam("nm_name", MTParameterType.String, FormatValueForDB(counter.Name));
-                  updStmt.AddParam("nm_desc", MTParameterType.String, FormatValueForDB(counter.Description));
+                  updStmt.AddParam("id_prop", MTParameterType.Integer, DatabaseUtils.FormatValueForDB(counter.ID.Value));
+                  updStmt.AddParam("counter_type_id", MTParameterType.Integer, DatabaseUtils.FormatValueForDB(counterTypeId));
+                  updStmt.AddParam("nm_name", MTParameterType.String, DatabaseUtils.FormatValueForDB(counter.Name));
+                  updStmt.AddParam("nm_desc", MTParameterType.String, DatabaseUtils.FormatValueForDB(counter.Description));
                   updStmt.ExecuteNonQuery();
                 }
               }
@@ -1758,7 +1761,7 @@ namespace MetraTech.Core.Services
         {
           using (IMTCallableStatement delStmt = conn.CreateCallableStatement("RemoveCounterInstance"))
           {
-            delStmt.AddParam("id_prop", MTParameterType.Integer, FormatValueForDB(counter.Value));
+            delStmt.AddParam("id_prop", MTParameterType.Integer, DatabaseUtils.FormatValueForDB(counter.Value));
             delStmt.ExecuteNonQuery();
           }
         }
@@ -1876,7 +1879,7 @@ namespace MetraTech.Core.Services
 
         if (!PCConfigManager.IsPropertyOverridable((int)baseRecurringChargePITemplate.PIKind, "Cycle"))
         {
-          columnList.Append(string.Format(",{0},{1}", FormatValueForDB(cycleId), FormatValueForDB(cycleTypeId)));
+          columnList.Append(string.Format(",{0},{1}", DatabaseUtils.FormatValueForDB(cycleId), DatabaseUtils.FormatValueForDB(cycleTypeId)));
           insertStr.Append(",id_usage_cycle, id_cycle_type");
         }
 
@@ -1988,11 +1991,11 @@ namespace MetraTech.Core.Services
         {
           bRunUpdate = true;
 
-          updateStr.Append(String.Format(",nm_unit_display_name = {0}", FormatValueForDB(udrcTemplate.UnitDisplayName)));
+          updateStr.Append(String.Format(",nm_unit_display_name = {0}", DatabaseUtils.FormatValueForDB(udrcTemplate.UnitDisplayName)));
 
           if (!PCConfigManager.IsPropertyOverridable((int)baseRecurringChargePITemplate.PIKind, "UnitDisplayName"))
           {
-            columnList.Append(string.Format(",{0}", FormatValueForDB(udrcTemplate.UnitDisplayName)));
+            columnList.Append(string.Format(",{0}", DatabaseUtils.FormatValueForDB(udrcTemplate.UnitDisplayName)));
             insertStr.Append(",nm_unit_display_name");
           }
         }
@@ -2012,7 +2015,7 @@ namespace MetraTech.Core.Services
 
           if (!PCConfigManager.IsPropertyOverridable((int)baseRecurringChargePITemplate.PIKind, "RatingType"))
           {
-            columnList.Append(string.Format(",{0}", FormatValueForDB(udrcTemplate.RatingType)));
+            columnList.Append(string.Format(",{0}", DatabaseUtils.FormatValueForDB(udrcTemplate.RatingType)));
             insertStr.Append(",n_rating_type");
           }
         }
@@ -2043,7 +2046,7 @@ namespace MetraTech.Core.Services
 
           if (!PCConfigManager.IsPropertyOverridable((int)baseRecurringChargePITemplate.PIKind, "MaxUnitValue"))
           {
-            columnList.Append(string.Format(",{0}", FormatValueForDB(udrcTemplate.MaxUnitValue)));
+            columnList.Append(string.Format(",{0}", DatabaseUtils.FormatValueForDB(udrcTemplate.MaxUnitValue)));
             insertStr.Append(",max_unit_value");
           }
         }
@@ -2059,7 +2062,7 @@ namespace MetraTech.Core.Services
 
           if (!PCConfigManager.IsPropertyOverridable((int)baseRecurringChargePITemplate.PIKind, "MinUnitValue"))
           {
-            columnList.Append(string.Format(",{0}", FormatValueForDB(udrcTemplate.MinUnitValue)));
+            columnList.Append(string.Format(",{0}", DatabaseUtils.FormatValueForDB(udrcTemplate.MinUnitValue)));
             insertStr.Append(",min_unit_value");
           }
         }
@@ -2215,7 +2218,7 @@ namespace MetraTech.Core.Services
         if (!PCConfigManager.IsPropertyOverridable((int)nrPITemplate.PIKind, "EventType"))
         {
           string columnList = "n_event_type";
-          string insertStr = FormatValueForDB(nrPITemplate.EventType);
+          string insertStr = DatabaseUtils.FormatValueForDB(nrPITemplate.EventType);
           PropagateProperties("t_non_recur", updateStr, columnList, insertStr, nrPITemplate.ID.Value);
         }
 
@@ -2230,7 +2233,7 @@ namespace MetraTech.Core.Services
         int? cycleId, cycleTypeId;
         ResolveUsageCycleInfo(discountPITemplate.Cycle, out mode, out cycleId, out cycleTypeId);
 
-        string updateStr = String.Format("id_usage_cycle = {0}, id_cycle_type = {1}", ((cycleId.HasValue) ? cycleId.Value.ToString() : FormatValueForDB(null)), ((cycleTypeId.HasValue) ? cycleTypeId.Value.ToString() : FormatValueForDB(null)));
+        string updateStr = String.Format("id_usage_cycle = {0}, id_cycle_type = {1}", ((cycleId.HasValue) ? cycleId.Value.ToString() : DatabaseUtils.FormatValueForDB(null)), ((cycleTypeId.HasValue) ? cycleTypeId.Value.ToString() : DatabaseUtils.FormatValueForDB(null)));
 
         using (IMTConnection conn = ConnectionManager.CreateConnection())
         {
@@ -2247,7 +2250,7 @@ namespace MetraTech.Core.Services
         if (!PCConfigManager.IsPropertyOverridable((int)discountPITemplate.PIKind, "Cycle"))
         {
           string columnList = "id_usage_cycle, id_cycle_type";
-          string insertStr = string.Format("{0},{1}", FormatValueForDB(cycleId), FormatValueForDB(cycleTypeId));
+          string insertStr = string.Format("{0},{1}", DatabaseUtils.FormatValueForDB(cycleId), DatabaseUtils.FormatValueForDB(cycleTypeId));
           PropagateProperties("t_discount", updateStr, columnList, insertStr, discountPITemplate.ID.Value);
         }
 
@@ -2285,7 +2288,7 @@ namespace MetraTech.Core.Services
 
       m_Logger.LogDebug("Create Adjustment Template");
 
-      adjustTemplate.ID = CreateBaseProps(GetSessionContext(), adjustTemplate.Name, adjustTemplate.Description, adjustTemplate.DisplayName, ADJUSTMENT_KIND);
+      adjustTemplate.ID = BasePropsUtils.CreateBaseProps(GetSessionContext(), adjustTemplate.Name, adjustTemplate.Description, adjustTemplate.DisplayName, ADJUSTMENT_KIND);
 
       object[] attribs = propInfo.GetCustomAttributes(typeof(MTAdjustmentTypeAttribute), true);
       if (attribs.HasValue())
@@ -2377,7 +2380,7 @@ namespace MetraTech.Core.Services
           int reasonCodeId;
           try
           {
-            reasonCodeId = CreateBaseProps(GetSessionContext(), reasonCode.Name, reasonCode.Description, reasonCode.DisplayName, REASON_CODE_KIND);
+            reasonCodeId = BasePropsUtils.CreateBaseProps(GetSessionContext(), reasonCode.Name, reasonCode.Description, reasonCode.DisplayName, REASON_CODE_KIND);
             reasonCode.ID = reasonCodeId;
           }
           catch (Exception e)
@@ -2419,7 +2422,7 @@ namespace MetraTech.Core.Services
           reasonCode.ID = rcodeId;
           try
           {
-            UpdateBaseProps(GetSessionContext(), reasonCode.Description, reasonCode.IsDescriptionDirty,
+            BasePropsUtils.UpdateBaseProps(GetSessionContext(), reasonCode.Description, reasonCode.IsDescriptionDirty,
                             reasonCode.DisplayName, reasonCode.IsDisplayNameDirty, reasonCode.ID.Value);
           }
           catch (Exception e)
@@ -2483,7 +2486,7 @@ namespace MetraTech.Core.Services
       {
         using (IMTCallableStatement createCounterInstanceStmt = conn.CreateCallableStatement("AddCounterInstance"))
         {
-          createCounterInstanceStmt.AddParam("id_lang_code", MTParameterType.Integer, FormatValueForDB(GetSessionContext().LanguageID));
+          createCounterInstanceStmt.AddParam("id_lang_code", MTParameterType.Integer, DatabaseUtils.FormatValueForDB(GetSessionContext().LanguageID));
           createCounterInstanceStmt.AddParam("n_kind", MTParameterType.Integer, COUNTER_KIND);
           createCounterInstanceStmt.AddParam("nm_name", MTParameterType.String, counter.Name);
           createCounterInstanceStmt.AddParam("nm_desc", MTParameterType.String, counter.Description);
@@ -2603,9 +2606,9 @@ namespace MetraTech.Core.Services
                   createCounterParamStmt.AddParam("id_counter", MTParameterType.Integer, counter.ID);
                   createCounterParamStmt.AddParam("id_counter_param_type", MTParameterType.Integer, counterParamTypeId);
                   createCounterParamStmt.AddParam("nm_counter_value", MTParameterType.String, counterValue);
-                  createCounterParamStmt.AddParam("nm_name", MTParameterType.String, FormatValueForDB(null));
-                  createCounterParamStmt.AddParam("nm_desc", MTParameterType.String, FormatValueForDB(null));
-                  createCounterParamStmt.AddParam("nm_display_name", MTParameterType.String, FormatValueForDB(null));
+                  createCounterParamStmt.AddParam("nm_name", MTParameterType.String, DatabaseUtils.FormatValueForDB(null));
+                  createCounterParamStmt.AddParam("nm_desc", MTParameterType.String, DatabaseUtils.FormatValueForDB(null));
+                  createCounterParamStmt.AddParam("nm_display_name", MTParameterType.String, DatabaseUtils.FormatValueForDB(null));
                   createCounterParamStmt.AddOutputParam("identity", MTParameterType.Integer, 0);
                   try
                   {
@@ -3713,7 +3716,7 @@ namespace MetraTech.Core.Services
                         case "ratingtype":
                           ratingType = templateReader.GetInt32(i); ;
                           break;
-                        case "integral":
+                        case "integerunitvalue":
                           bIntegral = templateReader.GetBoolean(i);
                           break;
                         case "maxunitvalue":
@@ -4142,7 +4145,7 @@ namespace MetraTech.Core.Services
       using (IMTConnection conn = ConnectionManager.CreateConnection())
       {
         m_Logger.LogDebug("Update base props");
-        UpdateBaseProps(GetSessionContext(),
+        BasePropsUtils.UpdateBaseProps(GetSessionContext(),
                 calendar.Description,
                 calendar.IsDescriptionDirty,
                 null,
@@ -4554,7 +4557,7 @@ namespace MetraTech.Core.Services
       using (IMTConnection conn = ConnectionManager.CreateConnection())
       {
         m_Logger.LogDebug("Create base props");
-        calendar.ID = CreateBaseProps(GetSessionContext(), calendar.Name, calendar.Description, "", CALENDAR_KIND);
+        calendar.ID = BasePropsUtils.CreateBaseProps(GetSessionContext(), calendar.Name, calendar.Description, "", CALENDAR_KIND);
 
         m_Logger.LogDebug("Create calendar record");
         #region Add Calendar Record

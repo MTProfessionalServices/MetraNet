@@ -27,6 +27,12 @@ namespace MetraTech.ActivityServices.Services.Common
 {
     public class CMASServiceBase : IServiceBehavior, IErrorHandler
     {
+        public CMASServiceBase(){}
+        public CMASServiceBase(IMTSessionContext sessionContext)
+        {
+            m_SessionContext = sessionContext;
+        }
+
         #region Private Members
         private static Logger m_Logger;
 
@@ -246,61 +252,7 @@ namespace MetraTech.ActivityServices.Services.Common
 
         #region Protected Methods
 
-        protected ProdCatTimeSpan.MTPCDateType GetEndDateType(int endDate)
-        {
-          switch (endDate)
-          {
-            /*      NoDate = 0, Absolute = 1, SubscriptionRelative = 2, NextBillingPeriod = 3,Null = 4,  */
-            case 0:
-              return ProdCatTimeSpan.MTPCDateType.NoDate;              
-            case 1:
-              return ProdCatTimeSpan.MTPCDateType.Absolute;              
-            case 2:
-              return ProdCatTimeSpan.MTPCDateType.SubscriptionRelative;
-            case 3:
-              return ProdCatTimeSpan.MTPCDateType.NextBillingPeriod;
-            case 4:
-              return ProdCatTimeSpan.MTPCDateType.Null;
-            default:
-              throw new MASBasicException("Unrecognized Date type");
-          }
-        }
-
-        protected ProdCatTimeSpan GetEffectiveDate(IMTDataReader dataReader, string prefix)
-        {
-          ProdCatTimeSpan effectiveDate = new ProdCatTimeSpan();
-          effectiveDate.TimeSpanId = dataReader.GetInt32(prefix + "_Id");
-          effectiveDate.StartDateType = GetEndDateType(dataReader.GetInt32(prefix + "_BeginType"));
-          if (effectiveDate.StartDateType == ProdCatTimeSpan.MTPCDateType.NoDate)
-            effectiveDate.StartDate = null;
-          else
-          {
-            if (!dataReader.IsDBNull(prefix + "_StartDate"))
-              effectiveDate.StartDate = dataReader.GetDateTime(prefix + "_StartDate");
-            else
-              effectiveDate.StartDate = null;
-          }
-
-          effectiveDate.StartDateOffset = dataReader.GetInt32(prefix + "_BeginOffset");
-          effectiveDate.EndDateType = GetEndDateType(dataReader.GetInt32(prefix + "_EndType"));
-
-          // handle nulls
-          if (effectiveDate.EndDateType == ProdCatTimeSpan.MTPCDateType.Null)
-            effectiveDate.EndDate = null;
-          else
-          {
-            if (!dataReader.IsDBNull(prefix + "_EndDate"))
-              effectiveDate.EndDate = dataReader.GetDateTime(prefix + "_EndDate");
-            else
-              effectiveDate.EndDate = null;
-          }
-
-          effectiveDate.EndDateOffset = dataReader.GetInt32(prefix + "_EndOffSet");
-
-          return effectiveDate;
-        }
-
-        protected T GetStubResponse<T>(string fileName) where T : class
+      protected T GetStubResponse<T>(string fileName) where T : class
         {
 
             MetraTech.Interop.RCD.IMTRcd rcd = new MetraTech.Interop.RCD.MTRcd();
@@ -463,66 +415,7 @@ namespace MetraTech.ActivityServices.Services.Common
           return retval;
         }
 
-        protected string FormatValueForDB(object value)
-        {
-            string retval = null;
-
-            if (value == null)
-            {
-                retval = "NULL";
-            }
-            else if (value is DateTime)
-            {
-                retval = DBUtil.ToDBString(((DateTime)value));
-            }
-            else if (value is string || value is String)
-            {
-                retval = string.Format("'{0}'", DBUtil.ToDBString(((string)value)));
-            }
-            else if (value.GetType().IsEnum)
-            {
-                if (value is RateEntryOperators)
-                {
-                    switch ((RateEntryOperators)value)
-                    {
-                        case RateEntryOperators.Equal:
-                            retval = "'='";
-                            break;
-                        case RateEntryOperators.Greater:
-                            retval = "'>'";
-                            break;
-                        case RateEntryOperators.GreaterEqual:
-                            retval = "'>='";
-                            break;
-                        case RateEntryOperators.Less:
-                            retval = "'<'";
-                            break;
-                        case RateEntryOperators.LessEqual:
-                            retval = "'<='";
-                            break;
-                        case RateEntryOperators.NotEqual:
-                            retval = "'!='";
-                            break;
-                    }
-                }
-                else
-                {
-                    retval = string.Format("{0}", EnumHelper.GetDbValueByEnum(value));
-                }
-            }
-            else if (value is bool)
-            {
-                retval = ((bool)value ? "1" : "0");
-            }
-            else
-            {
-                retval = string.Format("{0}", value);
-            }
-
-            return retval;
-        }
-
-        #endregion
+      #endregion
 
         protected static System.Configuration.Configuration LoadConfigurationFile(string configFile)
         {

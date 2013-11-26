@@ -44,6 +44,9 @@ namespace MetraTech.Core.Services
 
   public class BaseSubscriptionService : AccountLoaderService
   {
+    public BaseSubscriptionService(){}
+    public BaseSubscriptionService(MTAuth.IMTSessionContext sessionContext) : base(sessionContext) { }
+
     private Logger m_Logger = new Logger("[BaseSubscriptionService]");
 
     #region Static Methods

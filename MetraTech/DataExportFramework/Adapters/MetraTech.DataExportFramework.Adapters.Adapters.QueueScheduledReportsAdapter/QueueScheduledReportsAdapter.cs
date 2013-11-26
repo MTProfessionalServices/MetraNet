@@ -1,43 +1,36 @@
 using System;
-using System.Data;
-using System.Data.SqlClient;
-using System.Collections;
 using System.Xml;
-
-using MetraTech;
 using MetraTech.DataAccess;
 using MetraTech.UsageServer;
 using MetraTech.Interop.MTAuth;
-
-using System.Runtime.InteropServices;
 
 namespace MetraTech.DataExportFramework.Adapters.QueueScheduledReportsAdapter
 {
 	/// <summary>
 	/// Summary description for Class1.
 	/// </summary>
-	public class QueueScheduledReportsAdapter : MetraTech.UsageServer.IRecurringEventAdapter
+	public class QueueScheduledReportsAdapter : IRecurringEventAdapter
 	{
-		private bool mbInitialized = false;
-		private bool mbSupportsScheduledEvents = false;
-		private bool mbSupportsEndOfPeriodEvents = true;
-		private ReverseMode mEnReversibility = ReverseMode.Custom;
-		private bool mbAllowMultipleInstances = false;
-		private Logger moLogger;
+    private bool _mbInitialized;
+    private readonly bool _mbSupportsScheduledEvents;
+    private readonly bool _mbSupportsEndOfPeriodEvents = true;
+    private const ReverseMode MEnReversibility = ReverseMode.Custom;
+    private const bool MbAllowMultipleInstances = false;
+		private readonly Logger _moLogger;
+	  private const string MName = "QueueScheduledReportsAdapter";
 
-		private string msQueueTag;
-		private string msReverseQueueTag;
-		private string msQueryPath;
-		
+	  private string _msQueueTag;
+		private string _msReverseQueueTag;
+		private string _msQueryPath;
+    private string _msSplitReverseQueueTag;
+
 		public QueueScheduledReportsAdapter()
 		{	
-			moLogger = new Logger("[QUEUESCHEDULEDREPORTSADAPTER]");
-			mbInitialized = false;
-			mbSupportsEndOfPeriodEvents = false;
-			mbSupportsScheduledEvents = true;
+			_moLogger = new Logger("[QUEUESCHEDULEDREPORTSADAPTER]");
+			_mbInitialized = false;
+			_mbSupportsEndOfPeriodEvents = false;
+			_mbSupportsScheduledEvents = true;
 		}
-
-		private ArrayList moReportsList = new ArrayList();
 
 		/// <summary>
 		/// Returns a bool with information about scheduled event support.
@@ -46,7 +39,7 @@ namespace MetraTech.DataExportFramework.Adapters.QueueScheduledReportsAdapter
 		/// </summary>
 		public bool SupportsScheduledEvents
 		{
-			get { return mbSupportsScheduledEvents; }
+			get { return _mbSupportsScheduledEvents; }
 		}
 
 		/// <summary>
@@ -56,7 +49,7 @@ namespace MetraTech.DataExportFramework.Adapters.QueueScheduledReportsAdapter
 		/// </summary>
 		public bool SupportsEndOfPeriodEvents
 		{
-			get { return mbSupportsEndOfPeriodEvents; }
+			get { return _mbSupportsEndOfPeriodEvents; }
 		}
 
 		/// <summary>
@@ -66,7 +59,7 @@ namespace MetraTech.DataExportFramework.Adapters.QueueScheduledReportsAdapter
 		/// </summary>
 		public ReverseMode Reversibility
 		{
-			get { return mEnReversibility; }
+			get { return MEnReversibility; }
 		}
 
 		/// <summary>
@@ -76,7 +69,7 @@ namespace MetraTech.DataExportFramework.Adapters.QueueScheduledReportsAdapter
 		/// </summary>
 		public bool AllowMultipleInstances
 		{
-			get { return mbAllowMultipleInstances; }
+			get { return MbAllowMultipleInstances; }
 		}
 
 		/// <summary>
@@ -93,110 +86,131 @@ namespace MetraTech.DataExportFramework.Adapters.QueueScheduledReportsAdapter
 		{
 			try
 			{
-				moLogger.LogDebug("Starting initialization...");
+				_moLogger.LogDebug("Starting initialization...");
 				if(!bLimitedInit)
 				{
 					ReadConfig(sConfigFile);
 				}
 
-				mbInitialized = true;
-				moLogger.LogDebug("Initialization completed.");
+				_mbInitialized = true;
+				_moLogger.LogDebug("Initialization completed.");
 			}
-			catch(System.Exception e)
+			catch(Exception e)
 			{
-				moLogger.LogError("An error occurred during initialization: " + e.Message + "  Inner Exception: " + e.InnerException.Message);
-				throw (e);
+				_moLogger.LogError("An error occurred during initialization: " + e.Message + "  Inner Exception: " + e.InnerException.Message);
+				throw;
 			}
 		}
 
 		private void ReadConfig(string sConfigFile)
 		{
-			XmlDocument oDoc = new XmlDocument();
+			var oDoc = new XmlDocument();
 			oDoc.Load(sConfigFile);
 
-			try
-			{
-				msQueryPath = oDoc.SelectSingleNode("xmlconfig/schreports/query/path").InnerText;
-				msQueueTag = oDoc.SelectSingleNode("xmlconfig/schreports/query/queuetag").InnerText;
-				msReverseQueueTag = oDoc.SelectSingleNode("xmlconfig/schreports/query/reversetag").InnerText;
-			}
-			catch (Exception ex) 
-			{
-				throw new Exception("ReadConfig error!", ex);
-			}
+		  try
+		  {
+		    _msQueryPath = oDoc.SelectSingleNode("xmlconfig/schreports/query/path").InnerText;
+		    _msQueueTag = oDoc.SelectSingleNode("xmlconfig/schreports/query/queuetag").InnerText;
+		    _msReverseQueueTag = oDoc.SelectSingleNode("xmlconfig/schreports/query/reversetag").InnerText;
+		    try
+		    {
+		      _msSplitReverseQueueTag = oDoc.SelectSingleNode("xmlconfig/schreports/query/pulllisttag").InnerText;
+		    }
+		    catch
+		    {
+		      _msSplitReverseQueueTag = String.Empty;
+		    }
+		  }
+		  catch (Exception ex)
+		  {
+		    throw new Exception("ReadConfig error!", ex);
+		  }
 		}
 
-		public string Execute(MetraTech.UsageServer.IRecurringEventRunContext oContext)
-		{
-			IMTConnection _cn = null;
-			try 
-			{
-				moLogger.LogDebug("Executing...");
-				if (mbInitialized)
-				{
-					_cn = ConnectionManager.CreateConnection();
-					IMTAdapterStatement _selectst = _cn.CreateAdapterStatement(msQueryPath, msQueueTag);
-					_selectst.AddParam("%%ID_RUN%%", oContext.RunID);
-					_selectst.AddParam("%%METRATIME%%", MetraTime.Now.ToLocalTime()); 
-					int rows = _selectst.ExecuteNonQuery();
-					oContext.RecordInfo(rows.ToString() + " Scheduled Reports were successfully Queued to the WorkQueue for execution");
-					return("Executed successfully");
-				}
-				else
-					return ("Adapter not initialized");
-			}
-			catch (Exception ex)
-			{
-				throw (ex);
-			}
-			finally
-			{
-				if (_cn != null)
-				{	
-					_cn.Dispose();
-					_cn.Close();
-				}
-			}
-		}
+	  public string Execute(IRecurringEventRunContext oContext)
+	  {
+	    _moLogger.LogDebug("Executing...");
+	    if (!_mbInitialized)
+	      return ("Adapter not initialized");
+	    
+	    using(var cn = ConnectionManager.CreateConnection())
+	    using(var selectst = cn.CreateAdapterStatement(_msQueryPath, _msQueueTag))
+	    {
+	      // Values used in the query today
+	      selectst.AddParamIfFound("%%ID_RUN%%", oContext.RunID);
+	      selectst.AddParamIfFound("%%METRATIME%%", MetraTime.Now.ToLocalTime());
 
-		public string Reverse(MetraTech.UsageServer.IRecurringEventRunContext oContext)
-		{
-			IMTConnection _cn = null;
-			try 
-			{
-				moLogger.LogDebug("Executing...");
-				if (mbInitialized)
-				{
-					_cn = ConnectionManager.CreateConnection();
-					IMTAdapterStatement _selectst = _cn.CreateAdapterStatement(msQueryPath, msReverseQueueTag);
-					_selectst.AddParam("%%ID_RUN%%", oContext.RunIDToReverse, true);
-					int rows = _selectst.ExecuteNonQuery();
-					oContext.RecordInfo(rows.ToString() + " Scheduled Reports were successfully Removed from the WorkQueue");
-					oContext.RecordWarning("If the reversed number is less than the Queued number, some reports have already picked up for execution by the Reporting Framework.");
-					return("Reversed successfully");
-				}
-				else
-					return ("Adapter not initialized");
-			}
-			catch (Exception ex)
-			{
-				throw (ex);
-			}
-			finally
-			{
-				if (_cn != null)
-				{	
-					_cn.Dispose();
-					_cn.Close();
-				}
-			}		
-		}
-	
-		public void Shutdown()
+	      // Expansion values, so we never have to recompile to change the query...
+	      selectst.AddParamIfFound("%%ID_BILLGROUP%%", oContext.BillingGroupID);
+	      selectst.AddParamIfFound("%%ID_INTERVAL%%", oContext.UsageIntervalID);
+	      selectst.AddParamIfFound("%%START_DATE%%", oContext.StartDate);
+	      selectst.AddParamIfFound("%%END_DATE%%", oContext.EndDate);
+
+	      var rows = selectst.ExecuteNonQuery();
+	      oContext.RecordInfo(rows + " Scheduled Reports were successfully Queued to the WorkQueue for execution");
+	      return ("Executed successfully");
+	    }
+	  }
+
+	  public void CreateBillingGroupConstraints(int intervalID, int materializationID)
+    {
+      _moLogger.LogDebug(string.Concat(MName, ". CreateBillingGroupConstraints  nothing to do."));
+    }
+
+	  public void SplitReverseState(int parentRunId, int parentBillingGroupId, int childRunId, int childBillingGroupId)
+	  {
+	    _moLogger.LogDebug("Executing...");
+	    if (!_mbInitialized)
+	    {
+	      _moLogger.LogInfo(String.Concat(MName, " is not initialized, can not create pull list."));
+	      return;
+	    }
+
+	    if (String.IsNullOrEmpty(_msSplitReverseQueueTag) ||
+	        String.IsNullOrWhiteSpace(_msSplitReverseQueueTag.Trim()))
+	      return;
+
+	    using(var cn = ConnectionManager.CreateConnection())
+	    using (var selectst = cn.CreateAdapterStatement(_msQueryPath, _msSplitReverseQueueTag))
+	    {
+	      // Values used in the query today
+	      selectst.AddParamIfFound("%%PARENT_ID_RUN%%", parentRunId);
+	      selectst.AddParamIfFound("%%PARENT_ID_BILLGROUP%%", parentBillingGroupId);
+	      selectst.AddParamIfFound("%%CHILD_ID_RUN%%", childRunId);
+	      selectst.AddParamIfFound("%%CHILD_ID_BILLGROUP%%", childBillingGroupId);
+	      selectst.AddParamIfFound("%%METRATIME%%", MetraTime.Now.ToLocalTime());
+	      selectst.ExecuteNonQuery();
+	    }
+	  }
+
+	  public string Reverse(IRecurringEventRunContext oContext)
+	  {
+	    _moLogger.LogDebug("Executing...");
+	    if (!_mbInitialized) 
+        return ("Adapter not initialized");
+	    
+      using(var cn = ConnectionManager.CreateConnection())
+      using (var selectst = cn.CreateAdapterStatement(_msQueryPath, _msReverseQueueTag))
+	    {
+	      selectst.AddParam("%%ID_RUN%%", oContext.RunIDToReverse, true);
+        // Expansion values, so we never have to recompile to change the query...
+	      selectst.AddParamIfFound("%%METRATIME%%", MetraTime.Now.ToLocalTime());
+	      selectst.AddParamIfFound("%%ID_BILLGROUP%%", oContext.BillingGroupID);
+	      selectst.AddParamIfFound("%%ID_INTERVAL%%", oContext.UsageIntervalID);
+	      selectst.AddParamIfFound("%%START_DATE%%", oContext.StartDate);
+	      selectst.AddParamIfFound("%%END_DATE%%", oContext.EndDate);
+
+	      var rows = selectst.ExecuteNonQuery();
+	      oContext.RecordInfo(rows + " Scheduled Reports were successfully Removed from the WorkQueue");
+	      oContext.RecordWarning(
+	        "If the reversed number is less than the Queued number, some reports have already picked up for execution by the Reporting Framework.");
+	      return ("Reversed successfully");
+	    }
+	  }
+
+	  public void Shutdown()
 		{
 			//Nothing to do here.
 		}
 	}
-
-	
 }

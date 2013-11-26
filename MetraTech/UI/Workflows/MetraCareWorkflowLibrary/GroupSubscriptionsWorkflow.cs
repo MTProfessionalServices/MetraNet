@@ -102,8 +102,7 @@ namespace MetraCareWorkflowLibrary
     [EventInputArg("Edit_ManageGroupSubscriptions")]
     [EventInputArg("Delete_ManageGroupSubscriptions")]
     [EventInputArg("Members_ManageGroupSubscriptions")]
-
-
+    [EventInputArg("Members_GroupSubscriptionJoin")]
 
     public MetraTech.ActivityServices.Common.AccountIdentifier AccountIdentifier
     {
@@ -265,6 +264,7 @@ namespace MetraCareWorkflowLibrary
     [EventInputArg("Delete_ManageGroupSubscriptions")]
     [EventInputArg("OK_DeleteGroupSubscription")]
     [EventInputArg("Members_ManageGroupSubscriptions")]
+    [EventInputArg("Members_GroupSubscriptionJoin")]
     [EventInputArg("Edit_GroupSubscriptionMembers")]
     [EventInputArg("OK_AddGroupSubscriptionMembers")]
     [EventInputArg("OK_GroupSubscriptionJoin")]

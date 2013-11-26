@@ -23,6 +23,12 @@
         Reporting,
         AggregateMetricsProcessor,
         BusinessModelingEntities,
-        Approvals
+        Approvals,
+
+        /// <summary>
+        /// This area for Quoting
+        /// </summary>
+        Quoting
+
     }
 }

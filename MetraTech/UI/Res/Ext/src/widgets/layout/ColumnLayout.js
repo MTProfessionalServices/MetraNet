@@ -1,9 +1,20 @@
-/*!
- * Ext JS Library 3.4.0
- * Copyright(c) 2006-2011 Sencha Inc.
- * licensing@sencha.com
- * http://www.sencha.com/license
- */
+/*
+This file is part of Ext JS 3.4
+
+Copyright (c) 2011-2013 Sencha Inc
+
+Contact:  http://www.sencha.com/contact
+
+Commercial Usage
+Licensees holding valid commercial licenses may use this file in accordance with the Commercial
+Software License Agreement provided with the Software or, alternatively, in accordance with the
+terms contained in a written agreement between you and Sencha.
+
+If you are unsure which license is appropriate for your use, please contact the sales department
+at http://www.sencha.com/contact.
+
+Build date: 2013-04-03 15:07:25
+*/
 /**
  * @class Ext.layout.ColumnLayout
  * @extends Ext.layout.ContainerLayout
@@ -88,7 +99,7 @@ Ext.layout.ColumnLayout = Ext.extend(Ext.layout.ContainerLayout, {
             // IE in strict mode will return a width of 0 on the 1st pass of getViewSize.
             // Use getStyleSize to verify the 0 width, the adjustment pass will then work properly
             // with getViewSize
-            if (Ext.isIE && Ext.isStrict && ret.width == 0){
+            if (Ext.isIE9m && Ext.isStrict && ret.width == 0){
                 ret =  target.getStyleSize();
             }
 
@@ -121,7 +132,7 @@ Ext.layout.ColumnLayout = Ext.extend(Ext.layout.ContainerLayout, {
 
         var size = this.getLayoutTargetSize();
 
-        if(size.width < 1 && size.height < 1){ // display none?
+        if (Ext.isIE9m && (size.width < 1 && size.height < 1)) { // display none?
             return;
         }
 
@@ -155,7 +166,7 @@ Ext.layout.ColumnLayout = Ext.extend(Ext.layout.ContainerLayout, {
 
         // Browsers differ as to when they account for scrollbars.  We need to re-measure to see if the scrollbar
         // spaces were accounted for properly.  If not, re-layout.
-        if (Ext.isIE) {
+        if (Ext.isIE9m) {
             if (i = target.getStyle('overflow') && i != 'hidden' && !this.adjustmentPass) {
                 var ts = this.getLayoutTargetSize();
                 if (ts.width != size.width){

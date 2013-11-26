@@ -1,21 +1,17 @@
-using MetraTech.Xml;
-using System.IO;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 using System.Data;
-using System.Diagnostics;
 using System.Data.OleDb;
-using System.Xml;
-
-using Oracle.DataAccess.Types;
+using System.Diagnostics;
+using System.Text.RegularExpressions;
+using MetraTech.DataAccess.OleDb;
+using MetraTech.DataAccess.Oracle;
+using MetraTech.Performance;
 using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Types;
   
 namespace MetraTech.DataAccess
 {
-	using MetraTech.DataAccess.Oracle;
-	using MetraTech.DataAccess.OleDb;
-    using MetraTech.Performance;
-    using System.Text.RegularExpressions;
 	/// <remarks>
 	/// </remarks>
 	public class Statement : IMTStatement, IDisposable
@@ -278,12 +274,25 @@ namespace MetraTech.DataAccess
 
     public override string FilterClause(DBType db)
     {
-      string propertyName =
-          db == DBType.Oracle && m_PropertyName != null ?
-          string.Format("{0}(\"{1}\")", Operation == OperationType.In ? string.Empty : "lower", m_PropertyName.ToUpper()) :
-          m_PropertyName;
-
-      string clause = string.Format("{0} {1} {2}", propertyName, FormatOperation(), FormatValue(db));
+      string propertyName;
+      string propertyValue;
+      if ((m_Value.GetType().ToString() == "System.String") || (m_Value.GetType().ToString() == "System.Boolean"))
+      {
+        propertyName =
+          db == DBType.Oracle
+            ? string.Format("{0}({1})", Operation == OperationType.In ? string.Empty : "upper", m_PropertyName)
+            : m_PropertyName;
+        propertyValue =
+          db == DBType.Oracle
+            ? string.Format("{0}({1})", Operation == OperationType.In ? string.Empty : "upper", FormatValue(db))
+            : FormatValue(db);
+      }
+      else
+      {
+        propertyName = m_PropertyName;
+        propertyValue = FormatValue(db);
+      }
+      string clause = string.Format("{0} {1} {2}", propertyName, FormatOperation(), propertyValue);
 
       return clause;
     }
@@ -340,35 +349,30 @@ namespace MetraTech.DataAccess
       // IN operator processing
       if (m_OperationType == OperationType.In)
       {
-          retval = string.Format("({0})", m_Value != null ? m_Value : "null");
+          retval = string.Format("({0})", m_Value ?? "null");
       }
       else if (m_Value != null) // other operators
       {
         switch (m_Value.GetType().ToString())
         {
+          case "System.boolean":
           case "System.String":
             retval = string.Format("'{0}'", m_Value.ToString().Replace("'", "''"));
             if (db == DBType.Oracle)
             {
-              retval = retval.ToLower();
+              retval = retval.ToUpper();
             }
             break;
           case "System.Time":
-          case "System.boolean":
             retval = string.Format("'{0}'", m_Value.ToString().Replace("'","''"));
             break;
           case "System.DateTime":
-            if (db == DBType.Oracle)
-            {
-              retval = string.Format("TO_DATE('{0}', 'MM/DD/YYYY HH:MI:SS AM')", m_Value.ToString());
-            }
-            else
-            {
-              retval = string.Format("'{0}'", m_Value.ToString().Replace("'", "''"));
-            }
+            retval = db == DBType.Oracle 
+              ? string.Format("TO_DATE('{0}', 'MM/DD/YYYY HH:MI:SS AM')", m_Value) 
+              : string.Format("'{0}'", m_Value.ToString().Replace("'", "''"));
             break;
           default:
-            retval = string.Format("{0}", m_Value.ToString());
+            retval = string.Format("{0}", m_Value);
             break;
         }
       }
@@ -388,7 +392,7 @@ namespace MetraTech.DataAccess
     #endregion
   }
 
-  public class FilterSortStatement : AdapterStatement, IMTFilterSortStatement, IDisposable
+  public class FilterSortStatement : MetraTech.DataAccess.PreparedFilterSortStatement.AdapterStatement, IMTFilterSortStatement, IDisposable
   {
     #region Private Members
     private List<BaseFilterElement> m_Filters = new List<BaseFilterElement>();
@@ -519,8 +523,6 @@ namespace MetraTech.DataAccess
     {
       IMTDataReader ret = null;
 
-      OnBeforeExecute();
-
       //Guid tblid = Guid.NewGuid();
         
       //string tmpTable = string.Format("{0}_{1}", TEMP_TABLE_BASE, Math.Abs(tblid.ToString("N").GetHashCode()));
@@ -576,6 +578,8 @@ namespace MetraTech.DataAccess
         oraParam.ParameterName = "Rows";
         Command.Parameters.Add(oraParam);
       }
+
+      OnBeforeExecute();
 
       var performanceStopWatch = new PerformanceStopWatch();
       performanceStopWatch.Start();
@@ -648,7 +652,7 @@ namespace MetraTech.DataAccess
     #endregion
   }
 
-  public class MTMultiSelectAdapterStatement : AdapterStatement, IMTMultiSelectAdapterStatement, IDisposable
+  public class MTMultiSelectAdapterStatement : MetraTech.DataAccess.PreparedFilterSortStatement.AdapterStatement, IMTMultiSelectAdapterStatement, IDisposable
   {
       #region Private Members
       private int m_SelectCount = 0;
@@ -781,6 +785,15 @@ namespace MetraTech.DataAccess
             {
                 param.Value = MTEmptyString.Value;
             }
+			else if (Command is MTOracleCommand &&
+							(type == MTParameterType.String ||
+							 type == MTParameterType.WideString ||
+							 type == MTParameterType.NText ||
+							 type == MTParameterType.Text) &&
+							 value.ToString() != "")
+			{
+				param.Value = ParseOutODBCEscapes(value.ToString());
+			}
 			else
                 param.Value = value;
 
@@ -921,8 +934,37 @@ namespace MetraTech.DataAccess
         {
             Dispose();
 	}
-	}
+	
+	private string ParseOutODBCEscapes(string source)
+        {
+          // timestamp escapes: {ts '...' }
+          Regex tsmatcher = new Regex(@"(\{ts\s[0-9\-\:\.\s\']+})");
+          Match m = tsmatcher.Match(source);
+          while (m.Success)
+          {
+            string val = m.Value;
+            int start = m.Index;
+            int length = m.Length;
+            string todate = val.Replace("{ts ", "to_timestamp(");
+            todate = todate.Replace("}", ", 'YYYY/MM/DD HH24:MI:SS.FF')");
+            source = source.Replace(val, todate);
+            m = m.NextMatch();
+          }
 
+          // ifnull function escapes: {fn ifnull(...)}
+          // (now supports nesting)
+          string pattern = @"\{\s*fn\s+ifnull\s*([^\{^\}]*)\s*\}";
+          while (Regex.IsMatch(source, pattern, RegexOptions.IgnoreCase))
+          {
+            source = Regex.Replace(source,
+              pattern,	// match: {fn ifnull(...)}
+              @"nvl$1",	// replace with: nvl(...)
+              RegexOptions.IgnoreCase);	// ignore case
+          }
+
+          return source;
+        }
+	}
 	/// <remarks>
 	/// A prepared statement represents a parameterized SQL statement.
 	/// These statements can have any number of positional parameters
@@ -935,30 +977,7 @@ namespace MetraTech.DataAccess
 		/// Adds a positional parameter.
 		/// </summary>
 		public virtual void AddParam(MetraTech.DataAccess.MTParameterType type, Object value)
-		{
-            //IDataParameter param = Command.CreateParameter();
-            //Convert(type, Command, ref param);
-            //param.Direction = ParameterDirection.Input;
-            //param.ParameterName = string.Format("{0}{1}", 
-            //    (Command is MTOracleCommand ? ':' : '@'),
-            //    Command.Parameters.Count + 1);
-
-            //if (value == null)
-            //    param.Value = DBNull.Value;
-            //else
-            //{
-            //    if (Command is MTOracleCommand && 
-            //        ((type == MetraTech.DataAccess.MTParameterType.String ||
-            //          type == MetraTech.DataAccess.MTParameterType.WideString ||
-            //          type == MetraTech.DataAccess.MTParameterType.NText ||
-            //          type == MetraTech.DataAccess.MTParameterType.Text) &&
-            //         value.ToString() == ""))
-            //        param.Value = MTEmptyString.Value;
-            //    else
-            //        param.Value = value;
-            //}
-
-            //Command.Parameters.Add(param);
+		{           
             AddParam((Command.Parameters.Count + 1).ToString(), type, value);
 		}
 
@@ -970,7 +989,6 @@ namespace MetraTech.DataAccess
             param.ParameterName = string.Format("{0}{1}", 
                 (Command is MTOracleCommand ? ':' : '@'),
                 paramName);
-
 
             if (value == null)
                 param.Value = DBNull.Value;
@@ -1401,7 +1419,353 @@ namespace MetraTech.DataAccess
             m_InnerQuery = base.Command.CommandText;
             base.Command.CommandText = "";
         }
-        #endregion
+		#endregion
+		
+	public class PreparedFilterSortForExport : Statement, IMTPreparedFilterSortStatement, IDisposable
+    {
+      #region Private Members
+      private string m_Query;
+
+      private List<BaseFilterElement> m_Filters = new List<BaseFilterElement>();
+
+      private int m_PageSize = -1;
+      private int m_CurrentPage = -1;
+
+      private int m_TotalRows = 0;
+
+      private MTComSmartPtr<MetraTech.Interop.QueryAdapter.IMTQueryAdapter> mQueryAdapter = new MTComSmartPtr<MetraTech.Interop.QueryAdapter.IMTQueryAdapter>();
+
+      private string m_InnerQuery;
+      private string m_OrderByText;
+      private string m_nameTable;
+      #endregion
+
+      public PreparedFilterSortForExport(IDbCommand cmd, String sqlText, string nameTable)
+        : base(cmd)
+      {
+        MaxTotalRows = 0;
+        m_nameTable = nameTable;
+
+        //BP: Note!!!
+        //We are used to passing '?' as parameter place markers
+        //in ADO/SQL Server. However Oracle doesn't like that and
+        //it wants ':1, :2 etc' instead. Examine cmd RT here and replace
+        // '?' with positions
+        string text = sqlText;
+        char replacementChar = '@';
+
+        if (cmd is MTOracleCommand)
+        {
+          replacementChar = ':';
+
+          text = text.Replace('@', ':');
+
+          ((MTOracleCommand)base.mCommand).BindByName = true;
+        }
+
+        int pos = 1;
+        int idx = -1;
+        while ((idx = text.IndexOf('?')) > 0 == true)
+        {
+          text = text.Remove(idx, 1);
+          text = text.Insert(idx, string.Format("{0}{1}", replacementChar, pos++));
+        }
+
+        m_Query = text;
+
+        mQueryAdapter.Item = new MetraTech.Interop.QueryAdapter.MTQueryAdapterClass();
+        mQueryAdapter.Item.Init(@"queries\Database");
+
+        SortCriteria = new List<DataAccess.SortCriteria>();
+      }
+
+      ~PreparedFilterSortForExport()
+      {
+        Dispose();
+      }
+
+      /// <summary>
+      /// Used to execute statements that return resultsets.
+      /// </summary>
+      public override IMTDataReader ExecuteReader()
+      {
+        IMTDataReader ret = null;
+
+        OnBeforeExecute();
+
+        ConnectionInfo connInfo = new ConnectionInfo("NetMeterStage");
+
+        // Parse query to generate parts
+        FilterSortQuery(connInfo.DatabaseType);
+
+        mQueryAdapter.Item.SetQueryTag("__FILTER_SORT_PARAM_QUERY_FOR_EXPORT__");
+        mQueryAdapter.Item.AddParam("%%INNER_QUERY%%", m_InnerQuery, true);
+        if (Command is MTOracleCommand)
+        {
+           mQueryAdapter.Item.AddParam("%%ORDER_BY_TEXT%%",
+                   (string.IsNullOrEmpty(m_OrderByText) ?
+                       (!mQueryAdapter.Item.IsOracle() ? "ORDER BY (Select 1)" : "") : m_OrderByText), true);
+        }
+        if (mQueryAdapter.Item.IsSqlServer())
+        {
+          mQueryAdapter.Item.AddParam("%%NAME_TEMP_TABLE%%", m_nameTable, true);
+        }
+        string topRows = "";
+        if (MaxTotalRows > 0)
+        {
+          if (Command is MTOracleCommand)
+          {
+            topRows = string.Format("where rownum <= {0}", MaxTotalRows);
+          }
+          else
+          {
+            topRows = string.Format("top {0}", MaxTotalRows);
+          }
+        }
+ 
+          mQueryAdapter.Item.AddParam("%%TOP_ROWS%%", topRows);
+        
+
+        Command.CommandText = mQueryAdapter.Item.GetQuery();
+        Command.CommandType = CommandType.Text;
+
+        IDbDataParameter param = Command.CreateParameter();
+        param.ParameterName = string.Format("{0}StartRow", (!mQueryAdapter.Item.IsOracle() ? "@" : ":"));
+        param.DbType = DbType.Int32;
+        param.Value = ((m_CurrentPage > 0 && m_PageSize > 0) ? ((m_CurrentPage - 1) * m_PageSize) + 1 : 0);
+        Command.Parameters.Add(param);
+
+        param = Command.CreateParameter();
+        param.ParameterName = string.Format("{0}EndRow", (!mQueryAdapter.Item.IsOracle() ? "@" : ":"));
+        param.DbType = DbType.Int32;
+        if ((m_CurrentPage > 0 && m_PageSize > 0))
+        {
+          param.Value = (m_CurrentPage * m_PageSize);
+        }
+        else
+        {
+          param.Value = DBNull.Value;
+        }
+        Command.Parameters.Add(param);
+
+
+        if (mQueryAdapter.Item.IsOracle())
+        {
+          OracleParameter oraParam = (OracleParameter)Command.CreateParameter();
+          oraParam.OracleDbType = OracleDbType.RefCursor;
+          oraParam.Direction = ParameterDirection.Output;
+          oraParam.ParameterName = ":TotalRows";
+          Command.Parameters.Add(oraParam);
+
+          oraParam = (OracleParameter)Command.CreateParameter();
+          oraParam.OracleDbType = OracleDbType.RefCursor;
+          oraParam.Direction = ParameterDirection.Output;
+          oraParam.ParameterName = ":Rows";
+          Command.Parameters.Add(oraParam);
+        }
+
+        IDataReader nativereader = Command.ExecuteReader();
+
+        if (nativereader.Read())
+        {
+          m_TotalRows = System.Convert.ToInt32(nativereader.GetValue(0));
+        }
+
+        nativereader.NextResult();
+
+        //TODO: do it in corresponding Command classes
+        if (nativereader is OracleDataReader)
+          ret = new MTOracleDataReader(nativereader);
+        else //if (nativereader is OleDbDataReader)
+          ret = new MTOleDbDataReader(nativereader);
+
+        Debug.Assert(ret != null);
+
+        OnAfterExecute();
+        GC.KeepAlive(this);
+        return ret;
+      }
+
+      #region IMTPreparedFilterSortForExport Members
+
+      public void AddParam(string paramName, MetraTech.DataAccess.MTParameterType type, Object value)
+      {
+        IDataParameter param = Command.CreateParameter();
+        Convert(type, Command, ref param);
+        param.Direction = ParameterDirection.Input;
+
+        if (value == null)
+          param.Value = DBNull.Value;
+        else
+        {
+          if (Command is MTOracleCommand)
+          {
+            if ((type == MetraTech.DataAccess.MTParameterType.String ||
+              type == MetraTech.DataAccess.MTParameterType.WideString ||
+              type == MetraTech.DataAccess.MTParameterType.NText ||
+              type == MetraTech.DataAccess.MTParameterType.Text) &&
+             value.ToString() == "")
+              param.Value = MTEmptyString.Value;
+            else if (type == MTParameterType.Guid)
+            {
+              param.Value = ((Guid)value).ToByteArray();
+            }
+            else
+              param.Value = value;
+
+            param.ParameterName = string.Format(":{0}", paramName);
+
+            ((MTOracleCommand)base.mCommand).BindByName = true;
+          }
+          else
+          {
+            param.ParameterName = string.Format("@{0}", paramName);
+
+            param.Value = value;
+          }
+
+        }
+
+        Command.Parameters.Add(param);
+      }
+
+      /// <summary>
+      /// Clear all parameter bindings
+      /// </summary>
+      public virtual void ClearParams()
+      {
+        Command.Parameters.Clear();
+      }
+
+      public void AddFilter(BaseFilterElement filter)
+      {
+        m_Filters.Add(filter);
+      }
+
+      public void ClearFilters()
+      {
+        m_Filters.Clear();
+      }
+
+      public List<SortCriteria> SortCriteria { get; set; }
+
+      public int PageSize
+      {
+        get
+        {
+          return m_PageSize;
+        }
+        set
+        {
+          m_PageSize = value;
+        }
+      }
+
+      public int CurrentPage
+      {
+        get
+        {
+          return m_CurrentPage;
+        }
+        set
+        {
+          m_CurrentPage = value;
+        }
+      }
+
+      public int TotalRows
+      {
+        get { return m_TotalRows; }
+      }
+
+      public int MaxTotalRows { get; set; }
+      #endregion
+
+      #region IDisposable Members
+
+      void IDisposable.Dispose()
+      {
+        mQueryAdapter.Dispose();
+
+        base.Dispose();
+
+        GC.SuppressFinalize(this);
+      }
+
+      #endregion
+
+      #region Protected Members
+      void FilterSortQuery(DBType databaseType)
+      {
+        m_InnerQuery = m_Query;
+
+        int startingIndex = 0;
+
+        m_InnerQuery = Regex.Replace(m_InnerQuery, "OVER\\s*\\(", "OVER (", RegexOptions.IgnoreCase);
+        m_InnerQuery = Regex.Replace(m_InnerQuery, "ORDER\\s*BY", "ORDER BY", RegexOptions.IgnoreCase);
+
+        if (m_InnerQuery.ToUpper().Contains("OVER(") || m_InnerQuery.ToUpper().Contains("OVER ("))
+        {
+          startingIndex = Math.Max(m_InnerQuery.ToUpper().LastIndexOf("OVER("), m_InnerQuery.ToUpper().LastIndexOf("OVER ("));
+          startingIndex = m_InnerQuery.ToUpper().IndexOf("ORDER BY", startingIndex) + 8;
+        }
+
+        //select top 10 * from (select top 10 * from t_account order by id_acc desc, id_acc_ext) a order by a.dt_crt
+        //Below logic for above query will fetch the wrong order by clause . ie from Derived Query not the final Query.  
+        // changing logic to use lastindexof instead of index of.
+
+        if ((startingIndex > 0 && m_InnerQuery.ToUpper().LastIndexOf("ORDER BY") + 8 > startingIndex) ||
+             (startingIndex <= 0 && m_InnerQuery.ToUpper().LastIndexOf("ORDER BY") > 0))
+        {
+          int startIndex = m_InnerQuery.ToUpper().LastIndexOf("ORDER BY");
+          int endIndex = m_InnerQuery.ToUpper().IndexOf(")", startIndex);
+
+          //Do no remove order by clause if close-bracket encountered. it may be a subquery, derived table etc.
+          if (endIndex == -1)
+          {
+            endIndex = m_InnerQuery.Length;
+            m_OrderByText = m_InnerQuery.Substring(startIndex, endIndex - startIndex);
+            m_InnerQuery = m_InnerQuery.Remove(startIndex, endIndex - startIndex);
+          }
+
+        }
+
+        if (m_Filters.Count > 0)
+        {
+          m_InnerQuery = string.Format("Select * from ({0}) rootQuery", m_InnerQuery);
+
+          if (m_Filters.Count > 0)
+          {
+            m_InnerQuery += " WHERE " + m_Filters[0].FilterClause(databaseType);
+
+            for (int i = 1; i < m_Filters.Count; i++)
+            {
+              m_InnerQuery += " AND " + m_Filters[i].FilterClause(databaseType);
+            }
+          }
+        }
+
+        if (SortCriteria != null && SortCriteria.Count > 0)
+        {
+
+          //Append Order-By from Query at the end of sort column with comma.
+          string orderByText = "ORDER BY ";
+
+          foreach (SortCriteria criteria in SortCriteria)
+          {
+            orderByText += string.Format("{0} {1}, ", criteria.Property,
+              (criteria.Direction == SortDirection.Descending ? "DESC" : string.Empty));
+          }
+
+          m_OrderByText = string.Format("{0}{1}", orderByText.Substring(0, orderByText.Length - 2),
+                    Regex.Replace(m_OrderByText ?? string.Empty, "ORDER\\s*BY", ",", RegexOptions.IgnoreCase));
+        }
+
+        base.Command.CommandText = m_InnerQuery;
+        m_InnerQuery = base.Command.CommandText;
+        base.Command.CommandText = "";
+      }
+      #endregion
     }
 
 	public class AdapterStatement : Statement, IMTAdapterStatement, IDisposable
@@ -1559,55 +1923,7 @@ namespace MetraTech.DataAccess
 	
 }
 
-/*
-namespace MetraTech.DataAccess.OleDb
-{
-	/// <remarks>
-	/// Use an OleDbStatement to execute a non-parameterized SQL statement.
-	/// </remarks>
-	public class OleDbStatement : StatementBase, IMTStatement
-	{
-		public OleDbStatement(OleDbCommand cmd, String queryText)
-			: 
-			base(cmd, queryText){}
-	}
-
-	/// <remarks>
-	/// A callable statement represents a stored procedure that can be executed against
-	/// a database.  Stored procedures can have a number of input parameters, a number of
-	/// output parameters and can return a result set.
-	/// </remarks>
-	public class OleDbCallableStatement : CallableStatementBase, IMTCallableStatement
-	{
-		public OleDbCallableStatement(OleDbCommand cmd, String sprocName)
-			: 
-			base(cmd, sprocName){}
-		
-	}
-
-	/// <remarks>
-	/// A prepared statement represents a parameterized SQL statement.
-	/// These statements can have any number of positional parameters
-	/// </remarks>
-	public class OleDbPreparedStatement : PreparedStatementBase, IMTPreparedStatement
-	{
-		public OleDbPreparedStatement(OleDbCommand cmd, String sqlText)
-			: 
-			base(cmd, sqlText){}
-	}
-
-
-	public class OleDbAdapterStatement : AdapterStatementBase, IMTAdapterStatement
-	{
-		public OleDbAdapterStatement(OleDbCommand cmd, String configPath, String queryTag) 
-			: base(cmd, configPath, queryTag){}
-		
-		public OleDbAdapterStatement(OleDbCommand cmd, String aQueryString) : base(cmd, aQueryString){}
-		
-	}
-
 }
-*/
 namespace MetraTech.DataAccess.Oracle
 {
     using MetraTech.Performance;
@@ -1650,6 +1966,4 @@ namespace MetraTech.DataAccess.Oracle
 	}
 
     }
-
-
 }

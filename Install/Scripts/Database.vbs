@@ -331,9 +331,7 @@ Function InstallDatabase()
     If Not InstallDB (gsDBName, sDataFile, sDataSize, sLogFile, sLogSize, "0", "PreSync", "NONE", "Grants") Then Exit Function
     If Not UpgradeSchema(gsDBName, "NetMeter", "PreSync") Then Exit Function
 	
-    If IsSqlServer then
-	    If Not InsertMeterPartitionInfo() Then Exit Function
-	End If
+	If Not InsertMeterPartitionInfo() Then Exit Function
 
   End If
 
@@ -410,6 +408,7 @@ Function InstallDatabase()
    If Not RunHook        ("Tax Framework",       "MetraTech.Tax.Framework.Hooks.VendorParamsHook") Then Exit Function
    If Not RunSecuredHook ("DB Properties",       "MetraTech.Product.Hooks.DatabaseProperties")    Then Exit Function
    If Not RunHook        ("BusinessEntity",      "MetraTech.BusinessEntity.Hook.BusinessEntityHook") Then Exit Function
+   If Not RunHook        ("Expression Engine Metadata",      "MetraTech.ExpressionEngine.Metadata.Hook.MetadataHook")    Then Exit Function
 
    WriteLog "     Creating Usage Intervals and Partitions (if enabled)"
    If Not ExecuteCommand (MakeBinPath("usm.exe -create")) Then Exit Function
@@ -555,6 +554,8 @@ Function SynchronizeExtensions()
   If Not RunHook        ("Tax Framework",      "MetraTech.Tax.Framework.Hooks.VendorParamsHook") Then Exit Function
 
   If Not RunSecuredHook ("DB Properties",      "MetraTech.Product.Hooks.DatabaseProperties")    Then Exit Function
+  
+  If Not RunHook ("Expression Engine Metadata",      "MetraTech.ExpressionEngine.Metadata.Hook.MetadataHook")    Then Exit Function
 
   SynchronizeExtensions = kRetVal_SUCCESS
 End Function
@@ -1612,7 +1613,15 @@ Function InsertMeterPartitionInfo()
 	InsertMeterPartitionInfo = False
 
 	Dim oRcdSet
-	If Not ExecuteQuery(oRcdSet, "EXEC prtn_insert_meter_partition_info @id_partition = 1", gsDBName, gsDBServer, gsAdminID, gsAdminPwd) Then
+	Dim sSqlStmt
+
+	If IsSqlServer Then
+		sSqlStmt = "EXEC prtn_insert_meter_partition_info @id_partition = 1"
+	ElseIf IsOracle Then
+		sSqlStmt = "BEGIN prtn_insert_meter_part_info(id_partition =>1); END;"
+	End If
+  
+	If Not ExecuteQuery(oRcdSet, sSqlStmt, gsDBName, gsDBServer, gsUserID, gsUserPwd) Then
 		WriteLog "<*** Error on execution 'prtn_insert_meter_partition_info' SP"
 		Exit Function
 	End If

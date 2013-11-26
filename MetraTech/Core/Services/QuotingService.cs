@@ -1,141 +1,144 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ServiceModel;
-
 using MetraTech.ActivityServices.Common;
 using MetraTech.ActivityServices.Services.Common;
+using MetraTech.Basic.Exception;
+using MetraTech.Core.Services.Quoting;
 using MetraTech.Debug.Diagnostics;
-using MetraTech.Quoting;
-using MetraTech.DomainModel.BaseTypes;
-
+using MetraTech.Domain.Quoting;
 
 namespace MetraTech.Core.Services
 {
-  [ServiceContract]
-  public interface IQuotingService
-  {
-    [OperationContract]
-    [FaultContract(typeof(MASBasicFaultDetail))]
-    void CreateQuote(QuoteRequest quoteRequest, out QuoteResponse quoteResponse);
-  }
-
-  [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
-  public class QuotingService : CMASServiceBase, IQuotingService
-  {
-    #region Private Members
-
-    private static Logger mLogger = new Logger("[QuotingService]");
-    private static QuotingConfiguration cachedQuotingConfiguration = null;
-
-    #endregion
-
-    #region Startup/Initialization
-    static QuotingService()
+    [ServiceContract]
+    public interface IQuotingService
     {
-      CMASServiceBase.ServiceStarting += new ServiceStartingEventHandler(CMASServiceBase_ServiceStarting);
+        [OperationContract]
+        [FaultContract(typeof(MASBasicFaultDetail))]
+        void CreateQuote(QuoteRequest quoteRequest, out QuoteResponse quoteResponse);
     }
 
-    private static void CMASServiceBase_ServiceStarting()
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
+    public class QuotingService : CMASServiceBase, IQuotingService
     {
-      try
-      {
-        cachedQuotingConfiguration = QuotingConfigurationManager.LoadConfigurationFromFile();
-      }
-      catch (Exception ex)
-      {
-        mLogger.LogError("Unable to load quoting configuration: " + ex.Message);
-      }
-    }
-    #endregion
+        #region Private Members
 
-    #region Additional changes for using FakeItEasy
-    //public delegate IMTConnection CreateConnectionDelegate();
-    //public delegate IMTConnection CreateConnectionFromPathDelegate(string pathToFolder);
+        private static Logger mLogger = new Logger("[QuotingService]");
+        private static QuotingConfiguration cachedQuotingConfiguration = null;
 
-    //private readonly CreateConnectionDelegate _createConnectionDelegate;
-    //private readonly CreateConnectionFromPathDelegate _createConnectionFromPathDelegate;
-      
-    //public DataExportReportManagementService()
-    //{
-    //  _createConnectionDelegate = ConnectionManager.CreateConnection;
-    //  _createConnectionFromPathDelegate = ConnectionManager.CreateConnection;
-    //}
+        #endregion
 
-    //public DataExportReportManagementService(CreateConnectionDelegate createConnDelegate, CreateConnectionFromPathDelegate createConnFromPathDelegate)
-    //{
-    //  _createConnectionDelegate = createConnDelegate;
-    //  _createConnectionFromPathDelegate = createConnFromPathDelegate;
-    //}
-
-    //private IQuotingImplementation quotingImplementation;
-
-    //public QuotingService(IQuotingImplementation _quotingImplementation)
-    //{
-    //  quotingImplementation = _quotingImplementation;
-    //}
-
-    #endregion Additional changes for using FakeItEasy
-
-    /// <summary>
-    /// Create quote for Quote Request
-    /// </summary>
-    /// <param name="quoteRequest"></param>
-    /// <returns>Quote Response</returns>
-    /// <remarks>Run StartQuote, AddCharges and FinalizeQuote</remarks>
-    public void CreateQuote(QuoteRequest quoteRequest, out QuoteResponse quoteResponse)
-    {
-      quoteResponse = new QuoteResponse();
-
-      using (new HighResolutionTimer("CreateQuote"))
-      {
-        try
+        #region Startup/Initialization
+        static QuotingService()
         {
-          //Retrieve the security context for this request
-          MetraTech.Interop.MTAuth.IMTSessionContext sessionContext = null;
-          if (ServiceSecurityContext.Current != null)
-          {
-            // Get identity context.
-            CMASClientIdentity clientIdentity = ServiceSecurityContext.Current.PrimaryIdentity as CMASClientIdentity;
+            ServiceStarting += CMASServiceBase_ServiceStarting;
+        }
 
-            if (clientIdentity != null)
+        private static void CMASServiceBase_ServiceStarting()
+        {
+            try
             {
-              sessionContext = clientIdentity.SessionContext;
+                cachedQuotingConfiguration = QuotingConfigurationManager.LoadConfigurationFromDefaultSystemLocation();
             }
-          }
-
-          IQuotingImplementation quotingImplementation = new QuotingImplementation(cachedQuotingConfiguration, sessionContext);
-
-          quotingImplementation.StartQuote(quoteRequest);
-
-          // Ask backend to calculate RCs
-          quotingImplementation.AddRecurringChargesToQuote();
-
-          // Ask backend to calculate NRCs
-          quotingImplementation.AddNonRecurringChargesToQuote();
-
-          // Ask backend to finalize quote
-          quoteResponse = quotingImplementation.FinalizeQuote();
-
-          //return preparedQuote;
-
+            catch (Exception ex)
+            {
+                mLogger.LogError("Unable to load quoting configuration: " + ex.Message);
+            }
         }
-        catch (CommunicationException e)
+        #endregion
+
+        #region Additional changes for using FakeItEasy
+        //public delegate IMTConnection CreateConnectionDelegate();
+        //public delegate IMTConnection CreateConnectionFromPathDelegate(string pathToFolder);
+
+        //private readonly CreateConnectionDelegate _createConnectionDelegate;
+        //private readonly CreateConnectionFromPathDelegate _createConnectionFromPathDelegate;
+
+        //public DataExportReportManagementService()
+        //{
+        //  _createConnectionDelegate = ConnectionManager.CreateConnection;
+        //  _createConnectionFromPathDelegate = ConnectionManager.CreateConnection;
+        //}
+
+        //public DataExportReportManagementService(CreateConnectionDelegate createConnDelegate, CreateConnectionFromPathDelegate createConnFromPathDelegate)
+        //{
+        //  _createConnectionDelegate = createConnDelegate;
+        //  _createConnectionFromPathDelegate = createConnFromPathDelegate;
+        //}
+
+        //private IQuotingImplementation quotingImplementation;
+
+        //public QuotingService(IQuotingImplementation _quotingImplementation)
+        //{
+        //  quotingImplementation = _quotingImplementation;
+        //}
+
+        #endregion Additional changes for using FakeItEasy
+
+        /// <summary>
+        /// Create quote for Quote Request
+        /// </summary>
+        /// <param name="quoteRequest"></param>
+        /// <returns>Quote Response</returns>
+        /// <remarks>Run StartQuote, AddCharges and FinalizeQuote</remarks>
+        public void CreateQuote(QuoteRequest quoteRequest, out QuoteResponse quoteResponse)
         {
-            mLogger.LogException("Cannot retrieve data for quoting from system ", e);
-            quoteResponse.Status=QuoteStatus.Failed;
-            quoteResponse.FailedMessage = e.Message;
-            //throw;
-        }
 
-        catch (Exception e)
-        {
-            mLogger.LogException("Error creating quote ", e);
-            quoteResponse.Status = QuoteStatus.Failed;
-            quoteResponse.FailedMessage = e.Message;
-            //throw new MASBasicException("Error create quote: " + e.Message);
-        }
-      }
+            using (new HighResolutionTimer("CreateQuote"))
+            {
+                quoteResponse = null;
+                try
+                {
+                    try
+                    {
+                        //Retrieve the security context for this request
+                        Interop.MTAuth.IMTSessionContext sessionContext = null;
+                        if (ServiceSecurityContext.Current != null)
+                        {
+                            // Get identity context.
+                            CMASClientIdentity clientIdentity =
+                                ServiceSecurityContext.Current.PrimaryIdentity as CMASClientIdentity;
 
+                            if (clientIdentity != null)
+                            {
+                                sessionContext = clientIdentity.SessionContext;
+                            }
+                        }
+
+                        IQuotingImplementation quotingImplementation =
+                            new QuotingImplementation(cachedQuotingConfiguration, sessionContext);
+
+                        quoteResponse = quotingImplementation.CreateQuote(quoteRequest);
+                    }
+                    finally
+                    {
+                        // in case exception was occured we need to create instance to send error message.
+                        if (quoteResponse == null)
+                            quoteResponse = new QuoteResponse(quoteRequest);
+                    }
+
+                }
+                catch (CommunicationException e)
+                {
+                    mLogger.LogException("Cannot retrieve data for quoting from system ", e);
+                    // ReSharper disable PossibleNullReferenceException - quoteResponse creates in finally block
+                    quoteResponse.Status = QuoteStatus.Failed;
+                    // ReSharper restore PossibleNullReferenceException
+                    quoteResponse.FailedMessage = e.GetaAllMessages();
+                }
+                catch (QuoteException e)
+                {
+                    mLogger.LogException("Error creating quote ", e);
+                    quoteResponse = e.Response;
+                }
+                catch (Exception e)
+                {
+                    mLogger.LogException("Error creating quote ", e);
+                    // ReSharper disable PossibleNullReferenceException - quoteResponse creates in finally block
+                    quoteResponse.Status = QuoteStatus.Failed;
+                    // ReSharper restore PossibleNullReferenceException
+                    quoteResponse.FailedMessage = e.GetaAllMessages();
+                }
+            }
+        }
     }
-  } 
 }

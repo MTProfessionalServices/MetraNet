@@ -78,7 +78,7 @@
                             <Caption>
                                 <Value><![CDATA[Manage Bill Messages]]></Value>
                             </Caption>
-                            <Link>/MetraNet/BillMessages/BillMessages.aspx?Name=Core.BillMessages.BillMessage&amp;Extension=Core&amp;NewBreadcrumb=True</Link>
+                        	<Link>/MetraNet/BillMessages/BillMessages.aspx?Name=Core.BillMessages.BillMessage&amp;Extension=Core&amp;NewBreadcrumb=False</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/Icons/application_view_columns.png</Icon>
                             <Description>View/Edit Bill Messages</Description>
@@ -90,7 +90,31 @@
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
-                
+				
+                <!-- 
+				<MenuSection>
+                    <ID>NotificationConfiguration</ID>
+                    <Caption>
+                        <Value><![CDATA[Notification]]></Value>
+                    </Caption>
+                    <Description>Notification Configuration</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>ManageEndpoints</ID>
+                            <Caption>
+                                <Value><![CDATA[Manage Endpoints]]></Value>
+                            </Caption>
+                            <Link>/MetraNet/Notifications/NotificationEndpointList.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/application_view_columns.png</Icon>
+                            <Description>Notification Endpoints</Description>
+                            <RequiredCapabilities>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>				
+                -->
+				
           <!-- MenuSection>
           <ID>AgreementTemplates</ID>
           <Caption>

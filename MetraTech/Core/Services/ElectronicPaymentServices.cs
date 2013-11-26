@@ -9,6 +9,7 @@ using MetraTech.ActivityServices.Services.Common;
 
 using MetraTech.ActivityServices.Common;
 using MetraTech.Auth.Capabilities;
+using MetraTech.Domain;
 using MetraTech.DomainModel.Enums.Core.Metratech_com;
 using MetraTech.DomainModel.Billing;
 using MetraTech.DomainModel.MetraPay;
@@ -35,6 +36,7 @@ using System.Data;
 using System.Linq.Expressions;
 using System.Linq;
 using MetraTech.Debug.Diagnostics;
+using DatabaseUtils = MetraTech.Domain.DataAccess.DatabaseUtils;
 
 namespace MetraTech.Core.Services
 {
@@ -510,7 +512,97 @@ namespace MetraTech.Core.Services
     }
 
     #region IRecurringPaymentsService and IRecurringPaymentsServiceV2 Members
-    [OperationCapability("Manage Account Hierarchies")]
+
+      /// <summary>
+      /// This method is involved in the sorting and filtering of a list of MetraPaymentMethods returned to
+      /// clients.  The clients should only be aware of the payment method domain model member names.
+      /// This method converts the MetraPaymentMethod domain model member names into the appropriate
+      /// database column names.
+      /// </summary>
+      /// <param name="domainModelMemberName">Name of a decision instance domain model member</param>
+      /// <param name="filterVal">unused</param>
+      /// <param name="helper">unused</param>
+      /// <returns>Column name within the table that holds decision instances</returns>
+      private string MetraPaymentMethodDomainModelMemberNameToColumnName(string domainModelMemberName,
+                                                                         ref object filterVal, object helper)
+      {
+          string columnName = null;
+
+          switch (domainModelMemberName)
+          {
+              case "PaymentInstrumentID":
+                  columnName = "id_payment_instrument";
+                  break;
+              case "AccountID":
+                  columnName = "id_acct";
+                  break;
+              case "PaymentMethodType":
+                  columnName = "n_payment_method_type";
+                  break;
+              case "AccountNumber":
+                  columnName = "nm_truncd_acct_num";
+                  break;
+              case "AccountNumberHash":
+                  columnName = "tx_hash";
+                  break;
+              case "CreditCardType":
+                  columnName = "id_creditcard_type";
+                  break;
+              case "AccountType":
+                  columnName = "n_account_type";
+                  break;
+              case "ExpirationDate":
+                  columnName = "nm_exp_date";
+                  break;
+              case "ExpirationDateFormat":
+                  columnName = "nm_exp_date_format";
+                  break;
+              case "FirstName":
+                  columnName = "nm_first_name";
+                  break;
+              case "MiddleName":
+                  columnName = "nm_middle_name";
+                  break;
+              case "LastName":
+                  columnName = "nm_last_name";
+                  break;
+              case "Street":
+                  columnName = "nm_address1";
+                  break;
+              case "Street2":
+                  columnName = "nm_address2";
+                  break;
+              case "City":
+                  columnName = "nm_city";
+                  break;
+              case "State":
+                  columnName = "nm_state";
+                  break;
+              case "ZipCode":
+                  columnName = "nm_zip";
+                  break;
+              case "Country":
+                  columnName = "id_country";
+                  break;
+              case "Priority":
+                  columnName = "id_priority";
+                  break;
+              case "MaxChargePerCycle":
+                  columnName = "n_max_charge_per_cycle";
+                  break;
+              case "dt_created":
+                  columnName = "dt_created";
+                  break;
+              default:
+                  throw new MASBasicException(
+                      "MetraPaymentMethodDomainModelMemberNameToColumnName: attempt to sort on invalid field " +
+                      domainModelMemberName);
+                  break;
+          }
+          return columnName;
+      }
+
+      [OperationCapability("Manage Account Hierarchies")]
     public void GetPaymentMethodSummaries(AccountIdentifier acct, ref MTList<MetraPaymentMethod> paymentMethods)
     {
       using (HighResolutionTimer timer = new HighResolutionTimer("GetPaymentMethodSummaries"))
@@ -531,25 +623,41 @@ namespace MetraTech.Core.Services
             {
               stmt.AddParam("%%ACCOUNT_ID%%", accountID);
 
-              ApplyFilterSortCriteria<MetraPaymentMethod>(stmt, paymentMethods);
-
               #region Apply Filters
               //apply filters
+              
+              // 1. Make a copy of the original filters, replacing RawAccountNumber for hash of account number
+              List<MTFilterElement> filtersList = new List<MTFilterElement>();
+
               foreach (MTFilterElement filterElement in paymentMethods.Filters)
               {
                 object filterValue = filterElement.Value;
-
                 if (string.Compare(filterElement.PropertyName, "RawAccountNumber", true) == 0)
                 {
                   filterValue = HashAccountNumber((string)filterValue);
                 }
 
-                FilterElement fe = new FilterElement(filterElement.PropertyName,
-                      (FilterElement.OperationType)((int)filterElement.Operation),
+                MTFilterElement fe = new MTFilterElement(filterElement.PropertyName,
+                      (MTFilterElement.OperationType)((int)filterElement.Operation),
                       filterValue);
-
-                stmt.AddFilter(fe);
+                filtersList.Add(fe);
               }
+
+              // 2. empty the original filters on the payementMethods list
+              paymentMethods.Filters.Clear();
+
+              // 3. add the new filters back into the payementMethods list
+              foreach (var filterElement in filtersList)
+              {
+                  MTFilterElement fe = new MTFilterElement(filterElement.PropertyName,
+                                                         (MTFilterElement.OperationType)((int)filterElement.Operation),
+                                                         filterElement.Value);
+                  paymentMethods.Filters.Add(fe);
+              }
+
+              // 4. Apply the filters from the paymentMethods list to the statement
+              ApplyFilterSortCriteria<MetraPaymentMethod>(stmt, paymentMethods,
+                  new FilterColumnResolver(MetraPaymentMethodDomainModelMemberNameToColumnName), null);
               #endregion
 
               #region Apply Pagination
@@ -564,39 +672,39 @@ namespace MetraTech.Core.Services
                 //if there are records, create a payment method object for each
                 while (dataReader.Read())
                 {
-                  PaymentType paymentType = (PaymentType)EnumHelper.GetCSharpEnum(dataReader.GetInt32("PaymentMethodType"));
+                  PaymentType paymentType = (PaymentType)EnumHelper.GetCSharpEnum(dataReader.GetInt32("n_payment_method_type"));
 
                   MetraPaymentMethod paymentMethod = GetPaymentMethodInstance(paymentType);
 
-                  paymentMethod.PaymentInstrumentID = new Guid(dataReader.GetValue("PaymentInstrumentID").ToString());
-                  paymentMethod.AccountNumber = dataReader.GetString("AccountNumber");
-                  paymentMethod.FirstName = dataReader.GetString("FirstName");
-                  paymentMethod.MiddleName = dataReader.GetString("MiddleName");
-                  paymentMethod.LastName = dataReader.GetString("LastName");
-                  paymentMethod.Street = dataReader.GetString("Street");
-                  paymentMethod.Street2 = dataReader.GetString("Street2");
-                  paymentMethod.City = dataReader.GetString("City");
-                  paymentMethod.State = dataReader.GetString("State");
-                  paymentMethod.ZipCode = dataReader.GetString("ZipCode");
-                  paymentMethod.Country = (PaymentMethodCountry)EnumHelper.GetCSharpEnum(dataReader.GetInt32("Country"));
-                  paymentMethod.Priority = dataReader.GetInt32("Priority");
+                  paymentMethod.PaymentInstrumentID = new Guid(dataReader.GetValue("id_payment_instrument").ToString());
+                  paymentMethod.AccountNumber = dataReader.GetInt32("id_acct").ToString();
+                  paymentMethod.FirstName = dataReader.GetString("nm_first_name");
+                  paymentMethod.MiddleName = dataReader.GetString("nm_middle_name");
+                  paymentMethod.LastName = dataReader.GetString("nm_last_name");
+                  paymentMethod.Street = dataReader.GetString("nm_address1");
+                  paymentMethod.Street2 = dataReader.GetString("nm_address2");
+                  paymentMethod.City = dataReader.GetString("nm_city");
+                  paymentMethod.State = dataReader.GetString("nm_state");
+                  paymentMethod.ZipCode = dataReader.GetString("nm_zip");
+                  paymentMethod.Country = (PaymentMethodCountry)EnumHelper.GetCSharpEnum(dataReader.GetInt32("id_country"));
+                  paymentMethod.Priority = dataReader.GetInt32("id_priority");
 
 
-                  if (!dataReader.IsDBNull("MaxChargePerCycle"))
+                  if (!dataReader.IsDBNull("n_max_charge_per_cycle"))
                   {
-                    paymentMethod.MaxChargePerCycle = dataReader.GetDecimal("MaxChargePerCycle");
+                    paymentMethod.MaxChargePerCycle = dataReader.GetDecimal("n_max_charge_per_cycle");
                   }
 
                   switch (paymentType)
                   {
                     case PaymentType.Credit_Card:
-                      ((CreditCardPaymentMethod)paymentMethod).ExpirationDate = dataReader.GetString("ExpirationDate");
-                      ((CreditCardPaymentMethod)paymentMethod).ExpirationDateFormat = (MTExpDateFormat)dataReader.GetInt32("ExpirationDateFormat");
-                      ((CreditCardPaymentMethod)paymentMethod).CreditCardType = (MetraTech.DomainModel.Enums.Core.Metratech_com.CreditCardType)EnumHelper.GetCSharpEnum(dataReader.GetInt32("CreditCardType"));
+                      ((CreditCardPaymentMethod)paymentMethod).ExpirationDate = dataReader.GetString("nm_exp_date");
+                      ((CreditCardPaymentMethod)paymentMethod).ExpirationDateFormat = (MTExpDateFormat)dataReader.GetInt32("nm_exp_date_format");
+                      ((CreditCardPaymentMethod)paymentMethod).CreditCardType = (MetraTech.DomainModel.Enums.Core.Metratech_com.CreditCardType)EnumHelper.GetCSharpEnum(dataReader.GetInt32("id_creditcard_type"));
                       break;
 
                     case PaymentType.ACH:
-                      ((ACHPaymentMethod)paymentMethod).AccountType = (MetraTech.DomainModel.Enums.PaymentSvrClient.Metratech_com_paymentserver.BankAccountType)EnumHelper.GetCSharpEnum(dataReader.GetInt32("AccountType"));
+                      ((ACHPaymentMethod)paymentMethod).AccountType = (MetraTech.DomainModel.Enums.PaymentSvrClient.Metratech_com_paymentserver.BankAccountType)EnumHelper.GetCSharpEnum(dataReader.GetInt32("n_account_type"));
                       break;
                   }
 
@@ -727,6 +835,8 @@ namespace MetraTech.Core.Services
           throw new MASBasicException("Access denied");
         }
 
+          string currency = GetAccountCurrency(accountID);
+
         if (paymentMethod.RawAccountNumber.Length < 4)
         {
           throw new MASBasicException("Account number length is invalid");
@@ -755,7 +865,7 @@ namespace MetraTech.Core.Services
           {
             client = InitializeServiceCall(CalculateServiceName(paymentMethod, null, accountID));
             // add the payment instrument to the payment server
-            client.AddPaymentMethod(paymentMethod, out token);
+            client.AddPaymentMethod(paymentMethod, currency, out token);
             client.Close();
             client = null;
           }
@@ -1435,7 +1545,9 @@ namespace MetraTech.Core.Services
           throw new MASBasicException("Access denied");
         }
 
-        using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required,
+          var currency = GetAccountCurrency(accountID);
+
+          using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required,
                                                              new TransactionOptions(),
                                                              EnterpriseServicesInteropOption.Full))
         {
@@ -1488,7 +1600,7 @@ namespace MetraTech.Core.Services
             client = InitializeServiceCall(CalculateServiceName(paymentMethod, null, accountID));
 
             //Call the service method
-            client.UpdatePaymentMethod(token, paymentMethod);
+            client.UpdatePaymentMethod(token, paymentMethod, currency);
             client.Close();
             client = null;
           }
@@ -1716,7 +1828,31 @@ namespace MetraTech.Core.Services
       }
     }
 
-    [OperationCapability("Manage Account Hierarchies")]
+      private string GetAccountCurrency(int accountID)
+      {
+          string currency = "USD";
+          IMTQueryAdapter qa = new MTQueryAdapter();
+          qa.Init("Queries\\ElectronicPaymentService");
+          qa.SetQueryTag("__GET_CURRENCY_FOR_ACCOUNT__");
+          string txInfo = qa.GetQuery();
+          using (IMTConnection conn = ConnectionManager.CreateConnection())
+          {
+              using (IMTPreparedStatement stmt = conn.CreatePreparedStatement(txInfo))
+              {
+                  stmt.AddParam("id_acc", MTParameterType.Integer, accountID);
+                  using (IMTDataReader dataReader = stmt.ExecuteReader())
+                  {
+                      if (dataReader.Read())
+                      {
+                          currency = dataReader.GetString("c_currency");
+                      }
+                  }
+              }
+          }
+          return currency;
+      }
+
+      [OperationCapability("Manage Account Hierarchies")]
     public void UpdatePriority(AccountIdentifier acct, Guid token, int priority)
     {
       using (HighResolutionTimer timer = new HighResolutionTimer("UpdatePriority"))
@@ -6020,7 +6156,7 @@ namespace MetraTech.Core.Services
                 string tag = attrib.QueryTag;
                 object value = prop.GetValue(parameters, null);
 
-                stmt.AddParamIfFound(tag, FormatValueForDB(value));
+                stmt.AddParamIfFound(tag, DatabaseUtils.FormatValueForDB(value));
               }
             }
 

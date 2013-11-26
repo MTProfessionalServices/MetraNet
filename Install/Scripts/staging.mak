@@ -113,6 +113,7 @@ BINARIES = \
   agsXMPP.dll \
   antlr.runtime.dll \
   Antlr3.Runtime.dll \
+  Antlr4.Runtime.v4.0.dll \
   ARSetup.exe \
   ARSetup.pdb \
   autosdk.exe \
@@ -173,6 +174,7 @@ BINARIES = \
   DescLoad.pdb \
   DTCTest.exe \
   DTCTest.pdb \
+  EntityFramework.dll \
   EZTax.net.dll \
   gendm.exe \
   gendm.pdb \
@@ -247,6 +249,8 @@ BINARIES = \
   MetraTech.ActivityServices.Services.Common.pdb \
   MetraTech.Agreements.dll \
   MetraTech.Agreements.pdb \
+  MetraTech.Application.dll \
+  MetraTech.Application.pdb \
   MetraTech.Approvals.dll \
   MetraTech.Approvals.pdb \
   MetraTech.AR.eConnectCOMShim.dll \
@@ -303,6 +307,8 @@ BINARIES = \
   MetraTech.Debug.Diagnostics.pdb \
   MetraTech.Debug.DTCTestLib.dll \
   MetraTech.Debug.DTCTestLib.pdb \
+  MetraTech.Domain.dll \
+  MetraTech.Domain.pdb \
   MetraTech.DomainModel.AccountTypes.Generated.dll \
   MetraTech.DomainModel.AccountTypes.Generated.pdb \
   MetraTech.DomainModel.BaseTypes.dll \
@@ -329,6 +335,12 @@ BINARIES = \
   MetraTech.DomainModel.ProductCatalog.pdb \
   MetraTech.DomainModel.Validators.dll \
   MetraTech.DomainModel.Validators.pdb \
+  MetraTech.ExpressionEngine.dll \
+  MetraTech.ExpressionEngine.pdb \
+  MetraTech.ExpressionEngine.Metadata.dll \
+  MetraTech.ExpressionEngine.Metadata.pdb \
+  MetraTech.ExpressionEngine.Metadata.Hook.dll \
+  MetraTech.ExpressionEngine.Metadata.Hook.pdb \
   MetraTech.FileLandingService.exe.config \
   MetraTech.Events.dll \
   MetraTech.Events.pdb \
@@ -342,8 +354,6 @@ BINARIES = \
   MetraTech.MetraPay.Client.pdb \
   MetraTech.MetraPay.PaymentGateway.dll \
   MetraTech.MetraPay.PaymentGateway.pdb \
-  MetraTech.Quoting.dll \
-  MetraTech.Quoting.pdb \
   MetraTech.Security.Common.dll \
   MetraTech.Security.Common.pdb \
   MetraTech.Security.Crypto.dll \
@@ -363,6 +373,8 @@ BINARIES = \
   MetraTech.Tax.Plugins.BillSoft.PCodeLookup.dll \
   MetraTech.Tax.Plugins.BillSoft.PCodeLookup.pdb \
   MetraTech.Tax.Plugins.TaxCalculateMetraTax.dll \
+  MetraTech.Tax.Plugins.TaxCalculateVertexQ.dll \
+  MetraTech.Tax.Plugins.TaxCalculateVertexQ.pdb \
   MetraTech.Test.dll \
   MetraTech.Test.Harness.dll \
   MetraTech.Test.Harness.pdb \
@@ -745,6 +757,7 @@ COM_DLLS = \
   WeightedRate.dll \
   XMLTranslator.dll \
   MetraTech.MTPCImportDynamicProperties.dll \
+  MetraTech.ExpressionEngine.Metadata.Hook.dll \
   
   # COM_DLLS -- PDBs
 
@@ -906,6 +919,7 @@ COM_DLLSPDB = \
   ViewAllRates.pdb \
   WeightedRate.pdb \
   MetraTech.MTPCImportDynamicProperties.pdb \
+  MetraTech.ExpressionEngine.Metadata.Hook.pdb \
   
   # COM_DLLS -- Interops
 
@@ -1569,7 +1583,7 @@ P_REPORTING_PE_DIR    = $(P_BASE_OPTEXT_DIR)\Reporting
 P_METRATAX_PE_DIR     = $(P_BASE_OPTEXT_DIR)\MetraTax
 P_TAXWARE_PE_DIR      = $(P_BASE_OPTEXT_DIR)\TaxWare
 P_BILLSOFT_PE_DIR     = $(P_BASE_OPTEXT_DIR)\BillSoft
-
+P_VERTEXQ_PE_DIR      = $(P_BASE_OPTEXT_DIR)\VertexQ
 
 RMP_Extensions:
   @echo $(DELIM)
@@ -1654,6 +1668,11 @@ RMP_Extensions:
   $(CD) $(S_EXT_DIR)\TaxWare
   $(CPDIR) . $(P_TAXWARE_PE_DIR) .svn
   @echo $(LABEL) > $(P_TAXWARE_PE_DIR)\$(PLACEHOLDER)
+  
+  @echo   VertexQ
+  $(CD) $(S_EXT_DIR)\VertexQ
+  $(CPDIR) . $(P_VERTEXQ_PE_DIR) .svn
+  @echo $(LABEL) > $(P_VERTEXQ_PE_DIR)\$(PLACEHOLDER)
 
   @echo   BillSoft
   $(CD) $(S_EXT_DIR)\BillSoft

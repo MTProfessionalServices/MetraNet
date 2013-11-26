@@ -64,6 +64,10 @@ namespace MetraTech.Core.Services
 
         [OperationContract]
         [FaultContract(typeof(MASBasicFaultDetail))]
+        void GetFullyQualifiedName(int id_view, out string nm_name);
+
+        [OperationContract]
+        [FaultContract(typeof(MASBasicFaultDetail))]
         void GetUsageDetails(ReportParameters repParams,
                                 SingleProductSlice productSlice,
                                 AccountSlice accountSlice,
@@ -1433,6 +1437,49 @@ namespace MetraTech.Core.Services
                     throw new MASBasicException("Error while retrieving child usage summaries");
                 }
             }
+        }
+
+        [OperationCapability("Manage Account Hierarchies")]
+        public void GetFullyQualifiedName(int id_view, out string nm_name)
+        {
+            string output = null;
+            try
+            {
+                using (IMTConnection conn = ConnectionManager.CreateConnection(METRAVIEW_QUERY_FOLDER, true))
+                {
+                    using (MTComSmartPtr<IMTQueryAdapter> queryAdapter = new MTComSmartPtr<IMTQueryAdapter>())
+                    {
+                        queryAdapter.Item = new MTQueryAdapterClass();
+                        queryAdapter.Item.Init(METRAVIEW_QUERY_FOLDER);
+                        queryAdapter.Item.SetQueryTag("__GET_FULLY_QUALIFIED_NAME__");
+
+                        using (IMTPreparedStatement stmt =
+                            conn.CreatePreparedStatement(queryAdapter.Item.GetRawSQLQuery(true)))
+                        {
+                            stmt.AddParam("id_view", MTParameterType.Integer, id_view);
+
+                            using (IMTDataReader rdr = stmt.ExecuteReader())
+                            {
+                                while (rdr.Read())
+                                {
+                                    int displayNameIndex = rdr.GetOrdinal("nm_name");
+
+                                    if (!rdr.IsDBNull(displayNameIndex))
+                                    {
+                                        output = rdr.GetString("nm_name");
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                mLogger.LogException("GetFullyQualifiedName failed", e);
+                throw new MASBasicException("GetFullyQualifiedName failed. " + e.Message);
+            }
+            nm_name = output;
         }
 
         [OperationCapability("Manage Account Hierarchies")]

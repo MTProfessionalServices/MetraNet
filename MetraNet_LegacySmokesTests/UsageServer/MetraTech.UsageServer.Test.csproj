@@ -198,23 +198,32 @@
       <Link>VersionInfo.cs</Link>
     </Compile>-->
     <Compile Include="AdapterTestManager.cs" />
+    <Compile Include="Unit\Cycles\AnnualCycleTypeUnitTest.cs" />
     <Compile Include="BillingGroupTest.cs" />
+    <Compile Include="Unit\Cycles\BiWeeklyCycleTypeUnitTest.cs" />
     <Compile Include="ConcurrentAdapterTests.Configuration.cs" />
     <Compile Include="ConfigurationTests.cs" />
     <Compile Include="ConcurrentAdapterTests.Processing.cs" />
     <Compile Include="ConcurrentAdapterTests.ServiceTracking.cs" />
-    <Compile Include="CycleTests.cs" />
+    <Compile Include="Unit\Cycles\CycleUnitTest.cs" />
+    <Compile Include="Unit\Cycles\CycleUtilsUnitTest.cs" />
+    <Compile Include="Unit\Cycles\DailyCycleTypeUnitTest.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="IntervalTests.cs" />
     <Compile Include="InvoiceAdapterTest.cs" />
+    <Compile Include="Unit\Cycles\MonthlyCycleTypeUnitTest.cs" />
     <Compile Include="PartitionInfrastructureTests.cs" />
     <Compile Include="PartitionTests.cs" />
     <Compile Include="PartitionTypesTests.cs" />
     <Compile Include="RecurrenceTests.cs" />
     <Compile Include="PartitionInfrastructureOnlyMssqlTests.cs" />
+    <Compile Include="Unit\Cycles\SemiAnnualCycleTypeUnitTest.cs" />
+    <Compile Include="Unit\Cycles\SemiMonthlyCycleTypeUnitTest.cs" />
     <Compile Include="timezone.cs" />
     <Compile Include="TimeZoneTest.cs" />
+    <Compile Include="Unit\Cycles\QuarterlyCycleTypeUnitTest.cs" />
     <Compile Include="Util.cs" />
+    <Compile Include="Unit\Cycles\WeeklyCycleTypeUnitTest.cs" />
   </ItemGroup>
   <!--<ItemGroup>
     <None Include="..\..\..\build\keys\metratech.snk">

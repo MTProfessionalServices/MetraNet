@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <IsBusinessEntityLayout>true</IsBusinessEntityLayout>
-    <Name>Core.UI.ReportInventory</Name>
+    <Name>Core.UI.ReportInventory</Name>   
     <Exportable>true</Exportable>
     <Height>280</Height>
     <Width>715</Width>
@@ -20,8 +20,8 @@
     <FilterLabelWidth>75</FilterLabelWidth>
     <FilterColumnWidth>350</FilterColumnWidth>
     <NoRecordsText>
-        <LocalizationTag>TEXT_NO_RECORDS_FOUND</LocalizationTag>
-        <ResourceClassKey>Resource</ResourceClassKey>
+      <LocalizationTag>TEXT_NO_RECORDS_FOUND</LocalizationTag>
+      <ResourceClassKey>Resource</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
     <FilterPanelCollapsed>true</FilterPanelCollapsed>
@@ -33,7 +33,7 @@
     <DefaultSortDirection>Ascending</DefaultSortDirection>
     <DisplayCount>false</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
-    <CustomImplementationFilePath></CustomImplementationFilePath>
+    <CustomImplementationFilePath>/MetraView/BE/BEList.aspx.js</CustomImplementationFilePath>
     <ShowFilterPanel>true</ShowFilterPanel>
     <ShowTopBar>true</ShowTopBar>
     <ShowBottomBar>true</ShowBottomBar>
@@ -41,10 +41,6 @@
     <ShowGridHeader>true</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <SubGrid></SubGrid>
-    <Title>
-        <Value><![CDATA[]]></Value>
-    </Title>
-    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
@@ -56,8 +52,8 @@
             <DataIndex>internalId</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_INTERNAL_ID</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
+              <LocalizationTag>TEXT_INTERNAL_ID</LocalizationTag>
+              <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -92,8 +88,8 @@
             <DataIndex>Name</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_NAME</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
+              <LocalizationTag>TEXT_NAME</LocalizationTag>
+              <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -128,8 +124,8 @@
             <DataIndex>Description</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_DESCRIPTION</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
+              <LocalizationTag>TEXT_DESCRIPTION</LocalizationTag>
+              <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -164,8 +160,8 @@
             <DataIndex>ReportType</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_REPORT_TYPE</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
+              <LocalizationTag>TEXT_REPORT_TYPE</LocalizationTag>
+              <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -200,8 +196,8 @@
             <DataIndex>Capabilities</DataIndex>
             <IsColumn>false</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_CAPABILITIES</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
+              <LocalizationTag>TEXT_CAPABILITIES</LocalizationTag>
+              <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -236,8 +232,8 @@
             <DataIndex>Category</DataIndex>
             <IsColumn>false</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_CATEGORY</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
+              <LocalizationTag>TEXT_CATEGORY</LocalizationTag>
+              <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -272,8 +268,8 @@
             <DataIndex>CreatorId</DataIndex>
             <IsColumn>false</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_CREATOR_ID</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
+              <LocalizationTag>TEXT_CREATOR_ID</LocalizationTag>
+              <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -308,8 +304,8 @@
             <DataIndex>LayoutExtensionName</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_LAYOUT_EXTENSION_NAME</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
+              <LocalizationTag>TEXT_LAYOUT_EXTENSION_NAME</LocalizationTag>
+              <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -344,8 +340,8 @@
             <DataIndex>IsVisible</DataIndex>
             <IsColumn>false</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_IS_VISIBLE</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
+              <LocalizationTag>TEXT_IS_VISIBLE</LocalizationTag>
+              <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -380,8 +376,8 @@
             <DataIndex>LayoutName</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_LAYOUT_NAME</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
+              <LocalizationTag>TEXT_LAYOUT_NAME</LocalizationTag>
+              <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -416,8 +412,8 @@
             <DataIndex>Priority</DataIndex>
             <IsColumn>false</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_PRIORITY</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
+              <LocalizationTag>TEXT_PRIORITY</LocalizationTag>
+              <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -448,8 +444,8 @@
             <DataIndex></DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_ACTIONS</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
+              <LocalizationTag>TEXT_ACTIONS</LocalizationTag>
+              <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -464,11 +460,10 @@
     <ExpanderTemplate>
         <Section>
             <Title>
-                <LocalizationTag>TEXT_DETAILS</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
+              <LocalizationTag>TEXT_DETAILS</LocalizationTag>
+              <ResourceClassKey>Resource</ResourceClassKey>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
-            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -538,20 +533,34 @@
                     <Fields></Fields>
                 </Column>
             </Columns>
-            <ToolbarButtons></ToolbarButtons>
         </Section>
     </ExpanderTemplate>
-    <GridButtons></GridButtons>
+    <GridButtons>
+        <Button>
+            <ButtonID>ApplyChanges</ButtonID>
+            <ButtonText>
+                <LocalizationTag>TEXT_APPLY_CHANGES</LocalizationTag>
+                <ResourceClassKey>SiteJSConsts</ResourceClassKey>
+            </ButtonText>
+            <ToolTip>
+                <LocalizationTag>TEXT_APPLY_CHANGES</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
+            </ToolTip>
+            <IconClass></IconClass>
+            <RequiredCapabilities></RequiredCapabilities>
+            <JSHandlerFunction>onApplyChanges</JSHandlerFunction>
+        </Button>
+    </GridButtons>
     <ToolbarButtons>
         <Button>
             <ButtonID>Add</ButtonID>
             <ButtonText>
-                <LocalizationTag>TEXT_ADD_BME</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
+              <LocalizationTag>TEXT_ADD_BME</LocalizationTag>
+              <ResourceClassKey>Resource</ResourceClassKey>
             </ButtonText>
             <ToolTip>
-                <LocalizationTag>TEXT_ADD_BME</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
+              <LocalizationTag>TEXT_ADD_BME</LocalizationTag>
+              <ResourceClassKey>Resource</ResourceClassKey>
             </ToolTip>
             <IconClass>add</IconClass>
             <RequiredCapabilities></RequiredCapabilities>

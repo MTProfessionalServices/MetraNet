@@ -33,7 +33,7 @@
     <DefaultSortDirection>Ascending</DefaultSortDirection>
     <DisplayCount>false</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
-    <CustomImplementationFilePath></CustomImplementationFilePath>
+    <CustomImplementationFilePath>/MetraView/BE/BEList.aspx.js</CustomImplementationFilePath>
     <ShowFilterPanel>true</ShowFilterPanel>
     <ShowTopBar>true</ShowTopBar>
     <ShowBottomBar>true</ShowBottomBar>
@@ -354,7 +354,22 @@
         </Element>
     </Elements>
     <ExpanderTemplate></ExpanderTemplate>
-    <GridButtons></GridButtons>
+    <GridButtons>
+        <Button>
+            <ButtonID>ApplyChanges</ButtonID>
+            <ButtonText>
+                <LocalizationTag>TEXT_APPLY_CHANGES</LocalizationTag>
+                <ResourceClassKey>SiteJSConsts</ResourceClassKey>
+            </ButtonText>
+            <ToolTip>
+                <LocalizationTag>TEXT_APPLY_CHANGES</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
+            </ToolTip>
+            <IconClass></IconClass>
+            <RequiredCapabilities></RequiredCapabilities>
+            <JSHandlerFunction>onApplyChanges</JSHandlerFunction>
+        </Button>
+    </GridButtons>
     <ToolbarButtons>
         <Button>
             <ButtonID>Add</ButtonID>

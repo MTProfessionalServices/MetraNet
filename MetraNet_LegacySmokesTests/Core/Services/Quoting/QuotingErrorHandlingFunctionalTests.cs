@@ -911,6 +911,19 @@ namespace MetraTech.Core.Services.Test.Quoting
             QuotingTestScenarios.RunTestCheckingBadInputs(accountIdsToQuoteFor, poIdsToQuoteFor, expectedErrorMessagePartial);
 
             #endregion
+
+            #region Corporate account not in accounts list
+
+            expectedErrorMessagePartial = "Corporate Account should be in set of accounts to quote for";
+
+            accountIdsToQuoteFor = new List<int>() { idAccountToQuoteFor };
+            poIdsToQuoteFor = new List<int>() {22};
+
+            var corporateId = 123;
+
+            QuotingTestScenarios.RunTestCheckingBadInputs(accountIdsToQuoteFor, poIdsToQuoteFor, expectedErrorMessagePartial, corporateId);
+
+            #endregion
         }
 
     }

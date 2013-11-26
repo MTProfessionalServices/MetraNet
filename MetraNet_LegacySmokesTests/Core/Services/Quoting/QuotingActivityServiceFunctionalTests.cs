@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.ServiceModel;
 using System.Threading.Tasks;
 using MetraTech.Core.Services.ClientProxies;
 using MetraTech.Domain.Quoting;
 using MetraTech.Interop.MTProductCatalog;
 using MetraTech.TestCommon;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics;
 
 namespace MetraTech.Core.Services.Test.Quoting
 {
@@ -314,10 +316,10 @@ namespace MetraTech.Core.Services.Test.Quoting
        /// TC_QICB_51
        /// </summary>
        [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
-       public void QuotingServiceCreateQuote_QuoteWithICBTwoTimes_PositiveTest()
+       public void QuotingServiceCreateQuote_QuoteWithICBTwoTimesAsync_PositiveTest()
        {
            #region Prepare
-           string testName = "QuotingActivityServiceGenerateQuoteWithICBTwoTimesPositiveTest";
+           string testName = "QuotingActivityServiceGenerateQuoteWithICBTwoTimesAsync_PositiveTest";
            string testShortName = "TC_QICB_51"; //Account name and perhaps others need a 'short' (less than 40 when combined with testRunUniqueIdentifier
            string testRunUniqueIdentifier = MetraTime.Now.ToString(); //Identifier to make this run unique
 
@@ -440,6 +442,47 @@ namespace MetraTech.Core.Services.Test.Quoting
            Assert.IsFalse(response1.Status == QuoteStatus.Failed, response1.FailedMessage);
            Assert.IsTrue(clientInvoked, "QuotingService_CreateQuote_Client didn't executed propely");
            Assert.AreEqual(expectedQuoteTotal1, response1.TotalAmount, "Wrong TotalAmount");
+
+           
+           #region Assync call through delegate
+               QuotingServiceClient qsc = new QuotingServiceClient();
+
+               try
+               {
+
+                   qsc.ClientCredentials.UserName.UserName = "su";
+                   qsc.ClientCredentials.UserName.Password = "su123";
+
+                   QuoteAsyncProcessingDelegate asynCall = QuoteAsyncProcessing;
+
+                   // Asynchronously invoke the Factorize method.
+                   IAsyncResult result = asynCall.BeginInvoke(qsc, request1, out response1, null, null);
+
+                   while (!result.IsCompleted)
+                   {
+                       // Do any work you can do before waiting.
+                       result.AsyncWaitHandle.WaitOne(1000, false);
+                   }
+                   result.AsyncWaitHandle.Close();
+
+                   Assert.IsFalse(response1.Status == QuoteStatus.Failed, response1.FailedMessage);
+                   Assert.AreEqual(expectedQuoteTotal1, response1.TotalAmount, "Wrong TotalAmount");
+
+               }
+               catch (Exception ex)
+               {
+                   Assert.Fail("QuotingService_CreateQuote_Client thrown an exception: " + ex.Message);
+               }
+               finally
+               {
+                   if (qsc.State != CommunicationState.Opened)
+                   {
+                       qsc.Abort();
+                   }
+               }
+
+           #endregion
+
            #endregion
 
            #region Invoke CreateQuote for PO #2
@@ -489,6 +532,46 @@ namespace MetraTech.Core.Services.Test.Quoting
            Assert.AreEqual(expectedQuoteTotal2, response2.TotalAmount, "Wrong TotalAmount");
 
            Assert.AreEqual(response2.TotalAmount, response2.TotalAmount, "Total amount was different on the second run");
+
+           #region Assync call through delegate
+           
+           qsc = new QuotingServiceClient();
+
+           try
+           {
+               qsc.ClientCredentials.UserName.UserName = "su";
+               qsc.ClientCredentials.UserName.Password = "su123";
+
+               QuoteAsyncProcessingDelegate asynCall = QuoteAsyncProcessing;
+
+               // Asynchronously invoke the Factorize method.
+               IAsyncResult result = asynCall.BeginInvoke(qsc, request1, out response2, null, null);
+
+               while (!result.IsCompleted)
+               {
+                   // Do any work you can do before waiting.
+                   result.AsyncWaitHandle.WaitOne(1000, false);
+               }
+               result.AsyncWaitHandle.Close();
+
+               Assert.IsFalse(response1.Status == QuoteStatus.Failed, response2.FailedMessage);
+               Assert.AreEqual(expectedQuoteTotal2, response2.TotalAmount, "Wrong TotalAmount");
+
+           }
+           catch (Exception ex)
+           {
+               Assert.Fail("QuotingService_CreateQuote_Client thrown an exception: " + ex.Message);
+           }
+           finally
+           {
+               if (qsc.State != CommunicationState.Opened)
+               {
+                   qsc.Abort();
+               }
+           }
+
+           #endregion
+
            #endregion
 
 
@@ -581,6 +664,36 @@ namespace MetraTech.Core.Services.Test.Quoting
            #endregion
        }
 
+        private delegate void QuoteAsyncProcessingDelegate(QuotingServiceClient quotingService, QuoteRequest req,
+                                                           out QuoteResponse quoteResp);
+
+        // Async processing which does not affect response
+        private void QuoteAsyncProcessing(QuotingServiceClient quotingService, QuoteRequest req,
+                                          out QuoteResponse quoteResp)
+        {
+            Trace.WriteLine("Begin Async Processing");
+            quoteResp = null;
+            try
+            {
+
+                quotingService.CreateQuote(req, out quoteResp);
+
+
+            }
+            finally
+            {
+                if (quotingService.State == CommunicationState.Opened)
+                {
+                    quotingService.Close();
+                }
+                else
+                {
+                    quotingService.Abort();
+                }
+            }
+
+            Trace.WriteLine("Finished Async Processing");
+        }
 
         #region Helpers
 

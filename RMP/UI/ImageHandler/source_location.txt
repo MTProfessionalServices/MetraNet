@@ -1,1 +1,1 @@
-..\..\..\Source\MetraTech\UI\ImageHandler
+..\..\..\RMP\Extensions\Legacy_Internal\Source\MetraTech\UI\ImageHandler

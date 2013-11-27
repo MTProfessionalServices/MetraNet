@@ -163,7 +163,12 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'>"  & mom_GetDurationMessage(ProductView.Properties.RowSet.Value("LastRunStart"),ProductView.Properties.RowSet.Value("LastRunEnd")) & "</td>" 
             
   			    Form_DisplayCell = TRUE
-
+         Case "argstartdate"
+             EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'>"  & mdm_Format(ProductView.Properties.RowSet.Value("ArgStartDate"),mom_GetDictionary("DATE_TIME_FORMAT")) & "</td>" 
+  			    Form_DisplayCell = TRUE
+         Case "argenddate"
+             EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'>"  & mdm_Format(ProductView.Properties.RowSet.Value("ArgEndDate"),mom_GetDictionary("DATE_TIME_FORMAT")) & "</td>" 
+  			    Form_DisplayCell = TRUE
   	     Case else
             Form_DisplayCell = Inherited("Form_DisplayCell(EventArg)")
       End Select

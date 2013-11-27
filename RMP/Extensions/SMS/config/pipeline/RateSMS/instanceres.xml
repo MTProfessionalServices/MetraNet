@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xmlconfig>
+  <mtsysconfigdata>
+    <effective_date ptype="DATETIME">2001-04-06T21:46:29Z</effective_date>
+    <timeout ptype="INTEGER">365</timeout>
+    <configfiletype>CONFIG_DATA</configfiletype>
+  </mtsysconfigdata>
+  <mtconfigdata>
+    <version ptype="INTEGER">1</version>
+    <processor>
+      <name>instanceres</name>
+      <progid>MetraPipeline.PILookup.1</progid>
+      <description></description>
+
+      <configdata>
+
+<!-- if true, look up by ID, otherwise look up by name -->
+<lookupbyid ptype="BOOLEAN">TRUE</lookupbyid>
+<UseBCPFlag ptype="BOOLEAN">TRUE</UseBCPFlag>
+<BatchSize ptype="INTEGER">1000</BatchSize>
+
+<!-- properties to use instead of normal reserved properties -->
+<_Timestamp>_Timestamp</_Timestamp>
+<_PriceableItemName>_PriceableItemName</_PriceableItemName>
+<_AccountID>_SubscriptionEntity</_AccountID>
+
+
+
+
+      </configdata>
+
+    </processor>
+  </mtconfigdata>
+</xmlconfig>

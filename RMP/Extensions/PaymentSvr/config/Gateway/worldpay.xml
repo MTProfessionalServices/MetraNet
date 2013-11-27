@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <url>https://secure.worldpay.com/jsp/shopper/SelectPaymentMethod.jsp</url>
+    <merchantid>1122</merchantid>
+</configuration>

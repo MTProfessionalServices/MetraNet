@@ -22,7 +22,7 @@ O processo Renderizador do MDM usa esta string para executar uma pesquisa/substi
   </text>        
 
   <text id='DEFAULT_PATH_REPLACE'>
-   <value>[APP_HTTP_PATH]/default/localized/us</value>
+   <value>[APP_HTTP_PATH]/default/localized/pt-BR</value>
       <description>
 Defina onde estão armazenadas as pastas localizadas (imagens, estilo, pesquisa de texto) do usuário com base nesta linguagem.
 Esta string é usada pelo processo Renderizador do MDM, use esta string para executar uma pesquisa/substituição da string.

@@ -1,0 +1,1 @@
+Set XmlDiff = CreateObject("XmlDiffTool.XmlDiff.1")

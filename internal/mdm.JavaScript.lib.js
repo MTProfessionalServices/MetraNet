@@ -136,22 +136,14 @@ function SizeWindow() {
     //We don't know what browser we're in, don't resize
     if(intX == 0 && intY == 0)
       return false;
-
+    
     // set min.
     if((intX < 600) || (intY < 400))
     {
       intX = 600;
       intY = 400;
     }
-
-    // set max height.
-    if (intY > window.screen.availHeight)
-    {
-      intY = window.screen.availHeight;
-      // move the window to top of screen to accommodate max height
-      window.moveTo(window.screenLeft, 0);
-    }
-
+  
     //alert('x: ' + intX + '  y: ' + intY);
     //now resize the window
     window.resizeTo(intX+50, intY);

@@ -100,10 +100,12 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
   'Determine if destination PO has any UDRCS... we won't allow the bulk update
   Dim destPO
   Set destPO = objMTProductCatalog.GetProductOffering(CLng(Service.Properties("POIDDestination").Value))
+
     dim objPriceableItems
     set objPriceableItems = destPO.GetPriceableItems
     dim FoundUDRCs
     FoundUDRCs = FALSE
+    
     dim objPI
     for each objPI in objPriceableItems
       If ProductCatalogHelper.IsTypeUDRC(objPI.PriceAbleItemType) then
@@ -111,17 +113,20 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
         Exit Function
       End If
     next
+    
   If FoundUDRCs Then
     EventArg.Error.Description  = FrameWork.Dictionary().Item("MCM_ERROR_1009").Value
     EventArg.Error.Number       = 1009+USER_ERROR_MASK
     OK_Click = FALSE
     Exit Function
   End If
+
   On Error Resume Next
   objMTProductCatalog.BulkSubscriptionChange CLng(Service.Properties("POIDSource").Value), _
 		CLng(Service.Properties("POIDDestination").Value), _
 		Service.Properties("EffectiveDate").Value, _
 		Service.Properties("BillingCycleRelative").Value
+    
   If(Err.Number)Then
     
       EventArg.Error.Save Err

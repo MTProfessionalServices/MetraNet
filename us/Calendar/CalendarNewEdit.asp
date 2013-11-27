@@ -54,6 +54,12 @@ dim mstrErrors
 dim strCalName
 dim strCalDesc
 
+' Check whether we are accessing this screen via the manage calendars option
+strTMP = Request.QueryString("Manage")
+if Len(strTMP) > 0 then
+    session("manageCalendars") = CBool(strTMP)
+end if
+
 '----------------------------------------------------------------------------
 ' METHODS
 '----------------------------------------------------------------------------
@@ -136,8 +142,15 @@ if request.Form("FormAction") = "OK" then
 			
 			set session("objMTCalendar") = objMTCalendar
 			
-			session("UnsavedChanges") = true
+            On Error resume next
+	        'Save the calendar configuration
+	        objMTCalendar.Save
+	        call WriteRunTimeError(FrameWork.GetDictionary("TEXT_MPTE_CANNOT_SAVE_CALENDAR"), true)
+
+            session("RATES_EDITMODE") = true
+			session("UnsavedChanges") = false
 			call response.write("<script LANGUAGE=""JavaScript1.2"">window.opener.location=""gotoCalendar.asp?Action=AfterEditProps""</script>")
+            call response.write("<script LANGUAGE=""JavaScript1.2"">window.close()</script>")
 		 	call response.end
 		end if
 	end if

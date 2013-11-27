@@ -1,0 +1,576 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mt_config>
+    <enum_spaces>
+        <enum_space name="Global/SystemCurrencies">
+            <description>Configurable list of currencies recognized by the system</description>
+            <enums>
+                <enum name="SystemCurrencies">
+                    <description>Configurable set of currencies for screens to select from.</description>
+                    <entries>
+                        <entry name="USD">
+                            <value>USD</value>
+                        </entry>
+                        <entry name="AED">
+                            <value>AED</value>
+                        </entry>
+                        <entry name="AFA">
+                            <value>AFA</value>
+                        </entry>
+                        <entry name="AFF">
+                            <value>AFF</value>
+                        </entry>
+                        <entry name="AFN">
+                            <value>AFN</value>
+                        </entry>
+                        <entry name="ALL">
+                            <value>ALL</value>
+                        </entry>
+                        <entry name="AMD">
+                            <value>AMD</value>
+                        </entry>
+                        <entry name="ANG">
+                            <value>ANG</value>
+                        </entry>
+                        <entry name="AOA">
+                            <value>AOA</value>
+                        </entry>
+                        <entry name="ARS">
+                            <value>ARS</value>
+                        </entry>
+                        <entry name="AUD">
+                            <value>AUD</value>
+                        </entry>
+                        <entry name="AWG">
+                            <value>AWG</value>
+                        </entry>
+                        <entry name="AZN">
+                            <value>AZN</value>
+                        </entry>
+                        <entry name="BAM">
+                            <value>BAM</value>
+                        </entry>
+                        <entry name="BBD">
+                            <value>BBD</value>
+                        </entry>
+                        <entry name="BDT">
+                            <value>BDT</value>
+                        </entry>
+                        <entry name="BGN">
+                            <value>BGN</value>
+                        </entry>
+                        <entry name="BHD">
+                            <value>BHD</value>
+                        </entry>
+                        <entry name="BIF">
+                            <value>BIF</value>
+                        </entry>
+                        <entry name="BMD">
+                            <value>BMD</value>
+                        </entry>
+                        <entry name="BND">
+                            <value>BND</value>
+                        </entry>
+                        <entry name="BOB">
+                            <value>BOB</value>
+                        </entry>
+                        <entry name="BRE">
+                            <value>BRE</value>
+                        </entry>
+                        <entry name="BRL">
+                            <value>BRL</value>
+                        </entry>
+                        <entry name="BSD">
+                            <value>BSD</value>
+                        </entry>
+                        <entry name="BTN">
+                            <value>BTN</value>
+                        </entry>
+                        <entry name="BWP">
+                            <value>BWP</value>
+                        </entry>
+                        <entry name="BYR">
+                            <value>BYR</value>
+                        </entry>
+                        <entry name="BZD">
+                            <value>BZD</value>
+                        </entry>
+                        <entry name="CAD">
+                            <value>CAD</value>
+                        </entry>
+                        <entry name="CDF">
+                            <value>CDF</value>
+                        </entry>
+                        <entry name="CHF">
+                            <value>CHF</value>
+                        </entry>
+                        <entry name="CLP">
+                            <value>CLP</value>
+                        </entry>
+                        <entry name="CNY">
+                            <value>CNY</value>
+                        </entry>
+                        <entry name="COP">
+                            <value>COP</value>
+                        </entry>
+                        <entry name="CRC">
+                            <value>CRC</value>
+                        </entry>
+                        <entry name="CUC">
+                            <value>CUC</value>
+                        </entry>
+                        <entry name="CUP">
+                            <value>CUP</value>
+                        </entry>
+                        <entry name="CVE">
+                            <value>CVE</value>
+                        </entry>
+                        <entry name="CYP">
+                            <value>CYP</value>
+                        </entry>
+                        <entry name="CZK">
+                            <value>CZK</value>
+                        </entry>
+                        <entry name="DEM">
+                            <value>DEM</value>
+                        </entry>
+                        <entry name="DJF">
+                            <value>DJF</value>
+                        </entry>
+                        <entry name="DKK">
+                            <value>DKK</value>
+                        </entry>
+                        <entry name="DOP">
+                            <value>DOP</value>
+                        </entry>
+                        <entry name="DZD">
+                            <value>DZD</value>
+                        </entry>
+                        <entry name="EEK">
+                            <value>EEK</value>
+                        </entry>
+                        <entry name="EGP">
+                            <value>EGP</value>
+                        </entry>
+                        <entry name="ERN">
+                            <value>ERN</value>
+                        </entry>
+                        <entry name="ESP">
+                            <value>ESP</value>
+                        </entry>
+                        <entry name="ETB">
+                            <value>ETB</value>
+                        </entry>
+                        <entry name="EUR">
+                            <value>EUR</value>
+                        </entry>
+                        <entry name="FJD">
+                            <value>FJD</value>
+                        </entry>
+                        <entry name="FKP">
+                            <value>FKP</value>
+                        </entry>
+                        <entry name="FRF">
+                            <value>FRF</value>
+                        </entry>
+                        <entry name="GBP">
+                            <value>GBP</value>
+                        </entry>
+                        <entry name="GEL">
+                            <value>GEL</value>
+                        </entry>
+                        <entry name="GGP">
+                            <value>GGP</value>
+                        </entry>
+                        <entry name="GHS">
+                            <value>GHS</value>
+                        </entry>
+                        <entry name="GIP">
+                            <value>GIP</value>
+                        </entry>
+                        <entry name="GMD">
+                            <value>GMD</value>
+                        </entry>
+                        <entry name="GNF">
+                            <value>GNF</value>
+                        </entry>
+                        <entry name="GQE">
+                            <value>GQE</value>
+                        </entry>
+                        <entry name="GTQ">
+                            <value>GTQ</value>
+                        </entry>
+                        <entry name="GYD">
+                            <value>GYD</value>
+                        </entry>
+                        <entry name="HKD">
+                            <value>HKD</value>
+                        </entry>
+                        <entry name="HNL">
+                            <value>HNL</value>
+                        </entry>
+                        <entry name="HRK">
+                            <value>HRK</value>
+                        </entry>
+                        <entry name="HTG">
+                            <value>HTG</value>
+                        </entry>
+                        <entry name="HUF">
+                            <value>HUF</value>
+                        </entry>
+                        <entry name="IDR">
+                            <value>IDR</value>
+                        </entry>
+                        <entry name="IEP">
+                            <value>IEP</value>
+                        </entry>
+                        <entry name="ILS">
+                            <value>ILS</value>
+                        </entry>
+                        <entry name="IMP">
+                            <value>IMP</value>
+                        </entry>
+                        <entry name="INR">
+                            <value>INR</value>
+                        </entry>
+                        <entry name="IQD">
+                            <value>IQD</value>
+                        </entry>
+                        <entry name="IRR">
+                            <value>IRR</value>
+                        </entry>
+                        <entry name="ISK">
+                            <value>ISK</value>
+                        </entry>
+                        <entry name="JEP">
+                            <value>JEP</value>
+                        </entry>
+                        <entry name="JMD">
+                            <value>JMD</value>
+                        </entry>
+                        <entry name="JOD">
+                            <value>JOD</value>
+                        </entry>
+                        <entry name="JPY">
+                            <value>JPY</value>
+                        </entry>
+                        <entry name="KES">
+                            <value>KES</value>
+                        </entry>
+                        <entry name="KGS">
+                            <value>KGS</value>
+                        </entry>
+                        <entry name="KHR">
+                            <value>KHR</value>
+                        </entry>
+                        <entry name="KMF">
+                            <value>KMF</value>
+                        </entry>
+                        <entry name="KPW">
+                            <value>KPW</value>
+                        </entry>
+                        <entry name="KRW">
+                            <value>KRW</value>
+                        </entry>
+                        <entry name="KWD">
+                            <value>KWD</value>
+                        </entry>
+                        <entry name="KYD">
+                            <value>KYD</value>
+                        </entry>
+                        <entry name="KZT">
+                            <value>KZT</value>
+                        </entry>
+                        <entry name="LAK">
+                            <value>LAK</value>
+                        </entry>
+                        <entry name="LBP">
+                            <value>LBP</value>
+                        </entry>
+                        <entry name="LKR">
+                            <value>LKR</value>
+                        </entry>
+                        <entry name="LRD">
+                            <value>LRD</value>
+                        </entry>
+                        <entry name="LSL">
+                            <value>LSL</value>
+                        </entry>
+                        <entry name="LTL">
+                            <value>LTL</value>
+                        </entry>
+                        <entry name="LVL">
+                            <value>LVL</value>
+                        </entry>
+                        <entry name="LYD">
+                            <value>LYD</value>
+                        </entry>
+                        <entry name="MAD">
+                            <value>MAD</value>
+                        </entry>
+                        <entry name="MDL">
+                            <value>MDL</value>
+                        </entry>
+                        <entry name="MGA">
+                            <value>MGA</value>
+                        </entry>
+                        <entry name="MGF">
+                            <value>MGF</value>
+                        </entry>
+                        <entry name="MKD">
+                            <value>MKD</value>
+                        </entry>
+                        <entry name="MMK">
+                            <value>MMK</value>
+                        </entry>
+                        <entry name="MNT">
+                            <value>MNT</value>
+                        </entry>
+                        <entry name="MOP">
+                            <value>MOP</value>
+                        </entry>
+                        <entry name="MRO">
+                            <value>MRO</value>
+                        </entry>
+                        <entry name="MTL">
+                            <value>MTL</value>
+                        </entry>
+                        <entry name="MUR">
+                            <value>MUR</value>
+                        </entry>
+                        <entry name="MVR">
+                            <value>MVR</value>
+                        </entry>
+                        <entry name="MWK">
+                            <value>MWK</value>
+                        </entry>
+                        <entry name="MXN">
+                            <value>MXN</value>
+                        </entry>
+                        <entry name="MYR">
+                            <value>MYR</value>
+                        </entry>
+                        <entry name="MZN">
+                            <value>MZN</value>
+                        </entry>
+                        <entry name="NAD">
+                            <value>NAD</value>
+                        </entry>
+                        <entry name="NGN">
+                            <value>NGN</value>
+                        </entry>
+                        <entry name="NIO">
+                            <value>NIO</value>
+                        </entry>
+                        <entry name="NOK">
+                            <value>NOK</value>
+                        </entry>
+                        <entry name="NPR">
+                            <value>NPR</value>
+                        </entry>
+                        <entry name="NZD">
+                            <value>NZD</value>
+                        </entry>
+                        <entry name="OMR">
+                            <value>OMR</value>
+                        </entry>
+                        <entry name="PAB">
+                            <value>PAB</value>
+                        </entry>
+                        <entry name="PEN">
+                            <value>PEN</value>
+                        </entry>
+                        <entry name="PGK">
+                            <value>PGK</value>
+                        </entry>
+                        <entry name="PHP">
+                            <value>PHP</value>
+                        </entry>
+                        <entry name="PKR">
+                            <value>PKR</value>
+                        </entry>
+                        <entry name="PLN">
+                            <value>PLN</value>
+                        </entry>
+                        <entry name="PYG">
+                            <value>PYG</value>
+                        </entry>
+                        <entry name="QAR">
+                            <value>QAR</value>
+                        </entry>
+                        <entry name="ROL">
+                            <value>ROL</value>
+                        </entry>
+                        <entry name="RON">
+                            <value>RON</value>
+                        </entry>
+                        <entry name="RSD">
+                            <value>RSD</value>
+                        </entry>
+                        <entry name="RUB">
+                            <value>RUB</value>
+                        </entry>
+                        <entry name="RUR">
+                            <value>RUR</value>
+                        </entry>
+                        <entry name="RWF">
+                            <value>RWF</value>
+                        </entry>
+                        <entry name="SAR">
+                            <value>SAR</value>
+                        </entry>
+                        <entry name="SBD">
+                            <value>SBD</value>
+                        </entry>
+                        <entry name="SCR">
+                            <value>SCR</value>
+                        </entry>
+                        <entry name="SDD">
+                            <value>SDD</value>
+                        </entry>
+                        <entry name="SDG">
+                            <value>SDG</value>
+                        </entry>
+                        <entry name="SEK">
+                            <value>SEK</value>
+                        </entry>
+                        <entry name="SGD">
+                            <value>SGD</value>
+                        </entry>
+                        <entry name="SHP">
+                            <value>SHP</value>
+                        </entry>
+                        <entry name="SKK">
+                            <value>SKK</value>
+                        </entry>
+                        <entry name="SLL">
+                            <value>SLL</value>
+                        </entry>
+                        <entry name="SOS">
+                            <value>SOS</value>
+                        </entry>
+                        <entry name="SPL">
+                            <value>SPL</value>
+                        </entry>
+                        <entry name="SRD">
+                            <value>SRD</value>
+                        </entry>
+                        <entry name="STD">
+                            <value>STD</value>
+                        </entry>
+                        <entry name="SVC">
+                            <value>SVC</value>
+                        </entry>
+                        <entry name="SYP">
+                            <value>SYP</value>
+                        </entry>
+                        <entry name="SZL">
+                            <value>SZL</value>
+                        </entry>
+                        <entry name="THB">
+                            <value>THB</value>
+                        </entry>
+                        <entry name="TJS">
+                            <value>TJS</value>
+                        </entry>
+                        <entry name="TMM">
+                            <value>TMM</value>
+                        </entry>
+                        <entry name="TMT">
+                            <value>TMT</value>
+                        </entry>
+                        <entry name="TND">
+                            <value>TND</value>
+                        </entry>
+                        <entry name="TOP">
+                            <value>TOP</value>
+                        </entry>
+                        <entry name="TRL">
+                            <value>TRL</value>
+                        </entry>
+                        <entry name="TRY">
+                            <value>TRY</value>
+                        </entry>
+                        <entry name="TTD">
+                            <value>TTD</value>
+                        </entry>
+                        <entry name="TVD">
+                            <value>TVD</value>
+                        </entry>
+                        <entry name="TWD">
+                            <value>TWD</value>
+                        </entry>
+                        <entry name="TZS">
+                            <value>TZS</value>
+                        </entry>
+                        <entry name="UAH">
+                            <value>UAH</value>
+                        </entry>
+                        <entry name="UGX">
+                            <value>UGX</value>
+                        </entry>
+                        <entry name="UYU">
+                            <value>UYU</value>
+                        </entry>
+                        <entry name="UZS">
+                            <value>UZS</value>
+                        </entry>
+                        <entry name="VEB">
+                            <value>VEB</value>
+                        </entry>
+                        <entry name="VEF">
+                            <value>VEF</value>
+                        </entry>
+                        <entry name="VND">
+                            <value>VND</value>
+                        </entry>
+                        <entry name="VUV">
+                            <value>VUV</value>
+                        </entry>
+                        <entry name="WST">
+                            <value>WST</value>
+                        </entry>
+                        <entry name="XAF">
+                            <value>XAF</value>
+                        </entry>
+                        <entry name="XAG">
+                            <value>XAG</value>
+                        </entry>
+                        <entry name="XAU">
+                            <value>XAU</value>
+                        </entry>
+                        <entry name="XCD">
+                            <value>XCD</value>
+                        </entry>
+                        <entry name="XDR">
+                            <value>XDR</value>
+                        </entry>
+                        <entry name="XOF">
+                            <value>XOF</value>
+                        </entry>
+                        <entry name="XPD">
+                            <value>XPD</value>
+                        </entry>
+                        <entry name="XPF">
+                            <value>XPF</value>
+                        </entry>
+                        <entry name="XPT">
+                            <value>XPT</value>
+                        </entry>
+                        <entry name="YER">
+                            <value>YER</value>
+                        </entry>
+                        <entry name="ZAR">
+                            <value>ZAR</value>
+                        </entry>
+                        <entry name="ZMK">
+                            <value>ZMK</value>
+                        </entry>
+                        <entry name="ZWD">
+                            <value>ZWD</value>
+                        </entry>
+                    </entries>
+                </enum>
+            </enums>
+        </enum_space>
+    </enum_spaces>
+</mt_config>

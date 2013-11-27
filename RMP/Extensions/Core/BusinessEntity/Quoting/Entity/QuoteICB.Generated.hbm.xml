@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
 <hibernate-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" auto-import="false" xmlns="urn:nhibernate-mapping-2.2">
   <meta attribute="category">ConfigDriven</meta>
-  <class name="Core.Quoting.QuoteHeader, Core.Quoting.Entity" table="t_be_cor_qu_quoteheader">
-    <meta attribute="description">General data for quote</meta>
-    <meta attribute="label">QuoteHeader</meta>
-    <meta attribute="plural-name">QuoteHeaders</meta>
+  <class name="Core.Quoting.QuoteICB, Core.Quoting.Entity" table="t_be_cor_qu_quoteicb">
+    <meta attribute="description">Table for ICBs for Quote</meta>
+    <meta attribute="label">QuoteICB</meta>
+    <meta attribute="plural-name">QuoteICBs</meta>
     <meta attribute="database">NetMeter</meta>
     <meta attribute="custom-base-class-name" />
     <meta attribute="record-history">false</meta>
     <meta attribute="entity-type">Entity</meta>
-    <meta attribute="interface">Core.Quoting.Interface.IQuoteHeader, Core.Interface</meta>
+    <meta attribute="interface">Core.Quoting.Interface.IQuoteICB, Core.Interface</meta>
     <meta attribute="metranet-entity-association" />
-    <id name="Id" column="c_QuoteHeader_Id">
+    <id name="Id" column="c_QuoteICB_Id">
       <type name="guid" />
       <generator class="guid.comb" />
     </id>
     <version name="_Version" column="c__version" />
-    <component class="Core.Quoting.QuoteHeaderBusinessKey, Core.Quoting.Entity" name="QuoteHeaderBusinessKey">
+    <component class="Core.Quoting.QuoteICBBusinessKey, Core.Quoting.Entity" name="QuoteICBBusinessKey">
       <meta attribute="business-key">true</meta>
       <meta attribute="internal-business-key">true</meta>
       <property name="InternalKey" column="c_internal_key" not-null="true" unique="true">
@@ -72,37 +72,9 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <property name="StartDate" column="c_StartDate">
-      <meta attribute="label">StartDate</meta>
-      <meta attribute="description">Date the quote is started</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="Timestamp" />
-    </property>
-    <property name="EndDate" column="c_EndDate">
-      <meta attribute="label">EndDate</meta>
-      <meta attribute="description">Date the quote is finished.</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="Timestamp" />
-    </property>
-    <property name="CustomIdentifier" column="c_CustomIdentifier" length="1024">
-      <meta attribute="label">CustomIdentifier</meta>
-      <meta attribute="description">Description of quote</meta>
+    <property name="CurrentChargeType" column="c_CurrentChargeType" length="50" not-null="true">
+      <meta attribute="label">CurrentChargeType</meta>
+      <meta attribute="description" />
       <meta attribute="defaultvalue" />
       <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>
@@ -114,23 +86,9 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
-    <property name="CustomDescription" column="c_CustomDescription" length="255">
-      <meta attribute="label">CustomDescription</meta>
-      <meta attribute="description">Custom description</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.String, mscorlib" />
-    </property>
-    <property name="QuoteID" column="c_QuoteID" not-null="true">
-      <meta attribute="label">QuoteID</meta>
-      <meta attribute="description">Quoute number. Should be unique.</meta>
+    <property name="PriceableItemId" column="c_PriceableItemId">
+      <meta attribute="label">PriceableItemId</meta>
+      <meta attribute="description" />
       <meta attribute="defaultvalue" />
       <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>
@@ -142,62 +100,38 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <bag name="AccountForQuotes" access="field.camelcase-underscore" inverse="true" cascade="delete">
+    <property name="ChargesRates" column="c_ChargesRates">
+      <meta attribute="label">ChargesRates</meta>
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Byte[], mscorlib" />
+    </property>
+    <many-to-one name="POforQuote" class="Core.Quoting.POforQuote, Core.Quoting.Entity" column="c_POforQuote_Id" cascade="none">
       <meta attribute="relationship-type">OneToMany</meta>
-      <meta attribute="relationship-name">QuoteHeader_AccountForQuotes</meta>
+      <meta attribute="relationship-name">POforQuote_QuoteICBs</meta>
       <meta attribute="has-join-table">false</meta>
       <meta attribute="is-default">true</meta>
       <meta attribute="is-self-relationship">false</meta>
       <meta attribute="is-bidirectional">false</meta>
       <meta attribute="source-multiplicity">One</meta>
-      <meta attribute="source-entity-name">Core.Quoting.QuoteHeader</meta>
-      <meta attribute="source-key-column">c_QuoteHeader_Id</meta>
-      <meta attribute="source-property-name-for-target">AccountForQuotes</meta>
+      <meta attribute="source-entity-name">Core.Quoting.POforQuote</meta>
+      <meta attribute="source-key-column">c_POforQuote_Id</meta>
+      <meta attribute="source-property-name-for-target">QuoteICBs</meta>
       <meta attribute="target-multiplicity">Many</meta>
-      <meta attribute="target-entity-name">Core.Quoting.AccountForQuote</meta>
-      <meta attribute="target-key-column">c_AccountForQuote_Id</meta>
-      <meta attribute="target-property-name-for-source">QuoteHeader</meta>
+      <meta attribute="target-entity-name">Core.Quoting.QuoteICB</meta>
+      <meta attribute="target-key-column">c_QuoteICB_Id</meta>
+      <meta attribute="target-property-name-for-source">POforQuote</meta>
       <meta attribute="cascade">true</meta>
-      <key column="c_QuoteHeader_Id" />
-      <one-to-many class="Core.Quoting.AccountForQuote, Core.Quoting.Entity" />
-    </bag>
-    <bag name="POforQuotes" access="field.camelcase-underscore" inverse="true" cascade="delete">
-      <meta attribute="relationship-type">OneToMany</meta>
-      <meta attribute="relationship-name">QuoteHeader_POforQuotes</meta>
-      <meta attribute="has-join-table">false</meta>
-      <meta attribute="is-default">true</meta>
-      <meta attribute="is-self-relationship">false</meta>
-      <meta attribute="is-bidirectional">false</meta>
-      <meta attribute="source-multiplicity">One</meta>
-      <meta attribute="source-entity-name">Core.Quoting.QuoteHeader</meta>
-      <meta attribute="source-key-column">c_QuoteHeader_Id</meta>
-      <meta attribute="source-property-name-for-target">POforQuotes</meta>
-      <meta attribute="target-multiplicity">Many</meta>
-      <meta attribute="target-entity-name">Core.Quoting.POforQuote</meta>
-      <meta attribute="target-key-column">c_POforQuote_Id</meta>
-      <meta attribute="target-property-name-for-source">QuoteHeader</meta>
-      <meta attribute="cascade">true</meta>
-      <key column="c_QuoteHeader_Id" />
-      <one-to-many class="Core.Quoting.POforQuote, Core.Quoting.Entity" />
-    </bag>
-    <one-to-one name="QuoteContent" class="Core.Quoting.QuoteContent, Core.Quoting.Entity" cascade="delete">
-      <meta attribute="relationship-type">OneToOne</meta>
-      <meta attribute="relationship-name">QuoteHeader_QuoteContent</meta>
-      <meta attribute="has-join-table">false</meta>
-      <meta attribute="is-default">true</meta>
-      <meta attribute="is-self-relationship">false</meta>
-      <meta attribute="is-bidirectional">false</meta>
-      <meta attribute="source-multiplicity">One</meta>
-      <meta attribute="source-entity-name">Core.Quoting.QuoteHeader</meta>
-      <meta attribute="source-key-column">c_QuoteHeader_Id</meta>
-      <meta attribute="source-property-name-for-target">QuoteContent</meta>
-      <meta attribute="target-multiplicity">One</meta>
-      <meta attribute="target-entity-name">Core.Quoting.QuoteContent</meta>
-      <meta attribute="target-key-column">c_QuoteContent_Id</meta>
-      <meta attribute="target-property-name-for-source">QuoteHeader</meta>
-      <meta attribute="cascade">true</meta>
-    </one-to-one>
-    <bag name="QuoteICBs" access="field.camelcase-underscore" inverse="true" cascade="delete">
+    </many-to-one>
+    <many-to-one name="QuoteHeader" class="Core.Quoting.QuoteHeader, Core.Quoting.Entity" column="c_QuoteHeader_Id" cascade="none">
       <meta attribute="relationship-type">OneToMany</meta>
       <meta attribute="relationship-name">QuoteHeader_QuoteICBs</meta>
       <meta attribute="has-join-table">false</meta>
@@ -213,8 +147,6 @@
       <meta attribute="target-key-column">c_QuoteICB_Id</meta>
       <meta attribute="target-property-name-for-source">QuoteHeader</meta>
       <meta attribute="cascade">true</meta>
-      <key column="c_QuoteHeader_Id" />
-      <one-to-many class="Core.Quoting.QuoteICB, Core.Quoting.Entity" />
-    </bag>
+    </many-to-one>
   </class>
 </hibernate-mapping>

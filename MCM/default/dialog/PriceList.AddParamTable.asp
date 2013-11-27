@@ -58,7 +58,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   'SECENG: Fix ESR-3159: BC: Error when adding the new Parameter Table to Price List with more id length more than 5
   'Parameter table id size enlarged to 8. 
   Service.Properties.Add "ADD_PARAMTABLEID"     , "string", 8, False , Empty, eMSIX_PROPERTY_FLAG_NONE
-  Service.Properties.Add "ADD_PRICEABLEITEMID"     , "string", 5, False , Empty, eMSIX_PROPERTY_FLAG_NONE
+  Service.Properties.Add "ADD_PRICEABLEITEMID"     , "string", 8, False , Empty, eMSIX_PROPERTY_FLAG_NONE
 
   Service.Properties.Add "InitiallyExpanded"     , "string", 50, False , Empty, eMSIX_PROPERTY_FLAG_NONE
   

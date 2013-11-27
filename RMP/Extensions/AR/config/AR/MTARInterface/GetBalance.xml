@@ -1,0 +1,5 @@
+<ARDocument>
+  <GetBalance>
+    <ExtAccountID/>
+  </GetBalance>
+</ARDocument>

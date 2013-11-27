@@ -1,0 +1,8 @@
+<ARDocument>
+  <CanDeleteBatchResponse>
+    <BatchID/>
+    <Exists/>
+    <CanDelete/>
+    <NumTransactions/>
+  </CanDeleteBatchResponse>
+</ARDocument>

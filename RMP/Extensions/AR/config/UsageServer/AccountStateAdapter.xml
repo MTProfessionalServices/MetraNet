@@ -1,0 +1,5 @@
+<xmlconfig>
+  <SetSize>500</SetSize>
+  <ExportStateChanges>true</ExportStateChanges>
+  <ImportStateChanges>true</ImportStateChanges>
+</xmlconfig>

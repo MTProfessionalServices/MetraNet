@@ -1,1 +1,0 @@
-.\bin\Debug\CloneUnitTests.exe "C:\dev\Current\PrototypeCode\UnitTestExamples" 1000

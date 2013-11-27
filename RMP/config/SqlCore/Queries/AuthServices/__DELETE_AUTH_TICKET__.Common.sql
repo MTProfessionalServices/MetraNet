@@ -1,0 +1,1 @@
+DELETE FROM t_active_tickets where id_ticket = ? or dt_expiration < ?

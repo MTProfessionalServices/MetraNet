@@ -1,0 +1,6 @@
+
+					BEGIN
+					  DELETE FROM T_PRINCIPAL_POLICY WHERE ID_ROLE = %%ID%%;
+					  DELETE FROM T_ROLE WHERE ID_ROLE = %%ID%%;
+					END;
+				

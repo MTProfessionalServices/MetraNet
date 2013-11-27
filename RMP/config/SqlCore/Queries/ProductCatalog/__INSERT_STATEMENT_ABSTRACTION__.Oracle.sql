@@ -1,0 +1,2 @@
+
+INSERT INTO %%TABLE_NAME%%

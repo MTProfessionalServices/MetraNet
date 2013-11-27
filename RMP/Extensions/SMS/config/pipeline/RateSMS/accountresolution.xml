@@ -10,7 +10,7 @@
         <processor>
             <name>AccountResolution</name>
             <progid>MetraPipeline.AccountResolution.1</progid>
-
+            <description>Description for account resolution</description>
             <condition><![CDATA[
        
              CREATE PROCEDURE condition @_ExecutePlugin BOOLEAN OUTPUT
@@ -23,6 +23,8 @@
                 <Resolution>
                     <Login>accountname</Login>
                     <Namespace>namespace</Namespace>
+                    <Timestamp>_Timestamp</Timestamp>
+                    <FailIfNotResolved ptype="BOOLEAN">True</FailIfNotResolved>
                 </Resolution>
                 <Retrieval>
                     <Property>

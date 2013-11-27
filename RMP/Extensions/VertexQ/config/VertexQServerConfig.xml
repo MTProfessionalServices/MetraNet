@@ -4,6 +4,6 @@
 	<description>Vertex Server config values used by the server socket to configure itself.</description>
 	<configdata>        
 		<VertexPath>C:\Program Files (x86)\Vertex\Vertex Communications Tax Q Series 2.02\cfg</VertexPath>
-		<VertexDefaultConfig>Vertex202_Metranet681</VertexDefaultConfig>	
+		<VertexDefaultConfig>CTQ_Test</VertexDefaultConfig>	
 	</configdata>    
 </xmlconfig>

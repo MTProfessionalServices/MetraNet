@@ -1,0 +1,14 @@
+<ARDocuments>
+  <ARDocument>
+    <ARError>
+      <Originator/>
+      <Errors>
+        <Error>
+          <Code/>
+          <Message/>
+          <Dump/>
+        </Error>
+      </Errors>
+    </ARError>
+  </ARDocument>
+</ARDocuments>

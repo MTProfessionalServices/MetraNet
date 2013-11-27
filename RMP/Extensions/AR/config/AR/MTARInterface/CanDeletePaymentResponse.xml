@@ -1,0 +1,7 @@
+<ARDocument>
+  <CanDeletePaymentResponse>
+    <PaymentID/>
+    <Exists/>
+    <CanDelete/>
+  </CanDeletePaymentResponse>
+</ARDocument>

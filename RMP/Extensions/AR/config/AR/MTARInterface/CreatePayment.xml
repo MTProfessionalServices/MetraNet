@@ -1,0 +1,14 @@
+<ARDocument>
+  <CreatePayment>
+    <PaymentID/>
+    <BatchID/>
+    <Description/>
+    <PaymentDate/>
+    <ExtAccountID/>
+    <Amount/>
+    <Currency/>
+    <PaymentMethod/>
+    <CCType/>
+    <CheckOrCardNumber/>
+  </CreatePayment>
+</ARDocument>

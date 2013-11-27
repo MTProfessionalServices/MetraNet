@@ -47,7 +47,7 @@
 				  END) as TotalInformationalTax,
 	  SUM(CASE WHEN (au.tax_informational = 'Y' AND au.is_implied_tax = 'Y') THEN 
 				  ({fn IFNULL(au.Tax_Federal,0.0)} + {fn IFNULL(au.Tax_State,0.0)} + {fn IFNULL(au.Tax_County,0.0)} + {fn IFNULL(au.Tax_Local,0.0)} + {fn IFNULL(au.Tax_Other,0.0)}) 
-				  ELSE 0 END) as ImplInfTax,
+				  ELSE 0 END) as TotalImplInfTax,
 	  COUNT(*) as NumTransactions,
 	  au.am_currency as Currency
 		from

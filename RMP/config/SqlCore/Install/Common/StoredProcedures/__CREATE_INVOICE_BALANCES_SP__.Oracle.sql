@@ -135,8 +135,7 @@ if (v_dummy_datamart = 'FALSE' OR v_dummy_datamart = 'false')
 then
 	begin
 		INSERT INTO tmp_acc_amounts
-			(TMP_SEQ,
-			namespace,
+			(namespace,
 			id_interval,
 			id_acc,
 			invoice_currency,
@@ -150,7 +149,6 @@ then
 			id_payer_interval
 		)
 		SELECT
-		seq_tmp_acc_amounts.NextVal,
 		x.namespace,
 		x.id_interval,
 		x.id_acc,
@@ -244,12 +242,12 @@ begin
 /* else datamarts are being used. join against t_mv_payer_interval */
       if (table_exists('t_mv_payer_interval')) then
          execute immediate ('INSERT INTO tmp_acc_amounts
-                     (tmp_seq, namespace, id_interval, id_acc,
+                        ( namespace, id_interval, id_acc,
                       invoice_currency, payment_ttl_amt,
                       postbill_adj_ttl_amt, ar_adj_ttl_amt, previous_balance,
                       tax_ttl_amt, current_charges, id_payer,
                       id_payer_interval)
-            SELECT seq_tmp_acc_amounts.NEXTVAL, x.namespace, x.id_interval,
+            SELECT  x.namespace, x.id_interval,
                    x.id_acc, x.invoice_currency, x.payment_ttl_amt,
                    x.postbill_adj_ttl_amt, x.ar_adj_ttl_amt,
                    x.previous_balance, x.tax_ttl_amt, x.current_charges,
@@ -368,6 +366,7 @@ begin
 	end;
 end if;
 
+ update tmp_acc_amounts set tmp_seq=ROWNUM;
 /* populate tmp_adjustments with postbill and prebill adjustments */
 begin
 

@@ -1,5 +1,5 @@
 
-                CREATE PROCEDURE prtn_AlterPartitionSchema
+                CREATE PROCEDURE prtn_alter_partition_schema
 				@interval_id_end INT,
 				@interval_dt_end DATETIME,
 				@partition_name NVARCHAR(100) OUTPUT
@@ -25,7 +25,7 @@
 				WHERE  rv.function_id = @partition_function_id
 				AND rv.value = @interval_dt_end)
 				BEGIN
-				EXEC prtn_AddFileGroup @partition_name
+				EXEC prtn_add_file_group @partition_name
 
 				SET @sqlCommand = 'ALTER PARTITION SCHEME ' + @partition_schema_name
 							+ ' NEXT USED ' + @partition_name	    

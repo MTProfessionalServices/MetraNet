@@ -1,9 +1,22 @@
 SELECT 
-RowNumber, account_type, icon, parent_id, child_id, b_children as children, nm_login, nm_space, hierarchyname,
+        RowNumber,
+		account_type,
+		icon,
+		parent_id,
+		child_id,
+		b_children as children,
+		nm_login,
+		nm_space,
+		hierarchyname,
 CASE when folder_owner IS NULL THEN N'' ELSE folder_owner END as folder_owner,
-folder, currency, status, numpayees, tx_path
-FROM
-(SELECT ROW_NUMBER() OVER(ORDER by descmap.d_count ASC, at.name ASC, CASE WHEN map.nm_space = 'system_user' THEN map.nm_login ELSE map.nm_login END ASC) RowNumber,
+        folder,
+		currency,
+		status,
+		numpayees,
+		tx_path,
+		WritePermission
+	FROM (
+		SELECT ROW_NUMBER() OVER(ORDER by descmap.d_count ASC, at.name ASC, CASE WHEN map.nm_space = 'system_user' THEN map.nm_login ELSE map.nm_login END ASC) RowNumber,
 at.name as account_type,
 'account.gif' as icon,
 accs.id_ancestor as parent_id,
@@ -27,11 +40,10 @@ descmap.d_count folder,
 tav.c_currency currency,
 accstate.status status,
 accs.numpayees,
-accs.tx_path
-FROM
-(
-SELECT
-parent.id_ancestor,
+                accs.tx_path,
+				tapg.WritePermission
+			FROM (
+				SELECT  parent.id_ancestor,
 parent.id_descendent,
 parent.tx_path,
 parent.b_children,
@@ -45,34 +57,34 @@ AND %%DESCENDENT_RANGE_CHECK%%
 %%REF_DATE%% BETWEEN parent.vt_start AND parent.vt_end
 GROUP BY id_ancestor, id_descendent, tx_path, b_children
 ) accs
+		INNER JOIN tmp_acc_permission_grouped tapg ON tapg.accountid = accs.id_descendent
 INNER JOIN t_account acc on acc.id_acc = accs.id_descendent
 INNER JOIN t_account_type at on at.id_type = acc.id_type
 INNER  JOIN t_av_internal tav ON tav.id_acc = accs.id_descendent %%FOLDERCHECK%%
 INNER JOIN t_account_mapper map ON map.id_acc = accs.id_descendent  
-INNER JOIN t_namespace ns on ns.nm_space = map.nm_space 
-AND ns.tx_typ_space IN ('system_mps', 'system_user', 'system_auth')
+		INNER JOIN t_namespace ns on ns.nm_space = map.nm_space AND ns.tx_typ_space IN ('system_mps', 'system_user', 'system_auth')
 LEFT OUTER  JOIN t_impersonate imp ON imp.id_acc = accs.id_descendent
 LEFT OUTER JOIN t_account_mapper ownmap ON ownmap.id_acc = imp.id_owner  
-LEFT OUTER JOIN t_namespace ownns on ownns.nm_space = ownmap.nm_space 
-AND ownns.tx_typ_space IN ('system_mps', 'system_user', 'system_auth')
+		LEFT OUTER JOIN t_namespace ownns on ownns.nm_space = ownmap.nm_space AND ownns.tx_typ_space IN ('system_mps', 'system_user', 'system_auth')
 left outer join t_account ownacc on ownacc.id_acc = imp.id_owner
 left outer join t_account_type ownat on ownat.id_type = ownacc.id_type
-LEFT OUTER JOIN (select at.id_type, CASE WHEN COUNT(adm.id_type) > 0 THEN 1 ELSE 0 END d_count from t_account_type at
+LEFT OUTER JOIN (
+		select 	at.id_type, 
+				CASE WHEN COUNT(adm.id_type) > 0 THEN 1 ELSE 0 END d_count 
+		from t_account_type at
 left outer join t_acctype_descendenttype_map adm on at.id_type = adm.id_type
 group by at.id_type
 ) descmap on descmap.id_type = at.id_type
 INNER JOIN t_enum_data ed ON ed.nm_enum_data = 'metratech.com/accountcreation/ContactType/Bill-To'
 LEFT OUTER JOIN t_av_contact htac ON htac.id_acc = accs.id_descendent AND htac.c_contacttype = ed.id_enum_data
 LEFT OUTER JOIN t_av_contact otac ON otac.id_acc = ownacc.id_acc AND otac.c_contacttype = ed.id_enum_data
-INNER JOIN t_account_state accstate ON
-accstate.id_acc = accs.id_descendent AND
-accstate.status IN (%%EXCLUDED_STATES%%) AND
-%%REF_DATE%% BETWEEN accstate.vt_start AND accstate.vt_end
+		INNER JOIN t_account_state accstate ON accstate.id_acc = accs.id_descendent AND accstate.status IN (%%EXCLUDED_STATES%%) AND %%REF_DATE%% BETWEEN accstate.vt_start AND accstate.vt_end
 WHERE 1=1 
 AND at.b_IsVisibleInHierarchy = '1'
 AND ('%%COMPANY_NAME%%' = ' ' OR EXISTS (SELECT 1 FROM t_av_Contact avc WHERE avc.c_Company LIKE '%%COMPANY_NAME%%' AND avc.id_acc = acc.id_acc))
 AND ('%%USER_NAME%%' = ' ' OR map.nm_login LIKE '%%USER_NAME%%')
-AND ns.tx_typ_space = '%%TYPE_SPACE%%') a
+		AND ns.tx_typ_space = '%%TYPE_SPACE%%'
+	) a
 where 1=1
 AND RowNumber > %%PAGE_SIZE%% * (%%PAGE_NUMBER%% -1)
 AND ROWNUM <= %%PAGE_SIZE%%

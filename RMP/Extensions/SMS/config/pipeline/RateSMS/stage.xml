@@ -1,52 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xmlconfig>
- <version ptype="INTEGER">1</version>
- <!-- Test stage configuration -->
- <stage>
-  <name>RateSMS</name>
-  <startstage ptype="BOOLEAN">YES</startstage>
-  <finalstage ptype="BOOLEAN">NO</finalstage>
-  <nextstage>WriteProductView</nextstage>
-
-
-  <dependencies>
-
-   <dependson>mtsql</dependson>
-   <dependson>instanceres</dependson>	
-  
-   
-   <dependency>
-     <processor>SetAmount</processor>
-     <dependson>pcratelookup</dependson>
-   </dependency>
-
-   <dependency>
-     <processor>pcratelookup</processor>
-     <dependson>instanceres</dependson>
-   </dependency>
-   
-   <dependency>
-     <processor>instanceres</processor>
-     <dependson>piresolution</dependson>
-     <dependson>accountresolution</dependson>
-   </dependency>
-
-  <dependency>
-     <processor>mtsql</processor>
-     <dependson>findparent</dependson>
-   </dependency>
-
-  <dependency>
-     <processor>findparent</processor>
-     <dependson>accountresolution</dependson>
-   </dependency>
-
-   <dependency>
-      <processor>accountresolution</processor>
-      <dependson>namespace</dependson>
-   </dependency>
-
- 
-  </dependencies>
-
- </stage>
+    <version ptype="INTEGER">1</version>
+    <!-- Test stage configuration -->
+    <description>Stage for rate sms</description>
+    <stage>
+        <name>RateSMS</name>
+        <startstage ptype="BOOLEAN">Yes</startstage>
+        <finalstage ptype="BOOLEAN">No</finalstage>
+        <nextstage>WriteProductView</nextstage>
+        <dependencies>
+            <dependency>
+                <processor>piresolution</processor>
+            </dependency>
+            <dependency>
+                <processor>namespace</processor>
+                <dependson>piresolution</dependson>
+            </dependency>
+            <dependency>
+                <processor>AccountResolution</processor>
+                <dependson>namespace</dependson>
+            </dependency>
+            <dependency>
+                <processor>instanceres</processor>
+                <dependson>AccountResolution</dependson>
+            </dependency>
+            <dependency>
+                <processor>pcratelookup</processor>
+                <dependson>instanceres</dependson>
+            </dependency>
+            <dependency>
+                <processor>findparent</processor>
+                <dependson>pcratelookup</dependson>
+            </dependency>
+            <dependency>
+                <processor>mtsql</processor>
+                <dependson>findparent</dependson>
+            </dependency>
+            <dependency>
+                <processor>SetAmount</processor>
+                <dependson>mtsql</dependson>
+            </dependency>
+            <dependson>SetAmount</dependson>
+        </dependencies>
+    </stage>
+    <possiblenextstages />
 </xmlconfig>

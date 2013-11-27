@@ -11,7 +11,7 @@
         <processor>
             <name>mtsql</name>
             <progid>MetraPipeline.MTSQLInterpreter.1</progid>
-
+            <description>Description for mtsql</description>
             <!-- Processor specific configuration data -->
             <configdata>
                 <Program><![CDATA[

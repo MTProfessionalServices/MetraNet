@@ -255,6 +255,7 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
 		COMObject.Log "Counter.ViewEdit.asp: Adding new counter to Discount[" & intDiscountId & "] and CPD [" & intCPDId & "]"
 		
 		On Error Resume Next
+        COMObject.Instance.ID=-1
 		objDiscount.SetCounter intCPDId, COMObject.Instance
 		ConfigureDiscountDistributionCounter objDiscount, COMObject.Instance
 		objDiscount.Save
@@ -376,7 +377,7 @@ PRIVATE FUNCTION CounterParameters_DisplayCell(EventArg) ' As Boolean
 								if (EventArg.Grid.Rowset.Value("ReadOnly")) then
 									EventArg.HTMLRendered = objPreProcessor.Process("<td class='" & EventArg.Grid.CellClass & "'><button class='clsButtonBlueMedium' name='EditCounter' OnClick='mdm_RefreshDialogUserCustom(this,""[INFO]"");' style='vertical-align: middle;' disabled>[TEXT_EDIT_COUNTER_PARAMETER]&nbsp;</button></td>")								
 								else
-									EventArg.HTMLRendered = objPreProcessor.Process("<td class='" & EventArg.Grid.CellClass & "'><button class='clsButtonBlueMedium' name='EditCounter' OnClick='mdm_RefreshDialogUserCustom(this,""[INFO]"");' style='vertical-align: middle;'>[TEXT_EDIT_COUNTER_PARAMETER]&nbsp;<IMG align=middle alt='' border=0 src='/mcm/default/localized/us/images/icons/arrowSelect.gif'></button></td>")
+									EventArg.HTMLRendered = objPreProcessor.Process("<td class='" & EventArg.Grid.CellClass & "'><button class='clsButtonBlueMedium' name='EditCounter' OnClick='mdm_RefreshDialogUserCustom(this,""[INFO]"");' style='vertical-align: middle;'>[TEXT_EDIT_COUNTER_PARAMETER]&nbsp;</button></td>")
 								end if
             Else
                 EventArg.HTMLRendered = "<td class='" & EventArg.Grid.CellClass & "'>" & EventArg.Grid.Rowset.RecordCount & "<button>Select</button></td>"

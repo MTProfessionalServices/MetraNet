@@ -268,6 +268,9 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
                 EventArg.HTMLRendered = Replace(EventArg.HTMLRendered,strImageHTMLAttributeName,"TurnDown:" & strSessionID)
             End If
             Form_DisplayCell = TRUE
+        Case 7:
+            EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'>"  & mdm_Format(ProductView.Properties.RowSet.Value("time"),mom_GetDictionary("DATE_TIME_FORMAT")) & "</td>"
+            Form_DisplayCell = TRUE
         Case Else
             Form_DisplayCell = Inherited("Form_DisplayCell")
     End Select

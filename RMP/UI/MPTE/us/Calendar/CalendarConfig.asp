@@ -178,7 +178,7 @@ sub Draw_Title(Caption, Desc, EffDate)
 		end if
 		
 		'if not session("manageCalendars") = true then
-		strTitle = strTitle &			"<input type=""button"" class=""clsButtonLarge"" name=""butNewCalendar""   value=""" & FrameWork.GetDictionary("TEXT_MPTE_NEWCALENDAR") & """ onClick=""javascript:OpenDialogWindow('gotoCalendarNewEdit.asp','');"">&nbsp;"
+		strTitle = strTitle &			"<input type=""button"" class=""clsButton"" name=""butNewCalendar""   value=""" & FrameWork.GetDictionary("TEXT_MPTE_NEWCALENDAR") & """ onClick=""javascript:OpenDialogWindow('gotoCalendarNewEdit.asp','');"">&nbsp;"
 		'end if
 		'if mbolIsConfigured then
 		'	strTitle = strTitle &			"<input type=""button"" class=""clsButtonBlueLarge"" name=""Edit""   value=""" & FrameWork.GetDictionary("TEXT_MPTE_EDITCALENDAR") & """ onClick=""javascript:OpenDialogWindow('gotoCalendarNewEdit.asp?cal_id=" & intCalID & "','');"">&nbsp;"
@@ -239,7 +239,7 @@ sub Draw_Title_Original(Caption, Desc, EffDate)
 		if UCase(FrameWork.GetDictionary("MPTE_OWNER_APP")) = "MCM" and not session("manageCalendars") = true then
 			strTitle = strTitle &			"<input type=""button"" class=""clsButtonLarge"" name=""butImport"" value=""" & FrameWork.GetDictionary("TEXT_MPTE_SELECTCALENDAR") & """ onClick=""javascript:OpenDialogWindow('Calendar.Picker.asp?Monoselect=TRUE','height=600, width=800');"">&nbsp;"
 		end if
-		strTitle = strTitle &			"<input type=""button"" class=""clsButtonLarge"" name=""butNewCalendar""   value=""" & FrameWork.GetDictionary("TEXT_MPTE_NEWCALENDAR") & """ onClick=""javascript:OpenDialogWindow('gotoCalendarNewEdit.asp','');"">&nbsp;"
+		strTitle = strTitle &			"<input type=""button"" class=""clsButton"" name=""butNewCalendar""   value=""" & FrameWork.GetDictionary("TEXT_MPTE_NEWCALENDAR") & """ onClick=""javascript:OpenDialogWindow('gotoCalendarNewEdit.asp','');"">&nbsp;"
 		if mbolIsConfigured then
 			strTitle = strTitle &			"<input type=""button"" class=""clsButtonBlueSmall"" name=""Edit""   value=""" & FrameWork.GetDictionary("TEXT_MPTE_EDITCALENDAR") & """ onClick=""javascript:OpenDialogWindow('gotoCalendarNewEdit.asp?cal_id=" & intCalID & "','');"">&nbsp;"
 		end if

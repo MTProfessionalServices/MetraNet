@@ -20,7 +20,7 @@
 ' VERSION	        : 5.0
 ' AUTHOR	        : F.Torres, Kevin A. Boucher
 ' ----------------------------------------------------------------------------------------------------------------------------------------
-PUBLIC CONST DEFAULT_LANGUAGE = "US"
+DEFAULT_LANGUAGE = Session("DEFAULT_LANGUAGE")
 
 PRIVATE m_objFrameWorkSecurity
 
@@ -930,15 +930,15 @@ PUBLIC FUNCTION mam_SetupCSR(strLogon, strNameSpace, strNameSpaceType) ' as bool
     Dim objLanguageContext
     dim objSessionContext
 
-    mam_LoadDictionary MAM(), MAM().CSR.Language
+    mam_LoadDictionary MAM(), DEFAULT_LANGUAGE'MAM().CSR.Language
     ' g. cieplik CR 12683 Load the dictionary based upon the CSR's language code, added for localization support of adjustments        
 	  set objLanguageContext = CreateObject("MetraTech.Localization.LanguageList")
     SET objSessionContext = Session(FRAMEWORK_SECURITY_SESSION_CONTEXT_SESSION_NAME)
     objSessionContext.LanguageID = objLanguageContext.GetLanguageID(MAM().CSR.Language)
     SET Session(FRAMEWORK_SECURITY_SESSION_CONTEXT_SESSION_NAME) = objSessionContext    
 
-    MAM().CSR.Language = MAM().CSR("Language").EnumType.Entries.ItemByValue(MAM().CSR("Language").Value).Name 
-    MAM().CSR("Language").Value = MAM().CSR.Language  
+    MAM().CSR.Language = DEFAULT_LANGUAGE 'MAM().CSR("Language").EnumType.Entries.ItemByValue(MAM().CSR("Language").Value).Name 
+    MAM().CSR("Language").Value = DEFAULT_LANGUAGE 'MAM().CSR.Language  
     
     mam_loadDictionary Session("objMAM"), MAM().CSR("Language").value
     

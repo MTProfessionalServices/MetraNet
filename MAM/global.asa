@@ -56,11 +56,9 @@ Sub Session_OnStart
     'end if
     Dim userLocale
     userLocale = request.ServerVariables("HTTP_ACCEPT_LANGUAGE")
-    Session("tmp") = userLocale
     dim Languages
     if (not(IsNull(userLocale)) and not(IsEmpty(userLocale))) then
         Languages = Split(userLocale, ",", -1)
-        Session("tmp2") = Languages(0)
         dim L
         L = Languages(0)
         if(IsEmpty(L) or IsNull(L)) then L="en-us" end if

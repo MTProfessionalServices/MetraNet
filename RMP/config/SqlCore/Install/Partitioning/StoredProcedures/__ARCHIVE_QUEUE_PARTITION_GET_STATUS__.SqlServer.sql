@@ -24,19 +24,7 @@ First record inserts to this table on creation of Partition Infrastructure for m
 	FROM   t_archive_queue_partition
 	WHERE  current_id_partition = @current_id_partition
 	
-	IF @next_allow_run_time IS NULL
-	BEGIN
-	    SET @message = 'Warning: previouse execution of [archive_queue_partition] failed.
-The oldest partition was not archived, but new data already written to new partition with ID: "'
-+ CAST(@current_id_partition AS NVARCHAR(20)) + '".
-Retrying archivation of the oldest partition...'
-	    RAISERROR (@message, 0, 1)
-	    
-	    SET @new_current_id_partition = @current_id_partition
-	    SET @current_id_partition = @new_current_id_partition - 1
-	    SET @old_id_partition = @new_current_id_partition - 2
-	END
-	ELSE
+	IF @next_allow_run_time IS NOT NULL
 	BEGIN
 	    /* Period of full partition cycle should pass since last execution of [archive_queue_partition] */
 	    IF (@current_time < @next_allow_run_time)
@@ -51,4 +39,16 @@ Retrying archivation of the oldest partition...'
 	    
 		SET @new_current_id_partition = @current_id_partition + 1	
 		SET @old_id_partition = @current_id_partition - 1
+	END
+	ELSE
+	BEGIN
+	    SET @message = 'Warning: previouse execution of [archive_queue_partition] failed.
+The oldest partition was not archived, but new data already written to new partition with ID: "'
++ CAST(@current_id_partition AS NVARCHAR(20)) + '".
+Retrying archivation of the oldest partition...'
+	    RAISERROR (@message, 0, 1)
+	    
+	    SET @new_current_id_partition = @current_id_partition
+	    SET @current_id_partition = @new_current_id_partition - 1
+	    SET @old_id_partition = @new_current_id_partition - 2
 	END

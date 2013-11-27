@@ -19,8 +19,8 @@
                 -- return 0 on success, 1 on failure
                 create proc PrepareTaxDetailPartitions
                     @intervalStatusToConsider varchar(20), 
-                    @partitionFunctionCommand varchar(500) output, 
-                    @partitionSchemeCommand varchar(500) output
+                    @partitionFunctionCommand varchar(MAX) output, 
+                    @partitionSchemeCommand varchar(MAX) output
                 as
                 begin
                     -- Stored procedure return value

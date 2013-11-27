@@ -13,6 +13,9 @@ AS
    stoo_selcnt         INTEGER;
    initialstatus       CHAR (1);
    finalstatus         CHAR (1);
+
+PRAGMA AUTONOMOUS_TRANSACTION;
+
 BEGIN
       stoo_selcnt := 0;
 
@@ -104,5 +107,6 @@ BEGIN
    SELECT tx_status into finalstatus
                  FROM t_batch
                 WHERE tx_batch = hextoraw(updatebatchstatus.tx_batch_);
+				 COMMIT;
 END updatebatchstatus;
   

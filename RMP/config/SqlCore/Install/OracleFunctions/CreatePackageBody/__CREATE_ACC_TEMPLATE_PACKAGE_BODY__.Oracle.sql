@@ -22,12 +22,7 @@ AS
             INSERT INTO tmp_gsubmember (id_group, id_acc, vt_start, vt_end)
                 VALUES (id_group, id_acc, sub_start, sub_end);
         ELSE
-              IF (doCommit = 'Y') THEN
-                 getcurrentid('id_subscription', curr_id_sub);
-              ELSE
-                 SELECT id_current INTO curr_id_sub FROM t_current_id WHERE nm_current = 'id_subscription' FOR UPDATE OF id_current;
-                 UPDATE t_current_id SET id_current=id_current+1 WHERE nm_current='id_subscription';
-              END IF;
+            getcurrentid('id_subscription', curr_id_sub);
             SELECT SYS_GUID() INTO v_guid FROM dual;
             INSERT INTO tmp_sub (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end)
                 VALUES (curr_id_sub, v_guid, id_acc, NULL, id_po, systemdate, sub_start, sub_end);
@@ -63,13 +58,7 @@ AS
            THEN
               my_id_audit := apply_subscriptions.id_audit;
            ELSE
-              IF (doCommit = 'Y') THEN
-                 getcurrentid ('id_audit', my_id_audit);
-              ELSE
-                 SELECT id_current INTO my_id_audit FROM t_current_id WHERE nm_current = 'id_audit' FOR UPDATE OF id_current;
-                 UPDATE t_current_id SET id_current=id_current+1 WHERE nm_current='id_audit';
-              END IF;
-
+              getcurrentid ('id_audit', my_id_audit);
               INSERT INTO t_audit (
                     id_audit,
                     id_event,
@@ -233,13 +222,8 @@ AS
 
        IF (my_id_audit IS NULL)
        THEN
-          IF (doCommit = 'Y') THEN
-           getcurrentid ('id_audit', my_id_audit);
-          ELSE
-             SELECT id_current INTO my_id_audit FROM t_current_id WHERE nm_current = 'id_audit' FOR UPDATE OF id_current;
-             UPDATE t_current_id SET id_current=id_current+1 WHERE nm_current='id_audit';
-          END IF;
-
+          getcurrentid ('id_audit', my_id_audit);
+          
           INSERT INTO t_audit
                       (id_audit, id_event, id_userid, id_entitytype, id_entity,
                        dt_crt

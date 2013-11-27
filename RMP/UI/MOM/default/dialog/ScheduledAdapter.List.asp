@@ -161,11 +161,11 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
            
             Select Case lcase(strIntervalType)
             Case "daily"
-              StrScheduleName = "Every " & interval & " day(s) at " & executionTimes
+              StrScheduleName = "Every " & interval & " day(s) at " &   mdm_Format(executionTimes,mom_GetDictionary("TIME_FORMAT"))  
             Case "monthly"
-              StrScheduleName = "Every " & interval & " month(s) at " & executionTimes & " on " & daysOfMonth
+              StrScheduleName = "Every " & interval & " month(s) at " &  mdm_Format(executionTimes,mom_GetDictionary("TIME_FORMAT")) & " on " & daysOfMonth
             Case "weekly"
-              StrScheduleName = "Every " & interval & " week(s) at " & executionTimes & " on " & daysOfWeek
+              StrScheduleName = "Every " & interval & " week(s) at " & mdm_Format(executionTime,mom_GetDictionary("TIME_FORMAT")) & " on " & daysOfWeek
             Case "minutely"
               StrScheduleName = "Every " & interval & " minutes "
             Case "manual"

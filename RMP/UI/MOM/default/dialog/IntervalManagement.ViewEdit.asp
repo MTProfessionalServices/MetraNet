@@ -119,7 +119,7 @@ FUNCTION Form_Refresh(EventArg)
     Service.Properties("CHANGESTATE_HTML_LINK") = "&nbsp;<A href=""#"" onclick=""window.open('IntervalManagement.StateChange.asp?MDMReload=TRUE&BillingGroupID=" & Service.Properties("BillingGroupID").Value & "&IntervalId=" & Service.Properties("IntervalId").Value & "&State=" & Server.URLEncode(Service.Properties("IntervalStatus").Value) & "&StateName=" & Server.URLEncode(Service.Properties("IntervalStatus").Value) & "&IntervalEndDate=" & Server.UrlEncode(Service.Properties("IntervalEndDateTime").Value) & "','', 'height=500,width=650, resizable=yes, scrollbars=yes, status=yes')"">" & "Change State" &  "</A>"
   else 
     if bg.CanBeHardClosed then
-      Service.Properties("CHANGESTATE_HTML_LINK") = "&nbsp;&nbsp;<button class='clsButtonBlueLarge' id='ForceHardClosed'" & " onclick=""mdm_RefreshDialogUserCustom(this);"">" & "<span style='font-size: 10px;'>Force Hard Close</span>" &  "</button>"
+      Service.Properties("CHANGESTATE_HTML_LINK") = "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='ForceHardClosed'" & " onclick=""mdm_RefreshDialogUserCustom(this);return false;"">" & "<span style='font-size: 10px;'>Force Hard Close</span>" &  "</button>"
     else
       Service.Properties("CHANGESTATE_HTML_LINK") = ""
     end if
@@ -268,8 +268,8 @@ FUNCTION getRecurringEventRunHTML
             sLastRunResultHTML = "&nbsp;"
             sStyle = "height: 29px;text-align:middle;vertical-align: middle;BACKGROUND-COLOR:#CCDEF6; border-bottom: silver solid 1px;	BORDER-TOP: silver solid 1px;"            
             if sStatusCode = "NotYetRun" then
-              'sStatus =  "<button  style='font-weight: bold;padding: 0px 0px 0px 0px;font-size: 8px;height=18px;width=60px;' name='AcknowledgeCheckPoint' onclick=""mdm_RefreshDialogUserCustom(this," & rowset.value("InstanceId") & ");"">" & "Acknowledge" &  "</button>" & vbNewLine
-              sStatus =  "<button class='clsButtonBlueMedium' name='AcknowledgeCheckPoint'" & IIF(bDependenciesMet and not bDisableActions, ""," disabled") & " onclick=""mdm_RefreshDialogUserCustom(this," & rowset.value("InstanceId") & ");"">" & "<span style='font-size: 10px;'>Acknowledge</span>" &  "</button>" & vbNewLine
+              'sStatus =  "<button  style='font-weight: bold;padding: 0px 0px 0px 0px;font-size: 8px;height=18px;width=60px;' name='AcknowledgeCheckPoint' onclick=""mdm_RefreshDialogUserCustom(this," & rowset.value("InstanceId") & ");return false;"">" & "Acknowledge" &  "</button>" & vbNewLine
+              sStatus =  "<button class='clsButtonBlueMedium' name='AcknowledgeCheckPoint'" & IIF(bDependenciesMet and not bDisableActions, ""," disabled") & " onclick=""mdm_RefreshDialogUserCustom(this," & rowset.value("InstanceId") & ");return false;"">" & "<span style='font-size: 10px;'>Acknowledge</span>" &  "</button>" & vbNewLine
             end if
             if sStatusCode = "ReadyToRun" or sStatusCode = "Succeeded" then
               'sStatus =  "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='EditMapping' onclick=""javascript:alert('Not implemented yet... hold your horses');"">" & "Acknowledge" &  "</button>" & vbNewLine

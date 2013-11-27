@@ -95,7 +95,7 @@ FUNCTION form_Refresh(EventArg)
     
   Service.Properties("InstanceID").Value       = rowset.value("InstanceID")
   Service.Properties("StatusCode").Value       = rowset.value("Status")
-  Service.Properties("Status").Value       = mom_GetAdapterInstanceStatusMessage(rowset.value("Status"),rowset.value("EffectiveDate"))
+  Service.Properties("Status").Value       = mom_GetAdapterInstanceStatusMessage(rowset.value("Status"),mdm_Format(rowset.value("EffectiveDate"), mom_GetDictionary("DATE_TIME_FORMAT")))
   Service.Properties("DisplayName").Value       = rowset.value("DisplayName")  
   Service.Properties("DisplayNameEncoded").Value       = server.urlencode(rowset.value("DisplayName"))  
   Service.Properties("ReverseMode").Value       = rowset.value("ReverseMode")

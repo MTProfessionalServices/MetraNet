@@ -1,0 +1,7 @@
+<Site>
+  <Description>MetraNet site configuration</Description>
+  <VirtualDirectory CreateDuringSynchronization="false"></VirtualDirectory>
+  <AuthenticationType></AuthenticationType>
+  <AuthenticationNamespace></AuthenticationNamespace>
+  <AuthenticationCapabilityApplicationValue></AuthenticationCapabilityApplicationValue>
+</Site>

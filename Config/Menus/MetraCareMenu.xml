@@ -1,0 +1,1409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MenuManager xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Menus>
+        <Menu>
+            <ID>MetraCareMenu</ID>
+            <Type>Vertical</Type>
+            <Description>MetraCare Menu</Description>
+            <MenuSections>
+                <MenuSection>
+                    <ID>MyAccount</ID>
+                    <Caption>
+                        <LocalizationTag>TEXT_MY_ACCOUNT</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                    </Caption>
+                    <Description>User Account</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>Dashboard</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_DASHBOARD</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>[DashboardPage]</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/application_view_columns.png</Icon>
+                            <Description>Application Properites</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>MyAccounts</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MY_ACCOUNTS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/MyAccounts.asp?MDMReload=True</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/group.png</Icon>
+                            <Description>User Specific Account</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Owned Accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>ChangePassword</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_CHANGE_PASSWORD</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/ChangePassword.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/lock_edit.png</Icon>
+                            <Description>Change User Account Password</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update CSR accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>DefaultSecurity</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_DEFAULT_SECURITY</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/ManageSecurity.asp?MDMReload=True**MODE=CSR_DEFAULT_POLICY</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/key_go.png</Icon>
+                            <Description>Manage Default Security Policy</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage CSR Auth</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>
+                <MenuSection>
+                    <ID>ManageAccounts</ID>
+                    <Caption>
+                        <LocalizationTag>TEXT_MANAGE_ACCOUNTS</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                    </Caption>
+                    <Description>Manage Accounts Section</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>AddAccountWorkflow</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_ADD_ACCOUNT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=AddAccountWorkflow</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/user_add.png</Icon>
+                            <Description>Add Account Workflow</Description>
+                            <RequiredCapabilities>
+                                <Capability>Create subscriber accounts</Capability>
+                                <Capability>Manage Account Hierarchies</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>AddACSR</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_ADD_CSR</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=AddAccountWorkflow&amp;AccountType=SystemAccount</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/user_add.png</Icon>
+                            <Description>Add System Account Workflow</Description>
+                            <RequiredCapabilities>
+                                <Capability>Create CSR accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>MoveAccounts</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MOVE_ACCOUNTS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/HierarchyMoveDate.asp</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/folder_user.png</Icon>
+                            <Description>Move Accounts</Description>
+                            <RequiredCapabilities>
+                                <Capability>Move account</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>
+                <MenuSection>
+                    <ID>ApprovalFrameworkManagement</ID>
+                    <Caption>
+                        <LocalizationTag>TEXT_APPROVAL_FRAMEWORK_MANAGEMENT</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                    </Caption>
+                    <Description>ApprovalFrameworkManagement</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>ShowPendingChangesSummary</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_SHOW_PENDING_CHANGES_SUMMARY</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/ApprovalFrameworkManagement/ShowChangesSummary.aspx?showchangestate=PENDING</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/approvals_incoming.png</Icon>
+                            <Description>Show Only Approvals Pending</Description>
+                            <RequiredCapabilities>
+                                <Capability>Allow ApprovalsView</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>ShowFailedChangesSummary</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_SHOW_FAILED_CHANGES_SUMMARY</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/ApprovalFrameworkManagement/ShowChangesSummary.aspx?showchangestate=FAILED</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/approvals_error.png</Icon>
+                            <Description>Show Approvals That Failed Applying After Being Approved</Description>
+                            <RequiredCapabilities>
+                                <Capability>Allow ApprovalsView</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>ShowAllChangesSummary</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_SHOW_ALL_CHANGES_SUMMARY</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/ApprovalFrameworkManagement/ShowChangesSummary.aspx?showchangestate=ALL</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/approvals.png</Icon>
+                            <Description>Show All Approvals</Description>
+                            <RequiredCapabilities>
+                                <Capability>Allow ApprovalsView</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>
+                <MenuSection>
+                    <ID>Security</ID>
+                    <Caption>
+                        <LocalizationTag>TEXT_SECURITY</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                    </Caption>
+                    <Description>Security Section</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>ManageRoles</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MANAGE_ROLES</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/ManageRoles.asp?MDMReload=True</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/group_key.png</Icon>
+                            <Description>Manage Role Policy</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage System Wide Authorization Policies</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>AppAuditLog</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_APP_AUDIT_LOG</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/Audit/AuditLog.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/page_white_text.png</Icon>
+                            <Description>Audit Log</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage System Wide Authorization Policies</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>
+                <MenuSection>
+                    <ID>VertiAdjustments</ID>
+                    <Caption>
+                        <LocalizationTag>TEXT_ADJUSTMENTS</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                    </Caption>
+                    <Description></Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>ManageAdjustments</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MANAGE_ADJUSTMENTS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/Adjustments/ManageAdjustments.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/tag_blue_edit.png</Icon>
+                            <Description>Manage Adjustments</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Adjustments</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>OrphanAdjustmentManage</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MANAGE_ORPHAN_ADJUSTMENTS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/Adjustment.Manage.asp?Orphan=TRUE**UpdateFinderObjects=FALSE</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/tag_red.png</Icon>
+                            <Description>Manage Orphaned Adjustments</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Adjustments</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>MiscAdjustmentManage</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MANAGE_MISC_ADJUSTMENTS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/Adjustments/ManageMiscellaneousAdjustments.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/table_row_delete.png</Icon>
+                            <Description>Manage Miscellaneous Adjustments</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Adjustments</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>ManageNonStandardCharges</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MANAGE_NON_STANDARD_CHARGES</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/NonStandardCharges/ManageNonStandardCharges.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/tag_orange.png</Icon>
+                            <Description>Manage Nonstandard Charges</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage NonStandardCharges</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>ManageBillSoftExemptions</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MANAGE_BILLSOFT_EXEMPTIONS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/Tax/BillSoftExemptions.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/tag_orange.png</Icon>
+                            <Description>Manage BillSoft Exemptions</Description>
+                            <RequiredCapabilities>
+                                <Capability>BillSoftViewCapability</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>ManageBillSoftOverrides</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MANAGE_BILLSOFT_OVERRIDES</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/Tax/BillSoftOverrides.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/tag_orange.png</Icon>
+                            <Description>Manage BillSoft Overrides</Description>
+                            <RequiredCapabilities>
+                                <Capability>BillSoftViewCapability</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>
+            </MenuSections>
+        </Menu>
+        <Menu>
+            <ID>DefaultAccountMenu</ID>
+            <Type>Horizontal</Type>
+            <Description>Default Account Menu Section</Description>
+            <MenuSections>
+                <MenuSection>
+                    <ID>AccountDetails</ID>
+                    <Caption>
+                        <LocalizationTag>TEXT_ACCOUNT_DETAILS</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                    </Caption>
+                    <Description>Default Account Details</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>Summary</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_SUMMARY</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/ManageAccount.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/report_user.png</Icon>
+                            <Description>Account Summary Details</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>AccountState</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_ACCOUNT_STATE</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/AccountStateSetup.asp</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/user_gray.png</Icon>
+                            <Description>Account State</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>UpdateAccount</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_UPDATE_ACCOUNT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=UpdateAccountWorkflow</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/user_edit.png</Icon>
+                            <Description>Update Specified Account</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>UpdateContact</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_UPDATE_CONTACT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=ContactUpdateWorkflow</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/vcard_edit.png</Icon>
+                            <Description>Update Specified Account Contact Information</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>BillMessageAccount</ID>
+                            <Caption>
+                                <Value><![CDATA[Assign Bill Messages]]></Value>
+                            </Caption>
+                            <Link>/MetraNet/BillMessages/BillMessageAccounts.aspx?Name=Core.BillMessages.BillMessageAccount&amp;Extension=Core&amp;NewBreadcrumb=True&amp;Association=MetraTech.BusinessEntity.Core.Model.AccountDef</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/application_view_columns.png</Icon>
+                            <Description>Assign Bill Messages</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>ViewOnlineBill</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_VIEWONLINE_BILL</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/ViewOnlineBill.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/page_world.png</Icon>
+                            <Description>View Online Bill</Description>
+                            <RequiredCapabilities>
+                                <Capability>View Online Bill</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>EditAccountTemplate</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_EDIT_TEMPLATE</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=TemplateWorkflow</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/vcard_add.png</Icon>
+                            <Description>Modify Account Template</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>MoveAccount</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MOVE_ACCOUNT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/HierarchyMoveDate.asp?INDIVIDUAL=TRUE</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/folder_user.png</Icon>
+                            <Description>Move Specified Account</Description>
+                            <RequiredCapabilities>
+                                <Capability>Move account</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>
+                <MenuSection>
+                    <ID>SubscriptionSection</ID>
+                    <Caption>
+                        <LocalizationTag>TEXT_SUBSCRIPTIONS</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                    </Caption>
+                    <Description>Supscription Section</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>Subscriptions2</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_SUBSCRIPTIONS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=SubscriptionsWorkflow</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/application_view_list.png</Icon>
+                            <Description>Subscription WorkFlow</Description>
+                            <RequiredCapabilities>
+                                <Capability>View subscriptions</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>GroupSubscriptions3</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_GROUP_SUBSCRIPTIONS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=GroupSubscriptionsWorkflow</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/group_link.png</Icon>
+                            <Description>Group Subscription Workflow</Description>
+                            <RequiredCapabilities>
+                                <Capability>View group subscriptions</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>
+                <MenuSection>
+                    <ID>Relationships</ID>
+                    <Caption>
+                        <LocalizationTag>TEXT_RELATIONSHIPS</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                    </Caption>
+                    <Description>Relationship Section</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>FolderOwnerUpdate</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_FOLDER_OWNER</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/FolderOwnerUpdate.asp?MDMReload=True</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/folder_user.png</Icon>
+                            <Description>Update Folder Owner</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Subscriber Auth</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>ManageFolderOwner</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_OWNED_FOLDERS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/FolderOwnerSetup.asp?MDMReload=True</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/folder_wrench.png</Icon>
+                            <Description>Manage Folder Owner Information</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Subscriber Auth</Capability>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>OwnerAccounts</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_OWNER_ACCOUNTS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/OwnerAccounts.asp?MDMReload=True</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/group_gear.png</Icon>
+                            <Description>Owner Accounts</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                                <Capability>Manage Sales Force Hierarchies</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>Payer</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_PAY_FOR_ACCOUNTS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/PayerSetup.asp</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/money_add.png</Icon>
+                            <Description>Setup Payer Detail</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Payment Redirection</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>PayerForMe</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_PAY_FOR_ME</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/PayerSetupHistory.asp</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/money_add.png</Icon>
+                            <Description>Setup Payer History</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Payment Redirection</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>SendEMail</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_SEND_EMAIL_DIALOG</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/SendEMailToSubscriber.asp</Link>
+                            <Target>hidden</Target>
+                            <Icon>/Res/Images/icons/email.png</Icon>
+                            <Description>Send EMail to Subscriber</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>SubscriberLogView</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_SUBSCRIBER_LOG_VIEW</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/Audit/AuditLog.aspx?SubscriberMode=TRUE</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/page_find.png</Icon>
+                            <Description>Subscriber Audit Log</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>SubscriberLogAdd</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_SUBSCRIBER_LOG_ADD</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/DefaultDialogCreateAuditEvent.asp</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/page_edit.png</Icon>
+                            <Description>Create Subscriber Audit Event Log</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>BillManagerUpdate</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_BILL_MANAGER</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/Relationships/AccountBillManager.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/folder_user.png</Icon>
+                            <Description>Update Bill Manager</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Subscriber Auth</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>BillManageeUpdate</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_BILL_MANAGEES</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/Relationships/AccountBillManagees.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/folder_wrench.png</Icon>
+                            <Description>Update Bill Managee</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Subscriber Auth</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>
+                <MenuSection>
+                    <ID>Adjustments</ID>
+                    <Caption>
+                        <LocalizationTag>TEXT_ADJUSTMENTS</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                    </Caption>
+                    <Description>Adjustment Section</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>AdjustTransactions</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_ADJUST_TRANSACTIONS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/Adjustment.Finder.asp</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/tag_blue_edit.png</Icon>
+                            <Description>Find Specific Adjustment</Description>
+                            <RequiredCapabilities>
+                                <Capability>Apply Adjustments</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>BulkAdjustments</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_BULK_ADJUSTMENTS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/Adjustment.Finder.asp?BulkAdjust=true</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/tag_blue_edit.png</Icon>
+                            <Description>Find Bulk Adjustments</Description>
+                            <RequiredCapabilities>
+                                <Capability>Apply Adjustments</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>IssueMiscAdjustment</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MENU_ISSUE_MISC_ADJUSTMENT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/Adjustments/IssueMiscellaneousAdjustment.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/table_row_delete.png</Icon>
+                            <Description>Issue Miscellaneous Adjustment</Description>
+                            <RequiredCapabilities>
+                                <Capability>Apply Adjustments</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>NonStandardCharges</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_NONSTANDARD_CHARGES</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/NonStandardCharges/IssueNonStandardCharge.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/tag_orange.png</Icon>
+                            <Description>Issue Nonstandard charges </Description>
+                            <RequiredCapabilities>
+                                <Capability>Apply NonStandardCharges</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>
+                <MenuSection>
+                    <ID>SecuritySection</ID>
+                    <Caption>
+                        <LocalizationTag>TEXT_SECURITY</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                    </Caption>
+                    <Description>Security Section</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>EditMapping</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_EDIT_MAPPING</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/DefaultPVBMapping.asp</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/user_gray.png</Icon>
+                            <Description>Edit Default Security Mappping</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>ManageDefaultSecurityPolicy</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MANAGE_DEFAULT_SECURITY</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/ManageSecurity.asp?MDMReload=True**MODE=FOLDER_DEFAULT_POLICY</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/key_go.png</Icon>
+                            <Description>Manage Default Security Policy</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Subscriber Auth</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>ManageSecurity</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MANAGE_SECURITY</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/ManageSecurity.asp?MDMReload=True**MODE=SUBSCRIBER_OR_FOLDER_ACTIVE_POLICY</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/user_edit.png</Icon>
+                            <Description>Manage Security Policy</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Subscriber Auth</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>GeneratePassword</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MENU_GENERATE_PASSWORD</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/GeneratePassword.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/lock_edit.png</Icon>
+                            <Description>Generate a New Password</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>UnlockAccount</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MENU_UNLOCK_ACCOUNT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/UnlockAccount.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/lock_edit.png</Icon>
+                            <Description>Unlock Specified Account</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>
+                <MenuSection>
+                    <ID>Payments</ID>
+                    <Caption>
+                        <LocalizationTag>TEXT_PAYMENTS</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                    </Caption>
+                    <Description>Payment Section</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>PaymentMethods</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_PAYMENT_METHODS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/Payments/CreditCardList.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/creditcards.png</Icon>
+                            <Description>Payment Methods Defined</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>
+            </MenuSections>
+        </Menu>
+        <Menu>
+            <ID>CorporateAccount</ID>
+            <Type>Horizontal</Type>
+            <Description>Corporate Account Type</Description>
+            <MenuSections>
+                <MenuSection>
+                    <ID>AccountDetails</ID>
+                    <Caption>
+                        <LocalizationTag>TEXT_ACCOUNT_DETAILS</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                    </Caption>
+                    <Description>Specific Details for Corporate Account</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>Summary</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_SUMMARY</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/ManageAccount.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/report_user.png</Icon>
+                            <Description>Corporate Account Summary</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>AccountState</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_ACCOUNT_STATE</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/AccountStateSetup.asp</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/user_gray.png</Icon>
+                            <Description>Corporate Account Account State</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>UpdateAccount</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_UPDATE_ACCOUNT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=UpdateAccountWorkflow</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/user_edit.png</Icon>
+                            <Description>Update Specified Corporate Account</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>UpdateContact</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_UPDATE_CONTACT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=ContactUpdateWorkflow</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/vcard_edit.png</Icon>
+                            <Description>Update Contact D for the Specified Account</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>ViewOnlineBill</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_VIEWONLINE_BILL</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/ViewOnlineBill.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/page_world.png</Icon>
+                            <Description>View Online Bill</Description>
+                            <RequiredCapabilities>
+                                <Capability>View Online Bill</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>EditAccountTemplate</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_EDIT_TEMPLATE</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=TemplateWorkflow</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/vcard_add.png</Icon>
+                            <Description>Modify Account Template</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>MoveAccount</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MOVE_ACCOUNT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/HierarchyMoveDate.asp?INDIVIDUAL=TRUE</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/folder_user.png</Icon>
+                            <Description>Move Specified Account</Description>
+                            <RequiredCapabilities>
+                                <Capability>Move account</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                       <MenuItem>
+                        <ID>BillMessageAccount</ID>
+                        <Caption>
+                          <Value><![CDATA[Assign Bill Messages]]></Value>
+                        </Caption>
+                        <Link>/MetraNet/BillMessages/BillMessageAccounts.aspx?Name=Core.BillMessages.BillMessageAccount&amp;Extension=Core&amp;NewBreadcrumb=True&amp;Association=MetraTech.BusinessEntity.Core.Model.AccountDef</Link>
+                        <Target>MainContentIframe</Target>
+                        <Icon>/Res/Images/Icons/application_view_columns.png</Icon>
+                        <Description>Assign Bill Messages</Description>
+                        <RequiredCapabilities>
+                          <CompositeCapability name="Read Business Modeling Entities">
+                            <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
+                          </CompositeCapability>
+                        </RequiredCapabilities>
+                      </MenuItem>
+                    </MenuItems>
+                </MenuSection>
+                <MenuSection>
+                    <ID>SubscriptionSection</ID>
+                    <Caption>
+                        <LocalizationTag>TEXT_SUBSCRIPTIONS</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                    </Caption>
+                    <Description>Subscription Section</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>Subscriptions2</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_SUBSCRIPTIONS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=SubscriptionsWorkflow</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/application_view_list.png</Icon>
+                            <Description>View Subscriptions</Description>
+                            <RequiredCapabilities>
+                                <Capability>View subscriptions</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>GroupSubscriptions2</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_GROUP_SUBSCRIPTIONS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=GroupSubscriptionsWorkflow</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/group_link.png</Icon>
+                            <Description>View Group Subscriptions</Description>
+                            <RequiredCapabilities>
+                                <Capability>View group subscriptions</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>
+                <MenuSection>
+                    <ID>Relationships</ID>
+                    <Caption>
+                        <LocalizationTag>TEXT_RELATIONSHIPS</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                    </Caption>
+                    <Description>Relationships Section</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>FolderOwnerUpdate</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_FOLDER_OWNER</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/FolderOwnerUpdate.asp?MDMReload=True</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/folder_user.png</Icon>
+                            <Description>Update Folder Owner</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Subscriber Auth</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>ManageFolderOwner</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_OWNED_FOLDERS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/FolderOwnerSetup.asp?MDMReload=True</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/folder_wrench.png</Icon>
+                            <Description>Manage Folder Owner</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Subscriber Auth</Capability>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>OwnerAccounts</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_OWNER_ACCOUNTS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/OwnerAccounts.asp?MDMReload=True</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/group_gear.png</Icon>
+                            <Description>Manage Owner Accounts</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                                <Capability>Manage Sales Force Hierarchies</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>Payer</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_PAY_FOR_ACCOUNTS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/PayerSetup.asp</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/money_add.png</Icon>
+                            <Description>Setup Payer Details</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Payment Redirection</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>PayerForMe</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_PAY_FOR_ME</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/PayerSetupHistory.asp</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/money_add.png</Icon>
+                            <Description>Payer Setup management</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Payment Redirection</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>SendEMail</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_SEND_EMAIL_DIALOG</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/SendEMailToSubscriber.asp</Link>
+                            <Target>hidden</Target>
+                            <Icon>/Res/Images/icons/email.png</Icon>
+                            <Description>Send EMail to Subscriber</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>SubscriberLogView</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_SUBSCRIBER_LOG_VIEW</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/Audit/AuditLog.aspx?SubscriberMode=TRUE</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/page_find.png</Icon>
+                            <Description>View Subscriber LogView</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>SubscriberLogAdd</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_SUBSCRIBER_LOG_ADD</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/DefaultDialogCreateAuditEvent.asp</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/page_edit.png</Icon>
+                            <Description>Create Subscriber Audit Event</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>BillManagerUpdate</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_BILL_MANAGER</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/Relationships/AccountBillManager.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/folder_user.png</Icon>
+                            <Description>Update Bill Manager</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Subscriber Auth</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>BillManageeUpdate</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_BILL_MANAGEES</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/Relationships/AccountBillManagees.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/folder_wrench.png</Icon>
+                            <Description>Update Bill Managee</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Subscriber Auth</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>
+                <MenuSection>
+                    <ID>Adjustments</ID>
+                    <Caption>
+                        <LocalizationTag>TEXT_ADJUSTMENTS</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                    </Caption>
+                    <Description>Adjustment Section</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>AdjustTransactions</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_ADJUST_TRANSACTIONS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/Adjustment.Finder.asp</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/tag_blue_edit.png</Icon>
+                            <Description>Search for Adjustments</Description>
+                            <RequiredCapabilities>
+                                <Capability>Apply Adjustments</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>BulkAdjustments</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_BULK_ADJUSTMENTS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/Adjustment.Finder.asp?BulkAdjust=true</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/tag_blue_edit.png</Icon>
+                            <Description>Search for Bulk Adjustments</Description>
+                            <RequiredCapabilities>
+                                <Capability>Apply Adjustments</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>IssueMiscAdjustment</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MENU_ISSUE_MISC_ADJUSTMENT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/Adjustments/IssueMiscellaneousAdjustment.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/table_row_delete.png</Icon>
+                            <Description>Issue MiscellaneousAdjustment</Description>
+                            <RequiredCapabilities>
+                                <Capability>Apply Adjustments</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>NonStandardCharges</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_NONSTANDARD_CHARGES</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/NonStandardCharges/IssueNonStandardCharge.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/tag_orange.png</Icon>
+                            <Description>Issue Nonstandard charges </Description>
+                            <RequiredCapabilities>
+                                <Capability>Apply NonStandardCharges</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>
+                <MenuSection>
+                    <ID>SecuritySection</ID>
+                    <Caption>
+                        <LocalizationTag>TEXT_SECURITY</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                    </Caption>
+                    <Description>Security Section</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>EditMapping</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_EDIT_MAPPING</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/DefaultPVBMapping.asp</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/user_gray.png</Icon>
+                            <Description>Edit Security Mappings</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>ManageDefaultSecurityPolicy</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MANAGE_DEFAULT_SECURITY</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/ManageSecurity.asp?MDMReload=True**MODE=FOLDER_DEFAULT_POLICY</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/key_go.png</Icon>
+                            <Description>Manage Default Security Policy</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Subscriber Auth</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>ManageSecurity</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MANAGE_SECURITY</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/ManageSecurity.asp?MDMReload=True**MODE=SUBSCRIBER_OR_FOLDER_ACTIVE_POLICY</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/user_edit.png</Icon>
+                            <Description>Manage Security Policy</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Subscriber Auth</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>GeneratePassword</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MENU_GENERATE_PASSWORD</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/GeneratePassword.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/lock_edit.png</Icon>
+                            <Description>Generate a New Password</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>UnlockAccount</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MENU_UNLOCK_ACCOUNT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/UnlockAccount.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/lock_edit.png</Icon>
+                            <Description>UnLock Specified Account</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>
+                <MenuSection>
+                    <ID>Payments</ID>
+                    <Caption>
+                        <LocalizationTag>TEXT_PAYMENTS</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                    </Caption>
+                    <Description>Payment related menu options</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>PaymentMethods</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_PAYMENT_METHODS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/Payments/CreditCardList.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/creditcards.png</Icon>
+                            <Description>List of Payment Methods</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>
+            </MenuSections>
+        </Menu>
+        <Menu>
+            <ID>SystemAccount</ID>
+            <Type>Horizontal</Type>
+            <Description>System Account</Description>
+            <MenuSections>
+                <MenuSection>
+                    <ID>SUAccountDetails</ID>
+                    <Caption>
+                        <LocalizationTag>TEXT_ACCOUNT_DETAILS</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                    </Caption>
+                    <Description>System Account Section</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>SUSummary</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_SUMMARY</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/ManageAccount.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/report_user.png</Icon>
+                            <Description>Account Summarization</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Sales Force Hierarchies</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>SUUpdateAccount</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_UPDATE_ACCOUNT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=UpdateAccountWorkflow</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/user_edit.png</Icon>
+                            <Description>Update Account</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>
+                <MenuSection>
+                    <ID>SUSecuritySection</ID>
+                    <Caption>
+                        <LocalizationTag>TEXT_SECURITY</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                    </Caption>
+                    <Description>System User Security Section</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>SUOwnedAccounts</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_SYSTEM_USER_OWNED_ACCOUNTS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/OwnedAccounts.asp?MDMReload=True</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/group_gear.png</Icon>
+                            <Description>System User Owned Accounts</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update CSR accounts</Capability>
+                                <Capability>Manage Sales Force Hierarchies</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>SUOwnedSystemFolders</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_SYSTEM_USER_OWNED_SYSTEM_FOLDERS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/FolderOwnerSetup.asp?MDMReload=True**MODE=SYSTEM_USER</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/folder_wrench.png</Icon>
+                            <Description>System User Owned Folders</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update CSR accounts</Capability>
+                                <Capability>Manage Sales Force Hierarchies</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>SUSecurity</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_SYSTEM_USER_SECURITY</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/ManageSecurity.asp?MDMReload=True**MODE=CSR_ACTIVE_POLICY</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/key_go.png</Icon>
+                            <Description>System User Security Policy Management</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage CSR Auth</Capability>
+                                <Capability>Manage Sales Force Hierarchies</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>SUGeneratePassword</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MENU_GENERATE_PASSWORD</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/GeneratePassword.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/lock_edit.png</Icon>
+                            <Description>System User Generate a New Password</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update CSR accounts</Capability>
+                                <Capability>Manage Sales Force Hierarchies</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>SUUnlockAccount</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MENU_UNLOCK_ACCOUNT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/UnlockAccount.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/lock_edit.png</Icon>
+                            <Description>System User Unlock Specified Account</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update CSR accounts</Capability>
+                                <Capability>Manage Sales Force Hierarchies</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>
+            </MenuSections>
+        </Menu>
+    </Menus>
+    <Name></Name>
+    <Description></Description>
+</MenuManager>

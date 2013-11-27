@@ -1,0 +1,15 @@
+﻿@model MetraNet.Models.SpecCharacteristicValueModel
+
+@{
+  ViewBag.Title = ViewContext.HttpContext.GetGlobalResourceObject("Resource", "TEXT_TITLE_ADD_PROPERTY");
+  Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+
+@if (Session["EntityID"] == null)
+{
+  <div class="CaptionBar">
+  @ViewBag.Title           
+  </div>
+}
+<br/>
+@Html.Partial("_PropertyForm")

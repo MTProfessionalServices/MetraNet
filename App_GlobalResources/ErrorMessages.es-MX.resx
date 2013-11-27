@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ERROR_ACCOUNT_DORMANT" xml:space="preserve">
+    <value>&lt;br/&gt;&lt;br/&gt;La cuenta está inactiva.  Puede desbloquearla.</value>
+  </data>
+  <data name="ERROR_ACH_ADD" xml:space="preserve">
+    <value>No se puede agregar el método de pago ACH a esta cuenta</value>
+  </data>
+  <data name="ERROR_ACH_LIST" xml:space="preserve">
+    <value>No se puede recuperar la lista de métodos de pago ACH</value>
+  </data>
+  <data name="ERROR_ACH_LOAD" xml:space="preserve">
+    <value>No se pueden ver los detalles de la cuenta de pago ACH</value>
+  </data>
+  <data name="ERROR_ACH_REMOVE" xml:space="preserve">
+    <value>No se puede eliminar el método de pago ACH de esta cuenta</value>
+  </data>
+  <data name="ERROR_ACH_UPDATE" xml:space="preserve">
+    <value>No se puede modificar la información del método de pago ACH</value>
+  </data>
+  <data name="ERROR_CAPABILITY_INVALID" xml:space="preserve">
+    <value>Capacidad predeterminada no válida.</value>
+  </data>
+  <data name="ERROR_CC_ADD" xml:space="preserve">
+    <value>No se puede agregar tarjeta de crédito a esta cuenta</value>
+  </data>
+  <data name="ERROR_CC_LIST" xml:space="preserve">
+    <value>No se puede recuperar la lista de tarjetas de crédito</value>
+  </data>
+  <data name="ERROR_CC_LOAD" xml:space="preserve">
+    <value>No se pueden ver los detalles de la tarjeta de crédito</value>
+  </data>
+  <data name="ERROR_CC_REMOVE" xml:space="preserve">
+    <value>No se puede eliminar la tarjeta de crédito de su cuenta</value>
+  </data>
+  <data name="ERROR_CC_UPDATE" xml:space="preserve">
+    <value>No se puede modificar la información de la tarjeta de crédito</value>
+  </data>
+  <data name="ERROR_EMAIL_REQUIRED" xml:space="preserve">
+    <value>El campo Dirección de correo electrónico es obligatorio.</value>
+  </data>
+  <data name="ERROR_ENDDOM_INVALID" xml:space="preserve">
+    <value>Se seleccionó un día de fin de mes no válido.  El día DEBE ser después del día de inicio.</value>
+  </data>
+  <data name="ERROR_LAST_LOGIN" xml:space="preserve">
+    <value>El último inicio de sesión para {0} fue el {1}.  Ha habido {2} errores de intentos de inicio de sesión desde el último inicio de sesión correcto.</value>
+  </data>
+  <data name="ERROR_LOGIN_INVALID" xml:space="preserve">
+    <value>Nombre de usuario o contraseña no válido.</value>
+  </data>
+  <data name="ERROR_LOGIN_LOCKED" xml:space="preserve">
+    <value>Su cuenta se ha bloqueado por motivos de seguridad.  Póngase en contacto con el servicio de soporte técnico para solucionar este problema.</value>
+  </data>
+  <data name="ERROR_LOGIN_PASSWORD_EXPIRING" xml:space="preserve">
+    <value>Su contraseña expirará en {0} día(s).  Si tiene tiempo, ¿por qué no la cambia ahora?  </value>
+  </data>
+  <data name="ERROR_MAIN_MENU" xml:space="preserve">
+    <value>Archivo de menú no válido, notifique al administrador del sistema.</value>
+  </data>
+  <data name="ERROR_NEVER_LOGGED" xml:space="preserve">
+    <value>Este usuario nunca ha iniciado sesión en MetraCare.</value>
+  </data>
+  <data name="ERROR_NOT_VALID_ACCOUNT" xml:space="preserve">
+    <value>Error, no es una cuenta válida.</value>
+  </data>
+  <data name="ERROR_PARENT_ACCOUNT_INVALID" xml:space="preserve">
+    <value>ID de cuenta principal no válida.</value>
+  </data>
+  <data name="ERROR_PASSWORD_EXPIRED" xml:space="preserve">
+    <value>Su contraseña ha expirado</value>
+  </data>
+  <data name="ERROR_PASSWORDS_DO_NOT_MATCH" xml:space="preserve">
+    <value>Las contraseñas no coinciden.</value>
+  </data>
+  <data name="ERROR_SECURITY_ANSWER_INVALID" xml:space="preserve">
+    <value>Respuesta de seguridad no válida.</value>
+  </data>
+    <data name="ERROR_SECURITY_QUESTION_INVALID" xml:space="preserve">
+        <value>No se puede configurar la Pregunta de seguridad y la Pregunta de seguridad personalizada.</value>
+    </data>
+  <data name="ERROR_SUBSCRIBER_NULL" xml:space="preserve">
+    <value>Debe administrar una cuenta primero antes de poder actuar sobre ella.</value>
+  </data>
+  <data name="ERROR_TEMP_LOCK" xml:space="preserve">
+    <value>El sistema solo permite {0} intentos de inicio de sesión antes de que la cuenta se bloquee temporalmente por {1} minutos.  Puede desbloquear manualmente la cuenta.</value>
+  </data>
+  <data name="ERROR_UNABLE_SAVE_DATA" xml:space="preserve">
+    <value>No se puede guardar cambios.</value>
+  </data>
+  <data name="ERROR_UNABLE_TO_UNLOCK_ACCOUNT" xml:space="preserve">
+    <value>No se puede bloquear la cuenta.  ¿Tiene permiso?</value>
+  </data>
+  <data name="ERROR_USERNAME_INVALID" xml:space="preserve">
+    <value>Nombre de usuario no válido.</value>
+  </data>
+  <data name="ERROR_USM_CONFIG_BAD_ANNUALLY" xml:space="preserve">
+    <value>Días para el intervalo anual</value>
+  </data>
+  <data name="ERROR_USM_CONFIG_BAD_BIWEEKLY" xml:space="preserve">
+    <value>Días para el intervalo bisemanal</value>
+  </data>
+  <data name="ERROR_USM_CONFIG_BAD_DAILY" xml:space="preserve">
+    <value>Días para el intervalo diario</value>
+  </data>
+  <data name="ERROR_USM_CONFIG_BAD_MONTHLY" xml:space="preserve">
+    <value>Días para el intervalo mensual</value>
+  </data>
+  <data name="ERROR_USM_CONFIG_BAD_QUARTERLY" xml:space="preserve">
+    <value>Días para el intervalo trimestral</value>
+  </data>
+  <data name="ERROR_USM_CONFIG_BAD_SEMIANNUALLY" xml:space="preserve">
+    <value>Días para el intervalo semestral</value>
+  </data>
+  <data name="ERROR_USM_CONFIG_BAD_SEMIMONTHLY" xml:space="preserve">
+    <value>Días para el intervalo quincenal</value>
+  </data>
+  <data name="ERROR_USM_CONFIG_BAD_WEEKLY" xml:space="preserve">
+    <value>Días para el intervalo semanal</value>
+  </data>
+  <data name="ERROR_USM_CONFIG_INVALID_GRACE_PERIOD" xml:space="preserve">
+    <value>debe ser un entero mayor o igual que cero.</value>
+  </data>
+  <data name="ERROR_USM_CONFIG_UNABLE_TO_RETRIEVE" xml:space="preserve">
+    <value>No se puede recuperar la configuración. Consulte detalles en el registro.</value>
+  </data>
+  <data name="ERROR_USM_CONFIG_UNABLE_TO_SAVE" xml:space="preserve">
+    <value>No se puede guardar los cambios en la configuración. Consulte detalles en el registro.</value>
+  </data>
+  <data name="ERROR_MULTIPLE_ACCOUNT_UPDATE_PENDING_CHANGES" xml:space="preserve">
+    <value>Mexican Spanish</value>
+  </data>
+    <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
+        <value>No se pueden eliminar las espec.</value>
+    </data>
+    <data name="SpecCharacteristicRepository_LoadSpecCharacteristic_Didn_t_find_matching_spec_" xml:space="preserve">
+        <value>No se encontró la espec. coincidente</value>
+    </data>
+    <data name="SpecCharacteristicRepository_LoadSpecCharacteristics_Failed_getting_specs_" xml:space="preserve">
+        <value>Error al obtener espec.</value>
+    </data>
+    <data name="SpecCharacteristicRepository_LoadSubCharacteristicValues_Failed_getting_entity_properties_" xml:space="preserve">
+        <value>Error al obtener propiedades de entidad.</value>
+    </data>
+    <data name="SpecCharacteristicRepository_SaveSpecCharacteristic_Failed_saving_spec_" xml:space="preserve">
+        <value>Error al guardar las espec.</value>
+    </data>
+    <data name="SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_" xml:space="preserve">
+        <value>Acceso denegado.</value>
+    </data>
+    <data name="SpecCharacteristicsController_AddSharedProperty_Couldn_t_add_property_" xml:space="preserve">
+        <value>No se pudo agregar la propiedad.</value>
+    </data>
+    <data name="SpecCharacteristicsController_Delete_Couldn_t_delete_property_" xml:space="preserve">
+        <value>No se pudo eliminar la propiedad.</value>
+    </data>
+    <data name="SpecCharacteristicsController_SetDisplayOrder_Couldn_t_find_property_" xml:space="preserve">
+        <value>No se pudo encontrar la propiedad.</value>
+    </data>
+</root>

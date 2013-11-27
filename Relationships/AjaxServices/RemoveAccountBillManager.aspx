@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="RemoveAccountBillManager.aspx.cs" Inherits="Relationships_AjaxServices_RemoveAccountBillManager" %>

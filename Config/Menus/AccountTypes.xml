@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration id="UI Page Mapper" type='collection'>
+
+  <description>
+    Defines Page locations for different account types.
+
+    [APP_VIRTUAL_DIR] bracket tag will be replaced at run-time by the
+    name of the web site : /MetraNet
+  </description>
+  
+  <!-- Goto Account Summary -->
+  <item id="AccountSummaryPage">
+    <value>[APP_VIRTUAL_DIR]/Account/GotoAccountSummary.aspx</value>
+    <description>AccountSummary</description>
+  </item>
+
+  <!-- Account Summary -->
+  <item id="DEFAULT_SUMMARYPAGE">
+    <value>[APP_VIRTUAL_DIR]/Account/GenericAccountSummary.aspx</value>
+    <description>Default generic account summary page.</description>
+  </item>
+
+  <item id="CORESUBSCRIBER_SUMMARYPAGE">
+    <value>[APP_VIRTUAL_DIR]/Account/GenericAccountSummary.aspx</value>
+    <description>Default account summary page used for CoreSubscriber, Department, Corporate and Independent account types.</description>
+  </item>
+
+  <item id="DEPARTMENTACCOUNT_SUMMARYPAGE">
+    <value>[APP_VIRTUAL_DIR]/Account/GenericAccountSummary.aspx</value>
+    <description>Default account summary page used for CoreSubscriber, Department, Corporate and Independent account types.</description>
+  </item>
+
+  <item id="CORPORATEACCOUNT_SUMMARYPAGE">
+    <value>[APP_VIRTUAL_DIR]/Account/GenericAccountSummary.aspx</value>
+    <description>Default account summary page used for CoreSubscriber, Department, Corporate and Independent account types.</description>
+  </item>
+
+  <item id="INDEPENDENTACCOUNT_SUMMARYPAGE">
+    <value>[APP_VIRTUAL_DIR]/Account/GenericAccountSummary.aspx</value>
+    <description>Default account summary page used for CoreSubscriber, Department, Corporate and Independent account types.</description>
+  </item>
+  
+  <item id="SYSTEMACCOUNT_SUMMARYPAGE">
+    <value>[APP_VIRTUAL_DIR]/Account/GenericAccountSummary.aspx</value>
+    <description>Account summary page used for System User account type</description>
+  </item>
+
+</configuration>
+
+

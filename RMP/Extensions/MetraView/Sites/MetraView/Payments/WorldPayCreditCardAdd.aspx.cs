@@ -91,8 +91,8 @@ public partial class Payments_WorldPayCreditCardAdd : MTPage
             //  localIP is the IP address of the MetraTech server to return to, which the user's browser will be forwarded to.
             //  So it could be the actual server's address, or a load balancer, or possibly "localhost" for testing.
             string localIP = _wpConfig.ReturnIp.Value;
-            url += "&successURL=http://" + localIP + "/MetraView/Payments/WorldPaySuccess.aspx?pay=" + (PayNow?"true":"false") +
-                     "&failureURL=http://" + localIP + "/MetraView/Payments/ViewPaymentMethods.aspx";
+            url += "&successURL=http://" + localIP + Request.ApplicationPath + "/Payments/WorldPaySuccess.aspx?pay=" + (PayNow?"true":"false") +
+                     "&failureURL=http://" + localIP + Request.ApplicationPath + "/Payments/ViewPaymentMethods.aspx";
             Response.Redirect(url);                        
         }
 

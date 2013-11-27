@@ -1304,11 +1304,12 @@ public class BillManager: System.Web.UI.TemplateControl
       if (UI.Subscriber.SelectedAccount._AccountID != null)
       {
         var acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
-        client.GetEligiblePOsForSubscription(acct, MetraTime.Now, ref poList);
+        client.GetEligiblePOsForSubscriptionMetraView(acct, MetraTime.Now, false, ref poList);
       }
 
       client.Close();
       client = null;
+     
       return poList;
     }
     catch (Exception ex)

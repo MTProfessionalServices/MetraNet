@@ -213,7 +213,7 @@ public partial class Payments_MakePayment : MTPage
 
   protected void btnCancel_Click(object sender, EventArgs e)
   {
-    Response.Redirect("/MetraView/Bill.aspx");
+    Response.Redirect(Request.ApplicationPath + "/Bill.aspx");
   }
 
   protected void btnNext_Click(object sender, EventArgs e)

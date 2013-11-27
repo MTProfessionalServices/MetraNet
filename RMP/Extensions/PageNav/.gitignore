@@ -1,0 +1,7 @@
+**output/
+**[Bb]in/
+
+**[Tt]emp/
+
+*.dll
+*.dbg

@@ -1,0 +1,356 @@
+<mt_config>
+<principal type="role" name = "Super User">
+<description>Super User: Authorizes full system access and permissions</description>
+<csrassignable>y</csrassignable>
+<subscriberassignable>n</subscriberassignable>
+<policies>
+<policy type="a">
+<compositecapabilities>
+  <compositecapability name="Unlimited Capability" guid="">
+  </compositecapability>
+</compositecapabilities>
+</policy>
+</policies>
+</principal>
+
+<principal type="role" name = "Product Administrator (MetraOffer)">
+<description>Product Administrator: Authorizes a user to perform administrative tasks in MetraOffer</description>
+<csrassignable>y</csrassignable>
+<subscriberassignable>n</subscriberassignable>
+<policies>
+<policy type="a">
+<compositecapabilities>
+  <compositecapability name="Application LogOn" guid="">
+  <atomiccapabilities>
+      <mtenumtypecapability>
+        <value>MCM</value>
+      </mtenumtypecapability>
+    </atomiccapabilities>
+  </compositecapability>
+</compositecapabilities>
+</policy>
+</policies>
+</principal>
+
+<principal type="role" name = "Operations Staff (MetraControl)">
+<description>Billing Systems Operator: Authorizes a user to perform routine tasks in MetraControl
+</description>
+<csrassignable>y</csrassignable>
+<subscriberassignable>n</subscriberassignable>
+<policies>
+<policy type="a">
+<compositecapabilities>
+  <compositecapability name="Application LogOn" guid="">
+  <atomiccapabilities>
+      <mtenumtypecapability>
+        <value>MOM</value>
+      </mtenumtypecapability>
+    </atomiccapabilities>
+  </compositecapability>
+  <compositecapability name="Update Failed Transactions" guid="">
+  </compositecapability>
+</compositecapabilities>
+</policy>
+</policies>
+</principal>
+
+<principal type="role" name = "Subscriber (MetraView)">
+<description>Subscriber: Authorizes a subscriber to perform routine tasks in MetraView
+</description>
+<csrassignable>y</csrassignable>
+<subscriberassignable>y</subscriberassignable>
+<policies>
+<policy type="a">
+<compositecapabilities>
+  <compositecapability name="Application LogOn" guid="">
+  <atomiccapabilities>
+      <mtenumtypecapability>
+        <value>MPS</value>
+      </mtenumtypecapability>
+    </atomiccapabilities>
+  </compositecapability>
+
+  <compositecapability name="Create Subscription" guid="">
+  </compositecapability>
+  <compositecapability name="Update Corporate Accounts" guid="">
+  </compositecapability>
+  <compositecapability name="Update subscriber accounts" guid="">
+  </compositecapability>
+
+  <compositecapability name="View Subscriptions" guid="">
+  </compositecapability>
+
+  <compositecapability name="Write Business Modeling Entities" guid="">
+  <atomiccapabilities>
+      <mtenumtypecapability>
+        <value>Core</value>
+      </mtenumtypecapability>
+    </atomiccapabilities>
+  </compositecapability>
+
+  <compositecapability name="Read Business Modeling Entities" guid="">
+  <atomiccapabilities>
+      <mtenumtypecapability>
+        <value>Core</value>
+      </mtenumtypecapability>
+    </atomiccapabilities>
+  </compositecapability>
+</compositecapabilities>
+</policy>
+</policies>
+</principal>
+
+<principal type="role" name="Sales">
+<description>Sales: Authorizes a sales associate to perform routine account ownership tasks in MetraCare
+</description>
+<csrassignable>y</csrassignable>
+<subscriberassignable>n</subscriberassignable>
+<policies>
+<policy type="a">
+<compositecapabilities>
+  <compositecapability name="Application LogOn" guid="">
+  <atomiccapabilities>
+      <mtenumtypecapability>
+        <value>MAM</value>
+      </mtenumtypecapability>
+    </atomiccapabilities>
+  </compositecapability>
+  <compositecapability name="View Online Bill" guid="">
+  </compositecapability>
+  <compositecapability name="Manage Owned Accounts" guid="">
+    <atomiccapabilities>
+      <mtenumtypecapability>
+        <value>Write</value>
+      </mtenumtypecapability>
+      <mtpathcapability>
+        <wildcard>*</wildcard>
+        <value>/</value>
+      </mtpathcapability>      
+    </atomiccapabilities>  
+  </compositecapability>
+  <compositecapability name="View Subscriptions" guid="">
+  </compositecapability>
+  <compositecapability name="View Group Subscriptions" guid="">
+  </compositecapability>  
+</compositecapabilities>
+</policy>
+</policies>
+</principal>
+
+<principal type="role" name = "CSR (MetraCare)">
+<description>CSR User: Authorizes a user to perform routine CSR tasks in MetraCare
+</description>
+<csrassignable>y</csrassignable>
+<subscriberassignable>n</subscriberassignable>
+<policies>
+<policy type="a">
+<compositecapabilities>
+  <compositecapability name="Application LogOn" guid="">
+  <atomiccapabilities>
+      <mtenumtypecapability>
+        <value>MAM</value>
+      </mtenumtypecapability>
+    </atomiccapabilities>
+  </compositecapability>
+	<compositecapability name="Impersonation" guid="">
+	</compositecapability>
+</compositecapabilities>
+</policy>
+</policies>
+</principal>
+
+<principal type="role" name = "Junior Adjustment Manager">
+<description>Adjustments - User: Authorizes a user to perform routine Adjustment Manager tasks in MetraCare
+</description>
+<csrassignable>y</csrassignable>
+<subscriberassignable>n</subscriberassignable>
+<policies>
+<policy type="a">
+<compositecapabilities>
+  <compositecapability name="Application LogOn" guid="">
+  <atomiccapabilities>
+      <mtenumtypecapability>
+        <value>MAM</value>
+      </mtenumtypecapability>
+    </atomiccapabilities>
+  </compositecapability>
+  <compositecapability name="Apply Adjustments" guid="">
+  <atomiccapabilities>
+      <mtdecimalcapability>
+        <op><![CDATA[<=]]></op>
+        <value>100.00</value>
+      </mtdecimalcapability>
+      <mtenumtypecapability>
+        <value>USD</value>
+      </mtenumtypecapability>
+    </atomiccapabilities>
+  </compositecapability>
+	<compositecapability name="Impersonation" guid="">
+	</compositecapability>
+</compositecapabilities>
+</policy>
+</policies>
+</principal>
+
+<principal type="role" name = "Senior Adjustment Manager">
+<description>Adjustments - Manager: Authorizes a user to perform privileged Adjustment Manager tasks in MetraCare
+</description>
+<csrassignable>y</csrassignable>
+<subscriberassignable>n</subscriberassignable>
+<policies>
+<policy type="a">
+<compositecapabilities>
+  <compositecapability name="Application LogOn" guid="">
+  <atomiccapabilities>
+      <mtenumtypecapability>
+        <value>MAM</value>
+      </mtenumtypecapability>
+    </atomiccapabilities>
+  </compositecapability>
+  <compositecapability name="Manage Adjustments" guid="">
+  </compositecapability>
+	<compositecapability name="Impersonation" guid="">
+	</compositecapability>
+</compositecapabilities>
+</policy>
+</policies>
+</principal>
+
+<principal type="account" name = "demo" namespace = "mt">
+<policies>
+<policy type="a">
+ <roles>
+  <role name="Subscriber (MetraView)" guid=""/>
+ </roles>
+	</policy>
+</policies>
+</principal>
+
+<principal type="account" name = "MetraViewAdmin" namespace = "mt">
+  <policies>
+    <policy type="a">
+     <roles>
+      <role name="Subscriber (MetraView)" guid=""/>
+     </roles>
+     <compositecapabilities> 
+       <compositecapability name="MetraView Admin" guid="">
+      </compositecapability>
+     </compositecapabilities>  
+    </policy>
+  </policies>
+</principal>
+
+<principal type="account" name = "Admin" namespace = "system_user">
+<policies>
+<policy type="a">
+ <roles>
+  <role name="Super User" guid=""/>
+ </roles>
+	</policy>
+</policies>
+</principal>
+
+<principal type="account" name = "csr1" namespace = "system_user">
+<policies>
+<policy type="a">
+<compositecapabilities>
+  <compositecapability name="Application LogOn" guid="">
+    <atomiccapabilities>
+      <mtenumtypecapability>
+        <value>MAM</value>
+      </mtenumtypecapability>
+    </atomiccapabilities>
+  </compositecapability>
+	<compositecapability name="Impersonation" guid="">
+	</compositecapability>
+</compositecapabilities>
+<roles>
+      <role name="CSR (MetraCare)" guid=""/>
+</roles>
+</policy>
+</policies>
+</principal>
+
+<principal type="account" name = "ops" namespace = "system_user">
+<policies>
+<policy type="a">
+<compositecapabilities>
+  <compositecapability name="Application LogOn" guid="">
+    <atomiccapabilities>
+      <mtenumtypecapability>
+        <value>MOM</value>
+      </mtenumtypecapability>
+    </atomiccapabilities>
+  </compositecapability>
+ </compositecapabilities>
+</policy>
+</policies>
+</principal>
+
+<principal type="account" name = "mcm1" namespace = "system_user">
+<policies>
+<policy type="a">
+<compositecapabilities>
+  <compositecapability name="Application LogOn" guid="">
+    <atomiccapabilities>
+      <mtenumtypecapability>
+        <value>MCM</value>
+      </mtenumtypecapability>
+    </atomiccapabilities>
+  </compositecapability>
+</compositecapabilities>
+</policy>
+</policies>
+</principal>
+
+<!--
+
+
+-->
+
+
+<principal type="account" name = "csr_folder">
+<policies>
+  <policy type="d">
+    <roles>
+      <role name="CSR (MetraCare)" guid=""/>
+    </roles>
+  </policy>
+</policies>
+</principal>
+
+
+<principal type="account" name = "mcm_folder">
+<policies>
+  <policy type="d">
+    <roles>
+      <role name="Product Administrator (MetraOffer)" guid=""/>
+    </roles>
+  </policy>
+</policies>
+</principal>
+
+
+
+<principal type="account" name = "mps_folder">
+<policies>
+  <policy type="d">
+    <roles>
+      <role name="Subscriber (MetraView)" guid=""/>
+    </roles>
+  </policy>
+</policies>
+</principal>
+
+<principal type="account" name = "mom_folder">
+<policies>
+  <policy type="d">
+    <roles>
+      <role name="Operations Staff (MetraControl)" guid=""/>
+    </roles>
+  </policy>
+</policies>
+</principal>
+
+
+</mt_config>

@@ -1,0 +1,3 @@
+
+				 CREATE VIEW %%VIEW_NAME%% AS %%SELECT_CLAUSE%%
+			

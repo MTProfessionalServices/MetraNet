@@ -1,0 +1,4 @@
+
+           select distinct _AccountID, name_space, username %%SORT_COLUMN%%
+           from (%%INNER_QUERY%%) iq1
+			

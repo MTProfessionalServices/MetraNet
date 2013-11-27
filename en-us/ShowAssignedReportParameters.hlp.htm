@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Add and Assign Parameters </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Add and Assign Parameters" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('24080');expand('24040');expand('24068');expand('13614');highlight('24085')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="ManageReportInstances.hlp.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="CreateNewReportDefinition.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h5 class="heading5">Add and Assign Parameters</h5>
+<p class="bodytext">You must add and assign parameters at the report definition level. A parameter works like a placeholder for a variable in a SQL query. Check with your configuration developer or examine the query yourself for valid parameter names. </p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">Parameters in SQL queries are delimited with double percent signs: <span class="red">%%</span>. Do <u class="underline">not</u> enter the percent signs when adding the parameter in the MetraControl module. For example, <strong class="strong">%%CUST_NO%%</strong> should be entered as <strong class="strong">CUST_NO</strong>. </p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Using Parameters</p>
+<p class="bodytext">Your query must have all the parameters it requires to run. However, not all parameters require you to specify a value in all circumstances. Some MetraNet system parameters can be populated with values automatically. Which system parameters are automatically populated depends on contest: end-of-period or scheduled reports. When applicable, these system parameters are passed values according to context. (See also Using System Parameters.)</p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">You must always specify parameter values for Ad Hoc reports because they do not have a system context such as an interval ID or start date/time.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext">For example, consider a simply query to get all invoice details from an interval:</p>
+<p class="code2">SELECT * from t_invoice </p>
+<p class="code2">where id_interval = %%ID_INTERVAL%%</p>
+<ul class="listbullet"><li class="listbullet">If your query is running as an EOP report instance, the ID_INTERVAL value is set by the system. </li><li class="listbullet">If your query is running as a Scheduled report instance, you would need to specify a valid value for ID_INTERVAL.</li></ul><p class="bodytext">According to context, some common system parameters that don't require setting values are:</p>
+<table class="tableintopic" width="618" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="174"><p class="bodytext">For EOP report instances:</p>
+</td>
+<td width="444"><p class="bodytext">No values required for ID_INTERVAL and ID_BILLGROUP</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td width="174"><p class="bodytext">For Scheduled instances:</p>
+</td>
+<td width="444"><p class="bodytext">No values required for START_DATE, START_DT, END_DATE, END_DT</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td width="174"><p class="bodytext">For Ad Hoc instances:</p>
+</td>
+<td width="444"><p class="bodytext">All values must be set.</p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Adding and Assigning Parameters</p>
+<p class="bodytext">To add and assign one or more parameters:</p>
+<ol class="listnumber"><li class="listnumber">Click <strong class="strong">Manage Report Parameters</strong>.</li><li class="listnumber">Click <strong class="strong">Add </strong>and enter one or more parameter names and descriptions (as required).<table class="tableintopic" width="576" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #BFBFBF">
+<tr align="left" valign="top">
+<th bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="156"><p class="tableheading">Property</p>
+</th>
+<th bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="420"><p class="tableheading">Usage</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="156"><p class="tabletext"><strong class="strong">Name</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="420"><p class="tabletext">The parameter name as it appears in the query you are referencing. For example, for the query above, the parameter name is: CUST_NO.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="156"><p class="tabletext"><strong class="strong">Description</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="420"><p class="tabletext">An identifying description that can serve for potentially multiple report instances.</p>
+</td>
+</tr>
+
+</table>
+</li><li class="listnumber">Click <strong class="strong">Assign Report Parameters</strong>.</li><li class="listnumber">Select one or more parameters and click <strong class="strong">Assign Report Parameters</strong>.<p class="listcontinue">Only <u class="underline">una</u>ssigned parameters appear in the <strong class="strong">Assign Report Parameters </strong>list for this particular report definition. When you define another report, you will see these previously added parameters because they have not been assigned to the new report definition.</p>
+</li></ol><p class="bodytext">When you create your report instance, you will select from the assigned parameters and specify values specific for the instance.</p>
+<p class="bodytext"></p>
+<p class="bodytext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> About Custom Rates </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="About Custom Rates" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('12397');expand('12550');expand('13616');highlight('16267')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="23866.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="about_recurring_charges.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">About Custom Rates</h4>
+<p class="bodytext">Custom Rates for a Group Subscription are set in MetraCare. By setting rates in MetraCare, you can set rates on any number of accounts&#8212;even an entire company, if all accounts in the company participate in the same group subscription.</p>
+<p class="bodytext">Setting custom rates allows you to change the rates of a subscribers right away. If you have the appropriate security capability, you can set custom rates on both individual and group subscriptions.</p>
+<p class="bodytext">Custom rates can be set only on subscriptions. You cannot set custom rates on default rates. For more information, see <a id="h12744" class="jumptemplate" title="About Default Rates" href="about_default_rates.htm" target="_self">About Default Rates</a>. When an account ends its subscription, it also ends its custom rates for the subscription.</p>
+<p class="subheading">Rates and Subscriptions</p>
+<p class="bodytext">Before setting custom rates, you should have a thorough understanding of how rates work in Account Manager. Essentially, there are three ways that the Account Manager application uses subscriptions to assigns rates to accounts. An account can have:</p>
+<ul class="listbullet"><li class="listbullet">An individual subscription to a product offering</li><li class="listbullet">A group subscription that shares its product offering's counters</li><li class="listbullet">A group subscription that does not share its product offering's counters</li></ul><p class="bodytext">Custom Rates for an individual subscription, override <em class="emphasis">one account's rates</em>.</p>
+<p class="bodytext">Custom Rates for group subscriptions override rates for <em class="emphasis">all accounts participating in the group</em>.</p>
+<table class="tableintopic" width="570" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="48"><p class="note"><img src="12688.gif" alt="" height="24px" width="26px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td valign="middle" width="522"><p class="note">It is critical to consider whether you are changing rates for a group subscription with or without shared counters. </p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext">Group subscriptions are very useful tools for setting custom rates. If everyone in the company has the same group subscription, you can set custom rates on an entire company. You can also customize rates for one group of accounts, while leaving another group of accounts with the standard rates for the same product offering.</p>
+<p class="bodytext">For example, say an account administrator has created separate group subscriptions for the Boston and LA Executive accounts. She informs her manager that Peter Bergman in OmniDesk's Boston office has been considering trying a new local carrier's conferencing service.</p>
+<p class="bodytext">At a moment's notice, Alice can now use MetraCare to set custom rates for the Boston Executive accounts subscribed to the Virtual MeetingSpace Executive Group Subscription. At the same time, she can leave the LA accounts with normal rates.</p>
+<p class="subheading">Rate Schedules</p>
+<p class="bodytext">A subscriber's rates are stored in rate schedules. Each rate schedule has a set of columns. One group of columns contains conditions, the other contains actions.</p>
+<p class="bodytext">In determining the subscriber's rates for a given instance of usage, the system starts at the top line of the rate schedule and determines if that line's conditions are met.</p>
+<p class="bodytext">If the conditions <em class="emphasis">are </em>met, then the system applies that line's actions&#8212;which usually involve applying the correct rate to the account. If the conditions <em class="emphasis">are not </em>met, then the system proceeds to the next line and checks if those conditions are met. If not, the system reads the next line of conditions, and so on, until it finds conditions that apply. Then it writes the appropriate condition's corresponding actions to the database (that is, the system applies the correct rate).</p>
+<p class="bodytext">Some rate schedules contain a default rule, which you can find at the bottom of the rate schedule. Default rules contain no conditions and automatically write their actions to the database when no other conditions apply. This ensures that all usage will be rated; you won't ever get an error saying that no condition was met.</p>
+<p class="subheading">Example Rate Schedule</p>
+<p class="bodytext">The following rate schedule specifies that under 1001 minutes, no charges apply. After this, the charge is $0.30 per minute:</p>
+<p class="bodytext"><img src="12798.gif" alt="" height="88px" width="829px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<p class="subheading">Rates and Product Offerings</p>
+<p class="bodytext">Each product offering contains one or more rate schedules. For instance, the following diagram shows three product offerings:</p>
+<p class="bodytext"><img src="12799.jpg" alt="" height="328px" width="576px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<p class="bodytext">Each Priceable Item and Discount (Product Usage, Subscription Fee, Setup Fee, and Discount) would have at least one rate schedule determining the product offering's rates.</p>
+<p class="bodytext">For instance, the rate schedule for Product Usage in the Virtual MeetingSpace Product Offering might look like this:</p>
+<p class="bodytext"><img src="12798.gif" alt="" height="88px" width="829px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<p class="bodytext">The rate schedule for the Subscription Fee in the Virtual MeetingSpace Product Offering might look like this:</p>
+<p class="bodytext"><img src="12800.gif" alt="" height="130px" width="583px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<p class="bodytext">To modify either of these rate schedules using Custom Rates, you would first choose the rate schedule from the product offering's list of parameter tables (the parameter table effectively stores the rate schedule) in Catalog Manager:</p>
+<p class="bodytext"><img src="12801.jpg" alt="" height="133px" width="826px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<p class="bodytext">Then you would enter the modified rates in Account Manager using the <strong class="strong">New Custom Rates </strong>button:</p>
+<p class="bodytext"><img src="12802.gif" alt="" height="152px" width="484px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<p class="bodytext">In rate schedules you can change items other than rates, such as: </p>
+<ul class="listbullet"><li class="listbullet">The product offering's counter</li><li class="listbullet">Other rate qualifiers</li><li class="listbullet">Database actions other than rate determination</li><li class="listbullet">The product offering's Calendar of Peak, Off-Peak, Weekend, and Holiday times</li></ul><p class="subheading">Group Subscriptions and Shared Counters</p>
+<p class="bodytext">It is very important to consider whether a group subscription uses shared counters for rating before changing an account's rate. </p>
+<p class="bodytext">For instance, you could have an audio conferencing product offering intended for a group subscription with shared counters. You could have the first 1000 minutes of group usage free, with a $0.25 per minute charge thereafter.</p>
+<p class="bodytext">You might mistake this shared-counter rate for a non-shared-counter rate and change the 1000 free minutes to 200 free minutes. This would have a significant effect on the customers' charge for the group subscription. The 200 minutes would be used up by the group very quickly, and greatly increase the customers' charge.</p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

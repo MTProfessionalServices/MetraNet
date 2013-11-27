@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Group Subscription Example </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Group Subscription Example, Group Subscriptions" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('12393');expand('12401');expand('12550');expand('13616');highlight('3812')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="recurring_charges_and_group_subscriptions.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="about_group_subscriptions.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<p class="heading6">Group Subscription Example</p>
+<p class="bodytext">Let&#8217;s look at OmniDesk&#8217;s three audio conferencing product offerings specifically designed for group subscriptions:</p>
+<ul class="listbullet"><li class="listbullet">An Executive Virtual MeetingSpace group product offering for executive employees. There is no sign-up fee for this service. It includes a subscription fee at $2 per month per individual subscription. It includes 2000 free minutes of calls for the whole group, and $.20 per minute thereafter.</li><li class="listbullet">A Virtual MeetingSpace group product offering for all OmniDesk employees (except executives). This includes an $80 sign-up fee per person. It also includes a subscription fee at $5 per month per account subscription. The plan includes 1000 free minutes of calls per month (for the whole group), and $.30 per minute thereafter.</li><li class="listbullet">A special Group Discount giving a specific group of employees 50% off their total bill for the first month.</li></ul><p class="bodytext">Here is a similar diagram for these product offerings intended for group subscriptions:</p>
+<p class="bodytext"><img src="4251.gif" alt="" height="327px" width="575px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<p class="bodytext">For these Executive and Standard Virtual MeetingSpace product offerings, the counter is the number of minutes. In this case, the counter qualifies the subscribers for a rate of .00 below a certain number of minutes, with charges going into effect after these minutes are used. Because Alice configured OmniDesk&#8217;s group subscription to these product offerings to use share counters, all accounts in the group share the pool of minutes (the counter) designated by the product offering.</p>
+<p class="bodytext">Let&#8217;s say four OmniDesk executives have subscribed to the Virtual MeetingSpace Executive group subscription, which contains the Executive Virtual MeetingSpace product offering. The Executive product package includes the first 2000 minutes of usage at no extra charge, and thereafter charges are $.20 per minute. Let&#8217;s say Peter Bergman has used 300 minutes, Phil Austin has used 200 minutes, David Ossman has used 400 minutes, and Phil Proctor has used 1000 minutes. So the total usage is 1900, just short of the 2000 minutes of free usage.</p>
+<p class="bodytext">Phil Proctor makes a call. So far, the rate qualifier for the $.20 rate has not been met. Let&#8217;s say Phil&#8217;s call lasts 200 minutes. Since the 2000-minute rate qualifier would be met 100 minutes into the call, when Phil hangs up, the charge for the call would be $20 (100 minutes multiplied by the .20 per minute rate).</p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

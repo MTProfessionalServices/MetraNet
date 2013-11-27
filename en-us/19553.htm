@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Configure an FLS Target </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Configure an FLS Target, File Management, FLS File Naming Convention, Target Arguments" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('19552');expand('20847');expand('19610');expand('13614');highlight('19553')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="20876.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="19554.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h5 class="heading5">Configure an FLS Target</h5>
+<p class="bodytext">You use MetraControl to configure an FLS target. For more information, see <a id="h20917" class="crossreference" title="File Management" href="19610.htm" target="_self">File Management</a>.</p>
+<p class="warning"><span class="red-bold">Before Configuring a Target  in MetraControl:</span></p>
+<p class="bodytext">On the MetraNet FLS server:</p>
+<ul class="listbullet"><li class="listbullet">Ensure ActivityServices are running:<br />From the command line: <strong class="strong">net start ActivityServices</strong> </li><li class="listbullet">If FLS is currently running, <u class="underline">shut it down</u> before configuring: <br />From the command line: <strong class="strong">net stop MetraTech.FileService</strong></li><li class="listbullet">When you have completed configuring a target, restart FLS:<p class="listcontinue">From the command line: <strong class="strong">net start MetraTech.FileService</strong></p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">If you do not have direct or remote access to the MetraNet server, you will need to ask an Administrator to do this.</p>
+</td>
+</tr>
+
+</table>
+<p class="note">You specify FLS behavior by configuring <strong class="strong">targets</strong>:<strong class="strong"> </strong>configurable executables with arguments to be invoked when a file of a specific type arrives (in the <strong class="strong">new</strong> folder). A target has four components, of which the Filter and the Executable determine the FLS behavior. In addition, most targets have one or more <strong class="strong"><a id="h20916" class="crossreference" title="Target Arguments" href="20876.htm" target="_self">arguments</a></strong>.</p>
+<table class="tableintopic" width="571" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #DBDBDB">
+<tr align="left" valign="top">
+<td bgcolor="#105AA8" style="border:1px solid #DBDBDB;" width="121"><p class="tableheading">Item Name</p>
+</td>
+<td bgcolor="#105AA8" style="border:1px solid #DBDBDB;" width="266"><p class="tableheading">Description</p>
+</td>
+<td bgcolor="#105AA8" style="border:1px solid #DBDBDB;" width="184"><p class="tableheading">Example Value</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #DBDBDB;" width="121"><p class="tabletext"><strong class="strong">Name</strong></p>
+</td>
+<td style="border:1px solid #DBDBDB;" width="266"><p class="tabletext">The name of the target is for display purposes only.</p>
+</td>
+<td style="border:1px solid #DBDBDB;" width="184"><p class="tabletext">MyRatingTarget</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #DBDBDB;" width="121"><p class="tabletext"><strong class="strong">Description</strong></p>
+</td>
+<td style="border:1px solid #DBDBDB;" width="266"><p class="tabletext">A description of this target for identification purposes only.</p>
+</td>
+<td style="border:1px solid #DBDBDB;" width="184"><p class="tabletext">Rating test</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #DBDBDB;" width="121"><p class="tabletext"><strong class="strong">Filter</strong></p>
+</td>
+<td style="border:1px solid #DBDBDB;" width="266"><p class="tabletext">The filter is the part of the file name between the first and second dot (.) delimiter in the file name. This is parsed by FLS and must match the <span class="red">target filter</span> name specified here:</p>
+<p class="tabletext">&lt;control number&gt;<span class="red-bold">.</span><span class="red">&lt; target filter&gt;</span><span class="red-bold">.</span>&lt;file argument filter&gt;.&lt; extension&gt;</p>
+<p class="tabletext">For more information, see <a id="h23103" class="crossreference" title="FLS File Naming Convention" href="19539.htm" target="_self">File Naming Convention</a></p>
+</td>
+<td style="border:1px solid #DBDBDB;" width="184"><p class="tabletext">rating</p>
+<p class="tabletext">Example of matching file: ctrl0001.<strong class="strong">rating</strong>.flat.txt</p>
+<p class="tabletext"><span class="red">Filter must match the second part of the file name (in this example, </span><span class="red-bold">rating</span><span class="red">).</span></p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #DBDBDB;" width="121"><p class="tabletext"><strong class="strong">Executable</strong></p>
+</td>
+<td style="border:1px solid #DBDBDB;" width="266"><p class="tabletext">The full executable path that should be invoked. This is usually MetraFlowShell.exe.</p>
+<p class="tabletext"><span class="red-bold">Important:</span> The server running FLS runs the executable so this path must be accessible to that server - that is, a local or shared drive.</p>
+</td>
+<td style="border:1px solid #DBDBDB;" width="184"><p class="tabletext">D:\MetraTech\RMP\Bin\MetraFlowShell.exe</p>
+</td>
+</tr>
+
+</table>
+<p class="tabletext">See also <strong class="strong">MetraControl Help: <a id="h20909" class="crossreference" title="File Management" href="19610.htm" target="_self">File Management</a></strong></p>
+</li></ul>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

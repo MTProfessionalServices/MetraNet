@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Editing Calendars </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Editing Calendars" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('3786');expand('14212');highlight('3802')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="3803.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="dc.gotoruleeditor.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h3 class="heading3">Editing Calendars</h3>
+<p class="caption"><img src="19996.png" alt="moffer-po" height="16" width="16" vspace="0" hspace="0" align="bottom" border="0" /> Product Offerings<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />[product offering]<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />[priceable item]<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />[parameter table]<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />[rate schedule]</p>
+<p class="caption"><img src="19998.png" alt="moffer-sharedrates" height="16" width="16" vspace="0" hspace="0" align="bottom" border="0" /> Shared Rates<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />[shared price lists]<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />[price list] <img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />[parameter table]<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />[rate schedule]</p>
+<p class="bodytext">This special parameter table allows you to categorize dates and times, usually for purposes of determining what rates are generated for a priceable item for a given usage event. The codes you configure can subsequently be used in the rate qualifiers of other parameter tables used by the priceable item. Also, you can customize Calendars; see Customizing Calendar Style Sheets for details.</p>
+<p class="note">The Pipeline and Internet Information Services (IIS) services need to be stopped and restarted any time you make calendar information changes. If the calendar you select is used by another priceable item, changes made to this calendar will also be made for <em class="emphasis">all</em> <em class="emphasis">other</em> priceable items that use this calendar.</p>
+<p class="bodytext">As MetraNet is commonly configured, the four date/time codes you can configure are:</p>
+<ul class="listbullet"><li class="listbullet">Peak</li><li class="listbullet">Off-Peak</li><li class="listbullet">Weekend</li><li class="listbullet">Holiday</li></ul><p class="bodytext">If a calendar parameter table is present in a priceable item, your configuration developer should also have included a calendar code column in the rate qualifier of one of the other parameter tables used by this priceable item.</p>
+<table class="tableintopic" width="576" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="36"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="540"><p class="note">Since most organizations need only a limited number of calendars, in most cases you won't have to create a new one. Simply choose an existing calendar for your parameter table by using the <strong class="strong">Select Calendar</strong> button.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext">A useful feature of calendar parameter tables is that you can set a default codes and periods for weeks, weekdays, and any holidays that you need to configure. This means that you are not required to set times manually for every code and every day.</p>
+<p class="bodytext">To specify the dates, times, and codes for your calendar, use the following steps:</p>
+<ol class="listnumber"><li class="listnumber">Navigate to the calendar as you would a conventional rate schedule, or enter a new calendar in the <strong class="strong">Select Rate Schedule</strong> window, as you would enter a new rate schedule.</li><li class="listnumber">The <strong class="strong">Edit Calendar</strong> page appears. If no present calendar exists for the rate schedule, or if you would like to enter a new set of calendar data, click <strong class="strong">New Calendar </strong>and enter the<strong class="strong"> Name </strong>and <strong class="strong">Description </strong>of the new calendar.</li><li class="listnumber">Select the appropriate tab in the calendar: <strong class="strong">Weekdays, Weekends, </strong>or<strong class="strong"> Holidays.</strong></li></ol><p class="bodytext">To specify default codes for weeks, weekends, or individual days: </p>
+<ol class="listnumber"><li class="listnumber">Click the <strong class="strong">Edit</strong> Button in the <strong class="strong">Default</strong> <strong class="strong">Code</strong> column. </li><li class="listnumber">Click the <strong class="strong">Add</strong> button in the <strong class="strong">Period</strong> column in the <strong class="strong">Default</strong> row to set up time periods to apply a usage code during the 24-hour cycle.</li><li class="listnumber">For a holiday, you first click New Holiday and specify the name of the holiday and the date using the calendar popup.</li><li class="listnumber">When you have made all of your changes, click <strong class="strong">Save</strong>.<p class="note">Remember that the changes you make to your calendar will not be put into effect until you click <strong class="strong">Save</strong>. <strong class="strong">Cancel</strong> will close the calendar page without making any changes to the database. You will need to restart IIS and the pipeline.</p>
+</li></ol><p class="bodytext">See below for explanations of each of the functions on the calendar page.</p>
+<table class="tableintopic" width="576" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr>
+<td width="144" height="0"></td>
+<td width="432" height="0"></td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" colspan="2" width="576"><p class="tableheading">Edit/Select/Create New Calendar Buttons</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="144"><p class="bodytext">Edit Calendar</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="432"><p class="bodytext">Edit the Name and Description properties of the calendar presently being viewed.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="144"><p class="bodytext">Select Calendar</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="432"><p class="bodytext">Select a calendar from previously entered calendars.</p>
+<p class="note">If the calendar you select is used by another priceable item, changes made to this calendar will also be made for <em class="emphasis">all</em> <em class="emphasis">other</em> priceable items that use this calendar.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="144"><p class="bodytext">New Calendar</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="432"><p class="bodytext">Create a new calendar. (Providing it has been saved, the present calendar will still be available by clicking the <strong class="strong">Select Calendar</strong> button.)</p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Editing Calendars</p>
+<p class="bodytext">Choose from the following options:</p>
+<table class="tableintopic" width="582" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr>
+<td width="150" height="0"></td>
+<td width="432" height="0"></td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" colspan="2" width="582"><p class="tableheading">Calendar Options</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="150"><p class="tabletext">Customize</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="432"><p class="tabletext">Use this button to modify the usage code for a particular day so that it's different from the default for this day. Standard choices are <strong class="strong">Peak</strong>, <strong class="strong">Off-Peak</strong>, <strong class="strong">Holiday</strong>, or <strong class="strong">Weekend</strong>.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="150"><p class="tabletext">Make Default</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="432"><p class="tabletext">Appears after customizing usage. Removes any customized usage code for a particular day.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="150"><p class="tabletext">Edit (Default Code)</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="432"><p class="tabletext">Use this option to modify the default usage code for the whole week, weekend, or particular day. Standard choices are <strong class="strong">Peak</strong>, <strong class="strong">Off-Peak</strong>, <strong class="strong">Holiday</strong>, or <strong class="strong">Weekend</strong>.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="150"><p class="tabletext">Graph</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="432"><p class="tabletext">If a custom usage period is configured, the graphs shows the time in the 24-hour cycle in which this usage code is in effect, using the following color code.</p>
+<table class="tableintopic" width="234" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td valign="middle" width="72"><p class="tabletext">Peak</p>
+</td>
+<td bgcolor="#BF0000" valign="middle" width="162"><p class="tabletext">&nbsp;</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td valign="middle" width="72"><p class="tabletext">Off-Peak</p>
+</td>
+<td bgcolor="#008000" valign="middle" width="162"><p class="tabletext">&nbsp;</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td valign="middle" width="72"><p class="tabletext">Holiday</p>
+</td>
+<td bgcolor="#000080" valign="middle" width="162"><p class="tabletext">&nbsp;</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td valign="middle" width="72"><p class="tabletext">Weekend</p>
+</td>
+<td bgcolor="#FF7F00" valign="middle" width="162"><p class="tabletext">&nbsp;</p>
+</td>
+</tr>
+
+</table>
+<p class="tabletext">&nbsp;</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="150"><p class="bodytext">Periods</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="432"><p class="bodytext">Click <strong class="strong">Add</strong> to select the start and end time for a particular usage code. You can enter multiple periods for a given week, weekend, or day. The times are displayed in this column and graphically. Click <strong class="strong">Remove </strong>to remove one or more periods.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

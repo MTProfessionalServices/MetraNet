@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> About Instant Proration </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="About Instant Proration, On-Demand Recurring Charges" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('3858');expand('3853');expand('3843');expand('14212');highlight('23850')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="billing_cycle_aligned_recurring_charges.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="about_proration.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h5 class="heading5">About Instant Proration</h5>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">This feature is superseded by <a id="h25801" class="crossreference" title="On-Demand Recurring Charges" href="25795.htm" target="_self">On-Demand Recurring Charges</a>. (Instant proration is <u class="underline">not</u> applicable to UDRCs and has no effect on UDRC behavior.)</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"><strong class="strong">Instant proration</strong> is a recurring charge option for aligning customers with a particular subscription date regardless of when they subscribe to a product offering. </p>
+<p class="bodytext">For example, a customer signs up for P1 on January 1 with an annual subscription. The customer now wants to sign up for P2 on June 15, but wants to be billed annually at the same time as P1. Using the instant prorate functionality, the CSR would sign up the customer for two subscriptions to P2, one from June 15, 2011 &#8211; December 31, 2011, and one beginning January 1, 2012 and continuing indefinitely. The customer would get a charge for 6/15 &#8211; 12/31 at his or her next bill, rather than waiting until 12/31, which is what would happen under the current system.</p>
+<p class="caption"><img src="moffer-instrpor.png" alt="moffer-instrpor.png" height="172" width="295" vspace="0" hspace="0" align="bottom" border="0" /><br />Selection of this option is available for a recurring charge with the proration based on the unsubscription date</p>
+<p class="subheading">Instant proration versus standard proration</p>
+<p class="bodytext">Standard proration can only occur on subscription or unsubscription. </p>
+<ul class="listbullet"><li class="listbullet">When you prorate on subscription, you give a discount based on the start date of the subscription and how far it is into the period. For example, a priceable item costs $365 per year, and a customer signs up 15 days into the period, so the charge is $350. </li><li class="listbullet">When you prorate on unsubscription, you give a credit for any unused time when a customer unsubscribes. For example, a priceable item costs $365 per year, and a customer unsubscribes with one month left. The customer should get a credit for $30. However, the customer won&#8217;t receive the credit until the last month of the subscription. So a customer that signs up in the middle of the year will be charged the full amount and not receive a refund until the end of the year..</li></ul><p class="subheading">Using instant proration </p>
+<p class="bodytext">A CSR can specify a priceable item&#8217;s proration to be <strong class="strong">instant</strong>, which means that customers will be prorated from subscription date to unsubscription date instantaneously, rather than waiting until the actual unsubscription date. When a priceable item is marked as instant prorate, the system checks for the unsubscription date at the first charge period. If the customer has an unsubscribe date, the system will compute the customer's payment for that period.</p>
+<p class="bodytext">Using the example from above, where a customer is aligned on January 1 and signs up for P2 on June 15, the CSR would sign the customer up from 6/15 through 12/31, and the customer would only be billed for half the year on P1.</p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note"><span class="boldblue">Limitations</span></p>
+<p class="note">The <strong class="strong">Prorate Instantly </strong>option is applicable to <strong class="strong">Prorate on Unsubscription</strong>. </p>
+<p class="note"><strong class="strong">Billing Cycle Alignment</strong><br />This feature is designed for recurring charges (such as semiannual) that are aligned with a customer&#8217;s billing cycle (typically monthly). The recurring charge cycle should be longer  than the billing cycle. If they are the same (such as monthly), instant proration would only make a difference if anything if a customer signs on for less than one month.</p>
+<p class="note"><strong class="strong">Charge in Advance</strong><br />In most circumstances, the <strong class="strong">Prorate Instantly </strong>option should be used with the default <strong class="strong">Charge in Advance</strong> option.</p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">See Also</p>
+<p class="bodytext"><a id="h24347" class="crossreference" title="Create/View/Edit Recurring Charges" href="priceableitem.recurringcharge.viewedit.hlp.htm" target="_self">Create/View/Edit Recurring Charges</a></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Decision Action </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Decision Action" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('26044');expand('25701');expand('18823');expand('14212');highlight('25931')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="ChargeCreditAttributes.hlp.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="DecisionCycle.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h5 class="heading5">Decision Action</h5>
+<p class="caption">MetraOffer <img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" /> Advanced Options <img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" /><img src="26012.jpg" alt="icon-MO-" height="16" width="17" vspace="0" hspace="0" align="bottom" border="0" /> Manage AMP Decision Types <img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />&lt;selected decision type&gt;</p>
+<p class="subheading">About Decision Actions</p>
+<p class="bodytext">On the Decision Action page, you specify how the decision should process the records. Selections you made on the <a id="h25980" class="crossreference" title="Decision Range" href="DecisionRange.hlp.htm" target="_self">Decision Range</a> and <a id="h25981" class="crossreference" title="Decision Cycle" href="DecisionCycle.hlp.htm" target="_self">Decision Cycle</a> pages of the wizard determine which records are processed.</p>
+<p class="bodytext">When the AMP processor runs, the Decision Type does the following in this order:</p>
+<ul class="listbullet"><li class="listbullet">Determines which records fall within the timeframe you specified on the <a id="h25981_2" class="crossreference" title="Decision Cycle" href="DecisionCycle.hlp.htm" target="_self">Decision Cycle</a> wizard page.</li><li class="listbullet">For those records, processes the records based on your selection (Incremental or Bulk) on the Decision Action wizard page (the current page of the wizard).</li><li class="listbullet">Determines whether the results of the incremental or bulk processing fall within the range you specified on the <a id="h25980_2" class="crossreference" title="Decision Range" href="DecisionRange.hlp.htm" target="_self">Decision Range</a> wizard page.</li><li class="listbullet">Performs the action you select on the Decision Action page (the current page of the wizard).</li></ul><p class="subheading">The Decision Action page</p>
+<ol class="listnumber"><li class="listnumber">Provide the following information.<p class="listcontinue"><strong class="strong">How should the Decision Type process the records?</strong></p>
+<table class="tableintopic" width="474" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #C0C0C0">
+<tr align="left" valign="top">
+<th bgcolor="#105AA8" style="border:1px solid #C0C0C0;" width="186"><p class="tableheading">Field</p>
+</th>
+<th bgcolor="#105AA8" style="border:1px solid #C0C0C0;" width="288"><p class="tableheading">Description</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="186"><p class="tabletext">Act on each individual record (Incremental)</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="288"><p class="tabletext">The decision considers each record, and if it falls within the range, performs the action you specify in the section &quot;What action should the Decision Type take?&quot;</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="186"><p class="tabletext">Act on all the records together (Bulk)</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="288"><p class="tabletext">The decision totals the records. If the total falls within the range, it performs the action you specify</p>
+</td>
+</tr>
+
+</table>
+<p class="listcontinue"><strong class="strong">What action should the Decision Type take?</strong></p>
+<table class="tableintopic" width="474" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #C0C0C0">
+<tr align="left" valign="top">
+<th bgcolor="#105AA8" style="border:1px solid #C0C0C0;" width="186"><p class="tableheading">Field</p>
+</th>
+<th bgcolor="#105AA8" style="border:1px solid #C0C0C0;" width="288"><p class="tableheading">Description</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="186"><p class="tabletext">Apply a new rate for units</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="288"><p class="tabletext">If you select this option, you must do one of the following:</p>
+<ul class="tablelistbullet"><li class="tablelistbullet">Provide the value for the rate.</li><li class="tablelistbullet">Specify the parameter table column from which to obtain the rate.</li></ul></td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="186"><p class="tabletext">Apply a new rate for events</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="288"><p class="tabletext">If you select this option, you must do one of the following:</p>
+<ul class="tablelistbullet"><li class="tablelistbullet">Provide the value for the rate.</li><li class="tablelistbullet">Specify the parameter table column from which to obtain the rate.</li></ul></td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="186"><p class="tabletext">Apply a percentage discount</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="288"><p class="tabletext">If you select this option, you must do one of the following:</p>
+<ul class="tablelistbullet"><li class="tablelistbullet">Provide the value for the discount, expressed as a percent (without the percent symbol).<br />For example, a value of 8.50 corresponds to an 8.5% discount.</li><li class="tablelistbullet">Specify the parameter table column from which to obtain the discount.</li></ul></td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="186"><p class="tabletext">Generate a new Charge/Credit</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="288"><p class="tabletext"><strong class="strong">Note</strong>: This feature requires advanced knowledge of AMP processing. </p>
+<p class="tabletext">If you select this option and click Save &amp; Continue,  the <a id="h25993" class="crossreference" title="Charge/Credit: Attributes" href="ChargeCreditAttributes.hlp.htm" target="_self">Charge/Credit Attributes</a> page appears for you to define the charge or credit.</p>
+</td>
+</tr>
+
+</table>
+</li><li class="listnumber">Click <strong class="strong">Save &amp; Continue</strong>.<ul class="listbullet2"><li class="listbullet2">If you selected Apply a new rate for units or events, or Apply a percentage discount, continue with the <a id="h25983" class="crossreference" title="Amount Chain Group" href="AmountChainGroup.hlp.htm" target="_self">Amount Chain Group</a> page.</li><li class="listbullet2">If you selected Generate a new Charge/Credit, continue with the <a id="h25993_2" class="crossreference" title="Charge/Credit: Attributes" href="ChargeCreditAttributes.hlp.htm" target="_self">Charge/Credit Attributes</a> page.</li></ul></li></ol>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Account Qualification </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Account Qualification" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('26044');expand('25701');expand('18823');expand('14212');highlight('26048')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="SelectUsageQualification.hlp.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="EditAccountGroup.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h5 class="heading5">Account Qualification</h5>
+<p class="bodytext">This page appears after you have done either the following on the <a id="h26049" class="crossreference" title="Adding or Editing an Account Group" href="EditAccountGroup.hlp.htm" target="_self">Account Group</a> page:  </p>
+<ul class="listbullet"><li class="listbullet">Clicked Create a new account group, provided an account group name and optional description, and clicked Save and Continue,<p class="listcontinue">-or-</p>
+</li><li class="listbullet">Clicked Edit for an existing account group.</li></ul><p class="subheading">To define an account qualification</p>
+<ol class="listnumber"><li class="listnumber">In the Account Qualifications in Order of Execution section:<ul class="listbullet2"><li class="listbullet2">To define a new qualification, click <strong class="strong">Add</strong>.</li><li class="listbullet2">To edit an existing qualification, locate it in the list and click Edit <img src="pencil.gif" alt="" height="17" width="15" vspace="0" hspace="0" align="bottom" border="0" />.</li></ul></li><li class="listnumber"> Provide the following information.<p class="listcontinue"></p>
+<table class="tableintopic" width="456" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #C0C0C0">
+<tr align="left" valign="top">
+<th bgcolor="#105AA8" style="border:1px solid #C0C0C0;" width="150"><p class="tableheading">Field</p>
+</th>
+<th bgcolor="#105AA8" style="border:1px solid #C0C0C0;" width="306"><p class="tableheading">Description</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="150"><p class="tabletext">Source field</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="306"><p class="tabletext">The database column in the current context that you want to join from. This is usually t_account.id_acc (the internal database identifier for the account). That is, start with the id_acc (the internal identifier) of the account that owns the decision.</p>
+<p class="tabletext">To join other data from other database tables to extend this account qualification, the database join is done starting with this field.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="150"><p class="tabletext">Table to Include</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="306"><p class="tabletext">The additional database table or database view (other than t_account) that is being joined to in the database, to select the full list of accounts that qualify for this account qualification.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="150"><p class="tabletext">Match Field</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="306"><p class="tabletext">The column in the included table to join to from the source field.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="150"><p class="tabletext">Output Field</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="306"><p class="tabletext">After the join to the included table has been done, this column from the included table is retrieved as the id_acc.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="150"><p class="tabletext">Include Filter (SQL)</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="306"><p class="tabletext">A filter statement written in SQL syntax that is used to filter out additional rows in the account qualification query itself.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="150"><p class="tabletext">Filter (MVM script)</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="306"><p class="tabletext">A filter statement written in MVM syntax that filters the matched rows after you retrieve them.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="150"><p class="tabletext">Mode</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="306"><ul class="tablelistbullet"><li class="tablelistbullet">Engine Filter</li><li class="tablelistbullet">Append Fields</li><li class="tablelistbullet">Append Rows</li><li class="tablelistbullet">Replace Rows</li></ul></td>
+</tr>
+
+</table>
+</li><li class="listnumber">Click <strong class="strong">Save &amp; Continue</strong>.<p class="listcontinue">You are returned to the Account Group page. The new account qualification that you created appears in the <strong class="strong">Account Qualifications in Order of Execution</strong> section. </p>
+</li><li class="listnumber">To add another account qualification, click <strong class="strong">Add</strong>, and then repeat Steps 2 and 3.</li><li class="listnumber">After you have added all the account qualifications for this account group, do any of the following as needed. <table class="tableintopic" width="456" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #C0C0C0">
+<tr align="left" valign="top">
+<th bgcolor="#105AA8" style="border:1px solid #C0C0C0;" width="222"><p class="tableheading">To</p>
+</th>
+<th bgcolor="#105AA8" style="border:1px solid #C0C0C0;" width="234"><p class="tableheading">Do this</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="222"><p class="tabletext">Move the account qualifications so they are in the desired order of execution.</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="234"><p class="tabletext">Click the up or down arrow <img src="25956.jpg" alt="UpDownArrows" height="18" width="33" vspace="0" hspace="0" align="bottom" border="0" />.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="222"><p class="tabletext">View details about an account qualification.</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="234"><p class="tabletext">Either of the following</p>
+<ul class="tablelistbullet"><li class="tablelistbullet">Expand the plus sign located in the first column</li><li class="tablelistbullet">Click View <img src="4819.gif" alt="" height="16px" width="20px" vspace="0" hspace="0" align="bottom" border="0" />. </li></ul></td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="222"><p class="tabletext">Edit an account qualification.</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="234"><p class="tabletext">Click Edit<strong class="strong"> </strong><img src="pencil.gif" alt="" height="17" width="15" vspace="0" hspace="0" align="bottom" border="0" />.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="222"><p class="tabletext">Remove an account qualification from the account group.</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="234"><p class="tabletext">Click Delete <img src="25969.jpg" alt="Red_X" height="14" width="14" vspace="0" hspace="0" align="bottom" border="0" />.</p>
+</td>
+</tr>
+
+</table>
+</li><li class="listnumber">Click <strong class="strong">Save &amp; Continue</strong>.<p class="listcontinue">You are returned to the Select Account Group page. The account group you created appears in the list of account groups.</p>
+</li><li class="listnumber">In the Account Groups section, select the account group to use in the decision type you are working with.</li><li class="listnumber">Click <strong class="strong">Save &amp; Continue</strong>.</li><li class="listnumber">Continue with the <a id="h25958" class="crossreference" title="Usage Qualification" href="SelectUsageQualification.hlp.htm" target="_self">Usage Qualification</a> page.</li></ol>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

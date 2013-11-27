@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Starting Jobs </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="FLS File Naming Convention, Starting Jobs" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('19537');expand('20847');expand('19610');expand('13614');highlight('23117')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="19534.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="19539.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h5 class="heading5">Starting Jobs</h5>
+<p class="bodytext">A job begins when FLS accepts a file (or group of files for processing). When files are rejected by FLS, they do not get a job number. </p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">Rejected files - those not given a job number - appear in MetraControl's <strong class="strong">Rejected Files</strong> list and are moved to the <strong class="strong">done </strong>folder. The most common reason for a file to be rejected is the file's name does not match a defined target.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext">When files are copied, moved, or somehow delivered to the FLS <strong class="strong">new </strong>directory on a MetraNet server, processing begins after a configurable amount of time (with a default of 10 minutes). This ensures that processing of large data files does not commence before the file transfer is complete, which can vary according to file size and means of transfer. When files are added to the incoming directory, they should conform to the FLS <a id="h23120" class="crossreference" title="FLS File Naming Convention" href="19539.htm" target="_self">file naming convention</a>.</p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note"><strong class="strong">Setting the File Holding Time</strong></p>
+<p class="tabletext">The file holding time ensures that a file is completely transferred/copied to the FLS server before processing begins. For example, this may require some time when dearchiving compressed files.) You can increase the wait time if necessary using a parameter in RMP\Bin\MetraTech.FileLandingService.exe.config). </p>
+<p class="tabletext"><span class="green">&lt;!-- </span><br /><span class="green">Hold age of file in minutes (time before file pickup from last modification, creation or access date)</span><br /><span class="green"> --&gt;</span><br />    <span class="red">&lt;add key=&quot;HoldAgeInMinutes&quot; value=&quot;10&quot; /&gt;</span></p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Using the Control Number</p>
+<p class="bodytext">The first part of the file name, called the <strong class="strong">control number</strong>,<strong class="strong"> </strong>determines the MetraControl <strong class="strong">job number</strong>. FLS expects this number to be a unique ID and will not process a file if its control number that matches a previously executed job.</p>
+<p class="subheading">Multiple Files and Renaming</p>
+<p class="note">Multiple nested files can be contained in a single job. This is the case when there is a parent-child relationship between files because they contain usage data for a multipoint service.</p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note"><strong class="strong">Preparing Multipoint Files</strong></p>
+<ul class="tablelistbullet"><li class="tablelistbullet">Do not rename files in the <strong class="strong">new </strong>folder. If files require renaming before a job can begin, you should rename them in the parent folder or a separate location.</li><li class="tablelistbullet">All files belonging to the same job must have the same control number. </li><li class="tablelistbullet">All files must be placed in the <strong class="strong">new </strong>folder within a 5-minute time span. FLS will ignore an incomplete set of multipoint files.</li></ul></td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+<p class="bodytext"></p>
+<p class="bodytext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

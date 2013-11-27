@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Synchronization Options </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Synchronization Options" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('16633');expand('4678');expand('13614');highlight('9838')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="25029.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="hooks.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">Synchronization Options</h4>
+<p class="bodytext">Synchronization is the final step when creating or changing a priceable item. This step commits changes made to configuration and other files with the MetraNet database, internal file structure, as well as the server's registry.</p>
+<p class="bodytext">To perform synchronization, see <strong class="strong">Validating and Synchronizing</strong>.</p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">Synchronization options are called hooks. All synchronization hooks are defined in the <strong class="strong">hooks.xml </strong>(RMP\Config\pipeline\hooks) configuration file.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td width="40"><p class="bodytext"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note"><strong class="strong">Restarting IIS and the Pipeline</strong> <br />Be sure to restart IIS (<strong class="strong">Start</strong> menu » run <strong class="strong">cmd</strong> » <strong class="strong">IISReset</strong>) and the pipeline after creating a new priceable item or extension. Otherwise, your changes may not take effect.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td width="40"><p class="bodytext"><img src="warning.gif" alt="warn" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note"><span class="red-bold">Warning</span><br />If you copy an extension that contains a priceable item that defines a new adjustment type into the <strong class="strong">Extensions</strong> folder after a synchronization has been run and then you attempt to synchronize it again without resetting IIS, the synchronization will fail with an error message saying that the adjustment type could not be found. This is because the adjustment types are loaded by the first synchronization and then cached until the second. However, the newly created adjustment type is not added to the cache and the cache is not reloaded.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext">The following options are available. Click the checkboxes next to the options you want to go into effect, then click the <strong class="strong">Synchronize </strong>button.</p>
+<table class="tableintopic" width="609" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #BFBFBF">
+<tr align="left" valign="top">
+<th bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="118"><p class="tableheading">Action</p>
+</th>
+<th bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="160"><p class="tableheading">What It Does</p>
+</th>
+<th bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="161"><p class="tableheading">When to Use It</p>
+</th>
+<th bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="170"><p class="tableheading">Notes</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="118"><p class="tabletext"><strong class="strong">Synchronize Localization</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="160"><p class="tabletext">Synchronizes the database with localization information.</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="161"><p class="tabletext">Whenever the following has been added or changed:</p>
+<p class="tabletext">Localization Strings</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="170"><p class="tabletext">&nbsp;</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="118"><p class="tabletext"><strong class="strong">Synchronize Database</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="160"><p class="tabletext">Synchronizes the main database with new product views, enumerated types, and related information.</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="161"><p class="tabletext">Whenever the following have been added or changed:</p>
+<p class="tabletext">Product Views</p>
+<p class="tabletext">Enumerated Types</p>
+<p class="tabletext">Localized Values</p>
+<p class="tabletext">Audit Events</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="170"><p class="tabletext">When a new priceable item is created, new product views are often created as well, so synchronization with this option will be necessary. </p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="118"><p class="tabletext"><strong class="strong">Synchronize Product Catalog</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="160"><p class="tabletext">Synchronizes the database with product catalog information.</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="161"><p class="tabletext">Whenever the following have been added or changed:</p>
+<p class="tabletext">Priceable Item Types</p>
+<p class="tabletext">Parameter Tables</p>
+<p class="tabletext">Counters and Counter Types</p>
+<p class="tabletext">Adjustment Types (including Charges)</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="170"><p class="tabletext">When a new priceable item is created, new product views are often created as well. As a best practice, in these cases run the &quot;Synchronize Database&quot; hook as well.</p>
+<p class="tabletext">May also require an IISReset first - see usage note at end.</p>
+<p class="tabletext">&nbsp;</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="118"><p class="tabletext"><strong class="strong">Synchronize Auth</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="160"><p class="tabletext">Synchronizes the database with Security information</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="161"><p class="tabletext">Whenever you have created of changed capability types or security policies. </p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="170"><p class="tabletext">&nbsp;</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="118"><p class="tabletext"><strong class="strong">Synchronize Adjustments</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="160"><p class="tabletext">Synchronizes Adjustment applicability rules and reason codes.</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="161"><p class="tabletext">Whenever applicability rules and reason codes have been added or changed.</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="170"><p class="tabletext">The Synchronize Product Catalog hook automatically runs this hook. Therefore, if you run that hook, running this hook is not necessary.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="118"><p class="tabletext"><strong class="strong">Synchronize Usage Server</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="160"><p class="tabletext">Synchronizes the database with Billing Server related  information.</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="161"><p class="tabletext">Whenever <em class="emphasis">recurring_events.xml</em> has been changed.</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="170"><p class="tabletext">You can also run this hook from the MetraControl module.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="118"><p class="tabletext"><strong class="strong">Refresh System Configuration</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="160"><p class="tabletext">Notify the system that configuration information has changed.</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="161"><p class="tabletext">Whenever the pipeline is running and configuration files used by the pipeline have changed (for instance, service definitions and plug-in configuration files).</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="170"><p class="tabletext">If services have been added, you must restart the pipeline. </p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="118"><p class="tabletext"><strong class="strong">Synchronize Database Properties</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="160"><p class="tabletext">Synchronize the database with the MetraNet Main Database Properties information.</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="161"><p class="tabletext">Use if you change MetraView DataMart settings, or you change the MetraNet Relaxed Hierarchy rule.</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="170"><p class="tabletext">&nbsp;</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="118"><p class="tabletext"><strong class="strong">Register extension COM objects</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="160"><p class="tabletext">This option registers all the COM objects in extensions.</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="161"><p class="tabletext">Use if a COM object has been created or modified within a platform extension.</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="170"><p class="tabletext">&nbsp;</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="118"><p class="tabletext"><strong class="strong">Synchronize Report Templates</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="160"><p class="tabletext">This option updates the MetraNet platform with new report template information in Crystal Reports internal storage.</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="161"><p class="tabletext">Use if a report template (RPT file) has been modified on a MetraNet server, or report template's unique name has been modified on a MetraNet server.</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="170"><p class="tabletext">&nbsp;</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

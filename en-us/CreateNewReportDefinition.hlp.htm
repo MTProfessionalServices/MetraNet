@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Step 2: Create or Edit a Report Definition </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Step 1: Obtain the Query Details, Step 2: Create or Edit a Report Definition" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('24040');expand('24068');expand('13614');highlight('24080')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="ShowAssignedReportParameters.hlp.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="24079.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">Step 2: Create or Edit a Report Definition</h4>
+<p class="bodytext">Defining a report requires you to identify a query that exists on the MetraNet billing server where you will be generating reports. (By default, this is the first billing server you set up.) You must specify the <strong class="strong">query tag</strong> name. </p>
+<ol class="listnumber"><li class="listnumber">From the <strong class="strong">Data Export Report Management</strong> section, select <strong class="strong">Manage Reports</strong>.</li><li class="listnumber">Click <img src="mcare-plus2.png" alt="mcare-plus2.png" height="14" width="14" vspace="0" hspace="0" align="bottom" border="0" /> <strong class="strong">Add </strong>and specify the information you obtained in <strong class="strong"><a id="h24107" class="crossreference" title="Step 1: Obtain the Query Details" href="24079.htm" target="_self">Step 1</a></strong> (from your DBA or configuration developer).<p class="listcontinue">or </p>
+</li><li class="listnumber">Click <img src="mcontrol-rm-edit.png" alt="mcontrol-rm-edit.png" height="16" width="16" vspace="0" hspace="0" align="bottom" border="0" /> <strong class="strong">Update Existing Report </strong>to modify the information.<table class="tableintopic" width="576" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #BFBFBF">
+<tr align="left" valign="top">
+<th bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="150"><p class="tableheading">Property</p>
+</th>
+<th bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="426"><p class="tableheading">Usage</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="150"><p class="tabletext"><strong class="strong">Report Title</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="426"><p class="tabletext">An identifying name that can serve for potentially multiple report instances.</p>
+<p class="tabletext"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /> The report title must be a unique name. If you use an existing name, this report definition will replace the existing one.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="150"><p class="tabletext"><strong class="strong">Description</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="426"><p class="tabletext">An identifying description that can serve for potentially multiple report instances.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="150"><p class="tabletext"><strong class="strong">Query Tag</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="426"><p class="tabletext">The name of the complete query tag<strong class="strong">,</strong> including the required open and close <u class="underline">double-underscores</u>.</p>
+<p class="tabletext">For example: __GET_ACCOUNT_SUMMARY__</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="150"><p class="tabletext"><strong class="strong">Prevent Ad Hoc Execution</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="426"><p class="tabletext">Select this if you do not want to permit unscheduled exporting of the report. For example, creation of a valid report may require scheduling on a particular day of the month. Ad hoc report creation may be desirable also if, for example, the requirement for producing the report is intermittent.</p>
+</td>
+</tr>
+
+</table>
+</li></ol><p class="bodytext">You can test a report definition using <a id="h24144" class="crossreference" title="Queue Ad Hoc Reports" href="AdHocReportManagement.hlp.htm" target="_self">Queue Ad Hoc Reports</a>.</p>
+<table class="relatedtopics belowtopictext" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "454">
+<p class="relatedheading">In This Section</p><p class="relateditem"><a href="ShowAssignedReportParameters.hlp.htm" target="_self">Add and Assign Parameters</a></p></td>
+</tr>
+</table>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

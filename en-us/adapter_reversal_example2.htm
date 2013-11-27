@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Adapter Reversal Example </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Adapter Reversal Example" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('4609');expand('4605');expand('4600');expand('4594');expand('13614');highlight('4611')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="about_billing_groups.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="reversing_adapters.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<p class="heading6">Adapter Reversal Example</p>
+<p class="bodytext">Let&#8217;s say the following represents a day&#8217;s run of a billing group's <script type="text/javascript"> popup4765 = "Soft Closed\rA billing group's state is soft closed during its end-of-period processing. During soft close, the system performs functions such as end-of-period bill calculations and the creation of subscriber invoices. An interval cannot accept additional usage transactions during soft close, even if the transaction is for usage occurring during the interval's effective period. \xA0\xA0\xA0\r"</script><a id="h4844" class="popup" title="Definition: Soft Closed" href="javascript:hhctrl.TextPopup(popup4765, 'Arial,9',10,10,10,10)">soft close</a> processing: </p>
+<p class="bodytext"><img src="4911.gif" alt="" height="433px" width="272px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<p class="bodytext">Let&#8217;s say that soft closed processing initiated the Aggregate Usage Charge, Change Account State, and Non-Recurring Charge Adapters. The operator confirmed the run of those adapters with the first checkpoint. Then the Discount and Recurring Charge Adapters ran. The operator confirmed these runs as well with the second checkpoint.</p>
+<p class="bodytext">What would happen if the Aggregate Usage Charge Adapter ran with incorrect rates. The system would prevent the operator from simply reversing this adapter because it has a number of <script type="text/javascript"> popup4726 = "A configured relationship between adapters where one adapter must finish processing before another can process its data.\rFor instance, a discount adapter is dependent on the aggregate usage adapter, because you cannot apply discounts to usage totals that are not yet calculated.\r"</script><a id="h4868" class="popup" title="Definition: Dependency" href="javascript:hhctrl.TextPopup(popup4726, 'Arial,9',10,10,10,10)">dependent</a> adapters that depend on it for their own processing.</p>
+<p class="bodytext">Therefore, in order to back out this adapter, you will have to back out the other adapters and checkpoints in the following order: Invoice, Checkpoint 2, Recurring Charge, Discount, Checkpoint 1&#8212;then finally you could back out the Aggregate Usage Charge Adapter.</p>
+<p class="bodytext">Following correcting rates in <script type="text/javascript"> popup4726 = "A configured relationship between adapters where one adapter must finish processing before another can process its data.\rFor instance, a discount adapter is dependent on the aggregate usage adapter, because you cannot apply discounts to usage totals that are not yet calculated.\r"</script><a id="h4868_2" class="popup" title="Definition: Dependency" href="javascript:hhctrl.TextPopup(popup4726, 'Arial,9',10,10,10,10)">MetraOffer</a>, you could then rerun each of these Adapters in the reverse order you backed them out.</p>
+<OBJECT id='hhctrl' type='application/x-oleobject' classid='clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11' codebase='hhctrl.ocx'><PARAM name='Command' value='HH Version' /></OBJECT>
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

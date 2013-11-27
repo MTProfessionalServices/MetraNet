@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Failed Transactions </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Failed Transactions" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('13614');highlight('4658')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="SummaryGridView.hlp.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="Usage.Statistics.Filter.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h2 class="heading2">Failed Transactions</h2>
+<p class="bodytext"><strong class="strong">Failed transactions</strong> are single instances of charges, credits, payments, and so on, that could not be processed or committed to the database due to a problem. Often, the problem is caused by an error or inconsistency in the transaction data. Sometimes, a system error can cause transactions to fail. Such failed transactions are redirected to an error queue where they can be handled in the MetraControl module by human operators responsible for failed transactions.</p>
+<p class="bodytext">Common problems that cause failed transactions are: </p>
+<ul class="listbullet"><li class="listbullet">An invalid or missing rate in a rate schedule.</li><li class="listbullet">A business rule violation in a product offering.</li><li class="listbullet">An account referenced by a transaction that does not exist in the database.</li><li class="listbullet">A subscriber that does not have a product offering subscription or default rate.</li><li class="listbullet">An account that does not have a subscription or default rates to cover a usage instance.</li><li class="listbullet">A duplicate of another transaction already in the database or error queue.</li></ul><p class="bodytext"><strong class="strong">Suspended transactions</strong> can occur when there is an interruption during transaction processing.</p>
+<p class="bodytext">The way that the MetraNet application handles a suspended transaction can vary, based on your organization's implementation, but in most cases, the system automatically resubmits a suspended transaction.</p>
+<table class="tableintopic" width="600" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="30"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="570"><p class="note">Not all transactions that fail to be processed reach the failed or suspended transaction state. The system may block transaction data if it is not well formed or if there is a network problem. </p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+<table class="relatedtopics belowtopictext" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "454">
+<p class="relatedheading">In This Section</p><p class="relateditem"><a href="SummaryGridView.hlp.htm" target="_self">Viewing Failed Transaction Summaries</a></p><p class="relateditem"><a href="FailedTransactionsView.hlp.htm" target="_self">Viewing Status Reports</a></p><p class="relateditem"><a href="9018.htm" target="_self">Changing Case/Failed Transaction Status</a></p><p class="relateditem"><a href="23177.htm" target="_self">Editing Failed Transactions</a></p><p class="relateditem"><a href="suspendedtransaction.list.hlp.htm" target="_self">Suspended Transactions</a></p></td>
+</tr>
+</table>
+
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

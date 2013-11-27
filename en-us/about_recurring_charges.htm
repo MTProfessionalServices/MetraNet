@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> About Recurring Charges </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="About Recurring Charges" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('12397');expand('12550');expand('13616');highlight('12398')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="about_custom_rates.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="about_default_rates.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">About Recurring Charges</h4>
+<p class="bodytext">The MetraNet platform supports various types of recurring charges that Service Providers can mix and match in designing their product offerings including:</p>
+<ul class="listbullet"><li class="listbullet"><strong class="strong">Recurring Charge</strong><p class="listcontinue">A type of charge that occurs on a regular periodic basis such as $10.00 per week, $10 per month, and so on. &nbsp;A recurring charge is configured in the MetraOffer application with specific characteristics such as Per Subscription or Per Participant, Unit Dependent, or Billing Cycle Relative (as described below). The MetraNet platform supports flat, percentage, and post bill adjustments for recurring charges out of the box but does not support reassignment of recurring charges.</p>
+<table class="tableintopic" width="708" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="42"><p class="note"><img src="12688.gif" alt="" height="24px" width="26px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td valign="middle" width="666"><p class="note">MetraNet recurring charges support flat, percentage, and post bill adjustments <em class="emphasis">out of the box</em> but does not support reassignment of recurring charges.</p>
+</td>
+</tr>
+
+</table>
+</li><li class="listbullet"><strong class="strong">Nonrecurring Charge</strong><p class="listcontinue">A charge that is not based on usage or periodic events such as a one-time activation or sign up fee.</p>
+</li><li class="listbullet"><strong class="strong">Unit-Dependent Recurring Charge (UDRC)</strong><p class="listcontinue">A variable recurring charge based on a specified quantity of usage, such as number of recurring web conference seats, number of members in a shared MP3 download site, or number of leased line miles in a WAN/LAN, and so on. A UDRC is configured in the MetraOffer application with specific characteristics such as Per Subscription or Per Participant, Billing Cycle Relative and so on. UDRC can also use Single-Bucket or Multi-Bucket rate schedules and support advance or arrears proration on activation or deactivation. UDRCs do not support per unit adjustments.</p>
+<table class="tableintopic" width="708" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="42"><p class="note"><img src="12688.gif" alt="" height="24px" width="26px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td valign="middle" width="666"><p class="note">UDRCs always prorate based on the effective date of the unit value change and display separate charges and corrections for each mid-cycle unit value change on the subscriber's MetraView online bill. &nbsp;SIs can create business rules to disallow mid-cycle unit value changes if the service provider requires them.</p>
+<p class="note">Also, when setting or updating unit values for recurring changes, CSRs must <strong class="strong">ensure that specific unit values exist for all dates during the subscription's time span</strong> to avoid any possibility of the subscriber not being charged for prorated as well as nonprorated usage at any given time period.</p>
+</td>
+</tr>
+
+</table>
+</li><li class="listbullet"><strong class="strong">Per Subscription Recurring Charge</strong><p class="listcontinue">A type of Recurring Charge or UDRC that is charged to one designated Account in the subscription. &nbsp;Example: Group Subscription ABC includes 5 Accounts but the $10 per month subscription fee is only charged to one account in the subscription (or $10).</p>
+</li><li class="listbullet"><strong class="strong">Per Participant Recurring Charge</strong><p class="listcontinue">A type of Recurring Charge or Unit Dependent Recurring Charge that is charged to each Account participating in the subscription. &nbsp;Example: Group Subscription ABC includes 5 Accounts and each of the 5 Accounts get charged the $10 per month subscription fee (or $50).</p>
+</li><li class="listbullet"><strong class="strong">Billing Cycle Relative</strong><p class="listcontinue">Refers to setting the recurring charge period to be the same as the Account's billing cycle. This avoids confusion on subscriber online bills when various participants in a group subscription have different billing cycles (daily, weekly, monthly) or different billing cycle end dates (first day of the month, 15th day of the month, last day of the month) and so on.</p>
+</li></ul><p class="bodytext">Product or Rate Managers or System Integration Developers create and configure Product Offerings using one or more of these types of recurring charges using the MetraOffer application.</p>
+<p class="bodytext">CSRs then subscribe individual or groups of Accounts to these Product Offerings using the MetraCare application.</p>
+<table class="tableintopic" width="710" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="42"><p class="note"><img src="12688.gif" alt="" height="24px" width="26px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="668"><p class="note">Recurring charges cannot be reassigned.</p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Related Topics</p>
+<p class="bodytext"><a id="h12743" class="jumptemplate" title="About Rates" href="rates.htm" target="_self">About Rates</a></p>
+<p class="bodytext"><a id="h12742" class="newfeaturereference" title="About Group Subscriptions" href="about_group_subscriptions.htm" target="_self">About Group Subscriptions</a></p>
+<p class="bodytext"><a id="h12753" class="jumptemplate" title="About Adjustments" href="about_metranet_adjustments.htm" target="_self">About MetraNet Adjustments</a></p>
+<p class="bodytext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

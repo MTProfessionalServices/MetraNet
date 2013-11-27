@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> View/Edit Parameter Tables </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="About Approvals, View/Edit Parameter Tables" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('3797');expand('3786');expand('14212');highlight('3798')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="reviewing_rate_changes.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="rates.rateschedule.list.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">View/Edit Parameter Tables</h4>
+<p class="caption"><img src="19996.png" alt="moffer-po" height="16" width="16" vspace="0" hspace="0" align="bottom" border="0" /> Product Offerings<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />[product offering]<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />[priceable item]<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />[parameter table]</p>
+<p class="caption"><img src="19998.png" alt="moffer-sharedrates" height="16" width="16" vspace="0" hspace="0" align="bottom" border="0" /> Shared Rates<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />[shared price lists]<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />[price list] <img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />[parameter table]</p>
+<p class="bodytext">Rate schedules are based upon parameter tables that let you set conditions under which different rates are to be applied. (For a discussion of how price lists work with parameter tables in the MetraOffer application, see <a id="h4126" class="" title="About Parameter Tables" href="about_parameter_tables.htm" target="_self">About Parameter Tables</a>.)</p>
+<p class="bodytext">If the rate schedule you are viewing is for a discount, see <a id="h4172" class="" title="Edit Discount Tables" href="dc.gotoruleeditor.hlp.htm" target="_self">Edit Discount Tables</a>.</p>
+<p class="bodytext">The rows in a parameter table are evaluated in the order they are listed, working down the rows until the conditions for the rate qualifier is met. If the rate qualifier condition is met, then the system applies the corresponding rate definition to the subscriber's charge. If the rate qualifier is not<em class="emphasis"> </em>met, then the system proceeds to the next item in the list to determine if that rate qualifier is met, continuing down the list until it finds one that it can apply.</p>
+<p class="bodytext">You must have a list of rate qualifiers that anticipates all the possible values that could be encountered. Otherwise, if the system finds no rate qualifiers that apply, it will proceed to the next appropriate rate schedule in the price list chaining schema. If one is not found in any of the rate schedules in the price list chain, an error will occur.</p>
+<p class="subheading">Editing Rates</p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">Your changes may be subject to approval. <a id="h25607" class="crossreference" title="About Approvals" href="25606.htm" target="_self">More Information</a>.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext">You can edit the list of rules in the following ways:</p>
+<table class="tableintopic" width="576" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #BFBFBF">
+<tr align="left" valign="top">
+<td bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="162"><p class="tableheading">Action</p>
+</td>
+<td bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="414"><p class="tableheading">Explanation</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="162"><p class="tabletext">Add a New Rule to the List</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="414"><p class="tabletext">The <strong class="strong">Add </strong><img src="4159.gif" alt="" height="17px" width="21px" vspace="0" hspace="0" align="bottom" border="0" /> icon will add a new condition directly above a list item. Fill in the rate qualifier and rate definitions in the ruleset editor window that appears. The Add button at the bottom of the record list will add an item at the very bottom of the list.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="162"><p class="tabletext">Edit an Existing Rule</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="414"><p class="tabletext">Click the <strong class="strong">Edit</strong> icon <img src="4160.gif" alt="" height="17px" width="13px" vspace="0" hspace="0" align="bottom" border="0" /> next to the item you would like to edit. Make your changes in the ruleset editor box that appears.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="162"><p class="tabletext">Move a Rule Within the List</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="414"><p class="tabletext">The system checks to see if conditions are met starting at the topmost list item and continuing step-by-step down the list. You can use the <strong class="strong">Arrow</strong> icons <img src="4161.gif" alt="" height="14px" width="26px" vspace="0" hspace="0" align="bottom" border="0" /> to move an item toward the top of the list or toward the bottom of the list. Again, the item's rate qualifier will be checked prior to all of the lower items on the list and after all the higher items in the list.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="162"><p class="tabletext">Remove a Rule from the List</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="414"><p class="tabletext">Clicking the <strong class="strong">Remove </strong>button will produce a page of all items in the list. Click the check box next to the list item(s) you want removed.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="162"><p class="tabletext">Copy Rules</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="414"><p class="tabletext">This allows you to import the rate schedule information from an existing compatible rate schedules. You can choose between shared and nonshared schedules. Select the one you require and click OK to import.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="162"><p class="tabletext">Edit as XML</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="414"><p class="tabletext">Opens the XML file of the rate schedule for editing in a new window. You can choose to download the file or edit it directly. When editing directly, your changes are not saved unless you click <strong class="strong">Import</strong>. (Click <strong class="strong">Close</strong> to cancel your changes.)</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="162"><p class="tabletext">Export to Excel</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="414"><p class="tabletext">See <a id="h4178" class="" title="Use Excel to Edit Schedules" href="using_excel_to_edit_schedules.htm" target="_self">Using Excel to Edit Schedules</a>.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="162"><p class="tabletext">Import from Excel</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="414"><p class="tabletext">See <a id="h4178_2" class="" title="Use Excel to Edit Schedules" href="using_excel_to_edit_schedules.htm" target="_self">Using Excel to Edit Schedules</a>.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="162"><p class="tabletext">Set Effective Dates, Description</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="414"><p class="tabletext">Lets you edit the effective date of the rate schedule and enter or edit a description.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="162"><p class="tabletext">Change Your Current View of the Rules Using the Filter Button</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="414"><p class="tabletext">The filter button allows you to view a specific set of rates with the values that you specify. This is useful if you have a large number of rates and rules and only want to view certain rules. Note that by using the filter you are not deleting or deactivating any of the rows, but simply selecting a range of them for easier viewing. To filter a list of rules:</p>
+<ol class="listnumber"><li class="listnumber">Click the <strong class="strong">Filter</strong> button at the bottom of the rule list.</li><li class="listnumber">Enter <em class="emphasis">the exact </em>selection, value, and/or operator that you want to filter by.</li><li class="listnumber">Click <strong class="strong">OK</strong>.<p class="tabletext">To return to your original list of rules, click the refresh button on the left.</p>
+<p class="tabletext">The filter does not operate arithmetically. If you enter an operator and a value, say &lt;1000, it will not look for all values less than 1000. Instead it will look for all rules with the operator &quot;&lt;&quot; and the value 1000.</p>
+</li></ol></td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

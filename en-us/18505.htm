@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> About MetraNet Standard Roles </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="About MetraNet Standard Roles" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('12399');expand('12550');expand('13616');highlight('18505')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="about_adding_capabilities_to_roles.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="about_metranet_capabilities.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">About MetraNet Standard Roles</h4>
+<p class="bodytext">Standard roles are predefined in the MetraNet platform. These roles can be customized as needed and any number of new ones created, building upon the provided capabilities. </p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="bodytext"><span class="red-bold">Roles are optional and not automatic</span></p>
+<p class="bodytext">When you create a new system or subscriber account, it has <u class="underline">no</u> defined role. You can use a predefined role or assign capabilities to the account. Predefined roles do not provide everything a user typically needs to function in a role. For example, see the CSR role below.</p>
+<p class="bodytext"><span class="boldblue">If you do not apply a role, </span>you must assign the <strong class="strong"><strong class="strong">Application Login</strong></strong> capability for one or more MetraNet applications: MetraOffer, MetraControl, MetraCare, or MetraView. <a id="h24139" class="crossreference" title="Using the Application Logon Capability" href="LoginCapability.hlp.htm" target="_self">More Information</a></p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+<table class="tableintopic" width="756" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #D3D3D3">
+<tr align="left" valign="top">
+<td bgcolor="#105AA8" style="border:1px solid #D3D3D3;" width="204"><p class="tableheading">Role Name</p>
+</td>
+<td bgcolor="#105AA8" style="border:1px solid #D3D3D3;" width="252"><p class="tableheading">Brief Description</p>
+</td>
+<td bgcolor="#105AA8" style="border:1px solid #D3D3D3;" width="300"><p class="tableheading">Required Capabilities</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D3D3D3;" width="204"><p class="tabletext"><strong class="strong"><strong class="strong">CSR (MetraCare)</strong></strong></p>
+</td>
+<td style="border:1px solid #D3D3D3;" width="252"><p class="tabletext">Authorizes a user to perform routine CSR tasks in the MetraCare application.</p>
+</td>
+<td style="border:1px solid #D3D3D3;" width="300"><p class="tabletext">Application Logon<br />Impersonation</p>
+<p class="tabletext"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /> A CSR requires additional capabilities to perform a standard role. Typical capabilities for CSRs are Create Subscriber Accounts and Update Subscriber Accounts, and Create Subscription and Update Subscription.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D3D3D3;" width="204"><p class="tabletext"><strong class="strong"><strong class="strong">Junior Adjustment Manager</strong></strong></p>
+</td>
+<td style="border:1px solid #D3D3D3;" width="252"><p class="tabletext">Authorizes a user to perform routine Adjustment Manager tasks in the MetraCare application.</p>
+</td>
+<td style="border:1px solid #D3D3D3;" width="300"><p class="tabletext">Application Logon<br />Apply Adjustments<br />Impersonation</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D3D3D3;" width="204"><p class="tabletext"><strong class="strong"><strong class="strong">Operations Staff (MetraControl)</strong></strong></p>
+</td>
+<td style="border:1px solid #D3D3D3;" width="252"><p class="tabletext">Authorizes a user to perform routine tasks in the MetraControl application.</p>
+</td>
+<td style="border:1px solid #D3D3D3;" width="300"><p class="tabletext">Application Logon<br />Update Failed Transactions</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D3D3D3;" width="204"><p class="tabletext"><strong class="strong"><strong class="strong">Product Administrator (MetraOffer)</strong></strong></p>
+</td>
+<td style="border:1px solid #D3D3D3;" width="252"><p class="tabletext">Authorizes a user to perform administrative tasks in the MetraOffer application.</p>
+</td>
+<td style="border:1px solid #D3D3D3;" width="300"><p class="tabletext">Application Logon</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D3D3D3;" width="204"><p class="tabletext"><strong class="strong"><strong class="strong">Sales</strong></strong></p>
+</td>
+<td style="border:1px solid #D3D3D3;" width="252"><p class="tabletext">Authorizes a sales associate to perform routine account ownership tasks in the MetraCare application.</p>
+</td>
+<td style="border:1px solid #D3D3D3;" width="300"><p class="tabletext">Application Logon<br />Manage Owned Accounts<br />View Group Subscriptions<br />View Online Bill<br />View Subscriptions</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D3D3D3;" width="204"><p class="tabletext"><strong class="strong"><strong class="strong">Senior Adjustment Manager</strong></strong></p>
+</td>
+<td style="border:1px solid #D3D3D3;" width="252"><p class="tabletext">Authorizes a user to perform privileged Adjustment Manager tasks in the MetraCare application.</p>
+</td>
+<td style="border:1px solid #D3D3D3;" width="300"><p class="tabletext">Application Logon<br />Manage Adjustments<br />Impersonation</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D3D3D3;" width="204"><p class="tabletext"><strong class="strong"><strong class="strong">Subscriber (MetraView)</strong></strong></p>
+</td>
+<td style="border:1px solid #D3D3D3;" width="252"><p class="tabletext">Authorizes a subscriber to perform routine tasks in the MetraView application.</p>
+</td>
+<td style="border:1px solid #D3D3D3;" width="300"><p class="tabletext">Application Logon<br />Create Subscription<br />Read Business Modeling Entities<br />Update Corporate Accounts<br />Update Subscriber Accounts<br />View Subscriptions<br />Write Business Modeling Entities</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D3D3D3;" width="204"><p class="tabletext"><strong class="strong"><strong class="strong">Super User</strong></strong></p>
+</td>
+<td style="border:1px solid #D3D3D3;" width="252"><p class="tabletext">Authorizes full system access and permissions.</p>
+</td>
+<td style="border:1px solid #D3D3D3;" width="300"><p class="tabletext">(Unlimited Capabilities)</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

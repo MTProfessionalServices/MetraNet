@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> FLS File Naming Convention </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="FLS File Naming Convention, Target Arguments" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('19537');expand('20847');expand('19610');expand('13614');highlight('19539')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="23117.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="19537.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h5 class="heading5">FLS File Naming Convention</h5>
+<p class="bodytext">When files are placed in the <strong class="strong">new </strong>folder, they must match a four-part naming convention (with each part delimited with a dot).</p>
+<p class="bodytext"><img src="flsnamingconvention.png" alt="flsnamingconvention.png" height="180" width="450" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<p class="bodytext"></p>
+<table class="tableintopic" width="642" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #E0E0E0">
+<tr align="left" valign="top">
+<td bgcolor="#105AA8" style="border:1px solid #E0E0E0;" width="133"><p class="tableheading">Item Name</p>
+</td>
+<td bgcolor="#105AA8" style="border:1px solid #E0E0E0;" width="257"><p class="tableheading">Description</p>
+</td>
+<td bgcolor="#105AA8" style="border:1px solid #E0E0E0;" width="252"><p class="tableheading">Example</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #E0E0E0;" width="133"><p class="tabletext"><strong class="strong">control number</strong></p>
+</td>
+<td style="border:1px solid #E0E0E0;" width="257"><p class="tabletext">This number identifies this file (or set of files) as a job when processing begins. Each job requires a new control number. Incrementing the control number will ensure uniqueness. There are only two situations in which you can use the same control number:<br />-If multiple files are required for the same job they should all have the same control number.<br />-If you are resubmitting a file or files due to a failure.</p>
+</td>
+<td style="border:1px solid #E0E0E0;" width="252"><p class="tabletext"><strong class="strong">cntl0000001</strong>.rate.file.new</p>
+<p class="tabletext"><strong class="strong">c001</strong>.compute.file.new</p>
+<p class="tabletext"><strong class="strong">123004</strong>.aggregate.data.new</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #E0E0E0;" width="133"><p class="tabletext"><strong class="strong">target filter</strong></p>
+</td>
+<td style="border:1px solid #E0E0E0;" width="257"><p class="tabletext">You may configure multiple targets in FLS. The &lt;<strong class="strong">target filter</strong>&gt; identifies which executable is to be used to process a file. Once a target is matched, FLS will examine the details of the target executable's argument to determine the command to invoke. </p>
+</td>
+<td style="border:1px solid #E0E0E0;" width="252"><p class="tabletext">cntl0000001.<strong class="strong">rate</strong>.file.new</p>
+<p class="tabletext">In this example, &quot;rate&quot; would be specified as the Filter for a specific executable.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #E0E0E0;" width="133"><p class="tabletext"><strong class="strong">argument filter file</strong></p>
+</td>
+<td style="border:1px solid #E0E0E0;" width="257"><p class="tabletext">Configured targets use argument filters to describe how a matched file name should be passed in the command line to invoke the executable. The &lt;<strong class="strong">argument filter file</strong>&gt; lets the user specify different executable arguments for different matching filenames.</p>
+<p class="tabletext"><span class="boldblue">Note:</span> A target can have more than one filter for multipoint services.</p>
+</td>
+<td style="border:1px solid #E0E0E0;" width="252"><p class="tabletext">cntl0000001.rate.<strong class="strong">abcFile</strong>.new</p>
+<p class="tabletext">For example, a target argument may have a filter specified as &quot;abcFile&quot; and an executable argument specifying: &quot;--arg audioMain=$(file)&quot;. See <a id="h21911" class="crossreference" title="Target Arguments" href="20876.htm" target="_self">Target Arguments</a></p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #E0E0E0;" width="133"><p class="tabletext"><strong class="strong">ext</strong></p>
+</td>
+<td style="border:1px solid #E0E0E0;" width="257"><p class="tabletext">The file extension can be anything and can be used for any purpose (such as for version numbers).</p>
+<p class="tabletext"><span class="boldblue">Note: </span>Changing this does not affect the file status or trigger FLS.</p>
+</td>
+<td style="border:1px solid #E0E0E0;" width="252"><p class="tabletext">0194.rate.file.<strong class="strong">new </strong>could be renamed 0194.rate.file.<strong class="strong">job</strong></p>
+</td>
+</tr>
+
+</table>
+<p class="code"></p>
+<p class="bodytext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

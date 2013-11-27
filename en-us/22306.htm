@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> MetraFlow Metering Operators and Arguments </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="MetraFlow Metering Operators and Arguments, Target Arguments" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('22305');expand('20847');expand('19610');expand('13614');highlight('22306')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="25228.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="22305.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h5 class="heading5">MetraFlow Metering Operators and Arguments</h5>
+<p class="bodytext">The following demonstrates the technique for metering batch data from FLS for pipeline processing using a MetraFlow script. It uses the <strong class="strong">import </strong>and <strong class="strong">meter </strong>operators to acquire batch data that is formatted for a service definition. </p>
+<p class="subheading">Operators</p>
+<ul class="listbullet"><li class="listbullet"><strong class="strong">Import</strong><br />This operator specifies a <strong class="strong">data file name</strong>, a <strong class="strong">file format</strong> <strong class="strong">description</strong> for the data, and <strong class="strong">sequential mode</strong>. </li><li class="listbullet"><strong class="strong">Meter</strong><br />This operator specifies a <strong class="strong">service definition</strong> and an arbitrary <strong class="strong">collection ID</strong>.</li></ul><p class="subheading">Arguments</p>
+<ul class="listbullet"><li class="listbullet"><strong class="strong">collectionIDEncoded </strong><br />A batch identifier to be used when metering with batches. (This value is a 16-byte quantity represented in hexadecimal format.)&nbsp;FLS generates this value with <strong class="strong">$batchID</strong><span class="teal">.</span> The collection ID is stored in the c__CollectionID column of t_svc_&lt;servicedef&gt; table.</li><li class="listbullet"><strong class="strong">generateSummaryTable</strong> <br />This flag hould be set to <strong class="strong">false </strong>when using FLS for MetraFlow metering. This is required to avoid MetraFlow database collisions. </li><li class="listbullet"><strong class="strong">delimiter</strong><br />This specifies what the script should expect between values in the data file. In this simple <a id="h26517" class="crossreference" title="Data File" href="22306.htm#o22334" target="_self">CSV example</a>, each column is separated by a comma and the end of line is denoted by <strong class="strong">crlf</strong>.</li></ul><table class="relatedtopics belowtopictext" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "454">
+<p class="relatedheading">In This Section</p><p class="relateditem"><a href="22306.htm#o22332" target="_self">MetraFlow Sample Script</a></p><p class="relateditem"><a href="22306.htm#o22333" target="_self">FLS Calling Arguments</a></p><p class="relateditem"><a href="22306.htm#o22334" target="_self">Data File</a></p><p class="relateditem"><a href="22306.htm#o22335" target="_self">Service Definition</a></p><p class="relateditem"><a href="25228.htm" target="_self">Other Example Configurations</a></p></td>
+</tr>
+</table>
+<a name="o22332"></a><table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="22306.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<p class="heading6">MetraFlow Sample Script</p>
+<p class="bodytext">See <a id="h26516" class="crossreference" title="MetraFlow Metering Operators and Arguments" href="22306.htm" target="_self">MetraFlow Metering Operators and Arguments</a> for explanation of bolded terms.</p>
+<p class="code"></p>
+<p class="code">-- Metering Sample</p>
+<p class="code">readTravel: <span class="red-bold">import</span>[</p>
+<p class="code">    <span class="blue">filename</span>=<span class="teal">$importFile</span>,</p>
+<p class="code">    <span class="blue">format</span>=&quot;myRec (</p>
+<p class="code">      <span class="green">c_account </span>       text_delimited_nvarchar(<strong class="strong">delimiter</strong><span class="blue">=','</span>),</p>
+<p class="code">      <span class="green">c_duration</span>       text_delimited_base10_decimal(<strong class="strong">delimiter</strong><span class="blue">=','</span>),</p>
+<p class="code">      <span class="green">c_language</span>       text_delimited_enum(enum_space='travelspot.com/TravSpotEnums', enum_type='Languages', <span class="blue">delimiter=','</span>),</p>
+<p class="code">      <span class="green">c_ConferenceID</span>   text_delimited_base10_int32(<strong class="strong">delimiter</strong><span class="blue">=','</span>),</p>
+<p class="code">      <span class="green">c_ConferenceName</span> text_delimited_nvarchar(<strong class="strong">delimiter</strong><span class="blue">=crlf</span>))&quot;,</p>
+<p class="code">    <span class="blue">mode</span>=&quot;sequential&quot;];</p>
+<p class="code"></p>
+<p class="code">meterTravel: <span class="red-bold">meter</span>[<span class="blue">service</span>=&quot;travelspot.com/TranslationService&quot;,</p>
+<p class="code">                   &nbsp;<strong class="strong">collectionIDEncoded</strong>=<span class="teal">$batchID</span>, <strong class="strong">generateSummaryTable=false</strong>];</p>
+<p class="code">readTravel -&gt; meterTravel;</p>
+<p class="code"></p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">The value for collectIDEncoded should typically come from the BATCH_ID passed in from FLS.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+<p class="bodytext"></p>
+<a name="o22333"></a><table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="22306.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<p class="heading6">FLS Calling Arguments</p>
+<p class="bodytext"><strong class="strong">$importFile</strong> and <strong class="strong">$batchID </strong>are MetraFlow parameters. You define the arguments in the FLS <strong class="strong">target </strong>specification:</p>
+<p class="code2"><span class="teal">--arg importFile=&quot;$(FILE)&quot;</span></p>
+<p class="code2"><span class="teal">--arg batchID=&quot;$(BATCHID)&quot;</span></p>
+<p class="bodytext">The names you use for your arguments must match the parameter names used in the MetraFlow script. (In this example, <strong class="strong">$importFile</strong> and <strong class="strong">$batchID</strong> are defined in the script.)</p>
+<table class="tableintopic" width="576" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="42"><p class="note"><img src="warning.gif" alt="warn" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="534"><p class="warning">When you specify the target argument, there can be no spaces except for one after the <strong class="strong">arg </strong>keyword. </p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">See Also</p>
+<p class="bodytext"><a id="h22336" class="crossreference" title="Target Arguments" href="20876.htm" target="_self">Target Arguments</a></p>
+<a name="o22334"></a><table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="22306.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<p class="heading6">Data File</p>
+<p class="bodytext">The data file (TravelSpotUsage.csv) has five columns of data, like this:</p>
+<p class="code"></p>
+<table class="tableintopic" width="564" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="72"><p class="tabletext">Account</p>
+</td>
+<td width="72"><p class="tabletext">Duration</p>
+</td>
+<td width="84"><p class="tabletext">Language</p>
+</td>
+<td width="108"><p class="tabletext">Conference ID</p>
+</td>
+<td width="228"><p class="tabletext">Conference Name</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td width="72"><p class="tabletext"><span class="green">c_account</span></p>
+</td>
+<td width="72"><p class="tabletext"><span class="green">c_duration</span></p>
+</td>
+<td width="84"><p class="tabletext"><span class="green">c_language</span></p>
+</td>
+<td width="108"><p class="tabletext"><span class="green">c_ConferenceID</span></p>
+</td>
+<td width="228"><p class="tabletext"><span class="green">c_ConferenceName</span></p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td width="72"><p class="tabletext"><span class="keyboard">jcook,</span></p>
+</td>
+<td width="72"><p class="tabletext"><span class="keyboard">20,</span></p>
+</td>
+<td width="84"><p class="tabletext"><span class="keyboard">French,</span></p>
+</td>
+<td width="108"><p class="tabletext"><span class="keyboard">1001,</span></p>
+</td>
+<td width="228"><p class="tabletext"><span class="keyboard">Team Meeting¶</span></p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td width="72"><p class="tabletext"><span class="keyboard">jcook,</span></p>
+</td>
+<td width="72"><p class="tabletext"><span class="keyboard">44,</span></p>
+</td>
+<td width="84"><p class="tabletext"><span class="keyboard">German,</span></p>
+</td>
+<td width="108"><p class="tabletext"><span class="keyboard">1002,</span></p>
+</td>
+<td width="228"><p class="tabletext"><span class="keyboard">Sales Conference¶</span></p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td width="72"><p class="tabletext"><span class="keyboard">jcook,</span></p>
+</td>
+<td width="72"><p class="tabletext"><span class="keyboard">105,</span></p>
+</td>
+<td width="84"><p class="tabletext"><span class="keyboard">German,</span></p>
+</td>
+<td width="108"><p class="tabletext"><span class="keyboard">1003,</span></p>
+</td>
+<td width="228"><p class="tabletext"><span class="keyboard">Europe Team Teleconference¶</span></p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td width="72"><p class="tabletext"><span class="keyboard">jcook,</span></p>
+</td>
+<td width="72"><p class="tabletext"><span class="keyboard">10,</span></p>
+</td>
+<td width="84"><p class="tabletext"><span class="keyboard">Spanish,</span></p>
+</td>
+<td width="108"><p class="tabletext"><span class="keyboard">1004,</span></p>
+</td>
+<td width="228"><p class="tabletext"><span class="keyboard">Customer Planning Conference¶</span></p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext">The <strong class="strong"><a id="h26518" class="crossreference" title="MetraFlow Sample Script" href="22306.htm#o22332" target="_self">Import </a></strong><a id="h26518_2" class="crossreference" title="MetraFlow Sample Script" href="22306.htm#o22332" target="_self">operator's </a><strong class="strong"><a id="h26518_3" class="crossreference" title="MetraFlow Sample Script" href="22306.htm#o22332" target="_self">Format </a></strong><a id="h26518_4" class="crossreference" title="MetraFlow Sample Script" href="22306.htm#o22332" target="_self">parameter</a> specifies what the script should expect between values in the data file (in this case each column is separated by a comma and the end of line is denoted by crlf).</p>
+<a name="o22335"></a><table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="22306.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<p class="heading6">Service Definition</p>
+<p class="bodytext">The service definition (TranslationService.msixdef) has five corresponding properties:</p>
+<p class="code">&lt;defineservice&gt;</p>
+<p class="code">  &lt;name&gt;travelspot.com/TranslationService&lt;/name&gt;</p>
+<p class="code">  &lt;ptype&gt;</p>
+<p class="code">    &lt;dn&gt;<span class="green">account</span>&lt;/dn&gt;  </p>
+<p class="code">    &lt;type&gt;string&lt;/type&gt;  </p>
+<p class="code">    &lt;length&gt;50&lt;/length&gt;  </p>
+<p class="code">    &lt;required&gt;Y&lt;/required&gt;  </p>
+<p class="code">    &lt;defaultvalue&gt;test_account&lt;/defaultvalue&gt;  </p>
+<p class="code">    &lt;description&gt;Billable account for the session&lt;/description&gt;</p>
+<p class="code">  &lt;/ptype&gt;</p>
+<p class="code">  &lt;ptype&gt;</p>
+<p class="code">    &lt;dn&gt;<span class="green">duration</span>&lt;/dn&gt;  </p>
+<p class="code">    &lt;type&gt;decimal&lt;/type&gt;  </p>
+<p class="code">    &lt;length&gt;&lt;/length&gt;  </p>
+<p class="code">    &lt;required&gt;Y&lt;/required&gt;  </p>
+<p class="code">    &lt;defaultvalue&gt;0.0&lt;/defaultvalue&gt;  </p>
+<p class="code">    &lt;description&gt;Length of conference (in minutes)&lt;/description&gt;</p>
+<p class="code">  &lt;/ptype&gt;</p>
+<p class="code">  &lt;ptype&gt;</p>
+<p class="code">    &lt;dn&gt;<span class="green">language</span>&lt;/dn&gt;  </p>
+<p class="code">    &lt;type EnumSpace=&quot;travelspot.com/TravSpotEnums&quot; EnumType=&quot;Languages&quot;&gt;enum&lt;/type&gt;  </p>
+<p class="code">    &lt;length&gt;&lt;/length&gt;  </p>
+<p class="code">    &lt;required&gt;Y&lt;/required&gt;  </p>
+<p class="code">    &lt;defaultvalue&gt;English&lt;/defaultvalue&gt;  </p>
+<p class="code">    &lt;description&gt;Language translated to&lt;/description&gt;</p>
+<p class="code">  &lt;/ptype&gt;</p>
+<p class="code">  &lt;ptype&gt;</p>
+<p class="code">    &lt;dn&gt;<span class="green">ConferenceID</span>&lt;/dn&gt;  </p>
+<p class="code">    &lt;type&gt;int32&lt;/type&gt;  </p>
+<p class="code">    &lt;length&gt;&lt;/length&gt;  </p>
+<p class="code">    &lt;required&gt;Y&lt;/required&gt;  </p>
+<p class="code">    &lt;defaultvalue&gt;1&lt;/defaultvalue&gt;  </p>
+<p class="code">    &lt;description&gt;ID for the conference&lt;/description&gt;</p>
+<p class="code">  &lt;/ptype&gt;</p>
+<p class="code">  &lt;ptype&gt;</p>
+<p class="code">    &lt;dn&gt;<span class="green">ConferenceName</span>&lt;/dn&gt;  </p>
+<p class="code">    &lt;type&gt;string&lt;/type&gt;  </p>
+<p class="code">    &lt;length&gt;50&lt;/length&gt;  </p>
+<p class="code">    &lt;required&gt;Y&lt;/required&gt;  </p>
+<p class="code">    &lt;defaultvalue&gt;conference_name&lt;/defaultvalue&gt;  </p>
+<p class="code">    &lt;description&gt;Name of the conference&lt;/description&gt;</p>
+<p class="code">  &lt;/ptype&gt;</p>
+<p class="code">&lt;/defineservice&gt;</p>
+<p class="code"></p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">The collection ID should be the batch identifier to be used when metering with batches. This value is a 16-byte quantity represented in hexadecimal format.&nbsp; The CollectionID is stored in the CollectionID is stored in the c__CollectionID column of t_svc_&lt;servicedef&gt; table.</p>
+</td>
+</tr>
+
+</table>
+<p class="note"></p>
+<p class="bodytext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Queue Ad Hoc Reports </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Queue Ad Hoc Reports, Specifying the Report Format" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('24068');expand('13614');highlight('24069')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="ShowExportDashboardDetails.hlp.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="CreateScheduleReportInstanceMonthly.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h3 class="heading3">Queue Ad Hoc Reports</h3>
+<p class="bodytext">This feature lets you initiate a report at any time regardless of report schedule. It's useful to test new report definitions, before you define report instances.</p>
+<table class="tableintopic" width="576" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="42"><p class="note"><img src="warning.gif" alt="warn" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="534"><p class="warning">In production settings, avoid using this feature at peak-load times. When data reporting involves large data sets and data-intensive queries it is advisable to schedule such report generation for low-load times during your organizations daily, weekly, and monthly billing cycles.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext">The page shows all defined report types (but not report instances). </p>
+<ol class="listnumber"><li class="listnumber">For the selected report definition, click <strong class="strong">Queue Ad Hoc Report </strong>for the report you want to run.</li><li class="listnumber">On the <strong class="strong">Execute Ad Hoc Reports</strong> page, select from the output options, and click <strong class="strong">OK</strong>.<p class="listcontinue">The report is queued, meaning that execution will usually begin in less than 5 minutes. (By default, this is the frequency with which the Data Export Service runs.)</p>
+</li></ol><p class="bodytext">Output options:</p>
+<table class="tableintopic" width="576" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr>
+<td width="36" height="0"></td>
+<td width="6" height="0"></td>
+<td width="114" height="0"></td>
+<td width="420" height="0"></td>
+</tr>
+<tr align="left" valign="top">
+<td bgcolor="#105AA8" style="border:1px solid #BFBFBF;" colspan="3" width="156"><p class="tableheading">Property</p>
+</td>
+<td bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="420"><p class="tableheading">Usage</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" colspan="3" width="156"><p class="tabletext"><strong class="strong">Output Type</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="420"><p class="tabletext">Choose from CSV, TXT, or XML. (All output types are text formats.)</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" colspan="3" width="156"><p class="tabletext"><strong class="strong">Output Type</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="420"><p class="tabletext">Choose from CSV, TXT, or XML. (All output types are text formats.)<br />If selecting TXT, see <a id="h24396" class="crossreference" title="Specifying the Report Format" href="24395.htm" target="_self">Specifying the Report Format</a></p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" colspan="3" width="156"><p class="tabletext"><strong class="strong">Output File Name</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="420"><p class="tabletext">Specify a name for the generated file.  A maximum of 50 alphanumeric characters and underscores are allowed. </p>
+<p class="tabletext">You can use parameter names from your report in the name you specify. When the report is generated, the parameter values are used in the name of the generated report.  </p>
+<p class="tabletext">The current machine date and time (YYYYMMDD_HHMMSSMS) is appended to the name you specify.  The appropriate extension (TXT, CSV, or  XML) is also appended.</p>
+<p class="tabletext"><strong class="strong">Example</strong>:  A report called DETAILFEED uses ID_INTERVAL and NM_LOGIN as its parameters. </p>
+<ul class="tablelistbullet"><li class="tablelistbullet">You specify the Output File Name as DETAILFEED_ID_INTERVAL_NM_LOGIN_</li><li class="tablelistbullet">You run the report for the interval 123456789 and a customer user name of H1U1234.</li><li class="tablelistbullet">The report is generated with the file name  DETAILFEED_123456789_h1u1234_20130215_14221733.CSV</li></ul></td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" colspan="3" width="156"><p class="tabletext"><strong class="strong">Compress Report</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="420"><p class="tabletext">Select this option to compress large reports. Compression uses ZipLib (an open-source implementation of zip and gzip that is distributed with MetraNet software).</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" colspan="3" width="156"><p class="tabletext"><strong class="strong">Compress Threshold</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="420"><p class="tabletext">Specifies the minimum file size to compress in kilobytes. If Compress Report is selected and this threshold value is left at 0, all report files are compressed. </p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" colspan="3" width="156"><p class="tabletext"><strong class="strong">Write Exec Parameters to Output</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="420"><p class="tabletext">Outputs the parameter names/values used with the query to generate this report type.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" colspan="3" width="156"><p class="tabletext"><strong class="strong">Use Quoted Identifiers</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="420"><p class="tabletext">This option, which is applicable to CSV format only, puts double-quotes around values that contain commas (for example: &quot;last name, first name&quot;). </p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td bgcolor="#C0C0C0" style="border:1px solid #BFBFBF;" colspan="4" width="576"><p class="tabletext"><strong class="strong">Output File Delivery Details</strong></p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" colspan="3" width="156"><p class="tabletext"><strong class="strong">Disk</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="420"><p class="tabletext">You can specify an output file path to a folder that exists on the MetraNet billing server  that is running the export adapters. The path must use regular Windows syntax including a <span class="red">final slash</span>. For example: D:\MetraTech\DataExportReports<span class="red">\</span></p>
+<p class="tabletext">If the path does not exist or none is specified, the output files are saved to RMP\Extensions\DataExport\Config\workingfolder</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" colspan="3" width="156"><p class="tabletext"><strong class="strong">FTP</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="420"><p class="tabletext">The FTP options enables you to copy a report to another system within or outside the LAN. </p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="36"><p class="tabletext">&nbsp;</p>
+</td>
+<td style="border:1px solid #BFBFBF;" colspan="2" width="120"><p class="tabletext"><strong class="strong">Report Destination</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="420"><p class="tabletext">An IP address or server name with optional folder path relative to the FTP root. <u class="underline">The folder has to exist.</u></p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="36"><p class="tabletext">&nbsp;</p>
+</td>
+<td style="border:1px solid #BFBFBF;" colspan="2" width="120"><p class="tabletext"><strong class="strong">FTP Access User</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="420"><p class="tabletext">A valid FTP username</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="36"><p class="tabletext">&nbsp;</p>
+</td>
+<td style="border:1px solid #BFBFBF;" colspan="2" width="120"><p class="tabletext"><strong class="strong">FTP Access Password</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="420"><p class="tabletext">A valid FTP password. Saved encrypted in DB</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="36"><p class="tabletext">&nbsp;</p>
+</td>
+<td style="border:1px solid #BFBFBF;" colspan="2" width="120"><p class="tabletext"><strong class="strong">Generate Control File</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="420"><p class="tabletext">Optionally generate a control file. A control file is an additional unique file that is generated so that a monitoring system can identify when new reports are ready.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="36"><p class="tabletext">&nbsp;</p>
+</td>
+<td style="border:1px solid #BFBFBF;" colspan="2" width="120"><p class="tabletext"><strong class="strong">Control File Location</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="420"><p class="tabletext">Optionally specify a different location for the control file than the report destination (workingfolder) </p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td colspan="2" width="42"><p class="note"><img src="warning.gif" alt="warn" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td colspan="2" width="534"><p class="warning">To use FTP, the target system must be running the FTP server service.</p>
+<p class="warning">For IIS 7, see <a class="" title="" href="http://technet.microsoft.com/en-us/library/cc771012(WS.10).aspx" target="n">Set Up FTP in IIS 7</a></p>
+</td>
+</tr>
+
+</table>
+<p class="warning"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

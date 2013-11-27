@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Bulk Subscription Change </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Bulk Subscription Change" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('18823');expand('14212');highlight('3879')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="AuditLog.List.hlp.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="calendars.list.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h3 class="heading3">Bulk Subscription Change</h3>
+<p class="caption"><img src="20000.png" alt="moffer-bulk" height="16" width="16" vspace="0" hspace="0" align="bottom" border="0" /> Bulk Subscription Change</p>
+<p class="bodytext">Use this function if you want to move all of your customer subscriptions from one  to another.</p>
+<table class="tableintopic" width="582" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #BFBFBF">
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="174"><p class="tableheading">Field</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="408"><p class="tableheading">Explanation</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="174"><p class="tabletext">Product Offering Source</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="408"><p class="tabletext">This is the product offering that your customers are presently subscribed to (you must spell the name of the product correctly). All customers subscribed to this product offering will be unsubscribed and then subscribed to the product you specify in <strong class="strong">Product Offering Destination</strong>.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="174"><p class="tabletext">Product Offering Destination</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="408"><p class="tabletext">This is the product offering that all subscribers to your product offering source will be subscribed to.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="174"><p class="tabletext">Effective Date</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="408"><p class="tabletext">This is the date that you want the change to go into effect. Prior to this date, customers will continue to be subscribed to the product offering source.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"><strong class="strong">Example:</strong> SuperMP3.com, a music file swapping service, is modifying its Trial and Full Membership product offerings with completely new rates is introducing two new priceable items into each product offering, &quot;MusicSource&quot; for copyrighted music files, and &quot;MusicSwap&quot; for non-copyrighted file swapping. It is phasing out its old, generic &quot;Song Downloads&quot; priceable item.</p>
+<p class="bodytext">At any rate, the product billing manager configures new product offerings while keeping the display name of each product offering as Trial and Full Membership.</p>
+<p class="bodytext">To distinguish between the new and the old product offerings, the product billing manager names the system names &quot;Trial Membership 6/1/2001&quot; and &quot;Full Membership 6/1/2001&quot; (this is the date when the new product offerings are to go into effect).</p>
+<p class="bodytext">To effect the change in the Trial Membership product offering, the product administrator would enter the product offering source as Trial Membership, the product offering destination as Trial Membership 6/1/2001, and the effective date as 6/1/2001. As of that date, all subscribers for the Trial Membership product offering will be moved to the Trial Membership 6/1/2001 product offering.</p>
+<p class="bodytext">A similar procedure would be followed for the Full Membership 6/1/2001 product offering.</p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

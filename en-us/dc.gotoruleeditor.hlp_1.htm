@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Edit Discount Tables </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Edit Discount Tables" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('3821');expand('14212');highlight('3801_1')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="23771.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="using_excel_to_edit_schedules_1.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h3 class="heading3">Edit Discount Tables</h3>
+<p class="caption"><img src="19996.png" alt="moffer-po" height="16" width="16" vspace="0" hspace="0" align="bottom" border="0" /> Product Offerings<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />[product offering]<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />[priceable item]<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />[parameter table]<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />[rate schedule]</p>
+<p class="caption"><img src="19998.png" alt="moffer-sharedrates" height="16" width="16" vspace="0" hspace="0" align="bottom" border="0" /> Shared Rates<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />[shared price lists]<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />[price list] <img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />[parameter table]<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />[rate schedule]</p>
+<p class="bodytext">Discount tables allow you to set the conditions under which different  are to be applied. A discount table is a  similar to a  with the important difference being that the in the discount table is dependent on the  you have set up in the <strong class="strong">Discounts</strong> main menu selection. Also, the action that the discount will take will, of course, <em class="emphasis">deduct</em> from the subscribers bill rather than add to it.</p>
+<p class="bodytext">You will not be able to explicitly see what comprises a specific counter in the discount table itself. To view a discount counter's properties, you must view the discount's properties page.</p>
+<p class="bodytext">As with a rate schedule, the system starts with the first line to determine if that particular condition (the &quot;) is met. If the rate qualifier is met, then the system deducts the corresponding  from the subscriber's charge. If the rate qualifier is not<em class="emphasis"> </em>met, then the system proceeds to the next item in the list to determine if that rate qualifier is met, continuing down the list until it finds one that it can apply.</p>
+<p class="bodytext">You must have a list of rate qualifiers that anticipates all the possible values that could be encountered. Otherwise, if the system finds no rate qualifiers that apply, an error will occur.</p>
+<p class="bodytext">The MTDiscountAdapter (one of MetraNet&#8217;s recurring event adapters) always ignores counter values of &quot;0&#8221; even if a discount table's conditions includes &quot;0&quot; as a legitimate value.</p>
+<p class="bodytext">For instance, if a discount table has a $5 monthly flat discount on song downloads, and a subscriber&#8217;s account logs &#8220;0&#8221; usage for the month&#8217;s song downloads, the system would not apply this discount to the subscriber&#8217;s monthly bill (even if the discount table's conditions included values like &#8220;=&lt;0&#8221; or &#8220;&gt;1&#8221; or &#8220; = 0&#8221;). To discount someone even when they have no usage, use either the Flat Unconditional Discount or Percent Unconditional Discount that do not use qualifiers or conditions.</p>
+<p class="bodytext">You can edit the list of rules in the following ways:</p>
+<table class="tableintopic" width="588" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #BFBFBF">
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="156"><p class="tableheading">Action</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="432"><p class="tableheading">Explanation</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="156"><p class="tabletext">Add a New Rule to the List</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="432"><p class="tabletext">The <strong class="strong">Add </strong>icon will add a new condition directly above a list item. Fill in the rate qualifier and rate definitions in the ruleset editor window that appears. The add button at the bottom of the record list will add an item at the very bottom of the list.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="156"><p class="tabletext">Edit an Existing Rule</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="432"><p class="tabletext">Click the edit icon in the item you would like to edit. Make your changes in the ruleset editor box that appears.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="156"><p class="tabletext">Move a Rule Within the List</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="432"><p class="tabletext">The system checks to see if conditions are met starting at the topmost list item and continuing step-by-step down the list. You can use the circular arrow icons to move an item toward the top of the list or toward the bottom of the list. Again, the item's rate qualifier will be checked prior to all of the lower items on the list and after all the higher items in the list.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="156"><p class="tabletext">Remove a Rule from the List</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="432"><p class="tabletext">Clicking the <strong class="strong">Remove </strong>button will produce a page of all items in the list. Click the check box next to the list item(s) you want removed.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="156"><p class="tabletext">Import Rules</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="432"><p class="tabletext">This allows you to import the rules from an existing compatible rate schedule.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="156"><p class="tabletext">Set , Description</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="432"><p class="tabletext">Here you can edit the effective date of the rate schedule and enter or edit a description.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="156"><p class="tabletext">Change Your Current View of the Rules Using the Filter Button</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="432"><p class="tabletext">The filter button allows you to view a specific set of rates with the values that you specify. This is useful if you have a large number of rates and rules and only want to view certain rules. Note that by using the filter you are not deleting or deactivating any of the rows, but simply selecting a range of them for easier viewing. To filter a list of rules:</p>
+<ol class="listnumber"><li class="listnumber">Click the <strong class="strong">Filter </strong>button at the bottom of the rule list.</li><li class="listnumber">Enter <em class="emphasis">the exact </em>selection, value, and/or operator that you want to filter by.</li><li class="listnumber">Click <strong class="strong">OK</strong>.</li><li class="listnumber">To return to your original list of rules, click the refresh button on the left.<p class="tabletext">The filter does not operate arithmetically. If you enter an operator and a value, say &lt;1000, it will not look for all values less than 1000. Instead it will look for all rules with the operator &quot;&lt;&quot; and the value 1000.</p>
+</li></ol></td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

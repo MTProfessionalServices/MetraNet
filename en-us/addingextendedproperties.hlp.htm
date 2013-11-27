@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> About Extended Properties </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="About Extended Properties" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('3803');expand('3786');expand('14212');highlight('3806')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="about_adjustments.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="example_of_price_list_mapping.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">About Extended Properties</h4>
+<p class="bodytext"><strong class="strong">Extended properties</strong> are elements of product offerings and priceable items that are defined by configuration developers (in ICE) - for integration with non-MetraNet systems - and then configured, as necessary, by product managers (in MetraOffer).</p>
+<p class="bodytext">MetraNet allows you to define extended property sets for inclusion in product offerings, priceable items, discounts, and price lists in MetraOffer. These extended properties collect values that product managers can&nbsp;later enter when creating product offerings and rates. You can&nbsp;then access these values via reports or external applications. Or you can use the properties simply for display purposes in MetraOffer screens.</p>
+<p class="bodytext">For example, out-of-the-box, MetraNet defines a product offering set that can be used for keeping track of general ledger codes for product offererings. Integration with a third-party accounts receivable system is just one possible application of extended properties.</p>
+<p class="bodytext">Extended properties are organized in <em class="emphasis">sets</em>, depending on the type of product catalog entity for which they apply. Each set is represented by a database table. </p>
+<p class="image"><img src="extendprop-table.jpg" alt="extendprop-table" height="96" width="326" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<p class="caption">The default product offering extended property set table</p>
+<p class="bodytext"></p>
+<p class="bodytext"></p>
+<table class="relatedtopics belowtopictext" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "454">
+<p class="relatedheading">In This Section</p><p class="relateditem"><a href="addingextendedproperties.hlp.htm#o24510" target="_self">Edit Extended Property Sets</a></p><p class="relateditem"><a href="addingextendedproperties.hlp.htm#o24511" target="_self">Make an Extended Property Editable</a></p><p class="relateditem"><a href="addingextendedproperties.hlp.htm#o24512" target="_self">Edit Attribute Values in the MetraOffer module</a></p><p class="relateditem"><a href="addingextendedproperties.hlp.htm#o24513" target="_self">Default Extended Properties</a></p></td>
+</tr>
+</table>
+<a name="o24510"></a><table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="addingextendedproperties.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h5 class="heading5">Edit Extended Property Sets</h5>
+<p class="bodytext">You can add, delete, and modify the attributes of extended property sets in ICE. </p>
+<ol class="listnumber"><li class="listnumber">In ICE, select <strong class="strong">ConfigExplorer </strong>» <strong class="strong">Extended Property Sets</strong>.</li><li class="listnumber">Edit one of the available sets: <strong class="strong">Aggregate, Discount, Nonrecurring, PO, Pricelist, Recurring</strong>, or <strong class="strong">Usage</strong>.<p class="listcontinue">For each attribute you add, you then define a name, display name, data type and length, required or not, default value, and description.</p>
+<p class="image"><img src="extendedpropertyice.jpg" alt="extendedpropertyice.png" height="117" width="601" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note"><strong class="strong">Do not change the data type of an extended property attribute</strong></p>
+<p class="note">Doing so causes the synchronization to fail. Instead, create a new extended property that uses the data type you need.</p>
+</td>
+</tr>
+
+</table>
+</li></ol><p class="subheading">Configuration file location</p>
+<p class="bodytext">The extended property configuration files are located in RMP\Extensions\SystemConfig\config\ExtendedProp.</p>
+<p class="subheading"></p>
+<a name="o24511"></a><table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="addingextendedproperties.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h5 class="heading5">Make an Extended Property Editable</h5>
+<p class="bodytext">By default, extended properties are not editable at the priceable item instance level. In other words, once you have added a priceable item to a product offering, the attribute values are read-only for the priceable item. However, there is a way to change this behavior by editing the attributes configuration file.</p>
+<p class="bodytext">To make an extended property editable:</p>
+<ol class="listnumber"><li class="listnumber">Edit the <strong class="strong">attribute_values.xml</strong> in RMP\Extensions\SystemConfig\config\attributes.</li><li class="listnumber">Add a new attribute section for the extended property, comprising its <strong class="strong">Property </strong>name, <strong class="strong">Overrideable </strong>property, and value of <strong class="strong">True.</strong><p class="listcontinue">For example,</p>
+<p class="code2">&lt;attribute_value pcentitytype=&quot;20&quot;&gt;</p>
+<p class="code2">&nbsp;&nbsp;&nbsp; &lt;property&gt;<span class="red">glcode</span>&lt;/property&gt;</p>
+<p class="code2">&nbsp;&nbsp;&nbsp; &lt;attribute&gt;<span class="red">overrideable</span>&lt;/attribute&gt;</p>
+<p class="code2">&nbsp;&nbsp;&nbsp; &lt;value&gt;<span class="red">true</span>&lt;/value&gt;</p>
+<p class="code2">&nbsp; &lt;/attribute_value&gt;</p>
+</li><li class="listnumber"><strong class="strong">Restart IIS</strong>.</li></ol><p class="bodytext"></p>
+<a name="o24512"></a><table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="addingextendedproperties.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h5 class="heading5">Edit Attribute Values in the MetraOffer module</h5>
+<p class="note">Extended property fields can be available as product offering or priceable item <strong class="strong">General </strong>properties. </p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">At the product offering level, extended properties are editable by default when you edit the product offering.</p>
+</td>
+</tr>
+
+</table>
+<p class="image"><img src="mo-poextprops.png" alt="MO-POExtProps.png" height="167" width="614" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<p class="caption">Editing the attribute values of the out-of-the-box product offering extended properties.</p>
+<p class="image"><img src="mo-pirecextprop.png" alt="MO-PIRecExtProp.png" height="117" width="694" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<p class="caption">Editing the attribute value of a priceable item after the Overrideable property has been set (as described above).</p>
+<a name="o24513"></a><table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="addingextendedproperties.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h5 class="heading5">Default Extended Properties</h5>
+<p class="bodytext">These properties are available by default at the product offering level.</p>
+<table class="tableintopic" width="576" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #BFBFBF">
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="174"><p class="tableheading">Field</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="402"><p class="tableheading">Explanation</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="174"><p class="tabletext">*External Information URL</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="402"><p class="tabletext">The URL link that will appear in MetraView for the subscriber's reference.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="174"><p class="tabletext">*GL Code</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="402"><p class="tabletext">This field allows for a general ledger code. This is a value of your organization's choosing that can be used for earmarking the product offering for reporting and accounting purposes.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="174"><p class="tabletext">*Internal Information URL</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="402"><p class="tabletext">The URL link that will appear in the MetraCare for the Customer Service Representatives' reference.</p>
+</td>
+</tr>
+
+</table>
+<p class="note">Similarly, usage, discount, and nonrecurring extended properties appear in their respective priceable item property sheets.</p>
+<p class="note">(These are optional fields for the product or rating manager to complete.)</p>
+<p class="bodytext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

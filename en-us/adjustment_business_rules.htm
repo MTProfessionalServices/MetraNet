@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Adjustment Business Rules </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Adjustment Business Rules" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('12386');expand('23866');expand('12550');expand('13616');highlight('12387')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="adjusting_parent_or_child_transactions.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="about_metranet_adjustments.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h5 class="heading5">Adjustment Business Rules</h5>
+<p class="bodytext">MetraNet adjustments are subject to the following <strong class="strong">Business Rules</strong>:</p>
+<table class="tableintopic" width="810" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td bgcolor="#105AA8" style="border:1px solid #D8D8D8;" width="132"><p class="tableheading">Adjustment Area</p>
+</td>
+<td bgcolor="#105AA8" style="border-right:1px solid #D8D8D8;border-top:1px solid #D8D8D8;border-bottom:1px solid #D8D8D8;" width="678"><p class="tableheading">Specific Rules</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #D8D8D8;border-right:1px solid #D8D8D8;border-bottom:1px solid #D8D8D8;" width="132"><p class="tabletext">Adjustment Types</p>
+</td>
+<td style="border-right:1px solid #D8D8D8;border-bottom:1px solid #D8D8D8;" width="678"><ul class="tablelistbullet"><li class="tablelistbullet">A Priceable Item Type has 0 to n Adjustment Types. &nbsp;An Adjustment Type is associated with a single Priceable Item Type.</li><li class="tablelistbullet">An Adjustment Type has 0 to n Applicability Rules. An Applicability Rule is associated with o to n Adjustment Types.</li><li class="tablelistbullet">An Adjustment Type has 1 to n Reason Codes. A Reason Code is associated with 0 to n Adjustment Templates.</li><li class="tablelistbullet">An Adjustment Type may be based on either Minutes, Percentage, or Flat Amount <em class="emphasis">out of the box.</em> &nbsp;System Integration Developers can create other custom Adjustment Types for the purpose of adjusting usage charges based on other units of measure (such as per page, per download, per mile, and so on.)</li><li class="tablelistbullet">Usage Charge and Nonrecurring Charge priceable items support both Pre Bill and Post Bill adjustments. &nbsp;Aggregate Usage Charge and Recurring Charge priceable items support only Post Bill adjustments.</li><li class="tablelistbullet">A single transaction can have only one active (Pending or Approved) Pre Bill Adjustment and one active (Pending or Approved) Post Bill Adjustment.</li><li class="tablelistbullet">Transactions with existing Pre Bill Adjustments cannot be Reassigned. &nbsp;CSRs receive a displayed message advising them that they must delete the existing adjustment in order to Reassign the transaction.</li><li class="tablelistbullet">Post Bill Reassign Adjustments can be issued for 100% of the Pre Bill adjusted amount.</li><li class="tablelistbullet">You can adjust a Parent transaction without adjusting its associated Children transactions and visa versa. If you must adjust the Parent and all Children transactions, you must do so in separate steps. &nbsp;However, &nbsp;you can bulk adjust each of the children transactions if necessary.</li></ul></td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #D8D8D8;border-right:1px solid #D8D8D8;border-bottom:1px solid #D8D8D8;" width="132"><p class="tabletext">Adjustment Approval</p>
+</td>
+<td style="border-right:1px solid #D8D8D8;border-bottom:1px solid #D8D8D8;" width="678"><p class="tabletext">Adjustment Approval Status can have the following values:<br /><br />A &#8211; Indicates a pre-bill or post-bill adjustment is <em class="emphasis">approved</em></p>
+<p class="tabletext">AD &#8211; Indicates an unapproved adjustment has been automatically deleted by the system during the billing interval's soft-close processing<br /><br />D &#8211; Indicates a pre-bill or post-bill adjustment has been <em class="emphasis">deleted</em> or <em class="emphasis">denied</em></p>
+<p class="tabletext">O &#8211; Indicates an orphan adjustment (the original transaction has been backed out so the adjustment link is broken)<br /><br />P &#8211; Indicates a pre-bill or post-bill adjustment is <em class="emphasis">pending approval</em></p>
+<p class="tabletext">REBILL &#8211; Indicates a <em class="emphasis">pre-bill</em> transaction that has been <em class="emphasis">reassigned</em> to another account</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #D8D8D8;border-right:1px solid #D8D8D8;border-bottom:1px solid #D8D8D8;" width="132"><p class="tabletext">Interval Processing</p>
+</td>
+<td style="border-right:1px solid #D8D8D8;border-bottom:1px solid #D8D8D8;" width="678"><ul class="tablelistbullet"><li class="tablelistbullet">Only Pre Bill Adjustments may be made against rated sessions in open intervals. &nbsp;Only Post Bill Adjustments may be made against rated sessions in hard-closed intervals. Rated sessions in soft-closed intervals may not be adjusted at all.</li><li class="tablelistbullet">A transaction is considered to be <em class="emphasis">billed</em> if it is in a closed interval (soft-closed or hard-closed) or if it is a Point of Service (POS) transaction.</li><li class="tablelistbullet">A Pre Bill Adjustment is always guided to the same interval as the rated session being adjusted. &nbsp;A Post Bill Adjustment is guided to the open interval in effect at the time the adjustment is approved.</li><li class="tablelistbullet">The act of soft-closing a bill interval that contains unapproved Pre Bill Adjustments causes those adjustments to be <em class="emphasis">automatically deleted</em> with the special status code of <em class="emphasis">AD.</em></li><li class="tablelistbullet">Adjustments can be issued to an Account regardless of its state. &nbsp;However, if an adjustment is issued for a <em class="emphasis">closed</em> Account, the Account state is changed to <em class="emphasis">Pending Final Bill </em>and adjustment processing follows normal usage interval rules.</li><li class="tablelistbullet">Adjustments may be denied when the adjustment is either: <em class="emphasis">pending </em>or <em class="emphasis">approved</em> and not a Reassigned adjustment type and the associated usage interval &nbsp;is not hard-closed.</li></ul></td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #D8D8D8;border-right:1px solid #D8D8D8;border-bottom:1px solid #D8D8D8;" width="132"><p class="tabletext">Payment Redirection</p>
+</td>
+<td style="border-right:1px solid #D8D8D8;border-bottom:1px solid #D8D8D8;" width="678"><p class="tabletext">Pre Bill Adjustments and Post Bill Adjustments are paid for by the payer associated with the adjusted transaction. <br /></p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #D8D8D8;border-right:1px solid #D8D8D8;border-bottom:1px solid #D8D8D8;" width="132"><p class="tabletext">Counters</p>
+</td>
+<td style="border-right:1px solid #D8D8D8;border-bottom:1px solid #D8D8D8;" width="678"><ul class="tablelistbullet"><li class="tablelistbullet">All approved pre-bill adjustments to specific charges contribute negative amounts to counters that the associated adjusted charge generated. &nbsp;If the counter period for the original transaction is closed, then the adjustment does not contribute to any counter.</li><li class="tablelistbullet">Miscellaneous Adjustments do not contribute to counters.</li></ul></td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #D8D8D8;border-right:1px solid #D8D8D8;border-bottom:1px solid #D8D8D8;" width="132"><p class="tabletext">Accounts</p>
+</td>
+<td style="border-right:1px solid #D8D8D8;border-bottom:1px solid #D8D8D8;" width="678"><ul class="tablelistbullet"><li class="tablelistbullet">Reassigned Adjustments can be made between two MetraNet Accounts even if they are associated with different Corporate Accounts or are Independent Accounts.</li><li class="tablelistbullet">Only CSRs can request or issue MetraNet Adjustments; Subscribers cannot request or issue adjustments themselves.</li></ul></td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #D8D8D8;border-right:1px solid #D8D8D8;border-bottom:1px solid #D8D8D8;" width="132"><p class="tabletext">Online Bills</p>
+</td>
+<td style="border-right:1px solid #D8D8D8;border-bottom:1px solid #D8D8D8;" width="678"><p class="tabletext">Only <em class="emphasis">Approved</em> Adjustments display on MetraView online bills and reports.<br /></p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Related Topics</p>
+<p class="bodytext">Manage Miscellaneous Adjustments Requests</p>
+<p class="bodytext"><a id="h12727" class="jumptemplate" title="Manage Adjustments" href="ManageAdjustments.hlp.htm" target="_self">Manage Adjusted Transactions</a></p>
+<p class="bodytext"><a id="h12728" class="jumptemplate" title="Manage Orphan Adjustments" href="Adjustment.Manage.hlp.htm" target="_self">Manage Orphan Adjustments</a></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Viewing Jobs </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Viewing Jobs" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('19610');expand('13614');highlight('19628')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="20847.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="FileManagementArg.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h3 class="heading3">Viewing Jobs</h3>
+<p class="bodytext">There are several menu items that let you see the status of FLS jobs. </p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr>
+<td width="40" height="0"></td>
+<td width="62" height="0"></td>
+<td width="475" height="0"></td>
+<td width="95" height="0"></td>
+</tr>
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td colspan="2" width="537"><p class="note"><strong class="strong">About Jobs</strong></p>
+<p class="note">Initially, when a file arrives in the incoming directory, it is not associated with a job and you cannot see it yet from MetraControl File Management. A job appears as an Active Job when a new file is renamed in the incoming directory and processing starts. </p>
+<p class="note">To rename files, your administrator may have a script designed for this purpose, or you may be responsible for this step if you have access with a shared network drive, a remote desktop, or FTP.)</p>
+<p class="note">The job is named after the control number that appears as part of the filename. Once a file is part of a job, you can examine the job associated with the file. </p>
+<p class="note">Multiple files can be contained in a single job. This is the case when there is a parent-child relationship between files. In this case, all files share the same control number.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td bgcolor="#105AA8" style="border:1px solid #D8D8D8;" colspan="2" width="102"><p class="tableheading">Item Name</p>
+</td>
+<td bgcolor="#105AA8" style="border:1px solid #D8D8D8;" colspan="2" width="570"><p class="tableheading">Description</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" colspan="2" width="102"><p class="tabletext"><strong class="strong">Control Number</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" colspan="2" width="570"><p class="tabletext">Clicking on the control number (which is also the job number) displays details of the job execution.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" colspan="2" width="102"><p class="tabletext"><strong class="strong">State</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" colspan="2" width="570"><p class="tabletext">The current state of the job.  Possible status are:</p>
+<p class="tabletext"><u class="underline">Active</u><br />The executable (such as MetraFlow) has been invoked, but processing has not yet completed.</p>
+<p class="tabletext"><u class="underline">Completed</u><br />The executable has successfully completed.</p>
+<p class="tabletext"><u class="underline">Failed</u><br />The executable has exited with an error code.  By examining the file (selecting the file), MetraControl displays details of the error.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" colspan="2" width="102"><p class="tabletext"><strong class="strong">Error Code</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" colspan="2" width="570"><p class="tabletext">0 indicates successful execution.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+<a name="o19626"></a><table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="FileManagement.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">Jobs in the Past 2 Days</h4>
+<p class="caption">File Management<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" /> <img src="fls-jobs.png" alt="fls-jobs.png" height="16" width="16" vspace="0" hspace="0" align="bottom" border="0" /> Jobs in the Past 2 Days</p>
+<p class="bodytext">Shows all jobs processed in the past 48 hours. The list shows jobs with a status of status of Unknown, New, Active, Failed, or Completed.</p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">Multiple files can be contained in a single job. This is the case when there is a parent-child relationship between files.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+<table class="tableintopic" width="535" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #D8D8D8">
+<tr align="left" valign="top">
+<td bgcolor="#105AA8" style="border:1px solid #D8D8D8;" width="102"><p class="tableheading">Item Name</p>
+</td>
+<td bgcolor="#105AA8" style="border:1px solid #D8D8D8;" width="433"><p class="tableheading">Description</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="102"><p class="tabletext"><strong class="strong">Control Number</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="433"><p class="tabletext">Clicking on the control number displays details of the job execution.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="102"><p class="tabletext"><strong class="strong">Error Code</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="433"><p class="tabletext">0 indicates successful execution.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+<a name="o19627"></a><table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="FileManagement.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">Jobs in the Past Week</h4>
+<p class="caption">File Management<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" /><img src="fls-jobs.png" alt="fls-jobs.png" height="16" width="16" vspace="0" hspace="0" align="bottom" border="0" /> Jobs in the Past Week</p>
+<p class="bodytext">Shows all jobs processed in the past 7 days. The list shows jobs with a status of status of Unknown, New, Active, Failed, or Completed.</p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">Multiple files can be contained in a single job. This is the case when there is a parent-child relationship between files.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+<table class="tableintopic" width="535" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #D8D8D8">
+<tr align="left" valign="top">
+<td bgcolor="#105AA8" style="border:1px solid #D8D8D8;" width="102"><p class="tableheading">Item Name</p>
+</td>
+<td bgcolor="#105AA8" style="border:1px solid #D8D8D8;" width="433"><p class="tableheading">Description</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="102"><p class="tabletext"><strong class="strong">Control Number</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="433"><p class="tabletext">Clicking on the control number displays details of the job execution.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="102"><p class="tabletext"><strong class="strong">Error Code</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="433"><p class="tabletext">0 indicates successful execution.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+<a name="o19620"></a><table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="FileManagement.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">Active Jobs</h4>
+<p class="caption">File Management<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" /><img src="fls-active.png" alt="fls-active.png" height="16" width="16" vspace="0" hspace="0" align="bottom" border="0" /> Active Jobs</p>
+<p class="bodytext">Shows all jobs for which the MetraFlow executable has been invoked, but processing has not yet completed.</p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">Multiple files can be contained in a single job. This is the case when there is a parent-child relationship between files.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+<table class="tableintopic" width="535" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #D8D8D8">
+<tr align="left" valign="top">
+<td bgcolor="#105AA8" style="border:1px solid #D8D8D8;" width="102"><p class="tableheading">Item Name</p>
+</td>
+<td bgcolor="#105AA8" style="border:1px solid #D8D8D8;" width="433"><p class="tableheading">Description</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="102"><p class="tabletext"><strong class="strong">Control Number</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="433"><p class="tabletext">Clicking on the control number displays details of the job execution.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+<a name="o19621"></a><table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="FileManagement.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">Failed Jobs</h4>
+<p class="caption">File Management<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" /><img src="fls-failed.png" alt="fls-failed" height="16" width="16" vspace="0" hspace="0" align="bottom" border="0" /> Failed Jobs</p>
+<p class="bodytext">Shows all jobs for which the MetraFlow executable has exited with an error code. By selecting the job, MetraControl displays details of the error.</p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">Multiple files can be contained in a single job. This is the case when there is a parent-child relationship between files.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+<table class="tableintopic" width="535" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #D8D8D8">
+<tr align="left" valign="top">
+<td bgcolor="#105AA8" style="border:1px solid #D8D8D8;" width="102"><p class="tableheading">Item Name</p>
+</td>
+<td bgcolor="#105AA8" style="border:1px solid #D8D8D8;" width="433"><p class="tableheading">Description</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="102"><p class="tabletext"><strong class="strong">Control Number</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="433"><p class="tabletext">Clicking on the control number displays details of the job execution.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+<a name="o19708"></a><table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="FileManagement.hlp.htm#o19621" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h5 class="heading5">Get Target Execution Details</h5>
+<p class="bodytext">The command to open the execution details (usually the <strong class="strong">MetraFlow Step Log</strong>) appears on the <strong class="strong">Detailed Job Report </strong>page once FLS has been invoked.</p>
+<ul class="listbullet"><li class="listbullet">Click on this link to see the details of the target execution for each step in the script.</li></ul><p class="bodytext"></p>
+<a name="o19622"></a><table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="FileManagement.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">Completed Jobs</h4>
+<p class="caption">File Management<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" /><img src="fls-completed.png" alt="fls-completed" height="16" width="16" vspace="0" hspace="0" align="bottom" border="0" /> Completed Jobs</p>
+<p class="bodytext">Shows all jobs for which the MetraFlow executable has successfully completed.</p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">Multiple files can be contained in a single job. This is the case when there is a parent-child relationship between files.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+<table class="tableintopic" width="535" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #D8D8D8">
+<tr align="left" valign="top">
+<td bgcolor="#105AA8" style="border:1px solid #D8D8D8;" width="102"><p class="tableheading">Item Name</p>
+</td>
+<td bgcolor="#105AA8" style="border:1px solid #D8D8D8;" width="433"><p class="tableheading">Description</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="102"><p class="tabletext"><strong class="strong">Control Number</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="433"><p class="tabletext">Clicking on the control number displays details of the job execution.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+<p class="bodytext"></p>
+<a name="o19623"></a><table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="FileManagement.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">All Jobs</h4>
+<p class="caption">File Management<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" /><img src="fls-alljobs.png" alt="fls-alljobs" height="16" width="16" vspace="0" hspace="0" align="bottom" border="0" /> All Jobs</p>
+<p class="bodytext">Shows all jobs that are active or processed. The list shows jobs with a status of Pending, Active, Completed, or Failed. Use the grid controls to scroll through multiple pages or filter your results by date or status or another criterion.</p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">Multiple files can be contained in a single job. This is the case when there is a parent-child relationship between files.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+<table class="tableintopic" width="535" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #D8D8D8">
+<tr align="left" valign="top">
+<td bgcolor="#105AA8" style="border:1px solid #D8D8D8;" width="102"><p class="tableheading">Item Name</p>
+</td>
+<td bgcolor="#105AA8" style="border:1px solid #D8D8D8;" width="433"><p class="tableheading">Description</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="102"><p class="tabletext"><strong class="strong">Control Number</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="433"><p class="tabletext">Clicking the control number displays details of the job execution.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="102"><p class="tabletext"><strong class="strong">Status</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="433"><p class="tabletext">This is the current state of the job.  Status can be one of the following:</p>
+<p class="tabletext"><br /></p>
+<p class="tabletext"><img src="warning.gif" alt="warn" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /> There is a nonconfigurable 5-minute timeout on nested files being moved to the <strong class="strong">Active </strong>state.</p>
+<p class="tabletext"><strong class="strong">Active </strong><br />The MetraFlow or other executable has been invoked and processing is in progress.</p>
+<p class="tabletext"><strong class="strong">Completed</strong><br />The MetraFlow or other executable has successfully completed processing.</p>
+<p class="tabletext"><strong class="strong">Failed </strong><br />The MetraFlow or other executable has exited with an error code. You can select the job to see the details of the error.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="102"><p class="tabletext"><strong class="strong">Error Code</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="433"><p class="tabletext">0 indicates successful execution.</p>
+</td>
+</tr>
+
+</table>
+<p class="warning"></p>
+<a name="o19624"></a><table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="FileManagement.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">Rejected Files</h4>
+<p class="caption">File Management<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" /><img src="fls-rejected.png" alt="fls-rejected" height="16" width="16" vspace="0" hspace="0" align="bottom" border="0" /> Rejected Files</p>
+<p class="bodytext">Shows all files that were not processed by MetraFlow or another executable due to a file naming error (such as not matching a target filter) or some other reason.</p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">Rejected files are not given a job number because FLS processing could not begin. The most common reason for a file to be rejected is the file's name does not match a defined target.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+<p class="bodytext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Manage Bill Processing </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Manage Bill Processing" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('4594');expand('13614');highlight('4595')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="billinggroups.list.hlp.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="4594.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h3 class="heading3">Manage Bill Processing</h3>
+<p class="bodytext">The billing management pages allow you to view the intervals presently in the MetraNet database. The default view sorts by listing the latest intervals first.</p>
+<p class="bodytext">You can filter your view of intervals by using the following menu options:</p>
+<table class="tableintopic" width="576" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<th bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="120"><p class="tableheading">Menu Option</p>
+</th>
+<th bgcolor="#105AA8" style="border-right:1px solid #BFBFBF;border-top:1px solid #BFBFBF;border-bottom:1px solid #BFBFBF;" width="456"><p class="tableheading">Description</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="120"><p class="tabletext">Billable Intervals</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="456"><p class="tabletext">Allows you to view all intervals presently in the MetraNet platform whose end date has passed, and whose bill processing has not completed.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="120"><p class="tabletext">Active Intervals</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="456"><p class="tabletext">Shows all intervals in the system that have not completed bill processing. This includes <script type="text/javascript"> popup4744 = "The state of a billing group between its creation and its soft close. While open, a billing group can accept all usage transactions assigned to its accounts. (When soft closed, bill processing is occurring and MetraNet will assign all transactions to the next appropriate interval.)\r"</script><a id="h4843" class="popup" title="Definition: Open State" href="javascript:hhctrl.TextPopup(popup4744, 'Arial,9',10,10,10,10)">open</a> intervals with and without expired end dates, as well as <script type="text/javascript"> popup4765 = "Soft Closed\rA billing group's state is soft closed during its end-of-period processing. During soft close, the system performs functions such as end-of-period bill calculations and the creation of subscriber invoices. An interval cannot accept additional usage transactions during soft close, even if the transaction is for usage occurring during the interval's effective period. \xA0\xA0\xA0\r"</script><a id="h4844" class="popup" title="Definition: Soft Closed" href="javascript:hhctrl.TextPopup(popup4765, 'Arial,9',10,10,10,10)">soft closed</a> intervals. </p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="120"><p class="tabletext">Completed Intervals</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="456"><p class="tabletext">Shows all completed intervals (those whose billing groups have been <script type="text/javascript"> popup4732 = "After the system has finished processing all adapters during soft close for a given billing group, and you have checked all of its processed data, you can place the billing group in a Hard Closed state. Hard Close \x22seals\x94 the billing group from receiving any new processing for the interval (including the reversal of completed adapter runs).\r"</script><a id="h4845" class="popup" title="Definition: Hard Closed" href="javascript:hhctrl.TextPopup(popup4732, 'Arial,9',10,10,10,10)">hard closed</a>).</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="120"><p class="tabletext">All Intervals</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="456"><p class="tabletext">Shows all intervals in the system.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext">The records on this page contain the following fields:</p>
+<table class="tableintopic" width="576" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<th bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="120"><p class="tableheading">Field</p>
+</th>
+<th bgcolor="#105AA8" style="border-right:1px solid #BFBFBF;border-top:1px solid #BFBFBF;border-bottom:1px solid #BFBFBF;" width="456"><p class="tableheading">Description</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="120"><p class="tabletext">Interval</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="456"><p class="tabletext">The unique ID of the interval. Click the interval's hyperlink to see its properties and billing groups.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="120"><p class="tabletext">Status</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="456"><p class="tabletext"><strong class="strong">Open</strong>: The number of <script type="text/javascript"> popup4744 = "The state of a billing group between its creation and its soft close. While open, a billing group can accept all usage transactions assigned to its accounts. (When soft closed, bill processing is occurring and MetraNet will assign all transactions to the next appropriate interval.)\r"</script><a id="h4843_2" class="popup" title="Definition: Open State" href="javascript:hhctrl.TextPopup(popup4744, 'Arial,9',10,10,10,10)">open</a> billing groups contained in the interval.</p>
+<p class="tabletext"><strong class="strong">Soft Closed</strong>: The number of <script type="text/javascript"> popup4765 = "Soft Closed\rA billing group's state is soft closed during its end-of-period processing. During soft close, the system performs functions such as end-of-period bill calculations and the creation of subscriber invoices. An interval cannot accept additional usage transactions during soft close, even if the transaction is for usage occurring during the interval's effective period. \xA0\xA0\xA0\r"</script><a id="h4844_2" class="popup" title="Definition: Soft Closed" href="javascript:hhctrl.TextPopup(popup4765, 'Arial,9',10,10,10,10)">soft closed</a> billing groups contained in the interval.</p>
+<p class="tabletext"><strong class="strong">Hard Closed</strong>: The number of <script type="text/javascript"> popup4732 = "After the system has finished processing all adapters during soft close for a given billing group, and you have checked all of its processed data, you can place the billing group in a Hard Closed state. Hard Close \x22seals\x94 the billing group from receiving any new processing for the interval (including the reversal of completed adapter runs).\r"</script><a id="h4845_2" class="popup" title="Definition: Hard Closed" href="javascript:hhctrl.TextPopup(popup4732, 'Arial,9',10,10,10,10)">hard closed</a> billing groups contained in the interval.</p>
+<p class="tabletext"><strong class="strong">Unassigned Accounts</strong>: The number of accounts in the interval that have not been included in a billing group. If you have not yet created the interval's billing groups, the number will reflect all of the interval's accounts.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="120"><p class="tabletext">Type</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="456"><p class="tabletext">The usage cycle used by the interval (can be weekly, bi-weekly, twice monthly, monthly, quarterly, or annually).</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="120"><p class="tabletext">Start</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="456"><p class="tabletext">The calendar date that the interval can accept currently time-stamped usage.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="120"><p class="tabletext">End</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="456"><p class="tabletext">The calendar date that the interval can no longer accept currently time-stamped usage.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="120"><p class="tabletext">Groups</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="456"><p class="tabletext">The number of billing groups contained in the interval.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="120"><p class="tabletext">Progress</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="456"><p class="tabletext">Shows the percentage of adapter processing that has completed. (This percentage is based on how many adapters have processed as well as what portion of the accounts have processed for the interval.)</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext">In the search box, you can filter this record list by using various criteria. For more information, see <a id="h4847" class="jumptemplate" title="Using MetraControl Search Functions" href="search_function.htm" target="_self">Using the Search Function</a>.</p>
+<p class="subheading">More Information</p>
+<p class="bodytext"><a id="h20582" class="crossreference" title="About Adapters" href="about_adapters.htm" target="_self">About Adapters</a></p>
+<p class="bodytext"><a id="h20583" class="crossreference" title="About Billing Groups" href="about_billing_groups.htm" target="_self">About Billing Groups</a></p>
+<p class="bodytext"><a id="h20584" class="crossreference" title="About Pull Lists" href="about_pull_lists.htm" target="_self">About Pull Lists</a></p>
+<p class="bodytext"><a id="h20585" class="crossreference" title="Reversing Adapters" href="reversing_adapters.htm" target="_self">About Reversing Adapters</a></p>
+<p class="bodytext"></p>
+<p class="bodytext"></p>
+<p class="bodytext"></p>
+<p class="bodytext"></p>
+<p class="bodytext"></p>
+<OBJECT id='hhctrl' type='application/x-oleobject' classid='clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11' codebase='hhctrl.ocx'><PARAM name='Command' value='HH Version' /></OBJECT>
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

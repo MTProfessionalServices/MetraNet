@@ -1,0 +1,8 @@
+<MenuGroup>
+ <name>Metering Statistics</name>
+	<item>
+ 	<name>View</name>
+  <link>/mom/default/dialog/Usage.Statistics.Filter.asp</link>
+		<target>fmeMain</target>
+ </item>
+</MenuGroup>

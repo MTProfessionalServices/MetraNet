@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <extension>
-    <author></author>
-    <description></description>
+    <author>MetraTech Engineering</author>
+    <description>Contains VertexQ related components.</description>
     <type>Pipeline</type>
-    <DefaultNamespace></DefaultNamespace>
+    <DefaultNamespace>metratech.com/tax</DefaultNamespace>
 </extension>

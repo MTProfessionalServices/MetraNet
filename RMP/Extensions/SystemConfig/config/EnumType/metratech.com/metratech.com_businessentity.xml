@@ -19,11 +19,14 @@
             <entry name="Messaging">
               <value>Messaging</value>
             </entry>
-			<entry name="MetraTech.Account">
+            <entry name="MetraTech.Account">
               <value>MetraTech.Account</value>
             </entry>
             <entry name="MetraTech.SmokeTest">
               <value>MetraTech.SmokeTest</value>
+            </entry>
+            <entry name="MetraTech.Core">
+              <value>MetraTech.Core</value>
             </entry>
           </entries>
         </enum>

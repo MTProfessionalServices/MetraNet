@@ -81,9 +81,8 @@ AS
         
         my_id_audit := NVL(v_id_audit, current_id_audit);
         IF my_id_audit IS NULL THEN
-             SELECT id_current INTO my_id_audit FROM t_current_id WHERE nm_current = 'id_audit' FOR UPDATE OF id_current;
-             UPDATE t_current_id SET id_current=id_current+1 where nm_current='id_audit';
-            
+			getcurrentid ('id_audit', my_id_audit);
+                         
             insertauditevent(
                 temp_id_userid      => NULL,
                 temp_id_event       => 1451,

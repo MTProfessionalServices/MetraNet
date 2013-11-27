@@ -13,7 +13,7 @@ as
   declare @strDBCreateQuery   nvarchar(2000);
   declare @strAddDbToBackupQuery nvarchar(2000);
   declare @strProcess         nvarchar(100)
-  declare @nSQLRetCode        int
+  declare @nSQLRetCode        INT
 
   declare @bDebug tinyint
   set @bDebug = 1
@@ -24,7 +24,8 @@ as
   set  @strLogFileName =  @strDataLogFilePath + '\' + @strDBName + '_Log';
 
 
-  set @strDBCreateQuery = 'CREATE DATABASE [' + @strDBName + ']  ON
+  set @strDBCreateQuery = 'if not exists(select * from sys.databases where name = N''' + @strDBName + ''')
+    CREATE DATABASE [' + @strDBName + ']  ON
                            (
                                     NAME = N''' + @strDBName + '_Data' + ''',
                                 FILENAME = N''' + @strDataFileName + '.MDF' + ''' ,
@@ -69,7 +70,29 @@ as
       print 'About to execute add DB to backup table Query : ' + @strAddDBToBackupQuery;
 
   exec sp_executesql @strAddDBToBackupQuery
-  select @nSQLRetCode = @@ERROR
+  BEGIN TRY
+    exec sp_executesql @strAddDBToBackupQuery
+  END TRY
+  BEGIN CATCH
+   	  declare
+   	       @ErrorMessage varchar(2048),
+   	       @ErrorSeverity INT
+   	  select
+   	       @ErrorMessage = ERROR_MESSAGE(),
+   	       @ErrorSeverity = ERROR_SEVERITY()
+   	  if (patindex('%pk_t_ReportingDBLog%', @ErrorMessage) > 0)
+   	    BEGIN
+   	         PRINT @ErrorMessage
+   	      set @return_code = 0
+   	      SET @nSQLRetCode = 0
+   	    end
+   	  ELSE
+        begin
+          SET @nSQLRetCode = ERROR_NUMBER()
+   	      raiserror(@ErrorMessage, @ErrorSeverity, 1)
+ 	    end
+  END CATCH
+  -- select @nSQLRetCode = @@ERROR
   if ( @nSQLRetCode <> 0 )
   begin
     set @strProcess = object_name(@@procid)

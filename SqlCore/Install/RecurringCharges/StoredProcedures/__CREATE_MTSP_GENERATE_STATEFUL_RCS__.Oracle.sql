@@ -132,32 +132,22 @@ BEGIN
       rw.c_unitvalueend ,
       rw.c_unitvalue ,
 	  rcr.n_rating_type AS c_RatingType
-    FROM t_usage_interval ui
-    INNER JOIN t_billgroup bg
-    ON bg.id_usage_interval = ui.id_interval
-    INNER JOIN t_billgroup_member bgm
-    ON bg.id_billgroup = bgm.id_billgroup
-    INNER JOIN t_recur_window rw
-    ON bgm.id_acc       = rw.c__payingaccount
-    AND rw.c_payerstart < ui.dt_end
-    AND rw.c_payerend   > ui.dt_start
+    FROM t_usage_interval ui 
+	INNER JOIN t_billgroup bg ON bg.id_usage_interval = ui.id_interval
+    INNER JOIN t_billgroup_member bgm ON bg.id_billgroup = bgm.id_billgroup
+    INNER JOIN t_recur_window rw ON bgm.id_acc       = rw.c__payingaccount
+		AND rw.c_payerstart < ui.dt_end AND rw.c_payerend   > ui.dt_start
       /* interval overlaps with payer */
-    AND rw.c_cycleeffectivestart < ui.dt_end
-    AND rw.c_cycleeffectiveend   > ui.dt_start
+		AND rw.c_cycleeffectivestart < ui.dt_end AND rw.c_cycleeffectiveend   > ui.dt_start
       /* interval overlaps with cycle */
-    AND rw.c_membershipstart < ui.dt_end
-    AND rw.c_membershipend   > ui.dt_start
+		AND rw.c_membershipstart < ui.dt_end AND rw.c_membershipend   > ui.dt_start
       /* interval overlaps with membership */
-    AND rw.c_subscriptionstart < ui.dt_end
-    AND rw.c_subscriptionend   > ui.dt_start
+		AND rw.c_subscriptionstart < ui.dt_end AND rw.c_subscriptionend   > ui.dt_start
       /* interval overlaps with subscription */
-    AND rw.c_unitvaluestart < ui.dt_end
-    AND rw.c_unitvalueend   > ui.dt_start
+		AND rw.c_unitvaluestart < ui.dt_end AND rw.c_unitvalueend   > ui.dt_start
       /* interval overlaps with UDRC */
-    INNER JOIN t_recur rcr
-    ON rw.c__priceableiteminstanceid = rcr.id_prop
-    INNER JOIN t_usage_cycle ccl
-    ON ccl.id_usage_cycle =
+    INNER JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
+    INNER JOIN t_usage_cycle ccl ON ccl.id_usage_cycle =
       CASE
         WHEN rcr.tx_cycle_mode = 'Fixed'
         THEN rcr.id_usage_cycle
@@ -168,72 +158,66 @@ BEGIN
         ELSE NULL
       END
       /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
-    INNER JOIN t_pc_interval pci
-    ON pci.id_cycle = ccl.id_usage_cycle
-    AND pci.dt_end BETWEEN ui.dt_start AND ui.dt_end
+    INNER JOIN t_pc_interval pci ON pci.id_cycle = ccl.id_usage_cycle
+		AND pci.dt_end BETWEEN ui.dt_start AND ui.dt_end
       /* rc end falls in this interval */
-    AND pci.dt_end BETWEEN rw.c_payerstart AND rw.c_payerend
+		AND pci.dt_end BETWEEN rw.c_payerstart AND rw.c_payerend
       /* rc end goes to this payer */
-    AND rw.c_unitvaluestart < pci.dt_end
-    AND rw.c_unitvalueend   > pci.dt_start
+	    AND rw.c_unitvaluestart < pci.dt_end AND rw.c_unitvalueend   > pci.dt_start
       /* rc overlaps with this UDRC */
-    AND rw.c_membershipstart < pci.dt_end
-    AND rw.c_membershipend   > pci.dt_start
+		AND rw.c_membershipstart < pci.dt_end AND rw.c_membershipend   > pci.dt_start
       /* rc overlaps with this membership */
-    AND rw.c_cycleeffectivestart < pci.dt_end
-    AND rw.c_cycleeffectiveend   > pci.dt_start
+		AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend   > pci.dt_start
       /* rc overlaps with this cycle */
-    AND rw.c_SubscriptionStart < pci.dt_end
-    AND rw.c_subscriptionend   > pci.dt_start
+		AND rw.c_SubscriptionStart < pci.dt_end AND rw.c_subscriptionend   > pci.dt_start
       /* rc overlaps with this subscription */
-    INNER JOIN t_usage_cycle_type fxd
-    ON fxd.id_cycle_type = ccl.id_cycle_type
+    INNER JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
     WHERE 1              =1
     AND ui.id_interval   = v_id_interval
     AND bg.id_billgroup  = v_id_billgroup
     AND rcr.b_advance   <> 'Y'
     UNION ALL
-    SELECT sys_guid()                                AS idSourceSess,
-      'Advance'                                      AS c_RCActionType ,
-      pci.dt_start      AS c_RCIntervalStart,
-      pci.dt_end      AS c_RCIntervalEnd,
-      nui.dt_start      AS c_BillingIntervalStart,
-      nui.dt_end          AS c_BillingIntervalEnd,
+    SELECT sys_guid()										AS idSourceSess,
+      'Advance'												AS c_RCActionType ,
+      pci.dt_start											AS c_RCIntervalStart,		/* Start date of Next RC Interval - the one we'll pay for In Advance in current interval */
+      pci.dt_end											AS c_RCIntervalEnd,			/* End date of Next RC Interval - the one we'll pay for In Advance in current interval */
+      ui.dt_start											AS c_BillingIntervalStart,	/* Start date of Current Billing Interval */
+      ui.dt_end												AS c_BillingIntervalEnd,	/* End date of Current Billing Interval */
       CASE
         WHEN rcr.tx_cycle_mode <> 'Fixed'
         AND nui.dt_start       <> c_cycleEffectiveDate
         THEN dbo.MTMaxOfTwoDates(dbo.AddSecond(c_cycleEffectiveDate), pci.dt_start)
-        ELSE pci.dt_start
-      END                                                                                       AS c_RCIntervalSubscriptionStart ,
-      dbo.mtminoftwodates(pci.dt_end, rw.c_SubscriptionEnd) AS c_RCIntervalSubscriptionEnd ,
-      rw.c_SubscriptionStart                                                                    AS c_SubscriptionStart ,
-      rw.c_SubscriptionEnd                                                                      AS c_SubscriptionEnd ,
-      case when rw.c_advance  ='Y' then '1' else '0' end          AS c_Advance,
-      case when rcr.b_prorate_on_activate ='Y' then '1' else '0' end         AS c_ProrateOnSubscription,
-      case when rcr.b_prorate_instantly  ='Y' then '1' else '0' end          AS c_ProrateInstantly ,
-      case when rcr.b_prorate_on_deactivate  ='Y' then '1' else '0' end          AS c_ProrateOnUnsubscription,
+        ELSE dbo.mtmaxoftwodates(pci.dt_start, rw.c_SubscriptionStart)
+      END													AS c_RCIntervalSubscriptionStart ,
+      dbo.mtminoftwodates(pci.dt_end, rw.c_SubscriptionEnd)	AS c_RCIntervalSubscriptionEnd ,
+      rw.c_SubscriptionStart								AS c_SubscriptionStart ,
+      rw.c_SubscriptionEnd									AS c_SubscriptionEnd ,
+      case when rw.c_advance  ='Y' then '1' else '0' end				AS c_Advance,
+      case when rcr.b_prorate_on_activate ='Y' then '1' else '0' end	AS c_ProrateOnSubscription,
+      case when rcr.b_prorate_instantly  ='Y' then '1' else '0' end		AS c_ProrateInstantly ,
+      case when rcr.b_prorate_on_deactivate  ='Y' then '1' else '0' end	AS c_ProrateOnUnsubscription,
       CASE
         WHEN rcr.b_fixed_proration_length = 'Y'
         THEN fxd.n_proration_length
         ELSE 0
-      END                           AS c_ProrationCycleLength ,
-      rw.c__accountid               AS c__AccountID ,
-      rw.c__payingaccount           AS c__PayingAccount ,
-      rw.c__priceableiteminstanceid AS c__PriceableItemInstanceID ,
-      rw.c__priceableitemtemplateid AS c__PriceableItemTemplateID ,
-      rw.c__productofferingid       AS c__ProductOfferingID ,
-      pci.dt_start                  AS c_BilledRateDate ,
-      rw.c__subscriptionid          AS c__SubscriptionID ,
+      END													AS c_ProrationCycleLength ,
+      rw.c__accountid										AS c__AccountID ,
+      rw.c__payingaccount									AS c__PayingAccount ,
+      rw.c__priceableiteminstanceid							AS c__PriceableItemInstanceID ,
+      rw.c__priceableitemtemplateid							AS c__PriceableItemTemplateID ,
+      rw.c__productofferingid								AS c__ProductOfferingID ,
+      pci.dt_start											AS c_BilledRateDate ,
+      rw.c__subscriptionid									AS c__SubscriptionID ,
       rw.c_payerstart,
       rw.c_payerend,
       CASE
         WHEN rw.c_unitvaluestart < TO_DATE('19700101000000', 'YYYYMMDDHH24MISS')
         THEN TO_DATE('19700101000000', 'YYYYMMDDHH24MISS')
         ELSE rw.c_unitvaluestart
-      END AS c_unitvaluestart,
+      END													AS c_unitvaluestart,
       rw.c_unitvalueend ,
       rw.c_unitvalue ,
-	  rcr.n_rating_type AS c_RatingType
+	  rcr.n_rating_type										AS c_RatingType
     FROM t_usage_interval ui
     INNER JOIN t_usage_interval nui
     ON ui.id_usage_cycle         = nui.id_usage_cycle
@@ -247,7 +231,7 @@ BEGIN
                                    AND rw.c_payerstart          < nui.dt_end AND rw.c_payerend          > nui.dt_start /* next interval overlaps with payer */
                                    AND rw.c_cycleeffectivestart < nui.dt_end AND rw.c_cycleeffectiveend > nui.dt_start /* next interval overlaps with cycle */
                                    AND rw.c_membershipstart     < nui.dt_end AND rw.c_membershipend     > nui.dt_start /* next interval overlaps with membership */
-                                   AND rw.c_subscriptionstart   < ui.dt_end AND rw.c_subscriptionend   > nui.dt_start /* next interval overlaps with subscription */
+                                   AND rw.c_subscriptionstart   < nui.dt_end AND rw.c_subscriptionend   > nui.dt_start /* next interval overlaps with subscription */
                                    AND rw.c_unitvaluestart      < nui.dt_end AND rw.c_unitvalueend      > nui.dt_start /* next interval overlaps with UDRC */
     INNER JOIN t_recur rcr
     ON rw.c__priceableiteminstanceid = rcr.id_prop
@@ -262,23 +246,25 @@ BEGIN
         THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type)
         ELSE NULL
       END
-    INNER JOIN t_pc_interval pci
-    ON
-      pci.id_cycle = ccl.id_usage_cycle
-    AND pci.dt_start BETWEEN nui.dt_start AND nui.dt_end
-      /* rc start falls in this interval */
-    AND pci.dt_start BETWEEN rw.c_payerstart  AND rw.c_payerend                         /* rc start goes to this payer */
-    AND rw.c_unitvaluestart < pci.dt_end
-    AND rw.c_unitvalueend   > pci.dt_start
-      /* rc overlaps with this UDRC */
-    AND rw.c_membershipstart < pci.dt_end
-    AND rw.c_membershipend   > pci.dt_start
-      /* rc overlaps with this membership */
-    AND rw.c_cycleeffectivestart < pci.dt_end
-    AND rw.c_cycleeffectiveend   > pci.dt_start
-      /* rc overlaps with this cycle */
-    AND rw.c_SubscriptionStart < pci.dt_end
-    AND rw.c_subscriptionend   > pci.dt_start
+    INNER JOIN t_pc_interval pci ON pci.id_cycle = ccl.id_usage_cycle
+							AND (
+								pci.dt_start BETWEEN nui.dt_start AND nui.dt_end /* RCs that starts in Next Account's Billing Cycle */
+								/* Fix for CORE-7060:
+								In case subscription starts after current EOP we should also charge:
+								RCs that ends in Next Account's Billing Cycle
+								and if Next Account's Billing Cycle in the middle of RCs interval.
+								As in this case, they haven't been charged as Instant RC (by trigger) */
+								OR (
+									  rw.c_SubscriptionStart >= nui.dt_start
+									  AND pci.dt_end >= nui.dt_start
+									  AND pci.dt_start < nui.dt_end
+									)
+							)
+							AND pci.dt_start BETWEEN rw.c_payerstart AND rw.c_payerend /* rc start goes to this payer */
+							AND rw.c_unitvaluestart		< pci.dt_end AND rw.c_unitvalueend	> pci.dt_start /* rc overlaps with this UDRC */
+							AND rw.c_membershipstart	< pci.dt_end AND rw.c_membershipend	> pci.dt_start /* rc overlaps with this membership */
+							AND rw.c_cycleeffectiveend	> pci.dt_start	/* rc overlaps with this cycle */
+							AND rw.c_subscriptionend	> pci.dt_start	/* rc overlaps with this subscription */
       /* rc overlaps with this subscription */
     INNER JOIN t_usage_cycle_type fxd
     ON fxd.id_cycle_type = ccl.id_cycle_type
@@ -318,7 +304,7 @@ BEGIN
         tx_type,
         tx_detail
       )
-      VALUES
+      VALUES 
       (
           seq_t_recevent_run_details.nextval,
         v_id_run,

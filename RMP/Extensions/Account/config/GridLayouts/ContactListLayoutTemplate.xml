@@ -42,8 +42,8 @@
     <ShowGridHeader>true</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <NoRecordsText>
-      <LocalizationTag>NO_RECORDS_TEXT</LocalizationTag>
-      <ResourceClassKey></ResourceClassKey>
+        <LocalizationTag>NO_RECORDS_TEXT</LocalizationTag>
+        <ResourceClassKey></ResourceClassKey>
     </NoRecordsText>
     <Resizeable>true</Resizeable>
     <SearchOnLoad>true</SearchOnLoad>
@@ -52,6 +52,7 @@
     <CustomImplementationFilePath></CustomImplementationFilePath>
     <DataSourceURL></DataSourceURL>
     <SubGrid></SubGrid>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
@@ -298,7 +299,7 @@
             <ObjectName>MetraTech.DomainModel.AccountTypes.ContactView</ObjectName>
             <ID>Address1</ID>
             <DataType>String</DataType>
-            <IsIdentity>true</IsIdentity>
+            <IsIdentity>false</IsIdentity>
             <DataIndex>Address1</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText />
@@ -505,6 +506,7 @@
                 <Value><![CDATA[]]></Value>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -593,6 +595,7 @@
                     </Fields>
                 </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
     </ExpanderTemplate>
     <GridButtons></GridButtons>

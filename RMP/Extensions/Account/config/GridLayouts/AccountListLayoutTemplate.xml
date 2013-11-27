@@ -48,6 +48,7 @@
     <RootElement>Items</RootElement>
     <CustomImplementationFilePath></CustomImplementationFilePath>
     <SubGrid></SubGrid>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <Elements>
         <Element>
             <RecordElement>false</RecordElement>
@@ -72,7 +73,7 @@
             <ObjectName>MetraTech.DomainModel.AccountTypes.CorporateAccount</ObjectName>
             <ID>UserName</ID>
             <DataType>String</DataType>
-            <IsIdentity>true</IsIdentity>
+            <IsIdentity>false</IsIdentity>
             <DataIndex>UserName</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText />
@@ -415,7 +416,7 @@
             <ObjectName>MetraTech.DomainModel.AccountTypes.CorporateAccount</ObjectName>
             <ID>Name_Space</ID>
             <DataType>String</DataType>
-            <IsIdentity>true</IsIdentity>
+            <IsIdentity>false</IsIdentity>
             <DataIndex>Name_Space</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText />
@@ -1975,6 +1976,7 @@
                 <ResourceClassKey>Resource</ResourceClassKey>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -2069,6 +2071,7 @@
                     </Fields>
                 </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
         <Section>
             <Title>
@@ -2076,6 +2079,7 @@
                 <ResourceClassKey>Resource</ResourceClassKey>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -2128,6 +2132,7 @@
                     </Fields>
                 </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
         <Section>
             <Title>
@@ -2135,6 +2140,7 @@
                 <ResourceClassKey>Resource</ResourceClassKey>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -2223,6 +2229,7 @@
                     </Fields>
                 </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
     </ExpanderTemplate>
     <GridButtons></GridButtons>

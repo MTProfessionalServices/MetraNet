@@ -22,6 +22,7 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
 {
   protected void Page_Load(object sender, EventArgs e)
   {
+    this.lblTitle.Text = String.Format(this.lblTitle.Text, this.AmpDecisionName);
     // Extra check that user has permission to configure AMP decisions.
     if (!UI.CoarseCheckCapability("ManageAmpDecisions"))
     {
@@ -46,11 +47,14 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
       // Monitor changes made to the controls on the page.
       if (AmpAction != "View")
       {
-        MonitorChangesInControl(RBL_BulkIncremental);
         MonitorChangesInControl(radUnitRate);
         MonitorChangesInControl(radEventRate);
         MonitorChangesInControl(radDiscount);
         MonitorChangesInControl(radGenCharge);
+        MonitorChangesInControl(noCharge); 
+        MonitorChangesInControl(singleBucket);
+		MonitorChangesInControl(multiBucket);
+        MonitorChangesInControl(rbGetFromParamTable);
         MonitorChangesInControlByClientId(unitRate.ddSourceTypeClientId);
         MonitorChangesInControlByClientId(unitRate.tbNumericSourceClientId);
         MonitorChangesInControlByClientId(unitRate.tbTextSourceClientId);
@@ -63,6 +67,7 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
         MonitorChangesInControlByClientId(discount.tbNumericSourceClientId);
         MonitorChangesInControlByClientId(discount.tbTextSourceClientId);
         MonitorChangesInControlByClientId(discount.ddSourceClientId);
+        MonitorChangesInControlByClientId(ddBucketFromParamTableSource.ClientID);
       }
 
       // Retrieve decision from database.
@@ -91,6 +96,7 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
     radEventRate.Checked = false;
     radDiscount.Checked = false;
     radGenCharge.Checked = false;
+	noCharge.Checked = false; 
     unitRate.UseTextbox = true;
     unitRate.TextboxText = string.Empty;
     eventRate.UseTextbox = true;
@@ -116,25 +122,41 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
       eventRate.DropdownItems = paramTableColumns;
       discount.DropdownItems = paramTableColumns;
     }
+      ddBucketFromParamTableSource.Items.Clear();
+      foreach (var item in paramTableColumns)
+      {
+          ddBucketFromParamTableSource.Items.Add(new ListItem(item.Value, item.Key));
+      }
   }
+
 
 
   private void PopulateControlsFromDecision()
   {
     // Now set the radio buttons and controls based on the Decision's contents.
     //TBD Enable/disable controls appropriately!
-    if (CurrentDecisionInstance.IsBulkDecision != null)
-    {
-      if (CurrentDecisionInstance.IsBulkDecision == true)
+      if (CurrentDecisionInstance.TierQualifiedUsageValue != null)
       {
-        RBL_BulkIncremental.Items[1].Selected = true;
-      }
-      else
+          if (CurrentDecisionInstance.TierQualifiedUsageValue.ToLower().Equals("bulk"))
+          {
+              singleBucket.Checked = true;
+              ddBucketFromParamTableSource.Enabled = false;
+
+          }
+          else if (CurrentDecisionInstance.TierQualifiedUsageValue.ToLower().Equals("incremental"))
+          {
+              multiBucket.Checked = true;
+              ddBucketFromParamTableSource.Enabled = false;
+
+          }
+      }else
       {
-        RBL_BulkIncremental.Items[0].Selected = true;
+          rbGetFromParamTable.Checked = true;
+          ddBucketFromParamTableSource.SelectedValue = CurrentDecisionInstance.TierQualifiedUsageColumnName;
+          ddBucketFromParamTableSource.Enabled = true;
+
       }
-    }
-    if (CurrentDecisionInstance.PerUnitRateValue != null)
+      if (CurrentDecisionInstance.PerUnitRateValue != null)
     {
       radUnitRate.Checked = true;
       unitRate.Visible = true;
@@ -176,9 +198,13 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
       discount.UseDropdown = true;
       discount.DropdownSelectedText = CurrentDecisionInstance.TierDiscountColumnName;
     }
+    else if (CurrentDecisionInstance.GeneratedChargeValue != null || CurrentDecisionInstance.GeneratedChargeColumnName != null)
+    {
+        radGenCharge.Checked = true;
+    }
     else
     {
-      radGenCharge.Checked = true;
+        noCharge.Checked = true;
     }
   }
 
@@ -186,18 +212,21 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
   // Set control properties based on current mode(View/Edit).
   private void SetMode()
   {
-    btnSaveAndContinue.Text = ((AmpAction != "View") ? Resources.Resource.TEXT_SAVE_AND_CONTINUE
-                                                     : Resources.Resource.TEXT_CONTINUE);
+    btnSaveAndContinue.Text = Resources.Resource.TEXT_NEXT;
 
 
     if (AmpAction == "View")
     {
       // Disable the unselected radio buttons.
-      SetRadioButtonViewAction(RBL_BulkIncremental);
-      radUnitRate.Enabled = radUnitRate.Checked;
+      multiBucket.Enabled = multiBucket.Checked;
+      singleBucket.Enabled = singleBucket.Checked;
+      rbGetFromParamTable.Enabled = rbGetFromParamTable.Checked;
+      ddBucketFromParamTableSource.ReadOnly = true;
+	  radUnitRate.Enabled = radUnitRate.Checked;
       radEventRate.Enabled = radEventRate.Checked;
       radDiscount.Enabled = radDiscount.Checked;
       radGenCharge.Enabled = radGenCharge.Checked;
+	  noCharge.Enabled = noCharge.Checked;
 
       unitRate.ReadOnly = true;
       eventRate.ReadOnly = true;
@@ -236,24 +265,30 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
   // Returns true if control settings are valid, else false.
   private bool PopulateDecisionFromControls()
   {
-    // Incrementally vs. In Bulk radio button list
-    if (string.IsNullOrEmpty(RBL_BulkIncremental.SelectedValue))
-    {
-      SetError(GetLocalResourceObject("TEXT_ERROR_NO_INCREMENTAL_OR_BULK").ToString());
-      logger.LogError(String.Format("Neither Incremental nor In Bulk processing was specified for Decision '{0}'", AmpDecisionName));
+    //Multi vs single-bucket in list.
+	if (!multiBucket.Checked && !singleBucket.Checked && !rbGetFromParamTable.Checked)
+	{
+      SetError(GetLocalResourceObject("TEXT_ERROR_NO_INCREMENTAL_OR_BULK_OR_PT").ToString());
+      logger.LogError(String.Format("No value for Bulk processing was specified for Decision '{0}'", AmpDecisionName));
       return false;
     }
-    if (RBL_BulkIncremental.SelectedIndex == 0)
+	if (multiBucket.Checked )
     {
-      CurrentDecisionInstance.IsBulkDecision = false;
+      CurrentDecisionInstance.TierQualifiedUsageValue = "incremental";
+        CurrentDecisionInstance.TierQualifiedUsageColumnName = null;
     }
-    else if (RBL_BulkIncremental.SelectedIndex == 1)
+    else if (singleBucket.Checked)
     {
-      CurrentDecisionInstance.IsBulkDecision = true;
+        CurrentDecisionInstance.TierQualifiedUsageValue = "bulk";
+        CurrentDecisionInstance.TierQualifiedUsageColumnName = null;
     }
-
-    // Make sure exactly one radio button for decision actions is selected.
-    if (!radUnitRate.Checked && !radEventRate.Checked && !radDiscount.Checked && !radGenCharge.Checked)
+    else
+    {
+        CurrentDecisionInstance.TierQualifiedUsageValue = null;
+        CurrentDecisionInstance.TierQualifiedUsageColumnName = ddBucketFromParamTableSource.SelectedValue;
+    }
+      // Make sure exactly one radio button for decision actions is selected.
+    if (!radUnitRate.Checked && !radEventRate.Checked && !radDiscount.Checked && !radGenCharge.Checked && !noCharge.Checked)
     {
       SetError(GetLocalResourceObject("TEXT_ERROR_NO_DECISION_ACTION").ToString());
       logger.LogError(String.Format("No Decision action was specified for Decision '{0}'", AmpDecisionName));
@@ -331,7 +366,7 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
     if (!radGenCharge.Checked)
     {
       // Clear out any existing info about generated charges.
-      CurrentDecisionInstance.GeneratedCharge = null;
+      CurrentDecisionInstance.GeneratedChargeValue = null;
       CurrentDecisionInstance.ChargeCondition = Decision.ChargeConditionEnum.CHARGE_NONE;
     }
 
@@ -344,7 +379,11 @@ public partial class AmpSelectDecisionActionPage : AmpWizardBasePage
     radUnitRate.Attributes.Add("onClick", String.Format("return EnableAppropriateUserControls(false, '{0}','{1}','{2}')", eventRate.ClientID, discount.ClientID, unitRate.ClientID));
     radEventRate.Attributes.Add("onClick", String.Format("return EnableAppropriateUserControls(false, '{0}','{1}','{2}')", unitRate.ClientID, discount.ClientID, eventRate.ClientID));
     radDiscount.Attributes.Add("onClick", String.Format("return EnableAppropriateUserControls(false, '{0}','{1}','{2}')", unitRate.ClientID, eventRate.ClientID, discount.ClientID));
-    radGenCharge.Attributes.Add("onClick", String.Format("return EnableAppropriateUserControls(false, '{0}','{1}','{2}')", unitRate.ClientID, eventRate.ClientID, discount.ClientID)); 
+    radGenCharge.Attributes.Add("onClick", String.Format("return EnableAppropriateUserControls(false, '{0}','{1}','{2}')", unitRate.ClientID, eventRate.ClientID, discount.ClientID));
+    noCharge.Attributes.Add("onClick", String.Format("return EnableAppropriateUserControls(false, '{0}','{1}','{2}')", unitRate.ClientID, eventRate.ClientID, discount.ClientID));
+    rbGetFromParamTable.Attributes.Add("onClick", "return Toggledd()");
+    singleBucket.Attributes.Add("onClick", "return Toggledd()");
+    multiBucket.Attributes.Add("onClick", "return Toggledd()");
   }
 
 }

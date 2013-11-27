@@ -366,9 +366,12 @@
     <data name="TEXT_DELETE" xml:space="preserve">
         <value>Eliminar</value>
     </data>
-  <data name="TEXT_BULKUPDATE" xml:space="preserve">
+	<data name="TEXT_BILL_MESSAGE" xml:space="preserve">
+    <value></value>
+    </data>
+    <data name="TEXT_BULKUPDATE" xml:space="preserve">
     <value>Bulk Update</value>
-  </data>
+    </data>
     <data name="TEXT_DELETE_ACCOUNT_NOTE" xml:space="preserve">
         <value>¿Seguro que desea eliminar esta anotación de cuenta?</value>
     </data>
@@ -937,7 +940,7 @@
     <value>Spanish</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_GENERAL_INFO" xml:space="preserve">
-    <value>Spanish</value>
+    <value>A &lt;i&gt;Decision&lt;/i&gt;  is used to analyze usage records (rated billing records) and possibly modify charges on the basis of this analysis.  Decisions are necessary when it is impossible to determine the amount by examining a single isolated record.&lt;br/&gt;For example, you may want to give a special rate if the number of telephone minutes used during the month is &gt; 1000.  You can only determine the rate to use after adding up all the usage records.  If the minutes are &gt; 1000, then for each record the rate is changed and a new charge amount is calculated. (Spanish)</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
     <value>Spanish</value>
@@ -967,13 +970,25 @@
     <value>Spanish</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_ITEMS_TO_AGGREGATE" xml:space="preserve">
-    <value>Spanish</value>
+    <value>(SPANISH) For example, suppose the Decision Type is \"Use a special rate if the number of minutes of usage is over 500\". The settings might include \"500\" and the \"special rate\" to apply.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
-    <value>Spanish</value>
+    <value>(SPANISH) Help:  Aggregation Method</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
-    <value>Spanish</value>
+    <value>(SPANISH) Decisions are used when a monetary charge amount cannot be calculated by looking at a single record. Instead, many usage records must be examined and a total must be the number of events, units of usage, or charge amounts. The total, or aggregate, is then used to help determine the charge amount.</value>
+  </data>
+	<data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_MONETARY_CHARGE" xml:space="preserve">
+    <value>(SPANISH) Example: \"Apply a discount if there's over $100 in charges.\"</value>
+  </data>
+	<data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_UNIT_OF_USAGE" xml:space="preserve">
+    <value>(SPANISH) Example: \"Use a special rate if over 1,000 minutes.\"</value>
+  </data>
+	<data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_COUNT_NUMBER_OF_EVENTS" xml:space="preserve">
+    <value>(SPANISH) Example: \"Apply a discount if over 100 calls were made.\"</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_FROM_PARAMETER_TABLE" xml:space="preserve">
+    <value>(SPANISH) Usage is aggregated based on the value set in the parameter table.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
     <value>Spanish</value>
@@ -985,7 +1000,7 @@
     <value>Spanish</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
-    <value>Spanish</value>
+    <value>(SPANISH) Help:  Decision Domain</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP" xml:space="preserve">
     <value>Spanish</value>
@@ -1008,7 +1023,14 @@
   <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE_PRORATION" xml:space="preserve">
     <value>Spanish</value>
   </data>
-  <data name="TITLE_AMPWIZARD_HELP_RESTART_RANGE" xml:space="preserve">
+	<data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE_PRORATION" xml:space="preserve">
+    <value>Spanish</value>
+  </data>
+	<data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
+    <value>Spanish</value>
+  </data>
+
+	<data name="TITLE_AMPWIZARD_HELP_RESTART_RANGE" xml:space="preserve">
     <value>Spanish</value>
   </data>
   <data name="TITLE_AMPWIZARD_ACTIVATION_RESULTS" xml:space="preserve">
@@ -1031,6 +1053,18 @@
   </data>
   <data name="TEXT_AMPWIZARD_HELP_INCREMENTAL_OR_BULK" xml:space="preserve">
     <value>Spanish</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
+    <value>(Spanish)Help: Multi-bucket</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
+    <value>(Spanish)Act on each individual record.  Usage may have different prices  which are determined by the bucket into which they fall.</value>
+  </data>
+   <data name="TITLE_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
+    <value>(Spanish)Help: Single-bucket</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
+    <value>(Spanish)Act on all the records together.  All usage has same price which is determined by total volume.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_UNIT_RATE" xml:space="preserve">
     <value>Spanish</value>
@@ -1056,6 +1090,12 @@
   <data name="TEXT_AMPWIZARD_HELP_GENERATED_CHARGE" xml:space="preserve">
     <value>Spanish</value>
   </data>
+    <data name="TITLE_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
+    <value>(Spanish) Help:  None</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
+    <value>(Spanish) Do not generate a charge for this decision</value>
+  </data>
   <data name="TITLE_AMPWIZARD_HELP_GENERATED_CHARGE_GRID" xml:space="preserve">
     <value>Spanish</value>
   </data>
@@ -1065,7 +1105,10 @@
   <data name="TEXT_AMPWIZARD_MORE_DECISION_CYCLE" xml:space="preserve">
     <value>Spanish</value>
   </data>
-  <data name="TITLE_AMPWIZARD_ADD_MISC_ATTRIBUTE" xml:space="preserve">
+	<data name="TITLE_AMPWIZARD_HELP_MORE_DECISION_CYCLE" xml:space="preserve">
+    <value>Spanish</value>
+  </data>
+	<data name="TITLE_AMPWIZARD_ADD_MISC_ATTRIBUTE" xml:space="preserve">
     <value>Spanish</value>
   </data>
   <data name="TITLE_AMPWIZARD_EDIT_MISC_ATTRIBUTE" xml:space="preserve">

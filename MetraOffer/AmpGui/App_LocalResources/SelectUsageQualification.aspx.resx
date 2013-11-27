@@ -150,4 +150,7 @@
   <data name="lblSelectResource1.Text" xml:space="preserve">
     <value>Select the Usage Qualification for this Decision Type:</value>
   </data>
+  <data name="TEXT_ERROR_NO_USAGE_QUAL" xml:space="preserve">
+    <value>No usage qualification was selected for Decision </value>
+  </data>
 </root>

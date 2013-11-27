@@ -23,5 +23,19 @@ CodeFile="GenericAccountSummary.aspx.cs" Culture="auto" UICulture="auto" meta:re
       </MT:MTDataBindingItem>
     </DataBindingItems>
   </MT:MTDataBinder>
+  <script type="text/javascript">
+      Ext.onReady(function () {
+          var ddAuthenticationType = Ext.get("ctl00_ContentPlaceHolder1_ddAuthenticationType_readonly_value");
+          var ddSecurityQuestion = Ext.get("ctl00_ContentPlaceHolder1_ddInternal_SecurityQuestion_readonly_value");
+          if (ddAuthenticationType != null) {
+              ddAuthenticationType.dom.style.width = '200px';
+              ddAuthenticationType.dom.style.wordWrap = 'break-word';
+          }
+          if (ddSecurityQuestion != null) {
+              ddSecurityQuestion.dom.style.width = '200px';
+              ddSecurityQuestion.dom.style.wordWrap = 'break-word';
+          }
+      });    
+  </script>
 </asp:Content>
 

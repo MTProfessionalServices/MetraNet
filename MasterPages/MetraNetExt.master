@@ -12,11 +12,9 @@
 <%@ Register src="~/UserControls/Menus/MetraOfferMenu.ascx" tagname="MetraOfferMenu" tagprefix="uc9" %>
 <%@ Register src="../UserControls/SessionTimeout.ascx" tagname="SessionTimeout" tagprefix="uc2" %>
 <%@ Register src="../UserControls/Hierarchy.ascx" tagname="Hierarchy" tagprefix="uc10" %>
-
 <!DOCTYPE html>
 <html>
 <head id="Head1" runat="server">
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
   <title>MetraNet</title>
   
   <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/ext-all.css?v=6.5" />

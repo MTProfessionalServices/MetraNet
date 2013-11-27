@@ -1,108 +1,147 @@
 ﻿using System;
-using System.Data;
-using System.Configuration;
-using System.Collections;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
+using System.Collections.Generic;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
 using MetraTech.Core.Services.ClientProxies;
-using MetraTech.UI.Common;
-using MetraTech.UI.Controls;
-using MetraTech.UsageServer;
 using MetraTech.UI.MetraNet.App_Code;
 using MetraTech.DomainModel.ProductCatalog;
-
 
 public partial class AmpAmountChainGroupPage : AmpWizardBasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-      // Extra check that user has permission to configure AMP decisions.
-      if (!UI.CoarseCheckCapability("ManageAmpDecisions"))
-      {
-        Response.End();
-        return;
-      }
+        // Extra check that user has permission to configure AMP decisions.
+        if (!UI.CoarseCheckCapability("ManageAmpDecisions"))
+        {
+            Response.End();
+            return;
+        }
 
-      // Set the current, next, and previous AMP pages right away.
-      AmpCurrentPage = "AmountChainGroup.aspx";
-      AmpNextPage = "ExecutionFrequency.aspx";
-      AmpPreviousPage = "SelectDecisionAction.aspx";
+        // Set the current, next, and previous AMP pages right away.
+        AmpCurrentPage = "AmountChainGroup.aspx";
+        AmpNextPage = "ExecutionFrequency.aspx";
+        AmpPreviousPage = "SelectDecisionAction.aspx";
 
-      // Monitor changes made to the controls on the page.
-      MonitorChangesInControlByClientId(hiddenAmtChainGroupName.ClientID);
+        // Monitor changes made to the controls on the page.
+        MonitorChangesInControlByClientId(hiddenAmtChainGroupName.ClientID);
+        MonitorChangesInControl(ddAmountChainGroupFromParamTableSource);
 
-      // The Continue button should NOT prompt the user if the controls have changed.
-      //TBD However, we don't need to call IgnoreChangesInControl(btnContinue) here
-      // because of how OnClientClick is defined for the button.
-      //IgnoreChangesInControl(btnContinue);
+        setCheckBoxEventHandler();
 
-      if (!IsPostBack)
-      {
-          // If we are only Viewing a decision, show the "Continue" button.
-          if (AmpAction == "View")
-          {
-            btnContinue.Visible = true;
-            btnSaveAndContinue.Visible = false;
-          }
-          else // If we are editing a decision, show the "Save & Continue" button
-          {
-            btnContinue.Visible = false;
-            btnSaveAndContinue.Visible = true;
-          }
+        // The Continue button should NOT prompt the user if the controls have changed.
+        //TBD However, we don't need to call IgnoreChangesInControl(btnContinue) here
+        // because of how OnClientClick is defined for the button.
+        //IgnoreChangesInControl(btnContinue);
 
-          // Get the decision and its current amount chain group setting.
-          AmpServiceClient ampSvcGetDecisionClient = null;
-          try
-          {
-
-            ampSvcGetDecisionClient = new AmpServiceClient();
-            if (ampSvcGetDecisionClient.ClientCredentials != null)
+        if (!IsPostBack)
+        {
+            // If we are only Viewing a decision, show the "Continue" button.
+            if (AmpAction == "View")
             {
-              ampSvcGetDecisionClient.ClientCredentials.UserName.UserName = UI.User.UserName;
-              ampSvcGetDecisionClient.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+                btnContinue.Visible = true;
+                btnSaveAndContinue.Visible = false;
+
+                // Disable the controls in View mode
+                ddAmountChainGroupFromParamTableSource.ReadOnly = true;
+                FromParamTableCheckBox.Enabled = false;
+            }
+            else // If we are editing a decision, show the "Save & Continue" button
+            {
+                btnContinue.Visible = false;
+                btnSaveAndContinue.Visible = true;
             }
 
-            Decision decisionInstance;
-            ampSvcGetDecisionClient.GetDecision(AmpDecisionName, out decisionInstance);
-
-            CurrentDecisionInstance = decisionInstance;
-
-            if (decisionInstance.PvToAmountChainMapping != null)
+            // Get the decision and its current amount chain group setting.
+            AmpServiceClient ampSvcGetDecisionClient = null;
+            try
             {
-                hiddenAmtChainGroupName.Value = decisionInstance.PvToAmountChainMapping;
 
-              // Can't do anything now about selecting the radio button that
-              // corresponds to the decision's current amount chain group.
-              // (Must wait until the grid control is loaded.
-              // After the grid control is loaded, if AmpAction is "View",
-              // we also must disable selection of other rows!)
+                ampSvcGetDecisionClient = new AmpServiceClient();
+                if (ampSvcGetDecisionClient.ClientCredentials != null)
+                {
+                    ampSvcGetDecisionClient.ClientCredentials.UserName.UserName = UI.User.UserName;
+                    ampSvcGetDecisionClient.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+                }
+
+                Decision decisionInstance;
+                ampSvcGetDecisionClient.GetDecision(AmpDecisionName, out decisionInstance);
+
+                CurrentDecisionInstance = decisionInstance;
+
+                List<KeyValuePair<String, String>> paramTableColumns;
+                if (GetParameterTableColumnNamesWithClient(CurrentDecisionInstance.ParameterTableName,
+                                                           out paramTableColumns))
+                {
+                    setParamTableDropDown(paramTableColumns);
+                }
+
+                if (!String.IsNullOrEmpty(decisionInstance.PvToAmountChainMappingValue))
+                {
+                    hiddenAmtChainGroupName.Value = decisionInstance.PvToAmountChainMappingValue;
+                    FromParamTableCheckBox.Checked = false;
+                    ddAmountChainGroupFromParamTableSource.Enabled = false;
+                    if (AmpAction == "View")
+                    {
+                        divAmountChainGroupFromParamTableDropdownSource.Attributes.Add("style", "display: none;");
+                    }
+                    // Can't do anything now about selecting the radio button that
+                    // corresponds to the decision's current amount chain group.
+                    // (Must wait until the grid control is loaded.
+                    // After the grid control is loaded, if AmpAction is "View",
+                    // we also must disable selection of other rows!)
+                }
+                else
+                {
+                    hiddenAmtChainGroupName.Value = decisionInstance.PvToAmountChainMappingColumnName;
+                    FromParamTableCheckBox.Checked = true;
+                    ddAmountChainGroupFromParamTableSource.Enabled = true;
+                    ddAmountChainGroupFromParamTableSource.SelectedValue = decisionInstance.PvToAmountChainMappingColumnName;
+                    divAmountChainGroupGrid.Attributes.Add("style", "display: none;");
+                }
+
+                // Clean up client.
+                ampSvcGetDecisionClient.Close();
+                ampSvcGetDecisionClient = null;
+
+            }
+            catch (Exception ex)
+            {
+                SetError(String.Format(GetGlobalResourceObject("AmpWizard", "TEXT_ERROR_RETRIEVE_DECISION").ToString(),
+                                       AmpDecisionName));
+                logger.LogException("An error occurred while retrieving Decision '" + AmpDecisionName + "'", ex);
+            }
+            finally
+            {
+                if (ampSvcGetDecisionClient != null)
+                {
+                    ampSvcGetDecisionClient.Abort();
+                }
             }
 
-            // Clean up client.
-            ampSvcGetDecisionClient.Close();
-            ampSvcGetDecisionClient = null;
-
-          }
-          catch (Exception ex)
-          {
-            SetError(String.Format(GetGlobalResourceObject("AmpWizard", "TEXT_ERROR_RETRIEVE_DECISION").ToString(), AmpDecisionName));
-            logger.LogException("An error occurred while retrieving Decision '" + AmpDecisionName + "'", ex);
-          }
-          finally
-          {
-            if (ampSvcGetDecisionClient != null)
-            {
-              ampSvcGetDecisionClient.Abort();
-            }
-          }
-
-      } // if (!IsPostBack)
+        } // if (!IsPostBack)
     }
 
+    private void setParamTableDropDown(List<KeyValuePair<String, String>> paramTableColumns)
+    {
+        ddAmountChainGroupFromParamTableSource.Items.Clear();
+        foreach (var item in paramTableColumns)
+        {
+            ddAmountChainGroupFromParamTableSource.Items.Add(new ListItem(item.Value, item.Key));
+        }
+    }
+
+    private void setCheckBoxEventHandler()
+    {
+        FromParamTableCheckBox.Listeners = @"{ 'check' : this.onChange_" + FromParamTableCheckBox.ID + @", scope: this }";
+
+        String scriptString = "<script type=\"text/javascript\">";
+        scriptString += "function onChange_" + FromParamTableCheckBox.ID + "(field, newvalue, oldvalue) \n";
+        scriptString += "{ \n";
+        scriptString += "return updateActiveControls(); \n";
+        scriptString += "} \n";
+        scriptString += "</script>";
+
+        Page.ClientScript.RegisterStartupScript(FromParamTableCheckBox.GetType(), "onChange_" + FromParamTableCheckBox.ID, scriptString);
+    }
 
     protected void btnContinue_Click(object sender, EventArgs e)
     {
@@ -131,8 +170,17 @@ public partial class AmpAmountChainGroupPage : AmpWizardBasePage
         if (AmpAction != "View")
         {
           // Update decision's amount chain group based on selected radio button.
-          CurrentDecisionInstance.PvToAmountChainMapping = hiddenAmtChainGroupName.Value;
-          ampSvcStoreDecisionClient.SaveDecision(CurrentDecisionInstance);
+            if (!FromParamTableCheckBox.Checked)
+            {
+                CurrentDecisionInstance.PvToAmountChainMappingValue = hiddenAmtChainGroupName.Value;
+                CurrentDecisionInstance.PvToAmountChainMappingColumnName = null;
+            }
+            else if (FromParamTableCheckBox.Checked)
+            {
+                CurrentDecisionInstance.PvToAmountChainMappingValue = null;
+                CurrentDecisionInstance.PvToAmountChainMappingColumnName = ddAmountChainGroupFromParamTableSource.SelectedValue;
+            }
+            ampSvcStoreDecisionClient.SaveDecision(CurrentDecisionInstance);
           logger.LogDebug(String.Format(GetGlobalResourceObject("AmpWizard", "TEXT_SUCCESS_SAVE_DECISION").ToString(), AmpDecisionName));
         }
 

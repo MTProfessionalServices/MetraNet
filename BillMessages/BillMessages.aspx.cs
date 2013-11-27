@@ -285,7 +285,7 @@ public partial class BillMessages : MTPage
     {
       CurrentSourceEntityName = String.IsNullOrEmpty(Request["CurrentSrcEntityName"]) ? null : Request["CurrentSrcEntityName"].ToString();
       MTTitle1.Visible = false;
-      BreadCrumb1.Visible = false;
+      
      // MyGrid1.Title = ParentName.Substring(BEName.LastIndexOf(".") + 1) + "--" + MyGrid1.Title + " (" + RelshipType + ") ";
       //SECENG: CORE-4803 Cross-Site Request Forgery vulnerability in MetraNet
       MyGrid1.Title = Resources.Resource.TEXT_RELATIONSHIP + " (" +  Utils.EncodeForHtml(RelshipType) + ") ";

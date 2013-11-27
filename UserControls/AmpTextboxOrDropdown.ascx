@@ -17,7 +17,7 @@
     </td>
     <td>
       <div id="divNumericSource" runat="server" style="display:'none'" >
-        <MT:MTNumberField ID="tbNumericSource" runat="server" ControlWidth="160"
+        <MT:MTNumberField ID="tbNumericSource" runat="server" ControlWidth="80"
           AllowDecimals="True" AllowNegative="True" 
           HideLabel="True" AllowBlank="True" TabIndex="40"
           XType="LargeNumberField" XTypeNameSpace="ux.form"

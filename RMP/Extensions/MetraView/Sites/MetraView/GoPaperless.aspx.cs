@@ -38,6 +38,7 @@ public partial class GoPaperless: MTAccountPage
         update.In_Account = Account;
         update.UserName = UI.User.UserName;
         update.Password = UI.User.SessionPassword;
+        update.In_LoadTime = ApplicationTime;
         update.Invoke();
 
         UI.Subscriber.SelectedAccount = Account;

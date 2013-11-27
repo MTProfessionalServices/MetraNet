@@ -185,7 +185,7 @@ white-space:nowrap;
     .width(width)
     .height(height);
 
-  d3.json("/MetraView/AjaxServices/DecisionService.aspx?_=" + new Date().getTime(), function (error, data) {
+  d3.json("<%=Request.ApplicationPath%>/AjaxServices/DecisionService.aspx?_=" + new Date().getTime(), function (error, data) {
     var svg = d3.select("#DecisionInstances-body").selectAll("svg")
       .data(data)
     .enter().append("svg")
@@ -277,7 +277,7 @@ white-space:nowrap;
 //    ul.append("li").attr("class", "contextmenuitem").style("background", "url(/Res/images/icons/checkbox_no.png) left center no-repeat").text("Include Projected Results");
 //    ul.append("li").attr("class", "contextmenuitem").style("background", "url(/Res/images/icons/arrow_redo.png) left center no-repeat").text("Redraw").on('click', function () { console.log("redraw"); svg.call(chart); });
     ul.append("li").attr("class", "contextmenuitem").style("background", "url(/Res/images/icons/arrow_refresh_small.png) left center no-repeat").text("Refresh").on('click', function () {
-        d3.json("/MetraView/AjaxServices/DecisionService.aspx?_=" + new Date().getTime(), function (error, data) {
+        d3.json("<%=Request.ApplicationPath%>/AjaxServices/DecisionService.aspx?_=" + new Date().getTime(), function (error, data) {
         var svg = d3.select("#DecisionInstances-body").selectAll("svg")
       .data(data); svg.call(chart);
       });

@@ -1,0 +1,1 @@
+delete from t_recur_value where id_sub=%%ID_SUB%%

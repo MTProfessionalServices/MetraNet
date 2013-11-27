@@ -1,0 +1,137 @@
+<SubsystemProperties Signature="" IsRuntimeApiEnabled="true" IsRuntimeApiPublic="true" IsControlApiEnabled="true" IsControlApiPublic="true">
+  <Engines>
+    <Engine Id="Sql.Default" IsDefault="true" RealType="MetraTech.SecurityFramework.DefaultSqlDetectorEngine, MetraTech.SecurityFramework"/>
+    <Engine Id="Xss.Default" IsDefault="false" RealType="MetraTech.SecurityFramework.DefaultXssDetectorEngine, MetraTech.SecurityFramework"/>
+    <Engine Id="Xss.V2" IsDefault="true" RealType="MetraTech.SecurityFramework.Core.Detector.Engine.SimpleXssDetectorV2, MetraTech.SecurityFramework" UpperLimitDetection="100">
+            <!--RealType=" MetraTech.SecurityFramework.Core.Detector.Engine.SimpleXssDetectorProperties" -->
+      <DetectionParams>
+        <JavaScriptElementPatterns>
+          <item Pattern="\bdecodeURI\s*\(\s*[\w\&quot;\'](?:.+?)\s*\)" Weight="100" />
+          <item Pattern="\bdecodeURIComponent\s*\(\s*[\w\&quot;\'](?:.+?)\s*\)" Weight="100" />
+          <item Pattern="\bencodeURI\s*\(\s*[\w\&quot;\'](?:.+?)\s*\)" Weight="100" />
+          <item Pattern="\bencodeURIComponent\s*\(\s*[\w\&quot;\'](?:.+?)\s*\)" Weight="100" />
+          <item Pattern="\bescape\s*\(\s*[\w\&quot;\'](?:.+?)\s*\)" Weight="100" />
+          <item Pattern="\beval\s*\(\s*[\w\&quot;\'](?:.+?)\s*\)" Weight="100" />
+          <item Pattern="\bisFinite\s*\(\s*[\w\&quot;\'](?:.+?)\s*\)" Weight="100" />
+          <item Pattern="\bisNaN\s*\(\s*[\w\&quot;\'](?:.+?)\s*\)" Weight="100" />
+          <item Pattern="\bNumber\s*\(\s*[\w\&quot;\'](?:.+?)\s*\)" Weight="100" />
+          <item Pattern="\bparseFloat\s*\(\s*[\w\&quot;\'](?:.+?)\s*\)" Weight="100" />
+          <item Pattern="\bparseInt\s*\(\s*[\w\&quot;\'](?:.+?)\s*\)" Weight="100" />
+          <item Pattern="\bString\s*\(\s*[\w\&quot;\'](?:.+?)\s*\)" Weight="100" />
+          <item Pattern="\bunescape\s*\(\s*[\w\&quot;\'](?:.+?)\s*\)" Weight="100" />
+        </JavaScriptElementPatterns>
+        <DomElementPatterns>
+          <item Pattern="(?i:\bdocument\s*\.\s*write\s*\(\s*[\w\&quot;\'](?:.+?)\s*\))" Weight="100" />
+          <item Pattern="(?i:\bdocument\s*\.\s*open\s*\(\s*[\w\&quot;\'](?:.+?)\s*\))" Weight="100" />
+          <item Pattern="(?i:\bdocument\s*\.\s*cookie\b)" Weight="100" />
+          <item Pattern="(?i:\balert\s*\(\s*(?:.+?)\s*\))" Weight="100" />
+          <item Pattern="(?i:\bgetElementById\s*\(\s*[\w\&quot;\'](?:.+?)\s*\))" Weight="100" />
+          <item Pattern="(?i:\bcreatePopup\s*\(\s*\))" Weight="100" />
+          <item Pattern="(?i:\bscrollBy\s*\(\s*[\w\&quot;\'](?:.+?)\s*,\s*[\w\&quot;\'](?:.+?)\s*\))" Weight="100" />
+          <item Pattern="(?i:\blocation\s*\.\s*assign\s*\(\s*[\w\&quot;\'](?:.+?)\s*\))" Weight="100" />
+        </DomElementPatterns>
+        <HtmlElementPatterns>
+          <item Pattern="\&lt;!--" Weight="100" />
+          <item Pattern="(?i:\&lt;\s*a\b\s*.+?\s*\&gt;)" Weight="100" />
+          <item Pattern="(?i:\&lt;\s*applet\b\s*.*?\s*\&gt;)" Weight="100" />
+          <item Pattern="(?i:\&lt;\s*area\b\s*.*\s*\&gt;)" Weight="100" />
+          <item Pattern="(?i:\&lt;\s*audio\b\s*.*?\s*\&gt;)" Weight="100" />
+          <item Pattern="(?i:\&lt;\s*base\b\s*.*?\s*\&gt;)" Weight="100" />
+		  <item Pattern="(?i:\&lt;\s*bgsound\b\s*.*?\s*\&gt;)" Weight="100" />
+          <item Pattern="(?i:\&lt;\s*blockquote\b\s*.*?\s*\&gt;)" Weight="100" />
+          <item Pattern="(?i:\&lt;\s*body\b\s*.*?\s*\&gt;)" Weight="100" />
+          <item Pattern="(?i:\&lt;\s*button\b\s*.*?\s*\&gt;)" Weight="100" />
+          <item Pattern="(?i:\&lt;\s*command\b\s*.*?\s*\&gt;)" Weight="100" />
+		  <item Pattern="(?i:\&lt;\s*div\b\s*.*?\s*\&gt;)" Weight="100" />
+          <item Pattern="(?i:\&lt;\s*embed\b\s*.*?\s*\&gt;)" Weight="100" />
+          <item Pattern="(?i:\&lt;\s*form\b\s*.*?\s*\&gt;)" Weight="100" />
+		  <item Pattern="(?i:\&lt;\s*frame\b\s*.*?\s*\&gt;)" Weight="100" />
+          <item Pattern="(?i:\&lt;\s*html\b\s*.*?\s*\&gt;)" Weight="100" />
+          <item Pattern="(?i:\&lt;\s*iframe\b\s*.*?\s*\&gt;)" Weight="100" />
+          <item Pattern="(?i:\&lt;\s*img\b\s*.*?\s*\&gt;)" Weight="100" />
+          <item Pattern="(?i:\&lt;\s*input\b\s*.*?\s*\&gt;)" Weight="100" />
+		  <item Pattern="(?i:\&lt;\s*isindex\b\s*.*?\s*\&gt;)" Weight="100" />
+          <item Pattern="(?i:\&lt;\s*keygen\b\s*.*?\s*\&gt;)" Weight="100" />
+          <item Pattern="(?i:\&lt;\s*link\b\s*.*?\s*\&gt;)" Weight="100" />
+          <item Pattern="(?i:\&lt;\s*marquee\b\s*.*?\s*\&gt;)" Weight="100" />
+		  <item Pattern="(?i:\&lt;\s*meta\b\s*.*?\s*\&gt;)" Weight="100" />
+          <item Pattern="(?i:\&lt;\s*object\b\s*.*?\s*\&gt;)" Weight="100" />
+		  <item Pattern="(?i:\&lt;\s*output\b\s*.*?\s*\&gt;)" Weight="100" />
+          <item Pattern="(?i:\&lt;\s*script\b\s*.*?\s*\&gt;)" Weight="100" />
+		  <item Pattern="(?i:\&lt;\s*select\b\s*.*?\s*\&gt;)" Weight="100" />
+          <item Pattern="(?i:\&lt;\s*source\b\s*.*?\s*\&gt;)" Weight="100" />
+		  <item Pattern="(?i:\&lt;\s*style\b\s*.*?\s*\&gt;)" Weight="100" />
+		  <item Pattern="(?i:\&lt;\s*span\b\s*.*?\s*\&gt;)" Weight="100" />
+		  <item Pattern="(?i:\&lt;\s*table\b\s*.*?\s*\&gt;)" Weight="100" />
+		  <item Pattern="(?i:\&lt;\s*tbody\b\s*.*?\s*\&gt;)" Weight="100" />
+		  <item Pattern="(?i:\&lt;\s*textarea\b\s*.*?\s*\&gt;)" Weight="100" />
+		  <item Pattern="(?i:\&lt;\s*td\b\s*.*?\s*\&gt;)" Weight="100" />
+		  <item Pattern="(?i:\&lt;\s*tfoot\b\s*.*?\s*\&gt;)" Weight="100" />
+		  <item Pattern="(?i:\&lt;\s*th\b\s*.*?\s*\&gt;)" Weight="100" />
+		  <item Pattern="(?i:\&lt;\s*thead\b\s*.*?\s*\&gt;)" Weight="100" />
+		  <item Pattern="(?i:\&lt;\s*tr\b\s*.*?\s*\&gt;)" Weight="100" />
+          <item Pattern="(?i:\&lt;\s*video\b\s*.*?\s*\&gt;)" Weight="100" />
+		  <item Pattern="(?i:\&lt;\s*xml\b\s*.*?\s*\&gt;)" Weight="100" />
+		  <item Pattern="\&lt;%" Weight="100" />
+		  <!--HTML Attributes-->
+		  <item Pattern="(?i:\&lt;\s*(\b.+?\b).*?\brel\s*=\s*.*?\s*\&gt;)" Weight="100" />
+		  <item Pattern="(?i:\&lt;\s*(\b.+?\b).*?\bstyle\s*=\s*.*?\s*\&gt;)" Weight="100" />
+		  <item Pattern="(?i:src\s*=\s*\S)" Weight="100" />
+		  <item Pattern="(?i:href\s*=\s*\S)" Weight="100" />
+        </HtmlElementPatterns>
+        <HtmlEventNames>
+          <item Pattern="onblur" Weight="100" />
+          <item Pattern="onchange" Weight="100" />
+          <item Pattern="oncontextmenu" Weight="100" />
+          <item Pattern="onfocus" Weight="100" />
+          <item Pattern="onformchange" Weight="100" />
+          <item Pattern="onforminput" Weight="100" />
+          <item Pattern="oninput" Weight="100" />
+          <item Pattern="oninvalid" Weight="100" />
+          <item Pattern="onreset" Weight="100" />
+          <item Pattern="onselect" Weight="100" />
+          <item Pattern="onsubmit" Weight="100" />
+          <item Pattern="onkeydown" Weight="100" />
+          <item Pattern="onkeypress" Weight="100" />
+          <item Pattern="onkeyup" Weight="100" />
+          <item Pattern="onclick" Weight="100" />
+          <item Pattern="ondblclick" Weight="100" />
+          <item Pattern="ondrag" Weight="100" />
+          <item Pattern="ondragend" Weight="100" />
+          <item Pattern="ondragenter" Weight="100" />
+          <item Pattern="ondragleave" Weight="100" />
+          <item Pattern="ondragover" Weight="100" />
+          <item Pattern="ondragstart" Weight="100" />
+          <item Pattern="ondrop" Weight="100" />
+          <item Pattern="onmousedown" Weight="100" />
+          <item Pattern="onmousemove" Weight="100" />
+          <item Pattern="onmouseout" Weight="100" />
+          <item Pattern="onmouseover" Weight="100" />
+          <item Pattern="onmouseup" Weight="100" />
+          <item Pattern="onmousewheel" Weight="100" />
+          <item Pattern="onscroll" Weight="100" />
+        </HtmlEventNames>
+        <SignsPatterns />
+        <VbScriptPatterns>
+          <item Pattern="(?i:\b(function|sub)\s*?\b[a-z][a-z0-9]*\b\s*?\(.*?\).+?\bend\b\s*?\1\b)" Weight="100" />
+          <item Pattern="(?i:\b(?:CreateObject|GetObject|GetRef)\s*?\(\s*(&quot;)?\s*[a-z].*?(?(1)\1)\s*\))" Weight="100" />
+          <item Pattern="(?i:\b(?:Eval|TypeName|VarType)\b\s*?\(\s*(&quot;)?\s*[a-z].*?(?(1)\1)\s*\))" Weight="100" />
+          <item Pattern="(?i:\b(?:InputBox|LoadPicture|MsgBox)\s*?\(\s*(&quot;)?\s*[^&quot;].*?(?(1)\1).*?\))" Weight="100" />
+          <item Pattern="(?i:\bScriptEngine\b|\bScriptEngineBuildVersion\b|\bScriptEngineMajorVersion\b|\bScriptEngineMinorVersion\b)" Weight="100" />
+        </VbScriptPatterns>
+        <ObfuscationPatterns>
+          <item Pattern="\(\s*\(*\s*[&quot;']?\s*[A-Za-z0-9_.]+\s*[&quot;']?\s*\)*\s*(?:[-+/*]\s*\(*\s*[&quot;']?\s*[A-Za-z0-9_.]+\s*[&quot;']?\s*\)*\s*)*\s*[&lt;&gt;]=?\s*\(*\s*[&quot;']?\s*[A-Za-z0-9_.]+\s*[&quot;']?\s*\)*\s*(?:[-+/*]\s*\(*\s*[&quot;']?\s*[A-Za-z0-9_.]+\s*[&quot;']?\s*\)*\s*)*\?\s*\(*\s*[&quot;']?\s*[A-Za-z0-9_.]+\s*[&quot;']?\s*\)*\s*(?:[-+/*]\s*\(*\s*[&quot;']?\s*[A-Za-z0-9_.]+\s*[&quot;']?\s*\)*\s*)*:\s*\(*\s*[&quot;']?\s*[A-Za-z0-9_.]+\s*[&quot;']?\s*\)*\s*(?:[-+/*]\s*\(*\s*[&quot;']?\s*[A-Za-z0-9_.]+\s*[&quot;']?\s*\)*\s*)*\)" Weight="100" />
+          <item Pattern="(?im:(?:^|;|{|})\s*if\s*\(\s*\s*\(*\s*[&quot;']?\s*[A-Za-z0-9_.]+\s*[&quot;']?\s*\)*\s*(?:[-+/*]\s*\(*\s*[&quot;']?\s*[A-Za-z0-9_.]+\s*[&quot;']?\s*\)*\s*)*\s*(:?[&lt;&gt;]=?\s*\s*\(*\s*[&quot;']?\s*[A-Za-z0-9_.]+\s*[&quot;']?\s*\)*\s*(?:[-+/*]\s*\(*\s*[&quot;']?\s*[A-Za-z0-9_.]+\s*[&quot;']?\s*\)*\s*)*\s*)?\)\s*.+?\s*\belse\b\s*.+?)" Weight="45" />
+          <item Pattern="(?im:(?:^|;|{|})\s*if\s*\(\s*\s*\(*\s*[&quot;']?\s*[A-Za-z0-9_.]+\s*[&quot;']?\s*\)*\s*(?:[-+/*]\s*\(*\s*[&quot;']?\s*[A-Za-z0-9_.]+\s*[&quot;']?\s*\)*\s*)*\s*(:?[&lt;&gt;]=?\s*\s*\(*\s*[&quot;']?\s*[A-Za-z0-9_.]+\s*[&quot;']?\s*\)*\s*(?:[-+/*]\s*\(*\s*[&quot;']?\s*[A-Za-z0-9_.]+\s*[&quot;']?\s*\)*\s*)*\s*)?\)\s*.*?)" Weight="35" />
+          <item Pattern="(?m:(?:^|;|{|})\s*[A-Za-z0-9_.]+\s*[-+/*]?=\s*\(*\s*\(*\s*[&quot;']?\s*[A-Za-z0-9_.]+\s*[&quot;']?\s*\)*\s*)" Weight="15" />
+          <item Pattern="(?i:\bfunction\b\s*\(.+?\)\s*{.+?})" Weight="10" />
+        </ObfuscationPatterns>
+      </DetectionParams>
+    </Engine>
+    <Engine Id="Xss.DetectUnicodeThrowException" IsDefault="false" RealType="MetraTech.SecurityFramework.Core.Detector.Engine.ThrowExceptionEngineDetectObfuscation, MetraTech.SecurityFramework"
+          Message="XSS injection detected." Reason="Detect unicode encoding."/>
+    <Engine Id="Xss.DetectBase64" IsDefault="false" RealType="MetraTech.SecurityFramework.Core.Detector.Engine.Base64DetectorEngine, MetraTech.SecurityFramework"
+          MinLengthBase64Sequence="32"/>
+	  <Engine Id="DirectoryTraversal.Default" IsDefault="true" RealType="MetraTech.SecurityFramework.Core.Detector.DirectoryTraversalDetectorEngine, MetraTech.SecurityFramework"/>
+  </Engines>
+</SubsystemProperties>

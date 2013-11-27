@@ -1,0 +1,2 @@
+
+   DROP PROCEDURE %%PROC_NAME%%

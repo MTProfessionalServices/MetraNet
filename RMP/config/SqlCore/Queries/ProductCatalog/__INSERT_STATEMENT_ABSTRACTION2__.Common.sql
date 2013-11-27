@@ -1,0 +1,3 @@
+
+				INSERT INTO %%%TEMP_TABLE_PREFIX%%%%%TABLE_NAME%%
+			

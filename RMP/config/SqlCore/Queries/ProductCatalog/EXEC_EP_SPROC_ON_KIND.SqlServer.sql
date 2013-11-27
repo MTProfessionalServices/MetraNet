@@ -1,0 +1,3 @@
+
+          exec ExecSpProcOnKind %%KIND%%,%%ID%%
+          

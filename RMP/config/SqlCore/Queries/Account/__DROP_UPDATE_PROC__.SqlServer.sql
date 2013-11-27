@@ -1,0 +1,5 @@
+
+			     IF EXISTS (SELECT * FROM SYSOBJECTS WHERE id = object_id(
+			     'dbo.UPDATE_%%ACCOUNT_VIEW_NAME%%')) DROP PROCEDURE 
+				 dbo.UPDATE_%%ACCOUNT_VIEW_NAME%%
+			

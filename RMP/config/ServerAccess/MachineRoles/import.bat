@@ -1,0 +1,1 @@
+BMEImportExport.exe imp -E Core.MR.* config\ServerAccess\MachineRoles

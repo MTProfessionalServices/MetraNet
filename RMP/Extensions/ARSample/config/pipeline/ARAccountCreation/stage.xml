@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <xmlconfig>
-  <version ptype="INTEGER">1</version>
-  <stage>
-    <name>ARAccountCreation</name>
-    <startstage ptype="BOOL">TRUE</startstage>
-    <finalstage ptype="BOOL">TRUE</finalstage>
-    <nextstage></nextstage>
-    <dependencies>
-      <dependson>ARPropagateAccounts</dependson>
-    </dependencies>
-  </stage>
+    <version ptype="INTEGER">1</version>
+    <description>Stage for ar account creation</description>
+    <stage>
+        <name>ARAccountCreation</name>
+        <startstage ptype="BOOL">Yes</startstage>
+        <finalstage ptype="BOOL">Yes</finalstage>
+        <nextstage></nextstage>
+        <dependencies>
+            <dependency>
+                <processor>ARPropagateAccounts</processor>
+            </dependency>
+            <dependson>ARPropagateAccounts</dependson>
+        </dependencies>
+    </stage>
+    <possiblenextstages />
 </xmlconfig>

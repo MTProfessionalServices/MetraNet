@@ -33,7 +33,7 @@
     <DefaultSortDirection>Ascending</DefaultSortDirection>
     <DisplayCount>false</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
-    <CustomImplementationFilePath>/MetraView/BE/BEList.aspx.js</CustomImplementationFilePath>
+    <CustomImplementationFilePath></CustomImplementationFilePath>
     <ShowFilterPanel>true</ShowFilterPanel>
     <ShowTopBar>true</ShowTopBar>
     <ShowBottomBar>true</ShowBottomBar>
@@ -44,6 +44,10 @@
     <UseTopBar>true</UseTopBar>
     <UseBottomBar>true</UseBottomBar>
     <SubGrid></SubGrid>
+    <Title>
+        <Value><![CDATA[]]></Value>
+    </Title>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
@@ -323,6 +327,7 @@
                 <ResourceClassKey>Resource</ResourceClassKey>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -363,26 +368,12 @@
                     </Fields>
                 </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
     </ExpanderTemplate>
-    <GridButtons>
-        <Button>
-            <ButtonID>ApplyChanges</ButtonID>
-            <ButtonText>
-                <LocalizationTag>TEXT_APPLY_CHANGES</LocalizationTag>
-                <ResourceClassKey>SiteJSConsts</ResourceClassKey>
-            </ButtonText>
-            <ToolTip>
-                <LocalizationTag>TEXT_APPLY_CHANGES</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
-            </ToolTip>
-            <IconClass></IconClass>
-            <RequiredCapabilities></RequiredCapabilities>
-            <JSHandlerFunction>onApplyChanges</JSHandlerFunction>
-        </Button>
-    </GridButtons>
+    <GridButtons></GridButtons>
     <ToolbarButtons>
-       <!-- <Button>
+       <Button>
             <ButtonID>Add</ButtonID>
             <ButtonText>
                 <LocalizationTag>TEXT_ADD_BME</LocalizationTag>
@@ -395,6 +386,6 @@
             <IconClass>add</IconClass>
             <RequiredCapabilities></RequiredCapabilities>
             <JSHandlerFunction>onNew</JSHandlerFunction>
-        </Button> -->
+        </Button>
     </ToolbarButtons>
 </GridLayout>

@@ -4,7 +4,7 @@
     <locale_space name="metratech.com/NonStandardCharge">
         <locale_entry>
             <Name>metratech.com/NonStandardCharge</Name>
-            <Value></Value>
+            <Value>NonStandard Charges</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/NonStandardCharge/AdditionalCode/Other</Name>

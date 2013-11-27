@@ -1,0 +1,58 @@
+body {
+  background:#F0F0F0;
+  margin:0;
+  padding:0;
+  color:#000;
+  font-size: 11px;
+	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size:small;
+  } html>body {font-size:small;}
+
+#header {
+  float:left;
+  width:100%;
+ /* background:#369 url("../images/Tabs/bg.gif") repeat-x bottom;*/
+  font-size:85%;
+  line-height:normal;
+  }
+#header ul {
+  margin:0;
+  padding:10px 10px 0 0;
+  list-style:none;
+  }
+#header li {
+  float:left;
+  background:url("../images/Tabs/right.gif") no-repeat right top;
+  margin:-3;
+  padding:0px 12px 0px 0px;
+  }
+#header a {
+  float:left;
+  display:block;
+  background:url("../images/Tabs/left.gif") no-repeat left top;
+  padding:3px 0px 4px 21px;
+  text-decoration:none;
+  font-weight:bold;
+  color:white;
+  }
+/* Commented Backslash Hack
+   hides rule from IE5-Mac \*/
+#header a {float:none;}
+/* End IE5-Mac hack */
+#header a:hover {
+  color:white;
+  }
+#header #current {
+  background-image:url("../images/Tabs/right_on.gif");
+  }
+#header #current a {
+  background-image:url("../images/Tabs/left_on.gif");
+  color:#333;
+  padding-bottom:5px;
+  }
+#blend
+{
+  width:100%;
+  height:100%;
+ /* background:url("../images/Tabs/blend.gif") repeat-x left top;*/
+}

@@ -44,7 +44,7 @@
 			BEGIN
 				EXEC sp_addextendedproperty
 					@name = N'MS_Description',
-					@value = 'Required column. The partition value that specifies on which partition 1,2,…X the current data is saved. Column for meter partitioning. It uses to simplify archive functionality.',
+					@value = 'Required column. The partition value that specifies on which partition 1,2,ï¿½X the current data is saved. Column for meter partitioning. It uses to simplify archive functionality.',
 					@level0type = N'SCHEMA', @level0name = N'dbo',
 					@level1type = N'TABLE', @level1name = '%%TABLE_NAME%%',
 					@level2type = N'COLUMN', @level2name = 'id_partition'

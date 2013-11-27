@@ -7,8 +7,34 @@
         as
         select 
 
-        au.*,
+        au.id_sess,
+		au.tx_UID,
+		au.id_acc,
+		au.id_payee,
+		au.id_view,
+		au.id_usage_interval,
+		au.id_parent_sess,
+		ISNULL(au.id_prod,(Select top 1 id_prod from t_acc_usage where id_parent_sess= au.id_sess)) id_prod,
+		au.id_svc,
+		au.dt_session,
+		au.amount,
+		au.am_currency,
+		au.dt_crt,
+		au.tx_batch,
+		au.tax_federal,
+		au.tax_state,
+		au.tax_county,
+		au.tax_local,
+		au.tax_other,
+		au.id_pi_instance,
+		au.id_pi_template,
+		au.id_se,
+		au.div_currency,
+		au.div_amount,
+		au.is_implied_tax,
+        au.tax_informational,
 
+		
         -- 1. Return Different Amounts: 
 
         -- PREBILL ADJUSTMENTS:

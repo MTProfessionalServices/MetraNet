@@ -59,6 +59,9 @@
             <Parameter Name="SelectedContact" Description="Parameter identifying the selected contact to update" Type="MetraTech.DomainModel.AccountTypes.ContactView, MetraTech.DomainModel.AccountTypes.Generated.dll">
               <InternalName>SelectedContact</InternalName>
             </Parameter>
+            <Parameter Name="LoadTime" Type="System.DateTime" Direction="In">
+              <InternalName>LoadTime</InternalName>
+            </Parameter>
           </ParameterDefs>
         </EventMethod>
         

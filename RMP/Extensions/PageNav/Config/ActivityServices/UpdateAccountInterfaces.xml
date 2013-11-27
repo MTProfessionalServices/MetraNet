@@ -18,6 +18,9 @@
             <Parameter Name="UpdateAccountId" Description="This is a ref parameter identifying the updated user account" Type="MetraTech.ActivityServices.Common.AccountIdentifier, MetraTech.ActivityServices.Common.dll">
               <InternalName>UpdateAccountId</InternalName>
             </Parameter>
+            <Parameter Name="LoadTime" Type="System.DateTime" Direction="In">
+              <InternalName>LoadTime</InternalName>
+            </Parameter>
           </ParameterDefs>
         </EventMethod>
 
@@ -34,6 +37,9 @@
             </Parameter>
                         <Parameter Name="IsApprovalEnabled" Description="This boolean parameter sets whether or not to enable approvals." Type="System.Boolean" Direction="In">
               <InternalName>IsApprovalEnabled</InternalName>
+            </Parameter>
+            <Parameter Name="LoadTime" Type="System.DateTime" Direction="In">
+              <InternalName>LoadTime</InternalName>
             </Parameter>
           </ParameterDefs>
         </EventMethod>

@@ -20,7 +20,7 @@
       listeners: {
         'beforerender': function() {
           Sound.enable();
-          Sound.play('/MetraView/JavaScript/notify.wav');
+          Sound.play('<%=Request.ApplicationPath%>/JavaScript/notify.wav');
           Sound.disable();
         }
       }

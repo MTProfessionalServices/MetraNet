@@ -5,11 +5,10 @@
 
 <%@ Register src="../UserControls/BreadCrumb.ascx" tagname="BreadCrumb" tagprefix="uc1" %>
 
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-  <h1 id="MTTitle1" runat="server"></h1>
+  <MT:MTTitle ID="MTTitle1" Text="BE" runat="server" />
 <uc1:BreadCrumb ID="BreadCrumb1" runat="server" />
+
 
   <div style="width:810px">
     <MT:MTFilterGrid ID="MyGrid1" runat="Server"></MT:MTFilterGrid>
@@ -19,8 +18,8 @@
     <MT:MTLabel ID="LblcurrentEntityName" runat="server" Font-Bold="true" Font-Size="Medium"/>
   </div>
  
-  <div id="relship_grid"></div>  
- 
+  <div id="relship_grid" style="padding:10px"></div>  
+
   <input type="hidden" runat="server" id="targetRelationshipType" />
    <input type="hidden" runat="server" id="relatedEntityTypeName" />
    <input type="hidden" runat="server" id="relatedEntityTypeFullName" />
@@ -30,7 +29,6 @@
      
   
   <script type="text/javascript">
- 
     var referer ='<%=RefererUrl%>';
     var entityName = '<%=Utils.EncodeForJavaScript(BEName)%>';
     var associationValue = '<%=Utils.EncodeForJavaScript(AssociationValue)%>';
@@ -49,8 +47,9 @@
  
 
   function onViewRelationships(rowIndex) {
-       
-       Ext.get('relship_grid').dom.innerHTML = "";
+
+      // this.grid_<%=MyGrid1.ClientID %>.on('cellclick', function(myGrid, rowIndex){      
+       window.Ext.get('relship_grid').dom.innerHTML = "";
        var record = this.grid_<%=MyGrid1.ClientID %>.getStore().getAt(rowIndex);
 
        var totalRows =  this.grid_<%=MyGrid1.ClientID %>.store.data.length;
@@ -78,20 +77,19 @@
 
                 if(record.data.Name == undefined)
                 {
-                 Ext.get("<%=currentSrcEntityName.ClientID %>").dom.value = record.data[record.fields.items[1].name];               
+                 window.Ext.get("<%=currentSrcEntityName.ClientID %>").dom.value = record.data[record.fields.items[1].name];               
                 }
                 else
                 {
-                 Ext.get("<%=currentSrcEntityName.ClientID %>").dom.value = record.data.Name;                    
+                 window.Ext.get("<%=currentSrcEntityName.ClientID %>").dom.value = record.data.Name;                    
                 }   
                  
-                Ext.get("<%=LblcurrentEntityName.ClientID %>").dom.innerHTML = TITLE_RELATIONSHIPS_FOR + " " + Ext.get("<%=currentSrcEntityName.ClientID %>").dom.value;  
-               
+                window.Ext.get("<%=LblcurrentEntityName.ClientID %>").dom.innerHTML = TITLE_RELATIONSHIPS_FOR + " " + window.Ext.util.Format.htmlEncode(window.Ext.get("<%=currentSrcEntityName.ClientID %>").dom.value);               
        
-                var tabs = new Ext.TabPanel({
+                var tabs = new window.Ext.TabPanel({
                       renderTo: 'relship_grid',
                       activeTab : 0,
-                      width:730,
+                      width:820,
                       height:450,
                       deferredRender: false,                      
                       autoTabs : true,                                                                                         
@@ -107,7 +105,7 @@
 
               var i, urlString;                                        
               var fullnameArray = [];
-              var relEntityFullName = Ext.get('<%=relatedEntityTypeFullName.ClientID%>').dom.value;
+              var relEntityFullName = window.Ext.get('<%=relatedEntityTypeFullName.ClientID%>').dom.value;
               var relEntityFullNameArr = new Array();                                        
               relEntityFullNameArr = relEntityFullName.split(',');
                                        
@@ -119,7 +117,7 @@
 
 
               var nameArray = [];
-              var relEntityTypeName = Ext.get('<%=relatedEntityTypeName.ClientID%>').dom.value;
+              var relEntityTypeName = window.Ext.get('<%=relatedEntityTypeName.ClientID%>').dom.value;
               var relEntityTypeNameArr = new Array();                                        
               relEntityTypeNameArr = relEntityTypeName.split(',');
                                        
@@ -130,7 +128,7 @@
 
 
               var targetRelshipArray = [];
-              var targetRelshipType = Ext.get('<%=targetRelationshipType.ClientID%>').dom.value;
+              var targetRelshipType = window.Ext.get('<%=targetRelationshipType.ClientID%>').dom.value;
               var targetRelshipTypeArr = new Array();                                        
               targetRelshipTypeArr = targetRelshipType.split(',');
                                        
@@ -140,7 +138,7 @@
               }
 
               var srcRelshipArray = [];
-              var srcRelshipType = Ext.get('<%=srcRelationshipType.ClientID%>').dom.value;
+              var srcRelshipType = window.Ext.get('<%=srcRelationshipType.ClientID%>').dom.value;
               var srcRelshipTypeArr = new Array();                                        
               srcRelshipTypeArr = srcRelshipType.split(',');
                                        
@@ -164,7 +162,7 @@
                 var relshipTypeFullName = srcRelshipArray[i] + "--" + targetRelshipArray[i];
                 urlString = urlString + "&RelshipType=" + escape(relshipTypeFullName);
 
-                var currentSrcEntityName = Ext.get("<%=currentSrcEntityName.ClientID %>").dom.value;        
+                var currentSrcEntityName = window.Ext.get("<%=currentSrcEntityName.ClientID %>").dom.value;        
                 urlString = urlString +  "&CurrentSrcEntityName=" + escape(currentSrcEntityName);
         
                 tabs.add({                                               
@@ -173,7 +171,7 @@
                         html: String.format("<iframe src='<%=Request.ApplicationPath%>/BE/BEList.aspx?Name={0}' width='100%' height='100%' frameborder='0' scrolling='no'/>", urlString),                                             
                         closable: false                                                                  
                     }).show();   
-              }
+              } 
 
               if(numRelEntities == 0)
               {
@@ -187,10 +185,12 @@
          
               tabs.setActiveTab(0);
               tabs.doLayout();  
-        }     
+        }
+
+     // },this);       
         
       }
- 
+  //  });
     
     // Event handlers
     if (top.events) {
@@ -212,7 +212,7 @@
         document.location.href = String.format("BEEdit.aspx?EditChildRow=true&name={0}&id={1}&url={2}", entityName, internalId, referer);
       }
       else
-      {      
+      {
         document.location.href = String.format("BEEdit.aspx?name={0}&id={1}&url={2}", entityName, internalId, referer);
       }
     }
@@ -223,8 +223,8 @@
     {
      
        top.Ext.MessageBox.show({
-               title: TEXT_DELETE,
-               msg: TEXT_REMOVE_RELSHIP,
+               title: TITLE_REMOVE_RELATIONSHIP,
+               msg: TEXT_REMOVE_THIS_RELSHIP,
                buttons: Ext.MessageBox.OKCANCEL,
                fn: function(btn){
                  if (btn == 'ok')
@@ -269,6 +269,7 @@
                fn: function(btn){
                  if (btn == 'ok')
                  {
+
                     var parameters = {name: entityName, id: internalId}; 
                     // make the call back to the server
                     Ext.Ajax.request({
@@ -369,7 +370,7 @@
          ids += ",";
        }
        ids += records[i].data.internalId;    
-     }
+     }      
 
       if(ids == "")
      {
@@ -385,7 +386,7 @@
        if(<%=ChildGrid%>)
        { 
          top.Ext.MessageBox.show({
-               title: TEXT_DELETE,
+               title: TITLE_REMOVE_RELATIONSHIP,
                msg: TEXT_REMOVE_RELSHIP,
                buttons: Ext.MessageBox.OKCANCEL,
                fn: function(btn){
@@ -494,69 +495,57 @@
 
     }
 
-    function onNew_<%=MyGrid1.ClientID %>()
-    {          
-            
-        var relshipType = '<%= RelshipType %>';       
-        var RelshipTypeArray = new Array();                                        
-        RelshipTypeArray = relshipType.split('--');
-        var targetRelshipType = RelshipTypeArray[1]; 
-        var totalRows;                           
-        
-        if(<%=ChildGrid %>)
-         { 
-                   // make the call back to the server
-                    Ext.Ajax.request({
-                        url: '<%=Request.ApplicationPath%>/AjaxServices/BEListSvc.aspx?parentId=' + parentId + "&parentName=" + parentName +"&Name=" + entityName,                       
-                        scope: this,
-                        disableCaching: true,
-                        callback: function(options, success, response) {
-                         if (success) {
-                             var jsonData = Ext.util.JSON.decode(response.responseText.trim());
-                             totalRows = parseInt(jsonData.TotalRows);  
-                                if(targetRelshipType == 'One')
-                                {                                
-                                      if(totalRows > 0)
-                                      {                                       
-                                        top.Ext.Msg.show({
-                                                        title: TEXT_ERROR_MSG,
-                                                        msg: TEXT_ERROR_ONE_ONE,
-                                                        buttons: Ext.Msg.OK,               
-                                                        icon: Ext.MessageBox.ERROR
-                                                    });                                   
-                                          return false;
-                                      }
-                                      else
-                                      {
-                                          var windowURL =  String.format("<%=Request.ApplicationPath%>/BE/BEUnrelatedEntityList.aspx?Name={0}&Extension=<%=MyGrid1.ExtensionName%>&ParentId={1}&ParentName={2}&Association={3}&Unrelated=true&MultiSelect={4}&currentEntityName={5}",entityName, parentId, parentName, associationValue, targetRelshipType, currentSourceEntityName);
-                                          window.open(windowURL,'popupwindow','height=600,width=800,scrollbars=yes');
-                                      }
-                                  }
-                                  else
-                                  {                                        
-                                        var windowURL =  String.format("<%=Request.ApplicationPath%>/BE/BEUnrelatedEntityList.aspx?Name={0}&Extension=<%=MyGrid1.ExtensionName%>&ParentId={1}&ParentName={2}&Association={3}&Unrelated=true&MultiSelect={4}&currentEntityName={5}",entityName, parentId, parentName, associationValue, targetRelshipType, currentSourceEntityName);
-                                        window.open(windowURL,'popupwindow','height=600,width=820,scrollbars=yes');
-                                  }
 
-                           }
-                          else
-                          {
-                            Ext.UI.SystemError(TEXT_ERROR_ADDING + " " + id);
-                          }
-                        }
-                      });     
-                     
-                           
+
+    function onNew_<%=MyGrid1.ClientID %>() 
+{
+
+      var relshipType = '<%= RelshipType %>';
+      var RelshipTypeArray = new Array();
+      RelshipTypeArray = relshipType.split('--');
+      var targetRelshipType = RelshipTypeArray[1];
+      var totalRows;
+
+      if (<%=ChildGrid %>) {
+        // make the call back to the server
+        Ext.Ajax.request({
+          url: '/MetraNet/AjaxServices/BEListSvc.aspx?parentId=' + parentId + "&parentName=" + parentName + "&Name=" + entityName,
+          scope: this,
+          disableCaching: true,
+          callback: function(options, success, response) {
+            if (success) {
+              var jsonData = Ext.util.JSON.decode(response.responseText.trim());
+              totalRows = parseInt(jsonData.TotalRows);
+              if (targetRelshipType == 'One') {
+                if (totalRows > 0) {
+                  top.Ext.Msg.show({
+                    title: TEXT_ERROR_MSG,
+                    msg: TEXT_ERROR_ONE_ONE,
+                    buttons: Ext.Msg.OK,
+                    icon: Ext.MessageBox.ERROR
+                  });
+                  return false;
+                } else {
+                  var windowURL = String.format("/MetraNet/BE/BEUnrelatedEntityList.aspx?Name={0}&Extension=<%=MyGrid1.ExtensionName%>&ParentId={1}&ParentName={2}&Association={3}&Unrelated=true&MultiSelect={4}&currentEntityName={5}", entityName, parentId, parentName, associationValue, targetRelshipType, currentSourceEntityName);
+                  window.open(windowURL, 'popupwindow', 'height=600,width=800,scrollbars=1');
+                }
+              } else {
+                var windowURL = String.format("/MetraNet/BE/BEUnrelatedEntityList.aspx?Name={0}&Extension=<%=MyGrid1.ExtensionName%>&ParentId={1}&ParentName={2}&Association={3}&Unrelated=true&MultiSelect={4}&currentEntityName={5}", entityName, parentId, parentName, associationValue, targetRelshipType, currentSourceEntityName);
+                window.open(windowURL, 'popupwindow', 'height=600,width=820,scrollbars=1');
+              }
+            } else {
+              Ext.UI.SystemError(TEXT_ERROR_ADDING + " " + id);
+            }
           }
-          else
-          {                
-             document.location.href = String.format("BEEdit.aspx?name={0}&Association={1}&ParentId={2}&ParentName={3}&url={4}&NewOneToMany=true", entityName, associationValue, parentId, parentName, referer);
- 
-        }
-  } 
+        });
 
-     
-    // Render related entities in details section 
+
+      } else {
+        document.location.href = String.format("BEEdit.aspx?name={0}&Association={1}&ParentId={2}&ParentName={3}&url={4}&NewOneToMany=true", entityName, associationValue, parentId, parentName, referer);
+      }
+    }
+	
+	// Render related entities in details section 
     BeforeExpanderRender_<%= MyGrid1.ClientID %> = function(tplString)
     {
       var html = "<%=RelatedEntityLinksHtml%>";
@@ -571,6 +560,11 @@
             }       
         }   
     });
+
+    function onBulkUpdate_<%=MyGrid1.ClientID %>() {
+      document.location.href = String.format("BEEdit.aspx?name={0}&Association={1}&ParentId={2}&ParentName={3}&url={4}&NewOneToMany=true&IsBulkUpdate={5}", entityName, associationValue, parentId, parentName, referer, true);
+    }
+
   </script>  
 </asp:Content>
 

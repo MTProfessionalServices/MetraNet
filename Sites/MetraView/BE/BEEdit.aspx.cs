@@ -10,6 +10,7 @@ using MetraTech.UI.Common;
 using MetraTech.BusinessEntity.DataAccess.Metadata;
 using MetraTech.BusinessEntity.Service.ClientProxies;
 using MetraTech.UI.Controls;
+using System.Linq;
  
 public partial class BEEdit : MTPage
 {
@@ -133,7 +134,7 @@ public partial class BEEdit : MTPage
         if (!isNewOneToMany)
         {
 
-          MTTitle1.InnerText = Resources.SiteJSConsts.TEXT_EDIT + " " + templateName.Substring(templateName.LastIndexOf(".") + 1);
+          MTTitle1.Text = Resources.SiteJSConsts.TEXT_EDIT + " " + templateName.Substring(templateName.LastIndexOf(".") + 1);
 
           var client = new EntityInstanceService_LoadEntityInstanceFor_Client();
           client.UserName = UI.User.UserName;
@@ -149,7 +150,7 @@ public partial class BEEdit : MTPage
         // if entity is null, we new it up, and set any associations we may have
         if(BE == null)
         {
-          MTTitle1.InnerText = Resources.SiteJSConsts.TEXT_ADD + " " + templateName.Substring(templateName.LastIndexOf(".") + 1);
+          MTTitle1.Text = Resources.SiteJSConsts.TEXT_ADD + " " + templateName.Substring(templateName.LastIndexOf(".") + 1);
 
           var createNewEntityInstanceClient = new EntityInstanceService_GetNewEntityInstance_Client();
           createNewEntityInstanceClient.UserName = UI.User.UserName;
@@ -177,10 +178,7 @@ public partial class BEEdit : MTPage
       {
         if (String.IsNullOrEmpty(Id))
         {
-
-         // MTTitle1.Text = GetLocalResourceObject("TEXT_NEW") + title;
-          MTTitle1.InnerText = Resources.SiteJSConsts.TEXT_ADD + " " + templateName.Substring(templateName.LastIndexOf(".") + 1);
-
+          MTTitle1.Text = Resources.SiteJSConsts.TEXT_ADD + " " + templateName.Substring(templateName.LastIndexOf(".") + 1);
 
           // Create Business Entity Instance 
           var createNewEntityInstanceClient = new EntityInstanceService_GetNewEntityInstance_Client();
@@ -202,10 +200,7 @@ public partial class BEEdit : MTPage
         }
         else
         {
-
-        //  MTTitle1.Text = GetLocalResourceObject("TEXT_EDIT") + title;
-          MTTitle1.InnerText = Resources.SiteJSConsts.TEXT_EDIT + " " + templateName.Substring(templateName.LastIndexOf(".") + 1);
-
+          MTTitle1.Text = Resources.SiteJSConsts.TEXT_EDIT + " " + templateName.Substring(templateName.LastIndexOf(".") + 1);
 
           // Load existing entity instance for id
           EntityInstanceService_LoadEntityInstance_Client client = new EntityInstanceService_LoadEntityInstance_Client();
@@ -216,7 +211,9 @@ public partial class BEEdit : MTPage
           client.Invoke();
           BE = client.Out_entityInstance;
 
-       }
+          // Get related entities
+         // ShowRelatedEntityLinks();
+        }
       }
 
       if (BE == null)
@@ -258,7 +255,8 @@ public partial class BEEdit : MTPage
 
       try
       {
-        BE["UID"].Value = UI.User.AccountId;
+        if (BE.Properties.Any(pr => pr.Name == "UID"))
+          BE["UID"].Value = UI.User.AccountId;
 
         if ((Request["Unrelated"] == "true") || (Request["EditChildRow"] == "true"))
         {
@@ -325,7 +323,67 @@ public partial class BEEdit : MTPage
   }
   #endregion
 
- 
+  #region Related Entities
+  /// <summary>
+  /// Renders links for related entities
+  /// </summary>
+  private void ShowRelatedEntityLinks()
+  {
+    if (BE != null)
+    {
+      var getTargetEntitiesClient = new MetadataService_GetTargetEntities_Client();
+      getTargetEntitiesClient.UserName = UI.User.UserName;
+      getTargetEntitiesClient.Password = UI.User.SessionPassword;
+      getTargetEntitiesClient.In_entityName = BE.EntityFullName;
+      getTargetEntitiesClient.Invoke();
+      List<RelatedEntity> relatedEntities = getTargetEntitiesClient.Out_targetEntities;
+
+      if (relatedEntities.Count > 0)
+      {
+        PanelRelatedEntities.Visible = true;
+        PanelRelatedEntities.Text = GetLocalResourceObject("TEXT_MORE_ITEMS").ToString();
+
+        int i = 0;
+        foreach (RelatedEntity ent in relatedEntities)
+        {
+          if (ent.Multiplicity == Multiplicity.One)
+          {
+            MTBEEdit link = new MTBEEdit();
+            link.Extension = ent.Entity.ExtensionName;
+            link.ObjectName = ent.Entity.FullName;
+            link.ParentId = BE.Id.ToString();
+            link.ParentName = BE.EntityFullName;
+            link.Text = ent.Entity.GetLocalizedLabel();
+            PanelRelatedEntities.Controls.Add(link);
+          }
+          else
+          {
+            MTBEList link = new MTBEList();
+            link.Extension = ent.Entity.ExtensionName;
+            link.ObjectName = ent.Entity.FullName;
+            link.ParentId = BE.Id.ToString();
+            link.ParentName = BE.EntityFullName;
+            link.Text = ent.Entity.PluralName;
+            string title = Server.HtmlEncode(ent.Entity.GetLocalizedLabel());
+            if (!String.IsNullOrEmpty(title))
+            {
+              link.Text = title;
+            }
+            PanelRelatedEntities.Controls.Add(link);
+          }
+
+          i++;
+          if (i < relatedEntities.Count)
+          {
+            Literal spacer = new Literal();
+            spacer.Text = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+            PanelRelatedEntities.Controls.Add(spacer);
+          }
+        }
+      }
+    }
+  }
+  #endregion
 
 }
 

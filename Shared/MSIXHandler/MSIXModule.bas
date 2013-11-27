@@ -141,13 +141,12 @@ End Function
 Public Function FormatDataLocalized(ByVal varExp As Variant, ByVal Dic As Dictionary) As String
 
     If IsNull(varExp) Then
-    
+       
         FormatDataLocalized = ""
         Exit Function
     End If
     
     Select Case VarType(varExp)
-    
       Case vbDate
           If IsDateHasTime(varExp) Then
             FormatDataLocalized = VBA.Format(varExp, Dic.Item("DATE_TIME_FORMAT").Value)
@@ -159,9 +158,42 @@ Public Function FormatDataLocalized(ByVal varExp As Variant, ByVal Dic As Dictio
           FormatDataLocalized = Replace(CStr(varExp), ".", Dic.Item("DECIMAL_SEPARATOR").Value)
       
       Case Else
-          FormatDataLocalized = "" & varExp
+          If IsDate(varExp) Then
+            FormatDataLocalized = VBA.Format(varExp, Dic.Item("DATE_FORMAT").Value)
+          ElseIf InStr(varExp, "AM") Or InStr(varExp, "PM") Then
+              FormatDataLocalized = MyFormatDateTime(varExp, Dic.Item("DATE_TIME_FORMAT").Value)
+          Else
+              FormatDataLocalized = varExp
+          End If
     End Select
 
+End Function
+Public Function MyFormatDateTime(varExp As Variant, strFormat As String) As Variant
+    
+    Dim str As String
+    str = CStr(varExp)
+    If (IsNull(varExp)) Then
+    
+        MyFormatDateTime = ""
+        Exit Function
+    End If
+    Dim day, month As String
+    Dim formatparts() As String
+    formatparts = Split(strFormat, "/")
+    Dim parts() As String
+    parts = Split(str, "/")
+    month = parts(0)
+    day = parts(1)
+    If (Len(strFormat)) Then
+        If ((StrComp(formatparts(0), "d") = 0) Or (StrComp(formatparts(0), "dd") = 0)) Then
+            MyFormatDateTime = day + "/" + month + "/" + parts(2)
+        Else
+            MyFormatDateTime = month + "/" + day + "/" + parts(2)
+        End If
+    Else
+        MyFormatDateTime = varExp
+    End If
+    
 End Function
 Public Function FormatData(varExp As Variant, strFormat As String) As Variant
     

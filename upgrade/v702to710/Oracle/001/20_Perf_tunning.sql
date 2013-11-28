@@ -1,4 +1,4 @@
-﻿/* In this file there are changes that relates to performance tunning only
+/* In this file there are changes that relates to performance tunning only
 Due to index recreation execution will take magority time for 702-710 DB Upgrade */
 
 /* t_acc_usage INDEX modification*/

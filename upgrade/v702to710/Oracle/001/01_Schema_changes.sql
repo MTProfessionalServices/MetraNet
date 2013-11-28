@@ -1,4 +1,4 @@
-﻿SET DEFINE OFF
+SET DEFINE OFF
 
 CREATE TABLE rg_temp_733134584_0 (
   id_payment_transaction VARCHAR2(87 BYTE) NOT NULL,

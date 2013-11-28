@@ -1,4 +1,4 @@
-﻿CREATE OR REPLACE PROCEDURE mtsp_generate_stateful_rcs(
+CREATE OR REPLACE PROCEDURE mtsp_generate_stateful_rcs(
     v_id_interval  INT ,
     v_id_billgroup INT ,
     v_id_run       INT ,

@@ -1,4 +1,4 @@
-﻿CREATE OR REPLACE PACKAGE BODY mt_acc_template
+CREATE OR REPLACE PACKAGE BODY mt_acc_template
 AS
     detailtypesubs      INT;
     detailresultfailure INT;

@@ -32,6 +32,7 @@ SET "SqlPlusStageStmt=%StageDbName%/%Password%@%OracleServer%:1521/netmeter"
 
 call runUpgradeScript_internal.bat %SqlPlusStmt% %SqlPlusStageStmt% > upgrade_ora_702_710.log
 
-@echo DB Upgrade finished. See results in log file "upgrade_ora_702_710.log"
+@echo DB Upgrade finished.
+@echo Please, review  the log file "upgrade_ora_702_710.log"
 
 pause

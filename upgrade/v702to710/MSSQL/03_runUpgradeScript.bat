@@ -45,5 +45,6 @@ FOR /R %%s IN (*.sql) DO (
 
 
 cd %CurrentDir%
+echo please, review the log file "%WorkDir%\sql_upgrade_stage.log"
 
 pause

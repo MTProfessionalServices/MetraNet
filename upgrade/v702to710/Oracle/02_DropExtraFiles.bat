@@ -32,5 +32,5 @@ cd /D %MTRMP%\Config\SqlCore\Install\Quoting\StoredProcedures
 del __CREATE_REMOVEGROUPSUBSCRIPTION_QUOTING__._Info.xml
 del __CREATE_REMOVEGROUPSUBSCRIPTION_QUOTING__.Oracle.sql
 
-echo Finished removing extra files from MetraNet 701
+echo Finished removing extra files.
 pause

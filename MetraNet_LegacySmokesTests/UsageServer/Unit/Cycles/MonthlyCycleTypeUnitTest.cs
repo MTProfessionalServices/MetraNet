@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using NUnit.Framework;
 
 namespace MetraTech.UsageServer.Test.Unit.Cycles
@@ -86,6 +87,34 @@ namespace MetraTech.UsageServer.Test.Unit.Cycles
 
       Assert.AreEqual(new DateTime(2013, 03, 01), _start);
       Assert.AreEqual(new DateTime(2013, 03, 31), _end);
+    }
+
+    [Test]
+    public void GenerateCyclesTest()
+    {
+      var cycles = _cycleType.GenerateCycles();
+
+      // Should be 31 monthly cycles
+      Assert.AreEqual(31, cycles.Length);
+
+      foreach (var cycle in cycles)
+      {
+        //Validate required cycle properties
+        Assert.IsTrue(cycle.DayOfMonth >= 1 && cycle.DayOfMonth <= 31);
+        Assert.AreEqual(cycle.CycleType, CycleType.Monthly);
+        //Cycle's properties listed below should not be set
+        Assert.AreEqual(cycle.StartYear, -1);
+        Assert.AreEqual(cycle.StartMonth, -1);
+        Assert.AreEqual(cycle.StartDay, -1);
+        Assert.AreEqual(cycle.DayOfWeek, DayOfWeek.Monday);
+        Assert.AreEqual(cycle.DayOfYear, -1);
+        Assert.AreEqual(cycle.FirstDayOfMonth, -1);
+        Assert.AreEqual(cycle.SecondDayOfMonth, -1);
+        //Validate that current cycle is uniqe in the collection of cycles
+        // ReSharper disable ReturnValueOfPureMethodIsNotUsed
+        cycles.Single(c => c.DayOfMonth == cycle.DayOfMonth);
+        // ReSharper restore ReturnValueOfPureMethodIsNotUsed
+      }
     }
   }
 }

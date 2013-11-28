@@ -1,9 +1,9 @@
 /*
 Run this script on:
 
-        NetMeter  702 and it will be upgraded to 710
+        NetMeter  702 will be upgraded to 710
 
-You are recommended to back up your database before running this script
+We are recommended to back up your database before running this script
 
 Script created by SQL Compare version 10.4.8 from Red Gate Software Ltd at 11/26/2013 10:39:13 AM
 

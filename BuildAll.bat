@@ -3,7 +3,7 @@
 @echo ****** See results in the file MakeItAllWithClean.log *****
 @echo ***********************************************************
 @C:\Windows\System32\WindowsPowerShell\v1.0\PowerShell.exe -Command "& { 'Begin makeItAllWithClean.cmd at ' + (get-date).ToLongTimeString() }"
-@call S:\Build\Tools\makeItAllWithClean.cmd >MakeItAllWithClean.log 2>CON
+@call %ROOTDIR%\Build\Tools\makeItAllWithClean.cmd >MakeItAllWithClean.log 2>CON
 @C:\Windows\System32\WindowsPowerShell\v1.0\PowerShell.exe -Command "& { 'End makeItAllWithClean.cmd at ' + (get-date).ToLongTimeString() }"
 @echo .
 @echo .
@@ -30,7 +30,7 @@ CryptoSetup -encryptconfig
 @echo ****** entries required by ICE.                      ******
 @echo ***********************************************************
 @C:\Windows\System32\WindowsPowerShell\v1.0\PowerShell.exe -Command "& { 'Begin ICERegExport.reg at ' + (get-date).ToLongTimeString() }"
-@regedit.exe -s C:\dev\MetraNet\RMP\Extensions\ICE_Internal\Source\Install\ICERegExport.reg
+@regedit.exe -s %DEVDIR%\ICE\Source\Install\ICERegExport.reg
 @C:\Windows\System32\WindowsPowerShell\v1.0\PowerShell.exe -Command "& { 'End ICERegExport.reg at ' + (get-date).ToLongTimeString() }"
 @echo .
 @echo .
@@ -38,7 +38,7 @@ CryptoSetup -encryptconfig
 @echo ****** Remove folders with invalid configurations.   ******
 @echo ****** Need to remove this once configs are fixed.   ******
 @echo ***********************************************************
-rd /S /Q C:\dev\MetraNet\RMP\Extensions\ICE_Internal\Test\TestExtensions\RMP\Extensions\ValMessages
+rd /S /Q %DEVDIR%\ICE\Test\TestExtensions\RMP\Extensions\ValMessages
 @echo .
 @echo .
 @echo ***********************************************************
@@ -55,7 +55,7 @@ rd /S /Q C:\dev\MetraNet\RMP\Extensions\ICE_Internal\Test\TestExtensions\RMP\Ext
 @echo ****** See results in the file BuildDatabase.log     ******
 @echo ***********************************************************
 @C:\Windows\System32\WindowsPowerShell\v1.0\PowerShell.exe -Command "& { 'Begin Database.vbs at ' + (get-date).ToLongTimeString() }"
-@cscript C:\dev\MetraNet\RMP\Extensions\Legacy_Internal\Source\Install\Scripts\Database.vbs >BuildDatabase.log 2>CON
+@cscript C%DEVDIR%\Source\Install\Scripts\Database.vbs >BuildDatabase.log 2>CON
 @C:\Windows\System32\WindowsPowerShell\v1.0\PowerShell.exe -Command "& { 'End Database.vbs at ' + (get-date).ToLongTimeString() }"
 @echo .
 @echo .

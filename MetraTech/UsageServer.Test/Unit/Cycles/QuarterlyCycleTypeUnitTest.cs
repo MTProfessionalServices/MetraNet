@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using MetraTech.TestCommon;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -157,6 +158,34 @@ namespace MetraTech.UsageServer.Test.Unit.Cycles
     {
       var cycle = new Cycle { StartDay = 29, StartMonth = 2 };
       Assert.IsTrue(_cycleType.IsCanonical(cycle));
+    }
+
+    [TestMethod, MTUnitTest]
+    public void GenerateCyclesTest()
+    {
+      var cycles = _cycleType.GenerateCycles();
+
+      // Should be 93 quarterly cycles
+      Assert.AreEqual(93, cycles.Length);
+
+      foreach (var cycle in cycles)
+      {
+        //Validate required cycle properties
+        Assert.IsTrue(cycle.StartMonth >= 1 && cycle.StartMonth <= 3);
+        Assert.IsTrue(cycle.StartDay >= 1 && cycle.StartDay <= 31);
+        Assert.AreEqual(cycle.CycleType, CycleType.Quarterly);
+        //Cycle's properties listed below should not be set
+        Assert.AreEqual(cycle.StartYear, -1);
+        Assert.AreEqual(cycle.DayOfMonth, -1);
+        Assert.AreEqual(cycle.DayOfWeek, DayOfWeek.Monday);
+        Assert.AreEqual(cycle.DayOfYear, -1);
+        Assert.AreEqual(cycle.FirstDayOfMonth, -1);
+        Assert.AreEqual(cycle.SecondDayOfMonth, -1);
+        //Validate that current cycle is uniqe in the collection of cycles
+        // ReSharper disable ReturnValueOfPureMethodIsNotUsed
+        cycles.Single(c => c.StartMonth == cycle.StartMonth && c.StartDay == cycle.StartDay);
+        // ReSharper restore ReturnValueOfPureMethodIsNotUsed
+      }
     }
   }
 }

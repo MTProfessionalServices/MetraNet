@@ -1,4 +1,4 @@
-﻿CREATE OR REPLACE FORCE VIEW amp_sorted_decisions (c_decisionname,c_decisiondescription,c_parametertable,c_paramtabledisplayname,c_decisionuniqueid,c_isactive,c_accountqualgroup,c_pvtoamountchainmapping,c_usagequalgroup,c_priorityvalue) AS
+CREATE OR REPLACE FORCE VIEW amp_sorted_decisions (c_decisionname,c_decisiondescription,c_parametertable,c_paramtabledisplayname,c_decisionuniqueid,c_isactive,c_accountqualgroup,c_pvtoamountchainmapping,c_usagequalgroup,c_priorityvalue) AS
 SELECT
         a.c_Name as c_decisionName,
         a.c_Description as c_decisionDescription,
@@ -788,9 +788,6 @@ END;
 /
 
 DROP TRIGGER quoteheader_quoteid_increment
-/
-
-GRANT EXECUTE ON "SYSTPR4oXXXMaQ7aC6+/UhyZe7g==" TO "PUBLIC"
 /
 
 ALTER PROCEDURE moveaccount2 COMPILE 

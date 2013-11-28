@@ -1,4 +1,4 @@
-﻿CREATE OR REPLACE PROCEDURE archive_queue(
+CREATE OR REPLACE PROCEDURE archive_queue(
     p_update_stats		VARCHAR2	DEFAULT 'N',
     p_sampling_ratio	VARCHAR2	DEFAULT '30',
     p_current_time		DATE		DEFAULT NULL,

@@ -1,4 +1,4 @@
-﻿CREATE OR REPLACE PACKAGE BODY mt_rate_pkg
+CREATE OR REPLACE PACKAGE BODY mt_rate_pkg
 AS
     /* initialize the param table column definition array */
     PROCEDURE mt_load_param_defs(

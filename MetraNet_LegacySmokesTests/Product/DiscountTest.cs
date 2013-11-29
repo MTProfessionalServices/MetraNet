@@ -70,6 +70,7 @@ namespace MetraTech.Product.Test
 	[TestFixture]
   [Category("NoAutoRun")]
   [ComVisible(false)]
+    [Ignore]
 	public class DiscountTests 
 	{
 

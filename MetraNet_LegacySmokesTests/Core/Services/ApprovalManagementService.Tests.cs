@@ -5,7 +5,6 @@ using NUnit.Framework;
 
 using MetraTech.Security;
 using MetraTech;
-using MetraTech.DomainModel.Common;
 using MetraTech.Core.Services;
 using System.ServiceModel;
 using MetraTech.Core.Services.ClientProxies;

@@ -1,16 +1,9 @@
 
 namespace MetraTech.UsageServer.Test
 {
-	using System;
-	using System.Collections;
-	using System.Reflection;
 	using System.Runtime.InteropServices;
-
 	using NUnit.Framework;
-
-	using MetraTech.UsageServer;
-	using MetraTech.Interop.MTStdUsageCycle;
-	using MetraTech.Interop.MTUsageServer;
+	using UsageServer;
 
 	[TestFixture]
   [Category("NoAutoRun")]

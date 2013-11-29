@@ -33,6 +33,7 @@ public partial class AmpChargeCreditAttributesPage : AmpWizardBasePage
         AmpCurrentPage = "ChargeCreditAttributes.aspx";
         AmpNextPage = "AmountChainGroup.aspx";
         AmpPreviousPage = "SelectDecisionAction.aspx";
+        setEventHandlers();
 
         if (!IsPostBack)
         {
@@ -55,21 +56,25 @@ public partial class AmpChargeCreditAttributesPage : AmpWizardBasePage
                 radListWhenGenerate.SelectedValue = CurrentDecisionInstance.ChargeCondition.ToString();
             }
 
-            SetRadListDisableListeners();
 
             if (radListWhenGenerate.SelectedIndex == 3)
             {
                 // if (CurrentDecisionInstance.ChargeAmountType != Decision.ChargeAmountTypeEnum.CHARGE_AMOUNT_NONE)[todo: Add NONE statement to ChargeAmountTypeEnum]
-                radListHowApply.SelectedValue = CurrentDecisionInstance.ChargeAmountType.ToString();
+                    radListHowApply.SelectedValue = CurrentDecisionInstance.ChargeAmountTypeValue.ToString();
+                if (
+                    CurrentDecisionInstance.ChargeAmountTypeValue.Equals(
+                        Decision.ChargeAmountTypeEnum.CHARGE_FROM_PARAM_TABLE))
+                    ddChargeCreditAttrFromParamTableSource1.SelectedValue =
+                        CurrentDecisionInstance.ChargeAmountTypeColumnName;
             }
             else
             {
                 radListHowApply.SelectedIndex = 0;
             }
 
-            if (!string.IsNullOrWhiteSpace(CurrentDecisionInstance.GeneratedCharge))
+            if (!string.IsNullOrWhiteSpace(CurrentDecisionInstance.GeneratedChargeValue))
             {
-              hiddenGeneratedChargeName.Value = CurrentDecisionInstance.GeneratedCharge;
+              hiddenGeneratedChargeName.Value = CurrentDecisionInstance.GeneratedChargeValue;
 
               // Can't do anything now about selecting the radio button that
               // corresponds to the decision's current generated charge.
@@ -77,12 +82,53 @@ public partial class AmpChargeCreditAttributesPage : AmpWizardBasePage
               // After the grid control is loaded, if AmpAction is "View",
               // we also must disable selection of other rows!)
             }
+            else
+            {
+                Logger.LogError("loading value :" + CurrentDecisionInstance.GeneratedChargeColumnName);
+                hiddenGeneratedChargeName.Value = CurrentDecisionInstance.GeneratedChargeColumnName;
+                FromParamTableCheckBox.Checked = true;
 
+
+            }
+
+            updateActiveControls_serverside();
             SetMode();
             SetControlMonitorChanges();
         }
     }
+    private void setEventHandlers()
+    {
+        FromParamTableCheckBox.Listeners = @"{ 'check' : this.onChange_" + FromParamTableCheckBox.ID + @", scope: this }";
 
+        String scriptString = "<script type=\"text/javascript\">";
+        scriptString += "function onChange_" + FromParamTableCheckBox.ID + "(field, newvalue, oldvalue) \n";
+        scriptString += "{ \n";
+        scriptString += "return updateActiveControls(); \n";
+        scriptString += "} \n";
+        scriptString += "</script>";
+
+        Page.ClientScript.RegisterStartupScript(FromParamTableCheckBox.GetType(), "onChange_" + FromParamTableCheckBox.ID, scriptString);
+    }
+
+    protected void updateActiveControls_serverside()
+    {
+        if (radListHowApply.SelectedIndex == 4)
+            ddChargeCreditAttrFromParamTableSource1.Enabled = true;
+        else
+            ddChargeCreditAttrFromParamTableSource1.Enabled = false;
+        if (FromParamTableCheckBox.Checked)
+        {
+            ddChargeCreditAttrFromParamTableSource2.Enabled = true;
+            ddChargeCreditAttrFromParamTableSource2.SelectedValue = hiddenGeneratedChargeName.Value;
+            divGrid.Attributes.Add("style","display:none;");
+        }
+        else
+        {
+            ddChargeCreditAttrFromParamTableSource2.Enabled = false;
+            divGrid.Attributes.Add("style", "display:block;");
+            
+        }
+    }
 
     protected override void OnLoadComplete(EventArgs e)
     {
@@ -110,7 +156,8 @@ public partial class AmpChargeCreditAttributesPage : AmpWizardBasePage
       {
         if (!ParseValuesFromControls())
         {
-          return; // Stay on same page.
+            updateActiveControls_serverside();
+            return; // Stay on same page.
         }
         if (!SaveDecisionWithClient())
         {
@@ -129,8 +176,20 @@ public partial class AmpChargeCreditAttributesPage : AmpWizardBasePage
       if (GetParameterTableColumnNamesWithClient(CurrentDecisionInstance.ParameterTableName, out columns))
       {
         ctrlValue.DropdownItems = columns;
+        setParamTableDropDown(columns, ddChargeCreditAttrFromParamTableSource1);
+        setParamTableDropDown(columns, ddChargeCreditAttrFromParamTableSource2);
+
       }
     }
+    private void setParamTableDropDown(List<KeyValuePair<String, String>> paramTableColumns, MTDropDown mtdd)
+    {
+        mtdd.Items.Clear();
+        foreach (var item in paramTableColumns)
+        {
+            mtdd.Items.Add(new ListItem(item.Value, item.Key));
+        }
+    }
+
 
     /// <summary>
     /// Set control properties based on current mode(View/Edit).
@@ -161,14 +220,15 @@ public partial class AmpChargeCreditAttributesPage : AmpWizardBasePage
         }
         else
         {
-          radListHowApply.Attributes.Add("disabled", "true");
-          lbHowApply.Attributes.Add("disabled", "true");
+            divHow.Attributes.Add("display","none;");
         }
 
         // The "beforerowselect" event handler defined in ChargeCreditAttributes.aspx
         // takes care of preventing changes to GeneratedChargesGrid.
 
-        btnSaveAndContinue.Visible = false;
+          FromParamTableCheckBox.Enabled = false;
+          ddChargeCreditAttrFromParamTableSource2.Enabled = false;
+          btnSaveAndContinue.Visible = false;
       }
       else // Edit or Create mode
       {
@@ -179,11 +239,6 @@ public partial class AmpChargeCreditAttributesPage : AmpWizardBasePage
                                             "location.href= 'ChargeCreditProductView.aspx?GenChargeAction=View&GenChargeName=' + name; } " +
                                             "</script>");
 
-        if (radListWhenGenerate.SelectedIndex != 3)
-        {
-          radListHowApply.Attributes.Add("disabled", "true");
-          lbHowApply.Attributes.Add("disabled", "true");
-        }
 
         btnContinue.Visible = false;
       }
@@ -194,19 +249,30 @@ public partial class AmpChargeCreditAttributesPage : AmpWizardBasePage
     /// Returns true if control settings are valid, else false.
     /// </summary>
     private bool ParseValuesFromControls()
-    {
-        if (!string.IsNullOrWhiteSpace(hiddenGeneratedChargeName.Value))
-        {
-            CurrentDecisionInstance.GeneratedCharge = hiddenGeneratedChargeName.Value;
-        }
-        else
-        {
-            SetError(GetLocalResourceObject("TEXT_ERROR_NO_GENERATED_CHARGE").ToString());
-            logger.LogError(String.Format("No Generated Charge was selected for Decision '{0}'", AmpDecisionName));
-            return false;
-        }
+  {
+      if (FromParamTableCheckBox.Checked)
+      {
+          hiddenGeneratedChargeName.Value = ddChargeCreditAttrFromParamTableSource2.SelectedValue;
+          CurrentDecisionInstance.GeneratedChargeValue = null;
+          CurrentDecisionInstance.GeneratedChargeColumnName = hiddenGeneratedChargeName.Value;
+      }
+      else
+      {
+          if (!string.IsNullOrWhiteSpace(hiddenGeneratedChargeName.Value))
+          {
 
-        if (ctrlValue.UseTextbox && !String.IsNullOrEmpty(ctrlValue.TextboxText))
+              CurrentDecisionInstance.GeneratedChargeValue = hiddenGeneratedChargeName.Value;
+              CurrentDecisionInstance.GeneratedChargeColumnName = null;
+
+          }
+          else
+          {
+              SetError(GetLocalResourceObject("TEXT_ERROR_NO_GENERATED_CHARGE").ToString());
+              logger.LogError(String.Format("No Generated Charge was selected for Decision '{0}'", AmpDecisionName));
+              return false;
+          }
+      }
+      if (ctrlValue.UseTextbox && !String.IsNullOrEmpty(ctrlValue.TextboxText))
         {
             CurrentDecisionInstance.ChargeValue = Convert.ToDecimal(ctrlValue.TextboxText);
             CurrentDecisionInstance.ChargeColumnName = null;
@@ -222,20 +288,13 @@ public partial class AmpChargeCreditAttributesPage : AmpWizardBasePage
         CurrentDecisionInstance.ChargeCondition = selectedChargeCondition;
 
         Decision.ChargeAmountTypeEnum selectedAmountType;
-        Enum.TryParse(radListHowApply.SelectedValue, out selectedAmountType);
-        CurrentDecisionInstance.ChargeAmountType = selectedAmountType;
-
+          Enum.TryParse(radListHowApply.SelectedValue, out selectedAmountType);
+          CurrentDecisionInstance.ChargeAmountTypeValue = selectedAmountType;
+        if(selectedAmountType.Equals(Decision.ChargeAmountTypeEnum.CHARGE_FROM_PARAM_TABLE))
+           CurrentDecisionInstance.ChargeAmountTypeColumnName = ddChargeCreditAttrFromParamTableSource1.SelectedValue;
         return true;
     }
     
-
-    private void SetRadListDisableListeners()
-    {
-        radListWhenGenerate.Items[0].Attributes.Add("onClick", "return ChangeHowApplyState(true)");
-        radListWhenGenerate.Items[1].Attributes.Add("onClick", "return ChangeHowApplyState(true)");
-        radListWhenGenerate.Items[2].Attributes.Add("onClick", "return ChangeHowApplyState(true)");
-        radListWhenGenerate.Items[3].Attributes.Add("onClick", "return ChangeHowApplyState(false)");
-    }
 
     private void SetControlMonitorChanges()
     {
@@ -247,6 +306,8 @@ public partial class AmpChargeCreditAttributesPage : AmpWizardBasePage
       MonitorChangesInControlByClientId(ctrlValue.tbTextSourceClientId);
       MonitorChangesInControlByClientId(ctrlValue.ddSourceClientId);
       MonitorChangesInControlByClientId(hiddenGeneratedChargeName.ClientID);
+      MonitorChangesInControlByClientId(ddChargeCreditAttrFromParamTableSource1.ClientID);
+      MonitorChangesInControlByClientId(ddChargeCreditAttrFromParamTableSource2.ClientID);
 
       // The Continue button and View Generated Charge button
       // should NOT prompt the user if the controls have changed.

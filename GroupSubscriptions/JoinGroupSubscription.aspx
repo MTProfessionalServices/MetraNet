@@ -8,11 +8,11 @@
     // Sometimes when we come back from old MAM or MetraView we may have an extra frame.
     // This code busts out of it.
     Ext.onReady(function(){
-      if(getFrameMetraNet().MainContentIframe )
+      if(window.getFrameMetraNet().MainContentIframe )
       {
-        if(getFrameMetraNet().MainContentIframe.location != document.location)
+        if(window.getFrameMetraNet().MainContentIframe.location != document.location)
         {
-         getFrameMetraNet().MainContentIframe.location.replace("../StartWorkFlow.aspx?WorkFlowName=GroupSubscriptionsWorkflow");
+         window.getFrameMetraNet().MainContentIframe.location.replace("../StartWorkFlow.aspx?WorkFlowName=GroupSubscriptionsWorkflow");
         }
       }
     });
@@ -30,7 +30,7 @@
   
   </div>
   <MT:MTFilterGrid ID="JoinGroupSubGrid" runat="server" TemplateFileName="JoinGroupSubscriptionListLayoutTemplate"
-    ExtensionName="Account">
+    ExtensionName="Account" PageSize="10" Resizable="True" RootElement="Items" SearchOnLoad="True" SelectionModel="Standard">
   </MT:MTFilterGrid>
   <MT:MTDataBinder ID="MTDataBinder1" runat="server">
     <DataBindingItems>
@@ -42,11 +42,10 @@
   <script type="text/javascript">
     OverrideRenderer_<%= JoinGroupSubGrid.ClientID %> = function(cm)
     {   
-      cm.setRenderer(cm.getIndexById('SubscriptionSpan#StartDate'), DateRenderer); 
-      cm.setRenderer(cm.getIndexById('SubscriptionSpan#EndDate'), DateRenderer); 
+      cm.setRenderer(cm.getIndexById('SubscriptionSpan#StartDate'), window.DateRenderer); 
+      cm.setRenderer(cm.getIndexById('SubscriptionSpan#EndDate'), window.DateRenderer); 
       cm.setRenderer(cm.getIndexById('Actions'), optionsColRenderer); 
-    };  
-   
+    }; 
     
     function onOK_<%= JoinGroupSubGrid.ClientID %>()
     {
@@ -65,34 +64,28 @@
         groupid = records[i].data.GroupId;          
       }      
       var args = "GroupSubscriptionId=" + groupid;     
-      pageNav.Execute("GroupSubscriptionsEvents_OKGroupSubscriptionJoin_Client", args, null);
+      window.pageNav.Execute("GroupSubscriptionsEvents_OKGroupSubscriptionJoin_Client", args, null);
     }  
     
     function onCancel_<%= JoinGroupSubGrid.ClientID %>()
     {
-      pageNav.Execute("GroupSubscriptionsEvents_CancelGroupSubscriptionJoin_Client", null, null);
+      window.pageNav.Execute("GroupSubscriptionsEvents_CancelGroupSubscriptionJoin_Client", null, null);
     } 
     
-    function members(n)
+    function members(groupId)
     {   
-      var args = "GroupSubscriptionId=" + n;              
-      pageNav.Execute("GroupSubscriptionsEvents_MembersGroupSubscriptionJoin_Client", args, null);
+      var args = "GroupSubscriptionId=" + groupId;              
+      window.pageNav.Execute("GroupSubscriptionsEvents_MembersGroupSubscriptionJoin_Client", args, null); //"GroupSubscriptionsEvents_MembersGroupSubscriptionJoin_Client"
     }
     
-     optionsColRenderer = function(value, meta, record, rowIndex, colIndex, store)
+    optionsColRenderer = function(value, meta, record, rowIndex, colIndex, store)
     {
-      var str = "";    
-     
       // Members button
-      if(<%= UI.CoarseCheckCapability("Modify groupsub membership").ToString().ToLower() %>)
-      {
-        str += String.format("&nbsp;<a style='cursor:hand;' id='members' href='javascript:members({0})'><img src='/Res/Images/icons/group_add.png' title='{1}' alt='{1}'/></a>", record.data.GroupId, TEXT_MEMBERS);
+      if(<%= UI.CoarseCheckCapability("Modify groupsub membership").ToString().ToLower() %>) {
+        return String.format("&nbsp;<a style='cursor:hand;' id='members' href='javascript:members({0})'><img src='/Res/Images/icons/group_add.png' title='{1}' alt='{1}'/></a>", record.data.GroupId, window.TEXT_MEMBERS);
       }      
-       
-      return str;
-      
+      return "";
     };    
     
   </script>
-
 </asp:Content>

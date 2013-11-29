@@ -139,13 +139,13 @@
     <value>Decision Action</value>
   </data>
   <data name="PAGETITLE_DECISION_CYCLE" xml:space="preserve">
-    <value>6. Decision Cycle</value>
+    <value>6. Cycle</value>
   </data>
   <data name="PAGETITLE_DECISION_INTERACTIONS" xml:space="preserve">
-    <value>10. Decision Interactions</value>
+    <value>10. Interactions</value>
   </data>
   <data name="PAGETITLE_DECISION_RANGE" xml:space="preserve">
-    <value>5. Decision Range</value>
+    <value>5. Range</value>
   </data>
   <data name="PAGETITLE_DECISION_SETTINGS" xml:space="preserve">
     <value>Decision Settings</value>
@@ -154,10 +154,10 @@
     <value>13. End</value>
   </data>
   <data name="PAGETITLE_ERROR_CHECK" xml:space="preserve">
-    <value>12. Error Check</value>
+    <value>12. Finalize</value>
   </data>
   <data name="PAGETITLE_EXECUTION_FREQUENCY" xml:space="preserve">
-    <value>9. Execution Frequency</value>
+    <value>9. Frequency</value>
   </data>
   <data name="PAGETITLE_GENERAL_INFORMATION" xml:space="preserve">
     <value>1. General Information</value>
@@ -169,10 +169,10 @@
     <value>4. Items to Aggregate</value>
   </data>
   <data name="PAGETITLE_MISCELLANEOUS_ATTRIBUTES" xml:space="preserve">
-    <value>11. Miscellaneous Attributes</value>
+    <value>11. Misc. Attributes</value>
   </data>
   <data name="PAGETITLE_SELECT_DECISION_ACTION" xml:space="preserve">
-    <value>7. Decision Action</value>
+    <value>7. Action</value>
   </data>
   <data name="PAGETITLE_SELECT_USAGE_QUALIFICATION" xml:space="preserve">
     <value>3. Usage Qualification</value>
@@ -217,7 +217,7 @@
     <value>Fixed Value</value>
   </data>
   <data name="TEXT_GET_FROM_PARAM_TABLE_COLUMN" xml:space="preserve">
-    <value>Get from Parameter Table Column</value>
+    <value>Get from Parameter Table</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_ACCOUNT_QUALIFICATION_GROUP" xml:space="preserve">
     <value>An error occurred while retrieving Account Qualification Group '{0}'</value>

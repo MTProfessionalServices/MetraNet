@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblGenInfoResource1.Text" xml:space="preserve">
-    <value>A &lt;i&gt;Decision&lt;/i&gt;  is used to analyze usage records (rated billing records) and possibly modify charges on the basis of this analysis.  Decisions are necessary when it is impossible to determine the amount by examining a single isolated record.</value>
+    <value>Enter information used to describe this decision type.</value>
   </data>
   <data name="lblEnterInfoResource1.Text" xml:space="preserve">
     <value>Enter information about this Decision Type:</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>General Information</value>
+    <value>General Information for {0}</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
@@ -153,7 +153,4 @@
   <data name="ViewDescriptionLabelResource.Text" xml:space="preserve">
     <value>Description:</value>
   </data>
-  <data name="lblCantChangeParamTableResource1.Text" xml:space="preserve">
-    <value>NOTE: After you click Save &amp; Continue, you cannot choose a different parameter table for this decision type.</value>
-  </data>
-</root>
+  </root>

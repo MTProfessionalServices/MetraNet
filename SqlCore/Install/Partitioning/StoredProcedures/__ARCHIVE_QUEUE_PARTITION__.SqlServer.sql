@@ -129,7 +129,7 @@ AS
 		
 		/* Update next_allow_run value in [t_archive_queue_partition] table.
 		* This is an indicator of successful archivation*/
-		EXEC prtn_GetNextAllowRunDate @current_datetime = @current_time,
+		EXEC prtn_get_next_allow_run_date @current_datetime = @current_time,
 			 @next_allow_run_date = @next_allow_run_time OUT
 		
 		UPDATE t_archive_queue_partition

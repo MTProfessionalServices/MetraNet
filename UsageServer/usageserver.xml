@@ -98,10 +98,14 @@
 		<!-- Storage locations for partition databases.  Used in round robin fashion. -->
 		<StoragePaths>
 			<!-- Specify at least one storage path when enabling partitioning    -->
-			<!-- 
-			<Path>c:\datafiles\01</Path>
-			<Path>c:\datafiles\02</Path>
-			-->
+			
+			<!-- Paths for MSSQL DB-->
+			<!--<Path>c:\datafiles\01</Path>-->
+			<!--Path>c:\datafiles\02</Path-->
+			
+			<!-- Paths for Oracle DB-->			
+			<!--Path>/u01/netmeter/</Path-->
+			<!--Path>/u02/netmeter/</Path-->	
 		</StoragePaths>
 	</Partitions>
 	

@@ -6,9 +6,8 @@
             id_external raw(16)			
 			%%ADDITIONAL_COLUMNS%%
 			%%RESERVED_COLUMNS%% ,
-			id_partition number(10) DEFAULT 1 NOT NULL)
-			
-			PARTITION BY LIST (ID_PARTITION) (PARTITION P1 VALUES(1))
+			id_partition number(10) DEFAULT %%DEFAULT_VALUE%% NOT NULL,
+			constraint %%PK_NAME%% primary key (id_source_sess, id_partition))
 			';
 			%%CREATE_TABLE_DESCRIPTION%%
 			%%CREATE_COLUMNS_DESCRIPTION%%
@@ -23,7 +22,7 @@
 			COMMENT ON COLUMN %%TABLE_NAME%%.id_external IS ''Required column. External identifier.''
 			';
 			execute IMMEDIATE '
-			COMMENT ON COLUMN %%TABLE_NAME%%.id_partition IS ''Required column. The partition value that specifies on which partition 1,2,…X the current data is saved. Column for meter partitioning. It uses to simplify archive functionality.''
+			COMMENT ON COLUMN %%TABLE_NAME%%.id_partition IS ''Required column. The partition value that specifies on which partition 1,2,ï¿½X the current data is saved. Column for meter partitioning. It uses to simplify archive functionality.''
 			';
 			
 		

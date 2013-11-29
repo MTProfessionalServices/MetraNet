@@ -15,8 +15,8 @@
                     set @intervalstatus = '[BO]'
 
                     -- Create variables to hold the createPartitionCommand/createSchemeCommand
-                    declare @partitionFunctionCommand varchar(500)
-                    declare @partitionSchemeCommand varchar(500)
+                    declare @partitionFunctionCommand varchar(MAX)
+                    declare @partitionSchemeCommand varchar(MAX)
 
                     exec PrepareTaxDetailPartitions @intervalStatus, @partitionFunctionCommand output, @partitionSchemeCommand output
                     if (@@ERROR <> 0) 

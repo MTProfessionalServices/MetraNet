@@ -1,30 +1,26 @@
-
-          SELECT 
-            id_payment_instrument PaymentInstrumentID,
-            id_acct AccountID,
-            n_payment_method_type PaymentMethodType,
-            nm_truncd_acct_num AccountNumber,
-			tx_hash AccountNumberHash,
-            id_creditcard_type CreditCardType,
-            n_account_type AccountType,
-            nm_exp_date ExpirationDate,
-            nm_exp_date_format ExpirationDateFormat,
-            nm_first_name FirstName,
-		    nm_middle_name MiddleName,
-		    nm_last_name LastName,
-		    nm_address1 Street,
-            nm_address2 Street2,
-            nm_city City,
-            nm_state State,
-            nm_zip ZipCode,
-            id_country Country,
-            id_priority Priority,
-            n_max_charge_per_cycle MaxChargePerCycle,
-            dt_created
-          FROM
-	          t_payment_instrument
-          WHERE
-            id_acct = %%ACCOUNT_ID%%
-            order by Priority
-  
-        
+SELECT
+    id_payment_instrument,
+	id_acct,
+	n_payment_method_type,
+	nm_truncd_acct_num,
+	tx_hash,
+	id_creditcard_type,
+	n_account_type,
+	nm_exp_date,
+	nm_exp_date_format,
+	nm_first_name,
+	nm_middle_name,
+	nm_last_name,
+	nm_address1,
+	nm_address2,
+	nm_city,
+	nm_state,
+	nm_zip,
+	id_country,
+	id_priority,
+	n_max_charge_per_cycle,
+	dt_created
+FROM
+	t_payment_instrument
+WHERE
+	id_acct = %%ACCOUNT_ID%%

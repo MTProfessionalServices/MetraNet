@@ -79,30 +79,32 @@ END FUNCTION
 ' RETURNS    : Return TRUE if ok else FALSE
 FUNCTION OK_Click(EventArg) ' As Boolean
     On Error Resume Next
-       
+    
+    Dim booRetVal    
     Dim objClient
     Set objClient = mom_GetUsageServerClientObject()
 
     Select Case Service("newState").value
       
       case 1 
-        objClient.OpenBillingGroup(Form("BillingGroupID"))
+        booRetVal = objClient.OpenBillingGroup(Form("BillingGroupID"))
       
       case 3
-        objClient.SoftCloseBillingGroup(Form("BillingGroupID"))
+        booRetVal = objClient.SoftCloseBillingGroup(Form("BillingGroupID"))
        
       Case Else
         EventArg.Error.Number = 1
         EventArg.Error.Description = "Invalid new state for this billing group"
+        booRetVal = False
     End Select
 
     If(Err.Number)Then 
       EventArg.Error.Save Err 
       EventArg.Error.Description = EventArg.Error.Description
-      OK_Click = FALSE
-    Else
-      OK_Click = TRUE
+      booRetVal = False
     End If          
+       
+    OK_Click = booRetVal
 
 END FUNCTION
 

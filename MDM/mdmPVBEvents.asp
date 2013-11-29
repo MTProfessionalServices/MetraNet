@@ -63,8 +63,7 @@ PRIVATE FUNCTION Form_Export_Transform(EventArg) ' As Boolean
   Dim TimeOut
 
   Form_Export_Transform = FALSE
-  'ESR-6129 Export to CSV not working 
-  'Response.Buffer = FALSE
+  Response.Buffer = TRUE
    Response.Clear
   ' Save timeout value and increase it for this page
   TimeOut = Server.ScriptTimeout 

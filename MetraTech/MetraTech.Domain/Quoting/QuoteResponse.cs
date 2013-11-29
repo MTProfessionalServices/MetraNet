@@ -200,6 +200,48 @@ namespace MetraTech.Domain.Quoting
 
         #endregion
 
+        #region StatusReport
+
+        private QuoteStatus _statusReport;
+
+        [MTDataMember(Description = "Quote status Report")]
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        public QuoteStatus StatusReport
+        {
+          get { return _statusReport; }
+          set
+          {
+            _statusReport = value;
+            IsStatusReportDirty = true;
+          }
+        }
+
+        [ScriptIgnore]
+        public bool IsStatusReportDirty { get; private set; }
+
+        #endregion StatusReport
+
+        #region StatusCleanup
+
+        private QuoteStatus _statusCleanup;
+
+        [MTDataMember(Description = "Quote status Cleanup")]
+        [DataMember(IsRequired = false, EmitDefaultValue = false)]
+        public QuoteStatus StatusCleanup
+        {
+          get { return _statusCleanup; }
+          set
+          {
+            _statusCleanup = value;
+            IsStatusCleanupDirty = true;
+          }
+        }
+
+        [ScriptIgnore]
+        public bool IsStatusCleanupDirty { get; private set; }
+
+        #endregion QuoteStatus
+
         #region Artefacts
 
         [MTDataMember(Description = "Contains Quote artefacts: subscription Ids, Usage Interval, Charges batches and etc.")]

@@ -45,43 +45,45 @@ namespace MetraTech.Core.Services.Quoting
     /// </summary>
     /// <param name="baseQuotingConfiguration">optional parameter with the current QuotingConfiguration used for determining the desired report output path</param>
     /// <returns></returns>
-    public static QuoteReportingConfiguration LoadConfiguration(QuotingConfiguration baseQuotingConfiguration)
+    public static QuoteReportingConfiguration LoadConfiguration(QuotingConfiguration baseQuotingConfiguration, bool throwException = true)
     {
-      QuoteReportingConfiguration result = new QuoteReportingConfiguration();
-
-      result.ReportingServerName = ReportConfiguration.GetInstance().APSName;
-      result.ReportingServerUsername = ReportConfiguration.GetInstance().APSUser;
-      result.ReportingServerPassword = ReportConfiguration.GetInstance().APSPassword;
-
-      //CORE-1472: For shared Crystal server, used the APSDatabaseName as the virtual folder name
-      result.ReportingServerFolder = ReportConfiguration.GetInstance().APSDatabaseName;
-
-      result.ReportingServerReportInstanceOutputBasePath = ReportConfiguration.GetInstance().ReportInstanceBasePath;
-      result.ReportingServerReportInstanceVirtualDirectory = ReportConfiguration.GetInstance().ReportInstanceVirtualDirectory;
-
-
-      MTServerAccessDataSet serveraccess = new MTServerAccessDataSetClass();
+      var serveraccess = new MTServerAccessDataSetClass();
       serveraccess.Initialize();
-      MTServerAccessData db = serveraccess.FindAndReturnObject("ReportingDBServerForQuoting");
+      
+      MTServerAccessData db = null;
+      try
+      {
+        db = serveraccess.FindAndReturnObject("ReportingDBServerForQuoting");
+      }
+      catch (Exception ex)
+      {
+        db = null;
+        if (throwException)
+          throw ex;
+      }
 
-      result.ReportingDatabaseServerName = db.ServerName;// "10.200.91.73";
-      result.ReportingDatabaseName = db.DatabaseName; // "NetMeter";
+      if (db == null)
+        return new QuoteReportingConfiguration();
 
-      result.ReportingDatabaseIsOracle = (string.Compare(db.DatabaseType, "{Oracle}", false) == 0);
-      result.ReportingDatabaseOwner = result.ReportingDatabaseIsOracle ? null : "dbo";
-      result.ReportingDatabaseUsername = db.UserName;
-      result.ReportingDatabasePassword = db.Password;
+      var result = new QuoteReportingConfiguration
+        {
+          ReportingServerName = ReportConfiguration.GetInstance().APSName,
+          ReportingServerUsername = ReportConfiguration.GetInstance().APSUser,
+          ReportingServerPassword = ReportConfiguration.GetInstance().APSPassword,
+          ReportingServerFolder = ReportConfiguration.GetInstance().APSDatabaseName,
+          ReportingServerReportInstanceOutputBasePath = ReportConfiguration.GetInstance().ReportInstanceBasePath,
+          ReportingServerReportInstanceVirtualDirectory =
+            ReportConfiguration.GetInstance().ReportInstanceVirtualDirectory,
+          ReportingDatabaseServerName = db.ServerName,
+          ReportingDatabaseName = db.DatabaseName,
+          ReportingDatabaseIsOracle = (String.CompareOrdinal(db.DatabaseType, "{Oracle}") == 0),
+          ReportingDatabaseUsername = db.UserName,
+          ReportingDatabasePassword = db.Password
+        };
 
+      result.ReportingDatabaseOwner = result.ReportingDatabaseIsOracle ? null : "dbo";      
       //Report partial path
-      if (baseQuotingConfiguration != null)
-      {
-        result.QuotingInstanceOutputPartialPath = baseQuotingConfiguration.ReportInstancePartialPath;
-      }
-      else
-      {
-        //Set a workable default
-        result.QuotingInstanceOutputPartialPath = @"\Quotes\{AccountId}\Quote_{QuoteId}";
-      }
+      result.QuotingInstanceOutputPartialPath = baseQuotingConfiguration != null ? baseQuotingConfiguration.ReportInstancePartialPath : @"\Quotes\{AccountId}\Quote_{QuoteId}";
 
       return result;
     }
@@ -111,15 +113,13 @@ namespace MetraTech.Core.Services.Quoting
     /// <param name="reportTemplateName">name of the report file to use to generate the pdf</param>
     /// <param name="idLanguageCode">database language id for the report</param>
     /// <returns></returns>
-    public string CreatePDFReport(int idQuote, int idAccountForReportInstanceName, string reportTemplateName, int idLanguageCode)
+    public string CreatePdfReport(int idQuote, int idAccountForReportInstanceName, string reportTemplateName, int idLanguageCode, string pdfReportLink = null)
     {
-
-      IReportManager reportManager = new MetraTech.Reports.CrystalEnterprise.CEReportManager();
+      //todo Update StatusReport value
+      IReportManager reportManager = new Reports.CrystalEnterprise.CEReportManager();
       try
       {
         reportManager.LoggerObject = new Logger("[QuotingImplementation]");
-        //reportManager.RecurringEventRunContext = null;
-        
         reportManager.LoggerObject.LogDebug("CreatePDFReport: Connecting to reporting server {0}", configuration.ReportingServerName);
         reportManager.LoginToReportingServer(configuration.ReportingServerName, configuration.ReportingServerUsername,
           configuration.ReportingServerPassword);
@@ -131,35 +131,22 @@ namespace MetraTech.Core.Services.Quoting
                                            configuration.ReportingDatabaseOwner,
                                            configuration.ReportingDatabaseUsername,
                                            configuration.ReportingDatabasePassword);
-
-        int aRunID = 0;
-        int aBillGroupID = 0;
-        //string accountEnum = "metratech.com/accountcreation/contacttype/bill-to";
-
-        //string aRecordSelectionFormula = string.Format("{{t_be_cor_qu_quoteheader.c_QuoteID}} = {0} and " +
-        //                                                "{{t_enum_data.nm_enum_data}} = \"{1}\"", IdQuote, accountEnum);
-        string aRecordSelectionFormula = "";
-        string aGroupSelectionFormula = "";
+        var aRunID = 0;
+        var aBillGroupID = 0;
+        var aRecordSelectionFormula = "";
+        var aGroupSelectionFormula = "";
 
         IDictionary aReportParameters = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
-        aReportParameters.Add("SAMPLE", "1"); //TODO: Remove
         aReportParameters.Add("QuoteId", idQuote);
         aReportParameters.Add("LanguageId", idLanguageCode);
 
         //string aInstanceFileName = "c:\\reports_rudi/1037172739/1000902489/Invoice.pdf";
-        string aInstanceFileName = configuration.ReportingServerReportInstanceOutputBasePath + configuration.QuotingInstanceOutputPartialPath;
-        aInstanceFileName = aInstanceFileName.Replace("{AccountId}", idAccountForReportInstanceName.ToString());
-        aInstanceFileName = aInstanceFileName.Replace("{QuoteId}", idQuote.ToString());
+        var aInstanceFileName = pdfReportLink ?? GetPdfReportLink(idQuote, idAccountForReportInstanceName);
 
-        bool aOverwriteTemplateOriginalDataSource = true;
-        bool aOverwriteTemplateDestination = true;
-
+        var aOverwriteTemplateOriginalDataSource = true;
+        var aOverwriteTemplateDestination = true;
         //Forces generation to explicitly be PDF, regardless of what template says
-        bool aOverwriteTemplateFormat = true;
-        if (!aInstanceFileName.ToLower().EndsWith(".pdf"))
-        {
-          aInstanceFileName += ".pdf";
-        }
+        var aOverwriteTemplateFormat = true;
 
         reportManager.LoggerObject.LogDebug("CreatePDFReport: Adding report for processing {0} ---> {1}", reportTemplateName, aInstanceFileName);
         reportManager.AddReportForProcessing(reportTemplateName, aRunID, aBillGroupID, idAccountForReportInstanceName,
@@ -174,13 +161,29 @@ namespace MetraTech.Core.Services.Quoting
         reportManager.LoggerObject.LogDebug("Disconnecting from reporting server [0]", configuration.ReportingServerName);
         reportManager.Disconnect();
 
+        //todo Update StatusReport value
         return aInstanceFileName;
       }
       catch (Exception ex)
       {
+        //todo Update StatusReport value
         reportManager.LoggerObject.LogError("CreatePDFReport error: " + ex.Message, ex);
         throw;
       }
     }
+
+    public string GetPdfReportLink(int idQuote, int idAccountForReportInstanceName)
+    {
+      var aInstanceFileName = configuration.ReportingServerReportInstanceOutputBasePath +
+                                 configuration.QuotingInstanceOutputPartialPath;
+      aInstanceFileName = aInstanceFileName.Replace("{AccountId}", idAccountForReportInstanceName.ToString());
+      aInstanceFileName = aInstanceFileName.Replace("{QuoteId}", idQuote.ToString());
+      if (!aInstanceFileName.ToLower().EndsWith(".pdf"))
+      {
+        aInstanceFileName += ".pdf";
+      }
+      return aInstanceFileName;
+    }
   }
+
 }

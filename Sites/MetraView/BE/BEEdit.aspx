@@ -7,7 +7,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-<h1 id="MTTitle1" runat="server"></h1>
+<MT:MTTitle ID="MTTitle1" Text="Edit BE" runat="server" meta:resourcekey="MTTitle1Resource1" />
   <uc1:BreadCrumb ID="BreadCrumb1" runat="server" />
   <br /><br />
   

@@ -15,7 +15,7 @@
      <asp:Localize meta:resourcekey="support" runat="server">MetraView is unable to show the requested information.  Please notify your customer support.</asp:Localize>
      
      <br />
-     <a href="/Metraview/Default.aspx"><asp:Localize meta:resourcekey="moveAlong" runat="server">Move along...</asp:Localize></a>
+     <a href="<%=Request.ApplicationPath%>/Default.aspx"><asp:Localize meta:resourcekey="moveAlong" runat="server">Move along...</asp:Localize></a>
     </div>
     </form>
 </body>

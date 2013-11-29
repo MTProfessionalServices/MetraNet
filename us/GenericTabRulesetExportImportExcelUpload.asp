@@ -52,7 +52,7 @@ Response.CharSet = "utf-8"
   'response.end
   end if
   dim rulecount
-  if (objRuleset.DefaultAcounts is nothing) then
+  if (objRuleset.DefaultActions is nothing) then
 	rulecount = objRuleset.Count
   else
 	rulecount = objRuleset.Count + objRuleset.DefaultActions.Count

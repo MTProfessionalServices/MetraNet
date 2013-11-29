@@ -455,10 +455,10 @@ sub Save(istrIndex)
     if (mdctValues.exists(objActionData.PropertyName & i) or objActionData.Required) _
         and (not ucase(objActionData.ColumnType) = "LABEL") then
     
-      set objRSAction = Server.CreateObject("MTAssignmentAction.MTAssignmentAction.1")
-      objRSAction.PropertyName = objActionData.PropertyName  
+     set objRSAction = Server.CreateObject("MTAssignmentAction.MTAssignmentAction.1")
+     objRSAction.PropertyName = objActionData.PropertyName  
 
-      if CLng(objActionData.PType) = PROP_TYPE_ENUM then
+     if CLng(objActionData.PType) = PROP_TYPE_ENUM then
         objRSAction.EnumSpace = objActionData.EnumSpace
         objRSAction.EnumType = objActionData.EnumType
         objRSAction.PropertyType = objActionData.PType

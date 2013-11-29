@@ -1,410 +1,364 @@
+using System;
+using System.Text;
+using MetraTech.DataAccess.OleDb;
+using MetraTech.TestCommon;
+using NUnit.Framework;
 
 namespace MetraTech.DataAccess.Test
 {
-	using System;
-	using System.Diagnostics;
-	using MetraTech.DataAccess;
-	using MetraTech.DataAccess.OleDb;
-	using NUnit.Framework;
-
-	//
-	// To run the this test fixture:
-	// nunit-console /fixture:MetraTech.DataAccess.Test.ConnectionTests  /assembly:O:\debug\bin\MetraTech.DataAccess.Test.dll
-	//
-
+  // To run the this test fixture:
+  // nunit-console /fixture:MetraTech.DataAccess.Test.ConnectionTests  /assembly:O:\debug\bin\MetraTech.DataAccess.Test.dll
   [Category("NoAutoRun")]
-  [TestFixture] 
-	public class ConnectionTests
-	{
-		ConnectionInfo connInfo = null;
-		DBType DatabaseType
-		{
-			get 
-			{
-				if (connInfo == null)
-					connInfo = new ConnectionInfo("NetMeter");
-				return connInfo.DatabaseType;
-			}
-		}
+  [TestFixture]
+  public class ConnectionTests
+  {
+    #region Variables
+
+    private const string TestProcedureName = "InsertTestDataType";
+    private const string TestTableName = "t_test_data_type";
+    private const int Intval = 123;
+    private const string Strval = "strval";
+
+    private static ConnectionInfo _connInfo;
+    private static IMTNonServicedConnection _conn1;
+    private static readonly byte[] Binval = { 0xff, 0x55 };
+    private static readonly DateTime Dtval = DateTime.Parse("12/12/02 11:44:12");
+    private static readonly Decimal Decval = new Decimal(23.234234);
+
+    private static string _calendarName;
+
+    #endregion
+
+    #region Properties
+
+    private static DBType DatabaseType
+    {
+      get
+      {
+        if (_connInfo == null)
+          _connInfo = new ConnectionInfo("NetMeter");
+        return _connInfo.DatabaseType;
+      }
+    }
+
+    #endregion
+
+    #region Test Initialization and Cleanup
+
+    /// <summary>
+    ///   Initialize data for ownership tests.
+    /// </summary>
+    [TestFixtureSetUp]
+    public void Setup()
+    {
+      _conn1 = ConnectionManager.CreateNonServicedConnection();
+      _calendarName = "AudioConf Setup Calendar " + DateTime.Now.Ticks;
+      CreateCalendar();
+    }
+
+    /// <summary>
+    /// Restore system to state prior the test run
+    /// </summary>
+    [TestFixtureTearDown]
+    public void TearDown()
+    {
+      _conn1.Close();
+      _conn1.Dispose();
+    }
+
+    #endregion
+
+    #region Tests
+    [Test]
+    public void T01TestServicedStatement()
+    {
+      var tester = new ServicedComponentTester();
+      var str = tester.RetrieveCalendar(_calendarName);
+      Assert.AreEqual(str, _calendarName);
+      tester.Dispose();
+    }
 
     [Test]
-    public void T01TestSimpleStatement()
-		{
-			using(IMTNonServicedConnection conn = ConnectionManager.CreateNonServicedConnection())
-			{
-                using (IMTStatement stmt = conn.CreateStatement("SELECT id_sess FROM t_acc_usage"))
-                {
-                    using (IMTDataReader reader = stmt.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            long id_sess = reader.GetInt64("id_sess");
-                        }
-                    }
-                }
-			}
-		}
-	
-		[Test]
-    public void T02TestAdapterStatement()
-		{
-			using(IMTNonServicedConnection conn = ConnectionManager.CreateNonServicedConnection())
-			{
-                using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("Queries\\ProductCatalog", "__GET_CALENDAR_BYNAME__"))
-                {
-                    stmt.AddParam("%%CALENDAR_NAME%%", "AudioConf Setup Calendar");
-                    stmt.AddParam("%%ID_LANG%%", 840);
+    public void T02ServicedErrorWrapperPositiveTest()
+    {
+      var outer = new ServicedErrorWrapper();
+      Assert.AreEqual(_calendarName, outer.RetrieveCalendar(false, _calendarName));
+      outer.Dispose();
+    }
 
-                    using (IMTDataReader reader = stmt.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            System.Console.WriteLine("Calendar display name = {0}", reader.GetString("nm_name"));
-                        }
-                    }
-                }
+    [Test]
+    public void T03ServicedErrorWrapperNegativeTest()
+    {
+      var wrapper = new ServicedErrorWrapper();
+      ExceptionAssert.Expected<ApplicationException>(() => wrapper.RetrieveCalendar(true, _calendarName), "Aborting transaction");
+    }
 
-				conn.CommitTransaction();
-			}
-		}
-	
-		[Test]
-    public void T03TestServicedStatement()
-		{
-			ServicedComponentTester tester = new ServicedComponentTester();
-			String str = tester.RetrieveCalendar();
-			Console.WriteLine("Serviced display name = {0}", str);
-			tester.Dispose();
-	
-			try
-			{
-				using(ServicedErrorWrapper wrapper = new ServicedErrorWrapper())
-				{
-					wrapper.RetrieveCalendar(true);
-					Assert.IsTrue(false);
-				}
-			}
-			catch(ApplicationException )
-			{
-			}
-	
-			ServicedErrorWrapper outer = new ServicedErrorWrapper();
-			Assert.AreEqual(str, outer.RetrieveCalendar(false));
-			outer.Dispose();
-		}
-	
-		[Test]
-		// TODO: this test fails on smoke test machines
-		[Ignore("Need to rework this test so that it uses a non-product stored procedure.")]
+    [Test]
+    // TODO: this test fails on smoke test machines
+    //[Ignore("Need to rework this test so that it uses a non-product stored procedure.")]
     public void T04TestStoredProcedure()
-		{
-			using(IMTNonServicedConnection conn = ConnectionManager.CreateNonServicedConnection())
-			{
-                int id = -1;
-                int count = -1;
+    {
+      int id;
+      using (var stmt = _conn1.CreateCallableStatement("InsertProductView"))
+      {
+        stmt.AddParam("a_id_view", MTParameterType.Integer, 123);
+        stmt.AddParam("a_nm_name", MTParameterType.WideString, "My PV");
+        stmt.AddParam("a_dt_modified", MTParameterType.DateTime, DateTime.Now);
+        stmt.AddParam("a_nm_table_name", MTParameterType.WideString, "t_my_pv");
+        stmt.AddParam("a_b_can_resubmit_from", MTParameterType.WideString, "N");
+        stmt.AddOutputParam("a_id_prod_view", MTParameterType.Integer);
 
-                using (IMTCallableStatement stmt = conn.CreateCallableStatement("InsertProductView"))
-                {
-                    stmt.AddParam("a_id_view", MTParameterType.Integer, 123);
-                    stmt.AddParam("a_nm_name", MTParameterType.WideString, "My PV");
-                    stmt.AddParam("a_dt_modified", MTParameterType.DateTime, DateTime.Now);
-                    stmt.AddParam("a_nm_table_name", MTParameterType.WideString, "t_my_pv");
-                    stmt.AddOutputParam("a_id_prod_view", MTParameterType.Integer);
+        var count = stmt.ExecuteNonQuery();
+        Assert.AreEqual(1, count);
 
-                    count = stmt.ExecuteNonQuery();
-                    Assert.AreEqual(1, count);
+        id = (int) stmt.GetOutputValue("a_id_prod_view");
 
-                    id = (int)stmt.GetOutputValue("a_id_prod_view");
+      }
+      _conn1.CommitTransaction();
 
-                    Console.WriteLine("Inserted Product View with id = {0}.  Deleting...", id);
-                }
+      ExecuteStatement("DELETE FROM t_prod_view WHERE id_prod_view = " + id);
+    }
 
-				conn.CommitTransaction();
-
-                using (IMTStatement deleteStmt = conn.CreateStatement("DELETE FROM t_prod_view WHERE id_prod_view = " + id))
-                {
-                    count = deleteStmt.ExecuteNonQuery();
-                    Assert.AreEqual(1, count);
-                }
-
-				conn.CommitTransaction();
-			}
-		}
-	
-		[Test]
+    [Test]
     public void T05TestSelectStoredProcedure()
-		{
-			using(IMTNonServicedConnection conn = ConnectionManager.CreateNonServicedConnection())
-			{
-				System.Text.StringBuilder builder = new System.Text.StringBuilder();
-				if (DatabaseType == DBType.SQLServer)
-				{
-				builder.Append("CREATE PROCEDURE SelectAccount @a_id_acc INTEGER ");
-				builder.Append("AS ");
-					builder.Append("SELECT id_type, dt_crt from t_account where id_acc = @a_id_acc");
-				}
-				else if (DatabaseType == DBType.Oracle)
-				{
-					builder.Append("create or replace procedure SelectAccount " + 
-						"(p_a_id_acc integer, p_cur out sys_refcursor)\n");
-					builder.Append("as\n");
-					builder.Append("begin\n");
-					builder.Append("  open p_cur for\n");
-					builder.Append("    SELECT id_type, dt_crt from t_account where id_acc = p_a_id_acc;\n");
-					builder.Append("end;\n");
-				}
-				else
-					throw new ApplicationException(
-						string.Format("Database type {0} not supported", connInfo.DatabaseType));
- 
-				Console.WriteLine("Creating stored procedure: {0}", builder.ToString());
-                using (IMTStatement stmt = conn.CreateStatement(builder.ToString()))
-                {
-                    stmt.ExecuteNonQuery();
-                }
+    {
+      const string procedureName = "SelectAccount";
+      DropTestStoredProcedure(procedureName);
+      var builder = new StringBuilder();
+      switch (DatabaseType)
+      {
+        case DBType.SQLServer:
+          builder.Append("CREATE PROCEDURE "+procedureName+" @a_id_acc INTEGER ");
+          builder.Append("AS ");
+          builder.Append("SELECT id_type, dt_crt from t_account where id_acc = @a_id_acc");
+          break;
+        case DBType.Oracle:
+          builder.Append("create or replace procedure "+procedureName+" " +
+                         "(p_a_id_acc integer, p_cur out sys_refcursor)\n");
+          builder.Append("as\n");
+          builder.Append("begin\n");
+          builder.Append("  open p_cur for\n");
+          builder.Append("    SELECT id_type, dt_crt from t_account where id_acc = p_a_id_acc;\n");
+          builder.Append("end;\n");
+          break;
+        default:
+          throw new ApplicationException(string.Format("Database type {0} not supported", _connInfo.DatabaseType));
+      }
+      ExecuteStatement(builder);
 
-				conn.CommitTransaction();
 
-                using (IMTCallableStatement stmt = conn.CreateCallableStatement("SelectAccount"))
-                {
-                    stmt.AddParam("a_id_acc", MTParameterType.Integer, 123);
+      using (var stmt = _conn1.CreateCallableStatement(procedureName))
+      {
+        stmt.AddParam("a_id_acc", MTParameterType.Integer, 123);
 
-                    using (IMTDataReader reader = stmt.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            Console.WriteLine("Account Type ID: {0}", reader.GetInt32("id_type").ToString());
-                            Console.WriteLine("Account Created: {0}", reader.GetDateTime("dt_crt"));
-                        }
-                    }
-                }
+        using (var reader = stmt.ExecuteReader())
+        {
+          Assert.IsTrue(reader.Read(), "Accounts with id = 123 is not found");
+          Assert.AreEqual(6, reader.GetInt32("id_type"), "Account with id = 123 must have id_type = 6");
+          Assert.IsFalse(reader.Read(), "More than 1 accounts with id = 123");
+        }
+      }
+      _conn1.CommitTransaction();
 
-				conn.CommitTransaction();
+      DropTestStoredProcedure(procedureName);
+    }
 
-                using (IMTStatement stmt = conn.CreateStatement("DROP PROCEDURE SelectAccount"))
-                {
-                    stmt.ExecuteNonQuery();
-                }
+    [Test]
+    public void T06TestDataTypeSqlServer()
+    {
+      if (DatabaseType != DBType.SQLServer)
+        return;
 
-				conn.CommitTransaction();
-			}
-		}
-	
-		[Test]
-    public void T06TestDataTypeSQLServer()
-		{
-			Console.WriteLine("TestDataTypeSQLServer()");
-			if (DatabaseType != DBType.SQLServer)
-				return;
+      CreateTestTable();
+      CreateTestStoredProcedureSqlServer();
 
-			using(IMTNonServicedConnection conn = ConnectionManager.CreateNonServicedConnection())
-			{
-                using (IMTStatement stmt = conn.CreateStatement("IF EXISTS (select * from sysobjects where name = 'InsertTestDataType') " +
-                                                         "DROP PROCEDURE InsertTestDataType"))
-                {
-                    stmt.ExecuteNonQuery();
-                }
+      CallTestProcedure(1);
+      GetBackDataFromTestTable();
 
-                using (IMTStatement stmt = conn.CreateStatement("IF EXISTS (select * from sysobjects where name = 't_test_data_type') " +
-                                                         "DROP TABLE t_test_data_type"))
-                {
-                    stmt.ExecuteNonQuery();
-                }
 
-				conn.CommitTransaction();
-
-                using (IMTStatement stmt = conn.CreateStatement("CREATE TABLE t_test_data_type(intval INTEGER, strval VARCHAR(255), " +
-                                                         "binval VARBINARY(16), decval " +
-														 Constants.METRANET_DECIMAL_PRECISION_AND_SCALE_MAX_STR +
-														 ", dtval DATETIME)"))
-                {
-                    stmt.ExecuteNonQuery();
-                }
-	
-				System.Text.StringBuilder builder = new System.Text.StringBuilder();
-				builder.Append("CREATE PROCEDURE InsertTestDataType @intval INTEGER, @strval VARCHAR(255), " + 
-											 "@binval VARBINARY(16), @decval " +
-											 Constants.METRANET_DECIMAL_PRECISION_AND_SCALE_MAX_STR +
-											 ", @dtval DATETIME ");
-				builder.Append("AS ");
-				builder.Append("INSERT INTO t_test_data_type (intval, strval, binval, decval, dtval) VALUES " + 
-											 "(@intval, @strval, @binval, @decval, @dtval)");
-                using (IMTStatement stmt = conn.CreateStatement(builder.ToString()))
-                {
-                    stmt.ExecuteNonQuery();
-                }
-
-				conn.CommitTransaction();
-	
-				// Create some data 
-                using (IMTCallableStatement stmt = conn.CreateCallableStatement("InsertTestDataType"))
-                {
-                    stmt.AddParam("intval", MTParameterType.Integer, 123);
-                    stmt.AddParam("strval", MTParameterType.String, "strval");
-                    stmt.AddParam("binval", MTParameterType.Binary, new byte[] { 0xff, 0x55 });
-                    stmt.AddParam("decval", MTParameterType.Decimal, new Decimal(23.234234));
-                    stmt.AddParam("dtval", MTParameterType.DateTime, DateTime.Parse("12/12/02 11:44:12"));
-                    int ret = stmt.ExecuteNonQuery();
-                    Assert.AreEqual(1, ret);
-                }
-
-				conn.CommitTransaction();
-	
-				// Now test reading the data back out.
-                using (IMTStatement stmt = conn.CreateStatement("SELECT intval, strval, binval, decval, dtval FROM t_test_data_type"))
-                {
-                    using (IMTDataReader reader = stmt.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            Assert.AreEqual(123, reader.GetInt32("intval"));
-                            Assert.AreEqual("strval", reader.GetString("strval"));
-                            byte[] val = reader.GetBytes("binval");
-                            Assert.AreEqual(2, val.Length);
-                            Assert.AreEqual(0xff, val[0]);
-                            Assert.AreEqual(0x55, val[1]);
-                            Assert.AreEqual(DateTime.Parse("12/12/02 11:44:12"), reader.GetDateTime("dtval"));
-                            Assert.AreEqual(new Decimal(23.234234), reader.GetDecimal("decval"));
-                        }
-                    }
-                }
-
-				conn.CommitTransaction();
-
-                using (IMTStatement stmt = conn.CreateStatement("IF EXISTS (select * from sysobjects where name = 'InsertTestDataType') " +
-                                                         "DROP PROCEDURE InsertTestDataType"))
-                {
-                    stmt.ExecuteNonQuery();
-                }
-
-                using (IMTStatement stmt = conn.CreateStatement("IF EXISTS (select * from sysobjects where name = 't_test_data_type') " +
-                                                         "DROP TABLE t_test_data_type"))
-                {
-                    stmt.ExecuteNonQuery();
-                }
-
-				conn.CommitTransaction();
-			}
-		}
-	
-		[Test]
+      DropTestStoredProcedure(TestProcedureName);
+      DropTestTable(TestTableName);
+    }
+    
+    [Test]
     public void T07TestDataTypeOracle()
-		{
-			Console.WriteLine("TestDataTypeOracle()");
-			if (DatabaseType != DBType.Oracle)
-				return;
+    {
+      if (DatabaseType != DBType.Oracle)
+        return;
 
-			using(IMTNonServicedConnection conn = ConnectionManager.CreateNonServicedConnection())
-			{
-				// drop test table, if it exists
-				//
-				try 
-				{
-                    using (IMTStatement stmt = conn.CreateStatement("drop table t_test_data_type"))
-                    {
-                        stmt.ExecuteNonQuery();
-                    }
-				}
-				catch (Exception ex)
-				{
-					if (!ex.Message.StartsWith("ORA-00942"))
-						throw ex;
-				}
+      CreateTestTable();
+      CreateTestStoredProcedureOracle();
 
-				// create temp test table
-				//
-                using (IMTStatement stmt = conn.CreateStatement("CREATE TABLE t_test_data_type(intval integer, strval varchar(255), " +
-                    "binval raw(16), decval " +
-					Constants.METRANET_DECIMAL_PRECISION_AND_SCALE_MAX_STR +
-					", dtval date)"))
-                {
-                    stmt.ExecuteNonQuery();
-                }
-	
-				conn.CommitTransaction();
+      CallTestProcedure(-1);
+      GetBackDataFromTestTable();
 
-				// create test proc
-				//
-				System.Text.StringBuilder builder = new System.Text.StringBuilder();
-				builder.Append("create or replace procedure InsertTestDataType (\n" +
-					"p_intval integer, p_strval varchar2, \n" + 
-					"p_binval raw, p_decval number, p_dtval date)\n");
-				builder.Append("as\n");
-				builder.Append("begin\n");
-				builder.Append("   insert into t_test_data_type (intval, strval, binval, decval, dtval)\n");
-				builder.Append("   values (p_intval, p_strval, p_binval, p_decval, p_dtval);\n");
-				builder.Append("end;\n");
-                using (IMTStatement stmt = conn.CreateStatement(builder.ToString()))
-                {
-                    stmt.ExecuteNonQuery();
-                }
-				conn.CommitTransaction();
-	
-				// call test proc
-				//
-                using (IMTCallableStatement stmt = conn.CreateCallableStatement("InsertTestDataType"))
-                {
-                    stmt.AddParam("p_intval", MTParameterType.Integer, 123);
-                    stmt.AddParam("p_strval", MTParameterType.String, "strval");
-                    stmt.AddParam("p_binval", MTParameterType.Binary, new byte[] { 0xff, 0x55 });
-                    stmt.AddParam("p_decval", MTParameterType.Decimal, new Decimal(23.234234));
-                    stmt.AddParam("p_dtval", MTParameterType.DateTime, DateTime.Parse("12/12/02 11:44:12"));
-                    int ret = stmt.ExecuteNonQuery();
-                    Assert.AreEqual(ret, -1);
-                }
+      DropTestTable(TestTableName);
+      DropTestStoredProcedure(TestProcedureName);
+    }
 
-				conn.CommitTransaction();
-	
-				// Now test reading the data back out.
-				//
-                using (IMTStatement stmt = conn.CreateStatement(
-                            "SELECT intval, strval, binval, decval, dtval FROM t_test_data_type"))
-                {
-                    using (IMTDataReader reader = stmt.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            Assert.AreEqual(123, reader.GetInt32("intval"));
-                            Assert.AreEqual("strval", reader.GetString("strval"));
-                            byte[] val = reader.GetBytes("binval");
-                            Assert.AreEqual(2, val.Length);
-                            Assert.AreEqual(0xff, val[0]);
-                            Assert.AreEqual(0x55, val[1]);
-                            Assert.AreEqual(DateTime.Parse("12/12/02 11:44:12"), reader.GetDateTime("dtval"));
-                            Assert.AreEqual(new Decimal(23.234234), reader.GetDecimal("decval"));
-                        }
-                    }
-                }
-				conn.CommitTransaction();
-
-                using (IMTStatement stmt = conn.CreateStatement("drop table t_test_data_type"))
-                {
-                    stmt.ExecuteNonQuery();
-                }
-
-                using (IMTStatement stmt = conn.CreateStatement("drop procedure InsertTestDataType"))
-                {
-                    stmt.ExecuteNonQuery();
-                }
-				conn.CommitTransaction();
-			}
-		}
-		
-		[Test]
+    [Test]
     public void T08TestReadToXml()
-		{
-    	using(IMTConnection conn = ConnectionManager.CreateConnection())
-    	{
-            using (IMTStatement stmt = conn.CreateStatement("select * from t_acc_usage"))
-            {
-                using (IMTDataReader reader = stmt.ExecuteReader())
-                {
-                    int rowsRead;
-                    string xml = reader.ReadToXml("outerTag", "innerTag", 2, out rowsRead);
-                    Console.Write(xml);
-                }
-            }
-    	}
-  	}
-	}
+    {
+      using (var conn = ConnectionManager.CreateConnection())
+      {
+        using (var stmt = conn.CreateStatement("select * from t_account"))
+        {
+          using (var reader = stmt.ExecuteReader())
+          {
+            int rowsRead;
+            var xml = reader.ReadToXml("outerTag", "innerTag", 2, out rowsRead);
+            Assert.IsNotEmpty(xml);
+            Assert.Greater(rowsRead, 0);
+          }
+        }
+      }
+    }
+
+    #endregion
+
+    #region PrivateMethods
+
+    private static void CreateCalendar()
+    {
+      int retVal;
+
+      using (var stmt = _conn1.CreateCallableStatement("InsertBasePropsV2"))
+      {
+        stmt.AddParam("id_lang_code", MTParameterType.Integer, 840);
+        stmt.AddParam("a_kind", MTParameterType.Integer, 240);
+        stmt.AddParam("a_approved", MTParameterType.WideString, "N");
+        stmt.AddParam("a_archive", MTParameterType.WideString, "N");
+        stmt.AddParam("a_nm_name", MTParameterType.String, _calendarName);
+        stmt.AddParam("@a_nm_desc", MTParameterType.String, _calendarName);
+        stmt.AddParam("@a_nm_display_name", MTParameterType.String, null);
+        stmt.AddOutputParam("a_id_prop", MTParameterType.Integer);
+        stmt.ExecuteNonQuery();
+        retVal = (int) stmt.GetOutputValue("a_id_prop");
+      }
+
+      using (var stmt = _conn1.CreateAdapterStatement("Queries\\ProductCatalog", "__ADD_CALENDAR__"))
+      {
+        stmt.AddParam("%%ID_CAL%%", retVal);
+        stmt.AddParam("%%TZOFFSET%%", 0);
+        stmt.AddParam("%%BCOMBWEEKEND%%", "F");
+        stmt.ExecuteNonQuery();
+      }
+
+      _conn1.CommitTransaction();
+    }
+
+    private static void CreateTestTable()
+    {
+      DropTestTable(TestTableName);
+
+      var queryText = new StringBuilder();
+      queryText.Append("CREATE TABLE " + TestTableName + "(intval INTEGER, strval VARCHAR(255), ");
+      queryText.Append("binval VARBINARY(16), decval ");
+      queryText.Append(Constants.METRANET_DECIMAL_PRECISION_AND_SCALE_MAX_STR);
+      queryText.Append(", dtval DATETIME)");
+      ExecuteStatement(queryText);
+    }
+
+    private static void DropTestTable(string tableName)
+    {
+      var queryText = new StringBuilder();
+      if (DatabaseType == DBType.SQLServer)
+        queryText.Append("IF EXISTS (select * from sysobjects where name = '"+ tableName +"') ");
+      queryText.Append("DROP TABLE " + tableName);
+      ExecuteStatement(queryText);
+    }
+
+    private static void CreateTestStoredProcedureSqlServer()
+    {
+      DropTestStoredProcedure(TestProcedureName); 
+      
+      var queryText = new StringBuilder();
+      queryText.Append("CREATE PROCEDURE ");
+      queryText.Append(TestProcedureName);
+      queryText.Append(" @intval INTEGER, @strval VARCHAR(255), ");
+      queryText.Append("@binval VARBINARY(16), @decval ");
+      queryText.Append(Constants.METRANET_DECIMAL_PRECISION_AND_SCALE_MAX_STR);
+      queryText.Append(", @dtval DATETIME ");
+      queryText.Append("AS ");
+      queryText.Append("INSERT INTO " + TestTableName + " (intval, strval, binval, decval, dtval) VALUES ");
+      queryText.Append("(@intval, @strval, @binval, @decval, @dtval)");
+      ExecuteStatement(queryText);
+    }
+
+    private static void CreateTestStoredProcedureOracle()
+    {
+      var queryText = new StringBuilder();
+      queryText.Append("create or replace procedure " + TestProcedureName + " (\n");
+      queryText.Append("intval integer, strval varchar2, \n");
+      queryText.Append("binval raw, decval number, dtval date)\n");
+      queryText.Append("as\n");
+      queryText.Append("begin\n");
+      queryText.Append("   insert into " + TestTableName + " (intval, strval, binval, decval, dtval)\n");
+      queryText.Append("   values (intval, strval, binval, decval, dtval);\n");
+      queryText.Append("end;\n");
+      ExecuteStatement(queryText);
+    }
+
+    private static void DropTestStoredProcedure(string procedureName)
+    {
+      var queryText = new StringBuilder();
+      if (DatabaseType == DBType.SQLServer)
+        queryText.Append("IF EXISTS (select * from sysobjects where name = '" + procedureName + "') ");
+      queryText.Append("DROP PROCEDURE " + procedureName);
+      ExecuteStatement(queryText);
+    }
+
+    private static void ExecuteStatement(string queryText)
+    {
+      using (var stmt = _conn1.CreateStatement(queryText))
+      {
+        stmt.ExecuteNonQuery();
+      }
+      _conn1.CommitTransaction();
+    }
+
+    private static void ExecuteStatement(StringBuilder queryText)
+    {
+      ExecuteStatement(queryText.ToString());
+    }
+
+    private static void CallTestProcedure(int expectedResult)
+    {
+      using (var stmt = _conn1.CreateCallableStatement(TestProcedureName))
+      {
+        stmt.AddParam("intval", MTParameterType.Integer, Intval);
+        stmt.AddParam("strval", MTParameterType.String, Strval);
+        stmt.AddParam("binval", MTParameterType.Binary, Binval);
+        stmt.AddParam("decval", MTParameterType.Decimal, Decval);
+        stmt.AddParam("dtval", MTParameterType.DateTime, Dtval);
+        var ret = stmt.ExecuteNonQuery();
+        Assert.AreEqual(expectedResult, ret);
+      }
+      _conn1.CommitTransaction();
+    }
+
+    private static void GetBackDataFromTestTable()
+    {
+      using (var stmt = _conn1.CreateStatement("SELECT intval, strval, binval, decval, dtval FROM " + TestTableName))
+      {
+        using (var reader = stmt.ExecuteReader())
+        {
+          while (reader.Read())
+          {
+            Assert.AreEqual(Intval, reader.GetInt32("intval"));
+            Assert.AreEqual(Strval, reader.GetString("strval"));
+            var val = reader.GetBytes("binval");
+            Assert.AreEqual(2, val.Length);
+            Assert.AreEqual(Binval[0], val[0]);
+            Assert.AreEqual(Binval[1], val[1]);
+            Assert.AreEqual(Dtval, reader.GetDateTime("dtval"));
+            Assert.AreEqual(Decval, reader.GetDecimal("decval"));
+          }
+        }
+      }
+      _conn1.CommitTransaction();
+    }
+
+    #endregion
+  }
 }

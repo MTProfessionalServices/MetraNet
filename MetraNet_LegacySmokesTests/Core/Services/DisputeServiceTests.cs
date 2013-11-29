@@ -8,7 +8,6 @@ using NUnit.Framework;
 //MetraTech
 using MetraTech;
 using MetraTech.Test.Common;
-using MetraTech.DomainModel.Common;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.AccountTypes;

@@ -6,7 +6,6 @@ using NUnit.Framework;
 using MetraTech.Security;
 using MetraTech;
 using MetraTech.Test.Common;
-using MetraTech.DomainModel.Common;
 using MetraTech.Core.Services;
 using System.ServiceModel;
 using MetraTech.Core.Services.ClientProxies;
@@ -38,74 +37,64 @@ namespace MetraTech.Core.Services.Test
     //private BasePriceableItemTemplate deleteTemplate = null;
 
     #region tests
+
     [Test]
     [Category("SaveCalendar")]
     public void T01SaveCalendar()
     {
-        ProductCatalogServiceClient client = new ProductCatalogServiceClient();
-        client.ClientCredentials.UserName.UserName = "su";
-        client.ClientCredentials.UserName.Password = "su123";
-
-        Calendar c = new Calendar();
-        c.DefaultWeekday = new CalendarWeekday();
-        c.DefaultWeekday.Code = MetraTech.DomainModel.Enums.Core.Metratech_com_calendar.CalendarCode.Peak;
-        c.DefaultWeekday.Periods = new List<CalendarDayPeriod>();
-        c.DefaultWeekday.Periods.Add(new CalendarDayPeriod() { Code = MetraTech.DomainModel.Enums.Core.Metratech_com_calendar.CalendarCode.Peak,
-                                                                EndTime = DateTime.Now.AddDays(1),
-                                                                StartTime = DateTime.Now});
-        c.DefaultWeekend = new CalendarWeekday();
-        c.DefaultWeekend.Code = MetraTech.DomainModel.Enums.Core.Metratech_com_calendar.CalendarCode.Off_Peak;
-        c.DefaultWeekend.Periods = new List<CalendarDayPeriod>();
-        c.DefaultWeekend.Periods.Add(new CalendarDayPeriod() { Code = MetraTech.DomainModel.Enums.Core.Metratech_com_calendar.CalendarCode.Peak,
-                                                                EndTime = DateTime.Now.AddDays(1),
-                                                                StartTime = DateTime.Now});
-
-        c.Description = "my calendar " + Guid.NewGuid().GetHashCode().ToString();
-        c.Friday = new CalendarWeekday();
-        c.Friday.Code = MetraTech.DomainModel.Enums.Core.Metratech_com_calendar.CalendarCode.Peak;
-        c.Friday.Periods = new List<CalendarDayPeriod>();
-        c.Friday.Periods.Add(new CalendarDayPeriod()
+      var client = new ProductCatalogServiceClient
+      {
+        ClientCredentials = {UserName = {UserName = "su", Password = "su123"}}
+      };
+      
+      var calendarName = "my calendar " + Guid.NewGuid().GetHashCode();
+      var c = new Calendar
+      {
+        DefaultWeekday = new CalendarWeekday
         {
-            Code = MetraTech.DomainModel.Enums.Core.Metratech_com_calendar.CalendarCode.Peak,
-            EndTime = DateTime.Now.AddDays(1),
-            StartTime = DateTime.Now
-        });
-
-        c.Holidays = new List<CalendarHoliday>();
-        c.Holidays.Add(new CalendarHoliday()
+          Code = DomainModel.Enums.Core.Metratech_com_calendar.CalendarCode.Peak,
+          Periods = GetCalendarDayPeriods()
+        },
+        DefaultWeekend = new CalendarWeekday
         {
-            Code = MetraTech.DomainModel.Enums.Core.Metratech_com_calendar.CalendarCode.Holiday,
+          Code = DomainModel.Enums.Core.Metratech_com_calendar.CalendarCode.Off_Peak,
+          Periods = GetCalendarDayPeriods()
+        },
+        Description = calendarName,
+        Name = calendarName,
+        Friday = new CalendarWeekday
+        {
+          Code = DomainModel.Enums.Core.Metratech_com_calendar.CalendarCode.Peak,
+          Periods = GetCalendarDayPeriods()
+        },
+        Holidays = new List<CalendarHoliday>
+        {
+          new CalendarHoliday
+          {
+            Code = DomainModel.Enums.Core.Metratech_com_calendar.CalendarCode.Holiday,
             Date = new DateTime(2009, 12, 17),
             Name = "birthday",
             Periods = new List<CalendarDayPeriod>()
-        });
+          }
+        }
+      };
+      
+      c.Holidays[0].Periods.Add(new CalendarDayPeriod
+      {
+        StartTime = new DateTime(2009, 12, 17, 9, 0, 0),
+        EndTime = new DateTime(2009, 12, 17, 18, 0, 0),
+        Code = DomainModel.Enums.Core.Metratech_com_calendar.CalendarCode.Holiday
+      });
 
-        c.Holidays[0].Periods.Add(new CalendarDayPeriod()
-        {
-            StartTime = new DateTime(2009, 12, 17, 9, 0, 0),
-            EndTime = new DateTime(2009, 12, 17, 18, 0, 0),
-            Code = MetraTech.DomainModel.Enums.Core.Metratech_com_calendar.CalendarCode.Holiday
-        });
-
-        string calendarName = "my calendar " + Guid.NewGuid().GetHashCode().ToString();
-        c.Name = calendarName;
-        
-        client.SaveCalendar(c);
-        client.GetCalendar(new PCIdentifier(c.Name), out c);
-
-        c.Holidays[0].Date = new DateTime(2009, 12, 18);
-
-        client.SaveCalendar(c);
-
-        client.GetCalendar(new PCIdentifier(c.Name), out c);
-
-        client.RemoveHolidayFromCalendar(new PCIdentifier(c.ID.Value), new PCIdentifier(c.Holidays[0].HolidayID.Value));
-
-        //client.SaveCalendar(c);
-
-        
-
+      client.SaveCalendar(c);
+      client.GetCalendar(new PCIdentifier(c.Name), out c);
+      c.Holidays[0].Date = new DateTime(2009, 12, 18);
+      client.SaveCalendar(c);
+      client.GetCalendar(new PCIdentifier(c.Name), out c);
+      client.RemoveHolidayFromCalendar(new PCIdentifier(c.ID.Value), new PCIdentifier(c.Holidays[0].HolidayID.Value));
+      client.SaveCalendar(c);
     }
+
     [Test]
     [Category("TestGetPriceableItemTypes")]
     public void T02TestGetPriceableItemTypes()
@@ -2099,6 +2088,21 @@ namespace MetraTech.Core.Services.Test
 
       return list;
     }
+
+    private static List<CalendarDayPeriod> GetCalendarDayPeriods()
+    {
+      return new List<CalendarDayPeriod>
+      {
+        new CalendarDayPeriod
+        {
+          Code = DomainModel.Enums.Core.Metratech_com_calendar.CalendarCode.Peak,
+          EndTime = DateTime.Now.AddDays(1),
+          StartTime = DateTime.Now
+        }
+      };
+    }
+
+
     #endregion
 
   }

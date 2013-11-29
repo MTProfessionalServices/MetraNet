@@ -8,7 +8,6 @@ using MetraTech.DomainModel.AccountTypes;
 using MetraTech;
 using MetraTech.Test.Common;
 using MetraTech.DomainModel.BaseTypes;
-using MetraTech.DomainModel.Common;
 using MetraTech.DomainModel.Enums;
 using MetraTech.DomainModel.Enums.Core.Global;
 using MetraTech.DomainModel.ProductCatalog;
@@ -22,7 +21,6 @@ using MetraTech.Core.Services.ClientProxies;
 using MetraTech.DomainModel.MetraPay;
 using System.Collections;
 using System.Linq;
-using System.Xml.Serialization;
 using System.IO;
 
 //

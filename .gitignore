@@ -1,7 +1,7 @@
-**output/
-**[Bb]in/
-
-**[Tt]emp/
-
-*.dll
-*.dbg
+Bin/MASClientProxyCode/
+Bin/MASProxyActivityCode/
+Bin/MetraTech.PageNav.ClientProxies.dll
+Bin/MetraTech.PageNav.ClientProxies.pdb
+Bin/MetraTech.PageNav.ProxyActivities.dll
+Bin/MetraTech.PageNav.ProxyActivities.pdb
+Bin/MetraTech.PageNav.config

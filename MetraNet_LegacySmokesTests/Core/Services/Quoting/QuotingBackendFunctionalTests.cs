@@ -43,7 +43,7 @@ namespace MetraTech.Core.Services.Test.Quoting
           var expected = new QuoteVerifyData();
 
           // Create account
-          var idAccountToQuoteFor = GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
+          var idAccountToQuoteFor = SharedTestCode.GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
 
           // Create/Verify Product Offering Exists
           var pofConfiguration = new ProductOfferingFactoryConfiguration(_testContext.TestName, testRunUniqueIdentifier)
@@ -239,7 +239,7 @@ namespace MetraTech.Core.Services.Test.Quoting
         QuoteVerifyData expected = new QuoteVerifyData();
 
         // Create account for test run
-        var idAccountToQuoteFor = GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
+        var idAccountToQuoteFor = SharedTestCode.GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
 
         // Create/Verify Product Offering Exists
         var pofConfiguration = new ProductOfferingFactoryConfiguration(testShortName, testRunUniqueIdentifier);
@@ -290,19 +290,19 @@ namespace MetraTech.Core.Services.Test.Quoting
         QuoteImplementationData quoteImpl = new QuoteImplementationData();
 
         // Create account #1 Corporate payer
-        var idAccountToQuoteFor = GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
+        var idAccountToQuoteFor = SharedTestCode.GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
 
         // Create account #2 Department payee
         testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
-        var idAccountToQuoteFor2 = GetDepartmentAccountToQuoteFor(testShortName, testRunUniqueIdentifier, idAccountToQuoteFor, idAccountToQuoteFor);
+        var idAccountToQuoteFor2 = SharedTestCode.GetDepartmentAccountToQuoteFor(testShortName, testRunUniqueIdentifier, idAccountToQuoteFor, idAccountToQuoteFor);
 
         // Create account #3 Department payee
         testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
-        var idAccountToQuoteFor3 = GetDepartmentAccountToQuoteFor(testShortName, testRunUniqueIdentifier, idAccountToQuoteFor, idAccountToQuoteFor);
+        var idAccountToQuoteFor3 = SharedTestCode.GetDepartmentAccountToQuoteFor(testShortName, testRunUniqueIdentifier, idAccountToQuoteFor, idAccountToQuoteFor);
 
         // Create account #4 Corporate self-payed non-payer
         testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
-        var idAccountToQuoteFor4 = GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
+        var idAccountToQuoteFor4 = SharedTestCode.GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
 
         // Create/Verify Product Offering Exists
         var pofConfiguration = new ProductOfferingFactoryConfiguration(testShortName, testRunUniqueIdentifier)
@@ -370,7 +370,7 @@ namespace MetraTech.Core.Services.Test.Quoting
 
         for (var i = 1; i < expected.CountAccounts + 1; i++)
         {
-            corpAccountHolders.Add(GetCorporateAccountToQuoteFor(testShortName + "_" + i, testRunUniqueIdentifier));
+            corpAccountHolders.Add(SharedTestCode.GetCorporateAccountToQuoteFor(testShortName + "_" + i, testRunUniqueIdentifier));
         }
 
         // Create/Verify Product Offering Exists
@@ -432,15 +432,15 @@ namespace MetraTech.Core.Services.Test.Quoting
 
       // Create account #1 Corporate
       // Create account #1 Corporate payer
-      var idAccountToQuoteFor = GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
+      var idAccountToQuoteFor = SharedTestCode.GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
 
       // Create account #2 Department child
       testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
-      var idAccountToQuoteFor2 = GetDepartmentAccountToQuoteFor(testShortName, testRunUniqueIdentifier, idAccountToQuoteFor);
+      var idAccountToQuoteFor2 = SharedTestCode.GetDepartmentAccountToQuoteFor(testShortName, testRunUniqueIdentifier, idAccountToQuoteFor);
 
       // Create account #3 Department child
       testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
-      var idAccountToQuoteFor3 = GetDepartmentAccountToQuoteFor(testShortName, testRunUniqueIdentifier, idAccountToQuoteFor);
+      var idAccountToQuoteFor3 = SharedTestCode.GetDepartmentAccountToQuoteFor(testShortName, testRunUniqueIdentifier, idAccountToQuoteFor);
       
       // Create/Verify Product Offering Exists
       var pofConfiguration = new ProductOfferingFactoryConfiguration(testName, testRunUniqueIdentifier)
@@ -450,8 +450,7 @@ namespace MetraTech.Core.Services.Test.Quoting
               CountPairUDRCs = 1
           };
 
-        IMTProductOffering productOffering = ProductOfferingFactory.Create(pofConfiguration);
-      Assert.IsNotNull(productOffering.ID, "Unable to create PO for test run");
+      var productOffering = ProductOfferingFactory.Create(pofConfiguration);
       var idProductOfferingToQuoteFor = productOffering.ID;
 
       //Values to use for verification
@@ -509,15 +508,15 @@ namespace MetraTech.Core.Services.Test.Quoting
 
       // Create account #1 Corporate
       // Create account #1 Corporate payer
-      var idAccountToQuoteFor = GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
+      var idAccountToQuoteFor = SharedTestCode.GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
 
       // Create account #2 Department child
       testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
-      var idAccountToQuoteFor2 = GetDepartmentAccountToQuoteFor(testShortName, testRunUniqueIdentifier, idAccountToQuoteFor);
+      var idAccountToQuoteFor2 = SharedTestCode.GetDepartmentAccountToQuoteFor(testShortName, testRunUniqueIdentifier, idAccountToQuoteFor);
 
       // Create account #3 Department child
       testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
-      var idAccountToQuoteFor3 = GetDepartmentAccountToQuoteFor(testShortName, testRunUniqueIdentifier, idAccountToQuoteFor);
+      var idAccountToQuoteFor3 = SharedTestCode.GetDepartmentAccountToQuoteFor(testShortName, testRunUniqueIdentifier, idAccountToQuoteFor);
 
       // Create/Verify Product Offering Exists
       var pofConfiguration = new ProductOfferingFactoryConfiguration(testName, testRunUniqueIdentifier)
@@ -590,7 +589,7 @@ namespace MetraTech.Core.Services.Test.Quoting
       var expected = new QuoteVerifyData();
 
       // Create account      
-      var idAccountToQuoteFor = GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
+      var idAccountToQuoteFor = SharedTestCode.GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
 
       // Create/Verify Product Offering Exists
       var pofConfiguration = new ProductOfferingFactoryConfiguration(testName, testRunUniqueIdentifier)
@@ -684,15 +683,15 @@ namespace MetraTech.Core.Services.Test.Quoting
 
       // Create account #1 Corporate
       // Create account #1 Corporate payer
-      var idAccountToQuoteFor = GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
+      var idAccountToQuoteFor = SharedTestCode.GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
 
       // Create account #2 Department child
       testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
-      var idAccountToQuoteFor2 = GetDepartmentAccountToQuoteFor(testShortName, testRunUniqueIdentifier, idAccountToQuoteFor);
+      var idAccountToQuoteFor2 = SharedTestCode.GetDepartmentAccountToQuoteFor(testShortName, testRunUniqueIdentifier, idAccountToQuoteFor);
 
       // Create account #3 Department child
       testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
-      var idAccountToQuoteFor3 = GetDepartmentAccountToQuoteFor(testShortName, testRunUniqueIdentifier, idAccountToQuoteFor);
+      var idAccountToQuoteFor3 = SharedTestCode.GetDepartmentAccountToQuoteFor(testShortName, testRunUniqueIdentifier, idAccountToQuoteFor);
       
       // Create/Verify Product Offering Exists
       var pofConfiguration = new ProductOfferingFactoryConfiguration(testName, testRunUniqueIdentifier)
@@ -881,7 +880,7 @@ namespace MetraTech.Core.Services.Test.Quoting
         var expected = new QuoteVerifyData();
 
         // Create account
-        var idAccountToQuoteFor = GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
+        var idAccountToQuoteFor = SharedTestCode.GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
 
         // Create/Verify Product Offering Exists
         var pofConfiguration = new ProductOfferingFactoryConfiguration(testName, testRunUniqueIdentifier)
@@ -1412,7 +1411,7 @@ namespace MetraTech.Core.Services.Test.Quoting
         var quoteImpl = new QuoteImplementationData();
         var expected = new QuoteVerifyData();
 
-        var idAccountToQuoteFor = GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
+        var idAccountToQuoteFor = SharedTestCode.GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
 
         // Create Product Offering Exists
         var pofConfiguration = new ProductOfferingFactoryConfiguration(testName, testRunUniqueIdentifier)
@@ -1474,7 +1473,7 @@ namespace MetraTech.Core.Services.Test.Quoting
         var quoteImpl = new QuoteImplementationData();
         var expected = new QuoteVerifyData();
 
-        var idAccountToQuoteFor = GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
+        var idAccountToQuoteFor = SharedTestCode.GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
 
         // Create/Verify Product Offering Exists
         var pofConfiguration = new ProductOfferingFactoryConfiguration(testName, testRunUniqueIdentifier)
@@ -1527,11 +1526,11 @@ namespace MetraTech.Core.Services.Test.Quoting
         quoteImpl = new QuoteImplementationData();
         // Create account #2 Department child
         testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
-        var idAccountToQuoteFor2 = GetDepartmentAccountToQuoteFor(testShortName, testRunUniqueIdentifier, idAccountToQuoteFor);
+        var idAccountToQuoteFor2 = SharedTestCode.GetDepartmentAccountToQuoteFor(testShortName, testRunUniqueIdentifier, idAccountToQuoteFor);
 
         // Create account #3 Department child
         testRunUniqueIdentifier = MetraTime.NowWithMilliSec;
-        var idAccountToQuoteFor3 = GetDepartmentAccountToQuoteFor(testShortName, testRunUniqueIdentifier, idAccountToQuoteFor);
+        var idAccountToQuoteFor3 = SharedTestCode.GetDepartmentAccountToQuoteFor(testShortName, testRunUniqueIdentifier, idAccountToQuoteFor);
         //Values to use for verification
 
         #endregion
@@ -1574,31 +1573,7 @@ namespace MetraTech.Core.Services.Test.Quoting
         #endregion
     }
 
-      private static int GetCorporateAccountToQuoteFor(string testShortName, string testRunUniqueIdentifier)
-      {
-          // Create account
-          var corpAccountHolder = new CorporateAccountFactory(testShortName, testRunUniqueIdentifier);
-          corpAccountHolder.Instantiate();
-
-          Assert.IsNotNull(corpAccountHolder.Item._AccountID, "Unable to create account for test run");
-          var idAccountToQuoteFor = (int) corpAccountHolder.Item._AccountID;
-          return idAccountToQuoteFor;
-      }
-
-      private static int GetDepartmentAccountToQuoteFor(string testShortName, string testRunUniqueIdentifier,
-                                                        int AncestorAccountID, int? PayerAccountID = null)
-      {
-          var deptAccountHolder = new DepartmentAccountFactory(testShortName, testRunUniqueIdentifier)
-              {
-                  AncestorID = AncestorAccountID
-              };
-          if (PayerAccountID != null)
-              deptAccountHolder.PayerID = PayerAccountID;
-          deptAccountHolder.Instantiate();
-
-          Assert.IsNotNull(deptAccountHolder.Item._AccountID, "Unable to create account for test run");
-          return deptAccountHolder.Item._AccountID.Value;
-      }
+     
 
       #region duplicated tests
       //[TestMethod, MTFunctionalTest(TestAreas.Quoting)]
@@ -1614,7 +1589,7 @@ namespace MetraTech.Core.Services.Test.Quoting
           var quoteImpl = new QuoteImplementationData();
           var expected = new QuoteVerifyData();
 
-          var idAccountToQuoteFor = GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
+          var idAccountToQuoteFor = SharedTestCode.GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
 
           // Create/Verify Product Offering Exists
           var pofConfiguration = new ProductOfferingFactoryConfiguration(testName, testRunUniqueIdentifier)
@@ -1677,7 +1652,7 @@ namespace MetraTech.Core.Services.Test.Quoting
           var expected = new QuoteVerifyData { CountProducts = 4 };
 
           // Create account for test run
-          var idAccountToQuoteFor = GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
+          var idAccountToQuoteFor = SharedTestCode.GetCorporateAccountToQuoteFor(testShortName, testRunUniqueIdentifier);
 
           // Create/Verify Product Offering Exists
           var pofConfiguration = new ProductOfferingFactoryConfiguration(testShortName, testRunUniqueIdentifier)
@@ -1745,7 +1720,7 @@ namespace MetraTech.Core.Services.Test.Quoting
 
           for (var i = 1; i < expected.CountAccounts + 1; i++)
           {
-              corpAccountHolders.Add(GetCorporateAccountToQuoteFor(testShortName + "_" + i, testRunUniqueIdentifier));
+              corpAccountHolders.Add(SharedTestCode.GetCorporateAccountToQuoteFor(testShortName + "_" + i, testRunUniqueIdentifier));
           }
 
           // Create/Verify Product Offering Exists

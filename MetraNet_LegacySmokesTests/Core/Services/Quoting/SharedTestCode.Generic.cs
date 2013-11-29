@@ -366,7 +366,7 @@ namespace MetraTech.Core.Services.Test.Quoting
             //Assert.IsNotNull(corpAccountHolder.Item._AccountID, "Unable to create corporate account for test run");
             // Create account #2 Department child
             deptAccountHolder1.CycleType = usageCycleType;
-            deptAccountHolder1 = createDeptAccount(deptAccountHolder1, corpAccountHolder.Item._AccountID.Value);
+            deptAccountHolder1 = CreateDeptAccount(deptAccountHolder1, corpAccountHolder.Item._AccountID.Value);
             //Create account #3 CoreSubscriber child
             //coresubscriberAccountHolder.is
             //coresubscriberAccountHolder = deptAccountHolder2.AddCoreSubscriber("User");
@@ -376,12 +376,38 @@ namespace MetraTech.Core.Services.Test.Quoting
             //Assert.IsNotNull(coresubscriberAccountHolder.Item._AccountID, "Unable to create CoreSubscriber account for test run");
         }
 
-        public static DepartmentAccountFactory createDeptAccount(DepartmentAccountFactory dept, int ancestorID)
+        public static DepartmentAccountFactory CreateDeptAccount(DepartmentAccountFactory dept, int ancestorID)
         {
             dept.AncestorID = ancestorID;
             dept.Instantiate();
             //Assert.IsNotNull(dept.Item._AccountID, "Unable to create department account for test run");
             return dept;
+        }
+
+        public static int GetCorporateAccountToQuoteFor(string testShortName, string testRunUniqueIdentifier)
+        {
+          // Create account
+          var corpAccountHolder = new CorporateAccountFactory(testShortName, testRunUniqueIdentifier);
+          corpAccountHolder.Instantiate();
+
+          Assert.IsNotNull(corpAccountHolder.Item._AccountID, "Unable to create account for test run");
+          var idAccountToQuoteFor = (int)corpAccountHolder.Item._AccountID;
+          return idAccountToQuoteFor;
+        }
+
+        public static int GetDepartmentAccountToQuoteFor(string testShortName, string testRunUniqueIdentifier,
+                                                          int AncestorAccountID, int? PayerAccountID = null)
+        {
+          var deptAccountHolder = new DepartmentAccountFactory(testShortName, testRunUniqueIdentifier)
+          {
+            AncestorID = AncestorAccountID
+          };
+          if (PayerAccountID != null)
+            deptAccountHolder.PayerID = PayerAccountID;
+          deptAccountHolder.Instantiate();
+
+          Assert.IsNotNull(deptAccountHolder.Item._AccountID, "Unable to create account for test run");
+          return deptAccountHolder.Item._AccountID.Value;
         }
 
     }

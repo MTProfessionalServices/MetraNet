@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using MetraTech.ActivityServices.Common;
 using MetraTech.ActivityServices.Services.Common;
 using MetraTech.DomainModel.BaseTypes;
@@ -183,7 +184,62 @@ public partial class Product_Details : MTPage
         element.ID = prop.Name;
         element.ShowInExpander = true;
         element.Exportable = true;
-        element.HeaderText = prop.Name; //Utils.GetProperty(pvObject, prop.Name + "DisplayName").ToString();
+
+        // If you add new columns to t_acc_usage table, you will need to modify this "if" condition.
+          if( prop.Name == "IntervalID" ||
+              prop.Name == "ViewID" ||
+              prop.Name == "Currency" ||
+              prop.Name == "Amount" ||
+              prop.Name == "PITemplate" ||
+              prop.Name == "PIInstance" ||
+              prop.Name == "TaxAmountAsString" ||
+              prop.Name == "TaxAmount" ||
+              prop.Name == "StateTaxAmountAsString" ||
+              prop.Name == "StateTaxAmount" ||
+              prop.Name == "FederalTaxAmountAsString" ||
+              prop.Name == "FederalTaxAmount" ||
+              prop.Name == "CountyTaxAmountAsString" ||
+              prop.Name == "CountyTaxAmount" ||
+              prop.Name == "LocalTaxAmountAsString" ||
+              prop.Name == "LocalTaxAmount" ||
+              prop.Name == "OtherTaxAmountAsString" ||
+              prop.Name == "OtherTaxAmount" ||
+              prop.Name == "AmountWithTaxAsString" ||
+              prop.Name == "AmountWithTax" ||
+              prop.Name == "IsPreBillTransaction" ||
+              prop.Name == "IsAdjusted" ||
+              prop.Name == "IsPreBillAdjusted" ||
+              prop.Name == "IsPostBillAdjusted" ||
+              prop.Name == "CanAdjust" ||
+              prop.Name == "CanRebill" ||
+              prop.Name == "CanManageAdjustments" ||
+              prop.Name == "PreBillAdjustment" ||
+              prop.Name == "PreBillAdjustmentID" ||
+              prop.Name == "PostBillAdjustment" ||
+              prop.Name == "PostBillAdjustmentID" ||
+              prop.Name == "IsIntervalSoftClosed" ||
+              prop.Name == "IsTaxInclusive" ||
+              prop.Name == "IsTaxAlreadyCalculated"||
+              prop.Name == "IsTaxInformational")
+          {
+              element.HeaderText = prop.Name;
+          }
+          else
+          {
+              if (productSlice.ViewID.ID.HasValue)
+              {
+                  BillManager billManager = new BillManager(UI);
+
+                  element.HeaderText =
+                      GetLocalizedText(billManager.GetFQN(productSlice.ViewID.ID.Value) + "/" + prop.Name);
+              }
+              else
+              {
+                  element.HeaderText = prop.Name;
+              }
+
+          }
+          
         element.IsColumn = false;
         element.Filterable = false;
 

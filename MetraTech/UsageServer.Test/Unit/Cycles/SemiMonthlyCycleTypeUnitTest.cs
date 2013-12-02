@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Linq;
 using MetraTech.TestCommon;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -63,6 +64,34 @@ namespace MetraTech.UsageServer.Test.Unit.Cycles
       ExceptionAssert.Expected<ArgumentException>(
         () => _cycleType.ComputeStartAndEndDate(_refDate, cycle, out _start, out _end),
         "cycle.FirstDayOfMonth property must be initialized");
+    }
+
+    [TestMethod, MTUnitTest]
+    public void GenerateCyclesTest()
+    {
+      var cycles = _cycleType.GenerateCycles();
+
+      // Should be 465 semi-monthly cycles
+      Assert.AreEqual(465, cycles.Length);
+
+      foreach (var cycle in cycles)
+      {
+        //Validate required cycle properties
+        Assert.IsTrue(cycle.FirstDayOfMonth >= 1 && cycle.FirstDayOfMonth <= 30);
+        Assert.IsTrue(cycle.SecondDayOfMonth >= cycle.FirstDayOfMonth && cycle.SecondDayOfMonth <= 31);
+        Assert.AreEqual(cycle.CycleType, CycleType.SemiMonthly);
+        //Cycle's properties listed below should not be set
+        Assert.AreEqual(cycle.StartYear, -1);
+        Assert.AreEqual(cycle.StartMonth, -1);
+        Assert.AreEqual(cycle.StartDay, -1);
+        Assert.AreEqual(cycle.DayOfMonth, -1);
+        Assert.AreEqual(cycle.DayOfWeek, DayOfWeek.Monday);
+        Assert.AreEqual(cycle.DayOfYear, -1);
+        //Validate that current cycle is uniqe in the collection of cycles
+        // ReSharper disable ReturnValueOfPureMethodIsNotUsed
+        cycles.Single(c => c.FirstDayOfMonth == cycle.FirstDayOfMonth && c.SecondDayOfMonth == cycle.SecondDayOfMonth);
+        // ReSharper restore ReturnValueOfPureMethodIsNotUsed
+      }
     }
   }
 }

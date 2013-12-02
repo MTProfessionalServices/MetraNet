@@ -345,3 +345,6 @@ select
                         LEFT OUTER JOIN t_adjustment_type prebillajtype on prebillajtype.id_prop = prebillajs.id_aj_type
                         LEFT OUTER JOIN t_adjustment_type postbillajtype on postbillajtype.id_prop = postbillajs.id_aj_type
 /
+
+COMMENT ON TABLE vw_aj_info IS 'The view consists of four tables "t_acc_usage", "t_adjustment_transaction", "t_acc_usage_interval" and "t_adjustment_type"';
+/

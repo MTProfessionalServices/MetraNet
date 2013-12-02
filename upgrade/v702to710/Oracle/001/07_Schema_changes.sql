@@ -798,3 +798,8 @@ ALTER PROCEDURE applytemplatetooneaccount COMPILE
 
 DROP SEQUENCE qu_quoteheader_sequence
 /
+
+BEGIN
+	prtn_insert_meter_part_info(id_partition =>1);
+END;
+/

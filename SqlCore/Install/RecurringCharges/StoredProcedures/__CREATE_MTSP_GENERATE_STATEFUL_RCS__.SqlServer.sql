@@ -134,12 +134,27 @@ newid() AS idSourceSess,
       INNER LOOP JOIN t_pc_interval pci WITH(INDEX(cycle_time_pc_interval_index)) ON pci.id_cycle = ccl.id_usage_cycle
                                    AND (
 										pci.dt_start BETWEEN nui.dt_start AND nui.dt_end /* rc start falls in Next interval */
+										
+										/* In case subscription starts earlier than current EOP don't add RC that finishes in Next interval as they will be charged with Instant RC  */
+
+										/* rc end falls in Next interval */
 										OR pci.dt_end BETWEEN
 														CASE
-															WHEN rw.c_SubscriptionStart >= nui.dt_start THEN nui.dt_start /* rc end falls in Next interval */
-															ELSE nui.dt_end + 1 /* BETWEEN should return FALSE.  In case subscription starts earlier than current EOP don't add RC that finishes in Next interval as they will be charged with Instant RC */
+															WHEN rw.c_SubscriptionStart >= nui.dt_start THEN nui.dt_start 
+															ELSE nui.dt_end + 1 /* BETWEEN should return FALSE.  */
 														END
 													  AND nui.dt_end
+										/* or this interval could be in the middle of the cycle */
+										OR (
+											pci.dt_start < CASE WHEN rw.c_SubscriptionStart >= nui.dt_start
+																THEN  nui.dt_start 
+																ELSE pci.dt_start
+															END
+											AND pci.dt_end > CASE WHEN rw.c_SubscriptionStart >= nui.dt_start
+																THEN  nui.dt_end
+																ELSE pci.dt_end
+															END
+										)
                                    )
                                    AND pci.dt_start BETWEEN rw.c_payerstart  AND rw.c_payerend                         /* rc start goes to this payer */
                                    AND rw.c_unitvaluestart      < pci.dt_end AND rw.c_unitvalueend      > pci.dt_start /* rc overlaps with this UDRC */

@@ -129,16 +129,16 @@ CREATE TABLE rg_temp_1542056139_0 (
   expired_units NUMBER(18,6),
   rollover_date DATE,
   rollover_action VARCHAR2(25 BYTE) NOT NULL
-);
+)
 /
 
-INSERT INTO rg_temp_1542056139_0(id_acc,id_usage_interval,interval_start,interval_end,decision_unique_id,decision_type,start_date,end_date,rollover_end_date,rollover_interval_end,rolled_over_units,expired_units,rollover_date,rollover_action) SELECT id_acc,id_usage_interval,interval_start,interval_end,decision_unique_id,decision_type,start_date,end_date,rollover_end_date,rollover_interval_end,CAST(LEAST(rolled_over_units, 999999999999.999999) as NUMBER(18,6)),CAST(LEAST(expired_units, 999999999999.999999) as NUMBER(18,6)),rollover_date,'rollover' FROM agg_decision_rollover;
+INSERT INTO rg_temp_1542056139_0(id_acc,id_usage_interval,interval_start,interval_end,decision_unique_id,decision_type,start_date,end_date,rollover_end_date,rollover_interval_end,rolled_over_units,expired_units,rollover_date,rollover_action) SELECT id_acc,id_usage_interval,interval_start,interval_end,decision_unique_id,decision_type,start_date,end_date,rollover_end_date,rollover_interval_end,CAST(LEAST(rolled_over_units, 999999999999.999999) as NUMBER(18,6)),CAST(LEAST(expired_units, 999999999999.999999) as NUMBER(18,6)),rollover_date,'rollover' FROM agg_decision_rollover
 /
 
-DROP TABLE agg_decision_rollover;
+DROP TABLE agg_decision_rollover
 /
 
-ALTER TABLE rg_temp_1542056139_0 RENAME TO agg_decision_rollover;
+ALTER TABLE rg_temp_1542056139_0 RENAME TO agg_decision_rollover
 /
 
 ALTER TABLE agg_decision_rollover
@@ -149,14 +149,14 @@ ADD CONSTRAINT agg_dec_rollover_pk PRIMARY KEY (id_acc,id_usage_interval,end_dat
 /
 
 
-ALTER TABLE mvm_resubmit_runs ADD (msg_count NUMBER(*,0),ss_count NUMBER(*,0),s_count NUMBER(*,0));
+ALTER TABLE mvm_resubmit_runs ADD (msg_count NUMBER(*,0),ss_count NUMBER(*,0),s_count NUMBER(*,0))
 /
 
 CREATE TABLE mvm_cluster_history (
   physical_cluster VARCHAR2(100 BYTE) NOT NULL,
   dt_started DATE NOT NULL,
   dt_stopped DATE
-);
+)
 /
 
 CREATE TABLE mvm_cluster_run_history (
@@ -164,41 +164,41 @@ CREATE TABLE mvm_cluster_run_history (
   dt_started DATE NOT NULL,
   dt_stopped DATE,
   CONSTRAINT mvm_cluster_run_history_pk PRIMARY KEY (physical_cluster,dt_started)
-);
+)
 /
 
 CREATE TABLE agg_bundle_new_pos (
   id_po NUMBER
-);
+)
 /
 
 CREATE TABLE agg_bundle_old_pos (
   id_po NUMBER
-);
+)
 /
 
-DROP INDEX mvm_scheduled_tasks_ndx2;
+DROP INDEX mvm_scheduled_tasks_ndx2
 /
 
-DROP INDEX mvm_scheduled_tasks_ndx1;
+DROP INDEX mvm_scheduled_tasks_ndx1
 /
 
-DROP TABLE mvm_scheduled_tasks;
+DROP TABLE mvm_scheduled_tasks
 /
 
-DROP TABLE mvm_resubmitted_messages;
+DROP TABLE mvm_resubmitted_messages
 /
 
-CREATE INDEX agg_bundle_new_pos_ndx ON agg_bundle_new_pos(id_po);
+CREATE INDEX agg_bundle_new_pos_ndx ON agg_bundle_new_pos(id_po)
 /
 
-CREATE INDEX agg_bundle_old_pos_ndx ON agg_bundle_old_pos(id_po);
+CREATE INDEX agg_bundle_old_pos_ndx ON agg_bundle_old_pos(id_po)
 /
 
-CREATE INDEX acc_template_valid_subs_idx1 ON t_acc_template_valid_subs(id_acc_template_session,id_po);
+CREATE INDEX acc_template_valid_subs_idx1 ON t_acc_template_valid_subs(id_acc_template_session,id_po)
 /
 
-CREATE INDEX acc_template_valid_subs_idx2 ON t_acc_template_valid_subs(id_acc_template_session,id_group);
+CREATE INDEX acc_template_valid_subs_idx2 ON t_acc_template_valid_subs(id_acc_template_session,id_group)
 /
 
 CREATE TABLE metadata (

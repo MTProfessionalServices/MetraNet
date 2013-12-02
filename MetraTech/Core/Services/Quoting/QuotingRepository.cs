@@ -568,6 +568,11 @@ namespace MetraTech.Core.Services.Quoting
       return quoteHeder;
     }
 
+    public void UpdateStatus(int quoteID, string status, int value)
+    {
+      throw new NotImplementedException();
+    }
+
     public QuoteResponse UpdateQuoteWithResponse(QuoteResponse quoteResponse)
     {
       if (!requests.ContainsKey(quoteResponse.IdQuote))

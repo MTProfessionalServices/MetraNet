@@ -5,11 +5,11 @@
 @echo
 @echo *************************************
 SET UserName=%1%
-IF "none%UserName%"=="none" SET /P UserName="Enter User name[ by default "NETMETER"]: "
+IF "none%UserName%"=="none" SET /P UserName="Enter User(Schema) name[ by default "NETMETER"]: "
 IF "none%UserName%"=="none" SET UserName=NETMETER
 
 SET StageDbName=%1%
-IF "none%StageDbName%"=="none" SET /P StageDbName="Enter Stage DB(User) name[ by default "NETMETER_STAGE"]: "
+IF "none%StageDbName%"=="none" SET /P StageDbName="Enter Stage User(Schema) name[ by default "NETMETER_STAGE"]: "
 IF "none%StageDbName%"=="none" SET StageDbName=NETMETER_STAGE
 
 SET Password=%2%

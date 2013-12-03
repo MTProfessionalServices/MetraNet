@@ -224,9 +224,16 @@
  <text id="TEXT_FOLDERS_IMPERSONETED_BY">
       <value>Contas administradas por</value>
     	<description>Pastas pertencentes a</description>
- </text> 
-
- <text id="TEXT_MOVING_ACCOUNTS">
+ </text>
+	<text id="TEXT_ACCOUNT_OWNER_IMPERSONETED_BY">
+		<value>PT</value>
+		<description>PT</description>
+	</text>
+	  <text id="TEXT_ACCOUNTS_PAID_FOR_BY">
+		  <value>PT:Accounts paid for by </value>
+		  <description></description>
+	  </text>
+	  <text id="TEXT_MOVING_ACCOUNTS">
       <value>Movendo contas</value>
     	<description>Movendo contas</description>
  </text> 
@@ -464,9 +471,13 @@
  <text id="TEXT_THIS">
       <value>deste</value>
     	<description>deste</description>
- </text> 
- 
- <text id="TEXT_ADD_CAPABILITY_TO_ROLE_TITLE">
+ </text>
+	  <text id="TEXT_ACCOUNT_OWNED_BY">
+		  <value> PT: account owned by</value>
+		  <description></description>
+	  </text>
+
+	  <text id="TEXT_ADD_CAPABILITY_TO_ROLE_TITLE">
       <value>Adicionar [TEXT_KEYTERM_CAPABILITY]</value>
     	<description>Selecione o recurso para adicionar à função</description>
  </text> 
@@ -474,9 +485,13 @@
  <text id="TEXT_CAPABILITY_DESCRIPTION">
       <value>Descrição de [TEXT_KEYTERM_CAPABILITY]</value>
     	<description>Capacidade</description>
- </text> 
+ </text>
+	  <text id="TEXT_MANAGE_ACCOUNT_HIERARCHIES">
+		  <value>PT:Requires Manage Account Hierarchies</value>
+		  <description>Hierarchy</description>
+	  </text>
 
- <text id="TEXT_CAPABILITY_NAME">
+	  <text id="TEXT_CAPABILITY_NAME">
       <value>Nome do [TEXT_KEYTERM_CAPABILITY]</value>
     	<description>Nome do recurso</description>
  </text> 
@@ -1796,7 +1811,7 @@
   </text>
 
   <text id="TEXT_EVENT_DETAILS">
-    <value>Detalhes</value>
+    <value>PT: characters left for Detalhes</value>
     <description>Legenda para detalhes de evento</description>
   </text>
 

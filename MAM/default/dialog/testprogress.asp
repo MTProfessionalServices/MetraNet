@@ -1,7 +1,7 @@
 <%@ LANGUAGE="VBscript" CODEPAGE=65001 %>
 <html>
 <head>
-<LINK rel="STYLESHEET" type="text/css" href="/mam/default/localized/us/styles/Styles.css">
+<LINK rel="STYLESHEET" type="text/css" href="/mam/default/localized/en-us/styles/Styles.css">
 <script language="JavaScript">
 	var intIncrement=0;
   var strCaption = "";
@@ -74,7 +74,7 @@
 <div id="ProgressDiv" class="clsProgressDiv">
   <span id="ProgressBarCaption"></span>
   <div nowrap class="clsProgressBar">
-    <img src="/mam/default/localized/us/images/progress/progressleft.gif"><img id="ProgressBar" height="13px;" width="1px;" src="/mam/default/localized/us/images/progress/progress.gif"><img src="/mam/default/localized/us/images/progress/progressright.gif">
+    <img src="/mam/default/localized/en-us/images/progress/progressleft.gif"><img id="ProgressBar" height="13px;" width="1px;" src="/mam/default/localized/en-us/images/progress/progress.gif"><img src="/mam/default/localized/en-us/images/progress/progressright.gif">
   </div>
 </div>
 </body>

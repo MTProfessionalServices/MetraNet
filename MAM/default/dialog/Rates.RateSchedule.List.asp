@@ -334,7 +334,7 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
             EventArg.HTMLRendered = EventArg.HTMLRendered & "<td class='" & Form.Grid.CellClass & "' align='center' width='40'>"
             
             If CBool(ProductView.Properties.Rowset.Value("ICBed")) Then
-              EventArg.HTMLRendered = EventArg.HTMLRendered & "<img src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/check.gif'>"
+              EventArg.HTMLRendered = EventArg.HTMLRendered & "<img src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/check.gif'>"
             Else
               EventArg.HTMLRendered = EventArg.HTMLRendered & "--"
             End If

@@ -18,7 +18,7 @@
           <order>10</order>
 					<textid>TEXT_SYSTEM_USER_ACCOUNT_SUMMARY</textid>
 					<page>SYSTEM_USER_SUMMARY_DIALOG</page>
-					<image>/mam/default/localized/us/images/summary.gif</image>
+					<image>/mam/default/localized/en-us/images/summary.gif</image>
           <target></target>		
           <capabilities type="collection">
             <capability id="Manage Sales Force Hierarchies">
@@ -31,7 +31,7 @@
           <order>20</order>
 					<textid>TEXT_SYSTEM_USER_ACCOUNT_INFO</textid>
 					<page>SYSTEM_USER_UPDATE_DIALOG</page>
-					<image>/mam/default/localized/us/images/manage.gif</image>
+					<image>/mam/default/localized/en-us/images/manage.gif</image>
           <target></target>		
           <capabilities type="collection">
             <capability id="Update CSR accounts">
@@ -47,7 +47,7 @@
           <order>30</order>
 					<textid>TEXT_SYSTEM_USER_OWNED_ACCOUNTS</textid>
 					<page>SYSTEM_USER_OWNED_ACCOUNTS_DIALOG</page>
-					<image>/mam/default/localized/us/images/csr.gif</image>
+					<image>/mam/default/localized/en-us/images/csr.gif</image>
           <target></target>			
           <capabilities type="collection">
             <capability id="Update CSR accounts">
@@ -63,7 +63,7 @@
           <order>40</order>
 					<textid>TEXT_SYSTEM_USER_OWNED_SYSTEM_FOLDERS</textid>
 					<page>SYSTEM_USER_FOLDER_OWNER_SETUP_DIALOG</page>
-					<image>/mam/default/localized/us/images/csr.gif</image>
+					<image>/mam/default/localized/en-us/images/csr.gif</image>
           <target></target>			
           <capabilities type="collection">
             <capability id="Update CSR accounts">
@@ -79,7 +79,7 @@
           <order>50</order>
 					<textid>TEXT_SYSTEM_USER_SECURITY</textid>
 					<page>SYSTEM_USER_ACTIVE_POLICY_DIALOG</page>
-					<image>/mam/default/localized/us/images/security.gif</image>
+					<image>/mam/default/localized/en-us/images/security.gif</image>
           <target></target>			
           <capabilities type="collection">
             <capability id="Manage CSR Auth">

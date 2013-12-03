@@ -31,7 +31,7 @@ Esta string é uma string substituída. Aqui, não codificamos o mam, mas usamos
   </text>
 
     <text id='CUSTOM_PATH_REPLACE'>
-   <value>[APP_HTTP_PATH]/custom/localized/us</value>
+   <value>[APP_HTTP_PATH]/custom/localized/en-us</value>
       <description>Igual à CUSTOM_PATH_SEARCH, mas para a personalização da pasta.</description>
   </text>
 
@@ -66,7 +66,7 @@ Esta string é uma string substituída. Aqui, não codificamos o mam, mas usamos
        <![CDATA[
           <html>
             <head>
-              <LINK Localized='TRUE' rel='STYLESHEET' type='text/css' href='/mam/default/localized/us/styles/styles.css'>
+              <LINK Localized='TRUE' rel='STYLESHEET' type='text/css' href='/mam/default/localized/en-us/styles/styles.css'>
             </head>
             <body>
                Não é possível processar sua solicitação  Tente novamente sua ação desejada selecionado a opção de menu novamente.<br><br>

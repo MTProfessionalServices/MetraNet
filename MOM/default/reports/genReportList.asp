@@ -41,7 +41,7 @@ OPTION EXPLICIT
 
 <HTML>
  <HEAD>
-  <LINK rel="STYLESHEET" type="text/css" href="/mom/default/localized/us/styles/Styles.css">  
+  <LINK rel="STYLESHEET" type="text/css" href="/mom/default/localized/en-us/styles/Styles.css">  
  </HEAD>
 
 <%
@@ -50,7 +50,7 @@ sub writeReportListHeader(strDisplayName,lngCount)
   If(lngCount)Then
     	response.write("<HR>")
   End If
-	response.write("<IMG BORDER=0  SRC='" & "/mom/default/localized/us/images/menu/menu_folder_closed.gif" & "' align='middle'>" )
+	response.write("<IMG BORDER=0  SRC='" & "/mom/default/localized/en-us/images/menu/menu_folder_closed.gif" & "' align='middle'>" )
 	response.write "<FONT Class='clsStandardTitle'>" & strDisplayName & "</FONT><BR>"
 end sub
 
@@ -73,7 +73,7 @@ Sub writeReportList(objReportList, strFolderID)
   Else
   	  Do While Not objReportList.EOF
     		strLink = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A href='" & strGetReportURL & "&reportid=" & server.UrlEncode(reportID) & "' target='_blank'>"
-        strLink =  strLink & "<IMG BORDER=0  SRC='" & "/mom/default/localized/us/images/menu/menu_link_default.gif" & "' align='middle'>"
+        strLink =  strLink & "<IMG BORDER=0  SRC='" & "/mom/default/localized/en-us/images/menu/menu_link_default.gif" & "' align='middle'>"
         strLink =  strLink & objReportList.Value("Description") &"</a>"
         
   	    response.write  GetWithStdFont(strLink) & "<BR>"

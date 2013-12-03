@@ -42,7 +42,7 @@ end sub
 
   <head>
     <title>Metering Server - Statistics</title>
-    <link rel="STYLESHEET" type="text/css" href="../../../default/localized/us/styles/styles.css">
+    <link rel="STYLESHEET" type="text/css" href="../../../default/localized/en-us/styles/styles.css">
   </head>
 
   <body>
@@ -68,7 +68,7 @@ end sub
       %>
           </table>
           <br><br>
-          <a href="MeteringServerInformation.asp"><img border=0 alt="Refresh Page" src="../../../default/localized/us/images/refresh.gif"></a>
+          <a href="MeteringServerInformation.asp"><img border=0 alt="Refresh Page" src="../../../default/localized/en-us/images/refresh.gif"></a>
         </td>
       </tr>
     </table>

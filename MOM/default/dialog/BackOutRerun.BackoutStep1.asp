@@ -161,7 +161,7 @@ FUNCTION DynamicCapabilites(EventArg)
           strHTML = strHTML & "  <td nowrap>Value (" & Service.Properties("ProductPropertyValue" & nCount).PropertyType &"):<select name='ProductPropertyValue" & nCount & "' class='clsInputBox'></td>" 
         Case "TIMESTAMP"
           strHTML = strHTML & "  <td nowrap>Value (" & Service.Properties("ProductPropertyValue" & nCount).PropertyType &"):<input type=text' name='ProductPropertyValue" & nCount & "' size='25' class='clsInputBox'>" 
-          strHTML = strHTML & "  <a href=""#"" onClick=""getCalendarForTimeOpt(document.mdm.ProductPropertyValue" & nCount & ",'',false);return false""><img src='/mom/default/localized/us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a></td>"
+          strHTML = strHTML & "  <a href=""#"" onClick=""getCalendarForTimeOpt(document.mdm.ProductPropertyValue" & nCount & ",'',false);return false""><img src='/mom/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a></td>"
         Case Else
           If Service.Properties("ProductPropertyValue" & nCount).Tag = "HIDE_VALUE" Then
             strHTML = strHTML & "  <td nowrap>&nbsp;</td>"           
@@ -194,7 +194,7 @@ FUNCTION DynamicCapabilites(EventArg)
           strHTML = strHTML & "  <td nowrap>Value (" & Service.Properties("ServicePropertyValue" & nCount).PropertyType &"):<select name='ServicePropertyValue" & nCount & "' class='clsInputBox'></td>" 
         Case "TIMESTAMP"
           strHTML = strHTML & "  <td nowrap>Value (" & Service.Properties("ServicePropertyValue" & nCount).PropertyType &"):<input type=text' name='ServicePropertyValue" & nCount & "' size='25' class='clsInputBox'>" 
-          strHTML = strHTML & "  <a href=""#"" onClick=""getCalendarForTimeOpt(document.mdm.ServicePropertyValue" & nCount & ", '', false);return false""><img src='/mom/default/localized/us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a></td>"
+          strHTML = strHTML & "  <a href=""#"" onClick=""getCalendarForTimeOpt(document.mdm.ServicePropertyValue" & nCount & ", '', false);return false""><img src='/mom/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a></td>"
         Case Else
           If Service.Properties("ServicePropertyValue" & nCount).Tag = "HIDE_VALUE" Then
             strHTML = strHTML & "  <td nowrap>&nbsp;</td>"           
@@ -223,7 +223,7 @@ FUNCTION DynamicCapabilites(EventArg)
             strHTML = strHTML & "  <td nowrap>Value (" & Service.Properties("AccountValue" & nCount).PropertyType &"):<select name='AccountValue" & nCount & "' class='clsInputBox'></td>" 
           Case "TIMESTAMP"
             strHTML = strHTML & "  <td nowrap>Value (" & Service.Properties("AccountValue" & nCount).PropertyType &"):<input type='text' name='AccountValue" & nCount & "' size='25' class='clsInputBox'>" 
-            strHTML = strHTML & "  <a href=""#"" onClick=""getCalendarForTimeOpt(document.mdm.AccountValue" & nCount & ", '', false);return false""><img src='/mom/default/localized/us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a></td>"            
+            strHTML = strHTML & "  <a href=""#"" onClick=""getCalendarForTimeOpt(document.mdm.AccountValue" & nCount & ", '', false);return false""><img src='/mom/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''></a></td>"            
           Case Else
             strHTML = strHTML & "  <td nowrap>Value (" & Service.Properties("AccountValue" & nCount).PropertyType &"):<input type='text' name='AccountValue" & nCount & "' size='25' class='clsInputBox'></td>"  
         End Select 

@@ -202,7 +202,7 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
   			    Form_DisplayCell = TRUE
          Case "displayname"
             dim strName,strLink            
-            strName = "<img src='../localized/us/images/adapter_scheduled.gif' align='absmiddle' border='0'><strong>" & ProductView.Properties.RowSet.Value("DisplayName") & "</strong>"
+            strName = "<img src='../localized/en-us/images/adapter_scheduled.gif' align='absmiddle' border='0'><strong>" & ProductView.Properties.RowSet.Value("DisplayName") & "</strong>"
             strLink = "ScheduledAdapter.Instance.List.asp?ID=" & ProductView.Properties.RowSet.Value("EventId") & "&AdapterName=" & server.urlencode(strName)
             EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "' nowrap><a href='" & strLink & "'>"  & strName & "</a></td>" 
   			    Form_DisplayCell = TRUE

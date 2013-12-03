@@ -7,7 +7,7 @@ Option Explicit
 <html>
   <head>
 	  <title>All System Information</title>
-    <link rel="STYLESHEET" type="text/css" href="../../../default/localized/us/styles/styles.css">
+    <link rel="STYLESHEET" type="text/css" href="../../../default/localized/en-us/styles/styles.css">
 
     <!-- #INCLUDE FILE="printperfmonvalue.asp" -->
     <!-- #INCLUDE FILE="../Shared/WriteError.asp" -->

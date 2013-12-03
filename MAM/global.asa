@@ -5,8 +5,8 @@
 ' In MAM 3.5 we load the dictionary not from the global.asa but from default.asp
 ' - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Option Explicit
-'Const DEFAULT_LANGUAGE = "US" 
 CONST MDM_CACHE_SESSION_NAME     = "MDM.CACHE"
+CONST DEFAULT_LANGUAGE = "en-us"
 ' ---------------------------------------------------------------------------------------------------------------------------------------
 ' FUNCTION 		: Application_OnStart
 ' PARAMETERS	:
@@ -61,10 +61,10 @@ Sub Session_OnStart
         Languages = Split(userLocale, ",", -1)
         dim L
         L = Languages(0)
-        if(IsEmpty(L) or IsNull(L)) then L="en-us" end if
-          Session("DEFAULT_LANGUAGE")           = L
+        if(IsEmpty(L) or IsNull(L)) then L = DEFAULT_LANGUAGE end if
+          Session("PAGE_LANGUAGE")           = L
     else
-          Session("DEFAULT_LANGUAGE")           = "en-us"
+          Session("PAGE_LANGUAGE")           = DEFAULT_LANGUAGE
     end if 
 
 	  Dim objMAM      ' As Object
@@ -84,7 +84,7 @@ Sub Session_OnStart
     Session("mdm_APP_FOLDER")     = APP_FOLDER ' Store the application folder for the mdm
     
     ' It is required to load the dictionary before we initialize the MAM componant.
-    mam_LoadDictionary objMAM, Session("DEFAULT_LANGUAGE") 
+    mam_LoadDictionary objMAM, Session("PAGE_LANGUAGE") 
 
     
 	  objMAM.Initialize APP_FOLDER
@@ -96,7 +96,7 @@ Sub Session_OnStart
     Set Session(mdm_CACHE_SESSION_NAME)         = objMAM.Cache              ' Store the cache object    
     Set Session("mdm_LOCALIZATION_DICTIONARY")  = objMAM.Dictionary         ' Store the dictionary object for the mdm    
     
-    objMAM.CSR("Language").Value                = Session("DEFAULT_LANGUAGE") ' Default value before we log-in
+    objMAM.CSR("Language").Value                = Session("PAGE_LANGUAGE") ' Default value before we log-in
 
     'Set the server locale
     dim sLCID

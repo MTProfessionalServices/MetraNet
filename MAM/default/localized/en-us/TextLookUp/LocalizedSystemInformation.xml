@@ -22,7 +22,7 @@ The MDM Renderer process use this string to perform a string search/replace.
   </text>        
 
   <text id='DEFAULT_PATH_REPLACE'>
-   <value>[APP_HTTP_PATH]/default/localized/us</value>
+   <value>[APP_HTTP_PATH]/default/localized/en-us</value>
       <description>
 Define where are located the localized folders (images, style, textlookup) for the current user based on his language.
 This string is used by the MDM Renderer process use this string to perform a string search/replace.
@@ -31,7 +31,7 @@ This string is the replaced string. Here we do not hard code mam but we use the 
   </text>
 
     <text id='CUSTOM_PATH_REPLACE'>
-   <value>[APP_HTTP_PATH]/custom/localized/us</value>
+   <value>[APP_HTTP_PATH]/custom/localized/en-us</value>
       <description>Same as CUSTOM_PATH_SEARCH but for the folder custom.</description>
   </text>
 
@@ -66,7 +66,7 @@ This string is the replaced string. Here we do not hard code mam but we use the 
        <![CDATA[
           <html>
             <head>
-              <LINK Localized='TRUE' rel='STYLESHEET' type='text/css' href='/mam/default/localized/us/styles/styles.css'>
+              <LINK Localized='TRUE' rel='STYLESHEET' type='text/css' href='/mam/default/localized/en-us/styles/styles.css'>
             </head>
             <body>
                Unable to process your request.  Please retry your desired action by selecting the menu option again.<br><br>

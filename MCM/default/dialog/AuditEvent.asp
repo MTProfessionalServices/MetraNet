@@ -1,7 +1,7 @@
 <!-- #INCLUDE FILE="../../auth.asp" --> 
 <HTML>
 <HEAD>
-  <LINK rel="STYLESHEET" type="text/css" href="/mcm/default/localized/us/styles/styles.css">
+  <LINK rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/styles.css">
   <title></title>                 
 </HEAD>
 <body>

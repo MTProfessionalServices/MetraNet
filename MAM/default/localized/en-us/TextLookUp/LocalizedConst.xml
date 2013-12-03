@@ -224,9 +224,17 @@
  <text id="TEXT_FOLDERS_IMPERSONETED_BY">
       <value>Accounts Administrated By</value>
     	<description>Folders Owned By</description>
- </text> 
+ </text>
+	  <text id="TEXT_ACCOUNT_OWNER_IMPERSONETED_BY">
+		  <value>Account owner of </value>
+		  <description>owner</description>
+	  </text>
+	  <text id="TEXT_ACCOUNTS_PAID_FOR_BY">
+		  <value>Accounts paid for by </value>
+		  <description></description>
+	  </text>
 
- <text id="TEXT_MOVING_ACCOUNTS">
+	  <text id="TEXT_MOVING_ACCOUNTS">
       <value>Moving Accounts</value>
     	<description>Moving Accounts</description>
  </text> 
@@ -464,9 +472,13 @@
  <text id="TEXT_THIS">
       <value>this</value>
     	<description>this</description>
- </text> 
- 
- <text id="TEXT_ADD_CAPABILITY_TO_ROLE_TITLE">
+ </text>
+	  <text id="TEXT_ACCOUNT_OWNED_BY">
+		  <value>Account owned by</value>
+		  <description></description>
+	  </text>
+
+	  <text id="TEXT_ADD_CAPABILITY_TO_ROLE_TITLE">
       <value>Add [TEXT_KEYTERM_CAPABILITY]</value>
     	<description>Select capability to add to role</description>
  </text> 
@@ -474,9 +486,13 @@
  <text id="TEXT_CAPABILITY_DESCRIPTION">
       <value>[TEXT_KEYTERM_CAPABILITY] Description</value>
     	<description>Capability</description>
- </text> 
+ </text>
+	  <text id="TEXT_MANAGE_ACCOUNT_HIERARCHIES">
+		  <value>Requires Manage Account Hierarchies</value>
+		  <description>Hierarchy</description>
+	  </text>
 
- <text id="TEXT_CAPABILITY_NAME">
+	  <text id="TEXT_CAPABILITY_NAME">
       <value>[TEXT_KEYTERM_CAPABILITY] Name</value>
     	<description>Capability Name</description>
  </text> 
@@ -1796,7 +1812,7 @@
   </text>
 
   <text id="TEXT_EVENT_DETAILS">
-    <value>Details</value>
+    <value>Characters Left for Details</value>
     <description>Caption for event details</description>
   </text>
 

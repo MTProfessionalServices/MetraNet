@@ -781,23 +781,16 @@ namespace MetraTech.DataAccess
 namespace MetraTech.DataAccess.OleDb
 {
   using System;
-  using System.Collections;
   using System.EnterpriseServices;
-  using System.Data;
-  using System.Data.OleDb;
-  using System.Xml;
-  using System.IO;
-
-  using MetraTech.DataAccess;
-
-
+  using DataAccess;
+  
   /// <remarks>
   /// </remarks>
   [ComVisible(true)]
   [Guid("0b5132fc-db52-4c6c-b5b6-930c248c7b6e")]
   public interface IRetrieveCalendar
   {
-    String RetrieveCalendar();
+    String RetrieveCalendar(string calendarName);
   }
 
   /// <remarks>
@@ -809,28 +802,24 @@ namespace MetraTech.DataAccess.OleDb
   public class ServicedComponentTester : ServicedComponent, IRetrieveCalendar
   {
     [AutoComplete]
-    public String RetrieveCalendar()
+    public String RetrieveCalendar(string calendarName)
     {
-      using (IMTServicedConnection conn = ConnectionManager.CreateConnection())
+      using (var conn = ConnectionManager.CreateConnection())
       {
-        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("Queries\\ProductCatalog", "__GET_CALENDAR_BYNAME__"))
+        using (var stmt = conn.CreateAdapterStatement("Queries\\ProductCatalog", "__GET_CALENDAR_BYNAME__"))
         {
-          stmt.AddParam("%%CALENDAR_NAME%%", "AudioConf Setup Calendar");
+          stmt.AddParam("%%CALENDAR_NAME%%", calendarName);
           stmt.AddParam("%%ID_LANG%%", 840);
 
-          using (IMTDataReader reader = stmt.ExecuteReader())
+          using (var reader = stmt.ExecuteReader())
           {
             reader.Read();
-            String str = reader.GetString("nm_name");
+            var str = reader.GetString("nm_name");
             if (reader.Read()) throw new DataAccessException("Received more than two calendars");
             return str;
           }
         }
       }
-    }
-
-    public ServicedComponentTester()
-    {
     }
   }
 
@@ -843,21 +832,15 @@ namespace MetraTech.DataAccess.OleDb
   public class ServicedErrorWrapper : ServicedComponent
   {
     [AutoComplete]
-    public String RetrieveCalendar(bool throwError)
+    public String RetrieveCalendar(bool throwError, string calendarName)
     {
-      ServicedComponentTester test = new ServicedComponentTester();
-      String str = test.RetrieveCalendar();
+      var test = new ServicedComponentTester();
+      var str = test.RetrieveCalendar(calendarName);
       if (throwError)
       {
         throw new DataAccessException("Aborting transaction");
       }
       return str;
     }
-
-    public ServicedErrorWrapper()
-    {
-    }
   }
-
-
 }

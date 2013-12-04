@@ -9,7 +9,7 @@ Este arquivo define as informações do sistema MAM que devem ser localizadas.
               
 
   <text id='DEFAULT_PATH_SEARCH'>
-   <value>/mam/default/localized/us</value>
+   <value>/mam/default/localized/en-us</value>
       <description>
 O caminho definido no arquivo de modelo do diálogo HTML. Neste caso, nós mantemos o /mam/ porque é é codificado desta maneira no arquivo de modelo HTML.
 O processo Renderizador do MDM usa esta string para executar uma pesquisa/substituição da string.
@@ -17,12 +17,12 @@ O processo Renderizador do MDM usa esta string para executar uma pesquisa/substi
   </text>       
 
   <text id='CUSTOM_PATH_SEARCH'>
-   <value>/mam/custom/localized/us</value>
+   <value>/mam/custom/localized/en-us</value>
       <description>Igual a DEFAULT_PATH_SEARCH, mas para a personalização da pasta.</description>
   </text>        
 
   <text id='DEFAULT_PATH_REPLACE'>
-   <value>[APP_HTTP_PATH]/default/localized/pt-BR</value>
+   <value>[APP_HTTP_PATH]/default/localized/en-us</value>
       <description>
 Defina onde estão armazenadas as pastas localizadas (imagens, estilo, pesquisa de texto) do usuário com base nesta linguagem.
 Esta string é usada pelo processo Renderizador do MDM, use esta string para executar uma pesquisa/substituição da string.

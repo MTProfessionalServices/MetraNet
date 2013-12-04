@@ -1,3 +1,9 @@
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Globalization;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("MetraTech.UsageServer.Test, PublicKey=00240000048000009400000006020000002400005253413100040000010001009993f9ecb650f0bf59efed30ebc31bd85224c1b5905a43f1eb8907b85adea02a4a94e3fd66bb594b04066fa4f836e2c09f88bf3ca9ef98ee58cc2a8ece11c804f48306f053932fe4d711c3250b94c769d141bb76a466732466908441d4c27d9d5279758e548b0c038de1f664130e1232c2df09a53c35d1746de7966bdf27e798")]
 
 namespace MetraTech.UsageServer
 {
@@ -6,13 +12,12 @@ namespace MetraTech.UsageServer
 	using System.Diagnostics;
 	using System.Collections;
 	using System.Runtime.InteropServices;
-	using System.Xml;
 
 	using MetraTech;
-	using MetraTech.DataAccess;
-	using MetraTech.Xml;
-	using Rowset = MetraTech.Interop.Rowset;
-
+	using DataAccess;
+	using Xml;
+	using Rowset = Interop.Rowset;
+ 
 	[Guid("F8F2FE64-3ED3-30C2-A676-5C282944A73B")]
 	public enum UsageIntervalStatus
 	{
@@ -37,10 +42,16 @@ namespace MetraTech.UsageServer
 		/// Constructor.
 		/// </summary>
 		DateTime mPastStartDate;
+
 		public UsageIntervalManager()
 		{
-			mLogger = new Logger("[UsageServer]");
+			_mLogger = new Logger("[UsageServer]");
 		}
+
+    internal UsageIntervalManager(ILogger logger)
+    {
+      _mLogger = logger;
+    }
 
 		/// <summary>
 		/// Synchronizes the database with interval settings in the usageserver.xml file
@@ -56,7 +67,7 @@ namespace MetraTech.UsageServer
 		/// </summary>
 		public void Synchronize(string configFile)
 		{
-			mLogger.LogDebug("Synchronizing interval settings from {0} configuration file", configFile);
+			_mLogger.LogDebug("Synchronizing interval settings from {0} configuration file", configFile);
 
 			// reads in the config file
 			Hashtable gracePeriods;
@@ -72,7 +83,7 @@ namespace MetraTech.UsageServer
 			
 			// synchronizes the database
 			bool changeDetected = false;
-			using(IMTConnection conn = ConnectionManager.CreateConnection(@"Queries\UsageServer"))
+			using(var conn = DbConnectionFactory.CreateDbConnection())
 			{
 				if (WriteGracePeriodsToUsageCycleTypeTable(conn, gracePeriods))
 					changeDetected = true;
@@ -82,7 +93,7 @@ namespace MetraTech.UsageServer
 			}
 			
 			if (!changeDetected)
-				mLogger.LogDebug("No changes to interval settings were detected");
+				_mLogger.LogDebug("No changes to interval settings were detected");
 		}
 
 		/// <summary>
@@ -90,49 +101,19 @@ namespace MetraTech.UsageServer
 		/// </summary>
 		public void CreateReferenceIntervals()
 		{
-			DateTime now = MetraTech.MetraTime.Now;
+			var now = MetraTime.Now;
 
-			using(IMTConnection conn = ConnectionManager.CreateConnection(@"Queries\UsageServer"))
+			using(var conn = DbConnectionFactory.CreateDbConnection())
 			{
-                DateTime lastDate;
-                using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("Queries\\UsageServer", "__GET_LATEST_PC_INTERVAL_DATE__"))
-                {
+        var lastDate = ComputeIntervalLastDate(conn);
 
-                    using (IMTDataReader reader = stmt.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            // there are rows returned
-                            lastDate = reader.GetDateTime("Date");
-
-                            // determine if we need more intervals
-                            if (now.AddMonths(18) < lastDate)
-                                return;					// at least 1.5 years worth of intervals
-                        }
-                        else
-                    {
-                        // reads in the config file
-                        string configFile = UsageServerCommon.UsageServerConfigFile;
-                        Hashtable gracePeriods;
-                        int advanceIntervalCreationDays;
-                        try
-                        {
-                            ReadConfigFile(configFile, out gracePeriods, out advanceIntervalCreationDays);
-                        }
-                        catch (MTXmlException e)
-                        {
-                            throw new InvalidConfigurationException(String.Format("XML parsing error in file: {0}", configFile), e);
-                        }
-                        lastDate = mPastStartDate;
-
-                    }
-                    }
-                }
-
-				// start one day after the last date found
-				DateTime startDate = lastDate.AddDays(1);
+        if (!lastDate.HasValue)
+          return;
+			  
+			  // start one day after the last date found
+				var startDate = lastDate.Value.AddDays(1);
 				// one year, inclusive
-				DateTime endDate = startDate.AddYears(1);
+				var endDate = startDate.AddYears(1);
 
 				// we're either up to date but need to add more future intervals
 				// or past intervals are missing
@@ -146,7 +127,7 @@ namespace MetraTech.UsageServer
 				{
 					// add past intervals.
 					// intervals need to be added year by year so that the IDs remain consistent accross deployments
-					DateTime futureDate = now.AddYears(1);
+					var futureDate = now.AddYears(1);
 					while (startDate < futureDate)
 					{
 						CreateReferenceIntervals(startDate, endDate);
@@ -159,86 +140,120 @@ namespace MetraTech.UsageServer
 			}
 		}
 
-		/// <summary>
-		/// Creates all possible reference intervals between the two given dates.
-		/// </summary>
-		public void CreateReferenceIntervals(DateTime startDate, DateTime endDate)
-		{
-			mLogger.LogInfo("Creating reference intervals between {0} and {1}",
-				startDate, endDate);
+	  private DateTime? ComputeIntervalLastDate(IMTConnection conn)
+	  {
+	    DateTime lastDate;
+	    using (var stmt = conn.CreateAdapterStatement("Queries\\UsageServer", "__GET_LATEST_PC_INTERVAL_DATE__"))
+	    {
+	      using (var reader = stmt.ExecuteReader())
+	      {
+	        if (reader.Read())
+	        {
+	          // there are rows returned
+	          lastDate = reader.GetDateTime("Date");
+            
+            // determine if we need more intervals
+            if (MetraTime.Now.AddMonths(18) < lastDate)
+              return null;					// at least 1.5 years worth of intervals
+	        }
+	        else
+	        {
+	          // reads in the config file
+	          const string configFile = UsageServerCommon.UsageServerConfigFile;
+	          try
+	          {
+	            Hashtable gracePeriods;
+	            int advanceIntervalCreationDays;
+	            ReadConfigFile(configFile, out gracePeriods, out advanceIntervalCreationDays);
+	          }
+	          catch (MTXmlException e)
+	          {
+	            throw new InvalidConfigurationException(String.Format("XML parsing error in file: {0}", configFile), e);
+	          }
+	          lastDate = mPastStartDate;
+	        }
+	      }
+	    }
+	    return lastDate;
+	  }
 
-			ICycleType [] cycleTypes = UsageCycleTypes;
+	  /// <summary>
+	  /// Creates all possible reference intervals between the two given dates.
+	  /// </summary>
+	  public ICollection<UsageInterval> CreateReferenceIntervals(DateTime startDate, DateTime endDate)
+	  {
+	    _mLogger.LogInfo("Creating reference intervals between {0} and {1}",
+	                    startDate, endDate);
 
-			int intervalsAdded = 0;
+	    var cycleTypes = UsageCycleTypes;
 
-			using (IBulkInsert bulkInsert = BulkInsertManager.CreateBulkInsert("NetMeter"))
-			{
-				bulkInsert.PrepareForInsert("t_pc_interval", 1000);
+	    var intervals = new List<UsageInterval>();
 
-				using(IMTConnection conn = ConnectionManager.CreateConnection(@"Queries\UsageServer"))
-				{
-					int intervalID = GetNextIntervalID(conn);
+	    using (var bulkInsert = BulkInsertFactory.CreateBulkInsert())
+	    {
+	      bulkInsert.PrepareForInsert("t_pc_interval", 1000);
 
-                    using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("Queries\\UsageServer", "__GET_ALL_USAGE_CYCLES__"))
-                    {
-                        using (IMTDataReader reader = stmt.ExecuteReader())
-                        {
-                            Cycle cycle = new Cycle();
-                            while (reader.Read())
-                            {
-                                cycle.Clear();
-                                int rawCycleType = reader.GetInt32((int)CycleQueryColumns.IDCycleType);
+	      using (var conn = DbConnectionFactory.CreateDbConnection())
+	      {
+	        var intervalId = GetNextIntervalId(conn);
 
+	        using (var stmt = conn.CreateAdapterStatement("Queries\\UsageServer", "__GET_ALL_USAGE_CYCLES__"))
+	        {
+	          using (var reader = stmt.ExecuteReader())
+	          {
+	            var cycle = new Cycle();
+	            while (reader.Read())
+	            {
+	              cycle.Clear();
+	              var rawCycleType = reader.GetInt32((int) CycleQueryColumns.IDCycleType);
 
-                                int cycleID = reader.GetInt32((int)CycleQueryColumns.IDUsageCycle);
+	              var cycleId = reader.GetInt32((int) CycleQueryColumns.IDUsageCycle);
 
-                                //
-                                // see if both the cycle ID and cycle type are supported
-                                //
-                                if (CycleUtils.IsDiscontinuedCycleType(rawCycleType))
-                                {
-                                    mLogger.LogDebug("Skipping unsupported cycle {0}", rawCycleType);
-                                    continue;
-                                }
+	              //
+	              // see if both the cycle ID and cycle type are supported
+	              //
+	              if (CycleUtils.IsDiscontinuedCycleType(rawCycleType))
+	              {
+	                _mLogger.LogDebug("Skipping unsupported cycle {0}", rawCycleType);
+	                continue;
+	              }
 
-                                if (!CycleUtils.IsSupportedCycleType(rawCycleType))
-                                    throw new UsageServerException(String.Format("Unsupported cycle type {0}", rawCycleType));
+	              if (!CycleUtils.IsSupportedCycleType(rawCycleType))
+	                throw new UsageServerException(String.Format("Unsupported cycle type {0}", rawCycleType));
 
-                                if (CycleUtils.IsDiscontinuedCycleID(cycleID))
-                                {
-                                    mLogger.LogDebug("Skipping unsupported cycle ID {0}", cycleID);
-                                    continue;
-                                }
+	              if (CycleUtils.IsDiscontinuedCycleId(cycleId))
+	              {
+	                _mLogger.LogDebug("Skipping unsupported cycle ID {0}", cycleId);
+	                continue;
+	              }
 
-                                //
-                                // cycle type and ID are supported
-                                //
-                                // populate all fields from the query
-                                cycle.Populate(reader);
+	              //
+	              // cycle type and ID are supported
+	              //
+	              // populate all fields from the query
+	              cycle.Populate(reader);
 
-                                ICycleType cycleType = cycleTypes[rawCycleType];
-                                Debug.Assert(cycleType != null);
+	              var cycleType = cycleTypes[rawCycleType];
+	              Debug.Assert(cycleType != null);
 
-                                // cycles coming back from the query should always be in canonical form
-                                Debug.Assert(cycleType.IsCanonical(cycle));
+	              // cycles coming back from the query should always be in canonical form
+	              Debug.Assert(cycleType.IsCanonical(cycle));
 
-                                intervalsAdded += CreateReferenceCycles(bulkInsert,
-                                    ref intervalID,
-                                    cycleType, cycle,
-                                    startDate, endDate);
-                            }
-                        }
-                    }
-				}
+	              intervals.AddRange(CreateReferenceCycles(bulkInsert, ref intervalId, cycleType, cycle,
+	                                                       startDate, endDate));
+	            }
+	          }
+	        }
+	      }
+	      // write any remaining data
+	      bulkInsert.ExecuteBatch();
+	    }
+	    _mLogger.LogInfo("Added {0} intervals", intervals.Count);
 
-				// write any remaining data
-				bulkInsert.ExecuteBatch();
-			}
+	    return intervals;
+	  }
 
-			mLogger.LogInfo("Added {0} intervals", intervalsAdded);
-		}
-
-		/// <summary>
+	  /// <summary>
 		/// Creates any necessary usage intervals in the present/future.
 		/// </summary>
 		public int CreateUsageIntervals()
@@ -254,14 +269,12 @@ namespace MetraTech.UsageServer
 		/// </summary>
 		public ArrayList CreateUsageIntervals(bool pretend)
 		{
-			DateTime now = MetraTime.Now;
-
 			if (pretend)
-				mLogger.LogDebug("Pretending to create new usage intervals...");
+				_mLogger.LogDebug("Pretending to create new usage intervals...");
 			else
-				mLogger.LogInfo("Creating new usage intervals...");
+				_mLogger.LogInfo("Creating new usage intervals...");
 
-			using(IMTConnection conn = ConnectionManager.CreateConnection(@"Queries\UsageServer"))
+			using(var conn = DbConnectionFactory.CreateDbConnection())
 			{
                 ArrayList intervals;
                 using (IMTCallableStatement stmt = conn.CreateCallableStatement("CreateUsageIntervals"))
@@ -277,7 +290,7 @@ namespace MetraTech.UsageServer
 				// logs the newly created intervals
 				foreach (UsageInterval interval in intervals)
 					if (!pretend)
-						mLogger.LogDebug("Usage interval {0} was created", interval.IntervalID);
+						_mLogger.LogDebug("Usage interval {0} was created", interval.IntervalID);
 
 				return intervals;
 			}
@@ -441,7 +454,7 @@ namespace MetraTech.UsageServer
 		public void GetUsageIntervalInfo(int intervalID, out DateTime startDate,
 			out DateTime endDate, out string status)
 		{
-            using (IMTConnection conn = ConnectionManager.CreateConnection(@"Queries\UsageServer"))
+            using (IMTConnection conn = DbConnectionFactory.CreateDbConnection())
             {
                 using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("Queries\\UsageServer",
                     "__GET_USAGE_INTERVAL_INFO__"))
@@ -463,15 +476,15 @@ namespace MetraTech.UsageServer
 
     public IUsageInterval GetUsageInterval(int intervalID)
     {
-      IUsageInterval usageInterval = null;
+      IUsageInterval usageInterval;
 
-      using (IMTConnection conn = ConnectionManager.CreateConnection(@"Queries\UsageServer"))
+      using (var conn = DbConnectionFactory.CreateDbConnection())
       {
-          using (IMTAdapterStatement stmt = conn.CreateAdapterStatement("Queries\\UsageServer", "__GET_USAGE_INTERVAL_DATA_FOR_BILLGROUPS__"))
+          using (var stmt = conn.CreateAdapterStatement("Queries\\UsageServer", "__GET_USAGE_INTERVAL_DATA_FOR_BILLGROUPS__"))
           {
               stmt.AddParam("%%ID_INTERVAL%%", intervalID);
 
-              using (IMTDataReader reader = stmt.ExecuteReader())
+              using (var reader = stmt.ExecuteReader())
               {
                   if (!reader.Read())
                       throw new UsageServerException(String.Format("Usage interval {0} not found!", intervalID));
@@ -492,52 +505,37 @@ namespace MetraTech.UsageServer
     /// <returns></returns>
     public static IUsageInterval GetUsageInterval(Rowset.IMTSQLRowset rowset)
     {
-      IUsageInterval usageInterval = new UsageInterval((int)rowset.get_Value("IntervalID"));
-      usageInterval.CycleID = (int)rowset.get_Value("CycleID");
+      IUsageInterval usageInterval = new UsageInterval((int)rowset.Value["IntervalID"]);
+      usageInterval.CycleID = (int)rowset.Value["CycleID"];
       usageInterval.CycleType = 
-        CycleUtils.ParseCycleType((string)rowset.get_Value("CycleType"));
-      usageInterval.StartDate = (DateTime)rowset.get_Value("StartDate");
-      usageInterval.EndDate = (DateTime)rowset.get_Value("EndDate");
+        CycleUtils.ParseCycleType((string)rowset.Value["CycleType"]);
+      usageInterval.StartDate = (DateTime)rowset.Value["StartDate"];
+      usageInterval.EndDate = (DateTime)rowset.Value["EndDate"];
       usageInterval.TotalIntervalOnlyAdapterCount = 
-        (int)rowset.get_Value("TotalIntervalOnlyAdapterCnt");
+        (int)rowset.Value["TotalIntervalOnlyAdapterCnt"];
       // Ignores roots and check points
       usageInterval.TotalBillingGroupAdapterCount = 
-        (int)rowset.get_Value("TotalBillGrpAdapterCnt");
+        (int)rowset.Value["TotalBillGrpAdapterCnt"];
       usageInterval.FailedAdapterCount = 
-        (int)rowset.get_Value("FailedBillGrpAdapterCnt") + 
-        (int)rowset.get_Value("FailedIntervalOnlyAdapterCnt");
+        (int)rowset.Value["FailedBillGrpAdapterCnt"] + 
+        (int)rowset.Value["FailedIntervalOnlyAdapterCnt"];
       usageInterval.SucceededAdapterCount = 
-        (int)rowset.get_Value("SucceedBillGrpAdapterCnt") + 
-        (int)rowset.get_Value("SucceedIntervalOnlyAdapterCnt");
+        (int)rowset.Value["SucceedBillGrpAdapterCnt"] + 
+        (int)rowset.Value["SucceedIntervalOnlyAdapterCnt"];
       usageInterval.OpenUnassignedAccountsCount = 
-        (int)rowset.get_Value("OpenUnassignedAcctsCnt");
+        (int)rowset.Value["OpenUnassignedAcctsCnt"];
       usageInterval.HardClosedUnassignedAccountsCount = 
-        (int)rowset.get_Value("HardClosedUnassignedAcctsCnt");
+        (int)rowset.Value["HardClosedUnassignedAcctsCnt"];
       usageInterval.Progress = 0; // (int)rowset.get_Value("Progress");
-      string hasBeenMaterialized = (string)rowset.get_Value("HasBeenMaterialized");
-      if (String.Compare(hasBeenMaterialized, "Y", true) == 0)
-      {
-        usageInterval.HasBeenMaterialized = true;
-      }
-      else 
-      {
-        usageInterval.HasBeenMaterialized = false;
-      }
+      var hasBeenMaterialized = (string)rowset.Value["HasBeenMaterialized"];
+      usageInterval.HasBeenMaterialized = String.Compare(hasBeenMaterialized, "Y", StringComparison.OrdinalIgnoreCase) == 0;
 
-      string usageIntervalStatus = (string)rowset.get_Value("Status");
-      if (String.Compare(usageIntervalStatus, "O", true) == 0)
-      {
-        usageInterval.IsBlockedForNewAccounts = false;
-      }
-      else 
-      {
-        usageInterval.IsBlockedForNewAccounts = true;
-      }
+      var usageIntervalStatus = (string)rowset.Value["Status"];
+      usageInterval.IsBlockedForNewAccounts = String.Compare(usageIntervalStatus, "O", StringComparison.OrdinalIgnoreCase) != 0;
       
-      usageInterval.Status = 
-        UsageIntervalManager.ParseIntervalStatus(usageIntervalStatus);
+      usageInterval.Status = ParseIntervalStatus(usageIntervalStatus);
 
-      usageInterval.TotalPayerAccounts = (int)rowset.get_Value("TotalPayingAcctsForInterval");
+      usageInterval.TotalPayerAccounts = (int)rowset.Value["TotalPayingAcctsForInterval"];
 
       return usageInterval;
     }
@@ -572,28 +570,13 @@ namespace MetraTech.UsageServer
         usageInterval.HardClosedUnassignedAccountsCount = reader.GetInt32("HardClosedUnassignedAcctsCnt");
       }
       usageInterval.Progress = 0; // reader.GetInt32("Progress");
-      string hasBeenMaterialized = reader.GetString("HasBeenMaterialized");
-      if (String.Compare(hasBeenMaterialized, "Y", true) == 0)
-      {
-        usageInterval.HasBeenMaterialized = true;
-      }
-      else 
-      {
-        usageInterval.HasBeenMaterialized = false;
-      }
+      var hasBeenMaterialized = reader.GetString("HasBeenMaterialized");
+      usageInterval.HasBeenMaterialized = String.Compare(hasBeenMaterialized, "Y", StringComparison.OrdinalIgnoreCase) == 0;
 
       string usageIntervalStatus = reader.GetString("Status");
-      if (String.Compare(usageIntervalStatus, "O", true) == 0)
-      {
-        usageInterval.IsBlockedForNewAccounts = false;
-      }
-      else 
-      {
-        usageInterval.IsBlockedForNewAccounts = true;
-      }
+      usageInterval.IsBlockedForNewAccounts = String.Compare(usageIntervalStatus, "O", StringComparison.OrdinalIgnoreCase) != 0;
       
-      usageInterval.Status = 
-        UsageIntervalManager.ParseIntervalStatus(usageIntervalStatus);
+      usageInterval.Status = ParseIntervalStatus(usageIntervalStatus);
 
       usageInterval.TotalPayerAccounts = 0;
       if (!reader.IsDBNull("TotalPayingAcctsForInterval")) 
@@ -627,20 +610,20 @@ namespace MetraTech.UsageServer
 
     public static UsageIntervalStatus ParseIntervalStatus(string intervalStatus)
     {
-      if (String.Compare(intervalStatus, "O", true) == 0)
+      if (String.Compare(intervalStatus, "O", StringComparison.OrdinalIgnoreCase) == 0)
       {
         return UsageIntervalStatus.Open;
       }
-      if (String.Compare(intervalStatus, "H", true) == 0)
+      if (String.Compare(intervalStatus, "H", StringComparison.OrdinalIgnoreCase) == 0)
       {
         return UsageIntervalStatus.HardClosed;
       }
-      if (String.Compare(intervalStatus, "B", true) == 0)
+      if (String.Compare(intervalStatus, "B", StringComparison.OrdinalIgnoreCase) == 0)
       {
         return UsageIntervalStatus.Blocked;
       }
     
-      throw new System.ArgumentException
+      throw new ArgumentException
         (String.Format("Invalid Usage Interval Status {0}", intervalStatus));
     }
 		/// <summary>
@@ -650,9 +633,9 @@ namespace MetraTech.UsageServer
 		{
 			get
 			{
-				using(IMTConnection conn = ConnectionManager.CreateConnection(@"Queries\UsageServer"))
+				using(IMTConnection conn = DbConnectionFactory.CreateDbConnection())
 				{
-					return ReadDBAdvanceIntervalCreationDays(conn);
+					return ReadDbAdvanceIntervalCreationDays(conn);
 				}
 			}
 		}
@@ -665,18 +648,15 @@ namespace MetraTech.UsageServer
 		{
 			get
 			{
-                using (IMTConnection conn = ConnectionManager.CreateConnection(@"Queries\UsageServer"))
+                using (var conn = DbConnectionFactory.CreateDbConnection())
                 {
-                    using (IMTStatement stmt = conn.CreateStatement("SELECT dt_last_interval_creation FROM t_usage_server"))
+                    using (var stmt = conn.CreateStatement("SELECT dt_last_interval_creation FROM t_usage_server"))
                     {
-                        using (IMTDataReader reader = stmt.ExecuteReader())
+                        using (var reader = stmt.ExecuteReader())
                         {
                             if (!reader.Read())
                                 throw new UsageServerException("Table t_usage_interval is missing a row!", true);
-                            if (reader.IsDBNull(0))
-                                return DateTime.MinValue;
-                            else
-                                return reader.GetDateTime(0);
+                            return reader.IsDBNull(0) ? DateTime.MinValue : reader.GetDateTime(0);
                         }
                     }
                 }
@@ -689,10 +669,10 @@ namespace MetraTech.UsageServer
 		/// </summary>
 		public int GetSoftCloseGracePeriod(CycleType cycleType)
 		{
-			using(IMTConnection conn = ConnectionManager.CreateConnection(@"Queries\UsageServer"))
+			using(var conn = DbConnectionFactory.CreateDbConnection())
 			{
-				Hashtable gracePeriods = ReadGracePeriodsFromUsageCycleTypeTable(conn);
-				int days = (int) gracePeriods[cycleType];
+				var gracePeriods = ReadGracePeriodsFromUsageCycleTypeTable(conn);
+				var days = (int) gracePeriods[cycleType];
 				if (days == -1)
 					throw new SoftCloseGracePeriodDisabledException(cycleType);
 
@@ -706,14 +686,11 @@ namespace MetraTech.UsageServer
 		/// </summary>
 		public bool IsSoftCloseGracePeriodEnabled(CycleType cycleType)
 		{
-			using(IMTConnection conn = ConnectionManager.CreateConnection(@"Queries\UsageServer"))
+			using(var conn = DbConnectionFactory.CreateDbConnection())
 			{
-				Hashtable gracePeriods = ReadGracePeriodsFromUsageCycleTypeTable(conn);
-				int days = (int) gracePeriods[cycleType];
-				if (days == -1) // disabled
-					return false;
-
-				return true;
+				var gracePeriods = ReadGracePeriodsFromUsageCycleTypeTable(conn);
+				var days = (int) gracePeriods[cycleType];
+				return days != -1;
 			}
 		}
 
@@ -743,7 +720,7 @@ namespace MetraTech.UsageServer
       if (!config.isGracePeriodAnnuallyEnabled)      gracePeriods[CycleType.Annual] = -1;
       if (!config.isGracePeriodSemiAnnuallyEnabled)  gracePeriods[CycleType.SemiAnnual] = -1;
 
-      MTXmlDocument doc = new MTXmlDocument();
+      var doc = new MTXmlDocument();
 
       if (configFile == UsageServerCommon.UsageServerConfigFile)
         doc.LoadConfigFile(configFile);
@@ -764,90 +741,89 @@ namespace MetraTech.UsageServer
 				
 		}
 
-		/// <summary>
-		/// Synchronizes grace period information in the database with settings from the config file
-		/// </summary>
-		private bool WriteGracePeriodsToUsageCycleTypeTable(IMTConnection conn, Hashtable gracePeriods)
-		{
-			// reads the grace periods from the database
-			Hashtable dbGracePeriods = ReadGracePeriodsFromUsageCycleTypeTable(conn);
-			
-			bool changeDetected = false;
-            string updateQuery = "UPDATE t_usage_cycle_type SET n_grace_period = ? WHERE id_cycle_type = ?";
+	  /// <summary>
+	  /// Synchronizes grace period information in the database with settings from the config file
+	  /// </summary>
+	  private bool WriteGracePeriodsToUsageCycleTypeTable(IMTConnection conn, Hashtable gracePeriods)
+	  {
+	    // reads the grace periods from the database
+	    Hashtable dbGracePeriods = ReadGracePeriodsFromUsageCycleTypeTable(conn);
 
-            using (IMTPreparedStatement stmt = conn.CreatePreparedStatement(updateQuery))
-            {
-                foreach (DictionaryEntry gracePeriod in gracePeriods)
-                {
-                    CycleType cycleType = (CycleType)gracePeriod.Key;
-                    int days = (int)gracePeriod.Value;
-                    int dbDays = (int)dbGracePeriods[cycleType];
+	    var changeDetected = false;
+	    const string updateQuery = "UPDATE t_usage_cycle_type SET n_grace_period = ? WHERE id_cycle_type = ?";
 
-                    // database doesn't match config file
-                    if (days != dbDays)
-                    {
-                        mLogger.LogInfo("{0} grace period setting has changed from {1} to {2}. Updating database...",
-                            cycleType, dbDays == -1 ? "disabled" : dbDays.ToString(),
-                            days == -1 ? "disabled" : String.Format("{0} days", days));
+	    using (var stmt = conn.CreatePreparedStatement(updateQuery))
+	    {
+	      foreach (DictionaryEntry gracePeriod in gracePeriods)
+	      {
+	        var cycleType = (CycleType) gracePeriod.Key;
+	        var days = (int) gracePeriod.Value;
+	        var dbDays = (int) dbGracePeriods[cycleType];
 
-                        // updates the cycle type entry
-                        stmt.ClearParams();
-                        if (days == -1) // the grace period has been disabled
-                            stmt.AddParam(MTParameterType.Integer, DBNull.Value);
-                        else
-                            stmt.AddParam(MTParameterType.Integer, days);
-                        stmt.AddParam(MTParameterType.Integer, (int)cycleType);
-                        stmt.ExecuteNonQuery();
+	        // database doesn't match config file
+	        if (days == dbDays) continue;
+	        _mLogger.LogInfo("{0} grace period setting has changed from {1} to {2}. Updating database...",
+	                         cycleType, dbDays == -1 ? "disabled" : dbDays.ToString(CultureInfo.InvariantCulture),
+	                         days == -1 ? "disabled" : String.Format("{0} days", days));
 
-                        changeDetected = true;
-                    }
-                }
-            }
+	        // updates the cycle type entry
+	        stmt.ClearParams();
+	        if (days == -1) // the grace period has been disabled
+	          stmt.AddParam(MTParameterType.Integer, DBNull.Value);
+	        else
+	          stmt.AddParam(MTParameterType.Integer, days);
+	        stmt.AddParam(MTParameterType.Integer, (int) cycleType);
+	        stmt.ExecuteNonQuery();
 
-			return changeDetected;
-		}
+	        changeDetected = true;
+	      }
+	    }
 
-		/// <summary>
-		/// Read grace periods settings from the database
-		/// </summary>
-		private Hashtable ReadGracePeriodsFromUsageCycleTypeTable(IMTConnection conn)
-		{
-			Hashtable gracePeriods = new Hashtable();
+	    return changeDetected;
+	  }
 
-            using (IMTStatement stmt =
-                conn.CreateStatement("SELECT id_cycle_type, n_grace_period FROM t_usage_cycle_type WHERE id_cycle_type <> 2"))
-            {
+	  /// <summary>
+	  /// Read grace periods settings from the database
+	  /// </summary>
+	  private static Hashtable ReadGracePeriodsFromUsageCycleTypeTable(IMTConnection conn)
+	  {
+	    var gracePeriods = new Hashtable();
 
-                using (IMTDataReader reader = stmt.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        CycleType cycleType = (CycleType)reader.GetInt32(0);
+	    using (
+	      var stmt =
+	        conn.CreateStatement("SELECT id_cycle_type, n_grace_period FROM t_usage_cycle_type WHERE id_cycle_type <> 2"))
+	    {
 
-                        int days = -1;
-                        if (!reader.IsDBNull(1))
-                            days = reader.GetInt32(1);
+	      using (IMTDataReader reader = stmt.ExecuteReader())
+	      {
+	        while (reader.Read())
+	        {
+	          var cycleType = (CycleType) reader.GetInt32(0);
 
-                        gracePeriods[cycleType] = days;
-                    }
-                }
-            }
+	          int days = -1;
+	          if (!reader.IsDBNull(1))
+	            days = reader.GetInt32(1);
 
-			return gracePeriods;
-		}
+	          gracePeriods[cycleType] = days;
+	        }
+	      }
+	    }
 
-		/// <summary>
+	    return gracePeriods;
+	  }
+
+	  /// <summary>
 		/// Synchronizes advance interval creation setting in the database with the setting in the config file
 		/// </summary>
 		private bool SynchronizeAdvanceIntervalCreationDays(IMTConnection conn, int advanceIntervalCreationDays)
 		{
 			// reads the advance interval creation days setting from the database
-			int dbDays = ReadDBAdvanceIntervalCreationDays(conn);
+			int dbDays = ReadDbAdvanceIntervalCreationDays(conn);
 
 			// database doesn't match config file
 			if (dbDays != advanceIntervalCreationDays)
 			{
-				mLogger.LogInfo("Advance interval creation setting has changed from {0} to {1} days. Updating database...",
+				_mLogger.LogInfo("Advance interval creation setting has changed from {0} to {1} days. Updating database...",
 					dbDays, advanceIntervalCreationDays);
 				
 				// updates the cycle type entry
@@ -868,7 +844,7 @@ namespace MetraTech.UsageServer
 		/// <summary>
 		/// Reads the advance interval creation setting from the database
 		/// </summary>
-        private int ReadDBAdvanceIntervalCreationDays(IMTConnection conn)
+    private static int ReadDbAdvanceIntervalCreationDays(IMTConnection conn)
         {
             using (IMTStatement stmt = conn.CreateStatement("SELECT n_adv_interval_creation FROM t_usage_server"))
             {
@@ -886,19 +862,25 @@ namespace MetraTech.UsageServer
 	  /// <summary>
 	  /// Helper to used to create reference cycles for a given cycle type.
 	  /// </summary>
-	  private int CreateReferenceCycles(IBulkInsert bulkInsert, ref int intervalID,
+    private IEnumerable<UsageInterval> CreateReferenceCycles(IBulkInsert bulkInsert, ref int intervalId,
 	                                    ICycleType cycleType,
-	                                    Cycle cycle,
+	                                    ICycle cycle,
 	                                    DateTime startDate, DateTime endDate)
 	  {
+      if (bulkInsert==null)
+        throw new ArgumentNullException("bulkInsert");
+      if (cycleType == null)
+        throw new ArgumentNullException("cycleType");
+      if (cycle==null)
+        throw new ArgumentNullException("cycle");
+
+	    var intervals = new List<UsageInterval>();
 	    // The epoch is the reference date for the interval key calc.
-	    DateTime epoch = new DateTime(1970, 1, 1);
-	    DateTime refDate = startDate;
-	    int intervalsAdded = 0;
+	    var epoch = new DateTime(1970, 1, 1);
+	    var refDate = startDate;
 	    while (refDate < endDate)
 	    {
 	      DateTime intervalStart, intervalEnd;
-
 	      cycleType.ComputeStartAndEndDate(refDate, cycle, out intervalStart, out intervalEnd);
 
 	      if (intervalStart >= startDate)
@@ -917,13 +899,20 @@ namespace MetraTech.UsageServer
 	        // Upper two bytes is number of days from the epoch 1970/01/01
 	        //						 to the end of the interval.
 	        // Lower two bytes is the CycleID
-	        intervalID = (65536*(intervalEnd - epoch).Days) + cycle.CycleID;
-	        bulkInsert.SetValue(1, MTParameterType.Integer, intervalID);
+	        intervalId = (65536*(intervalEnd - epoch).Days) + cycle.CycleID;
+
+	        intervals.Add(new UsageInterval(intervalId)
+	          {
+	            CycleType = cycle.CycleType,
+	            StartDate = intervalStart,
+	            EndDate = intervalEnd,
+	          });
+
+	        bulkInsert.SetValue(1, MTParameterType.Integer, intervalId);
 	        bulkInsert.SetValue(2, MTParameterType.Integer, cycle.CycleID);
 	        bulkInsert.SetValue(3, MTParameterType.DateTime, intervalStart);
 	        bulkInsert.SetValue(4, MTParameterType.DateTime, intervalEnd);
 	        bulkInsert.AddBatch();
-	        intervalsAdded++;
 
 	        // Execute the batch every 1k rows
 	        if (bulkInsert.BatchCount()%1000 == 0)
@@ -935,21 +924,20 @@ namespace MetraTech.UsageServer
 	      {
 	        refDate = refDate.AddDays(1);
 	      }
-
 	    }
-	    return intervalsAdded;
+	    return intervals;
 	  }
 
 
 	  /// <summary>
 		/// Retrieve the next interval ID to be used.
 		/// </summary>
-        private int GetNextIntervalID(IMTConnection conn)
+        private static int GetNextIntervalId(IMTConnection conn)
         {
-            using (IMTStatement stmt = conn.CreateStatement("select max(id_interval) from t_pc_interval"))
+            using (var stmt = conn.CreateStatement("select max(id_interval) from t_pc_interval"))
             {
 
-                using (IMTDataReader reader = stmt.ExecuteReader())
+                using (var reader = stmt.ExecuteReader())
                 {
                     if (!reader.Read())
                         Debug.Assert(false, "No rows returned from query - unexpected");
@@ -957,9 +945,7 @@ namespace MetraTech.UsageServer
                     if (reader.IsDBNull(0))
                         // null returned - always use 1 for the first ID
                         return 1;
-                    else
-                        // return 1 past the max
-                        return reader.GetInt32(0) + 1;
+                  return reader.GetInt32(0) + 1;
                 }
             }
         }
@@ -967,7 +953,7 @@ namespace MetraTech.UsageServer
 		/// <summary>
 		/// Array of usage cycles types, indexed by CycleType.
 		/// </summary>
-		private ICycleType [] UsageCycleTypes
+		private static ICycleType [] UsageCycleTypes
 		{
 			get
 			{
@@ -981,7 +967,7 @@ namespace MetraTech.UsageServer
 				// 8	MTStdUsageCycle.MTStdAnnually.1					Annually
         // 9	MTStdUsageCycle.MTStdSemiAnnually.1			SemiAnnually
 
-				ICycleType [] cycleTypes = new ICycleType[9 + 1];
+				var cycleTypes = new ICycleType[9 + 1];
 				cycleTypes[0] = null;
 				cycleTypes[(int) CycleType.Monthly] = new MonthlyCycleType();
 
@@ -1003,9 +989,42 @@ namespace MetraTech.UsageServer
 		// 23:59:59 in seconds
 		private const int EndOfDaySeconds = (23 * 60 * 60) + (59 * 60) + 59;
 
-		private Logger mLogger;
+		private ILogger _mLogger;
 	}
 
+  internal static class BulkInsertFactory
+  {
+    private static IBulkInsert _bulkInsert;
+
+    //This method is used only for test purpose
+    // to create a stub of IBulkInsert
+    public static void SetBulkInsert(IBulkInsert bulkInsert)
+    {
+      _bulkInsert = bulkInsert;
+    }
+
+    public static IBulkInsert CreateBulkInsert()
+    {
+      return _bulkInsert ?? BulkInsertManager.CreateBulkInsert("NetMeter");
+    }
+  }
+
+  internal static class DbConnectionFactory
+  {
+    private static IMTConnection _connection;
+
+    //This method is used only for test purpose
+    // to create a stub of IMTConnection
+    public static void SetDbConnection(IMTConnection connection)
+    {
+      _connection = connection;
+    }
+
+    public static IMTConnection CreateDbConnection()
+    {
+      return _connection ?? ConnectionManager.CreateConnection(@"Queries\UsageServer");
+    }
+  }
 
   /// <summary>
   ///   Specification of a time span in terms of a start date and and end date.
@@ -1144,7 +1163,7 @@ namespace MetraTech.UsageServer
 	[Guid("f58d3086-04ce-4348-9a17-b7b7face804b")]
 	public class UsageIntervalFilter : IUsageIntervalFilter
 	{
-    Logger mLogger;
+	  readonly Logger _mLogger;
 
     public Rowset.IMTSQLRowset GetRowset()
     {
@@ -1153,7 +1172,7 @@ namespace MetraTech.UsageServer
 
 		public UsageIntervalFilter()
 		{
-      mLogger = new Logger("[UsageServer]");
+      _mLogger = new Logger("[UsageServer]");
 			ClearCriteria();
 		}
 		public void ClearCriteria()
@@ -1266,7 +1285,7 @@ namespace MetraTech.UsageServer
       Rowset.IMTSQLRowset rowset = new Rowset.MTSQLRowset();
       rowset.Init(@"Queries\UsageServer");
       rowset.SetQueryTag("__GET_USAGE_INTERVAL_INFO_REDUX__");
-      StringBuilder whereClause = new StringBuilder();
+      var whereClause = new StringBuilder();
 
       switch (mStatus) 
       {
@@ -1316,57 +1335,39 @@ namespace MetraTech.UsageServer
 
       if (mUseHasBeenMaterialized) 
       {
-        if (mHasBeenMaterialized)
-        {
-          AppendToWhere(whereClause, " materialization.id_usage_interval IS NOT NULL ");
-        }
-        else 
-        {
-          AppendToWhere(whereClause, " materialization.id_usage_interval IS NULL ");
-        }
+        AppendToWhere(whereClause,
+                      mHasBeenMaterialized
+                        ? " materialization.id_usage_interval IS NOT NULL "
+                        : " materialization.id_usage_interval IS NULL ");
       }
 
       if (mUseHasBillingGroups) 
       {
-        if (mHasBillingGroups)
-        {
-          AppendToWhere(whereClause, " billingGroups.TotalGroupCount > 0 ");
-        }
-        else 
-        {
-          AppendToWhere(whereClause, " billingGroups.TotalGroupCount = 0 ");
-        }
+        AppendToWhere(whereClause,
+                      mHasBillingGroups ? " billingGroups.TotalGroupCount > 0 " : " billingGroups.TotalGroupCount = 0 ");
       }
 
       if (mUsageIntervalTimeSpan != null) 
     {
-        string startDate = 
+        var startDate = 
           mUsageIntervalTimeSpan.StartDate.ToString("yyyy'-'MM'-'dd");
-        string endDate = 
+        var endDate = 
           mUsageIntervalTimeSpan.EndDate.ToString("yyyy'-'MM'-'dd");
 
         if (mUsageIntervalTimeSpan.UseStartDate)
         {
-          if (mUsageIntervalTimeSpan.StartDateInclusive) 
-      {
-            AppendToWhere(whereClause, String.Format(" ui.dt_start >= '{0}' ", startDate));
-      }
-          else 
-          {
-            AppendToWhere(whereClause, String.Format(" ui.dt_start > '{0}' ", startDate));
-          }
+          AppendToWhere(whereClause,
+                        mUsageIntervalTimeSpan.StartDateInclusive
+                          ? String.Format(" ui.dt_start >= '{0}' ", startDate)
+                          : String.Format(" ui.dt_start > '{0}' ", startDate));
         }
 
         if (mUsageIntervalTimeSpan.UseEndDate)
         {
-          if (mUsageIntervalTimeSpan.EndDateInclusive) 
-          {
-            AppendToWhere(whereClause, String.Format(" ui.dt_end <= '{0}' ", endDate));
-          }
-          else 
-          {
-            AppendToWhere(whereClause, String.Format(" ui.dt_end < '{0}' ", endDate));
-          }
+          AppendToWhere(whereClause,
+                        mUsageIntervalTimeSpan.EndDateInclusive
+                          ? String.Format(" ui.dt_end <= '{0}' ", endDate)
+                          : String.Format(" ui.dt_end < '{0}' ", endDate));
         }
       }
 
@@ -1383,13 +1384,13 @@ namespace MetraTech.UsageServer
     /// <returns></returns>
     public ArrayList GetIntervals()
     {
-      ArrayList usageIntervals = new ArrayList();
+      var usageIntervals = new ArrayList();
 
-      StringBuilder whereClause = new StringBuilder();
+      var whereClause = new StringBuilder();
 
-      using (IMTConnection conn = ConnectionManager.CreateConnection(@"Queries\UsageServer"))
+      using (var conn = DbConnectionFactory.CreateDbConnection())
       {
-          using (IMTAdapterStatement stmt =
+          using (var stmt =
             conn.CreateAdapterStatement("Queries\\UsageServer", "__GET_USAGE_INTERVALS_WITH_BILLING_GROUPS__"))
           {
 
@@ -1469,26 +1470,18 @@ namespace MetraTech.UsageServer
 
               if (mUseHasBeenMaterialized)
               {
-                  if (mHasBeenMaterialized)
-                  {
-                      AppendToWhere(whereClause, " allIntervals.HasBeenMaterialized = 'Y' ");
-                  }
-                  else
-                  {
-                      AppendToWhere(whereClause, " allIntervals.HasBeenMaterialized = 'N' ");
-                  }
+                AppendToWhere(whereClause,
+                              mHasBeenMaterialized
+                                ? " allIntervals.HasBeenMaterialized = 'Y' "
+                                : " allIntervals.HasBeenMaterialized = 'N' ");
               }
 
               if (mUseHasBillingGroups)
               {
-                  if (mHasBillingGroups)
-                  {
-                      AppendToWhere(whereClause, " allIntervals.TotalGroupCount > 0 ");
-                  }
-                  else
-                  {
-                      AppendToWhere(whereClause, " allIntervals.TotalGroupCount = 0 ");
-                  }
+                AppendToWhere(whereClause,
+                              mHasBillingGroups
+                                ? " allIntervals.TotalGroupCount > 0 "
+                                : " allIntervals.TotalGroupCount = 0 ");
               }
 
               if (mUsageIntervalTimeSpan != null)
@@ -1528,21 +1521,17 @@ namespace MetraTech.UsageServer
 
                   if (mUseHasOpenUnassignedAccounts)
                   {
-                      if (mHasOpenUnassignedAccounts)
-                      {
-                          AppendToWhere(whereClause, " allIntervals.OpenUnassignedAcctsCnt > 0 ");
-                      }
-                      else
-                      {
-                          AppendToWhere(whereClause, " allIntervals.OpenUnassignedAcctsCnt = 0 ");
-                      }
+                    AppendToWhere(whereClause,
+                                  mHasOpenUnassignedAccounts
+                                    ? " allIntervals.OpenUnassignedAcctsCnt > 0 "
+                                    : " allIntervals.OpenUnassignedAcctsCnt = 0 ");
                   }
               }
 
               stmt.AddParam("%%OPTIONAL_WHERE_CLAUSE%%", whereClause.ToString(), true);
 
-              mLogger.LogInfo("Executing Query [UsageIntervalFilter.GetIntervals]: -----------------------------------");
-              mLogger.LogInfo(stmt.Query);
+              _mLogger.LogInfo("Executing Query [UsageIntervalFilter.GetIntervals]: -----------------------------------");
+              _mLogger.LogInfo(stmt.Query);
               using (IMTDataReader reader = stmt.ExecuteReader())
               {
                   while (reader.Read())
@@ -1661,18 +1650,36 @@ namespace MetraTech.UsageServer
 	{
 		private UsageInterval(int intervalID, DateTime startDate, DateTime endDate,
 			UsageIntervalStatus status, int cycleID, CycleType cycleType)
-		{ 
-			mIntervalID = intervalID;
-			mStartDate = startDate;
-			mEndDate = endDate;
-			mStatus = status;  // should we remove this?
-			mCycleID = cycleID;
-			mCycleType = cycleType;
-      mHasBeenMaterialized = false;
+		{
+		  IsBlockedForNewAccounts = false;
+		  TotalPayerAccounts = 0;
+		  Progress = 0;
+		  HardClosedUnassignedAccountsCount = 0;
+		  OpenUnassignedAccountsCount = 0;
+		  FailedAdapterCount = 0;
+		  SucceededAdapterCount = 0;
+		  TotalBillingGroupAdapterCount = 0;
+		  TotalIntervalOnlyAdapterCount = 0;
+		  IntervalID = intervalID;
+			StartDate = startDate;
+			EndDate = endDate;
+			Status = status;  // should we remove this?
+			CycleID = cycleID;
+			CycleType = cycleType;
+      HasBeenMaterialized = false;
 		}
 
     public UsageInterval(int intervalID)
     {
+      IsBlockedForNewAccounts = false;
+      TotalPayerAccounts = 0;
+      Progress = 0;
+      HardClosedUnassignedAccountsCount = 0;
+      OpenUnassignedAccountsCount = 0;
+      FailedAdapterCount = 0;
+      SucceededAdapterCount = 0;
+      TotalBillingGroupAdapterCount = 0;
+      TotalIntervalOnlyAdapterCount = 0;
       // TODO:  Load usage interval for passed in id.
       // Old Notes:
           /*'dim rowset, sQuery
@@ -1689,284 +1696,62 @@ namespace MetraTech.UsageServer
             'Service.Properties("IntervalEndDateTime").Value = rowset.value("End")
             'Service.Properties("IntervalStatusIcon").Value =  "<img src='" & GetIntervalStateIcon(rowset.value("State")) & "' align='absmiddle'>&nbsp;"
           */
-      this.mIntervalID = intervalID;
-   
+      IntervalID = intervalID;
     }
 
-    int mTotalIntervalOnlyAdapterCount = 0;
-    public int TotalIntervalOnlyAdapterCount
+	  public int TotalIntervalOnlyAdapterCount { get; set; }
+
+	  public int TotalBillingGroupAdapterCount { get; set; }
+
+	  public int SucceededAdapterCount { get; set; }
+
+	  public int FailedAdapterCount { get; set; }
+
+	  public int OpenUnassignedAccountsCount { get; set; }
+
+	  public int HardClosedUnassignedAccountsCount { get; set; }
+
+	  public int Progress { get; set; }
+
+	  public bool HasBeenMaterialized { get; set; }
+
+	  public bool HasPayerAccounts
     {
       get
-      { 
-        return mTotalIntervalOnlyAdapterCount; 
-      }
-      set 
       {
-        mTotalIntervalOnlyAdapterCount = value;
+        return TotalPayerAccounts > 0;
       }
     }
 
-    int mTotalBillingGroupAdapterCount = 0;
-    public int TotalBillingGroupAdapterCount
-    {
-      get
-      { 
-        return mTotalBillingGroupAdapterCount; 
-      }
-      set 
-      {
-        mTotalBillingGroupAdapterCount = value;
-      }
-    }
+	  public int TotalPayerAccounts { get; set; }
 
-    int mSucceededAdapterCount = 0;
-    public int SucceededAdapterCount
-    {
-      get
-      { 
-        return mSucceededAdapterCount; 
-      }
-      set 
-      {
-        mSucceededAdapterCount = value;
-      }
-    }
+	  public int IntervalID { get; private set; }
 
-    int mFailedAdapterCount = 0;
-    public int FailedAdapterCount
-    {
-      get
-      { 
-        return mFailedAdapterCount; 
-      }
-      set 
-      {
-        mFailedAdapterCount = value;
-      }
-    }
+	  public DateTime StartDate { get; set; }
 
-    int mOpenUnassignedAccountsCount = 0;
-    public int OpenUnassignedAccountsCount
-    {
-      get
-      { 
-        return mOpenUnassignedAccountsCount; 
-      }
-      set 
-      {
-        mOpenUnassignedAccountsCount = value;
-      }
-    }
+	  public DateTime EndDate { get; set; }
 
-    int mHardClosedUnassignedAccountsCount = 0;
-    public int HardClosedUnassignedAccountsCount
-    {
-      get
-      { 
-        return mHardClosedUnassignedAccountsCount; 
-      }
-      set 
-      {
-        mHardClosedUnassignedAccountsCount = value;
-      }
-    }
+	  public UsageIntervalStatus Status { get; set; }
 
-    int mProgress = 0;
-    public int Progress
-    {
-      get
-      { 
-        return mProgress; 
-      }
-      set 
-      {
-        mProgress = value;
-      }
-    }
+	  public bool IsBlockedForNewAccounts { get; set; }
 
-    bool mHasBeenMaterialized;
-    public bool HasBeenMaterialized
-    {
-      get
-      { 
-        return mHasBeenMaterialized; 
-      }
-      set 
-      {
-        mHasBeenMaterialized = value;
-      }
-    }
+	  public int CycleID { get; set; }
 
-    public bool HasPayerAccounts
-    {
-      get
-      { 
-        bool hasPayerAccounts = false;
-        if (mTotalPayerAccounts > 0) 
-        {
-          hasPayerAccounts = true;
-        }
-        return hasPayerAccounts;
-      }
-    }
+	  public CycleType CycleType { get; set; }
 
-    int mTotalPayerAccounts = 0;
-    public int TotalPayerAccounts
-    {
-      get
-      { 
-        return mTotalPayerAccounts; 
-      }
-      set 
-      {
-        mTotalPayerAccounts = value;
-      }
-    }
+	  public int TotalGroupCount { get; set; }
 
-    int mIntervalID;
-		public int IntervalID
-		{
-			get
-			{ 
-				return mIntervalID; 
-			}
-		}
+	  public int OpenGroupCount { get; set; }
 
-		DateTime mStartDate;
-		public DateTime StartDate
-		{ 
-			get
-			{
-				return mStartDate;
-			}
-      set 
-      {
-        mStartDate = value;
-      }
-		}
+	  public int SoftClosedGroupCount { get; set; }
 
-		DateTime mEndDate;
-		public DateTime EndDate
-		{ 
-			get
-			{
-				return mEndDate;
-			}
-      set 
-      {
-        mEndDate = value;
-      }
-		}
-		
-		UsageIntervalStatus mStatus;
-		public UsageIntervalStatus Status
-		{ 
-			get
-			{
-				return mStatus;
-			}
-      set 
-      {
-        mStatus = value;
-      }
-		}
+	  public int HardClosedGroupCount { get; set; }
 
-    bool mIsBlockedForNewAccounts = false;
-    public bool IsBlockedForNewAccounts
-    {
-      get
-      { 
-        return mIsBlockedForNewAccounts; 
-      }
-      set 
-      {
-        mIsBlockedForNewAccounts = value;
-      }
-    }
-
-		int mCycleID;
-		public int CycleID
-		{ 
-			get
-			{
-				return mCycleID;
-			}
-      set 
-      {
-        mCycleID = value;
-      }
-		}
-
-		CycleType mCycleType;
-		public CycleType CycleType
-		{ 
-			get
-			{
-				return mCycleType;
-			}
-      set 
-      {
-        mCycleType = value;
-      }
-		}
-
-    int mTotalGroupCount;
-    public int TotalGroupCount
-    {
-      get 
-      {
-        return mTotalGroupCount;
-      }
-      set 
-      {
-        mTotalGroupCount = value;
-      }
-    }
-
-    int mOpenGroupCount;
-    public int OpenGroupCount
-    {
-      get 
-      {
-        return mOpenGroupCount;
-      }
-      set 
-      {
-        mOpenGroupCount = value;
-      }
-    }
-
-    int mSoftClosedGroupCount;
-    public int SoftClosedGroupCount
-    {
-      get 
-      {
-        return mSoftClosedGroupCount;
-      }
-      set 
-      {
-        mSoftClosedGroupCount = value;
-      }
-    }
-
-    int mHardClosedGroupCount;
-    public int HardClosedGroupCount
-    {
-      get 
-      {
-        return mHardClosedGroupCount;
-      }
-      set 
-      {
-        mHardClosedGroupCount = value;
-      }
-    }
-
-		public override string ToString()
+	  public override string ToString()
 		{
 			return String.Format
         ("IntervalID={0}, StartDate={1}, EndDate={2}, Status={3}, CycleID={4}, CycleType={5}",
-				mIntervalID, mStartDate, mEndDate, mStatus, mCycleID, mCycleType);
+				IntervalID, StartDate, EndDate, Status, CycleID, CycleType);
 		}
 
 
@@ -1975,7 +1760,7 @@ namespace MetraTech.UsageServer
 		/// </summary>
 		internal static ArrayList Load(IMTDataReader reader)
 		{
-			ArrayList intervalList = new ArrayList();
+			var intervalList = new ArrayList();
 
 			while (reader.Read())
 			{
@@ -2003,8 +1788,8 @@ namespace MetraTech.UsageServer
 						throw new UsageServerException(String.Format("Unknown usage interval status! {0}", rawStatus), true);
 				}
 
-				int usageCycleID = reader.GetInt32("id_usage_cycle");
-				CycleType cycleType = (CycleType) reader.GetInt32("id_cycle_type");
+				var usageCycleID = reader.GetInt32("id_usage_cycle");
+				var cycleType = (CycleType) reader.GetInt32("id_cycle_type");
 
 				intervalList.Add(new UsageInterval(intervalID, startDate, endDate, status, usageCycleID, cycleType));
 			}

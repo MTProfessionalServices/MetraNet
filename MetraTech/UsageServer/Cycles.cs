@@ -297,7 +297,7 @@ namespace MetraTech.UsageServer
           foreach (var cycle in cycles)
           {
             // skip discontinued IDs
-            if (CycleUtils.IsDiscontinuedCycleID(cycleID))
+            if (CycleUtils.IsDiscontinuedCycleId(cycleID))
               // skip the ID
               ++cycleID;
 
@@ -822,7 +822,7 @@ namespace MetraTech.UsageServer
     /// <summary>
     /// Return true if the given cycle ID has been discontinued
     /// </summary>
-    public static bool IsDiscontinuedCycleID(int cycleId)
+    public static bool IsDiscontinuedCycleId(int cycleId)
     {
       // from COMUsageServer.cpp
       return cycleId == 1;
@@ -1380,7 +1380,7 @@ namespace MetraTech.UsageServer
 
       var cycleReference = new DateTime(year, month, day);
       var diff = (today - cycleReference).Days;
-      long intervals = diff > 0 ? diff/14 : diff/14 - 1;
+      long intervals = diff >= 0 ? diff/14 : diff/14 - 1;
 
       // choose start time that's an even number of 14 day periods
       // after the reference

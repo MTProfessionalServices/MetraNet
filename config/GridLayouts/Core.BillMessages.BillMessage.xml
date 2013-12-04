@@ -24,8 +24,8 @@
     <FilterLabelWidth>75</FilterLabelWidth>
     <FilterColumnWidth>350</FilterColumnWidth>
     <NoRecordsText>
-      <LocalizationTag>TEXT_NO_RECORDS_FOUND</LocalizationTag>
-      <ResourceClassKey>Resource</ResourceClassKey>
+        <LocalizationTag>TEXT_NO_RECORDS_FOUND</LocalizationTag>
+        <ResourceClassKey>Resource</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
     <FilterPanelCollapsed>false</FilterPanelCollapsed>
@@ -44,6 +44,8 @@
     <ShowGridFrame>true</ShowGridFrame>
     <ShowGridHeader>true</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
+    <SubGrid></SubGrid>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
@@ -249,10 +251,9 @@
             <ToolTip>
                 <Value><![CDATA[Add]]></Value>
             </ToolTip>
-            <IconClass>Add</IconClass>
+            <IconClass>add</IconClass>
             <RequiredCapabilities></RequiredCapabilities>
             <JSHandlerFunction>onNew</JSHandlerFunction>
         </Button>
     </ToolbarButtons>
-    <SubGrid></SubGrid>
 </GridLayout>

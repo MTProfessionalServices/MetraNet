@@ -91,6 +91,17 @@ namespace MetraTech.UsageServer.Test.Unit.Cycles
     }
 
     [TestMethod, MTUnitTest]
+    public void ComputeStartAndEndDateWhenRefDateIsEqualCanonicalCycleStartDateTest()
+    {
+      _refDate = new DateTime(2000, 1, 2);
+      var cycle = new Cycle { StartDay = 2, StartMonth = 1, StartYear = 2000 };
+      _cycleType.ComputeStartAndEndDate(_refDate, cycle, out _start, out _end);
+
+      Assert.AreEqual(new DateTime(2000, 1, 02), _start);
+      Assert.AreEqual(new DateTime(2000, 1, 15), _end);
+    }
+
+    [TestMethod, MTUnitTest]
     public void MakeCanonicalWhenCycleIsCanonical()
     {
       var cycle = new Cycle { StartDay = 2, StartMonth = 1, StartYear = 2000 };

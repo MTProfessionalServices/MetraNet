@@ -472,7 +472,7 @@ namespace MetraTech.Core.Services.Quoting
 
     protected void GeneratePdfForCurrentQuote(QuoteRequest request, QuoteResponse response, QuotePDFReport quotePdfReport = null)
     {
-      using (new Debug.Diagnostics.HighResolutionTimer("GeneratePDFForCurrentQuote"))
+      using (new HighResolutionTimer("GeneratePDFForCurrentQuote"))
       {
         if (quotePdfReport == null)
           quotePdfReport = new QuotePDFReport(ReportingConfiguration);
@@ -483,10 +483,21 @@ namespace MetraTech.Core.Services.Quoting
           request.ReportParameters.ReportTemplateName = this.Configuration.ReportDefaultTemplateName;
         }
 
-        response.ReportLink = quotePdfReport.CreatePdfReport(response.IdQuote,
+        QuotingRepository.UpdateStatus(response.IdQuote, ActionStatus.StatusReport, QuoteStatus.InProgress);
+
+        try
+        {
+          response.ReportLink = quotePdfReport.CreatePdfReport(response.IdQuote,
                                                              request.Accounts[0],
                                                              request.ReportParameters.ReportTemplateName,
                                                              GetLanguageCodeIdForCurrentRequest(request));
+          QuotingRepository.UpdateStatus(response.IdQuote, ActionStatus.StatusReport, QuoteStatus.Complete);
+        }
+        catch
+        {
+          QuotingRepository.UpdateStatus(response.IdQuote, ActionStatus.StatusReport, QuoteStatus.Failed);   
+          throw;
+        }
       }
     }
 
@@ -1497,22 +1508,30 @@ namespace MetraTech.Core.Services.Quoting
       //}
     }
 
-    private delegate void AsyncCleanupBackoutUsageData(int idQuote, IEnumerable<ChargeData> charges);
+    private delegate void AsyncCleanupBackoutUsageData(int idQuote, IEnumerable<ChargeData> charges, IQuotingRepository quotingRepository);
     /// <summary>
     /// CleanUp quoters artifacts in case IsCleanupQuoteAutomaticaly = fales in 
     /// </summary>
     /// <param name="quoteArtefact">Sents data for cleaning up Quote Artefacts</param>
     public List<QuoteLogRecord> Cleanup(QuoteResponseArtefacts quoteArtefact)
     {
+      QuotingRepository.UpdateStatus(quoteArtefact.IdQuote, ActionStatus.StatusCleanup, QuoteStatus.InProgress);
       using (new HighResolutionTimer(MethodInfo.GetCurrentMethod().Name))
       {
+
         if (quoteArtefact.Subscription == null)
+        {
+          QuotingRepository.UpdateStatus(quoteArtefact.IdQuote, ActionStatus.StatusCleanup, QuoteStatus.Failed);
           throw new ArgumentNullException(
             String.Format("The {0} does not contain Subscription for cleanuping", typeof (QuoteResponseArtefacts)));
+        }
 
         if (quoteArtefact.ChargesCollection == null)
+        {
+          QuotingRepository.UpdateStatus(quoteArtefact.IdQuote, ActionStatus.StatusCleanup, QuoteStatus.Failed);
           throw new ArgumentNullException(
             String.Format("The {0} does not contain Chrages for cleanuping", typeof (QuoteResponseArtefacts)));
+        }
 
         try
         {
@@ -1523,9 +1542,8 @@ namespace MetraTech.Core.Services.Quoting
           CleanupSubscriptionsCreated(quoteArtefact);
 
           AsyncCleanupBackoutUsageData asynCall = _chargeMetering.CleanupUsageData;
-          asynCall.BeginInvoke(quoteArtefact.IdQuote, quoteArtefact.ChargesCollection, null, null);
+          asynCall.BeginInvoke(quoteArtefact.IdQuote, quoteArtefact.ChargesCollection, QuotingRepository, null, null);
           //_chargeMetering.CleanupUsageData(quoteArtefact.IdQuote, quoteArtefact.ChargesCollection);
-
           return result;
         }
         finally
@@ -1533,7 +1551,6 @@ namespace MetraTech.Core.Services.Quoting
           _log.ClearFormatter();
         }
       }
-
     }
 
     protected void CleanupSubscriptionsCreated(QuoteResponseArtefacts quoteArtefact)

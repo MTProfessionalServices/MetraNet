@@ -28,7 +28,7 @@ namespace MetraTech.Core.Services.Quoting
 
     QuoteHeader GetQuoteHeader(int quoteID, bool loadAllRelatedEntities = true);
 
-    void UpdateStatus(int quoteID, string status, int value);
+    void UpdateStatus(int quoteID, ActionStatus status, QuoteStatus value);
   }
 
   /// <summary>
@@ -81,9 +81,42 @@ namespace MetraTech.Core.Services.Quoting
     /// <param name="quoteID"></param>
     /// <param name="status"></param>
     /// <param name="value"></param>
-    public void UpdateStatus(int quoteID, string status, int value)
+    public void UpdateStatus(int quoteID, ActionStatus status, QuoteStatus value)
     {
-      throw new NotImplementedException();
+      using (new HighResolutionTimer(MethodBase.GetCurrentMethod().Name))
+      {
+        RepositoryAccess.Instance.Initialize();
+
+        //get quoteContent BME
+        var quoteContent = GetQuoteContent(quoteID);
+
+        try
+        {
+          if (quoteContent == null)
+          {
+            throw new Exception(String.Format("Can't find quote header with idQuote = {0}", quoteID));
+          }
+
+          switch (status)
+          {
+            case ActionStatus.StatusReport:
+              quoteContent.StatusReport = (int?) value;
+              break;
+            case ActionStatus.StatusCleanup:
+              quoteContent.StatusCleanup = (int?) value;
+              break;
+            default:
+              throw new ArgumentOutOfRangeException("status");
+          }
+
+          quoteContent.Save();
+        }
+        catch (Exception ex)
+        {
+          mLogger.LogException("Error save Quote content", ex);
+          throw;
+        }
+      }
     }
 
     public QuoteResponse UpdateQuoteWithErrorResponse(int quoteId, QuoteResponse quoteResponse, string errorMessage)
@@ -568,7 +601,7 @@ namespace MetraTech.Core.Services.Quoting
       return quoteHeder;
     }
 
-    public void UpdateStatus(int quoteID, string status, int value)
+    public void UpdateStatus(int quoteID, ActionStatus status, QuoteStatus value)
     {
       throw new NotImplementedException();
     }

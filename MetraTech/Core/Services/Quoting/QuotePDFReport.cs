@@ -115,7 +115,6 @@ namespace MetraTech.Core.Services.Quoting
     /// <returns></returns>
     public string CreatePdfReport(int idQuote, int idAccountForReportInstanceName, string reportTemplateName, int idLanguageCode, string pdfReportLink = null)
     {
-      //todo Update StatusReport value
       IReportManager reportManager = new Reports.CrystalEnterprise.CEReportManager();
       try
       {
@@ -161,12 +160,10 @@ namespace MetraTech.Core.Services.Quoting
         reportManager.LoggerObject.LogDebug("Disconnecting from reporting server [0]", configuration.ReportingServerName);
         reportManager.Disconnect();
 
-        //todo Update StatusReport value
         return aInstanceFileName;
       }
       catch (Exception ex)
       {
-        //todo Update StatusReport value
         reportManager.LoggerObject.LogError("CreatePDFReport error: " + ex.Message, ex);
         throw;
       }

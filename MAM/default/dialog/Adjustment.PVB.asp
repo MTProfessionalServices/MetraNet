@@ -287,7 +287,7 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             PreProcessor.Add "ID"                         , ProductView.Properties.Rowset.Value("SessionID")
             PreProcessor.Add "PITEMPLATE"                 , ProductView.Properties.Rowset.Value("PITemplate")            
             PreProcessor.Add "CLASS"                      , Form.Grid.CellClass
-            PreProcessor.Add "IMAGE_EDIT"                 , Application("APP_HTTP_PATH") & "/default/localized/us/images/edit.gif"
+            PreProcessor.Add "IMAGE_EDIT"                 , Application("APP_HTTP_PATH") & "/default/localized/en-us/images/edit.gif"
             PreProcessor.Add "PREBILLADJUSTED_STATUS"     , IIF(ProductView.Properties.Rowset.Value("IsPrebillAdjusted")="Y" ,mam_GetDictionary("TEXT_PREBILL_ADJUSTED") ,"")
             PreProcessor.Add "POSTBILLADJUSTED_STATUS"    , IIF(ProductView.Properties.Rowset.Value("IsPostbillAdjusted")="Y",mam_GetDictionary("TEXT_POSTBILL_ADJUSTED"),"")
             
@@ -651,11 +651,11 @@ PRIVATE FUNCTION GenerateHTML(EventArg, ByRef HTML_LINK_EDIT) ' As Boolean
     '
     If lngChildAdjustmentCount Then
     
-        MDM_PRODUCT_VIEW_TOOL_BAR_TURN_RIGHT_HTTP_FILE_NAME     =   "/mam/default/localized/us/images/arrowBlueRightAdjustManage.gif"
+        MDM_PRODUCT_VIEW_TOOL_BAR_TURN_RIGHT_HTTP_FILE_NAME     =   "/mam/default/localized/en-us/images/arrowBlueRightAdjustManage.gif"
         MDM_PRODUCT_VIEW_TOOL_BAR_TURN_DOWN_HTTP_FILE_NAME      =   "/mdm/internal/images/toolbar/arrowBlueDown.gif"
         MDM_PRODUCT_VIEW_TOOL_BAR_TURN_DOWN_TOOL_TIP            =   FrameWork.Dictionary().Item("TEXT_ADJUST_OR_MANAGE_ADJUSTMENT_CHILDREN").Value                
     Else
-        MDM_PRODUCT_VIEW_TOOL_BAR_TURN_RIGHT_HTTP_FILE_NAME     =   "/mam/default/localized/us/images/arrowBlueRightAdjust.gif"
+        MDM_PRODUCT_VIEW_TOOL_BAR_TURN_RIGHT_HTTP_FILE_NAME     =   "/mam/default/localized/en-us/images/arrowBlueRightAdjust.gif"
         MDM_PRODUCT_VIEW_TOOL_BAR_TURN_DOWN_HTTP_FILE_NAME      =   "/mdm/internal/images/toolbar/arrowBlueDown.gif"
         MDM_PRODUCT_VIEW_TOOL_BAR_TURN_DOWN_TOOL_TIP            =   FrameWork.Dictionary().Item("TEXT_ADJUST_ADJUSTMENT_CHILDREN").Value
     End If    

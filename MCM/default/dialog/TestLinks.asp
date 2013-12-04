@@ -11,7 +11,7 @@ Option Explicit
 
 <hr size=1>
 <button id="new" onClick="javascript:window.open('ProductviewPropertyPicker.asp?MonoSelect=True&IDColumnName=nm_name', '_blank', 'height=700,width=700,resizable=no,scrollbars=yes'); return false;">
-  <img width="16px" height="16px" valign="middle" localized="true" src="/mcm/default/localized/us/images/icons/newitem.gif">
+  <img width="16px" height="16px" valign="middle" localized="true" src="/mcm/default/localized/en-us/images/icons/newitem.gif">
   &nbsp;&nbsp;Product View Property Picker
 </button>
 <div class="clsStandardTitle">Picker Dialogs</div>
@@ -81,34 +81,34 @@ Option Explicit
 </TABLE>
 <BR><BR>
 <button id="new" onClick="javascript:window.open('wizard/CreatePO/Wizard.asp?Path=/mcm/default/dialog/wizard/CreatePO&PageID=start', '_blank', 'height=400,width=600,resizable=no,scrollbars=yes'); return false;">
-  <img width="16px" height="16px" valign="middle" localized="true" src="/mcm/default/localized/us/images/icons/newitem.gif">
+  <img width="16px" height="16px" valign="middle" localized="true" src="/mcm/default/localized/en-us/images/icons/newitem.gif">
   &nbsp;&nbsp;Create New Product Offering
 </button>
 <BR><BR>
 <button id="new" onClick="javascript:window.open('wizard/CreatePriceList/wizardstart.asp?Path=/mcm/default/dialog/wizard/CreatePriceList&PageID=start', '_blank', 'height=400,width=600,resizable=no,scrollbars=yes'); return false;">
-  <img width="16px" height="16px" valign="middle" localized="true" src="/mcm/default/localized/us/images/icons/newitem.gif">
+  <img width="16px" height="16px" valign="middle" localized="true" src="/mcm/default/localized/en-us/images/icons/newitem.gif">
   &nbsp;&nbsp;Create New Price List
 </button>
 <BR><BR>
 <button id="new" onClick="javascript:window.open('wizard/AddRecurringCharge/wizardstart.asp?Path=/mcm/default/dialog/wizard/AddRecurringCharge&PageID=NewType&CREATENEW=TRUE', '_blank', 'height=400,width=600,resizable=no,scrollbars=yes'); return false;">
-  <img width="16px" height="16px" valign="middle" localized="true" src="/mcm/default/localized/us/images/icons/newitem.gif">
+  <img width="16px" height="16px" valign="middle" localized="true" src="/mcm/default/localized/en-us/images/icons/newitem.gif">
   &nbsp;&nbsp;Create New Recurring Charge
 </button>
 <BR><BR>
 <button id="new" onClick="javascript:window.open('wizard/AddNonRecurringCharge/wizard.asp?Path=/mcm/default/dialog/wizard/AddNonRecurringCharge&PageID=start', '_blank', 'height=400,width=600,resizable=no,scrollbars=yes'); return false;">
-  <img width="16px" height="16px" valign="middle" localized="true" src="/mcm/default/localized/us/images/icons/newitem.gif">
+  <img width="16px" height="16px" valign="middle" localized="true" src="/mcm/default/localized/en-us/images/icons/newitem.gif">
   &nbsp;&nbsp;Create New Non Recurring Charge
 </button>
 <BR><BR>
 <button id="new" onClick="javascript:window.open('wizard/AddDiscount/wizard.asp?Path=/mcm/default/dialog/wizard/AddDiscount&PageID=start', '_blank', 'height=400,width=600,resizable=no,scrollbars=yes'); return false;">
-  <img width="16px" height="16px" valign="middle" localized="true" src="/mcm/default/localized/us/images/icons/newitem.gif">
+  <img width="16px" height="16px" valign="middle" localized="true" src="/mcm/default/localized/en-us/images/icons/newitem.gif">
   &nbsp;&nbsp;Create New Discount
 </button><BR>
             <button
                 style="vertical-align: middle;"
                 onclick="window.open('/mcm/default/dialog/ProductOffering.Picker.asp?NextPage=Welcome.asp&MonoSelect=TRUE&OptionalColumn=nm_name&Parameters=POMode|source','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes'); return false;">
                 Select A Product Offering
-                &nbsp;<IMG align=middle alt="" border=0 src="/mcm/default/localized/us/images/icons/arrowSelect.gif">
+                &nbsp;<IMG align=middle alt="" border=0 src="/mcm/default/localized/en-us/images/icons/arrowSelect.gif">
             </button>
 <br>
 <button  onClick="javascript:window.open('ProductOffering.Picker.asp?NextPage=DestinationTestPage.asp&Parameters=A|1;B|2', '_blank', 'height=400,width=600,resizable=no,scrollbars=yes'); return false;">

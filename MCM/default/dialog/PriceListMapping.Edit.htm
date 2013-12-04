@@ -10,8 +10,8 @@
       var strName;
     
       strName = document.mdm.PRICELISTNAME.value;
-    
-      if ((strName.length > 0) || (document.mdm.NonSharedPriceList(0).checked)) 
+
+       if ((strName.length > 0) || ((document.getElementsByName("CanICB")[0].value)))
       {
         mdm_RefreshDialog(document.mdm.OK);
       } 

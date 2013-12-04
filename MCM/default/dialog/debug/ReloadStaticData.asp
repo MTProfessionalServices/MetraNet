@@ -5,11 +5,11 @@ Option Explicit
 <HTML>
 <HEAD>
    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-   <LINK rel="STYLESHEET" type="text/css" href="default/localized/us/styles/styles.css">
+   <LINK rel="STYLESHEET" type="text/css" href="default/localized/en-us/styles/styles.css">
 </HEAD>
 <BODY>
 
-<img src="/mcm/default/localized/us/images/header/logo.gif">
+<img src="/mcm/default/localized/en-us/images/header/logo.gif">
 <br>
 
 <%

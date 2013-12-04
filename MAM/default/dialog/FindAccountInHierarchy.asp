@@ -7,7 +7,7 @@ Option Explicit
 <!-- #INCLUDE FILE="../../default/lib/MamLibrary.asp" -->
 <HTML>
 <HEAD>
- <LINK Localized='TRUE' rel="STYLESHEET" type="text/css" href="/mam/default/localized/us/styles/styles.css">  
+ <LINK Localized='TRUE' rel="STYLESHEET" type="text/css" href="/mam/default/localized/en-us/styles/styles.css">  
  </HEAD>
 <body>
 <%

@@ -169,22 +169,22 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             
             Select Case lcase(ProductView.Properties.RowSet.Value("status"))
             Case "completed"
-              strImage= "../localized/us/images/batch_complete.gif"
+              strImage= "../localized/en-us/images/batch_complete.gif"
               iState=0
             Case "failed"
-              strImage= "../localized/us/images/batch_fail.gif"
+              strImage= "../localized/en-us/images/batch_fail.gif"
               iState=1
             Case "active"
-              strImage= "../localized/us/images/batch_active.gif"
+              strImage= "../localized/en-us/images/batch_active.gif"
               iState=2
             Case "dismissed"
-              strImage= "../localized/us/images/batch_dismissed.gif"
+              strImage= "../localized/en-us/images/batch_dismissed.gif"
               iState=2              
             Case "backed out"
-              strImage= "../localized/us/images/batch_backedout.gif"
+              strImage= "../localized/en-us/images/batch_backedout.gif"
               iState=2              
             Case Else
-              strImage= "../localized/us/images/batch.gif"
+              strImage= "../localized/en-us/images/batch.gif"
               iState=-1
             End Select
               

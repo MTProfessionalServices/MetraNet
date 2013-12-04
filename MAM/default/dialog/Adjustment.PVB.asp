@@ -212,7 +212,7 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
                         
       Service.Properties.TimeZoneId                              = MAM().CSR("TimeZoneId") ' Set the TimeZone, so the dates will be printed for the CSR time zone
       Service.Properties.DayLightSaving                          = mam_GetDictionary("DAY_LIGHT_SAVING")
-      
+
       Set Form.Grid.PropertyID = ProductView.Properties("SessionID")
       mdm_SetMultiColumnFilteringMode TRUE
       
@@ -307,7 +307,22 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             Else
                 EventArg.HTMLRendered = "<td class=" & Form.Grid.CellClass & "></td>"                
             End If
+         Case 9
+            Form_DisplayCell =  Inherited("Form_DisplayCell()") ' Call the default implementation 
             
+            PreProcessor.Clear
+            PreProcessor.Add "ID"                         , ProductView.Properties.Rowset.Value("SessionID")            
+            PreProcessor.Add "COLUMN_NAME"                , Form.Grid.SelectedProperty.Name
+            PreProcessor.Add "VALUE"                      , "" & Form.Grid.SelectedProperty.Value
+            EventArg.HTMLRendered = "<td class='" & Form.Grid.CellClass & "'>"  & Framework.Format(ProductView.Properties.RowSet.Value("timestamp"),FrameWork.Dictionary.Item("DATE_TIME_FORMAT").Value) & "</td>"  & vbNewLine & PreProcessor.Process("<input type=hidden name='_ST_[COLUMN_NAME][ID]' Value='[VALUE]'>") & vbNewLine
+        Case 68
+            Form_DisplayCell =  Inherited("Form_DisplayCell()") ' Call the default implementation 
+            
+            PreProcessor.Clear
+            PreProcessor.Add "ID"                         , ProductView.Properties.Rowset.Value("SessionID")            
+            PreProcessor.Add "COLUMN_NAME"                , Form.Grid.SelectedProperty.Name
+            PreProcessor.Add "VALUE"                      , "" & Form.Grid.SelectedProperty.Value
+            EventArg.HTMLRendered = "<td class='" & Form.Grid.CellClass & "'>"  & Framework.Format(ProductView.Properties.RowSet.Value("c_ordertime"),FrameWork.Dictionary.Item("DATE_TIME_FORMAT").Value) & "</td>"  & vbNewLine & PreProcessor.Process("<input type=hidden name='_ST_[COLUMN_NAME][ID]' Value='[VALUE]'>") & vbNewLine
         Case Else
         
             Form_DisplayCell =  Inherited("Form_DisplayCell()") ' Call the default implementation 

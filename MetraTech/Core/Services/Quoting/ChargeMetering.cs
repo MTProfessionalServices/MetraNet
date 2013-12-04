@@ -210,16 +210,15 @@ namespace MetraTech.Core.Services.Quoting
       }
     }
 
-    public void CleanupUsageData(int idQuote, IEnumerable<ChargeData> charges)
+    public void CleanupUsageData(int idQuote, IEnumerable<ChargeData> charges, IQuotingRepository quotingRepository)
     {
       using (new HighResolutionTimer(MethodInfo.GetCurrentMethod().Name))
       {
-        //todo set cleanup status
         Log.LogInfo("Reversing {0} batch(es) associated with this quote", charges.Count());
 
         IMTBillingReRun rerun = new Pipeline.ReRun.Client();
         var sessionContext = AdapterManager.GetSuperUserContext(); // log in as super user
-        rerun.Login((Interop.MTBillingReRun.IMTSessionContext)sessionContext);
+        rerun.Login((IMTSessionContext)sessionContext);
         var comment = String.Format("Quoting functionality; Reversing work associated with QuoteId {0}",
                                     idQuote);
         rerun.Setup(comment);
@@ -259,7 +258,7 @@ namespace MetraTech.Core.Services.Quoting
         }
         catch (FaultException<MASBasicFaultDetail> fe)
         {
-          //todo set cleanup status
+          quotingRepository.UpdateStatus(idQuote, ActionStatus.StatusCleanup, QuoteStatus.Failed);
           StringBuilder err =
             new StringBuilder(String.Format("Error while cleanup Usage Data : {0}", fe.Message));
 
@@ -276,7 +275,7 @@ namespace MetraTech.Core.Services.Quoting
           pipeline.ResumeAllProcessing();
         }
 
-        //todo set cleanup status
+        quotingRepository.UpdateStatus(idQuote, ActionStatus.StatusCleanup, QuoteStatus.Complete);
         Log.LogDebug("Completed backing out batches associated with the quote");
       }
 

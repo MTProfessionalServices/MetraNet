@@ -35,6 +35,12 @@
      <processor>AccountResolutionByName</processor>
      <dependson>AccountResolutionByID</dependson>
    </dependency>
+   
+   <dependency>
+     <processor>LogNoPaymentDate</processor>
+     <dependson>IgnorePaymentRedirection</dependson>
+   </dependency>
+   
   </dependencies>
 
  </stage>

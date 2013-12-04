@@ -46,7 +46,7 @@ PUBLIC FUNCTION Form_Initialize(EventArg) ' As Boolean
   Form.Grid.FilterMode = TRUE
   Form_Initialize = TRUE
 END FUNCTION
-		
+    
 ' ---------------------------------------------------------------------------------------------------------------------------------------
 ' FUNCTION     :  Form_LoadProductView
 ' PARAMETERS   :
@@ -55,9 +55,9 @@ END FUNCTION
 PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
 
   Form_LoadProductView = FALSE
-	on error resume next
+  on error resume next
   ProductView.Properties.Flags = eMSIX_PROPERTIES_FLAG_PRODUCTVIEW 
-		
+    
   ' Get Ownership manager and list of owned acounts as rowset - based on the time in the UserHierarchy
   Dim mgr
   Set mgr = Session("CSR_YAAC").GetOwnershipMgr()
@@ -68,7 +68,7 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   ProductView.Properties.ClearSelection    
  
  '  Select the properties I want to print in the PV Browser   Order
- '	ProductView.Properties.SelectAll
+ '  ProductView.Properties.SelectAll
  '  {NL}id_owner   {NL}id_owned   {NL}id_relation_type   {NL}n_percent   
  '  {NL}vt_start   {NL}vt_end   {NL}RelationType   {NL}DirectOwner   {NL}OwnerName   {NL}OwnedName  
 
@@ -80,15 +80,15 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   ProductView.Properties("DirectOwner").Selected = 6
   ProductView.Properties("OwnerName").Selected = 7
     
-	ProductView.Properties("OwnedName").Caption = mam_GetDictionary("TEXT_OWNED_HIERARCHYNAME")
+  ProductView.Properties("OwnedName").Caption = mam_GetDictionary("TEXT_OWNED_HIERARCHYNAME")
   ProductView.Properties("RelationType").Caption = mam_GetDictionary("TEXT_OWNED_RELATION_TYPE")
   ProductView.Properties("n_percent").Caption = mam_GetDictionary("TEXT_PERCENT_OWNERSHIP")
   ProductView.Properties("DirectOwner").Caption = mam_GetDictionary("TEXT_DIRECT_OWNER")
   ProductView.Properties("VT_Start").Caption = mam_GetDictionary("TEXT_EFFECTIVE_START_DATE")  
-  ProductView.Properties("VT_End").Caption   = mam_GetDictionary("TEXT_EFFECTIVE_END_DATE")		
+  ProductView.Properties("VT_End").Caption   = mam_GetDictionary("TEXT_EFFECTIVE_END_DATE")   
   ProductView.Properties("RelationType").Caption = mam_GetDictionary("TEXT_OWNED_RELATION_TYPE")
-	ProductView.Properties("OwnerName").Caption = mam_GetDictionary("TEXT_OWNER_ACCOUNT")  
-    		
+  ProductView.Properties("OwnerName").Caption = mam_GetDictionary("TEXT_OWNER_ACCOUNT")  
+        
   ProductView.Properties("OwnedName").Sorted = MTSORT_ORDER_ASCENDING
   mdm_SetMultiColumnFilteringMode TRUE
   Set Form.Grid.FilterProperty = ProductView.Properties("OwnedName") ' Set the property on which to apply the filter    
@@ -117,7 +117,7 @@ END FUNCTION
 ' RETURNS    : 
 PUBLIC FUNCTION Form_DisplayCell(EventArg) ' As Boolean   
     Dim m_objPP, HTML_LINK_EDIT
-		Dim strHTML
+    Dim strHTML
     Dim strMsgBox
 
     Select Case Form.Grid.Col
@@ -136,7 +136,7 @@ PUBLIC FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             End If
                           
             HTML_LINK_EDIT = HTML_LINK_EDIT  & "</td>"        
-						
+            
             Set m_objPP = mdm_CreateObject(CPreProcessor)
             m_objPP.Add "CLASS"       , Form.Grid.CellClass
            
@@ -145,13 +145,13 @@ PUBLIC FUNCTION Form_DisplayCell(EventArg) ' As Boolean
         Case 2
             mdm_NoTurnDownHTML EventArg ' Takes Care Of Removing the 
         
-				Case 3
-						HTML_LINK_EDIT = HTML_LINK_EDIT  & "<td nowrap class='" & Form.Grid.CellClass & "'>"
-						HTML_LINK_EDIT = HTML_LINK_EDIT & mam_GetNameIDLink(Empty, ProductView.Properties("id_owned"), ProductView.Properties("OwnedName"), TRUE)
-						HTML_LINK_EDIT = HTML_LINK_EDIT  & "</td>"
-						EventArg.HTMLRendered = HTML_LINK_EDIT						
-						Form_DisplayCell = TRUE
-							    	
+        Case 3
+            HTML_LINK_EDIT = HTML_LINK_EDIT  & "<td nowrap class='" & Form.Grid.CellClass & "'>"
+            HTML_LINK_EDIT = HTML_LINK_EDIT & mam_GetNameIDLink(Empty, ProductView.Properties("id_owned"), ProductView.Properties("OwnedName"), TRUE)
+            HTML_LINK_EDIT = HTML_LINK_EDIT  & "</td>"
+            EventArg.HTMLRendered = HTML_LINK_EDIT            
+            Form_DisplayCell = TRUE
+                    
         case 6
             EventArg.HTMLRendered = "<td nowrap class=" & Form.Grid.CellClass & ">" & mam_GetDisplayEndDate(ProductView.Properties("VT_Start")) & "</td>"
             Form_DisplayCell = TRUE                
@@ -160,11 +160,11 @@ PUBLIC FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             Form_DisplayCell = TRUE                
               
         case 8
-          	If ProductView.Properties("DirectOwner").value <> "1" then
-      			  EventArg.HTMLRendered     =  "<td nowrap class=" & Form.Grid.CellClass & " align='center'>--&nbsp;</td>"
-			      Else
-      			  EventArg.HTMLRendered     =  "<td nowrap class=" & Form.Grid.CellClass & " align='center'><img src='" & mam_GetImagesPath() &  "/check.gif'></td>"
-      			End If        
+            If ProductView.Properties("DirectOwner").value <> "1" then
+              EventArg.HTMLRendered     =  "<td nowrap class=" & Form.Grid.CellClass & " align='center'>--&nbsp;</td>"
+            Else
+              EventArg.HTMLRendered     =  "<td nowrap class=" & Form.Grid.CellClass & " align='center'><img src='" & mam_GetImagesPath() &  "/check.gif'></td>"
+            End If        
             Form_DisplayCell = TRUE  
                         
         Case Else        

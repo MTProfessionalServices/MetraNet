@@ -142,7 +142,7 @@ PRIVATE FUNCTION xForm_DisplayCell(EventArg) ' As Boolean
          'Case 8
          Case "state"
             EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'>" & _
-              ProductView.Properties.RowSet.Value("State") & "&nbsp;&nbsp;<a href=''><img src='../localized/us/images/edit.gif' width='11' height='17' alt='' border='0'></a></td>"
+              ProductView.Properties.RowSet.Value("State") & "&nbsp;&nbsp;<a href=''><img src='../localized/en-us/images/edit.gif' width='11' height='17' alt='' border='0'></a></td>"
               '  ProductView.Properties.RowSet.Value("State") & "<button class='clsButtonBlueSmall' name='EditMapping' onclick=""window.open('protoIntervalManagement.asp?','', 'height=100,width=100, resizable=yes, scrollbars=yes, status=yes')"">" & "Change" &  "</button></td>" 
          
   			    Form_DisplayCell = TRUE

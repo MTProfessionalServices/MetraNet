@@ -1,7 +1,7 @@
 <SCRIPT LANGUAGE="VBScript" RUNAT="Server"> 
 Option Explicit
 
-CONST mcm_LANGUAGE = "US"
+CONST mcm_LANGUAGE = "en-us"
 
 Sub Application_OnStart
 End Sub

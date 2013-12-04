@@ -160,9 +160,9 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             dim strDetailType
             strDetailType = ProductView.Properties.RowSet.Value("detailtype")
             if lcase(strDetailType)="warning" then
-              strDetailType = "<img src='../localized/us/images/errorsmall.gif' align='absmiddle' border='0'>&nbsp;" & strDetailType 
+              strDetailType = "<img src='../localized/en-us/images/errorsmall.gif' align='absmiddle' border='0'>&nbsp;" & strDetailType 
             else
-              strDetailType = "<img src='../localized/us/images/infosmall.gif' align='absmiddle' border='0'>&nbsp;" & strDetailType               
+              strDetailType = "<img src='../localized/en-us/images/infosmall.gif' align='absmiddle' border='0'>&nbsp;" & strDetailType               
             end if
             
             EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'>"  & strDetailType & "</td>" 

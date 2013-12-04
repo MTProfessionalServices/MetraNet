@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
-  <LINK rel="STYLESHEET" type="text/css" href="/mcm/default/localized/us/styles/styles.css">
-  <LINK rel="STYLESHEET" type="text/css" href="/mcm/default/localized/us/styles/tab_styles.css">
+  <LINK rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/styles.css">
+  <LINK rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/tab_styles.css">
   <title><MDMLABEL Name="MCM_LIST_TITLE"></MDMLABEL></title>                           
 </HEAD>
 <body onLoad="SizeWindow();">
@@ -34,12 +34,12 @@
 #MDMEndIf
 <div style="margin:3">
 #MDMIf DisplayDependencyCounts
-<br><span style='align:center; background-color:#efefef;width:550px;border:solid #848284 1px;padding:5px; text-align: center; white-space:nowrap; display: inline;'><img align="absmiddle" src="/MCM/default/localized/us/images/icons/infosmall.gif" alt="" width="16" height="16" border="0">&nbsp;&nbsp;This product offering has <b><MDMLabel Name="DependencyCountMessage" type="value"></MDMLabel></b> subscriptions that are effective now or in the future.
+<br><span style='align:center; background-color:#efefef;width:550px;border:solid #848284 1px;padding:5px; text-align: center; white-space:nowrap; display: inline;'><img align="absmiddle" src="/MCM/default/localized/en-us/images/icons/infosmall.gif" alt="" width="16" height="16" border="0">&nbsp;&nbsp;This product offering has <b><MDMLabel Name="DependencyCountMessage" type="value"></MDMLabel></b> subscriptions that are effective now or in the future.
     <SCRIPT>if (<MDMLabel Name="DependencyCountMessage" type="value"></MDMLabel>>0) document.write('&nbsp;&nbsp;<a href="Rates.ViewEffectedSubscribersForProductOffering.asp?ProductOfferingId=<MDMLABEL Name="POID"></MDMLABEL>" target="_blank">View Subscriptions</a>');</SCRIPT>
     </span><BR><BR>
 #MDMEndIf
 #MDMIf DisplayDependencyLinkOnly
-<br><span style='background-color:#efefef;width:575px;border:solid #848284 1px;padding:5px;'><img align="absmiddle" src="/MCM/default/localized/us/images/icons/infosmall.gif" alt="" width="16" height="16" border="0">&nbsp;&nbsp;<a href="Rates.ViewEffectedSubscribersForProductOffering.asp?ProductOfferingId=<MDMLABEL Name="POID"></MDMLABEL>" target="_blank">View List Of Subscribers Potentially Using This Rate Schedule Through Subscriptions To This Product Offering</a>
+<br><span style='background-color:#efefef;width:575px;border:solid #848284 1px;padding:5px;'><img align="absmiddle" src="/MCM/default/localized/en-us/images/icons/infosmall.gif" alt="" width="16" height="16" border="0">&nbsp;&nbsp;<a href="Rates.ViewEffectedSubscribersForProductOffering.asp?ProductOfferingId=<MDMLABEL Name="POID"></MDMLABEL>" target="_blank">View List Of Subscribers Potentially Using This Rate Schedule Through Subscriptions To This Product Offering</a>
     </span><BR><BR>
 #MDMEndIf
 

@@ -1,7 +1,7 @@
 <SCRIPT LANGUAGE="VBScript" RUNAT="Server"> ' This comment fixes the formating issue: <%
 Option Explicit
 
-mom_LANGUAGE = "en-us"
+CONST mom_LANGUAGE = "en-us"
 
 Sub Application_OnStart
 End Sub

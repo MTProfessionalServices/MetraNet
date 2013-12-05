@@ -1,22 +1,12 @@
 using System;
-using System.Runtime.InteropServices;
-using System.Collections;
-using System.Diagnostics;
 using NUnit.Framework;
-//using NUnit.Framework.Extensions;
-
-using MetraTech.Test;
 using MetraTech.Test.Common;
 using PC=MetraTech.Interop.MTProductCatalog;
 using MetraTech.Interop.MTAuth;
-using MetraTech.Interop;
 using RS = MetraTech.Interop.Rowset;
 using MetraTech.DataAccess;
 using YAAC = MetraTech.Interop.MTYAAC;
-using ServerAccess = MetraTech.Interop.MTServerAccess;
 using Coll = MetraTech.Interop.GenericCollection;
-using MetraTech.Interop.COMMeter;
-using PipelineTransaction = MetraTech.Interop.PipelineTransaction;
 
 namespace MetraTech.Accounts.Test
 {
@@ -31,25 +21,42 @@ namespace MetraTech.Accounts.Test
 		private PC.MTProductCatalog mPC;
 		private YAAC.IMTAccountCatalog mAccCatalog;
 		private IMTSessionContext mSUCtx = null;
+	    private int defaultAllTypesValue;
 
-		public AccountFinderTest()
+	    public AccountFinderTest()
 		{
-      try
-      {
-        Utils.TurnTraceOn();
+          try
+          {
+            Utils.TurnTraceOn();
 
-			  mPC = new PC.MTProductCatalogClass();
-			  mAccCatalog = new YAAC.MTAccountCatalog();
-			  mSUCtx = Utils.LoginAsSU();
-			  mAccCatalog.Init((YAAC.IMTSessionContext)mSUCtx);
-      }
-      catch (Exception e)
-      {
-        Utils.Trace(e.Message); throw;
-      }
+			mPC = new PC.MTProductCatalogClass();
+			mAccCatalog = new YAAC.MTAccountCatalog();
+			mSUCtx = Utils.LoginAsSU();
+			mAccCatalog.Init((YAAC.IMTSessionContext)mSUCtx);
+
+            defaultAllTypesValue = GetCurrentAccTmplTypes();
+          }
+          catch (Exception e)
+          {
+            Utils.Trace(e.Message); throw;
+          }
 		}
 
-		[TestFixtureSetUp]
+	    private static int GetCurrentAccTmplTypes()
+	    {
+            using (var connection = ConnectionManager.CreateDbConnection())
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = @"SELECT all_types FROM t_acc_tmpl_types";
+                    var value = command.ExecuteScalar();
+                    return Convert.ToInt32(value);
+                }
+            }
+	    }
+
+	    [TestFixtureSetUp]
 		public void TestCreateHierarchy()
 		{
       try
@@ -658,34 +665,75 @@ namespace MetraTech.Accounts.Test
 			Assert.AreEqual(201, descendents.Count, "Corporation should have 201 descendent accounts (including self)!");
 		}
 
+        private void ChangeAccTmplTypes(int allTypesValue)
+        {
+            try
+            {
+                if (allTypesValue == defaultAllTypesValue) return;
+                using (var connection = ConnectionManager.CreateDbConnection())
+                {
+                    connection.Open();
+                    using (var command = connection.CreateCommand())
+                    {
+                        command.CommandText = @"UPDATE t_acc_tmpl_types SET all_types = " + allTypesValue;
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(
+                    "Error while modifying all_types column of t_acc_tmpl_types table, please look to this table manually.",
+                    ex);
+            }
+        }
+
 		[Test]
-    public void T27TestGetDescedentsOfType_1TypePredicate()
+        public void T27TestGetDescedentsOfType_1TypePredicate()
 		{
-			YAAC.IMTYAAC acc = Utils.GetSubscriberAccount(Utils.GenerateCorporateAccountName());
-			YAAC.IMTCollection descendents = (YAAC.IMTCollection)new Coll.MTCollectionClass();
-			YAAC.IMTCollection acctypenames = (YAAC.IMTCollection)new Coll.MTCollectionClass();
-			acctypenames.Add("CORESUBSCRIBER");
-			acc.GetDescendents(descendents, 
-				                MetraTime.Now, 
-				                YAAC.MTHierarchyPathWildCard.RECURSIVE, 
-				                true,
-				                acctypenames);
-			Assert.AreEqual(100, descendents.Count, "Corporation should have 100 'CORESUBSCRIBER' descendent accounts!");
+		    try
+		    {
+		        ChangeAccTmplTypes(0);
+		        YAAC.IMTYAAC acc = Utils.GetSubscriberAccount(Utils.GenerateCorporateAccountName());
+		        YAAC.IMTCollection descendents = (YAAC.IMTCollection) new Coll.MTCollectionClass();
+		        YAAC.IMTCollection acctypenames = (YAAC.IMTCollection) new Coll.MTCollectionClass();
+		        acctypenames.Add("CORESUBSCRIBER");
+		        acc.GetDescendents(descendents,
+		                           MetraTime.Now,
+		                           YAAC.MTHierarchyPathWildCard.RECURSIVE,
+		                           true,
+		                           acctypenames);
+		        Assert.AreEqual(100, descendents.Count, "Corporation should have 100 'CORESUBSCRIBER' descendent accounts!");
+		    }
+		    finally
+		    {
+                ChangeAccTmplTypes(defaultAllTypesValue);
+		    }
 		}
-		[Test]
-    public void T28TestGetDescedentsOfType_2TypePredicates()
+
+	   
+	    [Test]
+        public void T28TestGetDescedentsOfType_2TypePredicates()
 		{
-			YAAC.IMTYAAC acc = Utils.GetSubscriberAccount(Utils.GenerateCorporateAccountName());
-			YAAC.IMTCollection descendents = (YAAC.IMTCollection)new Coll.MTCollectionClass();
-			YAAC.IMTCollection acctypenames = (YAAC.IMTCollection)new Coll.MTCollectionClass();
-			acctypenames.Add("CORESUBSCRIBER");
-			acctypenames.Add("GSMSERVICEACCOUNT");
-			acc.GetDescendents(descendents, 
-				                  MetraTime.Now, 
-				                  YAAC.MTHierarchyPathWildCard.RECURSIVE, 
-				                  true,
-				                  acctypenames);
-			Assert.AreEqual(200, descendents.Count, "Corporation should have 200 descendent accounts!");
+	        try
+	        {
+	            ChangeAccTmplTypes(0);
+	            YAAC.IMTYAAC acc = Utils.GetSubscriberAccount(Utils.GenerateCorporateAccountName());
+	            YAAC.IMTCollection descendents = (YAAC.IMTCollection) new Coll.MTCollectionClass();
+	            YAAC.IMTCollection acctypenames = (YAAC.IMTCollection) new Coll.MTCollectionClass();
+	            acctypenames.Add("CORESUBSCRIBER");
+	            acctypenames.Add("GSMSERVICEACCOUNT");
+	            acc.GetDescendents(descendents,
+	                               MetraTime.Now,
+	                               YAAC.MTHierarchyPathWildCard.RECURSIVE,
+	                               true,
+	                               acctypenames);
+	            Assert.AreEqual(200, descendents.Count, "Corporation should have 200 descendent accounts!");
+	        }
+	        finally
+	        {
+                ChangeAccTmplTypes(defaultAllTypesValue);
+	        }
 		}
 
 		[Test]

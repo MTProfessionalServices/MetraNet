@@ -174,8 +174,8 @@ namespace MetraTech.UsageServer.Test.Unit.Cycles
     {
       public int Compare(object x, object y)
       {
-        var interval1 = (UsageInterval) x;
-        var interval2 = (UsageInterval) y;
+        var interval1 = (IUsageInterval) x;
+        var interval2 = (IUsageInterval) y;
 
         if (interval1.StartDate == interval2.StartDate && interval1.EndDate == interval2.EndDate &&
             interval1.CycleType == interval2.CycleType)
@@ -185,8 +185,8 @@ namespace MetraTech.UsageServer.Test.Unit.Cycles
       }
     }
 
-    private static void CompareIntervals(IEnumerable<UsageInterval> expectedIntervals,
-                                         IEnumerable<UsageInterval> producedIntervals)
+    private static void CompareIntervals(IEnumerable<IUsageInterval> expectedIntervals,
+                                         IEnumerable<IUsageInterval> producedIntervals)
     {
       CollectionAssert.AreEqual(expectedIntervals.OrderBy(i => i.StartDate).ToList(),
                                 producedIntervals.OrderBy(i => i.StartDate).ToList(),

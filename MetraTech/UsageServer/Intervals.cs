@@ -180,14 +180,14 @@ namespace MetraTech.UsageServer
 	  /// <summary>
 	  /// Creates all possible reference intervals between the two given dates.
 	  /// </summary>
-	  public ICollection<UsageInterval> CreateReferenceIntervals(DateTime startDate, DateTime endDate)
+	  public ICollection<IUsageInterval> CreateReferenceIntervals(DateTime startDate, DateTime endDate)
 	  {
 	    _mLogger.LogInfo("Creating reference intervals between {0} and {1}",
 	                    startDate, endDate);
 
 	    var cycleTypes = UsageCycleTypes;
 
-	    var intervals = new List<UsageInterval>();
+	    var intervals = new List<IUsageInterval>();
 
 	    using (var bulkInsert = BulkInsertFactory.CreateBulkInsert())
 	    {

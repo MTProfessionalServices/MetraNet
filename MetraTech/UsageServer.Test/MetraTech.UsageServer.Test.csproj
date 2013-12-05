@@ -41,7 +41,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>MetraTech.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\..\build\keys\metratech.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FakeItEasy">
@@ -94,11 +94,15 @@
     <Compile Include="UsagePartitionManagerUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\build\keys\metratech.snk">
+      <Link>metratech.snk</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Functional\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="MetraTech.snk" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

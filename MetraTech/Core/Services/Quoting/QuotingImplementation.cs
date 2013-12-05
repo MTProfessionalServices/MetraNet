@@ -236,7 +236,7 @@ namespace MetraTech.Core.Services.Quoting
 
       return messageLog;
     }
-
+    
     #endregion
 
     #region Internal

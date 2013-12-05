@@ -4,6 +4,9 @@ using NUnit.Framework;
 
 namespace MetraTech.UsageServer.Test.Unit.Cycles
 {
+  //TODO Delete this class when all legacy smoke tests become MStest ones instead of Nunit ones
+  //This test class duplicates the same class stored in c...\Legacy_Internal\Source\MetraTech\UsageServer.Test\
+  //because at this point MetraTech tests use Nunit framework
   [TestFixture]
   public class MonthlyCycleTypeUnitTest
   {

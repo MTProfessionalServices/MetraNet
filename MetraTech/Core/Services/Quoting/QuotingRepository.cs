@@ -29,6 +29,8 @@ namespace MetraTech.Core.Services.Quoting
     QuoteHeader GetQuoteHeader(int quoteID, bool loadAllRelatedEntities = true);
 
     void UpdateStatus(int quoteID, ActionStatus status, QuoteStatus value);
+
+    QuoteStatus GetActionStatus(int quoteID, ActionStatus status);
   }
 
   /// <summary>
@@ -114,6 +116,40 @@ namespace MetraTech.Core.Services.Quoting
         catch (Exception ex)
         {
           mLogger.LogException("Error save Quote content", ex);
+          throw;
+        }
+      }
+    }
+
+    public QuoteStatus GetActionStatus(int quoteID, ActionStatus status)
+    {
+      using (new HighResolutionTimer(MethodBase.GetCurrentMethod().Name))
+      {
+        RepositoryAccess.Instance.Initialize();
+
+        //get quoteContent BME
+        var quoteContent = GetQuoteContent(quoteID);
+
+        try
+        {
+          if (quoteContent == null)
+          {
+            throw new Exception(String.Format("Can't find quote header with idQuote = {0}", quoteID));
+          }
+
+          switch (status)
+          {
+            case ActionStatus.StatusReport:
+              return quoteContent.StatusReport != null ? (QuoteStatus) quoteContent.StatusReport : QuoteStatus.None;
+            case ActionStatus.StatusCleanup:
+              return quoteContent.StatusCleanup != null ? (QuoteStatus)quoteContent.StatusCleanup : QuoteStatus.None;
+            default:
+              return QuoteStatus.None;
+          }
+        }
+        catch (Exception ex)
+        {
+          mLogger.LogException("Error return action status", ex);
           throw;
         }
       }
@@ -602,6 +638,11 @@ namespace MetraTech.Core.Services.Quoting
     }
 
     public void UpdateStatus(int quoteID, ActionStatus status, QuoteStatus value)
+    {
+      throw new NotImplementedException();
+    }
+
+    public QuoteStatus GetActionStatus(int quoteID, ActionStatus status)
     {
       throw new NotImplementedException();
     }

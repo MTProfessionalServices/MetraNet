@@ -115,7 +115,7 @@
     <Compile Include="Entities\QuerySearchContext.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\..\..\RMP\config\QueryManagement\QueryManagement.xml">
+    <Content Include="$(MTRMP)\config\QueryManagement\QueryManagement.xml">
       <Link>Configuration\QueryManagement.xml</Link>
       <SubType>Designer</SubType>
     </Content>

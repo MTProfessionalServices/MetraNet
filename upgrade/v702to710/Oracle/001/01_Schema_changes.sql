@@ -1,5 +1,29 @@
 SET DEFINE OFF
 
+DECLARE
+    last_upgrade_id NUMBER;
+BEGIN
+    SELECT (NVL(MAX(upgrade_id), 0) + 1)
+    INTO   last_upgrade_id
+    FROM   t_sys_upgrade;
+
+    INSERT INTO t_sys_upgrade
+      (
+        upgrade_id,
+        target_db_version,
+        dt_start_db_upgrade,
+        db_upgrade_status
+      )
+    VALUES
+      (
+        last_upgrade_id,
+        '7.1.0',
+        SYSDATE(),
+        'R'
+      );
+END;
+/
+
 CREATE TABLE rg_temp_733134584_0 (
   id_payment_transaction VARCHAR2(87 BYTE) NOT NULL,
   nm_invoice_num NVARCHAR2(50) NOT NULL,

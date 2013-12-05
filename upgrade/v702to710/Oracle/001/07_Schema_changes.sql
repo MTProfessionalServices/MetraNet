@@ -803,3 +803,17 @@ BEGIN
 	prtn_insert_meter_part_info(id_partition =>1);
 END;
 /
+
+DECLARE
+    last_upgrade_id NUMBER;
+BEGIN
+    SELECT MAX(upgrade_id)
+    INTO   last_upgrade_id
+    FROM   t_sys_upgrade;
+    
+    UPDATE t_sys_upgrade
+    SET db_upgrade_status = 'C',
+    dt_end_db_upgrade = SYSDATE()
+    WHERE upgrade_id = last_upgrade_id; 
+END;
+/

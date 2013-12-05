@@ -29,7 +29,7 @@ CONST GLOBAL_CSR_METERED_ACCOUNT_ID               =   123
 CONST mom_DEFAULT_NAME_SPACE                      =   "system_user"
 CONST mom_CSR_NAME_SPACE                          =   "system_user"
 CONST mom_OPS_NAME_SPACE                          =   "system_user"
-CONST mom_LANGUAGE                                =    "US"
+CONST mom_LANGUAGE                                =    "en-us"
 
 CONST mom_TEST_MODE                               =   true ' By turning of and on the bool some dialog behave for test mode...
 

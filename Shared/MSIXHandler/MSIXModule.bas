@@ -177,23 +177,40 @@ Public Function MyFormatDateTime(varExp As Variant, strFormat As String) As Vari
         MyFormatDateTime = ""
         Exit Function
     End If
-    Dim day, month As String
+    Dim Day, Month, Year, H, M, S, ampm As String
     Dim formatparts() As String
     formatparts = Split(strFormat, "/")
     Dim parts() As String
     parts = Split(str, "/")
-    month = parts(0)
-    day = parts(1)
+    Month = parts(0)
+    Day = parts(1)
+    Dim Rest As String
+    Rest = parts(2)
+    Year = Left(Rest, 4)
+    Rest = Right(Rest, Len(Rest) - 9) 'accounting for #32;
+    parts = Split(Rest, ":")
+    H = parts(0)
+    M = parts(1)
+    Rest = parts(2)
+    S = Left(Rest, 2)
+    ampm = Right(Rest, 2)
+    If (StrComp(Trim(ampm), "PM") = 0) Then
+      On Error GoTo Err
+      H = CStr((CByte(Trim(H)) + 12))
+    End If
+    
     If (Len(strFormat)) Then
         If ((StrComp(formatparts(0), "d") = 0) Or (StrComp(formatparts(0), "dd") = 0)) Then
-            MyFormatDateTime = day + "/" + month + "/" + parts(2)
+            MyFormatDateTime = Day + "/" + Month + "/" + Year + " " + H + ":" + M + ":" + S
         Else
-            MyFormatDateTime = month + "/" + day + "/" + parts(2)
+            MyFormatDateTime = Month + "/" + Day + "/" + Year + " " + H + ":" + M + ":" + S
         End If
     Else
         MyFormatDateTime = varExp
     End If
-    
+    Exit Function
+Err:
+        MyFormatDateTime = "error happened in casting hour to int"
 End Function
 Public Function FormatData(varExp As Variant, strFormat As String) As Variant
     
@@ -307,19 +324,19 @@ End Function
 
 Public Function GetMSIXTypeStringFromSessionTypeID(lngID As Long) As String
 
-    Dim s As String
+    Dim S As String
 
     Select Case lngID
 
-        Case SESSION_PROPERTY_TYPE_DATE: s = MSIXDEF_TYPE_TIMESTAMP
-        Case SESSION_PROPERTY_TYPE_TIME: s = MSIXDEF_TYPE_TIMESTAMP
-        Case SESSION_PROPERTY_TYPE_STRING: s = MSIXDEF_TYPE_STRING
-        Case SESSION_PROPERTY_TYPE_LONG: s = MSIXDEF_TYPE_INT32
-        Case SESSION_PROPERTY_TYPE_DOUBLE: s = MSIXDEF_TYPE_DOUBLE
-        Case SESSION_PROPERTY_TYPE_BOOLEAN: s = MSIXDEF_TYPE_BOOLEAN
-        Case SESSION_PROPERTY_TYPE_ENUM: s = MSIXDEF_TYPE_ENUM
-        Case SESSION_PROPERTY_TYPE_DECIMAL: s = MSIXDEF_TYPE_DECIMAL
+        Case SESSION_PROPERTY_TYPE_DATE: S = MSIXDEF_TYPE_TIMESTAMP
+        Case SESSION_PROPERTY_TYPE_TIME: S = MSIXDEF_TYPE_TIMESTAMP
+        Case SESSION_PROPERTY_TYPE_STRING: S = MSIXDEF_TYPE_STRING
+        Case SESSION_PROPERTY_TYPE_LONG: S = MSIXDEF_TYPE_INT32
+        Case SESSION_PROPERTY_TYPE_DOUBLE: S = MSIXDEF_TYPE_DOUBLE
+        Case SESSION_PROPERTY_TYPE_BOOLEAN: S = MSIXDEF_TYPE_BOOLEAN
+        Case SESSION_PROPERTY_TYPE_ENUM: S = MSIXDEF_TYPE_ENUM
+        Case SESSION_PROPERTY_TYPE_DECIMAL: S = MSIXDEF_TYPE_DECIMAL
     End Select
-    GetMSIXTypeStringFromSessionTypeID = s
+    GetMSIXTypeStringFromSessionTypeID = S
 End Function
 

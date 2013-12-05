@@ -3513,6 +3513,7 @@ namespace MetraTech.UsageServer.Test
     ///   9) Verify that the accounts have a status of open
     ///   in t_acc_usage_interval for the new interval id.
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Slow")]
     [Category("Billing")]
@@ -3564,6 +3565,7 @@ namespace MetraTech.UsageServer.Test
     ///   with the current interval.
     ///   3) Validate that the usage does land in the current interval.
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Slow")]
     [Category("Billing")]
@@ -3588,6 +3590,7 @@ namespace MetraTech.UsageServer.Test
     ///   4) Validate that the usage does not land in the current interval.
     ///   5) Validate that the usage lands in the next open interval.
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Slow")]
     [Category("Billing")]
@@ -3619,6 +3622,7 @@ namespace MetraTech.UsageServer.Test
     ///   4) Validate that the usage does not land in the current interval.
     ///   5) Validate that the usage lands in the next open interval.
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Slow")]
     [Category("Billing")]
@@ -3646,6 +3650,7 @@ namespace MetraTech.UsageServer.Test
     ///   with the current interval.
     ///   4) Validate that the usage does land in the current interval.
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Slow")]
     [Category("Billing")]
@@ -3714,6 +3719,7 @@ namespace MetraTech.UsageServer.Test
     ///   7) Reverse invoice adapter for the billing group.
     ///   Verify that adapter reversed successfully.
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Slow")]
     [Category("Billing")]
@@ -4366,6 +4372,7 @@ namespace MetraTech.UsageServer.Test
     /// <summary>
     ///   See comments for TestBackout.
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Slow")]
     [Category("Billing")]
@@ -4377,6 +4384,7 @@ namespace MetraTech.UsageServer.Test
     /// <summary>
     ///   See comments for TestBackout.
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Slow")]
     [Category("Billing")]
@@ -4584,6 +4592,7 @@ namespace MetraTech.UsageServer.Test
     ///   PostConditions:
     ///   1) NonPayerAccountsInConstraintGroupsException is thrown
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Fast")]
     [Category("Billing")]
@@ -4972,10 +4981,10 @@ namespace MetraTech.UsageServer.Test
     ///   in t_enum_data)
     ///   - Check that it has the given expectedCalendarCode
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Slow")]
     [Category("Billing")]
-    [Ignore]
     public void T57TestCalendarCodeLookup()
     {
       const string calendarName = "Calendar_CL_PO";
@@ -5214,6 +5223,7 @@ namespace MetraTech.UsageServer.Test
     ///   Hard close an interval overriding the creation of billing groups.
     ///   Check that the interval is hard closed.
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Fast")]
     [Category("Billing")]
@@ -5230,6 +5240,7 @@ namespace MetraTech.UsageServer.Test
     ///   Hard close an interval overriding the creation of billing groups.
     ///   Check that the interval is hard closed.
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Fast")]
     [Category("Billing")]

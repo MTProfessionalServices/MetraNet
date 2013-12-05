@@ -38,9 +38,8 @@
     <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\MetraTech</BaseIntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FakeItEasy, Version=1.13.1.0, Culture=neutral, PublicKeyToken=eff28e2146d5fd2c, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\FakeItEasy.1.13.1\lib\net40\FakeItEasy.dll</HintPath>
+    <Reference Include="FakeItEasy">
+      <HintPath>..\packages\FakeItEasy.1.14.0\lib\net40\FakeItEasy.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.Common">
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.Common.dll</HintPath>
@@ -75,6 +74,16 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Unit\Cycles\MonthlyCycleTypeUnitTest.cs" />
+    <Compile Include="Unit\Cycles\DailyCycleTypeUnitTest.cs" />
+    <Compile Include="Unit\Cycles\SemiAnnualCycleTypeUnitTest.cs" />
+    <Compile Include="Unit\Cycles\AnnualCycleTypeUnitTest.cs" />
+    <Compile Include="Unit\Cycles\CycleUnitTest.cs" />
+    <Compile Include="Unit\Cycles\CycleUtilsUnitTest.cs" />
+    <Compile Include="Unit\Cycles\WeeklyCycleTypeUnitTest.cs" />
+    <Compile Include="Unit\Cycles\BiWeeklyCycleTypeUnitTest.cs" />
+    <Compile Include="Unit\Cycles\QuarterlyCycleTypeUnitTest.cs" />
+    <Compile Include="Unit\Cycles\SemiMonthlyCycleTypeUnitTest.cs" />
     <Compile Include="Unit\UsagePartitionManagerUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>

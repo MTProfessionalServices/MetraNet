@@ -514,7 +514,10 @@ namespace MetraTech.Core.Services
                                         {
                                             payment.Description = reader.GetString("description");
                                         }
-                                        payment.PaymentDate = reader.GetDateTime("event_date");
+                                        if (!reader.IsDBNull("event_date"))
+                                        {
+                                            payment.PaymentDate = reader.GetDateTime("event_date");
+                                        }
                                         if (!reader.IsDBNull("reason_code"))
                                         {
                                             if (reader.GetInt32("reason_code") > 0)
@@ -1833,7 +1836,10 @@ namespace MetraTech.Core.Services
                                         {
                                             payment.Description = reader.GetString("description");
                                         }
-                                        payment.PaymentDate = reader.GetDateTime("event_date");
+                                        if (!reader.IsDBNull("event_date"))
+                                        {
+                                            payment.PaymentDate = reader.GetDateTime("event_date");
+                                        }
                                         if (!reader.IsDBNull("reason_code"))
                                         {
                                             int reasonCode = reader.GetInt32("reason_code");
@@ -1955,8 +1961,9 @@ namespace MetraTech.Core.Services
                             paymentInfo.Currency = (o is DBNull) ? "" : (string)o;
                             // this is never null, 0 returned if no payment been made.
                             paymentInfo.LastPaymentAmount = (decimal)stmt.GetOutputValue("@last_payment");
-                            // this is never null, 1900-01-01 returned if no payment been made
-                            paymentInfo.LastPaymentDate = (DateTime)stmt.GetOutputValue("@last_payment_date");
+                            // 1900-01-01 returned if no payment been made, if its null then set it to 1900-01-01
+                            o = stmt.GetOutputValue("@last_payment_date");
+                            paymentInfo.LastPaymentDate = (o is DBNull) ? new DateTime(1900, 1, 1) : (DateTime)o;
                             paymentInfo.AmountDueAsString = LocalizeCurrencyString(paymentInfo.AmountDue, languageID, paymentInfo.Currency);
                             paymentInfo.LastPaymentAmountAsString = LocalizeCurrencyString(paymentInfo.LastPaymentAmount, languageID, paymentInfo.Currency);
                         }

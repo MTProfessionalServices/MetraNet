@@ -26,15 +26,6 @@ CryptoSetup -encryptconfig
 @echo .
 @echo .
 @echo ***********************************************************
-@echo ****** Update the system registry to set/adjust      ******
-@echo ****** entries required by ICE.                      ******
-@echo ***********************************************************
-@C:\Windows\System32\WindowsPowerShell\v1.0\PowerShell.exe -Command "& { 'Begin ICERegExport.reg at ' + (get-date).ToLongTimeString() }"
-@regedit.exe -s %DEVDIR%\ICE\Source\Install\ICERegExport.reg
-@C:\Windows\System32\WindowsPowerShell\v1.0\PowerShell.exe -Command "& { 'End ICERegExport.reg at ' + (get-date).ToLongTimeString() }"
-@echo .
-@echo .
-@echo ***********************************************************
 @echo ****** Remove folders with invalid configurations.   ******
 @echo ****** Need to remove this once configs are fixed.   ******
 @echo ***********************************************************

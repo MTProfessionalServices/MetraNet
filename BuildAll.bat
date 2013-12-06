@@ -21,7 +21,7 @@ CryptoSetup -encryptconfig
 @echo ****** See results in the file BuildMVM.log          ******
 @echo ***********************************************************
 @C:\Windows\System32\WindowsPowerShell\v1.0\PowerShell.exe -Command "& { 'Begin MVM.sln at ' + (get-date).ToLongTimeString() }"
-@msbuild C:\dev\MetraNet\RMP\Extensions\MvmCore_Internal\SourceCode\Mvm\MVM.sln /property:Platform=x86 >BuildMVM.log 2>CON
+@msbuild %DEVDIR%\MvmCore\SourceCode\Mvm\MVM.sln /property:Platform=x86 >BuildMVM.log 2>CON
 @C:\Windows\System32\WindowsPowerShell\v1.0\PowerShell.exe -Command "& { 'End MVM.sln at ' + (get-date).ToLongTimeString() }"
 @echo .
 @echo .
@@ -37,7 +37,7 @@ rd /S /Q %DEVDIR%\ICE\Test\TestExtensions\RMP\Extensions\ValMessages
 @echo ****** See results in the file BuildICE.log          ******
 @echo ***********************************************************
 @C:\Windows\System32\WindowsPowerShell\v1.0\PowerShell.exe -Command "& { 'Begin ICE.sln at ' + (get-date).ToLongTimeString() }"
-@msbuild C:\dev\MetraNet\RMP\Extensions\ICE_Internal\Source\MetraTech\ICE\ICE.sln /property:Platform=x86 >BuildICE.log 2>CON
+@msbuild %DEVDIR%\ICE\Source\MetraTech\ICE\ICE.sln /property:Platform=x86 >BuildICE.log 2>CON
 @C:\Windows\System32\WindowsPowerShell\v1.0\PowerShell.exe -Command "& { 'End ICE.sln at ' + (get-date).ToLongTimeString() }"
 @echo .
 @echo .
@@ -46,7 +46,7 @@ rd /S /Q %DEVDIR%\ICE\Test\TestExtensions\RMP\Extensions\ValMessages
 @echo ****** See results in the file BuildDatabase.log     ******
 @echo ***********************************************************
 @C:\Windows\System32\WindowsPowerShell\v1.0\PowerShell.exe -Command "& { 'Begin Database.vbs at ' + (get-date).ToLongTimeString() }"
-@cscript C%DEVDIR%\Source\Install\Scripts\Database.vbs >BuildDatabase.log 2>CON
+@cscript %DEVDIR%\Source\Install\Scripts\Database.vbs >BuildDatabase.log 2>CON
 @C:\Windows\System32\WindowsPowerShell\v1.0\PowerShell.exe -Command "& { 'End Database.vbs at ' + (get-date).ToLongTimeString() }"
 @echo .
 @echo .

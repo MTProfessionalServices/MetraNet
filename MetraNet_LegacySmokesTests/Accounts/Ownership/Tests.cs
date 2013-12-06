@@ -80,6 +80,7 @@ namespace MetraTech.Accounts.Ownership.Test
     /// <summary>
     /// Tests Creation of ownersip manager from YAAC object
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Fast")]
     public void T01TestCreateOwnershipManager()
@@ -92,6 +93,7 @@ namespace MetraTech.Accounts.Ownership.Test
     /// Create ownership relationship, fetch it back as rowset and
     /// verify correctness
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Fast")]
     public void T02TestCreateOwnerships()
@@ -103,6 +105,7 @@ namespace MetraTech.Accounts.Ownership.Test
     /// <summary>
     /// Create ownership relationships by incapable user
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Fast")]
     public void T03TestCreateOwnershipAccessDenied()
@@ -117,6 +120,7 @@ namespace MetraTech.Accounts.Ownership.Test
     /// <summary>
     /// Delete ownership relationships by incapable user
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Fast")]
     public void T04TestRemoveOwnershipAccessDenied()
@@ -131,6 +135,7 @@ namespace MetraTech.Accounts.Ownership.Test
     /// <summary>
     /// Create ownership relationships in batch
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Fast")]
     public void T05TestCreateOwnershipBatch()
@@ -144,6 +149,7 @@ namespace MetraTech.Accounts.Ownership.Test
     /// <summary>
     /// Create ownership relationships in batch by incapable user
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Fast")]
     public void T06TestCreateOwnershipBatchAccessDenied()
@@ -157,6 +163,7 @@ namespace MetraTech.Accounts.Ownership.Test
     /// <summary>
     /// Remove ownership relationships in batch
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Fast")]
     public void T07TestRemoveOwnershipBatch()
@@ -171,6 +178,7 @@ namespace MetraTech.Accounts.Ownership.Test
     /// <summary>
     /// Remove ownership relationships in batch by incapable user
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Fast")]
     public void T08TestRemoveOwnershipBatchAccessDenied()
@@ -184,6 +192,7 @@ namespace MetraTech.Accounts.Ownership.Test
     /// <summary>
     /// Fetch accounts owned by Scott
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Fast")]
     public void T09TestViewOwnedAccounts()
@@ -198,6 +207,7 @@ namespace MetraTech.Accounts.Ownership.Test
     /// <summary>
     /// Fetch accounts owned by Scott
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Fast")]
     public void T10TestViewOwnedAccountsAccessDenied()
@@ -212,6 +222,7 @@ namespace MetraTech.Accounts.Ownership.Test
     /// Fetch relationship create in the previous test from
     /// an owned account perspective
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Fast")]
     public void T11TestViewOwners()
@@ -226,6 +237,7 @@ namespace MetraTech.Accounts.Ownership.Test
     /// <summary>
     /// Fetch relationship by incapable user
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Fast")]
     public void T12TestViewOwnersAccessDenied()
@@ -238,6 +250,7 @@ namespace MetraTech.Accounts.Ownership.Test
     /// <summary>
     /// Fetch all ownwerhips, while being logged in as SU
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Fast")]
     public void T13TestViewOwnedAccountsHierarchicalAsSU()
@@ -274,6 +287,7 @@ namespace MetraTech.Accounts.Ownership.Test
     /// <summary>
     /// Fetch all ownwerhips, while being logged in corresponding users
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Fast")]
     public void T14TestViewOwnedAccountsHierarchical()
@@ -302,6 +316,7 @@ namespace MetraTech.Accounts.Ownership.Test
     /// <summary>
     /// Test batch operation using AccountCatalog
     /// </summary>
+    [Ignore]
     [Test]
     [Category("Slow")]
     public void T15TestBatchCreateOwnershipWithAccountCatalog()
@@ -316,6 +331,7 @@ namespace MetraTech.Accounts.Ownership.Test
     /// Test batch remove ownerhip operation using AccountCatalog
     /// </summary>
     /// 
+    [Ignore]
     [Test]
     [Category("Slow")]
     public void T16TestBatchRemoveOwnershipWithAccountCatalog()

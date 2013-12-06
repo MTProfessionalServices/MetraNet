@@ -8,8 +8,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{BBAFA350-312A-45C2-9A59-CF990994A475}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>MetraTech.UsageServer.Test</RootNamespace>
-    <AssemblyName>MetraTech.UsageServer.Test</AssemblyName>
+    <RootNamespace>MetraTech.UsageServer.UnitTest</RootNamespace>
+    <AssemblyName>MetraTech.UsageServer.UnitTest</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -55,6 +55,9 @@
       <HintPath>$(MTOUTDIR)\$(Configuration)\Bin\MetraTech.TestCommon.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\PublicAssemblies\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
@@ -68,7 +71,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -80,7 +82,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Unit\Cycles\IntervalsTest.cs" />
+    <Compile Include="Unit\IntervalsTest.cs" />
     <Compile Include="Unit\Cycles\MonthlyCycleTypeUnitTest.cs" />
     <Compile Include="Unit\Cycles\DailyCycleTypeUnitTest.cs" />
     <Compile Include="Unit\Cycles\SemiAnnualCycleTypeUnitTest.cs" />
@@ -91,7 +93,7 @@
     <Compile Include="Unit\Cycles\BiWeeklyCycleTypeUnitTest.cs" />
     <Compile Include="Unit\Cycles\QuarterlyCycleTypeUnitTest.cs" />
     <Compile Include="Unit\Cycles\SemiMonthlyCycleTypeUnitTest.cs" />
-    <Compile Include="UsagePartitionManagerUnitTest.cs" />
+    <Compile Include="Unit\UsagePartitionManagerUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\build\keys\metratech.snk">

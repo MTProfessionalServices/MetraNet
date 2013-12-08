@@ -141,18 +141,18 @@ newid() AS idSourceSess,
 										OR pci.dt_end BETWEEN
 														CASE
 															WHEN rw.c_SubscriptionStart >= nui.dt_start THEN nui.dt_start 
-															ELSE nui.dt_end + 1 /* BETWEEN should return FALSE.  */
+															ELSE DATEADD(day, 1, nui.dt_end) /* BETWEEN should return FALSE.  */
 														END
 													  AND nui.dt_end
 										/* or this interval could be in the middle of the cycle */
 										OR (
 											pci.dt_start < CASE WHEN rw.c_SubscriptionStart >= nui.dt_start
 																THEN  nui.dt_start 
-																ELSE pci.dt_start
+																ELSE pci.dt_start /* "<" should return FALSE.  */
 															END
 											AND pci.dt_end > CASE WHEN rw.c_SubscriptionStart >= nui.dt_start
 																THEN  nui.dt_end
-																ELSE pci.dt_end
+																ELSE pci.dt_end /* ">" should return FALSE.  */
 															END
 										)
                                    )

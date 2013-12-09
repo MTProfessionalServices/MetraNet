@@ -64,6 +64,10 @@ namespace MetraTech.Core.Services
 
         [OperationContract]
         [FaultContract(typeof(MASBasicFaultDetail))]
+        void GetFullyQualifiedName(int id_view, out string nm_name);
+
+        [OperationContract]
+        [FaultContract(typeof(MASBasicFaultDetail))]
         void GetUsageDetails(ReportParameters repParams,
                                 SingleProductSlice productSlice,
                                 AccountSlice accountSlice,
@@ -510,7 +514,10 @@ namespace MetraTech.Core.Services
                                         {
                                             payment.Description = reader.GetString("description");
                                         }
-                                        payment.PaymentDate = reader.GetDateTime("event_date");
+                                        if (!reader.IsDBNull("event_date"))
+                                        {
+                                            payment.PaymentDate = reader.GetDateTime("event_date");
+                                        }
                                         if (!reader.IsDBNull("reason_code"))
                                         {
                                             if (reader.GetInt32("reason_code") > 0)
@@ -1436,6 +1443,49 @@ namespace MetraTech.Core.Services
         }
 
         [OperationCapability("Manage Account Hierarchies")]
+        public void GetFullyQualifiedName(int id_view, out string nm_name)
+        {
+            string output = null;
+            try
+            {
+                using (IMTConnection conn = ConnectionManager.CreateConnection(METRAVIEW_QUERY_FOLDER, true))
+                {
+                    using (MTComSmartPtr<IMTQueryAdapter> queryAdapter = new MTComSmartPtr<IMTQueryAdapter>())
+                    {
+                        queryAdapter.Item = new MTQueryAdapterClass();
+                        queryAdapter.Item.Init(METRAVIEW_QUERY_FOLDER);
+                        queryAdapter.Item.SetQueryTag("__GET_FULLY_QUALIFIED_NAME__");
+
+                        using (IMTPreparedStatement stmt =
+                            conn.CreatePreparedStatement(queryAdapter.Item.GetRawSQLQuery(true)))
+                        {
+                            stmt.AddParam("id_view", MTParameterType.Integer, id_view);
+
+                            using (IMTDataReader rdr = stmt.ExecuteReader())
+                            {
+                                while (rdr.Read())
+                                {
+                                    int displayNameIndex = rdr.GetOrdinal("nm_name");
+
+                                    if (!rdr.IsDBNull(displayNameIndex))
+                                    {
+                                        output = rdr.GetString("nm_name");
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                mLogger.LogException("GetFullyQualifiedName failed", e);
+                throw new MASBasicException("GetFullyQualifiedName failed. " + e.Message);
+            }
+            nm_name = output;
+        }
+
+        [OperationCapability("Manage Account Hierarchies")]
         public void GetBaseAdjustmentDetails(BILL.TimeSlice timeSlice,
                                         AccountSlice accountSlice,
                                         bool isPostbill,
@@ -1786,7 +1836,10 @@ namespace MetraTech.Core.Services
                                         {
                                             payment.Description = reader.GetString("description");
                                         }
-                                        payment.PaymentDate = reader.GetDateTime("event_date");
+                                        if (!reader.IsDBNull("event_date"))
+                                        {
+                                            payment.PaymentDate = reader.GetDateTime("event_date");
+                                        }
                                         if (!reader.IsDBNull("reason_code"))
                                         {
                                             int reasonCode = reader.GetInt32("reason_code");
@@ -1908,8 +1961,9 @@ namespace MetraTech.Core.Services
                             paymentInfo.Currency = (o is DBNull) ? "" : (string)o;
                             // this is never null, 0 returned if no payment been made.
                             paymentInfo.LastPaymentAmount = (decimal)stmt.GetOutputValue("@last_payment");
-                            // this is never null, 1900-01-01 returned if no payment been made
-                            paymentInfo.LastPaymentDate = (DateTime)stmt.GetOutputValue("@last_payment_date");
+                            // 1900-01-01 returned if no payment been made, if its null then set it to 1900-01-01
+                            o = stmt.GetOutputValue("@last_payment_date");
+                            paymentInfo.LastPaymentDate = (o is DBNull) ? new DateTime(1900, 1, 1) : (DateTime)o;
                             paymentInfo.AmountDueAsString = LocalizeCurrencyString(paymentInfo.AmountDue, languageID, paymentInfo.Currency);
                             paymentInfo.LastPaymentAmountAsString = LocalizeCurrencyString(paymentInfo.LastPaymentAmount, languageID, paymentInfo.Currency);
                         }

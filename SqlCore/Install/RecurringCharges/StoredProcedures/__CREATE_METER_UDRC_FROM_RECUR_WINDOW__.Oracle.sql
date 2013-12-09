@@ -1,7 +1,6 @@
 
 CREATE OR REPLACE
-PROCEDURE MeterUdrcFromRecurWindow
-AS
+PROCEDURE MeterUdrcFromRecurWindow (currentDate date) AS
   enabled       VARCHAR2(10);
 BEGIN
   SELECT value INTO enabled FROM t_db_values WHERE parameter = N'InstantRc';
@@ -63,13 +62,14 @@ BEGIN
       
     INNER JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
 	INNER JOIN tmp_old_units tou ON tou.n_value IS NOT NULL
-    inner join t_usage_interval currentui on metratime(1,'RC') between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = ui.id_usage_cycle
-   where 1=1
+    inner join t_usage_interval currentui on currentDate between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = ui.id_usage_cycle
+   where 
       /*Don't issue corrections for old values that are going to stay the same.*/
-      AND NOT EXISTS (SELECT 1 FROM tmp_old_units tou WHERE rw_new.c_UnitValueStart = tou.vt_start OR rw_new.c_UnitValueEnd = tou.vt_end)
+      NOT EXISTS (SELECT 1 FROM tmp_old_units tou WHERE rw_new.c_UnitValueStart = tou.vt_start OR rw_new.c_UnitValueEnd = tou.vt_end)
       /*Only issue corrections if there's a previous iteration.*/
       AND EXISTS (SELECT 1 FROM t_recur_value trv WHERE trv.id_sub = rw_new.c__SubscriptionID AND trv.tt_end < dbo.MTMaxDate())
-;
+	  AND rw_new.c__IsAllowGenChargeByTrigger = 1;
+	  
     insert INTO tmp_rc  
     SELECT 'AdvanceCorrection' AS c_RCActionType
            ,c_RCIntervalStart
@@ -130,6 +130,10 @@ BEGIN
            ,sys_guid() AS idSourceSess FROM tmp_udrc;
     
 	insertChargesIntoSvcTables('AdvanceCorrection','DebitCorrection');
+	
+	UPDATE tmp_newrw rw
+	SET c_BilledThroughDate = currentDate	
+	where rw.c__IsAllowGenChargeByTrigger = 1;
 	
 END MeterUdrcFromRecurWindow;
 

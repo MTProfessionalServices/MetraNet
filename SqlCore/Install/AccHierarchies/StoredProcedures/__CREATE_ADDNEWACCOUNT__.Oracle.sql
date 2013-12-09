@@ -212,84 +212,85 @@ to purge the archived account before the new account could be created.
    /* associates the account with the Usage Server */
 
    /* step : determines the usage cycle ID from the passed in date properties*/
-   BEGIN
-      FOR i IN (SELECT id_usage_cycle
-                  FROM t_usage_cycle CYCLE
-                 WHERE CYCLE.id_cycle_type = p_id_cycle_type
-                   AND (   p_day_of_month = CYCLE.day_of_month
-                        OR p_day_of_month IS NULL
-                       )
-                   AND (   p_day_of_week = CYCLE.day_of_week
-                        OR p_day_of_week IS NULL
-                       )
-                   AND (   p_first_day_of_month = CYCLE.first_day_of_month
-                        OR p_first_day_of_month IS NULL
-                       )
-                   AND (   p_second_day_of_month = CYCLE.second_day_of_month
-                        OR p_second_day_of_month IS NULL
-                       )
-                   AND (p_start_day = CYCLE.start_day OR p_start_day IS NULL
-                       )
-                   AND (   p_start_month = CYCLE.start_month
-                        OR p_start_month IS NULL
-                       )
-                   AND (p_start_year = CYCLE.start_year
-                        OR p_start_year IS NULL
-                       ))
-      LOOP
-         usagecycleid := i.id_usage_cycle;
-      END LOOP;
-   END;
+   IF (p_id_cycle_type is not null) THEN
+	   BEGIN
+	      FOR i IN (SELECT id_usage_cycle
+	                  FROM t_usage_cycle CYCLE
+	                 WHERE CYCLE.id_cycle_type = p_id_cycle_type
+	                   AND (   p_day_of_month = CYCLE.day_of_month
+	                        OR p_day_of_month IS NULL
+	                       )
+	                   AND (   p_day_of_week = CYCLE.day_of_week
+	                        OR p_day_of_week IS NULL
+	                       )
+	                   AND (   p_first_day_of_month = CYCLE.first_day_of_month
+	                        OR p_first_day_of_month IS NULL
+	                       )
+	                   AND (   p_second_day_of_month = CYCLE.second_day_of_month
+	                        OR p_second_day_of_month IS NULL
+	                       )
+	                   AND (p_start_day = CYCLE.start_day OR p_start_day IS NULL
+	                       )
+	                   AND (   p_start_month = CYCLE.start_month
+	                        OR p_start_month IS NULL
+	                       )
+	                   AND (p_start_year = CYCLE.start_year
+	                        OR p_start_year IS NULL
+	                       ))
+	      LOOP
+	         usagecycleid := i.id_usage_cycle;
+	      END LOOP;
+	   END;
 
-   /* step : add the account to usage cycle mapping */
-   INSERT INTO t_acc_usage_cycle
-               (id_acc, id_usage_cycle
-               )
-        VALUES (accountid, usagecycleid
-               );
+	   /* step : add the account to usage cycle mapping */
+	   INSERT INTO t_acc_usage_cycle
+	               (id_acc, id_usage_cycle
+	               )
+	        VALUES (accountid, usagecycleid
+	               );
 
-   /* step : creates only needed intervals and mappings for this account only.
-    other accounts affected by any new intervals (same cycle) will
-    be associated later in the day via a usm -create. */
-   /* Defines the date range that an interval must fall into to
-     be considered 'active'. */
-   SELECT (p_systemdate + n_adv_interval_creation) INTO create_dt_end FROM t_usage_server;
+	   /* step : creates only needed intervals and mappings for this account only.
+	    other accounts affected by any new intervals (same cycle) will
+	    be associated later in the day via a usm -create. */
+	   /* Defines the date range that an interval must fall into to
+	     be considered 'active'. */
+	   SELECT (p_systemdate + n_adv_interval_creation) INTO create_dt_end FROM t_usage_server;
 
-   IF (
-     /* Exclude archived accounts. */
-     p_acc_state <> 'AR'
-     /* The account has already started or is about to start. */
-     AND acc_startdate < create_dt_end
-     /* The account has not yet ended. */
-     AND acc_enddate >= p_systemdate)
-   THEN
-     INSERT INTO t_usage_interval(id_interval,id_usage_cycle,dt_start,dt_end,tx_interval_status)
-     SELECT ref.id_interval,ref.id_cycle,ref.dt_start,ref.dt_end, 'O'
-     FROM
-     t_pc_interval ref
-     WHERE
-     /* Only add intervals that don't exist */
-     NOT EXISTS (
-       SELECT 1 FROM t_usage_interval ui
-       WHERE ref.id_interval = ui.id_interval)
-     AND
-     ref.id_cycle = usagecycleid AND
-     /* Reference interval must at least partially overlap the [minstart, maxend] period. */
-     (ref.dt_end >= acc_startdate AND
-      ref.dt_start <= CASE WHEN acc_enddate < create_dt_end THEN acc_enddate ELSE create_dt_end END);
+	   IF (
+	     /* Exclude archived accounts. */
+	     p_acc_state <> 'AR'
+	     /* The account has already started or is about to start. */
+	     AND acc_startdate < create_dt_end
+	     /* The account has not yet ended. */
+	     AND acc_enddate >= p_systemdate)
+	   THEN
+	     INSERT INTO t_usage_interval(id_interval,id_usage_cycle,dt_start,dt_end,tx_interval_status)
+	     SELECT ref.id_interval,ref.id_cycle,ref.dt_start,ref.dt_end, 'O'
+	     FROM
+	     t_pc_interval ref
+	     WHERE
+	     /* Only add intervals that don't exist */
+	     NOT EXISTS (
+	       SELECT 1 FROM t_usage_interval ui
+	       WHERE ref.id_interval = ui.id_interval)
+	     AND
+	     ref.id_cycle = usagecycleid AND
+	     /* Reference interval must at least partially overlap the [minstart, maxend] period. */
+	     (ref.dt_end >= acc_startdate AND
+	      ref.dt_start <= CASE WHEN acc_enddate < create_dt_end THEN acc_enddate ELSE create_dt_end END);
 
-     INSERT INTO t_acc_usage_interval(id_acc,id_usage_interval,tx_status,dt_effective)
-     SELECT accountid, ref.id_interval, ref.tx_interval_status, NULL
-     FROM t_usage_interval ref
-     WHERE
-     ref.id_usage_cycle = usagecycleid AND
-     /* Reference interval must at least partially overlap the [minstart, maxend] period. */
-     (ref.dt_end >= acc_startdate AND
-      ref.dt_start <= CASE WHEN acc_enddate < create_dt_end THEN acc_enddate ELSE create_dt_end END)
-     /* Only add mappings for non-blocked intervals */
-     AND ref.tx_interval_status <> 'B';
-   END IF;
-
+	     INSERT INTO t_acc_usage_interval(id_acc,id_usage_interval,tx_status,dt_effective)
+	     SELECT accountid, ref.id_interval, ref.tx_interval_status, NULL
+	     FROM t_usage_interval ref
+	     WHERE
+	     ref.id_usage_cycle = usagecycleid AND
+	     /* Reference interval must at least partially overlap the [minstart, maxend] period. */
+	     (ref.dt_end >= acc_startdate AND
+	      ref.dt_start <= CASE WHEN acc_enddate < create_dt_end THEN acc_enddate ELSE create_dt_end END)
+	     /* Only add mappings for non-blocked intervals */
+	     AND ref.tx_interval_status <> 'B';
+	   END IF;
+  END IF;
    /* step : Non-billable accounts must have a payment redirection record*/
    IF (    p_billable = 'N'
        AND (    p_id_payer IS NULL

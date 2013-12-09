@@ -51,8 +51,6 @@ namespace MetraTech.Core.Services.Test.Quoting
 
       UsageAndFailedTransactionCount usageAndFailedTransactionCount = UsageAndFailedTransactionCount.CreateSnapshot();
 
-
-
       //Instantiate our implementation
       if (quoteImp.QuoteImplementation == null)
       {
@@ -102,7 +100,8 @@ namespace MetraTech.Core.Services.Test.Quoting
         //                "Quoting process did not generate expected number of POs for quote");
 
         // Verify the quote total is as expected. If UDRCs are expected than TotalAmount with them is greater than without 
-        Assert.AreEqual(expected.Total, result.TotalAmount, "Created quote total is not what was expected");
+        Assert.AreEqual((double)expected.Total, (double)result.TotalAmount, 0.01, "Created quote total is not what was expected");
+        
         /*if (expectedQuoteUDRCsCount.HasValue)
         {
           Assert.AreEqual(expectedQuoteTotal < preparedQuote.TotalAmount, "Created quote total does not contain UDRCs amount");

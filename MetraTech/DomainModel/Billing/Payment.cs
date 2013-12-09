@@ -129,10 +129,10 @@ namespace MetraTech.DomainModel.Billing
         #region PaymentDate
         [DataMember(IsRequired = false, EmitDefaultValue = false)]
         private bool isPaymentDateDirty = false;
-        private DateTime m_PaymentDate;
+        private DateTime? m_PaymentDate;
         [MTDataMember(Description = "This is the date of the payment.", Length = 40)]
         [DataMember(IsRequired = false, EmitDefaultValue = false)]
-        public DateTime PaymentDate
+        public DateTime? PaymentDate
         {
             get { return m_PaymentDate; }
             set

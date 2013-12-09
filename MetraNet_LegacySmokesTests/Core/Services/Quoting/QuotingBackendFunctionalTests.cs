@@ -1452,9 +1452,9 @@ namespace MetraTech.Core.Services.Test.Quoting
 
         var prorationDivisor = DateTime.DaysInMonth(MetraTime.Now.Year, MetraTime.Now.Month);
 
-        expected.Total = (expected.CountFlatRCs * pofConfiguration.RCAmount / prorationDivisor) +
-                                     (expected.CountUDRCs.Value * expected.TotalForUDRCs / prorationDivisor) +
-                                     (expected.CountNRCs * pofConfiguration.NRCAmount);
+        expected.Total = expected.CountFlatRCs * (pofConfiguration.RCAmount / prorationDivisor) +
+                                     expected.CountUDRCs.Value * (expected.TotalForUDRCs / prorationDivisor) +
+                                     expected.CountNRCs * pofConfiguration.NRCAmount;
 
         //Give request to testing scenario along with expected results for verification; get back response for further verification
         quoteImpl.Response = QuotingTestScenarios.CreateQuoteAndVerifyResults(quoteImpl, expected);

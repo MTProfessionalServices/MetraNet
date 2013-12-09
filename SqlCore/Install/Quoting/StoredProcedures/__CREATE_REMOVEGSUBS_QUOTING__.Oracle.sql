@@ -27,6 +27,9 @@ BEGIN
       v_icbid := i.id_pricelist;
    END LOOP;
 
+   DELETE FROM t_recur_window rw
+         WHERE rw.C__SUBSCRIPTIONID = p_id_sub;
+
    DELETE FROM t_gsub_recur_map
          WHERE id_group = v_groupid;
 

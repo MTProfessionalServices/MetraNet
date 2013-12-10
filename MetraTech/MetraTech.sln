@@ -740,7 +740,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.Approvals.Test", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VertexServer.Test", "VertexSocketService\VertexServerTest\VertexServer.Test.csproj", "{8E0BC85B-08EE-4DD4-84BF-AC9734E7395B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.UsageServer.UnitTest", "UsageServer.Test\MetraTech.UsageServer.UnitTest.csproj", "{BBAFA350-312A-45C2-9A59-CF990994A475}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetraTech.UsageServer.Unit.Test", "UsageServer.Test\MetraTech.UsageServer.Unit.Test.csproj", "{BBAFA350-312A-45C2-9A59-CF990994A475}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution

@@ -160,8 +160,8 @@ Public Function FormatDataLocalized(ByVal varExp As Variant, ByVal Dic As Dictio
       Case Else
           If IsDate(varExp) Then
             FormatDataLocalized = VBA.Format(varExp, Dic.Item("DATE_FORMAT").Value)
-          ElseIf InStr(varExp, "AM") Or InStr(varExp, "PM") Then
-              FormatDataLocalized = MyFormatDateTime(varExp, Dic.Item("DATE_TIME_FORMAT").Value)
+          ElseIf (InStr(varExp, ":") And (InStr(UCase(varExp), "AM") Or InStr(UCase(varExp), "PM"))) Then
+              FormatDataLocalized = MyFormatDateTime(varExp, Dic.Item("DATE_TIME").Value)
           Else
               FormatDataLocalized = varExp
           End If
@@ -177,23 +177,50 @@ Public Function MyFormatDateTime(varExp As Variant, strFormat As String) As Vari
         MyFormatDateTime = ""
         Exit Function
     End If
-    Dim day, month As String
+    Dim Day, Month, Year, H, M, s, ampm As String
     Dim formatparts() As String
     formatparts = Split(strFormat, "/")
     Dim parts() As String
     parts = Split(str, "/")
-    month = parts(0)
-    day = parts(1)
+    Month = parts(0)
+    Day = parts(1)
+    Dim Rest As String
+    Rest = parts(2)
+    Year = Left(Rest, 4)
+    Rest = Right(Rest, Len(Rest) - 9) 'accounting for #32;
+    parts = Split(Rest, ":")
+    H = parts(0)
+    Dim origH As String
+    origH = H
+    M = parts(1)
+    Rest = parts(2)
+    s = Left(Rest, 2)
+    ampm = Right(Rest, 2)
+    If (StrComp(Trim(ampm), "PM") = 0) Then
+      On Error GoTo Err
+      H = CStr((CByte(Trim(H)) + 12))
+    End If
+    
     If (Len(strFormat)) Then
         If ((StrComp(formatparts(0), "d") = 0) Or (StrComp(formatparts(0), "dd") = 0)) Then
-            MyFormatDateTime = day + "/" + month + "/" + parts(2)
+           If (StrComp(UCase(Right(strFormat, 4)), "AMPM") = 0) Then
+            MyFormatDateTime = Day + "/" + Month + "/" + Year + " " + origH + ":" + M + ":" + s + " " + ampm
+            Else
+              MyFormatDateTime = Day + "/" + Month + "/" + Year + " " + H + ":" + M + ":" + s
+            End If
         Else
-            MyFormatDateTime = month + "/" + day + "/" + parts(2)
+            If (StrComp(UCase(Right(strFormat, 4)), "AMPM") = 0) Then
+              MyFormatDateTime = Month + "/" + Day + "/" + Year + " " + origH + ":" + M + ":" + s + " " + ampm
+            Else
+              MyFormatDateTime = Month + "/" + Day + "/" + Year + " " + H + ":" + M + ":" + s
+            End If
         End If
     Else
         MyFormatDateTime = varExp
     End If
-    
+    Exit Function
+Err:
+        MyFormatDateTime = "error happened in casting hour to int"
 End Function
 Public Function FormatData(varExp As Variant, strFormat As String) As Variant
     

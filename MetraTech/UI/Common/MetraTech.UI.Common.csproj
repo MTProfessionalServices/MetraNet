@@ -172,6 +172,7 @@
     <Compile Include="EnumManager.cs" />
     <Compile Include="GenericDataExtractor.cs" />
     <Compile Include="LocalizableString.cs" />
+    <Compile Include="LogoutUtil.cs" />
     <Compile Include="MenuManager.cs" />
     <Compile Include="MeterData.cs" />
     <Compile Include="MTAccountPage.cs">

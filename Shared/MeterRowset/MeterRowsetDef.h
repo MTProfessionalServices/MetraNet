@@ -149,6 +149,7 @@ public:
 	STDMETHOD(AddCommonProperty)(BSTR aName, DataType aType, VARIANT aValue);
 
 	STDMETHOD(MeterRowset)(::IMTSQLRowset * apRowset);
+	STDMETHOD(WaitForCommitWithPause)(/*[in]*/ long lExpectedCommitCount, /*[in]*/ long lTimeOutInSeconds, /*[in]*/ long lpause);
 	STDMETHOD(WaitForCommit)(/*[in]*/ long lExpectedCommitCount, /*[in]*/ long lTimeOutInSeconds);
 	STDMETHOD(WaitForCommitEx)(/*[in]*/ long lExpectedCommitCount, /*[in]*/ long lTimeOutInSeconds, /*[in]*/ BSTR BatchName, /*[in]*/ BSTR BatchNamespace, /*[in]*/ BSTR BatchSeqNum);
 

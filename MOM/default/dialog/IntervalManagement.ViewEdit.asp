@@ -94,7 +94,7 @@ FUNCTION Form_Refresh(EventArg)
   Service.Properties("IntervalId").Value              = CLng(Form("IntervalId"))
   Service.Properties("IntervalType").Value            = GetBillingGroupCycleType(bg.CycleType)
   Service.Properties("IntervalStartDateTime").Value   = bg.StartDate
-  Service.Properties("IntervalEndDateTime").Value     = mdm_Format(bg.EndDate,mom_GetDictionary("DATE_FORMAT"))
+  Service.Properties("IntervalEndDateTime").Value     = bg.EndDate
 
   Service.Properties("IntervalStatusIcon").Value =  "<img src='" & GetBillingGroupStateIcon(bg.Status) & "' align='absmiddle'>&nbsp;"
 

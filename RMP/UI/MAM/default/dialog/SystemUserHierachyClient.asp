@@ -109,8 +109,8 @@ END FUNCTION
 %>
 <html>
   <head>
-    <LINK rel='STYLESHEET' type='text/css' href='/mam/default/localized/us/styles/styles.css'>
-    <LINK rel='STYLESHEET' type='text/css' href='/mam/default/localized/us/styles/MAMMenu.css'>
+    <LINK rel='STYLESHEET' type='text/css' href='/mam/default/localized/en-us/styles/styles.css'>
+    <LINK rel='STYLESHEET' type='text/css' href='/mam/default/localized/en-us/styles/MAMMenu.css'>
 
     <meta HTTP-EQUIV="content-type" CONTENT="text/html; charset=UTF-8">
     

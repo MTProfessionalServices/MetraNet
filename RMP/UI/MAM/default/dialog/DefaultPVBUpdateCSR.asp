@@ -115,10 +115,10 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
     
         'Case 1
         
-         ' strSelectorHTMLCode   = "<A Name='Edit[USERNAME]' HRef='" & mam_GetDictionary("UPDATE_CSR_DIALOG") & "?AccountId=[ACCOUNTID]'><img src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/edit.gif' Border='0'></A>"
+         ' strSelectorHTMLCode   = "<A Name='Edit[USERNAME]' HRef='" & mam_GetDictionary("UPDATE_CSR_DIALOG") & "?AccountId=[ACCOUNTID]'><img src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/edit.gif' Border='0'></A>"
 
          ' If FrameWork.CheckCoarseCapability("Manage CSR Auth") Then
-				'	  strSelectorHTMLCode   = strSelectorHTMLCode & "&nbsp;&nbsp;<A Name='Security[USERNAME]' HRef='" & mam_GetDictionary("MANAGE_SECURITY_RELOAD_DIALOG") & "&NextPage=" & mam_GetDictionary("FIND_CSR_DIALOG") & "&Mode=CSR_ACTIVE_POLICY&AccountId=[ACCOUNTID]'><img alt='" & mam_GetDictionary("TEXT_MANAGE_SECURITY_HINT") & "' src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/security.gif' Border='0'></A>"
+				'	  strSelectorHTMLCode   = strSelectorHTMLCode & "&nbsp;&nbsp;<A Name='Security[USERNAME]' HRef='" & mam_GetDictionary("MANAGE_SECURITY_RELOAD_DIALOG") & "&NextPage=" & mam_GetDictionary("FIND_CSR_DIALOG") & "&Mode=CSR_ACTIVE_POLICY&AccountId=[ACCOUNTID]'><img alt='" & mam_GetDictionary("TEXT_MANAGE_SECURITY_HINT") & "' src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/security.gif' Border='0'></A>"
         '  End If
           
         '  strSelectorHTMLCode   = PreProcess(strSelectorHTMLCode,Array("ACCOUNTID",ProductView.Properties.RowSet.Value("_AccountId"),"USERNAME",ProductView.Properties.RowSet.Value("UserName")))

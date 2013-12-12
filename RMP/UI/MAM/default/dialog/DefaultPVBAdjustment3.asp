@@ -225,7 +225,7 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             PreProcessor.Add "ID"          , ProductView.Properties.Rowset.Value("SessionID")
             PreProcessor.Add "CLASS"       , Form.Grid.CellClass
             PreProcessor.Add "ASP_PAGE"    , "DefaultPVBAdjustment.asp"
-            PreProcessor.Add "IMAGE_EDIT"  , Application("APP_HTTP_PATH") & "/default/localized/us/images/edit.gif"
+            PreProcessor.Add "IMAGE_EDIT"  , Application("APP_HTTP_PATH") & "/default/localized/en-us/images/edit.gif"
             PreProcessor.Add "ALT_ADJUST"  , "Adjust" ' mdm_GetDictionary().Item("TEXT_VIEW").Value
             
             EventArg.HTMLRendered           = PreProcessor.Process(HTML_LINK_EDIT)

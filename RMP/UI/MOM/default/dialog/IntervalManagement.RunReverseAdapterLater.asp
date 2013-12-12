@@ -141,7 +141,7 @@ FUNCTION getAdapterInformationHTML
       do while not rowset.eof 
           dim sToolTip, sAdapterName, sErrorMessage
           
-          sAdapterName = "<img src='../localized/us/images/adapter.gif' width=16 align=absMiddle border=0>&nbsp;" & rowset.value("EventDisplayName")
+          sAdapterName = "<img src='../localized/en-us/images/adapter.gif' width=16 align=absMiddle border=0>&nbsp;" & rowset.value("EventDisplayName")
           
           sHTML = sHTML & "<tr title='" & sToolTip & "'>"
           sHTML = sHTML & "<td style='vertical-align: top'>" & sAdapterName & "</td>"

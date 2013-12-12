@@ -31,6 +31,13 @@ namespace MetraTech.Core.Services.Quoting
     void UpdateStatus(int quoteID, ActionStatus status, QuoteStatus value);
 
     QuoteStatus GetActionStatus(int quoteID, ActionStatus status);
+
+    /// <summary>
+    /// Delete quoting information from BME tables
+    /// </summary>
+    /// <param name="quoteId">External quote id</param>
+    void DeleteQuoteBME(int quoteId);
+
   }
 
   /// <summary>
@@ -568,6 +575,23 @@ namespace MetraTech.Core.Services.Quoting
     }
 
     #endregion  }
+
+    public void DeleteQuoteBME(int quoteId)
+    {
+      try
+      {
+        var quoteHeader = GetQuoteHeader(quoteId);
+
+        IStandardRepository repository = RepositoryAccess.Instance.GetRepository();
+        repository.Delete("Core.Quoting.QuoteContent", quoteHeader.QuoteContent.Id);
+        repository.Delete("Core.Quoting.QuoteHeader", quoteHeader.Id);
+      }
+      catch (Exception ex)
+      {
+        mLogger.LogException("Error deleting quote BME record(s) ", ex);
+        throw;
+      }
+    }
   }
 
   /// <summary>
@@ -643,6 +667,11 @@ namespace MetraTech.Core.Services.Quoting
     }
 
     public QuoteStatus GetActionStatus(int quoteID, ActionStatus status)
+    {
+      throw new NotImplementedException();
+    }
+
+    public void DeleteQuoteBME(int quoteId)
     {
       throw new NotImplementedException();
     }

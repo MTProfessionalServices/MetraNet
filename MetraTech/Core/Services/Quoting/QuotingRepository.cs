@@ -68,6 +68,10 @@ namespace MetraTech.Core.Services.Quoting
     /// </summary>
     /// <param name="quoteId">External quote id</param>
     void DeleteQuoteBME(int quoteId);
+    /// <summary> Delete PDF report for quote from Crystal
+    /// </summary>
+    /// <param name="quoteId">External quote id</param>    
+    void DeleteQuotePDF(int quoteId, QuotingConfiguration configuration);
   }
 
   /// <summary>
@@ -484,28 +488,6 @@ namespace MetraTech.Core.Services.Quoting
       }
     }
 
-    public void DeleteAccUsageQuoting(int quoteId, QuotingConfiguration configuration)
-    {
-      try
-      {
-        using (var conn = ConnectionManager.CreateConnection())
-        {
-          using (var stmt = conn.CreateAdapterStatement(configuration.QuotingQueryFolder,
-                                                         configuration.RemoveQuoteUsagesQueryTag))
-          {
-            stmt.AddParam("%%QUOTE_ID%%", quoteId);
-            stmt.ExecuteReader();
-          }
-        }
-      }
-      catch (Exception ex)
-      {
-        mLogger.LogException("Error delete AccUsageQuoting record(s)", ex);
-        throw;
-      }
-    }
-
-
     #region IQuoteRepositoryStatistics: Methods needed by test scenarios
 
     public int GetQuoteHeaderCount()
@@ -630,6 +612,27 @@ namespace MetraTech.Core.Services.Quoting
 
     #endregion  }
 
+    public void DeleteAccUsageQuoting(int quoteId, QuotingConfiguration configuration)
+    {
+      try
+      {
+        using (var conn = ConnectionManager.CreateConnection())
+        {
+          using (var stmt = conn.CreateAdapterStatement(configuration.QuotingQueryFolder,
+                                                         configuration.RemoveQuoteUsagesQueryTag))
+          {
+            stmt.AddParam("%%QUOTE_ID%%", quoteId);
+            stmt.ExecuteReader();
+          }
+        }
+      }
+      catch (Exception ex)
+      {
+        mLogger.LogException("Error delete AccUsageQuoting record(s)", ex);
+        throw;
+      }
+    }
+
     public void DeleteQuoteBME(int quoteId)
     {
       try
@@ -643,6 +646,20 @@ namespace MetraTech.Core.Services.Quoting
       catch (Exception ex)
       {
         mLogger.LogException("Error deleting quote BME record(s) ", ex);
+        throw;
+      }
+    }
+
+    public void DeleteQuotePDF(int quoteId, QuotingConfiguration config)
+    {
+      try
+      {
+        var quotePDFReport = new QuotePdfReport(QuoteReportingConfigurationManager.LoadConfiguration(config));
+        quotePDFReport.DeleteReport(quoteId);
+      }
+      catch (Exception ex)
+      {
+        mLogger.LogException("Error deleting quote PDF file ", ex);
         throw;
       }
     }
@@ -731,6 +748,11 @@ namespace MetraTech.Core.Services.Quoting
     }
 
     public void DeleteQuoteBME(int quoteId)
+    {
+      throw new NotImplementedException();
+    }
+
+    public void DeleteQuotePDF(int quoteId, QuotingConfiguration configuration)
     {
       throw new NotImplementedException();
     }

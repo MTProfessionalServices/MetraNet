@@ -88,7 +88,7 @@
     <!--
     .gradBG {
     	background-color: #0066CC;
-    	background-image: url(../localized/us/images/header/gradient.gif);
+    	background-image: url(../localized/en-us/images/header/gradient.gif);
     	background-position: right;
     	background-repeat: repeat-y;
       color: white;

@@ -96,7 +96,7 @@ function showmenu(e){
      // For SE's, disable other stuff
 		 if(IsFolder == "N"){
        if(document.getElementById("addFolder") != null) {
-         document.getElementById("addFolder").innerHTML = "<img src='/mam/default/localized/us/images/newfolder.gif'>&nbsp;&nbsp;" + locTextNewFolder;
+         document.getElementById("addFolder").innerHTML = "<img src='/mam/default/localized/en-us/images/newfolder.gif'>&nbsp;&nbsp;" + locTextNewFolder;
   	     document.getElementById("addFolder").disabled = true;
        }  
 		   if(document.getElementById("addAccount") != null) {
@@ -144,7 +144,7 @@ function showmenu(e){
 			 }
 			 else {
          if(document.getElementById("addFolder") != null) {       
-           document.getElementById("addFolder").innerHTML = "<img src='/mam/default/localized/us/images/newfolder.gif'>&nbsp;&nbsp;" + locTextNewFolder;
+           document.getElementById("addFolder").innerHTML = "<img src='/mam/default/localized/en-us/images/newfolder.gif'>&nbsp;&nbsp;" + locTextNewFolder;
            document.getElementById("addFolder").disabled = false;			 
          }
   		   if(document.getElementById("addAccount") != null) {

@@ -156,7 +156,7 @@ FUNCTION DynamicTemplate(EventArg)
         Case "TIMESTAMP"
             strHTML = strHTML & "<td class='"& strCaptionClass &"'><label name='" & prop.name & "' type='Caption'>z</label>:</td>"
             strHTML = strHTML & "<td><input class='field' type='Text' name='" & prop.name & "' size='25'>"
-            strHTML = strHTML & "<a href='#' onClick=""getCalendarForTimeOpt(document.mdm." & prop.name & ", '', false);return false;""><img src='/mam/default/localized/us/images/popupcalendar.gif' width='16' height='16' border='0' alt=''></a></td>"
+            strHTML = strHTML & "<a href='#' onClick=""getCalendarForTimeOpt(document.mdm." & prop.name & ", '', false);return false;""><img src='/mam/default/localized/en-us/images/popupcalendar.gif' width='16' height='16' border='0' alt=''></a></td>"
             
         Case "BOOLEAN"
             strHTML = strHTML & "<TD class='"& strCaptionClass &"'><LABEL Name='" & prop.name & "' Type='Caption'>z</LABEL>:</td>"
@@ -350,7 +350,7 @@ Function CheckDefaultPolicy()
   else
     Service.Properties("ApplyDefaultSecurityPolicy").Enabled = false
     Service.Properties("ApplyDefaultSecurityPolicy").Value = false
-    Service.Properties("SecurityPolicyMessage") = "<table><tr><td><image src=""/mam/default/localized/us/images/warning.gif"" width=""16"" height=""16""></td><td>&nbsp;" & mam_GetDictionary("TEXT_NO_DEFAULT_SECURITY_POLICY_ROLES") & "</td></tr></table>"
+    Service.Properties("SecurityPolicyMessage") = "<table><tr><td><image src=""/mam/default/localized/en-us/images/warning.gif"" width=""16"" height=""16""></td><td>&nbsp;" & mam_GetDictionary("TEXT_NO_DEFAULT_SECURITY_POLICY_ROLES") & "</td></tr></table>"
   end if
 
 End Function
@@ -543,7 +543,7 @@ PRIVATE FUNCTION SubscriptionsGrid_DisplayCell(EventArg) ' As Boolean
             Set m_objPP = mdm_CreateObject(CPreProcessor)
 							
             m_objPP.Add "CLASS"          , EventArg.Grid.CellClass
-						m_objPP.Add "IMAGE"  		     , "../localized/us/images/delete.gif"
+						m_objPP.Add "IMAGE"  		     , "../localized/en-us/images/delete.gif"
 						m_objPP.Add "ASP_FILE"  	   , Session("MAM_TEMPLATE_START_DIALOG") & "?PageAction=DeleteSubscription&mdmAction=Refresh&ID=[ID_PO]"
 						m_objPP.Add "REMOVE_MESSAGE" , Replace(mam_GetDictionary("TEXT_MSGBOX_REMOVE_TEMPLATE_SUBSCRIPTION"),"[ITEM]",Replace(Form.Grids("SubscriptionsGrid").Properties("NM_DISPLAY_NAME").Value, "'", "&rsquo;"))
 						m_objPP.Add "ID_PO"  		     , Form.Grids("SubscriptionsGrid").Properties("ID_PO").Value
@@ -553,7 +553,7 @@ PRIVATE FUNCTION SubscriptionsGrid_DisplayCell(EventArg) ' As Boolean
       
         Case "b_group"
           if EventArg.Grid.Properties("B_GROUP") then
-            EventArg.HTMLRendered =  "<td class=" & EventArg.Grid.CellClass & " align='center'><img src='../localized/us/images/check.gif'></td>"
+            EventArg.HTMLRendered =  "<td class=" & EventArg.Grid.CellClass & " align='center'><img src='../localized/en-us/images/check.gif'></td>"
           else
             EventArg.HTMLRendered =  "<td class=" & EventArg.Grid.CellClass & " align='center'>--&nbsp;</td>"
           end if

@@ -21,23 +21,53 @@ namespace MetraTech.Core.Services.Quoting
   /// </summary>
   public interface IQuotingRepository
   {
+    /// <summary> Creates quoting BMEs and save them into DB
+    /// </summary>
+    /// <param name="quoteRequest"></param>
+    /// <param name="sessionContext">SessionContext used for knowing which user is performing the action</param>
+    /// <param name="configuration">Quoting configuration</param>
+    /// <returns>ID of created quote</returns>
     int CreateQuote(QuoteRequest quoteRequest, IMTSessionContext sessionContext, QuotingConfiguration configuration);
+    /// <summary> Updates quoting BMEs in DB
+    /// </summary>     
+    /// <param name="quoteResponse"></param>    
     QuoteResponse UpdateQuoteWithResponse(QuoteResponse quoteResponse);
+    /// <summary> Updates quoting BMEs in DB with error massage
+    /// </summary>     
+    /// <param name="quoteResponse"></param> 
+    /// <param name="errorMessage"></param>       
     QuoteResponse UpdateQuoteWithErrorResponse(int idQuote, QuoteResponse quoteResponse, string errorMessage);
+    /// <summary>Save log messages into db
+    /// </summary>
+    /// <param name="logRecords"></param>
     void SaveQuoteLog(List<QuoteLogRecord> logRecords);
-
+    /// <summary> Get QuoteHeader with related QuoteContent, AccountForQuote and POforQuote
+    /// </summary>
+    /// <param name="quoteID">Id of quote to get data about</param>
+    /// <param name="loadAllRelatedEntities">If false - loads only QuoteHeader </param>
+    /// <returns>Null if there is no QuoteHeader for quoteID in DB</returns>
     QuoteHeader GetQuoteHeader(int quoteID, bool loadAllRelatedEntities = true);
-
-    void UpdateStatus(int quoteID, ActionStatus status, QuoteStatus value);
-
+    /// <summary> Update cleanup or pdfreport status of quote in async operations
+    /// </summary>
+    /// <param name="quoteId">Quote to update status for</param>
+    /// <param name="status">Action to update status for</param>
+    /// <param name="value">Value to set for status</param>
+    void UpdateStatus(int quoteId, ActionStatus status, QuoteStatus value);
+    /// <summary>Get status of async operation for quote (generate PDF or cleanup)
+    /// </summary>
+    /// <param name="quoteID">Quote to get status for</param>
+    /// <param name="status">StatusReport, StatusCleanup</param>
+    /// <returns></returns>
     QuoteStatus GetActionStatus(int quoteID, ActionStatus status);
-
-    /// <summary>
-    /// Delete quoting information from BME tables
+    /// <summary>Delete data from t_acc_usage
+    /// </summary>
+    /// <param name="quoteId">Quote to delete data for</param>
+    /// <param name="configuration"></param>
+    void DeleteAccUsageQuoting(int quoteId, QuotingConfiguration configuration);
+    /// <summary> Delete quoting information from BME tables
     /// </summary>
     /// <param name="quoteId">External quote id</param>
     void DeleteQuoteBME(int quoteId);
-
   }
 
   /// <summary>
@@ -61,14 +91,6 @@ namespace MetraTech.Core.Services.Quoting
   {
     private static Logger mLogger = new Logger("[QuotingRepository]");
 
-    /// <summary>
-    /// Creates quoting BMEs and save them into DB
-    /// </summary>
-    /// <param name="quoteRequest"></param>
-    /// <param name="sessionContext">SessionContext used for knowing which user is performing the action</param>
-    /// <param name="configuration">Quoting configuration</param>
-    /// /// 
-    /// <returns>ID of created quote</returns>
     public int CreateQuote(QuoteRequest quoteRequest, IMTSessionContext sessionContext, QuotingConfiguration configuration)
     {
       var quoteHeader = SetQuoteHeader(quoteRequest, sessionContext, configuration);
@@ -76,43 +98,34 @@ namespace MetraTech.Core.Services.Quoting
 
     }
 
-    /// <summary>
-    /// Updates quoting BMEs in DB
-    /// </summary>     
-    /// <param name="quoteResponse"></param>
     public QuoteResponse UpdateQuoteWithResponse(QuoteResponse quoteResponse)
     {
       return SetQuoteContent(quoteResponse);
     }
-    /// <summary>
-    /// Update cleanup or pdfreport status of quote in async operations
-    /// </summary>
-    /// <param name="quoteID"></param>
-    /// <param name="status"></param>
-    /// <param name="value"></param>
-    public void UpdateStatus(int quoteID, ActionStatus status, QuoteStatus value)
+
+    public void UpdateStatus(int quoteId, ActionStatus status, QuoteStatus value)
     {
       using (new HighResolutionTimer(MethodBase.GetCurrentMethod().Name))
       {
         RepositoryAccess.Instance.Initialize();
 
         //get quoteContent BME
-        var quoteContent = GetQuoteContent(quoteID);
+        var quoteContent = GetQuoteContent(quoteId);
 
         try
         {
           if (quoteContent == null)
           {
-            throw new Exception(String.Format("Can't find quote header with idQuote = {0}", quoteID));
+            throw new Exception(String.Format("Can't find quote header with idQuote = {0}", quoteId));
           }
 
           switch (status)
           {
             case ActionStatus.StatusReport:
-              quoteContent.StatusReport = (int?) value;
+              quoteContent.StatusReport = (int?)value;
               break;
             case ActionStatus.StatusCleanup:
-              quoteContent.StatusCleanup = (int?) value;
+              quoteContent.StatusCleanup = (int?)value;
               break;
             default:
               throw new ArgumentOutOfRangeException("status");
@@ -147,7 +160,7 @@ namespace MetraTech.Core.Services.Quoting
           switch (status)
           {
             case ActionStatus.StatusReport:
-              return quoteContent.StatusReport != null ? (QuoteStatus) quoteContent.StatusReport : QuoteStatus.None;
+              return quoteContent.StatusReport != null ? (QuoteStatus)quoteContent.StatusReport : QuoteStatus.None;
             case ActionStatus.StatusCleanup:
               return quoteContent.StatusCleanup != null ? (QuoteStatus)quoteContent.StatusCleanup : QuoteStatus.None;
             default:
@@ -170,12 +183,6 @@ namespace MetraTech.Core.Services.Quoting
       //TODO: Determine how state/error information should be saved (different method?) if we failed in generating quote
     }
 
-    /// <summary>
-    /// Get QuoteHeader with related QuoteContent, AccountForQuote and POforQuote
-    /// </summary>
-    /// <param name="quoteID">Id of quote to get data about</param>
-    /// <param name="loadAllRelatedEntities">If false - loads only QuoteHeader </param>
-    /// <returns>Null if there is no QuoteHeader for quoteID in DB</returns>
     public QuoteHeader GetQuoteHeader(int quoteID, bool loadAllRelatedEntities = true)
     {
       RepositoryAccess.Instance.Initialize();
@@ -260,12 +267,13 @@ namespace MetraTech.Core.Services.Quoting
 
         try
         {
-          var quoteHeader = new QuoteHeader();
-
-          quoteHeader.CustomDescription = quoteRequest.QuoteDescription;
-          quoteHeader.CustomIdentifier = quoteRequest.QuoteIdentifier;
-          quoteHeader.StartDate = quoteRequest.EffectiveDate;
-          quoteHeader.EndDate = quoteRequest.EffectiveEndDate;
+          var quoteHeader = new QuoteHeader
+            {
+              CustomDescription = quoteRequest.QuoteDescription,
+              CustomIdentifier = quoteRequest.QuoteIdentifier,
+              StartDate = quoteRequest.EffectiveDate,
+              EndDate = quoteRequest.EffectiveEndDate
+            };
 
           if (sessionContext != null)
             quoteHeader.UID = sessionContext.AccountID;
@@ -476,6 +484,28 @@ namespace MetraTech.Core.Services.Quoting
       }
     }
 
+    public void DeleteAccUsageQuoting(int quoteId, QuotingConfiguration configuration)
+    {
+      try
+      {
+        using (var conn = ConnectionManager.CreateConnection())
+        {
+          using (var stmt = conn.CreateAdapterStatement(configuration.QuotingQueryFolder,
+                                                         configuration.RemoveQuoteUsagesQueryTag))
+          {
+            stmt.AddParam("%%QUOTE_ID%%", quoteId);
+            stmt.ExecuteReader();
+          }
+        }
+      }
+      catch (Exception ex)
+      {
+        mLogger.LogException("Error delete AccUsageQuoting record(s)", ex);
+        throw;
+      }
+    }
+
+
     #region IQuoteRepositoryStatistics: Methods needed by test scenarios
 
     public int GetQuoteHeaderCount()
@@ -573,6 +603,30 @@ namespace MetraTech.Core.Services.Quoting
         throw;
       }
     }
+    public int GetAssUsageQuotingRecordsCount(QuotingConfiguration config)
+    {
+      RepositoryAccess.Instance.Initialize();
+
+      try
+      {
+        using (var conn = ConnectionManager.CreateNonServicedConnection())
+        {
+          using (var stmt = conn.CreateAdapterStatement(config.QuotingQueryFolder,
+                                                   config.CountTotalQuoteUsagesQueryTag))
+          {
+            using (var rowset = stmt.ExecuteReader())
+            {
+              return rowset.GetInt32(1);
+            }
+          }
+        }
+      }
+      catch (Exception ex)
+      {
+        mLogger.LogException("Error loading AssUsageQuoting instances", ex);
+        throw;
+      }
+    }
 
     #endregion  }
 
@@ -661,12 +715,17 @@ namespace MetraTech.Core.Services.Quoting
       return quoteHeder;
     }
 
-    public void UpdateStatus(int quoteID, ActionStatus status, QuoteStatus value)
+    public void UpdateStatus(int quoteId, ActionStatus status, QuoteStatus value)
     {
       throw new NotImplementedException();
     }
 
     public QuoteStatus GetActionStatus(int quoteID, ActionStatus status)
+    {
+      throw new NotImplementedException();
+    }
+
+    public void DeleteAccUsageQuoting(int quoteId, QuotingConfiguration configuration)
     {
       throw new NotImplementedException();
     }

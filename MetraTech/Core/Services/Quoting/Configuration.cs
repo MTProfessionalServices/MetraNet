@@ -29,6 +29,8 @@ namespace MetraTech.Core.Services.Quoting
     public string CalculateQuoteTotalAmountQueryTag { get; set; }
     public string GetMaxQuoteIdQueryTag { get; set; }
     public string BackupQuoteUsagesQueryTag { get; set; }
+    public string RemoveQuoteUsagesQueryTag { get; set; }
+    public string CountTotalQuoteUsagesQueryTag { get; set; }
     public string RemoveRCMetricValuesQueryTag { get; set; }
     public string GetAccountBillingCycleQueryTag { get; set; }
     public string GetAccountPayerQueryTag { get; set; }
@@ -42,12 +44,10 @@ namespace MetraTech.Core.Services.Quoting
     /// If IsCleanupQuoteAutomaticaly = false all subscriptions (includes group subscriptions) and all usages were not removed automaticaly.
     /// To cleanup artifacts Cleaup() methods should be used</remarks>
     public bool IsCleanupQuoteAutomaticaly { get; set; }
-
     /// <summary>
     /// Allow using MAS to create subcsriptions throug Subscription\GroupSubscriptopn service
     /// </summary>
-    public bool IsAllowedUseActivityService { get; set; }
-
+    public bool IsAllowedUseActivityService { get; set; }    
   }
 
   /// <summary>
@@ -65,6 +65,8 @@ namespace MetraTech.Core.Services.Quoting
     const string DEFAULT_CALCULATE_QUOTE_TOTAL_AMOUNT_QUERY_TAG = "__GET_QUOTE_TOTAL_AMOUNT__";
     const string DEFAULT_GET_MAX_QUOTE_ID_QUERY_TAG = "__GET_MAX_QUOTE_ID__";
     const string DEFAULT_BACKUP_QUOTE_USAGES_QUERY_TAG = "__BACKUP_QUOTE_USAGES__";
+    const string DEFAULT_REMOVE_QUOTE_USAGES_QUERY_TAG = "__REMOVE_QUOTE_USAGES__";
+    const string DEFAULT_COUNT_TOTAL_QUOTE_USAGES_QUERY_TAG = "__COUNT_TOTAL_QUOTE_USAGES__";
     const string DEFAULT_REMOVE_RC_METRIC_VALUES_QUERY_TAG = "__REMOVE_RC_METRIC_VALUES__";
     const string DEFAULT_GET_ACCOUNT_BILLING_CYCLE_QUERY_TAG = "__GET_ACCOUNT_BILLING_CYCLE__";
     const string DEFAULT_GET_ACCOUNT_PAYER_QUERY_TAG = "__GET_ACCOUNT_PAYER__";
@@ -124,6 +126,10 @@ namespace MetraTech.Core.Services.Quoting
                         config.GetElementValueOrDefault("GetMaxQuoteIdQueryTag", DEFAULT_GET_MAX_QUOTE_ID_QUERY_TAG),
                     BackupQuoteUsagesQueryTag =
                         config.GetElementValueOrDefault("BackupQuoteUsagesQueryTag", DEFAULT_BACKUP_QUOTE_USAGES_QUERY_TAG),
+                    RemoveQuoteUsagesQueryTag =
+                        config.GetElementValueOrDefault("RemoveQuoteUsagesQueryTag", DEFAULT_REMOVE_QUOTE_USAGES_QUERY_TAG),
+                    CountTotalQuoteUsagesQueryTag =
+                        config.GetElementValueOrDefault("CountTotalQuoteUsagesQueryTag", DEFAULT_COUNT_TOTAL_QUOTE_USAGES_QUERY_TAG),
                     RemoveRCMetricValuesQueryTag =
                         config.GetElementValueOrDefault("RemoveRCMetricValuesQueryTag", DEFAULT_REMOVE_RC_METRIC_VALUES_QUERY_TAG),
                     GetAccountBillingCycleQueryTag =
@@ -196,6 +202,8 @@ namespace MetraTech.Core.Services.Quoting
                   new XElement("CalculateQuoteTotalAmountQueryTag", config.CalculateQuoteTotalAmountQueryTag),
                   new XElement("GetMaxQuoteIdQueryTag", config.GetMaxQuoteIdQueryTag),
                   new XElement("BackupQuoteUsagesQueryTag", config.BackupQuoteUsagesQueryTag),
+                  new XElement("RemoveQuoteUsagesQueryTag", config.RemoveQuoteUsagesQueryTag),
+                  new XElement("CountTotalQuoteUsagesQueryTag", config.CountTotalQuoteUsagesQueryTag),
                   new XElement("RemoveRCMetricValuesQueryTag", config.RemoveRCMetricValuesQueryTag),
                   new XElement("GetAccountBillingCycleQueryTag", config.GetAccountBillingCycleQueryTag),
                   new XElement("GetAccountPayerQueryTag", config.GetAccountPayerQueryTag),
@@ -227,6 +235,8 @@ namespace MetraTech.Core.Services.Quoting
       config.CalculateQuoteTotalAmountQueryTag = DEFAULT_CALCULATE_QUOTE_TOTAL_AMOUNT_QUERY_TAG;
       config.GetMaxQuoteIdQueryTag = DEFAULT_GET_MAX_QUOTE_ID_QUERY_TAG;
       config.BackupQuoteUsagesQueryTag = DEFAULT_BACKUP_QUOTE_USAGES_QUERY_TAG;
+      config.RemoveQuoteUsagesQueryTag = DEFAULT_REMOVE_QUOTE_USAGES_QUERY_TAG;
+      config.CountTotalQuoteUsagesQueryTag = DEFAULT_COUNT_TOTAL_QUOTE_USAGES_QUERY_TAG;
       config.RemoveRCMetricValuesQueryTag = DEFAULT_REMOVE_RC_METRIC_VALUES_QUERY_TAG;
       config.GetAccountBillingCycleQueryTag = DEFAULT_GET_ACCOUNT_BILLING_CYCLE_QUERY_TAG;
       config.GetAccountPayerQueryTag = DEFAULT_GET_ACCOUNT_PAYER_QUERY_TAG;

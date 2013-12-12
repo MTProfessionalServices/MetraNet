@@ -766,7 +766,7 @@ namespace MetraTech.Core.Services.Quoting
 
     /// <summary>
     /// Creates <see cref="MTPCCycle"/> for group subscription by Corporate account.
-    /// The basic scenarios were taken from <see cref="MetraTech.DomainModel.Validators.AccountValidator.ValidateUsageCycle"/>
+    /// The basic scenarios were taken from "MetraTech.DomainModel.Validators.AccountValidator.ValidateUsageCycle"
     /// </summary>
     /// <param name="idAccount"></param>
     /// <returns></returns>
@@ -800,7 +800,7 @@ namespace MetraTech.Core.Services.Quoting
 
     /// <summary>
     /// Creates <see cref="MTPCCycle"/> for group subscription by Corporate account.
-    /// The basic scenarios were taken from <see cref="MetraTech.DomainModel.Validators.AccountValidator.ValidateUsageCycle"/>
+    /// The basic scenarios were taken from "MetraTech.DomainModel.Validators.AccountValidator.ValidateUsageCycle"
     /// </summary>
     /// <param name="idAccount"></param>
     /// <returns></returns>

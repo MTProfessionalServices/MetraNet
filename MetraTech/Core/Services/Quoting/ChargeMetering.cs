@@ -90,11 +90,14 @@ namespace MetraTech.Core.Services.Quoting
         //  });
         foreach (var charge in _charges)
         {
-          currentCharge = charge;
-          _rowSet.InitSDK(_config.RecurringChargeServerToMeterTo);
-          var chargeData = charge.Add(quoteRequest, _rowSet.GenerateBatchID(), usageInterval);
-          chargeList.Add(chargeData);
-          MeterRecodrs(_rowSet, chargeData);
+          using (new HighResolutionTimer("Add " + charge.ChargeType.ToString()))
+          {
+            currentCharge = charge;
+            _rowSet.InitSDK(_config.RecurringChargeServerToMeterTo);
+            var chargeData = charge.Add(quoteRequest, _rowSet.GenerateBatchID(), usageInterval);
+            chargeList.Add(chargeData);
+            MeterRecodrs(_rowSet, chargeData);
+          }
         }
       }
       catch (Exception ex)
@@ -188,7 +191,7 @@ namespace MetraTech.Core.Services.Quoting
         if (!ValidatChargeData(chargeData, out errorMessage))
           throw new ChargeMeteringException(errorMessage);
 
-        rowSet.WaitForCommit(chargeData.CountMeteredRecords, 60);
+        rowSet.WaitForCommitWithPause(chargeData.CountMeteredRecords, 60, 500);
 
         // Check for error during pipeline processing
         if (rowSet.CommittedErrorCount > 0)

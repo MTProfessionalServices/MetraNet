@@ -6,8 +6,8 @@
 <html>
 <head>
 	<title>Load Accounts For Pull List From File</title>
-  <LINK rel="STYLESHEET" type="text/css" href="/mam/default/localized/us/styles/MAMMenu.css">  
-  <LINK rel="STYLESHEET" type="text/css" href="/mom/default/localized/us/styles/Styles.css">  
+  <LINK rel="STYLESHEET" type="text/css" href="/mam/default/localized/en-us/styles/MAMMenu.css">  
+  <LINK rel="STYLESHEET" type="text/css" href="/mom/default/localized/en-us/styles/Styles.css">  
   <script language="JavaScript1.2" src="/mpte/shared/browsercheck.js"></script>    
   <!-- xscript language="JavaScript1.2" src="/mpte/shared/PopupModalDialog.js"></script>-->
 </head>

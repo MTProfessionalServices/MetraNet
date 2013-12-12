@@ -7,19 +7,19 @@
 		</text>
 	
 		<text id='DEFAULT_PATH_SEARCH'>
-			<value>/mom/default/localized/us</value>
+			<value>/mom/default/localized/en-us</value>
 		</text>
         
 		<text id='CUSTOM_PATH_SEARCH'>
-			<value>/mom/custom/localized/us</value>
+			<value>/mom/custom/localized/en-us</value>
 		</text>
                 
 		<text id='DEFAULT_PATH_REPLACE'>
-			<value>/mom/default/localized/us</value>
+			<value>/mom/default/localized/en-us</value>
 		</text>
         
     <text id='CUSTOM_PATH_REPLACE'>
-			<value>/mom/custom/localized/us</value>
+			<value>/mom/custom/localized/en-us</value>
 		</text>
         
 	              

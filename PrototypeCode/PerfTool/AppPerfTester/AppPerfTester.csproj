@@ -88,7 +88,7 @@
       <HintPath>$(MTRMPBIN)\MetraTech.BusinessEntity.DataAccess.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.BusinessEntity.Service.ClientProxies">
-      <HintPath>O:\debug\Bin\MetraTech.BusinessEntity.Service.ClientProxies.dll</HintPath>
+      <HintPath>$(MTRMPBIN)\MetraTech.BusinessEntity.Service.ClientProxies.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.Core.Services">
       <HintPath>$(MTRMPBIN)\MetraTech.Core.Services.Dll</HintPath>

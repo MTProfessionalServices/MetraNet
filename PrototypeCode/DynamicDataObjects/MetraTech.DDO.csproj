@@ -44,12 +44,12 @@
     <Reference Include="MetraTech.Xml, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
-      <HintPath>o:\$(Configuration)\bin\MetraTech.Xml.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Xml.dll</HintPath>
     </Reference>
     <Reference Include="RCD.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
-      <HintPath>o:\$(Configuration)\bin\RCD.interop.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\RCD.interop.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

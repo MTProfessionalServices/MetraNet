@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ServiceModel;
+using System.Threading.Tasks;
 using MetraTech.ActivityServices.Common;
 using MetraTech.ActivityServices.Services.Common;
 using MetraTech.Basic.Exception;
@@ -15,6 +17,10 @@ namespace MetraTech.Core.Services
     [OperationContract]
     [FaultContract(typeof(MASBasicFaultDetail))]
     void CreateQuote(QuoteRequest quoteRequest, out QuoteResponse quoteResponse);
+
+    [OperationContract]
+    [FaultContract(typeof(MASBasicFaultDetail))]
+    void DeleteQuotes(IEnumerable<int> quoteIds);
   }
 
   [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
@@ -137,6 +143,48 @@ namespace MetraTech.Core.Services
           quoteResponse.Status = QuoteStatus.Failed;
           // ReSharper restore PossibleNullReferenceException
           quoteResponse.FailedMessage = e.GetaAllMessages();
+        }
+      }
+    }
+
+    public void DeleteQuotes(IEnumerable<int> quoteIds)
+    {
+      using (new HighResolutionTimer("QuotingService.CreateQuote"))
+      {
+        try
+        {
+          //Retrieve the security context for this request
+          Interop.MTAuth.IMTSessionContext sessionContext = null;
+          if (ServiceSecurityContext.Current != null)
+          {
+            // Get identity context.
+            var clientIdentity = ServiceSecurityContext.Current.PrimaryIdentity as CMASClientIdentity;
+
+            if (clientIdentity != null)
+            {
+              sessionContext = clientIdentity.SessionContext;
+            }
+          }
+
+          IQuotingImplementation quotingImpl = new QuotingImplementation(cachedQuotingConfiguration, sessionContext);
+
+          Parallel.ForEach(quoteIds, quoteId =>
+            {
+              try
+              {
+                quotingImpl.QuotingRepository.DeleteQuoteBME(quoteId);
+                quotingImpl.QuotingRepository.DeleteAccUsageQuoting(quoteId, cachedQuotingConfiguration);
+              }
+              catch (Exception ex)
+              {
+                var message = string.Format("Error deleting quote with quoteId = {0}", quoteId);
+                mLogger.LogException(message, ex);
+              }
+            });
+        }
+        catch (Exception ex)
+        {
+          mLogger.LogException("Error deleting quote by Ids", ex);
         }
       }
     }

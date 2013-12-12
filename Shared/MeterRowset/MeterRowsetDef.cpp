@@ -760,6 +760,69 @@ STDMETHODIMP CMeterRowset::get_CommittedSuccessCount(long *pVal)
 	return S_OK;
 }
 
+STDMETHODIMP CMeterRowset::WaitForCommitWithPause(/*[in]*/ long lExpectedCommitCount, long lTimeOutInSeconds, long lpause)
+{
+	MarkRegion waitRegion("WaitForCommit");
+
+	time_t start = time(NULL);
+	time_t timeout = start + time_t(lTimeOutInSeconds);
+	long lSleep = lpause;	// wait for lpause mseconds between checks
+	long lLastCommitted = 0;
+	long lCommitted = 0;
+
+	MetraTech_UsageServer::IClientPtr usmClient;
+	usmClient.CreateInstance(_uuidof(MetraTech_UsageServer::Client));
+
+	mLogger.LogVarArgs(LOG_DEBUG, "Waiting for %d sessions to commit", lExpectedCommitCount);
+
+	while((lTimeOutInSeconds == 0) || (time(NULL) < timeout) )
+	{
+		lCommitted = 0;
+		HRESULT hr = get_CommittedCount(&lCommitted);
+		if(FAILED(hr))
+		{
+			return hr;
+		}
+
+		if(lCommitted == lExpectedCommitCount)
+		{
+			mLogger.LogVarArgs(LOG_DEBUG, "All Metered sessions are committed!");
+			return S_OK;
+		}
+
+		// that could be that more sessions are committed, than there were metered,
+		// e.g. if they were splitted...
+		if(lCommitted > lExpectedCommitCount)
+		{
+			mLogger.LogVarArgs(LOG_DEBUG, "%d sessions were committed, though only %d were metered. That is OK.",
+											 lCommitted, lExpectedCommitCount);
+			return S_OK;
+		}
+
+		// reset the time out if processing continues
+		if(lCommitted != lLastCommitted)
+		{
+			lLastCommitted = lCommitted;
+			timeout = time(NULL) + time_t(lTimeOutInSeconds);
+			mLogger.LogVarArgs(LOG_DEBUG, "Reset %d out of %d sessions committed in %d seconds. Waiting...",
+												 lCommitted, lExpectedCommitCount, time(NULL) - start);
+
+		}
+
+		mLogger.LogVarArgs(LOG_DEBUG, "%d out of %d sessions committed in %d seconds. Waiting...",
+											 lCommitted, lExpectedCommitCount, time(NULL) - start);
+
+		// calls into managed code to sleep so that USM kills are responsive
+		usmClient->ManagedSleep(lSleep);
+	} 
+
+	char msg[256];
+	sprintf(msg, "Timeout of %d seconds expired while waiting for batch %s to be committed! committed = %d, expected = %d",
+					lTimeOutInSeconds, LPCSTR(mBatchID), lCommitted, lExpectedCommitCount);
+	 
+	Error(msg);
+	return PIPE_ERR_SESSION_COMMIT_TIMEOUT;
+}
 
 STDMETHODIMP CMeterRowset::WaitForCommit(/*[in]*/ long lExpectedCommitCount, long lTimeOutInSeconds)
 {

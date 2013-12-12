@@ -186,7 +186,7 @@ PUBLIC FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             url = ProductView.Properties.Rowset.Value("t_ep__c_InternalInformationURL")
             
             If Len(Trim(url)) Then
-              EventArg.HTMLRendered  = EventArg.HTMLRendered & "<a href=""JavaScript:Info('" & url & "')""><img border='0' src='../localized/us/images/info.gif'></a>&nbsp;" 
+              EventArg.HTMLRendered  = EventArg.HTMLRendered & "<a href=""JavaScript:Info('" & url & "')""><img border='0' src='../localized/en-us/images/info.gif'></a>&nbsp;" 
             End If
             On Error Goto 0            
 
@@ -197,7 +197,7 @@ PUBLIC FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             If UCase(Form.Grid.SelectedProperty.value) = "N" then
               EventArg.HTMLRendered     =  "<td class=" & Form.Grid.CellClass & " align='center'>--&nbsp;</td>"
             Else
-              EventArg.HTMLRendered     =  "<td class=" & Form.Grid.CellClass & " align='center'><img src='../localized/us/images/check.gif'></td>"
+              EventArg.HTMLRendered     =  "<td class=" & Form.Grid.CellClass & " align='center'><img src='../localized/en-us/images/check.gif'></td>"
             End If
             
             Form_DisplayCell = TRUE                        

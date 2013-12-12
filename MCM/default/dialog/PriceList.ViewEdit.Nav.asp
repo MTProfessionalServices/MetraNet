@@ -102,8 +102,8 @@ var last;
 
 <html>
 <head>
-  <LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/us/styles/styles.css'>
-  <LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/us/styles/Navstyles.css'>  
+  <LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/en-us/styles/styles.css'>
+  <LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/en-us/styles/Navstyles.css'>  
 	<title>Untitled</title>
 	<SCRIPT language="JavaScript" src="/mcm/default/lib/browsercheck.js"></SCRIPT>	
   <SCRIPT language="JavaScript" src="/mcm/default/lib/PopupEdit.js"></SCRIPT>	

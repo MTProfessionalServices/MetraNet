@@ -7,7 +7,7 @@ Option Explicit
 <!-- #INCLUDE FILE="default/lib/mcmLibrary.asp" -->
 <%
 FrameWork.Initialize TRUE
-FrameWork.Language = "US"
+FrameWork.Language = "en-us"
 FrameWork.LoadDictionary
 
 Session("ValidSession") = "TRUE"

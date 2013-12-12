@@ -278,8 +278,8 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
           
             MDMListDialog.PreProcessor.Add "CLASS"       , Form.Grid.CellClass        
             MDMListDialog.PreProcessor.Add "ASP_PAGE"    , getParamTablePage(Form("PT_ID"))
-            MDMListDialog.PreProcessor.Add "IMAGE_EDIT"  , Application("APP_HTTP_PATH") & "/default/localized/us/images/edit.gif"
-            MDMListDialog.PreProcessor.Add "IMAGE_VIEW"  , Application("APP_HTTP_PATH") & "/default/localized/us/images/view.gif"
+            MDMListDialog.PreProcessor.Add "IMAGE_EDIT"  , Application("APP_HTTP_PATH") & "/default/localized/en-us/images/edit.gif"
+            MDMListDialog.PreProcessor.Add "IMAGE_VIEW"  , Application("APP_HTTP_PATH") & "/default/localized/en-us/images/view.gif"
             MDMListDialog.PreProcessor.Add "ALT_VIEW"    , mam_GetDictionary("TEXT_VIEW")
             MDMListDialog.PreProcessor.Add "ALT_EDIT"    , mam_GetDictionary("TEXT_EDIT")
 	      		MDMListDialog.PreProcessor.Add "PT_ID"    	 , Form("PT_ID")
@@ -300,7 +300,7 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
               'Check for Null value added
               If len(ltrim(rtrim(ProductView.Properties.Rowset.Value("dt_start"))))=0 Or IsNull(ProductView.Properties.Rowset.Value("dt_start")) Then  
                 EventArg.HTMLRendered = EventArg.HTMLRendered & "<td class='" & Form.Grid.CellClass & "' align='left'>"
-                EventArg.HTMLRendered = EventArg.HTMLRendered & "<img align='absmiddle' src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/infinity.gif" &"'>" & " (" & GetDateFieldString(ProductView.Properties.Rowset.Value("n_begintype")) & ")"
+                EventArg.HTMLRendered = EventArg.HTMLRendered & "<img align='absmiddle' src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/infinity.gif" &"'>" & " (" & GetDateFieldString(ProductView.Properties.Rowset.Value("n_begintype")) & ")"
                 EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>" 
               Else
                 EventArg.HTMLRendered = EventArg.HTMLRendered & "<td class='" & Form.Grid.CellClass & "' align='left'>"
@@ -320,7 +320,7 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
               'Check for Null value added
               If len(ltrim(rtrim(ProductView.Properties.Rowset.Value("dt_end"))))=0 Or IsNull(ProductView.Properties.Rowset.Value("dt_end")) Then  
                 EventArg.HTMLRendered = EventArg.HTMLRendered & "<td class='" & Form.Grid.CellClass & "' align='left'>"
-                EventArg.HTMLRendered = EventArg.HTMLRendered & "<img align='absmiddle' src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/infinity.gif" &"'>" & " (" & GetDateFieldString(ProductView.Properties.Rowset.Value("n_endtype")) & ")"
+                EventArg.HTMLRendered = EventArg.HTMLRendered & "<img align='absmiddle' src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/infinity.gif" &"'>" & " (" & GetDateFieldString(ProductView.Properties.Rowset.Value("n_endtype")) & ")"
                 EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>" 
 	      Else
                 EventArg.HTMLRendered = EventArg.HTMLRendered & "<td class='" & Form.Grid.CellClass & "' align='left'>"
@@ -334,7 +334,7 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
             EventArg.HTMLRendered = EventArg.HTMLRendered & "<td class='" & Form.Grid.CellClass & "' align='center' width='40'>"
             
             If CBool(ProductView.Properties.Rowset.Value("ICBed")) Then
-              EventArg.HTMLRendered = EventArg.HTMLRendered & "<img src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/check.gif'>"
+              EventArg.HTMLRendered = EventArg.HTMLRendered & "<img src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/check.gif'>"
             Else
               EventArg.HTMLRendered = EventArg.HTMLRendered & "--"
             End If

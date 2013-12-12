@@ -105,7 +105,7 @@ Function GetDayConfiguration(CalendarDay, strDayType)
 		strHTML = strHTML & "<td nowrap align=""left""><input type=""text"" name=""hdate"" class=""clsInputBox"" value=""" & strDate & """>" & vbNewLine
 		
 		strHTML = strHTML &	"<A HREF=""#"" onClick=""getCalendarForTimeOpt(document.main.hdate, '', false);return false"">"  & vbNewLine
-		strHTML = strHTML &	"	<img src=""/mcm/default/localized/us/images/popupcalendar.gif"" width=16 height=16 border=0 alt="""">" & vbNewLine
+		strHTML = strHTML &	"	<img src=""/mcm/default/localized/en-us/images/popupcalendar.gif"" width=16 height=16 border=0 alt="""">" & vbNewLine
 		strHTML = strHTML &	"</A></td></tr>" & vbNewLine
 
 	else

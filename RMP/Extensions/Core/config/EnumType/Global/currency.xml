@@ -6,568 +6,799 @@
             <enums>
                 <enum name="SystemCurrencies">
                     <description>Configurable set of currencies for screens to select from.</description>
-                    <entries>
-                        <entry name="USD">
-                            <value>USD</value>
-                        </entry>
+                    <!-- Using ISO 4217 as the refence for Currency Codes & Numbers see this link: http://en.wikipedia.org/wiki/ISO_4217 -->
+					<entries>
                         <entry name="AED">
-                            <value>AED</value>
+                            <value>784</value>
+							<value>AED</value>
                         </entry>
-                        <entry name="AFA">
-                            <value>AFA</value>
+ <!--discontinued 2003
+						<entry name="AFA">
+                            <value>4</value>
+							<value>AFA</value>
                         </entry>
+-->
+<!-- No known currency old or current
                         <entry name="AFF">
                             <value>AFF</value>
                         </entry>
-                        <entry name="AFN">
-                            <value>AFN</value>
+-->
+						<entry name="AFN">
+                            <value>971</value>
+							<value>AFN</value>
                         </entry>
                         <entry name="ALL">
-                            <value>ALL</value>
+                            <value>8</value>
+							<value>ALL</value>
                         </entry>
                         <entry name="AMD">
+                            <value>51</value>
                             <value>AMD</value>
                         </entry>
                         <entry name="ANG">
-                            <value>ANG</value>
+                            <value>532</value>
+							<value>ANG</value>
                         </entry>
                         <entry name="AOA">
-                            <value>AOA</value>
+                            <value>973</value>
+							<value>AOA</value>
                         </entry>
                         <entry name="ARS">
-                            <value>ARS</value>
+                            <value>32</value>
+							<value>ARS</value>
                         </entry>
                         <entry name="AUD">
-                            <value>AUD</value>
+                            <value>36</value>
+							<value>AUD</value>
                         </entry>
                         <entry name="AWG">
-                            <value>AWG</value>
+                            <value>533</value>
+							<value>AWG</value>
                         </entry>
                         <entry name="AZN">
-                            <value>AZN</value>
+                            <value>944</value>
+							<value>AZN</value>
                         </entry>
                         <entry name="BAM">
-                            <value>BAM</value>
+                            <value>977</value>
+							<value>BAM</value>
                         </entry>
                         <entry name="BBD">
-                            <value>BBD</value>
+                            <value>52</value>
+							<value>BBD</value>
                         </entry>
                         <entry name="BDT">
-                            <value>BDT</value>
+                            <value>50</value>
+							<value>BDT</value>
                         </entry>
                         <entry name="BGN">
-                            <value>BGN</value>
+                            <value>975</value>
+							<value>BGN</value>
                         </entry>
                         <entry name="BHD">
-                            <value>BHD</value>
+                            <value>48</value>
+							<value>BHD</value>
                         </entry>
                         <entry name="BIF">
-                            <value>BIF</value>
+                            <value>108</value>
+							<value>BIF</value>
                         </entry>
                         <entry name="BMD">
-                            <value>BMD</value>
+                            <value>60</value>
+							<value>BMD</value>
                         </entry>
                         <entry name="BND">
-                            <value>BND</value>
+                            <value>96</value>
+							<value>BND</value>
                         </entry>
                         <entry name="BOB">
-                            <value>BOB</value>
+                            <value>68</value>
+							<value>BOB</value>
                         </entry>
+<!-- old Brazialian currency notation - discontinued since August 1993
+no assgined numeric code - value listed in MT internal
                         <entry name="BRE">
-                            <value>BRE</value>
+                            <value>1004</value>
+							<value>BRE</value>
                         </entry>
+-->
                         <entry name="BRL">
-                            <value>BRL</value>
+                            <value>986</value>
+							<value>BRL</value>
                         </entry>
                         <entry name="BSD">
-                            <value>BSD</value>
+                            <value>44</value>
+							<value>BSD</value>
                         </entry>
                         <entry name="BTN">
-                            <value>BTN</value>
+                            <value>64</value>
+							<value>BTN</value>
                         </entry>
                         <entry name="BWP">
-                            <value>BWP</value>
+                            <value>72</value>
+							<value>BWP</value>
                         </entry>
                         <entry name="BYR">
-                            <value>BYR</value>
+                            <value>974</value>
+							<value>BYR</value>
                         </entry>
                         <entry name="BZD">
-                            <value>BZD</value>
+                            <value>84</value>
+							<value>BZD</value>
                         </entry>
                         <entry name="CAD">
-                            <value>CAD</value>
+                            <value>124</value>
+							<value>CAD</value>
                         </entry>
                         <entry name="CDF">
-                            <value>CDF</value>
+                            <value>976</value>
+							<value>CDF</value>
                         </entry>
                         <entry name="CHF">
-                            <value>CHF</value>
+                            <value>756</value>
+							<value>CHF</value>
                         </entry>
                         <entry name="CLP">
-                            <value>CLP</value>
+                            <value>152</value>
+							<value>CLP</value>
                         </entry>
                         <entry name="CNY">
-                            <value>CNY</value>
+                            <value>156</value>
+							<value>CNY</value>
                         </entry>
                         <entry name="COP">
-                            <value>COP</value>
+                            <value>170</value>
+							<value>COP</value>
                         </entry>
                         <entry name="CRC">
-                            <value>CRC</value>
+                            <value>188</value>
+							<value>CRC</value>
                         </entry>
                         <entry name="CUC">
-                            <value>CUC</value>
+                            <value>931</value>
+							<value>CUC</value>
                         </entry>
                         <entry name="CUP">
-                            <value>CUP</value>
+                            <value>192</value>
+							<value>CUP</value>
                         </entry>
                         <entry name="CVE">
-                            <value>CVE</value>
+                            <value>132</value>
+							<value>CVE</value>
                         </entry>
+<!-- Discountinued for EUR on 01 JAN 2008
                         <entry name="CYP">
-                            <value>CYP</value>
+                            <value>196</value>
+							<value>CYP</value>
                         </entry>
+-->
                         <entry name="CZK">
-                            <value>CZK</value>
+                            <value>203</value>
+							<value>CZK</value>
                         </entry>
+<!-- Discontinued as of 01 JAN 2002
                         <entry name="DEM">
-                            <value>DEM</value>
+                            <value>276</value>
+							<value>DEM</value>
                         </entry>
+-->
                         <entry name="DJF">
-                            <value>DJF</value>
+                            <value>262</value>
+							<value>DJF</value>
                         </entry>
                         <entry name="DKK">
-                            <value>DKK</value>
+                            <value>208</value>
+							<value>DKK</value>
                         </entry>
                         <entry name="DOP">
-                            <value>DOP</value>
+                            <value>214</value>
+							<value>DOP</value>
                         </entry>
                         <entry name="DZD">
-                            <value>DZD</value>
+                            <value>12</value>
+							<value>DZD</value>
                         </entry>
+<!-- Discontinued as of 01 JAN 2011
                         <entry name="EEK">
-                            <value>EEK</value>
+                            <value>233</value>
+							<value>EEK</value>
                         </entry>
+-->
                         <entry name="EGP">
-                            <value>EGP</value>
+                            <value>818</value>
+							<value>EGP</value>
                         </entry>
                         <entry name="ERN">
-                            <value>ERN</value>
+                            <value>232</value>
+							<value>ERN</value>
                         </entry>
+<!-- Discontinued as of 01 JAN 1999
                         <entry name="ESP">
-                            <value>ESP</value>
+                            <value>724</value>
+							<value>ESP</value>
                         </entry>
+-->
                         <entry name="ETB">
-                            <value>ETB</value>
+                            <value>230</value>
+							<value>ETB</value>
                         </entry>
                         <entry name="EUR">
-                            <value>EUR</value>
+                            <value>978</value>
+							<value>EUR</value>
                         </entry>
                         <entry name="FJD">
-                            <value>FJD</value>
+                            <value>242</value>
+							<value>FJD</value>
                         </entry>
                         <entry name="FKP">
-                            <value>FKP</value>
+                            <value>238</value>
+							<value>FKP</value>
                         </entry>
+<!-- Discontinued as of 01 JAN 1999
                         <entry name="FRF">
-                            <value>FRF</value>
+                            <value>250</value>
+							<value>FRF</value>
                         </entry>
+-->
                         <entry name="GBP">
-                            <value>GBP</value>
+                            <value>826</value>
+							<value>GBP</value>
                         </entry>
                         <entry name="GEL">
-                            <value>GEL</value>
+                            <value>981</value>
+							<value>GEL</value>
                         </entry>
+<!-- No numeric code for this currency Guernsey Pound GGP this is MT value-->
                         <entry name="GGP">
-                            <value>GGP</value>
+                            <value>1000</value>
+							<value>GGP</value>
                         </entry>
                         <entry name="GHS">
-                            <value>GHS</value>
+                            <value>936</value>
+							<value>GHS</value>
                         </entry>
                         <entry name="GIP">
-                            <value>GIP</value>
+                            <value>292</value>
+							<value>GIP</value>
                         </entry>
                         <entry name="GMD">
-                            <value>GMD</value>
+                            <value>270</value>
+							<value>GMD</value>
                         </entry>
                         <entry name="GNF">
-                            <value>GNF</value>
+                            <value>324</value>
+							<value>GNF</value>
                         </entry>
+<!-- Discontinued in 1985 no assigned numeric code - lsited number is MT internal
                         <entry name="GQE">
-                            <value>GQE</value>
+                            <value>1003</value>
+							<value>GQE</value>
                         </entry>
+-->
                         <entry name="GTQ">
-                            <value>GTQ</value>
+                            <value>320</value>
+							<value>GTQ</value>
                         </entry>
                         <entry name="GYD">
-                            <value>GYD</value>
+                            <value>328</value>
+							<value>GYD</value>
                         </entry>
                         <entry name="HKD">
-                            <value>HKD</value>
+                            <value>344</value>
+							<value>HKD</value>
                         </entry>
                         <entry name="HNL">
-                            <value>HNL</value>
+                            <value>340</value>
+							<value>HNL</value>
                         </entry>
                         <entry name="HRK">
-                            <value>HRK</value>
+                            <value>191</value>
+							<value>HRK</value>
                         </entry>
                         <entry name="HTG">
-                            <value>HTG</value>
+                            <value>332</value>
+							<value>HTG</value>
                         </entry>
                         <entry name="HUF">
-                            <value>HUF</value>
+                            <value>348</value>
+							<value>HUF</value>
                         </entry>
                         <entry name="IDR">
-                            <value>IDR</value>
+                            <value>360</value>
+							<value>IDR</value>
                         </entry>
+<!-- Discontinued 01 JAN 1999
                         <entry name="IEP">
-                            <value>IEP</value>
+                            <value>372</value>
+							<value>IEP</value>
                         </entry>
+-->
                         <entry name="ILS">
-                            <value>ILS</value>
+                            <value>376</value>
+							<value>ILS</value>
                         </entry>
+<!-- no numeric code for Isle of Man IMP currency this is MT value-->
                         <entry name="IMP">
-                            <value>IMP</value>
+                            <value>1001</value>
+							<value>IMP</value>
                         </entry>
                         <entry name="INR">
-                            <value>INR</value>
+                            <value>356</value>
+							<value>INR</value>
                         </entry>
                         <entry name="IQD">
-                            <value>IQD</value>
+                            <value>368</value>
+							<value>IQD</value>
                         </entry>
                         <entry name="IRR">
-                            <value>IRR</value>
+                            <value>364</value>
+							<value>IRR</value>
                         </entry>
                         <entry name="ISK">
-                            <value>ISK</value>
+                            <value>352</value>
+							<value>ISK</value>
                         </entry>
+<!-- no offical numeric code for Jersey Pound JEP this is MT value-->
                         <entry name="JEP">
-                            <value>JEP</value>
+                            <value>1002</value>
+							<value>JEP</value>
                         </entry>
                         <entry name="JMD">
-                            <value>JMD</value>
+                            <value>388</value>
+							<value>JMD</value>
                         </entry>
                         <entry name="JOD">
-                            <value>JOD</value>
+                            <value>400</value>
+							<value>JOD</value>
                         </entry>
                         <entry name="JPY">
-                            <value>JPY</value>
+                            <value>392</value>
+							<value>JPY</value>
                         </entry>
                         <entry name="KES">
-                            <value>KES</value>
+                            <value>404</value>
+							<value>KES</value>
                         </entry>
                         <entry name="KGS">
-                            <value>KGS</value>
+                            <value>417</value>
+							<value>KGS</value>
                         </entry>
                         <entry name="KHR">
-                            <value>KHR</value>
+                            <value>116</value>
+							<value>KHR</value>
                         </entry>
                         <entry name="KMF">
-                            <value>KMF</value>
+                            <value>174</value>
+							<value>KMF</value>
                         </entry>
                         <entry name="KPW">
-                            <value>KPW</value>
+                            <value>408</value>
+							<value>KPW</value>
                         </entry>
                         <entry name="KRW">
-                            <value>KRW</value>
+                            <value>410</value>
+							<value>KRW</value>
                         </entry>
                         <entry name="KWD">
-                            <value>KWD</value>
+                            <value>414</value>
+							<value>KWD</value>
                         </entry>
                         <entry name="KYD">
-                            <value>KYD</value>
+                            <value>136</value>
+							<value>KYD</value>
                         </entry>
                         <entry name="KZT">
-                            <value>KZT</value>
+                            <value>398</value>
+							<value>KZT</value>
                         </entry>
                         <entry name="LAK">
-                            <value>LAK</value>
+                            <value>418</value>
+							<value>LAK</value>
                         </entry>
                         <entry name="LBP">
-                            <value>LBP</value>
+                            <value>422</value>
+							<value>LBP</value>
                         </entry>
                         <entry name="LKR">
-                            <value>LKR</value>
+                            <value>144</value>
+							<value>LKR</value>
                         </entry>
                         <entry name="LRD">
-                            <value>LRD</value>
+                            <value>430</value>
+							<value>LRD</value>
                         </entry>
                         <entry name="LSL">
-                            <value>LSL</value>
+                            <value>426</value>
+							<value>LSL</value>
                         </entry>
                         <entry name="LTL">
-                            <value>LTL</value>
+                            <value>440</value>
+							<value>LTL</value>
                         </entry>
                         <entry name="LVL">
-                            <value>LVL</value>
+                            <value>428</value>
+							<value>LVL</value>
                         </entry>
                         <entry name="LYD">
-                            <value>LYD</value>
+                            <value>434</value>
+							<value>LYD</value>
                         </entry>
                         <entry name="MAD">
-                            <value>MAD</value>
+                            <value>504</value>
+							<value>MAD</value>
                         </entry>
                         <entry name="MDL">
-                            <value>MDL</value>
+                            <value>498</value>
+							<value>MDL</value>
                         </entry>
                         <entry name="MGA">
-                            <value>MGA</value>
+                            <value>969</value>
+							<value>MGA</value>
                         </entry>
+<!--discontinued 01 JAN 2005
                         <entry name="MGF">
-                            <value>MGF</value>
+                            <value>450</value>
+							<value>MGF</value>
                         </entry>
+-->
                         <entry name="MKD">
-                            <value>MKD</value>
+                            <value>807</value>
+							<value>MKD</value>
                         </entry>
                         <entry name="MMK">
-                            <value>MMK</value>
+                            <value>104</value>
+							<value>MMK</value>
                         </entry>
                         <entry name="MNT">
-                            <value>MNT</value>
+                            <value>496</value>
+							<value>MNT</value>
                         </entry>
                         <entry name="MOP">
-                            <value>MOP</value>
+                            <value>446</value>
+							<value>MOP</value>
                         </entry>
                         <entry name="MRO">
-                            <value>MRO</value>
+                            <value>478</value>
+							<value>MRO</value>
                         </entry>
+<!-- Discontinued 01 JAN 2008
                         <entry name="MTL">
-                            <value>MTL</value>
+                            <value>470</value>
+							<value>MTL</value>
                         </entry>
+-->
                         <entry name="MUR">
-                            <value>MUR</value>
+                            <value>480</value>
+							<value>MUR</value>
                         </entry>
                         <entry name="MVR">
-                            <value>MVR</value>
+                            <value>462</value>
+							<value>MVR</value>
                         </entry>
                         <entry name="MWK">
-                            <value>MWK</value>
+                            <value>454</value>
+							<value>MWK</value>
                         </entry>
                         <entry name="MXN">
-                            <value>MXN</value>
+                            <value>484</value>
+							<value>MXN</value>
                         </entry>
                         <entry name="MYR">
-                            <value>MYR</value>
+                            <value>458</value>
+							<value>MYR</value>
                         </entry>
                         <entry name="MZN">
-                            <value>MZN</value>
+                            <value>943</value>
+							<value>MZN</value>
                         </entry>
                         <entry name="NAD">
-                            <value>NAD</value>
+                            <value>516</value>
+							<value>NAD</value>
                         </entry>
                         <entry name="NGN">
-                            <value>NGN</value>
+                            <value>566</value>
+							<value>NGN</value>
                         </entry>
                         <entry name="NIO">
-                            <value>NIO</value>
+                            <value>558</value>
+							<value>NIO</value>
                         </entry>
                         <entry name="NOK">
-                            <value>NOK</value>
+                            <value>578</value>
+							<value>NOK</value>
                         </entry>
                         <entry name="NPR">
-                            <value>NPR</value>
+                            <value>524</value>
+							<value>NPR</value>
                         </entry>
                         <entry name="NZD">
-                            <value>NZD</value>
+                            <value>554</value>
+							<value>NZD</value>
                         </entry>
                         <entry name="OMR">
-                            <value>OMR</value>
+                            <value>512</value>
+							<value>OMR</value>
                         </entry>
                         <entry name="PAB">
-                            <value>PAB</value>
+                            <value>590</value>
+							<value>PAB</value>
                         </entry>
                         <entry name="PEN">
-                            <value>PEN</value>
+                            <value>604</value>
+							<value>PEN</value>
                         </entry>
                         <entry name="PGK">
-                            <value>PGK</value>
+                            <value>598</value>
+							<value>PGK</value>
                         </entry>
                         <entry name="PHP">
-                            <value>PHP</value>
+                            <value>608</value>
+							<value>PHP</value>
                         </entry>
                         <entry name="PKR">
-                            <value>PKR</value>
+                            <value>586</value>
+							<value>PKR</value>
                         </entry>
                         <entry name="PLN">
-                            <value>PLN</value>
+                            <value>985</value>
+							<value>PLN</value>
                         </entry>
                         <entry name="PYG">
-                            <value>PYG</value>
+                            <value>600</value>
+							<value>PYG</value>
                         </entry>
                         <entry name="QAR">
-                            <value>QAR</value>
+                            <value>634</value>
+							<value>QAR</value>
                         </entry>
+<!-- discontinued 01 JAN 2005
                         <entry name="ROL">
-                            <value>ROL</value>
+                            <value>642</value>
+							<value>ROL</value>
                         </entry>
+-->
                         <entry name="RON">
-                            <value>RON</value>
+                            <value>946</value>
+							<value>RON</value>
                         </entry>
                         <entry name="RSD">
-                            <value>RSD</value>
+                            <value>941</value>
+							<value>RSD</value>
                         </entry>
                         <entry name="RUB">
-                            <value>RUB</value>
+                            <value>643</value>
+							<value>RUB</value>
                         </entry>
+<!-- discontinued 31 DEC 1997
                         <entry name="RUR">
-                            <value>RUR</value>
+                            <value>810</value>
+							<value>RUR</value>
                         </entry>
+-->
                         <entry name="RWF">
-                            <value>RWF</value>
+                            <value>646</value>
+							<value>RWF</value>
                         </entry>
                         <entry name="SAR">
-                            <value>SAR</value>
+                            <value>682</value>
+							<value>SAR</value>
                         </entry>
                         <entry name="SBD">
-                            <value>SBD</value>
+                            <value>90</value>
+							<value>SBD</value>
                         </entry>
                         <entry name="SCR">
-                            <value>SCR</value>
+                            <value>690</value>
+							<value>SCR</value>
                         </entry>
+<!-- dsicontinued 01 OCT 2007
                         <entry name="SDD">
-                            <value>SDD</value>
+                            <value>736</value>
+							<value>SDD</value>
                         </entry>
+-->
                         <entry name="SDG">
-                            <value>SDG</value>
+                            <value>938</value>
+							<value>SDG</value>
                         </entry>
                         <entry name="SEK">
-                            <value>SEK</value>
+                            <value>752</value>
+							<value>SEK</value>
                         </entry>
                         <entry name="SGD">
-                            <value>SGD</value>
+                            <value>702</value>
+							<value>SGD</value>
                         </entry>
                         <entry name="SHP">
-                            <value>SHP</value>
+                            <value>654</value>
+							<value>SHP</value>
                         </entry>
+<!-- Discontinued 01 JAN 2009
                         <entry name="SKK">
-                            <value>SKK</value>
+                            <value>703</value>
+							<value>SKK</value>
                         </entry>
+-->
                         <entry name="SLL">
-                            <value>SLL</value>
+                            <value>694</value>
+							<value>SLL</value>
                         </entry>
                         <entry name="SOS">
-                            <value>SOS</value>
+                            <value>706</value>
+							<value>SOS</value>
                         </entry>
-                        <entry name="SPL">
-                            <value>SPL</value>
+<!-- no such currency                        
+						<entry name="SPL">
+                            <value>1010</value>
+							<value>SPL</value>
                         </entry>
+-->
                         <entry name="SRD">
-                            <value>SRD</value>
+                            <value>968</value>
+							<value>SRD</value>
                         </entry>
                         <entry name="STD">
-                            <value>STD</value>
+                            <value>678</value>
+							<value>STD</value>
                         </entry>
+<!-- Discontinued 2001
                         <entry name="SVC">
-                            <value>SVC</value>
+                            <value>222</value>
+							<value>SVC</value>
                         </entry>
+-->
                         <entry name="SYP">
-                            <value>SYP</value>
+                            <value>760</value>
+							<value>SYP</value>
                         </entry>
                         <entry name="SZL">
-                            <value>SZL</value>
+                            <value>748</value>
+							<value>SZL</value>
                         </entry>
                         <entry name="THB">
-                            <value>THB</value>
+                            <value>764</value>
+							<value>THB</value>
                         </entry>
                         <entry name="TJS">
-                            <value>TJS</value>
+                            <value>972</value>
+							<value>TJS</value>
                         </entry>
+<!--discontinued 31 DEC 2008
                         <entry name="TMM">
-                            <value>TMM</value>
+                            <value>795</value>
+							<value>TMM</value>
                         </entry>
+-->
                         <entry name="TMT">
-                            <value>TMT</value>
+                            <value>934</value>
+							<value>TMT</value>
                         </entry>
                         <entry name="TND">
-                            <value>TND</value>
+                            <value>788</value>
+							<value>TND</value>
                         </entry>
                         <entry name="TOP">
-                            <value>TOP</value>
+                            <value>776</value>
+							<value>TOP</value>
                         </entry>
+<!-- discontinued 2005
                         <entry name="TRL">
-                            <value>TRL</value>
+                            <value>792</value>
+							<value>TRL</value>
                         </entry>
+-->
                         <entry name="TRY">
-                            <value>TRY</value>
+                            <value>949</value>
+							<value>TRY</value>
                         </entry>
                         <entry name="TTD">
-                            <value>TTD</value>
-                        </entry>
-                        <entry name="TVD">
-                            <value>TVD</value>
+                            <value>780</value>
+							<value>TTD</value>
                         </entry>
                         <entry name="TWD">
-                            <value>TWD</value>
+                            <value>901</value>
+							<value>TWD</value>
                         </entry>
                         <entry name="TZS">
-                            <value>TZS</value>
+                            <value>834</value>
+							<value>TZS</value>
                         </entry>
                         <entry name="UAH">
-                            <value>UAH</value>
+                            <value>980</value>
+							<value>UAH</value>
                         </entry>
                         <entry name="UGX">
-                            <value>UGX</value>
+                            <value>800</value>
+							<value>UGX</value>
+                        </entry>
+                        <entry name="USD">
+                            <value>840</value>
+							<value>USD</value>
                         </entry>
                         <entry name="UYU">
-                            <value>UYU</value>
+                            <value>858</value>
+							<value>UYU</value>
                         </entry>
                         <entry name="UZS">
-                            <value>UZS</value>
+                            <value>860</value>
+							<value>UZS</value>
                         </entry>
-                        <entry name="VEB">
-                            <value>VEB</value>
+<!--discontinued 01 JAN 2008                       
+						<entry name="VEB">
+                            <value>862</value>
+							<value>VEB</value>
                         </entry>
+-->
                         <entry name="VEF">
-                            <value>VEF</value>
+                            <value>937</value>
+							<value>VEF</value>
                         </entry>
                         <entry name="VND">
-                            <value>VND</value>
+                            <value>704</value>
+							<value>VND</value>
                         </entry>
                         <entry name="VUV">
-                            <value>VUV</value>
+                            <value>548</value>
+							<value>VUV</value>
                         </entry>
                         <entry name="WST">
-                            <value>WST</value>
+                            <value>882</value>
+							<value>WST</value>
                         </entry>
                         <entry name="XAF">
-                            <value>XAF</value>
+                            <value>950</value>
+							<value>XAF</value>
                         </entry>
                         <entry name="XAG">
-                            <value>XAG</value>
+                            <value>961</value>
+							<value>XAG</value>
                         </entry>
                         <entry name="XAU">
-                            <value>XAU</value>
+                            <value>959</value>
+							<value>XAU</value>
                         </entry>
                         <entry name="XCD">
-                            <value>XCD</value>
+                            <value>951</value>
+							<value>XCD</value>
                         </entry>
                         <entry name="XDR">
-                            <value>XDR</value>
+                            <value>960</value>
+							<value>XDR</value>
                         </entry>
                         <entry name="XOF">
-                            <value>XOF</value>
+                            <value>952</value>
+							<value>XOF</value>
                         </entry>
                         <entry name="XPD">
-                            <value>XPD</value>
+                            <value>964</value>
+							<value>XPD</value>
                         </entry>
                         <entry name="XPF">
-                            <value>XPF</value>
+                            <value>953</value>
+							<value>XPF</value>
                         </entry>
                         <entry name="XPT">
-                            <value>XPT</value>
+                            <value>962</value>
+							<value>XPT</value>
                         </entry>
                         <entry name="YER">
-                            <value>YER</value>
+                            <value>886</value>
+							<value>YER</value>
                         </entry>
                         <entry name="ZAR">
-                            <value>ZAR</value>
+                            <value>710</value>
+							<value>ZAR</value>
                         </entry>
                         <entry name="ZMK">
-                            <value>ZMK</value>
+                            <value>894</value>
+							<value>ZMK</value>
                         </entry>
+<!--discontinued 31 JUL 2006
                         <entry name="ZWD">
-                            <value>ZWD</value>
+                            <value>716</value>
+							<value>ZWD</value>
                         </entry>
+-->
                     </entries>
                 </enum>
             </enums>

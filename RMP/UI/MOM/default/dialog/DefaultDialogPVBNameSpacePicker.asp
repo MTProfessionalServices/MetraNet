@@ -96,7 +96,7 @@ PRIVATE FUNCTION form_DisplayCell(EventArg) ' As Boolean
         Case 1        
             Set objPP = mdm_CreateObject(CPreProcessor)
             
-            objPP.Add "IMAGE"       , Application("APP_HTTP_PATH") & "/default/localized/us/images/view.gif"
+            objPP.Add "IMAGE"       , Application("APP_HTTP_PATH") & "/default/localized/en-us/images/view.gif"
             objPP.Add "ASP_PAGE"    , mom_GetDictionary("REPORT_DIALOG")
             objPP.Add "ALT"         , mom_GetDictionary("TEXT_EDIT")
             objPP.Add "NAME_SPACE"  , ProductView("nm_space")

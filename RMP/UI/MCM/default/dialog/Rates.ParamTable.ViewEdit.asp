@@ -205,7 +205,7 @@ PRIVATE FUNCTION ContainedPriceableItems_DisplayCell(EventArg) ' As Boolean
 				EventArg.HTMLRendered	= EventArg.HTMLRendered & "&PO_ID=" & Form("ID_PO")         
 				EventArg.HTMLRendered	= EventArg.HTMLRendered & "&Kind=" & EventArg.Grid.Rowset.Value("n_kind")
 				EventArg.HTMLRendered	= EventArg.HTMLRendered & "&mdmReload=True'>"
-				'EventArg.HTMLRendered	= EventArg.HTMLRendered & "<img border=0 src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/edit.gif'>"
+				'EventArg.HTMLRendered	= EventArg.HTMLRendered & "<img border=0 src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/edit.gif'>"
 				EventArg.HTMLRendered	= EventArg.HTMLRendered & EventArg.Grid.Rowset.Value("nm_name")
 				EventArg.HTMLRendered	= EventArg.HTMLRendered & "</a></td>"
         ContainedPriceableItems_DisplayCell = TRUE
@@ -230,9 +230,9 @@ PRIVATE FUNCTION ContainedParameterTables_DisplayCell(EventArg) ' As Boolean
 '		Case "b_canicb" 
 '			EventArg.HTMLRendered = 												"<td align=""center"" class=" & EventArg.Grid.CellClass & ">"
 '			if EventArg.Grid.Rowset.Value("b_canICB") = "N" then
-'				EventArg.HTMLRendered = EventArg.HTMLRendered & 	"<img border=0 src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/delete.gif'>"
+'				EventArg.HTMLRendered = EventArg.HTMLRendered & 	"<img border=0 src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/delete.gif'>"
 '			else
-'				EventArg.HTMLRendered = EventArg.HTMLRendered & 	"<img border=0 src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/check.gif'>"
+'				EventArg.HTMLRendered = EventArg.HTMLRendered & 	"<img border=0 src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/check.gif'>"
 '			end if
 '			EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>"
 '			ContainedParameterTables_DisplayCell = TRUE
@@ -256,7 +256,7 @@ PRIVATE FUNCTION ContainedParameterTables_DisplayCell(EventArg) ' As Boolean
 				EventArg.HTMLRendered	= EventArg.HTMLRendered & "&POBased=" & Form("POBased")
 				EventArg.HTMLRendered	= EventArg.HTMLRendered & "&Rates=TRUE"
 				EventArg.HTMLRendered	= EventArg.HTMLRendered & "&mdmReload=True'>"
-				'EventArg.HTMLRendered	= EventArg.HTMLRendered & "<img border=0 src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/edit.gif'>"
+				'EventArg.HTMLRendered	= EventArg.HTMLRendered & "<img border=0 src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/edit.gif'>"
 				EventArg.HTMLRendered	= EventArg.HTMLRendered & sParamTableName
 				EventArg.HTMLRendered	= EventArg.HTMLRendered & "</a>"
 			else
@@ -281,7 +281,7 @@ PRIVATE FUNCTION ContainedParameterTables_DisplayCell(EventArg) ' As Boolean
 			EventArg.HTMLRendered	= EventArg.HTMLRendered & "&POBased=" & Form("POBased")
 			EventArg.HTMLRendered	= EventArg.HTMLRendered & "&Rates=TRUE"
 			EventArg.HTMLRendered	= EventArg.HTMLRendered & "&mdmReload=True'>"
-			EventArg.HTMLRendered	= EventArg.HTMLRendered & "<img border=0 src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/edit.gif'>"
+			EventArg.HTMLRendered	= EventArg.HTMLRendered & "<img border=0 src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/edit.gif'>"
 			EventArg.HTMLRendered	= EventArg.HTMLRendered & sParamTableName
 			EventArg.HTMLRendered	= EventArg.HTMLRendered & "</a></nobr></td>"
 			ContainedParameterTables_DisplayCell = TRUE
@@ -306,7 +306,7 @@ PRIVATE FUNCTION ContainedParameterTables_DisplayCell(EventArg) ' As Boolean
       if UCase(EventArg.Grid.SelectedProperty.Value) = "Y" then
   			EventArg.HTMLRendered = ""
   			EventArg.HTMLRendered = EventArg.HTMLRendered & "<td class='" & EventArg.Grid.CellClass & "'>"
-  			'EventArg.HTMLRendered = EventArg.HTMLRendered & "<img src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/icons/check.gif'>"
+  			'EventArg.HTMLRendered = EventArg.HTMLRendered & "<img src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/icons/check.gif'>"
         EventArg.HTMLRendered = EventArg.HTMLRendered & FrameWork.GetDictionary("TEXT_YES")
   			EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>"
   		else

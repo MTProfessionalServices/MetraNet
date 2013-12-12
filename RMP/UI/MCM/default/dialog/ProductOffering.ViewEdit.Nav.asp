@@ -152,7 +152,7 @@ var last;
 
 
 
-      var strBaseImagePath = '/mcm/default/localized/us/images/Icons/'; //sectionExpand.gif" width="16" height="16" alt="" border="0">")%>';
+      var strBaseImagePath = '/mcm/default/localized/en-us/images/Icons/'; //sectionExpand.gif" width="16" height="16" alt="" border="0">")%>';
 
       function ToggleRow(strRow, strImage) {
         var strImageHref;
@@ -191,8 +191,8 @@ var last;
 
 <html>
 <head>
-  <LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/us/styles/styles.css'>
-  <LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/us/styles/Navstyles.css'>  
+  <LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/en-us/styles/styles.css'>
+  <LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/en-us/styles/Navstyles.css'>  
 	<title>Untitled</title>
 </head>
 

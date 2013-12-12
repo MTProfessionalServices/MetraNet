@@ -143,7 +143,7 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             ' This is not a enum type yet that why i have the constante
             If(ProductView.Properties("Status") = eCREDIT_REQUEST_PENDING_STATUS)Then
             
-                m_objPP.Add "IMAGE"       , Application("APP_HTTP_PATH") & "/default/localized/us/images/edit.gif"
+                m_objPP.Add "IMAGE"       , Application("APP_HTTP_PATH") & "/default/localized/en-us/images/edit.gif"
                 m_objPP.Add "ASP_PAGE"    , mam_GetDictionary("ISSUE_CREDIT_FROM_REQUEST")
                 m_objPP.Add "ALT"         , mam_GetDictionary("TEXT_EDIT")
                 EventArg.HTMLRendered   = m_objPP.Process(HTML_LINK_EDIT)                
@@ -154,7 +154,7 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
                       ' from the credit request; so in that case we do not add any link to the credit...
                       Form_DisplayCell =  inheritedForm_DisplayCell(EventArg)
                 Else                                
-                      m_objPP.Add "IMAGE"       , Application("APP_HTTP_PATH") & "/default/localized/us/images/view.gif"
+                      m_objPP.Add "IMAGE"       , Application("APP_HTTP_PATH") & "/default/localized/en-us/images/view.gif"
                       m_objPP.Add "ASP_PAGE"    , mam_GetDictionary("VIEW_CREDIT_FROM_REQUEST")
                       m_objPP.Add "ALT"         , mam_GetDictionary("TEXT_VIEW")
                       EventArg.HTMLRendered   = m_objPP.Process(HTML_LINK_EDIT)

@@ -148,11 +148,11 @@ namespace MetraTech.Core.Services.Quoting
             //generate PDF and return results
             CreateAndCalculateQuote(quoteRequest, response);
 
-            QuotePDFReport quotePDFReport = null;
+            QuotePdfReport quotePDFReport = null;
             if (quoteRequest.ReportParameters.PDFReport)
             {
-              quotePDFReport = new QuotePDFReport(QuoteReportingConfigurationManager.LoadConfiguration(Configuration));
-              response.ReportLink = quotePDFReport.GetPdfReportLink(response.IdQuote, quoteRequest.Accounts.First());
+              quotePDFReport = new QuotePdfReport(QuoteReportingConfigurationManager.LoadConfiguration(Configuration));
+              response.ReportLink = quotePDFReport.GetReportLink(response.IdQuote, quoteRequest.Accounts.First());
             }
 
             response.Status = QuoteStatus.Complete;
@@ -468,14 +468,14 @@ namespace MetraTech.Core.Services.Quoting
       return payer;
     }
 
-    private delegate void AsyncGeneratePDFForCurrentQuote(QuoteRequest request, QuoteResponse response, QuotePDFReport quotePdfReport);
+    private delegate void AsyncGeneratePDFForCurrentQuote(QuoteRequest request, QuoteResponse response, QuotePdfReport quotePdfReport);
 
-    protected void GeneratePdfForCurrentQuote(QuoteRequest request, QuoteResponse response, QuotePDFReport quotePdfReport = null)
+    protected void GeneratePdfForCurrentQuote(QuoteRequest request, QuoteResponse response, QuotePdfReport quotePdfReport = null)
     {
       using (new HighResolutionTimer("GeneratePDFForCurrentQuote"))
       {
         if (quotePdfReport == null)
-          quotePdfReport = new QuotePDFReport(ReportingConfiguration);
+          quotePdfReport = new QuotePdfReport(ReportingConfiguration);
 
         //If request does not specify a template to use, then use the configured default
         if (string.IsNullOrEmpty(request.ReportParameters.ReportTemplateName))
@@ -487,7 +487,7 @@ namespace MetraTech.Core.Services.Quoting
 
         try
         {
-          response.ReportLink = quotePdfReport.CreatePdfReport(response.IdQuote,
+          response.ReportLink = quotePdfReport.CreateReport(response.IdQuote,
                                                              request.Accounts[0],
                                                              request.ReportParameters.ReportTemplateName,
                                                              GetLanguageCodeIdForCurrentRequest(request));

@@ -27,7 +27,7 @@ namespace MetraTech.Core.Services.Test.Quoting
     /// Test check whether QuoteHeader and QuoteContent saved in db based on  QuoteRequest and QuoteResponse
     /// </summary>
     [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
-    public void QuotingRepositorySaveBMEsFunctionalTest()
+    public void T01QuotingRepositorySaveBMEs_PositiveTest()
     {
       #region prepare QuoteRequest
 
@@ -145,7 +145,7 @@ namespace MetraTech.Core.Services.Test.Quoting
     }
 
     [TestMethod, MTFunctionalTest(TestAreas.Quoting)]
-    public void QuotingRepositorySaveLogRecordsFunctionalTests()
+    public void T02QuotingRepositorySaveLogRecords_PositiveTest()
     {
       var repository = new QuotingRepository();
 
@@ -159,6 +159,23 @@ namespace MetraTech.Core.Services.Test.Quoting
       int currentRecordsCount = repository.GetQuoteLogRecordsCount();
 
       Assert.AreEqual(initialRecordsCount + 2, currentRecordsCount);
-    }  
+    }
+
+    [TestMethod, MTFunctionalTest(TestAreas.Quoting), Ignore]
+    public void T03QuotingRepositoryDeleteAccUsageQuoting_PositiveTest()
+    {
+      var repository = new QuotingRepository();
+      var config = QuotingConfigurationManager.LoadConfigurationFromDefaultSystemLocation();
+
+      //var initialRecordsCountBefore = repository.GetAssUsageQuotingRecordsCount(config);
+
+      int testQuoteId = 8;
+
+      repository.DeleteAccUsageQuoting(testQuoteId, config);
+
+      //var initialRecordsCountAfter = repository.GetAssUsageQuotingRecordsCount(config);
+
+      //Assert.IsTrue((initialRecordsCountBefore - initialRecordsCountAfter) > 0);
+    }
   }
 }

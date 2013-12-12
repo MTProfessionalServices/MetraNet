@@ -41,7 +41,7 @@ FOR /R %%s IN (*.sql) DO (
 )
 )
 
-%BCP_FOLDER%\sqlcmd -S %MSSQLServer% -U %UserName% -P %Password% -d %StageDBName% -i %WorkDir%\upgradeStageDb.sql -o %WorkDir%\sql_upgrade_stage.log
+rem %BCP_FOLDER%\sqlcmd -S %MSSQLServer% -U %UserName% -P %Password% -d %StageDBName% -i %WorkDir%\upgradeStageDb.sql -o %WorkDir%\sql_upgrade_stage.log
 
 
 cd %CurrentDir%

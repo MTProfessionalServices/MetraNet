@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using Core.Quoting;
@@ -13,10 +14,19 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MetraTech.Core.Services.Test.Quoting
 {
+
   #region Shared Helper Methods For Quoting Tests
 
   public class SharedTestCodeQuoting
   {
+
+    #region Variables
+
+    private const string UserName = "su";
+    private const string Password = "su123";
+
+    #endregion
+
     public static int GetNRCsCount()
     {
       return GetProductViewCount("t_pv_NonRecurringCharge");
@@ -132,19 +142,20 @@ namespace MetraTech.Core.Services.Test.Quoting
       foreach (var accountID in quoteRequest.Accounts)
       {
         Assert.IsTrue(
-          Enumerable.Any<IAccountForQuote>(quoteHeaderFromDB.AccountForQuotes, accountForQuote => accountForQuote.AccountID == accountID),
+          quoteHeaderFromDB.AccountForQuotes.Any(accountForQuote => accountForQuote.AccountID == accountID),
           "AccountID is missed in QuoteHeader");
       }
 
       foreach (var poID in quoteRequest.ProductOfferings)
       {
-        Assert.IsTrue(Enumerable.Any<IPOforQuote>(quoteHeaderFromDB.POforQuotes, accountForQuote => accountForQuote.POID == poID),
-                      "POID is missed in QuoteHeader");
+        Assert.IsTrue(
+          quoteHeaderFromDB.POforQuotes.Any(accountForQuote => accountForQuote.POID == poID),
+          "POID is missed in QuoteHeader");
 
         if (quoteRequest.SubscriptionParameters.UDRCValues.ContainsKey(poID.ToString()))
         {
           var udrcValues = quoteRequest.SubscriptionParameters.UDRCValues[poID.ToString()];
-          var po = Enumerable.FirstOrDefault<IPOforQuote>(quoteHeaderFromDB.POforQuotes, p => p.POID == poID);
+          var po = quoteHeaderFromDB.POforQuotes.FirstOrDefault(p => p.POID == poID);
 
           foreach (var udrcInstanceValueBase in udrcValues)
           {
@@ -157,64 +168,94 @@ namespace MetraTech.Core.Services.Test.Quoting
       }
     }
 
-    public static void VerifyQuoteResponseCorrectInRepository(int idQuote, QuoteResponse quoteResponse, IQuotingRepository quotingRepository)
+    public static void VerifyQuoteResponseCorrectInRepository(int idQuote, QuoteResponse quoteResponse,
+                                                              IQuotingRepository quotingRepository)
     {
-        var quoteHeaderFromDB = new QuoteHeader();
-        try
-        {
-            quoteHeaderFromDB = quotingRepository.GetQuoteHeader(idQuote);
-        }
-        catch (Exception ex)
-        {
-            Assert.Fail("Exception on get quote header: " + ex.Message);
-        }
-        
-        Assert.AreEqual(quoteHeaderFromDB.QuoteContent.Total, quoteResponse.TotalAmount, "Wrong TotalAmount");
-        Assert.AreEqual(quoteHeaderFromDB.QuoteContent.TotalTax, quoteResponse.TotalTax, "Wrong TotalTax");
-        Assert.AreEqual(quoteHeaderFromDB.QuoteContent.Currency ?? string.Empty, quoteResponse.Currency ?? string.Empty, "Wrong Currency");
-        Assert.AreEqual(quoteHeaderFromDB.QuoteContent.ReportLink, quoteResponse.ReportLink, "Wrong ReportLink");
-        Assert.AreEqual(quoteHeaderFromDB.QuoteContent.FailedMessage ?? string.Empty, quoteResponse.FailedMessage ?? string.Empty, "Wrong FailedMessage");
-        Assert.AreEqual(quoteHeaderFromDB.QuoteContent.Status, Convert.ToInt32((object) quoteResponse.Status), "Wrong Status");
+      var quoteHeaderFromDB = new QuoteHeader();
+      try
+      {
+        quoteHeaderFromDB = quotingRepository.GetQuoteHeader(idQuote);
+      }
+      catch (Exception ex)
+      {
+        Assert.Fail("Exception on get quote header: " + ex.Message);
+      }
+
+      Assert.AreEqual(quoteHeaderFromDB.QuoteContent.Total, quoteResponse.TotalAmount, "Wrong TotalAmount");
+      Assert.AreEqual(quoteHeaderFromDB.QuoteContent.TotalTax, quoteResponse.TotalTax, "Wrong TotalTax");
+      Assert.AreEqual(quoteHeaderFromDB.QuoteContent.Currency ?? string.Empty, quoteResponse.Currency ?? string.Empty,
+                      "Wrong Currency");
+      Assert.AreEqual(quoteHeaderFromDB.QuoteContent.ReportLink, quoteResponse.ReportLink, "Wrong ReportLink");
+      Assert.AreEqual(quoteHeaderFromDB.QuoteContent.FailedMessage ?? string.Empty,
+                      quoteResponse.FailedMessage ?? string.Empty, "Wrong FailedMessage");
+      Assert.AreEqual(quoteHeaderFromDB.QuoteContent.Status, Convert.ToInt32(quoteResponse.Status),
+                      "Wrong Status");
     }
 
-    public static void VerifyQuoteResponseIsErrorInRepository(int idQuote, string partialErrorMessageToCheckFor, IQuotingRepository quotingRepository)
+    public static void VerifyQuoteResponseIsErrorInRepository(int idQuote, string partialErrorMessageToCheckFor,
+                                                              IQuotingRepository quotingRepository)
     {
-        var quoteHeaderFromDB = new QuoteHeader();
-        try
-        {
-            quoteHeaderFromDB = quotingRepository.GetQuoteHeader(idQuote);
-        }
-        catch (Exception ex)
-        {
-            Assert.Fail("Exception on get quote header: " + ex.Message);
-        }
+      var quoteHeaderFromDB = new QuoteHeader();
+      try
+      {
+        quoteHeaderFromDB = quotingRepository.GetQuoteHeader(idQuote);
+      }
+      catch (Exception ex)
+      {
+        Assert.Fail("Exception on get quote header: " + ex.Message);
+      }
 
-        Assert.IsTrue(quoteHeaderFromDB.QuoteContent.FailedMessage.Contains(partialErrorMessageToCheckFor), "Wrong FailedMessage");   
+      Assert.IsTrue(quoteHeaderFromDB.QuoteContent.FailedMessage.Contains(partialErrorMessageToCheckFor),
+                    "Wrong FailedMessage");
     }
 
     public static QuoteResponse InvokeCreateQuote(QuoteRequest request)
     {
-      QuotingServiceClient qsc = new QuotingServiceClient();
+      var qsc = new QuotingServiceClient();
 
       try
       {
-        QuoteResponse response = null;
-        qsc.ClientCredentials.UserName.UserName = "su";
-        qsc.ClientCredentials.UserName.Password = "su123";
+        QuoteResponse response;
+        qsc.ClientCredentials.UserName.UserName = UserName;
+        qsc.ClientCredentials.UserName.Password = Password;
         qsc.CreateQuote(request, out response);
 
         return response;
       }
       finally
       {
-                if (qsc.State == CommunicationState.Opened)
-                  {
-                    qsc.Close();
-                  }
-                  else
-                  {
-                    qsc.Abort();
-                  }
+        if (qsc.State == CommunicationState.Opened)
+        {
+          qsc.Close();
+        }
+        else
+        {
+          qsc.Abort();
+        }
+      }
+    }
+
+    public static void InvokeDeleteQuotes(IEnumerable<int> quoteIds)
+    {
+      var qsc = new QuotingServiceClient();
+
+      try
+      {
+        qsc.ClientCredentials.UserName.UserName = UserName;
+        qsc.ClientCredentials.UserName.Password = Password;
+
+        qsc.DeleteQuotes(quoteIds);
+      }
+      finally
+      {
+        if (qsc.State == CommunicationState.Opened)
+        {
+          qsc.Close();
+        }
+        else
+        {
+          qsc.Abort();
+        }
       }
     }
   }

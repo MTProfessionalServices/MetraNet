@@ -1,16 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Query>
-    <Action>Delete</Action>
+    <Action>GET</Action>
     <Implementations>
         <Implementation>Common</Implementation>
     </Implementations>
-    <Parameters>
-        <Parameter>
-            <Name>ID_SUB</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <Description></Description>
-        </Parameter>
+    <Parameters>        
     </Parameters>
     <Description></Description>
     <ConversionAudit>

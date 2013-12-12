@@ -85,7 +85,7 @@
                 <Reference
                     Name = "MetraTech.Performance"
                     AssemblyName = "MetraTech.Performance"
-                    HintPath = "O:\$(Configuration)\bin\MetraTech.Performance.dll"
+                    HintPath = "$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Performance.dll"
                 />
             </References>
         </Build>

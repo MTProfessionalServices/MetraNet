@@ -14,22 +14,22 @@
   <ItemGroup>
     <Reference Include="MetraTech.ActivityServices.Interfaces, Version=6.0.1.0, Culture=neutral, PublicKeyToken=b52c5f0e359141dc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\$(Configuration)\bin\MetraTech.ActivityServices.Interfaces.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.ActivityServices.Interfaces.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.Core.Services.ClientProxies, Version=6.0.1.0, Culture=neutral, PublicKeyToken=b52c5f0e359141dc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>o:\$(Configuration)\bin\MetraTech.Core.Services.ClientProxies.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Core.Services.ClientProxies.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.MASv2Test.ClientProxies, Version=0.0.0.0, Culture=neutral, PublicKeyToken=b52c5f0e359141dc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>r:\extensions\MASv2Test\Bin\MetraTech.MASv2Test.ClientProxies.dll</HintPath>
+      <HintPath>$(MTEXTENSIONS)\MASv2Test\Bin\MetraTech.MASv2Test.ClientProxies.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.DomainModel.Common, Version=6.0.1.0, Culture=neutral, PublicKeyToken=b52c5f0e359141dc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\$(Configuration)\bin\MetraTech.DomainModel.Common.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />

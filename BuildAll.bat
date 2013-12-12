@@ -53,4 +53,4 @@ rd /S /Q %DEVDIR%\ICE\Test\TestExtensions\RMP\Extensions\ValMessages
 @echo ***********************************************************
 @echo ****** Start all services.                           ******
 @echo ***********************************************************
-@call S:\Build\Tools\StartAllServices.bat
+@call %ROOTDIR%\Build\Tools\StartAllServices.bat

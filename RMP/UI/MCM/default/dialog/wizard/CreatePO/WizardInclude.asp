@@ -103,7 +103,7 @@ Function WriteGeneralConfiguration(strWizardName)
   strHTML = strHTML & gobjMTFormsAddInputHint(FrameWork.GetDictionary("TEXT_WIZARD_PROMPT_CREATE_COPY_OF_EXISTING"))
   strHTML = strHTML & gobjMTForms.CloseEditBoxTable() 
 
-  strHTML = strHTML & "<div align='center'><button class=""clsButtonBlueLarge"" style=""vertical-align: middle;"" onclick=""window.open('/mcm/default/dialog/ProductOffering.Picker.asp?NextPage=Welcome.asp&MonoSelect=TRUE&OptionalColumn=nm_name&Parameters=POMode|source','', 'height=100,width=100, resizable=yes, scrollbars=yes, status=yes'); return false;"">" & FrameWork.GetDictionary("TEXT_WIZARD_BUTTON_CREATE_COPY_OF_EXISTING") & "&nbsp;<IMG align=middle border=0 src=""/mcm/default/localized/us/images/icons/arrowSelect.gif""></button></div>"
+  strHTML = strHTML & "<div align='center'><button class=""clsButtonBlueLarge"" style=""vertical-align: middle;"" onclick=""window.open('/mcm/default/dialog/ProductOffering.Picker.asp?NextPage=Welcome.asp&MonoSelect=TRUE&OptionalColumn=nm_name&Parameters=POMode|source','', 'height=100,width=100, resizable=yes, scrollbars=yes, status=yes'); return false;"">" & FrameWork.GetDictionary("TEXT_WIZARD_BUTTON_CREATE_COPY_OF_EXISTING") & "&nbsp;<IMG align=middle border=0 src=""/mcm/default/localized/en-us/images/icons/arrowSelect.gif""></button></div>"
   
   strHTML = strHTML &  "<br><br>" & vbNewline
 
@@ -184,8 +184,8 @@ Function WriteDateConfiguration(strWizardName)
   strInput = strWizardName & "_effectivedatestart"
   strHTML = strHTML & gobjMTFormsAddInputHint(FrameWork.GetDictionary("TEXT_WIZARD_PROMPT_EFFECTIVEDATE"))
     
-  'strHTML = strHTML & gobjMTForms.AddDateInput(strInput, session(strInput), FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_STARTDATE"), 25, "<a href='#' onClick=""getCalendarForStartDate(document.WizardForm.NewPO_effectivedatestart);return false;""><img localized='true' src='/mcm/default/localized/us/images/popupcalendar.gif' width='16' height='16' border='0'></a>")
-strHTML = strHTML & "<tr><TD class='captionEW'><MDMLABEL Name='StartDate' type='Caption'>Effective Start Date</MDMLABEL>:&nbsp;&nbsp;</TD><TD><INPUT type='text' class='fieldRequired' size='20' id='StartDate' name='StartDate'><img style='cursor:pointer'  id='openCalendarStartDate' src='/mam/default/localized/us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''/><div id='divStartDate' style='position:absolute'></div><script language='javascript' type='text/javascript'>generateDatePicker('StartDate','" & FrameWork.GetDictionary("JS_DATE_TIME_RENDERER") & "');</script></TD></tr>"
+  'strHTML = strHTML & gobjMTForms.AddDateInput(strInput, session(strInput), FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_STARTDATE"), 25, "<a href='#' onClick=""getCalendarForStartDate(document.WizardForm.NewPO_effectivedatestart);return false;""><img localized='true' src='/mcm/default/localized/en-us/images/popupcalendar.gif' width='16' height='16' border='0'></a>")
+strHTML = strHTML & "<tr><TD class='captionEW'><MDMLABEL Name='StartDate' type='Caption'>Effective Start Date</MDMLABEL>:&nbsp;&nbsp;</TD><TD><INPUT type='text' class='fieldRequired' size='20' id='StartDate' name='StartDate'><img style='cursor:pointer'  id='openCalendarStartDate' src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''/><div id='divStartDate' style='position:absolute'></div><script language='javascript' type='text/javascript'>generateDatePicker('StartDate','" & FrameWork.GetDictionary("JS_DATE_TIME_RENDERER") & "');</script></TD></tr>"
 
 If Not(IsNull(Request.Form("StartDate"))) Then
     If mcm_IsDate(Request.Form("StartDate")) Then
@@ -196,7 +196,7 @@ End If
  ' strInput = strWizardName & "_availabilitydatestart"
  ' strHTML = strHTML & gobjMTFormsAddInputHint("&nbsp;")
  ' strHTML = strHTML & gobjMTFormsAddInputHint(FrameWork.GetDictionary("TEXT_WIZARD_PROMPT_AVAILABILITYDATE"))
- ' strHTML = strHTML & gobjMTForms.AddDateInput(strInput, session(strInput), FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_AVAILABILITYDATE_STARTDATE"), 25, "<a href='#' onClick=""getCalendarForStartDate(document.WizardForm.NewPO_availabilitydatestart);return false""><img localized='true' src='/mcm/default/localized/us/images/popupcalendar.gif' width='16' height='16' border='0'></a>")
+ ' strHTML = strHTML & gobjMTForms.AddDateInput(strInput, session(strInput), FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_AVAILABILITYDATE_STARTDATE"), 25, "<a href='#' onClick=""getCalendarForStartDate(document.WizardForm.NewPO_availabilitydatestart);return false""><img localized='true' src='/mcm/default/localized/en-us/images/popupcalendar.gif' width='16' height='16' border='0'></a>")
     
   strHTML = strHTML & gobjMTForms.CloseEditBoxTable()
   

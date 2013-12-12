@@ -95,7 +95,7 @@ function displayGroups(objEventSet)
                        <input type="checkbox" name="RunAdapterSelect" value="<%=SafeForHtmlAttr(sAdapter & "~" & sAdapterName & "~" & sConfigFile)%>">
                     </td>
                     <td>
-                       <img alt="<%=SafeForHtmlAttr(sToolTip)%>" border="0" height="16" src= "../localized/us/images/adapter.gif" align="absmiddle" width="16">&nbsp;<strong><%=SafeForHtml(sAdapterName)%></strong>
+                       <img alt="<%=SafeForHtmlAttr(sToolTip)%>" border="0" height="16" src= "../localized/en-us/images/adapter.gif" align="absmiddle" width="16">&nbsp;<strong><%=SafeForHtml(sAdapterName)%></strong>
                        <%
                        if len(sDescription) then
                         response.write("<BR>" & SafeForHtml(sDescription))
@@ -193,11 +193,11 @@ sub DisplayListOfAdapters(sIntervalType)
          Run Adapters For Interval
       </title>
       <link rel='STYLESHEET' type='text/css' href=
-      '/mom/default/localized/us/styles/DialogStyles.css'>
+      '/mom/default/localized/en-us/styles/DialogStyles.css'>
       <link rel='STYLESHEET' type='text/css' href=
-      '/mom/default/localized/us/styles/MenuStyles.css'>
+      '/mom/default/localized/en-us/styles/MenuStyles.css'>
       <link rel='STYLESHEET' type='text/css' href=
-      '/mom/default/localized/us/styles/styles.css'>
+      '/mom/default/localized/en-us/styles/styles.css'>
    </head>
    <body class="clsInnerBody">
       <table border="0" cellpadding="0" cellspacing="0" width="100%">

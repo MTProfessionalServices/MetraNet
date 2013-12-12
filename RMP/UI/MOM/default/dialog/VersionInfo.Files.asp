@@ -1,11 +1,11 @@
 <%response.buffer=false%>
     <HTML><HEAD><TITLE>MetraNet File Version Information</TITLE>
     
-    <LINK rel='STYLESHEET' type='text/css' href='/mom/default/localized/us/styles/styles.css' />
+    <LINK rel='STYLESHEET' type='text/css' href='/mom/default/localized/en-us/styles/styles.css' />
     </HEAD>
     <BODY marginheight="0" marginwidth="0">
 <%
-response.write("<div name='InProgress' id='InProgress' align='center'><strong>Reading File Version Information</strong><BR><BR> <img src='../localized/us/images/working.gif' width='82' height='10' alt='' border='0'></div>")
+response.write("<div name='InProgress' id='InProgress' align='center'><strong>Reading File Version Information</strong><BR><BR> <img src='../localized/en-us/images/working.gif' width='82' height='10' alt='' border='0'></div>")
   
 Server.ScriptTimeout = 999
 

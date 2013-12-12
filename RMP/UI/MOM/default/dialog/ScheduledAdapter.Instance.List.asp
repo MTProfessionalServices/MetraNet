@@ -153,7 +153,7 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
          Case "xstatus"
             dim strImage,strTooltip
             
-            strImage = "../localized/us/images/adapter_scheduled.gif"
+            strImage = "../localized/en-us/images/adapter_scheduled.gif"
             strTooltip= "Run Id: " & ProductView.Properties.RowSet.Value("RunId") & vbNewLine & "Arg Start: " & ProductView.Properties.RowSet.Value("ArgStart") & vbNewLine & "Arg End: " & ProductView.Properties.RowSet.Value("ArgEnd") & vbNewLine
             EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "' title='" & strToolTip & "'>"  &_
                   "<img src='" & strImage & "' align='absmiddle'><strong>" & ProductView.Properties.RowSet.Value("DisplayName") & "</strong></td>" 

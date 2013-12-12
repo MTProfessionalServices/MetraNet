@@ -64,13 +64,13 @@ Function ActiveAccount()
     If UCase(Session("SubscriberYAAC").AccountType) = UCase("INDEPENDENTACCOUNT") or _
        Session("SubscriberYAAC").CorporateAccountID = -1  then
     Else
-       ActiveAccount = "<a style='dragable:true;' dragID='" & Session("SubscriberYAAC").AccountID & "' OnClick='showHierarchy(""" & Session("SubscriberYAAC").AccountID & """, ""FALSE"");' href='#'><img align='absmiddle' border='0' src='/mam/default/localized/us/images/sync.gif' alt='Find Account in Hierarchy'></a>&nbsp;"
+       ActiveAccount = "<a style='dragable:true;' dragID='" & Session("SubscriberYAAC").AccountID & "' OnClick='showHierarchy(""" & Session("SubscriberYAAC").AccountID & """, ""FALSE"");' href='#'><img align='absmiddle' border='0' src='/mam/default/localized/en-us/images/sync.gif' alt='Find Account in Hierarchy'></a>&nbsp;"
     End IF
     ActiveAccount = ActiveAccount & "<a style='dragable:true;text-decoration:none;color:white' dragID='" & Session("SubscriberYAAC").AccountID & "' OnClick='showHierarchy(""" & Session("SubscriberYAAC").AccountID & """, ""FALSE"");' href='#'>" & Session("SubscriberYAAC").AccountName & " (" & Session("SubscriberYAAC").AccountID & ")</a>" 
 
     If err Then
       err.clear
-      ActiveAccount = "<a OnClick='showHierarchy(""" & Session("CURRENT_SYSTEM_USER").AccountID & """, ""TRUE"");' href='#'><img align='absmiddle' border='0' src='/mam/default/localized/us/images/sync.gif' alt='Find Account in Hierarchy'></a>&nbsp;"
+      ActiveAccount = "<a OnClick='showHierarchy(""" & Session("CURRENT_SYSTEM_USER").AccountID & """, ""TRUE"");' href='#'><img align='absmiddle' border='0' src='/mam/default/localized/en-us/images/sync.gif' alt='Find Account in Hierarchy'></a>&nbsp;"
       ActiveAccount = ActiveAccount & Session("CURRENT_SYSTEM_USER").AccountName & " (" & Session("CURRENT_SYSTEM_USER").AccountID & ")" 
       If err Then
          err.clear

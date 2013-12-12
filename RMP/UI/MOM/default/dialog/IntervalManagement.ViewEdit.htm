@@ -1,6 +1,6 @@
 <HTML>
  <HEAD>
-  <LINK rel="STYLESHEET" type="text/css" href="/mom/default/localized/us/styles/Styles.css">  
+  <LINK rel="STYLESHEET" type="text/css" href="/mom/default/localized/en-us/styles/Styles.css">  
 <SCRIPT>
 function DoSelectAllAdapters(checkboxSelectAll){
   objElements = document.forms.mdm.elements;
@@ -111,16 +111,16 @@ function isAdapterSelected(){
    <TR>
       <TD colspan=3>
         <div id="actions" class="TableCell" style="float:right;width:300px;border:solid 1px black;">
-          <img src="/mom/default/localized/us/images/billinggroups/stats.gif">&nbsp;          
+          <img src="/mom/default/localized/en-us/images/billinggroups/stats.gif">&nbsp;          
           <b><a href="#" OnClick="window.open('IntervalManagement.Statistics.Frame.asp?IntervalID=<MDMLABEL Name="IntervalId"></MDMLABEL>&BillingGroupId=<MDMLABEL Name="BillingGroupId"></MDMLABEL>','', 'height=700,width=1000, resizable=yes, scrollbars=yes, status=yes');">View Statistics</a></b><br>
           [TEXT_VIEW_STATISTICS_GROUP_DESCRIPTION]
           <br><br>
-          <img src="/mom/default/localized/us/images/billinggroups/ViewHistory.gif">&nbsp;
+          <img src="/mom/default/localized/en-us/images/billinggroups/ViewHistory.gif">&nbsp;
           <b><a href="#" OnClick="window.open('IntervalManagement.RunHistory.List.asp?Title=' + '<MDMLABEL Name="BillingGroup"></MDMLABEL>' + ' In Interval ' + '<MDMLABEL Name="IntervalId"></MDMLABEL>' + '&BillingGroupID=<MDMLABEL Name="BillingGroupId"></MDMLABEL>&IntervalID=<MDMLABEL Name="IntervalId"></MDMLABEL>','', 'height=700,width=1000, resizable=yes, scrollbars=yes, status=yes');">View History</a></b><br>
           [TEXT_VIEW_HISTORY_DESCRIPTION]
 #MDMIf SHOW_CREATE_PULL_LIST_OPTION          
           <br><br>
-          <img src="/mom/default/localized/us/images/billinggroups/pullList.gif">&nbsp; 
+          <img src="/mom/default/localized/en-us/images/billinggroups/pullList.gif">&nbsp; 
           <b><a href="#" OnClick="window.open('BillingGroupPullList.asp?BillingGroupID=[BillingGroupID]&IntervalID=<MDMLABEL Name="IntervalId"></MDMLABEL>','', 'height=660,width=800, resizable=yes, scrollbars=yes, status=yes');">Create Pull List</a></b><br>
           [TEXT_CREATE_GROUP_DESCRIPTION]   
 #MDMENDIF       

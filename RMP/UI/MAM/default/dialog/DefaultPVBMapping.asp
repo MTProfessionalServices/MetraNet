@@ -143,7 +143,7 @@ PRIVATE FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
     strEndOfPageHTMLCode = "<tr><td colspan=""4"" align=""center""><br>"
     
     ' Need to pass in the current subscribers login and namespace
-    strTmp = "<center><button  name='Add' Class='clsOkButton' OnClick='javascript:document.location.href=""[LINK]""; return false;'>Add</button></center>"
+    strTmp = "<center><button  name='Add' Class='clsOkButton' OnClick='javascript:document.location.href=""[LINK]""; return false;'>"&mam_GetDictionary("TEXT_ADD")&"</button></center>"
     strTmp = ProductView.Tools.PreProcess(strTmp,"LINK",mam_GetDictionary("ADD_ACCOUNT_MAPPING_DIALOG"))
         
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & strTmp

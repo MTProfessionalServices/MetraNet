@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Query>
-    <Action>Delete</Action>
+    <Action>CreateTable</Action>
     <Implementations>
-        <Implementation>Common</Implementation>
+        <Implementation>SqlServer</Implementation>
+		<Implementation>Oracle</Implementation>
     </Implementations>
-    <Parameters>
-        <Parameter>
-            <Name>ID_SUB</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <Description></Description>
-        </Parameter>
-    </Parameters>
+    <Schemas>
+        <Schema>NetMeter</Schema>
+    </Schemas>
+    <InstallTime>PreSync</InstallTime>
+    <Parameters></Parameters>
     <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>

@@ -177,5 +177,22 @@ namespace MetraTech.Core.Services.Test.Quoting
 
       //Assert.IsTrue((initialRecordsCountBefore - initialRecordsCountAfter) > 0);
     }
+
+    [TestMethod, MTFunctionalTest(TestAreas.Quoting), Ignore]
+    public void T04QuotingRepositoryDeletePdfReport_PositiveTest()
+    {
+      var repository = new QuotingRepository();
+      var config = QuotingConfigurationManager.LoadConfigurationFromDefaultSystemLocation();
+
+      //var initialRecordsCountBefore = repository.GetAssUsageQuotingRecordsCount(config);
+
+      int testQuoteId = 10;
+
+      repository.DeleteQuotePDF(testQuoteId, config);
+
+      //var initialRecordsCountAfter = repository.GetAssUsageQuotingRecordsCount(config);
+
+      //Assert.IsTrue((initialRecordsCountBefore - initialRecordsCountAfter) > 0);
+    }
   }
 }

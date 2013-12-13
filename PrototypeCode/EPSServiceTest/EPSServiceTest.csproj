@@ -15,37 +15,37 @@
     <Reference Include="MetraTech.ActivityServices.Interfaces, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
-      <HintPath>O:\$(Configuration)\bin\MetraTech.ActivityServices.Interfaces.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.ActivityServices.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.Core.Services.ClientProxies, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
-      <HintPath>O:\$(Configuration)\bin\MetraTech.Core.Services.ClientProxies.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Core.Services.ClientProxies.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.DomainModel, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
-      <HintPath>O:\$(Configuration)\bin\MetraTech.DomainModel.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.DomainModel.Common, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
-      <HintPath>O:\$(Configuration)\bin\MetraTech.DomainModel.Common.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Common.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.DomainModel.Enums, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
-      <HintPath>O:\$(Configuration)\bin\MetraTech.DomainModel.Enums.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Enums.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.DomainModel.Enums.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
-      <HintPath>O:\$(Configuration)\bin\MetraTech.DomainModel.Enums.Generated.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Enums.Generated.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.DomainModel.MetraPay, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
-      <HintPath>O:\$(Configuration)\bin\MetraTech.DomainModel.MetraPay.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.MetraPay.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

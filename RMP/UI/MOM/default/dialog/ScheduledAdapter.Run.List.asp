@@ -225,7 +225,7 @@ PRIVATE FUNCTION xForm_DisplayDetailRow(EventArg) ' As Boolean
       do while not rowset.eof 
           dim sToolTip
           sToolTip = "Component: " & rowset.value("method") & vbCRLF & "Config File: " & rowset.value("configfile")
-          EventArg.HTMLRendered = EventArg.HTMLRendered & "<tr class='TableDetailCell' title='" & sToolTip & "'><td><img src='../localized/us/images/adapter.gif' width='16' height='16' alt='" & sToolTip & "' border='0'>&nbsp;" & rowset.value("adapter") & "</td>"    '(" & rowset.value("method") & ")
+          EventArg.HTMLRendered = EventArg.HTMLRendered & "<tr class='TableDetailCell' title='" & sToolTip & "'><td><img src='../localized/en-us/images/adapter.gif' width='16' height='16' alt='" & sToolTip & "' border='0'>&nbsp;" & rowset.value("adapter") & "</td>"    '(" & rowset.value("method") & ")
           EventArg.HTMLRendered = EventArg.HTMLRendered & "<td>" & rowset.value("Start Time") & "</td>"
           EventArg.HTMLRendered = EventArg.HTMLRendered & "<td>" & rowset.value("End Time") & "</td></tr>"    
           rowset.movenext

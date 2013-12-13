@@ -172,14 +172,14 @@ PUBLIC FUNCTION LinkColumnMode_DisplayCell(EventArg) ' As Boolean
 
 			  case 8  ' has personal rates?
             If ProductView.Properties.Rowset.Value("b_PersonalRate") = "Y" Then
-              EventArg.HTMLRendered     =  "<td class=" & Form.Grid.CellClass & " align='center'><img src='../localized/us/images/check.gif'></td>"
+              EventArg.HTMLRendered     =  "<td class=" & Form.Grid.CellClass & " align='center'><img src='../localized/en-us/images/check.gif'></td>"
             Else
               EventArg.HTMLRendered     =  "<td class=" & Form.Grid.CellClass & " align='center'>--&nbsp;</td>"
             End If
           
         case 9  ' can ICB?
             If ProductView.Properties.Rowset.Value("b_canICB") = "Y" Then
-              EventArg.HTMLRendered     =  "<td class=" & Form.Grid.CellClass & " align='center'><img src='../localized/us/images/check.gif'></td>"
+              EventArg.HTMLRendered     =  "<td class=" & Form.Grid.CellClass & " align='center'><img src='../localized/en-us/images/check.gif'></td>"
             Else
               EventArg.HTMLRendered     =  "<td class=" & Form.Grid.CellClass & " align='center'>--&nbsp;</td>"
             End If

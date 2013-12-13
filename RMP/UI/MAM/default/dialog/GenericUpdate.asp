@@ -122,7 +122,7 @@ FUNCTION DynamicTemplate(EventArg)
         Case "TIMESTAMP"
             strHTML = strHTML & "<td class='"& strCaptionClass &"'><label name='" & prop.name & "' type='Caption'>z</label>:</td>"
             strHTML = strHTML & "<td><input class='field' type='Text' name='" & prop.name & "' size='25'>"
-            strHTML = strHTML & "<a href='#' onClick=""getCalendarForTimeOpt(document.mdm." & prop.name & ", '', false);return false;""><img src='/mam/default/localized/us/images/popupcalendar.gif' width='16' height='16' border='0' alt=''></a></td>"
+            strHTML = strHTML & "<a href='#' onClick=""getCalendarForTimeOpt(document.mdm." & prop.name & ", '', false);return false;""><img src='/mam/default/localized/en-us/images/popupcalendar.gif' width='16' height='16' border='0' alt=''></a></td>"
             
         Case "BOOLEAN"
             strHTML = strHTML & "<TD class='captionEW'></td>"

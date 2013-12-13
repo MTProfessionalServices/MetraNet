@@ -266,7 +266,7 @@ PRIVATE FUNCTION ContainedPriceableItems_DisplayCell(EventArg) ' As Boolean
                                          
             'EventArg.HTMLRendered     =  "<td class='GridCell'><a href='PriceableItem.Usage.ViewEdit.asp?ID=" & _
             '                             EventArg.Grid.Rowset.Value("ID") & "&Kind=" & Request("Kind") & _
-            '                             "&mdmReload=True'><img border=0 src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/edit.gif'>" & EventArg.Grid.Rowset.Value("name") & "</a></td>"
+            '                             "&mdmReload=True'><img border=0 src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/edit.gif'>" & EventArg.Grid.Rowset.Value("name") & "</a></td>"
 
             ContainedPriceableItems_DisplayCell = TRUE
         Case else

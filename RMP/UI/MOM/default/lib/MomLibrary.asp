@@ -29,7 +29,7 @@ CONST GLOBAL_CSR_METERED_ACCOUNT_ID               =   123
 CONST mom_DEFAULT_NAME_SPACE                      =   "system_user"
 CONST mom_CSR_NAME_SPACE                          =   "system_user"
 CONST mom_OPS_NAME_SPACE                          =   "system_user"
-CONST mom_LANGUAGE                                =    "US"
+CONST mom_LANGUAGE                                =    "en-us"
 
 CONST mom_TEST_MODE                               =   true ' By turning of and on the bool some dialog behave for test mode...
 
@@ -195,7 +195,7 @@ END FUNCTION
 ' RETURNS			  :
 FUNCTION mom_GetLocalizeImagePath()
 
-    mom_GetLOcalizeImagePath="/mom/default/localized/US/images"
+    mom_GetLOcalizeImagePath="/mom/default/localized/en-us/images"
 END FUNCTION
 
 ' ---------------------------------------------------------------------------------------------------------------------------------------
@@ -375,7 +375,7 @@ FUNCTION InitializeApplication() ' As Boolean
     
     ' setup application start page
     Application("startPage")                    = Mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1)   '"
-    Session("LocalizedPath")                    = Application("startPage")  & "/default/localized/us/"
+    Session("LocalizedPath")                    = Application("startPage")  & "/default/localized/en-us/"
     APP_FOLDER                                  = Server.MapPath("/mom")
     Session("mdm_APP_FOLDER")                   = APP_FOLDER ' Store the application folder for the mdm
     Application("APP_HTTP_PATH")                = Mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1) ' " 

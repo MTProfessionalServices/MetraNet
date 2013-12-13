@@ -1,12 +1,35 @@
 SET DEFINE OFF
 
+DECLARE
+    last_upgrade_id NUMBER;
+BEGIN
+    SELECT (NVL(MAX(upgrade_id), 0) + 1)
+    INTO   last_upgrade_id
+    FROM   t_sys_upgrade;
+
+    INSERT INTO t_sys_upgrade
+      (
+        upgrade_id,
+        target_db_version,
+        dt_start_db_upgrade,
+        db_upgrade_status
+      )
+    VALUES
+      (
+        last_upgrade_id,
+        '7.1.0',
+        SYSDATE(),
+        'R'
+      );
+END;
+/
+
 CREATE TABLE rg_temp_733134584_0 (
   id_payment_transaction VARCHAR2(87 BYTE) NOT NULL,
   nm_invoice_num NVARCHAR2(50) NOT NULL,
   n_amount NUMBER(22,10),
   dt_invoice TIMESTAMP NOT NULL,
-  nm_po_number NVARCHAR2(30),
-  PRIMARY KEY (id_payment_transaction,nm_invoice_num)
+  nm_po_number NVARCHAR2(30)
 )
 /
 
@@ -17,6 +40,14 @@ DROP TABLE t_pending_ach_trans_details
 /
 
 ALTER TABLE rg_temp_733134584_0 RENAME TO t_pending_ach_trans_details
+/
+
+/* t_pending_ach_trans_details had auotgenerated PK name. It is not suitable for upgrade script and for MN in general, so it will be "pk_t_pending_ach_trans_details" from this moment */
+ALTER TABLE t_pending_ach_trans_details
+ADD CONSTRAINT pk_t_pending_ach_trans_details PRIMARY KEY (id_payment_transaction,nm_invoice_num)
+    USING INDEX (
+        CREATE UNIQUE INDEX pk_t_pending_ach_trans_details ON t_pending_ach_trans_details (id_payment_transaction,nm_invoice_num)
+    )
 /
 
 COMMENT ON TABLE t_pending_ach_trans_details IS 'Holds details of pending ACH transactions. (Package:Pending Payment)'
@@ -45,8 +76,7 @@ CREATE TABLE rg_temp_733134584_1 (
   n_amount NUMBER(22,10) NOT NULL,
   nm_description NVARCHAR2(100),
   dt_create TIMESTAMP NOT NULL,
-  nm_ar_request_id NVARCHAR2(256),
-  PRIMARY KEY (id_payment_transaction)
+  nm_ar_request_id NVARCHAR2(256)
 )
 /
 
@@ -57,6 +87,14 @@ DROP TABLE t_pending_ach_trans
 /
 
 ALTER TABLE rg_temp_733134584_1 RENAME TO t_pending_ach_trans
+/
+
+/* t_pending_ach_trans had auotgenerated PK name. It is not suitable for upgrade script and for MN in general, so it will be "pk_t_pending_ach_trans" from this moment */
+ALTER TABLE t_pending_ach_trans
+ADD CONSTRAINT pk_t_pending_ach_trans PRIMARY KEY (id_payment_transaction)
+    USING INDEX (
+        CREATE UNIQUE INDEX pk_t_pending_ach_trans ON t_pending_ach_trans(id_payment_transaction)
+    )
 /
 
 COMMENT ON TABLE t_pending_ach_trans IS 'Holds details of pending ACH transactions. (Package:Pending Payment)'
@@ -100,10 +138,91 @@ DROP PROCEDURE removegroupsub_quoting
 ALTER TABLE t_tax_run ADD (is_audited NVARCHAR2(10) DEFAULT 'Y')
 /
 
-ALTER TABLE agg_decision_rollover ADD (rollover_action VARCHAR2(25 BYTE) DEFAULT 'rollover' NOT NULL)
+CREATE TABLE rg_temp_1542056139_0 (
+  id_acc NUMBER NOT NULL,
+  id_usage_interval NUMBER NOT NULL,
+  interval_start NUMBER,
+  interval_end NUMBER,
+  decision_unique_id VARCHAR2(400 BYTE) NOT NULL,
+  decision_type VARCHAR2(4000 BYTE),
+  start_date DATE,
+  end_date DATE NOT NULL,
+  rollover_end_date DATE,
+  rollover_interval_end NUMBER,
+  rolled_over_units NUMBER(18,6),
+  expired_units NUMBER(18,6),
+  rollover_date DATE,
+  rollover_action VARCHAR2(25 BYTE) NOT NULL
+)
 /
 
-ALTER TABLE agg_decision_rollover MODIFY (rollover_action DEFAULT NULL)
+INSERT INTO rg_temp_1542056139_0(id_acc,id_usage_interval,interval_start,interval_end,decision_unique_id,decision_type,start_date,end_date,rollover_end_date,rollover_interval_end,rolled_over_units,expired_units,rollover_date,rollover_action) SELECT id_acc,id_usage_interval,interval_start,interval_end,decision_unique_id,decision_type,start_date,end_date,rollover_end_date,rollover_interval_end,CAST(LEAST(rolled_over_units, 999999999999.999999) as NUMBER(18,6)),CAST(LEAST(expired_units, 999999999999.999999) as NUMBER(18,6)),rollover_date,'rollover' FROM agg_decision_rollover
+/
+
+DROP TABLE agg_decision_rollover
+/
+
+ALTER TABLE rg_temp_1542056139_0 RENAME TO agg_decision_rollover
+/
+
+ALTER TABLE agg_decision_rollover
+ADD CONSTRAINT agg_dec_rollover_pk PRIMARY KEY (id_acc,id_usage_interval,end_date,decision_unique_id,rollover_action)
+    USING INDEX (
+        CREATE UNIQUE INDEX agg_dec_rollover_pk ON agg_decision_rollover(id_acc,id_usage_interval,end_date,decision_unique_id,rollover_action)
+    )
+/
+
+
+ALTER TABLE mvm_resubmit_runs ADD (msg_count NUMBER(*,0),ss_count NUMBER(*,0),s_count NUMBER(*,0))
+/
+
+CREATE TABLE mvm_cluster_history (
+  physical_cluster VARCHAR2(100 BYTE) NOT NULL,
+  dt_started DATE NOT NULL,
+  dt_stopped DATE
+)
+/
+
+CREATE TABLE mvm_cluster_run_history (
+  physical_cluster VARCHAR2(100 BYTE) NOT NULL,
+  dt_started DATE NOT NULL,
+  dt_stopped DATE,
+  CONSTRAINT mvm_cluster_run_history_pk PRIMARY KEY (physical_cluster,dt_started)
+)
+/
+
+CREATE TABLE agg_bundle_new_pos (
+  id_po NUMBER
+)
+/
+
+CREATE TABLE agg_bundle_old_pos (
+  id_po NUMBER
+)
+/
+
+DROP INDEX mvm_scheduled_tasks_ndx2
+/
+
+DROP INDEX mvm_scheduled_tasks_ndx1
+/
+
+DROP TABLE mvm_scheduled_tasks
+/
+
+DROP TABLE mvm_resubmitted_messages
+/
+
+CREATE INDEX agg_bundle_new_pos_ndx ON agg_bundle_new_pos(id_po)
+/
+
+CREATE INDEX agg_bundle_old_pos_ndx ON agg_bundle_old_pos(id_po)
+/
+
+CREATE INDEX acc_template_valid_subs_idx1 ON t_acc_template_valid_subs(id_acc_template_session,id_po)
+/
+
+CREATE INDEX acc_template_valid_subs_idx2 ON t_acc_template_valid_subs(id_acc_template_session,id_group)
 /
 
 CREATE TABLE metadata (
@@ -183,6 +302,259 @@ CREATE OR REPLACE FUNCTION CheckEBCRCycleTypeCompat ( EBCRCycleType INT,OtherCyc
 
     RETURN 0;
   END;
+/
+
+CREATE OR REPLACE PROCEDURE GetAccountsWithPermission
+  (
+    AccountID IN NUMBER)
+AS
+  pathval   VARCHAR2(2000);
+  accessval NUMBER(10,0);
+  CURSOR cur
+  IS
+    SELECT '/1'
+      || TO_CHAR(tpc.param_value) AS pathval,
+      tec.param_value             AS accessval
+    FROM
+      (SELECT MAX(
+        CASE
+          WHEN tact.tx_progid = 'Metratech.MTPathCapability'
+          THEN tci.id_cap_instance
+          ELSE NULL
+        END) AS pc_id ,
+        MAX(
+        CASE
+          WHEN tact.tx_progid = 'Metratech.MTEnumTypeCapability'
+          THEN tci.id_cap_instance
+          ELSE NULL
+        END) AS ec_id ,
+        tci.id_policy ,
+        tci.id_parent_cap_instance
+      FROM t_capability_instance tci
+      JOIN t_atomic_capability_type tact
+      ON tci.id_cap_type                = tact.id_cap_type
+      WHERE tci.id_parent_cap_instance IS NOT NULL
+      GROUP BY tci.id_policy,
+        tci.id_parent_cap_instance
+      ) tmp
+  JOIN t_path_capability tpc
+  ON tpc.id_cap_instance = tmp.pc_id
+  JOIN t_enum_capability tec
+  ON tec.id_cap_instance = tmp.ec_id
+  JOIN t_principal_policy tpp
+  ON tpp.id_policy = tmp.id_policy
+  WHERE tmp.pc_id IS NOT NULL
+  AND tpp.id_acc   = AccountID;
+  
+  idx         NUMBER        :=1;
+  Str         VARCHAR2(2000):= NULL;
+  Slice       VARCHAR2(2000):= NULL;
+  Lst         VARCHAR2(2000):= NULL;
+  accessLevel NUMBER;
+  accID       NUMBER;
+  isSuperUser NUMBER;
+BEGIN
+  DELETE FROM TMP_ACC_PERMISSION;
+  DELETE FROM TMP_ACC_PERMISSION_GROUPED;
+  
+  SELECT COUNT(*)
+  INTO isSuperUser
+  FROM t_principal_policy pp
+	JOIN t_policy_role pr on pp.id_policy = pr.id_policy AND pp.id_acc = AccountID
+	JOIN t_role r on pr.id_role = r.id_role AND r.tx_name = 'Super User';
+  
+  IF isSuperUser <> 0 THEN
+	  RETURN;
+  END IF;
+  
+  OPEN cur;
+  LOOP
+    FETCH cur INTO pathval, accessval;
+    
+    EXIT
+  WHEN cur%NOTFOUND;
+    idx := 1;
+    Str       := pathval;
+    WHILE idx <> 0
+    LOOP
+      idx     := INSTR(Str, '/', 1);
+      IF idx  <> 0 THEN
+        Slice := SUBSTR(Str,1, idx - 1);
+      ELSE
+        Slice := Str;
+      END IF;
+      dbms_output.put_line('Slice=' || Slice);
+      IF Slice       = '-' THEN
+        accessLevel := 2;
+        accID       := CAST(Lst AS NUMBER);
+      END IF;
+      IF Slice       = '*' THEN
+        accessLevel := 1;
+        accID       := CAST(Lst AS NUMBER);
+      END IF;
+      IF Slice      IS NULL AND (Str IS NULL OR LENGTH(Str) <> LENGTH(pathval)) THEN
+        accessLevel := 0;
+        accID       := CAST(Lst AS NUMBER);
+      END IF;
+      IF Slice NOT IN ('-', '*') AND Slice IS NOT NULL THEN
+        INSERT
+        INTO TMP_ACC_PERMISSION
+          (
+            AccountID,
+            Permission
+          )
+          VALUES
+          (
+            CAST(Slice AS NUMBER),
+            1
+          );
+      END IF;
+      IF Slice IS NOT NULL THEN
+        Lst := Slice;
+      END IF;
+      Str := SUBSTR(Str,idx+1);
+    END LOOP;
+    INSERT
+    INTO TMP_ACC_PERMISSION
+      (
+        AccountID,
+        Permission
+      )
+      VALUES
+      (
+        accID,
+        accessval
+      );
+    INSERT INTO TMP_ACC_PERMISSION
+      (AccountID, Permission
+      )
+    SELECT id_descendent,
+      accessval
+    FROM t_account_ancestor
+    WHERE id_ancestor  = accID
+    AND accessLevel    > 0
+    AND (accessLevel   = 2
+    OR num_generations = 1);
+  END LOOP;
+  CLOSE cur;
+  INSERT INTO TMP_ACC_PERMISSION_GROUPED
+    (AccountID, WritePermission
+    )
+  SELECT t1.AccountID ,
+    CASE
+      WHEN Perm > 2
+      THEN 1
+      ELSE 0
+    END
+  FROM
+    (SELECT AccountID,
+      MAX(Permission) AS Perm
+    FROM TMP_ACC_PERMISSION
+    GROUP BY AccountID
+    ) t1;
+  
+END;
+/
+
+CREATE PROCEDURE mvm_create_uk_table(
+    p_table  VARCHAR2,           -- table to bulk update
+    p_prefix VARCHAR2,           -- prefix on blk_upd_table name
+    p_mvm_run_id NUMBER,           --  identifier of mvm run
+    p_node_id VARCHAR2,           --  identifier of mvm node_id
+    p_tmp_table OUT VARCHAR2 -- table we created
+  )
+AS
+  CURSOR cur_columns
+  IS
+    -- RAW needs 1 added to datalength to work around OracleBulkCopy bug:
+    -- http://forums.oracle.com/forums/thread.jspa?threadID=968824
+    SELECT column_name
+      ||' '
+      ||data_type
+      || DECODE(data_type,'NUMBER',DECODE(data_precision, NULL, '','('
+      ||data_precision
+      ||','
+      ||data_scale
+      ||')'),'CHAR','('
+      ||data_length
+      ||')','VARCHAR2','('
+      ||data_length
+      ||')','NVARCHAR2','('
+      ||char_length
+      ||')','RAW','('
+      ||(data_length+1)
+      ||')',' ') col_string
+    FROM user_tab_columns a
+    WHERE table_name = upper(p_table) and column_name not in('ID_USAGE_INTERVAL', 'ID_SESS', 'TX_UID')
+    ORDER BY column_id;
+  CURSOR au_columns
+  IS
+    -- RAW needs 1 added to datalength to work around OracleBulkCopy bug:
+    -- http://forums.oracle.com/forums/thread.jspa?threadID=968824
+    SELECT column_name
+      ||' '
+      ||data_type
+      || DECODE(data_type,'NUMBER',DECODE(data_precision, NULL, '','('
+      ||data_precision
+      ||','
+      ||data_scale
+      ||')'),'CHAR','('
+      ||data_length
+      ||')','VARCHAR2','('
+      ||data_length
+      ||')','NVARCHAR2','('
+      ||char_length
+      ||')','RAW','('
+      ||(data_length+1)
+      ||')',' ') col_string
+    FROM user_tab_columns a
+    WHERE table_name = upper('T_ACC_USAGE') and column_name = 'TX_UID'
+    ORDER BY column_id;
+  sql_stmt LONG;
+  v_col_string VARCHAR2(4000);
+  v_curr_count NUMBER;
+  field_prefix VARCHAR2(4000);
+  temp_prefix  VARCHAR2(1000);
+BEGIN
+  -- name of tmp bulk update table
+   mvm_generate_table_name(p_prefix, p_tmp_table);
+   
+  -- create statement
+  sql_stmt     := 'create table '||p_tmp_table||' (';
+  field_prefix := '';
+  FOR v_rec    IN au_columns
+  LOOP
+    sql_stmt     := sql_stmt||field_prefix||' '||v_rec.col_string;
+    field_prefix := ',';
+  END LOOP;
+  FOR v_rec    IN cur_columns
+  LOOP
+    sql_stmt     := sql_stmt||field_prefix||' '||v_rec.col_string;
+    field_prefix := ',';
+  END LOOP;
+
+  
+  --end the create
+  sql_stmt := sql_stmt||')';
+  dbms_output.put_line(sql_stmt);
+  EXECUTE IMMEDIATE (sql_stmt);
+  insert into amp_staging_tables (mvm_run_id, node_id, staging_table_name, create_dt) values(p_mvm_run_id, p_node_id, p_tmp_table, SYSDATE);
+END;
+/
+
+CREATE OR REPLACE FORCE VIEW account_qualification_groups (account_qualification_group,row_num,"INCLUDE",include_filter,source_field,target_field,output_field,append_to_list,"FILTER") AS
+select
+        a.c_Name as account_qualification_group,
+        b.c_ExecutionSequence as row_num,
+        b.c_Include as include,
+        b.c_IncludeFilter as include_filter,
+        b.c_SourceField as source_field,
+        b.c_MatchField as target_field,
+        b.c_OutputField as output_field,
+        CASE WHEN b.c_AppendRows = 0 THEN 'no' ELSE 'yes' END as append_to_list,
+        b.c_Filter as filter
+        from t_amp_accountqualgro a
+        left outer join t_amp_accountqualifi b on a.c_AccountQualGroup_Id = b.c_AccountQualGroup_Id;
 /
 
 /* New */

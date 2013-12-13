@@ -1,20 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Query>
-    <Action>Unknown</Action>
+    <Action>Insert</Action>
     <Implementations>
         <Implementation>Common</Implementation>
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>ACCOUNT_ID</Name>
+            <Name>ACCOUNTS</Name>
+            <DataType>sqlsubstitution</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>123,137</SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>USAGE_INTERVAL</Name>
             <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>
         </Parameter>
         <Parameter>
-            <Name>EFFECTIVE_DATE</Name>
-            <DataType>datetime</DataType>
+            <Name>POS</Name>
+            <DataType>sqlsubstitution</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>123,137</SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
+		<Parameter>
+            <Name>QUOTE_ID</Name>
+            <DataType>sqlsubstitution</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>123</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
     </Parameters>

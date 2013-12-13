@@ -1237,12 +1237,81 @@ namespace MetraTech.UsageServer
       //Sometimes adding 3 months can screw you up.  You might go from 1/31 -> 4/30, 
       //  then from 4/30 -> 7/30, which is a mistake.  So check for those errors, and 
       //  set them to the right date.
-      for (int i = 0; i < quarterStarts.Length; i++)
+      for (var i = 0; i < quarterStarts.Length; i++)
       {
-        if (quarterStarts[i].Day < cycle.StartDay)
+        if (quarterStarts[i].Day >= cycle.StartDay) continue;
+        var correctDay = Math.Min(cycle.StartDay, DateTime.DaysInMonth(quarterStarts[i].Year, quarterStarts[i].Month));
+        quarterStarts[i] = new DateTime(quarterStarts[i].Year, quarterStarts[i].Month, correctDay);
+      }
+      // now, which interval do we fall into?
+      for (var i = 0; i < quarterStarts.Length - 1; i++)
+      {
+        var start = quarterStarts[i];
+        var end = quarterStarts[i + 1];
+
+        if (today < start || today >= end) continue;
+        startDate = start;
+        endDate = end.AddDays(-1);
+        return;
+      }
+
+      throw new UsageServerException("Must fall into one of the intervals!", true);
+    }
+
+    /// <summary>
+    /// Return true if the given cycle is in its
+    /// canonical form for this type of cycle.
+    /// </summary>
+    public bool IsCanonical(ICycle cycle)
+    {
+      CheckParams(cycle);
+      return cycle.StartMonth >= 1 && cycle.StartMonth <= 3;
+    }
+
+    /// <summary>
+    /// Quarterly cycle is in canonical form when
+    /// month is set to be within the first quarter
+    /// </summary>
+    public void MakeCanonical(ICycle cycle)
+    {
+      CheckParams(cycle);
+      // 1 = Jan, 2 = Feb, ...
+      // for example: (1 - 1) % 3 + 1 = 1
+      //              (4 - 1) % 3 + 1 = 1
+      var month = (cycle.StartMonth - 1) % 3 + 1;
+      cycle.StartMonth = month;
+    }
+
+    private static void CheckParams(ICycle cycle)
+    {
+      if (cycle == null)
+        throw new ArgumentNullException("cycle");
+      if (((Cycle) cycle).StartMonth == -1)
+        throw new ArgumentException("cycle.StartMonth property must be initialized");
+      if (((Cycle)cycle).StartDay == -1)
+        throw new ArgumentException("cycle.StartDay property must be initialized");
+    }
+
+    /// <summary>
+    /// Generate all possible cycles for this cycle type.
+    /// NOTE: these cycles are generated in the correct order to match
+    /// previous versions of the product
+    /// </summary>
+    public ICycle[] GenerateCycles()
+    {
+      // 3 months in a quarter, so 3 * days_in_months quarterly cycles
+      var cycles = new ICycle[3 * Cycle.MaxDaysInMonth];
+      var cycleId = 0;
+      for (var month = 1; month <= 3; month++)
+      {
+        for (var day = 1; day <= Cycle.MaxDaysInMonth; day++)
         {
-          int correctDay = Math.Min(cycle.StartDay, DateTime.DaysInMonth(quarterStarts[i].Year, quarterStarts[i].Month));
-          quarterStarts[i] = new DateTime(quarterStarts[i].Year, quarterStarts[i].Month, correctDay);
+          ICycle cycle = new Cycle();
+          cycles[cycleId++] = cycle;
+          cycle.StartMonth = month;
+          cycle.StartDay = day;
+          cycle.CycleType = CycleType.Quarterly;
+          Debug.Assert(IsCanonical(cycle));
         }
       }
       // now, which interval do we fall into?
@@ -1529,27 +1598,26 @@ namespace MetraTech.UsageServer
     /// given the cycle.
     /// </summary>
     public void ComputeStartAndEndDate(DateTime referenceDate,
-                                       ICycle cycle,
-                                       out DateTime startDate,
-                                       out DateTime endDate)
+      ICycle cycle,
+      out DateTime startDate,
+      out DateTime endDate)
     {
+      CheckParams(cycle);
+
       // translated from MTStdSemiAnnually.cpp
+      var today = new DateTime(referenceDate.Year, referenceDate.Month, referenceDate.Day);
 
-      DateTime today =
-        new DateTime(referenceDate.Year, referenceDate.Month, referenceDate.Day);
+      var month = cycle.StartMonth;
+      var day = cycle.StartDay;
 
-      int month = cycle.StartMonth;
-      int day = cycle.StartDay;
-
-      System.Globalization.Calendar calendar =
-        new System.Globalization.GregorianCalendar();
+      var calendar = new System.Globalization.GregorianCalendar();
 
       // according to MTStdAnnually:
       //  "we don't care about leap year so a fixed year is ok"
-      int daysInMonth = calendar.GetDaysInMonth(1999, month);
+      var daysInMonth = calendar.GetDaysInMonth(1999, month);
 
       if (!(day >= 1 && day <= daysInMonth))
-        throw new System.ArgumentException(String.Format("StartDay must be a valid day of month", day));
+        throw new ArgumentException(String.Format("StartDay {0} must be a valid day of month", day));
 
       startDate = new DateTime(referenceDate.Year, month, day);
       endDate = startDate.AddMonths(6);
@@ -1575,6 +1643,16 @@ namespace MetraTech.UsageServer
         endDate = endDate.AddYears(1);
       }
       endDate = endDate.AddDays(-1);
+    }
+
+    private static void CheckParams(ICycle cycle)
+    {
+      if (cycle == null)
+        throw new ArgumentNullException("cycle");
+      if (((Cycle) cycle).StartDay == -1)
+        throw new ArgumentException("cycle.StartDay property must be initialized");
+      if (((Cycle) cycle).StartMonth == -1)
+        throw new ArgumentException("cycle.StartMonth property must be initialized");
     }
 
     /// <summary>

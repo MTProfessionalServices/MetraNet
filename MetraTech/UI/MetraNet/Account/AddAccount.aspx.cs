@@ -44,6 +44,11 @@ public partial class AddAccount : MTAccountPage
     if (!IsPostBack)
     {
       Account = PageNav.Data.Out_StateInitData["Account"] as Account;
+
+      if (Account != null)
+      {
+          Account.AccountStartDate = DateTime.Now;
+      }
       MTGenericForm1.DataBinderInstanceName = "MTDataBinder1";       
       MTGenericForm1.RenderObjectType = BillTo.GetType();
       MTGenericForm1.RenderObjectInstanceName = "BillTo";

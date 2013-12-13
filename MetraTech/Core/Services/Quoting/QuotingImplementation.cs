@@ -22,6 +22,7 @@ using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.Interop.MTProductCatalog;
 using MetraTech.Interop.QueryAdapter;
+using MetraTech.Debug.Diagnostics;
 // TODO: Add auditor to Quote
 // using MetraTech.Interop.MTAuditEvents;
 
@@ -30,6 +31,7 @@ namespace MetraTech.Core.Services.Quoting
   public class QuotingImplementation : IQuotingImplementation
   {
     public QuotingConfiguration Configuration { get; private set; }
+    public QuoteReportingConfiguration ReportingConfiguration { get; private set; }
     // TODO: Add auditor to Quote
     //private Auditor quotingAuditor = new Auditor();
     private static ILogger _log;
@@ -60,6 +62,7 @@ namespace MetraTech.Core.Services.Quoting
                       IQuotingRepository quotingRepository, IChargeMetering chargeMetering, ILogger log)
     {
       Configuration = configuration;
+      ReportingConfiguration = QuoteReportingConfigurationManager.LoadConfiguration(Configuration, false);
       SessionContext = sessionContext;
       QuotingRepository = quotingRepository;
       _chargeMetering = chargeMetering;
@@ -70,7 +73,7 @@ namespace MetraTech.Core.Services.Quoting
                                  IQuotingRepository quotingRepository, IChargeMetering chargeMetering)
       : this(
         configuration, sessionContext, quotingRepository, chargeMetering,
-        new Logger(String.Format("[{0}]", typeof (QuotingImplementation))))
+        new Logger(String.Format("[{0}]", typeof(QuotingImplementation))))
     {
     }
 
@@ -89,7 +92,7 @@ namespace MetraTech.Core.Services.Quoting
                                  IQuotingRepository quotingRepository)
     {
       Init(configuration, sessionContext, quotingRepository, null,
-           new Logger(String.Format("[{0}]", typeof (QuotingImplementation))));
+           new Logger(String.Format("[{0}]", typeof(QuotingImplementation))));
 
       _chargeMetering = InitDefaultChragesMetering();
     }
@@ -124,7 +127,7 @@ namespace MetraTech.Core.Services.Quoting
     public QuoteResponse CreateQuote(QuoteRequest quoteRequest)
     {
       //TODO: Should we add check that pipeline/inetinfo/activityservices are running before starting quote. We think nice to have and maybe configurable
-      using (new Debug.Diagnostics.HighResolutionTimer(MethodInfo.GetCurrentMethod().Name))
+      using (new HighResolutionTimer(MethodInfo.GetCurrentMethod().Name))
       {
         QuoteResponse response = null;
         try
@@ -144,32 +147,36 @@ namespace MetraTech.Core.Services.Quoting
             //If we need here, here is the place for things that need to be generated, totaled, etc. before we
             //generate PDF and return results
             CreateAndCalculateQuote(quoteRequest, response);
+
+            QuotePdfReport quotePDFReport = null;
+            if (quoteRequest.ReportParameters.PDFReport)
+            {
+              quotePDFReport = new QuotePdfReport(QuoteReportingConfigurationManager.LoadConfiguration(Configuration));
+              response.ReportLink = quotePDFReport.GetReportLink(response.IdQuote, quoteRequest.Accounts.First());
+            }
+
             response.Status = QuoteStatus.Complete;
+            response = QuotingRepository.UpdateQuoteWithResponse(response);
+            QuotingRepository.SaveQuoteLog(response.MessageLog);
 
             if (quoteRequest.ReportParameters.PDFReport)
             {
-              GeneratePDFForCurrentQuote(quoteRequest, response);
+              AsyncGeneratePDFForCurrentQuote asynCall = GeneratePdfForCurrentQuote;
+              asynCall.BeginInvoke(quoteRequest, response, quotePDFReport, null, null);
             }
-
-            //todo: Save or update data about quote in DB
-            response = QuotingRepository.UpdateQuoteWithResponse(response);
-            QuotingRepository.SaveQuoteLog(response.MessageLog);
           }
           finally
           {
-
             if (response == null)
               response = new QuoteResponse();
           }
-
-
         }
         catch (Exception ex)
         {
           if (ex is AddChargeMeteringException)
           {
             // always saves chrages in case exception was occured
-            response.Artefacts.ChargesCollection.AddRange(((AddChargeMeteringException) ex).ChargeDataCollection);
+            response.Artefacts.ChargesCollection.AddRange(((AddChargeMeteringException)ex).ChargeDataCollection);
           }
 
           response.Status = QuoteStatus.Failed;
@@ -229,7 +236,7 @@ namespace MetraTech.Core.Services.Quoting
 
       return messageLog;
     }
-
+    
     #endregion
 
     #region Internal
@@ -244,21 +251,23 @@ namespace MetraTech.Core.Services.Quoting
     protected void ValidateRequest(QuoteRequest request)
     {
       //TODO: Simple validation should be moved to QuoteRequest class
-
-      if (request.SubscriptionParameters.IsGroupSubscription && request.IcbPrices.Count > 0)
+      using (new Debug.Diagnostics.HighResolutionTimer(MethodBase.GetCurrentMethod().Name))
       {
-        throw new ArgumentException("Current limitation of quoting: ICBs are applied only for individual subscriptions");
+        if (request.SubscriptionParameters.IsGroupSubscription && request.IcbPrices.Count > 0)
+        {
+          throw new ArgumentException("Current limitation of quoting: ICBs are applied only for individual subscriptions");
+        }
+
+        FirstMajorValidation(request);
+
+        ValidateEffectiveDate(request);
+
+        ValidateAccount(request);
+
+        ValidateProducOffering(request);
+
+        ValidateICBs(request);
       }
-
-      FirstMajorValidation(request);
-
-      ValidateEffectiveDate(request);
-
-      ValidateAccount(request);
-
-      ValidateProducOffering(request);
-
-      ValidateICBs(request);
     }
 
     private static void FirstMajorValidation(QuoteRequest request)
@@ -283,7 +292,7 @@ namespace MetraTech.Core.Services.Quoting
         request.IcbPrices = new List<IndividualPrice>();
 
     }
-     
+
     private void ValidateAccount(QuoteRequest request)
     {
       //0 values Request validation
@@ -305,7 +314,7 @@ namespace MetraTech.Core.Services.Quoting
         if (request.SubscriptionParameters.CorporateAccountId <= 0)
           throw new ArgumentException(
             "Corporate Account does not set for Group Subscription. Corporate Account is mandatory for Group subscription");
-        if(!request.Accounts.Contains(request.SubscriptionParameters.CorporateAccountId))
+        if (!request.Accounts.Contains(request.SubscriptionParameters.CorporateAccountId))
           throw new ArgumentException("Corporate Account should be in set of accounts to quote for.");
       }
       else
@@ -459,14 +468,14 @@ namespace MetraTech.Core.Services.Quoting
       return payer;
     }
 
+    private delegate void AsyncGeneratePDFForCurrentQuote(QuoteRequest request, QuoteResponse response, QuotePdfReport quotePdfReport);
 
-    protected void GeneratePDFForCurrentQuote(QuoteRequest request, QuoteResponse response)
+    protected void GeneratePdfForCurrentQuote(QuoteRequest request, QuoteResponse response, QuotePdfReport quotePdfReport = null)
     {
-      using (new Debug.Diagnostics.HighResolutionTimer("GeneratePDFForCurrentQuote"))
+      using (new HighResolutionTimer("GeneratePDFForCurrentQuote"))
       {
-        //TODO: Eventually cache/only load configuration as needed
-        var quoteReportingConfiguration = QuoteReportingConfigurationManager.LoadConfiguration(this.Configuration);
-        var quotePDFReport = new QuotePDFReport(quoteReportingConfiguration);
+        if (quotePdfReport == null)
+          quotePdfReport = new QuotePdfReport(ReportingConfiguration);
 
         //If request does not specify a template to use, then use the configured default
         if (string.IsNullOrEmpty(request.ReportParameters.ReportTemplateName))
@@ -474,10 +483,21 @@ namespace MetraTech.Core.Services.Quoting
           request.ReportParameters.ReportTemplateName = this.Configuration.ReportDefaultTemplateName;
         }
 
-        response.ReportLink = quotePDFReport.CreatePDFReport(response.IdQuote,
+        QuotingRepository.UpdateStatus(response.IdQuote, ActionStatus.StatusReport, QuoteStatus.InProgress);
+
+        try
+        {
+          response.ReportLink = quotePdfReport.CreateReport(response.IdQuote,
                                                              request.Accounts[0],
                                                              request.ReportParameters.ReportTemplateName,
                                                              GetLanguageCodeIdForCurrentRequest(request));
+          QuotingRepository.UpdateStatus(response.IdQuote, ActionStatus.StatusReport, QuoteStatus.Complete);
+        }
+        catch
+        {
+          QuotingRepository.UpdateStatus(response.IdQuote, ActionStatus.StatusReport, QuoteStatus.Failed);   
+          throw;
+        }
       }
     }
 
@@ -730,7 +750,7 @@ namespace MetraTech.Core.Services.Quoting
             if (!rowset.Read() || rowset.IsDBNull("AccountCycleType"))
               throw new SqlNullValueException(string.Format("The account {0} has no billing cycle", idAccount));
 
-            MTUsageCycleType cyclyType = (MTUsageCycleType) Enum.ToObject(typeof (MTUsageCycleType)
+            MTUsageCycleType cyclyType = (MTUsageCycleType)Enum.ToObject(typeof(MTUsageCycleType)
                                                                           , rowset.GetInt32("AccountCycleType"));
 
             return additionalMethod(cyclyType, rowset);
@@ -746,7 +766,7 @@ namespace MetraTech.Core.Services.Quoting
 
     /// <summary>
     /// Creates <see cref="MTPCCycle"/> for group subscription by Corporate account.
-    /// The basic scenarios were taken from <see cref="MetraTech.DomainModel.Validators.AccountValidator.ValidateUsageCycle"/>
+    /// The basic scenarios were taken from "MetraTech.DomainModel.Validators.AccountValidator.ValidateUsageCycle"
     /// </summary>
     /// <param name="idAccount"></param>
     /// <returns></returns>
@@ -756,7 +776,7 @@ namespace MetraTech.Core.Services.Quoting
         {
           MTPCCycle result = new MTPCCycleClass();
 
-          result.CycleTypeID = (int) cyclyType;
+          result.CycleTypeID = (int)cyclyType;
           result.EndDayOfMonth = rowset.IsDBNull("DayOfMonth") ? 0 : rowset.GetInt32("DayOfMonth");
           result.EndDayOfMonth2 = rowset.IsDBNull("SecondDayOfMonth") ? 0 : rowset.GetInt32("SecondDayOfMonth");
           result.EndDayOfWeek = rowset.IsDBNull("DayOfWeek") ? 0 : rowset.GetInt32("DayOfWeek");
@@ -780,7 +800,7 @@ namespace MetraTech.Core.Services.Quoting
 
     /// <summary>
     /// Creates <see cref="MTPCCycle"/> for group subscription by Corporate account.
-    /// The basic scenarios were taken from <see cref="MetraTech.DomainModel.Validators.AccountValidator.ValidateUsageCycle"/>
+    /// The basic scenarios were taken from "MetraTech.DomainModel.Validators.AccountValidator.ValidateUsageCycle"
     /// </summary>
     /// <param name="idAccount"></param>
     /// <returns></returns>
@@ -802,13 +822,13 @@ namespace MetraTech.Core.Services.Quoting
             result.SecondDayOfMonth = rowset.GetInt32("SecondDayOfMonth");
 
           if (!rowset.IsDBNull("DayOfWeek"))
-            result.DayOfWeek = (DayOfTheWeek) Enum.ToObject(typeof (DayOfTheWeek), rowset.GetInt32("DayOfWeek"));
+            result.DayOfWeek = (DayOfTheWeek)Enum.ToObject(typeof(DayOfTheWeek), rowset.GetInt32("DayOfWeek"));
 
           if (!rowset.IsDBNull("StartDay"))
             result.StartDay = rowset.GetInt32("StartDay");
 
           if (!rowset.IsDBNull("StartMonth"))
-            result.StartMonth = (MonthOfTheYear) Enum.ToObject(typeof (MonthOfTheYear), rowset.GetInt32("StartMonth"));
+            result.StartMonth = (MonthOfTheYear)Enum.ToObject(typeof(MonthOfTheYear), rowset.GetInt32("StartMonth"));
 
           if (!rowset.IsDBNull("StartYear"))
             result.StartYear = rowset.GetInt32("StartYear");
@@ -856,7 +876,7 @@ namespace MetraTech.Core.Services.Quoting
         default:
           throw new NotSupportedException(
             String.Format("Cna't convert enum {0} with value {1} to {2}, because {2} does not hvae equal variant."
-                          , typeof (MTUsageCycleType), mtCycle, typeof (UsageCycleType)));
+                          , typeof(MTUsageCycleType), mtCycle, typeof(UsageCycleType)));
       }
     }
 
@@ -975,7 +995,7 @@ namespace MetraTech.Core.Services.Quoting
 
         foreach (int po in request.ProductOfferings)
         {
-          var sub = new Subscription {ProductOfferingId = po, SubscriptionSpan = productTimeSpan};
+          var sub = new Subscription { ProductOfferingId = po, SubscriptionSpan = productTimeSpan };
 
           if (request.SubscriptionParameters.UDRCValues.ContainsKey(po.ToString(CultureInfo.InvariantCulture)))
           {
@@ -988,10 +1008,10 @@ namespace MetraTech.Core.Services.Quoting
 
           if (sub.SubscriptionId != null)
           {
-            response.Artefacts.Subscription.AddSubscriptions((int) sub.SubscriptionId,
-                                                             new List<int> {idAccount});
+            response.Artefacts.Subscription.AddSubscriptions((int)sub.SubscriptionId,
+                                                             new List<int> { idAccount });
 
-            ApplyIcbPricesToSubscription(request, sub.ProductOfferingId, (int) sub.SubscriptionId);
+            ApplyIcbPricesToSubscription(request, sub.ProductOfferingId, (int)sub.SubscriptionId);
           }
         }
       }
@@ -1126,7 +1146,7 @@ namespace MetraTech.Core.Services.Quoting
         {
           var subscription = acc.Subscribe(po, effDate, out modifiedDate);
 
-          response.Artefacts.Subscription.AddSubscriptions(subscription.ID, new List<int> {acc.AccountID});
+          response.Artefacts.Subscription.AddSubscriptions(subscription.ID, new List<int> { acc.AccountID });
 
           try
           {
@@ -1431,40 +1451,54 @@ namespace MetraTech.Core.Services.Quoting
       //TODO: need to be using TransactionScope
       //using (TransactionScope scope = new TransactionScope())
       //{
-      using (var conn = ConnectionManager.CreateConnection())
+      using (new HighResolutionTimer(MethodBase.GetCurrentMethod().Name))
       {
-
-        //Create the needed subscriptions for this quote
-        CreateNeededSubscriptions(request, response);
-
-        response.Artefacts.ChargesCollection.AddRange(_chargeMetering.AddCharges(request));
-
-        //Determine Usage Interval to use when quoting
-        response.Artefacts.IdUsageInterval = _chargeMetering.GetUsageInterval(request);
-
-        // calculate Total
-        using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(Configuration.QuotingQueryFolder,
-                                                                      Configuration.CalculateQuoteTotalAmountQueryTag))
+        using (var conn = ConnectionManager.CreateConnection())
         {
-          stmt.AddParam("%%USAGE_INTERVAL%%", response.Artefacts.IdUsageInterval);
-          stmt.AddParam("%%ACCOUNTS%%", string.Join(",", request.Accounts));
-          stmt.AddParam("%%POS%%", string.Join(",", request.ProductOfferings));
-          using (IMTDataReader rowset = stmt.ExecuteReader())
+
+          //Create the needed subscriptions for this quote
+          CreateNeededSubscriptions(request, response);
+
+          response.Artefacts.ChargesCollection.AddRange(_chargeMetering.AddCharges(request));
+
+          //Determine Usage Interval to use when quoting
+          response.Artefacts.IdUsageInterval = _chargeMetering.GetUsageInterval(request);
+
+          //backup t_acc_usage data
+          using (var conn1 = ConnectionManager.CreateConnection())
           {
-            rowset.Read();
+            using (var stmt = conn1.CreateAdapterStatement(Configuration.QuotingQueryFolder,
+                                                           Configuration.BackupQuoteUsagesQueryTag))
+            {
+              stmt.AddParam("%%USAGE_INTERVAL%%", response.Artefacts.IdUsageInterval);
+              stmt.AddParam("%%ACCOUNTS%%", string.Join(",", request.Accounts));
+              stmt.AddParam("%%POS%%", string.Join(",", request.ProductOfferings));
+              stmt.AddParam("%%QUOTE_ID%%", response.IdQuote);
+              stmt.ExecuteReader();
+            }
+          }
 
-            response.TotalAmount = GetDecimalProperty(rowset, "Amount");
-            response.TotalTax = GetDecimalProperty(rowset, "TaxTotal");
-            response.Currency = GetStringProperty(rowset, "Currency");
+          // calculate Total
+          using (var stmt = conn.CreateAdapterStatement(Configuration.QuotingQueryFolder,
+                                                        Configuration.CalculateQuoteTotalAmountQueryTag))
+          {
+            stmt.AddParam("%%QUOTE_ID%%", response.IdQuote);
+            using (IMTDataReader rowset = stmt.ExecuteReader())
+            {
+              rowset.Read();
 
-            var totalMessage = string.Format("Total amount: {0} {1}, Total Tax: {2}",
-                                             response.TotalAmount.ToString("N2"), response.Currency,
-                                             response.TotalTax);
+              response.TotalAmount = GetDecimalProperty(rowset, "Amount");
+              response.TotalTax = GetDecimalProperty(rowset, "TaxTotal");
+              response.Currency = GetStringProperty(rowset, "Currency");
 
-            _log.LogDebug("CreateAndCalculateQuote: {0}", totalMessage);
+              var totalMessage = string.Format("Total amount: {0} {1}, Total Tax: {2}",
+                                               response.TotalAmount.ToString("N2"), response.Currency,
+                                               response.TotalTax);
 
-            //TODO: Error check if we didn't find anything but we expected something (i.e. rowset.Read failed but we expected results
-            //TODO: Nice to have to add the count(*) of records which could be useful for error checking; adding to query doesn't cost anything
+              _log.LogDebug("CreateAndCalculateQuote: {0}", totalMessage);
+
+              //TODO: Error check if we didn't find anything but we expected something (i.e. rowset.Read failed but we expected results            
+            }
           }
         }
       }
@@ -1474,40 +1508,49 @@ namespace MetraTech.Core.Services.Quoting
       //}
     }
 
-
+    private delegate void AsyncCleanupBackoutUsageData(int idQuote, IEnumerable<ChargeData> charges, IQuotingRepository quotingRepository);
     /// <summary>
     /// CleanUp quoters artifacts in case IsCleanupQuoteAutomaticaly = fales in 
     /// </summary>
     /// <param name="quoteArtefact">Sents data for cleaning up Quote Artefacts</param>
     public List<QuoteLogRecord> Cleanup(QuoteResponseArtefacts quoteArtefact)
     {
-      if (quoteArtefact.Subscription == null)
-        throw new ArgumentNullException(
-          String.Format("The {0} does not contain Subscription for cleanuping", typeof (QuoteResponseArtefacts)));
-
-      if (quoteArtefact.ChargesCollection == null)
-        throw new ArgumentNullException(
-          String.Format("The {0} does not contain Chrages for cleanuping", typeof (QuoteResponseArtefacts)));
-
-      try
+      QuotingRepository.UpdateStatus(quoteArtefact.IdQuote, ActionStatus.StatusCleanup, QuoteStatus.InProgress);
+      using (new HighResolutionTimer(MethodInfo.GetCurrentMethod().Name))
       {
-        List<QuoteLogRecord> result = SetNewQuoteLogFormater(quoteArtefact);
 
-        //If needed, cleanup should be completed here.
-        //Happens when quote is finalized, pdf generated and returned
-        //or if an error happens during processing
+        if (quoteArtefact.Subscription == null)
+        {
+          QuotingRepository.UpdateStatus(quoteArtefact.IdQuote, ActionStatus.StatusCleanup, QuoteStatus.Failed);
+          throw new ArgumentNullException(
+            String.Format("The {0} does not contain Subscription for cleanuping", typeof (QuoteResponseArtefacts)));
+        }
 
-        CleanupSubscriptionsCreated(quoteArtefact);
+        if (quoteArtefact.ChargesCollection == null)
+        {
+          QuotingRepository.UpdateStatus(quoteArtefact.IdQuote, ActionStatus.StatusCleanup, QuoteStatus.Failed);
+          throw new ArgumentNullException(
+            String.Format("The {0} does not contain Chrages for cleanuping", typeof (QuoteResponseArtefacts)));
+        }
 
-        _chargeMetering.CleanupUsageData(quoteArtefact.IdQuote, quoteArtefact.ChargesCollection);
+        try
+        {
+          var result = SetNewQuoteLogFormater(quoteArtefact);
+          //If needed, cleanup should be completed here.
+          //Happens when quote is finalized, pdf generated and returned
+          //or if an error happens during processing
+          CleanupSubscriptionsCreated(quoteArtefact);
 
-        return result;
+          AsyncCleanupBackoutUsageData asynCall = _chargeMetering.CleanupUsageData;
+          asynCall.BeginInvoke(quoteArtefact.IdQuote, quoteArtefact.ChargesCollection, QuotingRepository, null, null);
+          //_chargeMetering.CleanupUsageData(quoteArtefact.IdQuote, quoteArtefact.ChargesCollection);
+          return result;
+        }
+        finally
+        {
+          _log.ClearFormatter();
+        }
       }
-      finally
-      {
-        _log.ClearFormatter();
-      }
-
     }
 
     protected void CleanupSubscriptionsCreated(QuoteResponseArtefacts quoteArtefact)
@@ -1547,7 +1590,7 @@ namespace MetraTech.Core.Services.Quoting
 
             if (groupSubscription.FindMember(idSubscribedAcc, quoteArtefact.EffectiveDate) != null)
             {
-              groupSubscription.UnsubscribeMember((MTGSubMember) gsmember);
+              groupSubscription.UnsubscribeMember((MTGSubMember)gsmember);
             }
           }
 
@@ -1642,7 +1685,7 @@ namespace MetraTech.Core.Services.Quoting
       const string suPassword = "su123";
       try
       {
-        return (Interop.MTProductCatalog.IMTSessionContext) loginContext.Login(suName, "system_user", suPassword);
+        return (Interop.MTProductCatalog.IMTSessionContext)loginContext.Login(suName, "system_user", suPassword);
       }
       catch (Exception ex)
       {

@@ -1551,21 +1551,6 @@ namespace MetraTech.UsageServer
       // feb was not a leap year in 1999
       // 365 days in the year
       var calendar = new System.Globalization.GregorianCalendar();
-
-      var cycles = new ICycle[365];
-      var cycleId = 0;
-      for (var month = 1; month <= 12; month++)
-      {
-        for (var day = 1; day <= calendar.GetDaysInMonth(1999, month); day++)
-        {
-          ICycle cycle = new Cycle();
-          cycle.StartMonth = month;
-          cycle.StartDay = day;
-          cycle.CycleType = CycleType.Annual;
-          cycles[cycleId++] = cycle;
-        }
-      }
-      return cycles;
     }
   }
 

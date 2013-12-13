@@ -294,13 +294,16 @@
     <Compile Include="Quoting\Charge\ICharge.cs" />
     <Compile Include="Quoting\Charge\NonReccuringCharge.cs" />
     <Compile Include="Quoting\Charge\ReccurringCharge.cs" />
-    <Compile Include="Quoting\Configuration.cs" />
+    <Compile Include="Quoting\QuoteReportingConfigurationManager.cs" />
+    <Compile Include="Quoting\QuotingConfigurationManager.cs" />
     <Compile Include="Quoting\IChargeMetering.cs" />
     <Compile Include="Quoting\IQuotingImplementation.cs" />
     <Compile Include="Quoting\PropertyName.cs" />
     <Compile Include="Quoting\QuoteException.cs" />
     <Compile Include="Quoting\QuotePDFReport.cs" />
+    <Compile Include="Quoting\QuoteReportingConfiguration.cs" />
     <Compile Include="Quoting\QuoteXmlReport.cs" />
+    <Compile Include="Quoting\QuotingConfiguration.cs" />
     <Compile Include="Quoting\QuotingHelper.cs" />
     <Compile Include="Quoting\QuotingImplementation.cs" />
     <Compile Include="Quoting\QuotingRepository.cs" />

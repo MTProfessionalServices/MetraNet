@@ -57,6 +57,6 @@ namespace MetraTech.Core.Services.Quoting
       /// </summary>
       /// <param name="idQuote"></param>
       /// <param name="charges"></param>
-      void CleanupUsageData(int idQuote, IEnumerable<ChargeData> charges);
+      void CleanupUsageData(int idQuote, IEnumerable<ChargeData> charges, IQuotingRepository quotingRepository);
     }
 }

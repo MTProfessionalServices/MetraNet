@@ -191,14 +191,14 @@ FUNCTION getRecurringEventRunHTML
           sStatusCode	= rowset.value("Status")
           sStatus		= mom_GetAdapterInstanceStatusMessage(rowset.value("Status"),rowset.value("EffectiveDate"))
           if sStatusCode = "Failed" then
-            sStatus = "<img border='0' height='16' src= '../localized/us/images/errorsmall.gif' align='absmiddle' width='16'>&nbsp;" & sStatus
+            sStatus = "<img border='0' height='16' src= '../localized/en-us/images/errorsmall.gif' align='absmiddle' width='16'>&nbsp;" & sStatus
           end if
           
           if rowset.value("EventType")="EndOfPeriod" then
 
 
             '// This is an adapter event
-            sIcon = "../localized/us/images/adapters/" & rowset.value("BillGroupSupportType") & ".png"
+            sIcon = "../localized/en-us/images/adapters/" & rowset.value("BillGroupSupportType") & ".png"
             sInstanceId = rowset.value("InstanceId")
             'sInstanceId = "<A href=""#"" title=""View Adapter Instance Run History"" onclick=""window.open('AdapterManagement.Instance.ViewEdit.asp?ID=" & sInstanceId & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">" & sInstanceId & "</A>"
             sInstanceId = "<A href='AdapterManagement.Instance.ViewEdit.asp?ID=" & sInstanceId & "&BillingGroupId=" & idBillingGroup & "&IntervalId=" & idInterval & "&DisableActions=" & bDisableActions & "&IntervalDescription=" & Server.UrlEncode(sIntervalDescription) & "&ReturnUrl=" & Server.UrlEncode("IntervalManagement.ViewEdit.asp") & "' title='View Adapter Instance Run History'>" & sInstanceId & "</A>"
@@ -223,7 +223,7 @@ FUNCTION getRecurringEventRunHTML
                 sLastRunDetail = rowset.value("LastRunDetail")
               else
                 if sStatusCode = "Succeeded" then
-                  sLastRunStatus = "<img border='0' height='16' src= '../localized/us/images/errorsmall.gif' align='absmiddle' width='16'>" & "Succeeded With Warnings"
+                  sLastRunStatus = "<img border='0' height='16' src= '../localized/en-us/images/errorsmall.gif' align='absmiddle' width='16'>" & "Succeeded With Warnings"
                 else
                   sLastRunStatus = rowset.value("LastRunStatus")
                 end if
@@ -277,7 +277,7 @@ FUNCTION getRecurringEventRunHTML
             end if
             
             
-            sIcon = "../localized/us/images/adapter_checkpoint.gif"
+            sIcon = "../localized/en-us/images/adapter_checkpoint.gif"
           end if
 
           

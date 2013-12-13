@@ -25,76 +25,76 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>O:\$(Configuration)\bin\</OutputPath>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
-    <BaseIntermediateOutputPath>O:\$(Configuration)\metratech\CyberSourceGateway\</BaseIntermediateOutputPath>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\metratech\CyberSourceGateway\</BaseIntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <OutputPath>O:\$(Configuration)\bin\</OutputPath>
+    <OutputPath>$(MTOUTDIR)\$(Configuration)\bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
-    <BaseIntermediateOutputPath>O:\$(Configuration)\metratech\CyberSourceGateway\</BaseIntermediateOutputPath>
+    <BaseIntermediateOutputPath>$(MTOUTDIR)\$(Configuration)\metratech\CyberSourceGateway\</BaseIntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MetraTech.ActivityServices.Common, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
-      <HintPath>O:\$(Configuration)\bin\MetraTech.ActivityServices.Common.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.ActivityServices.Common.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.Common, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
-      <HintPath>O:\$(Configuration)\bin\MetraTech.Common.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.Common.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.DomainModel.BaseTypes, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>o:\$(Configuration)\bin\MetraTech.DomainModel.BaseTypes.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.BaseTypes.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.DomainModel.Common, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\$(Configuration)\bin\MetraTech.DomainModel.Common.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.DomainModel.Enums, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>o:\$(Configuration)\bin\MetraTech.DomainModel.Enums.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Enums.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MetraTech.DomainModel.Enums.Generated, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
-      <HintPath>O:\$(Configuration)\bin\MetraTech.DomainModel.Enums.Generated.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.Enums.Generated.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.DomainModel.MetraPay, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
-      <HintPath>O:\$(Configuration)\bin\MetraTech.DomainModel.MetraPay.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.DomainModel.MetraPay.dll</HintPath>
     </Reference>
     <Reference Include="MetraTech.MetraPay.PaymentGateway, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>o:\$(Configuration)\bin\MetraTech.MetraPay.PaymentGateway.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MetraTech.MetraPay.PaymentGateway.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MTServerAccess.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
-      <HintPath>O:\$(Configuration)\bin\MTServerAccess.interop.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\MTServerAccess.interop.dll</HintPath>
     </Reference>
     <Reference Include="RCD.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>o:\$(Configuration)\bin\RCD.interop.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\RCD.interop.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SysContext.interop, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\$(Configuration)\bin\SysContext.interop.dll</HintPath>
+      <HintPath>$(MTOUTDIR)\$(Configuration)\bin\SysContext.interop.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />

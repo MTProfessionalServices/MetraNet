@@ -214,7 +214,7 @@ Private Function SubscriptionsGrid_DisplayCell(EventArg) ' As Boolean
   'Checkbox for group
   if UCase(EventArg.Grid.SelectedProperty.Name) = "B_GROUP" then
     if EventArg.Grid.Properties("B_GROUP") then
-      EventArg.HTMLRendered =  "<td class=" & EventArg.Grid.CellClass & " align='center'><img src='../localized/us/images/check.gif'></td>"
+      EventArg.HTMLRendered =  "<td class=" & EventArg.Grid.CellClass & " align='center'><img src='../localized/en-us/images/check.gif'></td>"
       SubscriptionsGrid_DisplayCell = true
     else
       EventArg.HTMLRendered =  "<td class=" & EventArg.Grid.CellClass & " align='center'>--&nbsp;</td>"

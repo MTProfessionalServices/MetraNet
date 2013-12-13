@@ -31,7 +31,7 @@ public partial class Mobile_PaymentHistory : MTPage
       var str = row;
 
       str = str.Replace("%%PAYMENT_TYPE%%", payment.CreditCardType.ToString());
-      str = str.Replace("%%DATE%%", payment.PaymentDate.ToShortDateString());
+        str = str.Replace("%%DATE%%", (payment.PaymentDate.HasValue) ? payment.PaymentDate.Value.ToShortDateString() : "");
       str = str.Replace("%%CARD_NUMBER%%",payment.CheckOrCardNumber);
       str = str.Replace("%%AMOUNT%%", payment.AmountAsString.Replace("-", ""));
       sb.Append(str);

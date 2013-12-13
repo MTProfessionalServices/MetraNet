@@ -103,8 +103,8 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
 		MDMListDialog.PreProcessor.Clear
 		MDMListDialog.PreProcessor.Add "CLASS"       , Form.Grid.CellClass        
 		MDMListDialog.PreProcessor.Add "ASP_PAGE"    , "CounterParameter.Edit.asp"
-		MDMListDialog.PreProcessor.Add "IMAGE_EDIT"  , Application("APP_HTTP_PATH") & "/default/localized/us/images/edit.gif"
-		MDMListDialog.PreProcessor.Add "IMAGE_VIEW"  , Application("APP_HTTP_PATH") & "/default/localized/us/images/icons/view.gif"
+		MDMListDialog.PreProcessor.Add "IMAGE_EDIT"  , Application("APP_HTTP_PATH") & "/default/localized/en-us/images/edit.gif"
+		MDMListDialog.PreProcessor.Add "IMAGE_VIEW"  , Application("APP_HTTP_PATH") & "/default/localized/en-us/images/icons/view.gif"
 		MDMListDialog.PreProcessor.Add "ALT_VIEW"    , mdm_GetDictionary().Item("TEXT_VIEW").Value
 
     MDMListDialog.PreProcessor.Add "IMAGE_EDIT_NAME" , "EditIcon" & Form.Grid.Row ' For FredRunner

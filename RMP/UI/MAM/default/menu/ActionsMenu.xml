@@ -23,7 +23,7 @@
           <order>20</order>
 					<textid>TEXT_HOME_DIALOG</textid>
 					<page>WELCOME_DIALOG</page>
-					<image>/mam/default/localized/us/images/home.gif</image>
+					<image>/mam/default/localized/en-us/images/home.gif</image>
           <target></target>
 				</menulink>
 
@@ -31,7 +31,7 @@
           <order>30</order>
 					<textid>TEXT_MY_ACCOUNTS_DIALOG</textid>
 					<page>MY_ACCOUNTS_DIALOG</page>
-					<image>/mam/default/localized/us/images/csr.gif</image>
+					<image>/mam/default/localized/en-us/images/csr.gif</image>
           <target></target>
           <capabilities type="collection">
             <capability id="Manage Owned Accounts">
@@ -44,7 +44,7 @@
           <order>40</order>
           <textid>TEXT_PASSWORD</textid>
           <page>NEW_CSR_PASSWORD_DIALOG</page>
-          <image>/mam/default/localized/us/images/password.gif</image>
+          <image>/mam/default/localized/en-us/images/password.gif</image>
           <target></target>
           <capabilities type="collection">
             <capability id="Update CSR accounts">
@@ -57,7 +57,7 @@
           <order>50</order>
           <textid>TEXT_CSR_DEFAULT_POLICY</textid>
           <page>CSR_DEFAULT_POLICY_DIALOG</page>
-          <image>/mam/default/localized/us/images/Security.gif</image>
+          <image>/mam/default/localized/en-us/images/Security.gif</image>
           <target></target>
           <capabilities type="collection">
             <capability id="Manage CSR Auth">
@@ -89,7 +89,7 @@
 				  <order>70</order>
         	<textid>TEXT_ADD_ACCOUNT_INFO_DIALOG</textid>
 					<page>ADD_ACCOUNT_SELECTOR_DIALOG</page>
-					<image>/mam/default/localized/us/images/newhierarchyaccount.gif</image>
+					<image>/mam/default/localized/en-us/images/newhierarchyaccount.gif</image>
           <target></target>
           <capabilities type="collection">
             <capability id="Create subscriber accounts">
@@ -105,7 +105,7 @@
           <order>80</order> 				
           <textid>TEXT_ADD_CSR</textid>
           <page>ADD_CSR_DIALOG</page>
-          <image>/mam/default/localized/us/images/newaccount.gif</image>
+          <image>/mam/default/localized/en-us/images/newaccount.gif</image>
           <target></target>
           <capabilities type="collection">
             <capability id="Create CSR accounts">
@@ -118,7 +118,7 @@
           <order>90</order>
 					<textid>TEXT_GROUP_SUBSCRIPTIONS_DIALOG</textid>
 					<page>GROUP_SUBSCRIPTIONS_DIALOG</page>
-					<image>/mam/default/localized/us/images/group.gif</image>
+					<image>/mam/default/localized/en-us/images/group.gif</image>
           <target></target>
           <capabilities type="collection">
             <capability id="View group subscriptions">
@@ -144,7 +144,7 @@
           <order>110</order>
  					<textid>TEXT_MENU_MANAGE_ADJUSTMENTS</textid>
 					<page>ADJUSTMENT_MANAGE_DIALOG</page>
-					<image>/mam/default/localized/us/images/BulkAdjust2.gif</image>
+					<image>/mam/default/localized/en-us/images/BulkAdjust2.gif</image>
           <capabilities type="collection">
             <capability id="Manage Adjustments">
                <capabilityParameters type="collection" />
@@ -156,7 +156,7 @@
           <order>120</order>
  					<textid>TEXT_MENU_MANAGE_ORPHAN_ADJUSTMENTS</textid>
 					<page>ORPHAN_ADJUSTMENT_MANAGE_DIALOG</page>
-					<image>/mam/default/localized/us/images/Orphan2.gif</image>
+					<image>/mam/default/localized/en-us/images/Orphan2.gif</image>
           <capabilities type="collection">
             <capability id="Manage Adjustments">
                <capabilityParameters type="collection" />
@@ -169,7 +169,7 @@
 					<order>130</order>
           <textid>TEXT_MENU_MANAGE_MISC_ADJUSTMENTS</textid>
 					<page>MISCELLANEOUS_ADJUSTMENT_MANAGE_DIALOG</page>
-					<image>/mam/default/localized/us/images/request.gif</image>
+					<image>/mam/default/localized/en-us/images/request.gif</image>
           <target></target>
           <capabilities type="collection">
             <capability id="Manage Adjustments">
@@ -187,7 +187,7 @@
           <order>150</order>
           <textid>TEXT_MANAGE_ROLES</textid>
           <page>MANAGE_ROLES_DIALOG</page>
-          <image>/mam/default/localized/us/images/roles.gif</image>
+          <image>/mam/default/localized/en-us/images/roles.gif</image>
           <target></target>
           <capabilities type="collection">
             <capability id="Manage System Wide Authorization Policies">
@@ -200,7 +200,7 @@
           <order>160</order>
 					<textid>TEXT_APP_AUDIT_LOG</textid>
 					<page>APPLICATION_LOG_BROWSER</page>
-					<image>/mam/default/localized/us/images/log.gif</image>
+					<image>/mam/default/localized/en-us/images/log.gif</image>
           <target></target>         
 				</menulink>     
         
@@ -208,7 +208,7 @@
           <order>170</order>
 					<textid>TEXT_VIEW_LAST_ERROR</textid>
 					<page>BATCH_ERROR_LIST_MENU_DIALOG</page>
-					<image>/mam/default/localized/us/images/smallerror.gif</image>
+					<image>/mam/default/localized/en-us/images/smallerror.gif</image>
           <target></target>         
 				</menulink> 
         				

@@ -185,7 +185,7 @@ Function WriteDateConfiguration(strWizardName)
   strHTML = strHTML & gobjMTFormsAddInputHint(FrameWork.GetDictionary("TEXT_WIZARD_PROMPT_EFFECTIVEDATE"))
     
   'strHTML = strHTML & gobjMTForms.AddDateInput(strInput, session(strInput), FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_STARTDATE"), 25, "<a href='#' onClick=""getCalendarForStartDate(document.WizardForm.NewPO_effectivedatestart);return false;""><img localized='true' src='/mcm/default/localized/en-us/images/popupcalendar.gif' width='16' height='16' border='0'></a>")
-strHTML = strHTML & "<tr><TD class='captionEW'><MDMLABEL Name='StartDate' type='Caption'>Effective Start Date</MDMLABEL>:&nbsp;&nbsp;</TD><TD><INPUT type='text' class='fieldRequired' size='20' id='StartDate' name='StartDate'><img style='cursor:pointer'  id='openCalendarStartDate' src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''/><div id='divStartDate' style='position:absolute'></div><script language='javascript' type='text/javascript'>generateDatePicker('StartDate','" & FrameWork.GetDictionary("JS_DATE_TIME_RENDERER") & "');</script></TD></tr>"
+  strHTML = strHTML & "<tr><TD class='captionEW'><MDMLABEL Name='StartDate' type='Caption'>Effective Start Date</MDMLABEL>:&nbsp;&nbsp;</TD><TD><INPUT type='text' class='fieldRequired' size='20' id='StartDate' name='StartDate'><img style='cursor:pointer'  id='openCalendarStartDate' src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''/><div id='divStartDate' style='position:absolute'></div><script language='javascript' type='text/javascript'>generateDatePicker('StartDate','" & FrameWork.GetDictionary("JS_DATE_TIME_RENDERER") & "');</script></TD></tr>"
 
 If Not(IsNull(Request.Form("StartDate"))) Then
     If mcm_IsDate(Request.Form("StartDate")) Then
@@ -210,34 +210,27 @@ End Function
 Function ValidateDateConfiguration(strWizardName)
 
   dim effDate
-
   ValidateDateConfiguration = FALSE  
 
   set session(strWizardName & "__ErrorMessage") = CreateObject("Scripting.Dictionary")  
-
-  If Not(IsNull(Request.Form("StartDate"))) Then       
+  If Not(IsNull(Request.Form("StartDate"))) Then     
         If Request.Form("StartDate") = "" Then
            Session(strWizardName & "_effectivedatestart")= Request.Form("StartDate")
-           effDate = Session(strWizardName & "_effectivedatestart")              
-        ElseIf mcm_IsDate(Request.Form("StartDate")) Then
-           Session(strWizardName & "_effectivedatestart")= CDate(Request.Form("StartDate")) 
-           effDate = Session(strWizardName & "_effectivedatestart") 
-        Else
-           Session(strWizardName & "__ErrorMessage").Add "Name", FrameWork.GetDictionary("MCM_ERROR_STARTDATE_INVALID")
-           Session(strWizardName & "_effectivedatestart") = ""
-           Exit Function ' Error
-        End If     
+           effDate = Session(strWizardName & "_effectivedatestart")
+        ElseIf Len(effDate) Then
+           If Not mcm_IsDate(effDate) Then
+              Session(strWizardName & "__ErrorMessage").Add "Name", FrameWork.GetDictionary("MCM_ERROR_STARTDATE_INVALID")
+              Session(strWizardName & "_effectivedatestart") = ""
+              Exit Function ' Error
+           Else
+              effDate = Request.Form("StartDate")
+              Session(strWizardName & "_effectivedatestart") = CDate(Request.Form("StartDate"))
+           End If     
+        End If
   End If
- 
 
-  If Len(effDate) Then  
-      If Not mcm_IsDate(effDate) Then      
-          Session(strWizardName & "__ErrorMessage").Add "Name", FrameWork.GetDictionary("MCM_ERROR_STARTDATE_INVALID")
-           Session(strWizardName & "_effectivedatestart") = ""
-          Exit Function ' Error
-      End If  
-  End If   
   ValidateDateConfiguration = TRUE
+
 End Function
 
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -429,7 +422,7 @@ Function WriteCurrencyConfiguration(strWizardName)
   strHTML = strHTML & gobjMTForms.OpenEditBoxTable("", "")
   strHTML = strHTML & gobjMTFormsAddInputHint(prompt_text)
   strHTML = strHTML & "<td><tr>&nbsp;</tr></td>"
-	strHTML = strHTML & gobjMTForms.AddSelectInputRequired(strInput, session(strInput), FrameWork.GetDictionary("TEXT_CURRENCY"), arrItem, arrValue, disable_txt)
+	strHTML = strHTML & gobjMTForms.AddSelectInputRequired(strInput, session(strInput), FrameWork.GetDictionary("TEXT_CURRENCY"), arrItem, arrItem, disable_txt)
   strHTML = strHTML & gobjMTForms.CloseEditBoxTable()
   strHTML = strHTML &  "<br><br>" & vbNewline  
   
@@ -491,7 +484,7 @@ Function WriteSummary(strWizardName)
                                             "", false, "", "", Array("right", "left"))
   strHTML = strHTML & gobjMTGrid.AddGridRow(Array(FrameWork.GetDictionary("TEXT_FIELD_DESCRIPTION"), SafeForHtmlAttr(session(strWizardName & "_Description"))), _
                                             "", false, "", "", Array("right", "left"))
-  strHTML = strHTML & gobjMTGrid.AddGridRow(Array(FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_STARTDATE"), SafeForHtmlAttr(mdm_Format(session(strWizardName & "_effectivedatestart"), FrameWork.GetDictionary("DATE_FORMAT")))), _
+  strHTML = strHTML & gobjMTGrid.AddGridRow(Array(FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_STARTDATE"), SafeForHtmlAttr(mdm_Format(session(strWizardName & "_effectivedatestart"), FrameWork.GetDictionary("DATE_TIME_FORMAT")))), _
                                             "", false, "", "", Array("right", "left"))
   strHTML = strHTML & gobjMTGrid.AddGridRow(Array(FrameWork.GetDictionary("TEXT_CURRENCY"), SafeForHtmlAttr(session(strWizardName & "_CurrencyCode"))), _
                                             "", false, "", "", Array("right", "left"))

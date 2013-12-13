@@ -16,4 +16,16 @@ namespace MetraTech.Domain.Quoting
         [EnumMember]
         Complete = 3
     };
+
+    [DataContract]
+    [Serializable]
+    public enum ActionStatus
+    {
+      [EnumMember]
+      None = 0,
+      [EnumMember]
+      StatusReport = 1,
+      [EnumMember]
+      StatusCleanup = 2
+    };
 }

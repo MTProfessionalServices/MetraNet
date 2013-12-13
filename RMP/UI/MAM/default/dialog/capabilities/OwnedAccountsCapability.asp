@@ -123,7 +123,7 @@ FUNCTION DynamicCapabilites(EventArg)
 	nCount = 1		
 	
   strHTML = strHTML & "<tr>"				 
-  strHTML = strHTML & "<td><img src='/mam/default/localized/us/images/info.gif'>&nbsp;Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own.</td>"
+  strHTML = strHTML & "<td><img src='/mam/default/localized/en-us/images/info.gif'>&nbsp;Permits MetraNet Users Hierarchy members to manage accounts that they or their subordinates own.</td>"
   strHTML = strHTML & "</tr>"
 	
 	For Each composite in Form("CompositeCollection")

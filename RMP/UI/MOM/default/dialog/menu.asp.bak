@@ -38,8 +38,8 @@ Option Explicit
   <head>
     <title>MetraTech Operations Menu</title>
 
-    <link rel="stylesheet" href="../../default/localized/us/styles/styles.css">
-    <link rel="stylesheet" href="../../default/localized/us/styles/DialogStyles.css">
+    <link rel="stylesheet" href="../../default/localized/en-us/styles/styles.css">
+    <link rel="stylesheet" href="../../default/localized/en-us/styles/DialogStyles.css">
       
     <!-- Includes for the menu -->  
     <script type="text/javascript" src="shared/mtmcode.js">
@@ -74,7 +74,7 @@ Option Explicit
       var MTMEmulateWE = false;
       
       // Directory of menu images/icons
-      var MTMenuImageDirectory = "/mom/default/localized/us/images/menu/";
+      var MTMenuImageDirectory = "/mom/default/localized/en-us/images/menu/";
       
       // Variables for controlling colors in the menu document.
       // Regular BODY atttributes as in HTML documents.
@@ -114,7 +114,7 @@ Option Explicit
       // Variables for style sheet usage
       // 'true' means use a linked style sheet.
       var MTMLinkedSS = false;
-      var MTMSSHREF = "../../default/localized/us/styles/MenuStyles.css";
+      var MTMSSHREF = "../../default/localized/en-us/styles/MenuStyles.css";
       
       // Whether you want an open sub-menu to close automagically
       // when another sub-menu is opened.  'true' means auto-close

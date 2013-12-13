@@ -11,12 +11,12 @@ Sub WriteErrorString(sError)
   response.write "    <TD>" & vbNewline
   response.Write "      <TABLE BGCOLOR=""WhiteSmoke"" BORDER=""0"" CELLSPACING=""0"" CELLPADDING=""0"" BGCOLOR=""WhiteSmoke"">" & vbNewline
   response.Write "        <TR>" & vbNewline
-  response.Write "          <TD WIDTH=10 HEIGHT=16><IMG SRC=""/mom/default/localized/us/images/spacer.gif"" WIDTH=""10"" HEIGHT=""16"" BORDER=""0""></TD>" & vbNewline
-  response.Write "          <TD VALIGN=""top""><IMG SRC=""/mom/default/localized/us/images/error.gif"" align=""center"" WIDTH=""38"" HEIGHT=""37"" BORDER=""0"" ></TD>" & vbNewline
+  response.Write "          <TD WIDTH=10 HEIGHT=16><IMG SRC=""/mom/default/localized/en-us/images/spacer.gif"" WIDTH=""10"" HEIGHT=""16"" BORDER=""0""></TD>" & vbNewline
+  response.Write "          <TD VALIGN=""top""><IMG SRC=""/mom/default/localized/en-us/images/error.gif"" align=""center"" WIDTH=""38"" HEIGHT=""37"" BORDER=""0"" ></TD>" & vbNewline
   response.Write "          <TD class=""clsErrorText""><BR>"
   response.Write sError
   response.Write "</TD>" & vbNewline
-  response.Write "          <TD WIDTH=10 HEIGHT=16><IMG SRC=""/mom/default/localized/us/images/spacer.gif"" WIDTH=""10"" HEIGHT=""16"" BORDER=""0""></TD>" & vbNewline
+  response.Write "          <TD WIDTH=10 HEIGHT=16><IMG SRC=""/mom/default/localized/en-us/images/spacer.gif"" WIDTH=""10"" HEIGHT=""16"" BORDER=""0""></TD>" & vbNewline
   response.Write "        </TR>" & vbNewline
   response.write "        <TR>" & vbNewline
   response.write "          <TD>&nbsp</TD>" & vbNewline
@@ -39,8 +39,8 @@ Sub WriteErrorObject(objErr)
   response.write "        <TD>" & vbNewline
   response.write "          <TABLE WIDTH=""100%"" BORDER=0 CELLSPACING=0 CELLPADDING=3 BGCOLOR=""WhiteSmoke"">" & vbNewline
   response.write "            <TR>" & vbNewline
-  response.write "              <TD WIDTH=""10"" HEIGHT=""16""><IMG SRC=""/mom/default/localized/us/images/spacer.gif"" WIDTH=""10"" HEIGHT=""16"" BORDER=""0""></TD>" & vbNewline
-  response.write "              <TD VALIGN=""top""><IMG SRC=""/mom/default/localized/us/images/error.gif"" WIDTH=38 HEIGHT=37 BORDER=0></TD>" & vbNewline
+  response.write "              <TD WIDTH=""10"" HEIGHT=""16""><IMG SRC=""/mom/default/localized/en-us/images/spacer.gif"" WIDTH=""10"" HEIGHT=""16"" BORDER=""0""></TD>" & vbNewline
+  response.write "              <TD VALIGN=""top""><IMG SRC=""/mom/default/localized/en-us/images/error.gif"" WIDTH=38 HEIGHT=37 BORDER=0></TD>" & vbNewline
   response.write "              <TD class=""clsErrorText"">" & vbNewline
   response.write "                <B>An Error Occured:</B><BR>" & vbNewline
   response.write "                <UL>" & vbNewline
@@ -49,7 +49,7 @@ Sub WriteErrorObject(objErr)
   response.write "                  <LI>Source: " &  err.source  & "<BR>" & vbNewline
   response.write "                </UL>" & vbNewline
   response.write "              </TD>" & vbNewline
-  response.write "              <TD width=""10"" height=""16"" src=""/mom/default/localized/us/images/spacer.gif"" width=10 height=16 border=0></td>" & vbNewline
+  response.write "              <TD width=""10"" height=""16"" src=""/mom/default/localized/en-us/images/spacer.gif"" width=10 height=16 border=0></td>" & vbNewline
   response.write "            </TR>" & vbNewline
   response.write "            <TR>" & vbNewline
   response.write "              <TD colspan=""4"">&nbsp;</td>" & vbNewline

@@ -254,7 +254,7 @@ PRIVATE FUNCTION Shared_ContainedParameterTables_DisplayCell(EventArg) ' As Bool
       if UCase(EventArg.Grid.SelectedProperty.Value) = "Y" then
         EventArg.HTMLRendered = ""
         EventArg.HTMLRendered = EventArg.HTMLRendered & "<td class='" & EventArg.Grid.CellClass & "'>"
-        'EventArg.HTMLRendered = EventArg.HTMLRendered & "<img src='" & Application("APP_HTTP_PATH") & "/default/localized/us/images/icons/check.gif'>"
+        'EventArg.HTMLRendered = EventArg.HTMLRendered & "<img src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/icons/check.gif'>"
         EventArg.HTMLRendered = EventArg.HTMLRendered & FrameWork.GetDictionary("TEXT_YES")
         EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>"
       else

@@ -18,17 +18,17 @@
  </link>
 
  <link id="MPTE_STYLESHEET1">
-   <value>/mcm/default/localized/us/styles/RuleEditor_styles.css</value>
+   <value>/mcm/default/localized/en-us/styles/RuleEditor_styles.css</value>
       <description></description>
     </link>
 
  <link id="MPTE_STYLESHEET2">
-   <value>/mcm/default/localized/us/styles/styles.css</value>
+   <value>/mcm/default/localized/en-us/styles/styles.css</value>
       <description></description>
  </link>
  
  <link id="MPTE_STYLESHEET3">
-   <value>/mcm/default/localized/us/styles/tab_styles.css</value>
+   <value>/mcm/default/localized/en-us/styles/tab_styles.css</value>
       <description></description>
  </link>
  

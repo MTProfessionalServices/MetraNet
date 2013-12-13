@@ -34,13 +34,13 @@ FUNCTION GetBillingGroupStateIcon(strState)
     
     Select Case strState
       Case BillingGroupStatus_Open
-        strImage= "../localized/us/images/intervals/IntervalStateOpen.gif"
+        strImage= "../localized/en-us/images/intervals/IntervalStateOpen.gif"
       Case BillingGroupStatus_SoftClosed
-        strImage= "../localized/us/images/intervals/IntervalStateSoftClosed.gif"
+        strImage= "../localized/en-us/images/intervals/IntervalStateSoftClosed.gif"
       Case BillingGroupStatus_HardClosed
-        strImage= "../localized/us/images/intervals/IntervalStateHardClosed.gif"
+        strImage= "../localized/en-us/images/intervals/IntervalStateHardClosed.gif"
       Case Else
-        strImage= "../localized/us/images/intervals/Interval.gif"
+        strImage= "../localized/en-us/images/intervals/Interval.gif"
     End Select
     
     GetBillingGroupStateIcon = strImage           
@@ -83,25 +83,25 @@ FUNCTION GetIntervalStateIcon(strState)
     dim strImage
     Select Case strState
             Case "New"
-              strImage= "../localized/us/images/intervals/IntervalState0.gif"
+              strImage= "../localized/en-us/images/intervals/IntervalState0.gif"
               'iState=0
             Case "Open"
-              strImage= "../localized/us/images/intervals/IntervalStateOpen.gif"
+              strImage= "../localized/en-us/images/intervals/IntervalStateOpen.gif"
               'iState=1
             Case "Soft Close Pending"
-              strImage= "../localized/us/images/intervals/IntervalState2.gif"
+              strImage= "../localized/en-us/images/intervals/IntervalState2.gif"
               'iState=2
             Case "Soft Closed"
-              strImage= "../localized/us/images/intervals/IntervalStateSoftClosed.gif"
+              strImage= "../localized/en-us/images/intervals/IntervalStateSoftClosed.gif"
               'iState=3
             Case "Hard Close Pending"
-              strImage= "../localized/us/images/intervals/IntervalState4.gif"
+              strImage= "../localized/en-us/images/intervals/IntervalState4.gif"
               'iState=4
             Case "Hard Closed"
-              strImage= "../localized/us/images/intervals/IntervalStateHardClosed.gif"
+              strImage= "../localized/en-us/images/intervals/IntervalStateHardClosed.gif"
               'iState=5
             Case Else
-              strImage= "../localized/us/images/intervals/Interval.gif"
+              strImage= "../localized/en-us/images/intervals/Interval.gif"
               'iState=-1
     End Select
     

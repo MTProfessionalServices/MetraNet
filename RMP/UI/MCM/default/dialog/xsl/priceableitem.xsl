@@ -32,13 +32,13 @@
       <td class="NavigationPaneItem" style="text-align:left;" colspan="2">
         <!--<a class="NavigationPaneItemA">
         <xsl:attribute name="href">javascript:NavigateToItem(<xsl:value-of select="id" />,<xsl:value-of select="kind" />);</xsl:attribute>-->
-        <img src="/mcm/default/localized/us/images/Icons/sectionContract.gif" alt="" border="0" align="absmiddle">
+        <img src="/mcm/default/localized/en-us/images/Icons/sectionContract.gif" alt="" border="0" align="absmiddle">
           <xsl:attribute name="id">img:<xsl:value-of select="id" /></xsl:attribute>
           <xsl:attribute name="onClick">ToggleRow('row:<xsl:value-of select="id" />', 'img:<xsl:value-of select="id" />');</xsl:attribute>
         </img>
 <!--   <xsl:choose>
   <xsl:when test="@kind='40'">
-        <img src="/mcm/default/localized/us/images/productcatalog/discount.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/en-us/images/productcatalog/discount.gif" alt="" border="0" align="absmiddle" />
   </xsl:when>
   <xsl:otherwise> -->
         <img alt="" border="0" align="absmiddle">
@@ -94,16 +94,16 @@
     <!--<xsl:choose>
     
        <xsl:when test="contains(paramtable_displayname, 'xxxRules')">
-        <img src="/mcm/default/localized/us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/en-us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>
        <xsl:when test="contains(paramtable_displayname, 'xxParameters')">
-        <img src="/mcm/default/localized/us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/en-us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>
        <xsl:when test="contains(paramtable_displayname, 'xxxBand')">
-        <img src="/mcm/default/localized/us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/en-us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>       
        <xsl:when test="contains(paramtable_displayname, 'xxxCalendar')">
-        <img src="/mcm/default/localized/us/images/productcatalog/calendar.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/en-us/images/productcatalog/calendar.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>
   <xsl:otherwise>-->
         <img alt="" border="0" align="absmiddle">

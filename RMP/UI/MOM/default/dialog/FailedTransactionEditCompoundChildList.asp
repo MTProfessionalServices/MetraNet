@@ -194,9 +194,9 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
                 PreProcessor.Add "SERVICE_NAME", mdm_GetDictionary().Item("TEXT_CHILD_TRANSACTION_LIST_SERVICE")
                 PreProcessor.Add "CLASS"       , Form.Grid.CellClass        
                 PreProcessor.Add "ASP_PAGE"    , "FailedTransactionEditCompoundProperties.asp"
-                PreProcessor.Add "IMAGE_EDIT"  , Application("APP_HTTP_PATH") & "/default/localized/us/images/edit.gif"
-                PreProcessor.Add "IMAGE_DELETE"  , Application("APP_HTTP_PATH") & "/default/localized/us/images/delete.gif"
-                PreProcessor.Add "IMAGE_VIEW"  , Application("APP_HTTP_PATH") & "/default/localized/us/images/icons/view.gif"
+                PreProcessor.Add "IMAGE_EDIT"  , Application("APP_HTTP_PATH") & "/default/localized/en-us/images/edit.gif"
+                PreProcessor.Add "IMAGE_DELETE"  , Application("APP_HTTP_PATH") & "/default/localized/en-us/images/delete.gif"
+                PreProcessor.Add "IMAGE_VIEW"  , Application("APP_HTTP_PATH") & "/default/localized/en-us/images/icons/view.gif"
                 PreProcessor.Add "ALT_VIEW"    , mdm_GetDictionary().Item("TEXT_VIEW").Value
                 PreProcessor.Add "ALT_EDIT"    , mdm_GetDictionary().Item("TEXT_EDIT").Value
                 
@@ -212,7 +212,7 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
             EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "' style='text-align:center'>&nbsp;"
             
             if lcase(ProductView.Properties.RowSet.Value("_Error"))="true" then
-              EventArg.HTMLRendered = EventArg.HTMLRendered  & "<img src='../localized/us/images/errorSmall.gif' alt='" & mdm_GetDictionary.Item("TEXT_FAILED_TRANSACTION_ERROR_MESSAGE").Value & "' border='0'>"
+              EventArg.HTMLRendered = EventArg.HTMLRendered  & "<img src='../localized/en-us/images/errorSmall.gif' alt='" & mdm_GetDictionary.Item("TEXT_FAILED_TRANSACTION_ERROR_MESSAGE").Value & "' border='0'>"
             end if
             EventArg.HTMLRendered = EventArg.HTMLRendered  & "</td>"
               '  ProductView.Properties.RowSet.Value("State") & "<button class='clsButtonBlueSmall' name='EditMapping' onclick=""window.open('protoIntervalManagement.asp?','', 'height=100,width=100, resizable=yes, scrollbars=yes, status=yes')"">" & "Change" &  "</button></td>" 
@@ -220,7 +220,7 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
 
          Case "xstate"
             EventArg.HTMLRendered     =  "<td class='" & Form.Grid.CellClass & "'>" & _
-              ProductView.Properties.RowSet.Value("State") & "&nbsp;&nbsp;<a href=''><img src='../localized/us/images/edit.gif' width='11' height='17' alt='' border='0'></a></td>"
+              ProductView.Properties.RowSet.Value("State") & "&nbsp;&nbsp;<a href=''><img src='../localized/en-us/images/edit.gif' width='11' height='17' alt='' border='0'></a></td>"
               '  ProductView.Properties.RowSet.Value("State") & "<button class='clsButtonBlueSmall' name='EditMapping' onclick=""window.open('protoIntervalManagement.asp?','', 'height=100,width=100, resizable=yes, scrollbars=yes, status=yes')"">" & "Change" &  "</button></td>" 
          
   			    Form_DisplayCell = TRUE

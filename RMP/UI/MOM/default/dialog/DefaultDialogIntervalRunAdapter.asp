@@ -55,11 +55,11 @@ end sub
          Running Adapters...
       </title>
       <link rel='STYLESHEET' type='text/css' href=
-      '/mom/default/localized/us/styles/DialogStyles.css'>
+      '/mom/default/localized/en-us/styles/DialogStyles.css'>
       <link rel='STYLESHEET' type='text/css' href=
-      '/mom/default/localized/us/styles/MenuStyles.css'>
+      '/mom/default/localized/en-us/styles/MenuStyles.css'>
       <link rel='STYLESHEET' type='text/css' href=
-      '/mom/default/localized/us/styles/styles.css'>
+      '/mom/default/localized/en-us/styles/styles.css'>
    </head>
    <body class="clsInnerBody">
       <table border="0" cellpadding="0" cellspacing="0" width="100%">

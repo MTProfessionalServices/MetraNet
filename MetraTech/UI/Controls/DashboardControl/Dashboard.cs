@@ -16,10 +16,10 @@ namespace MetraTech.UI.Controls
 {
   [ToolboxData("<{0}:Dashboard runat=server></{0}:Dashboard>")]
   public class Dashboard : WebControl, IPostBackDataHandler
-  {   
+  {
     #region Properties
     private MetraTech.Logger mtLog = new Logger("[Dashboard]");
-       
+
     private Guid dashboardID;
     public Guid DashboardID
     {
@@ -120,15 +120,15 @@ namespace MetraTech.UI.Controls
 
       if (site != null)
       {
-        foreach(Core.UI.Dashboard dashboard in site.Dashboards)
+        foreach (Core.UI.Dashboard dashboard in site.Dashboards)
         {
-            //CORE-3994: Allow to download dashboard for new MetraView site
-            this.Name = dashboard.DashboardBusinessKey.Name;
-            if (this.Name.Equals(dashboard.DashboardBusinessKey.Name))
-            {
-                LoadDashboardFromBME(dashboard);
-                break;
-            }
+          //CORE-3994: Allow to download dashboard for new MetraView site
+          this.Name = dashboard.DashboardBusinessKey.Name;
+          if (this.Name.Equals(dashboard.DashboardBusinessKey.Name))
+          {
+            LoadDashboardFromBME(dashboard);
+            break;
+          }
         }
       }
     }
@@ -151,11 +151,11 @@ namespace MetraTech.UI.Controls
     }
     #endregion
 
-
-
     protected void CreateWidgets(DashboardColumn column)
     {
-      foreach (BaseWidget widget in column.Widgets)
+      var widgets = column.Widgets.OrderBy(w => w.Position).ToList();
+
+      foreach (BaseWidget widget in widgets)
       {
         //create wrapper
         string widgetWrapperClass = string.Format("box{0}", EnumHelper.GetValueByEnum(column.Width).ToString()); //"dashboard-widget-wrapper";
@@ -202,7 +202,7 @@ namespace MetraTech.UI.Controls
       }
 
       //new line
-   //   Controls.Add(new LiteralControl("<div class='space-line'></div>"));
+      //   Controls.Add(new LiteralControl("<div class='space-line'></div>"));
     }
 
     protected void CreateColumns()
@@ -346,7 +346,7 @@ namespace MetraTech.UI.Controls
           }
         }
       }
-        
+
       return null;
     }
 

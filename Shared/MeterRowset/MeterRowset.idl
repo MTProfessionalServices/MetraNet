@@ -164,6 +164,8 @@ import "rowsetinterfaces.idl";
     [propput, id(29), helpstring("property ListenerTransactionID")]
 		HRESULT ListenerTransactionID([in] BSTR TransactionID);
 
+		[id(30), helpstring("method WaitForCommitWithPause")] HRESULT WaitForCommitWithPause([in] long lExpectedCommitCount, [in] long lTimeOutInSeconds, [in] long lpause);
+
 	};
 
 [

@@ -26,6 +26,10 @@ public partial class EntryPointPage : MTPage
     string URL = Request.QueryString["URL"];
     string Name = Request.QueryString["Name"];
     string refstr = Request.QueryString["ref"];
+    //Set session variables to logout from asp applications when MetraView user logs out. Valid only when MetraView is loaded from MetraCare
+    Session["IsMAMActive"] = string.IsNullOrEmpty(Request.QueryString["IsMAMActive"]) ? "" : Request.QueryString["IsMAMActive"];
+    Session["IsMOMActive"] = string.IsNullOrEmpty(Request.QueryString["IsMOMActive"]) ? "" : Request.QueryString["IsMOMActive"];
+    Session["IsMCMActive"] = string.IsNullOrEmpty(Request.QueryString["IsMCMActive"]) ? "" : Request.QueryString["IsMCMActive"];
 
     // Get URL for entrypoint name
     if(!String.IsNullOrEmpty(Name))

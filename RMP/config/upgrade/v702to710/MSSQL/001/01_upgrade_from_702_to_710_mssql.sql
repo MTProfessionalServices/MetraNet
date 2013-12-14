@@ -22,6 +22,14 @@ SET TRANSACTION ISOLATION LEVEL SERIALIZABLE
 GO
 BEGIN TRANSACTION
 GO
+PRINT N'Dropping constraints from [dbo].[agg_decision_audit_trail]'
+GO
+ALTER TABLE [dbo].[agg_decision_audit_trail] DROP CONSTRAINT [agg_dec_audit_trail_pk]
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
 PRINT N'Dropping constraints from [dbo].[agg_decision_rollover]'
 GO
 ALTER TABLE [dbo].[agg_decision_rollover] DROP CONSTRAINT [agg_dec_rollover_pk]
@@ -29,6 +37,82 @@ GO
 IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
 GO
 IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Dropping constraints from [dbo].[mvm_change_tracking_status]'
+GO
+ALTER TABLE [dbo].[mvm_change_tracking_status] DROP CONSTRAINT [mvm_change_tracking_status_pk]
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Dropping constraints from [dbo].[mvm_scheduled_tasks]'
+GO
+ALTER TABLE [dbo].[mvm_scheduled_tasks] DROP CONSTRAINT [pk_mvm_scheduled_tasks]
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Dropping constraints from [dbo].[mvm_scheduled_tasks]'
+GO
+ALTER TABLE [dbo].[mvm_scheduled_tasks] DROP CONSTRAINT [DF__mvm_sched__mvm_s__65570293]
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Dropping constraints from [dbo].[mvm_scheduled_tasks]'
+GO
+ALTER TABLE [dbo].[mvm_scheduled_tasks] DROP CONSTRAINT [DF__mvm_sched__mvm_s__664B26CC]
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Dropping constraints from [dbo].[mvm_scheduled_tasks]'
+GO
+ALTER TABLE [dbo].[mvm_scheduled_tasks] DROP CONSTRAINT [DF__mvm_sched__mvm_s__673F4B05]
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Dropping constraints from [dbo].[mvm_scheduled_tasks]'
+GO
+ALTER TABLE [dbo].[mvm_scheduled_tasks] DROP CONSTRAINT [DF__mvm_sched__mvm_t__68336F3E]
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Dropping constraints from [dbo].[mvm_scheduled_tasks]'
+GO
+ALTER TABLE [dbo].[mvm_scheduled_tasks] DROP CONSTRAINT [DF__mvm_sched__mvm_p__69279377]
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Dropping index [agg_dec_audit_ndx] from [dbo].[agg_decision_audit_trail]'
+GO
+DROP INDEX [agg_dec_audit_ndx] ON [dbo].[agg_decision_audit_trail]
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Dropping [dbo].[mvm_resubmitted_messages]'
+GO
+DROP TABLE [dbo].[mvm_resubmitted_messages]
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Dropping [dbo].[RemoveGroupSubscription_Quoting]'
+GO
+DROP PROCEDURE [dbo].[RemoveGroupSubscription_Quoting]
 GO
 PRINT N'Dropping index [idx_tax_run1] from [dbo].[t_tax_run]'
 GO
@@ -86,6 +170,19 @@ IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
 GO
 IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
 GO
+PRINT N'Create [dbo].[mvm_change_tracking_nodes]'
+GO
+CREATE TABLE [dbo].[mvm_change_tracking_nodes]
+(
+[logical_cluster_name] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+[node_count] [int] NOT NULL
+)
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+
 PRINT N'Dropping [dbo].[CreateUsagePartitions]'
 GO
 DROP PROCEDURE [dbo].[CreateUsagePartitions]
@@ -129,14 +226,6 @@ GO
 PRINT N'Dropping [dbo].[prtn_GetNextAllowRunDate]'
 GO
 DROP PROCEDURE [dbo].[prtn_GetNextAllowRunDate]
-GO
-IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
-GO
-IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
-GO
-PRINT N'Dropping [dbo].[RemoveGroupSubscription_Quoting]'
-GO
-DROP PROCEDURE [dbo].[RemoveGroupSubscription_Quoting]
 GO
 IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
 GO
@@ -3999,9 +4088,398 @@ IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
 GO
 IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
 GO
-PRINT N'Altering [dbo].[ReconcileUsageForward]'
+PRINT N'Altering [dbo].[mvm_resubmit_runs]'
 GO
-ALTER PROCEDURE [dbo].[ReconcileUsageForward]
+ALTER TABLE [dbo].[mvm_resubmit_runs] ADD
+[msg_count] [int] NULL,
+[ss_count] [int] NULL,
+[s_count] [int] NULL
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+ALTER TABLE [dbo].[mvm_resubmit_runs] ALTER COLUMN [resubmit_date] [datetime] NULL
+ALTER TABLE [dbo].[mvm_resubmit_runs] ALTER COLUMN [dt_started] [datetime] NULL
+ALTER TABLE [dbo].[mvm_resubmit_runs] ALTER COLUMN [dt_completed] [datetime] NULL
+ALTER TABLE [dbo].[mvm_resubmit_runs] ALTER COLUMN [dt_assigned] [datetime] NULL
+ALTER TABLE [dbo].[mvm_resubmit_runs] ALTER COLUMN [range_start_date] [datetime] NULL
+ALTER TABLE [dbo].[mvm_resubmit_runs] ALTER COLUMN [range_end_date] [datetime] NULL
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating [dbo].[GetReconcileParameters]'
+GO
+CREATE PROCEDURE [dbo].[GetReconcileParameters]
+    @do_recovery INT OUTPUT,
+    @dt_min      DATETIME OUTPUT,
+    @dt_max      DATETIME OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    /******************************************
+     ** SET DEFAULTS
+     ******************************************/
+    SET @do_recovery = 1
+
+    SELECT TOP 1 @dt_min = range_end_date
+    FROM mvm_resubmit_runs
+    WHERE dt_completed > dbo.MTMinDate()
+    ORDER BY dt_completed DESC
+
+	IF(@@ROWCOUNT = 0 OR @dt_min IS NULL)
+	BEGIN
+        SET @dt_min = dbo.MTMinDate()
+    END
+	
+    /******************************************
+     ** IF there is usage then we get the current 
+     ** value, otherwise we fall back to the set 
+     ** default above 
+     ******************************************/
+    SELECT @dt_max = MAX(dt_completed) FROM t_message where dt_completed BETWEEN @dt_min and dbo.metratime(1,'RAMP')
+	IF(@dt_max IS NULL)
+	BEGIN
+        SET @do_recovery = 0;
+        SET @dt_min = dbo.MTMinDate()
+        SET @dt_max = dbo.MTMinDate()
+        RETURN;
+    END
+
+    IF @dt_max = @dt_min
+    BEGIN
+        SET @do_recovery = 0;
+    END
+END
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating [dbo].[InsertResubmitAudit]'
+GO
+CREATE PROCEDURE [dbo].[InsertResubmitAudit]
+    @dt_reconcile   DATETIME OUTPUT,
+    @dt_range_start DATETIME,
+    @dt_range_end   DATETIME
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SET @dt_reconcile = GETUTCDATE()
+    INSERT INTO mvm_resubmit_runs (resubmit_date, dt_started, range_start_date, range_end_date)
+                VALUES(@dt_reconcile, @dt_reconcile, @dt_range_start, @dt_range_end);
+END
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Altering [dbo].[mvm_is_partitioned]'
+GO
+ALTER
+PROCEDURE [dbo].[mvm_is_partitioned](
+    @p_table  VARCHAR(4000),           -- table to bulk update
+    @p_is_partitioned integer OUTPUT -- table we created
+  )
+AS
+begin
+	declare @errmsg VARCHAR(4000)
+
+	--determine if table is partioned
+	set @p_is_partitioned=-1
+	if (EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE' AND TABLE_NAME=@p_table))
+	begin
+		set @p_is_partitioned=0
+	end
+	else
+		begin try
+       -- N_DEFAULT is not present in the non partitioned database or in the native partitioned database (MetraNet 7.x and later)
+       -- Adding a check so that not partitioned returns when N_DEFAULT is not found. This will work on all versions of MetraNet
+       -- as the reason for the check is to see if SQL Server partitioned Views are used.
+		   if (EXISTS (SELECT 1 from SYS.DATABASES where NAME = 'N_DEFAULT'))
+		   BEGIN
+			   if (EXISTS (SELECT 1 FROM n_default.INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE' AND TABLE_NAME=@p_table))
+			   begin
+				   set @p_is_partitioned=1
+			   end
+       end
+		end try
+		begin catch
+		end catch;
+
+	if @p_is_partitioned=-1
+	begin
+ 		select @errmsg = 'Error, table ['+@p_table+'] does not appear in either n_default.INFORMATION_SCHEMA.TABLES or INFORMATION_SCHEMA.TABLES'
+		RAISERROR (@errmsg, 16, 1)
+	end
+end
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Altering [dbo].[mvm_create_blk_del_table2]'
+GO
+ALTER
+PROCEDURE [dbo].[mvm_create_blk_del_table2](
+    @p_table  VARCHAR(4000),           -- table to bulk delete
+    @p_prefix VARCHAR(4000),           -- prefix on blk_del_table name
+    @p_mvm_run_id INTEGER,           --  identifier of mvm run
+    @p_node_id VARCHAR(4000),           --  identifier of mvm node_id
+    @p_blk_del_table VARCHAR(4000) OUTPUT -- table we created
+  )
+AS
+begin
+	declare @sql table(s varchar(1000), id int identity)
+	declare @guid uniqueidentifier
+	declare @is_partitioned integer
+
+	--determine if table is partioned
+	exec mvm_is_partitioned @p_table=@p_table, @p_is_partitioned=@is_partitioned OUTPUT
+	--print 'is_partitioned='+CONVERT(varchar(5), @is_partitioned)
+
+
+	-- name of tmp bulk delete table
+	select @p_blk_del_table=substring(@p_prefix + replace( newid(),'-',''),0,30)
+	while (EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE' AND TABLE_NAME=@p_blk_del_table))
+	begin
+		select @p_blk_del_table=substring(@p_prefix+replace( newid(),'-',''),0,30)
+	end
+
+	-- create statement
+	insert into  @sql(s) values ('create table [' + @p_blk_del_table + '] (')
+
+  -- create all primary key columns as non-null allowable
+	if(@is_partitioned=0)
+	begin
+		insert into @sql(s)
+		SELECT 	'  ['+c.column_name+'] '+c.data_type + coalesce('('+cast(c.character_maximum_length as varchar)+')','') + ','
+		FROM information_schema.table_constraints a
+		INNER JOIN information_schema.key_column_usage b ON a.constraint_name = b.CONSTRAINT_NAME
+    		INNER JOIN information_schema.columns c on a.TABLE_NAME = c.TABLE_NAME and b.COLUMN_NAME = c.COLUMN_NAME
+		WHERE a.constraint_type = 'PRIMARY KEY'
+		AND a.table_name = @p_table
+		order by b.ordinal_position
+	end
+	else
+	begin
+		insert into @sql(s)
+		SELECT 	'  ['+c.column_name+'] '+c.data_type + coalesce('('+cast(c.character_maximum_length as varchar)+')','') + ','
+		FROM n_default.information_schema.table_constraints a
+		INNER JOIN n_default.information_schema.key_column_usage b ON a.constraint_name = b.CONSTRAINT_NAME
+    		INNER JOIN n_default.information_schema.columns c on a.TABLE_NAME = c.TABLE_NAME and b.COLUMN_NAME = c.COLUMN_NAME
+		WHERE a.constraint_type = 'PRIMARY KEY'
+		AND a.table_name = @p_table
+		order by b.ordinal_position
+	end
+		
+
+	-- add primary key
+	insert into @sql(s) values( ' CONSTRAINT pk_' + @p_blk_del_table + ' PRIMARY KEY (' )
+
+	-- add primary key columns 
+	if(@is_partitioned=0)
+	begin
+		insert into @sql(s)
+		SELECT ' '+ b.column_name + ','
+		FROM information_schema.table_constraints a
+		INNER JOIN information_schema.key_column_usage b ON a.constraint_name = b.CONSTRAINT_NAME
+		WHERE a.constraint_type = 'PRIMARY KEY'
+		AND a.table_name = @p_table
+		order by ordinal_position
+	end
+	else
+	begin
+		insert into @sql(s)
+		SELECT ' '+ b.column_name + ','
+		FROM n_default.information_schema.table_constraints a
+		INNER JOIN n_default.information_schema.key_column_usage b ON a.constraint_name = b.CONSTRAINT_NAME
+		WHERE a.constraint_type = 'PRIMARY KEY'
+		AND a.table_name = @p_table
+		order by ordinal_position
+	end
+
+	-- remove trailing comma
+	update @sql set s=left(s,len(s)-1) where id=(select max(id) from @sql) --@@identity
+	
+	-- PK closing bracket
+	insert into @sql(s) values( ')' )
+
+	-- create closing bracket
+	insert into @sql(s) values( ')' )
+
+		-- result!
+	declare @stmt varchar(8000)
+	SELECT @stmt = coalesce(@stmt + CHAR(13)+ CHAR(10), '') + s
+	FROM @sql
+	order by id
+
+	--print @stmt
+	EXECUTE( 'begin '+@stmt+' end')
+
+	insert into amp_staging_tables (mvm_run_id, node_id, staging_table_name, create_dt) values(@p_mvm_run_id, @p_node_id, @p_blk_del_table, getdate())
+end
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Altering [dbo].[mvm_create_blk_ins_table2]'
+GO
+ALTER
+PROCEDURE [dbo].[mvm_create_blk_ins_table2](
+    @p_table  VARCHAR(4000),           -- table to bulk update
+    @p_prefix VARCHAR(4000),           -- prefix on blk_upd_table name
+    @p_mvm_run_id INTEGER,           --  identifier of mvm run
+    @p_node_id VARCHAR(4000),           --  identifier of mvm node_id
+    @p_blk_upd_table VARCHAR(4000) OUTPUT -- table we created
+  )
+AS
+begin
+	declare @sql table(s varchar(1000), id int identity)
+	declare @guid uniqueidentifier
+	declare @is_partitioned integer
+
+	--determine if table is partioned
+	exec mvm_is_partitioned @p_table=@p_table, @p_is_partitioned=@is_partitioned OUTPUT
+	--print 'is_partitioned='+CONVERT(varchar(5), @is_partitioned)
+
+	-- name of tmp bulk update table
+	select @p_blk_upd_table=substring(@p_prefix + replace( newid(),'-',''),0,30)
+	while (EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE' AND TABLE_NAME=@p_blk_upd_table))
+	begin
+		select @p_blk_upd_table=substring(@p_prefix+replace( newid(),'-',''),0,30)
+	end
+
+	-- create statement
+	insert into  @sql(s) values ('create table [' + @p_blk_upd_table + '] (')
+
+	-- add columns all null allowable
+if(@is_partitioned=0)
+begin
+	insert into @sql(s)
+	select
+	'  ['+column_name+'] '+data_type + case data_type when 'numeric' then '('+cast(numeric_precision as varchar)+',' + cast(numeric_scale as varchar) +')' else coalesce('('+cast(character_maximum_length as varchar)+')','') end + ' NULL,'
+	from information_schema.columns where table_name = @p_table
+	order by ordinal_position
+end
+else
+begin
+	insert into @sql(s)
+	select
+	'  ['+column_name+'] '+data_type + case data_type when 'numeric' then '('+cast(numeric_precision as varchar)+',' + cast(numeric_scale as varchar) +')' else coalesce('('+cast(character_maximum_length as varchar)+')','') end + ' NULL,'
+	from n_default.information_schema.columns where table_name = @p_table
+	order by ordinal_position
+end
+
+	-- remove trailing comma
+	update @sql set s=left(s,len(s)-1) where id=(select max(id) from @sql) --@@identity
+	
+	-- create closing bracket
+	insert into @sql(s) values( ')' )
+
+		-- result!
+	declare @stmt varchar(8000)
+	SELECT @stmt = coalesce(@stmt + CHAR(13)+ CHAR(10), '') + s
+	FROM @sql
+	order by id
+
+	--select @stmt
+	EXECUTE( 'begin '+@stmt+' end')
+
+	insert into amp_staging_tables (mvm_run_id, node_id, staging_table_name, create_dt) values(@p_mvm_run_id, @p_node_id, @p_blk_upd_table, getdate())
+end
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating [dbo].[mvm_create_uk_table]'
+GO
+create
+PROCEDURE [dbo].[mvm_create_uk_table](
+    @p_table  VARCHAR(4000),           -- table to bulk update
+    @p_prefix VARCHAR(4000),           -- prefix on blk_upd_table name
+    @p_mvm_run_id INTEGER,           --  identifier of mvm run
+    @p_node_id VARCHAR(4000),           --  identifier of mvm node_id
+    @p_tmp_table VARCHAR(4000) OUTPUT -- table we created
+  )
+AS
+begin
+	declare @sql table(s varchar(1000), id int identity)
+	declare @guid uniqueidentifier
+	declare @is_partitioned integer
+
+	--determine if table is partioned
+	exec mvm_is_partitioned @p_table=@p_table, @p_is_partitioned=@is_partitioned OUTPUT
+	--print 'is_partitioned='+CONVERT(varchar(5), @is_partitioned)
+
+	-- name of tmp bulk update table
+	select @p_tmp_table=substring(@p_prefix + replace( newid(),'-',''),0,30)
+	while (EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE' AND TABLE_NAME=@p_tmp_table))
+	begin
+		select @p_tmp_table=substring(@p_prefix+replace( newid(),'-',''),0,30)
+	end
+
+	-- create statement
+	insert into  @sql(s) values ('create table [' + @p_tmp_table + '] (')
+
+	-- add columns all null allowable
+if(@is_partitioned=0)
+begin
+	insert into @sql(s)
+	select
+	'  ['+column_name+'] '+data_type + case data_type when 'numeric' then '('+cast(numeric_precision as varchar)+',' + cast(numeric_scale as varchar) +')' else coalesce('('+cast(character_maximum_length as varchar)+')','') end + ' NULL,'
+	from information_schema.columns where table_name = 't_acc_usage' and column_name = 'tx_uid'
+	order by ordinal_position
+	insert into @sql(s)
+	select
+	'  ['+column_name+'] '+data_type + case data_type when 'numeric' then '('+cast(numeric_precision as varchar)+',' + cast(numeric_scale as varchar) +')' else coalesce('('+cast(character_maximum_length as varchar)+')','') end + ' NULL,'
+	from information_schema.columns where table_name = @p_table and column_name not in ('id_usage_interval', 'id_sess', 'tx_uid')
+	order by ordinal_position
+end
+else
+begin
+	insert into @sql(s)
+	select
+	'  ['+column_name+'] '+data_type + case data_type when 'numeric' then '('+cast(numeric_precision as varchar)+',' + cast(numeric_scale as varchar) +')' else coalesce('('+cast(character_maximum_length as varchar)+')','') end + ' NULL,'
+	from n_default.information_schema.columns where table_name = 't_acc_usage' and column_name = 'tx_uid'
+	order by ordinal_position
+	insert into @sql(s)
+	select
+	'  ['+column_name+'] '+data_type + case data_type when 'numeric' then '('+cast(numeric_precision as varchar)+',' + cast(numeric_scale as varchar) +')' else coalesce('('+cast(character_maximum_length as varchar)+')','') end + ' NULL,'
+	from n_default.information_schema.columns where table_name = @p_table and column_name not in ('id_usage_interval', 'id_sess', 'tx_uid')
+	order by ordinal_position
+end
+
+	-- remove trailing comma
+	update @sql set s=left(s,len(s)-1) where id=(select max(id) from @sql) --@@identity
+	
+	-- create closing bracket
+	insert into @sql(s) values( ')' )
+
+		-- result!
+	declare @stmt varchar(8000)
+	SELECT @stmt = coalesce(@stmt + CHAR(13)+ CHAR(10), '') + s
+	FROM @sql
+	order by id
+
+	--select @stmt
+	EXECUTE( 'begin '+@stmt+' end')
+
+	insert into amp_staging_tables (mvm_run_id, node_id, staging_table_name, create_dt) values(@p_mvm_run_id, @p_node_id, @p_tmp_table, getdate())
+end
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Create [dbo].[ReconcileUsageForward]'
+GO
+CREATE PROCEDURE [dbo].[ReconcileUsageForward]
     @WindowBegin DATETIME,
     @WindowEnd DATETIME,
 	@SafeDate DATETIME
@@ -4499,6 +4977,33 @@ IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
 GO
 IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
 GO
+PRINT N'Creating [dbo].[UpdateResubmitAudit]'
+GO
+CREATE PROCEDURE [dbo].[UpdateResubmitAudit]
+    @dt_reconcile   DATETIME,
+    @dt_range_start DATETIME,
+    @dt_range_end   DATETIME,
+    @msg_count      INT,
+    @ss_count       INT,
+    @s_count        INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    UPDATE mvm_resubmit_runs
+    SET dt_completed = GETUTCDATE(), dt_assigned  = GETUTCDATE()
+    ,msg_count    = @msg_count
+    ,ss_count     = @ss_count
+    ,s_count      = @s_count
+    WHERE  1=1
+    AND resubmit_date    = @dt_reconcile
+--    AND range_start_date = @dt_range_start
+--    AND range_end_date   = @dt_range_end
+END
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
 PRINT N'Altering [dbo].[apply_subscriptions_to_acc]'
 GO
 ALTER PROCEDURE [dbo].[apply_subscriptions_to_acc] (
@@ -4863,6 +5368,44 @@ IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
 GO
 IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
 GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Altering [dbo].[mvm_scheduled_tasks]'
+GO
+ALTER TABLE [dbo].[mvm_scheduled_tasks] ADD
+[is_scheduled] [varchar] (10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[mvm_error_msg] [varchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating primary key [pk_mvm_scheduled_tasks] on [dbo].[mvm_scheduled_tasks]'
+GO
+ALTER TABLE [dbo].[mvm_scheduled_tasks] ADD CONSTRAINT [pk_mvm_scheduled_tasks] PRIMARY KEY CLUSTERED  ([mvm_task_guid])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating index [mvm_scheduled_tasks_ndx1] on [dbo].[mvm_scheduled_tasks]'
+GO
+CREATE NONCLUSTERED INDEX [mvm_scheduled_tasks_ndx1] ON [dbo].[mvm_scheduled_tasks] ([mvm_scheduled_dt], [is_scheduled], [mvm_logical_cluster])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating index [mvm_scheduled_tasks_ndx2] on [dbo].[mvm_scheduled_tasks]'
+GO
+CREATE NONCLUSTERED INDEX [mvm_scheduled_tasks_ndx2] ON [dbo].[mvm_scheduled_tasks] ([mvm_poll_guid])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
 PRINT N'Altering [dbo].[t_tax_run]'
 GO
 ALTER TABLE [dbo].[t_tax_run] ADD
@@ -4958,6 +5501,71 @@ IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
 GO
 IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
 GO
+PRINT N'Altering [dbo].[agg_decision_audit_trail]'
+GO
+ALTER TABLE [dbo].[agg_decision_audit_trail] ALTER COLUMN [start_date] [datetime] NULL
+ALTER TABLE [dbo].[agg_decision_audit_trail] ALTER COLUMN [end_date] [datetime] NOT NULL
+ALTER TABLE [dbo].[agg_decision_audit_trail] ALTER COLUMN [finalization_date] [datetime] NULL
+ALTER TABLE [dbo].[agg_decision_audit_trail] ALTER COLUMN [expiration_date] [datetime] NULL
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating primary key [agg_dec_audit_trail_pk] on [dbo].[agg_decision_audit_trail]'
+GO
+ALTER TABLE [dbo].[agg_decision_audit_trail] ADD CONSTRAINT [agg_dec_audit_trail_pk] PRIMARY KEY CLUSTERED  ([decision_unique_id], [id_usage_interval], [end_date])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating index [agg_dec_audit_ndx] on [dbo].[agg_decision_audit_trail]'
+GO
+CREATE UNIQUE NONCLUSTERED INDEX [agg_dec_audit_ndx] ON [dbo].[agg_decision_audit_trail] ([id_acc], [id_usage_interval], [decision_unique_id], [end_date])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating [dbo].[agg_bundle_old_pos]'
+GO
+CREATE TABLE [dbo].[agg_bundle_old_pos]
+(
+[id_po] [int] NULL
+)
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating index [agg_bundle_old_pos_ndx] on [dbo].[agg_bundle_old_pos]'
+GO
+CREATE NONCLUSTERED INDEX [agg_bundle_old_pos_ndx] ON [dbo].[agg_bundle_old_pos] ([id_po])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating [dbo].[agg_bundle_new_pos]'
+GO
+CREATE TABLE [dbo].[agg_bundle_new_pos]
+(
+[id_po] [int] NULL
+)
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating index [agg_bundle_new_pos_ndx] on [dbo].[agg_bundle_new_pos]'
+GO
+CREATE NONCLUSTERED INDEX [agg_bundle_new_pos_ndx] ON [dbo].[agg_bundle_new_pos] ([id_po])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
 PRINT N'Creating [dbo].[Metadata]'
 GO
 CREATE TABLE [dbo].[Metadata]
@@ -5002,6 +5610,41 @@ IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
 GO
 IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
 GO
+PRINT N'Creating [dbo].[mvm_cluster_history]'
+GO
+CREATE TABLE [dbo].[mvm_cluster_history]
+(
+[physical_cluster] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+[dt_started] [date] NOT NULL,
+[dt_stopped] [date] NULL
+)
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating [dbo].[mvm_cluster_run_history]'
+GO
+CREATE TABLE [dbo].[mvm_cluster_run_history]
+(
+[physical_cluster] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+[dt_started] [datetime] NOT NULL,
+[dt_stopped] [datetime] NULL
+)
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating primary key [mvm_cluster_run_history_pk] on [dbo].[mvm_cluster_run_history]'
+GO
+ALTER TABLE [dbo].[mvm_cluster_run_history] ADD CONSTRAINT [mvm_cluster_run_history_pk] PRIMARY KEY CLUSTERED  ([physical_cluster], [dt_started])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+
 PRINT N'Rebuilding [dbo].[agg_decision_rollover]'
 GO
 CREATE TABLE [dbo].[tmp_rg_xx_agg_decision_rollover]
@@ -5052,6 +5695,46 @@ GO
 PRINT N'Creating primary key [agg_dec_rollover_pk] on [dbo].[agg_decision_rollover]'
 GO
 ALTER TABLE [dbo].[agg_decision_rollover] ADD CONSTRAINT [agg_dec_rollover_pk] PRIMARY KEY CLUSTERED  ([id_acc], [id_usage_interval], [end_date], [decision_unique_id], [rollover_action])
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Rebuilding [dbo].[mvm_change_tracking_status]'
+GO
+CREATE TABLE [dbo].[tmp_rg_xx_mvm_change_tracking_status]
+(
+[logical_cluster_name] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+[table_name] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+[last_transaction_id] [varchar] (1000) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[last_transaction_date] [datetime] NULL
+)
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+INSERT INTO [dbo].[tmp_rg_xx_mvm_change_tracking_status]([logical_cluster_name], [table_name], [last_transaction_id], [last_transaction_date]) SELECT [logical_cluster_name], '_NONE_', [last_transaction_id], [last_transaction_date] FROM [dbo].[mvm_change_tracking_status]
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+DROP TABLE [dbo].[mvm_change_tracking_status]
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+EXEC sp_rename N'[dbo].[tmp_rg_xx_mvm_change_tracking_status]', N'mvm_change_tracking_status'
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Creating primary key [mvm_change_tracking_status_pk] on [dbo].[mvm_change_tracking_status]'
+GO
+ALTER TABLE [dbo].[mvm_change_tracking_status] ADD CONSTRAINT [mvm_change_tracking_status_pk] PRIMARY KEY CLUSTERED  ([logical_cluster_name], [table_name])
 GO
 IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
 GO
@@ -5839,6 +6522,30 @@ GO
 IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
 GO
 IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+PRINT N'Altering extended properties'
+GO
+EXEC sp_updateextendedproperty N'MS_Description', 'Tells the calculate tax adapters which algorithm to use when calculating the tax amount for tax inclusive amounts. If set to True, then the standard implied tax algorithm is tax=amount - amount/(1.0+rate). If set to False, the alternate implied tax algorithm is tax=amount*rate.', 'SCHEMA', N'dbo', 'TABLE', N't_av_Internal', 'COLUMN', N'c_UseStdImpliedTaxAlg'
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+EXEC sp_updateextendedproperty N'MS_Description', 'Required column. The partition value that specifies on which partition 1,2,???X the current data is saved. Column for meter partitioning. It uses to simplify archive functionality.', 'SCHEMA', N'dbo', 'TABLE', N't_svc_FlatRecurringCharge', 'COLUMN', N'id_partition'
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+EXEC sp_updateextendedproperty N'MS_Description', 'Required column. The partition value that specifies on which partition 1,2,???X the current data is saved. Column for meter partitioning. It uses to simplify archive functionality.', 'SCHEMA', N'dbo', 'TABLE', N't_svc_NonRecurringCharge', 'COLUMN', N'id_partition'
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
+GO
+IF @@TRANCOUNT=0 BEGIN INSERT INTO #tmpErrors (Error) SELECT 1 BEGIN TRANSACTION END
+GO
+EXEC sp_updateextendedproperty N'MS_Description', 'Required column. The partition value that specifies on which partition 1,2,???X the current data is saved. Column for meter partitioning. It uses to simplify archive functionality.', 'SCHEMA', N'dbo', 'TABLE', N't_svc_UDRecurringCharge', 'COLUMN', N'id_partition'
+GO
+IF @@ERROR<>0 AND @@TRANCOUNT>0 ROLLBACK TRANSACTION
 GO
 PRINT N'Altering trigger [dbo].[trig_update_recur_window_on_t_sub] on [dbo].[t_sub]'
 GO

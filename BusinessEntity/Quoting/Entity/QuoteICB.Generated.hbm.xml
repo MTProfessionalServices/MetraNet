@@ -72,23 +72,9 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <property name="ChargesRates" column="c_ChargesRates">
-      <meta attribute="label">ChargesRates</meta>
-      <meta attribute="description">Serializable list of charges rates</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.Byte[], mscorlib" />
-    </property>
     <property name="CurrentChargeType" column="c_CurrentChargeType" length="50" not-null="true">
       <meta attribute="label">CurrentChargeType</meta>
-      <meta attribute="description">Type of charge (recuring, non-recuring, etc.)</meta>
+      <meta attribute="description" />
       <meta attribute="defaultvalue" />
       <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>
@@ -102,7 +88,7 @@
     </property>
     <property name="PriceableItemId" column="c_PriceableItemId">
       <meta attribute="label">PriceableItemId</meta>
-      <meta attribute="description">Priceable item id</meta>
+      <meta attribute="description" />
       <meta attribute="defaultvalue" />
       <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>
@@ -113,6 +99,20 @@
       <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="ChargesRates" column="c_ChargesRates">
+      <meta attribute="label">ChargesRates</meta>
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Byte[], mscorlib" />
     </property>
     <many-to-one name="POforQuote" class="Core.Quoting.POforQuote, Core.Quoting.Entity" column="c_POforQuote_Id" cascade="none">
       <meta attribute="relationship-type">OneToMany</meta>

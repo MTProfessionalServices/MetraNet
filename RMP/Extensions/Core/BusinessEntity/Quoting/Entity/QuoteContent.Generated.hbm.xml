@@ -142,20 +142,6 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
-    <property name="BatchIDs" column="c_BatchIDs" length="255">
-      <meta attribute="label">ReportLink</meta>
-      <meta attribute="description">BatchIDs for quote, separated by comma</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.String, mscorlib" />
-    </property>
     <property name="FailedMessage" column="c_FailedMessage" length="2000">
       <meta attribute="label">FailedMessage</meta>
       <meta attribute="description">Error message</meta>
@@ -220,6 +206,20 @@
       <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="Localization" column="c_Localization" length="255">
+      <meta attribute="label">Localization</meta>
+      <meta attribute="description">Localization</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
     </property>
     <many-to-one name="QuoteHeader" class="Core.Quoting.QuoteHeader, Core.Quoting.Entity" column="c_QuoteHeader_Id">
       <meta attribute="relationship-type">OneToOne</meta>

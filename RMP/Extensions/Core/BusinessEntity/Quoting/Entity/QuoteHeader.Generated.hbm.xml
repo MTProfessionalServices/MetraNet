@@ -142,6 +142,34 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
+    <property name="GroupSubscription" column="c_GroupSubscription">
+      <meta attribute="label">GroupSubscription</meta>
+      <meta attribute="description">Indicates then quote is generated for group subscription</meta>
+      <meta attribute="defaultvalue">False</meta>
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="TrueFalse" />
+    </property>
+    <property name="CorporateAccountId" column="c_CorporateAccountId">
+      <meta attribute="label">CorporateAccountId</meta>
+      <meta attribute="description">Corporate AccountId for group subscription</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int64, mscorlib" />
+    </property>
     <bag name="AccountForQuotes" access="field.camelcase-underscore" inverse="true" cascade="delete">
       <meta attribute="relationship-type">OneToMany</meta>
       <meta attribute="relationship-name">QuoteHeader_AccountForQuotes</meta>
@@ -197,25 +225,6 @@
       <meta attribute="target-property-name-for-source">QuoteHeader</meta>
       <meta attribute="cascade">true</meta>
     </one-to-one>
-    <bag name="QuoteICBs" access="field.camelcase-underscore" inverse="true" cascade="delete">
-      <meta attribute="relationship-type">OneToMany</meta>
-      <meta attribute="relationship-name">QuoteHeader_QuoteICBs</meta>
-      <meta attribute="has-join-table">false</meta>
-      <meta attribute="is-default">true</meta>
-      <meta attribute="is-self-relationship">false</meta>
-      <meta attribute="is-bidirectional">false</meta>
-      <meta attribute="source-multiplicity">One</meta>
-      <meta attribute="source-entity-name">Core.Quoting.QuoteHeader</meta>
-      <meta attribute="source-key-column">c_QuoteHeader_Id</meta>
-      <meta attribute="source-property-name-for-target">QuoteICBs</meta>
-      <meta attribute="target-multiplicity">Many</meta>
-      <meta attribute="target-entity-name">Core.Quoting.QuoteICB</meta>
-      <meta attribute="target-key-column">c_QuoteICB_Id</meta>
-      <meta attribute="target-property-name-for-source">QuoteHeader</meta>
-      <meta attribute="cascade">true</meta>
-      <key column="c_QuoteHeader_Id" />
-      <one-to-many class="Core.Quoting.QuoteICB, Core.Quoting.Entity" />
-    </bag>
     <bag name="QuoteLogs" access="field.camelcase-underscore" inverse="true" cascade="delete">
       <meta attribute="relationship-type">OneToMany</meta>
       <meta attribute="relationship-name">QuoteHeader_QuoteLogs</meta>
@@ -234,6 +243,25 @@
       <meta attribute="cascade">true</meta>
       <key column="c_QuoteHeader_Id" />
       <one-to-many class="Core.Quoting.QuoteLog, Core.Quoting.Entity" />
+    </bag>
+    <bag name="QuoteICBs" access="field.camelcase-underscore" inverse="true" cascade="delete">
+      <meta attribute="relationship-type">OneToMany</meta>
+      <meta attribute="relationship-name">QuoteHeader_QuoteICBs</meta>
+      <meta attribute="has-join-table">false</meta>
+      <meta attribute="is-default">true</meta>
+      <meta attribute="is-self-relationship">false</meta>
+      <meta attribute="is-bidirectional">false</meta>
+      <meta attribute="source-multiplicity">One</meta>
+      <meta attribute="source-entity-name">Core.Quoting.QuoteHeader</meta>
+      <meta attribute="source-key-column">c_QuoteHeader_Id</meta>
+      <meta attribute="source-property-name-for-target">QuoteICBs</meta>
+      <meta attribute="target-multiplicity">Many</meta>
+      <meta attribute="target-entity-name">Core.Quoting.QuoteICB</meta>
+      <meta attribute="target-key-column">c_QuoteICB_Id</meta>
+      <meta attribute="target-property-name-for-source">QuoteHeader</meta>
+      <meta attribute="cascade">true</meta>
+      <key column="c_QuoteHeader_Id" />
+      <one-to-many class="Core.Quoting.QuoteICB, Core.Quoting.Entity" />
     </bag>
   </class>
 </hibernate-mapping>

@@ -30,7 +30,8 @@
 		<InputQuery>
 		   <![CDATA[
 			SELECT inv.id_acc as AccountID,
-			'{sub_invoice_subreport;1.AccountID} = ' + CAST(inv.id_acc AS VARCHAR(10))  AS RecordSelectionFormula,
+			'{sub_invoice_subreport;1.AccountID} = ' + CAST(inv.id_acc AS VARCHAR(10)) + ' AND ' +
+			'{sub_invoice_subreport;1.IntervalID} = ' + CAST(id_interval AS VARCHAR(10)) AS RecordSelectionFormula,
 			CAST(id_interval AS VARCHAR(10)) + '/' + CAST(inv.id_acc AS VARCHAR(10)) + '/' + 'Invoice.pdf' AS InstanceFileName,
 			--parameters
 			'0' AS Sample
@@ -60,7 +61,8 @@
 		<SampleModeInputQuery>
 		   <![CDATA[
 			SELECT TOP 10 inv.id_acc as AccountID,
-			'{sub_invoice_subreport;1.AccountID} = ' + CAST(inv.id_acc AS VARCHAR(10))  AS RecordSelectionFormula,
+			'{sub_invoice_subreport;1.AccountID} = ' + CAST(inv.id_acc AS VARCHAR(10)) + ' AND ' +
+			'{sub_invoice_subreport;1.IntervalID} = ' + CAST(id_interval AS VARCHAR(10)) AS RecordSelectionFormula,
 			CAST(id_interval AS VARCHAR(10)) + '/' + CAST(inv.id_acc AS VARCHAR(10)) + '/' + 'Invoice.pdf' AS InstanceFileName,
 			--parameters
 			'1' AS Sample
@@ -117,7 +119,8 @@
 		<InputQuery>
 		   <![CDATA[
 			SELECT inv.id_acc as AccountID, 
-			'{sub_invoice_subreport;1.AccountID} = ' + CAST(inv.id_acc AS VARCHAR(10))  AS RecordSelectionFormula,
+			'{sub_invoice_subreport;1.AccountID} = ' + CAST(inv.id_acc AS VARCHAR(10)) + ' AND ' +
+			'{sub_invoice_subreport;1.IntervalID} = ' + CAST(id_interval AS VARCHAR(10)) AS RecordSelectionFormula,
 			CAST(id_interval AS VARCHAR(10)) + '/' + CAST(inv.id_acc AS VARCHAR(10)) + '/' + 'Invoice_Jpn.pdf' AS InstanceFileName,
 			--parameters
 			'0' AS Sample
@@ -147,7 +150,8 @@
 		<SampleModeInputQuery>
 		   <![CDATA[
 			SELECT TOP 10 inv.id_acc as AccountID, 
-			'{sub_invoice_subreport;1.AccountID} = ' + CAST(inv.id_acc AS VARCHAR(10))  AS RecordSelectionFormula,
+			'{sub_invoice_subreport;1.AccountID} = ' + CAST(inv.id_acc AS VARCHAR(10)) + ' AND ' +
+			'{sub_invoice_subreport;1.IntervalID} = ' + CAST(id_interval AS VARCHAR(10)) AS RecordSelectionFormula,
 			CAST(id_interval AS VARCHAR(10)) + '/' + CAST(inv.id_acc AS VARCHAR(10)) + '/' + 'Invoice_Jpn.pdf' AS InstanceFileName,
 			--parameters
 			'1' AS Sample

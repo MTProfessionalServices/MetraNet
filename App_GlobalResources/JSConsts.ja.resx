@@ -124,7 +124,7 @@
     <value> Y/n/j</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>Y/n/j g:i:s | Y/n/j</value>
+    <value>Y/n/j g:i:s|Y/n/j</value>
   </data>
   <data name="DATE_TIME_FORMAT_DEF" xml:space="preserve">
     <value>n/j/Y g:i:s A</value>

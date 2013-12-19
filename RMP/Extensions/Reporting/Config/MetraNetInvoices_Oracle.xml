@@ -30,7 +30,8 @@
 		<InputQuery>
 		   <![CDATA[
 			SELECT inv.id_acc as AccountID,
-			'{sub_invoice_subreport;1.AccountID} = ' || TO_CHAR(inv.id_acc) AS RecordSelectionFormula,
+			'{sub_invoice_subreport;1.AccountID} = ' || TO_CHAR(inv.id_acc) || ' AND ' ||
+			'{sub_invoice_subreport;1.IntervalID} = ' || TO_CHAR(id_interval) AS RecordSelectionFormula,
 			TO_CHAR(id_interval) || '/' || TO_CHAR(inv.id_acc) || '/Invoice.pdf' AS InstanceFileName,
 			/*parameters*/
 			'0' AS Sample
@@ -61,7 +62,8 @@
 		   <![CDATA[
 		   select * from (
 			SELECT inv.id_acc as AccountID,
-			'{sub_invoice_subreport;1.AccountID} = ' || TO_CHAR(inv.id_acc) AS RecordSelectionFormula,
+			'{sub_invoice_subreport;1.AccountID} = ' || TO_CHAR(inv.id_acc) || ' AND ' ||
+			'{sub_invoice_subreport;1.IntervalID} = ' || TO_CHAR(id_interval) AS RecordSelectionFormula,
 			TO_CHAR(id_interval) || '/' || TO_CHAR(inv.id_acc) || '/Invoice.pdf' AS InstanceFileName,
 			/*parameters */
 			'1' AS Sample
@@ -119,7 +121,8 @@
 		<InputQuery>
 		   <![CDATA[
 			SELECT inv.id_acc as AccountID, 
-			'{sub_invoice_subreport;1.AccountID} = ' || TO_CHAR(inv.id_acc)  AS RecordSelectionFormula,
+			'{sub_invoice_subreport;1.AccountID} = ' || TO_CHAR(inv.id_acc) || ' AND ' ||
+			'{sub_invoice_subreport;1.IntervalID} = ' || TO_CHAR(id_interval) AS RecordSelectionFormula,
 			TO_CHAR(id_interval) || '/' || TO_CHAR(inv.id_acc) || '/Invoice_Jpn.pdf' AS InstanceFileName,
 			/*parameters*/
 			'0' AS Sample
@@ -150,7 +153,8 @@
 		   <![CDATA[
 		   select * from (
 			SELECT inv.id_acc as AccountID, 
-			'{sub_invoice_subreport;1.AccountID} = ' || TO_CHAR(inv.id_acc)  AS RecordSelectionFormula,
+			'{sub_invoice_subreport;1.AccountID} = ' || TO_CHAR(inv.id_acc) || ' AND ' ||
+			'{sub_invoice_subreport;1.IntervalID} = ' || TO_CHAR(id_interval) AS RecordSelectionFormula,
 			TO_CHAR(id_interval) || '/' || TO_CHAR(inv.id_acc) || '/Invoice_Jpn.pdf' AS InstanceFileName,
 			/*parameters*/
 			'1' AS Sample

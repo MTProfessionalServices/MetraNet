@@ -228,4 +228,25 @@
     <data name="tbUserNameResource1.MinLength" xml:space="preserve">
         <value>0</value>
     </data>
+    <data name="ddCurrencyResource1.Label" xml:space="preserve">
+        <value>通貨</value>
+    </data>
+    <data name="ddPriceListResource1.Label" xml:space="preserve">
+        <value>料金リスト</value>
+    </data>
+    <data name="cbBillableResource1.BoxLabel" xml:space="preserve">
+        <value>請求可能</value>
+    </data>
+    <data name="ddStatusReasonResource1.Label" xml:space="preserve">
+        <value>状況の理由</value>
+    </data>
+	<data name="tbOtherResource1.Label" xml:space="preserve">
+        <value>その他</value>
+    </data>	
+    <data name="cbTaxExemptResource1.BoxLabel" xml:space="preserve">
+        <value>免税</value>
+    </data>
+    <data name="tbTaxExemptIDResource1.Label" xml:space="preserve">
+        <value>免税 ID</value>
+    </data>	
 </root>

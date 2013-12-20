@@ -228,4 +228,25 @@
     <data name="tbUserNameResource1.MinLength" xml:space="preserve">
         <value>0</value>
     </data>
+    <data name="ddCurrencyResource1.Label" xml:space="preserve">
+        <value>Währung</value>
+    </data>
+    <data name="ddPriceListResource1.Label" xml:space="preserve">
+        <value>Preisliste</value>
+    </data>
+	    <data name="cbBillableResource1.BoxLabel" xml:space="preserve">
+        <value>Abrechnungsfähig</value>
+    </data>
+    <data name="ddStatusReasonResource1.Label" xml:space="preserve">
+        <value>Statusgrund</value>
+    </data>
+    <data name="tbOtherResource1.Label" xml:space="preserve">
+        <value>Andere</value>
+    </data>
+    <data name="cbTaxExemptResource1.BoxLabel" xml:space="preserve">
+        <value>Steuerfrei</value>
+    </data>
+    <data name="tbTaxExemptIDResource1.Label" xml:space="preserve">
+        <value>Steuerbefreiungs-ID</value>
+    </data>	
 </root>

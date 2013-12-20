@@ -193,7 +193,7 @@
         <value>Dieser Benutzer hat sich noch nie bei MetraView angemeldet.</value>
     </data>
     <data name="ERROR_NO_REPORTS_FOUND" xml:space="preserve">
-        <value>Es wurden keine Datensätze gefunden.</value>
+        <value>Es Wurden Keine Datensätze Gefunden</value>
     </data>
     <data name="ERROR_NOT_VALID_ACCOUNT" xml:space="preserve">
         <value>Ungültiges Konto</value>

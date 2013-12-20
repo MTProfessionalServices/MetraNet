@@ -195,7 +195,7 @@ Start by choosing the amount you wish to pay, your payment method, and your paym
         <value></value>
     </data>
     <data name="ERROR_NO_REPORTS_FOUND" xml:space="preserve">
-        <value>No reports found.</value>
+        <value>No Reports Found</value>
     </data>
     <data name="ERROR_NOT_VALID_ACCOUNT" xml:space="preserve">
         <value>Invalid account</value>

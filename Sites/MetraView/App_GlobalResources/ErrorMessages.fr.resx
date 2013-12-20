@@ -193,7 +193,7 @@
         <value>Cet utilisateur n’a jamais ouvert une session MetraView.</value>
     </data>
     <data name="ERROR_NO_REPORTS_FOUND" xml:space="preserve">
-        <value>Aucun enregistrement trouvé</value>
+        <value>Aucun Enregistrement Trouvé</value>
     </data>
     <data name="ERROR_NOT_VALID_ACCOUNT" xml:space="preserve">
         <value>Compte incorrect</value>

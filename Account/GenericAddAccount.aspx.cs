@@ -42,7 +42,7 @@ public partial class GenericAddAccount : MTAccountPage
       setDefaultProperties(Account);
       if (Account != null)
       {
-
+        Account.AccountStartDate = DateTime.Now;
         // For UX reasons, if the settings are not there, lets not confuse the user with
         // settings which have no affect... plus I hate researching bugs due to bad config...
         var accountType = mAccountTypeCollection.GetAccountType(Account.AccountType);

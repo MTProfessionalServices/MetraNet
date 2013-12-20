@@ -193,7 +193,7 @@
         <value>Este usuario nunca ha iniciado sesión en MetraView.</value>
     </data>
     <data name="ERROR_NO_REPORTS_FOUND" xml:space="preserve">
-        <value>No se encontraron informes.</value>
+        <value>No Se Encontraron Informes</value>
     </data>
     <data name="ERROR_NOT_VALID_ACCOUNT" xml:space="preserve">
         <value>Cuenta no válida</value>

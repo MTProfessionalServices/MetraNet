@@ -7,8 +7,7 @@
     meta:resourcekey="MTPanel1Resource1" >
     <table>
     <tr>
-    
-    <td><MT:MTNumberField ID="adjAmountFld" Label="Amount" runat="server" 
+      <td><MT:MTNumberField ID="adjAmountFld" Label="Amount" runat="server" 
       AllowBlank="False" AllowDecimals="True" DecimalPrecision="2" TrailingZeros="true" 
       AllowNegative="True" ControlHeight="18" ControlWidth="200" 
       HideLabel="False" LabelSeparator=":" LabelWidth="120" Listeners="{}" 
@@ -18,8 +17,70 @@
       ReadOnly="False" ValidationRegex="null" 
       XType="LargeNumberField" XTypeNameSpace="ux.form" /></td>
       <td><MT:MTLabel ID="lblMaxAmount" runat="server" /></td>
-      </tr>
-      </table>
+    </tr>
+    <tr>
+      <td colspan="2"><MT:MTNumberField ID="adjAmountFldTaxFederal" Label="Tax Federal" runat="server" 
+        AllowBlank="True" AllowDecimals="True" DecimalPrecision="2" TrailingZeros="true" 
+        AllowNegative="True" ControlHeight="18" ControlWidth="200" 
+        HideLabel="False" LabelSeparator=":" LabelWidth="120" Listeners="{}" 
+        MaxLength="-1" MaxValue="79228162514264337593543950335" 
+        meta:resourcekey="adjAmountFldResourceTaxFederal" MinLength="0" 
+        MinValue="-79228162514264337593543950335" OptionalExtConfig="" 
+        ReadOnly="False" ValidationRegex="null" 
+        XType="LargeNumberField" XTypeNameSpace="ux.form"/>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><MT:MTNumberField ID="adjAmountFldTaxState" Label="Tax State" runat="server" 
+        AllowBlank="True" AllowDecimals="True" DecimalPrecision="2" TrailingZeros="true" 
+        AllowNegative="True" ControlHeight="18" ControlWidth="200" 
+        HideLabel="False" LabelSeparator=":" LabelWidth="120" Listeners="{}" 
+        MaxLength="-1" MaxValue="79228162514264337593543950335" 
+        meta:resourcekey="adjAmountFldResourceTaxState" MinLength="0" 
+        MinValue="-79228162514264337593543950335" OptionalExtConfig="" 
+        ReadOnly="False" ValidationRegex="null" 
+        XType="LargeNumberField" XTypeNameSpace="ux.form"/>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><MT:MTNumberField ID="adjAmountFldTaxCountry" Label="Tax County" runat="server" 
+        AllowBlank="True" AllowDecimals="True" DecimalPrecision="2" TrailingZeros="true" 
+        AllowNegative="True" ControlHeight="18" ControlWidth="200" 
+        HideLabel="False" LabelSeparator=":" LabelWidth="120" Listeners="{}" 
+        MaxLength="-1" MaxValue="79228162514264337593543950335" 
+        meta:resourcekey="adjAmountFldResourceTaxCounty" MinLength="0" 
+        MinValue="-79228162514264337593543950335" OptionalExtConfig="" 
+        ReadOnly="False" ValidationRegex="null" 
+        XType="LargeNumberField" XTypeNameSpace="ux.form"/>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><MT:MTNumberField ID="adjAmountFldTaxLocal" Label="Tax Local" runat="server" 
+        AllowBlank="True" AllowDecimals="True" DecimalPrecision="2" TrailingZeros="true" 
+        AllowNegative="True" ControlHeight="18" ControlWidth="200" 
+        HideLabel="False" LabelSeparator=":" LabelWidth="120" Listeners="{}" 
+        MaxLength="-1" MaxValue="79228162514264337593543950335" 
+        meta:resourcekey="adjAmountFldResourceTaxLocal" MinLength="0" 
+        MinValue="-79228162514264337593543950335" OptionalExtConfig="" 
+        ReadOnly="False" ValidationRegex="null" 
+        XType="LargeNumberField" XTypeNameSpace="ux.form"/>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><MT:MTNumberField ID="adjAmountFldTaxOther" Label="Tax Other" runat="server" 
+        AllowBlank="True" AllowDecimals="True" DecimalPrecision="2" TrailingZeros="true" 
+        AllowNegative="True" ControlHeight="18" ControlWidth="200" 
+        HideLabel="False" LabelSeparator=":" LabelWidth="120" Listeners="{}" 
+        MaxLength="-1" MaxValue="79228162514264337593543950335" 
+        meta:resourcekey="adjAmountFldResourceTaxOther" MinLength="0" 
+        MinValue="-79228162514264337593543950335" OptionalExtConfig="" 
+        ReadOnly="False" ValidationRegex="null" 
+        XType="LargeNumberField" XTypeNameSpace="ux.form"/>
+      </td>
+    </tr>
+    <tr><td colspan="2" style="text-align: center"><img id="TotalLineAdj" src="/Res/Images/TotalLine.png"></td></tr>
+    <tr><td colspan="2"><br/></td></tr>
+    </table>
     <MT:MTDropDown ID="ddReasonCode" Label="Reason Code" runat="server" 
       AllowBlank="False" HideLabel="False" LabelSeparator=":" Listeners="{}" 
       meta:resourcekey="ddReasonCodeResource1" ReadOnly="False">

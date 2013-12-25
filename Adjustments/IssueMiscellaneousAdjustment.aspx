@@ -5,7 +5,7 @@
   <MT:MTPanel ID="MTPanel1" runat="server" Text="Issue Miscellaneous Adjustment" 
     Collapsed="False" Collapsible="True" EnableChrome="True" 
     meta:resourcekey="MTPanel1Resource1" >
-    <table>
+    <table id="adjustmentSummary">
     <tr>
       <td><MT:MTNumberField ID="adjAmountFld" Label="Amount" runat="server" 
       AllowBlank="False" AllowDecimals="True" DecimalPrecision="2" TrailingZeros="true" 
@@ -79,8 +79,20 @@
       </td>
     </tr>
     <tr><td colspan="2" style="text-align: center"><img id="TotalLineAdj" src="/Res/Images/TotalLine.png"></td></tr>
-    <tr><td colspan="2"><br/></td></tr>
+    <tr>
+       <td colspan="2"><MT:MTNumberField ID="adjAmountFldTaxToatl" Label="Total Adjustment Being Issued" runat="server"  Enabled="False"
+        AllowBlank="True" AllowDecimals="True" DecimalPrecision="2" TrailingZeros="true" 
+        AllowNegative="True" ControlHeight="18" ControlWidth="200" 
+        HideLabel="False" LabelSeparator=":" LabelWidth="120" Listeners="{}" 
+        MaxLength="-1" MaxValue="79228162514264337593543950335" 
+        meta:resourcekey="adjAmountFldResourceTaxTotal" MinLength="0" 
+        MinValue="-79228162514264337593543950335" OptionalExtConfig="" 
+        ReadOnly="False" ValidationRegex="null" 
+        XType="LargeNumberField" XTypeNameSpace="ux.form"/>
+      </td>
+    </tr>
     </table>
+    <br/>
     <MT:MTDropDown ID="ddReasonCode" Label="Reason Code" runat="server" 
       AllowBlank="False" HideLabel="False" LabelSeparator=":" Listeners="{}" 
       meta:resourcekey="ddReasonCodeResource1" ReadOnly="False">
@@ -117,6 +129,26 @@
     </div>
   </div>
   </MT:MTPanel>
-</asp:Content>
+  <script type="text/javascript" src="/Res/jqPlot/jquery.js"></script>
+  <script type="text/javascript">
+    jQuery.noConflict();
+    (function ($) {
+      $(function () {
+        $("#adjustmentSummary input:not([id$='adjAmountFldTaxToatl'])").live("keyup", function () {
+          var totalSum = 0.00;
+          $.each($("#adjustmentSummary input:not([id$='adjAmountFldTaxToatl'])"),function() {
+            totalSum += $(this).val() / 1 + 0.00;
+          });
 
+          var reg = /\./;
+          if (!reg.test(totalSum))
+            totalSum += '.00';
+
+          $("input[id$='adjAmountFldTaxToatl']").css("color", "#000");
+          $("input[id$='adjAmountFldTaxToatl']").val(totalSum);
+        });
+      });
+    })(jQuery);
+  </script>
+</asp:Content>
 

@@ -243,4 +243,13 @@
   <data name="adjAmountFldResourceTaxState.MinLenght" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="adjAmountFldResourceTaxTota.MaxLenght" xml:space="preserve">
+    <value>-1</value>
+  </data>
+  <data name="adjAmountFldResourceTaxTota.MinLenght" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="adjAmountFldResourceTaxTotal.Label" xml:space="preserve">
+    <value>[fr] Total Adjustment Being Issued</value>
+  </data>
 </root>

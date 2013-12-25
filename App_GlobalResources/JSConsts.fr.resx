@@ -220,13 +220,13 @@
         <value>Ajout d’une valeur UDRC…</value>
     </data>
     <data name="TEXT_ADJ_APPROVE" xml:space="preserve">
-        <value>Êtes-vous sûr de vouloir continuer ?  Cette étape irréversible approuvera tous les ajustements correspondant à vos critères de filtrage.  Si aucun filtre n’est défini, tous les ajustements dans le système seront alors approuvés.</value>
+        <value>Êtes-vous sûr de vouloir continuer ?  Cette étape irréversible approuvera tous les ajustements correspondant à vos critères de filtrage.  Si aucun filtre n’est défini, tous les ajustements dans le système seront alors approuvés.</value>
     </data>
     <data name="TEXT_ADJ_DELETE" xml:space="preserve">
-        <value>Êtes-vous sûr de vouloir continuer ?  Cette étape irréversible supprimera tous les ajustements correspondant à vos critères de filtrage.  Si aucun filtre n’est défini, tous les ajustements dans le système seront alors supprimés.</value>
+        <value>Êtes-vous sûr de vouloir continuer ?  Cette étape irréversible supprimera tous les ajustements correspondant à vos critères de filtrage.  Si aucun filtre n’est défini, tous les ajustements dans le système seront alors supprimés.</value>
     </data>
     <data name="TEXT_ADJ_DENIED" xml:space="preserve">
-        <value>Êtes-vous sûr de vouloir continuer ?  Cette étape irréversible refusera tous les ajustements correspondant à vos critères de filtrage.  Si aucun filtre n’est défini, tous les ajustements dans le système seront alors refusés.</value>
+        <value>Êtes-vous sûr de vouloir continuer ?  Cette étape irréversible refusera tous les ajustements correspondant à vos critères de filtrage.  Si aucun filtre n’est défini, tous les ajustements dans le système seront alors refusés.</value>
     </data>
     <data name="TEXT_ADVANCED_FIND" xml:space="preserve">
         <value>Recherche avancée</value>
@@ -262,7 +262,7 @@
         <value>Renvoyez cette modification approuvée pour tenter à nouveau de l’appliquer au système.</value>
     </data>
     <data name="TEXT_APPROVALS_COMMENT_LABEL" xml:space="preserve">
-        <value>Commentaire :</value>
+        <value>Commentaire :</value>
     </data>
     <data name="TEXT_APPROVALS_ERROR_UPDATING_CHANGE_ID" xml:space="preserve">
         <value>Erreur de mise à jour de l’ID de modification</value>
@@ -289,7 +289,7 @@
         <value>Historique des audits pour le numéro de dossier de transaction échoué</value>
     </data>
     <data name="TEXT_AUTO_REFRESH" xml:space="preserve">
-        <value>Actualisation automatique toutes les 10 secondes lorsque cette option est cochée.</value>
+        <value>Actualisation automatique toutes les 10 secondes lorsque cette option est cochée.</value>
     </data>
     <data name="TEXT_BILL_TO" xml:space="preserve">
         <value>Facturer à</value>
@@ -328,13 +328,13 @@
         <value>Configure des filtres</value>
     </data>
     <data name="TEXT_CONFIRM_APPROVE_NS_CONTINUE" xml:space="preserve">
-        <value>Êtes-vous sûr de vouloir continuer ?  Cette étape irréversible approuvera tous les frais non standard correspondant à vos critères de filtrage.  Si aucun filtre n’est défini, tous les frais non standard dans le système seront alors approuvés.</value>
+        <value>Êtes-vous sûr de vouloir continuer ?  Cette étape irréversible approuvera tous les frais non standard correspondant à vos critères de filtrage.  Si aucun filtre n’est défini, tous les frais non standard dans le système seront alors approuvés.</value>
     </data>
     <data name="TEXT_CONFIRM_CONTINUE" xml:space="preserve">
-        <value>Êtes-vous sûr de vouloir continuer ?</value>
+        <value>Êtes-vous sûr de vouloir continuer ?</value>
     </data>
     <data name="TEXT_CONFIRM_DENY_NS_CONTINUE" xml:space="preserve">
-        <value>Êtes-vous sûr de vouloir continuer ?  Cette étape irréversible refusera tous les frais non standard correspondant à vos critères de filtrage.  Si aucun filtre n’est défini, tous les frais non standard dans le système seront alors refusés.</value>
+        <value>Êtes-vous sûr de vouloir continuer ?  Cette étape irréversible refusera tous les frais non standard correspondant à vos critères de filtrage.  Si aucun filtre n’est défini, tous les frais non standard dans le système seront alors refusés.</value>
     </data>
     <data name="TEXT_CORP_COMPANY_NAME" xml:space="preserve">
         <value>Nom de l’entreprise</value>
@@ -373,7 +373,7 @@
     <value>Bulk Update</value>
   </data>
     <data name="TEXT_DELETE_ACCOUNT_NOTE" xml:space="preserve">
-        <value>Êtes-vous sûr de vouloir supprimer cette note du compte ?</value>
+        <value>Êtes-vous sûr de vouloir supprimer cette note du compte ?</value>
     </data>
     <data name="TEXT_DELETE_MESSAGE" xml:space="preserve">
         <value>Êtes-vous sûr de vouloir supprimer {0}?</value>
@@ -382,13 +382,13 @@
         <value>Êtes-vous sûr de vouloir supprimer cette recherche enregistrée ?</value>
     </data>
     <data name="TEXT_DELETE_SELECTED_ROWS" xml:space="preserve">
-        <value>Êtes-vous sûr de vouloir supprimer les lignes sélectionnées ?</value>
+        <value>Êtes-vous sûr de vouloir supprimer les lignes sélectionnées ?</value>
     </data>
     <data name="TEXT_DELETE_TEMPLATE_MESSAGE" xml:space="preserve">
         <value>Êtes-vous sûr de vouloir supprimer le modèle {0}?</value>
     </data>
     <data name="TEXT_DELETE_TEMPLATE_SUB_MESSAGE" xml:space="preserve">
-        <value>’Êtes-vous sûr de vouloir supprimer {0} du modèle ?</value>
+        <value>’Êtes-vous sûr de vouloir supprimer {0} du modèle ?</value>
     </data>
     <data name="TEXT_DELETED" xml:space="preserve">
         <value>Supprimé</value>
@@ -760,7 +760,7 @@
         <value> Sélectionnez les comptes à supprimer de la liste</value>
     </data>
     <data name="TEXT_REMOVE_RELSHIP" xml:space="preserve">
-        <value>Êtes-vous sûr de vouloir supprimer la/les relations sélectionnées ?</value>
+        <value>Êtes-vous sûr de vouloir supprimer la/les relations sélectionnées ?</value>
     </data>
     <data name="TEXT_REMOVE_THIS_RELSHIP" xml:space="preserve">
     <value>Are you sure you want to remove this relationship?</value>
@@ -919,7 +919,7 @@
         <value>Relations</value>
     </data>
     <data name="TITLE_RELATIONSHIPS_FOR" xml:space="preserve">
-        <value>Relations pour :</value>
+        <value>Relations pour :</value>
     </data>
     <data name="TITLE_REMOVE_RELATIONSHIP" xml:space="preserve">
     <value>Remove Relationship</value>

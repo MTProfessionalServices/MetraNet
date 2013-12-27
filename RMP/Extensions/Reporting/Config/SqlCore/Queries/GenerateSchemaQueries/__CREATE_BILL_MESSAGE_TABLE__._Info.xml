@@ -6,7 +6,7 @@
         <Implementation>Oracle</Implementation>
     </Implementations>
     <Parameters></Parameters>
-    <Description>Datamart table for invoice template bill messages</Description>
+    <Description>Datamart table for invoice template bill messages.</Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
         <CommonQuerySourceFile></CommonQuerySourceFile>

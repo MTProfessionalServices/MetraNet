@@ -338,13 +338,16 @@ Class CMTFormsClass
     strReturn = strReturn & "                 <td align=""right"" class=""" & mstrPromptClass & "Required"" nowrap>" & strCaption & "</td>" & vbNewline
     strReturn = strReturn & "                 <td align=""left"" class=""" & mstrPromptClass & """ nowrap>" & vbNewline
     strReturn = strReturn & "                   <select class=""" & mstrSelectClass & """ name=""" & strName & """" & strOther & ">" & vbNewline
+    strReturn = strReturn & "                   <option selected>USD</option>" & vbNewline
    
     if isarray(arrOptions) then
       for i = 0 to UBound(arrOptions)
-        if UCase(strSelected) = Ucase(arrValues(i)) then
-          strReturn = strReturn &  "                <option selected value=""" & arrValues(i) & """>" & arrOptions(i) & "</option>" & vbNewline
-        else
-          strReturn = strReturn &  "                <option value=""" & arrValues(i) & """>" & arrOptions(i) & "</option>" & vbNewline
+        if UCase(arrValues(i)) <> UCase("USD") then
+           if UCase(strSelected) = Ucase(arrValues(i)) then
+              strReturn = strReturn &  "                <option selected value=""" & arrValues(i) & """>" & arrOptions(i) & "</option>" & vbNewline
+           else
+              strReturn = strReturn &  "                <option value=""" & arrValues(i) & """>" & arrOptions(i) & "</option>" & vbNewline
+           end if
         end if
       next
     end if

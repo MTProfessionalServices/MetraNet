@@ -43,7 +43,7 @@
       </td>
     </tr>
     <tr>
-      <td colspan="2"><MT:MTNumberField ID="adjAmountFldTaxCountry" Label="Tax County" runat="server" 
+      <td colspan="2"><MT:MTNumberField ID="adjAmountFldTaxCounty" Label="Tax County" runat="server" 
         AllowBlank="True" AllowDecimals="True" DecimalPrecision="2" TrailingZeros="true" 
         AllowNegative="True" ControlHeight="18" ControlWidth="200" 
         HideLabel="False" LabelSeparator=":" LabelWidth="120" Listeners="{}" 

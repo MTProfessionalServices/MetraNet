@@ -92,129 +92,188 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         }
     }
 
-    protected void btnOK_Click(object sender, EventArgs e)
+  private bool ConvertToDecimal(string valForConversion, string fieldName, StringBuilder errorBuilder, out decimal convertedVal)
+  {
+    bool result = true;
+    convertedVal = 0;
+    try
+    {
+      convertedVal = String.IsNullOrEmpty(valForConversion) 
+        ? 0 
+        : (Convert.ToDecimal(valForConversion));
+    }
+    catch (Exception)
+    {
+      errorBuilder.AppendLine(
+        String.Format("Unable to convert value '{0}' of '{1}' field to decimal. Please, set decimal value.",
+                      valForConversion, fieldName));
+      result = false;
+    }
+
+    return result;
+  }
+
+  protected void btnOK_Click(object sender, EventArgs e)
     {
         PipelineMeteringHelper helper = null;
-        decimal adjAmount = Convert.ToDecimal(adjAmountFld.Text);
-        bool errorOccurred = false;
-        bool allowed = false;
+        
+        StringBuilder errorBuilder = new StringBuilder();
 
-        try
-        {
-            cache.PoolSize = 30;
-            cache.PollingInterval = 0;
-            helper = cache.GetMeteringHelper();
+        decimal adjAmount, taxFederal, taxState, taxCounty, taxLocal, taxOther;
+        
+        
+        bool errorOccurred = !ConvertToDecimal(adjAmountFld.Text, adjAmountFld.Label, errorBuilder, out adjAmount);
 
-            // Create instance of data row for root service definition, row is already added to internal store
-            DataRow row = helper.CreateRowForServiceDef("metratech.com/AccountCredit");
-            row["CreditTime"] = MetraTime.Now;
-            row["Status"] = MetraTech.DomainModel.Enums.Core.Metratech_com.SubscriberCreditAccountRequestStatus.APPROVED;
-            row["RequestID"] = -1; // legacy code - -1 signifies there is no credit request
-            row["_AccountID"] = UI.Subscriber.SelectedAccount._AccountID;
-            row["_Currency"] = ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).Currency;
-            row["EmailNotification"] = "N";
-            string emailId = GetContactView().Email;
-            if (String.IsNullOrEmpty(emailId))
-                row["EMailAddress"] = "";
-            else
-                row["EMailAddress"] = emailId;
-            row["EmailText"] = null;
-            row["Issuer"] = UI.User.AccountId;
-            object o = Enum.Parse(
-              typeof(MetraTech.DomainModel.Enums.Core.Metratech_com.SubscriberCreditAccountRequestReason),
-              ddReasonCode.SelectedValue, true);
-            row["Reason"] = EnumHelper.GetDbValueByEnum(o);
+        if (!ConvertToDecimal(adjAmountFldTaxFederal.Text, adjAmountFldTaxFederal.Label, errorBuilder, out taxFederal))
+          errorOccurred = true;
 
-            row["Other"] = "Other";
-            row["InvoiceComment"] = GetLocalResourceObject("TEXT_MISCELLANEOUS_ADJUSTMENT");
-            row["InternalComment"] = adjDescriptionTextBox.Text;
-            row["AccountingCode"] = null;
-            row["ReturnCode"] = 0; // Legacy
-            row["ContentionSessionID"] = "-"; // Legacy from 1.2
-            row["RequestAmount"] = -adjAmount;
-            row["CreditAmount"] = -adjAmount;
-            row["GuideIntervalID"] = ddBillingPeriod.SelectedValue;
-            row["ResolveWithAccountIDFlag"] = true;
-            row["_Amount"] = -adjAmount;
-            row["IgnorePaymentRedirection"] = 0;
-            DataSet messages = helper.Meter(UI.User.SessionContext);
-            helper.WaitForMessagesToComplete(messages, -1);
+        if (!ConvertToDecimal(adjAmountFldTaxState.Text, adjAmountFldTaxState.Label, errorBuilder, out taxState))
+          errorOccurred = true;
 
-            DataTable dt = helper.GetMessageDetails(null);
-            DataRow[] errorRows = dt.Select("ErrorMessage is not null");
-            if (errorRows.Length != 0)
-            {
-                var error = new StringBuilder();
-                // CORE-6182 Security: /MetraNet/MetraOffer/AmpGui/EditAccountGroup.aspx page is vulnerable to Cross-Site Scripting 
-                // Removed insecure formatting
-                //string errorMsg = String.Format("{0} <br/><br/>", GetLocalResourceObject("TEXT_PROCESSING_ERROR"));
-                string errorMsg = String.Format("{0} {1}{1}", GetLocalResourceObject("TEXT_PROCESSING_ERROR"), Environment.NewLine);
-                error.Append(errorMsg);
+        if (!ConvertToDecimal(adjAmountFldTaxCounty.Text, adjAmountFldTaxCounty.Label, errorBuilder, out taxCounty))
+          errorOccurred = true;
 
-                //ErrorMessage
-                //error.Append("<ul>");
-                error.Append(Environment.NewLine);
-                foreach (var errorRow in errorRows)
-                {
-                    //error.Append("<li>");
-                    error.Append(errorRow["ErrorMessage"]);
-                    //error.Append("</li>");
-                    error.Append(Environment.NewLine);
-                }
-                //error.Append("</ul>");
-                error.Append(Environment.NewLine);
+        if (!ConvertToDecimal(adjAmountFldTaxLocal.Text, adjAmountFldTaxLocal.Label, errorBuilder, out taxLocal))
+          errorOccurred = true;
 
-                CleanFailedTransactions(errorRows);
-                throw new MASBasicException(error.ToString());
-            }
+        if (!ConvertToDecimal(adjAmountFldTaxOther.Text, adjAmountFldTaxOther.Label, errorBuilder, out taxOther))
+          errorOccurred = true;
 
+        if (!errorOccurred)
+        {  
+          try
+          {
+              cache.PoolSize = 30;
+              cache.PollingInterval = 0;
+              helper = cache.GetMeteringHelper();
+
+              // Create instance of data row for root service definition, row is already added to internal store
+              DataRow row = helper.CreateRowForServiceDef("metratech.com/AccountCredit");
+              row["CreditTime"] = MetraTime.Now;
+              row["Status"] = MetraTech.DomainModel.Enums.Core.Metratech_com.SubscriberCreditAccountRequestStatus.APPROVED;
+              row["RequestID"] = -1; // legacy code - -1 signifies there is no credit request
+              row["_AccountID"] = UI.Subscriber.SelectedAccount._AccountID;
+              row["_Currency"] = ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).Currency;
+              row["EmailNotification"] = "N";
+              string emailId = GetContactView().Email;
+              if (String.IsNullOrEmpty(emailId))
+                  row["EMailAddress"] = "";
+              else
+                  row["EMailAddress"] = emailId;
+              row["EmailText"] = null;
+              row["Issuer"] = UI.User.AccountId;
+              object o = Enum.Parse(
+                typeof(MetraTech.DomainModel.Enums.Core.Metratech_com.SubscriberCreditAccountRequestReason),
+                ddReasonCode.SelectedValue, true);
+              row["Reason"] = EnumHelper.GetDbValueByEnum(o);
+
+              row["Other"] = "Other";
+              row["InvoiceComment"] = GetLocalResourceObject("TEXT_MISCELLANEOUS_ADJUSTMENT");
+              row["InternalComment"] = adjDescriptionTextBox.Text;
+              row["AccountingCode"] = null;
+              row["ReturnCode"] = 0; // Legacy
+              row["ContentionSessionID"] = "-"; // Legacy from 1.2
+              row["RequestAmount"] = -adjAmount;
+              row["CreditAmount"] = -adjAmount;
+              row["GuideIntervalID"] = ddBillingPeriod.SelectedValue;
+              row["ResolveWithAccountIDFlag"] = true;
+              row["_Amount"] = -adjAmount;
+              row["_FedTax"] = -taxFederal;
+              row["_StateTax"] = -taxState;
+              row["_CountyTax"] = -taxCounty;
+              row["_LocalTax"] = -taxLocal;
+              row["_OtherTax"] = -taxOther;
+              row["IgnorePaymentRedirection"] = 0;
+              DataSet messages = helper.Meter(UI.User.SessionContext);
+              helper.WaitForMessagesToComplete(messages, -1);
+
+              DataTable dt = helper.GetMessageDetails(null);
+              DataRow[] errorRows = dt.Select("ErrorMessage is not null");
+              if (errorRows.Length != 0)
+              {
+                  var error = new StringBuilder();
+                  // CORE-6182 Security: /MetraNet/MetraOffer/AmpGui/EditAccountGroup.aspx page is vulnerable to Cross-Site Scripting 
+                  // Removed insecure formatting
+                  //string errorMsg = String.Format("{0} <br/><br/>", GetLocalResourceObject("TEXT_PROCESSING_ERROR"));
+                  string errorMsg = String.Format("{0} {1}{1}", GetLocalResourceObject("TEXT_PROCESSING_ERROR"), Environment.NewLine);
+                  error.Append(errorMsg);
+
+                  //ErrorMessage
+                  //error.Append("<ul>");
+                  error.Append(Environment.NewLine);
+                  foreach (var errorRow in errorRows)
+                  {
+                      //error.Append("<li>");
+                      error.Append(errorRow["ErrorMessage"]);
+                      //error.Append("</li>");
+                      error.Append(Environment.NewLine);
+                  }
+                  //error.Append("</ul>");
+                  error.Append(Environment.NewLine);
+
+                  CleanFailedTransactions(errorRows);
+                  throw new MASBasicException(error.ToString());
+              }
+
+          }
+          catch (Exception exp)
+          {
+              errorOccurred = true;
+              SetError(exp.Message);
+          }
+          finally
+          {
+              cache.Release(helper);
+          }
         }
-        catch (Exception exp)
+        else
         {
-            errorOccurred = true;
-            Session[MetraTech.UI.Common.Constants.ERROR] = exp.Message.ToString();
-        }
-        finally
-        {
-            cache.Release(helper);
+          SetErrorValidation(errorBuilder.ToString());
         }
 
         if (!errorOccurred)
         {
-            if (!UI.SessionContext.SecurityContext.IsSuperUser())
+          if (IsAllowedCreate(adjAmount))
             {
-                string max = GetMaxCapabilityAmount();
-                string[] data = max.Split(' ');
-                int last = data.Length - 1;
-                // Build expression to have the DataTable evaluation based on the adjustment amount allowed
-                // != not supported and needs to be passed as <>
-                string op = data[last - 1];
-                if (op.Equals("!="))
-                    op = "<>";
-                string expr = String.Format("{0}{1}{2}", adjAmount, op, data[last]);
-                DataTable dataTable = new DataTable();
-                dataTable.Columns.Add("col1", typeof(bool), expr);
-                dataTable.Rows.Add(new object[] { });
-                object result = dataTable.Rows[0][0];
-                allowed = System.Convert.ToBoolean(result);
-            }
-            else
-                allowed = true;
-
-            if (!allowed)
-            {
-                ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_PENDING_TITLE")),
-                               String.Format("{0}", GetLocalResourceObject("TEXT_PENDING")));
-            }
-            else
-            {
-                ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_CREATED_TITLE")),
+              ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_CREATED_TITLE")),
                                String.Format("{0}", GetLocalResourceObject("TEXT_CREATED")));
+            }
+            else
+            {
+              ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_PENDING_TITLE")),
+                               String.Format("{0}", GetLocalResourceObject("TEXT_PENDING")));
             }
         }
     }
 
-    protected void btnCancel_Click(object sender, EventArgs e)
+#warning Whether other new tax fields (taxFederal, taxState, taxCounty, taxLocal, taxOther) should be passed to the method or not? What the target of that method?
+  private bool IsAllowedCreate(decimal adjAmount)
+  {
+    bool allowed = false;
+    if (!UI.SessionContext.SecurityContext.IsSuperUser())
+    {
+      string max = GetMaxCapabilityAmount();
+      string[] data = max.Split(' ');
+      int last = data.Length - 1;
+      // Build expression to have the DataTable evaluation based on the adjustment amount allowed
+      // != not supported and needs to be passed as <>
+      string op = data[last - 1];
+      if (op.Equals("!="))
+        op = "<>";
+      string expr = String.Format("{0}{1}{2}", adjAmount, op, data[last]);
+      DataTable dataTable = new DataTable();
+      dataTable.Columns.Add("col1", typeof (bool), expr);
+      dataTable.Rows.Add(new object[] {});
+      object result = dataTable.Rows[0][0];
+      allowed = System.Convert.ToBoolean(result);
+    }
+    else
+      allowed = true;
+
+    return allowed;
+  }
+
+  protected void btnCancel_Click(object sender, EventArgs e)
     {
         Response.Redirect(UI.DictionaryManager["DashboardPage"].ToString());
     }

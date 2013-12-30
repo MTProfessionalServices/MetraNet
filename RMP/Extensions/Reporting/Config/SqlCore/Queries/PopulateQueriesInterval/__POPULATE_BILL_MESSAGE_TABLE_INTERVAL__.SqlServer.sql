@@ -1,4 +1,4 @@
- INSERT INTO %%t_rpt_bill_messages
+ INSERT INTO t_rpt_bill_messages
 	SELECT
 			Invoice.id_invoice InvoiceID,
 			Invoice.invoice_string InvoiceString,

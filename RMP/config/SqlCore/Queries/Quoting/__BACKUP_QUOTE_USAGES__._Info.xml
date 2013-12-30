@@ -32,6 +32,13 @@
             <SubstitutionSyntaxCheck>123</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
+		<Parameter>
+            <Name>BATCHIDS</Name>
+            <DataType>sqlsubstitution</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+			<SubstitutionSyntaxCheck>123,137</SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
     </Parameters>
     <Description></Description>
     <ConversionAudit>

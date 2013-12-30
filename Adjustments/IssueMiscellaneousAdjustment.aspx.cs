@@ -139,6 +139,8 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         if (!ConvertToDecimal(adjAmountFldTaxOther.Text, adjAmountFldTaxOther.Label, errorBuilder, out taxOther))
           errorOccurred = true;
 
+    	decimal totalAmount = 0;
+
         if (!errorOccurred)
         {  
           try
@@ -215,6 +217,8 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
                   throw new MASBasicException(error.ToString());
               }
 
+              totalAmount = adjAmount + taxFederal + taxState + taxCounty + taxLocal + taxOther;
+
           }
           catch (Exception exp)
           {
@@ -233,7 +237,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
 
         if (!errorOccurred)
         {
-          if (IsAllowedCreate(adjAmount))
+          if (IsAllowedCreate(totalAmount))
             {
               ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_CREATED_TITLE")),
                                String.Format("{0}", GetLocalResourceObject("TEXT_CREATED")));

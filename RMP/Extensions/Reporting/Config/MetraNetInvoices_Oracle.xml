@@ -29,7 +29,7 @@
 		<OverwriteReportOriginalDataSource>true</OverwriteReportOriginalDataSource>
 		<InputQuery>
 		   <![CDATA[
-			SELECT inv.id_acc as AccountID,
+			SELECT inv.id_acc AS AccountID,
 			'{sub_invoice_subreport;1.AccountID} = ' || TO_CHAR(inv.id_acc) || ' AND ' ||
 			'{sub_invoice_subreport;1.IntervalID} = ' || TO_CHAR(id_interval) AS RecordSelectionFormula,
 			TO_CHAR(id_interval) || '/' || TO_CHAR(inv.id_acc) || '/Invoice.pdf' AS InstanceFileName,
@@ -60,8 +60,8 @@
 		</InputQuery>
 		<SampleModeInputQuery>
 		   <![CDATA[
-		   select * from (
-			SELECT inv.id_acc as AccountID,
+		   SELECT * FROM (
+			SELECT inv.id_acc AS AccountID,
 			'{sub_invoice_subreport;1.AccountID} = ' || TO_CHAR(inv.id_acc) || ' AND ' ||
 			'{sub_invoice_subreport;1.IntervalID} = ' || TO_CHAR(id_interval) AS RecordSelectionFormula,
 			TO_CHAR(id_interval) || '/' || TO_CHAR(inv.id_acc) || '/Invoice.pdf' AS InstanceFileName,
@@ -120,7 +120,7 @@
 		<OverwriteReportOriginalDataSource>true</OverwriteReportOriginalDataSource>
 		<InputQuery>
 		   <![CDATA[
-			SELECT inv.id_acc as AccountID,
+			SELECT inv.id_acc AS AccountID,
 			'{sub_invoice_subreport;1.AccountID} = ' || TO_CHAR(inv.id_acc) || ' AND ' ||
 			'{sub_invoice_subreport;1.IntervalID} = ' || TO_CHAR(id_interval) AS RecordSelectionFormula,
 			TO_CHAR(id_interval) || '/' || TO_CHAR(inv.id_acc) || '/Invoice.pdf' AS InstanceFileName,
@@ -151,8 +151,8 @@
 		</InputQuery>
 		<SampleModeInputQuery>
 		   <![CDATA[
-		   select * from (
-			SELECT inv.id_acc as AccountID,
+		   SELECT * FROM (
+			SELECT inv.id_acc AS AccountID,
 			'{sub_invoice_subreport;1.AccountID} = ' || TO_CHAR(inv.id_acc) || ' AND ' ||
 			'{sub_invoice_subreport;1.IntervalID} = ' || TO_CHAR(id_interval) AS RecordSelectionFormula,
 			TO_CHAR(id_interval) || '/' || TO_CHAR(inv.id_acc) || '/Invoice.pdf' AS InstanceFileName,
@@ -211,7 +211,7 @@
 		<OverwriteReportOriginalDataSource>true</OverwriteReportOriginalDataSource>
 		<InputQuery>
 		   <![CDATA[
-			SELECT inv.id_acc as AccountID,
+			SELECT inv.id_acc AS AccountID,
 			'{sub_invoice_subreport;1.AccountID} = ' || TO_CHAR(inv.id_acc) || ' AND ' ||
 			'{sub_invoice_subreport;1.IntervalID} = ' || TO_CHAR(id_interval) AS RecordSelectionFormula,
 			TO_CHAR(id_interval) || '/' || TO_CHAR(inv.id_acc) || '/Invoice.pdf' AS InstanceFileName,
@@ -242,8 +242,8 @@
 		</InputQuery>
 		<SampleModeInputQuery>
 		   <![CDATA[
-		   select * from (
-			SELECT inv.id_acc as AccountID,
+		   SELECT * FROM (
+			SELECT inv.id_acc AS AccountID,
 			'{sub_invoice_subreport;1.AccountID} = ' || TO_CHAR(inv.id_acc) || ' AND ' ||
 			'{sub_invoice_subreport;1.IntervalID} = ' || TO_CHAR(id_interval) AS RecordSelectionFormula,
 			TO_CHAR(id_interval) || '/' || TO_CHAR(inv.id_acc) || '/Invoice.pdf' AS InstanceFileName,
@@ -302,7 +302,7 @@
 		<OverwriteReportOriginalDataSource>true</OverwriteReportOriginalDataSource>
 		<InputQuery>
 		   <![CDATA[
-			SELECT inv.id_acc as AccountID, 
+			SELECT inv.id_acc AS AccountID, 
 			'{sub_invoice_subreport;1.AccountID} = ' || TO_CHAR(inv.id_acc) || ' AND ' ||
 			'{sub_invoice_subreport;1.IntervalID} = ' || TO_CHAR(id_interval) AS RecordSelectionFormula,
 			TO_CHAR(id_interval) || '/' || TO_CHAR(inv.id_acc) || '/Invoice_Jpn.pdf' AS InstanceFileName,
@@ -333,8 +333,8 @@
 		</InputQuery>
 		<SampleModeInputQuery>
 		   <![CDATA[
-		   select * from (
-			SELECT inv.id_acc as AccountID, 
+		   SELECT * FROM (
+			SELECT inv.id_acc AS AccountID, 
 			'{sub_invoice_subreport;1.AccountID} = ' || TO_CHAR(inv.id_acc) || ' AND ' ||
 			'{sub_invoice_subreport;1.IntervalID} = ' || TO_CHAR(id_interval) AS RecordSelectionFormula,
 			TO_CHAR(id_interval) || '/' || TO_CHAR(inv.id_acc) || '/Invoice_Jpn.pdf' AS InstanceFileName,

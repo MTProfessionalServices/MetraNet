@@ -29,8 +29,8 @@
 		<OverwriteReportOriginalDataSource>true</OverwriteReportOriginalDataSource>
 		<InputQuery>
 		   <![CDATA[
-			SELECT '{sub_invoice_subreport;1.AccountID} = ' + CAST(inv.id_acc AS VARCHAR(10))  AS RecordSelectionFormula,
-			CAST(id_interval AS VARCHAR(10)) + '/' + CAST(inv.id_acc AS VARCHAR(10)) + '/' + 'Invoice.pdf' AS InstanceFileName,
+			SELECT '{sub_invoice_subreport;1.AccountID} = ' + CAST(inv.id_acc AS VARCHAR(20))  AS RecordSelectionFormula,
+			CAST(id_interval AS VARCHAR(20)) + '/' + CAST(inv.id_acc AS VARCHAR(20)) + '/' + 'Invoice.pdf' AS InstanceFileName,
 			--parameters
 			'0' AS Sample
 			--inv.id_invoice AS invoiceid
@@ -53,8 +53,8 @@
 		</InputQuery>
 		<SampleModeInputQuery>
 		   <![CDATA[
-			SELECT TOP 10 '{sub_invoice_subreport;1.AccountID} = ' + CAST(inv.id_acc AS VARCHAR(10))  AS RecordSelectionFormula,
-			CAST(id_interval AS VARCHAR(10)) + '/' + CAST(inv.id_acc AS VARCHAR(10)) + '/' + 'Invoice.pdf' AS InstanceFileName,
+			SELECT TOP 10 '{sub_invoice_subreport;1.AccountID} = ' + CAST(inv.id_acc AS VARCHAR(20))  AS RecordSelectionFormula,
+			CAST(id_interval AS VARCHAR(20)) + '/' + CAST(inv.id_acc AS VARCHAR(20)) + '/' + 'Invoice.pdf' AS InstanceFileName,
 			--parameters
 			'1' AS Sample
 			--inv.id_invoice AS invoiceid
@@ -77,7 +77,7 @@
 		</SampleModeInputQuery>
 	</Report>
 	<Report>
-		<UniqueName>Invoice Report With Bill Messages<</UniqueName>
+		<UniqueName>Invoice Report With Bill Messages</UniqueName>
 		<!-- directory relative to extension directory -->
 		<SourceFile>Reporting\Config\Templates\Invoice_With_BillMessages.rpt</SourceFile>
 		<DisplayName>Invoice Report With Bill Messages DisplayName (Invoice_With_BillMessages.rpt)</DisplayName>
@@ -104,8 +104,8 @@
 		<OverwriteReportOriginalDataSource>true</OverwriteReportOriginalDataSource>
 		<InputQuery>
 		   <![CDATA[
-			SELECT '{sub_invoice_subreport;1.AccountID} = ' + CAST(inv.id_acc AS VARCHAR(10))  AS RecordSelectionFormula,
-			CAST(id_interval AS VARCHAR(10)) + '/' + CAST(inv.id_acc AS VARCHAR(10)) + '/' + 'Invoice.pdf' AS InstanceFileName,
+			SELECT '{sub_invoice_subreport;1.AccountID} = ' + CAST(inv.id_acc AS VARCHAR(20))  AS RecordSelectionFormula,
+			CAST(id_interval AS VARCHAR(20)) + '/' + CAST(inv.id_acc AS VARCHAR(20)) + '/' + 'Invoice.pdf' AS InstanceFileName,
 			--parameters
 			'0' AS Sample
 			--inv.id_invoice AS invoiceid
@@ -128,8 +128,8 @@
 		</InputQuery>
 		<SampleModeInputQuery>
 		   <![CDATA[
-			SELECT TOP 10 '{sub_invoice_subreport;1.AccountID} = ' + CAST(inv.id_acc AS VARCHAR(10))  AS RecordSelectionFormula,
-			CAST(id_interval AS VARCHAR(10)) + '/' + CAST(inv.id_acc AS VARCHAR(10)) + '/' + 'Invoice.pdf' AS InstanceFileName,
+			SELECT TOP 10 '{sub_invoice_subreport;1.AccountID} = ' + CAST(inv.id_acc AS VARCHAR(20))  AS RecordSelectionFormula,
+			CAST(id_interval AS VARCHAR(20)) + '/' + CAST(inv.id_acc AS VARCHAR(20)) + '/' + 'Invoice.pdf' AS InstanceFileName,
 			--parameters
 			'1' AS Sample
 			--inv.id_invoice AS invoiceid
@@ -179,8 +179,8 @@
 		<OverwriteReportOriginalDataSource>true</OverwriteReportOriginalDataSource>
 		<InputQuery>
 		   <![CDATA[
-			SELECT  '{sub_invoice_subreport;1.AccountID} = ' + CAST(inv.id_acc AS VARCHAR(10))  AS RecordSelectionFormula,
-			CAST(id_interval AS VARCHAR(10)) + '/' + CAST(inv.id_acc AS VARCHAR(10)) + '/' + 'Invoice_Jpn.pdf' AS InstanceFileName,
+			SELECT  '{sub_invoice_subreport;1.AccountID} = ' + CAST(inv.id_acc AS VARCHAR(20))  AS RecordSelectionFormula,
+			CAST(id_interval AS VARCHAR(20)) + '/' + CAST(inv.id_acc AS VARCHAR(20)) + '/' + 'Invoice_Jpn.pdf' AS InstanceFileName,
 			--parameters
 			'0' AS Sample
 			--inv.id_invoice AS invoiceid
@@ -203,8 +203,8 @@
 		</InputQuery>
 		<SampleModeInputQuery>
 		   <![CDATA[
-			SELECT TOP 10 '{sub_invoice_subreport;1.AccountID} = ' + CAST(inv.id_acc AS VARCHAR(10))  AS RecordSelectionFormula,
-			CAST(id_interval AS VARCHAR(10)) + '/' + CAST(inv.id_acc AS VARCHAR(10)) + '/' + 'Invoice_Jpn.pdf' AS InstanceFileName,
+			SELECT TOP 10 '{sub_invoice_subreport;1.AccountID} = ' + CAST(inv.id_acc AS VARCHAR(20))  AS RecordSelectionFormula,
+			CAST(id_interval AS VARCHAR(20)) + '/' + CAST(inv.id_acc AS VARCHAR(20)) + '/' + 'Invoice_Jpn.pdf' AS InstanceFileName,
 			--parameters
 			'1' AS Sample
 			--inv.id_invoice AS invoiceid

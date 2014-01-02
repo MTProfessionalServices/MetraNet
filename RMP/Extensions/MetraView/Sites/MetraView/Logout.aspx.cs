@@ -10,8 +10,10 @@ using MetraTech.UI.Tools;
 
 public partial class Logout : MTPage
 {
+ 
   protected void Page_Load(object sender, EventArgs e)
   {
+    LogoutFromAspApplications();
     var lang = Session[Constants.SELECTED_LANGUAGE];
     MetraTech.ActivityServices.Services.Common.TicketManager.InvalidateTicket(UI.User.Ticket);
 
@@ -22,5 +24,24 @@ public partial class Logout : MTPage
     WebUtils.RegenerateSessionId();
 
     Response.Redirect("Login.aspx?l=" + lang);
+  }
+
+  private void LogoutFromAspApplications()
+  {
+      //CORE-7184: Logout from the asp applications that have been loaded. Valid only when MetraView is loaded from MetraCare
+      LogoutUtil utility = new LogoutUtil();
+      if (Convert.ToString(Session["IsMAMActive"]) != "" && Convert.ToBoolean(Session["IsMAMActive"]))
+      {
+          utility.LogoutFromAspApp(Request, UI.User.UserName, UI.User.NameSpace, "mam");
+      }
+      if (Convert.ToString(Session["IsMOMActive"]) != "" && Convert.ToBoolean(Session["IsMOMActive"]))
+      {
+          utility.LogoutFromAspApp(Request, UI.User.UserName, UI.User.NameSpace, "mom");
+      }
+      if (Convert.ToString(Session["IsMCMActive"]) != "" && Convert.ToBoolean(Session["IsMCMActive"])) 
+      {
+          utility.LogoutFromAspApp(Request, UI.User.UserName, UI.User.NameSpace, "mcm");
+      }
+
   }
 }

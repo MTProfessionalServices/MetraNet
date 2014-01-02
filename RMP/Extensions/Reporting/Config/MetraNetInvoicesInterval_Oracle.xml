@@ -52,7 +52,7 @@
 		</InputQuery>
 		<SampleModeInputQuery>
 		   <![CDATA[
-		   select * from (
+		   SELECT * FROM (
 			SELECT '{sub_invoice_subreport;1.AccountID} = ' || TO_CHAR(inv.id_acc) AS RecordSelectionFormula,
 			TO_CHAR(id_interval) || '/' || TO_CHAR(inv.id_acc) || '/Invoice.pdf' AS InstanceFileName,
 			/*parameters*/
@@ -127,7 +127,7 @@
 		</InputQuery>
 		<SampleModeInputQuery>
 		   <![CDATA[
-		   select * from (
+		   SELECT * FROM (
 			SELECT '{sub_invoice_subreport;1.AccountID} = ' || TO_CHAR(inv.id_acc) AS RecordSelectionFormula,
 			TO_CHAR(id_interval) || '/' || TO_CHAR(inv.id_acc) || '/Invoice.pdf' AS InstanceFileName,
 			/*parameters*/
@@ -202,7 +202,7 @@
 		</InputQuery>
 		<SampleModeInputQuery>
 		   <![CDATA[
-		   select * from(
+		   SELECT * FROM(
 			SELECT '{sub_invoice_subreport;1.AccountID} = ' || TO_CHAR(inv.id_acc) AS RecordSelectionFormula,
 			TO_CHAR(id_interval) || '/' || TO_CHAR(inv.id_acc) || '/Invoice_Jpn.pdf' AS InstanceFileName,
 			/*parameters*/

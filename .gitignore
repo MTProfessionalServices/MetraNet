@@ -35,8 +35,6 @@ output/
 /Source/MetraTech/VertexATLWrapper/Debug
 /Source/utils/BinaryCheck/MetraTech.Tools.BinaryCheck.Runner/obj
 
-
-
 /Source/MetraTech/ActivityServices/CodeGenerators/build/
 /Source/MetraTech/ActivityServices/MASClientProxyHook/build/
 /Source/MetraTech/ActivityServices/Runtime/build/
@@ -49,3 +47,4 @@ output/
 
 /Source/MetraTech/packages
 
+/RMP/Extensions/Account/bin/

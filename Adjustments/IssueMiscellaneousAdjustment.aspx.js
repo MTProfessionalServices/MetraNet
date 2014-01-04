@@ -13,7 +13,7 @@
 	  else {
 		regDecimal = /\d+\.\d$/;
 		if (regDecimal.test(totalSum))
-		totalSum = totalSum + "0";
+		totalSum += '0';
 	  }
 		
       $("input[id$='adjAmountFldTaxToatl']").css("color", "#000");      

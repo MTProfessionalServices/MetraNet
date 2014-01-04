@@ -7,16 +7,17 @@
             totalSum += Number($(this).val());
          });
 
-      var reg = /\./;
-      if (!reg.test(totalSum))
+      var regDecimal = /\./;
+      if (!regDecimal.test(totalSum))
         totalSum += '.00';
-
-      var regOnlyDec = /\d+\.\d\d+$/;
-      if (!regOnlyDec.test(totalSum))
-          totalSum = '';
-
-      $("input[id$='adjAmountFldTaxToatl']").css("color", "#000");
-      $("input[id$='adjAmountFldTaxToatl']").val(totalSum);
+	  else {
+		regDecimal = /\d+\.\d$/;
+		if (regDecimal.test(totalSum))
+		totalSum = totalSum + "0";
+	  }
+		
+      $("input[id$='adjAmountFldTaxToatl']").css("color", "#000");      
+	  $("input[id$='adjAmountFldTaxToatl']").val(totalSum.toString().match(/^\d+\.\d{2}/));
       });
     });
 })(jQuery);

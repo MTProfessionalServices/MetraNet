@@ -227,6 +227,10 @@
             <Value>標準</Value>
         </locale_entry>
         <locale_entry>
+            <Name>metratech.com/accountcreation/InvoiceMethod/StandardWithBillMessages</Name>
+            <Value>{JP} Standard With Bill Messages</Value>
+        </locale_entry>
+        <locale_entry>
             <Name>metratech.com/accountcreation/Language</Name>
             <Value>言語</Value>
         </locale_entry>

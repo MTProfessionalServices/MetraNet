@@ -7,7 +7,7 @@
                 n_percent number(10) NOT NULL,
                 vt_start date NULL, 
                 vt_end date NULL,
-                tt_start date NOT NULL, 
+                tt_start TIMESTAMP NOT NULL, 
                 
                 /* Audit Info */
                 id_audit number(10) NOT NULL,
@@ -17,6 +17,6 @@
                 
                  -- Output
                 status number(10) NULL
-                );
+                ) ON COMMIT DELETE ROWS;
                 CREATE UNIQUE INDEX idx_id_acc_ownership ON tmp_acc_ownership_batch(id_owner, id_owned);
 

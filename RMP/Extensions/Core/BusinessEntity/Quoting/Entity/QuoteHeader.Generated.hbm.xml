@@ -142,6 +142,183 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
+    <property name="GroupSubscription" column="c_GroupSubscription">
+      <meta attribute="label">GroupSubscription</meta>
+      <meta attribute="description">Indicates then quote is generated for group subscription</meta>
+      <meta attribute="defaultvalue">False</meta>
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="TrueFalse" />
+    </property>
+    <property name="CorporateAccountId" column="c_CorporateAccountId">
+      <meta attribute="label">CorporateAccountId</meta>
+      <meta attribute="description">Corporate AccountId for group subscription</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int64, mscorlib" />
+    </property>
+    <property name="ReportLink" column="c_ReportLink" length="255">
+      <meta attribute="label">ReportLink</meta>
+      <meta attribute="description">Link to PDF file with report</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
+    <property name="ReportContent" column="c_ReportContent">
+      <meta attribute="label">ReportContent</meta>
+      <meta attribute="description">Content of quote file</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Byte[], mscorlib" />
+    </property>
+    <property name="Total" column="c_Total" precision="22" scale="10">
+      <meta attribute="label">Total</meta>
+      <meta attribute="description">Total sum of charges in quote</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Decimal, mscorlib" />
+    </property>
+    <property name="TotalTax" column="c_TotalTax" precision="22" scale="10">
+      <meta attribute="label">Total tax</meta>
+      <meta attribute="description">Total sum of taxes in quote</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Decimal, mscorlib" />
+    </property>
+    <property name="Currency" column="c_Currency" length="255">
+      <meta attribute="label">ReportLink</meta>
+      <meta attribute="description">Currency of quote amount</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
+    <property name="FailedMessage" column="c_FailedMessage" length="2000">
+      <meta attribute="label">FailedMessage</meta>
+      <meta attribute="description">Error message</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
+    <property name="Status" column="c_Status">
+      <meta attribute="label">Status</meta>
+      <meta attribute="description">0 - None
+1 - In progress
+2 - Failed
+3 - Completed</meta>
+      <meta attribute="defaultvalue">0</meta>
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="StatusReport" column="c_StatusReport">
+      <meta attribute="label">StatusReport</meta>
+      <meta attribute="description">0 - Skipped
+1 - In progress
+2 - Failed
+3 - Completed</meta>
+      <meta attribute="defaultvalue">0</meta>
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="StatusCleanup" column="c_StatusCleanup">
+      <meta attribute="label">StatusCleanup</meta>
+      <meta attribute="description">0 - None
+1 - In progress
+2 - Failed
+3 - Completed</meta>
+      <meta attribute="defaultvalue">0</meta>
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="Localization" column="c_Localization" length="255">
+      <meta attribute="label">Localization</meta>
+      <meta attribute="description">Localization</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
     <bag name="AccountForQuotes" access="field.camelcase-underscore" inverse="true" cascade="delete">
       <meta attribute="relationship-type">OneToMany</meta>
       <meta attribute="relationship-name">QuoteHeader_AccountForQuotes</meta>
@@ -180,26 +357,9 @@
       <key column="c_QuoteHeader_Id" />
       <one-to-many class="Core.Quoting.POforQuote, Core.Quoting.Entity" />
     </bag>
-    <one-to-one name="QuoteContent" class="Core.Quoting.QuoteContent, Core.Quoting.Entity" cascade="delete">
-      <meta attribute="relationship-type">OneToOne</meta>
-      <meta attribute="relationship-name">QuoteHeader_QuoteContent</meta>
-      <meta attribute="has-join-table">false</meta>
-      <meta attribute="is-default">true</meta>
-      <meta attribute="is-self-relationship">false</meta>
-      <meta attribute="is-bidirectional">false</meta>
-      <meta attribute="source-multiplicity">One</meta>
-      <meta attribute="source-entity-name">Core.Quoting.QuoteHeader</meta>
-      <meta attribute="source-key-column">c_QuoteHeader_Id</meta>
-      <meta attribute="source-property-name-for-target">QuoteContent</meta>
-      <meta attribute="target-multiplicity">One</meta>
-      <meta attribute="target-entity-name">Core.Quoting.QuoteContent</meta>
-      <meta attribute="target-key-column">c_QuoteContent_Id</meta>
-      <meta attribute="target-property-name-for-source">QuoteHeader</meta>
-      <meta attribute="cascade">true</meta>
-    </one-to-one>
-    <bag name="QuoteICBs" access="field.camelcase-underscore" inverse="true" cascade="delete">
+    <bag name="QuoteLogs" access="field.camelcase-underscore" inverse="true" cascade="delete">
       <meta attribute="relationship-type">OneToMany</meta>
-      <meta attribute="relationship-name">QuoteHeader_QuoteICBs</meta>
+      <meta attribute="relationship-name">QuoteHeader_QuoteLogs</meta>
       <meta attribute="has-join-table">false</meta>
       <meta attribute="is-default">true</meta>
       <meta attribute="is-self-relationship">false</meta>
@@ -207,14 +367,14 @@
       <meta attribute="source-multiplicity">One</meta>
       <meta attribute="source-entity-name">Core.Quoting.QuoteHeader</meta>
       <meta attribute="source-key-column">c_QuoteHeader_Id</meta>
-      <meta attribute="source-property-name-for-target">QuoteICBs</meta>
+      <meta attribute="source-property-name-for-target">QuoteLogs</meta>
       <meta attribute="target-multiplicity">Many</meta>
-      <meta attribute="target-entity-name">Core.Quoting.QuoteICB</meta>
-      <meta attribute="target-key-column">c_QuoteICB_Id</meta>
+      <meta attribute="target-entity-name">Core.Quoting.QuoteLog</meta>
+      <meta attribute="target-key-column">c_QuoteLog_Id</meta>
       <meta attribute="target-property-name-for-source">QuoteHeader</meta>
       <meta attribute="cascade">true</meta>
       <key column="c_QuoteHeader_Id" />
-      <one-to-many class="Core.Quoting.QuoteICB, Core.Quoting.Entity" />
+      <one-to-many class="Core.Quoting.QuoteLog, Core.Quoting.Entity" />
     </bag>
   </class>
 </hibernate-mapping>

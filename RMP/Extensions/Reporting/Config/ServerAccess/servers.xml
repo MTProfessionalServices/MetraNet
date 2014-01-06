@@ -33,7 +33,7 @@
 		<servername>crystal2008.metratech.com</servername>
 		<databasename>MetraNet</databasename>
 		<username>mtuser</username>
-		<password>MetraTech1</password>
+		<password>mtuser</password>
 		<secure ptype="INTEGER">0</secure>
 		<portnumber ptype="INTEGER">80</portnumber>
 	</server>

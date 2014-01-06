@@ -193,7 +193,7 @@
         <value>Este usuário nunca fez login no MetraView.</value>
     </data>
     <data name="ERROR_NO_REPORTS_FOUND" xml:space="preserve">
-        <value>Nenhum relatório encontrado.</value>
+        <value>Nenhum Relatório Encontrado</value>
     </data>
     <data name="ERROR_NOT_VALID_ACCOUNT" xml:space="preserve">
         <value>Conta inválida</value>

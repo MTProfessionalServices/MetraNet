@@ -227,6 +227,10 @@
             <Value>Estándar</Value>
         </locale_entry>
         <locale_entry>
+            <Name>metratech.com/accountcreation/InvoiceMethod/StandardWithBillMessages</Name>
+            <Value>{ES} Standard With Bill Messages</Value>
+        </locale_entry>
+        <locale_entry>
             <Name>metratech.com/accountcreation/Language</Name>
             <Value>Idioma</Value>
         </locale_entry>

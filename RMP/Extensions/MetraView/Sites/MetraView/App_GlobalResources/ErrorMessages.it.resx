@@ -193,7 +193,7 @@
         <value>L'utente non ha mai eseguito l'accesso a MetraView.</value>
     </data>
     <data name="ERROR_NO_REPORTS_FOUND" xml:space="preserve">
-        <value>Nessun record trovato</value>
+        <value>Nessun Record Trovato</value>
     </data>
     <data name="ERROR_NOT_VALID_ACCOUNT" xml:space="preserve">
         <value>Account non valido</value>

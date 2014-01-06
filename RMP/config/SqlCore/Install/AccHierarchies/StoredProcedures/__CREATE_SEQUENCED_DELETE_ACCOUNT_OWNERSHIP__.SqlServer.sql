@@ -27,7 +27,7 @@
 	    WHERE id_owner = @p_id_owner AND id_owned = @p_id_owned
 	    AND vt_start < @p_vt_start AND vt_end >= @p_vt_start AND tt_end = @p_tt_max;
       
-      UPDATE t_acc_ownership SET tt_end = dateadd(s, -1, @p_tt_current) 
+      UPDATE t_acc_ownership SET tt_end = @p_tt_current 
 	    WHERE id_owner = @p_id_owner AND id_owned = @p_id_owned
 	    AND vt_start < @p_vt_start AND vt_end >= @p_vt_start AND tt_end = @p_tt_max;
       IF @@error <> 0
@@ -42,7 +42,7 @@
 	    WHERE id_owner = @p_id_owner AND id_owned = @p_id_owned
 	    AND vt_start <= @p_vt_end AND vt_end > @p_vt_end AND tt_end = @p_tt_max;
 
-      UPDATE t_acc_ownership SET tt_end = dateadd(s, -1, @p_tt_current) 
+      UPDATE t_acc_ownership SET tt_end = @p_tt_current 
       WHERE id_owner = @p_id_owner AND id_owned = @p_id_owned
       AND vt_start <= @p_vt_end AND vt_end > @p_vt_end AND tt_end = @p_tt_max;
       IF @@error <> 0
@@ -54,7 +54,7 @@
       -- Transaction table delete is really an update of the tt_end
       --   [----------------]                 (interval that is being modified)
       -- [------------------------]           (interval we are deleting)
-      UPDATE t_acc_ownership SET tt_end = dateadd(s, -1, @p_tt_current)
+      UPDATE t_acc_ownership SET tt_end = @p_tt_current
       WHERE id_owner = @p_id_owner AND id_owned = @p_id_owned
 	    AND vt_start >= @p_vt_start AND vt_end <= @p_vt_end AND tt_end = @p_tt_max;
       IF @@error <> 0

@@ -7,12 +7,6 @@
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>ID_BILLGROUP</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <Description></Description>
-        </Parameter>
-        <Parameter>
             <Name>ID_RUN</Name>
             <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
@@ -29,7 +23,7 @@
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
         <CommonQuerySourceFile></CommonQuerySourceFile>
-        <SqlServerQuerySourceFile>R:\Extensions\Reporting\Config\SqlCore\Queries\ReverseDatamartAdapter\SqlServerMockFile.xml</SqlServerQuerySourceFile>
-        <OracleQuerySourceFile>R:\Extensions\Reporting\Config\SqlCore\Queries\ReverseDatamartAdapter\OracleMockFile.xml</OracleQuerySourceFile>
+        <SqlServerQuerySourceFile>R:\Extensions\Reporting\Config\Queries\ReverseDatamartAdapterInterval\SqlServerMockFile.xml</SqlServerQuerySourceFile>
+        <OracleQuerySourceFile>R:\Extensions\Reporting\Config\Queries\ReverseDatamartAdapterInterval\OracleMockFile.xml</OracleQuerySourceFile>
     </ConversionAudit>
 </Query>

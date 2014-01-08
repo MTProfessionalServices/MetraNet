@@ -17,7 +17,7 @@
 	  }
 		
       $("input[id$='adjAmountFldTaxToatl']").css("color", "#000");      
-	  $("input[id$='adjAmountFldTaxToatl']").val(totalSum.toString().match(/^\d+\.\d{2}/));
+	  $("input[id$='adjAmountFldTaxToatl']").val(parseFloat(totalSum).toFixed(2));
       });
     });
 })(jQuery);

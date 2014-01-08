@@ -7,20 +7,22 @@
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>ID_BILLGROUP</Name>
-            <DataType>int32</DataType>
+            <Name>NETMETER_REPORTING_DB_NAME</Name>
+            <DataType>sqlsubstitution</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
-            <Description></Description>
-        </Parameter>
-        <Parameter>
-            <Name>ID_RUN</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>NETMETER</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
         <Parameter>
             <Name>NETMETER_DB_NAME</Name>
-            <DataType>string</DataType>
+            <DataType>sqlsubstitution</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>NETMETER</SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
+        <Parameter>
+            <Name>ID_BILLGROUP</Name>
+            <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>
         </Parameter>
@@ -29,7 +31,7 @@
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
         <CommonQuerySourceFile></CommonQuerySourceFile>
-        <SqlServerQuerySourceFile>R:\Extensions\Reporting\Config\SqlCore\Queries\ReverseDatamartAdapter\SqlServerMockFile.xml</SqlServerQuerySourceFile>
-        <OracleQuerySourceFile>R:\Extensions\Reporting\Config\SqlCore\Queries\ReverseDatamartAdapter\OracleMockFile.xml</OracleQuerySourceFile>
+        <SqlServerQuerySourceFile>R:\Extensions\Reporting\Config\Queries\ReverseDatamartAdapter\SqlServerMockFile.xml</SqlServerQuerySourceFile>
+        <OracleQuerySourceFile>R:\Extensions\Reporting\Config\Queries\ReverseDatamartAdapter\OracleMockFile.xml</OracleQuerySourceFile>
     </ConversionAudit>
 </Query>

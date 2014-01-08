@@ -1,5 +1,4 @@
 
- BEGIN
  
     UPDATE %%%TEMP_TABLE_PREFIX%%%tmp_acc_ownership_batch SET status = 
      /* 

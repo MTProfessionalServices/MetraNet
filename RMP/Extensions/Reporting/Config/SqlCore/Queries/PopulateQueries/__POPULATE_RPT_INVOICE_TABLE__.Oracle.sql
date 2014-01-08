@@ -96,7 +96,7 @@
 		INNER JOIN %%NETMETER_DB_NAME%%.t_enum_data edLanguage
 			on internal.c_Language = edLanguage.id_enum_data
 		INNER JOIN %%NETMETER_DB_NAME%%.t_language lang
-			on 'Global/LanguageCode/' || lang.tx_lang_code = edLanguage.nm_enum_data
+			on 'Global/LanguageCode/' || UPPER(lang.tx_lang_code) = edLanguage.nm_enum_data
 		LEFT OUTER JOIN %%NETMETER_DB_NAME%%.t_description descCountry
 			on PayerContact.c_country = descCountry.id_desc
 			and descCountry.id_lang_code = lang.id_lang_code

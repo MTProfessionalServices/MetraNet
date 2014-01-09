@@ -47,7 +47,7 @@
         <Operation>SelectAllReportDefinitions__Client</Operation>
     </DataBinder>
     <SubGrid></SubGrid>
-    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
+    <CustomOverrideJavascriptIncludes>/MetraNet/DataExportReportManagement/ShowAllReportDefinitions.aspx</CustomOverrideJavascriptIncludes>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>

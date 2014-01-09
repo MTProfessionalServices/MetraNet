@@ -1,5 +1,5 @@
 
-  
+ 
     UPDATE %%%TEMP_TABLE_PREFIX%%%tmp_acc_ownership_batch SET status = 
      /* 
       check possible Foreign Key constraint violations early,
@@ -66,7 +66,7 @@ AND own.vt_start < ar.vt_start AND own.vt_end >= ar.vt_start AND own.tt_end = db
 WHERE
 ar.status=0;
 
-UPDATE t_acc_ownership SET tt_end = dateadd(s, -1, ar.tt_start) 
+UPDATE t_acc_ownership SET tt_end = ar.tt_start 
 FROM t_acc_ownership own
 INNER JOIN %%%TEMP_TABLE_PREFIX%%%tmp_acc_ownership_batch ar
 ON own.id_owner = ar.id_owner AND own.id_owned = ar.id_owned
@@ -84,7 +84,7 @@ AND own.vt_start <= ar.vt_end AND own.vt_end > ar.vt_end AND own.tt_end = dbo.MT
 WHERE
 ar.status=0;
 
-UPDATE t_acc_ownership SET tt_end = dateadd(s, -1, ar.tt_start) 
+UPDATE t_acc_ownership SET tt_end = ar.tt_start 
 FROM t_acc_ownership own
 INNER JOIN %%%TEMP_TABLE_PREFIX%%%tmp_acc_ownership_batch ar
 ON own.id_owner = ar.id_owner AND own.id_owned = ar.id_owned
@@ -96,11 +96,12 @@ ar.status=0;
 /*  Transaction table delete is really an update of the tt_end */
 /*    [----------------]                 (interval that is being modified) */
 /*  [------------------------]           (interval we are deleting) */
-UPDATE t_acc_ownership SET tt_end = dateadd(s, -1, ar.tt_start)
+UPDATE t_acc_ownership SET tt_end = ar.tt_start
 FROM t_acc_ownership own
 INNER JOIN %%%TEMP_TABLE_PREFIX%%%tmp_acc_ownership_batch ar
 ON own.id_owner = ar.id_owner AND own.id_owned = ar.id_owned
 AND own.vt_start >= ar.vt_start AND own.vt_end <= ar.vt_end AND own.tt_end = dbo.MTMaxDate()
 WHERE
 ar.status=0;
+
         

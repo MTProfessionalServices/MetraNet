@@ -1,64 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <MASConfig>
-  <MASServices>
-    <MASEventService Name="UpdateAccountEvents" AllowMultiple="true" IsPageNav="true" Description="The UpdateAccountEvents element contains methods necessary to update accounts">
-      <WorkflowType>
-		  <XomlFile>PageNav\Config\ActivityServices\Workflows\UpdateAccountWorkflow.xoml</XomlFile>
-		  <!--<AssemblyName>MetraCareWorkflowLibrary.dll</AssemblyName>
-        <FullTypeName>MetraCareWorkflowLibrary.UpdateAccountWorkflow</FullTypeName>-->
-      </WorkflowType>
-      <DataTypeName>Account</DataTypeName>
-      <EventMethods>
-
-        <EventMethod Name="StartUpdateAccount"  Description="Method to begin the process of updating an account." EventName="Start_UpdateAccount">
-          <ParameterDefs>
-            <Parameter Name="AccountId" Description="This is a ref parameter identifying the user account" Type="MetraTech.ActivityServices.Common.AccountIdentifier, MetraTech.ActivityServices.Common" InstanceIdentifier="true">
-              <InternalName>AccountId</InternalName>
-            </Parameter>
-            <Parameter Name="UpdateAccountId" Description="This is a ref parameter identifying the updated user account" Type="MetraTech.ActivityServices.Common.AccountIdentifier, MetraTech.ActivityServices.Common.dll">
-              <InternalName>UpdateAccountId</InternalName>
-            </Parameter>
-            <Parameter Name="LoadTime" Type="System.DateTime" Direction="In">
-              <InternalName>LoadTime</InternalName>
-            </Parameter>
-          </ParameterDefs>
-        </EventMethod>
-
-        <EventMethod Name="UpdateAccount" Description="Method to update an account." EventName="OK_UpdateAccount">
-          <ParameterDefs>
-            <Parameter Name="AccountId" Description="This is a ref parameter identifying the user account" Type="MetraTech.ActivityServices.Common.AccountIdentifier, MetraTech.ActivityServices.Common" InstanceIdentifier="true">
-              <InternalName>AccountId</InternalName>
-            </Parameter>
-            <Parameter Name="Account" Description="This is the account name." Type="MetraTech.DomainModel.BaseTypes.Account, MetraTech.DomainModel.BaseTypes.dll">
-              <InternalName>Account</InternalName>
-            </Parameter>
-            <Parameter Name="ApplyAccountTemplates" Description="This boolean parameter sets whether or not to apply account templates." Type="System.Boolean" Direction="In">
-              <InternalName>ApplyAccountTemplates</InternalName>
-            </Parameter>
+    <MASServices>
+        <MASEventService Name="UpdateAccountEvents" AllowMultiple="true" IsPageNav="true" Description="The UpdateAccountEvents element contains methods necessary to update accounts">
+            <DataTypeName>Account</DataTypeName>
+            <WorkflowType>
+                <XomlFile>PageNav\Config\ActivityServices\Workflows\UpdateAccountWorkflow.xoml</XomlFile>
+            </WorkflowType>
+            <EventMethods>
+                <EventMethod Name="StartUpdateAccount" Description="Method to begin the process of updating an account." EventName="Start_UpdateAccount">
+                    <ParameterDefs>
+                        <Parameter Name="AccountId" Description="This is a ref parameter identifying the user account" Type="MetraTech.ActivityServices.Common.AccountIdentifier, MetraTech.ActivityServices.Common" Direction="In" InstanceIdentifier="True">
+                            <InternalName>AccountId</InternalName>
+                        </Parameter>
+                        <Parameter Name="UpdateAccountId" Description="This is a ref parameter identifying the updated user account" Type="MetraTech.ActivityServices.Common.AccountIdentifier, MetraTech.ActivityServices.Common.dll" Direction="In">
+                            <InternalName>UpdateAccountId</InternalName>
+                        </Parameter>
+                        <Parameter Name="LoadTime" Description="This is DateTime parameter sets the time it takes to load" Type="System.DateTime" Direction="In">
+                            <InternalName>LoadTime</InternalName>
+                        </Parameter>
+                    </ParameterDefs>
+                </EventMethod>
+                <EventMethod Name="UpdateAccount" Description="Method to update an account." EventName="OK_UpdateAccount">
+                    <ParameterDefs>
+                        <Parameter Name="AccountId" Description="This is a ref parameter identifying the user account" Type="MetraTech.ActivityServices.Common.AccountIdentifier, MetraTech.ActivityServices.Common" Direction="In" InstanceIdentifier="True">
+                            <InternalName>AccountId</InternalName>
+                        </Parameter>
+                        <Parameter Name="Account" Description="This is the account name." Type="MetraTech.DomainModel.BaseTypes.Account, MetraTech.DomainModel.BaseTypes.dll" Direction="In">
+                            <InternalName>Account</InternalName>
+                        </Parameter>
+                        <Parameter Name="ApplyAccountTemplates" Description="This boolean parameter sets whether or not to apply account templates." Type="System.Boolean" Direction="In">
+                            <InternalName>ApplyAccountTemplates</InternalName>
+                        </Parameter>
                         <Parameter Name="IsApprovalEnabled" Description="This boolean parameter sets whether or not to enable approvals." Type="System.Boolean" Direction="In">
-              <InternalName>IsApprovalEnabled</InternalName>
-            </Parameter>
-            <Parameter Name="LoadTime" Type="System.DateTime" Direction="In">
-              <InternalName>LoadTime</InternalName>
-            </Parameter>
-          </ParameterDefs>
-        </EventMethod>
-
-        <EventMethod Name="CancelUpdateAccount"  Description="Method to cancel an account." EventName="Cancel_UpdateAccount">
-          <ParameterDefs>
-            <Parameter Name="AccountId"  Description="This is a ref parameter identifying the user account" Type="MetraTech.ActivityServices.Common.AccountIdentifier, MetraTech.ActivityServices.Common" InstanceIdentifier="true">
-              <InternalName>AccountId</InternalName>
-            </Parameter>
-          </ParameterDefs>
-        </EventMethod>
-
-      </EventMethods>
-
-      <SupportedChildTypes>
-        <ChildType>MetraTech.DomainModel.AccountTypes.CoreSubscriber, MetraTech.DomainModel.AccountTypes.Generated.dll</ChildType>
-        <ChildType>System.Collections.Generic.List`1[[MetraTech.DomainModel.BaseTypes.PriceList, MetraTech.DomainModel.BaseTypes]]</ChildType>
-      </SupportedChildTypes>
-
-    </MASEventService>
-  </MASServices>
+                            <InternalName>IsApprovalEnabled</InternalName>
+                        </Parameter>
+                        <Parameter Name="LoadTime" Description="This is DateTime parameter sets the time it takes to load" Type="System.DateTime" Direction="In">
+                            <InternalName>LoadTime</InternalName>
+                        </Parameter>
+                    </ParameterDefs>
+                </EventMethod>
+                <EventMethod Name="CancelUpdateAccount" Description="Method to cancel an account." EventName="Cancel_UpdateAccount">
+                    <ParameterDefs>
+                        <Parameter Name="AccountId" Description="This is a ref parameter identifying the user account" Type="MetraTech.ActivityServices.Common.AccountIdentifier, MetraTech.ActivityServices.Common" Direction="In" InstanceIdentifier="True">
+                            <InternalName>AccountId</InternalName>
+                        </Parameter>
+                    </ParameterDefs>
+                </EventMethod>
+            </EventMethods>
+            <WCFEndpoints></WCFEndpoints>
+            <SupportedChildTypes>
+                <ChildType>MetraTech.DomainModel.AccountTypes.CoreSubscriber, MetraTech.DomainModel.AccountTypes.Generated.dll</ChildType>
+                <ChildType>System.Collections.Generic.List`1[[MetraTech.DomainModel.BaseTypes.PriceList, MetraTech.DomainModel.BaseTypes]]</ChildType>
+            </SupportedChildTypes>
+        </MASEventService>
+    </MASServices>
 </MASConfig>

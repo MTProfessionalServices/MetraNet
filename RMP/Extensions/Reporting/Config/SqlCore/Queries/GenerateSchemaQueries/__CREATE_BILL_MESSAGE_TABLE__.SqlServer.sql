@@ -6,7 +6,7 @@
 			AccountID int NOT NULL,
 			IntervalID int NOT NULL,
 			MessageType int NOT NULL,
-			MessageText nvarchar(50) NOT NULL,
+			MessageText nvarchar(2000) NOT NULL,
 			MessageFormat nvarchar(20) NULL
 			)
 			

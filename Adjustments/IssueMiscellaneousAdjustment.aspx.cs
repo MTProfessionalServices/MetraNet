@@ -142,7 +142,8 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
     	decimal totalAmount = 0;
 
         if (!errorOccurred)
-        {  
+        {
+          totalAmount = adjAmount + taxFederal + taxState + taxCounty + taxLocal + taxOther;
           try
           {
               cache.PoolSize = 30;
@@ -175,8 +176,8 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
               row["AccountingCode"] = null;
               row["ReturnCode"] = 0; // Legacy
               row["ContentionSessionID"] = "-"; // Legacy from 1.2
-              row["RequestAmount"] = -adjAmount;
-              row["CreditAmount"] = -adjAmount;
+              row["RequestAmount"] = -totalAmount;
+              row["CreditAmount"] = -totalAmount;
               row["GuideIntervalID"] = ddBillingPeriod.SelectedValue;
               row["ResolveWithAccountIDFlag"] = true;
               row["_Amount"] = -adjAmount;
@@ -216,9 +217,6 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
                   CleanFailedTransactions(errorRows);
                   throw new MASBasicException(error.ToString());
               }
-
-              totalAmount = adjAmount + taxFederal + taxState + taxCounty + taxLocal + taxOther;
-
           }
           catch (Exception exp)
           {

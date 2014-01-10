@@ -7,7 +7,7 @@
     meta:resourcekey="MTPanel1Resource1" >
     <table id="adjustmentSummary">
     <tr>
-      <td colspan="2"><MT:MTNumberField ID="adjAmountFld" Label="Amount" runat="server" 
+      <td><MT:MTNumberField ID="adjAmountFld" Label="Amount" runat="server" 
       AllowBlank="False" AllowDecimals="True" DecimalPrecision="2" TrailingZeros="true" 
       AllowNegative="True" ControlHeight="18" ControlWidth="200" 
       HideLabel="False" LabelSeparator=":" LabelWidth="170" Listeners="{}" 
@@ -16,6 +16,7 @@
       MinValue="-79228162514264337593543950335" OptionalExtConfig="" 
       ReadOnly="False" ValidationRegex="null" 
       XType="LargeNumberField" XTypeNameSpace="ux.form" /></td>
+      <td><MT:MTLabel ID="lblMaxAmount" runat="server" /></td>
     </tr>
     <tr>
       <td colspan="2"><MT:MTNumberField ID="adjAmountFldTaxFederal" Label="Tax Federal" runat="server" 
@@ -79,7 +80,7 @@
     </tr>
     <tr><td colspan="2" style="text-align: center"><img id="TotalLineAdj" src="/Res/Images/TotalLine.png"></td></tr>
     <tr>
-       <td><MT:MTNumberField ID="adjAmountFldTaxToatl" Label="Total Adjustment Being Issued" runat="server"  Enabled="False"
+       <td colspan="2"><MT:MTNumberField ID="adjAmountFldTaxToatl" Label="Total Adjustment Being Issued" runat="server"  Enabled="False"
         AllowBlank="True" AllowDecimals="True" DecimalPrecision="2" TrailingZeros="true" 
         AllowNegative="True" ControlHeight="18" ControlWidth="200" 
         HideLabel="False" LabelSeparator=":" LabelWidth="170" Listeners="{}" 
@@ -89,7 +90,6 @@
         ReadOnly="False" ValidationRegex="null" 
         XType="LargeNumberField" XTypeNameSpace="ux.form"/>
       </td>
-      <td><MT:MTLabel ID="lblMaxAmount" runat="server"/></td>
     </tr>
     </table>
     <br/>
@@ -97,10 +97,17 @@
       AllowBlank="False" HideLabel="False" LabelSeparator=":" Listeners="{}" 
       meta:resourcekey="ddReasonCodeResource1" ReadOnly="False">
     </MT:MTDropDown>
-    <MT:MTTextArea ID="adjDescriptionTextBox" Label="Description" runat="server" 
+    <MT:MTTextArea ID="adjDescriptionTextBox" Label="Internal Description" runat="server" 
       AllowBlank="True" Height="200px" Width="400px" ControlHeight="200" 
       ControlWidth="400" HideLabel="False" LabelSeparator=":" LabelWidth="120" 
       Listeners="{}" MaxLength="-1" meta:resourcekey="adjDescriptionTextBoxResource1" 
+      MinLength="0" OptionalExtConfig="maxLength:Number.MAX_VALUE,
+                              minLength:0" ReadOnly="False" ValidationRegex="null" 
+      XType="TextArea" XTypeNameSpace="form" />
+    <MT:MTTextArea ID="adjSubscriberDescriptionTextBox" Label="Subscriber Description" runat="server" 
+      AllowBlank="True" Height="200px" Width="400px" ControlHeight="200" 
+      ControlWidth="400" HideLabel="False" LabelSeparator=":" LabelWidth="120" 
+      Listeners="{}" MaxLength="-1" meta:resourcekey="adjDescriptionTextBoxResource2" 
       MinLength="0" OptionalExtConfig="maxLength:Number.MAX_VALUE,
                               minLength:0" ReadOnly="False" ValidationRegex="null" 
       XType="TextArea" XTypeNameSpace="form" />

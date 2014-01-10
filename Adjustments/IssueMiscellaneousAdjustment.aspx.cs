@@ -142,8 +142,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
     	decimal totalAmount = 0;
 
         if (!errorOccurred)
-        {
-          totalAmount = adjAmount + taxFederal + taxState + taxCounty + taxLocal + taxOther;
+        {  
           try
           {
               cache.PoolSize = 30;
@@ -169,15 +168,17 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
                 typeof(MetraTech.DomainModel.Enums.Core.Metratech_com.SubscriberCreditAccountRequestReason),
                 ddReasonCode.SelectedValue, true);
               row["Reason"] = EnumHelper.GetDbValueByEnum(o);
-
               row["Other"] = "Other";
-              row["InvoiceComment"] = GetLocalResourceObject("TEXT_MISCELLANEOUS_ADJUSTMENT");
+              if (adjSubscriberDescriptionTextBox.Text == "")
+                  row["InvoiceComment"] = GetLocalResourceObject("TEXT_MISCELLANEOUS_ADJUSTMENT");   
+              else
+                  row["InvoiceComment"] = adjSubscriberDescriptionTextBox.Text;  
               row["InternalComment"] = adjDescriptionTextBox.Text;
               row["AccountingCode"] = null;
               row["ReturnCode"] = 0; // Legacy
               row["ContentionSessionID"] = "-"; // Legacy from 1.2
-              row["RequestAmount"] = -totalAmount;
-              row["CreditAmount"] = -totalAmount;
+              row["RequestAmount"] = -adjAmount;
+              row["CreditAmount"] = -adjAmount;
               row["GuideIntervalID"] = ddBillingPeriod.SelectedValue;
               row["ResolveWithAccountIDFlag"] = true;
               row["_Amount"] = -adjAmount;
@@ -217,6 +218,9 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
                   CleanFailedTransactions(errorRows);
                   throw new MASBasicException(error.ToString());
               }
+
+              totalAmount = adjAmount + taxFederal + taxState + taxCounty + taxLocal + taxOther;
+
           }
           catch (Exception exp)
           {

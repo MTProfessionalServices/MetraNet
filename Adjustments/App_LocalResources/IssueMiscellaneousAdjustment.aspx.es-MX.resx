@@ -130,12 +130,21 @@
     <value>Fecha del ajuste</value>
   </data>
   <data name="adjDescriptionTextBoxResource1.Label" xml:space="preserve">
-    <value>Descripción</value>
+    <value>{ES-MX}Internal Descripción</value>
+  </data>
+  <data name="adjDescriptionTextBoxResource2.Label" xml:space="preserve">
+    <value>{ES-MX}Subscriber Description</value>
   </data>
   <data name="adjDescriptionTextBoxResource1.MaxLength" xml:space="preserve">
     <value>-1</value>
   </data>
+  <data name="adjDescriptionTextBoxResource2.MaxLength" xml:space="preserve">
+    <value>-1</value>
+  </data>
   <data name="adjDescriptionTextBoxResource1.MinLength" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="adjDescriptionTextBoxResource2.MinLength" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="btnCancelResource1.ServerSide" xml:space="preserve">

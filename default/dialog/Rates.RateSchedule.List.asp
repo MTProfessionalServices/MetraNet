@@ -199,7 +199,7 @@ Private Function JoinRowsets(rowsetDefault, rowsetICB)
     newRowset.AddColumnDefinition "id_sched",  "int32",  10
     newRowset.AddColumnDefinition "nm_desc",   "string", 255
     newRowset.AddColumnDefinition "dt_start", "timestamp",  255
-    newRowset.AddColumnDefinition "dt_end",   "string",  255
+    newRowset.AddColumnDefinition "dt_end", "timestamp",  255
     newRowset.AddColumnDefinition "n_begintype", "string",  255
     newRowset.AddColumnDefinition "n_endtype",   "string",  255
     newRowset.AddColumnDefinition "n_beginoffset",   "string",  255    
@@ -217,7 +217,7 @@ Private Function JoinRowsets(rowsetDefault, rowsetICB)
 		      newRowset.AddColumnData "id_sched",CLng(rowsetDefault.Value("id_sched"))
 		      newRowset.AddColumnData "nm_desc", "" & rowsetDefault.Value("nm_desc")
 		      newRowset.AddColumnData "dt_start", rowsetDefault.Value("dt_start")
-		      newRowset.AddColumnData "dt_end",  "" & rowsetDefault.Value("dt_end")
+		      newRowset.AddColumnData "dt_end", rowsetDefault.Value("dt_end")
 		      newRowset.AddColumnData "n_begintype","" & rowsetDefault.Value("n_begintype")
 		      newRowset.AddColumnData "n_endtype",  "" & rowsetDefault.Value("n_endtype")
 		      newRowset.AddColumnData "n_beginoffset",  "" & rowsetDefault.Value("n_beginoffset")          
@@ -236,7 +236,7 @@ Private Function JoinRowsets(rowsetDefault, rowsetICB)
 		      newRowset.AddColumnData "id_sched", CLng(rowsetICB.Value("id_sched"))
 		      newRowset.AddColumnData "nm_desc",  "" & rowsetICB.Value("nm_desc")
 		      newRowset.AddColumnData "dt_start", rowsetICB.Value("dt_start")
-		      newRowset.AddColumnData "dt_end",   "" & rowsetICB.Value("dt_end")
+		      newRowset.AddColumnData "dt_end", rowsetICB.Value("dt_end")
 		      newRowset.AddColumnData "n_begintype", "" & rowsetICB.Value("n_begintype")
 		      newRowset.AddColumnData "n_endtype",   "" & rowsetICB.Value("n_endtype")
 		      newRowset.AddColumnData "n_beginoffset",   "" & rowsetICB.Value("n_beginoffset")          
@@ -324,7 +324,7 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
                 EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>" 
 	      Else
                 EventArg.HTMLRendered = EventArg.HTMLRendered & "<td class='" & Form.Grid.CellClass & "' align='left'>"
-                EventArg.HTMLRendered = EventArg.HTMLRendered & Service.Tools.ConvertFromGMT(CDate(ProductView.Properties.Rowset.Value("dt_end")), MAM().CSR("TimeZoneId")) & " (" & GetDateFieldString(ProductView.Properties.Rowset.Value("n_endtype")) & ")"
+                EventArg.HTMLRendered = EventArg.HTMLRendered & Service.Tools.ConvertFromGMT(ProductView.Properties.Rowset.Value("dt_end"), MAM().CSR("TimeZoneId")) & " (" & GetDateFieldString(ProductView.Properties.Rowset.Value("n_endtype")) & ")"
                 EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>" 
               End IF
             End If

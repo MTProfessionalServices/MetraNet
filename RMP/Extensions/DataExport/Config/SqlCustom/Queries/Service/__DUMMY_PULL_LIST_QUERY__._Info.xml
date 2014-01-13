@@ -2,18 +2,9 @@
 <Query>
     <Action>Get</Action>
     <Implementations>
-        <Implementation>SqlServer</Implementation>
-        <Implementation>Oracle</Implementation>
+        <Implementation>Common</Implementation>
     </Implementations>
-    <Parameters>
-        <Parameter>
-            <Name>ACCTYPE</Name>
-            <DataType>sqlsubstitution</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck>1</SubstitutionSyntaxCheck>
-            <Description></Description>
-        </Parameter>
-    </Parameters>
+    <Parameters></Parameters>
     <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>

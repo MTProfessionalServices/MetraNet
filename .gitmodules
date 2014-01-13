@@ -1,0 +1,33 @@
+[submodule "RMP/Extensions/AR"]
+	path = RMP/Extensions/AR
+	url = https://github.com/MetraTech/AR.git
+[submodule "RMP/Extensions/ARSample"]
+	path = RMP/Extensions/ARSample
+	url = https://github.com/MetraTech/ARSample.git
+[submodule "RMP/Extensions/BillSoft"]
+	path = RMP/Extensions/BillSoft
+	url = https://github.com/MetraTech/BillSoft.git
+[submodule "RMP/Extensions/MetraTax"]
+	path = RMP/Extensions/MetraTax
+	url = https://github.com/MetraTech/MetraTax.git
+[submodule "RMP/Extensions/PaymentSvr"]
+	path = RMP/Extensions/PaymentSvr
+	url = https://github.com/MetraTech/PaymentSvr.git
+[submodule "RMP/Extensions/PaymentSvrClient"]
+	path = RMP/Extensions/PaymentSvrClient
+	url = https://github.com/MetraTech/PaymentSvrClient.git
+[submodule "RMP/Extensions/Reporting"]
+	path = RMP/Extensions/Reporting
+	url = https://github.com/MetraTech/Reporting.git
+[submodule "RMP/Extensions/TaxWare"]
+	path = RMP/Extensions/TaxWare
+	url = https://github.com/MetraTech/TaxWare.git
+[submodule "RMP/WebServices"]
+	path = RMP/WebServices
+	url = https://github.com/MetraTech/WebServices.git
+[submodule "RMP/Extensions/MvmAmp"]
+	path = RMP/Extensions/MvmAmp
+	url = https://github.com/MetraTech/RMP-Extensions-MvmAmp.git
+[submodule "RMP/Extensions/MvmCore"]
+	path = RMP/Extensions/MvmCore
+	url = https://github.com/MetraTech/RMP-Extensions-MvmCore.git

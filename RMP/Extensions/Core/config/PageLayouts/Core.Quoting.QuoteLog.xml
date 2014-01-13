@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PageLayout>
     <IsBusinessEntityLayout>true</IsBusinessEntityLayout>
-    <Name>Core.BillMessages.BillMessageAccountAdd</Name>
+    <Name>Core.Quoting.QuoteLog</Name>
     <Tenant>MetraTech</Tenant>
-    <AssemblyName>Core.BillMessages.Entity</AssemblyName>
-    <ObjectName>Core.BillMessages.BillMessageAccount</ObjectName>
-    <Description>Page layout for Bill Message Account Add</Description>
+    <AssemblyName>Core.Quoting.Entity</AssemblyName>
+    <ObjectName>Core.Quoting.QuoteLog</ObjectName>
+    <Description>BME page layout for log for Qupting</Description>
     <Header>
         <PageTitle>
-            <Value><![CDATA[Bill Message Association]]></Value>
+            <Value><![CDATA[]]></Value>
         </PageTitle>
     </Header>
     <Help>
@@ -19,7 +19,7 @@
     <Sections>
         <Section>
             <Title>
-                <Value><![CDATA[Message Code]]></Value>
+                <Value><![CDATA[]]></Value>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
             <Name></Name>
@@ -27,54 +27,36 @@
                 <Column>
                     <Fields>
                         <Field>
-                            <AssemblyFilename>Core.BillMessages.Entity</AssemblyFilename>
-                            <ObjectName>Core.BillMessages.BillMessageAccount</ObjectName>
-                            <ID>MessageCode</ID>
-                            <Name>MessageCode</Name>
+                            <AssemblyFilename>Core.Quoting.Entity</AssemblyFilename>
+                            <ObjectName>Core.Quoting.QuoteLog</ObjectName>
+                            <ID>QuoteIdentifier</ID>
+                            <Name>QuoteIdentifier</Name>
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
                             <EditorValidation>
-                                <Required>true</Required>
+                                <Required>false</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
-                            <Label>
-                                <Value><![CDATA[Message Code]]></Value>
-                            </Label>
+                            <Label />
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
                         </Field>
-                    </Fields>
-                </Column>
-            </Columns>
-            <ToolbarButtons></ToolbarButtons>
-        </Section>
-        <Section>
-            <Title>
-                <Value><![CDATA[Effective Dates]]></Value>
-            </Title>
-            <TabOrder>LeftToRight</TabOrder>
-            <Name></Name>
-            <Columns>
-                <Column>
-                    <Fields>
                         <Field>
-                            <AssemblyFilename>Core.BillMessages.Entity</AssemblyFilename>
-                            <ObjectName>Core.BillMessages.BillMessageAccount</ObjectName>
-                            <ID>StartDate</ID>
-                            <Name>StartDate</Name>
+                            <AssemblyFilename>Core.Quoting.Entity</AssemblyFilename>
+                            <ObjectName>Core.Quoting.QuoteLog</ObjectName>
+                            <ID>Message</ID>
+                            <Name>Message</Name>
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
-                            <ControlType>MetraTech.UI.Controls.MTDatePicker</ControlType>
+                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
                             <EditorValidation>
-                                <Required>true</Required>
+                                <Required>false</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
-                            <Label>
-                                <Value><![CDATA[Start Date]]></Value>
-                            </Label>
+                            <Label />
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
                         </Field>
@@ -83,10 +65,10 @@
                 <Column>
                     <Fields>
                         <Field>
-                            <AssemblyFilename>Core.BillMessages.Entity</AssemblyFilename>
-                            <ObjectName>Core.BillMessages.BillMessageAccount</ObjectName>
-                            <ID>EndDate</ID>
-                            <Name>EndDate</Name>
+                            <AssemblyFilename>Core.Quoting.Entity</AssemblyFilename>
+                            <ObjectName>Core.Quoting.QuoteLog</ObjectName>
+                            <ID>DateAdded</ID>
+                            <Name>DateAdded</Name>
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTDatePicker</ControlType>
@@ -95,9 +77,7 @@
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
-                            <Label>
-                                <Value><![CDATA[End Date]]></Value>
-                            </Label>
+                            <Label />
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
                         </Field>
@@ -107,4 +87,5 @@
             <ToolbarButtons></ToolbarButtons>
         </Section>
     </Sections>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
 </PageLayout>

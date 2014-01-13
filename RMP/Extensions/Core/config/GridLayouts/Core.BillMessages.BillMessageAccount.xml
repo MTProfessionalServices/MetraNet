@@ -243,7 +243,7 @@
             <ToolTip>
                 <Value><![CDATA[Add]]></Value>
             </ToolTip>
-            <IconClass>Add</IconClass>
+            <IconClass>add</IconClass>
             <RequiredCapabilities></RequiredCapabilities>
             <JSHandlerFunction>onNew</JSHandlerFunction>
         </Button>

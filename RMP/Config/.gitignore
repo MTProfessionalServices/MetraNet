@@ -1,0 +1,10 @@
+**output/
+**[Bb]in/
+_MetraNet_7.0.2
+
+**[Tt]emp/
+
+Localization/Global/*.resources
+Security/Validation/TestConfigs/
+Security/sessionkeys.xml
+

@@ -1,0 +1,3 @@
+
+				execute immediate '%%DDL%%';
+			

@@ -1,0 +1,2 @@
+UPDATE t_composite_capability_type SET tx_name='Read Business Modeling Entities' WHERE tx_name ='Read Business Entities'
+UPDATE t_composite_capability_type SET tx_name='Write Business Modeling Entities' WHERE tx_name ='Write Business Entities'

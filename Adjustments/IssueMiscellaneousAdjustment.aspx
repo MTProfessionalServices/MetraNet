@@ -97,10 +97,17 @@
       AllowBlank="False" HideLabel="False" LabelSeparator=":" Listeners="{}" 
       meta:resourcekey="ddReasonCodeResource1" ReadOnly="False">
     </MT:MTDropDown>
-    <MT:MTTextArea ID="adjDescriptionTextBox" Label="Description" runat="server" 
+    <MT:MTTextArea ID="adjDescriptionTextBox" Label="Internal Description" runat="server" 
       AllowBlank="True" Height="200px" Width="400px" ControlHeight="200" 
       ControlWidth="400" HideLabel="False" LabelSeparator=":" LabelWidth="120" 
       Listeners="{}" MaxLength="-1" meta:resourcekey="adjDescriptionTextBoxResource1" 
+      MinLength="0" OptionalExtConfig="maxLength:Number.MAX_VALUE,
+                              minLength:0" ReadOnly="False" ValidationRegex="null" 
+      XType="TextArea" XTypeNameSpace="form" />
+    <MT:MTTextArea ID="adjSubscriberDescriptionTextBox" Label="Subscriber Description" runat="server" 
+      AllowBlank="True" Height="200px" Width="400px" ControlHeight="200" 
+      ControlWidth="400" HideLabel="False" LabelSeparator=":" LabelWidth="120" 
+      Listeners="{}" MaxLength="-1" meta:resourcekey="adjDescriptionTextBoxResource2" 
       MinLength="0" OptionalExtConfig="maxLength:Number.MAX_VALUE,
                               minLength:0" ReadOnly="False" ValidationRegex="null" 
       XType="TextArea" XTypeNameSpace="form" />

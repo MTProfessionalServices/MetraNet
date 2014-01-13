@@ -16,8 +16,13 @@
 		totalSum += '0';
 	  }
 		
-      $("input[id$='adjAmountFldTaxToatl']").css("color", "#000");      
-	  $("input[id$='adjAmountFldTaxToatl']").val(parseFloat(totalSum).toFixed(2));
+      $("input[id$='adjAmountFldTaxToatl']").css("color", "#000");
+	  
+	  var regOnlyDec = /\d+\.\d+$/;
+	  if (regOnlyDec.test(totalSum))
+          $("input[id$='adjAmountFldTaxToatl']").val(parseFloat(totalSum).toFixed(2));
+	  else
+		  $("input[id$='adjAmountFldTaxToatl']").val("");
       });
     });
 })(jQuery);

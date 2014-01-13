@@ -171,7 +171,10 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
               row["Reason"] = EnumHelper.GetDbValueByEnum(o);
 
               row["Other"] = "Other";
-              row["InvoiceComment"] = GetLocalResourceObject("TEXT_MISCELLANEOUS_ADJUSTMENT");
+              if (String.IsNullOrEmpty(adjSubscriberDescriptionTextBox.Text))
+                  row["InvoiceComment"] = GetLocalResourceObject("TEXT_MISCELLANEOUS_ADJUSTMENT");   
+              else
+                  row["InvoiceComment"] = adjSubscriberDescriptionTextBox.Text;  
               row["InternalComment"] = adjDescriptionTextBox.Text;
               row["AccountingCode"] = null;
               row["ReturnCode"] = 0; // Legacy

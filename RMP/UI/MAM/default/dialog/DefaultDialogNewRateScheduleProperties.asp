@@ -152,6 +152,11 @@ FUNCTION OK_Click(EventArg) ' As Boolean
 
     If Len(Service.Properties("StartDate")) Then
       effDate.StartDate = CDate(Service.Tools.ConvertToGMT(Service.Properties("StartDate"), MAM().CSR("TimeZoneId")))
+      'ESR-6316
+      'Issue - Rate schedule End date selection with popup calendar
+      effDate.StartDate=DateAdd("h",-Hour(effDate.StartDate), effDate.StartDate)
+      effDate.StartDate=DateAdd("n",-Minute(effDate.StartDate), effDate.StartDate)
+      effDate.StartDate=DateAdd("s",-Second(effDate.StartDate), effDate.StartDate)
       If Service("StartNextBillingPeriod") Then 
         effDate.StartDateType = PCDATE_TYPE_BILLCYCLE 
       Else
@@ -163,6 +168,11 @@ FUNCTION OK_Click(EventArg) ' As Boolean
 
     If Len(Service.Properties("EndDate")) Then
       effDate.EndDate = CDate(Service.Tools.ConvertToGMT(Service.Properties("EndDate"), MAM().CSR("TimeZoneId")))
+      'ESR-6316
+      'Issue - Rate schedule End date selection with popup calendar 
+      effDate.EndDate=DateAdd("h",23-Hour(effDate.EndDate), effDate.EndDate)
+      effDate.EndDate=DateAdd("n",59-Minute(effDate.EndDate), effDate.EndDate)
+      effDate.EndDate=DateAdd("s",59-Second(effDate.EndDate), effDate.EndDate)
       If Service("EndNextBillingPeriod") Then 
         effDate.EndDateType = PCDATE_TYPE_BILLCYCLE 
       Else

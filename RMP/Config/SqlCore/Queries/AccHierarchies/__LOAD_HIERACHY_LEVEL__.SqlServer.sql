@@ -34,7 +34,7 @@ select at.id_type, CASE WHEN COUNT(adm.id_type) > 0 THEN 1 ELSE 0 END d_count fr
 select top (@PageSize)
 RowNumber, account_type, icon, parent_id, child_id, b_children as children, nm_login, nm_space, hierarchyname,
 CASE when folder_owner IS NULL THEN N'' ELSE folder_owner END as folder_owner,
-folder, currency, status, numpayees, tx_path
+folder, currency, status, numpayees, tx_path, WritePermission
 
 from (
 
@@ -66,9 +66,11 @@ descmap.d_count folder,
 tav.c_currency currency,
 accstate.status status,
 accs.numpayees,
-accs.tx_path
+accs.tx_path,
+awp.WritePermission
 
 FROM my_drivers accs
+ inner join GetAccountsWithPermission(%%CURRENT_USER%%) awp on accs.id_descendent = awp.AccountID
  inner join t_account acc on acc.id_acc = accs.id_descendent
  inner join t_account_type at on at.id_type = acc.id_type
   INNER  JOIN t_av_internal tav ON tav.id_acc = accs.id_descendent %%FOLDERCHECK%%

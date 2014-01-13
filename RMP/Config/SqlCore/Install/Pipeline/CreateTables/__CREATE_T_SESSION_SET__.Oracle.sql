@@ -8,11 +8,7 @@ CREATE TABLE t_session_set
    only one session set per message can contain root sessions. non-root sessions are children.*/
   b_root CHAR(1) NOT NULL,
   session_count number(10) NOT NULL,
+  /* Uses for archive_queue functionality */
   id_partition number(10) DEFAULT 1 NOT NULL
 )
-PARTITION BY LIST(ID_PARTITION)
-(
-  PARTITION P1 VALUES(1)
-)
-
 			

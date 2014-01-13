@@ -1,13 +1,14 @@
-
-create or replace TRIGGER trig_recur_window_pay_redir
+create or replace
+TRIGGER trig_recur_window_pay_redir
   /* We don't want to trigger on delete, because the insert comes right after a delete, and we can get the info that was deleted
   from payment_redir_history*/
   AFTER
-  INSERT ON t_payment_redirection REFERENCING NEW AS NEW 
-  FOR EACH row 
+  INSERT ON t_payment_redirection REFERENCING NEW AS NEW
+  FOR EACH row
+  DECLARE currentDate DATE;   
   BEGIN
     /*Get the old vt_start and vt_end for payees that have changed*/
-    insert into tmp_redir 
+    insert into tmp_redir
     SELECT DISTINCT redirold.id_payer,
       redirold.id_payee,
       redirold.vt_start,
@@ -24,6 +25,8 @@ create or replace TRIGGER trig_recur_window_pay_redir
         ON trw.c__AccountID  = tmp_redir.id_payee
         AND trw.c_PayerStart = tmp_redir.vt_start
         AND trw.c_PayerEnd   = tmp_redir.vt_end;
+
+SELECT metratime(1,'RC') INTO currentDate FROM dual;	
 
 insert into tmp_newrw
   SELECT orw.c_CycleEffectiveDate ,
@@ -46,11 +49,12 @@ insert into tmp_newrw
     orw.c_BilledThroughDate ,
     orw.c_LastIdRun ,
     orw.c_MembershipStart ,
-    orw.c_MembershipEnd
+    orw.c_MembershipEnd,
+    AllowInitialArrersCharge(orw.c_Advance, orw.c__AccountID, orw.c_SubscriptionEnd, currentDate) c__IsAllowGenChargeByTrigger
   FROM tmp_oldrw orw
   WHERE orw.c__AccountId = :new.id_payee;
   
-  MeterPayerChangeFromRecWind;
+  MeterPayerChangeFromRecWind(currentDate);
   
   DELETE
   FROM t_recur_window
@@ -64,11 +68,30 @@ insert into tmp_newrw
     AND t_recur_window.c__SubscriptionID    = orw.c__SubscriptionID
     );
   
-  UPDATE tmp_newrw SET c_BilledThroughDate =metratime(1,'RC');
-  INSERT INTO T_RECUR_WINDOW SELECT DISTINCT * FROM tmp_newrw
-;
+  INSERT INTO t_recur_window
+    SELECT c_CycleEffectiveDate,
+    c_CycleEffectiveStart,
+    c_CycleEffectiveEnd,
+    c_SubscriptionStart,
+    c_SubscriptionEnd,
+    c_Advance,
+    c__AccountID,
+    c__PayingAccount,
+    c__PriceableItemInstanceID,
+    c__PriceableItemTemplateID,
+    c__ProductOfferingID,
+    c_PayerStart,
+    c_PayerEnd,
+    c__SubscriptionID,
+    c_UnitValueStart,
+    c_UnitValueEnd,
+    c_UnitValue,
+    c_BilledThroughDate,
+    c_LastIdRun,
+    c_MembershipStart,
+    c_MembershipEnd
+    FROM tmp_newrw;
 
-  
   UPDATE t_recur_window w1
   SET c_CycleEffectiveEnd =
     (SELECT MIN(NVL(w2.c_CycleEffectiveDate,w2.c_SubscriptionEnd))
@@ -80,8 +103,7 @@ insert into tmp_newrw
     AND w1.c_UnitValueEnd       = w2.c_UnitValueEnd
     AND w2.c_CycleEffectiveDate > w1.c_CycleEffectiveDate
     )
-  WHERE 1=1
-  AND EXISTS
+  WHERE EXISTS
     (SELECT 1
     FROM t_recur_window w2
     WHERE w2.c__SubscriptionID  = w1.c__SubscriptionID
@@ -92,5 +114,3 @@ insert into tmp_newrw
     AND w2.c_CycleEffectiveDate > w1.c_CycleEffectiveDate
     ) ;
 END;
-
-

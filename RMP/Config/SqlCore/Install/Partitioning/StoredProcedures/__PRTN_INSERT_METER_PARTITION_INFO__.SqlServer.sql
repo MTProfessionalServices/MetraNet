@@ -7,7 +7,7 @@ AS
 	
 	IF @current_datetime IS NULL
 	    SET @current_datetime = GETDATE()
-	EXEC prtn_GetNextAllowRunDate @current_datetime = @current_datetime,
+	EXEC prtn_get_next_allow_run_date @current_datetime = @current_datetime,
 	     @next_allow_run_date = @next_allow_run OUT
 	INSERT INTO t_archive_queue_partition
 	VALUES

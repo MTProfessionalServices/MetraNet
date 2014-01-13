@@ -34,6 +34,18 @@
             <ReplacementType>SqlParameter</ReplacementType>
             <Description></Description>
         </Parameter>
+		<Parameter>
+            <Name>v_id_accounts</Name>
+            <DataType>string</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description></Description>
+        </Parameter>
+		<Parameter>
+            <Name>v_id_poid</Name>
+            <DataType>string</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description></Description>
+        </Parameter>
         <Parameter>
             <Name>v_n_batch_size</Name>
             <DataType>int32</DataType>

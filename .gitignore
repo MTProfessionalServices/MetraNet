@@ -10,7 +10,7 @@ MakeItAllWithClean.log
 # MTOUT variable should be changed
 output/
 
-# Output dir should be changed
+# Output dir should to be changed
 /Source/ExpressionEngine/ExpressionEngineGui/bin
 /Source/ExpressionEngine/ExpressionEngineGui/obj
 /Source/ExpressionEngine/ExpressionEngineTest/bin
@@ -35,69 +35,17 @@ output/
 /Source/MetraTech/VertexATLWrapper/Debug
 /Source/utils/BinaryCheck/MetraTech.Tools.BinaryCheck.Runner/obj
 
+
+
 /Source/MetraTech/ActivityServices/CodeGenerators/build/
 /Source/MetraTech/ActivityServices/MASClientProxyHook/build/
 /Source/MetraTech/ActivityServices/Runtime/build/
 /Source/MetraTech/Core/Services/MetraTech.Core.Services.ClientProxyHook/build/
 /Source/MetraTech/DomainModel/CodeGenerator/build/
 
-/Source/FunctionalTests/MetraNet_LegacySmokesTests/Core/Services/bin/
-/Source/FunctionalTests/MetraTech/AgreementTemplate/obj/
-/Source/FunctionalTests/MetraTech/Approvals/bin/
-/Source/FunctionalTests/MetraTech/BusinessEntity/MetraTech.BusinessEntity.FunctionalTest/obj/
-/Source/FunctionalTests/MetraTech/DataAccess/QueryManagement/UnitTests/obj/
-/Source/FunctionalTests/MetraTech/SecurityFramework/SecurityFrameworkUnitTests/obj/
-/Source/FunctionalTests/MetraTech/Tax/BillSoft/obj/
-/Source/FunctionalTests/MetraTech/Tax/FrameworkTest/obj/
-/Source/FunctionalTests/MetraTech/Tax/MetraTax/obj/
-/Source/FunctionalTests/MetraTech/Tax/Partitioning/obj/
-/Source/FunctionalTests/MetraTech/Tax/Taxware/obj/
-
-/Source/MetraTech/packages
-
-
 /RMP/config/Security/sessionkeys.xml
 /RMP/config/Security/sessionkeys.xml.*
 /RMP/config/Localization/Global/*.resources
 
-# Extensions
-/RMP/Extensions/Account/bin/
-
-/RMP/Extensions/Core/BusinessEntity/BillMessages/Entity/*.Generated.cs
-/RMP/Extensions/Core/BusinessEntity/BillMessages/Entity/Core.BillMessages.Entity.csproj
-/RMP/Extensions/Core/BusinessEntity/BillMessages/Entity/Temp/
-
-/RMP/Extensions/Core/BusinessEntity/Core/Entity/*.Generated.cs
-/RMP/Extensions/Core/BusinessEntity/Core/Entity/Core.Core.Entity.csproj
-/RMP/Extensions/Core/BusinessEntity/Core/Entity/Temp/
-
-/RMP/Extensions/Core/BusinessEntity/FileLandingService/Entity/*.Generated.cs
-/RMP/Extensions/Core/BusinessEntity/FileLandingService/Entity/Core.FileLandingService.Entity.csproj
-/RMP/Extensions/Core/BusinessEntity/FileLandingService/Entity/Temp/
-
-/RMP/Extensions/Core/BusinessEntity/Interface/
-
-/RMP/Extensions/Core/BusinessEntity/MR/Entity/Core.MR.Entity.csproj
-/RMP/Extensions/Core/BusinessEntity/MR/Entity/*.Generated.cs
-/RMP/Extensions/Core/BusinessEntity/MR/Entity/Temp/
-
-/RMP/Extensions/Core/BusinessEntity/Quoting/Entity/*.Generated.cs
-/RMP/Extensions/Core/BusinessEntity/Quoting/Entity/Core.Quoting.Entity.csproj
-/RMP/Extensions/Core/BusinessEntity/Quoting/Entity/Temp/
-
-/RMP/Extensions/Core/BusinessEntity/UI/Entity/*.Generated.cs
-/RMP/Extensions/Core/BusinessEntity/UI/Entity/Core.UI.Entity.csproj
-/RMP/Extensions/Core/BusinessEntity/UI/Entity/Temp/
-
-/RMP/Extensions/MetraView/Sites/MetraView/bin/
-
-/RMP/Extensions/PageNav/bin/
-
-/RMP/Extensions/SmokeTest/BusinessEntity/Interface/
-/RMP/Extensions/SmokeTest/BusinessEntity/TestBME/Entity/*.Generated.cs
-/RMP/Extensions/SmokeTest/BusinessEntity/TestBME/Entity/MetraTech.SmokeTest.TestBME.Entity.csproj
-/RMP/Extensions/SmokeTest/BusinessEntity/TestBME/Entity/Temp/
-/RMP/Extensions/SmokeTest/BusinessEntity/Third/Entity/*.Generated.cs
-/RMP/Extensions/SmokeTest/BusinessEntity/Third/Entity/MetraTech.SmokeTest.Third.Entity.csproj
-/RMP/Extensions/SmokeTest/BusinessEntity/Third/Entity/Temp/
+/Source/MetraTech/packages
 

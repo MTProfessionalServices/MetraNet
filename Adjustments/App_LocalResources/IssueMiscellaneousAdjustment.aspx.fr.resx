@@ -129,7 +129,7 @@
   <data name="adjDatePickerResource1.Label" xml:space="preserve">
     <value>Date de l’ajustement</value>
   </data>
-   <data name="adjDescriptionTextBoxResource1.Label" xml:space="preserve">
+  <data name="adjDescriptionTextBoxResource1.Label" xml:space="preserve">
     <value>{FR}Internal Description</value>
   </data>
   <data name="adjDescriptionTextBoxResource2.Label" xml:space="preserve">

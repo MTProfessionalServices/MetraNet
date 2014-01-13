@@ -7,7 +7,7 @@
     meta:resourcekey="MTPanel1Resource1" >
     <table id="adjustmentSummary">
     <tr>
-      <td><MT:MTNumberField ID="adjAmountFld" Label="Amount" runat="server" 
+      <td colspan="2"><MT:MTNumberField ID="adjAmountFld" Label="Amount" runat="server" 
       AllowBlank="False" AllowDecimals="True" DecimalPrecision="2" TrailingZeros="true" 
       AllowNegative="True" ControlHeight="18" ControlWidth="200" 
       HideLabel="False" LabelSeparator=":" LabelWidth="170" Listeners="{}" 
@@ -16,7 +16,6 @@
       MinValue="-79228162514264337593543950335" OptionalExtConfig="" 
       ReadOnly="False" ValidationRegex="null" 
       XType="LargeNumberField" XTypeNameSpace="ux.form" /></td>
-      <td><MT:MTLabel ID="lblMaxAmount" runat="server" /></td>
     </tr>
     <tr>
       <td colspan="2"><MT:MTNumberField ID="adjAmountFldTaxFederal" Label="Tax Federal" runat="server" 
@@ -80,7 +79,7 @@
     </tr>
     <tr><td colspan="2" style="text-align: center"><img id="TotalLineAdj" src="/Res/Images/TotalLine.png"></td></tr>
     <tr>
-       <td colspan="2"><MT:MTNumberField ID="adjAmountFldTaxToatl" Label="Total Adjustment Being Issued" runat="server"  Enabled="False"
+       <td><MT:MTNumberField ID="adjAmountFldTaxToatl" Label="Total Adjustment Being Issued" runat="server"  Enabled="False"
         AllowBlank="True" AllowDecimals="True" DecimalPrecision="2" TrailingZeros="true" 
         AllowNegative="True" ControlHeight="18" ControlWidth="200" 
         HideLabel="False" LabelSeparator=":" LabelWidth="170" Listeners="{}" 
@@ -90,6 +89,7 @@
         ReadOnly="False" ValidationRegex="null" 
         XType="LargeNumberField" XTypeNameSpace="ux.form"/>
       </td>
+      <td><MT:MTLabel ID="lblMaxAmount" runat="server"/></td>
     </tr>
     </table>
     <br/>

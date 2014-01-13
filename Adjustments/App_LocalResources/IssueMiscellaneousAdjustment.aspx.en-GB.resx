@@ -130,7 +130,7 @@
     <value>Adjustment Date</value>
   </data>
   <data name="adjDescriptionTextBoxResource1.Label" xml:space="preserve">
-    <value>Internal Description</value>
+    <value>{en-GB}Internal Description</value>
   </data>
   <data name="adjDescriptionTextBoxResource2.Label" xml:space="preserve">
     <value>Subscriber Description</value>

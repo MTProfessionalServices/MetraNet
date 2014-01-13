@@ -148,6 +148,7 @@ public partial class BEUnrelatedEntityList : MTPage
         ReturnUrl = Request["ReturnURL"].Replace("'", "").Replace("|", "?").Replace("**", "&");
       }
 
+	  ReadOnly = "false";
       BEName = Server.HtmlEncode(Request.QueryString["Name"]);
 
       MyGrid1.ExtensionName = Request.QueryString["Extension"];

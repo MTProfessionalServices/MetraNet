@@ -47,7 +47,8 @@ public partial class BE : MTPage
 
       DataList1.DataSource = EntitiesList;
       DataList1.DataBind();
-   
+
+      lblNoBEs.Visible = (EntitiesList.Count == 0);
     }
   }
 }

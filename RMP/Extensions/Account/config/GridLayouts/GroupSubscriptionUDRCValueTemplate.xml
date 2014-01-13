@@ -44,6 +44,10 @@
     <DefaultSortField></DefaultSortField>
     <DefaultSortDirection>Ascending</DefaultSortDirection>
     <SubGrid></SubGrid>
+    <Title>
+        <Value><![CDATA[]]></Value>
+    </Title>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
@@ -51,7 +55,7 @@
             <ObjectName>MetraTech.DomainModel.ProductCatalog.UDRCInstanceValue</ObjectName>
             <ID>StartDate</ID>
             <DataType>Date</DataType>
-            <IsIdentity>true</IsIdentity>
+            <IsIdentity>false</IsIdentity>
             <DataIndex>StartDate</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
@@ -87,7 +91,7 @@
             <ObjectName>MetraTech.DomainModel.ProductCatalog.UDRCInstanceValue</ObjectName>
             <ID>EndDate</ID>
             <DataType>Date</DataType>
-            <IsIdentity>true</IsIdentity>
+            <IsIdentity>false</IsIdentity>
             <DataIndex>EndDate</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>

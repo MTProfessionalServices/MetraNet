@@ -10,7 +10,7 @@
      */
     (select CASE WHEN 
     (owner.id_acc IS NULL OR owned.id_acc IS NULL) THEN -515899365 ELSE
-    CASE WHEN (atype.name = 'SYSTEMACCOUNT') THEN -486604718 ELSE /* Except for system accounts, any account can be owned by any other account. */
+    CASE WHEN (upper(atype.name) = 'SYSTEMACCOUNT') THEN -486604718 ELSE /* Except for system accounts, any account can be owned by any other account. */
     CASE WHEN ed.id_enum_data IS NULL THEN -2147483607 ELSE 0
     END
     END

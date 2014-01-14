@@ -92,15 +92,14 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         }
     }
 
-  private bool ConvertToDecimal(string valForConversion, string fieldName, StringBuilder errorBuilder, out decimal convertedVal)
+  private bool ConvertToDecimal(string valForConversion, string fieldName, StringBuilder errorBuilder, out decimal? convertedVal)
   {
     bool result = true;
-    convertedVal = 0;
+    convertedVal = null;
     try
     {
-      convertedVal = String.IsNullOrEmpty(valForConversion) 
-        ? 0 
-        : (Convert.ToDecimal(valForConversion));
+      if (!String.IsNullOrEmpty(valForConversion))
+        convertedVal = Convert.ToDecimal(valForConversion);
     }
     catch (Exception)
     {
@@ -119,7 +118,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         
         StringBuilder errorBuilder = new StringBuilder();
 
-        decimal adjAmount, taxFederal, taxState, taxCounty, taxLocal, taxOther;
+        decimal? adjAmount, taxFederal, taxState, taxCounty, taxLocal, taxOther;
         
         
         bool errorOccurred = !ConvertToDecimal(adjAmountFld.Text, adjAmountFld.Label, errorBuilder, out adjAmount);
@@ -143,7 +142,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
 
         if (!errorOccurred)
         {
-          totalAmount = adjAmount + taxFederal + taxState + taxCounty + taxLocal + taxOther;
+          totalAmount = adjAmount??0 + taxFederal??0 + taxState??0 + taxCounty??0 + taxLocal??0 + taxOther??0;
           try
           {
               cache.PoolSize = 30;

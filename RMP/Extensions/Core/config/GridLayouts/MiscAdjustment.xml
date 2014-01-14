@@ -214,7 +214,7 @@
                 <LocalizationTag>TEXT_AMOUNT</LocalizationTag>
                 <ResourceClassKey>RESOURCE</ResourceClassKey>
             </HeaderText>
-            <Formatter></Formatter>
+            <Formatter>CurrencyRenderer</Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
@@ -250,7 +250,7 @@
                 <LocalizationTag>TEXT_FEDERAL_AMOUNT</LocalizationTag>
                 <ResourceClassKey>Adjustments/App_LocalResources/ManageMiscellaneousAdjustments.aspx</ResourceClassKey>
             </HeaderText>
-            <Formatter></Formatter>
+            <Formatter>ARCurrencyRenderer</Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
@@ -286,7 +286,7 @@
                 <LocalizationTag>TEXT_STATE_AMOUNT</LocalizationTag>
                 <ResourceClassKey>Adjustments/App_LocalResources/ManageMiscellaneousAdjustments.aspx</ResourceClassKey>
             </HeaderText>
-            <Formatter></Formatter>
+            <Formatter>CurrencyRenderer</Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
@@ -322,7 +322,7 @@
                 <LocalizationTag>TEXT_COUNTY_AMOUNT</LocalizationTag>
                 <ResourceClassKey>Adjustments/App_LocalResources/ManageMiscellaneousAdjustments.aspx</ResourceClassKey>
             </HeaderText>
-            <Formatter></Formatter>
+            <Formatter>CurrencyRenderer</Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>

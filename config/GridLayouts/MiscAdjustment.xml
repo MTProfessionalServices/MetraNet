@@ -250,11 +250,11 @@
                 <LocalizationTag>TEXT_FEDERAL_AMOUNT</LocalizationTag>
                 <ResourceClassKey>Adjustments/App_LocalResources/ManageMiscellaneousAdjustments.aspx</ResourceClassKey>
             </HeaderText>
-            <Formatter>ARCurrencyRenderer</Formatter>
+            <Formatter>CurrencyRenderer</Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
+            <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
@@ -290,7 +290,7 @@
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
+            <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
@@ -326,7 +326,7 @@
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
+            <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
@@ -358,11 +358,11 @@
                 <LocalizationTag>TEXT_LOCAL_AMOUNT</LocalizationTag>
                 <ResourceClassKey>Adjustments/App_LocalResources/ManageMiscellaneousAdjustments.aspx</ResourceClassKey>
             </HeaderText>
-            <Formatter></Formatter>
+            <Formatter>CurrencyRenderer</Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
+            <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
@@ -394,11 +394,11 @@
                 <LocalizationTag>TEXT_OTHER_AMOUNT</LocalizationTag>
                 <ResourceClassKey>Adjustments/App_LocalResources/ManageMiscellaneousAdjustments.aspx</ResourceClassKey>
             </HeaderText>
-            <Formatter></Formatter>
+            <Formatter>CurrencyRenderer</Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
+            <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
@@ -692,7 +692,7 @@
                 <LocalizationTag>TEXT_ADJUSTMENT_AMOUNT</LocalizationTag>
                 <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
-            <Formatter></Formatter>
+            <Formatter>CurrencyRenderer</Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
@@ -764,7 +764,7 @@
                 <LocalizationTag>TEXT_TAX_AMOUNT</LocalizationTag>
                 <ResourceClassKey>RESOURCE</ResourceClassKey>
             </HeaderText>
-            <Formatter></Formatter>
+            <Formatter>CurrencyRenderer</Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
@@ -836,7 +836,7 @@
                 <LocalizationTag>TEXT_AMOUNT_WITH_TAX</LocalizationTag>
                 <ResourceClassKey>RESOURCE</ResourceClassKey>
             </HeaderText>
-            <Formatter></Formatter>
+            <Formatter>CurrencyRenderer</Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>

@@ -1,31 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Query>
-    <Action>Insert</Action>
+    <Action>Update</Action>
     <Implementations>
         <Implementation>Common</Implementation>
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>ACCOUNTS</Name>
-            <DataType>sqlsubstitution</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck>123,137</SubstitutionSyntaxCheck>
-            <Description></Description>
-        </Parameter>
-        <Parameter>
-            <Name>USAGE_INTERVAL</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <Description></Description>
-        </Parameter>
-        <Parameter>
-            <Name>POS</Name>
-            <DataType>sqlsubstitution</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck>123,137</SubstitutionSyntaxCheck>
-            <Description></Description>
-        </Parameter>
-		<Parameter>
             <Name>QUOTE_ID</Name>
             <DataType>sqlsubstitution</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
@@ -33,10 +13,10 @@
             <Description></Description>
         </Parameter>
 		<Parameter>
-            <Name>BATCHIDS</Name>
+            <Name>NEW_QUOTE_ID</Name>
             <DataType>sqlsubstitution</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
-			<SubstitutionSyntaxCheck>123,137</SubstitutionSyntaxCheck>
+            <SubstitutionSyntaxCheck>124</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
     </Parameters>

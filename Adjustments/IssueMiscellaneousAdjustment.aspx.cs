@@ -43,8 +43,20 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
     {
         if (!Page.IsPostBack)
         {
-            adjAmountFld.DecimalSeparator = System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalSeparator;
-            adjAmountFld.DecimalPrecision = System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalDigits.ToString();
+            adjAmountFld.DecimalSeparator
+              = adjAmountFldTaxFederal.DecimalSeparator
+                = adjAmountFldTaxState.DecimalSeparator
+                = adjAmountFldTaxCounty.DecimalSeparator
+                = adjAmountFldTaxLocal.DecimalSeparator
+                = adjAmountFldTaxOther.DecimalSeparator
+                =  System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalSeparator;
+            adjAmountFld.DecimalPrecision
+               = adjAmountFldTaxFederal.DecimalPrecision
+                = adjAmountFldTaxState.DecimalPrecision
+                = adjAmountFldTaxCounty.DecimalPrecision
+                = adjAmountFldTaxLocal.DecimalPrecision
+                = adjAmountFldTaxOther.DecimalPrecision
+              = System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalDigits.ToString();
 
             string maxAdjAmount = String.Format("{0} {1}", GetLocalResourceObject("TEXT_MAX_AUTHORIZED_AMOUNT"), GetLocalResourceObject("TEXT_UNLIMITED"));
             if (!UI.SessionContext.SecurityContext.IsSuperUser())
@@ -118,8 +130,8 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         
         StringBuilder errorBuilder = new StringBuilder();
 
-        decimal? adjAmount, taxFederal, taxState, taxCounty, taxLocal, taxOther;
-        
+        decimal? adjAmount, taxFederal, taxState, taxCounty, taxLocal, taxOther, totalAmount;
+        totalAmount = null;
         
         bool errorOccurred = !ConvertToDecimal(adjAmountFld.Text, adjAmountFld.Label, errorBuilder, out adjAmount);
 
@@ -138,11 +150,9 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         if (!ConvertToDecimal(adjAmountFldTaxOther.Text, adjAmountFldTaxOther.Label, errorBuilder, out taxOther))
           errorOccurred = true;
 
-    	decimal totalAmount = 0;
-
         if (!errorOccurred)
         {
-          totalAmount = adjAmount??0 + taxFederal??0 + taxState??0 + taxCounty??0 + taxLocal??0 + taxOther??0;
+          totalAmount = CalcTotalAmount(adjAmount, taxFederal, taxState, taxCounty, taxLocal, taxOther);
           try
           {
               cache.PoolSize = 30;
@@ -168,26 +178,27 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
                 typeof(MetraTech.DomainModel.Enums.Core.Metratech_com.SubscriberCreditAccountRequestReason),
                 ddReasonCode.SelectedValue, true);
               row["Reason"] = EnumHelper.GetDbValueByEnum(o);
-
               row["Other"] = "Other";
+
               if (String.IsNullOrEmpty(adjSubscriberDescriptionTextBox.Text))
                   row["InvoiceComment"] = GetLocalResourceObject("TEXT_MISCELLANEOUS_ADJUSTMENT");   
               else
-                  row["InvoiceComment"] = adjSubscriberDescriptionTextBox.Text;  
+                  row["InvoiceComment"] = adjSubscriberDescriptionTextBox.Text;
+ 
               row["InternalComment"] = adjDescriptionTextBox.Text;
               row["AccountingCode"] = null;
               row["ReturnCode"] = 0; // Legacy
               row["ContentionSessionID"] = "-"; // Legacy from 1.2
-              row["RequestAmount"] = -totalAmount;
-              row["CreditAmount"] = -totalAmount;
+              if (totalAmount.HasValue) row["RequestAmount"] = -totalAmount;
+              if (totalAmount.HasValue) row["CreditAmount"] = -totalAmount;
               row["GuideIntervalID"] = ddBillingPeriod.SelectedValue;
               row["ResolveWithAccountIDFlag"] = true;
-              row["_Amount"] = -adjAmount;
-              row["_FedTax"] = -taxFederal;
-              row["_StateTax"] = -taxState;
-              row["_CountyTax"] = -taxCounty;
-              row["_LocalTax"] = -taxLocal;
-              row["_OtherTax"] = -taxOther;
+              if (adjAmount.HasValue) row["_Amount"] = -adjAmount;
+              if (taxFederal.HasValue) row["_FedTax"] = -taxFederal;
+              if (taxState.HasValue) row["_StateTax"] = -taxState;
+              if (taxCounty.HasValue) row["_CountyTax"] = -taxCounty;
+              if (taxLocal.HasValue) row["_LocalTax"] = -taxLocal;
+              if (taxOther.HasValue) row["_OtherTax"] = -taxOther;
               row["IgnorePaymentRedirection"] = 0;
               DataSet messages = helper.Meter(UI.User.SessionContext);
               helper.WaitForMessagesToComplete(messages, -1);
@@ -237,7 +248,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
 
         if (!errorOccurred)
         {
-          if (IsAllowedCreate(totalAmount))
+          if (IsAllowedCreate(totalAmount ?? 0))
             {
               ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_CREATED_TITLE")),
                                String.Format("{0}", GetLocalResourceObject("TEXT_CREATED")));
@@ -250,8 +261,25 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         }
     }
 
-#warning Whether other new tax fields (taxFederal, taxState, taxCounty, taxLocal, taxOther) should be passed to the method or not? What the target of that method?
-  private bool IsAllowedCreate(decimal adjAmount)
+  
+
+  private static decimal? CalcTotalAmount(decimal? adjAmount, decimal? taxFederal, decimal? taxState, decimal? taxCounty,
+                                          decimal? taxLocal, decimal? taxOther)
+  {
+    decimal? totalAmount = null;
+
+    if (! (adjAmount == null
+      && taxFederal == null
+      && taxState == null
+      && taxCounty == null
+      && taxLocal == null
+      && taxOther == null))
+      totalAmount = adjAmount ?? 0 + taxFederal ?? 0 + taxState ?? 0 + taxCounty ?? 0 + taxLocal ?? 0 + taxOther ?? 0;
+
+    return totalAmount;
+  }
+
+  private bool IsAllowedCreate(decimal totalAmount)
   {
     bool allowed = false;
     if (!UI.SessionContext.SecurityContext.IsSuperUser())
@@ -264,7 +292,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
       string op = data[last - 1];
       if (op.Equals("!="))
         op = "<>";
-      string expr = String.Format("{0}{1}{2}", adjAmount, op, data[last]);
+      string expr = String.Format("{0}{1}{2}", totalAmount, op, data[last]);
       DataTable dataTable = new DataTable();
       dataTable.Columns.Add("col1", typeof (bool), expr);
       dataTable.Rows.Add(new object[] {});

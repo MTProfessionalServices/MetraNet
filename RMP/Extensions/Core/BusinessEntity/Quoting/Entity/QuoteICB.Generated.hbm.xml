@@ -131,22 +131,5 @@
       <meta attribute="target-property-name-for-source">POforQuote</meta>
       <meta attribute="cascade">true</meta>
     </many-to-one>
-    <many-to-one name="QuoteHeader" class="Core.Quoting.QuoteHeader, Core.Quoting.Entity" column="c_QuoteHeader_Id" cascade="none">
-      <meta attribute="relationship-type">OneToMany</meta>
-      <meta attribute="relationship-name">QuoteHeader_QuoteICBs</meta>
-      <meta attribute="has-join-table">false</meta>
-      <meta attribute="is-default">true</meta>
-      <meta attribute="is-self-relationship">false</meta>
-      <meta attribute="is-bidirectional">false</meta>
-      <meta attribute="source-multiplicity">One</meta>
-      <meta attribute="source-entity-name">Core.Quoting.QuoteHeader</meta>
-      <meta attribute="source-key-column">c_QuoteHeader_Id</meta>
-      <meta attribute="source-property-name-for-target">QuoteICBs</meta>
-      <meta attribute="target-multiplicity">Many</meta>
-      <meta attribute="target-entity-name">Core.Quoting.QuoteICB</meta>
-      <meta attribute="target-key-column">c_QuoteICB_Id</meta>
-      <meta attribute="target-property-name-for-source">QuoteHeader</meta>
-      <meta attribute="cascade">true</meta>
-    </many-to-one>
   </class>
 </hibernate-mapping>

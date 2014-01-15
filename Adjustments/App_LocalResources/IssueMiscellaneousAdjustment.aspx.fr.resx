@@ -207,7 +207,7 @@
   <data name="TEXT_UNLIMITED" xml:space="preserve">
     <value>Illimité</value>
   </data>
-  <data name="adjAmountFldResourceTaxCounty.Lable" xml:space="preserve">
+  <data name="adjAmountFldResourceTaxCounty.Label" xml:space="preserve">
     <value>[fr] Tax County</value>
   </data>
   <data name="adjAmountFldResourceTaxCounty.MaxLenght" xml:space="preserve">
@@ -234,7 +234,7 @@
   <data name="adjAmountFldResourceTaxLocal.MinLenght" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="adjAmountFldResourceTaxOther.Lable" xml:space="preserve">
+  <data name="adjAmountFldResourceTaxOther.Label" xml:space="preserve">
     <value>[fr] Tax Other</value>
   </data>
   <data name="adjAmountFldResourceTaxOther.MaxLenght" xml:space="preserve">

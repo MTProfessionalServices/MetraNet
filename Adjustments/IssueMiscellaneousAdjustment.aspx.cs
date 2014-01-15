@@ -268,13 +268,25 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
   {
     decimal? totalAmount = null;
 
-    if (! (adjAmount == null
-      && taxFederal == null
-      && taxState == null
-      && taxCounty == null
-      && taxLocal == null
-      && taxOther == null))
-      totalAmount = adjAmount ?? 0 + taxFederal ?? 0 + taxState ?? 0 + taxCounty ?? 0 + taxLocal ?? 0 + taxOther ?? 0;
+    if (adjAmount == null
+        && taxFederal == null
+        && taxState == null
+        && taxCounty == null
+        && taxLocal == null
+        && taxOther == null)
+      totalAmount = null;
+    else
+    {
+      adjAmount = adjAmount ?? 0;
+      taxFederal = taxFederal ?? 0;
+      taxState = taxState ?? 0;
+      taxCounty = taxCounty ?? 0;
+      taxLocal = taxLocal ?? 0;
+      taxOther = taxOther ?? 0;
+
+      totalAmount = adjAmount + taxFederal + taxState + taxCounty + taxLocal + taxOther;
+    }
+		
 
     return totalAmount;
   }

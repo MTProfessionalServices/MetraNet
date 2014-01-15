@@ -5,4 +5,5 @@
   <paymentBrokerAddress>andy.mypayaccesstest.com</paymentBrokerAddress>
   <creditCardsAreEditable>true</creditCardsAreEditable>
   <achAccountsAreEditable>true</achAccountsAreEditable>
+  <certificateName>*.metratech.com</certificateName>
 </configuration>

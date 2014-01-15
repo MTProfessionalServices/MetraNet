@@ -46,7 +46,7 @@ rd /S /Q %DEVDIR%\ICE\Test\TestExtensions\RMP\Extensions\ValMessages
 @echo ****** See results in the file BuildDatabase.log     ******
 @echo ***********************************************************
 @C:\Windows\System32\WindowsPowerShell\v1.0\PowerShell.exe -Command "& { 'Begin Database.vbs at ' + (get-date).ToLongTimeString() }"
-@cscript %DEVDIR%\Source\Install\Scripts\Database.vbs >BuildDatabase.log 2>CON
+@call %ROOTDIR%\Build\Tools\BuildDatabase.bat >BuildDatabase.log 2>CON
 @C:\Windows\System32\WindowsPowerShell\v1.0\PowerShell.exe -Command "& { 'End Database.vbs at ' + (get-date).ToLongTimeString() }"
 @echo .
 @echo .

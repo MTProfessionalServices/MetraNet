@@ -31,3 +31,6 @@
 [submodule "RMP/Extensions/MvmCore"]
 	path = RMP/Extensions/MvmCore
 	url = https://github.com/MetraTech/RMP-Extensions-MvmCore.git
+[submodule "RMP/Extensions/VertexQ"]
+	path = RMP/Extensions/VertexQ
+	url = https://github.com/MetraTech/VertexQ.git

@@ -89,7 +89,7 @@
         ReadOnly="False" ValidationRegex="null" 
         XType="LargeNumberField" XTypeNameSpace="ux.form"/>
       </td>
-      <td><MT:MTLabel ID="lblMaxAmount" runat="server"/></td>
+      <td style="vertical-align: top;"><MT:MTLabel ID="lblMaxAmount" runat="server"/></td>
     </tr>
     </table>
     <br/>

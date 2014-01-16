@@ -142,6 +142,20 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int64, mscorlib" />
     </property>
+    <property name="Id_Template" column="c_Id_Template" not-null="true">
+      <meta attribute="label">Id_Template</meta>
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
     <bag name="CreditNoteItems" access="field.camelcase-underscore" inverse="true" cascade="delete">
       <meta attribute="relationship-type">OneToMany</meta>
       <meta attribute="relationship-name">CreditNote_CreditNoteItems</meta>

@@ -6,8 +6,8 @@
 		    p_percent int,
 		    p_vt_start date,
 		    p_vt_end date,
-		    p_tt_current date,
-		    p_tt_max date,
+		    p_tt_current TIMESTAMP,
+		    p_tt_max TIMESTAMP,
 		    p_status OUT int)
         as
         begin

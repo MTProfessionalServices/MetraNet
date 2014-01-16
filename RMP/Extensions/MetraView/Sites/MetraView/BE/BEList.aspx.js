@@ -2,7 +2,7 @@
   var myMask = new Ext.LoadMask(grid_ctl00_ContentPlaceHolder1_MyGrid1.getEl());
   myMask.show();
   Ext.Ajax.request({
-      url: '/MetraView/AjaxServices/ApplySiteChanges.aspx',
+    url: '<%=Request.ApplicationPath%>/AjaxServices/ApplySiteChanges.aspx',
     success: function(result, request) {
       myMask.hide();
 

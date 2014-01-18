@@ -10,7 +10,7 @@
      */
     (select CASE WHEN 
     (owner.id_acc IS NULL OR owned.id_acc IS NULL) THEN -515899365 ELSE
-    CASE WHEN (atype.name = 'SYSTEMACCOUNT') THEN -486604718 ELSE /* Except for system accounts, any account can be owned by any other account. */
+    CASE WHEN (upper(atype.name) = 'SYSTEMACCOUNT') THEN -486604718 ELSE /* Except for system accounts, any account can be owned by any other account. */
     CASE WHEN ed.id_enum_data IS NULL THEN -2147483607 ELSE 0
     END
     END
@@ -47,13 +47,13 @@
 INSERT INTO t_acc_ownership(id_owner, id_owned, id_relation_type, n_percent,  vt_start, vt_end, tt_start, tt_end) 
 SELECT 
 ar.id_owner, ar.id_owned,     ar.id_relation_type, ar.n_percent, 
-dbo.addsecond(ar.vt_end) AS     vt_start,   own.vt_end, 
+(ar.vt_end + INTERVAL '1' SECOND) AS     vt_start,   own.vt_end, 
 ar.tt_start as tt_start, 
-dbo.MTMaxDate()   AS tt_end
+MTMaxDate()   AS tt_end
 FROM t_acc_ownership own
 INNER JOIN %%%TEMP_TABLE_PREFIX%%%tmp_acc_ownership_batch   ar
 ON own.id_owner   =     ar.id_owner AND   own.id_owned = ar.id_owned
-AND   own.vt_start < ar.vt_start AND own.vt_end >     ar.vt_end   and   own.tt_end = dbo.MTMaxDate()
+AND   own.vt_start < ar.vt_start AND own.vt_end >     ar.vt_end   and   own.tt_end = MTMaxDate()
 WHERE
 ar.status=0;
  
@@ -61,47 +61,47 @@ ar.status=0;
 /*  Valid time update becomes bi-temporal insert and update */
 INSERT INTO t_acc_ownership(id_owner, id_owned, id_relation_type, n_percent,  vt_start, vt_end, tt_start, tt_end) 
 SELECT own.id_owner, own.id_owned, own.id_relation_type, own.n_percent, 
-own.vt_start, dbo.subtractsecond(ar.vt_start) AS vt_end, ar.tt_start AS tt_start, dbo.MTMaxDate() AS tt_end 
+own.vt_start, (ar.vt_start - INTERVAL '1' SECOND) AS vt_end, ar.tt_start AS tt_start, MTMaxDate() AS tt_end 
 FROM t_acc_ownership own
 INNER JOIN %%%TEMP_TABLE_PREFIX%%%tmp_acc_ownership_batch ar
 ON own.id_owner = ar.id_owner AND own.id_owned = ar.id_owned
-AND own.vt_start < ar.vt_start AND own.vt_end >= ar.vt_start AND own.tt_end = dbo.MTMaxDate()
+AND own.vt_start < ar.vt_start AND own.vt_end >= ar.vt_start AND own.tt_end = MTMaxDate()
 WHERE
 ar.status=0;
  
  
-UPDATE t_acc_ownership own SET tt_end = (select dbo.subtractsecond(ar.tt_start) 
+UPDATE t_acc_ownership own SET tt_end = (select ar.tt_start 
 FROM %%%TEMP_TABLE_PREFIX%%%tmp_acc_ownership_batch ar
 where own.id_owner = ar.id_owner AND own.id_owned = ar.id_owned
-AND own.vt_start < ar.vt_start AND own.vt_end >= ar.vt_start AND own.tt_end = dbo.MTMaxDate()
+AND own.vt_start < ar.vt_start AND own.vt_end >= ar.vt_start AND own.tt_end = MTMaxDate()
 and ar.status=0)
 where exists
 (select 1 from %%%TEMP_TABLE_PREFIX%%%tmp_acc_ownership_batch ar
 where own.id_owner = ar.id_owner AND own.id_owned = ar.id_owned
-AND own.vt_start < ar.vt_start AND own.vt_end >= ar.vt_start AND own.tt_end = dbo.MTMaxDate()
+AND own.vt_start < ar.vt_start AND own.vt_end >= ar.vt_start AND own.tt_end = MTMaxDate()
 and ar.status=0); 
  
 /*  Valid time update becomes bi-temporal insert (of the modified existing history into the past history) and update (of the modified existing history) */
 INSERT INTO t_acc_ownership(id_owner, id_owned, id_relation_type, n_percent,  vt_start, vt_end, tt_start, tt_end)
-SELECT  own.id_owner, own.id_owned, own.id_relation_type, own.n_percent, dbo.addsecond(ar.vt_end) AS vt_start, own.vt_end, ar.tt_start AS tt_start, dbo.MTMaxDate() AS tt_end 
+SELECT  own.id_owner, own.id_owned, own.id_relation_type, own.n_percent, (ar.vt_end + INTERVAL '1' SECOND) AS vt_start, own.vt_end, ar.tt_start AS tt_start, MTMaxDate() AS tt_end 
 FROM t_acc_ownership own
 INNER JOIN %%%TEMP_TABLE_PREFIX%%%tmp_acc_ownership_batch ar
 ON own.id_owner = ar.id_owner AND own.id_owned = ar.id_owned
-AND own.vt_start <= ar.vt_end AND own.vt_end > ar.vt_end AND own.tt_end = dbo.MTMaxDate()
+AND own.vt_start <= ar.vt_end AND own.vt_end > ar.vt_end AND own.tt_end = MTMaxDate()
 WHERE
 ar.status=0;
  
-UPDATE t_acc_ownership own SET tt_end = (select dbo.subtractsecond(ar.tt_start) 
+UPDATE t_acc_ownership own SET tt_end = (select ar.tt_start 
 FROM %%%TEMP_TABLE_PREFIX%%%tmp_acc_ownership_batch ar
 where own.id_owner = ar.id_owner AND own.id_owned = ar.id_owned
-AND own.vt_start <= ar.vt_end AND own.vt_end > ar.vt_end AND own.tt_end = dbo.MTMaxDate()
+AND own.vt_start <= ar.vt_end AND own.vt_end > ar.vt_end AND own.tt_end = MTMaxDate()
 and
 ar.status=0)
 where exists (
 select 1 
 FROM %%%TEMP_TABLE_PREFIX%%%tmp_acc_ownership_batch ar
 where own.id_owner = ar.id_owner AND own.id_owned = ar.id_owned
-AND own.vt_start <= ar.vt_end AND own.vt_end > ar.vt_end AND own.tt_end = dbo.MTMaxDate()
+AND own.vt_start <= ar.vt_end AND own.vt_end > ar.vt_end AND own.tt_end = MTMaxDate()
 and
 ar.status=0); 
  
@@ -110,10 +110,10 @@ ar.status=0);
 /*    [----------------]                 (interval that is being modified) */
 /*  [------------------------]           (interval we are deleting) */
  
-UPDATE t_acc_ownership own SET tt_end = (select dbo.subtractsecond(ar.tt_start)
+UPDATE t_acc_ownership own SET tt_end = (select ar.tt_start
 FROM %%%TEMP_TABLE_PREFIX%%%tmp_acc_ownership_batch ar
 where own.id_owner = ar.id_owner AND own.id_owned = ar.id_owned
-AND own.vt_start >= ar.vt_start AND own.vt_end <= ar.vt_end AND own.tt_end = dbo.MTMaxDate()
+AND own.vt_start >= ar.vt_start AND own.vt_end <= ar.vt_end AND own.tt_end = MTMaxDate()
 and
 ar.status=0)
 where exists
@@ -121,7 +121,7 @@ where exists
 select 1
 FROM %%%TEMP_TABLE_PREFIX%%%tmp_acc_ownership_batch ar
 where own.id_owner = ar.id_owner AND own.id_owned = ar.id_owned
-AND own.vt_start >= ar.vt_start AND own.vt_end <= ar.vt_end AND own.tt_end = dbo.MTMaxDate()
+AND own.vt_start >= ar.vt_start AND own.vt_end <= ar.vt_end AND own.tt_end = MTMaxDate()
 and
 ar.status=0);
 end;

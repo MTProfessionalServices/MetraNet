@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Application Audit Log </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Application Audit Log" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('12541');expand('12520');expand('13616');highlight('12543')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="12545.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="ManageRoles.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">Application Audit Log</h4>
+<p class="caption">System Menu <img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" /> Security<img src="12915.gif" alt="" height="17px" width="23px" vspace="0" hspace="0" align="bottom" border="0" /><img src="13092.gif" alt="" height="16px" width="16px" vspace="0" hspace="0" align="bottom" border="0" /> Application Audit Log</p>
+<p class="bodytext">The Application Audit Log is a master log of MetraNet web application events that are securely recorded to your system's database.</p>
+<p class="bodytext">Such events include:</p>
+<ul class="listbullet"><li class="listbullet">Subscriber and system user log-ins</li><li class="listbullet">Creating a system and user accounts</li><li class="listbullet">Issuing a miscellaneous adjustment</li><li class="listbullet">Issuing or managing prebill or postbill adjustments</li><li class="listbullet">Reassigning a transaction</li><li class="listbullet">Moving an account in a corporate hierarchy</li><li class="listbullet">Changing an administrating account</li><li class="listbullet">Changing authorization levels</li><li class="listbullet">System user permission failures (due to incorrect capabilities).</li></ul><p class="bodytext">Access to the audit log through the MetraNet web applications is limited to those users who have MetraNet administrator access. The audit log records detailed information about system, security, and user-access events. The log allows you to monitor and research changes made to the system. With the audit log you can identify:</p>
+<ul class="listbullet"><li class="listbullet">Specific changes made to the MetraNet system, including the event's date/time.</li><li class="listbullet">The specific user who made a change.</li><li class="listbullet">For some audit events, the log records how an item has changed - that is, the old value as well as the new one.</li></ul><p class="bodytext">Events and changes captured by the audit log include rate changes, product offering creation, account creation, batch operations, failed transaction-related actions, and product offering subscription.</p>
+<p class="bodytext">In different MetraNet applications, you have different filtered views of the changes audited by MetraNet:</p>
+<table class="tableintopic" width="582" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<th bgcolor="#105AA5" style="border:1px solid #C0C0C0;" width="102"><p class="tableheading">Application</p>
+</th>
+<th bgcolor="#105AA5" style="border-right:1px solid #C0C0C0;border-top:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="150"><p class="tableheading">Access From...</p>
+</th>
+<th bgcolor="#105AA5" style="border-right:1px solid #C0C0C0;border-top:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="330"><p class="tableheading">Audit Log Description</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="102"><p class="tabletext"><strong class="strong">MetraOffer</strong></p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="150"><p class="tabletext">Advanced options  <strong class="strong">»</strong>  Audit Log</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="330"><p class="tabletext">The audit log in the MetraOffer component contains a record of product-catalog-related changes made in the system (such as rate changes and product offering creation).</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="102"><p class="tabletext"><strong class="strong">MetraCare</strong></p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="150"><p class="tabletext">System menu <strong class="strong">»</strong> Security <strong class="strong">» </strong>Application Audit Log</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="330"><p class="tabletext">The application audit log in the MetraCare component is the master log containing all account-related changes made in the system (such as account creation and subscriptions). The audit log is filterable by specific dates, accounts, items, or events.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="102"><p class="tabletext"><strong class="strong">MetraView</strong></p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="150"><p class="tabletext">Admin <strong class="strong">»</strong> Logs</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="330"><p class="tabletext">The MetraView audit log contains a record of subscriber activity.</p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">General Audit Log Information</p>
+<p class="bodytext">The audit log allows you to monitor and research changes in accounts, account access, product catalog changes, batches, and failed transactions. </p>
+<table class="tableintopic" width="590" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #BFBFBF">
+<tr align="left" valign="top">
+<td bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="102"><p class="tableheading">Column</p>
+</td>
+<td bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="488"><p class="tableheading">Description</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="102"><p class="tabletext"><strong class="strong">Audit ID</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="488"><p class="tabletext">A numeric string that uniquely identifies the audit.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="102"><p class="tabletext"><strong class="strong">Time</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="488"><p class="tabletext">The date and time that the action was executed.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="102"><p class="tabletext"><strong class="strong">User</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="488"><p class="tabletext">The ID of the user performing the action. (Often, this can be the system itself.)</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="102"><p class="tabletext"><strong class="strong">Event</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="488"><p class="tabletext">The type of system or user event occurring.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="102"><p class="tabletext"><strong class="strong">Item</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="488"><p class="tabletext">The name of the entity that was changed. <br />(The account, product offering, priceable item, price list, etc.)</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="102"><p class="tabletext"><strong class="strong">Details</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="488"><p class="tabletext">Descriptive information about the Item or event, including <a id="h14599" class="crossreference" title="Add Log Entry" href="defaultdialogcreateauditevent.hlp.htm" target="_self">user-entered log entries</a> and event change information.</p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Event Change Information</p>
+<p class="bodytext">The audit log records the previous value associated with many events, such as:</p>
+<table class="tableintopic" width="576" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="258"><p class="tabletext"><span class="keyboard">AUDITEVENT_PO_UPDATEPI</span></p>
+</td>
+<td width="318"><p class="tabletext">What priceable item values changed?</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td width="258"><p class="tabletext"><span class="keyboard">AUDITEVENT_SUB_UPDATE</span></p>
+</td>
+<td width="318"><p class="tabletext">What subscription field was updated?</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td width="258"><p class="tabletext"><span class="keyboard">AUDITEVENT_GSUB_UPDATE</span></p>
+</td>
+<td width="318"><p class="tabletext">What group subscription field was updated?</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td width="258"><p class="tabletext"><span class="keyboard">AUDITEVENT_ACCOUNT_UPDATE</span></p>
+</td>
+<td width="318"><p class="tabletext">What account fields were updated?</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td width="258"><p class="tabletext"><span class="keyboard">AUDITEVENT_UPDATE_ACH_SUCCESS</span></p>
+</td>
+<td width="318"><p class="tabletext">What was the old ACH payment instrument?</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td width="258"><p class="tabletext"><span class="keyboard">AUDITEVENT_PLM_UPDATE</span></p>
+</td>
+<td width="318"><p class="tabletext">What was the old price list mapping table?</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext">For example, if a CSR changes an account's phone number, the previous one and new one are both recorded and displayed in the event details: </p>
+<p class="image"><img src="auditlogeventchange.png" alt="auditlogeventchange.png" height="138" width="620" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<p class="caption">Clicking the <img src="plussignicon.gif" alt="PlusSignIcon.gif" height="9" width="9" vspace="0" hspace="0" align="bottom" border="0" /> plus icon reveals the additional details</p>
+<p class="subheading">User Access Information</p>
+<p class="bodytext">The audit log provides detailed information about user access. The following shows audit events corresponding to common user activities:</p>
+<p class="bodytext"><strong class="strong">Login Events</strong></p>
+<p class="code">AUDITEVENT_LOGIN_SUCCESS = 3000 <br />AUDITEVENT_LOGIN_FAILED = 13000<br />AUDITEVENT_LOGIN_DORMANT_ACCOUNT_FAILED = 13001<br />AUDITEVENT_LOGIN_PASSWORD_EXPIRED_FAILED = 13002<br />AUDITEVENT_LOGIN_ACCOUNT_LOCKED_FAILED = 13003<br />AUDITEVENT_LOGIN_NO_CAPABILITY_FAILED = 13004</p>
+<p class="bodytext"><strong class="strong">Password Events</strong></p>
+<p class="code">AUDITEVENT_CHANGE_PASSWORD_SUCCESS = 4000 <br />AUDITEVENT_CHANGE_PASSWORD_INVALID_FAILED = 14005<br />AUDITEVENT_CHANGE_PASSWORD_NO_CAPABILITY_FAILED = 14006</p>
+<p class="bodytext"><strong class="strong">Unlock and Lock Events</strong></p>
+<p class="code">AUDITEVENT_LOCK_ACCOUNT_SUCCESS = 5000<br />AUDITEVENT_LOCK_ACCOUNT_FAILED = 15000<br />AUDITEVENT_UNLOCK_ACCOUNT_SUCCESS = 6000<br />AUDITEVENT_UNLOCK_ACCOUNT_FAILED = 16000</p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">Logging out by users is not audited. Web sessions or ticketed sessions are automatically logged out without user activity after a configurable time limit.</p>
+</td>
+</tr>
+
+</table>
+<p class="note"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

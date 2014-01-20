@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> View Failed Changes </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="About Approvals, View Failed Changes" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('25002');expand('12520');expand('13616');highlight('25004')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="25005.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="ShowChangesSummary.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">View Failed Changes</h4>
+<p class="caption">MetraCare <img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" /> System Menu<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />Approvals<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" /><img src="moffer-appr2.png" alt="moffer-appr2.png" height="16" width="16" vspace="0" hspace="0" align="bottom" border="0" /> View Failed Changes</p>
+<p class="bodytext">Changes can be accepted by the system but are subject to validation at the approvals stage. When the change was applied, the system rejected the change for some reason. A change can fail due to a temporary system condition, in which resubmitting the change may produce a different result. However, if the change was invalid - for example, a payer account currency mismatch - resubmitting it will not make any difference.</p>
+<p class="bodytext">You can search for changes using multiple search filters, including:</p>
+<ul class="listbullet2"><li class="listbullet2">Name of the MetraNet user who made the change.</li><li class="listbullet2">Date or date range in which the change was submitted or modified.</li><li class="listbullet2">Type of change (RateUpdate or AccountUpdate).</li><li class="listbullet2">Current state of the approval.</li></ul><p class="bodytext"></p>
+<table class="tableintopic" width="492" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #BFBFBF">
+<tr align="left" valign="top">
+<th bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="114"><p class="tableheading">State</p>
+</th>
+<th bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="378"><p class="tableheading">Description</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="114"><p class="tabletext">Pending</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="378"><p class="tabletext">A user has successfully made a change, and this requires approval to take effect.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="114"><p class="tabletext">Dismissed</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="378"><p class="tabletext">A change has either been denied by an approver or dismissed (canceled) by the user who made the change. </p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="114"><p class="tabletext">Applied</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="378"><p class="tabletext">A change has been made, approved, and applied successfully.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="114"><p class="tabletext">Failed to Apply</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="378"><p class="tabletext">The system could not make a change when it was approved.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="114"><p class="tabletext">Approved Waiting to Be Applied</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="378"><p class="tabletext">A change has been approved but has not been applied yet.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+<p class="bodytext">To change an approval state:</p>
+<ul class="listbullet"><li class="listbullet">Select the change item from the list and click <strong class="strong">Approve</strong>, <strong class="strong">Deny</strong>, <strong class="strong">Dismiss</strong>, or <strong class="strong">Resubmit</strong>. <p class="listcontinue">These are once-only actions. Since you cannot approve your own changes, the only command available to you if you made the change is <strong class="strong">Dismiss This Change</strong>. Dismissing a change has the same effect as if an approver denied it.</p>
+</li></ul><p class="bodytext">To view a change item's history:</p>
+<ul class="listbullet"><li class="listbullet">Click the <strong class="strong">History </strong>icon <img src="mcontrol-rm-edit.png" alt="mcontrol-rm-edit.png" height="16" width="16" vspace="0" hspace="0" align="bottom" border="0" /> next to change item.<p class="listcontinue">After viewing the information, click <strong class="strong">Back </strong>to return to this page.</p>
+</li></ul><p class="bodytext">To view a change item's properties:</p>
+<ul class="listbullet"><li class="listbullet">Click the <strong class="strong">Properties </strong>icon <img src="mcontrol-paramedit.png" alt="mcontrol-paramedit.png" height="16" width="16" vspace="0" hspace="0" align="bottom" border="0" /> next to change item.<p class="listcontinue">After viewing the information, click <strong class="strong">Back </strong>to return to this page.</p>
+</li></ul><p class="subheading">More Information</p>
+<p class="bodytext"><a id="h25613" class="crossreference" title="About Approvals" href="25606.htm" target="_self">About Approvals</a></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

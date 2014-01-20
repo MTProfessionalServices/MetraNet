@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Add Capabilities to Role </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Add Capabilities to Role, Capabilities	Add to Role, Manage Account Hierarchies, Manage Account Hierarchies	Adding to Roles, Requires 'Manage Account Hierarchies', Roles	Add Capability to" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('12500');expand('12494');expand('14620');expand('13616');highlight('12508')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="generatepassword.hlp.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="securityaddrole.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<p class="heading6">Add Capabilities to Role</p>
+<p class="bodytext">This screen lists the Capabilities on your system. Up to 25 capabilities are listed per page; if you have more, you can page through the list or search for a particular capability:</p>
+<ul class="listbullet"><li class="listbullet"><strong class="strong"><strong class="strong">Paging</strong></strong><br />Use the icons at the top of the page to move around the list; see Using the Navigation Bar for details.</li><li class="listbullet"><strong class="strong"><strong class="strong">Searching</strong></strong><br />Enter a partial or full capability name in the <strong class="strong"><strong class="strong">Capability Name</strong></strong> box and click <strong class="strong"><strong class="strong">Go</strong></strong>. Capabilities matching your search criteria will be displayed.</li></ul><p class="bodytext">After you locate the capability you want to add (to the role you selected in the previous screen), click the radio button next to it and click <strong class="strong"><strong class="strong">OK</strong></strong>.</p>
+<p class="bodytext">For a description of all the capabilities supplied with the MetraNet platform, see <a id="h12828" class="jumptemplate" title="About MetraNet Capabilities" href="about_metranet_capabilities.htm" target="_self">About MetraNet Capabilities</a>.</p>
+<p class="subheading">Capabilities and Account Hierarchies</p>
+<p class="bodytext">The screen contains a column called <strong class="strong"><strong class="strong">Requires Manage Account Hierarchies</strong></strong>. If the capability has a checkmark in this column, then the role you are adding it to must contain the <em class="emphasis">Manage Account Hierarchies </em>capability. If not, adding the capability will not change the functionality of the role.</p>
+<p class="bodytext">For example, if you are adding <em class="emphasis">Update Folders </em>to the Role of <em class="emphasis">Internal Administrator</em>, but the Internal Administrator role does not contain <em class="emphasis">Manage Account Hierarchies</em>, then whomever you assign this role to will not be able to update folders.</p>
+<p class="bodytext">Additionally, this column actually reflects <strong class="strong"><strong class="strong">system level behavior</strong></strong>, rather than <strong class="strong"><strong class="strong">business level behavior</strong></strong>. That is, for certain capabilities, such as <em class="emphasis">Create corporate Accounts</em>, the <strong class="strong"><strong class="strong">system </strong></strong>does not check for <em class="emphasis">Manage Account Hierarchies</em> when a user creates a corporate account. However, from a business point of view, it doesn't make sense to give CSRs the <em class="emphasis">Create Corporate Accounts</em> capability unless you also give them <em class="emphasis">Manage Account Hierarchies</em>.</p>
+<p class="bodytext">Also, there are capabilities, such as <em class="emphasis">Create Subscription</em>, which don't require <em class="emphasis">Manage Account Hierarchies</em> because they are useful for working with Independent Accounts (accounts that are not part of any Corporate Hierarchy). That is, for CSRs who work only with Independent accounts, it might be useful to give them the <em class="emphasis">Create Subscription </em>capability and <strong class="strong"><strong class="strong">not</strong></strong> <em class="emphasis">Manage Account Hierarchies</em>&#8212;while this combination would be useless to CSRs working with accounts in Corporate Hierarchies.</p>
+<p class="bodytext">Some capabilities require <em class="emphasis">Manage Account Hierarchies</em> from a business perspective (even though the column is not checked on the screen), and some capabilities are only useful for working with Independent Accounts (if not combined with <em class="emphasis">Manage Account Hierarchies</em>).</p>
+<ul class="listbullet"><li class="listbullet">Capabilities that are not useful without Manage Account Hierarchies (even though the <strong class="strong"><strong class="strong">Requires Manage Account Hierarchies</strong></strong> column is not checked):<ul class="listbullet2"><li class="listbullet2">Create Group Subscription, Add to Group Subscription, Update Group Subscription, View Group Subscription, Modify group sub membership</li><li class="listbullet2">Create Corporate Accounts, Update Corporate Accounts</li><li class="listbullet2">Manage Group Custom Rates</li></ul></li><li class="listbullet">Capabilities that without <em class="emphasis">Manage Account Hierarchies</em> are only useful for working with Independent Accounts:<ul class="listbullet2"><li class="listbullet2">Create Subscription, Delete Subscription, Update Subscription, View Subscription</li><li class="listbullet2">Update Account from Active to Closed, Update Account from Active to Suspended, Update Account from Pending Final Bill to Active, Update Account from Suspended to Active</li><li class="listbullet2">Manage Custom Rates</li><li class="listbullet2">Manage Independent Accounts</li></ul></li></ul><p class="subheading">Capabilities and User Hierarchies</p>
+<p class="bodytext">The following capabilities are associated with using and managing the Users Hierarchy:</p>
+<ul class="listbullet"><li class="listbullet"><strong class="strong"><strong class="strong">Manage Owned Accounts</strong></strong><br />Permits system users, such as CSRs and sales force members, to manage accounts that they or their subordinates own.</li><li class="listbullet"><strong class="strong"><strong class="strong">Manage MetraNet Users Hierarchies</strong></strong><br />Permits system users to manage the Users hierarchy or a branch of it. Managing means the capabilities to move users and department accounts and assign ownership.</li></ul><p class="bodytext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

@@ -1,0 +1,1192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ALT_FORMAT" xml:space="preserve">
+    <value>Y/m/d</value>
+  </data>
+  <data name="DATE_FORMAT" xml:space="preserve">
+    <value> Y/n/j</value>
+  </data>
+  <data name="DATE_TIME_FORMAT" xml:space="preserve">
+    <value>Y/n/j g:i:s | Y/n/j</value>
+  </data>
+  <data name="DATE_TIME_FORMAT_DEF" xml:space="preserve">
+    <value>n/j/Y g:i:s A</value>
+  </data>
+  <data name="DATE_TIME_RENDERER" xml:space="preserve">
+    <value>Y/n/j g:i:s</value>
+  </data>
+  <data name="DECIMAL_SEPARATOR" xml:space="preserve">
+    <value>.</value>
+  </data>
+    <data name="DUPLICATE" xml:space="preserve">
+        <value>複製</value>
+    </data>
+  <data name="ERR_DATE_FORMAT" xml:space="preserve">
+    <value>YYYY/mm/dd</value>
+  </data>
+    <data name="FAILURE" xml:space="preserve">
+        <value>失敗</value>
+    </data>
+    <data name="MANUAL_PENDING" xml:space="preserve">
+        <value>手動による保留</value>
+    </data>
+    <data name="MANUALLY_REVERSED" xml:space="preserve">
+        <value>手動で反転しました</value>
+    </data>
+  <data name="NO_RECORDS_FOUND" xml:space="preserve">
+    <value>記録が見つかりません</value>
+  </data>
+    <data name="POST_PROCESSING_SUCCESSFUL" xml:space="preserve">
+        <value>事後処理に成功しました</value>
+    </data>
+    <data name="RECEIVED_REQUEST" xml:space="preserve">
+        <value>要求を受信しました</value>
+    </data>
+    <data name="RECEIVED_RESPONSE" xml:space="preserve">
+        <value>応答を受信しました</value>
+    </data>
+    <data name="REJECTED" xml:space="preserve">
+        <value>拒否済み</value>
+    </data>
+    <data name="REVERSED" xml:space="preserve">
+        <value>反転済み</value>
+    </data>
+    <data name="SUBMITTED_REQUEST" xml:space="preserve">
+        <value>要求を送信しました</value>
+    </data>
+    <data name="SUCCESS" xml:space="preserve">
+        <value>成功</value>
+    </data>
+  <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
+    <value>内訳</value>
+  </data>
+  <data name="TEXT_ACCOUNT_FINDER" xml:space="preserve">
+    <value>検索</value>
+  </data>
+  <data name="TEXT_ACCOUNT_HIERARCHY" xml:space="preserve">
+    <value>階層</value>
+  </data>
+  <data name="TEXT_ACCOUNT_PROPERTIES" xml:space="preserve">
+    <value>プロパティ</value>
+  </data>
+  <data name="TEXT_ACCOUNT_SNAPSHOT" xml:space="preserve">
+    <value>関係のスナップショット</value>
+  </data>
+  <data name="TEXT_ACH" xml:space="preserve">
+    <value>ACH</value>
+  </data>
+  <data name="TEXT_ACTIVE_ACCOUNT" xml:space="preserve">
+    <value>有効な口座</value>
+  </data>
+  <data name="TEXT_ADD" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="TEXT_ADD_ACCOUNT" xml:space="preserve">
+    <value>アカウントの追加</value>
+  </data>
+  <data name="TEXT_ADD_GROUP_SUBSCRIPTION" xml:space="preserve">
+    <value>グループ利用の追加</value>
+  </data>
+  <data name="TEXT_ADD_REMITTANCE_DETAILS" xml:space="preserve">
+    <value>送金内訳の追加。</value>
+  </data>
+  <data name="TEXT_ADD_SUBSCRIPTION" xml:space="preserve">
+    <value>利用の追加</value>
+  </data>
+  <data name="TEXT_ADD_SUBSCRIPTION1" xml:space="preserve">
+    <value>利用の追加</value>
+  </data>
+  <data name="TEXT_ADD_VALUE" xml:space="preserve">
+    <value>値の追加</value>
+  </data>
+  <data name="TEXT_ADDING_UDRC" xml:space="preserve">
+    <value>UDRC 値を追加しています...</value>
+  </data>
+  <data name="TEXT_ADJ_APPROVE" xml:space="preserve">
+    <value>続行しますか?元に戻すことができないこの手順によって、フィルタ条件に一致するすべての調整が承認されます。フィルタがない場合、システム内にあるすべての調整が承認されます。</value>
+  </data>
+  <data name="TEXT_ADJ_DELETE" xml:space="preserve">
+    <value>続行しますか?元に戻すことができないこの手順によって、フィルタ条件に一致するすべての調整が削除されます。フィルタがない場合、システム内にあるすべての調整が削除されます。</value>
+  </data>
+  <data name="TEXT_ADJ_DENIED" xml:space="preserve">
+    <value>続行しますか?元に戻すことができないこの手順によって、フィルタ条件に一致するすべての調整が拒否されます。フィルタがない場合、システム内にあるすべての調整が拒否されます。</value>
+  </data>
+  <data name="TEXT_ADVANCED_FIND" xml:space="preserve">
+    <value>詳細な検索</value>
+  </data>
+  <data name="TEXT_APPLY_CHANGES" xml:space="preserve">
+    <value>変更の適用</value>
+  </data>
+  <data name="TEXT_APPLY_TEMPLATE" xml:space="preserve">
+    <value>テンプレートの適用</value>
+  </data>
+    <data name="TEXT_APPROVAL_CHANGES_PENDING_YOUR_APPROVAL" xml:space="preserve">
+        <value>承認の保留の変更</value>
+    </data>
+    <data name="TEXT_APPROVAL_NO_CHANGES_PENDING_YOUR_APPROVAL" xml:space="preserve">
+        <value>承認できる保留中の変更はありません</value>
+    </data>
+    <data name="TEXT_APPROVALS_ACTION_APPROVE" xml:space="preserve">
+        <value>この変更を承認</value>
+    </data>
+    <data name="TEXT_APPROVALS_ACTION_APPROVE_TIP" xml:space="preserve">
+        <value>この変更を承認することは、変更をシステムに適用することに同意することを示します</value>
+    </data>
+    <data name="TEXT_APPROVALS_ACTION_DENY" xml:space="preserve">
+        <value>この変更を拒否</value>
+    </data>
+    <data name="TEXT_APPROVALS_ACTION_DISMISS" xml:space="preserve">
+        <value>この変更を却下</value>
+    </data>
+    <data name="TEXT_APPROVALS_ACTION_RESUBMIT" xml:space="preserve">
+        <value>再送信</value>
+    </data>
+    <data name="TEXT_APPROVALS_ACTION_RESUBMIT_TIP" xml:space="preserve">
+        <value>再送信すると、承認された変更のシステムへの適用を再試行します。</value>
+    </data>
+    <data name="TEXT_APPROVALS_COMMENT_LABEL" xml:space="preserve">
+        <value>コメント:</value>
+    </data>
+    <data name="TEXT_APPROVALS_ERROR_UPDATING_CHANGE_ID" xml:space="preserve">
+        <value>変更 ID の更新中にエラーが発生しました</value>
+    </data>
+    <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPLIED" xml:space="preserve">
+        <value>この変更はシステムに適用されました。他の処理を行う必要はありません。</value>
+    </data>
+    <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPROVEDWAITINGTOBEAPPLIED" xml:space="preserve">
+        <value>この変更は承認済みであり、システムへの適用を待機しています。</value>
+    </data>
+    <data name="TEXT_APPROVALS_STATE_EXPLANATION_DISMISSED" xml:space="preserve">
+        <value>この変更は却下されました。他の処理を行うことはできません。</value>
+    </data>
+    <data name="TEXT_APPROVALS_STATE_EXPLANATION_FAILEDTOAPPLY" xml:space="preserve">
+        <value>この変更は承認済みですが、システムへの適用に失敗しました。</value>
+    </data>
+    <data name="TEXT_APPROVALS_STATE_EXPLANATION_PENDING" xml:space="preserve">
+        <value>この変更は現在保留中です。</value>
+    </data>
+    <data name="TEXT_APPROVALS_STATE_EXPLANATION_SUBMITTER" xml:space="preserve">
+        <value>この保留の変更の送信者は、この変更を「却下」して考慮事項から削除できます。</value>
+    </data>
+  <data name="TEXT_AUDIT_HISTORY_FAILED" xml:space="preserve">
+    <value>失敗した取引のケース番号の監査履歴</value>
+  </data>
+  <data name="TEXT_AUTO_REFRESH" xml:space="preserve">
+    <value>チェックをつけると、10 秒おきに自動更新されます。</value>
+  </data>
+  <data name="TEXT_BILL_TO" xml:space="preserve">
+    <value>請求先</value>
+  </data>
+  <data name="TEXT_CALLBACK_MSG_1" xml:space="preserve">
+    <value>見つかりませんでした</value>
+  </data>
+  <data name="TEXT_CALLBACK_MSG_2" xml:space="preserve">
+    <value>方式</value>
+  </data>
+  <data name="TEXT_CANCEL" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="TEXT_CHANGE_TRANSACTION_STATUS" xml:space="preserve">
+    <value>ケース / 失敗した取引状況の変更</value>
+  </data>
+  <data name="TEXT_CLEAR" xml:space="preserve">
+    <value>決済</value>
+  </data>
+  <data name="TEXT_CLOSE" xml:space="preserve">
+    <value>閉鎖</value>
+  </data>
+  <data name="TEXT_CLOSE_ACCOUNT" xml:space="preserve">
+    <value>アカウントを閉じる</value>
+  </data>
+  <data name="TEXT_COLUMN" xml:space="preserve">
+    <value>列</value>
+  </data>
+  <data name="TEXT_COLUMN_CONFIG_PROMPT" xml:space="preserve">
+    <value>表示可能な列をすべて選択します。ドラッグ アンド ドロップして並べ替えます。</value>
+  </data>
+  <data name="TEXT_CONFIGURE_COLUMNS" xml:space="preserve">
+    <value>列の設定</value>
+  </data>
+  <data name="TEXT_CONFIGURE_FILTERS" xml:space="preserve">
+    <value>フィルタの設定</value>
+  </data>
+  <data name="TEXT_CONFIRM_APPROVE_NS_CONTINUE" xml:space="preserve">
+    <value>続行しますか?元に戻すことができないこの手順によって、フィルタ条件に一致するすべての非標準料金が承認されます。フィルタがない場合、システム内にあるすべての非標準料金が承認されます。</value>
+  </data>
+  <data name="TEXT_CONFIRM_CONTINUE" xml:space="preserve">
+    <value>続行しますか?</value>
+  </data>
+  <data name="TEXT_CONFIRM_DENY_NS_CONTINUE" xml:space="preserve">
+    <value>続行しますか?元に戻すことができないこの手順によって、フィルタ条件に一致するすべての非標準料金が拒否されます。フィルタがない場合、システム内にあるすべての非標準料金が拒否されます。</value>
+  </data>
+  <data name="TEXT_CORP_COMPANY_NAME" xml:space="preserve">
+    <value>法人企業名</value>
+  </data>
+  <data name="TEXT_CORP_COMPANY_USERNAME" xml:space="preserve">
+    <value>法人企業のユーザー名</value>
+  </data>
+  <data name="TEXT_CORRECTED" xml:space="preserve">
+    <value>修正済み</value>
+  </data>
+  <data name="TEXT_CREATE_REL" xml:space="preserve">
+    <value>関係の作成</value>
+  </data>
+  <data name="TEXT_CREATED_ON" xml:space="preserve">
+    <value>作成日時</value>
+  </data>
+  <data name="TEXT_CREDIT" xml:space="preserve">
+    <value>返金</value>
+  </data>
+  <data name="TEXT_CURRENT" xml:space="preserve">
+    <value>現在</value>
+  </data>
+  <data name="TEXT_DASHBOARD" xml:space="preserve">
+    <value>ダッシュ</value>
+  </data>
+  <data name="TEXT_DATA_TYPE" xml:space="preserve">
+    <value>データ種別</value>
+  </data>
+  <data name="TEXT_DELETE" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="TEXT_BULKUPDATE" xml:space="preserve">
+    <value>Bulk Update</value>
+  </data>
+  <data name="TEXT_DELETE_ACCOUNT_NOTE" xml:space="preserve">
+    <value>この勘定書を削除しますか?</value>
+  </data>
+  <data name="TEXT_DELETE_MESSAGE" xml:space="preserve">
+    <value>{0} を削除しますか?</value>
+  </data>
+  <data name="TEXT_DELETE_SEARCH_CONFIRM" xml:space="preserve">
+    <value>保存された検索を削除しますか?</value>
+  </data>
+  <data name="TEXT_DELETE_SELECTED_ROWS" xml:space="preserve">
+    <value>選択した行を削除しますか?</value>
+  </data>
+  <data name="TEXT_DELETE_TEMPLATE_MESSAGE" xml:space="preserve">
+    <value>{0} テンプレートを削除しますか?</value>
+  </data>
+  <data name="TEXT_DELETE_TEMPLATE_SUB_MESSAGE" xml:space="preserve">
+    <value>'テンプレートから {0} を削除しますか?</value>
+  </data>
+  <data name="TEXT_DELETED" xml:space="preserve">
+    <value>削除済み</value>
+  </data>
+  <data name="TEXT_DESCRIPTION" xml:space="preserve">
+    <value>内容</value>
+  </data>
+  <data name="TEXT_DETAIL_DESCRIPTION" xml:space="preserve">
+    <value>詳細説明</value>
+  </data>
+  <data name="TEXT_DFP" xml:space="preserve">
+    <value>支払要求</value>
+  </data>
+  <data name="TEXT_DISMISSED" xml:space="preserve">
+    <value>却下</value>
+  </data>
+  <data name="TEXT_EDIT" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="TEXT_EDIT_ACH" xml:space="preserve">
+    <value>ACH の編集</value>
+  </data>
+  <data name="TEXT_EDIT_CARD" xml:space="preserve">
+    <value>カードの編集</value>
+  </data>
+  <data name="TEXT_EDIT_CHARGE_ACCOUNT" xml:space="preserve">
+    <value>請求先口座の編集</value>
+  </data>
+  <data name="TEXT_EDIT_DOMAIN" xml:space="preserve">
+    <value>ドメインの編集</value>
+  </data>
+  <data name="TEXT_EDIT_DOMAINPROFILE" xml:space="preserve">
+    <value>ドメイン プロファイルの編集</value>
+  </data>
+  <data name="TEXT_EDIT_FAILED_TRANSACTION" xml:space="preserve">
+    <value>取引の編集</value>
+  </data>
+  <data name="TEXT_EDIT_GRPSUB" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="TEXT_EDIT_GRPSUB_MEMBER" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="TEXT_EDIT_RECORD" xml:space="preserve">
+    <value>記録の編集</value>
+  </data>
+  <data name="TEXT_EDIT_TEMPLATE" xml:space="preserve">
+    <value>テンプレートの編集</value>
+  </data>
+  <data name="TEXT_EMPTY" xml:space="preserve">
+    <value>なし</value>
+  </data>
+  <data name="TEXT_END_DATE" xml:space="preserve">
+    <value>終了日</value>
+  </data>
+  <data name="TEXT_ERROR" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="TEXT_ERROR_ADDING" xml:space="preserve">
+    <value>追加のエラー</value>
+  </data>
+  <data name="TEXT_ERROR_ASSIGN_TOP_NOTE" xml:space="preserve">
+    <value>一番上の勘定書の割り当てのエラー</value>
+  </data>
+  <data name="TEXT_ERROR_CHECK_ACTIVE_FOLLOWUP" xml:space="preserve">
+    <value>有効なフォローアップを確認してください </value>
+  </data>
+  <data name="TEXT_ERROR_CREATE_RELSHIP" xml:space="preserve">
+    <value>関係の作成中にエラーが発生しました。</value>
+  </data>
+  <data name="TEXT_ERROR_DELETING" xml:space="preserve">
+    <value>削除エラー</value>
+  </data>
+  <data name="TEXT_ERROR_DELETING_ACCOUNT_NOTE" xml:space="preserve">
+    <value>勘定書の削除のエラー</value>
+  </data>
+  <data name="TEXT_ERROR_DELETING_SEARCH" xml:space="preserve">
+    <value>保存された検索情報を削除できません。</value>
+  </data>
+  <data name="TEXT_ERROR_HIGHLIGHTING_ACCOUNT_NOTE" xml:space="preserve">
+    <value>勘定書の強調のエラー</value>
+  </data>
+  <data name="TEXT_ERROR_INVALID_FOLLOWUP_DATE" xml:space="preserve">
+    <value>有効なフォロー アップ日付を選択してください</value>
+  </data>
+  <data name="TEXT_ERROR_INVALID_NOTE_TEXT" xml:space="preserve">
+    <value>メモのテキストを入力してください。</value>
+  </data>
+  <data name="TEXT_ERROR_INVALID_VALUE" xml:space="preserve">
+    <value>値が不正です。</value>
+  </data>
+  <data name="TEXT_ERROR_LOADING_ACCOUNT" xml:space="preserve">
+    <value>アカウント データの読み込みエラー。</value>
+  </data>
+  <data name="TEXT_ERROR_LOADING_SEARCH" xml:space="preserve">
+    <value>保存済み検索情報の読み込みエラー</value>
+  </data>
+  <data name="TEXT_ERROR_MSG" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="TEXT_ERROR_MULTIPLE_ROWS" xml:space="preserve">
+    <value>複数の行を選択することはできません</value>
+  </data>
+  <data name="TEXT_ERROR_ONE_ONE" xml:space="preserve">
+    <value>複数の一対一関係を作成できません</value>
+  </data>
+  <data name="TEXT_ERROR_RECEIVING_DATA" xml:space="preserve">
+    <value>データの取得中に問題がありました。</value>
+  </data>
+  <data name="TEXT_ERROR_SAVING_SEARCH" xml:space="preserve">
+    <value>検索情報を保存できません。</value>
+  </data>
+  <data name="TEXT_ERROR_SELECT" xml:space="preserve">
+    <value>選択してください</value>
+  </data>
+  <data name="TEXT_ERROR_UNKNOWN" xml:space="preserve">
+    <value>実行中に不適切な事象が発生しました </value>
+  </data>
+  <data name="TEXT_EXPORT" xml:space="preserve">
+    <value>エクスポート</value>
+  </data>
+  <data name="TEXT_EXPORT_ALL_RECORDS" xml:space="preserve">
+    <value>Export All Filtered Records</value>
+  </data>
+  <data name="TEXT_BULKUPDATE_ALL_RECORDS" xml:space="preserve">
+    <value>Bulk Update All Filtered Records</value>
+  </data>
+  <data name="TEXT_EXPORT_SELECTED_RECORDS" xml:space="preserve">
+    <value>Export Selected Records</value>
+  </data>
+  <data name="TEXT_BULKUPDATE_SELECTED_RECORDS" xml:space="preserve">
+    <value>Bulk Update Selected Records</value>
+  </data>
+  <data name="TEXT_EXPORT_CURRENT_PAGE_ONLY" xml:space="preserve">
+    <value>現在のページのみエクスポート</value>
+  </data>
+  <data name="TEXT_BULKUPDATE_CURRENT_PAGE_ONLY" xml:space="preserve">
+    <value>Bulk Update Current Page Only</value>
+  </data>
+  <data name="TEXT_EXPORT_SEARCH_RESULTS" xml:space="preserve">
+    <value>検索結果のエクスポート</value>
+  </data>
+  <data name="TEXT_BULKUPDATE_SEARCH_RESULTS" xml:space="preserve">
+    <value>Bulk Update Search Results</value>
+  </data>
+  <data name="TEXT_ERROR_NOTHING_UPDATED_BULKUPDATE" xml:space="preserve">
+      <value>Nothing will be updated</value>
+    </data>
+  <data name="TEXT_NO_SELECTED_BME_FOR_BULKUPDATE" xml:space="preserve">
+      <value>There are no selected BMEs for bulk update</value>
+    </data>
+  <data name="TEXT_ERROR_TOO_MANY_RECORDS_BULKUPDATE" xml:space="preserve">
+    <value>Too many records to update</value>
+  </data>
+  <data name="TEXT_LIMIT_DOWN_SEARCH_TO_BULKUPDATE" xml:space="preserve">
+    <value>You are going to update NUMBER_TO_UPDATE items. Choose less items to fit {0} item(s) limitation</value>
+  </data>
+    <data name="TEXT_NO_PROPERTIES_FOR_BULKUPDATE" xml:space="preserve">
+      <value>There are no properties for bulk update</value>
+    </data>
+    <data name="TEXT_ATTENTION_CHANGES_PERMANENT" xml:space="preserve">
+      <value>Attention. Your changes will be permanent</value>
+    </data>
+    <data name="TEXT_SURE_MAKE_CHANGE" xml:space="preserve">
+      <value>Are you sure that you want to make these changes?</value>
+    </data>
+  <data name="TEXT_NO_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
+    <value>No properties are going to be updated</value>
+  </data>
+  <data name="TEXT_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
+    <value>Properties that are going to be updated</value>
+  </data>
+  <data name="TEXT_EXTERNAL" xml:space="preserve">
+    <value>外部情報</value>
+  </data>
+  <data name="TEXT_FAILED_LOADING" xml:space="preserve">
+    <value>ページを読み込めませんでした。</value>
+  </data>
+  <data name="TEXT_FILTER_CONFIG_PROMPT" xml:space="preserve">
+    <value>表示可能なフィルタをすべて選択します。ドラッグ アンド ドロップして並べ替えます。</value>
+  </data>
+  <data name="TEXT_FIND_ACCOUNT" xml:space="preserve">
+    <value>アカウントの検索</value>
+  </data>
+  <data name="TEXT_FIND_AN_ACCOUNT" xml:space="preserve">
+    <value>アカウントを検索します...</value>
+  </data>
+  <data name="TEXT_FUTURE" xml:space="preserve">
+    <value>今後</value>
+  </data>
+  <data name="TEXT_GET_HIERARCHY_PATH" xml:space="preserve">
+    <value>階層パスの取得</value>
+  </data>
+  <data name="TEXT_GRPSUBMEM_DEL" xml:space="preserve">
+    <value>削除するメンバーを選択してください</value>
+  </data>
+  <data name="TEXT_GRPSUBMEM_UNSUB" xml:space="preserve">
+    <value>申し込みを解除するメンバーを選択してください</value>
+  </data>
+  <data name="TEXT_HELP" xml:space="preserve">
+    <value>ヘルプ</value>
+  </data>
+  <data name="TEXT_HELP_TITLE" xml:space="preserve">
+    <value>MetraNet のヘルプ</value>
+  </data>
+  <data name="TEXT_HIERARCHY_ROOT" xml:space="preserve">
+    <value>ルート階層</value>
+  </data>
+  <data name="TEXT_HIGHLIGHT" xml:space="preserve">
+    <value>強調</value>
+  </data>
+  <data name="TEXT_HISTORY_TOOLTIP" xml:space="preserve">
+    <value>アカウント数:{0} &amp;lt;br/&amp;gt;完了済みアカウント数:{1} &amp;lt;br/&amp;gt;アカウント エラーの数:{2} &amp;lt;br/&amp;gt;申し込み数:{3} &amp;lt;br/&amp;gt;申し込みの完了数:{4}&amp;lt;br/&amp;gt; 申し込みのエラー数: {5}</value>
+  </data>
+  <data name="TEXT_INFO" xml:space="preserve">
+    <value>情報</value>
+  </data>
+  <data name="TEXT_INTERNAL" xml:space="preserve">
+    <value>内部情報</value>
+  </data>
+  <data name="TEXT_INVALID_DATES" xml:space="preserve">
+    <value>有効な開始日と終了日を入力してください。</value>
+  </data>
+  <data name="TEXT_INVALID_END_DATE" xml:space="preserve">
+    <value>無効な終了日。</value>
+  </data>
+  <data name="TEXT_INVALID_RANGE" xml:space="preserve">
+    <value>無効な範囲</value>
+  </data>
+  <data name="TEXT_INVALID_RECUR_PATTERN" xml:space="preserve">
+    <value>無効な定期パターン</value>
+  </data>
+  <data name="TEXT_INVALID_START_DATE" xml:space="preserve">
+    <value>無効な開始日。</value>
+  </data>
+  <data name="TEXT_INVALID_START_TIME" xml:space="preserve">
+    <value>無効な開始時刻。</value>
+  </data>
+  <data name="TEXT_ITEMS" xml:space="preserve">
+    <value>項目。</value>
+  </data>
+  <data name="TEXT_LOAD_SAVED_SEARCH" xml:space="preserve">
+    <value>保存済み検索情報の読み込み</value>
+  </data>
+  <data name="TEXT_LOADING" xml:space="preserve">
+    <value>読み込んでいます...</value>
+  </data>
+  <data name="TEXT_LOGOUT" xml:space="preserve">
+    <value>ログアウト</value>
+  </data>
+  <data name="TEXT_LOGOUT_QUESTION" xml:space="preserve">
+    <value>ログアウトしますか。</value>
+  </data>
+  <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
+    <value>Y/n/j g:ia</value>
+  </data>
+  <data name="TEXT_MANAGE_ACCOUNT" xml:space="preserve">
+    <value>アカウントの管理</value>
+  </data>
+  <data name="TEXT_MAX" xml:space="preserve">
+    <value>最大:</value>
+  </data>
+  <data name="TEXT_MEMBERS" xml:space="preserve">
+    <value>グループ メンバーの修正</value>
+  </data>
+  <data name="TEXT_MENU" xml:space="preserve">
+    <value>メニュー</value>
+  </data>
+  <data name="TEXT_MESSAGES" xml:space="preserve">
+    <value>メッセージ</value>
+  </data>
+  <data name="TEXT_METRACARE_LOGIN" xml:space="preserve">
+    <value>MetraCare ログイン</value>
+  </data>
+  <data name="TEXT_MetraNet_LOGIN" xml:space="preserve">
+    <value>MetraNet のログイン</value>
+  </data>
+  <data name="TEXT_MIN" xml:space="preserve">
+    <value>最小:</value>
+  </data>
+  <data name="TEXT_NAME" xml:space="preserve">
+    <value>名前</value>
+  </data>
+  <data name="TEXT_NO" xml:space="preserve">
+    <value>いいえ</value>
+  </data>
+  <data name="TEXT_NO_ACCOUNT_LOADED" xml:space="preserve">
+    <value>アカウントが読み込まれていません。</value>
+  </data>
+  <data name="TEXT_NO_RECENT_ACCOUNTS" xml:space="preserve">
+    <value>最近のアカウントはありません。</value>
+  </data>
+  <data name="TEXT_NO_SELECTION" xml:space="preserve">
+    <value>選択されていません</value>
+  </data>
+  <data name="TEXT_NO_SELECTION_MESSAGE" xml:space="preserve">
+    <value>現在の送金内訳に追加する項目を選択してください。</value>
+  </data>
+  <data name="TEXT_NONE" xml:space="preserve">
+    <value>なし</value>
+  </data>
+  <data name="TEXT_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="TEXT_ONLINE_BILL" xml:space="preserve">
+    <value>オンライン請求書</value>
+  </data>
+  <data name="TEXT_OPEN_SAVED_SEARCH" xml:space="preserve">
+    <value>保存済み検索情報の読み込み</value>
+  </data>
+  <data name="TEXT_OTHER" xml:space="preserve">
+    <value>その他</value>
+  </data>
+  <data name="TEXT_PASSWORDS_DO_NOT_MATCH" xml:space="preserve">
+    <value>パスワードが一致しません</value>
+  </data>
+  <data name="TEXT_PAST" xml:space="preserve">
+    <value>過去</value>
+  </data>
+  <data name="TEXT_PAYMENT" xml:space="preserve">
+    <value>支払</value>
+  </data>
+  <data name="TEXT_PLEASE_FIX" xml:space="preserve">
+    <value>表示されているエラーを修正してください。</value>
+  </data>
+  <data name="TEXT_POPULATE_FIRST" xml:space="preserve">
+    <value>まず、送金内訳を入力する必要があります。</value>
+  </data>
+  <data name="TEXT_PROPERTIES" xml:space="preserve">
+    <value>プロパティ</value>
+  </data>
+  <data name="TEXT_RATES" xml:space="preserve">
+    <value>料金 </value>
+  </data>
+  <data name="TEXT_RECENT_ACCOUNTS" xml:space="preserve">
+    <value>最近のアカウント</value>
+  </data>
+  <data name="TEXT_RELOAD_ACCOUNT" xml:space="preserve">
+    <value>アカウントの再読み込み</value>
+  </data>
+  <data name="TEXT_REMITTANCE_DETAILS" xml:space="preserve">
+    <value>選択された送金内訳</value>
+  </data>
+  <data name="TEXT_REMITTANCE_EMPTY" xml:space="preserve">
+    <value>支払と返金を追加することで送金内訳を追加し、支払要求に対する返済を行ってください。</value>
+  </data>
+  <data name="TEXT_REMOVE" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="TEXT_REMOVE_ACH" xml:space="preserve">
+    <value>ACH の削除</value>
+  </data>
+  <data name="TEXT_REMOVE_ALL" xml:space="preserve">
+    <value>すべて削除</value>
+  </data>
+  <data name="TEXT_REMOVE_CARD" xml:space="preserve">
+    <value>カードの削除</value>
+  </data>
+  <data name="TEXT_REMOVE_DOMAIN" xml:space="preserve">
+    <value>ドメインの削除</value>
+  </data>
+  <data name="TEXT_REMOVE_DOMAINPROFILE" xml:space="preserve">
+    <value>ドメイン プロファイルの削除</value>
+  </data>
+  <data name="TEXT_REMOVE_GROUP_SUBSCRIPTION" xml:space="preserve">
+    <value>グループ利用の削除</value>
+  </data>
+  <data name="TEXT_REMOVE_GRPSUBMEM_ACCOUNTS" xml:space="preserve">
+    <value>一覧から削除するアカウントを選択してください</value>
+  </data>
+  <data name="TEXT_REMOVE_RELSHIP" xml:space="preserve">
+    <value>選択した関係 (複数可) を削除しますか?</value>
+  </data>
+  <data name="TEXT_REMOVE_THIS_RELSHIP" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_RESUBMIT_FAILED" xml:space="preserve">
+    <value>失敗した取引を再送信しています...</value>
+  </data>
+  <data name="TEXT_RESUBMITTED" xml:space="preserve">
+    <value>再送信済み</value>
+  </data>
+  <data name="TEXT_SAVE_SEARCH" xml:space="preserve">
+    <value>検索情報の保存</value>
+  </data>
+  <data name="TEXT_SEARCH" xml:space="preserve">
+    <value>検索</value>
+  </data>
+  <data name="TEXT_SEARCH_FILTERS" xml:space="preserve">
+    <value>フィルタの検索</value>
+  </data>
+  <data name="TEXT_SEARCH_NAME" xml:space="preserve">
+    <value>名前の検索</value>
+  </data>
+  <data name="TEXT_SEARCHING" xml:space="preserve">
+    <value>検索しています...</value>
+  </data>
+  <data name="TEXT_SELECT_ACCOUNT" xml:space="preserve">
+    <value>アカウントの選択</value>
+  </data>
+  <data name="TEXT_SELECT_ACCOUNTS" xml:space="preserve">
+    <value>アカウントの選択</value>
+  </data>
+  <data name="TEXT_SELECT_ADJ_ERROR" xml:space="preserve">
+    <value>処理する調整を選択してください。</value>
+  </data>
+  <data name="TEXT_SELECT_GRPSUBMEM_ACCOUNTS" xml:space="preserve">
+    <value>追加するメンバーを選択してください</value>
+  </data>
+  <data name="TEXT_SELECT_NS_ERROR" xml:space="preserve">
+    <value>処理する非標準料金を選択してください。</value>
+  </data>
+  <data name="TEXT_SELECTED" xml:space="preserve">
+    <value>選択済み </value>
+  </data>
+  <data name="TEXT_SELFCARE_LOGIN" xml:space="preserve">
+    <value>SelfCare へのログイン</value>
+  </data>
+  <data name="TEXT_SESSION_TIMEOUT_TEXT" xml:space="preserve">
+    <value>セッションがタイムアウトになりました。再度ログインしてください</value>
+  </data>
+  <data name="TEXT_SESSION_TIMEOUT_TITLE" xml:space="preserve">
+    <value>セッション タイム アウト</value>
+  </data>
+  <data name="TEXT_SETTINGS" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="TEXT_SETUP_CHARGE_ACCOUNT" xml:space="preserve">
+    <value>請求先口座を設定してから UDRC 値を追加してください</value>
+  </data>
+  <data name="TEXT_SHIP_TO" xml:space="preserve">
+    <value>出荷先</value>
+  </data>
+  <data name="TEXT_SMALL_BALANCE_WRITE_OFF" xml:space="preserve">
+    <value>小額残金の償却</value>
+  </data>
+  <data name="TEXT_SPACER" xml:space="preserve">
+    <value>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</value>
+  </data>
+  <data name="TEXT_START_DATE" xml:space="preserve">
+    <value>開始日</value>
+  </data>
+  <data name="TEXT_STATUS" xml:space="preserve">
+    <value>状況</value>
+  </data>
+  <data name="TEXT_SUBSCRIPTIONS" xml:space="preserve">
+    <value>申し込み</value>
+  </data>
+  <data name="TEXT_SUCCESS" xml:space="preserve">
+    <value>成功</value>
+  </data>
+  <data name="TEXT_SUCCESS_LOADING" xml:space="preserve">
+    <value>動的読み込みが完了しました。</value>
+  </data>
+  <data name="TEXT_SYSTEM" xml:space="preserve">
+    <value>システム</value>
+  </data>
+  <data name="TEXT_SYSTEM_USER" xml:space="preserve">
+    <value>システム ユーザ階層</value>
+  </data>
+  <data name="TEXT_TO" xml:space="preserve">
+    <value>請求先</value>
+  </data>
+  <data name="TEXT_TOO_MANY_ROWS" xml:space="preserve">
+    <value>結果セットが大きすぎるため一部の行が返されませんでした。これ以上の結果を表示するには、検索を変更してください。</value>
+  </data>
+  <data name="TEXT_TOPNOTE" xml:space="preserve">
+    <value>TopNote</value>
+  </data>
+  <data name="TEXT_TRANSACTION_OPEN" xml:space="preserve">
+    <value>開く</value>
+  </data>
+  <data name="TEXT_UDRC_VALUES" xml:space="preserve">
+    <value>UDRC 値</value>
+  </data>
+  <data name="TEXT_UNDER_INVESTIGATION" xml:space="preserve">
+    <value>調査中</value>
+  </data>
+  <data name="TEXT_UNKNOWN_STATUS" xml:space="preserve">
+    <value>不明の状況</value>
+  </data>
+  <data name="TEXT_UNSUBSCRIBE" xml:space="preserve">
+    <value>申し込み解除</value>
+  </data>
+  <data name="TEXT_UPDATE" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="TEXT_VALIDATION_ERROR" xml:space="preserve">
+    <value>このページに確認エラーがあります。必要なフィールドに情報を入力してください。</value>
+  </data>
+  <data name="TEXT_VALUE" xml:space="preserve">
+    <value>値</value>
+  </data>
+  <data name="TEXT_VIEW" xml:space="preserve">
+    <value>内訳の表示</value>
+  </data>
+  <data name="TEXT_VIEW_AUDIT_FAILED_TRANSACTION" xml:space="preserve">
+    <value>この失敗した取引の監査の表示</value>
+  </data>
+  <data name="TEXT_VIEW_CHILDREN" xml:space="preserve">
+    <value>子要素の表示</value>
+  </data>
+  <data name="TEXT_VIEW_DETAILS" xml:space="preserve">
+    <value>内訳の表示</value>
+  </data>
+  <data name="TEXT_VIEW_RELATIONSHIPS" xml:space="preserve">
+    <value>関係の表示</value>
+  </data>
+  <data name="TEXT_WELCOME" xml:space="preserve">
+    <value>ACH</value>
+  </data>
+  <data name="TEXT_WILL_LOSE_CHANGES" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_WRITE_OFF" xml:space="preserve">
+    <value>小額残金の償却の追加</value>
+  </data>
+  <data name="TEXT_YES" xml:space="preserve">
+    <value>はい</value>
+  </data>
+  <data name="THOUSAND_SEPARATOR" xml:space="preserve">
+    <value>,</value>
+  </data>
+  <data name="TITLE_DELETE_ACCOUNT_NOTE" xml:space="preserve">
+    <value>勘定書の削除</value>
+  </data>
+  <data name="TITLE_RELATIONSHIPS" xml:space="preserve">
+    <value>関係</value>
+  </data>
+  <data name="TITLE_RELATIONSHIPS_FOR" xml:space="preserve">
+    <value>次を対象とする関係: </value>
+  </data>
+  <data name="TITLE_REMOVE_RELATIONSHIP" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_FLS_ERROR_MESSAGE" xml:space="preserve">
+	<value>Japanese</value>
+  </data>
+  <data name="TEXT_FLS_NO_ERROR_MESSAGE" xml:space="preserve">
+	<value>Japanese</value>
+  </data>
+  <data name="TEXT_ACTIVATE_DEACTIVATE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_CLONE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_VIEW" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_GENERAL_INFO" xml:space="preserve">
+    <value>A &lt;i&gt;Decision&lt;/i&gt;  is used to analyze usage records (rated billing records) and possibly modify charges on the basis of this analysis.  Decisions are necessary when it is impossible to determine the amount by examining a single isolated record.<br/>For example, you may want to give a special rate if the number of telephone minutes used during the month is &gt; 1000.  You can only determine the rate to use after adding up all the usage records.  If the minutes are &gt; 1000, then for each record the rate is changed and a new charge amount is calculated. (Japanese)</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_ACCOUNT_GROUP" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_CUSTOM_ACCT_GRP" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_SELECT_USAGE_QUALIFICATION" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_SUCCESS_RESORTING_GRID" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_ERROR_ACTIVATE_DECISION" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_CUSTOM_ACCT_GRP" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_MORE_INFO" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_ITEMS_TO_AGGREGATE" xml:space="preserve">
+    <value>(JAPANESE) For example, suppose the Decision Type is \"Use a special rate if the number of minutes of usage is over 500\". The settings might include \"500\" and the \"special rate\" to apply.</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
+    <value>(JAPANESE) Help:  Aggregation Method</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
+    <value>(JAPANESE) Decisions are used when a monetary charge amount cannot be calculated by looking at a single record. Instead, many usage records must be examined and a total must be the number of events, units of usage, or charge amounts. The total, or aggregate, is then used to help determine the charge amount.</value>
+  </data>
+   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_MONETARY_CHARGE" xml:space="preserve">
+    <value>(JAPANESE) Example: \"Apply a discount if there's over $100 in charges.\"</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_UNIT_OF_USAGE" xml:space="preserve">
+    <value>(JAPANESE) Example: \"Use a special rate if over 1,000 minutes.\"</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_COUNT_NUMBER_OF_EVENTS" xml:space="preserve">
+    <value>(JAPANESE) Example: \"Apply a discount if over 100 calls were made.\"</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_FROM_PARAMETER_TABLE" xml:space="preserve">
+    <value>(JAPANESE) Usage is aggregated based on the value set in the parameter table.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
+    <value>(JAPANESE) Help:  Decision Domain</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_AMP_UI_NAME_ILLEGAL_CHAR" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_HOW_APPLY" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_HOW_APPLY" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE_PRORATION" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+	<data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE_PRORATION" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+	<data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+
+  <data name="TITLE_AMPWIZARD_HELP_RESTART_RANGE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_ACTIVATION_RESULTS" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_ERROR_CHECK_RESULTS" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP_2" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_MORE_PRODUCT_VIEW" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_INCREMENTAL_OR_BULK" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_INCREMENTAL_OR_BULK" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+ <data name="TITLE_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
+    <value>(Japanese)Help: Multi-bucket</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
+    <value>(Japanese)Act on each individual record.  Usage may have different prices  which are determined by the bucket into which they fall.</value>
+  </data>
+   <data name="TITLE_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
+    <value>(Japanese)Help: Single-bucket</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
+    <value>(Japanese)Act on all the records together.  All usage has same price which is determined by total volume.</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_UNIT_RATE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_UNIT_RATE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_EVENT_RATE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_EVENT_RATE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_DISCOUNT" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_DISCOUNT" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_GENERATED_CHARGE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_GENERATED_CHARGE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
+    <value>(Japanese) Help:  None</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
+    <value>(Japanese) Do not generate a charge for this decision</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_GENERATED_CHARGE_GRID" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_GENERATED_CHARGE_GRID" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_MORE_DECISION_CYCLE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+	<data name="TITLE_AMPWIZARD_HELP_MORE_DECISION_CYCLE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+	<data name="TITLE_AMPWIZARD_ADD_MISC_ATTRIBUTE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_EDIT_MISC_ATTRIBUTE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_EDIT_DECISION_MISC_ATTRIBUTE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_MORE_CHARGE_CREDIT_DIRECTIVE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_DIRECTIVES" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_MORE_DIRECTIVES" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_DIRECTIVES" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_DELETE_DECISION_MISC_ATTRIBUTE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_DELETE_MISC_ATTRIBUTE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_ERROR" xml:space="preserve">
+    <value>Japanese</value> 
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_USAGE_QUALIFICATION" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_FILTER" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_FILTER_HELP" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_CLONE_DECISION" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_DELETE_DIRECTIVE_CONFIRM" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_DELETE_DIRECTIVE_CONFIRM" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_DELETE_BS_EXEMPTION" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_DELETE_BS_OVERRIDE" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_ADD_ACCOUNT_GROUP" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_DELETE_ACCOUNT_GROUP" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_EDIT_ACCOUNT_GROUP" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_VIEW_ACCOUNT_GROUP" xml:space="preserve">
+    <value>Japanese</value>
+  </data>  
+  <data name="TEXT_AMPWIZARD_HELP_EDIT_ACCOUNT_GROUP" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_DELETE_ACCOUNT_QUALIFICATION_CONFIRM" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_DELETE_ACCOUNT_QUALIFICATION_CONFIRM" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_DIRECTIVE_FILTER" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_DIRECTIVE_FILTER" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+    <data name="ERROR_BILL_MESSAGE_DATES" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+</root>

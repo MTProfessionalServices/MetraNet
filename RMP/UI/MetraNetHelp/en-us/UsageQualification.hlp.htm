@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Create New Usage Qualification </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Create New Usage Qualification" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('26044');expand('25701');expand('18823');expand('14212');highlight('25939')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="ItemsToAggregate.hlp.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="SelectUsageQualification.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h5 class="heading5">Create New Usage Qualification</h5>
+<p class="caption">MetraOffer <img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" /> Advanced Options <img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" /><img src="26012.jpg" alt="icon-MO-" height="16" width="17" vspace="0" hspace="0" align="bottom" border="0" /> Manage AMP Decision Types <img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />&lt;selected decision type&gt;</p>
+<p class="bodytext">You can create a new usage qualification from the Manage AMP Decision Type wizard. </p>
+<table class="tableintopic" width="462" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="422"><p class="note">This feature requires advanced knowledge of AMP processing and the MVM scripting language. Contact your MetraTech Professional Services representative.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"> </p>
+<ol class="listnumber"><li class="listnumber">From the Select Usage Qualification page of the wizard, click <strong class="strong">Create New Usage Qualification</strong>.<p class="listcontinue">The Usage Qualification page appears for you to define the usage qualification.</p>
+</li><li class="listnumber">Provide a name and description.</li><li class="listnumber">In the lower part of the page, use the <strong class="strong">&lt;table name&gt;/Product View Field</strong> to define the usage qualification.  Provide the following information.<p class="listcontinue"></p>
+<table class="tableintopic" width="564" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #C0C0C0">
+<tr align="left" valign="top">
+<th bgcolor="#105AA8" style="border:1px solid #C0C0C0;" width="108"><p class="tableheading">Field</p>
+</th>
+<th bgcolor="#105AA8" style="border:1px solid #C0C0C0;" width="456"><p class="tableheading">Description</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="108"><p class="tabletext">Table</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="456"><p class="tabletext">Contains a list of all of the existing product view tables from the NetMeter database in addition to the t_acc_usage. </p>
+<p class="tabletext">T_acc_usage is the table that contains columns common to all product views;   the product view tables contain columns specific to that product view. Selecting one of the tables in this drop down affects the contents of the Field drop down list</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="108"><p class="tabletext">Field</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="456"><p class="tabletext">A dropdown list that contains the complete list of all columns in the table you selected in the <strong class="strong">Table</strong> field. </p>
+<p class="tabletext">The data type of your selection in the Field drop down list determines the form of the Value field.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="108"><p class="tabletext">Logic</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="456"><p class="tabletext">Contains a partial list of logic operators available in the MVM syntax.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="108"><p class="tabletext">Value</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="456"><p class="tabletext">The format of this field depends on the data type of your selection in the Field dropdown list.</p>
+<p class="tabletext">Enter or select the value by which to filter.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="108"><p class="tabletext"><strong class="strong">Insert</strong> button</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="456"><p class="tabletext">Adds the code fragments in MVM language to the filter edit box. </p>
+</td>
+</tr>
+
+</table>
+<p class="listcontinue"></p>
+</li><li class="listnumber">In the <strong class="strong">Another Usage Qualification</strong> section, specify additional qualifications to add to the usage qualification you created in Step 3. <table class="tableintopic" width="564" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #C0C0C0">
+<tr align="left" valign="top">
+<th bgcolor="#105AA8" style="border:1px solid #C0C0C0;" width="144"><p class="tableheading">Field</p>
+</th>
+<th bgcolor="#105AA8" style="border:1px solid #C0C0C0;" width="420"><p class="tableheading">Description</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="144"><p class="tabletext">Usage Qualification</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="420"><p class="tabletext">Contains a list of all existing usage qualifications by name.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="144"><p class="tabletext">Logic</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="420"><p class="tabletext">The value you select affects the inserted code fragment string when you click the insert button. See notes for the Insert button</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="144"><p class="tabletext">Insert button</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="420"><p class="tabletext">Adds the code fragments in MVM language to the filter edit box. </p>
+<p class="tabletext"><strong class="strong">Notes</strong>: </p>
+<ul class="tablelistbullet"><li class="tablelistbullet">The name you select in the Usage Qualification dropdown is appended to the word &quot;GROUP.&quot;.</li><li class="tablelistbullet">If you select &quot;Does not meet this qualification&quot; logic operator, an &quot;!&quot; character is inserted before the &quot;GROUP&quot; word.</li><li class="tablelistbullet">The code fragment is inserted into the Filter at the cursor position inside the Filter text edit box.</li></ul></td>
+</tr>
+
+</table>
+</li><li class="listnumber">When you are finished defining the usage qualification, click <strong class="strong">Save &amp; Continue</strong>. <p class="listcontinue">You are returned to the Select Usage Qualification page.</p>
+</li><li class="listnumber">Select the Usage Qualification to use with this decision type. Click <strong class="strong">Save &amp; Continue</strong>.</li><li class="listnumber">Continue with the <a id="h25979" class="crossreference" title="Items to Aggregate" href="ItemsToAggregate.hlp.htm" target="_self">Items to Aggregate</a> page.</li></ol>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

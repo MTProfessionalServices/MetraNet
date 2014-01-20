@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Define Calendars </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Calendars, Calendars	Configuring, Calendars	Defaults, Calendars	Editing, Calendars	Navigating To, Define Calendars, Important Concepts" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('12437');expand('12436');expand('14620');expand('13616');highlight('12444')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="defaultdialogunsubscribe.hlp.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="DeleteSubscription.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<p class="heading6">Define Calendars</p>
+<p class="caption">Account Menu Bar <img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />Subscriptions<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />Subscription<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" />Rates</p>
+<p class="bodytext">This page allows you to set custom date/time codes that determine what rates are used for a given instance of usage. To further customize calendars, see Customizing Calendar Style Sheets.</p>
+<p class="bodytext">As the MetraNet platform is commonly configured, the four date/time codes you can configure are:</p>
+<ul class="listbullet"><li class="listbullet">Peak</li><li class="listbullet">Off-Peak</li><li class="listbullet">Weekend</li><li class="listbullet">Holiday</li></ul><p class="subheading">Navigating to a Calendar</p>
+<p class="bodytext">To navigate to a calendar so that it may be customized, use the following steps:</p>
+<ol class="listnumber"><li class="listnumber">Find the account with the calendar that you want to view or customize.</li><li class="listnumber">Click the <strong class="strong">Subscriptions </strong>link in the left navigation bar.</li><li class="listnumber">Click the <strong class="strong">Rates </strong>button in the <strong class="strong">Subscriptions </strong>page.<p class="listcontinue">If the account is subscribed to a product offering with a calendar, it will appear in the <strong class="strong">Select a Parameter Table</strong> page. </p>
+</li><li class="listnumber">Click the calendar parameter table you wish to modify.</li><li class="listnumber">Click <strong class="strong">Edit </strong><img src="pencil.gif" alt="" height="17" width="15" vspace="0" hspace="0" align="bottom" border="0" /> next to the rate schedule of the calendar you wish to customize (or <strong class="strong">View </strong><img src="12961.gif" alt="" height="14px" width="18px" vspace="0" hspace="0" align="bottom" border="0" /> to simply view the calendar).<p class="listcontinue">The calendar page appears. Edit the calendar as needed using the steps <a id="h12971" class="jumptemplate" title="Define Calendars" href="12444.htm" target="_self">below</a>.</p>
+</li></ol><p class="subheading">Defaults</p>
+<p class="bodytext">A useful feature of calendar parameter tables is that you can set a default codes and periods for weeks and weekdays. This means that you are not required to manually set codes for every day and time. There are two types of defaults for calendars:</p>
+<ul class="listbullet"><li class="listbullet">There is the default day, which sets up default codes and periods for all weekdays or weekends days,</li><li class="listbullet">There is the default code, which sets up a code (peak, off-peak, etc.) that will be used for all times of day that are not configured with periods. (Note that a default day has a default code.)</li></ul><p class="bodytext">The default code for a holiday is always &quot;holiday&quot;.</p>
+<p class="subheading">Example</p>
+<p class="bodytext">Let's say that you want to set up all weekdays so that they have a 9-5 Peak period, with the rest of the times during the week being Off-Peak. You would begin by clicking the <strong class="strong">Edit</strong> button and setting the default <em class="emphasis">code</em> for the default <em class="emphasis">day</em> as Off-Peak. You would then enter a period in the default day of 9-5 and give it a Peak period code. Your calendar would now appear with all days having a 9-5 Peak period, with all other times having an Off-Peak code. Clicking <strong class="strong">Save</strong> will save your modifications to the database.</p>
+<p class="subheading">Configuring a Calendar</p>
+<table class="tableintopic" width="816" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td valign="middle" width="54"><p class="bodytext"><img src="12688.gif" alt="" height="24px" width="26px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td valign="middle" width="762"><p class="bodytext">If all buttons in a calendar are disabled, the calendar page you are viewing is read-only. A calendar page will be read only if:</p>
+<ul class="listbullet"><li class="listbullet">You chose <strong class="strong">View </strong>instead of <strong class="strong">Edit </strong>in the <strong class="strong">Select Rate Schedule</strong> page, or</li><li class="listbullet">The calendar you are viewing was not configured to accept custom rates in the MetraOffer application.</li></ul></td>
+</tr>
+
+</table>
+<p class="bodytext">To specify personal dates, times, and codes for an account, use the following steps:</p>
+<ol class="listnumber"><li class="listnumber">Click <strong class="strong">New Calendar</strong> to start with a new, blank calendar. </li><li class="listnumber">Click <strong class="strong">Edit Properties</strong> to give your new personal rate calendar a new name and description.</li><li class="listnumber">Click the type of period you want to enter: <strong class="strong">Weekdays, Weekends</strong>, or<strong class="strong"> Holidays</strong>.<p class="listcontinue">To specify default codes for weeks or weekends, click <strong class="strong">Edit </strong>in the default row (the top row for a weekday or weekend). Click <strong class="strong">Add </strong>in the <strong class="strong">Period </strong>column in the default row to set up default periods for all days of the week or weekend.</p>
+</li><li class="listnumber">If you need to specify periods and codes for a specific day, click <strong class="strong">Customize </strong>next to that day. Then click the <strong class="strong">Add </strong>next to the day you want to specify a period for. You can also set a default code for an individual day by clicking <strong class="strong">Edit</strong>.</li><li class="listnumber">Repeat steps 3 and 4 as needed for <strong class="strong">Weekends </strong>or <strong class="strong">Weekdays</strong>.</li><li class="listnumber">For a holiday, enter the name of the holiday and the date using a MM/DD/YYYY format. Click <strong class="strong">Add </strong>in the <strong class="strong">Period </strong>column of the holiday to specify periods within the holiday.</li><li class="listnumber">When you have made all of your changes, click <strong class="strong">Save</strong>.</li></ol><table class="tableintopic" width="870" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="34"><p class="bodytext"><img src="12796.gif" alt="" height="24px" width="26px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td valign="middle" width="836"><p class="bodytext">Remember that the changes you make to your calendar will not be put into effect until the Save button is activated. Cancel will close the calendar page without making any changes to the database.</p>
+<p class="bodytext">Additionally, you must stop and restart the Pipeline and IIS services whenever you make calendar information changes:</p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Calendar Page Functions</p>
+<table class="tableintopic" width="618" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr>
+<td width="126" height="0"></td>
+<td width="492" height="0"></td>
+<td width="30" height="0"></td>
+</tr>
+<tr align="left" valign="top">
+<td bgcolor="#105AA8" style="border:1px solid #D8D8D8;" colspan="2" width="618"><p class="tableheading">Edit/Select/Create New Calendar Buttons</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="126"><p class="tabletext"><strong class="strong">Edit Calendar</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="492"><p class="tabletext">Edit the Name and Description properties of the calendar presently being viewed.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="126"><p class="tabletext"><strong class="strong">New Calendar</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="492"><p class="tabletext">Create a new calendar that will be in effect for this subscription.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td bgcolor="#105AA8" style="border:1px solid #D8D8D8;" colspan="2" width="618"><p class="tableheading">Weekday/Weekend/Holiday Options</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="126"><p class="tabletext"><strong class="strong">Weekdays</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="492"><p class="tabletext">Select this option to view, edit, and add weekday periods and codes to your calendar.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="126"><p class="tabletext"><strong class="strong">Weekends</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="492"><p class="tabletext">Select this option to view, edit, and add weekend periods and codes to your calendar.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="126"><p class="tabletext"><strong class="strong">Holidays</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="492"><p class="tabletext">Select this option to view, edit, and add holidays and holiday periods and codes to your calendar.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td bgcolor="#105AA8" style="border:1px solid #D8D8D8;" colspan="2" width="618"><p class="tableheading">Editing Weekdays/Weekends/Holidays</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" colspan="2" rowspan="2" width="618"><p class="tabletext">If you chose <strong class="strong">Edit </strong><img src="pencil.gif" alt="" height="17" width="15" vspace="0" hspace="0" align="bottom" border="0" />in step 5 above, you will be able to edit the calendar, as shown below.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td width="30"><p class="bodytext">&nbsp;</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td bgcolor="#105AA8" style="border:1px solid #D8D8D8;" colspan="2" width="618"><p class="tableheading">Save/Cancel Buttons</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="126"><p class="tabletext"><strong class="strong">Save</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="492"><p class="tabletext">After you have entered all of your data for the calendar, click Save to save all of your data permanently in the database.</p>
+<table class="tableintopic" width="478" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="42"><p class="bodytext"><img src="12962.gif" alt="" height="24px" width="26px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="436"><p class="tabletext">If you do not click <strong class="strong">Save</strong>, your calendar changes will not be made to the database.</p>
+</td>
+</tr>
+
+</table>
+<p class="tabletext">&nbsp;</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="126"><p class="tabletext"><strong class="strong">Cancel</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="492"><p class="tabletext">If you do not want to save the data that you've entered, click Cancel and the database will not be updated with your changes.</p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Editing Weekdays</p>
+<p class="bodytext"><img src="12963.gif" alt="" height="161px" width="545px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<table class="tableintopic" width="612" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr>
+<td width="120" height="0"></td>
+<td width="492" height="0"></td>
+</tr>
+<tr align="left" valign="top">
+<td bgcolor="#105AA8" style="border:1px solid #D8D8D8;" colspan="2" width="612"><p class="tableheading">Editing Weekdays</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="120"><p class="tabletext"><strong class="strong">Customize</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="492"><p class="tabletext">Use this button to modify a day to have its own values that are different from the default weekday.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="120"><p class="tabletext"><strong class="strong">Make Default</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="492"><p class="tabletext">Erases any times that have been entered for this day and sets it back to the default weekday (appears after the Customize button has been activated).</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="120"><p class="tabletext"><strong class="strong">Day of the Week</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="492"><p class="tabletext">Indicates the day of the week.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="120"><p class="tabletext"><strong class="strong">Default Code</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="492"><p class="tabletext">This is the code for the time of day if a period does not specify differently. Click the Edit button to select the default code that will be used for that weekday.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="120"><p class="tabletext"><strong class="strong">Graph</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="492"><p class="tabletext">A simple graphic representation of the times entered for this day.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="120"><p class="tabletext"><strong class="strong">Periods</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="492"><p class="tabletext">Use these buttons to set the times of day codes are in effect. Click Add to enter new times. Click Remove to remove a period.</p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Editing Weekends</p>
+<p class="bodytext"><img src="12964.gif" alt="" height="151px" width="532px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<table class="tableintopic" width="618" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr>
+<td width="120" height="0"></td>
+<td width="498" height="0"></td>
+</tr>
+<tr align="left" valign="top">
+<td bgcolor="#0065CB" style="border:1px solid #D8D8D8;" colspan="2" width="618"><p class="tableheading">Editing Weekends</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="120"><p class="tabletext"><strong class="strong">Customize</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="498"><p class="tabletext">Use this button to modify a day to have its own values that are different from the default weekend day.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="120"><p class="tabletext"><strong class="strong">Make Default</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="498"><p class="tabletext">Erases any times that have been entered for this day and sets it back to the default weekend day (appears after the Customize button has been activated).</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="120"><p class="tabletext"><strong class="strong">Day of the Week</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="498"><p class="tabletext">Indicates the weekend day.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="120"><p class="tabletext"><strong class="strong">Default Code</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="498"><p class="tabletext">This is the code for a time of day if a period does not specify differently. Click the Edit button to select the default code that will be used for that weekend day.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="120"><p class="tabletext"><strong class="strong">Graph</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="498"><p class="tabletext">A simple graphic representation of the times entered for this day.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="120"><p class="tabletext"><strong class="strong">Periods</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="498"><p class="tabletext">Use these buttons to set the times of day codes are in effect. Click Add to enter new times. Click Remove to remove a period.</p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Editing Holidays</p>
+<p class="bodytext"><img src="12965.gif" alt="" height="91px" width="545px" vspace="0" hspace="0" align="bottom" border="0" />_</p>
+<table class="tableintopic" width="618" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr>
+<td width="102" height="0"></td>
+<td width="516" height="0"></td>
+</tr>
+<tr align="left" valign="top">
+<td bgcolor="#105AA8" style="border:1px solid #D8D8D8;" colspan="2" width="618"><p class="tableheading">Editing Holidays</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="102"><p class="tabletext"><strong class="strong">Edit</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="516"><p class="tabletext">This button allows you to edit the properties of the Holiday (including the Name and Date).</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="102"><p class="tabletext"><strong class="strong">Remove</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="516"><p class="tabletext">Removes the holiday from the calendar.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="102"><p class="tabletext"><strong class="strong">Holiday</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="516"><p class="tabletext">Indicates the name of the holiday.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="102"><p class="tabletext"><strong class="strong">Date</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="516"><p class="tabletext">The date the holiday falls on (Enter in MM/DD/YYYY format, or use the calendar button to the right of the field).</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="102"><p class="tabletext"><strong class="strong">Graph</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="516"><p class="tabletext">A simple graphic representation of the times entered for this day.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="102"><p class="tabletext"><strong class="strong">Periods</strong></p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="516"><p class="tabletext">Use these buttons to set the times of day codes are in effect. Click Add to enter new times. Click Remove to remove a period.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

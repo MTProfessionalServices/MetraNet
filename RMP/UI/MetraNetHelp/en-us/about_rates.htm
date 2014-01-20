@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> About Rates </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="About Rates" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('3832');expand('3821');expand('14212');highlight('3833')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="subscription_and_non-subscription_rating.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="3832.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">About Rates</h4>
+<p class="bodytext">A <strong class="strong">rate </strong>is a fixed amount used to generate a subscriber's charges. The way the application selects a particular rate depends on a number of factors. In the MetraOffer module, you can configure the MetraNet platform to rate based either on<em class="emphasis"> </em>Product-Offering<em class="emphasis"> </em>Subscriptions or on Price Lists<em class="emphasis">.</em></p>
+<p class="subheading">Product Offering-Based Rating</p>
+<p class="bodytext">Product offering-based rating determines rates based on an account's subscription to a product offering.</p>
+<p class="bodytext"><img src="4287.gif" alt="" height="263px" width="576px" vspace="0" hspace="0" align="bottom" border="0" />_</p>
+<p class="bodytext">When usage occurs:</p>
+<p class="bodytext">The system checks whether the subscriber's account has a subscription to a product offering containing the service.</p>
+<p class="bodytext">If a product offering subscription exists, then the system uses the parameter table contained in the product offering to reference a corresponding rate schedule using the following criteria:</p>
+<ul class="listbullet"><li class="listbullet">The price list that the parameter table has been mapped to.</li><li class="listbullet">The effective dates of the rate schedule.</li></ul><p class="bodytext">The system determines the exact rate of the usage using the conditions and actions contained in the rate schedule. For example, one rule in a rate schedule might have a condition of less than 100 minutes with a rate of .10 per minute. The next rule might have a condition of over 100 minutes with a rate of .08 per minute.</p>
+<p class="bodytext">The system updates the MetraNet database with the new account usage and cost information.</p>
+<p class="bodytext">Usage is not always the event triggering charges. In the case of Recurring and&nbsp;Non-Recurring Charges, as well as Aggregate Usage and Aggregate Discounts, because the &quot;event&quot; is date-related and not usage-related, the <em class="emphasis">system</em> will initiate a charge and not <em class="emphasis">subscriber usage</em>.</p>
+<p class="subheading">Price List-Based Rating</p>
+<p class="bodytext">With Price List-based rating, you can price services based on an account's Default Price List chosen by the CSR in MetraCare when the subscriber's account was created. As it is normally configured,  Price List-Based rating is used when no product offering subscription is present.</p>
+<p class="bodytext"><img src="4265.gif" alt="" height="240px" width="576px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<p class="bodytext">When usage occurs:</p>
+<p class="bodytext">The system checks whether the subscriber's account has a subscription to a product offering that contains the service. When it does not, it determines it has to use Price-List-Based rating.</p>
+<p class="bodytext">If a product offering subscription does <em class="emphasis">not</em> exist, then the system will use the service's parameter table to reference a corresponding rate schedule using the following criteria:</p>
+<p class="bodytext">The default price list that the CSR assigned to the subscriber in MetraCare.</p>
+<ul class="listbullet"><li class="listbullet">The effective dates of the rate schedule.</li><li class="listbullet">The system determines the exact rate of the usage using the conditions and actions contained in the rate schedule.</li><li class="listbullet">The system updates the MetraNet database with the new account usage and cost information.</li></ul>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

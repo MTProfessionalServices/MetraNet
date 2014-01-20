@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ApproveAllAdjustments.aspx.cs" Inherits="Adjustments_AjaxServices_ApproveAllAdjustments" %>

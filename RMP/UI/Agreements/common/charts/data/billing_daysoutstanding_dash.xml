@@ -1,0 +1,34 @@
+<chart
+  manageResize='1'
+  showborder='0' showplotborder='0' showShadow='0'  
+	baseFont='Arial' baseFontColor='444444' basefontsize='13' 
+	outCnvbaseFont='Arial' outCnvbaseFontColor='444444' outCnvbaseFontSize='13'
+  chartLeftMargin='10' chartRightMargin='10' chartTopMargin='10' chartBottomMargin='0'
+	showToolTipShadow='1' toolTipBorderColor='BBBBBB' toolTipBgColor='FFF5B5'
+
+  majorTMNumber='8' majorTMHeight='5' targetColor='CC0000' majorTMColor='CCCCCC' paletteColors='EEEEEE,C5C5C5,A1A1A1'
+  lowerLimit='0' upperLimit='90' caption='Unpaid Invoices' subcaption='(Average Days Outstanding)'
+>
+   <colorRange>
+      <color minValue='0' maxValue='30' color='EEEEEE'/>
+      <color minValue='30' maxValue='60' color='C5C5C5'/> 
+      <color minValue='60' maxValue='90' color='A1A1A1'/> 
+   </colorRange> 
+   <value>32</value>
+   <target>30</target>
+
+  <styles>
+    <definition>
+      <style name='captionStyle' type='Font' font='Arial' color='444444' Size='13' bold='1' />
+      <style name='subcaptionStyle' type='Font' font='Arial' color='444444' Size='13' bold='0' />
+      <style name='tickValueStyle' type='Font' font='Arial' color='BBBBBBB' Size='13' bold='0' />
+    </definition>
+    <application>
+      <apply toObject='caption' styles='captionStyle' />
+      <apply toObject='subcaption' styles='subcaptionStyle' />
+      <apply toObject='TickValues' styles='tickValueStyle' />
+      <apply toObject='limitvalues' styles='tickValueStyle' />
+    </application>
+  </styles>
+   
+</chart>

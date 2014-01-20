@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Error" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="ERROR_ACCOUNT_DORMANT" xml:space="preserve">
+    <value>&lt;br/&gt;&lt;br/&gt;アカウントが長期間使用されていません。ロックを解除することができます。</value>
+  </data>
+  <data name="ERROR_ACH_ADD" xml:space="preserve">
+    <value>このアカウントに ACH 払い方式を追加できません。</value>
+  </data>
+  <data name="ERROR_ACH_LIST" xml:space="preserve">
+    <value>ACH 払い方式のリストを取得できません</value>
+  </data>
+  <data name="ERROR_ACH_LOAD" xml:space="preserve">
+    <value>ACH 払い口座の内訳を表示できません</value>
+  </data>
+  <data name="ERROR_ACH_REMOVE" xml:space="preserve">
+    <value>お客様のアカウントから ACH 払い方式を削除できません。</value>
+  </data>
+  <data name="ERROR_ACH_UPDATE" xml:space="preserve">
+    <value>ACH 払い方式の情報を修正できません</value>
+  </data>
+  <data name="ERROR_CAPABILITY_INVALID" xml:space="preserve">
+    <value>無効なデフォルト機能。</value>
+  </data>
+  <data name="ERROR_CC_ADD" xml:space="preserve">
+    <value>このアカウントにクレジット カードを追加できません。</value>
+  </data>
+  <data name="ERROR_CC_LIST" xml:space="preserve">
+    <value>クレジット カードのリストを取得できません</value>
+  </data>
+  <data name="ERROR_CC_LOAD" xml:space="preserve">
+    <value>クレジット カードの内訳を表示できません</value>
+  </data>
+  <data name="ERROR_CC_REMOVE" xml:space="preserve">
+    <value>お客様のアカウントからクレジット カードを削除できません。</value>
+  </data>
+  <data name="ERROR_CC_UPDATE" xml:space="preserve">
+    <value>クレジット カード情報を修正できません</value>
+  </data>
+  <data name="ERROR_EMAIL_REQUIRED" xml:space="preserve">
+    <value>電子メール アドレスは必須です。</value>
+  </data>
+  <data name="ERROR_ENDDOM_INVALID" xml:space="preserve">
+    <value>月の無効な最終日が選択されました。開始日よりも後の日を選択する必要があります。</value>
+  </data>
+  <data name="ERROR_LAST_LOGIN" xml:space="preserve">
+    <value>{0} へ最後にログインしたのは {1} です。最後の正常なログインから {2} 回ログインの試行に失敗しています。</value>
+  </data>
+  <data name="ERROR_LOGIN_INVALID" xml:space="preserve">
+    <value>ユーザ名またはパスワードが不正です。</value>
+  </data>
+  <data name="ERROR_LOGIN_LOCKED" xml:space="preserve">
+    <value>セキュリティ上の理由から、お客様のアカウントがロックされました。この問題を解決するには、サポートにお問い合わせください。</value>
+  </data>
+  <data name="ERROR_LOGIN_PASSWORD_EXPIRING" xml:space="preserve">
+    <value>パスワードがあと {0} 日で期限切れになります。時間があれば、今すぐ変更してください。</value>
+  </data>
+  <data name="ERROR_MAIN_MENU" xml:space="preserve">
+    <value>無効なメニュー ファイルです。システム管理者に通知してください。</value>
+  </data>
+  <data name="ERROR_NEVER_LOGGED" xml:space="preserve">
+    <value>このユーザが MetraCare にログインするのは初めてです。</value>
+  </data>
+  <data name="ERROR_NOT_VALID_ACCOUNT" xml:space="preserve">
+    <value>エラーです。有効なアカウントではありません。</value>
+  </data>
+  <data name="ERROR_PARENT_ACCOUNT_INVALID" xml:space="preserve">
+    <value>無効な親アカウント ID。</value>
+  </data>
+  <data name="ERROR_PASSWORD_EXPIRED" xml:space="preserve">
+    <value>パスワードの有効期限が過ぎています</value>
+  </data>
+  <data name="ERROR_PASSWORDS_DO_NOT_MATCH" xml:space="preserve">
+    <value>パスワードが一致しません。</value>
+  </data>
+  <data name="ERROR_SECURITY_ANSWER_INVALID" xml:space="preserve">
+    <value>無効なセキュリティ回答。</value>
+  </data>
+    <data name="ERROR_SECURITY_QUESTION_INVALID" xml:space="preserve">
+        <value>セキュリティの質問およびカスタム セキュリティの質問の両方を設定できません。</value>
+    </data>
+  <data name="ERROR_SUBSCRIBER_NULL" xml:space="preserve">
+    <value>アカウントの処理を実行する前に、まずアカウントを管理する必要があります。</value>
+  </data>
+  <data name="ERROR_TEMP_LOCK" xml:space="preserve">
+    <value>システムで許可されるログインの試行回数は {0} 回です。この回数に達すると、アカウントが一時的に {1} 分間ロックされます。アカウントのロックは手動で解除できます。</value>
+  </data>
+  <data name="ERROR_UNABLE_SAVE_DATA" xml:space="preserve">
+    <value>変更を保存できません。</value>
+  </data>
+  <data name="ERROR_UNABLE_TO_UNLOCK_ACCOUNT" xml:space="preserve">
+    <value>アカウントをロックできません。権限がありますか?</value>
+  </data>
+  <data name="ERROR_USERNAME_INVALID" xml:space="preserve">
+    <value>ユーザ名が不正です。</value>
+  </data>
+  <data name="ERROR_USM_CONFIG_BAD_ANNUALLY" xml:space="preserve">
+    <value>年間隔の日数</value>
+  </data>
+  <data name="ERROR_USM_CONFIG_BAD_BIWEEKLY" xml:space="preserve">
+    <value>隔週間隔の日数</value>
+  </data>
+  <data name="ERROR_USM_CONFIG_BAD_DAILY" xml:space="preserve">
+    <value>日間隔の日数</value>
+  </data>
+  <data name="ERROR_USM_CONFIG_BAD_MONTHLY" xml:space="preserve">
+    <value>月間隔の日数</value>
+  </data>
+  <data name="ERROR_USM_CONFIG_BAD_QUARTERLY" xml:space="preserve">
+    <value>四半期間隔の日数</value>
+  </data>
+  <data name="ERROR_USM_CONFIG_BAD_SEMIANNUALLY" xml:space="preserve">
+    <value>半年間隔の日数</value>
+  </data>
+  <data name="ERROR_USM_CONFIG_BAD_SEMIMONTHLY" xml:space="preserve">
+    <value>半月間隔の日数</value>
+  </data>
+  <data name="ERROR_USM_CONFIG_BAD_WEEKLY" xml:space="preserve">
+    <value>週間隔の日数</value>
+  </data>
+  <data name="ERROR_USM_CONFIG_INVALID_GRACE_PERIOD" xml:space="preserve">
+    <value>ゼロ以上の整数である必要があります。</value>
+  </data>
+  <data name="ERROR_USM_CONFIG_UNABLE_TO_RETRIEVE" xml:space="preserve">
+    <value>設定を取得できません。詳細は、ログを確認してください。</value>
+  </data>
+  <data name="ERROR_USM_CONFIG_UNABLE_TO_SAVE" xml:space="preserve">
+    <value>設定の変更を保存できません。詳細は、ログを確認してください。</value>
+  </data>
+  <data name="ERROR_MULTIPLE_ACCOUNT_UPDATE_PENDING_CHANGES" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+    <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
+        <value>仕様の削除に失敗しました。</value>
+    </data>
+    <data name="SpecCharacteristicRepository_LoadSpecCharacteristic_Didn_t_find_matching_spec_" xml:space="preserve">
+        <value>一致する使用が見つかりませんでした。</value>
+    </data>
+    <data name="SpecCharacteristicRepository_LoadSpecCharacteristics_Failed_getting_specs_" xml:space="preserve">
+        <value>仕様の取得に失敗しました。</value>
+    </data>
+    <data name="SpecCharacteristicRepository_LoadSubCharacteristicValues_Failed_getting_entity_properties_" xml:space="preserve">
+        <value>エンティティ プロパティの取得に失敗しました。</value>
+    </data>
+    <data name="SpecCharacteristicRepository_SaveSpecCharacteristic_Failed_saving_spec_" xml:space="preserve">
+        <value>仕様の保存に失敗しました。</value>
+    </data>
+    <data name="SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_" xml:space="preserve">
+        <value>アクセスが拒否されました。</value>
+    </data>
+    <data name="SpecCharacteristicsController_AddSharedProperty_Couldn_t_add_property_" xml:space="preserve">
+        <value>プロパティを追加できませんでした。</value>
+    </data>
+    <data name="SpecCharacteristicsController_Delete_Couldn_t_delete_property_" xml:space="preserve">
+        <value>プロパティを削除できませんでした。</value>
+    </data>
+    <data name="SpecCharacteristicsController_SetDisplayOrder_Couldn_t_find_property_" xml:space="preserve">
+        <value>プロパティが見つかりませんでした。</value>
+    </data>
+</root>

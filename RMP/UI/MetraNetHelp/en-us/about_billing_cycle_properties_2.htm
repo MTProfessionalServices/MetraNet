@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> About Cycle Properties </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="About Cycle Properties" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('3869');expand('3843');expand('14212');highlight('3820_2')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="BillMessages.hlp.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="about_discounts.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">About Cycle Properties</h4>
+<p class="bodytext">You can set up complex calendar logic for various accounts, charges, and usage calculation processes.</p>
+<p class="bodytext">In the properties for aggregate usage charges, discounts, and recurring charges, you can set the following:</p>
+<table class="tableintopic" width="582" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #BFBFBF">
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="138"><p class="tableheading">Property</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="444"><p class="tableheading">Description</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="138"><p class="tabletext">Same as subscriber's billing cycle <em class="emphasis">(discounts only)</em></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="444"><p class="tabletext"><em class="emphasis">Same as subscriber's billing cycle</em> means that the system applies a discount beginning with the subscriber's next billing period, and the cycle recurs coinciding with each subsequent billing period.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="138"><p class="tabletext">Aligned to subscriber's billing cycle <em class="emphasis">(recurring charges only)</em></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="444"><p class="tabletext"><em class="emphasis">Aligned to subscriber's billing cycle</em> means that the recurring charge's cycles aligns with subscriber billing cycles of differing lengths (as long as the longer of the two cycles aligns with two or more instances of the shorter one. See <a id="h4143" class="" title="Billing Cycle Aligned Recurring Charges" href="billing_cycle_aligned_recurring_charges.htm" target="_self">Billing cycle aligned recurring charges</a> for details.)</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="138"><p class="tabletext">Require That Subscriber's Billing Cycle Is...</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="444"><p class="tabletext">This option is active if <em class="emphasis">Billing Cycle Relative</em> is chosen. If you choose <em class="emphasis">Require That Subscriber's Billing Cycle Is...</em>, then the subscriber must have the billing period you specify for their account, or they will be <em class="emphasis">ineligible for the product offering.</em></p>
+<p class="tabletext"><em class="emphasis">You would likely use this option for flat recurring charges. For instance, you would probably not want to set up a $20 recurring charge for both your monthly and daily billing cycle subscribers. </em></p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="138"><p class="tabletext">Fixed Cycle</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="444"><p class="tabletext">The charge recurs using a custom cycle you specify in the MetraOffer module. With a fixed cycle (one that has its own charge cycle, separate from the customer's billing cycle), you must specify the cycle's properties. See the table below.</p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Fixed Cycle Properties</p>
+<p class="bodytext">Here are the different choices for fixed cycle properties:</p>
+<table class="tableintopic" width="582" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #BFBFBF">
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="96"><p class="tableheading">Cycle Type</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="192"><p class="tableheading">Description</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="294"><p class="tableheading">Required Action</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="96"><p class="tabletext">Daily</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="192"><p class="tabletext">The charge/discount is applied on a daily basis.</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="294"><p class="tabletext">None.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="96"><p class="tabletext">Weekly</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="192"><p class="tabletext">The charge/discount is applied on a weekly basis.</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="294"><p class="tabletext">Specify the day of the week the cycle should end.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="96"><p class="tabletext">Bi-Weekly</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="192"><p class="tabletext">The charge/discount is applied every two weeks.</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="294"><p class="tabletext">Specify the dates that the first two week cycle should begin and end.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="96"><p class="tabletext">Semi Monthly</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="192"><p class="tabletext">The charge/discount is applied twice a month.</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="294"><p class="tabletext">Specify the day of the month the first cycle ends and the day of the month the second cycle is to end.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="96"><p class="tabletext">Monthly</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="192"><p class="tabletext">The charge/discount is applied once a month.</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="294"><p class="tabletext">Specify the day of the month the cycle ends.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="96"><p class="tabletext">Quarterly</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="192"><p class="tabletext">The charge/discount is applied once every three months.</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="294"><p class="tabletext">Specify the code for the month that begins the quarterly cycle, and the specific day of the month the cycle starts. There are three quarterly cycles. </p>
+<table class="tableintopic" width="280" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #BFBFBF">
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="42"><p class="tableheading">Use</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="238"><p class="tableheading">For quarters beginning in</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="42"><p class="tabletext">1</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="238"><p class="tabletext">Jan/Apr/July/Oct</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="42"><p class="tabletext">2</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="238"><p class="tabletext">Feb/May/Aug/Nov</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="42"><p class="tabletext">3</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="238"><p class="tabletext">March/June/Sep/Dec</p>
+</td>
+</tr>
+
+</table>
+<p class="tabletext">For example, if May 5th is your start date, use 2 for the quarterly cycle and 5 as the start date. </p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="96"><p class="tabletext">Semiannual</p>
+<p class="tabletext">&nbsp;</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="192"><p class="tabletext">The charge/discount is applied every six months.</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="294"><p class="tabletext">Enter the month and day the cycle starts. A semiannual cycle matches two quarters.</p>
+<p class="tabletext"><span class="boldblue">Usage notes:</span><br />The system determines the end date of the semiannual period using the closest calendar date. For example, the first cycle could be Mar 15 &#8211; Sept 15; the second cycle would be Sept 16  &#8211; March 14; and the third would be the same as the first. In cases where the calendar does not permit an exact date match, the closest match is used. For example, Aug 30 &#8211; Feb 28. </p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="96"><p class="tabletext">Annual</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="192"><p class="tabletext">The charge/discount is applied once a year.</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="294"><p class="tabletext">&nbsp;</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

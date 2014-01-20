@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> About Adjustments </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="About Adjustments" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('23866');expand('12550');expand('13616');highlight('12386')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="adjustment_business_rules.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="23866.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">About Adjustments</h4>
+<p class="bodytext">An <strong class="strong"><strong class="strong">Adjustment</strong></strong> is a value (plus or minus) that either alters or adds a line item on a subscriber's bill. (Typically, a CSR grants a subscriber an adjustment due to problems with a service, overbilling due to incorrect rates, or other service-related reason.)</p>
+<p class="bodytext">MetraNet supports various types of adjustments that are distinguished by these two characteristics:</p>
+<ul class="listbullet"><li class="listbullet"><strong class="strong"><strong class="strong">Transaction-Level Adjustments</strong></strong><br />Various types of MetraNet adjustments that reference a specific Transaction ID as well as a specific Account ID. MetraNet allows service providers to submit <em class="emphasis"><em class="emphasis">transaction level</em></em> adjustments to individual transactions or to several transactions in bulk by having CSRs enter them using the MetraCare web application.</li><li class="listbullet"><strong class="strong"><strong class="strong">Account-Level Adjustments</strong></strong><br />MetraNet adjustments that reduce (or otherwise adjust) the balance on a specific Account ID&#8217;s online bill and AR balance (if AR being used) but do not reference a specific MetraNet Transaction ID. &nbsp;These include Miscellaneous Adjustments (formerly called Credits) and AR Adjustments. MetraNet allows service providers to submit Miscellaneous Adjustments either individually through the <em class="emphasis">MetraCare</em> web application or in bulk using the <em class="emphasis"><em class="emphasis">MetraConnect</em></em> web service. &nbsp;AR Adjustments must be submitted only through the <em class="emphasis"><em class="emphasis">MetraConnect</em></em> web service.</li></ul><p class="subheading">Transaction-Level Adjustments</p>
+<p class="bodytext">MetraNet supports the following types of transaction level adjustments <em class="emphasis"><em class="emphasis">out-of-the-box</em></em> through the <em class="emphasis"><em class="emphasis">MetraCare</em></em> web application:</p>
+<p class="bodytext"><strong class="strong"><strong class="strong">Prebill Adjustments</strong></strong><br />A dollar amount or other unit-based adjustment (such as percentage, minutes, amount per minute, and so on) entered through the MetraCare interface that changes the amount that a subscriber will pay for a transaction that has been rated but not yet billed. &nbsp;CSRs can select individual transactions or specific parts of a transaction for adjustment and can perform individual as well as bulk adjustment distributions. &nbsp;For example, a CSR wants to give only 5 out of 10 participants in a conference call a $.03 per minute reduction in charge - before they are billed - because their local county&#8217;s bridge experienced system delays. Compare with <strong class="strong"><strong class="strong">Prebill Reassign</strong></strong>. Service Providers <u class="underline">cannot</u> submit this type of adjustment using the <em class="emphasis"><em class="emphasis">MetraConnect</em></em> web service. See <a id="h12791" class="jumptemplate" title="Create Adjustments" href="create_adjustment.htm" target="_self">Create Prebill Adjustment</a>.</p>
+<p class="bodytext"><strong class="strong"><strong class="strong">Postbill Adjustments</strong></strong><br />A dollar amount or other unit-based adjustment (such as percentage, minutes, amount per minute, and so on) entered through <em class="emphasis"><em class="emphasis">MetraCare</em></em> that changes the amount that a subscriber should have paid for a transaction that has already been billed. &nbsp;CSRs can select individual transactions or specific parts of a transaction for adjustment and can perform individual as well as bulk adjustment distributions. &nbsp;For example, a CSR wants to reduce a subscriber&#8217;s Conference Leg Minutes from 10 minutes to 5 minutes since the subscriber complained - after viewing his online bill&nbsp;- that the last 5 minutes of the conference were inaudible. &nbsp;Compare with <strong class="strong"><strong class="strong">Postbill Reassign</strong></strong>. Service Providers <u class="underline">cannot</u> submit this type of adjustment using the <em class="emphasis"><em class="emphasis">MetraConnect</em></em> web service.</p>
+<p class="bodytext"><strong class="strong"><strong class="strong">Prebill Reassign</strong></strong><br />A <em class="emphasis"><em class="emphasis">MetraCare</em></em> application option that moves an entire transaction (parent and any child transactions) from the wrong subscriber&#8217;s account to the correct subscriber&#8217;s account before bill production. Compare with <strong class="strong"><strong class="strong">Prebill Adjustments</strong></strong>. Service Providers <u class="underline">cannot</u> submit this type of adjustment using the <em class="emphasis"><em class="emphasis">MetraConnect</em></em> web service.</p>
+<p class="bodytext"><strong class="strong"><strong class="strong">Postbill Reassign</strong></strong><br />A <em class="emphasis"><em class="emphasis">MetraCare</em></em> application option that moves an entire transaction (parent and any child transactions) from the wrong subscriber&#8217;s account to the correct subscriber&#8217;s account after bill production. &nbsp;Compare with <strong class="strong"><strong class="strong">Postbill Adjustments</strong></strong>. Service Providers <u class="underline">cannot</u> submit this type of adjustment using the <em class="emphasis"><em class="emphasis">MetraConnect</em></em> web service. See <a id="h12792" class="jumptemplate" title="Reassign Transactions" href="rebill.edit.hlp.htm" target="_self">Reassign Postbill Transaction</a>.</p>
+<table class="tableintopic" width="606" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="42"><p class="note"><img src="12688.gif" alt="" height="24px" width="26px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td valign="middle" width="564"><p class="note">You cannot reassign recurring charges and UDRCs do not support per unit adjustments.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"><strong class="strong"><strong class="strong">Multipoint Adjustments</strong></strong><br />A multipoint adjustment is a MetraCare option that allows you to adjust a priceable item with child items. A multipoint adjustment can adjust many individual transactions within a single compound transaction. When CSRs perform composite adjustments, they enter a single percentage value. This percentage modifies in bulk a number of the parent and child transactions. After a CSR completes a composite adjustment, it will subsequently exist as <em class="emphasis"><em class="emphasis">many individual adjustments -</em></em> each corresponding to different parts of the multipoint priceable item. At this point, the CSR will <em class="emphasis"><em class="emphasis">not</em></em> be able to modify the composite adjustment as a whole (except by entering another adjustment to offset the original adjustment's results).</p>
+<p class="bodytext"><strong class="strong"><strong class="strong">Orphan Adjustments</strong></strong><br />A Pending or Approved Adjustment for a transaction that has been backed out of the MetraNet system. The software automatically places Orphan Adjustments into a <em class="emphasis"><em class="emphasis">Pending Approval</em></em> state where CSR Managers can review and delete or approve them in <em class="emphasis"><em class="emphasis">MetraCare</em></em> as <strong class="strong"><strong class="strong">Miscellaneous Adjustments</strong></strong> (that reduce the Account's balance on MetraView online bills and reports). &nbsp;The software automatically deletes any remaining pending Orphan Adjustments at the end of the Soft Close period for the Payer's billing internal and logs them as auto-deleted in the audit log and mtlog.txt file for appropriate follow up. See <a id="h12728" class="jumptemplate" title="Manage Orphan Adjustments" href="Adjustment.Manage.hlp.htm" target="_self">Managing Orphan Adjustments</a>.</p>
+<p class="subheading">Account-Level Adjustments</p>
+<p class="bodytext">MetraNet also supports the following type of account level adjustments<em class="emphasis"><em class="emphasis"> out-of-the-box </em></em>through the <em class="emphasis"><em class="emphasis">MetraCare</em></em> web application as well as through the <em class="emphasis"><em class="emphasis">MetraConnect</em></em> web service:</p>
+<p class="bodytext"><strong class="strong"><strong class="strong">Miscellaneous Adjustments</strong></strong><br />A flat dollar amount (formerly referred to as a <strong class="strong"><strong class="strong">Credit </strong></strong>or an<strong class="strong"><strong class="strong"> Additional Charge</strong></strong>) entered through the <em class="emphasis">MetraCare</em> interface that the service provider applies to a subscriber&#8217;s account to remedy a general service dissatisfaction (such as a dropped call, poor quality connection, and so on).&nbsp;Subscribers may request such miscellaneous adjustments by calling or emailing the service provider CSRs who enter the request using the MetraCare interface. subject to Senior CSR or Account Management approval. &nbsp;MetraCare Miscellaneous Adjustments update the MetraNet AR Database as part of the invoice amount. Service Providers can also submit Miscellaneous Adjustments using the <em class="emphasis"><em class="emphasis">MetraConnect</em></em> web service.&nbsp;See Managing Miscellaneous Adjustments.</p>
+<p class="bodytext">The MetraNet platform supports the following type of account level adjustment <em class="emphasis"><em class="emphasis">out-of-the-box</em></em> &nbsp;<u class="underline">only</u> through the <em class="emphasis"><em class="emphasis">MetraConnect</em></em> web service and only if you installed the MetraNet AR and Collections extension:</p>
+<p class="bodytext"><strong class="strong"><strong class="strong">AR Adjustments</strong></strong><br />A post bill flat dollar amount that alters a subscriber's balance (current or aged) to recoup miscellaneous fees (such as NSF charges for returned subscriber payments for Finance Charges on late payments). These Accounts Receivable Adjustments are submitted through the <em class="emphasis"><em class="emphasis">MetraConnect </em></em>web service, metered through the MetraNet AR Adjustments stage, update the MetraNet Billing Database in real time, and then update the MetraNet AR Database on a scheduled basis. AR Adjustments <strong class="strong"><strong class="strong">do not display on </strong></strong><em class="emphasis">MetraCare </em><strong class="strong">pages</strong> but do display on the subscriber's <em class="emphasis">MetraView</em> online bills and interactive reports.</p>
+<p class="subheading">Related Topics</p>
+<p class="bodytext"><a id="h12793" class="jumptemplate" title="Adjust Parent or Child Transactions" href="adjusting_parent_or_child_transactions.htm" target="_self">Adjusting Parent or Child Transactions</a></p>
+<p class="bodytext"><a id="h12794" class="jumptemplate" title="Adjustment Audit Tracking" href="adjustment_audit_tracking.htm" target="_self">Adjustment Audit Tracking</a></p>
+<p class="bodytext"><a id="h12795" class="jumptemplate" title="Adjustment Business Rules" href="adjustment_business_rules.htm" target="_self">Adjustment Business Rules</a></p>
+<table class="relatedtopics belowtopictext" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "454">
+<p class="relatedheading">In This Section</p><p class="relateditem"><a href="adjustment_business_rules.htm" target="_self">Adjustment Business Rules</a></p><p class="relateditem"><a href="adjusting_parent_or_child_transactions.htm" target="_self">Adjust Parent or Child Transactions</a></p><p class="relateditem"><a href="23867.htm" target="_self">About Nonstandard Charges</a></p></td>
+</tr>
+</table>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

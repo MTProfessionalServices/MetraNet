@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Billing Cycle Aligned Recurring Charges </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Billing Cycle Aligned Recurring Charges" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('3853');expand('3843');expand('14212');highlight('3860')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="about_billing_cycle_properties_1.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="23850.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">Billing Cycle Aligned Recurring Charges</h4>
+<p class="bodytext">MetraNet enables you to assign a variety of billing cycles to accounts (daily, weekly, monthly, etc.). MetraNet also allows you to assign a variety of cycles to recurring charges. Billing cycle aligned recurring charges allow you to create recurring charges that may be longer, or shorter, than an account's billing cycle, but will still align with the account's cycle, or a set of its cycles.</p>
+<p class="bodytext">In other words, within the limits described below, the system will ensure that either a set of recurring charges coincides with the begin and end dates of a single billing cycle, or the reverse, that a set of billing cycles coincides with a single recurring charge cycle</p>
+<p class="bodytext">For instance, a <em class="emphasis">quarterly</em> billing cycle aligned recurring charge will appear on a <em class="emphasis">monthly</em> 's bill on the same date <em class="emphasis">once every three billing periods.</em></p>
+<p class="bodytext">You could have the opposite case as well: if the <em class="emphasis">subscriber</em> has a <em class="emphasis">quarterly</em> billing cycle, and the <em class="emphasis">charge</em> is <em class="emphasis">monthly billing cycle aligned, </em>then<em class="emphasis"> </em>the charge<em class="emphasis"> </em>would occur at the beginning of the quarterly billing cycle, and would apply two more times in the quarterly period - at the same point in the month<em class="emphasis"> </em>each time. (This assumes that it is configured to bill <em class="emphasis">in advance</em>. See <a id="h4143" class="" title="Billing Cycle Aligned Recurring Charges" href="billing_cycle_aligned_recurring_charges.htm" target="_self">Billing Cycle Aligned Recurring Charge Properties</a> below.)</p>
+<p class="bodytext">There are some restrictions on which specific<em class="emphasis"> </em>subscriber billing cycles will allow specific billing cycle aligned recurring charge periods:</p>
+<table class="tableintopic" width="588" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #BFBFBF">
+<tr align="left" valign="top">
+<td valign="middle" style="border:1px solid #BFBFBF;" width="120"><p class="tableheading">Billing Cycle</p>
+</td>
+<td valign="middle" style="border:1px solid #BFBFBF;" width="468"><p class="tableheading">Will Align With its Own Cycle Type and...</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td valign="middle" style="border:1px solid #BFBFBF;" width="120"><p class="tabletext">Daily</p>
+</td>
+<td valign="middle" style="border:1px solid #BFBFBF;" width="468"><p class="tabletext">Itself only</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td valign="middle" style="border:1px solid #BFBFBF;" width="120"><p class="tabletext">Weekly</p>
+</td>
+<td valign="middle" style="border:1px solid #BFBFBF;" width="468"><p class="tabletext">Bi-Weekly aligned recurring charges</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td valign="middle" style="border:1px solid #BFBFBF;" width="120"><p class="tabletext">Bi-Weekly</p>
+</td>
+<td valign="middle" style="border:1px solid #BFBFBF;" width="468"><p class="tabletext">Weekly aligned recurring charges</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td valign="middle" style="border:1px solid #BFBFBF;" width="120"><p class="tabletext">Semi-Monthly</p>
+</td>
+<td valign="middle" style="border:1px solid #BFBFBF;" width="468"><p class="tabletext"><em class="emphasis">Itself only</em></p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td valign="middle" style="border:1px solid #BFBFBF;" width="120"><p class="tabletext">Monthly</p>
+</td>
+<td valign="middle" style="border:1px solid #BFBFBF;" width="468"><p class="tabletext">Quarterly and Annually aligned recurring charges</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td valign="middle" style="border:1px solid #BFBFBF;" width="120"><p class="tabletext">Quarterly</p>
+</td>
+<td valign="middle" style="border:1px solid #BFBFBF;" width="468"><p class="tabletext">Monthly and Annually aligned recurring charges</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td valign="middle" style="border:1px solid #BFBFBF;" width="120"><p class="tabletext">Annually</p>
+</td>
+<td valign="middle" style="border:1px solid #BFBFBF;" width="468"><p class="tabletext">Quarterly and Monthly aligned recurring charges</p>
+</td>
+</tr>
+
+</table>
+<p class="note">In MetraCare, if you try to subscribe an account to a product offering containing a billing cycle-aligned recurring charge, and it does not align with the account's billing cycle, you will get an error, and the subscription will not succeed.</p>
+<p class="note">You will also get an error if a group subscription's product offering contains a billing cycle-aligned recurring charge, and it does not align with the billing cycles <em class="emphasis">of any of the subscription's payer accounts.</em></p>
+<p class="subheading">Billing Cycle Aligned Recurring Charge Properties</p>
+<p class="bodytext">All the properties normally in a recurring charge can also be applied to a billing cycle aligned recurring charge:</p>
+<table class="tableintopic" width="588" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td valign="middle" style="border:1px solid #C0C0C0;" width="126"><p class="tableheading">Property</p>
+</td>
+<td valign="middle" style="border-right:1px solid #C0C0C0;border-top:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="462"><p class="tableheading">Behavior</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="126"><p class="tabletext">Proration</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="462"><p class="tabletext">The prorated amount refunded to the subscriber is based on the number of days <em class="emphasis">actually used</em> in the aligned recurring charge cycle (not the account's billing cycle).</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="126"><p class="tabletext">Advance</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="462"><p class="tabletext">Recurring charges occur at the <em class="emphasis">beginning</em> of each recurring charge cycle.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="126"><p class="tabletext">Arrears</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="462"><p class="tabletext">Recurring charges occur at the <em class="emphasis">end </em>of each recurring charge cycle.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

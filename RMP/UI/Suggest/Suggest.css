@@ -1,0 +1,29 @@
+.clsSuggest
+{
+  Cursor:pointer;
+  Width:100%;
+  Background-Color:#eeeeee;
+}
+
+.clsSuggestSelected
+{
+  Cursor:pointer;
+  Width:100%;
+  Background-Color:navy;
+  Color:white;
+}
+
+.clsSuggestBox
+{
+  Background-Color:#eeeeee;
+  Border:solid 1px black;
+  visibility:hidden;
+  position:absolute;
+}
+
+.clsSuggestLoading
+{
+  display:none;
+  vertical-align:middle;
+}
+

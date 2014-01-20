@@ -1,0 +1,8 @@
+output/
+BBXService/
+RMP/Bin/
+RMP/*.txt
+RMP/MTLog.Be.txt
+/**/[Bb]in
+
+_MetraNet_*

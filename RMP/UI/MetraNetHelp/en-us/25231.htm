@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Metering: Multipoint </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Metering: Multipoint" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('25228');expand('22306');expand('22305');expand('20847');expand('19610');expand('13614');highlight('25231')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="25229.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="25228.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<p class="heading6">Metering: Multipoint</p>
+<p class="bodytext">In this scenario, the multipoint metering data is submitted using several files where there is a parent/child relationship between the data in the files. The canonical example of this is an audioconference priceable item: one file contains data describing the conferences as a whole (the parent), and another file describes the conference legs.  </p>
+<p class="bodytext">The properties of an example target are:</p>
+<table class="tableintopic" width="312" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #C0C0C0">
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="108"><p class="tableheading">Field</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="204"><p class="tableheading">Value</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="108"><p class="tabletext">Name</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="204"><p class="tabletext">meter</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="108"><p class="tabletext">Description</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="204"><p class="tabletext">Runs metering</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="108"><p class="tabletext">Filter</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="204"><p class="tabletext">multimeter</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="108"><p class="tabletext">Executable</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="204"><p class="tabletext">D:\MetraTech\RMP\Bin\MetraFlowShell.exe</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext">The corresponding set of arguments are:</p>
+<table class="tableintopic" width="516" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #C0C0C0">
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="282"><p class="tableheading">Format</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="66"><p class="tableheading">Order</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="84"><p class="tableheading">Filter</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="84"><p class="tableheading">Conditional</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="282"><p class="bodytext">--arg AUDIOCONF=&quot;$(FILE)&quot;</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="66"><p class="bodytext">1</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="84"><p class="bodytext">audioConf</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="84"><p class="bodytext">ALWAYS</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="282"><p class="bodytext">--arg AUDIOLEG=&quot;$(FILE)&quot;</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="66"><p class="bodytext">2</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="84"><p class="bodytext">audioLeg</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="84"><p class="bodytext">ALWAYS</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #C0C0C0;" width="282"><p class="bodytext">C:\MetraFlowScripts\test_meter_multi.mfs</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="66"><p class="bodytext">3</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="84"><p class="bodytext">&nbsp;</p>
+</td>
+<td style="border:1px solid #C0C0C0;" width="84"><p class="bodytext">ALWAYS</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext">Before the script can run, two files must be present. Once the first file has been moved into the new directory, you must move the second file into the new directory within 5 minutes.</p>
+<ol class="listnumber"><li class="listnumber">Move file into <strong class="strong">new </strong>directory: ctrl0001.multimeter.audioConf.txt</li><li class="listnumber">Move file into <strong class="strong">new </strong>directory: ctrl0001.multimeter.audioLeg.txt</li></ol><p class="bodytext">This is an example script:</p>
+<p class="code">--</p>
+<p class="code">-- Read the input file containing call data</p>
+<p class="code">--</p>
+<p class="code"></p>
+<p class="code">readCall: import[</p>
+<p class="code">  filename=$AUDIOCONF,</p>
+<p class="code">    format=&quot;myRec (</p>
+<p class="code">      c_ConferenceID            text_delimited_nvarchar(delimiter='|'),</p>
+<p class="code">      c_Payer                   text_delimited_nvarchar(delimiter='|'),</p>
+<p class="code">      c_AccountingCode          text_delimited_nvarchar(delimiter='|'),</p>
+<p class="code">      c_ConferenceName          text_delimited_nvarchar(delimiter='|'),</p>
+<p class="code">      c_ConferenceSubject       text_delimited_nvarchar(delimiter='|'),</p>
+<p class="code">      c_OrganizationName        text_delimited_nvarchar(delimiter='|'),</p>
+<p class="code">      c_SpecialInfo             text_delimited_nvarchar(delimiter='|'),</p>
+<p class="code">      c_SchedulerComments       text_delimited_nvarchar(delimiter='|'),</p>
+<p class="code">      c_ScheduledConnections    text_delimited_base10_int32(delimiter='|'),</p>
+<p class="code">      c_ScheduledStartTime      iso8601_datetime(delimiter='|', NULL_value=''),</p>
+<p class="code">      c_ScheduledTimeGMTOffset  text_delimited_base10_decimal(delimiter='|'),</p>
+<p class="code">      c_ScheduledDuration       text_delimited_base10_int32(delimiter='|'),</p>
+<p class="code">      c_CancelledFlag           text_delimited_nvarchar(delimiter='|'),</p>
+<p class="code">      c_CancellationTime        iso8601_datetime(delimiter='|', NULL_value=''),</p>
+<p class="code">      c_ServiceLevel            text_delimited_enum(enum_space='metratech.com/audioconfcommon',</p>
+<p class="code">                                                    enum_type='ServiceLevel', delimiter='|', NULL_value=''),</p>
+<p class="code">      c_TerminationReason       text_delimited_nvarchar(delimiter='|'),</p>
+<p class="code">      c_SystemName              text_delimited_nvarchar(delimiter='|'),</p>
+<p class="code">      c_SalesPersonID           text_delimited_nvarchar(delimiter='|'),</p>
+<p class="code">      c_OperatorID              text_delimited_nvarchar(delimiter=crlf))&quot;,</p>
+<p class="code">    mode=&quot;sequential&quot;];</p>
+<p class="code"></p>
+<p class="code">--</p>
+<p class="code">-- Read the input file containing connection data</p>
+<p class="code">--</p>
+<p class="code"></p>
+<p class="code">readConnection: import[</p>
+<p class="code">  filename=$AUDIOLEG,</p>
+<p class="code">    format=&quot;myRec (</p>
+<p class="code">      c_ConferenceID            text_delimited_nvarchar(delimiter='|'),</p>
+<p class="code">      c_Payer                   text_delimited_nvarchar(delimiter='|'),</p>
+<p class="code">      c_UserBilled              text_delimited_nvarchar(delimiter='|'),</p>
+<p class="code">      c_UserName                text_delimited_nvarchar(delimiter='|'),</p>
+<p class="code">      c_UserRole                text_delimited_enum(enum_space='metratech.com/audioconfconnection',</p>
+<p class="code">                                                    enum_type='UserRole', delimiter='|', NULL_value=''),</p>
+<p class="code">      c_OrganizationName        text_delimited_nvarchar(delimiter='|'),</p>
+<p class="code">      c_userphonenumber         text_delimited_nvarchar(delimiter='|'),</p>
+<p class="code">      c_specialinfo             text_delimited_nvarchar(delimiter='|'),</p>
+<p class="code">      c_CallType                text_delimited_enum(enum_space='metratech.com/audioconfconnection',</p>
+<p class="code">                                                    enum_type='CallType', delimiter='|', NULL_value=''),</p>
+<p class="code"></p>
+<p class="code">      c_transport               text_delimited_enum(enum_space='metratech.com/audioconfconnection',</p>
+<p class="code">                                                    enum_type='transport', delimiter='|', NULL_value=''),</p>
+<p class="code">      c_Mode                    text_delimited_enum(enum_space='metratech.com/audioconfconnection',</p>
+<p class="code">                                                    enum_type='Mode', delimiter='|', NULL_value=''),</p>
+<p class="code">      c_ConnectTime             iso8601_datetime(delimiter='|', NULL_value=''),</p>
+<p class="code">      c_EnteredConferenceTime   iso8601_datetime(delimiter='|', NULL_value=''),</p>
+<p class="code">      c_ExitedConferenceTime    iso8601_datetime(delimiter='|', NULL_value=''),</p>
+<p class="code">      c_DisconnectTime          iso8601_datetime(delimiter='|', NULL_value=''),</p>
+<p class="code">      c_Transferred             text_delimited_nvarchar(delimiter='|'),</p>
+<p class="code">      c_TerminationReason       text_delimited_nvarchar(delimiter='|'),</p>
+<p class="code">      c_ISDNDisconnectCause     text_delimited_base10_int32(delimiter='|'),</p>
+<p class="code">      c_TrunkNumber             text_delimited_base10_int32(delimiter='|'),</p>
+<p class="code">      c_LineNumber              text_delimited_base10_int32(delimiter='|'),</p>
+<p class="code">      c_DNISDigits              text_delimited_nvarchar(delimiter='|'),</p>
+<p class="code">      c_ANIDigits               text_delimited_nvarchar(delimiter=crlf))&quot;,</p>
+<p class="code">    mode=&quot;sequential&quot;];</p>
+<p class="code"></p>
+<p class="code">--</p>
+<p class="code">-- Set up the meter operator to take service definition data for the call and</p>
+<p class="code">-- service definition data for the connection.  We also have to tell the </p>
+<p class="code">-- meter operator what field relates the two.</p>
+<p class="code">--</p>
+<p class="code"></p>
+<p class="code">m: meter[service=&quot;metratech.com/audioconfcall&quot;,       key=&quot;c_ConferenceID&quot;,</p>
+<p class="code">         service=&quot;metratech.com/audioconfconnection&quot;, key=&quot;c_ConferenceID&quot;];</p>
+<p class="code"></p>
+<p class="code">printResult: print[];</p>
+<p class="code"></p>
+<p class="code">theEnd: devNull[];</p>
+<p class="code"></p>
+<p class="code">-- </p>
+<p class="code">-- Describe how the data flows between these operators.</p>
+<p class="code">--</p>
+<p class="code"></p>
+<p class="code">readCall -&gt; m(0)</p>
+<p class="code">readConnection -&gt; m(1)</p>
+<p class="code"></p>
+<p class="code">m -&gt; printResult -&gt; theEnd;</p>
+<p class="bodytext">These are example data files:</p>
+<p class="bodytext">ctrl0001.multimeter.audioLeg.txt</p>
+<p class="code">conf1005|payer4|uesrbilled|username|Chair|organization|userphonenumber|specialinfo|Dial-In|Domestic|Unattended|2010-10-01 09:01:00 AM|2010-10-01 09:01:00 AM|2010-10-01 09:01:00 AM|2010-10-01 09:01:00 AM|transferred|terminationreason|0|1|2|dnis|ani</p>
+<p class="code">conf1006|payer5|uesrbilled|username|Chair|organization|userphonenumber|specialinfo|Dial-In|Domestic|Unattended|2010-10-01 09:01:00 AM|2010-10-01 09:01:00 AM|2010-10-01 09:01:00 AM|2010-10-01 09:01:00 AM|transferred|terminationreason|0|1|2|dnis|ani</p>
+<p class="code">conf1006|payer6|uesrbilled|username|Chair|organization|userphonenumber|specialinfo|Dial-In|Domestic|Unattended|2010-10-01 09:01:00 AM|2010-10-01 09:01:00 AM|2010-10-01 09:01:00 AM|2010-10-01 09:01:00 AM|transferred|terminationreason|0|1|2|dnis|ani</p>
+<p class="bodytext">ctrl0001.multimeter.audioConf.txt</p>
+<p class="code">conf1005|sam|accountCode1|Cruise Conference|Subject|Cruise Org|special info|good comment|3|2010-10-01 09:01:00 AM|0.0|1|f|2010-10-01 09:01:00 AM|Basic|done|system|sales person|ma bell</p>
+<p class="code">conf1006|sam|accountCode1|Cruise Conference|Subject|Cruise Org|special info|good comment|3|2010-10-01 09:01:00 AM|0.0|1|f|2010-10-01 09:01:00 AM|Basic|done|system|sales person|ma bell</p>
+<p class="bodytext"></p>
+<p class="bodytext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

@@ -1,0 +1,1 @@
+<%@ Page Language="C#" AutoEventWireup="true" Inherits="AjaxServices_GeneratedChargeSvc" CodeFile="GeneratedChargeSvc.aspx.cs" %>

@@ -1,0 +1,94 @@
+﻿<%@ Master EnableViewState="true" Language="C#" AutoEventWireup="true" Inherits="MasterPages_AmpWizardPageExt" CodeFile="AmpWizardPageExt.master.cs" %>
+<%@ Register Src="../UserControls/LocalizedIncludes.ascx" TagName="LocalizedIncludes"  TagPrefix="uc4" %>
+<%@ Register Src="../UserControls/Error.ascx" TagName="Error" TagPrefix="uc3" %>
+<%@ Import namespace="MetraTech.UI.Common" %>
+
+<!-------------------------------------------------------------------------------
+  The AmpWizardPageExt master page is copied from the NoMenuPageExt master page
+  and has a few additional items related to the AmpWizard.  We opted not to use
+  nested master pages (i.e., have NoMenuPageExt be the master page of the
+  AmpWizardPageExt master page) because that led to complications involving the
+  AMP wizard's sitemap and iframe.
+  NOTE:  All future updates that are made to NoMenuPageExt should probably
+  be made to AmpWizardPageExt too!
+-------------------------------------------------------------------------------->
+<!DOCTYPE html>
+<html>
+<head id="Head1" runat="server">
+  <title>MetraNet</title>
+  
+  <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/ext-all.css?v=6.5" />
+  <link rel="stylesheet" type="text/css" href="<%= GetGlobalResourceObject("Resource", "LocalizedStyleSheet") %>" />
+  <link rel="stylesheet" type="text/css" href="/Res/Styles/menuStyle.css?v=6.5"/>
+  <link rel="stylesheet" type="text/css" href="/Res/Styles/MiscField.css?v=6.5"/>
+  <link rel="stylesheet" type="text/css" href="/Res/Styles/AmpWizard.css"/>
+  <link rel="icon" type="image/ico" href="/MetraNet/favicon.ico" />
+
+  <script type="text/javascript" src="/Res/Ext/adapter/ext/ext-base.js?v=6.5"></script>
+  <script type="text/javascript" src="/Res/Ext/ext-all.js?v=6.5"></script>
+  <script type="text/javascript" src="/Res/JavaScript/ExtHacks.js?v=6.5"></script>
+
+  <script type="text/javascript" src="/Res/JavaScript/Common.js?v=6.5"></script>
+  <script type="text/javascript" src="/Res/JavaScript/PageNav.js?v=6.5"></script>
+  <script type="text/javascript" src="/Res/JavaScript/Account.js?v=6.5"></script>
+  <script type="text/javascript" src="/Res/ux/form/MiscField.js?v=6.5"></script>
+  <script type="text/javascript" src="/Res/ux/form/PasswordMeter.js?v=6.5"></script>
+  <script type="text/javascript" src="/Res/ux/form/LargeNumberField.js?v=6.5"></script>
+  <script type="text/javascript" src="/Res/jqPlot/jquery.js"></script>
+
+
+  <!-- For AMP wizard pages -->
+  <script type="text/javascript" src="/Res/JavaScript/MonitorPageChanges.js?v=6.7"></script>
+  <script type="text/javascript" src="/MetraNet/MetraOffer/AmpGui/JavaScript/AmpWizard.js?v=6.7"></script>
+  <script type="text/javascript">
+    var ampCurrentPage = "<%=AmpCurrentPage%>";
+    var ampNextPage = "<%=AmpNextPage%>";
+    var ampPreviousPage = "<%=AmpPreviousPage%>";
+    var ampDecisionName = "<%=AmpDecisionName%>";
+    var ampAction = "<%=AmpAction%>";
+
+    // MPC_executeBeforePopup() is defined for use with MonitorPageChanges.js.
+    // It is called right before displaying a popup that warns the user that
+    // his changes will be lost if he navigates away from the current page.
+    function MPC_executeBeforePopup() {
+
+      // If the user changes some page content, clicks on another page in
+      // the AMP wizard's navigation panel, and then clicks on 'Cancel' 
+      // in MPC's resulting popup, this code will cause the current page
+      // to be highlighted once again on the navigation panel.
+      window.unloadTimer = setTimeout("updateNavPanel(ampCurrentPage);", 500);
+      window.onunload = function () { clearTimeout(window.unloadTimer); }
+    }
+
+  </script>
+
+
+  <uc4:LocalizedIncludes ID="LocalizedIncludes1" runat="server" />
+
+  <%=Constants.CJ_PROTECTION_CODE %>  		
+  <script type="text/javascript">
+    var helpPage = "<%=currHelpPage%>";  
+    getFrameMetraNet().helpPage = helpPage;
+
+    var serverOffset = <%=TimeZone.CurrentTimeZone.GetUtcOffset(DateTime.Now).TotalSeconds %>;
+  </script>
+</head>
+
+<body>
+
+<form id="form1" runat="server">
+
+  <div id="MainContent" class="full">
+  
+    <uc3:Error ID="Error1" runat="server" />
+    <asp:contentplaceholder id="ContentPlaceHolder1" runat="server"></asp:contentplaceholder>
+
+  </div>
+    
+</form>
+
+</body>
+</html>
+<script type="text/javascript">
+  var flagOkLoadStore = "true";
+</script>

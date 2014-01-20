@@ -1,0 +1,64 @@
+﻿@using System.Threading
+@using MetraTech.UI.Common
+@using MetraTech.SecurityFramework;
+<!DOCTYPE html>
+<html>
+<head>
+  <title>@ViewBag.Title</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" media="all" href="/Res/960Grid/code/css/reset.css" />
+  <link href="@Url.Content("~/Content/themes/base/jquery.ui.all.css")" rel="stylesheet" type="text/css" />
+  <link href="@Url.Content("~/Content/Page.css")" rel="stylesheet" type="text/css" />
+  
+  @if (HttpContext.Current.Items.Contains(@Constants.StyleSection))
+  {
+    @Html.Raw(HttpContext.Current.Items[@Constants.StyleSection])
+  }
+  @RenderSection("Style", false)      
+
+  <script src="@Url.Content("~/Scripts/jquery-1.7.2.min.js")" type="text/javascript"></script>
+  <script src="@Url.Content("~/Scripts/jquery-ui-1.8.17.min.js")" type="text/javascript"></script>
+ 
+  <script src="@Url.Content("~/Scripts/jquery.globalize/globalize.js")" type="text/javascript"></script>
+  <script src="@Url.Content("~/Scripts/jquery.globalize/cultures/globalize.cultures.js")" type="text/javascript"></script>
+  <script src="/MetraNet/Scripts/jquery.globalize/cultures/globalize.culture.@(Thread.CurrentThread.CurrentUICulture.ToString()).js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    $(function () {
+      Globalize.culture(["@(Thread.CurrentThread.CurrentUICulture.ToString())", "en-US"]);
+      $.datepicker.setDefaults($.datepicker.regional['@(Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName)']);
+    });
+
+    // Setup current help page
+    var helpPage = "@ViewBag.HelpPage";
+    getFrameMetraNet().helpPage = helpPage;
+
+    // Session timeout
+    if (top.resetSessionTimer)
+      top.resetSessionTimer();
+
+    function getFrameMetraNet() {
+      if (top.frameMetraNet)
+        return top.frameMetraNet;
+      else
+        return top;
+    }
+  </script>  
+</head>
+
+<body>
+  @if (Session[Constants.ERROR] != null)
+  {
+    <div class="ErrorField" ID="ErrorPanel"><div class="ErrorLabel" ID="lblError">@Session[Constants.ERROR].ToString().EncodeForHtml().Replace(Environment.NewLine, "<br/>");</div></div>
+    Session[Constants.ERROR] = null;
+  }
+  @RenderBody()
+    
+  @RenderSection("JavaScript", false)
+  @if (HttpContext.Current.Items.Contains(@Constants.JavaScriptSection))
+  {
+    @Html.Raw(HttpContext.Current.Items[@Constants.JavaScriptSection])
+  }
+</body>
+
+</html>

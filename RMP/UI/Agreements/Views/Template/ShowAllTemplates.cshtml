@@ -1,0 +1,329 @@
+﻿
+@{
+    Layout = "../Shared/_AgreementTemplateLayout.cshtml";
+}
+
+@section Scripts {
+    <!--
+        <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+        <script src="http://malsup.github.com/jquery.form.js"></script>
+        <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js" type="text/javascript"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.js" type="text/javascript"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js" type="text/javascript"></script>
+        -->
+       <script>           function goToEdit(id) {
+               document.location.href = '/Agreements/Template/Edit/' + id;
+           };</script>    
+    <script type="text/javascript">
+        function getDate(data)
+        { if (data) { return $.datepicker.formatDate('mm/dd/yy', new Date(parseInt(data.substr(6)))); } else { return ""; } }
+
+        
+
+        function makeButtons(data) {
+            
+            return "<div class=\"splitbutton\">" +
+                     "<div>" +
+                    "	<button class=\"table-current-product-split\" onClick=\"goToEdit(" + data +")\" >" + '@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "TEXT_EDIT")' + "</button>" +
+                    "   <button id=\"select\">" + '@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "TEXT_SELECT_AN_ACTION")' + "</button>" +
+                     "</div>" +
+                     "<ul>" +
+                       "<li>" +
+                         "<a href=\"/Agreements/Template/Edit/" + data + "\"" + " class=\"amend\"><span class=\"ui-icon ui-icon-pencil\"></span>" + '@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "TEXT_EDIT")' + "</a>" +
+                       "</li>" +
+                       "<li><a href=\"#\" class=\"clone\"><span class=\"ui-icon ui-icon-newwin\"></span>" + '@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "TEXT_CLONE")' + "</a></li>" +
+                       "<li><a href=\"#\" class=\"remove\"><span class=\"ui-icon ui-icon-trash\"></span>" + '@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "TEXT_REMOVE")' + "</a></li>" +
+                     "</ul>" +
+                  "</div>"
+                  ;}
+        var asInitVals = new Array();
+
+        $(document).ready(function() {
+          $('#agreementtemplatesDataTable').dataTable();
+          drawTable();
+        });
+        function drawTable() {
+          $('#agreementtemplatesDataTable').dataTable({
+            "bDestroy": true,
+            "bJQueryUI": true,
+            "sPaginationType": "full_numbers",
+            "sDom": 'R<"H"<"toolbar">lTfr>t<"F"ip<',
+//            "oTableTools": {
+//              "sSwfPath": "../../common/swf/copy_cvs_xls_pdf.swf"
+//            },
+            "sScrollX": "100%",
+            "aLengthMenu": [[3, 5, 10, -1], [3, 5, 10, "All"]],
+            "bServerSide": true,
+            "bFilter": false,
+            "sAjaxSource": "/Agreements/template/SelectAgreementTemplates/",
+            //Add search parameters.  We're not using the standard dataTables search options here
+            "fnServerData":function (sSource, aoData, fnCallback) {
+              for (var i = 0; i < 3 ; i++) {
+                var searchLabel = document.getElementById("label_" + i).value;
+                var opItem = document.getElementById("op_" + i);
+                var searchOp = opItem.options[opItem.selectedIndex].value;
+                var searchValue = document.getElementById("value_" + i).value;
+                if (searchOp == "Like") {
+                  searchValue = "%" + searchValue + "%";
+                }
+                aoData.push({ "name": "filterName_" + i, "value": searchLabel });
+                aoData.push({ "name": "filterOp_" + i, "value": searchOp });
+                aoData.push({ "name": "filterValue_" + i, "value": searchValue });
+              }
+              $.ajax({
+                "dataType": 'json',
+                "type": "GET",
+                "url": "/Agreements/template/SelectAgreementTemplates/",
+                "data": aoData,
+                "success": fnCallback
+              });
+            },
+            "bProcessing": true,
+            "aoColumns": [
+                    {"mData": "CoreTemplateProperties.AgreementTemplateName", "sWidth": "12%", "bSearchable": true, "bSortable": true },
+                    { "mData": "AgreementTemplateId", "mRender": function () { return "Active"; }, "sWidth": "60px" },
+                    { "mData": "CoreTemplateProperties.AvailableStartDate", "mRender": getDate, "sWidth": "12%", "bSearchable": true, "bSortable": true },
+                    { "mData": "CoreTemplateProperties.AvailableEndDate", "mRender": getDate, "sWidth": "12%", "bSearchable": true, "bSortable": true },
+                    { "mData": "CoreTemplateProperties.AgreementTemplateDescription" },
+                    { "mData": "AgreementTemplateId", "sType": "numeric", "sWidth": "60px", "mRender": makeButtons }
+                ],
+            "iDisplayLength": 10,
+            "bLengthChange": true,
+            "bAutoWidth": false,
+            "bPaginate": true,
+            "fnDrawCallback": function () {
+              if (Math.ceil((this.fnSettings().fnRecordsDisplay()) / this.fnSettings()._iDisplayLength) > 1) {
+                $('.dataTables_paginate').css("display", "block");
+              } else {
+                $('.dataTables_paginate').css("display", "none");
+              }
+              var tableCurrentProductSplit = function () {
+                $(".table-current-product-split")
+					.button({ icons: { primary: "ui-icon-pencil"} })
+					.next()
+					.button({
+					  text: false,
+					  icons: {
+					    primary: "ui-icon-triangle-1-s"
+					  }
+					})
+					.click(function () {
+					  var menu = $(this).parent().next().show().position({
+					    my: "right top",
+					    at: "right bottom",
+					    of: this
+					  });
+					  $(document).one("click", function () {
+					    menu.hide();
+					  }).one("resize", function () {
+					    menu.hide();
+					  });
+					  return false;
+					})
+					.parent()
+					.buttonset()
+					.next()
+					.hide()
+					.menu();
+
+              };
+              tableCurrentProductSplit();
+            },
+             "oLanguage": { "sInfo": "@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "DISPLAYING_NUM_TEMPLATES")",
+              "sProcessing": "@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "PLEASE_WAIT")",
+              "sEmptyTable": "@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "NO_TEMPLATES")",
+              "sInfoEmpty": "@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "SHOWING_0")",
+              "sLengthMenu": "@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "NUM_TEMPLATES")"}
+          });
+
+        }
+    </script>
+}
+<!DOCTYPE html>
+<!-- Conditional classes for CSS fixing -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+@*<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<!-- Always force latest IE rendering engine & Chrome Frame -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="../../common/img/icons/favicon.png" />
+	
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="../../common/css/style.css" />
+    <link href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />        
+	<link href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables_themeroller.css" rel="stylesheet" />
+
+	<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+    <!--<script src="../../common/js/libs/modernizr.custom.js"></script>-->
+</head>*@
+@*<body class="section-configuration page-business-profile">
+*@
+<div id="main">
+
+    <!-- BEGIN MAIN CONTENT -->
+
+    <div id="content" class="container_12 clearfix">
+        <header>
+            <div class="page-title grid_7">
+                <h1>
+                    @ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "TEXT_MANAGE_AGREEMENT_TEMPLATES")
+                </h1>
+            </div>
+
+            <div class="page-actions grid_5 align-alt float">
+                <ul class="button-row inline tspace">
+                    <li>
+                        <a href="" class="btn help">
+                            @ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "TEXT_HELP")
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="notifications grid_12 clearfix">
+                <div class="alert page-help rounded-med">
+                    <div class="inner">
+
+                        <h5>
+                            @ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "TEXT_HELP_TITLE")
+                        </h5>
+                        <p>
+                            @ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "TEXT_HELP_CONTENT")
+                        </p>
+                        <a class="close-alert" href="">
+                            @ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "TEXT_CLOSE_THIS_MESSAGE")
+                        </a>
+                    </div>
+                </div>
+                <!-- Other notifications go here-->
+            </div><!--/.notifications-->
+
+        </header>
+			
+        <section class="grid_12 clearfix">
+                
+            <div class="button-row bspace">
+                <a class="btn icon add" href="@ViewBag.NextPage">
+                    @ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "TEXT_CREATE_A_NEW_AGREEMENT_TEMPLATE")
+                </a>
+            </div>
+				
+            <div class="container flat rounded-sm bspace">
+                <header>
+                    <h2>
+                        @ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "TEXT_EXISTING_AGREEMENT_TEMPLATE")
+                    </h2>
+                </header>
+                <div class="toolbar-top filters form-fields">
+                    <p>@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "FILTER_CRITERIA")</p>	
+                							
+                    <ul class="filter-set clearfix bspace-half">
+                        <li  class="cloneable grid_6">
+                            <label for="op_0">@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "TEXT_TEMPLATE_NAME")</label>
+                            <input type="hidden" id="label_0" value="AgreementTemplateName" />
+                            <select class="operator" name="op_0" id="op_0">
+                                <option value="Equal" selected="selected">@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "OP_IS")</option>
+                                <option value="Like">@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "OP_CONTAINS")</option>
+                                <option value="NotEqual">@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "OP_IS_NOT")</option>
+                            </select>
+                            <input type="text" class="value" id="value_0" />
+                        </li>
+                    </ul>
+                    <ul class="filter-set clearfix bspace-half">
+                        <li class="cloneable grid_6">
+                            <fieldset>
+                                <label>@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "TEXT_AVAILABILITY_START")</label>
+                                <input type="hidden" id="label_1" value="AvailableStartDate" />
+                                <select class="operator" name="op_1" id="op_1">
+                                    <option value="Equal" selected="selected">@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "OP_IS")</option>
+                                    <option value="LessEqual">@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "OP_IS_BEFORE")</option>
+                                    <option value="GreaterEqual">@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "OP_IS_AFTER")</option>
+                                    <option value="NotEqual">@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "OP_IS_NOT")</option>
+                                </select>
+                                <input type="text" class="datepicker sm nofloat value" id="value_1"/>
+                            </fieldset>
+                        </li>
+                        <li class="cloneable grid_6">
+                            <fieldset>
+                                <label>@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "TEXT_AVAILABILITY_END")</label>
+                                <input type="hidden" id="label_2" value="AvailableEndDate" />
+                                <select class="operator" name="op_2" id="op_2">
+                                    <option value="Equal" selected="selected">@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "OP_IS")</option>
+                                    <option value="LessEqual">@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "OP_IS_BEFORE")</option>
+                                    <option value="GreaterEqual">@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "OP_IS_AFTER")</option>
+                                    <option value="NotEqual">@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "OP_IS_NOT")</option>
+                                </select>
+                                <input type="text" class="datepicker sm nofloat value" id="value_2"/>
+                            </fieldset></li>
+                    </ul>
+                    <div class="button-row">
+                        <button type="submit" class="btn bold" onclick="drawTable()">@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "APPLY_FILTERS")</button> <button type="reset">Clear All</button> <a href="" class="action-secondary action-clone bold">Add a new filter</a>
+                    </div>
+                </div>
+                <table id="agreementtemplatesDataTable" cellspacing="0" class="ui-table-manage-agreement-templates display">
+                    <thead>
+                        <tr>
+                            <th>
+                                @ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "TEXT_TEMPLATE_NAME")
+                            </th>
+                            <th>
+                                @ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "TEXT_STATUS")
+                            </th>
+                            <th>
+                                @ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "TEXT_AVAILABILITY_START")
+                            </th>
+                            <th>
+                                @ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "TEXT_AVAILABILITY_END")
+                            </th>
+                            <th>
+                                @ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "TEXT_DESCRIPTION")
+                            </th>
+                            <th>
+                                @ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "TEXT_ACTIONS")
+                            </th>
+						
+                        </tr>
+                    </thead>
+                    <tbody>
+						 
+                    </tbody>
+                </table>
+            </div><!--/.container-->
+				
+        </section>
+    </div><!--/#content-->
+</div><!--/.helper-->
+	
+<!-- END MAIN CONTENT -->
+
+	<div class="clear"></div>
+
+</div><!--/#main-->
+
+	<footer id="footer">
+		<div class="inner container_12">
+			<p class="align-alt small">
+      @ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_ShowAllTemplates", "TEXT_COPYRIGHT")
+      </p>
+		</div>
+	</footer><!--/#footer-->
+
+<!--</div><!--/#page-->
+
+
+<!-- JavaScript at the bottom for fast page loading -->
+
+	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+	<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+	<script>window.jQuery || document.write("<script src='../common/js/libs/jquery-1.8.3.min.js'>\x3C/script>")</script>
+    -->
+    <!-- Scripts-->
+
+
+@*
+</body>*@

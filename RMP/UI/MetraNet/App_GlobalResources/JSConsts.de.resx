@@ -1,0 +1,1186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ALT_FORMAT" xml:space="preserve">
+    <value>d/m/Y</value>
+  </data>
+  <data name="DATE_FORMAT" xml:space="preserve">
+    <value>j/n/Y</value>
+  </data>
+  <data name="DATE_TIME_FORMAT" xml:space="preserve">
+    <value>j/n/Y g:i:s | j/n/Y</value>
+  </data>
+  <data name="DATE_TIME_FORMAT_DEF" xml:space="preserve">
+    <value>n/j/Y g:i:s A</value>
+  </data>
+  <data name="DATE_TIME_RENDERER" xml:space="preserve">
+    <value>j.n.Y g:i:s </value>
+  </data>
+  <data name="DECIMAL_SEPARATOR" xml:space="preserve">
+    <value>,</value>
+  </data>
+    <data name="DUPLICATE" xml:space="preserve">
+        <value>Duplizieren</value>
+    </data>
+  <data name="ERR_DATE_FORMAT" xml:space="preserve">
+    <value>mm/dd/YYYY</value>
+  </data>
+    <data name="FAILURE" xml:space="preserve">
+        <value>Fehler</value>
+    </data>
+    <data name="MANUAL_PENDING" xml:space="preserve">
+        <value>Manuell ausstehend</value>
+    </data>
+    <data name="MANUALLY_REVERSED" xml:space="preserve">
+        <value>Manuell zurückgebucht</value>
+    </data>
+  <data name="NO_RECORDS_FOUND" xml:space="preserve">
+    <value>Es wurden keine Datensätze gefunden.</value>
+  </data>
+    <data name="POST_PROCESSING_SUCCESSFUL" xml:space="preserve">
+        <value>Nachverarbeitung erfolgreich</value>
+    </data>
+    <data name="RECEIVED_REQUEST" xml:space="preserve">
+        <value>Anforderung erhalten</value>
+    </data>
+    <data name="RECEIVED_RESPONSE" xml:space="preserve">
+        <value>Antwort erhalten</value>
+    </data>
+    <data name="REJECTED" xml:space="preserve">
+        <value>Abgelehnt</value>
+    </data>
+    <data name="REVERSED" xml:space="preserve">
+        <value>Zurückgebucht</value>
+    </data>
+    <data name="SUBMITTED_REQUEST" xml:space="preserve">
+        <value>Anforderung übermittelt</value>
+    </data>
+    <data name="SUCCESS" xml:space="preserve">
+        <value>Erfolgreich</value>
+    </data>
+  <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="TEXT_ACCOUNT_FINDER" xml:space="preserve">
+    <value>Suche</value>
+  </data>
+  <data name="TEXT_ACCOUNT_HIERARCHY" xml:space="preserve">
+    <value>Hierarchie</value>
+  </data>
+  <data name="TEXT_ACCOUNT_PROPERTIES" xml:space="preserve">
+    <value>Eigenschaften</value>
+  </data>
+  <data name="TEXT_ACCOUNT_SNAPSHOT" xml:space="preserve">
+    <value>Beziehungs-Momentaufnahme</value>
+  </data>
+  <data name="TEXT_ACH" xml:space="preserve">
+    <value>ACH</value>
+  </data>
+  <data name="TEXT_ACTIVE_ACCOUNT" xml:space="preserve">
+    <value>Aktives Konto</value>
+  </data>
+  <data name="TEXT_ADD" xml:space="preserve">
+    <value>Hinzufügen</value>
+  </data>
+  <data name="TEXT_ADD_ACCOUNT" xml:space="preserve">
+    <value>Konto hinzufügen</value>
+  </data>
+  <data name="TEXT_ADD_GROUP_SUBSCRIPTION" xml:space="preserve">
+    <value>Gruppennutzungsanmeldung hinzufügen</value>
+  </data>
+  <data name="TEXT_ADD_REMITTANCE_DETAILS" xml:space="preserve">
+    <value>Überweisungsdetails hinzufügen.</value>
+  </data>
+  <data name="TEXT_ADD_SUBSCRIPTION" xml:space="preserve">
+    <value>Nutzungsanmeldung hinzufügen</value>
+  </data>
+  <data name="TEXT_ADD_SUBSCRIPTION1" xml:space="preserve">
+    <value>Nutzungsanmeldung hinzufügen</value>
+  </data>
+  <data name="TEXT_ADD_VALUE" xml:space="preserve">
+    <value>Wert hinzufügen</value>
+  </data>
+  <data name="TEXT_ADDING_UDRC" xml:space="preserve">
+    <value>UDRC-Wert hinzufügen...</value>
+  </data>
+  <data name="TEXT_ADJ_APPROVE" xml:space="preserve">
+    <value>Möchten Sie wirklich fortfahren?  Durch diesen unumkehrbaren Schritt werden alle Anpassungen genehmigt, die mit Ihren Filterkriterien übereinstimmen.  Wenn keine Filter vorhanden sind, werden alle Anpassungen im System genehmigt.</value>
+  </data>
+  <data name="TEXT_ADJ_DELETE" xml:space="preserve">
+    <value>Möchten Sie wirklich fortfahren?  Durch diesen unwiderruflichen Schritt werden alle Anpassungen gelöscht, die mit Ihren Filterkriterien übereinstimmen.  Wenn keine Filter vorhanden sind, werden alle Anpassungen im System gelöscht.</value>
+  </data>
+  <data name="TEXT_ADJ_DENIED" xml:space="preserve">
+    <value>Möchten Sie wirklich fortfahren?  Durch diesen unwiderruflichen Schritt werden alle Anpassungen verweigert, die mit Ihren Filterkriterien übereinstimmen.  Wenn keine Filter vorhanden sind, werden alle Anpassungen im System verweigert.</value>
+  </data>
+  <data name="TEXT_ADVANCED_FIND" xml:space="preserve">
+    <value>Erweiterte Suche</value>
+  </data>
+  <data name="TEXT_APPLY_CHANGES" xml:space="preserve">
+    <value>Änderungen übernehmen</value>
+  </data>
+  <data name="TEXT_APPLY_TEMPLATE" xml:space="preserve">
+    <value>Vorlage anwenden</value>
+  </data>
+    <data name="TEXT_APPROVAL_CHANGES_PENDING_YOUR_APPROVAL" xml:space="preserve">
+        <value>Änderungen, für die Ihre Genehmigung aussteht</value>
+    </data>
+    <data name="TEXT_APPROVAL_NO_CHANGES_PENDING_YOUR_APPROVAL" xml:space="preserve">
+        <value>Es gibt keine ausstehenden Änderungen, die Sie genehmigen können.</value>
+    </data>
+    <data name="TEXT_APPROVALS_ACTION_APPROVE" xml:space="preserve">
+        <value>Diese Änderung genehmigen</value>
+    </data>
+    <data name="TEXT_APPROVALS_ACTION_APPROVE_TIP" xml:space="preserve">
+        <value>Durch Genehmigen dieser Änderungen stimmen Sie zu, dass diese Änderung in das System übernommen wird.</value>
+    </data>
+    <data name="TEXT_APPROVALS_ACTION_DENY" xml:space="preserve">
+        <value>Diese Änderung ablehnen</value>
+    </data>
+    <data name="TEXT_APPROVALS_ACTION_DISMISS" xml:space="preserve">
+        <value>Diese Änderung verwerfen</value>
+    </data>
+    <data name="TEXT_APPROVALS_ACTION_RESUBMIT" xml:space="preserve">
+        <value>Erneut übermitteln</value>
+    </data>
+    <data name="TEXT_APPROVALS_ACTION_RESUBMIT_TIP" xml:space="preserve">
+        <value>Durch eine erneuten Übermittlung wird erneut versucht, diese genehmigte Änderung auf das System anzuwenden.</value>
+    </data>
+    <data name="TEXT_APPROVALS_COMMENT_LABEL" xml:space="preserve">
+        <value>Anmerkung:</value>
+    </data>
+    <data name="TEXT_APPROVALS_ERROR_UPDATING_CHANGE_ID" xml:space="preserve">
+        <value>Fehler beim Aktualisieren der Änderungs-ID</value>
+    </data>
+    <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPLIED" xml:space="preserve">
+        <value>Diese Änderung wurde auf das System angewendet. Es sind keine weiteren Maßnahmen erforderlich.</value>
+    </data>
+    <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPROVEDWAITINGTOBEAPPLIED" xml:space="preserve">
+        <value>Diese Änderung wurde genehmigt und muss noch auf das System angewendet werden.</value>
+    </data>
+    <data name="TEXT_APPROVALS_STATE_EXPLANATION_DISMISSED" xml:space="preserve">
+        <value>Diese Änderung wurde verworfen. Es sind keine weiteren Maßnahmen möglich.</value>
+    </data>
+    <data name="TEXT_APPROVALS_STATE_EXPLANATION_FAILEDTOAPPLY" xml:space="preserve">
+        <value>Diese Änderung wurde genehmigt, konnte jedoch nicht auf das System angewendet werden.</value>
+    </data>
+    <data name="TEXT_APPROVALS_STATE_EXPLANATION_PENDING" xml:space="preserve">
+        <value>Diese Änderung steht derzeit aus.</value>
+    </data>
+    <data name="TEXT_APPROVALS_STATE_EXPLANATION_SUBMITTER" xml:space="preserve">
+        <value>Da Sie diese ausstehende Änderung übermittelt haben, können Sie sie verwerfen. Dadurch wird sie nicht mehr zur Prüfung vorgelegt.</value>
+    </data>
+  <data name="TEXT_AUDIT_HISTORY_FAILED" xml:space="preserve">
+    <value>Audit-Verlauf für fehlgeschlagene Transaktion mit Fallnummer</value>
+  </data>
+  <data name="TEXT_AUTO_REFRESH" xml:space="preserve">
+    <value>Automatische Aktualisierung alle 10 Sekunden, wenn ausgewählt.</value>
+  </data>
+  <data name="TEXT_BILL_TO" xml:space="preserve">
+    <value>Rechnungsempfänger</value>
+  </data>
+  <data name="TEXT_CALLBACK_MSG_1" xml:space="preserve">
+    <value>Konnte nicht gefunden werden:</value>
+  </data>
+  <data name="TEXT_CALLBACK_MSG_2" xml:space="preserve">
+    <value>verfahren.</value>
+  </data>
+  <data name="TEXT_CANCEL" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="TEXT_CHANGE_TRANSACTION_STATUS" xml:space="preserve">
+    <value>Status für Fall/fehlgeschlagene Transaktionen ändern</value>
+  </data>
+  <data name="TEXT_CLEAR" xml:space="preserve">
+    <value>Eingaben löschen</value>
+  </data>
+  <data name="TEXT_CLOSE" xml:space="preserve">
+    <value>Schließen</value>
+  </data>
+  <data name="TEXT_CLOSE_ACCOUNT" xml:space="preserve">
+    <value>Konto schließen</value>
+  </data>
+  <data name="TEXT_COLUMN" xml:space="preserve">
+    <value>Spalte</value>
+  </data>
+  <data name="TEXT_COLUMN_CONFIG_PROMPT" xml:space="preserve">
+    <value>Alle angezeigten Spalten auswählen. Sie können die Reihenfolge per Drag&amp;Drop ändern.</value>
+  </data>
+  <data name="TEXT_CONFIGURE_COLUMNS" xml:space="preserve">
+    <value>Spalten konfigurieren</value>
+  </data>
+  <data name="TEXT_CONFIGURE_FILTERS" xml:space="preserve">
+    <value>Filter konfigurieren</value>
+  </data>
+  <data name="TEXT_CONFIRM_APPROVE_NS_CONTINUE" xml:space="preserve">
+    <value>Möchten Sie wirklich fortfahren?  Durch diesen unumkehrbaren Schritt werden alle außerordentlichen Gebühren genehmigt, die mit Ihren Filterkriterien übereinstimmen.  Wenn keine Filter vorhanden sind, werden alle außerordentlichen Gebühren im System genehmigt.</value>
+  </data>
+  <data name="TEXT_CONFIRM_CONTINUE" xml:space="preserve">
+    <value>Möchten Sie wirklich fortfahren?</value>
+  </data>
+  <data name="TEXT_CONFIRM_DENY_NS_CONTINUE" xml:space="preserve">
+    <value>Möchten Sie wirklich fortfahren?  Durch diesen unwiderruflichen Schritt werden alle außerordentlichen Gebühren verweigert, die mit Ihren Filterkriterien übereinstimmen.  Wenn keine Filter vorhanden sind, werden alle außerordentlichen Gebühren im System verweigert.</value>
+  </data>
+  <data name="TEXT_CORP_COMPANY_NAME" xml:space="preserve">
+    <value>Name der Konzernfirma</value>
+  </data>
+  <data name="TEXT_CORP_COMPANY_USERNAME" xml:space="preserve">
+    <value>Benutzername der Konzernfirma</value>
+  </data>
+  <data name="TEXT_CORRECTED" xml:space="preserve">
+    <value>Korrigiert</value>
+  </data>
+  <data name="TEXT_CREATE_REL" xml:space="preserve">
+    <value>Beziehung erstellen</value>
+  </data>
+  <data name="TEXT_CREATED_ON" xml:space="preserve">
+    <value>Erstellt am</value>
+  </data>
+  <data name="TEXT_CREDIT" xml:space="preserve">
+    <value>Guthaben</value>
+  </data>
+  <data name="TEXT_CURRENT" xml:space="preserve">
+    <value>Aktuell</value>
+  </data>
+  <data name="TEXT_DASHBOARD" xml:space="preserve">
+    <value>Übersichtsseite</value>
+  </data>
+  <data name="TEXT_DATA_TYPE" xml:space="preserve">
+    <value>Datentyp</value>
+  </data>
+  <data name="TEXT_DELETE" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="TEXT_BULKUPDATE" xml:space="preserve">
+    <value>Bulk Update</value>
+  </data>
+  <data name="TEXT_DELETE_ACCOUNT_NOTE" xml:space="preserve">
+    <value>Möchten Sie diesen Kontohinweis wirklich löschen?</value>
+  </data>
+  <data name="TEXT_DELETE_MESSAGE" xml:space="preserve">
+    <value>Möchten Sie {0} wirklich löschen?</value>
+  </data>
+  <data name="TEXT_DELETE_SEARCH_CONFIRM" xml:space="preserve">
+    <value>Möchten Sie die gespeicherte Suche wirklich löschen?</value>
+  </data>
+  <data name="TEXT_DELETE_SELECTED_ROWS" xml:space="preserve">
+    <value>Möchten Sie die ausgewählten Zeilen wirklich löschen?</value>
+  </data>
+  <data name="TEXT_DELETE_TEMPLATE_MESSAGE" xml:space="preserve">
+    <value>Möchten Sie die Vorlage '{0}' wirklich löschen?</value>
+  </data>
+  <data name="TEXT_DELETE_TEMPLATE_SUB_MESSAGE" xml:space="preserve">
+    <value>'Möchten Sie {0} wirklich aus der Vorlage entfernen?</value>
+  </data>
+  <data name="TEXT_DELETED" xml:space="preserve">
+    <value>Gelöscht</value>
+  </data>
+  <data name="TEXT_DESCRIPTION" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="TEXT_DETAIL_DESCRIPTION" xml:space="preserve">
+    <value>Detaillierte Beschreibung</value>
+  </data>
+  <data name="TEXT_DFP" xml:space="preserve">
+    <value>Zahlungsaufforderung</value>
+  </data>
+  <data name="TEXT_DISMISSED" xml:space="preserve">
+    <value>Verworfen</value>
+  </data>
+  <data name="TEXT_EDIT" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
+  <data name="TEXT_EDIT_ACH" xml:space="preserve">
+    <value>ACH bearbeiten</value>
+  </data>
+  <data name="TEXT_EDIT_CARD" xml:space="preserve">
+    <value>Karte bearbeiten</value>
+  </data>
+  <data name="TEXT_EDIT_CHARGE_ACCOUNT" xml:space="preserve">
+    <value>Belastungskonto bearbeiten</value>
+  </data>
+  <data name="TEXT_EDIT_DOMAIN" xml:space="preserve">
+    <value>Domäne bearbeiten</value>
+  </data>
+  <data name="TEXT_EDIT_DOMAINPROFILE" xml:space="preserve">
+    <value>Domänenprofil bearbeiten</value>
+  </data>
+  <data name="TEXT_EDIT_FAILED_TRANSACTION" xml:space="preserve">
+    <value>Transaktion bearbeiten</value>
+  </data>
+  <data name="TEXT_EDIT_GRPSUB" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
+  <data name="TEXT_EDIT_GRPSUB_MEMBER" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
+  <data name="TEXT_EDIT_RECORD" xml:space="preserve">
+    <value>Datensatz bearbeiten</value>
+  </data>
+  <data name="TEXT_EDIT_TEMPLATE" xml:space="preserve">
+    <value>Vorlage bearbeiten</value>
+  </data>
+  <data name="TEXT_EMPTY" xml:space="preserve">
+    <value>Keine</value>
+  </data>
+  <data name="TEXT_END_DATE" xml:space="preserve">
+    <value>Enddatum</value>
+  </data>
+  <data name="TEXT_ERROR" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="TEXT_ERROR_ADDING" xml:space="preserve">
+    <value>Fehler beim Hinzufügen</value>
+  </data>
+  <data name="TEXT_ERROR_ASSIGN_TOP_NOTE" xml:space="preserve">
+    <value>Fehler beim Zuweisen des Hinweis für das oberste Konto</value>
+  </data>
+  <data name="TEXT_ERROR_CHECK_ACTIVE_FOLLOWUP" xml:space="preserve">
+    <value>Bitte überprüfen Sie die aktive Folgebearbeitung </value>
+  </data>
+  <data name="TEXT_ERROR_CREATE_RELSHIP" xml:space="preserve">
+    <value>Fehler beim Erstellen von Beziehung(en)</value>
+  </data>
+  <data name="TEXT_ERROR_DELETING" xml:space="preserve">
+    <value>Fehler beim Löschen</value>
+  </data>
+  <data name="TEXT_ERROR_DELETING_ACCOUNT_NOTE" xml:space="preserve">
+    <value>Fehler beim Löschen des Kontohinweises</value>
+  </data>
+  <data name="TEXT_ERROR_DELETING_SEARCH" xml:space="preserve">
+    <value>Die gespeicherte Suche kann nicht gelöscht werden.</value>
+  </data>
+  <data name="TEXT_ERROR_HIGHLIGHTING_ACCOUNT_NOTE" xml:space="preserve">
+    <value>Fehler beim Hervorheben des Kontohinweises</value>
+  </data>
+  <data name="TEXT_ERROR_INVALID_FOLLOWUP_DATE" xml:space="preserve">
+    <value>Bitte wählen Sie ein gültiges Datum für die Folgebearbeitung aus.</value>
+  </data>
+  <data name="TEXT_ERROR_INVALID_NOTE_TEXT" xml:space="preserve">
+    <value>Bitte geben Sie den Hinweistext ein.</value>
+  </data>
+  <data name="TEXT_ERROR_INVALID_VALUE" xml:space="preserve">
+    <value>Ungültiger Wert.</value>
+  </data>
+  <data name="TEXT_ERROR_LOADING_ACCOUNT" xml:space="preserve">
+    <value>Fehler beim Laden der Kontodaten</value>
+  </data>
+  <data name="TEXT_ERROR_LOADING_SEARCH" xml:space="preserve">
+    <value>Fehler beim Laden der gespeicherten Suche</value>
+  </data>
+  <data name="TEXT_ERROR_MSG" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="TEXT_ERROR_MULTIPLE_ROWS" xml:space="preserve">
+    <value>Es können nicht mehrere Zeilen ausgewählt werden.</value>
+  </data>
+  <data name="TEXT_ERROR_ONE_ONE" xml:space="preserve">
+    <value>Kann nicht mehrere Eins-zu-Eins-Beziehungen erstellen</value>
+  </data>
+  <data name="TEXT_ERROR_RECEIVING_DATA" xml:space="preserve">
+    <value>Beim Abrufen der Daten ist ein Problem aufgetreten.</value>
+  </data>
+  <data name="TEXT_ERROR_SAVING_SEARCH" xml:space="preserve">
+    <value>Die Suche kann nicht gespeichert werden.</value>
+  </data>
+  <data name="TEXT_ERROR_SELECT" xml:space="preserve">
+    <value>Bitte treffen Sie eine Auswahl.</value>
+  </data>
+  <data name="TEXT_ERROR_UNKNOWN" xml:space="preserve">
+    <value>Bei der Ausführung ist ein Fehler aufgetreten. </value>
+  </data>
+  <data name="TEXT_EXPORT" xml:space="preserve">
+    <value>Exportieren</value>
+  </data>
+  <data name="TEXT_EXPORT_ALL_RECORDS" xml:space="preserve">
+    <value>Export All Filtered Records</value>
+  </data>
+  <data name="TEXT_BULKUPDATE_ALL_RECORDS" xml:space="preserve">
+    <value>Bulk Update All Filtered Records</value>
+  </data>
+  <data name="TEXT_EXPORT_SELECTED_RECORDS" xml:space="preserve">
+    <value>Export Selected Records</value>
+  </data>
+  <data name="TEXT_BULKUPDATE_SELECTED_RECORDS" xml:space="preserve">
+    <value>Bulk Update Selected Records</value>
+  </data>
+  <data name="TEXT_EXPORT_CURRENT_PAGE_ONLY" xml:space="preserve">
+    <value>Nur aktuelle Seite exportieren</value>
+  </data>
+  <data name="TEXT_BULKUPDATE_CURRENT_PAGE_ONLY" xml:space="preserve">
+    <value>Bulk Update Current Page Only</value>
+  </data>
+  <data name="TEXT_EXPORT_SEARCH_RESULTS" xml:space="preserve">
+    <value>Suchergebnisse exportieren</value>
+  </data>
+  <data name="TEXT_BULKUPDATE_SEARCH_RESULTS" xml:space="preserve">
+    <value>Bulk Update Search Results</value>
+  </data>
+  <data name="TEXT_ERROR_NOTHING_UPDATED_BULKUPDATE" xml:space="preserve">
+    <value>Nothing will be updated</value>
+  </data>
+  <data name="TEXT_NO_SELECTED_BME_FOR_BULKUPDATE" xml:space="preserve">
+    <value>There are no selected BMEs for bulk update</value>
+  </data>
+  <data name="TEXT_ERROR_TOO_MANY_RECORDS_BULKUPDATE" xml:space="preserve">
+    <value>Too many records to update</value>
+  </data>
+  <data name="TEXT_LIMIT_DOWN_SEARCH_TO_BULKUPDATE" xml:space="preserve">
+    <value>You are going to update NUMBER_TO_UPDATE items. Choose less items to fit {0} item(s) limitation</value>
+  </data>
+  <data name="TEXT_NO_PROPERTIES_FOR_BULKUPDATE" xml:space="preserve">
+    <value>There are no properties for bulk update</value>
+  </data>
+  <data name="TEXT_ATTENTION_CHANGES_PERMANENT" xml:space="preserve">
+    <value>Attention. Your changes will be permanent</value>
+  </data>
+  <data name="TEXT_SURE_MAKE_CHANGE" xml:space="preserve">
+    <value>Are you sure that you want to make these changes?</value>
+  </data>
+  <data name="TEXT_NO_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
+    <value>No properties are going to be updated</value>
+  </data>
+  <data name="TEXT_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
+    <value>Properties that are going to be updated</value>
+  </data>
+  <data name="TEXT_EXTERNAL" xml:space="preserve">
+    <value>Externe Informationen</value>
+  </data>
+  <data name="TEXT_FAILED_LOADING" xml:space="preserve">
+    <value>Seite konnte nicht geladen werden.</value>
+  </data>
+  <data name="TEXT_FILTER_CONFIG_PROMPT" xml:space="preserve">
+    <value>Alle angezeigten Filter auswählen. Sie können die Reihenfolge per Drag&amp;Drop ändern.</value>
+  </data>
+  <data name="TEXT_FIND_ACCOUNT" xml:space="preserve">
+    <value>Konto suchen</value>
+  </data>
+  <data name="TEXT_FIND_AN_ACCOUNT" xml:space="preserve">
+    <value>Konto suchen...</value>
+  </data>
+  <data name="TEXT_FUTURE" xml:space="preserve">
+    <value>Zukünftig</value>
+  </data>
+  <data name="TEXT_GET_HIERARCHY_PATH" xml:space="preserve">
+    <value>Hierarchiepfad abrufen</value>
+  </data>
+  <data name="TEXT_GRPSUBMEM_DEL" xml:space="preserve">
+    <value>Bitte wählen Sie zu löschende Mitglieder aus.</value>
+  </data>
+  <data name="TEXT_GRPSUBMEM_UNSUB" xml:space="preserve">
+    <value>Bitte wählen Sie Mitglieder aus, deren Nutzungsanmeldung gekündigt werden soll.</value>
+  </data>
+  <data name="TEXT_HELP" xml:space="preserve">
+    <value>Hilfe</value>
+  </data>
+  <data name="TEXT_HELP_TITLE" xml:space="preserve">
+    <value>Hilfe zu MetraNet</value>
+  </data>
+  <data name="TEXT_HIERARCHY_ROOT" xml:space="preserve">
+    <value>Oberste Hierarchieebene</value>
+  </data>
+  <data name="TEXT_HIGHLIGHT" xml:space="preserve">
+    <value>Hervorheben</value>
+  </data>
+  <data name="TEXT_HISTORY_TOOLTIP" xml:space="preserve">
+    <value>Anzahl der Konten: {0} &amp;lt;br/&amp;gt;Anzahl der abgeschlossenen Konten: {1} &amp;lt;br/&amp;gt;Anzahl der Kontofehler: {2} &amp;lt;br/&amp;gt;Anzahl der Nutzungsanmeldungen: {3} &amp;lt;br/&amp;gt;Anzahl der abgeschlossenen Nutzungsanmeldungen: {4}&amp;lt;br/&amp;gt;Anzahl der Fehler bei Nutzungsanmeldungen: {5}</value>
+  </data>
+  <data name="TEXT_INFO" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="TEXT_INTERNAL" xml:space="preserve">
+    <value>Interne Informationen</value>
+  </data>
+  <data name="TEXT_INVALID_DATES" xml:space="preserve">
+    <value>Bitte geben Sie ein gültiges Anfangs- und ein gültiges Enddatum ein.</value>
+  </data>
+  <data name="TEXT_INVALID_END_DATE" xml:space="preserve">
+    <value>Ungültiges Enddatum.</value>
+  </data>
+  <data name="TEXT_INVALID_RANGE" xml:space="preserve">
+    <value>Ungültiger Bereich</value>
+  </data>
+  <data name="TEXT_INVALID_RECUR_PATTERN" xml:space="preserve">
+    <value>Ungültiges Wiederholungsmuster</value>
+  </data>
+  <data name="TEXT_INVALID_START_DATE" xml:space="preserve">
+    <value>Ungültiges Startdatum</value>
+  </data>
+  <data name="TEXT_INVALID_START_TIME" xml:space="preserve">
+    <value>Ungültige Startzeit</value>
+  </data>
+  <data name="TEXT_ITEMS" xml:space="preserve">
+    <value> Positionen.</value>
+  </data>
+  <data name="TEXT_LOAD_SAVED_SEARCH" xml:space="preserve">
+    <value>Gespeicherte Suche laden</value>
+  </data>
+  <data name="TEXT_LOADING" xml:space="preserve">
+    <value>Laden...</value>
+  </data>
+  <data name="TEXT_LOGOUT" xml:space="preserve">
+    <value>Abmelden</value>
+  </data>
+  <data name="TEXT_LOGOUT_QUESTION" xml:space="preserve">
+    <value>Möchten Sie sich wirklich abmelden?</value>
+  </data>
+  <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
+    <value>j/n/Y g:ia</value>
+  </data>
+  <data name="TEXT_MANAGE_ACCOUNT" xml:space="preserve">
+    <value>Konto verwalten</value>
+  </data>
+  <data name="TEXT_MAX" xml:space="preserve">
+    <value>Max.:</value>
+  </data>
+  <data name="TEXT_MEMBERS" xml:space="preserve">
+    <value>Gruppenmitglieder bearbeiten</value>
+  </data>
+  <data name="TEXT_MENU" xml:space="preserve">
+    <value>Menü</value>
+  </data>
+  <data name="TEXT_MESSAGES" xml:space="preserve">
+    <value>Nachrichten</value>
+  </data>
+  <data name="TEXT_METRACARE_LOGIN" xml:space="preserve">
+    <value>MetraCare-Anmeldung</value>
+  </data>
+  <data name="TEXT_MetraNet_LOGIN" xml:space="preserve">
+    <value>MetraNet-Anmeldung</value>
+  </data>
+  <data name="TEXT_MIN" xml:space="preserve">
+    <value>Min.:</value>
+  </data>
+  <data name="TEXT_NAME" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="TEXT_NO" xml:space="preserve">
+    <value>Nein</value>
+  </data>
+  <data name="TEXT_NO_ACCOUNT_LOADED" xml:space="preserve">
+    <value>Es ist kein Konto geladen.</value>
+  </data>
+  <data name="TEXT_NO_RECENT_ACCOUNTS" xml:space="preserve">
+    <value>Es sind keine aktuellen Konten vorhanden.</value>
+  </data>
+  <data name="TEXT_NO_SELECTION" xml:space="preserve">
+    <value>Keine Auswahl</value>
+  </data>
+  <data name="TEXT_NO_SELECTION_MESSAGE" xml:space="preserve">
+    <value>Bitte treffen Sie zusätzlich zu den aktuellen Überweisungsdetails eine Auswahl.</value>
+  </data>
+  <data name="TEXT_NONE" xml:space="preserve">
+    <value>Keine</value>
+  </data>
+  <data name="TEXT_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="TEXT_ONLINE_BILL" xml:space="preserve">
+    <value>Online-Rechnung</value>
+  </data>
+  <data name="TEXT_OPEN_SAVED_SEARCH" xml:space="preserve">
+    <value>Gespeicherte Suche laden</value>
+  </data>
+  <data name="TEXT_OTHER" xml:space="preserve">
+    <value>Andere</value>
+  </data>
+  <data name="TEXT_PASSWORDS_DO_NOT_MATCH" xml:space="preserve">
+    <value>Die Kennwörter stimmen nicht überein.</value>
+  </data>
+  <data name="TEXT_PAST" xml:space="preserve">
+    <value>Vergangenheit</value>
+  </data>
+  <data name="TEXT_PAYMENT" xml:space="preserve">
+    <value>Zahlung</value>
+  </data>
+  <data name="TEXT_PLEASE_FIX" xml:space="preserve">
+    <value>Bitte beheben Sie die angegebenen Fehler.</value>
+  </data>
+  <data name="TEXT_POPULATE_FIRST" xml:space="preserve">
+    <value>Sie müssen zuerst die Überweisungsdetails ausfüllen.</value>
+  </data>
+  <data name="TEXT_PROPERTIES" xml:space="preserve">
+    <value>Eigenschaften</value>
+  </data>
+  <data name="TEXT_RATES" xml:space="preserve">
+    <value>Gebühren </value>
+  </data>
+  <data name="TEXT_RECENT_ACCOUNTS" xml:space="preserve">
+    <value>Aktuelle Konten</value>
+  </data>
+  <data name="TEXT_RELOAD_ACCOUNT" xml:space="preserve">
+    <value>Konto neu laden</value>
+  </data>
+  <data name="TEXT_REMITTANCE_DETAILS" xml:space="preserve">
+    <value>Details der ausgewählten Überweisung</value>
+  </data>
+  <data name="TEXT_REMITTANCE_EMPTY" xml:space="preserve">
+    <value>Bitte fügen Sie Überweisungsdetails hinzu, indem Sie die zur Begleichung der Zahlungsaufforderung geleisteten Zahlungen und Gutschriften hinzufügen.</value>
+  </data>
+  <data name="TEXT_REMOVE" xml:space="preserve">
+    <value>Entfernen</value>
+  </data>
+  <data name="TEXT_REMOVE_ACH" xml:space="preserve">
+    <value>ACH entfernen</value>
+  </data>
+  <data name="TEXT_REMOVE_ALL" xml:space="preserve">
+    <value>Alle entfernen</value>
+  </data>
+  <data name="TEXT_REMOVE_CARD" xml:space="preserve">
+    <value>Karte entfernen</value>
+  </data>
+  <data name="TEXT_REMOVE_DOMAIN" xml:space="preserve">
+    <value>Domäne löschen</value>
+  </data>
+  <data name="TEXT_REMOVE_DOMAINPROFILE" xml:space="preserve">
+    <value>Domänenprofil löschen</value>
+  </data>
+  <data name="TEXT_REMOVE_GROUP_SUBSCRIPTION" xml:space="preserve">
+    <value>Gruppennutzungsanmeldung entfernen</value>
+  </data>
+  <data name="TEXT_REMOVE_GRPSUBMEM_ACCOUNTS" xml:space="preserve">
+    <value> Bitte wählen Sie die Konten aus der Liste aus, die entfernt werden sollen.</value>
+  </data>
+  <data name="TEXT_REMOVE_RELSHIP" xml:space="preserve">
+    <value>Möchten Sie die ausgewählten Beziehungen wirklich entfernen?</value>
+  </data>
+  <data name="TEXT_REMOVE_THIS_RELSHIP" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_RESUBMIT_FAILED" xml:space="preserve">
+    <value>Erneutes Übermitteln fehlgeschlagener Transaktionen in Bearbeitung...</value>
+  </data>
+  <data name="TEXT_RESUBMITTED" xml:space="preserve">
+    <value>Erneut übermittelt</value>
+  </data>
+  <data name="TEXT_SAVE_SEARCH" xml:space="preserve">
+    <value>Suche speichern</value>
+  </data>
+  <data name="TEXT_SEARCH" xml:space="preserve">
+    <value>Suche</value>
+  </data>
+  <data name="TEXT_SEARCH_FILTERS" xml:space="preserve">
+    <value>Suchfilter</value>
+  </data>
+  <data name="TEXT_SEARCH_NAME" xml:space="preserve">
+    <value>Name suchen</value>
+  </data>
+  <data name="TEXT_SEARCHING" xml:space="preserve">
+    <value>Suche...</value>
+  </data>
+  <data name="TEXT_SELECT_ACCOUNT" xml:space="preserve">
+    <value>Konto auswählen</value>
+  </data>
+  <data name="TEXT_SELECT_ACCOUNTS" xml:space="preserve">
+    <value>Konten auswählen</value>
+  </data>
+  <data name="TEXT_SELECT_ADJ_ERROR" xml:space="preserve">
+    <value>Bitte wählen Sie Anpassungen zur Bearbeitung aus.</value>
+  </data>
+  <data name="TEXT_SELECT_GRPSUBMEM_ACCOUNTS" xml:space="preserve">
+    <value>Bitte wählen Sie die hinzuzufügenden Mitglieder aus.</value>
+  </data>
+  <data name="TEXT_SELECT_NS_ERROR" xml:space="preserve">
+    <value>Bitte wählen Sie außerordentliche Gebühren zur Bearbeitung aus.</value>
+  </data>
+  <data name="TEXT_SELECTED" xml:space="preserve">
+    <value>Ausgewählt </value>
+  </data>
+  <data name="TEXT_SELFCARE_LOGIN" xml:space="preserve">
+    <value>Bei Selbsthilfe anmelden</value>
+  </data>
+  <data name="TEXT_SESSION_TIMEOUT_TEXT" xml:space="preserve">
+    <value>Ihre Sitzung ist abgelaufen. Bitte melden Sie sich wieder an.</value>
+  </data>
+  <data name="TEXT_SESSION_TIMEOUT_TITLE" xml:space="preserve">
+    <value>Sitzung ist abgelaufen</value>
+  </data>
+  <data name="TEXT_SETTINGS" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="TEXT_SETUP_CHARGE_ACCOUNT" xml:space="preserve">
+    <value>Bitte richten Sie vor dem Hinzufügen der UDRC-Werte das Belastungskonto ein.</value>
+  </data>
+  <data name="TEXT_SHIP_TO" xml:space="preserve">
+    <value>Versandempfänger</value>
+  </data>
+  <data name="TEXT_SMALL_BALANCE_WRITE_OFF" xml:space="preserve">
+    <value>Abschreibung eines geringen Saldos</value>
+  </data>
+  <data name="TEXT_SPACER" xml:space="preserve">
+    <value>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</value>
+  </data>
+  <data name="TEXT_START_DATE" xml:space="preserve">
+    <value>Anfangsdatum</value>
+  </data>
+  <data name="TEXT_STATUS" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="TEXT_SUBSCRIPTIONS" xml:space="preserve">
+    <value>Nutzungsanmeldungen</value>
+  </data>
+  <data name="TEXT_SUCCESS" xml:space="preserve">
+    <value>Erfolgreich</value>
+  </data>
+  <data name="TEXT_SUCCESS_LOADING" xml:space="preserve">
+    <value>Dynamisches Laden abgeschlossen.</value>
+  </data>
+  <data name="TEXT_SYSTEM" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="TEXT_SYSTEM_USER" xml:space="preserve">
+    <value>Systembenutzer-Hierarchie</value>
+  </data>
+  <data name="TEXT_TO" xml:space="preserve">
+    <value>Bis</value>
+  </data>
+  <data name="TEXT_TOO_MANY_ROWS" xml:space="preserve">
+    <value>Es wurden nicht alle Zeilen zurückgegeben, da der Ergebnissatz zu groß ist.  Bitte ändern Sie die Suche, um weitere Ergebnisse einzusehen.</value>
+  </data>
+  <data name="TEXT_TOPNOTE" xml:space="preserve">
+    <value>TopNote</value>
+  </data>
+  <data name="TEXT_TRANSACTION_OPEN" xml:space="preserve">
+    <value>Öffnen</value>
+  </data>
+  <data name="TEXT_UDRC_VALUES" xml:space="preserve">
+    <value>UDRC-Werte</value>
+  </data>
+  <data name="TEXT_UNDER_INVESTIGATION" xml:space="preserve">
+    <value>In Untersuchung</value>
+  </data>
+  <data name="TEXT_UNKNOWN_STATUS" xml:space="preserve">
+    <value>Unbekannter Status</value>
+  </data>
+  <data name="TEXT_UNSUBSCRIBE" xml:space="preserve">
+    <value>Nutzungsanmeldung kündigen</value>
+  </data>
+  <data name="TEXT_UPDATE" xml:space="preserve">
+    <value>Aktualisieren</value>
+  </data>
+  <data name="TEXT_VALIDATION_ERROR" xml:space="preserve">
+    <value>Auf dieser Seite sind Validierungsfehler aufgetreten. Bitte füllen Sie die erforderlichen Felder aus.</value>
+  </data>
+  <data name="TEXT_VALUE" xml:space="preserve">
+    <value>Wert</value>
+  </data>
+  <data name="TEXT_VIEW" xml:space="preserve">
+    <value>Details anzeigen</value>
+  </data>
+  <data name="TEXT_VIEW_AUDIT_FAILED_TRANSACTION" xml:space="preserve">
+    <value>Audit für diese fehlgeschlagene Transaktion anzeigen</value>
+  </data>
+  <data name="TEXT_VIEW_CHILDREN" xml:space="preserve">
+    <value>Untergeordnete Konten anzeigen</value>
+  </data>
+  <data name="TEXT_VIEW_DETAILS" xml:space="preserve">
+    <value>Details anzeigen</value>
+  </data>
+  <data name="TEXT_VIEW_RELATIONSHIPS" xml:space="preserve">
+    <value>Beziehung(en) anzeigen</value>
+  </data>
+  <data name="TEXT_WELCOME" xml:space="preserve">
+    <value>ACH</value>
+  </data>
+  <data name="TEXT_WILL_LOSE_CHANGES" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_WRITE_OFF" xml:space="preserve">
+    <value>Abschreibung eines geringen Saldos hinzufügen</value>
+  </data>
+  <data name="TEXT_YES" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="THOUSAND_SEPARATOR" xml:space="preserve">
+    <value>.</value>
+  </data>
+  <data name="TITLE_DELETE_ACCOUNT_NOTE" xml:space="preserve">
+    <value>Kontoknoten löschen</value>
+  </data>
+  <data name="TITLE_RELATIONSHIPS" xml:space="preserve">
+    <value>Beziehungen</value>
+  </data>
+  <data name="TITLE_RELATIONSHIPS_FOR" xml:space="preserve">
+    <value>Beziehungen für:</value>
+  </data>
+  <data name="TITLE_REMOVE_RELATIONSHIP" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_FLS_ERROR_MESSAGE" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_FLS_NO_ERROR_MESSAGE" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_ACTIVATE_DEACTIVATE" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_CLONE" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_VIEW" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_GENERAL_INFO" xml:space="preserve">
+    <value>A &lt;i&gt;Decision&lt;/i&gt;  is used to analyze usage records (rated billing records) and possibly modify charges on the basis of this analysis.  Decisions are necessary when it is impossible to determine the amount by examining a single isolated record.&lt;br/&gt;For example, you may want to give a special rate if the number of telephone minutes used during the month is &gt; 1000.  You can only determine the rate to use after adding up all the usage records.  If the minutes are &gt; 1000, then for each record the rate is changed and a new charge amount is calculated.(German)</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_ACCOUNT_GROUP" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_CUSTOM_ACCT_GRP" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_SELECT_USAGE_QUALIFICATION" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_SUCCESS_RESORTING_GRID" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_ERROR_ACTIVATE_DECISION" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_CUSTOM_ACCT_GRP" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_MORE_INFO" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_ITEMS_TO_AGGREGATE" xml:space="preserve">
+    <value>(GERMAN) For example, suppose the Decision Type is \"Use a special rate if the number of minutes of usage is over 500\". The settings might include \"500\" and the \"special rate\" to apply.</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
+    <value>(GERMAN) Help:  Aggregation Method</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
+    <value>(GERMAN) Decisions are used when a monetary charge amount cannot be calculated by looking at a single record. Instead, many usage records must be examined and a total must be the number of events, units of usage, or charge amounts. The total, or aggregate, is then used to help determine the charge amount.</value>
+  </data>
+	<data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_MONETARY_CHARGE" xml:space="preserve">
+    <value>(GERMAN) Example: \"Apply a discount if there's over $100 in charges.\"</value>
+  </data>
+	<data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_UNIT_OF_USAGE" xml:space="preserve">
+    <value>(GERMAN) Example: \"Use a special rate if over 1,000 minutes.\"</value>
+  </data>
+	<data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_COUNT_NUMBER_OF_EVENTS" xml:space="preserve">
+    <value>(GERMAN) Example: \"Apply a discount if over 100 calls were made.\"</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_FROM_PARAMETER_TABLE" xml:space="preserve">
+    <value>(GERMAN) Usage is aggregated based on the value set in the parameter table.</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
+    <value>(GERMAN) Help:  Decision Domain</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_AMP_UI_NAME_ILLEGAL_CHAR" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_HOW_APPLY" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_HOW_APPLY" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE_PRORATION" xml:space="preserve">
+    <value>German</value>
+  </data>
+	<data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE_PRORATION" xml:space="preserve">
+    <value>German</value>
+  </data>
+	<data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
+    <value>German</value>
+  </data>
+
+	<data name="TITLE_AMPWIZARD_HELP_RESTART_RANGE" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_ACTIVATION_RESULTS" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_ERROR_CHECK_RESULTS" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP_2" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_MORE_PRODUCT_VIEW" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_INCREMENTAL_OR_BULK" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_INCREMENTAL_OR_BULK" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
+    <value>(German)Help: Multi-bucket</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
+    <value>(German)Act on each individual record.  Usage may have different prices  which are determined by the bucket into which they fall.</value>
+  </data>
+   <data name="TITLE_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
+    <value>(German)Help: Single-bucket</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
+    <value>(German)Act on all the records together.  All usage has same price which is determined by total volume.</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_UNIT_RATE" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_UNIT_RATE" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_EVENT_RATE" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_EVENT_RATE" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_DISCOUNT" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_DISCOUNT" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_GENERATED_CHARGE" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_GENERATED_CHARGE" xml:space="preserve">
+    <value>German</value>
+  </data>
+    <data name="TITLE_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
+    <value>(German) Help:  None</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
+    <value>(German) Do not generate a charge for this decision</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_GENERATED_CHARGE_GRID" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_GENERATED_CHARGE_GRID" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_MORE_DECISION_CYCLE" xml:space="preserve">
+    <value>German</value>
+  </data>
+	<data name="TITLE_AMPWIZARD_HELP_MORE_DECISION_CYCLE" xml:space="preserve">
+    <value>German</value>
+  </data>
+	<data name="TITLE_AMPWIZARD_ADD_MISC_ATTRIBUTE" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_EDIT_MISC_ATTRIBUTE" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_EDIT_DECISION_MISC_ATTRIBUTE" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_MORE_CHARGE_CREDIT_DIRECTIVE" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_DIRECTIVES" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_MORE_DIRECTIVES" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_DIRECTIVES" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_DELETE_DECISION_MISC_ATTRIBUTE" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_DELETE_MISC_ATTRIBUTE" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_ERROR" xml:space="preserve">
+    <value>German</value> 
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_USAGE_QUALIFICATION" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_FILTER" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_FILTER_HELP" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_CLONE_DECISION" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_DELETE_DIRECTIVE_CONFIRM" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_DELETE_DIRECTIVE_CONFIRM" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_ADD_ACCOUNT_GROUP" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_DELETE_ACCOUNT_GROUP" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_EDIT_ACCOUNT_GROUP" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_VIEW_ACCOUNT_GROUP" xml:space="preserve">
+    <value>German</value>
+  </data>  
+  <data name="TEXT_AMPWIZARD_HELP_EDIT_ACCOUNT_GROUP" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_DELETE_ACCOUNT_QUALIFICATION_CONFIRM" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_DELETE_ACCOUNT_QUALIFICATION_CONFIRM" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_DIRECTIVE_FILTER" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_HELP_DIRECTIVE_FILTER" xml:space="preserve">
+    <value>German</value>
+  </data>
+    <data name="ERROR_BILL_MESSAGE_DATES" xml:space="preserve">
+    <value>German</value>
+  </data>
+</root>

@@ -1,0 +1,43 @@
+<chart
+  manageresize='1'
+  paletteThemeColor='A1A1A1'
+  numberPrefix='$'
+  highColor='00CC33' lowColor='CC0000'
+  showBorder='0' canvasBorderAlpha='0' canvasBgColor='FFFFFF' canvasBgAlpha='0' bgColor='FFFFFF'
+  showToolTipShadow='1' toolTipBorderColor='BBBBBB' toolTipBgColor='FFF5B5'
+  chartLeftMargin='10' chartRightMargin='250' chartTopMargin='10' chartBottomMargin='0'
+  formatNumberScale='0'
+>
+
+   <dataset>
+      <set value='1105' />
+      <set value='1007' />
+      <set value='1204' />
+      <set value='1304' />
+      <set value='1427' />
+      <set value='4334' />
+      <set value='6343' />
+      <set value='8434' />
+      <set value='9045' />
+      <set value='11023' />
+      <set value='12044' />
+      <set value='12099' />
+   </dataset>
+
+<annotations>
+  <annotationGroup id='Grp2' x='$chartEndX-250' y='$chartCenterY+20' showBelow='0'>
+    <annotation x='7' y='-25' wrap='1' wrapWidth='240' type='text' label='%productName%' font='Arial'  align='left' fontcolor='444444' fontSize='13' bold='1'/>
+    <annotation x='7' y='-4' wrap='1' wrapWidth='240' type='text' label='%August TMR%' font='Arial'  align='left' fontcolor='444444' fontSize='13' bold='0'/>
+  </annotationGroup>
+</annotations>
+
+<styles>
+  <definition>
+    <style name='toolTipStyle' type='Font' font='Arial' color='444444' Size='13' bold='0' />
+  </definition>
+  <application>
+    <apply toObject='toolTip' styles='toolTipStyle' /> 
+  </application>
+</styles>
+
+</chart>

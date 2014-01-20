@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Editing Failed Transactions </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Changing Case/Failed Transaction Status, Editing Failed Transactions" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('4658');expand('13614');highlight('23177')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="suspendedtransaction.list.hlp.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="9018.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h3 class="heading3">Editing Failed Transactions</h3>
+<p class="bodytext">Editing a failed transaction means changing one or more fields of data in the recorded transaction, so that the transaction can be resubmitted. The range of options depends on whether the transaction is atomic or multipoint. Since multipoint transaction involve one or more child transactions, there are additional editing options.</p>
+<p class="bodytext">Choose from the following options:</p>
+<ul class="listbullet"><li class="listbullet"><strong class="strong">Change the status</strong><p class="listcontinue">The options provide the same choices as using the <strong class="strong"><a id="h23185" class="crossreference" title="Changing Case/Failed Transaction Status" href="9018.htm" target="_self">Change Status</a></strong> command in a report.</p>
+<p class="image"><img src="mcontrol-editft1.png" alt="mcontrol-editft1.png" height="203" width="309" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</li><li class="listbullet"><strong class="strong">View the audit log</strong><p class="listcontinue">You can click <strong class="strong">View Audit Trail</strong> to view a history of actions performed on the transaction and who performed them.</p>
+<p class="listcontinue"><img src="mcontrol-editft2.png" alt="mcontrol-editft2.png" height="46" width="321" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</li><li class="listbullet"><strong class="strong">Edit a failed transaction</strong><p class="listcontinue">Change one or move values in the transactions service definition</p>
+<p class="image"><img src="mcontrol-editft3.png" alt="mcontrol-editft3.png" height="201" width="517" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note"><strong class="strong">Check for Required Fields</strong></p>
+<p class="note">Allows you to override the requirement that specific fields have values. If you uncheck this box, the system will permit processing of blank fields.</p>
+</td>
+</tr>
+
+</table>
+</li><li class="listbullet"><strong class="strong">Make a bulk change</strong><p class="listcontinue">This option applies only to multipoint transactions. Multipoint transactions fail when the first child transaction fails. Therefore, other child transactions containing the same error may <em class="emphasis">not</em> be marked as erroneous. For this reason, you should be aware of other child transactions that may contain the same error and use this option to update them all at the same time.</p>
+<p class="listcontinue"><img src="mcontrol-editft4.png" alt="mcontrol-editft4.png" height="162" width="292" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">When a multipoint transaction contains many children, as in a conference call with hundreds of participants, making a bulk change to a property can be very useful.</p>
+<p class="note">To make a bulk change for the parent transaction and all its children, use the <strong class="strong">Make Bulk Change</strong> command in the parent transaction. </p>
+<p class="note">To make a bulk change for a set of transactions under a particular parameter table, click the <strong class="strong">Make Bulk Change</strong> button for the child transactions.</p>
+</td>
+</tr>
+
+</table>
+</li><li class="listbullet"><strong class="strong">View and edit a child transaction</strong><ol class="listnumber2"><li class="listnumber2">Select the child transaction from the drop-down list.</li><li class="listnumber2">Expand the <strong class="strong">plus </strong><img src="plussignicon.gif" alt="PlusSignIcon.gif" vspace="0" hspace="0" align="bottom" border="0" /><strong class="strong"> </strong>symbol to see the child transaction properties.</li><li class="listnumber2">Click <strong class="strong">Edit </strong><img src="pencil.gif" alt="" vspace="0" hspace="0" align="bottom" border="0" />to change the property values.</li></ol></li></ul>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

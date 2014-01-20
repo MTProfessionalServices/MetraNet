@@ -1,0 +1,43 @@
+/*
+This file is part of Ext JS 3.4
+
+Copyright (c) 2011-2013 Sencha Inc
+
+Contact:  http://www.sencha.com/contact
+
+Commercial Usage
+Licensees holding valid commercial licenses may use this file in accordance with the Commercial
+Software License Agreement provided with the Software or, alternatively, in accordance with the
+terms contained in a written agreement between you and Sencha.
+
+If you are unsure which license is appropriate for your use, please contact the sales department
+at http://www.sencha.com/contact.
+
+Build date: 2013-04-03 15:07:25
+*/
+.status {
+    color:#555;
+}
+.x-progress-wrap.left-align .x-progress-text {
+    text-align:left;
+}
+.x-progress-wrap.custom {
+    height:17px;
+    border:1px solid #686868;
+    overflow:hidden;
+    padding:0 2px;
+}
+.ext-ie .x-progress-wrap.custom {
+    height:19px;
+}
+.custom .x-progress-inner {
+    height:17px;
+    background: #fff;
+}
+.custom .x-progress-bar {
+    height:15px;
+    background:transparent url(images/custom-bar.gif) repeat-x 0 0;
+    border-top:1px solid #BEBEBE;
+    border-bottom:1px solid #EFEFEF;
+    border-right:0;
+}

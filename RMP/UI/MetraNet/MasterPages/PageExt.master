@@ -1,0 +1,89 @@
+﻿<%@ Master EnableViewState="true" Language="C#" AutoEventWireup="true" Inherits="MasterPages_PageExt" CodeFile="PageExt.master.cs" %>
+<%@ Register Src="../UserControls/LocalizedIncludes.ascx" TagName="LocalizedIncludes" TagPrefix="uc4" %>
+<%@ Register Src="~/UserControls/Menus/AccountMenu.ascx" TagName="AccountMenu" TagPrefix="uc2" %>
+<%@ Register Src="../UserControls/Error.ascx" TagName="Error" TagPrefix="uc3" %>
+<%@ Import namespace="MetraTech.UI.Common" %>
+<!DOCTYPE html>
+<html>
+<head id="Head1" runat="server">
+  <title>MetraNet</title> 
+  
+  <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/ext-all.css?v=6.5" />
+  <link rel="stylesheet" type="text/css" href="<%= GetGlobalResourceObject("Resource", "LocalizedStyleSheet") %>" />
+  <link rel="stylesheet" type="text/css" href="/Res/Styles/MiscField.css?v=6.5"/>
+  <link rel="stylesheet" type="text/css" href="/Res/Styles/Silk.css?v=6.5" /> 
+  <link rel="stylesheet" type="text/css" href="/Res/Styles/menuStyle.css?v=6.5" />  
+  <link rel="icon" type="image/ico" href="/MetraNet/favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="/Res/Styles/SuperBoxSelect.css?v=6.5" />
+
+  <script type="text/javascript" src="/Res/Ext/adapter/ext/ext-base.js?v=6.5"></script>
+  <script type="text/javascript" src="/Res/Ext/ext-all.js?v=6.5"></script>
+  <script type="text/javascript" src="/Res/JavaScript/ExtHacks.js?v=6.5"></script>
+  <script type="text/javascript" src="/Res/Ext/examples/ux/TableGrid.js"></script>
+  <script type="text/javascript" src="/Res/Ext/examples/form/states.js?v=6.5"></script>
+
+  <uc4:LocalizedIncludes ID="LocalizedIncludes1" runat="server" />  
+
+  <script type="text/javascript" src="/Res/ux/jpath/jpath.js?v=6.5"></script>
+  <script type="text/javascript" src="/Res/JavaScript/Common.js?v=6.5"></script>
+  <script type="text/javascript" src="/Res/JavaScript/PageNav.js?v=6.5"></script>
+  <script type="text/javascript" src="/Res/JavaScript/Account.js?v=6.5"></script>
+  <script type="text/javascript" src="/Res/ux/form/MiscField.js?v=6.5"></script>
+  <script type="text/javascript" src="/Res/ux/form/PasswordMeter.js?v=6.5"></script>
+  <script type="text/javascript" src="/Res/ux/form/SuperBoxSelect.js?v=6.5"></script>
+  <script type="text/javascript" src="/Res/ux/form/LargeNumberField.js?v=6.5"></script>
+  <script type="text/javascript" src="/Res/JavaScript/RowSelectionModelOverride.js?v=6.5"></script>
+  <script type="text/javascript" src="/Res/Ext/examples/form/states.js?v=6.5"></script>
+               
+  <%=Constants.CJ_PROTECTION_CODE %>               
+  <script type="text/javascript">
+    var flagOkLoadStore = "false";
+    function pageInit()
+    {
+      if (pageNav === undefined)
+      {
+        // Setup current state
+        pageNav = new PageNav();
+        pageNav.Init("<%= Server.HtmlEncode(CurrentState) %>", "<%= Server.HtmlEncode(ProcessorId) %>", "<%= Server.HtmlEncode(InterfaceName) %>");
+      }
+      
+      pageNav.CheckIfNewState();
+    }
+    
+    function pageUnload()
+    {
+      if (pageNav !== undefined)
+      {         
+        pageNav.UnRegister();        
+      }
+    }
+    
+    // Setup current help page
+    var helpPage = "<%=HelpPage%>";
+    getFrameMetraNet().helpPage = helpPage;
+    
+    var serverOffset = <%=TimeZone.CurrentTimeZone.GetUtcOffset(DateTime.Now).TotalSeconds %>;
+
+    if(top.resetSessionTimer)
+      top.resetSessionTimer();
+  </script>
+		
+</head>
+
+<body onload="pageInit();" onbeforeunload="pageUnload();" onunload="pageUnload();">
+
+<form id="form1" runat="server">
+
+  <div id="MainContent" class="full">
+    
+    <asp:Panel ID="PanelActiveAccount" runat="server" Width="100%">
+      <uc2:AccountMenu ID="AccountMenu" runat="server" />
+    </asp:Panel>
+    <uc3:Error ID="Error1" runat="server" />
+    <asp:contentplaceholder id="ContentPlaceHolder1" runat="server"></asp:contentplaceholder>
+  </div>
+    
+</form>
+
+</body>
+</html>

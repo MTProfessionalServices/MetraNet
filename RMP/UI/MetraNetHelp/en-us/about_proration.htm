@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> About Recurring Charge Proration </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="About Instant Proration, About Recurring Charge Proration" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('3853');expand('3843');expand('14212');highlight('3858')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="23850.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="25795.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">About Recurring Charge Proration</h4>
+<p class="bodytext">In the MetraOffer module, you have the option of <strong class="strong">prorating recurring charges</strong>.</p>
+<p class="bodytext">Proration means that if an account unsubscribes from a product offering, you charge or credit only for the portion of the billing period during which the subscriber had an active subscription.</p>
+<p class="bodytext">Proration can be set up with the following properties:</p>
+<ul class="listbullet"><li class="listbullet"><strong class="strong">Activation</strong><br />The recurring charge for the first billing period will be prorated at activation time. (The subscriber will only be charged for the amount of days used in the first period.)</li><li class="listbullet"><strong class="strong">Instantaneous</strong><br />A separate prorated subscription is created for the time remaining in the current billing period. A second subscription begins on the product offering's existing subscription date. <a id="h23851" class="crossreference" title="About Instant Proration" href="23850.htm" target="_self">More Information</a><table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">Instant proration is <u class="underline">not</u> applicable to UDRCs and has no effect on UDRC behavior.</p>
+</td>
+</tr>
+
+</table>
+</li><li class="listbullet"><strong class="strong">Deactivation</strong><br />The recurring charge for the last billing period will be prorated at deactivation time. (The subscriber will only be charged for the amount of days used in last first period.)</li></ul><p class="bodytext">If proration is selected you can choose from the following:</p>
+<ul class="listbullet"><li class="listbullet"><strong class="strong">Actual</strong><br />The charge will be prorated using the actual days of the subscription period. For example, for a July 1 to 31 billing period, the actual number of days would be 31. This would be the number used in calculating the prorated amount. (The formula for calculation would be the number of days used in the period, multiplied by the normal amount of the recurring charge, divided by 31.)</li><li class="listbullet"><strong class="strong">Fixed</strong><br />The charge will be prorated using a fixed amount of days for a subscription period, regardless of the actual number of days. This amount will always be 30 for a monthly period, 15 for semi-monthly periods, and 90 for quarterly (for daily, weekly, bi-weekly, and annually, specifying &quot;Fixed&quot; or &quot;Actual&quot; will have no effect). (For example, for a July 1 to 31 billing period, for instance, the formula for calculation would be the number of days used in the period, multiplied by the normal amount of the recurring charge, divided by 30.)</li></ul><p class="bodytext">All proration calculations are done with <em class="emphasis">rounded figures</em> derived from the calculation of the daily cost of subscription<em class="emphasis">.</em> In other words, the rounding of the daily amount is done<em class="emphasis"> first</em>, prior to any other calculation. This rounding can have an effect on the final figure of a prorated charge. (This is necessary because, in order to make things transparent for the customer, the rounded daily prorated charge is specified on the bill.)</p>
+<p class="bodytext">Also note that the amount of a credit is arrived at by taking the days <em class="emphasis">remaining</em> in a recurring charge period and multiplying them by this daily figure. Due to the process of rounding, this may result in a credit that is slightly different than what would be arrived at by calculating based on the number of days <em class="emphasis">used</em> in a recurring charge period.</p>
+<p class="bodytext">When a recurring charge is set to charge in advance, even though a recurring charge is not prorated, it is still possible for a user to be refunded charges upon unsubscription. If a recurring charge cycle is smaller than a subscriber's billing cycle, then the subscriber will be refunded for recurring charges during which the subscription was not active.</p>
+<table class="relatedtopics belowtopictext" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "454">
+<p class="relatedheading">In This Section</p><p class="relateditem"><a href="23850.htm" target="_self">About Instant Proration</a></p></td>
+</tr>
+</table>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

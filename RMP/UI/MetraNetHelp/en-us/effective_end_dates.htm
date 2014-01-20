@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Payer End Date Business Rules </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Effective Dates, Payer End Date Business Rules" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('12473');expand('12462');expand('14620');expand('13616');highlight('12475')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="12477.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="23875.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<p class="heading6">Payer End Date Business Rules</p>
+<p class="bodytext">MetraNet does not allow gaps when dealing with effective dates; all accounts must have a payer from the time they are created on.</p>
+<p class="bodytext">For example, let's look at a simple Payment History screen:</p>
+<p class="bodytext"><img src="13019.gif" alt="" height="137px" width="333px" vspace="0" hspace="0" align="bottom" border="0" />_</p>
+<p class="bodytext">This screen indicates that Ralf paid for himself on 5/30/2002 (most likely when the account was created), and then Christine pays from 5/31/2002 on (the infinity symbol indicates that there is no end date; in some screens, the system represents this as some date far in the future).</p>
+<p class="bodytext">If you attempt to change Ralf's Payment History by choosing a different payer for some time period that would create a gap, the system will adjust on its own. Let's look at an example.</p>
+<p class="subheading">Example</p>
+<p class="bodytext">You can adjust Payer information from either the <a id="h12699" class="jumptemplate" title="Account Summary" href="GenericAccountSummary.hlp.htm" target="_self">Account Information</a>, Pay For Accounts, or <a id="h13010" class="jumptemplate" title="Payment Methods" href="CreditCardList.hlp.htm" target="_self">Payer History</a> screen. If you want to add an account as a payer, you can do it in either of the following ways:</p>
+<ul class="listbullet"><li class="listbullet">Select the <em class="emphasis">payer</em> account, then click <strong class="strong">Pay for Accounts </strong>from the Account menu, and add the account to pay for, or</li><li class="listbullet">Select the <em class="emphasis">payee</em> account, then click <strong class="strong">Edit Payers</strong>, and add the payer account. (You could also go to the <strong class="strong">Account Information </strong>screen and add a payer there).</li></ul><p class="bodytext">For example, let's say you want to set Dave Blair as the payer for Ralf's account from 6/5/2002 until 6/4/2003.</p>
+<p class="bodytext">You could either select Ralf's account, then add Dave Blair as the <em class="emphasis">payer</em>, or select Dave Blair's account, and add Ralf as the <em class="emphasis">payee</em>. Since these are equivalent, we'll illustrate adding Ralf's account to the list of Account's Dave Blair pays for:</p>
+<ol class="listnumber"><li class="listnumber">Select Dave Blair's account, either by searching for it or selecting from the Hierarchy Tree view.</li><li class="listnumber">Click <strong class="strong">Pay for Accounts</strong>. You would now see the <strong class="strong">Add Accounts for Payment</strong> screen.</li><li class="listnumber">From this screen, add Ralf's account to the list and fill in the effective date fields as shown below:</li><li class="listnumber">Click <strong class="strong">OK</strong>, then look at Ralf's Payment History screen. You'll see the following:</li></ol><p class="bodytext"><img src="13021.gif" alt="" height="172px" width="333px" vspace="0" hspace="0" align="bottom" border="0" />_</p>
+<p class="bodytext">Even though you did not specify who would pay for Ralf after 6/4/2003, the system has filled in the gap that would have occurred after 6/4/2003, by reverting to the previous payer&#8212;in this case Christine&#8212;after Dave Blair's duration as payer ends.</p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

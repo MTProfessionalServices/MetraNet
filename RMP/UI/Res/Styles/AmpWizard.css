@@ -1,0 +1,112 @@
+﻿/*Padding in between radio buttons and their text for IE10 and Chrome*/
+input[type=radio] {
+    margin-right: .25em;
+}
+ 
+/* css for Viewing the Description in the GeneralInformaion page */
+table.GeneralInformationViewDescription {
+  width: 410;
+}
+td.GeneralInformationViewDescriptionCol1 {
+  width: 118;
+  text-align: right;
+  vertical-align: top;
+}
+td.GeneralInformationViewDescriptionCol2 
+{
+  text-align: left;
+  padding-left: 10;
+  vertical-align: top;
+}
+
+/*css for Viewing the Filters in the AccountQualification page*/
+table.AccountQualificationViewIncludeFilter {
+  width: 410;
+}
+td.AccountQualificationViewIncludeFilterCol1 {
+  width: 118;
+  text-align: right;
+  vertical-align: top;
+}
+td.AccountQualificationViewIncludeFilterCol2 
+{
+  text-align: left;
+  padding-left: 10;
+  vertical-align: top;
+}
+table.AccountQualificationViewFilter {
+  width: 410;
+}
+td.AccountQualificationViewFilterCol1 {
+  width: 118;
+  text-align: right;
+  vertical-align: top;
+}
+td.AccountQualificationViewFilterCol2 
+{
+  text-align: left;
+  padding-left: 10;
+  vertical-align: top;
+}
+
+/*css for Viewing the Description in the EditAccountGroup page*/
+table.EditAccountGroupViewDescription {
+  width: 410;
+}
+td.EditAccountGroupViewDescriptionCol1 {
+  width: 118;
+  text-align: right;
+  vertical-align: top;
+}
+td.EditAccountGroupViewDescriptionCol2 
+{
+  text-align: left;
+  padding-left: 10;
+  vertical-align: top;
+}
+
+/*css for Viewing the Description in the ChargeCreditProductView page*/
+table.ChargeCreditProductViewViewDescription {
+  width: 410;
+}
+td.ChargeCreditProductViewViewDescriptionCol1 {
+  width: 118;
+  text-align: right;
+  vertical-align: top;
+}
+td.ChargeCreditProductViewViewDescriptionCol2 
+{
+  text-align: left;
+  padding-left: 10;
+  vertical-align: top;
+}
+
+/*css for Viewing the Description and Filter in the UsageQualification page*/
+table.UsageQualificationViewDescription {
+  width: 410;
+}
+td.UsageQualificationViewDescriptionCol1 {
+  width: 118;
+  text-align: right;
+  vertical-align: top;
+}
+td.UsageQualificationViewDescriptionCol2 
+{
+  text-align: left;
+  padding-left: 10;
+  vertical-align: top;
+}
+table.UsageQualificationViewFilter {
+  width: 410;
+}
+td.UsageQualificationViewFilterCol1 {
+  width: 118;
+  text-align: right;
+  vertical-align: top;
+}
+td.UsageQualificationViewFilterCol2 
+{
+  text-align: left;
+  padding-left: 10;
+  vertical-align: top;
+}

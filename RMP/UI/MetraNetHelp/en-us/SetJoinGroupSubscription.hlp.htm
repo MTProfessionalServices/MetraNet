@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> About Changing Group Subscription Effective Dates </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="About Changing Group Subscription Effective Dates" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('12393');expand('12401');expand('12550');expand('13616');highlight('7595')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="16515.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="about_group_subscription_billing_cycles.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<p class="heading6">About Changing Group Subscription Effective Dates</p>
+<p class="bodytext">When you change a Group Susbscription's Effective Dates, keep in mind that MetraNet ensures that only the subscriber accounts whose membership dates intersect the group subscription's currently effective start and end date configuration receive the group subscription's rates during metering.</p>
+<p class="bodytext"><img src="changegroupeffdate.gif" alt="" height="184" width="710" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<p class="bodytext">MetraNet meters subscriber account usage and applies rates based on the current version &nbsp;of the subscription's configuration including the subscription's current effective start&nbsp;and end dates. </p>
+<p class="bodytext">Changing an existing group subscription's effective start or end date will trim any portion of an existing subscribed account's participation if it does not intersect the group subscription's new configuration. A change deletes an existing subscribed account's participation entirely if no portion of it intersects the group subscription's new configuration. However, MetraNet's database retains previous versions of the group subscription's configuration. <br /><br />In the above example, the New (Current) Subscription Configuration trims both Member Account 2's and Member Account 3's subscription membership and deletes both Member Account 1's and Member Account 4's participation entirely. The CSR does not see Member Account 1 or Member Account 4 as being a member in the Group Subscription when viewing the hierarchy and usage by those two accounts does not qualify for the group subscription rates.</p>
+<p class="subheading">Backdating </p>
+<p class="bodytext">If you backdate an existing group subscription's configuration after existing subscribed member accounts have accumulated unbilled usage charges, you must roll those already-metered transactions back and remeter them under the (backdated) current group subscription configuration.</p>
+<p class="bodytext">If you backdate an existing group subscription's effective start or end date after existing subscribed member accounts have been billed, the already-sent invoices and system balances may be incorrect.</p>
+<p class="subheading">Future dating</p>
+<p class="bodytext">If an existing member account's subscription and the group subscription's current effective end date are identical, and then you move the end date out, MetraNet does not automatically move the member account's end date to match the changed subscription end date. CSR's need to review each existing member account and manually change each account's subscription end dates accordingly.</p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

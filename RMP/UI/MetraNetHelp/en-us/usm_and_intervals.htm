@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> About USM and Intervals </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="About USM and Intervals" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('4637');expand('4626');expand('13614');highlight('4642')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="4619.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="about_eop_processing.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">About USM and Intervals</h4>
+<p class="bodytext">The first task of a full run of usage server maintenance is to check which intervals need to be opened to receive usage data, and which ones need to be placed in a soft-closed state.</p>
+<p class="bodytext">A USM run <em class="emphasis"><em class="emphasis">creates</em></em> an interval a number of days before the interval is available to receive usage data.</p>
+<p class="bodytext">A USM run <em class="emphasis"><em class="emphasis">soft closes </em></em>an interval a number of days (<em class="emphasis"><em class="emphasis">set in the MetraControl module</em></em>) after the interval&#8217;s last day (the period between the last day of the interval and its soft close is the interval&#8217;s <em class="emphasis"><em class="emphasis">grace period</em></em>).</p>
+<p class="bodytext">When in a soft-closed state:</p>
+<ul class="listbullet"><li class="listbullet"><strong class="strong">The interval is marked for an adapter run</strong>: USM will initiate end-of-period adapters on the interval.</li><li class="listbullet"><strong class="strong">The interval can no longer receive usage transactions</strong>: During the grace period between the last day of the interval and the interval&#8217;s soft close, usage information can still arrive and apply to the closed interval, provided that the timestamp for the subscriber's usage falls within the period&#8217;s effective dates. However, after soft close, if usage information arrives with a timestamp falling in an interval that has soft-closed, then <em class="emphasis"><em class="emphasis">the usage record will be assigned to the </em></em>account's<em class="emphasis"><em class="emphasis"> next open interval</em></em>.</li></ul><p class="bodytext">Because you can have many different billing cycles in the MetraNet platform, intervals can vary greatly in times and lengths. Therefore, on any given day, USM could open and perform soft close a number of different intervals.</p>
+<p class="bodytext">If for some reason USM does not run, usage may arrive in the system without an interval to put it in. This will appear as a failed transaction. For more information, see <em class="emphasis">Failed and Suspended Transactions</em>. Of course, delays in soft close also cause delays in MetraPay transactions and bill invoice generation.</p>
+<p class="bodytext">You can:</p>
+<ul class="listbullet"><li class="listbullet"><strong class="strong">View the intervals presently in soft close</strong> by clicking into the following page in the MetraControl module: Interval Management » All</li><li class="listbullet"><strong class="strong">View and change a specific interval's state or its end-of-period </strong>adapter<strong class="strong"> processes</strong> by clicking into: Interval Management » [All, Expired, Active/Open, or Hard Closed Intervals] » [Interval ID]</li><li class="listbullet"><strong class="strong">Configure what processes run automatically during usage server maintenance</strong> by clicking into: Usage Server Maintenance » Configuration</li></ul>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

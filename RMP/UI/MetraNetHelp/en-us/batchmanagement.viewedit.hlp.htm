@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Batch Management View/Edit </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Batch Management View/Edit" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('4619');expand('13614');highlight('4621')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="about_batches.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="batchmanagement.list.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h3 class="heading3">Batch Management View/Edit</h3>
+<p class="caption">Batch Management<em class="emphasis"> </em><img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" /><em class="emphasis"> </em>[All/Completed/Active/Failed, etc.] <img src="19886.png" alt="mcontrol-batch" height="16" width="16" vspace="0" hspace="0" align="bottom" border="0" /> Batches<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" /> [Batch]</p>
+<p class="bodytext">In this screen, you can:</p>
+<ul class="listbullet"><li class="listbullet">View all the details of a particular batch</li><li class="listbullet">View statistics</li><li class="listbullet">Back out a batch from the system.</li><li class="listbullet">Change a batch's status</li></ul><p class="bodytext">Backing out a batch removes it from subscribers' product views and bills. After correcting any problems (such as entering correct rates in MetraOffer ), You could then resubmit the batch. Alternatively, you can give a batch a dismissed status (which deletes it from MetraNet.) </p>
+<p class="bodytext">Batches can have one of the following statuses:</p>
+<table class="tableintopic" width="576" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #D8D8D8">
+<tr align="left" valign="top">
+<th bgcolor="#105AA8" style="border:1px solid #D8D8D8;" width="96"><p class="tableheading">Batch Status</p>
+</th>
+<th bgcolor="#105AA8" style="border:1px solid #D8D8D8;" width="480"><p class="tableheading">Description</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="96"><p class="tabletext">Active</p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="480"><p class="tabletext">The batch has not yet reached its expected number of transactions. (Or an operator has assigned the batch an active status.)</p>
+<p class="tabletext">This does not necessarily mean that the batch is still successfully receiving transactions from MetraConnect. For more information, <a id="h4919" class="" title="About Batches" href="about_batches.htm" target="_self">About Batches</a>.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="96"><p class="tabletext">Completed</p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="480"><p class="tabletext">The batch reached its expected number of transactions. (Or, an operator has manually assigned the batch a Completed status.)</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="96"><p class="tabletext">Failed</p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="480"><p class="tabletext">The batch has exceeded its expected number of transactions. (Or, an operator has manually assigned the batch a Failed status.)</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #D8D8D8;" width="96"><p class="tabletext">Dismissed</p>
+</td>
+<td style="border:1px solid #D8D8D8;" width="480"><p class="tabletext">An operator has manually assigned the batch a dismissed status, which deletes the batch's transactions from MetraNet. Only a record of the batch will remain.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext">For purposes of maintaining your own organization's information about a batch, you can manually assign it a Completed or Failed status, using the command buttons: <strong class="strong">Mark as Completed </strong>or <strong class="strong">Mark as Failed</strong>.</p>
+<p class="note">Completed or Failed batch statuses <em class="emphasis">have no bearing on MetraNet processing</em>. In most cases, a Failed batch will have any number of transactions successfully processed and in the product view. Only <em class="emphasis">backing out</em> these batch will remove the metered transactions from the product views.</p>
+<p class="note">Also note that a batch can have a Completed status and still have any number of Failed Transactions residing in the MetraNet error queue.</p>
+<p class="bodytext">To back out a batch:</p>
+<ul class="listbullet"><li class="listbullet">Mark a batch as <strong class="strong">Failed</strong>, click <strong class="strong">Backout</strong>, enter a comment, and click <strong class="strong">OK</strong>.</li></ul><p class="bodytext">To dismiss a batch:</p>
+<ul class="listbullet"><li class="listbullet">Click <strong class="strong">Dismiss</strong>, enter a comment, and click <strong class="strong">OK</strong>.</li></ul><p class="bodytext">To view batch statistics:</p>
+<ul class="listbullet"><li class="listbullet">Click <strong class="strong">View Statistics </strong>to open a window and select one of the nodes: <strong class="strong">Failure Summary,</strong> <strong class="strong">Failed Summary by Status</strong>,<strong class="strong"> Paying Account Summary</strong>, or <strong class="strong">Product View Summary</strong>.<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">The details of your statistical reports may vary, depending on the configuration of database queries on your system.</p>
+</td>
+</tr>
+
+</table>
+</li></ul><p class="subheading">Page Details</p>
+<p class="bodytext">The following table details the batch management read-only fields.</p>
+<table class="tableintopic" width="570" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #BFBFBF">
+<tr align="left" valign="top">
+<th style="border:1px solid #BFBFBF;" width="108"><p class="tableheading">Field</p>
+</th>
+<th style="border:1px solid #BFBFBF;" width="462"><p class="tableheading">Description</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="108"><p class="tabletext">Name</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="462"><p class="tabletext">The name of the batch (determined by the MetraConnect configuration).</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="108"><p class="tabletext">Namespace</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="462"><p class="tabletext">The namespace for the batch (determined by the MetraConnect configuration).</p>
+<p class="tabletext">This field has no relationship with MetraNet namespaces.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="108"><p class="tabletext">Sequence</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="462"><p class="tabletext">The sequence for the batch (determined by the MetraConnect configuration. This number, plus the namespace and name, make up the unique ID for the batch.)</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="108"><p class="tabletext">Source</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="462"><p class="tabletext">The source for the batch (determined by the MetraConnect configuration).</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="108"><p class="tabletext">Created</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="462"><p class="tabletext">The date and time that the batch was metered into MetraNet.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="108"><p class="tabletext">First Transaction</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="462"><p class="tabletext">The date/time of the usage creating the first transaction in the batch.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="108"><p class="tabletext">Most Recent Transaction</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="462"><p class="tabletext">The date/time of the usage creating the most recent transaction in the batch.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="108"><p class="tabletext">Internal Batch ID</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="462"><p class="tabletext">The unique ID assigned by MetraNet to the batch.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="108"><p class="tabletext">Status</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="462"><p class="tabletext">The status of the batch, can be Active, Completed, Failed, Backed Out, or Dismissed (see above).</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="108"><p class="tabletext">Completed</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="462"><p class="tabletext">The number of transactions that were metered to MetraNet (including failed transactions).</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="108"><p class="tabletext">Failed</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="462"><p class="tabletext">The number of transactions in the batch that failed in the pipeline (will appear in <em class="emphasis">Failed Transactions-- Failed Transactions &gt; Open</em>).</p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Batch History</p>
+<p class="bodytext">This section lists records of actions associated with the batch.</p>
+<table class="tableintopic" width="570" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<th style="border:1px solid #C0C0C0;" width="121"><p class="tableheading">Field</p>
+</th>
+<th style="border-right:1px solid #C0C0C0;border-top:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="449"><p class="tableheading">Description</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="121"><p class="tabletext">Time</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="449"><p class="tabletext">The time that the event occurred.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="121"><p class="tabletext">EventName</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="449"><p class="tabletext">The name of the batch event (for instance &quot;Batch Created&quot;).</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="121"><p class="tabletext">Details</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="449"><p class="tabletext">Any details regarding the event.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="121"><p class="tabletext">User</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="449"><p class="tabletext">The user who initiated the event.</p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Batch Backout/Rerun List</p>
+<p class="bodytext">This section lists the details regarding Backouts/Reruns performed on the batch.</p>
+<table class="tableintopic" width="570" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<th style="border:1px solid #C0C0C0;" width="122"><p class="tableheading">Field</p>
+</th>
+<th style="border-right:1px solid #C0C0C0;border-top:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="448"><p class="tableheading">Description</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="122"><p class="tabletext">Rerun ID</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="448"><p class="tabletext">MetraNet's Unique ID for the rerun of the batch.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="122"><p class="tabletext">Time</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="448"><p class="tabletext">The time that the rerun occurred.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="122"><p class="tabletext">Last Action</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="448"><p class="tabletext">The last action that occurred for the rerun (Backout or Rerun).</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="122"><p class="tabletext">User</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="448"><p class="tabletext">The user who initiated the last action.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="122"><p class="tabletext">Details</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="448"><p class="tabletext">Any details entered by the user during the last action.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

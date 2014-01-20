@@ -46,7 +46,7 @@
         <Operation>SelectAllReportInstanceSchedules__Client</Operation>
     </DataBinder>
     <SubGrid></SubGrid>
-    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
+    <CustomOverrideJavascriptIncludes>/MetraNet/DataExportReportManagement/ManageReportInstanceSchedules.aspx</CustomOverrideJavascriptIncludes>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>

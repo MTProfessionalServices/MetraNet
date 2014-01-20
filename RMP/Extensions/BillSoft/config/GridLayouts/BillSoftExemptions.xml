@@ -9,7 +9,7 @@
     <Height>400</Height>
     <Width>720</Width>
     <Expandable>true</Expandable>
-    <Buttons>NONE</Buttons>
+    <Buttons>None</Buttons>
     <DataSourceURL>AjaxServices/LoadBillSoftExemptions.aspx</DataSourceURL>
     <MultiSelect>false</MultiSelect>
     <SelectionModel>Standard</SelectionModel>
@@ -47,6 +47,7 @@
         <Operation>__Client</Operation>
     </DataBinder>
     <SubGrid></SubGrid>
+    <CustomOverrideJavascriptIncludes>/MetraNet/Tax/BillSoftExemptions.aspx</CustomOverrideJavascriptIncludes>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
@@ -94,8 +95,8 @@
             <DataIndex>ApplyToAccountAndDescendents</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_APPLY_TO_ACCOUNT_DESCENDENTS</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_APPLY_TO_ACCOUNT_DESCENDENTS</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -130,8 +131,8 @@
             <DataIndex>CertificateId</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_CERTIFICATE_ID</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_CERTIFICATE_ID</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -166,8 +167,8 @@
             <DataIndex>EndDate</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_END_DATE</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_END_DATE</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -202,8 +203,8 @@
             <DataIndex>CreateDate</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_CREATE_DATE</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_CREATE_DATE</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -238,8 +239,8 @@
             <DataIndex>PermanentLocationCode</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_PERMANENT_LOCATION_CODE</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_PERMANENT_LOCATION_CODE</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -274,8 +275,8 @@
             <DataIndex>StartDate</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_START_DATE</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_START_DATE</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -318,8 +319,8 @@
             <DataIndex>TaxLevel</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_TAX_LEVEL</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_TAX_LEVEL</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -354,8 +355,8 @@
             <DataIndex>TaxType</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_TAX_TYPE</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_TAX_TYPE</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -390,8 +391,8 @@
             <DataIndex>UniqueId</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_UNIQUE_ID</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_UNIQUE_ID</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -426,8 +427,8 @@
             <DataIndex>UpdateDate</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_UPDATE_DATE</LocalizationTag>
-              <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>TEXT_UPDATE_DATE</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -453,22 +454,22 @@
             <DropdownItems></DropdownItems>
         </Element>
         <Element>
-          <RecordElement>false</RecordElement>
-          <ID>Actions</ID>
-          <DataIndex></DataIndex>
-          <IsColumn>true</IsColumn>
-          <HeaderText>
+            <RecordElement>false</RecordElement>
+            <ID>Actions</ID>
+            <DataIndex></DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
                 <LocalizationTag>TEXT_ACTIONS</LocalizationTag>
                 <ResourceClassKey>Resource</ResourceClassKey>
-          </HeaderText>
-          <Formatter>actionsColRenderer</Formatter>
-          <Width>120</Width>
-          <Resizeable>true</Resizeable>
-          <PreventSortable>false</PreventSortable>
-          <Sortable>false</Sortable>
-          <ColumnHideable>true</ColumnHideable>
-          <DefaultColumn>true</DefaultColumn>
-          <Filterable>false</Filterable>
+            </HeaderText>
+            <Formatter>actionsColRenderer</Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Filterable>false</Filterable>
         </Element>
     </Elements>
     <ExpanderTemplate>
@@ -477,42 +478,43 @@
                 <Value><![CDATA[]]></Value>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
                         <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
+                            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.ProductCatalog.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.ProductCatalog.BillSoftExemption</ObjectName>
                             <ID>AccountId</ID>
                             <Name>AccountId</Name>
                         </Field>
                         <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
+                            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.ProductCatalog.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.ProductCatalog.BillSoftExemption</ObjectName>
                             <ID>CertificateId</ID>
                             <Name>CertificateId</Name>
                         </Field>
                         <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
+                            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.ProductCatalog.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.ProductCatalog.BillSoftExemption</ObjectName>
                             <ID>CreateDate</ID>
                             <Name>CreateDate</Name>
                         </Field>
                         <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
+                            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.ProductCatalog.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.ProductCatalog.BillSoftExemption</ObjectName>
                             <ID>StartDate</ID>
                             <Name>StartDate</Name>
                         </Field>
                         <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
+                            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.ProductCatalog.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.ProductCatalog.BillSoftExemption</ObjectName>
                             <ID>TaxType</ID>
                             <Name>TaxType</Name>
                         </Field>
                         <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
+                            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.ProductCatalog.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.ProductCatalog.BillSoftExemption</ObjectName>
                             <ID>UpdateDate</ID>
                             <Name>UpdateDate</Name>
                         </Field>
@@ -521,55 +523,56 @@
                 <Column>
                     <Fields>
                         <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
+                            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.ProductCatalog.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.ProductCatalog.BillSoftExemption</ObjectName>
                             <ID>ApplyToAccountAndDescendents</ID>
                             <Name>ApplyToAccountAndDescendents</Name>
                         </Field>
                         <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
+                            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.ProductCatalog.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.ProductCatalog.BillSoftExemption</ObjectName>
                             <ID>EndDate</ID>
                             <Name>EndDate</Name>
                         </Field>
                         <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
+                            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.ProductCatalog.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.ProductCatalog.BillSoftExemption</ObjectName>
                             <ID>PermanentLocationCode</ID>
                             <Name>PermanentLocationCode</Name>
                         </Field>
                         <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
+                            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.ProductCatalog.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.ProductCatalog.BillSoftExemption</ObjectName>
                             <ID>TaxLevel</ID>
                             <Name>TaxLevel</Name>
                         </Field>
                         <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
+                            <AssemblyFilename>O:\debug\Bin\MetraTech.DomainModel.ProductCatalog.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.ProductCatalog.BillSoftExemption</ObjectName>
                             <ID>UniqueId</ID>
                             <Name>UniqueId</Name>
                         </Field>
                     </Fields>
                 </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
     </ExpanderTemplate>
     <GridButtons></GridButtons>
     <ToolbarButtons>
-      <Button>
-        <ButtonID>Create</ButtonID>
-        <ButtonText>
-          <LocalizationTag>TEXT_ADD</LocalizationTag>
-          <ResourceClassKey></ResourceClassKey>
-        </ButtonText>
-        <ToolTip>
-          <LocalizationTag>TEXT_ADD</LocalizationTag>
-          <ResourceClassKey></ResourceClassKey>
-        </ToolTip>
-        <IconClass>add</IconClass>
-        <RequiredCapabilities>BillSoftManageCapability</RequiredCapabilities>
-        <JSHandlerFunction>onAdd</JSHandlerFunction>
-      </Button>
+        <Button>
+            <ButtonID>Create</ButtonID>
+            <ButtonText>
+                <LocalizationTag>TEXT_ADD</LocalizationTag>
+                <ResourceClassKey></ResourceClassKey>
+            </ButtonText>
+            <ToolTip>
+                <LocalizationTag>TEXT_ADD</LocalizationTag>
+                <ResourceClassKey></ResourceClassKey>
+            </ToolTip>
+            <IconClass>add</IconClass>
+            <RequiredCapabilities></RequiredCapabilities>
+            <JSHandlerFunction>onAdd</JSHandlerFunction>
+        </Button>
     </ToolbarButtons>
 </GridLayout>

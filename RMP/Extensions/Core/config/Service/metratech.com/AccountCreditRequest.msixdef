@@ -114,4 +114,20 @@
         <defaultvalue></defaultvalue>
         <description>Comments entered by CSR, will appear on Invoice.</description>
     </ptype>
+    <ptype>
+        <dn>IssueCreditNote</dn>
+        <type>boolean</type>
+        <length></length>
+        <required>N</required>
+        <defaultvalue></defaultvalue>
+        <description>Should a credit note document be issued for this account credit? True = yes, False = no</description>
+    </ptype>
+    <ptype>
+        <dn>CreditNoteTemplateId</dn>
+        <type>int32</type>
+        <length></length>
+        <required>N</required>
+        <defaultvalue></defaultvalue>
+        <description>Credit note document template to use if this account credit is to appear on a credit note</description>
+    </ptype>
 </defineservice>

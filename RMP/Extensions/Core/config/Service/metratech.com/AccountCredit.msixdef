@@ -253,4 +253,12 @@
         <defaultvalue></defaultvalue>
         <description>Credit note document template to use if this account credit is to appear on a credit note</description>
     </ptype>
+    <ptype>
+        <dn>CreditNoteComment</dn>
+        <type>string</type>
+        <length>1024</length>
+        <required>N</required>
+        <defaultvalue></defaultvalue>
+        <description>Optional credit note comment when a credit note document is requested for this miscellaneous adjustment</description>
+    </ptype>
 </defineservice>

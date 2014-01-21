@@ -46,7 +46,7 @@
         <Operation>__Client</Operation>
     </DataBinder>
     <SubGrid></SubGrid>
-    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
+    <CustomOverrideJavascriptIncludes>/MetraNet/DataExportReportManagement/ManageReportInstances.aspx</CustomOverrideJavascriptIncludes>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>

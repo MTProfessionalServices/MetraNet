@@ -47,6 +47,7 @@
         <Operation>__Client</Operation>
     </DataBinder>
     <SubGrid></SubGrid>
+    <CustomOverrideJavascriptIncludes>/MetraNet/Tax/BillSoftOverrides.aspx</CustomOverrideJavascriptIncludes>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
@@ -529,7 +530,7 @@
                 <ResourceClassKey></ResourceClassKey>
             </ToolTip>
             <IconClass>add</IconClass>
-            <RequiredCapabilities>BillSoftManageCapability</RequiredCapabilities>
+            <RequiredCapabilities></RequiredCapabilities>
             <JSHandlerFunction>onAdd</JSHandlerFunction>
         </Button>
     </ToolbarButtons>

@@ -1,0 +1,80 @@
+.x-grid3-hd-row td.ux-filtered-column {   
+    font-style: italic;  
+    font-weight: bold;
+}	
+
+
+body .x-panel {
+}
+.icon-grid {
+    background-image:url(../Images/icons/grid.png) !important;
+}
+.icon-magnifier {
+    background-image:url( ../Images/icons/application_form_magnify.png ) !important;
+}
+
+#button-grid .x-panel-body {
+    border:1px solid #99bbe8;
+    border-top:0 none;
+}
+.add {
+    background-image:url(../Images/icons/add.gif) !important;
+}
+.option {
+    background-image:url(../Images/icons/plugin.gif) !important;
+}
+.remove {
+    background-image:url(../Images/icons/delete.gif) !important;
+}
+.bulkupdate {
+    background-image:url(../Images/icons/arrow_refresh.png) !important;
+}
+.edit {
+    background-image:url(../Images/icons/user_edit.png) !important;
+}
+.unsubscribe{
+	background-image:url(../Images/icons/user_delete.png) !important;
+}
+.viewrelationship{
+	background-image:url(../Images/icons/table_relationship.png) !important;
+}
+.save {
+    background-image:url(../Images/icons/save.gif) !important;
+}
+.email {
+    background-image:url(../Images/icons/email_go.png) !important;
+}
+.x-mt-checkbox-disabled {
+	height: 12px;
+	width: 14px !important;	
+	background: url('../Images/icons/disabled_checkbox.png') no-repeat !important;
+}    
+    
+.x-grid3-row-radio{
+    width:100%;
+    height:18px;
+    background-position:2px 2px;
+    background-repeat:no-repeat;
+    background-color:transparent;
+ 	  background-image:url(../Images/sprites/row-radio-sprite.gif);
+}
+.x-grid3-row .x-grid3-row-radio {
+    background-position:2px 2px;
+}
+.x-grid3-row-selected .x-grid3-row-radio{
+    background-position:-23px 2px;
+}
+
+
+.expanderSectionTitle
+{
+  /* background-color: #DFE8F6; */ /* border-bottom:1px solid #99bbe8; */
+  color: #000000;
+  font-weight: bold !important;
+  border-bottom: 1px solid #333333;
+  border-bottom-color: #C0C0C0;
+}
+.expanderFieldLabel
+{
+  text-align:right;
+}

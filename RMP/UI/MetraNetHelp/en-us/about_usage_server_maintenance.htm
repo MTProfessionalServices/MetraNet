@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> About Usage Server Maintenance </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="About Usage Server Maintenance" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('4626');expand('13614');highlight('4637')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="about_eop_processing.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="usageserver.config.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h3 class="heading3">About Usage Server Maintenance</h3>
+<p class="bodytext">Usage server maintenance (USM) is a process that usually runs daily in order to update the MetraNet database with billing interval creation and end-of-period bill processes.</p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">For USM to run, the BillingServer service must be running on a billing server. Usually, a system administrator is responsible for this.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext">Normally, the BillingServer service runs all end-of-period bill processes automatically. However, using the Usage Server Maintenance » Configuration page you can disable automatic runs of bill processing and run bill processing in two alternative ways:&nbsp;</p>
+<ul class="listbullet"><li class="listbullet">By using the USM command line tool. For more information, see the MetraNet Command Line Tools. </li><li class="listbullet">By using a scheduling tool (such as Windows Scheduler or SQL Server Agent) and using the command line tool to initiate end-of-period bill processing (this is useful if you want to schedule bill processing to happen at a time other than 12 AM).</li></ul><p class="bodytext">When a full run of usage server maintenance occurs, the system performs the following tasks:</p>
+<ul class="listbullet"><li class="listbullet">Creates new intervals.</li><li class="listbullet">If an interval is due for soft close, a full run of USM places it in a <script type="text/javascript"> popup4765 = "Soft Closed\rA billing group's state is soft closed during its end-of-period processing. During soft close, the system performs functions such as end-of-period bill calculations and the creation of subscriber invoices. An interval cannot accept additional usage transactions during soft close, even if the transaction is for usage occurring during the interval's effective period. \xA0\xA0\xA0\r"</script><a id="h4844" class="popup" title="Definition: Soft Closed" href="javascript:hhctrl.TextPopup(popup4765, 'Arial,9',10,10,10,10)">Soft Closed</a> state.</li><li class="listbullet">For intervals placed in soft close, USM initiates the first set of adapter's processing run on those intervals.</li></ul><p class="bodytext">You can:</p>
+<ul class="listbullet"><li class="listbullet"><strong class="strong">View the intervals presently in soft closed</strong> by clicking into the following page in the MetraControl module: Interval Management » All</li><li class="listbullet"><strong class="strong">View and change a specific interval's state or its end-of-period </strong>adapter<strong class="strong"> processes</strong> by clicking into: Interval Management » [All, Expired, Active/Open, or Hard Closed Intervals] » [Interval ID]</li><li class="listbullet"><strong class="strong">Configure what processes run automatically during usage server maintenance</strong> by clicking into: Usage Server Maintenance » Configuration</li></ul><table class="relatedtopics belowtopictext" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "454">
+<p class="relatedheading">In This Section</p><p class="relateditem"><a href="about_eop_processing.htm" target="_self">End-of-Period Processing</a></p><p class="relateditem"><a href="usm_and_intervals.htm" target="_self">About USM and Intervals</a></p></td>
+</tr>
+</table>
+<OBJECT id='hhctrl' type='application/x-oleobject' classid='clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11' codebase='hhctrl.ocx'><PARAM name='Command' value='HH Version' /></OBJECT>
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

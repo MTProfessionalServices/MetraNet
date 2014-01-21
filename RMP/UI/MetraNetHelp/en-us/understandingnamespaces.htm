@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Understanding Namespaces </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Understanding Namespaces" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('19903');expand('4678');expand('13614');highlight('4680')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="BEList.MachineRole.hlp.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="19903.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">Understanding Namespaces</h4>
+<p class="bodytext">A key attribute of the MetraNet platform is its ability to work with existing customer systems without requiring changes to business models or operations data. The MetraNet system uses namespaces to create and manage account mappings between customer systems and the MetraNet system. Customers do not need to change subscriber account identifiers and do not need to know MetraTech account IDs.</p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">One important aspect of this is that the MetraNet system and customers have different ways of identifying subscriber accounts. The MetraNet system assigns a unique, numeric identifier to every subscriber account. MetraNet customers have their own unique identifiers for their subscribers - identifiers that may or may not be numeric. These different identifiers need to be mapped to one another. In addition, one subscriber might have more than one identifier in the customer system. These need to roll up to a single MetraNet identifier.</p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Namespaces and Aliases</p>
+<p class="bodytext">A namespace is a domain that contains subscriber aliases. An alias is an identifier associated with a subscriber. This might be an account number, login name, telephone number, or other account identifier in the customer's system.</p>
+<p class="bodytext">The combination of a namespace and subscriber alias form a unique pair in the MetraNet environment. This unique pair is associated with a MetraNet account identifier:<strong class="strong"> namespace + alias = MetraNet account ID</strong></p>
+<p class="subheading">Namespace Types</p>
+<p class="bodytext">Namespaces have two primary purposes in the MetraNet system:</p>
+<ul class="listbullet"><li class="listbullet"><strong class="strong">Login authentication</strong>: Checks to make sure that the subscriber entered a username/password combination that is valid in this customer domain.</li><li class="listbullet"><strong class="strong">Account resolution</strong>: Maps the external subscriber information to the appropriate MetraNet account ID. This is particularly useful while metered data is processed in MetraNet. Account resolution is also referred to as record guiding.</li></ul><p class="bodytext">It is a convention in MetraNet that there are two types of name spaces corresponding to these two purposes. (The technical implementation of the two types is the same.) MetraTech categorizes namespaces as one of the following types:</p>
+<table class="tableintopic" width="414" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #BFBFBF">
+<tr align="left" valign="top">
+<th bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="114"><p class="tableheading">Namespace Type</p>
+</th>
+<th bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="300"><p class="tableheading">Description</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="114"><p class="tabletext"><strong class="strong">metered</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="300"><p class="tabletext">For pipeline metering</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="114"><p class="bodytext"><strong class="strong">system_user </strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="300"><p class="tabletext">Any MetraNet system user</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="114"><p class="tabletext"><strong class="strong">system_csr </strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="300"><p class="tabletext">For system users who are CSRs</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="114"><p class="tabletext"><strong class="strong">system_mps</strong> </p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="300"><p class="tabletext">For MetraView users</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="114"><p class="tabletext"><strong class="strong">system_ops</strong> </p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="300"><p class="tabletext">For system operators</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="114"><p class="tabletext"><strong class="strong">system_rate</strong></p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="300"><p class="tabletext">For pipeline rating.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

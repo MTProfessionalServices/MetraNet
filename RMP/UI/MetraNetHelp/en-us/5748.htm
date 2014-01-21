@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Bill Processing Example </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Bill Processing Example" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('4600');expand('4594');expand('13614');highlight('5748')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="4629.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="5050.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">Bill Processing Example</h4>
+<p class="bodytext">The following is a representative scenario of how bill processing works from the perspective of a MetraControl operator:</p>
+<p class="subheading">Creating Billing Groups</p>
+<p class="bodytext">Your configuration developer has created an assignment query that creates two billing groups based on region. Also, you bill your subscribers monthly - the 1st through the end of the month. The two billing groups consist of a set of accounts in the West, for which bill processing tends to go smoothly, and a set of accounts in the East, for which bill processing tends to go less smoothly.</p>
+<p class="bodytext">After November's billing cycle ends, the service provider's operator clicks the Create Billing Groups button for November (see #1 below). The operator assumes that all transactions for the November interval have arrived, so he soft closes the East and West billing groups as soon as they are generated.</p>
+<p class="bodytext">After soft closing each group, the groups' adapter instances begin processing automatically. Let's say the Western Accounts' billing groups process without a problem. However, there are a number of accounts in the Eastern group that have late arriving usage. To handle these, the operator creates a pull list containing these accounts (#2 below).</p>
+<p class="subheading">Using a Pull List</p>
+<p class="bodytext">Within the pull list, the operator can back out the two already-processed adapter instances and reverse their statuses from soft closed to open. This allows the accounts in the pull list to accept the late-arriving usage. (Note that these reversals are not depicted in the diagram below.)</p>
+<p class="bodytext">The Eastern and Western recurring billing groups can now continue processing. However, the Eastern group will have to stop at the Discount adapter, because the Payer Change adapter is billing group-only, meaning that all accounts in the original billing group must process simultaneously. The pull list created above will have to catch up to the main Eastern billing group, so that all of the Eastern accounts can process.</p>
+<p class="subheading">Reversing a Pull List </p>
+<p class="bodytext">After this occurs, the Eastern billing group and its pull list can continue. But there is a second problem: after the Invoice adapter runs, the operator discovers some incorrect rates for a particular aggregate rated service. The operator can place the accounts with the erroneously-rated service in another pull list. The operator can then reverse this pull list out, all the way back to the aggregate adapter, and then rerun bill processing for the pull list. (See #3 in the diagram. Again, the reversals are not depicted.) Note that in order to reverse the payer-change adapter (billing group only), the Populate MetraView adapter will have to be reversed for the newly created pull list, as well as the recurring billing group itself.</p>
+<p class="bodytext">Meanwhile, all of the other adapters in the other groups can run. But similarly to the above, all billing groups will have to stop at the Invoice adapter and wait until the second pull list catches up to the other billing groups' processing. This is because the adapter that follows is an interval only adapter, requiring that all accounts in the interval to process at once, regardless of the billing group of each account.</p>
+<p class="subheading">Using a Checkpoint</p>
+<p class="bodytext">After the interval-only adapter runs (Export to Customer CRM), there is a checkpoint. This checkpoint gives the operator a final opportunity to verify that all data is correct before emails are sent out. After the operator confirms this checkpoint, processing can continue. (See #4.)</p>
+<p class="subheading">Hard Closing the Billing Groups</p>
+<p class="bodytext">Finally, each billing group and pull list has a hard close checkpoint. (See #5.) When all of an interval's adapter instances have run for all billing groups and pull lists, and the operator has acknowledged the hard closed-checkpoint for all billing groups and pull lists. At that point, the interval's processing has completed, and none of the closed intervals' accounts can receive any further processing for the interval (except via adjustments).</p>
+<p class="bodytext"><img src="mcontrol-billprocdiagram.png" alt="mcontrol-billprocdiagram" height="736" width="646" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<p class="bodytext">Three days before the November cycle begins, the Billing Server creates the November 1-30 interval (your creation period is in its out-of-the-box setting). Throughout November, the accounts in this interval accumulate usage. The system assigns these usage transactions to the appropriate accounts.</p>
+<p class="bodytext">When December 1st arrives, the interval expires. However, more usage keeps coming in, so the operator chooses not to initiate processing on the interval for a few days.</p>
+<p class="bodytext">By December 4, the operator has corrected all of the failed transactions contained in the interval's batches. And judging that all usage has arrived, the operator begins the interval's bill processing. In the Manage Interval page, he clicks the Create Billing Groups button.  North America, Europe, and Asia billing groups appear.</p>
+<p class="bodytext">At this point, the interval can still receive usage data. However, judging that no more usage will arrive, the operator begins soft closing the three groups. The groups' adapters begin to process accounts.</p>
+<p class="bodytext">However, during processing a substantial amount of stray usage arrives for the European accounts. Assuming there were no interval-only adapters blocking processing, the operator could go ahead and produce invoices for North America and Asia, so those customers get their bills. Europe's processing could be saved for later.</p>
+<p class="bodytext">Or, if it is important that European accounts get their invoices soon, the operator could create a pull list for the accounts that have incomplete usage and save them for later. The rest of the European group could then process and get their invoices.</p>
+<p class="bodytext"></p>
+<p class="image"></p>
+<p class="bodytext"></p>
+<p class="bodytext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

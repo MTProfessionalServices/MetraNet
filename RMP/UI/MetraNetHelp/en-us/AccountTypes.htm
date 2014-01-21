@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Using Account Types </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Account Types, Accounts	Account Types, Using Account Types" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('12378');expand('12550');expand('13616');highlight('12377')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="about_corporate_accounts.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="ApplyTemplate.hlp_1.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">Using Account Types</h4>
+<p class="bodytext">An account type describes the types of properties that are shared by all accounts of this type. Account types also describe some aspects of an account's behavior.</p>
+<p class="bodytext">MetraNet account types are extremely flexible. You can model almost anything you want with account types: corporate hierarchies, departments, regions, employees, and even devices. Examples of what data an account type will contain, as determined by its account type, could be bill-to and ship-to information, first name, last name, address, phone, fax, etc. Examples of behaviors determined by its account type could include whether it can accept descendant accounts or service accounts, whether it will have its own billing cycle, and whether it can pay for other accounts (see the table below for a full list of account type-determined behaviors).</p>
+<p class="bodytext">The MetraNet software provides the following predefined account types:</p>
+<ul class="listbullet"><li class="listbullet"><strong class="strong">SystemAccount</strong></li><li class="listbullet"><strong class="strong">CoreSubscriber</strong></li><li class="listbullet"><strong class="strong">Independent</strong></li><li class="listbullet"><strong class="strong">Department</strong></li><li class="listbullet"><strong class="strong">Corporate</strong></li></ul><p class="bodytext">These account types can be considered templates from which you can create and customize your own account types. </p>
+<table class="tableintopic" width="576" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="42"><p class="bodytext"><img src="critical.gif" alt="critical" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="534"><p class="note"><strong class="strong">Root Account</strong></p>
+<p class="note">This is an internal account that represents the root of the account hierarchy. Only one root account can exist. Do not customize.</p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Non-User (&quot;Service&quot; or &quot;Device&quot;) Accounts</p>
+<p class="note">Account types can also represent any device or element delivering a service to a subscriber, such as a cell phone, cable or set-top box, satellite dish, or IP address. (They are sometimes referred to as service accounts or device accounts.) Such non-user account types typically do not appear on the hierarchy (that is, their synthetic root  property is set to true), they are not payers, and do not participate in subscriptions. User account types can be associated with none, one, or more such non-user accounts. For example, a broadband subscriber account type might be associated with a cable router device and a leased IP address (both represented by account types with their own recurring charges)</p>
+<p class="bodytext"></p>
+<table class="relatedtopics belowtopictext" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "454">
+<p class="relatedheading">In This Section</p><p class="relateditem"><a href="about_corporate_accounts.htm" target="_self">About Corporate Accounts</a></p><p class="relateditem"><a href="about_folders.htm" target="_self">About Department Accounts</a></p><p class="relateditem"><a href="about_accounts_(subscriber).htm" target="_self">About Subscriber Accounts</a></p><p class="relateditem"><a href="about_accounts_(independent).htm" target="_self">About Independent Accounts</a></p><p class="relateditem"><a href="about_service_accounts.htm" target="_self">About Service Accounts</a></p></td>
+</tr>
+</table>
+
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

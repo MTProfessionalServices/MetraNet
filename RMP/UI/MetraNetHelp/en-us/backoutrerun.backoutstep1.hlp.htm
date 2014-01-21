@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Create Backout/Rerun </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Create Backout/Rerun" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('4645');expand('13614');highlight('4646')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="backoutrerun.backoutstep1.5sql.hlp.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="4645.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h3 class="heading3">Create Backout/Rerun</h3>
+<p class="caption">Backout Management<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" /><img src="19887.png" alt="mcontrol-backout" height="16" width="16" vspace="0" hspace="0" align="bottom" border="0" /> Create Backout/Rerun</p>
+<p class="bodytext">This page allows you to create new backouts and reruns.</p>
+<p class="note">If you want to rerun transactions after correcting rates, subscriptions, or other transaction-associated metadata, <em class="emphasis">be sure to make the correction prior to running a backout</em>. This is because the MetraControl application handles backout and resubmit as one activity.</p>
+<p class="bodytext">To create a new rerun:</p>
+<ol class="listnumber"><li class="listnumber">Enter the description for the rerun you want to create.</li><li class="listnumber">Choose the criteria you will use to back out your transactions (see table below).</li><li class="listnumber">Enter the terms to use to identify your transactions (see below).</li><li class="listnumber">Click <strong class="strong">Identify and Analyze</strong> to identify which transactions to back out.</li><li class="listnumber">In the next page, confirm from the Identify results that you want to back out the identified transactions by clicking one of the following:<ul class="listbullet2"><li class="listbullet2">Resubmit These Records: This option will roll back and have the pipeline reprocess the transactions you identified. If you made a change to any metadata (such as a rate change), the pipeline will process the transactions using your new metadata.</li><li class="listbullet2">Delete These Records: This option will delete the transactions you identified.</li><li class="listbullet2">Abandon This Backout and Start Over: This option will abandon your backout. Use this option if you detect a problem and do not want to take any action on your identified transactions.</li></ul></li><li class="listnumber">The next page will show the transaction backout results. Click <strong class="strong">Done</strong>.</li><li class="listnumber">On this page, you can begin your backout by specifying &quot;how will you identify the transactions to be rerun&quot;:<table class="tableintopic" width="582" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<th style="border:1px solid #C0C0C0;" width="132"><p class="tableheading">Option</p>
+</th>
+<th style="border-right:1px solid #C0C0C0;border-top:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="450"><p class="tableheading">Description</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="132"><p class="tabletext">I know the Session ID(s)</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="450"><p class="tabletext">With this option, you can select transactions to back out by entering the transactions' specific Session ID(s). (For instance, wKgB2eQEaKfQV2h2ks87fw==). You can separate your entries with commas, spaces, or carriage returns.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="132"><p class="tabletext">I will create a user defined filter based on selected criteria.</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="450"><p class="tabletext">You can select transactions to back out by specifying criteria. You can use the following criteria (in any combination):</p>
+<ul class="tablelistbullet"><li class="tablelistbullet">Timestamp: You can specify the dates and times between which the transaction occurred (for instance, 09/01/2003 12:00:00 AM).<p class="tabletext">If a transaction is failed, it will have no product view properties, therefore the filter will not retrieve it.</p>
+</li><li class="tablelistbullet">Batch ID: The transaction batch's <em class="emphasis">Internal Batch ID </em>(For instance, KgBb3/oHXPhbNauE7Pccw==). You can find the batch's internal ID in the Batch's Batch Management Details page.</li><li class="tablelistbullet">Interval ID: The transaction's interval ID. (This will be an integer, for instance &quot;1004&quot;). You can find this value in the Interval Management page.<p class="tabletext">You can also filter transactions using one or more: </p>
+</li><li class="tablelistbullet">Product View Properties: You can specify a value that appears in a field in the transaction's product view. Click the Add Product View Property to add a term to use for transaction identification (for instance, Call Duration). Choose from the drop-down menu that appears and enter a value you want to use as a filter. You can filter using multiple properties by clicking this button multiple times.</li><li class="tablelistbullet">Service Definition Properties: You can specify a value that appears in a field in the transaction's service definition. Click the Add Service Definition Property to add a term to use for transaction identification. (For instance, Conference ID.)Choose from the drop-down menu that appears and enter a value you want to use as a filter. You can filter using multiple properties by clicking this button multiple times.</li><li class="tablelistbullet">Account Properties: Click the Add Account Property to add a term to use for transaction identification (for instance, Account Zip Code). Choose from the drop-down menu that appears and enter a value you want to use as a filter. You can filter using multiple properties by clicking this button multiple times.</li></ul></td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="132"><p class="tabletext">I will use SQL directly to identify the records to be backed out.</p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" width="450"><p class="tabletext">This option is for advanced users and allows you to specify your backout criteria directly, using SQL Server Query Analyzer (you must have login access to SQL Server in order to use this feature).</p>
+</td>
+</tr>
+
+</table>
+</li></ol><p class="bodytext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

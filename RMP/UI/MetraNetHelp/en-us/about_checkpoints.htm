@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Processing Checkpoints </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Processing Checkpoints" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('4605');expand('4600');expand('4594');expand('13614');highlight('4612')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="common_adapter_run_failure_cases.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="about_dependencies.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h5 class="heading5">Processing Checkpoints</h5>
+<p class="bodytext">Checkpoints come into play when you process a billing group. They are scheduled pauses that have been configured between adapters that run within billing groups at <script type="text/javascript"> popup4765 = "Soft Closed\rA billing group's state is soft closed during its end-of-period processing. During soft close, the system performs functions such as end-of-period bill calculations and the creation of subscriber invoices. An interval cannot accept additional usage transactions during soft close, even if the transaction is for usage occurring during the interval's effective period. \xA0\xA0\xA0\r"</script><a id="h4844" class="popup" title="Definition: Soft Closed" href="javascript:hhctrl.TextPopup(popup4765, 'Arial,9',10,10,10,10)">soft close</a>. Checkpoints allow you to confirm that the correct data was processed by specific sets of adapters before other adapters run.</p>
+<p class="bodytext">See <a id="h20568" class="crossreference" title="Manage Intervals" href="billinggroups.list.hlp.htm" target="_self">Managing Intervals</a></p>
+<p class="bodytext">For instance, a configuration developer might insert a checkpoint before an invoice adapter, allowing an operator to check processed data before the system makes invoice data available to subscribers.</p>
+<p class="bodytext">At the completion of a run of a set of adapters, the operator must confirm the set's <em class="emphasis">processing checkpoint </em>(if one comes after it) before a given billing group's end-of-period processing can continue.</p>
+<p class="note">Checkpoints do not have to be confirmed on the same day that USM runs them. You can leave them unconfirmed until you have resolved problems or have finished examining processed data (providing there is no pressing reason to conclude the billing group's processing right away).</p>
+<p class="bodytext">Checkpoints facilitate correct and efficient EOP processing in the following ways:</p>
+<ul class="listbullet"><li class="listbullet"><strong class="strong">Easy reversal of erroneous processing</strong><br />You can save time and resources by having only a small numbers of adapters run at a time<em class="emphasis">, </em>then inserting a checkpoint. This way you can verify processed data before performing further processing a large amount of data (instead of running a large number of processes that might<em class="emphasis"> all </em>need to be reversed).</li><li class="listbullet"><strong class="strong">Data verification before invoice generation and transactions</strong><br />As you finalize EOP processing, some processes are difficult to reverse. Before committing to any of these processes, an adapter checkpoint can allow you to verify the data that the hard-to-reverse adapter will use.</li></ul><p class="subheading">Example</p>
+<p class="bodytext">Say that you wanted to check on all processed end-of-period billing data prior to creating customer invoices. You might arrange all the bill processing adapters in the expected way: discount adapters depending on recurring charge, non-recurring charge, and aggregate charge adapters. Then you might enter a checkpoint that depends on all of these adapters. You would then make the invoice adapter dependent on this checkpoint. The system would then pause prior to running the invoice adapter, giving you the opportunity check the adapter&#8217;s data prior to making the invoices available to subscribers.</p>
+<OBJECT id='hhctrl' type='application/x-oleobject' classid='clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11' codebase='hhctrl.ocx'><PARAM name='Command' value='HH Version' /></OBJECT>
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

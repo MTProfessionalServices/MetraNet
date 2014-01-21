@@ -1,0 +1,31 @@
+.xmlverb-default          { color: #333333; background-color: #f0f0f0;
+                            /*font-family: monospace;*/ font-size:14px; }
+.xmlverb-element-name     { color: #990000 }
+.xmlverb-element-nsprefix { color: #666600 }
+.xmlverb-attr-name        { color: #660000 }
+.xmlverb-attr-content     { color: #000099; }
+.xmlverb-ns-name          { color: #666600 }
+.xmlverb-ns-uri           { color: #330099 }
+.xmlverb-text             { color: #000000; font-weight: bold;}
+.xmlverb-comment          { color: #006600; font-style: italic }
+.xmlverb-pi-name          { color: #006600; font-style: italic }
+.xmlverb-pi-content       { color: #006666; font-style: italic }
+
+/*Options To Deemphasize The Namespace and Attributes*/
+.xml-deemphasize-namespace .xmlverb-ns-name,
+.xml-deemphasize-namespace .xmlverb-ns-uri,
+.xml-deemphasize-namespace .xmlverb-element-nsprefix
+{ font-size:10px; }
+
+.xml-deemphasize-attributes .xmlverb-attr-name,
+.xml-deemphasize-attributes .xmlverb-attr-content
+{ font-size:10px; }
+
+/* Hiding Option is in progress; requires modifying the xslt to remove the quotes and equals */
+.xml-hide-namespace .xmlverb-ns-name,
+.xml-hide-namespace .xmlverb-ns-uri,
+.xml-hide-namespace .xmlverb-element-nsprefix
+{ display: none; }
+
+.xml-highlight-values .xmlverb-text
+{ background: #FFFF99;}

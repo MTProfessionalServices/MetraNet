@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Target Arguments </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="File Management, Metering with FLS, Target Arguments" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('19552');expand('20847');expand('19610');expand('13614');highlight('20876')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="19537.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="19553.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h5 class="heading5">Target Arguments</h5>
+<p class="bodytext">You will normally define named arguments to pass to your MetraFlow script. (For other kinds of executables, such as a C# program, the order of the arguments must be specified.) In MetraControl, you define arguments one at a time. </p>
+<p class="bodytext">For more information about MetraFlow metering scripts, see <strong class="strong"><a id="h26519" class="crossreference" title="Metering with FLS" href="22305.htm" target="_self">Metering with FLS</a>.</strong></p>
+<p class="bodytext">For more information about FLS execution, see<strong class="strong"> <a id="h20917" class="crossreference" title="File Management" href="19610.htm" target="_self">File Management</a>.</strong></p>
+<p class="bodytext">The editable argument attributes are <strong class="strong">Format</strong>, <strong class="strong">Order</strong>, <strong class="strong">Filter</strong>, and <strong class="strong">Conditional</strong>. These are described and explained in the following table.</p>
+<table class="tableintopic" width="576" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="42"><p class="note"><img src="warning.gif" alt="warn" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="534"><p class="warning">When you specify an argument, there can be no spaces except for one after the <strong class="strong">arg </strong>keyword. </p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+<table class="tableintopic" width="679" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #CFCFCF">
+<tr align="left" valign="top">
+<td style="border:1px solid #CFCFCF;" width="88"><p class="tableheading">Item Name</p>
+</td>
+<td style="border:1px solid #CFCFCF;" width="356"><p class="tableheading">Description</p>
+</td>
+<td style="border:1px solid #CFCFCF;" width="235"><p class="tableheading">Example Value</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #CFCFCF;" width="88"><p class="tabletext"><strong class="strong">Format</strong></p>
+</td>
+<td style="border:1px solid #CFCFCF;" width="356"><p class="tabletext">The format specifies a command-line argument. In general, whatever is specified in this field will appear verbatim as an argument to the executable (a MetraFlow script or the MAIN argument of another executable).</p>
+<p class="tabletext">For information about using arguments (such as --arg) with MetraFlow, refer to  MetraFlowShell Command-Line Switches</p>
+<p class="tabletext">There are three special values that an argument can reference. These expressions are replaced with generated values.</p>
+<p class="tabletext"><strong class="strong">$(BACTHID)</strong><br />Specifies that FLS should create a new Batch ID.  This tag is replaced with the actual Batch ID. </p>
+<p class="tabletext"><strong class="strong">$(TRACKINGID)</strong> <br />Specifies that FLS should create a new Tracking ID and pass this as part of the argument.  A tracking ID is different the batch ID.  The tracking ID is used by MetraFlow to record a detailed history of what happened during script execution.  If the Conditional field is set to &quot;ON_RETRY&quot;, then original tracking ID will be re-used rather than creating a new one.</p>
+<p class="tabletext"><strong class="strong">$(FILE)</strong><br />Specifies that FLS should replace this expression with the incoming file name. With MetraFlow, you usually name a parameter with this argument. Use without a parameter would be normal for invoking executables that do not expect a named parameter. <span class="red-bold">Important: </span><span class="red">If you use</span><span class="red-bold"> $(FILE) </span><span class="red">in an argument, make sure you also fill out the </span><span class="red-bold">Filter </span><span class="red">field.</span></p>
+</td>
+<td style="border:1px solid #CFCFCF;" width="235"><p class="tabletext">--trackingNew $(BATCHID)</p>
+<p class="tabletext">--trackingNew $(TARGETID)</p>
+<p class="tabletext">--arg importFile=&quot;$(FILE)&quot;</p>
+<p class="tabletext">--arg &quot;$(FILE)&quot;</p>
+<p class="tabletext">C:\MetraTech\RMP\Extensions\Core\<br />config\MetraFlow\Scripts\RateTestService.mfs</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #CFCFCF;" width="88"><p class="tabletext"><strong class="strong">Order</strong></p>
+</td>
+<td style="border:1px solid #CFCFCF;" width="356"><p class="tabletext">A number used to determine the order the arguments should appear in. Only required when specifying more than one argument for a non-MetraFlow program, such as for a C# executable.</p>
+</td>
+<td style="border:1px solid #CFCFCF;" width="235"><p class="tabletext"> 3 <br />(for the third argument)</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #CFCFCF;" width="88"><p class="tabletext"><strong class="strong">Filter</strong></p>
+</td>
+<td style="border:1px solid #CFCFCF;" width="356"><p class="tabletext">When a file arrives and is renamed, the file name is parsed and matched against a target. Next, the &lt;argument filter&gt; (the third part of the file name) is parsed from the file name.  This value is matched against <strong class="strong">Filter</strong>. If there is a match, this argument will appear as a command-line option. If there is no match, the argument will not appear.  </p>
+</td>
+<td style="border:1px solid #CFCFCF;" width="235"><p class="tabletext">If you are using:<br />--arg importFile=&quot;$(FILE)&quot;</p>
+<p class="tabletext">and the filter value is:  <br /><strong class="strong">flat</strong></p>
+<p class="tabletext">an example matching file would be:<br />ctrl0001.rating.<strong class="strong">flat</strong>.txt</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #CFCFCF;" width="88"><p class="tabletext"><strong class="strong">Conditional</strong></p>
+</td>
+<td style="border:1px solid #CFCFCF;" width="356"><p class="tabletext">There are three choices: </p>
+<p class="tabletext"><strong class="strong">ALWAYS</strong><br />This argument will always be used. <u class="underline">This is the best option if retries are likely to occur.</u></p>
+<p class="tabletext"><strong class="strong">ON_RETRY</strong><br />This argument will only appear if this is a &quot;retry&quot;.  A retry is a control number that was processed once and the processing failed.  In this case, the file can be moved to the incoming directory and renamed back to the original name, triggering a &quot;retry&quot;.  A retry uses the tracking ID from the previous run.</p>
+<p class="tabletext"><strong class="strong">ON_NEW</strong><br />This argument appears if this is a new job (as opposed to a retry). <span class="red-bold">Important: </span><span class="red">If a retry is required, the script will fail.</span></p>
+</td>
+<td style="border:1px solid #CFCFCF;" width="235"><p class="tabletext">--trackingRetry $trackingID</p>
+<p class="tabletext">Conditional: ON_RETRY</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

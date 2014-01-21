@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Payment Transactions </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Payment Transactions" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('25029');expand('13614');highlight('25030')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="14212.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="25029.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h3 class="heading3">Payment Transactions</h3>
+<p class="caption">MetraControl <img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" /> Payments<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" /><img src="12889.gif" alt="" height="16px" width="16px" vspace="0" hspace="0" align="bottom" border="0" /> Payment Transactions</p>
+<p class="bodytext">If your system processes payments with MetraPay, you can monitor the status of all transactions using this page. You can also change the status of transactions to either Pending or Reversed if necessary.</p>
+<p class="subheading">Searching for Transactions</p>
+<p class="bodytext">The usual way in which you'll want to search for transactions is by status. You can select one or several statuses at once when you search. </p>
+<p class="caption"><img src="mcontrol-paytransopts.png" alt="mcontrol-paytransopts.png" height="187" width="177" vspace="0" hspace="0" align="bottom" border="0" /><br />Add and remove statuses in the Search Filters list.</p>
+<p class="bodytext">Transactions can be searched for in one of the following states:</p>
+<table class="tableintopic" width="576" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #BFBFBF">
+<tr align="left" valign="top">
+<th bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="234"><p class="tableheading">State</p>
+</th>
+<th bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="342"><p class="tableheading">Description</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="234"><p class="tabletext">Success</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="342"><p class="tabletext">Transaction was successfully processed.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="234"><p class="tabletext">Failure</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="342"><p class="tabletext">Processing of the transaction failed.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="234"><p class="tabletext">Manually Reversed</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="342"><p class="tabletext">You or another operator manually reversed the transaction.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="234"><p class="tabletext">Received Request</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="342"><p class="tabletext">Received request from a client.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="234"><p class="tabletext">Submitted Request</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="342"><p class="tabletext">Sent request to payment processor/payment server.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="234"><p class="tabletext">Received Response</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="342"><p class="tabletext">Received response from payment processor/payment server.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="234"><p class="tabletext">Reversed</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="342"><p class="tabletext">Transaction failed, but was successfully reversed.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="234"><p class="tabletext">Post-Processing Successful</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="342"><p class="tabletext">Post-processing operations were successful.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="234"><p class="tabletext">Duplicate</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="342"><p class="tabletext">The transaction has the same ID as a processed transaction.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="234"><p class="tabletext">Rejected</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="342"><p class="tabletext">Payment processor rejected transaction.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="234"><p class="tabletext">Manual Pending</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="342"><p class="tabletext">You or another operator manually reversed the transaction.</p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Setting Status</p>
+<ol class="listnumber"><li class="listnumber">Select one or several transactions and click <strong class="strong">Set Status Manually Pending / Reversed</strong>.</li><li class="listnumber">In the <strong class="strong">Change Status </strong>window, select <strong class="strong">Pending </strong>or <strong class="strong">Reversed</strong>.</li><li class="listnumber">Enter a comment and click <strong class="strong">OK</strong>.</li></ol>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

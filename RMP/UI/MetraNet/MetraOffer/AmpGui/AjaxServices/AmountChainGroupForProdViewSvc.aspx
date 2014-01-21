@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AmountChainGroupForProdViewSvc.aspx.cs" Inherits="MetraOffer_AmpGui_AjaxServices_AmountChainGroupForProdViewSvc" %>

@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> About Global Group Subscriptions </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="About Global Group Subscriptions" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('12393');expand('12401');expand('12550');expand('13616');highlight('16515')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="about_discount_distribution_1.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="SetJoinGroupSubscription.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h5 class="heading5">About Global Group Subscriptions</h5>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">You need to decide whether or not to activate Global Group Subscriptions before you have real subscriptions in your production environment. For this reason, it is usually a post-installation step. For more information, see Activating Global Group Subscriptions. </p>
+</td>
+</tr>
+
+</table>
+<p class="note"><strong class="strong">Global Group Subscriptions</strong> means that accounts can join group subscriptions that were created by a corporate account that is not their parent corporate account. This behavior is governed by a configurable business rule called the Hierarchy Rule.</p>
+<p class="note">This rule determines the behavior of accounts with respect to their parent corporate account:</p>
+<ul class="listbullet"><li class="listbullet"><strong class="strong">Restricted rule - prevents global subscriptions</strong><br />By default, accounts are only allowed to subscribe to group subscriptions within their own corporate hierarchy. The <em class="emphasis">restricted </em>hierarchy rule prevents them from joining group subscriptions created by another corporate account. Group subscriptions can only be applied to accounts belonging to the corporate account for which the group subscription was created. </li><li class="listbullet"><strong class="strong">Relaxed rule - enables global subscriptions</strong><br />Accounts can join group subscriptions that were created by a corporate account that is not their parent corporate account. The <em class="emphasis">relaxed </em>hierarchy rule enables accounts to join group subscriptions created by another corporate account. </li></ul><p class="bodytext">The differences between Group Subscriptions and Global Group Subscriptions are: </p>
+<table class="tableintopic" width="576" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #BFBFBF">
+<tr align="left" valign="top">
+<th bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="276"><p class="tableheading">Group Subscriptions</p>
+</th>
+<th bgcolor="#105AA8" style="border:1px solid #BFBFBF;" width="300"><p class="tableheading">Global Group Subscriptions</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="276"><p class="tabletext">Provided with the product. </p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="300"><p class="tabletext">Customizable in PCConfig.xml and menu.xml. </p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="276"><p class="tabletext">MetraCare » Account Details » Group Subscription</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="300"><p class="tabletext">MetraCare » Account Details » Group Subscription</p>
+<p class="tabletext">MetraCare » System » Group Subscription</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="276"><p class="tabletext">Accounts are limited to group subscriptions for the corporate account in which they are members. </p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="300"><p class="tabletext">Accounts can subscribe to group subscriptions for all corporate accounts. </p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="276"><p class="tabletext">Group subscriptions exist under particular corporate accounts and cannot be used for other corporate accounts. </p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="300"><p class="tabletext">Group Subscriptions exist under the Root (1) of the hierarchy and are available to all corporate accounts under the Root (1). </p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="276"><p class="tabletext"><strong class="strong">Restricted </strong>hierarchy rule. Hierarchy_RestrictedOperations=TRUE</p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="300"><p class="tabletext"><strong class="strong">Relaxed </strong>hierarchy rule. Hierarchy_RestrictedOperations=FALSE</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #BFBFBF;" width="276"><p class="tabletext"><img src="19211.png" alt="" height="249" width="392" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<p class="tabletext">For example, Group Subscription 1 and Group Subscription 2 is available only to accounts associated with Corp1. </p>
+</td>
+<td style="border:1px solid #BFBFBF;" width="300"><p class="tabletext"><img src="groupsubscriptions-global.png" alt="Group Subscriptions-Global" height="248" width="386" vspace="2" hspace="2" align="bottom" border="0" /></p>
+<p class="tabletext">For example, Group Subscription 1 and Group Subscription 2 is available to all corporate accounts under Root (1). </p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Related Topic</p>
+<p class="bodytext">Activating Global Group Subscriptions</p>
+<p class="bodytext">Configuring Hierarchy_RestrictedOperations</p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

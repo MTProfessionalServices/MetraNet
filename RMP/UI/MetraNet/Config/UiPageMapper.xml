@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration id="UI Page Mapper" type='collection'>
+
+  <description>
+    Defines MetraNet configuration.
+
+    [APP_VIRTUAL_DIR] bracket tag will be replaced at run-time by the
+    name of the web site : /MetraNet
+  </description>
+
+  <item id="LoginPage">
+    <value>[APP_VIRTUAL_DIR]/Login.aspx</value>
+    <description>Login page</description>
+  </item>
+
+  <item id="ChangePasswordPage">
+    <value>[APP_VIRTUAL_DIR]/ChangePassword.aspx</value>
+    <description>Change Password page</description>
+  </item>
+  
+  <item id="DefaultPage">
+    <value>[APP_VIRTUAL_DIR]/Default.aspx</value>
+    <description>Default page</description>
+  </item>
+  
+  <item id="DashboardPage">
+    <value>[APP_VIRTUAL_DIR]/Welcome.aspx</value>
+    <description>Welcome</description>
+  </item>
+
+  <item id="MessagePage">
+    <value>[APP_VIRTUAL_DIR]/MessagePage.aspx</value>
+    <description>Message Page</description>
+  </item>
+  
+  <!-- Add Account -->
+  <item id="AddAccountPage">
+    <value>[APP_VIRTUAL_DIR]/Account/AddAccount.aspx</value>
+    <description>Add Account</description>
+  </item>
+
+</configuration>
+
+

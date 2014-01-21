@@ -1,0 +1,122 @@
+﻿@using MetraTech.Agreements.Models
+@using MetraTech.DomainModel.Enums
+@model AgreementTemplateViewModel
+
+@{
+  Layout = "../Shared/_AgreementTemplateLayout.cshtml";
+}
+
+@section Scripts {
+    
+  <script type="text/javascript">    
+
+    $(document).ready(function () {
+      
+      var thisTemplate = @Html.Raw(Json.Encode(Model));      
+      function getDataFromForm() {
+        var field;
+        var docField;
+        for (field in thisTemplate.CoreTemplateProperties) {
+          docField = "CoreTemplateProperties_" + field;
+          if ((document.getElementById(docField) != null) &&
+            (document.getElementById(docField).value != ""))
+            thisTemplate.CoreTemplateProperties[field] = document.getElementById(docField).value;
+        }
+        for (field in thisTemplate.CoreAgreementProperties) {
+          docField = "CoreAgreementProperties_" + field;
+          if ((document.getElementById(docField) != null) &&
+            (document.getElementById(docField).value != ""))
+            thisTemplate.CoreAgreementProperties[field] = document.getElementById(docField).value;
+        }
+
+        thisTemplate.CoreTemplateProperties.AgreementTemplateNameId = Math.floor(Math.random() * 10000);
+
+        // Modify the form template to contain all product offerings in the IncludedProductOfferings div
+        thisTemplate.AgreementEntities.AgreementEntityList = [];
+        addProductOfferingsToAgreemenEntityList(thisTemplate.AgreementEntities.AgreementEntityList);
+        
+        return true;
+      }
+      
+      // Override the submit handler for myform, to submit using AJAX.      
+      $("#myform").submit(function () {
+        getDataFromForm();
+        $.ajax({
+          type: "POST",
+          url: '@ViewBag.ApiUrl',
+          contentType: 'application/json; charset=utf-8',
+          data: JSON.stringify(thisTemplate),
+          success: (function (data) {
+            location = '@Url.Content(@ViewBag.NextPage)' + data.AgreementTemplateId;
+          }),
+          error: (function (xhr) {
+              if (xhr.status == 500) {
+                  location = '@Url.Content(@ViewBag.ServerErrorPage)' + '@ViewBag.TemplateId';
+              } else if (xhr.status == 400) {
+                  $('#message').html('@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_Create", "TEXT_ERROR_COULD_NOT_CREATE_TEMPLATE")' + xhr.responseText);
+              } else
+                  $('#message').html('@ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_Create", "TEXT_ERROR_COULD_NOT_CREATE_TEMPLATE")');
+              //location = '@Url.Content("~/Template/Error")';
+          })
+        });
+        return false;
+      });
+    });
+  </script>
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<div id="content" class="container_12 clearfix">
+  <header>
+    <div class="page-title grid_7">
+      <h1>
+        @ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_Create", "TEXT_CREATE_NEW_AGREEMENT_TEMPLATE")
+      </h1>
+    </div>
+
+    <div class="page-actions grid_5 align-alt float">
+      <ul class="button-row inline tspace">
+        <li>
+          <a href="" class="btn help">
+            @ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_Create", "TEXT_HELP")
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="notifications grid_12 clearfix">
+      <div class="alert page-help rounded-med">
+        <div class="inner">
+          <h5>
+            @ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_Create", "TEXT_HELP_TITLE")
+          </h5>
+          <p>
+            @ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_Create", "TEXT_HELP_CONTENT")
+          </p>
+          <a class="close-alert" href="">
+            @ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_Create", "TEXT_HELP_CLOSE")
+          </a>
+        </div>
+      </div>
+      <!-- Other notifications go here-->
+    </div><!--/.notifications-->
+  </header>
+  <div class="clear"></div>
+  <form id="myform">
+    @Html.ValidationSummary(true)
+    <fieldset class="content form-fields">
+      @Html.EditorForModel()
+      <div id="message" class="errorMessage"></div>
+    </fieldset>
+    @Html.Partial("_AddProductOfferingsPartial")
+
+    <p>
+      <button type="submit" class="btn lg bold">
+        @ViewContext.HttpContext.GetGlobalResourceObject("Views_Template_Create", "TEXT_SAVE_BUTTON")
+      </button>
+    </p>
+  </form>
+  <div id="message"></div>
+</div><!-- Page -->
+ 

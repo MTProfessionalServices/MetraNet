@@ -1,0 +1,56 @@
+﻿@model MetraTech.Agreements.Models.AgreementTemplatePropertiesViewModel
+@using MvcApplication1.Helpers
+@using MetraTech.Agreements.Controllers
+
+<div class="container flat rounded-sm bspace collapsible">
+  <header>
+    <h2>
+    @ViewContext.HttpContext.GetGlobalResourceObject("Views_Shared_EditorTemplates_AgreementTemplatePropertiesModel", "TEXT_BASIC_TEMPLATE_PROPERTIES_HEADER")
+    </h2>
+  </header>
+  <fieldset class="content form-fields">
+    <div class="inner tspace clearfix">
+      <ul class="grid_8 alpha">
+        <li>
+          @Html.LabelFor(model => model.AgreementTemplateName, @<span class="req">*</span>)
+          @Html.TextBoxFor(model => model.AgreementTemplateName, new { placeholder = ViewContext.HttpContext.GetGlobalResourceObject("Views_Shared_EditorTemplates_AgreementTemplatePropertiesModel", "TEXT_AGREEMENT_TEMPLATE_NAME_PLACEHOLDER") })
+          @Html.ValidationMessageFor(model => model.AgreementTemplateName)
+        </li>
+        <li>
+          @Html.LabelFor(model => model.AgreementTemplateDescription)
+          @Html.TextAreaFor(model => model.AgreementTemplateDescription, new { placeholder = ViewContext.HttpContext.GetGlobalResourceObject("Views_Shared_EditorTemplates_AgreementTemplatePropertiesModel", "TEXT_AGREEMENT_TEMPLATE_DESCRIPTION_PLACEHOLDER") })
+          @Html.ValidationMessageFor(model => model.AgreementTemplateDescription)
+        </li>
+        <li>
+          @Html.LabelFor(model => model.CreatedDate)
+          @Html.DisplayFor(model => model.CreatedDate)
+        </li>
+          <li>
+              @Html.LabelFor(model => model.CreatedBy)
+              @Html.DisplayFor(model => model.CreatedBy)
+          </li>
+          @if (ViewBag.Action == MetraTech.Agreements.Controllers.TemplateActions.Edit)
+          {
+              <li>
+                  @Html.LabelFor(model => model.UpdatedDate)
+                  @Html.DisplayFor(model => model.UpdatedDate)
+              </li>
+              <li>
+                  @Html.LabelFor(model => model.UpdatedBy)
+                  @Html.DisplayFor(model => model.UpdatedBy)
+              </li>
+          }
+        <li>
+          <label>
+            @ViewContext.HttpContext.GetGlobalResourceObject("Views_Shared_EditorTemplates_AgreementTemplatePropertiesModel", "TEXT_DATE_TEMPLATE_IS_AVAILABLE")
+          </label>
+          @Html.TextBoxFor(model => model.AvailableStartDate, new {@class = "datepicker sm nofloat"})
+          <span class="lspace rspace">
+            @ViewContext.HttpContext.GetGlobalResourceObject("Views_Shared_EditorTemplates_AgreementTemplatePropertiesModel", "TEXT_TO")
+          </span>
+          @Html.TextBoxFor(model => model.AvailableEndDate, new {@class = "datepicker sm nofloat"})
+        </li>
+      </ul>
+    </div>
+  </fieldset>
+</div><!--/.container-->

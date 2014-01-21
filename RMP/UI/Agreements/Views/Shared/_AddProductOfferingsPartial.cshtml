@@ -1,0 +1,47 @@
+﻿@using MetraTech.Agreements.Models
+@model MetraTech.Agreements.Models.AgreementTemplateViewModel
+
+<script src="@Url.Content("~/Scripts/AddProductOfferings.js")" type="text/javascript"> </script>
+
+<div class="container flat rounded-sm bspace collapsible">
+  <header>
+    <h2>
+      @ViewContext.HttpContext.GetGlobalResourceObject("Views_Shared__AddProductOfferingsPartial", "TEXT_PRODUCT_OFFERINGS_HEADER")
+    </h2>
+  </header>
+  <fieldset class="content form-fields">
+    <div class="inner tspace clearfix">
+      <p>
+        @ViewContext.HttpContext.GetGlobalResourceObject("Views_Shared__AddProductOfferingsPartial", "TEXT_SELECT_PRODUCT_OFFERINGS")
+      </p>
+      <ul>
+        <li class="bspace-extra">
+          <select id="availableProductOfferings" class="multiselect-sortable" multiple="multiple" name="availableProductOfferings[]">
+            @{
+              foreach (var entity in ViewBag.EligibleAgreementTemplateEntities)
+              {
+                if (entity.EntityType == EntityTypeEnum.ProductOffering)
+                {
+                  bool found = false;
+                  foreach (var includedEntity in Model.AgreementEntities.AgreementEntityList)
+                  {
+                    if (includedEntity.EntityType == EntityTypeEnum.ProductOffering && includedEntity.EntityId == entity.EntityId) 
+                    {
+                      <option value="@entity.EntityId" selected="selected">@entity.EntityName</option>
+                      found = true;
+                      break;
+                    }
+                  }
+                  if (!found)
+                  {
+                    <option value="@entity.EntityId">@entity.EntityName</option>
+                  } 
+                }
+              }
+            }
+          </select>
+        </li>
+      </ul>
+    </div>
+  </fieldset>
+</div>

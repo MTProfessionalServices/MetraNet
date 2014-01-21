@@ -1,0 +1,49 @@
+/*
+This file is part of Ext JS 3.4
+
+Copyright (c) 2011-2013 Sencha Inc
+
+Contact:  http://www.sencha.com/contact
+
+Commercial Usage
+Licensees holding valid commercial licenses may use this file in accordance with the Commercial
+Software License Agreement provided with the Software or, alternatively, in accordance with the
+terms contained in a written agreement between you and Sencha.
+
+If you are unsure which license is appropriate for your use, please contact the sales department
+at http://www.sencha.com/contact.
+
+Build date: 2013-04-03 15:07:25
+*/
+#basic, #animated {
+    border:1px solid #c3daf9;
+    color:#1e4e8f;
+    font:bold 14px tahoma,verdana,helvetica;
+    text-align:center;
+    padding-top:20px;
+	 width:200px;
+	 height:80px;
+}
+#snap {
+    border:1px solid #c3daf9;
+    overflow:hidden;
+}
+#custom {
+    cursor:move;
+}
+#custom-rzwrap{
+    z-index: 10000;
+}
+#custom-rzwrap .x-resizable-handle{
+    width:11px;
+    height:11px;
+    background:transparent url(../../resources/images/sizer/square.gif) no-repeat;
+    margin:0px;
+	 line-height:11px;
+}
+#custom-rzwrap .x-resizable-handle-east, #custom-rzwrap .x-resizable-handle-west{
+    top:45%;
+}
+#custom-rzwrap .x-resizable-handle-north, #custom-rzwrap .x-resizable-handle-south{
+    left:45%;
+}

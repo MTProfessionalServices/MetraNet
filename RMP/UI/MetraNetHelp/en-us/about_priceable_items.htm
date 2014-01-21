@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> About Priceable Items </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="About Priceable Items" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('3804');expand('3803');expand('3786');expand('14212');highlight('3805')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="product_offering_example.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="product_offerings_and_priceable_items.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h5 class="heading5">About Priceable Items</h5>
+<p class="bodytext"><strong class="strong">Priceable items</strong> represent a customer's &quot;sellable products&quot; that are grouped within a product offering. Templates for priceable items are kept in the Priceable Items main menu selection (The Priceable Items menu selection is useful if you intend to use the subscription pricing model).</p>
+<p class="bodytext">When you use the MetraOffer Recurring and Non-Recurring Charge wizards, you can choose from a list of already-created Priceable Items. These are the Priceable Items that were either created in the Priceable Items main menu selection, or were created in previous sessions of the wizard when &quot;Create New&quot; priceable item was selected (this automatically saves a new template to Priceable Items).</p>
+<p class="bodytext">When a template is bundled within a product offering, it becomes an instance of that template and one of that product offering's priceable items. <em class="emphasis">Note that</em><strong class="strong"> </strong><em class="emphasis">instances are not independent of the template.</em> Changes in the template's properties in most cases will change the instance (see below for details).</p>
+<p class="bodytext">The MetraOffer application allows you to enter the following types of priceable items:</p>
+<ul class="listbullet"><li class="listbullet"><strong class="strong">Usage Charge</strong>: A charge that calculates based on a subscriber's usage. For example, a cable company might charge a $3.95 per movie fee for viewing a pay-per-view movie.</li><li class="listbullet"><strong class="strong">Recurring Charge</strong>: A charge that recurs periodically throughout the time of subscription. For example, a cable company might charge $25 per month for Basic Cable.</li><li class="listbullet"><strong class="strong">Non-Recurring Charge</strong>: Any one-time charge that is not based on usage. For example, a cable company might charge an initial fee of $20 to set up a cable service.</li><li class="listbullet"><strong class="strong">Discount</strong>: A line item on a bill that reduces the total amount of a subscriber's bill. For example, in a <em class="emphasis">tiered </em>and<strong class="strong"> </strong><em class="emphasis">bundled </em>discount, when subscribers use 1 to 150 minutes of streaming music, they get a 5% discount. When they use 151 to infinity minutes, they get a 10% discount. If the actual number of minutes they use is 250, they get a 10% discount on <em class="emphasis">all</em> items. Discounts can be applied to individual or group subscriptions. For more information, see About Single-Bucket and Multi-Bucket Pricing. <table class="tableintopic" width="576" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="36"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="540"><p class="note">Records created within Priceable Items are only <em class="emphasis">templates</em> for charges, and are not effective until they are selected as part of a product offering (see <a id="h4063" class="" title="Work with Product Offerings" href="ProductOffering.List.Frame.hlp.htm" target="_self">Product Offerings</a>).</p>
+</td>
+</tr>
+
+</table>
+</li></ul><p class="subheading">Priceable Items and Product Offerings</p>
+<p class="bodytext">The Priceable Items main menu option allows you to create templates for recurring and non-recurring charges that you can later select when adding priceable items in Product Offerings. This saves you time and can make for a more orderly process in entering your product offerings.</p>
+<p class="bodytext">A third type of priceable item, usage charges, has some properties that can be edited from Priceable Items. But additions of new usage charges, as well as the editing many of the properties of existing usage charges, needs to be done by a configuration developer (in ICE).</p>
+<p class="subheading">Modifying a Service Charges in Priceable Items</p>
+<p class="bodytext">As the MetraNet platform is commonly configured, when you make a change to a template version of a priceable item, it will make the same change to all of its instantiated priceable items.</p>
+<p class="bodytext">With instantiated priceable items, when you make a change to a priceable item within a product offering, it will only change the priceable item.</p>
+<p class="bodytext">After a change is made to a priceable item, that change cannot be overridden by its template in Priceable Items.</p>
+<table class="tableintopic" width="576" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="36"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="540"><p class="note">Your MetraNet configuration is customizable with regard to templates. See your configuration developer to find out about the configuration of your system, or if you would like to customize your version of the MetraOffer module to suit the needs of your organization.</p>
+</td>
+</tr>
+
+</table>
+<p class="note"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

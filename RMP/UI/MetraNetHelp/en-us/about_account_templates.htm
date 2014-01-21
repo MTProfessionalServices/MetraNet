@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Using Account Templates </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Account Templates, Accounts, Accounts	Templates, Important Concepts, Using Account Templates" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('12378');expand('12550');expand('13616');highlight('12376')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="ApplyTemplate.hlp_1.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="account_states_example.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h4 class="heading4">Using Account Templates</h4>
+<p class="bodytext"><strong class="strong">Account Templates</strong><em class="emphasis"> </em>make bulk account management easier and less error-prone by suggesting common properties, subscriptions, and capabilities (security access) that accounts would most likely have under department or corporate accounts.</p>
+<p class="bodytext">Because different accounts need different types of data entered based on their account type, you can create multiple templates, one for each account type that you have in your system.</p>
+<table class="tableintopic" width="755" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="42"><p class="bodytext"><img src="12688.gif" alt="" height="24px" width="26px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td valign="middle" width="713"><p class="bodytext">With the MetraNet default configuration, templates can be created for department and corporate accounts. Your MetraNet configuration could differ if configuration developers have a different arrangement of <a id="h16186" class="crossreference" title="Using Account Types" href="AccountTypes.htm" target="_self">account types</a> for details).</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext">Based upon templates, the software autofills contact information, subscriptions, and security capabilities in an account's entry page when you are:</p>
+<ul class="listbullet"><li class="listbullet">Creating new accounts within the account template's department account, or</li><li class="listbullet">Moving accounts to the account template's department account.</li></ul><p class="bodytext">You can change autofilled properties by typing over them as necessary.</p>
+<p class="bodytext">The autofilled properties derive from the nearest parent account's template that contains data for the moved/created account's type.</p>
+<table class="tableintopic" width="753" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="42"><p class="bodytext"><img src="12688.gif" alt="" height="24px" width="26px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td valign="middle" width="711"><p class="bodytext">Changes you make to an account template update the accounts contained in the department account only if you apply your edits to <strong class="strong">Direct Descendants</strong> or <strong class="strong">All Descendants</strong>).</p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Account Properties and Templates</p>
+<p class="bodytext">Address, country, language, time zone, currency, tax exemption, billing cycle, and invoice generation are all properties that can be set at the account template level for an account. You can type over or deselect these properties as needed for individual accounts.</p>
+<p class="bodytext"><strong class="strong">Example</strong></p>
+<p class="bodytext">OmniDesk's Boston office is on Beacon Street. Therefore all Boston department account templates have Beacon Street listed as their address. However, OmniDesk has a small office on Newbury Street, although it is too small to have its own department (only two employees work there full time). Therefore, when OmniDesk hires new employees for this office, the Account Administrator can  type over Beacon Street and enter the Newbury Street address.</p>
+<p class="subheading">Subscriptions and Templates</p>
+<p class="bodytext">When an account is created or moved, Account Templates help account managers with subscriptions by suggesting the common subscriptions that accounts in a given department account should have. This helps keep track of which accounts in a hierarchy need certain subscriptions. Deselect the suggested subscriptions to override them for a given account.</p>
+<p class="bodytext"><strong class="strong">Example</strong></p>
+<p class="bodytext">OmniDesk has some group product offerings intended only for executive employees. To ensure that new executive employees are offered this subscription, the Account Administrator could add the executive product offerings to the Executive department account template. If a certain executive employee declined a subscription to a particular product offering, the Account Administrator deselects the suggested product offering when creating the account for that employee..</p>
+<p class="subheading">Capabilities, Roles and Templates</p>
+<p class="bodytext">You can assign a default set of capabilities for a department account with the department account's account template. This allows you to set default security capabilities for an entire department. Deselect any capabilities that you do not want for a given account.</p>
+<p class="bodytext"><strong class="strong">Example</strong></p>
+<p class="bodytext">OmniDesk's executives all want to be able to log in as account managers and view their OmniDesk group subscriptions. You could create an Executive role, add to this role capabilities to log into account Manager and view group subscriptions, then you could add this role to the Executive department account's account template.</p>
+<p class="subheading">Related Topic</p>
+<p class="bodytext"><a id="h12774" class="jumptemplate" title="Using Account Templates" href="AccountTemplate.Selector.Frame.hlp.htm" target="_self">Editing Account Template</a></p>
+<table class="relatedtopics belowtopictext" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "454">
+<p class="relatedheading">In This Section</p><p class="relateditem"><a href="ApplyTemplate.hlp_1.htm" target="_self">Applying Account Template</a></p></td>
+</tr>
+</table>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Using Account Templates </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Account Area, Templates, Using Account Templates" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('16199');expand('14546');expand('14620');expand('13616');highlight('12561')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="AddTemplate.hlp.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="TemplateSummary.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<p class="heading6">Using Account Templates</p>
+<p class="bodytext">The <strong class="strong"><a id="h24159" class="crossreference" title="Edit Account Template" href="EditTemplate.hlp.htm" target="_self">Edit Account Template</a></strong> page lets you edit and apply a template that applies to the accounts underneath a corporate or department account type. (Editing an account template is only applicable to these <em class="emphasis">container </em>accounts.) </p>
+<p class="subheading">How Account Templates Work</p>
+<p class="bodytext">Using an account template lets you preset some of the fields required by core subscriber or department accounts that are descendants of the selected corporate or department account. The accounts to which the template applies applies to can be immediate descendants or all descendant accounts of the account for which the template is defined </p>
+<p class="bodytext">When CSRs create a new account, the template is activated only when the new account is created in the context of corporate or department account for which the template has been applied. CSRs can do this from <strong class="strong">Advanced Find </strong>or<strong class="strong"> Account Finder</strong>, using the <strong class="strong">Add Account</strong> icon for the container account. <a id="h25028" class="crossreference" title="Finder Tab" href="12408.htm#o22311" target="_self">More Information</a></p>
+<p class="listcontinue2"><img src="mcare-addaccountunder.png" alt="mcare-addaccountunder" height="42" width="141" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<p class="bodytext">The <strong class="strong">Select Account Type</strong> page lists the subscriber and department account types. When you select an account type, the <strong class="strong">Add Account</strong> form appears with data that was set in the template. The CSR can override the data in these fields.</p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="537"><p class="note">To apply a template to a new account, CSRs must select the <strong class="strong">Apply Template</strong> option on the <strong class="strong"><a id="h25023" class="crossreference" title="Add Account" href="addaccount.hlp.htm" target="_self">Add Account</a></strong> page. </p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext">You can control how the template is applied to existing descendant accounts. You can also change or delete a template.</p>
+<table class="tableintopic" width="576" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="36"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="540"><p class="bodytext">The first time you use this command for a particular corporate or department account, you can apply the template to either the <strong class="strong">CoreSubscriber </strong>account type or the <strong class="strong">DepartmentAccount </strong>account type.</p>
+<p class="bodytext">Select either one and proceed. You can return to apply a template to the account type.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td width="36"><p class="note"><img src="warning.gif" alt="warn" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="540"><p class="warning">Deleting a template removes only the data from the template. It does not remove the data derived from the template in existing descendant accounts. </p>
+<p class="warning">When you delete a template, you do not receive a confirmation message.</p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Set Up the Account Template</p>
+<ul class="listbullet"><li class="listbullet"><strong class="strong">Description</strong><p class="listcontinue">You can enter or update the description of the template. (This is not visible to CSRs.)</p>
+</li><li class="listbullet"><strong class="strong">Template Options</strong> You can apply the template to:<ul class="listbullet2"><li class="listbullet2"><strong class="strong">Current Node</strong> (applies to department accounts only)<br />The template is applied only when accounts are created in or moved to this department account.</li><li class="listbullet2"><strong class="strong">Direct Descendants</strong><br />The template is applied to department accounts and accounts directly below this department account</li><li class="listbullet2"><strong class="strong">All Descendants</strong><p class="listcontinue2">The template is applied to all department accounts and accounts below this department account in the hierarchy.</p>
+</li></ul></li><li class="listbullet"><strong class="strong">Properties</strong><p class="listcontinue">Enter the template text in any or all of the displayed properties. (See Account Information Details)</p>
+</li><li class="listbullet"><strong class="strong">Default Security Policy</strong><p class="listcontinue">You can choose to apply the default security policy to accounts under this department account. (See <a id="h12718" class="jumptemplate" title="Default Security" href="ManageSecurity.hlp.htm" target="_self">Default Security for CSRs and Account Templates</a>)</p>
+</li><li class="listbullet"><strong class="strong">Subscriptions and Group Subscriptions</strong><p class="listcontinue">You can add or remove subscriptions:</p>
+<ul class="listbullet2"><li class="listbullet2">Remove a subscription by clicking <img src="12996.gif" alt="" height="20px" width="20px" vspace="0" hspace="0" align="bottom" border="0" /> for the subscription.</li><li class="listbullet2">Add an individual subscription by clicking <a id="h13131" class="jumptemplate" title="Add Product Offering to Template" href="accounttemplate.productofferingpicker.hlp.htm" target="_self">Add Subscription</a></li><li class="listbullet2">Add a group subscription by clicking <a id="h13132" class="jumptemplate" title="Add Group Subscription to Template" href="accounttemplate.groupsubscriptionpicker.hlp.htm" target="_self">Add Group Subscription</a></li><li class="listbullet2">When finished, click <strong class="strong">OK </strong>to save your changes.</li></ul></li></ul><p class="subheading">When you are finished</p>
+<ul class="listbullet"><li class="listbullet">To save your work without applying the template, click <strong class="strong">OK</strong>.</li><li class="listbullet">To save your work and apply the template, click <strong class="strong">Save and Apply Template</strong>.</li></ul><table class="tableintopic" width="696" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="42"><p class="bodytext"><img src="12688.gif" alt="" height="24px" width="26px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td valign="middle" width="654"><p class="bodytext">If you choose either <strong class="strong">Direct Descendants </strong>or <strong class="strong">All Descendants,  </strong>and descendant accounts exis, the <strong class="strong">Apply Template to Account</strong> page appears for you to specify how to apply template fields to existing accounts.</p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Related Topics</p>
+<p class="bodytext"><a id="h12747" class="jumptemplate" title="Using Account Templates" href="about_account_templates.htm" target="_self">About Account Templates</a></p>
+<p class="bodytext"><a id="h12755" class="jumptemplate" title="Using Account Types" href="AccountTypes.htm" target="_self">About Account Types</a></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

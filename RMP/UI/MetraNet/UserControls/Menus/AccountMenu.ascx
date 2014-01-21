@@ -1,0 +1,2 @@
+<%@ Control Language="C#" AutoEventWireup="true" Inherits="UserControls_AccountMenu" CodeFile="AccountMenu.ascx.cs" %>
+<asp:Literal ID="AccountLockedHtml" runat="server"></asp:Literal><div id="MenuID"><asp:Literal ID="MenuHtml" runat="server"></asp:Literal></div>

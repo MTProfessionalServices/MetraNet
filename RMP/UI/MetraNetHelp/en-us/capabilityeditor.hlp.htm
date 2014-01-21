@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Setting Up the Manage Account Hierarchies Capability </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Hierarchy Management, Hierarchy Management	Capability, Manage Account Hierarchies, Manage Account Hierarchies	Configuring Capability, Setting Up the Manage Account Hierarchies Capability" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('12498');expand('12494');expand('14620');expand('13616');highlight('12514')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="23190.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="RoleAdd.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<p class="heading6">Setting Up the Manage Account Hierarchies Capability</p>
+<p class="bodytext"><strong class="strong">Manage Account Hierarchies</strong> is a requirement for using account hierarchy management capabilities. This is a requirement for subscribers in MetraView as well as system users in MetraCare.</p>
+<p class="bodytext"><em class="emphasis">Manage Account Hierarchies is a prerequisite for many other capabilities. An asterisk (*) denotes all such dependent capabilities in <em class="emphasis"><a id="h24224" class="crossreference" title="About MetraNet Capabilities" href="about_metranet_capabilities.htm" target="_self">About MetraNet Capabilities</a>.</em></em></p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr>
+<td width="40" height="0"></td>
+<td width="2" height="0"></td>
+<td width="534" height="0"></td>
+<td width="1" height="0"></td>
+</tr>
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td colspan="3" width="537"><p class="note">By default, <strong class="strong">system users </strong>with this capability see all account hierarchies. By default, <strong class="strong">subscribers</strong> can only see their own node. </p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td colspan="2" width="42"><p class="note"><img src="warning.gif" alt="warn" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="534"><p class="warning"><span class="red-bold">Important Restriction</span></p>
+<p class="warning">This capability must be applied <u class="underline">directly to an account</u>; it <strong class="strong">cannot </strong>be applied to a role. This is why the capability has to be applied <u class="underline">individually</u> to each account.</p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Specify Access to Hierarchy Branches</p>
+<p class="bodytext">By default, the root of the Accounts Hierarchy is shown. To choose one branch of the hierarchy, drag the node to the labeled box.</p>
+<p class="bodytext"><img src="13080.gif" alt="" height="96px" width="401px" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<p class="bodytext">You can grant access to:</p>
+<ul class="listbullet"><li class="listbullet">The <strong class="strong">Current Node</strong>: users of the capability can only view or edit the account you enter in the field; they do not have access to any child department accounts or accounts.</li><li class="listbullet"><strong class="strong">Direct Descendants</strong>: users of the capability can only view or edit department accounts and accounts directly below this one.</li><li class="listbullet"><strong class="strong">All Descendants</strong>: users of the capability can view or edit the entire sub-tree for the current node. This is the easy way to grant access to an entire corporate hierarchy.</li></ul><p class="subheading">Specify Access Level</p>
+<p class="bodytext">You can specify access at the Read or Write level. Read access means accounts with the capability can view the hierarchy; Write access means users can edit and update the hierarchy.</p>
+<p class="subheading">Add Access</p>
+<p class="bodytext">To add another path or another type of access, click <strong class="strong">Add</strong> to bring up another set of <strong class="strong">Hierarchy Path/Access Level</strong> fields. This is useful if you need to grant access to separate sub-areas of a corporate hierarchy. For example, you could give a System User Read access to the Engineering department account (and below), and Write access to an individual account in the Finance department account.</p>
+<p class="subheading">Related Topics</p>
+<p class="bodytext"><a id="h12756" class="jumptemplate" title="Using Roles and Capabilities" href="about_roles_and_capabilities.htm" target="_self">About Roles and Capabilities</a></p>
+<p class="bodytext"><a id="h12790" class="jumptemplate" title="Role-Based Security Features" href="about_security.htm" target="_self">About Security</a></p>
+<p class="bodytext"><a id="h12746" class="jumptemplate" title="About Account Hierarchies" href="about_account_hierarchies.hlp.htm" target="_self">About Account Hierarchies</a></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

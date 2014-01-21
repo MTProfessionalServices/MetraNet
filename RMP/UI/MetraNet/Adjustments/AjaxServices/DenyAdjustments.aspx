@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DenyAdjustments.aspx.cs" Inherits="Adjustments_AjaxServices_DenyAdjustments" %>

@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Recurrence Pattern Page </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Recurrence Pattern Page" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('4629');expand('13614');highlight('23956')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="OverrideSchedule.hlp.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="scheduledadapter.list.hlp.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h3 class="heading3">Recurrence Pattern Page</h3>
+<p class="caption">Scheduled Adapters<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" /> <img src="19880.png" alt="mcontrol-eventlist" height="16" width="16" vspace="0" hspace="0" align="bottom" border="0" /> Event List<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" /> &lt;Adapter&gt;<img src="image33.gif" alt="" height="17" width="23" vspace="0" hspace="0" align="bottom" border="0" /> Every &lt;recurrence pattern&gt;</p>
+<p class="bodytext">Using this page, you have great flexibility in scheduling business process adapters. You can schedule BPAs to run using regular or irregular recurrence patterns involving units of time ranging from minutes to months. </p>
+<table class="tableintopic" width="577" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr>
+<td width="40" height="0"></td>
+<td width="158" height="0"></td>
+<td width="379" height="0"></td>
+<td width="5" height="0"></td>
+</tr>
+<tr align="left" valign="top">
+<td width="40"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td colspan="2" width="537"><p class="note">All recurrence options require specifying a start time in Universal Coordinated Time (UTC), which can be expressed as a negative or positive offset from your local time zone. (If you're not sure what the UTC time is, you can check many sources, including <a class="" title="" href="http://www.worldtimeserver.com/current_time_in_UTC.aspx" target="n">worldtimeserver.com</a>.)</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td bgcolor="#105AA8" style="border:1px solid #C0C0C0;" colspan="2" width="198"><p class="tableheading">Field</p>
+</td>
+<td bgcolor="#105AA8" style="border-right:1px solid #C0C0C0;border-top:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" colspan="2" width="384"><p class="tableheading">Description</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" colspan="2" width="198"><p class="tabletext"><strong class="strong">Unit of Time</strong></p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" colspan="2" width="384"><p class="tabletext">Specify the frequency of recurrence using any unit of time: minutes (includes hours), days, weeks, months, or manually.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" colspan="2" width="198"><p class="tabletext"><strong class="strong">Recurrence</strong></p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" colspan="2" width="384"><p class="tabletext">After selecting a unit of time, select the interval of recurrence. </p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" colspan="2" width="198"><p class="tabletext"><strong class="strong">    Every N Minutes</strong></p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" colspan="2" width="384"><p class="tabletext">You have the option to specify just minutes or some combination of days, hours (using the 24-hour clock), and minutes. At least one value must be more than 0.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" colspan="2" width="198"><p class="tabletext"><strong class="strong">    Every N Days</strong></p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" colspan="2" width="384"><p class="tabletext">Use this default option to set a frequency spanning 1 day or multiple days. A value of 1 means every day. A value of 2 means every other day. A value of 3 means every third day, and so on. Also specify the UTC execution time.</p>
+<p class="tabletext"><span class="boldblue">Note</span><br />If you want to set an irregular pattern, such as Saturday and Sunday, you should use the <strong class="strong">Every N Weeks </strong>option.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" colspan="2" width="198"><p class="tabletext"><strong class="strong">    Every N Weeks</strong></p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" colspan="2" width="384"><p class="tabletext">This option lets you specify a frequency in weeks and which days of the week to run.</p>
+<p class="tabletext"><img src="mcontrol-recurweeks.png" alt="mcontrol-recurweeks.png" height="68" width="216" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<p class="tabletext"><br />The options are additive, so you can set any irregular pattern you require. (You can also delete items as needed.)</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" colspan="2" width="198"><p class="tabletext"><strong class="strong">    Every N Months</strong></p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" colspan="2" width="384"><p class="tabletext">This option lets you specify a frequency in months and a particular day (using either a calendar date or a particular day in the month (such as <em class="emphasis">Second Tuesday</em>). </p>
+<p class="tabletext"><img src="mcontrol-recurmonths.png" alt="mcontrol-recurmonths.png" height="67" width="247" vspace="0" hspace="0" align="bottom" border="0" /></p>
+<p class="tabletext">The options are additive, so you can set any irregular pattern you require. (You can also delete items as needed.)</p>
+<p class="tabletext"><span class="boldblue">Note</span><br />For the first day of a month, select <em class="emphasis">1</em>. For the last day of a month, select <em class="emphasis">Last Day</em>.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" colspan="2" width="198"><p class="tabletext"><strong class="strong">    Manually</strong></p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" colspan="2" width="384"><p class="tabletext">This option means there is no automatic recurrence. The adapter must be run with the <a id="h23982" class="crossreference" title="Override Schedule" href="OverrideSchedule.hlp.htm" target="_self">Override Schedule</a> command.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" colspan="2" width="198"><p class="tabletext"><strong class="strong">Start Date and Start Time (in UTC)</strong></p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" colspan="2" width="384"><p class="tabletext">You can specify the date and UTC time of the first execution. If left unchanged, the system assumes now.</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border-left:1px solid #C0C0C0;border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" colspan="2" width="198"><p class="tabletext"><strong class="strong">Start of Recurrence</strong></p>
+</td>
+<td style="border-right:1px solid #C0C0C0;border-bottom:1px solid #C0C0C0;" colspan="2" width="384"><p class="tabletext">You do not need to change this date unless you want to set the start date some time in the schedule. </p>
+<p class="tabletext"><span class="boldblue">Note</span><br />Do not change this date to the current date. </p>
+</td>
+</tr>
+
+</table>
+<p class="tabletext"></p>
+<p class="bodytext"></p>
+<p class="tabletext"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

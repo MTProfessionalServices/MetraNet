@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title> Building an Account Hierarchy </title>
+<meta name="Generator" content="Author-it" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="Building an Account Hierarchy" />
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<base target="BODY" />
+<style type="text/css">
+a
+{color:#555555; text-decoration:none;border-bottom:1px dotted;
+}
+a:hover
+{color:#0000FF; text-decoration:none;border-bottom:1px solid;
+}
+<!--
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<div id = "div1"></div>
+
+<script type="text/javascript">
+function showMessage() {
+var emsubj = encodeURI(document.title);
+var embody = encodeURI(window.location.href);
+var text = "<a href=\"mailto:techdoc@metratech.com?subject=" + emsubj + "&amp;body=" + embody + "\"><img src='mail.png' alt='Mail link' border='0'></a>"
+document.getElementById("div1").innerHTML = text;
+}
+</script>
+
+<body background="#ffffff" onload="loadParent();showMessage();if (isTOCLoaded()) {expand('12374');expand('12378');expand('12550');expand('13616');highlight('14442')}">
+
+<table border="0" width="90%">
+  <tr valign="top"><td>
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="about_roles_and_capabilities.htm" target="_self"><img src="nexticon.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="14441.htm" target="_self"><img src="previousicon.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0" /></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="indexicon.gif" alt="Book Index" height="1" width="1" vspace="2" hspace="2" align="bottom" border="0" /></a></p></td>
+</tr>
+</table>
+<h5 class="heading5">Building an Account Hierarchy</h5>
+<p class="bodytext">An account hierarchy typically corresponds with an organization's reporting structure (although any other scheme can be used). The arrangement of accounts into departments, cost centers, office locations, or other useful categories of accounts can be as simple or as sophisticated as required.</p>
+<p class="bodytext">The following example uses TravelSpot, a hypothetical service provider, and Cutting Edge, a hypothetical service client company. </p>
+<p class="bodytext">TravelSpot implements Cutting Edge's org chart using the MetraCare out-of-the-box account types: Corporate, Department, and Core Subscriber. </p>
+<ol class="listnumber"><li class="listnumber">To start the process of building this account hierarchy, a TravelSpot account administrator creates a <strong class="strong">Corporate </strong>account to represent the service client company.<p class="image"><img src="14533.png" alt="mcare-concepts-hierarchy4" height="39" width="666" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</li><li class="listnumber">A service provider creates a corporate account for each of its client companies.</li><li class="listnumber">The administrator then adds the San Francisco, Munich,<strong class="strong"> </strong>and<strong class="strong"> </strong>Kyoto office locations using the <strong class="strong">Department </strong>account type. She also adds Cutting Edge's CEO as a <strong class="strong">Core Subscriber</strong>.<p class="image"><img src="14534.png" alt="mcare-concepts-hierarchy5" height="114" width="615" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</li><li class="listnumber">To track costs for each department in each location, the adminstrator adds the cost-center departments for each region, again using the department account type. <p class="listcontinue">Departments are the <em class="emphasis">containers</em> in the account hierarchy. They can represent departments, cost centers, subsidiaries, office locations, types of employees, or any other grouping of accounts that are useful to an organization.</p>
+<p class="image"><img src="14540.png" alt="mcare-concepts-hierarchy6" height="114" width="639" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</li><li class="listnumber">For the Munich office, the administrator adds the office manager and three departments. There is no limit to how many levels of departments that can be nested in the hierarchy.<p class="listcontinue">The department account type, or an equivalent account type, not only helps CSRs locate an account in Cutting Edge's hierarchy, but also plays an important role in accounting and budgeting by enabling costs to be tracked by department.</p>
+<p class="listcontinue">CSR are usually responsible for adding the regular subscriber accounts for each department, such as those in the Munich finance department.</p>
+<p class="image"><img src="14541.png" alt="mcare-concepts-hierarchy7" height="93" width="635" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</li></ol><p class="bodytext">For TravelSpot, each CoreSubscriber account is a Cutting Edge employee who uses TravelSpot services. If Cutting Edge had another kind of subscriber that was not part of the corporate organization, the TravelSpot administrator could use another kind of account type to represent them.</p>
+<p class="bodytext">In this hierarchy, departments can be nested within other departments because the Department account type is configured to have CoreSubscriber accounts as descendants. However, the CoreSubscriber account is not configured to have parents of the CoreSubscriber type. However, this behavior is fully configurable.</p>
+<table class="tableintopic" width="576" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr align="left" valign="top">
+<td width="30"><p class="note"><img src="information.gif" alt="information" height="24" width="26" vspace="0" hspace="0" align="bottom" border="0" /></p>
+</td>
+<td width="546"><p class="note">An administrator or CSR does not have to create accounts manually. The MetraNet software can also be used to import account hierarchy information from external systems.</p>
+</td>
+</tr>
+
+</table>
+<p class="bodytext"></p>
+<p class="note"></p>
+
+
+  </td></tr></table>
+<table width="100%" style = "border-top:1px solid #010101; margin-top: 24px; padding-top: 6px;"><tr valign="bottom"><td>
+    <span class="footer">MetraTech Proprietary and Confidential - MetraNet 7.0.1</span></td>
+</tr></table>
+</body>
+</html>

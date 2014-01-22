@@ -1,19 +1,14 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Threading;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using MetraTech.DomainModel.Enums.Core.Global;
+using MetraTech;
+using MetraTech.Approvals;
 using MetraTech.UI.Common;
+using MetraTech.Core.Services.ClientProxies;
 using MetraTech.PageNav.ClientProxies;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.ActivityServices.Common;
-using MetraTech.UI.Controls;
 using MetraTech.UI.Tools;
-using PropertyType = MetraTech.DomainModel.Enums.Core.Global.PropertyType;
 using MetraNet.Models;
 
 public partial class Subscriptions_SetSubscriptionDate : MTPage
@@ -30,27 +25,7 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
     set { Session["SpecValues"] = value; }
   }
 
-  protected string FormatDateMessage(DateTime? startDate, DateTime? endDate)
-  {
-    string msg = Resources.Resource.TEXT_SUB_DATE_MESSAGE_START;
-
-    if (startDate.HasValue)
-    {
-      msg += " " + Resources.Resource.TEXT_AFTER + " " + startDate.Value.ToShortDateString();
-    }
-
-    if (startDate.HasValue && endDate.HasValue)
-    {
-      msg += " " + Resources.Resource.TEXT_AND;
-    }
-
-    if (endDate.HasValue)
-    {
-      msg += " " + Resources.Resource.TEXT_BEFORE + " " + endDate.Value.ToShortDateString();
-    }
-
-    return msg;
-  }
+  #region Event Listeners
 
   protected void Page_Load(object sender, EventArgs e)
   {
@@ -136,17 +111,149 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
     SpecCharacteristicsBinder.UnbindProperies(charVals, pnlSubscriptionProperties, SpecValues);
     SubscriptionInstance.CharacteristicValues = charVals;
 
-    SubscriptionsEvents_OKSetSubscriptionDate_Client update = new SubscriptionsEvents_OKSetSubscriptionDate_Client();
-    update.In_SubscriptionInstance = SubscriptionInstance;
-    update.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-    PageNav.Execute(update);
+    ProcessTheSubscription(SubscriptionInstance);
   }
-
-
+  
   protected void btnCancel_Click(object sender, EventArgs e)
   {
-    SubscriptionsEvents_CancelSubscriptions_Client cancel = new SubscriptionsEvents_CancelSubscriptions_Client();
-    cancel.In_AccountId = new AccountIdentifier(UI.User.AccountId);
+    var cancel = new SubscriptionsEvents_CancelSubscriptions_Client
+      {
+        In_AccountId = new AccountIdentifier(UI.User.AccountId)
+      };
     PageNav.Execute(cancel);
   }
+
+  #endregion
+
+  #region Private Methods
+
+  /// <summary>
+  /// Depending on the conditions does one of the followig:
+  /// 1. Saves subscription;
+  /// 2. Goes to UDRC screen;
+  /// 3. Sending submitted change to approval, if approval is enabled
+  /// </summary>
+  private void ProcessTheSubscription(Subscription sub)
+  {
+    var isNewSubscription = sub.SubscriptionId == null;
+    var changeTypeName = isNewSubscription ? "GroupSubscription.AddMembers" : "GroupSubscription.UpdateMember";
+    // TODO: Once changeTypes "Subscription.Add" and "Subscription.Update" are ready replace previouse line(stub) with the code:
+    /* 
+     * var changeTypeName = isNewSubscription ? "Subscription.Add" : "Subscription.Update";
+     */
+
+    if (IsApprovalsEnabled(changeTypeName) && !HasUdrcValues(sub))
+    {
+      var changeId = SubmitSubscriptionChangeForApproval(sub, changeTypeName);
+      Response.Redirect(
+        String.Format("/MetraNet/ApprovalFrameworkManagement/ChangeSubmittedConfirmation.aspx?ChangeId={0}", changeId),
+        false);
+    }
+    else
+    {
+      var update = new SubscriptionsEvents_OKSetSubscriptionDate_Client
+        {
+          In_SubscriptionInstance = sub,
+          In_AccountId = new AccountIdentifier(UI.User.AccountId)
+        };
+      PageNav.Execute(update);
+    }
+  }
+
+  /// <summary>
+  /// Submits a change to pending approvement using Approval Service
+  /// </summary>
+  /// <param name="sub">Subscription</param>
+  /// <param name="changeTypeName">Type of submitted change</param>
+  /// <returns>ID of submitted change</returns>
+  private int SubmitSubscriptionChangeForApproval(Subscription sub, string changeTypeName)
+  {
+    var subscriber = UI.Subscriber.SelectedAccount;
+    if (!subscriber._AccountID.HasValue)
+    {
+      throw new NullReferenceException("AccountID property is empty");
+    }
+
+    var changeDetails = new ChangeDetailsHelper();
+    changeDetails["acct"] = new AccountIdentifier(subscriber._AccountID.Value);
+    changeDetails["sub"] = sub; // TODO:  "sub" is a 'ref' parameter of SubscriptionService.AddSubscription(). Ensure it will be tracked appropriately
+
+    var subscriptionChange = new Change
+    {
+      ChangeType = changeTypeName,
+      ChangeDetailsBlob = changeDetails.ToXml(),
+      UniqueItemId = String.Format("{0}_{1}",
+                                   subscriber._AccountID.Value,
+                                   sub.ProductOfferingId),
+      ItemDisplayName = sub.ProductOffering.Name,
+      Comment = String.Format("Subscribing account '{0}' to product offering '{1}' on '{2}'",
+                              subscriber.UserName,
+                              sub.ProductOffering.Name,
+                              MetraTime.Now)
+    };
+
+    int changeId = 0;
+    using (var client = new ApprovalManagementServiceClient())
+    {
+      SetCredantional(client.ClientCredentials);
+      //TODO: Uncomment once changeTypes "Subscription.Add" and "Subscription.Update" are ready
+      //client.SubmitChange(subscriptionChange, out changeId);
+    }
+    return changeId;
+  }
+
+  private bool IsApprovalsEnabled(string changeType)
+  {
+    var listOfChangeTypeConfig = new MTList<ChangeTypeConfiguration>();
+    using (var client = new ApprovalManagementServiceClient())
+    {
+      SetCredantional(client.ClientCredentials);
+      client.RetrieveChangeTypeConfiguration(changeType, ref listOfChangeTypeConfig);
+    }
+    return listOfChangeTypeConfig.Items[0].Enabled;
+  }
+
+  private bool HasUdrcValues(Subscription sub)
+  {
+    List<UDRCInstance> listOfUdrcs;
+    using (var client = new SubscriptionServiceClient())
+    {
+      SetCredantional(client.ClientCredentials);
+      client.GetUDRCInstancesForPO(sub.ProductOfferingId, out listOfUdrcs);
+    }
+    return listOfUdrcs.Count > 0;
+  }
+
+  private void SetCredantional(System.ServiceModel.Description.ClientCredentials clientCredentials)
+  {
+    if (clientCredentials == null)
+      throw new InvalidOperationException("Client credentials is null");
+
+    clientCredentials.UserName.UserName = UI.User.UserName;
+    clientCredentials.UserName.Password = UI.User.SessionPassword;
+  }
+
+  private static string FormatDateMessage(DateTime? startDate, DateTime? endDate)
+  {
+    var msg = Resources.Resource.TEXT_SUB_DATE_MESSAGE_START;
+
+    if (startDate.HasValue)
+    {
+      msg += String.Format(" {0} {1}", Resources.Resource.TEXT_AFTER, startDate.Value.ToShortDateString());
+    }
+
+    if (startDate.HasValue && endDate.HasValue)
+    {
+      msg += String.Format(" {0}", Resources.Resource.TEXT_AND);
+    }
+
+    if (endDate.HasValue)
+    {
+      msg += String.Format(" {0} {1}", Resources.Resource.TEXT_BEFORE, endDate.Value.ToShortDateString());
+    }
+
+    return msg;
+  }
+
+  #endregion
 }

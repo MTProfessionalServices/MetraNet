@@ -115,18 +115,38 @@
       AllowBlank="False" HideLabel="False" LabelSeparator=":" Listeners="{}" 
       meta:resourcekey="ddBillingPeriod1" ReadOnly="False">
     </MT:MTDropDown>
-      <div  class="x-panel-btns-ct">
+</MT:MTPanel>
+<MT:MTPanel ID="MTPanel2" runat="server" Text="Issue Credit Note For This Adjustment" 
+       Collapsed="False" Collapsible="True" EnableChrome="True" 
+       meta:resourcekey="MTPanel2Resource1" >
+    <MT:MTCheckBoxControl ID="cbIssueCreditNote" runat="server" BoxLabel="Issue Credit Note For This Adjustment"
+      TabIndex="240" ControlWidth="400" AllowBlank="False"
+      Checked="False" HideLabel="True" LabelSeparator=":" Listeners="{}" meta:resourcekey="cbIssueCreditNoteResource1"
+      Name="cbIssueCreditNote" ReadOnly="False" XType="Checkbox" XTypeNameSpace="form" /><br />
+    <MT:MTDropDown ID="ddTemplateTypes" runat="server" Label="Credit Note Template To Use" 
+      AllowBlank="False" HideLabel="False" LabelSeparator=":" Listeners="{}"
+      meta:resourcekey="ddTemplateTypesResource1" ReadOnly="False">
+    </MT:MTDropDown>
+    <MT:MTTextArea ID="CommentTextBox" Label="Comment" runat="server" 
+      AllowBlank="True" Height="200px" Width="400px" ControlHeight="200" 
+      ControlWidth="400" HideLabel="False" LabelSeparator=":" LabelWidth="120" 
+      Listeners="{}" MaxLength="1024" meta:resourcekey="CommentTextBoxResource1" 
+      MinLength="0"
+      ReadOnly="False" ValidationRegex="null" 
+      XType="TextArea" XTypeNameSpace="form" />
+</MT:MTPanel> 
+    <div  class="x-panel-btns-ct">
     <div style="width:630px" class="x-panel-btns x-panel-btns-center"> 
     <center>  
       <table cellspacing="0">
         <tr>
           <td  class="x-panel-btn-td">
-            <MT:MTButton ID="btnOK"  OnClientClick="return ValidateForm();" runat="server" 
+            <MT:MTButton ID="MTButton1"  OnClientClick="return ValidateForm();" runat="server" 
               Text="<%$ Resources:Resource,TEXT_OK %>" OnClick="btnOK_Click" TabIndex="150" 
               meta:resourcekey="btnOKResource1" />      
           </td>
           <td  class="x-panel-btn-td">
-            <MT:MTButton ID="btnCancel" runat="server" 
+            <MT:MTButton ID="MTButton2" runat="server" 
               Text="<%$ Resources:Resource,TEXT_CANCEL %>" OnClick="btnCancel_Click" 
               CausesValidation="False" TabIndex="160" meta:resourcekey="btnCancelResource1" />
           </td>
@@ -135,7 +155,6 @@
       </center>    
     </div>
   </div>
-  </MT:MTPanel>
   <script type="text/javascript" src="/Res/jqPlot/jquery.js"></script>
   <script type="text/javascript" src="IssueMiscellaneousAdjustment.aspx.js"></script>
 </asp:Content>

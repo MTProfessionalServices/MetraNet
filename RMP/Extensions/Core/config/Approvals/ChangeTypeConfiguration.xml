@@ -47,7 +47,7 @@
     </WebpageForView>
   </ChangeTypeConfiguration>  
   <ChangeTypeConfiguration>
-    <Name>Subscription.AddSubscription</Name>
+    <Name>Subscription.Add</Name>
     <Description>Adding subscription to account</Description>
     <Enabled>false</Enabled>
     <AllowMoreThanOnePendingChange>false</AllowMoreThanOnePendingChange>
@@ -67,7 +67,7 @@
     </WebpageForView>
   </ChangeTypeConfiguration>  
   <ChangeTypeConfiguration>
-    <Name>Subscription.UpdateSubscription</Name>
+    <Name>Subscription.Update</Name>
     <Description>Updating subscription to account</Description>
     <Enabled>false</Enabled>
     <AllowMoreThanOnePendingChange>false</AllowMoreThanOnePendingChange>

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using MetraTech;
 using MetraTech.Approvals;
+using MetraTech.Approvals.ChangeTypes;
 using MetraTech.UI.Common;
 using MetraTech.Core.Services.ClientProxies;
 using MetraTech.PageNav.ClientProxies;
@@ -136,15 +137,13 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
   private void ProcessTheSubscription(Subscription sub)
   {
     var isNewSubscription = sub.SubscriptionId == null;
-    var changeTypeName = isNewSubscription ? "GroupSubscription.AddMembers" : "GroupSubscription.UpdateMember";
-    // TODO: Once changeTypes "Subscription.Add" and "Subscription.Update" are ready replace previouse line(stub) with the code:
-    /* 
-     * var changeTypeName = isNewSubscription ? "Subscription.Add" : "Subscription.Update";
-     */
+    var changeTypeName = isNewSubscription
+                           ? SubscriptionChangeType.AddSubscriptionChangeTypeName
+                           : SubscriptionChangeType.UpdateSubscriptionChangeTypeName;
 
     if (IsApprovalsEnabled(changeTypeName) && !HasUdrcValues(sub))
     {
-      var changeId = SubmitSubscriptionChangeForApproval(sub, changeTypeName);
+      var changeId = SubmitSubscriptionChangeForApproval(sub, changeTypeName, isNewSubscription);
       Response.Redirect(
         String.Format("/MetraNet/ApprovalFrameworkManagement/ChangeSubmittedConfirmation.aspx?ChangeId={0}", changeId),
         false);
@@ -165,52 +164,52 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
   /// </summary>
   /// <param name="sub">Subscription</param>
   /// <param name="changeTypeName">Type of submitted change</param>
+  /// <param name="isNewSub">Is it new subscription or update of existing</param>
   /// <returns>ID of submitted change</returns>
-  private int SubmitSubscriptionChangeForApproval(Subscription sub, string changeTypeName)
+  private int SubmitSubscriptionChangeForApproval(Subscription sub, string changeTypeName, bool isNewSub)
   {
     var subscriber = UI.Subscriber.SelectedAccount;
     if (!subscriber._AccountID.HasValue)
     {
       throw new NullReferenceException("AccountID property is empty");
     }
+    var changeNameShort = isNewSub ? "Sub.Add" : "Sub.Update";
+    var changeCommentFormat = isNewSub
+                                ? "Subscribing account '{0}' to product offering '{1}' on '{2}'"
+                                : "Updating subscription of account '{0}' to product offering '{1}' on '{2}'";
 
     var changeDetails = new ChangeDetailsHelper();
-    changeDetails["acct"] = new AccountIdentifier(subscriber._AccountID.Value);
-    changeDetails["sub"] = sub; // TODO:  "sub" is a 'ref' parameter of SubscriptionService.AddSubscription(). Ensure it will be tracked appropriately
+    changeDetails[SubscriptionChangeType.AccountIdentifierKey] = new AccountIdentifier(subscriber._AccountID.Value);
+    changeDetails[SubscriptionChangeType.SubscriptionKey] = sub;
+      // TODO:  "sub" is a 'ref' parameter of SubscriptionService.AddSubscription(). Ensure it will be tracked appropriately
 
     var subscriptionChange = new Change
-    {
-      ChangeType = changeTypeName,
-      ChangeDetailsBlob = changeDetails.ToXml(),
-      UniqueItemId = String.Format("{0}_{1}",
-                                   subscriber._AccountID.Value,
-                                   sub.ProductOfferingId),
-      ItemDisplayName = sub.ProductOffering.Name,
-      Comment = String.Format("Subscribing account '{0}' to product offering '{1}' on '{2}'",
-                              subscriber.UserName,
-                              sub.ProductOffering.Name,
-                              MetraTime.Now)
-    };
+      {
+        ChangeType = changeTypeName,
+        ChangeDetailsBlob = changeDetails.ToXml(),
+        UniqueItemId = String.Format("{0}_{1}_{2}", subscriber._AccountID.Value, sub.ProductOfferingId, changeNameShort),
+        ItemDisplayName = sub.ProductOffering.Name,
+        Comment = String.Format(changeCommentFormat, subscriber.UserName, sub.ProductOffering.Name, MetraTime.Now)
+      };
 
-    int changeId = 0;
+    int changeId;
     using (var client = new ApprovalManagementServiceClient())
     {
       SetCredantional(client.ClientCredentials);
-      //TODO: Uncomment once changeTypes "Subscription.Add" and "Subscription.Update" are ready
-      //client.SubmitChange(subscriptionChange, out changeId);
+      client.SubmitChange(subscriptionChange, out changeId);
     }
     return changeId;
   }
 
   private bool IsApprovalsEnabled(string changeType)
   {
-    var listOfChangeTypeConfig = new MTList<ChangeTypeConfiguration>();
+    bool isEnabled;
     using (var client = new ApprovalManagementServiceClient())
     {
       SetCredantional(client.ClientCredentials);
-      client.RetrieveChangeTypeConfiguration(changeType, ref listOfChangeTypeConfig);
+      client.ApprovalEnabledForChangeType(changeType, out isEnabled);
     }
-    return listOfChangeTypeConfig.Items[0].Enabled;
+    return isEnabled;
   }
 
   private bool HasUdrcValues(Subscription sub)

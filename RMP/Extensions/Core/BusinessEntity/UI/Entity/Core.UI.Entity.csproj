@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{dc4c12a8-6b60-425d-8498-4a15668657ac}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MetraTech.Core.UI</RootNamespace>
+    <AssemblyName>Core.UI.Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <OutDir>.\bin\$(Configuration)</OutDir>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(MTRMP)\config\BusinessEntity\MetraTech.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="MetraTech.DomainModel.Enums.Generated">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTRMPBIN)\MetraTech.DomainModel.Enums.Generated.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.DomainModel.BaseTypes">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTRMPBIN)\MetraTech.DomainModel.BaseTypes.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.Basic">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTRMPBIN)\MetraTech.Basic.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.BusinessEntity.Core">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTRMPBIN)\MetraTech.BusinessEntity.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.BusinessEntity.DataAccess">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTRMPBIN)\MetraTech.BusinessEntity.DataAccess.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Core.Interface">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTRMPBIN)\Core.Interface.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Compile Include="BillSetting.Generated.cs" />
+    <Compile Include="Column.Generated.cs" />
+    <Compile Include="Column_Widget.Generated.cs" />
+    <Compile Include="Dashboard.Generated.cs" />
+    <Compile Include="Dashboard_Column.Generated.cs" />
+    <Compile Include="EntryPoint.Generated.cs" />
+    <Compile Include="Parameter.Generated.cs" />
+    <Compile Include="ProductViewMapping.Generated.cs" />
+    <Compile Include="ReportInventory.Generated.cs" />
+    <Compile Include="SavedSearch.Generated.cs" />
+    <Compile Include="SavedSearch_SearchFilter.Generated.cs" />
+    <Compile Include="SearchFilter.Generated.cs" />
+    <Compile Include="Site.Generated.cs" />
+    <Compile Include="Site_BillSetting.Generated.cs" />
+    <Compile Include="Site_Dashboard.Generated.cs" />
+    <Compile Include="Site_EntryPoint.Generated.cs" />
+    <Compile Include="Site_ProductViewMapping.Generated.cs" />
+    <Compile Include="Site_ReportInventory.Generated.cs" />
+    <Compile Include="UserProfile.Generated.cs" />
+    <Compile Include="Widget.Generated.cs" />
+    <Compile Include="WidgetInventory.Generated.cs" />
+    <Compile Include="Widget_Parameter.Generated.cs" />
+    <EmbeddedResource Include="billsetting.generated.hbm.xml" />
+    <EmbeddedResource Include="column.generated.hbm.xml" />
+    <EmbeddedResource Include="column_widget.generated.hbm.xml" />
+    <EmbeddedResource Include="dashboard.generated.hbm.xml" />
+    <EmbeddedResource Include="dashboard_column.generated.hbm.xml" />
+    <EmbeddedResource Include="entrypoint.generated.hbm.xml" />
+    <EmbeddedResource Include="parameter.generated.hbm.xml" />
+    <EmbeddedResource Include="productviewmapping.generated.hbm.xml" />
+    <EmbeddedResource Include="reportinventory.generated.hbm.xml" />
+    <EmbeddedResource Include="savedsearch.generated.hbm.xml" />
+    <EmbeddedResource Include="savedsearch_searchfilter.generated.hbm.xml" />
+    <EmbeddedResource Include="searchfilter.generated.hbm.xml" />
+    <EmbeddedResource Include="site.generated.hbm.xml" />
+    <EmbeddedResource Include="site_billsetting.generated.hbm.xml" />
+    <EmbeddedResource Include="site_dashboard.generated.hbm.xml" />
+    <EmbeddedResource Include="site_entrypoint.generated.hbm.xml" />
+    <EmbeddedResource Include="site_productviewmapping.generated.hbm.xml" />
+    <EmbeddedResource Include="site_reportinventory.generated.hbm.xml" />
+    <EmbeddedResource Include="userprofile.generated.hbm.xml" />
+    <EmbeddedResource Include="widget.generated.hbm.xml" />
+    <EmbeddedResource Include="widgetinventory.generated.hbm.xml" />
+    <EmbeddedResource Include="widget_parameter.generated.hbm.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+	  copy $(TargetPath)  $(MTRMPBin)
+	</PostBuildEvent>
+  </PropertyGroup>
+</Project>

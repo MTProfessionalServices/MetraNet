@@ -141,9 +141,9 @@
       <table cellspacing="0">
         <tr>
           <td  class="x-panel-btn-td">
-            <MT:MTButton ID="MTButton1"  OnClientClick="return ValidateForm();" runat="server" 
-              Text="<%$ Resources:Resource,TEXT_OK %>" OnClick="btnOK_Click" TabIndex="150" 
-              meta:resourcekey="btnOKResource1" />      
+            <MT:MTButton ID="MTButton1"  OnClientClick="if(checkButtonClickCount()){return ValidateForm();} else {return false;}"
+              runat="server" Text="<%$ Resources:Resource,TEXT_OK %>" OnClick="btnOK_Click"
+              TabIndex="150" meta:resourcekey="btnOKResource1" />
           </td>
           <td  class="x-panel-btn-td">
             <MT:MTButton ID="MTButton2" runat="server" 

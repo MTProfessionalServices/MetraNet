@@ -26,4 +26,27 @@
       });
     });
 })(jQuery);
- 
+
+
+var buttonClickCount;
+
+Ext.onReady(function () {
+  buttonClickCount = 0;
+});
+
+function incrementButtonClickCount() {
+  buttonClickCount += 1;
+}
+
+function resetButtonClickCount() {
+  buttonClickCount = 0;
+}
+
+// Use this function to ensure that only one button click gets executed on the page
+function checkButtonClickCount() {
+  incrementButtonClickCount();
+  if (buttonClickCount <= 1)
+    return true;
+  else
+    return false;
+};

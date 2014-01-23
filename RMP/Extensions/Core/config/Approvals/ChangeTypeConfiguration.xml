@@ -45,7 +45,47 @@
     <WebpageForView>
       <URL>/MetraNet/ApprovalFrameworkManagement/ChangeTypeViewers/ViewProductOfferingChangeDetails.aspx?changeid=%%CHANGE_ID%%&amp;currentstate=%%CHANGE_STATE%%&amp;showchangestate=%%SHOW_CHANGE_STATE%%</URL>
     </WebpageForView>
-  </ChangeTypeConfiguration>
+  </ChangeTypeConfiguration>  
+  <ChangeTypeConfiguration>
+    <Name>Subscription.Add</Name>
+    <Description>Adding subscription to account</Description>
+    <Enabled>false</Enabled>
+    <AllowMoreThanOnePendingChange>false</AllowMoreThanOnePendingChange>
+    <CapabilityRequiredForApproveOrDeny>Approve SubscriptionChanges</CapabilityRequiredForApproveOrDeny>	
+	<MethodForSubmit>
+      <Assembly>MetraTech.Approvals.dll</Assembly>
+      <Classname>MetraTech.Approvals.ChangeTypes.SubscriptionChangeType</Classname>
+    </MethodForSubmit>	
+    <MethodForApply>
+      <Name>AddSubscription</Name>
+      <ClientProxyType>MetraTech.Core.Services.ClientProxies.SubscriptionServiceClient, MetraTech.Core.Services.ClientProxies</ClientProxyType>
+      <ConfigFileLocation>extensions\Core\config\Approvals\ActivityServices.config</ConfigFileLocation>
+      <EndPointName>WSHttpBinding_ISubscriptionService</EndPointName>
+    </MethodForApply>
+    <WebpageForView>
+      <URL>/MetraNet/ApprovalFrameworkManagement/ChangeTypeViewers/DefaultViewChangeDetails.aspx?changeid=%%CHANGE_ID%%&amp;currentstate=%%CHANGE_STATE%%&amp;showchangestate=%%SHOW_CHANGE_STATE%%</URL>
+    </WebpageForView>
+  </ChangeTypeConfiguration>  
+  <ChangeTypeConfiguration>
+    <Name>Subscription.Update</Name>
+    <Description>Updating subscription to account</Description>
+    <Enabled>false</Enabled>
+    <AllowMoreThanOnePendingChange>false</AllowMoreThanOnePendingChange>
+    <CapabilityRequiredForApproveOrDeny>Approve SubscriptionChanges</CapabilityRequiredForApproveOrDeny>	
+	<MethodForSubmit>
+      <Assembly>MetraTech.Approvals.dll</Assembly>
+      <Classname>MetraTech.Approvals.ChangeTypes.SubscriptionChangeType</Classname>
+    </MethodForSubmit>	
+    <MethodForApply>
+      <Name>UpdateSubscription</Name>
+      <ClientProxyType>MetraTech.Core.Services.ClientProxies.SubscriptionServiceClient, MetraTech.Core.Services.ClientProxies</ClientProxyType>
+      <ConfigFileLocation>extensions\Core\config\Approvals\ActivityServices.config</ConfigFileLocation>
+      <EndPointName>WSHttpBinding_ISubscriptionService</EndPointName>
+    </MethodForApply>
+    <WebpageForView>
+      <URL>/MetraNet/ApprovalFrameworkManagement/ChangeTypeViewers/DefaultViewChangeDetails.aspx?changeid=%%CHANGE_ID%%&amp;currentstate=%%CHANGE_STATE%%&amp;showchangestate=%%SHOW_CHANGE_STATE%%</URL>
+    </WebpageForView>
+  </ChangeTypeConfiguration>  
   <ChangeTypeConfiguration>
     <Name>GroupSubscription.AddMemberHierarchies</Name>
     <Description>Adding of members and member heirarchies to group subscription</Description>

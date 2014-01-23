@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{f61be714-1823-4c9f-be68-3ce1e645283a}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MetraTech.Core.Interface</RootNamespace>
+    <AssemblyName>Core.Interface</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <OutDir>.\bin\$(Configuration)</OutDir>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(MTRMP)\config\BusinessEntity\MetraTech.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="MetraTech.DomainModel.Enums.Generated">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTRMPBIN)\MetraTech.DomainModel.Enums.Generated.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.Basic">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTRMPBIN)\MetraTech.Basic.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.BusinessEntity.Core">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTRMPBIN)\MetraTech.BusinessEntity.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetraTech.BusinessEntity.DataAccess">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MTRMPBIN)\MetraTech.BusinessEntity.DataAccess.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Compile Include="Core.BillMessages.IBillMessage.Generated.cs" />
+    <Compile Include="Core.BillMessages.IBillMessageAccount.Generated.cs" />
+    <Compile Include="Core.Core.IChargeAdjustment.Generated.cs" />
+    <Compile Include="Core.Core.IChargeAdjustmentSession.Generated.cs" />
+    <Compile Include="Core.Core.IDispute.Generated.cs" />
+    <Compile Include="Core.Core.IDivision.Generated.cs" />
+    <Compile Include="Core.Core.IInvoiceAdjustment.Generated.cs" />
+    <Compile Include="Core.FileLandingService.IArgumentBE.Generated.cs" />
+    <Compile Include="Core.FileLandingService.IAssemblyReferenceBE.Generated.cs" />
+    <Compile Include="Core.FileLandingService.IConfigurationBE.Generated.cs" />
+    <Compile Include="Core.FileLandingService.IFileBE.Generated.cs" />
+    <Compile Include="Core.FileLandingService.IInvocationRecordBE.Generated.cs" />
+    <Compile Include="Core.FileLandingService.IInvocationRecordBE_FileBE.Generated.cs" />
+    <Compile Include="Core.FileLandingService.IProgramCodeBE.Generated.cs" />
+    <Compile Include="Core.FileLandingService.IProgramCodeBE_AssemblyReferenceBE.Generated.cs" />
+    <Compile Include="Core.FileLandingService.IServiceHostBE.Generated.cs" />
+    <Compile Include="Core.FileLandingService.ITargetBE.Generated.cs" />
+    <Compile Include="Core.FileLandingService.ITargetBE_ArgumentBE.Generated.cs" />
+    <Compile Include="Core.FileLandingService.ITargetBE_InvocationRecordBE.Generated.cs" />
+    <Compile Include="Core.FileLandingService.ITargetBE_ProgramCodeBE.Generated.cs" />
+    <Compile Include="Core.MR.IMachine.Generated.cs" />
+    <Compile Include="Core.MR.IMachineRole.Generated.cs" />
+    <Compile Include="Core.MR.IMachine_MachineRole_Machines_MachineRoles.Generated.cs" />
+    <Compile Include="Core.Quoting.IAccountForQuote.Generated.cs" />
+    <Compile Include="Core.Quoting.IPOforQuote.Generated.cs" />
+    <Compile Include="Core.Quoting.IQuoteContent.Generated.cs" />
+    <Compile Include="Core.Quoting.IQuoteHeader.Generated.cs" />
+    <Compile Include="Core.Quoting.IQuoteICB.Generated.cs" />
+    <Compile Include="Core.Quoting.IQuoteLog.Generated.cs" />
+    <Compile Include="Core.Quoting.IUDRCForQuoting.Generated.cs" />
+    <Compile Include="Core.UI.IBillSetting.Generated.cs" />
+    <Compile Include="Core.UI.IColumn.Generated.cs" />
+    <Compile Include="Core.UI.IColumn_Widget.Generated.cs" />
+    <Compile Include="Core.UI.IDashboard.Generated.cs" />
+    <Compile Include="Core.UI.IDashboard_Column.Generated.cs" />
+    <Compile Include="Core.UI.IEntryPoint.Generated.cs" />
+    <Compile Include="Core.UI.IParameter.Generated.cs" />
+    <Compile Include="Core.UI.IProductViewMapping.Generated.cs" />
+    <Compile Include="Core.UI.IReportInventory.Generated.cs" />
+    <Compile Include="Core.UI.ISavedSearch.Generated.cs" />
+    <Compile Include="Core.UI.ISavedSearch_SearchFilter.Generated.cs" />
+    <Compile Include="Core.UI.ISearchFilter.Generated.cs" />
+    <Compile Include="Core.UI.ISite.Generated.cs" />
+    <Compile Include="Core.UI.ISite_BillSetting.Generated.cs" />
+    <Compile Include="Core.UI.ISite_Dashboard.Generated.cs" />
+    <Compile Include="Core.UI.ISite_EntryPoint.Generated.cs" />
+    <Compile Include="Core.UI.ISite_ProductViewMapping.Generated.cs" />
+    <Compile Include="Core.UI.ISite_ReportInventory.Generated.cs" />
+    <Compile Include="Core.UI.IUserProfile.Generated.cs" />
+    <Compile Include="Core.UI.IWidget.Generated.cs" />
+    <Compile Include="Core.UI.IWidgetInventory.Generated.cs" />
+    <Compile Include="Core.UI.IWidget_Parameter.Generated.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+	  copy $(TargetPath)  $(MTRMPBin)
+	</PostBuildEvent>
+  </PropertyGroup>
+</Project>

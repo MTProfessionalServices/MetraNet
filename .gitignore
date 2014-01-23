@@ -1,4 +1,10 @@
+# ignore the output directories
 output/
+
+# except these, they come from Sencha
+!RMP/UI/Res/Ext/docs/output
+!RMP/UI/Res/Ext/examples/docs/output
+
 BBXService/
 RMP/Bin/
 RMP/*.txt

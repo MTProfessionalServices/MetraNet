@@ -327,33 +327,38 @@
 		</StateDesigner>
 		<StateDesigner Size="188, 106" AutoSizeMargin="16, 24" AutoSize="False" Location="720, 295" Name="SetSubscriptionDate">
 			<StateDesigner.Designers>
-				<StateInitializationDesigner Name="Init_SetSubscriptionDate" Size="150, 122" Location="610, 135">
+				<StateInitializationDesigner Name="Init_SetSubscriptionDate" Size="150, 122" Location="728, 326">
 					<StateInitializationDesigner.Designers>
-						<ActivityDesigner Name="mtStateInitOutputActivity7" Size="130, 41" Location="620, 197" />
+						<ActivityDesigner Name="mtStateInitOutputActivity7" Size="130, 41" Location="738, 388" />
 					</StateInitializationDesigner.Designers>
 				</StateInitializationDesigner>
-				<EventDrivenDesigner Name="OK_SetSubscriptionDate" Size="612, 676" Location="618, 148">
+				<EventDrivenDesigner Name="OK_SetSubscriptionDate" Size="612, 736" Location="728, 350">
 					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Name="mtHandleEventActivity20" Size="130, 41" Location="859, 210" />
-						<CodeDesigner Name="ValidateSubscription" Size="130, 41" Location="859, 270" />
-						<ActivityDesigner Name="subscriptionService_GetUDRCInstancesForPO_ClientActivity1" Size="130, 41" Location="859, 330" />
-						<IfElseDesigner Name="ifElseActivity1" Size="592, 415" Location="628, 390">
+						<ActivityDesigner Name="mtHandleEventActivity20" Size="130, 41" Location="969, 412" />
+						<CodeDesigner Name="ValidateSubscription" Size="130, 41" Location="969, 472" />
+						<CodeDesigner Name="InitChangeRequest" Size="130, 41" Location="969, 532" />
+						<ActivityDesigner Name="subscriptionService_GetUDRCInstancesForPO_ClientActivity1" Size="130, 41" Location="969, 592" />
+						<IfElseDesigner Name="ifElseActivity1" Size="592, 415" Location="738, 652">
 							<IfElseDesigner.Designers>
-								<IfElseBranchDesigner Name="ifElseBranchActivity1" Size="150, 315" Location="647, 461">
+								<IfElseBranchDesigner Name="ifElseBranchActivity1" Size="150, 315" Location="757, 723">
 									<IfElseBranchDesigner.Designers>
-										<SetStateDesigner Name="setStateActivity18" Size="130, 53" Location="657, 614" />
+										<SetStateDesigner Name="setStateActivity18" Size="130, 53" Location="767, 876" />
 									</IfElseBranchDesigner.Designers>
 								</IfElseBranchDesigner>
-								<IfElseBranchDesigner Name="ifElseBranchActivity2" Size="381, 315" Location="820, 461">
+								<IfElseBranchDesigner Name="ifElseBranchActivity2" Size="381, 315" Location="930, 723">
 									<IfElseBranchDesigner.Designers>
-										<IfElseDesigner Name="ifElseActivity2" Size="361, 234" Location="830, 523">
+										<IfElseDesigner Name="ifElseActivity2" Size="361, 234" Location="940, 785">
 											<IfElseDesigner.Designers>
-												<IfElseBranchDesigner Name="ifElseBranchActivity7" Size="150, 134" Location="849, 594">
+												<IfElseBranchDesigner Name="ifElseBranchActivity7" Size="150, 134" Location="959, 856">
 													<IfElseBranchDesigner.Designers>
-														<SetStateDesigner Name="setStateActivity19" Size="130, 53" Location="859, 656" />
+														<ActivityDesigner Name="approvalManagementService_SubmitChange_ClientActivity2" Size="130, 41" Location="969, 924" />
 													</IfElseBranchDesigner.Designers>
 												</IfElseBranchDesigner>
-												<IfElseBranchDesigner Name="ifElseBranchActivity8" Size="150, 134" Location="1022, 594" />
+												<IfElseBranchDesigner Name="ifElseBranchActivity8" Size="150, 134" Location="1132, 856">
+													<IfElseBranchDesigner.Designers>
+														<SetStateDesigner Name="setStateActivity19" Size="130, 53" Location="1142, 918" />
+													</IfElseBranchDesigner.Designers>
+												</IfElseBranchDesigner>
 											</IfElseDesigner.Designers>
 										</IfElseDesigner>
 									</IfElseBranchDesigner.Designers>
@@ -371,10 +376,10 @@
 						</FaultHandlersActivityDesigner>
 					</EventDrivenDesigner.Designers>
 				</EventDrivenDesigner>
-				<EventDrivenDesigner Name="Cancel_SetSubscriptionDate" Size="150, 194" Location="610, 183">
+				<EventDrivenDesigner Name="Cancel_SetSubscriptionDate" Size="150, 194" Location="728, 374">
 					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Name="mtHandleEventActivity21" Size="130, 41" Location="620, 245" />
-						<SetStateDesigner Name="setStateActivity20" Size="130, 53" Location="620, 305" />
+						<ActivityDesigner Name="mtHandleEventActivity21" Size="130, 41" Location="738, 436" />
+						<SetStateDesigner Name="setStateActivity20" Size="130, 53" Location="738, 496" />
 						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity19" Size="130, 41" ShowPreview="False">
 							<FaultHandlersActivityDesigner.Designers>
 								<FaultHandlerActivityDesigner Name="faultHandlerActivity19" Size="130, 41" Location="0, 0">
@@ -388,17 +393,31 @@
 				</EventDrivenDesigner>
 			</StateDesigner.Designers>
 		</StateDesigner>
-		<StateDesigner Size="176, 131" AutoSizeMargin="16, 24" Location="721, 419" Name="SetUDRCValues">
+		<StateDesigner Size="176, 131" AutoSizeMargin="16, 24" AutoSize="False" Location="721, 419" Name="SetUDRCValues">
 			<StateDesigner.Designers>
-				<StateInitializationDesigner Name="Init_SetUDRCValues" Size="150, 122" Location="729, 450">
+				<StateInitializationDesigner Name="Init_SetUDRCValues" Size="150, 122" Location="725, 135">
 					<StateInitializationDesigner.Designers>
-						<ActivityDesigner Name="mtStateInitOutputActivity8" Size="130, 41" Location="739, 512" />
+						<ActivityDesigner Name="mtStateInitOutputActivity8" Size="130, 41" Location="735, 197" />
 					</StateInitializationDesigner.Designers>
 				</StateInitializationDesigner>
-				<EventDrivenDesigner Name="OK_SetUDRCValues" Size="150, 194" Location="729, 474">
+				<EventDrivenDesigner Name="OK_SetUDRCValues" Size="381, 435" Location="733, 148">
 					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Name="mtHandleEventActivity22" Size="130, 41" Location="739, 536" />
-						<SetStateDesigner Name="setStateActivity21" Size="130, 53" Location="739, 596" />
+						<ActivityDesigner Name="mtHandleEventActivity22" Size="130, 41" Location="858, 210" />
+						<CodeDesigner Name="InitChangeRequestWithUDRC" Size="130, 41" Location="858, 270" />
+						<IfElseDesigner Name="ifElseActivityApprovalsWithUdrc" Size="361, 234" Location="743, 330">
+							<IfElseDesigner.Designers>
+								<IfElseBranchDesigner Name="ifElseBranchActivity71" Size="150, 134" Location="762, 401">
+									<IfElseBranchDesigner.Designers>
+										<ActivityDesigner Name="approvalManagementService_SubmitChange_ClientActivity3" Size="130, 41" Location="772, 469" />
+									</IfElseBranchDesigner.Designers>
+								</IfElseBranchDesigner>
+								<IfElseBranchDesigner Name="ifElseBranchActivity81" Size="150, 134" Location="935, 401">
+									<IfElseBranchDesigner.Designers>
+										<SetStateDesigner Name="setStateActivity21" Size="130, 53" Location="945, 463" />
+									</IfElseBranchDesigner.Designers>
+								</IfElseBranchDesigner>
+							</IfElseDesigner.Designers>
+						</IfElseDesigner>
 						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity20" Size="130, 41" ShowPreview="False">
 							<FaultHandlersActivityDesigner.Designers>
 								<FaultHandlerActivityDesigner Name="faultHandlerActivity20" Size="130, 41" Location="0, 0">
@@ -410,10 +429,10 @@
 						</FaultHandlersActivityDesigner>
 					</EventDrivenDesigner.Designers>
 				</EventDrivenDesigner>
-				<EventDrivenDesigner Name="Cancel_SetUDRCValues" Size="150, 194" Location="729, 498">
+				<EventDrivenDesigner Name="Cancel_SetUDRCValues" Size="150, 194" Location="725, 183">
 					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Name="mtHandleEventActivity23" Size="130, 41" Location="739, 560" />
-						<SetStateDesigner Name="setStateActivity22" Size="130, 53" Location="739, 620" />
+						<ActivityDesigner Name="mtHandleEventActivity23" Size="130, 41" Location="735, 245" />
+						<SetStateDesigner Name="setStateActivity22" Size="130, 53" Location="735, 305" />
 						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity21" Size="130, 41" ShowPreview="False">
 							<FaultHandlersActivityDesigner.Designers>
 								<FaultHandlerActivityDesigner Name="faultHandlerActivity21" Size="130, 41" Location="0, 0">
@@ -425,10 +444,10 @@
 						</FaultHandlersActivityDesigner>
 					</EventDrivenDesigner.Designers>
 				</EventDrivenDesigner>
-				<EventDrivenDesigner Name="Back_SetUDRCValues" Size="150, 194" Location="729, 522">
+				<EventDrivenDesigner Name="Back_SetUDRCValues" Size="150, 194" Location="725, 207">
 					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Name="mtHandleEventActivity24" Size="130, 41" Location="739, 584" />
-						<SetStateDesigner Name="setStateActivity24" Size="130, 53" Location="739, 644" />
+						<ActivityDesigner Name="mtHandleEventActivity24" Size="130, 41" Location="735, 269" />
+						<SetStateDesigner Name="setStateActivity24" Size="130, 53" Location="735, 329" />
 						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity22" Size="130, 41" ShowPreview="False">
 							<FaultHandlersActivityDesigner.Designers>
 								<FaultHandlerActivityDesigner Name="faultHandlerActivity22" Size="130, 41" Location="0, 0">

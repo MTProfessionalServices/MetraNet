@@ -8,7 +8,9 @@ BuildMVM.log
 MakeItAllWithClean.log
 
 # MTOUT variable should be changed
-output/
+/output/
+
+/Source/MetraTech/UI/PreCompiled/
 
 # Output dir should to be changed
 /Source/ExpressionEngine/ExpressionEngineGui/bin
@@ -35,7 +37,61 @@ output/
 /Source/MetraTech/VertexATLWrapper/Debug
 /Source/utils/BinaryCheck/MetraTech.Tools.BinaryCheck.Runner/obj
 
+/RMP/Extensions/Account/bin/
 
+/RMP/Extensions/Core/BusinessEntity/BillMessages/Entity/Temp/
+/RMP/Extensions/Core/BusinessEntity/BillMessages/Entity/*.Generated.cs
+/RMP/Extensions/Core/BusinessEntity/BillMessages/Entity/Core.BillMessages.Entity.csproj
+/RMP/Extensions/Core/BusinessEntity/Core/Entity/Temp/
+/RMP/Extensions/Core/BusinessEntity/Core/Entity/*.Generated.cs
+/RMP/Extensions/Core/BusinessEntity/Core/Entity/Core.Core.Entity.csproj
+/RMP/Extensions/Core/BusinessEntity/FileLandingService/Entity/Temp/
+/RMP/Extensions/Core/BusinessEntity/FileLandingService/Entity/*.Generated.cs
+/RMP/Extensions/Core/BusinessEntity/FileLandingService/Entity/Core.FileLandingService.Entity.csproj
+/RMP/Extensions/Core/BusinessEntity/Interface/
+/RMP/Extensions/Core/BusinessEntity/MR/Entity/Temp/
+/RMP/Extensions/Core/BusinessEntity/MR/Entity/*.Generated.cs
+/RMP/Extensions/Core/BusinessEntity/MR/Entity/Core.MR.Entity.csproj
+/RMP/Extensions/Core/BusinessEntity/Quoting/Entity/Temp/
+/RMP/Extensions/Core/BusinessEntity/Quoting/Entity/*.Generated.cs
+/RMP/Extensions/Core/BusinessEntity/Quoting/Entity/Core.Quoting.Entity.csproj
+/RMP/Extensions/Core/BusinessEntity/UI/Entity/Temp/
+/RMP/Extensions/Core/BusinessEntity/UI/Entity/*.Generated.cs
+/RMP/Extensions/Core/BusinessEntity/UI/Entity/Core.UI.Entity.csproj
+
+/RMP/Extensions/MetraView/Sites/MetraView/bin/
+/RMP/Extensions/MetraView/Sites/MetraView/bin/!Elmah.*
+/RMP/Extensions/MetraView/Sites/MetraView/bin/!refresh.bat
+
+/RMP/Extensions/PageNav/Bin/
+
+/RMP/Extensions/SmokeTest/BusinessEntity/Interface
+/RMP/Extensions/SmokeTest/BusinessEntity/TestBME/Entity/Temp/
+/RMP/Extensions/SmokeTest/BusinessEntity/TestBME/Entity/*.Generated.cs
+/RMP/Extensions/SmokeTest/BusinessEntity/TestBME/Entity/MetraTech.SmokeTest.TestBME.Entity.csproj
+/RMP/Extensions/SmokeTest/BusinessEntity/Third/Entity/Temp/
+/RMP/Extensions/SmokeTest/BusinessEntity/Third/Entity/*.Generated.cs
+/RMP/Extensions/SmokeTest/BusinessEntity/Third/Entity/MetraTech.SmokeTest.Third.Entity.csproj
+
+/RMP/config/Security/Validation/TestConfigs/
+
+/Source/MetraTech/Pipeline/Batch/Listener/bin/
+/Source/MetraTech/Pipeline/Batch/Listener/bin/!refresh*.bat
+/Source/MetraTech/Pipeline/ReRun/Listener/bin/
+/Source/MetraTech/Pipeline/ReRun/Listener/bin/!refresh*.bat
+
+/Source/MetraTech/Tax/PipelinePlugins/TaxCalculateMetraTax/obj/
+/Source/MetraTech/Tax/PipelinePlugins/TaxCalculateVertexQ/obj/
+
+/Source/MetraTech/Accounts/Hierarchy/WebService/bin/*.dll
+/Source/MetraTech/Accounts/Hierarchy/WebService/bin/*.pdb
+
+/Source/MetraTech/UI/ImageHandler/bin/
+/Source/MetraTech/UI/ImageHandler/bin/!refresh.bat
+/Source/MetraTech/UI/Suggest/bin/
+/Source/MetraTech/UI/Suggest/bin/!refresh.bat
+
+/Source/MetraTech/Agreements/obj/
 
 /Source/MetraTech/ActivityServices/CodeGenerators/build/
 /Source/MetraTech/ActivityServices/MASClientProxyHook/build/
@@ -49,3 +105,43 @@ output/
 
 /Source/MetraTech/packages
 
+/Source/AR/MTGreatPlainsExec/MTGreatPlainsExec.vbp.log
+/Source/Shared/ProductCatalogImportExport/Sources/MTPCImportDynamicProperties/obj
+
+/Source/Core/Configuration/XmlTranslator/XmlTranslator.vbp.log
+/Source/DBServices/Reporting/MTGetConfigDir/MTGetRegValue.vbp.log
+/Source/Hooks/VBPlugInDebugger/VBPlugInDebugger.vbp.log
+/Source/MTAuth/MTAuthCapabilitiesVB/MTAuthCapabilitiesVB.vbp.log
+/Source/MetraTech/UsageServer/Adapters/MTVBAdapter/MTVBAdapter.vbp.log
+/Source/ProductCatalog/DumpPC/DumpPC.vbp.log
+/Source/SDK/samples/COM/COMSimple.vbp.log
+/Source/Shared/MSIXHandler/MTMSIX.vbp.log
+/Source/Shared/MTVBLib/MTVBLib.vbp.log
+/Source/Shared/ProductCatalogImportExport/Sources/MTPCImportExportDll/MTPCImportExportExec.vbp.log
+/Source/Shared/ProductCatalogImportExport/Sources/PCImportExport/PCImportExport.vbp.log
+/Source/UI/server/CSR/SubscriberAccountInfo/MTSubscriberAccount.vbp.log
+/Source/UI/server/HierarchyHelper/MTHierarchyHelper.vbp.log
+/Source/UI/server/MAM/MAM/MTMAM.vbp.log
+/Source/UI/server/MTAdminTools/EditEnum/AdminEnumEdit.vbp.log
+/Source/UI/server/MTAdminTools/Logging/Logging.vbp.log
+/Source/UI/server/MTAdminTools/MTConfigHelper/MTConfigHelper.vbp.log
+/Source/UI/server/MTAdminTools/MTFleXML/MTFleXML.vbp.log
+/Source/UI/server/MTAdminTools/MTNetUser/MTNetUser.vbp.log
+/Source/UI/server/MTAdminTools/MTServiceWizard/MTServiceWizard.vbp.log
+/Source/UI/server/MTAdminTools/MTVersion/MTVersion.vbp.log
+/Source/UI/server/MTAdminTools/NavBar/MTAdminNavbar.vbp.log
+/Source/UI/server/MTAdminTools/ServiceMonitor/ServiceMonitor.vbp.log
+/Source/UI/server/MTPaymentServerHelper/MTPaymentServerHelper.vbp.log
+/Source/UI/server/MTScriptTimer/MTScriptTimer.vbp.log
+/Source/UI/server/TabularRulesetReader/MTTabRulesetReader.vbp.log
+/Source/UI/server/ViewAllRates/viewallrates.vbp.log
+/Source/plugins/VBSubscribeExec/VBSubscribeExec.vbp.log
+/Source/plugins/VBTest/VBTest.vbp.log
+/Source/utils/ComPlusWrapper/ComPlusWrapper.vbp.log
+/Source/utils/ExtensionBuilder/ExtensionBuilder.vbp.log
+/Source/utils/ExtensionTools/ExtensionTools.vbp.log
+/Source/utils/MSIX2SQL/msix2sql.vbp.log
+/Source/utils/QuickConfig/QuickConfig.vbp.log
+
+/Source/FunctionalTests/MetraNet_LegacySmokesTests/Core/Services/bin/Debug/MetraTech.Core.Services.Test.XML
+/Source/MetraTech/Core/Services/MetraTech.Core.Services.ClientProxyHook/bin/Debug/CoreServicesClientProxyHook.XML

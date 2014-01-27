@@ -22,7 +22,7 @@
 		<servertype>ReportingServerForCreditNotes</servertype>
 		<servername>crystal2008.metratech.com</servername>
 		<username>mtuser</username>
-		<password encrypted>mtuser</password>
+		<password>mtuser</password>
 		<secure ptype="INTEGER">0</secure>
 		<portnumber ptype="INTEGER">80</portnumber>
 		<instanceoutputbasepath>MetraNet_Armita</instanceoutputbasepath>

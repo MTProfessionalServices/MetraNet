@@ -8,6 +8,27 @@
 		<username>nmdbo</username>
 		<password>MetraTech1</password>
 	</server>
+	<!--server>
+		<servertype>ReportingDBServerForCreditNotes</servertype>
+		<servername>localhost</servername>
+		<databasename>MetraNet</databasename>
+		<databasetype>{SQL Server}</databasetype>
+		<databaseowner></databaseowner>
+     <timeout ptype="INTEGER">11800</timeout>
+		<username>nmdbo</username>
+		<password>MetraTech1</password>
+	</server-->
+	<!--server>
+		<servertype>ReportingServerForCreditNotes</servertype>
+		<servername>crystal2008.metratech.com</servername>
+		<username>mtuser</username>
+		<password encrypted="true">cbb23d8d-8189-4039-a575-a7388c369d99PLx/MpW/I8qInYCHtsiXPzYbimg0X60uQfOO4yL3t3I=</password>
+		<secure ptype="INTEGER">0</secure>
+		<portnumber ptype="INTEGER">80</portnumber>
+		<instanceoutputbasepath>MetraNet_Armita</instanceoutputbasepath>
+		<serverfolder>reports_Armita</serverfolder>
+		<instanceoutputpartialpath></instanceoutputpartialpath>
+	</server-->
 
 	<!--server>
 		<servertype>ReportingDBServerForQuoting</servertype>

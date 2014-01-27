@@ -1,6 +1,536 @@
-﻿<StateMachineWorkflowDesigner xmlns:ns0="clr-namespace:System.Drawing;Assembly=System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" Name="SubscriptionsWorkflow" Location="30, 30" Size="939, 760" AutoSize="False" AutoSizeMargin="16, 24" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow">
+﻿<StateMachineWorkflowDesigner xmlns:ns0="clr-namespace:System.Drawing;Assembly=System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" Size="1788, 760" AutoSizeMargin="16, 24" AutoSize="False" Location="30, 30" Name="SubscriptionsWorkflow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow">
+	<StateMachineWorkflowDesigner.Designers>
+		<StateDesigner Size="160, 80" AutoSizeMargin="16, 24" Location="78, 199" Name="StartSubscriptions">
+			<StateDesigner.Designers>
+				<EventDrivenDesigner Name="Start_Subscriptions" Size="150, 182" Location="86, 230">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity1" Size="130, 41" Location="96, 292" />
+						<SetStateDesigner Name="setStateActivity1" Size="130, 41" Location="96, 352" />
+						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity1" Size="130, 41" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity1" Size="130, 41" Location="0, 0">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity1" Size="130, 41" Location="0, 0" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+			</StateDesigner.Designers>
+		</StateDesigner>
+		<EventDrivenDesigner Name="SetStateEventHandler" Size="150, 182" Location="38, 61">
+			<EventDrivenDesigner.Designers>
+				<ActivityDesigner Name="mtHandleEventActivity12" Size="130, 41" Location="48, 123" />
+				<ActivityDesigner Name="mtSetPageStateActivity1" Size="130, 41" Location="48, 183" />
+				<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity2" Size="130, 41" ShowPreview="False">
+					<FaultHandlersActivityDesigner.Designers>
+						<FaultHandlerActivityDesigner Name="faultHandlerActivity2" Size="130, 41" Location="0, 0">
+							<FaultHandlerActivityDesigner.Designers>
+								<ActivityDesigner Name="mtFaultHandlingActivity2" Size="130, 41" Location="0, 0" />
+							</FaultHandlerActivityDesigner.Designers>
+						</FaultHandlerActivityDesigner>
+					</FaultHandlersActivityDesigner.Designers>
+				</FaultHandlersActivityDesigner>
+			</EventDrivenDesigner.Designers>
+		</EventDrivenDesigner>
+		<StateDesigner Size="160, 80" AutoSizeMargin="16, 24" Location="85, 680" Name="EndSubscriptions" />
+		<StateDesigner Size="262, 231" AutoSizeMargin="16, 24" AutoSize="False" Location="77, 327" Name="ManageSubscriptions">
+			<StateDesigner.Designers>
+				<StateInitializationDesigner Name="Init_ManageSubscriptions" Size="150, 122" Location="85, 358">
+					<StateInitializationDesigner.Designers>
+						<ActivityDesigner Name="mtStateInitOutputActivity1" Size="130, 41" Location="95, 420" />
+					</StateInitializationDesigner.Designers>
+				</StateInitializationDesigner>
+				<EventDrivenDesigner Name="Subscribe_ManageSubscriptions" Size="150, 242" Location="85, 382">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity4" Size="130, 41" Location="95, 444" />
+						<CodeDesigner Name="SetModeToNewSubscription" Size="130, 41" Location="95, 504" />
+						<SetStateDesigner Name="setStateActivity5" Size="130, 41" Location="95, 564" />
+						<FaultHandlersActivityDesigner Location="95, 429" Name="faultHandlersActivity3" Size="220, 202" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity3" Size="204, 113" Location="103, 514">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity3" Size="130, 41" Location="140, 572" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+				<EventDrivenDesigner Name="Edit_ManageSubscriptions" Size="150, 242" Location="85, 406">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity6" Size="130, 41" Location="95, 468" />
+						<CodeDesigner Name="SetModeToEdit" Size="130, 41" Location="95, 528" />
+						<SetStateDesigner Name="setStateActivity7" Size="130, 41" Location="95, 588" />
+						<FaultHandlersActivityDesigner Location="95, 453" Name="faultHandlersActivity4" Size="220, 202" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity4" Size="204, 113" Location="103, 538">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity4" Size="130, 41" Location="140, 596" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+						<CancellationHandlerActivityDesigner Name="cancellationHandlerActivity1" Size="150, 109" Location="361, 195" />
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+				<EventDrivenDesigner Name="Delete_ManageSubscriptions" Size="150, 182" Location="85, 430">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity7" Size="130, 41" Location="95, 492" />
+						<SetStateDesigner Name="setStateActivity8" Size="130, 41" Location="95, 552" />
+						<FaultHandlersActivityDesigner Location="95, 477" Name="faultHandlersActivity5" Size="220, 202" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity5" Size="204, 113" Location="103, 562">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity5" Size="130, 41" Location="140, 620" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+				<EventDrivenDesigner Name="Unsubscribe_MangeSubscriptions" Size="150, 182" Location="85, 454">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity8" Size="130, 41" Location="95, 516" />
+						<SetStateDesigner Name="setStateActivity9" Size="130, 41" Location="95, 576" />
+						<FaultHandlersActivityDesigner Location="95, 501" Name="faultHandlersActivity6" Size="220, 202" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity6" Size="204, 113" Location="103, 586">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity6" Size="130, 41" Location="140, 644" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+				<EventDrivenDesigner Name="GetSubscriptionsList_ManageSubscriptions" Size="150, 242" Location="85, 478">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity9" Size="130, 41" Location="95, 540" />
+						<ActivityDesigner Name="subscriptionServices_GetSubscriptions_ClientActivity1" Size="130, 41" Location="95, 600" />
+						<ActivityDesigner Name="mtEventOutputActivity1" Size="130, 41" Location="95, 660" />
+						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity7" Size="130, 41" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity7" Size="130, 41" Location="0, 0">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity7" Size="130, 41" Location="0, 0" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+				<EventDrivenDesigner Name="Rates_ManageSubscriptions" Size="150, 194" Location="85, 502">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity15" Size="130, 41" Location="95, 564" />
+						<SetStateDesigner Name="setStateActivity13" Size="130, 53" Location="95, 624" />
+						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity8" Size="130, 41" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity8" Size="130, 41" Location="0, 0">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity8" Size="130, 41" Location="0, 0" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+				<EventDrivenDesigner Name="Cancel_ManageSubscriptions" Size="150, 182" Location="85, 526">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity2" Size="130, 41" Location="95, 588" />
+						<SetStateDesigner Name="setStateActivity3" Size="130, 41" Location="95, 648" />
+						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity9" Size="130, 41" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity9" Size="130, 41" Location="0, 0">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity9" Size="130, 41" Location="0, 0" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+			</StateDesigner.Designers>
+		</StateDesigner>
+		<StateDesigner Size="176, 80" AutoSizeMargin="16, 24" Location="82, 587" Name="Dashboard">
+			<StateDesigner.Designers>
+				<StateInitializationDesigner Name="Init_Dashboard" Size="150, 182" Location="90, 618">
+					<StateInitializationDesigner.Designers>
+						<SetStateDesigner Name="setStateActivity2" Size="130, 41" Location="100, 680" />
+						<ActivityDesigner Name="mtStateInitOutputActivity2" Size="130, 41" Location="100, 740" />
+					</StateInitializationDesigner.Designers>
+				</StateInitializationDesigner>
+			</StateDesigner.Designers>
+		</StateDesigner>
+		<StateDesigner Size="176, 131" AutoSizeMargin="16, 24" AutoSize="False" Location="422, 201" Name="SelectPO">
+			<StateDesigner.Designers>
+				<StateInitializationDesigner Name="Init_SelectPO" Size="150, 122" Location="430, 232">
+					<StateInitializationDesigner.Designers>
+						<ActivityDesigner Name="mtStateInitOutputActivity3" Size="130, 41" Location="440, 294" />
+					</StateInitializationDesigner.Designers>
+				</StateInitializationDesigner>
+				<EventDrivenDesigner Name="Cancel_SelectPO" Size="150, 182" Location="430, 256">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity3" Size="130, 41" Location="440, 318" />
+						<SetStateDesigner Name="setStateActivity4" Size="130, 41" Location="440, 378" />
+						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity10" Size="130, 41" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity10" Size="130, 41" Location="0, 0">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity10" Size="130, 41" Location="0, 0" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+				<EventDrivenDesigner Name="SubscribeToPO_SelectPO" Size="150, 182" Location="430, 280">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity5" Size="130, 41" Location="440, 342" />
+						<SetStateDesigner Name="setStateActivity6" Size="130, 41" Location="440, 402" />
+						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity11" Size="130, 41" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity11" Size="130, 41" Location="0, 0">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity11" Size="130, 41" Location="0, 0" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+				<EventDrivenDesigner Name="GetPOList_SelectPO" Size="150, 242" Location="430, 304">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity10" Size="130, 41" Location="440, 366" />
+						<ActivityDesigner Name="subscriptionService_GetEligiblePOsForSubscription_ClientActivity1" Size="130, 41" Location="440, 426" />
+						<ActivityDesigner Name="mtEventOutputActivity2" Size="130, 41" Location="440, 486" />
+						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity12" Size="130, 41" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity12" Size="130, 41" Location="0, 0">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity12" Size="130, 41" Location="0, 0" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+			</StateDesigner.Designers>
+		</StateDesigner>
+		<StateDesigner Size="238, 106" AutoSizeMargin="16, 24" Location="425, 512" Name="UnsubscribeSubscription">
+			<StateDesigner.Designers>
+				<StateInitializationDesigner Name="Init_UnsubscribeSubscription" Size="150, 182" Location="433, 543">
+					<StateInitializationDesigner.Designers>
+						<ActivityDesigner Name="subscriptionService_GetSubscriptionDetail_ClientActivity3" Size="130, 41" Location="443, 605" />
+						<ActivityDesigner Name="mtStateInitOutputActivity4" Size="130, 41" Location="443, 665" />
+					</StateInitializationDesigner.Designers>
+				</StateInitializationDesigner>
+				<EventDrivenDesigner Name="Cancel_UnsubscribeSubscription" Size="150, 194" Location="433, 567">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity14" Size="130, 41" Location="443, 629" />
+						<SetStateDesigner Name="setStateActivity12" Size="130, 53" Location="443, 689" />
+						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity13" Size="130, 41" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity13" Size="130, 41" Location="0, 0">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity13" Size="130, 41" Location="0, 0" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+				<EventDrivenDesigner Name="Unsubscribe_UnsubscribeSubscription" Size="150, 254" Location="433, 591">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity19" Size="130, 41" Location="443, 653" />
+						<ActivityDesigner Name="subscriptionService_UpdateSubscription_ClientActivity2" Size="130, 41" Location="443, 713" />
+						<SetStateDesigner Name="setStateActivity17" Size="130, 53" Location="443, 773" />
+						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity14" Size="130, 41" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity14" Size="130, 41" Location="0, 0">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity14" Size="130, 41" Location="0, 0" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+			</StateDesigner.Designers>
+		</StateDesigner>
+		<StateDesigner Size="185, 106" AutoSizeMargin="16, 24" AutoSize="False" Location="429, 382" Name="DeleteSubscription">
+			<StateDesigner.Designers>
+				<StateInitializationDesigner Name="Init_DeleteSubscription" Size="150, 182" Location="437, 413">
+					<StateInitializationDesigner.Designers>
+						<ActivityDesigner Name="subscriptionService_GetSubscriptionDetail_ClientActivity2" Size="130, 41" Location="447, 475" />
+						<ActivityDesigner Name="mtStateInitOutputActivity5" Size="130, 41" Location="447, 535" />
+					</StateInitializationDesigner.Designers>
+				</StateInitializationDesigner>
+				<EventDrivenDesigner Name="Cancel_DeleteSubscriptions" Size="150, 194" Location="437, 437">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity11" Size="130, 41" Location="447, 499" />
+						<SetStateDesigner Name="setStateActivity10" Size="130, 53" Location="447, 559" />
+						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity15" Size="130, 41" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity15" Size="130, 41" Location="0, 0">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity15" Size="130, 41" Location="0, 0" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+				<EventDrivenDesigner Name="Delete_DeleteSubscription" Size="150, 254" Location="437, 461">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity17" Size="130, 41" Location="447, 523" />
+						<ActivityDesigner Name="subscriptionService_DeleteSubscription_ClientActivity1" Size="130, 41" Location="447, 583" />
+						<SetStateDesigner Name="setStateActivity15" Size="130, 53" Location="447, 643" />
+						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity16" Size="130, 41" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity16" Size="130, 41" Location="0, 0">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity16" Size="130, 41" Location="0, 0" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+			</StateDesigner.Designers>
+		</StateDesigner>
+		<StateDesigner Size="176, 81" AutoSizeMargin="16, 24" Location="430, 648" Name="RatesSubscription">
+			<StateDesigner.Designers>
+				<StateInitializationDesigner Name="Init_RatesSubscription" Size="150, 182" Location="438, 679">
+					<StateInitializationDesigner.Designers>
+						<ActivityDesigner Name="subscriptionService_GetSubscriptionDetail_ClientActivity4" Size="130, 41" Location="448, 741" />
+						<ActivityDesigner Name="mtStateInitOutputActivity6" Size="130, 41" Location="448, 801" />
+					</StateInitializationDesigner.Designers>
+				</StateInitializationDesigner>
+				<EventDrivenDesigner Name="Cancel_RatesSubscription" Size="150, 194" Location="438, 703">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity16" Size="130, 41" Location="448, 765" />
+						<SetStateDesigner Name="setStateActivity14" Size="130, 53" Location="448, 825" />
+						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity17" Size="130, 41" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity17" Size="130, 41" Location="0, 0">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity17" Size="130, 41" Location="0, 0" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+			</StateDesigner.Designers>
+		</StateDesigner>
+		<StateDesigner Size="188, 106" AutoSizeMargin="16, 24" AutoSize="False" Location="720, 295" Name="SetSubscriptionDate">
+			<StateDesigner.Designers>
+				<StateInitializationDesigner Name="Init_SetSubscriptionDate" Size="150, 122" Location="610, 135">
+					<StateInitializationDesigner.Designers>
+						<ActivityDesigner Name="mtStateInitOutputActivity7" Size="130, 41" Location="620, 197" />
+					</StateInitializationDesigner.Designers>
+				</StateInitializationDesigner>
+				<EventDrivenDesigner Name="OK_SetSubscriptionDate" Size="612, 676" Location="618, 148">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity20" Size="130, 41" Location="859, 210" />
+						<CodeDesigner Name="ValidateSubscription" Size="130, 41" Location="859, 270" />
+						<ActivityDesigner Name="subscriptionService_GetUDRCInstancesForPO_ClientActivity1" Size="130, 41" Location="859, 330" />
+						<IfElseDesigner Name="ifElseActivity1" Size="592, 415" Location="628, 390">
+							<IfElseDesigner.Designers>
+								<IfElseBranchDesigner Name="ifElseBranchActivity1" Size="150, 315" Location="647, 461">
+									<IfElseBranchDesigner.Designers>
+										<SetStateDesigner Name="setStateActivity18" Size="130, 53" Location="657, 614" />
+									</IfElseBranchDesigner.Designers>
+								</IfElseBranchDesigner>
+								<IfElseBranchDesigner Name="ifElseBranchActivity2" Size="381, 315" Location="820, 461">
+									<IfElseBranchDesigner.Designers>
+										<IfElseDesigner Name="ifElseActivity2" Size="361, 234" Location="830, 523">
+											<IfElseDesigner.Designers>
+												<IfElseBranchDesigner Name="ifElseBranchActivity7" Size="150, 134" Location="849, 594">
+													<IfElseBranchDesigner.Designers>
+														<SetStateDesigner Name="setStateActivity19" Size="130, 53" Location="859, 656" />
+													</IfElseBranchDesigner.Designers>
+												</IfElseBranchDesigner>
+												<IfElseBranchDesigner Name="ifElseBranchActivity8" Size="150, 134" Location="1022, 594" />
+											</IfElseDesigner.Designers>
+										</IfElseDesigner>
+									</IfElseBranchDesigner.Designers>
+								</IfElseBranchDesigner>
+							</IfElseDesigner.Designers>
+						</IfElseDesigner>
+						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity18" Size="130, 41" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity18" Size="130, 41" Location="0, 0">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity18" Size="130, 41" Location="0, 0" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+				<EventDrivenDesigner Name="Cancel_SetSubscriptionDate" Size="150, 194" Location="610, 183">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity21" Size="130, 41" Location="620, 245" />
+						<SetStateDesigner Name="setStateActivity20" Size="130, 53" Location="620, 305" />
+						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity19" Size="130, 41" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity19" Size="130, 41" Location="0, 0">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity19" Size="130, 41" Location="0, 0" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+			</StateDesigner.Designers>
+		</StateDesigner>
+		<StateDesigner Size="176, 131" AutoSizeMargin="16, 24" Location="721, 419" Name="SetUDRCValues">
+			<StateDesigner.Designers>
+				<StateInitializationDesigner Name="Init_SetUDRCValues" Size="150, 122" Location="729, 450">
+					<StateInitializationDesigner.Designers>
+						<ActivityDesigner Name="mtStateInitOutputActivity8" Size="130, 41" Location="739, 512" />
+					</StateInitializationDesigner.Designers>
+				</StateInitializationDesigner>
+				<EventDrivenDesigner Name="OK_SetUDRCValues" Size="150, 194" Location="729, 474">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity22" Size="130, 41" Location="739, 536" />
+						<SetStateDesigner Name="setStateActivity21" Size="130, 53" Location="739, 596" />
+						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity20" Size="130, 41" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity20" Size="130, 41" Location="0, 0">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity20" Size="130, 41" Location="0, 0" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+				<EventDrivenDesigner Name="Cancel_SetUDRCValues" Size="150, 194" Location="729, 498">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity23" Size="130, 41" Location="739, 560" />
+						<SetStateDesigner Name="setStateActivity22" Size="130, 53" Location="739, 620" />
+						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity21" Size="130, 41" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity21" Size="130, 41" Location="0, 0">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity21" Size="130, 41" Location="0, 0" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+				<EventDrivenDesigner Name="Back_SetUDRCValues" Size="150, 194" Location="729, 522">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity24" Size="130, 41" Location="739, 584" />
+						<SetStateDesigner Name="setStateActivity24" Size="130, 53" Location="739, 644" />
+						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity22" Size="130, 41" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity22" Size="130, 41" Location="0, 0">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity22" Size="130, 41" Location="0, 0" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+			</StateDesigner.Designers>
+		</StateDesigner>
+		<StateDesigner Size="219, 106" AutoSizeMargin="16, 24" AutoSize="False" Location="720, 568" Name="SaveSubscription">
+			<StateDesigner.Designers>
+				<StateInitializationDesigner Name="Init_SaveSubscriptions" Size="381, 423" Location="728, 599">
+					<StateInitializationDesigner.Designers>
+						<IfElseDesigner Name="IsNewSubscription2" Size="361, 222" Location="738, 661">
+							<IfElseDesigner.Designers>
+								<IfElseBranchDesigner Name="ifElseBranchActivity5" Size="150, 122" Location="757, 732">
+									<IfElseBranchDesigner.Designers>
+										<ActivityDesigner Name="subscriptionService_AddSubscription_ClientActivity1" Size="130, 41" Location="767, 794" />
+									</IfElseBranchDesigner.Designers>
+								</IfElseBranchDesigner>
+								<IfElseBranchDesigner Name="ifElseBranchActivity6" Size="150, 122" Location="930, 732">
+									<IfElseBranchDesigner.Designers>
+										<ActivityDesigner Name="subscriptionService_UpdateSubscription_ClientActivity1" Size="130, 41" Location="940, 794" />
+									</IfElseBranchDesigner.Designers>
+								</IfElseBranchDesigner>
+							</IfElseDesigner.Designers>
+						</IfElseDesigner>
+						<CodeDesigner Name="SetIsNewSubscription" Size="130, 41" Location="853, 902" />
+						<ActivityDesigner Name="mtStateInitOutputActivity9" Size="130, 41" Location="853, 962" />
+						<FaultHandlersActivityDesigner Location="276, 195" Name="faultHandlersActivity25" Size="220, 202" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity25" Size="204, 113" Location="284, 280">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity25" Size="130, 41" Location="321, 338" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</StateInitializationDesigner.Designers>
+				</StateInitializationDesigner>
+				<EventDrivenDesigner Name="BackToMangeSubscriptions" Size="150, 194" Location="728, 623">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity18" Size="130, 41" Location="738, 685" />
+						<SetStateDesigner Name="setStateActivity16" Size="130, 53" Location="738, 745" />
+						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity23" Size="130, 41" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity23" Size="130, 41" Location="0, 0">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity23" Size="130, 41" Location="0, 0" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+				<EventDrivenDesigner Name="BackToDashboard" Size="150, 194" Location="728, 647">
+					<EventDrivenDesigner.Designers>
+						<ActivityDesigner Name="mtHandleEventActivity13" Size="130, 41" Location="738, 709" />
+						<SetStateDesigner Name="setStateActivity11" Size="130, 53" Location="738, 769" />
+						<FaultHandlersActivityDesigner Location="0, 0" Name="faultHandlersActivity24" Size="130, 41" ShowPreview="False">
+							<FaultHandlersActivityDesigner.Designers>
+								<FaultHandlerActivityDesigner Name="faultHandlerActivity24" Size="130, 41" Location="0, 0">
+									<FaultHandlerActivityDesigner.Designers>
+										<ActivityDesigner Name="mtFaultHandlingActivity24" Size="130, 41" Location="0, 0" />
+									</FaultHandlerActivityDesigner.Designers>
+								</FaultHandlerActivityDesigner>
+							</FaultHandlersActivityDesigner.Designers>
+						</FaultHandlersActivityDesigner>
+					</EventDrivenDesigner.Designers>
+				</EventDrivenDesigner>
+			</StateDesigner.Designers>
+		</StateDesigner>
+		<StateDesigner Size="182, 80" AutoSizeMargin="16, 24" Location="702, 205" Name="GetSubscriptionObject">
+			<StateDesigner.Designers>
+				<StateInitializationDesigner Name="Init_GetSubscriptionObject" Size="381, 375" Location="710, 236">
+					<StateInitializationDesigner.Designers>
+						<IfElseDesigner Name="IsNewSubscription1" Size="361, 222" Location="720, 298">
+							<IfElseDesigner.Designers>
+								<IfElseBranchDesigner Name="ifElseBranchActivity3" Size="150, 122" Location="739, 369">
+									<IfElseBranchDesigner.Designers>
+										<CodeDesigner Name="CreateNewSubscriptionFromPOID" Size="130, 41" Location="749, 431" />
+									</IfElseBranchDesigner.Designers>
+								</IfElseBranchDesigner>
+								<IfElseBranchDesigner Name="ifElseBranchActivity4" Size="150, 122" Location="912, 369">
+									<IfElseBranchDesigner.Designers>
+										<ActivityDesigner Name="subscriptionService_GetSubscriptionDetail_ClientActivity1" Size="130, 41" Location="922, 431" />
+									</IfElseBranchDesigner.Designers>
+								</IfElseBranchDesigner>
+							</IfElseDesigner.Designers>
+						</IfElseDesigner>
+						<SetStateDesigner Name="setStateActivity23" Size="130, 53" Location="835, 539" />
+					</StateInitializationDesigner.Designers>
+				</StateInitializationDesigner>
+			</StateDesigner.Designers>
+		</StateDesigner>
+	</StateMachineWorkflowDesigner.Designers>
 	<StateMachineWorkflowDesigner.DesignerConnectors>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="ManageSubscriptions" SourceConnectionIndex="0" TargetConnectionEdge="Top" SetStateName="setStateActivity1" SourceStateName="StartSubscriptions" SourceConnectionEdge="Right" TargetActivity="ManageSubscriptions" SourceActivity="StartSubscriptions" EventHandlerName="Start_Subscriptions">
+		<StateDesignerConnector TargetActivity="ManageSubscriptions" SetStateName="setStateActivity1" SourceActivity="StartSubscriptions" TargetConnectionIndex="0" SourceStateName="StartSubscriptions" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Start_Subscriptions" SourceConnectionIndex="0" TargetStateName="ManageSubscriptions">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="218" Y="240" />
 				<ns0:Point X="248" Y="240" />
@@ -9,7 +539,7 @@
 				<ns0:Point X="208" Y="327" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="SelectPO" SourceConnectionIndex="2" TargetConnectionEdge="Top" SetStateName="setStateActivity5" SourceStateName="ManageSubscriptions" SourceConnectionEdge="Right" TargetActivity="SelectPO" SourceActivity="ManageSubscriptions" EventHandlerName="Subscribe_ManageSubscriptions">
+		<StateDesignerConnector TargetActivity="SelectPO" SetStateName="setStateActivity5" SourceActivity="ManageSubscriptions" TargetConnectionIndex="0" SourceStateName="ManageSubscriptions" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Subscribe_ManageSubscriptions" SourceConnectionIndex="2" TargetStateName="SelectPO">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="281" Y="392" />
 				<ns0:Point X="351" Y="392" />
@@ -18,7 +548,7 @@
 				<ns0:Point X="510" Y="201" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="GetSubscriptionObject" SourceConnectionIndex="2" TargetConnectionEdge="Top" SetStateName="setStateActivity7" SourceStateName="ManageSubscriptions" SourceConnectionEdge="Right" TargetActivity="GetSubscriptionObject" SourceActivity="ManageSubscriptions" EventHandlerName="Edit_ManageSubscriptions">
+		<StateDesignerConnector TargetActivity="GetSubscriptionObject" SetStateName="setStateActivity7" SourceActivity="ManageSubscriptions" TargetConnectionIndex="0" SourceStateName="ManageSubscriptions" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Edit_ManageSubscriptions" SourceConnectionIndex="2" TargetStateName="GetSubscriptionObject">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="252" Y="416" />
 				<ns0:Point X="351" Y="416" />
@@ -27,7 +557,7 @@
 				<ns0:Point X="793" Y="205" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="DeleteSubscription" SourceConnectionIndex="4" TargetConnectionEdge="Top" SetStateName="setStateActivity8" SourceStateName="ManageSubscriptions" SourceConnectionEdge="Right" TargetActivity="DeleteSubscription" SourceActivity="ManageSubscriptions" EventHandlerName="Delete_ManageSubscriptions">
+		<StateDesignerConnector TargetActivity="DeleteSubscription" SetStateName="setStateActivity8" SourceActivity="ManageSubscriptions" TargetConnectionIndex="0" SourceStateName="ManageSubscriptions" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Delete_ManageSubscriptions" SourceConnectionIndex="4" TargetStateName="DeleteSubscription">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="264" Y="440" />
 				<ns0:Point X="351" Y="440" />
@@ -36,7 +566,7 @@
 				<ns0:Point X="521" Y="382" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="UnsubscribeSubscription" SourceConnectionIndex="6" TargetConnectionEdge="Top" SetStateName="setStateActivity9" SourceStateName="ManageSubscriptions" SourceConnectionEdge="Right" TargetActivity="UnsubscribeSubscription" SourceActivity="ManageSubscriptions" EventHandlerName="Unsubscribe_MangeSubscriptions">
+		<StateDesignerConnector TargetActivity="UnsubscribeSubscription" SetStateName="setStateActivity9" SourceActivity="ManageSubscriptions" TargetConnectionIndex="0" SourceStateName="ManageSubscriptions" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Unsubscribe_MangeSubscriptions" SourceConnectionIndex="6" TargetStateName="UnsubscribeSubscription">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="287" Y="464" />
 				<ns0:Point X="351" Y="464" />
@@ -45,7 +575,7 @@
 				<ns0:Point X="544" Y="512" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="RatesSubscription" SourceConnectionIndex="5" TargetConnectionEdge="Top" SetStateName="setStateActivity13" SourceStateName="ManageSubscriptions" SourceConnectionEdge="Right" TargetActivity="RatesSubscription" SourceActivity="ManageSubscriptions" EventHandlerName="Rates_ManageSubscriptions">
+		<StateDesignerConnector TargetActivity="RatesSubscription" SetStateName="setStateActivity13" SourceActivity="ManageSubscriptions" TargetConnectionIndex="0" SourceStateName="ManageSubscriptions" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Rates_ManageSubscriptions" SourceConnectionIndex="5" TargetStateName="RatesSubscription">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="260" Y="512" />
 				<ns0:Point X="351" Y="512" />
@@ -54,7 +584,7 @@
 				<ns0:Point X="518" Y="648" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="Dashboard" SourceConnectionIndex="1" TargetConnectionEdge="Top" SetStateName="setStateActivity3" SourceStateName="ManageSubscriptions" SourceConnectionEdge="Right" TargetActivity="Dashboard" SourceActivity="ManageSubscriptions" EventHandlerName="Cancel_ManageSubscriptions">
+		<StateDesignerConnector TargetActivity="Dashboard" SetStateName="setStateActivity3" SourceActivity="ManageSubscriptions" TargetConnectionIndex="0" SourceStateName="ManageSubscriptions" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Cancel_ManageSubscriptions" SourceConnectionIndex="1" TargetStateName="Dashboard">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="265" Y="536" />
 				<ns0:Point X="346" Y="536" />
@@ -63,7 +593,7 @@
 				<ns0:Point X="170" Y="587" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="EndSubscriptions" SourceConnectionIndex="0" TargetConnectionEdge="Top" SetStateName="setStateActivity2" SourceStateName="Dashboard" SourceConnectionEdge="Right" TargetActivity="EndSubscriptions" SourceActivity="Dashboard" EventHandlerName="Init_Dashboard">
+		<StateDesignerConnector TargetActivity="EndSubscriptions" SetStateName="setStateActivity2" SourceActivity="Dashboard" TargetConnectionIndex="0" SourceStateName="Dashboard" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Init_Dashboard" SourceConnectionIndex="0" TargetStateName="EndSubscriptions">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="203" Y="628" />
 				<ns0:Point X="267" Y="628" />
@@ -72,7 +602,7 @@
 				<ns0:Point X="165" Y="680" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="ManageSubscriptions" SourceConnectionIndex="1" TargetConnectionEdge="Top" SetStateName="setStateActivity4" SourceStateName="SelectPO" SourceConnectionEdge="Right" TargetActivity="ManageSubscriptions" SourceActivity="SelectPO" EventHandlerName="Cancel_SelectPO">
+		<StateDesignerConnector TargetActivity="ManageSubscriptions" SetStateName="setStateActivity4" SourceActivity="SelectPO" TargetConnectionIndex="0" SourceStateName="SelectPO" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Cancel_SelectPO" SourceConnectionIndex="1" TargetStateName="ManageSubscriptions">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="549" Y="266" />
 				<ns0:Point X="610" Y="266" />
@@ -83,7 +613,7 @@
 				<ns0:Point X="208" Y="327" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="GetSubscriptionObject" SourceConnectionIndex="2" TargetConnectionEdge="Top" SetStateName="setStateActivity6" SourceStateName="SelectPO" SourceConnectionEdge="Right" TargetActivity="GetSubscriptionObject" SourceActivity="SelectPO" EventHandlerName="SubscribeToPO_SelectPO">
+		<StateDesignerConnector TargetActivity="GetSubscriptionObject" SetStateName="setStateActivity6" SourceActivity="SelectPO" TargetConnectionIndex="0" SourceStateName="SelectPO" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="SubscribeToPO_SelectPO" SourceConnectionIndex="2" TargetStateName="GetSubscriptionObject">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="592" Y="290" />
 				<ns0:Point X="610" Y="290" />
@@ -92,7 +622,7 @@
 				<ns0:Point X="793" Y="205" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="ManageSubscriptions" SourceConnectionIndex="1" TargetConnectionEdge="Top" SetStateName="setStateActivity12" SourceStateName="UnsubscribeSubscription" SourceConnectionEdge="Right" TargetActivity="ManageSubscriptions" SourceActivity="UnsubscribeSubscription" EventHandlerName="Cancel_UnsubscribeSubscription">
+		<StateDesignerConnector TargetActivity="ManageSubscriptions" SetStateName="setStateActivity12" SourceActivity="UnsubscribeSubscription" TargetConnectionIndex="0" SourceStateName="UnsubscribeSubscription" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Cancel_UnsubscribeSubscription" SourceConnectionIndex="1" TargetStateName="ManageSubscriptions">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="630" Y="577" />
 				<ns0:Point X="674" Y="577" />
@@ -103,7 +633,7 @@
 				<ns0:Point X="208" Y="327" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="ManageSubscriptions" SourceConnectionIndex="2" TargetConnectionEdge="Top" SetStateName="setStateActivity17" SourceStateName="UnsubscribeSubscription" SourceConnectionEdge="Right" TargetActivity="ManageSubscriptions" SourceActivity="UnsubscribeSubscription" EventHandlerName="Unsubscribe_UnsubscribeSubscription">
+		<StateDesignerConnector TargetActivity="ManageSubscriptions" SetStateName="setStateActivity17" SourceActivity="UnsubscribeSubscription" TargetConnectionIndex="0" SourceStateName="UnsubscribeSubscription" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Unsubscribe_UnsubscribeSubscription" SourceConnectionIndex="2" TargetStateName="ManageSubscriptions">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="657" Y="601" />
 				<ns0:Point X="674" Y="601" />
@@ -114,7 +644,7 @@
 				<ns0:Point X="208" Y="327" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="ManageSubscriptions" SourceConnectionIndex="1" TargetConnectionEdge="Top" SetStateName="setStateActivity10" SourceStateName="DeleteSubscription" SourceConnectionEdge="Right" TargetActivity="ManageSubscriptions" SourceActivity="DeleteSubscription" EventHandlerName="Cancel_DeleteSubscriptions">
+		<StateDesignerConnector TargetActivity="ManageSubscriptions" SetStateName="setStateActivity10" SourceActivity="DeleteSubscription" TargetConnectionIndex="0" SourceStateName="DeleteSubscription" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Cancel_DeleteSubscriptions" SourceConnectionIndex="1" TargetStateName="ManageSubscriptions">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="610" Y="447" />
 				<ns0:Point X="626" Y="447" />
@@ -125,7 +655,7 @@
 				<ns0:Point X="208" Y="327" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="ManageSubscriptions" SourceConnectionIndex="2" TargetConnectionEdge="Top" SetStateName="setStateActivity15" SourceStateName="DeleteSubscription" SourceConnectionEdge="Right" TargetActivity="ManageSubscriptions" SourceActivity="DeleteSubscription" EventHandlerName="Delete_DeleteSubscription">
+		<StateDesignerConnector TargetActivity="ManageSubscriptions" SetStateName="setStateActivity15" SourceActivity="DeleteSubscription" TargetConnectionIndex="0" SourceStateName="DeleteSubscription" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Delete_DeleteSubscription" SourceConnectionIndex="2" TargetStateName="ManageSubscriptions">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="604" Y="471" />
 				<ns0:Point X="626" Y="471" />
@@ -136,7 +666,7 @@
 				<ns0:Point X="208" Y="327" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="ManageSubscriptions" SourceConnectionIndex="1" TargetConnectionEdge="Top" SetStateName="setStateActivity14" SourceStateName="RatesSubscription" SourceConnectionEdge="Right" TargetActivity="ManageSubscriptions" SourceActivity="RatesSubscription" EventHandlerName="Cancel_RatesSubscription">
+		<StateDesignerConnector TargetActivity="ManageSubscriptions" SetStateName="setStateActivity14" SourceActivity="RatesSubscription" TargetConnectionIndex="0" SourceStateName="RatesSubscription" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Cancel_RatesSubscription" SourceConnectionIndex="1" TargetStateName="ManageSubscriptions">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="602" Y="713" />
 				<ns0:Point X="615" Y="713" />
@@ -147,7 +677,7 @@
 				<ns0:Point X="208" Y="327" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="SetUDRCValues" SourceConnectionIndex="1" TargetConnectionEdge="Top" SetStateName="setStateActivity18" SourceStateName="SetSubscriptionDate" SourceConnectionEdge="Right" TargetActivity="SetUDRCValues" SourceActivity="SetSubscriptionDate" EventHandlerName="OK_SetSubscriptionDate">
+		<StateDesignerConnector TargetActivity="SetUDRCValues" SetStateName="setStateActivity18" SourceActivity="SetSubscriptionDate" TargetConnectionIndex="0" SourceStateName="SetSubscriptionDate" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="OK_SetSubscriptionDate" SourceConnectionIndex="1" TargetStateName="SetUDRCValues">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="885" Y="360" />
 				<ns0:Point X="913" Y="360" />
@@ -156,7 +686,7 @@
 				<ns0:Point X="809" Y="419" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="SaveSubscription" SourceConnectionIndex="1" TargetConnectionEdge="Top" SetStateName="setStateActivity19" SourceStateName="SetSubscriptionDate" SourceConnectionEdge="Right" TargetActivity="SaveSubscription" SourceActivity="SetSubscriptionDate" EventHandlerName="OK_SetSubscriptionDate">
+		<StateDesignerConnector TargetActivity="SaveSubscription" SetStateName="setStateActivity19" SourceActivity="SetSubscriptionDate" TargetConnectionIndex="0" SourceStateName="SetSubscriptionDate" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="OK_SetSubscriptionDate" SourceConnectionIndex="1" TargetStateName="SaveSubscription">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="885" Y="360" />
 				<ns0:Point X="917" Y="360" />
@@ -165,7 +695,7 @@
 				<ns0:Point X="829" Y="568" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="ManageSubscriptions" SourceConnectionIndex="2" TargetConnectionEdge="Top" SetStateName="setStateActivity20" SourceStateName="SetSubscriptionDate" SourceConnectionEdge="Right" TargetActivity="ManageSubscriptions" SourceActivity="SetSubscriptionDate" EventHandlerName="Cancel_SetSubscriptionDate">
+		<StateDesignerConnector TargetActivity="ManageSubscriptions" SetStateName="setStateActivity20" SourceActivity="SetSubscriptionDate" TargetConnectionIndex="0" SourceStateName="SetSubscriptionDate" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Cancel_SetSubscriptionDate" SourceConnectionIndex="2" TargetStateName="ManageSubscriptions">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="904" Y="384" />
 				<ns0:Point X="914" Y="384" />
@@ -176,7 +706,7 @@
 				<ns0:Point X="208" Y="327" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="SaveSubscription" SourceConnectionIndex="1" TargetConnectionEdge="Top" SetStateName="setStateActivity21" SourceStateName="SetUDRCValues" SourceConnectionEdge="Right" TargetActivity="SaveSubscription" SourceActivity="SetUDRCValues" EventHandlerName="OK_SetUDRCValues">
+		<StateDesignerConnector TargetActivity="SaveSubscription" SetStateName="setStateActivity21" SourceActivity="SetUDRCValues" TargetConnectionIndex="0" SourceStateName="SetUDRCValues" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="OK_SetUDRCValues" SourceConnectionIndex="1" TargetStateName="SaveSubscription">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="864" Y="484" />
 				<ns0:Point X="909" Y="484" />
@@ -185,7 +715,7 @@
 				<ns0:Point X="829" Y="568" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="ManageSubscriptions" SourceConnectionIndex="2" TargetConnectionEdge="Top" SetStateName="setStateActivity22" SourceStateName="SetUDRCValues" SourceConnectionEdge="Right" TargetActivity="ManageSubscriptions" SourceActivity="SetUDRCValues" EventHandlerName="Cancel_SetUDRCValues">
+		<StateDesignerConnector TargetActivity="ManageSubscriptions" SetStateName="setStateActivity22" SourceActivity="SetUDRCValues" TargetConnectionIndex="0" SourceStateName="SetUDRCValues" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Cancel_SetUDRCValues" SourceConnectionIndex="2" TargetStateName="ManageSubscriptions">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="882" Y="508" />
 				<ns0:Point X="914" Y="508" />
@@ -196,7 +726,7 @@
 				<ns0:Point X="208" Y="327" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="SetSubscriptionDate" SourceConnectionIndex="3" TargetConnectionEdge="Top" SetStateName="setStateActivity24" SourceStateName="SetUDRCValues" SourceConnectionEdge="Right" TargetActivity="SetSubscriptionDate" SourceActivity="SetUDRCValues" EventHandlerName="Back_SetUDRCValues">
+		<StateDesignerConnector TargetActivity="SetSubscriptionDate" SetStateName="setStateActivity24" SourceActivity="SetUDRCValues" TargetConnectionIndex="0" SourceStateName="SetUDRCValues" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Back_SetUDRCValues" SourceConnectionIndex="3" TargetStateName="SetSubscriptionDate">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="872" Y="532" />
 				<ns0:Point X="914" Y="532" />
@@ -205,7 +735,7 @@
 				<ns0:Point X="814" Y="295" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="ManageSubscriptions" SourceConnectionIndex="2" TargetConnectionEdge="Top" SetStateName="setStateActivity16" SourceStateName="SaveSubscription" SourceConnectionEdge="Right" TargetActivity="ManageSubscriptions" SourceActivity="SaveSubscription" EventHandlerName="BackToMangeSubscriptions">
+		<StateDesignerConnector TargetActivity="ManageSubscriptions" SetStateName="setStateActivity16" SourceActivity="SaveSubscription" TargetConnectionIndex="0" SourceStateName="SaveSubscription" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="BackToMangeSubscriptions" SourceConnectionIndex="2" TargetStateName="ManageSubscriptions">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="900" Y="633" />
 				<ns0:Point X="946" Y="633" />
@@ -216,7 +746,7 @@
 				<ns0:Point X="208" Y="327" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="Dashboard" SourceConnectionIndex="2" TargetConnectionEdge="Top" SetStateName="setStateActivity11" SourceStateName="SaveSubscription" SourceConnectionEdge="Right" TargetActivity="Dashboard" SourceActivity="SaveSubscription" EventHandlerName="BackToDashboard">
+		<StateDesignerConnector TargetActivity="Dashboard" SetStateName="setStateActivity11" SourceActivity="SaveSubscription" TargetConnectionIndex="0" SourceStateName="SaveSubscription" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="BackToDashboard" SourceConnectionIndex="2" TargetStateName="Dashboard">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="854" Y="657" />
 				<ns0:Point X="946" Y="657" />
@@ -227,7 +757,7 @@
 				<ns0:Point X="170" Y="587" />
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
-		<StateDesignerConnector TargetConnectionIndex="0" TargetStateName="SetSubscriptionDate" SourceConnectionIndex="0" TargetConnectionEdge="Top" SetStateName="setStateActivity23" SourceStateName="GetSubscriptionObject" SourceConnectionEdge="Right" TargetActivity="SetSubscriptionDate" SourceActivity="GetSubscriptionObject" EventHandlerName="Init_GetSubscriptionObject">
+		<StateDesignerConnector TargetActivity="SetSubscriptionDate" SetStateName="setStateActivity23" SourceActivity="GetSubscriptionObject" TargetConnectionIndex="0" SourceStateName="GetSubscriptionObject" TargetConnectionEdge="Top" SourceConnectionEdge="Right" EventHandlerName="Init_GetSubscriptionObject" SourceConnectionIndex="0" TargetStateName="SetSubscriptionDate">
 			<StateDesignerConnector.Segments>
 				<ns0:Point X="880" Y="246" />
 				<ns0:Point X="892" Y="246" />
@@ -237,525 +767,4 @@
 			</StateDesignerConnector.Segments>
 		</StateDesignerConnector>
 	</StateMachineWorkflowDesigner.DesignerConnectors>
-	<StateMachineWorkflowDesigner.Designers>
-		<StateDesigner Name="StartSubscriptions" Location="78, 199" Size="160, 80" AutoSizeMargin="16, 24">
-			<StateDesigner.Designers>
-				<EventDrivenDesigner Size="150, 182" Name="Start_Subscriptions" Location="86, 230">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity1" Location="96, 292" />
-						<SetStateDesigner Size="130, 41" Name="setStateActivity1" Location="96, 352" />
-						<FaultHandlersActivityDesigner Size="130, 41" Name="faultHandlersActivity1" ShowPreview="False" Location="0, 0">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="130, 41" Name="faultHandlerActivity1" Location="0, 0">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity1" Location="0, 0" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-			</StateDesigner.Designers>
-		</StateDesigner>
-		<EventDrivenDesigner Size="150, 182" Name="SetStateEventHandler" Location="38, 61">
-			<EventDrivenDesigner.Designers>
-				<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity12" Location="48, 123" />
-				<ActivityDesigner Size="130, 41" Name="mtSetPageStateActivity1" Location="48, 183" />
-				<FaultHandlersActivityDesigner Size="130, 41" Name="faultHandlersActivity2" ShowPreview="False" Location="0, 0">
-					<FaultHandlersActivityDesigner.Designers>
-						<FaultHandlerActivityDesigner Size="130, 41" Name="faultHandlerActivity2" Location="0, 0">
-							<FaultHandlerActivityDesigner.Designers>
-								<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity2" Location="0, 0" />
-							</FaultHandlerActivityDesigner.Designers>
-						</FaultHandlerActivityDesigner>
-					</FaultHandlersActivityDesigner.Designers>
-				</FaultHandlersActivityDesigner>
-			</EventDrivenDesigner.Designers>
-		</EventDrivenDesigner>
-		<StateDesigner Name="EndSubscriptions" Location="85, 680" Size="160, 80" AutoSizeMargin="16, 24" />
-		<StateDesigner Name="ManageSubscriptions" Location="77, 327" Size="262, 231" AutoSize="False" AutoSizeMargin="16, 24">
-			<StateDesigner.Designers>
-				<StateInitializationDesigner Size="150, 122" Name="Init_ManageSubscriptions" Location="369, 135">
-					<StateInitializationDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtStateInitOutputActivity1" Location="379, 197" />
-					</StateInitializationDesigner.Designers>
-				</StateInitializationDesigner>
-				<EventDrivenDesigner Size="150, 242" Name="Subscribe_ManageSubscriptions" Location="377, 148">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity4" Location="387, 210" />
-						<CodeDesigner Size="130, 41" Name="SetModeToNewSubscription" Location="387, 270" />
-						<SetStateDesigner Size="130, 41" Name="setStateActivity5" Location="387, 330" />
-						<FaultHandlersActivityDesigner Size="220, 202" Name="faultHandlersActivity3" ShowPreview="False" Location="95, 429">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="204, 113" Name="faultHandlerActivity3" Location="103, 514">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity3" Location="140, 572" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-				<EventDrivenDesigner Size="150, 242" Name="Edit_ManageSubscriptions" Location="369, 183">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity6" Location="379, 245" />
-						<CodeDesigner Size="130, 41" Name="SetModeToEdit" Location="379, 305" />
-						<SetStateDesigner Size="130, 41" Name="setStateActivity7" Location="379, 365" />
-						<FaultHandlersActivityDesigner Size="220, 202" Name="faultHandlersActivity4" ShowPreview="False" Location="95, 453">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="204, 113" Name="faultHandlerActivity4" Location="103, 538">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity4" Location="140, 596" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-						<CancellationHandlerActivityDesigner Size="150, 109" Name="cancellationHandlerActivity1" Location="361, 195" />
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-				<EventDrivenDesigner Size="150, 182" Name="Delete_ManageSubscriptions" Location="369, 207">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity7" Location="379, 269" />
-						<SetStateDesigner Size="130, 41" Name="setStateActivity8" Location="379, 329" />
-						<FaultHandlersActivityDesigner Size="220, 202" Name="faultHandlersActivity5" ShowPreview="False" Location="95, 477">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="204, 113" Name="faultHandlerActivity5" Location="103, 562">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity5" Location="140, 620" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-				<EventDrivenDesigner Size="150, 182" Name="Unsubscribe_MangeSubscriptions" Location="369, 231">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity8" Location="379, 293" />
-						<SetStateDesigner Size="130, 41" Name="setStateActivity9" Location="379, 353" />
-						<FaultHandlersActivityDesigner Size="220, 202" Name="faultHandlersActivity6" ShowPreview="False" Location="95, 501">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="204, 113" Name="faultHandlerActivity6" Location="103, 586">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity6" Location="140, 644" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-				<EventDrivenDesigner Size="150, 242" Name="GetSubscriptionsList_ManageSubscriptions" Location="369, 255">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity9" Location="379, 317" />
-						<ActivityDesigner Size="130, 41" Name="subscriptionServices_GetSubscriptions_ClientActivity1" Location="379, 377" />
-						<ActivityDesigner Size="130, 41" Name="mtEventOutputActivity1" Location="379, 437" />
-						<FaultHandlersActivityDesigner Size="130, 41" Name="faultHandlersActivity7" ShowPreview="False" Location="0, 0">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="130, 41" Name="faultHandlerActivity7" Location="0, 0">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity7" Location="0, 0" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-				<EventDrivenDesigner Size="150, 194" Name="Rates_ManageSubscriptions" Location="369, 279">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity15" Location="379, 341" />
-						<SetStateDesigner Size="130, 53" Name="setStateActivity13" Location="379, 401" />
-						<FaultHandlersActivityDesigner Size="130, 41" Name="faultHandlersActivity8" ShowPreview="False" Location="0, 0">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="130, 41" Name="faultHandlerActivity8" Location="0, 0">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity8" Location="0, 0" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-				<EventDrivenDesigner Size="150, 182" Name="Cancel_ManageSubscriptions" Location="369, 303">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity2" Location="379, 365" />
-						<SetStateDesigner Size="130, 41" Name="setStateActivity3" Location="379, 425" />
-						<FaultHandlersActivityDesigner Size="130, 41" Name="faultHandlersActivity9" ShowPreview="False" Location="0, 0">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="130, 41" Name="faultHandlerActivity9" Location="0, 0">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity9" Location="0, 0" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-			</StateDesigner.Designers>
-		</StateDesigner>
-		<StateDesigner Name="Dashboard" Location="82, 587" Size="176, 80" AutoSizeMargin="16, 24">
-			<StateDesigner.Designers>
-				<StateInitializationDesigner Size="150, 182" Name="Init_Dashboard" Location="90, 618">
-					<StateInitializationDesigner.Designers>
-						<SetStateDesigner Size="130, 41" Name="setStateActivity2" Location="100, 680" />
-						<ActivityDesigner Size="130, 41" Name="mtStateInitOutputActivity2" Location="100, 740" />
-					</StateInitializationDesigner.Designers>
-				</StateInitializationDesigner>
-			</StateDesigner.Designers>
-		</StateDesigner>
-		<StateDesigner Name="SelectPO" Location="422, 201" Size="176, 131" AutoSize="False" AutoSizeMargin="16, 24">
-			<StateDesigner.Designers>
-				<StateInitializationDesigner Size="150, 122" Name="Init_SelectPO" Location="430, 232">
-					<StateInitializationDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtStateInitOutputActivity3" Location="440, 294" />
-					</StateInitializationDesigner.Designers>
-				</StateInitializationDesigner>
-				<EventDrivenDesigner Size="150, 182" Name="Cancel_SelectPO" Location="430, 256">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity3" Location="440, 318" />
-						<SetStateDesigner Size="130, 41" Name="setStateActivity4" Location="440, 378" />
-						<FaultHandlersActivityDesigner Size="130, 41" Name="faultHandlersActivity10" ShowPreview="False" Location="0, 0">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="130, 41" Name="faultHandlerActivity10" Location="0, 0">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity10" Location="0, 0" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-				<EventDrivenDesigner Size="150, 182" Name="SubscribeToPO_SelectPO" Location="430, 280">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity5" Location="440, 342" />
-						<SetStateDesigner Size="130, 41" Name="setStateActivity6" Location="440, 402" />
-						<FaultHandlersActivityDesigner Size="130, 41" Name="faultHandlersActivity11" ShowPreview="False" Location="0, 0">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="130, 41" Name="faultHandlerActivity11" Location="0, 0">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity11" Location="0, 0" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-				<EventDrivenDesigner Size="150, 242" Name="GetPOList_SelectPO" Location="430, 304">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity10" Location="440, 366" />
-						<ActivityDesigner Size="130, 41" Name="subscriptionService_GetEligiblePOsForSubscription_ClientActivity1" Location="440, 426" />
-						<ActivityDesigner Size="130, 41" Name="mtEventOutputActivity2" Location="440, 486" />
-						<FaultHandlersActivityDesigner Size="130, 41" Name="faultHandlersActivity12" ShowPreview="False" Location="0, 0">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="130, 41" Name="faultHandlerActivity12" Location="0, 0">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity12" Location="0, 0" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-			</StateDesigner.Designers>
-		</StateDesigner>
-		<StateDesigner Name="UnsubscribeSubscription" Location="425, 512" Size="238, 106" AutoSizeMargin="16, 24">
-			<StateDesigner.Designers>
-				<StateInitializationDesigner Size="150, 182" Name="Init_UnsubscribeSubscription" Location="433, 543">
-					<StateInitializationDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="subscriptionService_GetSubscriptionDetail_ClientActivity3" Location="443, 605" />
-						<ActivityDesigner Size="130, 41" Name="mtStateInitOutputActivity4" Location="443, 665" />
-					</StateInitializationDesigner.Designers>
-				</StateInitializationDesigner>
-				<EventDrivenDesigner Size="150, 194" Name="Cancel_UnsubscribeSubscription" Location="433, 567">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity14" Location="443, 629" />
-						<SetStateDesigner Size="130, 53" Name="setStateActivity12" Location="443, 689" />
-						<FaultHandlersActivityDesigner Size="130, 41" Name="faultHandlersActivity13" ShowPreview="False" Location="0, 0">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="130, 41" Name="faultHandlerActivity13" Location="0, 0">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity13" Location="0, 0" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-				<EventDrivenDesigner Size="150, 254" Name="Unsubscribe_UnsubscribeSubscription" Location="433, 591">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity19" Location="443, 653" />
-						<ActivityDesigner Size="130, 41" Name="subscriptionService_UpdateSubscription_ClientActivity2" Location="443, 713" />
-						<SetStateDesigner Size="130, 53" Name="setStateActivity17" Location="443, 773" />
-						<FaultHandlersActivityDesigner Size="130, 41" Name="faultHandlersActivity14" ShowPreview="False" Location="0, 0">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="130, 41" Name="faultHandlerActivity14" Location="0, 0">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity14" Location="0, 0" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-			</StateDesigner.Designers>
-		</StateDesigner>
-		<StateDesigner Name="DeleteSubscription" Location="429, 382" Size="185, 106" AutoSize="False" AutoSizeMargin="16, 24">
-			<StateDesigner.Designers>
-				<StateInitializationDesigner Size="150, 182" Name="Init_DeleteSubscription" Location="437, 413">
-					<StateInitializationDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="subscriptionService_GetSubscriptionDetail_ClientActivity2" Location="447, 475" />
-						<ActivityDesigner Size="130, 41" Name="mtStateInitOutputActivity5" Location="447, 535" />
-					</StateInitializationDesigner.Designers>
-				</StateInitializationDesigner>
-				<EventDrivenDesigner Size="150, 194" Name="Cancel_DeleteSubscriptions" Location="437, 437">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity11" Location="447, 499" />
-						<SetStateDesigner Size="130, 53" Name="setStateActivity10" Location="447, 559" />
-						<FaultHandlersActivityDesigner Size="130, 41" Name="faultHandlersActivity15" ShowPreview="False" Location="0, 0">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="130, 41" Name="faultHandlerActivity15" Location="0, 0">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity15" Location="0, 0" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-				<EventDrivenDesigner Size="150, 254" Name="Delete_DeleteSubscription" Location="437, 461">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity17" Location="447, 523" />
-						<ActivityDesigner Size="130, 41" Name="subscriptionService_DeleteSubscription_ClientActivity1" Location="447, 583" />
-						<SetStateDesigner Size="130, 53" Name="setStateActivity15" Location="447, 643" />
-						<FaultHandlersActivityDesigner Size="130, 41" Name="faultHandlersActivity16" ShowPreview="False" Location="0, 0">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="130, 41" Name="faultHandlerActivity16" Location="0, 0">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity16" Location="0, 0" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-			</StateDesigner.Designers>
-		</StateDesigner>
-		<StateDesigner Name="RatesSubscription" Location="430, 648" Size="176, 81" AutoSizeMargin="16, 24">
-			<StateDesigner.Designers>
-				<StateInitializationDesigner Size="150, 182" Name="Init_RatesSubscription" Location="438, 679">
-					<StateInitializationDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="subscriptionService_GetSubscriptionDetail_ClientActivity4" Location="448, 741" />
-						<ActivityDesigner Size="130, 41" Name="mtStateInitOutputActivity6" Location="448, 801" />
-					</StateInitializationDesigner.Designers>
-				</StateInitializationDesigner>
-				<EventDrivenDesigner Size="150, 194" Name="Cancel_RatesSubscription" Location="438, 703">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity16" Location="448, 765" />
-						<SetStateDesigner Size="130, 53" Name="setStateActivity14" Location="448, 825" />
-						<FaultHandlersActivityDesigner Size="130, 41" Name="faultHandlersActivity17" ShowPreview="False" Location="0, 0">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="130, 41" Name="faultHandlerActivity17" Location="0, 0">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity17" Location="0, 0" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-			</StateDesigner.Designers>
-		</StateDesigner>
-		<StateDesigner Name="SetSubscriptionDate" Location="720, 295" Size="188, 106" AutoSize="False" AutoSizeMargin="16, 24">
-			<StateDesigner.Designers>
-				<StateInitializationDesigner Size="150, 122" Name="Init_SetSubscriptionDate" Location="728, 326">
-					<StateInitializationDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtStateInitOutputActivity7" Location="738, 388" />
-					</StateInitializationDesigner.Designers>
-				</StateInitializationDesigner>
-				<EventDrivenDesigner Size="381, 495" Name="OK_SetSubscriptionDate" Location="728, 350">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity20" Location="853, 412" />
-						<CodeDesigner Size="130, 41" Name="ValidateSubscription" Location="853, 472" />
-						<ActivityDesigner Size="130, 41" Name="subscriptionService_GetUDRCInstancesForPO_ClientActivity1" Location="853, 532" />
-						<IfElseDesigner Size="361, 234" Name="ifElseActivity1" Location="738, 592">
-							<IfElseDesigner.Designers>
-								<IfElseBranchDesigner Size="150, 134" Name="ifElseBranchActivity1" Location="757, 663">
-									<IfElseBranchDesigner.Designers>
-										<SetStateDesigner Size="130, 53" Name="setStateActivity18" Location="767, 725" />
-									</IfElseBranchDesigner.Designers>
-								</IfElseBranchDesigner>
-								<IfElseBranchDesigner Size="150, 134" Name="ifElseBranchActivity2" Location="930, 663">
-									<IfElseBranchDesigner.Designers>
-										<SetStateDesigner Size="130, 53" Name="setStateActivity19" Location="940, 725" />
-									</IfElseBranchDesigner.Designers>
-								</IfElseBranchDesigner>
-							</IfElseDesigner.Designers>
-						</IfElseDesigner>
-						<FaultHandlersActivityDesigner Size="130, 41" Name="faultHandlersActivity18" ShowPreview="False" Location="0, 0">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="130, 41" Name="faultHandlerActivity18" Location="0, 0">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity18" Location="0, 0" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-				<EventDrivenDesigner Size="150, 194" Name="Cancel_SetSubscriptionDate" Location="728, 374">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity21" Location="738, 436" />
-						<SetStateDesigner Size="130, 53" Name="setStateActivity20" Location="738, 496" />
-						<FaultHandlersActivityDesigner Size="130, 41" Name="faultHandlersActivity19" ShowPreview="False" Location="0, 0">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="130, 41" Name="faultHandlerActivity19" Location="0, 0">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity19" Location="0, 0" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-			</StateDesigner.Designers>
-		</StateDesigner>
-		<StateDesigner Name="SetUDRCValues" Location="721, 419" Size="176, 131" AutoSizeMargin="16, 24">
-			<StateDesigner.Designers>
-				<StateInitializationDesigner Size="150, 122" Name="Init_SetUDRCValues" Location="729, 450">
-					<StateInitializationDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtStateInitOutputActivity8" Location="739, 512" />
-					</StateInitializationDesigner.Designers>
-				</StateInitializationDesigner>
-				<EventDrivenDesigner Size="150, 194" Name="OK_SetUDRCValues" Location="729, 474">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity22" Location="739, 536" />
-						<SetStateDesigner Size="130, 53" Name="setStateActivity21" Location="739, 596" />
-						<FaultHandlersActivityDesigner Size="130, 41" Name="faultHandlersActivity20" ShowPreview="False" Location="0, 0">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="130, 41" Name="faultHandlerActivity20" Location="0, 0">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity20" Location="0, 0" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-				<EventDrivenDesigner Size="150, 194" Name="Cancel_SetUDRCValues" Location="729, 498">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity23" Location="739, 560" />
-						<SetStateDesigner Size="130, 53" Name="setStateActivity22" Location="739, 620" />
-						<FaultHandlersActivityDesigner Size="130, 41" Name="faultHandlersActivity21" ShowPreview="False" Location="0, 0">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="130, 41" Name="faultHandlerActivity21" Location="0, 0">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity21" Location="0, 0" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-				<EventDrivenDesigner Size="150, 194" Name="Back_SetUDRCValues" Location="729, 522">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity24" Location="739, 584" />
-						<SetStateDesigner Size="130, 53" Name="setStateActivity24" Location="739, 644" />
-						<FaultHandlersActivityDesigner Size="130, 41" Name="faultHandlersActivity22" ShowPreview="False" Location="0, 0">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="130, 41" Name="faultHandlerActivity22" Location="0, 0">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity22" Location="0, 0" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-			</StateDesigner.Designers>
-		</StateDesigner>
-		<StateDesigner Name="SaveSubscription" Location="720, 568" Size="219, 106" AutoSize="False" AutoSizeMargin="16, 24">
-			<StateDesigner.Designers>
-				<StateInitializationDesigner Size="381, 423" Name="Init_SaveSubscriptions" Location="728, 599">
-					<StateInitializationDesigner.Designers>
-						<IfElseDesigner Size="361, 222" Name="IsNewSubscription2" Location="738, 661">
-							<IfElseDesigner.Designers>
-								<IfElseBranchDesigner Size="150, 122" Name="ifElseBranchActivity5" Location="757, 732">
-									<IfElseBranchDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="subscriptionService_AddSubscription_ClientActivity1" Location="767, 794" />
-									</IfElseBranchDesigner.Designers>
-								</IfElseBranchDesigner>
-								<IfElseBranchDesigner Size="150, 122" Name="ifElseBranchActivity6" Location="930, 732">
-									<IfElseBranchDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="subscriptionService_UpdateSubscription_ClientActivity1" Location="940, 794" />
-									</IfElseBranchDesigner.Designers>
-								</IfElseBranchDesigner>
-							</IfElseDesigner.Designers>
-						</IfElseDesigner>
-						<CodeDesigner Size="130, 41" Name="SetIsNewSubscription" Location="853, 902" />
-						<ActivityDesigner Size="130, 41" Name="mtStateInitOutputActivity9" Location="853, 962" />
-						<FaultHandlersActivityDesigner Size="220, 202" Name="faultHandlersActivity25" ShowPreview="False" Location="276, 195">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="204, 113" Name="faultHandlerActivity25" Location="284, 280">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity25" Location="321, 338" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</StateInitializationDesigner.Designers>
-				</StateInitializationDesigner>
-				<EventDrivenDesigner Size="150, 194" Name="BackToMangeSubscriptions" Location="728, 623">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity18" Location="738, 685" />
-						<SetStateDesigner Size="130, 53" Name="setStateActivity16" Location="738, 745" />
-						<FaultHandlersActivityDesigner Size="130, 41" Name="faultHandlersActivity23" ShowPreview="False" Location="0, 0">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="130, 41" Name="faultHandlerActivity23" Location="0, 0">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity23" Location="0, 0" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-				<EventDrivenDesigner Size="150, 194" Name="BackToDashboard" Location="728, 647">
-					<EventDrivenDesigner.Designers>
-						<ActivityDesigner Size="130, 41" Name="mtHandleEventActivity13" Location="738, 709" />
-						<SetStateDesigner Size="130, 53" Name="setStateActivity11" Location="738, 769" />
-						<FaultHandlersActivityDesigner Size="130, 41" Name="faultHandlersActivity24" ShowPreview="False" Location="0, 0">
-							<FaultHandlersActivityDesigner.Designers>
-								<FaultHandlerActivityDesigner Size="130, 41" Name="faultHandlerActivity24" Location="0, 0">
-									<FaultHandlerActivityDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="mtFaultHandlingActivity24" Location="0, 0" />
-									</FaultHandlerActivityDesigner.Designers>
-								</FaultHandlerActivityDesigner>
-							</FaultHandlersActivityDesigner.Designers>
-						</FaultHandlersActivityDesigner>
-					</EventDrivenDesigner.Designers>
-				</EventDrivenDesigner>
-			</StateDesigner.Designers>
-		</StateDesigner>
-		<StateDesigner Name="GetSubscriptionObject" Location="702, 205" Size="182, 80" AutoSizeMargin="16, 24">
-			<StateDesigner.Designers>
-				<StateInitializationDesigner Size="381, 375" Name="Init_GetSubscriptionObject" Location="710, 236">
-					<StateInitializationDesigner.Designers>
-						<IfElseDesigner Size="361, 222" Name="IsNewSubscription1" Location="720, 298">
-							<IfElseDesigner.Designers>
-								<IfElseBranchDesigner Size="150, 122" Name="ifElseBranchActivity3" Location="739, 369">
-									<IfElseBranchDesigner.Designers>
-										<CodeDesigner Size="130, 41" Name="CreateNewSubscriptionFromPOID" Location="749, 431" />
-									</IfElseBranchDesigner.Designers>
-								</IfElseBranchDesigner>
-								<IfElseBranchDesigner Size="150, 122" Name="ifElseBranchActivity4" Location="912, 369">
-									<IfElseBranchDesigner.Designers>
-										<ActivityDesigner Size="130, 41" Name="subscriptionService_GetSubscriptionDetail_ClientActivity1" Location="922, 431" />
-									</IfElseBranchDesigner.Designers>
-								</IfElseBranchDesigner>
-							</IfElseDesigner.Designers>
-						</IfElseDesigner>
-						<SetStateDesigner Size="130, 53" Name="setStateActivity23" Location="835, 539" />
-					</StateInitializationDesigner.Designers>
-				</StateInitializationDesigner>
-			</StateDesigner.Designers>
-		</StateDesigner>
-	</StateMachineWorkflowDesigner.Designers>
 </StateMachineWorkflowDesigner>

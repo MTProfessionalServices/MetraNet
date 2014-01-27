@@ -6,9 +6,9 @@
 		<databasetype>{SQL Server}</databasetype>
      <timeout ptype="INTEGER">11800</timeout>
 		<username>nmdbo</username>
-		<password encrypted="true">cbb23d8d-8189-4039-a575-a7388c369d99s3sB9PwdhdpHUFYAzRN/fUwcL7h/7iMdlYIMp0HaJRA=/password>
+		<password>MetraTech1</password>
 	</server>
-	<server>
+	<!--server>
 		<servertype>ReportingDBServerForCreditNotes</servertype>
 		<servername>localhost</servername>
 		<databasename>MetraNet</databasename>
@@ -16,9 +16,9 @@
 		<databaseowner></databaseowner>
      <timeout ptype="INTEGER">11800</timeout>
 		<username>nmdbo</username>
-		<password encrypted="true">cbb23d8d-8189-4039-a575-a7388c369d99s3sB9PwdhdpHUFYAzRN/fUwcL7h/7iMdlYIMp0HaJRA=</password>
-	</server>
-	<server>
+		<password>MetraTech1</password>
+	</server-->
+	<!--server>
 		<servertype>ReportingServerForCreditNotes</servertype>
 		<servername>crystal2008.metratech.com</servername>
 		<username>mtuser</username>
@@ -28,7 +28,7 @@
 		<instanceoutputbasepath>MetraNet_Armita</instanceoutputbasepath>
 		<serverfolder>reports_Armita</serverfolder>
 		<instanceoutputpartialpath></instanceoutputpartialpath>
-	</server>
+	</server-->
 
 	<!--server>
 		<servertype>ReportingDBServerForQuoting</servertype>
@@ -54,7 +54,7 @@
 		<servername>crystal2008.metratech.com</servername>
 		<databasename>MetraNet</databasename>
 		<username>mtuser</username>
-		<password encrypted="true">cbb23d8d-8189-4039-a575-a7388c369d99PLx/MpW/I8qInYCHtsiXPzYbimg0X60uQfOO4yL3t3I=</password>
+		<password>mtuser</password>
 		<secure ptype="INTEGER">0</secure>
 		<portnumber ptype="INTEGER">80</portnumber>
 	</server>

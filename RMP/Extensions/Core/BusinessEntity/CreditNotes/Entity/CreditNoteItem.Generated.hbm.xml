@@ -102,7 +102,7 @@
     </property>
     <property name="CreditNoteItemID" column="c_CreditNoteItemID" not-null="true" unique="true">
       <meta attribute="label">CreditNoteItemID</meta>
-      <meta attribute="description">int id for credit note item.</meta>
+      <meta attribute="description">long int id for credit note item.</meta>
       <meta attribute="defaultvalue" />
       <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>

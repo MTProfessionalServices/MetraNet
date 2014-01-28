@@ -1,10 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.ServiceModel;
-using System.ServiceModel.Security;
-using System.Text;
-using MetraTech;
 using MetraTech.Approvals.ChangeTypes;
 using MetraTech.UI.Common;
 using MetraTech.Core.Services.ClientProxies;
@@ -100,33 +95,39 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
 
     MTDataBinder1.Unbind();
 
+    var sub = SubscriptionInstance;
+
     if (cbStartNextBillingPeriod.Checked)
     {
-      SubscriptionInstance.SubscriptionSpan.StartDateType = ProdCatTimeSpan.MTPCDateType.NextBillingPeriod;
+      sub.SubscriptionSpan.StartDateType = ProdCatTimeSpan.MTPCDateType.NextBillingPeriod;
     }
 
     if (cbEndNextBillingPeriod.Checked)
     {
-      SubscriptionInstance.SubscriptionSpan.EndDateType = ProdCatTimeSpan.MTPCDateType.NextBillingPeriod;
+      sub.SubscriptionSpan.EndDateType = ProdCatTimeSpan.MTPCDateType.NextBillingPeriod;
     }
 
     // Unbind Subscription Properties
     var charVals = new List<CharacteristicValue>();
     SpecCharacteristicsBinder.UnbindProperies(charVals, pnlSubscriptionProperties, SpecValues);
-    SubscriptionInstance.CharacteristicValues = charVals;
+    sub.CharacteristicValues = charVals;
 
-    var isApprovalsEnabled = IsApprovalsEnabled(SubscriptionChangeType.AddSubscriptionChangeTypeName);
-
+    var isNewSubscription = sub.SubscriptionId == null;
+    var changeTypeName = isNewSubscription
+                           ? SubscriptionChangeType.AddSubscriptionChangeTypeName
+                           : SubscriptionChangeType.UpdateSubscriptionChangeTypeName;
+    var isApprovalsEnabled = IsApprovalsEnabled(changeTypeName);
+    
     var update = new SubscriptionsEvents_OKSetSubscriptionDate_Client
       {
-        In_SubscriptionInstance = SubscriptionInstance,
+        In_SubscriptionInstance = sub,
         In_AccountId = new AccountIdentifier(UI.User.AccountId),
         In_IsApprovalEnabled = isApprovalsEnabled
       };
     
     PageNav.Execute(update);
 
-    if (isApprovalsEnabled)
+    if (isApprovalsEnabled && !HasUdrcValues(sub))
     {
       Response.Redirect("/MetraNet/ApprovalFrameworkManagement/ChangeSubmittedConfirmation.aspx", false);
     }
@@ -156,6 +157,17 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
     return isEnabled;
   }
 
+  private bool HasUdrcValues(Subscription sub)
+  {
+    List<UDRCInstance> listOfUdrcs;
+    using (var client = new SubscriptionServiceClient())
+    {
+      SetCredantional(client.ClientCredentials);
+      client.GetUDRCInstancesForPO(sub.ProductOfferingId, out listOfUdrcs);
+    }
+    return listOfUdrcs.Count > 0;
+  }
+  
   private void SetCredantional(System.ServiceModel.Description.ClientCredentials clientCredentials)
   {
     if (clientCredentials == null)

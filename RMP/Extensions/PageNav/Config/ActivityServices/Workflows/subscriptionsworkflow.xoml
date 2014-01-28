@@ -1,4 +1,4 @@
-﻿<ns0:SubscriptionsWorkflow PageStateGuid="00000000-0000-0000-0000-000000000000" ProductOfferingId="0" Mode="New" x:Name="SubscriptionsWorkflow" CompletedStateName="EndSubscriptions" IsNewSubscription="False" POList="{x:Null}" SubscriptionsList="{x:Null}" SubscriptionInstance="{x:Null}" AccountIdentifier="{x:Null}" UDRCInstances="{x:Null}" DynamicUpdateCondition="{x:Null}" InitialStateName="StartSubscriptions" POEffectiveDate="0001-01-01T00:00:00.0000000" SubscriptionId="0" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow" xmlns:ns2="clr-namespace:MetraTech.ActivityServices.Activities;Assembly=MetraTech.ActivityServices.Activities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75" xmlns:ns3="clr-namespace:MetraTech.Core.Services.ProxyActivities;Assembly=MetraTech.Core.Services.ProxyActivities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:MetraCareWorkflowLibrary;Assembly=MetraCareWorkflowLibrary">
+﻿<ns0:SubscriptionsWorkflow PageStateGuid="00000000-0000-0000-0000-000000000000" ProductOfferingId="0" Mode="New" x:Name="SubscriptionsWorkflow" CompletedStateName="EndSubscriptions" IsApprovalEnabled="False" IsNewSubscription="False" POList="{x:Null}" SubscriptionsList="{x:Null}" SubscriptionInstance="{x:Null}" AccountIdentifier="{x:Null}" UDRCInstances="{x:Null}" DynamicUpdateCondition="{x:Null}" ChangeRequest="{x:Null}" InitialStateName="StartSubscriptions" POEffectiveDate="0001-01-01T00:00:00.0000000" SubscriptionId="0" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow" xmlns:ns2="clr-namespace:MetraTech.ActivityServices.Activities;Assembly=MetraTech.ActivityServices.Activities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75" xmlns:ns3="clr-namespace:MetraTech.Core.Services.ProxyActivities;Assembly=MetraTech.Core.Services.ProxyActivities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:MetraCareWorkflowLibrary;Assembly=MetraCareWorkflowLibrary">
 	<StateActivity x:Name="StartSubscriptions">
 		<EventDrivenActivity x:Name="Start_Subscriptions">
 			<ns2:MTHandleEventActivity x:Name="mtHandleEventActivity1" EventName="Start_Subscriptions" />
@@ -203,6 +203,7 @@
 		<EventDrivenActivity x:Name="OK_SetSubscriptionDate">
 			<ns2:MTHandleEventActivity x:Name="mtHandleEventActivity20" EventName="OK_SetSubscriptionDate" />
 			<CodeActivity x:Name="ValidateSubscription" ExecuteCode="{ActivityBind SubscriptionsWorkflow,Path=ValidateSubscription_ExecuteCode}" />
+			<CodeActivity x:Name="InitChangeRequest" ExecuteCode="{ActivityBind SubscriptionsWorkflow,Path=ApprovalSetupAS_ExecuteCode}" />
 			<ns3:SubscriptionService_GetUDRCInstancesForPO_ClientActivity Out_udrcInstances="{ActivityBind SubscriptionsWorkflow,Path=UDRCInstances}" x:Name="subscriptionService_GetUDRCInstancesForPO_ClientActivity1" In_productOfferingId="{ActivityBind SubscriptionsWorkflow,Path=SubscriptionInstance.ProductOfferingId}" />
 			<IfElseActivity x:Name="ifElseActivity1">
 				<IfElseBranchActivity x:Name="ifElseBranchActivity1">
@@ -212,7 +213,17 @@
 					<SetStateActivity x:Name="setStateActivity18" TargetStateName="SetUDRCValues" />
 				</IfElseBranchActivity>
 				<IfElseBranchActivity x:Name="ifElseBranchActivity2">
-					<SetStateActivity x:Name="setStateActivity19" TargetStateName="SaveSubscription" />
+					<IfElseActivity x:Name="ifElseActivity2">
+						<IfElseBranchActivity x:Name="ifElseBranchActivity7">
+							<IfElseBranchActivity.Condition>
+								<RuleConditionReference ConditionName="IsApprovalsOn" />
+							</IfElseBranchActivity.Condition>
+							<ns3:ApprovalManagementService_SubmitChange_ClientActivity Out_changeId="0" x:Name="approvalManagementService_SubmitChange_ClientActivity2" In_change="{ActivityBind SubscriptionsWorkflow,Path=ChangeRequest}" />
+						</IfElseBranchActivity>
+						<IfElseBranchActivity x:Name="ifElseBranchActivity8">
+							<SetStateActivity x:Name="setStateActivity19" TargetStateName="SaveSubscription" />
+						</IfElseBranchActivity>
+					</IfElseActivity>
 				</IfElseBranchActivity>
 			</IfElseActivity>
 			<FaultHandlersActivity x:Name="faultHandlersActivity18">
@@ -237,7 +248,18 @@
 		</StateInitializationActivity>
 		<EventDrivenActivity x:Name="OK_SetUDRCValues">
 			<ns2:MTHandleEventActivity x:Name="mtHandleEventActivity22" EventName="OK_SetUDRCValues" />
-			<SetStateActivity x:Name="setStateActivity21" TargetStateName="SaveSubscription" />
+			<CodeActivity x:Name="InitChangeRequestWithUDRC" ExecuteCode="{ActivityBind SubscriptionsWorkflow,Path=ApprovalSetupAS_ExecuteCode}" />
+			<IfElseActivity x:Name="ifElseActivityApprovalsWithUdrc">
+				<IfElseBranchActivity x:Name="ifElseBranchActivity71">
+					<IfElseBranchActivity.Condition>
+						<RuleConditionReference ConditionName="IsApprovalsOn" />
+					</IfElseBranchActivity.Condition>
+					<ns3:ApprovalManagementService_SubmitChange_ClientActivity Out_changeId="0" x:Name="approvalManagementService_SubmitChange_ClientActivity3" In_change="{ActivityBind SubscriptionsWorkflow,Path=ChangeRequest}" />
+				</IfElseBranchActivity>
+				<IfElseBranchActivity x:Name="ifElseBranchActivity81">
+					<SetStateActivity x:Name="setStateActivity21" TargetStateName="SaveSubscription" />
+				</IfElseBranchActivity>
+			</IfElseActivity>
 			<FaultHandlersActivity x:Name="faultHandlersActivity20">
 				<FaultHandlerActivity x:Name="faultHandlerActivity20" FaultType="{x:Type p13:Exception}" xmlns:p13="clr-namespace:System;Assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
 					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity20" Exception="{ActivityBind faultHandlerActivity20,Path=Fault}" />

@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" CodeFile="IssueMiscellaneousAdjustment.aspx.cs" Inherits="Adjustments_IssueMiscellaneousAdjustment" meta:resourcekey="PageResource1" Culture="auto" UICulture="auto" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">  
-  <MT:MTPanel ID="MTPanel1" runat="server" Text="Issue Miscellaneous Adjustment" 
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+  
+ <MT:MTPanel ID="MTPanel1" runat="server" Text="Issue Miscellaneous Adjustment" 
     Collapsed="False" Collapsible="True" EnableChrome="True" 
     meta:resourcekey="MTPanel1Resource1" >
     <table id="adjustmentSummary">
@@ -94,25 +95,25 @@
     </table>
     <br/>
     <MT:MTDropDown ID="ddReasonCode" Label="Reason Code" runat="server" 
-      AllowBlank="False" HideLabel="False" LabelSeparator=":" Listeners="{}" 
+      AllowBlank="False" HideLabel="False" LabelSeparator=":" Listeners="{}" LabelWidth="170" 
       meta:resourcekey="ddReasonCodeResource1" ReadOnly="False">
     </MT:MTDropDown>
     <MT:MTTextArea ID="adjDescriptionTextBox" Label="Internal Description" runat="server" 
       AllowBlank="True" Height="200px" Width="400px" ControlHeight="200" 
-      ControlWidth="400" HideLabel="False" LabelSeparator=":" LabelWidth="120" 
+      ControlWidth="400" HideLabel="False" LabelSeparator=":" LabelWidth="170" 
       Listeners="{}" MaxLength="-1" meta:resourcekey="adjDescriptionTextBoxResource1" 
       MinLength="0" OptionalExtConfig="maxLength:Number.MAX_VALUE,
                               minLength:0" ReadOnly="False" ValidationRegex="null" 
       XType="TextArea" XTypeNameSpace="form" />
     <MT:MTTextArea ID="adjSubscriberDescriptionTextBox" Label="Subscriber Description" runat="server" 
-      AllowBlank="True" Height="200px" Width="400px" ControlHeight="200" 
-      ControlWidth="400" HideLabel="False" LabelSeparator=":" LabelWidth="120" 
+      AllowBlank="True" Height="200px" Width="400px" ControlHeight="200"
+      ControlWidth="400" HideLabel="False" LabelSeparator=":" LabelWidth="170" 
       Listeners="{}" MaxLength="-1" meta:resourcekey="adjDescriptionTextBoxResource2" 
       MinLength="0" OptionalExtConfig="maxLength:Number.MAX_VALUE,
                               minLength:0" ReadOnly="False" ValidationRegex="null" 
       XType="TextArea" XTypeNameSpace="form" />
     <MT:MTDropDown ID="ddBillingPeriod" Label="Billing Period" runat="server" 
-      AllowBlank="False" HideLabel="False" LabelSeparator=":" Listeners="{}" 
+      AllowBlank="False" HideLabel="False" LabelSeparator=":" Listeners="{}" LabelWidth="170" 
       meta:resourcekey="ddBillingPeriod1" ReadOnly="False">
     </MT:MTDropDown>
 </MT:MTPanel>
@@ -120,19 +121,19 @@
        Collapsed="False" Collapsible="True" EnableChrome="True" 
        meta:resourcekey="MTPanel2Resource1" >
     <MT:MTCheckBoxControl ID="cbIssueCreditNote" runat="server" BoxLabel="Issue Credit Note For This Adjustment"
-      TabIndex="240" ControlWidth="400" AllowBlank="False"
-      Checked="False" HideLabel="True" LabelSeparator=":" Listeners="{}" meta:resourcekey="cbIssueCreditNoteResource1"
+      TabIndex="240" ControlWidth="400" Checked="False" HideLabel="True" LabelSeparator=":" LabelWidth="170"
+      Listeners="{ 'check' : { fn: this.enableControls, scope: this } }" meta:resourcekey="cbIssueCreditNoteResource1"
       Name="cbIssueCreditNote" ReadOnly="False" XType="Checkbox" XTypeNameSpace="form" /><br />
     <MT:MTDropDown ID="ddTemplateTypes" runat="server" Label="Credit Note Template To Use" 
-      AllowBlank="False" HideLabel="False" LabelSeparator=":" Listeners="{}"
-      meta:resourcekey="ddTemplateTypesResource1" ReadOnly="False">
+      LabelWidth="170" AllowBlank="False" HideLabel="False" LabelSeparator=":" Listeners="{}"
+      meta:resourcekey="ddTemplateTypesResource1" ReadOnly="False" Enabled="False">
     </MT:MTDropDown>
     <MT:MTTextArea ID="CommentTextBox" Label="Comment" runat="server" 
       AllowBlank="True" Height="200px" Width="400px" ControlHeight="200" 
-      ControlWidth="400" HideLabel="False" LabelSeparator=":" LabelWidth="120" 
+      ControlWidth="400" HideLabel="False" LabelSeparator=":" LabelWidth="170" 
       Listeners="{}" MaxLength="1024" meta:resourcekey="CommentTextBoxResource1" 
       MinLength="0"
-      ReadOnly="False" ValidationRegex="null" 
+      ReadOnly="False" Enabled="False" ValidationRegex="null" 
       XType="TextArea" XTypeNameSpace="form" />
 </MT:MTPanel> 
     <div  class="x-panel-btns-ct">

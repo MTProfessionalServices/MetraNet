@@ -38,10 +38,9 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
             return HttpContext.Current.Application["AccountCreditPipelineMeteringHelperCache"] as PipelineMeteringHelperCache;
         }
     }
-
-    protected void Page_Load(object sender, EventArgs e)
+  protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Page.IsPostBack)
+      if (!Page.IsPostBack)
         {
             adjAmountFld.DecimalSeparator
               = adjAmountFldTaxFederal.DecimalSeparator
@@ -65,8 +64,9 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
             }
 
             lblMaxAmount.Text = String.Format("{0} {1}", maxAdjAmount, ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).Currency);
-        }
 
+          generateEnableControlsJS();
+        }
 
         var accountIntervalsClient = new UsageHistoryService_GetAccountIntervals_Client
         {
@@ -102,6 +102,28 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
                 ddReasonCode.Items.Add(itm);
             }
         }
+    }
+
+    private void generateEnableControlsJS()
+    {
+      cbIssueCreditNote.Listeners = @"{ 'check' : this.enableControls, scope: this }";
+      String scriptString = "<script language=\"javascript\" type=\"text/javascript\">\n";
+      scriptString += "function enableControls() {\n";
+      scriptString += "var dd = Ext.getCmp('" + ddTemplateTypes.ClientID + "');\n";
+      scriptString += "var tb = Ext.getCmp('" + CommentTextBox.ClientID + "');\n";
+      scriptString += "var cb = Ext.getCmp('" + cbIssueCreditNote.ClientID + "');\n";
+      scriptString += "if (cb.checked)\n";
+      scriptString += "{\n";
+      scriptString += "dd.enable();\n";
+      scriptString += "tb.enable();\n";
+      scriptString += "} else {\n";
+      scriptString += "dd.disable();\n";
+      scriptString += "tb.disable();\n";
+      scriptString += "}\n";
+      scriptString += "}\n";
+      scriptString += "</script>";
+  
+      Page.ClientScript.RegisterClientScriptBlock(Page.GetType(), "enableControls", scriptString);
     }
 
   private bool ConvertToDecimal(string valForConversion, string fieldName, StringBuilder errorBuilder, out decimal? convertedVal)

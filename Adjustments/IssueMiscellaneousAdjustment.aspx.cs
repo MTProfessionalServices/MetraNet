@@ -12,6 +12,7 @@ using MetraTech;
 using MetraTech.ActivityServices.Common;
 using MetraTech.ActivityServices.Services.Common;
 using MetraTech.Auth.Capabilities;
+using MetraTech.Core.CreditNotes;
 using MetraTech.Core.Services.ClientProxies;
 using MetraTech.DataAccess;
 using MetraTech.DomainModel.AccountTypes;
@@ -66,6 +67,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
             lblMaxAmount.Text = String.Format("{0} {1}", maxAdjAmount, ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).Currency);
 
           generateEnableControlsJS();
+          PopulateCreditNotesTemplateTypes();
         }
 
         var accountIntervalsClient = new UsageHistoryService_GetAccountIntervals_Client
@@ -104,7 +106,42 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         }
     }
 
-    private void generateEnableControlsJS()
+  private void PopulateCreditNotesTemplateTypes()
+  {
+    CreditNoteServiceClient client = null;
+
+    try
+    {
+      client = new CreditNoteServiceClient();
+
+      if (client.ClientCredentials != null)
+      {
+        client.ClientCredentials.UserName.UserName = UI.User.UserName;
+        client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+      }
+      var items = new MTList<CreditNoteTmpl>();
+      client.GetCredtiNoteTemplates(ref items, UI.SessionContext.LanguageID);
+
+      foreach (var item in items.Items)
+      {
+        ddTemplateTypes.Items.Add(new ListItem(item.TemplateName, item.TemplateName));
+      }
+    }
+    catch (Exception ex)
+    {
+      Logger.LogException("An unknown exception occurred.  Please check system logs.", ex);
+      throw;
+    }
+    finally
+    {
+      if (client != null)
+      {
+        client.Abort();
+      }
+    }
+  }
+
+  private void generateEnableControlsJS()
     {
       cbIssueCreditNote.Listeners = @"{ 'check' : this.enableControls, scope: this }";
       String scriptString = "<script language=\"javascript\" type=\"text/javascript\">\n";

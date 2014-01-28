@@ -248,7 +248,18 @@
 		</StateInitializationActivity>
 		<EventDrivenActivity x:Name="OK_SetUDRCValues">
 			<ns2:MTHandleEventActivity x:Name="mtHandleEventActivity22" EventName="OK_SetUDRCValues" />
-			<SetStateActivity x:Name="setStateActivity21" TargetStateName="SaveSubscription" />
+			<CodeActivity x:Name="InitChangeRequestWithUDRC" ExecuteCode="{ActivityBind SubscriptionsWorkflow,Path=ApprovalSetupAS_ExecuteCode}" />
+			<IfElseActivity x:Name="ifElseActivityApprovalsWithUdrc">
+				<IfElseBranchActivity x:Name="ifElseBranchActivity71">
+					<IfElseBranchActivity.Condition>
+						<RuleConditionReference ConditionName="IsApprovalsOn" />
+					</IfElseBranchActivity.Condition>
+					<ns3:ApprovalManagementService_SubmitChange_ClientActivity Out_changeId="0" x:Name="approvalManagementService_SubmitChange_ClientActivity3" In_change="{ActivityBind SubscriptionsWorkflow,Path=ChangeRequest}" />
+				</IfElseBranchActivity>
+				<IfElseBranchActivity x:Name="ifElseBranchActivity81">
+					<SetStateActivity x:Name="setStateActivity21" TargetStateName="SaveSubscription" />
+				</IfElseBranchActivity>
+			</IfElseActivity>
 			<FaultHandlersActivity x:Name="faultHandlersActivity20">
 				<FaultHandlerActivity x:Name="faultHandlerActivity20" FaultType="{x:Type p13:Exception}" xmlns:p13="clr-namespace:System;Assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
 					<ns2:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity20" Exception="{ActivityBind faultHandlerActivity20,Path=Fault}" />

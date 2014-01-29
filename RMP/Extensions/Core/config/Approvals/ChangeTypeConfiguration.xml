@@ -24,7 +24,7 @@
       <Name>UpdateAccount</Name>
       <ClientProxyType>MetraTech.Account.ClientProxies.AccountCreationClient, MetraTech.Account.ClientProxies</ClientProxyType>
       <ConfigFileLocation>extensions\Core\config\Approvals\ActivityServices.config</ConfigFileLocation>
-      <EndPointName>WSHttpBinding_IAccountCreation</EndPointName>
+      <EndPointName>NetTcpBinding_IAccountCreation</EndPointName>
     </MethodForApply>
     <WebpageForView>
       <URL>/MetraNet/ApprovalFrameworkManagement/ChangeTypeViewers/ViewAccountChangeDetails.aspx?changeid=%%CHANGE_ID%%&amp;currentstate=%%CHANGE_STATE%%&amp;showchangestate=%%SHOW_CHANGE_STATE%%</URL>
@@ -40,7 +40,7 @@
       <Name>SaveProductOffering</Name>
       <ClientProxyType>MetraTech.Core.Services.ClientProxies.ProductOfferingServiceClient, MetraTech.Core.Services.ClientProxies</ClientProxyType>
       <ConfigFileLocation>extensions\Core\config\Approvals\ActivityServices.config</ConfigFileLocation>
-      <EndPointName>WSHttpBinding_IProductOfferingService</EndPointName>
+      <EndPointName>NetTcpBinding_IProductOfferingService</EndPointName>
     </MethodForApply>
     <WebpageForView>
       <URL>/MetraNet/ApprovalFrameworkManagement/ChangeTypeViewers/ViewProductOfferingChangeDetails.aspx?changeid=%%CHANGE_ID%%&amp;currentstate=%%CHANGE_STATE%%&amp;showchangestate=%%SHOW_CHANGE_STATE%%</URL>
@@ -60,7 +60,7 @@
       <Name>AddSubscription</Name>
       <ClientProxyType>MetraTech.Core.Services.ClientProxies.SubscriptionServiceClient, MetraTech.Core.Services.ClientProxies</ClientProxyType>
       <ConfigFileLocation>extensions\Core\config\Approvals\ActivityServices.config</ConfigFileLocation>
-      <EndPointName>WSHttpBinding_ISubscriptionService</EndPointName>
+      <EndPointName>NetTcpBinding_ISubscriptionService</EndPointName>
     </MethodForApply>
     <WebpageForView>
       <URL>/MetraNet/ApprovalFrameworkManagement/ChangeTypeViewers/DefaultViewChangeDetails.aspx?changeid=%%CHANGE_ID%%&amp;currentstate=%%CHANGE_STATE%%&amp;showchangestate=%%SHOW_CHANGE_STATE%%</URL>
@@ -80,7 +80,7 @@
       <Name>UpdateSubscription</Name>
       <ClientProxyType>MetraTech.Core.Services.ClientProxies.SubscriptionServiceClient, MetraTech.Core.Services.ClientProxies</ClientProxyType>
       <ConfigFileLocation>extensions\Core\config\Approvals\ActivityServices.config</ConfigFileLocation>
-      <EndPointName>WSHttpBinding_ISubscriptionService</EndPointName>
+      <EndPointName>NetTcpBinding_ISubscriptionService</EndPointName>
     </MethodForApply>
     <WebpageForView>
       <URL>/MetraNet/ApprovalFrameworkManagement/ChangeTypeViewers/DefaultViewChangeDetails.aspx?changeid=%%CHANGE_ID%%&amp;currentstate=%%CHANGE_STATE%%&amp;showchangestate=%%SHOW_CHANGE_STATE%%</URL>
@@ -96,7 +96,7 @@
       <Name>AddMemberHierarchiesToGroupSubscription</Name>
       <ClientProxyType>MetraTech.Core.Services.ClientProxies.GroupSubscriptionServiceClient, MetraTech.Core.Services.ClientProxies</ClientProxyType>
       <ConfigFileLocation>extensions\Core\config\Approvals\ActivityServices.config</ConfigFileLocation>
-      <EndPointName>WSHttpBinding_IGroupSubscriptionService</EndPointName>
+      <EndPointName>NetTcpBinding_IGroupSubscriptionService</EndPointName>
     </MethodForApply>
     <WebpageForView>
       <URL>/MetraNet/ApprovalFrameworkManagement/ChangeTypeViewers/ViewGroupSubscriptionMemberUpdateDetails.aspx?changeid=%%CHANGE_ID%%&amp;currentstate=%%CHANGE_STATE%%&amp;showchangestate=%%SHOW_CHANGE_STATE%%</URL>
@@ -112,7 +112,7 @@
       <Name>AddMembersToGroupSubscription</Name>
       <ClientProxyType>MetraTech.Core.Services.ClientProxies.GroupSubscriptionServiceClient, MetraTech.Core.Services.ClientProxies</ClientProxyType>
       <ConfigFileLocation>extensions\Core\config\Approvals\ActivityServices.config</ConfigFileLocation>
-      <EndPointName>WSHttpBinding_IGroupSubscriptionService</EndPointName>
+      <EndPointName>NetTcpBinding_IGroupSubscriptionService</EndPointName>
     </MethodForApply>
     <WebpageForView>
       <URL>/MetraNet/ApprovalFrameworkManagement/ChangeTypeViewers/ViewGroupSubscriptionMemberUpdateDetails.aspx?changeid=%%CHANGE_ID%%&amp;currentstate=%%CHANGE_STATE%%&amp;showchangestate=%%SHOW_CHANGE_STATE%%</URL>
@@ -128,7 +128,7 @@
       <Name>DeleteMembersFromGroupSubscription</Name>
       <ClientProxyType>MetraTech.Core.Services.ClientProxies.GroupSubscriptionServiceClient, MetraTech.Core.Services.ClientProxies</ClientProxyType>
       <ConfigFileLocation>extensions\Core\config\Approvals\ActivityServices.config</ConfigFileLocation>
-      <EndPointName>WSHttpBinding_IGroupSubscriptionService</EndPointName>
+      <EndPointName>NetTcpBinding_IGroupSubscriptionService</EndPointName>
     </MethodForApply>
     <WebpageForView>
       <URL>/MetraNet/ApprovalFrameworkManagement/ChangeTypeViewers/ViewGroupSubscriptionMemberUpdateDetails.aspx?changeid=%%CHANGE_ID%%&amp;currentstate=%%CHANGE_STATE%%&amp;showchangestate=%%SHOW_CHANGE_STATE%%</URL>
@@ -144,7 +144,7 @@
       <Name>UpdateGroupSubscriptionMember</Name>
       <ClientProxyType>MetraTech.Core.Services.ClientProxies.GroupSubscriptionServiceClient, MetraTech.Core.Services.ClientProxies</ClientProxyType>
       <ConfigFileLocation>extensions\Core\config\Approvals\ActivityServices.config</ConfigFileLocation>
-      <EndPointName>WSHttpBinding_IGroupSubscriptionService</EndPointName>
+      <EndPointName>NetTcpBinding_IGroupSubscriptionService</EndPointName>
     </MethodForApply>
     <WebpageForView>
       <URL>/MetraNet/ApprovalFrameworkManagement/ChangeTypeViewers/ViewGroupSubscriptionMemberUpdateDetails.aspx?changeid=%%CHANGE_ID%%&amp;currentstate=%%CHANGE_STATE%%&amp;showchangestate=%%SHOW_CHANGE_STATE%%</URL>
@@ -160,7 +160,7 @@
       <Name>UnsubscribeGroupSubscriptionMembers</Name>
       <ClientProxyType>MetraTech.Core.Services.ClientProxies.GroupSubscriptionServiceClient, MetraTech.Core.Services.ClientProxies</ClientProxyType>
       <ConfigFileLocation>extensions\Core\config\Approvals\ActivityServices.config</ConfigFileLocation>
-      <EndPointName>WSHttpBinding_IGroupSubscriptionService</EndPointName>
+      <EndPointName>NetTcpBinding_IGroupSubscriptionService</EndPointName>
     </MethodForApply>
     <WebpageForView>
       <URL>/MetraNet/ApprovalFrameworkManagement/ChangeTypeViewers/ViewGroupSubscriptionMemberUpdateDetails.aspx?changeid=%%CHANGE_ID%%&amp;currentstate=%%CHANGE_STATE%%&amp;showchangestate=%%SHOW_CHANGE_STATE%%</URL>

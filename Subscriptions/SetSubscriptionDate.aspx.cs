@@ -24,6 +24,12 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
     set { Session["SpecValues"] = value; }
   }
 
+  public string ChangeType
+  {
+    get { return ViewState["ChangeType"] as string; }
+    set { ViewState["ChangeType"] = value; }
+  }
+
   #region Event Listeners
 
   protected void Page_Load(object sender, EventArgs e)
@@ -39,14 +45,14 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
                                             SubscriptionInstance.ProductOffering.EffectiveTimeSpan.EndDate);
 
         // validate date range client side in Ext
-        StartDate.Options += String.Format(",minValue:'{0}',maxValue:'{1}'", 
-                                            SubscriptionInstance.ProductOffering.EffectiveTimeSpan.StartDate,
-                                            SubscriptionInstance.ProductOffering.EffectiveTimeSpan.EndDate);
+        StartDate.Options += String.Format(",minValue:'{0}',maxValue:'{1}'",
+                                           SubscriptionInstance.ProductOffering.EffectiveTimeSpan.StartDate,
+                                           SubscriptionInstance.ProductOffering.EffectiveTimeSpan.EndDate);
 
         EndDate.Options += String.Format(",minValue:'{0}',maxValue:'{1}',compareValue:'{2}'",
-                                            SubscriptionInstance.ProductOffering.EffectiveTimeSpan.StartDate,
-                                            SubscriptionInstance.ProductOffering.EffectiveTimeSpan.EndDate,
-                                            DateTime.Today);
+                                         SubscriptionInstance.ProductOffering.EffectiveTimeSpan.StartDate,
+                                         SubscriptionInstance.ProductOffering.EffectiveTimeSpan.EndDate,
+                                         DateTime.Today);
 
         if (SubscriptionInstance.SubscriptionSpan.StartDateType == ProdCatTimeSpan.MTPCDateType.NextBillingPeriod)
         {
@@ -59,7 +65,7 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
         }
 
         // if subscription dates are null default them to the effective dates on the PO
-        if(SubscriptionInstance.SubscriptionSpan.StartDate == null)
+        if (SubscriptionInstance.SubscriptionSpan.StartDate == null)
         {
           SubscriptionInstance.SubscriptionSpan.StartDate = ApplicationTime;
           //SubscriptionInstance.SubscriptionSpan.StartDate = SubscriptionInstance.ProductOffering.EffectiveTimeSpan.StartDate;
@@ -71,8 +77,19 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
         }
 
         // Bind Subscription Properties
-        SpecCharacteristicsBinder.BindProperties(pnlSubscriptionProperties, 
-          SubscriptionInstance, this, SpecValues);
+        SpecCharacteristicsBinder.BindProperties(pnlSubscriptionProperties,
+                                                 SubscriptionInstance, this, SpecValues);
+
+        var isNew = SubscriptionInstance.SubscriptionId == null;
+        ChangeType = isNew
+                       ? SubscriptionChangeType.AddSubscriptionChangeTypeName
+                       : SubscriptionChangeType.UpdateSubscriptionChangeTypeName;
+        var changeTypeShortName = isNew
+                                    ? SubscriptionChangeType.AddSubscriptionChangeTypeShortName
+                                    : SubscriptionChangeType.UpdateSubscriptionChangeTypeShortName;
+        var uniqueSubChageId = String.Format("{0}_{1}_{2}", UI.Subscriber.SelectedAccount._AccountID,
+                                             SubscriptionInstance.ProductOfferingId, changeTypeShortName);
+        CheckPendingChanges(ChangeType, uniqueSubChageId, isNew);
       }
 
       if (!MTDataBinder1.DataBind())
@@ -112,11 +129,7 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
     SpecCharacteristicsBinder.UnbindProperies(charVals, pnlSubscriptionProperties, SpecValues);
     sub.CharacteristicValues = charVals;
 
-    var isNewSubscription = sub.SubscriptionId == null;
-    var changeTypeName = isNewSubscription
-                           ? SubscriptionChangeType.AddSubscriptionChangeTypeName
-                           : SubscriptionChangeType.UpdateSubscriptionChangeTypeName;
-    var isApprovalsEnabled = IsApprovalsEnabled(changeTypeName);
+    var isApprovalsEnabled = IsApprovalsEnabled(ChangeType);
     
     var update = new SubscriptionsEvents_OKSetSubscriptionDate_Client
       {
@@ -167,7 +180,55 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
     }
     return listOfUdrcs.Count > 0;
   }
-  
+
+  private void CheckPendingChanges(string changeType, string subId, bool isNew)
+  {
+    if (HasPendingChanges(changeType, subId))
+    {
+      const string approvalFrameworkManagementUrl =
+        "<a href='/MetraNet/ApprovalFrameworkManagement/ShowChangesSummary.aspx?showchangestate=PENDING'</a>";
+      var changeTypeDisplayName = isNew
+                                    ? GetLocalResourceObject("newSubscription").ToString()
+                                    : GetLocalResourceObject("updateSubscription").ToString();
+      var strPendingChangeWarning =
+        String.Format(GetLocalResourceObject("pendingChangeWarningFormat").ToString(),
+                      changeTypeDisplayName, approvalFrameworkManagementUrl);
+      divLblMessage.Visible = true;
+      lblInfoMessage.Text = strPendingChangeWarning;
+
+      if (!IsMoreThanOnePendingChangeAllowed(changeType))
+      {
+        SetError(String.Format(GetLocalResourceObject("pendingChangeUiErrorFormat").ToString(), changeTypeDisplayName));
+        Logger.LogError(
+          string.Format(
+            "The item {0} already has a pending change of the type {1} and this type of change does not allow more than one pending change.",
+            subId, changeType));
+      }
+    }
+  }
+
+  private bool IsMoreThanOnePendingChangeAllowed(string changeType)
+  {
+    bool isAllowed;
+    using (var client = new ApprovalManagementServiceClient())
+    {
+      SetCredantional(client.ClientCredentials);
+      client.AllowMoreThanOnePendingChangeForChangeType(changeType, out isAllowed);
+    }
+    return isAllowed;
+  }
+
+  private bool HasPendingChanges(string changeType, string subId)
+  {
+    List<int> pendingChangeIds;
+    using (var client = new ApprovalManagementServiceClient())
+    {
+      SetCredantional(client.ClientCredentials);
+      client.GetPendingChangeIdsForItem(changeType, subId, out pendingChangeIds);
+    }
+    return pendingChangeIds.Count > 0;
+  }
+
   private void SetCredantional(System.ServiceModel.Description.ClientCredentials clientCredentials)
   {
     if (clientCredentials == null)

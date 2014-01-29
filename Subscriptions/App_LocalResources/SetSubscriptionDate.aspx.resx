@@ -147,4 +147,16 @@
   <data name="pnlSubscriptionProperties.Text" xml:space="preserve">
     <value>Properties</value>
   </data>
+  <data name="newSubscription" xml:space="preserve">
+    <value>New Subscription</value>
+  </data>
+  <data name="pendingChangeUiErrorFormat" xml:space="preserve">
+    <value>This Subscription has {0} type pending change. This type of change does not allow more than one pending changes.</value>
+  </data>
+  <data name="pendingChangeWarningFormat" xml:space="preserve">
+    <value>This Subscription has {0} type pending change.{1} Click here to view pending changes.</value>
+  </data>
+  <data name="updateSubscription" xml:space="preserve">
+    <value>Subscription Update</value>
+  </data>
 </root>

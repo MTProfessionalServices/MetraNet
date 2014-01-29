@@ -20,12 +20,12 @@
             <AdapterSet>
                 <Name>Internal</Name>
                 <ProgID>MTAccount.MTSQLAdapter.1</ProgID>
-                <ConfigFile>metratech.com/Internal</ConfigFile>
+                <ConfigFile>metratech.com/internal</ConfigFile>
             </AdapterSet>
             <AdapterSet>
                 <Name>LDAP</Name>
                 <ProgID>MTAccount.MTSQLAdapter.1</ProgID>
-                <ConfigFile>metratech.com/Contact</ConfigFile>
+                <ConfigFile>metratech.com/contact</ConfigFile>
             </AdapterSet>
         </AccountViews>
         <DirectDescendentAccountTypes></DirectDescendentAccountTypes>

@@ -102,7 +102,7 @@
     </property>
     <property name="CreditNoteItemID" column="c_CreditNoteItemID" not-null="true" unique="true">
       <meta attribute="label">CreditNoteItemID</meta>
-      <meta attribute="description">long int id for credit note item.</meta>
+      <meta attribute="description">guid representing credit note item id.</meta>
       <meta attribute="defaultvalue" />
       <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>
@@ -112,7 +112,7 @@
       <meta attribute="computation-type-name" />
       <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.Int64, mscorlib" />
+      <type name="System.Guid, mscorlib" />
     </property>
     <many-to-one name="CreditNote" class="MetraTech.Core.CreditNotes.CreditNote, MetraTech.Core.CreditNotes.Entity" column="c_CreditNote_Id" cascade="none">
       <meta attribute="relationship-type">OneToMany</meta>

@@ -26,6 +26,7 @@ using System.Xml;
 using System.Xml.Xsl;
 using System.Xml.XPath;
 using System.IO;
+using MetraTech.Approvals;
 
 public partial class ApprovalFrameworkManagement_DefaultViewChangeDetails : MTPage
 {
@@ -48,7 +49,8 @@ public partial class ApprovalFrameworkManagement_DefaultViewChangeDetails : MTPa
     protected string GetChangeDetails(int changeId)
     {
       ApprovalManagementServiceClient client = null;
-      string detailsOfThisParticularChange = "";
+      string detailsOfThisParticularChange = String.Empty;
+      bool gotException = false;
       try
       {
         client = new ApprovalManagementServiceClient();
@@ -59,16 +61,27 @@ public partial class ApprovalFrameworkManagement_DefaultViewChangeDetails : MTPa
 
         client.GetChangeDetails(changeId, ref detailsOfThisParticularChange);
 
-        client.Close();
+        ChangeDetailsHelper changeDetailsIn = new ChangeDetailsHelper();
+        changeDetailsIn.FromBuffer(detailsOfThisParticularChange);
+
+        return changeDetailsIn.ToStringDictionary();
       }
       catch (Exception ex)
       {
-        client.Abort();
+        gotException = true;
         return "An unknown exception occurred.  Please check system logs: " + ex;
         throw;
       }
-
-      return detailsOfThisParticularChange;
+      finally
+      {
+        if (client != null)
+        {
+          if (gotException)
+            client.Abort();
+          else
+            client.Close();
+        }
+      }     
     }
 
     protected string PrettyFormatXmlForHtml(string xml)

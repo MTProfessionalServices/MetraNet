@@ -100,7 +100,7 @@
     </ptype>
     <ptype>
         <dn>CreditNoteTemplateId</dn>
-        <type>int32</type>
+        <type>guid</type>
         <length></length>
         <required>N</required>
         <defaultvalue></defaultvalue>

@@ -35,6 +35,14 @@
         <Value>Actualización de fecha de oferta de producto</Value>
       </locale_entry>
       <locale_entry>
+        <Name>Approvals/ChangeType/Subscription.Add</Name>
+        <Value>[ES-MX]New Subscription</Value>
+      </locale_entry>
+      <locale_entry>
+        <Name>Approvals/ChangeType/Subscription.Update</Name>
+        <Value>[ES-MX]Subscription Update</Value>
+      </locale_entry>
+      <locale_entry>
         <Name>Approvals/ChangeType/GroupSubscription.AddMemberHierarchies</Name>
         <Value>Suscripción a grupo: agregar jerarquía de miembros</Value>
       </locale_entry>

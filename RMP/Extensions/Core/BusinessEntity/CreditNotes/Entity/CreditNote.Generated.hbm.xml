@@ -116,7 +116,7 @@
     </property>
     <property name="CreditNoteID" column="c_CreditNoteID" not-null="true" unique="true">
       <meta attribute="label">CreditNoteID</meta>
-      <meta attribute="description">long int id representing credit note.</meta>
+      <meta attribute="description">guid representing creditnote id.</meta>
       <meta attribute="defaultvalue" />
       <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>
@@ -126,7 +126,7 @@
       <meta attribute="computation-type-name" />
       <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.Int64, mscorlib" />
+      <type name="System.Guid, mscorlib" />
     </property>
     <bag name="CreditNoteItems" access="field.camelcase-underscore" inverse="true" cascade="delete">
       <meta attribute="relationship-type">OneToMany</meta>

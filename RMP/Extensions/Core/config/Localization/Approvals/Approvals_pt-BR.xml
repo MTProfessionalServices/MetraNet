@@ -35,6 +35,14 @@
         <Value>Atualização da data de oferta de produto</Value>
       </locale_entry>
       <locale_entry>
+        <Name>Approvals/ChangeType/Subscription.Add</Name>
+        <Value>[PT-BR]New Subscription</Value>
+      </locale_entry>
+      <locale_entry>
+        <Name>Approvals/ChangeType/Subscription.Update</Name>
+        <Value>[PT-BR]Subscription Update</Value>
+      </locale_entry>
+      <locale_entry>
         <Name>Approvals/ChangeType/GroupSubscription.AddMemberHierarchies</Name>
         <Value>Assinatura em grupo: adicionar hierarquia de membro</Value>
       </locale_entry>

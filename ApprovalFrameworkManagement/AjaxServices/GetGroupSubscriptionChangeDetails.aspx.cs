@@ -72,15 +72,7 @@ public partial class ApprovalFrameworkManagement_AjaxServices_GetGroupSubscripti
         client.GetChangeDetails(changeId, ref gschangedetailsblob);
 
         ChangeDetailsHelper changeDetailsIn = new ChangeDetailsHelper();
-        changeDetailsIn.KnownTypes.AddRange(MetraTech.DomainModel.BaseTypes.Account.KnownTypes());
-        changeDetailsIn.KnownTypes.Add(typeof(MetraTech.DomainModel.ProductCatalog.ProductOffering));
-        changeDetailsIn.KnownTypes.Add(typeof(MetraTech.DomainModel.ProductCatalog.GroupSubscriptionMember));
-        changeDetailsIn.KnownTypes.Add(typeof(List<MetraTech.DomainModel.ProductCatalog.GroupSubscriptionMember>));
-        changeDetailsIn.KnownTypes.Add(typeof(Dictionary<AccountIdentifier, MetraTech.DomainModel.ProductCatalog.AccountTemplateScope>));
-        changeDetailsIn.KnownTypes.Add(typeof(AccountIdentifier));
-        changeDetailsIn.KnownTypes.Add(typeof(MetraTech.DomainModel.ProductCatalog.AccountTemplateScope));
-        changeDetailsIn.KnownTypes.Add(typeof(ProdCatTimeSpan));
-        changeDetailsIn.FromXml(gschangedetailsblob); 
+        changeDetailsIn.FromBuffer(gschangedetailsblob); 
 
         // Once you get the change details blob, you can now parse it for the property name and updated value, Key-Value Pair. 
         int gsId = -1;

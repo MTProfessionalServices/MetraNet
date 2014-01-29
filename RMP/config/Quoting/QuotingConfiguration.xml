@@ -20,5 +20,5 @@
   <QuotingQueryFolder>Queries\Quoting</QuotingQueryFolder>
   <IsCleanupQuoteAutomaticaly>true</IsCleanupQuoteAutomaticaly>
   <IsAllowedUseActivityService>true</IsAllowedUseActivityService>
-  <UseAcyncCleanup>true</UseAcyncCleanup>
+  <UseAcyncCleanup>false</UseAcyncCleanup>
 </QuotingConfiguration>

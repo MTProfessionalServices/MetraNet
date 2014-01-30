@@ -270,4 +270,10 @@
   <data name="adjAmountFldResourceTaxTotal.Label" xml:space="preserve">
     <value>[en-GB] Total Adjustment Being Issued</value>
   </data>
+  <data name="TEXT_CREDIT_NOTE_CREATED" xml:space="preserve">
+    <value>A credit note for this Miscellaneous Adjustment was created.</value>
+  </data>
+  <data name="TEXT_CREDIT_NOTE_PENDING" xml:space="preserve">
+    <value>A credit note for this Miscellaneous Adjustment will be created when this Miscellaneous Adjusment is approved.</value>
+  </data>
 </root>

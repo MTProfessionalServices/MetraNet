@@ -18,6 +18,7 @@ using MetraTech.DataAccess;
 using MetraTech.DomainModel.AccountTypes;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.Enums;
+using MetraTech.DomainModel.ProductView;
 using MetraTech.Interop.MTAuth;
 using MetraTech.UI.Common;
 using MetraTech.UI.Controls;
@@ -124,7 +125,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
 
       foreach (var item in items.Items)
       {
-        ddTemplateTypes.Items.Add(new ListItem(item.TemplateName, item.TemplateName));
+        ddTemplateTypes.Items.Add(new ListItem(item.TemplateName, item.CreditNoteTemplateID.ToString()));
       }
     }
     catch (Exception ex)
@@ -259,6 +260,19 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
               if (taxLocal.HasValue) row["_LocalTax"] = -taxLocal;
               if (taxOther.HasValue) row["_OtherTax"] = -taxOther;
               row["IgnorePaymentRedirection"] = 0;
+              long ticks = System.DateTime.UtcNow.Ticks;
+              row["MiscAdjustmentID"] = ticks;
+              if (cbIssueCreditNote.Checked)
+              {
+                row["IssueCreditNote"] = true;
+                row["CreditNoteTemplateId"] = new Guid(ddTemplateTypes.SelectedValue);
+                row["CreditNoteComment"] = CommentTextBox.Text;
+              }
+              else
+              {
+                row["IssueCreditNote"] = false;
+              }
+
               DataSet messages = helper.Meter(UI.User.SessionContext);
               helper.WaitForMessagesToComplete(messages, -1);
 
@@ -289,6 +303,17 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
                   CleanFailedTransactions(errorRows);
                   throw new MASBasicException(error.ToString());
               }
+
+              // Issue the credit note if requested in the UI and if the Account Credit was metered successfully without needed approval first
+              if (IsAllowedCreate(totalAmount ?? 0) && cbIssueCreditNote.Checked)
+              {
+                // get the account credit just metered
+                Metratech_com_AccountCreditProductView accountCredit = getAccoutCreditJustMetered(ticks);
+
+                createCreditNote(accountCredit.SessionID, ddTemplateTypes.SelectedItem.Text,
+                                 new Guid(ddTemplateTypes.SelectedValue), CommentTextBox.Text, accountCredit.IntervalID,
+                                 UI.User.AccountId);
+              }
           }
           catch (Exception exp)
           {
@@ -309,19 +334,111 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         {
           if (IsAllowedCreate(totalAmount ?? 0))
             {
-              ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_CREATED_TITLE")),
+              if (cbIssueCreditNote.Checked)
+              {
+                ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_CREATED_TITLE")),
+                               String.Format("{0} {1}", GetLocalResourceObject("TEXT_CREATED"), GetLocalResourceObject("TEXT_CREDIT_NOTE_CREATED")));
+              }
+              else
+              {
+                ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_CREATED_TITLE")),
                                String.Format("{0}", GetLocalResourceObject("TEXT_CREATED")));
+              }        
             }
             else
             {
-              ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_PENDING_TITLE")),
+              if (cbIssueCreditNote.Checked)
+              {
+                ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_PENDING_TITLE")),
+                               String.Format("{0} {1}", GetLocalResourceObject("TEXT_PENDING"), GetLocalResourceObject("TEXT_CREDIT_NOTE_PENDING")));
+              }
+              else
+              {
+                ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_PENDING_TITLE")),
                                String.Format("{0}", GetLocalResourceObject("TEXT_PENDING")));
+              }            
             }
         }
     }
 
-  
+  private void createCreditNote(long sessionId, string creditNoteTemplateName, Guid creditNoteTemplateID, string creditNoteDescription, int usageIntervalID, int requestingAccountID)
+  {
+    CreditNoteServiceClient client = null;
+    try
+    {
+      client = new CreditNoteServiceClient();
 
+      if (client.ClientCredentials != null)
+      {
+        client.ClientCredentials.UserName.UserName = UI.User.UserName;
+        client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+      }
+
+      client.CreateCreditNote(sessionId, UI.Subscriber.SelectedAccount._AccountID.Value, UI.SessionContext.ToXML(),
+                              creditNoteTemplateName, creditNoteTemplateID,
+                              creditNoteDescription, usageIntervalID, requestingAccountID);
+
+    }
+    catch (Exception ex)
+    {
+      Logger.LogException("Failed in CreateCreditNote. An unknown exception occurred. Please check system logs.", ex);
+      throw;
+    }
+    finally
+    {
+      if (client != null)
+      {
+        client.Abort();
+      }
+    }
+  }
+
+  private Metratech_com_AccountCreditProductView getAccoutCreditJustMetered(long miscAdjustmentID)
+  {
+    var result = new Metratech_com_AccountCreditProductView();
+    AdjustmentsServiceClient client = null;
+
+    try
+    {
+      client = new AdjustmentsServiceClient();
+
+      if (client.ClientCredentials != null)
+      {
+        client.ClientCredentials.UserName.UserName = UI.User.UserName;
+        client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+      }
+      var items = new MTList<Metratech_com_AccountCreditProductView>();
+
+      // Filter based on input to function and values metered on this page when OK button clicked
+      var mtfe1 = new MTFilterElement("AccountID", MTFilterElement.OperationType.Equal, UI.Subscriber.SelectedAccount._AccountID);
+      items.Filters.Add(mtfe1);
+      var mtfe2 = new MTFilterElement("MiscAdjustmentID", MTFilterElement.OperationType.Equal, miscAdjustmentID);
+      items.Filters.Add(mtfe2);
+      client.GetApprovedAccountCredits(ref items);
+
+      if (items.Items.Count != 1)
+      {
+        throw new Exception("Could not find exact match for the miscellaneous adjustment just metered, so no credit note docuement will be issued if one was requested.");
+      }
+      foreach (var item in items.Items)
+      {
+        result = item;
+      }
+    }
+    catch (Exception ex)
+    {
+      Logger.LogException("An unknown exception occurred.  Please check system logs.", ex);
+      throw;
+    }
+    finally
+    {
+      if (client != null)
+      {
+        client.Abort();
+      }
+    }
+    return result;
+  }
   private static decimal? CalcTotalAmount(decimal? adjAmount, decimal? taxFederal, decimal? taxState, decimal? taxCounty,
                                           decimal? taxLocal, decimal? taxOther)
   {
@@ -424,7 +541,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         {
             decimal authAmount = System.Convert.ToDecimal(cap.GetAtomicDecimalCapability().GetParameter().Value);
             string display = authAmount.ToString(MetraTech.UI.Common.Constants.NUMERIC_FORMAT_STRING_DECIMAL_MIN_TWO_DECIMAL_PLACES);
-            amount = String.Format(" {0} {1} {2} {3}", GetLocalResourceObject("TEXT_MAX_AUTHORIZED_AMOUNT"), ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).Currency, cap.GetAtomicDecimalCapability().GetParameter().Test, display);
+            amount = String.Format(" {0} {1} {2} {3}", GetLocalResourceObject("TEXT_MAX_AUTHORIZED_AMOUNT"), cap.GetAtomicEnumCapability().GetParameter().Value, cap.GetAtomicDecimalCapability().GetParameter().Test, display);
         }
 
         return amount;

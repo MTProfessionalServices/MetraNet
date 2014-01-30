@@ -13,10 +13,10 @@
 		<servername>localhost</servername>
 		<databasename>MetraNet</databasename>
 		<databasetype>{SQL Server}</databasetype>
-		<databaseowner></databaseowner>
      <timeout ptype="INTEGER">11800</timeout>
 		<username>nmdbo</username>
 		<password>MetraTech1</password>
+    <dbowner></dbowner>
 	</server-->
 	<!--server>
 		<servertype>ReportingServerForCreditNotes</servertype>

@@ -151,10 +151,10 @@
 		<value>[EN_GB]New Subscription</value>
 	</data>
 	<data name="pendingChangeUiErrorFormat" xml:space="preserve">
-		<value>[EN_GB]This Subscription has {0} type pending change. This type of change does not allow more than one pending changes.</value>
+		<value>[EN_GB]This Subscription already has a '{0}' change pending approval. A new change cannot be submitted until the previous change is either approved or denied.</value>
 	</data>
 	<data name="pendingChangeWarningFormat" xml:space="preserve">
-		<value>[EN_GB]This Subscription has {0} type pending change.{1} Click here to view pending changes.</value>
+		<value>[EN_GB]This Subscription already has a '{0}' change pending approval. Click here to view the pending change.</value>
 	</data>
 	<data name="updateSubscription" xml:space="preserve">
 		<value>[EN_GB]Subscription Update</value>

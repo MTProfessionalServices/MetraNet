@@ -1,8 +1,0 @@
-bin/MASClientProxyCode/
-bin/MASProxyActivityCode/
-bin/MetraTech.Account.ClientProxies.dll
-bin/MetraTech.Account.ClientProxies.pdb
-bin/MetraTech.Account.ProxyActivities.dll
-bin/MetraTech.Account.ProxyActivities.pdb
-bin/MetraTech.Account.config
-bin/MetraTech.Core.Workflows.dll

@@ -16,7 +16,7 @@
      <timeout ptype="INTEGER">11800</timeout>
 		<username>nmdbo</username>
 		<password>MetraTech1</password>
-		<databaseowner></databaseowner>
+    <dbowner></dbowner>
 	</server-->
 	<!--server>
 		<servertype>ReportingServerForCreditNotes</servertype>

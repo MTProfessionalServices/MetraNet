@@ -18,6 +18,8 @@ using MetraTech.DataAccess;
 using MetraTech.DomainModel.AccountTypes;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.Enums;
+using MetraTech.DomainModel.Common;
+using MetraTech.DomainModel.Enums.Core.Global;
 using MetraTech.DomainModel.ProductView;
 using MetraTech.Interop.MTAuth;
 using MetraTech.UI.Common;
@@ -120,8 +122,16 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         client.ClientCredentials.UserName.UserName = UI.User.UserName;
         client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
       }
+
+      LanguageCode? languageCode = ((InternalView) UI.Subscriber.SelectedAccount.GetInternalView()).Language;
+
       var items = new MTList<CreditNoteTmpl>();
-      client.GetCredtiNoteTemplates(ref items, UI.SessionContext.LanguageID);
+      client.GetCredtiNoteTemplates(ref items, Convert.ToInt32(EnumHelper.GetValueByEnum(languageCode, 1)));
+      if (items.Items.Count == 0)
+      {
+        items = new MTList<CreditNoteTmpl>();
+        client.GetCredtiNoteTemplates(ref items, Convert.ToInt32(EnumHelper.GetValueByEnum(LanguageCode.US, 1)));
+      }
 
       foreach (var item in items.Items)
       {

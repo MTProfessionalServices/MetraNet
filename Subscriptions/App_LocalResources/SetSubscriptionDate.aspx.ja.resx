@@ -154,7 +154,7 @@
 		<value>[JA]This Subscription already has a '{0}' change pending approval. A new change cannot be submitted until the previous change is either approved or denied.</value>
 	</data>
 	<data name="pendingChangeWarningFormat" xml:space="preserve">
-		<value>[JA]This Subscription already has a '{0}' change pending approval. Click here to view the pending change.</value>
+		<value>[JA]This Subscription already has a '{0}' change pending approval. &lt;a href='{1}'&gt;Click here to view the pending change.&lt;/a&gt;</value>
 	</data>
 	<data name="updateSubscription" xml:space="preserve">
 		<value>[JA]Subscription Update</value>

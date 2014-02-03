@@ -1,1371 +1,1354 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
   <texts id="MAM Static Texts" type="collection">
 	  <description>
-      O arquivo define a maioria dos textos estáticos MAM. O MAM/MDM também usa a localização
-      fornecida pelo formato da placa MetraTech.
+      The file define most of the MAM static texts. The MAM/MDM use also the localization
+      supplied by the MetraTech plate form.
     </description>
     
  <text id="TEXT_MANUAL_PAYMENT_SUCCESS">
-      <value>O pagamento manual foi adicionado com sucesso.</value>
+<value>Le paiement manuel a été ajouté.</value>
     	<description></description>
  </text>
     
  <text id="TEXT_MANUAL_PAYMENT_TITLE">
-      <value>Pagamento manual</value>
+<value>Paiement manuel</value>
     	<description></description>
  </text>
 
  <text id="TEXT_ACCOUNT_NAME">
-      <value>Nome da conta</value>
+<value>Nom du compte</value>
     	<description></description>
  </text>
 
  <text id="TEXT_LOGIN_NAME">
-      <value>Nome de log-in</value>
+<value>Nom d'utilisateur</value>
     	<description></description>
  </text>
  
  <text id="TEXT_CURRENCY">
-      <value>Moeda</value>
+<value>Devise</value>
     	<description></description>
  </text> 
  
  <text id="TEXT_CHILD_NAME">
-      <value>Nome do filho</value>
+<value>Nom de l'enfant</value>
     	<description></description>
  </text>  
     
  <text id="TEXT_ACCOUNT_ID">
-      <value>ID de conta</value>
+<value>ID du compte</value>
     	<description></description>
  </text>
 
  <text id="TEXT_NAME">
-      <value>Nome</value>
+<value>Nom</value>
     	<description></description>
  </text>
 
  <text id="TEXT_ERROR_DESCRIPTION">
-      <value>Descrição de erro</value>
+<value>Description de l'erreur</value>
     	<description></description>
  </text>
     
  <text id="TEXT_MOVE_ACROSS_CORPORATE">
-      <value><![CDATA[ <br>&nbsp;&nbsp;Você só pode mover contas dentro da mesma hierarquia corporativa. ]]></value>
+<value><![CDATA[ <br>&nbsp;&nbsp;Vous ne pouvez déplacer que des comptes ayant la même hiérarchie commerciale. ]]></value>
     	<description></description>
  </text>
     
  <text id="TEXT_BATCH_OPERATION_WARNING">
-      <value>As operações em lote podem demorar muito e só devem ser feitas quando o sistema não estiver ocupado.</value>
-    	<description>Aviso em lote</description>
+<value>Les opérations en lot prennent beaucoup de temps et ne doivent être effectuées que lorsque le système est libre.</value>
+    	<description>Batch warning</description>
  </text>
      
   <text id="TEXT_FOLDER">
-      <value>Pasta</value>
+<value>Dossier</value>
     	<description></description>
  </text>
      
   <text id="TEXT_SYSTEM_FOLDER">
-      <value>Pasta do sistema</value>
+<value>Dossier système</value>
       <description></description>
  </text>
  
   <text id="TEXT_UNABLE_TO_MANAGE_ACCOUNT">
-      <value><![CDATA[ <br>&nbsp;&nbsp;Não foi possível gerenciar a conta.  Essa pode ser uma restrição de segurança <br>&nbsp;&nbsp;ou a conta pode não existir no momento atual na hierarquia. ]]></value>
+<value><![CDATA[ <br>&nbsp;&nbsp;Impossible de gérer le compte.Il peut s'agir d'une restriction par mesure de sécurité <br>&nbsp;&nbsp;ou de l'absence actuelle du compte à l'intérieur de la hiérarchie. ]]></value>
     	<description></description>
  </text>
       
   <text id="TEXT_APPLY_CURRENT_TEMPLATE">
-      <value>Aplicar modelo atual</value>
+<value>Appliquer le modèle en cours</value>
     	<description></description>
  </text>
 
   <text id="TEXT_APPLY_TEMPLATE">
-      <value>Aplicar modelo</value>
+<value>Appliquer le modèle</value>
     	<description></description>
  </text>
  
   <text id="TEXT_SAVE_AND_APPLY_TEMPLATE">
-      <value>Salvar e aplicar modelo</value>
+<value>Enregistrer et appliquer le modèle</value>
     	<description></description>
  </text> 
     
   <text id="TEXT_INCLUDING_FOLDERS">
-      <value>(incluindo pastas)</value>
+<value>(y compris les dossiers)</value>
     	<description></description>
  </text>
  
   <text id="TEXT_EXCLUDING_FOLDERS">
-      <value>(excluindo pastas)</value>
+<value>(sauf les dossiers)</value>
     	<description></description>
  </text>
     
   <text id="TEXT_PAY_FOR_ME">
-      <value>Editar pagadores</value>
+<value>Modifier les payeurs</value>
     	<description></description>
  </text>
 
   <text id="TEXT_FOLDER_OWNER_UPDATE">
-      <value>Administrador da conta atualizado</value>
+<value>Mise à jour de l'administrateur du compte</value>
     	<description></description>
  </text>
   <text id="TEXT_FOLDER_OWNER_UPDATED_SUCCESS">
-      <value>O administrador da conta foi atualizado com sucesso.</value>
+<value>L'administrateur du compte a été mis à jour.</value>
     	<description></description>
  </text>
  
   <text id="TEXT_APP_MAM">
-      <value><![CDATA[ <b>MetraCare</b> - Self-care do cliente e gerenciamento da conta ]]></value>
+<value><![CDATA[ <b>MetraCare</b> - Autonomie client et gestion de compte ]]></value>
     	<description></description>
  </text>
   <text id="TEXT_APP_MCM">
-      <value><![CDATA[ <b>MetraOffer</b> - Ofertas de produtos e serviços ]]></value>
+<value><![CDATA[ <b>MetraOffer</b> - Produits et services offerts ]]></value>
     	<description></description>
  </text>
    <text id="TEXT_APP_MOM">
-      <value><![CDATA[ <b>MetraControl</b> - Centro de controle de operações ]]></value>
+<value><![CDATA[ <b>MetraControl</b> - Centre de contrôle des opérations ]]></value>
     	<description></description>
  </text> 
   <text id="TEXT_APP_MPS">
-      <value><![CDATA[ <b>MetraView</b> - Geração de relatórios interativa e apresentação de fatura ]]></value>
+<value><![CDATA[ <b>MetraView</b> - Présentation de rapport et de facturation interactive ]]></value>
     	<description></description>
  </text>
 
   <text id="TEXT_PAYMENT_HISTORY">
-      <value>Histórico de pagamento</value>
-    	<description>Histórico de pagamento</description>
+<value>Historique de paiements</value>
+    	<description>Payment History</description>
  </text>
  
   <text id="TEXT_ADVANCED_ENTRY">
-      <value>Avançado</value>
-    	<description>Avançado</description>
- </text>
-
-  <text id="TEXT_ACCOUNTS_TO_MOVE">
-      <value>Selecionar contas para mover</value>
-    	<description>Selecionar contas para mover</description>
+<value>Avancé</value>
+    	<description>Advanced</description>
  </text>
  
   <text id="TEXT_ACCOUNT_IDS">
-      <value>Adicionar IDs da conta</value>
-    	<description>Adicionar IDs da conta</description>
+<value>Ajouter des ID de compte</value>
+    	<description>Add Account IDs</description>
  </text>
  
   <text id="TEXT_UPDATE">
-      <value>Atualizar</value>
-    	<description>Atualizar</description>
+<value>Mettre à jour</value>
+    	<description>Update</description>
  </text>
  
  <text id="TEXT_ADD_FOLDER_OWNERSHIP">
-      <value>Adicionar conta para administração</value>
-    	<description>Adicionar pasta para propriedade</description>
+<value>Ajouter un compte pour l'administration</value>
+    	<description>Add folder for ownership</description>
  </text>
  
  <text id="TEXT_DRAG_FOLDERS_HERE">
-      <value>Arraste e solte contas aqui...</value>
-    	<description>Arraste e solte pastas aqui...</description>
+<value>Faire glisser et déplacer les comptes ici...</value>
+    	<description>Drag and drop folders here...</description>
  </text>
  
   <text id="TEXT_DRAG_ONLY_FOLDERS_HERE">
-      <value>Você só pode adicionar pastas.</value>
-    	<description>somente pastas</description>
+<value>Vous pouvez seulement ajouter des dossiers.</value>
+    	<description>folders only</description>
  </text>
  
  <text id="TEXT_ACCOUNT_STATE">
-      <value>Estado da conta</value>
-    	<description>Estado da conta</description>
+<value>État du compte</value>
+    	<description>Account State</description>
  </text>
  
  <text id="TEXT_LOGIN_INFORMATION">
-      <value>Informações de login</value>
-    	<description>Informações de login</description>
+<value>Informations de connexion</value>
+    	<description>Login Information</description>
  </text>
  
  <text id="TEXT_OTHER">
-      <value>Outro</value>
-    	<description>Outro</description>
+<value>Autre</value>
+    	<description>Other</description>
  </text>
  
  <text id="TEXT_ANCESTOR">
-      <value>Pai</value>
-    	<description>Pai</description>
+<value>Ancêtre</value>
+    	<description>Ancestor</description>
  </text>
  
  <text id="TEXT_ACCOUNT">
-      <value>Conta</value>
-    	<description>Conta</description>
+<value>Compte</value>
+    	<description>Account</description>
  </text>
 
  <text id="TEXT_PAYER">
-      <value>Pagador</value>
-    	<description>Pagador</description>
+<value>Payeur</value>
+    	<description>Payer</description>
  </text>
   
  <text id="TEXT_ADDING_MEMBER_TO_GROUP_SUB">
-      <value>Adicionando membro ao grupo</value>
-    	<description>Adicionando membro ao grupo</description>
+<value>Ajout du membre au groupe</value>
+    	<description>Adding Member to Group</description>
  </text> 
  
  <text id="TEXT_REMOVING_MEMBER_FROM_GROUP_SUB">
-      <value>Removendo membro do grupo</value>
-    	<description>Removendo membro do grupo</description>
+<value>Retrait du membre du groupe</value>
+    	<description>Removing Member from Group</description>
  </text> 
  
  <text id="TEXT_SETTING_PAYER">
-      <value>Definindo pagador</value>
-    	<description>Definindo pagador</description>
+<value>Définition du payeur</value>
+    	<description>Setting Payer</description>
  </text> 
  
  <text id="TEXT_ADDING_ROLE_TO_MEMBER">
-      <value>Adicionando membros à função</value>
-    	<description>Adicionando membros à função</description>
+<value>Ajout de membres au rôle</value>
+    	<description>Adding Members to Role</description>
  </text> 
 
  <text id="TEXT_FOLDERS_IMPERSONETED_BY">
-      <value>Contas administradas por</value>
-    	<description>Pastas pertencentes a</description>
- </text>
-	  <text id="TEXT_ACCOUNT_OWNER_IMPERSONETED_BY">
-		  <value>french</value>
-		  <description>french</description>
-	  </text>
-	  <text id="TEXT_ACCOUNTS_PAID_FOR_BY">
-		  <value>French Accounts paid for by </value>
-		  <description></description>
-	  </text>
+<value>Comptes administrés par</value>
+    	<description>Folders Owned By</description>
+ </text> 
 
-	  <text id="TEXT_MOVING_ACCOUNTS">
-      <value>Movendo contas</value>
-    	<description>Movendo contas</description>
+ <text id="TEXT_MOVING_ACCOUNTS">
+<value>Déplacement des comptes</value>
+    	<description>Moving Accounts</description>
  </text> 
  
   <text id="TEXT_CURRENT_ACCOUNT_STATE">
-      <value>Estado atual da conta</value>
-    	<description>Estado atual da conta</description>
+<value>État du compte actuel</value>
+    	<description>Current Account State</description>
  </text> 
 
  <text id="TEXT_NEW_ACCOUNT_STATE">
-      <value>Novo estado da conta</value>
-    	<description>Novo estado da conta</description>
+<value>État du nouveau compte</value>
+    	<description>New Account State</description>
  </text> 
  
   <text id="ACCOUNT_STATE_UPDATE">
-      <value>Atualizar estado da conta</value>
-    	<description>Atualizar estado da conta</description>
+<value>État du compte mis à jour</value>
+    	<description>Update Account State</description>
  </text> 
  
   <text id="TEXT_ACCOUNT_STATE">
-      <value>Estado da conta</value>
-    	<description>Estado da conta</description>
+<value>État du compte</value>
+    	<description>Account State</description>
  </text> 
  
  <text id="TEXT_BACK">
-      <value>Voltar</value>
-    	<description>Voltar</description>
+<value>Précédent</value>
+    	<description>Back</description>
  </text> 
  
  <text id="TEXT_CSR_DEFAULT_POLICY">
-      <value>Segurança padrão</value>
-    	<description>Segurança padrão</description>
+<value>Sécurité par défaut</value>
+    	<description>Default Security</description>
  </text> 
  
   <text id="TEXT_ADD_ACCOUNTS_FOR_PAYMENT">
-      <value>Adicionar contas para pagamento</value>
-    	<description>Adicionar contas para pagamento</description>
+<value>Ajouter des comptes pour paiement</value>
+    	<description>Add Accounts for Payment</description>
  </text> 
  
  <text id="TEXT_MOVE_ACCOUNTS">
-      <value>Mover contas</value>
-    	<description>Mover contas</description>
+<value>Déplacer les comptes</value>
+    	<description>Move Accounts</description>
  </text> 
  
  <text id="TEXT_MOVE_ACCOUNT">
-      <value>Mover conta</value>
-    	<description>Mover conta</description>
+<value>Déplacer le compte</value>
+    	<description>Move Account</description>
  </text> 
  
  <text id="TEXT_MEMBERS">
-      <value>Membros</value>
-    	<description>Membros</description>
+<value>Membres</value>
+    	<description>Members</description>
  </text> 
  
  <text id="TEXT_MOVE_DATE">
-      <value>Mover data de vigência</value>
-    	<description>Mover data</description>
+<value>Déplacer la date d'entrée en vigueur</value>
+    	<description>Move Date</description>
+ </text> 
+ <text id="TEXT_NEW_PARENT">
+      <value>Nouveau Parent</value>
+    	<description>Move Date</description>
  </text> 
 
   <text id="TEXT_UPDATE_PAYER_TITLE">
-      <value>Atualizar informações de pagador para a conta [USERNAME]</value>
-    	<description>Contas</description>
+<value>Mettre à jour les informations du payeur pour le compte [USERNAME]</value>
+    	<description>Accounts</description>
  </text> 
 
  <text id="TEXT_ACCOUNTS">
-      <value>Contas</value>
-    	<description>Contas</description>
+<value>Comptes</value>
+    	<description>Accounts</description>
  </text> 
 
  <text id="TEXT_USER">
-      <value>Usuário</value>
-    	<description>Usuário</description>
+<value>Utilisateur</value>
+    	<description>User</description>
  </text> 
  
  <text id="TEXT_GROUP_SUBSCRIPTIONS_NAME">
-      <value>Nome</value>
-    	<description>Nome da assinatura em grupo</description>
+<value>Nom</value>
+    	<description>Group Subscription Name</description>
  </text> 
 
  <text id="TEXT_SET_GROUP_PRICEABLE_ITEMS">
-      <value>Suporta operações em grupo</value>
-    	<description>Suporta operações em grupo</description>
+<value>Opérations du groupe de support</value>
+    	<description>Support Group Operations</description>
  </text>
  
  <text id="TEXT_GROUP_SUBSCRIPTIONS_NOTE">
-      <value>Selecione um conta corporativa para visualizar uma lista de [TEXT_GROUP_SUBSCRIPTIONS]:</value>
-    	<description>Observação de assinaturas de grupo</description>
+<value>Sélectionnez un Compte commercial pour afficher une liste de [TEXT_GROUP_SUBSCRIPTIONS] :</value>
+    	<description>Group Subscriptions Note</description>
  </text> 
  
  <text id="TEXT_GROUP_SUBSCRIPTIONS">
-      <value>Assinaturas em grupo</value>
-    	<description>Assinaturas em grupo</description>
+<value>Inscriptions de groupe</value>
+    	<description>Group Subscriptions</description>
  </text>
 
   <text id="TEXT_SUBSCRIBE_PO">
-      <value>Assinar [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
-    	<description>Assinaturas em grupo</description>
+<value>S'inscrire à [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    	<description>Group Subscriptions</description>
  </text>
 
   <text id="TEXT_SUBSCRIBE_GROUP">
-      <value>Aderir à [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
-    	<description>Assinaturas em grupo</description>
+<value>Se joindre à [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+    	<description>Group Subscriptions</description>
  </text>
  
  <text id="TEXT_PRODUCT_OFFERING_SUBSCRIPTIONS">
-      <value>Assinaturas de [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
-    	<description>Assinaturas do PO</description>
+<value>Inscriptions [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+    	<description>PO Subscriptions</description>
  </text>
  
  <text id="TEXT_AVAILABLE_GROUPSUBSCRIPTION_PO_SELECTION">
-      <value>[TEXT_KEYTERM_PRODUCT_OFFERINGS] disponível para assinatura em grupo</value>
+<value>[TEXT_KEYTERM_PRODUCT_OFFERINGS] disponible pour Inscriptions de groupe</value>
       <description></description>
  </text>
 
  <text id="TEXT_AVAILABLE_GROUPSUBSCRIPTIONS">
-      <value>[TEXT_KEYTERM_GROUP_SUBSCRIPTIONS] disponível para associação</value>
+<value>[TEXT_KEYTERM_GROUP_SUBSCRIPTIONS] disponible pour adhésion</value>
       <description></description>
  </text>
  
  <text id="TEXT_MANAGE_DEFAULT_SECURITY">
-      <value>Permissões de segurança padrão</value>
-    	<description>Segurança padrão</description>
+<value>Autorisations de sécurité par défaut</value>
+    	<description>Default Security</description>
  </text> 
  
  <text id="TEXT_ADD_ROLE_TO_ACCOUNT_TITLE">
-      <value>Adicionar [TEXT_KEYTERM_ROLE]</value>
-    	<description>Adicionar função à conta</description>
+<value>Ajouter [TEXT_KEYTERM_ROLE]</value>
+    	<description>Add role to account</description>
  </text> 
 
  <text id="TEXT_NO_ROLES">
-      <value>Nenhum [TEXT_KEYTERM_ROLES] foi configurado.</value>
-    	<description>Nenhuma função</description>
+<value>Aucun [TEXT_KEYTERM_ROLES] n'a été défini.</value>
+    	<description>No roles</description>
  </text> 
 
  <text id="TEXT_NO_CAPABILITIES">
-      <value>Nenhum [TEXT_KEYTERM_CAPABILITIES] foi configurado.</value>
-    	<description>Sem recursos</description>
+<value>Aucune [TEXT_KEYTERM_CAPABILITIES] n'a été définie.</value>
+    	<description>No capabilities</description>
  </text> 
  
  <text id="TEXT_ROLES_ON_ACCOUNT">
-      <value>Essa conta tem as seguintes [TEXT_KEYTERM_ROLES]:</value>
-    	<description>funções na conta</description>
+<value>Ce compte possède les [TEXT_KEYTERM_ROLES] suivants :</value>
+    	<description>roles on account</description>
  </text> 
  
  <text id="TEXT_CAPABILITIES_ON_ACCOUNT">
-      <value>Essa conta tem os seguintes [TEXT_KEYTERM_CAPABILITIES]:</value>
-    	<description>recursos na conta</description>
+<value>Ce compte possède les [TEXT_KEYTERM_CAPABILITIES] suivantes :</value>
+    	<description>capabilities on account</description>
  </text> 
  		
  <text id="TEXT_ADD_CAPABILITY">
-      <value>Adicionar [TEXT_KEYTERM_CAPABILITY]</value>
-    	<description>Adicionar recurso</description>
+<value>Ajouter [TEXT_KEYTERM_CAPABILITY]</value>
+    	<description>Add Capability</description>
  </text> 
 
  <text id="TEXT_MANAGE_SECURITY">
-      <value>Permissões de segurança</value>
-    	<description>Segurança</description>
+<value>Autorisations de sécurité</value>
+    	<description>Security</description>
  </text> 
  
  <text id="TEXT_MANAGE_SECURITY_HINT">
-      <value>Gerenciar funções e recursos de segurança</value>
-    	<description>Segurança</description>
+<value>Gérer les rôles et capacités de sécurité</value>
+    	<description>Security</description>
  </text> 
 
  <text id="TEXT_MANAGE">
-      <value>Gerenciar</value>
-    	<description>Gerenciar</description>
+<value>Gérer</value>
+    	<description>Manage</description>
  </text> 
  
  <text id="TEXT_ACTION">
-      <value>Ação</value>
-    	<description>Ação</description>
+<value>Action</value>
+    	<description>Action</description>
  </text> 
 
   <text id="TEXT_SUBSCRIBER_ASSIGNABLE">
-      <value>Atribuível do assinante</value>
-    	<description>atribuível do assinante</description>
+<value>Assignable à un abonné</value>
+    	<description>subscriber assignable</description>
  </text> 
 
   <text id="TEXT_CSR_ASSIGNABLE">
-      <value>Atribuível do CSR</value>
-    	<description>Atribuível do CSR</description>
+<value>Assignable à un CSR</value>
+    	<description>CSR assignable</description>
  </text> 
  
   <text id="TEXT_PATH_CAPABILITY_HELP">
-      <value>Você pode usar a Hierarquia de conta para localização um nó na hierarquia e arrastá-lo para o campo de caminho.</value>
-    	<description>Acessar recurso de digitação</description>
+<value>Vous pouvez utiliser la Hiérarchie de compte pour repérer un nœud dans la hiérarchie et le glisser dans le champ du chemin d'accès.</value>
+    	<description>Access Type Capability</description>
  </text> 
 
   <text id="TEXT_CAPABILITY_ACCESS_TYPE">
-      <value>Acessar [TEXT_KEYTERM_CAPABILITY]</value>
-    	<description>Acessar recurso de digitação</description>
+<value>Accéder à [TEXT_KEYTERM_CAPABILITY]</value>
+    	<description>Access Type Capability</description>
  </text> 
  
  <text id="TEXT_CAPABILITY_PATH_TYPE">
-      <value>Caminho [TEXT_KEYTERM_CAPABILITY]</value>
-    	<description>Recurso de digitação do caminho</description>
+<value>Chemin d'accès [TEXT_KEYTERM_CAPABILITY]</value>
+    	<description>Path Type Capability</description>
  </text> 
  
  <text id="TEXT_ADD_PATH">
-      <value>Adicionar outro caminho</value>
-    	<description>Adicionar outro caminho</description>
+<value>Ajouter un autre chemin d'accès</value>
+    	<description>Add Another Path</description>
  </text> 
 
  <text id="TEXT_ALL_DESCENDANTS">
-      <value>Todos os descendentes</value>
-    	<description>Todos os descendentes</description>
+<value>Tous les descendants</value>
+    	<description>All Descendants</description>
  </text> 
  
  <text id="TEXT_DIRECT_DESCENDANTS">
-      <value>Descendentes diretos</value>
-    	<description>Descendentes diretos</description>
+<value>Descendants directs</value>
+    	<description>Direct Descendants</description>
  </text> 
  
  <text id="TEXT_CURRENT_NODE">
-      <value>Nó atual</value>
-    	<description>Nó atual</description>
+<value>Nœud actuel</value>
+    	<description>Current Node</description>
  </text> 
  				
  <text id="TEXT_WOULD_YOU_LIKE_TO_REMOVE">
-      <value>Você deseja remover</value>
-    	<description>Você deseja remover</description>
+<value>Désirez-vous retirer</value>
+    	<description>Would you like to remove</description>
  </text> 
  
  <text id="TEXT_MSGBOX_DELETE_ITEM">
-      <value>Excluir [ITEM] ?</value>
+<value>Supprimer [ITEM] ?</value>
     	<description></description>
  </text>  
  
   <text id="TEXT_FROM">
-      <value>de</value>
-    	<description>de</description>
+<value>de</value>
+    	<description>from</description>
  </text> 
 
- <text id="TEXT_ACCOUNT_OWNED_BY">
-      <value>french: account owned by</value>
-    	<description></description>
- </text>
-	  <text id="TEXT_THIS">
-		  <value>deste</value>
-		  <description>deste</description>
-	  </text>
-
-	  <text id="TEXT_ADD_CAPABILITY_TO_ROLE_TITLE">
-      <value>Adicionar [TEXT_KEYTERM_CAPABILITY]</value>
-    	<description>Selecione o recurso para adicionar à função</description>
+ <text id="TEXT_THIS">
+<value>ce</value>
+    	<description>this</description>
+ </text> 
+ 
+ <text id="TEXT_ADD_CAPABILITY_TO_ROLE_TITLE">
+<value>Ajouter [TEXT_KEYTERM_CAPABILITY]</value>
+    	<description>Select capability to add to role</description>
  </text> 
 
  <text id="TEXT_CAPABILITY_DESCRIPTION">
-      <value>Descrição de [TEXT_KEYTERM_CAPABILITY]</value>
-    	<description>Capacidade</description>
- </text>
-	  <text id="TEXT_MANAGE_ACCOUNT_HIERARCHIES">
-		  <value>French:Requires Manage Account Hierarchies</value>
-		  <description>Hierarchy</description>
-	  </text>
+<value>Description [TEXT_KEYTERM_CAPABILITY]</value>
+    	<description>Capability</description>
+ </text> 
 
-	  <text id="TEXT_CAPABILITY_NAME">
-      <value>Nome do [TEXT_KEYTERM_CAPABILITY]</value>
-    	<description>Nome do recurso</description>
+ <text id="TEXT_CAPABILITY_NAME">
+<value>Nom [TEXT_KEYTERM_CAPABILITY]</value>
+    	<description>Capability Name</description>
  </text> 
  
   <text id="TEXT_BACK_SECURITY">
-      <value>Voltar</value>
-    	<description>Voltar</description>
+<value>Précédent</value>
+    	<description>Back</description>
  </text> 
  
  <text id="TEXT_BACK_TO_MANAGE_ROLES">
-      <value>Voltar para Gerenciar funções</value>
-    	<description>Voltar para Gerenciar funções</description>
+<value>Revenir à Gérer les rôles</value>
+    	<description>Back to Manage Roles</description>
  </text> 
  
  <text id="TEXT_ROLE_SETUP_READONLY">
-      <value>Exibir [TEXT_KEYTERM_CAPABILITIES] para </value>
-    	<description>exibir recursos para a função</description>
+<value>Afficher [TEXT_KEYTERM_CAPABILITIES] pour</value>
+    	<description>view capabilities for role</description>
  </text> 
  
  <text id="TEXT_ROLE_SETUP">
-      <value>Configurar [TEXT_KEYTERM_CAPABILITIES] para </value>
-    	<description>Configurar recursos para a função</description>
+<value>Configurer [TEXT_KEYTERM_CAPABILITIES] pour</value>
+    	<description>Configure capabilities for role</description>
  </text> 
 		
  <text id="TEXT_ROLE_ADD_CAPABILITY">
-      <value>Adicionar [TEXT_KEYTERM_CAPABILITY]</value>
-    	<description>Adicionar recurso</description>
+<value>Ajouter [TEXT_KEYTERM_CAPABILITY]</value>
+    	<description>Add Capability</description>
  </text> 
 
  <text id="TEXT_ADD_ROLE">
-       <value>Adicionar [TEXT_KEYTERM_ROLE]</value>
+<value>Ajouter [TEXT_KEYTERM_ROLE]</value>
        <description></description>
  </text>  
  
  <text id="TEXT_ROLE_NAME">
-       <value>Nome do [TEXT_KEYTERM_ROLE]</value>
+<value>Nom [TEXT_KEYTERM_ROLE]</value>
        <description></description>
  </text>  
 
  <text id="TEXT_ROLE_DESCRIPTION">
-       <value>Descrição de [TEXT_KEYTERM_ROLE]</value>
+<value>Description [TEXT_KEYTERM_ROLE]</value>
        <description></description>
  </text>  
 	
  <text id="TEXT_SELECT_PARAMETER_TABLE">
-       <value>Selecione uma [TEXT_KEYTERM_PARAMETER_TABLE]</value>
+<value>Sélectionnez un [TEXT_KEYTERM_PARAMETER_TABLE]</value>
        <description></description>
   </text> 
   
  <text id="TEXT_TIME_FORMAT">
-       <value>(MM/DD/AAAA HH:MM:SS PP)</value>
+<value>(MM/JJ/AAAA HH:MM:SS PP)</value>
        <description></description>
   </text> 
 
  <text id="TEXT_PERSONAL_PRICELIST">
-       <value>[TEXT_KEYTERM_PRICE_LIST] personalizado</value>
+<value>[TEXT_KEYTERM_PRICE_LIST] personnalisée</value>
        <description></description>
   </text> 
   
  <text id="TEXT_EDIT_PROPERTIES">
-       <value>Editar propriedades</value>
+<value>Modifier les caractéristiques</value>
        <description></description>
   </text> 
   
  <text id="TEXT_RATE_START_DATE">
-       <value>Data de início</value>
+<value>Date de début</value>
        <description></description>
   </text> 
     
   <text id="TEXT_RATE_END_DATE">
-       <value>Data de término</value>
+<value>Date de fin</value>
        <description></description>
   </text>
 	
 	<text id="TEXT_EFFECTIVE_START_DATE">
-		<value>Data de início da vigência</value>
+		<value>Date d'entrée en vigueur</value>
 		<description></description>
 	</text>
 	<text id="TEXT_EFFECTIVE_END_DATE">
-       <value>Data de término da vigência</value>
+<value>Date d'échéance</value>
        <description></description>
   </text>
 	            
   <text id="TEXT_APPLICATION_TITLE">
-        <value>MetraCare</value>
+<value>MetraCare</value>
         <description></description>
   </text> 
 
   <text id="TEXT_CALENDAR_DESCRIPTION">
-        <value>Descrição</value>
+<value>Description</value>
         <description></description>
   </text> 
 
   <text id="TEXT_CALENDAR_NAME">
-        <value>Nome</value>
+<value>Nom</value>
         <description></description>
   </text> 
 
   <text id="TEXT_CALENDAR_SOURCE_FILE">
-        <value>Arquivo de origem</value>
+<value>Fichier source</value>
         <description></description>
   </text> 
   
     <text id="TEXT_CALENDAR_TITLE">
-        <value>Selecionar calendário:</value>
+<value>Sélectionner un calendrier :</value>
         <description></description>
     </text> 
 
     <text id="MAM_SELECT_RATE_SCHEDULE_TO_COPY">
-        <value>Selecione o [TEXT_KEYTERM_RATE_SCHEDULE] para copiar regras de:</value>
+<value>Sélectionnez le [TEXT_KEYTERM_RATE_SCHEDULE] à partir duquel copier les règles :</value>
         <description></description>
     </text> 
 
     <text id="TEXT_NO_RATE_FOUND">
-        <value>Nenhuma taxa encontrada.</value>
+<value>Aucun tarif trouvé.</value>
         <description></description>
     </text> 
     
    <text id="TEXT_HAS_PERSONAL_RATES">
-        <value>[TEXT_KEYTERM_PERSONAL_RATE]</value>
+<value>[TEXT_KEYTERM_PERSONAL_RATE]</value>
         <description></description>
     </text>
     
    <text id="TEXT_CAN_ICB">
-        <value>[TEXT_KEYTERM_PERSONAL_RATE] permitida</value>
+<value>[TEXT_KEYTERM_PERSONAL_RATE] permis</value>
         <description></description>
     </text>      
 
    <text id="TEXT_NEW_PERSONAL_RATES">
-        <value>Novas [TEXT_KEYTERM_PERSONAL_RATES]</value>
+<value>Nouveaux [TEXT_KEYTERM_PERSONAL_RATES]</value>
         <description></description>
     </text>
     
    <text id="TEXT_PERSONAL_RATES_NOT_ALLOWED">
-        <value>[TEXT_KEYTERM_PERSONAL_RATES] não são permitidas nesta [TEXT_KEYTERM_PARAMETER_TABLE].</value>
+<value>[TEXT_KEYTERM_PERSONAL_RATES] ne sont pas permis pour cette [TEXT_KEYTERM_PARAMETER_TABLE].</value>
         <description></description>
     </text>
 		
 		<text id="TEXT_RATES_COLUMN_START_DATE">
-        <value>Começa</value><description></description>
+<value>Commence</value><description></description>
   	</text>
 		
 		<text id="TEXT_RATES_COLUMN_END_DATE">
-        <value>Termina</value><description></description>
+<value>Prend fin</value><description></description>
   	</text>
 
    <text id="TEXT_NO_DEFAULT_ACCOUNT_PRICELIST">
-        <value>Nenhum</value>
+<value>Aucune</value>
         <description></description>
     </text>
     
    <text id="TEXT_DEFAULT_ACCOUNT_PRICELIST">
-        <value>[TEXT_KEYTERM_PRICE_LIST] da conta padrão</value>
+<value>[TEXT_KEYTERM_PRICE_LIST] du compte par défaut</value>
         <description></description>
     </text>
     
    <text id="TEXT_NEW_RATE_SCHEDULE">
-        <value>Novo [TEXT_KEYTERM_RATE_SCHEDULE] pessoal</value>
+<value>Nouvelle [TEXT_KEYTERM_RATE_SCHEDULE] personnelle</value>
         <description></description>
     </text>
 
    <text id="TEXT_COPY_EXISTING">
-        <value>Copiar do [TEXT_KEYTERM_RATE_SCHEDULE] existente?</value>
+<value>Copier à partir de la [TEXT_KEYTERM_RATE_SCHEDULE] existante?</value>
         <description></description>
     </text>
 
    <text id="TEXT_NEXT_BILLING_PERIOD">
-        <value>Próximo período de faturamento</value>
+<value>Prochaine période de facturation</value>
         <description></description>
     </text>
     
    <text id="TEXT_AVAILABLE_SUBSCRIPTONS">
-        <value>Assinaturas disponíveis</value>
+<value>Inscriptions disponibles</value>
         <description></description>
    </text>
 
    <text id="TEXT_PRICEABLE_ITEM">
-        <value>[TEXT_KEYTERM_PRICEABLE_ITEM]</value>
+<value>[TEXT_KEYTERM_PRICEABLE_ITEM]</value>
         <description></description>
     </text>
    <text id="TEXT_PARAMETER_TABLE">
-        <value>[TEXT_KEYTERM_PARAMETER_TABLE]</value>
+<value>[TEXT_KEYTERM_PARAMETER_TABLE]</value>
         <description></description>
     </text>
           
    <text id="TEXT_BUTTON_VALIDATE_USER_NAME">
-        <value>Validar nome do usuário</value>
+<value>Confirmer le nom d'utilisateur</value>
         <description></description>
     </text>
 
    <text id="TEXT_BUTTON_GENERATE_PASSWORD">
-        <value>Gerar senha</value>
+<value>Générer un mot de passe</value>
         <description></description>
     </text>  
 
     <text id="TEXT_START_DATE">
-        <value>Data de início</value>
+<value>Date de début</value>
         <description></description>
     </text> 
     
 <text id="TEXT_STATUS">
-      <value>Status</value>
+<value>État</value>
 </text>    
     
     
     <text id="TEXT_CHOOSE_RATE_SCHEDULE">
-        <value>Selecione um [TEXT_KEYTERM_RATE_SCHEDULE] ou crie um novo [TEXT_KEYTERM_PERSONAL_RATES]</value>
+<value>Sélectionner une [TEXT_KEYTERM_RATE_SCHEDULE] ou créer une nouvelle [TEXT_KEYTERM_PERSONAL_RATES]</value>
         <description></description>
     </text> 
         
     <text id="TEXT_END_DATE">
-        <value>Data de término</value>
+<value>Date de fin</value>
         <description></description>
     </text> 
           
     <text id="TEXT_COLUMN_NAME">
-        <value>Nome</value>
+<value>Nom</value>
         <description></description>
     </text> 
 
     <text id="TEXT_COLUMN_KIND">
-        <value>Tipo</value>
+<value>Type</value>
         <description></description>
     </text> 
 
    <text id="TEXT_PRICEABLE_NAME">
-        <value>Nome</value>
+<value>Nom</value>
         <description></description>
     </text>  
 
     <text id="TEXT_PRICEABLE_DESCRIPTION">
-        <value>Descrição</value>
+<value>Description</value>
         <description></description>
     </text> 
 
     <text id="TEXT_PARAMETER_TABLES">
-        <value>[TEXT_KEYTERM_PARAMETER_TABLES]</value>
+<value>[TEXT_KEYTERM_PARAMETER_TABLES]</value>
         <description></description>
     </text>
 
     <text id="TEXT_COLUMN_DESCRIPTION">
-        <value>Descrição</value>
+<value>Description</value>
         <description></description>
     </text> 
     
     <text id="TEXT_LIST_RATES_TITLE">
-        <value>Clique nas taxas que você está interessado em</value>
+<value>Cliquez sur les tarifs qui vous intéressent</value>
         <description></description>
     </text> 
         
     <text id="TEXT_RATES">
-        <value>Taxas</value>
+<value>Tarifs</value>
         <description></description>
     </text>  
        
     <text id="TEXT_VIEW_DISABLED">
-        <value>Exibir as assinaturas desativadas</value>
+<value>Afficher les inscriptions désactivées</value>
         <description></description>
     </text>       
 
     <text id="TEXT_SUBSCRIBE">
-        <value>Assinar</value>
+<value>S'inscrire</value>
         <description></description>
     </text>   
     
     <text id="TEXT_UNSUBSCRIBE">
-        <value>Cancelar assinatura</value>
+<value>Annuler son inscription</value>
         <description></description>
     </text>  
 
     <text id="TEXT_DELETE_SUBSCRIPTION">
-        <value>Excluir assinatura</value>
+<value>Supprimer une inscription</value>
         <description></description>
     </text>
             
     <text id="TEXT_NO_SUBSCRIPTIONS">
-        <value>Não há assinaturas para esta conta</value>
+<value>Il n'y a pas d'inscriptions pour ce compte.</value>
         <description></description>
     </text>       
 
     <text id="TEXT_NO_GROUP_SUBSCRIPTIONS">
-        <value>Esta conta não é um membro de nenhuma assinatura de grupo</value>
+<value>Ce compte ne fait partie d'aucun groupe d'inscriptions</value>
         <description></description>
     </text>       
             
     <text id="TEXT_NO_INACTIVE_SUBSCRIPTIONS">
-        <value>Não há assinaturas desativadas para esta conta</value>
+<value>Il n'y a pas d'inscriptions désactivées pour ce compte.</value>
         <description></description>
     </text>  
     
     <text id="TEXT_SUBSCRIPTIONS">
-        <value>Assinaturas</value>
+<value>Inscriptions</value>
         <description></description>
     </text>  
 
     <text id="TEXT_ACTIVE_SUBSCRIPTIONS">
-        <value>Ativo</value>
+<value>Actif</value>
         <description></description>
     </text>  
     
     <text id="TEXT_DISABLED_SUBSCRIPTIONS">
-        <value>Desativado</value>
+<value>Désactivé</value>
         <description></description>
     </text>  
             
     <text id="TEXT_SUBSCRIPTION">
-        <value>Assinatura</value>
+<value>Inscription</value>
         <description></description>
     </text>  
 
     <text id="TEXT_SUBSCRIPTION_DESCRIPTION">
-        <value>Descrição</value>
+<value>Description</value>
         <description></description>
     </text>  
 
     <text id="TEXT_SUBSCRIPTION_DATE">
-        <value>Inserir datas de assinatura</value>
+<value>Entrer les dates d'inscription</value>
         <description></description>
     </text>  
 
     <text id="TEXT_SUBSCRIPTION_DATE_EDIT">
-        <value>Editar ou excluir assinatura</value>
+<value>Modifier ou Supprimer l'inscription</value>
         <description></description>
     </text>  
     
     <text id="TEXT_NEW_SUBSCRIPTION_DATE">
-        <value>Nova assinatura</value>
+<value>Nouvelle inscription</value>
         <description></description>
     </text>  
         
     <text id="TEXT_SUBSCRIPTION_ID">
-        <value>ID da assinatura</value>
+<value>ID d'inscription</value>
         <description></description>
     </text>  
  
     <text id="TEXT_SUBSCRIPTION_END_DATE">
-        <value>Data de término da assinatura</value>
+<value>Date d'échéance de l'inscription</value>
         <description></description>
     </text>  
   
     <text id="TEXT_SUBSCRIPTION_START_DATE">
-        <value>Data de início da assinatura</value>
+<value>Date d'entrée en vigueur de l'inscription</value>
         <description></description>
     </text>  
       
     <text id="TEXT_SUBSCRIPTION_NEXT_BILLING_PERIOD_START">
-        <value>Próximo início do período de faturamento do pagador após essa data</value>
+<value>Premier jour de la nouvelle période de facturation du payeur après cette date</value>
         <description></description>
     </text>  
       
     <text id="TEXT_SUBSCRIPTION_NEXT_BILLING_PERIOD_END">
-        <value>Próximo fim do período de faturamento do pagador após essa data</value>
+<value>Dernier jour de la nouvelle période de facturation du payeur après cette date</value>
         <description></description>
     </text>  
       
     <text id="TEXT_RECURRING_CHARGE">
-        <value>[TEXT_KEYTERM_RECURRING_CHARGE](s)</value>
+<value>[TEXT_KEYTERM_RECURRING_CHARGE](s)</value>
         <description></description>
     </text>   
          
     <text id="TEXT_DISCOUNT">
-        <value>[TEXT_KEYTERM_DISCOUNT](s)</value>
+<value>[TEXT_KEYTERM_DISCOUNT](s)</value>
         <description></description>
     </text>        
 
     <text id="TEXT_PERSONAL_RATE">
-        <value>[TEXT_KEYTERM_PERSONAL_RATE]</value>
+<value>[TEXT_KEYTERM_PERSONAL_RATE]</value>
         <description></description>
     </text>    
 
     <text id="TEXT_GROUPICB_RATE">
-        <value>[TEXT_KEYTERM_PERSONAL_RATE]</value>
+<value>[TEXT_KEYTERM_PERSONAL_RATE]</value>
         <description></description>
     </text>
 		
     <text id="TEXT_OPTIONS">
-        <value>Opções</value>
+<value>Options</value>
         <description></description>
     </text>    
     
     <text id="TEXT_SUBSCRIPTIONS">
-        <value>Assinaturas</value>
+<value>Inscriptions</value>
         <description></description>
     </text>
 
     <text id="TEXT_INVOICE_NUMBER">
-        <value>Número da fatura</value>
+<value>Numéro de facture</value>
         <description></description>
     </text>
 
     <text id="TEXT_NAMESPACE">
-        <value>Espaço de nomes</value>
+<value>Espace nom</value>
         <description></description>
     </text>
 
     <text id="PRODUCT_VIEW_BROWSER_NO_RECORDS_FOUND">
-        <value>Nenhum dado encontrado.</value>
+<value>Aucune donnée trouvée.</value>
         <description></description>
     </text>
 
     <text id="TEXT_INFO_SUCCEFULLY_UPDATED">
-        <value>As informações foram atualizadas com sucesso.</value>
+<value>L'information a été mise à jour.</value>
         <description></description>
     </text>
 
     <text id="TEXT_REQUIRED_FIELD">
-        <value>* denota os campos exigidos</value>
+<value>* indique les champs obligatoires</value>
         <description></description>
     </text>
 
     <text id="TEXT_CHANGE_PASSWORD">
-        <value>Alterar senha</value>
+<value>Changer le mot de passe</value>
         <description></description>
     </text>
 
     <text id="TEXT_LOGIN_TITLE">
-        <value>Login no MetraCare</value>
+<value>Connexion à MetraCare</value>
         <description></description>
     </text>
 
     <text id="TEXT_NO_AUTH">
-        <value>Sua sessão expirou.  Faça login novamente.</value>
+<value>Votre temps de session alloué est dépassé.Veuillez vous connecter à nouveau.</value>
         <description></description>
     </text>
 
     <text id="TEXT_LOGIN_NAME">
-        <value>Nome do usuário</value>
+<value>Nom d'utilisateur</value>
         <description></description>
     </text>
 
     <text id="TEXT_LOGIN_PASSWORD">
-        <value>Senha</value>
+<value>Mot de passe</value>
         <description></description>
     </text>
 
     <text id="TEXT_INVALID_LOGIN">
-        <value>Verifique seu nome e senha de usuário e selecione inserir para tentar novamente.</value>
+<value>Veuillez vérifier votre nom d'utilisateur et votre mot de passe et essayez à nouveau.</value>
         <description></description>
     </text>
 
     <text id="TEXT_INVALID_BLANK_LOGIN">
-        <value>O nome de usuário ou senha não podem ficar em branco.  Tente novamente.</value>
+<value>Le champ nom d'utilisateur ou mot de passe ne peut pas être vide.Veuillez essayer à nouveau.</value>
         <description></description>
     </text>
 
     <text id="TEXT_GENERATE_PASSWORD">
-        <value>Gerar senha</value>
+<value>Générer un mot de passe</value>
         <description></description>
     </text>
 
     <text id="TEXT_NEW_PASSWORD">
-        <value>Nova senha</value>
+<value>Nouveau mot de passe</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_ACCOUNT">
-        <value>Adicionar conta</value>
+<value>Ajouter le compte</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_ACCOUNT_PRIMARYALIAS">
-        <value>Apelido</value>
+<value>Alias</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_ACCOUNT_LOGIN_VALIDATED">
-        <value>O nome de usuário foi validado.</value>
+<value>Le nom d'utilisateur a été validé.</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_ACCOUNT_LOGIN_NOT_VALIDATED">
-        <value>O nome de usuário é inválido, tente outro.</value>
+<value>Le nom d'utilisateur n'est pas valide. Veuillez en choisir un nouveau.</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_ACCOUNT_PRIMARYALIAS_STATUS">
-        <value>Status do apelido</value>
+<value>État de l'alias</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_ACCOUNT_EMAILNOTIFICATION_STATUS">
-        <value>Status da notificação de e-mail</value>
+<value>État d'avis par courriel</value>
         <description></description>
     </text>
 
     <text id="TEXT_UPDATE_ACCOUNT">
-        <value>Informações de conta</value>
+<value>Informations sur le compte</value>
         <description></description>
     </text>
 
     <text id="TEXT_CONTACT">
-        <value>Contato</value>
+<value>Personne-ressource</value>
         <description></description>
     </text>
 
     <text id="TEXT_BRANDED_SITE">
-        <value>Site da marca</value>
+<value>Site web</value>
         <description></description>
     </text>
 
     <text id="TEXT_EXTERNAL_SYSTEM">
-        <value>Sistema externo</value>
+<value>Système externe</value>
         <description></description>
     </text>
 
     <text id="TEXT_LOGIN_CAPTION">
-        <value>Login</value>
+<value>Ouverture de session</value>
         <description></description>
     </text>
 
     <text id="TEXT_BIWEEKLYLABELINFO">
-        <value>Rótulo bi-semanal</value>
+<value>Étiquette bi-hebdomadaire</value>
         <description></description>
     </text>
 
     <text id="TEXT_GENERAL_INFO">
-        <value>Informações de faturamento</value>
+<value>Informations de facturation</value>
         <description></description>
     </text>
 
     <text id="TEXT_BILLING_INFO">
-        <value>Informações de faturamento</value>
+<value>Informations de facturation</value>
         <description></description>
     </text>
 
     <text id="TEXT_ACCOUNT_INFO">
-        <value>Informações de conta</value>
+<value>Informations sur le compte</value>
         <description></description>
     </text>
 
     <text id="TEXT_CONTACTS">
-        <value>Informações de contato</value>
+<value>Coordonnées</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_CONTACT">
-        <value>Adicionar contato</value>
+<value>Ajouter une personne-ressource</value>
         <description></description>
     </text>
 
     <text id="TEXT_MPS_FAIL_TITLE">
-        <value>Fatura interativa</value>
+<value>Facture interactive</value>
         <description></description>
     </text>
 
     <text id="TEXT_MPS_FAIL">
-        <value>Não é possível efetuar log-on na fatura interativa da conta.  Verifique se o assinante tem o recurso de log-on correto para o MetraView.  Se ainda houver um problema solicite que seu administrador verifique o log do sistema e tente novamente mais tarde.</value>
+<value>Impossible de se connecter à la facture interactive du compte.Veuillez vérifier que l'abonné possède les capacités de connexion nécessaires pour MetraView.Si le problème persiste, demandez à votre administrateur de vérifier le journal système et ressayez plus tard.</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADVANCED_FIND">
-        <value>Localização avançada</value>
+<value>Recherche approfondie</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADVANCED_FIND_DESCRIPTION">
-        <value>Procurar critérios</value>
+<value>Critères de recherche</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADVANCED_FIND_DESCRIPTION_PART2">
-        <value> Você pode limitar sua pesquisa preenchendo vários campos nessa categoria.</value>
+<value> Vous pouvez préciser votre recherche en remplissant plusieurs des champs dans cette catégorie.</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADDRESS_1">
-        <value>Endereço 1</value>
+<value>Adresse 1</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADDRESS_2">
-        <value>Endereço 2</value>
+<value>Adresse 2</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADDRESS_3">
-        <value>Endereço 3</value>
+<value>Adresse 3</value>
         <description></description>
     </text>
 
     <text id="TEXT_CITY">
-        <value>Cidade</value>
+<value>Ville</value>
         <description></description>
     </text>
 
     <text id="TEXT_STATE">
-        <value>Estado</value>
+<value>État/Province</value>
         <description></description>
     </text>
 
     <text id="TEXT_ZIP">
-        <value>CEP</value>
+<value>Code postal</value>
         <description></description>
     </text>
 
     <text id="TEXT_COUNTRY">
-        <value>País</value>
+<value>Pays</value>
         <description></description>
     </text>
 
     <text id="TEXT_PHONENUMBER">
-        <value>Número de telefone</value>
+<value>Téléphone</value>
         <description></description>
     </text>
 
     <text id="TEXT_FAX">
-        <value>Fax</value>
+<value>Télécopieur</value>
         <description></description>
     </text>
 
     <text id="TEXT_ACCOUNT_TYPE">
-        <value>Tipo de conta</value>
+<value>Type de compte</value>
         <description></description>
     </text>
 
     <text id="TEXT_EMAIL">
-        <value>E-mail</value>
+<value>Courriel</value>
         <description></description>
     </text>
 
     <text id="TEXT_COMPANY">
-        <value>Empresa</value>
+<value>Société</value>
         <description></description>
     </text>
 
     <text id="TEXT_NICKNAME">
-        <value>Apelido</value>
+<value>Pseudonyme</value>
         <description></description>
     </text>
 
     <text id="TEXT_ACCOUNT_FOUND">
-        <value>Conta(s) encontrada(s)</value>
+<value>Compte(s) trouvé(s)</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_ADDITIONAL_CHARGE">
-        <value>Cobrança adicional</value>
+<value>Frais supplémentaires</value>
         <description></description>
     </text>
 		
     <text id="TEXT_EDIT_ACCOUNT_TEMPLATE">
-        <value>Editar modelo de conta</value>
+<value>Modifier le modèle du compte</value>
         <description></description>
     </text>		
 
     <text id="TEXT_ADD_TEMPLATE_SUBSCRIPTION">
-        <value>Adicionar assinatura</value>
+<value>Ajouter une inscription</value>
         <description></description>
     </text>			
 		
     <text id="TEXT_ADD_TEMPLATE_GROUP_SUBSCRIPTION">
-        <value>Adicionar assinatura em grupo</value>
+<value>Ajouter une inscription de groupe</value>
         <description></description>
     </text>			
 		
 		
     <text id="TEXT_ADD_TEMPLATE_AVAILABLE_SUBSCRIPTION">
-        <value>Assinaturas disponíveis</value>
+<value>Inscriptions disponibles</value>
         <description></description>
     </text>			
 		
     <text id="TEXT_CONFIRM_ADD_CHARGE_TITLE">
-        <value>Cobrança adicional adicionada</value>
+<value>Frais supplémentaires ajoutés</value>
         <description></description>
     </text>
 
     <text id="TEXT_CONFIRM_ADD_CHARGE">
-        <value>Uma nova cobrança foi adicionada com sucesso à conta.</value>
+<value>De nouveaux frais ont été ajoutés au compte.</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_CSR">
-        <value>Adicionar usuário do sistema</value>
+<value>Ajouter Utilisateur système</value>
         <description></description>
     </text>
 
     <text id="TEXT_UPDATE_CSR">
-        <value>Atualizar usuário do sistema</value>
+<value>Mettre à jour Utilisateur système</value>
         <description></description>
     </text>
 
     <text id="TEXT_FOUND_CSR">
-        <value>Atualizar usuário(s) do sistema</value>
+<value>Mettre à jour Utilisateur(s) système</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_UPDATE_CSR_CONFIRM_PASSWORD">
-        <value>Senha de confirmação</value>
+<value>Confirmer le mot de passe</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_UPDATE_CSR_LOCATION">
-        <value>Localização</value>
+<value>Emplacement</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_UPDATE_CSR_GENERAL">
-        <value>Geral</value>
+<value>Général</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_UPDATE_CSR_STATUS">
-        <value>Status da conta</value>
+<value>État du compte</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_UPDATE_CSR_REASON">
-        <value>Motivo</value>
+<value>Raison</value>
         <description></description>
     </text>
 
     <text id="TEXT_CONFIRM_ADD_CSR_TITLE">
-        <value>Conta adicionada</value>
+<value>Compte ajouté</value>
         <description></description>
     </text>
 
     <text id="TEXT_CONFIRM_ADD_CSR">
-        <value>A nova conta [ACCOUNT] foi adicionada com sucesso.</value>
+<value>Le nouveau compte [ACCOUNT] a été ajouté.</value>
         <description></description>
     </text>
 
     <text id="TEXT_CONFIRM_UPDATE_CSR_TITLE">
-        <value>Conta atualizada</value>
+<value>Compte mis à jour</value>
         <description></description>
     </text>
 
     <text id="TEXT_CONFIRM_UPDATE_CSR">
-        <value>A conta [ACCOUNT] foi atualizada com sucesso.</value>
+<value>Le compte [ACCOUNT] a été mis à jour.</value>
         <description></description>
     </text>
 
     <text id="TEXT_ACCOUNT_MAPPING">
-        <value>Editar pseudônimo</value>
+<value>Modifier les alias</value>
         <description></description>
     </text>
 
     <text id="TEXT_MAPPING_LIST">
-        <value>Editar pseudônimo</value>
+<value>Modifier les alias</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_ACCOUNT_MAPPING">
-        <value>Adicionar apelido da conta</value>
+<value>Ajouter un Alias compte</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_ACCOUNT_MAPPING_NAMESPACE">
-        <value>Espaço de nomes</value>
+<value>Espace de nom</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_ACCOUNT_MAPPING_NAME">
-        <value>Apelido</value>
+<value>Alias</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_ACCOUNT_MAPPING_NAMESPACE_TEMPLATE">
-        <value>Modelo do espaço de nomes</value>
+<value>Nommer le modèle d'espace</value>
         <description></description>
     </text>
 
     <text id="TEXT_UPDATE_ACCOUNT_MAPPING">
-        <value>Editar apelido da conta</value>
+<value>Modifier les Alias compte</value>
         <description></description>
     </text>
 
     <text id="TEXT_UPDATE_ACCOUNT_MAPPING_NAMESPACE">
-        <value>Espaço de nomes</value>
+<value>Espace de nom</value>
         <description></description>
     </text>
 
     <text id="TEXT_UPDATE_ACCOUNT_MAPPING_NAME">
-        <value>Apelido</value>
+<value>Alias</value>
         <description></description>
     </text>
 
     <text id="TEXT_DELETE_ACCOUNT_MAPPING">
-        <value>Excluir apelido da conta</value>
+<value>Supprimer les Alias compte</value>
         <description></description>
     </text>
 
     <text id="TEXT_DELETE_ACCOUNT_MAPPING_NAMESPACE">
-        <value>Sistema externo</value>
+<value>Système externe</value>
         <description></description>
     </text>
 
     <text id="TEXT_DELETE_ACCOUNT_MAPPING_NAME">
-        <value>Apelido</value>
+<value>Alias</value>
         <description></description>
     </text>
 
     <text id="TEXT_CONFIRM_DELETE_ACCOUNT_MAPPING">
-        <value>Excluir sistema externo: [MAPPING_NAME], apelido: [LOGIN_NAME]?</value>
+<value>Supprimer le système externe :[MAPPING_NAME], alias :[LOGIN_NAME]?</value>
         <description></description>
     </text>
 
     <text id="TEXT_ALIAS">
-        <value>Apelido</value>
+<value>Alias</value>
         <description></description>
     </text>
 
     <text id="TEXT_SPACE">
-        <value>Sistema externo</value>
+<value>Système externe</value>
         <description></description>
     </text>
 
     <text id="TEXT_CREDIT_TITLE">
-        <value>^^Crédito^^</value>
+<value>^^Crédit^^</value>
         <description></description>
     </text>
 
     <text id="TEXT_ISSUE_CREDIT_TITLE">
-        <value>Emitir ajuste diverso</value>
+<value>Émettre ajustement divers</value>
         <description></description>
     </text>
 
     <text id="TEXT_ISSUE_CREDIT_REQUEST_TITLE">
-        <value>^^Solicitação de crédito^^</value>
+<value>^^Demande de crédit^^</value>
         <description></description>
     </text>
 
     <text id="TEXT_ISSUE_ISSUE_CREDIT_FROM_CREDIT_REQUEST_TITLE">
-        <value>^^Emitir crédito da solicitação de crédito^^</value>
+<value>^^Émettre crédit selon la demande de crédit^^</value>
         <description></description>
     </text>
 
     <text id="TEXT_ISSUE_CREDIT_CONFIRM">
-        <value>^^Um novo crédito foi emitido com sucesso.^^</value>
+<value>^^Un nouveau crédit a été émis.^^</value>
         <description></description>
     </text>
 
     <text id="TEXT_ISSUE_CREDIT_CONFIRM_DENIED">
-        <value>^^Crédito negado com sucesso.^^</value>
+<value>^^Crédit refusé.^^</value>
         <description></description>
     </text>
 
     <text id="TEXT_SUBSCRIBER_NAME">
-        <value>Nome</value>
+<value>Nom</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_ACCOUNT_CONFIRMATION_TITLE">
-        <value>Adicionar página de resumo da conta</value>
+<value>Ajouter une page sommaire du compte</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_ACCOUNT_ADD_PAYMENT_METHOD_QUESTION">
-        <value>Você deseja adicionar um método de pagamento?</value>
+<value>Désirez-vous ajouter un mode de paiement?</value>
         <description></description>
     </text>
 
     <text id="TEXT_SUBSCRIBER_EMAIL_NOTIFICATION">
-        <value>Notificação de e-mail</value>
+<value>Avis par courriel</value>
         <description></description>
     </text>
 
     <text id="TEXT_ACCOUNT_SUMMARY_TITLE">
-        <value>Resumo de conta</value>
+<value>Sommaire du compte</value>
         <description></description>
     </text>
 
     <text id="TEXT_ACCOUNT_CONTACT_SUB_TITLE">
-        <value>Contato</value>
+<value>Personne-ressource</value>
         <description></description>
     </text>
 
     <text id="TEXT_ABOUT">
-        <value>Sobre</value>
+<value>À propos de</value>
         <description></description>
     </text>
 
     <text id="TEXT_MAM">
-        <value>MetraCare</value>
+<value>MetraCare</value>
         <description></description>
     </text>
 
@@ -1375,531 +1358,557 @@
     </text>
 
     <text id="NEXT_PAGE_TOOL_TIP">
-        <value>Próxima página</value>
+<value>Page suivante</value>
         <description></description>
     </text>
 
     <text id="PREVIOUS_PAGE_TOOL_TIP">
-        <value>Página anterior</value>
+<value>Page précédente</value>
         <description></description>
     </text>
 
     <text id="FIRST_PAGE_TOOL_TIP">
-        <value>Primeira página</value>
+<value>Première page</value>
         <description></description>
     </text>
 
     <text id="LAST_PAGE_TOOL_TIP">
-        <value>Última página</value>
+<value>Dernière page</value>
         <description></description>
     </text>
 
     <text id="REFRESH_PAGE_TOOL_TIP">
-        <value>Atualizar página</value>
+<value>Actualiser la page</value>
         <description></description>
     </text>
 
     <text id="TEXT_WELCOME_TITLE">
-        <value>Bem-vindo ao MetraCare</value>
+<value>Bienvenue à MetraCare</value>
         <description></description>
     </text>
 
     <text id="TEXT_CREDIT_REQUEST_BROWSER_PERIOD">
-        <value>Período</value>
+<value>Période</value>
         <description></description>
     </text>
 
     <text id="TEXT_APPLICATION_AUDIT_LOG">
-        <value>Log de auditoria da aplicação</value>
+<value>Liste de contrôle de l'application</value>
         <description></description>
     </text>
 
     <text id="TEXT_ACCOUNT_AUDIT_LOG">
-        <value>Log da conta</value>
+<value>Fichier journal du compte</value>
         <description></description>
     </text>
 
     <text id="TEXT_ACCOUNT_AUDIT_LOG_CREATE_EVENT">
-        <value>Adicionar evento ao log da conta</value>
+<value>Ajouter un événement au fichier journal du compte</value>
         <description></description>
     </text>
     
     <text id="TEXT_EVENT_TYPE">
-        <value>Evento</value>
+<value>Événement</value>
         <description></description>
     </text>
     
     <text id="TEXT_DETAILS">
-        <value>Detalhes</value>
+<value>Détails</value>
         <description></description>
     </text>
 
     <text id="TEXT_HELP_TITLE">
-        <value>Ajuda do MetraCare</value>
+<value>Aide MetraCare</value>
         <description></description>
     </text>
 
     <text id="TEXT_CSR_ID">
-        <value>Timestamp</value>
+<value>Cachet de date</value>
         <description></description>
     </text>
 
     <text id="TEXT_DESCRIPTION">
-        <value>Descrição</value>
+<value>Description</value>
         <description></description>
     </text>
 
     <text id="TEXT_NAME">
-        <value>Nome</value>
+<value>Nom</value>
         <description></description>
     </text>
 		
     <text id="TEXT_ACCOUNT_ID">
-        <value>Conta</value>
+<value>Compte</value>
         <description></description>
     </text>
 
     <text id="TEXT_CSR_ID">
-        <value>ID do CSR</value>
+<value>ID caissier</value>
         <description></description>
     </text>
 
     <text id="TEXT_TIMESTAMP">
-        <value>Timestamp</value>
+<value>Cachet de date</value>
         <description></description>
     </text>
 
     <text id="TEXT_AMOUNT">
-        <value>Valor</value>
+<value>Montant</value>
         <description></description>
     </text>
            
     <text id="TEXT_JAVASCRIPT_ERROR">
-        <value>Seu navegador não parece ter o JavaScript ativado.  Siga esse link para corrigir a situação.</value>
+<value>Le JavaScript ne semble pas activé pour votre navigateur.Cliquez sur le lien suivant afin de l'activer.</value>
         <description></description>
     </text>
 
     <text id="TEXT_CREATE_GROUP_SUBSCRIPTION">
-        <value>Criar um novo [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+<value>Créer une nouvelle [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
         <description></description>
     </text>
 
     <text id="TEXT_EDIT_GROUP_SUBSCRIPTION">
-        <value>Editar [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+<value>Modifier une [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
         <description></description>
     </text>
 
     <text id="TEXT_GROUP_SUBSCRIPTION_DISCOUNT_DISTRIBUTION">
-        <value>Distribuição do desconto</value>
+<value>Distribution de rabais</value>
         <description></description>
     </text>
 		
 		<text id="TEXT_DISCOUNT_PROPORTIONAL_DISTRIBUTION">
-        <value>proporcional</value>
+<value>proportionnel</value>
         <description></description>
     </text>
 
 		<text id="TEXT_DISCOUNT_TO_ONE_ACCOUNT">
-        <value>valor total para uma conta</value>
+<value>plein montant pour un compte</value>
         <description></description>
     </text>
 		
 		<text id="TEXT_DISCOUNT_ACCOUNT">
-        <value>Conta para desconto de grupo</value>
+<value>Compte pour rabais de groupe</value>
         <description></description>
     </text>
 
 		<text id="TEXT_BUTTON_ADD_NEW_GROUP_SUBSCRIPTION">
-        <value>Criar assinatura em grupo</value>
+<value>Créer une inscription de groupe</value>
         <description></description>
     </text>
 
 		<text id="TEXT_ADD_MEMBERS_TO_GROUP_SUBSCRIPTION_BUTTON">
-        <value>Adicionar membros</value>
+<value>Ajouter des membres</value>
         <description></description>
     </text>
 
 		<text id="TEXT_REMOVE_MEMBERS_FROM_GROUP_SUBSCRIPTION_BUTTON">
-        <value>Cancelar assinatura de membros</value>
+<value>Annuler l'inscription des membres</value>
         <description></description>
     </text>
 
 		<text id="TEXT_ADD_MEMBERS_TO_GROUP_SUBSCRIPTION">
-        <value>Adicionar membro à [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+<value>Ajouter des membres à [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
         <description></description>
     </text>
 
 		<text id="TEXT_REMOVE_MEMBERS_FROM_GROUP_SUBSCRIPTION">
-        <value>Cancelar assinatura de membros da [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+<value>Annuler l'inscription des membres de [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
         <description></description>
     </text>
 
 		<text id="TEXT_GROUP_SUBSCRIPTION_EDIT_MEMBERSHIP">
-        <value>Editar ou excluir [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+<value>Modifier ou supprimer [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
         <description></description>
     </text>		
 
 		<text id="TEXT_GROUP_SUBSCRIPTION_UNSUBSCRIBE">
-        <value>Cancelar assinatura da conta da [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+<value>Annuler l'inscription du compte de [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
         <description></description>
     </text>				
 
 		<text id="TEXT_PRODUCT_OFFERING_UNSUBSCRIBE">
-        <value>Cancelar assinatura da conta da [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
+<value>Annuler l'inscription du compte de [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
         <description></description>
     </text>				
 		
 		<text id="TEXT_GROUP_SUBSCRIPTION_JOIN">
-        <value>Aderir à [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+<value>Se joindre à [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
         <description></description>
     </text>
 		
 		<text id="TEXT_GROUP_SUBSCRIPTION_MEMBERS">
-        <value>Membros da [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+<value>Membres [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
         <description></description>
     </text>
 
 		<text id="TEXT_GROUP_SUBSCRIPTION_PROPERTIES">
-        <value>Propriedades da [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
+<value>Caractéristiques [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
         <description></description>
     </text>
 
 		<text id="TEXT_GROUP_SUBSCRIPTION_DISCOUNT_DISTRIBUTION_CONFIG">
-        <value>Configuração do desconto</value>
+<value>Configuration du rabais</value>
         <description></description>
     </text>
 		
 		
 	<text id="TEXT_GSUB_CYCLE_CONFIGURATION">
-		<value>Configuração do ciclo de utilização</value>
+		<value>Configuration du cycle d'utilisation</value>
 		<description></description>
 	</text>
 	<text id="TEXT_GSUB_USE_CYCLE_FROM_TEMPLATE">
-		<value>Usar ciclo do modelo de conta corporativo</value>
+		<value>Utiliser le cycle du modèle de compte commercial</value>
 		<description></description>
 	</text>
 	<text id="TEXT_GSUB_USE_OTHER_CYCLE">
-		<value>Especificar outro</value>
+		<value>Spécifier autre</value>
 		<description></description>
 	</text>
 	<text id="TEXT_GSUB_USE_CYCLE_ENFORCED_BY_PO">
-		<value>Usar ciclo aplicado pela oferta do produto</value>
+		<value>Utiliser le cycle de l'offre de produit</value>
 		<description></description>
 	</text>
 	<text id="TEXT_DRAGDROP_ACCOUNTS_MESSAGE">
-		<value>Arraste e solte contas aqui...</value>
+		<value>Faire glisser et déplacer les comptes ici...</value>
 		<description></description>
 	</text>
   <text id="TEXT_IS_FOLDER">
-    <value>É pasta</value>
+<value>Dossier IS</value>
     <description></description>
   </text>
 	<text id="TEXT_NO_TEMPLATE_SUBSCRIPTIONS">
-    <description>Diálogo de modelos</description>
-    <value>Não há assinaturas definidas para esse modelo.</value>
+    <description>Templates Dialog</description>
+<value>Aucune inscription n'a été définie pour ce modèle.</value>
   </text>
   <text id="TEXT_UPDATE_TEMPLATE_PROPERTIES">
-    <description>Diálogo de modelos</description>
-    <value>Atualizar propriedades</value>
+    <description>Templates Dialog</description>
+<value>Mettre à jour les caractéristiques</value>
   </text>
   <text id="TEXT_MSGBOX_REMOVE_TEMPLATE_SUBSCRIPTION">
-    <description>Diálogo de modelos</description>
-    <value>Remover oferta de produto [ITEM] do modelo?</value>
+    <description>Templates Dialog</description>
+<value>Retirer produit offert [ITEM] du modèle?</value>
   </text>
 
 <text id="TEXT_VIEW_ACCOUNT_STATUS_HISTORY">
-      <value>Exibir histórico do status</value>
+<value>Afficher l'historique de l'état</value>
  </text> 
  <text id="TEXT_ACCOUNT_STATUS_HISTORY">
-      <value>Histórico do status da conta</value>
+<value>Historique de l'état du compte</value>
  </text>  
  <text id="TEXT_APPLY_TEMPLATE_TO_ACCOUNT">
-      <value>Aplicar modelo à conta</value>
+<value>Appliquer le modèle au compte</value>
  </text>   
 <text id="TEXT_ACCOUNT_TEMPLATE_PROPERTY_NAME">
-      <value>Nome</value>
+<value>Nom</value>
  </text>    
 <text id="TEXT_ACCOUNT_TEMPLATE_TEMPLATE_VALUE">
-      <value>Valor do modelo</value>
+<value>Valeur du modèle</value>
  </text>   
 <text id="TEXT_ACCOUNT_TEMPLATE_ACCOUNT_VALUE">
-      <value>Valor da conta</value>
+<value>Valeur du compte</value>
  </text>
 
   <text id="TEXT_ACCOUNT_TEMPLATE_APPLY_PROMPT">
-    <value>Deseja aplicar o modelo de [FOLDER_NAME] para a(s) conta(s) movida(s)?</value>
+<value>Désirez-vous appliquer le modèle de [FOLDER_NAME] aux comptes déplacés?</value>
   </text>
   
   <text id="TEXT_ACCOUNTS_MOVED_SUCCESSFULLY">
-    <value>Conta(s) movida(s) com sucesso.</value>
+<value>Compte(s) déplacé(s).</value>
   </text>
 
 <text id="TEXT_ISSUE_CREDIT_MAX_AUTHORIZED_AMOUNT">
-      <value>Valor máximo autorizado</value>
+<value>Montant autorisé max</value>
 </text>      
 <text id="TEXT_MOVED_ACCOUNTS_WARNING_TITLE">
-      <value>Aviso de contas movidas</value>
+<value>Avertissement de comptes déplacés</value>
 </text>      
 <text id="TEXT_MOVED_ACCOUNTS_WARNING_MESSAGE">
-      <value>Você acabou de mover contas para outra pasta, você deve verificar para cada conta suas propriedades, assinaturas e políticas de segurança.</value>
+<value>Vous avez déplacé des comptes vers un autre dossier. Vous devriez vérifier les caractéristiques, les inscriptions et la stratégie de sécurité de chaque compte.</value>
 </text>      
 <text id="TEXT_HIERARCHY_ACCOUNT_INFO">
-      <value>Informações da conta de hierarquia</value>
+<value>Informations sur la hiérarchie de compte</value>
 </text>      
 <text id="TEXT_APPLY_TEMPLATE_SUBSCRIPTIONS_EFFECTIVE_START_DATE">
-      <value>Data de início efetivo das assinaturas</value>
+<value>Date d'entrée en vigueur des inscriptions</value>
 </text>
 <text id="TEXT_APPLY_TEMPLATE_SUBSCRIPTIONS_EFFECTIVE_END_DATE">
-      <value>Data de término efetivo das assinaturas</value>
+<value>Date d'échéance des inscriptions</value>
 </text>
 <text id="TEXT_APPLY_TEMPLATE_SUBSCRIPTIONS_EFFECTIVE_DATE_NEXT_BILLING_PERIODE">
-      <value>Próximo período de faturamento efetivo de assinaturas</value>
+<value>Prochaine période de facturation en vigueur pour les inscriptions</value>
 </text>
 <text id="TEXT_APPLY_TEMPLATE_TO_MOVED_ACCOUNT">
-      <value>Aplicar modelo</value>
+<value>Appliquer le modèle</value>
 </text>
 <text id="TEXT_EDIT_DEFAULT_POLICY">
-      <value>Editar política padrão</value>
+<value>Modifier la stratégie par défaut</value>
 </text>
 <text id="TEXT_APPLY_DEFAULT_SECURITY">
-      <value>Aplicar política padrão</value>
+<value>Appliquer la stratégie par défaut</value>
 </text>
 <text id="TEXT_ACCOUNT_SUMMARY">
-      <value>Resumo de conta</value>
+<value>Sommaire du compte</value>
 </text>
 <text id="TEXT_FOLDER_SUBSCRIPTIONS">
-      <value>Assinaturas de pasta</value>
+<value>Inscriptions du dossier</value>
 </text>
 <text id="TEXT_APPLY_TEMPLATE_SUBSCRIPTIONS">
-      <value>Aplicar assinaturas de modelo</value>
+<value>Appliquer le modèle des inscriptions</value>
 </text>
 <text id="TEXT_UPDATE_STATUS_BUTTON">
-      <value>Atualizar status</value>
+<value>Mettre à jour l'état</value>
 </text>
 
 <text id="TEXT_DO_YOU_WANT_TO_COPY_PARENT_TEMPLATE">
-      <value>A pasta não tem modelo. Deseja copiar o modelo pai ?</value>
-</text>
-
-<text id="TEXT_NEW_PARENT">
-      <value>Novo pai</value>
+<value>Ce dossier n'a pas de modèle.Désirez-vous copier le modèle parent?</value>
 </text>
 
 <text id="TEXT_GROUP_SUBSCRIPTION">
-      <value>Assinatura em grupo</value>
+<value>Inscription de groupe</value>
 </text>
 
 <text id="TEXT_SUBSCRIPTION_NAME">
-      <value>Nome</value>
+<value>Nom</value>
 </text>
 
 
 <text id="TEXT_DAYS_AFTER">
-      <value> dia(s) após </value>
+<value> jour(s) après</value>
 </text>
 
 
    <text id="TEXT_SUBSCRIPTIONS_AND_GROUP_SUBSCRIPTIONS">
-        <value>Assinaturas e assinaturas de grupo</value>
+<value>Inscriptions et Inscriptions de groupe</value>
     </text> 
 
 	<text id="TEXT_NO_TEMPLATE_EXISTS">
-    <description>Diálogo de modelos</description>
-    <value>Não existe modelo para esta pasta, portanto, uma nova será criada.</value>
+    <description>Templates Dialog</description>
+<value>Aucun modèle n'existe pour ce dossier. Un nouveau modèle sera créé.</value>
   </text>
   <text id="TEXT_USE_ANCESTOR_TEMPLATE">
-    <description>Diálogo de modelos</description>
-    <value>Deseja preencher previamente o novo modelo com informações de modelo para </value>
+    <description>Templates Dialog</description>
+<value>Désirez-vous remplir le nouveau modèle à partir des informations du modèle pour </value>
   </text>
   <text id="TEXT_CREATE_NEW_TEMPLATE">
-    <description>Criar novo modelo?</description>
-    <value>Deseja criar um novo modelo</value>
+    <description>Create New Template?</description>
+<value>Désirez-vous créer un nouveau modèle</value>
   </text>
   <text id="TEXT_TEMPLATE_NAME">
-    <description>Diálogo de modelos</description>
-    <value>Nome do modelo de conta</value>
+    <description>Templates Dialog</description>
+<value>Nom du modèle de compte</value>
   </text>
   <text id="TEXT_TEMPLATE_DESCRIPTION">
-    <description>Diálogo de modelos</description>
-    <value>Descrição do modelo de conta</value>
+    <description>Templates Dialog</description>
+<value>Description du modèle de compte</value>
   </text>
   <text id="TEXT_TEMPLATE_APPLY_SECURITY">
-    <description>Diálogo de modelos</description>
-    <value>Aplicar política de segurança padrão</value>
+    <description>Templates Dialog</description>
+<value>Appliquer la stratégie de sécurité par défaut</value>
   </text>
   <text id="TEXT_NO_DEFAULT_SECURITY_POLICY_ROLES">
-    <description>Diálogo de modelos</description>
-    <value>Nenhuma função foi definida para a política de segurança padrão.</value>
+    <description>Templates Dialog</description>
+<value>Aucun rôle n'a été défini pour la stratégie de sécurité par défaut.</value>
   </text>
   
   <text id="TEXT_DELETE_SUBSCRIPTION_EXPLANATION">
     <description></description>
-    <value>Use esse botão de exclusão de assinatura somente quando desejar remover totalmente todo o histórico ao qual essa conta assinava para essa oferta de produto.  Senão, use o botão Cancelar Assinatura na página de assinaturas anterior. Consulte o tópico de ajuda 'Sobre Exclusão de Assinaturas' para obter mais detalhes.</value>
+<value>N'utilisez ce bouton Supprimer l'inscription que si vous désirez effacer l'historique complet des inscriptions de ce compte à l'offre de produit.Dans la cas contraire, utilisez le bouton Annuler l'inscription sur la page Inscriptions précédente.Reportez-vous à la rubrique d'aide À propos de la suppression des inscriptions pour de plus amples renseignements.</value>
   </text>
 	
   <text id="TEXT_DELETE_SUBSCRIPTION_WARNING">
     <description></description>
-    <value>Você está prestes a excluir permanentemente esta assinatura do sistema. Para simplesmente encerrá-la em uma data especificada, use o recurso de cancelamento de assinatura.</value>
+<value>Vous êtes sur le point de supprimer définitivement cette inscription du système.Pour y mettre fin à une date précise, utilisez la fonction annuler l'inscription.</value>
   </text>
 
   <text id="TEXT_DELETE_GROUP_SUBSCRIPTION_WARNING">
     <description></description>
-    <value>Você está prestes a excluir permanentemente essa assinatura em grupo e todos os dados contidos desse sistema. Isso só é permitido se nunca houve uma participação nessa assinatura em grupo.  Essa assinatura de grupo será removida de todos os modelos de conta aos quais ela possa estar associada.</value>
+<value>Vous êtes sur le point de supprimer définitivement cette inscription de groupe et toutes les données sur le système.Cette opération n'est autorisée que s'il n'y a jamais eu de participation de la part de cette inscription de groupe.Cette inscription de groupe sera supprimée de tout modèle de compte lui ayant été affecté.</value>
   </text>  
   
   <text id="TEXT_DELETE_GROUP_SUBSCRIPTION_MEMBERSHIP_WARNING">
     <description></description>
-    <value>Você está prestes a remover permanentemente esta assinatura. Clique em OK para continuar ou em Cancelar para voltar.</value>
+<value>Vous êtes sur le point de supprimer définitivement cette inscription.Cliquez sur OK pour continuer ou sur Annuler pour revenir en arrière.</value>
   </text>
 
   <text id="TEXT_DELETE_MESSAGE_WARNING_COMPLEMENT">
     <description></description>
-    <value>Clique em OK para confirmar a exclusão ou em CANCELAR para voltar.</value>
+<value>Cliquez sur OK pour confirmer la suppression ou sur ANNULER pour revenir en arrière.</value>
   </text>      
   
   <text id="TEXT_EDIT_ACCOUNT_TEMPLATE_SUCCESS">
-    <description>Diálogo de modelos</description>
-    <value>Modelo de conta atualizado com sucesso.</value>
+    <description>Templates Dialog</description>
+<value>Modèle de compte mis à jour.</value>
   </text>
 
   <text id="TEXT_CURRENT_SUBSCRIPTION">
-    <description>Assinatura atual</description>
-    <value>Atual</value>
+    <description>Current Subscription</description>
+<value>Actuel</value>
   </text>
 	
   <text id="TEXT_PAST_SUBSCRIPTION">
-    <description>Assinatura passada</description>
-    <value>Passado</value>
+    <description>Past Subscription</description>
+<value>Antérieur</value>
   </text>
 	
   <text id="TEXT_FUTURE_SUBSCRIPTION">
-    <description>Assinatura futura</description>
-    <value>Futuro</value>
+    <description>Future Subscription</description>
+<value>Postérieur</value>
   </text>
 
   <text id="TEXT_SUBSCRIPTION_FILTER_MESSAGE">
-    <description>Mensagem de assinatura</description>
-    <value>Exibindo assinaturas que estavam ativas nos últimos dias de [SUBSCRIPTION_FILTERING_INTERVAL]</value>
+    <description>Subscription Message</description>
+<value>Affichage des inscriptions actives au cours des [SUBSCRIPTION_FILTERING_INTERVAL] derniers jours</value>
   </text>
   
   <text id="TEXT_CALCULATE">
-    <value>Calcular</value>
+<value>Calculer</value>
   </text>  
  <text id="TEXT_SAVE">
-      <value>Salvar</value>
+<value>Enregistrer</value>
     	<description></description>
  </text>
  
  <text id="TEXT_COMPUTE">
-      <value>Calcular</value>
+<value>Calculer</value>
     	<description></description>
  </text>
  
   
   <text id="TEXT_RESULTS_ACCOUNTS">
-    <value>Retornar uma lista de contas correspondentes aos critérios de pesquisa.</value>
+<value>Retourner la liste des comptes qui correspondent aux critères de recherche.</value>
     <description />
   </text>
   
   <text id="TEXT_RESULTS_SERVICE_ENDPOINTS">
-    <value>Retorne uma lista de [TEXT_KEYTERM_SERVICE_ENDPOINTS] conectados a contas que correspondem aos critérios de pesquisa.</value>
+<value>Retourner une liste de [TEXT_KEYTERM_SERVICE_ENDPOINTS] connectés aux comptes qui correspondent aux critères de recherche.</value>
     <description />
   </text>
   
   <text id="TEXT_RESULTS">
-    <value>Resultados</value>
+<value>Résultats</value>
     <description />
   </text>
 
   <text id="TEXT_EVENT_DETAILS">
-    <value>Francais:characters restent pour Detalhes</value>
-    <description>Legenda para detalhes de evento</description>
+<value>Détails</value>
+    <description>Caption for event details</description>
   </text>
 
   <text id="TEXT_EVENT_TYPE">
-    <value>Tipo de evento</value>
+<value>Type d'événement</value>
     <description />
   </text>
 
   <text id="TEXT_NOTE">
-    <value>Observação</value>
+<value>Remarque</value>
     <description />
   </text>
 
   <text id="TEXT_TELEPHONE_CALL">
-    <value>Chamada telefônica</value>
+<value>Appel</value>
     <description />
   </text>    
 
   <text id="TEXT_UNABLE_TO_LOAD_ACCOUNT">
-    <value>Não é possível carregar a conta</value>
+<value>Impossible de charger le compte</value>
     <description />
   </text>   
   
   <text id="TEXT_PAYEE_DISPLAY_NAME">
-    <value>Assinante</value>
+<value>Abonné</value>
     <description />
   </text>   
 
   <text id="TEXT_TAX_AMOUNT">
-    <value>Valores do imposto</value>
+<value>Montant des taxes</value>
     <description />
   </text>   
   
   <text id="TEXT_WARNING_EBCR_START_DATE_CHANGE">
-    <value>Alterar essa data de início pode afetar negativamente as cobranças alinhadas com o ciclo de faturamento contidos na [TEXT_KEYTERM_PRODUCT_OFFERING]! associada.</value>
+<value>La modification de la date d'entrée en vigueur risque d'affecter les frais dépendant du cycle de facturation pour [TEXT_KEYTERM_PRODUCT_OFFERING] associée!</value>
     <description />
   </text>
   
   <text id="TEXT_DELETE_ACCOUNT_TEMPLATE">
-    <value>Excluir modelo de conta</value>
+<value>Supprimer le modèle de compte</value>
     <description />
   </text> 
   
   <text id="ADD_FOLDER_OWNER">
-    <value>Adicionar administrador de conta</value>
+<value>Ajouter un administrateur de compte</value>
     <description />
   </text> 
 
   <text id="ADD_ACCOUNT_FOR_ADMINISTRATION">
-    <value>Adicionar conta para administração</value>
+<value>Ajouter un compte pour l'administration</value>
     <description />
   </text> 
 
   <text id="TEXT_FOLDER_OWNER">
-    <value>Administrador de conta</value>
+<value>Administrateur de compte</value>
     <description />
   </text> 
 
   <text id="TEXT_DELETE_ACCOUNT_TEMPLATE_SUCCESS">
-    <value>Modelo de conta excluído com sucesso.</value>
+<value>Modèle de compte supprimé.</value>
     <description />
   </text> 
 
   <text id="TEXT_TEMPLATE_OPTIONS">
-    <value>Opções de modelo</value>
+<value>Options de modèle</value>
     <description />
   </text> 
   
   <text id="TEXT_DISPLAY_RESTRICTED_TO_1000_RESULTS">
-    <value>Esta exibição está limitada a 1.000 resultados. Use os critérios de filtro para visualizar os resultados que não estão listados aqui.</value>
+<value>Cette affichage se limite à 1 000 résultats.Utilisez les filtres afin d'afficher les résultats qui ne figurent pas dans cette liste.</value>
     <description />
   </text> 
     
   <text id="TEXT_ACCOUNT_ADDED_SUCCESSFULLY">
-    <value>A conta foi adicionada com sucesso.</value>
+<value>Le compte a été ajouté.</value>
     <description />
   </text> 
     
   <text id="TEXT_SUCCESSFUL">
-    <value>Bem-sucedido</value>
+<value>Réussi</value>
     <description />
-  </text>
-
-    <text id="TEXT_MANAGE_AH_CANNOT_ASSIGNED_TO_ROLE">
-      <value>A hierarquia de gerenciamento de conta não pode ser atribuída para esta função</value>
-    </text>
-    <text id="TEXT_OPTIONS">
-      <value>Opções</value>
-    </text>
- </texts>
+  </text> 
+  
+  <text id="TEXT_COMPANY_REFNUMBER_CRS1">
+	<value>No de référence d’entreprise CRS1:</value>  
+    	<description />
+  </text> 
+  <text id="TEXT_COMPANY_REFNUMBER_CRS2">
+	<value>No de référence d’entreprise CRS2:</value>  
+    	<description />
+  </text> 
+  <text id="TEXT_COMPANY_REFNUMBER_CRS3">
+	<value>No de référence d’entreprise CRS3:</value>  
+    	<description />
+  </text> 
+  <text id="TEXT_CLIENT_REFNUMBER_CRS1">
+	<value>No de référence du client CRS1:</value>  
+    	<description />
+  </text> 
+  <text id="TEXT_CLIENT_REFNUMBER_CRS2">
+	<value>No de référence du client CRS2:</value>  
+    	<description />
+  </text> 
+  <text id="TEXT_CLIENT_REFNUMBER_CRS3">
+	<value>No de référence du client CRS3:</value>  
+    	<description />
+  </text> 
+  <text id="TEXT_Disabled_CRS1">
+	<value>Annuler dans CRS1?</value>  
+    	<description />
+  </text> 
+  <text id="TEXT_Disabled_CRS2">
+	<value>Annuler dans CRS2?</value>  
+    	<description />
+  </text> 
+  <text id="TEXT_Disabled_CRS3">
+	<value>Annuler dans CRS3?</value>  
+    	<description />
+  </text> 
+</texts>

@@ -15,6 +15,7 @@
       </div>
     </b>
   </div>
+  <br />
   
   <!-- Title Bar -->
   <MT:MTTitle ID="MTTitle1" runat="server" Text="Subscription Details" meta:resourcekey="MTTitle1Resource1" />

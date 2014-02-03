@@ -198,6 +198,14 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
 
       if (!IsMoreThanOnePendingChangeAllowed(changeType))
       {
+        // Disable all options except "Cancel" button
+        StartDate.Enabled =
+          EndDate.Enabled =
+          cbEndNextBillingPeriod.Enabled =
+          cbStartNextBillingPeriod.Enabled =
+          pnlSubscriptionProperties.Enabled =
+          btnOK.Enabled = false;
+
         SetError(String.Format(GetLocalResourceObject("pendingChangeUiErrorFormat").ToString(), changeTypeDisplayName));
         Logger.LogError(
           string.Format(

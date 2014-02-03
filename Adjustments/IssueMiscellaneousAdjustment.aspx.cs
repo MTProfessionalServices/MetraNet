@@ -18,6 +18,8 @@ using MetraTech.DataAccess;
 using MetraTech.DomainModel.AccountTypes;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.Enums;
+using MetraTech.DomainModel.Common;
+using MetraTech.DomainModel.Enums.Core.Global;
 using MetraTech.DomainModel.ProductView;
 using MetraTech.Interop.MTAuth;
 using MetraTech.UI.Common;
@@ -120,8 +122,16 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         client.ClientCredentials.UserName.UserName = UI.User.UserName;
         client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
       }
+
+      LanguageCode? languageCode = ((InternalView) UI.Subscriber.SelectedAccount.GetInternalView()).Language;
+
       var items = new MTList<CreditNoteTmpl>();
-      client.GetCredtiNoteTemplates(ref items, UI.SessionContext.LanguageID);
+      client.GetCredtiNoteTemplates(ref items, Convert.ToInt32(EnumHelper.GetValueByEnum(languageCode, 1)));
+      if (items.Items.Count == 0)
+      {
+        items = new MTList<CreditNoteTmpl>();
+        client.GetCredtiNoteTemplates(ref items, Convert.ToInt32(EnumHelper.GetValueByEnum(LanguageCode.US, 1)));
+      }
 
       foreach (var item in items.Items)
       {
@@ -308,11 +318,17 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
               if (IsAllowedCreate(totalAmount ?? 0) && cbIssueCreditNote.Checked)
               {
                 // get the account credit just metered
-                Metratech_com_AccountCreditProductView accountCredit = getAccoutCreditJustMetered(ticks);
+                long sessionID = getAccoutCreditJustMetered(UI.Subscriber.SelectedAccount._AccountID.Value, ticks);
 
-                createCreditNote(accountCredit.SessionID, ddTemplateTypes.SelectedItem.Text,
-                                 new Guid(ddTemplateTypes.SelectedValue), CommentTextBox.Text, accountCredit.IntervalID,
-                                 UI.User.AccountId);
+                if (sessionID != -1)
+                {
+                  CreateCreditNote(sessionID, ddTemplateTypes.SelectedItem.Text,
+                                 new Guid(ddTemplateTypes.SelectedValue), CommentTextBox.Text, UI.User.AccountId);
+                }
+                else
+                {
+                  Logger.LogError("Failed to find Misc. Adjustment just created. Credit Note cannot be generated for AccountID " + UI.Subscriber.SelectedAccount._AccountID.Value);
+                }
               }
           }
           catch (Exception exp)
@@ -361,24 +377,27 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         }
     }
 
-  private void createCreditNote(long sessionId, string creditNoteTemplateName, Guid creditNoteTemplateID, string creditNoteDescription, int usageIntervalID, int requestingAccountID)
+  private void CreateCreditNote(long sessionId, string creditNoteTemplateName, Guid creditNoteTemplateID,
+                                string creditNoteDescription, int requestingAccountID)
   {
     CreditNoteServiceClient client = null;
     try
     {
       client = new CreditNoteServiceClient();
-
       if (client.ClientCredentials != null)
       {
         client.ClientCredentials.UserName.UserName = UI.User.UserName;
         client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
       }
 
+      Logger.LogDebug("Creating a Credit Note for AccountCredit with sessionid: " + sessionId,
+                      ", AccountID: " + UI.Subscriber.SelectedAccount._AccountID.Value + ", creditNoteTemplateID: " +
+                      creditNoteTemplateID + ", creditNoteDescription: " + creditNoteDescription +
+                      ", requestingAccountID: " + requestingAccountID);
       client.CreateCreditNote(sessionId, UI.Subscriber.SelectedAccount._AccountID.Value, UI.SessionContext.ToXML(),
-                              creditNoteTemplateName, creditNoteTemplateID,
-                              creditNoteDescription, usageIntervalID, requestingAccountID);
-
+                              creditNoteTemplateID, creditNoteDescription, requestingAccountID);
     }
+
     catch (Exception ex)
     {
       Logger.LogException("Failed in CreateCreditNote. An unknown exception occurred. Please check system logs.", ex);
@@ -393,9 +412,15 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
     }
   }
 
-  private Metratech_com_AccountCreditProductView getAccoutCreditJustMetered(long miscAdjustmentID)
+  /// <summary>
+  /// Look up the SessionID for a metered AccountCredit
+  /// </summary>
+  /// <param name="accountID">The AccountID product view property of the approved AccountCredit transaction to search for</param>
+  /// <param name="miscAdjustmentID">The miscAdjustmentID product view property of the approved AccountCredit transaction to search for</param>
+  /// <returns>SessionID of the AccountCredit if found. Returns -1 if not found.</returns>
+  private long getAccoutCreditJustMetered(int accountID, long miscAdjustmentID)
   {
-    var result = new Metratech_com_AccountCreditProductView();
+    long sessionID = -1;
     AdjustmentsServiceClient client = null;
 
     try
@@ -407,28 +432,24 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         client.ClientCredentials.UserName.UserName = UI.User.UserName;
         client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
       }
-      var items = new MTList<Metratech_com_AccountCreditProductView>();
 
-      // Filter based on input to function and values metered on this page when OK button clicked
-      var mtfe1 = new MTFilterElement("AccountID", MTFilterElement.OperationType.Equal, UI.Subscriber.SelectedAccount._AccountID);
-      items.Filters.Add(mtfe1);
-      var mtfe2 = new MTFilterElement("MiscAdjustmentID", MTFilterElement.OperationType.Equal, miscAdjustmentID);
-      items.Filters.Add(mtfe2);
-      client.GetApprovedAccountCredits(ref items);
+      client.GetAccountCreditSessionID(accountID, miscAdjustmentID, out sessionID);
 
-      if (items.Items.Count != 1)
+      if (sessionID <= 0)
       {
-        throw new Exception("Could not find exact match for the miscellaneous adjustment just metered, so no credit note docuement will be issued if one was requested.");
+        throw new Exception(
+          "Could not find exact match for the miscellaneous adjustment just metered, so no credit note docuement will be issued if one was requested.");
       }
-      foreach (var item in items.Items)
-      {
-        result = item;
-      }
+    }
+    catch (MASBasicException masBasicEx)
+    {
+      Logger.LogError("Error retrieving Miscellaneous Adjustment SessionID: " + masBasicEx.Message);
+      Logger.LogError("Error retrieving Miscellaneous Adjustment SessionID: " + masBasicEx.StackTrace);
     }
     catch (Exception ex)
     {
+      Logger.LogError("Error retrieving Miscellaneous Adjustment: " + ex.Message);
       Logger.LogException("An unknown exception occurred.  Please check system logs.", ex);
-      throw;
     }
     finally
     {
@@ -437,8 +458,9 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         client.Abort();
       }
     }
-    return result;
+    return sessionID;
   }
+
   private static decimal? CalcTotalAmount(decimal? adjAmount, decimal? taxFederal, decimal? taxState, decimal? taxCounty,
                                           decimal? taxLocal, decimal? taxOther)
   {
@@ -541,7 +563,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         {
             decimal authAmount = System.Convert.ToDecimal(cap.GetAtomicDecimalCapability().GetParameter().Value);
             string display = authAmount.ToString(MetraTech.UI.Common.Constants.NUMERIC_FORMAT_STRING_DECIMAL_MIN_TWO_DECIMAL_PLACES);
-            amount = String.Format(" {0} {1} {2} {3}", GetLocalResourceObject("TEXT_MAX_AUTHORIZED_AMOUNT"), cap.GetAtomicEnumCapability().GetParameter().Value, cap.GetAtomicDecimalCapability().GetParameter().Test, display);
+            amount = String.Format(" {0} {1} {2} {3}", GetLocalResourceObject("TEXT_MAX_AUTHORIZED_AMOUNT"), ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).Currency, cap.GetAtomicDecimalCapability().GetParameter().Test, display);
         }
 
         return amount;

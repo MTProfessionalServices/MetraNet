@@ -186,7 +186,7 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
     if (HasPendingChanges(changeType, subId))
     {
       const string approvalFrameworkManagementUrl =
-        "<a href='/MetraNet/ApprovalFrameworkManagement/ShowChangesSummary.aspx?showchangestate=PENDING'</a>";
+        "/MetraNet/ApprovalFrameworkManagement/ShowChangesSummary.aspx?showchangestate=PENDING";
       var changeTypeDisplayName = isNew
                                     ? GetLocalResourceObject("newSubscription").ToString()
                                     : GetLocalResourceObject("updateSubscription").ToString();

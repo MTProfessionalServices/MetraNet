@@ -63,7 +63,7 @@
       <EndPointName>NetTcpBinding_ISubscriptionService</EndPointName>
     </MethodForApply>
     <WebpageForView>
-      <URL>/MetraNet/ApprovalFrameworkManagement/ChangeTypeViewers/DefaultViewChangeDetails.aspx?changeid=%%CHANGE_ID%%&amp;currentstate=%%CHANGE_STATE%%&amp;showchangestate=%%SHOW_CHANGE_STATE%%</URL>
+      <URL>/MetraNet/ApprovalFrameworkManagement/ChangeTypeViewers/ViewSubscriptionChangeDetails.aspx?changeid=%%CHANGE_ID%%&amp;currentstate=%%CHANGE_STATE%%&amp;showchangestate=%%SHOW_CHANGE_STATE%%</URL>
     </WebpageForView>
   </ChangeTypeConfiguration>  
   <ChangeTypeConfiguration>
@@ -83,7 +83,7 @@
       <EndPointName>NetTcpBinding_ISubscriptionService</EndPointName>
     </MethodForApply>
     <WebpageForView>
-      <URL>/MetraNet/ApprovalFrameworkManagement/ChangeTypeViewers/DefaultViewChangeDetails.aspx?changeid=%%CHANGE_ID%%&amp;currentstate=%%CHANGE_STATE%%&amp;showchangestate=%%SHOW_CHANGE_STATE%%</URL>
+      <URL>/MetraNet/ApprovalFrameworkManagement/ChangeTypeViewers/ViewSubscriptionChangeDetails.aspx?changeid=%%CHANGE_ID%%&amp;currentstate=%%CHANGE_STATE%%&amp;showchangestate=%%SHOW_CHANGE_STATE%%</URL>
     </WebpageForView>
   </ChangeTypeConfiguration>  
   <ChangeTypeConfiguration>

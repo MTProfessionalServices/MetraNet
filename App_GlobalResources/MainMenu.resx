@@ -480,8 +480,11 @@
     <data name="TEXT_QUEUE_ADHOC_REPORTS" xml:space="preserve">
         <value>Queue Adhoc Reports</value>
     </data>
-    <data name="TEXT_QUOTING_LIST" xml:space="preserve">
+    <data name="TEXT_QUOTING" xml:space="preserve">
         <value>Quoting</value>
+    </data>
+    <data name="TEXT_QUOTING_LIST" xml:space="preserve">
+        <value>Manage Quoting</value>
     </data>
     <data name="TEXT_REFRESH" xml:space="preserve">
         <value>Refresh</value>

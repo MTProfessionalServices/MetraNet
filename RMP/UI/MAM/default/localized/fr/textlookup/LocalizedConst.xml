@@ -690,7 +690,19 @@
 <value>Date de fin</value>
         <description></description>
     </text> 
-          
+
+	<text id='TEXT_PERIOD_OF_TIME'>
+		<value>Période</value>
+	 </text>
+
+	 <text id='TEXT_BILLING_INTERVAL'>
+		<value>Intervalle de facturation</value>
+	 </text>
+
+	 <text id='TEXT_FIXED_DATE'>
+		<value>Date fixe</value>
+	 </text>	
+	
     <text id="TEXT_COLUMN_NAME">
 <value>Nom</value>
         <description></description>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Query>
+    <Action>Get</Action>
+    <Implementations>
+        <Implementation>Common</Implementation>
+    </Implementations>
+    <Parameters>
+        <Parameter>
+            <Name>AccountID</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description>id_acc of the AccountCredit</Description>
+        </Parameter>
+        <Parameter>
+            <Name>MiscAdjustmentID</Name>
+            <DataType>int64</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description>Optional MiscAdjustmentID from Misc. Adjustments Screen</Description>
+        </Parameter>
+    </Parameters>
+    <Description>Find an AccountCredit transaction's id_sess by input parameters</Description>
+    <ConversionAudit>
+        <ConversionDuplicateName></ConversionDuplicateName>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
+        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
+    </ConversionAudit>
+</Query>

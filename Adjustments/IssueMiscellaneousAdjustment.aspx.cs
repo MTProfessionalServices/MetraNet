@@ -275,7 +275,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         if (cbIssueCreditNote.Checked)
         {
           row["IssueCreditNote"] = true;
-          row["CreditNoteTemplateId"] = new Guid(ddTemplateTypes.SelectedValue);
+          row["CreditNoteTemplateId"] = ddTemplateTypes.SelectedValue;
           row["CreditNoteComment"] = CommentTextBox.Text;
         }
         else

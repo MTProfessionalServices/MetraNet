@@ -8,6 +8,7 @@
   <CalculateQuoteTotalAmountQueryTag>__GET_QUOTE_TOTAL_AMOUNT__</CalculateQuoteTotalAmountQueryTag>
   <GetMaxQuoteIdQueryTag>__GET_MAX_QUOTE_ID__</GetMaxQuoteIdQueryTag>
   <BackupQuoteUsagesQueryTag>__BACKUP_QUOTE_USAGES__</BackupQuoteUsagesQueryTag>
+  <CountMeteredQuoteUsagesQueryTag>__COUNT_ITEMS_FOR_BACKUP_QUOTE_USAGES__</CountMeteredQuoteUsagesQueryTag>
   <RemoveQuoteUsagesQueryTag>__REMOVE_QUOTE_USAGES__</RemoveQuoteUsagesQueryTag>
   <UpdateQuoteUsagesQueryTag>__UPDATE_QUOTE_USAGES__</UpdateQuoteUsagesQueryTag>
   <CountTotalQuoteUsagesQueryTag>__COUNT_TOTAL_QUOTE_USAGES__</CountTotalQuoteUsagesQueryTag>

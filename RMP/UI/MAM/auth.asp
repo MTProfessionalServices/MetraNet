@@ -16,9 +16,9 @@ if session("FRAMEWORK_SECURITY_IS_AUTHENTICATED_SESSION_NAME") <> TRUE then
 	response.Write "} else {" & vbNewLine
   
 	response.Write "if (document.images) {" & vbNewLine
-  response.Write "  getFrameMetraNet().location.replace(""" & Session("objMAM").Dictionary("GLOBAL_DEFAULT_LOGIN") & "?Message=" & server.URLEncode(Session("objMAM").Dictionary("TEXT_NO_AUTH")) & """); }" & vbNewLine
+  response.Write "  top.location.replace(""" & Session("objMAM").Dictionary("GLOBAL_DEFAULT_LOGIN") & "?Message=" & server.URLEncode(Session("objMAM").Dictionary("TEXT_NO_AUTH")) & """); }" & vbNewLine
   response.Write "else {" & vbNewLine
-  response.Write "  getFrameMetraNet().location.href = """ & Session("objMAM").Dictionary("GLOBAL_DEFAULT_LOGIN") & "?Message=" & server.URLEncode(Session("objMAM").Dictionary("TEXT_NO_AUTH")) & """;" & vbNewLine
+  response.Write "  top.location.href = """ & Session("objMAM").Dictionary("GLOBAL_DEFAULT_LOGIN") & "?Message=" & server.URLEncode(Session("objMAM").Dictionary("TEXT_NO_AUTH")) & """;" & vbNewLine
   response.Write "} }</script>" & vbNewLine
   
   response.end

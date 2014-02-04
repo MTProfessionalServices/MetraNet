@@ -114,10 +114,10 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <property name="AdjustmentType" column="c_AdjustmentType" not-null="true">
+    <property name="AdjustmentType" column="c_AdjustmentType">
       <meta attribute="label">AdjustmentType</meta>
       <meta attribute="description" />
-      <meta attribute="defaultvalue">MiscAdjustment</meta>
+      <meta attribute="defaultvalue" />
       <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>
       <meta attribute="association-entity" />
@@ -126,7 +126,7 @@
       <meta attribute="computation-type-name" />
       <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="MetraTech.DomainModel.Enums.Reporting.Adjustment.AdjustmentType, MetraTech.DomainModel.Enums.Generated" />
+      <type name="System.Int32, mscorlib" />
     </property>
     <many-to-one name="CreditNote" class="MetraTech.Core.CreditNotes.CreditNote, MetraTech.Core.CreditNotes.Entity" column="c_CreditNote_Id" cascade="none">
       <meta attribute="relationship-type">OneToMany</meta>

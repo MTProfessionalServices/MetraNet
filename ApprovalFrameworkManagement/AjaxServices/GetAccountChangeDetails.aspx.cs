@@ -70,8 +70,7 @@ public partial class ApprovalFrameworkManagement_AjaxServices_GetAccountChangeDe
             client.GetChangeDetails(changeId, ref accountchangedetailsblob);
 
             ChangeDetailsHelper changeDetailsIn = new ChangeDetailsHelper();
-            changeDetailsIn.KnownTypes.AddRange(MetraTech.DomainModel.BaseTypes.Account.KnownTypes());
-            changeDetailsIn.FromXml(accountchangedetailsblob);
+            changeDetailsIn.FromBuffer(accountchangedetailsblob);
 
             // Once you get the change details blob, you can now parse it for the property name and updated value, Key-Value Pair. 
             object o = changeDetailsIn["Account"];

@@ -130,12 +130,21 @@
     <value>Adjustment Date</value>
   </data>
   <data name="adjDescriptionTextBoxResource1.Label" xml:space="preserve">
-    <value>Description</value>
+    <value>Internal Description</value>
+  </data>
+  <data name="adjDescriptionTextBoxResource2.Label" xml:space="preserve">
+    <value>Subscriber Description</value>
   </data>
   <data name="adjDescriptionTextBoxResource1.MaxLength" xml:space="preserve">
     <value>-1</value>
   </data>
+  <data name="adjDescriptionTextBoxResource2.MaxLength" xml:space="preserve">
+    <value>-1</value>
+  </data>
   <data name="adjDescriptionTextBoxResource1.MinLength" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="adjDescriptionTextBoxResource2.MinLength" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="btnCancelResource1.ServerSide" xml:space="preserve">
@@ -144,8 +153,17 @@
   <data name="btnOKResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
+  <data name="cbIssueCreditNoteResource1.BoxLabel" xml:space="preserve">
+    <value>Issue Credit Note For This Adjustment</value>
+  </data>
+  <data name="CommentTextBoxResource1.Label" xml:space="preserve">
+    <value>Comment</value>
+  </data>
   <data name="ddBillingPeriod1.Label" xml:space="preserve">
     <value>Billing Period</value>
+  </data>
+  <data name="ddTemplateTypesResource1.Label" xml:space="preserve">
+    <value>Credit Note Template To Use</value>
   </data>
   <data name="ddReasonCodeResource1.AllowBlank" xml:space="preserve">
     <value>False</value>
@@ -161,6 +179,9 @@
   </data>
   <data name="MTPanel1Resource1.Text" xml:space="preserve">
     <value>Issue Miscellaneous Adjustment</value>
+  </data>
+  <data name="MTPanel2Resource1.Text" xml:space="preserve">
+    <value>Issue Credit Note For This Adjustment</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
@@ -195,7 +216,7 @@
   <data name="TEXT_UNLIMITED" xml:space="preserve">
     <value>Unlimited</value>
   </data>
-  <data name="adjAmountFldResourceTaxCounty.Lable" xml:space="preserve">
+  <data name="adjAmountFldResourceTaxCounty.Label" xml:space="preserve">
     <value>[en-GB] Tax County</value>
   </data>
   <data name="adjAmountFldResourceTaxCounty.MaxLenght" xml:space="preserve">
@@ -222,7 +243,7 @@
   <data name="adjAmountFldResourceTaxLocal.MinLenght" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="adjAmountFldResourceTaxOther.Lable" xml:space="preserve">
+  <data name="adjAmountFldResourceTaxOther.Label" xml:space="preserve">
     <value>[en-GB] Tax Other</value>
   </data>
   <data name="adjAmountFldResourceTaxOther.MaxLenght" xml:space="preserve">
@@ -248,5 +269,11 @@
   </data>
   <data name="adjAmountFldResourceTaxTotal.Label" xml:space="preserve">
     <value>[en-GB] Total Adjustment Being Issued</value>
+  </data>
+  <data name="TEXT_CREDIT_NOTE_CREATED" xml:space="preserve">
+    <value>A credit note for this Miscellaneous Adjustment was created.</value>
+  </data>
+  <data name="TEXT_CREDIT_NOTE_PENDING" xml:space="preserve">
+    <value>A credit note for this Miscellaneous Adjustment will be created when this Miscellaneous Adjusment is approved.</value>
   </data>
 </root>

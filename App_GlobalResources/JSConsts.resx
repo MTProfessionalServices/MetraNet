@@ -1188,7 +1188,7 @@
   <data name="TEXT_AMPWIZARD_HELP_DIRECTIVE_FILTER" xml:space="preserve">
     <value>The Condition for Execution is a freeform MVM expression that is evaluated when the directive is about to be executed.  If the expression evaluates to 1, the directive is executed. If the expression evaluates to a value other than 1, the directive is NOT executed.  This field applies to Table Inclusion, Field Population, and Procedure Execution.</value>
   </data>
-  <data name="ERROR_BILL_MESSAGE_DATES" xml:space="preserve">
-    <value>Error: End Date needs to be later than Start Date</value>
+  <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
+    <value>Start Date can't be greater than End Date</value>
   </data>
 </root>

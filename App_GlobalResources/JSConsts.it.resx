@@ -1192,4 +1192,7 @@
     <data name="ERROR_BILL_MESSAGE_DATES" xml:space="preserve">
      <value>Italian</value>
   </data>
+   <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
+    <value>[it]Start Date can't be greater than End Date</value>
+  </data>
 </root>

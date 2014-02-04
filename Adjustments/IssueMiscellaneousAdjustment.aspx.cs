@@ -320,6 +320,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
           // get the account credit just metered
           long sessionID = getAccoutCreditJustMetered(UI.Subscriber.SelectedAccount._AccountID.Value, ticks);
 
+          // Creating a credit note only if sessionid is non null
           if (sessionID != -1)
           {
             CreateCreditNote(sessionID, ddTemplateTypes.SelectedItem.Text,

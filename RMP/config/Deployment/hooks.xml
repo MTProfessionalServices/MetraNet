@@ -157,12 +157,12 @@ template unique name has been modified on MetraNet machine.]]></Description>
     <hook require_input="false">MetraTech.Reports.Hooks.DeployCEReports</hook>
   </hooklist>
    
-  <hooklist>
+  <!--hooklist>
     <Description><![CDATA[UUpdate Metadata in database to be the same as ICE configured.<br><br>
 <b>When to run:</b> Created, removed or modified account view, parameter table, product view,
 service definition, business model entity.]]></Description>
     <Short_Description>Synchronize Metadata</Short_Description>
     <hook require_input="false">MetraTech.ExpressionEngine.Metadata.Hook.MetadataHook</hook>
-  </hooklist>
+  </hooklist-->
    
 </synchronization>

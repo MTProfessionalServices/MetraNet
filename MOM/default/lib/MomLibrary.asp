@@ -365,7 +365,20 @@ END FUNCTION
 FUNCTION InitializeApplication() ' As Boolean
 
     DIM APP_FOLDER, objDictionary, objRCD
-    
+        	    If(IsEmpty(Session("mdm_APP_LANGUAGE")))Then        
+	            Dim userLocale
+                userLocale = request.ServerVariables("HTTP_ACCEPT_LANGUAGE")
+                dim Languages
+                if (not(IsNull(userLocale)) and not(IsEmpty(userLocale))) then
+                    Languages = Split(userLocale, ",", -1)
+                    dim L
+                    L = Languages(0)
+                    if(IsEmpty(L) or IsNull(L)) then L = mom_LANGUAGE end if
+                      Session("mdm_APP_LANGUAGE")           = L
+                else
+                      Session("mdm_APP_LANGUAGE")           = mom_LANGUAGE
+                end if 
+              end if
     FrameWork.Initialize TRUE
     
     Set objRCD                = CreateObject("Metratech.RCD")    
@@ -381,9 +394,9 @@ FUNCTION InitializeApplication() ' As Boolean
     Application("APP_HTTP_PATH")                = Mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1) ' " 
     Session("VIRTUAL_DIR")                      = Mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1) ' "
     Set Session("mdm_LOCALIZATION_DICTIONARY")  = FrameWork.Dictionary
-    Session("mdm_APP_LANGUAGE")                 = mom_LANGUAGE    
+    'Session("mdm_APP_LANGUAGE")                 = mom_LANGUAGE    
     
-    LoadDictionary APP_FOLDER, mom_LANGUAGE, FrameWork.Dictionary '"
+    LoadDictionary APP_FOLDER, Session("mdm_APP_LANGUAGE") , FrameWork.Dictionary '"
     
     InitializeApplication = TRUE
 END FUNCTION

@@ -16,4 +16,8 @@
     <GroupName>MetraNetQuote</GroupName>
     <FileName>config\MetraNetQuoteBasic.xml</FileName>
   </ReportListGroup>  
+  <ReportListGroup>
+    <GroupName>MetraNetCreditNote</GroupName>
+    <FileName>config\MetraNetCreditNote.xml</FileName>
+  </ReportListGroup>    
 </xmlconfig>

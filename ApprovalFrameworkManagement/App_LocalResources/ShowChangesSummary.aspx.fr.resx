@@ -118,81 +118,103 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TEXT_APPROVAL_CHANGECURRENTSTATE_APPLIED" xml:space="preserve">
-    <value>French</value>
+    <value>Appliqué</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGECURRENTSTATE_APPROVEDWAITINGTOBEAPPLIED" xml:space="preserve">
-    <value>French</value>
+    <value>Approuvé attente à appliquer</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGECURRENTSTATE_DISMISSED" xml:space="preserve">
-    <value>French</value>
+    <value>Rejeté</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGECURRENTSTATE_FAILEDTOAPPLY" xml:space="preserve">
-    <value>French</value>
+    <value>Impossible d'appliquer</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGECURRENTSTATE_PENDING" xml:space="preserve">
-    <value>French</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_ALL_STATUSES" xml:space="preserve">
-    <value>French</value>
+    <value>En attente</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_APPROVER_ID" xml:space="preserve">
-    <value>French</value>
+    <value>Approbateur</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_ALL_STATUSES" xml:space="preserve">
+    <value>État de tous les changements</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_COMMENT" xml:space="preserve">
-    <value>French</value>
+    <value>Commentaire</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_CURRENT_STATE" xml:space="preserve">
-    <value>French</value>
+    <value>État actuel</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_ID" xml:space="preserve">
-    <value>French</value>
+    <value>Action</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_LAST_MODIFIED_DATE" xml:space="preserve">
-    <value>French</value>
+    <value>Date de dernière modification</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_STATUS" xml:space="preserve">
-    <value>French</value>
+    <value>Modification état</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTED_DATE" xml:space="preserve">
-    <value>French</value>
+    <value>Date soumis</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_DISPLAYNAME" xml:space="preserve">
-    <value>French</value>
+    <value>Envoyé</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_ID" xml:space="preserve">
-    <value>French</value>
+    <value>Envoyé ID</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_TYPE" xml:space="preserve">
-    <value>French</value>
+    <value>Type</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_TYPE_DISPLAYNAME" xml:space="preserve">
-    <value>French</value>
+    <value>Changer le type</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_ID" xml:space="preserve">
-    <value>French</value>
+    <value>Unique Élément ID</value>
   </data>
   <data name="TEXT_APPROVAL_DENY" xml:space="preserve">
-    <value>French</value>
+    <value>Dénier</value>
   </data>
   <data name="TEXT_APPROVAL_DENY_ALL" xml:space="preserve">
-    <value>French</value>
+    <value>Dénier tout</value>
   </data>
   <data name="TEXT_APPROVAL_DISMISS" xml:space="preserve">
-    <value>French</value>
+    <value>Ignorer</value>
   </data>
   <data name="TEXT_APPROVAL_DISMISS_ALL" xml:space="preserve">
-    <value>French</value>
+    <value>Ignorer tout</value>
   </data>
   <data name="TEXT_APPROVAL_NO_RECORD_TEXT" xml:space="preserve">
-    <value>French</value>
+    <value>Aucun enregistrement trouvé</value>
   </data>
   <data name="TEXT_APPROVAL_RESUBMIT" xml:space="preserve">
-    <value>French</value>
+    <value>Soumettre à nouveau</value>
   </data>
   <data name="TEXT_APPROVAL_RESUBMIT_ALL" xml:space="preserve">
-    <value>French</value>
+    <value>Soumettre tout à nouveau</value>
   </data>
   <data name="TEXT_APPROVAL_VIEW_CHANGES_SUMMARY" xml:space="preserve">
-    <value>French</value>
+    <value>Voir modifications</value>
   </data>
+  <data name="TEXT_APPROVAL_CHANGE_STATE_DISPLAYNAME" xml:space="preserve">
+    <value>État</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_DISPLAYNAME" xml:space="preserve">
+    <value>Élément modifié</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_STATE_PENDING" xml:space="preserve">
+    <value>En attente</value>
+  </data>
+    <data name="TEXT_APPROVAL_CHANGE_STATE_WAITINGTOBEAPPLIED" xml:space="preserve">
+    <value>Approuvé attente à appliquer</value>
+  </data>
+    <data name="TEXT_APPROVAL_CHANGE_STATE_DISMISSED" xml:space="preserve">
+    <value>Rejeté</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_STATE_APPLIED" xml:space="preserve">
+    <value>Appliqué</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_STATE_FAILEDTOAPPLY" xml:space="preserve">
+    <value>Impossible d'appliquer</value>
+  </data>
+
 </root>

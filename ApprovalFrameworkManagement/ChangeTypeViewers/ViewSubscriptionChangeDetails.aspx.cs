@@ -28,7 +28,9 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
       var changeBlob = "";
       approvalClient.GetChangeDetails(ChangeId, ref changeBlob);
       var changeDetails = new ChangeDetailsHelper(changeBlob);
-      
+      var newSub = (Subscription)changeDetails[SubscriptionChangeType.SubscriptionKey];
+      var subscriber = (AccountIdentifier)changeDetails[SubscriptionChangeType.AccountIdentifierKey];
+
       if (changeDetails.ContainsKey(SubscriptionChangeType.SubscriptionChangeKey))
       {
         // This change was already applied/denied/dismissed and stores subscription changes for that moment
@@ -37,11 +39,12 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
       else
       {
         // This change is in the Pending state and has no SubscriptionChange object
-        var newSub = (Subscription)changeDetails[SubscriptionChangeType.SubscriptionKey];
-        var subscriber = (AccountIdentifier)changeDetails[SubscriptionChangeType.AccountIdentifierKey];
         SubChange = CompareWithCurrentSubscription(newSub, subscriber);
       }
 
+      // TODO: Get account name using {subscriber} by WCF
+      SubChange.AccountName = "AccountName";
+      SubChange.ProductOfferingName = newSub.ProductOffering.Name;
     }
     finally
     {

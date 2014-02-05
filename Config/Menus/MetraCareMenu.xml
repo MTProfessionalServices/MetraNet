@@ -403,7 +403,8 @@
                         <MenuItem>
                             <ID>BillMessageAccount</ID>
                             <Caption>
-                                <Value><![CDATA[Assign Bill Messages]]></Value>
+								<LocalizationTag>TEXT_ASSIGN_BILL_MESSAGES</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link>/MetraNet/BillMessages/BillMessageAccounts.aspx?Name=Core.BillMessages.BillMessageAccount&amp;Extension=Core&amp;NewBreadcrumb=True&amp;Association=MetraTech.BusinessEntity.Core.Model.AccountDef</Link>
                             <Target>MainContentIframe</Target>

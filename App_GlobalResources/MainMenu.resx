@@ -621,4 +621,7 @@
     <data name="TEXT_VIEWONLINE_BILL" xml:space="preserve">
         <value>View Online Bill</value>
     </data>
+    <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
+        <value>Assign Bill Messages</value>
+    </data>
 </root>

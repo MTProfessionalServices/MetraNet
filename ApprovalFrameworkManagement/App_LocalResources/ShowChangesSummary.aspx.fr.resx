@@ -117,26 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TEXT_APPROVAL_CHANGECURRENTSTATE_APPLIED" xml:space="preserve">
-    <value>Appliqué</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGECURRENTSTATE_APPROVEDWAITINGTOBEAPPLIED" xml:space="preserve">
-    <value>Approuvé attente à appliquer</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGECURRENTSTATE_DISMISSED" xml:space="preserve">
-    <value>Rejeté</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGECURRENTSTATE_FAILEDTOAPPLY" xml:space="preserve">
-    <value>Impossible d'appliquer</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGECURRENTSTATE_PENDING" xml:space="preserve">
-    <value>En attente</value>
-  </data>
   <data name="TEXT_APPROVAL_CHANGE_APPROVER_ID" xml:space="preserve">
     <value>Approbateur</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_ALL_STATUSES" xml:space="preserve">
-    <value>État de tous les changements</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_COMMENT" xml:space="preserve">
     <value>Commentaire</value>
@@ -150,9 +132,6 @@
   <data name="TEXT_APPROVAL_CHANGE_LAST_MODIFIED_DATE" xml:space="preserve">
     <value>Date de dernière modification</value>
   </data>
-  <data name="TEXT_APPROVAL_CHANGE_STATUS" xml:space="preserve">
-    <value>Modification état</value>
-  </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTED_DATE" xml:space="preserve">
     <value>Date soumis</value>
   </data>
@@ -165,32 +144,11 @@
   <data name="TEXT_APPROVAL_CHANGE_TYPE" xml:space="preserve">
     <value>Type</value>
   </data>
-  <data name="TEXT_APPROVAL_CHANGE_TYPE_DISPLAYNAME" xml:space="preserve">
-    <value>Changer le type</value>
-  </data>
   <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_ID" xml:space="preserve">
     <value>Unique Élément ID</value>
   </data>
-  <data name="TEXT_APPROVAL_DENY" xml:space="preserve">
-    <value>Dénier</value>
-  </data>
-  <data name="TEXT_APPROVAL_DENY_ALL" xml:space="preserve">
-    <value>Dénier tout</value>
-  </data>
-  <data name="TEXT_APPROVAL_DISMISS" xml:space="preserve">
-    <value>Ignorer</value>
-  </data>
-  <data name="TEXT_APPROVAL_DISMISS_ALL" xml:space="preserve">
-    <value>Ignorer tout</value>
-  </data>
   <data name="TEXT_APPROVAL_NO_RECORD_TEXT" xml:space="preserve">
     <value>Aucun enregistrement trouvé</value>
-  </data>
-  <data name="TEXT_APPROVAL_RESUBMIT" xml:space="preserve">
-    <value>Soumettre à nouveau</value>
-  </data>
-  <data name="TEXT_APPROVAL_RESUBMIT_ALL" xml:space="preserve">
-    <value>Soumettre tout à nouveau</value>
   </data>
   <data name="TEXT_APPROVAL_VIEW_CHANGES_SUMMARY" xml:space="preserve">
     <value>Voir modifications</value>
@@ -200,21 +158,6 @@
   </data>
   <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_DISPLAYNAME" xml:space="preserve">
     <value>Élément modifié</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_STATE_PENDING" xml:space="preserve">
-    <value>En attente</value>
-  </data>
-    <data name="TEXT_APPROVAL_CHANGE_STATE_WAITINGTOBEAPPLIED" xml:space="preserve">
-    <value>Approuvé attente à appliquer</value>
-  </data>
-    <data name="TEXT_APPROVAL_CHANGE_STATE_DISMISSED" xml:space="preserve">
-    <value>Rejeté</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_STATE_APPLIED" xml:space="preserve">
-    <value>Appliqué</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_STATE_FAILEDTOAPPLY" xml:space="preserve">
-    <value>Impossible d'appliquer</value>
   </data>
 
 </root>

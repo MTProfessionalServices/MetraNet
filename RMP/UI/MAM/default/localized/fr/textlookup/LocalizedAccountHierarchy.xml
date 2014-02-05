@@ -2,152 +2,152 @@
 
 <texts id="Account Hierarchy Terms" type="collection">
 
-    <description>Termos da hierarquia de conta</description>
+    <description>Account Hierarchy Terms</description>
 
 
     <text id="TEXT_DROP_ACCOUNTS">
-      <value>Arraste e solte aqui...</value>
-      <description>arrastar e soltar</description>
+<value>Faire glisser et déplacer ici...</value>
+      <description>drag and drop</description>
     </text> 
 
     <text id="TEXT_LOADING_DONE">
-      <value>Concluído</value>
-      <description>concluído</description>
+<value>Terminé</value>
+      <description>done</description>
     </text> 
 
     <text id="TEXT_LOADING_HIERARCHY">
-      <value>Carregando o controle de hierarquia...</value>
-      <description>carregando o controle de hierarquia</description>
+<value>Chargement du contrôle de la hiérarchie...</value>
+      <description>loading hierarchy control</description>
     </text> 
 
     <text id="START_ACCOUNT_HIERARCHY_WEBSERVICE">
-      <value>Verifique se o serviço da Web da hierarquia está em execução em:</value>
-      <description>verifique de o serviço da Web está executando a mensagem</description>
+<value>Veuillez vous assurer que votre service Web de hiérarchie de compte s'exécute à :</value>
+      <description>make sure webservice is running message</description>
     </text> 
 
     <text id="TEXT_ALL_CORPORATE_ACCOUNTS">
-      <value>Todas as contas corporativas</value>
-      <description>Todas as contas corporativas</description>
+<value>Tous les comptes commerciaux</value>
+      <description>All Corporate Accounts</description>
     </text> 
 
     <text id="TEXT_HIERARCHY">
-      <value>Hierarquia</value>
-      <description>Hierarquia</description>
+<value>Hiérarchie</value>
+      <description>Hierarchy</description>
     </text> 
 
     <text id="TEXT_MENU">
-      <value>Menu</value>
+<value>Menu</value>
       <description>Menu</description>
     </text> 
 
     <text id="TEXT_ACCOUNT_HIERARCHY">
-      <value>Hierarquia de conta</value>
-      <description>Hierarquia de conta</description>
+<value>Hiérarchie de compte</value>
+      <description>Account Hierarchy</description>
     </text> 
     
     <text id="TEXT_CORPORATE_ACCOUNT">
-      <value>Contas corporativas</value>
-      <description>Contas corporativas</description>
+<value>Comptes commerciaux</value>
+      <description>Corporate Accounts</description>
     </text> 
 
     <text id="TEXT_ADD_TEMPLATE_AVAILABLE_GROUP_SUBSCRIPTION">
-        <value>Assinaturas de grupo disponíveis</value>
+<value>Inscriptions de groupe disponibles</value>
     </text> 
 		
     <text id="TEXT_SUBSCRIPTION_TEMPLATE_GROUP">
-        <value>Grupo</value>
+<value>Groupe</value>
     </text>
      
     <text id="TEXT_SUBSCRIPTION_TEMPLATE_GROUP_SUB_NAME">
-        <value>Nome da assinatura em grupo</value>
+<value>Nom d'inscription du groupe</value>
     </text> 
     
     <text id="TEXT_ADD_ACCOUNTS_TO_ROLE">
-        <value>Adicionar contas à função</value>
+<value>Ajouter les comptes au Rôle</value>
     </text>     
     
     <text id="TEXT_HIERARCHY_VIEW_DATE">
-        <value>Exibir data</value>
+<value>Afficher la date</value>
     </text>     
     
     <text id="TEXT_CTX_MENU_ADD_ACCOUNT">
-        <value>Adicionar conta</value>
+<value>Ajouter le compte</value>
     </text>     
     
     <text id="TEXT_CTX_MENU_MANAGE">
-        <value>Gerenciar</value>
+<value>Gérer</value>
     </text>     
 
     <text id="TEXT_CTX_MENU_NEW_CORPORATE">
-        <value>Nova corporação</value>
+<value>Nouveau compte commercial</value>
     </text>     
 
     <text id="TEXT_CTX_MENU_GROUP_SUBSCRIPTIONS">
-        <value>Assinaturas em grupo</value>
+<value>Inscriptions de groupe</value>
     </text>     
 
     <text id="TEXT_CTX_MENU_SEARCH">
-        <value>Buscar</value>
+<value>Rechercher</value>
     </text>     
 
     <text id="TEXT_CTX_MENU_OPERATIONS">
-        <value>Operações</value>
+<value>Opérations</value>
     </text>     
 
     <text id="TEXT_CTX_MENU_ISSUE_MISC_ADJUSTMENT">
-        <value>Emitir diversos Ajuste</value>
+<value>Problème DiversAjustement</value>
     </text>     
 
     <text id="TEXT_CTX_MENU_VIEW_ONLINE_BILL">
-        <value>Fatura interativa</value>
+<value>Facture interactive</value>
     </text>     
 
     <text id="TEXT_CTX_MENU_UPDATE_ACCOUNT">
-        <value>Atualizar conta</value>
+<value>Mettre le compte à jour</value>
     </text>     
 
     <text id="TEXT_CTX_MENU_REFRESH">
-        <value>Atualizar</value>
+<value>Actualiser</value>
     </text>   
     
     <text id="TEXT_CTX_MENU_HIDE">
-        <value>Ocultar</value>
+<value>Masquer</value>
     </text> 
       
     <text id="TEXT_CTX_MENU_SHOW_ONLY">
-        <value>Mostrar apenas</value>
+<value>Afficher seulement</value>
     </text>      
     
     <text id="TEXT_CTX_MENU_SHOWALL">
-        <value>Mostrar tudo</value>
+<value>Afficher tous</value>
     </text>   
     
     <text id="TEXT_HIERARCHY_LOADING">
-        <value>Carregando...</value>
+<value>Chargement...</value>
     </text> 
     
    <text id="TEXT_HIERARCHY_DONE">
-        <value>Concluído.</value>
+<value>Terminé.</value>
     </text> 
     
    <text id="TEXT_REFRESH_CLICK">
-        <value>Clique no ícone atualizar para carregar a hierarquia a partir da data selecionada.</value>
+<value>Cliquez sur l'icone Actualiser pour charger la hiérarchie à partir de la date sélectionnée.</value>
    </text>          
 
    <text id="TEXT_CTX_MENU_OWNED_ACCOUNTS">
-        <value>Contas pertencentes</value>
+<value>Comptes responsable</value>
    </text>          
    
    <text id="TEXT_CTX_MENU_SECURITY">
-        <value>Segurança</value>
+<value>Sécurité</value>
    </text>          
 
    <text id="TEXT_CTX_MENU_ADD_USER">
-        <value>Adicionar usuário</value>
+<value>Ajouter un utilisateur</value>
    </text>          
 
    <text id="TEXT_CTX_MENU_ADD_GSM">
-        <value>Adicionar GSM</value>
+<value>Ajouter GSM</value>
    </text>     
    
 </texts>

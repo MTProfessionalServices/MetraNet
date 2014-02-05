@@ -3,77 +3,77 @@
 <texts id="Roadmap Messages" type="collection">
 
 <description>
-  O arquivo define o texto que será exibido no quadro do guia, caso ocorra um erro.
-  O formato do id é ROADMAP(número de erro)
-  suporte HTML e termos-chave
+  The file defines the text that will be displayed in the Guide frame if an error occurs.
+  The id format is ROADMAP(error number)
+  Supports HTML and Keyterms
 </description>
 
     <text id="ROADMAP-516947931">
-			 <description>A medição síncrona expirou.</description>
+			 <description>Synchronous metering timed out.</description>
 		   <value>
-    			 <![CDATA[ Aparentemente, o MetraTech Pipeline não está em execução no servidor.  Solicite que o seu administrador verifique se o servidor está em execução corretamente.  A ação será enviada quando o pipeline começar. ]]>
+			 <![CDATA[ Le pipeline MetraTech ne semble pas fonctionner en ce moment sur le serveur.Veuillez demander à votre administrateur de vérifier si le serveur fonctionne correctement.L'action sera soumise dès que le pipeline démarrera. ]]>
 			 </value>
 		</text>
     <text id="ROADMAP-486604795">
-			 <description>A conta de pagamento não é faturável.</description>
+			 <description>The paying account is not billable.</description>
 		   <value>
-		       <![CDATA[ Você deve primeiro marcar a conta de pagamento como faturável antes de poder configurá-la para outras contas.  Isso é feito na tela Informações de conta. ]]>  
+		       <![CDATA[ Vous devez d'abord définir le compte comme étant facturable avant de le configurer pour qu'il puisse payer pour d'autre comptes.Vous pouvez faire ceci sur l'écran Info du compte. ]]>  
 			 </value>
 	  </text>		
     <text id="ROADMAP-469368830">
-			 <description>Essa conta é um favorecido.  Ela não pode ser suspendida.</description>
+			 <description>This account is a payee.  It cannot be suspended.</description>
 		   <value>
-		       <![CDATA[ Você primeiro deve marcar a conta de pagamento como não faturável antes que você possa suspendê-la.]]>  
+		       <![CDATA[ Vous devez d'abord définir le compte comme étant non facturable avant de le suspendre.]]>  
 			 </value>
 	  </text>		
     <text id="ROADMAP1025">
-			 <description>Falha do lote</description>
+			 <description>Batch failed</description>
 		   <value>
-		       <![CDATA[ Para obter mais informações sobre as operações em lote que falharam clique <a target="MainContentIframe" href="[BATCH_ERROR_LIST_DIALOG]">aqui</a>. ]]>  
+		       <![CDATA[ Pour obtenir plus d'informations au sujet des opérations en lot qui ont échouées, cliquez <a target="main" href="[BATCH_ERROR_LIST_DIALOG]">ici</a>. ]]>  
 			 </value>
 	  </text>		
     <text id="ROADMAP1036">
-			 <description>Falha do lote</description>
+			 <description>Batch failed</description>
 		   <value>
-		       <![CDATA[ Para obter mais informações sobre as contas que falharam ao efetuarem a assinatura clique <a target="MainContentIframe" href="[BATCH_ERROR_LIST_DIALOG]">aqui</a>. ]]>  
+		       <![CDATA[ Pour obtenir plus d'informations au sujet des comptes dont l'inscription a échoué, cliquez <a target="main" href="[BATCH_ERROR_LIST_DIALOG]">ici</a>. ]]>  
 			 </value>
 	  </text>		   
     <text id="ROADMAP1052">
-      <description>Falha do modelo de lote</description>    
+      <description>Batch template failed</description>    
       <value>
-        <![CDATA[ A operação do modelo de lote falhou para algumas contas.  Para obter mais informações sobre as contas que falharam clique <a target="MainContentIframe" href="[BATCH_ERROR_LIST_DIALOG]">aqui</a>. ]]>  
+<![CDATA[ L'opération du modèle de lot a échoué pour certains comptes.Pour obtenir plus d'informations au sujet des comptes dont l'inscription a échoué, cliquez a target="main" href="[BATCH_ERROR_LIST_DIALOG]">ici</a>. ]]>  
       </value>
 	  </text>		 	   
     <text id="ROADMAP-492896235">
-			 <description>A função não pode ser excluída com membros</description>
+			 <description>Role cannot be deleted with members</description>
 		   <value>
-		       <![CDATA[ A função que você está tentando excluir no momento tem membros.  Você deve primeiro remover todos os membros da função antes de poder excluí-la.  Clique <a target="MainContentIframe" href="[MANAGE_ROLES_DIALOG]">aqui</a> para voltar para Gerenciar funções e, em seguida, selecione o ícone Membros para ver quem está atribuído no momento para essa função. ]]>  
+		       <![CDATA[ Le rôle que vous tentez de supprimer possède actuellement des membres.Vous devez d'abord retirer tous les membres affectés à ce rôle avant de le supprimer.Cliquez <a target="main" href="[MANAGE_ROLES_DIALOG]">ici</a> pour revenir à Gérer les rôles, puis sélectionnez l'icône Membres afin d'afficher les membres actuellement affectés à ce rôle. ]]>  
 			 </value>
 	  </text>		    
     <text id="ROADMAP-492896216">
-			 <description>O recurso Gerenciar hierarquias de conta não pode ser associado com a Função atribuível do assinante</description>
+			 <description>Manage Account Hierarchies capability can not be associated with Subscriber Assignable Role</description>
 		   <value>
-		       <![CDATA[ Para atribuir o recurso Gerenciar hierarquias da conta para um assinante você deve posicionar o recursos diretamente na conta.  <a target="MainContentIframe" href="[LAST_ROLE_PAGE]">Volte para Configurar recursos</a>. ]]>  
+		       <![CDATA[ Afin d'affecter la capacité Gérer les hiérarchies de compte à un abonné, vous devez placer la capacité directement sur le compte.<a target="main" href="[LAST_ROLE_PAGE]">Revenir à Configurer les capacités</a>. ]]>  
 			 </value>
 	  </text>		
     <text id="ROADMAP-OVERRIDESUBDATE">
-			 <description>Sobreposição da data de assinatura de acordo com as datas efetivas de ofertas de sub ou produto do grupo.</description>
+			 <description>Subscription date override according to group sub or product offering effective dates.</description>
 		   <value>
-		       <![CDATA[ A data de assinatura selecionada foi substituída pela data máxima permitida de acordo com as datas efetivas da Oferta de produto ou Assinatura em grupo.]]>  
+		       <![CDATA[ La date d'inscription que vous avez sélectionnée a été remplacée par la date maximale autorisée en conformité avec les dates d'entrée en vigueur de l'Offre de produit ou de l'inscription de groupe.]]>  
 			 </value>
 	  </text>	
 
     <text id="ROADMAP-OVERRIDEGROUPSUBDATE">
-			 <description>Substituição da data de assinatura em grupo de acordo com a data efetiva da oferta de produto.</description>
+			 <description>Group Subscription date override according to product offering effective date.</description>
 		   <value>
-		       <![CDATA[ A data efetiva de assinatura em grupo foi substituída pelo máximo permitido de acordo com a data efetiva da oferta de produto. ]]>  
+		       <![CDATA[ La date d'entrée en vigueur de l'inscription de groupe a été remplacée par la date maximale autorisée en conformité avec la date d'entrée en vigueur de l'offre de produit. ]]>  
 			 </value>
 	  </text>	
 
     <text id="ROADMAP-OVERRIDEMEMBERSHIPDATE">
-			 <description>Substituição da data de associação da assinatura em grupo de acordo com as data efetivas de oferta de produto ou assinatura em grupo.</description>
+			 <description>Group Subscription membership date override according to product offering or group subscription effective dates.</description>
 		   <value>
-		       <![CDATA[ A data de associação em grupo foi substituída pelo máximo permitido de acordo com a data efetiva da oferta de produto. ]]>  
+		       <![CDATA[ La date d'adhésion de groupe a été remplacée par la date maximale autorisée en conformité avec la date d'entrée en vigueur de l'offre de produit ou de l'inscription de groupe. ]]>  
 			 </value>
 	  </text>		
   

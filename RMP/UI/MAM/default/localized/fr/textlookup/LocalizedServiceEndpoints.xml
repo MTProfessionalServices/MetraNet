@@ -1,316 +1,321 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <texts id="Service Endpoints" type="collection">
-  <description>Termos localizados que se relacionam ao gerenciamento dos terminais de serviço.  Observe que o termo "Terminal de serviço" é um termo-chave localizado.</description>
+  <description>Localized terms that relate to managing service endpoints.  Note that the term "Service Endpoint" is a localized key term.</description>
 
   <text id="TEXT_SE_QUICKINFO">
-    <value>Resumo de [TEXT_KEYTERM_SERVICE_ENDPOINT] rápido</value>
+<value>Sommaire rapide de [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
     <description></description>
 	</text>
   
   <text id="TEXT_SE_ID_MAPPINGS">
-    <value>Mapeamentos de nome/espaço de nomes atuais</value>
+<value>Mappages actuels de nom/espace nom</value>
     <description></description>
   </text>
   
   <text id="TEXT_SE_PROPERTIES">
-    <value>Propriedades</value>
+<value>Propriétés</value>
     <description></description>
   </text>
   
   <text id="TEXT_SE_ID">
-    <value>ID de [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
+<value>ID [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
     <description />
   </text>
 
   <text id="TEXT_SE_ACCOUNT_ID">
-    <value>ID de conta</value>
+<value>ID du compte</value>
     <description />
   </text>
     
   <text id="TEXT_SE_CORPORATE_ID">
-    <value>ID corporativo</value>
+<value>ID de compte commercial</value>
     <description />
   </text>
 
   <text id="TEXT_SE_START_DATE">
-    <value>Data de início</value>
+<value>Date de début</value>
     <description />
   </text>
 
   <text id="TEXT_SE_END_DATE">
-    <value>Data de término</value>
+<value>Date de fin</value>
     <description />
   </text>
 
   <text id="TEXT_SE_GLOBAL">
-    <value>Global</value>
+<value>Global</value>
     <description />
   </text>
  
   <text id="TEXT_SE_LOGIN">
-    <value>Login</value>
+<value>Ouverture de session</value>
     <description />
   </text>
 
   <text id="TEXT_SE_NAMESPACE">
-    <value>Espaço de nomes</value>
+<value>Espace nom</value>
     <description />
   </text>
   
   <text id="TEXT_SE_CONNECTIONS">
-    <value>Conexões</value>
+<value>Connexions</value>
     <description />
   </text>
   
   <text id="TEXT_SE_EDIT_ID_MAPPINGS">
-    <value>Editar mapeamentos de nome/espaço de nomes</value>
+<value>Modifier les mappages de nom/espace nom</value>
     <description />
   </text>
   
   <text id="TEXT_SE_DYNAMIC_MAIN_MENU_TAB_SERVICE_ENDPOINT">
-    <value>[TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
+<value>[TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
     <description />
   </text>
   
   <text id="TEXT_SE_SUMMARY_INFO_DIALOG">
-    <value>Informações de [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
+<value>Renseignements sur [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
     <description />
   </text>
   
   <text id="TEXT_SE_UPDATE_ID_MAPPINGS">
-    <value>Mapeamentos de nome</value>
+<value>Mappages de nom</value>
     <description />
   </text>
   
   <text id="TEXT_SE_UNABLE_TO_LOAD">
-    <value>Não é possível carregar o [TEXT_KEYTERM_SERVICE_ENDPOINT].</value>
+<value>Impossible de charger [TEXT_KEYTERM_SERVICE_ENDPOINT].</value>
     <description />
   </text>  
   
   <text id="TEXT_SE_ADD_MAPPING">
-    <value>Adicionar mapeamento</value>
+<value>Ajouter le mappage</value>
     <description />
   </text>
   
   <text id="TEXT_SE_EXTERNAL_ID">
-    <value>Nome externo</value>
+<value>Nom externe</value>
     <description />
   </text>
   
   <text id="TEXT_SE_EXTERNAL_NAMESPACE">
-    <value>Espaço de nome externo</value>
+<value>Espace nom externe</value>
     <description />
   </text>
   
   <text id="TEXT_SE_NEW_ID_MAPPING">
-    <value>Novo mapeamento de nome/espaço de nomes</value>
+<value>Nouveaux mappages de nom/espace nom</value>
     <description />
   </text>
   
   <text id="TEXT_SE_REMOVE_MAPPINGS">
-    <value>Remover mapeamento(s)</value>
+<value>Supprimer le(s) mappage(s)</value>
     <description />
   </text>
   
   <text id="TEXT_SE_UPDATE_MAPPING">
-    <value>Modificar mapeamento</value>
+<value>Modifier le mappage</value>
     <description />
   </text>
   
   <text id="TEXT_SE_REMOVE">
-    <value>Remover</value>
+<value>Supprimer</value>
     <description />
   </text>
   
   <text id="TEXT_SE_REMOVE_PROMPT">
-    <value>Verifique a(s) caixa(s) próxima ao(s) mapeamento(s) que você deseja remover, em seguida, clique no botão "Remover".</value>
+<value>Cochez la(les) case(s) en regard du(des) mappage(s) à supprimer, puis cliquez sur le bouton « Supprimer ».</value>
     <description />
   </text>
   
   <text id="TEXT_SE_CONNECT_TO_ACCOUNT">
-    <value>Conectar</value>
+<value>Connecter</value>
     <description />
   </text>
   
   <text id="TEXT_SE_EDIT_CONNECTIONS">
-    <value>Modificar conexões</value>
+<value>Modifier les connexions</value>
     <description />
   </text>
 
   <text id="TEXT_SE_ADD_CONNECTION">
-    <value>Adicionar conexão</value>
+<value>Ajouter une connexion</value>
     <description />
   </text>
   
   <text id="TEXT_SE_REMOVE_CONNECTIONS">
-    <value>Remover conexão(ões)</value>
+<value>Supprimer le(s) connexion(s)</value>
     <description />
   </text>
   
   <text id="TEXT_SE_NEW_CONNECTION">
-    <value>Nova conexão</value>
+<value>Nouvelle connexion</value>
+    <description />
+  </text>
+  
+  <text id="TEXT_SE_REMOVE_CONNECTIONS">
+<value>Supprimer les connexions</value>
     <description />
   </text>
   
   <text id="TEXT_SE_REMOVE_CONNECTION_PROMPT">
-    <value>Verifique a(s) caixa(s) próxima à(s) conexão(ões) que você deseja remover, em seguida, clique no botão "Remover".</value>
+<value>Cochez la(les) case(s) en regard du(des) connexion(s) à supprimer, puis cliquez sur le bouton « Supprimer ».</value>
     <description />
   </text>
   
   <text id="TEXT_SE_UPDATE_CONNECTION">
-    <value>Modificar conexões</value>
+<value>Modifier la connexion</value>
     <description />
   </text>
   
   <text id="TEXT_SE_UPDATE_CONNECTION_SUCCESS">
-    <value>Conexão atualizada com sucesso.</value>
+<value>Connexion mise à jour.</value>
     <description />
   </text>
   
   <text id="TEXT_SE_UPDATED_CONNECTION">
-    <value>Conexão modificada</value>
+<value>Connexion modifiée</value>
     <description />
   </text>
   
   <text id="TEXT_SE_CREATE_SERVICE_ENDPOINT">
-    <value>Criar [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
+<value>Créer [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
     <description />
   </text>
   
   <text id="TEXT_SE_NEW_ENDPOINT">
-    <value>Novo [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
+<value>Nouveau [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
     <description />
   </text>
   
   <text id="TEXT_SE_NOT_APPLICABLE">
-    <value>n/d</value>
+<value>s/o</value>
     <description />
   </text>
   
   <text id="TEXT_SE_CONNECTED_SERVICE_ENDPOINT">
-    <value>[TEXT_KEYTERM_SERVICE_ENDPOINTS] conectados</value>
+<value>[TEXT_KEYTERM_SERVICE_ENDPOINTS] connectés</value>
     <description />
   </text>
   
   <text id="TEXT_SE_FIND_SERVICE_ENDPOINT">
-    <value>Encontrar [TEXT_KEYTERM_SERVICE_ENDPOINTS]</value>
+<value>Rechercher [TEXT_KEYTERM_SERVICE_ENDPOINTS]</value>
     <description />
   </text>
   
   <text id="TEXT_SE_ENDPOINTS_FOUND">
-    <value>[TEXT_KEYTERM_SERVICE_ENDPOINTS] encontrados</value>
+<value>[TEXT_KEYTERM_SERVICE_ENDPOINTS] trouvé</value>
     <description />
   </text>
   
   <text id="TEXT_SE_ENDPOINT_NOT_IN_HIERARCHY_ON_DATE">
-    <value>[TEXT_KEYTERM_SERVICE_ENDPOINT] não existe nesta data</value>
+<value>[TEXT_KEYTERM_SERVICE_ENDPOINT] n'existe pas pour cette date</value>
     <description />
   </text>
   
   <text id="TEXT_SE_CONNECTED_ACCOUNT">
-    <value>[TEXT_ACCOUNT] conectada</value>
+<value>[TEXT_ACCOUNT] connecté</value>
     <description />
   </text>
   
   <text id="TEXT_SE_INFO">
-    <value>Resumo de [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
+<value>Sommaire de [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
     <description />
   </text>
   
   <text id="TEXT_SE_RESULTS_ACCOUNTS">
-    <value>Retornar uma lista de contas conectadas aos terminais de serviço correspondentes aos critérios de pesquisa.</value>
+<value>Retourne la liste des comptes connectés aux points d'extrémité de service qui correspondent aux critères de recherche.</value>
     <description />
   </text>
   
   <text id="TEXT_SE_RESULTS_SERVICE_ENDPOINTS">
-    <value>Retornar uma lista de contas terminais de serviço aos critérios de pesquisa.</value>
+<value>Retourne la liste des points d'extrémité de service qui correspondent aux critères de recherche.</value>
     <description />
   </text>
   
   <text id="TEXT_SE_HIERARCHY_DATE">
-    <value>Data de hierarquia</value>
+<value>Date de la hiérarchie</value>
     <description />
   </text>
   
   <text id="TEXT_SE_PRIMARY_ID">
-    <value>ID principal</value>
+<value>ID principal</value>
     <description />
   </text>
   
   <text id="TEXT_SE_EXTENDED_PROPERTIES">
-    <value>Propriedades estendidas</value>
+<value>Propriétés étendues</value>
     <description />
   </text>
   
   <text id="TEXT_SE_EXTENDED_PROPERTIES_SUCCESS">
-    <value>Propriedades estendidas atualizadas com sucesso.</value>
+<value>Propriétés étendues mises à jour.</value>
     <description />
   </text>
   
   <text id="TEXT_SE_NO_CONNECTIONS">
-    <value>Não há conexões.</value>
+<value>Aucune connexion.</value>
     <description />
   </text>
   
   <text id="TEXT_SE_NO_EXTENDED_PROPERTIES">
-    <value>Não há propriedades estendidas.</value>
+<value>Aucune propriété étendue.</value>
     <description />
   </text>
   
   <text id="TEXT_SE_EFFECTIVE_DATES">
-    <value>Datas de vigência</value>
+<value>Dates d'entrée en vigueur</value>
     <description />
   </text>
   
   <text id="TEXT_SE_CLOSE_ENDPOINT">
-    <value>Fechar [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
+<value>Fermer [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
     <description />
   </text>
   
   <!-- Used in the quickfind dialog -->
   <text id="SEExternalID">
-    <value>Nome de [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
+<value>Nom [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
     <description />
   </text>
   
   <text id="TEXT_SERVICE_END_POINT_ID">
-    <value>ID de [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
+<value>ID [TEXT_KEYTERM_SERVICE_ENDPOINT]</value>
     <description />
   </text>
   
   <text id="TEXT_SE_CONNECTION_MOVED_SUCCESSFULLY">
-    <value>A conexão do [TEXT_KEYTERM_SERVICE_ENDPOINT] com [SE_NAME] foi movida com sucesso para [SE_MOVE_DESTINATION] com as datas efetivas de [SE_MOVE_DATE] para [SE_END_DATE].</value>
+<value>La connexion [TEXT_KEYTERM_SERVICE_ENDPOINT] pour [SE_NAME] a été déplacée à [SE_MOVE_DESTINATION] avec des dates d'entrée en vigueur de [SE_MOVE_DATE] à [SE_END_DATE].</value>
     <description />
   </text>
   
   <text id="TEXT_SE_CONNECTION_CREATED_SUCCESSFULLY">
-    <value>A conexão do [TEXT_KEYTERM_SERVICE_ENDPOINT] com [SE_NAME] foi adicionada para [SE_MOVE_DESTINATION] com as datas efetivas de [SE_MOVE_DATE] para [SE_END_DATE].</value>
+<value>La connexion [TEXT_KEYTERM_SERVICE_ENDPOINT] pour [SE_NAME] a été ajoutée à [SE_MOVE_DESTINATION] avec des dates d'entrée en vigueur de [SE_MOVE_DATE] à [SE_END_DATE].</value>
     <description />
   </text>
   
   <text id="TEXT_SE_END_OF_TIME">
-    <value>Hora de término</value>
+<value>Heure de fin</value>
     <description />
   </text>
   
   <text id="TEXT_SE_CONNECTED_ACCOUNT_TYPE">
-    <value>Tipo de [TEXT_ACCOUNT] conectada</value>
+<value>Type de [TEXT_ACCOUNT] connecté</value>
     <description />
   </text>
   
   <text id="TEXT_SE_REMOVE_CONFIRMATION">
-    <value>Aviso! A exclusão de uma conexão pode causar problemas durante a tentativa de reenviar transações com falha associadas com [TEXT_KEYTERM_SERVICE_ENDPOINTS].  Pressione OK para continuar.</value>
+<value>Avertissement!Supprimer une connexion peut causer des problèmes lorsque vous tentez de soumettre de nouveau des transactions échouées associées à des [TEXT_KEYTERM_SERVICE_ENDPOINTS].Appuyez sur OK pour continuer.</value>
     <description />
   </text>
   
   <text id="TEXT_SE_CONNECTION_START">
-    <value>Início da conexão</value>
+<value>Début de la connexion</value>
     <description />
   </text>
   
   <text id="TEXT_SE_CONNECTION_END">
-    <value>Término da conexão</value>
+<value>Fin de la connexion</value>
     <description />
   </text>
 </texts>

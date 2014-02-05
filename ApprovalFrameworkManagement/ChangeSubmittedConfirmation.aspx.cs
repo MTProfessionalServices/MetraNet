@@ -1,15 +1,18 @@
 using System;
 using MetraTech.UI.Common;
-using MetraTech.DomainModel.BaseTypes;
 
 public partial class ApprovalFrameworkManagement_ChangeSubmittedConfirmation : MTPage
 {
-  
   protected void Page_Load(object sender, EventArgs e)
   {
     if (!IsPostBack)
     {
-      var changeId = Request.QueryString["ChangeId"];
+      Session.Remove("SubscriptionInstance");
+      Session.Remove("UDRCs");
+      Session.Remove("UDRCDictionary");
+      Session.Remove("udrc_State");
+      Session.Remove("udrc_InterfaceName");
+      Session.Remove("udrc_ProcessorId");
     }
   }
 
@@ -26,6 +29,4 @@ public partial class ApprovalFrameworkManagement_ChangeSubmittedConfirmation : M
       Response.Redirect(redirectLoc, false);
     }
   }
-
-
 }

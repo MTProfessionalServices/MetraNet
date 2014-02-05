@@ -778,28 +778,6 @@
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
-                <MenuSection>
-                    <ID>Quoting</ID>
-                    <Caption>
-                        <LocalizationTag>TEXT_QUOTING</LocalizationTag>
-                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-                    </Caption>
-                    <Description></Description>
-                    <MenuItems>
-                        <MenuItem>
-                            <ID>QuotingList</ID>
-                            <Caption>
-                                <LocalizationTag>TEXT_QUOTING_LIST</LocalizationTag>
-                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-                            </Caption>
-                            <Link></Link>
-                            <Target>MainContentIframe</Target>
-                            <Icon>/Res/Images/Icons/report.png</Icon>
-                            <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
-                        </MenuItem>
-                    </MenuItems>
-                </MenuSection>
             </MenuSections>
         </Menu>
     </Menus>

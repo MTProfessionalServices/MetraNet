@@ -1,19 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Threading;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using MetraTech.DomainModel.Enums.Core.Global;
+using MetraTech.Approvals.ChangeTypes;
 using MetraTech.UI.Common;
+using MetraTech.Core.Services.ClientProxies;
 using MetraTech.PageNav.ClientProxies;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.ActivityServices.Common;
-using MetraTech.UI.Controls;
 using MetraTech.UI.Tools;
-using PropertyType = MetraTech.DomainModel.Enums.Core.Global.PropertyType;
 using MetraNet.Models;
 
 public partial class Subscriptions_SetSubscriptionDate : MTPage
@@ -30,27 +24,13 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
     set { Session["SpecValues"] = value; }
   }
 
-  protected string FormatDateMessage(DateTime? startDate, DateTime? endDate)
+  public string ChangeType
   {
-    string msg = Resources.Resource.TEXT_SUB_DATE_MESSAGE_START;
-
-    if (startDate.HasValue)
-    {
-      msg += " " + Resources.Resource.TEXT_AFTER + " " + startDate.Value.ToShortDateString();
-    }
-
-    if (startDate.HasValue && endDate.HasValue)
-    {
-      msg += " " + Resources.Resource.TEXT_AND;
-    }
-
-    if (endDate.HasValue)
-    {
-      msg += " " + Resources.Resource.TEXT_BEFORE + " " + endDate.Value.ToShortDateString();
-    }
-
-    return msg;
+    get { return ViewState["ChangeType"] as string; }
+    set { ViewState["ChangeType"] = value; }
   }
+
+  #region Event Listeners
 
   protected void Page_Load(object sender, EventArgs e)
   {
@@ -65,14 +45,14 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
                                             SubscriptionInstance.ProductOffering.EffectiveTimeSpan.EndDate);
 
         // validate date range client side in Ext
-        StartDate.Options += String.Format(",minValue:'{0}',maxValue:'{1}'", 
-                                            SubscriptionInstance.ProductOffering.EffectiveTimeSpan.StartDate,
-                                            SubscriptionInstance.ProductOffering.EffectiveTimeSpan.EndDate);
+        StartDate.Options += String.Format(",minValue:'{0}',maxValue:'{1}'",
+                                           SubscriptionInstance.ProductOffering.EffectiveTimeSpan.StartDate,
+                                           SubscriptionInstance.ProductOffering.EffectiveTimeSpan.EndDate);
 
         EndDate.Options += String.Format(",minValue:'{0}',maxValue:'{1}',compareValue:'{2}'",
-                                            SubscriptionInstance.ProductOffering.EffectiveTimeSpan.StartDate,
-                                            SubscriptionInstance.ProductOffering.EffectiveTimeSpan.EndDate,
-                                            DateTime.Today);
+                                         SubscriptionInstance.ProductOffering.EffectiveTimeSpan.StartDate,
+                                         SubscriptionInstance.ProductOffering.EffectiveTimeSpan.EndDate,
+                                         DateTime.Today);
 
         if (SubscriptionInstance.SubscriptionSpan.StartDateType == ProdCatTimeSpan.MTPCDateType.NextBillingPeriod)
         {
@@ -85,7 +65,7 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
         }
 
         // if subscription dates are null default them to the effective dates on the PO
-        if(SubscriptionInstance.SubscriptionSpan.StartDate == null)
+        if (SubscriptionInstance.SubscriptionSpan.StartDate == null)
         {
           SubscriptionInstance.SubscriptionSpan.StartDate = ApplicationTime;
           //SubscriptionInstance.SubscriptionSpan.StartDate = SubscriptionInstance.ProductOffering.EffectiveTimeSpan.StartDate;
@@ -97,8 +77,19 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
         }
 
         // Bind Subscription Properties
-        SpecCharacteristicsBinder.BindProperties(pnlSubscriptionProperties, 
-          SubscriptionInstance, this, SpecValues);
+        SpecCharacteristicsBinder.BindProperties(pnlSubscriptionProperties,
+                                                 SubscriptionInstance, this, SpecValues);
+
+        var isNew = SubscriptionInstance.SubscriptionId == null;
+        ChangeType = isNew
+                       ? SubscriptionChangeType.AddSubscriptionChangeTypeName
+                       : SubscriptionChangeType.UpdateSubscriptionChangeTypeName;
+        var changeTypeShortName = isNew
+                                    ? SubscriptionChangeType.AddSubscriptionChangeTypeShortName
+                                    : SubscriptionChangeType.UpdateSubscriptionChangeTypeShortName;
+        var uniqueSubChageId = String.Format("{0}_{1}_{2}", UI.Subscriber.SelectedAccount._AccountID,
+                                             SubscriptionInstance.ProductOfferingId, changeTypeShortName);
+        CheckPendingChanges(ChangeType, uniqueSubChageId, isNew);
       }
 
       if (!MTDataBinder1.DataBind())
@@ -121,32 +112,161 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
 
     MTDataBinder1.Unbind();
 
+    var sub = SubscriptionInstance;
+
     if (cbStartNextBillingPeriod.Checked)
     {
-      SubscriptionInstance.SubscriptionSpan.StartDateType = ProdCatTimeSpan.MTPCDateType.NextBillingPeriod;
+      sub.SubscriptionSpan.StartDateType = ProdCatTimeSpan.MTPCDateType.NextBillingPeriod;
     }
 
     if (cbEndNextBillingPeriod.Checked)
     {
-      SubscriptionInstance.SubscriptionSpan.EndDateType = ProdCatTimeSpan.MTPCDateType.NextBillingPeriod;
+      sub.SubscriptionSpan.EndDateType = ProdCatTimeSpan.MTPCDateType.NextBillingPeriod;
     }
 
     // Unbind Subscription Properties
     var charVals = new List<CharacteristicValue>();
     SpecCharacteristicsBinder.UnbindProperies(charVals, pnlSubscriptionProperties, SpecValues);
-    SubscriptionInstance.CharacteristicValues = charVals;
+    sub.CharacteristicValues = charVals;
 
-    SubscriptionsEvents_OKSetSubscriptionDate_Client update = new SubscriptionsEvents_OKSetSubscriptionDate_Client();
-    update.In_SubscriptionInstance = SubscriptionInstance;
-    update.In_AccountId = new AccountIdentifier(UI.User.AccountId);
+    var isApprovalsEnabled = IsApprovalsEnabled(ChangeType);
+    
+    var update = new SubscriptionsEvents_OKSetSubscriptionDate_Client
+      {
+        In_SubscriptionInstance = sub,
+        In_AccountId = new AccountIdentifier(UI.User.AccountId),
+        In_IsApprovalEnabled = isApprovalsEnabled
+      };
+    
     PageNav.Execute(update);
+
+    if (isApprovalsEnabled && !HasUdrcValues(sub))
+    {
+      Response.Redirect("/MetraNet/ApprovalFrameworkManagement/ChangeSubmittedConfirmation.aspx", false);
+    }
   }
-
-
+  
   protected void btnCancel_Click(object sender, EventArgs e)
   {
-    SubscriptionsEvents_CancelSubscriptions_Client cancel = new SubscriptionsEvents_CancelSubscriptions_Client();
-    cancel.In_AccountId = new AccountIdentifier(UI.User.AccountId);
+    var cancel = new SubscriptionsEvents_CancelSubscriptions_Client
+      {
+        In_AccountId = new AccountIdentifier(UI.User.AccountId)
+      };
     PageNav.Execute(cancel);
   }
+
+  #endregion
+
+  #region Private Methods
+  
+  private bool IsApprovalsEnabled(string changeType)
+  {
+    bool isEnabled;
+    using (var client = new ApprovalManagementServiceClient())
+    {
+      SetCredantional(client.ClientCredentials);
+      client.ApprovalEnabledForChangeType(changeType, out isEnabled);
+    }
+    return isEnabled;
+  }
+
+  private bool HasUdrcValues(Subscription sub)
+  {
+    List<UDRCInstance> listOfUdrcs;
+    using (var client = new SubscriptionServiceClient())
+    {
+      SetCredantional(client.ClientCredentials);
+      client.GetUDRCInstancesForPO(sub.ProductOfferingId, out listOfUdrcs);
+    }
+    return listOfUdrcs.Count > 0;
+  }
+
+  private void CheckPendingChanges(string changeType, string subId, bool isNew)
+  {
+    if (HasPendingChanges(changeType, subId))
+    {
+      const string approvalFrameworkManagementUrl =
+        "/MetraNet/ApprovalFrameworkManagement/ShowChangesSummary.aspx?showchangestate=PENDING";
+      var changeTypeDisplayName = isNew
+                                    ? GetLocalResourceObject("newSubscription").ToString()
+                                    : GetLocalResourceObject("updateSubscription").ToString();
+      var strPendingChangeWarning =
+        String.Format(GetLocalResourceObject("pendingChangeWarningFormat").ToString(),
+                      changeTypeDisplayName, approvalFrameworkManagementUrl);
+      divLblMessage.Visible = true;
+      lblInfoMessage.Text = strPendingChangeWarning;
+
+      if (!IsMoreThanOnePendingChangeAllowed(changeType))
+      {
+        // Disable all options except "Cancel" button
+        StartDate.Enabled =
+          EndDate.Enabled =
+          cbEndNextBillingPeriod.Enabled =
+          cbStartNextBillingPeriod.Enabled =
+          pnlSubscriptionProperties.Enabled =
+          btnOK.Enabled = false;
+
+        SetError(String.Format(GetLocalResourceObject("pendingChangeUiErrorFormat").ToString(), changeTypeDisplayName));
+        Logger.LogError(
+          string.Format(
+            "The item {0} already has a pending change of the type {1} and this type of change does not allow more than one pending change.",
+            subId, changeType));
+      }
+    }
+  }
+
+  private bool IsMoreThanOnePendingChangeAllowed(string changeType)
+  {
+    bool isAllowed;
+    using (var client = new ApprovalManagementServiceClient())
+    {
+      SetCredantional(client.ClientCredentials);
+      client.AllowMoreThanOnePendingChangeForChangeType(changeType, out isAllowed);
+    }
+    return isAllowed;
+  }
+
+  private bool HasPendingChanges(string changeType, string subId)
+  {
+    List<int> pendingChangeIds;
+    using (var client = new ApprovalManagementServiceClient())
+    {
+      SetCredantional(client.ClientCredentials);
+      client.GetPendingChangeIdsForItem(changeType, subId, out pendingChangeIds);
+    }
+    return pendingChangeIds.Count > 0;
+  }
+
+  private void SetCredantional(System.ServiceModel.Description.ClientCredentials clientCredentials)
+  {
+    if (clientCredentials == null)
+      throw new InvalidOperationException("Client credentials is null");
+
+    clientCredentials.UserName.UserName = UI.User.UserName;
+    clientCredentials.UserName.Password = UI.User.SessionPassword;
+  }
+
+  private static string FormatDateMessage(DateTime? startDate, DateTime? endDate)
+  {
+    var msg = Resources.Resource.TEXT_SUB_DATE_MESSAGE_START;
+
+    if (startDate.HasValue)
+    {
+      msg += String.Format(" {0} {1}", Resources.Resource.TEXT_AFTER, startDate.Value.ToShortDateString());
+    }
+
+    if (startDate.HasValue && endDate.HasValue)
+    {
+      msg += String.Format(" {0}", Resources.Resource.TEXT_AND);
+    }
+
+    if (endDate.HasValue)
+    {
+      msg += String.Format(" {0} {1}", Resources.Resource.TEXT_BEFORE, endDate.Value.ToShortDateString());
+    }
+
+    return msg;
+  }
+
+  #endregion
 }

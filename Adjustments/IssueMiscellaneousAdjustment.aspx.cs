@@ -12,11 +12,15 @@ using MetraTech;
 using MetraTech.ActivityServices.Common;
 using MetraTech.ActivityServices.Services.Common;
 using MetraTech.Auth.Capabilities;
+using MetraTech.Core.CreditNotes;
 using MetraTech.Core.Services.ClientProxies;
 using MetraTech.DataAccess;
 using MetraTech.DomainModel.AccountTypes;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.Enums;
+using MetraTech.DomainModel.Common;
+using MetraTech.DomainModel.Enums.Core.Global;
+using MetraTech.DomainModel.ProductView;
 using MetraTech.Interop.MTAuth;
 using MetraTech.UI.Common;
 using MetraTech.UI.Controls;
@@ -38,13 +42,24 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
             return HttpContext.Current.Application["AccountCreditPipelineMeteringHelperCache"] as PipelineMeteringHelperCache;
         }
     }
-
-    protected void Page_Load(object sender, EventArgs e)
+  protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Page.IsPostBack)
+      if (!Page.IsPostBack)
         {
-            adjAmountFld.DecimalSeparator = System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalSeparator;
-            adjAmountFld.DecimalPrecision = System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalDigits.ToString();
+            adjAmountFld.DecimalSeparator
+              = adjAmountFldTaxFederal.DecimalSeparator
+                = adjAmountFldTaxState.DecimalSeparator
+                = adjAmountFldTaxCounty.DecimalSeparator
+                = adjAmountFldTaxLocal.DecimalSeparator
+                = adjAmountFldTaxOther.DecimalSeparator
+                =  System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalSeparator;
+            adjAmountFld.DecimalPrecision
+               = adjAmountFldTaxFederal.DecimalPrecision
+                = adjAmountFldTaxState.DecimalPrecision
+                = adjAmountFldTaxCounty.DecimalPrecision
+                = adjAmountFldTaxLocal.DecimalPrecision
+                = adjAmountFldTaxOther.DecimalPrecision
+              = System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalDigits.ToString();
 
             string maxAdjAmount = String.Format("{0} {1}", GetLocalResourceObject("TEXT_MAX_AUTHORIZED_AMOUNT"), GetLocalResourceObject("TEXT_UNLIMITED"));
             if (!UI.SessionContext.SecurityContext.IsSuperUser())
@@ -52,9 +67,11 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
                 maxAdjAmount = GetMaxCapabilityAmount();
             }
 
-            lblMaxAmount.Text = String.Format("{0} {1}", maxAdjAmount, ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).Currency);
-        }
+            lblMaxAmount.Text = String.Format( "{0} {1}", maxAdjAmount, ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).Currency);
 
+          generateEnableControlsJS();
+          PopulateCreditNotesTemplateTypes();
+        }
 
         var accountIntervalsClient = new UsageHistoryService_GetAccountIntervals_Client
         {
@@ -92,15 +109,79 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         }
     }
 
-  private bool ConvertToDecimal(string valForConversion, string fieldName, StringBuilder errorBuilder, out decimal convertedVal)
+  private void PopulateCreditNotesTemplateTypes()
   {
-    bool result = true;
-    convertedVal = 0;
+    CreditNoteServiceClient client = null;
+
     try
     {
-      convertedVal = String.IsNullOrEmpty(valForConversion) 
-        ? 0 
-        : (Convert.ToDecimal(valForConversion));
+      client = new CreditNoteServiceClient();
+
+      if (client.ClientCredentials != null)
+      {
+        client.ClientCredentials.UserName.UserName = UI.User.UserName;
+        client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+      }
+
+      LanguageCode? languageCode = ((InternalView) UI.Subscriber.SelectedAccount.GetInternalView()).Language;
+
+      var items = new MTList<CreditNoteTmpl>();
+      client.GetCredtiNoteTemplates(ref items, Convert.ToInt32(EnumHelper.GetValueByEnum(languageCode, 1)));
+      if (items.Items.Count == 0)
+      {
+        items = new MTList<CreditNoteTmpl>();
+        client.GetCredtiNoteTemplates(ref items, Convert.ToInt32(EnumHelper.GetValueByEnum(LanguageCode.US, 1)));
+      }
+
+      foreach (var item in items.Items)
+      {
+        ddTemplateTypes.Items.Add(new ListItem(item.TemplateName, item.CreditNoteTemplateID.ToString()));
+      }
+    }
+    catch (Exception ex)
+    {
+      Logger.LogException("An unknown exception occurred.  Please check system logs.", ex);
+      throw;
+    }
+    finally
+    {
+      if (client != null)
+      {
+        client.Abort();
+      }
+    }
+  }
+
+  private void generateEnableControlsJS()
+    {
+      cbIssueCreditNote.Listeners = @"{ 'check' : this.enableControls, scope: this }";
+      String scriptString = "<script language=\"javascript\" type=\"text/javascript\">\n";
+      scriptString += "function enableControls() {\n";
+      scriptString += "var dd = Ext.getCmp('" + ddTemplateTypes.ClientID + "');\n";
+      scriptString += "var tb = Ext.getCmp('" + CommentTextBox.ClientID + "');\n";
+      scriptString += "var cb = Ext.getCmp('" + cbIssueCreditNote.ClientID + "');\n";
+      scriptString += "if (cb.checked)\n";
+      scriptString += "{\n";
+      scriptString += "dd.enable();\n";
+      scriptString += "tb.enable();\n";
+      scriptString += "} else {\n";
+      scriptString += "dd.disable();\n";
+      scriptString += "tb.disable();\n";
+      scriptString += "}\n";
+      scriptString += "}\n";
+      scriptString += "</script>";
+  
+      Page.ClientScript.RegisterClientScriptBlock(Page.GetType(), "enableControls", scriptString);
+    }
+
+  private bool ConvertToDecimal(string valForConversion, string fieldName, StringBuilder errorBuilder, out decimal? convertedVal)
+  {
+    bool result = true;
+    convertedVal = null;
+    try
+    {
+      if (!String.IsNullOrEmpty(valForConversion))
+        convertedVal = Convert.ToDecimal(valForConversion);
     }
     catch (Exception)
     {
@@ -119,8 +200,8 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         
         StringBuilder errorBuilder = new StringBuilder();
 
-        decimal adjAmount, taxFederal, taxState, taxCounty, taxLocal, taxOther;
-        
+        decimal? adjAmount, taxFederal, taxState, taxCounty, taxLocal, taxOther, totalAmount;
+        totalAmount = null;
         
         bool errorOccurred = !ConvertToDecimal(adjAmountFld.Text, adjAmountFld.Label, errorBuilder, out adjAmount);
 
@@ -139,10 +220,9 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         if (!ConvertToDecimal(adjAmountFldTaxOther.Text, adjAmountFldTaxOther.Label, errorBuilder, out taxOther))
           errorOccurred = true;
 
-    	decimal totalAmount = 0;
-
         if (!errorOccurred)
-        {  
+        {
+          totalAmount = CalcTotalAmount(adjAmount, taxFederal, taxState, taxCounty, taxLocal, taxOther);
           try
           {
               cache.PoolSize = 30;
@@ -168,24 +248,41 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
                 typeof(MetraTech.DomainModel.Enums.Core.Metratech_com.SubscriberCreditAccountRequestReason),
                 ddReasonCode.SelectedValue, true);
               row["Reason"] = EnumHelper.GetDbValueByEnum(o);
-
               row["Other"] = "Other";
-              row["InvoiceComment"] = GetLocalResourceObject("TEXT_MISCELLANEOUS_ADJUSTMENT");
+
+              if (String.IsNullOrEmpty(adjSubscriberDescriptionTextBox.Text))
+                  row["InvoiceComment"] = GetLocalResourceObject("TEXT_MISCELLANEOUS_ADJUSTMENT");   
+              else
+                  row["InvoiceComment"] = adjSubscriberDescriptionTextBox.Text;
+ 
               row["InternalComment"] = adjDescriptionTextBox.Text;
               row["AccountingCode"] = null;
               row["ReturnCode"] = 0; // Legacy
               row["ContentionSessionID"] = "-"; // Legacy from 1.2
-              row["RequestAmount"] = -adjAmount;
-              row["CreditAmount"] = -adjAmount;
+              if (totalAmount.HasValue) row["RequestAmount"] = -totalAmount;
+              if (totalAmount.HasValue) row["CreditAmount"] = -totalAmount;
               row["GuideIntervalID"] = ddBillingPeriod.SelectedValue;
               row["ResolveWithAccountIDFlag"] = true;
-              row["_Amount"] = -adjAmount;
-              row["_FedTax"] = -taxFederal;
-              row["_StateTax"] = -taxState;
-              row["_CountyTax"] = -taxCounty;
-              row["_LocalTax"] = -taxLocal;
-              row["_OtherTax"] = -taxOther;
+              if (adjAmount.HasValue) row["_Amount"] = -adjAmount;
+              if (taxFederal.HasValue) row["_FedTax"] = -taxFederal;
+              if (taxState.HasValue) row["_StateTax"] = -taxState;
+              if (taxCounty.HasValue) row["_CountyTax"] = -taxCounty;
+              if (taxLocal.HasValue) row["_LocalTax"] = -taxLocal;
+              if (taxOther.HasValue) row["_OtherTax"] = -taxOther;
               row["IgnorePaymentRedirection"] = 0;
+              long ticks = System.DateTime.UtcNow.Ticks;
+              row["MiscAdjustmentID"] = ticks;
+              if (cbIssueCreditNote.Checked)
+              {
+                row["IssueCreditNote"] = true;
+                row["CreditNoteTemplateId"] = new Guid(ddTemplateTypes.SelectedValue);
+                row["CreditNoteComment"] = CommentTextBox.Text;
+              }
+              else
+              {
+                row["IssueCreditNote"] = false;
+              }
+
               DataSet messages = helper.Meter(UI.User.SessionContext);
               helper.WaitForMessagesToComplete(messages, -1);
 
@@ -217,8 +314,22 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
                   throw new MASBasicException(error.ToString());
               }
 
-              totalAmount = adjAmount + taxFederal + taxState + taxCounty + taxLocal + taxOther;
+              // Issue the credit note if requested in the UI and if the Account Credit was metered successfully without needed approval first
+              if (IsAllowedCreate(totalAmount ?? 0) && cbIssueCreditNote.Checked)
+              {
+                // get the account credit just metered
+                long sessionID = getAccoutCreditJustMetered(UI.Subscriber.SelectedAccount._AccountID.Value, ticks);
 
+                if (sessionID != -1)
+                {
+                  CreateCreditNote(sessionID, ddTemplateTypes.SelectedItem.Text,
+                                 new Guid(ddTemplateTypes.SelectedValue), CommentTextBox.Text, UI.User.AccountId);
+                }
+                else
+                {
+                  Logger.LogError("Failed to find Misc. Adjustment just created. Credit Note cannot be generated for AccountID " + UI.Subscriber.SelectedAccount._AccountID.Value);
+                }
+              }
           }
           catch (Exception exp)
           {
@@ -237,21 +348,148 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
 
         if (!errorOccurred)
         {
-          if (IsAllowedCreate(totalAmount))
+          if (IsAllowedCreate(totalAmount ?? 0))
             {
-              ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_CREATED_TITLE")),
+              if (cbIssueCreditNote.Checked)
+              {
+                ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_CREATED_TITLE")),
+                               String.Format("{0} {1}", GetLocalResourceObject("TEXT_CREATED"), GetLocalResourceObject("TEXT_CREDIT_NOTE_CREATED")));
+              }
+              else
+              {
+                ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_CREATED_TITLE")),
                                String.Format("{0}", GetLocalResourceObject("TEXT_CREATED")));
+              }        
             }
             else
             {
-              ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_PENDING_TITLE")),
+              if (cbIssueCreditNote.Checked)
+              {
+                ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_PENDING_TITLE")),
+                               String.Format("{0} {1}", GetLocalResourceObject("TEXT_PENDING"), GetLocalResourceObject("TEXT_CREDIT_NOTE_PENDING")));
+              }
+              else
+              {
+                ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_PENDING_TITLE")),
                                String.Format("{0}", GetLocalResourceObject("TEXT_PENDING")));
+              }            
             }
         }
     }
 
-#warning Whether other new tax fields (taxFederal, taxState, taxCounty, taxLocal, taxOther) should be passed to the method or not? What the target of that method?
-  private bool IsAllowedCreate(decimal adjAmount)
+  private void CreateCreditNote(long sessionId, string creditNoteTemplateName, Guid creditNoteTemplateID,
+                                string creditNoteDescription, int requestingAccountID)
+  {
+    CreditNoteServiceClient client = null;
+    try
+    {
+      client = new CreditNoteServiceClient();
+      if (client.ClientCredentials != null)
+      {
+        client.ClientCredentials.UserName.UserName = UI.User.UserName;
+        client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+      }
+
+      Logger.LogDebug("Creating a Credit Note for AccountCredit with sessionid: " + sessionId,
+                      ", AccountID: " + UI.Subscriber.SelectedAccount._AccountID.Value + ", creditNoteTemplateID: " +
+                      creditNoteTemplateID + ", creditNoteDescription: " + creditNoteDescription +
+                      ", requestingAccountID: " + requestingAccountID);
+      client.CreateCreditNote(sessionId, UI.Subscriber.SelectedAccount._AccountID.Value, UI.SessionContext.ToXML(),
+                              creditNoteTemplateID, creditNoteDescription, requestingAccountID);
+    }
+
+    catch (Exception ex)
+    {
+      Logger.LogException("Failed in CreateCreditNote. An unknown exception occurred. Please check system logs.", ex);
+      throw;
+    }
+    finally
+    {
+      if (client != null)
+      {
+        client.Abort();
+      }
+    }
+  }
+
+  /// <summary>
+  /// Look up the SessionID for a metered AccountCredit
+  /// </summary>
+  /// <param name="accountID">The AccountID product view property of the approved AccountCredit transaction to search for</param>
+  /// <param name="miscAdjustmentID">The miscAdjustmentID product view property of the approved AccountCredit transaction to search for</param>
+  /// <returns>SessionID of the AccountCredit if found. Returns -1 if not found.</returns>
+  private long getAccoutCreditJustMetered(int accountID, long miscAdjustmentID)
+  {
+    long sessionID = -1;
+    AdjustmentsServiceClient client = null;
+
+    try
+    {
+      client = new AdjustmentsServiceClient();
+
+      if (client.ClientCredentials != null)
+      {
+        client.ClientCredentials.UserName.UserName = UI.User.UserName;
+        client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+      }
+
+      client.GetAccountCreditSessionID(accountID, miscAdjustmentID, out sessionID);
+
+      if (sessionID <= 0)
+      {
+        throw new Exception(
+          "Could not find exact match for the miscellaneous adjustment just metered, so no credit note docuement will be issued if one was requested.");
+      }
+    }
+    catch (MASBasicException masBasicEx)
+    {
+      Logger.LogError("Error retrieving Miscellaneous Adjustment SessionID: " + masBasicEx.Message);
+      Logger.LogError("Error retrieving Miscellaneous Adjustment SessionID: " + masBasicEx.StackTrace);
+    }
+    catch (Exception ex)
+    {
+      Logger.LogError("Error retrieving Miscellaneous Adjustment: " + ex.Message);
+      Logger.LogException("An unknown exception occurred.  Please check system logs.", ex);
+    }
+    finally
+    {
+      if (client != null)
+      {
+        client.Abort();
+      }
+    }
+    return sessionID;
+  }
+
+  private static decimal? CalcTotalAmount(decimal? adjAmount, decimal? taxFederal, decimal? taxState, decimal? taxCounty,
+                                          decimal? taxLocal, decimal? taxOther)
+  {
+    decimal? totalAmount = null;
+
+    if (adjAmount == null
+        && taxFederal == null
+        && taxState == null
+        && taxCounty == null
+        && taxLocal == null
+        && taxOther == null)
+      totalAmount = null;
+    else
+    {
+      adjAmount = adjAmount ?? 0;
+      taxFederal = taxFederal ?? 0;
+      taxState = taxState ?? 0;
+      taxCounty = taxCounty ?? 0;
+      taxLocal = taxLocal ?? 0;
+      taxOther = taxOther ?? 0;
+
+      totalAmount = adjAmount + taxFederal + taxState + taxCounty + taxLocal + taxOther;
+    }
+		
+
+    return totalAmount;
+  }
+
+  private bool IsAllowedCreate(decimal totalAmount)
   {
     bool allowed = false;
     if (!UI.SessionContext.SecurityContext.IsSuperUser())
@@ -264,7 +502,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
       string op = data[last - 1];
       if (op.Equals("!="))
         op = "<>";
-      string expr = String.Format("{0}{1}{2}", adjAmount, op, data[last]);
+      string expr = String.Format("{0}{1}{2}", totalAmount, op, data[last]);
       DataTable dataTable = new DataTable();
       dataTable.Columns.Add("col1", typeof (bool), expr);
       dataTable.Rows.Add(new object[] {});
@@ -325,7 +563,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         {
             decimal authAmount = System.Convert.ToDecimal(cap.GetAtomicDecimalCapability().GetParameter().Value);
             string display = authAmount.ToString(MetraTech.UI.Common.Constants.NUMERIC_FORMAT_STRING_DECIMAL_MIN_TWO_DECIMAL_PLACES);
-            amount = String.Format(" {0} {1} {2} {3}", GetLocalResourceObject("TEXT_MAX_AUTHORIZED_AMOUNT"), cap.GetAtomicEnumCapability().GetParameter().Value, cap.GetAtomicDecimalCapability().GetParameter().Test, display);
+            amount = String.Format(" {0} {1} {2} {3}", GetLocalResourceObject("TEXT_MAX_AUTHORIZED_AMOUNT"), ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).Currency, cap.GetAtomicDecimalCapability().GetParameter().Test, display);
         }
 
         return amount;

@@ -26,15 +26,6 @@ public partial class ApprovalFrameworkManagement_ViewProductOfferingChangeDetail
 
     public string strchangeid { get; set; }
     public int intchangeid { get; set; }
-    //public string strcurrentstate { get; set; }
-    //public string strincomingshowchangestate { get; set; }
-
-    protected override void OnLoadComplete(EventArgs e)
-    {
-        //ProductOfferingChangeDetails.Title = "This Change is in " + strcurrentstate + " State";
-
-        base.OnLoadComplete(e);
-    }
     
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -43,8 +34,6 @@ public partial class ApprovalFrameworkManagement_ViewProductOfferingChangeDetail
 
         strchangeid = Request.QueryString["changeid"];
         Session["intchangeid"] = Convert.ToInt32(strchangeid);
-        //strcurrentstate = Request.QueryString["currentstate"];
-        //strincomingshowchangestate = Request.QueryString["showchangestate"];
 
     }
 

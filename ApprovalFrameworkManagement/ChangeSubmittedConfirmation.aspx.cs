@@ -7,7 +7,10 @@ public partial class ApprovalFrameworkManagement_ChangeSubmittedConfirmation : M
   
   protected void Page_Load(object sender, EventArgs e)
   {
-  
+    if (!IsPostBack)
+    {
+      var changeId = Request.QueryString["ChangeId"];
+    }
   }
 
   protected void btnOK_Click(object sender, EventArgs e)

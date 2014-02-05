@@ -8,6 +8,15 @@
     }
   </script>
   
+  <div id="divLblMessage" runat="server" visible="false" >
+    <b>
+      <div class="InfoMessage" style="margin-left:120px;width:400px;">
+        <asp:Label ID="lblInfoMessage" runat="server" />
+      </div>
+    </b>
+  </div>
+  <br />
+  
   <!-- Title Bar -->
   <MT:MTTitle ID="MTTitle1" runat="server" Text="Subscription Details" meta:resourcekey="MTTitle1Resource1" />
   <div>

@@ -70,8 +70,7 @@ public partial class ApprovalFrameworkManagement_AjaxServices_GetProductOffering
             client.GetChangeDetails(changeId, ref pochangedetailsblob);
 
             ChangeDetailsHelper changeDetailsIn = new ChangeDetailsHelper();
-            changeDetailsIn.KnownTypes.Add(typeof(MetraTech.DomainModel.ProductCatalog.ProductOffering));
-            changeDetailsIn.FromXml(pochangedetailsblob);
+            changeDetailsIn.FromBuffer(pochangedetailsblob);
 
             // Once you get the change details blob, you can now parse it for the property name and updated value, Key-Value Pair. 
             object o = changeDetailsIn["productOffering"];

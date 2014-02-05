@@ -11,7 +11,9 @@ using MetraTech.SecurityFramework;
 using MetraTech.UI.Common;
 using MetraTech.UI.Tools;
 using MetraTech.Approvals;
+using MetraTech.Approvals.ChangeTypes;
 using MetraTech.DomainModel.BaseTypes;
+using MetraTech.DomainModel.ProductCatalog;
 using System.Web.Script.Serialization;
 
 public partial class ApprovalFrameworkManagement_AjaxServices_ChangeOperation : MTPage
@@ -40,7 +42,6 @@ public partial class ApprovalFrameworkManagement_AjaxServices_ChangeOperation : 
 
   protected void Page_Load(object sender, EventArgs e)
   {
-
       strincomingchangeid = Request["changeid"];
       intincomingchangeid = System.Convert.ToInt32(strincomingchangeid);
 
@@ -54,55 +55,67 @@ public partial class ApprovalFrameworkManagement_AjaxServices_ChangeOperation : 
 
     ChangeSummary updatedItem = null;
 
+    var approvalClient = new ApprovalManagementServiceClient();
+    var subscriptionClient = new SubscriptionServiceClient();
     // Now call the operation based on the action 
     try
     {
-        ApprovalManagementServiceClient operateonchange = new ApprovalManagementServiceClient();
+      SetCredantional(approvalClient.ClientCredentials);
+      
+      var changeBlob = "";
+      approvalClient.GetChangeDetails(intincomingchangeid, ref changeBlob);
+      var changeDetails = new ChangeDetailsHelper(changeBlob);
+      var newSub = (Subscription)changeDetails[SubscriptionChangeType.SubscriptionKey];
+      var subscriber = (AccountIdentifier)changeDetails[SubscriptionChangeType.AccountIdentifierKey];
 
-        operateonchange.ClientCredentials.UserName.UserName = UI.User.UserName;
-        operateonchange.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+      var change = CompareWithCurrentSubscription(newSub, subscriber, subscriptionClient);
 
-        if (strincomingaction == "approve")
+      changeDetails[SubscriptionChangeType.SubscriptionChangeKey] = change;
+      approvalClient.UpdateChangeDetails(intincomingchangeid, changeDetails.ToBuffer(), "SubscriptionChange object was stored");
+
+      if (strincomingaction == "approve")
+      {
+        approvalClient.ApproveChange(intincomingchangeid, strincomingcomment);
+      }
+
+      if (strincomingaction == "deny")
+      {
+        approvalClient.DenyChange(intincomingchangeid, strincomingcomment);
+      }
+
+      if (strincomingaction == "dismiss")
+      {
+        approvalClient.DismissChange(intincomingchangeid, strincomingcomment);
+      }
+
+      if (strincomingaction == "resubmit")
+      {
+        MTList<int> mychangeid = new MTList<int>();
+        mychangeid.Items.Add(intincomingchangeid);
+
+        approvalClient.ResubmitFailedChanges(mychangeid);
+      }
+
+      if (UpdatedItemRequested)
+      {
+        MTList<ChangeSummary> items = new MTList<ChangeSummary>();
+        items.Filters.Add(new MTFilterElement("Id", MTFilterElement.OperationType.Equal, intincomingchangeid));
+        approvalClient.GetChangesSummary(ref items);
+        if (items.Items.Count == 1)
         {
-            operateonchange.ApproveChange(intincomingchangeid, strincomingcomment);
+          updatedItem = items.Items[0];
         }
-
-        if (strincomingaction == "deny")
+        else
         {
-            operateonchange.DenyChange(intincomingchangeid, strincomingcomment);
+          throw new Exception("Change Id " + strincomingchangeid +
+                              " was updated but the change could not be retrieved. GetChangeSummary returned " +
+                              items.Items.Count + " items");
         }
-        
-        if (strincomingaction == "dismiss")
-        {
-            operateonchange.DismissChange(intincomingchangeid, strincomingcomment);
-        }
-
-        if (strincomingaction == "resubmit")
-        {
-            MTList<int> mychangeid = new MTList<int>();
-            mychangeid.Items.Add(intincomingchangeid);
-
-            operateonchange.ResubmitFailedChanges(mychangeid);
-        }
-
-        if (UpdatedItemRequested)
-        {
-          MTList<ChangeSummary> items = new MTList<ChangeSummary>();
-          items.Filters.Add(new MTFilterElement("Id", MTFilterElement.OperationType.Equal, intincomingchangeid));
-          operateonchange.GetChangesSummary(ref items);
-          if (items.Items.Count == 1)
-          {
-            updatedItem = items.Items[0];
-          }
-          else
-          {
-            throw new Exception("Change Id " + strincomingchangeid + " was updated but the change could not be retrieved. GetChangeSummary returned " + items.Items.Count + " items");
-          }
-        }
+      }
     }
     catch (FaultException<MASBasicFaultDetail> ex)
     {
-      Logger.LogException("Change Id " + strincomingchangeid + " failed to " + strincomingaction , ex);
+      Logger.LogException("Change Id " + strincomingchangeid + " failed to " + strincomingaction, ex);
       StringBuilder sb = new StringBuilder();
       foreach (string err in ex.Detail.ErrorMessages)
       {
@@ -119,7 +132,41 @@ public partial class ApprovalFrameworkManagement_AjaxServices_ChangeOperation : 
       SendResult(false, ex.Message.EncodeForJavaScript(), updatedItem);
       return;
     }
+    finally
+    {
+      if (approvalClient.State == CommunicationState.Faulted)
+        approvalClient.Abort();
+      else
+        approvalClient.Close();
+
+      if (subscriptionClient.State == CommunicationState.Faulted)
+        subscriptionClient.Abort();
+      else
+        subscriptionClient.Close();
+    }
 
     SendResult(true, "", updatedItem);
+  }
+
+  private SubscriptionChange CompareWithCurrentSubscription(Subscription newSubscription, AccountIdentifier accOfNewSub, SubscriptionServiceClient subscriptionClient)
+  {
+    Subscription currentSub = null;
+
+    if (newSubscription.SubscriptionId.HasValue)
+    {
+      SetCredantional(subscriptionClient.ClientCredentials);
+      subscriptionClient.GetSubscriptionDetail(accOfNewSub, newSubscription.SubscriptionId.Value, out currentSub);
+    }
+
+    return SubscriptionChangeType.GetSubscriptionChange(currentSub, newSubscription);
+  }
+
+  private void SetCredantional(System.ServiceModel.Description.ClientCredentials clientCredentials)
+  {
+    if (clientCredentials == null)
+      throw new InvalidOperationException("Client credentials is null");
+
+    clientCredentials.UserName.UserName = UI.User.UserName;
+    clientCredentials.UserName.Password = UI.User.SessionPassword;
   }
 }

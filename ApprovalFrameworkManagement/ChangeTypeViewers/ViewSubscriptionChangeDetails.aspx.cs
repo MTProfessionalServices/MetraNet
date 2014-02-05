@@ -1,4 +1,6 @@
 using System;
+using System.ServiceModel;
+using MetraTech.ActivityServices.Common;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.UI.Common;
 using MetraTech.Core.Services.ClientProxies;
@@ -8,7 +10,7 @@ using MetraTech.Approvals.ChangeTypes;
 public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails : MTPage
 {
   public int ChangeId { get; set; }
-  public string ChangeType { get; set; }
+  public SubscriptionChange SubChange { get; set; }
 
   #region Event Listeners
 
@@ -17,26 +19,46 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
     ChangeId = Convert.ToInt32(Request.QueryString["changeid"]);
     var currState = Request.QueryString["currentstate"];
 
-    var subStored = GetSubscritionByChangeId(ChangeId);
-    // [TODO] Retrieve the change not the sub object
-    SubscriptionChange subChange;
+    var approvalClient = new ApprovalManagementServiceClient();
+    
+    try
+    {
+      SetCredantional(approvalClient.ClientCredentials);
 
-    if (subStored.SubscriptionId.HasValue)
-    {
-      // update
-      ChangeType = "UPDATE";
+      var changeBlob = "";
+      approvalClient.GetChangeDetails(ChangeId, ref changeBlob);
+      var changeDetails = new ChangeDetailsHelper(changeBlob);
+      var newSub = (Subscription)changeDetails[SubscriptionChangeType.SubscriptionKey];
+      var subscriber = (AccountIdentifier)changeDetails[SubscriptionChangeType.AccountIdentifierKey];
+
+      if (changeDetails.ContainsKey(SubscriptionChangeType.SubscriptionChangeKey))
+      {
+        // This change was already applied/denied/dismissed and stores subscription changes for that moment
+        SubChange = (SubscriptionChange) changeDetails[SubscriptionChangeType.SubscriptionChangeKey];
+      }
+      else
+      {
+        // This change is in the Pending state and has no SubscriptionChange object
+        SubChange = CompareWithCurrentSubscription(newSub, subscriber);
+      }
+
+      // TODO: Get account name using {subscriber} by WCF
+      SubChange.AccountName = "AccountName";
+      SubChange.ProductOfferingName = newSub.ProductOffering.Name;
     }
-    else
+    finally
     {
-      // new subscription
-      ChangeType = "NEW";
+      if (approvalClient.State == CommunicationState.Faulted)
+        approvalClient.Abort();
+      else
+        approvalClient.Close();
     }
   }
 
   protected override void OnLoadComplete(EventArgs e)
   {
-    Response.Write("<div id='xmlPretty' class='x-hide-display'>" + ChangeType + "</div>");
-    Response.Write("<div id='xmlRaw' class='x-hide-display'><textarea rows='20' cols='80'>" + ChangeType + "</textarea>" +
+    Response.Write("<div id='xmlPretty' class='x-hide-display'>IsNew = '" + SubChange.IsNewEntity + "'</div>");
+    Response.Write("<div id='xmlRaw' class='x-hide-display'><textarea rows='20' cols='80'>IsNew = '" + SubChange.IsNewEntity + "'</textarea>" +
                    "</div>");
 
     base.OnLoadComplete(e);
@@ -46,19 +68,29 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
 
   #region Private Methods
 
-  private Subscription GetSubscritionByChangeId(int changeId)
+  private SubscriptionChange CompareWithCurrentSubscription(Subscription newSubscription, AccountIdentifier accOfNewSub)
   {
-    var changeDetailsIn = new ChangeDetailsHelper();
-    var changeDetailsString = String.Empty;
+    Subscription currentSub = null;
 
-    using (var client = new ApprovalManagementServiceClient())
+    var subscriptionClient = new SubscriptionServiceClient();
+    try
     {
-      SetCredantional(client.ClientCredentials);
-      client.GetChangeDetails(changeId, ref changeDetailsString);
+      SetCredantional(subscriptionClient.ClientCredentials);
+
+      if (newSubscription.SubscriptionId.HasValue)
+      {
+        subscriptionClient.GetSubscriptionDetail(accOfNewSub, newSubscription.SubscriptionId.Value, out currentSub);
+      }
+    }
+    finally
+    {
+      if (subscriptionClient.State == CommunicationState.Faulted)
+        subscriptionClient.Abort();
+      else
+        subscriptionClient.Close();
     }
 
-    changeDetailsIn.FromBuffer(changeDetailsString);
-    return changeDetailsIn[SubscriptionChangeType.SubscriptionKey] as Subscription;
+    return SubscriptionChangeType.GetSubscriptionChange(currentSub, newSubscription);
   }
   
   private void SetCredantional(System.ServiceModel.Description.ClientCredentials clientCredentials)

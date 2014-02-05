@@ -366,6 +366,12 @@
   <data name="TEXT_MANAGE_SECURITY" xml:space="preserve">
     <value>Gérer la sécurité</value>
   </data>
+  <data name="TEXT_MANAGE_BILLSOFT_EXEMPTIONS" xml:space="preserve">
+    <value>Gérer BillSoft Exonérations</value>
+  </data>
+  <data name="TEXT_MANAGE_BILLSOFT_OVERRIDES" xml:space="preserve">
+    <value>Gérer BillSoft Remplacements</value>
+  </data>  
   <data name="TEXT_MENU_GENERATE_PASSWORD" xml:space="preserve">
     <value>Générer un mot de passe</value>
   </data>

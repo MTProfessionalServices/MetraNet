@@ -3,135 +3,135 @@
 <texts id="More Localized System Information" type='collection'>
 
 <description>
-Este arquivo define as informações do sistema MAM que devem ser localizadas.
+This file defines the MAM system information that must be localized.
 </description>
     
               
 
   <text id='DEFAULT_PATH_SEARCH'>
-   <value>/mam/default/localized/en-us</value>
+<value>/mam/default/localized/fr</value>
       <description>
-O caminho definido no arquivo de modelo do diálogo HTML. Neste caso, nós mantemos o /mam/ porque é é codificado desta maneira no arquivo de modelo HTML.
-O processo Renderizador do MDM usa esta string para executar uma pesquisa/substituição da string.
+The path defined in the HTML Dialog template file. In this case we keep /mam/ because it is hard code this way in the HTML template file. 
+The MDM Renderer process use this string to perform a string search/replace.
       .</description>
   </text>       
 
   <text id='CUSTOM_PATH_SEARCH'>
-   <value>/mam/custom/localized/en-us</value>
-      <description>Igual a DEFAULT_PATH_SEARCH, mas para a personalização da pasta.</description>
+<value>/mam/custom/localized/fr</value>
+      <description>Same as DEFAULT_PATH_SEARCH but for the folder custom.</description>
   </text>        
 
   <text id='DEFAULT_PATH_REPLACE'>
-   <value>[APP_HTTP_PATH]/default/localized/en-us</value>
+<value>[APP_HTTP_PATH]/default/localized/fr</value>
       <description>
-Defina onde estão armazenadas as pastas localizadas (imagens, estilo, pesquisa de texto) do usuário com base nesta linguagem.
-Esta string é usada pelo processo Renderizador do MDM, use esta string para executar uma pesquisa/substituição da string.
-Esta string é uma string substituída. Aqui, não codificamos o mam, mas usamos a macro interna de modo que MAM possa ser instalado em um local diferente.
+Define where are located the localized folders (images, style, textlookup) for the current user based on his language.
+This string is used by the MDM Renderer process use this string to perform a string search/replace.
+This string is the replaced string. Here we do not hard code mam but we use the internal macro so the MAM can be installed in different site.
       </description>
   </text>
 
     <text id='CUSTOM_PATH_REPLACE'>
-   <value>[APP_HTTP_PATH]/custom/localized/en-us</value>
-      <description>Igual à CUSTOM_PATH_SEARCH, mas para a personalização da pasta.</description>
+<value>[APP_HTTP_PATH]/default/localized/fr</value>
+      <description>Same as CUSTOM_PATH_SEARCH but for the folder custom.</description>
   </text>
 
 
     <text id='PV_ROW_PER_PAGE'>
    <value>25</value>
-      <description>Número de linhas por página para qualquer exibição de produto.</description>
+      <description>Number of row per page for any product view.</description>
   </text>
     
     <text id="MAX_ROW_PER_PICKER_PAGE">
         <value>25</value>
-        <description>Número de linhas em um coletor</description>
+        <description>Number of lines in a picker</description>
     </text>
     <text id="MAX_ROW_PER_LIST_PAGE">
         <value>25</value>
-        <description>Número de linhas em uma lista</description>
+        <description>Number of lines in a list</description>
     </text>    
         
     <text id='DEFAULT_TIME_ZONE_ID'>
    <value>18</value>
-      <description>Ao abrir a conta de adição, defina o id do fuso horário padrão selecionado.</description>
+      <description>When you open add account define the default time zone id selected.</description>
   </text>    
     
      
     <text id='DEFAULT_TAX_EXEMPT'>
-   <value>FALSO</value>
-      <description>Ao abrir a conta de adição defina o valor de isenção de imposta padrão.</description>
+<value>FAUX</value>
+      <description>When you open add account define the default tax exempt value.</description>
   </text>        
 
     <text id='MDM_BACK_BUTTON_ERROR'>
    <value>
        <![CDATA[
-          <html>
-            <head>
-              <LINK Localized='TRUE' rel='STYLESHEET' type='text/css' href='/mam/default/localized/en-us/styles/styles.css'>
-            </head>
-            <body>
-               Não é possível processar sua solicitação  Tente novamente sua ação desejada selecionado a opção de menu novamente.<br><br>
-               <center><em>Isso pode acontecer caso você acesse uma página armazenada em cache ou use o botão Voltar do navegador para obter uma página armazenada em cache inválida.</em></center>
-           </body>
-         </html>
+<html>
+<head>
+<LINK Localized='TRUE' rel='STYLESHEET' type='text/css' href='/mam/default/localized/fr/styles/styles.css'>
+</head>
+<body>
+Impossible de traiter votre demande.Veuillez réessayer l'action voulue en sélectionnant de nouveau l'option de menu.<br><br>
+<center><em>Cela peut se produire si vous accédez à une page en mémoire cache ou si vous utilisez le bouton Précédent du navigateur pour vous rendre à une page non valide en mémoire cache.</em></center>
+</body>
+</html>
        
          
        ]]>   
       </value>
-      <description>A mensagem de erro localizada quando o usuário usa o navegador do botão Voltar.</description>
+      <description>Localized error message when the user use the Back button bowser.</description>
   </text>    
 
     <text id='BILLING_CYCLE_BI_WEEKLY_COMBOX_BOX_FORMAT'>
-   <value>[LABEL] : [START_DATE] - [END_DATE] ([MONTH]/[DAY]/[YEAR])</value>            
+<value>[LABEL] :[START_DATE] - [END_DATE] ([MONTH]/[DAY]/[YEAR])</value>            
       <description>
-Diálogo DefaultDialogAddAccount.asp, o ciclo de faturamento bissemanal mostra uma caixa de combinação com 14 períodos ou menos.
-Esta entrada permite a personalização da exibição das informações do período. Consulte a documentação do ciclo de faturamento para obter mais ajuda.
-Esta tag permite que você crie o formato de string que será exibida na caixa de combinação da lista de tags bissemanais do
-ciclo de faturamento. END_DATE,START_DATE,LABEL,MONTH,DAY,NAMEDDAY,SECONDDAY,YEAR.
+Dialog DefaultDialogAddAccount.asp, The Billing Cycle BiWeekLy show a combo box with 14 periodes or less. 
+This entry allow to customize the display of the periode information. See the Billing Cycle documentation for more help.
+This tag allows you to build the string format that will show up in the combo box for the billing cycle bi-weekly
+Tag List : END_DATE,START_DATE,LABEL,MONTH,DAY,NAMEDDAY,SECONDDAY,YEAR.
       </description>
   </text>
 
     <text id='DEFAULT_COUNTRY_ENUM_TYPE_VALUE'>
    <value></value>
       <description>
-      No MAM 2.0, como os campos de contato não são mais exigidos, o valor padrão País fica em branco...
-      Ao abrir a conta de adição, defina o id de país selecionado padrão. 208 é dos EUA. Consulte espaço de nomes do tipo de enumeração global.
+      In MAM 2.0 because the contact fields are no more required, the Country default value is blank...
+      When you open add account define the default country selected id selected. 208 is USA. See enum type name space global.
       </description>
   </text>
     
     <text id='DEFAULT_DEFAULT_ADD_ACCOUNT_EMAIL_NOTIFICATION'>
-   <value>FALSO</value>
-      <description>Ao abrir a conta de adição, defina se a caixa de seleção Notificação de e-mail da caixa de diálogo Adicionar conta foi selecionada.</description>
+<value>FALSE</value>
+      <description>When you open add account define if the Add Account dialog Email notification check box is checked.</description>
   </text>    
 
     <text id='MDM_PVB_INTERVAL_ID_COMBOX_BOX_FORMAT_CURRENT_MONTH'>
-   <value>[START_DATE] Hoje</value>
-      <description>Navegador de exibição de produtos MDM - Como personalizar a caixa de combinação ID de intervalo.</description>
+<value>Du [START_DATE] à aujourd'hui</value>
+      <description>MDM Product View Browser - How to cusmotize the Interval ID combo box.</description>
   </text>
     <text id='MDM_PVB_INTERVAL_ID_COMBOX_BOX_FORMAT_PREVIOUS_NON_CLOSED_MONTH'>
-   <value>[START_DATE] até [END_DATE]</value>
-      <description>Navegador de exibição de produtos MDM - Como personalizar a caixa de combinação ID de intervalo.</description>
+<value>Du [START_DATE] au [END_DATE]</value>
+      <description>MDM Product View Browser - How to cusmotize the Interval ID combo box.</description>
   </text>
     <text id='MDM_PVB_INTERVAL_ID_COMBOX_BOX_FORMAT_PREVIOUS_CLOSED_MONTH'>
-   <value>[START_DATE] até [END_DATE] nº da fatura:[INVOICE_NUMBER]</value>
-      <description>Navegador de exibição de produtos MDM - Como personalizar a caixa de combinação ID de intervalo.</description>
+<value>Du [START_DATE] au [END_DATE] Nº de facture :[INVOICE_NUMBER]</value>
+      <description>MDM Product View Browser - How to cusmotize the Interval ID combo box.</description>
   </text>
     <text id='MDM_PVB_INTERVAL_ID_COMBOX_BOX_FORMAT_PREVIOUS_CLOSED_MONTH_WITH_NO_INVOICE_NUMBER'>
-   <value>[START_DATE] até [END_DATE]</value>
-      <description>Navegador de exibição de produtos MDM - Como personalizar a caixa de combinação ID de intervalo.</description>
+<value>Du [START_DATE] au [END_DATE]</value>
+      <description>MDM Product View Browser - How to cusmotize the Interval ID combo box.</description>
   </text>    
     
     <text id='QUICKFINDALIAS1'>
-   <value>Apelido</value>
-      <description>A Pesquisa rápida permite a execução da pesquisa por Apelido, a palavra apelido será exibida na caixa de combinação Pesquisa rápida e precisará de uma tradução.</description>
+<value>Alias</value>
+      <description>The Quick Search allow to perform search on Alias, the word Alias will appear in the Quick Find ComboBox and need a translation..</description>
   </text>
 
   <text id='ADJUSTMENT_FINDER_CURRENT_ACCOUNT_TYPE_FOR_QUERY_IS_THE_PAYER'>
   <value>1</value>
       <description>
-      Ao analisarmos a transação para a conta pesquisada no momento, é necessário saber como exibir a conta:
-      como o pagador ou como o
+      When we look transaction for the current looked up account we need to know how to view the account:
+      as the payer or the payer
       PUBLIC CONST ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH_PAYER=1
-      PUBLIC CONST ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH_PAYEE=2 do pagador
+      PUBLIC CONST ACCOUNT_FINDER_ACCOUNT_TYPE_FOR_SEARCH_PAYEE=2
       </description>
   </text>
   

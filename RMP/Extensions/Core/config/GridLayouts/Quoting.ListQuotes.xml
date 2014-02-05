@@ -10,7 +10,7 @@
     <Width>720</Width>
     <Expandable>true</Expandable>
     <Buttons>None</Buttons>
-    <DataSourceURL></DataSourceURL>
+    <DataSourceURL>../AjaxServices/LoadQuotesList.aspx</DataSourceURL>
     <MultiSelect>false</MultiSelect>
     <SelectionModel>Standard</SelectionModel>
     <TotalProperty>TotalRows</TotalProperty>
@@ -44,8 +44,8 @@
     <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <DataBinder>
         <ServicePath>/MetraNet/AjaxServices/GetData.aspx</ServicePath>
-        <OutPropertyName></OutPropertyName>
-        <Operation>__Client</Operation>
+        <OutPropertyName>quotes</OutPropertyName>
+        <Operation>QuotingService_GetQuotes_Client</Operation>
     </DataBinder>
     <SubGrid></SubGrid>
     <Elements>
@@ -321,139 +321,7 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>ProductOfferings</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText />
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-            <ObjectName>MetraTech.DomainModel.BaseTypes.ProductOfferingUdrc</ObjectName>
-            <ID>UdrcValues[].UDRC_Id</ID>
-            <DataType>Numeric</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>UdrcValues[].UDRC_Id</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText />
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-            <ObjectName>MetraTech.DomainModel.BaseTypes.ProductOfferingUdrc</ObjectName>
-            <ID>UdrcValues[].StartDate</ID>
-            <DataType>Date</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>UdrcValues[].StartDate</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText />
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-            <ObjectName>MetraTech.DomainModel.BaseTypes.ProductOfferingUdrc</ObjectName>
-            <ID>UdrcValues[].EndDate</ID>
-            <DataType>Date</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>UdrcValues[].EndDate</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText />
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-            <ObjectName>MetraTech.DomainModel.BaseTypes.ProductOfferingUdrc</ObjectName>
-            <ID>UdrcValues[].Value</ID>
-            <DataType>Numeric</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>UdrcValues[].Value</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText />
             <Formatter></Formatter>
             <Width>120</Width>
@@ -486,7 +354,7 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>ReportLink</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText />
             <Formatter></Formatter>
             <Width>120</Width>
@@ -519,7 +387,7 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>StatusCleanup</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText />
             <Formatter></Formatter>
             <Width>120</Width>
@@ -552,7 +420,7 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>StatusReport</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText />
             <Formatter></Formatter>
             <Width>120</Width>
@@ -630,49 +498,7 @@
                     <Fields>
                         <Field>
                             <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.DomainModel.BaseTypes.ProductOfferingUdrc</ObjectName>
-                            <ID>UdrcValues[].UDRC_Id</ID>
-                            <Name>UdrcValues[].UDRC_Id</Name>
-                        </Field>
-                        <Field>
-                            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.DomainModel.BaseTypes.ProductOfferingUdrc</ObjectName>
-                            <ID>UdrcValues[].StartDate</ID>
-                            <Name>UdrcValues[].StartDate</Name>
-                        </Field>
-                    </Fields>
-                </Column>
-                <Column>
-                    <Fields>
-                        <Field>
-                            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.DomainModel.BaseTypes.ProductOfferingUdrc</ObjectName>
-                            <ID>UdrcValues[].Value</ID>
-                            <Name>UdrcValues[].Value</Name>
-                        </Field>
-                        <Field>
-                            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.DomainModel.BaseTypes.ProductOfferingUdrc</ObjectName>
-                            <ID>UdrcValues[].EndDate</ID>
-                            <Name>UdrcValues[].EndDate</Name>
-                        </Field>
-                    </Fields>
-                </Column>
-            </Columns>
-            <ToolbarButtons></ToolbarButtons>
-        </Section>
-        <Section>
-            <Title>
-                <Value><![CDATA[]]></Value>
-            </Title>
-            <TabOrder>LeftToRight</TabOrder>
-            <Name></Name>
-            <Columns>
-                <Column>
-                    <Fields>
-                        <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
+                            <ObjectName>MetraTech.Domain.Quoting.Quote</ObjectName>
                             <ID>ReportLink</ID>
                             <Name>ReportLink</Name>
                         </Field>
@@ -681,14 +507,14 @@
                 <Column>
                     <Fields>
                         <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
+                            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.Domain.Quoting.Quote</ObjectName>
                             <ID>StatusReport</ID>
                             <Name>StatusReport</Name>
                         </Field>
                         <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
+                            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.Domain.Quoting.Quote</ObjectName>
                             <ID>StatusCleanup</ID>
                             <Name>StatusCleanup</Name>
                         </Field>

@@ -497,7 +497,7 @@
                                 <LocalizationTag>TEXT_ACCOUNT_QUOTING_LIST</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/Account/AccountQuotingList.aspx</Link>
+                            <Link>/MetraNet/Quoting/QuotesList.aspx</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/Icons/report.png</Icon>
                             <Description>Account Quoting List</Description>
@@ -995,7 +995,7 @@
                                 <LocalizationTag>TEXT_ACCOUNT_QUOTING_LIST</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/Account/AccountQuotingList.aspx</Link>
+                            <Link>/MetraNet/Quoting/QuotesList.aspx</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/Icons/report.png</Icon>
                             <Description>Account Quoting List</Description>

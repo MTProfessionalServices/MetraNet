@@ -216,4 +216,10 @@
     <data name="tbUserNameResource1.Label" xml:space="preserve">
         <value>Nom d’utilisateur</value>
     </data>
+  <data name="tbSecurityQuestionTextResource1.Label" xml:space="preserve">
+    <value>Question de sécurité</value>
+  </data>
+  <data name="tbAuthenticationTypeResource1.Label" xml:space="preserve">
+    <value>Type d'authentification</value>
+  </data>
 </root>

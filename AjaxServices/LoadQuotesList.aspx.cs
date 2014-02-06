@@ -40,13 +40,6 @@ namespace MetraNet.AjaxServices
         Response.End();
         return false;
       }
-      catch (CommunicationException ex)
-      {
-        Response.StatusCode = 500;
-        Logger.LogError(ex.Message);
-        Response.End();
-        return false;
-      }
       catch (Exception ex)
       {
         Response.StatusCode = 500;

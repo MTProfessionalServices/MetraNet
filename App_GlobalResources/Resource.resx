@@ -537,10 +537,10 @@
   <data name="TEXT_BACK" xml:space="preserve">
     <value>Previous</value>
   </data>
-	<data name="TEXT_FROM_PARAM_TABLE" xml:space="preserve">
+  <data name="TEXT_FROM_PARAM_TABLE" xml:space="preserve">
     <value>From Parameter Table</value>
   </data>
-	<data name="TEXT_NEXT" xml:space="preserve">
+  <data name="TEXT_NEXT" xml:space="preserve">
     <value>Next</value>
   </data>
   <data name="TEXT_SAVE_AND_CONTINUE" xml:space="preserve">
@@ -581,5 +581,14 @@
   </data>
   <data name="_PropertyForm_cshtml_Set_Localization_Title" xml:space="preserve">
     <value>Set Localization</value>
+  </data>
+  <data name="TEXT_BUTTON_ADD" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="TEXT_BUTTON_DELETE" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="TEXT_BUTTON_EDIT" xml:space="preserve">
+    <value>Edit</value>
   </data>
 </root>

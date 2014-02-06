@@ -195,6 +195,22 @@
             <Value>Prebill Adjustment Amount</Value>
         </locale_entry>
         <locale_entry>
+            <Name>metratech.com/QuoteStatus/Complete</Name>
+            <Value>Complete</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/QuoteStatus/Failed</Name>
+            <Value>Failed</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/QuoteStatus/InProgress</Name>
+            <Value>InProgress</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/QuoteStatus/None</Name>
+            <Value>None</Value>
+        </locale_entry>
+        <locale_entry>
             <Name>metratech.com/SaleForceRelationship/Account Development</Name>
             <Value>Account Development</Value>
         </locale_entry>

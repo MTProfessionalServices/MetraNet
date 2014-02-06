@@ -58,7 +58,10 @@
             <IsIdentity>true</IsIdentity>
             <DataIndex>IdQuote</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>ID_QUOTE</LocalizationTag>
+                <ResourceClassKey>Quoting/App_LocalResources/QuotesList.aspx</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -91,7 +94,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>QuoteDescription</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>QUOTE_DESCRIPTION</LocalizationTag>
+                <ResourceClassKey>Quoting/App_LocalResources/QuotesList.aspx</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -124,7 +130,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>CreationDate</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>CREATION_DATE</LocalizationTag>
+                <ResourceClassKey>Quoting/App_LocalResources/QuotesList.aspx</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -157,7 +166,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>TotalAmount</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>TOTAL_AMOUNT</LocalizationTag>
+                <ResourceClassKey>Quoting/App_LocalResources/QuotesList.aspx</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -190,7 +202,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>TotalTax</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>TOTAL_TAX</LocalizationTag>
+                <ResourceClassKey>Quoting/App_LocalResources/QuotesList.aspx</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -223,7 +238,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>Currency</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>CURRENCY</LocalizationTag>
+                <ResourceClassKey>Quoting/App_LocalResources/QuotesList.aspx</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -256,7 +274,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>Status</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>QUOTE_STATUS</LocalizationTag>
+                <ResourceClassKey>Quoting/App_LocalResources/QuotesList.aspx</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -266,72 +287,6 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Domain.Quoting.Quote</ObjectName>
-            <ID>Accounts</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>Accounts</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText />
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Domain.Quoting.Quote</ObjectName>
-            <ID>ProductOfferings</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>ProductOfferings</DataIndex>
-            <IsColumn>false</IsColumn>
-            <HeaderText />
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
             <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
@@ -365,7 +320,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>true</ShowInExpander>
-            <Filterable>true</Filterable>
+            <Filterable>false</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -389,7 +344,7 @@
             <DataIndex>StatusCleanup</DataIndex>
             <IsColumn>false</IsColumn>
             <HeaderText />
-            <Formatter></Formatter>
+            <Formatter>BulletRenderer</Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
@@ -398,7 +353,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>true</ShowInExpander>
-            <Filterable>true</Filterable>
+            <Filterable>false</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -422,7 +377,7 @@
             <DataIndex>StatusReport</DataIndex>
             <IsColumn>false</IsColumn>
             <HeaderText />
-            <Formatter></Formatter>
+            <Formatter>BooleanRenderer</Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
@@ -431,7 +386,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>true</ShowInExpander>
-            <Filterable>true</Filterable>
+            <Filterable>false</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -447,46 +402,6 @@
         </Element>
     </Elements>
     <ExpanderTemplate>
-        <Section>
-            <Title>
-                <Value><![CDATA[]]></Value>
-            </Title>
-            <TabOrder>LeftToRight</TabOrder>
-            <Name></Name>
-            <Columns>
-                <Column>
-                    <Fields>
-                        <Field>
-                            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.Domain.Quoting.Quote</ObjectName>
-                            <ID>Accounts</ID>
-                            <Name>Accounts</Name>
-                        </Field>
-                    </Fields>
-                </Column>
-            </Columns>
-            <ToolbarButtons></ToolbarButtons>
-        </Section>
-        <Section>
-            <Title>
-                <Value><![CDATA[]]></Value>
-            </Title>
-            <TabOrder>LeftToRight</TabOrder>
-            <Name></Name>
-            <Columns>
-                <Column>
-                    <Fields>
-                        <Field>
-                            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.Domain.Quoting.Quote</ObjectName>
-                            <ID>ProductOfferings</ID>
-                            <Name>ProductOfferings</Name>
-                        </Field>
-                    </Fields>
-                </Column>
-            </Columns>
-            <ToolbarButtons></ToolbarButtons>
-        </Section>
         <Section>
             <Title>
                 <Value><![CDATA[]]></Value>

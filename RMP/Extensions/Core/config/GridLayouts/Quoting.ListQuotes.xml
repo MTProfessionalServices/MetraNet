@@ -6,12 +6,12 @@
         <ResourceClassKey></ResourceClassKey>
     </Title>
     <Exportable>true</Exportable>
-    <Height>400</Height>
-    <Width>720</Width>
+    <Height>0</Height>
+    <Width>800</Width>
     <Expandable>true</Expandable>
     <Buttons>None</Buttons>
     <DataSourceURL>../AjaxServices/LoadQuotesList.aspx</DataSourceURL>
-    <MultiSelect>false</MultiSelect>
+    <MultiSelect>true</MultiSelect>
     <SelectionModel>Standard</SelectionModel>
     <TotalProperty>TotalRows</TotalProperty>
     <RootElement>Items</RootElement>
@@ -28,17 +28,18 @@
     <ShowGridHeader>true</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <NoRecordsText>
-        <Value><![CDATA[]]></Value>
+        <LocalizationTag>TEXT_NO_RECORDS_FOUND</LocalizationTag>
+        <ResourceClassKey>Resource</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
-    <FilterPanelCollapsed>false</FilterPanelCollapsed>
+    <FilterPanelCollapsed>true</FilterPanelCollapsed>
     <EnableColumnConfig>true</EnableColumnConfig>
     <EnableFilterConfig>true</EnableFilterConfig>
     <Resizeable>true</Resizeable>
     <ButtonAlignment>Center</ButtonAlignment>
     <DefaultSortField></DefaultSortField>
     <DefaultSortDirection>Ascending</DefaultSortDirection>
-    <DisplayCount>false</DisplayCount>
+    <DisplayCount>true</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
     <CustomImplementationFilePath></CustomImplementationFilePath>
     <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
@@ -225,7 +226,7 @@
             <IsColumn>true</IsColumn>
             <HeaderText />
             <Formatter></Formatter>
-            <Width>120</Width>
+            <Width>80</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
@@ -312,6 +313,24 @@
             </ElementValue2>
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>false</RecordElement>
+            <ID>Actions</ID>
+            <DataIndex>acctions</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>TEXT_ACTIONS</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>80</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>false</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Filterable>false</Filterable>
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
@@ -525,5 +544,34 @@
         </Section>
     </ExpanderTemplate>
     <GridButtons></GridButtons>
-    <ToolbarButtons></ToolbarButtons>
+    <ToolbarButtons>
+        <Button>
+            <ButtonID>Add</ButtonID>
+            <ButtonText>
+                <LocalizationTag>TEXT_BUTTON_ADD</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
+            </ButtonText>
+            <ToolTip>
+                <LocalizationTag>TEXT_BUTTON_ADD</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
+            </ToolTip>
+            <IconClass>add</IconClass>
+            <RequiredCapabilities></RequiredCapabilities>
+            <JSHandlerFunction>onNew</JSHandlerFunction>
+        </Button>
+        <Button>
+            <ButtonID>Delete</ButtonID>
+            <ButtonText>
+                <LocalizationTag>TEXT_BUTTON_DELETE</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
+            </ButtonText>
+            <ToolTip>
+                <LocalizationTag>TEXT_BUTTON_DELETE</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
+            </ToolTip>
+            <IconClass>remove</IconClass>
+            <RequiredCapabilities></RequiredCapabilities>
+            <JSHandlerFunction>onDelete</JSHandlerFunction>
+        </Button>
+    </ToolbarButtons>
 </GridLayout>

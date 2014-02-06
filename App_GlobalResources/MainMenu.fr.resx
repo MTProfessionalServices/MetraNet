@@ -328,7 +328,7 @@
     <value>Afficher toutes les entités</value>
   </data>
   <data name="TEXT_MACHINE_ROLES" xml:space="preserve">
-    <value>French</value>
+    <value>Rôles de machines</value>
   </data>
   <data name="TEXT_MAKE_PAYMENT" xml:space="preserve">
     <value>Effectuer un paiement</value>
@@ -574,15 +574,18 @@
     <value>Approvals</value>
   </data>
   <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
-    <value>View Item History</value>
+    <value>L'Histoire de l'élément</value>
   </data>
   <data name="TEXT_SHOW_ALL_CHANGES_SUMMARY" xml:space="preserve">
-    <value>View All Changes</value>
+    <value>Toutes les modifications</value>
   </data>
   <data name="TEXT_SHOW_PENDING_CHANGES_SUMMARY" xml:space="preserve">
-    <value>View Pending Changes</value>
+    <value>Les modifications en attente</value>
   </data>
   <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
-    <value>View Failed Changes</value>
+    <value>Les modifications échoué</value>
+  </data>
+  <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
+    <value>Assigner les messages de la facture</value>
   </data>
 </root>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,9 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+    <data name="CREATION_DATE" xml:space="preserve">
+        <value>Creation date</value>
+    </data>
+    <data name="CURRENCY" xml:space="preserve">
+        <value>Currency</value>
+    </data>
+    <data name="ID_QUOTE" xml:space="preserve">
+        <value>Id Quote</value>
+    </data>
+    <data name="MTTitle1Resource1.Text" xml:space="preserve">
+        <value>Quotes List</value>
+    </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet - Quotes List</value>
   </data>
+    <data name="QUOTE_ACCOUNTS" xml:space="preserve">
+        <value>Accounts</value>
+    </data>
+    <data name="QUOTE_DESCRIPTION" xml:space="preserve">
+        <value>Quote description</value>
+    </data>
+    <data name="QUOTE_STATUS" xml:space="preserve">
+        <value>Quote status</value>
+    </data>
+    <data name="TOTAL_AMOUNT" xml:space="preserve">
+        <value>Total amount</value>
+    </data>
+    <data name="TOTAL_TAX" xml:space="preserve">
+        <value>Total Tax</value>
+    </data>
   <data name="QuoteListTitle.Text" xml:space="preserve">
     <value>Quotes List</value>
   </data>

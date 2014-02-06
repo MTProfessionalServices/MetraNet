@@ -13,7 +13,7 @@
     Exportable="False" FilterColumnWidth="350" FilterInputWidth="220" 
     FilterLabelWidth="75" FilterPanelCollapsed="False" 
     FilterPanelLayout="MultiColumn" 
-    MultiSelect="False" PageSize="10" 
+    MultiSelect="True" PageSize="10" 
     Resizable="True" RootElement="Items" SearchOnLoad="True" 
     SelectionModel="Standard" ShowBottomBar="True" ShowColumnHeaders="True" 
     ShowFilterPanel="True" ShowGridFrame="True" ShowGridHeader="True" 

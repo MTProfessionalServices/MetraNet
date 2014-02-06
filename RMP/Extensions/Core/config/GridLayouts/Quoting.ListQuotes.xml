@@ -61,7 +61,7 @@
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>ID_QUOTE</LocalizationTag>
-                <ResourceClassKey>Quoting/App_LocalResources/QuotesList.aspx</ResourceClassKey>
+                <ResourceClassKey>Quoting/App_LocalResources/QuoteList.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -97,7 +97,7 @@
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>QUOTE_DESCRIPTION</LocalizationTag>
-                <ResourceClassKey>Quoting/App_LocalResources/QuotesList.aspx</ResourceClassKey>
+                <ResourceClassKey>Quoting/App_LocalResources/QuoteList.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -133,7 +133,7 @@
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>CREATION_DATE</LocalizationTag>
-                <ResourceClassKey>Quoting/App_LocalResources/QuotesList.aspx</ResourceClassKey>
+                <ResourceClassKey>Quoting/App_LocalResources/QuoteList.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -169,7 +169,7 @@
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>TOTAL_AMOUNT</LocalizationTag>
-                <ResourceClassKey>Quoting/App_LocalResources/QuotesList.aspx</ResourceClassKey>
+                <ResourceClassKey>Quoting/App_LocalResources/QuoteList.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -205,7 +205,7 @@
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>TOTAL_TAX</LocalizationTag>
-                <ResourceClassKey>Quoting/App_LocalResources/QuotesList.aspx</ResourceClassKey>
+                <ResourceClassKey>Quoting/App_LocalResources/QuoteList.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -241,7 +241,7 @@
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>CURRENCY</LocalizationTag>
-                <ResourceClassKey>Quoting/App_LocalResources/QuotesList.aspx</ResourceClassKey>
+                <ResourceClassKey>Quoting/App_LocalResources/QuoteList.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>80</Width>
@@ -277,7 +277,7 @@
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>QUOTE_STATUS</LocalizationTag>
-                <ResourceClassKey>Quoting/App_LocalResources/QuotesList.aspx</ResourceClassKey>
+                <ResourceClassKey>Quoting/App_LocalResources/QuoteList.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -301,6 +301,24 @@
             </ElementValue2>
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>false</RecordElement>
+            <ID>Actions</ID>
+            <DataIndex>actions</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>TEXT_ACTIONS</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>60</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>false</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Filterable>false</Filterable>
         </Element>
         <Element>
             <RecordElement>true</RecordElement>

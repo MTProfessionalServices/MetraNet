@@ -106,11 +106,10 @@
         return;
       }
       var response = JSON.parse(value);
-      if (response.result === 'ok') {
-        dataStore_<%= QuoteListGrid.ClientID %>.reload();
-      } else {
+      if (response.result !== 'ok') {
         window.Ext.UI.SystemError(response.errorMessage);
       }
+      grid_<%= QuoteListGrid.ClientID %>.store.reload();
     }
 
   </script>

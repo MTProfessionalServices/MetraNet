@@ -141,6 +141,15 @@
     <data name="QUOTE_STATUS" xml:space="preserve">
         <value>Quote status</value>
     </data>
+    <data name="REPORT_LINK" xml:space="preserve">
+        <value>Report link</value>
+    </data>
+    <data name="STATUS_CLEANUP" xml:space="preserve">
+        <value>Status cleanup</value>
+    </data>
+    <data name="STATUS_REPORT" xml:space="preserve">
+        <value>Status report</value>
+    </data>
     <data name="TOTAL_AMOUNT" xml:space="preserve">
         <value>Total amount</value>
     </data>

@@ -30,29 +30,29 @@ namespace MetraNet.Quoting
     /// <param name="eventArgument">A string that represents an event argument to pass to the event handler.</param>
     public void RaiseCallbackEvent(string eventArgument)
     {
-      object result = null;
+      object result;
       var serializer = new JavaScriptSerializer();
       var value = serializer.Deserialize<Dictionary<string, string>>(eventArgument);
       var action = value["action"];
 
       try
       {
+        var entityIds = new List<int>();
         switch (action)
         {
           case "deleteOne":
             {
-              var entityId = Convert.ToInt32(value["entityId"], CultureInfo.InvariantCulture);
-              result = DeleteQuote(new[] {entityId});
+              entityIds.Add(int.Parse(value["entityId"], CultureInfo.InvariantCulture));
               break;
             }
           case "deleteBulk":
             {
               var ids = value["entityIds"].Split(new[] {','});
-              var entityIds = ids.Select(s => Convert.ToInt32(s));
-              result = DeleteQuote(entityIds);
+              entityIds.AddRange(ids.Select(s => int.Parse(s, CultureInfo.InvariantCulture)));
               break;
             }
         }
+        result = DeleteQuote(entityIds);
       }
       catch (Exception ex)
       {

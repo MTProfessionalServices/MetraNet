@@ -7,12 +7,12 @@
     </Title>
     <Exportable>true</Exportable>
     <Height>0</Height>
-    <Width>800</Width>
+    <Width>75%</Width>
     <Expandable>true</Expandable>
     <Buttons>None</Buttons>
     <DataSourceURL>../AjaxServices/LoadQuotesList.aspx</DataSourceURL>
     <MultiSelect>true</MultiSelect>
-    <SelectionModel>Standard</SelectionModel>
+    <SelectionModel>CheckBox</SelectionModel>
     <TotalProperty>TotalRows</TotalProperty>
     <RootElement>Items</RootElement>
     <PageSize>10</PageSize>
@@ -42,7 +42,7 @@
     <DisplayCount>true</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
     <CustomImplementationFilePath></CustomImplementationFilePath>
-    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
+    <CustomOverrideJavascriptIncludes>\MetraNet\Quoting\QuoteList.aspx</CustomOverrideJavascriptIncludes>
     <DataBinder>
         <ServicePath>/MetraNet/AjaxServices/GetData.aspx</ServicePath>
         <OutPropertyName>quotes</OutPropertyName>
@@ -475,7 +475,7 @@
             <JSHandlerFunction>onNew</JSHandlerFunction>
         </Button>
         <Button>
-            <ButtonID>Delete</ButtonID>
+            <ButtonID>DeleteBulk</ButtonID>
             <ButtonText>
                 <LocalizationTag>TEXT_BUTTON_DELETE</LocalizationTag>
                 <ResourceClassKey>Resource</ResourceClassKey>
@@ -486,7 +486,7 @@
             </ToolTip>
             <IconClass>remove</IconClass>
             <RequiredCapabilities></RequiredCapabilities>
-            <JSHandlerFunction>onDelete</JSHandlerFunction>
+            <JSHandlerFunction>onDeleteBulk</JSHandlerFunction>
         </Button>
     </ToolbarButtons>
 </GridLayout>

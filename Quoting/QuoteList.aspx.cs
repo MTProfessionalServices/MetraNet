@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.ServiceModel;
 using System.Web.Script.Serialization;
 using System.Web.UI;
@@ -33,18 +34,30 @@ namespace MetraNet.Quoting
       var serializer = new JavaScriptSerializer();
       var value = serializer.Deserialize<Dictionary<string, string>>(eventArgument);
       var action = value["action"];
-      switch (action)
+
+      try
       {
-        case "deleteOne":
-          {
-            var entityId = Convert.ToInt32(value["entityId"], CultureInfo.InvariantCulture);
-            result = DeleteQuote(new[] {entityId});
-            break;
-          }
-        case "deleteBulk":
-          {
-            break;
-          }
+        switch (action)
+        {
+          case "deleteOne":
+            {
+              var entityId = Convert.ToInt32(value["entityId"], CultureInfo.InvariantCulture);
+              result = DeleteQuote(new[] {entityId});
+              break;
+            }
+          case "deleteBulk":
+            {
+              var ids = value["entityIds"].Split(new[] {','});
+              var entityIds = ids.Select(s => Convert.ToInt32(s));
+              result = DeleteQuote(entityIds);
+              break;
+            }
+        }
+      }
+      catch (Exception ex)
+      {
+        Logger.LogError(ex.Message);
+        result = new {result = "error", errorMessage = ex.Message};
       }
 
       if (result != null)
@@ -84,12 +97,7 @@ namespace MetraNet.Quoting
       {
         Logger.LogError(ex.Detail.ErrorMessages[0]);
         result = new {result = "error", errorMessage = ex.Detail.ErrorMessages[0]};
-      }
-      catch (Exception ex)
-      {
-        Logger.LogError(ex.Message);
-        result = new {result = "error", errorMessage = ex.Message};
-      }
+      }     
       return result;
     }
     #endregion

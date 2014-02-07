@@ -10,7 +10,7 @@ using MetraTech.UI.Common;
 
 namespace MetraNet.AjaxServices
 {
-  public partial class Adjustments_AjaxServices_LoadQuotesList : MTListServicePage
+  public partial class LoadQuotesList : MTListServicePage
   {
     private const int MaxRecordsPerBatch = 50;
 

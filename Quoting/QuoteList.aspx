@@ -15,7 +15,7 @@
     FilterPanelLayout="MultiColumn" 
     MultiSelect="True" PageSize="10" 
     Resizable="True" RootElement="Items" SearchOnLoad="True" 
-    SelectionModel="Standard" ShowBottomBar="True" ShowColumnHeaders="True" 
+    SelectionModel="Checkbox" ShowBottomBar="True" ShowColumnHeaders="True" 
     ShowFilterPanel="True" ShowGridFrame="True" ShowGridHeader="True" 
     ShowTopBar="True" TotalProperty="TotalRows">
   </MT:MTFilterGrid>
@@ -40,8 +40,13 @@
       return str;
     }
 
+    function onNew_<%= QuoteListGrid.ClientID %>() {
+      //document.location.href = String.format("QuoteEdit.aspx?accountId={0}", accountId);
+      alert("Does not implement");
+    }
+    
     function onEdit(entityId) {
-      
+      alert("Does not implement");
     }
 
     function onDelete(entityId) {
@@ -58,13 +63,42 @@
         icon: window.Ext.MessageBox.QUESTION
       });
     }
+    
+    function onDeleteBulk_<%= QuoteListGrid.ClientID %>() {
+      var entityIds = GetQuoteIds();
 
-    function onNew_<%=QuoteListGrid.ClientID %>() {
-      //document.location.href = String.format("QuoteEdit.aspx?accountId={0}", accountId);
+      if (entityIds.length == 0)
+      {
+        return;
+      }
+
+      top.Ext.MessageBox.show({
+        title: textDelete,
+        msg: '<%=GetGlobalResourceObject("JSConsts", "TEXT_DELETE_SELECTED_ROWS")%>',
+        buttons: window.Ext.MessageBox.OKCANCEL,
+        fn: function(btn) {
+          if (btn == 'ok') {
+            window.CallServer(JSON.stringify({ action: 'deleteBulk', entityIds: entityIds }));
+          }
+        },
+        animEl: 'elId',
+        icon: window.Ext.MessageBox.QUESTION
+      });
     }
     
-    function onDelete_<%=QuoteListGrid.ClientID %>() {
-      
+    function GetQuoteIds()
+    {
+      var records = grid_<%= QuoteListGrid.ClientID %>.getSelectionModel().getSelections();
+      var quoteIds = "";
+      for(var i = 0; i < records.length; i++)
+      {
+        if(i > 0)
+        {
+          quoteIds += ",";
+        }
+        quoteIds += records[i].data.IdQuote;
+      }
+      return quoteIds;
     }
 
     function ReceiveServerData(value) {

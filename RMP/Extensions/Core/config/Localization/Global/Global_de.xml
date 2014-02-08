@@ -1048,7 +1048,7 @@
         </locale_entry>
         <locale_entry>
             <Name>Global/LanguageCode/BR</Name>
-            <Value>Global/LanguageCode/BR</Value>
+            <Value>Portuguese-Brazil</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/LanguageCode/DA</Name>
@@ -1080,7 +1080,7 @@
         </locale_entry>
         <locale_entry>
             <Name>Global/LanguageCode/MX</Name>
-            <Value>Global/LanguageCode/MX</Value>
+            <Value>Spanish-Mexico</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/LanguageCode/us</Name>

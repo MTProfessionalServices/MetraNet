@@ -29,7 +29,7 @@
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
         <CommonQuerySourceFile></CommonQuerySourceFile>
-        <SqlServerQuerySourceFile>R:\Extensions\Reporting\Config\Queries\ReverseDatamartAdapter\SqlServerMockFile.xml</SqlServerQuerySourceFile>
-        <OracleQuerySourceFile>R:\Extensions\Reporting\Config\Queries\ReverseDatamartAdapter\OracleMockFile.xml</OracleQuerySourceFile>
+        <SqlServerQuerySourceFile>R:\Extensions\Reporting\Config\SqlCore\Queries\ReverseDatamartAdapter\SqlServerMockFile.xml</SqlServerQuerySourceFile>
+        <OracleQuerySourceFile>R:\Extensions\Reporting\Config\SqlCore\Queries\ReverseDatamartAdapter\OracleMockFile.xml</OracleQuerySourceFile>
     </ConversionAudit>
 </Query>

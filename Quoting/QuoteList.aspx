@@ -110,6 +110,7 @@
         window.Ext.UI.SystemError(response.errorMessage);
       }
       grid_<%= QuoteListGrid.ClientID %>.store.reload();
+      grid_<%= QuoteListGrid.ClientID %>.getSelectionModel().clearSelections();
     }
 
   </script>

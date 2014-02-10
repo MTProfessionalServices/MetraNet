@@ -211,8 +211,9 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
       const string approvalFrameworkManagementUrl =
         "/MetraNet/ApprovalFrameworkManagement/ShowChangesSummary.aspx?showchangestate=PENDING";
       var changeTypeDisplayName = isNew
-                                    ? GetLocalResourceObject("newSubscription").ToString()
-                                    : GetLocalResourceObject("updateSubscription").ToString();
+                         ? GetGlobalResourceObject("Resource", "newSubscription").ToString()
+                         : GetGlobalResourceObject("Resource", "updateSubscription").ToString();
+
       var strPendingChangeWarning =
         String.Format(GetLocalResourceObject("pendingChangeWarningFormat").ToString(),
                       changeTypeDisplayName, approvalFrameworkManagementUrl);

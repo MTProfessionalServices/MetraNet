@@ -72,20 +72,6 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <property name="SessionID" column="c_SessionID" not-null="true">
-      <meta attribute="label">SessionID</meta>
-      <meta attribute="description">Session id for credit note</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.Int64, mscorlib" />
-    </property>
     <property name="UsageIntervalID" column="c_UsageIntervalID" not-null="true">
       <meta attribute="label">UsageIntervalID</meta>
       <meta attribute="description">Usage interval id for credit note</meta>
@@ -114,7 +100,7 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <property name="AdjustmentType" column="c_AdjustmentType">
+    <property name="AdjustmentType" column="c_AdjustmentType" not-null="true">
       <meta attribute="label">AdjustmentType</meta>
       <meta attribute="description" />
       <meta attribute="defaultvalue" />
@@ -128,7 +114,7 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
     </property>
-    <property name="AdjustmentTransactionID" column="c_AdjustmentTransactionID" not-null="true">
+    <property name="AdjustmentTransactionID" column="c_AdjustmentTransactionID">
       <meta attribute="label">AdjustmentTransactionID</meta>
       <meta attribute="description" />
       <meta attribute="defaultvalue" />
@@ -141,6 +127,20 @@
       <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="SessionID" column="c_SessionID">
+      <meta attribute="label">SessionID</meta>
+      <meta attribute="description">Session id for credit note</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int64, mscorlib" />
     </property>
     <many-to-one name="CreditNote" class="MetraTech.Core.CreditNotes.CreditNote, MetraTech.Core.CreditNotes.Entity" column="c_CreditNote_Id" cascade="none">
       <meta attribute="relationship-type">OneToMany</meta>

@@ -131,7 +131,7 @@
     <MT:MTTextArea ID="CommentTextBox" Label="Comment" runat="server" 
       AllowBlank="True" Height="200px" Width="400px" ControlHeight="200" 
       ControlWidth="400" HideLabel="False" LabelSeparator=":" LabelWidth="170" 
-      Listeners="{}" MaxLength="1024" meta:resourcekey="CommentTextBoxResource1" 
+      Listeners="{}" MaxLength="255" meta:resourcekey="CommentTextBoxResource1" 
       MinLength="0"
       ReadOnly="False" Enabled="False" ValidationRegex="null" 
       XType="TextArea" XTypeNameSpace="form" />

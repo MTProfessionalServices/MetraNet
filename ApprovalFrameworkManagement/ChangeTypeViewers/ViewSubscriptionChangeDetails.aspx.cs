@@ -6,6 +6,7 @@ using MetraTech.UI.Common;
 using MetraTech.Core.Services.ClientProxies;
 using MetraTech.Approvals;
 using MetraTech.Approvals.ChangeTypes;
+using MetraTech.UI.Controls;
 
 public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails : MTPage
 {
@@ -42,6 +43,10 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
         SubChange = CompareWithCurrentSubscription(newSub, subscriber);
       }
 
+      InitBasicProperties(SubChange);
+      InitUdrcProperties(SubChange);
+      InitSubscriptionProperties(SubChange);
+
       // TODO: Get account name using {subscriber} by WCF
       SubChange.AccountName = "AccountName";
       SubChange.ProductOfferingName = newSub.ProductOffering.Name;
@@ -67,6 +72,57 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
   #endregion
 
   #region Private Methods
+
+  private void InitBasicProperties(SubscriptionChange subChange)
+  {
+    // Start Date
+    SetViewChangeControl(SubChangeBasicStartDate, subChange.BasicProperties[0]);
+    // Next start of payer's billing period after this date
+    //SetViewChangeControl(SubChangeBasicNextStart, subChange.BasicProperties[1]);
+    // End Date
+    SetViewChangeControl(SubChangeBasicEndDate, subChange.BasicProperties[1]);
+    // Next end of payer's billing period after this date
+    //SetViewChangeControl(SubChangeBasicNextEnd, subChange.BasicProperties[3]);
+  }
+
+  private void InitUdrcProperties(SubscriptionChange subChange)
+  {
+    if (subChange.UdrcProperties.Count > 0)
+    {
+      foreach (var change in subChange.UdrcProperties)
+      {
+        SetViewChangeControl(change);
+      }
+    }
+  }
+
+  private void InitSubscriptionProperties(SubscriptionChange subChange)
+  {
+    if (subChange.ExtendedProperties.Count > 0)
+    {
+      this.Controls.Add(new MTLabel { Text = "Subscription Properties" });
+      foreach (var change in subChange.ExtendedProperties)
+      {
+        SetViewChangeControl(new MTViewChangeControl(), change);
+      }
+    }
+  }
+
+  private void SetViewChangeControl(UdrcChange changedProp)
+  {
+    this.Controls.Add(new MTLabel { Text = changedProp.UdrcName });
+    foreach (var change in changedProp.UdrcValueChanges)
+    {
+      SetViewChangeControl(new MTViewChangeControl(), change);
+    }    
+  }
+
+  private void SetViewChangeControl(MTViewChangeControl viewControl, ChangedValue changedProp)
+  {
+    viewControl.Label = changedProp.DisplayName;
+    viewControl.ValueOld = changedProp.OldValue;
+    viewControl.ValueNew = changedProp.NewValue;
+  }
 
   private SubscriptionChange CompareWithCurrentSubscription(Subscription newSubscription, AccountIdentifier accOfNewSub)
   {

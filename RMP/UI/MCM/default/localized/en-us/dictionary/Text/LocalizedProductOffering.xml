@@ -10,6 +10,7 @@
     <text id="TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_STARTDATE"><value>Effective Start Date</value></text>
     <text id="TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_ENDDATE"><value>Effective End Date</value></text>
     <text id="TEXT_PRODUCT_OFFERING_AVAILABILITYDATE_STARTDATE"><value>Available Start Date</value></text>
+    <text id="TEXT_PRODUCT_OFFERING_POPARTITIONID"><value>PO Partition ID</value></text>
     <text id="TEXT_PRODUCT_OFFERING_AVAILABILITYDATE_ENDDATE"><value>Available End Date</value></text>    
  
     <text id="TEXT_PRODUCT_OFFERING_NO_CHILD_ITEMS"><value>Currently, this [TEXT_KEYTERM_PRODUCT_OFFERING] does not contain any [TEXT_KEYTERM_PRICEABLE_ITEMS] or [TEXT_KEYTERM_DISCOUNTS].</value></text>

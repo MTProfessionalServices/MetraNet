@@ -2,13 +2,15 @@
   <xsl:template match="/">
     
     <xsl:for-each select="/pricelist">
+<!--
                     <a>
                     <xsl:attribute name="href">javascript:NavigateToPreviousSearchResults();</xsl:attribute>
                     Return To Previous Search Results
                     </a>
-                    <img src="/MCM/default/localized/en-us/images/Icons/goback.gif" alt="Return to previous search results" border="0" align="absmiddle" style="cursor:hand;">
+                    <img src="/MCM/default/localized/us/images/Icons/goback.gif" alt="Return to previous search results" border="0" align="absmiddle" style="cursor:hand;">
                     <xsl:attribute name="OnClick">NavigateToPreviousSearchResults();</xsl:attribute>
                     </img>
+-->
       <!-- PO Properties -->
       <br/>
       <div class="clsFindTab">
@@ -19,7 +21,7 @@
             <td class="NavigationPaneHeader" colspan="1" style="font-size:10;padding-left:8px;">Selected Price List</td>
             <td class="NavigationPaneHeader" align="right" style='padding-top:4px;'>
 
-              <img src="/MCM/default/localized/en-us/images/Icons/refresh.gif" alt="" border="0" align="bottom" style="cursor:hand;">
+              <img src="/MCM/default/localized/us/images/Icons/refresh.gif" alt="" border="0" align="bottom" style="cursor:hand;">
                     <xsl:attribute name="OnClick">window.location=window.location</xsl:attribute>
               </img>
             </td>
@@ -70,7 +72,7 @@
       <td class="NavigationPaneItem" width="18px">
 <!--   <xsl:choose>
   <xsl:when test="@kind='40'">
-        <img src="/mcm/default/localized/en-us/images/productcatalog/discount.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/us/images/productcatalog/discount.gif" alt="" border="0" align="absmiddle" />
   </xsl:when>
   <xsl:otherwise> -->
         <img alt="" border="0" align="absmiddle">
@@ -121,16 +123,16 @@
      <!--<xsl:choose>
     
        <xsl:when test="contains(paramtable_displayname, 'xxxRules')">
-        <img src="/mcm/default/localized/en-us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>
        <xsl:when test="contains(paramtable_displayname, 'xxParameters')">
-        <img src="/mcm/default/localized/en-us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>
        <xsl:when test="contains(paramtable_displayname, 'xxxBand')">
-        <img src="/mcm/default/localized/en-us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>       
        <xsl:when test="contains(paramtable_displayname, 'xxxCalendar')">
-        <img src="/mcm/default/localized/en-us/images/productcatalog/calendar.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/us/images/productcatalog/calendar.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>
   <xsl:otherwise>-->
         <img alt="" border="0" align="absmiddle">
@@ -148,7 +150,7 @@
         <xsl:attribute name="href">javascript:alert('This parameter table is not mapped to a pricelist for this product offering. Please select the \'<xsl:value-of select="../../displayname" />\' priceable item above and create a mapping.');</xsl:attribute>
        <xsl:value-of select="paramtable_displayname" />
        <xsl:text>&#160;</xsl:text>
-       <img src="/mcm/default/localized/en-us/images/icons/warningSmall.gif" alt="" border="0" align="absmiddle" />
+       <img src="/mcm/default/localized/us/images/icons/warningSmall.gif" alt="" border="0" align="absmiddle" />
           <xsl:attribute name="alt">This parameter table is not mapped to a pricelist for this product offering. Please select the '<xsl:value-of select="../../displayname" />' priceable item above and create a mapping.'</xsl:attribute>
         </a> 
                                     
@@ -180,31 +182,31 @@
         </input>-->   
     <xsl:choose>
        <xsl:when test="contains(paramtable_displayname, 'Rules')">
-        <img src="/mcm/default/localized/en-us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>
        <xsl:when test="contains(paramtable_displayname, 'Parameters')">
-        <img src="/mcm/default/localized/en-us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>
        <xsl:when test="contains(paramtable_displayname, 'Band')">
-        <img src="/mcm/default/localized/en-us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>       
        <xsl:when test="contains(paramtable_displayname, 'Calendar')">
-        <img src="/mcm/default/localized/en-us/images/productcatalog/calendar.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/us/images/productcatalog/calendar.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>
 
    
 
   <xsl:when test="@paramtable='metratech.com/calendar'">
-        <img src="/mcm/default/localized/en-us/images/productcatalog/calendar.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/us/images/productcatalog/calendar.gif" alt="" border="0" align="absmiddle" />
   </xsl:when>
   <xsl:when test="@paramtable='metratech.com/decimalcalc'">
-        <img src="/mcm/default/localized/en-us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
   </xsl:when>
   <xsl:when test="@paramtable='metratech.com/CallDestinationToBand'">
-        <img src="/mcm/default/localized/en-us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
   </xsl:when>
   <xsl:otherwise>
-        <img src="/mcm/default/localized/en-us/images/productcatalog/currency.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/us/images/productcatalog/currency.gif" alt="" border="0" align="absmiddle" />
   </xsl:otherwise>
   </xsl:choose> 
          
@@ -215,7 +217,7 @@
         <xsl:attribute name="href">javascript:alert('This parameter table is not mapped to a pricelist for this product offering. Please select the \'<xsl:value-of select="../../displayname" />\' priceable item above and create a mapping.');</xsl:attribute>
        <xsl:value-of select="paramtable_displayname" />
        <xsl:text>&#160;</xsl:text>
-       <img src="/mcm/default/localized/en-us/images/icons/warningSmall.gif" alt="" border="0" align="absmiddle" />
+       <img src="/mcm/default/localized/us/images/icons/warningSmall.gif" alt="" border="0" align="absmiddle" />
           <xsl:attribute name="alt">This parameter table is not mapped to a pricelist for this product offering. Please select the '<xsl:value-of select="../../displayname" />' priceable item above and create a mapping.'</xsl:attribute>
         </a> 
                                     

@@ -1,0 +1,118 @@
+<ns0:AddPartitionWorkflow ApplyAccountTemplates="False" Password="{p1:Null}" PageStateGuid="00000000-0000-0000-0000-000000000000" Account="{p1:Null}" x:Name="AddPartitionWorkflow" CompletedStateName="EndState" InitialStateName="StartAddPartition" AccountTemplate="{x:Null}" PriceLists="{x:Null}" TemplateAccount="{x:Null}" BillToContactView="{x:Null}" TemplateEffectiveDate="0001-01-01T00:00:00.0000000" ContainerAccount="{x:Null}" SelectedAccountType="{p3:ActivityBind AddPartitionWorkflow,Path=CONST_Partition}" PriceListColl="{x:Null}" DynamicUpdateCondition="{x:Null}" AccountTypes="{x:Null}" PartitionAdminAccount="{x:Null}" SendEmail="False" NewAccountId="0" TemplatesApplied="False" ContainerNamesCol="{x:Null}" xmlns:ns1="clr-namespace:MetraTech.ActivityServices.Activities;Assembly=MetraTech.ActivityServices.Activities" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow" xmlns:ns2="clr-namespace:MetraTech.Core.Services.ProxyActivities;Assembly=MetraTech.Core.Services.ProxyActivities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75" xmlns:ns3="clr-namespace:MetraTech.Account.ProxyActivities;Assembly=MetraTech.Account.ProxyActivities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75" xmlns:ns4="clr-namespace:MetraTech.Core.Activities;Assembly=MetraTech.Core.Activities" xmlns:ns5="clr-namespace:MetraTech.Core.Activities;Assembly=MetraTech.Core.Activities" xmlns:p3="http://schemas.microsoft.com/winfx/2006/xaml/workflow" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:p1="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:MetraCareWorkflowLibrary;Assembly=MetraCareWorkflowLibrary">
+	<ns1:MTPageStateActivity x:Name="AddPartition" PageName="/MetraNet/Partition/AddPartition.aspx">
+		<StateInitializationActivity x:Name="Init_AddPartition">
+			<CodeActivity x:Name="GetAccountType" ExecuteCode="{ActivityBind AddPartitionWorkflow,Path=GetAccountType_ExecuteCode}" />
+			<ns2:PriceListService_LoadPriceLists_ClientActivity x:Name="priceListService_LoadPriceLists_ClientActivity1" Out_priceListColl="{ActivityBind AddPartitionWorkflow,Path=PriceListColl}" />
+			<ns1:MTStateInitOutputActivity x:Name="mtStateInitOutputActivity1" />
+		</StateInitializationActivity>
+		<EventDrivenActivity x:Name="OK_AddPartition">
+			<ns1:MTHandleEventActivity x:Name="HandleOkAddPartition" EventName="OK_AddPartition" />
+			<CodeActivity x:Name="CreateNamespace" ExecuteCode="{ActivityBind AddPartitionWorkflow,Path=CreateNamespace_ExecuteCode}" />
+			<CodeActivity x:Name="SetDefaultProperties" ExecuteCode="{ActivityBind AddPartitionWorkflow,Path=SetDefaultProperties_ExecuteCode}" />
+			<ns3:AccountCreation_AddAccount_ClientActivity InOut_Account="{ActivityBind AddPartitionWorkflow,Path=Account}" x:Name="accountCreation_AddAccount_ClientActivity1" In_ApplyAccountTemplate="{ActivityBind AddPartitionWorkflow,Path=ApplyAccountTemplates}" />
+			<CodeActivity x:Name="SetOutAccountID" ExecuteCode="{ActivityBind AddPartitionWorkflow,Path=SetOutAccountID_ExecuteCode}" />
+			<IfElseActivity x:Name="EmailNotification">
+				<IfElseBranchActivity x:Name="SendEmailTrueActivity">
+					<IfElseBranchActivity.Condition>
+						<RuleConditionReference ConditionName="SendEmailTrue" />
+					</IfElseBranchActivity.Condition>
+					<ns4:EmailActivity x:Name="SendEmailActivity" Current_Account="{ActivityBind AddPartitionWorkflow,Path=Account}" />
+				</IfElseBranchActivity>
+				<IfElseBranchActivity x:Name="SendEmailFalseActivity">
+					<IfElseBranchActivity.Condition>
+						<RuleConditionReference ConditionName="SendEmailFalse" />
+					</IfElseBranchActivity.Condition>
+				</IfElseBranchActivity>
+			</IfElseActivity>
+			<IfElseActivity x:Name="ifElseActivityIfNotSystemAccount">
+				<IfElseBranchActivity x:Name="ifNotSystemAccount">
+					<IfElseBranchActivity.Condition>
+						<RuleConditionReference ConditionName="conditionIfSubscriber" />
+					</IfElseBranchActivity.Condition>
+					<CodeActivity x:Name="SetupPartitionAuthorization" ExecuteCode="{ActivityBind AddPartitionWorkflow,Path=SetupPartitionAuthorization_ExecuteCode}" />
+					<ns5:ApplyRolesAndCapabilitiesActivity Capabilities="{ActivityBind AddPartitionWorkflow,Path=PartitionCapabilities}" Roles="{ActivityBind AddPartitionWorkflow,Path=PartitionRoles}" x:Name="applyPartitionAuthorization" InAccount="{ActivityBind AddPartitionWorkflow,Path=Account}" />
+				</IfElseBranchActivity>
+			</IfElseActivity>
+			<WhileActivity Description="While there are containers to be created" x:Name="whileThereAreContainers">
+				<WhileActivity.Condition>
+					<RuleConditionReference ConditionName="conditionWhileThereAreContainers" />
+				</WhileActivity.Condition>
+				<SequenceActivity x:Name="sequenceCreateContainers">
+					<CodeActivity x:Name="SetupContainerAccount" ExecuteCode="{ActivityBind AddPartitionWorkflow,Path=SetupContainerAccount_ExecuteCode}" />
+					<ns3:AccountCreation_AddAccount_ClientActivity InOut_Account="{ActivityBind AddPartitionWorkflow,Path=ContainerAccount}" x:Name="AddContainerAccount" In_ApplyAccountTemplate="{ActivityBind AddPartitionWorkflow,Path=ApplyAccountTemplates}" />
+					<IfElseActivity x:Name="ifContainerIsSystemUser">
+						<IfElseBranchActivity x:Name="ifElseBranchIfContainerIsSystem">
+							<IfElseBranchActivity.Condition>
+								<RuleConditionReference ConditionName="IfContainerIsSystem" />
+							</IfElseBranchActivity.Condition>
+							<CodeActivity x:Name="SetupPartitionAdmin" ExecuteCode="{ActivityBind AddPartitionWorkflow,Path=SetupPartitionAdmin_ExecuteCode}" />
+							<ns3:AccountCreation_AddAccount_ClientActivity InOut_Account="{ActivityBind AddPartitionWorkflow,Path=PartitionAdminAccount}" x:Name="AddPartitionAdmin" In_ApplyAccountTemplate="{ActivityBind AddPartitionWorkflow,Path=ApplyAccountTemplates}" />
+							<CodeActivity x:Name="SetupPartitionAdminAuthorization" ExecuteCode="{ActivityBind AddPartitionWorkflow,Path=SetupPartitionAdminAuthorization_ExecuteCode}" />
+							<ns5:ApplyRolesAndCapabilitiesActivity Capabilities="{ActivityBind AddPartitionWorkflow,Path=PartitionAdminCapabilities}" Roles="{ActivityBind AddPartitionWorkflow,Path=PartitionAdminRoles}" x:Name="applyPartitionAdminAuthorization" InAccount="{ActivityBind AddPartitionWorkflow,Path=PartitionAdminAccount}" />
+						</IfElseBranchActivity>
+					</IfElseActivity>
+				</SequenceActivity>
+			</WhileActivity>
+			<CodeActivity x:Name="CreateVirtualMetraViewSite" ExecuteCode="{ActivityBind AddPartitionWorkflow,Path=CreateVirtualMetraViewSite_ExecuteCode}" />
+			<ns1:MTEventOutputActivity x:Name="mtEventOutputActivity3" EventName="OK_AddAccount" />
+			<SetStateActivity x:Name="GoToAccountCreated" TargetStateName="AccountCreated" />
+			<FaultHandlersActivity x:Name="faultHandlersActivity1">
+				<FaultHandlerActivity x:Name="faultHandlerActivity1" FaultType="{x:Type p18:Exception}" xmlns:p18="clr-namespace:System;Assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity1" Exception="{ActivityBind faultHandlerActivity1,Path=Fault}" />
+				</FaultHandlerActivity>
+			</FaultHandlersActivity>
+		</EventDrivenActivity>
+		<EventDrivenActivity x:Name="Cancel_AddPartition">
+			<ns1:MTHandleEventActivity x:Name="HandleCancelAddPartition" EventName="Cancel_AddPartition" />
+			<SetStateActivity x:Name="GoToDashboard" TargetStateName="Dashboard" />
+			<FaultHandlersActivity x:Name="faultHandlersActivity">
+				<FaultHandlerActivity x:Name="faultHandlerActivity2" FaultType="{x:Type p18:Exception}" xmlns:p18="clr-namespace:System;Assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity2" Exception="{ActivityBind faultHandlerActivity2,Path=Fault}" />
+				</FaultHandlerActivity>
+			</FaultHandlersActivity>
+		</EventDrivenActivity>
+		<EventDrivenActivity x:Name="GeneratePassword_AddPartition">
+			<ns1:MTHandleEventActivity x:Name="HandleGeneratePasswordAddPartition" EventName="GeneratePassword_AddPartition" />
+			<CodeActivity x:Name="GeneratePasswordActivity" ExecuteCode="{ActivityBind AddPartitionWorkflow,Path=GeneratePassword_ExecuteCode}" />
+			<ns1:MTEventOutputActivity x:Name="mtEventOutputActivity4" EventName="GeneratePassword_AddPartition" />
+			<FaultHandlersActivity x:Name="faultHandlersActivity4">
+				<FaultHandlerActivity x:Name="faultHandlerActivity4" FaultType="{x:Type p18:Exception}" xmlns:p18="clr-namespace:System;Assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity4" Exception="{ActivityBind faultHandlerActivity4,Path=Fault}" />
+				</FaultHandlerActivity>
+			</FaultHandlersActivity>
+		</EventDrivenActivity>
+	</ns1:MTPageStateActivity>
+	<ns1:MTPageStateActivity x:Name="AccountCreated" PageName="/MetraNet/Account/AccountCreated.aspx">
+		<StateInitializationActivity x:Name="Init_AccountCreated">
+			<ns1:MTStateInitOutputActivity x:Name="mtStateInitOutputActivity2" />
+			<SetStateActivity x:Name="GoToEndState2" TargetStateName="EndState" />
+		</StateInitializationActivity>
+	</ns1:MTPageStateActivity>
+	<ns1:MTPageStateActivity x:Name="Dashboard" PageName="/MetraNet/Welcome.aspx">
+		<StateInitializationActivity x:Name="Init_Dashboard">
+			<ns1:MTStateInitOutputActivity x:Name="mtStateInitOutputActivity4" />
+			<SetStateActivity x:Name="GoToEndState1" TargetStateName="EndState" />
+		</StateInitializationActivity>
+	</ns1:MTPageStateActivity>
+	<StateActivity x:Name="StartAddPartition">
+		<EventDrivenActivity x:Name="Start_AddPartition">
+			<ns1:MTHandleEventActivity x:Name="Handle_AddPartition" EventName="Start_AddPartition" />
+			<SetStateActivity x:Name="GoTo_AddPartition" TargetStateName="AddPartition" />
+			<FaultHandlersActivity x:Name="faultHandlersActivity6">
+				<FaultHandlerActivity x:Name="faultHandlerActivity6" FaultType="{x:Type p18:Exception}" xmlns:p18="clr-namespace:System;Assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity6" Exception="{ActivityBind faultHandlerActivity6,Path=Fault}" />
+				</FaultHandlerActivity>
+			</FaultHandlersActivity>
+		</EventDrivenActivity>
+	</StateActivity>
+	<StateActivity x:Name="EndState" />
+	<EventDrivenActivity x:Name="SetStateEventHandler">
+		<ns1:MTHandleEventActivity x:Name="mtHandleEventActivity12" EventName="SetStateEvent" />
+		<ns1:MTSetPageStateActivity x:Name="mtSetPageStateActivity1" StateGuid="{ActivityBind AddPartitionWorkflow,Path=PageStateGuid}" />
+		<FaultHandlersActivity x:Name="faultHandlersActivity11">
+			<FaultHandlerActivity x:Name="faultHandlerActivity11" FaultType="{x:Type p16:Exception}" xmlns:p16="clr-namespace:System;Assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+				<ns1:MTFaultHandlingActivity x:Name="mtFaultHandlingActivity11" Exception="{ActivityBind faultHandlerActivity11,Path=Fault}" />
+			</FaultHandlerActivity>
+		</FaultHandlersActivity>
+	</EventDrivenActivity>
+</ns0:AddPartitionWorkflow>

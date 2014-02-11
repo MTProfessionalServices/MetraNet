@@ -1,0 +1,46 @@
+/* COLOR GUIDE 
+black: 000000
+*/
+
+/* START ELEMENT STYLES */
+
+a:link, a:visited {
+	color:#000000
+}
+a:hover {
+	color:#000000
+}
+h1, h2, h3, h4, h5, h6 {
+	color:#000000
+}
+input:hover, textarea:hover, select:hover {
+	color: #000000
+}
+
+/* END ELEMENT STYLES */
+
+/* START GLOBAL LAYOUT */
+
+#nav a:hover {
+	color:#000000
+}
+#headernav a:hover {
+	color:#000000
+}
+#subnav a:hover {
+	color:#000000
+}
+.button a:hover {
+	color:#000000;
+	text-decoration:none;
+}
+.bullets li {
+	background:url("../images/bullet-gray.gif") left 1px no-repeat;
+}
+.boxheader {
+	color:#000000
+}
+.strong-field-label {
+	color:#000000
+}
+/* END GLOBAL LAYOUT */

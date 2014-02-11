@@ -64,13 +64,13 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
     LblPoName.Text = SubChange.ProductOfferingName;
 
     // Start Date
-    SetViewChangeControl(SubChangeBasicStartDate, subChange.BasicProperties[0]);
+    SetViewChangeControl(SubChangeBasicStartDate, subChange.StartDateChange);
     // Next start of payer's billing period after this date
-    //SetViewChangeControl(SubChangeBasicNextStart, subChange.BasicProperties[1]);
+    SetViewChangeControl(SubChangeBasicNextStart, subChange.StartDateTypeChange);
     // End Date
-    SetViewChangeControl(SubChangeBasicEndDate, subChange.BasicProperties[1]);
+    SetViewChangeControl(SubChangeBasicEndDate, subChange.EndDateChange);
     // Next end of payer's billing period after this date
-    //SetViewChangeControl(SubChangeBasicNextEnd, subChange.BasicProperties[3]);
+    SetViewChangeControl(SubChangeBasicNextEnd, subChange.EndDateTypeChange);
   }
 
   private void InitUdrcProperties(SubscriptionChange subChange)

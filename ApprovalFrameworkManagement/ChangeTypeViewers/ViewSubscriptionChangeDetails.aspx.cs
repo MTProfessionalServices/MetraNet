@@ -73,6 +73,7 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
 
   #region Private Methods
 
+  private System.Web.UI.Control _parenControl = null;
   private void InitBasicProperties(SubscriptionChange subChange)
   {
     // Start Date
@@ -83,6 +84,7 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
     SetViewChangeControl(SubChangeBasicEndDate, subChange.BasicProperties[1]);
     // Next end of payer's billing period after this date
     //SetViewChangeControl(SubChangeBasicNextEnd, subChange.BasicProperties[3]);
+    _parenControl = SubChangeBasicNextEnd.Parent;
   }
 
   private void InitUdrcProperties(SubscriptionChange subChange)
@@ -100,21 +102,28 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
   {
     if (subChange.ExtendedProperties.Count > 0)
     {
-      this.Controls.Add(new MTLabel { Text = "Subscription Properties" });
+      _parenControl.Controls.Add(new MTLabel { Text = "Subscription Properties" });
       foreach (var change in subChange.ExtendedProperties)
       {
-        SetViewChangeControl(new MTViewChangeControl(), change);
+        AddViewChangeControl(_parenControl, change);
       }
     }
   }
 
   private void SetViewChangeControl(UdrcChange changedProp)
   {
-    this.Controls.Add(new MTLabel { Text = changedProp.UdrcName });
+    _parenControl.Controls.Add(new MTLabel { Text = changedProp.UdrcName });
     foreach (var change in changedProp.UdrcValueChanges)
     {
-      SetViewChangeControl(new MTViewChangeControl(), change);
+      AddViewChangeControl(_parenControl, change);
     }    
+  }
+
+  private void AddViewChangeControl(System.Web.UI.Control  parentControl, ChangedValue changedProp)
+  {
+     var newControl = new MTViewChangeControl();
+     SetViewChangeControl(newControl, changedProp);
+     parentControl.Controls.Add(newControl);
   }
 
   private void SetViewChangeControl(MTViewChangeControl viewControl, ChangedValue changedProp)

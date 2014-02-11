@@ -108,6 +108,22 @@
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
+                            <ID>AddPartition</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_ADD_PARTITION</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=AddPartitionWorkflow</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/building_add.png</Icon>
+                            <Description>Add Partition Account Workflow</Description>
+                            <RequiredCapabilities>
+                                <Capability>Create CSR accounts</Capability>
+                                <Capability>Create subscriber accounts</Capability>
+                                <Capability>Manage Account Hierarchies</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
                             <ID>MoveAccounts</ID>
                             <Caption>
                                 <LocalizationTag>TEXT_MOVE_ACCOUNTS</LocalizationTag>
@@ -328,7 +344,7 @@
                                 <LocalizationTag>TEXT_SUMMARY</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/ManageAccount.aspx</Link>
+                            <Link>[AccountSummaryPage]</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/report_user.png</Icon>
                             <Description>Account Summary Details</Description>
@@ -808,7 +824,7 @@
                                 <LocalizationTag>TEXT_SUMMARY</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/ManageAccount.aspx</Link>
+                            <Link>[AccountSummaryPage]</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/report_user.png</Icon>
                             <Description>Corporate Account Summary</Description>
@@ -1292,7 +1308,7 @@
                                 <LocalizationTag>TEXT_SUMMARY</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/ManageAccount.aspx</Link>
+                            <Link>[AccountSummaryPage]</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/report_user.png</Icon>
                             <Description>Account Summarization</Description>

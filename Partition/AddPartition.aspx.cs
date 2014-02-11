@@ -1,9 +1,6 @@
 using System;
 using System.Configuration;
 using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Web.UI.WebControls;
 using MetraTech.DomainModel.Enums;
 using MetraTech.DomainModel.Enums.Account.Metratech_com_accountcreation;
 using MetraTech.DomainModel.Enums.Core.Global;
@@ -19,39 +16,24 @@ using MetraTech.UI.Controls;
 using MetraTech.ActivityServices.Common;
 using System.Web.UI.WebControls;
 
-public partial class AddAccount : MTAccountPage
+public partial class AddPartition : MTAccountPage
 {
-  /// <summary>
-  /// Returns JSON string with mapping of account attributes to JavaScript client-side controls
-  /// </summary>
-  public string JSControlMapping
-  {
-    get
-    {
-      StringBuilder sb = new StringBuilder();
-
-      foreach (MTDataBindingItem itm in MTDataBinder1.DataBindingItems)
-      {
-        if (itm.ControlInstance != null)
-        {
-            sb.AppendFormat("{0}'{1}.{2}':'{3}'", sb.Length == 0 ? string.Empty : ",", (itm.BindingSource == "BillTo") ? "LDAP[ContactType=Bill_To]" : itm.BindingSource, itm.BindingSourceMember, itm.ControlInstance.ClientID);
-        }
-      }
-      return string.Format("{{{0}}}", sb);
-    }
-  }
+    private List<string> ContainerNamesList;
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        ContainerNamesList = new List<string>();
+        ContainerNamesList.Add("Retail");
+        ContainerNamesList.Add("Resellers");
+        ContainerNamesList.Add("Vendors");
+        ContainerNamesList.Add("Channels");
+        ContainerNamesList.Add("System Users");
+
         if (!IsPostBack)
         {
             Account = PageNav.Data.Out_StateInitData["Account"] as Account;
             if (!IsPostBack)
             {
-				if (Account != null)
-				      {
-				          Account.AccountStartDate = DateTime.Now;
-				      }
                 MTGenericForm1.DataBinderInstanceName = "MTDataBinder1";
                 MTGenericForm1.RenderObjectType = BillTo.GetType();
                 MTGenericForm1.RenderObjectInstanceName = "BillTo";
@@ -68,38 +50,13 @@ public partial class AddAccount : MTAccountPage
 
             PopulatePresentationNameSpaceList(ddBrandedSite);
 
-            // For Partition users, only allow them to use their own namespace
-            if (PartitionLibrary.IsPartition)
+            // Default to "mt" namespace
+            foreach (ListItem brandedSiteListItem in ddBrandedSite.Items)
             {
-                string PartitionAccountsNameSpace = PartitionLibrary.PartitionData.PartitionUserName;
-                ListItem PartitionBrandedSiteListItem = null;
-                foreach (ListItem brandedSiteListItem in ddBrandedSite.Items)
+                if (brandedSiteListItem.Value == "mt")
                 {
-                    if (string.Compare(brandedSiteListItem.Value, PartitionAccountsNameSpace, true) == 0)
-                    {
-                        brandedSiteListItem.Selected = true;
-                        PartitionBrandedSiteListItem = brandedSiteListItem;
-                        continue;
-                    }
-                }
-
-                ddBrandedSite.Items.Clear();
-                if (PartitionBrandedSiteListItem != null)
-                {
-                    ddBrandedSite.Items.Add(PartitionBrandedSiteListItem);
-                }
-                ddBrandedSite.ReadOnly = true;
-            }
-            else
-            {
-                // Default to "mt" namespace
-                foreach (ListItem brandedSiteListItem in ddBrandedSite.Items)
-                {
-                    if (string.Compare(brandedSiteListItem.Value, "mt", true) == 0)
-                    {
-                        brandedSiteListItem.Selected = true;
-                        continue;
-                    }
+                    brandedSiteListItem.Selected = true;
+                    continue;
                 }
             }
 
@@ -117,25 +74,43 @@ public partial class AddAccount : MTAccountPage
             AccountTypeManager accountTypeManager = new AccountTypeManager();
             if (Account != null)
             {
-                IMTAccountType accountType = accountTypeManager.GetAccountTypeByName((MetraTech.Interop.MTProductCatalog.IMTSessionContext)UI.SessionContext, Account.AccountType);
+                // Partition Ancestor should alwasys be "root"
+                Account.AncestorAccountID = 1;
+                tbAncestorAccount.AllowBlank = false;
+                tbAncestorAccount.ReadOnly = true;
+                cbApplyTemplate.Visible = false;
 
-                if (!accountType.IsVisibleInHierarchy)
-                {
-                    cbBillable.ReadOnly = true;
-                    tbPayer.Visible = false;
-                    tbAncestorAccount.ReadOnly = true;
-                    Account.AncestorAccountID = 1;
-                    cbApplyTemplate.Visible = false;
-                    tbAncestorAccount.AllowBlank = true;
-                }
+                // Initialize Account Start Date to Metra-today (with no time)
+                Account.AccountStartDate = MetraTech.MetraTime.Now.Date;
+            }
 
-                if (accountType.IsCorporate)
-                {
-                    tbAncestorAccount.ReadOnly = false;
-                    // Account.AncestorAccountID = 1;
-                    cbApplyTemplate.Visible = false;
-                    tbAncestorAccount.AllowBlank = false;
-                }
+            cbSystemUsers.Checked = true;
+            cbSystemUsers.Enabled = false;
+
+            // MOCK DATA
+            if (false)
+            {
+                Account.UserName = "Bane";
+                Account.Password_ = "123";
+                tbConfirmPassword.Text = Account.Password_;
+                Account.AccountStartDate = new DateTime(2013, 1, 1);
+                Internal.Currency = "USD";
+                BillTo.FirstName = "Backup";
+                BillTo.MiddleInitial = "";
+                BillTo.LastName = "Nebula";
+                BillTo.Email = "info@bane.com";
+                BillTo.Company = "BaNe Corp";
+                BillTo.Address1 = "123 BaNe St";
+                BillTo.Address2 = "2dn Floor";
+                BillTo.City = "Waltham";
+                BillTo.State = "MA";
+                BillTo.Country = CountryName.USA;
+                BillTo.PhoneNumber = "781-839-8300";
+                BillTo.FacsimileTelephoneNumber = "781-839-8301";
+
+                cbRetail.Checked = true;
+                cbResellers.Checked = true;
+                cbSystemUsers.Checked = true;
             }
 
             if (!MTDataBinder1.DataBind())
@@ -169,6 +144,30 @@ public partial class AddAccount : MTAccountPage
                 }
             }
 
+
+            // Create controls within MTPanelContainerList
+            /*short tabIndex = 246;
+
+            foreach (string containerName in ContainerNamesList)
+            {
+                string internalName = containerName.Replace(" ", "");
+
+                MTCheckBoxControl cbContainer = new MTCheckBoxControl();
+                cbContainer.ID = string.Format("cb{0}", internalName);
+                cbContainer.BoxLabel = containerName;
+                cbContainer.Text = containerName;
+                cbContainer.Value = internalName;
+                cbContainer.TabIndex = tabIndex++;
+                cbContainer.ControlWidth = "200";
+                cbContainer.Checked = false;
+                cbContainer.HideLabel = false;
+                cbContainer.ReadOnly = false;
+                cbContainer.XType = "Checkbox";
+                cbContainer.XTypeNameSpace = "form";
+
+                MTPanelContainerListLeftColumn.Controls.Add(cbContainer);
+            }
+            */
         }
     }
 
@@ -240,10 +239,6 @@ public partial class AddAccount : MTAccountPage
         //  }
         //}
 
-
-  // [TODO] After fixing CORE-6642 validation of SemiMonthly Cycle is no longer required here. Before removing it:
-  // Use localized "Resources.ErrorMessages.ERROR_ENDDOM_INVALID"(see below) instead of unlocalized INVALID_FIRST_DAY in S:\MetraTech\DomainModel\Validators\AccountValidator.cs
-
         // Validate the semi-monthly selected days if semi-monthly defined.
         if (((MTBillingCycleControl)FindControlRecursive(Page, "MTBillingCycleControl1")).CycleList.SelectedValue.ToLower()
             == "semi_monthly")
@@ -266,12 +261,28 @@ public partial class AddAccount : MTAccountPage
 
             Page.Validate();
 
+            // "System Users" container must always be created
+            cbSystemUsers.Enabled = true;
+            cbSystemUsers.Checked = true;
+
             MTDataBinder1.Unbind();
-            AddAccountEvents_AddAccount_Client add = new AddAccountEvents_AddAccount_Client();
+            AddPartitionEvents_AddPartition_Client add = new AddPartitionEvents_AddPartition_Client();
             add.In_Account = Account;
             add.In_AccountId = new AccountIdentifier(UI.User.AccountId);
             add.In_SendEmail = cbEmailNotification.Checked;
             add.In_ApplyAccountTemplates = cbApplyTemplate.Checked;
+            
+            // Add all checked containers to the list that is passed to the PageNav workflow
+            add.In_ContainerNamesCol = new List<string>();
+            foreach (string containerName in ContainerNamesList)
+            {
+                string controlName = string.Format("cb{0}", containerName.Replace(" ", ""));
+                MTCheckBoxControl cb = (MTCheckBoxControl)FindControlRecursive(Page, controlName);
+                if ((cb != null) && (cb.Checked))
+                {
+                    add.In_ContainerNamesCol.Add(containerName);
+                }
+            }
             PageNav.Execute(add);
 
         }
@@ -283,7 +294,7 @@ public partial class AddAccount : MTAccountPage
 
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-        AddAccountEvents_CancelAddAccount_Client cancel = new AddAccountEvents_CancelAddAccount_Client();
+        AddPartitionEvents_CancelAddPartition_Client cancel = new AddPartitionEvents_CancelAddPartition_Client();
         cancel.In_AccountId = new AccountIdentifier(UI.User.AccountId);
         PageNav.Execute(cancel);
     }

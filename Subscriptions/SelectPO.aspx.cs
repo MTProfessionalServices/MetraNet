@@ -16,11 +16,15 @@ using MetraTech.UI.Controls;
 
 public partial class Subscriptions_SelectPO : MTPage
 {
-  protected override void OnLoadComplete(EventArgs e)
-  {
-    MTGridDataBindingArgument arg = new MTGridDataBindingArgument("POEffectiveDate", ApplicationTime.ToString());
-    this.MyGrid1.DataBinder.Arguments.Add(arg);
-    base.OnLoadComplete(e);
-  }
+    protected override void OnLoadComplete(EventArgs e)
+    {
+        MTGridDataBindingArgument arg = new MTGridDataBindingArgument("POEffectiveDate", ApplicationTime.ToString());
+        this.MyGrid1.DataBinder.Arguments.Add(arg);
+
+        string inputfiltertype = "PO";
+        PartitionLibrary.SetupFilterGridForPartition(MyGrid1, inputfiltertype);
+
+        base.OnLoadComplete(e);
+    }
 
 }

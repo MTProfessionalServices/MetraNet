@@ -159,15 +159,6 @@
   <data name="TEXT_ADVANCED_OPTIONS" xml:space="preserve">
     <value>Advanced Options</value>
   </data>
-  <data name="TEXT_AGREEMENTS" xml:space="preserve">
-    <value>Agreements</value>
-  </data>
-  <data name="TEXT_AGREEMENT_TEMPLATES" xml:space="preserve">
-    <value>Agreement Templates</value>
-  </data>
-  <data name="TEXT_MANAGE_AGREEMENT_TEMPLATES" xml:space="preserve">
-    <value>Manage Agreement Templates</value>
-  </data>
   <data name="TEXT_ALL_FILES" xml:space="preserve">
     <value>All Jobs</value>
   </data>
@@ -610,6 +601,12 @@
     <value>Refresh</value>
   </data>
   <data name="TEXT_SELF_CARE_PORTAL" xml:space="preserve">
-    <value>View Online Bill</value>
+    <value>Self Care Portal</value>
+  </data>
+  <data name="TEXT_ADD_PARTITION" xml:space="preserve">
+    <value>Add Partition</value>
+  </data>
+  <data name="TEXT_MASTER_OFFERINGS" xml:space="preserve">
+    <value>Master Product Offerings</value>
   </data>
 </root>

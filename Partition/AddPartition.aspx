@@ -1,5 +1,5 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" Inherits="AddAccount" Title="<%$Resources:Resource,TEXT_TITLE%>"
-  Culture="auto" UICulture="auto" CodeFile="AddAccount.aspx.cs" %>
+<%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" Inherits="AddPartition" Title="<%$Resources:Resource,TEXT_TITLE%>"
+  Culture="auto" UICulture="auto" CodeFile="AddPartition.aspx.cs" %>
 
 <%@ Import Namespace="MetraTech.DomainModel.Enums.Account.Metratech_com_accountcreation" %>
 <%@ Register Assembly="MetraTech.UI.Controls.CDT" Namespace="MetraTech.UI.Controls.CDT" TagPrefix="MTCDT" %>
@@ -8,6 +8,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
   <script language="javascript" type="text/javascript">
+
+    Ext.onReady(function () {
+      onAuthTypeChange(null, Ext.get("<%=ddAuthenticationType.ClientID %>").dom.value);
+    });
 
 function filterPricelists()
 {
@@ -29,7 +33,7 @@ function filterPricelists()
 function onGeneratePassword()
 {
   //Execute: function(operation, args, binding, callbackMethod)
-  pageNav.Execute("AddAccountEvents_GeneratePassword_Client", null, UpdatePassword);
+  pageNav.Execute("AddPartitionEvents_GeneratePassword_Client", null, UpdatePassword);
 }
 
 function UpdatePassword(data)
@@ -132,9 +136,9 @@ function onAuthTypeChange(selectField, value) {
     if (el != null) { el.enable(); }
   } else {
     el = Ext.getCmp("<%=tbPassword.ClientID%>");
-    if (el != null) { el.el.dom.value = ""; el.disable(); }
+    if (el != null) { el.disable(); }
     el = Ext.getCmp("<%=tbConfirmPassword.ClientID%>");
-    if (el != null) { el.el.dom.value = ""; el.disable(); }
+    if (el != null) { el.disable(); }
     el = Ext.getCmp("<%=btnGeneratePassword.ClientID%>");
     if (el != null) { el.disable(); }
     el = Ext.getCmp("<%=ddSecurityQuestion.ClientID%>");
@@ -213,8 +217,9 @@ function onAuthTypeChange(selectField, value) {
       </MT:MTDropDown>
     </div>
     <div id="rightColumn2"  class="RightColumn">
-      <MT:MTInlineSearch ID="tbAncestorAccount" runat="server" TabIndex="210" AllowBlank="False"
-        Label="Parent Account" HideLabel="False" meta:resourcekey="tbAncestorAccountResource1"></MT:MTInlineSearch>
+      <!-- Make read-only -->
+      <MT:MTInlineSearch ID="tbAncestorAccount" runat="server" TabIndex="210" AllowBlank="False" ReadOnly="true"
+        Label="Parent Account" HideLabel="False" meta:resourcekey="tbAncestorAccountResource1" />
       <MT:MTDatePicker ID="tbStartDate" runat="server" AllowBlank="True" Label="Account Start Date"
         TabIndex="220" ControlWidth="200" ControlHeight="18" HideLabel="False" LabelSeparator=":"
         LabelWidth="120" Listeners="{}" meta:resourcekey="tbStartDateResource1" OptionalExtConfig="format:DATE_FORMAT,&#13;&#10;                             altFormats:DATE_TIME_FORMAT"
@@ -233,11 +238,11 @@ function onAuthTypeChange(selectField, value) {
         Text="template" Value="template" TabIndex="245" ControlWidth="200" AllowBlank="False"
         Checked="False" HideLabel="True" LabelSeparator=":" Listeners="{}" meta:resourcekey="cbApplyTemplateResource1"
         Name="cbApplyTemplate" OptionalExtConfig="boxLabel:'Apply Template',&#13;&#10;inputValue:'template',&#13;&#10;checked:false"
-        ReadOnly="False" XType="Checkbox" XTypeNameSpace="form" />        
+        ReadOnly="False" XType="Checkbox" XTypeNameSpace="form" />
     </div>
     
     </MT:MTPanel>
-    
+
     <div style="clear: both">
     </div>
     <!-- ACCOUNT INFORMATION -->
@@ -299,12 +304,30 @@ function onAuthTypeChange(selectField, value) {
     
     </MT:MTPanel>
     
-  <!-- TAX INFORMATION --> 
-  <MTCDT:MTGenericForm ID="MTGenericFormTax" runat="server" DataBinderInstanceName="MTDataBinder1" TabIndex="1000"></MTCDT:MTGenericForm>
+    <!-- TAX INFORMATION --> 
+    <MTCDT:MTGenericForm ID="MTGenericFormTax" runat="server" DataBinderInstanceName="MTDataBinder1"></MTCDT:MTGenericForm>
+
+    <!--  -->
+    <MT:MTPanel ID="MTPanelContainerList" runat="server" meta:resourcekey="MTSection5Resource1">
+      <div id="MTPanelContainerListLeftColumn" runat="server" class="LeftColumn">
+        <MT:MTCheckBoxControl ID="cbRetail" runat="server" AllowBlank="True" BoxLabel="Retail" Text="Retail" Value="Retail" 
+        TabIndex="400" ControlWidth="200" ReadOnly="False" Checked="False" HideLabel="True" XType="Checkbox" XTypeNameSpace="form" />
+        <MT:MTCheckBoxControl ID="cbResellers" runat="server" AllowBlank="True" BoxLabel="Resellers" Text="Resellers" Value="Resellers" 
+        TabIndex="400" ControlWidth="200" ReadOnly="False" Checked="False" HideLabel="True" XType="Checkbox" XTypeNameSpace="form" />
+        <MT:MTCheckBoxControl ID="cbVendors" runat="server" AllowBlank="True" BoxLabel="Vendors" Text="Vendors" Value="Vendors" 
+        TabIndex="400" ControlWidth="200" ReadOnly="False" Checked="False" HideLabel="True" XType="Checkbox" XTypeNameSpace="form" />
+        <MT:MTCheckBoxControl ID="cbChannels" runat="server" AllowBlank="True" BoxLabel="Channels" Text="Channels" Value="Channels" 
+        TabIndex="400" ControlWidth="200" ReadOnly="False" Checked="False" HideLabel="True" XType="Checkbox" XTypeNameSpace="form" />
+        <MT:MTCheckBoxControl ID="cbSystemUsers" runat="server" AllowBlank="True" BoxLabel="System Users" Text="System Users" Value="System Users"
+        TabIndex="400" ControlWidth="200" ReadOnly="false" Checked="True" HideLabel="True" XType="Checkbox" XTypeNameSpace="form" />
+
+      </div>
+      <div id="MTPanelContainerListRightColumn" runat="server" class="RightColumn"></div>
+    </MT:MTPanel>
 
     <div style="clear: both">
     </div>
-    
+
   <!-- BUTTONS -->
  
   <div class="x-panel-btns-ct">
@@ -422,7 +445,8 @@ function onAuthTypeChange(selectField, value) {
       <MT:MTDataBindingItem runat="server" BindingMetaDataAlias="Internal" BindingSource="Internal"
         BindingSourceMember="PriceList" ControlId="ddPriceList" BindingProperty="SelectedValue" ErrorMessageLocation="None">
       </MT:MTDataBindingItem>
-      <MT:MTDataBindingItem runat="server" ControlId="btnOK" ErrorMessageLocation="RedTextAndIconBelow">
+      <MT:MTDataBindingItem runat="server" ControlId="cbResellers" 
+            ErrorMessageLocation="RedTextAndIconBelow">
       </MT:MTDataBindingItem>
     </DataBindingItems>
     <MetaDataMappings>
@@ -470,10 +494,8 @@ function onAuthTypeChange(selectField, value) {
       {
         return ValidateForm(); 
       }
+        
+      
     }
-    
-    Ext.onReady(function () {
-      onAuthTypeChange(null, Ext.get("<%=ddAuthenticationType.ClientID %>").dom.value);
-    });
   </script>
 </asp:Content>

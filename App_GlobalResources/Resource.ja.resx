@@ -549,4 +549,10 @@
 	<data name="TEXT_FROM_PARAMETER_TABLE" xml:space="preserve">
     <value>From parameter table (Japanese)</value>
   </data>
+  <data name="newSubscription" xml:space="preserve">
+    <value>[JA]New Subscription</value>
+  </data>
+  <data name="updateSubscription" xml:space="preserve">
+    <value>[JA]Subscription Update</value>
+  </data>
 </root>

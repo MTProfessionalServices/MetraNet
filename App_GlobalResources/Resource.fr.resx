@@ -528,4 +528,10 @@
 	<data name="TEXT_FROM_PARAMETER_TABLE" xml:space="preserve">
     <value>From parameter table (French)</value>
   </data>
+  <data name="newSubscription" xml:space="preserve">
+    <value>[FR]New Subscription</value>
+  </data>
+  <data name="updateSubscription" xml:space="preserve">
+    <value>[FR]Subscription Update</value>
+  </data>
 </root>

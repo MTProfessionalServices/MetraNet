@@ -1,5 +1,6 @@
 using System;
 using System.ServiceModel;
+using System.Web;
 using MetraTech.ActivityServices.Common;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.UI.Common;
@@ -7,68 +8,48 @@ using MetraTech.Core.Services.ClientProxies;
 using MetraTech.Approvals;
 using MetraTech.Approvals.ChangeTypes;
 using MetraTech.UI.Controls;
+using MetraTech.DomainModel.BaseTypes;
 
 public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails : MTPage
 {
-  public int ChangeId { get; set; }
   public SubscriptionChange SubChange { get; set; }
+  protected string AccountTypeName { get; set; }
 
   #region Event Listeners
-
+  
   protected void Page_Load(object sender, EventArgs e)
   {
-    ChangeId = Convert.ToInt32(Request.QueryString["changeid"]);
-    var currState = Request.QueryString["currentstate"];
+    var changeId = Convert.ToInt32(Request.QueryString["changeid"]);
+    var changeDetails = GetChangeDetails(changeId);
 
-    var approvalClient = new ApprovalManagementServiceClient();
+    var newSub = (Subscription)changeDetails[SubscriptionChangeType.SubscriptionKey];
+    var subscriberIdent = (AccountIdentifier)changeDetails[SubscriptionChangeType.AccountIdentifierKey];
+
+    var subscriber = GetAccount(subscriberIdent);
     
-    try
+    if (changeDetails.ContainsKey(SubscriptionChangeType.SubscriptionChangeKey))
     {
-      SetCredantional(approvalClient.ClientCredentials);
-
-      var changeBlob = "";
-      approvalClient.GetChangeDetails(ChangeId, ref changeBlob);
-      var changeDetails = new ChangeDetailsHelper(changeBlob);
-      var newSub = (Subscription)changeDetails[SubscriptionChangeType.SubscriptionKey];
-      var subscriber = (AccountIdentifier)changeDetails[SubscriptionChangeType.AccountIdentifierKey];
-
-      if (changeDetails.ContainsKey(SubscriptionChangeType.SubscriptionChangeKey))
-      {
-        // This change was already applied/denied/dismissed and stores subscription changes for that moment
-        SubChange = (SubscriptionChange) changeDetails[SubscriptionChangeType.SubscriptionChangeKey];
-      }
-      else
-      {
-        // This change is in the Pending state and has no SubscriptionChange object
-        SubChange = CompareWithCurrentSubscription(newSub, subscriber);
-      }
-
-      InitBasicProperties(SubChange);
-      InitUdrcProperties(SubChange);
-      InitSubscriptionProperties(SubChange);
-
-      // TODO: Get account name using {subscriber} by WCF
-      SubChange.AccountName = "AccountName";
-      SubChange.ProductOfferingName = newSub.ProductOffering.Name;
+      // This change was already applied/denied/dismissed and stores subscription changes for that moment
+      SubChange = (SubscriptionChange)changeDetails[SubscriptionChangeType.SubscriptionChangeKey];
     }
-    finally
+    else
     {
-      if (approvalClient.State == CommunicationState.Faulted)
-        approvalClient.Abort();
-      else
-        approvalClient.Close();
+      // This change is in the Pending state and has no SubscriptionChange object
+      SubChange = CompareWithCurrentSubscription(newSub, subscriberIdent);
     }
+    
+    SubChange.IsNewEntity = newSub.SubscriptionId == null;
+    SubChange.AccountName = subscriber.UserName;
+    SubChange.ProductOfferingName = newSub.ProductOffering.Name;
+    
+    InitBasicProperties(SubChange);
+    InitUdrcProperties(SubChange);
+    InitSubscriptionProperties(SubChange);
+
+    AccountTypeName = subscriber.AccountType;
+    DataBind();
   }
-
-  protected override void OnLoadComplete(EventArgs e)
-  {
-    Response.Write("<div id='xmlPretty' class='x-hide-display'>IsNew = '" + SubChange.IsNewEntity + "'</div>");
-    Response.Write("<div id='xmlRaw' class='x-hide-display'><textarea rows='20' cols='80'>IsNew = '" + SubChange.IsNewEntity + "'</textarea>" +
-                   "</div>");
-
-    base.OnLoadComplete(e);
-  }
-
+  
   #endregion
 
   #region Private Methods
@@ -76,6 +57,13 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
   private System.Web.UI.Control _parenControl = null;
   private void InitBasicProperties(SubscriptionChange subChange)
   {
+    lblChangesSummaryTitle.Text = SubChange.IsNewEntity
+                       ? GetGlobalResourceObject("Resource", "newSubscription").ToString()
+                       : GetGlobalResourceObject("Resource", "updateSubscription").ToString();
+    
+    LblAccountName.Text = SubChange.AccountName;
+    LblPoName.Text = SubChange.ProductOfferingName;
+
     // Start Date
     SetViewChangeControl(SubChangeBasicStartDate, subChange.BasicProperties[0]);
     // Next start of payer's billing period after this date
@@ -158,6 +146,50 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
     return SubscriptionChangeType.GetSubscriptionChange(currentSub, newSubscription);
   }
   
+  private ChangeDetailsHelper GetChangeDetails(int changeId)
+  {
+    ChangeDetailsHelper changeDetails;
+
+    var approvalClient = new ApprovalManagementServiceClient();
+    try
+    {
+      SetCredantional(approvalClient.ClientCredentials);
+      var changeBlob = String.Empty;
+      approvalClient.GetChangeDetails(changeId, ref changeBlob);
+      changeDetails = new ChangeDetailsHelper(changeBlob);
+    }
+    finally
+    {
+      if (approvalClient.State == CommunicationState.Faulted)
+        approvalClient.Abort();
+      else
+        approvalClient.Close();
+    }
+
+    return changeDetails;
+  }
+  
+  private Account GetAccount(AccountIdentifier accountIdentifier)
+  {
+    Account account;
+
+    var accountClient = new AccountServiceClient();
+    try
+    {
+      SetCredantional(accountClient.ClientCredentials);
+      accountClient.LoadAccount(accountIdentifier, DateTime.Now, out account); // TODO: What is DateTime parameter???
+    }
+    finally
+    {
+      if (accountClient.State == CommunicationState.Faulted)
+        accountClient.Abort();
+      else
+        accountClient.Close();
+    }
+
+    return account;
+  }
+
   private void SetCredantional(System.ServiceModel.Description.ClientCredentials clientCredentials)
   {
     if (clientCredentials == null)

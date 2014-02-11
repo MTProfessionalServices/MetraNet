@@ -1,116 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Audit Messages" type="collection">
 
-<description>Textos de auditoria usados nas assinaturas</description>
+<description>Audit texts used in subscriptions</description>
 
  <text id="AUDIT_NEW_RATE_SCHEDULE">
-       <value>Novo agendamento de taxa:  </value>
+<value>Nouvel horaire de tarification :  </value>
        <description></description>
   </text> 
   
  <text id="AUDIT_NEW_RATE_SCHEDULE_PROPERTIES">
-       <value>Edite propriedades do agendamento de taxa:  </value>
+<value>Modifier les caractéristiques de l'horaire de tarification :  </value>
        <description></description>
   </text>   
 
  <text id="AUDIT_SUBSCRIBE">
-       <value>Assinado para:  </value>
+<value>Abonné à :  </value>
        <description></description>
   </text>   
 
  <text id="AUDIT_UNSUBSCRIBE">
-       <value>Assinatura cancelada para:  </value>
+<value>N'est plus abonné à :  </value>
        <description></description>
   </text>   
 
     <text id="TEXT_AUDIT_TIME">
-        <value>Hora</value>
+<value>Heure</value>
         <description></description>
     </text> 
 
     <text id="TEXT_AUDIT_USERNAME">
-        <value>Usuário</value>
+<value>Utilisateur</value>
         <description></description>
     </text> 
 
     <text id="TEXT_AUDIT_EVENTNAME">
-        <value>Evento</value>
+<value>Événement</value>
         <description></description>
     </text> 
 
     <text id="TEXT_AUDIT_ENTITYNAME">
-        <value>Item</value>
+<value>Élément</value>
         <description></description>
     </text> 
 
     <text id="TEXT_AUDIT_DETAILS">
-        <value>Detalhes</value>
+<value>Détails</value>
         <description></description>
     </text>
 
-    <text id="TEXT_AUDIT_LOGGED_IN_AS">
-      <value>Logged in as</value>
-      <description></description>
-    </text>
-
-    <text id="TEXT_AUDIT_APPLICATION_NAME">
-      <value>Application name</value>
-      <description></description>
-    </text>
-
     <text id="TEXT_PRODUCT_CATALOG_AUDIT_LOG">
-        <value>Log de auditoria do catálogo de produtos</value>
+<value>Liste de contrôle du catalogue de produits</value>
         <description></description>
     </text>
 
     <text id="TEXT_VIEW_AUDIT_LOG">
-        <value>Exibir log de auditoria</value>
+<value>Afficher la liste de contrôle</value>
         <description></description>
     </text>
 
     <text id="TEXT_AUDIT_LOG_DESCRIPTION">
-        <value>Exibir eventos que foram executados no catálogo de produtos.</value>
+<value>Afficher les événements exécutés en vertu du catalogue de produits.</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_AUDIT_ENTITY_ID">
+<value>ID de groupe</value>
         <description></description>
     </text>
 
     <text id="TEXT_AUDIT_AUDIT_ID">
-        <value>ID da auditoria</value>
+<value>ID de contrôle</value>
         <description></description>
     </text>
 
     <text id="TEXT_AUDIT_EVENT_ID">
-        <value>ID do evento</value>
+<value>ID d'événement</value>
         <description></description>
     </text>
 
     <text id="TEXT_AUDIT_USER_ID">
-        <value>ID de usuário</value>
+<value>ID d'utilisateur</value>
         <description></description>
     </text>
 
     <text id="TEXT_AUDIT_ENTITY_TYPE_ID">
-        <value>Id do tipo de entidade</value>
+<value>ID Type de groupe</value>
         <description></description>
     </text>
-  
     <text id="TEXT_AUDIT_ENTITY_ID">
-        <value>ID da entidade</value>
+<value>ID de groupe</value>
         <description></description>
     </text>
-  
     <text id="TEXT_AUDIT_DT_CRT">
-        <value>CRT de data</value>
+<value>Date CRT</value>
         <description></description>
-    </text>
-
-    <text id="TEXT_AUDIT_TX_LOGGED_IN_AS">
-      <value>tx_logged_in_as</value>
-      <description></description>
-    </text>
-
-    <text id="TEXT_AUDIT_TX_APPLICATION_NAME">
-      <value>tx_application_name</value>
-      <description></description>
     </text>
 
 </texts>

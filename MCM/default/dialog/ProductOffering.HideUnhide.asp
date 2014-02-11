@@ -90,6 +90,16 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
 		OK_Click = FALSE
 		Err.Clear
 	Else
+        Response.Write "<script language='JavaScript'>"
+        Response.Write "if (window.opener.top.MainContentIframe.LoadStoreWhenReady_ctl00_ContentPlaceHolder1_MTFilterGrid1) {"
+        Response.Write "  window.opener.top.MainContentIframe.LoadStoreWhenReady_ctl00_ContentPlaceHolder1_MTFilterGrid1();"
+        Response.Write "} else {"
+        Response.Write "  window.opener.parent.location.href = '/MetraNet/MetraOffer/ProductOfferings/ProductOfferingsList.aspx'"
+        Response.Write "}"
+        Response.Write "window.close();"
+        Response.Write "</script>"
+        Response.End
+
 		OK_Click = TRUE
 	End If
 

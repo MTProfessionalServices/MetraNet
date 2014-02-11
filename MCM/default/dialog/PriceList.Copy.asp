@@ -28,7 +28,7 @@
 Option Explicit
 %>
 <!-- #INCLUDE FILE="../../MCMIncludes.asp" -->
-
+<!-- #INCLUDE VIRTUAL="/mcm/default/lib/MultiTenancyLib.asp"-->
 <%
 Form.Version        = MDM_VERSION     ' Set the dialog version - we are version 2.0.
 Form.ErrorHandler   = true
@@ -80,9 +80,17 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   Service.Properties("OriginalCurrency").Value   = objPricelist.CurrencyCode
   Service.Properties("OriginalCurrency").Enabled = FALSE
 
-  Service.Properties("NewName").Value   = "Copy of " & objPricelist.Name
+  Dim newPriceListName
+  ' If this is a tenant admin, remove Tenant Prefix before prefixing with "Copy of"
+  If Session("isTenantUser") Then
+    newPriceListName = FrameWork.GetDictionary("TEXT_WIZARD_COPY_NAME_PREFIX") & " " & Replace(objPricelist.Name, Session("topLevelAccountUserName") + ":", "")
+  Else
+    newPriceListName = FrameWork.GetDictionary("TEXT_WIZARD_COPY_NAME_PREFIX") & " " & objPricelist.Name
+  End If
+    
+  Service.Properties("NewName").Value   = newPriceListName
   Service.Properties("NewDescription").Value   = objPricelist.Description
-	Service.Properties("NewCurrency").SetPropertyType "ENUM","Global/SystemCurrencies","SystemCurrencies"
+  Service.Properties("NewCurrency").SetPropertyType "ENUM","Global/SystemCurrencies","SystemCurrencies"
   'Service.Properties("NewCurrency").Value = objPricelist.CurrencyCode
   
   'Service.Properties("tx_typ_space").AddValidListOfValues "__GET_NAME_SPACE_TYPE_LIST__",,,,mom_GetDictionary("SQL_QUERY_STRING_RELATIVE_PATH")
@@ -141,8 +149,13 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
   
   'Currently this indicates that the price list is a regular pricelist and not a ICB specific pricelist
   objPriceList.Shareable = true
-         
-	objPriceList.Save
+
+  ' If this is a tenant admin, Prefix PL name with Tenant name
+  If Session("isTenantUser") Then
+    objPriceList.Name = Session("topLevelAccountUserName") + ":" + objPriceList.Name
+  End If
+
+  objPriceList.Save
   
   If(Err.Number)Then
       EventArg.Error.Save Err
@@ -152,6 +165,22 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
   
   id_pricelist_new = objPriceList.id
   
+    ' If this operation is being performed by a tenant user, save TenantId in Extended properties
+  Dim tenantId
+  If Session("isTenantUser") Then
+    tenantId = Session("topLevelAccountId")
+  Else
+    tenantId = 0
+  End If
+  Dim success
+  success = SaveTenantIdForPriceList(objPriceList.ID, tenantId)
+
+  if (Not(success)) then
+      EventArg.Error.Save "Failed to add Tenant Id to new Pricelist"
+      OK_Click = FALSE
+      Exit Function
+  End If
+
   'response.write "Created new pricelist '" & objPriceList.Name & "' with id [" & id_pricelist_new & "]<BR>"
   
   'Create new rateschedules
@@ -189,10 +218,17 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
       EventArg.Error.Save Err
       OK_Click = FALSE
   Else
-      OK_Click = TRUE
+        Response.Write "<script language='JavaScript'>"
+        Response.Write "if (window.opener.top.MainContentIframe.LoadStoreWhenReady_ctl00_ContentPlaceHolder1_MTFilterGrid1) {"
+        Response.Write "  window.opener.top.MainContentIframe.LoadStoreWhenReady_ctl00_ContentPlaceHolder1_MTFilterGrid1();"
+        Response.Write "} else {"
+        Response.Write "  window.opener.parent.location.href = '/MetraNet/MetraOffer/PriceLists/PriceListsList.aspx';"
+        Response.Write "}"
+        Response.Write "window.close();"
+        Response.Write "</script>"
+        Response.End
+
+        OK_Click = TRUE
   End If 
 END FUNCTION
 %>
-
-
-

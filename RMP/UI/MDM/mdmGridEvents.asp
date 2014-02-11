@@ -90,7 +90,7 @@ PRIVATE FUNCTION mdm_RenderGrid(EventArg,objMDMGrid) ' As Boolean
             objMDMGrid.Rowset.MoveFirst ' Added in mdm 3.5
         End If    
     Else
-      objCat.Concat "<tr><td Class=""TableCell"" ColSpan=" & objMDMGrid.Rowset.Count & "><b>" &  mdm_GetMDMLocalizedError("NO_RECORD_USER_MESSAGE") & "</td></tr>"
+      objCat.Concat "<tr><td Class=""TableCell"" ColSpan=" & objMDMGrid.Rowset.Count & "><b>" & Form.Page.NoRecordUserMessage & "</td></tr>"
     End If
 
     objMDMGrid.Row = 0
@@ -333,18 +333,23 @@ PRIVATE FUNCTION inheritedGrid_DisplayCell(EventArg) ' As Boolean
                     If Not COMObject.Instance.Properties(CStr(EventArg.Grid.Rowset.value(0))).Attributes("Editable").Value Then booEnabled = FALSE
                     
                     If (UCase(COMObjectProperty.DataTypeAsString) = "ENUM") Then ' Include the mtproperties of a compound object
-                    
                         strSubHTMLTemplate = "<td NoWrap class='[CLASS]'>&nbsp;<SELECT name='[PROPERTY_NAME]' class='clsInputBox' [ENABLED]></SELECT></td>"
                     Elseif (UCase(COMObjectProperty.DataTypeAsString) = "BOOLEAN") Then 
                         strSubHTMLTemplate = "<td NoWrap class='[CLASS]'>&nbsp;<INPUT Type='CheckBox' name='[PROPERTY_NAME]' [ENABLED]>&nbsp;</td>"
-                    Else
+					Else
                         strSubHTMLTemplate = "<td NoWrap class='[CLASS]'>&nbsp;<INPUT Type='Text' name='[PROPERTY_NAME]' class='clsInputBox'  [ENABLED]>&nbsp;</td>"
-                    End If                    
-                    EventArg.HTMLRendered = Service.Tools.PreProcess(strSubHTMLTemplate,"VALUE", "" & strValue,"PROPERTY_NAME","" & EventArg.Grid.Rowset.Value("Name"),"ENABLED",IIF(booEnabled,""," DISABLED "),"CLASS",EventArg.Grid.CellClass)  
+                    End If
+
+                    ' Partition logic -- Partition ID must be read-only for Partition Admins
+                    strValue = "--" & Trim(strValue) & "--"
+                    If (Session("isTenantUser") AND (EventArg.Grid.Rowset.Value("Name") = "PartitionId")) Then
+                      EventArg.HTMLRendered = Service.Tools.PreProcess(strSubHTMLTemplate,"VALUE", "" & strValue,"PROPERTY_NAME","" & EventArg.Grid.Rowset.Value("Name"),"ENABLED"," DISABLED ","CLASS",EventArg.Grid.CellClass)
+                    Else
+                      EventArg.HTMLRendered = Service.Tools.PreProcess(strSubHTMLTemplate,"VALUE", "" & strValue,"PROPERTY_NAME","" & EventArg.Grid.Rowset.Value("Name"),"ENABLED",IIF(booEnabled,""," DISABLED "),"CLASS",EventArg.Grid.CellClass)  
+                    End If
                 Else                    
-                
                     EventArg.HTMLRendered = "<td height='0'></td>" ' If the property is visible=false we just render a td with no height
-                ENd If                
+                End If                
                 
                 Exit Function
         End Select

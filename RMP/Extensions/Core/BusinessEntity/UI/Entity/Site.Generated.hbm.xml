@@ -175,6 +175,34 @@ The site down for maintenance message will also be displayed when the site is in
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
+    <property name="AuthenticationNamespace" column="c_AuthenticationNamespace" length="255">
+      <meta attribute="label">Authentication Namespace</meta>
+      <meta attribute="description">Authentication Namespace for this virtual folder</meta>
+      <meta attribute="defaultvalue">mt</meta>
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
+    <property name="PhysicalPath" column="c_PhysicalPath" length="255">
+      <meta attribute="label">Physical Path</meta>
+      <meta attribute="description">Physical path to the IIS Virtual Site</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
     <bag name="Site_BillSettingList" lazy="true" inverse="true" cascade="delete">
       <meta attribute="target-entity">Core.UI.BillSetting</meta>
       <key column="c_Site_Id" />

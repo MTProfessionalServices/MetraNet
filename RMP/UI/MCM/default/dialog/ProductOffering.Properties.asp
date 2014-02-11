@@ -61,9 +61,12 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   ' Dynamically Add Tabs to template
   Dim strTabs  
   gObjMTTabs.AddTab "General", "/mcm/default/dialog/ProductOffering.ViewEdit.asp?ID=" & FORM("ID") & "&Tab=0"
-  gObjMTTabs.AddTab "Properties", "/mcm/default/dialog/ProductOffering.Properties.asp?ID=" & FORM("ID")  & "&Tab=1"
-  gObjMTTabs.AddTab "Included Items", "/mcm/default/dialog/ProductOffering.ViewEdit.Items.asp?ID=" & FORM("ID")  & "&Tab=2"
-  gObjMTTabs.AddTab "Subscription Restrictions", "/mcm/default/dialog/ProductOffering.ViewEdit.SubscriptionRestrictions.asp?ID=" & FORM("ID")  & "&Tab=3"
+  
+  If Not(Session("isPartitionUser")) Then
+    gObjMTTabs.AddTab "Included Items", "/mcm/default/dialog/ProductOffering.ViewEdit.Items.asp?ID=" & FORM("ID")  & "&Tab=1"
+    gObjMTTabs.AddTab "Properties", "/mcm/default/dialog/ProductOffering.Properties.asp?ID=" & FORM("ID")  & "&Tab=2"
+    gObjMTTabs.AddTab "Subscription Restrictions", "/mcm/default/dialog/ProductOffering.ViewEdit.SubscriptionRestrictions.asp?ID=" & FORM("ID")  & "&Tab=3"
+  End If
       
   gObjMTTabs.Tab          = Clng(Request.QueryString("Tab"))		  
   strTabs                 = gObjMTTabs.DrawTabMenu(g_int_TAB_TOP)

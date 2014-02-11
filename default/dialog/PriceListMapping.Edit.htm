@@ -1,6 +1,6 @@
 <HTML>
 <HEAD>
-  <LINK localized="TRUE" rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/styles.css">
+  <LINK localized="TRUE" rel="STYLESHEET" type="text/css" href="/mcm/default/localized/us/styles/styles.css">
   <title><MDMLABEL Name="TEXT_EDIT_PRICE_LIST_MAPPING"></MDMLABEL></title>
   
   <script language="Javascript">
@@ -10,8 +10,8 @@
       var strName;
     
       strName = document.mdm.PRICELISTNAME.value;
-
-       if ((strName.length > 0) || ((document.getElementsByName("CanICB")[0].value)))
+    
+      if ((strName.length > 0) || (document.mdm.NonSharedPriceList(0).checked)) 
       {
         mdm_RefreshDialog(document.mdm.OK);
       } 
@@ -54,9 +54,9 @@
       <MDMLABEL name="PRICELISTNAME" type="caption">Price List</MDMLABEL>:&nbsp;&nbsp;
       <input class="fieldNonEditable" style="vertical-align: middle;" type="text" name="PRICELISTNAME" size="30" readonly>
       #MDMNOTIF CAN_NOT_BE_MODIFIED
-      <button class="clsButtonBlueXLarge" name="BtnCounter" style="vertical-align: middle;" onclick="window.open('[PRICE_LIST_PICKER_DIALOG]?MonoSelect=TRUE&Title=TEXT_SELECT_PRICELIST_MAPPING&Parameters=PickerAddMapping|TRUE;PARAMTABLEID|99999','', 'height=400,width=600, resizable=yes, scrollbars=yes, status=yes')">
+      <button class="clsButtonBlueXLarge" name="BtnCounter" style="vertical-align: middle;" onclick="window.open('[PRICE_LIST_PICKER_DIALOG]?MonoSelect=TRUE&Title=TEXT_SELECT_PRICELIST_MAPPING&FILTER_CURRENCY=<MDMLABEL name="ProductOfferingCurrency" type="value"></MDMLABEL>&Parameters=PickerAddMapping|TRUE;PARAMTABLEID|99999','', 'height=400,width=600, resizable=yes, scrollbars=yes, status=yes')">
         <MDMLABEL Name="TEXT_SELECT_A_PRICE_LIST">Select Price List</MDMLABEL>&nbsp;
-        <IMG localized='true' align=middle alt="" border=0 src="/mcm/default/localized/en-us/images/icons/arrowSelect.gif">
+        <IMG localized='true' align=middle alt="" border=0 src="/mcm/default/localized/us/images/icons/arrowSelect.gif">
       </button>
       #MDMENDIF
     &nbsp;
@@ -81,8 +81,8 @@
 
 <br><br>
 <div align="center"><!-- Dialog Buttons -->
-  <button Class='clsOKButton' name="OK" onclick="ValidateName();return false;"><MDMLABEL Name='TEXT_OK'>OK</MDMLABEL></button>&nbsp;&nbsp;&nbsp;
-  <button Class='clsOKButton' name="CANCEL" onclick="mdm_RefreshDialog(this);return false;"><MDMLABEL Name='TEXT_CANCEL'>Cancel</MDMLABEL></button>
+  <button Class='clsOKButton' name="OK" onclick="ValidateName();"><MDMLABEL Name='TEXT_OK'>OK</MDMLABEL></button>&nbsp;&nbsp;&nbsp;
+  <button Class='clsOKButton' name="CANCEL" onclick="mdm_RefreshDialog(this);"><MDMLABEL Name='TEXT_CANCEL'>Cancel</MDMLABEL></button>
 </div>
 <br><br>
 #MDMIF CAN_NOT_BE_MODIFIED

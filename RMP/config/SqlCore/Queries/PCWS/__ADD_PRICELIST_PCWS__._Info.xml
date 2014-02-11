@@ -23,7 +23,13 @@
             <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>
         </Parameter>
-    </Parameters>
+        <Parameter>
+            <Name>PARTITIONID</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <Description></Description>
+        </Parameter>
+		</Parameters>
     <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>

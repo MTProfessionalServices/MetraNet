@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xmlconfig>
+    <AccountType>
+        <Name>Container</Name>
+        <Description>Container account to be used to segment accounts by function under a Partition</Description>
+        <ServiceDefinitions>
+            <ServiceDef>
+                <Operation>metratech.com/accountcreation/operation/Add</Operation>
+                <Name>metratech.com/accountcreation</Name>
+            </ServiceDef>
+            <ServiceDef>
+                <Operation>metratech.com/accountcreation/operation/Update</Operation>
+                <Name>metratech.com/accountcreation</Name>
+            </ServiceDef>
+        </ServiceDefinitions>
+        <CanBePayer>True</CanBePayer>
+        <CanSubscribe>False</CanSubscribe>
+        <CanHaveSyntheticRoot>False</CanHaveSyntheticRoot>
+        <CanParticipateInGSub>True</CanParticipateInGSub>
+        <CanHaveTemplates>True</CanHaveTemplates>
+        <IsVisibleInHierarchy>True</IsVisibleInHierarchy>
+        <IsCorporate>False</IsCorporate>
+        <AccountViews>
+            <AdapterSet>
+                <Name>Internal</Name>
+                <ProgID>MTAccount.MTSQLAdapter.1</ProgID>
+                <ConfigFile>metratech.com/internal</ConfigFile>
+            </AdapterSet>
+            <AdapterSet>
+                <Name>LDAP</Name>
+                <ProgID>MTAccount.MTSQLAdapter.1</ProgID>
+                <ConfigFile>metratech.com/contact</ConfigFile>
+            </AdapterSet>
+        </AccountViews>
+        <DirectDescendentAccountTypes>
+            <Descendent>
+                <Name>CoreSubscriber</Name>
+            </Descendent>
+            <Descendent>
+                <Name>DepartmentAccount</Name>
+            </Descendent>
+            <Descendent>
+                <Name>SystemAccount</Name>
+            </Descendent>
+            <Descendent>
+                <Name>CorporateAccount</Name>
+            </Descendent>
+        </DirectDescendentAccountTypes>
+        <DirectAncestorAccountTypes />
+    </AccountType>
+</xmlconfig>

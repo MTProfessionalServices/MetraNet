@@ -26,7 +26,7 @@ response.buffer=false
 <FORM Method="post" Action="/mcm/default/dialog/AuditLog.List.asp"  name='mdm'>
 <!-- MDM Client Side -->
 <!--  MDM Client Side JavaScript -->
-
+<SCRIPT language="JavaScript" src="/mpte/shared/browsercheck.js"></SCRIPT>
 <SCRIPT language="JavaScript" src="/mdm/internal/mdm.JavaScript.lib.js"></SCRIPT>
 <SCRIPT LANGUAGE="JavaScript1.2">
 // MetraTech Dialog Manager Client Side. This JavaScript was generated.

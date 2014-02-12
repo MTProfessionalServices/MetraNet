@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ServiceModel;
 using System.Text;
@@ -151,14 +152,19 @@ public partial class ApprovalFrameworkManagement_AjaxServices_ChangeOperation : 
   private SubscriptionChange CompareWithCurrentSubscription(Subscription newSubscription, AccountIdentifier accOfNewSub, SubscriptionServiceClient subscriptionClient)
   {
     Subscription currentSub = null;
+    List<UDRCInstance> currentUdrcInstances = null;
+    List<UDRCInstance> newUdrcInstances = null;
 
     if (newSubscription.SubscriptionId.HasValue)
     {
       SetCredantional(subscriptionClient.ClientCredentials);
       subscriptionClient.GetSubscriptionDetail(accOfNewSub, newSubscription.SubscriptionId.Value, out currentSub);
+      subscriptionClient.GetUDRCInstancesForPO(newSubscription.ProductOfferingId, out newUdrcInstances);
+
+      subscriptionClient.GetUDRCInstancesForPO(currentSub.ProductOfferingId, out currentUdrcInstances);
     }
 
-    return SubscriptionChangeType.GetSubscriptionChange(currentSub, newSubscription, accOfNewSub.AccountID.Value);
+    return SubscriptionChangeType.GetSubscriptionChange(currentSub, newSubscription, currentUdrcInstances, newUdrcInstances, accOfNewSub.AccountID.Value);
   }
 
   private void SetCredantional(System.ServiceModel.Description.ClientCredentials clientCredentials)

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ServiceModel;
 using System.Web;
 using MetraTech.ActivityServices.Common;
@@ -147,7 +148,9 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
   private SubscriptionChange CompareWithCurrentSubscription(Subscription newSubscription, AccountIdentifier accOfNewSub)
   {
     Subscription currentSub = null;
-
+    List<UDRCInstance> currentUdrcInstances = null;
+    List<UDRCInstance> newUdrcInstances = null;
+    
     var subscriptionClient = new SubscriptionServiceClient();
     try
     {
@@ -156,6 +159,9 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
       if (newSubscription.SubscriptionId.HasValue)
       {
         subscriptionClient.GetSubscriptionDetail(accOfNewSub, newSubscription.SubscriptionId.Value, out currentSub);
+        subscriptionClient.GetUDRCInstancesForPO(newSubscription.ProductOfferingId, out newUdrcInstances);
+
+        subscriptionClient.GetUDRCInstancesForPO(currentSub.ProductOfferingId, out currentUdrcInstances);
       }
     }
     finally
@@ -166,7 +172,7 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
         subscriptionClient.Close();
     }
 
-    return SubscriptionChangeType.GetSubscriptionChange(currentSub, newSubscription, accOfNewSub.AccountID.Value);
+    return SubscriptionChangeType.GetSubscriptionChange(currentSub, newSubscription, currentUdrcInstances, newUdrcInstances, accOfNewSub.AccountID.Value);
   }
   
   private ChangeDetailsHelper GetChangeDetails(int changeId)

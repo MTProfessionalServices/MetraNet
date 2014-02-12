@@ -25,8 +25,6 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
 
     var newSub = (Subscription)changeDetails[SubscriptionChangeType.SubscriptionKey];
     var subscriberIdent = (AccountIdentifier)changeDetails[SubscriptionChangeType.AccountIdentifierKey];
-
-    var subscriber = GetAccount(subscriberIdent);
     
     if (changeDetails.ContainsKey(SubscriptionChangeType.SubscriptionChangeKey))
     {
@@ -39,15 +37,11 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
       SubChange = CompareWithCurrentSubscription(newSub, subscriberIdent);
     }
     
-    SubChange.IsNewEntity = newSub.SubscriptionId == null;
-    SubChange.AccountName = subscriber.UserName;
-    SubChange.ProductOfferingName = newSub.ProductOffering.Name;
-    
     InitBasicProperties(SubChange);
     InitUdrcProperties(SubChange);
     InitSubscriptionProperties(SubChange);
 
-    AccountTypeName = subscriber.AccountType;
+    AccountTypeName = SubChange.AccountType;
     DataBind();
   }
   
@@ -172,7 +166,7 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
         subscriptionClient.Close();
     }
 
-    return SubscriptionChangeType.GetSubscriptionChange(currentSub, newSubscription);
+    return SubscriptionChangeType.GetSubscriptionChange(currentSub, newSubscription, accOfNewSub.AccountID.Value);
   }
   
   private ChangeDetailsHelper GetChangeDetails(int changeId)
@@ -198,27 +192,6 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
     return changeDetails;
   }
   
-  private Account GetAccount(AccountIdentifier accountIdentifier)
-  {
-    Account account;
-
-    var accountClient = new AccountServiceClient();
-    try
-    {
-      SetCredantional(accountClient.ClientCredentials);
-      accountClient.LoadAccount(accountIdentifier, DateTime.Now, out account); // TODO: What is DateTime parameter???
-    }
-    finally
-    {
-      if (accountClient.State == CommunicationState.Faulted)
-        accountClient.Abort();
-      else
-        accountClient.Close();
-    }
-
-    return account;
-  }
-
   private void SetCredantional(System.ServiceModel.Description.ClientCredentials clientCredentials)
   {
     if (clientCredentials == null)

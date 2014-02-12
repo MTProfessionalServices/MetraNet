@@ -62,7 +62,7 @@ public partial class GenericAddAccount : MTAccountPage
         }
       }
 
-
+      PopulatePresentationNameSpaceList(ddBrandedSite);
       MTGenericForm1.DataBinderInstanceName = "MTDataBinder1";
       if (Account != null) MTGenericForm1.RenderObjectType = Account.GetType();
       MTGenericForm1.RenderObjectInstanceName = "Account";

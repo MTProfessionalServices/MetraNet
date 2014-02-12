@@ -9,6 +9,7 @@ using MetraTech.Approvals;
 using MetraTech.Approvals.ChangeTypes;
 using MetraTech.UI.Controls;
 using MetraTech.DomainModel.BaseTypes;
+using System.Web.UI;
 
 public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails : MTPage
 {
@@ -79,9 +80,12 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
   {
     if (subChange.UdrcProperties.Count > 0)
     {
+      _parenControl.Controls.Add(new LiteralControl("<br />")); 
+      //TODO: Localization
+      _parenControl.Controls.Add(new MTSection { Text = "Product Offering Recurring Change Metrics" });
       foreach (var change in subChange.UdrcProperties)
       {
-        SetViewChangeControl(change);
+        SetUdrsViewChangeControls(change);
       }
     }
   }
@@ -90,7 +94,9 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
   {
     if (subChange.ExtendedProperties.Count > 0)
     {
-      _parenControl.Controls.Add(new MTLabel { Text = "Subscription Properties" });
+      _parenControl.Controls.Add(new LiteralControl("<br />")); 
+      //TODO: Localization
+      _parenControl.Controls.Add(new MTSection { Text = "Subscription Properties" });
       foreach (var change in subChange.ExtendedProperties)
       {
         AddViewChangeControl(_parenControl, change);
@@ -98,9 +104,10 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
     }
   }
 
-  private void SetViewChangeControl(UdrcChange changedProp)
+  private void SetUdrsViewChangeControls(UdrcChange changedProp)
   {
-    _parenControl.Controls.Add(new MTLabel { Text = changedProp.UdrcName });
+    //TODO: Localize
+    _parenControl.Controls.Add(new MTViewChangeControl{ Label="UDRS Name", ValueNew = String.Format("<b>{0}</b>", changedProp.UdrcName)  });
     foreach (var change in changedProp.UdrcValueChanges)
     {
       AddViewChangeControl(_parenControl, change);
@@ -116,9 +123,31 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
 
   private void SetViewChangeControl(MTViewChangeControl viewControl, ChangedValue changedProp)
   {
+    viewControl.ControlState = AdapteEnumFromApproveToUIControl(changedProp.State);
     viewControl.Label = changedProp.DisplayName;
     viewControl.ValueOld = changedProp.OldValue;
     viewControl.ValueNew = changedProp.NewValue;
+  }
+
+  private MTViewChangeControl.ChangeState AdapteEnumFromApproveToUIControl(ChangeValueState state)
+  {
+     switch (state)
+      {
+        case ChangeValueState.NotChanged:
+         return MTViewChangeControl.ChangeState.NotChanged;
+
+        case ChangeValueState.New:
+          return MTViewChangeControl.ChangeState.New;
+
+        case ChangeValueState.Updated:
+           return MTViewChangeControl.ChangeState.Updated;
+
+        case ChangeValueState.Deleted:
+           return MTViewChangeControl.ChangeState.Deleted;
+
+        default:
+           throw new NotImplementedException(String.Format("Can't adapte ChangeValueState '{0}' from Approval Framework '{0}' to UI Control state.", state));
+      }
   }
 
   private SubscriptionChange CompareWithCurrentSubscription(Subscription newSubscription, AccountIdentifier accOfNewSub)

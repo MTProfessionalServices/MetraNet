@@ -88,6 +88,7 @@ End Function
 %>
 <html>
   <head>
+      <SCRIPT language="JavaScript" src="/mpte/shared/browsercheck.js"></SCRIPT>
 	  <SCRIPT language="JavaScript" src="/mdm/internal/mdm.JavaScript.lib.js"></SCRIPT>	
     <script language="Javascript">
     var strRedirectURL ="<% = strRedirectUrl %>";

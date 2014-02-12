@@ -147,6 +147,7 @@ End Function
 %>
 <html>
   <head>
+    <SCRIPT language="JavaScript" src="/mpte/shared/browsercheck.js"></SCRIPT>
    	<SCRIPT language="JavaScript" src="/mdm/internal/mdm.JavaScript.lib.js"></SCRIPT>	
   	<SCRIPT language="JavaScript">
 		  //POMODE is 1 means,called from Product offering else called from Service  Charges

@@ -105,7 +105,7 @@ var last;
   <LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/en-us/styles/styles.css'>
   <LINK rel='STYLESHEET' type='text/css' href='/mcm/default/localized/en-us/styles/Navstyles.css'>  
 	<title>Untitled</title>
-	<SCRIPT language="JavaScript" src="/mcm/default/lib/browsercheck.js"></SCRIPT>	
+	<SCRIPT language="JavaScript" src="/mpte/shared/browsercheck.js"></SCRIPT>	
   <SCRIPT language="JavaScript" src="/mcm/default/lib/PopupEdit.js"></SCRIPT>	
 </head>
 <body class="side" style="margin:10px 14px 6px 5px;">

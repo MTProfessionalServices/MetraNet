@@ -24,8 +24,7 @@
           availdt.n_beginoffset Available_BeginOffset,
           availdt.n_endtype Available_EndType,
           availdt.dt_end Available_EndDate,
-          availdt.n_endoffset Available_EndOffset,
-	  po.c_POPartitionId POPartitionId
+          availdt.n_endoffset Available_EndOffset
         from t_base_props bp
         inner join t_po po on bp.id_prop = po.id_po
         inner join t_pricelist pl on po.id_nonshared_pl = pl.id_pricelist

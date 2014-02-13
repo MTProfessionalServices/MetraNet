@@ -2,9 +2,9 @@
 @echo ****** Build MetraNet platform projects.              *****
 @echo ****** See results in the file MakeItAllWithClean.log *****
 @echo ***********************************************************
-@C:\Windows\System32\WindowsPowerShell\v1.0\PowerShell.exe -Command "& { 'Begin makeItAllWithClean.cmd at ' + (get-date).ToLongTimeString() }"
+@echo Begin makeItAllWithClean.cmd at %time%
 @call %ROOTDIR%\Build\Tools\makeItAllWithClean.cmd >MakeItAllWithClean.log 2>CON
-@C:\Windows\System32\WindowsPowerShell\v1.0\PowerShell.exe -Command "& { 'End makeItAllWithClean.cmd at ' + (get-date).ToLongTimeString() }"
+@echo End makeItAllWithClean.cmd at %time%
 @echo .
 @echo .
 @echo ***********************************************************

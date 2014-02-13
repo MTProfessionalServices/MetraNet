@@ -809,8 +809,8 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">T</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
-</compositetype>
- <compositetype>
+  </compositetype>
+  <compositetype>
     <name>Manage Agreement Template</name>
     <description>Manage Agreement Template: Permits Creating or Updating Agreement Templates</description>
     <editor></editor>
@@ -819,5 +819,25 @@
     <SubscriberAssignable ptype="BOOLEAN">F</SubscriberAssignable>
     <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
     <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
-</compositetype>
+  </compositetype>
+  <compositetype>
+    <name>Manage Quoting</name>
+    <description>Manage Quoting: Permits to create and update Quoting entity</description>
+    <editor></editor>
+    <progid>MetraTech.Auth.Capabilities.ManageQuotingCapability</progid>
+    <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
+    <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
+    <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
+    <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  </compositetype>
+  <compositetype>
+    <name>View Quoting</name>
+    <description>View Quoting: Permits to view Quoting entities</description>
+    <editor></editor>
+    <progid>MetraTech.Auth.Capabilities.ViewQuotingCapability</progid>
+    <CSRAssignable ptype="BOOLEAN">T</CSRAssignable>
+    <SubscriberAssignable ptype="BOOLEAN">T</SubscriberAssignable>
+    <AllowMultipleInstances ptype="BOOLEAN">F</AllowMultipleInstances>
+    <UmbrellaSensitive ptype="BOOLEAN">F</UmbrellaSensitive>
+  </compositetype>  
 </mt_config>

@@ -65,17 +65,6 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   Set objMTProductCatalog = GetProductCatalogObject
   Set objMTFilter = mdm_CreateObject("MTSQLRowset.MTDataFilter.1")
   objMTFilter.Add "Hidden", OPERATOR_TYPE_EQUAL, "N"
-  
-  FrameWork.Dictionary().Add "TEXT_PRODUCT_OFFERING_TYPE", ""
-
-  If CBool(Request("Master")) Then
-    objMTFilter.Add "PartitionId", OPERATOR_TYPE_EQUAL, 0
-    'objMTFilter.Add "MasterFlag", OPERATOR_TYPE_EQUAL, True
-    FrameWork.Dictionary().Add "TEXT_PRODUCT_OFFERING_TYPE", "(Master)"
-  ElseIf Session("isPartitionUser") Then
-    objMTFilter.Add "PartitionId", OPERATOR_TYPE_EQUAL, Session("topLevelAccountId")
-    FrameWork.Dictionary().Add "TEXT_PRODUCT_OFFERING_TYPE", "(Partition)"
-  End If
 
   if UCASE(Form("ShowAvailableOnly"))="Y" then
     Set ProductView.Properties.RowSet = objMTProductCatalog.FindAvailableProductOfferingsAsRowset(objMTFilter,FrameWork.MetraTimeGMTNow())

@@ -6,7 +6,7 @@
 				te.n_begintype as te_n_begintype, te.dt_start as te_dt_start, te.n_beginoffset as te_n_beginoffset,
 				te.n_endtype as te_n_endtype, te.dt_end as te_dt_end, te.n_endoffset as te_n_endoffset,
 				ta.n_begintype as ta_n_begintype, ta.dt_start as ta_dt_start, ta.n_beginoffset as ta_n_beginoffset,
-				ta.n_endtype as ta_n_endtype, ta.dt_end as ta_dt_end, ta.n_endoffset as ta_n_endoffset,t_po.c_POPartitionId
+				ta.n_endtype as ta_n_endtype, ta.dt_end as ta_dt_end, ta.n_endoffset as ta_n_endoffset
 				%%EXTENDED_SELECT%%
 				from
 				%%EXTENDED_JOIN%%

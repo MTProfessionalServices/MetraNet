@@ -68,6 +68,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
                       ' but do a last rendering/refresh.
 
   ' Find the PriceableItem and store it into the MDM COM Object, this will take care of the sub object like EffectiveDate  
+
   Set objMTProductOffering  = objMTProductCatalog.GetProductOffering(CLng(Request.QueryString("ID"))) ' We map the dialog with a COM Object not an MT Service
   Set COMObject.Instance    = objMTProductOffering 
   
@@ -76,20 +77,14 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
       Response.end
   End If
 
-  ' Not used by MetraNet. Removing
-  'COMObject.Properties("SelfUnSubscribable").Caption        = FrameWork.GetDictionary("TEXT_KEYTERM_PRODUCT_OFFERING_SelfUnSubscribable")
-  'COMObject.Properties("SelfSubscribable").Caption          = FrameWork.GetDictionary("TEXT_KEYTERM_PRODUCT_OFFERING_SelfSubscribable")
+  COMObject.Properties("SelfUnSubscribable").Caption        = FrameWork.GetDictionary("TEXT_KEYTERM_PRODUCT_OFFERING_SelfUnSubscribable")
+  COMObject.Properties("SelfSubscribable").Caption          = FrameWork.GetDictionary("TEXT_KEYTERM_PRODUCT_OFFERING_SelfSubscribable")
   COMObject.Properties("EffectiveDate__StartDate").Caption   = FrameWork.GetDictionary("TEXT_KEYTERM_PRODUCT_OFFERING_EffectiveDate.StartDate")
   COMObject.Properties("EffectiveDate__EndDate").Caption     = FrameWork.GetDictionary("TEXT_KEYTERM_PRODUCT_OFFERING_EffectiveDate.EndDate")
   COMObject.Properties("AvailabilityDate__StartDate").Caption= FrameWork.GetDictionary("TEXT_KEYTERM_PRODUCT_OFFERING_AvailabilityDate.StartDate")
   COMObject.Properties("AvailabilityDate__EndDate").Caption  = FrameWork.GetDictionary("TEXT_KEYTERM_PRODUCT_OFFERING_AvailabilityDate.EndDate")
 
-  ' If it is a Master PO, don't show effective and availability dates
-  If objMTProductOffering.Properties.Item("POPartitionId") = 0 Then
-    mdm_GetDictionary().Add "IS_MASTER_PO", "TRUE"
-  Else
-    mdm_GetDictionary().Add "IS_MASTER_PO", "FALSE"
-  End If
+
 
   ' Create and define the Extended Properties Grid
   Form.Grids.Add "ExtendedProperties", "Extended Properties"
@@ -105,8 +100,8 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   Form.Grids("ExtendedProperties").DefaultCellClassAlt = "captionEW"
 
   COMObject.Properties("Name").Enabled = FALSE
-  COMObject.Properties.Enabled         = TRUE ' Every control is grayed
-  Form.Grids.Enabled                   = TRUE ' All Grid are not enabled
+  'COMObject.Properties.Enabled              = TRUE ' Every control is grayed
+  'Form.Grids.Enabled                        = TRUE ' All Grid are not enabled
   
   mcm_IncludeCalendar
   'SECENG: Fixing problems with output encoding  
@@ -145,7 +140,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
     'ESR-5994
     'Cannot edit extended property if Approvals applied  
     COMObject.Properties.Enabled = TRUE
-	Form.Grids.Enabled = TRUE
+	  Form.Grids.Enabled = TRUE
   end if
 
   Form_Initialize = TRUE
@@ -212,18 +207,7 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
       OK_Click = FALSE
       Err.Clear
   Else
-        Response.Write "<script language='JavaScript'>"
-        Response.Write "if (window.opener.top.MainContentIframe.LoadStoreWhenReady_ctl00_ContentPlaceHolder1_MTFilterGrid1) {"
-        Response.Write "  window.opener.top.MainContentIframe.LoadStoreWhenReady_ctl00_ContentPlaceHolder1_MTFilterGrid1();"
-        Response.Write "} else {"
-        'Response.Write "  window.opener.location.reload();"
-        Response.Write "  window.opener.location.href = (window.opener.location.href);"
-        Response.Write "}"
-        Response.Write "window.close();"
-        Response.Write "</script>"
-        Response.End
-
-        OK_Click = TRUE
+      OK_Click = TRUE
   End If    
 END FUNCTION
 ' ---------------------------------------------------------------------------------------------------------------------------------------

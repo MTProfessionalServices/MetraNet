@@ -44,10 +44,6 @@
     <UseTopBar>true</UseTopBar>
     <UseBottomBar>true</UseBottomBar>
     <SubGrid></SubGrid>
-    <Title>
-        <Value><![CDATA[]]></Value>
-    </Title>
-    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
@@ -268,10 +264,10 @@
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
+            <ShowInExpander>false</ShowInExpander>
             <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
-            <DefaultFilter>false</DefaultFilter>
+            <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
             <FilterLabel />
             <ElementValue>
@@ -319,105 +315,6 @@
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>Core.UI.Entity.dll</AssemblyFilename>
-            <ObjectName>Core.UI.Site</ObjectName>
-            <ID>AuthenticationNamespace</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>AuthenticationNamespace</DataIndex>
-            <IsColumn>false</IsColumn>
-            <HeaderText />
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>true</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>Core.UI.Entity.dll</AssemblyFilename>
-            <ObjectName>Core.UI.Site</ObjectName>
-            <ID>RootUrl</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>RootUrl</DataIndex>
-            <IsColumn>false</IsColumn>
-            <HeaderText />
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>true</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>false</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>Core.UI.Entity.dll</AssemblyFilename>
-            <ObjectName>Core.UI.Site</ObjectName>
-            <ID>PhysicalPath</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>PhysicalPath</DataIndex>
-            <IsColumn>false</IsColumn>
-            <HeaderText />
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>true</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>false</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
     </Elements>
     <ExpanderTemplate>
         <Section>
@@ -426,7 +323,6 @@
                 <ResourceClassKey>Resource</ResourceClassKey>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
-            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -445,18 +341,6 @@
                         <Field>
                             <AssemblyFilename>Core.UI.Entity.dll</AssemblyFilename>
                             <ObjectName>Core.UI.Site</ObjectName>
-                            <ID>AuthenticationNamespace</ID>
-                            <Name>AuthenticationNamespace</Name>
-                        </Field>
-                        <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
-                            <ID>PhysicalPath</ID>
-                            <Name>PhysicalPath</Name>
-                        </Field>
-                        <Field>
-                            <AssemblyFilename>Core.UI.Entity.dll</AssemblyFilename>
-                            <ObjectName>Core.UI.Site</ObjectName>
                             <ID>IsSiteDownForMaintenance</ID>
                             <Name>IsSiteDownForMaintenance</Name>
                         </Field>
@@ -464,12 +348,6 @@
                 </Column>
                 <Column>
                     <Fields>
-                        <Field>
-                            <AssemblyFilename>Core.UI.Entity.dll</AssemblyFilename>
-                            <ObjectName>Core.UI.Site</ObjectName>
-                            <ID>RootUrl</ID>
-                            <Name>RootUrl</Name>
-                        </Field>
                         <Field>
                             <AssemblyFilename>Core.UI.Entity.dll</AssemblyFilename>
                             <ObjectName>Core.UI.Site</ObjectName>
@@ -481,12 +359,6 @@
                             <ObjectName>Core.UI.Site</ObjectName>
                             <ID>Theme</ID>
                             <Name>Theme</Name>
-                        </Field>
-                        <Field>
-                            <AssemblyFilename>Core.UI.Entity.dll</AssemblyFilename>
-                            <ObjectName>Core.UI.Site</ObjectName>
-                            <ID>LogoImage</ID>
-                            <Name>LogoImage</Name>
                         </Field>
                     </Fields>
                 </Column>
@@ -510,7 +382,7 @@
         </Button>
     </GridButtons>
     <ToolbarButtons>
-        <Button>
+       <!-- <Button>
             <ButtonID>Add</ButtonID>
             <ButtonText>
                 <LocalizationTag>TEXT_ADD_BME</LocalizationTag>
@@ -523,6 +395,6 @@
             <IconClass>add</IconClass>
             <RequiredCapabilities></RequiredCapabilities>
             <JSHandlerFunction>onNew</JSHandlerFunction>
-        </Button>
+        </Button> -->
     </ToolbarButtons>
 </GridLayout>

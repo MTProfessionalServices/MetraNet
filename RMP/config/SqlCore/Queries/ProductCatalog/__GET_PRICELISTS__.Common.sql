@@ -4,7 +4,7 @@
           t_vw_base_props.n_desc, t_vw_base_props.nm_name,
           t_vw_base_props.nm_desc, t_vw_base_props.nm_display_name,
           t_pricelist.n_type, t_pricelist.nm_currency_code,
-          tmp.rateschedules, t_pricelist.c_PLPartitionId
+          tmp.rateschedules
           from t_vw_base_props,
           t_pricelist
           LEFT OUTER JOIN 

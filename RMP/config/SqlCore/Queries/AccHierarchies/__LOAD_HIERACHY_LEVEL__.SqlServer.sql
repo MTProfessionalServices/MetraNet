@@ -34,7 +34,7 @@ select at.id_type, CASE WHEN COUNT(adm.id_type) > 0 THEN 1 ELSE 0 END d_count fr
 select top (@PageSize)
 RowNumber, account_type, icon, parent_id, child_id, b_children as children, nm_login, nm_space, hierarchyname,
 CASE when folder_owner IS NULL THEN N'' ELSE folder_owner END as folder_owner,
-folder, currency, status, numpayees, tx_path
+folder, currency, status, numpayees, tx_path, WritePermission
 
 from (
 
@@ -66,9 +66,11 @@ descmap.d_count folder,
 tav.c_currency currency,
 accstate.status status,
 accs.numpayees,
-accs.tx_path
+accs.tx_path,
+awp.WritePermission
 
 FROM my_drivers accs
+ inner join GetAccountsWithPermission(%%CURRENT_USER%%) awp on accs.id_descendent = awp.AccountID
  inner join t_account acc on acc.id_acc = accs.id_descendent
  inner join t_account_type at on at.id_type = acc.id_type
   INNER  JOIN t_av_internal tav ON tav.id_acc = accs.id_descendent %%FOLDERCHECK%%
@@ -95,7 +97,7 @@ WHERE 1=1
 AND at.b_IsVisibleInHierarchy = '1'
 AND ('%%COMPANY_NAME%%' = '' OR EXISTS (SELECT 1 FROM t_av_Contact avc WHERE avc.c_Company LIKE '%%COMPANY_NAME%%' AND avc.id_acc = acc.id_acc))
 AND ('%%USER_NAME%%' = '' OR map.nm_login LIKE '%%USER_NAME%%')
-AND ns.tx_typ_space = '%%TYPE_SPACE%%' OR (ns.tx_typ_space = 'system_user' and accs.id_ancestor != 1)
+AND ns.tx_typ_space = '%%TYPE_SPACE%%' 
 ) a
 where 1=1
 AND RowNumber > @PageSize * (@PageNumber -1)

@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
-  <LINK localized="TRUE" rel="STYLESHEET" type="text/css" href="/mcm/default/localized/us/styles/styles.css">
-  <LINK rel="STYLESHEET" type="text/css" href="/mcm/default/localized/us/styles/tab_styles.css">
+  <LINK localized="TRUE" rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/styles.css">
+  <LINK rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/tab_styles.css">
   <title><MDMLABEL Name="TEXT_KEYTERM_RECURRING_CHARGE"></MDMLABEL></title>  
   <SCRIPT language="JavaScript" src="/mcm/default/lib/utilForm.js"></SCRIPT>
   <script language='javascript'>
@@ -205,15 +205,13 @@
       <td valign="top">
           <!-- Extended Properties -->
           <fieldset style="padding: 20 10 10 10;">
-          <legend style="font-weight: normal;">Extended Properties</legend>
+          <legend style="font-weight: normal;">Extended Properties</LEGEND>
           
           <MDMGrid Name="ExtendedProperties">Extended Properties</MDMGrid>
-          <!--
           <br>
           <center>
           <img src='..\localized\us\images\Icons\help_small.gif' alt='' border='0' align='absmiddle'>&nbsp;<a href="/MetraNetHelp/en-US/addingextendedproperties.hlp.htm" target="_blank" style="font-size: 9px;">What are extended properties?</a>
           </center>
-          -->
       </td>   
 	 </tr>
 </table> 
@@ -265,7 +263,7 @@
 
 <CENTER>
 <!--On OK, we turn back on disabled DIVs to be able to read their values.  This is admittedly a bit of a kludge.-->
-<button Name="OK"  Class="clsOKButton" OnClick="disableDiv('ProrateOnDeactivationDiv', false);disableDiv('ProrateInstantlyDiv', false);mdm_RefreshDialog(this);return false;"><MDMLABEL Name='TEXT_OK'>OK</MDMLABEL></button>&nbsp;&nbsp;&nbsp;
-<button Name="CANCEL" Class="clsOKButton" OnClick="mdm_RefreshDialog(this);"><MDMLABEL Name='TEXT_CANCEL'>Cancel</MDMLABEL></button>&nbsp;&nbsp;&nbsp;
+<BUTTON Name="OK"  Class="clsOKButton" OnClick="disableDiv('ProrateOnDeactivationDiv', false);disableDiv('ProrateInstantlyDiv', false);mdm_RefreshDialog(this);"><MDMLABEL Name='TEXT_OK'>OK</MDMLABEL></button>&nbsp;&nbsp;&nbsp;
+<BUTTON Name="CANCEL" Class="clsOKButton" OnClick="mdm_RefreshDialog(this);"><MDMLABEL Name='TEXT_CANCEL'>Cancel</MDMLABEL></button>
 </CENTER>
 </FORM></BODY></HTML>

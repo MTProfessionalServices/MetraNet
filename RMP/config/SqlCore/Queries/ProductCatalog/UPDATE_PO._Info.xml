@@ -35,12 +35,6 @@
             <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>
         </Parameter>
-        <Parameter>
-            <Name>POPARTITIONID</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <Description></Description>
-        </Parameter>
     </Parameters>
     <Description></Description>
     <ConversionAudit>

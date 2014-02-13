@@ -232,32 +232,21 @@
     Application["DictionaryCache"] = dict;
     Application.UnLock();
   }
-
-  void Session_Start(object sender, EventArgs e)
+  
+  void Session_Start(object sender, EventArgs e) 
   {
 
-
-      // Load site auth config
-      if (Application["SiteAuthConfig"] == null || ConfigurationManager.AppSettings["DemoMode"].ToLower() == "true")
-      {
-          Application.Lock();
-          Application["SiteAuthConfig"] = new SiteAuthConfig();
-
-          // Retrieve authentication namespace from the site configuration and if set, override the one coming from site.xml
-          if ((SiteConfig.Settings.AuthenticationNamespace != null) && (SiteConfig.Settings.AuthenticationNamespace != ""))
-          {
-              var logger = new Logger("[MetraViewSession]");
-              logger.LogDebug("Authentication Namespace will be taken from Site Configuration. Site.xml value '{0}' will be overritten with BME Site value '{1}'",
-                  SiteConfig.AuthSettings.AuthenticationNamespace,
-                  SiteConfig.Settings.AuthenticationNamespace);
-              SiteConfig.AuthSettings.AuthenticationNamespace = SiteConfig.Settings.AuthenticationNamespace;
-          }
-
-          Application.UnLock();
-      }
+    
+    // Load site auth config
+    if (Application["SiteAuthConfig"] == null || ConfigurationManager.AppSettings["DemoMode"].ToLower() == "true")
+    {
+      Application.Lock();
+      Application["SiteAuthConfig"] = new SiteAuthConfig();
+      Application.UnLock();
+  }
   }
 
-  void Session_End(object sender, EventArgs e)
+  void Session_End(object sender, EventArgs e) 
   {
       // Code that runs when a session ends. 
       // Note: The Session_End event is raised only when the sessionstate mode

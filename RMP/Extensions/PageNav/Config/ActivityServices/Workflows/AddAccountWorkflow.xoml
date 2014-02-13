@@ -155,7 +155,7 @@
 						<ActivityBind Name="AddAccountWorkflow" Path="CONST_SystemAccount" />
 					</ns1:MTSwitch.Cases>
 				</SetStateActivity>
-				<SetStateActivity x:Name="Default_Case_GenericAccount" TargetStateName="GenericAddAccount" />
+				<SetStateActivity x:Name="Default_Case_GenericAccount" TargetStateName="AddAccount" />
 			</ns1:MTSwitch>
 		</StateInitializationActivity>
 	</StateActivity>

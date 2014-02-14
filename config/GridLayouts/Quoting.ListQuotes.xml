@@ -271,12 +271,56 @@
             <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
             <ObjectName>MetraTech.Domain.Quoting.Quote</ObjectName>
             <ID>Status</ID>
-            <DataType>String</DataType>
+            <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
+            <FilterEnum>
+                <EnumClassName>QuoteStatus</EnumClassName>
+                <EnumSpace>metratech.com</EnumSpace>
+                <EnumType>QuoteStatus</EnumType>
+                <UseEnumValue>true</UseEnumValue>
+                <DefaultValue></DefaultValue>
+                <HideEnumValues />
+            </FilterEnum>
             <DataIndex>Status</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>QUOTE_STATUS</LocalizationTag>
+                <ResourceClassKey>Quoting/App_LocalResources/QuoteList.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
+            <ObjectName>MetraTech.Domain.Quoting.Quote</ObjectName>
+            <ID>GroupSubscription</ID>
+            <DataType>Boolean</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>GroupSubscription</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>GROUP_SUBSCRIPTION</LocalizationTag>
                 <ResourceClassKey>Quoting/App_LocalResources/QuoteList.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
@@ -419,6 +463,39 @@
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
+            <ObjectName>MetraTech.Domain.Quoting.Quote</ObjectName>
+            <ID>CorporateAccountId</ID>
+            <DataType>Numeric</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>CorporateAccountId</DataIndex>
+            <IsColumn>false</IsColumn>
+            <HeaderText />
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>true</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
     </Elements>
     <ExpanderTemplate>
         <Section>
@@ -435,6 +512,12 @@
                             <ObjectName>MetraTech.Domain.Quoting.Quote</ObjectName>
                             <ID>ReportLink</ID>
                             <Name>ReportLink</Name>
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.Domain.Quoting.Quote</ObjectName>
+                            <ID>CorporateAccountId</ID>
+                            <Name>CorporateAccountId</Name>
                         </Field>
                     </Fields>
                 </Column>

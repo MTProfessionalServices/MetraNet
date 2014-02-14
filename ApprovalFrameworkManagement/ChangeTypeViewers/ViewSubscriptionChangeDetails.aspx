@@ -5,18 +5,15 @@
   <div class="CaptionBar">
     <asp:Label ID="lblChangesSummaryTitle" runat="server" />
   </div>
-
-  <div>
-    <img src='/ImageHandler/images/Account/<%# AccountTypeName %>/account.gif' alt="No image"/>
-    <MT:MTLabel ID="LblAccountName" runat="server" />
-  </div>
-  <div>
-    <MT:MTLabel ID="LblPoName" runat="server" />
-  </div>
   
-  <MT:MTViewChangeControl ID="SubChangeBasicStartDate" runat="server" Label="Start Date" AllowBlank="False" meta:resourcekey="lblDisplayNameResource1" ReadOnly="False"  />
-  <MT:MTViewChangeControl ID="SubChangeBasicNextStart" runat="server" Label="Next start of payer's billing period after this date" AllowBlank="False" meta:resourcekey="lblDisplayNameResource1" ReadOnly="False"  />
-  <MT:MTViewChangeControl ID="SubChangeBasicEndDate" runat="server" Label="End Date" AllowBlank="False" meta:resourcekey="lblDisplayNameResource1" ReadOnly="False"  />
-  <MT:MTViewChangeControl ID="SubChangeBasicNextEnd" runat="server" Label="Next end of payer's billing period after this date" AllowBlank="False" meta:resourcekey="lblDisplayNameResource1" ReadOnly="False"  />
+  <br />
+
+  <MT:MTLiteralControl ID="LblAccountName" meta:resourcekey="LblAccountNameResource" runat="server" />
+  <MT:MTLiteralControl ID="LblPoName" meta:resourcekey="LblPoNameResource" runat="server" />
+  
+  <MT:MTViewChangeControl ID="SubChangeBasicStartDate" runat="server" AllowBlank="False" meta:resourcekey="SubChangeBasicStartDateResource" />
+  <MT:MTViewChangeControl ID="SubChangeBasicNextStart" runat="server" AllowBlank="False" meta:resourcekey="SubChangeBasicNextStartResource" />
+  <MT:MTViewChangeControl ID="SubChangeBasicEndDate" runat="server" AllowBlank="False" meta:resourcekey="SubChangeBasicEndDateResource" />
+  <MT:MTViewChangeControl ID="SubChangeBasicNextEnd" runat="server" AllowBlank="False" meta:resourcekey="SubChangeBasicNextEndResource" />
    
 </asp:Content>

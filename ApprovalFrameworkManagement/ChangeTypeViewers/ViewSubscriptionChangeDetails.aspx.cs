@@ -15,7 +15,6 @@ using System.Web.UI;
 public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails : MTPage
 {
   public SubscriptionChange SubChange { get; set; }
-  protected string AccountTypeName { get; set; }
 
   #region Event Listeners
   
@@ -41,33 +40,30 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
     InitBasicProperties(SubChange);
     InitUdrcProperties(SubChange);
     InitSubscriptionProperties(SubChange);
-
-    AccountTypeName = SubChange.AccountType;
-    DataBind();
   }
   
   #endregion
 
   #region Private Methods
 
-  private System.Web.UI.Control _parenControl = null;
+  private Control _parenControl;
   private void InitBasicProperties(SubscriptionChange subChange)
   {
     lblChangesSummaryTitle.Text = SubChange.IsNewEntity
                        ? GetGlobalResourceObject("Resource", "newSubscription").ToString()
                        : GetGlobalResourceObject("Resource", "updateSubscription").ToString();
-    
-    LblAccountName.Text = SubChange.AccountName;
-    LblPoName.Text = SubChange.ProductOfferingName;
 
+    LblAccountName.Text = String.Format("<img src='/ImageHandler/images/Account/{0}/account.gif' />  {1}", SubChange.AccountType, SubChange.AccountName);
+    LblPoName.Text = SubChange.ProductOfferingName;
+    
     // Start Date
-    SetViewChangeControl(SubChangeBasicStartDate, subChange.StartDateChange);
+    SetViewChangeControl(SubChangeBasicStartDate, subChange.StartDateChange, true);
     // Next start of payer's billing period after this date
-    SetViewChangeControl(SubChangeBasicNextStart, subChange.StartDateTypeChange);
+    SetViewChangeControl(SubChangeBasicNextStart, subChange.StartDateTypeChange, true);
     // End Date
-    SetViewChangeControl(SubChangeBasicEndDate, subChange.EndDateChange);
+    SetViewChangeControl(SubChangeBasicEndDate, subChange.EndDateChange, true);
     // Next end of payer's billing period after this date
-    SetViewChangeControl(SubChangeBasicNextEnd, subChange.EndDateTypeChange);
+    SetViewChangeControl(SubChangeBasicNextEnd, subChange.EndDateTypeChange, true);
     _parenControl = SubChangeBasicNextEnd.Parent;
   }
 
@@ -75,9 +71,9 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
   {
     if (subChange.UdrcProperties.Count > 0)
     {
-      _parenControl.Controls.Add(new LiteralControl("<br />")); 
-      //TODO: Localization
-      _parenControl.Controls.Add(new MTSection { Text = "Product Offering Recurring Change Metrics" });
+      _parenControl.Controls.Add(new LiteralControl("<br />"));
+      _parenControl.Controls.Add(new MTSection {Text = GetLocalResourceObject("UDRC_SECTION_NAME").ToString()});
+
       foreach (var change in subChange.UdrcProperties)
       {
         SetUdrsViewChangeControls(change);
@@ -89,9 +85,12 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
   {
     if (subChange.ExtendedProperties.Count > 0)
     {
-      _parenControl.Controls.Add(new LiteralControl("<br />")); 
-      //TODO: Localization
-      _parenControl.Controls.Add(new MTSection { Text = "Subscription Properties" });
+      _parenControl.Controls.Add(new LiteralControl("<br />"));
+      _parenControl.Controls.Add(new MTSection
+        {
+          Text = GetLocalResourceObject("SUB_PROPS_SECTION_NAME").ToString()
+        });
+
       foreach (var change in subChange.ExtendedProperties)
       {
         AddViewChangeControl(_parenControl, change);
@@ -112,16 +111,19 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
   private void AddViewChangeControl(System.Web.UI.Control  parentControl, ChangedValue changedProp)
   {
      var newControl = new MTViewChangeControl();
-     SetViewChangeControl(newControl, changedProp);
+     SetViewChangeControl(newControl, changedProp, false);
      parentControl.Controls.Add(newControl);
   }
 
-  private void SetViewChangeControl(MTViewChangeControl viewControl, ChangedValue changedProp)
+  private void SetViewChangeControl(MTViewChangeControl viewControl, ChangedValue changedProp, bool useLocalResxResource)
   {
     viewControl.ControlState = AdapteEnumFromApproveToUIControl(changedProp.State);
-    viewControl.Label = changedProp.DisplayName;
     viewControl.ValueOld = changedProp.OldValue;
     viewControl.ValueNew = changedProp.NewValue;
+    if (!useLocalResxResource)
+    {
+      viewControl.Label = changedProp.DisplayName;
+    }
   }
 
   private MTViewChangeControl.ChangeState AdapteEnumFromApproveToUIControl(ChangeValueState state)

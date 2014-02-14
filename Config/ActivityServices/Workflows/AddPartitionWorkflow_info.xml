@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<WorkflowInfo>
-    <Name>AddPartitionWorkflow</Name>
-    <Type>PageNavWorkflow</Type>
-    <Assembly>MetraCareWorkflowLibrary.dll</Assembly>
-    <XomlFile>AddPartitionWorkflow.xoml</XomlFile>
-    <Description>Add Account Workflow</Description>
-	<VSProjFile>AddPartitionWorkflow.csproj</VSProjFile>
-</WorkflowInfo>

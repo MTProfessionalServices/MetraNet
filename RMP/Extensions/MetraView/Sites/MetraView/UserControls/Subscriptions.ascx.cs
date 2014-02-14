@@ -12,53 +12,53 @@ using MetraTech.UI.Tools;
 public partial class UserControls_Subscriptions : System.Web.UI.UserControl
 {
 
-    public UIManager UI
+  public UIManager UI
+  {
+    get { return ((MTPage)Page).UI; }
+  }
+
+  private int maxDisplayItems = 5;
+  public int MaxDisplayItems
+  {
+    get
     {
-        get { return ((MTPage)Page).UI; }
+      return maxDisplayItems;
     }
+    set { maxDisplayItems = value; }
+  }
 
-    private int maxDisplayItems = 5;
-    public int MaxDisplayItems
+  protected void Page_Load(object sender, EventArgs e)
+  {
+    try
     {
-        get
-        {
-            return maxDisplayItems;
-        }
-        set { maxDisplayItems = value; }
-    }
+      if (SiteConfig.Settings.BillSetting.AllowSelfCare == false)
+      {
+        EditButton.Visible = false;
+      }
 
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        try
-        {
-            //if (SiteConfig.Settings.BillSetting.AllowSelfCare == false)
-            //{
-            //   EditButton.Visible = false;
-            //}
-
-            var billManager = new BillManager(UI);
-            MTList<Subscription> subList = new MTList<Subscription>();
-            subList = billManager.GetSubscriptions(subList);
+      var billManager = new BillManager(UI);
+      MTList<Subscription> subList = new MTList<Subscription>();
+      subList = billManager.GetSubscriptions(subList);
 
 
       MTList<ProductOffering> poList = new MTList<ProductOffering>();
       poList = billManager.GetEligiblePOsForSubscriptions(poList);
       //poList.PageSize = maxDisplayItems;
 
-            //read into dictionary
-            Dictionary<int, ProductOffering> currentPOs = new Dictionary<int, ProductOffering>();
-            Dictionary<int, ProductOffering> availablePOs = new Dictionary<int, ProductOffering>();
+      //read into dictionary
+      Dictionary<int, ProductOffering> currentPOs = new Dictionary<int, ProductOffering>();
+      Dictionary<int, ProductOffering> availablePOs = new Dictionary<int, ProductOffering>();
 
-            foreach (Subscription sub in subList.Items)
-            {
-                if (!currentPOs.ContainsKey(sub.ProductOffering.ProductOfferingId.Value))
-                {
-                    if (sub.SubscriptionSpan.EndDate == null || sub.SubscriptionSpan.EndDate > MetraTime.Now)
-                    {
-                        currentPOs.Add(sub.ProductOffering.ProductOfferingId.Value, sub.ProductOffering);
-                    }
-                }
-            }
+      foreach (Subscription sub in subList.Items)
+      {
+        if (!currentPOs.ContainsKey(sub.ProductOffering.ProductOfferingId.Value))
+        {
+          if (sub.SubscriptionSpan.EndDate == null || sub.SubscriptionSpan.EndDate > MetraTime.Now)
+          {
+            currentPOs.Add(sub.ProductOffering.ProductOfferingId.Value, sub.ProductOffering);
+          }
+        }
+      }
 
       foreach (ProductOffering po in poList.Items)
       {
@@ -71,28 +71,36 @@ public partial class UserControls_Subscriptions : System.Web.UI.UserControl
         }
       }
 
-            if (subList.Items.Count == 0)
-            {
-                LitEmptyText1.Visible = true;
-            }
-            else
-            {
-                StringBuilder myPO = new StringBuilder();
-                myPO.Append("<br/><ul class='bullets'>");
+      if (subList.Items.Count == 0)
+      {
+        LitEmptyText1.Visible = true;
+      }
+      else
+      {
+        StringBuilder myPO = new StringBuilder();
+        myPO.Append("<br/><ul class='bullets'>");
+        /*
+        for (int i = 0; i < subList.Items.Count; i++)
+        {
+          myPO.Append("<br /><li>");
+          myPO.Append(subList.Items[i].ProductOffering.Name);
+          myPO.Append("</li>");
+        }
+        */
+        foreach (ProductOffering po in currentPOs.Values)
+        {
+          myPO.Append("<li>");
+          // SECENG: CORE-4772 CLONE - MSOL BSS 27144 Online Bill - Stored XSS allowed in the priceable item name (post-pb)
+          // Added HTML encoding
+          myPO.Append(Utils.EncodeForHtml(po.DisplayName));
+          myPO.Append("</li>");
+        }
+        myPO.Append("</ul>");
+        LitCurrPlan.Text = myPO.ToString();
 
-                foreach (ProductOffering po in currentPOs.Values)
-                {
-                    myPO.Append("<li>");
-                    // SECENG: CORE-4772 CLONE - MSOL BSS 27144 Online Bill - Stored XSS allowed in the priceable item name (post-pb)
-                    // Added HTML encoding
-                    myPO.Append(Utils.EncodeForHtml(po.DisplayName));
-                    myPO.Append("</li>");
-                }
-                myPO.Append("</ul>");
-                LitCurrPlan.Text = myPO.ToString();
+      }
 
-            }
-
+      
       //if (poList.Items.Count == 0)
       if(availablePOs.Keys.Count == 0)
       {
@@ -158,19 +166,18 @@ public partial class UserControls_Subscriptions : System.Web.UI.UserControl
           prodOfferingList.Append("<br /><a href='" + SiteConfig.Settings.RootUrl + "/Subscriptions.aspx'>" + Resources.Resource.TEXT_MORE_ITEMS + "</a>");
         }
         LitProdOff.Text = prodOfferingList.ToString();
-      }        }
-        catch (Exception ex)
-        {
-            // throw new Exception("Unable to get list of subscriptions", ex);
-            Logger logger = new Logger("MetraViewSubscriptions");
-            logger.LogDebug("Error loading subscriptions\nMessage: {0}\nStack Trace: {1}", ex.Message, ex.StackTrace);
-        }
+      }
     }
+    catch (Exception)
+    {
+      // throw new Exception("Unable to get list of subscriptions", ex);
+    }
+  }
 
   protected void OnAdd_Click(object sender, EventArgs e)
   {
     Response.Redirect("Subscriptions.aspx");
-}
+  }
 
 
 }

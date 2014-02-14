@@ -7,7 +7,7 @@
     </Title>
     <Exportable>true</Exportable>
     <Height>350</Height>
-    <Width>900</Width>
+    <Width>820</Width>
     <FilterInputWidth>220</FilterInputWidth>
     <Expandable>false</Expandable>
     <Buttons>OKCancel</Buttons>
@@ -52,46 +52,7 @@
     <CustomImplementationFilePath></CustomImplementationFilePath>
     <DataSourceURL></DataSourceURL>
     <SubGrid></SubGrid>
-    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <Elements>
-
-		<Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
-            <ObjectName>MetraTech.DomainModel.BaseTypes.BaseProductOffering</ObjectName>
-            <ID>POPartitionId</ID>
-            <DataType>Numeric</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>POPartitionId</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag>TEXT_PartitionID</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>100</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>true</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>false</DefaultColumn>
-            <Exportable>false</Exportable>
-            <ShowInExpander>false</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>false</FilterHideable>           bbbb  
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>true</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-
         <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
@@ -178,7 +139,7 @@
                 <ResourceClassKey></ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>230</Width>
+            <Width>130</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>true</Sortable>
@@ -214,7 +175,7 @@
                 <ResourceClassKey></ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>300</Width>
+            <Width>200</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>true</Sortable>
@@ -250,7 +211,7 @@
                 <ResourceClassKey></ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>90</Width>
+            <Width>80</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>true</Sortable>

@@ -50,13 +50,7 @@
             <SubstitutionSyntaxCheck>Y</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
-        <Parameter>
-            <Name>POPARTITIONID</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <Description></Description>
-        </Parameter>
-		</Parameters>
+    </Parameters>
     <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>

@@ -81,19 +81,8 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
 	  EventArg.Error.Save Err
 	  OK_Click = FALSE
 	  Err.Clear
-    Else
-        Response.Write "<script language='JavaScript'>"
-        Response.Write "if (window.opener.top.MainContentIframe.LoadStoreWhenReady_ctl00_ContentPlaceHolder1_MTFilterGrid1) {"
-        Response.Write "  window.opener.top.MainContentIframe.LoadStoreWhenReady_ctl00_ContentPlaceHolder1_MTFilterGrid1();"
-        Response.Write "} else {"
-        'Response.Write "  window.opener.location.reload();"
-        Response.Write "  window.opener.location.href = (window.opener.location.href);"
-        Response.Write "}"
-        Response.Write "window.close();"
-        Response.Write "</script>"
-        Response.End
-
-        OK_Click = TRUE
-    End If    
+  Else
+	  OK_Click = TRUE
+  End If    
 END FUNCTION
 %>

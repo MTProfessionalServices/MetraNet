@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<xmlconfig>
-    <direction>
-        <ServiceID ptype="ID">metratech.com/SMSService</ServiceID>
-        <stage>RateSMS</stage>
-    </direction>
-</xmlconfig>

@@ -1,3 +1,0 @@
-
-			%%EXECUTE_QUERY%%
-		

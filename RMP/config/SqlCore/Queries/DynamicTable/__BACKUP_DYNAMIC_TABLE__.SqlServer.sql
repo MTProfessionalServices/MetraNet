@@ -1,3 +1,0 @@
-
-			SELECT * INTO dbo.%%BACKUP_TABLE_NAME%% FROM dbo.%%TABLE_NAME%%
-		

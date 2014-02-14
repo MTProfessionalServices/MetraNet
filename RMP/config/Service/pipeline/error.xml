@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE defineservice SYSTEM "http://localhost/validation/servicedefXML_1_1.dtd">
-
-<defineservice xsi:schemaLocation="http://localhost/validation/servicedefXML_1_1.xsd" xmlns:xsi="http://www.w3.org/1999/XMLSchema/instance">
-	<msixdef>pipeline\error.msixdef</msixdef>
-</defineservice>

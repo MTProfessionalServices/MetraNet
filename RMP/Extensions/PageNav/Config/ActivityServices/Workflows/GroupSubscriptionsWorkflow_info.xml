@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<WorkflowInfo>
-    <Name>GroupSubscriptionsWorkflow</Name>
-    <Type>PageNavWorkflow</Type>
-    <Assembly>MetraCareWorkflowLibrary.dll</Assembly>
-    <XomlFile>GroupSubscriptionsWorkflow.xoml</XomlFile>
-    <Description>Group Subscriptions Workflow</Description>
-	<VSProjFile>GroupSubscriptionsWorkflow.csproj</VSProjFile>
-</WorkflowInfo>

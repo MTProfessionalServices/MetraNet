@@ -1,3 +1,0 @@
-﻿<ns2:UpdateAccountViewWorkflow x:Name="UpdateAccountViewWorkflow" xmlns:ns1="clr-namespace:MetraTech.Core.Activities;Assembly=MetraTech.Core.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:MetraTech.ActivityServices.Activities;Assembly=MetraTech.ActivityServices.Activities" xmlns:ns2="clr-namespace:MetraTech.Core.Workflows;Assembly=MetraTech.Core.Workflows" >
-	<ns1:UpdateAccountViewActivity In_Account="{p4:ActivityBind UpdateAccountViewWorkflow,Path=In_Account}" x:Name="updateAccountViewActivity1" xmlns:p4="http://schemas.microsoft.com/winfx/2006/xaml/workflow" />
-</ns2:UpdateAccountViewWorkflow>

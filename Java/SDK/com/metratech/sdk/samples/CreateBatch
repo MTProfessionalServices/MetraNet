@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
- <soap:Body>
-  <CreateResponse xmlns="http://metratech.com/webservices">
-   <CreateResult>wKgB44gA4jDD1tmKPn/6vw==</CreateResult> 
-  </CreateResponse>
- </soap:Body>
-</soap:Envelope>

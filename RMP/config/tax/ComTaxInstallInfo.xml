@@ -1,9 +1,0 @@
-
-<module>
-  <name>ComTaxInstallInfo</name>
-  <module_specific>
-    <installed ptype="BOOL">FALSE</installed>
-    <install_path>d:\comtax21</install_path>
-    <LastUpdate ptype="DATETIME">1999-06-21T15:47:45Z</LastUpdate>
-  </module_specific>
-</module>

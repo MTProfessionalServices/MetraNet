@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<xmlconfig xsi:schemaLocation="http://localhost/validation/service.xsd">
-  <mtconfigdata>
-    <filename>sample.com\sample.xml</filename>
-    <filename>metratech.com\testservice.xml</filename>
-    <filename _diffAttr="Modified" Owner="Carl">metratech.com\audioconfconn.xml</filename>
-    <filename _diffAttr="Modified" Owner="Carl">metratech.com\audioconfcall.xml</filename>
-  </mtconfigdata>
-</xmlconfig>

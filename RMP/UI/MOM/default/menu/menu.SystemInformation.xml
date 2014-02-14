@@ -1,9 +1,0 @@
-<MenuGroup>
-	<name>Log Files</name>
-	<AUTODETECT>Logging</AUTODETECT>
-</MenuGroup>
-<item>
-	<name>System Version Information</name>
-	<link>/mom/default/dialog/VersionInfo.asp</link>
-	<target>fmeMain</target>
-</item>  

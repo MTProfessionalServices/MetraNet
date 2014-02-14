@@ -1,7 +1,0 @@
-c_Widget_Id,c_internal_key,c__Version,c_CreationDate,c_UpdateDate,c_UID,c_Name,c_Description,c_Title,c_Style,c_CssClass,c_Height,c_WidgetType,c_WidgetPath,c_Position
-"c4b552f4-be1a-4666-b09f-6c9dc6c8c226","4c17d793-bf68-477f-b61f-05c98d030d3e","3","","","","Subscriptions","","TEXT_MY_SUBSCRIPTIONS","","","","","UserControls/Subscriptions.ascx","2"
-"4aad6c55-d6b4-4605-9986-9d31000be71d","2cddb535-8324-4795-9b8c-1759eb20165d","2","","","","BillAndPayments","","","","","","","UserControls/BillAndPayments.ascx","1"
-"fa796214-586c-4fd2-b653-9d31000be73e","664c0275-63f6-4239-b782-73a6b6b7c2aa","3","","","","UsageGraph","","TEXT_USAGE_BY_DEPARTMENT","","","","","UserControls/UsageGraph.ascx","1"
-"fa796214-586c-4fd2-b653-9d31000be7aa","664c0275-63f6-4239-b782-73a6b6b7c2bb","2","","","","UsageByProductGraph","","TEXT_USAGE_BY_PRODUCT","","","","","UserControls/ProductUsageGraph.ascx","2"
-"9400e7f7-da96-4f9c-a728-9d310011187e","d6c362f8-0cb7-4ba8-be31-6cb568034d11","3","","","","MyReports","","TEXT_MY_REPORTS","","","","","UserControls/MyReports.ascx","2"
-"4ef1f936-890a-4343-9917-9d4101134caa","a15eb312-d782-4c1c-a4b2-bdf627651abd","1","","","","AccountInfo","","TEXT_ACCOUNT_INFORMATION","","","","","UserControls/PayerInfo.ascx","1"

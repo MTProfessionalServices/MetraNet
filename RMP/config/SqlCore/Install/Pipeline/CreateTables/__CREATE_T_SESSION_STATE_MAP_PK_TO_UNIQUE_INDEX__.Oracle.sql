@@ -1,6 +1,0 @@
-	
-	  ALTER TABLE T_SESSION_STATE ADD (
-	  CONSTRAINT PK_T_SESSION_STATE 
-	  PRIMARY KEY ( id_sess, dt_end, tx_state, ID_PARTITION)
-		USING INDEX)
-	  

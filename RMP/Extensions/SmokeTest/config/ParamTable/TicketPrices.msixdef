@@ -1,3 +1,0 @@
-<defineservice>
-	<name indexed_property="TotalTickets">TicketPrices</name>
-	<ptype condition="Y" display_name="total tickets" column_operator="less_than"><dn>TotalTickets</dn><type>decimal</type><length></length><required>Y</required><defaultvalue>0.0</defaultvalue></ptype><ptype display_name="cost per ticket" action="Y"><dn>PerTicket</dn><type>decimal</type><length></length><required>Y</required><defaultvalue>0.0</defaultvalue></ptype></defineservice>

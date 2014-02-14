@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<extension>
-    <author>MetraTech Engineering</author>
-    <description>Core Bill Presentment and Payment Website</description>
-    <type>Pipeline</type>
-    <DefaultNamespace>metratech.com</DefaultNamespace>
-</extension>

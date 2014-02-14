@@ -1,8 +1,0 @@
-<!-- $Header$ -->
-<!-- DTD for productview def XML files -->
-
-<!ELEMENT productviewdef ( msixdef ) >
-<!ATTLIST productviewdef xmlns:xsi CDATA #FIXED "http://www.w3.org/1999/XMLSchema/instance"  >
-<!ATTLIST productviewdef xsi:schemaLocation CDATA #REQUIRED >
-
-<!ELEMENT msixdef ( #PCDATA ) >

@@ -1,9 +1,0 @@
-<ARDocument>
-  <GetAccountStatusChange>
-    <ChangeID/>
-    <ExtAccountID/>
-    <Status/>
-    <SecondsAgo/>
-    <UserID/>
-  </GetAccountStatusChange>
-</ARDocument>

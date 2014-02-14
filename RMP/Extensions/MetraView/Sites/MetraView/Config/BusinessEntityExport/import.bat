@@ -1,1 +1,0 @@
-BMEImportExport.exe imp -I -E Core.UI.Site extensions\metraview\sites\metraview\config\businessentityexport

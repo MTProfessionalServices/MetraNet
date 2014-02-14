@@ -1,7 +1,0 @@
-﻿<ns0:PaymentSubmissionAdapterWorkflow SecurityContext="{p1:Null}" x:Name="PaymentSubmissionAdapterWorkflow" ExecutionContext="{x:Null}" EventName="{x:Null}" ConfigFile="{x:Null}" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:p1="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:MetraTech.Core.Workflows;Assembly=MetraTech.Core.Workflows">
-	<CodeActivity x:Name="LoadConfiguration" ExecuteCode="{ActivityBind PaymentSubmissionAdapterWorkflow,Path=LoadConfiguration_ExecuteCode}" />
-	<CodeActivity x:Name="GetPendingPayments" ExecuteCode="{ActivityBind PaymentSubmissionAdapterWorkflow,Path=GetPendingPayments_ExecuteCode}" />
-	<CodeActivity x:Name="ExecutePayments" ExecuteCode="{ActivityBind PaymentSubmissionAdapterWorkflow,Path=ExecutePayments_ExecuteCode}" />
-	<CodeActivity x:Name="UpdatePendingPayments" ExecuteCode="{ActivityBind PaymentSubmissionAdapterWorkflow,Path=UpdatePendingPayments_ExecuteCode}" />
-	<CodeActivity x:Name="ProcessFailures" ExecuteCode="{ActivityBind PaymentSubmissionAdapterWorkflow,Path=ProcessFailures_ExecuteCode}" />
-</ns0:PaymentSubmissionAdapterWorkflow>

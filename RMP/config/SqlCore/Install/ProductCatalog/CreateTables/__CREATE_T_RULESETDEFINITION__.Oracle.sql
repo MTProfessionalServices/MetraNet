@@ -1,6 +1,0 @@
-
-		create table T_RULESETDEFINITION (
-			ID_PARAMTABLE NUMBER(10) not null,
-			NM_INSTANCE_TABLENAME VARCHAR2(100) not null,
-			constraint T_RULESETDEFINITION_PK primary key (ID_PARAMTABLE) ) 
-	 

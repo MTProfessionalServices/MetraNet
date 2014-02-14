@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE defineservice SYSTEM "http://localhost/validation/servicedefXML_1_1.dtd">
-
-<!-- Sample xml file.  Only to be used for cloning -->
-
-
-<defineservice xsi:schemaLocation="http://localhost/validation/servicedefXML_1_1.xsd" xmlns:xsi="http://www.w3.org/1999/XMLSchema/instance">
-	<msixdef>sample.com\sample.msixdef</msixdef>
-</defineservice>

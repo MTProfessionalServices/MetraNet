@@ -1,2 +1,0 @@
-<Row ss:Index="4" ss:AutoFitHeight="0" ss:Height="24"><Cell ss:StyleID="sWorksheetDisplayName"><Data ss:Type="String"><!--%%INSERT_RULESET_DISPLAY_NAME%%--></Data></Cell></Row>
-<Row><Cell ss:StyleID="sParamTableData"><Data ss:Type="String">Parameter Table[<!--%%INSERT_RULESET_NAME%%-->]</Data></Cell></Row>

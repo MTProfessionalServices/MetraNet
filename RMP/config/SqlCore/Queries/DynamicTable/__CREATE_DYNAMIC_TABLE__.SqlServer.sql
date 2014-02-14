@@ -1,9 +1,0 @@
-
-			    CREATE TABLE %%TABLE_NAME%%
-			      (%%DDL_INNARDS%%,
-                               CONSTRAINT %%PK_NAME%% PRIMARY KEY CLUSTERED (%%PRIMARY_KEYS%%)
-			       %%FOREIGN_KEYS%%%%UNIQUE_KEYS%%)
-				
-				%%CREATE_TABLE_DESCRIPTION%%
-				%%CREATE_COLUMN_DESCRIPTION%%
-			

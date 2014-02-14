@@ -1,1 +1,0 @@
-http://oss.software.ibm.com/icu/charset/

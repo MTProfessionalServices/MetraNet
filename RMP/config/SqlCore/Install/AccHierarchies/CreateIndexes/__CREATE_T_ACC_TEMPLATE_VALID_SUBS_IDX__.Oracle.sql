@@ -1,5 +1,0 @@
-
-CREATE INDEX acc_template_valid_subs_idx1 ON t_acc_template_valid_subs(id_acc_template_session,id_po);
-CREATE INDEX acc_template_valid_subs_idx2 ON t_acc_template_valid_subs(id_acc_template_session,id_group);
-
-

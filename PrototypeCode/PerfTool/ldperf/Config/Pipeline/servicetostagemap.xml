@@ -1,7 +1,0 @@
-﻿<?xml version="1.0"?>
-<xmlconfig>
-    <direction>
-        <ServiceID ptype="ID">metratech.com/ldperfSimple</ServiceID>
-        <stage>ldperfStage</stage>
-    </direction>
-</xmlconfig>

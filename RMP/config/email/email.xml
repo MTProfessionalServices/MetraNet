@@ -1,7 +1,0 @@
-<xmlconfig>
-	  <smtp_server>
-		<address>mail.metratech.com</address>
-		<port ptype="INTEGER">25</port>
-		<timeout ptype="INTEGER">12</timeout>
-	  </smtp_server>
-</xmlconfig>

@@ -1,7 +1,0 @@
-
-				SELECT 
-				/* Query Tag: __GET_ROLE_BY_NAME__ */
-				id_role, tx_guid, tx_name, tx_desc, csr_assignable, subscriber_assignable
-		    FROM t_role
-		    WHERE %%%UPPER%%%(tx_name) = %%%UPPER%%%(N'%%NAME%%')
-    	

@@ -39,10 +39,6 @@
             <Value>Appliquer les règles de sécurité par défaut</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/account/AuthenticationType</Name>
-            <Value>Type d'authentification</Value>
-        </locale_entry>
-        <locale_entry>
             <Name>metratech.com/account/DayOfMonth</Name>
             <Value>Jour du mois</Value>
         </locale_entry>

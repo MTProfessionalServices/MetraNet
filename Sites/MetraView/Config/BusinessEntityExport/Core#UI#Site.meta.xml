@@ -81,5 +81,17 @@
       <isRequired>false</isRequired>
       <Length>255</Length>
     </FieldMetadata>
+    <FieldMetadata>
+      <Name>c_AuthenticationNamespace</Name>
+      <Type>String</Type>
+      <isRequired>false</isRequired>
+      <Length>255</Length>
+    </FieldMetadata>
+    <FieldMetadata>
+      <Name>c_PhysicalPath</Name>
+      <Type>String</Type>
+      <isRequired>false</isRequired>
+      <Length>255</Length>
+    </FieldMetadata>
   </Fields>
 </TableMetadata>

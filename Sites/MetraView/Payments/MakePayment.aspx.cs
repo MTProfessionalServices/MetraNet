@@ -220,7 +220,6 @@ public partial class Payments_MakePayment : MTPage
   {
     try
     {
-      //Response.Redirect("/MetraView/");
       MetraPayManager.MakePaymentData paymentData = new MetraPayManager.MakePaymentData();
       var billManager = new BillManager(UI);
       PaymentInfo paymentInformation = billManager.PaymentInformation;

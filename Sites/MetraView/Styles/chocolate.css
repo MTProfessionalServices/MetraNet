@@ -1,0 +1,46 @@
+/* COLOR GUIDE 
+chocolate: D2691E
+*/
+
+/* START ELEMENT STYLES */
+
+a:link, a:visited {
+	color:#D2691E
+}
+a:hover {
+	color:#D2691E
+}
+h1, h2, h3, h4, h5, h6 {
+	color:#D2691E
+}
+input:hover, textarea:hover, select:hover {
+	color: #D2691E
+}
+
+/* END ELEMENT STYLES */
+
+/* START GLOBAL LAYOUT */
+
+#nav a:hover {
+	color:#D2691E
+}
+#headernav a:hover {
+	color:#D2691E
+}
+#subnav a:hover {
+	color:#D2691E
+}
+.button a:hover {
+	color:#D2691E;
+	text-decoration:none;
+}
+.bullets li {
+	background:url("../images/bullet-gray.gif") left 1px no-repeat;
+}
+.boxheader {
+	color:#D2691E
+}
+.strong-field-label {
+	color:#D2691E
+}
+/* END GLOBAL LAYOUT */

@@ -137,6 +137,27 @@ BEGIN
 
    GetIdBlock(v_n_batches, 'id_dbqueuess', v_id_ss);
 
+   INSERT INTO t_message
+     ( id_message, id_route, dt_crt, dt_metered, dt_assigned, id_listener, id_pipeline, dt_completed, id_feedback, tx_TransactionID, tx_sc_username, tx_sc_password, tx_sc_namespace, tx_sc_serialized, tx_ip_address )
+     SELECT id_message,
+            NULL,
+            v_run_date,
+            v_run_date,
+            NULL,
+            NULL,
+            NULL,
+            NULL,
+            NULL,
+            NULL,
+            NULL,
+            NULL,
+            NULL,
+            NULL,
+            '127.0.0.1'
+       FROM ( SELECT v_id_message + (MOD(ROW_NUMBER() OVER ( ORDER BY id_source_sess  ), v_n_batches)) id_message
+              FROM tmp_nrc  ) a
+       GROUP BY id_message;
+
    INSERT INTO t_session
      ( id_ss, id_source_sess )
      SELECT v_id_ss + (MOD(ROW_NUMBER() OVER ( ORDER BY id_source_sess  ), v_n_batches)) id_ss,
@@ -193,28 +214,7 @@ BEGIN
           NULL as c__TransactionCookie,
           v_tx_batch as c__CollectionID
        FROM tmp_nrc  );
-	   
-	INSERT INTO t_message
-     ( id_message, id_route, dt_crt, dt_metered, dt_assigned, id_listener, id_pipeline, dt_completed, id_feedback, tx_TransactionID, tx_sc_username, tx_sc_password, tx_sc_namespace, tx_sc_serialized, tx_ip_address )
-     SELECT id_message,
-            NULL,
-            v_run_date,
-            v_run_date,
-            NULL,
-            NULL,
-            NULL,
-            NULL,
-            NULL,
-            NULL,
-            NULL,
-            NULL,
-            NULL,
-            NULL,
-            '127.0.0.1'
-       FROM ( SELECT v_id_message + (MOD(ROW_NUMBER() OVER ( ORDER BY id_source_sess  ), v_n_batches)) id_message
-              FROM tmp_nrc  ) a
-       GROUP BY id_message;
-	   
+
     DELETE FROM TMP_NRC;
 
    p_count := v_total_nrcs;

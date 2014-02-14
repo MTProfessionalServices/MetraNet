@@ -3,24 +3,16 @@
   <RecurringChargeServerToMeterTo>DiscountServer</RecurringChargeServerToMeterTo>
   <RecurringChargeStoredProcedureQueryTag>MTSP_GENERATE_ST_RCS_QUOTING</RecurringChargeStoredProcedureQueryTag>
   <NonRecurringChargeStoredProcedureQueryTag>MTSP_GENERATE_ST_NRCS_QUOTING</NonRecurringChargeStoredProcedureQueryTag>
-  <NonAndRecurringChargeStoredProcedureQueryTag>MTSP_GENERATE_CHARGES_QUOTING</NonAndRecurringChargeStoredProcedureQueryTag>
   <GetUsageIntervalIdForQuotingQueryTag>__GET_USAGE_INTERVAL_ID_FOR_QUOTING__</GetUsageIntervalIdForQuotingQueryTag>
   <CalculateQuoteTotalAmountQueryTag>__GET_QUOTE_TOTAL_AMOUNT__</CalculateQuoteTotalAmountQueryTag>
   <GetMaxQuoteIdQueryTag>__GET_MAX_QUOTE_ID__</GetMaxQuoteIdQueryTag>
-  <BackupQuoteUsagesQueryTag>__BACKUP_QUOTE_USAGES__</BackupQuoteUsagesQueryTag>
-  <CountMeteredQuoteUsagesQueryTag>__COUNT_ITEMS_FOR_BACKUP_QUOTE_USAGES__</CountMeteredQuoteUsagesQueryTag>
-  <RemoveQuoteUsagesQueryTag>__REMOVE_QUOTE_USAGES__</RemoveQuoteUsagesQueryTag>
-  <UpdateQuoteUsagesQueryTag>__UPDATE_QUOTE_USAGES__</UpdateQuoteUsagesQueryTag>
-  <CountTotalQuoteUsagesQueryTag>__COUNT_TOTAL_QUOTE_USAGES__</CountTotalQuoteUsagesQueryTag>
   <RemoveRCMetricValuesQueryTag>__REMOVE_RC_METRIC_VALUES__</RemoveRCMetricValuesQueryTag>
   <GetAccountBillingCycleQueryTag>__GET_ACCOUNT_BILLING_CYCLE__</GetAccountBillingCycleQueryTag>
   <GetAccountPayerQueryTag>__GET_ACCOUNT_PAYER__</GetAccountPayerQueryTag>
-  <MeteringSessionSetSize>500</MeteringSessionSetSize>
-  <MeteringTimeOut>120</MeteringTimeOut>
+  <MeteringSessionSetSize>500</MeteringSessionSetSize>  
   <ReportDefaultTemplateName>Quote Report</ReportDefaultTemplateName>
   <ReportInstancePartialPath>\Quotes\{AccountId}\Quote_{QuoteId}</ReportInstancePartialPath>
   <QuotingQueryFolder>Queries\Quoting</QuotingQueryFolder>
   <IsCleanupQuoteAutomaticaly>true</IsCleanupQuoteAutomaticaly>
   <IsAllowedUseActivityService>true</IsAllowedUseActivityService>
-  <UseAcyncCleanup>false</UseAcyncCleanup>
 </QuotingConfiguration>

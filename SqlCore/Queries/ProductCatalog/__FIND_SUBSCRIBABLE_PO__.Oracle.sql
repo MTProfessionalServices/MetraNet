@@ -28,7 +28,8 @@ SELECT DISTINCT (t_po.id_po),
    ta.dt_end        as ta_dt_end, 
    ta.n_endoffset   as ta_n_endoffset, 
    template_po_map.b_recurringcharge, 
-   template_po_map.b_discount1 as b_discount 
+   template_po_map.b_discount1 as b_discount,
+   t_po.c_POPartitionId as POPartitionId   
    %%COLUMNS%% 
 FROM 
    (SELECT %%REFDATE%% now 

@@ -162,6 +162,46 @@ SET @n_batches = (@total_nrcs / @v_n_batch_size) + 1;
     EXEC GetIdBlock @n_batches, 'id_dbqueuesch', @id_message OUTPUT;
     EXEC GetIdBlock @n_batches, 'id_dbqueuess',  @id_ss OUTPUT;
 
+INSERT 	INTO t_message
+(
+	id_message,
+	id_route,
+	dt_crt,
+	dt_metered,
+	dt_assigned,
+	id_listener,
+	id_pipeline,
+	dt_completed,
+	id_feedback,
+	tx_TransactionID,
+	tx_sc_username,
+	tx_sc_password,
+	tx_sc_namespace,
+	tx_sc_serialized,
+	tx_ip_address
+)
+SELECT
+	id_message,
+	NULL,
+	@v_run_date,
+	@v_run_date,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	'127.0.0.1'
+FROM
+	(SELECT @id_message + (ROW_NUMBER() OVER (ORDER BY id_source_sess) % @n_batches) AS id_message
+	FROM #tmp_nrc
+	) a
+GROUP BY a.id_message;
+    
 INSERT INTO t_session
 (id_ss, id_source_sess)
 SELECT @id_ss + (ROW_NUMBER() OVER (ORDER BY id_source_sess) % @n_batches) AS id_ss,
@@ -217,46 +257,6 @@ SELECT
     c__TransactionCookie,
     c__CollectionID
 FROM #tmp_nrc
-
-INSERT 	INTO t_message
-(
-	id_message,
-	id_route,
-	dt_crt,
-	dt_metered,
-	dt_assigned,
-	id_listener,
-	id_pipeline,
-	dt_completed,
-	id_feedback,
-	tx_TransactionID,
-	tx_sc_username,
-	tx_sc_password,
-	tx_sc_namespace,
-	tx_sc_serialized,
-	tx_ip_address
-)
-SELECT
-	id_message,
-	NULL,
-	@v_run_date,
-	@v_run_date,
-	NULL,
-	NULL,
-	NULL,
-	NULL,
-	NULL,
-	NULL,
-	NULL,
-	NULL,
-	NULL,
-	NULL,
-	'127.0.0.1'
-FROM
-	(SELECT @id_message + (ROW_NUMBER() OVER (ORDER BY id_source_sess) % @n_batches) AS id_message
-	FROM #tmp_nrc
-	) a
-GROUP BY a.id_message;
 
 drop table #tmp_nrc
 SET @p_count = @total_nrcs

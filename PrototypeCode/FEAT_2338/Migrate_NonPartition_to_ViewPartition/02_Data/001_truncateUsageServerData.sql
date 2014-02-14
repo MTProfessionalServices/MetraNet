@@ -1,1 +1,0 @@
-TRUNCATE TABLE [dbo].[t_usage_server]

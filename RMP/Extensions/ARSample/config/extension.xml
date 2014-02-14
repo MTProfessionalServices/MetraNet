@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<extension>
-    <author>MetraTech Engineering</author>
-    <description>Sample service definitions/stages to show how to use the ARPropagationWriter plugin to send account, salesperson and sales territory information to an external AR system. It is a sample for custom integrations and not used by any core product functionality.
-
-Note: For standard account synchronization between MetraNet and an external AR system, the core product AccountCreation stage has plugins to accomplish this task during normal account creation which are independent of this sample.</description>
-    <type>Pipeline</type>
-    <DefaultNamespace>metratech.com</DefaultNamespace>
-</extension>

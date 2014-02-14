@@ -1,8 +1,0 @@
-<xmlconfig>
-   <Version>1</Version>
-
-	<MaxOpenTransactionHours>24</MaxOpenTransactionHours>
-	<MaxThreads>20</MaxThreads>
-	<ConfigFile>SystemConfig\config\UsageServer\CleanupService.xml</ConfigFile>
-	<EndPoint>WSHttpBinding_IElectronicPaymentServices</EndPoint>
-</xmlconfig>

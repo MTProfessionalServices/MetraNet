@@ -1,2 +1,0 @@
-#RMP-Extensions-Core
-#Core

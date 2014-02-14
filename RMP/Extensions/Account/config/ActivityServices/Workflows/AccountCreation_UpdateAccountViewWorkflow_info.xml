@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<WorkflowInfo>
-    <Name>AccountCreation_UpdateAccountViewWorkflow</Name>
-    <Type>SequentialWorkflow</Type>
-    <Assembly>MetraTech.Core.Workflows.dll</Assembly>
-    <XomlFile>AccountCreation_UpdateAccountViewWorkflow.xoml</XomlFile>
-    <Description>Update Account View Workflow</Description>
-	<VSProjFile>AccountCreation_UpdateAccountViewWorkflow.csproj</VSProjFile>
-</WorkflowInfo>

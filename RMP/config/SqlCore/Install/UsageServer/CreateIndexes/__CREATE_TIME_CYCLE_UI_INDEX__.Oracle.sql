@@ -1,1 +1,0 @@
-CREATE INDEX time_cycle_ui_index ON t_usage_interval(id_usage_cycle, dt_start, dt_end)

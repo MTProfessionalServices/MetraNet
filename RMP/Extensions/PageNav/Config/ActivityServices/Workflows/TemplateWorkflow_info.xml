@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<WorkflowInfo>
-    <Name>TemplateWorkflow</Name>
-    <Type>PageNavWorkflow</Type>
-    <Assembly>MetraCareWorkflowLibrary.dll</Assembly>
-    <XomlFile>TemplateWorkflow.xoml</XomlFile>
-    <Description>Template Workflow</Description>
-	<VSProjFile>TemplateWorkflow.csproj</VSProjFile>
-</WorkflowInfo>

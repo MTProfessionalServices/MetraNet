@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<defineservice>
-  <name kind="150">pricelist</name>
-    <description>The PriceList object contains information about the price list, such as the name, the ID, the currency code, etc.</description>
-</defineservice>

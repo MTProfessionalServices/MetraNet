@@ -1,5 +1,0 @@
-
-			CREATE TABLE t_MT_ID
-			(id_MT int identity (0,1) NOT NULL,
-			CONSTRAINT PK_t_MT_ID PRIMARY KEY CLUSTERED (id_MT))
-			

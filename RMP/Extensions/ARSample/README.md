@@ -1,2 +1,0 @@
-#RMP-Extensions-ARSample
-#ARSample

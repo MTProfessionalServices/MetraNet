@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<MASConfig>
-  <MASServices>
-    <MASCodeService ElementName="TaxService" Type="MetraTech.Core.Services.TaxService, MetraTech.Core.Services.dll" Description="The Tax Service provides methods for a client to manage tax information" >
-        <Interface Name="TaxService" ContractType="MetraTech.Core.Services.ITaxService, MetraTech.Core.Services.dll" Description="The Tax Service provides methods for a client to manage tax information" />
-    </MASCodeService>
-  </MASServices>
-</MASConfig>

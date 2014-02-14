@@ -1,7 +1,0 @@
-<!-- $Header$ -->
-
-<!ELEMENT filename ( #PCDATA ) >
-
-<!ELEMENT xmlconfig ( filename+ ) >
-<!ATTLIST xmlconfig xmlns:xsi CDATA #FIXED "http://www.w3.org/1999/XMLSchema/instance" >
-<!ATTLIST xmlconfig xsi:schemaLocation CDATA #REQUIRED >

@@ -1,4 +1,0 @@
-c_Column_Id,c_internal_key,c__Version,c_CreationDate,c_UpdateDate,c_UID,c_Name,c_Description,c_CssClass,c_Style,c_Title,c_Position,c_Width
-"5e33962a-ca4b-4b7d-a5f3-9d3100095265","7989eb0f-8d5b-498d-8263-7375ba04264b","1","","","","Column1","","","","","1","UI/DashboardColumnWidth/Small"
-"90901af4-21a3-4617-8cc6-9d31000b0757","3acae0cb-e346-4010-847f-04d90c0474b9","1","","","","Column2","","","","","2","UI/DashboardColumnWidth/Small"
-"59083672-3bfa-4116-8ff1-9d31000b204c","f9b21a61-5011-4704-8926-738af270bbf5","2","","","","Column3","","","","","3","UI/DashboardColumnWidth/Small"

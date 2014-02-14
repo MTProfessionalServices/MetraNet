@@ -1,6 +1,0 @@
-
-    BEGIN
-    /* __TRUNCATE_NRC_CANDIDATES__ */
-    EXECUTE IMMEDIATE 'TRUNCATE TABLE tmp_nrcs';
-    END;
-  		

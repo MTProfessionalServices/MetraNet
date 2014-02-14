@@ -1,4 +1,0 @@
-
-				CREATE GLOBAL TEMPORARY TABLE TMP_UPDATESTATE_FORMERGE (id_acc NUMBER(12) ,status char(2), vt_start date)
-				ON COMMIT PRESERVE ROWS
-				

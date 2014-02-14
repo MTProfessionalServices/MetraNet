@@ -1,1 +1,0 @@
-<priceable_item><name>SMS</name><description>SMS priceableitem type</description><item_type>usage</item_type><relationships><parent></parent></relationships><parameter_table>metratech.com/rateSMS</parameter_table><counters/><pipeline><service_definition>metratech.com/SMSService</service_definition><product_view>metratech.com/SMSService</product_view></pipeline></priceable_item>

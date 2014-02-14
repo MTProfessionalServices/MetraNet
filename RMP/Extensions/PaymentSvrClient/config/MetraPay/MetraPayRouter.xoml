@@ -1,7 +1,0 @@
-﻿<ns0:MetraPayRouterBase PaymentMethod="{p1:Null}" x:Name="MetraPayRouter" PaymentInfo="{x:Null}" ServiceName="{x:Null}" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:p1="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:MetraTech.Core.Activities;Assembly=MetraTech.Core.Activities">
-	<PolicyActivity x:Name="MetraPayRoutingEngine" Description="This evaluates the rule set to determine the name of the MetraPay service to call">
-		<PolicyActivity.RuleSetReference>
-			<RuleSetReference RuleSetName="MetraPay Routing Rule Set" />
-		</PolicyActivity.RuleSetReference>
-	</PolicyActivity>
-</ns0:MetraPayRouterBase>

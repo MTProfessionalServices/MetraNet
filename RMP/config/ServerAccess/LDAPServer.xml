@@ -1,9 +1,0 @@
-<xmlconfig>
-
-  <mtconfigdata>
-	  <dn>uid=admin,ou=Administrators,ou=TopologyManagement,o=NetscapeRoot</dn>
-	  <password>123456</password>
-	  <domainorg>o=metratech.com</domainorg>
-  </mtconfigdata>
-
-</xmlconfig>

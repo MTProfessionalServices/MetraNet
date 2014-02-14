@@ -1,9 +1,0 @@
-<!ELEMENT adapter_config ( prog_id, query_file ) >
-
-<!ELEMENT filename ( #PCDATA ) >
-
-<!ELEMENT prog_id ( #PCDATA ) >
-
-<!ELEMENT query_file ( #PCDATA ) >
-
-<!ELEMENT queryadapter ( filename, adapter_config ) >

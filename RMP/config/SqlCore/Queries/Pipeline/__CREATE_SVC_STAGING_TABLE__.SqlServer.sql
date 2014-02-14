@@ -1,6 +1,0 @@
-
-IF OBJECT_ID('%%TABLE%%') IS NULL 
-BEGIN 
-  %%CREATE_STATEMENT%%
-END
-			

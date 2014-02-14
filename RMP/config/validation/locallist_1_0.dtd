@@ -1,6 +1,0 @@
-<!-- $Header$ -->
-
-<!ELEMENT locale_file ( #PCDATA ) >
-<!ELEMENT mt_config ( #PCDATA | locale_file )* >
-<!ATTLIST mt_config xmlns:xsi CDATA  #FIXED "http://www.w3.org/1999/XMLSchema/instance">
-<!ATTLIST mt_config xsi:schemaLocation CDATA #REQUIRED >

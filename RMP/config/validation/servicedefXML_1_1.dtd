@@ -1,8 +1,0 @@
-<!-- $Header$ -->
-<!-- DTD for servicedef XML files as well as product view XML files -->
-
-<!ELEMENT defineservice ( msixdef ) >
-<!ATTLIST defineservice xmlns:xsi CDATA #FIXED "http://www.w3.org/1999/XMLSchema/instance"  >
-<!ATTLIST defineservice xsi:schemaLocation CDATA #REQUIRED >
-
-<!ELEMENT msixdef ( #PCDATA ) >

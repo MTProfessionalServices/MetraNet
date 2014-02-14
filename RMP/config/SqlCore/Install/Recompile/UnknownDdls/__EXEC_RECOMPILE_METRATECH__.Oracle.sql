@@ -1,3 +1,0 @@
-begin
-   RecompileMetraTech;
-end;

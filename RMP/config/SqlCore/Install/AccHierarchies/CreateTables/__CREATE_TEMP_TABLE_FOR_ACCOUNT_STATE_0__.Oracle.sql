@@ -1,4 +1,0 @@
-
-				CREATE GLOBAL TEMPORARY TABLE tmp_updatestate_0 (id_acc NUMBER(12))
-				ON COMMIT PRESERVE ROWS
-				

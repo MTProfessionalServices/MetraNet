@@ -1,1 +1,0 @@
-GetAccByType %%ACCTYPE%%

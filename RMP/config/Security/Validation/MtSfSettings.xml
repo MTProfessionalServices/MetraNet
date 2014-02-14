@@ -1,5 +1,0 @@
-<SecurityFrameworkSettings
-  autoMonitorExceptions="false"
-  executionContextTypeName="MetraTech.SecurityFramework.Core.Common.Web.HttpExecutionContext, MetraTech.SecurityFramework"
-  usePerformanceCounters="false">
-</SecurityFrameworkSettings>

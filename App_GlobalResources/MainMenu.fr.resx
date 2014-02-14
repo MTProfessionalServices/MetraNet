@@ -328,7 +328,7 @@
     <value>Afficher toutes les entités</value>
   </data>
   <data name="TEXT_MACHINE_ROLES" xml:space="preserve">
-    <value>Rôles de machines</value>
+    <value>French</value>
   </data>
   <data name="TEXT_MAKE_PAYMENT" xml:space="preserve">
     <value>Effectuer un paiement</value>
@@ -366,12 +366,6 @@
   <data name="TEXT_MANAGE_SECURITY" xml:space="preserve">
     <value>Gérer la sécurité</value>
   </data>
-  <data name="TEXT_MANAGE_BILLSOFT_EXEMPTIONS" xml:space="preserve">
-    <value>Gérer BillSoft Exonérations</value>
-  </data>
-  <data name="TEXT_MANAGE_BILLSOFT_OVERRIDES" xml:space="preserve">
-    <value>Gérer BillSoft Remplacements</value>
-  </data>  
   <data name="TEXT_MENU_GENERATE_PASSWORD" xml:space="preserve">
     <value>Générer un mot de passe</value>
   </data>
@@ -574,18 +568,15 @@
     <value>Approvals</value>
   </data>
   <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
-    <value>L'Histoire de l'élément</value>
+    <value>View Item History</value>
   </data>
   <data name="TEXT_SHOW_ALL_CHANGES_SUMMARY" xml:space="preserve">
-    <value>Toutes les modifications</value>
+    <value>View All Changes</value>
   </data>
   <data name="TEXT_SHOW_PENDING_CHANGES_SUMMARY" xml:space="preserve">
-    <value>Les modifications en attente</value>
+    <value>View Pending Changes</value>
   </data>
   <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
-    <value>Les modifications échoué</value>
-  </data>
-  <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
-    <value>Assigner les messages de la facture</value>
+    <value>View Failed Changes</value>
   </data>
 </root>

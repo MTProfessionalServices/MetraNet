@@ -582,7 +582,4 @@
   <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
     <value>Manage AMP Decision Types</value>
   </data>
-  <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
-    <value>Assign Bill Messages</value>
-  </data>
 </root>

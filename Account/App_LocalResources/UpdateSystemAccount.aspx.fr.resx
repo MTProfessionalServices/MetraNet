@@ -123,9 +123,6 @@
   <data name="LblAncestorAccount.Label" xml:space="preserve">
     <value>Compte-parent</value>
   </data>
-  <data name="LblAuthenticationType.Label" xml:space="preserve">
-    <value>Type d'authentification</value>
-  </data>
   <data name="LblBrandedSite.Label" xml:space="preserve">
     <value>Site de marque</value>
   </data>
@@ -160,7 +157,7 @@
     <value>MetraNet</value>
   </data>
   <data name="PendingChangeWarning" xml:space="preserve">
-    <value>Ce compte a déjà une modification en attente dans la Approval Framework file. {0}  Cliquez ici pour voir les modifications en attente.</value>
+    <value>French {0}</value>
   </data>
   <data name="pnlAccountInfoResource1.Text" xml:space="preserve">
     <value>Informations du compte</value>

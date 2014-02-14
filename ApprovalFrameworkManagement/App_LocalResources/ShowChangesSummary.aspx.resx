@@ -117,17 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TEXT_APPROVAL_CHANGE_APPROVER_ID" xml:space="preserve">
-    <value>Approver ID</value>
+  <data name="TEXT_APPROVAL_CHANGE_ID" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_ID" xml:space="preserve">
+    <value>Modified Item ID</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_COMMENT" xml:space="preserve">
     <value>Comment</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_CURRENT_STATE" xml:space="preserve">
-    <value>Current State</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_ID" xml:space="preserve">
-    <value>Action</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_LAST_MODIFIED_DATE" xml:space="preserve">
     <value>Last Modified Date</value>
@@ -135,28 +132,67 @@
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTED_DATE" xml:space="preserve">
     <value>Submitted Date</value>
   </data>
-  <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_DISPLAYNAME" xml:space="preserve">
-    <value>Submitter</value>
-  </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_ID" xml:space="preserve">
     <value>Submitter ID</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_TYPE" xml:space="preserve">
     <value>Type</value>
   </data>
-  <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_ID" xml:space="preserve">
-    <value>Modified Item ID</value>
+  <data name="TEXT_APPROVAL_CHANGE_ALL_STATUSES" xml:space="preserve">
+    <value>Changes Status All</value>
+  </data>
+  <data name="TEXT_APPROVAL_DENY" xml:space="preserve">
+    <value>Deny</value>
+  </data>
+  <data name="TEXT_APPROVAL_DENY_ALL" xml:space="preserve">
+    <value>Deny All</value>
+  </data>
+  <data name="TEXT_APPROVAL_DISMISS" xml:space="preserve">
+    <value>Dismiss</value>
+  </data>
+  <data name="TEXT_APPROVAL_DISMISS_ALL" xml:space="preserve">
+    <value>Dismiss All</value>
   </data>
   <data name="TEXT_APPROVAL_NO_RECORD_TEXT" xml:space="preserve">
     <value>No Records Found</value>
   </data>
+  <data name="TEXT_APPROVAL_RESUBMIT" xml:space="preserve">
+    <value>Resubmit</value>
+  </data>
+  <data name="TEXT_APPROVAL_RESUBMIT_ALL" xml:space="preserve">
+    <value>Resubmit All</value>
+  </data>
   <data name="TEXT_APPROVAL_VIEW_CHANGES_SUMMARY" xml:space="preserve">
     <value>View Changes</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_CURRENT_STATE" xml:space="preserve">
+    <value>Current State</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_STATE_DISPLAYNAME" xml:space="preserve">
     <value>State</value>
   </data>
+  <data name="TEXT_APPROVAL_CHANGE_TYPE_DISPLAYNAME" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_DISPLAYNAME" xml:space="preserve">
+    <value>Submitter</value>
+  </data>
   <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_DISPLAYNAME" xml:space="preserve">
     <value>Modified Item</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_STATE_PENDING" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_STATE_WAITINGTOBEAPPLIED" xml:space="preserve">
+    <value>Waiting To Be Applied</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_STATE_DISMISSED" xml:space="preserve">
+    <value>Dismissed</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_STATE_APPLIED" xml:space="preserve">
+    <value>Applied</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGE_STATE_FAILEDTOAPPLY" xml:space="preserve">
+    <value>FailedToApply</value>
   </data>
 </root>

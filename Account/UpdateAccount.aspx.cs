@@ -78,10 +78,12 @@ public partial class Account_UpdateAccount : MTAccountPage
               MTGenericFormTax.TemplatePath = TemplatePath;
               MTGenericFormTax.ReadOnly = false;
 
-              PriceListCol = PageNav.Data.Out_StateInitData["PriceListColl"] as List<PriceList>;
               PopulatePresentationNameSpaceList(ddBrandedSite);
 
-              PopulatePriceList(ddPriceList);
+              // PriceListCol = PageNav.Data.Out_StateInitData["PriceListColl"] as List<PriceList>;
+              // PopulatePriceList(ddPriceList);
+              PartitionLibrary.PopulatePriceListDropdown(ddPriceList);
+
               int? selPriceList;
               if (((InternalView) Account.GetInternalView()).PriceList != null)
               {
@@ -106,12 +108,14 @@ public partial class Account_UpdateAccount : MTAccountPage
                   tbAncestorAccount.ReadOnly = true;
                   Account.AncestorAccountID = 1;
                   tbPayer.ReadOnly = true;
+                  cbApplyTemplate.Visible = false;
               }
 
               if (accountType.IsCorporate)
               {
                   tbAncestorAccount.ReadOnly = true;
                   tbPayer.ReadOnly = true;
+                  cbApplyTemplate.Visible = false;
               }
 
               tbSecurityQuestionText.Visible = (Account.AuthenticationType == AuthenticationType.MetraNetInternal);
@@ -269,14 +273,20 @@ public partial class Account_UpdateAccount : MTAccountPage
         UpdateAccountEvents_UpdateAccount_Client update = new UpdateAccountEvents_UpdateAccount_Client();
         update.In_Account = Account;
         update.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-        update.In_ApplyAccountTemplates = false;
-        update.In_LoadTime = ApplicationTime;
+        update.In_ApplyAccountTemplates = cbApplyTemplate.Checked;
 
         //Approval Framework related code starts here
-        update.In_IsApprovalEnabled = bAccountUpdateApprovalsEnabled == 1;
+        update.In_IsApprovalEnabled = false;
+
+        if (bAccountUpdateApprovalsEnabled == 1)
+        {
+          update.In_IsApprovalEnabled = true;
+        }
         //Approval Framework related code ends here
 
+
         PageNav.Execute(update);
+      
     }
     catch (Exception exp)
     {

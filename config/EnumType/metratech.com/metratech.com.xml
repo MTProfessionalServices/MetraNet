@@ -239,23 +239,6 @@
                         </entry>
                     </entries>
                 </enum>
-                <enum name="QuoteStatus">
-                    <description>Statuses for quotes</description>
-                    <entries>
-                        <entry name="None">
-                            <value>0</value>
-                        </entry>
-                        <entry name="InProgress">
-                            <value>1</value>
-                        </entry>
-                        <entry name="Failed">
-                            <value>2</value>
-                        </entry>
-                        <entry name="Complete">
-                            <value>3</value>
-                        </entry>
-                    </entries>
-                </enum>
             </enums>
         </enum_space>
     </enum_spaces>

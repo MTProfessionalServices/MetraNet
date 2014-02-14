@@ -103,17 +103,14 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   COMObject.Properties.Add "NonSharedPriceList", "Int32", 0, FALSE, TRUE
   COMObject.Properties.Add "MapAll", "Boolean", 0, FALSE, FALSE
   
-  'COMObject.Properties("PriceListName").Value =  objMTPriceList.Name
-  COMObject.Properties("PriceListName").Caption = FrameWork.GetDictionary("TEXT_KEYTERM_PRICE_LIST")
+	'COMObject.Properties("PriceListName").Value =  objMTPriceList.Name
+	COMObject.Properties("PriceListName").Caption = FrameWork.GetDictionary("TEXT_KEYTERM_PRICE_LIST")
   	
   'COMObject.Properties("Name").Enabled = FALSE
   'COMObject.Properties.Enabled              = TRUE ' Every control is grayed
   'Form.Grids.Enabled                        = TRUE ' All Grid are not enabled
-
-  COMObject.Properties.Add "ProductOfferingCurrency", "String",  256, FALSE, TRUE 
-  COMObject.Properties("ProductOfferingCurrency").Value = objMTProductOffering.GetCurrencyCode
-
-  Form_Initialize = Form_Refresh(EventArg)
+      
+	Form_Initialize = Form_Refresh(EventArg)
 END FUNCTION
 
 ' ---------------------------------------------------------------------------------------------------------

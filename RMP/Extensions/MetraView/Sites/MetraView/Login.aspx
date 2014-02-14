@@ -24,7 +24,7 @@ function onDetails()
 <div id="loginwrapper">
 <div class="logintop"></div>
 <div class="login">
-        <div class="logo"> <a href="#"><img src="<%= SiteConfig.GetApplicationLogo() %>" alt="Logo" /></a></div>
+        <div class="logo"> <a href="#"><img src="<%= SiteConfig.GetApplicationLogo() %>" alt="MetraTech" /></a></div>
           <div class="loginbox">
             <h2><asp:Localize meta:resourcekey="Login" runat="server">Login</asp:Localize></h2>
       <asp:Panel ID="pnlLogin" runat="server" Width="252px">

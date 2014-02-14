@@ -65,7 +65,7 @@ On Error resume next
     ' Attempt to login
     Call FrameWork.LogOn("mcm", strLogon , Empty , strNamespace, strTicket, Empty) 
     
-    Session("LocalizedPath") = Application("APP_HTTP_PATH") & "/default/localized/us/"
+    Session("LocalizedPath") = Application("APP_HTTP_PATH") & "/default/localized/en-us/"
 
     Session("bTickected") = TRUE ' setting this to false will not close the page on logout
     
@@ -76,71 +76,16 @@ On Error resume next
   ' OK to login, go to passed in URL
   ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
   Public Function Go()
-      ' Retrieve Top Level Account Information (Partition)
-    Call GetTopLevelAccountInformation()
-
 	'SECENG
 	'Fixing issue ESR-4041 MSOL BSS 27485 Metracare: Open redirection [/mam/EntryPoint.asp] (ESR for 18272) (Post-PB)
 	'Added verification of the URL supplied
-	'If SafeForUrlAC(strURL) Then
+	If SafeForUrlAC(strURL) Then
 		If UCase(strLoadFrame) = "TRUE" Then
 		  response.Redirect "frameset.asp?RouteTo=" & strURL 
 		Else  
 		  response.Redirect strURL  
 		End If
-	'End If
+	End If
   End Function
-
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-' Function    : GetTopLevelAccountInformation()                                 '
-' Description : Obtain topLevelAccount information for the given UI User        '
-' Inputs      :                                                                 '
-' Outputs     :                                                                 '
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-Public Function GetTopLevelAccountInformation()
-  If Session("isPartitionUser") = Empty Then
-      Dim accountId, refDate, topLevelAccountId, userName, displayName, hierarchyDisplayName
-      Set objSqlRowset = Server.CreateObject("MTSQLRowset.MTSQLRowset.1")
-
-      Call objSqlRowset.Init("..\Extensions\Partitions\config\SqlCustom\Queries\Account")
-      Call objSqlRowset.SetQueryTag("__GET_TOP_LEVEL_ACCOUNT_INFORMATION_OLD__")
-
-      accountId = FrameWork.AccountID()
-      refDate = FrameWork.MetraTimeGMTNow()
-  
-      Call objSqlRowset.AddParam("%%accountId%%", accountId)
-      Call objSqlRowset.AddParam("%%refDate%%", refDate)
-      Call objSqlRowset.Execute()
-
-      If objSqlRowset.EOF Then
-        Set objSqlRowset = nothing
-        GetTopLevelAccountInformation = False
-        Exit Function
-      End If
-
-      'GOTO first row
-      objSqlRowset.MoveFirst
-      topLevelAccountId = objSqlRowset.value("topLevelAccountId")
-
-      If topLevelAccountId = accountId Then
-        Session("isPartitionUser") = False
-      Else
-        Session("isPartitionUser") = True
-      End If
-
-      userName             = objSqlRowset.value("userName")
-      displayName          = objSqlRowset.value("displayName")
-      hierarchyDisplayName = objSqlRowset.value("hierarchyDisplayName")
-
-      Session("topLevelAccountId") = topLevelAccountId
-      Session("topLevelAccountUserName") = userName
-      Session("topLevelAccountDisplayName") = displayName
-      Session("topLevelAccountHierarchyDisplayName") = hierarchyDisplayName
-
-      Set objSqlRowset = nothing
-  End If
-
-  GetTopLevelAccountInformation = True
-End Function
 
 %>

@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<extension>
-    <author>mcicello</author>
-    <description>Supports Light Multi-Tenancy features in MetraNet</description>
-    <type>Pipeline</type>
-    <DefaultNamespace>metratech.com</DefaultNamespace>
-</extension>

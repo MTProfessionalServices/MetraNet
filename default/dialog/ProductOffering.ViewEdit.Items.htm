@@ -1,6 +1,6 @@
 <HTML>
 <HEAD>
-  <LINK localized="TRUE" rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/styles.css">
+  <LINK localized="TRUE" rel="STYLESHEET" type="text/css" href="/mcm/default/localized/us/styles/styles.css">
   <title><MDMLABEL Name="TEXT_KEYTERM_PRODUCT_OFFERING"></MDMLABEL></title>                     
 </HEAD>
 <BODY onLoad="SizeWindow();">
@@ -80,15 +80,16 @@ if (parent.ProductOfferingSelected)
 <!-- Extended Properties -->
 <!--<div style="border-bottom: 2 solid #000066;">Extended Properties &nbsp;&nbsp; <a href="/MetraNetHelp/en-US/addingextendedproperties.hlp.htm" target="_blank" style="font-size: 8px;">Add new extended property here</a></div>-->
 <fieldset style="padding: 20 10 10 10;">
-<legend style="font-weight: normal;">Extended Properties</LEGEND>
+<legend style="font-weight: normal;">Extended Properties</legend>
 
 <MDMGrid Name="ExtendedProperties">Extended Properties</MDMGrid>
+<!--
 <br>
 <center>
 <img src='..\localized\us\images\Icons\help_small.gif' alt='' border='0' align='absmiddle'>&nbsp;<a href="/MetraNetHelp/en-US/addingextendedproperties.hlp.htm" target="_blank" style="font-size: 9px;">What are extended properties?</a>
 </center>
-
-</FIELDSET>
+-->
+</fieldset>
 
 </td>
 </tr>
@@ -103,16 +104,16 @@ if (parent.ProductOfferingSelected)
 <tr>
   <td>
 <div style="margin:3">
-<button class="clsButtonLarge" name="butAddUsageCharge" id="butAddUsageCharge" onClick="javascript:window.open('/mcm/default/dialog/PriceAbleItem.Picker.asp?ProxyMode=TRUE&Kind=10&Title=TEXT_SELECT_USAGE_PRICEABLE_ITEM&ID=[CURRENT_PRODUCTOFFERING_ITEM_ID]', '_blank', 'height=100,width=100,resizable=yes, scrollbars=yes'); return false;">
+<button class="clsButtonLarge" name="butAddUsageCharge" id="butAddUsageCharge" onClick="javascript:window.open('/mcm/default/dialog/PriceAbleItem.Picker.asp?ProxyMode=TRUE&Kind=10&Title=TEXT_SELECT_USAGE_PRICEABLE_ITEM&ID=[CURRENT_PRODUCTOFFERING_ITEM_ID]', '_blank', 'height=100,width=100,resizable=yes, scrollbars=yes');">
   <MDMLABEL Name="TEXT_PRODUCT_OFFERING_ADD_USAGE_ITEM" Type="Caption"></MDMLABEL>
 </button>&nbsp;
-<button class="clsButtonLarge" name="butAddRecurringCharge" id="butAddRecurringCharge" onClick="javascript:window.open('wizard/AddRecurringCharge/wizardstart.asp?ID=[CURRENT_PRODUCTOFFERING_ITEM_ID]&POMode=1&Path=/mcm/default/dialog/wizard/AddRecurringCharge&PageID=start', '_blank', 'height=500,width=620,resizable=yes,scrollbars=yes'); return false;">
+<button class="clsButtonLarge" name="butAddRecurringCharge" id="butAddRecurringCharge" onClick="javascript:window.open('wizard/AddRecurringCharge/wizardstart.asp?ID=[CURRENT_PRODUCTOFFERING_ITEM_ID]&POMode=1&Path=/mcm/default/dialog/wizard/AddRecurringCharge&PageID=start', '_blank', 'height=500,width=620,resizable=yes,scrollbars=yes');">
   <MDMLABEL Name="TEXT_PRODUCT_OFFERING_ADD_RECURRING" Type="Caption"></MDMLABEL>
 </button>&nbsp;
-<button class="clsButtonLarge" name="butAddNonRecurringCharge" id="butAddNonRecurringCharge" onClick="javascript:window.open('wizard/AddNonRecurringCharge/wizardstart.asp?ID=[CURRENT_PRODUCTOFFERING_ITEM_ID]&POMode=1&Path=/mcm/default/dialog/wizard/AddNonRecurringCharge&PageID=start', '_blank', 'height=450,width=600,resizable=yes,scrollbars=yes'); return false;">
+<button class="clsButtonLarge" name="butAddNonRecurringCharge" id="butAddNonRecurringCharge" onClick="javascript:window.open('wizard/AddNonRecurringCharge/wizardstart.asp?ID=[CURRENT_PRODUCTOFFERING_ITEM_ID]&POMode=1&Path=/mcm/default/dialog/wizard/AddNonRecurringCharge&PageID=start', '_blank', 'height=450,width=600,resizable=yes,scrollbars=yes');">
   <MDMLABEL Name="TEXT_PRODUCT_OFFERING_ADD_NON_RECURRING" Type="Caption"></MDMLABEL>
 </button>&nbsp;
-<button class="clsButtonLarge" name="butAddDiscount" id="butAddDiscount" onClick="javascript:window.open('wizard/AddDiscount/wizardstart.asp?ID=[CURRENT_PRODUCTOFFERING_ITEM_ID]&POMode=1&Path=/mcm/default/dialog/wizard/AddDiscount&PageID=start', '_blank', 'height=450,width=600,resizable=yes,scrollbars=yes'); return false;">
+<button class="clsButtonLarge" name="butAddDiscount" id="butAddDiscount" onClick="javascript:window.open('wizard/AddDiscount/wizardstart.asp?ID=[CURRENT_PRODUCTOFFERING_ITEM_ID]&POMode=1&Path=/mcm/default/dialog/wizard/AddDiscount&PageID=start', '_blank', 'height=450,width=600,resizable=yes,scrollbars=yes');">
   <MDMLABEL Name="TEXT_PRODUCT_OFFERING_ADD_DISCOUNT" Type="Caption"></MDMLABEL>
 </button>&nbsp;
 </div>

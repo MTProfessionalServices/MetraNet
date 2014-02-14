@@ -1,9 +1,0 @@
-
-
-IF OBJECT_ID('%%%NETMETERSTAGE_PREFIX%%%%%TABLE%%') IS NULL 
-  SELECT * INTO %%%NETMETERSTAGE_PREFIX%%%%%TABLE%% FROM %%SOURCETABLE%% WHERE 0=1
-  
- IF EXISTS (select column_name from %%%NETMETERSTAGE%%%.INFORMATION_SCHEMA.COLUMNS WHERE table_name = '%%TABLE%%' AND column_name = 'id_partition')
-     ALTER TABLE %%%NETMETERSTAGE_PREFIX%%%%%TABLE%% DROP COLUMN id_partition
-	 
-			

@@ -1,3 +1,0 @@
-
-				, %%TABLENAME%% %%TABLENAME%%1, %%TABLENAME%% %%TABLENAME%%2 
-			

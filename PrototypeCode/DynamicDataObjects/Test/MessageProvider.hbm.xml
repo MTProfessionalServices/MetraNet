@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-access="property">
-	<class name="MetraTech.DynamicDataObjects.Samples.MessageProvider, MetraTech.DynamicDataObjects.Samples" table="t_ddo_messages">
-		<id name="Id">
-			<generator class="identity"/>
-		</id>
-		<property name="Message" type="String" not-null="true"/>
-	</class>
-</hibernate-mapping>

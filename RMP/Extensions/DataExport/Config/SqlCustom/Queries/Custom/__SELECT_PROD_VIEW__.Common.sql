@@ -1,1 +1,0 @@
-SELECT * from t_prod_view

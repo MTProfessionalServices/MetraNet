@@ -1,8 +1,0 @@
-﻿<ns0:ACHInquiryAdapterWorkflow SecurityContext="{p1:Null}" x:Name="ACHInquiryAdapterWorkflow" ExecutionContext="{x:Null}" EventName="{x:Null}" ConfigFile="{x:Null}" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:p1="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:MetraTech.Core.Workflows;Assembly=MetraTech.Core.Workflows">
-	<CodeActivity x:Name="LoadConfiguration" ExecuteCode="{ActivityBind ACHInquiryAdapterWorkflow,Path=LoadConfiguration_ExecuteCode}" />
-	<CodeActivity x:Name="GetPendingACHTrans" ExecuteCode="{ActivityBind ACHInquiryAdapterWorkflow,Path=GetPendingACHTrans_ExecuteCode}" />
-	<CodeActivity x:Name="DownloadReports" ExecuteCode="{ActivityBind ACHInquiryAdapterWorkflow,Path=DownloadReports_ExecuteCode}" />
-	<CodeActivity x:Name="ProcessACHTrans" ExecuteCode="{ActivityBind ACHInquiryAdapterWorkflow,Path=ProcessACHTrans_ExecuteCode}" />
-	<CodeActivity x:Name="MeterPayments" ExecuteCode="{ActivityBind ACHInquiryAdapterWorkflow,Path=MeterPayments_ExecuteCode}" />
-	<CodeActivity x:Name="ProcessFailures" ExecuteCode="{ActivityBind ACHInquiryAdapterWorkflow,Path=ProcessFailures_ExecuteCode}" />
-</ns0:ACHInquiryAdapterWorkflow>

@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<WorkflowInfo>
-    <Name>ContactUpdateWorkflow</Name>
-    <Type>PageNavWorkflow</Type>
-    <Assembly>MetraCareWorkflowLibrary.dll</Assembly>
-    <XomlFile>ContactUpdateWorkflow.xoml</XomlFile>
-    <Description>Contact Update Workflow</Description>
-	<VSProjFile>ContactUpdateWorkflow.csproj</VSProjFile>
-</WorkflowInfo>

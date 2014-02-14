@@ -1,3 +1,0 @@
-
-        exec GetUsageProps %%ID%%
-      

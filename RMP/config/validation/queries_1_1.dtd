@@ -1,9 +1,0 @@
-<!ELEMENT num_params ( #PCDATA ) >
-
-<!ELEMENT query ( query_tag, query_string, num_params ) >
-
-<!ELEMENT query_string ( #PCDATA ) >
-
-<!ELEMENT query_tag ( #PCDATA ) >
-
-<!ELEMENT queryfile ( query+ ) >

@@ -1,1 +1,0 @@
-cscript UpgradeDatabaseSchema.vbs -servername localhost -salogon nmdbo -sapassword nmdbo -dbname NetMeter

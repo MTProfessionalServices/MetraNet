@@ -1,3 +1,0 @@
-
-			%%%NETMETERSTAGE_PREFIX%%%%%TABLE_NAME%%
-		

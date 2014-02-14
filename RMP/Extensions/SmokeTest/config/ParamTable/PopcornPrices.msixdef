@@ -1,4 +1,0 @@
-<defineservice>
-	<name indexed_property="TotalPopcorns">PopcornPrices</name>
-	<ptype condition="Y" display_name="total popcorns purchased" column_operator="less_than">
-<dn>TotalPopcorns</dn><type>decimal</type><length></length><required>N</required><defaultvalue>0.0</defaultvalue></ptype><ptype display_name="cost per bag" action="Y"><dn>PerPopcornBag</dn><type>decimal</type><length></length><required>Y</required><defaultvalue>0.0</defaultvalue></ptype></defineservice>

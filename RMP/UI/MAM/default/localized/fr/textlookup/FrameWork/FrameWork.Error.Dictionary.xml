@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<texts id="Framework Errors" type="collection">
-<text id="FRAMEWORK_ERROR_1000"><value>Connexion refusée</value></text>
-<text id="FRAMEWORK_ERROR_1001"><value>Impossible de créer les objets COM pour la Sécurité!Consultez le fichier mtlog.txt</value></text>
-<text id="FRAMEWORK_ERROR_1002"><value>Veuillez vérifier votre nom d'utilisateur et votre mot de passe et essayez à nouveau.</value></text>
-<text id="FRAMEWORK_ERROR_1003"><value>Le champ nom d'utilisateur ou mot de passe ne peut pas être vide.Veuillez essayer à nouveau.</value></text>
-<text id="FRAMEWORK_ERROR_1004"><value><![CDATA[<strong>Autorisation Refusée</strong><BR>Vous ne possédez pas la capacité ou le rôle nécessaire pour exécuter cette opération :]]></value></text>  
-</texts>
-

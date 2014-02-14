@@ -1,1 +1,0 @@
-select c_currency from  t_av_internal  where id_acc = @id_acc

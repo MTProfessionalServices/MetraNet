@@ -1,8 +1,0 @@
-<module>
-  <name>GeoCoder install information</name>
-  <module_specific>
-    <Installed ptype="BOOLEAN">FALSE</Installed>
-    <InstallDir>D:\geocoder</InstallDir>
-    <DllName>VGEO100.dll</DllName>
-  </module_specific>
-</module>

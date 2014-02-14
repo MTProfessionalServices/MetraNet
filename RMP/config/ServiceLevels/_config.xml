@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE module SYSTEM "http://localhost/validation/ConfigSetOwner_1_0.dtd">
-<module xsi:schemaLocation="http://localhost/validation/ConfigSetOwner_1_0.xsd" xmlns:xsi="http://www.w3.org/1999/XMLSchema/instance">
-  <name>ServiceLevels</name>
-  <module_specific>
-    <Owner ptype="INTEGER">3</Owner>
-  </module_specific>
-</module>

@@ -1,7 +1,0 @@
-<queryadapter>
-	<adapter_config>
-    <sql_server_query_file>Queries.xml</sql_server_query_file>
-		<oracle_query_file>Queries_Oracle.xml</oracle_query_file>
-		<!-- <common_query_file>CommonQueries.xml</common_query_file> -->
-	</adapter_config>
-</queryadapter>

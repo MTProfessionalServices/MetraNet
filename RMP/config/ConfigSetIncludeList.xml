@@ -1,5 +1,0 @@
-<xmlconfig>
-	<included_owner_type ptype="INTEGER">3</included_owner_type> <!-- OWNER_TYPE_USER=3 -->
-	<included_owner_type ptype="INTEGER">5</included_owner_type> <!-- OWNER_TYPE_PLATFORMEXTENSION=5 -->
-	<included_owner_type ptype="INTEGER">7</included_owner_type> <!-- OWNER_TYPE_BRANDING=7 -->
-</xmlconfig>

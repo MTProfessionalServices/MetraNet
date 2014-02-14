@@ -1,9 +1,0 @@
-<Site>
-  <!--<Name></Name>-->
-  <Description>MetraView site configuration</Description>
-  <VirtualDirectory CreateDuringSynchronization="true">MetraView</VirtualDirectory>
-  
-  <AuthenticationType>MetraNet</AuthenticationType>
-  <AuthenticationNamespace>mt</AuthenticationNamespace>
-  <AuthenticationCapabilityApplicationValue>MPS</AuthenticationCapabilityApplicationValue>
-</Site>

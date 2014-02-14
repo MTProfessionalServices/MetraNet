@@ -1,7 +1,0 @@
-
-      CREATE OR REPLACE TRIGGER TRG_SUBSCRIBE_BATCH 
-      BEFORE INSERT ON TTT_SUBSCRIBE_BATCH
-      FOR EACH ROW
-      BEGIN
-        :NEW.tx_id := mt_ttt.get_tx_id();
-      END;

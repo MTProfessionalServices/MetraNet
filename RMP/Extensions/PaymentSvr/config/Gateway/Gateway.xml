@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-  <name></name>
-  <usePaymentBroker>false</usePaymentBroker>
-  <paymentBrokerAddress>andy.mypayaccesstest.com</paymentBrokerAddress>
-  <creditCardsAreEditable>true</creditCardsAreEditable>
-  <achAccountsAreEditable>true</achAccountsAreEditable>
-  <certificateName>*.metratech.com</certificateName>
-</configuration>

@@ -1,9 +1,0 @@
-<SiteTemplate>
-  <DisplayName>Basic Site</DisplayName>
-  <Description>Basic Site with minimal infrastructure for authentication, menus and Business Modelling Entities</Description>
-  <!--
-  <PreApplyTemplates>
-    <Template>Basic</Template>
-  </PreApplyTemplates>
-  -->
-</SiteTemplate>

@@ -1,9 +1,0 @@
-; SchemaReader.def : Declares the module parameters.
-
-LIBRARY      "SchemaReader.DLL"
-
-EXPORTS
-	DllCanUnloadNow PRIVATE
-	DllGetClassObject PRIVATE
-	DllRegisterServer PRIVATE
-	DllUnregisterServer PRIVATE

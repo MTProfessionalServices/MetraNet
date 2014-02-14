@@ -1,1 +1,0 @@
-<%@ Page Language="C#" AutoEventWireup="true" Inherits="AjaxServices_GetGUID" CodeFile="GetGUID.aspx.cs" %>

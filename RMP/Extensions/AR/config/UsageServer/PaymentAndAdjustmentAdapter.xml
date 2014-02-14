@@ -1,6 +1,0 @@
-<xmlconfig>
-  <SetSize>500</SetSize>
-  <ExportPayments>true</ExportPayments>
-  <ExportARAdjustments>true</ExportARAdjustments>
-  <ExportPostBillAdjustments>true</ExportPostBillAdjustments>
-</xmlconfig>

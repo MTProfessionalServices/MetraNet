@@ -1,5 +1,0 @@
-
-				BEGIN
-					Export_AuditReportExecutResult(%%WORK_QUEUE_ID%%, %%EXECUTE_STATUS%%, %%EXECUTE_START_DATE_TIME%%, %%EXECUTE_COMPLETE_DATE_TIME%%, %%DESCR%%, %%EXECUTE_PARAM_VALUES%%);
-				END;
-			

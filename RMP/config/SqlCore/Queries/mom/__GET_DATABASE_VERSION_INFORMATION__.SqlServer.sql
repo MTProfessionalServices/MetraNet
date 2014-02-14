@@ -1,3 +1,0 @@
-  
-         SELECT @@VERSION AS DatabaseVersionInfo
- 			

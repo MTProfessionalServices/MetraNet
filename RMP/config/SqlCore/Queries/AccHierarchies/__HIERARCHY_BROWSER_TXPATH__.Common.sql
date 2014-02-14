@@ -1,1 +1,0 @@
- SELECT tx_path FROM T_ACCOUNT_ANCESTOR WHERE id_ancestor = 1 AND id_descendent = %%ID_ACC%%

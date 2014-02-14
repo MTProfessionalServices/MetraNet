@@ -1,8 +1,0 @@
-<ARDocument>
-  <MoveBalance>
-    <FromExtAccountID/>
-    <ToExtAccountID/>
-    <BatchID/>
-    <MoveDate/>
-  </MoveBalance>
-</ARDocument>

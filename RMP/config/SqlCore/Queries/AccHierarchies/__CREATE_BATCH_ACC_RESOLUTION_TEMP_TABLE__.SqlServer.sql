@@ -1,8 +1,0 @@
-
-		IF OBJECT_ID('%%TMP_TABLE_NAME%%') IS NOT NULL DROP TABLE  %%TMP_TABLE_NAME%%
-		CREATE TABLE %%TMP_TABLE_NAME%%
-		(id_request INT NOT NULL, 
-		nm_login NVARCHAR(256), 
-		nm_space NVARCHAR(256), 
-		id_acc INT, 
-		restime DATETIME NOT NULL %%ADDITIONAL_KEYS%%); 

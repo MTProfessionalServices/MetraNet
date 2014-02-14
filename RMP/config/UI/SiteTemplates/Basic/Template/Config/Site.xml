@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Site>
-    <Description>Basic Site</Description>
-    <VirtualDirectory CreateDuringSynchronization="true">MetraView</VirtualDirectory>
-    <AuthenticationType>MetraNet</AuthenticationType>
-    <AuthenticationNamespace>mt</AuthenticationNamespace>
-    <AuthenticationCapabilityApplicationValue>MPS</AuthenticationCapabilityApplicationValue>
-</Site>

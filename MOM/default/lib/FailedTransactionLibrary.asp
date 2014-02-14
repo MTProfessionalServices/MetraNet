@@ -350,7 +350,7 @@ PUBLIC FUNCTION BulkResubmitFailedTransactions(FailureIdCollection)
     
     objReRun.Login FrameWork.SessionContext
     objReRun.ID = rerunID
-  	objReRun.Synchronous = TRUE
+  	objReRun.Synchronous = FALSE
     If Not mom_CheckError("ReRun Login") Then Exit Function
   
     If not objReRun.IsComplete Then

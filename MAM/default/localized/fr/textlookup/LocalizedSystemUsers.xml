@@ -1,132 +1,128 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <texts id="System Users" type="collection">
   <description>
-    The file defines localized string for system users and Sales Force Hierarchy
+    O arquivo define a string localizada para usuário do sistema e para a hierarquia da força de vendas
   </description>
 
   <text id="TEXT_SELECT_OWNED_ACCOUNT_MESSAGE">
-<value>Puisque vous ne disposez pas d'un accès de premier niveau aux comptes, votre vue de hiérarchie des comptes est actuellement vide.Pour afficher les comptes de la hiérarchie, passez à l'onglet du menu, sélectionnez l'écran « Mes comptes », puis cliquez sur l'icône « Trouver le compte dans la hiérarchie » en regard du compte.&lt;br&gt;&lt;br&gt;</value>
+    <value>Como você não tem acesso superior às contas, sua exibição da hierarquia de contas está vazia no momento. Para exibir contas na hierarquia, acesse a guia do menu, selecione a tela 'Minhas contas' e selecione o ícone 'Encontrar conta na hierarquia' próximo à conta.&lt;br&gt;&lt;br&gt;</value>
   </text>
   
   <text id="TEXT_DELETING_OWNED_ACCOUNTS">
-<value>Suppression des abonnés possédés</value>
+    <value>Excluindo assinantes pertencentes</value>
   </text>
   
   <text id="TEXT_DELETE_OWNED_QUESTION">
-<value>Êtes-vous certain de vouloir supprimer tous les abonnés possédés? </value>
+    <value>Tem certeza que deseja excluir todos os assinantes pertencentes? </value>
   </text>
 
   <text id="TEXT_SYSTEM_USER">
-<value>Utilisateur du système</value>
+    <value>Usuário do sistema</value>
   </text>
   
   <text id="TEXT_USERS">
-<value>Usager</value>
+    <value>Usuários</value>
   </text>
     
   <text id="TEXT_SYTEM_USER_UNABLE_TO_LOAD">
-<value>Impossible de charger l'utilisateur du systèmeIl se peut qu'il ne se trouve pas actuellement dans la hiérarchie ou que vous ne disposiez pas d'un niveau de sécurité suffisant pour le gérer.</value>
+    <value>Não é possível carregar o usuário do sistema.  Ele pode não estar na hierarquia no momento ou você pode não ter a segurança para gerenciá-lo.</value>
   </text>
   
   <text id="TEXT_SYSTEM_USER_ACCOUNT_SUMMARY">
-<value>Sommaire du compte</value>
+    <value>Resumo de conta</value>
   </text>
 
   <text id="TEXT_SYSTEM_USER_ACCOUNT_INFO">
-<value>Info du compte</value>
+    <value>Informações de conta</value>
   </text>
   
   <text id="TEXT_SYSTEM_USER_OWNED_ACCOUNTS">
-<value>Abonnés responsable</value>
+    <value>Assinantes pertencentes</value>
   </text>
   
   <text id="TEXT_SYSTEM_USER_OWNED_SYSTEM_FOLDERS">
-<value>Comptes gérés</value>
+    <value>Contas administradas</value>
   </text>
   
   <text id="TEXT_SYSTEM_USER_SECURITY">
-<value>Sécurité</value>
+    <value>Segurança</value>
   </text>
   
   <text id="TEXT_ID_OWNER">
-<value>ID propriétaire</value>
+    <value>Proprietário do ID</value>
   </text>  
 
   <text id="TEXT_ID_OWNED">
-<value>ID possédé</value>
+    <value>ID pertencente</value>
   </text>  
 
   <text id="TEXT_PERCENT_OWNERSHIP">
-<value>Pourcentage de propriété</value>
+    <value>Propriedade de porcentagem</value>
   </text>  
 
   <text id="TEXT_OWNED_HIERARCHYNAME">
-<value>Compte</value>
+    <value>Conta</value>
   </text>  
 
   <text id="TEXT_OWNED_RELATION_TYPE">
-<value>Relation</value>
+    <value>Relacionamento</value>
   </text>  
 
   <text id="TEXT_ADD_OWNED_ACCOUNTS">
-<value>Ajouter abonnés responsable</value>
+    <value>Adicionar assinantes pertencentes</value>
   </text> 
 
   <text id="TEXT_ADD_OWNER_ACCOUNTS">
-<value>Ajouter comptes du propriétaire</value>
+    <value>Adicionar contas do proprietário</value>
   </text> 
   
   <text id="TEXT_SETTING_OWNERS">
-<value>Configuration des propriétaires</value>
+    <value>Definindo proprietários</value>
   </text> 
 
   <text id="TEXT_UPDATE_OWNED_ACCOUNT">
-<value>Mettre le compte possédé à jour</value>
+    <value>Atualizar conta pertencente</value>
   </text>     
 
   <text id="TEXT_UPDATE_OWNER_ACCOUNT">
-<value>Mettre le compte du propriétaire à jour</value>
+    <value>Atualizar conta do proprietário</value>
   </text> 
   
   <text id="TEXT_CONTACT_INFO">
-<value>Information du contact</value>
+    <value>Informações de contato</value>
   </text>     
 
   <text id="TEXT_OWNER_ACCOUNTS">
-<value>Propriétaires du compte</value>
+    <value>Proprietários da conta</value>
   </text>  
 
   <text id="TEXT_OWNER_ACCOUNT">
-<value>Propriétaire du compte</value>
+    <value>Proprietário da conta</value>
   </text>  
      
   <text id="TEXT_MY_ACCOUNTS_DIALOG">
-<value>Mes comptes</value>
+    <value>Minhas Contas</value>
   </text>      
 
   <text id="TEXT_DIRECT_OWNER">
-<value>Propriétaire direct</value>
+    <value>Proprietário direto</value>
   </text>      
 
   <text id="TEXT_FIND_METRANET_USER">
-<value>Rechercher utilisateur MetraNet</value>
+    <value>Encontrar usuário do MetraNet</value>
   </text>       
   
   <text id="TEXT_SYTEM_USER_FOUND">
-<value>Utilisateur(s) MetraNet trouvé(s)</value>
+    <value>Usuário(s) do MetraNet encontrado</value>
   </text>         
 
   <text id="TEXT_FIND_IN_HIERARCHY">
-<value>Trouver le compte dans la hiérarchie</value>
+    <value>Encontrar conta na hierarquia</value>
   </text>  
   
   <text id="TEXT_VIEW_ONLINE_BILL">
-<value>Afficher la facture en ligne</value>
+    <value>Exibir fatura online</value>
   </text>  
       
-  <text id="TEXT_MY_ACCOUNTS_SEPERATOR">
-	<value>Mes comptes</value>
-  </text>
-  
 </texts>

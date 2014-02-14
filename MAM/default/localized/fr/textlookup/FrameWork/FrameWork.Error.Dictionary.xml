@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Framework Errors" type="collection">
-<text id="FRAMEWORK_ERROR_1000"><value>Connexion refusée</value></text>
-<text id="FRAMEWORK_ERROR_1001"><value>Impossible de créer les objets COM pour la Sécurité!Consultez le fichier mtlog.txt</value></text>
-<text id="FRAMEWORK_ERROR_1002"><value>Veuillez vérifier votre nom d'utilisateur et votre mot de passe et essayez à nouveau.</value></text>
-<text id="FRAMEWORK_ERROR_1003"><value>Le champ nom d'utilisateur ou mot de passe ne peut pas être vide.Veuillez essayer à nouveau.</value></text>
-<text id="FRAMEWORK_ERROR_1004"><value><![CDATA[<strong>Autorisation Refusée</strong><BR>Vous ne possédez pas la capacité ou le rôle nécessaire pour exécuter cette opération :]]></value></text>  
+  <text id="FRAMEWORK_LOGON_ERROR_200"><value><![CDATA[<br>Sua conta foi bloqueada por motivos de segurança. <br> Entre em contato com o atendimento ao cliente para obter informações sobre <br> o status da sua conta. ]]></value></text>
+  <text id="FRAMEWORK_LOGON_ERROR_201"><value>Nome de usuário ou senha inválida.  Tente novamente.</value></text>
+  <text id="FRAMEWORK_LOGON_ERROR_300"><value>Sua conta não tem permissão para efetuar log-in.  Entre em contato com o atendimento ao cliente para obter informações sobre o status da sua conta.</value></text>
+  <text id="FRAMEWORK_LOGON_ERROR_1003"><value>O nome de usuário ou senha não podem ficar em branco.  Tente novamente.</value></text>
+
+  <text id="TEXT_PASSWORD_EXPIRING">
+    <value>Sua senha expirará em {0} dia(s).  Se tiver tempo, por que não alterá-la agora?</value>
+  </text>
+
 </texts>
 

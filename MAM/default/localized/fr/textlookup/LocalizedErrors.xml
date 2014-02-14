@@ -3,86 +3,89 @@
 <texts id="Localized Errors" type="collection">
 
 <description>
-The file defines the MAM application errors. The error message are localized.
-When the Metering SDK returns an error to the MAM looks up the message in the MetraTech Global Message Dll.
-(Actually this task is performed by the MDM.)
+O arquivo define os erros do aplicativo MAM. A mensagem de erro foi localizada.
+Quando o SDK de medição retorna um erro para o MAM, analise a mensagem no MetraTech Global Message Dll.
+(Na verdade, essa tarefa é executada pelo MDM.)
 </description>
 
-<text id="MAM_ERROR_1000"><value>Courriel invalide</value></text>
-<text id="MAM_ERROR_1001"><value>Le mot de passe saisi ne correspond pas à celui dans le champ de confirmation du mot de passe - essayez à nouveau</value></text>
-<text id="MAM_ERROR_1002"><value>Erreur de cycle de facturation.Le premier jour du mois doit être inférieur au second jour du mois.</value></text>
-<text id="MAM_ERROR_1003"><value>Courriel requis</value></text>
-<text id="MAM_ERROR_1004"><value>Description de l'espace nom introuvable.Espace nom=[NAME_SPACE]</value></text>
-<text id="MAM_ERROR_1005"><value>Une erreur système s'est produite.Veuillez demander à votre administrateur de vérifier le journal système et ressayez plus tard.</value></text>
-<text id="MAM_ERROR_1006"><value>Une erreur inconnue s'est produite.Veuillez demander à votre administrateur de vérifier le journal système et ressayez plus tard.</value></text>
-<text id="MAM_ERROR_1007"><value>Trop de comptes ont été trouvés.Veuillez préciser votre recherche.</value></text>
-<text id="MAM_ERROR_1008"><value>Veuillez préciser au moins un critère de recherche.</value></text>
-<text id="MAM_ERROR_1009"><value>Veuillez préciser une valeur à rechercher.</value></text>
-<text id="MAM_ERROR_1010"><value>Cette fonction n'est compatible qu'avec les versions IE 4.0 et ultérieures.</value></text>
-<text id="MAM_ERROR_1011"><value>Échec de l'avis par courriel. Veuillez demander à votre administrateur de vérifier le journal système et ressayez plus tard.</value></text>
-<text id="MAM_ERROR_1012"><value>L'abonné [ACCOUNT_ID] est introuvable par MAM().Abonné().Trouver() dans SubscriberFound.Asp.</value></text>
-<text id="MAM_ERROR_1013"><value>Erreur de correspondance avec l'ancien état du compte [PREVIOUS] ou le nouvel état du compte [NEW].</value></text>
+    <text id="MAM_ERROR_1000"><value>O e-mail não é válido</value></text>
+    <text id="MAM_ERROR_1001"><value>A senha não corresponde à senha de confirmação - tente novamente</value></text>
+    <text id="MAM_ERROR_1002"><value>Erro do ciclo de faturamento. O primeiro dia do mês deve ser anterior ao segundo dia do mês.</value></text>
+    <text id="MAM_ERROR_1003"><value>O e-mail é obrigatório</value></text>
+    <text id="MAM_ERROR_1004"><value>Descrição do espaço de nomes não encontrada. Espaço de nomes=[NAME_SPACE]</value></text>
+    <text id="MAM_ERROR_1005"><value>Ocorreu um erro do sistema.  Solicite que seu administrador verifique o log do sistema e tente novamente.</value></text>
+    <text id="MAM_ERROR_1006"><value>Ocorreu um erro desconhecido.  Solicite que seu administrador verifique o log do sistema e tente novamente.</value></text>
+    <text id="MAM_ERROR_1007"><value>Muitas contas encontradas.  Limite sua pesquise.</value></text>
+    <text id="MAM_ERROR_1008"><value>Insira pelo menos um critério para pesquisar.</value></text>
+    <text id="MAM_ERROR_1009"><value>Insira um valor para pesquisar.</value></text>
+    <text id="MAM_ERROR_1010"><value>Este recurso só é suportado na versão do IE 4.0 e versões superiores.</value></text>
+    <text id="MAM_ERROR_1011"><value>Falha na notificação de e-mail, solicite que seu administrador verifique o log do sistema e tente novamente.</value></text>
+    <text id="MAM_ERROR_1012"><value>[ACCOUNT_ID] do assinante não encontrado por MAM().Subscriber().Find() em SubscriberFound.Asp.</value></text>
+    <text id="MAM_ERROR_1013"><value>Erro de incompatibilidade do status anterior da conta [PREVIOUS] ou do novo status da conta [NEW].</value></text>
 
-<text id="MAM_ERROR_1014"><value>La méthode MAM.Trouver() a généré la valeur FAUX.</value></text>
-<text id="MAM_ERROR_1015"><value>Erreur interne.</value></text>    
-<text id="MAM_ERROR_1016"><value>Erreur dans la base de données interne. Crédit introuvable.Le décompte de l'enregistrement est de zéro.Veuillez contacter votre administrateur.</value></text>    
-<text id="MAM_ERROR_1017"><value>Erreur de recherche - Aucune ligne n'a été retenue pour l'utilisateur [USERNAME].</value></text>    
-<text id="MAM_ERROR_1018"><value>Impossible de récupérer la session de sortie de la comptabilisation de CréationCompte.Veuillez contacter votre administrateur.</value></text>    
-<text id="MAM_ERROR_1019"><value>Impossible de lire le nouvel ID de compte à partir de la session de sortie.Veuillez contacter votre administrateur.</value></text>    
-<text id="MAM_ERROR_1020"><value>Erreur de cycle de facturation.Le premier jour du mois doit se situer entre 1 et 27 et le second, entre 2 et 31.</value></text>
-<text id="MAM_ERROR_1021"><value>Le fichier d'émission de ticket [FILENAME] est introuvable.</value></text>
-<text id="MAM_ERROR_1022"><value>Ce nom d'utilisateur existe déjà.</value></text>
-<text id="MAM_ERROR_ERROR_DETAIL"><value>Détails</value></text>
-<text id="MAM_ERROR_1023"><value>Impossible d'obtenir les informations de carte de crédit.Veuillez contacter votre administrateur.</value></text>
-<text id="MAM_ERROR_1024"><value>Impossible d'obtenir les informations ACH.Veuillez contacter votre administrateur.</value></text>
-<text id="MAM_ERROR_1025"><value>L'opération de lot a échouée et tous les changements ont été recalés.</value></text>
-		<text id="MAM_ERROR_1026"><value>Vous devez préciser un compte pour la distribution de rabais en le glissant à partir de la hiérarchie.</value></text>
-<text id="MAM_ERROR_1027"><value>Compte ancêtre invalide.</value></text>
-<text id="MAM_ERROR_1028"><value>Compte payeur invalide.</value></text>
-<text id="MAM_ERROR_1029"><value>Vous n'avez pas l'autorisation nécessaire pour gérer :[ACCOUNT_ID].</value></text>
-		<text id="MAM_ERROR_1030"><value>Le format du compte rabais est invalide.</value></text>
-		<text id="MAM_ERROR_1031"><value>Veuillez glisser et déposer au moins un compte à ajouter, ou cliquez sur annuler pour revenir en arrière.</value></text>
-		<text id="MAM_ERROR_1032"><value>Impossible d'actualiser le catalogue de compte.Veuillez vous déconnecter et vous connecter à nouveau.</value></text>
-		<text id="MAM_ERROR_1033"><value>Vous devez préciser au moins un compte.</value></text>    
-		<text id="MAM_ERROR_1034"><value>Il n'y a aucun compte actuellement dans votre sélection.</value></text>    
-<text id="MAM_ERROR_1035"><value>Vous devez préciser un ID de compte valide afin de décrire le chemin d'accès de la hiérarchie.</value></text>            
-<text id="MAM_ERROR_1036"><value>L'inscription en lot a échoué pour certains comptes.</value></text>    
-<text id="MAM_ERROR_1037"><value>Veuillez entrer un ID de compte valide.</value></text>
-<text id="MAM_ERROR_1038"><value>Aucune transaction trouvée.</value></text>
-<text id="MAM_ERROR_1039"><value>Sélectionnez une transaction enfant</value></text>
-<text id="MAM_ERROR_1040"><value>Vous devez calculer l'ajustement avant d'afficher les détails ou de l'enregistrer.</value></text>
-<text id="MAM_ERROR_1041"><value>Aucun type d'ajustement n'a été configuré pour [TEXT_KEYTERM_PRICEABLE_ITEM] [NAME].</value></text>
-<text id="MAM_ERROR_1042"><value>Aucun type [TEXT_KEYTERM_PRICEABLE_ITEM] avec ajustement(s) n'a été trouvé dans le catalogue de produits.Il n'y a aucune transaction à ajuster.</value></text>
-<text id="MAM_ERROR_1043"><value>Impossible de trouver l'ajustement orphelin [SESSIONID].</value></text>
-<text id="MAM_ERROR_1044"><value>Sélectionner un [ITEM]</value></text>
-<text id="MAM_ERROR_1045"><value>Erreur interne.Impossible de trouver un ID session [SESSIONID] dans les lignes de la transaction</value></text>
-<text id="MAM_ERROR_1046"><value>Aucun mode de paiement par défaut n'a été défini pour le compte.Il a été réinitialisé à comptant/chèque.</value></text>
-<text id="MAM_ERROR_1047"><value>Aucun élément sélectionné</value></text>
-<text id="MAM_ERROR_1048"><value>MAM_ERROR_1048-Erreur interne de l'affichage des ajustements</value></text>
-<text id="MAM_ERROR_1049"><value>Vous devez entrer un ID de compte parent valide.</value></text>
-<text id="MAM_ERROR_1050"><value>Veuillez sélectionner un intervalle de facturation ou une Date de début et une Date de fin pour la recherche.</value></text>    
-<text id="MAM_ERROR_1051"><value>Vous devez sélectionner au moins une transaction.</value></text>    
+    <text id="MAM_ERROR_1014"><value>O método MAM.Find() retornou FALSO.</value></text>
+    <text id="MAM_ERROR_1015"><value>Erro interno.</value></text>    
+    <text id="MAM_ERROR_1016"><value>Erro do banco de dados interno, o crédito não encontrado.  A contagem do registro é zero.  Entre em contato com seu administrador.</value></text>    
+    <text id="MAM_ERROR_1017"><value>Encontrar erro - nenhum conjunto de linhas retornado para o usuário [USERNAME].</value></text>    
+    <text id="MAM_ERROR_1018"><value>Impossível recuperar a sessão de saída por meio da medição AccountCreation. Entre em contato com seu administrador.</value></text>    
+    <text id="MAM_ERROR_1019"><value>Impossível ler o novo id da conta por meio da sessão de saída. Entre em contato com seu administrador.</value></text>    
+    <text id="MAM_ERROR_1020"><value>Erro do ciclo de faturamento. O primeiro dia do mês deve estar entre 1 e 30 e o segundo dia do mês deve estar entre 2 e 31.</value></text>
+    <text id="MAM_ERROR_1021"><value>Arquivo de ticket [FILENAME] não encontrado.</value></text>
+    <text id="MAM_ERROR_1022"><value>O nome de usuário já existe.</value></text>
+    <text id="MAM_ERROR_ERROR_DETAIL"><value>Detalhes</value></text>
+    <text id="MAM_ERROR_1023"><value>Não é possível obter informações de cartão de crédito Entre em contato com seu administrador.</value></text>
+    <text id="MAM_ERROR_1024"><value>Não é possível obter informações de ACH. Entre em contato com seu administrador.</value></text>
+    <text id="MAM_ERROR_1025"><value>A operação em lote falhou e todas as alterações foram retrocedidas.</value></text>
+		<text id="MAM_ERROR_1026"><value>Você deve especificar uma conta para a distribuição de desconto selecionando-a por meio do Localizador de contas.</value></text>
+    <text id="MAM_ERROR_1027"><value>Conta ancestral inválida</value></text>
+    <text id="MAM_ERROR_1028"><value>Conta de pagador inválida</value></text>
+    <text id="MAM_ERROR_1029"><value>Você não tem acesso para gerenciar:  [ACCOUNT_ID].</value></text>
+		<text id="MAM_ERROR_1030"><value>O formato da conta de desconto é inválido.</value></text>
+		<text id="MAM_ERROR_1031"><value>O grupo foi criado.  Selecione contas a adicionar. Ou clique em cancelar para voltar.</value></text>
+		<text id="MAM_ERROR_1032"><value>Não é possível atualizar o catálogo da conta.  Efetue log-out e efetue log-in novamente.</value></text>
+		<text id="MAM_ERROR_1033"><value>Você deve especificar pelo menos uma conta.</value></text>    
+		<text id="MAM_ERROR_1034"><value>Não há contas na sua seleção atual.</value></text>    
+    <text id="MAM_ERROR_1035"><value>Você deve especificar um id de conta válida para descrever o caminho da hierarquia.</value></text>            
+    <text id="MAM_ERROR_1036"><value>A assinatura em lote falhou para algumas contas.</value></text>    
+    <text id="MAM_ERROR_1037"><value>Digite um ID de conta válida.</value></text>
+    <text id="MAM_ERROR_1038"><value>Nenhuma transação encontrada.</value></text>
+    <text id="MAM_ERROR_1039"><value>Selecione uma transação filha</value></text>
+    <text id="MAM_ERROR_1040"><value>Você deve calcular o ajuste antes de exibir os detalhes ou salvá-lo</value></text>
+    <text id="MAM_ERROR_1041"><value>[TEXT_KEYTERM_PRICEABLE_ITEM] [NAME] não tem tipos de ajuste configurados.</value></text>
+    <text id="MAM_ERROR_1042"><value>Nenhum tipo de [TEXT_KEYTERM_PRICEABLE_ITEM] com ajuste(s) encontrado no catálogo de produtos.  Não há transações que possam ser ajustadas.</value></text>
+    <text id="MAM_ERROR_1043"><value>Não é possível localizar o ajuste órfão [SESSIONID].</value></text>
+    <text id="MAM_ERROR_1044"><value>Selecione [ITEM]</value></text>
+    <text id="MAM_ERROR_1045"><value>Erro interno.  Não é possível localizar o ID da sessão [SESSIONID] no conjunto de linhas da transação</value></text>
+    <text id="MAM_ERROR_1046"><value>Nenhum método de pagamento padrão foi configurado para a conta.  Ele foi redefinido como dinheiro/cheque</value></text>
+    <text id="MAM_ERROR_1047"><value>Nenhum item selecionado</value></text>
+    <text id="MAM_ERROR_1048"><value>MAM_ERROR_1048-Erro interno da exibição do ajuste</value></text>
+    <text id="MAM_ERROR_1049"><value>Você deve inserir um ID de conta pai válido.</value></text>
+    <text id="MAM_ERROR_1050"><value>Selecione um Intervalo de faturamento ou a data de início ou a data de término para a pesquisa.</value></text>    
+    <text id="MAM_ERROR_1051"><value>Selecione pelo menos uma transação.</value></text>    
     <text id="MAM_ERROR_1052">
       <value>
-<![CDATA[ L'opération du modèle de lot a échoué pour certains comptes.<br><br> <i>Veuillez prendre note que toutes les opérations de mise à jour de compte réussies ne seront pas recalées.Cependant, les Inscriptions de groupe s'effectuent en une seule transaction.Si une erreur se produit avec un des comptes de l'inscription de groupe, aucun de ceux-ci ne sera ajouté.</i>]]>
+        <![CDATA[ A operação do modelo de lote falhou para algumas contas. <br><br> <i>Observe que nenhuma operação de atualização de conta que tenha sido bem-sucedida será retrocedida.  No entanto, as assinaturas em grupo são feitas em uma transação única.  Isso significa que se houver um erro com uma das contas que esteja sendo posicionada em uma assinatura em grupo, nenhuma delas será adicionada.</i> ]]>  
       </value>
 	  </text>		
 	     
-<text id="MAM_ERROR_2000"><value>Une erreur s'est produite lors de l'ajout du mappage de l'ID.Veuillez demander à votre administrateur de vérifier le journal système.</value></text>
-<text id="MAM_ERROR_2001"><value>Une erreur s'est produite lors du retrait du mappage de l'ID.Veuillez demander à votre administrateur de vérifier le journal système.</value></text>
-<text id="MAM_ERROR_2002"><value>Une erreur s'est produite lors de la mise à jour du mappage de l'ID.Veuillez demander à votre administrateur de vérifier le journal système.</value></text>
-<text id="MAM_ERROR_2003"><value>Une erreur s'est produite pendant la création de la connexion.Veuillez demander à votre administrateur de vérifier le journal système.</value></text>
-<text id="MAM_ERROR_2004"><value>Une erreur s'est produite pendant la retrait de la connexion.Veuillez demander à votre administrateur de vérifier le journal système.</value></text>
-<text id="MAM_ERROR_2005"><value>Une erreur s'est produite pendant la mise à jour des dates de connexion.Veuillez demander à votre administrateur de vérifier le journal système.</value></text>
-<text id="MAM_ERROR_2006"><value>Une erreur s'est produite pendant le déplacement de la connexion.Veuillez demander à votre administrateur de vérifier le journal système.</value></text>
-<text id="MAM_ERROR_2007"><value>Une erreur s'est produite lors de la création du [TEXT_KEYTERM_SERVICE_ENDPOINT].Veuillez demander à votre administrateur de vérifier le journal système.</value></text>
-<text id="MAM_ERROR_2008"><value>Impossible de déterminer l'ID du compte commercial pour la valeur spécifiée.La valeur doit être un ID de compte ou être en format Nom (ID).</value></text>
-<text id="MAM_ERROR_2009"><value>Impossible de déterminer [TEXT_SE_ID] à partir de la valeur spécifiée.La valeur doit être un [TEXT_SE_ID] valide ou être en format :Nom (ID).</value></text>
-<text id="MAM_ERROR_2010"><value>La valeur spécifiée pour [TEXT_SE_ID] ne correspond à aucun [TEXT_KEYTERM_SERVICE_ENDPOINT] existant.</value></text>
-<text id="MAM_ERROR_2011"><value>Échec de la suppression du modèle de compte.Veuillez demander à votre administrateur de vérifier le journal système.</value></text>
-<text id="MAM_ERROR_2012"><value>En raison d'un ou plusieurs avertissement(s), l'ajustement ne peut être enregistré.</value></text>
-<text id="MAM_ERROR_2013"><value>Échec de la création du modèle de compte.Veuillez demander à votre administrateur de vérifier le journal système.</value></text>    
+    <text id="MAM_ERROR_2000"><value>Ocorreu um erro durante a adição do mapeamento de id.  Solicite que seu administrador verifique o log do sistema.</value></text>
+    <text id="MAM_ERROR_2001"><value>Ocorreu um erro durante a remoção de um mapeamento de id.  Solicite que seu administrador verifique o log do sistema.</value></text>
+    <text id="MAM_ERROR_2002"><value>Ocorreu um erro durante a atualização do mapeamento de id.  Solicite que seu administrador verifique o log do sistema.</value></text>
+    <text id="MAM_ERROR_2003"><value>Ocorreu um erro durante a criação da conexão.  Solicite que seu administrador verifique o log do sistema.</value></text>
+    <text id="MAM_ERROR_2004"><value>Ocorreu um erro durante a remoção da conexão.  Solicite que seu administrador verifique o log do sistema.</value></text>
+    <text id="MAM_ERROR_2005"><value>Ocorreu um erro durante a atualização das datas de conexão.  Solicite que seu administrador verifique o log do sistema.</value></text>
+    <text id="MAM_ERROR_2006"><value>Ocorreu um erro durante a movimentação da conexão.  Solicite que seu administrador verifique o log do sistema.</value></text>
+    <text id="MAM_ERROR_2007"><value>Ocorreu um erro durante a criação do [TEXT_KEYTERM_SERVICE_ENDPOINT].  Solicite que seu administrador verifique o log do sistema.</value></text>
+    <text id="MAM_ERROR_2008"><value>Não foi possível determinar o ID da conta corporativa do valor especificado.  O valor deve ser um ID da conta ou ter o nome de formato (ID).</value></text>
+    <text id="MAM_ERROR_2009"><value>Não foi possível determinar o [TEXT_SE_ID] do valor especificado.  O valor deve ser um [TEXT_SE_ID] válido ou ter o formato: Nome (ID).</value></text>
+    <text id="MAM_ERROR_2010"><value>O valor especificado para [TEXT_SE_ID] não mapeia para um [TEXT_KEYTERM_SERVICE_ENDPOINT] existente.</value></text>
+    <text id="MAM_ERROR_2011"><value>Falha ao excluir o modelo da conta.  Solicite que seu administrador verifique o log do sistema.</value></text>
+    <text id="MAM_ERROR_2012"><value>Ocorreram um ou mais avisos. Não foi possível salvar o ajuste</value></text>
+    <text id="MAM_ERROR_2013"><value>Falha ao criar o modelo da conta.  Solicite que seu administrador verifique o log do sistema.</value></text>    
 
-<text id="MAM_ERROR_2014"><value>Aucun compte n'a été trouvé pour l'application du modèle.</value></text>    
-    
+    <text id="MAM_ERROR_2014"><value>Nenhuma conta encontrada para a qual aplicar o modelo.</value></text>
+	<text id="MAM_ERROR_2015">
+		<value>A operação em lote falhou e todas as alterações foram retrocedidas.</value>
+	</text>
+
 </texts>

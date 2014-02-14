@@ -2,355 +2,358 @@
 <texts id="Payment Methods" type="collection">
 
 <description>
-The file define most of the MAM static texts related to the payment server. 
-The MAM/MDM use also the localization supplied by the MetraTech plate form.
+O arquivo define a maioria dos textos estáticos MAM para o servidor de pagamento.
+O MAM/MDM também usa a localização fornecida pelo formato da placa MetraTech.
 </description>
 
 
     <text id="TEXT_CARD_VERIFY_VALUE">
-<value>Valeur de vérification de carte</value>
-        <description>This is the 3-digit number that appears on the back of MasterCard and Visa cards in the signature box. The purpose is to aid in reducing fraud in card-not-present transactions. The cardholder provides this information to prove they are in possession of the card.</description>
+        <value>Valor de verificação do cartão</value>
+        <description>Este é o número de 3 dígitos exibido na parte de trás dos cartões MasterCard e Visa na caixa de assinatura. O propósito deste recurso é reduzir as fraudes nas transações em que o cartão não é apresentado. O proprietário do cartão fornece esta informação para provar que está de posse do cartão.</description>
     </text>
 
     <text id="TEXT_CONFIRM_REQUESTED">
-<value>Confirmation demandée</value>
+        <value>Confirmação solicitada</value>
         <description></description>
     </text>
 
     <text id="TEXT_PAYMENT_METHODS">
-<value>Modes de paiement</value>
+        <value>Métodos de pagamento</value>
         <description></description>
     </text>
 
     <text id="TEXT_PAPER_INVOICE">
-<value>Comptant/chèque</value>
+        <value>Dinheiro/Cheque</value>
         <description></description>
     </text>
 
     <text id="TEXT_SELECTED">
-<value>Sélectionné</value>
+        <value>Selecionado</value>
         <description></description>
     </text>
 
     <text id="TEXT_SELECTED_ELECTRONIC">
-<value>Il s'agit du type de paiement électronique sélectionné</value>
-        <description>Message to display if this is the preferred electronic payment type</description>
+        <value>Este é o tipo de pagamento eletrônico selecionado</value>
+        <description>A mensagem a exibir, caso este seja o tipo de pagamento eletrônico preferencial</description>
     </text>
     
     <text id="TEXT_ERROR_ROWSET">
-<value>Aucune information de paiement trouvée.Demandez à votre administrateur de vérifier votre configuration.</value>
+        <value>Nenhuma informação de pagamento encontrada.  Solicite que seu administrador verifique sua configuração.</value>
         <description></description>
     </text>
 
     <text id="TEXT_DEFAULT_PAYMENT">
-<value>Privilégié</value>
+        <value>Preferencial</value>
         <description></description>
     </text>
 
     <text id="TEXT_PAYMENT_TYPE">
-<value>Type de paiement</value>
+        <value>Tipo de pagamento</value>
         <description></description>
     </text>
 
     <text id="TEXT_BANK">
-<value>Nom de l'institution financière</value>
+        <value>Nome do banco</value>
         <description></description>
     </text>
 
     <text id="TEXT_ACCOUNT_TYPE">
-<value>Type de compte</value>
+        <value>Tipo de conta</value>
         <description></description>
     </text>
 
     <text id="TEXT_ACCOUNT_NUMBER">
-<value>Quatre derniers chiffres</value>
+        <value>Último quatro dígitos</value>
         <description></description>
     </text>
 
     <text id="TEXT_EXPIRATION">
-<value>Expiration (MM/AAAA)</value>
+        <value>Expiração (MM/AAAA)</value>
         <description></description>
     </text>
 
     <text id="TEXT_ACTION_ICONS">
-<value>Actions</value>
+        <value>Ações</value>
         <description></description>
     </text>
 
     <text id="TEXT_EXPERATION_DATE">
-<value>Date d'expiration (MM/AAAA)</value>
+        <value>Data de expiração (MM/AAAA)</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_CREDIT_CARD">
-<value>Ajouter une carte de crédit</value>
+        <value>Adicionar cartão de crédito</value>
         <description></description>
     </text>
 
     <text id="TEXT_CREDIT_CARD_TYPE">
-<value>Type de carte de crédit</value>
+        <value>Tipo de cartão de crédito</value>
         <description></description>
     </text>
 
     <text id="TEXT_CREDIT_CARD_NUM">
-<value>Numéro de carte de crédit</value>
+        <value>Número do cartão de crédito</value>
         <description></description>
     </text>
 
     <text id="TEXT_BANK_NAME">
-<value>Nom de l'institution financière</value>
+        <value>Nome do banco</value>
         <description></description>
     </text>
 
     <text id="TEXT_CUSTOMER_NAME">
-<value>Nom (tel qu'il figure sur la carte)</value>
+        <value>Nome (conforme ele aparece no cartão)</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADDRESS">
-<value>Adresse</value>
+        <value>Endereço</value>
         <description></description>
     </text>
 
     <text id="TEXT_CITY">
-<value>Ville</value>
+        <value>Cidade</value>
         <description></description>
     </text>
 
     <text id="TEXT_STATE">
-<value>État/province</value>
+        <value>Estado/Província</value>
         <description></description>
     </text>
 
     <text id="TEXT_ZIP">
-<value>Code postal</value>
+        <value>CEP</value>
         <description></description>
     </text>
 
     <text id="TEXT_COUNTRY">
-<value>Pays</value>
+        <value>País</value>
         <description></description>
     </text>
 
     <text id="TEXT_UPDATE_CREDIT_CARD">
-<value>Mettre la carte de crédit à jour</value>
+        <value>Atualizar cartão de crédito</value>
         <description></description>
     </text>
 
     <text id="TEXT_CONFIRM_DELETE_CREDIT_CARD">
-<value>Êtes-vous certain de vouloir supprimer la carte de crédit dont les quatre derniers chiffres sont :[DIGITS]?</value>
+        <value>Tem certeza de que deseja remover a parte final do cartão de crédito com os seguintes últimos quatro dígitos?  [DIGITS]?</value>
         <description></description>
     </text>
 
     <text id="TEXT_LAST_FOUR_DIGITS">
-<value>Quatre derniers chiifres du numéro de compte</value>
+        <value>Últimos quatro dígitos do núm. da conta</value>
         <description></description>
     </text>
 
     <text id="TEXT_PURCHASE_CARD">
-<value>Carte d'achat</value>
+        <value>Cartão de compras</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_PURCHASE_CARD">
-<value>Ajouter une carte d'achat</value>
+        <value>Adicionar cartão de compras</value>
         <description></description>
     </text>
 
     <text id="TEXT_UPDATE_PURCHASE_CARD">
-<value>Mettre la carte d'achat à jour</value>
+        <value>Atualizar cartão de compras</value>
         <description></description>
     </text>
 
     <text id="TEXT_CARD_ID">
-<value>ID de la carte</value>
-        <description></description>
-    </text>
-
-    <text id="TEXT_CARD_VERIFY_VALUE">
-<value>Valeur de vérification de carte</value>
+        <value>ID do cartão</value>
         <description></description>
     </text>
 
     <text id="TEXT_CUSTOMER_REFERENCE_ID">
-<value>ID de référence client</value>
+        <value>ID de referência do cliente</value>
         <description></description>
     </text>
 
     <text id="TEXT_CUSTOMER_VAT_NUMBER">
-<value>Customer TVA client</value>
+        <value>Número VAT do cliente</value>
         <description></description>
     </text>
 
     <text id="TEXT_COMPANY_ADDRESS">
-<value>Adresse de la société</value>
+        <value>Endereço da empresa</value>
         <description></description>
     </text>
 
     <text id="TEXT_COMPANY_POSTAL_CODE">
-<value>Code postal de la société</value>
+        <value>CEP da empresa</value>
         <description></description>
     </text>
 
     <text id="TEXT_COMPANY_PHONE">
-<value>Téléphone de la société</value>
+        <value>Número de telefone da empresa</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_ACH">
-<value>Ajouter ACH</value>
+        <value>Adicionar ACH</value>
         <description></description>
     </text>
 
     <text id="TEXT_UPDATE_ACH">
-<value>Mettre ACH à jour</value>
+        <value>Atualizar ACH</value>
         <description></description>
     </text>
 
     <text id="TEXT_BANK_ACCOUNT_TYPE">
-<value>Type de compte bancaire</value>
+        <value>Tipo de conta bancária</value>
         <description></description>
     </text>
 
     <text id="TEXT_BANK_ACCOUNT_NUMBER">
-<value>Numéro de compte bancaire</value>
+        <value>Número de conta do banco</value>
         <description></description>
     </text>
 
     <text id="TEXT_TEXT_EMAIL">
-<value>Courriel</value>
+        <value>E-mail</value>
         <description></description>
     </text>
 
     <text id="TEXT_ROUTING_NUMBER">
-<value>Numéro d'acheminement</value>
+        <value>Número de identificação</value>
         <description></description>
     </text>
 
     <text id="TEXT_CUSTOMER_NAME_ACH">
-<value>Nom</value>
+        <value>Nome</value>
         <description></description>
     </text>
 
     <text id="TEXT_CONFIRM_DELETE_ACH">
-<value>Êtes-vous certain de vouloir supprimer le compte ACH dont les quatre derniers chiffres sont :[DIGITS]?</value>
+        <value>Tem certeza de que deseja remover a parte final da conta ACH com os seguintes últimos quatro dígitos? [DIGITS]?</value>
         <description></description>
     </text>
 
     <text id="TEXT_AUTHRECEIVED">
-<value>Formulaire d'autorisation reçu</value>
+        <value>Formulário de autorização recebido</value>
         <description></description>
     </text>
 
     <text id="TEXT_VALIDATED">
-<value>Validé</value>
+        <value>Validado</value>
         <description></description>
     </text>
 
     <text id="TEXT_ENABLED">
-<value>Activé</value>
+        <value>Ativado</value>
         <description></description>
     </text>
 
     <text id="TEXT_AUTHRECEIVED_CONTROL">
-<value>Oui</value>
+        <value>Sim</value>
         <description></description>
     </text>
 
     <text id="TEXT_AUTH_DESCRIPTION">
-<value>Veuillez entrer des renseignements sur l'entente de compte ACH dans la description.</value>
+        <value>Insira as informações sobre o contrato da conta ACH na descrição.</value>
         <description></description>
     </text>
 
     <text id="TEXT_AUTH_USERNAME">
-<value>Nom d'utilisateur</value>
+        <value>Nome do usuário</value>
         <description></description>
     </text>
 
     <text id="TEXT_DESCRIPTION_OF_AUTH">
-<value>Description</value>
+        <value>Descrição</value>
         <description></description>
     </text>
 
     <text id="TEXT_AMOUNT">
-<value>Montant</value>
+        <value>Valor</value>
         <description></description>
     </text>
 
     <text id="TEXT_VALIDATED_YES">
-<value>Oui</value>
+        <value>Sim</value>
         <description></description>
     </text>
 
     <text id="TEXT_VALIDATED_NO">
-<value>Non</value>
+        <value>Não</value>
         <description></description>
     </text>
 
     <text id="TEXT_PAYMENT_METHODS_SCHEDULER">
-<value>Programme de commande des modes de paiement</value>
+        <value>Agendador dos métodos de pagamento</value>
         <description></description>
     </text>
 
     <text id="TEXT_CONFIRMATION_REQUESTED">
-<value>Confirmation demandée</value>
+        <value>Confirmação solicitada</value>
         <description></description>
     </text>
 
     <text id="TEXT_SETUP_PAYMENT_METHOD">
-<value>Veuillez d'abord sélectionner un mode de paiement.</value>
+        <value>Configure um método de pagamento primeiro.</value>
         <description></description>
     </text>
 
     <text id="TEXT_UPDATE_PAPER_INVOICE">
-<value>Mettre à jour comptant/chèque</value>
+        <value>Atualizar dinheiro / cheque</value>
         <description></description>
     </text>
 
     <text id="TEXT_INVOICE_METHOD">
-<value>Type de paiement</value>
+        <value>Tipo de pagamento</value>
         <description></description>
     </text>
 
     <text id="TEXT_CREDIT_CREDIT_CARD_TITLE">
-<value>Appliquer le crédit à la carte de crédit</value>
+        <value>Aplicar crédito ao cartão de crédito</value>
         <description></description>
     </text>
 
     <text id="TEXT_DEBIT_CREDIT_CARD_TITLE">
-<value>Appliquer le débit à la carte de crédit</value>
+        <value>Aplicar débito ao cartão de crédito</value>
         <description></description>
     </text>
 
     <text id="TEXT_CREDIT_ACH_TITLE">
-<value>Appliquer le crédit à ACH</value>
+        <value>Aplicar crédito ao ACH</value>
         <description></description>
     </text>
 
     <text id="TEXT_DEBIT_ACH_TITLE">
-<value>Appliquer le débit à ACH</value>
+        <value>Aplicar débito ao ACH</value>
         <description></description>
     </text>
 
     <text id="TEXT_CREDIT_CONFIRM">
-<value>Le crédit a été émis.</value>
+        <value>O crédito foi emitido com sucesso.</value>
         <description></description>
     </text>
 
     <text id="TEXT_DEBIT_CONFIRM">
-<value>Le débit a été émis.</value>
+        <value>O débito foi emitido com sucesso.</value>
         <description></description>
     </text>
 
     <text id="TEXT_PS_PRENOTE_FAILURE">
-<value>Erreur d'exécution du préavis ACH.Demandez à votre administrateur de vérifier la configuration de votre serveur.</value>
+        <value>Erro durante a execução da pré-anotação ACH.  Solicite que seu administrador verifique sua configuração do servidor de pagamentos.</value>
         <description></description>
     </text>
 
     <text id="TEXT_AUTH_FAILURE">
-<value>Erreur d'exécution d'autorisation d'archive ACH.Demandez à votre administrateur de vérifier la configuration de votre serveur.</value>
+        <value>Erro durante a execução da autorização de arquivo ACH.  Solicite que seu administrador verifique sua configuração do servidor de pagamentos.</value>
+        <description></description>
+    </text>
+    <text id="TEXT_ISSUER_NUMBER">
+        <value>(Somente para Maestro) Número de emissão</value>
         <description></description>
     </text>
    
+    <text id="TEXT_STARTDATE_DATE">
+        <value>(Somente para Maestro) Data de início (MM/AAAA)</value>
+        <description></description>
+    </text>
 </texts>
 

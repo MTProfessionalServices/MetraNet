@@ -1,180 +1,188 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <texts id="Main Menu Options" type='collection'>
 
 <description>
-The file defines the localization of the main menu options.
+O arquivo define a localização das opções de menu principais.
 </description>
 
     <!-- Main Menu Translation -->
 
     <text id="TEXT_MANUAL_PAYMENT_DIALOG">
-<value>Paiement manuel</value>
+     <value>Pagamento manual</value>
     </text>
     
     <text id="TEXT_VIEW_LAST_ERROR">
-		<value>Afficher la dernière erreur</value>
+   		<value>Exibir último erro</value>
 		</text>   
     
     <text id="TEXT_ADD_INDEPENDENT_ACCOUNT_DIALOG">
-		<value>Ajouter un compte indépendant</value>
+   		<value>Adicionar conta independente</value>
 		</text>   
         
     <text id='TEXT_FOLDER_OWNER'>
-		<value>Administrateur de compte</value>
+   		<value>Administrador de conta</value>
 		</text>   
     
     <text id='TEXT_PAY_FOR_ACCOUNTS'>
-		<value>Payer les comptes</value>
+   		<value>Pagar para as contas</value>
 		</text>   
     
     <text id='TEXT_OWNED_FOLDERS'>
-		<value>Comptes gérés</value>
-		</text>   
-		
+   		<value>Contas administradas</value>
+		</text>
+
+   <text id='TEXT_BILL_MANAGER'>
+    <value>Atribuir gerenciador de fatura</value>
+   </text>
+
+  <text id='TEXT_BILL_MANAGEES'>
+    <value>Faturas online gerenciadas</value>
+  </text>
+  
     <text id='TEXT_MANAGE_ROLES'>
-		<value>Gérer les rôles</value>
+   		<value>Gerenciar funções</value>
 		</text>   
 
     <text id='TEXT_GROUP_SUBSCRIPTIONS_DIALOG'>
-		<value>Inscriptions de groupe</value>
+   		<value>Assinaturas em grupo</value>
 		</text>   
 
     <text id='TEXT_FIND_ACCOUNT'>
-		<value>Chercher</value>
+		<value>Buscar</value>
 		</text>   
 		<text id='TEXT_SUMMARY_ACCOUNT_INFO_DIALOG'>
-			<value>Sommaire</value>
+			<value>Resumo</value>
 		</text>        
 		<text id='TEXT_MAIN_MENU_TAB_SUBSCRIBER'>
-			<value>Onglet Compte</value>
+			<value>Guia Conta</value>
 		</text>
 		<text id='TEXT_UPDATE_ACCOUNT_INFO_DIALOG'>
-			<value>Info du compte</value>
+			<value>Informações de conta</value>
 		</text>
 		<text id='TEXT_UPDATE_CONTACT_INFO_DIALOG'>
-			<value>Coordonnées</value>
+			<value>Informações de contato</value>
 		</text>      
 		<text id='TEXT_INTERACTIVE_BILL'>
-			<value>Facture interactive</value>
+			<value>Fatura interativa</value>
 		</text>      
 		<text id='TEXT_PAYMENT_METHODS'>
-			<value>Modes de paiement</value>
+			<value>Métodos de pagamento</value>
 		</text>    
 		<text id='TEXT_SETUP_SUBSCRIPTIONS'>
-			<value>Inscriptions</value>
+			<value>Assinaturas</value>
 		</text>     
 		<text id='TEXT_VIEW_RATES'>
-			<value>Afficher les tarifs</value>
+			<value>Exibir taxas</value>
 		</text>        
 		<text id='TEXT_ISSUE_CREDIT_DIALOG'>
-			<value>Émettre Ajustement divers</value>
+			<value>Emitir diversos Ajuste</value>
 		</text>
 		<text id='TEXT_ADD_CHARGE_DIALOG'>
-			<value>Frais supplémentaires</value>
+			<value>Cobrança adicional</value>
 		</text>
 		<text id='TEXT_LINK_TO_ADD_CHARGE_DIALOG'>
-			<value>Lien vers frais suppl.</value>
+			<value>Link para adicionar cobrança</value>
 		</text>
 		<text id='TEXT_SEND_EMAIL_DIALOG'>
-			<value>Envoyer un courriel</value>
+			<value>Enviar e-mail</value>
 		</text>
 		<text id='TEXT_CREDIT_REQUESTS_BROWSER'>
-			<value>Demandes de crédit</value>
+			<value>Solicitações de crédito</value>
 		</text>
 		<text id='TEXT_MAM_LOG_OUT'>
-			<value>Fermer la session</value>
+			<value>Logout</value>
 		</text>
 		<text id='TEXT_SUMMARY'>
-			<value>Sommaire</value>
+			<value>Resumo</value>
 		</text> 
 	    <text id='TEXT_ADD_UPDATE_CSR'>
-			<value>Ajouter/mettre à jour un CSR</value>
+			<value>Adicionar/Atualizar CSR</value>
 		</text>         
 		<text id='TEXT_MAIN_MENU_TAB_ACTION'>
-			<value>Système</value>
+			<value>Sistema</value>
 		</text>
 		
 		<text id='TEXT_MAIN_MENU_TAB_FOLDER'>
-			<value>Dossier</value>
+			<value>Pasta</value>
 		</text>		
         <text id='TEXT_ADD_ACCOUNT_INFO_DIALOG'>
-			<value>Ajouter le compte</value>
+			<value>Adicionar conta</value>
 		</text>        
         <text id='TEXT_EDIT_MAPPING'>
-			<value>Modifier les alias</value>
+			<value>Editar pseudônimo</value>
 		</text>
         <text id='TEXT_GENERATE_PASSWORD'>
-			<value>Générer un mot de passe</value>
+			<value>Gerar senha</value>
 		</text>        
         <text id='TEXT_HOME_DIALOG'>
-			<value>Accueil</value>
+			<value>Página Inicial</value>
 		</text>                
         <text id='TEXT_EDIT_TEMPLATE_DIALOG'>
-			<value>Modifier le modèle</value>
+			<value>Editar modelo</value>
 		</text>                		
     <text id='TEXT_MAM_ABOUT'>
-			<value>À propos de</value>
+			<value>Sobre</value>
 		</text>       
     <text id='TEXT_MENU_GENERATE_PASSWORD'>
-			<value>Générer un mot de passe</value>      
+			<value>Gerar senha</value>      
 		</text>       
     <text id='TEXT_SUBSCRIBER_LOG'>
-			<value>Fichier journal du compte</value>
+			<value>Log da conta</value>
 		</text>
     <text id='TEXT_SUBSCRIBER_LOG_ADD'>
-			<value>Remarques</value>
+			<value>Observações</value>
 		</text>           
     <text id='TEXT_APP_AUDIT_LOG'>
-			<value>Liste de contrôle de l’app.</value>      
+			<value>Apl. Log da auditoria</value>      
 		</text>       
     <text id='TEXT_PASSWORD'>
-			<value>Changer le mot de passe</value>
+			<value>Alterar senha</value>
 		</text>   
     <text id='TEXT_ADMINISTRATION'>
-			<value>Sécurité</value>
+			<value>Segurança</value>
 		</text>   
     <text id="TEXT_SEP_ACCOUNTS">
-			<value>Comptes</value>
+			<value>Contas</value>
 		</text>   
     <text id="TEST_SEP_SERVICE_ENDPOINTS">
-			<value>Points d’extrémité de service</value>
+			<value>Terminais de serviço</value>
 		</text>   
     <text id="TEXT_SEP_ADJUSTMENTS">
-			<value>Ajustements</value>
+			<value>Ajustes</value>
 		</text>   
     <text id="TEXT_SEP_LOGS">
-			<value>Journaux</value>
+			<value>Logs</value>
 		</text>   
     <text id="TEXT_SEP_ACCOUNT_INFORMATION">
-			<value>Informations sur le compte</value>
+			<value>Informações de conta</value>
 		</text>  
     <text id="TEXT_SEP_BILL">
-			<value>Facture</value>
+			<value>Fatura</value>
 		</text>  
     <text id="TEXT_SEP_PAYMENT">
-			<value>Paiement</value>
+			<value>Pagamento</value>
 		</text>  
     <text id="TEXT_SEP_SUBSCRIPTIONS">
-			<value>Inscriptions</value>
+			<value>Assinaturas</value>
 		</text> 
     <text id="TEXT_SEP_ACCOUNT_ADJUSTMENTS">
-			<value>Ajustements de compte</value>
+			<value>Ajustes de conta</value>
 		</text> 
     <text id="TEXT_SEP_ACCOUNT_LOGS">
-			<value>Fichiers journaux du compte</value>
+			<value>Log da conta</value>
 		</text> 
     <text id="TEXT_SEP_ACCOUNT_SECURITY">
-			<value>Sécurité du compte</value>
+			<value>Segurança da conta</value>
 		</text> 
     <text id="TEXT_SEP_TEMPLATE">
-			<value>Modèle</value>
+			<value>Modelo</value>
 		</text>                 
     <text id="TEXT_SEP_CSRS">
-			<value>CSR</value>
+			<value>CSRs</value>
 		</text>                 
     <text id="TEXT_SEP_SECURITY">
-			<value>Sécurité</value>
+			<value>Segurança</value>
 		</text>                 
     
 </texts>

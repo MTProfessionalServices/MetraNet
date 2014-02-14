@@ -2,53 +2,53 @@
 
 <texts id="Localized Tickeing" type="collection">
   <description>
-    The file defines localized string for MAM ticketing functions.
+    O arquivo define a string localizada para funções de ticket do MAM.
   </description>
 
   <text id="TEXT_MPS_TICKET_FAILED">
-<value>Afficher la facture interactive -- Erreur</value>
+    <value>Exibir fatura interativa -- Erro</value>
   </text>
   
   <text id="TEXT_MPS_TICKET_SUCCESS">
-<value>Afficher la facture interactive</value>
+    <value>Exibir fatura interativa</value>
   </text>
   
   <text id="TEXT_MPS_TICKET_SESSION_ENDED">
-<value>La session Afficher la facture interactive a pris fin</value>
+    <value>A sessão Exibir fatura interativa foi encerrada.</value>
   </text>
   
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_1">
-<value>Une erreur s'est produite pendant l'ouverture de session de l'utilisateur, probablement en raison d'un justificatif d'identité incorrect ou d'un ticket non valide.</value>
+    <value>Ocorreu um erro durante o login do usuário. Isso pode ter ocorrido devido a credenciais incorretas ou a um ticket inválido.</value>
   </text>
 <!--  <text id="TEXT_MPS_TICKET_FAIL_STATUS_2">
     <value></value>
   </text> -->
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_3">
-<value>Impossible d'ouvrir une session car le compte est en attente.</value>
+    <value>Não é possível efetuar login porque a conta está pendente.</value>
   </text>
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_4">
-<value>Impossible d'ouvrir une session car le compte est inactif.</value>
+    <value>Não é possível efetuar login porque a conta está inativa.</value>
   </text>
 <!--  <text id="TEXT_MPS_TICKET_FAIL_STATUS_5">
     <value></value>
   </text> -->
   
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_6">
-<value>Une erreur s'est produite pendant la création d'objets nécessaires.</value>
+    <value>Ocorreu um erro durante a criação de objetos necessários.</value>
   </text>
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_7">
-<value>Impossible d'ouvrir une session car l'état du compte ne le permet pas.</value>
+    <value>Não foi possível efetuar login porque ele foi desativado pelo estado da conta.</value>
   </text>
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_8">
-<value>Échec de la tentative de création d'un enregistrement COM sécurisé.</value>
+    <value>A tentativa de criar um armazenamento seguro para o COM falhou.</value>
   </text>
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_9">
-<value>Impossible de créer un ticket.</value>
+    <value>Não é possível criar ticket.</value>
   </text>
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_10">
-<value>Gateway.xml n'est pas un XML valide ou n'existe pas.</value>
+    <value>Gateway.xml não é um XML válido ou não existe.</value>
   </text>
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_11">
-<value>Impossible de trouver un site localisé pour l'ID de fournisseur fourni.</value>
+    <value>Não é possível encontrar um site localizado para o ID do provedor especificado.</value>
   </text>
 </texts>

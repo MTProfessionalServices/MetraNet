@@ -2,247 +2,247 @@
 
 <texts id="Localized Key Terms" type="collection">
 
-    <description>Key Terms. When editing through MPM, the Localized Key Terms screen under Applications...MCM should be used.</description>
+    <description>Termos-chave. Ao editar por meio do MPM, a tela de termos-chave localizados em Aplicativos...MCM deve ser usada.</description>
 		
     <text id="TEXT_KEYTERM_ACCOUNT_TYPE">
-<value>Type de compte</value>
-      	<description>Account Type</description>
+        <value>Tipo de conta</value>
+      	<description>Tipo de conta</description>
     </text> 
 
     <text id="TEXT_KEYTERM_ACCOUNT_TYPES">
-<value>Types de compte</value>
-      	<description>Account Types</description>
+        <value>Tipos de conta</value>
+      	<description>Tipos de conta</description>
     </text>     
     		
 		<!-- Auth / Auth -->
     <text id="TEXT_KEYTERM_ROLE">
-<value>Rôle</value>
-      	<description>Security Role</description>
+        <value>Função</value>
+      	<description>Função de segurança</description>
     </text> 
 
     <text id="TEXT_KEYTERM_ROLES">
-<value>Rôles</value>
-      	<description>Security Roles</description>
+        <value>Funções</value>
+      	<description>Funções de segurança</description>
     </text> 
 
     <text id="TEXT_KEYTERM_CAPABILITY">
-<value>Capacité</value>
-      	<description>Capability</description>
+        <value>Capacidade</value>
+      	<description>Capacidade</description>
     </text> 
     
 		<text id="TEXT_KEYTERM_CAPABILITIES">
-<value>Capacités</value>
-      	<description>Capabilities</description>
+        <value>Capacidades</value>
+      	<description>Capacidades</description>
     </text> 
 		
     <!-- Product Offering -->
     <text id="TEXT_KEYTERM_PRODUCT_OFFERING">
-<value>Offre de produit</value>
-	<description>Product Offering</description>
+        <value>Oferta de produto</value>
+	<description>Oferta de produto</description>
     </text> 
     <text id="TEXT_KEYTERM_PRODUCT_OFFERINGS">
-<value>Offres de produit</value>
-	<description>Product Offerings</description>
+        <value>Ofertas de produto</value>
+	<description>Ofertas de produto</description>
     </text> 
 
     <!-- Service Charge -->   
     <text id="TEXT_KEYTERM_SERVICE_CHARGE">
-<value>Frais de service</value>
-	<description>Service Charge</description>
+        <value>Taxa de serviço</value>
+	<description>Taxa de serviço</description>
     </text>              
     <text id="TEXT_KEYTERM_SERVICE_CHARGES">
-<value>Frais de service</value>
-	<description>Service Charges</description>
+        <value>Taxas de serviço</value>
+	<description>Taxas de serviço</description>
     </text>              
 
     <!-- Priceable Items -->   
     <text id="TEXT_KEYTERM_PRICEABLE_ITEM">
-<value>Élément facturable</value>
-	<description>Priceable Item</description>
+        <value>Item cobrável</value>
+	<description>Item cobrável</description>
     </text>              
     <text id="TEXT_KEYTERM_PRICEABLE_ITEMS">
-<value>Éléments facturables</value>
-	<description>Priceable Items</description>
+        <value>Itens cobráveis</value>
+	<description>Itens cobráveis</description>
     </text>              
 
     <!-- Usage Charge -->   
     <text id="TEXT_KEYTERM_USAGE_CHARGE">
-<value>Frais d’utilisation</value>
-	<description>Usage Charge</description>
+        <value>Taxa de utilização</value>
+	<description>Taxa de utilização</description>
     </text>              
     <text id="TEXT_KEYTERM_USAGE_CHARGES">
-<value>Frais d’utilisation</value>
-	<description>Usage Charges</description>
+        <value>Taxas de utilização</value>
+	<description>Taxas de utilização</description>
     </text>              
 
     <!-- Usage Charge (aggregate) -->   
     <text id="TEXT_KEYTERM_USAGE_CHARGE_AGGREGATE">
-<value>Frais d’utilisation (total)</value>
-	<description>Usage Charge (Aggregate)</description>
+        <value>Taxa de utilização (Agregado)</value>
+	<description>Taxa de utilização (Agregado)</description>
     </text>              
     <text id="TEXT_KEYTERM_USAGE_CHARGES_AGGREGATE">
-<value>Frais d’utilisation (total)</value>
-	<description>Usage Charges (Aggregate)</description>
+        <value>Taxas de utilização (Agregado)</value>
+	<description>Taxas de utilização (Agregado)</description>
     </text>              
 
     <!-- Recurring Charge -->   
     <text id="TEXT_KEYTERM_RECURRING_CHARGE">
-<value>Frais périodiques</value>
-	<description>Recurring Charge</description>
+        <value>Cobrança recorrente</value>
+	<description>Cobrança recorrente</description>
     </text>     
     <text id="TEXT_KEYTERM_RECURRING_CHARGES">
-<value>Frais périodiques</value>
-	<description>Recurring Charges</description>
+        <value>Cobranças recorrentes</value>
+	<description>Cobranças recorrentes</description>
     </text>     
 
     <!-- Non-Recurring Charge -->   
     <text id="TEXT_KEYTERM_NON_RECURRING_CHARGE">
-<value>Frais non périodiques</value>
-	<description>Non-Recurring Charge</description>
+        <value>Cobrança não recorrente</value>
+	<description>Cobrança não recorrente</description>
     </text>     
     <text id="TEXT_KEYTERM_NON_RECURRING_CHARGES">
-<value>Frais non périodiques</value>
-	<description>Non-Recurring Charges</description>
+        <value>Cobranças não recorrentes</value>
+	<description>Cobranças não recorrentes</description>
     </text>     
     
     <!-- Discounts -->   
     <text id="TEXT_KEYTERM_DISCOUNT">
-<value>Rabais</value>
-	<description>Discount</description>
+        <value>Desconto</value>
+	<description>Desconto</description>
     </text>              
     <text id="TEXT_KEYTERM_DISCOUNTS">
-<value>Rabais</value>
-	<description>Discounts</description>
+        <value>Descontos</value>
+	<description>Descontos</description>
     </text>              
 
     <!-- Price List -->   
     <text id="TEXT_KEYTERM_PRICE_LIST">
-<value>Liste de prix</value>
-	<description>Price List</description>
+        <value>Lista de preços</value>
+	<description>Lista de preços</description>
     </text>
     <text id="TEXT_KEYTERM_PRICE_LISTS">
-<value>Listes de prix</value>
-	<description>Price Lists</description>
+        <value>Listas de preços</value>
+	<description>Listas de preços</description>
     </text>                 
 
     <!-- Rate Schedule -->   
     <text id="TEXT_KEYTERM_RATE_SCHEDULE">
-<value>Horaire de tarification</value>
-	<description>Rate Schedule</description>
+        <value>Agenda de taxa</value>
+	<description>Agenda de taxa</description>
     </text>
     <text id="TEXT_KEYTERM_RATE_SCHEDULES">
-<value>Horaires de tarification</value>
-	<description>Rate Schedules</description>
+        <value>Agendas de taxa</value>
+	<description>Agendas de taxa</description>
     </text>              
 
     <!-- Personal Rate -->   
     <text id="TEXT_KEYTERM_PERSONAL_RATE">
-<value>Tarif personnalisé</value>
-	<description>Custom Rate</description>
+        <value>Taxa personalizada</value>
+	<description>Taxa personalizada</description>
     </text>                
     <text id="TEXT_KEYTERM_PERSONAL_RATES">
-<value>Tarifs personnalisés</value>
-	<description>Custom Rates</description>
+        <value>Taxas personalizadas</value>
+	<description>Taxas personalizadas</description>
     </text>              
    
     <!-- Counter -->   
     <text id="TEXT_KEYTERM_COUNTER">
-<value>Compteur</value>
-	<description>Counter</description>
+        <value>Contador</value>
+	<description>Contador</description>
     </text>           
     <text id="TEXT_KEYTERM_COUNTERS">
-<value>Compteurs</value>
-	<description>Counters</description>
+        <value>Contadores</value>
+	<description>Contadores</description>
     </text>               
         
     <!-- Parameter Table -->   
     <text id="TEXT_KEYTERM_PARAMETER_TABLE">
-<value>Tableau de paramètres</value>
-	<description>Parameter Table</description>
+        <value>Tabela de parâmetros</value>
+	<description>Tabela de parâmetros</description>
     </text>           
 
 		<text id="TEXT_KEYTERM_PARAMETER_TABLES">
-			<value>Tableaux de paramètres</value>
-			<description>Parameter Tables</description>
+			<value>Tabelas de parâmetros</value>
+			<description>Tabelas de parâmetros</description>
 		</text> 
 		
 		<text id="TEXT_KEYTERM_GROUP_SUBSCRIPTION">
-			<value>Inscription de groupe</value>
-			<description>group subscription</description>
+			<value>Assinatura em grupo</value>
+			<description>assinatura em grupo</description>
 		</text>
 
 		<text id="TEXT_KEYTERM_GROUP_SUBSCRIPTIONS">
-			<value>Inscriptions de groupe</value>
-			<description>group subscriptions</description>
+			<value>Assinaturas em grupo</value>
+			<description>assinaturas em grupo</description>
 		</text>		
 				            
 		<text id="TEXT_KEYTERM_CORPORATE_ACCOUNT">
-			<value>Compte commercial</value>
-			<description>Corporate Account</description>
+			<value>Conta corporativa</value>
+			<description>Conta corporativa</description>
 		</text> 
 				
 		<text id="PAYER_ACCOUNT">
-			<value>Payeur</value>
-			<description>The paying account</description>
+			<value>Pagador</value>
+			<description>A conta de pagamento</description>
 		</text> 
 
 		<text id="PAYEE_ACCOUNT">
-			<value>Bénéficiaire</value>
-			<description>The paying account</description>
+			<value>Favorecido</value>
+			<description>A conta de pagamento</description>
 		</text> 
 
 		<text id="INDEPENDENT_ACCOUNT">
-			<value>Compte indépendant</value>
-			<description>Independent account</description>
+			<value>Conta independente</value>
+			<description>Conta independente</description>
 		</text> 
 
 
     <!-- Service Endpoint(s) -->
     <text id="TEXT_KEYTERM_SERVICE_ENDPOINT">
-<value>Point d’extrémité de service</value>
-      <description>Service Endpoint</description>
+      <value>Terminal de serviço</value>
+      <description>Terminal de serviço</description>
     </text>
     <text id="TEXT_KEYTERM_SERVICE_ENDPOINTS">
-<value>Points d’extrémité de service</value>
-      <description>Service Endpoints</description>
+      <value>Terminais de serviço</value>
+      <description>Terminais de serviço</description>
     </text>
 
     <!-- Unit-Dependent Recurring Charge(s) -->
     <text id="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGE">
-<value>Frais périodiques dépendant de l’unité</value>
-      <description>Unit-Dependent Recurring Charge</description>
+      <value>Cobrança recorrente dependente da unidade</value>
+      <description>Cobrança recorrente dependente da unidade</description>
     </text>
     <text id="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGES">
-<value>Frais périodiques dépendant de l’unité</value>
-      <description>Unit-Dependent Recurring Charges</description>
+      <value>Cobranças recorrentes dependentes da unidade</value>
+      <description>Cobranças recorrentes dependentes da unidade</description>
     </text>
 
     <!-- Shared Price List(s) -->
     <text id="TEXT_KEYTERM_SHARED_PRICE_LIST">
-<value>Liste de prix partagée</value>
-      <description>Shared Price List</description>
+      <value>Lista de preços compartilhada</value>
+      <description>Lista de preços compartilhada</description>
     </text>
     <text id="TEXT_KEYTERM_SHARED_PRICE_LISTS">
-<value>Listes de prix partagées</value>
-      <description>Shared Price Lists</description>
+      <value>Listas de preços compartilhadas</value>
+      <description>Listas de preços compartilhadas</description>
     </text>
 
     <!-- Non-Shared Price List(s) -->
     <text id="TEXT_KEYTERM_NON_SHARED_PRICE_LIST">
-<value>Liste de prix non partagée</value>
-      <description>Non-Shared Price List</description>
+      <value>Lista de preços não compartilhada</value>
+      <description>Lista de preços não compartilhada</description>
     </text>
     <text id="TEXT_KEYTERM_NON_SHARED_PRICE_LISTS">
-<value>Listes de prix non partagées</value>
-      <description>Non-Shared Price Lists</description>
+      <value>Listas de preços não compartilhadas</value>
+      <description>Listas de preços não compartilhadas</description>
     </text>
     
     <text id="TEXT_KEYTERM_REBILL_VERB">
-<value>Réaffecter</value>
+      <value>Reatribuir</value>
       <description></description>
     </text>    
     <text id="TEXT_KEYTERM_REBILL_NAME">
-<value>Réaffectation</value>
+      <value>Reatribuição</value>
       <description></description>
     </text>        
 

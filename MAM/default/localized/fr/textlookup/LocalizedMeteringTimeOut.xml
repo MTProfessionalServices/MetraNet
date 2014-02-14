@@ -4,35 +4,35 @@
 
   
   <text id="TEXT_METERING_TIME_OUT_DO_YOU_WANT_TO_RE_TRY">
-<value>Désirez-vous essayer à nouveau?</value>
+    <value>Deseja tentar novamente?</value>
   </text>  
   
   <text id="TEXT_RETRY_COUNTER">
-<value>Compteur d'essais</value>
+    <value>Contador de novas tentativas</value>
   </text>  
   
   <text id="TEXT_METERING_TIME_OUT_MANAGER_TITLE">
-<value>Gestionnaire du décompte de délai dépassé.</value>
+    <value>Gerenciador de expiração de medição</value>
   </text>  
   
   <text id="TEXT_METERING_TIME_OUT_OPERATION_TIME_OUT">
-<value>Le délai pour l'opération a été dépassé.</value>
+    <value>A operação expirou.</value>
   </text>  
 
   <text id="TEXT_METERING_TIME_OUT_OPERATION_UPDATE_TIME_OUT">
-<value>Le délai pour la mise à jour a été dépassé.</value>
+    <value>A atualização expirou.</value>
   </text>    
   
   <text id="TEXT_METERING_TIME_OUT_OPERATION_SUCCEEDED">
-<value>L'opération a été effectuée.</value>
+    <value>A operação foi bem-sucedida.</value>
   </text>  
   
   <text id="TEXT_METERING_TIME_OUT_OPERATION_WILL_BE_EXECUTED_LATED">
-<value>L'opération sera effectuée plus tard.</value>
+    <value>A operação será executada posteriormente.</value>
   </text>
   
   <text id="TEXT_PLEASE_RELOAD_THE_ACCOUNT">
-<value>Veuillez trouver et afficher le compte avec lequel vous désirez poursuivre.</value>
+    <value>Localize e exiba a conta para continuar a trabalhar com ela.</value>
   </text>  
   
 </texts>

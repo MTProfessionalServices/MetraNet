@@ -3,11 +3,11 @@
 <texts id="Batch Error Terms" type="collection">
 
     <text id="TEXT_ERROR_TITLE">
-<value>Liste d'erreurs du lot</value>
+      <value>Lista de erros em lote</value>
     </text> 
     
     <text id="TEXT_WARNING_TITLE">
-<value>Liste d'avertissements du lot</value>
+      <value>Lista de avisos em lote</value>
     </text>
 
 </texts>

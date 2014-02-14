@@ -3,63 +3,63 @@
 	 
 	 
 		<text id="GO_TOOL_TIP">
-				<value>Exécuter</value>
+				<value>Ir</value>
 				<description></description>
 		</text>
 		<text id="RESET_TOOL_TIP">
-				<value>Réinitialiser</value>
+				<value>Redefinir</value>
 				<description></description>
 		</text>
 		
 			 
 		<text id="NEXT_PAGE_TOOL_TIP">
-				<value>Page suivante</value>
+				<value>Próxima página</value>
 				<description></description>
 		</text>
 
 		<text id="PREVIOUS_PAGE_TOOL_TIP">
-				<value>Page précédente</value>
+				<value>Página anterior</value>
 				<description></description>
 		</text>
 
 		<text id="FIRST_PAGE_TOOL_TIP">
-				<value>Première page</value>
+				<value>Primeira página</value>
 				<description></description>
 		</text>
 
 		<text id="LAST_PAGE_TOOL_TIP">
-				<value>Dernière page</value>
+				<value>Última página</value>
 				<description></description>
 		</text>
 
 		<text id="REFRESH_PAGE_TOOL_TIP">
-				<value>Actualiser la page</value>
+				<value>Atualizar página</value>
 				<description></description>
 		</text>
 
 		<text id="EXPORT_PAGE_TOOL_TIP">
-				<value>Exporter</value>
+				<value>Exportar</value>
 				<description></description>
 		</text>
 
 	 <text id='MDM_TOOL_BAR_PAGE_WORD'>
-			<value>Page</value>
+			<value>Página</value>
 		</text> 	
 		<text id='MDM_TOOL_BAR_OF_WORD'>
 			<value>de</value>
     </text> 
     
     <text id='MDM_SELECT_ALL'>
-			<value>Choisir tout</value>
+			<value>Selecionar tudo</value>
     </text>     
     <text id='MDM_UNSELECT_ALL'>
-			<value>Annuler la choix</value>
+			<value>Desmarcar tudo</value>
     </text>             
     <text id='MDM_SELECT_PAGE'>
-			<value>Choisir la page</value>
+			<value>Selecionar página</value>
     </text>             
     <text id='MDM_UNSELECT_PAGE'>
-			<value>Annuler la choix de la page</value>
+			<value>Desmarcar página</value>
     </text>                 
     
 </texts>

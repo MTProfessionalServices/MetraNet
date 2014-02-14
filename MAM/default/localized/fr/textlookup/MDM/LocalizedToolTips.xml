@@ -2,146 +2,146 @@
 <texts id="Tool Tips" type="collection">
 
 <description>
-This file defines the MAM tool tips localization.
+Este arquivo define a localização das dicas de ferramenta MAM
 </description>
 
 
     <text id="TEXT_NEW_SESSION">
-<value>Lancer nouvelle fenetre MetraCare</value>
+        <value>Acionar nova janela MetraCare</value>
         <description></description>
     </text>
     
     <text id="TEXT_OK">
-<value>OK</value>
+        <value>OK</value>
         <description></description>
     </text>
 
     <text id="TEXT_CANCEL">
-<value>Annuler</value>
+        <value>Cancelar</value>
         <description></description>
     </text>
 
     <text id="TEXT_CLEAR">
-<value>Effacer</value>
+        <value>Limpar</value>
         <description></description>
     </text>
 
     <text id="TEXT_EDIT">
-<value>Modifier</value>
+        <value>Editar</value>
         <description></description>
     </text>
 
     <text id="TEXT_VIEW">
-<value>Afficher</value>
+        <value>Exibir</value>
         <description></description>
     </text>
 
     <text id="TEXT_DELETE">
-<value>Supprimer</value>
+        <value>Excluir</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD">
-<value>Ajouter</value>
+        <value>Adicionar</value>
         <description></description>
     </text>
 
     <text id="TEXT_UPDATE">
-<value>Mettre à jour</value>
+        <value>Atualizar</value>
         <description></description>
     </text>
 
     <text id="TEXT_HELP">
-<value>Aide MetraCare</value>
+        <value>Ajuda do MetraCare</value>
         <description></description>
     </text>
 
     <text id="TEXT_FULLSCREEN">
-<value>Plein ecran/fenetres</value>
+        <value>Alternar exibição de tela cheia</value>
         <description></description>
     </text>
 
     <text id="TEXT_GO">
-<value>Exécuter</value>
+        <value>Ir</value>
         <description></description>
     </text>
 
     <text id="TEXT_FIND_ACCOUNT_OR_SERVICE_END_POINT">
-<value>Trouver comptes ou [TEXT_KEYTERM_SERVICE_ENDPOINTS]</value>
+        <value>Encontrar contas para [TEXT_KEYTERM_SERVICE_ENDPOINTS]</value>
         <description></description>
     </text>    
 
     <text id="TEXT_ADVANCED">
-<value>Résultats détaillés</value>
+        <value>Localização avançada</value>
         <description></description>
     </text>
 
     <text id="TEXT_TURN_DOWN">
-<value>Afficher l'information détaillée</value>
+        <value>Mostrar informações detalhadas</value>
         <description></description>
     </text>
 
     <text id="TEXT_TURN_UP">
-<value>Masquer l'information détaillée</value>
+        <value>Ocultar informações detalhadas</value>
         <description></description>
     </text>
 
     <text id="TEXT_CLOSEWINDOW">
-<value>Fermer le compte</value>
+        <value>Fechar conta</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_PAYMENT_METHOD">
-<value>Ajouter un mode de paiement</value>
+        <value>Adicionar método de pagamento</value>
         <description></description>
     </text>
 
     <text id="TEXT_ENTER">
-<value>Entrer</value>
+        <value>Inserir</value>
         <description></description>
     </text>
 
     <text id="TEXT_GO_BACK">
-<value>Revenir à la liste des résultats de Trouver comptes</value>
+        <value>Retornar à lista de resultados retornados por meio da opção Encontrar contas</value>
         <description></description>
     </text>
     <text id="TEXT_APPLY">
-<value>Appliquer</value>
+        <value>Aplicar</value>
         <description></description>
     </text>		
     
     <text id="TEXT_SUCCEED">
-<value>Réussi</value>
+        <value>Bem-sucedido</value>
         <description></description>
     </text>
 
     <text id="TEXT_FAILED">
-<value>Échoué</value>
+        <value>Falhou</value>
         <description></description>
     </text>
 
     <text id="TEXT_NONE">
-<value>Aucune</value>
+        <value>Nenhum</value>
         <description></description>
     </text>
     
    <text id="TEXT_NO">
-<value>Non</value>
+        <value>Não</value>
         <description></description>
     </text>    
     
     <text id="TEXT_YES">
-<value>Oui</value>
+        <value>Sim</value>
         <description></description>
     </text>       
     
     <text id="TEXT_CLOSE">
-<value>Fermer</value>
+        <value>Fechar</value>
         <description></description>
     </text>
     
     <text id="TEXT_INFO_SUCCEFULLY_ADDED">
-<value>L'information a été ajoutée.</value>
+        <value>As informações foram adicionadas com sucesso.</value>
         <description></description>
     </text>
         

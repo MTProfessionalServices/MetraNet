@@ -6,740 +6,746 @@
  
     <!-- Columns -->
     <text id="TEXT_MPTE_BUTTON_SETEFFDATE">
-<value>Définir la date d'entrée en vigueur et la description</value>
+        <value>Definir data efetiva e descrição</value>
 		<description></description>
     </text>
     <text id="TEXT_MPTE_FILTERON">
-<value>Filtre activé</value>
+        <value>Filtro ativado</value>
 		<description></description>
     </text>	            
     <text id="TEXT_MPTE_FILTEROFF">
-<value>Filtre désactivé</value>
+        <value>Filtro desativado</value>
 		<description></description>
     </text>		
     <text id="TEXT_MPTE_OWNER_APP">
-<value>MCM</value>
+        <value>MCM</value>
 		<description></description>
     </text>
     <text id="TEXT_MPTE_WARNING_NORATE_CONFIGURED">
-<value>Avertissement :aucun tarif n'est actuellement configuré</value>
+        <value>Aviso: nenhuma taxa configurada no momento</value>
 		<description></description>
     </text>
     <text id="TEXT_MPTE_CONNECTOR_AND">
-<value>et</value>
+        <value>e</value>
 		<description></description>
     </text>
     <text id="TEXT_MPTE_CONNECTOR_IF">
-<value>si</value>
+        <value>se</value>
 		<description></description>
     </text>
     <text id="TEXT_MPTE_CONNECTOR_THEN">
-<value>alors</value>
+        <value>então</value>
 		<description></description>
     </text>
     <text id="TEXT_MPTE_CONNECTOR_MOVE">
-<value>Déplacer</value>
+        <value>Mover</value>
 		<description></description>
     </text>
     
     <text id="TEXT_MPTE_CONNECTOR_ADD">
-<value>Ajouter</value>
+        <value>Adicionar</value>
 		<description></description>
     </text>
 
     <text id="TEXT_MPTE_CONNECTOR_EDIT">
-<value>Modifier</value>
+        <value>Editar</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_DEFAULTRULE">
-<value>La règle par défaut</value>
+        <value>A regra padrão</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_DEFAULTRULE_NOT_ALLOWED">
-<value>La règle par défaut n'est pas autorisée dans ce tableau de paramètres</value>
+        <value>A regra padrão não é permitida nessa tabela de parâmetros</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_NO_DEFAULTRULE">
-<value>Aucune règle par défaut n'est configurée</value>
+        <value>Nenhuma regra padrão configurada</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_ADD_DEFAULTRULE">
-<value>Ajouter une règle par défaut</value>
+        <value>Adicionar regra padrão</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_TOTAL">
-<value>Total :</value>
+        <value>Total:</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_RULES">
-<value>Règles</value>
+        <value>Regras</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_FILTERED">
-<value>Filtrée</value>
+        <value>Filtrado</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_UNSAVED_CHANGES">
-<value>Vous avez choisi d'actualiser ou de fermer, mais certaines de vos modifications n'ont pas été enregistrées.Êtes-vous certain de vouloir continuer?</value>
+        <value>Você optou por atualizar ou fechar, mas no momento você tem alterações não salvas. Tem certeza que deseja continuar?</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_ADD_BTN">
-<value>Ajouter</value>
+        <value>Adicionar</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_REMOVE_BTN">
-<value>Supprimer</value>
+        <value>Remover</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_COMMITREMOVE_BTN">
-<value>Supprimer</value>
+        <value>Remover</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_FILTER_BTN">
-<value>Filtre</value>
+        <value>Filtro</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_OK_BTN">
-<value>OK</value>
+        <value>OK</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CANCEL_BTN">
-<value>Annuler</value>
+        <value>Cancelar</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_IMPORT_BTN">
-<value>Copier les règles</value>
-		    <description>Copy Rules From Another Rate Schedule</description>
+        <value>Copiar regras</value>
+		    <description>Copiar regras por meio de outro agendamento de taxa</description>
     </text>
     
 		<text id="TEXT_MPTE_EDIT_AS_XML_BTN">
-<value>Modifier sous XML</value>
-		    <description>Edit these rules in XML form</description>
+        <value>Editar como XML</value>
+		    <description>Editar essas regras no formato XML</description>
     </text>
     
 		<text id="TEXT_MPTE_EDIT_AS_XML">
-<value>Modifier l'ensemble de règles actuel sous XML</value>
+        <value>Editar o conjunto de regras atual como XML</value>
 		    <description></description>
     </text>
 		
 		<text id="TEXT_MPTE_SAVE_BTN">
-<value>Enregistrer</value>
+        <value>Salvar</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_EDIT_BTN">
-<value>Modifier</value>
+        <value>Editar</value>
 		<description></description>
     </text>
 		         
     <text id="TEXT_MPTE_CLOSE_BTN">
-<value>Fermer</value>
+        <value>Fechar</value>
 		<description></description>
     </text>	            
 
 		<text id="TEXT_MPTE_MOREINFO">
-<value>Plus d'info</value>
+        <value>Mais informações</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_FILTERPAGING_ERROR">
-<value>Le mouvement de page n'est pas disponible lorsque le filtre est activé</value>
+        <value>A paginação não é disponibilizada quando a filtragem está ativada</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_ALT_FIRSTPAGE">
-<value>Première page</value>
+        <value>Primeira página</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_ALT_LASTPAGE">
-<value>Dernière page</value>
+        <value>Última página</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_ALT_PREVIOUSPAGE">
-<value>Page précédente</value>
+        <value>Página anterior</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_ALT_NEXTPAGE">
-<value>Page suivante</value>
+        <value>Próxima página</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_ALT_EDITGLOBALSETTINGS">
-<value>Modifier les paramètres globaux</value>
+        <value>Editar configurações globais</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ALT_MOVERULEUP">
-<value>Déplacer la règle vers le haut</value>
+        <value>Mover regra para cima</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ALT_MOVERULEDOWN">
-<value>Déplacer la règle vers le haut</value>
+        <value>Mover regra para baixo</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ALT_EDITROW">
-<value>Modifier la rangée</value>
+        <value>Editar linha</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_ALT_ADDROW">
-<value>Ajouter une rangée avant cette rangée</value>
+        <value>Adicionar linha antes desta linha</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_ALT_EDITDEFAULTRULE">
-<value>Modifier la règle par défaut</value>
+        <value>Editar regra padrão</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_CONNECTOR_REMOVE">
-<value>Supprimer</value>
+        <value>Remover</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ALT_REMOVEITEMSCLICK">
-<value>Cochez tous les éléments que vous voulez supprimer</value>
+        <value>Verifique todos os itens que deseja remover</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_ALT_OK">
-<value>OK</value>
+        <value>OK</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ALT_CANCEL">
-<value>Annuler</value>
+        <value>Cancelar</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ALT_CALENDAR_EDITDAY">
-<value>Modifier</value>
+        <value>Editar</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ERROR_ALLCONDITIONSBLANK">
-<value>Au moins une condition doit posséder une valeur</value>
+        <value>Pelo menos uma condição deve ter um valor</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_GLOBALACTIONS">
-<value>Actions globales</value>
+        <value>Ações globais</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_FILTERDEFINE">
-<value>Définissez les filtres que vous voulez utiliser</value>
+        <value>Defina os filtros que você deseja usar</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_EDITCALENDAR">
-<value>Modifier les caractéristiques</value>
+        <value>Editar propriedades</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_IMPORTCALENDAR">
-<value>Importer un calendrier</value>
+        <value>Importar calendário</value>
 		<description></description>
 		</text>
 		
 		<text id="TEXT_MPTE_SELECTCALENDAR">
-<value>Sélectionner un calendrier</value>
+        <value>Selecionar calendário</value>
 		<description></description>
 
     </text>
 
 		<text id="TEXT_MPTE_NEWCALENDAR">
-<value>Nouveau calendrier</value>
+        <value>Novo calendário</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_WRONG_TYPE_ERROR">
-<value>Aucun élément de ce type</value>
+      <value>Não há itens neste tipo</value>
 			<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDAR_EDIT_DAY">
-	<value>Jours de semaine</value>
+    	<value>Dias úteis</value>
 			<description></description>
     </text>
 
 		
 		<text id="TEXT_MPTE_CALENDAR_WEEKDAYS_CHOICE">
-	<value>Jours de semaine</value>
+    	<value>Dias úteis</value>
 			<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDAR_WEEKENDS_CHOICE">
-	<value>Fins de semaine</value>
+    	<value>Fins de semana</value>
 			<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDAR_HOLIDAYS_CHOICE">
-<value>Congés</value>
+        <value>Feriados</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDAR_WEEKDAY">
-<value>Jour de semaine</value>
+        <value>Dia útil</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDAR_WEEKDAYS">
-<value>Jours de semaine</value>
+        <value>Dias úteis</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_WEEKEND">
-<value>Fin de semaine</value>
+        <value>Fim de semana</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDAR_WEEKENDS">
-<value>Fins de semaine</value>
+        <value>Fins de semana</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDAR_HOLIDAY">
-<value>Congé</value>
-		<description></description>
-    </text>
-
-		<text id="TEXT_MPTE_CALENDAR_DATE">
-<value>Date</value>
+        <value>Feriado</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_DAY_OF_WEEK">
-<value>Jour de la semaine</value>
+        <value>Dia da semana</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDAR_HOLIDAYS">
-<value>Congés</value>
+        <value>Feriados</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CANNOT_CREATE_CALENDAR">
-<value>Impossible de créer un objet de calendrier</value>
+        <value>Não foi possível criar o objeto do calendário</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ERROR_CALENDAR_NAME_DUPLICATE">
-<value>Un calendrier portant ce nom existe déjà dans le système.Veuillez renommer ce calendrier et essayer de nouveau.</value><description></description>
+        <value>Um calendário com este nome já existe no sistema. Renomeie este calendário e tente novamente.</value><description></description>
 				<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CANNOT_SAVE_CALENDAR">
-<value>Impossible d'enregistrer ce calendrier dans la base de données</value>
+        <value>Não foi possível salvar este calendário no banco de dados.</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_CANNOT_LINK_TO_CALENDAR">
-<value>Impossible d'établir une correspondance entre le barème de tarification et ce calendrier.</value>
+        <value>Não foi possível mapear o agendamento da taxa para este calendário.</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MTPE_CANNOT_SET_WEEKDAY_TO_DEFAULT">
-<value>Impossible de régler le jour de semaine à sa valeur par défaut</value>
+        <value>Não foi possível definir dia útil como padrão</value>
 		<description></description>
     </text>
 				
 		<text id="TEXT_MPTE_CALENDAR_CANNOT_CREATE_WEEKDAY">
-<value>Impossible de créer un jour de semaine</value>
+        <value>não foi possível criar dia útil</value>
 		<description></description>
     </text>
 								
 		<text id="TEXT_MPTE_CANNOT_LOAD_CALENDAR">
-<value>Impossible de charger un calendrier</value>
+        <value>Não foi possível criar calendário</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ADDWEEKDAY">
-<value>Personnaliser le jour</value>
+        <value>Personalizar dia</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_REMOVEDAY">
-<value>Supprimer</value>
+        <value>Remover</value>
 		<description></description>
     </text>
 				
 		<text id="TEXT_MPTE_ADDHOLIDAY_BTN">
-<value>Nouveau congé</value>
+        <value>Novo feriado</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_REMOVEHOLIDAY_BTN">
-<value>Supprimer</value>
+        <value>Remover</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_NEW_HOLIDAY">
-<value>Nouveau congé</value>
+        <value>Novo feriado</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_HOLIDAY_NAME">
-<value>Nom</value>
+        <value>Nome</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_HOLIDAY_DATE">
-<value>Date</value>
+        <value>Data</value>
 		<description></description>
     </text>
 				
 		<text id="TEXT_MPTE_ADD_PERIOD_BTN">
-<value>Ajouter</value>
+        <value>Adicionar</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_REMOVE_PERIOD_BTN">
-<value>Supprimer</value>
+        <value>Remover</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_REMOVE_PERIODS_TITLE">
-<value>Supprimer les périodes</value>
+        <value>Remover períodos</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_ADD_PERIOD_TITLE">
-<value>Ajouter une période</value>
+        <value>Adicionar período</value>
 		<description></description>
     </text>
 		
 		
 		<text id="TEXT_MPTE_RECURRING_CHARGE_AMOUNT">
-<value>Montant des frais périodiques</value><description></description>
+        <value>Valor da cobrança recorrente</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_NO_CALENDAR_CONFIGURED">
-<value>Avertissement :Aucun calendrier n'est configuré</value>
+        <value>Aviso: Nenhum calendário configurado</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_NO_CALENDAR_CONFIGURED_SUGESTION_MSG">
-<value>Veuillez sélectionner un calendrier existant ou en créer un nouveau.</value>
+        <value>Selecione um existente ou crie um novo.</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_NO_CALENDAR_CONFIGURED_MAM_SUGESTION_MSG">
-<value>Veuillez créer un nouveau calendrier.</value>
+        <value>Crie um novo.</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_CALENDAR_PICKER_TITLE">
-<value>Sélectionner un calendrier</value><description></description>
+        <value>Selecionar calendário</value><description></description>
     </text>
 		
     <text id="TEXT_MPTE_NEW_CALENDAR_SAVED">
-<value>Le calendrier a été enregistré.</value>
+        <value>O calendário foi salvo com sucesso.</value>
     </text>
 		
     <text id="TEXT_MPTE_CALENDAR_SAVED">
-<value>Le calendrier a été enregistré.Si l'utilisation a déjà été évaluée à l'aide de ce calendrier, il se peut que vous deviez redémarrer le pipeline pour que les nouvelles valeurs prennent effet.</value>
+        <value>O calendário foi salvo com sucesso.  Se o uso já tiver sido classificado usando este calendário, o pipeline deverá ser reiniciado para que os novos valores entrem em vigor.</value>
     </text>
 		
 		<text id="TEXT_RATESCHEDULE_PICKER_TITLE">
-<value>Sélectionnez le [TEXT_KEYTERM_RATE_SCHEDULE] pour importer les règles à partir de</value><description></description>
+        <value>Selecione [TEXT_KEYTERM_RATE_SCHEDULE] para importar regras de</value><description></description>
     </text>
 		
 		<text id="TEXT_NULL_START_DATE_TYPE">
-<value>Aucune date de début</value><description></description>
+        <value>Nenhuma data de início</value><description></description>
     </text>
 		
 		<text id="TEXT_NULL_END_DATE_TYPE">
-<value>Aucune date de fin</value><description></description>
+        <value>Nenhuma data de término</value><description></description>
     </text>
 		
 		<text id="TEXT_ABSOLUTE_DATE_TYPE">
-<value>Date absolue le</value><description></description>
+        <value>Data absoluta em</value><description></description>
     </text>
 		
 		<text id="TEXT_SUBSCRIPTIONRELATIVE_DATE_TYPE">
-<value>jour(s) après l'inscription</value><description></description>
+        <value>dia(s) após assinatura</value><description></description>
     </text>
 		
 		<text id="TEXT_BILLINGCYCLE_DATE_TYPE">
-<value>Prochain cycle de facturation après</value><description></description>
+        <value>Próximo ciclo de faturamento após</value><description></description>
     </text>	
 		
 		<text id="TEXT_RATES_START_DATE">
-<value>Commence</value><description></description>
+        <value>Começa</value><description></description>
     </text>
 
 		<text id="TEXT_RATES_END_DATE">
-<value>Prend fin</value><description></description>
+        <value>Termina</value><description></description>
     </text>
 		
 		<text id="TEXT_CALENDAR_NAME">
-<value>Nom</value><description></description>
+        <value>Nome</value><description></description>
     </text>
 		
 		<text id="TEXT_CALENDAR_DESCRIPTION">
-<value>Description</value><description></description>
+        <value>Descrição</value><description></description>
     </text>
 		
 		<text id="TEXT_CALENDAR_PROPERTIES">
-<value>Propriétés du calendrier</value><description></description>
+        <value>Propriedades de calendário</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_DAY">
-<value>Jour</value><description></description>
+        <value>Dia</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_DATE">
-<value>Date</value><description></description>
+        <value>Data</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDAR_STARTTIME">
-<value>Heure de début</value><description></description>
+        <value>Hora de início</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDAR_ENDTIME">
-<value>Heure de fin</value><description></description>
+        <value>Hora de término</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_CODE">
-<value>Code</value><description></description>
+        <value>Código</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_DEFCODE">
-<value>Code par défaut</value><description></description>
+        <value>Código padrão</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_GRAPH">
-<value>Graphique</value><description></description>
+        <value>Gráfico</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_PERIODS">
-<value>Périodes</value><description></description>
+        <value>Períodos</value><description></description>
     </text>		
 		
 		<text id="TEXT_MPTE_ERROR_PERIODSTART_AFTER_END">
-<value>L'heure de début doit être antérieure à l'heure de fin</value><description></description>
+        <value>A hora de início deve ser anterior à hora de término</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDARNAME_BLANK">
-<value>Vous devez attribuer un nom au calendrier</value><description></description>
+        <value>O nome do calendário não pode estar em branco</value><description></description>
     </text>		
 
 		<text id="TEXT_MPTE_HOLIDAYNAME_DUPLICATE">
-<value>Ce nom est déjà utilisé par un autre congé sur ce calendrier</value><description></description>
+        <value>Este nome já está sendo usado por outro feriado neste calendário</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_HOLIDAYNAME_BLANK">
-<value>Vous devez attribuer un nom au congé</value><description></description>
+        <value>O nome do feriado não pode estar em branco</value><description></description>
     </text>		
 
 		<text id="TEXT_MPTE_HOLIDAYNAME_INVALID">
-<value>Le nom de congé comporte des caractères non valides</value><description></description>
+        <value>O nome do feriado tem caracteres inválidos</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_HOLIDAYDATE_INVALID">
-<value>La date du congé n'est pas valide</value><description></description>
+        <value>A data do feriado é inválida</value><description></description>
     </text>		
 
 		<text id="TEXT_MPTE_CANNOT_REMOVE_HOLIDAY">
-<value>Le congé ne peut pas être supprimé de ce calendrier.</value><description></description>
+        <value>Não foi possível remover o feriado deste calendário.</value><description></description>
     </text>		
 		
 		<text id="TEXT_MPTE_SET_DAY_TO_DEFAULT">
-<value>Créer une valeur par défaut</value><description></description>
+        <value>Tornar padrão</value><description></description>
     </text>		
 
 		<text id="TEXT_MPTE_CUSTOMIZE_DAY">
-<value>Personnaliser</value><description></description>
+        <value>Personalizar</value><description></description>
     </text>		
 		
 		<text id="TEXT_MPTE_CALENDAR_EDITDAY">
-<value>Modifier</value><description></description>
+        <value>Editar</value><description></description>
     </text>		
 
 		<text id="TEXT_MPTE_CALENDAR_EDITDAY">
-<value>Modifier</value><description></description>
+        <value>Editar</value><description></description>
     </text>		
 
 		<text id="TEXT_MPTE_CALENDAR_MONDAY">
-<value>Lundi</value><description></description>
+        <value>Segunda-feira</value><description></description>
     </text>		
 		<text id="TEXT_MPTE_CALENDAR_TUESDAY">
-<value>Mardi</value><description></description>
+        <value>Terça-feira</value><description></description>
     </text>		
 		<text id="TEXT_MPTE_CALENDAR_WEDNESDAY">
-<value>Mercredi</value><description></description>
+        <value>Quarta-feira</value><description></description>
     </text>		
 		<text id="TEXT_MPTE_CALENDAR_THURSDAY">
-<value>Jeudi</value><description></description>
+        <value>Quinta-feira</value><description></description>
     </text>		
 		<text id="TEXT_MPTE_CALENDAR_FRIDAY">
-<value>Vendredi</value><description></description>
+        <value>Sexta-feira</value><description></description>
     </text>		
 		<text id="TEXT_MPTE_CALENDAR_SATURDAY">
-<value>Samedi</value><description></description>
+        <value>Sábado</value><description></description>
     </text>		
 		<text id="TEXT_MPTE_CALENDAR_SUNDAY">
-<value>Dimanche</value><description></description>
+        <value>Domingo</value><description></description>
     </text>		
 		<text id="TEXT_MPTE_CALENDAR_DEFAULTWEEKEND">
-<value>Fin de semaine par défaut</value><description></description>
+        <value>Fim de semana padrão</value><description></description>
     </text>		
 		<text id="TEXT_MPTE_CALENDAR_DEFAULTWEEKDAY">
-<value>Jour de semaine par défaut</value><description></description>
+        <value>Dia útil padrão</value><description></description>
     </text>		
 
 		
 		<text id="TEXT_MPTE_CALENDAR_ADDPERIOD">
-<value>Ajouter</value><description></description>
+        <value>Adicionar</value><description></description>
     </text>		
 
 		<text id="TEXT_MPTE_CALENDAR_REMOVEPERIOD">
-<value>Supprimer</value><description></description>
+        <value>Remover</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ERROR_NO_ENUMERATOR">
-<value>Impossible de trouver une expression énumérative pour cette valeur</value><description></description>
+        <value>Não é possível localizar o enumerador para este valor</value><description></description>
     </text>
 				
 		<text id="TEXT_MPTE_ERROR_FILE_NOT_LOCATED">
-<value>Impossible de trouver le fichier</value><description></description>
+        <value>Não foi possível localizar o arquivo</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_ERROR_FILE_NOT_READABLE">
-<value>Une erreur s'est produite pendant la lecture du fichier</value><description></description>
+        <value>Ocorreu um erro durante a leitura do arquivo</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ERROR_NO_ENUMERATOR">
-<value>Impossible de trouver une expression énumérative pour cette valeur</value><description></description>
+        <value>Não é possível localizar o enumerador para este valor</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_ERROR_NOT_BLANK1">
-<value>ne peut pas être laissé vide.</value><description></description>
+        <value>não pode estar em branco</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_ERROR_NOT_BLANK2">
-<value>La valeur par défaut de</value><description></description>
+        <value>O valor padrão de</value><description></description>
     </text>		
 		
 		<text id="TEXT_MPTE_ERROR_NOT_BLANK3">
-<value>est en cours d'utilisation.</value><description></description>
+        <value>está sendo usado.</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_ERROR_MUSTBE_INTEGER">
-<value>doit être un entier relatif</value><description></description>
+        <value>deve ser um número inteiro</value><description></description>
     </text>
 				
 		<text id="TEXT_MPTE_ERROR_MUSTBE_NUMBER">
-<value>doit être un nombre</value><description></description>
+        <value>deve ser um número</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_ERROR_MUSTBE_AMOUNT">
-<value>Erreur d'entrée.Veuillez entrer un montant.</value><description></description>
+        <value>Erro de entrada. Digite um valor.</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ERROR_MUSTBE_DATE">
-<value>doit être une date</value><description></description>
+        <value>deve ser uma data</value><description></description>
     </text>
 
     <text id="TEXT_MPTE_ERROR_LONG_OVERFLOW">
-<value> ne correspond pas à la gamme des entiers longs</value><description></description>
+        <value> não se adequa ao intervalo de um número inteiro longo</value><description></description>
     </text>
 
     <text id="TEXT_MPTE_ERROR_UNKNOWN">
-<value>Une erreur inconnue s'est produite.Veuillez réessayer plus tard.Si ce problème persiste, veuillez communiquer avec votre administrateur système.</value><description></description>
+        <value>Ocorreu um erro desconhecido.  Tente novamente mais tarde. Se o problema continuar, entre em contato com o administrador do sistema.</value><description></description>
     </text>
 
     <text id="TEXT_MPTE_ERROR_CANNOT_CREATE_OBJ">
-<value>Impossible de créer l'objet.Veuillez vous assurer que l'objet est disponible et inscrit.</value><description></description>
+        <value>Não foi possível criar o objeto. Verifique se o objeto está disponível e registrado.</value><description></description>
     </text>
 
     <text id="TEXT_MPTE_ERROR_NOT_FOUND">
-<value>n'a pas été trouvé ID=</value><description></description>
+        <value>não foi encontrado ID=</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_ERROR_RATESCHEDULE_SAVE_FAILED">
-<value>Impossible d'enregistrer [TEXT_KEYTERM_RATE_SCHEDULE] avec des règles dans la base de données.Veuillez vérifier votre fichier journal.</value><description></description>
+        <value>Não foi possível salvar [TEXT_KEYTERM_RATE_SCHEDULE] com regras para o banco de dados. Verifique seu arquivo de log.</value><description></description>
     </text>
 		
     <text id="TEXT_MPTE_ERROR_CANNOT_INITIALIZE_OBJ">
-<value>L'objet n'a pas réussi à exécuter la fonction initialisée.</value><description></description>
+        <value>O objeto falhou ao executar a função de inicialização.</value><description></description>
     </text>
 		
     <text id="TEXT_MPTE_ERROR_CANNOT_LOAD_ENUMTYPES">
-<value>L'objet n'a pas réussi à charger les types énumérés.</value><description></description>
+        <value>Não foi possível que o objeto carregasse os tipos enumerado.</value><description></description>
     </text>	
 		
     <text id="TEXT_MPTE_ERROR_CANNOT_LOAD_ENUMTYPES">
-<value>L'objet n'a pas réussi à charger les types énumérés.</value><description></description>
+        <value>Não foi possível que o objeto carregasse os tipos enumerado.</value><description></description>
     </text>
 		
     <text id="TEXT_MPTE_WARNING_EDIT_PAST_RATES">
-<value><![CDATA[<b>Avertissement :</b> vous modifiez des tarifs qui sont peut-être (ou qui ont déjà été) en vigueur.]]></value><description></description>
+        <value><![CDATA[<b>Aviso:</b> você está editando as taxas que podem ser (ou foram) efetivas.]]></value><description></description>
     </text>
 
     <text id="TEXT_MPTE_ERROR_OVERFLOW">
-<value>valeur est interdite</value><description></description>
+        <value>o valor está fora dos limites</value><description></description>
     </text>
 
     <text id="TEXT_MPTE_VALUE_NOT_CONFIGURED">
-<value>valeur non configurée</value><description></description>
+        <value>valor não configurado</value><description></description>
     </text>
 
     <text id="TEXT_MPTE_NO_PERIODS_CONFIGURED">
-<value>Aucune période n'est configurée</value><description></description>
+        <value>Não há períodos configurados</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_CANNOT_CREATE_PERIOD">
-<value>Impossible de créer une période de calendrier</value><description></description>
+        <value>Não foi possível criar o período do calendário</value><description></description>
     </text>
 
     <text id="TEXT_MPTE_CALENDAR_SAVE_OK">
-<value>Calendrier enregistré</value><description></description>
+        <value>Calendário salvo</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_WARNING_WHEN_EDITING">
-<value>Avertissement :Plusieurs [TEXT_KEYTERM_RATE_SCHEDULES] peuvent utiliser ce calendrier.Une modification risque de les affecter tous. </value>
+        <value>Aviso: Muitos [TEXT_KEYTERM_RATE_SCHEDULES] podem estar usando este calendário. Qualquer alteração feita afetará todos eles. </value>
 				<description></description>
     </text>
 
 		<text id="TEXT_MPTE_DIFF_DISPLAY_NULLVALUE">
-<value>VIDE</value>
+        <value>EM BRANCO</value>
 				<description></description>
     </text>
 		<text id="TEXT_MPTE_DIFF_DISPLAY_DELETED">
-<value>Supprimé</value>
+        <value>Excluído</value>
 				<description></description>
     </text>
 		<text id="TEXT_MPTE_DIFF_DISPLAY_UPDATED">
-<value>Modifié</value>
+        <value>Modificado</value>
 				<description></description>
     </text>
 		<text id="TEXT_MPTE_DIFF_DISPLAY_ADDED">
-<value>Ajouté</value>
+        <value>Adicionado</value>
 				<description></description>
     </text>
 		<text id="TEXT_MPTE_DIFF_DISPLAY_NOCHANGE">
-<value><![CDATA[&nbsp;]]></value>
+        <value><![CDATA[&nbsp;]]></value>
 				<description></description>
     </text>
 		<text id="TEXT_MPTE_DIFF_DISPLAY_NOCHANGE_MESSAGE">
-<value><![CDATA[<b>Les deux ensembles de règles sont identiques.</b><BR>Cela peut se produire lorsqu'un ensemble de règles est enregistré sans que des modifications n'aient été apportées.&nbsp;&nbsp;
+        <value><![CDATA[<b>Os dois conjuntos de dados são idênticos.</b><BR>Isso pode acontecer quando um conjunto de regras é salvo mas nenhuma edição é feita no conjunto de regras.&nbsp;&nbsp;
 ]]></value>
 				<description></description>
     </text>
 		<text id="TEXT_ICB_PRICELIST_DISPLAY_NAME">
-<value><![CDATA[<b>Spécifique au client (Tarif personnalisé)]]></value>
+        <value><![CDATA[Específico do cliente (Taxa personalizada)]]></value>
 				<description></description>
     </text>
-    
+  <text id="TEXT_APPROVALS_RATESCHEDULE_ALREADY_HAS_PENDING_CHANGE">
+    <value>Esse agendamento de taxa tem uma aprovação pendente de atualização no momento. Para obter consistência, não será possível executar as futuras atualizações até que a alteração pendente seja aprovada ou negada.</value>
+    <description></description>
+  </text>
+  <text id="TEXT_APPROVALS_VIEW_PENDING_CHANGE">
+    <value>Exibir alteração pendente</value>
+    <description></description>
+  </text>
+  <text id="TEXT_APPROVALS_RATE_SCHEDULE_RULES_WERE_UPDATED">
+    <value>A regras de agendamento de taxa foram atualizadas</value>
+    <description></description>
+  </text>
 </texts>

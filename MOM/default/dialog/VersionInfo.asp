@@ -95,7 +95,7 @@ FUNCTION form_Refresh(EventArg)
     '// Determine if this is developer machine or production machine
     dim objSystemInfo
     set objSystemInfo=CreateObject("MetraTech.Statistics.SystemInfo")
-    sPath = objSystemInfo.GetEnviromentVariable("mtoutdir")
+    sPath = objSystemInfo.GetEnviromentVariable("outdir")
     if len(sPath)=0 then
       '//This is a production machine  
       sPath = session("INSTALL_DIR") & "\Bin\pipeline.exe"

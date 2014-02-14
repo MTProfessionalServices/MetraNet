@@ -58,6 +58,11 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   ' Load a Rowset from a SQL Queries and build the properties collection of the product view based on the columns of the rowset
   Set objMTFilter = mdm_CreateObject("MTSQLRowset.MTDataFilter.1")
   objMTFilter.Add "Hidden", OPERATOR_TYPE_EQUAL, "Y"
+
+  If Session("isPartitionUser") Then
+    objMTFilter.Add "PartitionId", OPERATOR_TYPE_EQUAL, Session("topLevelAccountId")
+  End If
+
   Set ProductView.Properties.RowSet = objMTProductCatalog.FindProductOfferingsAsRowset(objMTFilter)
   
   

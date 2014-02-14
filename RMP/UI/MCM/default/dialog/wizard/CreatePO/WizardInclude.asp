@@ -80,7 +80,12 @@ Function WriteGeneralConfiguration(strWizardName)
     session(strWizardName & "_CopyName") = objProductOffering.Name
     
     if session(strWizardName & "_name") = "" then
-      session(strWizardName & "_name") = FrameWork.GetDictionary("TEXT_WIZARD_COPY_NAME_PREFIX") & " " & objProductOffering.Name
+        ' If this is a Partition admin, remove Partition Prefix before prefixing with "Copy of"
+        If Session("isPartitionUser") Then
+            session(strWizardName & "_name") = FrameWork.GetDictionary("TEXT_WIZARD_COPY_NAME_PREFIX") & " " & Replace(objProductOffering.Name, Session("topLevelAccountUserName") + ":", "")
+        Else
+            session(strWizardName & "_name") = FrameWork.GetDictionary("TEXT_WIZARD_COPY_NAME_PREFIX") & " " & objProductOffering.Name
+        End If
     end if
 
     if session(strWizardName & "_displayname") = "" then
@@ -103,7 +108,8 @@ Function WriteGeneralConfiguration(strWizardName)
   strHTML = strHTML & gobjMTFormsAddInputHint(FrameWork.GetDictionary("TEXT_WIZARD_PROMPT_CREATE_COPY_OF_EXISTING"))
   strHTML = strHTML & gobjMTForms.CloseEditBoxTable() 
 
-  strHTML = strHTML & "<div align='center'><button class=""clsButtonBlueLarge"" style=""vertical-align: middle;"" onclick=""window.open('/mcm/default/dialog/ProductOffering.Picker.asp?NextPage=Welcome.asp&MonoSelect=TRUE&OptionalColumn=nm_name&Parameters=POMode|source','', 'height=100,width=100, resizable=yes, scrollbars=yes, status=yes'); return false;"">" & FrameWork.GetDictionary("TEXT_WIZARD_BUTTON_CREATE_COPY_OF_EXISTING") & "&nbsp;<IMG align=middle border=0 src=""/mcm/default/localized/en-us/images/icons/arrowSelect.gif""></button></div>"
+  strHTML = strHTML & "<div align='center'><button class=""clsButtonBlueLarge"" style=""vertical-align: middle;"" onclick=""window.open('/mcm/default/dialog/ProductOffering.Picker.asp?NextPage=Welcome.asp&MonoSelect=TRUE&OptionalColumn=nm_name&Parameters=POMode|source','', 'height=100,width=100, resizable=yes, scrollbars=yes, status=yes'); return false;"">" & FrameWork.GetDictionary("TEXT_WIZARD_BUTTON_CREATE_COPY_OF_EXISTING") & "&nbsp;<IMG align=middle border=0 src=""/mcm/default/localized/us/images/icons/arrowSelect.gif""></button></div>"
+  strHTML = strHTML & "<div align='center'><button class=""clsButtonBlueLarge"" style=""vertical-align: middle;"" onclick=""window.open('/mcm/default/dialog/ProductOffering.Picker.asp?NextPage=Welcome.asp&MonoSelect=TRUE&OptionalColumn=nm_name&Master=TRUE&Parameters=POMode|source','', 'height=100,width=100, resizable=yes, scrollbars=yes, status=yes'); return false;"">" & FrameWork.GetDictionary("TEXT_WIZARD_BUTTON_CREATE_COPY_OF_MASTER") & "&nbsp;<IMG align=middle border=0 src=""/mcm/default/localized/us/images/icons/arrowSelect.gif""></button></div>"
   
   strHTML = strHTML &  "<br><br>" & vbNewline
 
@@ -184,8 +190,8 @@ Function WriteDateConfiguration(strWizardName)
   strInput = strWizardName & "_effectivedatestart"
   strHTML = strHTML & gobjMTFormsAddInputHint(FrameWork.GetDictionary("TEXT_WIZARD_PROMPT_EFFECTIVEDATE"))
     
-  'strHTML = strHTML & gobjMTForms.AddDateInput(strInput, session(strInput), FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_STARTDATE"), 25, "<a href='#' onClick=""getCalendarForStartDate(document.WizardForm.NewPO_effectivedatestart);return false;""><img localized='true' src='/mcm/default/localized/en-us/images/popupcalendar.gif' width='16' height='16' border='0'></a>")
-  strHTML = strHTML & "<tr><TD class='captionEW'><MDMLABEL Name='StartDate' type='Caption'>Effective Start Date</MDMLABEL>:&nbsp;&nbsp;</TD><TD><INPUT type='text' class='fieldRequired' size='20' id='StartDate' name='StartDate'><img style='cursor:pointer'  id='openCalendarStartDate' src='/mam/default/localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''/><div id='divStartDate' style='position:absolute'></div><script language='javascript' type='text/javascript'>generateDatePicker('StartDate','" & FrameWork.GetDictionary("JS_DATE_TIME_RENDERER") & "');</script></TD></tr>"
+  'strHTML = strHTML & gobjMTForms.AddDateInput(strInput, session(strInput), FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_STARTDATE"), 25, "<a href='#' onClick=""getCalendarForStartDate(document.WizardForm.NewPO_effectivedatestart);return false;""><img localized='true' src='/mcm/default/localized/us/images/popupcalendar.gif' width='16' height='16' border='0'></a>")
+strHTML = strHTML & "<tr><TD class='captionEW'><MDMLABEL Name='StartDate' type='Caption'>Effective Start Date</MDMLABEL>:&nbsp;&nbsp;</TD><TD><INPUT type='text' class='fieldRequired' size='20' id='StartDate' name='StartDate'><img style='cursor:pointer'  id='openCalendarStartDate' src='/mam/default/localized/us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''/><div id='divStartDate' style='position:absolute'></div><script language='javascript' type='text/javascript'>generateDatePicker('StartDate','" & FrameWork.GetDictionary("JS_DATE_TIME_RENDERER") & "');</script></TD></tr>"
 
 If Not(IsNull(Request.Form("StartDate"))) Then
     If mcm_IsDate(Request.Form("StartDate")) Then
@@ -196,7 +202,7 @@ End If
  ' strInput = strWizardName & "_availabilitydatestart"
  ' strHTML = strHTML & gobjMTFormsAddInputHint("&nbsp;")
  ' strHTML = strHTML & gobjMTFormsAddInputHint(FrameWork.GetDictionary("TEXT_WIZARD_PROMPT_AVAILABILITYDATE"))
- ' strHTML = strHTML & gobjMTForms.AddDateInput(strInput, session(strInput), FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_AVAILABILITYDATE_STARTDATE"), 25, "<a href='#' onClick=""getCalendarForStartDate(document.WizardForm.NewPO_availabilitydatestart);return false""><img localized='true' src='/mcm/default/localized/en-us/images/popupcalendar.gif' width='16' height='16' border='0'></a>")
+ ' strHTML = strHTML & gobjMTForms.AddDateInput(strInput, session(strInput), FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_AVAILABILITYDATE_STARTDATE"), 25, "<a href='#' onClick=""getCalendarForStartDate(document.WizardForm.NewPO_availabilitydatestart);return false""><img localized='true' src='/mcm/default/localized/us/images/popupcalendar.gif' width='16' height='16' border='0'></a>")
     
   strHTML = strHTML & gobjMTForms.CloseEditBoxTable()
   
@@ -210,27 +216,34 @@ End Function
 Function ValidateDateConfiguration(strWizardName)
 
   dim effDate
+
   ValidateDateConfiguration = FALSE  
 
   set session(strWizardName & "__ErrorMessage") = CreateObject("Scripting.Dictionary")  
-  If Not(IsNull(Request.Form("StartDate"))) Then     
+
+  If Not(IsNull(Request.Form("StartDate"))) Then       
         If Request.Form("StartDate") = "" Then
            Session(strWizardName & "_effectivedatestart")= Request.Form("StartDate")
-           effDate = Session(strWizardName & "_effectivedatestart")
-        ElseIf Len(effDate) Then
-           If Not mcm_IsDate(effDate) Then
-              Session(strWizardName & "__ErrorMessage").Add "Name", FrameWork.GetDictionary("MCM_ERROR_STARTDATE_INVALID")
-              Session(strWizardName & "_effectivedatestart") = ""
-              Exit Function ' Error
-           Else
-              effDate = Request.Form("StartDate")
-              Session(strWizardName & "_effectivedatestart") = CDate(Request.Form("StartDate"))
-           End If     
-        End If
+           effDate = Session(strWizardName & "_effectivedatestart")              
+        ElseIf mcm_IsDate(Request.Form("StartDate")) Then
+           Session(strWizardName & "_effectivedatestart")= CDate(Request.Form("StartDate")) 
+           effDate = Session(strWizardName & "_effectivedatestart") 
+        Else
+           Session(strWizardName & "__ErrorMessage").Add "Name", FrameWork.GetDictionary("MCM_ERROR_STARTDATE_INVALID")
+           Session(strWizardName & "_effectivedatestart") = ""
+           Exit Function ' Error
+        End If     
   End If
+ 
 
+  If Len(effDate) Then  
+      If Not mcm_IsDate(effDate) Then      
+          Session(strWizardName & "__ErrorMessage").Add "Name", FrameWork.GetDictionary("MCM_ERROR_STARTDATE_INVALID")
+           Session(strWizardName & "_effectivedatestart") = ""
+          Exit Function ' Error
+      End If  
+  End If   
   ValidateDateConfiguration = TRUE
-
 End Function
 
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -422,7 +435,7 @@ Function WriteCurrencyConfiguration(strWizardName)
   strHTML = strHTML & gobjMTForms.OpenEditBoxTable("", "")
   strHTML = strHTML & gobjMTFormsAddInputHint(prompt_text)
   strHTML = strHTML & "<td><tr>&nbsp;</tr></td>"
-	strHTML = strHTML & gobjMTForms.AddSelectInputRequired(strInput, session(strInput), FrameWork.GetDictionary("TEXT_CURRENCY"), arrItem, arrItem, disable_txt)
+	strHTML = strHTML & gobjMTForms.AddSelectInputRequired(strInput, session(strInput), FrameWork.GetDictionary("TEXT_CURRENCY"), arrItem, arrValue, disable_txt)
   strHTML = strHTML & gobjMTForms.CloseEditBoxTable()
   strHTML = strHTML &  "<br><br>" & vbNewline  
   
@@ -484,7 +497,7 @@ Function WriteSummary(strWizardName)
                                             "", false, "", "", Array("right", "left"))
   strHTML = strHTML & gobjMTGrid.AddGridRow(Array(FrameWork.GetDictionary("TEXT_FIELD_DESCRIPTION"), SafeForHtmlAttr(session(strWizardName & "_Description"))), _
                                             "", false, "", "", Array("right", "left"))
-  strHTML = strHTML & gobjMTGrid.AddGridRow(Array(FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_STARTDATE"), SafeForHtmlAttr(mdm_Format(session(strWizardName & "_effectivedatestart"), FrameWork.GetDictionary("DATE_TIME_FORMAT")))), _
+  strHTML = strHTML & gobjMTGrid.AddGridRow(Array(FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_STARTDATE"), SafeForHtmlAttr(session(strWizardName & "_effectivedatestart"))), _
                                             "", false, "", "", Array("right", "left"))
   strHTML = strHTML & gobjMTGrid.AddGridRow(Array(FrameWork.GetDictionary("TEXT_CURRENCY"), SafeForHtmlAttr(session(strWizardName & "_CurrencyCode"))), _
                                             "", false, "", "", Array("right", "left"))

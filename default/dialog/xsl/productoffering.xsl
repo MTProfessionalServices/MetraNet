@@ -2,15 +2,13 @@
   <xsl:template match="/">
     
     <xsl:for-each select="/productoffering">
-<!--	
                     <a>
                     <xsl:attribute name="href">javascript:NavigateToPreviousSearchResults();</xsl:attribute>
                     Return To Previous Search Results
                     </a>
-                    <img src="/MCM/default/localized/us/images/Icons/goback.gif" alt="Return to previous search results" border="0" align="absmiddle" style="cursor:hand;">
+                    <img src="/MCM/default/localized/en-us/images/Icons/goback.gif" alt="Return to previous search results" border="0" align="absmiddle" style="cursor:hand;">
                     <xsl:attribute name="OnClick">javascript:NavigateToPreviousSearchResults();</xsl:attribute>
                     </img>
--->
       <!-- PO Properties -->
       <br/>
       <div class="clsFindTab">
@@ -21,7 +19,7 @@
             <td class="NavigationPaneHeader" colspan="1" style="font-size:10;padding-left:8px;">Selected Product Offering</td>
             <td class="NavigationPaneHeader" align="right" style='padding-top:4px;'>
 
-              <img src="/MCM/default/localized/us/images/Icons/refresh.gif" alt="" border="0" align="bottom" style="cursor:hand;">
+              <img src="/MCM/default/localized/en-us/images/Icons/refresh.gif" alt="" border="0" align="bottom" style="cursor:hand;">
                     <xsl:attribute name="OnClick">window.location=window.location</xsl:attribute>
               </img>
             </td>
@@ -35,7 +33,7 @@
            <a class="NavigationPaneItemA" style="font-size:14;font-weight:bold;">
               <xsl:attribute name="id"><xsl:value-of select="id" /></xsl:attribute>
               <xsl:attribute name="href">javascript:NavigateToItem(<xsl:value-of select="id" />,-1);</xsl:attribute>
-              <xsl:value-of select="displayname" disable-output-escaping="yes" />
+              <xsl:value-of select="name" disable-output-escaping="yes" />
             </a></b>
           </td>
         </tr>
@@ -48,11 +46,11 @@
         </xsl:for-each>
       </xsl:when>
       <xsl:otherwise>
-          <tr class="NavigationPaneItem">
-            <td style="padding-left:4px;padding-top:4px;">
-              Currently, this Product Offering does not contain any Priceable Items or Discounts.
-            </td>
-          </tr>
+                <tr class="NavigationPaneItem"><td style="padding-left:4px;padding-top:4px;">Currently, this Product Offering does not contain any Priceable Items or Discounts.<br /><br />Click 
+                            <a href="" class="NavigationPaneItemA" style="font-size:12; font-weight:normal; text-decoration:underline;">
+              <xsl:attribute name="href">javascript:NavigateToItem(<xsl:value-of select="id" />,-2);</xsl:attribute>
+              here</a>
+             to go to the product offering screen to add items</td></tr>
       </xsl:otherwise>
       </xsl:choose>
       </table> <!-- End Of Product Offering -->
@@ -71,7 +69,7 @@
       <xsl:attribute name="title"><xsl:value-of select="description" /></xsl:attribute>
       <td class="NavigationPaneItem" colspan="2">
 
-        <img src="/mcm/default/localized/us/images/Icons/sectionContract.gif" alt="" border="0" align="absmiddle">
+        <img src="/mcm/default/localized/en-us/images/Icons/sectionContract.gif" alt="" border="0" align="absmiddle">
           <xsl:attribute name="id">img:<xsl:value-of select="id" /></xsl:attribute>
           <xsl:attribute name="onClick">ToggleRow('row:<xsl:value-of select="id" />', 'img:<xsl:value-of select="id" />');</xsl:attribute>
         </img>
@@ -95,7 +93,7 @@
         <a class="NavigationPaneItemA">
         <xsl:attribute name="href">javascript:NavigateToItem(<xsl:value-of select="id" />,<xsl:value-of select="kind" />);</xsl:attribute>
         <xsl:attribute name="id"><xsl:value-of select="id" /></xsl:attribute>
-        <xsl:value-of select="displayname" />
+        <xsl:value-of select="name" />
         </a>
       </td>
     </tr>
@@ -110,7 +108,7 @@
           </xsl:for-each> 
               
           <xsl:for-each select="priceableitems/priceableitem">
-            <xsl:sort select="displayname"/>
+            <xsl:sort select="name"/>
               <tr><td style="padding-left:15px;" colspan="2"><xsl:apply-templates select="." /></td></tr>
           </xsl:for-each>
           
@@ -140,16 +138,16 @@
     <!--<xsl:choose>
     
        <xsl:when test="contains(paramtable_displayname, 'xxxRules')">
-        <img src="/mcm/default/localized/us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/en-us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>
        <xsl:when test="contains(paramtable_displayname, 'xxParameters')">
-        <img src="/mcm/default/localized/us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/en-us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>
        <xsl:when test="contains(paramtable_displayname, 'xxxBand')">
-        <img src="/mcm/default/localized/us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/en-us/images/productcatalog/condition.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>       
        <xsl:when test="contains(paramtable_displayname, 'xxxCalendar')">
-        <img src="/mcm/default/localized/us/images/productcatalog/calendar.gif" alt="" border="0" align="absmiddle" />
+        <img src="/mcm/default/localized/en-us/images/productcatalog/calendar.gif" alt="" border="0" align="absmiddle" />
        </xsl:when>
   <xsl:otherwise>-->
         <img alt="" border="0" align="absmiddle">
@@ -164,12 +162,12 @@
   <xsl:choose>        
    <xsl:when test="not(string(pricelist_id))">
         <a class="ParamTableA">
-        <xsl:attribute name="title">This parameter table is not mapped to a pricelist for this product offering. Please select the '<xsl:value-of select="../../displayname" />' priceable item above and create a mapping.'</xsl:attribute>
-        <xsl:attribute name="href">javascript:alert('This parameter table is not mapped to a pricelist for this product offering. Please select the \'<xsl:value-of select="../../displayname" />\' priceable item above and create a mapping.');</xsl:attribute>
+        <xsl:attribute name="title">This parameter table is not mapped to a pricelist for this product offering. Please select the '<xsl:value-of select="../../name" />' priceable item above and create a mapping.'</xsl:attribute>
+        <xsl:attribute name="href">javascript:alert('This parameter table is not mapped to a pricelist for this product offering. Please select the \'<xsl:value-of select="../../name" />\' priceable item above and create a mapping.');</xsl:attribute>
        <xsl:value-of select="paramtable_displayname" />
        <xsl:text>&#160;</xsl:text>
-       <img src="/mcm/default/localized/us/images/icons/warningSmall.gif" alt="" border="0" align="absmiddle" />
-          <xsl:attribute name="alt">This parameter table is not mapped to a pricelist for this product offering. Please select the '<xsl:value-of select="../../displayname" />' priceable item above and create a mapping.'</xsl:attribute>
+       <img src="/mcm/default/localized/en-us/images/icons/warningSmall.gif" alt="" border="0" align="absmiddle" />
+          <xsl:attribute name="alt">This parameter table is not mapped to a pricelist for this product offering. Please select the '<xsl:value-of select="../../name" />' priceable item above and create a mapping.'</xsl:attribute>
         </a> 
                                     
    </xsl:when>

@@ -72,14 +72,10 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   COMObject.Properties("EffectiveDate__EndDate").Caption     = FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_EFFECTIVEDATE_ENDDATE")
   COMObject.Properties("AvailabilityDate__StartDate").Caption = FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_AVAILABILITYDATE_STARTDATE")
   COMObject.Properties("AvailabilityDate__EndDate").Caption  = FrameWork.GetDictionary("TEXT_PRODUCT_OFFERING_AVAILABILITYDATE_ENDDATE")
-    
+  
 
   COMObject.Properties.Add "CURRENCYCODE", "String",  256, FALSE, TRUE
   COMObject.Properties("CURRENCYCODE") = COMObject.Instance.GetCurrencyCode()
-
-  COMObject.Properties.Add "POPartitionId", "String",  256, FALSE, TRUE
-  COMObject.Properties("POPartitionId") = "100"//COMObject.Instance.GetCurrencyCode()
-
 
   ' Create and define the Extended Properties Grid
   Form.Grids.Add "ExtendedProperties", "Extended Properties"

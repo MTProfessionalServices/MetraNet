@@ -26,13 +26,10 @@ function doFullSize()
 </script>
 
 <frameset name="PricelistView" rows="100%" cols="350px,*" framespacing="0" frameborder="0">
-<!--
     <frameset name="PricelistNav" rows="200,*" FRAMESPACING="0" FRAMEBORDER="0" border="0">
         <frame src="/mcm/default/dialog/Pricelist.Find.asp" name="menu" id="menu" frameborder="0" scrolling="Yes" marginwidth="0" marginheight="0" border="0" FRAMESPACING="0">
         <frame name="PricelistSelected" src="Pricelist.ViewEdit.Nav.asp?ID=<%=SafeForHtmlAttr(request.QueryString("id"))%>" scrolling="auto" frameborder="0">
     </frameset>
--->
-    <frame name="PricelistSelected" src="Pricelist.ViewEdit.Nav.asp?ID=<%=SafeForHtmlAttr(request.QueryString("id"))%>" scrolling="auto" frameborder="0">
     <frame name="PricelistMain" src="Pricelist.ViewEdit.asp?ID=<%=SafeForHtmlAttr(request.QueryString("id"))%>" scrolling="auto" frameborder="0" />
 </frameset>
 </html>

@@ -24,7 +24,6 @@ using System.ServiceModel;
 using MetraTech.Debug.Diagnostics;
 using System.Xml;
 using MetraTech.Interop.RCD;
-using MetraTech.DomainModel.BaseTypes;
 
 
 public partial class MetraOffer_CreateSharedPriceList : MTPage

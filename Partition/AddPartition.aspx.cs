@@ -88,30 +88,30 @@ public partial class AddPartition : MTAccountPage
             cbSystemUsers.Enabled = false;
 
             // MOCK DATA
-            if (false)
-            {
-                Account.UserName = "Bane";
-                Account.Password_ = "123";
-                tbConfirmPassword.Text = Account.Password_;
-                Account.AccountStartDate = new DateTime(2013, 1, 1);
-                Internal.Currency = "USD";
-                BillTo.FirstName = "Backup";
-                BillTo.MiddleInitial = "";
-                BillTo.LastName = "Nebula";
-                BillTo.Email = "info@bane.com";
-                BillTo.Company = "BaNe Corp";
-                BillTo.Address1 = "123 BaNe St";
-                BillTo.Address2 = "2dn Floor";
-                BillTo.City = "Waltham";
-                BillTo.State = "MA";
-                BillTo.Country = CountryName.USA;
-                BillTo.PhoneNumber = "781-839-8300";
-                BillTo.FacsimileTelephoneNumber = "781-839-8301";
+            //if (false)
+            //{
+            //    Account.UserName = "Bane";
+            //    Account.Password_ = "123";
+            //    tbConfirmPassword.Text = Account.Password_;
+            //    Account.AccountStartDate = new DateTime(2013, 1, 1);
+            //    Internal.Currency = "USD";
+            //    BillTo.FirstName = "Backup";
+            //    BillTo.MiddleInitial = "";
+            //    BillTo.LastName = "Nebula";
+            //    BillTo.Email = "info@bane.com";
+            //    BillTo.Company = "BaNe Corp";
+            //    BillTo.Address1 = "123 BaNe St";
+            //    BillTo.Address2 = "2dn Floor";
+            //    BillTo.City = "Waltham";
+            //    BillTo.State = "MA";
+            //    BillTo.Country = CountryName.USA;
+            //    BillTo.PhoneNumber = "781-839-8300";
+            //    BillTo.FacsimileTelephoneNumber = "781-839-8301";
 
-                cbRetail.Checked = true;
-                cbResellers.Checked = true;
-                cbSystemUsers.Checked = true;
-            }
+            //    cbRetail.Checked = true;
+            //    cbResellers.Checked = true;
+            //    cbSystemUsers.Checked = true;
+            //}
 
             if (!MTDataBinder1.DataBind())
             {

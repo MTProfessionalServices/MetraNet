@@ -23,8 +23,99 @@ function filterPricelists()
 //  store.realSnapshot = store.snapshot;
 //  store.snapshot = store.data;
 }
-</script>
 
+/// Parses account display value and returns account identifier
+function getIdFromAccStr(accStr) {
+  return accStr.substring(accStr.lastIndexOf('(') + 1, accStr.lastIndexOf(')'));
+}
+
+/// Collection contains all available account properties with matched client-side controls
+var ctlMap = Ext.util.JSON.decode("<%=JSControlMapping%>");
+
+/// Contains references to all available Ext.ComboBox objects. It needed to use correct methods to get/set their values and fire appropriate events. 
+var cBoxes = {};
+
+/// Reads template data returned by AJAX service. Set values from template to appropriate controls on page and then disable them.
+function processTemplate(tmplData) {
+    for (var id in ctlMap) {
+        var obj = Ext.getCmp(ctlMap[id]);
+        if (obj != null) {obj.enable();}
+    }
+    for (var el in tmplData) {
+        if (ctlMap[el] != null && typeof (ctlMap[el]) != "undefined") {
+            if (el == 'Account.StartDay' && tmplData['Internal.UsageCycleType'] == 'Bi_weekly') {
+                var cb = cBoxes['<%=MTBillingCycleControl1.BiWeekly.ClientID%>'];
+                if (typeof (cb) != 'undefined') {
+                    cb.setValue(tmplData[el]);
+                    cb.fireEvent('select');
+                }
+                var cmp = Ext.getCmp('<%=MTBillingCycleControl1.BiWeekly.ClientID%>');
+                if (cmp != null) { cmp.disable(); }
+            }
+            else {
+                var ctl = Ext.get(ctlMap[el]);
+                if (ctl != null) {
+                    var cb = cBoxes[ctlMap[el]];
+                    if (typeof (cb) != 'undefined') {
+                        cb.setValue(tmplData[el]);
+                        cb.fireEvent('select');
+                    }
+                    else {
+                        ctl.dom.value = tmplData[el];
+                    }
+                    var cmp = Ext.getCmp(ctlMap[el]);
+                    if (cmp != null) { cmp.disable(); }
+                }
+            }
+        }
+    }
+}
+
+/// Sends AJAX request to get template data for account if available.
+function getTemplateData() {
+    var parentId = 1;
+    var ancestor = Ext.get("<%=tbAncestorAccount.ClientID%>");
+    if (typeof (ancestor) != 'undefined' && ancestor != null) {
+        parentId = getIdFromAccStr(Ext.get("<%=tbAncestorAccount.ClientID%>").dom.value);
+    }
+    Ext.Ajax.request({
+        url: '<%=GetVirtualFolder()%>/AjaxServices/LoadDataFromAccTemplate.aspx',
+        params: {
+            AccountID: '<%=Account._AccountID%>',
+            ParentID: parentId,
+            AccType: '<%=Account.AccountType%>'
+        },
+        timeout: 10000,
+        success: function (response) {
+            processTemplate(Ext.util.JSON.decode(response.responseText));
+        },
+        failure: function (response) {
+        }
+    });
+}
+
+/// onSelected event handler to handle changes in account ancestor field
+function ancestorChange(e, t) {
+    getTemplateData();
+}
+
+/// Enables all controls, which were disabled by template settings before submitting data
+function enableCtrls() {
+  for (var id in ctlMap) {
+    var obj = Ext.getCmp(ctlMap[id]);
+    if (obj != null) { obj.enable(); }
+  }
+}
+
+/// Add all neccessary event listeners for account template activity
+function addTemplateEvents() {
+    var ancestor = cBoxes["<%=tbAncestorAccount.ClientID%>"];
+    if (typeof (ancestor) != 'undefined' && ancestor != null) {
+        ancestor.addEvents('selected');
+        ancestor.addListener('selected', ancestorChange);
+    }
+}
+</script>
 <MT:MTTitle ID="MTTitle1" Text="Update Account" runat="server" meta:resourcekey="MTTitle1Resource1" /><br />
     
 <div style="width:810px">
@@ -102,7 +193,7 @@ function filterPricelists()
       <table cellspacing="0">
         <tr>
           <td  class="x-panel-btn-td">
-     <MT:MTButton ID="btnOk" OnClientClick="return ValidateForm();" Width="50px" runat="server" Text="<%$Resources:Resource,TEXT_OK%>" OnClick="btnOK_Click" TabIndex="390"/>
+     <MT:MTButton ID="btnOk" OnClientClick="if(ValidateForm()) {/*enableCtrls();*/ return true;} else {return false;}" Width="50px" runat="server" Text="<%$Resources:Resource,TEXT_OK%>" OnClick="btnOK_Click" TabIndex="390"/>
           </td>
           <td  class="x-panel-btn-td">
      <MT:MTButton ID="btnCancel" Width="50px" runat="server" Text="<%$Resources:Resource,TEXT_CANCEL%>" CausesValidation="False" TabIndex="400" OnClick="btnCancel_Click" />
@@ -220,6 +311,10 @@ function filterPricelists()
   <script type="text/javascript" language="javascript">
     Ext.onReady(function() {
 //      filterPricelists();
+    });
+    Ext.onReady(function () {
+        addTemplateEvents();
+        getTemplateData();
     });
   </script>
 </asp:Content>

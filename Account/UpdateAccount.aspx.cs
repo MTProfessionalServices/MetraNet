@@ -80,10 +80,9 @@ public partial class Account_UpdateAccount : MTAccountPage
 
               PopulatePresentationNameSpaceList(ddBrandedSite);
 
-              // PriceListCol = PageNav.Data.Out_StateInitData["PriceListColl"] as List<PriceList>;
-              // PopulatePriceList(ddPriceList);
-              PartitionLibrary.PopulatePriceListDropdown(ddPriceList);
-
+              PriceListCol = PageNav.Data.Out_StateInitData["PriceListColl"] as List<PriceList>;
+              PopulatePriceList(ddPriceList);
+			  PartitionLibrary.PopulatePriceListDropdown(ddPriceList);
               int? selPriceList;
               if (((InternalView) Account.GetInternalView()).PriceList != null)
               {

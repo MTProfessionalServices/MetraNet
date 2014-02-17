@@ -137,13 +137,20 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   ProductView.Properties("ArgStartDate").Selected       = i : i=i+1    
   ProductView.Properties("ArgEndDate").Selected       = i : i=i+1 
   ProductView.Properties("LastRunStart").Selected       = i : i=i+1
-  ProductView.Properties("LastRunMachine").Selected       = i : i=i+1
-         
+  ProductView.Properties("LastRunMachine").Selected       = i : i=i+1         
   'ProductView.Properties("RunEnd").Selected         = i : i=i+1    
 
+  ProductView.Properties("InstanceId").Caption = "InstanceId"
+  ProductView.Properties("EventDisplayName").Caption = "EventDisplayName"
+  ProductView.Properties("Status").Caption = "Status"
+  ProductView.Properties("ArgStartDate").Caption = "ArgStartDate"
+  ProductView.Properties("ArgEndDate").Caption = "ArgEndDate"
+  ProductView.Properties("LastRunStart").Caption = "LastRunStart"
+  ProductView.Properties("LastRunMachine").Caption = "LastRunMachine"
+  
   ProductView.Properties("ArgStartDate").Sorted = MTSORT_ORDER_DESCENDING
   
-  ProductView.Properties.CancelLocalization
+  'ProductView.Properties.CancelLocalization
   
   ProductView.LoadJavascriptCode
   

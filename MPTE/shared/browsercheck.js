@@ -1,11 +1,14 @@
 
-  function BrowserCheck() {
-  	var b = navigator.appName
-
-  	if (b=="Netscape") this.b = "ns"
-    	else if (b=="Microsoft Internet Explorer") this.b = "ie"
-  	else 
-      this.b = b
+function BrowserCheck() {
+  var b = navigator.appName
+  	if (b == "Netscape")
+  	// check if this is IE 11 using feature detection
+  	  if (Object.hasOwnProperty.call(window, "ActiveXObject") && !window.ActiveXObject)
+  	    this.b = "ie"
+  	  else
+  	    this.b = "ns"
+  	else if (b == "Microsoft Internet Explorer") this.b = "ie"
+  	else this.b = b
 
   	this.v = parseInt(navigator.appVersion)
   	this.ns = (this.b=="ns" && this.v>=4)

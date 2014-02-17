@@ -143,17 +143,7 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Activities\Activities.csproj">
-      <Project>{42068926-8817-4954-836E-78751DD8F472}</Project>
-      <Name>Activities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PartitionWorkflowLibrary\PartitionWorkflowLibrary.csproj">
-      <Project>{A0259827-4989-42C4-91EB-FE2F43DD6465}</Project>
-      <Name>PartitionWorkflowLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
+  </ItemGroup>  
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
   <Import Project="$(MSBuildToolsPath)\Workflow.Targets" />
 </Project>

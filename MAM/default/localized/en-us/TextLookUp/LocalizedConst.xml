@@ -707,6 +707,18 @@
         <value>End Date</value>
         <description></description>
     </text> 
+	
+	<text id='TEXT_PERIOD_OF_TIME'>
+		<value>Period</value>
+	</text>
+
+	<text id='TEXT_BILLING_INTERVAL'>
+		<value>Billing Interval</value>
+	</text>
+
+	<text id='TEXT_FIXED_DATE'>
+		<value>Fixed Date</value>
+	</text> 
           
     <text id="TEXT_COLUMN_NAME">
         <value>Name</value>

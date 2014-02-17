@@ -26,14 +26,14 @@
 <TR>
 <TD colspan=4>
 <fieldset > 
-<legend style='FONT-WEIGHT: bold;FONT-SIZE: 11px'>Period</legend>
+<legend style='FONT-WEIGHT: bold;FONT-SIZE: 11px'><LABEL Name='PeriodOfTime' Type='Caption'></LABEL></legend>
 <TABLE border=0 width="100%">
 <tr>
 <td valign=top>
       <table border=0 width=300>
           <TR>
             <td><input type="radio" name="FixedPeriod" value="0" checked onClick="showInterval();"></td>
-            <td><strong>Billing Interval</strong></td>
+            <td><strong><LABEL Name='BillingInterval' Type='Caption'></LABEL></strong></td>
           </TR>
           <TR>
             <td>&nbsp;</td>
@@ -43,7 +43,7 @@
                <table>
                
                   <TR>
-                  	<TD class='captionEW'>Period:</TD>
+                  	<TD class='captionEW'><LABEL Name='PeriodOfTime' Type='Caption'></LABEL>:</TD>
               	    <TD><SELECT Class='clsInputBox' Name='mdmIntervalID'></SELECT></TD>      
                   </TR>
                </table>
@@ -58,7 +58,7 @@
     <table border=0 width=300>
     <TR>
       <TD><input type="radio" name="FixedPeriod" value="1" onClick="showFixed();"></TD>
-      <TD><strong>Fixed Date</strong></TD>
+      <TD><strong><LABEL Name='FixedDate' Type='Caption'></LABEL></strong></TD>
     </TR>
     
     <TR>

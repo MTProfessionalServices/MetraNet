@@ -2,9 +2,9 @@
 <%@ Register Assembly="MetraTech.UI.Controls.CDT" Namespace="MetraTech.UI.Controls.CDT" TagPrefix="MTCDT" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 
-<MT:MTSecurity ID='Security1' runat="server" Capabilities='Create Subscription'>
-    <asp:Literal ID="LitEmptyText1" runat="server" Visible="false" Text="<br />No records found." meta:resourcekey="EmptyLiteral" /> 
-    <asp:Label ID="LitCurrPlan" runat="server"></asp:Label> 
+ <MT:MTSecurity ID='Security1' runat="server" Capabilities='Create Subscription'>
+<asp:Literal ID="LitEmptyText1" runat="server" Visible="false" Text="<br />No records found." meta:resourcekey="EmptyLiteral" /> 
+<asp:Label ID="LitCurrPlan" runat="server"></asp:Label> 
 <br />
 <br />
 <hr />
@@ -23,7 +23,7 @@
   <span class="buttonright"><!--rightcorner--></span>
  </div>
 </asp:Panel>
-</MT:MTSecurity>
+ </MT:MTSecurity>
 
     
    

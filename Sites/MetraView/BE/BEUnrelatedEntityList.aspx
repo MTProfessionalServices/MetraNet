@@ -203,7 +203,7 @@
                      var parameters = {name: entityName, id: ids}; 
                     // make the call back to the server
                     Ext.Ajax.request({
-                        url: '<%=Request.ApplicationPath%>/AjaxServices/BEDeleteSvc.aspx',
+                        url: '<%=Request.ApplicationPath%>//AjaxServices/BEDeleteSvc.aspx',
                         params: parameters,
                         scope: this,
                         disableCaching: true,

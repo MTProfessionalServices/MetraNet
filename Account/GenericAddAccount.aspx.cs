@@ -21,6 +21,7 @@ public partial class GenericAddAccount : MTAccountPage
     private static AccountTypeCollection mAccountTypeCollection = new AccountTypeCollection();
     private void SetupSkipProperties()
     {
+<<<<<<< HEAD
         skipProperties.Add("username");
         skipProperties.Add("ancestoraccountid");
         skipProperties.Add("password_");
@@ -31,6 +32,43 @@ public partial class GenericAddAccount : MTAccountPage
         skipProperties.Add("payerid");
         skipProperties.Add("accountstartdate");
         skipProperties.Add("internal.language");
+=======
+      Account = PageNav.Data.Out_StateInitData["Account"] as Account;
+      setDefaultProperties(Account);
+      if (Account != null)
+      {
+        Account.AccountStartDate = DateTime.Now;
+        // For UX reasons, if the settings are not there, lets not confuse the user with
+        // settings which have no affect... plus I hate researching bugs due to bad config...
+        var accountType = mAccountTypeCollection.GetAccountType(Account.AccountType);
+        if (!(accountType.CanBePayer || accountType.CanSubscribe || accountType.CanParticipateInGSub))
+        {
+          ddCurrency.Visible = false;
+          cbBillable.Visible = false;
+          ddPaperInvoice.Visible = false;
+          MTBillingCycleControl1.CycleList.Visible = false;
+          MTBillingCycleControl1.Weekly.Visible = false;
+          MTBillingCycleControl1.Quarterly_Month.Visible = false;
+          MTBillingCycleControl1.Quarterly_Day.Visible = false;
+          MTBillingCycleControl1.Monthly.Visible = false;
+          MTBillingCycleControl1.SemiMonthly_First.Visible = false;
+          MTBillingCycleControl1.SemiMonthly_Second.Visible = false;
+          MTBillingCycleControl1.StartYear.Visible = false;
+        }
+      }
+
+      PopulatePresentationNameSpaceList(ddBrandedSite);
+      MTGenericForm1.DataBinderInstanceName = "MTDataBinder1";
+      if (Account != null) MTGenericForm1.RenderObjectType = Account.GetType();
+      MTGenericForm1.RenderObjectInstanceName = "Account";
+      MTGenericForm1.TemplatePath = TemplatePath;
+      MTGenericForm1.ReadOnly = false;
+      SetupSkipProperties();
+      PriceListCol = PageNav.Data.Out_StateInitData["PriceListColl"] as List<PriceList>;
+      MTGenericForm1.IgnoreProperties = skipProperties;
+
+      PopulatePriceList(ddPriceList);
+>>>>>>> develop
     }
 
 

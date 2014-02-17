@@ -117,40 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="cbEndNextBillingPeriodResource1.BoxLabel" xml:space="preserve">
-    <value>Next end of payer's billing period after this date</value>
+  <data name="LblAccountNameResource.Label" xml:space="preserve">
+    <value>[pt-BR] Account</value>
   </data>
-  <data name="cbStartNextBillingPeriodResource1.BoxLabel" xml:space="preserve">
-    <value>Next start of payer's billing period after this date</value>
+  <data name="LblPoNameResource.Label" xml:space="preserve">
+    <value>[pt-BR] Product Offering</value>
   </data>
-  <data name="EndDateResource1.Label" xml:space="preserve">
-    <value>End Date</value>
+  <data name="SubChangeBasicEndDateResource.Label" xml:space="preserve">
+    <value>[pt-BR] End Date</value>
   </data>
-  <data name="lblDescDispNameResource1.Label" xml:space="preserve">
-    <value>Description</value>
+  <data name="SubChangeBasicNextEndResource.Label" xml:space="preserve">
+    <value>[pt-BR] Next end of payer's billing period after this date</value>
   </data>
-  <data name="lblDisplayNameResource1.Label" xml:space="preserve">
-    <value>Subscription</value>
+  <data name="SubChangeBasicNextStartResource.Label" xml:space="preserve">
+    <value>[pt-BR] Next start of payer's billing period after this date</value>
   </data>
-  <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Subscription Details</value>
+  <data name="SubChangeBasicStartDateResource.Label" xml:space="preserve">
+    <value>[pt-BR] Start Date</value>
   </data>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet </value>
+  <data name="SUB_PROPS_SECTION_NAME" xml:space="preserve">
+    <value>[pt-BR] Subscription Properties</value>
   </data>
-  <data name="pnlMain.Text" xml:space="preserve">
-    <value>Details</value>
-  </data>
-  <data name="StartDateResource1.Label" xml:space="preserve">
-    <value>Start Date</value>
-  </data>
-  <data name="pnlSubscriptionProperties.Text" xml:space="preserve">
-    <value>Properties</value>
-  </data>
-  <data name="pendingChangeUiErrorFormat" xml:space="preserve">
-    <value>This Subscription already has a '{0}' change pending approval. A new change cannot be submitted until the previous change is either approved or denied.</value>
-  </data>
-  <data name="pendingChangeWarningFormat" xml:space="preserve">
-    <value>This Subscription already has a '{0}' change pending approval. &lt;a href='{1}'&gt;Click here to view the pending change.&lt;/a&gt;</value>
+  <data name="UDRC_SECTION_NAME" xml:space="preserve">
+    <value>[pt-BR] Product Offering Recurring Change Metrics</value>
   </data>
 </root>

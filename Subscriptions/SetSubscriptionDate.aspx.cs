@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ServiceModel;
 using MetraTech.Approvals.ChangeTypes;
 using MetraTech.UI.Common;
 using MetraTech.Core.Services.ClientProxies;
@@ -34,6 +35,8 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
 
   protected void Page_Load(object sender, EventArgs e)
   {
+    //TODO: Save and pass original subscription object through WorkFlow to Approval Framework
+
     if (!IsPostBack)
     {
       SpecValues = new Dictionary<string, SpecCharacteristicValueModel>();
@@ -162,22 +165,42 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
   private bool IsApprovalsEnabled(string changeType)
   {
     bool isEnabled;
-    using (var client = new ApprovalManagementServiceClient())
+
+    var client = new ApprovalManagementServiceClient();
+    try
     {
       SetCredantional(client.ClientCredentials);
       client.ApprovalEnabledForChangeType(changeType, out isEnabled);
     }
+    finally
+    {
+      if (client.State == CommunicationState.Faulted)
+        client.Abort();
+      else
+        client.Close();
+    }
+
     return isEnabled;
   }
 
   private bool HasUdrcValues(Subscription sub)
   {
     List<UDRCInstance> listOfUdrcs;
-    using (var client = new SubscriptionServiceClient())
+
+    var client = new SubscriptionServiceClient();
+    try
     {
       SetCredantional(client.ClientCredentials);
       client.GetUDRCInstancesForPO(sub.ProductOfferingId, out listOfUdrcs);
     }
+    finally
+    {
+      if (client.State == CommunicationState.Faulted)
+        client.Abort();
+      else
+        client.Close();
+    }
+
     return listOfUdrcs.Count > 0;
   }
 
@@ -188,8 +211,9 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
       const string approvalFrameworkManagementUrl =
         "/MetraNet/ApprovalFrameworkManagement/ShowChangesSummary.aspx?showchangestate=PENDING";
       var changeTypeDisplayName = isNew
-                                    ? GetLocalResourceObject("newSubscription").ToString()
-                                    : GetLocalResourceObject("updateSubscription").ToString();
+                         ? GetGlobalResourceObject("Resource", "newSubscription").ToString()
+                         : GetGlobalResourceObject("Resource", "updateSubscription").ToString();
+
       var strPendingChangeWarning =
         String.Format(GetLocalResourceObject("pendingChangeWarningFormat").ToString(),
                       changeTypeDisplayName, approvalFrameworkManagementUrl);
@@ -218,22 +242,42 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
   private bool IsMoreThanOnePendingChangeAllowed(string changeType)
   {
     bool isAllowed;
-    using (var client = new ApprovalManagementServiceClient())
+
+    var client = new ApprovalManagementServiceClient();
+    try
     {
       SetCredantional(client.ClientCredentials);
       client.AllowMoreThanOnePendingChangeForChangeType(changeType, out isAllowed);
     }
+    finally
+    {
+      if (client.State == CommunicationState.Faulted)
+        client.Abort();
+      else
+        client.Close();
+    }
+
     return isAllowed;
   }
 
   private bool HasPendingChanges(string changeType, string subId)
   {
     List<int> pendingChangeIds;
-    using (var client = new ApprovalManagementServiceClient())
+
+    var client = new ApprovalManagementServiceClient();
+    try
     {
       SetCredantional(client.ClientCredentials);
       client.GetPendingChangeIdsForItem(changeType, subId, out pendingChangeIds);
     }
+    finally
+    {
+      if (client.State == CommunicationState.Faulted)
+        client.Abort();
+      else
+        client.Close();
+    }
+
     return pendingChangeIds.Count > 0;
   }
 

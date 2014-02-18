@@ -100,8 +100,11 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
 
   private void SetUdrsViewChangeControls(UdrcChange changedProp)
   {
-    //TODO: Localize
-    _parenControl.Controls.Add(new MTViewChangeControl{ Label="UDRS Name", ValueNew = String.Format("<b>{0}</b>", changedProp.UdrcName)  });
+    _parenControl.Controls.Add(new MTViewChangeControl
+      {
+        Label = GetLocalResourceObject("UDRC_NAME").ToString(),
+        ValueNew = String.Format("<b>{0}</b>", changedProp.UdrcName)
+      });
     foreach (var change in changedProp.UdrcValueChanges)
     {
       AddViewChangeControl(_parenControl, change);

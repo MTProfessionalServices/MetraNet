@@ -141,4 +141,7 @@
   <data name="UDRC_SECTION_NAME" xml:space="preserve">
     <value>[it] Product Offering Recurring Change Metrics</value>
   </data>
+  <data name="UDRC_NAME" xml:space="preserve">
+    <value>[it] Metric Name</value>
+  </data>
 </root>

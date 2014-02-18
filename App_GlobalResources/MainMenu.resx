@@ -378,7 +378,7 @@
     <data name="TEXT_MANAGE_MISC_ADJUSTMENTS" xml:space="preserve">
         <value>Manage Misc. Adjustments</value>
     </data>
-    <data name="TEXT_MANAGE_NON_STANDARD_CHARGES" xml:space="preserve">
+	<data name="TEXT_MANAGE_NON_STANDARD_CHARGES" xml:space="preserve">
         <value>Manage Nonstandard Charges</value>
     </data>
     <data name="TEXT_MANAGE_ORPHAN_ADJUSTMENTS" xml:space="preserve">
@@ -614,6 +614,9 @@
     </data>
     <data name="TEXT_VERSION_INFO" xml:space="preserve">
         <value>Version Information</value>
+    </data>
+	<data name="TEXT_VIEW_CREDIT_NOTES_ISSUED" xml:space="preserve">
+        <value>View Credit Notes Issued</value>
     </data>
     <data name="TEXT_VIEW_METERING_STATISTICS" xml:space="preserve">
         <value>View</value>

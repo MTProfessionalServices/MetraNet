@@ -158,7 +158,7 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
   {
     Subscription currentSub = null;
     List<UDRCInstance> currentUdrcInstances = null;
-    List<UDRCInstance> newUdrcInstances = null;
+    List<UDRCInstance> newUdrcInstances;
     
     var subscriptionClient = new SubscriptionServiceClient();
     try
@@ -168,9 +168,12 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
       subscriptionClient.GetUDRCInstancesForPO(newSubscription.ProductOfferingId, out newUdrcInstances);
       if (newSubscription.SubscriptionId.HasValue)
       {
+        var charVals = new MTList<CharacteristicValue>();
         // If it's not Create Sub, retrieve current subscription and UDRC with Names
         subscriptionClient.GetSubscriptionDetail(accOfNewSub, newSubscription.SubscriptionId.Value, out currentSub);
         subscriptionClient.GetUDRCInstancesForPO(currentSub.ProductOfferingId, out currentUdrcInstances);
+        subscriptionClient.GetCharacteristicValues(ref charVals);
+        currentSub.CharacteristicValues = charVals.Items;
       }
     }
     finally

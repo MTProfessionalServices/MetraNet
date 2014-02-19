@@ -160,9 +160,12 @@ public partial class ApprovalFrameworkManagement_AjaxServices_ChangeOperation : 
     subscriptionClient.GetUDRCInstancesForPO(newSubscription.ProductOfferingId, out newUdrcInstances);
     if (newSubscription.SubscriptionId.HasValue)
     {
+      var charVals = new MTList<CharacteristicValue>();
       // If it's not Create Sub, retrieve current subscription and UDRC with Names
       subscriptionClient.GetSubscriptionDetail(accOfNewSub, newSubscription.SubscriptionId.Value, out currentSub);
       subscriptionClient.GetUDRCInstancesForPO(currentSub.ProductOfferingId, out currentUdrcInstances);
+      subscriptionClient.GetCharacteristicValues(ref charVals);
+      currentSub.CharacteristicValues = charVals.Items;
     }
 
     return SubscriptionChangeType.GetSubscriptionChange(currentSub, newSubscription, currentUdrcInstances, newUdrcInstances, accOfNewSub.AccountID.Value);

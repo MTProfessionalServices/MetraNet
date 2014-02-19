@@ -28,6 +28,9 @@
             <entry name="MetraTech.Core">
               <value>MetraTech.Core</value>
             </entry>
+            <entry name="MetraTech.Reporting">
+              <value>MetraTech.Reporting</value>
+            </entry>
           </entries>
         </enum>
       </enums>

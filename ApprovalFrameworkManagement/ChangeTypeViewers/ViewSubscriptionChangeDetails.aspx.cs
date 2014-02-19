@@ -61,6 +61,10 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
     // Next start of payer's billing period after this date
     SetViewChangeControl(SubChangeBasicNextStart, subChange.StartDateTypeChange, true);
     // End Date
+    if (String.IsNullOrEmpty(subChange.EndDateChange.NewValue))
+    {
+      subChange.EndDateChange.NewValue = GetLocalResourceObject("NO_END_DATE").ToString();
+    }
     SetViewChangeControl(SubChangeBasicEndDate, subChange.EndDateChange, true);
     // Next end of payer's billing period after this date
     SetViewChangeControl(SubChangeBasicNextEnd, subChange.EndDateTypeChange, true);
@@ -161,11 +165,11 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
     {
       SetCredantional(subscriptionClient.ClientCredentials);
 
+      subscriptionClient.GetUDRCInstancesForPO(newSubscription.ProductOfferingId, out newUdrcInstances);
       if (newSubscription.SubscriptionId.HasValue)
       {
+        // If it's not Create Sub, retrieve current subscription and UDRC with Names
         subscriptionClient.GetSubscriptionDetail(accOfNewSub, newSubscription.SubscriptionId.Value, out currentSub);
-        subscriptionClient.GetUDRCInstancesForPO(newSubscription.ProductOfferingId, out newUdrcInstances);
-
         subscriptionClient.GetUDRCInstancesForPO(currentSub.ProductOfferingId, out currentUdrcInstances);
       }
     }

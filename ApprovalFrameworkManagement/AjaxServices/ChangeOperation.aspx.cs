@@ -153,14 +153,15 @@ public partial class ApprovalFrameworkManagement_AjaxServices_ChangeOperation : 
   {
     Subscription currentSub = null;
     List<UDRCInstance> currentUdrcInstances = null;
-    List<UDRCInstance> newUdrcInstances = null;
+    List<UDRCInstance> newUdrcInstances;
 
+    SetCredantional(subscriptionClient.ClientCredentials);
+
+    subscriptionClient.GetUDRCInstancesForPO(newSubscription.ProductOfferingId, out newUdrcInstances);
     if (newSubscription.SubscriptionId.HasValue)
     {
-      SetCredantional(subscriptionClient.ClientCredentials);
+      // If it's not Create Sub, retrieve current subscription and UDRC with Names
       subscriptionClient.GetSubscriptionDetail(accOfNewSub, newSubscription.SubscriptionId.Value, out currentSub);
-      subscriptionClient.GetUDRCInstancesForPO(newSubscription.ProductOfferingId, out newUdrcInstances);
-
       subscriptionClient.GetUDRCInstancesForPO(currentSub.ProductOfferingId, out currentUdrcInstances);
     }
 

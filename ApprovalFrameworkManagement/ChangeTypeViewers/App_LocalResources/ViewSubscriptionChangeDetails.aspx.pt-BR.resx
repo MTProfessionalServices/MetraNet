@@ -144,4 +144,7 @@
   <data name="UDRC_NAME" xml:space="preserve">
     <value>[pt-BR] Metric Name</value>
   </data>
+  <data name="NO_END_DATE" xml:space="preserve">
+    <value>[pt-BR] No End Date</value>
+  </data>
 </root>

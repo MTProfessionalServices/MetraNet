@@ -112,11 +112,11 @@ Ext.reg('customnodetreeloader', Ext.ux.CustomNodeTreeLoader);
 						  cat.subs[subCategory] = {'Name':subCategory, 'expanded':false, 'Description':'', 'children':[]};
 						  cat.children.push(cat.subs[subCategory]);
 						}
-						cat.subs[subCategory].children.push({'leaf':true, 'Name':name, 'Description':description, 'thehref':href});
+						cat.subs[subCategory].children.push({'leaf':true, 'Name':name, 'Description':description, 'thehref':href, 'href':href});
 					}
 					else
 					{
-					  cat.children.push({'leaf':true, 'Name':name, 'Description':description, 'thehref':href});
+					  cat.children.push({'leaf':true, 'Name':name, 'Description':description, 'thehref':href, 'href':href});
 					}
 				});
 				return nodes;

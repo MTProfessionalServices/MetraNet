@@ -525,9 +525,6 @@
     <data name="TEXT_SECURITY" xml:space="preserve">
         <value>Security</value>
     </data>
-    <data name="TEXT_SELF_CARE_PORTAL" xml:space="preserve">
-        <value>View Online Bill</value>
-    </data>
     <data name="TEXT_SEND_EMAIL_DIALOG" xml:space="preserve">
         <value>Send E-Mail</value>
     </data>
@@ -623,22 +620,7 @@
     </data>
   <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
     <value>View Item History</value>
-  </data>  
-  <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
-    <value>Shared Properties</value>
-  </data>
-  <data name="TEXT_PAYMENT_TRANSACTIONS" xml:space="preserve">
-    <value>Payment Transactions</value>
-  </data>
-  <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
-    <value>Manage AMP Decision Types</value>
-  </data>
-  <data name="TEXT_MANAGE" xml:space="preserve">
-    <value>Manage</value>
-  </data>
-  <data name="TEXT_REFRESH" xml:space="preserve">
-    <value>Refresh</value>
-  </data>
+  </data>        
   <data name="TEXT_SELF_CARE_PORTAL" xml:space="preserve">
     <value>Self Care Portal</value>
   </data>

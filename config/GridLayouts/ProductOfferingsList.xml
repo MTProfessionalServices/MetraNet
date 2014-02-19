@@ -345,20 +345,12 @@
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
-            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Domain.Quoting.Quote</ObjectName>
-            <ID>Status</ID>
-            <DataType>List</DataType>
+            <AssemblyFilename>MetraTech.DomainModel.ProductCatalog.Generated.dll</AssemblyFilename>
+            <ObjectName>MetraTech.DomainModel.ProductCatalog.ProductOffering</ObjectName>
+            <ID>EffectiveTimeSpan.StartDate</ID>
+            <DataType>Date</DataType>
             <IsIdentity>false</IsIdentity>
-            <FilterEnum>
-                <EnumClassName>QuoteStatus</EnumClassName>
-                <EnumSpace>metratech.com</EnumSpace>
-                <EnumType>QuoteStatus</EnumType>
-                <UseEnumValue>true</UseEnumValue>
-                <DefaultValue></DefaultValue>
-                <HideEnumValues />
-            </FilterEnum>
-            <DataIndex>Status</DataIndex>
+            <DataIndex>EffectiveTimeSpan.StartDate</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_EFFECTIVE_STARTDATE</LocalizationTag>
@@ -389,44 +381,12 @@
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
-            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Domain.Quoting.Quote</ObjectName>
-            <ID>GroupSubscription</ID>
-            <DataType>Boolean</DataType>
+            <AssemblyFilename>MetraTech.DomainModel.ProductCatalog.Generated.dll</AssemblyFilename>
+            <ObjectName>MetraTech.DomainModel.ProductCatalog.ProductOffering</ObjectName>
+            <ID>EffectiveTimeSpan.EndDate</ID>
+            <DataType>Date</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>GroupSubscription</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag>GROUP_SUBSCRIPTION</LocalizationTag>
-                <ResourceClassKey>Quoting/App_LocalResources/QuoteList.aspx</ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>false</RecordElement>
-            <ID>Actions</ID>
-            <DataIndex>actions</DataIndex>
+            <DataIndex>EffectiveTimeSpan.EndDate</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_EFFECTIVE_ENDDATE</LocalizationTag>
@@ -602,84 +562,8 @@
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Domain.Quoting.Quote</ObjectName>
-            <ID>CorporateAccountId</ID>
-            <DataType>Numeric</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>CorporateAccountId</DataIndex>
-            <IsColumn>false</IsColumn>
-            <HeaderText />
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
+-->
     </Elements>
-    <ExpanderTemplate>
-        <Section>
-            <Title>
-                <Value><![CDATA[]]></Value>
-            </Title>
-            <TabOrder>LeftToRight</TabOrder>
-            <Name></Name>
-            <Columns>
-                <Column>
-                    <Fields>
-                        <Field>
-                            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.Domain.Quoting.Quote</ObjectName>
-                            <ID>ReportLink</ID>
-                            <Name>ReportLink</Name>
-                        </Field>
-                        <Field>
-                            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.Domain.Quoting.Quote</ObjectName>
-                            <ID>CorporateAccountId</ID>
-                            <Name>CorporateAccountId</Name>
-                        </Field>
-                    </Fields>
-                </Column>
-                <Column>
-                    <Fields>
-                        <Field>
-                            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.Domain.Quoting.Quote</ObjectName>
-                            <ID>StatusReport</ID>
-                            <Name>StatusReport</Name>
-                        </Field>
-                        <Field>
-                            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.Domain.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.Domain.Quoting.Quote</ObjectName>
-                            <ID>StatusCleanup</ID>
-                            <Name>StatusCleanup</Name>
-                        </Field>
-                    </Fields>
-                </Column>
-            </Columns>
-            <ToolbarButtons></ToolbarButtons>
-        </Section>
-    </ExpanderTemplate>
     <GridButtons></GridButtons>
     <ToolbarButtons>
         <Button>

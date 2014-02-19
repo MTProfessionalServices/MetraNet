@@ -6,6 +6,26 @@
             <Type>Vertical</Type>
             <Description></Description>
             <MenuSections>
+                <!--<MenuSection>
+                    <ID>ControlCenter</ID>
+                    <Caption>
+                        <Value><![CDATA[Control Center]]></Value>
+                    </Caption>
+                    <Description>Control Center</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>OperationsDashboard</ID>
+                            <Caption>
+                                <Value><![CDATA[Dashboard]]></Value>
+                            </Caption>
+                            <Link>/MetraNet/MetraControl/ControlCenter/OperationsDashboard.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/application_view_tile.png</Icon>
+                            <Description>Operations Dashboard</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>-->
                 <MenuSection>
                     <ID>BillingManagement</ID>
                     <Caption>
@@ -134,7 +154,7 @@
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
-                <MenuSection>
+ <!--               <MenuSection>
                     <ID>USM</ID>
                     <Caption>
                         <LocalizationTag>TEXT_USM</LocalizationTag>
@@ -154,30 +174,28 @@
                             <Description></Description>
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
-                      <!-- Commenting out, as it will not work with Multiple Billing Servers, when MetraControl is on one box and Billing server is on another box
-                        <MenuItem>
-                            <ID>SynchronzeAdapter</ID>
-                            <Caption>
-                                <LocalizationTag>TEXT_SYNC_ADAPTER</LocalizationTag>
-                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-                            </Caption>
-                            <Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/UsageServer.Synchronize.asp</Link>
-                            <Target>MainContentIframe</Target>
-                            <Icon>/Res/Images/icons/database_refresh.png</Icon>
-                            <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
-                        </MenuItem>                     
-                        -->
                     </MenuItems>
-                </MenuSection>
+                </MenuSection>-->
                 <MenuSection>
                     <ID>BatchManagement</ID>
                     <Caption>
-                        <LocalizationTag>TEXT_BATCH_MANAGEMENT</LocalizationTag>
+                        <LocalizationTag>TEXT_USAGE_PROCESSING</LocalizationTag>
                         <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                     </Caption>
                     <Description></Description>
                     <MenuItems>
+                        <MenuItem>
+                          <ID>ViewMeteringStatistics</ID>
+                          <Caption>
+                            <LocalizationTag>TEXT_VIEW_METERING_STATISTICS</LocalizationTag>
+                            <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                          </Caption>
+                          <Link>/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/Usage.Statistics.Filter.asp</Link>
+                          <Target>MainContentIframe</Target>
+                          <Icon>/Res/Images/icons/grid.png</Icon>
+                          <Description></Description>
+                          <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>                      
                         <MenuItem>
                             <ID>Batch24</ID>
                             <Caption>
@@ -298,71 +316,68 @@
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
-              <!-- FEAT 144 Menu Section Starts Here -->
-              <MenuSection>
-                <ID>DataExportManagement</ID>
-                <Caption>
-                  <LocalizationTag>TEXT_MANAGE_DATA_EXPORT_FRAMEWORK</LocalizationTag>
-                  <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-                </Caption>
-                <Description>Data Export Management</Description>
-                <MenuItems>
-                  <MenuItem>
-                    <ID>ShowAllReportDefinitions</ID>
+                <MenuSection>
+                    <ID>DataExportManagement</ID>
                     <Caption>
-                      <LocalizationTag>TEXT_MANAGE_REPORTS</LocalizationTag>
-                      <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                        <LocalizationTag>TEXT_MANAGE_DATA_EXPORT_FRAMEWORK</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                     </Caption>
-                    <Link>/MetraNet/DataExportReportManagement/ShowAllReportDefinitions.aspx</Link>
-                    <Target>MainContentIframe</Target>
-                    <Icon>/Res/Images/icons/tag_blue_edit.png</Icon>
-                    <Description>Show All Report Definitions</Description>
-                    <RequiredCapabilities>
-                      <Capability>Manage DataExportFramework</Capability>
-                    </RequiredCapabilities>
-                  </MenuItem>
-                  <MenuItem>
-                    <ID>QueueAdhocReports</ID>
-                    <Caption>
-                      <LocalizationTag>TEXT_QUEUE_ADHOC_REPORTS</LocalizationTag>
-                      <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-                    </Caption>
-                    <Link>/MetraNet/DataExportReportManagement/AdHocReportManagement.aspx</Link>
-                    <Target>MainContentIframe</Target>
-                    <Icon>/Res/Images/Icons/application_form_add.png</Icon>
-                    <Description></Description>
-                    <RequiredCapabilities>
-                      <Capability>Manage DataExportFramework</Capability>
-                    </RequiredCapabilities>
-                  </MenuItem>
-                  <MenuItem>
-                    <ID>ShowDataExportDashboard</ID>
-                    <Caption>
-                      <LocalizationTag>TEXT_SHOW_DATAEXPORT_DASHBOARD</LocalizationTag>
-                      <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-                    </Caption>
-                    <Link>/MetraNet/DataExportReportManagement/ShowExportDashboardDetails.aspx</Link>
-                    <Target>MainContentIframe</Target>
-                    <Icon>/Res/Images/Icons/page_white_text.png</Icon>
-                    <Description></Description>
-                    <RequiredCapabilities></RequiredCapabilities>
-                  </MenuItem>
-                  <MenuItem>
-                    <ID>ShowDataExportQueueDashboard</ID>
-                    <Caption>
-                      <LocalizationTag>TEXT_SHOW_DATAEXPORT_QUEUE_DASHBOARD</LocalizationTag>
-                      <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-                    </Caption>
-                    <Link>/MetraNet/DataExportReportManagement/ShowExportQueueDashboardDetails.aspx</Link>
-                    <Target>MainContentIframe</Target>
-                    <Icon>/Res/Images/Icons/page_white_text.png</Icon>
-                    <Description></Description>
-                    <RequiredCapabilities></RequiredCapabilities>
-                  </MenuItem>
-
-                </MenuItems>
-              </MenuSection>
-              <!-- FEAT 144 Menu Section Starts Here -->
+                    <Description>Data Export Management</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>ShowAllReportDefinitions</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MANAGE_REPORTS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/DataExportReportManagement/ShowAllReportDefinitions.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/tag_blue_edit.png</Icon>
+                            <Description>Show All Report Definitions</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage DataExportFramework</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>QueueAdhocReports</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_QUEUE_ADHOC_REPORTS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/DataExportReportManagement/AdHocReportManagement.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/application_form_add.png</Icon>
+                            <Description></Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage DataExportFramework</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>ShowDataExportDashboard</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_SHOW_DATAEXPORT_DASHBOARD</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/DataExportReportManagement/ShowExportDashboardDetails.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/page_white_text.png</Icon>
+                            <Description></Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>ShowDataExportQueueDashboard</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_SHOW_DATAEXPORT_QUEUE_DASHBOARD</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/DataExportReportManagement/ShowExportQueueDashboardDetails.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/page_white_text.png</Icon>
+                            <Description></Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>
                 <MenuSection>
                     <ID>FileManagement</ID>
                     <Caption>
@@ -393,12 +408,8 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/application_edit.png</Icon>
                             <Description></Description>
-							<RequiredCapabilities>
-								<CompositeCapability name="Read Business Modeling Entities">
-									<AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-								</CompositeCapability>
-							</RequiredCapabilities>
-						</MenuItem>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
                         <MenuItem>
                             <ID>FilesInLast24Hours</ID>
                             <Caption>
@@ -409,12 +420,8 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_white_find.png</Icon>
                             <Description></Description>
-							<RequiredCapabilities>
-								<CompositeCapability name="Read Business Modeling Entities">
-									<AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-								</CompositeCapability>
-							</RequiredCapabilities>
-						</MenuItem>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
                         <MenuItem>
                             <ID>FilesInPastWeek</ID>
                             <Caption>
@@ -425,12 +432,8 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_white_find.png</Icon>
                             <Description></Description>
-							<RequiredCapabilities>
-								<CompositeCapability name="Read Business Modeling Entities">
-									<AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-								</CompositeCapability>
-							</RequiredCapabilities>
-						</MenuItem>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
                         <MenuItem>
                             <ID>ActiveFiles</ID>
                             <Caption>
@@ -441,12 +444,8 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page.png</Icon>
                             <Description></Description>
-							<RequiredCapabilities>
-								<CompositeCapability name="Read Business Modeling Entities">
-									<AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-								</CompositeCapability>
-							</RequiredCapabilities>
-						</MenuItem>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
                         <MenuItem>
                             <ID>ActiveFailedFiles</ID>
                             <Caption>
@@ -457,12 +456,8 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_red.png</Icon>
                             <Description></Description>
-							<RequiredCapabilities>
-								<CompositeCapability name="Read Business Modeling Entities">
-									<AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-								</CompositeCapability>
-							</RequiredCapabilities>
-						</MenuItem>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
                         <MenuItem>
                             <ID>CompletedFiles</ID>
                             <Caption>
@@ -473,12 +468,8 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_green.png</Icon>
                             <Description></Description>
-							<RequiredCapabilities>
-								<CompositeCapability name="Read Business Modeling Entities">
-									<AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-								</CompositeCapability>
-							</RequiredCapabilities>
-						</MenuItem>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
                         <MenuItem>
                             <ID>AllFiles</ID>
                             <Caption>
@@ -489,12 +480,8 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_copy.png</Icon>
                             <Description></Description>
-							<RequiredCapabilities>
-								<CompositeCapability name="Read Business Modeling Entities">
-									<AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-								</CompositeCapability>
-							</RequiredCapabilities>
-						</MenuItem>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
                         <MenuItem>
                             <ID>RejectedFiles</ID>
                             <Caption>
@@ -505,12 +492,8 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_white_error.png</Icon>
                             <Description></Description>
-							<RequiredCapabilities>
-								<CompositeCapability name="Read Business Modeling Entities">
-									<AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-								</CompositeCapability>
-							</RequiredCapabilities>
-						</MenuItem>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
                     </MenuItems>
                 </MenuSection>
                 <MenuSection>
@@ -598,12 +581,12 @@
                             <RequiredCapabilities>
                                 <Capability>Update Failed Transactions</Capability>
                             </RequiredCapabilities>
-						</MenuItem>
+                        </MenuItem>
                         <MenuItem>
                             <ID>FailedTransactionSummaryErrorType</ID>
-                            <Caption>                                
-                              <LocalizationTag>TEXT_SUMMARY_BY_ERROR_TYPE</LocalizationTag>
-                              <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            <Caption>
+                                <LocalizationTag>TEXT_SUMMARY_BY_ERROR_TYPE</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link>/MetraNet/MetraControl/FailedTransactions/SummaryGridView.aspx?SummaryGrid_TemplateFileName=FailedTransactionErrorTypeSummaryLayout</Link>
                             <Target>MainContentIframe</Target>
@@ -612,7 +595,7 @@
                             <RequiredCapabilities>
                                 <Capability>Update Failed Transactions</Capability>
                             </RequiredCapabilities>
-						</MenuItem>
+                        </MenuItem>
                         <MenuItem>
                             <ID>FailedTransactionsList</ID>
                             <Caption>
@@ -708,6 +691,18 @@
                     <Description></Description>
                     <MenuItems>
                         <MenuItem>
+                            <ID>USMConfig</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_USM_CONFIG</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/MetraControl/UsageServer/UsmConfig.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/cog_edit.png</Icon>
+                            <Description></Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>                      
+                        <MenuItem>
                             <ID>VersionInfo</ID>
                             <Caption>
                                 <LocalizationTag>TEXT_VERSION_INFO</LocalizationTag>
@@ -732,16 +727,22 @@
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
-                          <ID>MachineRole</ID>
-                          <Caption>
-                            <LocalizationTag>TEXT_MACHINE_ROLES</LocalizationTag>
-                            <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-                          </Caption>
-                          <Link>/MetraNet/BME/BEList.aspx?Name=Core.MR.MachineRole&amp;NewBreadcrumb=true&amp;Extension=Core</Link>
-                          <Target>MainContentIframe</Target>
-                          <Icon>/Res/Images/icons/computer_add.png</Icon>
-                          <Description></Description>
-                          <RequiredCapabilities></RequiredCapabilities>
+                            <ID>MachineRole</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MACHINE_ROLES</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/BME/BEList.aspx?Name=Core.MR.MachineRole&amp;Extension=Core&amp;NewBreadcrumb=True</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/computer_add.png</Icon>
+                            <Description></Description>
+                            <RequiredCapabilities>
+                                <RequiredCapabilities>
+                                    <CompositeCapability name="Read Business Modeling Entities">
+                                        <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
+                                    </CompositeCapability>
+                                </RequiredCapabilities>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>Synchronize</ID>
@@ -757,28 +758,28 @@
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
-              <MenuSection>
-                <ID>PaymentsStatus</ID>
-                <Caption>
-                  <LocalizationTag>TEXT_PAYMENTS</LocalizationTag>
-                  <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-                </Caption>
-                <Description></Description>
-                <MenuItems>
-                  <MenuItem>
-                    <ID>PaymentTransactions</ID>
+                <MenuSection>
+                    <ID>PaymentsStatus</ID>
                     <Caption>
-                      <LocalizationTag>TEXT_PAYMENT_TRANSACTIONS</LocalizationTag>
-                      <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                        <LocalizationTag>TEXT_PAYMENTS</LocalizationTag>
+                        <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                     </Caption>
-                    <Link>/MetraNet/MetraControl/Payments/PaymentTransactions.aspx</Link>
-                    <Target>MainContentIframe</Target>
-                    <Icon>/Res/Images/icons/creditcards.png</Icon>
                     <Description></Description>
-                    <RequiredCapabilities></RequiredCapabilities>
-                  </MenuItem>
-                </MenuItems>
-              </MenuSection>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>PaymentTransactions</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_PAYMENT_TRANSACTIONS</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/MetraControl/Payments/PaymentTransactions.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/creditcards.png</Icon>
+                            <Description></Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>
             </MenuSections>
         </Menu>
     </Menus>

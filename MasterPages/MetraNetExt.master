@@ -7,23 +7,29 @@
 <%@ Register Src="../UserControls/Events.ascx" TagName="Events" TagPrefix="uc3" %>
 <%@ Register Src="../UserControls/Error.ascx" TagName="Error" TagPrefix="uc5" %>
 <%@ Register Src="~/UserControls/Menus/AccountMenu.ascx" TagName="AccountMenu" TagPrefix="uc4" %>
+<%@ Register Src="~/UserControls/Menus/MetraNetMenu.ascx" TagName="MetraNetMenu" TagPrefix="uc10" %>
 <%@ Register Src="~/UserControls/Menus/MetraCareMenu.ascx" TagName="MetraCareMenu" TagPrefix="uc1" %>
 <%@ Register src="~/UserControls/Menus/MetraControlMenu.ascx" tagname="MetraControlMenu" tagprefix="uc8" %>
 <%@ Register src="~/UserControls/Menus/MetraOfferMenu.ascx" tagname="MetraOfferMenu" tagprefix="uc9" %>
 <%@ Register src="../UserControls/SessionTimeout.ascx" tagname="SessionTimeout" tagprefix="uc2" %>
 <%@ Register src="../UserControls/Hierarchy.ascx" tagname="Hierarchy" tagprefix="uc10" %>
+
 <!DOCTYPE html>
 <html>
 <head id="Head1" runat="server">
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
   <title>MetraNet</title>
   
   <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/ext-all.css?v=6.5" />
   <link rel="stylesheet" type="text/css" href="<%= GetGlobalResourceObject("Resource", "LocalizedStyleSheet") %>" />
-  <link rel="stylesheet" type="text/css" href="/Res/Styles/menuStyle.css?v=6.5?v=6.5"/>
+
+
+  <link rel="stylesheet" type="text/css" href="/Res/Styles/menuStyle.css?v=6.5"/>
   <link rel="stylesheet" type="text/css" href="/Res/Styles/MiscField.css?v=6.5"/>
   <link rel="stylesheet" type="text/css" href="/Res/Styles/Silk.css?v=6.5" /> 
-  <link rel="stylesheet" type="text/css" href="/Res/Styles/menuStyle.css?v=6.5" />  
-	<link rel="icon" type="image/ico" href="/MetraNet/favicon.ico">
+  <link rel="icon" type="image/ico" href="/MetraNet/favicon.ico"/>
+  <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/xtheme-metranet.css" />
+
 
   <script type="text/javascript" src="/Res/Ext/adapter/ext/ext-base.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/Ext/ext-all.js?v=6.5"></script>
@@ -43,8 +49,106 @@
     var subscriberInfo = "<%=SubscriberInfo%>";
     var userInfo = "<%=UserInfo%>";
     var userId = <%=UserId%>;
+     
   </script>
-  <%=Constants.CJ_PROTECTION_CODE %>       
+  <%=Constants.CJ_PROTECTION_CODE %>    
+  
+ <style>
+      
+#north-panel .x-panel-bbar .x-toolbar,#north-panel  .x-panel-tbar .x-toolbar {
+    margin: 5;
+    padding:5;
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    -ms-box-shadow: 0 1px 2px rgba(0,0,0,.5);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    border : 0px;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=65)";
+    filter: alpha(opacity=65);
+    /*background: #115BA6;*/
+    background: rgba(0,0,0,.65);
+        
+    color: #FFF;
+}
+
+.x-btn button,.x-btn span 
+{
+
+/*background-color: rgb(85, 85, 85);*/
+font: bold 11px tahoma,arial,verdana,sans-serif;
+color: #fff;
+border-radius: 3px;
+}
+
+#north-panel .x-panel-body-noheader, .x-panel-mc .x-panel-body {
+border: 0px;
+}
+
+.ext-strict .ext-webkit .x-small-editor .x-form-text {
+height: 18px !important;
+}
+
+#subscriberInfoLabel
+{
+    font: bold 14px tahoma,arial,verdana,sans-serif;
+}
+
+
+.x-btn button .help {
+    background: #fff url(/Res/Images/ui/help_sm_sprite.png) no-repeat 6px -98px;
+    border: solid 1px #fff;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #0085c7;
+    font-weight: bold;
+    padding-left: 25px;
+    text-decoration: underline;
+    color: #0085c7;
+    font-weight: bold;
+}
+
+.x-btn-text.metranetlogo
+{
+     background-image: url(/Res/Images/login/metranet_Logo_Wht.png);
+     width: 150px;
+     height:30px;
+   
+}
+
+.x-btn-focus button, .x-btn-over button
+{
+    background-color: rgb(51,51,51);
+}
+
+.x-btn-over .x-btn-tl, 
+.x-btn-over .x-btn-tr, 
+.x-btn-over .x-btn-tc, 
+.x-btn-over .x-btn-ml, 
+.x-btn-over .x-btn-mr, 
+.x-btn-over .x-btn-mc, 
+.x-btn-over .x-btn-bl, 
+.x-btn-over .x-btn-br, 
+.x-btn-over .x-btn-bc{
+	background-image:url(../images/gray/button/btn.gif); 
+	background: rgb(51, 51, 51);
+}
+
+
+.x-btn-focus .x-btn-tl, 
+.x-btn-focus .x-btn-tr, 
+.x-btn-focus .x-btn-tc, 
+.x-btn-focus .x-btn-ml, 
+.x-btn-focus .x-btn-mr, 
+.x-btn-focus .x-btn-mc, 
+.x-btn-focus .x-btn-bl, 
+.x-btn-focus .x-btn-br, 
+.x-btn-focus .x-btn-bc{
+	background-image:url(../images/gray/button/btn.gif); 
+	background: rgb(51, 51, 51);
+}
+
+</style>     
 </head>
 
 <body>
@@ -123,17 +227,22 @@
       id: 'TabAcctSelector',
       title: TEXT_ACCOUNT_FINDER,
       autoScroll: true
+//    }, {
+//      html: '<div id="AccountProps" name="AccountProps" ><p><i>' + TEXT_NO_ACCOUNT_LOADED + '</i></p></div><div id="addressDiv"></div><div id="path1"></div>',
+//      id: 'TabAcctProp',
+//      title: TEXT_ACCOUNT_PROPERTIES,
+//      autoScroll: true
     }, {
-      html: '<div id="AccountProps" name="AccountProps" ><p><i>' + TEXT_NO_ACCOUNT_LOADED + '</i></p></div><div id="addressDiv"></div><div id="path1"></div>',
-      id: 'TabAcctProp',
-      title: TEXT_ACCOUNT_PROPERTIES,
-      autoScroll: true
+      html: '<div id="AccountActivity" name="AccountActivity" class="full"><p><i>' + TEXT_NO_ACCOUNT_LOADED + '</i></p></div>',
+      id: 'TabAcctActivity',
+      title: 'Account Activity',
+      autoScroll: true      
     }, {
       html: '<div id="AccountProps2" name="AccountProps2" class="full"><p><i>' + TEXT_NO_ACCOUNT_LOADED + '</i></p></div>',
       id: 'TabAcctPropGrid',
       title: TEXT_ACCOUNT_DETAILS,
       autoScroll: true
-    }
+    }        
     ]
   });
 
@@ -205,88 +314,156 @@
   Ext.reg('FormViewport', Ext.FormViewport);
 
     // Create the main viewport
-  viewport = new Ext.FormViewport({
+    viewport = new Ext.FormViewport({
     renderTo: "aspnetForm",
     layout: 'border',
-    items: [{
+    items: [
+    {
       region: 'north',
+      layout: 'fit',
       id: 'north-panel',
-      contentEl: 'north',
+      //contentEl: 'north',
       split: false,
-      height: 60,
       collapsible: false,
       margins: '0 0 0 0',
-      bbar: [
-        <%= GetTopBar() %>
-      {
-                    text: '<span id="subscriberInfo"><span>',
-      handler: function() {
-        Account.RefreshWithMenu();
-      }
-    },
-	{
-					iconCls: 'hierarchyFind',
-					id: 'btnFindHierarchy',
-					hideMode: 'visibility',
-					hidden: true,
-					handler: function() { Account.LinkAccount(); }
-				},		
-      new Ext.Toolbar.Fill(),
-      {
-        text: userInfo,
-        handler: function() {
-          Ext.UI.LoadPage('/MetraNet/Welcome.aspx'); ;
+     
+
+      
+      tbar: [
+         
+         {xtype: 'tbspacer', width: 5},
+         
+         {
+           xtype: 'component',
+            autoEl: {
+                tag: 'img',
+                src: '/Res/Images/login/metranet_Logo_Wht.png',
+                width: 150,
+                height:25
+            }
+
+         },
+
+//        {
+//        
+//            text: '<img alt="MetraNet" width="150" height="30" src="/Res/Images/Header/MetraNet1Small.png" />'
+
+//           
+//        }
+
+//        ,
+        {xtype: 'tbspacer', width: '150', height: 40},
+
+         <%= GetTopBar() %>
+
+    
+    '->'
+    ,
+       new Ext.Toolbar.SplitButton({
+            text: userInfo,
+            
+            //handler: onButtonClick,
+            //tooltip: {text:'This is a an example QuickTip for a toolbar item', title:'Tip Title'},
+            iconCls: 'blist',
+            // Menus can be built/referenced by using nested menu config objects
+            menu : {
+                items: [{
+                  text: 'Change Password',
+                  icon: '/Res/Images/icons/lock_edit.png',
+//                            <Link>/MetraNet/ChangePassword.aspx</Link>
+//                            <Target>MainContentIframe</Target>
+                },{
+                    text: 'My Security Settings',
+                    icon: '/Res/Images/icons/key_go.png',   
+//                            <Link>/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/ManageSecurity.asp?MDMReload=True**MODE=CSR_DEFAULT_POLICY</Link>
+//                            <Target>MainContentIframe</Target>                                     
+
+                }]
+            }
+        }),
+       
+        "-",
+        {
+            id: 'btnLogout',
+            iconCls: 'logout',
+            text: TEXT_LOGOUT,
+            handler: function() {
+                Ext.UI.Logout();
+            }
         }
-      },
+      ],
+
+      bbar:[
+        {
+            text: '<span id="subscriberInfoLabel"> Account > </span><span id="subscriberInfo">None Selected</span>',
+            handler: function() {
+                Account.RefreshWithMenu();
+                
+            }
+        },
+	    {
+		    iconCls: 'hierarchyFind',
+		    id: 'btnFindHierarchy',
+		    hideMode: 'visibility',
+		    hidden: true,
+            handler: function() { Account.LinkAccount(); }
+        },               	
+        
+        
+        '->',
+        	
+//      new Ext.Toolbar.Fill(),
+//      {
+//        text: userInfo,
+//        handler: function() {
+//          Ext.UI.LoadPage('/MetraNet/Welcome.aspx'); ;
+//        }
+//      },
       {
         iconCls: 'help',
         text: TEXT_HELP,
         handler: function() {
-          Ext.UI.LoadHelp();
+                Ext.UI.LoadHelp();
+            }
         }
-      },
-      "-",
-      {
-        id: 'btnLogout',
-        iconCls: 'logout',
-        text: TEXT_LOGOUT,
-        handler: function() {
-          Ext.UI.Logout();
-        }
-      }
-    ]
-  },
+      ]
+    },
       
     <%= GetAccountTabs() %>
-  {
-    region: 'west',
-    id: 'west-panel',
-    title: '',
-    split: true,
-    width: 200,
-    minSize: 175,
-    maxSize: 400,
-    collapsible: true,
-    margins: '0 0 0 5',
-    layout: 'accordion',
-    layoutConfig: {
-                    animate: true           
-                  },items: [
-            
+    {
+        region: 'west',
+        id: 'west-panel',
+        frame:false,
+        title: '',
+        split: false,
+        width: 200,
+        minSize: 175,
+        maxSize: 400,
+        collapsible: true,
+        margins: '0 0 0 0',
+        layout: 'accordion',
+        layoutConfig: {
+             animate: true           
+         },
+         items: [ 
                     <%= GetVerticalMenus() %>
-                  ]
-  },
-  {
-    region: 'center',
-    items: {
+          ]
+     },
+     {
+        region: 'center',
+        items: {
              contentEl: 'MainContent',
              layout: 'fit',
              autoScroll: false,
              autoLoad: null
            }
-  }
-  ]
+        
+       }
+    ]
   });
+
+    if ( Ext.getCmp('west-panel').items.items[0])
+      Ext.getCmp('west-panel').items.items[0].collapse(true)
 
     // Now it is time to make the Iframe 100%... yeah, it's a bit gross, 
     // but cleaner than any alternative we could find. 
@@ -321,16 +498,21 @@
   </div>
 
   <!-- Header --> 
-  <div id="north" style="height: 32px;">
-    <div style="float: right; margin-right: 10px;" class="HeaderText">
-      <uc7:ServerDescription ID="ServerDescription2" runat="server" />
-    </div>
+  <%--  <div id="north">
     <div>
-      <img alt="MetraNet" width="100" height="24" src="/Res/Images/Header/MetraNet1Small.png" />
+      <img alt="MetraNet" width="150" height="30" src="/Res/Images/Header/MetraNet1Small.png" />
     </div>
+     
   </div>
   
-  <!-- Menus -->
+--%>
+
+
+<!-- Menus -->
+  <div id="metranet">
+    <uc10:MetraNetMenu ID="MetraNetMenu1" runat="server" />
+  </div>
+
   <div id="metracare">
     <uc1:MetraCareMenu ID="MetraCareMenu1" runat="server" />
   </div>
@@ -364,7 +546,7 @@
   </div>  
   <asp:contentplaceholder id="ContentPlaceHolder1" runat="server"></asp:contentplaceholder>
   
-  <div id="props-panel" style="width:200px;height:200px;overflow:hidden;"></div>
+  <div id="props-panel" style="width:200px;height:200px;overflow:hidden;border:0"></div>
   
   <!-- This hidden frame is used to load items in the background such as new accounts to manage. -->
   <iframe id="hidden" name="hidden" src="<%= LoadUserAccount %>" width="0px" height="0px" frameborder="0"></iframe>

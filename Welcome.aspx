@@ -1,7 +1,6 @@
 <%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" Inherits="welcome" Title="MetraNet" CodeFile="Welcome.aspx.cs" %>
 
 
-
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
 	<style>

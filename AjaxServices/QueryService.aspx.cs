@@ -44,7 +44,8 @@ public partial class AjaxServices_QueryService : MTListServicePage
               // Set the parameters
               foreach (SQLQueryParam param in QueryInfo.Params)
               {
-                  stmt.AddParam(param.FieldName, param.FieldValue);
+                  //stmt.AddParam(param.FieldName, param.FieldValue);
+                  stmt.AddParamIfFound(param.FieldName, param.FieldValue);
               }
 
               #region Apply Sorting

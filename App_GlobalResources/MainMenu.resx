@@ -554,10 +554,7 @@
     </data>
     <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
         <value>View Failed Changes</value>
-    </data>
-    <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
-        <value>View Item History</value>
-    </data>
+    </data>    
     <data name="TEXT_SHOW_PENDING_CHANGES_SUMMARY" xml:space="preserve">
         <value>View Pending Changes</value>
     </data>
@@ -626,16 +623,7 @@
     </data>
   <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
     <value>View Item History</value>
-  </data>
-  <data name="TEXT_SHOW_ALL_CHANGES_SUMMARY" xml:space="preserve">
-    <value>View All Changes</value>
-  </data>
-  <data name="TEXT_SHOW_PENDING_CHANGES_SUMMARY" xml:space="preserve">
-    <value>View Pending Changes</value>
-  </data>
-  <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
-    <value>View Failed Changes</value>
-  </data>
+  </data>  
   <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
     <value>Shared Properties</value>
   </data>

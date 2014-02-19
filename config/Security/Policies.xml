@@ -216,6 +216,89 @@
 </policies>
 </principal>
 
+<principal type="role" name = "Partition Account Manager">
+<description>Partition Account Manager
+</description>
+<csrassignable>y</csrassignable>
+<subscriberassignable>n</subscriberassignable>
+<policies>
+<policy type="a">
+<cs>
+  <c name="Application LogOn" guid="">
+  <as>
+      <ec>
+        <v>MAM</v>
+		<v>MCM</v>
+		<v>MOM</v>
+		<v>MPS</v>
+      </ec>
+    </as>
+  </c>
+
+  <c name="View Online Bill" guid="">
+  </c>  
+  <c name="Manage Payment Redirection" guid="">
+  </c>
+  <c name="Manage billable accounts" guid="">
+  </c>
+  <c name="Create subscriber accounts" guid="">
+  </c>
+  <c name="Update subscriber accounts" guid="">
+  </c>
+  <c name="Create corporate accounts" guid="">
+  </c>
+  <c name="Update corporate accounts" guid="">
+  </c>
+  <c name="Move account" guid="">
+  </c>
+  <c name="Create subscription" guid="">
+  </c>
+  <c name="Update subscription" guid="">
+  </c>
+  <c name="Manage Custom Rates" guid="">
+  </c>
+  <c name="Manage Group Custom Rates" guid="">
+  </c>
+  <c name="View subscriptions" guid="">
+  </c>
+  <c name="Delete Subscription" guid="">
+  </c>
+  <c name="Back Date Subscriptions" guid="">
+  </c>
+  <c name="Impersonation" guid="">
+  </c>
+</cs>
+</policy>
+</policies>
+</principal>
+
+<principal type="role" name = "Partition Pricing Manager">
+<description>Partition Pricing Manager
+</description>
+<csrassignable>y</csrassignable>
+<subscriberassignable>n</subscriberassignable>
+<policies>
+<policy type="a">
+<cs>
+  <c name="Application LogOn" guid="">
+  <as>
+      <ec>
+        <v>MAM</v>
+		<v>MCM</v>
+		<v>MOM</v>
+		<v>MPS</v>
+      </ec>
+    </as>
+  </c>
+
+  <c name="Delete Rates" guid="">
+  </c>
+  
+</cs>
+</policy>
+</policies>
+</principal>
+
 <principal type="account" name = "demo" namespace = "mt">
 <policies>
 <policy type="a">

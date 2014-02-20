@@ -124,7 +124,7 @@
     <value>Commentaire</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_CURRENT_STATE" xml:space="preserve">
-    <value>État actuel</value>
+    <value>Statut actuel</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_ID" xml:space="preserve">
     <value>Action</value>
@@ -133,13 +133,13 @@
     <value>Date de dernière modification</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTED_DATE" xml:space="preserve">
-    <value>Date soumis</value>
+    <value>Date de soumission</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_DISPLAYNAME" xml:space="preserve">
-    <value>Envoyé</value>
+    <value>Emetteur</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_ID" xml:space="preserve">
-    <value>Envoyé ID</value>
+    <value>ID de l'émetteur</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_TYPE" xml:space="preserve">
     <value>Type</value>
@@ -151,10 +151,10 @@
     <value>Aucun enregistrement trouvé</value>
   </data>
   <data name="TEXT_APPROVAL_VIEW_CHANGES_SUMMARY" xml:space="preserve">
-    <value>Voir modifications</value>
+    <value>Afficher les modifications</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_STATE_DISPLAYNAME" xml:space="preserve">
-    <value>État</value>
+    <value>Statut</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_DISPLAYNAME" xml:space="preserve">
     <value>Élément modifié</value>

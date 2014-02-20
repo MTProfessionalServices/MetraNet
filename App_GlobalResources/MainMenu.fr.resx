@@ -574,18 +574,18 @@
     <value>Approvals</value>
   </data>
   <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
-    <value>L'Histoire de l'élément</value>
+    <value>Afficher les détails historiques</value>
   </data>
   <data name="TEXT_SHOW_ALL_CHANGES_SUMMARY" xml:space="preserve">
-    <value>Toutes les modifications</value>
+    <value>Afficher toutes les modifications</value>
   </data>
   <data name="TEXT_SHOW_PENDING_CHANGES_SUMMARY" xml:space="preserve">
-    <value>Les modifications en attente</value>
+    <value>Afficher les modifications en attente</value>
   </data>
   <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
-    <value>Les modifications échoué</value>
+    <value>Afficher les modifications erronées</value>
   </data>
   <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
-    <value>Assigner les messages de la facture</value>
+    <value>Assigner des messages aux factures</value>
   </data>
 </root>

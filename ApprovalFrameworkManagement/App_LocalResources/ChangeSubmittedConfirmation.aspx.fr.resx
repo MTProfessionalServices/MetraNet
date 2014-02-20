@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblCaptionResource1.Text" xml:space="preserve">
-    <value>Modification soumis confirmation</value>
+    <value>Confirmation: la modification est soumise au processus d'approbation</value>
   </data>
   <data name="Panel1Resource1.Text" xml:space="preserve">
-    <value>La modification soumis avec succès au Approval Framework</value>
+    <value>Modification soumise au processus d'approbation</value>
   </data>
   <data name="lblContentsResource1.Text" xml:space="preserve">
-    <value>La modification soumis avec succès au Approval Framework.</value>
+    <value>Modification soumise au processus d'approbation.</value>
   </data>
   <data name="btnOKResource1.Text" xml:space="preserve">
     <value>OK</value>

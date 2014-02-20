@@ -1193,6 +1193,6 @@
     <value>Error: End Date needs to be later than Start Date</value>
   </data>
    <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
-    <value>[fr]Start Date can't be greater than End Date</value>
+    <value>La date de début ne peut être après la date de fin</value>
   </data>
 </root>

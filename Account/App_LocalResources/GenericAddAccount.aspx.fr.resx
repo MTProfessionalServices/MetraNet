@@ -220,7 +220,7 @@
         <value>Date d'effet du compte</value>
     </data>
     <data name="tbUserNameResource1.Label" xml:space="preserve">
-        <value>Type d'authentification</value>
+        <value>Nom d'utilisateur</value>
     </data>
     <data name="tbUserNameResource1.MaxLength" xml:space="preserve">
         <value>-1</value>

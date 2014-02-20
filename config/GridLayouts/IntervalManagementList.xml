@@ -54,7 +54,10 @@
             <IsIdentity>true</IsIdentity>
             <DataIndex>ID</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>TEXT_ID</LocalizationTag>
+                <ResourceClassKey>MetraControl/BillingManagement/App_LocalResourses/IntervalManagementList.aspx.resx</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -87,7 +90,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>Status</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>TEXT_STATUS</LocalizationTag>
+                <ResourceClassKey>MetraControl/BillingManagement/App_LocalResources/IntervalManagementList.aspx</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -101,7 +107,9 @@
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
+            <FilterLabel>
+                <LocalizationFQN>LayoutText/IntervalManagementList/TEXT_STATUS</LocalizationFQN>
+            </FilterLabel>
             <ElementValue>
                 <Value><![CDATA[]]></Value>
             </ElementValue>
@@ -120,7 +128,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>UsageCycleType</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>TEXT_USAGE_CYCLE_TYPE</LocalizationTag>
+                <ResourceClassKey>MetraControl/BillingManagement/App_LocalResources/IntervalManagementList.aspx</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -153,7 +164,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>StartDate</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>TEXT_START_DATE</LocalizationTag>
+                <ResourceClassKey>MetraControl/BillingManagement/App_LocalResources/IntervalManagementList.aspx</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -186,7 +200,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>EndDate</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>TEXT_END_DATE</LocalizationTag>
+                <ResourceClassKey>MetraControl/BillingManagement/App_LocalResources/IntervalManagementList.aspx</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -219,7 +236,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>Groups</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>TEXT_GROUP</LocalizationTag>
+                <ResourceClassKey>MetraControl/BillingManagement/App_LocalResources/IntervalManagementList.aspx</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -252,7 +272,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>DBStatus</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>TEXT_DB_STATUS</LocalizationTag>
+                <ResourceClassKey>MetraControl/BillingManagement/App_LocalResources/IntervalManagementList.aspx</ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>

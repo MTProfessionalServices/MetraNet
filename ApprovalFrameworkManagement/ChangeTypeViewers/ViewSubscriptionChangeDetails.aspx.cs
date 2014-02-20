@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.ServiceModel;
-using System.Web;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using MetraTech.ActivityServices.Common;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.UI.Common;
@@ -9,8 +10,6 @@ using MetraTech.Core.Services.ClientProxies;
 using MetraTech.Approvals;
 using MetraTech.Approvals.ChangeTypes;
 using MetraTech.UI.Controls;
-using MetraTech.DomainModel.BaseTypes;
-using System.Web.UI;
 
 public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails : MTPage
 {
@@ -78,10 +77,14 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
       _parenControl.Controls.Add(new LiteralControl("<br />"));
       _parenControl.Controls.Add(new MTSection {Text = GetLocalResourceObject("UDRC_SECTION_NAME").ToString()});
 
+      var div1 = new HtmlGenericControl("div") {ID = "divForSchroll"};
+      div1.Attributes["class"] = "vCh-schrollDiv-udrc";
+      
       foreach (var change in subChange.UdrcProperties)
       {
-        SetUdrsViewChangeControls(change);
+        SetUdrsViewChangeControls(change, div1);
       }
+      _parenControl.Controls.Add(div1);
     }
   }
 
@@ -94,24 +97,28 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
         {
           Text = GetLocalResourceObject("SUB_PROPS_SECTION_NAME").ToString()
         });
-
+      
+      var div1 = new HtmlGenericControl("div") { ID = "divForSchroll" };
+      div1.Attributes["class"] = "vCh-schrollDiv-subProps";
+      
       foreach (var change in subChange.ExtendedProperties)
       {
-        AddViewChangeControl(_parenControl, change);
+        AddViewChangeControl(div1, change);
       }
+      _parenControl.Controls.Add(div1);
     }
   }
 
-  private void SetUdrsViewChangeControls(UdrcChange changedProp)
+  private void SetUdrsViewChangeControls(UdrcChange changedProp, HtmlGenericControl parentControl)
   {
-    _parenControl.Controls.Add(new MTViewChangeControl
+    parentControl.Controls.Add(new MTViewChangeControl
       {
         Label = GetLocalResourceObject("UDRC_NAME").ToString(),
         ValueNew = String.Format("<b>{0}</b>", changedProp.UdrcName)
       });
     foreach (var change in changedProp.UdrcValueChanges)
     {
-      AddViewChangeControl(_parenControl, change);
+      AddViewChangeControl(parentControl, change);
     }    
   }
 

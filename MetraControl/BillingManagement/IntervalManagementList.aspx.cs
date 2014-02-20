@@ -9,28 +9,28 @@ using MetraTech.UI.Controls;
 
 public partial class MetraControl_BillingManagement_IntervalManagementList : MTPage
 {
-    
-    protected void Page_Load(object sender, EventArgs e)
+
+  protected override void OnLoadComplete(EventArgs e)
     {
-      //string statusFilterValue = Request["Intervals"];
+      string statusFilterValue = Request["Intervals"];
 
-      //if (!String.IsNullOrEmpty(statusFilterValue))
-      //{
-      //  switch (statusFilterValue)
-      //  {
-      //    case "Active":
-      //      SetGridFilterByColumnValue(IntervalListGrid, "DBStatus", "O");
-      //      break;
-      //    case "Billable":
-      //      SetGridFilterByColumnValue(IntervalListGrid, "DBStatus", "B");
-      //      break;
-      //    case "Completed":
-      //      SetGridFilterByColumnValue(IntervalListGrid, "DBStatus", "H");
-      //      break;
+      if (!String.IsNullOrEmpty(statusFilterValue))
+      {
+        switch (statusFilterValue)
+        {
+          case "Active":
+            SetGridFilterByColumnValue(IntervalListGrid, "DBStatus", "O");
+            break;
+          case "Billable":
+            SetGridFilterByColumnValue(IntervalListGrid, "DBStatus", "B");
+            break;
+          case "Completed":
+            SetGridFilterByColumnValue(IntervalListGrid, "DBStatus", "H");
+            break;
 
-       // }
+        }
 
-     // }
+      }
     }
 
 

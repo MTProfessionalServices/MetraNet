@@ -123,6 +123,9 @@
   <data name="TEXT_END_DATE" xml:space="preserve">
     <value>End Date</value>
   </data>
+  <data name="TEXT_GRID_TITLE" xml:space="preserve">
+    <value>Billable Intervals</value>
+  </data>
   <data name="TEXT_GROUP" xml:space="preserve">
     <value>Group</value>
   </data>

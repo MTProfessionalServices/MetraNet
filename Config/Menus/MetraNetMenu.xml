@@ -13,7 +13,7 @@
                   </Caption>
                     <Description></Description>
                     <MenuItems> 
-                        <MenuItem>
+                        <!--MenuItem>
                             <ID>Reports</ID>
                             <Caption>
                                 <LocalizationTag>TEXT_REPORTS</LocalizationTag>
@@ -30,7 +30,7 @@
                                     </CompositeCapability>
                                 </RequiredCapabilities>
                             </RequiredCapabilities>
-                        </MenuItem>
+                        </MenuItem-->
                         <MenuItem>
                             <ID>ReportsTree</ID>
                             <Caption>

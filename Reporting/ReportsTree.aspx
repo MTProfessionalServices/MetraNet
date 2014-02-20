@@ -22,6 +22,7 @@
   <div style="padding: 10px">
     <MT:MTLabel ID="LblcurrentEntityName" runat="server" Font-Bold="true" Font-Size="Medium" />
   </div>
+  <a href="/MetraNet/BME/BEList.aspx?Name=MetraTech.Reporting.Reports.Report&Extension=MetraTech.Reporting&NewBreadcrumb=True&BMEGrid_TemplateFileName=MetraTech.Reporting.Reports.Report">Manage Reports</a>
 		<script type="text/javascript">
     var referer ='<%=RefererUrl%>';
 	
@@ -124,6 +125,7 @@ Ext.reg('customnodetreeloader', Ext.ux.CustomNodeTreeLoader);
 		})
     });
 });
+
   </script>
 </body>
 </asp:Content>

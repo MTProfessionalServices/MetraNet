@@ -155,7 +155,7 @@ public partial class ApprovalFrameworkManagement_AjaxServices_ChangeOperation : 
     List<UDRCInstance> currentUdrcInstances = null;
     List<UDRCInstance> newUdrcInstances;
 
-    SetCredantional(subscriptionClient.ClientCredentials);
+    SetSuCredantional(subscriptionClient.ClientCredentials);
 
     subscriptionClient.GetUDRCInstancesForPO(newSubscription.ProductOfferingId, out newUdrcInstances);
     if (newSubscription.SubscriptionId.HasValue)
@@ -178,5 +178,18 @@ public partial class ApprovalFrameworkManagement_AjaxServices_ChangeOperation : 
 
     clientCredentials.UserName.UserName = UI.User.UserName;
     clientCredentials.UserName.Password = UI.User.SessionPassword;
+  }
+
+  private void SetSuCredantional(System.ServiceModel.Description.ClientCredentials clientCredentials)
+  {
+    if (clientCredentials == null)
+      throw new InvalidOperationException("Client credentials is null");
+
+    var sa = new MetraTech.Interop.MTServerAccess.MTServerAccessDataSet();
+    sa.Initialize();
+    var accessData = sa.FindAndReturnObject("SuperUser");
+
+    clientCredentials.UserName.UserName = accessData.UserName;
+    clientCredentials.UserName.Password = accessData.Password;
   }
 }

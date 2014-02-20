@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="IntervalManagementListSvc.aspx.cs" Inherits="MetraControl_BillingManagement_AjaxServices_IntervalManagementListSvc" %>

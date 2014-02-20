@@ -1,6 +1,6 @@
 SELECT
     ui.id_interval IntervalID,
-    uct.tx_desc CycleType,
+	uc.id_cycle_type CycleType,
     ui.dt_start StartDate,
     ui.dt_end EndDate,
     isnull(billingGroups.TotalGroupCount, 0) TotalGroupCount, 
@@ -10,7 +10,6 @@ SELECT
   FROM t_usage_interval ui
   /* get cycle type name */
   INNER JOIN t_usage_cycle uc ON uc.id_usage_cycle = ui.id_usage_cycle  
-  INNER JOIN t_usage_cycle_type uct ON uct.id_cycle_type = uc.id_cycle_type 
   /* get full materialization information */
   LEFT OUTER JOIN  
   (

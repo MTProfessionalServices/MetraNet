@@ -2,8 +2,8 @@
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <Name>IntervalManagementList</Name>
     <Title>
-        <LocalizationTag>GRID_TITLE</LocalizationTag>
-        <ResourceClassKey></ResourceClassKey>
+        <LocalizationTag>TEXT_GRID_TITLE</LocalizationTag>
+        <ResourceClassKey>MetraControl/BillingManagement/App_LocalResources/IntervalManagementList.aspx</ResourceClassKey>
     </Title>
     <Exportable>true</Exportable>
     <Height>400</Height>

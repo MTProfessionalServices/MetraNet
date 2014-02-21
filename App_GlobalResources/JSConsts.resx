@@ -284,8 +284,8 @@
   </data>
   <data name="TEXT_BILL_MESSAGE" xml:space="preserve">
     <value>Bill Message {0} has {1} accounts associated with it.</value>
-  </data> 
-	<data name="TEXT_BULKUPDATE" xml:space="preserve">
+  </data>
+  <data name="TEXT_BULKUPDATE" xml:space="preserve">
     <value>Bulk Update</value>
   </data>
   <data name="TEXT_DELETE_ACCOUNT_NOTE" xml:space="preserve">
@@ -945,16 +945,16 @@
   <data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE_PRORATION" xml:space="preserve">
     <value>Help: Decision Range Proration</value>
   </data>
-	<data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
     <value>Help: Decision Range</value>
   </data>
-	<data name="TEXT_AMPWIZARD_MORE_DECISION_CYCLE" xml:space="preserve">
+  <data name="TEXT_AMPWIZARD_MORE_DECISION_CYCLE" xml:space="preserve">
     <value>Example: A billing cycle is monthly, but you want to give a special rate if \"more than 1000 minutes are used in three months\". This is known as the Decision Cycle.</value>
   </data>
-	<data name="TITLE_AMPWIZARD_HELP_MORE_DECISION_CYCLE" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_MORE_DECISION_CYCLE" xml:space="preserve">
     <value>Help: Decision Cycle</value>
   </data>
-	<data name="TITLE_AMPWIZARD_ACTIVATION_RESULTS" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_ACTIVATION_RESULTS" xml:space="preserve">
     <value>Activation Results</value>
   </data>
   <data name="TITLE_AMPWIZARD_ERROR_CHECK_RESULTS" xml:space="preserve">
@@ -981,7 +981,7 @@
   <data name="TEXT_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
     <value>Act on each individual record.  Usage may have different prices  which are determined by the bucket into which they fall.</value>
   </data>
-   <data name="TITLE_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
     <value>Help: Single-bucket</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
@@ -1190,5 +1190,17 @@
   </data>
   <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
     <value>Start Date can't be greater than End Date</value>
+  </data>
+  <data name="TEXT_HARD_CLOSED_INTERVAL_STATUS" xml:space="preserve">
+    <value>Hard Closed</value>
+  </data>
+  <data name="TEXT_OPEN_INTERVAL_STATUS" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="TEXT_SOFT_CLOSED_INTERVAL_STATUS" xml:space="preserve">
+    <value>Soft Closed</value>
+  </data>
+  <data name="TEXT_UNKNOWN_INTERVAL_STATUS" xml:space="preserve">
+    <value>Unknown</value>
   </data>
 </root>

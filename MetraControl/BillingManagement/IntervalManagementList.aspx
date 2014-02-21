@@ -13,4 +13,24 @@
    </MT:MTFilterGrid>
 </div>
 
+<script type="text/javascript">
+  OverrideRenderer_<%= IntervalListGrid.ClientID %> = function(cm) {
+    cm.setRenderer(cm.getIndexById('ID'), iDColRenderer);
+    cm.setRenderer(cm.getIndexById('Status'), statusColRenderer);
+  }
+
+  function iDColRenderer(value, meta, record, rowIndex, colIndex, store)
+  {
+    var str = "";
+    str += String.format("<a style='cursor:pointer;' id='View'  href='/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/IntervalManagement.asp?ID={0}'>{1}</a>",value,value)    
+    return str;
+  }
+  
+  function statusColRenderer(value, meta, record, rowIndex, colIndex, store)
+  {
+    var str = "";    
+    value == "0" ? str += TEXT_OPEN_INTERVAL_STATUS : value == "1" ? str += TEXT_SOFT_CLOSED_INTERVAL_STATUS : value == "2" ? str += TEXT_HARD_CLOSED_INTERVAL_STATUS : str += TEXT_UNKNOWN_INTERVAL_STATUS;
+    return str;
+  }
+  </script>
 </asp:Content>

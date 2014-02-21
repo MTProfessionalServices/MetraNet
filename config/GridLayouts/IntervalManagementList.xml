@@ -105,7 +105,7 @@
             <ShowInExpander>false</ShowInExpander>
             <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
+            <DefaultFilter>false</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
             <FilterLabel>
                 <LocalizationFQN>LayoutText/IntervalManagementList/TEXT_STATUS</LocalizationFQN>
@@ -271,7 +271,7 @@
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>DBStatus</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_DB_STATUS</LocalizationTag>
                 <ResourceClassKey>MetraControl/BillingManagement/App_LocalResources/IntervalManagementList.aspx</ResourceClassKey>

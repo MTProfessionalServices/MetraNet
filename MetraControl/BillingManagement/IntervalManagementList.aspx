@@ -28,8 +28,8 @@
   
   function statusColRenderer(value, meta, record, rowIndex, colIndex, store)
   {
-    var str = "";    
-    value == "0" ? str += TEXT_OPEN_INTERVAL_STATUS : value == "1" ? str += TEXT_SOFT_CLOSED_INTERVAL_STATUS : value == "2" ? str += TEXT_HARD_CLOSED_INTERVAL_STATUS : str += TEXT_UNKNOWN_INTERVAL_STATUS;
+    var str = "";
+    value == "0" ? str += TEXT_OPEN_INTERVAL_STATUS : value == "2" ? str += TEXT_HARD_CLOSED_INTERVAL_STATUS : str += TEXT_UNKNOWN_INTERVAL_STATUS;
     return str;
   }
   </script>

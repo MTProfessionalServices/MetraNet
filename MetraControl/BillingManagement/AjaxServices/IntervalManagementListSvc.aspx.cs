@@ -30,7 +30,8 @@ public partial class MetraControl_BillingManagement_AjaxServices_IntervalManagem
 
   private Logger logger = new Logger("[BillingManagement]");
 
-  protected bool ExtractDataInternal(IntervalManagementServiceClient client, ref MTList<Interval> items,
+  protected bool ExtractDataInternal(IntervalManagementServiceClient client, string statusFilterValue,
+                                     ref MTList<Interval> items,
                                      int batchID, int limit)
   {
     try
@@ -39,7 +40,28 @@ public partial class MetraControl_BillingManagement_AjaxServices_IntervalManagem
       items.PageSize = limit;
       items.CurrentPage = batchID;
 
-      client.GetIntervals(ref items);
+      if (statusFilterValue != null)
+      {
+        switch (statusFilterValue)
+        {
+          case "Active":
+            client.GetActiveIntervals(ref items);
+            break;
+          case "Billable":
+            client.GetBillableIntervals(ref items);
+            break;
+          case "Completed":
+            client.GetCompletedIntervals(ref items);
+            break;
+          default:
+            client.GetIntervals(ref items);
+            break;
+        }
+      }
+      else
+      {
+        client.GetIntervals(ref items);
+      }
     }
     catch (Exception ex)
     {
@@ -51,7 +73,7 @@ public partial class MetraControl_BillingManagement_AjaxServices_IntervalManagem
     return true;
   }
 
-  protected bool ExtractData(IntervalManagementServiceClient client, ref MTList<Interval> items)
+  protected bool ExtractData(IntervalManagementServiceClient client, string statusFilterValue, ref MTList<Interval> items)
   {
     if (Page.Request["mode"] == "csv")
     {
@@ -68,7 +90,7 @@ public partial class MetraControl_BillingManagement_AjaxServices_IntervalManagem
       int numBatches = advancePage + (items.PageSize/MAX_RECORDS_PER_BATCH);
       for (int batchID = 0; batchID < numBatches; batchID++)
       {
-        if (!ExtractDataInternal(client, ref items, batchID + 1, MAX_RECORDS_PER_BATCH))
+        if (!ExtractDataInternal(client, statusFilterValue, ref items, batchID + 1, MAX_RECORDS_PER_BATCH))
         {
           //unable to extract data
           return false;
@@ -80,7 +102,7 @@ public partial class MetraControl_BillingManagement_AjaxServices_IntervalManagem
     }
     else
     {
-      if (!ExtractDataInternal(client, ref items, items.CurrentPage, items.PageSize))
+      if (!ExtractDataInternal(client, statusFilterValue, ref items, items.CurrentPage, items.PageSize))
       {
         //unable to extract data
         return false;
@@ -112,13 +134,15 @@ public partial class MetraControl_BillingManagement_AjaxServices_IntervalManagem
           client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
         }
 
+		string statusFilterValue = Request["Intervals"];
+		
         MTList<Interval> items = new MTList<Interval>();
 
         SetPaging(items);
         SetSorting(items);
         SetFilters(items);
 
-        if (ExtractData(client, ref items))
+        if (ExtractData(client, statusFilterValue, ref items))
         {
           if (items.Items.Count == 0)
           {

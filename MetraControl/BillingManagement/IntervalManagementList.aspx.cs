@@ -39,42 +39,23 @@ public partial class MetraControl_BillingManagement_IntervalManagementList : MTP
 
       if (!String.IsNullOrEmpty(statusFilterValue))
       {
+        IntervalListGrid.DataSourceURL =
+           @"/MetraNet/MetraControl/BillingManagement/AjaxServices/IntervalManagementListSvc.aspx?Intervals=" +
+           statusFilterValue;
         switch (statusFilterValue)
         {
           case "Active":
             IntervalListGrid.Title = GetLocalResourceObject("TEXT_GRID_TITLE_ACTIVE_INTERVALS").ToString();
-            SetGridFilterByColumnValue(IntervalListGrid, "DBStatus", "O");
             break;
           case "Billable":
             IntervalListGrid.Title = GetLocalResourceObject("TEXT_GRID_TITLE_BILLABLE_INTERVALS").ToString();
-            SetGridFilterByColumnValue(IntervalListGrid, "DBStatus", "B");
             break;
           case "Completed":
             IntervalListGrid.Title = GetLocalResourceObject("TEXT_GRID_TITLE_COMPLETED_INTERVALS").ToString();
-            SetGridFilterByColumnValue(IntervalListGrid, "DBStatus", "H");
             break;
 
         }
 
       }
     }
-
-
-    protected void SetGridFilterByColumnValue(MTFilterGrid grid, string columnId, string filterValue)
-    {
-  
-      if (grid == null || string.IsNullOrEmpty(columnId) || string.IsNullOrEmpty(filterValue))
-        return;
-
-      MTGridDataElement el = grid.FindElementByID(columnId);
-      if (el == null)
-      {
-        Session[Constants.ERROR] = String.Format("FilterField with id '{0}' not found.", columnId);
-      }
-      else
-      {
-        el.ElementValue = filterValue;
-      }
-    }
-
 }

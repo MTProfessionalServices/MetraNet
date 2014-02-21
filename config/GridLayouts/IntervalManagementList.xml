@@ -47,7 +47,7 @@
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
-            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.DomainModel.Billing.dll</AssemblyFilename>
+            <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
             <ObjectName>MetraTech.DomainModel.Billing.Interval</ObjectName>
             <ID>ID</ID>
             <DataType>Numeric</DataType>
@@ -83,7 +83,7 @@
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
-            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.DomainModel.Billing.dll</AssemblyFilename>
+            <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
             <ObjectName>MetraTech.DomainModel.Billing.Interval</ObjectName>
             <ID>Status</ID>
             <DataType>String</DataType>
@@ -121,7 +121,7 @@
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
-            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.DomainModel.Billing.dll</AssemblyFilename>
+            <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
             <ObjectName>MetraTech.DomainModel.Billing.Interval</ObjectName>
             <ID>UsageCycleType</ID>
             <DataType>List</DataType>
@@ -157,7 +157,7 @@
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
-            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.DomainModel.Billing.dll</AssemblyFilename>
+            <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
             <ObjectName>MetraTech.DomainModel.Billing.Interval</ObjectName>
             <ID>StartDate</ID>
             <DataType>Date</DataType>
@@ -193,7 +193,7 @@
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
-            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.DomainModel.Billing.dll</AssemblyFilename>
+            <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
             <ObjectName>MetraTech.DomainModel.Billing.Interval</ObjectName>
             <ID>EndDate</ID>
             <DataType>Date</DataType>
@@ -229,7 +229,7 @@
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
-            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.DomainModel.Billing.dll</AssemblyFilename>
+            <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
             <ObjectName>MetraTech.DomainModel.Billing.Interval</ObjectName>
             <ID>Groups</ID>
             <DataType>Numeric</DataType>
@@ -250,42 +250,6 @@
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>false</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.DomainModel.Billing.dll</AssemblyFilename>
-            <ObjectName>MetraTech.DomainModel.Billing.Interval</ObjectName>
-            <ID>DBStatus</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>DBStatus</DataIndex>
-            <IsColumn>false</IsColumn>
-            <HeaderText>
-                <LocalizationTag>TEXT_DB_STATUS</LocalizationTag>
-                <ResourceClassKey>MetraControl/BillingManagement/App_LocalResources/IntervalManagementList.aspx</ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
-            <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>

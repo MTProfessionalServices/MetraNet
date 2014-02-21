@@ -124,13 +124,22 @@
     <value>End Date</value>
   </data>
   <data name="TEXT_GRID_TITLE" xml:space="preserve">
+    <value>All Intervals</value>
+  </data>
+  <data name="TEXT_GRID_TITLE_ACTIVE_INTERVALS" xml:space="preserve">
+    <value>Active Intervals</value>
+  </data>
+  <data name="TEXT_GRID_TITLE_BILLABLE_INTERVALS" xml:space="preserve">
     <value>Billable Intervals</value>
   </data>
+  <data name="TEXT_GRID_TITLE_COMPLETED_INTERVALS" xml:space="preserve">
+    <value>Completed Intervals</value>
+  </data>
   <data name="TEXT_GROUP" xml:space="preserve">
-    <value>Group</value>
+    <value>Groups</value>
   </data>
   <data name="TEXT_ID" xml:space="preserve">
-    <value>User ID</value>
+    <value>Interval ID</value>
   </data>
   <data name="TEXT_START_DATE" xml:space="preserve">
     <value>Start Date</value>

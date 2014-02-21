@@ -247,6 +247,7 @@ public partial class AjaxServices_QueryService : MTListServicePage
 
   protected void Page_Load(object sender, EventArgs e)
   {
+    bool generateMetaData = false;
       //parse query name
     String qsQuery = Request["urlparam_q"];
     if (string.IsNullOrEmpty(qsQuery))
@@ -256,6 +257,12 @@ public partial class AjaxServices_QueryService : MTListServicePage
       Response.End();
       return;
     }
+
+	String qm = Request["urlparam_m"];
+    if (!string.IsNullOrEmpty(qm))
+	{
+		generateMetaData = bool.Parse(qm);
+	}
 
     //populate the object
     try
@@ -303,8 +310,9 @@ public partial class AjaxServices_QueryService : MTListServicePage
       if ((Page.Request["mode"] != "csv") && (Page.Request["mode"] != "SelectAll"))
       {
         //convert paymentMethods into JSON
-        string json = SerializeItems(items);
+        string json = SerializeItems(items, generateMetaData);
 
+		Logger.LogWarning("JSON: " + json);
         Response.Write(json);
       }
 
@@ -430,11 +438,41 @@ public partial class AjaxServices_QueryService : MTListServicePage
     return sb.ToString();
   }
 
-  protected string SerializeItems(MTList<SQLRecord> items)
+  protected string SerializeItems(MTList<SQLRecord> items, bool generateMetaData)
   {
     StringBuilder json = new StringBuilder();
 
-    json.Append("{\"TotalRows\":");
+    json.Append("{");
+	if (generateMetaData)
+	{
+	  json.Append("\"metaData\":{");
+	  json.Append("\"root\":\"Items\"");
+	  json.Append(", \"totalProperty\":\"TotalRows\"");
+	  json.Append(", \"fields\": [");
+      for (int i = 0; i < items.Items.Count && i < 1; i++ )
+      {
+		  SQLRecord record = items.Items[i];
+		  for (int j = 0; j < record.Fields.Count; j++)
+		  {
+			SQLField field = record.Fields[j];
+			if (j > 0)
+			{
+			  json.Append(", ");
+			}
+			json.Append("{\"name\":\"");
+			json.Append(field.FieldName);
+			json.Append("\", \"header\":\"");
+			json.Append(field.FieldName);
+			json.Append("\"}");
+		  }
+	  }
+	  json.Append("]");
+//	  json.Append(", \"sortInfo\":{\"field\":\"name\", \"direction\":\"ASC\"}");
+//	  json.Append(", \"start\": 0");
+//	  json.Append(", \"limit\": 2");
+	  json.Append("}, ");
+	}
+	json.Append("\"TotalRows\":");
     json.Append(items.TotalRows.ToString());
     json.Append(", \"Items\":[");
 

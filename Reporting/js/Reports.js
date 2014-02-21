@@ -15,7 +15,7 @@
                 url = String.format("javascript:onViewBasicReport(\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\")",
                         record.data.internalId,
                         record.data.Name,
-                        record.data.Extension,
+                        "Reporting",
                         record.data.QueryName);
                 break;
 

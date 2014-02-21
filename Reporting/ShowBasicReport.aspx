@@ -3,19 +3,48 @@
 <%@ Register assembly="MetraTech.UI.Controls" namespace="MetraTech.UI.Controls" tagprefix="MT" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+ <style>
+.mtpanel-inner {
+width:100%;
+margin-right:20px;
+}
+ </style>
+ 
+  <div id="mydiv2">
+  </div>
+	
+	<script type="text/javascript">
+		var ds = new Ext.data.Store({
+                url: '<%=queryUrl %>',
+                reader: new Ext.data.JsonReader({
+                }),
+				baseParams:{urlparam_m:true,urlparam_q:'<%=queryParam %>'}
+        });
+		
+        var grid = new Ext.grid.GridPanel({
+                ds: ds,
+                cm: new Ext.grid.ColumnModel([]),
+				columns: [],
+				flex: 1,
+				viewConfig : {
+					autoFit : true
+				},
+				title: 'Report: <%=queryName %>'
+		});
+        grid.render(Ext.Element.get('mydiv2'))
+		Ext.EventManager.onWindowResize(function(){
+			grid.setWidth(Ext.getBody().getWidth() - 20);
+		});
+        ds.on('metachange', function (store,meta) {
+                var columns = [];
+        
+                for (var i = 0; i < meta.fields.length; i++ ) {
+                        var hidden = meta.fields[i].hidden;
+                        columns.push( { header: meta.fields[i].header, dataIndex: meta.fields[i].name, type: meta.fields[i].type, id: meta.fields[i].id, sortable: meta.fields[i].sortable } );
+                }
 
-  <MT:MTFilterGrid ID="MTFilterGridBasicReport" runat="server" ExtensionName="Reporting" 
-    TemplateFileName="" ButtonAlignment="Center" 
-    Buttons="None" DefaultSortDirection="Ascending" DisplayCount="True" 
-    EnableColumnConfig="True" EnableFilterConfig="True" EnableLoadSearch="False" 
-    EnableSaveSearch="False" Expandable="False" ExpansionCssClass="" 
-    Exportable="False" FilterColumnWidth="350" FilterInputWidth="220" 
-    FilterLabelWidth="75" FilterPanelCollapsed="False" 
-    FilterPanelLayout="MultiColumn" meta:resourcekey="MTFilterGridBasicReportResource1" 
-    MultiSelect="False" PageSize="10" 
-    Resizable="True" RootElement="Items" SearchOnLoad="True" 
-    SelectionModel="Standard" ShowBottomBar="True" ShowColumnHeaders="True" 
-    ShowFilterPanel="True" ShowGridFrame="True" ShowGridHeader="True" 
-    ShowTopBar="True" TotalProperty="TotalRows" NoRecordsText="No records found" />
-
+                grid.reconfigure(store, new Ext.grid.ColumnModel(columns));
+        });
+		ds.load();
+		</script>
 </asp:Content>

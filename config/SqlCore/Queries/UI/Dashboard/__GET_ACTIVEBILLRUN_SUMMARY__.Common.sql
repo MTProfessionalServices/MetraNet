@@ -133,6 +133,6 @@ select
 ,@lastEOPAdapterName as last_eop_adapter_name
 ,@lastEOPAdapterDuration as last_eop_adapter_duration
 ,@lastEOPAdapterStatus as last_eop_adapter_status
-,@Varience as Variance, @EarliestETA as [earliest_eta];
+,@Varience as Variance, CONVERT(VARCHAR(10), @EarliestETA, 101) as [earliest_eta];
 
 

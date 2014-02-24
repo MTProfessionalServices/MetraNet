@@ -8,9 +8,13 @@ using MetraTech.UI.Controls;
 
 public partial class ShowBasicReport : MTPage
 {
-    private string templateFileName = "";
-    public string queryName = "";
+    private string internalId = "";
+    public string reportName = "";
+    private string queryName = "";
     private string extension = "";
+    private string gridLayoutName = "";
+
+    
 	public string queryUrl = "";
 	public string queryParam = "";
 
@@ -21,13 +25,14 @@ public partial class ShowBasicReport : MTPage
 
     protected override void OnLoad(EventArgs e)
     {
-        templateFileName = Request["GridLayoutName"];
+        internalId = Request["InternalId"];
+        reportName = Request["Name"];
         queryName = Request["QueryName"];
-        extension = Request["Extension"];
 		
-//		if (string.IsNullOrEmpty(templateFileName))
+//		if (string.IsNullOrEmpty(gridLayoutName))
 		{
-			templateFileName = "BasicReport";
+			gridLayoutName = "BasicReport";
+            extension = "Reporting";
 		}
 
         queryUrl = "/MetraNet/AjaxServices/QueryService.aspx"; // Use generic AJAX service to execute query

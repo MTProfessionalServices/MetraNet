@@ -72,25 +72,45 @@ function onReportRequiresParameters(internalId, name, extension, queryName, grid
 }
 
 function onViewBasicReport(internalId, name, extension, queryName) {
-    var showReportUrl = String.format("/MetraNet/Reporting/ShowBasicReport.aspx?InternalId={0}&Extension={1}&QueryName={2}", internalId, extension, queryName);
-    //alert(showReportUrl);
+    var showReportUrl = String.format("/MetraNet/Reporting/ShowBasicReport.aspx?InternalId={0}&Name={1}&Extension={2}&QueryName={3}",
+        internalId,
+        encodeURIComponent(name),
+        extension, 
+        queryName);
+
     document.location.href = showReportUrl;
 }
 
 function onViewConfiguredReport(internalId, name, extension, queryName, gridLayoutName) {
-    var showReportUrl = String.format("/MetraNet/Reporting/ShowConfiguredReport.aspx?InternalId={0}&Extension={1}&QueryName={2}&GridLayoutName={3}", internalId, extension, queryName, gridLayoutName);
-    //alert(showReportUrl);
+    var showReportUrl = String.format("/MetraNet/Reporting/ShowConfiguredReport.aspx?InternalId={0}&Name={1}&Extension={2}&QueryName={3}&GridLayoutName={4}",
+        internalId,
+        encodeURIComponent(name),
+        extension,
+        queryName, 
+        gridLayoutName);
+
     document.location.href = showReportUrl;
 }
 
 function onViewCustomReport(internalId, name, extension, queryName, gridLayoutName, customReportUrl) {
-    var showReportUrl = String.format("{4}?InternalId={0}&Extension={1}&QueryName={2}&GridLayoutName={3}", internalId, extension, queryName, gridLayoutName, customReportUrl);
-    //alert(showReportUrl);
+    var showReportUrl = String.format("{5}?InternalId={0}&Name={1}&Extension={2}&QueryName={3}&GridLayoutName={4}",
+        internalId,
+        encodeURIComponent(name),
+        extension,
+        queryName,
+        gridLayoutName,
+        encodeURI(customReportUrl));
+
     document.location.href = showReportUrl;
 }
 
 function onViewIntervalStatisticsReport(internalId, name, extension, queryName, gridLayoutName) {
-    var showReportUrl = String.format("/MetraNet/Reporting/IntervalStatisticsParameters.aspx?InternalId={0}&Extension={1}&QueryName={2}&GridLayoutName={3}", internalId, extension, queryName, gridLayoutName);
-    //alert(showReportUrl);
+    var showReportUrl = String.format("/MetraNet/Reporting/IntervalStatisticsParameters.aspx?InternalId={0}&Name={1}&Extension={2}&QueryName={3}&GridLayoutName={4}",
+        internalId,
+        encodeURIComponent(name),
+        extension,
+        queryName, 
+        gridLayoutName);
+
     document.location.href = showReportUrl;
 }

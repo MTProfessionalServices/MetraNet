@@ -21,5 +21,3 @@
 				  and (id_lang_code=%%ID_LANG_CODE%% 
 				       or id_lang_code is null)
 				group by inv.id_payer,id_invoice_num,invoice_currency,tx_Desc,namespace,au.total
-				order by inv.id_payer
-			 

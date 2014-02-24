@@ -35,5 +35,3 @@
 				    and id_lang_code=%%ID_LANG_CODE%%
 				  group by nm_name,am_currency,c_prorateddays,
 	          trunc(c_rcintervalend - c_rcintervalstart) + 1
-				  order by "PI Template","Currency"
-			 

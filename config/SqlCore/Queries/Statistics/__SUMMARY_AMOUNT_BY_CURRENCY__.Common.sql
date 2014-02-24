@@ -21,5 +21,3 @@
           and (bp.n_kind <> 40 or upper(enum.nm_enum_data) NOT LIKE '%_TEMP')
           and bp.n_kind in (10,15,20,25,30,40) 
 				group by bp.n_kind,am_currency
-				order by bp.n_kind
-			 

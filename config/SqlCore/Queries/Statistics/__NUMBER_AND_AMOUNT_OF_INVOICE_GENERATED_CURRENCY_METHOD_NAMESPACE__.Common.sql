@@ -13,4 +13,3 @@
 				  and (id_lang_code=%%ID_LANG_CODE%% 
 				       or id_lang_code is null)
 				group by invoice_currency,tx_Desc,namespace
-			 

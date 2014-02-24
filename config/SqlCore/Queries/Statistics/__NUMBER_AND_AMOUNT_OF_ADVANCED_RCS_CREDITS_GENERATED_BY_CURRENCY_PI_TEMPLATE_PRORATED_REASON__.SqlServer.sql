@@ -58,5 +58,3 @@
 				      when c_proratedonsubscription = 0 and c_proratedonunsubscription=1 then 'UNSUBSCRIPTION'
 				      when c_proratedonsubscription = 0 and c_proratedonunsubscription=0 then 'N/A' end,
 				    datediff(day,c_rcintervalstart,c_rcintervalend)+1
-				  order by "Reason for Proration"
-			 

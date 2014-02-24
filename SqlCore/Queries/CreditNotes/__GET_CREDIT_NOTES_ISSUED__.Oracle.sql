@@ -22,5 +22,5 @@ INNER JOIN t_be_cor_cre_creditnotetmpl TEMPLATE ON TEMPLATE.c_CreditNoteTmpl_Id 
 LEFT JOIN t_av_Contact SUBSCRIBER ON SUBSCRIBER.id_acc = CN.c_AccountID 
 LEFT JOIN t_av_Contact CREATOR ON CREATOR.id_acc = CN.c_CreatorID
 LEFT JOIN t_av_Internal INTERNAL ON INTERNAL.id_acc = CN.c_AccountID
-WHERE CN.c_AccountID = %%ACCOUNTID%% OR %%ACCOUNTID%% IS NULL
+WHERE CN.c_AccountID = :AccountID OR :AccountID = -1
 

@@ -9,13 +9,13 @@
  
    <!--script type="text/javascript" src="js/d3.legend.js"></script-->
    <script type="text/javascript" src="js/D3Visualize.js"></script>
-   <script type="text/javascript" src="http://gridster.net/demos/assets/jquery.js"></script>
-   <script type="text/javascript" src="http://gridster.net/dist/jquery.gridster.js"></script>
-    <script type="text/javascript" src="http://nickqizhu.github.io/dc.js/js/crossfilter.js"></script>
-    <script type="text/javascript" src="http://nickqizhu.github.io/dc.js/js/dc.js"></script>
+   <script type="text/javascript" src="/Res/JavaScript/jquery.min.js"></script>
+   <script type="text/javascript" src="/Res/JavaScript/jquery.gridster.min.js"></script>
+    <script type="text/javascript" src="/Res/JavaScript/crossfilter.min.js"></script>
+    <script type="text/javascript" src="/Res/JavaScript/dc.min.js"></script>
 <script type="text/javascript" src="/Res/JavaScript/Renderers.js"></script> 
-<link rel="stylesheet" type="text/css" href="http://gridster.net/dist/jquery.gridster.css">
-<link rel="stylesheet" type="text/css" href="http://nickqizhu.github.io/dc.js/css/dc.css">
+<link rel="stylesheet" type="text/css" href="/Res/Styles/jquery.gridster.css">
+<link rel="stylesheet" type="text/css" href="/Res/Styles/dc.css">
  <style>
 
 

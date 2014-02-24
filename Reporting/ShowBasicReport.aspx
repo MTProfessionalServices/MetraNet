@@ -29,7 +29,7 @@ margin-right:20px;
 				viewConfig : {
 					autoFit : true
 				},
-				title: 'Report: <%=queryName %>'
+				title: 'Report: <%=reportName %>'
 		});
         grid.render(Ext.Element.get('mydiv2'))
 		Ext.EventManager.onWindowResize(function(){

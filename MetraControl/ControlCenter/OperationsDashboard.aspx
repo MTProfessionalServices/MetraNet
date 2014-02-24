@@ -1,5 +1,6 @@
 <%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" CodeFile="OperationsDashboard.aspx.cs" Inherits="OperationsDashboard" Title="Operations Dashboard" Culture="auto" UICulture="auto" %>
 
+<%@ Import Namespace="MetraTech.UI.Tools"%>
 <%@ Register Assembly="MetraTech.UI.Controls.CDT" Namespace="MetraTech.UI.Controls.CDT" TagPrefix="MTCDT" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 
@@ -12,6 +13,7 @@
    <script type="text/javascript" src="http://gridster.net/dist/jquery.gridster.js"></script>
     <script type="text/javascript" src="http://nickqizhu.github.io/dc.js/js/crossfilter.js"></script>
     <script type="text/javascript" src="http://nickqizhu.github.io/dc.js/js/dc.js"></script>
+<script type="text/javascript" src="/Res/JavaScript/Renderers.js"></script> 
 <link rel="stylesheet" type="text/css" href="http://gridster.net/dist/jquery.gridster.css">
 <link rel="stylesheet" type="text/css" href="http://nickqizhu.github.io/dc.js/css/dc.css">
  <style>
@@ -341,6 +343,35 @@ fill: none;
 </li>    
     </ul>
 </div>
+
+<script type="text/javascript">
+// Custom Renderers
+OverrideRenderer_<%= grdFailedAdapters.ClientID %> = function(cm)
+{   
+  cm.setRenderer(cm.getIndexById('name'), AdapterStatusLinkRenderer);
+};
+OverrideRenderer_<%= grdRunningAdapters.ClientID %> = function(cm)
+{   
+  cm.setRenderer(cm.getIndexById('name'), AdapterStatusLinkRenderer);
+};
+
+AdapterStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, store)
+{
+  var str = "";
+  str += String.format("<a href='/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/AdapterManagement.Instance.ViewEdit.asp|ID={0}", record.data.id_instance);
+  if (record.data.id_billgroup)
+  {
+	str += String.format("**BillingGroupId={0}", record.data.id_billgroup);
+  }
+  if (record.data.id_interval)
+  {
+	str += String.format("**IntervalId={0}", record.data.id_interval);
+  }
+  str += String.format("**ReturnUrl=%2FMetraNet%2FMetraControl%2FControlCenter%2FOperationsDashboard%2Easpx'>{0}</a>", value);
+  
+  return str;
+};      
+</script>
 
 <script type="text/javascript">
 

@@ -312,7 +312,6 @@ public partial class AjaxServices_QueryService : MTListServicePage
         //convert paymentMethods into JSON
         string json = SerializeItems(items, generateMetaData);
 
-		Logger.LogWarning("JSON: " + json);
         Response.Write(json);
       }
 

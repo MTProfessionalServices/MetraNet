@@ -7,7 +7,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 <head>
 		<link rel="stylesheet" type="text/css" href="http://dev.sencha.com/deploy/ext-3.4.0/examples/ux/treegrid/treegrid.css" rel="stylesheet" />
-        <script type="text/javascript" src="js/Reports.js"></script>
+        <script type="text/javascript" src="js/Reports.js?v=0.13"></script>
         <script type="text/javascript" src="http://dev.sencha.com/deploy/ext-3.4.0/examples/ux/treegrid/TreeGridSorter.js"></script>
         <script type="text/javascript" src="http://dev.sencha.com/deploy/ext-3.4.0/examples/ux/treegrid/TreeGridColumnResizer.js"></script>
         <script type="text/javascript" src="http://dev.sencha.com/deploy/ext-3.4.0/examples/ux/treegrid/TreeGridNodeUI.js"></script>

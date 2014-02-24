@@ -56,7 +56,7 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
 
             if (operation.Equals("subscriptionsummary"))
             {
-               GetData("__ACCOUNT_SUBSCRIPTIONSUMMARY__", null, ref items);
+                GetData("__ACCOUNT_SUBSCRIPTIONSUMMARY__", paramDict, ref items);
             }
 
             if (items.Items.Count == 0)

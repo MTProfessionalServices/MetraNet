@@ -6,6 +6,13 @@
 
  <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
   
+ <style>
+.x-form-item-label
+{
+  text-align:left;
+  width:100%;
+}
+</style>
 <script type="text/javascript">
 
     Ext.onReady(function () {
@@ -123,23 +130,31 @@
                 <div id="reasonText" runat="server" style="display:none">
                   <asp:Label ID="lblPleaseChange" runat="server" Text="Please change your password" meta:resourcekey="lblPleaseChangeResource1"></asp:Label>
                 </div>
-                <div id="boxes" style="position:relative;left:-25px;">
-                    <MT:MTTextBoxControl ID="tbUserName" runat="server" AllowBlank="False" Label="User Name" TabIndex="100" ControlWidth="120" OptionalExtConfig="cls:'aligned'" ControlHeight="18" HideLabel="False" Listeners="{}" ReadOnly="False" XType="TextField" XTypeNameSpace="form" LabelSeparator=":" meta:resourcekey="tbUserNameResource1" />
-                    <MT:MTTextBoxControl ID="tbOldPassword" runat="server" AllowBlank="False" Label="Old Password" OptionalExtConfig="inputType:'password',cls:'aligned'" TabIndex="110" ControlWidth="120" ControlHeight="18" HideLabel="False" Listeners="{}"  ReadOnly="False" XType="TextField" XTypeNameSpace="form" LabelSeparator=":" meta:resourcekey="tbOldPasswordResource1" />
-                    <MT:MTPasswordMeter  ID="tbNewPassword" runat="server" AllowBlank="False" Label="New Password" OptionalExtConfig="inputType:'password',cls:'aligned'"  TabIndex="120" ControlWidth="120" ControlHeight="18" HideLabel="False" Listeners="{}" ReadOnly="False" XType="PasswordMeter" XTypeNameSpace="ux" LabelSeparator=":" meta:resourcekey="tbNewPasswordResource1" />
-                    <MT:MTTextBoxControl  ID="tbConfirmPassword" runat="server" AllowBlank="False" Label="Confirm Password" OptionalExtConfig="inputType:'password',initialPassField:'ctl00_ContentPlaceHolder1_tbNewPassword',cls:'aligned'" TabIndex="130" VType="password"  ControlWidth="120" ControlHeight="18" HideLabel="False" Listeners="{}" ReadOnly="False" XType="TextField" XTypeNameSpace="form" LabelSeparator=":" meta:resourcekey="tbConfirmPasswordResource1" />
+                <div id="boxes" style="position:relative;left:-70px;top:20px;">
+                    <MT:MTTextBoxControl ID="tbUserName" runat="server" AllowBlank="False" Label="User Name" TabIndex="100" ControlWidth="180" OptionalExtConfig="cls:'aligned',labelWidth:200" ControlHeight="40" HideLabel="False" Listeners="{}" ReadOnly="True" XType="TextField" XTypeNameSpace="form" LabelSeparator=":" meta:resourcekey="tbUserNameResource1" />
+                    <MT:MTTextBoxControl ID="tbOldPassword" runat="server" AllowBlank="False" Label="Old Password" OptionalExtConfig="inputType:'password',cls:'aligned',labelWidth:200" TabIndex="110" ControlWidth="180" ControlHeight="40" HideLabel="False" Listeners="{}"  ReadOnly="False" XType="TextField" XTypeNameSpace="form" LabelSeparator=":" meta:resourcekey="tbOldPasswordResource1" />
+                    <MT:MTPasswordMeter  ID="tbNewPassword" runat="server" AllowBlank="False" Label="New Password" OptionalExtConfig="inputType:'password',cls:'aligned',labelWidth:200"  TabIndex="120" ControlWidth="180" ControlHeight="40" HideLabel="False" Listeners="{}" ReadOnly="False" XType="PasswordMeter" XTypeNameSpace="ux" LabelSeparator=":" meta:resourcekey="tbNewPasswordResource1" />
+                    <MT:MTTextBoxControl  ID="tbConfirmPassword" runat="server" AllowBlank="False" Label="Confirm Password" OptionalExtConfig="inputType:'password',initialPassField:'ctl00_ContentPlaceHolder1_tbNewPassword',cls:'aligned',labelWidth:200" TabIndex="130" VType="password"  ControlWidth="180" ControlHeight="40" HideLabel="False" Listeners="{}" ReadOnly="False" XType="TextField" XTypeNameSpace="form" LabelSeparator=":" meta:resourcekey="tbConfirmPasswordResource1" />
                 </div>    
                 <center>
                     <div class="Buttons" style="text-align:left">
-                          <asp:Button CssClass="btn loud bold float bspace-half rspace-half" ID="LogOnButton" OnClientClick="return ValidateForm();" 
+                          <asp:Button CssClass="btn loud bold float bspace-half rspace-half ui-button ui-widget ui-state-default ui-corner-all" ID="LogOnButton" OnClientClick="return ValidateForm();" 
                                     runat="server" Text="<%$Resources:Resource,TEXT_OK%>" 
                                     OnClick="btnOK_Click" />
                     
-                            <asp:Button CssClass="btn loud bold float bspace-half rspace-half" ID="CancelButton"  runat="server" 
+                            <asp:Button CssClass="btn loud bold float bspace-half rspace-half ui-button ui-widget ui-state-default ui-corner-all" ID="CancelButton"  runat="server" 
                         Text="<%$Resources:Resource,TEXT_CANCEL%>" OnClick="btnCancel_Click" 
                         CausesValidation="False" />
                     </div>
                  </center>
+				  <script>
+					  Ext.onReady(function () {
+						  document.getElementById("<%= tbOldPassword.ClientID%>").placeholder = "Old Password";
+						  document.getElementById("<%= tbNewPassword.ClientID%>").placeholder = "New Password";
+						  document.getElementById("<%= tbConfirmPassword.ClientID%>").placeholder = "Confirm Password";
+					  });
+
+				   </script> 
                 <input id="ShowPopup" runat="server" type="hidden" />
             </asp:Panel>      
       

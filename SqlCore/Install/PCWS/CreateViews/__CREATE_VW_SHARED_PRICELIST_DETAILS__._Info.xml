@@ -2,8 +2,7 @@
 <Query>
     <Action>CreateView</Action>
     <Implementations>
-	<Implementation>SqlServer</Implementation>
-        <Implementation>Oracle</Implementation>
+	<Implementation>SqlServer</Implementation>        
     </Implementations>
     <Schemas>
         <Schema>NetMeter</Schema>
@@ -14,7 +13,6 @@
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
         <CommonQuerySourceFile></CommonQuerySourceFile>
-	<SqlServerQuerySourceFile>R:\Config\Queries\DBInstall\PCWS\Queries.xml</SqlServerQuerySourceFile>
-        <OracleQuerySourceFile>R:\Config\Queries\DBInstall\PCWS\Queries_Oracle.xml</OracleQuerySourceFile>
+	<SqlServerQuerySourceFile>R:\Config\Queries\DBInstall\PCWS\Queries.xml</SqlServerQuerySourceFile>        
     </ConversionAudit>
 </Query>

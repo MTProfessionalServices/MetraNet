@@ -208,6 +208,7 @@ public static class MenuRenderer
     sb.Append("<script type=\"text/javascript\">");
     sb.Append("Ext.onReady(function(){");
     sb.Append("Ext.get(document.body).mask('Loading...');");
+	bool first = true;
     foreach (MenuSection menuSection in menu.MenuSections)
     {
       if (MenuManager.IsMenuSectionVisible(ui.SessionContext.SecurityContext, menuSection))
@@ -222,11 +223,19 @@ public static class MenuRenderer
         sb.Append("title: '&nbsp;&nbsp;&nbsp;&nbsp;" + menuSectionCaption + "',");
         sb.Append("layout:'fit',");
         sb.Append("collapsible:true,");
-        sb.Append("collapsed:false,");
+		if (first)
+		{
+          sb.Append("collapsed:false,");
+		}
+		else
+		{
+          sb.Append("collapsed:true,");
+		}
         sb.Append("titleCollapse : true,");
         sb.Append("renderTo: 'container" + menuSection.ID + "',");
         sb.Append("contentEl: 'content" + menuSection.ID + "'");
         sb.Append("});");
+		first = false;
       }
     }
 

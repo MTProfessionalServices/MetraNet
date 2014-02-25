@@ -83,10 +83,10 @@
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
-            <AssemblyFilename>MetraTech.DomainModel.Billing.dll</AssemblyFilename>
-            <ObjectName>MetraTech.DomainModel.Billing.Interval</ObjectName>
+            <AssemblyFilename></AssemblyFilename>
+            <ObjectName></ObjectName>
             <ID>Status</ID>
-            <DataType>String</DataType>
+            <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>Status</DataIndex>
             <IsColumn>true</IsColumn>
@@ -105,7 +105,7 @@
             <ShowInExpander>false</ShowInExpander>
             <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
-            <DefaultFilter>false</DefaultFilter>
+            <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
             <FilterLabel>
                 <LocalizationFQN>LayoutText/IntervalManagementList/TEXT_STATUS</LocalizationFQN>
@@ -117,7 +117,29 @@
                 <Value><![CDATA[]]></Value>
             </ElementValue2>
             <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
+            <DropdownItems>
+			<DropdownItem>
+                <Key>O</Key>
+                    <Value>
+                        <LocalizationTag>TEXT_OPEN</LocalizationTag>
+                        <ResourceClassKey>MetraControl/BillingManagement/App_LocalResources/IntervalManagementList.aspx</ResourceClassKey>
+                    </Value>
+                </DropdownItem>
+                <DropdownItem>
+                <Key>B</Key>
+                    <Value>
+                        <LocalizationTag>TEXT_SOFT_CLOSED</LocalizationTag>
+                        <ResourceClassKey>MetraControl/BillingManagement/App_LocalResources/IntervalManagementList.aspx</ResourceClassKey>
+                    </Value>
+                </DropdownItem>
+                <DropdownItem>
+                <Key>H</Key>
+                    <Value>
+                        <LocalizationTag>TEXT_HARD_CLOSED</LocalizationTag>
+                        <ResourceClassKey>MetraControl/BillingManagement/App_LocalResources/IntervalManagementList.aspx</ResourceClassKey>
+                    </Value>
+                </DropdownItem>
+			</DropdownItems>
         </Element>
         <Element>
             <RecordElement>true</RecordElement>

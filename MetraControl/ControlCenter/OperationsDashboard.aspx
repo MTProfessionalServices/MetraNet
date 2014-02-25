@@ -156,7 +156,6 @@ fill: none;
                         <tr >
                             <td><div id="divPricingQueues"></div></td>
                             <td><div id="divPricingBacklog"></div></td>
-                            <td><div id="divPricingTPS"></div></td>
                        </tr>
                    </table>
                 </div>
@@ -767,13 +766,6 @@ Ext.onReady(function () {
                 d.scheduler_q = +d.scheduler_q;
                 d.pipe_backlog = +d.pipe_backlog;
                 d.pipe = +d.pipe;
-                d.msgq = +d.msgq;
-                d.ramp_backlog = +d.ramp_backlog;
-                d.ramp = +d.ramp;
-                d.pipe_tps = +d.pipe_tps;
-                d.msgq_tps = +d.msgq_tps;
-                d.ramp_tps = +d.ramp_tps;
-                d.scheduler_tps = +d.scheduler_tps;
                 d.dd = dateFormat.parse(d.date);
 				if (d.dd > maxDate) maxDate = d.dd;
 				if (d.dd < minDate) minDate = d.dd;
@@ -790,17 +782,18 @@ Ext.onReady(function () {
 			var colors = d3.scale.ordinal().domain([0,1,2]).range(['#00B0F0','#0070C0','#148622']);
             var composite1 = dc.compositeChart("#divPricingQueues");
             composite1
-                    .margins({top: 5, right: 5, bottom: 95, left: 5})
+                    .margins({top: 5, right: 5, bottom: 75, left: 5})
 					.height(255)
+					.width(410)
                     .x(d3.time.scale().domain([minDate, maxDate]))
                     .elasticY(true)
                     .transitionDuration(750)
-                    .legend(dc.legend().x(15).y(170).itemHeight(13).gap(5))
+                    .legend(dc.legend().x(15).y(200).itemHeight(13).gap(5))
                     .brushOn(false)
                     .compose([
                         dc.lineChart(composite1)
                                 .dimension(dateDimension)
-                                .group(pipeQGroup, "Pipeline")
+                                .group(pipeQGroup, "Pipeline Queue")
                                 .colors(colors(0))
                         ,
                         dc.lineChart(composite1)
@@ -824,80 +817,28 @@ Ext.onReady(function () {
             var composite2 = dc.compositeChart("#divPricingBacklog");
 			colors = d3.scale.ordinal().domain([0,1,2,3,4]).range(['#00B0F0','#0070C0','#148622','#FFC000','#7F7F7F']);
             composite2
-                    .margins({top: 5, right: 5, bottom: 95, left: 5})
+                    .margins({top: 5, right: 5, bottom: 75, left: 35})
 					.height(255)
+					.width(410)
                     .x(d3.time.scale().domain([minDate, maxDate]))
                     .elasticY(true)
                     .transitionDuration(750)
-                    .legend(dc.legend().x(15).y(170).itemHeight(13).gap(5))
+                    .legend(dc.legend().x(45).y(200).itemHeight(13).gap(5))
                     .brushOn(false)
                     .compose([
                         dc.lineChart(composite2)
                                 .dimension(dateDimension)
-                                .group(pipeBacklogGroup, "Pipeline Backlog")
+                                .group(pipeBacklogGroup, "Pipeline Wait Duration")
                                 .colors(colors(0))
                         ,
                         dc.lineChart(composite2)
                                 .dimension(dateDimension)
-                                .group(pipeGroup, "Pipeline")
+                                .group(pipeGroup, "Pipeline Processing Duration")
                                 .colors(colors(1))
-                        ,
-                        dc.lineChart(composite2)
-                                .dimension(dateDimension)
-                                .group(msgqGroup, "Queue")
-                                .colors(colors(2))
-                        ,
-                        dc.lineChart(composite2)
-                                .dimension(dateDimension)
-                                .group(rampBacklogGroup, "RAMP Backlog")
-                                .colors(colors(3))
-                        ,
-                        dc.lineChart(composite2)
-                                .dimension(dateDimension)
-                                .group(rampGroup, "RAMP")
-                                .colors(colors(4))
                     ]);
             composite2.xAxis().ticks(0);
             composite2.yAxis().ticks(0);
 
-            var pipeTPSGroup = dateDimension.group().reduceSum(dc.pluck('pipe_tps'));
-            var msgqTPSGroup = dateDimension.group().reduceSum(dc.pluck('msgq_tps'));
-            var rampTPSGroup = dateDimension.group().reduceSum(dc.pluck('ramp_tps'));
-            var schedulerTPSGroup = dateDimension.group().reduceSum(dc.pluck('scheduler_tps'));
-			colors = d3.scale.ordinal().domain([0,1,2,3]).range(['#00B0F0','#0070C0','#148622','#FFC000']);
-            var composite3 = dc.compositeChart("#divPricingTPS");
-            composite3
-                    .margins({top: 5, right: 5, bottom: 95, left: 5})
-					.height(255)
-                    .x(d3.time.scale().domain([minDate, maxDate]))
-                    .elasticY(true)
-                    .transitionDuration(750)
-                    .legend(dc.legend().x(15).y(170).itemHeight(13).gap(5))
-                    .brushOn(false)
-                    .compose([
-                        dc.lineChart(composite3)
-                                .dimension(dateDimension)
-                                .group(pipeTPSGroup, "Pipeline TPS")
-                                .colors(colors(0))
-                        ,
-                        dc.lineChart(composite3)
-                                .dimension(dateDimension)
-                                .group(msgqTPSGroup, "Queue TPS")
-                                .colors(colors(1))
-                        ,
-                        dc.lineChart(composite3)
-                                .dimension(dateDimension)
-                                .group(rampTPSGroup, "RAMP TPS")
-                                .colors(colors(2))
-                        ,
-                        dc.lineChart(composite3)
-                                .dimension(dateDimension)
-                                .group(schedulerTPSGroup, "Scheduler TPS")
-                                .colors(colors(3))
-                    ]);
-            composite3.xAxis().ticks(0);
-            composite3.yAxis().ticks(0);
-			
 			dc.renderAll();
 			
             setInterval(function() {
@@ -910,13 +851,6 @@ Ext.onReady(function () {
                 d.scheduler_q = +d.scheduler_q;
                 d.pipe_backlog = +d.pipe_backlog;
                 d.pipe = +d.pipe;
-                d.msgq = +d.msgq;
-                d.ramp_backlog = +d.ramp_backlog;
-                d.ramp = +d.ramp;
-                d.pipe_tps = +d.pipe_tps;
-                d.msgq_tps = +d.msgq_tps;
-                d.ramp_tps = +d.ramp_tps;
-                d.scheduler_tps = +d.scheduler_tps;
                 d.dd = dateFormat.parse(d.date);
 				if (d.dd > realMaxDate) realMaxDate = d.dd;
 				if (d.dd < minDate) minDate = d.dd;
@@ -934,10 +868,9 @@ Ext.onReady(function () {
 			}
 			composite1.x(d3.time.scale().domain([minDate, maxDate]));
 			composite2.x(d3.time.scale().domain([minDate, maxDate]));
-			composite3.x(d3.time.scale().domain([minDate, maxDate]));
 			dc.renderAll();
 			}});
-            }, 5000);
+            }, 10000);
 			}
         });
 

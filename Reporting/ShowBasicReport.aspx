@@ -10,10 +10,36 @@ margin-right:20px;
 }
  </style>
  
-  <div id="mydiv2">
+  <div id="mydiv2" height="100%">
   </div>
 	
 	<script type="text/javascript">
+AutoGridView = Ext.extend(
+    Ext.grid.GridView,
+    {
+        fixOverflow: function() {
+            if (this.grid.autoHeight === true || this.autoHeight === true){
+                Ext.get(this.innerHd).setStyle("float", "none");
+                this.scroller.setStyle("overflow-x", this.scroller.getWidth() < this.mainBody.getWidth() ? "scroll" : "auto");
+            }
+        },
+        layout: function () {
+            AutoGridView.superclass.layout.call(this);
+            this.fixOverflow();
+        },
+        render: function(){
+            AutoGridView.superclass.render.apply(this, arguments);
+
+            this.scroller.on('resize', this.fixOverflow, this);
+
+            if (this.grid.autoHeight === true || this.autoHeight === true){
+                this.grid.getStore().on('datachanged', function(){
+                    if (this.ownerCt) { this.ownerCt.doLayout(); }
+                }, this.grid, { delay: 10 });
+            }
+        }
+    }
+);
 		var ds = new Ext.data.Store({
                 url: '<%=queryUrl %>',
                 reader: new Ext.data.JsonReader({
@@ -29,7 +55,9 @@ margin-right:20px;
 				viewConfig : {
 					autoFit : true
 				},
-				title: 'Report: <%=reportName %>'
+				title: 'Report: <%=reportName %>',
+				autoHeight: true,
+				view: new AutoGridView()
 		});
         grid.render(Ext.Element.get('mydiv2'))
 		Ext.EventManager.onWindowResize(function(){

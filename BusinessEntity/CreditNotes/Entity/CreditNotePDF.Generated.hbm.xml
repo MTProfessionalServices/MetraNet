@@ -100,22 +100,36 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="Timestamp" />
     </property>
-    <one-to-one name="CreditNote" class="MetraTech.Core.CreditNotes.CreditNote, MetraTech.Core.CreditNotes.Entity" cascade="delete">
+    <property name="CreditNotePDFID" column="c_CreditNotePDFID" not-null="true">
+      <meta attribute="label">CreditNotePDFID</meta>
+      <meta attribute="description">int id representing credit note pdf.</meta>
+      <meta attribute="defaultvalue">0</meta>
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <many-to-one name="CreditNote" class="MetraTech.Core.CreditNotes.CreditNote, MetraTech.Core.CreditNotes.Entity" column="c_CreditNote_Id">
       <meta attribute="relationship-type">OneToOne</meta>
-      <meta attribute="relationship-name">CreditNotePDF_CreditNote</meta>
+      <meta attribute="relationship-name">CreditNote_CreditNotePDF</meta>
       <meta attribute="has-join-table">false</meta>
       <meta attribute="is-default">true</meta>
       <meta attribute="is-self-relationship">false</meta>
       <meta attribute="is-bidirectional">false</meta>
       <meta attribute="source-multiplicity">One</meta>
-      <meta attribute="source-entity-name">MetraTech.Core.CreditNotes.CreditNotePDF</meta>
-      <meta attribute="source-key-column">c_CreditNotePDF_Id</meta>
-      <meta attribute="source-property-name-for-target">CreditNote</meta>
+      <meta attribute="source-entity-name">MetraTech.Core.CreditNotes.CreditNote</meta>
+      <meta attribute="source-key-column">c_CreditNote_Id</meta>
+      <meta attribute="source-property-name-for-target">CreditNotePDF</meta>
       <meta attribute="target-multiplicity">One</meta>
-      <meta attribute="target-entity-name">MetraTech.Core.CreditNotes.CreditNote</meta>
-      <meta attribute="target-key-column">c_CreditNote_Id</meta>
-      <meta attribute="target-property-name-for-source">CreditNotePDF</meta>
+      <meta attribute="target-entity-name">MetraTech.Core.CreditNotes.CreditNotePDF</meta>
+      <meta attribute="target-key-column">c_CreditNotePDF_Id</meta>
+      <meta attribute="target-property-name-for-source">CreditNote</meta>
       <meta attribute="cascade">true</meta>
-    </one-to-one>
+    </many-to-one>
   </class>
 </hibernate-mapping>

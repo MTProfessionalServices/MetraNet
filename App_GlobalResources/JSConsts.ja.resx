@@ -1206,4 +1206,28 @@
   <data name="TEXT_UNKNOWN_INTERVAL_STATUS" xml:space="preserve">
     <value>(JAPANESE) Unknown</value>
   </data>
+  <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(JAPANESE) Passwords do not match.</value>
+  </data>  
+  <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(JAPANESE) The format is wrong, ie: 305-444-1234</value>
+  </data>    
+  <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(JAPANESE) Credit card format is invalid</value>
+  </data>      
+  <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(JAPANESE) CV Number is invalid</value>
+  </data>        
+  <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(JAPANESE) SSN format: xxx-xx-xxxx</value>
+  </data>          
+  <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(JAPANESE) Only numeric digits are allowed</value>
+  </data>            
+  <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(JAPANESE) Zipcode is invalid</value>
+  </data>              
+  <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(JAPANESE) Middle initial is invalid</value>
+  </data>    
 </root>

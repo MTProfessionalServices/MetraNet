@@ -1119,4 +1119,40 @@
   <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
     <value>[en-GB]Start Date can't be greater than End Date</value>
   </data>
+  <data name="TEXT_HARD_CLOSED_INTERVAL_STATUS" xml:space="preserve">
+    <value>Hard Closed</value>
+  </data>
+  <data name="TEXT_OPEN_INTERVAL_STATUS" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="TEXT_SOFT_CLOSED_INTERVAL_STATUS" xml:space="preserve">
+    <value>Soft Closed</value>
+  </data>
+  <data name="TEXT_UNKNOWN_INTERVAL_STATUS" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>Passwords do not match.</value>
+  </data>  
+  <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>Enter a valid phone number. Format: 555-555-5555</value>
+  </data>    
+  <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>Credit card format is invalid</value>
+  </data>      
+  <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>CV Number is invalid</value>
+  </data>        
+  <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>SSN format: xxx-xx-xxxx</value>
+  </data>          
+  <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>Only numeric digits are allowed</value>
+  </data>            
+  <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>Zipcode is invalid</value>
+  </data>              
+  <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>Middle initial is invalid</value>
+  </data>       
 </root>

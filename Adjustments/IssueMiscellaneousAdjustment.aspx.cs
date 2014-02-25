@@ -126,11 +126,11 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
       LanguageCode? languageCode = ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).Language;
 
       var items = new MTList<CreditNoteTmpl>();
-      client.GetCredtiNoteTemplates(ref items, Convert.ToInt32(EnumHelper.GetValueByEnum(languageCode, 1)));
+      client.GetCreditNoteTemplates(ref items, Convert.ToInt32(EnumHelper.GetValueByEnum(languageCode, 1)));
       if (items.Items.Count == 0)
       {
         items = new MTList<CreditNoteTmpl>();
-        client.GetCredtiNoteTemplates(ref items, Convert.ToInt32(EnumHelper.GetValueByEnum(LanguageCode.US, 1)));
+        client.GetCreditNoteTemplates(ref items, Convert.ToInt32(EnumHelper.GetValueByEnum(LanguageCode.US, 1)));
       }
 
       foreach (var item in items.Items)

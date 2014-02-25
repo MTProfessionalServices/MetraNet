@@ -2,7 +2,7 @@
     var url = "";
 
     if (record.data.RequiresInput) {
-        url = String.format("javascript:onReportRequiresParameters(\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\")",
+        url = String.format("javascript:onReportRequiresParameters(\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\")",
                         record.data.internalId,
                         record.data.Name,
                         record.data.Extension,
@@ -12,15 +12,14 @@
     else {
         switch (record.data.Type) {
             case "Basic":
-                url = String.format("javascript:onViewBasicReport(\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\")",
+                url = String.format("javascript:onViewBasicReport(\"{0}\",\"{1}\",\"{2}\")",
                         record.data.internalId,
                         record.data.Name,
-                        record.data.Extension,
                         record.data.QueryName);
                 break;
 
             case "Configured":
-                url = String.format("javascript:onViewConfiguredReport(\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\")",
+                url = String.format("javascript:onViewConfiguredReport(\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\")",
                         record.data.internalId,
                         record.data.Name,
                         record.data.Extension,
@@ -29,7 +28,7 @@
                 break;
 
             case "Custom":
-                url = String.format("javascript:onViewCustomReport(\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\",\"{6}\")",
+                url = String.format("javascript:onViewCustomReport(\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\")",
                         record.data.internalId,
                         record.data.Name,
                         record.data.Extension,
@@ -39,7 +38,7 @@
                 break;
 
             case "IntervalStatistics":
-                url = String.format("javascript:onViewIntervalStatisticsReport(\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\")",
+                url = String.format("javascript:onViewIntervalStatisticsReport(\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\")",
                         record.data.internalId,
                         record.data.Name,
                         record.data.Extension,
@@ -71,26 +70,45 @@ function onReportRequiresParameters(internalId, name, extension, queryName, grid
     alert("Report \'" + name + "\' requires input parameters, which is not yet supported");
 }
 
-function onViewBasicReport(internalId, name, extension, queryName) {
-    var showReportUrl = String.format("/MetraNet/Reporting/ShowBasicReport.aspx?InternalId={0}&Extension={1}&QueryName={2}", internalId, extension, queryName);
-    //alert(showReportUrl);
+function onViewBasicReport(internalId, name, queryName) {
+    var showReportUrl = String.format("/MetraNet/Reporting/ShowBasicReport.aspx?InternalId={0}&Name={1}&QueryName={2}",
+        internalId,
+        encodeURIComponent(name),
+        queryName);
+
     document.location.href = showReportUrl;
 }
 
 function onViewConfiguredReport(internalId, name, extension, queryName, gridLayoutName) {
-    var showReportUrl = String.format("/MetraNet/Reporting/ShowConfiguredReport.aspx?InternalId={0}&Extension={1}&QueryName={2}&GridLayoutName={3}", internalId, extension, queryName, gridLayoutName);
-    //alert(showReportUrl);
+    var showReportUrl = String.format("/MetraNet/Reporting/ShowConfiguredReport.aspx?InternalId={0}&Name={1}&Extension={2}&QueryName={3}&GridLayoutName={4}",
+        internalId,
+        encodeURIComponent(name),
+        extension,
+        queryName, 
+        gridLayoutName);
+
     document.location.href = showReportUrl;
 }
 
 function onViewCustomReport(internalId, name, extension, queryName, gridLayoutName, customReportUrl) {
-    var showReportUrl = String.format("{4}?InternalId={0}&Extension={1}&QueryName={2}&GridLayoutName={3}", internalId, extension, queryName, gridLayoutName, customReportUrl);
-    //alert(showReportUrl);
+    var showReportUrl = String.format("{5}?InternalId={0}&Name={1}&Extension={2}&QueryName={3}&GridLayoutName={4}",
+        internalId,
+        encodeURIComponent(name),
+        extension,
+        queryName,
+        gridLayoutName,
+        encodeURI(customReportUrl));
+
     document.location.href = showReportUrl;
 }
 
 function onViewIntervalStatisticsReport(internalId, name, extension, queryName, gridLayoutName) {
-    var showReportUrl = String.format("/MetraNet/Reporting/IntervalStatisticsParameters.aspx?InternalId={0}&Extension={1}&QueryName={2}&GridLayoutName={3}", internalId, extension, queryName, gridLayoutName);
-    //alert(showReportUrl);
+    var showReportUrl = String.format("/MetraNet/Reporting/IntervalStatisticsParameters.aspx?InternalId={0}&Name={1}&Extension={2}&QueryName={3}&GridLayoutName={4}",
+        internalId,
+        encodeURIComponent(name),
+        extension,
+        queryName, 
+        gridLayoutName);
+
     document.location.href = showReportUrl;
 }

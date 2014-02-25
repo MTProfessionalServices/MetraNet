@@ -3,8 +3,10 @@
 <%@ Register assembly="MetraTech.UI.Controls" namespace="MetraTech.UI.Controls" tagprefix="MT" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+  
+  <MT:MTTitle ID="MTTitle1" Text="Report" runat="server" meta:resourcekey="MTTitle1Resource1" /><br />
 
-  <MT:MTFilterGrid ID="MTFilterGridBasicReport" runat="server" ExtensionName="Reporting" 
+  <MT:MTFilterGrid ID="MTFilterGridReport" runat="server" ExtensionName="Reporting" 
     TemplateFileName="" ButtonAlignment="Center" 
     Buttons="None" DefaultSortDirection="Ascending" DisplayCount="True" 
     EnableColumnConfig="True" EnableFilterConfig="True" EnableLoadSearch="False" 

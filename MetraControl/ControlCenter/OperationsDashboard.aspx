@@ -93,8 +93,8 @@ fill: none;
     <div class="gridster" width="100%" height="100%">
 
 	<ul width="100%" height="100%" style="width:100%; align:left;">
-	<li data-row="1" data-col="1" data-sizex="4" data-sizey="3" width="100%">
-             <MT:MTPanel ID="pnlFailedTransactionsQueue" runat="server" Text="Failed Transactions Queue" Width="430" Height="300">
+	<li data-row="1" data-col="1" data-sizex="4" data-sizey="9" width="100%">
+             <MT:MTPanel ID="pnlFailedTransactionsQueue" runat="server" Text="Failed Transactions Queue" Width="430" Height="305">
 			 <table>
 			   <tr width="100%">
 			   <td rowspan="2">
@@ -122,8 +122,8 @@ fill: none;
              </MT:MTPanel>
 			 </li>
      
-	<li data-row="1" data-col="5" data-sizex="4" data-sizey="3">
-             <MT:MTPanel ID="pnlBatchUsage" runat="server" Text="Usage Data Records" Width="430" Height="300">
+	<li data-row="1" data-col="5" data-sizex="4" data-sizey="9">
+             <MT:MTPanel ID="pnlBatchUsage" runat="server" Text="Usage Data Records" Width="430" Height="305">
 			 <table>
 			   <tr width="100%">
 			   <td width="70% height="100%">
@@ -149,8 +149,8 @@ fill: none;
              </MT:MTPanel>
 			 </li>
 
-			 <li data-row="4" data-col="1" data-sizex="8" data-sizey="3">
-              <MT:MTPanel ID="pnlPricingEngine" runat="server" Text="Pricing Engine (Real-Time and Batch)" Width="870" height="320">
+			 <li data-row="4" data-col="1" data-sizex="8" data-sizey="9">
+              <MT:MTPanel ID="pnlPricingEngine" runat="server" Text="Pricing Engine (Real-Time and Batch)" Width="870" height="305">
               <div id="divPricingEngine" >
                    <table>
                         <tr >
@@ -164,8 +164,8 @@ fill: none;
              </MT:MTPanel>
 			 </li>
 
-	<li data-row="7" data-col="1" data-sizex="8" data-sizey="3">
-             <MT:MTPanel ID="pnlActiveBillRun" runat="server" Text="Active Bill Run" Width="870" height="320">
+	<li data-row="7" data-col="1" data-sizex="8" data-sizey="9">
+             <MT:MTPanel ID="pnlActiveBillRun" runat="server" Text="Active Bill Run" Width="870" height="305">
 
              <div id="divActiveBillRun">
                    <table>
@@ -234,10 +234,10 @@ fill: none;
              </MT:MTPanel>
       </li>
 	  
-	<li data-row="10" data-col="1" data-sizex="4" data-sizey="3" height="100%">
-                    <MT:MTPanel ID="pnlPendingBillClose" runat="server" Text="Pending Bill Close" Width="430" Height="320">
+	<li data-row="10" data-col="1" data-sizex="4" data-sizey="9" height="100%">
+                    <MT:MTPanel ID="pnlPendingBillClose" runat="server" Text="Pending Bill Close" Width="430" Height="305">
                      
-                     <div height="100%" style="height:264px">
+                     <div height="100%" style="height:248px">
                      <MT:MTFilterGrid ID="grdPendingBillClose" 
                 runat="Server" ExtensionName="SystemConfig" 
                 TemplateFileName="Dashboard.PendingBillCloses.xml" width="100%" height="100%" >
@@ -246,9 +246,9 @@ fill: none;
                      
                      </MT:MTPanel>
 					 </li>
-	<li data-row="10" data-col="5" data-sizex="4" data-sizey="3">
+	<li data-row="10" data-col="5" data-sizex="4" data-sizey="9">
                
-                <MT:MTPanel ID="pnlBillCloseSynopsis" runat="server" Text="Bill Close Synopsis" Width="430" height="320">
+                <MT:MTPanel ID="pnlBillCloseSynopsis" runat="server" Text="Bill Close Synopsis" Width="430" height="305">
                     
                     <div style="width:399px;"> 
                       <MT:MTDropDown ID="ddBillCloses" runat="server"  AllowBlank="False" HideLabel="True" Listeners="{}" 
@@ -308,29 +308,33 @@ fill: none;
              
              </MT:MTPanel>
 		</li>
-	<li data-row="13" data-col="1" data-sizex="3" data-sizey="2">
+	<li data-row="13" data-col="1" data-sizex="3" data-sizey="7">
 
 
-           <MT:MTPanel ID="pnlFailedAdapters" runat="server" Text="Failed Adapters" Width="320" Height="210">
+           <MT:MTPanel ID="pnlFailedAdapters" runat="server" Text="Failed Adapters" Width="320" Height="235">
+           <div height="100%" style="height:128px">
             <MT:MTFilterGrid ID="grdFailedAdapters" 
                 runat="Server" ExtensionName="SystemConfig" 
                 TemplateFileName="Dashboard.FailedAdapters.xml" >
             </MT:MTFilterGrid>
+			</div>
         </MT:MTPanel>
 		</li>
-	<li data-row="13" data-col="4" data-sizex="3" data-sizey="2">
+	<li data-row="13" data-col="4" data-sizex="3" data-sizey="7">
         
-        <MT:MTPanel ID="pnlRunningAdapters" runat="server" Text="Running Adapters" Width="320" Height="210">
+        <MT:MTPanel ID="pnlRunningAdapters" runat="server" Text="Running Adapters" Width="320" Height="235">
+           <div height="100%" style="height:128px">
                   <MT:MTFilterGrid ID="grdRunningAdapters" 
                 runat="Server" ExtensionName="SystemConfig" 
                 TemplateFileName="Dashboard.RunningAdapters.xml" >
             </MT:MTFilterGrid>
+			</div>
         </MT:MTPanel>
 		</li>
-	<li data-row="13" data-col="7" data-sizex="2" data-sizey="2">
+	<li data-row="13" data-col="7" data-sizex="2" data-sizey="7">
 
         
-        <MT:MTPanel ID="pnlPuppetNodes" runat="server" Text="Puppet Nodes" Width="210" Height="210">
+        <MT:MTPanel ID="pnlPuppetNodes" runat="server" Text="Puppet Nodes" Width="210" Height="235">
             <div id="divPuppetNodes">
                <svg class="barchart" id="svgPuppetNodes"> </svg>
                 
@@ -387,6 +391,29 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 </script>
 
 <script type="text/javascript">
+Ext.onReady(function () {
+	Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlFailedTransactionsQueue').on('collapse', function(e) { gridster.resize_widget(gridster.$widgets.eq(0), 4, 1); });
+	Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlFailedTransactionsQueue').on('expand', function(e) { gridster.resize_widget(gridster.$widgets.eq(0), 4, 9); });
+	Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlBatchUsage').on('collapse', function(e) { gridster.resize_widget(gridster.$widgets.eq(1), 4, 1); });
+	Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlBatchUsage').on('expand', function(e) { gridster.resize_widget(gridster.$widgets.eq(1), 4, 9); });
+	Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPricingEngine').on('collapse', function(e) { gridster.resize_widget(gridster.$widgets.eq(2), 8, 1); });
+	Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPricingEngine').on('expand', function(e) { gridster.resize_widget(gridster.$widgets.eq(2), 8, 9); });
+	Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlActiveBillRun').on('collapse', function(e) { gridster.resize_widget(gridster.$widgets.eq(3), 8, 1); });
+	Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlActiveBillRun').on('expand', function(e) { gridster.resize_widget(gridster.$widgets.eq(3), 8, 9); });
+	Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPendingBillClose').on('collapse', function(e) { gridster.resize_widget(gridster.$widgets.eq(4), 4, 1); });
+	Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPendingBillClose').on('expand', function(e) { gridster.resize_widget(gridster.$widgets.eq(4), 4, 9); });
+	Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlBillCloseSynopsis').on('collapse', function(e) { gridster.resize_widget(gridster.$widgets.eq(5), 4, 1); });
+	Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlBillCloseSynopsis').on('expand', function(e) { gridster.resize_widget(gridster.$widgets.eq(5), 4, 9); });
+	Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlFailedAdapters').on('collapse', function(e) { gridster.resize_widget(gridster.$widgets.eq(6), 3, 1); });
+	Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlFailedAdapters').on('expand', function(e) { gridster.resize_widget(gridster.$widgets.eq(6), 3, 7); });
+	Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlRunningAdapters').on('collapse', function(e) { gridster.resize_widget(gridster.$widgets.eq(7), 3, 1); });
+	Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlRunningAdapters').on('expand', function(e) { gridster.resize_widget(gridster.$widgets.eq(7), 3, 7); });
+	Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPuppetNodes').on('collapse', function(e) { gridster.resize_widget(gridster.$widgets.eq(8), 2, 1); });
+	Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPuppetNodes').on('expand', function(e) { gridster.resize_widget(gridster.$widgets.eq(8), 2, 7); });
+});
+</script>
+
+<script type="text/javascript">
 
         var dayFormat = d3.time.format("%A, %B %e");
         var dateFormat = d3.time.format("%m/%d/%Y %I:%M:%S %p");
@@ -433,7 +460,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var composite = dc.compositeChart("#div30DayAging");
             composite
                     .margins({top: 5, right: 5, bottom: 40, left: 5})
-					.height(270)
+					.height(255)
                     .x(d3.scale.linear().domain([-30,0]))
                     .elasticY(true)
                     .transitionDuration(0)
@@ -554,7 +581,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var composite = dc.compositeChart("#divBatchUsage");
             composite
                     .margins({top: 5, right: 5, bottom: 40, left: 5})
-					.height(270)
+					.height(255)
                     .x(d3.time.scale().domain([minDate, maxDate]))
                     .elasticY(true)
                     .transitionDuration(0)
@@ -639,7 +666,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
     function makeActiveBillRunsPart() {
         var objActiveBillRunLineChartConfig = {
             width: 350,
-            height: 207,
+            height: 192,
             margin: { left: 20, top: 20, right: 20, bottom: 20 },
             yAxis: {"Label":"Duration","IgnoreColumns": ["adapter"]},
             xAxis: {"Label":"Adapter","Column":"rownumber"},
@@ -764,7 +791,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var composite1 = dc.compositeChart("#divPricingQueues");
             composite1
                     .margins({top: 5, right: 5, bottom: 95, left: 5})
-					.height(270)
+					.height(255)
                     .x(d3.time.scale().domain([minDate, maxDate]))
                     .elasticY(true)
                     .transitionDuration(750)
@@ -798,7 +825,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 			colors = d3.scale.ordinal().domain([0,1,2,3,4]).range(['#00B0F0','#0070C0','#148622','#FFC000','#7F7F7F']);
             composite2
                     .margins({top: 5, right: 5, bottom: 95, left: 5})
-					.height(270)
+					.height(255)
                     .x(d3.time.scale().domain([minDate, maxDate]))
                     .elasticY(true)
                     .transitionDuration(750)
@@ -841,7 +868,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var composite3 = dc.compositeChart("#divPricingTPS");
             composite3
                     .margins({top: 5, right: 5, bottom: 95, left: 5})
-					.height(270)
+					.height(255)
                     .x(d3.time.scale().domain([minDate, maxDate]))
                     .elasticY(true)
                     .transitionDuration(750)
@@ -945,7 +972,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var countGroup = statusDimension.group().reduceSum(dc.pluck('count'));
             chart
                     .margins({top: 10, right: 10, bottom: 100, left: 60})
-					.height(245)
+					.height(230)
                     .dimension(statusDimension)
 					.transitionDuration(0)
                     .group(countGroup)
@@ -1076,7 +1103,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 
           var objPuppetBarChartConfig = {
             width: 201,
-            height: 100,
+            height: 125,
             margin: { left: 20, top: 10, right: 10, bottom: 10 },
             xAxis: {"Label":"Nodes", "Column":"name"},
             yAxis: {"Label":"Type","Column":"value"},
@@ -1099,7 +1126,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
       $(function(){
 
         gridster = $(".gridster ul").gridster({
-          widget_base_dimensions: [100, 100],
+          widget_base_dimensions: [100, 25],
           widget_margins: [5, 5],
           helper: 'clone',
 		  resize: { enabled: false},

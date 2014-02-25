@@ -29,7 +29,7 @@
   function statusColRenderer(value, meta, record, rowIndex, colIndex, store)
   {
     var str = "";
-    value == "0" ? str += TEXT_OPEN_INTERVAL_STATUS : value == "2" ? str += TEXT_HARD_CLOSED_INTERVAL_STATUS : str += TEXT_UNKNOWN_INTERVAL_STATUS;
+    value == "0" ? str += '<%=GetLocalResourceObject("TEXT_OPEN").ToString()%>' : value == "2" ? str += '<%=GetLocalResourceObject("TEXT_HARD_CLOSED").ToString()%>' : value == "1" ? str += '<%=GetLocalResourceObject("TEXT_SOFT_CLOSED").ToString()%>' : str += '<%=GetLocalResourceObject("TEXT_UNKNOWN").ToString()%>';
     return str;
   }
   </script>

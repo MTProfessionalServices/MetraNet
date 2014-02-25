@@ -1182,16 +1182,4 @@
   <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
     <value>[es-MX]Start Date can't be greater than End Date</value>
   </data>
-  <data name="TEXT_HARD_CLOSED_INTERVAL_STATUS" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Hard Closed</value>
-  </data>
-  <data name="TEXT_OPEN_INTERVAL_STATUS" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Open</value>
-  </data>
-  <data name="TEXT_SOFT_CLOSED_INTERVAL_STATUS" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Soft Closed</value>
-  </data>
-  <data name="TEXT_UNKNOWN_INTERVAL_STATUS" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Unknown</value>
-  </data>
 </root>

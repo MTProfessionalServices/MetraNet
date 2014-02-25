@@ -1194,16 +1194,4 @@
   <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
     <value>[ja]Start Date can't be greater than End Date</value>
   </data>
-  <data name="TEXT_HARD_CLOSED_INTERVAL_STATUS" xml:space="preserve">
-    <value>(JAPANESE) Hard Closed</value>
-  </data>
-  <data name="TEXT_OPEN_INTERVAL_STATUS" xml:space="preserve">
-    <value>(JAPANESE) Open</value>
-  </data>
-  <data name="TEXT_SOFT_CLOSED_INTERVAL_STATUS" xml:space="preserve">
-    <value>(JAPANESE) Soft Closed</value>
-  </data>
-  <data name="TEXT_UNKNOWN_INTERVAL_STATUS" xml:space="preserve">
-    <value>(JAPANESE) Unknown</value>
-  </data>
 </root>

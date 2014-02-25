@@ -464,7 +464,7 @@ Ext.onReady(function () {
                     .x(d3.scale.linear().domain([-30,0]))
                     .elasticY(true)
                     .transitionDuration(0)
-                    .legend(dc.legend().x(15).y(240).itemHeight(13).gap(5))
+                    .legend(dc.legend().x(15).y(225).itemHeight(13).gap(5))
                     .brushOn(false)
                     .compose([
                         dc.lineChart(composite)
@@ -585,7 +585,7 @@ Ext.onReady(function () {
                     .x(d3.time.scale().domain([minDate, maxDate]))
                     .elasticY(true)
                     .transitionDuration(0)
-                    .legend(dc.legend().x(15).y(240).itemHeight(13).gap(5))
+                    .legend(dc.legend().x(15).y(225).itemHeight(13).gap(5))
                     .brushOn(false)
                     .compose([
                         dc.lineChart(composite)
@@ -795,7 +795,7 @@ Ext.onReady(function () {
                     .x(d3.time.scale().domain([minDate, maxDate]))
                     .elasticY(true)
                     .transitionDuration(750)
-                    .legend(dc.legend().x(15).y(185).itemHeight(13).gap(5))
+                    .legend(dc.legend().x(15).y(170).itemHeight(13).gap(5))
                     .brushOn(false)
                     .compose([
                         dc.lineChart(composite1)
@@ -829,7 +829,7 @@ Ext.onReady(function () {
                     .x(d3.time.scale().domain([minDate, maxDate]))
                     .elasticY(true)
                     .transitionDuration(750)
-                    .legend(dc.legend().x(15).y(185).itemHeight(13).gap(5))
+                    .legend(dc.legend().x(15).y(170).itemHeight(13).gap(5))
                     .brushOn(false)
                     .compose([
                         dc.lineChart(composite2)
@@ -872,7 +872,7 @@ Ext.onReady(function () {
                     .x(d3.time.scale().domain([minDate, maxDate]))
                     .elasticY(true)
                     .transitionDuration(750)
-                    .legend(dc.legend().x(15).y(185).itemHeight(13).gap(5))
+                    .legend(dc.legend().x(15).y(170).itemHeight(13).gap(5))
                     .brushOn(false)
                     .compose([
                         dc.lineChart(composite3)

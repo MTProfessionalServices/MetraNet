@@ -1198,7 +1198,7 @@
     <value>(MEXICAN SPANISH) Passwords do not match.</value>
   </data>  
   <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(MEXICAN SPANISH) The format is wrong, ie: 305-444-1234</value>
+    <value>(MEXICAN SPANISH) Enter a valid phone number. Format: 555-555-5555</value>
   </data>    
   <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(MEXICAN SPANISH) Credit card format is invalid</value>

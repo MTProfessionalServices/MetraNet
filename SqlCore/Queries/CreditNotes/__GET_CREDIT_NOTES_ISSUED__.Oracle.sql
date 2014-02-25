@@ -1,11 +1,12 @@
 SELECT
-	CN.c_CreditNoteID AS Id,
+	CN.c_CreditNoteID AS CreditNoteID,
 	(TEMPLATE.c_CreditNotePrefix || CN.c_CreditNoteID) AS CreditNoteIdentifier,
 	(SUBSCRIBER.c_FirstName || ' '|| SUBSCRIBER.c_LastName) AS AccountName,
-	(CREATOR.c_FirstName || ' ' || CREATOR.c_LastName) AS CreateBy,
-	CN.c_CreationDate AS CreateDate,
-	AMOUNTS.TotalAmount AS Amount,
-	AMOUNTS.TotalTaxAmount AS Tax,
+	(CREATOR.c_FirstName || ' ' || CREATOR.c_LastName) AS CreatedBy,
+	CN.c_CreationDate AS CreatedDate,
+	ABS(AMOUNTS.TotalAmount) AS Amount,
+	ABS(AMOUNTS.TotalTaxAmount) AS TaxAmount,
+	ABS(AMOUNTS.TotalAmount) + ABS(AMOUNTS.TotalTaxAmount) AS TotalAmount,
 	INTERNAL.c_Currency AS Currency
 FROM t_be_cor_cre_creditnote CN
 INNER JOIN (SELECT

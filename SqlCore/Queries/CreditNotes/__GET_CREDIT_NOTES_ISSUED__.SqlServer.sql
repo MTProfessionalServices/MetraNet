@@ -1,12 +1,13 @@
 SELECT
-	CN.c_CreditNoteID as 'ID',
-	CONCAT(TEMPLATE.c_CreditNotePrefix, CAST(CN.c_CreditNoteID as varchar)) as 'CreditNoteIdentifier',
-	CONCAT(SUBSCRIBER.c_FirstName, ' ', SUBSCRIBER.c_LastName) as 'AccountName',
-	CONCAT(CREATOR.c_FirstName, ' ', CREATOR.c_LastName) as 'CreateBy',
-	CN.c_CreationDate as 'CreateDate',
-	AMOUNTS.TotalAmount as 'Amount',
-	AMOUNTS.TotalTaxAmount as 'Tax',
-	INTERNAL.c_Currency as 'Currency'
+	CN.c_CreditNoteID AS 'CreditNoteID',
+	CONCAT(TEMPLATE.c_CreditNotePrefix, CAST(CN.c_CreditNoteID AS VARCHAR)) AS 'CreditNoteIdentifier',
+	CONCAT(SUBSCRIBER.c_FirstName, ' ', SUBSCRIBER.c_LastName) AS 'AccountName',
+	CONCAT(CREATOR.c_FirstName, ' ', CREATOR.c_LastName) AS 'CreatedBy',
+	CN.c_CreationDate as 'CreatedDate',
+	ABS(AMOUNTS.TotalAmount) AS 'Amount',
+	ABS(AMOUNTS.TotalTaxAmount) AS 'TaxAmount',
+	ABS(AMOUNTS.TotalAmount) + ABS(AMOUNTS.TotalTaxAmount) AS 'TotalAmount',
+	INTERNAL.c_Currency AS 'Currency'
 FROM t_be_cor_cre_creditnote CN
 INNER JOIN (SELECT
 							CN.c_CreditNote_Id,

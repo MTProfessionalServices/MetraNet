@@ -11,7 +11,7 @@ Ext.onReady(function(){
       }
       return true;
     },
-    'passwordText': 'Passwords do not match.'
+    'passwordText': TEXT_PASSWORD_VALIDATION_MESSAGE
   });
 
   // phone 
@@ -22,7 +22,7 @@ Ext.onReady(function(){
                return re.test(v);
            }
        }(),
-       'phoneText' : 'The format is wrong, ie: 305-444-5555'
+       'phoneText': TEXT_PHONE_VALIDATION_MESSAGE
   });
   
   // credit card number 
@@ -33,7 +33,7 @@ Ext.onReady(function(){
                return re.test(v);
            }
        }(),
-       'credit_card_numberText' : 'Credit card format is invalid'
+       'credit_card_numberText': TEXT_CREDITCARD_VALIDATION_MESSAGE
   });  
   
   // credit card verification number
@@ -44,7 +44,7 @@ Ext.onReady(function(){
                return re.test(v);
            }
        }(),
-        'cv_numberText' : 'CV Number is invalid'
+       'cv_numberText': TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE
   });    
 
 //ssn
@@ -55,7 +55,7 @@ Ext.onReady(function(){
         return re.test(v);
       }
   }(),
-  'ssnText' : 'SSN format: xxx-xx-xxxx'
+    'ssnText': TEXT_SSN_VALIDATION_MESSAGE
   });
 
 
@@ -67,7 +67,7 @@ Ext.onReady(function(){
         return re.test(v);
       }
   }(),
-  'digitsText' : 'Invalid number of digits'
+    'digitsText': TEXT_ACCOUNTNO_VALIDATION_MESSAGE
 });
   
 });

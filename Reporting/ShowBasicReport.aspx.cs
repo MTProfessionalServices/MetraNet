@@ -35,7 +35,7 @@ public partial class ShowBasicReport : MTPage
             extension = "Reporting";
 		}
 
-        queryUrl = "/MetraNet/AjaxServices/QueryService.aspx"; // Use generic AJAX service to execute query
+        queryUrl = "/MetraNet/AjaxServices/QueryService.aspx?limit=10000"; // Use generic AJAX service to execute query
 
         SQLQueryInfo sqi = new SQLQueryInfo();
         sqi.QueryName = queryName;

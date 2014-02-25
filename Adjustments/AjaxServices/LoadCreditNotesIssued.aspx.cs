@@ -15,7 +15,7 @@ public partial class Adjustments_AjaxServices_LoadCreditNotesIssued : MTListServ
 {
   private const int MAX_RECORDS_PER_BATCH = 50;
 
-  protected bool ExtractDataInternal(CreditNoteServiceClient client, ref MTList<CreditNoteDetail> items, int batchID, int limit)
+  protected bool ExtractDataInternal(CreditNoteServiceClient client, string accountsFilterValue, ref MTList<CreditNoteDetail> items, int batchID, int limit)
   {
     try
     {
@@ -24,8 +24,14 @@ public partial class Adjustments_AjaxServices_LoadCreditNotesIssued : MTListServ
       items.PageSize = limit;
       items.CurrentPage = batchID;
 
-      client.GetIssuedCreditNotes(ref items, null);       
-
+      if (accountsFilterValue == "ALL")
+      {
+        client.GetIssuedCreditNotes(ref items, null);
+      }
+      else
+      {
+        client.GetIssuedCreditNotes(ref items, UI.Subscriber.SelectedAccount._AccountID);
+      }
     }
     catch (FaultException<MASBasicFaultDetail> ex)
     {
@@ -52,7 +58,7 @@ public partial class Adjustments_AjaxServices_LoadCreditNotesIssued : MTListServ
     return true;
   }
 
-  protected bool ExtractData(CreditNoteServiceClient client, ref MTList<CreditNoteDetail> items)
+  protected bool ExtractData(CreditNoteServiceClient client, string accountsFilterValue, ref MTList<CreditNoteDetail> items)
   {
     if (Page.Request["mode"] == "csv")
     {
@@ -69,7 +75,7 @@ public partial class Adjustments_AjaxServices_LoadCreditNotesIssued : MTListServ
       int numBatches = advancePage + (items.PageSize / MAX_RECORDS_PER_BATCH);
       for (int batchID = 0; batchID < numBatches; batchID++)
       {
-        ExtractDataInternal(client, ref items, batchID + 1, MAX_RECORDS_PER_BATCH);
+        ExtractDataInternal(client, accountsFilterValue, ref items, batchID + 1, MAX_RECORDS_PER_BATCH);
 
         string strCSV = ConvertObjectToCSV(items, (batchID == 0));
         Response.Write(strCSV);
@@ -77,7 +83,7 @@ public partial class Adjustments_AjaxServices_LoadCreditNotesIssued : MTListServ
     }
     else
     {
-      ExtractDataInternal(client, ref items, items.CurrentPage, items.PageSize);
+      ExtractDataInternal(client, accountsFilterValue,ref items, items.CurrentPage, items.PageSize);
       if (Page.Request["mode"] == "csv")
       {
         string strCSV = ConvertObjectToCSV(items, true);
@@ -102,14 +108,17 @@ public partial class Adjustments_AjaxServices_LoadCreditNotesIssued : MTListServ
           client.ClientCredentials.UserName.UserName = UI.User.UserName;
           client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
         }
-        var items = new MTList<CreditNoteDetail>(); // change mtlist
+
+        var items = new MTList<CreditNoteDetail>();
 
         SetPaging(items);
         SetSorting(items);
         SetFilters(items);
 
+        string accountsFilterValue = Request["Accounts"];
+
         //unable to extract data
-        if (!ExtractData(client, ref items))
+        if (!ExtractData(client, accountsFilterValue, ref items))
         {
           return;
         }

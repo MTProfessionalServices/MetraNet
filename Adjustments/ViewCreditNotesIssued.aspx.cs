@@ -15,4 +15,16 @@ public partial class Adjustments_ViewCreditNotesIssued : MTPage
   {
 
   }
+
+  protected override void OnLoadComplete(EventArgs e)
+  {
+    string accountsFilterValue = Request["Accounts"];
+
+    if (!String.IsNullOrEmpty(accountsFilterValue))
+    {
+      if (accountsFilterValue == "ALL")
+        MTFilterGrid1.DataSourceURL =
+          @"/MetraNet/Adjustments/AjaxServices/LoadCreditNotesIssued.aspx?Accounts=ALL";
+    }
+  }
 }

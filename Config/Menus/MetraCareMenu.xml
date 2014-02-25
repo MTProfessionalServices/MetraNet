@@ -294,10 +294,10 @@
                                 <LocalizationTag>TEXT_VIEW_CREDIT_NOTES_ISSUED</LocalizationTag> 
 								<ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/Adjustments/ViewCreditNotesIssued.aspx</Link>  
+                            <Link>/MetraNet/Adjustments/ViewCreditNotesIssued.aspx?Accounts=ALL</Link>  
 							<Target>MainContentIframe</Target>
                             <Icon>/Res/Images/Icons/approvals.png</Icon> 
-							<Description>View Credit Notes Issued</Description>
+							<Description>View All Credit Notes Issued</Description>
                             <RequiredCapabilities>
                                 <Capability>Manage Adjustments</Capability>
                             </RequiredCapabilities>

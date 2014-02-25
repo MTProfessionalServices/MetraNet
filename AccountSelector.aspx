@@ -8,7 +8,7 @@
   
   <script type="text/javascript">
 
-  var ROOT_CRUMB_HTML = "<div id=\"crumb\" style=\"clip:auto;overflow-x:auto;width:285px;height:40px;padding:1px;\"><a href=\"JavaScript:NavigateAncestor(1, 'Root');\">root (1)</a></div>";
+  var ROOT_CRUMB_HTML = "<div id=\"crumb\" style=\"clip:auto;overflow-x:auto;width:285px;height:10px;padding:1px;\"><a href=\"JavaScript:NavigateAncestor(1, 'Root');\">root (1)</a></div>";
     
   function BeforeSearch_<%=MyGrid1.ClientID %>()
   {

@@ -132,6 +132,9 @@
   <data name="TEXT_AMOUNT" xml:space="preserve">
     <value>{ES-MX}Amount</value>
   </data>
+  <data name="TEXT_DISPLAY_AMOUNT" xml:space="preserve">
+    <value>{ES-MX}Amount</value>
+  </data>   
   <data name="TEXT_CREATED_BY" xml:space="preserve">
     <value>{ES-MX}Created By</value>
   </data>
@@ -147,7 +150,13 @@
   <data name="TEXT_TAX" xml:space="preserve">
     <value>{ES-MX}Tax</value>
   </data>
+  <data name="TEXT_DISPLAY_TAX" xml:space="preserve">
+    <value>{ES-MX}Tax</value>
+  </data>    
   <data name="TEXT_TOTAL" xml:space="preserve">
     <value>{ES-MX}Total</value>
   </data> 
+  <data name="TEXT_DISPLAY_TOTAL" xml:space="preserve">
+    <value>{ES-MX}Total</value>
+  </data>     
 </root>

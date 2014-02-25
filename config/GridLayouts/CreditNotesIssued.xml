@@ -234,11 +234,11 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename>C:\dev\MetraNetDev\output\debug\Bin\MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
             <ObjectName>MetraTech.DomainModel.BaseTypes.CreditNoteDetail</ObjectName>
-            <ID>AmountAsString</ID>
-            <DataType>String</DataType>
+            <ID>Amount</ID>
+            <DataType>Numeric</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>AmountAsString</DataIndex>
-            <IsColumn>true</IsColumn>
+            <DataIndex>Amount</DataIndex>
+            <IsColumn>false</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_AMOUNT</LocalizationTag>
                 <ResourceClassKey>Adjustments/App_LocalResources/ViewCreditNotesIssued.aspx</ResourceClassKey>
@@ -266,15 +266,51 @@
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
+		<Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>C:\dev\MetraNetDev\output\debug\Bin\MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
+            <ObjectName>MetraTech.DomainModel.BaseTypes.CreditNoteDetail</ObjectName>
+            <ID>AmountAsString</ID>
+            <DataType>String</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>AmountAsString</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>TEXT_DISPLAY_AMOUNT</LocalizationTag>
+                <ResourceClassKey>Adjustments/App_LocalResources/ViewCreditNotesIssued.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>false</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
         <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename>C:\dev\MetraNetDev\output\debug\Bin\MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
             <ObjectName>MetraTech.DomainModel.BaseTypes.CreditNoteDetail</ObjectName>
-            <ID>TaxAmountAsString</ID>
-            <DataType>String</DataType>
+            <ID>TaxAmount</ID>
+            <DataType>Numeric</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>TaxAmountAsString</DataIndex>
-            <IsColumn>true</IsColumn>
+            <DataIndex>TaxAmount</DataIndex>
+            <IsColumn>false</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_TAX</LocalizationTag>
                 <ResourceClassKey>Adjustments/App_LocalResources/ViewCreditNotesIssued.aspx</ResourceClassKey>
@@ -301,16 +337,52 @@
             </ElementValue2>
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
+        </Element>		
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>C:\dev\MetraNetDev\output\debug\Bin\MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
+            <ObjectName>MetraTech.DomainModel.BaseTypes.CreditNoteDetail</ObjectName>
+            <ID>TaxAmountAsString</ID>
+            <DataType>String</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>TaxAmountAsString</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>TEXT_DISPLAY_TAX</LocalizationTag>
+                <ResourceClassKey>Adjustments/App_LocalResources/ViewCreditNotesIssued.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>false</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename>C:\dev\MetraNetDev\output\debug\Bin\MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
             <ObjectName>MetraTech.DomainModel.BaseTypes.CreditNoteDetail</ObjectName>
-            <ID>TotalAmountAsString</ID>
-            <DataType>String</DataType>
+            <ID>TotalAmount</ID>
+            <DataType>Numeric</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>TotalAmountAsString</DataIndex>
-            <IsColumn>true</IsColumn>
+            <DataIndex>TotalAmount</DataIndex>
+            <IsColumn>false</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_TOTAL</LocalizationTag>
                 <ResourceClassKey>Adjustments/App_LocalResources/ViewCreditNotesIssued.aspx</ResourceClassKey>
@@ -325,6 +397,42 @@
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>		
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>C:\dev\MetraNetDev\output\debug\Bin\MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
+            <ObjectName>MetraTech.DomainModel.BaseTypes.CreditNoteDetail</ObjectName>
+            <ID>TotalAmountAsString</ID>
+            <DataType>String</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>TotalAmountAsString</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>TEXT_DISPLAY_TOTAL</LocalizationTag>
+                <ResourceClassKey>Adjustments/App_LocalResources/ViewCreditNotesIssued.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>false</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>

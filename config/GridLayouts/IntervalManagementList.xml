@@ -8,7 +8,7 @@
     <Exportable>true</Exportable>
     <Height>400</Height>
     <Width>720</Width>
-    <Expandable>true</Expandable>
+    <Expandable>false</Expandable>
     <Buttons>None</Buttons>
     <DataSourceURL>/MetraNet/MetraControl/BillingManagement/AjaxServices/IntervalManagementListSvc.aspx</DataSourceURL>
     <MultiSelect>false</MultiSelect>

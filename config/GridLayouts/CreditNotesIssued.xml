@@ -8,7 +8,7 @@
     <Exportable>true</Exportable>
     <Height>400</Height>
     <Width>720</Width>
-    <Expandable>true</Expandable>
+    <Expandable>false</Expandable>
     <Buttons>None</Buttons>
     <DataSourceURL>AjaxServices/LoadCreditNotesIssued.aspx</DataSourceURL>
     <MultiSelect>false</MultiSelect>
@@ -266,7 +266,7 @@
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
-		<Element>
+        <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename>C:\dev\MetraNetDev\output\debug\Bin\MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
             <ObjectName>MetraTech.DomainModel.BaseTypes.CreditNoteDetail</ObjectName>
@@ -337,7 +337,7 @@
             </ElementValue2>
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
-        </Element>		
+        </Element>
         <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename>C:\dev\MetraNetDev\output\debug\Bin\MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
@@ -409,7 +409,7 @@
             </ElementValue2>
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
-        </Element>		
+        </Element>
         <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename>C:\dev\MetraNetDev\output\debug\Bin\MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>

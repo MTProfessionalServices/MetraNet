@@ -84,8 +84,31 @@ fill: none;
   text-anchor: end;
 }
 
+#grid-container_ctl00_ContentPlaceHolder1_grdPendingBillClose {
+  width: 100% !important;
+  height: 100% !important;
+}
 
+#grid-container_ctl00_ContentPlaceHolder1_grdFailedAdapters {
+  width: 100% !important;
+  height: 100% !important;
+}
 
+#grid-container_ctl00_ContentPlaceHolder1_grdRunningAdapters {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.x-panel-bwrap {
+  width: 100%;
+  height: 100%;
+}
+
+.x-panel-body {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0px !important;
+}
 </style>
                
 <MT:MTTitle ID="MTTitle1" Text="Operations Dashboard" runat="server" meta:resourcekey="MTTitle1Resource1" />
@@ -409,6 +432,7 @@ Ext.onReady(function () {
 	Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlRunningAdapters').on('expand', function(e) { gridster.resize_widget(gridster.$widgets.eq(7), 3, 7); });
 	Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPuppetNodes').on('collapse', function(e) { gridster.resize_widget(gridster.$widgets.eq(8), 2, 1); });
 	Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPuppetNodes').on('expand', function(e) { gridster.resize_widget(gridster.$widgets.eq(8), 2, 7); });
+	
 });
 </script>
 

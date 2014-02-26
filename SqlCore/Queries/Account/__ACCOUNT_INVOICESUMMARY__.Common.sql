@@ -21,7 +21,7 @@
           inv.current_balance as current_balance
         FROM
           t_invoice inv
-          JOIN t_pc_interval interv ON inv.id_interval = interv.id_interval
+          JOIN t_usage_interval interv ON inv.id_interval = interv.id_interval
 		  LEFT JOIN VW_HIERARCHYNAME ahn on inv.id_acc = ahn.id_acc
 		  LEFT JOIN VW_HIERARCHYNAME phn on inv.id_payer = phn.id_acc
         WHERE

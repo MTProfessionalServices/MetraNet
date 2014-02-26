@@ -118,28 +118,28 @@
             </ElementValue2>
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems>
-			<DropdownItem>
-                <Key>O</Key>
+                <DropdownItem>
+                    <Key>O</Key>
                     <Value>
                         <LocalizationTag>TEXT_OPEN</LocalizationTag>
                         <ResourceClassKey>MetraControl/BillingManagement/App_LocalResources/IntervalManagementList.aspx</ResourceClassKey>
                     </Value>
                 </DropdownItem>
                 <DropdownItem>
-                <Key>B</Key>
+                    <Key>B</Key>
                     <Value>
                         <LocalizationTag>TEXT_SOFT_CLOSED</LocalizationTag>
                         <ResourceClassKey>MetraControl/BillingManagement/App_LocalResources/IntervalManagementList.aspx</ResourceClassKey>
                     </Value>
                 </DropdownItem>
                 <DropdownItem>
-                <Key>H</Key>
+                    <Key>H</Key>
                     <Value>
                         <LocalizationTag>TEXT_HARD_CLOSED</LocalizationTag>
                         <ResourceClassKey>MetraControl/BillingManagement/App_LocalResources/IntervalManagementList.aspx</ResourceClassKey>
                     </Value>
                 </DropdownItem>
-			</DropdownItems>
+            </DropdownItems>
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
@@ -148,6 +148,14 @@
             <ID>UsageCycleType</ID>
             <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
+            <FilterEnum>
+                <EnumClassName></EnumClassName>
+                <EnumSpace>metratech.com/billingcycle</EnumSpace>
+                <EnumType>UsageCycleType</EnumType>
+                <UseEnumValue>true</UseEnumValue>
+                <DefaultValue></DefaultValue>
+                <HideEnumValues />
+            </FilterEnum>
             <DataIndex>UsageCycleType</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
@@ -163,7 +171,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
+            <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>

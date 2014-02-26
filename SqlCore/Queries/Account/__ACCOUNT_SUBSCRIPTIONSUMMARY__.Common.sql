@@ -6,7 +6,9 @@ tmp.vt_start AS 'SubscriptionStart',
 tmp.vt_end AS 'SubscriptionEnd',
 tmp.id_po AS 'ProductOfferingId',
 tmp.id_sub AS 'SubscriptionId',
-null AS 'PromoCode',
+1234.99 AS 'RecurringCharge',
+'USD' AS 'RecurringChargeCurrency',
+ null AS 'PromoCode',
 tg.tx_name AS 'GroupSubscriptionName',
 tg.tx_desc AS 'GroupSubscriptionDescription'
 
@@ -57,9 +59,9 @@ left JOIN t_vw_base_props tb_po on tb_po.id_prop = sub.id_po and tb_po.id_lang_c
 INNER JOIN t_group_sub tg on sub.id_group = tg.id_group
 inner join t_po on t_po.id_po = tmp.id_po
 
-union
+UNION
 
-select 
+SELECT 
 'Subscription' AS 'SubscriptionType',
 tb_po.nm_name AS 'ProductOfferingName',
 tb_po.nm_desc AS 'ProductOfferingDescription',
@@ -67,10 +69,12 @@ sub.vt_start AS 'SubscriptionStart',
 sub.vt_end AS 'SubscriptionEnd',
 sub.id_po AS 'ProductOfferingId',
 sub.id_sub AS 'SubscriptionId',
+34.99 AS 'RecurringCharge',
+'USD' AS 'RecurringChargeCurrency',
 null AS 'PromoCode',
 null AS 'GroupSubscriptionName',
 null AS 'GroupSubscriptionDescription'
-from t_sub sub
-left JOIN t_vw_base_props tb_po on tb_po.id_prop = sub.id_po and tb_po.id_lang_code = 840		
+FROM t_sub sub
+LEFT JOIN t_vw_base_props tb_po on tb_po.id_prop = sub.id_po and tb_po.id_lang_code = 840		
 WHERE sub.id_acc = %%ACCOUNT_ID%%
 

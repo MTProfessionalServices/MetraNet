@@ -84,21 +84,6 @@ fill: none;
   text-anchor: end;
 }
 
-#formPanel_ctl00_ContentPlaceHolder1_pnlPendingBillClose {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-#formPanel_ctl00_ContentPlaceHolder1_pnlFailedAdapters {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-#formPanel_ctl00_ContentPlaceHolder1_pnlRunningAdapters {
-  width: 100% !important;
-  height: 100% !important;
-}
-
 #grid-container_ctl00_ContentPlaceHolder1_grdPendingBillClose {
   width: 100% !important;
   height: 100% !important;

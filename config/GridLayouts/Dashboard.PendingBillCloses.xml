@@ -33,7 +33,7 @@
     <FilterPanelCollapsed>false</FilterPanelCollapsed>
     <EnableColumnConfig>false</EnableColumnConfig>
     <EnableFilterConfig>false</EnableFilterConfig>
-    <Resizeable>true</Resizeable>
+    <Resizeable>false</Resizeable>
     <ButtonAlignment>Center</ButtonAlignment>
     <DefaultSortField></DefaultSortField>
     <DefaultSortDirection>Ascending</DefaultSortDirection>

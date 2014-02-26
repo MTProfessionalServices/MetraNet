@@ -1,12 +1,16 @@
 select
-'Group' AS 'SubscriptionType',
+'GroupSubscription' AS 'SubscriptionType',
 tb_po.nm_name AS 'ProductOfferingName',
 tb_po.nm_desc AS 'ProductOfferingDescription',
-null AS 'PromoCode',
 tmp.vt_start AS 'SubscriptionStart',
 tmp.vt_end AS 'SubscriptionEnd',
 tmp.id_po AS 'ProductOfferingId',
 tmp.id_sub AS 'SubscriptionId',
+null AS 'PromoCode',
+tg.tx_name AS 'GroupSubscriptionName',
+tg.tx_desc AS 'GroupSubscriptionDescription'
+
+/*,
 sub.id_sub_ext,
 tmp.id_acc,
 tmp.vt_start dt_start,
@@ -26,15 +30,9 @@ tg.b_visable b_visable,
 tg.id_usage_cycle id_usage_cycle,
 tg.id_usage_cycle usage_cycle,
 tg.b_proportional b_proportional,
-/*  same column is returned twice with different name because of different code wanting */
-/*  different column names */
 tg.id_corporate_account id_corporate_Account,
-tg.id_corporate_account corporate_Account,
-/*  same column is returned twice with different name because of different code wanting */
-/*  different column names */
 tg.id_discountaccount id_discountaccount,
-tg.id_discountaccount discount_account,
-tg.b_supportgroupops b_supportgroupops
+tg.b_supportgroupops b_supportgroupops */
 from
 (
 select s.id_sub, p.id_po,gsm.id_acc,gsm.vt_start,gsm.vt_end,
@@ -59,4 +57,20 @@ left JOIN t_vw_base_props tb_po on tb_po.id_prop = sub.id_po and tb_po.id_lang_c
 INNER JOIN t_group_sub tg on sub.id_group = tg.id_group
 inner join t_po on t_po.id_po = tmp.id_po
 
-		
+union
+
+select 
+'Subscription' AS 'SubscriptionType',
+tb_po.nm_name AS 'ProductOfferingName',
+tb_po.nm_desc AS 'ProductOfferingDescription',
+sub.vt_start AS 'SubscriptionStart',
+sub.vt_end AS 'SubscriptionEnd',
+sub.id_po AS 'ProductOfferingId',
+sub.id_sub AS 'SubscriptionId',
+null AS 'PromoCode',
+null AS 'GroupSubscriptionName',
+null AS 'GroupSubscriptionDescription'
+from t_sub sub
+left JOIN t_vw_base_props tb_po on tb_po.id_prop = sub.id_po and tb_po.id_lang_code = 840		
+WHERE sub.id_acc = %%ACCOUNT_ID%%
+

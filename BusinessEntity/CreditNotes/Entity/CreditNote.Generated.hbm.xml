@@ -164,22 +164,22 @@
       <meta attribute="target-property-name-for-source">CreditNoteTmpl</meta>
       <meta attribute="cascade">true</meta>
     </many-to-one>
-    <many-to-one name="CreditNotePDF" class="MetraTech.Core.CreditNotes.CreditNotePDF, MetraTech.Core.CreditNotes.Entity" column="c_CreditNotePDF_Id">
+    <one-to-one name="CreditNotePDF" class="MetraTech.Core.CreditNotes.CreditNotePDF, MetraTech.Core.CreditNotes.Entity" cascade="delete">
       <meta attribute="relationship-type">OneToOne</meta>
-      <meta attribute="relationship-name">CreditNotePDF_CreditNote</meta>
+      <meta attribute="relationship-name">CreditNote_CreditNotePDF</meta>
       <meta attribute="has-join-table">false</meta>
       <meta attribute="is-default">true</meta>
       <meta attribute="is-self-relationship">false</meta>
       <meta attribute="is-bidirectional">false</meta>
       <meta attribute="source-multiplicity">One</meta>
-      <meta attribute="source-entity-name">MetraTech.Core.CreditNotes.CreditNotePDF</meta>
-      <meta attribute="source-key-column">c_CreditNotePDF_Id</meta>
-      <meta attribute="source-property-name-for-target">CreditNote</meta>
+      <meta attribute="source-entity-name">MetraTech.Core.CreditNotes.CreditNote</meta>
+      <meta attribute="source-key-column">c_CreditNote_Id</meta>
+      <meta attribute="source-property-name-for-target">CreditNotePDF</meta>
       <meta attribute="target-multiplicity">One</meta>
-      <meta attribute="target-entity-name">MetraTech.Core.CreditNotes.CreditNote</meta>
-      <meta attribute="target-key-column">c_CreditNote_Id</meta>
-      <meta attribute="target-property-name-for-source">CreditNotePDF</meta>
+      <meta attribute="target-entity-name">MetraTech.Core.CreditNotes.CreditNotePDF</meta>
+      <meta attribute="target-key-column">c_CreditNotePDF_Id</meta>
+      <meta attribute="target-property-name-for-source">CreditNote</meta>
       <meta attribute="cascade">true</meta>
-    </many-to-one>
+    </one-to-one>
   </class>
 </hibernate-mapping>

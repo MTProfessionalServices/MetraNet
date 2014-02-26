@@ -6,7 +6,7 @@
     </Title>
     <Exportable>false</Exportable>
     <Height>0</Height>
-    <Width>720</Width>
+    <Width>0</Width>
     <Expandable>false</Expandable>
     <Buttons>Custom</Buttons>
     <DataSourceURL>~/AjaxServices/ManagedAccount.aspx?operation=subscriptionsummary</DataSourceURL>
@@ -21,7 +21,7 @@
     <FilterInputWidth>220</FilterInputWidth>
     <FilterLabelWidth>75</FilterLabelWidth>
     <FilterColumnWidth>350</FilterColumnWidth>
-    <ShowTopBar>false</ShowTopBar>
+    <ShowTopBar>true</ShowTopBar>
     <ShowBottomBar>false</ShowBottomBar>
     <ShowGridFrame>true</ShowGridFrame>
     <ShowGridHeader>true</ShowGridHeader>
@@ -125,7 +125,7 @@
                 <Value>Product Offering</Value>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>120</Width>
+            <Width>300</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>true</Sortable>
@@ -159,7 +159,7 @@
             <HeaderText>
                 <Value><![CDATA[Start]]></Value>
             </HeaderText>
-            <Formatter>DateTimeRenderer</Formatter>
+            <Formatter>DateRenderer</Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
@@ -182,7 +182,58 @@
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
-    
+      <Element>
+        <RecordElement>true</RecordElement>
+        <AssemblyFilename></AssemblyFilename>
+        <ObjectName></ObjectName>
+        <ID>subscriptionend</ID>
+        <DataType>Date</DataType>
+        <IsIdentity>false</IsIdentity>
+        <DataIndex>subscriptionstart</DataIndex>
+        <IsColumn>true</IsColumn>
+        <HeaderText>
+          <Value><![CDATA[End]]></Value>
+        </HeaderText>
+        <Formatter>DateRenderer</Formatter>
+        <Width>120</Width>
+        <Resizeable>true</Resizeable>
+        <PreventSortable>false</PreventSortable>
+        <Sortable>true</Sortable>
+        <ColumnHideable>true</ColumnHideable>
+        <DefaultColumn>true</DefaultColumn>
+        <Exportable>true</Exportable>
+        <ShowInExpander>false</ShowInExpander>
+        <Filterable>true</Filterable>
+        <FilterHideable>true</FilterHideable>
+        <DefaultFilter>true</DefaultFilter>
+        <RequiredFilter>false</RequiredFilter>
+        <FilterLabel />
+        <ElementValue>
+          <Value><![CDATA[]]></Value>
+        </ElementValue>
+        <ElementValue2>
+          <Value><![CDATA[]]></Value>
+        </ElementValue2>
+        <FilterReadOnly>false</FilterReadOnly>
+        <DropdownItems></DropdownItems>
+      </Element>
+      <Element>
+        <RecordElement>false</RecordElement>
+        <ID>actions</ID>
+        <DataIndex>actions</DataIndex>
+        <IsColumn>true</IsColumn>
+        <HeaderText>
+          <Value><![CDATA[&nbsp;]]></Value>
+        </HeaderText>
+        <!--<Formatter>actionsColRenderer</Formatter>-->
+        <Width>120</Width>
+        <Resizeable>true</Resizeable>
+        <PreventSortable>false</PreventSortable>
+        <Sortable>false</Sortable>
+        <ColumnHideable>true</ColumnHideable>
+        <DefaultColumn>true</DefaultColumn>
+        <Filterable>false</Filterable>
+      </Element>    
 	</Elements>
     <GridButtons>
         <!--<Button>
@@ -200,5 +251,38 @@
             <JSHandlerFunction>onUpdateStatus</JSHandlerFunction>
         </Button>-->
     </GridButtons>
-    <ToolbarButtons></ToolbarButtons>
+  <ToolbarButtons>
+    <Button>
+      <ButtonID>AddRegularSubscription</ButtonID>
+      <ButtonText>
+        <LocalizationTag>AddSubscription.ButtonText</LocalizationTag>
+        <ResourceClassKey></ResourceClassKey>
+      </ButtonText>
+      <ToolTip>
+        <LocalizationTag>AddSubscription.ButtonText</LocalizationTag>
+        <ResourceClassKey></ResourceClassKey>
+      </ToolTip>
+      <IconClass>add</IconClass>
+      <RequiredCapabilities>
+        <Capability>Create Subscription</Capability>
+      </RequiredCapabilities>
+      <JSHandlerFunction>onAddRegularSubscription</JSHandlerFunction>
+    </Button>
+    <Button>
+      <ButtonID>AddAccountToExistingGroupSubscription</ButtonID>
+      <ButtonText>
+        <LocalizationTag>AddSubscription.ButtonText</LocalizationTag>
+        <ResourceClassKey></ResourceClassKey>
+      </ButtonText>
+      <ToolTip>
+        <LocalizationTag>AddSubscription.ButtonText</LocalizationTag>
+        <ResourceClassKey></ResourceClassKey>
+      </ToolTip>
+      <IconClass>add</IconClass>
+      <RequiredCapabilities>
+        <Capability>Create Subscription</Capability>
+      </RequiredCapabilities>
+      <JSHandlerFunction>onAddRegularSubscription</JSHandlerFunction>
+    </Button>
+   </ToolbarButtons>
 </GridLayout>

@@ -40,7 +40,7 @@
   <script type="text/javascript" src="/Res/JavaScript/RowSelectionModelOverride.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/Ext/examples/form/states.js?v=6.5"></script>
 
-    <script src="http://d3js.org/d3.v3.js"></script>
+    <script src="/Res/JavaScript/d3.min.js"></script>
 
                
   <%=Constants.CJ_PROTECTION_CODE %>               

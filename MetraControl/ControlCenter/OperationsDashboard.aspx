@@ -87,11 +87,56 @@
             font: 4px sans-serif;
             text-anchor: end;
         }
+
+#formPanel_ctl00_ContentPlaceHolder1_pnlPendingBillClose {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#formPanel_ctl00_ContentPlaceHolder1_pnlFailedAdapters {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#formPanel_ctl00_ContentPlaceHolder1_pnlRunningAdapters {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#grid-container_ctl00_ContentPlaceHolder1_grdPendingBillClose {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#grid-container_ctl00_ContentPlaceHolder1_grdFailedAdapters {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#grid-container_ctl00_ContentPlaceHolder1_grdRunningAdapters {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.x-panel-bwrap {
+  width: 100%;
+  height: 100%;
+}
+
+.x-panel-body {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0px !important;
+}
+
+#gridsterul {
+  position: static !important;
+}
     </style>
     <MT:MTTitle ID="MTTitle1" Text="Operations Dashboard" runat="server" meta:resourcekey="MTTitle1Resource1" />
     <br />
     <div class="gridster" width="100%" height="100%">
-        <ul width="100%" height="100%" style="width: 100%; align: left;">
+	<ul width="100%" height="100%" id="gridsterul" style="width:100%; align:left;">
             <li data-row="1" data-col="1" data-sizex="4" data-sizey="9" width="100%">
                 <MT:MTPanel ID="pnlFailedTransactionsQueue" runat="server" Text="Failed Transactions Queue"
                     Width="430" Height="305">
@@ -1197,7 +1242,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                 widget_margins: [5, 5],
                 helper: 'clone',
                 resize: { enabled: false },
-                autogrow_cols: false
+		  autogrow_cols: true,
 		  min_rows: 30,
             }).data('gridster');
         });

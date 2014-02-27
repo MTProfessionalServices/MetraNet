@@ -32,7 +32,7 @@
         <ResourceClassKey>App_GlobalResources/Resource</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
-    <FilterPanelCollapsed>false</FilterPanelCollapsed>
+    <FilterPanelCollapsed>true</FilterPanelCollapsed>
     <EnableColumnConfig>false</EnableColumnConfig>
     <EnableFilterConfig>false</EnableFilterConfig>
     <Resizeable>true</Resizeable>
@@ -118,28 +118,28 @@
             </ElementValue2>
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems>
-			<DropdownItem>
-                <Key>O</Key>
+                <DropdownItem>
+                    <Key>O</Key>
                     <Value>
                         <LocalizationTag>TEXT_OPEN</LocalizationTag>
                         <ResourceClassKey>MetraControl/BillingManagement/App_LocalResources/IntervalManagementList.aspx</ResourceClassKey>
                     </Value>
                 </DropdownItem>
                 <DropdownItem>
-                <Key>B</Key>
+                    <Key>B</Key>
                     <Value>
                         <LocalizationTag>TEXT_SOFT_CLOSED</LocalizationTag>
                         <ResourceClassKey>MetraControl/BillingManagement/App_LocalResources/IntervalManagementList.aspx</ResourceClassKey>
                     </Value>
                 </DropdownItem>
                 <DropdownItem>
-                <Key>H</Key>
+                    <Key>H</Key>
                     <Value>
                         <LocalizationTag>TEXT_HARD_CLOSED</LocalizationTag>
                         <ResourceClassKey>MetraControl/BillingManagement/App_LocalResources/IntervalManagementList.aspx</ResourceClassKey>
                     </Value>
                 </DropdownItem>
-			</DropdownItems>
+            </DropdownItems>
         </Element>
         <Element>
             <RecordElement>true</RecordElement>

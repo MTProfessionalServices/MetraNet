@@ -87,10 +87,10 @@
             <DataIndex>subscriptiontype</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value>Type</Value>
+                <Value><![CDATA[&nbsp;]]></Value>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>60</Width>
+            <Width>30</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>true</Sortable>
@@ -122,7 +122,7 @@
             <DataIndex>productofferingname</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value>Product Offering</Value>
+                <Value>Subscription</Value>
             </HeaderText>
             <Formatter></Formatter>
             <Width>300</Width>
@@ -255,12 +255,14 @@
     <Button>
       <ButtonID>AddRegularSubscription</ButtonID>
       <ButtonText>
-        <LocalizationTag>AddSubscription.ButtonText</LocalizationTag>
-        <ResourceClassKey></ResourceClassKey>
+        <Value><![CDATA[Add Subscription]]></Value>        
+        <!-- NICE TO FIGURE OUT HOW TO SHARE EXISTING LOCALIZATION<LocalizationTag>AddSubscription.ButtonText</LocalizationTag>
+        <ResourceClassKey></ResourceClassKey>-->
       </ButtonText>
       <ToolTip>
-        <LocalizationTag>AddSubscription.ButtonText</LocalizationTag>
-        <ResourceClassKey></ResourceClassKey>
+        <Value><![CDATA[Create a new subscription to a Product Offering]]></Value>
+        <!-- NICE TO FIGURE OUT HOW TO SHARE EXISTING LOCALIZATION<LocalizationTag>AddSubscription.ButtonText</LocalizationTag>
+        <ResourceClassKey></ResourceClassKey>-->
       </ToolTip>
       <IconClass>add</IconClass>
       <RequiredCapabilities>
@@ -271,18 +273,20 @@
     <Button>
       <ButtonID>AddAccountToExistingGroupSubscription</ButtonID>
       <ButtonText>
-        <LocalizationTag>AddSubscription.ButtonText</LocalizationTag>
-        <ResourceClassKey></ResourceClassKey>
+        <Value><![CDATA[Join Group Subscription]]></Value>
+        <!-- NICE TO FIGURE OUT HOW TO SHARE EXISTING LOCALIZATION<LocalizationTag>AddSubscription.ButtonText</LocalizationTag>
+        <ResourceClassKey></ResourceClassKey>-->
       </ButtonText>
       <ToolTip>
-        <LocalizationTag>AddSubscription.ButtonText</LocalizationTag>
-        <ResourceClassKey></ResourceClassKey>
+        <Value><![CDATA[Add this account as a member of an existing Group Subscription]]></Value>
+        <!-- NICE TO FIGURE OUT HOW TO SHARE EXISTING LOCALIZATION <LocalizationTag>AddSubscription.ButtonText</LocalizationTag>
+        <ResourceClassKey></ResourceClassKey>-->
       </ToolTip>
       <IconClass>add</IconClass>
       <RequiredCapabilities>
         <Capability>Create Subscription</Capability>
       </RequiredCapabilities>
-      <JSHandlerFunction>onAddRegularSubscription</JSHandlerFunction>
+      <JSHandlerFunction>onAddAccountToGroupSubscription</JSHandlerFunction>
     </Button>
    </ToolbarButtons>
 </GridLayout>

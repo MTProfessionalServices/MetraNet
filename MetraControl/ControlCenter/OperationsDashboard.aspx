@@ -204,7 +204,7 @@
                     </table>
                 </MT:MTPanel>
             </li>
-            <li data-row="4" data-col="1" data-sizex="8" data-sizey="9">
+            <li data-row="10" data-col="1" data-sizex="8" data-sizey="9">
                 <MT:MTPanel ID="pnlPricingEngine" runat="server" Text="Pricing Engine (Real-Time and Batch)"
                     Width="870" Height="305">
                     <div id="divPricingEngine">
@@ -223,7 +223,7 @@
                     </div>
                 </MT:MTPanel>
             </li>
-            <li data-row="7" data-col="1" data-sizex="8" data-sizey="9">
+            <li data-row="19" data-col="1" data-sizex="8" data-sizey="9">
                 <MT:MTPanel ID="pnlActiveBillRun" runat="server" Text="Active Bill Run" Width="870"
                     Height="315">
                      <div>
@@ -335,7 +335,7 @@
                     </div>
                 </MT:MTPanel>
             </li>
-            <li data-row="10" data-col="1" data-sizex="4" data-sizey="9" height="100%">
+            <li data-row="28" data-col="1" data-sizex="4" data-sizey="9" height="100%">
                 <MT:MTPanel ID="pnlPendingBillClose" runat="server" Text="Pending Bill Close" Width="430"
                     Height="305">
                     <div height="100%" style="height: 248px">
@@ -345,7 +345,7 @@
                     </div>
                 </MT:MTPanel>
             </li>
-            <li data-row="10" data-col="5" data-sizex="4" data-sizey="9">
+            <li data-row="28" data-col="5" data-sizex="4" data-sizey="9">
                 <MT:MTPanel ID="pnlBillCloseSynopsis" runat="server" Text="Bill Close Synopsis" Width="430"
                     Height="305">
                     <div style="width: 399px;">
@@ -427,7 +427,7 @@
                     </div>
                 </MT:MTPanel>
             </li>
-            <li data-row="13" data-col="1" data-sizex="3" data-sizey="7">
+            <li data-row="37" data-col="1" data-sizex="3" data-sizey="7">
                 <MT:MTPanel ID="pnlFailedAdapters" runat="server" Text="Failed Adapters" Width="320"
                     Height="235">
                     <div height="100%" style="height: 128px">
@@ -437,7 +437,7 @@
                     </div>
                 </MT:MTPanel>
             </li>
-            <li data-row="13" data-col="4" data-sizex="3" data-sizey="7">
+            <li data-row="37" data-col="4" data-sizex="3" data-sizey="7">
                 <MT:MTPanel ID="pnlRunningAdapters" runat="server" Text="Running Adapters" Width="320"
                     Height="235">
                     <div height="100%" style="height: 128px">
@@ -447,7 +447,7 @@
                     </div>
                 </MT:MTPanel>
             </li>
-            <li data-row="13" data-col="7" data-sizex="2" data-sizey="7">
+            <li data-row="37" data-col="7" data-sizex="2" data-sizey="7">
                 <MT:MTPanel ID="pnlPuppetNodes" runat="server" Text="Puppet Nodes" Width="210" Height="235">
                       <a href="https://puppet-corp1" target="_blank">Puppet Master</a>
                       

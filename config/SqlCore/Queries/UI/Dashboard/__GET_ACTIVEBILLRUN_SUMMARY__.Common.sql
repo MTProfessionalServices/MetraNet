@@ -20,7 +20,7 @@ set @ETAoffset = (SELECT CAST(RAND() * 10 AS INT))
 set @EarliestETA = DATEADD(HOUR, 20 + @ETAoffset, GETDATE())
 
 
-SET @EOP_Interval = 1053163550--change to your interval variable
+SET @EOP_Interval = %%ID_USAGE_INTERVAL%% --change to your interval variable
 SET @EOP_End_Date = (
 SELECT CONVERT(VARCHAR(11), dt_end, 106) AS dt_end from t_usage_interval
 where id_interval = @EOP_Interval
@@ -133,6 +133,6 @@ select
 ,@lastEOPAdapterName as last_eop_adapter_name
 ,@lastEOPAdapterDuration as last_eop_adapter_duration
 ,@lastEOPAdapterStatus as last_eop_adapter_status
-,@Varience as Variance, CONVERT(VARCHAR(10), @EarliestETA, 101) as [earliest_eta];
+,@Varience as Variance, @EarliestETA as [earliest_eta];
 
 

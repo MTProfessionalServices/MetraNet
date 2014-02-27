@@ -1,5 +1,5 @@
 DECLARE @Interval_ID int
-set @Interval_ID = 1053163550 --set interval here
+set @Interval_ID = %%ID_USAGE_INTERVAL%%  --set interval here
 
 IF EXISTS (SELECT * FROM information_schema.tables WHERE Table_Name = 'NM_Dashboard__Interval_Data' AND Table_Type = 'BASE TABLE')
 BEGIN

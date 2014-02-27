@@ -2,16 +2,9 @@
 <Query>
     <Action>Get</Action>
     <Implementations>
-        <Implementation>Common</Implementation>
+        <Implementation>SqlServer</Implementation>
     </Implementations>
-    <Parameters>
-        <Parameter>
-            <Name>ID_USAGE_INTERVAL</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <Description>Id usage interval</Description>
-        </Parameter>
-    </Parameters>
+    <Parameters></Parameters>
     <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>

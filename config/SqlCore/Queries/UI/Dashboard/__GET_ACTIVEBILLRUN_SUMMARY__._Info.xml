@@ -4,7 +4,14 @@
     <Implementations>
         <Implementation>Common</Implementation>
     </Implementations>
-    <Parameters></Parameters>
+    <Parameters>
+        <Parameter>
+            <Name>ID_USAGE_INTERVAL</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <Description>Usage interval</Description>
+        </Parameter>
+    </Parameters>
     <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>

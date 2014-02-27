@@ -289,20 +289,6 @@
                             </RequiredCapabilities>
                         </MenuItem>
 						<MenuItem>
-                            <ID>ViewCreditNotesIssued</ID>
-							<Caption>
-                                <LocalizationTag>TEXT_VIEW_CREDIT_NOTES_ISSUED</LocalizationTag> 
-								<ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-                            </Caption>
-                            <Link>/MetraNet/Adjustments/ViewCreditNotesIssued.aspx?Accounts=ALL</Link>  
-							<Target>MainContentIframe</Target>
-                            <Icon>/Res/Images/Icons/approvals.png</Icon> 
-							<Description>View All Credit Notes Issued</Description>
-                            <RequiredCapabilities>
-                                <Capability>Manage Adjustments</Capability>
-                            </RequiredCapabilities>
-                        </MenuItem>
-						<MenuItem>
                             <ID>ManageNonStandardCharges</ID>
                             <Caption>
                                 <LocalizationTag>TEXT_MANAGE_NON_STANDARD_CHARGES</LocalizationTag>
@@ -314,6 +300,20 @@
                             <Description>Manage Nonstandard Charges</Description>
                             <RequiredCapabilities>
                                 <Capability>Manage NonStandardCharges</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+						<MenuItem>
+                            <ID>ViewCreditNotesIssued</ID>
+							<Caption>
+                                <LocalizationTag>TEXT_VIEW_CREDIT_NOTES_ISSUED</LocalizationTag> 
+								<ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/Adjustments/ViewCreditNotesIssued.aspx?Accounts=ALL</Link>  
+							<Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/approvals.png</Icon> 
+							<Description>View All Credit Notes Issued</Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Adjustments</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
@@ -723,20 +723,6 @@
                             </RequiredCapabilities>
                         </MenuItem>						
 						<MenuItem>
-                            <ID>ViewCreditNotesIssued</ID>
-							<Caption>
-                                <LocalizationTag>TEXT_VIEW_CREDIT_NOTES_ISSUED</LocalizationTag> 
-								<ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-                            </Caption>
-                            <Link>/MetraNet/Adjustments/ViewCreditNotesIssued.aspx</Link>  
-							<Target>MainContentIframe</Target>
-                            <Icon>/Res/Images/Icons/approvals.png</Icon> 
-							<Description>View Credit Notes Issued</Description>
-                            <RequiredCapabilities>
-                                <Capability>Apply Adjustments</Capability>
-                            </RequiredCapabilities>
-                        </MenuItem>						
-					    <MenuItem>
                             <ID>NonStandardCharges</ID>
                             <Caption>
                                 <LocalizationTag>TEXT_NONSTANDARD_CHARGES</LocalizationTag>
@@ -748,6 +734,20 @@
                             <Description>Issue Nonstandard charges </Description>
                             <RequiredCapabilities>
                                 <Capability>Apply NonStandardCharges</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+						<MenuItem>
+                            <ID>ViewCreditNotesIssued</ID>
+							<Caption>
+                                <LocalizationTag>TEXT_VIEW_CREDIT_NOTES_ISSUED</LocalizationTag> 
+								<ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/Adjustments/ViewCreditNotesIssued.aspx</Link>  
+							<Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/approvals.png</Icon> 
+							<Description>View Credit Notes Issued</Description>
+                            <RequiredCapabilities>
+                                <Capability>Apply Adjustments</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>

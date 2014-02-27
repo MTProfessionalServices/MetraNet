@@ -192,6 +192,9 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
       if (newSubscription.SubscriptionId.HasValue)
       {
         var charVals = new MTList<CharacteristicValue>();
+        var fe = new MTFilterElement("EntityId", MTFilterElement.OperationType.Equal, newSubscription.SubscriptionId.Value);
+        charVals.Filters.Add(fe);
+
         // If it's not Create Sub, retrieve current subscription and UDRC with Names
         subscriptionClient.GetSubscriptionDetail(accOfNewSub, newSubscription.SubscriptionId.Value, out currentSub);
         subscriptionClient.GetUDRCInstancesForPO(currentSub.ProductOfferingId, out currentUdrcInstances);

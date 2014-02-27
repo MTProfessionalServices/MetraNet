@@ -35,7 +35,7 @@
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
                             <EditorValidation>
-                                <Required>false</Required>
+                                <Required>true</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>

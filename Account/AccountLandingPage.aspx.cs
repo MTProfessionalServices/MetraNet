@@ -24,6 +24,9 @@ using MetraTech.Interop.MTProductCatalog;
 
 public partial class Account_AccountLandingPage : MTPage
 {
+  public bool IsPrototypePage { get; set; }
+  public bool ShowFinancialInformation { get; set; } //TODO: Hook to financial capability
+  public bool AccountCanSubscribe { get; set; }
 
   public string MetraTimeNow
   {
@@ -41,6 +44,11 @@ public partial class Account_AccountLandingPage : MTPage
 
   protected override void OnInit(EventArgs e)
   {
+    //Some experimental settings for now
+    IsPrototypePage = true;
+    ShowFinancialInformation = true;
+    AccountCanSubscribe = true;
+  
     CheckIsCorporate();
     base.OnInit(e);
   }

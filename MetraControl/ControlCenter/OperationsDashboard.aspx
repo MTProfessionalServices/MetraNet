@@ -109,13 +109,17 @@ fill: none;
   height: 100% !important;
   padding: 0px !important;
 }
+
+#gridsterul {
+  position: static !important;
+}
 </style>
                
 <MT:MTTitle ID="MTTitle1" Text="Operations Dashboard" runat="server" meta:resourcekey="MTTitle1Resource1" />
 <br />
     <div class="gridster" width="100%" height="100%">
 
-	<ul width="100%" height="100%" style="width:100%; align:left;">
+	<ul width="100%" height="100%" id="gridsterul" style="width:100%; align:left;">
 	<li data-row="1" data-col="1" data-sizex="4" data-sizey="9" width="100%">
              <MT:MTPanel ID="pnlFailedTransactionsQueue" runat="server" Text="Failed Transactions Queue" Width="430" Height="305">
 			 <table>
@@ -1087,7 +1091,7 @@ Ext.onReady(function () {
           widget_margins: [5, 5],
           helper: 'clone',
 		  resize: { enabled: false},
-		  autogrow_cols: false,
+		  autogrow_cols: true,
 		  min_rows: 30,
         }).data('gridster');
 		});

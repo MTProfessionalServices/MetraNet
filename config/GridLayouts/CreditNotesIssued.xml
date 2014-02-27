@@ -20,7 +20,7 @@
     <ExpansionCssClass></ExpansionCssClass>
     <ShowFilterPanel>true</ShowFilterPanel>
     <FilterInputWidth>220</FilterInputWidth>
-    <FilterLabelWidth>75</FilterLabelWidth>
+    <FilterLabelWidth>65</FilterLabelWidth>
     <FilterColumnWidth>350</FilterColumnWidth>
     <ShowTopBar>true</ShowTopBar>
     <ShowBottomBar>true</ShowBottomBar>
@@ -285,7 +285,7 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>false</Filterable>
@@ -357,7 +357,7 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>false</Filterable>
@@ -398,7 +398,7 @@
             <ShowInExpander>false</ShowInExpander>
             <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
-            <DefaultFilter>false</DefaultFilter>
+            <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
             <FilterLabel />
             <ElementValue>

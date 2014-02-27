@@ -58,7 +58,7 @@
 </html>
 <script type="text/javascript">
     var flagOkLoadStore = "true";
-    var currentBackgroundImageNumber = 4;   //Math.floor(Math.random() * 9) + 1;
+    var currentBackgroundImageNumber = 3;   //Math.floor(Math.random() * 9) + 1;
 
     /*var currentImageValueFromCookies = parseInt(Ext.util.Cookies.get('currentBackgroundImageNumber'));
     if (!isNaN(currentImageValueFromCookies)) {

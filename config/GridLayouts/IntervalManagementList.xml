@@ -34,7 +34,7 @@
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
     <FilterPanelCollapsed>true</FilterPanelCollapsed>
     <EnableColumnConfig>false</EnableColumnConfig>
-    <EnableFilterConfig>false</EnableFilterConfig>
+    <EnableFilterConfig>true</EnableFilterConfig>
     <Resizeable>true</Resizeable>
     <ButtonAlignment>Center</ButtonAlignment>
     <DefaultSortField>EndDate</DefaultSortField>
@@ -148,6 +148,14 @@
             <ID>UsageCycleType</ID>
             <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
+            <FilterEnum>
+                <EnumClassName></EnumClassName>
+                <EnumSpace>metratech.com/billingcycle</EnumSpace>
+                <EnumType>UsageCycleType</EnumType>
+                <UseEnumValue>true</UseEnumValue>
+                <DefaultValue></DefaultValue>
+                <HideEnumValues />
+            </FilterEnum>
             <DataIndex>UsageCycleType</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
@@ -163,7 +171,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
+            <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -199,7 +207,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
+            <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -235,7 +243,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
+            <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -271,7 +279,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
+            <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>

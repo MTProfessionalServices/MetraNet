@@ -24,4 +24,4 @@ SELECT
      FROM t_billgroup
      GROUP BY id_usage_interval
   )  billingGroups ON billingGroups.id_usage_interval = ui.id_interval
-  WHERE ui.tx_interval_status <> 'H' dbo.getutcdate > ui.dt_end
+  WHERE ui.tx_interval_status <> 'H' AND dbo.getutcdate > ui.dt_end

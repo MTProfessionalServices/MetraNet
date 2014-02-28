@@ -197,6 +197,7 @@ function typeColRenderer(value, meta, record, rowIndex, colIndex, store) {
  
 }
 
+//Testing GIT Update
 function subscritionInformationColRenderer(value, meta, record, rowIndex, colIndex, store) {
   meta.attr = 'style="white-space:normal"';
   var str = "";

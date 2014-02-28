@@ -1,5 +1,5 @@
 .clsMenuBody {
-  font-family:Arial Unicode MS, Lucida Sans Unicode, Tahoma, Arial;
+  font-family:tahoma, arial, helvetica, sans-serif;
   font-size:10pt;
   color:white;
   padding-top:-3px;
@@ -12,7 +12,7 @@ clsMenuLink:hover{
 }
 
 .clsTopLevelMenuItem{
-  font-family:Arial Unicode MS, Lucida Sans Unicode, Tahoma, Arial;
+  font-family:tahoma, arial, helvetica, sans-serif;
   font-size:10pt;
   font-weight:bold;
   color:white;

@@ -1,6 +1,6 @@
 .clsWizardBody{
-	background-color: #CFDBE5;
-  font-family: "Microsoft Sans Serif";
+  background-color  : #fff;
+  font-family:tahoma, arial, helvetica, sans-serif;
   font-size:8pt;
 }
 .clsWizardButton{
@@ -8,7 +8,7 @@
     height: 24px;
   	padding: 3px 3px 3px 3px;   
    	font-size: 12px;
-  	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Arial, sans-serif;     
+  	font-family:tahoma, arial, helvetica, sans-serif;   
     font-weight: bold;
       
 }
@@ -17,7 +17,7 @@
     height: 24px;
   	padding: 3px 3px 3px 3px;   
    	font-size: 12px;
-  	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Arial, sans-serif;     
+  	font-family:tahoma, arial, helvetica, sans-serif;   
     font-weight: bold;
      
 }
@@ -26,14 +26,14 @@
     height: 24px;
   	padding: 3px 3px 3px 3px;   
    	font-size: 12px;
-  	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Arial, sans-serif;     
+  	font-family:tahoma, arial, helvetica, sans-serif;   
     font-weight: bold;
 }
 
 .clsWizardButtonLinkDisabled{
 	text-decoration:none;
     font-size:8pt;
-    font-family:"Microsoft Sans Serif";
+    font-family:tahoma, arial, helvetica, sans-serif;
     color:#20336A;
     padding: 1px 0px 2px 0px;
 }
@@ -43,14 +43,14 @@
 
 .clsWizardPrompt{
 	 font-size:8pt;
-    font-family:"Microsoft Sans Serif";
+    font-family:tahoma, arial, helvetica, sans-serif;
     color:black;	
     padding : 2px 2px 2px 2px;
 }
 
 .clsWizardPromptRequired{
 	 font-size:8pt;
-    font-family:"Microsoft Sans Serif";
+    font-family:tahoma, arial, helvetica, sans-serif;
     color:black;	
   	font-weight: bold;
     padding : 2px 2px 2px 2px;
@@ -58,41 +58,45 @@
 
 .clsWizardPromptOdd{
 	 font-size:8pt;
-    font-family:"Microsoft Sans Serif";
+    font-family:tahoma, arial, helvetica, sans-serif;
     color:black;	
     background-color: #C1CBD7;
     padding : 2px 2px 2px 2px;
 }
 .clsWizardPromptEven{
 	 font-size:8pt;
-    font-family:"Microsoft Sans Serif";
+    font-family:tahoma, arial, helvetica, sans-serif;
     color:black;	
     background-color: #CFDBE5;
     padding : 2px 2px 2px 2px;
 }
 .clsWizardInputBox{
 	font-size:8pt;
-    font-family:"Microsoft Sans Serif";
+    font-family:tahoma, arial, helvetica, sans-serif;
     color:black;
 }
 .clsWizardSelect{
 	font-size:8pt;
-    font-family:"Microsoft Sans Serif";
+    font-family:tahoma, arial, helvetica, sans-serif;
     color:black;
 }
 .clsWizardTableHeader{
 	font-size:10pt;
-    font-family:"Microsoft Sans Serif";
+    font-family:tahoma, arial, helvetica, sans-serif;
     font-weight:bold;
-    color:white;
-    background-color:#003B8E;
+    color:#333;
+    background-color: #d0d0d0;;
+    /*background-image: url(/Res/Ext/resources/images/metranet/grid/grid3-hrow2.gif);   */
+    
 }
 .clsWizardTableSubHeader{
 	font-size:8pt;
-    font-family:"Microsoft Sans Serif";
+    font-family:tahoma, arial, helvetica, sans-serif;
     font-weight:bold;
-    color:white;
-    background-color:#20336A;
+    color:#333;
+    background-color: #d0d0d0;;
+    /*background-image: url(/Res/Ext/resources/images/metranet/grid/grid3-hrow2.gif);    */
+    
 }
 .clsWizardNotesTD{
 	font-family:Arial;
@@ -100,7 +104,7 @@
     color:black;
 }
 .clsWizardLegend{
-	 font-family:"Microsoft Sans Serif";
+	 font-family:tahoma, arial, helvetica, sans-serif;
     font-size:8pt;
 }
 .clsWizardScrollingDiv{
@@ -109,11 +113,12 @@
 }
 
 .clsWizardError{
-	BACKGROUND-COLOR: #FFCC00;
+	BACKGROUND-COLOR: white;
+	border-radius:3px;
 }
 
 .clsWizardErrorText{  
-	font-family: "Microsoft Sans Serif";
+	font-family:tahoma, arial, helvetica, sans-serif;
 	font-size: 8pt;
 	color: black;
 }

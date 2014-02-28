@@ -8,6 +8,7 @@ using MetraTech.UI.Common;
 using MetraTech.UI.Tools;
 using LoginStatus = MetraTech.Security.LoginStatus;
 using MetraTech.ActivityServices.Services.Common;
+using System.Globalization;
 
 public partial class login: MTPage
 {
@@ -25,17 +26,35 @@ public partial class login: MTPage
             UI.Subscriber.CloseAccount();
         }
 
-        if (Request.QueryString.Get("l") != null)
-        {
-            Session[Constants.SELECTED_LANGUAGE] = Request.QueryString.Get("l");
-            dataLangNum = Request.QueryString.Get("datalangnum");
-             
-         }
 
-        Login1.LoginButtonText = GetLocalResourceObject("Login1Resource1.LoginButtonText").ToString();
+        //Login1.LoginButtonText = GetLocalResourceObject("Login1Resource1.LoginButtonText").ToString();
         userName = GetLocalResourceObject("Login1Resource1.UserNameLabelText").ToString();
-        password = GetLocalResourceObject("Login1Resource1.PasswordLabelText").ToString();
+        password = GetLocalResourceObject("Login1Resource1.PasswordLabelText").ToString(); 
         Login1.Focus();
+    }
+
+
+
+    protected override void OnPreInit(EventArgs e)
+    {
+        if (!String.IsNullOrEmpty(Request.QueryString["l"]))
+        {
+
+            Session[Constants.SELECTED_LANGUAGE] = Request.QueryString["l"];
+            dataLangNum = Request.QueryString.Get("datalangnum");
+
+        }
+        else
+        {
+           Session[Constants.SELECTED_LANGUAGE] = "en-US";
+           dataLangNum = "1";
+
+            
+        }
+        System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(Session[Constants.SELECTED_LANGUAGE].ToString());
+        System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo(Session[Constants.SELECTED_LANGUAGE].ToString());
+
+        base.OnPreInit(e);
     }
 
     // Change Password OK Handler

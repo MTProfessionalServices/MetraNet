@@ -21,7 +21,7 @@ using MetraTech.UI.Common;
 
 public partial class AjaxServices_VisualizeService : MTListServicePage
 {
-    string sqlQueriesPath = @"..\Extensions\SystemConfig\config\SqlCore\Queries\UI\Dashboard";
+    string sqlQueriesPath = @"..\Extensions\SystemConfig\config\SqlCustom\Queries\UI\Dashboard";
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -81,40 +81,54 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
 
                 GetData("__GET_BATCHUSAGE_LASTBATCH__", null, ref items);
             }
-            else if (operation.Equals("activebillrun"))
+            else if (operation.Equals("activebillrun") || operation.Equals("activebillrunsummary"))
             {
+                paramDict = new Dictionary<string, object>();
 
+                string id_usage_interval = Request["intervalid"];
 
-                GetData("__GET_ACTIVEBILLRUN_CURRENTAVERAGE__", null, ref items);
-            }
-            else if (operation.Equals("activebillrunsummary"))
-            {
+                if (string.IsNullOrEmpty(id_usage_interval))
+                {
+                    Logger.LogWarning("No intervalid specified");
+                    Response.Write("{\"Items\":[]}");
+                    Response.End();
+                    return;
+                }
 
+                paramDict.Add("%%ID_USAGE_INTERVAL%%", int.Parse(id_usage_interval));
 
-                GetData("__GET_ACTIVEBILLRUN_SUMMARY__", null, ref items);
+                if (operation.Equals("activebillrun"))
+                {
+                    GetData("__GET_ACTIVEBILLRUN_CURRENTAVERAGE__", paramDict, ref items);
+                }
+                else if (operation.Equals("activebillrunsummary"))
+                {
+
+                    GetData("__GET_ACTIVEBILLRUN_SUMMARY__", paramDict, ref items);
+                }
             }
             else if (operation.Equals("billclosesummary") || operation.Equals("billclosedetails"))
             {
 
-                    paramDict = new Dictionary<string, object>();
+                paramDict = new Dictionary<string, object>();
 
-                    string id_usage_interval = Request["intervalid"];
-               
-                    if (string.IsNullOrEmpty(id_usage_interval))
-                    {
-                        Logger.LogWarning("No intervalid specified");
-                        Response.Write("{\"Items\":[]}");
-                        Response.End();
-                        return;
-                    }
+                string id_usage_interval = Request["intervalid"];
 
-                    paramDict.Add("%%ID_USAGE_INTERVAL%%", int.Parse(id_usage_interval));
+                if (string.IsNullOrEmpty(id_usage_interval))
+                {
+                    Logger.LogWarning("No intervalid specified");
+                    Response.Write("{\"Items\":[]}");
+                    Response.End();
+                    return;
+                }
 
-                    if(operation.Equals("billclosedetails"))
-                        GetData("__GET_BILLCLOSESYNOPSIS_DETAILS__", paramDict, ref items);
-                    else 
-                       GetData("__GET_BILLCLOSESYNOPSIS_SUMMARY__", paramDict, ref items);
-                   
+                paramDict.Add("%%ID_USAGE_INTERVAL%%", int.Parse(id_usage_interval));
+
+                if (operation.Equals("billclosedetails"))
+                    GetData("__GET_BILLCLOSESYNOPSIS_DETAILS__", paramDict, ref items);
+                else
+                    GetData("__GET_BILLCLOSESYNOPSIS_SUMMARY__", paramDict, ref items);
+
             }
 
 

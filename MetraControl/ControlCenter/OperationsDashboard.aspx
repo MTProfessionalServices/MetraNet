@@ -1,350 +1,465 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" CodeFile="OperationsDashboard.aspx.cs" Inherits="OperationsDashboard" Title="Operations Dashboard" Culture="auto" UICulture="auto" %>
+<%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true"
+    CodeFile="OperationsDashboard.aspx.cs" Inherits="OperationsDashboard" Title="Operations Dashboard"
+    Culture="auto" UICulture="auto" %>
 
-<%@ Import Namespace="MetraTech.UI.Tools"%>
-<%@ Register Assembly="MetraTech.UI.Controls.CDT" Namespace="MetraTech.UI.Controls.CDT" TagPrefix="MTCDT" %>
+<%@ Import Namespace="MetraTech.UI.Tools" %>
+<%@ Register Assembly="MetraTech.UI.Controls.CDT" Namespace="MetraTech.UI.Controls.CDT"
+    TagPrefix="MTCDT" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <!--script type="text/javascript" src="js/d3.legend.js"></script-->
+    <script type="text/javascript" src="js/D3Visualize.js"></script>
+    <script type="text/javascript" src="/Res/JavaScript/jquery.min.js"></script>
+    <script type="text/javascript" src="/Res/JavaScript/jquery.gridster.min.js"></script>
+    <script type="text/javascript" src="/Res/JavaScript/crossfilter.min.js"></script>
+    <script type="text/javascript" src="/Res/JavaScript/dc.min.js"></script>
+    <script type="text/javascript" src="/Res/JavaScript/Renderers.js"></script>
+    <link rel="stylesheet" type="text/css" href="/Res/Styles/jquery.gridster.css">
+    <link rel="stylesheet" type="text/css" href="/Res/Styles/dc.css">
+    <style>
+        .legend rect
+        {
+            fill: white;
+            stroke: black;
+            opacity: 0.8;
+        }
+        
+        .axis path, .axis line
+        {
+            fill: none;
+            stroke: #7F7F7F;
+            shape-rendering: crispEdges;
+        }
+        
+        .arc path
+        {
+            stroke: #7F7F7F;
+        }
+        
+        .line
+        {
+            fill: none;
+        }
+        
+        .label
+        {
+            text-align: right;
+        }
+        
+        .clszerovalue
+        {
+            border-style: solid;
+            border-width: medium;
+            border-color: #7F7F7F;
+            font-size: 15px;
+            color: #7F7F7F;
+            background: white;
+        }
+        
+        .clshasvalue
+        {
+            border-style: solid;
+            border-width: medium;
+            border-color: #7F7F7F;
+            font-size: 15px;
+            font-weight: bold;
+            color: #FF0000;
+            background: white;
+        }
+        
+        .divleftfloat
+        {
+            float: left;
+            width: 399px;
+        }
+        
+        .divrightfloat
+        {
+            float: right;
+            width: 399px;
+        }
+        
+        
+        
+        .barchart text
+        {
+            fill: black;
+            font: 4px sans-serif;
+            text-anchor: end;
+        }
 
-
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
- 
-   <!--script type="text/javascript" src="js/d3.legend.js"></script-->
-   <script type="text/javascript" src="js/D3Visualize.js"></script>
-   <script type="text/javascript" src="http://gridster.net/demos/assets/jquery.js"></script>
-   <script type="text/javascript" src="http://gridster.net/dist/jquery.gridster.js"></script>
-    <script type="text/javascript" src="http://nickqizhu.github.io/dc.js/js/crossfilter.js"></script>
-    <script type="text/javascript" src="http://nickqizhu.github.io/dc.js/js/dc.js"></script>
-<script type="text/javascript" src="/Res/JavaScript/Renderers.js"></script> 
-<link rel="stylesheet" type="text/css" href="http://gridster.net/dist/jquery.gridster.css">
-<link rel="stylesheet" type="text/css" href="http://nickqizhu.github.io/dc.js/css/dc.css">
- <style>
-
-
-  .legend rect {
-  fill:white;
-  stroke:black;
-  opacity:0.8;}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #7F7F7F;
-  shape-rendering: crispEdges;
-  
+#formPanel_ctl00_ContentPlaceHolder1_pnlPendingBillClose {
+  width: 100% !important;
+  height: 100% !important;
 }
 
-.arc path {
-  stroke: #7F7F7F;
+#formPanel_ctl00_ContentPlaceHolder1_pnlFailedAdapters {
+  width: 100% !important;
+  height: 100% !important;
 }
 
-.line {
-fill: none;
+#formPanel_ctl00_ContentPlaceHolder1_pnlRunningAdapters {
+  width: 100% !important;
+  height: 100% !important;
 }
 
-.label
-{
-   text-align:right;
+#grid-container_ctl00_ContentPlaceHolder1_grdPendingBillClose {
+  width: 100% !important;
+  height: 100% !important;
 }
 
-.clszerovalue
-{
- border-style: solid; 
- border-width: medium;
-  border-color: #7F7F7F; 
-  font-size: 15px; 
- color: #7F7F7F;
- }
-
-.clshasvalue
-{
- border-style: solid; 
- border-width: medium;
-  border-color:  #7F7F7F; 
-  font-size: 15px; 
-  font-weight: bold; 
- color: #FF0000;
+#grid-container_ctl00_ContentPlaceHolder1_grdFailedAdapters {
+  width: 100% !important;
+  height: 100% !important;
 }
 
-.divleftfloat
-{
-  float:left;
-  width:399px;
+#grid-container_ctl00_ContentPlaceHolder1_grdRunningAdapters {
+  width: 100% !important;
+  height: 100% !important;
 }
 
-.divrightfloat
-{
-  float:right;
-  width:399px;
+.x-panel-bwrap {
+  width: 100%;
+  height: 100%;
 }
 
-
-
-.barchart text {
-  fill: black;
-  font: 10px sans-serif;
-  text-anchor: end;
+.x-panel-body {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0px !important;
 }
 
-
-
-</style>
-               
-<MT:MTTitle ID="MTTitle1" Text="Operations Dashboard" runat="server" meta:resourcekey="MTTitle1Resource1" />
-<br />
+#gridsterul {
+  position: static !important;
+}
+    </style>
+    <MT:MTTitle ID="MTTitle1" Text="Operations Dashboard" runat="server" meta:resourcekey="MTTitle1Resource1" />
+    <br />
     <div class="gridster" width="100%" height="100%">
-
-	<ul width="100%" height="100%" style="width:100%; align:left;">
-	<li data-row="1" data-col="1" data-sizex="4" data-sizey="3" width="100%">
-             <MT:MTPanel ID="pnlFailedTransactionsQueue" runat="server" Text="Failed Transactions Queue" Width="430" Height="300">
-			 <table>
-			   <tr width="100%">
-			   <td rowspan="2">
-              <div id="div30DayAging" Width="100%" Height="100%">
-			  </div>
-			  </td>
-			  <td>
-              <div id="divTotalTransactions" Width="100%" Height="50%">
-			  </div>
-			  </td>
-			  </tr>
-			  <tr>
-			  <td align="center">
-			  <div id="divOverXDays" Width="100%" Height="75%">
-                                <table>
-                                    <tr><td align="center"><MT:MTLabel ID="lblOverXDays" runat="server" /></td></tr>
-                                    <tr><td id="tdOverXDays" class="clshasvalue" width="100%" height="40px"  valign="middle" align="center"> 
-                                         <MT:MTLabel  ID="txtOverXDays" runat="server"/>
-                                         </td>
-                                     </tr>
-                                </table>
-                 </div>
-				 </td>
-				 </table>
-             </MT:MTPanel>
-			 </li>
-     
-	<li data-row="1" data-col="5" data-sizex="4" data-sizey="3">
-             <MT:MTPanel ID="pnlBatchUsage" runat="server" Text="Usage Data Records" Width="430" Height="300">
-			 <table>
-			   <tr width="100%">
-			   <td width="70% height="100%">
-              <div id="divBatchUsage" Width="100%" Height="100%">
-			  </div>
-			  </td>
-			  <td width="40%" height="100%">
-				<div id="divLastBatch" width="100%" Height="75%">
-                                <table>
-                                    <tr><td align="center"><MT:MTLabel ID="lblLastBatch" runat="server" /></td></tr>
-                                    <tr><td id="tdLastBatch" class="clshasvalue" width="100%" height="40px"  valign="middle" align="center"> 
-                                    <MT:MTLabel ID="txtLastBatchDate" runat="server" /><br />
-                                      <MT:MTLabel ID="txtLastBatchTime" runat="server" /><br />
-                                  
-                                    </td>
-                                    
-                                    </tr>
-                                </table>
-				</div>
-				</td>
-				</table>
-
-             </MT:MTPanel>
-			 </li>
-
-			 <li data-row="4" data-col="1" data-sizex="8" data-sizey="3">
-              <MT:MTPanel ID="pnlPricingEngine" runat="server" Text="Pricing Engine (Real-Time and Batch)" Width="870" height="320">
-              <div id="divPricingEngine" >
-                   <table>
-                        <tr >
-                            <td><div id="divPricingQueues"></div></td>
-                            <td><div id="divPricingBacklog"></div></td>
-                            <td><div id="divPricingTPS"></div></td>
-                       </tr>
-                   </table>
-                </div>
-
-             </MT:MTPanel>
-			 </li>
-
-	<li data-row="7" data-col="1" data-sizex="8" data-sizey="3">
-             <MT:MTPanel ID="pnlActiveBillRun" runat="server" Text="Active Bill Run" Width="870" height="320">
-
-             <div id="divActiveBillRun">
-                   <table>
-                        <tr >
-                           <td >
-                                <table>
-                                    <tr>
-                                        <td align="center"><MT:MTLabel ID="lblFailedAdapters" runat="server" Text="Failed Adapters"/></td>
-                                        
-                                    </tr>
-                                    <tr>
-                                     <td id="tdFailedAdapters" class="clshasvalue" width="75px" height="50px"  valign="middle" align="center"> 
-                                            <MT:MTLabel ID="txtFailedAdapters" runat="server" />
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>        
-                              <td>
-                                <table>
-                                    <tr>
-                                        <td class="label"><MT:MTLabel ID="lblSuccessful" runat="server" Text="Successful:"/></td> 
-                                        <td><MT:MTLabel ID="txtSuccessful" runat="server" /></td> 
-                                    </tr>
-                                    <tr> <td class="label"><MT:MTLabel ID="lblReady" runat="server" Text="Ready:"/></td>
-                                        <td><MT:MTLabel ID="txtReady" runat="server" /></td> 
-                                    </tr>
-                                    <tr> <td class="label"><MT:MTLabel ID="lblWaiting" runat="server" Text="Waiting:"/></td>
-                                        <td><MT:MTLabel ID="txtWaiting" runat="server" /></td> 
-                                    </tr>
-                                </table>
-                               </td>
-                               <td>&nbsp;</td>
-                              
-                               <td>
+	<ul width="100%" height="100%" id="gridsterul" style="width:100%; align:left;">
+            <li data-row="1" data-col="1" data-sizex="4" data-sizey="9" width="100%">
+                <MT:MTPanel ID="pnlFailedTransactionsQueue" runat="server" Text="Failed Transactions Queue"
+                    Width="430" Height="305">
+                    <table>
+                        <tr width="100%">
+                            <td rowspan="2">
+                                <div id="div30DayAging" width="100%" height="100%">
+                                </div>
+                            </td>
+                            <td>
+                                <div id="divTotalTransactions" width="100%" height="50%">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <div id="divOverXDays" width="100%" height="75%">
                                     <table>
-                                    <tr> <td class="label"><MT:MTLabel ID="lblVariance" runat="server" Text="Variance:"/></td>
-                                        <td><MT:MTLabel ID="txtVariance" runat="server" /></td> 
-                                    </tr>
-                                    <tr> <td class="label"><MT:MTLabel ID="lblEarliestETA" runat="server" Text="Earliest ETA:"/></td>
-                                        <td><MT:MTLabel ID="txtEarliestETA" runat="server" /></td> 
-                                    </tr>
-                                    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+                                        <tr>
+                                            <td align="center">
+                                                <MT:MTLabel ID="lblOverXDays" runat="server" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td id="tdOverXDays" class="clshasvalue" width="100%" height="40px" valign="middle"
+                                                align="center">
+                                                <MT:MTLabel ID="txtOverXDays" runat="server" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                    </table>
+                </MT:MTPanel>
+            </li>
+            <li data-row="1" data-col="5" data-sizex="4" data-sizey="9">
+                <MT:MTPanel ID="pnlBatchUsage" runat="server" Text="Usage Data Records" Width="430"
+                    Height="305">
+                    <table>
+                        <tr width="100%">
+                            <td width="70%" height="100%">
+                                <div id="divBatchUsage" width="100%" height="100%">
+                                </div>
+                            </td>
+                            <td width="40%" height="100%">
+                                <div id="divLastBatch" width="100%" height="75%">
+                                    <table>
+                                        <tr>
+                                            <td align="center">
+                                                <MT:MTLabel ID="lblLastBatch" runat="server" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td id="tdLastBatch" class="clshasvalue" width="100%" height="40px" valign="middle"
+                                                align="center">
+                                                <MT:MTLabel ID="txtLastBatchDate" runat="server" />
+                                                <br />
+                                                <MT:MTLabel ID="txtLastBatchTime" runat="server" />
+                                                <br />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                    </table>
+                </MT:MTPanel>
+            </li>
+            <li data-row="10" data-col="1" data-sizex="8" data-sizey="9">
+                <MT:MTPanel ID="pnlPricingEngine" runat="server" Text="Pricing Engine (Real-Time and Batch)"
+                    Width="870" Height="305">
+                    <div id="divPricingEngine">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div id="divPricingQueues">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="divPricingBacklog">
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </MT:MTPanel>
+            </li>
+            <li data-row="19" data-col="1" data-sizex="8" data-sizey="9">
+                <MT:MTPanel ID="pnlActiveBillRun" runat="server" Text="Active Bill Run" Width="870"
+                    Height="315">
+                     <div>
+                        <MT:MTDropDown ID="ddActiveBillRun" runat="server" AllowBlank="False" HideLabel="True"
+                            Listeners="{}" ReadOnly="False">
+                        </MT:MTDropDown>
+                    </div>
+                    <div id="divActiveBillRun">
+                        <table>
+                            <tr>
+                                <td width="30%">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <MT:MTLabel ID="lblFailedAdapters" runat="server" Text="Failed Adapters" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td id="tdFailedAdapters" class="clshasvalue" width="75px" height="50px" valign="middle"
+                                                            align="center">
+                                                            <MT:MTLabel ID="txtFailedAdapters" runat="server" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td class="label">
+                                                            <MT:MTLabel ID="lblSuccessful" runat="server" Text="Successful:" />
+                                                        </td>
+                                                        <td>
+                                                            <MT:MTLabel ID="txtSuccessful" runat="server" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="label">
+                                                            <MT:MTLabel ID="lblReady" runat="server" Text="Ready:" />
+                                                        </td>
+                                                        <td>
+                                                            <MT:MTLabel ID="txtReady" runat="server" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="label">
+                                                            <MT:MTLabel ID="lblWaiting" runat="server" Text="Waiting:" />
+                                                        </td>
+                                                        <td>
+                                                            <MT:MTLabel ID="txtWaiting" runat="server" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
                                     </table>
                                 </td>
-                             
-                             <td>&nbsp;</td>
-
-                         <td><svg id="svgActiveBillRun"></svg>
-                         
-                         </td>
-                    
-                    </tr>
-                    <tr>
-                    <td colspan="5"> </td><td> <svg id="svgActiveBillRunLegend" height="30" >      
-                    </svg>
-                         </td>
-                    </tr>
-                   </table>
-                  <svg id="svgActiveBillRunLegend" height="30" x="200">      
-                    </svg>
-                         
-                  
-                </div>
-
-                           
-             </MT:MTPanel>
-      </li>
-	  
-	<li data-row="10" data-col="1" data-sizex="4" data-sizey="3" height="100%">
-                    <MT:MTPanel ID="pnlPendingBillClose" runat="server" Text="Pending Bill Close" Width="430" Height="320">
-                     
-                     <div height="100%" style="height:264px">
-                     <MT:MTFilterGrid ID="grdPendingBillClose" 
-                runat="Server" ExtensionName="SystemConfig" 
-                TemplateFileName="Dashboard.PendingBillCloses.xml" width="100%" height="100%" >
-            </MT:MTFilterGrid>
-					 </div>
-                     
-                     </MT:MTPanel>
-					 </li>
-	<li data-row="10" data-col="5" data-sizex="4" data-sizey="3">
-               
-                <MT:MTPanel ID="pnlBillCloseSynopsis" runat="server" Text="Bill Close Synopsis" Width="430" height="320">
-                    
-                    <div style="width:399px;"> 
-                      <MT:MTDropDown ID="ddBillCloses" runat="server"  AllowBlank="False" HideLabel="True" Listeners="{}" 
-                ReadOnly="False"></MT:MTDropDown>
+                                <td>
+                                    &nbsp;
+                                </td>
+                                <td rowspan="2">
+                                    <svg id="svgActiveBillRun"></svg>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <table>
+                                        <tr>
+                                            <td class="label">
+                                                <MT:MTLabel ID="lblVariance" runat="server" Text="Variance:" />
+                                            </td>
+                                            <td>
+                                                <MT:MTLabel ID="txtVariance" runat="server" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">
+                                                <MT:MTLabel ID="lblEarliestETA" runat="server" Text="Earliest ETA:" />
+                                            </td>
+                                            <td>
+                                                <MT:MTLabel ID="txtEarliestETA" runat="server" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                </td>
+                                <td>
+                                    <svg id="svgActiveBillRunLegend" height="30">      
+                                    </svg>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
-                    <div style="width:399px" height="100%">
+                </MT:MTPanel>
+            </li>
+            <li data-row="28" data-col="1" data-sizex="4" data-sizey="9" height="100%">
+                <MT:MTPanel ID="pnlPendingBillClose" runat="server" Text="Pending Bill Close" Width="430"
+                    Height="305">
+                    <div height="100%" style="height: 248px">
+                        <MT:MTFilterGrid ID="grdPendingBillClose" runat="Server" ExtensionName="SystemConfig"
+                            TemplateFileName="Dashboard.PendingBillCloses.xml" Width="100%" Height="100%">
+                        </MT:MTFilterGrid>
+                    </div>
+                </MT:MTPanel>
+            </li>
+            <li data-row="28" data-col="5" data-sizex="4" data-sizey="9">
+                <MT:MTPanel ID="pnlBillCloseSynopsis" runat="server" Text="Bill Close Synopsis" Width="430"
+                    Height="305">
+                    <div style="width: 399px;">
+                        <MT:MTDropDown ID="ddBillCloses" runat="server" AllowBlank="False" HideLabel="True"
+                            Listeners="{}" ReadOnly="False">
+                        </MT:MTDropDown>
+                    </div>
+                    <div style="width: 399px" height="100%">
                         <table>
-                               <tr>
-                                    <td width="50%">
-                                        <table> 
-                                          <tr>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                            </tr>    
-                                            <tr>
-                                                <td class="label"><MT:MTLabel ID="lblBillCloseSynopisType" runat="server" Text="Type:"/></td>
-                                                <td><MT:MTLabel ID="txtBillCloseSynopisType" runat="server" /></td>
-                                            </tr>
-                                             <tr>
-                                                <td class="label"><MT:MTLabel ID="lblBillCloseSynopisBillGroups" runat="server" Text="Bill Groups:"/></td>
-                                                <td><MT:MTLabel ID="txtBillCloseSynopisBillGroups" runat="server" /></td>
-                                            </tr>
-                                             <tr>
-                                                <td class="label"><MT:MTLabel ID="lblBillCloseSynopisStart" runat="server" Text="Start:"/></td>
-                                                <td><MT:MTLabel ID="txtBillCloseSynopisStart" runat="server" /></td>
-                                            </tr>
-                                             <tr>
-                                                <td class="label"><MT:MTLabel ID="lblBillCloseSynopisEnd" runat="server" Text="End:" /></td>
-                                                <td><MT:MTLabel ID="txtBillCloseSynopisEnd" runat="server" /></td>
-                                            </tr>
-                                           
-                                         
-                                            <tr>
-                                                <td>&nbsp;</td>
-                                                <td>&nbsp;</td>
-                                            </tr>
-                                             <tr>
-                                       
-                                                <td  colspan="2" valign="middle" align="center" >
-                                                <MT:MTLabel ID="lblBillCloseSynopisDaysUntilRun" runat="server" Text="Days Until Run" /> </td>
-                                        
-                                            </tr>
-                                             <tr>
-                                                <td  height="50px"  valign="middle" align="center" colspan="2" class="clshasvalue">
-                                                <MT:MTLabel ID="txtBillCloseSynopisDaysUntilRun" runat="server" Text="1" /> </td>
-                                        
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td><div id="divBillCloseSynopsis"></svg>
-                                    </td>
-                                </tr>
-                              
-                            </table>
-                        </div>
-                       
-             
-             </MT:MTPanel>
-		</li>
-	<li data-row="13" data-col="1" data-sizex="3" data-sizey="2">
-
-
-           <MT:MTPanel ID="pnlFailedAdapters" runat="server" Text="Failed Adapters" Width="320" Height="210">
-            <MT:MTFilterGrid ID="grdFailedAdapters" 
-                runat="Server" ExtensionName="SystemConfig" 
-                TemplateFileName="Dashboard.FailedAdapters.xml" >
-            </MT:MTFilterGrid>
-        </MT:MTPanel>
-		</li>
-	<li data-row="13" data-col="4" data-sizex="3" data-sizey="2">
-        
-        <MT:MTPanel ID="pnlRunningAdapters" runat="server" Text="Running Adapters" Width="320" Height="210">
-                  <MT:MTFilterGrid ID="grdRunningAdapters" 
-                runat="Server" ExtensionName="SystemConfig" 
-                TemplateFileName="Dashboard.RunningAdapters.xml" >
-            </MT:MTFilterGrid>
-        </MT:MTPanel>
-		</li>
-	<li data-row="13" data-col="7" data-sizex="2" data-sizey="2">
-
-        
-        <MT:MTPanel ID="pnlPuppetNodes" runat="server" Text="Puppet Nodes" Width="210" Height="210">
-            <div id="divPuppetNodes">
-               <svg class="barchart" id="svgPuppetNodes"> </svg>
-                
-           
-            </div>
-            <a href="https://puppet-corp1" target="_blank" >Puppet Master</a>
-                                        
-                                      
-        </MT:MTPanel>
-</li>    
-    </ul>
-</div>
-
-<script type="text/javascript">
+                            <tr>
+                                <td width="50%">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">
+                                                <MT:MTLabel ID="lblBillCloseSynopisType" runat="server" Text="Type:" />
+                                            </td>
+                                            <td>
+                                                <MT:MTLabel ID="txtBillCloseSynopisType" runat="server" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">
+                                                <MT:MTLabel ID="lblBillCloseSynopisBillGroups" runat="server" Text="Bill Groups:" />
+                                            </td>
+                                            <td>
+                                                <MT:MTLabel ID="txtBillCloseSynopisBillGroups" runat="server" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">
+                                                <MT:MTLabel ID="lblBillCloseSynopisStart" runat="server" Text="Start:" />
+                                            </td>
+                                            <td>
+                                                <MT:MTLabel ID="txtBillCloseSynopisStart" runat="server" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">
+                                                <MT:MTLabel ID="lblBillCloseSynopisEnd" runat="server" Text="End:" />
+                                            </td>
+                                            <td>
+                                                <MT:MTLabel ID="txtBillCloseSynopisEnd" runat="server" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                            <td>
+                                                &nbsp;
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" valign="middle" align="center">
+                                                <MT:MTLabel ID="lblBillCloseSynopisDaysUntilRun" runat="server" Text="Days Until Run" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="50px" valign="middle" align="center" colspan="2" class="clshasvalue">
+                                                <MT:MTLabel ID="txtBillCloseSynopisDaysUntilRun" runat="server" Text="1" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <div id="divBillCloseSynopsis">
+                                    </svg>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </MT:MTPanel>
+            </li>
+            <li data-row="37" data-col="1" data-sizex="3" data-sizey="7">
+                <MT:MTPanel ID="pnlFailedAdapters" runat="server" Text="Failed Adapters" Width="320"
+                    Height="235">
+                    <div height="100%" style="height: 128px">
+                        <MT:MTFilterGrid ID="grdFailedAdapters" runat="Server" ExtensionName="SystemConfig"
+                            TemplateFileName="Dashboard.FailedAdapters.xml">
+                        </MT:MTFilterGrid>
+                    </div>
+                </MT:MTPanel>
+            </li>
+            <li data-row="37" data-col="4" data-sizex="3" data-sizey="7">
+                <MT:MTPanel ID="pnlRunningAdapters" runat="server" Text="Running Adapters" Width="320"
+                    Height="235">
+                    <div height="100%" style="height: 128px">
+                        <MT:MTFilterGrid ID="grdRunningAdapters" runat="Server" ExtensionName="SystemConfig"
+                            TemplateFileName="Dashboard.RunningAdapters.xml">
+                        </MT:MTFilterGrid>
+                    </div>
+                </MT:MTPanel>
+            </li>
+            <li data-row="37" data-col="7" data-sizex="2" data-sizey="7">
+                <MT:MTPanel ID="pnlPuppetNodes" runat="server" Text="Puppet Nodes" Width="210" Height="235">
+                      <a href="https://puppet-corp1" target="_blank">Puppet Master</a>
+                      
+                      <div id="divPuppetNodes">
+                        <svg class="barchart" id="svgPuppetNodes"> </svg>
+                    </div>
+                  
+                </MT:MTPanel>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
 // Custom Renderers
 OverrideRenderer_<%= grdPendingBillClose.ClientID %> = function(cm)
 {   
@@ -384,9 +499,30 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
   
   return str;
 };      
-</script>
-
-<script type="text/javascript">
+    </script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlFailedTransactionsQueue').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(0), 4, 1); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlFailedTransactionsQueue').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(0), 4, 9); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlBatchUsage').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(1), 4, 1); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlBatchUsage').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(1), 4, 9); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPricingEngine').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(2), 8, 1); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPricingEngine').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(2), 8, 9); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlActiveBillRun').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(3), 8, 1); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlActiveBillRun').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(3), 8, 9); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPendingBillClose').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(4), 4, 1); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPendingBillClose').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(4), 4, 9); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlBillCloseSynopsis').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(5), 4, 1); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlBillCloseSynopsis').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(5), 4, 9); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlFailedAdapters').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(6), 3, 1); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlFailedAdapters').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(6), 3, 7); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlRunningAdapters').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(7), 3, 1); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlRunningAdapters').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(7), 3, 7); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPuppetNodes').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(8), 2, 1); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPuppetNodes').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(8), 2, 7); });
+        });
+    </script>
+    <script type="text/javascript">
 
         var dayFormat = d3.time.format("%A, %B %e");
         var dateFormat = d3.time.format("%m/%d/%Y %I:%M:%S %p");
@@ -433,11 +569,11 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var composite = dc.compositeChart("#div30DayAging");
             composite
                     .margins({top: 5, right: 5, bottom: 40, left: 5})
-					.height(270)
+					.height(255)
                     .x(d3.scale.linear().domain([-30,0]))
                     .elasticY(true)
                     .transitionDuration(0)
-                    .legend(dc.legend().x(15).y(240).itemHeight(13).gap(5))
+                    .legend(dc.legend().x(15).y(225).itemHeight(13).gap(5))
                     .brushOn(false)
                     .compose([
                         dc.lineChart(composite)
@@ -526,7 +662,11 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 
 
                    d3.select("#<%=txtOverXDays.ClientID%>").text(value);
-               
+
+                   d3.select("#<%=txtOverXDays.ClientID%>").style("cursor","pointer");
+                  d3.select("#<%=txtOverXDays.ClientID%>").on("click",function(){window.location="/MetraNet/MetraControl/FailedTransactions/FailedTransactionsView.aspx?Filter_FailedTransactionList=N";});
+                 
+
                 }
             }
         });
@@ -554,11 +694,11 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var composite = dc.compositeChart("#divBatchUsage");
             composite
                     .margins({top: 5, right: 5, bottom: 40, left: 5})
-					.height(270)
+					.height(255)
                     .x(d3.time.scale().domain([minDate, maxDate]))
                     .elasticY(true)
                     .transitionDuration(0)
-                    .legend(dc.legend().x(15).y(240).itemHeight(13).gap(5))
+                    .legend(dc.legend().x(15).y(225).itemHeight(13).gap(5))
                     .brushOn(false)
                     .compose([
                         dc.lineChart(composite)
@@ -612,6 +752,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                     var timediff = lastBatchInfo[0]["time diff"];
                       var lastbatchdate = lastBatchInfo[0]["date"];
                      var lastbatchtime = lastBatchInfo[0]["time"];
+                     var lastbatchid = lastBatchInfo[0]["batchid"];
                   
                    
                     if(timediff <= <%=udrBatchFrequencyThreshold%>){
@@ -627,6 +768,13 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                       
                    d3.select("#<%=txtLastBatchTime.ClientID%>").text(lastbatchtime);
                   
+                  
+                  d3.select("#<%=txtLastBatchDate.ClientID%>").style("cursor","pointer");
+                  d3.select("#<%=txtLastBatchDate.ClientID%>").on("click",function(){window.location="/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/BatchManagement.ViewEdit.asp?ID=" + lastbatchid;});
+                  
+                   d3.select("#<%=txtLastBatchTime.ClientID%>").style("cursor","pointer");
+                  d3.select("#<%=txtLastBatchTime.ClientID%>").on("click",function(){window.location="/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/BatchManagement.ViewEdit.asp?ID=" + lastbatchid;});
+               
                          
 
                 }
@@ -638,9 +786,9 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 
     function makeActiveBillRunsPart() {
         var objActiveBillRunLineChartConfig = {
-            width: 350,
+            width: 400,
             height: 207,
-            margin: { left: 20, top: 20, right: 20, bottom: 20 },
+            margin: { left: 40, top: 20, right: 20, bottom: 20 },
             yAxis: {"Label":"Duration","IgnoreColumns": ["adapter"]},
             xAxis: {"Label":"Adapter","Column":"rownumber"},
             parentElementId: "#divActiveBillRun",
@@ -655,7 +803,10 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             
         };
 
-         d3.json("/MetraNet/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() +"&operation=activebillrun", function (error, json) {
+        var activeBillRunInterval = d3.select("#<%=ddActiveBillRun.ClientID %>").node().value;
+
+
+         d3.json("/MetraNet/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() +"&operation=activebillrun&intervalid=" + activeBillRunInterval, function (error, json) {
             if (error)
                 console.log(error.valueOf);
             else {
@@ -666,7 +817,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
         });
 
 
-        d3.json("/MetraNet/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() +"&operation=activebillrunsummary", function (error, json) {
+        d3.json("/MetraNet/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() +"&operation=activebillrunsummary&intervalid=" + activeBillRunInterval, function (error, json) {
             if (error)
                 console.log(error.valueOf);
             else {
@@ -697,6 +848,11 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                       d3.select("#<%=txtReady.ClientID%>").text(ready);
                       d3.select("#<%=txtVariance.ClientID%>").text(variance);
                       d3.select("#<%=txtEarliestETA.ClientID%>").text(earliesteta);
+
+                      d3.select("#<%=txtFailedAdapters.ClientID%>").style("cursor","pointer");
+                      d3.select("#<%=txtFailedAdapters.ClientID%>").on("click",function(){window.location="/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/IntervalManagement.asp?ID=" + activeBillRunInterval;});
+                  
+
             }
         });
 
@@ -740,13 +896,6 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                 d.scheduler_q = +d.scheduler_q;
                 d.pipe_backlog = +d.pipe_backlog;
                 d.pipe = +d.pipe;
-                d.msgq = +d.msgq;
-                d.ramp_backlog = +d.ramp_backlog;
-                d.ramp = +d.ramp;
-                d.pipe_tps = +d.pipe_tps;
-                d.msgq_tps = +d.msgq_tps;
-                d.ramp_tps = +d.ramp_tps;
-                d.scheduler_tps = +d.scheduler_tps;
                 d.dd = dateFormat.parse(d.date);
 				if (d.dd > maxDate) maxDate = d.dd;
 				if (d.dd < minDate) minDate = d.dd;
@@ -763,17 +912,18 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 			var colors = d3.scale.ordinal().domain([0,1,2]).range(['#00B0F0','#0070C0','#148622']);
             var composite1 = dc.compositeChart("#divPricingQueues");
             composite1
-                    .margins({top: 5, right: 5, bottom: 95, left: 5})
-					.height(270)
+                    .margins({top: 5, right: 5, bottom: 75, left: 5})
+					.height(255)
+					.width(410)
                     .x(d3.time.scale().domain([minDate, maxDate]))
                     .elasticY(true)
                     .transitionDuration(750)
-                    .legend(dc.legend().x(15).y(185).itemHeight(13).gap(5))
+                    .legend(dc.legend().x(15).y(200).itemHeight(13).gap(5))
                     .brushOn(false)
                     .compose([
                         dc.lineChart(composite1)
                                 .dimension(dateDimension)
-                                .group(pipeQGroup, "Pipeline")
+                                .group(pipeQGroup, "Pipeline Queue")
                                 .colors(colors(0))
                         ,
                         dc.lineChart(composite1)
@@ -797,80 +947,28 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var composite2 = dc.compositeChart("#divPricingBacklog");
 			colors = d3.scale.ordinal().domain([0,1,2,3,4]).range(['#00B0F0','#0070C0','#148622','#FFC000','#7F7F7F']);
             composite2
-                    .margins({top: 5, right: 5, bottom: 95, left: 5})
-					.height(270)
+                    .margins({top: 5, right: 5, bottom: 75, left: 35})
+					.height(255)
+					.width(410)
                     .x(d3.time.scale().domain([minDate, maxDate]))
                     .elasticY(true)
                     .transitionDuration(750)
-                    .legend(dc.legend().x(15).y(185).itemHeight(13).gap(5))
+                    .legend(dc.legend().x(45).y(200).itemHeight(13).gap(5))
                     .brushOn(false)
                     .compose([
                         dc.lineChart(composite2)
                                 .dimension(dateDimension)
-                                .group(pipeBacklogGroup, "Pipeline Backlog")
+                                .group(pipeBacklogGroup, "Pipeline Wait Duration")
                                 .colors(colors(0))
                         ,
                         dc.lineChart(composite2)
                                 .dimension(dateDimension)
-                                .group(pipeGroup, "Pipeline")
+                                .group(pipeGroup, "Pipeline Processing Duration")
                                 .colors(colors(1))
-                        ,
-                        dc.lineChart(composite2)
-                                .dimension(dateDimension)
-                                .group(msgqGroup, "Queue")
-                                .colors(colors(2))
-                        ,
-                        dc.lineChart(composite2)
-                                .dimension(dateDimension)
-                                .group(rampBacklogGroup, "RAMP Backlog")
-                                .colors(colors(3))
-                        ,
-                        dc.lineChart(composite2)
-                                .dimension(dateDimension)
-                                .group(rampGroup, "RAMP")
-                                .colors(colors(4))
                     ]);
             composite2.xAxis().ticks(0);
             composite2.yAxis().ticks(0);
 
-            var pipeTPSGroup = dateDimension.group().reduceSum(dc.pluck('pipe_tps'));
-            var msgqTPSGroup = dateDimension.group().reduceSum(dc.pluck('msgq_tps'));
-            var rampTPSGroup = dateDimension.group().reduceSum(dc.pluck('ramp_tps'));
-            var schedulerTPSGroup = dateDimension.group().reduceSum(dc.pluck('scheduler_tps'));
-			colors = d3.scale.ordinal().domain([0,1,2,3]).range(['#00B0F0','#0070C0','#148622','#FFC000']);
-            var composite3 = dc.compositeChart("#divPricingTPS");
-            composite3
-                    .margins({top: 5, right: 5, bottom: 95, left: 5})
-					.height(270)
-                    .x(d3.time.scale().domain([minDate, maxDate]))
-                    .elasticY(true)
-                    .transitionDuration(750)
-                    .legend(dc.legend().x(15).y(185).itemHeight(13).gap(5))
-                    .brushOn(false)
-                    .compose([
-                        dc.lineChart(composite3)
-                                .dimension(dateDimension)
-                                .group(pipeTPSGroup, "Pipeline TPS")
-                                .colors(colors(0))
-                        ,
-                        dc.lineChart(composite3)
-                                .dimension(dateDimension)
-                                .group(msgqTPSGroup, "Queue TPS")
-                                .colors(colors(1))
-                        ,
-                        dc.lineChart(composite3)
-                                .dimension(dateDimension)
-                                .group(rampTPSGroup, "RAMP TPS")
-                                .colors(colors(2))
-                        ,
-                        dc.lineChart(composite3)
-                                .dimension(dateDimension)
-                                .group(schedulerTPSGroup, "Scheduler TPS")
-                                .colors(colors(3))
-                    ]);
-            composite3.xAxis().ticks(0);
-            composite3.yAxis().ticks(0);
-			
 			dc.renderAll();
 			
             setInterval(function() {
@@ -883,13 +981,6 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                 d.scheduler_q = +d.scheduler_q;
                 d.pipe_backlog = +d.pipe_backlog;
                 d.pipe = +d.pipe;
-                d.msgq = +d.msgq;
-                d.ramp_backlog = +d.ramp_backlog;
-                d.ramp = +d.ramp;
-                d.pipe_tps = +d.pipe_tps;
-                d.msgq_tps = +d.msgq_tps;
-                d.ramp_tps = +d.ramp_tps;
-                d.scheduler_tps = +d.scheduler_tps;
                 d.dd = dateFormat.parse(d.date);
 				if (d.dd > realMaxDate) realMaxDate = d.dd;
 				if (d.dd < minDate) minDate = d.dd;
@@ -907,10 +998,9 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 			}
 			composite1.x(d3.time.scale().domain([minDate, maxDate]));
 			composite2.x(d3.time.scale().domain([minDate, maxDate]));
-			composite3.x(d3.time.scale().domain([minDate, maxDate]));
 			dc.renderAll();
 			}});
-            }, 5000);
+            }, 10000);
 			}
         });
 
@@ -945,7 +1035,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var countGroup = statusDimension.group().reduceSum(dc.pluck('count'));
             chart
                     .margins({top: 10, right: 10, bottom: 100, left: 60})
-					.height(245)
+					.height(230)
                     .dimension(statusDimension)
 					.transitionDuration(0)
                     .group(countGroup)
@@ -991,19 +1081,21 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                   
                  
                    if(daysuntilrun == 0){
- 
                         d3.select("#tdBillCloseSynopisDaysUntilRun").attr("class","clszerovalue");
                      }
                     else{
                          d3.select("#tdBillCloseSynopisDaysUntilRun").attr("class","clshasvalue");
                     }
 
-                     d3.select("#<%=txtBillCloseSynopisType.ClientID%>").text(type);
+                      d3.select("#<%=txtBillCloseSynopisType.ClientID%>").text(type);
                       d3.select("#<%=txtBillCloseSynopisBillGroups.ClientID%>").text(billgroups);
                       d3.select("#<%=txtBillCloseSynopisStart.ClientID%>").text(start);
                       d3.select("#<%=txtBillCloseSynopisEnd.ClientID%>").text(end);
-                      d3.select("#<%=txtBillCloseSynopisDaysUntilRun.ClientID%>").text(daysuntilrun);    
-                   
+                      d3.select("#<%=txtBillCloseSynopisDaysUntilRun.ClientID%>").text(daysuntilrun); 
+                      d3.select("#<%=txtBillCloseSynopisDaysUntilRun.ClientID%>").style("cursor","pointer");
+                      d3.select("#<%=txtBillCloseSynopisDaysUntilRun.ClientID%>").on("click",function(){window.location="/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/IntervalManagement.asp?ID=" + billCloseInterval;});
+                                                
+
                 }
             }
         });
@@ -1053,30 +1145,30 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
         var data = [
                {
                 "name": "Unchanged",
-                "value": 0
+                "value": 10
               },
               {
                 "name": "Unresponsive",
-                "value": 0
+                "value": 5
               },
               {
                 "name": "Failed",
-                "value": 0
+                "value": 6
               },
               {
                 "name": "Pending",
-                "value": 0
+                "value": 2
               },
              {
                 "name": "Changed",
-                "value": 0
+                "value": 10
               }
              
         ]
 
-          var objPuppetBarChartConfig = {
+          /*var objPuppetBarChartConfig = {
             width: 201,
-            height: 100,
+            height: 125,
             margin: { left: 20, top: 10, right: 10, bottom: 10 },
             xAxis: {"Label":"Nodes", "Column":"name"},
             yAxis: {"Label":"Type","Column":"value"},
@@ -1087,29 +1179,72 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             colordata:colordata
         };
 
-        fnVisualizeBarChart(  objPuppetBarChartConfig); 
+        fnVisualizeBarChart(  objPuppetBarChartConfig); */
+
+
+
+        data.forEach(function (d) {
+                d.value = +d.value;
+            });
+            var chart = dc.barChart("#divPuppetNodes");
+            var ndx = crossfilter(data);
+            var all = ndx.groupAll();
+            var nameDimension = ndx.dimension(function(d){ return d["name"];});
+
+           
+                  
+            var valueGroup = nameDimension.group().reduceSum(dc.pluck('value'));
+
+            var colors = d3.scale.ordinal().domain(["Unchanged", "Unresponsive", "Failed", "Pending","Changed"]).range(['#00B0F0','#0070C0','#148622','#FFC000','#7F7F7F']);
+                   
+            chart
+                    .height(125)
+                    .margins({top: 10, right: 10, bottom: 50, left: 10})
+                    .dimension(nameDimension)
+					.transitionDuration(0)
+                    .group(valueGroup)
+                    .gap(3)
+                    .xAxisPadding(20)
+                    .x(d3.scale.ordinal().domain(["Unchanged", "Unresponsive", "Failed", "Pending","Changed"]))
+					 .xUnits(dc.units.ordinal)
+                    .centerBar(false)
+                    .brushOn(false)
+                    .title(function(d){ return d.key + ": " + d.value;} )
+                   // .legend(dc.legend().x(40).y(100).itemHeight(13).gap(5))
+					.renderlet(function (chart) {
+                        // rotate x-axis ticks
+                        chart.selectAll("g.x text")
+                                .style("text-anchor", "start")
+                                .attr('dx', '.8em')
+                                .attr('dy', '-.5em')
+                                .attr('transform', "rotate(45)");
+                        ;
+
+                        chart.selectAll("rect.bar").attr("fill", function(d){
+                             return colordata[d.x];
+                        });
+                    });
+
+             chart.yAxis().ticks(0);
+             
+             dc.renderAll(valueGroup);
 
     }
 
-</script>
-
+    </script>
     <script type="text/javascript">
-      var gridster;
+        var gridster;
 
-      $(function(){
+        $(function () {
 
-        gridster = $(".gridster ul").gridster({
-          widget_base_dimensions: [100, 100],
-          widget_margins: [5, 5],
-          helper: 'clone',
-		  resize: { enabled: false},
-		  autogrow_cols: true
-        }).data('gridster');
-		});
-	</script>
-
+            gridster = $(".gridster ul").gridster({
+                widget_base_dimensions: [100, 25],
+                widget_margins: [5, 5],
+                helper: 'clone',
+                resize: { enabled: false },
+				autogrow_cols: true,
+				min_rows: 30,
+            }).data('gridster');
+        });
+    </script>
 </asp:Content>
-
-
-
-

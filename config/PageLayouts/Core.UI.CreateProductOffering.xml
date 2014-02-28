@@ -11,6 +11,9 @@
         <!--PageTitle>
             <Value><![CDATA[Create Product Offering]]></Value>
         </PageTitle-->
+        <PageTitle>
+            <Value><![CDATA[]]></Value>
+        </PageTitle>
     </Header>
     <Help>
         <Mode>None</Mode>
@@ -23,6 +26,7 @@
                 <Value><![CDATA[Add Product Offering]]></Value>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -43,6 +47,7 @@
                                 <Value><![CDATA[Name]]></Value>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
@@ -53,15 +58,15 @@
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
                             <EditorValidation>
-                                <Required>false</Required>
+                                <Required>true</Required>
                                 <ValidationType></ValidationType>
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
                                 <Value><![CDATA[Display Name]]></Value>
                             </Label>
-
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
@@ -80,6 +85,7 @@
                                 <Value><![CDATA[Description]]></Value>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                     </Fields>
                 </Column>
@@ -102,6 +108,7 @@
                                 <Value><![CDATA[Currency]]></Value>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
@@ -120,6 +127,7 @@
                                 <Value><![CDATA[Effective Start Date]]></Value>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
@@ -137,12 +145,13 @@
                             <Label>
                                 <Value><![CDATA[Partition Id]]></Value>
                             </Label>
-
                             <RequiredCapabilities />
-                       </Field>
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
                     </Fields>
                 </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
     </Sections>
     <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>

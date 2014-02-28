@@ -17,13 +17,19 @@
 	PADDING-RIGHT: 3px;
 }
 .GridHeader{
-	font-size: 12px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif;
 	text-align: center;
-	color: black; 
-	background-color: #CCDEF6; 
-	border:solid 1px #98C0F4;
+	/*color: black; 
+	background-color: #CCDEF6; */
+	background-color: #f9f9f9;
+    background-image: url(/Res/Ext/resources/images/metranet/grid/grid3-hrow2.gif);    
+    FONT:normal 11px/15px arial, tahoma, helvetica, sans-serif;
+    border-color: #d0d0d0;
+    border-right: 1px solid #eee;
+    border-left:1px solid #d0d0d0;
+    padding: 4px 3px 4px 5px;
+    
 }
+
 a.GridHeaderA:hover{
 	COLOR : #ADEF8C;
 	text-decoration: none;

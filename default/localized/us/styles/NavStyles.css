@@ -1,10 +1,18 @@
 .NavigationPaneHeader{
-	BACKGROUND-COLOR: #D9E7F8;
+/*	BACKGROUND-COLOR: #D9E7F8;
+	PADDING-BOTTOM: 0px;
 	text-align:left;
 	font-weight : bold;
-  color: #15428B;
-  padding-left:0px;
-  border-bottom: solid 1px #99BBE8;
+     color: #15428B;
+      padding-left:0px;
+      border-bottom: solid 1px #d0d0d0;*/
+    color: #333;
+    font-weight: bold;
+    font-size: 11px;
+    font-family: tahoma,arial,verdana,sans-serif;
+    border-color: #d0d0d0;
+    background-image: url(/res/images/metranet/panel/white-top-bottom.gif);
+    BACKGROUND-COLOR: #F0F0F0;
 }
 
 .NavigationPaneItem{
@@ -30,9 +38,13 @@ a.NavigationPaneItemASelected{
 }
 
 a.NavigationPaneItemA:hover{
-	text-decoration: none;
+/*	text-decoration: none;
   color:navy;
-	PADDING-TOP: 2px;
+	PADDING-TOP: 2px;*/
+	font: normal 11px tahoma, arial, helvetica, sans-serif;
+	background: #ebf3fd url(/Res/Ext/resources/images/gray/menu/item-over.gif) repeat-x left bottom;
+    border: 1px solid #ddd;
+	
 }
 
 .clsDiv{
@@ -54,9 +66,16 @@ a.NavigationPaneItemA:hover{
 {
 	/*width:150;*/
 	position:relative;
-	margin-top:6px;
+	padding:4px;
 	behavior:url(tabs.htc);
-  border:1px solid #99BBE8;
+    /*border:1px solid #99BBE8;*/
+    border-color: #ccc;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    BACKGROUND-COLOR: #F0F0F0;
+    border-style: solid;
+    border-width : 1px;
 }
 
 .MenuTabLeft
@@ -132,14 +151,21 @@ a.MenuItemASelected{
 
 a.MenuItemA:hover{
 	text-decoration: none;
-  color:navy;
 	PADDING-TOP: 2px;
+	background: #ebf3fd url(/Res/Ext/resources/images/gray/menu/item-over.gif) repeat-x left bottom;
+    border: 1px solid #ddd;
 }
 
 a.ParamTableA{
-	text-decoration: none;
-  color:black;
 	PADDING-TOP: 2px;
+	font: normal 11px tahoma, arial, helvetica, sans-serif;
+	display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    color: #222;
+    -moz-outline: 0 none;
+    outline: 0 none;
+    cursor: pointer;
 }
 
 a.ParamTableASelected{
@@ -149,9 +175,9 @@ a.ParamTableASelected{
 	font-weight: bold;
 }
 a.ParamTableA:hover{
-	text-decoration: none;
-  color:navy;
-	PADDING-TOP: 2px;
+	font: normal 11px tahoma, arial, helvetica, sans-serif;
+	background: #ebf3fd url(/Res/Ext/resources/images/gray/menu/item-over.gif) repeat-x left bottom;
+    border: 1px solid #ddd;
 }
 
 .MenuBackground{

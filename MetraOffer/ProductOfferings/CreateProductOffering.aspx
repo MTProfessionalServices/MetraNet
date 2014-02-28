@@ -31,11 +31,20 @@
   
 <br />
 
-<MT:MTDataBinder ID="MTDataBinder1" runat="server">
-  <DataBindingItems>
-    <MT:MTDataBindingItem ID="MTDataBindingItem1" runat="server" ControlId="MTTitle1" 
-      ErrorMessageLocation="RedTextAndIconBelow">
-    </MT:MTDataBindingItem>
-  </DataBindingItems>
+  <MT:MTDataBinder ID="MTDataBinder1" runat="server">
+    <DataBindingItems>
+      <MT:MTDataBindingItem ID="MTDataBindingItem1" runat="server" ControlId="MTTitle1" 
+        ErrorMessageLocation="RedTextAndIconBelow">
+      </MT:MTDataBindingItem>
+    </DataBindingItems>
   </MT:MTDataBinder>
+  
+  <script language="javascript" type="text/javascript">
+    Ext.onReady(function () {
+      var tbName = Ext.getCmp('ctl00_ContentPlaceHolder1_tbName');
+      tbName.on("blur", function(){
+        Ext.getCmp('ctl00_ContentPlaceHolder1_tbDisplayName').setValue(tbName.getValue());
+      });
+    });
+  </script>
 </asp:Content>

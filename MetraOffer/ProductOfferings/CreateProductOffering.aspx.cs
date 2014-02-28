@@ -71,10 +71,15 @@ namespace MetraNet.MetraOffer.ProductOfferings
       var displayName = string.IsNullOrEmpty(ProductOffering.DisplayName)
                           ? ProductOffering.Name
                           : ProductOffering.DisplayName;
-      var codes = Enum.GetNames(typeof (LanguageCode));
-      var locolizedDisplayName =
-        codes.Select(code => (LanguageCode) Enum.Parse(typeof (LanguageCode), code))
+
+      var codes = Enum.GetNames(typeof(LanguageCode));
+      var localizedDisplayName =
+        codes.Select(code => (LanguageCode)Enum.Parse(typeof(LanguageCode), code)).Where(x => x != LanguageCode.US)
              .ToDictionary(languageCode => languageCode, languageCode => string.Format("{0} {1}{2}{3}", displayName, "{", languageCode, "}"));
+      localizedDisplayName.Add(LanguageCode.US, displayName);
+
+      var localizedDescriptions = codes.Select(code => (LanguageCode)Enum.Parse(typeof(LanguageCode), code))
+             .ToDictionary(languageCode => languageCode, languageCode => ProductOffering.Description);
 
       var newProductOffering = new ProductOffering
         {
@@ -87,7 +92,8 @@ namespace MetraNet.MetraOffer.ProductOfferings
           EffectiveTimeSpan = {StartDate = ProductOffering.EffectiveTimeSpan.StartDate},
           IsHidden = false,
           POPartitionId = ProductOffering.POPartitionId,
-          LocalizedDisplayNames = locolizedDisplayName
+          LocalizedDisplayNames = localizedDisplayName,
+          LocalizedDescriptions = localizedDescriptions
         };
       
       using (var client = new ProductOfferingServiceClient())

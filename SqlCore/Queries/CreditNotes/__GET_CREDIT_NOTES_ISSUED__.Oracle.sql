@@ -7,7 +7,8 @@ SELECT
 	ABS(AMOUNTS.TotalAmount) AS Amount,
 	ABS(AMOUNTS.TotalTaxAmount) AS TaxAmount,
 	ABS(AMOUNTS.TotalAmount) + ABS(AMOUNTS.TotalTaxAmount) AS TotalAmount,
-	INTERNAL.c_Currency AS Currency
+	INTERNAL.c_Currency AS Currency,
+	CNPDF.c_Status AS CreditNotePDFStatus
 FROM t_be_cor_cre_creditnote CN
 INNER JOIN (SELECT
 							CN.c_CreditNote_Id,
@@ -23,5 +24,6 @@ INNER JOIN t_be_cor_cre_creditnotetmpl TEMPLATE ON TEMPLATE.c_CreditNoteTmpl_Id 
 LEFT JOIN t_av_Contact SUBSCRIBER ON SUBSCRIBER.id_acc = CN.c_AccountID 
 LEFT JOIN t_av_Contact CREATOR ON CREATOR.id_acc = CN.c_CreatorID
 LEFT JOIN t_av_Internal INTERNAL ON INTERNAL.id_acc = CN.c_AccountID
+INNER JOIN t_be_cor_cre_creditnotepdf CNPDF on CNPDF.c_CreditNote_Id = CN.c_CreditNote_Id
 WHERE CN.c_AccountID = :AccountID OR :AccountID = -1
 

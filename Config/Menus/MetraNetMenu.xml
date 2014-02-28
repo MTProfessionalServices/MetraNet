@@ -40,7 +40,7 @@
                             <Description>MetraOffer Dashboard</Description>
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
-                        <MenuItem>
+                        <!--MenuItem>
                             <ID>ReportsMetraCareDashboard</ID>
                             <Caption>
                                 <Value><![CDATA[CSR Dashboard]]></Value>
@@ -50,7 +50,7 @@
                             <Icon>/Res/Images/icons/application_view_tile.png</Icon>
                             <Description>CSR Dashboard</Description>
                             <RequiredCapabilities></RequiredCapabilities>
-                        </MenuItem>
+                        </MenuItem-->
                         <MenuItem>
                             <ID>ReportsMetraOfferDashboard</ID>
                             <Caption>

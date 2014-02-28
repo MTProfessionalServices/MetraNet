@@ -496,7 +496,8 @@
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
-                <MenuSection>
+                <!-- available in usage section already
+				<MenuSection>
                     <ID>MeteringStatistics</ID>
                     <Caption>
                         <LocalizationTag>TEXT_METERING_STATISTICS</LocalizationTag>
@@ -518,6 +519,7 @@
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
+				-->
                 <MenuSection>
                     <ID>FailedTransactions</ID>
                     <Caption>
@@ -758,7 +760,7 @@
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
-                <MenuSection>
+                <!--MenuSection>
                     <ID>PaymentsStatus</ID>
                     <Caption>
                         <LocalizationTag>TEXT_PAYMENTS</LocalizationTag>
@@ -779,7 +781,7 @@
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
-                </MenuSection>
+                </MenuSection-->
             </MenuSections>
         </Menu>
     </Menus>

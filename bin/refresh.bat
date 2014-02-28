@@ -124,6 +124,7 @@ copy %MTOUTDIR%\%VERSION%\bin\MetraTech.UsageServer.pdb %ROOTDIR%\MetraTech\UI\M
 copy %MTOUTDIR%\%VERSION%\bin\RsaKmc.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin
 copy %MTOUTDIR%\%VERSION%\bin\kmclient.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.MetraPay.PaymentGateway.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin
+copy %MTOUTDIR%\%VERSION%\bin\EasyNetQ.Management.Client.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin
 
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.ExpressionEngine.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.ExpressionEngine.pdb %ROOTDIR%\MetraTech\UI\MetraNet\bin

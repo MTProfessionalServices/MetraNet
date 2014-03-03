@@ -24,7 +24,7 @@
   </div>
   <br />
   <div style="position: relative; margin-top: 50px;">
-    <MT:MTFilterGrid ID="grdChurnReport" runat="server" ExtensionName="Reporting" TemplateFileName="ChurnReport"
+    <MT:MTFilterGrid ID="grdChurnReport" runat="server" ExtensionName="Reporting" TemplateFileName="ChurnReportGrid"
       ButtonAlignment="Center" Buttons="None" DefaultSortDirection="Ascending" DisplayCount="True"
       EnableColumnConfig="True" EnableFilterConfig="false" EnableLoadSearch="False" EnableSaveSearch="False"
       Expandable="False" ExpansionCssClass="" Exportable="False" FilterColumnWidth="350"

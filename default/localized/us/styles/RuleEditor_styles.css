@@ -122,7 +122,7 @@
 }
 
 .RuleEditorTableHeader{
-	font-size: 12px; 
+	/*font-size: 12px; 
 	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif;
 	color: #FFFFFF; 
 	background-color: #0055CE;
@@ -133,9 +133,17 @@
 	BORDER-RIGHT: black solid 1px;
 	BORDER-TOP: #2075CE solid 1px;
   PADDING-LEFT: 5px;
-  PADDING-RIGHT: 5px
+  PADDING-RIGHT: 5px*/
 
+text-align: center;
+background-color: #f9f9f9;
+background-image: url(/Res/Ext/resources/images/metranet/grid/grid3-hrow2.gif);
+FONT: normal 11px/15px arial, tahoma, helvetica, sans-serif;
+border-right: 1px solid #eee;
+border-left: 1px solid #d0d0d0;
+padding: 4px 3px 4px 5px;
 }
+
 
 .clsHeaderLink{
     FONT-SIZE: 12px;
@@ -152,7 +160,6 @@
     FONT-SIZE: 12px;
 		font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif;
 		color: #000000;
-		
     padding-left: 5px;
     padding-right: 5px
 }
@@ -175,15 +182,18 @@
 /* Style of the panel in which the RuleEditor lies. Right now it is some sort of grey...*/
 
 .clsTextMpteBackPane {  
-    BACKGROUND-COLOR: #CFDBE5;
     COLOR: white;
     FONT-FAMILY: Arial, Helvetica, sans-serif;
     FONT-SIZE: 9pt;
     FONT-WEIGHT: normal;
     CURSOR: default;
     PADDING-LEFT: 4px;
-    PADDING-RIGHT: 3px
-	}
+    PADDING-RIGHT: 3px;
+    white-space: -webkit-nowrap;
+    background-color:#d0d0d0;
+    /*background-image:url(/Res/Ext/resources/images/metranet/panel/top-bottom.gif);
+    background-color: rgb(192, 192, 192);*/
+   }
 	
 .clsInfoURL {  
     FONT-FAMILY: Arial, Helvetica, sans-serif;

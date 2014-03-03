@@ -23,8 +23,8 @@
 	background-color: #f9f9f9;
     background-image: url(/Res/Ext/resources/images/metranet/grid/grid3-hrow2.gif);    
     FONT:normal 11px/15px arial, tahoma, helvetica, sans-serif;
-    border-color: #d0d0d0;
     border-right: 1px solid #eee;
+  border-top: 1px solid #d0d0d0;
     border-left:1px solid #d0d0d0;
     padding: 4px 3px 4px 5px;
     

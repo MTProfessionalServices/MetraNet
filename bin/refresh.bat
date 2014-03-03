@@ -151,5 +151,5 @@ copy %MTOUTDIR%\%VERSION%\bin\es\MetraTech.DomainModel.BaseTypes.Resources.dll %
 REM copy %MTOUTDIR%\%VERSION%\bin\Ajax* %ROOTDIR%\MetraTech\UI\MetraNet\bin
 REM copy %MTOUTDIR%\%VERSION%\bin\Microsoft.* %ROOTDIR%\MetraTech\UI\MetraNet\bin
 
-copy %ROOTDIR%\ThirdParty\EasyNetQ\Management.Client\EasyNetQ.Management.Client.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin
+copy %MTOUTDIR%\%VERSION%\bin\EasyNetQ.Management.Client.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin
 REM Pause

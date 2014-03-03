@@ -12,13 +12,14 @@
   <script type="text/javascript" src="/Res/JavaScript/Renderers.js"></script>
   <link rel="stylesheet" type="text/css" href="/Res/Styles/jquery.gridster.css">
   <link rel="stylesheet" type="text/css" href="/Res/Styles/dc.css">
+  <style>
+  </style>
   <MT:MTTitle ID="MTTitle1" Text="Churn Report" runat="server" meta:resourcekey="MTTitle1Resource1" />
   <br />
-  <div>
-    <%--<div class='pie-graph span4' id='dc-volume-chart'>--%>
-    <div id='dc-volume-chart' style="float: none !important;">
-      <h4>
-        Average Rating in Stars / Number of Reviews (Bar)</h4>
+  <div class="remaining-graphs span8">
+    <div class="row-fluid">
+      <div id='dc-volume-chart' class="pie-graph span4 dc-chart" style="float: none !important;">
+      </div>
     </div>
   </div>
   <br />
@@ -71,40 +72,13 @@
 
       // for volumechart
       var cityDimension = ndx.dimension(function (d) { return d.city; });
-      var cityGroup = cityDimension.group();
-      var cityDimensionGroup = cityDimension.group().reduce(
-      //add
-        function (p, v) {
-          ++p.count;
-          p.review_sum += v.review_count;
-          p.star_sum += v.stars;
-          p.review_avg = p.review_sum / p.count;
-          p.star_avg = p.star_sum / p.count;
-          return p;
-        },
-      //remove
-        function (p, v) {
-          --p.count;
-          p.review_sum -= v.review_count;
-          p.star_sum -= v.stars;
-          p.review_avg = p.review_sum / p.count;
-          p.star_avg = p.star_sum / p.count;
-          return p;
-        },
-      //init
-        function (p, v) {
-          return { count: 0, review_sum: 0, star_sum: 0, review_avg: 0, star_avg: 0 };
-        }
-    );
-
+      
       // for pieChart
       var startValue = ndx.dimension(function (d) {
         return d.stars * 1.0;
       });
       var startValueGroup = startValue.group();
-
-      // For datatable
-      var businessDimension = ndx.dimension(function (d) { return d.business_id; });
+      
       /********************************************************
       *                                                       *
       *   Step4: Create the Visualisations                    *
@@ -119,35 +93,13 @@
             .group(startValueGroup)
             .transitionDuration(1500)
             .centerBar(true)
-            .gap(17)
+            .gap(100)
             .x(d3.scale.linear().domain([0.5, 5.5]))
             .elasticY(true)
             .xAxis().tickFormat(function (v) { return v; });
 
       console.log(startValueGroup.top(1)[0].value);
-
-      /*dataTable.width(800).height(800)
-      .dimension(businessDimension)
-      .group(function (d) {
-      return "List of all Selected Businesses"
-      })
-      .size(100)
-      .columns([
-      function (d) { return d.name; },
-      function (d) { return d.city; },
-      function (d) { return d.stars; },
-      function (d) { return d.review_count; },
-      function (d) { return '<a href=\"http://maps.google.com/maps?z=12&t=m&q=loc:' + d.latitude + '+' + d.longitude + "\" target=\"_blank\">Map</a>" }
-      ])
-      .sortBy(function (d) { return d.stars; })
-      // (optional) sort order, :default ascending
-      .order(d3.ascending);*/
-      /********************************************************
-      *                                                       *
-      *   Step6:  Render the Charts                           *
-      *                                                       *
-      ********************************************************/
-
+      
       dc.renderAll();
     });
   </script>

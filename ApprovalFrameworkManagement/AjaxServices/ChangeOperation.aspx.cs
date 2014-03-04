@@ -66,13 +66,16 @@ public partial class ApprovalFrameworkManagement_AjaxServices_ChangeOperation : 
       var changeBlob = "";
       approvalClient.GetChangeDetails(intincomingchangeid, ref changeBlob);
       var changeDetails = new ChangeDetailsHelper(changeBlob);
-      var newSub = (Subscription)changeDetails[SubscriptionChangeType.SubscriptionKey];
-      var subscriber = (AccountIdentifier)changeDetails[SubscriptionChangeType.AccountIdentifierKey];
+      if (changeDetails.ContainsKey(SubscriptionChangeType.SubscriptionKey))
+      {
+        var newSub = (Subscription)changeDetails[SubscriptionChangeType.SubscriptionKey];
+        var subscriber = (AccountIdentifier)changeDetails[SubscriptionChangeType.AccountIdentifierKey];
 
-      var change = CompareWithCurrentSubscription(newSub, subscriber, subscriptionClient);
+        var change = CompareWithCurrentSubscription(newSub, subscriber, subscriptionClient);
 
-      changeDetails[SubscriptionChangeType.SubscriptionChangeKey] = change;
-      approvalClient.UpdateChangeDetails(intincomingchangeid, changeDetails.ToBuffer(), "SubscriptionChange object was stored");
+        changeDetails[SubscriptionChangeType.SubscriptionChangeKey] = change;
+        approvalClient.UpdateChangeDetails(intincomingchangeid, changeDetails.ToBuffer(), "SubscriptionChange object was stored");
+      }
 
       if (strincomingaction == "approve")
       {

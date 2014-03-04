@@ -24,10 +24,10 @@ and tsks.mvm_scheduled_dt <= @EndDate
 union all
 select /* we do not treat resubmits special */
 'pipeline_wait_seconds' as c_category,
-isnull(avg(datediff(second,m.dt_crt, isnull(m.dt_assigned, getutcdate()))),0.0) as c_count
+isnull(avg(case when m.dt_crt > m.dt_assigned then 0 else datediff(second,DATEADD(ms, -DATEPART(ms, m.dt_crt), m.dt_crt), m.dt_assigned) end),0.0) as c_count
 from t_message m with(nolock)
 where 1=1
-and isnull(m.dt_assigned, getutcdate()) between @StartDate and @EndDate
+and m.dt_assigned between @StartDate and @EndDate
 union all
 select /* we do not treat resubmits special */
 'pipeline_seconds' as c_category,

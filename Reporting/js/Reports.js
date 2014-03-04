@@ -91,15 +91,22 @@ function onViewConfiguredReport(internalId, name, extension, queryName, gridLayo
 }
 
 function onViewCustomReport(internalId, name, extension, queryName, gridLayoutName, customReportUrl) {
-    var showReportUrl = String.format("{5}?InternalId={0}&Name={1}&Extension={2}&QueryName={3}&GridLayoutName={4}",
+  var paramSeparator = "?";
+  // Check if the custom URL already has parameters, in which case we need to add ours with "&", instead of "?"
+  if (customReportUrl.indexOf("?") != -1) {
+    paramSeparator = "&";
+  }
+
+  var showReportUrl = String.format("{5}{6}InternalId={0}&Name={1}&Extension={2}&QueryName={3}&GridLayoutName={4}",
         internalId,
         encodeURIComponent(name),
         extension,
         queryName,
         gridLayoutName,
-        encodeURI(customReportUrl));
+        customReportUrl,
+        paramSeparator);
 
-    document.location.href = showReportUrl;
+  document.location.href = showReportUrl;
 }
 
 function onViewIntervalStatisticsReport(internalId, name, extension, queryName, gridLayoutName) {

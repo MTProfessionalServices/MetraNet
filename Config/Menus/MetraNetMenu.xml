@@ -23,11 +23,7 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/chart_bar.png</Icon>
                             <Description>MetraNet Reports</Description>
-                            <RequiredCapabilities><RequiredCapabilities>
-                                    <CompositeCapability name="Read Business Modeling Entities">
-                                        <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-                                    </CompositeCapability>
-                                </RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>ReportsMetraControlDashboard</ID>
@@ -40,17 +36,6 @@
                             <Description>MetraOffer Dashboard</Description>
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
-                        <!--MenuItem>
-                            <ID>ReportsMetraCareDashboard</ID>
-                            <Caption>
-                                <Value><![CDATA[CSR Dashboard]]></Value>
-                            </Caption>
-                            <Link>/MetraNet/MetraCareDashboard.aspx</Link>
-                            <Target>MainContentIframe</Target>
-                            <Icon>/Res/Images/icons/application_view_tile.png</Icon>
-                            <Description>CSR Dashboard</Description>
-                            <RequiredCapabilities></RequiredCapabilities>
-                        </MenuItem-->
                         <MenuItem>
                             <ID>ReportsMetraOfferDashboard</ID>
                             <Caption>
@@ -71,17 +56,6 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/application_view_tile.png</Icon>
                             <Description>Finance Dashboard</Description>
-                            <RequiredCapabilities></RequiredCapabilities>
-                        </MenuItem>
-                        <MenuItem>
-                            <ID>ChurnReport</ID>
-                            <Caption>
-                                <Value><![CDATA[Churn Report]]></Value>
-                            </Caption>
-                            <Link>/MetraNet/Reporting/ChurnReport.aspx</Link>
-                            <Target>MainContentIframe</Target>
-                            <Icon>/Res/Images/Icons/application_view_tile.png</Icon>
-                            <Description>Churn Report</Description>
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>

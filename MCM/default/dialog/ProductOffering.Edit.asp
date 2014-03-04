@@ -189,41 +189,39 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
   set tmpSessionContext = Session(FRAMEWORK_SECURITY_SESSION_CONTEXT_SESSION_NAME)
   set objApprovals.SessionContext = tmpSessionContext
   bApprovalsEnabled = objApprovals.ApprovalsEnabled("ProductOfferingUpdate")
-
-  dim objChangeDetailsHelper
-  Dim objMTProductCatalog
-  Set objMTProductCatalog = GetProductCatalogObject    
-  set objChangeDetailsHelper = CreateObject("MetraTech.Approvals.ChangeDetailsHelper")
-      
-  dim objDetails
-  set objDetails = objApprovals.Convert(COMObject.Instance)
-  objChangeDetailsHelper("productOffering") = objDetails
-  objChangeDetailsHelper("productOffering.OLD") = objApprovals.Convert(objMTProductCatalog.GetProductOffering(COMObject.Instance.ID))
-
-  dim idChange, errorsSubmit
-  if bApprovalsEnabled then
-    idChange = objApprovals.SubmitChangeForApproval("ProductOfferingUpdate", COMObject.Instance.ID, COMObject.Instance.Name, "", objChangeDetailsHelper.ToBuffer, errorsSubmit)
-  else
-    COMObject.Instance.Save
-  end if
-  If(Err.Number)Then
   
-      EventArg.Error.Save Err
-      OK_Click = FALSE
-      Err.Clear
+  Dim idChange, errorsSubmit
+  If bApprovalsEnabled Then
+    Dim objMTProductCatalog
+    Set objMTProductCatalog = GetProductCatalogObject    
+    Dim objChangeDetailsHelper
+    Set objChangeDetailsHelper = CreateObject("MetraTech.Approvals.ChangeDetailsHelper")
+    Dim objDetails
+    Set objDetails = objApprovals.Convert(COMObject.Instance)
+    objChangeDetailsHelper("productOffering") = objDetails
+    objChangeDetailsHelper("productOffering.OLD") = objApprovals.Convert(objMTProductCatalog.GetProductOffering(COMObject.Instance.ID))
+    idChange = objApprovals.SubmitChangeForApproval("ProductOfferingUpdate", COMObject.Instance.ID, COMObject.Instance.Name, "", objChangeDetailsHelper.ToBuffer, errorsSubmit)
   Else
-        Response.Write "<script language='JavaScript'>"
-        Response.Write "if (window.opener.top.MainContentIframe.LoadStoreWhenReady_ctl00_ContentPlaceHolder1_MTFilterGrid1) {"
-        Response.Write "  window.opener.top.MainContentIframe.LoadStoreWhenReady_ctl00_ContentPlaceHolder1_MTFilterGrid1();"
-        Response.Write "} else {"
-        'Response.Write "  window.opener.location.reload();"
-        Response.Write "  window.opener.location.href = (window.opener.location.href);"
-        Response.Write "}"
-        Response.Write "window.close();"
-        Response.Write "</script>"
-        Response.End
+    COMObject.Instance.Save
+  End If
 
-        OK_Click = TRUE
+  IF (Err.Number) Then
+    EventArg.Error.Save Err
+    OK_Click = FALSE
+    Err.Clear
+  Else
+    Response.Write "<script language='JavaScript'>"
+    Response.Write "if (window.opener.top.MainContentIframe.LoadStoreWhenReady_ctl00_ContentPlaceHolder1_MTFilterGrid1) {"
+    Response.Write "  window.opener.top.MainContentIframe.LoadStoreWhenReady_ctl00_ContentPlaceHolder1_MTFilterGrid1();"
+    Response.Write "} else {"
+    'Response.Write "  window.opener.location.reload();"
+    Response.Write "  window.opener.location.href = (window.opener.location.href);"
+    Response.Write "}"
+    Response.Write "window.close();"
+    Response.Write "</script>"
+    Response.End
+
+    OK_Click = TRUE
   End If    
 END FUNCTION
 ' ---------------------------------------------------------------------------------------------------------------------------------------

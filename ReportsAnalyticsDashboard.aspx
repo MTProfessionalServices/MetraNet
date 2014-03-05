@@ -7,4 +7,22 @@
 <div style="margin: 40px;border: 1px solid;padding: 15px 10px 15px 35px;background-repeat:no-repeat;background-position: 10px center;color: #9F6000;background-color:#FEEFB3;    background-image: url('/Res/Images/icons/error.png');">
     Under development
 </div>
+<script type="text/javascript">
+
+      function getNewCustomers() {
+        var result = "";
+        $.ajax({
+          type: 'POST',
+          async: true,
+          url: '\ReportController\NewCustomers',
+          success: function(data) {
+            result = data;
+          },
+          error: function () {
+          }
+        });
+        return result;
+      };
+
+</script>
 </asp:Content>

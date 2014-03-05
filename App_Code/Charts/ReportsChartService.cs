@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using MetraNet.DbContext;
 using System.Xml.Linq;
-using System.Globalization;
+using MetraNet.DbContext;
 
 
 namespace MetraNet.Charts
@@ -11,6 +9,7 @@ namespace MetraNet.Charts
 
   public static class ReportsChartService
   {
+    /*
     public static XElement NewCustomersByMonth(DataMart dbContext, string territoryCode)
     {
       var accountsByMonth = (from c in dbContext.Customer
@@ -1073,5 +1072,6 @@ namespace MetraNet.Charts
       return string.Concat(cultureInfo.GetAbbreviatedMonthName(currentMonth), "{BR}", year);
     }
 
+    */
   }
 }

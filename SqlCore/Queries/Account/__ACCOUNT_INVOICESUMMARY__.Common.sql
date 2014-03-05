@@ -1,4 +1,4 @@
-/* For a given account, what are the payments we want to show on Account 360*/
+/* For a given account, what are the invoices we want to show on Account 360*/
 /* Should use %%ACCOUNT_ID%% */
 /* TODO: Determine how much to reference; at moment select last 12 months?*/
         SELECT
@@ -7,6 +7,7 @@
           inv.id_payer as id_payer,
 		  phn.hierarchyname as payername,
           inv.id_invoice as id_invoice,
+		  inv.invoice_amount as invoice_amount,
           inv.id_invoice_num as id_invoice_num,
           inv.invoice_string as invoice_string,
           inv.invoice_date as invoice_date,
@@ -21,7 +22,10 @@
           inv.current_balance as current_balance
         FROM
           t_invoice inv
-          JOIN t_usage_interval interv ON inv.id_interval = interv.id_interval
+		  /* Hacked intervals not lining up
+		            JOIN t_usage_interval interv ON inv.id_interval = interv.id_interval
+		  Changed to left join for now*/
+          LEFT JOIN t_usage_interval interv ON inv.id_interval = interv.id_interval
 		  LEFT JOIN VW_HIERARCHYNAME ahn on inv.id_acc = ahn.id_acc
 		  LEFT JOIN VW_HIERARCHYNAME phn on inv.id_payer = phn.id_acc
         WHERE

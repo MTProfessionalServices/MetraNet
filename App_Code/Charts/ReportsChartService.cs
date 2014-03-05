@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Xml.Linq;
+using System.Linq;
 using MetraNet.DbContext;
+using System.Xml.Linq;
+using System.Globalization;
 
 
 namespace MetraNet.Charts
@@ -9,7 +11,7 @@ namespace MetraNet.Charts
 
   public static class ReportsChartService
   {
-    /*
+    
     public static XElement NewCustomersByMonth(DataMart dbContext, string territoryCode)
     {
       var accountsByMonth = (from c in dbContext.Customer
@@ -189,7 +191,7 @@ namespace MetraNet.Charts
       return chart.Render();
     }
 
-    public static XElement NewTCVByMonth(DataMart dbContext, string code)
+    /*public static XElement NewTCVByMonth(DataMart dbContext, string code)
     {
       var newTCV = (from subByMonth in dbContext.SubscriptionPrice
                     join sub in dbContext.SubscriptionTable on subByMonth.SubscriptionId equals sub.SubscriptionId
@@ -1003,32 +1005,7 @@ namespace MetraNet.Charts
       return chart.Render();
     }
 
-    /// <summary>
-    /// Get Common Style for chart caption
-    /// </summary>
-    /// <returns></returns>
-    private static Styles GetCommonStylesForChart(bool rightToLeft = false)
-    {
-      return
-        new Styles
-        {
-          Application = new List<Apply>
-                            {
-                              new Apply {ToObject = "Caption", Styles = "CaptionFont"},
-                            },
-          Definition = new List<Style>
-                           {
-                             new Style
-                               {
-                                 Typestyle = Typestyle.Font,
-                                 Color = "white",
-                                 Name = "CaptionFont",
-                                 Size = 18,
-                                 Align = rightToLeft ? NodeAndAttributeName.AlignRightAttributeValue : NodeAndAttributeName.AlignLeftAttributeValue
-                               },
-                           }
-        };
-    }
+    
 
 
     /// <summary>
@@ -1056,7 +1033,7 @@ namespace MetraNet.Charts
                                },
                            }
         };
-    }
+    }*/
 
     /// <summary>
     /// Get formatted label for category
@@ -1072,6 +1049,31 @@ namespace MetraNet.Charts
       return string.Concat(cultureInfo.GetAbbreviatedMonthName(currentMonth), "{BR}", year);
     }
 
-    */
+    /// <summary>
+    /// Get Common Style for chart caption
+    /// </summary>
+    /// <returns></returns>
+    private static Styles GetCommonStylesForChart(bool rightToLeft = false)
+    {
+      return
+        new Styles
+        {
+          Application = new List<Apply>
+                            {
+                              new Apply {ToObject = "Caption", Styles = "CaptionFont"},
+                            },
+          Definition = new List<Style>
+                           {
+                             new Style
+                               {
+                                 Typestyle = Typestyle.Font,
+                                 Color = "white",
+                                 Name = "CaptionFont",
+                                 Size = 18,
+                                 Align = rightToLeft ? NodeAndAttributeName.AlignRightAttributeValue : NodeAndAttributeName.AlignLeftAttributeValue
+                               },
+                           }
+        };
+    }
   }
 }

@@ -116,13 +116,13 @@
   </resheader>
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>    
+  </resheader>
   <data name="NO_RECORDS_TEXT" xml:space="preserve">
     <value>{IT}No records found.</value>
-  </data>  
+  </data>
   <data name="MTFilterGrid1Resource1.Title" xml:space="preserve">
     <value>{IT}Credit Note Documents</value>
-  </data>  
+  </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>{IT}MetraNet - View Credit Notes Issued</value>
   </data>
@@ -134,7 +134,7 @@
   </data>
   <data name="TEXT_DISPLAY_AMOUNT" xml:space="preserve">
     <value>{IT}Amount</value>
-  </data>    
+  </data>
   <data name="TEXT_CREATED_BY" xml:space="preserve">
     <value>{IT}Created By</value>
   </data>
@@ -146,17 +146,20 @@
   </data>
   <data name="TEXT_ID" xml:space="preserve">
     <value>{IT}Id</value>
-  </data> 
+  </data>
   <data name="TEXT_TAX" xml:space="preserve">
     <value>{IT}Tax</value>
   </data>
   <data name="TEXT_DISPLAY_TAX" xml:space="preserve">
     <value>{IT}Tax</value>
-  </data>   
+  </data>
   <data name="TEXT_TOTAL" xml:space="preserve">
     <value>{IT}Total</value>
-  </data> 
+  </data>
   <data name="TEXT_DISPLAY_TOTAL" xml:space="preserve">
     <value>{IT}Total</value>
-  </data>     
+  </data>
+  <data name="TEXT_STATUS" xml:space="preserve">
+    <value>{IT}Status</value>
+  </data>
 </root>

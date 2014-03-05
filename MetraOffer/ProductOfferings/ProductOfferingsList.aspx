@@ -94,8 +94,35 @@
 
     function NoActionsColRenderer(value, meta, record, rowIndex, colIndex, store)
     {
-        var str = String.format("&nbsp;&nbsp;<img src='/Res/Images/icons/package_gray.png' alt='{0}' />", "No Actions avalable");
+        //var str = String.format("&nbsp;&nbsp;<img src='/Res/Images/icons/package_gray.png' alt='{0}' />", "No Actions avalable");
+        //return str;
+
+        var str = "";
+
+        //For now we will allow only Copy Action on Master POs
+        //if (record.data.IsHidden)
+        //{
+        //    str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='unhide_{0}' title='{1}' href='JavaScript:UnHideProductOffering({0});'>  <img src='/Res/Images/icons/package_add.png' alt='{1}' /></a>", record.data.ProductOfferingId, "Unhide Product Offering");
+       // }
+        //else
+        //{
+            //str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='view_{0}'   title='{1}' href='JavaScript:ViewProductOffering({0});'>  <img src='/Res/Images/icons/package_go.png'   alt='{1}' /></a>", record.data.ProductOfferingId, "View Product Offering");
+            //str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='edit_{0}'   title='{1}' href='JavaScript:EditProductOffering({0});'>  <img src='/Res/Images/icons/pencil.png'       alt='{1}' /></a>", record.data.ProductOfferingId, "Edit Product Offering");
+            //str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='manage_{0}' title='{2}' href='JavaScript:CopyProductOffering(\"{0}\", \"{1}\");'><img src='/Res/Images/icons/copy.png' alt='{2}' /></a>", record.data.ProductOfferingId, escape(record.data.Currency), "Copy Product Offering"); 
+            str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='manage_{0}' title='{5}' href='JavaScript:CopyProductOffering(\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\");'><img src='/Res/Images/icons/copy.png' alt='{5}' /></a>", record.data.ProductOfferingId, escape(record.data.Name), escape(record.data.Description),escape(record.data.DisplayName),escape(record.data.Currency), "Copy Product Offering"); 
+            
+            //if (<%=(!(PartitionLibrary.IsPartition)).ToString().ToLower()%>)
+            //{
+            //    str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='hide_{0}'   title='{1}' href='JavaScript:HideProductOffering({0});'>  <img src='/Res/Images/icons/package_gray.png' alt='{1}' /></a>", record.data.ProductOfferingId, "Hide Product Offering");
+            //}
+
+            //if (<%=UI.CoarseCheckCapability("Delete Product Offerings").ToString().ToLower()%>)
+            //{
+            //    str += String.format("&nbsp;&nbsp;<a style='cursor:hand;' id='delete_{0}' title='{1}' href='JavaScript:DeleteProductOffering({0});'><img src='/Res/Images/icons/delete.png'       alt='{1}' /></a>", record.data.ProductOfferingId, "Delete Product Offering");
+            //}
+        //}
         return str;
+
     }
   
     function ViewProductOffering(POID)

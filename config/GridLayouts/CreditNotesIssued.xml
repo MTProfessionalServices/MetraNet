@@ -451,7 +451,7 @@
             <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
             <ObjectName>MetraTech.DomainModel.BaseTypes.CreditNoteDetail</ObjectName>
             <ID>CreditNotePDFStatus</ID>
-            <DataType>String</DataType>
+            <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>CreditNotePDFStatus</DataIndex>
             <IsColumn>true</IsColumn>
@@ -481,7 +481,26 @@
                 <Value><![CDATA[]]></Value>
             </ElementValue2>
             <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
+            <DropdownItems>
+                <DropdownItem>
+                    <Key>Pending</Key>
+                    <Value>
+                        <Value><![CDATA[Pending]]></Value>
+                    </Value>
+                </DropdownItem>
+                <DropdownItem>
+                    <Key>Failed</Key>
+                    <Value>
+                        <Value><![CDATA[Failed]]></Value>
+                    </Value>
+                </DropdownItem>
+                <DropdownItem>
+                    <Key>Successful</Key>
+                    <Value>
+                        <Value><![CDATA[Successful]]></Value>
+                    </Value>
+                </DropdownItem>
+            </DropdownItems>
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
@@ -517,7 +536,7 @@
             </ElementValue2>
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
-        </Element>		
+        </Element>
     </Elements>
     <ExpanderTemplate></ExpanderTemplate>
     <GridButtons></GridButtons>

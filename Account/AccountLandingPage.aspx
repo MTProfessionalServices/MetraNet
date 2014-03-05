@@ -133,6 +133,11 @@ padding-left: 3px !important ;
   <div class="widget" data-row="3" data-col="1" data-sizex="8" data-sizey="3">
   <MT:MTFilterGrid ID="SubscriptionSummaryGrid" runat="server" TemplateFileName="AccountSubscriptionSummary.xml" ExtensionName="Account" ></MT:MTFilterGrid>
   </div>
+  
+  <div class="widget" data-row="3" data-col="1" data-sizex="8" data-sizey="3">
+  <MT:MTFilterGrid ID="InvoiceSummaryGrid" runat="server" TemplateFileName="AccountInvoiceSummary.xml" ExtensionName="Account" ></MT:MTFilterGrid>
+  </div>
+
 
 <%--  <MT:MTFilterGrid ID="PaymentGrid" runat="server" TemplateFileName="AccountPaymentTransactionList.xml"
     ExtensionName="Account" ButtonAlignment="Center" Buttons="None" DefaultSortDirection="Ascending"
@@ -197,7 +202,7 @@ function typeColRenderer(value, meta, record, rowIndex, colIndex, store) {
  
 }
 
-//Testing GIT Update
+
 function subscritionInformationColRenderer(value, meta, record, rowIndex, colIndex, store) {
   meta.attr = 'style="white-space:normal"';
   var str = "";

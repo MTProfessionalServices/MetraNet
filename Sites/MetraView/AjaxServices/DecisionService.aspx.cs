@@ -25,7 +25,8 @@ public partial class AjaxServices_DecisionService : MTListServicePage
   {
     int id_interval;
     String str_interval = Request [ "id_interval" ];
-    if ( string.IsNullOrEmpty ( str_interval ) )
+    Logger.LogDebug("Looking for decisions for id_acc " + UI.User.AccountId );
+    if (string.IsNullOrEmpty(str_interval))
     {
       var billManager = new BillManager ( UI );
       var iv = billManager.GetCurrentInterval ();
@@ -45,12 +46,15 @@ public partial class AjaxServices_DecisionService : MTListServicePage
     {
       id_interval = int.Parse ( str_interval );
     }
+//	id_interval = 1051131934;
+    Logger.LogDebug("Looking for decisions for id_acc " + UI.User.AccountId + " and interval " + id_interval);
+    // id_interval = 1039138849;  // ME May 2013
+    // id_interval = 1041104929;  // ME Jun 2013
 
     using ( new HighResolutionTimer ( "DecisionService", 5000 ) )
     {
       using ( var conn = ConnectionManager.CreateConnection ( ) )
       {
-          Logger.LogDebug("Looking for decisions for id_acc " + UI.User.AccountId + " and interval " + id_interval  );
         using ( var stmt = conn.CreateAdapterStatement ( "MetraViewServices", "__MVIEW_GET_CURRENT_DECISION_STATE__" ) )
         {
           stmt.AddParam ( "%%ID_ACC%%", UI.User.AccountId );
@@ -74,6 +78,10 @@ public partial class AjaxServices_DecisionService : MTListServicePage
             bool first = true;
             foreach ( var d in decisions.Values )
             {
+			  if (!d.Enabled)
+			  {
+			    continue;
+			  }
               if ( !first )
               {
                 Response.Write ( "," );
@@ -87,16 +95,6 @@ public partial class AjaxServices_DecisionService : MTListServicePage
           }
         }
       }
-/*
-      var random = new Random ();
-      Response.Write ( "[{\"title\":\"Commitment\",\"subtitle\":\"Quarterly Commitment\",\"startDate\":\"January 12, 2013\",\"endDate\":\"April 11, 2013\",\"ranges\":[0,30000],\"measures\":[" + random.Next ( 35000 ) + "],\"markers\":[24500, 27000, 30000],\"tickTitle\":\"revenue ($)\",\"rangeTitles\":[\"\",\"Commitment Tier\"],\"measureTitles\":[\"$10,000 so far\",\"Projected to $27,000\"],\"markerTitles\":[\"Last time incurred shortfall of $5,500\",\"Projected shortfall charge of $3,000\", \"Commitment Threshold\"],\"rangeTicks\":[\"\"],\"markerClass\":[\"past\",\"bad\"],\"rangeClass\":[],\"measureRanges\":[]}" );
-      Response.Write ( ",{\"title\":\"Commitment\",\"subtitle\":\"Annual Commitment\",\"startDate\":\"October 17, 2012\",\"endDate\":\"October 16, 2013\",\"ranges\":[0,100000],\"measures\":[" + random.Next ( 110000 ) + "],\"markers\":[100000,111352.88,130000],\"tickTitle\":\"revenue ($)\",\"rangeTitles\":[\"\",\"Commitment Tier\"],\"measureTitles\":[\"$90,000 so far\",\"Projected to $130,000\"],\"markerTitles\":[\"Commitment Threshold\",\"Last time $111,352.88\", \"Projected $130,000\"],\"rangeTicks\":[\"\"],\"markerClass\":[\"\",\"past\",\"good\"],\"rangeClass\":[],\"measureRanges\":[]}" );
-      Response.Write ( ",{\"title\":\"Allowance\",\"subtitle\":\"Free Minutes\",\"startDate\":\"March 1, 2013\",\"endDate\":\"March 31, 2013\",\"ranges\":[0,1000],\"measures\":[1000, 3000],\"markers\":[1000],\"tickTitle\":\"minutes\",\"rangeTitles\":[\"\",\"Free Minutes\"],\"measureTitles\":[\"1,000 minutes @ $0\", \"2,000 minutes totalling $238.72\"],\"markerTitles\":[\"1000 Free Minutes\"],\"rangeTicks\":[\"Included\",\"Overage\"],\"markerClass\":[],\"rangeClass\":[\"selected\", \"selected\"],\"measureRanges\":[0,1]}" );
-      Response.Write ( ",{\"title\":\"Allowance\",\"subtitle\":\"Free Conferences\",\"startDate\":\"December 25, 2012\",\"endDate\":\"December 25, 2020\",\"ranges\":[0,10],\"measures\":[10],\"markers\":[10],\"tickTitle\":\"conferences\",\"rangeTitles\":[\"\",\"Free Conferences\"],\"measureTitles\":[\"10 conferences @ $0\"],\"markerTitles\":[\"10 Free Conferences\"],\"rangeTicks\":[\"Included\",\"Overage\"],\"markerClass\":[],\"rangeClass\":[\"selected\",\"future\"],\"measureRanges\":[0]}" );
-      Response.Write ( ",{\"title\":\"Pricing\",\"subtitle\":\"Multi-Bucket Pricing\",\"startDate\":\"January 1, 2013\",\"endDate\":\"June 30, 2013\",\"ranges\":[0,100,200,300,400,500],\"measures\":[100,200,300,400,450],\"markers\":[450],\"tickTitle\":\"minutes\",\"rangeTitles\":[\"\",\"$0.10 per minute\",\"$0.08 per minute\",\"$0.07 per minute\",\"$0.06 per minute\",\"$0.05 per minute\",\"$0.03 per minute\"],\"measureTitles\":[\"100 minutes @ $0.10\",\"100 minutes @ $0.08\",\"100 minutes @ $0.07\",\"100 minutes @ $0.06\",\"50 minutes @ $0.05\"],\"markerTitles\":[\"450 minutes\"],\"rangeTicks\":[\"$0.10\",\"$0.08\",\"$0.07\",\"$0.06\",\"$0.05\",\"$0.03\"],\"markerClass\":[],\"rangeClass\":[\"selected\",\"selected\",\"selected\",\"selected\",\"selected\",\"future\"],\"measureRanges\":[0,1,2,3,4]}" );
-      Response.Write ( ",{\"title\":\"Pricing\",\"subtitle\":\"Single-Bucket Pricing\",\"startDate\":\"March 1, 2013\",\"endDate\":\"March 31, 2013\",\"ranges\":[0,100,200,300,400,500],\"measures\":[350],\"markers\":[350],\"tickTitle\":\"minutes\",\"rangeTitles\":[\"\",\"$0.20 per minute\",\"$0.18 per minute\",\"$0.15 per minute\",\"$0.10 per minute\",\"$0.08 per minute\",\"$0.05 per minute\"],\"measureTitles\":[\"350 minutes @ $0.10\"],\"markerTitles\":[\"350 minutes\"],\"rangeTicks\":[\"$0.20\",\"$0.18\",\"$0.15\",\"$0.10\",\"$0.08\",\"$0.05\"],\"markerClass\":[],\"rangeClass\":[\"expired\",\"expired\",\"expired\",\"selected\",\"future\",\"future\"],\"measureRanges\":[3]}" );
-      Response.Write ( "]" );
- * */
       Response.End ();
     }
 
@@ -274,11 +272,20 @@ public class BucketInstance
         string [] headers = GetHeaders ( Convert.ToInt32 ( values [ 0 ] ) );
         for ( int j = 0; j < headers.Length; j++ )
         {
-          DecisionInstAttributes [ headers [ j ] ] = values [ j + 1 ];
-          Logger.LogDebug ( "\t" + headers [ j ] + " = " + values [ j + 1 ] );
+		  decimal dec;
+		  string av = values [ j + 1 ];
+		  if ((!string.IsNullOrEmpty(av)) && Decimal.TryParse(av, out dec))
+		  {
+            DecisionInstAttributes [ headers [ j ] ] = dec;
+		  }
+		  else
+		  {
+            DecisionInstAttributes [ headers [ j ] ] = av;
+		  }
+          Logger.LogDebug ( "\t" + headers [ j ] + " = " + av );
           if ( headers [ j ].Equals ( "tier_start", StringComparison.InvariantCultureIgnoreCase ) )
           {
-		    if (!string.IsNullOrEmpty(values [ j + 1 ]))
+		    if (!hasStart && !string.IsNullOrEmpty(values [ j + 1 ]))
 		    {
               TierStart = Convert.ToDecimal(values [ j + 1 ]);
 			  hasStart = true;
@@ -286,7 +293,7 @@ public class BucketInstance
           }
           else if ( headers [ j ].Equals ( "tier_end", StringComparison.InvariantCultureIgnoreCase ) )
           {
-		    if (!string.IsNullOrEmpty(values [ j + 1 ]))
+		    if (!hasEnd && !string.IsNullOrEmpty(values [ j + 1 ]))
 		    {
               TierEnd = Convert.ToDecimal ( values [ j + 1 ] );
 			  hasEnd = true;
@@ -306,7 +313,7 @@ public class BucketInstance
 	}
 	if (!hasEnd)
 	{
-	  TierEnd = TierStart;
+//	  TierEnd = TierStart;
 	}
 	
     object DecisionIdFormat;
@@ -317,6 +324,7 @@ public class BucketInstance
       DecisionIdFormat = "{id_acc}:{id_sub}:{id_po}:{id_sched}:{id_pi_template}:{id_pi_instance}";
     }
     DecisionId = Format(DecisionIdFormat as string);
+
   }
 
   // TODO: cache this
@@ -413,7 +421,8 @@ public class BucketInstance
         indexes.Add ( key, i++ );
       }
     }
-    var regex = new System.Text.RegularExpressions.Regex ( @"(?<open>{+)(?<key>[^}:]+)(?<format>:[^}]+)?(?<close>}+)", System.Text.RegularExpressions.RegexOptions.Compiled );
+    var textInfo = System.Globalization.CultureInfo.CurrentUICulture.TextInfo; ;
+    var regex = new System.Text.RegularExpressions.Regex(@"(?<open>{+)(?<key>[^}:]+)(?<format>:[^}]+)?(?<close>}+)", System.Text.RegularExpressions.RegexOptions.Compiled);
     System.Text.RegularExpressions.MatchEvaluator evaluator = ( m ) =>
     {
       if ( m.Success )
@@ -451,11 +460,11 @@ public class BucketInstance
           if ( ( !string.IsNullOrEmpty ( fmt ) ) && fmt.Equals ( ":C", StringComparison.InvariantCultureIgnoreCase ) && DecisionInstAttributes.TryGetValue ( "tier_currency", out currency ) )
           {
             // TODO: lookup correct currency format for currency, and use that to format string
-            return string.Format ( "{0}{1}{2}{3}", open, index, fmt, close );
+            return textInfo.ToTitleCase(string.Format ( "{0}{1}{2}{3}", open, index, fmt, close ));
           }
           else
           {
-            return string.Format ( "{0}{1}{2}{3}", open, index, fmt, close );
+            return textInfo.ToTitleCase(string.Format ( "{0}{1}{2}{3}", open, index, fmt, close ));
           }
         }
         else
@@ -463,11 +472,11 @@ public class BucketInstance
           return string.Empty;
         }
       }
-      return m.Value;
+      return textInfo.ToTitleCase(m.Value);
     };
 
     var fm = regex.Replace ( format, evaluator );
-    return string.Format ( fm, array );
+    return textInfo.ToTitleCase(string.Format ( fm, array ));
   }
 
   private bool TryGetLocalizedString(string baseKey, out object value)
@@ -509,7 +518,7 @@ public class BucketInstance
           }
           else
           {
-              return "{per_unit_rate}";// string.Empty;
+              return string.Empty;
           }
       }
   }
@@ -557,7 +566,7 @@ public class BucketInstance
           }
           else
           {
-              return "{qualified_events:#} events qualified";
+              return string.Empty;
           }
       }
   }
@@ -575,6 +584,68 @@ public class BucketInstance
 
 public class DecisionInstance
 {
+  public bool Enabled
+  {
+      get
+      {
+          string val;
+          if (DecisionTypeAttributes.TryGetValue("nowcast_enabled", out val))
+          {
+              if (!string.IsNullOrEmpty(val))
+              {
+				  if (val.Equals("1"))
+				  {
+				    return true;
+				  }
+				  if (val.Equals("0"))
+				  {
+				    return false;
+				  }
+                  return Convert.ToBoolean(val);
+              }
+              else
+              {
+                  return true;
+              }
+          }
+          else
+          {
+              return true;
+          }
+      }
+  }
+  
+  public bool MeasureQualifiedTotal
+  {
+      get
+      {
+          string val;
+          if (DecisionTypeAttributes.TryGetValue("measure_qualified_total", out val))
+          {
+              if (!string.IsNullOrEmpty(val))
+              {
+				  if (val.Equals("1"))
+				  {
+				    return true;
+				  }
+				  if (val.Equals("0"))
+				  {
+				    return false;
+				  }
+                  return Convert.ToBoolean(val);
+              }
+              else
+              {
+                  return false;
+              }
+          }
+          else
+          {
+              return false;
+          }
+      }
+  }
+  
   public string DecisionId
   {
     get;
@@ -611,17 +682,33 @@ public class DecisionInstance
       DecisionTypeAttributes [ headers [ j ] ] = values [ j + 1 ];
     }
     IntervalId = rdr.GetInt32 ( "id_usage_interval" );
+	DecisionTypeAttributes["tier_column_group"] = rdr.GetString("tier_column_group");
     for (int i = 0; i < rdr.FieldCount; i++)
     {
         if (rdr.GetName(i).Equals("start_date", StringComparison.InvariantCultureIgnoreCase) && !rdr.IsDBNull(i))
         {
-            StartDate = rdr.GetDateTime(i);
+			StartDate = rdr.GetDateTime(i);
         }
         else if (rdr.GetName(i).Equals("end_date", StringComparison.InvariantCultureIgnoreCase) && !rdr.IsDBNull(i))
         {
-            EndDate = rdr.GetDateTime(i);
+			EndDate = rdr.GetDateTime(i);
         }
     }
+	var cycle = DecisionTypeAttributes["cycle_unit_type"];
+	if (!string.IsNullOrEmpty(cycle) && "interval".Equals(cycle, StringComparison.InvariantCultureIgnoreCase))
+	{
+	  var istart = rdr.GetDateTime("dt_slice_start");
+	  if (istart != null)
+	  {
+	    StartDate = istart;
+	  }
+	  var iend = rdr.GetDateTime("dt_slice_end");	  
+	  if (iend != null)
+	  {
+	    EndDate = iend;
+	  }
+	}
+
   }
 
   public DateTime StartDate
@@ -636,6 +723,15 @@ public class DecisionInstance
     set;
   }
 
+  public string OverageTitle
+  {
+    get
+    {
+      string txt = GetLocalizedString ( "overage_title" );
+	  return txt;
+	}
+  }
+  
   public string Title
   {
     get
@@ -645,10 +741,12 @@ public class DecisionInstance
       {
         txt = DecisionType;
       }
-      else
+      if (string.IsNullOrEmpty(txt))
       {
-        return Format ( txt );
+          txt = GetLocalizedString("tier_column_group");
       }
+	  txt = Format ( txt );
+
       if ( string.IsNullOrEmpty ( txt ) )
       {
         txt = "Unnamed Decision";
@@ -675,6 +773,58 @@ public class DecisionInstance
     get
     {
       string txt = GetLocalizedString ( "subtitle" );
+      if ( string.IsNullOrEmpty ( txt ) )
+      {
+        txt = string.Empty;
+      }
+      else
+      {
+        return Format ( txt );
+      }
+      return txt;
+    }
+  }
+
+  public string MarkerTitle
+  {
+    get
+    {
+      string txt = GetLocalizedString ( "marker_title" );
+      if ( string.IsNullOrEmpty ( txt ) )
+      {
+        txt = string.Empty;
+      }
+      else
+      {
+        return Format ( txt );
+      }
+      return txt;
+    }
+  }
+
+  public string ProjectedMarkerBeforeTitle
+  {
+    get
+    {
+      string txt = GetLocalizedString ( "projected_marker_before_title" );
+      if ( string.IsNullOrEmpty ( txt ) )
+      {
+        txt = string.Empty;
+      }
+      else
+      {
+        return Format ( txt );
+      }
+      return txt;
+    }
+  }
+
+  public string ProjectedMarkerAfterTitle
+  {
+    get
+    {
+      string txt = GetLocalizedString ( "projected_marker_after_title" );
+	  txt = "Projected Amount: {projected_amount:c}";
       if ( string.IsNullOrEmpty ( txt ) )
       {
         txt = string.Empty;
@@ -727,6 +877,7 @@ public class DecisionInstance
         indexes.Add ( key, i++ );
       }
     }
+    var textInfo = System.Globalization.CultureInfo.CurrentUICulture.TextInfo; ;
 
     var regex = new System.Text.RegularExpressions.Regex ( @"(?<open>{+)(?<key>\w+)(?<format>:[^}]+)?(?<close>}+)", System.Text.RegularExpressions.RegexOptions.Compiled );
     System.Text.RegularExpressions.MatchEvaluator evaluator = ( m ) =>
@@ -766,11 +917,11 @@ public class DecisionInstance
           if ( ( !string.IsNullOrEmpty ( fmt ) ) && fmt.Equals ( ":C", StringComparison.InvariantCultureIgnoreCase ) && DecisionTypeAttributes.TryGetValue ( "tier_currency", out currency ) )
           {
             // TODO: lookup correct currency format for currency, and use that to format string
-            return string.Format ( "{0}{1}{2}{3}", open, index, fmt, close );
+            return textInfo.ToTitleCase(string.Format ( "{0}{1}{2}{3}", open, index, fmt, close ));
           }
           else
           {
-            return string.Format ( "{0}{1}{2}{3}", open, index, fmt, close );
+            return textInfo.ToTitleCase(string.Format ( "{0}{1}{2}{3}", open, index, fmt, close ));
           }
         }
         else
@@ -778,10 +929,10 @@ public class DecisionInstance
           return string.Empty;
         }
       }
-      return m.Value;
+      return textInfo.ToTitleCase( m.Value);
     };
 
-    return string.Format ( regex.Replace ( format, evaluator ), array );
+    return textInfo.ToTitleCase(string.Format ( regex.Replace ( format, evaluator ), array ));
   }
 
   public string DatesText
@@ -801,7 +952,7 @@ public class DecisionInstance
       {
         txt = string.Empty;
       }
-      return txt;
+      return Format(txt);
     }
   }
 
@@ -810,6 +961,10 @@ public class DecisionInstance
     get
     {
       string txt = GetLocalizedString ( "tick_title" );
+      if ( string.IsNullOrEmpty ( txt ) )
+      {
+        txt = "Minutes";
+      }
       if ( string.IsNullOrEmpty ( txt ) )
       {
         txt = TierMetric;
@@ -827,17 +982,27 @@ public class DecisionInstance
     get
     {
       List<decimal> list = new List<decimal> ();
+	  decimal maxTier = decimal.MinValue;
+	  decimal maxTotal = decimal.MinValue;
       foreach ( var b in BucketInstances )
       {
         if ( !list.Contains ( b.TierStart ) )
         {
           list.Add ( b.TierStart );
         }
-        if ( !list.Contains ( b.TierEnd ) )
+		var m = b.TierEnd;
+		if (m == decimal.MaxValue) m = b.QualifiedTotal;
+        if ( !list.Contains ( m ) )
         {
-          list.Add ( b.TierEnd );
+          list.Add ( m );
         }
+		if (m > maxTier) maxTier = m;
+//		if (b.QualifiedTotal > maxTotal) maxTotal = b.QualifiedTotal;
       }
+	  if (maxTotal != 0 && maxTotal > maxTier)
+	  {
+	    list.Add(maxTotal);
+	  }
       list.Sort ();
       return list;
     }
@@ -853,11 +1018,12 @@ public class DecisionInstance
 	  if (b.QualifiedTotal > 0.0m)
 	  {
 	    var m = b.QualifiedTotal;
+		if (m < b.TierStart) continue;
 		if ( m > b.TierEnd )
 		{
 		  m = b.TierEnd;
 		}
-        if ( !list.Contains ( b.QualifiedTotal ) )
+        if ( MeasureQualifiedTotal && !list.Contains ( b.QualifiedTotal ) )
         {
           list.Add ( b.QualifiedTotal );
         }
@@ -865,7 +1031,7 @@ public class DecisionInstance
         {
           list.Add ( m );
         }
-		}
+      }
       }
 	  if (list.Count == 0)
 	  {
@@ -884,12 +1050,14 @@ public class DecisionInstance
         int i = 0;
         foreach (var b in BucketInstances)
         {
-            if (b.QualifiedTotal > 0.0m)
+            if (b.QualifiedTotal > b.TierStart)
             {
                 list.Add(i);
             }
             i++;
         }
+		list.Add(i);
+		
         return list;
     }
   }
@@ -902,9 +1070,11 @@ public class DecisionInstance
       decimal max = decimal.MinValue;
       foreach ( var b in BucketInstances )
       {
-          if (b.QualifiedTotal > max)
+	  var m = b.QualifiedTotal;
+	  if (m > b.TierEnd) m = b.TierEnd;
+          if (m > max)
           {
-              max = b.QualifiedTotal;
+              max = m;
           }
       }
       if (max > decimal.MinValue)
@@ -921,7 +1091,8 @@ public class DecisionInstance
               if (d > 0.0 && n > d)
               {
                   var ratio = n / d;
-                  list.Add(max * ((decimal) ratio));
+				  var a = max * ((decimal) ratio);
+                  list.Add(a);
               }
           }
       }
@@ -1007,7 +1178,11 @@ public class DecisionInstance
         List<string> list = new List<string>();
         foreach (var b in BucketInstances)
         {
-            if (b.TierStart > b.QualifiedTotal)
+			if (b.QualifiedTotal == 0.0m)
+			{
+                list.Add("expired");
+			}
+            else if (b.TierStart > b.QualifiedTotal)
             {
                 list.Add("future");
             }
@@ -1029,6 +1204,7 @@ public class DecisionInstance
     get
     {
         List<string> list = new List<string>();
+		list.Add("");
         foreach (var b in BucketInstances)
         {
             list.Add(b.RangeTitle);
@@ -1044,7 +1220,10 @@ public class DecisionInstance
         List<string> list = new List<string>();
         foreach (var b in BucketInstances)
         {
-            list.Add(b.MeasureTitle);
+		    if (b.QualifiedTotal > b.TierStart)
+			{
+				list.Add(b.MeasureTitle);
+			}
         }
         return list;
     }
@@ -1054,7 +1233,47 @@ public class DecisionInstance
   {
     get
     {
-      return null; // TODO: implement
+        List<string> list = new List<string>();
+        decimal max = decimal.MinValue;
+        decimal end = decimal.MinValue;
+        foreach (var b in BucketInstances)
+        {
+            if (b.QualifiedTotal > max)
+            {
+                max = b.QualifiedTotal;
+            }
+            if (b.TierEnd > end)
+            {
+                end = b.TierEnd;
+            }
+        }
+        if (max > decimal.MinValue)
+        {
+            list.Add(MarkerTitle);
+            if (IncludeProjections)
+            {
+                var n = (EndDate - StartDate).TotalSeconds;
+                var d = (MetraTech.MetraTime.Now - StartDate).TotalSeconds;
+                if (MetraTech.MetraTime.Now > EndDate)
+                {
+                    d = n;
+                }
+                if (d > 0.0 && n > d)
+                {
+                    var ratio = n / d;
+                    var projected = max * ((decimal)ratio);
+                    if (projected > end)
+                    {
+                        list.Add(ProjectedMarkerAfterTitle);
+                    }
+                    else
+                    {
+                        list.Add(ProjectedMarkerBeforeTitle);
+                    }
+                }
+            }
+        }
+        return list;
     }
   }
 
@@ -1067,6 +1286,11 @@ public class DecisionInstance
       {
           list.Add ( b.RangeTick );
       }
+	  var overage = OverageTitle;
+	  if (!string.IsNullOrEmpty(overage))
+	  {
+		list.Add(overage);
+	  }
       return list;
     }
   }

@@ -14,5 +14,11 @@
 <ul>
 <asp:Literal ID="QuoteList" runat="server"></asp:Literal>
 </ul>
+<p></p>
+<h1><%=Resources.Resource.TEXT_DOWNLOAD_CREDIT_NOTES %></h1>
+<p></p>
+<ul>
+<asp:Literal ID="CreditNoteList" runat="server"></asp:Literal>
+</ul>
 </asp:Content>
 

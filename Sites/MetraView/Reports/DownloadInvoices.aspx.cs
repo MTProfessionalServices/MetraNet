@@ -113,6 +113,45 @@ public partial class Reports_DownloadInvoices : MTPage
       QuoteList.Text = sb.ToString();
 
 
+      //fill CreditNotes list
+
+      var creditNotesReports = billManager.GetCreditNotesReports();
+      sb = new StringBuilder();
+
+      if (creditNotesReports != null && creditNotesReports.Count > 0)
+      {
+        if (Session[SiteConstants.CREDIT_NOTES_REPORT_DICTIONARY] == null)
+        {
+          Session[SiteConstants.CREDIT_NOTES_REPORT_DICTIONARY] = new Dictionary<string, ReportFile>();
+        }
+
+        var creditNotesReportDictionary = Session[SiteConstants.CREDIT_NOTES_REPORT_DICTIONARY] as Dictionary<string, ReportFile>;
+
+        foreach (var reportFile in creditNotesReports)
+        {
+          // The reportFile objects are stored in a dictionary and the name is passed to ShowReports.aspx
+          if (creditNotesReportDictionary != null)
+          {
+            if (!creditNotesReportDictionary.ContainsKey(String.Format("{0}", reportFile.FileName)))
+            {
+              creditNotesReportDictionary.Add((String.Format("{0}", reportFile.FileName)), reportFile);
+            }
+          }
+          string reportToList = AddReportToCreditNotesList(reportFile.FileName, intervalID);
+
+          if (!string.IsNullOrEmpty(reportToList))
+          {
+            sb.Append(reportToList);
+            Logger.LogInfo((string)GetLocalResourceObject("AddCreditNoteReport.Text"), reportFile.FileName);
+          }
+        }
+      }
+      else
+      {
+        sb.Append(GetLocalResourceObject("NoCreditNotes.Text"));
+      }
+      CreditNoteList.Text = sb.ToString();
+
     }
     catch (Exception exp)
     {
@@ -135,7 +174,7 @@ public partial class Reports_DownloadInvoices : MTPage
           {
             reportToList =
               String.Format(
-                "<li><a href=\"{0}/Reports/ShowReports.aspx?report={1}\"><img src='{2}'/>{3}</a></li>",
+                "<li><a href=\"{0}/Reports/ShowReports.aspx?report={1}&reportType=invoice\"><img src='{2}'/>{3}</a></li>",
                 Request.ApplicationPath,
                 Server.UrlEncode(String.Format("{0}_{1}", reportFileName, intervalID)),
                 format.Element("ReportImage").Value,
@@ -143,6 +182,29 @@ public partial class Reports_DownloadInvoices : MTPage
           }
         }
       return reportToList;
+  }
+
+  private string AddReportToCreditNotesList(string reportFileName, int intervalID)
+  {
+
+    string reportFormat = Path.GetExtension(reportFileName);
+    string reportToList = String.Empty;
+
+    foreach (XElement format in reportFormats.Root.Elements())
+    {
+      if (format.Attribute("type").Value.Equals(reportFormat))
+      {
+        reportToList =
+          String.Format(
+            "<li><a href=\"{0}/Reports/ShowReports.aspx?report={1}&reportType=creditnote\"><img src='{2}'/>{3}</a></li>",
+            Request.ApplicationPath,
+            Server.UrlEncode(String.Format("{0}", reportFileName)),
+            format.Element("ReportImage").Value,
+            reportFileName);
+      }
+    }
+    return reportToList;
+ 
   }
 
   private string AddReportToQuoteList(string reportFileName, int intervalID)
@@ -156,7 +218,7 @@ public partial class Reports_DownloadInvoices : MTPage
           {
               reportToList =
                 String.Format(
-                  "<li><a href=\"{0}/Reports/ShowReports.aspx?report={1}&isQuote=yes\"><img src='{2}'/>{3}</a></li>",
+                  "<li><a href=\"{0}/Reports/ShowReports.aspx?report={1}&reportType=quote\"><img src='{2}'/>{3}</a></li>",
                   Request.ApplicationPath,
                   Server.UrlEncode(String.Format("{0}_{1}", reportFileName, intervalID)),
                   format.Element("ReportImage").Value,

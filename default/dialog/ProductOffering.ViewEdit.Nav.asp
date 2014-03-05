@@ -139,20 +139,17 @@ function NavigateToRates(id,pi_id)
   {
     window.open(sNewLocation,"","");
   }
-  
 }
 
-function NavigateToPreviousSearchResults()
-{
-    if ((parent.document.all("ProductOfferingView")) && (parent.document.all("ProductOfferingView").all("ProductOfferingNav")))
-      parent.document.all("ProductOfferingView").all("ProductOfferingNav").rows = '*,0';
-    parent.frames["ProductOfferingMain"].location = "ProductOffering.List.asp?NextPage=/mcm/default/dialog/ProductOffering.ViewEdit.Frame.asp&amp;Title=TEXT_KEYTERM_PRODUCT_OFFERINGS&amp;LinkColumnMode=TRUE&amp;mdmAction=REFRESH";
-}
-var last;
+  function NavigateToPreviousSearchResults()
+  {
+    var targetURL="/MetraNet/MetraOffer/ProductOfferings/ProductOfferingsList.aspx";
+    window.parent.location.href = targetURL;
+    window.parent.close();
+  }
 
-
-
-      var strBaseImagePath = '/mcm/default/localized/en-us/images/Icons/'; //sectionExpand.gif" width="16" height="16" alt="" border="0">")%>';
+  var last;
+  var strBaseImagePath = '/mcm/default/localized/en-us/images/Icons/'; //sectionExpand.gif" width="16" height="16" alt="" border="0">")%>';
 
       function ToggleRow(strRow, strImage) {
         var strImageHref;

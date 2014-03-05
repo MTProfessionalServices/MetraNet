@@ -137,6 +137,7 @@
 
 text-align: center;
 background-color: #f9f9f9;
+  background-size: contain;
 background-image: url(/Res/Ext/resources/images/metranet/grid/grid3-hrow2.gif);
 FONT: normal 11px/15px arial, tahoma, helvetica, sans-serif;
 border-right: 1px solid #eee;

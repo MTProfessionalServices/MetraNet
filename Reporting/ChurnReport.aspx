@@ -12,8 +12,6 @@
   <script type="text/javascript" src="/Res/JavaScript/Renderers.js"></script>
   <link rel="stylesheet" type="text/css" href="/Res/Styles/jquery.gridster.css">
   <link rel="stylesheet" type="text/css" href="/Res/Styles/dc.css">
-  <style>
-  </style>
   <MT:MTTitle ID="MTTitle1" Text="Churn Report" runat="server" meta:resourcekey="MTTitle1Resource1" />
   <br />
   <div class="remaining-graphs span8">

@@ -11,12 +11,13 @@ namespace MetraNet.MetraOffer.ProductOfferings
 {
   public partial class MetraOfferCreateProductOffering : MTPage
   {
-
     public BaseProductOffering ProductOffering
     {
       get { return ViewState["productoffering"] as BaseProductOffering; } //The ViewState labels are immaterial here..
       set { ViewState["productoffering"] = value; }
     }
+
+    public bool IsPartition { get { return PartitionLibrary.PartitionData.isPartitionUser; } }
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -37,7 +38,7 @@ namespace MetraNet.MetraOffer.ProductOfferings
 
         ProductOffering.Currency = SystemCurrencies.USD; //Default Currency set to USD on page load
 
-        if (PartitionLibrary.PartitionData.isPartitionUser)
+        if (IsPartition)
         {
           ProductOffering.POPartitionId = PartitionLibrary.PartitionData.POPartitionId;
           ProductOffering.Name = PartitionLibrary.PartitionData.PartitionUserName + ":";

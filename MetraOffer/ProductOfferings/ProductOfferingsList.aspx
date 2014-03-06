@@ -22,25 +22,20 @@
     <script type="text/javascript" language="javascript" src="/mcm/default/lib/PopupEdit.js"></script>
 
     <script language="javascript" type="text/javascript">
-    CreateProductOffering_<%=MTFilterGrid1.ClientID%> = function()
-    {
-//        var targetURL= "/MetraNet/TicketToMCM.aspx?Redirect=True&Title=Create New Product Offerings&URL=/mcm/default/dialog/wizard/CreatePO/wizardstart.asp|Path=/mcm/default/dialog/wizard/CreatePO**PageID=start";
+      CreateProductOffering_<%=MTFilterGrid1.ClientID%> = function() {
+        //var targetURL= "/MetraNet/TicketToMCM.aspx?Redirect=True&Title=Create New Product Offerings&URL=/mcm/default/dialog/wizard/CreatePO/wizardstart.asp|Path=/mcm/default/dialog/wizard/CreatePO**PageID=start";
         //OpenModalWindow(targetURL);
-    location.href = '/MetraNet/MetraOffer/ProductOfferings/CreateProductOffering.aspx';
-    }
+        location.href = '/MetraNet/MetraOffer/ProductOfferings/CreateProductOffering.aspx';
+      };
 
-    OverrideRenderer_<%=MTFilterGrid1.ClientID%> = function(cm)
-    {
-        if (<%=isMaster.ToString().ToLower()%>)
-        {
-            cm.setRenderer(cm.getIndexById('ProductOfferingId'), NoActionsColRenderer);
+      OverrideRenderer_<%=MTFilterGrid1.ClientID%> = function(cm) {
+        if (<%=IsMaster.ToString().ToLower()%>) {
+          cm.setRenderer(cm.getIndexById('ProductOfferingId'), NoActionsColRenderer);
+        } else {
+          cm.setRenderer(cm.getIndexById('Name'), NameColRenderer);
+          cm.setRenderer(cm.getIndexById('ProductOfferingId'), ActionsColRenderer);
         }
-        else
-        {
-            cm.setRenderer(cm.getIndexById('Name'), NameColRenderer); 
-            cm.setRenderer(cm.getIndexById('ProductOfferingId'), ActionsColRenderer);
-        }
-    }
+      };
   
     function NameColRenderer(value, meta, record, rowIndex, colIndex, store)
     {

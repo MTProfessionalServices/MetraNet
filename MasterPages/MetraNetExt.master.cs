@@ -228,7 +228,7 @@ public partial class MasterPages_MetraNetExt : System.Web.UI.MasterPage
                   contentEl: 'accountTree',
                   title:TEXT_ACCOUNT_HIERARCHY,
                   border:false,
-                  autoScroll:true,
+                  autoScroll:false,
                   layout:'fit'
                 },";
     }

@@ -119,8 +119,14 @@ padding-left: 3px !important ;
   <div class="widget" data-row="1" data-col="1" data-sizex="3" data-sizey="1">
   <div id="AccountSummaryInformation" style="padding: 15px;"></div>
   </div>
+  
+  <div class="widget" data-row="1" data-col="4" data-sizex="3" data-sizey="1">
+    <div id="AccountBalanceInformation" style="padding: 15px;"></div>
+  </div>
+
   <div class="widget" data-row="2" data-col="1" data-sizex="8" data-sizey="1">
-  <img src="/Res/Images/Mockup/MetangaAccountSummaryAnalytic.png" width="720px;" style="padding: 15px;"/>
+<%--  <img src="/Res/Images/Mockup/MetangaAccountSummaryAnalytic.png" width="720px;" style="padding: 15px;"/>--%>
+
   </div>
 
 <%--  <div class="widget" data-row="3" data-col="1" data-sizex="8" data-sizey="3">
@@ -134,10 +140,15 @@ padding-left: 3px !important ;
   <MT:MTFilterGrid ID="SubscriptionSummaryGrid" runat="server" TemplateFileName="AccountSubscriptionSummary.xml" ExtensionName="Account" ></MT:MTFilterGrid>
   </div>
   
-  <div class="widget" data-row="3" data-col="1" data-sizex="8" data-sizey="3">
+  <div class="widget" data-row="4" data-col="1" data-sizex="8" data-sizey="3">
   <MT:MTFilterGrid ID="InvoiceSummaryGrid" runat="server" TemplateFileName="AccountInvoiceSummary.xml" ExtensionName="Account" ></MT:MTFilterGrid>
   </div>
-
+  
+  <div class="widget" data-row="5" data-col="1" data-sizex="8" data-sizey="3">
+    <MT:MTPanel ID="Counters" runat="server" Text="Counters" Collapsed=false>
+                 <br/>
+    </MT:MTPanel>
+  </div>
 
 <%--  <MT:MTFilterGrid ID="PaymentGrid" runat="server" TemplateFileName="AccountPaymentTransactionList.xml"
     ExtensionName="Account" ButtonAlignment="Center" Buttons="None" DefaultSortDirection="Ascending"
@@ -368,6 +379,11 @@ function subscritionInformationColRenderer(value, meta, record, rowIndex, colInd
       '</tpl>',
       '</tpl>',
       '<span class="AccountIdentifier">{UserName} ({_AccountID})</span><br/>',
+      '<br><span>Account Status: {AccountStatusValueDisplayName} <a href="/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/AccountStateSetup.asp">Change</a></span><br/>',
+      '{AccountStartDate}<br/>',
+      '<span>Payer {_AccountID} {PayerID} {PayerAccount} </span><br/>',
+      //'{Internal.UsageCycleTypeValueDisplayName} {Internal.Currency} {Internal.LanguageValueDisplayName}<br/>',
+      '<span>Balance: $23,345 as of Feb. 15, 2014</span><br/>',
            
 
 
@@ -468,7 +484,7 @@ function subscritionInformationColRenderer(value, meta, record, rowIndex, colInd
 
 
       var jsonData = getFrameMetraNet().accountJSON;
-      var templateData = baseAccount360Tpl //getFrameMetraNet().accountTemplate;
+      var templateData = baseAccount360Tpl; //getFrameMetraNet().accountTemplate;
 
       if (jsonData === undefined)
         return;

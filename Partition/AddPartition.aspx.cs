@@ -259,12 +259,12 @@ public partial class AddPartition : MTAccountPage
         {
             Account.AuthenticationType = (AuthenticationType)EnumHelper.GetGeneratedEnumByEntry(typeof(AuthenticationType), ddAuthenticationType.SelectedValue);
 
-            Page.Validate();
-
             // "System Users" container must always be created
             cbSystemUsers.Enabled = false; //Fix for CORE-7387 we don't want the user to select or deselect this check box 
             cbSystemUsers.Checked = true;
 
+            Page.Validate();  
+          
             MTDataBinder1.Unbind();
             AddPartitionEvents_AddPartition_Client add = new AddPartitionEvents_AddPartition_Client();
             add.In_Account = Account;

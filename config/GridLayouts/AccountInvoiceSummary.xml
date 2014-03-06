@@ -157,7 +157,7 @@
             <DataIndex>invoice_date</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[invoice_date]]></Value>
+                <Value><![CDATA[Date]]></Value>
             </HeaderText>
             <Formatter>DateRenderer</Formatter>
             <Width>120</Width>

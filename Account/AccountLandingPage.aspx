@@ -92,6 +92,7 @@ padding-left: 3px !important ;
   </style>
 
   <script type="text/javascript">
+      //Initialize gridster
 //    jQuery(function () {
 //      var widgets = $('.widget');
 
@@ -119,10 +120,15 @@ padding-left: 3px !important ;
   <div class="widget" data-row="1" data-col="1" data-sizex="3" data-sizey="1">
   <div id="AccountSummaryInformation" style="padding: 15px;"></div>
   </div>
+<%--  
+  <div class="x-panel mtpanel-inner">
+    <div id="AccountBalanceInformation" style="padding: 15px;">Balance Information</div>
+  </div>--%>
   
-  <div class="widget" data-row="1" data-col="4" data-sizex="3" data-sizey="1">
-    <div id="AccountBalanceInformation" style="padding: 15px;"></div>
-  </div>
+  <MT:MTPanel ID="MTPanel1" runat="server" Collapsed=false Collapsible="False" Visible="False" >
+    <div id="AccountBalanceInformation"></div>
+  </MT:MTPanel>
+
 
   <div class="widget" data-row="2" data-col="1" data-sizex="8" data-sizey="1">
 <%--  <img src="/Res/Images/Mockup/MetangaAccountSummaryAnalytic.png" width="720px;" style="padding: 15px;"/>--%>
@@ -135,7 +141,7 @@ padding-left: 3px !important ;
 
 <%--  	  </ul>--%>
 
-  
+ 
   <div class="widget" data-row="3" data-col="1" data-sizex="8" data-sizey="3">
   <MT:MTFilterGrid ID="SubscriptionSummaryGrid" runat="server" TemplateFileName="AccountSubscriptionSummary.xml" ExtensionName="Account" ></MT:MTFilterGrid>
   </div>
@@ -146,9 +152,10 @@ padding-left: 3px !important ;
   
   <div class="widget" data-row="5" data-col="1" data-sizex="8" data-sizey="3">
     <MT:MTPanel ID="Counters" runat="server" Text="Counters" Collapsed=false>
-                 <br/>
+
     </MT:MTPanel>
   </div>
+  
 
 <%--  <MT:MTFilterGrid ID="PaymentGrid" runat="server" TemplateFileName="AccountPaymentTransactionList.xml"
     ExtensionName="Account" ButtonAlignment="Center" Buttons="None" DefaultSortDirection="Ascending"
@@ -183,51 +190,55 @@ padding-left: 3px !important ;
     // Event handlers
     function onAddRegularSubscription_<%=SubscriptionSummaryGrid.ClientID %>()
     {
-      //Execute: function(operation, args, callbackMethod)
-      if (checkButtonClickCount() == true) {
-        pageNav.Execute("SubscriptionsEvents_Subscribe_Client", null, null);
-      }    
+//      //Execute: function(operation, args, callbackMethod)
+//      if (checkButtonClickCount() == true) {
+//        pageNav.Execute("SubscriptionsEvents_Subscribe_Client", null, null);
+//      }    
+      document.location.href = "/MetraNet/StartWorkFlow.aspx?WorkflowName=SubscriptionsWorkflow_AddSubscription"; 
     }
     
     function onAddAccountToGroupSubscription_<%=SubscriptionSummaryGrid.ClientID %>()
     {
-      //Execute: function(operation, args, callbackMethod)
-      if (checkButtonClickCount() == true) {
-        pageNav.Execute("GroupSubscriptionsEvents_JoinGroupSubscription_Client", null, null);
-      }    
+//      //Execute: function(operation, args, callbackMethod)
+//      if (checkButtonClickCount() == true) {
+//        pageNav.Execute("GroupSubscriptionsEvents_JoinGroupSubscription_Client", null, null);
+//      
+//      }
+
+      document.location.href = "/MetraNet/StartWorkFlow.aspx?WorkflowName=GroupSubscriptionsWorkflow";
     }
 
-function caseNumberColRenderer(value, meta, record, rowIndex, colIndex, store) {
-  return String.format("<span style='display:inline-block; vertical-align:middle'>&nbsp;<a style='cursor:hand;vertical-align:middle' id='editcase_{0}' title='{1}' href='JavaScript:onEditFailedTransaction(\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\");'>{0}&nbsp;<img src='/Res/Images/icons/database_edit.png' alt='{1}' align='middle'/></a></span>", record.data.casenumber, window.TEXT_EDIT_FAILED_TRANSACTION, record.data.failurecompoundsessionid, record.data.compound, store.sm.grid.id);
-}
+    function caseNumberColRenderer(value, meta, record, rowIndex, colIndex, store) {
+      return String.format("<span style='display:inline-block; vertical-align:middle'>&nbsp;<a style='cursor:hand;vertical-align:middle' id='editcase_{0}' title='{1}' href='JavaScript:onEditFailedTransaction(\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\");'>{0}&nbsp;<img src='/Res/Images/icons/database_edit.png' alt='{1}' align='middle'/></a></span>", record.data.casenumber, window.TEXT_EDIT_FAILED_TRANSACTION, record.data.failurecompoundsessionid, record.data.compound, store.sm.grid.id);
+    }
 
-function actionsColRenderer(value, meta, record, rowIndex, colIndex, store) {
-  var str = "";
-  //str += String.format("<span style='display:inline-block; vertical-align:middle'>&nbsp;<a style='cursor:hand;vertical-align:middle' id='viewaudit_{0}' title='{1}' href='JavaScript:onViewFailedTransactionAuditLog(\"{0}\",\"{2}\");'>View Log&nbsp;</a></span>", record.data.subscriptionid, TEXT_VIEW_AUDIT_FAILED_TRANSACTION, record.data.subscriptionid);
+    function actionsColRenderer(value, meta, record, rowIndex, colIndex, store) {
+      var str = "";
+      //str += String.format("<span style='display:inline-block; vertical-align:middle'>&nbsp;<a style='cursor:hand;vertical-align:middle' id='viewaudit_{0}' title='{1}' href='JavaScript:onViewFailedTransactionAuditLog(\"{0}\",\"{2}\");'>View Log&nbsp;</a></span>", record.data.subscriptionid, TEXT_VIEW_AUDIT_FAILED_TRANSACTION, record.data.subscriptionid);
 
-  return str;
-}
+      return str;
+    }
 
-function typeColRenderer(value, meta, record, rowIndex, colIndex, store) {
-  return String.format("<span style='display:inline-block; vertical-align:middle'><img src='/Res/Images/icons/ProductCatalog_{0}.png' alt='{1}' align='middle'/></span>", record.data.subscriptiontype, value);
+    function typeColRenderer(value, meta, record, rowIndex, colIndex, store) {
+      return String.format("<span style='display:inline-block; vertical-align:middle'><img src='/Res/Images/icons/ProductCatalog_{0}.png' alt='{1}' align='middle'/></span>", record.data.subscriptiontype, value);
  
-}
+    }
 
 
-function subscritionInformationColRenderer(value, meta, record, rowIndex, colIndex, store) {
-  meta.attr = 'style="white-space:normal"';
-  var str = "";
+    function subscritionInformationColRenderer(value, meta, record, rowIndex, colIndex, store) {
+      meta.attr = 'style="white-space:normal"';
+      var str = "";
   
-  if (record.data.subscriptiontype === 'Subscription') {
-    str = String.format("<span class='ItemName'>{0}</span><br/><span class='ItemDescription'>{1}</span>", record.json.productofferingname, (record.json.productofferingdescription || ''));
-  } else {
-    str = String.format("<span class='ItemName'>{0}</span><br/><span class='ItemDescription'>{1}</span><br /><br /><span class='ItemName'>{2}</span><br/><span class='ItemDescription'>{3}</span>", record.data.productofferingname, (record.json.productofferingdescription || ''), (record.json.groupsubscriptionname  || ''), (record.json.groupsubscriptiondescription || ''));
-    //null AS 'GroupSubscriptionDescription')
-  }
+      if (record.data.subscriptiontype === 'Subscription') {
+        str = String.format("<span class='ItemName'>{0}</span><br/><span class='ItemDescription'>{1}</span>", record.json.productofferingname, (record.json.productofferingdescription || ''));
+      } else {
+        str = String.format("<span class='ItemName'>{0}</span><br/><span class='ItemDescription'>{1}</span><br /><br /><span class='ItemName'>{2}</span><br/><span class='ItemDescription'>{3}</span>", record.data.productofferingname, (record.json.productofferingdescription || ''), (record.json.groupsubscriptionname  || ''), (record.json.groupsubscriptiondescription || ''));
+        //null AS 'GroupSubscriptionDescription')
+      }
   
-  //return String.format("<span style='display:inline-block; vertical-align:middle'><img src='/Res/Images/icons/ProductCatalog_{0}.png' alt='{1}' align='middle'/></span>{2}", record.data.subscriptiontype, value, str);
-  return str;
-}
+      //return String.format("<span style='display:inline-block; vertical-align:middle'><img src='/Res/Images/icons/ProductCatalog_{0}.png' alt='{1}' align='middle'/></span>{2}", record.data.subscriptiontype, value, str);
+      return str;
+    }
 
     // Custom Renderers
     OverrideRenderer_<%= SubscriptionSummaryGrid.ClientID %> = function(cm)
@@ -363,12 +374,12 @@ function subscritionInformationColRenderer(value, meta, record, rowIndex, colInd
 //        '<span class="{[false == true  ? "AccountName" : "AccountCompanyName"]}">{Company:htmlEncode}</span><br/>',
 //      '</tpl>',
       '<tpl if="this.isNull(Company) == false">',
-         '<tpl if="(this.isNull(LastName) == false)">',
-            '<span>{Company:htmlEncode}</span><br/>',
-         '</tpl>',
-         '<tpl if="(this.isNull(LastName) == true)">', //ELSE
-            '<span class="AccountName">{Company:htmlEncode}</span><br/>',
-         '</tpl>',      
+      '<tpl if="(this.isNull(LastName) == false)">',
+      '<span>{Company:htmlEncode}</span><br/>',
+      '</tpl>',
+      '<tpl if="(this.isNull(LastName) == true)">', //ELSE
+      '<span class="AccountName">{Company:htmlEncode}</span><br/>',
+      '</tpl>',      
       '</tpl>',      
       '<tpl if="(this.isNull(FirstName) == true) && (this.isNull(LastName) == false)">',
       '<span class="AccountName">{LastName:htmlEncode}</span><br/>',
@@ -383,7 +394,7 @@ function subscritionInformationColRenderer(value, meta, record, rowIndex, colInd
       '{AccountStartDate}<br/>',
       '<span>Payer {_AccountID} {PayerID} {PayerAccount} </span><br/>',
       //'{Internal.UsageCycleTypeValueDisplayName} {Internal.Currency} {Internal.LanguageValueDisplayName}<br/>',
-      '<span>Balance: $23,345 as of Feb. 15, 2014</span><br/>',
+      //'<span>Balance: $23,345 as of Feb. 15, 2014</span><br/>',
            
 
 
@@ -441,7 +452,7 @@ function subscritionInformationColRenderer(value, meta, record, rowIndex, colInd
 //           '</tpl>',
 
 //           '<tpl if="this.isNull(FacsimileTelephoneNumber) == false">',
-      //             '<img border="0" align="top" src="/Res/Images/icons/fax.png"/> {FacsimileTelephoneNumber:htmlEncode}<br/>',
+//             '<img border="0" align="top" src="/Res/Images/icons/fax.png"/> {FacsimileTelephoneNumber:htmlEncode}<br/>',
       //           '</tpl>',
 
 //         '</tpl>',
@@ -504,7 +515,52 @@ function subscritionInformationColRenderer(value, meta, record, rowIndex, colInd
         }
       }
        
+//    });
+    
+      var pBalanceInformation = new Ext.Panel({
+        items: [{
+            //title: TEXT_APPROVAL_CHANGES_PENDING_YOUR_APPROVAL,
+            header: false,
+            html: '',
+            renderTo: 'AccountBalanceInformation',
+            listeners: {
+              render: function (panel) {
+                var balanceInfoTpl = new Ext.XTemplate('<span>Balance {currentbalance} as of {currentbalancedate}</span>');           
+
+                Ext.Ajax.request({
+                  url: '/MetraNet/AjaxServices/ManagedAccount.aspx?operation=balancesummary',
+                  timeout: 10000,
+                  params: {},
+                  success: function (response) {
+                    if (response.responseText == '[]' || Ext.decode(response.responseText).Items[0] == null) {
+                      //Nothing to show, hide the panel
+                      //pBalanceInformation.hide();
+                      //Ext.get("AccountBalanceInformation").hide();
+                    }
+                    else {
+                      balanceInfoTpl.overwrite(this.body, Ext.decode(response.responseText).Items[0]);
+//                      Ext.get("AccountBalanceInformation").fadeIn({
+//                        endOpacity: 1, //can be any value between 0 and 1 (e.g. .5)
+//                        easing: 'easeOut',
+//                        duration: 2
+//                      });
+                    }
+
+                  },
+                  failure: function () {
+                  },
+                  scope: panel
+                });
+              }
+            }
+          }
+        ]
+      });
+
     });
+
+  //Ext.get("AccountBalanceInformation").hide(); 
+      
   </script>
 
 </asp:Content>

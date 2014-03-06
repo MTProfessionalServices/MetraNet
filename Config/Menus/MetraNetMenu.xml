@@ -8,29 +8,11 @@
             <MenuSections>
                 <MenuSection>
                     <ID>ReportsSection</ID>
-                  <Caption>
-                    <Value><![CDATA[Analytics]]></Value>
-                  </Caption>
+                    <Caption>
+                        <Value><![CDATA[Analytics]]></Value>
+                    </Caption>
                     <Description></Description>
-                    <MenuItems> 
-                        <!--MenuItem>
-                            <ID>Reports</ID>
-                            <Caption>
-                                <LocalizationTag>TEXT_REPORTS</LocalizationTag>
-                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-                            </Caption>
-                            <Link>/MetraNet/BME/BEList.aspx?Name=MetraTech.Reporting.Reports.Report&amp;Extension=MetraTech.Reporting&amp;NewBreadcrumb=True&amp;BMEGrid_TemplateFileName=MetraTech.Reporting.Reports.Report</Link>
-                            <Target>MainContentIframe</Target>
-                            <Icon>/Res/Images/icons/chart_bar.png</Icon>
-                            <Description>MetraNet Reports</Description>
-                            <RequiredCapabilities>
-                                <RequiredCapabilities>
-                                    <CompositeCapability name="Read Business Modeling Entities">
-                                        <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-                                    </CompositeCapability>
-                                </RequiredCapabilities>
-                            </RequiredCapabilities>
-                        </MenuItem-->
+                    <MenuItems>
                         <MenuItem>
                             <ID>ReportsTree</ID>
                             <Caption>
@@ -41,112 +23,43 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/chart_bar.png</Icon>
                             <Description>MetraNet Reports</Description>
-                            <RequiredCapabilities>
-                                <RequiredCapabilities>
-                                    <CompositeCapability name="Read Business Modeling Entities">
-                                        <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-                                    </CompositeCapability>
-                                </RequiredCapabilities>
-                            </RequiredCapabilities>
+                            <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
-                      <MenuItem>
-                        <ID>ReportsMetraControlDashboard</ID>
-                        <Caption>
-                          <Value><![CDATA[Operations Dashboard]]></Value>
-                        </Caption>
-                        <Link>/MetraNet/MetraControl/ControlCenter/OperationsDashboard.aspx</Link>
-                        <Target>MainContentIframe</Target>
-                        <Icon>/Res/Images/icons/application_view_tile.png</Icon>
-                        <Description>MetraOffer Dashboard</Description>
-                        <RequiredCapabilities></RequiredCapabilities>
-                      </MenuItem>
-                      <MenuItem>
-                        <ID>ReportsMetraCareDashboard</ID>
-                        <Caption>
-                          <Value><![CDATA[CSR Dashboard]]></Value>
-                        </Caption>
-                        <Link>/MetraNet/MetraCareDashboard.aspx</Link>
-                        <Target>MainContentIframe</Target>
-                        <Icon>/Res/Images/icons/application_view_tile.png</Icon>
-                        <Description>CSR Dashboard</Description>
-                        <RequiredCapabilities></RequiredCapabilities>
-                      </MenuItem>
-                      <MenuItem>
-                        <ID>ReportsMetraOfferDashboard</ID>
-                        <Caption>
-                          <Value><![CDATA[Product Dashboard]]></Value>
-                        </Caption>
-                        <Link>/MetraNet/MetraOffer/MetraOfferDashboard.aspx</Link>
-                        <Target>MainContentIframe</Target>
-                        <Icon>/Res/Images/icons/application_view_tile.png</Icon>
-                        <Description>MetraOffer Dashboard</Description>
-                        <RequiredCapabilities></RequiredCapabilities>
-                      </MenuItem>
-                      <MenuItem>
-                        <ID>ReportsAnalyticsDashboard</ID>
-                        <Caption>
-                          <Value><![CDATA[Finance Dashboard]]></Value>
-                        </Caption>
-                        <Link>/MetraNet/ReportsAnalyticsDashboard.aspx</Link>
-                        <Target>MainContentIframe</Target>
-                        <Icon>/Res/Images/icons/application_view_tile.png</Icon>
-                        <Description>Finance Dashboard</Description>
-                        <RequiredCapabilities></RequiredCapabilities>
-                      </MenuItem>                      
+                        <MenuItem>
+                            <ID>ReportsMetraControlDashboard</ID>
+                            <Caption>
+                                <Value><![CDATA[Operations Dashboard]]></Value>
+                            </Caption>
+                            <Link>/MetraNet/MetraControl/ControlCenter/OperationsDashboard.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/application_view_tile.png</Icon>
+                            <Description>MetraOffer Dashboard</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>ReportsMetraOfferDashboard</ID>
+                            <Caption>
+                                <Value><![CDATA[Product Dashboard]]></Value>
+                            </Caption>
+                            <Link>/MetraNet/MetraOffer/MetraOfferDashboard.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/application_view_tile.png</Icon>
+                            <Description>MetraOffer Dashboard</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>ReportsAnalyticsDashboard</ID>
+                            <Caption>
+                                <Value><![CDATA[Finance Dashboard]]></Value>
+                            </Caption>
+                            <Link>/MetraNet/ReportsAnalyticsDashboard.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/application_view_tile.png</Icon>
+                            <Description>Finance Dashboard</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
                     </MenuItems>
                 </MenuSection>
-              <!--<MenuSection>
-                <ID>ApprovalFrameworkManagement</ID>
-                <Caption>
-                  <LocalizationTag>TEXT_APPROVAL_FRAMEWORK_MANAGEMENT</LocalizationTag>
-                  <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-                </Caption>
-                <Description>ApprovalFrameworkManagement</Description>
-                <MenuItems>
-                  <MenuItem>
-                    <ID>ShowPendingChangesSummary</ID>
-                    <Caption>
-                      <LocalizationTag>TEXT_SHOW_PENDING_CHANGES_SUMMARY</LocalizationTag>
-                      <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-                    </Caption>
-                    <Link>/MetraNet/ApprovalFrameworkManagement/ShowChangesSummary.aspx?showchangestate=PENDING</Link>
-                    <Target>MainContentIframe</Target>
-                    <Icon>/Res/Images/Icons/approvals_incoming.png</Icon>
-                    <Description>Show Only Approvals Pending</Description>
-                    <RequiredCapabilities>
-                      <Capability>Allow ApprovalsView</Capability>
-                    </RequiredCapabilities>
-                  </MenuItem>
-                  <MenuItem>
-                    <ID>ShowFailedChangesSummary</ID>
-                    <Caption>
-                      <LocalizationTag>TEXT_SHOW_FAILED_CHANGES_SUMMARY</LocalizationTag>
-                      <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-                    </Caption>
-                    <Link>/MetraNet/ApprovalFrameworkManagement/ShowChangesSummary.aspx?showchangestate=FAILED</Link>
-                    <Target>MainContentIframe</Target>
-                    <Icon>/Res/Images/Icons/approvals_error.png</Icon>
-                    <Description>Show Approvals That Failed Applying After Being Approved</Description>
-                    <RequiredCapabilities>
-                      <Capability>Allow ApprovalsView</Capability>
-                    </RequiredCapabilities>
-                  </MenuItem>
-                  <MenuItem>
-                    <ID>ShowAllChangesSummary</ID>
-                    <Caption>
-                      <LocalizationTag>TEXT_SHOW_ALL_CHANGES_SUMMARY</LocalizationTag>
-                      <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-                    </Caption>
-                    <Link>/MetraNet/ApprovalFrameworkManagement/ShowChangesSummary.aspx?showchangestate=ALL</Link>
-                    <Target>MainContentIframe</Target>
-                    <Icon>/Res/Images/Icons/approvals.png</Icon>
-                    <Description>Show All Approvals</Description>
-                    <RequiredCapabilities>
-                      <Capability>Allow ApprovalsView</Capability>
-                    </RequiredCapabilities>
-                  </MenuItem>
-                </MenuItems>
-              </MenuSection>-->
             </MenuSections>
         </Menu>
     </Menus>

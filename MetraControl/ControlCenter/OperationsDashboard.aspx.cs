@@ -74,7 +74,7 @@ public partial class OperationsDashboard : MTPage
       Dictionary<string, object> paramDict = new Dictionary<string, object>();
 
       ConfigureAndLoadDropDowns(ddBillCloses, "dt_end", "id_usage_interval", "__GET_BILLCLOSESYNOPSIS_AVAILABLEINTERVALS__", queryPath, paramDict);
-      ConfigureAndLoadDropDowns(ddBillCloses, "dt_end", "id_usage_interval", "__GET_ACTIVEBILLRUN_AVAILABLEINTERVALS__", queryPath, paramDict);
+      ConfigureAndLoadDropDowns(ddActiveBillRun, "dt_end", "id_usage_interval", "__GET_ACTIVEBILLRUN_AVAILABLEINTERVALS__", queryPath, paramDict);
    
   }
   

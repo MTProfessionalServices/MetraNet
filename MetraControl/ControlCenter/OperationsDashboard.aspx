@@ -1242,8 +1242,8 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                 widget_margins: [5, 5],
                 helper: 'clone',
                 resize: { enabled: false },
-		  autogrow_cols: true,
-		  min_rows: 30,
+				autogrow_cols: true,
+				min_rows: 30,
             }).data('gridster');
         });
     </script>

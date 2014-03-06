@@ -279,4 +279,7 @@
   <data name="ERROR_MULTIPLE_ACCOUNT_UPDATE_PENDING_CHANGES" xml:space="preserve">
     <value>This account already has a pending change of type Account Update. Only one pending change of this type is permitted.</value>
   </data>
+  <data name="ERROR_PAYER_ID_IS_REQUIRED" xml:space="preserve">
+    <value>Invalid or Missing Payer</value>
+  </data>
 </root>

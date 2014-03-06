@@ -301,13 +301,13 @@ white-space:nowrap;
   <MT:MTFilterGrid ID="SubscriptionSummaryGrid" runat="server" TemplateFileName="AccountSubscriptionSummary.xml" ExtensionName="Account" ></MT:MTFilterGrid>
   </div>
   
-  <div class="widget" data-row="4" data-col="1" data-sizex="8" data-sizey="3">
+  <div class="widget" data-row="6" data-col="1" data-sizex="8" data-sizey="3">
   <MT:MTFilterGrid ID="InvoiceSummaryGrid" runat="server" TemplateFileName="AccountInvoiceSummary.xml" ExtensionName="Account" ></MT:MTFilterGrid>
   </div>
   
-  <div class="widget" data-row="5" data-col="1" data-sizex="8" data-sizey="3">
-    <MT:MTPanel ID="Counters" runat="server" Text="Counters" Collapsed=false>
-
+  <div class="widget" data-row="9" data-col="1" data-sizex="8" data-sizey="3">
+    <MT:MTPanel ID="pnlNowCast" runat="server" Text="NowCast">
+      <div id="NowCast-body"></div>
     </MT:MTPanel>
   </div>
   
@@ -330,12 +330,6 @@ white-space:nowrap;
     TotalProperty="TotalRows">
   </MT:MTFilterGrid>--%>
   
-  <div class="widget" data-row="6" data-col="1" data-sizex="8" data-sizey="3">
-    <MT:MTPanel ID="pnlNowCast" runat="server" Text="NowCast">
-      <div id="NowCast-body"></div>
-    </MT:MTPanel>
-  </div>
-
   </div>
   
   <MT:MTDataBinder ID="MTDataBinder1" runat="server">

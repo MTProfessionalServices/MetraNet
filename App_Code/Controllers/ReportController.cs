@@ -13,10 +13,22 @@ namespace ASP.Controllers
   {
     public JsonResult NewCustomers()
     {
-      Title = "New Customers Report";
-      var obj = GetTerritoryCodes();
+      using (var dbDataMart = new DataMart(GetDefaultDatabaseConnectionSubscriptiondatamart()))
+      {
+        var accountsByMonth = (from c in dbDataMart.Customer
+                               join st in dbDataMart.SubscriptionTable on c.AccountId equals st.AccountId
+                               where st.StartDate.HasValue
+                                     && st.StartDate.Value >= DateTime.Today.AddMonths(-13)
+                                     && st.StartDate.Value <= DateTime.Now.AddMonths(-1)
+                               select new
+                                 {
+                                   Account = c.AccountId,
+                                   Date = new DateTime(st.StartDate.Value.Year, st.StartDate.Value.Month, 1)
+                                 }).ToList();
+        ;
 
-      return Json(obj);
+        return Json(accountsByMonth, JsonRequestBehavior.AllowGet);
+      }
     }
 
     public JsonResult MRRByProduct()

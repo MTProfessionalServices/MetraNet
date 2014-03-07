@@ -86,6 +86,25 @@
                         <Field>
                             <AssemblyFilename>Core.BillMessages.Entity</AssemblyFilename>
                             <ObjectName>Core.BillMessages.BillMessage</ObjectName>
+                            <ID>Language</ID>
+                            <Name>Language</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTDropDown</ControlType>
+                            <EditorValidation>
+                                <Required>true</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label>
+                                <Value><![CDATA[Language]]></Value>
+                            </Label>
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>Core.BillMessages.Entity</AssemblyFilename>
+                            <ObjectName>Core.BillMessages.BillMessage</ObjectName>
                             <ID>MessageText</ID>
                             <Name>MessageText</Name>
                             <Alignment>Left</Alignment>

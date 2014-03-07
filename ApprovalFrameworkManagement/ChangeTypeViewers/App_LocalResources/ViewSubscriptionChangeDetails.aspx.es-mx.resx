@@ -139,6 +139,18 @@
     <value>[es-mx] Subscription Properties</value>
   </data>
   <data name="UDRC_SECTION_NAME" xml:space="preserve">
-    <value>[es-mx] Product Offering Recurring Change Metrics</value>
+    <value>[es-mx] Product Offering Recurring Charge Metrics</value>
+  </data>
+  <data name="UDRC_NAME" xml:space="preserve">
+    <value>[es-mx] Metric Name</value>
+  </data>
+  <data name="NO_END_DATE" xml:space="preserve">
+    <value>[es-mx] No End Date</value>
+  </data>
+  <data name="NOT_SET" xml:space="preserve">
+    <value>[es-mx] not set</value>
+  </data>
+  <data name="SET" xml:space="preserve">
+    <value>[es-mx] set</value>
   </data>
 </root>

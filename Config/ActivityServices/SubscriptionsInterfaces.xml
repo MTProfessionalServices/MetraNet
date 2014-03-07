@@ -19,6 +19,9 @@
             <Parameter Name="AccountIdentifier" Description="This is an instance of the AccountIdentifier class. This class allows clients to specify either the integer account identifier from the database or the username/namespace of the account.  The service can then resolve this information to an account identifier that it can use." Type="MetraTech.ActivityServices.Common.AccountIdentifier, MetraTech.ActivityServices.Common.dll">
               <InternalName>AccountIdentifier</InternalName>
             </Parameter>
+            <Parameter Name="IsShowExistingSubscriptions" Description="This is a parameter identifying should existing subscriptions be shown or go directly to select PO page" Type="System.Boolean">
+              <InternalName>IsShowExistingSubscriptions</InternalName>
+            </Parameter>
           </ParameterDefs>
         </EventMethod>
 

@@ -516,12 +516,12 @@ height: 18px !important;
     <uc1:MetraCareMenu ID="MetraCareMenu1" runat="server" />
   </div>
 
-  <div id="metracontrol">
-    <uc8:MetraControlMenu ID="MetraControlMenu1" runat="server" />
-  </div>
-
   <div id="metraoffer">
     <uc9:MetraOfferMenu ID="MetraOfferMenu1" runat="server" />
+  </div>
+
+  <div id="metracontrol">
+    <uc8:MetraControlMenu ID="MetraControlMenu1" runat="server" />
   </div>
 
   <!-- SETTINGS

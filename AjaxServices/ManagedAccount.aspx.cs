@@ -59,6 +59,26 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
                 GetData("__ACCOUNT_SUBSCRIPTIONSUMMARY__", paramDict, ref items);
             }
 
+            if (operation.Equals("paymentsummary"))
+            {
+              GetData("__ACCOUNT_PAYMENTSUMMARY__", paramDict, ref items);
+            }
+
+            if (operation.Equals("invoicesummary"))
+            {
+              GetData("__ACCOUNT_INVOICESUMMARY__", paramDict, ref items);
+            }
+
+            if (operation.Equals("balancesummary"))
+            {
+              GetData("__ACCOUNT_BALANCESUMMARY__", paramDict, ref items);
+            }
+
+            if (operation.Equals("discountcommitmentsummary"))
+            {
+              GetData("__ACCOUNT_DISCOUNTANDCOMMITMENTSUMMARY__", paramDict, ref items);
+            }
+
             if (items.Items.Count == 0)
             {
                 Response.Write("{\"Items\":[]}");
@@ -177,7 +197,7 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
         else
         {
 
-            if (typeof(String) == field.FieldDataType || typeof(DateTime) == field.FieldDataType || typeof(Guid) == field.FieldDataType || typeof(Byte[]) == field.FieldDataType)
+          if (typeof(String) == field.FieldDataType || typeof(DateTime) == field.FieldDataType || typeof(Guid) == field.FieldDataType || typeof(Byte[]) == field.FieldDataType)
           {
             json.Append("\"");
           }

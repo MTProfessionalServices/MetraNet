@@ -1,50 +1,50 @@
 CREATE PROCEDURE [dbo].[CREATE_PARTITIONS_NAMESPACE]
-	@namespace 		VARCHAR(4000)
-	,@namespaceDescription 	VARCHAR(4000)
-	,@method       		VARCHAR(4000)
-	,@namespaceType 	VARCHAR(4000)									   
-	,@invoicePrefix 	VARCHAR(4000)
-	,@invoiceSuffix     	varchar(4000)
-	,@invoiceNumDigits 	int
-	,@invoiceDueDateOffset	int
-	,@invoiceNumLast 	int
-	,@errorNumber int OUTPUT
-	,@namespaceInsertCount int OUTPUT
-	,@invoiceNamespaceInsertCount int OUTPUT
-	,@errorMessage varchar(4000) OUTPUT
+	@v_namespace 		VARCHAR(4000)
+	,@v_namespaceDescription 	VARCHAR(4000)
+	,@v_method       		VARCHAR(4000)
+	,@v_namespaceType 	VARCHAR(4000)									   
+	,@v_invoicePrefix 	VARCHAR(4000)
+	,@v_invoiceSuffix     	varchar(4000)
+	,@v_invoiceNumDigits 	int
+	,@v_invoiceDueDateOffset	int
+	,@v_invoiceNumLast 	int
+	,@v_errorNumber int OUTPUT
+	,@v_namespaceInsertCount int OUTPUT
+	,@v_invoiceNamespaceInsertCount int OUTPUT
+	,@v_errorMessage varchar(4000) OUTPUT
 
 AS BEGIN
 
-set @errorNumber = 0
-set @errorMessage = ''
-set @namespaceInsertCount = 0
-set @invoiceNamespaceInsertCount = 0
+set @v_errorNumber = 0
+set @v_errorMessage = ''
+set @v_namespaceInsertCount = 0
+set @v_invoiceNamespaceInsertCount = 0
 
-if not exists (select * from t_namespace where nm_space = @namespace)
+if not exists (select * from t_namespace where nm_space = @v_namespace)
 begin
   BEGIN TRY
     insert into t_namespace
            (nm_space,   tx_desc,               nm_method, tx_typ_space)
-    values (@namespace, @namespaceDescription, @method,   @namespaceType)
+    values (@v_namespace, @v_namespaceDescription, @v_method,   @v_namespaceType)
   
-    set @namespaceInsertCount = @@RowCount
+    set @v_namespaceInsertCount = @@RowCount
   END TRY
   BEGIN CATCH
-    select @namespaceInsertCount = -1, @errorNumber = ERROR_NUMBER(), @errorMessage = ERROR_MESSAGE()
+    select @v_namespaceInsertCount = -1, @v_errorNumber = ERROR_NUMBER(), @v_errorMessage = ERROR_MESSAGE()
   END CATCH
 end
 
-if not exists (select * from t_invoice_namespace where namespace = @namespace)
+if not exists (select * from t_invoice_namespace where namespace = @v_namespace)
 begin
   BEGIN TRY
     insert into t_invoice_namespace
            (namespace,  invoice_prefix, invoice_suffix, invoice_num_digits, invoice_due_date_offset, id_invoice_num_last)
-    values (@namespace, @invoicePrefix, @invoiceSuffix, @invoiceNumDigits,  @invoiceDueDateOffset, @invoiceNumLast)
+    values (@v_namespace, @v_invoicePrefix, @v_invoiceSuffix, @v_invoiceNumDigits,  @v_invoiceDueDateOffset, @v_invoiceNumLast)
 
-    set @invoiceNamespaceInsertCount = @@RowCount
+    set @v_invoiceNamespaceInsertCount = @@RowCount
   END TRY
   BEGIN CATCH
-    select @namespaceInsertCount = -1, @errorNumber = ERROR_NUMBER(), @errorMessage = ERROR_MESSAGE()
+    select @v_namespaceInsertCount = -1, @v_errorNumber = ERROR_NUMBER(), @v_errorMessage = ERROR_MESSAGE()
   END CATCH
 end
 

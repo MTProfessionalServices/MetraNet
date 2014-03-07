@@ -39,7 +39,7 @@
       $.ajax({
         type: 'GET',
         async: true,
-        url: '\\Report\\NewCustomers',
+        url: '\\MetraNet\\Report\\NewCustomers',
         success: function (data) {
           RenderGraph(data);
         },

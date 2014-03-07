@@ -69,7 +69,37 @@ function onValidateUsername()
     onValidateFailure();
     return;
   }
- 
+
+      //Check whether user name contains any of the following special character, if so, validation should fail on client side
+    var index;
+
+    var usernamespecchar = new Array();
+    
+    usernamespecchar[0] = "?";
+    usernamespecchar[1] = ";";
+    usernamespecchar[2] = ":";
+    usernamespecchar[3] = "@";
+    usernamespecchar[4] = "&";
+    usernamespecchar[5] = "=";
+    usernamespecchar[6] = "+";
+    usernamespecchar[7] = "$";
+    usernamespecchar[8] = "|";
+    usernamespecchar[9] = ">";
+    usernamespecchar[10] = "<";
+    usernamespecchar[11] = "*";
+    usernamespecchar[12] = " ";
+    //usernamespecchar[13] = ""\\""; >> This is not working 
+
+    for (index = 0; index < usernamespecchar.length; ++index) 
+    {
+    if (username.indexOf(usernamespecchar[index]) > 0)
+        {
+            onValidateFailure();
+            return;
+        }
+    }
+
+
   var url = "/MetraNet/AjaxServices/FindAccountSvc.aspx";
   var conn = new Ext.data.Connection();
   conn.request({
@@ -461,7 +491,7 @@ function onAuthTypeChange(selectField, value) {
   <script type="text/javascript" language="javascript">
     Ext.onReady(function() {
      // filterPricelists();
-    });
+          });
     
     function Validate()
     {

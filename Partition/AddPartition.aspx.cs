@@ -196,7 +196,21 @@ public partial class AddPartition : MTAccountPage
             throw new ApplicationException(Resources.ErrorMessages.ERROR_USERNAME_INVALID);
         }
 
-        if (tbAncestorAccount.AccountID == "")
+
+        // Check whether Partition user name contains any of these characters , \, ?, ;, :, @, &, =, +, $, ,, |, ", <, >, *.
+        
+        string[] specchars = new string[] { ";", ":","@","&","=","+","$","|","<",">","*"," ","\\"};
+        foreach (string specchar in specchars)
+        {
+            if (tbUserName.Text.Contains(specchar))
+            {
+                tbUserName.Text = "";
+                throw new ApplicationException(Resources.ErrorMessages.ERROR_USERNAME_INVALID);
+            }
+        }
+     
+      
+      if (tbAncestorAccount.AccountID == "")
         {
             throw new ApplicationException(Resources.ErrorMessages.ERROR_PARENT_ACCOUNT_INVALID);
         }

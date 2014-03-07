@@ -225,12 +225,30 @@
 <policy type="a">
 <cs>
   <c name="Application LogOn" guid="">
-  <as>
+    <as>
       <ec>
         <v>MAM</v>
-		<v>MCM</v>
-		<v>MOM</v>
-		<v>MPS</v>
+      </ec>
+    </as>
+  </c>
+  <c name="Application LogOn" guid="">
+    <as>
+      <ec>
+        <v>MCM</v>
+      </ec>
+    </as>
+  </c>
+  <c name="Application LogOn" guid="">
+    <as>
+      <ec>
+        <v>MOM</v>
+      </ec>
+    </as>
+  </c>
+  <c name="Application LogOn" guid="">
+    <as>
+      <ec>
+        <v>MPS</v>
       </ec>
     </as>
   </c>
@@ -281,12 +299,30 @@
 <policy type="a">
 <cs>
   <c name="Application LogOn" guid="">
-  <as>
+    <as>
       <ec>
         <v>MAM</v>
-		<v>MCM</v>
-		<v>MOM</v>
-		<v>MPS</v>
+      </ec>
+    </as>
+  </c>
+  <c name="Application LogOn" guid="">
+    <as>
+      <ec>
+        <v>MCM</v>
+      </ec>
+    </as>
+  </c>
+  <c name="Application LogOn" guid="">
+    <as>
+      <ec>
+        <v>MOM</v>
+      </ec>
+    </as>
+  </c>
+  <c name="Application LogOn" guid="">
+    <as>
+      <ec>
+        <v>MPS</v>
       </ec>
     </as>
   </c>

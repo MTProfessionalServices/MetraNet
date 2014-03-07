@@ -245,7 +245,7 @@ public partial class MasterPages_MetraNetExt : System.Web.UI.MasterPage
                   //header: false,
                   xtype: 'container',
                   border:false,
-                  //autoScroll:true,
+                  autoScroll:true,
                   //layout:'fit',
 
 

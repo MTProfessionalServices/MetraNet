@@ -47,21 +47,53 @@ function SizeWindow() {
   var intX = 0, intY = 0;
   var posX = 0, posY = 0;
   var b = new BrowserCheck();
+
   
   //Get the dimensions of the document
   if(b.ie) {
     intX = document.body.scrollWidth + 40;
     intY = document.body.scrollHeight + 40;
+
+    var tIntY = (!(document.documentElement.clientHeight)
+      || (document.documentElement.clientHeight === 0)) ?
+      // IE 5-7 Quirks and IE 4 case
+      document.body.clientHeight :
+      //IE 6+ Strict Case
+      document.documentElement.clientHeight;
+
+
+    var tIntX = (!(document.documentElement.clientWidth)
+      || (document.documentElement.clientWidth === 0)) ?
+      // IE 5-7 Quirks and IE 4 case
+      document.body.clientWidth :
+      //IE 6+ Strict Case
+      document.documentElement.clientWidth;
+
+
+    if (intX < tIntX)
+      intX = tIntX;
+
+    if (intY < document.body.scrollHeight)
+      intY = tIntY;
   }
   
   if(b.ns) {
-    intX = document.width;
-    intY = document.height;
+    intY = window.innerHeight;
+    intX = window.innerWidth;
+
+    if (intX < document.body.scrollWidth)
+      intX = document.body.scrollWidth;
+
+    if (intY < document.body.scrollHeight)
+      intY = document.body.scrollHeight;
+
   }
-  
+
   
   //Resize if sizes are valid
-//  alert('x: ' + intX + '  y: ' + intY);
+  //alert('x: ' + document.body.scrollWidth + '  y: ' + document.body.scrollHeight);
+
+  //alert('x: ' + intX + '  y: ' + intY);
   //We don't know what browser we're in, don't resize
   if(intX == 0 && intY == 0)
     return false;
@@ -83,7 +115,12 @@ function SizeWindow() {
 //  alert('x: ' + intX + '  y: ' + intY);
   //now move and resize the window
   window.moveTo(posX, posY);
-  window.resizeTo(intX, intY);
+
+  if (b.ie) {
+    window.resizeTo(intX, intY);
+  } else {
+    window.resizeBy(intX, intY);
+  }
 }
     
 //////////////////////////////////////////////////////////////////////////////////////////////////

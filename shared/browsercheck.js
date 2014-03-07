@@ -1,11 +1,10 @@
 
   function BrowserCheck() {
   	var b = navigator.appName
-
-  	if (b=="Netscape") this.b = "ns"
-    	else if (b=="Microsoft Internet Explorer") this.b = "ie"
-  	else 
-      this.b = b
+   
+   if(IsIE())this.b = "ie"
+   else if(b=="Netscape")this.b = "ns"
+   else this.b = b;
 
   	this.v = parseInt(navigator.appVersion)
   	this.ns = (this.b=="ns" && this.v>=4)
@@ -19,3 +18,9 @@
   	  this.min = (this.ns||this.ie)
   }
 
+
+  function IsIE() {
+
+	return ((navigator.appName == 'Microsoft Internet Explorer') || 
+        ((navigator.appName == 'Netscape') && (new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})").exec(navigator.userAgent) != null)));
+  }

@@ -59,6 +59,9 @@
         return new Date(parseInt(d.Date.substr(6)));
       });
       var startValueGroup = startValue.group();
+
+      var previousMonth = new Date(<%= previousMonth %>);
+      var firstMonth = new Date(<%= firstMonth %>);
       
       volumeChart.width(800)
         .height(300)
@@ -68,7 +71,7 @@
         .centerBar(true)
         .gap(15)
         .round(d3.time.month.round)
-        .x(d3.time.scale().domain([new Date(2012, 11, 1), new Date(2013, 12, 31)]))
+        .x(d3.time.scale().domain([firstMonth, previousMonth]))
         .xUnits(d3.time.months)
         .legend(dc.legend().x(680).y(0))
         .elasticY(true)

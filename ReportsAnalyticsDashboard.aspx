@@ -62,12 +62,17 @@
 
       var previousMonth = new Date(<%= previousMonth %>);
       var firstMonth = new Date(<%= firstMonth %>);
+      previousMonth = new Date(previousMonth.getUTCFullYear(), previousMonth.getUTCMonth(), previousMonth.getUTCDate(), previousMonth.getUTCHours(), previousMonth.getUTCMinutes(), previousMonth.getUTCSeconds());
+      firstMonth = new Date(firstMonth.getUTCFullYear(), firstMonth.getUTCMonth(), firstMonth.getUTCDate(), firstMonth.getUTCHours(), firstMonth.getUTCMinutes(), firstMonth.getUTCSeconds());
+      
+      console.log(previousMonth);
+      console.log(firstMonth);
       
       volumeChart.width(800)
         .height(300)
         .dimension(startValue)
         .group(startValueGroup, "New Customers")
-        .transitionDuration(1500)
+        .transitionDuration(1000)
         .centerBar(true)
         .gap(15)
         .round(d3.time.month.round)

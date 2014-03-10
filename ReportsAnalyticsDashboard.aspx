@@ -24,8 +24,16 @@
   </div>--%>
   <br />
   <div class="remaining-graphs span8">
+    <h1>New Customers</h1>
     <div class="row-fluid">
-      <div id='dc-volume-chart' class="pie-graph span4 dc-chart" style="float: none !important;">
+      <div id='NewCustomersChart' class="pie-graph span4 dc-chart" style="float: none !important;">
+      </div>
+    </div>
+  </div>
+  <div class="remaining-graphs span8">
+    <h1>Revenue</h1>
+    <div class="row-fluid">
+      <div id='RevenueChart' class="pie-graph span4 dc-chart" style="float: none !important;">
       </div>
     </div>
   </div>
@@ -33,6 +41,7 @@
   <script type="text/javascript">
     $(function () {
       getNewCustomers();
+      getRevenue();
     });
     
     function getNewCustomers() {
@@ -41,7 +50,7 @@
         async: true,
         url: '\\MetraNet\\Report\\NewCustomers',
         success: function (data) {
-          RenderGraph(data);
+          RenderNewCustomersChart(data);
         },
         error: function () {
           alert("Error getting Data");
@@ -49,9 +58,9 @@
       });
     };
 
-    function RenderGraph(JSONData) {
+    function RenderNewCustomersChart(JSONData) {
 
-      var volumeChart = dc.barChart("#dc-volume-chart");
+      var volumeChart = dc.barChart("#NewCustomersChart");
 
       var ndx = crossfilter(JSONData);
 
@@ -86,5 +95,47 @@
       dc.redrawAll();
     }
 
+    function getRevenue() {
+      $.ajax({
+        type: 'GET',
+        async: true,
+        url: '\\MetraNet\\Report\\Revenue',
+        success: function (data) {
+          RenderRevenueChart(data);
+        },
+        error: function () {
+          alert("Error getting Data");
+        }
+      });
+    };
+
+    function RenderRevenueChart(JSONData) {
+
+      var volumeChart = dc.barChart("#RevenueChart");
+
+      var ndx = crossfilter(JSONData);
+
+      var startValue = ndx.dimension(function (d) {
+        return new Date(parseInt(d.Date.substr(6)));
+      });
+      var startValueGroup = startValue.group();
+
+      volumeChart.width(800)
+        .height(300)
+        .dimension(startValue)
+        .group(startValueGroup, "Revenue")
+        .transitionDuration(1500)
+        .centerBar(true)
+        .gap(15)
+        .round(d3.time.month.round)
+        .x(d3.time.scale().domain([new Date(2012, 11, 1), new Date(2013, 12, 31)]))
+        .xUnits(d3.time.months)
+        .legend(dc.legend().x(680).y(0))
+        .elasticY(true)
+        .xAxis().tickFormat(d3.time.format("%b-%Y"));
+
+      dc.renderAll();
+      dc.redrawAll();
+    }
   </script>
 </asp:Content>

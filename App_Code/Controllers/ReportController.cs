@@ -13,7 +13,7 @@ namespace ASP.Controllers
   {
     public JsonResult NewCustomers()
     {
-      using (var dbDataMart = new DataMart(GetDefaultDatabaseConnectionSubscriptiondatamart()))
+      using (var dbDataMart = GetDatamartContext())
       {
         var accountsByMonth = (from c in dbDataMart.Customer
                                join st in dbDataMart.SubscriptionTable on c.AccountId equals st.AccountId
@@ -25,9 +25,31 @@ namespace ASP.Controllers
                                    Account = c.AccountId,
                                    Date = new DateTime(st.StartDate.Value.Year, st.StartDate.Value.Month, 1)
                                  }).ToList();
-        ;
 
         return Json(accountsByMonth, JsonRequestBehavior.AllowGet);
+      }
+    }
+
+    public JsonResult Revenue()
+    {
+      using (var context = GetNetMeterContext())
+      {
+        var result =
+          context.T_invoice.Where(i => i.Invoice_date >= DateTime.Today.AddMonths(-13)
+                                       && i.Invoice_date <= DateTime.Now.AddMonths(-1))
+                           .Select(i => new { Amount = i.Invoice_amount,
+                                              RecognitionDate = new DateTime(i.Invoice_date.Year, i.Invoice_date.Month, 1),
+                                              Currency = i.Invoice_currency.Trim()
+                                            })
+                           .GroupBy(i => new {i.RecognitionDate, i.Currency})
+                           .Select(i => new {Amount = i.Sum(grp => grp.Amount),
+                                             RecognitionDate = i.Key.RecognitionDate,
+                                             Currency = i.Key.Currency
+                                            })
+                           .OrderBy(i => i.RecognitionDate).ThenBy(i => i.Currency)
+                           .ToList();
+
+        return Json(result, JsonRequestBehavior.AllowGet);
       }
     }
 
@@ -51,10 +73,9 @@ namespace ASP.Controllers
 
     private IEnumerable<SelectListItem> GetProductCodes()
     {
-      var list = new List<SelectListItem>();
-      list.Add(new SelectListItem() { Selected = true, Text = "All", Value = "all" });
+      var list = new List<SelectListItem> {new SelectListItem {Selected = true, Text = "All", Value = "all"}};
 
-      using (var dbContext = new DataMart(GetDefaultDatabaseConnectionSubscriptiondatamart()))
+      using (var dbContext = GetDatamartContext())
       {
         var products =
           (from subByMonth in dbContext.SubscriptionsByMonth
@@ -65,16 +86,16 @@ namespace ASP.Controllers
              subByMonth.Month <= DateTime.Now
            select sub.ProductCode).Distinct().OrderBy(x => x).ToList();
 
-        list.AddRange(products.Select(productCode => new SelectListItem() { Text = productCode, Value = productCode }));
+        list.AddRange(products.Select(productCode => new SelectListItem { Text = productCode, Value = productCode }));
       }
       return list;
     }
 
     private IEnumerable<SelectListItem> GetTerritoryCodes()
     {
-      var list = new List<SelectListItem> { new SelectListItem() { Selected = true, Text = "All", Value = "all" } };
+      var list = new List<SelectListItem> { new SelectListItem { Selected = true, Text = "All", Value = "all" } };
 
-      using (var dbContext = new DataMart(GetDefaultDatabaseConnectionSubscriptiondatamart()))
+      using (var dbContext = GetDatamartContext())
       {
         var codes =
           (from st in dbContext.SubscriptionTable
@@ -85,21 +106,31 @@ namespace ASP.Controllers
              st.StartDate.Value <= DateTime.Now
            select c.Territorycode).Distinct().OrderBy(x => x).ToList();
 
-        list.AddRange(codes.Select(code => new SelectListItem() { Text = code, Value = code }));
+        list.AddRange(codes.Select(code => new SelectListItem { Text = code, Value = code }));
       }
       return list;
     }
 
-    private static DbConnection GetDefaultDatabaseConnectionSubscriptiondatamart()
+    private static DataMart GetDatamartContext()
+    {
+      return new DataMart(GetDefaultDatabaseConnection("localhost", "Subscriptiondatamart", "nmdbo", "MetraTech1"));
+    }
+
+    private static NetMeter GetNetMeterContext()
+    {
+      return new NetMeter(GetDefaultDatabaseConnection("localhost", "NetMeter", "nmdbo", "MetraTech1"));
+    }
+
+    private static DbConnection GetDefaultDatabaseConnection(string serverName, string dbName, string userName, string password)
     {
       //var connectionInfo = new ConnectionInfo("NetMeter"){ Catalog = "Subscriptiondatamart" };
       //return ConnectionBase.GetDbConnection(connectionInfo, false);
       var connString = new SqlConnectionStringBuilder
       {
-        DataSource = "localhost",
-        InitialCatalog = "Subscriptiondatamart",
-        UserID = "nmdbo",
-        Password = "MetraTech1"
+        DataSource = serverName,
+        InitialCatalog = dbName,
+        UserID = userName,
+        Password = password
       };
       return new SqlConnection(connString.ToString());
     }

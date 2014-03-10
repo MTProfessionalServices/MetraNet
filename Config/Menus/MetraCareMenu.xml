@@ -722,6 +722,20 @@
                                 <Capability>Apply Adjustments</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
+						<MenuItem>
+                            <ID>CreateCreditNote</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_CREATE_CREDIT_NOTE</LocalizationTag>							
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/Adjustments/CreateCreditNote.aspx</Link> 
+						    <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/page.png</Icon>
+                            <Description>Create Credit Note</Description>
+                            <RequiredCapabilities>
+                                <Capability>Apply Adjustments</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>							
                         <MenuItem>
                             <ID>NonStandardCharges</ID>
                             <Caption>
@@ -1231,6 +1245,20 @@
                                 <Capability>Apply Adjustments</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
+						<MenuItem>
+                            <ID>CreateCreditNote</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_CREATE_CREDIT_NOTE</LocalizationTag>							
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/Adjustments/CreateCreditNote.aspx</Link> 
+						    <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/page.png</Icon>
+                            <Description>Create Credit Note</Description>
+                            <RequiredCapabilities>
+                                <Capability>Apply Adjustments</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>							
                         <MenuItem>
                             <ID>NonStandardCharges</ID>
                             <Caption>

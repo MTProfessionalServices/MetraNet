@@ -5,7 +5,7 @@
       <Value><![CDATA[Invoices]]></Value>
     </Title>
     <Exportable>false</Exportable>
-    <Height>0</Height>
+    <Height>300</Height>
     <Width>0</Width>
     <Expandable>false</Expandable>
     <Buttons>Custom</Buttons>
@@ -33,7 +33,7 @@
     <FilterPanelCollapsed>false</FilterPanelCollapsed>
     <EnableColumnConfig>false</EnableColumnConfig>
     <EnableFilterConfig>false</EnableFilterConfig>
-    <Resizeable>true</Resizeable>
+    <Resizeable>false</Resizeable>
     <ButtonAlignment>Center</ButtonAlignment>
     <DefaultSortField></DefaultSortField>
     <DefaultSortDirection>Ascending</DefaultSortDirection>

@@ -221,33 +221,71 @@ white-space:nowrap;
 {
   font-weight:bolder;
 }
-/*
-#MyFormDiv_ctl00_ContentPlaceHolder1_pnlNowCast {
-  width: 100% !important;
-  height: 100% !important;
-}
-*/
 #MyFormDiv_ctl00_ContentPlaceHolder1_pnlNowCast .x-panel {
   width: 100%;
   height: 100%;
   padding-right: 30px;
   margin-right: 30px;
 }
-/*
-.x-panel-bwrap {
+#MyFormDiv_ctl00_ContentPlaceHolder1_billsPaymentsPanel .x-panel {
   width: 100%;
   height: 100%;
+  padding-right: 30px;
+  margin-right: 30px;
 }
-
-.x-panel-body {
+#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid {
   width: 100% !important;
   height: 100% !important;
 }
-*/
+
+#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid .x-panel-bwrap {
+  width: 100% !important;
+  height: 100% !important;
+}
+#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid .x-panel-body {
+  width: 100% !important;
+  height: 100% !important;
+}
+#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid .x-grid3 {
+  width: 100% !important;
+  height: 100% !important;
+}
+#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid .x-grid3-viewport {
+  width: 100% !important;
+  height: 100% !important;
+}
+#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid .x-grid3-body {
+  width: 100% !important;
+  height: 100% !important;
+}
+#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid .x-grid-empty {
+  width: 100% !important;
+  height: 100% !important;
+}
+#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid .x-grid-empty {
+  width: 100% !important;
+  height: 100% !important;
+}
+#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid .x-grid3-scroller {
+  width: 100% !important;
+  height: 100% !important;
+}
+#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid .x-panel-mr {
+  width: 100% !important;
+  height: 100% !important;
+}
+#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid .x-panel-ml {
+  width: 100% !important;
+  height: 100% !important;
+}
+#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid .x-panel-mc {
+  width: 100% !important;
+  height: 100% !important;
+}
   </style>
 
   <script type="text/javascript">
-      //Initialize gridster
+  //Initialize gridster
 //    jQuery(function () {
 //      var widgets = $('.widget');
 
@@ -280,32 +318,41 @@ white-space:nowrap;
     <div id="AccountBalanceInformation" style="padding: 15px;">Balance Information</div>
   </div>--%>
   
-  <MT:MTPanel ID="MTPanel1" runat="server" Collapsed=false Collapsible="False" Visible="False" >
-    <div id="AccountBalanceInformation"></div>
-  </MT:MTPanel>
-
-
   <div class="widget" data-row="2" data-col="1" data-sizex="8" data-sizey="1">
+    <MT:MTPanel ID="MTPanel1" runat="server" Collapsed=false Collapsible="False" Visible="False" >
+      <div id="AccountBalanceInformation"></div>
+    </MT:MTPanel>
+  </div>
+
+  <div class="widget" data-row="3" data-col="1" data-sizex="8" data-sizey="1">
 <%--  <img src="/Res/Images/Mockup/MetangaAccountSummaryAnalytic.png" width="720px;" style="padding: 15px;"/>--%>
 
   </div>
 
-<%--  <div class="widget" data-row="3" data-col="1" data-sizex="8" data-sizey="3">
-  <img src="/Res/Images/Mockup/Bills-PaymentsMockupSnippet.png" width="720px;" style="padding: 15px;"/>
-  </div>--%>
+  <div class="widget" data-row="4" data-col="1" data-sizex="8" data-sizey="3">
+    <MT:MTPanel ID="billsPaymentsPanel" runat="server" Text="Bills & Payments">
+      <table width="100%">
+        <tr>
+          <td width="35%">
+            <div id="billsPaymentsChart"></div>
+          </td>
+          <td width="65%">
+            <MT:MTFilterGrid ID="InvoiceSummaryGrid" runat="server" TemplateFileName="AccountInvoiceSummary.xml" ExtensionName="Account" Resizable="False" ></MT:MTFilterGrid>
+          </td>
+        </tr>
+      </table>
+      <%-- %>img src="/Res/Images/Mockup/Bills-PaymentsMockupSnippet.png" width="720px;" style="padding: 15px;"/--%>
+    </MT:MTPanel>
+  </div>
 
 <%--  	  </ul>--%>
 
  
-  <div class="widget" data-row="3" data-col="1" data-sizex="8" data-sizey="3">
+  <div class="widget" data-row="7" data-col="1" data-sizex="8" data-sizey="3">
   <MT:MTFilterGrid ID="SubscriptionSummaryGrid" runat="server" TemplateFileName="AccountSubscriptionSummary.xml" ExtensionName="Account" ></MT:MTFilterGrid>
   </div>
   
-  <div class="widget" data-row="6" data-col="1" data-sizex="8" data-sizey="3">
-  <MT:MTFilterGrid ID="InvoiceSummaryGrid" runat="server" TemplateFileName="AccountInvoiceSummary.xml" ExtensionName="Account" ></MT:MTFilterGrid>
-  </div>
-  
-  <div class="widget" data-row="9" data-col="1" data-sizex="8" data-sizey="3">
+  <div class="widget" data-row="10" data-col="1" data-sizex="8" data-sizey="3">
     <MT:MTPanel ID="pnlNowCast" runat="server" Text="NowCast">
       <div id="NowCast-body"></div>
     </MT:MTPanel>
@@ -608,7 +655,7 @@ white-space:nowrap;
 
 //           '<tpl if="this.isNull(FacsimileTelephoneNumber) == false">',
 //             '<img border="0" align="top" src="/Res/Images/icons/fax.png"/> {FacsimileTelephoneNumber:htmlEncode}<br/>',
-      //           '</tpl>',
+//           '</tpl>',
 
 //         '</tpl>',
       '</tpl>',
@@ -677,7 +724,7 @@ white-space:nowrap;
             //title: TEXT_APPROVAL_CHANGES_PENDING_YOUR_APPROVAL,
             header: false,
             html: '',
-            renderTo: 'AccountBalanceInformation',
+            renderTo: Ext.Element.get('AccountBalanceInformation'),
             listeners: {
               render: function (panel) {
                 var balanceInfoTpl = new Ext.XTemplate('<span>Balance {currentbalance} as of {currentbalancedate}</span>');           
@@ -758,8 +805,8 @@ white-space:nowrap;
     Ext.onReady(function() {
 
       var margin = { top: 25, right: 55, bottom: 20, left: 25 },
-      width = document.getElementById("NowCast-body").clientWidth - margin.left - margin.right,
-      height = 70 - margin.top - margin.bottom;
+          width = document.getElementById("NowCast-body").clientWidth - margin.left - margin.right,
+          height = 70 - margin.top - margin.bottom;
 
       var chart = d3.bullet()
         .width(width)
@@ -875,4 +922,117 @@ white-space:nowrap;
       });
     });
   </script>
+  <script type="text/javascript">
+    var dateFormat = d3.time.format("%m/%d/%Y %I:%M:%S %p");
+    var dayFormat = d3.time.format("%B %e, %Y");
+    var minDate = new Date();
+    var maxDate = new Date();
+    var currentBalance = 0.0;
+		minDate.setMonth(minDate.getYear() + 10);
+		Ext.onReady(function () {
+		  /*      d3.json("/MetraNet/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() + "&operation=ft30dayaging", function(error, data) {
+		  if (error) console.log("Error:" + error.valueOf());
+		  else {
+		  var item = data.Items;
+		  */
+		  var items = [
+		    { type: 'invoice', interval: 1037107230, id: 5717387, date: '04/30/2013 12:00:00 AM', invoice_amount: 2.400000, balance_amount: 2.400000, payment_amount: 0.000000 },
+		    { type: 'invoice', interval: 1039138846, id: 5788222, date: '05/31/2013 12:00:00 AM', invoice_amount: 30.470000, balance_amount: 30.470000, payment_amount: -2.400000 },
+		    { type: 'invoice', interval: 1041104926, id: 5848275, date: '06/30/2013 12:00:00 AM', invoice_amount: 26.670000, balance_amount: 57.140000, payment_amount: 0.000000 },
+		    { type: 'payment', interval: 1043136542, id: 12455498083, date: '07/11/2013 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -26.670000 },
+		    { type: 'payment', interval: 1043136542, id: 12455498082, date: '07/11/2013 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -30.470000 },
+		    { type: 'invoice', interval: 1043136542, id: 5887673, date: '07/31/2013 12:00:00 AM', invoice_amount: 20.570000, balance_amount: 20.570000, payment_amount: 0.000000 },
+		    { type: 'payment', interval: 1045168158, id: 12954661780, date: '08/12/2013 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -20.570000 },
+		    { type: 'invoice', interval: 1045168158, id: 5969320, date: '08/31/2013 12:00:00 AM', invoice_amount: 20.570000, balance_amount: 20.570000, payment_amount: 0.000000 },
+		    { type: 'payment', interval: 1047134238, id: 13478486651, date: '09/10/2013 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -20.570000 },
+		    { type: 'invoice', interval: 1047134238, id: 6029698, date: '09/30/2013 12:00:00 AM', invoice_amount: 20.570000, balance_amount: 20.570000, payment_amount: 0.000000 },
+		    { type: 'payment', interval: 1049165854, id: 13920611033, date: '10/07/2013 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -20.570000 },
+		    { type: 'invoice', interval: 1049165854, id: 6092922, date: '10/31/2013 12:00:00 AM', invoice_amount: 21.320000, balance_amount: 21.320000, payment_amount: 0.000000 },
+		    { type: 'payment', interval: 1051131934, id: 14492323849, date: '11/08/2013 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -21.320000 },
+		    { type: 'invoice', interval: 1051131934, id: 6134288, date: '11/30/2013 12:00:00 AM', invoice_amount: 20.570000, balance_amount: 20.570000, payment_amount: 0.000000 },
+		    { type: 'payment', interval: 1053163550, id: 14981992568, date: '12/09/2013 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -20.570000 },
+		    { type: 'invoice', interval: 1053163550, id: 6217232, date: '12/31/2013 12:00:00 AM', invoice_amount: 20.570000, balance_amount: 20.570000, payment_amount: 0.000000 },
+		    { type: 'payment', interval: 1055195166, id: 15507808798, date: '01/07/2014 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -20.570000 },
+		    { type: 'invoice', interval: 1055195166, id: 6267870, date: '01/31/2014 12:00:00 AM', invoice_amount: 20.570000, balance_amount: 20.570000, payment_amount: 0.000000 },
+		    { type: 'payment', interval: 1057030174, id: 16124826385, date: '02/10/2014 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -20.570000 },
+		    { type: 'invoice', interval: 1057030174, id: 6352866, date: '02/28/2014 12:00:00 AM', invoice_amount: 20.570000, balance_amount: 20.570000, payment_amount: 0.000000}];
+		  var invoices = [];
+		  var payments = [];
+		  var balances = [];
+		  items.forEach(function (d) {
+		    d.invoice_amount = +d.invoice_amount;
+		    d.payment_amount = -d.payment_amount;
+		    d.balance_amount = +d.balance_amount;
+		    d.dd = dateFormat.parse(d.date);
+		    if (d.dd < minDate) {
+		      minDate = d.dd;
+		    }
+		    currentBalance += (d.invoice_amount - d.payment_amount);
+		    balances.push({ dd: d.dd, balance_amount: currentBalance });
+		    // TODO: handle unknown balance until first invoice because payment comes first
+		    if (d.type == 'invoice') {
+		      invoices.push({ dd: d.dd, invoice_amount: d.invoice_amount });
+		    }
+		    if (d.payment_amount != 0.0) {
+		      payments.push({ dd: d.dd, payment_amount: d.payment_amount });
+		    }
+		  });
+		  var ndx1 = crossfilter(invoices);
+		  var ndx2 = crossfilter(payments);
+		  var ndx3 = crossfilter(balances);
+		  var dateDimension1 = ndx1.dimension(function (d) { return d.dd; });
+		  var dateDimension2 = ndx2.dimension(function (d) { return d.dd; });
+		  var dateDimension3 = ndx3.dimension(function (d) { return d.dd; });
+		  var invoiceGroup = dateDimension1.group().reduceSum(function (d) { return d.invoice_amount; });
+		  var paymentGroup = dateDimension2.group().reduceSum(function (d) { return d.payment_amount; });
+		  var balanceGroup = dateDimension3.group().reduceSum(function (d) { return d.balance_amount; });
+		  var composite = dc.compositeChart("#billsPaymentsChart");
+		  composite
+		    .margins({ top: 5, right: 5, bottom: 60, left: 5 })
+		    .height(225)
+		    .x(d3.time.scale().domain([minDate, maxDate]))
+		    .elasticY(true)
+		    .transitionDuration(0)
+		    .legend(dc.legend().x(15).y(175).itemHeight(13).gap(5))
+        .title(function (d) {
+          console.log(d); return dayFormat(d.key) + ": $" + d.value; })
+		    .brushOn(false)
+		    .compose([
+		      dc.lineChart(composite)
+		        .dimension(dateDimension1)
+		        .group(invoiceGroup, "Invoices")
+		        .renderDataPoints({ radius: 3, fillOpacity: 0.8, strokeOpacity: 0.8 })
+		        .colors('#00B0F0')
+		        .title(function (d) { return dayFormat(d.key) + " Invoice[s]: $" + d.value; }),
+		      dc.lineChart(composite)
+		        .dimension(dateDimension2)
+		        .group(paymentGroup, "Payments")
+		        .renderDataPoints({ radius: 3, fillOpacity: 0.8, strokeOpacity: 0.8 })
+		        .colors('#0070C0')
+		        .title(function (d) { return dayFormat(d.key) + " Payment[s]: $" + d.value; }),
+		      dc.lineChart(composite)
+		        .dimension(dateDimension3)
+		        .group(balanceGroup, "Balance")
+		        .colors('#148622')
+		        .title(function (d) { return dayFormat(d.key) + " Balance: $" + d.value; })
+		    ])
+		  /*            .renderlet(
+		  function (_chart) {
+		  _chart.children()[0].title(function (d) { return -d.key + " days back: " + d.value + " Open"; });
+		  _chart.children()[1].title(function (d) { return -d.key + " days back: " + d.value + " Under Investigation"; });
+		  })
+		  */;
+		  composite.xAxis().ticks(0);
+		  composite.yAxis().ticks(0);
+
+		  composite.render();
+
+		  dc.renderAll();
+		  /*
+		  }
+		  });
+		  */
+		});
+  </script>
+
 </asp:Content>

@@ -401,7 +401,7 @@
                 <Value><![CDATA[1]]></Value>
             </ElementValue>
             <ElementValue2>
-                <Value><![CDATA[root (1)]]></Value>
+                <Value><![CDATA[]]></Value>
             </ElementValue2>
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>

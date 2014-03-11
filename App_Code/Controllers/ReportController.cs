@@ -55,20 +55,34 @@ namespace ASP.Controllers
 
     public JsonResult MRRByProduct()
     {
-      Title = "Monthly Recurring Revenue By Product Report";
+      using (var dbDataMart = GetDatamartContext())
+      {
+        var MRRByMonth = (from subByMonth in dbDataMart.SubscriptionsByMonth
+                          join sub in dbDataMart.SubscriptionTable on subByMonth.SubscriptionId equals
+                            sub.SubscriptionId
+                          join c in dbDataMart.Customer on sub.AccountId equals c.AccountId
+                          where
+                            subByMonth.Month.HasValue &&
+                            subByMonth.Month >= DateTime.Today.AddMonths(-13) &&
+                            subByMonth.Month < new DateTime(DateTime.Now.AddMonths(12).Year, DateTime.Now.Month, 1)
+                          group subByMonth by new
+                            {
+                              Date = new DateTime(subByMonth.Month.Value.Year, subByMonth.Month.Value.Month, 1),
+                              CurrencyCode = sub.FeeCurrency
+                            }
+                          into grp
+                          select new
+                            {
+                              grp.Key.Date,
+                              grp.Key.CurrencyCode,
+                              Amount =
+                            grp.Sum(
+                              x =>
+                              x.MRRBase + x.MRRNew + x.MRRRenewal + x.MRRPriceChange + x.MRRChurn + x.MRRCancellation)
+                            }).ToList();
 
-      var monthsArr = new string[12];
-      var lastMonth = (new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1)).AddMonths(-1);
-
-      for (int i = 0; i <= 11; i++)
-        monthsArr[11 - i] = lastMonth.AddMonths(-i).ToString("MMM yy");
-
-      ViewBag.GridMonthsArr = monthsArr;
-
-      ViewBag.ProductsList = GetProductCodes();
-      ViewBag.TerritoryList = GetTerritoryCodes();
-
-      return Json("");
+        return Json(MRRByMonth, JsonRequestBehavior.AllowGet);
+      }
     }
 
     private IEnumerable<SelectListItem> GetProductCodes()

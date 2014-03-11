@@ -135,45 +135,45 @@
   <data name="DECIMAL_SEPARATOR" xml:space="preserve">
     <value>,</value>
   </data>
-    <data name="DUPLICATE" xml:space="preserve">
-        <value>Duplizieren</value>
-    </data>
+  <data name="DUPLICATE" xml:space="preserve">
+    <value>Duplizieren</value>
+  </data>
   <data name="ERR_DATE_FORMAT" xml:space="preserve">
     <value>mm/dd/YYYY</value>
   </data>
-    <data name="FAILURE" xml:space="preserve">
-        <value>Fehler</value>
-    </data>
-    <data name="MANUAL_PENDING" xml:space="preserve">
-        <value>Manuell ausstehend</value>
-    </data>
-    <data name="MANUALLY_REVERSED" xml:space="preserve">
-        <value>Manuell zurückgebucht</value>
-    </data>
+  <data name="FAILURE" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="MANUAL_PENDING" xml:space="preserve">
+    <value>Manuell ausstehend</value>
+  </data>
+  <data name="MANUALLY_REVERSED" xml:space="preserve">
+    <value>Manuell zurückgebucht</value>
+  </data>
   <data name="NO_RECORDS_FOUND" xml:space="preserve">
     <value>Es wurden keine Datensätze gefunden.</value>
   </data>
-    <data name="POST_PROCESSING_SUCCESSFUL" xml:space="preserve">
-        <value>Nachverarbeitung erfolgreich</value>
-    </data>
-    <data name="RECEIVED_REQUEST" xml:space="preserve">
-        <value>Anforderung erhalten</value>
-    </data>
-    <data name="RECEIVED_RESPONSE" xml:space="preserve">
-        <value>Antwort erhalten</value>
-    </data>
-    <data name="REJECTED" xml:space="preserve">
-        <value>Abgelehnt</value>
-    </data>
-    <data name="REVERSED" xml:space="preserve">
-        <value>Zurückgebucht</value>
-    </data>
-    <data name="SUBMITTED_REQUEST" xml:space="preserve">
-        <value>Anforderung übermittelt</value>
-    </data>
-    <data name="SUCCESS" xml:space="preserve">
-        <value>Erfolgreich</value>
-    </data>
+  <data name="POST_PROCESSING_SUCCESSFUL" xml:space="preserve">
+    <value>Nachverarbeitung erfolgreich</value>
+  </data>
+  <data name="RECEIVED_REQUEST" xml:space="preserve">
+    <value>Anforderung erhalten</value>
+  </data>
+  <data name="RECEIVED_RESPONSE" xml:space="preserve">
+    <value>Antwort erhalten</value>
+  </data>
+  <data name="REJECTED" xml:space="preserve">
+    <value>Abgelehnt</value>
+  </data>
+  <data name="REVERSED" xml:space="preserve">
+    <value>Zurückgebucht</value>
+  </data>
+  <data name="SUBMITTED_REQUEST" xml:space="preserve">
+    <value>Anforderung übermittelt</value>
+  </data>
+  <data name="SUCCESS" xml:space="preserve">
+    <value>Erfolgreich</value>
+  </data>
   <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
     <value>Details</value>
   </data>
@@ -237,54 +237,54 @@
   <data name="TEXT_APPLY_TEMPLATE" xml:space="preserve">
     <value>Vorlage anwenden</value>
   </data>
-    <data name="TEXT_APPROVAL_CHANGES_PENDING_YOUR_APPROVAL" xml:space="preserve">
-        <value>Änderungen, für die Ihre Genehmigung aussteht</value>
-    </data>
-    <data name="TEXT_APPROVAL_NO_CHANGES_PENDING_YOUR_APPROVAL" xml:space="preserve">
-        <value>Es gibt keine ausstehenden Änderungen, die Sie genehmigen können.</value>
-    </data>
-    <data name="TEXT_APPROVALS_ACTION_APPROVE" xml:space="preserve">
-        <value>Diese Änderung genehmigen</value>
-    </data>
-    <data name="TEXT_APPROVALS_ACTION_APPROVE_TIP" xml:space="preserve">
-        <value>Durch Genehmigen dieser Änderungen stimmen Sie zu, dass diese Änderung in das System übernommen wird.</value>
-    </data>
-    <data name="TEXT_APPROVALS_ACTION_DENY" xml:space="preserve">
-        <value>Diese Änderung ablehnen</value>
-    </data>
-    <data name="TEXT_APPROVALS_ACTION_DISMISS" xml:space="preserve">
-        <value>Diese Änderung verwerfen</value>
-    </data>
-    <data name="TEXT_APPROVALS_ACTION_RESUBMIT" xml:space="preserve">
-        <value>Erneut übermitteln</value>
-    </data>
-    <data name="TEXT_APPROVALS_ACTION_RESUBMIT_TIP" xml:space="preserve">
-        <value>Durch eine erneuten Übermittlung wird erneut versucht, diese genehmigte Änderung auf das System anzuwenden.</value>
-    </data>
-    <data name="TEXT_APPROVALS_COMMENT_LABEL" xml:space="preserve">
-        <value>Anmerkung:</value>
-    </data>
-    <data name="TEXT_APPROVALS_ERROR_UPDATING_CHANGE_ID" xml:space="preserve">
-        <value>Fehler beim Aktualisieren der Änderungs-ID</value>
-    </data>
-    <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPLIED" xml:space="preserve">
-        <value>Diese Änderung wurde auf das System angewendet. Es sind keine weiteren Maßnahmen erforderlich.</value>
-    </data>
-    <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPROVEDWAITINGTOBEAPPLIED" xml:space="preserve">
-        <value>Diese Änderung wurde genehmigt und muss noch auf das System angewendet werden.</value>
-    </data>
-    <data name="TEXT_APPROVALS_STATE_EXPLANATION_DISMISSED" xml:space="preserve">
-        <value>Diese Änderung wurde verworfen. Es sind keine weiteren Maßnahmen möglich.</value>
-    </data>
-    <data name="TEXT_APPROVALS_STATE_EXPLANATION_FAILEDTOAPPLY" xml:space="preserve">
-        <value>Diese Änderung wurde genehmigt, konnte jedoch nicht auf das System angewendet werden.</value>
-    </data>
-    <data name="TEXT_APPROVALS_STATE_EXPLANATION_PENDING" xml:space="preserve">
-        <value>Diese Änderung steht derzeit aus.</value>
-    </data>
-    <data name="TEXT_APPROVALS_STATE_EXPLANATION_SUBMITTER" xml:space="preserve">
-        <value>Da Sie diese ausstehende Änderung übermittelt haben, können Sie sie verwerfen. Dadurch wird sie nicht mehr zur Prüfung vorgelegt.</value>
-    </data>
+  <data name="TEXT_APPROVAL_CHANGES_PENDING_YOUR_APPROVAL" xml:space="preserve">
+    <value>Änderungen, für die Ihre Genehmigung aussteht</value>
+  </data>
+  <data name="TEXT_APPROVAL_NO_CHANGES_PENDING_YOUR_APPROVAL" xml:space="preserve">
+    <value>Es gibt keine ausstehenden Änderungen, die Sie genehmigen können.</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_APPROVE" xml:space="preserve">
+    <value>Diese Änderung genehmigen</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_APPROVE_TIP" xml:space="preserve">
+    <value>Durch Genehmigen dieser Änderungen stimmen Sie zu, dass diese Änderung in das System übernommen wird.</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_DENY" xml:space="preserve">
+    <value>Diese Änderung ablehnen</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_DISMISS" xml:space="preserve">
+    <value>Diese Änderung verwerfen</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_RESUBMIT" xml:space="preserve">
+    <value>Erneut übermitteln</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_RESUBMIT_TIP" xml:space="preserve">
+    <value>Durch eine erneuten Übermittlung wird erneut versucht, diese genehmigte Änderung auf das System anzuwenden.</value>
+  </data>
+  <data name="TEXT_APPROVALS_COMMENT_LABEL" xml:space="preserve">
+    <value>Anmerkung:</value>
+  </data>
+  <data name="TEXT_APPROVALS_ERROR_UPDATING_CHANGE_ID" xml:space="preserve">
+    <value>Fehler beim Aktualisieren der Änderungs-ID</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPLIED" xml:space="preserve">
+    <value>Diese Änderung wurde auf das System angewendet. Es sind keine weiteren Maßnahmen erforderlich.</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPROVEDWAITINGTOBEAPPLIED" xml:space="preserve">
+    <value>Diese Änderung wurde genehmigt und muss noch auf das System angewendet werden.</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_DISMISSED" xml:space="preserve">
+    <value>Diese Änderung wurde verworfen. Es sind keine weiteren Maßnahmen möglich.</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_FAILEDTOAPPLY" xml:space="preserve">
+    <value>Diese Änderung wurde genehmigt, konnte jedoch nicht auf das System angewendet werden.</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_PENDING" xml:space="preserve">
+    <value>Diese Änderung steht derzeit aus.</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_SUBMITTER" xml:space="preserve">
+    <value>Da Sie diese ausstehende Änderung übermittelt haben, können Sie sie verwerfen. Dadurch wird sie nicht mehr zur Prüfung vorgelegt.</value>
+  </data>
   <data name="TEXT_AUDIT_HISTORY_FAILED" xml:space="preserve">
     <value>Audit-Verlauf für fehlgeschlagene Transaktion mit Fallnummer</value>
   </data>
@@ -978,13 +978,13 @@
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
     <value>(GERMAN) Decisions are used when a monetary charge amount cannot be calculated by looking at a single record. Instead, many usage records must be examined and a total must be the number of events, units of usage, or charge amounts. The total, or aggregate, is then used to help determine the charge amount.</value>
   </data>
-	<data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_MONETARY_CHARGE" xml:space="preserve">
+  <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_MONETARY_CHARGE" xml:space="preserve">
     <value>(GERMAN) Example: \"Apply a discount if there's over $100 in charges.\"</value>
   </data>
-	<data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_UNIT_OF_USAGE" xml:space="preserve">
+  <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_UNIT_OF_USAGE" xml:space="preserve">
     <value>(GERMAN) Example: \"Use a special rate if over 1,000 minutes.\"</value>
   </data>
-	<data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_COUNT_NUMBER_OF_EVENTS" xml:space="preserve">
+  <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_COUNT_NUMBER_OF_EVENTS" xml:space="preserve">
     <value>(GERMAN) Example: \"Apply a discount if over 100 calls were made.\"</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_FROM_PARAMETER_TABLE" xml:space="preserve">
@@ -1023,14 +1023,13 @@
   <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE_PRORATION" xml:space="preserve">
     <value>German</value>
   </data>
-	<data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE_PRORATION" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE_PRORATION" xml:space="preserve">
     <value>German</value>
   </data>
-	<data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
     <value>German</value>
   </data>
-
-	<data name="TITLE_AMPWIZARD_HELP_RESTART_RANGE" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_RESTART_RANGE" xml:space="preserve">
     <value>German</value>
   </data>
   <data name="TITLE_AMPWIZARD_ACTIVATION_RESULTS" xml:space="preserve">
@@ -1060,7 +1059,7 @@
   <data name="TEXT_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
     <value>(German)Act on each individual record.  Usage may have different prices  which are determined by the bucket into which they fall.</value>
   </data>
-   <data name="TITLE_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
     <value>(German)Help: Single-bucket</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
@@ -1090,7 +1089,7 @@
   <data name="TEXT_AMPWIZARD_HELP_GENERATED_CHARGE" xml:space="preserve">
     <value>German</value>
   </data>
-    <data name="TITLE_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
     <value>(German) Help:  None</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
@@ -1105,10 +1104,10 @@
   <data name="TEXT_AMPWIZARD_MORE_DECISION_CYCLE" xml:space="preserve">
     <value>German</value>
   </data>
-	<data name="TITLE_AMPWIZARD_HELP_MORE_DECISION_CYCLE" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_MORE_DECISION_CYCLE" xml:space="preserve">
     <value>German</value>
   </data>
-	<data name="TITLE_AMPWIZARD_ADD_MISC_ATTRIBUTE" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_ADD_MISC_ATTRIBUTE" xml:space="preserve">
     <value>German</value>
   </data>
   <data name="TITLE_AMPWIZARD_EDIT_MISC_ATTRIBUTE" xml:space="preserve">
@@ -1136,7 +1135,7 @@
     <value>German</value>
   </data>
   <data name="TITLE_AMPWIZARD_ERROR" xml:space="preserve">
-    <value>German</value> 
+    <value>German</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_USAGE_QUALIFICATION" xml:space="preserve">
     <value>German</value>
@@ -1167,7 +1166,7 @@
   </data>
   <data name="TEXT_VIEW_ACCOUNT_GROUP" xml:space="preserve">
     <value>German</value>
-  </data>  
+  </data>
   <data name="TEXT_AMPWIZARD_HELP_EDIT_ACCOUNT_GROUP" xml:space="preserve">
     <value>German</value>
   </data>
@@ -1183,10 +1182,46 @@
   <data name="TEXT_AMPWIZARD_HELP_DIRECTIVE_FILTER" xml:space="preserve">
     <value>German</value>
   </data>
-    <data name="ERROR_BILL_MESSAGE_DATES" xml:space="preserve">
+  <data name="ERROR_BILL_MESSAGE_DATES" xml:space="preserve">
     <value>German</value>
   </data>
-   <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
+  <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
     <value>[de]Start Date can't be greater than End Date</value>
   </data>
-</root>
+  <data name="TEXT_HARD_CLOSED_INTERVAL_STATUS" xml:space="preserve">
+    <value>(GERMAN) Hard Closed</value>
+  </data>
+  <data name="TEXT_OPEN_INTERVAL_STATUS" xml:space="preserve">
+    <value>(GERMAN) Open</value>
+  </data>
+  <data name="TEXT_SOFT_CLOSED_INTERVAL_STATUS" xml:space="preserve">
+    <value>(GERMAN) Soft Closed</value>
+  </data>
+  <data name="TEXT_UNKNOWN_INTERVAL_STATUS" xml:space="preserve">
+    <value>(GERMAN) Unknown</value>
+  </data>
+  <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(German) Passwords do not match.</value>
+  </data>  
+  <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(German) Enter a valid phone number. Format: 555-555-5555</value>
+  </data>    
+  <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(German) Credit card format is invalid</value>
+  </data>      
+  <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(German) CV Number is invalid</value>
+  </data>        
+  <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(German) SSN format: xxx-xx-xxxx</value>
+  </data>          
+  <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(German) Only numeric digits are allowed</value>
+  </data>            
+  <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(German) Zipcode is invalid</value>
+  </data>              
+  <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(German) Middle initial is invalid</value>
+  </data>                
+ </root>

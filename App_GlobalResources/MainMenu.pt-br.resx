@@ -558,6 +558,9 @@
   <data name="TEXT_VERSION_INFO" xml:space="preserve">
     <value>Informação da versão</value>
   </data>
+  <data name="TEXT_VIEW_CREDIT_NOTES_ISSUED" xml:space="preserve">
+        <value>{PT-BR}View Credit Notes Issued</value>
+    </data>
   <data name="TEXT_VIEW_METERING_STATISTICS" xml:space="preserve">
     <value>Exibir</value>
   </data>

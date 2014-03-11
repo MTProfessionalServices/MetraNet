@@ -38,16 +38,22 @@ public partial class UserControls_BreadCrumb : System.Web.UI.UserControl
   private void RenderCrumb(string title)
   {
     litBreadCrumb.Text = GetGlobalResourceObject("Resource", "TEXT_BREAD_CRUMB_SPACER").ToString();
-    
+    int count = 0;
+
     foreach (var buildCrumb in BreadCrumbs)
     {
         //SECENG: CORE-4803 Cross-Site Request Forgery vulnerability in MetraNet
         // write out crumbs
-        litBreadCrumb.Text += string.Format("<span><a href=\"{0}\">{1}</a></span>", Utils.EncodeForHtmlAttribute(buildCrumb.Url), Utils.EncodeForHtml(buildCrumb.Title));
+      count++;
+      litBreadCrumb.Text += string.Format("<span><a href=\"{0}\">{1}</a></span>", Utils.EncodeForHtmlAttribute(buildCrumb.Url), Utils.EncodeForHtml(buildCrumb.Title));
 
       // stop when we get to the current page
       if (buildCrumb.Title == title)
       {
+        if (count == 1) // do not show single level for the bread crumb
+        {
+          litBreadCrumb.Text = "";
+        }
         break;
       }
 

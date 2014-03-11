@@ -134,19 +134,30 @@ copy %MTOUTDIR%\%VERSION%\bin\MetraTech.Domain.dll %ROOTDIR%\MetraTech\UI\MetraN
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.Application.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin
 copy %MTOUTDIR%\%VERSION%\bin\EntityFramework.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin
 
-IF NOT EXIST %ROOTDIR%\MetraTech\UI\MetraNet\bin\de MKDIR %ROOTDIR%\MetraTech\UI\MetraNet\bin\de
-IF NOT EXIST %ROOTDIR%\MetraTech\UI\MetraNet\bin\en MKDIR %ROOTDIR%\MetraTech\UI\MetraNet\bin\en
-IF NOT EXIST %ROOTDIR%\MetraTech\UI\MetraNet\bin\fr MKDIR %ROOTDIR%\MetraTech\UI\MetraNet\bin\fr
-IF NOT EXIST %ROOTDIR%\MetraTech\UI\MetraNet\bin\it MKDIR %ROOTDIR%\MetraTech\UI\MetraNet\bin\it
-IF NOT EXIST %ROOTDIR%\MetraTech\UI\MetraNet\bin\ja MKDIR %ROOTDIR%\MetraTech\UI\MetraNet\bin\ja
-IF NOT EXIST %ROOTDIR%\MetraTech\UI\MetraNet\bin\es MKDIR %ROOTDIR%\MetraTech\UI\MetraNet\bin\es
+IF NOT EXIST %ROOTDIR%\MetraTech\UI\MetraNet\bin\da MKDIR 		%ROOTDIR%\MetraTech\UI\MetraNet\bin\da
+IF NOT EXIST %ROOTDIR%\MetraTech\UI\MetraNet\bin\de MKDIR 		%ROOTDIR%\MetraTech\UI\MetraNet\bin\de
+IF NOT EXIST %ROOTDIR%\MetraTech\UI\MetraNet\bin\en MKDIR 		%ROOTDIR%\MetraTech\UI\MetraNet\bin\en
+IF NOT EXIST %ROOTDIR%\MetraTech\UI\MetraNet\bin\en-GB MKDIR 	%ROOTDIR%\MetraTech\UI\MetraNet\bin\en-GB
+IF NOT EXIST %ROOTDIR%\MetraTech\UI\MetraNet\bin\es MKDIR 		%ROOTDIR%\MetraTech\UI\MetraNet\bin\es
+IF NOT EXIST %ROOTDIR%\MetraTech\UI\MetraNet\bin\es-mx MKDIR 	%ROOTDIR%\MetraTech\UI\MetraNet\bin\es-mx
+IF NOT EXIST %ROOTDIR%\MetraTech\UI\MetraNet\bin\fr MKDIR 		%ROOTDIR%\MetraTech\UI\MetraNet\bin\fr
+IF NOT EXIST %ROOTDIR%\MetraTech\UI\MetraNet\bin\it MKDIR 		%ROOTDIR%\MetraTech\UI\MetraNet\bin\it
+IF NOT EXIST %ROOTDIR%\MetraTech\UI\MetraNet\bin\ja MKDIR 		%ROOTDIR%\MetraTech\UI\MetraNet\bin\ja
+IF NOT EXIST %ROOTDIR%\MetraTech\UI\MetraNet\bin\pt-br MKDIR 	%ROOTDIR%\MetraTech\UI\MetraNet\bin\pt-br
+IF NOT EXIST %ROOTDIR%\MetraTech\UI\MetraNet\bin\zh-CN MKDIR 	%ROOTDIR%\MetraTech\UI\MetraNet\bin\zh-CN
 
-copy %MTOUTDIR%\%VERSION%\bin\de\MetraTech.DomainModel.BaseTypes.Resources.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin\de
-copy %MTOUTDIR%\%VERSION%\bin\en\MetraTech.DomainModel.BaseTypes.Resources.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin\en
-copy %MTOUTDIR%\%VERSION%\bin\fr\MetraTech.DomainModel.BaseTypes.Resources.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin\fr
-copy %MTOUTDIR%\%VERSION%\bin\it\MetraTech.DomainModel.BaseTypes.Resources.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin\it
-copy %MTOUTDIR%\%VERSION%\bin\ja\MetraTech.DomainModel.BaseTypes.Resources.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin\ja
-copy %MTOUTDIR%\%VERSION%\bin\es\MetraTech.DomainModel.BaseTypes.Resources.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin\es
+copy %MTOUTDIR%\%VERSION%\bin\da\* 		%ROOTDIR%\MetraTech\UI\MetraNet\bin\da
+copy %MTOUTDIR%\%VERSION%\bin\de\* 		%ROOTDIR%\MetraTech\UI\MetraNet\bin\de
+copy %MTOUTDIR%\%VERSION%\bin\en\* 		%ROOTDIR%\MetraTech\UI\MetraNet\bin\en
+copy %MTOUTDIR%\%VERSION%\bin\en-GB\* 	%ROOTDIR%\MetraTech\UI\MetraNet\bin\en-GB
+copy %MTOUTDIR%\%VERSION%\bin\es\* 		%ROOTDIR%\MetraTech\UI\MetraNet\bin\es
+copy %MTOUTDIR%\%VERSION%\bin\es-mx\* 	%ROOTDIR%\MetraTech\UI\MetraNet\bin\es-mx
+copy %MTOUTDIR%\%VERSION%\bin\fr\* 		%ROOTDIR%\MetraTech\UI\MetraNet\bin\fr
+copy %MTOUTDIR%\%VERSION%\bin\it\* 		%ROOTDIR%\MetraTech\UI\MetraNet\bin\it
+copy %MTOUTDIR%\%VERSION%\bin\ja\* 		%ROOTDIR%\MetraTech\UI\MetraNet\bin\ja
+copy %MTOUTDIR%\%VERSION%\bin\pt-br\* 	%ROOTDIR%\MetraTech\UI\MetraNet\bin\pt-br
+copy %MTOUTDIR%\%VERSION%\bin\zh-CN\* 	%ROOTDIR%\MetraTech\UI\MetraNet\bin\zh-CN
+
 
 REM copy %MTOUTDIR%\%VERSION%\bin\Ajax* %ROOTDIR%\MetraTech\UI\MetraNet\bin
 REM copy %MTOUTDIR%\%VERSION%\bin\Microsoft.* %ROOTDIR%\MetraTech\UI\MetraNet\bin

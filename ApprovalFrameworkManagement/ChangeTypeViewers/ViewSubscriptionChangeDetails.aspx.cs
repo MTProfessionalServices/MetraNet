@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.ServiceModel;
-using System.Web;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using MetraTech.ActivityServices.Common;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.UI.Common;
@@ -9,8 +10,6 @@ using MetraTech.Core.Services.ClientProxies;
 using MetraTech.Approvals;
 using MetraTech.Approvals.ChangeTypes;
 using MetraTech.UI.Controls;
-using MetraTech.DomainModel.BaseTypes;
-using System.Web.UI;
 
 public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails : MTPage
 {
@@ -47,23 +46,43 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
   #region Private Methods
 
   private Control _parenControl;
+
   private void InitBasicProperties(SubscriptionChange subChange)
   {
     lblChangesSummaryTitle.Text = SubChange.IsNewEntity
-                       ? GetGlobalResourceObject("Resource", "newSubscription").ToString()
-                       : GetGlobalResourceObject("Resource", "updateSubscription").ToString();
+                                    ? GetGlobalResourceObject("Resource", "newSubscription").ToString()
+                                    : GetGlobalResourceObject("Resource", "updateSubscription").ToString();
 
-    LblAccountName.Text = String.Format("<img src='/ImageHandler/images/Account/{0}/account.gif' />  {1}", SubChange.AccountType, SubChange.AccountName);
+    LblAccountName.Text = String.Format("<img src='/ImageHandler/images/Account/{0}/account.gif' />  {1}",
+                                        SubChange.AccountType, SubChange.AccountName);
     LblPoName.Text = SubChange.ProductOfferingName;
-    
+
     // Start Date
     SetViewChangeControl(SubChangeBasicStartDate, subChange.StartDateChange, true);
     // Next start of payer's billing period after this date
-    SetViewChangeControl(SubChangeBasicNextStart, subChange.StartDateTypeChange, true);
+    SubChangeBasicNextStart.ControlState = AdapteEnumFromApproveToUIControl(subChange.StartDateTypeChange.State);
+    SubChangeBasicNextStart.ValueOld = String.IsNullOrEmpty(subChange.StartDateTypeChange.OldValue)
+                                         ? String.Empty
+                                         : GetLocalResourceObject(subChange.StartDateTypeChange.OldValue).ToString();
+    SubChangeBasicNextStart.ValueNew = String.IsNullOrEmpty(subChange.StartDateTypeChange.NewValue)
+                                         ? String.Empty
+                                         : GetLocalResourceObject(subChange.StartDateTypeChange.NewValue).ToString();
+
     // End Date
+    if (String.IsNullOrEmpty(subChange.EndDateChange.NewValue))
+    {
+      subChange.EndDateChange.NewValue = GetLocalResourceObject("NO_END_DATE").ToString();
+    }
     SetViewChangeControl(SubChangeBasicEndDate, subChange.EndDateChange, true);
     // Next end of payer's billing period after this date
-    SetViewChangeControl(SubChangeBasicNextEnd, subChange.EndDateTypeChange, true);
+    SubChangeBasicNextEnd.ControlState = AdapteEnumFromApproveToUIControl(subChange.EndDateTypeChange.State);
+    SubChangeBasicNextEnd.ValueOld = String.IsNullOrEmpty(subChange.EndDateTypeChange.OldValue)
+                                       ? String.Empty
+                                       : GetLocalResourceObject(subChange.EndDateTypeChange.OldValue).ToString();
+    SubChangeBasicNextEnd.ValueNew = String.IsNullOrEmpty(subChange.EndDateTypeChange.NewValue)
+                                       ? String.Empty
+                                       : GetLocalResourceObject(subChange.EndDateTypeChange.NewValue).ToString();
+
     _parenControl = SubChangeBasicNextEnd.Parent;
   }
 
@@ -74,10 +93,14 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
       _parenControl.Controls.Add(new LiteralControl("<br />"));
       _parenControl.Controls.Add(new MTSection {Text = GetLocalResourceObject("UDRC_SECTION_NAME").ToString()});
 
+      var div1 = new HtmlGenericControl("div") {ID = "divForSchroll"};
+      div1.Attributes["class"] = "vCh-schrollDiv-udrc";
+      
       foreach (var change in subChange.UdrcProperties)
       {
-        SetUdrsViewChangeControls(change);
+        SetUdrsViewChangeControls(change, div1);
       }
+      _parenControl.Controls.Add(div1);
     }
   }
 
@@ -90,25 +113,32 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
         {
           Text = GetLocalResourceObject("SUB_PROPS_SECTION_NAME").ToString()
         });
-
+      
+      var div1 = new HtmlGenericControl("div") { ID = "divForSchroll" };
+      div1.Attributes["class"] = "vCh-schrollDiv-subProps";
+      
       foreach (var change in subChange.ExtendedProperties)
       {
-        AddViewChangeControl(_parenControl, change);
+        AddViewChangeControl(div1, change);
       }
+      _parenControl.Controls.Add(div1);
     }
   }
 
-  private void SetUdrsViewChangeControls(UdrcChange changedProp)
+  private void SetUdrsViewChangeControls(UdrcChange changedProp, Control parentControl)
   {
-    //TODO: Localize
-    _parenControl.Controls.Add(new MTViewChangeControl{ Label="UDRS Name", ValueNew = String.Format("<b>{0}</b>", changedProp.UdrcName)  });
+    parentControl.Controls.Add(new MTViewChangeControl
+      {
+        Label = GetLocalResourceObject("UDRC_NAME").ToString(),
+        ValueNew = String.Format("<b>{0}</b>", changedProp.UdrcName)
+      });
     foreach (var change in changedProp.UdrcValueChanges)
     {
-      AddViewChangeControl(_parenControl, change);
+      AddViewChangeControl(parentControl, change);
     }    
   }
 
-  private void AddViewChangeControl(System.Web.UI.Control  parentControl, ChangedValue changedProp)
+  private void AddViewChangeControl(Control parentControl, ChangedValue changedProp)
   {
      var newControl = new MTViewChangeControl();
      SetViewChangeControl(newControl, changedProp, false);
@@ -151,19 +181,25 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
   {
     Subscription currentSub = null;
     List<UDRCInstance> currentUdrcInstances = null;
-    List<UDRCInstance> newUdrcInstances = null;
+    List<UDRCInstance> newUdrcInstances;
     
     var subscriptionClient = new SubscriptionServiceClient();
     try
     {
-      SetCredantional(subscriptionClient.ClientCredentials);
+      SetSuCredantional(subscriptionClient.ClientCredentials);
 
+      subscriptionClient.GetUDRCInstancesForPO(newSubscription.ProductOfferingId, out newUdrcInstances);
       if (newSubscription.SubscriptionId.HasValue)
       {
-        subscriptionClient.GetSubscriptionDetail(accOfNewSub, newSubscription.SubscriptionId.Value, out currentSub);
-        subscriptionClient.GetUDRCInstancesForPO(newSubscription.ProductOfferingId, out newUdrcInstances);
+        var charVals = new MTList<CharacteristicValue>();
+        var fe = new MTFilterElement("EntityId", MTFilterElement.OperationType.Equal, newSubscription.SubscriptionId.Value);
+        charVals.Filters.Add(fe);
 
+        // If it's not Create Sub, retrieve current subscription and UDRC with Names
+        subscriptionClient.GetSubscriptionDetail(accOfNewSub, newSubscription.SubscriptionId.Value, out currentSub);
         subscriptionClient.GetUDRCInstancesForPO(currentSub.ProductOfferingId, out currentUdrcInstances);
+        subscriptionClient.GetCharacteristicValues(ref charVals);
+        currentSub.CharacteristicValues = charVals.Items;
       }
     }
     finally
@@ -207,6 +243,19 @@ public partial class ApprovalFrameworkManagement_ViewSubscriptionChangeDetails :
 
     clientCredentials.UserName.UserName = UI.User.UserName;
     clientCredentials.UserName.Password = UI.User.SessionPassword;
+  }
+
+  private void SetSuCredantional(System.ServiceModel.Description.ClientCredentials clientCredentials)
+  {
+    if (clientCredentials == null)
+      throw new InvalidOperationException("Client credentials is null");
+
+    var sa = new MetraTech.Interop.MTServerAccess.MTServerAccessDataSet();
+    sa.Initialize();
+    var accessData = sa.FindAndReturnObject("SuperUser");
+
+    clientCredentials.UserName.UserName = accessData.UserName;
+    clientCredentials.UserName.Password = accessData.Password;
   }
   
   #endregion

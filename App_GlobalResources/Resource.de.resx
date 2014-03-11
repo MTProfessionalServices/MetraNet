@@ -217,7 +217,7 @@
     <value>&amp;nbsp;&gt;&amp;nbsp;</value>
   </data>
   <data name="TEXT_BREAD_CRUMB_SPACER" xml:space="preserve">
-    <value>&amp;nbsp;&amp;nbsp;</value>
+    <value>&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</value>
   </data>
   <data name="TEXT_CANCEL" xml:space="preserve">
     <value>Abbrechen</value>

@@ -8,8 +8,8 @@
   
   <br />
 
-  <MT:MTLiteralControl ID="LblAccountName" meta:resourcekey="LblAccountNameResource" runat="server" />
-  <MT:MTLiteralControl ID="LblPoName" meta:resourcekey="LblPoNameResource" runat="server" />
+  <MT:MTLiteralControl ID="LblAccountName" ControlWidth="500" meta:resourcekey="LblAccountNameResource" runat="server" />
+  <MT:MTLiteralControl ID="LblPoName" ControlWidth="500" meta:resourcekey="LblPoNameResource" runat="server" />
   
   <MT:MTViewChangeControl ID="SubChangeBasicStartDate" runat="server" AllowBlank="False" meta:resourcekey="SubChangeBasicStartDateResource" />
   <MT:MTViewChangeControl ID="SubChangeBasicNextStart" runat="server" AllowBlank="False" meta:resourcekey="SubChangeBasicNextStartResource" />

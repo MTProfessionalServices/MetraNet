@@ -66,13 +66,16 @@ public partial class ApprovalFrameworkManagement_AjaxServices_ChangeOperation : 
       var changeBlob = "";
       approvalClient.GetChangeDetails(intincomingchangeid, ref changeBlob);
       var changeDetails = new ChangeDetailsHelper(changeBlob);
-      var newSub = (Subscription)changeDetails[SubscriptionChangeType.SubscriptionKey];
-      var subscriber = (AccountIdentifier)changeDetails[SubscriptionChangeType.AccountIdentifierKey];
+      if (changeDetails.ContainsKey(SubscriptionChangeType.SubscriptionKey))
+      {
+        var newSub = (Subscription)changeDetails[SubscriptionChangeType.SubscriptionKey];
+        var subscriber = (AccountIdentifier)changeDetails[SubscriptionChangeType.AccountIdentifierKey];
 
-      var change = CompareWithCurrentSubscription(newSub, subscriber, subscriptionClient);
+        var change = CompareWithCurrentSubscription(newSub, subscriber, subscriptionClient);
 
-      changeDetails[SubscriptionChangeType.SubscriptionChangeKey] = change;
-      approvalClient.UpdateChangeDetails(intincomingchangeid, changeDetails.ToBuffer(), "SubscriptionChange object was stored");
+        changeDetails[SubscriptionChangeType.SubscriptionChangeKey] = change;
+        approvalClient.UpdateChangeDetails(intincomingchangeid, changeDetails.ToBuffer(), "SubscriptionChange object was stored");
+      }
 
       if (strincomingaction == "approve")
       {
@@ -153,15 +156,22 @@ public partial class ApprovalFrameworkManagement_AjaxServices_ChangeOperation : 
   {
     Subscription currentSub = null;
     List<UDRCInstance> currentUdrcInstances = null;
-    List<UDRCInstance> newUdrcInstances = null;
+    List<UDRCInstance> newUdrcInstances;
 
+    SetSuCredantional(subscriptionClient.ClientCredentials);
+
+    subscriptionClient.GetUDRCInstancesForPO(newSubscription.ProductOfferingId, out newUdrcInstances);
     if (newSubscription.SubscriptionId.HasValue)
     {
-      SetCredantional(subscriptionClient.ClientCredentials);
-      subscriptionClient.GetSubscriptionDetail(accOfNewSub, newSubscription.SubscriptionId.Value, out currentSub);
-      subscriptionClient.GetUDRCInstancesForPO(newSubscription.ProductOfferingId, out newUdrcInstances);
+      var charVals = new MTList<CharacteristicValue>();
+      var fe = new MTFilterElement("EntityId", MTFilterElement.OperationType.Equal, newSubscription.SubscriptionId.Value);
+      charVals.Filters.Add(fe);
 
+      // If it's not Create Sub, retrieve current subscription and UDRC with Names
+      subscriptionClient.GetSubscriptionDetail(accOfNewSub, newSubscription.SubscriptionId.Value, out currentSub);
       subscriptionClient.GetUDRCInstancesForPO(currentSub.ProductOfferingId, out currentUdrcInstances);
+      subscriptionClient.GetCharacteristicValues(ref charVals);
+      currentSub.CharacteristicValues = charVals.Items;
     }
 
     return SubscriptionChangeType.GetSubscriptionChange(currentSub, newSubscription, currentUdrcInstances, newUdrcInstances, accOfNewSub.AccountID.Value);
@@ -174,5 +184,18 @@ public partial class ApprovalFrameworkManagement_AjaxServices_ChangeOperation : 
 
     clientCredentials.UserName.UserName = UI.User.UserName;
     clientCredentials.UserName.Password = UI.User.SessionPassword;
+  }
+
+  private void SetSuCredantional(System.ServiceModel.Description.ClientCredentials clientCredentials)
+  {
+    if (clientCredentials == null)
+      throw new InvalidOperationException("Client credentials is null");
+
+    var sa = new MetraTech.Interop.MTServerAccess.MTServerAccessDataSet();
+    sa.Initialize();
+    var accessData = sa.FindAndReturnObject("SuperUser");
+
+    clientCredentials.UserName.UserName = accessData.UserName;
+    clientCredentials.UserName.Password = accessData.Password;
   }
 }

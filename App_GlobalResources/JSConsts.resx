@@ -284,8 +284,8 @@
   </data>
   <data name="TEXT_BILL_MESSAGE" xml:space="preserve">
     <value>Bill Message {0} has {1} accounts associated with it.</value>
-  </data> 
-	<data name="TEXT_BULKUPDATE" xml:space="preserve">
+  </data>
+  <data name="TEXT_BULKUPDATE" xml:space="preserve">
     <value>Bulk Update</value>
   </data>
   <data name="TEXT_DELETE_ACCOUNT_NOTE" xml:space="preserve">
@@ -945,16 +945,16 @@
   <data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE_PRORATION" xml:space="preserve">
     <value>Help: Decision Range Proration</value>
   </data>
-	<data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
     <value>Help: Decision Range</value>
   </data>
-	<data name="TEXT_AMPWIZARD_MORE_DECISION_CYCLE" xml:space="preserve">
+  <data name="TEXT_AMPWIZARD_MORE_DECISION_CYCLE" xml:space="preserve">
     <value>Example: A billing cycle is monthly, but you want to give a special rate if \"more than 1000 minutes are used in three months\". This is known as the Decision Cycle.</value>
   </data>
-	<data name="TITLE_AMPWIZARD_HELP_MORE_DECISION_CYCLE" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_MORE_DECISION_CYCLE" xml:space="preserve">
     <value>Help: Decision Cycle</value>
   </data>
-	<data name="TITLE_AMPWIZARD_ACTIVATION_RESULTS" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_ACTIVATION_RESULTS" xml:space="preserve">
     <value>Activation Results</value>
   </data>
   <data name="TITLE_AMPWIZARD_ERROR_CHECK_RESULTS" xml:space="preserve">
@@ -981,7 +981,7 @@
   <data name="TEXT_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
     <value>Act on each individual record.  Usage may have different prices  which are determined by the bucket into which they fall.</value>
   </data>
-   <data name="TITLE_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
     <value>Help: Single-bucket</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
@@ -1191,4 +1191,40 @@
   <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
     <value>Start Date can't be greater than End Date</value>
   </data>
+  <data name="TEXT_HARD_CLOSED_INTERVAL_STATUS" xml:space="preserve">
+    <value>Hard Closed</value>
+  </data>
+  <data name="TEXT_OPEN_INTERVAL_STATUS" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="TEXT_SOFT_CLOSED_INTERVAL_STATUS" xml:space="preserve">
+    <value>Soft Closed</value>
+  </data>
+  <data name="TEXT_UNKNOWN_INTERVAL_STATUS" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>Passwords do not match.</value>
+  </data>  
+  <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>Enter a valid phone number. Format: 555-555-5555</value>
+  </data>    
+  <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>Credit card format is invalid</value>
+  </data>      
+  <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>CV Number is invalid</value>
+  </data>        
+  <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>SSN format: xxx-xx-xxxx</value>
+  </data>          
+  <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>Only numeric digits are allowed</value>
+  </data>            
+  <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>Zipcode is invalid</value>
+  </data>              
+  <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>Middle initial is invalid</value>
+  </data>     
 </root>

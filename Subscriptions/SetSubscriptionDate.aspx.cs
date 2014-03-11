@@ -35,8 +35,6 @@ public partial class Subscriptions_SetSubscriptionDate : MTPage
 
   protected void Page_Load(object sender, EventArgs e)
   {
-    //TODO: Save and pass original subscription object through WorkFlow to Approval Framework
-
     if (!IsPostBack)
     {
       SpecValues = new Dictionary<string, SpecCharacteristicValueModel>();

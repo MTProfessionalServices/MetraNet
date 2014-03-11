@@ -121,6 +121,15 @@ public partial class Account_UpdateAccount : MTAccountPage
               tbSecurityAnswer.Visible = (Account.AuthenticationType == AuthenticationType.MetraNetInternal);
               ddSecurityQuestion.Visible = (Account.AuthenticationType == AuthenticationType.MetraNetInternal);
 
+              if (accountType.Name == "Endpoint")
+              {
+                cbBillable.Checked = false;
+                cbBillable.ReadOnly = true;
+                cbBillable.Visible = true;
+                //Payer is required 
+                tbPayer.AllowBlank = false;
+              }
+
               if (!MTDataBinder1.DataBind())
               {
                   Logger.LogError(MTDataBinder1.BindingErrors.ToHtml());
@@ -254,6 +263,17 @@ public partial class Account_UpdateAccount : MTAccountPage
 			  throw new ApplicationException(Resources.ErrorMessages.ERROR_ENDDOM_INVALID);
 		  }
 	  } // end if semi-monthly validation
+
+    //Payer is mandatory for Endpoint account type
+    AccountTypeManager accountTypeManagerEndpoint = new AccountTypeManager();
+
+    IMTAccountType accountTypeEp = accountTypeManagerEndpoint.GetAccountTypeByName((MetraTech.Interop.MTProductCatalog.IMTSessionContext)UI.SessionContext, Account.AccountType);
+
+    if ((accountTypeEp.Name == "Endpoint") && (tbPayer.Text == ""))
+    {
+      throw new ApplicationException(Resources.ErrorMessages.ERROR_PAYER_ID_IS_REQUIRED);
+    }
+
   }
 
   protected void btnOK_Click(object sender, EventArgs e)

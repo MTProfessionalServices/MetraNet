@@ -138,10 +138,10 @@ public partial class AddAccount : MTAccountPage
 
         if (accountType.Name == "Endpoint")
         {
-          //cbBillable.Enabled = false; 
           cbBillable.Checked = false;
           cbBillable.ReadOnly = true;
-
+          cbBillable.Visible = true;
+          //Payer is required 
           tbPayer.AllowBlank = false;
         }
 

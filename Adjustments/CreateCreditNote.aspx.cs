@@ -16,9 +16,25 @@ public partial class Adjustments_CreateCreditNote : MTPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-      PopulateCreditNotesTemplateTypes();
+      populateCreditNotesTemplateTypes();
+      populateDDTimeInterval();
     }
-    private void PopulateCreditNotesTemplateTypes()
+    private void populateDDTimeInterval()
+    {
+
+      List<string> items = new List<string>(GetLocalResourceObject("ddTimeIntervalsResource1.Text").ToString().Split(','));
+      int i = 0;
+      foreach (var item in items)
+      {
+        ddTimeIntervals.Items.Add(new ListItem { Text = item, Value = i.ToString() });
+        if (item.ToLower().Contains("30"))
+          ddTimeIntervals.SelectedIndex = i;
+
+        i++;
+      }
+    }
+
+    private void populateCreditNotesTemplateTypes()
     {
       CreditNoteServiceClient client = null;
 

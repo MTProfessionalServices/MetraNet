@@ -10,5 +10,10 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
       LabelWidth="170" AllowBlank="False" HideLabel="False" LabelSeparator=":" Listeners="{}"
       meta:resourcekey="ddTemplateTypesResource1" ReadOnly="False" Enabled="True">
     </MT:MTDropDown>
+   <MT:MTDropDown ID="ddTimeIntervals" runat="server" Label="Adjustments issued in past" 
+      LabelWidth="170" AllowBlank="False" HideLabel="False" LabelSeparator=":" Listeners="{}"
+      meta:resourcekey="ddTimeIntervalsResource1" ReadOnly="False" Enabled="True" ControlWidth="100">
+    </MT:MTDropDown>
+
     </MT:MTPanel>
 </asp:Content>

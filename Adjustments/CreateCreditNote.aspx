@@ -6,6 +6,9 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
    <MT:MTPanel ID="MTPanel1" runat="server" Text="Create Credit Note" 
     Collapsed="False" Collapsible="True" 
     meta:resourcekey="MTPanel1Resource1" >
-   
+   <MT:MTDropDown ID="ddTemplateTypes" runat="server" Label="Credit Note Template To Use" 
+      LabelWidth="170" AllowBlank="False" HideLabel="False" LabelSeparator=":" Listeners="{}"
+      meta:resourcekey="ddTemplateTypesResource1" ReadOnly="False" Enabled="True">
+    </MT:MTDropDown>
     </MT:MTPanel>
 </asp:Content>

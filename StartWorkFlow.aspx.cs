@@ -140,19 +140,15 @@ public partial class StartWorkFlow : MTPage
             SubscriptionsEvents_StartSubscriptions_Client acc = new SubscriptionsEvents_StartSubscriptions_Client();
             acc.In_AccountId = new AccountIdentifier(UI.User.AccountId);
             acc.In_AccountIdentifier = new AccountIdentifier(int.Parse(UI.Subscriber["_AccountID"].ToString()));
+            if (!String.IsNullOrEmpty(Request["IsShowExistingSubscriptions"]))
+            {
+              acc.In_IsShowExistingSubscriptions = Convert.ToBoolean(Request["IsShowExistingSubscriptions"]);
+            }
+
             PageNav.Execute(acc);
             break;
           }
-        //Potential Placeholder for new 'go directly to adding subscription'
-        case "SubscriptionsWorkflow_AddSubscription":
-          {
-            // Subscriptions Proxy class
-            SubscriptionsEvents_StartSubscriptions_Client acc = new SubscriptionsEvents_StartSubscriptions_Client();
-            acc.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-            acc.In_AccountIdentifier = new AccountIdentifier(int.Parse(UI.Subscriber["_AccountID"].ToString()));
-            PageNav.Execute(acc);
-            break;
-          }
+
         // GroupSubscriptions
         case "GroupSubscriptionsWorkflow":
           {

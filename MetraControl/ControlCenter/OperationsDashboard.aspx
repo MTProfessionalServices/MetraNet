@@ -30,7 +30,7 @@
             stroke: #7F7F7F;
             shape-rendering: crispEdges;
         }
-        
+		
         .arc path
         {
             stroke: #7F7F7F;
@@ -204,22 +204,17 @@
                     </table>
                 </MT:MTPanel>
             </li>
-            <li data-row="10" data-col="1" data-sizex="8" data-sizey="9">
-                <MT:MTPanel ID="pnlPricingEngine" runat="server" Text="Pricing Engine (Real-Time and Batch)"
-                    Width="870" Height="305">
-                    <div id="divPricingEngine">
-                        <table>
-                            <tr>
-                                <td>
-                                    <div id="divPricingQueues">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div id="divPricingBacklog">
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
+            <li data-row="10" data-col="1" data-sizex="4" data-sizey="9">
+                <MT:MTPanel ID="pnlPricingQueue" runat="server" Text="Pricing Queue"
+                    Width="430" Height="305">
+					<div id="divPricingQueues">
+					</div>
+                </MT:MTPanel>
+            </li>
+            <li data-row="10" data-col="5" data-sizex="4" data-sizey="9">
+                <MT:MTPanel ID="pnlPricingBacklog" runat="server" Text="Pricing Engine (Real-Time and Batch)"
+                    Width="430" Height="305">
+                    <div id="divPricingBacklog">
                     </div>
                 </MT:MTPanel>
             </li>
@@ -506,27 +501,29 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlFailedTransactionsQueue').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(0), 4, 9); });
             Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlBatchUsage').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(1), 4, 1); });
             Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlBatchUsage').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(1), 4, 9); });
-            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPricingEngine').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(2), 8, 1); });
-            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPricingEngine').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(2), 8, 9); });
-            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlActiveBillRun').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(3), 8, 1); });
-            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlActiveBillRun').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(3), 8, 9); });
-            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPendingBillClose').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(4), 4, 1); });
-            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPendingBillClose').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(4), 4, 9); });
-            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlBillCloseSynopsis').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(5), 4, 1); });
-            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlBillCloseSynopsis').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(5), 4, 9); });
-            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlFailedAdapters').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(6), 3, 1); });
-            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlFailedAdapters').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(6), 3, 7); });
-            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlRunningAdapters').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(7), 3, 1); });
-            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlRunningAdapters').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(7), 3, 7); });
-            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPuppetNodes').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(8), 2, 1); });
-            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPuppetNodes').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(8), 2, 7); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPricingQueue').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(2), 4, 1); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPricingQueue').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(2), 4, 9); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPricingBacklog').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(3), 4, 1); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPricingBacklog').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(3), 4, 9); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlActiveBillRun').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(4), 8, 1); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlActiveBillRun').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(4), 8, 9); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPendingBillClose').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(5), 4, 1); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPendingBillClose').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(5), 4, 9); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlBillCloseSynopsis').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(6), 4, 1); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlBillCloseSynopsis').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(6), 4, 9); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlFailedAdapters').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(7), 3, 1); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlFailedAdapters').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(7), 3, 7); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlRunningAdapters').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(8), 3, 1); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlRunningAdapters').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(8), 3, 7); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPuppetNodes').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(9), 2, 1); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPuppetNodes').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(9), 2, 7); });
         });
     </script>
     <script type="text/javascript">
 
         var dayFormat = d3.time.format("%A, %B %e");
         var dateFormat = d3.time.format("%m/%d/%Y %I:%M:%S %p");
-        var numberFormat = d3.format(".2f");
+        var numberFormat = d3.format(",");
         var currencyFormat = d3.format("$,.0f");
         var percentageFormat = d3.format(".1%");
 
@@ -566,15 +563,20 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var fixGroup = dateDimension.group().reduceSum(function(d){return d.fixed_count;});
             var openGroup = dateDimension.group().reduceSum(function(d){return d.open_count;});
             var uiGroup = dateDimension.group().reduceSum(function(d){return d.under_investigation_count;});
+			/*
             var composite = dc.compositeChart("#div30DayAging");
             composite
                     .margins({top: 5, right: 5, bottom: 40, left: 5})
 					.height(255)
+					.width(400)
                     .x(d3.scale.linear().domain([-30,0]))
                     .elasticY(true)
                     .transitionDuration(0)
                     .legend(dc.legend().x(15).y(225).itemHeight(13).gap(5))
                     .brushOn(false)
+					.renderHorizontalGridLines(true)
+                    .title("Open", function(d){ return -d.key + " days back: " + numberFormat(d.value) + " Open";});
+                    .title("Under Investigation", function(d){ return -d.key + " days back: " + numberFormat(d.value) + " Under Investigation";});
                     .compose([
                         dc.lineChart(composite)
                                 .dimension(dateDimension)
@@ -586,38 +588,64 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                                 .group(uiGroup, "Under Investigation")
                                 .colors('#148622')
                     ])
-                    .renderlet(
-                    function(_chart) {
-                        _chart.children()[0].title(function(d){ return -d.key + " days back: " + d.value + " Open";});
-                        _chart.children()[1].title(function(d){ return -d.key + " days back: " + d.value + " Under Investigation";});
-                        var rChart = _chart.children()[1],
-                                rY     = d3.scale.linear();
-                        rY.domain([rChart.yAxisMin(), rChart.yAxisMax() * 1.2])
-                                .range([_chart.yAxisHeight(), 0]);
-                        var yAxis = d3.svg.axis()
-                                .scale(rY)
-                                .orient('right');
-
-                        var axisYG = _chart.g().selectAll("g.y2");
-                        if (axisYG.empty())
-                            axisYG = _chart.g().append("g")
-                                    .attr("class", "axis y2")
-                                    .attr("transform", "translate(" + (_chart.width() - _chart.margins().right)
-                                            + "," + _chart.margins().top + ")");
-                        rChart.y(rY);
-                        rChart.plotData();
-//                        dc.transition(axisYG, _chart.transitionDuration()).call(yAxis);
-                    });
-            composite.xAxis().ticks(0);
-            composite.yAxis().ticks(0);
+					;
+			composite.xAxis().tickSize(0,0).tickFormat("");
+            composite.xAxis().tickSize(0,0).tickFormat("");
 
             composite.render();
+			*/
+            var chart = dc.barChart("#div30DayAging");
+            chart
+                    .margins({top: 5, right: 5, bottom: 40, left: 5})
+					.height(255)
+					.width(410)
+                    .x(d3.scale.linear().domain([-30,0]))
+                    .elasticY(true)
+                    .transitionDuration(0)
+                    .legend(dc.legend().x(15).y(225).itemHeight(13).gap(5))
+					.renderHorizontalGridLines(true)
+                    .brushOn(false)
+                    .dimension(dateDimension)
+					.group(openGroup, "Open")
+                    .colors('#0070C0')
+                    .stack(uiGroup, "Under Investigation")
+//                                .colors('#148622')
+                    .title("Open", function(d){ return -d.key + " days back: " + numberFormat(d.value) + " Open";})
+                    .title("Under Investigation", function(d){ return -d.key + " days back: " + numberFormat(d.value) + " Under Investigation";})
+					.renderlet(function (_chart) {
+						function setStyle(selection, keyName) {
+							selection.style("fill", function (d) {
+								if (d[keyName] == "Open")
+									return "#0070C0";
+								else if (d[keyName] == "Under Investigation")
+									return "#148622";
+							});
+						}
+						// set the fill attribute for the bars
+						setStyle(_chart
+								.selectAll("g.stack")
+								.selectAll("rect.bar")
+							, "layer"
+						);
+						// set the fill attribute for the legend
+						setStyle(_chart
+								.selectAll("g.dc-legend-item")
+								.selectAll("rect")
+							, "name"
+						);
+					})
+					.renderHorizontalGridLines(true)
+			;
+            chart.xAxis().tickSize(0,0).tickFormat("");
+            chart.yAxis().tickSize(0,0).tickFormat("");
+
+            chart.render();
 						
 			dc.renderAll();
 			}
 			});
 
-
+/*
         //Pie Chart
         d3.json("/MetraNet/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() + "&operation=ftgettotal", function (error, json) {
             if (error) console.log(error.valueOf());
@@ -643,7 +671,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             }
         });
 
-
+*/
         //Overage Days
 
         d3.json("/MetraNet/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() + "&operation=ftoverxdays&threshold=<%=failedUdrCleanupThreshold%>", function (error, json) {
@@ -695,46 +723,35 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             composite
                     .margins({top: 5, right: 5, bottom: 40, left: 5})
 					.height(255)
+					.width(410)
                     .x(d3.time.scale().domain([minDate, maxDate]))
                     .elasticY(true)
                     .transitionDuration(0)
                     .legend(dc.legend().x(15).y(225).itemHeight(13).gap(5))
+					.renderHorizontalGridLines(true)
                     .brushOn(false)
+					.title("UDRs", function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " UDRs";})
+					.title("Batches", function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " Batches";})
                     .compose([
                         dc.lineChart(composite)
                                 .dimension(dateDimension)
                                 .group(udrGroup, "UDRs")
                                 .colors('#0070C0')
+								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
+								.title(function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " UDRs";})
                         ,
                         dc.lineChart(composite)
                                 .dimension(dateDimension)
                                 .group(batchGroup, "Batches")
                                 .colors('#148622')
+								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
+								.useRightYAxis(true)
+								.title(function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " Batches";})
                     ])
-                    .renderlet(
-                    function(_chart) {
-                        _chart.children()[0].title(function(d){return dayFormat(d.key) + ": " + d.value + " UDRs";});
-                        _chart.children()[1].title(function(d){return dayFormat(d.key) + ": " + d.value + " Batches";});
-                        var rChart = _chart.children()[1],
-                                rY     = d3.scale.linear();
-                        rY.domain([rChart.yAxisMin(), rChart.yAxisMax() * 1.2])
-                                .range([_chart.yAxisHeight(), 0]);
-                        var yAxis = d3.svg.axis()
-                                .scale(rY)
-                                .orient('right');
-
-                        var axisYG = _chart.g().selectAll("g.y2");
-                        if (axisYG.empty())
-                            axisYG = _chart.g().append("g")
-                                    .attr("class", "axis y2")
-                                    .attr("transform", "translate(" + (_chart.width() - _chart.margins().right)
-                                            + "," + _chart.margins().top + ")");
-                        rChart.y(rY);
-                        rChart.plotData();
-//                        dc.transition(axisYG, _chart.transitionDuration()).call(yAxis);
-                    });
-            composite.xAxis().ticks(0);
-            composite.yAxis().ticks(0);
+					;
+			composite.xAxis().tickSize(0,0).tickFormat("");
+			composite.yAxis().tickSize(0,0).tickFormat("");
+			composite.rightYAxis().tickSize(0,0).tickFormat("");
 
             composite.render();
 			composite.redraw();
@@ -912,32 +929,42 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 			var colors = d3.scale.ordinal().domain([0,1,2]).range(['#00B0F0','#0070C0','#148622']);
             var composite1 = dc.compositeChart("#divPricingQueues");
             composite1
-                    .margins({top: 5, right: 5, bottom: 75, left: 5})
+                    .margins({top: 5, right: 5, bottom: 64, left: 5})
 					.height(255)
 					.width(410)
                     .x(d3.time.scale().domain([minDate, maxDate]))
                     .elasticY(true)
                     .transitionDuration(750)
+					.renderHorizontalGridLines(true)
                     .legend(dc.legend().x(15).y(200).itemHeight(13).gap(5))
                     .brushOn(false)
-                    .compose([
+ 					.title("Pipeline Queue", function(d){ return numberFormat(d.value) + " messages waiting to be assigned"; })
+					.title("RAMP Queue", function(d){ return numberFormat(d.value) + " messages waiting in RabbitMQ"; })
+					.title("Scheduler Queue", function(d){ return numberFormat(d.value) + " tasks waiting to be processed"; })
+                   .compose([
                         dc.lineChart(composite1)
                                 .dimension(dateDimension)
                                 .group(pipeQGroup, "Pipeline Queue")
                                 .colors(colors(0))
+								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
+								.title(function(d){ return numberFormat(d.value) + " messages waiting to be assigned"; })
                         ,
                         dc.lineChart(composite1)
                                 .dimension(dateDimension)
                                 .group(msgqQGroup, "RAMP Queue")
                                 .colors(colors(1))
+								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
+								.title(function(d){ return numberFormat(d.value) + " messages waiting in RabbitMQ"; })
                         ,
                         dc.lineChart(composite1)
                                 .dimension(dateDimension)
                                 .group(schedulerQGroup, "Scheduler Queue")
                                 .colors(colors(2))
+								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
+								.title(function(d){ return numberFormat(d.value) + " tasks waiting to be processed"; })
                     ]);
-            composite1.xAxis().ticks(0);
-            composite1.yAxis().ticks(0);
+            composite1.xAxis().tickSize(0,0).tickFormat("");
+            composite1.yAxis().tickSize(0,0).tickFormat("");
 			
             var pipeBacklogGroup = dateDimension.group().reduceSum(dc.pluck('pipe_backlog'));
             var pipeGroup = dateDimension.group().reduceSum(dc.pluck('pipe'));
@@ -947,28 +974,36 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var composite2 = dc.compositeChart("#divPricingBacklog");
 			colors = d3.scale.ordinal().domain([0,1,2,3,4]).range(['#00B0F0','#0070C0','#148622','#FFC000','#7F7F7F']);
             composite2
-                    .margins({top: 5, right: 5, bottom: 75, left: 35})
+                    .margins({top: 5, right: 5, bottom: 64, left: 5})
 					.height(255)
 					.width(410)
                     .x(d3.time.scale().domain([minDate, maxDate]))
                     .elasticY(true)
                     .transitionDuration(750)
-                    .legend(dc.legend().x(45).y(200).itemHeight(13).gap(5))
+                    .legend(dc.legend().x(15).y(200).itemHeight(13).gap(5))
                     .brushOn(false)
+					.renderHorizontalGridLines(true)
+					.title("Pipeline Wait Duration", function(d){ return numberFormat(d.value) + " seconds waiting to be assigned"; })
+					.title("Pipeline Processing Duration", function(d){ return numberFormat(d.value) + " seconds processing in the pipeline"; })
                     .compose([
                         dc.lineChart(composite2)
                                 .dimension(dateDimension)
                                 .group(pipeBacklogGroup, "Pipeline Wait Duration")
                                 .colors(colors(0))
+								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
+								.title(function(d){ return numberFormat(d.value) + " seconds waiting to be assigned"; })
                         ,
                         dc.lineChart(composite2)
                                 .dimension(dateDimension)
                                 .group(pipeGroup, "Pipeline Processing Duration")
                                 .colors(colors(1))
-                    ]);
-            composite2.xAxis().ticks(0);
-            composite2.yAxis().ticks(0);
-
+								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
+								.title(function(d){ return numberFormat(d.value) + " seconds processing in the pipeline"; })
+                    ])
+			;
+            composite2.xAxis().tickSize(0,0).tickFormat("");
+            composite2.yAxis().tickSize(0,0).tickFormat("");
+			
 			dc.renderAll();
 			
             setInterval(function() {
@@ -1034,31 +1069,34 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var statusDimension = ndx.dimension(function(d){return d.status;});
             var countGroup = statusDimension.group().reduceSum(dc.pluck('count'));
             chart
-                    .margins({top: 10, right: 10, bottom: 100, left: 60})
+                    .margins({top: 10, right: 10, bottom: 75, left: 60})
+					.width(240)
 					.height(230)
                     .dimension(statusDimension)
 					.transitionDuration(0)
                     .group(countGroup)
-                    .xAxisPadding(15)
-                    .gap(3)
+//                    .xAxisPadding(15)
+                    .gap(10)
                     .x(d3.scale.ordinal().domain(["Open", "Under Investigation", "Fixed", "Unguided"]))
 					.xUnits(dc.units.ordinal)
                     .centerBar(false)
                     .brushOn(false)
-                    .title(function(d){ return d.key + ": " + d.value;} )
+					.renderHorizontalGridLines(true)
+                    .title(function(d){ return d.key + ": " + numberFormat(d.value);} )
 //                    .legend(dc.legend().x(40).y(100).itemHeight(13).gap(5))
 					.colors(d3.scale.ordinal().domain([0,1,2,3,4]).range(['#00B0F0','#0070C0','#148622','#FFC000','#7F7F7F']))
                     .renderlet(function (chart) {
                         // rotate x-axis ticks
                         chart.selectAll("g.x text")
                                 .style("text-anchor", "start")
-                                .attr('dx', '.8em')
-                                .attr('dy', '-.5em')
-                                .attr('transform', "rotate(90)");
+                                .attr('dx', '.3em')
+                                .attr('dy', '-.05em')
+                                .attr('transform', "rotate(45)");
                         ;
                     })
             ;
-            chart.yAxis().ticks(0);
+            chart.yAxis().tickSize(0,0).tickFormat("");
+            chart.xAxis().outerTickSize(0);
             dc.renderAll();
             }
         });
@@ -1190,8 +1228,6 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var ndx = crossfilter(data);
             var all = ndx.groupAll();
             var nameDimension = ndx.dimension(function(d){ return d["name"];});
-
-           
                   
             var valueGroup = nameDimension.group().reduceSum(dc.pluck('value'));
 
@@ -1203,20 +1239,21 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                     .dimension(nameDimension)
 					.transitionDuration(0)
                     .group(valueGroup)
-                    .gap(3)
-                    .xAxisPadding(20)
+                    .gap(10)
+//                    .xAxisPadding(20)
                     .x(d3.scale.ordinal().domain(["Unchanged", "Unresponsive", "Failed", "Pending","Changed"]))
-					 .xUnits(dc.units.ordinal)
+					.xUnits(dc.units.ordinal)
                     .centerBar(false)
+					.renderHorizontalGridLines(true)
                     .brushOn(false)
-                    .title(function(d){ return d.key + ": " + d.value;} )
+                    .title(function(d){ return d.key + ": " + numberFormat(d.value);} )
                    // .legend(dc.legend().x(40).y(100).itemHeight(13).gap(5))
 					.renderlet(function (chart) {
                         // rotate x-axis ticks
                         chart.selectAll("g.x text")
                                 .style("text-anchor", "start")
-                                .attr('dx', '.8em')
-                                .attr('dy', '-.5em')
+                                .attr('dx', '.3em')
+                                .attr('dy', '-.05em')
                                 .attr('transform', "rotate(45)");
                         ;
 
@@ -1225,7 +1262,8 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                         });
                     });
 
-             chart.yAxis().ticks(0);
+             chart.yAxis().tickSize(0,0).tickFormat("");
+             chart.xAxis().outerTickSize(0);
              
              dc.renderAll(valueGroup);
 

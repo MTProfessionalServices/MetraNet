@@ -44,14 +44,45 @@
 				</ns0:CodeBinaryOperatorExpression>
 			</RuleExpressionCondition.Expression>
 		</RuleExpressionCondition>
-		<RuleExpressionCondition Name="IsShowExistingSubRule">
-		  <RuleExpressionCondition.Expression>
-			<ns0:CodePropertyReferenceExpression PropertyName="IsShowExistingSubscriptions" xmlns:ns0="clr-namespace:System.CodeDom;Assembly=System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-			  <ns0:CodePropertyReferenceExpression.TargetObject>
-				<ns0:CodeThisReferenceExpression />
-			  </ns0:CodePropertyReferenceExpression.TargetObject>
-			</ns0:CodePropertyReferenceExpression>
-		  </RuleExpressionCondition.Expression>
+		<RuleExpressionCondition Name="StartWithStepAddRule">
+			<RuleExpressionCondition.Expression>
+				<ns0:CodeBinaryOperatorExpression Operator="ValueEquality" xmlns:ns0="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns0:CodeBinaryOperatorExpression.Left>
+						<ns0:CodePropertyReferenceExpression PropertyName="StartWithStep">
+							<ns0:CodePropertyReferenceExpression.TargetObject>
+								<ns0:CodeThisReferenceExpression />
+							</ns0:CodePropertyReferenceExpression.TargetObject>
+						</ns0:CodePropertyReferenceExpression>
+					</ns0:CodeBinaryOperatorExpression.Left>
+					<ns0:CodeBinaryOperatorExpression.Right>
+						<ns0:CodePrimitiveExpression>
+							<ns0:CodePrimitiveExpression.Value>
+								<ns1:String xmlns:ns1="clr-namespace:System;Assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">AddStep</ns1:String>
+							</ns0:CodePrimitiveExpression.Value>
+						</ns0:CodePrimitiveExpression>
+					</ns0:CodeBinaryOperatorExpression.Right>
+				</ns0:CodeBinaryOperatorExpression>
+			</RuleExpressionCondition.Expression>
+		</RuleExpressionCondition>
+		<RuleExpressionCondition Name="StartWithStepEditRule">
+			<RuleExpressionCondition.Expression>
+				<ns0:CodeBinaryOperatorExpression Operator="ValueEquality" xmlns:ns0="clr-namespace:System.CodeDom;Assembly=System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+					<ns0:CodeBinaryOperatorExpression.Left>
+						<ns0:CodePropertyReferenceExpression PropertyName="StartWithStep">
+							<ns0:CodePropertyReferenceExpression.TargetObject>
+								<ns0:CodeThisReferenceExpression />
+							</ns0:CodePropertyReferenceExpression.TargetObject>
+						</ns0:CodePropertyReferenceExpression>
+					</ns0:CodeBinaryOperatorExpression.Left>
+					<ns0:CodeBinaryOperatorExpression.Right>
+						<ns0:CodePrimitiveExpression>
+							<ns0:CodePrimitiveExpression.Value>
+								<ns1:String xmlns:ns1="clr-namespace:System;Assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">EditStep</ns1:String>
+							</ns0:CodePrimitiveExpression.Value>
+						</ns0:CodePrimitiveExpression>
+					</ns0:CodeBinaryOperatorExpression.Right>					
+				</ns0:CodeBinaryOperatorExpression>
+			</RuleExpressionCondition.Expression>
 		</RuleExpressionCondition>
 	</RuleDefinitions.Conditions>  
 </RuleDefinitions>

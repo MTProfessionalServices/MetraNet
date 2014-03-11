@@ -929,7 +929,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 			var colors = d3.scale.ordinal().domain([0,1,2]).range(['#00B0F0','#0070C0','#148622']);
             var composite1 = dc.compositeChart("#divPricingQueues");
             composite1
-                    .margins({top: 5, right: 5, bottom: 75, left: 5})
+                    .margins({top: 5, right: 5, bottom: 64, left: 5})
 					.height(255)
 					.width(410)
                     .x(d3.time.scale().domain([minDate, maxDate]))
@@ -974,13 +974,13 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var composite2 = dc.compositeChart("#divPricingBacklog");
 			colors = d3.scale.ordinal().domain([0,1,2,3,4]).range(['#00B0F0','#0070C0','#148622','#FFC000','#7F7F7F']);
             composite2
-                    .margins({top: 5, right: 5, bottom: 75, left: 5})
+                    .margins({top: 5, right: 5, bottom: 64, left: 5})
 					.height(255)
 					.width(410)
                     .x(d3.time.scale().domain([minDate, maxDate]))
                     .elasticY(true)
                     .transitionDuration(750)
-                    .legend(dc.legend().x(45).y(200).itemHeight(13).gap(5))
+                    .legend(dc.legend().x(15).y(200).itemHeight(13).gap(5))
                     .brushOn(false)
 					.renderHorizontalGridLines(true)
 					.title("Pipeline Wait Duration", function(d){ return numberFormat(d.value) + " seconds waiting to be assigned"; })
@@ -1069,7 +1069,8 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var statusDimension = ndx.dimension(function(d){return d.status;});
             var countGroup = statusDimension.group().reduceSum(dc.pluck('count'));
             chart
-                    .margins({top: 10, right: 10, bottom: 100, left: 60})
+                    .margins({top: 10, right: 10, bottom: 75, left: 60})
+					.width(240)
 					.height(230)
                     .dimension(statusDimension)
 					.transitionDuration(0)

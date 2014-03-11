@@ -227,61 +227,13 @@ white-space:nowrap;
   padding-right: 30px;
   margin-right: 30px;
 }
-#MyFormDiv_ctl00_ContentPlaceHolder1_billsPaymentsPanel .x-panel {
-  width: 100%;
+#MyFormDiv_ctl00_ContentPlaceHolder1_billingActivityPanel .x-panel {
+  width: 40%;
   height: 100%;
   padding-right: 30px;
   margin-right: 30px;
 }
-#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid {
-  width: 100% !important;
-  height: 100% !important;
-}
 
-#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid .x-panel-bwrap {
-  width: 100% !important;
-  height: 100% !important;
-}
-#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid .x-panel-body {
-  width: 100% !important;
-  height: 100% !important;
-}
-#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid .x-grid3 {
-  width: 100% !important;
-  height: 100% !important;
-}
-#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid .x-grid3-viewport {
-  width: 100% !important;
-  height: 100% !important;
-}
-#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid .x-grid3-body {
-  width: 100% !important;
-  height: 100% !important;
-}
-#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid .x-grid-empty {
-  width: 100% !important;
-  height: 100% !important;
-}
-#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid .x-grid-empty {
-  width: 100% !important;
-  height: 100% !important;
-}
-#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid .x-grid3-scroller {
-  width: 100% !important;
-  height: 100% !important;
-}
-#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid .x-panel-mr {
-  width: 100% !important;
-  height: 100% !important;
-}
-#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid .x-panel-ml {
-  width: 100% !important;
-  height: 100% !important;
-}
-#grid-container_ctl00_ContentPlaceHolder1_InvoiceSummaryGrid .x-panel-mc {
-  width: 100% !important;
-  height: 100% !important;
-}
   </style>
 
   <script type="text/javascript">
@@ -329,22 +281,16 @@ white-space:nowrap;
 
   </div>
 
-  <div class="widget" data-row="4" data-col="1" data-sizex="8" data-sizey="3">
-    <MT:MTPanel ID="billsPaymentsPanel" runat="server" Text="Bills & Payments">
-      <table width="100%">
-        <tr>
-          <td width="35%">
+  <div class="widget" data-row="4" data-col="1" data-sizex="3" data-sizey="3">
+    <MT:MTPanel ID="billingActivityPanel" runat="server" Text="Billing Activity">
             <div id="billsPaymentsChart"></div>
-          </td>
-          <td width="65%">
-            <MT:MTFilterGrid ID="InvoiceSummaryGrid" runat="server" TemplateFileName="AccountInvoiceSummary.xml" ExtensionName="Account" Resizable="False" ></MT:MTFilterGrid>
-          </td>
-        </tr>
-      </table>
       <%-- %>img src="/Res/Images/Mockup/Bills-PaymentsMockupSnippet.png" width="720px;" style="padding: 15px;"/--%>
     </MT:MTPanel>
   </div>
 
+  <div class="widget" data-row="4" data-col="4" data-sizex="4" data-sizey="3">
+    <MT:MTFilterGrid ID="InvoiceSummaryGrid" runat="server" TemplateFileName="AccountInvoiceSummary.xml" ExtensionName="Account" Resizable="False" Title="Bills & Payments"></MT:MTFilterGrid>
+  </div>
 <%--  	  </ul>--%>
 
  
@@ -936,94 +882,126 @@ white-space:nowrap;
 		  var item = data.Items;
 		  */
 		  var items = [
-		    { type: 'invoice', interval: 1037107230, id: 5717387, date: '04/30/2013 12:00:00 AM', invoice_amount: 2.400000, balance_amount: 2.400000, payment_amount: 0.000000 },
-		    { type: 'invoice', interval: 1039138846, id: 5788222, date: '05/31/2013 12:00:00 AM', invoice_amount: 30.470000, balance_amount: 30.470000, payment_amount: -2.400000 },
-		    { type: 'invoice', interval: 1041104926, id: 5848275, date: '06/30/2013 12:00:00 AM', invoice_amount: 26.670000, balance_amount: 57.140000, payment_amount: 0.000000 },
-		    { type: 'payment', interval: 1043136542, id: 12455498083, date: '07/11/2013 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -26.670000 },
-		    { type: 'payment', interval: 1043136542, id: 12455498082, date: '07/11/2013 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -30.470000 },
-		    { type: 'invoice', interval: 1043136542, id: 5887673, date: '07/31/2013 12:00:00 AM', invoice_amount: 20.570000, balance_amount: 20.570000, payment_amount: 0.000000 },
-		    { type: 'payment', interval: 1045168158, id: 12954661780, date: '08/12/2013 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -20.570000 },
-		    { type: 'invoice', interval: 1045168158, id: 5969320, date: '08/31/2013 12:00:00 AM', invoice_amount: 20.570000, balance_amount: 20.570000, payment_amount: 0.000000 },
-		    { type: 'payment', interval: 1047134238, id: 13478486651, date: '09/10/2013 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -20.570000 },
-		    { type: 'invoice', interval: 1047134238, id: 6029698, date: '09/30/2013 12:00:00 AM', invoice_amount: 20.570000, balance_amount: 20.570000, payment_amount: 0.000000 },
-		    { type: 'payment', interval: 1049165854, id: 13920611033, date: '10/07/2013 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -20.570000 },
-		    { type: 'invoice', interval: 1049165854, id: 6092922, date: '10/31/2013 12:00:00 AM', invoice_amount: 21.320000, balance_amount: 21.320000, payment_amount: 0.000000 },
-		    { type: 'payment', interval: 1051131934, id: 14492323849, date: '11/08/2013 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -21.320000 },
-		    { type: 'invoice', interval: 1051131934, id: 6134288, date: '11/30/2013 12:00:00 AM', invoice_amount: 20.570000, balance_amount: 20.570000, payment_amount: 0.000000 },
-		    { type: 'payment', interval: 1053163550, id: 14981992568, date: '12/09/2013 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -20.570000 },
-		    { type: 'invoice', interval: 1053163550, id: 6217232, date: '12/31/2013 12:00:00 AM', invoice_amount: 20.570000, balance_amount: 20.570000, payment_amount: 0.000000 },
-		    { type: 'payment', interval: 1055195166, id: 15507808798, date: '01/07/2014 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -20.570000 },
-		    { type: 'invoice', interval: 1055195166, id: 6267870, date: '01/31/2014 12:00:00 AM', invoice_amount: 20.570000, balance_amount: 20.570000, payment_amount: 0.000000 },
+		  /*{ type: 'invoice', interval: 1037107230, id: 5717387, date: '04/30/2013 12:00:00 AM', invoice_amount: 2.400000, balance_amount: 2.400000, payment_amount: 0.000000 },
+		  { type: 'invoice', interval: 1039138846, id: 5788222, date: '05/31/2013 12:00:00 AM', invoice_amount: 30.470000, balance_amount: 30.470000, payment_amount: -2.400000 },
+		  { type: 'invoice', interval: 1041104926, id: 5848275, date: '06/30/2013 12:00:00 AM', invoice_amount: 26.670000, balance_amount: 57.140000, payment_amount: 0.000000 },
+		  { type: 'payment', interval: 1043136542, id: 12455498083, date: '07/11/2013 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -26.670000 },
+		  { type: 'payment', interval: 1043136542, id: 12455498082, date: '07/11/2013 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -30.470000 },
+		  { type: 'invoice', interval: 1043136542, id: 5887673, date: '07/31/2013 12:00:00 AM', invoice_amount: 20.570000, balance_amount: 20.570000, payment_amount: 0.000000 },
+		  { type: 'payment', interval: 1045168158, id: 12954661780, date: '08/12/2013 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -20.570000 },
+		  */{type: 'invoice', interval: 1045168158, id: 5969320, date: '08/31/2013 12:00:00 AM', invoice_amount: 20.570000, balance_amount: 20.570000, payment_amount: 0.000000 },
+		  { type: 'payment', interval: 1047134238, id: 13478486651, date: '09/10/2013 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -20.570000 },
+		  { type: 'invoice', interval: 1047134238, id: 6029698, date: '09/30/2013 12:00:00 AM', invoice_amount: 20.570000, balance_amount: 20.570000, payment_amount: 0.000000 },
+		  { type: 'payment', interval: 1049165854, id: 13920611033, date: '10/07/2013 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -20.570000 },
+		  { type: 'invoice', interval: 1049165854, id: 6092922, date: '10/31/2013 12:00:00 AM', invoice_amount: 21.320000, balance_amount: 21.320000, payment_amount: 0.000000 },
+		  { type: 'payment', interval: 1051131934, id: 14492323849, date: '11/08/2013 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -21.320000 },
+		  { type: 'invoice', interval: 1051131934, id: 6134288, date: '11/30/2013 12:00:00 AM', invoice_amount: 20.570000, balance_amount: 20.570000, payment_amount: 0.000000 },
+		  { type: 'payment', interval: 1053163550, id: 14981992568, date: '12/09/2013 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -20.570000 },
+		  { type: 'invoice', interval: 1053163550, id: 6217232, date: '12/31/2013 12:00:00 AM', invoice_amount: 20.570000, balance_amount: 20.570000, payment_amount: 0.000000 },
+		  { type: 'payment', interval: 1055195166, id: 15507808798, date: '01/07/2014 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -20.570000 },
+		  { type: 'invoice', interval: 1055195166, id: 6267870, date: '01/31/2014 12:00:00 AM', invoice_amount: 20.570000, balance_amount: 20.570000, payment_amount: 0.000000 },
 		    { type: 'payment', interval: 1057030174, id: 16124826385, date: '02/10/2014 12:00:00 AM', invoice_amount: 0.000000, balance_amount: 0.000000, payment_amount: -20.570000 },
 		    { type: 'invoice', interval: 1057030174, id: 6352866, date: '02/28/2014 12:00:00 AM', invoice_amount: 20.570000, balance_amount: 20.570000, payment_amount: 0.000000}];
-		  var invoices = [];
-		  var payments = [];
-		  var balances = [];
+		  var lastDate;
+		  var newItems = [];
 		  items.forEach(function (d) {
 		    d.invoice_amount = +d.invoice_amount;
 		    d.payment_amount = -d.payment_amount;
 		    d.balance_amount = +d.balance_amount;
 		    d.dd = dateFormat.parse(d.date);
+		    d.dd = new Date(d.dd.getUTCFullYear(), d.dd.getUTCMonth(), d.dd.getUTCDate());
 		    if (d.dd < minDate) {
 		      minDate = d.dd;
 		    }
+		    console.log("Balance: " + currentBalance);
+		    console.log("Tran Date: " + d.dd);
+		    console.log("Last Date: " + lastDate);
+		    if (lastDate != undefined) {
+		      var days = ((d.dd.getTime() - lastDate.getTime()) / (24 * 60 * 60 * 1000));
+		      for (i = 1; i < days; i++) {
+		        lastDate.setDate(lastDate.getDate() + 1);
+		        var nd = new Date(lastDate.getUTCFullYear(), lastDate.getUTCMonth(), lastDate.getUTCDate());
+		        console.log(nd);
+		        newItems.push({ invoice_amount: 0.0, dd: nd, balance_amount: (currentBalance - 0.0), payment_amount: 0.0 });
+		      }
+		    }
 		    currentBalance += (d.invoice_amount - d.payment_amount);
-		    balances.push({ dd: d.dd, balance_amount: currentBalance });
+		    d.balance_amount = currentBalance;
+		    lastDate = d.dd;
+		    newItems.push(d);
 		    // TODO: handle unknown balance until first invoice because payment comes first
-		    if (d.type == 'invoice') {
-		      invoices.push({ dd: d.dd, invoice_amount: d.invoice_amount });
-		    }
-		    if (d.payment_amount != 0.0) {
-		      payments.push({ dd: d.dd, payment_amount: d.payment_amount });
-		    }
 		  });
-		  var ndx1 = crossfilter(invoices);
-		  var ndx2 = crossfilter(payments);
-		  var ndx3 = crossfilter(balances);
-		  var dateDimension1 = ndx1.dimension(function (d) { return d.dd; });
-		  var dateDimension2 = ndx2.dimension(function (d) { return d.dd; });
-		  var dateDimension3 = ndx3.dimension(function (d) { return d.dd; });
-		  var invoiceGroup = dateDimension1.group().reduceSum(function (d) { return d.invoice_amount; });
-		  var paymentGroup = dateDimension2.group().reduceSum(function (d) { return d.payment_amount; });
-		  var balanceGroup = dateDimension3.group().reduceSum(function (d) { return d.balance_amount; });
+		  var ndx = crossfilter(newItems);
+		  var dateDimension = ndx.dimension(function (d) { return d.dd; });
+		  var invoiceGroup = dateDimension.group().reduceSum(function (d) { return d.invoice_amount; });
+		  var paymentGroup = dateDimension.group().reduceSum(function (d) { return d.payment_amount; });
+		  var balanceGroup = dateDimension.group().reduceSum(function (d) {
+		    console.log("Date: " + d.dd + " Balance: " + d.balance_amount + " Invoice: " + d.invoice_amount); return d.balance_amount; });
 		  var composite = dc.compositeChart("#billsPaymentsChart");
 		  composite
 		    .margins({ top: 5, right: 5, bottom: 60, left: 5 })
-		    .height(225)
+  	    .height(225)
+  		  .width(360)
 		    .x(d3.time.scale().domain([minDate, maxDate]))
+  		  .xUnits(d3.time.day)
 		    .elasticY(true)
+		    .renderHorizontalGridLines(true)
 		    .transitionDuration(0)
 		    .legend(dc.legend().x(15).y(175).itemHeight(13).gap(5))
-        .title(function (d) {
-          console.log(d); return dayFormat(d.key) + ": $" + d.value; })
 		    .brushOn(false)
+		    .title("Balance", function (d) { return dayFormat(d.key) + " Balance: $" + d.value; })
 		    .compose([
-		      dc.lineChart(composite)
-		        .dimension(dateDimension1)
-		        .group(invoiceGroup, "Invoices")
-		        .renderDataPoints({ radius: 3, fillOpacity: 0.8, strokeOpacity: 0.8 })
-		        .colors('#00B0F0')
-		        .title(function (d) { return dayFormat(d.key) + " Invoice[s]: $" + d.value; }),
-		      dc.lineChart(composite)
-		        .dimension(dateDimension2)
+		  /*		      dc.lineChart(composite)
+		  .dimension(dateDimension1)
+		  .group(invoiceGroup, "Invoices")
+		  .renderDataPoints({ radius: 3, fillOpacity: 0.8, strokeOpacity: 0.8 })
+		  .colors('#00B0F0')
+		  .title(function (d) { return dayFormat(d.key) + " Invoice[s]: $" + d.value; }),
+		  dc.lineChart(composite)
+		  .dimension(dateDimension2)
+		  .group(paymentGroup, "Payments")
+		  .renderDataPoints({ radius: 3, fillOpacity: 0.8, strokeOpacity: 0.8 })
+		  .colors('#0070C0')
+		  */
+		      dc.barChart(composite)
+		        .dimension(dateDimension)
 		        .group(paymentGroup, "Payments")
-		        .renderDataPoints({ radius: 3, fillOpacity: 0.8, strokeOpacity: 0.8 })
-		        .colors('#0070C0')
+		        .stack(invoiceGroup, "Invoices")
+		        .title("Invoices", function (d) { return dayFormat(d.key) + " Invoice[s]: $" + d.value; })
 		        .title(function (d) { return dayFormat(d.key) + " Payment[s]: $" + d.value; }),
 		      dc.lineChart(composite)
-		        .dimension(dateDimension3)
+		        .dimension(dateDimension)
 		        .group(balanceGroup, "Balance")
 		        .colors('#148622')
+		        .renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
 		        .title(function (d) { return dayFormat(d.key) + " Balance: $" + d.value; })
 		    ])
-		  /*            .renderlet(
-		  function (_chart) {
-		  _chart.children()[0].title(function (d) { return -d.key + " days back: " + d.value + " Open"; });
-		  _chart.children()[1].title(function (d) { return -d.key + " days back: " + d.value + " Under Investigation"; });
-		  })
-		  */;
-		  composite.xAxis().ticks(0);
-		  composite.yAxis().ticks(0);
+		    .renderlet(function (_chart) {
+
+		      function setStyle(selection, keyName) {
+		        selection.style("fill", function (d) {
+		          if (d[keyName] == "Payments")
+		            return "#0070C0";
+		          else if (d[keyName] == "Invoices")
+		            return "#00B0F0";
+		          else if (d[keyName] == "Balance")
+		            return "#148622";
+		        });
+		      }
+
+		      // set the fill attribute for the bars
+		      setStyle(_chart
+		        .selectAll("g.stack")
+		        .selectAll("rect.bar"), "layer"
+		      );
+		      // set the fill attribute for the legend
+		      setStyle(_chart
+		        .selectAll("g.dc-legend-item")
+		        .selectAll("rect"), "name"
+		      );
+		    });
+		  composite.xAxis().tickSize(0, 0).tickFormat("");
+		  composite.yAxis().tickSize(0, 0).tickFormat("");
 
 		  composite.render();
 

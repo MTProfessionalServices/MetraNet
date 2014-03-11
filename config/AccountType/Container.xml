@@ -14,7 +14,7 @@
             </ServiceDef>
         </ServiceDefinitions>
         <CanBePayer>True</CanBePayer>
-        <CanSubscribe>False</CanSubscribe>
+        <CanSubscribe>True</CanSubscribe>
         <CanHaveSyntheticRoot>False</CanHaveSyntheticRoot>
         <CanParticipateInGSub>True</CanParticipateInGSub>
         <CanHaveTemplates>True</CanHaveTemplates>

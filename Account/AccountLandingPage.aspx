@@ -342,7 +342,7 @@ white-space:nowrap;
 //      if (checkButtonClickCount() == true) {
 //        pageNav.Execute("SubscriptionsEvents_Subscribe_Client", null, null);
 //      }    
-      document.location.href = "/MetraNet/StartWorkFlow.aspx?WorkflowName=SubscriptionsWorkflow&IsShowExistingSubscriptions=false"; 
+      document.location.href = "/MetraNet/StartWorkFlow.aspx?WorkflowName=SubscriptionsWorkflow&StartWithStep=AddStep"; 
     }
     
     function onAddAccountToGroupSubscription_<%=SubscriptionSummaryGrid.ClientID %>()

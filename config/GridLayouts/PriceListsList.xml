@@ -3,6 +3,7 @@
     <Name>PriceListsList</Name>
     <Title>
         <LocalizationTag>GRID_TITLE</LocalizationTag>
+        <ResourceClassKey></ResourceClassKey>
     </Title>
     <Exportable>true</Exportable>
     <Height>400</Height>
@@ -41,8 +42,10 @@
     <SearchOnLoad>true</SearchOnLoad>
     <CustomImplementationFilePath></CustomImplementationFilePath>
     <SubGrid></SubGrid>
+    <SelectionModel>Standard</SelectionModel>
+    <MultiSelect>false</MultiSelect>
+    <CustomOverrideJavascriptIncludes>/MetraNet/MetraOffer/PriceLists/PriceListsList.aspx</CustomOverrideJavascriptIncludes>
     <Elements>
-	
         <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
@@ -79,7 +82,6 @@
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
-
         <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
@@ -165,7 +167,7 @@
                 <EnumType>SystemCurrencies</EnumType>
                 <UseEnumValue>true</UseEnumValue>
                 <DefaultValue></DefaultValue>
-                <HideEnumValues></HideEnumValues>
+                <HideEnumValues />
             </FilterEnum>
             <DataIndex>Currency</DataIndex>
             <IsColumn>true</IsColumn>
@@ -196,8 +198,7 @@
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
-
-	<Element>
+        <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
             <ObjectName>MetraTech.DomainModel.BaseTypes.PriceList</ObjectName>
@@ -233,7 +234,6 @@
             <FilterReadOnly>true</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
-
     </Elements>
     <ExpanderTemplate></ExpanderTemplate>
     <GridButtons></GridButtons>

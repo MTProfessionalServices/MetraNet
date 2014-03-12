@@ -39,7 +39,8 @@
     <DefaultSortDirection>Ascending</DefaultSortDirection>
     <DisplayCount>true</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
-    <CustomImplementationFilePath>/MetraNet/MetraOffer/ProductOfferings/js/ProductOfferingsGrid.js?v=13</CustomImplementationFilePath>
+    <CustomImplementationFilePath>/MetraNet/MetraOffer/ProductOfferings/js/ProductOfferingsGrid.js</CustomImplementationFilePath>
+	<CustomOverrideJavascriptIncludes>MetraNet/MetraOffer/ProductOfferings/ProductOfferingsList.aspx</CustomOverrideJavascriptIncludes>
     <SubGrid></SubGrid>
     <Elements>
         <Element>
@@ -453,116 +454,6 @@
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
-<!--
-		<Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>MetraTech.DomainModel.ProductCatalog.Generated.dll</AssemblyFilename>
-            <ObjectName>MetraTech.DomainModel.ProductCatalog.ProductOffering</ObjectName>
-            <ID>glcode</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>glcode</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag>TEXT_GLCODE</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>true</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>false</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-		<Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>MetraTech.DomainModel.ProductCatalog.Generated.dll</AssemblyFilename>
-            <ObjectName>MetraTech.DomainModel.ProductCatalog.ProductOffering</ObjectName>
-            <ID>InternalInformationURL</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>InternalInformationURL</DataIndex>
-            <IsColumn>false</IsColumn>
-            <HeaderText>
-                <LocalizationTag>TEXT_INTERNALINFORMATIONURL</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>true</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>false</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-		<Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>MetraTech.DomainModel.ProductCatalog.Generated.dll</AssemblyFilename>
-            <ObjectName>MetraTech.DomainModel.ProductCatalog.ProductOffering</ObjectName>
-            <ID>ExternalInformationURL</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>ExternalInformationURL</DataIndex>
-            <IsColumn>false</IsColumn>
-            <HeaderText>
-                <LocalizationTag>TEXT_EXTERNALINFORMATIONURL</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>true</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>false</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>true</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
--->
     </Elements>
     <GridButtons></GridButtons>
     <ToolbarButtons>

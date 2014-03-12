@@ -7,10 +7,9 @@
     <Pages>
         <PageName>/MetraNet/MetraOffer/PriceLists/CreateSharedPriceList.aspx</PageName>
     </Pages>
-     <Header>
+    <Header>
         <PageTitle>
-            <LocalizationTag></LocalizationTag>
-            <ResourceClassKey></ResourceClassKey>
+            <Value><![CDATA[]]></Value>
         </PageTitle>
     </Header>
     <Help>
@@ -24,6 +23,7 @@
                 <Value><![CDATA[Add Price List]]></Value>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
             <Columns>
                 <Column>
                     <Fields>
@@ -44,6 +44,7 @@
                                 <Value><![CDATA[Name]]></Value>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
@@ -62,6 +63,7 @@
                                 <Value><![CDATA[Description]]></Value>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
@@ -80,6 +82,7 @@
                                 <Value><![CDATA[Currency]]></Value>
                             </Label>
                             <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
                         </Field>
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
@@ -97,15 +100,13 @@
                             <Label>
                                 <Value><![CDATA[Partition Id]]></Value>
                             </Label>
-
                             <RequiredCapabilities />
-                      </Field>
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
                     </Fields>
                 </Column>
-                <Column>
-                    <Fields></Fields>
-                </Column>
             </Columns>
+            <ToolbarButtons></ToolbarButtons>
         </Section>
     </Sections>
     <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>

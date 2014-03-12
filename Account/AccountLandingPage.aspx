@@ -378,7 +378,7 @@ white-space:nowrap;
       var str = "";
   
       if (record.data.subscriptiontype === 'Subscription') {
-        str = String.format("<span class='ItemName'>{0}</span><br/><span class='ItemDescription'>{1}</span>", record.json.productofferingname, (record.json.productofferingdescription || ''));
+        str = String.format("<a href='JavaScript:edit({0});' class='ItemName'>{1}</a><br/><span class='ItemDescription'>{2}</span>", record.json.subscriptionid, record.json.productofferingname, (record.json.productofferingdescription || ''));
       } else {
         str = String.format("<span class='ItemName'>{0}</span><br/><span class='ItemDescription'>{1}</span><br /><br /><span class='ItemName'>{2}</span><br/><span class='ItemDescription'>{3}</span>", record.data.productofferingname, (record.json.productofferingdescription || ''), (record.json.groupsubscriptionname  || ''), (record.json.groupsubscriptiondescription || ''));
         //null AS 'GroupSubscriptionDescription')
@@ -386,6 +386,12 @@ white-space:nowrap;
   
       //return String.format("<span style='display:inline-block; vertical-align:middle'><img src='/Res/Images/icons/ProductCatalog_{0}.png' alt='{1}' align='middle'/></span>{2}", record.data.subscriptiontype, value, str);
       return str;
+    }
+    
+    function edit(n) {
+      if (checkButtonClickCount() == true) {
+      document.location.href = "/MetraNet/StartWorkFlow.aspx?WorkflowName=SubscriptionsWorkflow&StartWithStep=" + n; 
+      }
     }
 
     // Custom Renderers

@@ -2,6 +2,7 @@
 	<StateActivity x:Name="StartSubscriptions">
 		<EventDrivenActivity x:Name="Start_Subscriptions">
 			<ns2:MTHandleEventActivity x:Name="mtHandleEventActivity1" EventName="Start_Subscriptions" />
+			<CodeActivity x:Name="TryParseSubscriptionIdActivity" ExecuteCode="{ActivityBind SubscriptionsWorkflow,Path=TryParseSubscriptionId_ExecuteCode}" />
 			<IfElseActivity x:Name="ifElseActivityShowExistingSubscriptions">
 				<IfElseBranchActivity x:Name="ifElseBranchActivityShowExistingSubscriptions1">
 					<IfElseBranchActivity.Condition>

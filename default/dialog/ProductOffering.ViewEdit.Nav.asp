@@ -134,6 +134,7 @@ function NavigateToRates(id,pi_id)
   if ((parent!=null) && (parent.ProductOfferingMain!=null))
   {
     parent.ProductOfferingMain.location = sNewLocation;
+    window.location = window.location;
   }
   else
   {

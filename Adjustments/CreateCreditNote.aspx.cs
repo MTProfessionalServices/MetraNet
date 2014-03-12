@@ -16,6 +16,7 @@ public partial class Adjustments_CreateCreditNote : MTPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+      lblAccount.Text = String.Format("{0} ({1})", UI.Subscriber.SelectedAccount.UserName, UI.Subscriber.SelectedAccount._AccountID);
       populateCreditNotesTemplateTypes();
       populateDDTimeInterval();
     }

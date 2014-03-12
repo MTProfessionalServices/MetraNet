@@ -353,7 +353,7 @@ white-space:nowrap;
 //      
 //      }
 
-      document.location.href = "/MetraNet/StartWorkFlow.aspx?WorkflowName=GroupSubscriptionsWorkflow";
+      document.location.href = "/MetraNet/StartWorkFlow.aspx?WorkflowName=GroupSubscriptionsWorkflow&StartWithStepGr=JoinStep";
     }
 
     function caseNumberColRenderer(value, meta, record, rowIndex, colIndex, store) {

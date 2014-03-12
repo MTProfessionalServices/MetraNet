@@ -129,6 +129,7 @@
   <data name="MTPanel1Resource1.Text" xml:space="preserve">
     <value>Create Credit Note Documnet for Adjustment Issued</value>
   </data>
+<<<<<<< HEAD
   <data name="btnIssueCreditNoteResource1.Text" xml:space="preserve">
     <value>Issue Credit Note</value>
   </data>
@@ -138,7 +139,7 @@
   <data name="CommentTextBoxResource1.Label" xml:space="preserve">
     <value>Comment</value>
   </data>
- <data name="ddTemplateTypesResource1.Label" xml:space="preserve">
+   <data name="ddTemplateTypesResource1.Label" xml:space="preserve">
     <value>Credit Note Template To Use</value>
   </data>
   <data name="ddTimeIntervalsResource1.Text" xml:space="preserve">

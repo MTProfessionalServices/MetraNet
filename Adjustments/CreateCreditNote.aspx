@@ -5,6 +5,7 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
    <MT:MTPanel ID="MTPanel1" runat="server" Text="Create Credit Note" 
 
+
     Collapsible="True" Collapsed="False"  meta:resourcekey="MTPanel1Resource1">
      
      &nbsp;&nbsp;&nbsp;
@@ -54,4 +55,5 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
    </div>
 
    </MT:MTPanel>
+
 </asp:Content>

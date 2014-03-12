@@ -22,7 +22,7 @@
     <script type="text/javascript" language="javascript" src="/mcm/default/lib/PopupEdit.js"></script>
 
     <script language="javascript" type="text/javascript">
-      CreateProductOffering_<%=MTFilterGrid1.ClientID%> = function() {
+      function CreateProductOffering_<%=MTFilterGrid1.ClientID%> () {
         //var targetURL= "/MetraNet/TicketToMCM.aspx?Redirect=True&Title=Create New Product Offerings&URL=/mcm/default/dialog/wizard/CreatePO/wizardstart.asp|Path=/mcm/default/dialog/wizard/CreatePO**PageID=start";
         //OpenModalWindow(targetURL);
         location.href = '/MetraNet/MetraOffer/ProductOfferings/CreateProductOffering.aspx';

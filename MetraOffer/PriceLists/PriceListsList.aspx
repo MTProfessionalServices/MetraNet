@@ -22,7 +22,7 @@
     <script type="text/javascript" language="javascript" src="/mcm/default/lib/PopupEdit.js"></script>
 
     <script language="javascript" type="text/javascript">
-      CreatePriceList_<%=MTFilterGrid1.ClientID%> = function() {
+      function CreatePriceList_<%=MTFilterGrid1.ClientID%> () {
         //var targetURL= "/MetraNet/TicketToMCM.aspx?Redirect=True&Title=Create New Price List&URL=/mcm/default/dialog/wizard/CreatePriceList/wizardstart.asp|Path=/mcm/default/dialog/wizard/CreatePriceList**PageID=start**NextPage=DISPLAY_NEW_ITEM";
         //OpenModalWindow(targetURL);
         location.href = '/MetraNet/MetraOffer/PriceLists/CreateSharedPriceList.aspx';

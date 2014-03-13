@@ -217,7 +217,7 @@
     <value>&amp;nbsp;&gt;&amp;nbsp;</value>
   </data>
   <data name="TEXT_BREAD_CRUMB_SPACER" xml:space="preserve">
-    <value>&amp;nbsp;&amp;nbsp;</value>
+    <value>&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</value>
   </data>
   <data name="TEXT_CANCEL" xml:space="preserve">
     <value>Annulla</value>
@@ -548,5 +548,11 @@
   </data>
 	<data name="TEXT_FROM_PARAMETER_TABLE" xml:space="preserve">
     <value>From parameter table (Italian)</value>
+  </data>
+  <data name="newSubscription" xml:space="preserve">
+    <value>[IT]New Subscription</value>
+  </data>
+  <data name="updateSubscription" xml:space="preserve">
+    <value>[IT]Subscription Update</value>
   </data>
 </root>

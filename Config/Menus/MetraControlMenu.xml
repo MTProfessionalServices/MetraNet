@@ -20,7 +20,7 @@
                                 <LocalizationTag>TEXT_BILLABLE_INTERVALS</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/IntervalManagement.List.asp?MDMReload=TRUE**Intervals=Billable</Link>
+                            <Link>/MetraNet/MetraControl/BillingManagement/IntervalManagementList.aspx?Intervals=Billable</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/IntervalStateOpen.gif</Icon>
                             <Description></Description>
@@ -32,7 +32,7 @@
                                 <LocalizationTag>TEXT_ACTIVE_INTERVALS</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/IntervalManagement.List.asp?MDMReload=TRUE**Intervals=Active</Link>
+                            <Link>/MetraNet/MetraControl/BillingManagement/IntervalManagementList.aspx?Intervals=Active</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/IntervalStateSoftClosed.gif</Icon>
                             <Description></Description>
@@ -44,7 +44,7 @@
                                 <LocalizationTag>TEXT_COMPLETED_INTERVALS</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/IntervalManagement.List.asp?MDMReload=TRUE**Intervals=Completed</Link>
+                            <Link>/MetraNet/MetraControl/BillingManagement/IntervalManagementList.aspx?Intervals=Completed</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/IntervalStateHardClosed.gif</Icon>
                             <Description></Description>
@@ -56,7 +56,7 @@
                                 <LocalizationTag>TEXT_ALL_INTERVALS</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/IntervalManagement.List.asp?MDMReload=TRUE</Link>
+                            <Link>/MetraNet/MetraControl/BillingManagement/IntervalManagementList.aspx</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/Interval.gif</Icon>
                             <Description></Description>

@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="<%= GetGlobalResourceObject("Resource", "LocalizedStyleSheet") %>" />
   <link rel="stylesheet" type="text/css" href="/Res/Styles/menuStyle.css?v=6.5"/>
   <link rel="stylesheet" type="text/css" href="/Res/Styles/MiscField.css?v=6.5"/>
+  <link rel="stylesheet" type="text/css" href="/Res/Styles/MTViewChangeControl.css?v=7.2"/>
   <link rel="icon" type="image/ico" href="/MetraNet/favicon.ico" />
 
   <script type="text/javascript" src="/Res/Ext/adapter/ext/ext-base.js?v=6.5"></script>

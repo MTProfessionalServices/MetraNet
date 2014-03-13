@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ServiceModel;
 using System.Web.UI;
 using MetraTech.ActivityServices.Common;
 using MetraTech.Approvals.ChangeTypes;
@@ -296,6 +297,8 @@ public partial class Subscriptions_SetUDRCValues : MTPage
     #region Events
     protected void Page_Load(object sender, EventArgs e)
     {
+        //TODO: Save and pass original subscription object through WorkFlow to Approval Framework
+
         if (!IsPostBack)
         {
             if (Request["UPDATE"] == null)
@@ -557,11 +560,21 @@ public partial class Subscriptions_SetUDRCValues : MTPage
     private bool IsApprovalsEnabled(string changeType)
     {
         bool isEnabled;
-        using (var client = new ApprovalManagementServiceClient())
+
+      var client = new ApprovalManagementServiceClient();
+      try
         {
             SetCredantional(client.ClientCredentials);
             client.ApprovalEnabledForChangeType(changeType, out isEnabled);
         }
+      finally
+      {
+        if (client.State == CommunicationState.Faulted)
+          client.Abort();
+        else
+          client.Close();
+      }
+
         return isEnabled;
     }
 

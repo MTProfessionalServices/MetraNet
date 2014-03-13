@@ -168,7 +168,6 @@
         <MT:MTDropDown ID="ddBrandedSite" runat="server" AllowBlank="True" Label="Branded Site"
           ControlWidth="200" ListWidth="200" HideLabel="False" LabelSeparator=":" meta:resourcekey="ddBrandedSiteResource1"
           ReadOnly="False" TabIndex="180">
-          <asp:ListItem Value="MT" meta:resourcekey="ListItemResource1">MetraView</asp:ListItem>
         </MT:MTDropDown>
       </div>
       <div id="rightColumn2" class="RightColumn">

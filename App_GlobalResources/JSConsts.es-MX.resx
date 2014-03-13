@@ -129,45 +129,45 @@
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
     <value>j/n/Y g:i:s A</value>
   </data>
-    <data name="DUPLICATE" xml:space="preserve">
-        <value>Duplicar</value>
-    </data>
+  <data name="DUPLICATE" xml:space="preserve">
+    <value>Duplicar</value>
+  </data>
   <data name="ERR_DATE_FORMAT" xml:space="preserve">
     <value>dd/mm/YYYY</value>
   </data>
-    <data name="FAILURE" xml:space="preserve">
-        <value>Error</value>
-    </data>
-    <data name="MANUAL_PENDING" xml:space="preserve">
-        <value>Manual pendiente</value>
-    </data>
-    <data name="MANUALLY_REVERSED" xml:space="preserve">
-        <value>Manual revertido</value>
-    </data>
+  <data name="FAILURE" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="MANUAL_PENDING" xml:space="preserve">
+    <value>Manual pendiente</value>
+  </data>
+  <data name="MANUALLY_REVERSED" xml:space="preserve">
+    <value>Manual revertido</value>
+  </data>
   <data name="NO_RECORDS_FOUND" xml:space="preserve">
     <value>No se ha encontrado ningún registro.</value>
   </data>
-    <data name="POST_PROCESSING_SUCCESSFUL" xml:space="preserve">
-        <value>Post procesamiento correcto</value>
-    </data>
-    <data name="RECEIVED_REQUEST" xml:space="preserve">
-        <value>Solicitud recibida</value>
-    </data>
-    <data name="RECEIVED_RESPONSE" xml:space="preserve">
-        <value>Respuesta recibida</value>
-    </data>
-    <data name="REJECTED" xml:space="preserve">
-        <value>Rechazado(a)</value>
-    </data>
-    <data name="REVERSED" xml:space="preserve">
-        <value>Revertido</value>
-    </data>
-    <data name="SUBMITTED_REQUEST" xml:space="preserve">
-        <value>Solicitud enviada</value>
-    </data>
-    <data name="SUCCESS" xml:space="preserve">
-        <value>Éxito</value>
-    </data>
+  <data name="POST_PROCESSING_SUCCESSFUL" xml:space="preserve">
+    <value>Post procesamiento correcto</value>
+  </data>
+  <data name="RECEIVED_REQUEST" xml:space="preserve">
+    <value>Solicitud recibida</value>
+  </data>
+  <data name="RECEIVED_RESPONSE" xml:space="preserve">
+    <value>Respuesta recibida</value>
+  </data>
+  <data name="REJECTED" xml:space="preserve">
+    <value>Rechazado(a)</value>
+  </data>
+  <data name="REVERSED" xml:space="preserve">
+    <value>Revertido</value>
+  </data>
+  <data name="SUBMITTED_REQUEST" xml:space="preserve">
+    <value>Solicitud enviada</value>
+  </data>
+  <data name="SUCCESS" xml:space="preserve">
+    <value>Éxito</value>
+  </data>
   <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
     <value>Detalles</value>
   </data>
@@ -228,54 +228,54 @@
   <data name="TEXT_APPLY_TEMPLATE" xml:space="preserve">
     <value>Aplicar plantilla</value>
   </data>
-    <data name="TEXT_APPROVAL_CHANGES_PENDING_YOUR_APPROVAL" xml:space="preserve">
-        <value>Cambios pendientes para su aprobación</value>
-    </data>
-    <data name="TEXT_APPROVAL_NO_CHANGES_PENDING_YOUR_APPROVAL" xml:space="preserve">
-        <value>No hay cambios pendientes que puede aprobar</value>
-    </data>
-    <data name="TEXT_APPROVALS_ACTION_APPROVE" xml:space="preserve">
-        <value>Aprobar este cambio</value>
-    </data>
-    <data name="TEXT_APPROVALS_ACTION_APPROVE_TIP" xml:space="preserve">
-        <value>La aprobación de este cambio le indica que está de acuerdo con que se debe realizar en el sistema</value>
-    </data>
-    <data name="TEXT_APPROVALS_ACTION_DENY" xml:space="preserve">
-        <value>Denegar este cambio</value>
-    </data>
-    <data name="TEXT_APPROVALS_ACTION_DISMISS" xml:space="preserve">
-        <value>Descartar este cambio</value>
-    </data>
-    <data name="TEXT_APPROVALS_ACTION_RESUBMIT" xml:space="preserve">
-        <value>Volver a enviar</value>
-    </data>
-    <data name="TEXT_APPROVALS_ACTION_RESUBMIT_TIP" xml:space="preserve">
-        <value>Volver a enviar hará que se reintente con la aplicación de este cambio aprobado al sistema.</value>
-    </data>
-    <data name="TEXT_APPROVALS_COMMENT_LABEL" xml:space="preserve">
-        <value>Comentario:</value>
-    </data>
-    <data name="TEXT_APPROVALS_ERROR_UPDATING_CHANGE_ID" xml:space="preserve">
-        <value>Error al actualizar la Id de cambio</value>
-    </data>
-    <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPLIED" xml:space="preserve">
-        <value>Este cambio se ha aplicado al sistema. No se deben realizar más acciones.</value>
-    </data>
-    <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPROVEDWAITINGTOBEAPPLIED" xml:space="preserve">
-        <value>Este cambio se Aprobó y está a la espera de su aplicación al sistema.</value>
-    </data>
-    <data name="TEXT_APPROVALS_STATE_EXPLANATION_DISMISSED" xml:space="preserve">
-        <value>Este cambio se Descartó. No se deben realizar más acciones.</value>
-    </data>
-    <data name="TEXT_APPROVALS_STATE_EXPLANATION_FAILEDTOAPPLY" xml:space="preserve">
-        <value>Este cambio fue Aprobado, pero ocurrió un error mientras se aplicaba al sistema.</value>
-    </data>
-    <data name="TEXT_APPROVALS_STATE_EXPLANATION_PENDING" xml:space="preserve">
-        <value>Este cambio actualmente está Pendiente.</value>
-    </data>
-    <data name="TEXT_APPROVALS_STATE_EXPLANATION_SUBMITTER" xml:space="preserve">
-        <value>Como el remitente de este cambio Pendiente, puede 'Descartar' este cambio lo que lo removerá de consideración. </value>
-    </data>
+  <data name="TEXT_APPROVAL_CHANGES_PENDING_YOUR_APPROVAL" xml:space="preserve">
+    <value>Cambios pendientes para su aprobación</value>
+  </data>
+  <data name="TEXT_APPROVAL_NO_CHANGES_PENDING_YOUR_APPROVAL" xml:space="preserve">
+    <value>No hay cambios pendientes que puede aprobar</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_APPROVE" xml:space="preserve">
+    <value>Aprobar este cambio</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_APPROVE_TIP" xml:space="preserve">
+    <value>La aprobación de este cambio le indica que está de acuerdo con que se debe realizar en el sistema</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_DENY" xml:space="preserve">
+    <value>Denegar este cambio</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_DISMISS" xml:space="preserve">
+    <value>Descartar este cambio</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_RESUBMIT" xml:space="preserve">
+    <value>Volver a enviar</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_RESUBMIT_TIP" xml:space="preserve">
+    <value>Volver a enviar hará que se reintente con la aplicación de este cambio aprobado al sistema.</value>
+  </data>
+  <data name="TEXT_APPROVALS_COMMENT_LABEL" xml:space="preserve">
+    <value>Comentario:</value>
+  </data>
+  <data name="TEXT_APPROVALS_ERROR_UPDATING_CHANGE_ID" xml:space="preserve">
+    <value>Error al actualizar la Id de cambio</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPLIED" xml:space="preserve">
+    <value>Este cambio se ha aplicado al sistema. No se deben realizar más acciones.</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPROVEDWAITINGTOBEAPPLIED" xml:space="preserve">
+    <value>Este cambio se Aprobó y está a la espera de su aplicación al sistema.</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_DISMISSED" xml:space="preserve">
+    <value>Este cambio se Descartó. No se deben realizar más acciones.</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_FAILEDTOAPPLY" xml:space="preserve">
+    <value>Este cambio fue Aprobado, pero ocurrió un error mientras se aplicaba al sistema.</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_PENDING" xml:space="preserve">
+    <value>Este cambio actualmente está Pendiente.</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_SUBMITTER" xml:space="preserve">
+    <value>Como el remitente de este cambio Pendiente, puede 'Descartar' este cambio lo que lo removerá de consideración. </value>
+  </data>
   <data name="TEXT_AUDIT_HISTORY_FAILED" xml:space="preserve">
     <value>Historial de auditorías para número de caso de transacción errónea</value>
   </data>
@@ -913,10 +913,10 @@
     <value>Mexican Spanish</value>
   </data>
   <data name="TEXT_FLS_ERROR_MESSAGE" xml:space="preserve">
-	<value>Error Message:&lt;br/&gt;[ErrorMessage]</value>
+    <value>Error Message:&lt;br/&gt;[ErrorMessage]</value>
   </data>
   <data name="TEXT_FLS_NO_ERROR_MESSAGE" xml:space="preserve">
-	<value>No error message to report.</value>
+    <value>No error message to report.</value>
   </data>
   <data name="TEXT_ACTIVATE_DEACTIVATE" xml:space="preserve">
     <value>Mexican Spanish</value>
@@ -966,13 +966,13 @@
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
     <value>(MEXICAN SPANISH) Decisions are used when a monetary charge amount cannot be calculated by looking at a single record. Instead, many usage records must be examined and a total must be the number of events, units of usage, or charge amounts. The total, or aggregate, is then used to help determine the charge amount.</value>
   </data>
-	<data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_MONETARY_CHARGE" xml:space="preserve">
+  <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_MONETARY_CHARGE" xml:space="preserve">
     <value>(MEXICAN SPANISH) Example: \"Apply a discount if there's over $100 in charges.\"</value>
   </data>
-	<data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_UNIT_OF_USAGE" xml:space="preserve">
+  <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_UNIT_OF_USAGE" xml:space="preserve">
     <value>(MEXICAN SPANISH) Example: \"Use a special rate if over 1,000 minutes.\"</value>
   </data>
-	<data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_COUNT_NUMBER_OF_EVENTS" xml:space="preserve">
+  <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_COUNT_NUMBER_OF_EVENTS" xml:space="preserve">
     <value>(MEXICAN SPANISH) Example: \"Apply a discount if over 100 calls were made.\"</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_FROM_PARAMETER_TABLE" xml:space="preserve">
@@ -1011,14 +1011,13 @@
   <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE_PRORATION" xml:space="preserve">
     <value>Mexican Spanish</value>
   </data>
-	<data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE_PRORATION" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE_PRORATION" xml:space="preserve">
     <value>Mexican Spanish</value>
   </data>
-	<data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
     <value>Mexican Spanish</value>
   </data>
-
-	<data name="TITLE_AMPWIZARD_HELP_RESTART_RANGE" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_RESTART_RANGE" xml:space="preserve">
     <value>Mexican Spanish</value>
   </data>
   <data name="TITLE_AMPWIZARD_ACTIVATION_RESULTS" xml:space="preserve">
@@ -1042,13 +1041,13 @@
   <data name="TEXT_AMPWIZARD_HELP_INCREMENTAL_OR_BULK" xml:space="preserve">
     <value>Mexican Spanish</value>
   </data>
-      <data name="TITLE_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
     <value>(Mexican Spanish)Help: Multi-bucket</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
     <value>(Mexican Spanish)Act on each individual record.  Usage may have different prices  which are determined by the bucket into which they fall.</value>
   </data>
-   <data name="TITLE_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
     <value>(Mexican Spanish)Help: Single-bucket</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
@@ -1093,10 +1092,10 @@
   <data name="TEXT_AMPWIZARD_MORE_DECISION_CYCLE" xml:space="preserve">
     <value>Mexican Spanish</value>
   </data>
-	<data name="TITLE_AMPWIZARD_HELP_MORE_DECISION_CYCLE" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_MORE_DECISION_CYCLE" xml:space="preserve">
     <value>Mexican Spanish</value>
   </data>
-	<data name="TITLE_AMPWIZARD_ADD_MISC_ATTRIBUTE" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_ADD_MISC_ATTRIBUTE" xml:space="preserve">
     <value>Mexican Spanish</value>
   </data>
   <data name="TITLE_AMPWIZARD_EDIT_MISC_ATTRIBUTE" xml:space="preserve">
@@ -1124,7 +1123,7 @@
     <value>Mexican Spanish</value>
   </data>
   <data name="TITLE_AMPWIZARD_ERROR" xml:space="preserve">
-    <value>Mexican Spanish</value> 
+    <value>Mexican Spanish</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_USAGE_QUALIFICATION" xml:space="preserve">
     <value>Mexican Spanish</value>
@@ -1161,7 +1160,7 @@
   </data>
   <data name="TEXT_VIEW_ACCOUNT_GROUP" xml:space="preserve">
     <value>Mexican Spanish</value>
-  </data>  
+  </data>
   <data name="TEXT_AMPWIZARD_HELP_EDIT_ACCOUNT_GROUP" xml:space="preserve">
     <value>Mexican Spanish</value>
   </data>
@@ -1178,9 +1177,45 @@
     <value>Mexican Spanish</value>
   </data>
   <data name="ERROR_BILL_MESSAGE_DATES" xml:space="preserve">
-     <value>Mexican Spanish</value>
+    <value>Mexican Spanish</value>
   </data>
-   <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
+  <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
     <value>[es-MX]Start Date can't be greater than End Date</value>
   </data>
+  <data name="TEXT_HARD_CLOSED_INTERVAL_STATUS" xml:space="preserve">
+    <value>(MEXICAN SPANISH) Hard Closed</value>
+  </data>
+  <data name="TEXT_OPEN_INTERVAL_STATUS" xml:space="preserve">
+    <value>(MEXICAN SPANISH) Open</value>
+  </data>
+  <data name="TEXT_SOFT_CLOSED_INTERVAL_STATUS" xml:space="preserve">
+    <value>(MEXICAN SPANISH) Soft Closed</value>
+  </data>
+  <data name="TEXT_UNKNOWN_INTERVAL_STATUS" xml:space="preserve">
+    <value>(MEXICAN SPANISH) Unknown</value>
+  </data>
+  <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(MEXICAN SPANISH) Passwords do not match.</value>
+  </data>  
+  <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(MEXICAN SPANISH) Enter a valid phone number. Format: 555-555-5555</value>
+  </data>    
+  <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(MEXICAN SPANISH) Credit card format is invalid</value>
+  </data>      
+  <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(MEXICAN SPANISH) CV Number is invalid</value>
+  </data>        
+  <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(MEXICAN SPANISH) SSN format: xxx-xx-xxxx</value>
+  </data>          
+  <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(MEXICAN SPANISH) Only numeric digits are allowed</value>
+  </data>            
+  <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(MEXICAN SPANISH) Zipcode is invalid</value>
+  </data>              
+  <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(MEXICAN SPANISH) Middle initial is invalid</value>
+  </data>    
 </root>

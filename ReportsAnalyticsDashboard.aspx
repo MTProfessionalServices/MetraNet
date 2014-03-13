@@ -22,14 +22,6 @@
   <br />
   <div class="remaining-graphs span8">
     <h1>
-      New Customers</h1>
-    <div class="row-fluid">
-      <div id='NewCustomersChart' class="pie-graph span4 dc-chart" style="float: none !important;">
-      </div>
-    </div>
-  </div>
-  <div class="remaining-graphs span8">
-    <h1>
       Revenue</h1>
     <div class="row-fluid">
       <div id='RevenueChart' class="pie-graph span4 dc-chart" style="float: none !important;">
@@ -44,13 +36,27 @@
       </div>
     </div>
   </div>
+  <div class="remaining-graphs span8">
+    <h1>
+      New Customers</h1>
+    <div class="row-fluid">
+      <div id='NewCustomersChart' class="pie-graph span4 dc-chart" style="float: none !important;">
+      </div>
+    </div>
+  </div>
   <br />
   <script type="text/javascript">
+      var margin = {top: 10,right: 50,bottom: 30,left: 70},
+          width = 920 - margin.left - margin.right,
+          height = 340 - margin.top - margin.bottom,
+          paddingX = 10,
+          previousMonth = getUTCDate(new Date(<%= previousMonth %>)),
+          firstMonth = getUTCDate(new Date(<%= firstMonth %>));
+
     $(function () {
-      getNewCustomers();
       getRevenue();
       getMRR();
-      
+      getNewCustomers();
     });
     
     function getNewCustomers() {
@@ -58,7 +64,7 @@
         type: 'GET',
         async: true,
         url: 'Report/NewCustomers',
-        success: function(data) {
+        success: function (data) {
           RenderNewCustomersChart(data);
 
           dc.renderAll();
@@ -71,9 +77,7 @@
     };
 
     function RenderNewCustomersChart(JSONData) {
-
       var volumeChart = dc.barChart("#NewCustomersChart");
-
       var ndx = crossfilter(JSONData);
 
       var startValue = ndx.dimension(function(d) {
@@ -81,20 +85,12 @@
       });
       var startValueGroup = startValue.group();
 
-      var previousMonth = getUTCDate(new Date(<%= previousMonth %>));
-      var firstMonth = getUTCDate(new Date(<%= firstMonth %>));
-
-      volumeChart.width(800)
-        .height(300)
+      volumeChart.width(width)
+        .height(height)
         .dimension(startValue)
         .group(startValueGroup, "New Customers")
         .transitionDuration(1000)
-        .margins({
-          top: 10,
-          right: 50,
-          bottom: 30,
-          left: 70
-        })
+        .margins(margin)
         .centerBar(true)
         .gap(15)
         .round(d3.time.month.round)
@@ -119,9 +115,6 @@
         url: 'Report/Revenue',
         success: function(data) {
           RenderRevenueChart(data);
-
-          dc.renderAll();
-          dc.redrawAll();
         },
         error: function () {
           alert("Error getting Data");
@@ -134,24 +127,23 @@
       var revenueChart = dc.barChart("#RevenueChart");
 
       var ndx = crossfilter(JSONData),
-          runDimension = ndx.dimension(function(d) {return new Date(parseInt(d.RecognitionDate.substr(6))); });
+          runDimension = ndx.dimension(function(d) {return new Date(parseInt(d.Date.substr(6))); });
           usdGroup = runDimension.group().reduceSum(function(d) {if (d.Currency === 'USD') {return d.Amount;} else {return 0;}}),
           cadGroup = runDimension.group().reduceSum(function(d) {if (d.Currency === 'CAD') {return d.Amount;} else {return 0;}}),
           eurGroup = runDimension.group().reduceSum(function(d) {if (d.Currency === 'EUR') {return d.Amount;} else {return 0;}}),
           yenGroup = runDimension.group().reduceSum(function(d) {if (d.Currency === 'YEN') {return d.Amount;} else {return 0;}});
 
-      var maxDate = new Date(parseInt(runDimension.bottom(1)[0].RecognitionDate.substr(6)));
-      var minDate = new Date(parseInt(runDimension.top(1)[0].RecognitionDate.substr(6)));
-
-
-      revenueChart.width(800)
-        .height(300)
+      revenueChart.width(width)
+        .height(height)
+        .margins(margin)
+        .x(d3.time.scale().domain([firstMonth, previousMonth]))
         .round(d3.time.month.round)
-        .x(d3.time.scale().domain([minDate, maxDate]))
         .xUnits(d3.time.months)
-        .brushOn(true)
+        .brushOn(false)
         .yAxisLabel("Amount")
         .elasticY(true)
+        //.elasticX(true)
+        .xAxisPadding(paddingX)
         .dimension(runDimension)
         .group(usdGroup, "USD")
         .stack(cadGroup, "CAD")
@@ -162,8 +154,10 @@
         .transitionDuration(1500)
         .centerBar(true)
         .gap(15)
-        .legend(dc.legend().x(680).y(0))
-        .xAxis().tickFormat(d3.time.format("%b-%Y"));
+        .legend(dc.legend().x(750).y(0))
+        .xAxis().tickFormat(d3.time.format("%b-%Y"))
+        ;
+      revenueChart.render();
     }
 
     function getMRR() {
@@ -215,21 +209,15 @@
         return 0;
       });
 
-
-      volumeChart.width(800)
-        .height(300)
+      volumeChart.width(width)
+        .height(height)
         .dimension(startValue)
         .group(usdGroup, "USD")
         .stack(cadGroup, "CAD")
         .stack(eurGroup, "EUR")
         .stack(yenGroup, "YEN")
         .transitionDuration(350)
-        .margins({
-          top: 10,
-          right: 50,
-          bottom: 30,
-          left: 70
-        })
+        .margins(margin)
         .centerBar(true)
         .gap(20)
         .round(d3.time.month.round)

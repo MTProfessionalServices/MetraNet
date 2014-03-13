@@ -74,7 +74,7 @@
             <Parameter Name="SubscriptionInstance" Description="Parameter representing a subscription instance" Type="MetraTech.DomainModel.ProductCatalog.Subscription, MetraTech.DomainModel.ProductCatalog.dll">
               <InternalName>SubscriptionInstance</InternalName>
             </Parameter>
-            <Parameter Name="IsApprovalEnabled" Type="System.Boolean" Direction="In">
+            <Parameter Name="IsApprovalEnabled" Description="Input parameter that shows are approvals currently enabled or not" Type="System.Boolean" Direction="In">
               <InternalName>IsApprovalEnabled</InternalName>
             </Parameter>
           </ParameterDefs>
@@ -162,7 +162,7 @@
             <Parameter Name="SubscriptionInstance" Description="Parameter representing a subscription instance" Type="MetraTech.DomainModel.ProductCatalog.Subscription, MetraTech.DomainModel.ProductCatalog.dll">
               <InternalName>SubscriptionInstance</InternalName>
             </Parameter>
-            <Parameter Name="IsApprovalEnabled" Type="System.Boolean" Direction="In">
+            <Parameter Name="IsApprovalEnabled" Description="Input parameter that shows are approvals currently enabled or not" Type="System.Boolean" Direction="In">
               <InternalName>IsApprovalEnabled</InternalName>
             </Parameter>
           </ParameterDefs>

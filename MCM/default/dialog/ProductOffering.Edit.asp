@@ -105,9 +105,9 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   Form.Grids("ExtendedProperties").DefaultCellClassAlt = "captionEW"
 
   COMObject.Properties("Name").Enabled = FALSE
-  COMObject.Properties.Enabled         = TRUE ' Every control is grayed
-  Form.Grids.Enabled                   = TRUE ' All Grid are not enabled
-  
+  COMObject.Properties.Enabled         = TRUE ' Every control is enabled
+  Form.Grids.Enabled                   = TRUE ' All Grid are enabled
+
   mcm_IncludeCalendar
   'SECENG: Fixing problems with output encoding  
   Service.Properties.Add "po_edit_name", "String",  1024, FALSE, TRUE
@@ -147,6 +147,10 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
     COMObject.Properties.Enabled = TRUE
 	Form.Grids.Enabled = TRUE
   end if
+
+  If Session("isPartitionUser") Then
+    COMObject.Properties("POPartitionId").Enabled = FALSE
+  End If
 
   Form_Initialize = TRUE
 END FUNCTION

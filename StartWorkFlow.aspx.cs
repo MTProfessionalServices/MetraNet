@@ -194,6 +194,11 @@ public partial class StartWorkFlow : MTPage
                           new AccountIdentifier(MetraTech.UI.Tools.Utils.GetCorporateAccountOfChildAccount(UI.Subscriber.SelectedAccount._AccountID.Value, ApplicationTime));              
             }
 
+            if (!String.IsNullOrEmpty(Request["StartWithStepGr"]))
+            {
+              GroupSubAcct.In_StartWithStepGr = Request["StartWithStepGr"];
+            }
+
             PageNav.Execute(GroupSubAcct);           
             break;
           }

@@ -84,9 +84,6 @@
       var previousMonth = getUTCDate(new Date(<%= previousMonth %>));
       var firstMonth = getUTCDate(new Date(<%= firstMonth %>));
 
-      console.log(previousMonth);
-      console.log(firstMonth);
-
       volumeChart.width(800)
         .height(300)
         .dimension(startValue)
@@ -134,32 +131,38 @@
 
     function RenderRevenueChart(JSONData) {
 
-      var volumeChart = dc.barChart("#RevenueChart");
+      var revenueChart = dc.barChart("#RevenueChart");
 
-      var ndx = crossfilter(JSONData);
+      var ndx = crossfilter(JSONData),
+          runDimension = ndx.dimension(function(d) {return new Date(parseInt(d.RecognitionDate.substr(6))); });
+          usdGroup = runDimension.group().reduceSum(function(d) {if (d.Currency === 'USD') {return d.Amount;} else {return 0;}}),
+          cadGroup = runDimension.group().reduceSum(function(d) {if (d.Currency === 'CAD') {return d.Amount;} else {return 0;}}),
+          eurGroup = runDimension.group().reduceSum(function(d) {if (d.Currency === 'EUR') {return d.Amount;} else {return 0;}}),
+          yenGroup = runDimension.group().reduceSum(function(d) {if (d.Currency === 'YEN') {return d.Amount;} else {return 0;}});
 
-      var startValue = ndx.dimension(function (d) {
-        return new Date(parseInt(d.Date.substr(6)));
-      });
-      var startValueGroup = startValue.group();
+      var maxDate = new Date(parseInt(runDimension.bottom(1)[0].RecognitionDate.substr(6)));
+      var minDate = new Date(parseInt(runDimension.top(1)[0].RecognitionDate.substr(6)));
 
-      volumeChart.width(800)
+
+      revenueChart.width(800)
         .height(300)
-        .dimension(startValue)
-        .group(startValueGroup, "Revenue")
+        .round(d3.time.month.round)
+        .x(d3.time.scale().domain([minDate, maxDate]))
+        .xUnits(d3.time.months)
+        .brushOn(true)
+        .yAxisLabel("Amount")
+        .elasticY(true)
+        .dimension(runDimension)
+        .group(usdGroup, "USD")
+        .stack(cadGroup, "CAD")
+        .stack(eurGroup, "EUR")
+        .stack(yenGroup, "YEN")
+        .barPadding(0.1)
+        .outerPadding(0.05)
         .transitionDuration(1500)
-        .margins({
-                top: 10, 
-                right: 50, 
-                bottom: 30, 
-                left: 70})
         .centerBar(true)
         .gap(15)
-        .round(d3.time.month.round)
-        .x(d3.time.scale().domain([new Date(2012, 11, 1), new Date(2013, 12, 31)]))
-        .xUnits(d3.time.months)
         .legend(dc.legend().x(680).y(0))
-        .elasticY(true)
         .xAxis().tickFormat(d3.time.format("%b-%Y"));
     }
 

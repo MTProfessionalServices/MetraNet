@@ -293,7 +293,7 @@ end if
 	  <title>Synchronize Platform</title>
 	   <link rel="stylesheet" href="/mom/default/localized/en-us/styles/Styles.css">  
     
-    <script langugage="Javascript" src="../../lib/js/browsercheck.js">
+    <script langugage="Javascript" src="/mpte/shared/browsercheck.js">
     </script>    
     
     <script langugage="Javascript" src="../../lib/js/divs.js">

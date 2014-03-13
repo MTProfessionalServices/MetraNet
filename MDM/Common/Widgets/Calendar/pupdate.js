@@ -25,8 +25,7 @@ var ppcUX = 4;
 var ppcUY = 4;
 
 /* Do not edit below this line unless you are sure what are you doing! */
-
-var ppcIE=(navigator.appName == "Microsoft Internet Explorer");
+var ppcIE = (navigator.appName == "Microsoft Internet Explorer" || (navigator.appName == "Netscape" && Object.hasOwnProperty.call(window, "ActiveXObject") && !window.ActiveXObject)); // In IE 11, navigator.appName is set to "Netscape", so need to use feature detection to check if is IE
 var ppcNN=((navigator.appName == "Netscape")&&(document.layers));
 var ppcTT="<table width=\"200\" cellspacing=\"1\" cellpadding=\"2\" border=\"1\" bordercolorlight=\"#000000\" bordercolordark=\"#000000\">\n";
 var ppcCD=ppcTT;var ppcFT="<font face=\"MS Sans Serif, sans-serif\" size=\"1\" color=\"#000000\">";var ppcFC=true;

@@ -713,11 +713,11 @@
 	</text>
 
 	<text id='TEXT_BILLING_INTERVAL'>
-		<value>Billing interval</value>
+		<value>Billing Interval</value>
 	</text>
 
 	<text id='TEXT_FIXED_DATE'>
-		<value>Fixed date</value>
+		<value>Fixed Date</value>
 	</text> 
           
     <text id="TEXT_COLUMN_NAME">

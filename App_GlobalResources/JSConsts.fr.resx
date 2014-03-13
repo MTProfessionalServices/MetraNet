@@ -1191,13 +1191,8 @@
   <data name="ERROR_BILL_MESSAGE_DATES" xml:space="preserve">
     <value>Error: End Date needs to be later than Start Date</value>
   </data>
-<<<<<<< HEAD
    <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
     <value>La date de début ne peut être après la date de fin</value>
-=======
-  <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
-    <value>[fr]Start Date can't be greater than End Date</value>
->>>>>>> develop
   </data>
   <data name="TEXT_HARD_CLOSED_INTERVAL_STATUS" xml:space="preserve">
     <value>(FRENCH) Hard Closed</value>

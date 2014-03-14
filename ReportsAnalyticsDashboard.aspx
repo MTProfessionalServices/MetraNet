@@ -20,42 +20,51 @@
     Under development
   </div>--%>
   <br />
-    <div class="CaptionBar remaining-graphs span8">
-      <h2>
-        Revenue</h2>
-      <div class="row-fluid">
-        <div id='RevenueChart' class="pie-graph span4 dc-chart" style="float: none !important;">
-        </div>
+  <div class="CaptionBar remaining-graphs span8">
+    <h2>
+      Revenue</h2>
+    <div>
+      <p>
+        Select currency:
+        <select id="selRevenueCurrency">
+        </select>
+      </p>
+    </div>
+    <div class="row-fluid">
+      <div id='RevenueChart' class="pie-graph span4 dc-chart" style="float: none !important;">
       </div>
     </div>
-    <div class="CaptionBar remaining-graphs span8">
-      <h2>
-        MRR</h2>
-      <div>
-        <p>
-          Select currency:
-          <select id="selMRRCurrency">
-          </select>
-        </p>
-      </div>
-      <div class="row-fluid">
-        <div id='MRRChart' class="pie-graph span4 dc-chart" style="float: none !important;">
-        </div>
+  </div>
+  <div class="CaptionBar remaining-graphs span8">
+    <h2>
+      MRR</h2>
+    <div>
+      <p>
+        Select currency:
+        <select id="selMRRCurrency">
+        </select>
+      </p>
+    </div>
+    <div class="row-fluid">
+      <div id='MRRChart' class="pie-graph span4 dc-chart" style="float: none !important;">
       </div>
     </div>
-    <div class="CaptionBar remaining-graphs span8">
-      <h2>
-        New Customers</h2>
-      <div class="row-fluid">
-        <div id='NewCustomersChart' class="pie-graph span4 dc-chart" style="float: none !important;">
-        </div>
+  </div>
+  <div class="CaptionBar remaining-graphs span8">
+    <h2>
+      New Customers</h2>
+    <div class="row-fluid">
+      <div id='NewCustomersChart' class="pie-graph span4 dc-chart" style="float: none !important;">
       </div>
     </div>
+  </div>
   <br />
   <script type="text/javascript">
   
       var MRRChart = dc.barChart("#MRRChart");
+      var RevenueChart = dc.barChart("#RevenueChart");
       var MRRJSONData;
+      var RevenueJSONData;
 
       var margin = {top: 10,right: 50,bottom: 30,left: 55},
           width = 920 - margin.left - margin.right,
@@ -85,60 +94,23 @@
 
     $(function () {
       $("#selMRRCurrency").change(function() {
-      var currentCurrency = $( "#selMRRCurrency option:selected" ).text();
-      RenderMRRChart(MRRJSONData);
-      dc.redrawAll();
+          var currentCurrency = $( "#selMRRCurrency option:selected" ).text();
+          RenderMRRChart(MRRJSONData);
+          dc.redrawAll();
         });
+
+        $("#selRevenueCurrency").change(function() {
+          var currentCurrency = $( "#selRevenueCurrency option:selected" ).text();
+          RenderRevenueChart(RevenueJSONData);
+          dc.redrawAll();
+        });
+
       getRevenue();
       getMRR();
       getNewCustomers();
     });
     
-    function getNewCustomers() {
-      $.ajax({
-        type: 'GET',
-        async: true,
-        url: 'Report/NewCustomers',
-        success: function (data) {
-          RenderNewCustomersChart(data);
-
-          dc.renderAll();
-          dc.redrawAll();
-        },
-        error: function () {
-          alert("Error getting Data");
-        }
-      });
-    };
-
-    function RenderNewCustomersChart(JSONData) {
-      var volumeChart = dc.barChart("#NewCustomersChart");
-      var ndx = crossfilter(JSONData);
-
-      var startValue = ndx.dimension(function(d) {
-        return new Date(parseInt(d.Date.substr(6)));
-      });
-      var startValueGroup = startValue.group();
-
-      volumeChart.width(width)
-        .height(height)
-        .dimension(startValue)
-        .group(startValueGroup, "New Customers")
-        .transitionDuration(1000)
-        .margins(margin)
-        .centerBar(true)
-        .gap(15)
-        .round(d3.time.month.round)
-        .x(d3.time.scale().domain([firstMonth, previousMonth]))
-        .brushOn(false)
-        .title(function(d){return d.value;})
-        .xAxisLabel("Months")
-        .yAxisLabel("Customers")
-        .xUnits(d3.time.months)
-        .legend(dc.legend().x(680).y(0))
-        .elasticY(true)
-        .xAxis().tickFormat(d3.time.format("%b-%Y"));
-    }
+    
 
     function getUTCDate(dateForConvert) {
       return new Date(dateForConvert.getUTCFullYear(), dateForConvert.getUTCMonth(), dateForConvert.getUTCDate(),dateForConvert.getUTCHours(), dateForConvert.getUTCMinutes(), dateForConvert.getUTCSeconds());
@@ -150,7 +122,12 @@
         async: true,
         url: 'Report/Revenue',
         success: function(data) {
-          RenderRevenueChart(data);
+          RevenueJSONData = data;
+          SetCurrencyOptions(RevenueJSONData, "selRevenueCurrency", "Currency");
+          RenderRevenueChart(RevenueJSONData);
+
+          RevenueChart.render();
+          dc.redrawAll();
         },
         error: function () {
           alert("Error getting Data");
@@ -160,16 +137,17 @@
 
     function RenderRevenueChart(JSONData) {
 
-      var revenueChart = dc.barChart("#RevenueChart");
+      var currentCurrency = $( "#selRevenueCurrency option:selected" ).text();
 
       var ndx = crossfilter(JSONData),
           runDimension = ndx.dimension(function(d) {return new Date(parseInt(d.Date.substr(6))); });
-          usdGroup = runDimension.group().reduceSum(function(d) {if (d.Currency === 'USD') {return d.Amount;} else {return 0;}}),
+          /*usdGroup = runDimension.group().reduceSum(function(d) {if (d.Currency === 'USD') {return d.Amount;} else {return 0;}}),
           cadGroup = runDimension.group().reduceSum(function(d) {if (d.Currency === 'CAD') {return d.Amount;} else {return 0;}}),
           eurGroup = runDimension.group().reduceSum(function(d) {if (d.Currency === 'EUR') {return d.Amount;} else {return 0;}}),
-          yenGroup = runDimension.group().reduceSum(function(d) {if (d.Currency === 'YEN') {return d.Amount;} else {return 0;}});
+          yenGroup = runDimension.group().reduceSum(function(d) {if (d.Currency === 'YEN') {return d.Amount;} else {return 0;}});*/
+          currencyGroup = runDimension.group().reduceSum(function(d) {if (d.Currency == currentCurrency) return d.Amount;return 0;});
 
-      revenueChart.width(width)
+      RevenueChart.width(width)
         .height(height)
         .margins(margin)
         .x(d3.time.scale().domain([firstMonth, previousMonth]))
@@ -183,10 +161,10 @@
         //.elasticX(true)
         .xAxisPadding(paddingX)
         .dimension(runDimension)
-        .group(usdGroup, "USD")
-        .stack(cadGroup, "CAD")
+        .group(currencyGroup, currentCurrency)
+        /*.stack(cadGroup, "CAD")
         .stack(eurGroup, "EUR")
-        .stack(yenGroup, "YEN")
+        .stack(yenGroup, "YEN")*/
         .barPadding(0.1)
         .outerPadding(0.05)
         .transitionDuration(1500)
@@ -194,8 +172,6 @@
         .gap(15)
         .legend(dc.legend().x(750).y(0))
         .xAxis().tickFormat(d3.time.format("%b-%Y"));
-
-      revenueChart.render();
     }
 
     function getMRR() {
@@ -251,6 +227,52 @@
         .elasticY(true)
         .xUnits(d3.time.months)
         .legend(dc.legend().x(750).y(0))
+        .xAxis().tickFormat(d3.time.format("%b-%Y"));
+    }
+
+    function getNewCustomers() {
+      $.ajax({
+        type: 'GET',
+        async: true,
+        url: 'Report/NewCustomers',
+        success: function (data) {
+          RenderNewCustomersChart(data);
+
+          dc.renderAll();
+          dc.redrawAll();
+        },
+        error: function () {
+          alert("Error getting Data");
+        }
+      });
+    };
+
+    function RenderNewCustomersChart(JSONData) {
+      var volumeChart = dc.barChart("#NewCustomersChart");
+      var ndx = crossfilter(JSONData);
+
+      var startValue = ndx.dimension(function(d) {
+        return new Date(parseInt(d.Date.substr(6)));
+      });
+      var startValueGroup = startValue.group();
+
+      volumeChart.width(width)
+        .height(height)
+        .dimension(startValue)
+        .group(startValueGroup, "New Customers")
+        .transitionDuration(1000)
+        .margins(margin)
+        .centerBar(true)
+        .gap(15)
+        .round(d3.time.month.round)
+        .x(d3.time.scale().domain([firstMonth, previousMonth]))
+        .brushOn(false)
+        .title(function(d){return d.value;})
+        .xAxisLabel("Months")
+        .yAxisLabel("Customers")
+        .xUnits(d3.time.months)
+        .legend(dc.legend().x(680).y(0))
+        .elasticY(true)
         .xAxis().tickFormat(d3.time.format("%b-%Y"));
     }
 

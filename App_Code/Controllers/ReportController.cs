@@ -34,21 +34,60 @@ namespace ASP.Controllers
     {
       using (var context = GetNetMeterContext())
       {
+        var dateFrom = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1).AddMonths(-13);
+        var dateTo = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1).AddDays(-1);
         var result =
-          context.T_invoice.Where(i => i.Invoice_date >= DateTime.Today.AddMonths(-13)
-                                       && i.Invoice_date <= DateTime.Now.AddMonths(-1))
-                           .Select(i => new { Amount = i.Invoice_amount,
-                                              RecognitionDate = new DateTime(i.Invoice_date.Year, i.Invoice_date.Month, 1),
-                                              Currency = i.Invoice_currency.Trim()
-                                            })
-                           .GroupBy(i => new {i.RecognitionDate, i.Currency})
-                           .Select(i => new {Amount = i.Sum(grp => grp.Amount),
-                                             RecognitionDate = i.Key.RecognitionDate,
-                                             Currency = i.Key.Currency
-                                            })
-                           .OrderBy(i => i.RecognitionDate).ThenBy(i => i.Currency)
+          context.T_invoice.Where(i => i.Invoice_date >= dateFrom
+                                       && i.Invoice_date <= dateTo)
+                           .Select(i => new
+                           {
+                             Date = new DateTime(i.Invoice_date.Year, i.Invoice_date.Month, 1),
+                             Currency = i.Invoice_currency.Trim(),
+                             Amount = i.Invoice_amount
+                           })
+                           .GroupBy(i => new { i.Date, i.Currency })
+                           .Select(i => new
+                           {
+                             Date = i.Key.Date,
+                             Currency = i.Key.Currency,
+                             Amount = i.Sum(grp => grp.Amount)
+                           })
+                           .OrderBy(i => i.Date).ThenBy(i => i.Currency)
                            .ToList();
-
+        //var result = new[] {new {Date = new DateTime(2013, 2, 1),  Currency = "USD", Amount = 302678},
+        //                    new {Date = new DateTime(2013, 2, 1),  Currency = "EUR", Amount = 22678},
+        //                    new {Date = new DateTime(2013, 2, 1),  Currency = "YEN", Amount = 6678},
+        //                    new {Date = new DateTime(2013, 3, 1),  Currency = "USD", Amount = 307678},
+        //                    new {Date = new DateTime(2013, 3, 1),  Currency = "EUR", Amount = 28678},
+        //                    new {Date = new DateTime(2013, 3, 1),  Currency = "YEN", Amount = 7078},
+        //                    new {Date = new DateTime(2013, 4, 1),  Currency = "USD", Amount = 312678},
+        //                    new {Date = new DateTime(2013, 4, 1),  Currency = "EUR", Amount = 29678},
+        //                    new {Date = new DateTime(2013, 4, 1),  Currency = "YEN", Amount = 7678},
+        //                    new {Date = new DateTime(2013, 5, 1),  Currency = "USD", Amount = 309678},
+        //                    new {Date = new DateTime(2013, 5, 1),  Currency = "EUR", Amount = 32678},
+        //                    new {Date = new DateTime(2013, 5, 1),  Currency = "YEN", Amount = 7478},
+        //                    new {Date = new DateTime(2013, 6, 1),  Currency = "USD", Amount = 307978},
+        //                    new {Date = new DateTime(2013, 6, 1),  Currency = "EUR", Amount = 22678},
+        //                    new {Date = new DateTime(2013, 6, 1),  Currency = "YEN", Amount = 6678},
+        //                    new {Date = new DateTime(2013, 7, 1),  Currency = "USD", Amount = 302678},
+        //                    new {Date = new DateTime(2013, 7, 1),  Currency = "EUR", Amount = 22678},
+        //                    new {Date = new DateTime(2013, 7, 1),  Currency = "YEN", Amount = 6678},
+        //                    new {Date = new DateTime(2013, 8, 1),  Currency = "USD", Amount = 302678},
+        //                    new {Date = new DateTime(2013, 8, 1),  Currency = "EUR", Amount = 22678},
+        //                    new {Date = new DateTime(2013, 8, 1),  Currency = "YEN", Amount = 6678},
+        //                    new {Date = new DateTime(2013, 9, 1),  Currency = "USD", Amount = 302678},
+        //                    new {Date = new DateTime(2013, 9, 1),  Currency = "EUR", Amount = 22678},
+        //                    new {Date = new DateTime(2013, 9, 1),  Currency = "YEN", Amount = 6678},
+        //                    new {Date = new DateTime(2013, 10, 1), Currency = "USD", Amount = 302678},
+        //                    new {Date = new DateTime(2013, 10, 1), Currency = "EUR", Amount = 22678},
+        //                    new {Date = new DateTime(2013, 10, 1), Currency = "YEN", Amount = 6678},
+        //                    new {Date = new DateTime(2013, 11, 1), Currency = "USD", Amount = 302678},
+        //                    new {Date = new DateTime(2013, 11, 1), Currency = "EUR", Amount = 22678},
+        //                    new {Date = new DateTime(2013, 11, 1), Currency = "YEN", Amount = 6678},
+        //                    new {Date = new DateTime(2014, 1, 1),  Currency = "USD", Amount = 402678},
+        //                    new {Date = new DateTime(2014, 1, 1),  Currency = "EUR", Amount = 62678},
+        //                    new {Date = new DateTime(2014, 1, 1),  Currency = "YEN", Amount = 9678}
+        //                   };
         return Json(result, JsonRequestBehavior.AllowGet);
       }
     }

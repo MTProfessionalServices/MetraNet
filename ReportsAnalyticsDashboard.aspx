@@ -20,40 +20,75 @@
     Under development
   </div>--%>
   <br />
-  <div class="remaining-graphs span8">
-    <h1>
-      Revenue</h1>
-    <div class="row-fluid">
-      <div id='RevenueChart' class="pie-graph span4 dc-chart" style="float: none !important;">
+    <div class="CaptionBar remaining-graphs span8">
+      <h2>
+        Revenue</h2>
+      <div class="row-fluid">
+        <div id='RevenueChart' class="pie-graph span4 dc-chart" style="float: none !important;">
+        </div>
       </div>
     </div>
-  </div>
-  <div class="remaining-graphs span8">
-    <h1>
-      MRR</h1>
-    <div class="row-fluid">
-      <div id='MRRChart' class="pie-graph span4 dc-chart" style="float: none !important;">
+    <div class="CaptionBar remaining-graphs span8">
+      <h2>
+        MRR</h2>
+      <div>
+        <p>
+          Select currency:
+          <select id="selMRRCurrency">
+          </select>
+        </p>
+      </div>
+      <div class="row-fluid">
+        <div id='MRRChart' class="pie-graph span4 dc-chart" style="float: none !important;">
+        </div>
       </div>
     </div>
-  </div>
-  <div class="remaining-graphs span8">
-    <h1>
-      New Customers</h1>
-    <div class="row-fluid">
-      <div id='NewCustomersChart' class="pie-graph span4 dc-chart" style="float: none !important;">
+    <div class="CaptionBar remaining-graphs span8">
+      <h2>
+        New Customers</h2>
+      <div class="row-fluid">
+        <div id='NewCustomersChart' class="pie-graph span4 dc-chart" style="float: none !important;">
+        </div>
       </div>
     </div>
-  </div>
   <br />
   <script type="text/javascript">
-      var margin = {top: 10,right: 50,bottom: 30,left: 70},
+  
+      var MRRChart = dc.barChart("#MRRChart");
+      var MRRJSONData;
+
+      var margin = {top: 10,right: 50,bottom: 30,left: 55},
           width = 920 - margin.left - margin.right,
           height = 340 - margin.top - margin.bottom,
           paddingX = 10,
           previousMonth = getUTCDate(new Date(<%= previousMonth %>)),
           firstMonth = getUTCDate(new Date(<%= firstMonth %>));
+          
+
+    function SetCurrencyOptions(JSONData, selectId, currencyFieldName)
+    {
+      var currencies = [];
+      $.each(JSONData, function(){
+    	  if ($.inArray(this[currencyFieldName],currencies) === -1) {
+    		  currencies.push(this[currencyFieldName]);
+    	  }
+      });
+
+      for (var i=0; i<currencies.length; i++)
+      {
+        $("#"+selectId).append($('<option>', {
+                                              value: i,
+                                              text:currencies[i]
+                                              }));
+      }
+    }
 
     $(function () {
+      $("#selMRRCurrency").change(function() {
+      var currentCurrency = $( "#selMRRCurrency option:selected" ).text();
+      RenderMRRChart(MRRJSONData);
+      dc.redrawAll();
+        });
       getRevenue();
       getMRR();
       getNewCustomers();
@@ -96,6 +131,7 @@
         .round(d3.time.month.round)
         .x(d3.time.scale().domain([firstMonth, previousMonth]))
         .brushOn(false)
+        .title(function(d){return d.value;})
         .xAxisLabel("Months")
         .yAxisLabel("Customers")
         .xUnits(d3.time.months)
@@ -140,6 +176,8 @@
         .round(d3.time.month.round)
         .xUnits(d3.time.months)
         .brushOn(false)
+        .title(function(d){return d.value;})
+        .xAxisLabel("Months")
         .yAxisLabel("Amount")
         .elasticY(true)
         //.elasticX(true)
@@ -155,8 +193,8 @@
         .centerBar(true)
         .gap(15)
         .legend(dc.legend().x(750).y(0))
-        .xAxis().tickFormat(d3.time.format("%b-%Y"))
-        ;
+        .xAxis().tickFormat(d3.time.format("%b-%Y"));
+
       revenueChart.render();
     }
 
@@ -166,66 +204,55 @@
         async: true,
         url: 'Report/MRRByProduct',
         success: function(data) {
-          RenderMRRChart(data);
+          MRRJSONData = data;
+          SetCurrencyOptions(MRRJSONData, "selMRRCurrency", "CurrencyCode");
+          RenderMRRChart(MRRJSONData);
 
-          dc.renderAll();
+          MRRChart.render();
           dc.redrawAll();
         },
         error: function() {
-          alert("Error getting Data");
         }
       });
-    }
-
-    ;
+    };
 
     function RenderMRRChart(JSONData) {
 
-      var volumeChart = dc.barChart("#MRRChart");
+      var currentCurrency = $( "#selMRRCurrency option:selected" ).text();
 
       var ndx = crossfilter(JSONData);
 
       var startMonthMRR = getUTCDate(new Date(<%= startMonthMRR %>));
       var endMonthMRR = getUTCDate(new Date(<%= endMonthMRR %>));
 
-      var startValue = ndx.dimension(function(d) {
+      var mrrValue = ndx.dimension(function(d) {
         return new Date(parseInt(d.Date.substr(6)));
       });
       
-      var usdGroup = startValue.group().reduceSum(function(d) {
-        if (d.CurrencyCode == "USD") return d.Amount;
-        return 0;
-      });
-      var cadGroup = startValue.group().reduceSum(function(d) {
-        if (d.CurrencyCode == "CAD") return d.Amount;
-        return 0;
-      });
-      var eurGroup = startValue.group().reduceSum(function(d) {
-        if (d.CurrencyCode == "EUR") return d.Amount;
-        return 0;
-      });   
-      var yenGroup = startValue.group().reduceSum(function(d) {
-        if (d.CurrencyCode == "YEN") return d.Amount;
+      var currencyGroup = mrrValue.group().reduceSum(function(d) {
+        if (d.CurrencyCode == currentCurrency) return d.Amount;
         return 0;
       });
 
-      volumeChart.width(width)
+      MRRChart.width(width)
         .height(height)
-        .dimension(startValue)
-        .group(usdGroup, "USD")
-        .stack(cadGroup, "CAD")
-        .stack(eurGroup, "EUR")
-        .stack(yenGroup, "YEN")
+        .dimension(mrrValue)
+        .group(currencyGroup, currentCurrency)
         .transitionDuration(350)
         .margins(margin)
         .centerBar(true)
-        .gap(20)
+        .gap(10)
         .round(d3.time.month.round)
         .x(d3.time.scale().domain([startMonthMRR, endMonthMRR]))
-        .xUnits(d3.time.months)
-        .legend(dc.legend().x(680).y(0))
+        .brushOn(false)
+        .title(function(d){return d.value;})
+        .xAxisLabel("Months")
+        .yAxisLabel("Amount")
         .elasticY(true)
+        .xUnits(d3.time.months)
+        .legend(dc.legend().x(750).y(0))
         .xAxis().tickFormat(d3.time.format("%b-%Y"));
     }
+
   </script>
 </asp:Content>

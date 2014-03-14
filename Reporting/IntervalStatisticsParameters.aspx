@@ -4,116 +4,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-    <script language="javascript" type="text/javascript">
-        var ddBillingCycle;
-        var ddIntervalId;
-        var ddBillGroupId;
-        var btnOk;
-        var btnOkDiv;
-
-        var txtIntervalId;
-        var txtBillGroupId;
-
-        function Initialize() {
-            ddBillingCycle = Ext.getCmp('ctl00_ContentPlaceHolder1_ddBillingCycle');
-            ddIntervalId = Ext.getCmp('ctl00_ContentPlaceHolder1_ddIntervalId');
-            ddBillGroupId = Ext.getCmp('ctl00_ContentPlaceHolder1_ddBillGroupId');
-
-            txtIntervalId = document.getElementById('<%=txtIntervalId.ClientID%>');
-            txtBillGroupId = document.getElementById('<%=txtBillGroupId.ClientID%>');
-            
-            //btnOK = Ext.getCmp("ctl00_ContentPlaceHolder1_btnOK");
-            //btnOk.disable();
-        }
-
-        function onBillingCycleChange() {
-            Initialize(); // This should not be necessary. But the onReady call is not doing its work
-
-            //btnOk.disable();
-
-            ddIntervalId.store.removeAll();
-            ddIntervalId.clearValue();
-            ddIntervalId.disable();
-
-            ddBillGroupId.store.removeAll();
-            ddBillGroupId.clearValue();
-            ddBillGroupId.disable();
-
-            ddBillingCycleSelectedValue = ddBillingCycle.getValue();
-            if (ddBillingCycleSelectedValue != '') {
-                //alert('Make service call to get billing intervals corresponding to the billing cycle ' + ddBillingCycleSelectedValue + ' and populate bill intervals');
-
-                // Sample data for testing
-                insertNewOption(ddIntervalId, "", "");
-
-                Ext.Ajax.request({
-                    url: '/MetraNet/Reporting/AjaxServices/IntervalListService.aspx',
-                    method: 'POST',
-                    params: {
-                        CycleType: ddBillingCycleSelectedValue
-                    },
-                    success: function (result, request) {
-                        var jsonData = Ext.util.JSON.decode(result.responseText);
-                        var intervals = jsonData.records;
-                        for (var i = 0; i < intervals.length; i++) {
-                            insertNewOption(ddIntervalId, intervals[i].id_interval, '' + intervals[i].dt_start + ' - ' + intervals[i].dt_end + ' (' + intervals[i].id_interval + ')');
-                        }
-                        ddIntervalId.setValue(ddIntervalId.store.getAt(0).data.value); // Default to first item (blank)
-                        ddIntervalId.enable();
-                    },
-                    failure: function () { console.log('failure'); }
-                });
-            }
-        }
-
-        function onIntervalIdChange() {
-            ddBillGroupId.store.removeAll();
-            ddBillGroupId.clearValue();
-            ddBillGroupId.disable();
-
-            ddIntervalIdSelectedValue = ddIntervalId.getValue();
-            txtIntervalId.value = ddIntervalIdSelectedValue;
-            //alert('Make service call to get billing groups corresponding to the billing interval ' + ddIntervalIdSelectedValue + ' and populate bill groups');
-
-            // Sample data for testing
-            insertNewOption(ddBillGroupId, "", "");
-
-            Ext.Ajax.request({
-                url: '/MetraNet/Reporting/AjaxServices/BillGroupListService.aspx',
-                method: 'POST',
-                params: {
-                    IntervalId: ddIntervalIdSelectedValue
-                },
-                success: function (result, request) {
-                    var jsonData = Ext.util.JSON.decode(result.responseText);
-                    var billGroups = jsonData.records;
-                    for (var i = 0; i < billGroups.length; i++) {
-                        insertNewOption(ddBillGroupId, billGroups[i].id_billgroup, '' + billGroups[i].tx_name + ' (' + billGroups[i].id_billgroup + ')');
-                    }
-
-                    ddBillGroupId.setValue(ddBillGroupId.store.getAt(0).data.value); // Default to first item (blank)
-                    ddBillGroupId.enable();
-                    //btnOk.enable();
-                },
-                failure: function () { console.log('failure'); }
-            });
-        }
-
-        function onBillGroupIdChange() {
-            ddBillGroupIdSelectedValue = ddBillGroupId.getValue();
-            txtBillGroupId.value = ddBillGroupIdSelectedValue;
-        }
-
-        function insertNewOption(comboBox, value, text) {
-            comboBox.store.add(new Ext.data.Record({ value: value, text: text }));
-        }
-
-        Ext.onReady(function () {
-            Initialize();
-        });
-    </script>
-
-
     <MT:MTTitle ID="MTTitle1" Text="Interval Statistics Parameters" runat="server" meta:resourcekey="MTTitle1Resource1" /><br />
 
     <MT:MTPanel ID="MTPanel1" runat="server" Text="Interval Statistics Parameters" meta:resourcekey="MTPanel1">
@@ -165,5 +55,141 @@
             </center>      
         </div>
     </div>
+    
+    <!-- This JS code should remain at the end, so that InitializeGlobalVars is called after all the other ExtJS code has run -->
+    <script language="javascript" type="text/javascript">
+        var ddBillingCycle;
+        var ddIntervalId;
+        var ddBillGroupId;
+        var btnOk;
+        var btnOkDiv;
+        var pnlMTPanel1El;
+
+        var txtIntervalId;
+        var txtBillGroupId;
+
+        function InitializeGlobalVars() {
+            ddBillingCycle = Ext.getCmp('<%=ddBillingCycle.ClientID%>');
+            ddIntervalId = Ext.getCmp('<%=ddIntervalId.ClientID%>');
+            ddBillGroupId = Ext.getCmp('<%=ddBillGroupId.ClientID%>');
+
+            txtIntervalId = document.getElementById('<%=txtIntervalId.ClientID%>');
+            txtBillGroupId = document.getElementById('<%=txtBillGroupId.ClientID%>');
+
+            btnOk = Ext.getCmp('<%=btnOK.ClientID%>');
+            btnOk.disable();
+
+            //pnlMTPanel1El = Ext.getCmp('<%=MTPanel1.ClientID%>').getEl();
+            pnlMTPanel1El = Ext.get('formPanel_ctl00_ContentPlaceHolder1_MTPanel1');
+
+            // Show a spinner while loading values
+            Ext.Ajax.on('beforerequest', onWaitForAjaxRequest, this);
+            Ext.Ajax.on('requestcomplete', onDoneAjaxRequest, this);
+            Ext.Ajax.on('requestexception', onDoneAjaxRequest, this);
+        }
+
+        function onWaitForAjaxRequest() {
+            pnlMTPanel1El.mask('Loading...'); // Need to localize message
+        }
+
+        function onDoneAjaxRequest() {
+            pnlMTPanel1El.unmask(false);
+        }
+
+        function onBillingCycleChange() {
+            btnOk.disable();
+
+            ddIntervalId.store.removeAll();
+            ddIntervalId.clearValue();
+            ddIntervalId.disable();
+
+            ddBillGroupId.store.removeAll();
+            ddBillGroupId.clearValue();
+            ddBillGroupId.disable();
+
+            var ddBillingCycleSelectedValue = ddBillingCycle.getValue();
+            if (ddBillingCycleSelectedValue != '') {
+                //alert('Make service call to get billing intervals corresponding to the billing cycle ' + ddBillingCycleSelectedValue + ' and populate bill intervals');
+
+                Ext.Ajax.request({
+                    url: '/MetraNet/Reporting/AjaxServices/IntervalListService.aspx',
+                    method: 'POST',
+                    params: {
+                        CycleType: ddBillingCycleSelectedValue
+                    },
+                    success: function (result, request) {
+                        var jsonData = Ext.util.JSON.decode(result.responseText);
+                        var intervals = jsonData.records;
+
+                        if (intervals.length > 0) {
+                            // Default value = empty
+                            insertNewOption(ddIntervalId, "", "");
+                            for (var i = 0; i < intervals.length; i++) {
+                                insertNewOption(ddIntervalId, intervals[i].value, intervals[i].text);
+                            }
+                            ddIntervalId.enable();
+                        } else {
+                            // Default value = N/A - no elements to show
+                            insertNewOption(ddIntervalId, "", "N/A");
+                            ddIntervalId.disable();
+                        }
+                        ddIntervalId.setValue(ddIntervalId.store.getAt(0).data.value); // Default to first item (blank)
+                    },
+                    failure: function () { console.log('failure'); }
+                });
+            }
+        }
+
+        function onIntervalIdChange() {
+            ddBillGroupId.store.removeAll();
+            ddBillGroupId.clearValue();
+            ddBillGroupId.disable();
+
+            var ddIntervalIdSelectedValue = ddIntervalId.getValue();
+            txtIntervalId.value = ddIntervalIdSelectedValue;
+            //alert('Make service call to get billing groups corresponding to the billing interval ' + ddIntervalIdSelectedValue + ' and populate bill groups');
+
+            Ext.Ajax.request({
+                url: '/MetraNet/Reporting/AjaxServices/BillGroupListService.aspx',
+                method: 'POST',
+                params: {
+                    IntervalId: ddIntervalIdSelectedValue
+                },
+                success: function (result, request) {
+                    var jsonData = Ext.util.JSON.decode(result.responseText);
+                    var billGroups = jsonData.records;
+
+                    if (billGroups.length > 0) {
+                        // Default value = empty
+                        insertNewOption(ddBillGroupId, "", "");
+                        for (var i = 0; i < billGroups.length; i++) {
+                            insertNewOption(ddBillGroupId, billGroups[i].id_billgroup, '' + billGroups[i].tx_name + ' (' + billGroups[i].id_billgroup + ')');
+                        }
+                        ddBillGroupId.enable();
+                    } else {
+                        // Default value = N/A - no elements to show
+                        insertNewOption(ddBillGroupId, "", "N/A");
+                        ddBillGroupId.disable();
+                    }
+                    ddBillGroupId.setValue(ddBillGroupId.store.getAt(0).data.value); // Default to first item (blank)
+                    btnOk.enable(); // Only at this point it is ok to enable the "Ok" button (even if not bill groups were returned)
+                },
+                failure: function () { console.log('failure'); }
+            });
+        }
+
+        function onBillGroupIdChange() {
+            var ddBillGroupIdSelectedValue = ddBillGroupId.getValue();
+            txtBillGroupId.value = ddBillGroupIdSelectedValue;
+        }
+
+        function insertNewOption(comboBox, value, text) {
+            comboBox.store.add(new Ext.data.Record({ value: value, text: text }));
+        }
+
+        Ext.onReady(function () {
+            InitializeGlobalVars();
+        });
+    </script>
 
 </asp:Content>

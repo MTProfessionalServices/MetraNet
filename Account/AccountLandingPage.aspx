@@ -234,6 +234,12 @@ white-space:nowrap;
   margin-right: 30px;
 }
 
+#MyFormDiv_ctl00_ContentPlaceHolder1_salesSummaryPanel .x-panel {
+  width: 100%;
+  height: 100%;
+  padding-right: 30px;
+  margin-right: 30px;
+}
   </style>
 
   <script type="text/javascript">
@@ -277,8 +283,11 @@ white-space:nowrap;
   </div>
 
   <div class="widget" data-row="3" data-col="1" data-sizex="8" data-sizey="1">
-<%--  <img src="/Res/Images/Mockup/MetangaAccountSummaryAnalytic.png" width="720px;" style="padding: 15px;"/>--%>
-
+<%--  <img src="/Res/Images/Mockup/MetangaAccountSummaryAnalytic.png" width="720px;" style="padding: 15px;"/>
+    <MT:MTPanel ID="SalesSummaryPanel" runat="server" Text="Sales Summary" >
+      <div id="SalesSummaryInformation"></div>
+    </MT:MTPanel> --%>
+    <MT:MTFilterGrid ID="SalesSummaryGrid" runat="server" TemplateFileName="SalesSummary.xml" ExtensionName="Account" Resizable="False" Title="Sales Summary"></MT:MTFilterGrid>
   </div>
 
   <div class="widget" data-row="4" data-col="1" data-sizex="3" data-sizey="3">

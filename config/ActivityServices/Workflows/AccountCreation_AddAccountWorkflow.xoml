@@ -1,7 +1,7 @@
-﻿<ns0:AddAccountWorkflow ARExternalNameSpace="{p1:Null}" x:Name="AddAccountWorkflow" ARExtAccountID="{x:Null}" In_ApplyTemplate="{x:Null}" EffectiveDate="0001-01-01T00:00:00.0000000" AccountTemplateDef="{x:Null}" In_Account="{x:Null}" TemplateOwner="{x:Null}" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow" xmlns:ns1="clr-namespace:MetraTech.Core.Activities;Assembly=MetraTech.Core.Activities" xmlns:ns2="clr-namespace:MetraTech.Core.Services.ProxyActivities;Assembly=MetraTech.Core.Services.ProxyActivities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:p1="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:MetraTech.Core.Workflows;Assembly=MetraTech.Core.Workflows">
+﻿<ns0:AddAccountWorkflow AccountTemplateDef="{p1:Null}" In_Account="{p1:Null}" ARExternalNameSpace="{p1:Null}" x:Name="AddAccountWorkflow" ARExtAccountID="{x:Null}" EffectiveDate="0001-01-01T00:00:00.0000000" In_ApplyTemplate="{x:Null}" TemplateOwner="{x:Null}" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/workflow" xmlns:ns1="clr-namespace:MetraTech.Core.Activities;Assembly=MetraTech.Core.Activities" xmlns:ns2="clr-namespace:MetraTech.Core.Services.ProxyActivities;Assembly=MetraTech.Core.Services.ProxyActivities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:p1="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:MetraTech.Core.Workflows;Assembly=MetraTech.Core.Workflows">
 	<TransactionScopeActivity x:Name="transactionScopeActivity2">
 		<TransactionScopeActivity.TransactionOptions>
-			<WorkflowTransactionOptions TimeoutDuration="00:00:30" IsolationLevel="Serializable" />
+			<WorkflowTransactionOptions IsolationLevel="Serializable" TimeoutDuration="00:00:30" />
 		</TransactionScopeActivity.TransactionOptions>
 		<IfElseActivity x:Name="ApplyTemplatePropsCondition">
 			<IfElseBranchActivity x:Name="IfApplyTemplateProps">
@@ -9,26 +9,40 @@
 					<RuleConditionReference ConditionName="IfApplyTemplateCondition" />
 				</IfElseBranchActivity.Condition>
 				<CodeActivity x:Name="InitForGetTemplateDef" ExecuteCode="{ActivityBind AddAccountWorkflow,Path=InitForGetTemplateDef_ExecuteCode}" />
-				<ns2:AccountTemplateService_GetTemplateDefForAccountType_ClientActivity Out_template="{ActivityBind AddAccountWorkflow,Path=AccountTemplateDef}" x:Name="LoadAccountTemplateDef" In_templateOwner="{ActivityBind AddAccountWorkflow,Path=TemplateOwner}" In_effectiveDate="{ActivityBind AddAccountWorkflow,Path=EffectiveDate}" In_accountType="{ActivityBind AddAccountWorkflow,Path=In_Account.AccountType}" In_inheritAnscestorProperties="True" />
-				<ns1:ApplyAccountTemplatePropsActivity x:Name="ApplyTemplateProps" AccountTemplateDef="{ActivityBind AddAccountWorkflow,Path=AccountTemplateDef}" TargetAccount="{ActivityBind AddAccountWorkflow,Path=In_Account}" />
+				<ns2:AccountTemplateService_GetTemplateDefForAccountType_ClientActivity In_templateOwner="{ActivityBind AddAccountWorkflow,Path=TemplateOwner}" In_inheritAnscestorProperties="True" In_accountType="{ActivityBind AddAccountWorkflow,Path=In_Account.AccountType}" Out_template="{ActivityBind AddAccountWorkflow,Path=AccountTemplateDef}" x:Name="LoadAccountTemplateDef" In_effectiveDate="{ActivityBind AddAccountWorkflow,Path=EffectiveDate}" />
+				<ns1:ApplyAccountTemplatePropsActivity AccountTemplateDef="{ActivityBind AddAccountWorkflow,Path=AccountTemplateDef}" x:Name="ApplyTemplateProps" TargetAccount="{ActivityBind AddAccountWorkflow,Path=In_Account}" />
 			</IfElseBranchActivity>
 		</IfElseActivity>
-		<ns1:CreateAccountActivity x:Name="createAccountActivity1" HierarchyPath="{x:Null}" Currency="{x:Null}" AncestorType="{x:Null}" In_Account="{ActivityBind AddAccountWorkflow,Path=In_Account}" CorporateAccountId="0" AncestorId="0" />
-		<ns1:CreateAccountViewActivity In_Account="{ActivityBind AddAccountWorkflow,Path=In_Account}" x:Name="createAccountViewActivity1" />
+		<ns1:CreateAccountActivity AncestorId="0" AncestorType="{x:Null}" HierarchyPath="{x:Null}" x:Name="createAccountActivity1" In_Account="{ActivityBind AddAccountWorkflow,Path=In_Account}" CorporateAccountId="0" Currency="{x:Null}" />
+		<ns1:CreateAccountViewActivity x:Name="createAccountViewActivity1" In_Account="{ActivityBind AddAccountWorkflow,Path=In_Account}" />
 		<IfElseActivity x:Name="ApplyTemplateSubsCondition">
 			<IfElseBranchActivity x:Name="IfApplyTemplateSubs">
 				<IfElseBranchActivity.Condition>
 					<RuleConditionReference ConditionName="IfApplyTemplateCondition" />
 				</IfElseBranchActivity.Condition>
-				<ns1:ApplyAccountTemplateSubsActivity x:Name="ApplyTemplateSubs" AccountTemplateDef="{ActivityBind AddAccountWorkflow,Path=AccountTemplateDef}" TargetAccount="{ActivityBind AddAccountWorkflow,Path=In_Account}" />
+				<ns1:ApplyAccountTemplateSubsActivity AccountTemplateDef="{ActivityBind AddAccountWorkflow,Path=AccountTemplateDef}" x:Name="ApplyTemplateSubs" TargetAccount="{ActivityBind AddAccountWorkflow,Path=In_Account}" />
+			</IfElseBranchActivity>
+		</IfElseActivity>
+		<IfElseActivity x:Name="ifElseActivityApplyMetraViewRole">
+			<IfElseBranchActivity x:Name="ifNotSystemAccount">
+				<IfElseBranchActivity.Condition>
+					<RuleConditionReference ConditionName="conditionIfNotSystemAccount" />
+				</IfElseBranchActivity.Condition>
+				<ns1:ApplyRoleMembershipActivity x:Name="applyMetraViewRole" InAccount="{ActivityBind AddAccountWorkflow,Path=In_Account}">
+					<ns1:ApplyRoleMembershipActivity.Roles>
+						<x:Array Type="{x:Type p16:String}" xmlns:p16="clr-namespace:System;Assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+							<ns3:String xmlns:ns3="clr-namespace:System;Assembly=mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">Subscriber (MetraView)</ns3:String>
+						</x:Array>
+					</ns1:ApplyRoleMembershipActivity.Roles>
+				</ns1:ApplyRoleMembershipActivity>
 			</IfElseBranchActivity>
 		</IfElseActivity>
 	</TransactionScopeActivity>
 	<TransactionScopeActivity x:Name="transactionScopeActivity1">
 		<TransactionScopeActivity.TransactionOptions>
-			<WorkflowTransactionOptions TimeoutDuration="00:00:30" IsolationLevel="Serializable" />
+			<WorkflowTransactionOptions IsolationLevel="Serializable" TimeoutDuration="00:00:30" />
 		</TransactionScopeActivity.TransactionOptions>
 		<CodeActivity x:Name="codeActivity1" ExecuteCode="{ActivityBind AddAccountWorkflow,Path=codeActivity1_ExecuteCode}" />
-		<ns1:ExportToARActivity ARExternalNameSpace="{ActivityBind AddAccountWorkflow,Path=ARExternalNameSpace}" ARExtAccountID="{ActivityBind AddAccountWorkflow,Path=ARExtAccountID}" In_Account="{ActivityBind AddAccountWorkflow,Path=In_Account}" x:Name="exportToARActivity1" />
+		<ns1:ExportToARActivity ARExtAccountID="{ActivityBind AddAccountWorkflow,Path=ARExtAccountID}" ARExternalNameSpace="{ActivityBind AddAccountWorkflow,Path=ARExternalNameSpace}" x:Name="exportToARActivity1" In_Account="{ActivityBind AddAccountWorkflow,Path=In_Account}" />
 	</TransactionScopeActivity>
 </ns0:AddAccountWorkflow>

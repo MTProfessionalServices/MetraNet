@@ -301,35 +301,12 @@
   <c name="Application LogOn" guid="">
     <as>
       <ec>
-        <v>MAM</v>
-      </ec>
-    </as>
-  </c>
-  <c name="Application LogOn" guid="">
-    <as>
-      <ec>
         <v>MCM</v>
       </ec>
     </as>
   </c>
-  <c name="Application LogOn" guid="">
-    <as>
-      <ec>
-        <v>MOM</v>
-      </ec>
-    </as>
-  </c>
-  <c name="Application LogOn" guid="">
-    <as>
-      <ec>
-        <v>MPS</v>
-      </ec>
-    </as>
-  </c>
-
   <c name="Delete Rates" guid="">
-  </c>
-  
+  </c>  
 </cs>
 </policy>
 </policies>

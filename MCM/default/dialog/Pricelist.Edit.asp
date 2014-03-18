@@ -63,6 +63,10 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   Service.Properties.Add "pl_edit_name", "String",  1024, FALSE, TRUE
   Service.Properties("pl_edit_name") = SafeForHtml(COMObject.Instance.Name)
       
+  If Session("isPartitionUser") Then
+    COMObject.Properties("PLPartitionId").Enabled = FALSE
+  End If
+  
   Form_Initialize = TRUE
 END FUNCTION
 

@@ -172,4 +172,4 @@ WHERE te.id_eff_date  = t_po.id_eff_date
    FROM vw_acc_po_restrictions 
    WHERE id_acc = :idAcc
    )
-   
+   %%PARTITIONFILTER%%

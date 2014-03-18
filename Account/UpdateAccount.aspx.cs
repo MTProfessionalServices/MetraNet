@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using MetraTech.DomainModel.Enums.Account.Metratech_com_accountcreation;
 using MetraTech.UI.Common;
@@ -80,6 +81,13 @@ public partial class Account_UpdateAccount : MTAccountPage
 
               PopulatePresentationNameSpaceList(ddBrandedSite);
 
+              //ddBrandedSite.SelectedValue = Account.Name_Space.ToString() + " Site";
+            string ddFindByText = "";
+            ddFindByText = PopulateAccountBrandedSite(Convert.ToInt32(UI.Subscriber.SelectedAccount._AccountID));
+
+              ddBrandedSite.SelectedValue = ddBrandedSite.Items.FindByText(ddFindByText).Value;
+            
+            //ddBrandedSite.SelectedIndex = 1;
               PriceListCol = PageNav.Data.Out_StateInitData["PriceListColl"] as List<PriceList>;
               PopulatePriceList(ddPriceList);
 			  PartitionLibrary.PopulatePriceListDropdown(ddPriceList);

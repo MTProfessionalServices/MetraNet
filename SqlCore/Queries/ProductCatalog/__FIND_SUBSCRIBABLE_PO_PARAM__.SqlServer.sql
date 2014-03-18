@@ -115,4 +115,4 @@
 					t_base_props.id_prop = t_po.id_po AND
 					t_po.id_po = template_po_map.id_po AND
 					t_po.id_po in (select id_po from vw_acc_po_restrictions where id_acc=@idAcc)
-				
+					%%PARTITIONFILTER%%

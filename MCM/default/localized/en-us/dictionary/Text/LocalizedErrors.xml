@@ -29,5 +29,6 @@
 		<text id="MCM_ERROR_START_AFTER_END"><value>The start date must be before the end date</value></text>
 		<text id="MCM_ERROR_STARTDATE_IN_PAST"><value>The start date is in the past, this might cause information loss.</value></text>
 		<text id="MCM_ERROR_ENDDATE_IN_PAST"><value>The end date is in the past, this might cause information loss.</value></text>
+    <text id="MCM_ERROR_PARTITION_NOT_EQUAL"><value>The source product offering and destination product offering must have the same partition.</value></text>
     <text id="ERROR_WIZARD_NOTIFICATION"><value>Please note:</value><description></description></text>
 </texts>

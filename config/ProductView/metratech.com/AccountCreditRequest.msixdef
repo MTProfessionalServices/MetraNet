@@ -83,7 +83,7 @@
         <description>This is an optional property that specifies the desired interval id to guide the credit to.</description>
     </ptype>
     <ptype>
-        <dn>SubscriberDescription</dn>
+        <dn>InvoiceComment</dn>
         <type>string</type>
         <length>255</length>
         <required>N</required>

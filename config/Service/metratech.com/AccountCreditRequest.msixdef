@@ -107,7 +107,7 @@
         <description>This is an optional property that specifies the desired interval ID to guide the credit to.</description>
     </ptype>
     <ptype>
-        <dn>SubscriberDescription</dn>
+        <dn>InvoiceComment</dn>
         <type>string</type>
         <length>255</length>
         <required>N</required>
@@ -137,5 +137,45 @@
         <required>N</required>
         <defaultvalue></defaultvalue>
         <description>Optional credit note comment when a credit note document is requested for this miscellaneous adjustment</description>
+    </ptype>
+    <ptype>
+        <dn>_FedTax</dn>
+        <type>decimal</type>
+        <length></length>
+        <required>N</required>
+        <defaultvalue></defaultvalue>
+        <description>Federal tax amount for adjustment</description>
+    </ptype>
+    <ptype>
+        <dn>_StateTax</dn>
+        <type>decimal</type>
+        <length></length>
+        <required>N</required>
+        <defaultvalue></defaultvalue>
+        <description>State tax amount for adjustment</description>
+    </ptype>
+    <ptype>
+        <dn>_CountyTax</dn>
+        <type>decimal</type>
+        <length></length>
+        <required>N</required>
+        <defaultvalue></defaultvalue>
+        <description>County tax amount for adjustment</description>
+    </ptype>
+    <ptype>
+        <dn>_LocalTax</dn>
+        <type>decimal</type>
+        <length></length>
+        <required>N</required>
+        <defaultvalue></defaultvalue>
+        <description>Local tax amount for adjustment</description>
+    </ptype>
+    <ptype>
+        <dn>_OtherTax</dn>
+        <type>decimal</type>
+        <length></length>
+        <required>N</required>
+        <defaultvalue></defaultvalue>
+        <description>Other tax amount for adjustment</description>
     </ptype>
 </defineservice>

@@ -81,16 +81,14 @@ public partial class Account_UpdateAccount : MTAccountPage
 
               PopulatePresentationNameSpaceList(ddBrandedSite);
 
-              //ddBrandedSite.SelectedValue = Account.Name_Space.ToString() + " Site";
-            string ddFindByText = "";
-            ddFindByText = PopulateAccountBrandedSite(Convert.ToInt32(UI.Subscriber.SelectedAccount._AccountID));
-
+              //CORE-7585 Fix, new logic to read branded site for an account
+              string ddFindByText = "";
+              ddFindByText = PopulateAccountBrandedSite(Convert.ToInt32(UI.Subscriber.SelectedAccount._AccountID));
               ddBrandedSite.SelectedValue = ddBrandedSite.Items.FindByText(ddFindByText).Value;
             
-            //ddBrandedSite.SelectedIndex = 1;
               PriceListCol = PageNav.Data.Out_StateInitData["PriceListColl"] as List<PriceList>;
               PopulatePriceList(ddPriceList);
-			  PartitionLibrary.PopulatePriceListDropdown(ddPriceList);
+			        PartitionLibrary.PopulatePriceListDropdown(ddPriceList);
               int? selPriceList;
               if (((InternalView) Account.GetInternalView()).PriceList != null)
               {

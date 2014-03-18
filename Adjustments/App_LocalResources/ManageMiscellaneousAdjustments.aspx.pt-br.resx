@@ -172,7 +172,7 @@
     <value>Tem certeza que deseja prosseguir?  Isso negará todos os ajustes que correspondam aos critérios do seu filtro.  Se nenhum filtro estiver presente, então todos os ajustes serão negados.</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>Descrição</value>
+    <value>[pt-br] Internal Descrição</value>
   </data>
   <data name="TEXT_EMAIL_ADDRESS" xml:space="preserve">
     <value>Endereço de email</value>

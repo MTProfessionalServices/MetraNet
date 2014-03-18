@@ -172,7 +172,7 @@
     <value>¿Seguro que desea continuar?  Esta acción rechazará todos los ajustes que coincidan con los criterios establecidos en los filtros.  Si no se ha aplicado ningún filtro, entonces se rechazarán todos los ajustes introducidos.</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>Descripción</value>
+    <value>[es] Internal Descripción</value>
   </data>
   <data name="TEXT_EMAIL_ADDRESS" xml:space="preserve">
     <value>Dirección de correo electrónico</value>

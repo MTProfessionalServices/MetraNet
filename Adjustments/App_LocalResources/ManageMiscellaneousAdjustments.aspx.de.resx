@@ -172,7 +172,7 @@
     <value>Möchten Sie wirklich fortfahren?  Durch diesen Schritt werden alle Anpassungen verweigert, die mit Ihren Filterkriterien übereinstimmen.  Wenn keine Filter vorhanden sind, werden alle Anpassungen verweigert.</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>Beschreibung</value>
+    <value>[de] Internal Beschreibung</value>
   </data>
   <data name="TEXT_EMAIL_ADDRESS" xml:space="preserve">
     <value>E-Mail-Adresse</value>

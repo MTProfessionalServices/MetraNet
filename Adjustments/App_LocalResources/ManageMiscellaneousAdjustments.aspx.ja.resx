@@ -172,7 +172,7 @@
     <value>続行しますか?これによって、フィルタ条件に一致するすべての調整が拒否されます。フィルタがない場合、すべての調整が拒否されます。</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>内容</value>
+    <value>[ja] Internal 内容</value>
   </data>
   <data name="TEXT_EMAIL_ADDRESS" xml:space="preserve">
     <value>電子メール アドレス</value>

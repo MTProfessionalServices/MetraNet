@@ -172,7 +172,7 @@
     <value>Êtes-vous sûr de vouloir continuer ?  Cette étape refusera tous les ajustements correspondant à vos critères de filtrage.  Si aucun filtre n’est défini, tous les ajustements seront alors refusés.</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>Description</value>
+    <value>[fr] Internal Description</value>
   </data>
   <data name="TEXT_EMAIL_ADDRESS" xml:space="preserve">
     <value>Adresse e-mail</value>

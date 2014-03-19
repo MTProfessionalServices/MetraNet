@@ -872,7 +872,13 @@ public class BillManager: System.Web.UI.TemplateControl
       return GetReports(-1);
   }
   #endregion
+  #region  GetCreditNotes
+  public List<ReportFile> GetCreditNotesReports()
+  {
+    return GetReports(-2);
+  }
 
+  #endregion
   #region Payment Info - Last Payment and Next Payment Amount and Due Date
   public PaymentInfo GetPaymentInfo(int accID)
   {

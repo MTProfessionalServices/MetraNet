@@ -12,6 +12,9 @@ using MetraTech.UI.Common;
 
 public partial class Reports_ShowReports : MTPage
 {
+  enum ReportTypes { Invoice, Quote, CreditNote };
+
+  private ReportTypes reportType;
   protected void Page_Load(object sender, EventArgs e)
   {
     ShowReport();
@@ -31,10 +34,29 @@ public partial class Reports_ShowReports : MTPage
       throw new UIException(Resources.ErrorMessages.ERROR_NOT_VALID_ACCOUNT);
     }
 
-    bool getQuoteReport = !string.IsNullOrEmpty(Request.QueryString["isQuote"]);
-
-      if (getQuoteReport)
+    if(!string.IsNullOrEmpty(Request.QueryString["reportType"]))
+    {
+      string rt = Request.QueryString["reportType"].ToLower();
+      switch (rt)
       {
+        case "quote" :
+          reportType = ReportTypes.Quote;
+          break;
+        case "creditnote":
+          reportType = ReportTypes.CreditNote;
+          break;
+        case "invoice":
+          reportType = ReportTypes.Invoice;
+          break;
+        default:
+          reportType = ReportTypes.Invoice;
+          break;
+      }
+    }
+    switch (reportType)
+    {
+      case ReportTypes.Quote :
+             {
           if (Session[SiteConstants.QUOTE_REPORT_DICTIONARY] != null
                && !string.IsNullOrEmpty(Request.QueryString["report"]))
           {
@@ -51,14 +73,16 @@ public partial class Reports_ShowReports : MTPage
                       var billManager = new BillManager(UI);
                       Interval currentInterval = billManager.GetCurrentInterval();
 
-                      ReportStream(reportFile, currentInterval, true);
+                      ReportStream(reportFile, currentInterval, ReportTypes.Quote);
                   }
               }
           }
       }
-      else if (Session[SiteConstants.REPORT_DICTIONARY] != null
+        break;
+      case ReportTypes.Invoice:
+        if (Session[SiteConstants.REPORT_DICTIONARY] != null
                && !string.IsNullOrEmpty(Request.QueryString["report"]))
-      {
+        {
 
           var reportName = Request.QueryString["report"];
           var reportDictionary = Session[SiteConstants.REPORT_DICTIONARY] as Dictionary<string, ReportFile>;
@@ -72,10 +96,34 @@ public partial class Reports_ShowReports : MTPage
                   var billManager = new BillManager(UI);
                   Interval currentInterval = billManager.GetCurrentInterval();
 
-                  ReportStream(reportFile, currentInterval);
+                  ReportStream(reportFile, currentInterval, ReportTypes.Invoice);
+              }
+          }
+        }
+        break;
+        case ReportTypes.CreditNote:
+        if (Session[SiteConstants.CREDIT_NOTES_REPORT_DICTIONARY] != null
+               && !string.IsNullOrEmpty(Request.QueryString["report"]))
+        {
+          var reportName = Request.QueryString["report"];
+          var reportDictionary = Session[SiteConstants.CREDIT_NOTES_REPORT_DICTIONARY] as Dictionary<string, ReportFile>;
+
+          if (reportDictionary != null)
+          {
+              var reportFile = reportDictionary[reportName];
+
+              if (reportFile != null)
+              {
+                  var billManager = new BillManager(UI);
+                  Interval currentInterval = billManager.GetCurrentInterval();
+
+                  ReportStream(reportFile, currentInterval, ReportTypes.CreditNote);
               }
           }
       }
+        break;
+    }
+
   }
 
 
@@ -83,7 +131,7 @@ public partial class Reports_ShowReports : MTPage
   //
   //Get stream of selected report from StaticReportService
   //
-  private void ReportStream(ReportFile reportFile, Interval currentInterval, bool isQuote = false)
+  private void ReportStream(ReportFile reportFile, Interval currentInterval, ReportTypes rt)
   {
     var client = new StaticReportsServiceClient("NetTcpBinding_IMetraTech.Core.Services.StaticReportsService");
 
@@ -97,8 +145,19 @@ public partial class Reports_ShowReports : MTPage
       if (UI.Subscriber.SelectedAccount._AccountID.HasValue)
       {
         //For Crystal report service
-          client.GetReportFile(new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value),
-                               isQuote ? -1 : currentInterval.ID, reportFile.FileName, out stream);
+        switch (rt)
+        {
+          case ReportTypes.Quote:
+            client.GetReportFile(new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value), -1, reportFile.FileName, out stream);
+            break;
+          case ReportTypes.Invoice:
+            client.GetReportFile(new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value), currentInterval.ID, reportFile.FileName, out stream);
+            break;
+          case ReportTypes.CreditNote:
+            client.GetReportFile(new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value), -2, reportFile.FileName, out stream);
+            break;
+        }
+
 
         string reportFileName = GetReportByFormat(reportFile.FileName, currentInterval);
 

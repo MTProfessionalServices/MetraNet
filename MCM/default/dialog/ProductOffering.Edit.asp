@@ -193,6 +193,10 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
   set tmpSessionContext = Session(FRAMEWORK_SECURITY_SESSION_CONTEXT_SESSION_NAME)
   set objApprovals.SessionContext = tmpSessionContext
   bApprovalsEnabled = objApprovals.ApprovalsEnabled("ProductOfferingUpdate")
+
+  If Session("isPartitionUser") Then
+    COMObject.Instance.POPartitionId = COMObject.Properties("POPartitionId").DefaultValue
+  End If
   
   Dim idChange, errorsSubmit
   If bApprovalsEnabled Then

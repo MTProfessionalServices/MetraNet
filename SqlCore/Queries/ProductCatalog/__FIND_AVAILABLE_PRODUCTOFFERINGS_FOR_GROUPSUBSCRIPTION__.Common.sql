@@ -13,5 +13,5 @@ from t_vw_base_props
 
   INNER JOIN t_effectivedate te on te.id_eff_date = t_po.id_avail AND  %%REFDATE%% >= te.dt_start AND (%%REFDATE%% <= te.dt_end or te.dt_end is NULL)
 where t_vw_base_props.n_kind = 100 and t_vw_base_props.id_lang_code = %%ID_LANG%% AND
-  %%CURRENCYFILTER3%%  /* tavi.c_currency = tpl.nm_currency_code */        
-        
+    %%CURRENCYFILTER3%%  /* tavi.c_currency = tpl.nm_currency_code */        
+    %%PARTITIONFILTER%%

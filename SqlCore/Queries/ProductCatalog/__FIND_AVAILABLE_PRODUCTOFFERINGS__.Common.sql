@@ -11,6 +11,5 @@
         %%REFDATE%% >= te.dt_start AND (%%REFDATE%% <= te.dt_end or te.dt_end is NULL)
         INNER JOIN t_pricelist pl on t_po.id_nonshared_pl = pl.id_pricelist
         where t_vw_base_props.n_kind = 100 and t_vw_base_props.id_lang_code = %%ID_LANG%% 
-        order by nm_currency_code
-
-        
+		%%PARTITIONFILTER%%
+        order by nm_currency_code        

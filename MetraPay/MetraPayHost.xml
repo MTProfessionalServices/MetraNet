@@ -12,16 +12,19 @@
 		<ServiceInstances>
 			<ServiceInstance
 			  Name="Test"
-			  ProcessorType="MetraTech.MetraPay.PaymentGateway.TestGatewayStub, MetraTech.MetraPay.PaymentGateway.dll"
-			  ConfigFile="paymentsvr\Config\MetraPay\TestGatewayStub.xml"
-              Timeout="30000"/>
-			  
-			  <!--Uncomment to use the payment broker
-			<ServiceInstance
-			  Name="Test"
 			  ProcessorType="MetraTech.MetraPay.PaymentGateway.MetangaGateway, MetraTech.MetraPay.PaymentGateway.dll"
-			  ConfigFile="paymentsvr\Config\MetraPay\TestGatewayStub.xml"
-        Timeout="30000"/>-->
+			  ConfigFile="PaymentSvr\config\Gateway\Provider\Test.xml"
+			  Timeout="30000"/>
+			<ServiceInstance
+			  Name="WorldPay"
+			  ProcessorType="MetraTech.MetraPay.PaymentGateway.MetangaGateway, MetraTech.MetraPay.PaymentGateway.dll"
+			  ConfigFile="PaymentSvr\config\Gateway\Provider\WorldPay.xml"
+			  Timeout="30000"/>
+			<ServiceInstance
+			  Name="CyberSource"
+			  ProcessorType="MetraTech.MetraPay.PaymentGateway.MetangaGateway, MetraTech.MetraPay.PaymentGateway.dll"
+			  ConfigFile="PaymentSvr\config\Gateway\Provider\CyberSource.xml"
+			  Timeout="30000"/>
 		</ServiceInstances>
 	</MetraPayConfig>
 </configuration>

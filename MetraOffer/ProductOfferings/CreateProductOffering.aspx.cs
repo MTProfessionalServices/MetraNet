@@ -18,6 +18,7 @@ namespace MetraNet.MetraOffer.ProductOfferings
     }
 
     public bool IsPartition { get { return PartitionLibrary.PartitionData.isPartitionUser; } }
+    public int PartitionId { get { return PartitionLibrary.PartitionData.POPartitionId; } }
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -40,7 +41,7 @@ namespace MetraNet.MetraOffer.ProductOfferings
 
         if (IsPartition)
         {
-          ProductOffering.POPartitionId = PartitionLibrary.PartitionData.POPartitionId;
+          ProductOffering.POPartitionId = PartitionId;
           ProductOffering.Name = PartitionLibrary.PartitionData.PartitionUserName + ":";
         }
         else
@@ -92,7 +93,7 @@ namespace MetraNet.MetraOffer.ProductOfferings
           CanUserUnsubscribe = false,
           EffectiveTimeSpan = {StartDate = ProductOffering.EffectiveTimeSpan.StartDate},
           IsHidden = false,
-          POPartitionId = ProductOffering.POPartitionId,
+          POPartitionId = IsPartition ? PartitionId : ProductOffering.POPartitionId,
           LocalizedDisplayNames = localizedDisplayName,
           LocalizedDescriptions = localizedDescriptions
         };

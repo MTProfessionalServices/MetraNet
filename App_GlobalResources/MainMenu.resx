@@ -630,4 +630,7 @@
     <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
         <value>Assign Bill Messages</value>
     </data>
+    <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
+        <value>Add child Account</value>
+    </data>
 </root>

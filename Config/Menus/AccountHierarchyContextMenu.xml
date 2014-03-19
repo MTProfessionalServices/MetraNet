@@ -54,6 +54,18 @@
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
+                            <ID>AddChildAccount</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_ADD_CHILD_ACCOUNT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link></Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/user_add.png</Icon>
+                            <Description>Shows sub-meny foraAdding (create) account to hierarch by specified account type</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
                             <ID>SelfCarePortal</ID>
                             <Caption>
                                 <LocalizationTag>TEXT_SELF_CARE_PORTAL</LocalizationTag>
@@ -145,6 +157,18 @@
                             <RequiredCapabilities>
                                 <Capability>Update subscriber accounts</Capability>
                             </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>AddChildAccount</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_ADD_CHILD_ACCOUNT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link></Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/user_add.png</Icon>
+                            <Description>Shows sub-meny foraAdding (create) account to hierarch by specified account type</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>SelfCarePortal</ID>
@@ -240,6 +264,18 @@
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
+                            <ID>AddChildAccount</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_ADD_CHILD_ACCOUNT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link></Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/user_add.png</Icon>
+                            <Description>Shows sub-meny foraAdding (create) account to hierarch by specified account type</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
                             <ID>SelfCarePortal</ID>
                             <Caption>
                                 <LocalizationTag>TEXT_SELF_CARE_PORTAL</LocalizationTag>
@@ -331,6 +367,18 @@
                             <RequiredCapabilities>
                                 <Capability>Update subscriber accounts</Capability>
                             </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>AddChildAccount</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_ADD_CHILD_ACCOUNT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link></Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/user_add.png</Icon>
+                            <Description>Shows sub-meny foraAdding (create) account to hierarch by specified account type</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>SelfCarePortal</ID>

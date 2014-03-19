@@ -66,4 +66,6 @@ from t_vw_base_props
   AND tpl.nm_currency_code  = tpl.nm_currency_code
  
   AND (atm.id_account_type IS NULL OR atm.id_account_type = %%ACCOUNT_TYPE%% OR tp.all_types = 1)
+  
+  %%PARTITIONFILTER%%
 		

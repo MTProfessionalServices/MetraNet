@@ -249,6 +249,9 @@
   <data name="TEXT_CREATE_BACKOUT_RERUN" xml:space="preserve">
     <value>Créer une annulation/réexécution</value>
   </data>
+  <data name="TEXT_CREATE_CREDIT_NOTE" xml:space="preserve">
+        <value>{FR}Create Credit Note</value>
+    </data>
   <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
     <value>Ajouter une nouvelle instance de rapport</value>
   </data>

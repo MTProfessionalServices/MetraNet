@@ -249,6 +249,9 @@
     <data name="TEXT_CREATE_BACKOUT_RERUN" xml:space="preserve">
         <value>取り消し/再実行の作成</value>
     </data>
+	<data name="TEXT_CREATE_CREDIT_NOTE" xml:space="preserve">
+        <value>{JA}Create Credit Note</value>
+    </data>
     <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
         <value>新しい報告書インスタンスの追加</value>
     </data>

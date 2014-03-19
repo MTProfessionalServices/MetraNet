@@ -38,7 +38,7 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
          <tr>
            <td  class="x-panel-btn-td">
              <asp:HiddenField ID="hdSelectedItemsList" runat="server" />
-             <MT:MTButton ID="MTButton1"  runat="server" OnClientClick="GetAdjustmentIdsAndType();"
+             <MT:MTButton ID="MTButton1"  runat="server" OnClientClick="return GetAdjustmentIdsAndType();"
               OnClick="btnIssueCreditNote_Click" TabIndex="150" meta:resourcekey="btnIssueCreditNoteResource1" />
            </td>
            <td  class="x-panel-btn-td">
@@ -85,9 +85,9 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
             adjustmentIdsAndType += ",";
           }
           adjustmentIdsAndType += (adjRecords[i].data.AdjustmentID + ";" + adjRecords[i].data.AdjustmentType);
-         document.getElementById('<%=hdSelectedItemsList.ClientID %>').value = adjustmentIdsAndType;
+          document.getElementById('<%=hdSelectedItemsList.ClientID %>').value = adjustmentIdsAndType;
         }
-        return adjustmentIdsAndType;
-      }
+         return (document.getElementById('<%=hdSelectedItemsList.ClientID %>').value == '') ? false : true;
+       }
     </script>
 </asp:Content>

@@ -124,7 +124,13 @@ public partial class Adjustments_CreateCreditNote : MTPage
       foreach (string item in parsedData)
       {
         string[] parsedItem = item.Split(new char[] { ';' });
-        adjustments.Add(new Tuple<long, CreditNoteAdjustmentType>(Convert.ToInt64(parsedItem[0]), (parsedItem[1] == "0" ? CreditNoteAdjustmentType.LineAdjustment : CreditNoteAdjustmentType.MiscAdjustment)));
+        if (parsedItem.Length > 0)
+        {
+          adjustments.Add(new Tuple<long, CreditNoteAdjustmentType>(Convert.ToInt64(parsedItem[0]),
+                                                                    (parsedItem[1] == "0"
+                                                                       ? CreditNoteAdjustmentType.LineAdjustment
+                                                                       : CreditNoteAdjustmentType.MiscAdjustment)));
+        }
       }
       return adjustments;
     }

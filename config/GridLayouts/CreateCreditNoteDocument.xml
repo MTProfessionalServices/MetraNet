@@ -37,8 +37,8 @@
     <EnableFilterConfig>true</EnableFilterConfig>
     <Resizeable>true</Resizeable>
     <ButtonAlignment>Center</ButtonAlignment>
-    <DefaultSortField>CreatedDate</DefaultSortField>
-    <DefaultSortDirection>Descending</DefaultSortDirection>
+    <DefaultSortField>CreditNoteIdentifier</DefaultSortField>
+    <DefaultSortDirection>Ascending</DefaultSortDirection>
     <DisplayCount>true</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
     <CustomImplementationFilePath></CustomImplementationFilePath>
@@ -97,7 +97,7 @@
                 <ResourceClassKey>Adjustments/App_LocalResources/CreateCreditNote.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>120</Width>
+            <Width>130</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>

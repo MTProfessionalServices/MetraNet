@@ -37,7 +37,8 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
        <table cellspacing="0">
          <tr>
            <td  class="x-panel-btn-td">
-             <MT:MTButton ID="MTButton1"  runat="server"
+             <asp:HiddenField ID="hdSelectedItemsList" runat="server" />
+             <MT:MTButton ID="MTButton1"  runat="server" OnClientClick="GetAdjustmentIdsAndType();"
               OnClick="btnIssueCreditNote_Click" TabIndex="150" meta:resourcekey="btnIssueCreditNoteResource1" />
            </td>
            <td  class="x-panel-btn-td">
@@ -71,6 +72,22 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
         }
         var paramsDataSource = getDataSourceUrlParams({ start: 0, limit: 10 }, timeInterval);
         dataStore_<%= MTFilterGrid1.ClientID %>.load({ params: paramsDataSource });
-      } 
+      }
+      
+       function GetAdjustmentIdsAndType()
+      {
+        var adjRecords = grid_<%= MTFilterGrid1.ClientID %>.getSelectionModel().getSelections();
+        var adjustmentIdsAndType = "";
+        for(var i=0; i < adjRecords.length; i++)
+        {
+          if(i > 0)
+          {
+            adjustmentIdsAndType += ",";
+          }
+          adjustmentIdsAndType += (adjRecords[i].data.AdjustmentID + ";" + adjRecords[i].data.AdjustmentType);
+         document.getElementById('<%=hdSelectedItemsList.ClientID %>').value = adjustmentIdsAndType;
+        }
+        return adjustmentIdsAndType;
+      }
     </script>
 </asp:Content>

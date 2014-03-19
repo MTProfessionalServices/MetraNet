@@ -3,6 +3,7 @@
 	  <task>MetraTech.Pipeline.ReRun.AnalyzeIntervals,MetraTech.Pipeline.ReRun</task>
  	  <task>MetraTech.Pipeline.ReRun.AnalyzeSynchronousSessions,MetraTech.Pipeline.ReRun</task>
 	  <task>MetraTech.Adjustments.ReRun.DetachAdjustments, MetraTech.Adjustments.ReRun</task>
+	  <task>MetraTech.Adjustments.ReRun.AdjustmentsWithCreditNotes, MetraTech.Adjustments.ReRun</task>
   </analysis_tasks>
 
   <backout_tasks>

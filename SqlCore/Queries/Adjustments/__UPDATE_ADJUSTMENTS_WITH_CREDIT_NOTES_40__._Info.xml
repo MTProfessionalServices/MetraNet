@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Query>
+    <Action>Unknown</Action>
+    <Implementations>
+        <Implementation>SqlServer</Implementation>
+        <Implementation>Oracle</Implementation>
+    </Implementations>
+    <Parameters>
+        <Parameter>
+            <Name>TABLE_NAME</Name>
+            <DataType>sqlsubstitution</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>t_rerun_session_9</SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
+    </Parameters>
+    <Description></Description>
+    <ConversionAudit>
+        <ConversionDuplicateName></ConversionDuplicateName>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
+        <SqlServerQuerySourceFile>R:\Config\Queries\billingrerun\MTQueries.xml</SqlServerQuerySourceFile>
+        <OracleQuerySourceFile>&gt;R:\Config\Queries\billingrerun\MTQueries_Oracle.xml</OracleQuerySourceFile>
+    </ConversionAudit>
+</Query>

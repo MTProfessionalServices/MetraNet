@@ -29,7 +29,7 @@ SELECT DISTINCT (t_po.id_po),
    ta.n_endoffset   as ta_n_endoffset, 
    template_po_map.b_recurringcharge, 
    template_po_map.b_discount1 as b_discount,
-   t_po.c_POPartitionId as POPartitionId   
+   t_po.c_POPartitionId  
    %%COLUMNS%% 
 FROM 
    (SELECT :refDate now 

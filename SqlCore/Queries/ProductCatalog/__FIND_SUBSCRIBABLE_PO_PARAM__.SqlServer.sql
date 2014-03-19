@@ -25,7 +25,7 @@
 					ta.n_endoffset as ta_n_endoffset,
 					template_po_map.b_RecurringCharge,
 					template_po_map. b_Discount1 as b_Discount,
-					t_po.c_POPartitionId as POPartitionId
+					t_po.c_POPartitionId 
 					%%COLUMNS%%
 					FROM
 						(select @refDate now) cdate,

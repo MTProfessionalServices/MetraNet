@@ -1,7 +1,8 @@
 UPDATE t_be_cor_cre_creditnotetmpl
  SET c_LanguageCode=@LanguageCode,
      c_CreditNotePrefix = @CreditNotePrefix,          
-     c_CreditNoteTemplateID = @CreditNoteTemplateID
+     c_CreditNoteTemplateID = @CreditNoteTemplateID,
+	 c__version = c__version+1
 WHERE c_TemplateName=@TemplateName
 
 IF @@ROWCOUNT = 0  
@@ -27,5 +28,3 @@ INSERT INTO t_be_cor_cre_creditnotetmpl
            ,@CreditNotePrefix
            ,@TemplateName
            ,@CreditNoteTemplateID);
-
-

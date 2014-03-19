@@ -19,7 +19,9 @@ public partial class Adjustments_CreateCreditNote : MTPage
       lblAccount.Text = String.Format("{0} ({1})", UI.Subscriber.SelectedAccount.UserName, UI.Subscriber.SelectedAccount._AccountID);
       populateCreditNotesTemplateTypes();
       populateDDTimeInterval();
-    }
+
+      ddTimeIntervals.Attributes.Add("onChange", "return onChange();");
+     }
  
   protected void btnIssueCreditNote_Click(object sender, EventArgs e)
   {
@@ -45,8 +47,7 @@ public partial class Adjustments_CreateCreditNote : MTPage
         i++;
       }
     }
-
-
+  
 
     private void populateCreditNotesTemplateTypes()
     {
@@ -89,6 +90,5 @@ public partial class Adjustments_CreateCreditNote : MTPage
           client.Abort();
         }
       }
-    }
-
+   }
 }

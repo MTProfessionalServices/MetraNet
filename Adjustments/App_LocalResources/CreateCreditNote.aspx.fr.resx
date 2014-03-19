@@ -117,34 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="NO_RECORDS_TEXT" xml:space="preserve">
-    <value>No records found.</value>
-  </data>
-  <data name="MTFilterGrid1Resource1.Title" xml:space="preserve">
-    <value>Credit Note Documents</value>
-  </data>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet - Create Credit Note Document for Adjustments Issued</value>
-  </data>
-  <data name="MTPanel1Resource1.Text" xml:space="preserve">
-    <value>Create Credit Note Documnet for Adjustment Issued</value>
-  </data>
   <data name="btnIssueCreditNoteResource1.Text" xml:space="preserve">
-    <value>Issue Credit Note</value>
+    <value>{FR}Issue Credit Note</value>
   </data>
   <data name="btnCancelResource1.Text" xml:space="preserve">
-    <value>Cancel</value>
+    <value>{FR}Cancel</value>
   </data>
   <data name="CommentTextBoxResource1.Label" xml:space="preserve">
-    <value>Comment</value>
+    <value>{FR}Comment</value>
   </data>
- <data name="ddTemplateTypesResource1.Label" xml:space="preserve">
-    <value>Credit Note Template To Use</value>
+   <data name="ddTemplateTypesResource1.Label" xml:space="preserve">
+    <value>{FR}Credit Note Template To Use</value>
   </data>
   <data name="ddTimeIntervalsResource1.Text" xml:space="preserve">
-    <value>7 days,30 Days,90 Days,120 Days,365 Days </value>
+    <value>7 days,30 Days,90 Days,120 Days,365 Days</value>
   </data>
   <data name="ddTimeIntervalsResource1.Label" xml:space="preserve">
-    <value>Adjustments issued in past </value>
+    <value>{FR}Adjustments Issued In The Past</value>
   </data>
+  <data name="MTFilterGrid1Resource1.Title" xml:space="preserve">
+    <value>{FR}Credit Note Documents</value>
+  </data>
+  <data name="MTPanel1Resource1.Text" xml:space="preserve">
+    <value>{FR}Create Credit Note Document for Adjustment Issued</value>
+  </data>
+  <data name="NO_RECORDS_TEXT" xml:space="preserve">
+    <value>{FR}No records found.</value>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>{FR}MetraNet - Create Credit Note Document for Adjustments Issued</value>
+  </data>   
+  <data name="TEXT_ADJUSTMENT_TYPE" xml:space="preserve">
+    <value>{FR}Adjustment</value>
+  </data>
+  <data name="TEXT_AMOUNT" xml:space="preserve">
+    <value>{FR}Amount</value>
+  </data>
+  <data name="TEXT_CREDIT_NOTE_IDENTIFIER" xml:space="preserve">
+    <value>{FR}Credit Note Identifier</value>
+  </data>
+  <data name="TEXT_DATE" xml:space="preserve">
+    <value>{FR}Date</value>
+  </data>
+  <data name="TEXT_DESCRIPTION" xml:space="preserve">
+    <value>{FR}Description</value>
+  </data>
+  <data name="TEXT_DISPLAY_ADJUSTMENT_TYPE" xml:space="preserve">
+    <value>{FR}Adjustment</value>
+  </data>
+  <data name="TEXT_DISPLAY_AMOUNT" xml:space="preserve">
+    <value>{FR}Amount</value>
+  </data>  
 </root>

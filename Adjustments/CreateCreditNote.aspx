@@ -4,7 +4,7 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
    <MT:MTPanel ID="MTPanel1" runat="server" Text="Create Credit Note" 
-   Collapsible="True" Collapsed="False"  meta:resourcekey="MTPanel1Resource1">
+    Collapsible="True" Collapsed="False"  meta:resourcekey="MTPanel1Resource1">
      
      &nbsp;&nbsp;&nbsp;
      <MT:MTLabel ID="lblAccount" runat="server" LabelWidth="200"/>
@@ -22,8 +22,8 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
       MinLength="0" ReadOnly="False" Enabled="True" ValidationRegex="null" 
       XType="TextArea" XTypeNameSpace="form"/>
       
-    <MT:MTDropDown ID="ddTimeIntervals" runat="server" Label="Adjustments Issued In The Past" 
-     LabelWidth="200" AllowBlank="False" HideLabel="False" LabelSeparator=":" Listeners="{}"
+    <MT:MTDropDown ID="ddTimeIntervals" runat="server" Label="Adjustments Issued In The Last" 
+     LabelWidth="200" AllowBlank="False" HideLabel="False" LabelSeparator=":" Listeners="{ 'select' : this.onChanges, scope: this }" 
      meta:resourcekey="ddTimeIntervalsResource1" ReadOnly="False" Enabled="True" ControlWidth="100">
     </MT:MTDropDown>
      
@@ -49,7 +49,28 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
       </center>    
      </div>
    </div>
-
    </MT:MTPanel>
+   
+    <script language="javascript" type="text/javascript">
+      function getDataSourceUrlParams(paramsBase, timeInterval) {
 
+        var newParams = paramsBase;
+        newParams.timeInterval = timeInterval;
+
+        return newParams;
+      }
+
+      function onChange() {
+        
+        var index = document.getElementById('<%=ddTimeIntervals.ClientID %>').selectedIndex;
+        var timeInterval = document.getElementById('<%=ddTimeIntervals.ClientID %>').options[index].text;
+        
+        //make results pane visible, it could be hidden if not searching on load
+        if (!grid_<%= MTFilterGrid1.ClientID %>.isVisible()) {
+          grid_<%= MTFilterGrid1.ClientID %>.setVisible(true);
+        }
+        var paramsDataSource = getDataSourceUrlParams({ start: 0, limit: 10 }, timeInterval);
+        dataStore_<%= MTFilterGrid1.ClientID %>.load({ params: paramsDataSource });
+      } 
+    </script>
 </asp:Content>

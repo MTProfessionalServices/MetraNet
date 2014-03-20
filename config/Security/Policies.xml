@@ -230,29 +230,7 @@
         <v>MAM</v>
       </ec>
     </as>
-  </c>
-  <c name="Application LogOn" guid="">
-    <as>
-      <ec>
-        <v>MCM</v>
-      </ec>
-    </as>
-  </c>
-  <c name="Application LogOn" guid="">
-    <as>
-      <ec>
-        <v>MOM</v>
-      </ec>
-    </as>
-  </c>
-  <c name="Application LogOn" guid="">
-    <as>
-      <ec>
-        <v>MPS</v>
-      </ec>
-    </as>
-  </c>
-
+  </c> 
   <c name="View Online Bill" guid="">
   </c>  
   <c name="Manage Payment Redirection" guid="">

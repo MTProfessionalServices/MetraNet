@@ -451,12 +451,13 @@
             <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
             <ObjectName>MetraTech.DomainModel.BaseTypes.CreditNoteDetail</ObjectName>
             <ID>CreditNotePDFStatus</ID>
-            <DataType>String</DataType>
+            <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>CreditNotePDFStatus</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Status]]></Value>
+                <LocalizationTag>TEXT_STATUS</LocalizationTag>
+                <ResourceClassKey>Adjustments/App_LocalResources/ViewCreditNotesIssued.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -472,7 +473,8 @@
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
             <FilterLabel>
-                <Value><![CDATA[Status]]></Value>
+                <LocalizationTag>TEXT_STATUS</LocalizationTag>
+                <ResourceClassKey>Adjustments/App_LocalResources/ViewCreditNotesIssued.aspx</ResourceClassKey>
             </FilterLabel>
             <ElementValue>
                 <Value><![CDATA[]]></Value>
@@ -481,43 +483,27 @@
                 <Value><![CDATA[]]></Value>
             </ElementValue2>
             <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
+            <DropdownItems>
+                <DropdownItem>
+                    <Key>Pending</Key>
+                    <Value>
+                        <Value><![CDATA[Pending]]></Value>
+                    </Value>
+                </DropdownItem>
+                <DropdownItem>
+                    <Key>Failed</Key>
+                    <Value>
+                        <Value><![CDATA[Failed]]></Value>
+                    </Value>
+                </DropdownItem>
+                <DropdownItem>
+                    <Key>Successful</Key>
+                    <Value>
+                        <Value><![CDATA[Successful]]></Value>
+                    </Value>
+                </DropdownItem>
+            </DropdownItems>
         </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
-            <ObjectName>MetraTech.DomainModel.BaseTypes.CreditNoteDetail</ObjectName>
-            <ID>CreditNotePDFLink</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>CreditNotePDFLink</DataIndex>
-            <IsColumn>false</IsColumn>
-            <HeaderText>
-                <Value><![CDATA[PDFLink]]></Value>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>false</DefaultColumn>
-            <Exportable>false</Exportable>
-            <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>false</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>		
     </Elements>
     <ExpanderTemplate></ExpanderTemplate>
     <GridButtons></GridButtons>

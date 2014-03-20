@@ -331,7 +331,7 @@
                 <MenuSection>
                     <ID>AccountDetails</ID>
                     <Caption>
-                        <LocalizationTag>TEXT_ACCOUNT_DETAILS</LocalizationTag>
+                        <LocalizationTag>TEXT_ACCOUNT</LocalizationTag>
                         <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                     </Caption>
                     <Description>Default Account Details</Description>
@@ -339,10 +339,11 @@
                         <MenuItem>
                             <ID>Summary</ID>
                             <Caption>
-                                <LocalizationTag>TEXT_SUMMARY</LocalizationTag>
+                                <LocalizationTag>TEXT_ACCOUNT_DETAILS</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>[AccountSummaryPage]</Link>
+                            <!--<Link>[AccountSummaryPage]</Link>-->
+                            <Link>/MetraNet/Account/GenericAccountSummary.aspx</Link>                        
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/report_user.png</Icon>
                             <Description>Account Summary Details</Description>
@@ -811,23 +812,24 @@
                 <MenuSection>
                     <ID>AccountDetails</ID>
                     <Caption>
-                        <LocalizationTag>TEXT_ACCOUNT_DETAILS</LocalizationTag>
+                        <LocalizationTag>TEXT_ACCOUNT</LocalizationTag>
                         <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                     </Caption>
                     <Description>Specific Details for Corporate Account</Description>
                     <MenuItems>
-                        <MenuItem>
-                            <ID>Summary</ID>
-                            <Caption>
-                                <LocalizationTag>TEXT_SUMMARY</LocalizationTag>
-                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-                            </Caption>
-                            <Link>[AccountSummaryPage]</Link>
-                            <Target>MainContentIframe</Target>
-                            <Icon>/Res/Images/icons/report_user.png</Icon>
-                            <Description>Corporate Account Summary</Description>
-                            <RequiredCapabilities></RequiredCapabilities>
-                        </MenuItem>
+                      <MenuItem>
+                        <ID>Summary</ID>
+                        <Caption>
+                          <LocalizationTag>TEXT_ACCOUNT_DETAILS</LocalizationTag>
+                          <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                        </Caption>
+                        <!--<Link>[AccountSummaryPage]</Link>-->
+                        <Link>[APP_VIRTUAL_DIR]/Account/GenericAccountSummary.aspx</Link>
+                        <Target>MainContentIframe</Target>
+                        <Icon>/Res/Images/icons/report_user.png</Icon>
+                        <Description>Account Summary Details</Description>
+                        <RequiredCapabilities></RequiredCapabilities>
+                      </MenuItem>
                         <MenuItem>
                             <ID>AccountState</ID>
                             <Caption>
@@ -1295,7 +1297,7 @@
                 <MenuSection>
                     <ID>SUAccountDetails</ID>
                     <Caption>
-                        <LocalizationTag>TEXT_ACCOUNT_DETAILS</LocalizationTag>
+                        <LocalizationTag>TEXT_ACCOUNT</LocalizationTag>
                         <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                     </Caption>
                     <Description>System Account Section</Description>
@@ -1303,7 +1305,7 @@
                         <MenuItem>
                             <ID>SUSummary</ID>
                             <Caption>
-                                <LocalizationTag>TEXT_SUMMARY</LocalizationTag>
+                                <LocalizationTag>TEXT_ACCOUNT_DETAILS</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link>[AccountSummaryPage]</Link>

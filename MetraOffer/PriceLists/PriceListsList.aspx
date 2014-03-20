@@ -64,8 +64,10 @@
 
     function EditPriceList(ID)
     {
-        var targetURL="/MetraNet/TicketToMCM.aspx?Redirect=True&URL=/MCM/default/dialog/Pricelist.Edit.asp|ID=" + ID;
-        OpenModalWindow(targetURL);
+        //var targetURL="/MetraNet/TicketToMCM.aspx?Redirect=True&URL=/MCM/default/dialog/Pricelist.Edit.asp|ID=" + ID;
+        //OpenModalWindow(targetURL);
+      location.href = '/MetraNet/MetraOffer/PriceLists/UpdateSharedPriceList.aspx?ID=' + ID;
+      
       //location.href = targetURL;
     }  
 

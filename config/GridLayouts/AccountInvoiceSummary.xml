@@ -2,7 +2,7 @@
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <Name>AccountInvoiceSummary</Name>
     <Title>
-      <Value><![CDATA[Invoices]]></Value>
+      <Value><![CDATA[Invoices Last 12 Months]]></Value>
     </Title>
     <Exportable>false</Exportable>
     <Height>0</Height>
@@ -50,7 +50,7 @@
             <DataType>Numeric</DataType>
             <IsIdentity>true</IsIdentity>
             <DataIndex>id_invoice</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
                <Value>Internal Id</Value>
             </HeaderText>
@@ -225,7 +225,7 @@
         <DataType>String</DataType>
         <IsIdentity>false</IsIdentity>
         <DataIndex>invoice_currency</DataIndex>
-        <IsColumn>true</IsColumn>
+        <IsColumn>false</IsColumn>
         <HeaderText>
           <Value><![CDATA[Currency]]></Value>
         </HeaderText>

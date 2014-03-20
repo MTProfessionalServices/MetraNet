@@ -197,9 +197,9 @@ public partial class AddPartition : MTAccountPage
         }
 
 
-        // Check whether Partition user name contains any of these characters , \, ?, ;, :, @, &, =, +, $, ,, |, ", <, >, *.
+        // Check whether Partition user name contains any of these characters , \, ?, ;, :, @, !, -, _, &, =, +, $, ,, |, ", <, >, *.
         
-        string[] specchars = new string[] { ";", ":","@","&","=","+","$","|","<",">","*"," ","\\"};
+        string[] specchars = new string[] { ";", ":","@","!","-","_","&","=","+","$","|","<",">","*"," ","\\"};
         foreach (string specchar in specchars)
         {
             if (tbUserName.Text.Contains(specchar))

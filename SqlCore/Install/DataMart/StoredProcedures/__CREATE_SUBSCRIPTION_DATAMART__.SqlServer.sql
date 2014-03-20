@@ -387,14 +387,64 @@ begin
 	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Info', 'Generating SubscriptionsByMonth DataMart');
 end;
 
+;
+with my_pis as
+(
+select distinct
+sub.id_sub,
+sub.id_acc,
+sub.id_po,
+plm.id_pi_template,
+plm.id_pi_instance,
+sub.vt_start,
+sub.vt_end
+from t_sub sub with(nolock)
+inner join t_pl_map plm with(nolock) on plm.id_po = sub.id_po and plm.id_paramtable is null and plm.id_sub is null
+inner join t_recur tr with(nolock) on tr.id_prop = plm.id_pi_instance
+where 1=1
+and sub.id_group is null
+union
+select distinct
+sub.id_sub,
+mbr.id_acc,
+sub.id_po,
+plm.id_pi_template,
+plm.id_pi_instance,
+mbr.vt_start,
+mbr.vt_end
+from t_gsubmember mbr with(nolock)
+inner join t_sub sub with(nolock) on sub.id_group = mbr.id_group
+inner join t_pl_map plm with(nolock) on plm.id_po = sub.id_po and plm.id_paramtable is null and plm.id_sub is null
+inner join t_recur tr with(nolock) on tr.id_prop = plm.id_pi_instance and tr.b_charge_per_participant = 'Y'
+where 1=1
+union
+select distinct
+sub.id_sub,
+grm.id_acc,
+sub.id_po,
+plm.id_pi_template,
+plm.id_pi_instance,
+grm.vt_start,
+grm.vt_end
+from t_gsubmember mbr with(nolock)
+inner join t_sub sub with(nolock) on sub.id_group = mbr.id_group
+inner join t_pl_map plm with(nolock) on plm.id_po = sub.id_po and plm.id_paramtable is null and plm.id_sub is null
+inner join t_recur tr with(nolock) on tr.id_prop = plm.id_pi_instance and tr.b_charge_per_participant = 'N'
+inner join t_gsub_recur_map grm with(nolock) on grm.id_prop = tr.id_prop and grm.tt_end = dbo.mtmaxdate()
+where 1=1
+)
+select
+*
+into #all_rcs
+from (
 select
 @v_nm_instance as InstanceId,
-svc.c__subscriptionid as SubscriptionId,
+svc.id_sub as SubscriptionId,
 au.id_acc as PayerId,
 au.id_payee as PayeeId,
 pv.c_ProratedIntervalStart as StartDate,
 pv.c_ProratedIntervalEnd as EndDate,
-svc.c_RcActionType as ActionType,
+pv.c_RCActionType as ActionType,
 au.am_currency as Currency,
 pv.c_ProratedDailyRate as ProratedDailyRate,
 au.amount/pv.c_prorateddays as DailyRate,
@@ -402,15 +452,41 @@ pv.c_RCAmount as Rate,
 au.id_prod as ProductOfferingId,
 au.id_pi_template as PriceableItemTemplateId,
 au.id_pi_instance as PriceableItemInstanceId,
-svc.c_SubscriptionStart as SubscriptionStartDate,
-svc.c_SubscriptionEnd as SubscriptionEndDate,
+svc.vt_start as SubscriptionStartDate,
+svc.vt_end as SubscriptionEndDate,
 au.amount as MRR
-into #all_rcs
 from t_usage_interval tui with(nolock)
 inner join t_pv_flatrecurringcharge pv with(nolock) on tui.id_interval = pv.id_usage_interval
 inner join t_acc_usage au with(nolock) on au.id_usage_interval = pv.id_usage_interval and au.id_sess = pv.id_sess
-inner join t_svc_flatrecurringcharge svc with(nolock) on svc.id_source_sess = au.tx_uid
+inner join my_pis svc with(nolock) on svc.id_po = au.id_prod and svc.id_pi_template = au.id_pi_template and svc.id_pi_instance = au.id_pi_instance and svc.id_acc = au.id_payee
 where 1=1
+and au.amount <> 0.0
+union all
+select
+@v_nm_instance as InstanceId,
+svc.id_sub as SubscriptionId,
+au.id_acc as PayerId,
+au.id_payee as PayeeId,
+pv.c_ProratedIntervalStart as StartDate,
+pv.c_ProratedIntervalEnd as EndDate,
+pv.c_RCActionType as ActionType,
+au.am_currency as Currency,
+pv.c_ProratedDailyRate as ProratedDailyRate,
+au.amount/pv.c_prorateddays as DailyRate,
+pv.c_RCAmount as Rate,
+au.id_prod as ProductOfferingId,
+au.id_pi_template as PriceableItemTemplateId,
+au.id_pi_instance as PriceableItemInstanceId,
+svc.vt_start as SubscriptionStartDate,
+svc.vt_end as SubscriptionEndDate,
+au.amount as MRR
+from t_usage_interval tui with(nolock)
+inner join t_pv_udrecurringcharge pv with(nolock) on tui.id_interval = pv.id_usage_interval
+inner join t_acc_usage au with(nolock) on au.id_usage_interval = pv.id_usage_interval and au.id_sess = pv.id_sess
+inner join my_pis svc with(nolock) on svc.id_po = au.id_prod and svc.id_pi_template = au.id_pi_template and svc.id_pi_instance = au.id_pi_instance and svc.id_acc = au.id_payee
+where 1=1
+and au.amount <> 0.0
+) A
 ;
 
 select @l_count = count(1) from #all_rcs;
@@ -443,7 +519,8 @@ left outer join #all_rcs prc on  crc.InstanceId = prc.InstanceId
                              and crc.PriceableItemInstanceId = prc.PriceableItemInstanceId
 							 and crc.Currency = prc.Currency
                              and prc.EndDate = DATEADD(second,-1, crc.StartDate)
-                             and prc.ActionType <> 'Initial'
+                             and prc.ActionType = crc.ActionType
+                             and crc.ActionType IN ('Advance','Arrears')
 where 1=1
 ;
 
@@ -603,6 +680,38 @@ select @l_count = count(1) from SubscriptionDataMart..SubscriptionsByMonth;
 if (@v_id_run is not null)
 begin
 	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Info', 'Subscriptions by month: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Info', 'Generating SubscriptionSummary DataMart');
+end;
+
+select
+mrr.InstanceId,
+sub.id_po as ProductOfferingId,
+mrr.Year,
+mrr.Month,
+count(1) as TotalParticipants,
+0 as DistinctHierarchies,
+0 as NewParticipants,
+sum(mrr.MRRPrimaryCurrency) as MRRPrimaryCurrency,
+sum(mrr.MRRNewPrimaryCurrency) as MRRNewPrimaryCurrency,
+sum(mrr.MRRBasePrimaryCurrency) as MRRBasePrimaryCurrency,
+sum(mrr.MRRRenewalPrimaryCurrency) as MRRRenewalPrimaryCurrency,
+sum(mrr.MRRPriceChangePrimaryCurrency) as MRRPriceChangePrimaryCurrency,
+sum(mrr.MRRChurnPrimaryCurrency) as MRRChurnPrimaryCurrency,
+sum(mrr.MRRCancelationPrimaryCurrency) as MRRCancelationPrimaryCurrency,
+sum(mrr.SubscriptionRevenuePrimaryCurrency) as SubscriptionRevenuePrimaryCurrency,
+mrr.DaysInMonth
+into SubscriptionDataMart..SubscriptionSummary
+from SubscriptionDataMart..SubscriptionsByMonth mrr
+inner join t_sub sub with(nolock) on sub.id_sub = mrr.SubscriptionId
+where 1=1
+group by mrr.InstanceId, mrr.Year, mrr.Month, sub.id_po, mrr.DaysInMonth
+;
+
+select @l_count = count(1) from SubscriptionDataMart..SubscriptionSummary;
+
+if (@v_id_run is not null)
+begin
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Info', 'Subscription summaries: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
 	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Info', 'Generating SubscriptionUnits DataMart');
 end;
 
@@ -668,7 +777,6 @@ end;
 /* TODO: recurring charges */
 /* TODO: non recurring charges */
 /* TODO: counters */
-/* TODO: subscription summary */
 /* TODO: revrec */
 
 if (@v_id_run is not null)

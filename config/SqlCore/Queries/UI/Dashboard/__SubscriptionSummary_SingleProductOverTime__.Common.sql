@@ -1,9 +1,9 @@
-select ss.ProductCode, ss.Month, sum(ss.MRR) as 'MRR', sum(prev.MRR) as 'MRRPrevious', sum(ss.MRR)-sum(prev.MRR) as 'MRRChange',
-sum(ss.Subscriptions) as 'Subscriptions', sum(prev.Subscriptions) as 'SubscriptionsPrevious', sum(ss.Subscriptions)-sum(prev.Subscriptions) as 'SubscriptionsChange',
-sum(ss.NewCustomers) as 'NewCustomers', sum(prev.NewCustomers) as 'NewCustomersPrevious', sum(ss.NewCustomers)-sum(prev.NewCustomers) as 'NewCustomersChange',
-sum(ss.SubscriptionRevenue) as 'Revenue', sum(prev.SubscriptionRevenue) as 'RevenuePrevious', sum(ss.SubscriptionRevenue)-sum(prev.SubscriptionRevenue) as 'RevenueChange'
+select ss.ProductOfferingId, ss.Month, sum(ss.MRRPrimaryCurrency) as 'MRR', sum(prev.MRRPrimaryCurrency) as 'MRRPrevious', sum(ss.MRRPrimaryCurrency)-sum(prev.MRRPrimaryCurrency) as 'MRRChange',
+sum(ss.TotalParticipants) as 'Subscriptions', sum(prev.TotalParticipants) as 'SubscriptionsPrevious', sum(ss.TotalParticipants)-sum(prev.TotalParticipants) as 'SubscriptionsChange',
+sum(ss.NewParticipants) as 'NewCustomers', sum(prev.NewParticipants) as 'NewCustomersPrevious', sum(ss.NewParticipants)-sum(prev.NewParticipants) as 'NewCustomersChange',
+sum(ss.SubscriptionRevenuePrimaryCurrency) as 'Revenue', sum(prev.SubscriptionRevenuePrimaryCurrency) as 'RevenuePrevious', sum(ss.SubscriptionRevenuePrimaryCurrency)-sum(prev.SubscriptionRevenuePrimaryCurrency) as 'RevenueChange'
 from SubscriptionSummary ss
-left join SubscriptionSummary prev on ss.InstanceId = prev.InstanceId AND ss.ProductCode = prev.ProductCode AND prev.Month = DATEADD(m,-1,ss.Month)
-WHERE ss.Month > '2012-2-01' and ss.Month < '2014-02-01'
-AND ss.ProductCode like 'Adobe Connect Monthly Fee'
-group by ss.InstanceId, ss.ProductCode, ss.Month order by ss.Month asc
+inner join ProductOffering po on po.ProductOfferingId = ss.ProductOfferingId and ss.InstanceId = po.InstanceId
+left join SubscriptionSummary prev on ss.InstanceId = prev.InstanceId AND ss.ProductOfferingId = prev.ProductOfferingId AND prev.Month = DATEADD(m,-1,ss.Month)
+WHERE DATEPART(m, ss.Month) = DATEPART(m, DATEADD(m, -1, getdate())) AND DATEPART(yyyy, ss.Month) = DATEPART(yyyy, DATEADD(m, -1, getdate()))
+group by ss.InstanceId, ss.ProductOfferingId, ss.Month order by ss.Month asc

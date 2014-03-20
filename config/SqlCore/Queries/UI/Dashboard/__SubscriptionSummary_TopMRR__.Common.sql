@@ -1,8 +1,9 @@
-select top 10 ss.ProductCode, ss.Month, sum(ss.MRR) as 'MRR', sum(prev.MRR) as 'MRRPrevious', sum(ss.MRR)-sum(prev.MRR) as 'MRRChange',
-sum(ss.Subscriptions) as 'Subscriptions', sum(prev.Subscriptions) as 'SubscriptionsPrevious', sum(ss.Subscriptions)-sum(prev.Subscriptions) as 'SubscriptionsChange',
-sum(ss.NewCustomers) as 'NewCustomers', sum(prev.NewCustomers) as 'NewCustomersPrevious', sum(ss.NewCustomers)-sum(prev.NewCustomers) as 'NewCustomersChange'
+select top 10 po.ProductOfferingName, ss.Month, sum(ss.MRRPrimaryCurrency) as 'MRR', sum(prev.MRRPrimaryCurrency) as 'MRRPrevious', sum(ss.MRRPrimaryCurrency)-sum(prev.MRRPrimaryCurrency) as 'MRRChange',
+sum(ss.TotalParticipants) as 'Subscriptions', sum(prev.TotalParticipants) as 'SubscriptionsPrevious', sum(ss.TotalParticipants)-sum(prev.TotalParticipants) as 'SubscriptionsChange',
+sum(ss.NewParticipants) as 'NewCustomers', sum(prev.NewParticipants) as 'NewCustomersPrevious', sum(ss.NewParticipants)-sum(prev.NewParticipants) as 'NewCustomersChange'
 from SubscriptionSummary ss
-left join SubscriptionSummary prev on ss.InstanceId = prev.InstanceId AND ss.ProductCode = prev.ProductCode AND prev.Month = DATEADD(m,-1,ss.Month)
+inner join ProductOffering po on po.ProductOfferingId = ss.ProductOfferingId and ss.InstanceId = po.InstanceId
+left join SubscriptionSummary prev on ss.InstanceId = prev.InstanceId AND ss.ProductOfferingId = prev.ProductOfferingId AND prev.Month = DATEADD(m,-1,ss.Month)
 WHERE DATEPART(m, ss.Month) = DATEPART(m, DATEADD(m, -1, getdate())) AND DATEPART(yyyy, ss.Month) = DATEPART(yyyy, DATEADD(m, -1, getdate()))
-GROUP BY ss.InstanceId, ss.ProductCode, ss.Month 
-ORDER BY sum(ss.MRR) desc
+GROUP BY ss.InstanceId, po.ProductOfferingName, ss.Month 
+ORDER BY sum(ss.MRRPrimaryCurrency) desc

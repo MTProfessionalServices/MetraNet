@@ -17,6 +17,7 @@ namespace MetraNet.MetraOffer.ProductOfferings
     }
 
     public bool IsPartition { get { return PartitionLibrary.PartitionData.isPartitionUser; } }
+    public int PartitionId { get { return PartitionLibrary.PartitionData.POPartitionId; } }
     public int IntincomingPoId { get; set; }
     public string StringComingPoId { get; set; } //so we can read it any time in the session 
 
@@ -57,13 +58,12 @@ namespace MetraNet.MetraOffer.ProductOfferings
           productoffering.Description = existingProductOffering.Description;
           productoffering.Currency = existingProductOffering.Currency;
           productoffering.EffectiveTimeSpan.StartDate = existingProductOffering.EffectiveTimeSpan.StartDate;
-          productoffering.POPartitionId = existingProductOffering.POPartitionId;
+          productoffering.POPartitionId = PartitionId;
 
           if (!MTDataBinder1.DataBind())
           {
             Logger.LogError(MTDataBinder1.BindingErrors.ToHtml());
           }
-
         }
         catch (Exception ex)
         {
@@ -90,6 +90,7 @@ namespace MetraNet.MetraOffer.ProductOfferings
         copyProductOffering.DisplayName = productoffering.DisplayName;
         copyProductOffering.Description = productoffering.Description;
         copyProductOffering.EffectiveDate.StartDate = productoffering.EffectiveTimeSpan.StartDate.GetValueOrDefault();
+        copyProductOffering.POPartitionId = productoffering.POPartitionId;
  
         //There is a better way to do this, by looping through language list, I will implement that later  
         //Add Display Name localizations  

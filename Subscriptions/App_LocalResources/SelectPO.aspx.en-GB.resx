@@ -159,4 +159,7 @@
     <data name="StartDate.HeaderText" xml:space="preserve">
         <value>Start Date</value>
     </data>
+	<data name="TEXT_PartitionID" xml:space="preserve">
+		<value>Partition Id</value>
+	</data>	
 </root>

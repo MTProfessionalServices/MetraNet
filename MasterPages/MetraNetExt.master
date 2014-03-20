@@ -360,7 +360,7 @@
  -->
   <!-- MAIN PAGE --> 
   <div id="MainContent" class="x-hide-display">
-    <iframe src="<%= (StartingURL ?? string.Empty).EncodeForHtmlAttribute() %>" id="MainContentIframe" name="MainContentIframe" frameborder="0" height="100%" width="100%" style="height:100%;width:100%" scrolling="auto"></iframe>
+    <iframe src="<%= (StartingURL ?? string.Empty).EncodeForHtmlAttribute() %>" id="MainContentIframe" name="MainContentIframe" frameborder="0" height="100%" width="100%" style="height:100%;width:100%" scrolling="yes"></iframe>
   </div>  
   <asp:contentplaceholder id="ContentPlaceHolder1" runat="server"></asp:contentplaceholder>
   

@@ -19,7 +19,7 @@
 							<Caption>
 								<Value><![CDATA[Product Dashboard]]></Value>
 							</Caption>
-							<Link>/MetraNet/MetraOffer/MetraOfferDashboard.aspx</Link>
+							<Link>/MetraNet/MetraOffer/ProductDashboard.aspx</Link>
 							<Target>MainContentIframe</Target>
 							<Icon>/Res/Images/icons/application_view_tile.png</Icon>
 							<Description>MetraOffer Dashboard</Description>

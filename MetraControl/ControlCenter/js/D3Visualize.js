@@ -250,14 +250,16 @@ function fnVisualizeLineChart2(objLineChartConfig) {
     var xAxis = d3.svg.axis()
             .scale(x)
             .orient("bottom")
+            .tickSize(0,0)
             .tickFormat("")
-            .ticks(0);
+			;
 
     var yAxis = d3.svg.axis()
             .scale(y)
             .orient("left")
+            .tickSize(0,0)
             .tickFormat("")
-            .ticks(0);
+			;
 
     var svg = d3.select(objLineChartConfig.elementId)
             .attr("width", width + margin.left + margin.right)

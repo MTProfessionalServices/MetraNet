@@ -13,7 +13,7 @@ namespace ASP.Controllers
   {
     public JsonResult NewCustomers()
     {
-      using (var dbDataMart = new DataMart(GetDefaultDatabaseConnectionSubscriptiondatamart()))
+      using (var dbDataMart = GetDatamartContext())
       {
         var accountsByMonth = (from c in dbDataMart.Customer
                                join st in dbDataMart.SubscriptionTable on c.AccountId equals st.AccountId
@@ -25,36 +25,110 @@ namespace ASP.Controllers
                                    Account = c.AccountId,
                                    Date = new DateTime(st.StartDate.Value.Year, st.StartDate.Value.Month, 1)
                                  }).ToList();
-        ;
 
         return Json(accountsByMonth, JsonRequestBehavior.AllowGet);
       }
     }
 
+    public JsonResult Revenue()
+    {
+      using (var context = GetNetMeterContext())
+      {
+        var dateFrom = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1).AddMonths(-13);
+        var dateTo = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1).AddDays(-1);
+        var result =
+          context.T_invoice.Where(i => i.Invoice_date >= dateFrom
+                                       && i.Invoice_date <= dateTo)
+                           .Select(i => new
+                           {
+                             Date = new DateTime(i.Invoice_date.Year, i.Invoice_date.Month, 1),
+                             Currency = i.Invoice_currency.Trim(),
+                             Amount = i.Invoice_amount
+                           })
+                           .GroupBy(i => new { i.Date, i.Currency })
+                           .Select(i => new
+                           {
+                             Date = i.Key.Date,
+                             Currency = i.Key.Currency,
+                             Amount = i.Sum(grp => grp.Amount)
+                           })
+                           .OrderBy(i => i.Date).ThenBy(i => i.Currency)
+                           .ToList();
+        //var result = new[] {new {Date = new DateTime(2013, 2, 1),  Currency = "USD", Amount = 302678},
+        //                    new {Date = new DateTime(2013, 2, 1),  Currency = "EUR", Amount = 22678},
+        //                    new {Date = new DateTime(2013, 2, 1),  Currency = "YEN", Amount = 6678},
+        //                    new {Date = new DateTime(2013, 3, 1),  Currency = "USD", Amount = 307678},
+        //                    new {Date = new DateTime(2013, 3, 1),  Currency = "EUR", Amount = 28678},
+        //                    new {Date = new DateTime(2013, 3, 1),  Currency = "YEN", Amount = 7078},
+        //                    new {Date = new DateTime(2013, 4, 1),  Currency = "USD", Amount = 312678},
+        //                    new {Date = new DateTime(2013, 4, 1),  Currency = "EUR", Amount = 29678},
+        //                    new {Date = new DateTime(2013, 4, 1),  Currency = "YEN", Amount = 7678},
+        //                    new {Date = new DateTime(2013, 5, 1),  Currency = "USD", Amount = 309678},
+        //                    new {Date = new DateTime(2013, 5, 1),  Currency = "EUR", Amount = 32678},
+        //                    new {Date = new DateTime(2013, 5, 1),  Currency = "YEN", Amount = 7478},
+        //                    new {Date = new DateTime(2013, 6, 1),  Currency = "USD", Amount = 307978},
+        //                    new {Date = new DateTime(2013, 6, 1),  Currency = "EUR", Amount = 22678},
+        //                    new {Date = new DateTime(2013, 6, 1),  Currency = "YEN", Amount = 6678},
+        //                    new {Date = new DateTime(2013, 7, 1),  Currency = "USD", Amount = 302678},
+        //                    new {Date = new DateTime(2013, 7, 1),  Currency = "EUR", Amount = 22678},
+        //                    new {Date = new DateTime(2013, 7, 1),  Currency = "YEN", Amount = 6678},
+        //                    new {Date = new DateTime(2013, 8, 1),  Currency = "USD", Amount = 302678},
+        //                    new {Date = new DateTime(2013, 8, 1),  Currency = "EUR", Amount = 22678},
+        //                    new {Date = new DateTime(2013, 8, 1),  Currency = "YEN", Amount = 6678},
+        //                    new {Date = new DateTime(2013, 9, 1),  Currency = "USD", Amount = 302678},
+        //                    new {Date = new DateTime(2013, 9, 1),  Currency = "EUR", Amount = 22678},
+        //                    new {Date = new DateTime(2013, 9, 1),  Currency = "YEN", Amount = 6678},
+        //                    new {Date = new DateTime(2013, 10, 1), Currency = "USD", Amount = 302678},
+        //                    new {Date = new DateTime(2013, 10, 1), Currency = "EUR", Amount = 22678},
+        //                    new {Date = new DateTime(2013, 10, 1), Currency = "YEN", Amount = 6678},
+        //                    new {Date = new DateTime(2013, 11, 1), Currency = "USD", Amount = 302678},
+        //                    new {Date = new DateTime(2013, 11, 1), Currency = "EUR", Amount = 22678},
+        //                    new {Date = new DateTime(2013, 11, 1), Currency = "YEN", Amount = 6678},
+        //                    new {Date = new DateTime(2014, 1, 1),  Currency = "USD", Amount = 402678},
+        //                    new {Date = new DateTime(2014, 1, 1),  Currency = "EUR", Amount = 62678},
+        //                    new {Date = new DateTime(2014, 1, 1),  Currency = "YEN", Amount = 9678}
+        //                   };
+        return Json(result, JsonRequestBehavior.AllowGet);
+      }
+    }
+
     public JsonResult MRRByProduct()
     {
-      Title = "Monthly Recurring Revenue By Product Report";
+      using (var dbDataMart = GetDatamartContext())
+      {
+        var MRRByMonth = (from subByMonth in dbDataMart.SubscriptionsByMonth
+                          join sub in dbDataMart.SubscriptionTable on subByMonth.SubscriptionId equals
+                            sub.SubscriptionId
+                          join c in dbDataMart.Customer on sub.AccountId equals c.AccountId
+                          where
+                            subByMonth.Month.HasValue &&
+                            subByMonth.Month >= DateTime.Today.AddMonths(-13) &&
+                            subByMonth.Month < new DateTime(DateTime.Now.AddMonths(12).Year, DateTime.Now.Month, 1)
+                          group subByMonth by new
+                            {
+                              Date = new DateTime(subByMonth.Month.Value.Year, subByMonth.Month.Value.Month, 1),
+                              CurrencyCode = sub.FeeCurrency
+                            }
+                          into grp
+                          select new
+                            {
+                              grp.Key.Date,
+                              grp.Key.CurrencyCode,
+                              Amount =
+                            grp.Sum(
+                              x =>
+                              x.MRRBase + x.MRRNew + x.MRRRenewal + x.MRRPriceChange + x.MRRChurn + x.MRRCancellation)
+                            }).ToList();
 
-      var monthsArr = new string[12];
-      var lastMonth = (new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1)).AddMonths(-1);
-
-      for (int i = 0; i <= 11; i++)
-        monthsArr[11 - i] = lastMonth.AddMonths(-i).ToString("MMM yy");
-
-      ViewBag.GridMonthsArr = monthsArr;
-
-      ViewBag.ProductsList = GetProductCodes();
-      ViewBag.TerritoryList = GetTerritoryCodes();
-
-      return Json("");
+        return Json(MRRByMonth, JsonRequestBehavior.AllowGet);
+      }
     }
 
     private IEnumerable<SelectListItem> GetProductCodes()
     {
-      var list = new List<SelectListItem>();
-      list.Add(new SelectListItem() { Selected = true, Text = "All", Value = "all" });
+      var list = new List<SelectListItem> {new SelectListItem {Selected = true, Text = "All", Value = "all"}};
 
-      using (var dbContext = new DataMart(GetDefaultDatabaseConnectionSubscriptiondatamart()))
+      using (var dbContext = GetDatamartContext())
       {
         var products =
           (from subByMonth in dbContext.SubscriptionsByMonth
@@ -65,16 +139,16 @@ namespace ASP.Controllers
              subByMonth.Month <= DateTime.Now
            select sub.ProductCode).Distinct().OrderBy(x => x).ToList();
 
-        list.AddRange(products.Select(productCode => new SelectListItem() { Text = productCode, Value = productCode }));
+        list.AddRange(products.Select(productCode => new SelectListItem { Text = productCode, Value = productCode }));
       }
       return list;
     }
 
     private IEnumerable<SelectListItem> GetTerritoryCodes()
     {
-      var list = new List<SelectListItem> { new SelectListItem() { Selected = true, Text = "All", Value = "all" } };
+      var list = new List<SelectListItem> { new SelectListItem { Selected = true, Text = "All", Value = "all" } };
 
-      using (var dbContext = new DataMart(GetDefaultDatabaseConnectionSubscriptiondatamart()))
+      using (var dbContext = GetDatamartContext())
       {
         var codes =
           (from st in dbContext.SubscriptionTable
@@ -85,21 +159,31 @@ namespace ASP.Controllers
              st.StartDate.Value <= DateTime.Now
            select c.Territorycode).Distinct().OrderBy(x => x).ToList();
 
-        list.AddRange(codes.Select(code => new SelectListItem() { Text = code, Value = code }));
+        list.AddRange(codes.Select(code => new SelectListItem { Text = code, Value = code }));
       }
       return list;
     }
 
-    private static DbConnection GetDefaultDatabaseConnectionSubscriptiondatamart()
+    private static DataMart GetDatamartContext()
+    {
+      return new DataMart(GetDefaultDatabaseConnection("localhost", "Subscriptiondatamart", "nmdbo", "MetraTech1"));
+    }
+
+    private static NetMeter GetNetMeterContext()
+    {
+      return new NetMeter(GetDefaultDatabaseConnection("localhost", "NetMeter", "nmdbo", "MetraTech1"));
+    }
+
+    private static DbConnection GetDefaultDatabaseConnection(string serverName, string dbName, string userName, string password)
     {
       //var connectionInfo = new ConnectionInfo("NetMeter"){ Catalog = "Subscriptiondatamart" };
       //return ConnectionBase.GetDbConnection(connectionInfo, false);
       var connString = new SqlConnectionStringBuilder
       {
-        DataSource = "localhost",
-        InitialCatalog = "Subscriptiondatamart",
-        UserID = "nmdbo",
-        Password = "MetraTech1"
+        DataSource = serverName,
+        InitialCatalog = dbName,
+        UserID = userName,
+        Password = password
       };
       return new SqlConnection(connString.ToString());
     }

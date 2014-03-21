@@ -54,9 +54,10 @@ Function GetPriceListListOfValues(curr, language)
     If curr <> "" Then
         filter = filter & vbNewLine & "  and nm_currency_code = '" & curr & "'"
     End If
-    If Session("isTenantUser") Then
-        filter = filter & vbNewLine & "  and eppl.c_TenantId = " & Session("topLevelAccountId")
+    If Session("isPartitionUser") Then
+        filter = filter & vbNewLine & "  and c_PLPartitionId = " & Session("topLevelAccountId")
     End If
+
     Call objSqlRowset.AddParam("%%FILTER%%", filter, True)
     
     Call objSqlRowset.Execute()

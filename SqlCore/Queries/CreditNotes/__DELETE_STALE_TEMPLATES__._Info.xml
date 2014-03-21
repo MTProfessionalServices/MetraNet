@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Query>
-    <Action>Delete</Action>
+    <Action>Unknown</Action>
     <Implementations>
         <Implementation>Common</Implementation>
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>ExistingTemplates</Name>
-            <DataType>string</DataType>
-            <ReplacementType>SqlParameter</ReplacementType>
+            <Name>EXISTINGTEMPLATES</Name>
+            <DataType>sqlsubstitution</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
             <Description>List of existing templates in the system</Description>
         </Parameter>
     </Parameters>
-    <Description></Description>
+    <Description>Deletes stale templates from bme table.</Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
         <CommonQuerySourceFile></CommonQuerySourceFile>

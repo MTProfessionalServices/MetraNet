@@ -23,9 +23,12 @@ public partial class Logout : MTPage
     {
       McmLogout();
     }
+
+    var lang = Session[Constants.SELECTED_LANGUAGE];
     TicketManager.InvalidateTicket(UI.User.Ticket);    
     FormsAuthentication.SignOut();
     Session.Abandon();
+    Response.Write(lang);
     Response.End();
   }
 

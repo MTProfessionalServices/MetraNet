@@ -23,6 +23,7 @@ public partial class login: MTPage
     public String loginTxt = "Login";
     public String showFailureText = "false";
     public String showChangePasswdFailureText = "false";
+    public string language = "en-US";
    
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -37,12 +38,14 @@ public partial class login: MTPage
         passwordTxt = GetLocalResourceObject("Login1Resource1.PasswordLabelText").ToString();
         //newpasswordTxt = GetLocalResourceObject("Login1Resource1.NewPasswordLabelText").ToString();
         //confirmnewpasswordTxt = GetLocalResourceObject("Login1Resource1.ConfirmNewPasswordLabelText").ToString(); 
-      
+        language = (string)Session[Constants.SELECTED_LANGUAGE];
+     
         Button btnLogin = (Button)Login1.FindControl("Login");
         btnLogin.Text =  GetLocalResourceObject("Login1Resource1.LoginButtonText").ToString();
 
         showFailureText = "false";
         showChangePasswdFailureText = "false";
+        Page.Title = (string)GetLocalResourceObject("PageResource1.Title");
         Login1.Focus();
     }
 

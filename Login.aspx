@@ -23,7 +23,7 @@
     var flagDist = 34;
     var languageButtonPressed = false;
     var SelectedLanguageRightToLeft = false;
-
+    var language = "<%=language%>";
 
 
     function holdCurrentBackgroundImage() {
@@ -194,47 +194,48 @@
         <ul id="panelLanguageItems" class="alpha tspace" style="display: inline-block">
           <%--<li id="lang-label">Select language:</li>--%>
           <li>
-            <img link="Login.aspx?l=en-US&datalangnum=1" src="/Res/Images/flags/us.png" alt="English"
+            <img link="Login.aspx?l=en-us" src="/Res/Images/flags/us.png" alt="English"
               title="English" data-langnum="1" lang-code="en-us" /></li>
           <li>
-            <img link="Login.aspx?l=en-GB&datalangnum=2" src="/Res/Images/flags/gb.png" alt="English (GB)"
+            <img link="Login.aspx?l=en-gb" src="/Res/Images/flags/gb.png" alt="English (GB)"
               title="English (GB)" data-langnum="2" lang-code="en-gb" /></li>
           <li>
-            <img link="Login.aspx?l=fr-FR&datalangnum=3" src="/Res/Images/flags/fr.png" alt="Français"
+            <img link="Login.aspx?l=fr-fr" src="/Res/Images/flags/fr.png" alt="Français"
               title="Français" data-langnum="3" lang-code="fr-fr" /></li>
           <li>
-            <img link="Login.aspx?l=de-De&datalangnum=4" src="/Res/Images/flags/de.png" alt="Deutsch"
+            <img link="Login.aspx?l=de-de" src="/Res/Images/flags/de.png" alt="Deutsch"
               title="Deutsch" data-langnum="4" lang-code="de-de" /></li>
           <li>
-            <img link="Login.aspx?l=es&datalangnum=5" src="/Res/Images/flags/es.png" alt="Español"
+            <img link="Login.aspx?l=es-es" src="/Res/Images/flags/es.png" alt="Español"
               title="Español" data-langnum="5" lang-code="es-es" /></li>
           <li>
-            <img link="Login.aspx?l=ja&datalangnum=6" src="/Res/Images/flags/jp.png" alt="日本語"
+            <img link="Login.aspx?l=ja-jp" src="/Res/Images/flags/jp.png" alt="日本語"
               title="日本語" data-langnum="6" lang-code="ja-jp" /></li>
           <li>
-            <img link="Login.aspx?l=pt-br&datalangnum=7" src="/Res/Images/flags/br.png" alt="Português  (Brazil)"
+            <img link="Login.aspx?l=pt-br" src="/Res/Images/flags/br.png" alt="Português  (Brazil)"
               title="Português (Brazil)" data-langnum="7" lang-code="pt-br" /></li>
           <li>
-            <img link="Login.aspx?l=it&datalangnum=8" src="/Res/Images/flags/it.png" alt="Italiano"
+            <img link="Login.aspx?l=it-it" src="/Res/Images/flags/it.png" alt="Italiano"
               title="Italiano" data-langnum="8" lang-code="it-it" /></li>
           <li>
-            <img link="Login.aspx?l=es-mx&datalangnum=9" src="/Res/Images/flags/mx.png" alt="Español (Mexico)"
+            <img link="Login.aspx?l=es-mx" src="/Res/Images/flags/mx.png" alt="Español (Mexico)"
               title="Español (Mexico)" data-langnum="9" lang-code="es-mx" /></li>
         </ul>
-        <script>
+        <script type="text/javascript">
           Ext.onReady(function () {
             // select curren language
             var dSelectedLang = Ext.get("selected-lang");
-            var imgToSelect = dSelectedLang.getAttribute('data-langnum');
-            var dImgToSelect = Ext.DomQuery.selectNode("div#lang-picker img[data-langnum=" + imgToSelect + "]");
+            var dImgToSelect = Ext.DomQuery.selectNode("div#lang-picker img[lang-code=\"<%=language%>\"]");
+            var currentLang = dImgToSelect.getAttribute('data-langnum');
+            dSelectedLang.set({ 'data-langnum': currentLang });
+
             dSelectedLang.alignTo(dImgToSelect, "c-c");
             dSelectedLang.setVisible(true);
             initializeLanguageButtons();
 
           });
 
-
-       
+          
         </script>
       </div>
     </div>

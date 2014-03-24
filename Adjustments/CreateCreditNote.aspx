@@ -37,7 +37,8 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
        <table cellspacing="0">
          <tr>
            <td  class="x-panel-btn-td">
-             <MT:MTButton ID="MTButton1"  runat="server"
+             <asp:HiddenField ID="hdSelectedItemsList" runat="server" />
+             <MT:MTButton ID="MTButton1"  runat="server" OnClientClick="return GetAdjustmentIdsAndType();"
               OnClick="btnIssueCreditNote_Click" TabIndex="150" meta:resourcekey="btnIssueCreditNoteResource1" />
            </td>
            <td  class="x-panel-btn-td">
@@ -71,6 +72,47 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
         }
         var paramsDataSource = getDataSourceUrlParams({ start: 0, limit: 10 }, timeInterval);
         dataStore_<%= MTFilterGrid1.ClientID %>.load({ params: paramsDataSource });
-      } 
+      }
+      
+      Ext.onReady(function() {
+        dataStore_<%= MTFilterGrid1.ClientID %>.on("beforeload", function(store) {
+          var index = document.getElementById('<%=ddTimeIntervals.ClientID %>').selectedIndex;
+          var timeInterval = document.getElementById('<%=ddTimeIntervals.ClientID %>').options[index].text;
+          store.setBaseParam('timeInterval', timeInterval);
+        });
+
+        grid_<%= MTFilterGrid1.ClientID %>.getSelectionModel().on("beforerowselect", function(sm, index, keep, record) {
+          if (record.data.CreditNoteIdentifier == "") 
+            return true;
+          return false;
+        });
+      });
+      
+      function checkBoxColRenderer(value, meta, record, rowIndex, colIndex, store) {
+        if (record.data.CreditNoteIdentifier == "") {
+          return "<div class='x-grid3-cell-inner x-grid3-col-checker x-unselectable' unselectable='on'><div class='x-grid3-row-checker'>&nbsp;</div></div>";
+        } else
+          return '';
+      }
+
+      OverrideRenderer_<%= MTFilterGrid1.ClientID %> = function(cm) {
+        cm.setRenderer(0, checkBoxColRenderer);
+      };
+
+      function GetAdjustmentIdsAndType()
+      {
+        var adjRecords = grid_<%= MTFilterGrid1.ClientID %>.getSelectionModel().getSelections();
+        var adjustmentIdsAndType = "";
+        for(var i=0; i < adjRecords.length; i++)
+        {
+          if(i > 0)
+          {
+            adjustmentIdsAndType += ",";
+          }
+          adjustmentIdsAndType += (adjRecords[i].data.AdjustmentID + ";" + adjRecords[i].data.AdjustmentType);
+          document.getElementById('<%=hdSelectedItemsList.ClientID %>').value = adjustmentIdsAndType;
+        }
+        return (document.getElementById('<%=hdSelectedItemsList.ClientID %>').value == '') ? false : true;
+      }
     </script>
 </asp:Content>

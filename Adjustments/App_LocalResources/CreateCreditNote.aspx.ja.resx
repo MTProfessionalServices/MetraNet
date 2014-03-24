@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btnIssueCreditNoteResource1.Text" xml:space="preserve">
-    <value>{JA}IIssue Credit Note</value>
+    <value>{JA}Issue Credit Note</value>
   </data>
   <data name="btnCancelResource1.Text" xml:space="preserve">
     <value>{JA}Cancel</value>

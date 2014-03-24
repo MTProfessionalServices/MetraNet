@@ -169,6 +169,46 @@
                             <Icon>/Res/Images/Icons/user_add.png</Icon>
                             <Description>Shows sub-meny foraAdding (create) account to hierarch by specified account type</Description>
                             <RequiredCapabilities></RequiredCapabilities>
+							<SubMenu>
+								<ID>AddChildAccountSubMenu</ID>
+								<Type>Context</Type>
+								<Description>Submenu of Add Child Account Menu</Description>
+								<MenuSections>
+									<MenuSection>
+										<ID>AddChildMainSection</ID>
+										<Caption>
+											<Value><![CDATA[Add Child Common]]></Value>
+										</Caption>
+										<Description>Common Add Child Section</Description>
+										<MenuItems>
+											<MenuItem>
+												<ID>DepartmentAccount_submenuItem</ID>
+												<Caption>
+													<LocalizationTag>TEXT_KEYTERM_DEPARTMENT_ACCOUNT</LocalizationTag>
+													<ResourceClassKey>App_GlobalResources/KeyTerms</ResourceClassKey>
+												</Caption>
+												<Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=AddAccountWorkflow&amp;AccountType=DepartmentAccount&amp;ParentId=&apos; + node.id + &apos;&amp;ParentName=&apos; + node.text + &apos;</Link>
+												<Target>MainContentIframe</Target>
+												<Icon>/ImageHandler/images/Account/DepartmentAccount/account.gif</Icon>
+												<Description>Adding department account</Description>
+												<RequiredCapabilities></RequiredCapabilities>
+											</MenuItem>
+											<MenuItem>
+												<ID>CoreSubscriber_submenuItem</ID>
+												<Caption>
+													<LocalizationTag>TEXT_KEYTERM_CORE_SUBSCRIBER</LocalizationTag>
+													<ResourceClassKey>App_GlobalResources/KeyTerms</ResourceClassKey>
+												</Caption>
+												<Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=AddAccountWorkflow&amp;AccountType=CoreSubscriber&amp;ParentId=&apos; + node.id + &apos;&amp;ParentName=&apos; + node.text + &apos;</Link>
+												<Target>MainContentIframe</Target>
+												<Icon>/ImageHandler/images/Account/CoreSubscriber/account.gif</Icon>
+												<Description>Adding core subscriber</Description>
+												<RequiredCapabilities></RequiredCapabilities>
+											</MenuItem>
+										</MenuItems>
+									</MenuSection>
+								</MenuSections>
+							</SubMenu>
                         </MenuItem>
                         <MenuItem>
                             <ID>SelfCarePortal</ID>
@@ -274,6 +314,34 @@
                             <Icon>/Res/Images/Icons/user_add.png</Icon>
                             <Description>Shows sub-meny foraAdding (create) account to hierarch by specified account type</Description>
                             <RequiredCapabilities></RequiredCapabilities>
+							<SubMenu>
+								<ID>AddChildAccountSubMenu</ID>
+								<Type>Context</Type>
+								<Description>Submenu of Add Child Account Menu</Description>
+								<MenuSections>
+									<MenuSection>
+										<ID>AddChildMainSection</ID>
+										<Caption>
+											<Value><![CDATA[Add Child Common]]></Value>
+										</Caption>
+										<Description>Common Add Child Section</Description>
+										<MenuItems>
+											<MenuItem>
+												<ID>GSMServiceAccount_submenuItem</ID>
+												<Caption>
+													<LocalizationTag>TEXT_KEYTERM_GSM_SERVICE_ACCOUNT</LocalizationTag>
+													<ResourceClassKey>App_GlobalResources/KeyTerms</ResourceClassKey>
+												</Caption>
+												<Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=AddAccountWorkflow&amp;AccountType=GSMServiceAccount&amp;ParentId=&apos; + node.id + &apos;&amp;ParentName=&apos; + node.text + &apos;</Link>
+												<Target>MainContentIframe</Target>
+												<Icon>/ImageHandler/images/Account/GSMServiceAccount/account.gif</Icon>
+												<Description>Adding GSM service account</Description>
+												<RequiredCapabilities></RequiredCapabilities>
+											</MenuItem>
+										</MenuItems>
+									</MenuSection>
+								</MenuSections>
+							</SubMenu>
                         </MenuItem>
                         <MenuItem>
                             <ID>SelfCarePortal</ID>
@@ -379,6 +447,46 @@
                             <Icon>/Res/Images/Icons/user_add.png</Icon>
                             <Description>Shows sub-meny foraAdding (create) account to hierarch by specified account type</Description>
                             <RequiredCapabilities></RequiredCapabilities>
+							<SubMenu>
+								<ID>AddChildAccountSubMenu</ID>
+								<Type>Context</Type>
+								<Description>Submenu of Add Child Account Menu</Description>
+								<MenuSections>
+									<MenuSection>
+										<ID>AddChildMainSection</ID>
+										<Caption>
+											<Value><![CDATA[Add Child Common]]></Value>
+										</Caption>
+										<Description>Common Add Child Section</Description>
+										<MenuItems>
+											<MenuItem>
+												<ID>DepartmentAccount_submenuItem</ID>
+												<Caption>
+													<LocalizationTag>TEXT_KEYTERM_DEPARTMENT_ACCOUNT</LocalizationTag>
+													<ResourceClassKey>App_GlobalResources/KeyTerms</ResourceClassKey>
+												</Caption>
+												<Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=AddAccountWorkflow&amp;AccountType=DepartmentAccount&amp;ParentId=&apos; + node.id + &apos;&amp;ParentName=&apos; + node.text + &apos;</Link>
+												<Target>MainContentIframe</Target>
+												<Icon>/ImageHandler/images/Account/DepartmentAccount/account.gif</Icon>
+												<Description>Adding department account</Description>
+												<RequiredCapabilities></RequiredCapabilities>
+											</MenuItem>
+											<MenuItem>
+												<ID>CoreSubscriber_submenuItem</ID>
+												<Caption>
+													<LocalizationTag>TEXT_KEYTERM_CORE_SUBSCRIBER</LocalizationTag>
+													<ResourceClassKey>App_GlobalResources/KeyTerms</ResourceClassKey>
+												</Caption>
+												<Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=AddAccountWorkflow&amp;AccountType=CoreSubscriber&amp;ParentId=&apos; + node.id + &apos;&amp;ParentName=&apos; + node.text + &apos;</Link>
+												<Target>MainContentIframe</Target>
+												<Icon>/ImageHandler/images/Account/CoreSubscriber/account.gif</Icon>
+												<Description>Adding core subscriber</Description>
+												<RequiredCapabilities></RequiredCapabilities>
+											</MenuItem>
+										</MenuItems>
+									</MenuSection>
+								</MenuSections>
+							</SubMenu>
                         </MenuItem>
                         <MenuItem>
                             <ID>SelfCarePortal</ID>
@@ -420,6 +528,7 @@
                     </MenuItems>
                 </MenuSection>
             </MenuSections>
+			<MouseOverJsHandler>Account.RenderAdditionalMenuItems( this, e, menuItem );</MouseOverJsHandler>
         </Menu>
     </Menus>
     <Name></Name>

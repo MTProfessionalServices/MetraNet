@@ -23,7 +23,7 @@ public partial class Adjustments_AjaxServices_LoadAdjustmentsIssued : MTListServ
       items.PageSize = limit;
       items.CurrentPage = batchID;
 
-     client.GetAdjustmentsToIncludeInCreditNotes(ref items, UI.Subscriber.SelectedAccount._AccountID.Value, MetraTime.Now.Date.AddDays(timeInterval), MetraTime.Now.Date);
+     client.GetAdjustmentsToIncludeInCreditNotes(ref items, UI.Subscriber.SelectedAccount._AccountID.Value, MetraTime.Now.Date.AddDays(timeInterval), MetraTime.Now.Date.AddDays(1));
     }
     catch (FaultException<MASBasicFaultDetail> ex)
     {

@@ -8,7 +8,8 @@ INSERT INTO t_billgroup_member_tmp (id_materialization, id_acc, tx_name)
 SELECT 
 	%%ID_MATERIALIZATION%%, 
 	cg.id_acc,
-	ISNULL(ns.nm_space, 'Default') 'tx_name'
+	--ISNULL(ns.nm_space, 'Default') 
+	'tx_name'
 FROM t_billgroup_constraint_tmp cg
 JOIN
 (

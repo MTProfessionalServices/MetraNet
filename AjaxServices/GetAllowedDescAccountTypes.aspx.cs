@@ -36,7 +36,7 @@ public partial class AjaxServices_GetAllowedDescAccountTypes : MTPage
       {
         Logger.LogDebug("accountID is not set, so all types will be returned for account hierarchy");
 
-        MetraTech.Domain.Account.AccountTypeParameters accParam = new MetraTech.Domain.Account.AccountTypeParameters();
+        MetraTech.Domain.AccountProps.AccountTypeParameters accParam = new MetraTech.Domain.AccountProps.AccountTypeParameters();
         accParam.IsVisibleInHierarchy = true;
            
         client.GetAllAccountTypeNames(accParam, out accTypeNames);

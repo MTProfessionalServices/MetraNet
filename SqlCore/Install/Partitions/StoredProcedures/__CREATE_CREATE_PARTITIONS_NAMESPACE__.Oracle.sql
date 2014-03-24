@@ -8,7 +8,7 @@ PROCEDURE CREATE_PARTITIONS_NAMESPACE(
 	,v_invoiceSuffix     	VARCHAR2
 	,v_invoiceNumDigits 	int
 	,v_invoiceDueDateOffset	int
-	,v_invoiceNumLast 	int	
+	,v_invoiceNumLast 	int
 	,v_namespaceInsertCount OUT int
 	,v_invoiceNamespaceInsertCount OUT int
     ,v_errorNumber OUT int
@@ -28,7 +28,7 @@ BEGIN
   if (v_total_rows_t_namespace=0) THEN
     BEGIN
       insert into t_namespace (nm_space, tx_desc, nm_method, tx_typ_space)
-      values (v_namespace, v_namespaceDescription, v_method, v_namespaceType);
+      values (LOWER(v_namespace), v_namespaceDescription, v_method, v_namespaceType);
     
       v_namespaceInsertCount := 1;
     EXCEPTION
@@ -45,7 +45,7 @@ BEGIN
     BEGIN
       insert into t_invoice_namespace
              (namespace,  invoice_prefix, invoice_suffix, invoice_num_digits, invoice_due_date_offset, id_invoice_num_last)
-      values (v_namespace, v_invoicePrefix, v_invoiceSuffix, v_invoiceNumDigits,  v_invoiceDueDateOffset, v_invoiceNumLast);
+      values (LOWER(v_namespace), v_invoicePrefix, v_invoiceSuffix, v_invoiceNumDigits,  v_invoiceDueDateOffset, v_invoiceNumLast);
   
       v_invoiceNamespaceInsertCount := 1;
     EXCEPTION
@@ -54,6 +54,5 @@ BEGIN
       v_errorNumber := SQLCODE;
       v_errorMessage := SUBSTR(SQLERRM, 1, 200);
     END;
-  END IF;
-
+  END IF;  
 END;

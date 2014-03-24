@@ -29,49 +29,13 @@ public partial class GenericAddAccount : MTAccountPage
     skipProperties.Add("name_space");
     skipProperties.Add("applydefaultsecuritypolicy");
     skipProperties.Add("internal.timezoneid");
-    skipProperties.Add("payerid"); 
+    skipProperties.Add("payerid");
     skipProperties.Add("accountstartdate");
-    skipProperties.Add("internal.language");
-
-      Account = PageNav.Data.Out_StateInitData["Account"] as Account;
-      setDefaultProperties(Account);
-      if (Account != null)
-      {
-        Account.AccountStartDate = DateTime.Now;
-        // For UX reasons, if the settings are not there, lets not confuse the user with
-        // settings which have no affect... plus I hate researching bugs due to bad config...
-        var accountType = mAccountTypeCollection.GetAccountType(Account.AccountType);
-        if (!(accountType.CanBePayer || accountType.CanSubscribe || accountType.CanParticipateInGSub))
-        {
-          ddCurrency.Visible = false;
-          cbBillable.Visible = false;
-          ddPaperInvoice.Visible = false;
-          MTBillingCycleControl1.CycleList.Visible = false;
-          MTBillingCycleControl1.Weekly.Visible = false;
-          MTBillingCycleControl1.Quarterly_Month.Visible = false;
-          MTBillingCycleControl1.Quarterly_Day.Visible = false;
-          MTBillingCycleControl1.Monthly.Visible = false;
-          MTBillingCycleControl1.SemiMonthly_First.Visible = false;
-          MTBillingCycleControl1.SemiMonthly_Second.Visible = false;
-          MTBillingCycleControl1.StartYear.Visible = false;
+    skipProperties.Add("internal.language");    
   }
-      }
-
-      PopulatePresentationNameSpaceList(ddBrandedSite);
-      MTGenericForm1.DataBinderInstanceName = "MTDataBinder1";
-      if (Account != null) MTGenericForm1.RenderObjectType = Account.GetType();
-      MTGenericForm1.RenderObjectInstanceName = "Account";
-      MTGenericForm1.TemplatePath = TemplatePath;
-      MTGenericForm1.ReadOnly = false;
-      SetupSkipProperties();
-      PriceListCol = PageNav.Data.Out_StateInitData["PriceListColl"] as List<PriceList>;
-      MTGenericForm1.IgnoreProperties = skipProperties;
-
-      PopulatePriceList(ddPriceList);
-    }
 
 
-  protected void Page_Load(object sender, EventArgs e) 
+  protected void Page_Load(object sender, EventArgs e)
   {
     if (!IsPostBack)
     {
@@ -189,18 +153,18 @@ public partial class GenericAddAccount : MTAccountPage
     {
       Page.Validate();
 
-    if (Page.IsValid)
-    {
-      MTDataBinder1.Unbind();
+      if (Page.IsValid)
+      {
+        MTDataBinder1.Unbind();
 
-      AddAccountEvents_AddAccount_Client add = new AddAccountEvents_AddAccount_Client();
-      add.In_Account = Account;
+        AddAccountEvents_AddAccount_Client add = new AddAccountEvents_AddAccount_Client();
+        add.In_Account = Account;
         add.In_AccountId = new AccountIdentifier(UI.User.AccountId);
         add.In_SendEmail = cbEmailNotification.Checked;
-      add.In_ApplyAccountTemplates = cbApplyTemplate.Checked;
-      PageNav.Execute(add);
+        add.In_ApplyAccountTemplates = cbApplyTemplate.Checked;
+        PageNav.Execute(add);
+      }
     }
-  }
     catch (Exception exp)
     {
       SetError(exp.Message);
@@ -249,5 +213,5 @@ public partial class GenericAddAccount : MTAccountPage
     }
   }
 
- 
+
 }

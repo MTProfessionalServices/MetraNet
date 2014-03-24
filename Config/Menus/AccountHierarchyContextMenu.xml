@@ -187,7 +187,7 @@
 													<LocalizationTag>TEXT_KEYTERM_DEPARTMENT_ACCOUNT</LocalizationTag>
 													<ResourceClassKey>App_GlobalResources/KeyTerms</ResourceClassKey>
 												</Caption>
-												<Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=AddAccountWorkflow&amp;AccountType=DepartmentAccount</Link>
+												<Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=AddAccountWorkflow&amp;AccountType=DepartmentAccount&amp;ParentId=&apos; + node.id + &apos;&amp;ParentName=&apos; + node.text + &apos;</Link>
 												<Target>MainContentIframe</Target>
 												<Icon>/ImageHandler/images/Account/DepartmentAccount/account.gif</Icon>
 												<Description>Adding department account</Description>
@@ -199,7 +199,7 @@
 													<LocalizationTag>TEXT_KEYTERM_CORE_SUBSCRIBER</LocalizationTag>
 													<ResourceClassKey>App_GlobalResources/KeyTerms</ResourceClassKey>
 												</Caption>
-												<Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=AddAccountWorkflow&amp;AccountType=CoreSubscriber</Link>
+												<Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=AddAccountWorkflow&amp;AccountType=CoreSubscriber&amp;ParentId=&apos; + node.id + &apos;&amp;ParentName=&apos; + node.text + &apos;</Link>
 												<Target>MainContentIframe</Target>
 												<Icon>/ImageHandler/images/Account/CoreSubscriber/account.gif</Icon>
 												<Description>Adding core subscriber</Description>
@@ -332,7 +332,7 @@
 													<LocalizationTag>TEXT_KEYTERM_GSM_SERVICE_ACCOUNT</LocalizationTag>
 													<ResourceClassKey>App_GlobalResources/KeyTerms</ResourceClassKey>
 												</Caption>
-												<Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=AddAccountWorkflow&amp;AccountType=GSMServiceAccount</Link>
+												<Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=AddAccountWorkflow&amp;AccountType=GSMServiceAccount&amp;ParentId=&apos; + node.id + &apos;&amp;ParentName=&apos; + node.text + &apos;</Link>
 												<Target>MainContentIframe</Target>
 												<Icon>/ImageHandler/images/Account/GSMServiceAccount/account.gif</Icon>
 												<Description>Adding GSM service account</Description>
@@ -465,7 +465,7 @@
 													<LocalizationTag>TEXT_KEYTERM_DEPARTMENT_ACCOUNT</LocalizationTag>
 													<ResourceClassKey>App_GlobalResources/KeyTerms</ResourceClassKey>
 												</Caption>
-												<Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=AddAccountWorkflow&amp;AccountType=DepartmentAccount</Link>
+												<Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=AddAccountWorkflow&amp;AccountType=DepartmentAccount&amp;ParentId=&apos; + node.id + &apos;&amp;ParentName=&apos; + node.text + &apos;</Link>
 												<Target>MainContentIframe</Target>
 												<Icon>/ImageHandler/images/Account/DepartmentAccount/account.gif</Icon>
 												<Description>Adding department account</Description>
@@ -477,7 +477,7 @@
 													<LocalizationTag>TEXT_KEYTERM_CORE_SUBSCRIBER</LocalizationTag>
 													<ResourceClassKey>App_GlobalResources/KeyTerms</ResourceClassKey>
 												</Caption>
-												<Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=AddAccountWorkflow&amp;AccountType=CoreSubscriber</Link>
+												<Link>/MetraNet/StartWorkFlow.aspx?WorkflowName=AddAccountWorkflow&amp;AccountType=CoreSubscriber&amp;ParentId=&apos; + node.id + &apos;&amp;ParentName=&apos; + node.text + &apos;</Link>
 												<Target>MainContentIframe</Target>
 												<Icon>/ImageHandler/images/Account/CoreSubscriber/account.gif</Icon>
 												<Description>Adding core subscriber</Description>

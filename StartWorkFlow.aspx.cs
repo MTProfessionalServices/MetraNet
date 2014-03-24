@@ -89,6 +89,13 @@ public partial class StartWorkFlow : MTPage
               AddAccountEvents_StartAddAccountOfType_Client acc1 = new AddAccountEvents_StartAddAccountOfType_Client();
               acc1.In_AccountId = new AccountIdentifier(UI.User.AccountId);
               acc1.In_SelectedAccountType = Request["AccountType"];
+
+              if (Request["ParentId"] != null)
+              {
+                acc1.In_ParentAccountId = int.Parse(Request["ParentId"]);
+                acc1.In_ParentAccountName = Request["ParentName"];
+              }
+
               PageNav.Execute(acc1);
             }
             else if (Request["AncestorID"] != null)

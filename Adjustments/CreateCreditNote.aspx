@@ -75,25 +75,31 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
       }
       
       Ext.onReady(function() {
+        dataStore_<%= MTFilterGrid1.ClientID %>.on("beforeload", function(store) {
+          var index = document.getElementById('<%=ddTimeIntervals.ClientID %>').selectedIndex;
+          var timeInterval = document.getElementById('<%=ddTimeIntervals.ClientID %>').options[index].text;
+          store.setBaseParam('timeInterval', timeInterval);
+        });
+
         grid_<%= MTFilterGrid1.ClientID %>.getSelectionModel().on("beforerowselect", function(sm, index, keep, record) {
           if (record.data.CreditNoteIdentifier == "") 
             return true;
-            return false;
-         });
+          return false;
+        });
       });
       
-        function checkBoxColRenderer(value, meta, record, rowIndex, colIndex, store) {
-          if (record.data.CreditNoteIdentifier == "") {
-            return "<div class='x-grid3-cell-inner x-grid3-col-checker x-unselectable' unselectable='on'><div class='x-grid3-row-checker'>&nbsp;</div></div>";
-          } else
-            return '';
-        }
+      function checkBoxColRenderer(value, meta, record, rowIndex, colIndex, store) {
+        if (record.data.CreditNoteIdentifier == "") {
+          return "<div class='x-grid3-cell-inner x-grid3-col-checker x-unselectable' unselectable='on'><div class='x-grid3-row-checker'>&nbsp;</div></div>";
+        } else
+          return '';
+      }
 
-        OverrideRenderer_<%= MTFilterGrid1.ClientID %> = function(cm) {
-          cm.setRenderer(0, checkBoxColRenderer);
-        }
+      OverrideRenderer_<%= MTFilterGrid1.ClientID %> = function(cm) {
+        cm.setRenderer(0, checkBoxColRenderer);
+      };
 
-       function GetAdjustmentIdsAndType()
+      function GetAdjustmentIdsAndType()
       {
         var adjRecords = grid_<%= MTFilterGrid1.ClientID %>.getSelectionModel().getSelections();
         var adjustmentIdsAndType = "";
@@ -106,7 +112,7 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
           adjustmentIdsAndType += (adjRecords[i].data.AdjustmentID + ";" + adjRecords[i].data.AdjustmentType);
           document.getElementById('<%=hdSelectedItemsList.ClientID %>').value = adjustmentIdsAndType;
         }
-         return (document.getElementById('<%=hdSelectedItemsList.ClientID %>').value == '') ? false : true;
-       }
+        return (document.getElementById('<%=hdSelectedItemsList.ClientID %>').value == '') ? false : true;
+      }
     </script>
 </asp:Content>

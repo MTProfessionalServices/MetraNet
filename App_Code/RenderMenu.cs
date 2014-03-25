@@ -304,23 +304,13 @@ public static class MenuRenderer
     }
     sb.AppendLine("]");
 
-    // Append Listeners
-
-    sb.AppendLine(",listeners: {");
     if (isRootMenu)
     {
-      sb.AppendLine("hide: function(e){e.destroy();}");
+      sb.AppendLine(",listeners: {");
+      sb.AppendLine("hide: function(e){e.destroy();},");
+      sb.AppendLine("show: function(thisMenu){ Account.RenderAllowedChildMenuItems( thisMenu ); }");
+      sb.AppendLine("}");
     }
-
-    if (!String.IsNullOrEmpty(menu.MouseOverJsHandler))
-    {
-      if (isRootMenu)
-      {
-        sb.Append(",");
-      }
-      sb.AppendFormat("mouseover: function(mainMenu, e, menuItem){{ {0} }}", menu.MouseOverJsHandler);
-    }
-    sb.AppendLine("}");
 
     sb.AppendLine("}");
     return sb.ToString();

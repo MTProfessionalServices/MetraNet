@@ -60,10 +60,16 @@
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link></Link>
-                            <Target>MainContentIframe</Target>
+                            <Target></Target>
                             <Icon>/Res/Images/Icons/user_add.png</Icon>
-                            <Description>Shows sub-meny foraAdding (create) account to hierarch by specified account type</Description>
+                            <Description>Shows sub-menu with account types, that can be child of selected account</Description>
                             <RequiredCapabilities></RequiredCapabilities>
+							<SubMenu>
+								<ID>AddChildAccountSubMenu</ID>
+								<Type>Context</Type>
+								<Description>Sub-menu of Add Child Account Menu item</Description>
+								<MenuSections></MenuSections>
+							</SubMenu>
                         </MenuItem>
                         <MenuItem>
                             <ID>SelfCarePortal</ID>
@@ -165,10 +171,16 @@
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link></Link>
-                            <Target>MainContentIframe</Target>
+                            <Target></Target>
                             <Icon>/Res/Images/Icons/user_add.png</Icon>
-                            <Description>Shows sub-meny foraAdding (create) account to hierarch by specified account type</Description>
+                            <Description>Shows sub-menu with account types, that can be child of selected account</Description>
                             <RequiredCapabilities></RequiredCapabilities>
+							<SubMenu>
+								<ID>AddChildAccountSubMenu</ID>
+								<Type>Context</Type>
+								<Description>Sub-menu of Add Child Account Menu item</Description>
+								<MenuSections></MenuSections>
+							</SubMenu>
                         </MenuItem>
                         <MenuItem>
                             <ID>SelfCarePortal</ID>
@@ -270,10 +282,16 @@
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link></Link>
-                            <Target>MainContentIframe</Target>
+                            <Target></Target>
                             <Icon>/Res/Images/Icons/user_add.png</Icon>
-                            <Description>Shows sub-meny foraAdding (create) account to hierarch by specified account type</Description>
+                            <Description>Shows sub-menu with account types, that can be child of selected account</Description>
                             <RequiredCapabilities></RequiredCapabilities>
+							<SubMenu>
+								<ID>AddChildAccountSubMenu</ID>
+								<Type>Context</Type>
+								<Description>Sub-menu of Add Child Account Menu item</Description>
+								<MenuSections></MenuSections>
+							</SubMenu>
                         </MenuItem>
                         <MenuItem>
                             <ID>SelfCarePortal</ID>
@@ -375,10 +393,16 @@
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link></Link>
-                            <Target>MainContentIframe</Target>
+                            <Target></Target>
                             <Icon>/Res/Images/Icons/user_add.png</Icon>
-                            <Description>Shows sub-meny foraAdding (create) account to hierarch by specified account type</Description>
+                            <Description>Shows sub-menu with account types, that can be child of selected account</Description>
                             <RequiredCapabilities></RequiredCapabilities>
+							<SubMenu>
+								<ID>AddChildAccountSubMenu</ID>
+								<Type>Context</Type>
+								<Description>Sub-menu of Add Child Account Menu item</Description>
+								<MenuSections></MenuSections>
+							</SubMenu>
                         </MenuItem>
                         <MenuItem>
                             <ID>SelfCarePortal</ID>

@@ -23,7 +23,7 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
       XType="TextArea" XTypeNameSpace="form"/>
       
     <MT:MTDropDown ID="ddTimeIntervals" runat="server" Label="Adjustments Issued In The Last" 
-     LabelWidth="200" AllowBlank="False" HideLabel="False" LabelSeparator=":" Listeners="{ 'select' : this.onChanges, scope: this }" 
+     LabelWidth="200" AllowBlank="False" HideLabel="False" LabelSeparator=":" Listeners="{'select' : { fn: this.onChange_ddTimeIntervals, scope: this } }" 
      meta:resourcekey="ddTimeIntervalsResource1" ReadOnly="False" Enabled="True" ControlWidth="100">
     </MT:MTDropDown>
      
@@ -61,11 +61,10 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
         return newParams;
       }
 
-      function onChange() {
+      function onChange_ddTimeIntervals() {
         
-        var index = document.getElementById('<%=ddTimeIntervals.ClientID %>').selectedIndex;
-        var timeInterval = document.getElementById('<%=ddTimeIntervals.ClientID %>').options[index].text;
-        
+        var timeInterval = Ext.getCmp('<%=ddTimeIntervals.ClientID %>').getRawValue();
+
         //make results pane visible, it could be hidden if not searching on load
         if (!grid_<%= MTFilterGrid1.ClientID %>.isVisible()) {
           grid_<%= MTFilterGrid1.ClientID %>.setVisible(true);
@@ -76,8 +75,7 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
       
       Ext.onReady(function() {
         dataStore_<%= MTFilterGrid1.ClientID %>.on("beforeload", function(store) {
-          var index = document.getElementById('<%=ddTimeIntervals.ClientID %>').selectedIndex;
-          var timeInterval = document.getElementById('<%=ddTimeIntervals.ClientID %>').options[index].text;
+          var timeInterval = Ext.getCmp('<%=ddTimeIntervals.ClientID %>').getRawValue();
           store.setBaseParam('timeInterval', timeInterval);
         });
 

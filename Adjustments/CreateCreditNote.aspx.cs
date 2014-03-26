@@ -70,7 +70,6 @@ public partial class Adjustments_CreateCreditNote : MTPage
 
         i++;
       }
-      ddTimeIntervals.Attributes.Add("onChange", "return onChange();");
     }
   
 

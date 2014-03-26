@@ -63,6 +63,7 @@ copy %MTOUTDIR%\%VERSION%\bin\MetraTech.Common.dll %RMPDIR%\Extensions\MetraView
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.Common.pdb %RMPDIR%\Extensions\MetraView\Sites\MetraView\bin
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.DataAccess.dll %RMPDIR%\Extensions\MetraView\Sites\MetraView\bin
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.DataAccess.pdb %RMPDIR%\Extensions\MetraView\Sites\MetraView\bin
+copy %MTOUTDIR%\%VERSION%\bin\MetraTech.Domain.dll %RMPDIR%\Extensions\MetraView\Sites\MetraView\bin
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.ActivityServices.Common.dll %RMPDIR%\Extensions\MetraView\Sites\MetraView\bin
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.ActivityServices.Common.pdb %RMPDIR%\Extensions\MetraView\Sites\MetraView\bin
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.Pipeline.dll %RMPDIR%\Extensions\MetraView\Sites\MetraView\bin

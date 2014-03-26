@@ -19,14 +19,17 @@
       if (checkButtonClickCount() == true) {
         var records = grid_<%= MTFilterGrid1.ClientID %>.getSelectionModel().getSelections();
         var ids = "";
+        var PONames = "";
         for (var i = 0; i < records.length; i++) {
           if (i > 0) {
             ids += ",";
+            PONames += ",";
           }
           ids += records[i].data.ProductOfferingId;
+           PONames += records[i].data.DisplayName;
         }
 
-        var args = "IDs=" + ids;
+        var args = "IDs=" + ids + ";sep;" + PONames ;  
         pageNav.Execute("TemplateEvents_OKSelectSubscriptions_Client", args, null);
       }
     }

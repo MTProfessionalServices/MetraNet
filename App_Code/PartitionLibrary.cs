@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
-
 using MetraTech.UI.Common;
 using MetraTech.ActivityServices.Common;
 using MetraTech.DomainModel.BaseTypes;
@@ -25,203 +24,193 @@ public struct PartitionData
 /// </summary>
 public class PartitionLibrary
 {
-    private static UIManager UI
+  private static UIManager UI
+  {
+    get
     {
-        get
+      return HttpContext.Current.Session[Constants.UI_MANAGER] as UIManager;
+      // Session information with current user credentials
+    }
+  }
+
+  public static PartitionData PartitionData
+  {
+    get { return (PartitionData) UI.User.GetData("PartitionData"); }
+  }
+
+  public static bool IsPartition
+  {
+    get { return PartitionData.isPartitionUser; }
+  }
+
+  public static PartitionData RetrievePartitionInformation()
+  {
+    var partitionData = new PartitionData();
+    var topLevelAncestorId = MetraTech.UI.Tools.Utils.GetCorporateAccountOfChildAccount(UI.User.AccountId,
+                                                                                        MetraTech.MetraTime.Now);
+
+    if (topLevelAncestorId != 0)
+    {
+      if (topLevelAncestorId == UI.User.AccountId)
+      {
+        // The user account is at the top, which means it is not a Partition Admin
+        partitionData.isPartitionUser = false;
+        partitionData.POPartitionId = 1;
+        partitionData.PLPartitionId = 1;
+        partitionData.PartitionUserName = "root";
+        partitionData.PartitionNameSpace = "mt";
+        partitionData.PartitionName = "root";
+      }
+      else
+      {
+        partitionData.isPartitionUser = true;
+        partitionData.POPartitionId = topLevelAncestorId;
+        partitionData.PLPartitionId = topLevelAncestorId;
+
+        // Retrieve the rest of the top level account information
+        var topLevelAncestorIdentifier = new AccountIdentifier(topLevelAncestorId);
+        using (var accountServiceClient = new AccountServiceClient())
         {
-            return HttpContext.Current.Session[Constants.UI_MANAGER] as UIManager; // Session information with current user credentials
+          if (accountServiceClient.ClientCredentials != null)
+          {
+            accountServiceClient.ClientCredentials.UserName.UserName = UI.User.UserName;
+            accountServiceClient.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+          }
+          Account userAccount;
+          accountServiceClient.LoadAccountWithViews(topLevelAncestorIdentifier, MetraTech.MetraTime.Now, out userAccount);
+
+          partitionData.PartitionUserName = userAccount.UserName;
+          partitionData.PartitionNameSpace = userAccount.Name_Space;
+          var firstLdap = ((MetraTech.DomainModel.AccountTypes.Partition) userAccount).LDAP.FirstOrDefault();
+          partitionData.PartitionName = firstLdap == null || string.IsNullOrEmpty(firstLdap.Company)
+                                          ? userAccount.UserName
+                                          : firstLdap.Company;
         }
+      }
+    }
+    else
+    {
+      // There were issues retrieving the top level account. Set Partition to an invalid number
+      partitionData.isPartitionUser = true;
+      partitionData.POPartitionId = -1;
+      partitionData.PLPartitionId = -1;
+      partitionData.PartitionUserName = "N/A";
+      partitionData.PartitionNameSpace = "N/A";
+      partitionData.PartitionName = "N/A";
     }
 
-    public static PartitionData PartitionData
+    partitionData.PartitionDisplayName = string.Format(
+      "{0} ({1})",
+      partitionData.PartitionUserName,
+      partitionData.POPartitionId);
+
+    return partitionData;
+  }
+
+  public static void SetupFilterGridForPartition(MetraTech.UI.Controls.MTFilterGrid grid, string filtertype)
+  {
+    var partitionData = (PartitionData) UI.User.GetData("PartitionData");
+
+    if (filtertype.ToUpper() == "PO")
     {
-        get
-        {
-            return (PartitionData)UI.User.GetData("PartitionData");
-        }
-    }
+      MetraTech.UI.Controls.MTGridDataElement gdel = grid.FindElementByID("POPartitionId");
+      if (gdel == null)
+      {
+        throw new ApplicationException(
+          string.Format(
+            "Can't find element named 'POPartitionId' on the FilterGrid layout. Has the layout '{0}' been tampered with?",
+            grid.TemplateFileName));
+      }
 
-    public static bool IsPartition
-    {
-        get
-        {
-            return PartitionData.isPartitionUser;
-        }
-    }
-
-    public static PartitionData RetrievePartitionInformation()
-    {
-        PartitionData PartitionData = new PartitionData();
-
-        int topLevelAncestorId = MetraTech.UI.Tools.Utils.GetCorporateAccountOfChildAccount(UI.User.AccountId, MetraTech.MetraTime.Now);
-
-        if (topLevelAncestorId != 0)
-        {
-            if (topLevelAncestorId == UI.User.AccountId) /* The user account is at the top, which means it is not a Partition Admin */
-            {
-                PartitionData.isPartitionUser = false;
-                PartitionData.POPartitionId = 1;
-                PartitionData.PLPartitionId = 1;
-                PartitionData.PartitionUserName = "root";
-                PartitionData.PartitionNameSpace = "mt";
-                PartitionData.PartitionName = "root";
-            }
-            else
-            {
-                PartitionData.isPartitionUser = true;
-                PartitionData.POPartitionId = topLevelAncestorId;
-                PartitionData.PLPartitionId = topLevelAncestorId;
-
-                // Retrieve the rest of the top level account information
-                MetraTech.ActivityServices.Common.AccountIdentifier topLevelAncestorIdentifier = new MetraTech.ActivityServices.Common.AccountIdentifier(topLevelAncestorId);
-                MetraTech.DomainModel.BaseTypes.Account userAccount = null;
-                MetraTech.Core.Services.ClientProxies.AccountServiceClient accountServiceClient = new MetraTech.Core.Services.ClientProxies.AccountServiceClient();
-                accountServiceClient.ClientCredentials.UserName.UserName = UI.User.UserName;
-                accountServiceClient.ClientCredentials.UserName.Password = UI.User.SessionPassword;
-                accountServiceClient.LoadAccountWithViews(topLevelAncestorIdentifier, MetraTech.MetraTime.Now, out userAccount);
-
-                PartitionData.PartitionUserName = userAccount.UserName;
-                PartitionData.PartitionNameSpace = userAccount.Name_Space;
-                PartitionData.PartitionName = ((MetraTech.DomainModel.AccountTypes.Partition)userAccount).LDAP[0].Company;
-            }
-        }
-        else /* There were issues retrieving the top level account. Set Partition to an invalid number */
-        {
-            PartitionData.isPartitionUser = true;
-            PartitionData.POPartitionId = -1;
-            PartitionData.PLPartitionId = -1;
-            PartitionData.PartitionUserName = "N/A";
-            PartitionData.PartitionNameSpace = "N/A";
-            PartitionData.PartitionName = "N/A";
-        }
-
-        PartitionData.PartitionDisplayName = string.Format("{0} ({1})", PartitionData.PartitionUserName, PartitionData.POPartitionId);
-
-        return PartitionData;
-    }
-
-    public static void SetupFilterGridForPartition(MetraTech.UI.Controls.MTFilterGrid grid, string filtertype)
-    {
-        PartitionData PartitionData = (PartitionData)UI.User.GetData("PartitionData");
-
-        if (filtertype.ToUpper() == "PO")
-        {
-            MetraTech.UI.Controls.MTGridDataElement gdel = grid.FindElementByID("POPartitionId");
-            if (gdel == null)
-            {
-                throw new ApplicationException(string.Format("Can't find element named 'POPartitionId' on the FilterGrid layout. Has the layout '{0}' been tampered with?", grid.TemplateFileName));
-            }
-
-            if (PartitionData.isPartitionUser)
-            {
-                grid.Title = string.Format("{0} <i>({1})</i>", grid.Title, PartitionData.PartitionName);
-                gdel.ElementValue = PartitionData.POPartitionId.ToString();
-                gdel.FilterReadOnly = true;
-                gdel.FilterHideable = false;
-
-            }
-            else
-            {
-                gdel.FilterReadOnly = false;
-                gdel.FilterHideable = true;
-            }
-
-      
-        }
-        else
-        {
-            MetraTech.UI.Controls.MTGridDataElement gdel = grid.FindElementByID("PLPartitionId");
-            if (gdel == null)
-            {
-                throw new ApplicationException(string.Format("Can't find element named 'PLPartitionId' on the FilterGrid layout. Has the layout '{0}' been tampered with?", grid.TemplateFileName));
-            }
-
-            if (PartitionData.isPartitionUser)
-            {
-                grid.Title = string.Format("{0} <i>({1})</i>", grid.Title, PartitionData.PartitionName);
-                gdel.ElementValue = PartitionData.PLPartitionId.ToString();
-                gdel.FilterReadOnly = true;
-                gdel.FilterHideable = false;
-
-            }
-            else
-            {
-                gdel.FilterReadOnly = false;
-                gdel.FilterHideable = true;
-            }
-      
-        }
-    
-    }
-
-    public static void SetupFilterGridForMaster(MetraTech.UI.Controls.MTFilterGrid grid)
-    {
-        MetraTech.UI.Controls.MTGridDataElement gdel = grid.FindElementByID("POPartitionId");
-
-        if (gdel == null)
-        {
-            throw new ApplicationException(string.Format("Can't find element named 'POPartitionId' on the FilterGrid layout. Has the layout '{0}' been tampered with?", grid.TemplateFileName));
-        }
-
-        grid.Title = string.Format("Master {0}", grid.Title);
-        gdel.ElementValue = "0";
+      if (partitionData.isPartitionUser)
+      {
+        grid.Title = string.Format("{0} <i>({1})</i>", grid.Title, partitionData.PartitionName);
+        gdel.ElementValue = partitionData.POPartitionId.ToString(CultureInfo.CurrentCulture);
         gdel.FilterReadOnly = true;
         gdel.FilterHideable = false;
+      }
+      else
+      {
+        gdel.FilterReadOnly = false;
+        gdel.FilterHideable = true;
+      }
     }
-
-
-    public static void PopulatePriceListDropdown(DropDownList ddPriceList)
+    else
     {
-        PriceListServiceClient client = null;
+      MetraTech.UI.Controls.MTGridDataElement gdel = grid.FindElementByID("PLPartitionId");
+      if (gdel == null)
+      {
+        throw new ApplicationException(
+          string.Format(
+            "Can't find element named 'PLPartitionId' on the FilterGrid layout. Has the layout '{0}' been tampered with?",
+            grid.TemplateFileName));
+      }
 
-        try
-        {
-            ddPriceList.Items.Clear();
+      if (partitionData.isPartitionUser)
+      {
+        grid.Title = string.Format("{0} <i>({1})</i>", grid.Title, partitionData.PartitionName);
+        gdel.ElementValue = partitionData.PLPartitionId.ToString(CultureInfo.CurrentCulture);
+        gdel.FilterReadOnly = true;
+        gdel.FilterHideable = false;
 
-            ListItem plitemNone = new ListItem();
-            plitemNone.Text = "";
-            plitemNone.Value = "";
-            ddPriceList.Items.Add(plitemNone);
-
-            client = new PriceListServiceClient();
-            if (client.ClientCredentials != null)
-            {
-                client.ClientCredentials.UserName.UserName = UI.User.UserName;
-                client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
-            }
-            
-            MTList<PriceList> items = new MTList<PriceList>();
-
-            // Setup Filters
-            //MTFilterElement currencyFilterElement = new MTFilterElement("Currency", MTFilterElement.OperationType.Equal, );
-            //items.Filters.Add(currencyFilterElement);
-
-            if (IsPartition)
-            {
-                MTFilterElement PartitionfilterElement = new MTFilterElement("PLPartitionId", MTFilterElement.OperationType.Equal, PartitionData.PLPartitionId);
-                items.Filters.Add(PartitionfilterElement);
-            }
-
-            client.GetSharedPriceLists(ref items);
-
-            foreach (PriceList pl in items.Items)
-            {
-                ListItem plitem = new ListItem();
-                plitem.Text = string.Format("[{0}] {1}", pl.Currency, pl.Name);
-                plitem.Value = pl.ID.ToString();
-                ddPriceList.Items.Add(plitem);
-            }
-
-
-
-        }       
-        finally
-        {
-            if (client != null)
-            {
-                client.Abort();
-            }
-        }
-
+      }
+      else
+      {
+        gdel.FilterReadOnly = false;
+        gdel.FilterHideable = true;
+      }
     }
+  }
+
+  public static void SetupFilterGridForMaster(MetraTech.UI.Controls.MTFilterGrid grid)
+  {
+    var gdel = grid.FindElementByID("POPartitionId");
+
+    if (gdel == null)
+    {
+      throw new ApplicationException(
+        string.Format(
+          "Can't find element named 'POPartitionId' on the FilterGrid layout. Has the layout '{0}' been tampered with?",
+          grid.TemplateFileName));
+    }
+
+    grid.Title = string.Format("Master {0}", grid.Title);
+    gdel.ElementValue = "0";
+    gdel.FilterReadOnly = true;
+    gdel.FilterHideable = false;
+  }
+
+
+  public static void PopulatePriceListDropdown(DropDownList ddPriceList)
+  {
+    ddPriceList.Items.Clear();
+
+    var plitemNone = new ListItem {Text = "", Value = ""};
+    ddPriceList.Items.Add(plitemNone);
+
+    using (var client = new PriceListServiceClient())
+    {
+      if (client.ClientCredentials != null)
+      {
+        client.ClientCredentials.UserName.UserName = UI.User.UserName;
+        client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+      }
+
+      var items = new MTList<PriceList>();
+      if (IsPartition)
+      {
+        var partitionfilterElement = new MTFilterElement("PLPartitionId",
+                                                         MTFilterElement.OperationType.Equal,
+                                                         PartitionData.PLPartitionId);
+        items.Filters.Add(partitionfilterElement);
+      }
+
+      client.GetSharedPriceLists(ref items);
+
+      foreach (var plitem in items.Items.Select(pl => new ListItem {Text = string.Format("[{0}] {1}", pl.Currency, pl.Name), Value = pl.ID.ToString()}))
+      {
+        ddPriceList.Items.Add(plitem);
+      }
+    }
+  }
 }

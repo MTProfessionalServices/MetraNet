@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ServiceModel;
 using System.Web.Script.Serialization;
+using MetraTech.Accounts.Type;
 using MetraTech.Core.Services.ClientProxies;
 using MetraTech.UI.Common;
 
@@ -36,8 +37,8 @@ public partial class AjaxServices_GetAllowedDescAccountTypes : MTPage
       {
         Logger.LogDebug("accountID is not set, so all types will be returned for account hierarchy");
 
-        MetraTech.Domain.AccountProps.AccountTypeParameters accParam = new MetraTech.Domain.AccountProps.AccountTypeParameters();
-        accParam.IsVisibleInHierarchy = true;
+        AccountTypeParameters<bool?> accParam = new AccountTypeParameters<bool?>();
+        accParam.SetIsVisibleInHierarchy(true);
            
         client.GetAllAccountTypeNames(accParam, out accTypeNames);
       }

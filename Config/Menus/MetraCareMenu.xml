@@ -346,6 +346,26 @@
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
+              <MenuSection>
+                <ID>ReportsSection</ID>
+                <Caption>
+                  <Value><![CDATA[Analytics]]></Value>
+                </Caption>
+                <Description></Description>
+                <MenuItems>
+                  <MenuItem>
+                    <ID>ReportsAnalyticsDashboard</ID>
+                    <Caption>
+                      <Value><![CDATA[Finance Dashboard]]></Value>
+                    </Caption>
+                    <Link>/MetraNet/ReportsAnalyticsDashboard.aspx</Link>
+                    <Target>MainContentIframe</Target>
+                    <Icon>/Res/Images/icons/application_view_tile.png</Icon>
+                    <Description>Finance Dashboard</Description>
+                    <RequiredCapabilities></RequiredCapabilities>
+                  </MenuItem>
+                </MenuItems>
+              </MenuSection>
             </MenuSections>
         </Menu>
         <Menu>

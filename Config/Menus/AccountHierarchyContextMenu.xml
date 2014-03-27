@@ -63,7 +63,9 @@
                             <Target></Target>
                             <Icon>/Res/Images/Icons/user_add.png</Icon>
                             <Description>Shows sub-menu with account types, that can be child of selected account</Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Create Subscriber Accounts</Capability>
+                            </RequiredCapabilities>
 							<SubMenu>
 								<ID>AddChildAccountSubMenu</ID>
 								<Type>Context</Type>
@@ -174,7 +176,9 @@
                             <Target></Target>
                             <Icon>/Res/Images/Icons/user_add.png</Icon>
                             <Description>Shows sub-menu with account types, that can be child of selected account</Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Create Subscriber Accounts</Capability>
+                            </RequiredCapabilities>
 							<SubMenu>
 								<ID>AddChildAccountSubMenu</ID>
 								<Type>Context</Type>
@@ -285,7 +289,9 @@
                             <Target></Target>
                             <Icon>/Res/Images/Icons/user_add.png</Icon>
                             <Description>Shows sub-menu with account types, that can be child of selected account</Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Create Subscriber Accounts</Capability>
+                            </RequiredCapabilities>
 							<SubMenu>
 								<ID>AddChildAccountSubMenu</ID>
 								<Type>Context</Type>
@@ -396,7 +402,9 @@
                             <Target></Target>
                             <Icon>/Res/Images/Icons/user_add.png</Icon>
                             <Description>Shows sub-menu with account types, that can be child of selected account</Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <Capability>Create Subscriber Accounts</Capability>
+                            </RequiredCapabilities>
 							<SubMenu>
 								<ID>AddChildAccountSubMenu</ID>
 								<Type>Context</Type>

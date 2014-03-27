@@ -16,10 +16,10 @@
         FROM
           t_account_mapper accmap
           INNER JOIN t_namespace space on accmap.nm_space=space.nm_space
-					inner join t_enum_data ed on ed.nm_enum_data = 'metratech.com/accountcreation/contacttype/bill-to'
+					inner join t_enum_data ed on lower(ed.nm_enum_data) = 'metratech.com/accountcreation/contacttype/bill-to'
           LEFT OUTER JOIN t_av_contact av ON av.id_acc = accmap.id_acc
 					and av.c_contacttype = ED.ID_enum_data
         WHERE
-        accmap.id_acc in (:idAcc, :idPayer)
-        AND space.tx_typ_space='system_mps'
+          accmap.id_acc in (:idAcc, :idPayer)
+          AND lower(space.tx_typ_space)='system_mps'
         

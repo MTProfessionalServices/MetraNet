@@ -18,10 +18,10 @@
     <PageSize>10</PageSize>
     <Description>The grid layout for MetraCare's Create Credit Note page.</Description>
     <ExpansionCssClass></ExpansionCssClass>
-    <ShowFilterPanel>false</ShowFilterPanel>
+    <ShowFilterPanel>true</ShowFilterPanel>
     <FilterInputWidth>220</FilterInputWidth>
-    <FilterLabelWidth>65</FilterLabelWidth>
-    <FilterColumnWidth>350</FilterColumnWidth>
+    <FilterLabelWidth>45</FilterLabelWidth>
+    <FilterColumnWidth>330</FilterColumnWidth>
     <ShowTopBar>true</ShowTopBar>
     <ShowBottomBar>true</ShowBottomBar>
     <ShowGridFrame>true</ShowGridFrame>
@@ -69,7 +69,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>true</Filterable>
+            <Filterable>false</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -100,7 +100,7 @@
             <Width>130</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
+            <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
@@ -138,11 +138,14 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>true</Filterable>
+            <Filterable>false</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
+            <FilterLabel>
+                <LocalizationTag>TEXT_DISPLAY_ADJUSTMENT_TYPE</LocalizationTag>
+                <ResourceClassKey>Adjustments/App_LocalResources/CreateCreditNote.aspx</ResourceClassKey>
+            </FilterLabel>
             <ElementValue>
                 <Value><![CDATA[]]></Value>
             </ElementValue>
@@ -169,12 +172,12 @@
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
+            <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
+            <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -205,12 +208,12 @@
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
+            <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>true</Filterable>
+            <Filterable>false</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -247,7 +250,10 @@
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
+            <FilterLabel>
+                <LocalizationTag>TEXT_AMOUNT</LocalizationTag>
+                <ResourceClassKey>Adjustments/App_LocalResources/CreateCreditNote.aspx</ResourceClassKey>
+            </FilterLabel>
             <ElementValue>
                 <Value><![CDATA[]]></Value>
             </ElementValue>
@@ -274,7 +280,7 @@
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
+            <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
@@ -297,10 +303,10 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename>C:\dev\MetraNetDev\output\debug\Bin\MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
             <ObjectName>MetraTech.DomainModel.BaseTypes.AdjustmentDetail</ObjectName>
-            <ID>Description</ID>
+            <ID>AdjustmentDescription</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>Description</DataIndex>
+            <DataIndex>AdjustmentDescription</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_DESCRIPTION</LocalizationTag>
@@ -310,7 +316,7 @@
             <Width>200</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
+            <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
@@ -319,7 +325,10 @@
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
+            <FilterLabel>
+                <LocalizationTag>TEXT_DESCRIPTION</LocalizationTag>
+                <ResourceClassKey>Adjustments/App_LocalResources/CreateCreditNote.aspx</ResourceClassKey>
+            </FilterLabel>
             <ElementValue>
                 <Value><![CDATA[]]></Value>
             </ElementValue>

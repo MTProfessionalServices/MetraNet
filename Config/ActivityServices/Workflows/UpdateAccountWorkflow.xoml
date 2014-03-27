@@ -141,7 +141,17 @@
 						<ActivityBind Path="CONST_SystemAccount" Name="UpdateAccountWorkflow" />
 					</ns2:MTSwitch.Cases>
 				</SetStateActivity>
-				<SetStateActivity x:Name="Default_Case_GenericAccount" TargetStateName="UpdateAccount" />
+				<SetStateActivity x:Name="Case_Endpoint" TargetStateName="UpdateAccount">
+					<ns2:MTSwitch.Cases>
+						<ActivityBind Path="CONST_Endpoint" Name="UpdateAccountWorkflow" />
+					</ns2:MTSwitch.Cases>
+				</SetStateActivity>
+				<SetStateActivity x:Name="Case_Container" TargetStateName="UpdateSystemAccount">
+					<ns2:MTSwitch.Cases>
+						<ActivityBind Path="CONST_Container" Name="UpdateAccountWorkflow" />
+					</ns2:MTSwitch.Cases>
+				</SetStateActivity>
+				<SetStateActivity x:Name="Default_Case_GenericAccount" TargetStateName="GenericUpdateAccount" />
 			</ns2:MTSwitch>
 		</StateInitializationActivity>
 	</StateActivity>

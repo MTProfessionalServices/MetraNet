@@ -6,7 +6,7 @@
         <ResourceClassKey></ResourceClassKey>
     </Title>
     <Exportable>false</Exportable>
-    <Height>175</Height>
+    <Height>250</Height>
     <Width>250</Width>
     <Expandable>false</Expandable>
     <Buttons>None</Buttons>
@@ -23,7 +23,7 @@
     <FilterLabelWidth>100</FilterLabelWidth>
     <FilterColumnWidth>100</FilterColumnWidth>
     <ShowTopBar>false</ShowTopBar>
-    <ShowBottomBar>true</ShowBottomBar>
+    <ShowBottomBar>false</ShowBottomBar>
     <ShowGridFrame>false</ShowGridFrame>
     <ShowGridHeader>false</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>

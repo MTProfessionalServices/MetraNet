@@ -429,7 +429,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
     function makeFailedTransactionsQueuePart() {
         var chart = dc.barChart("#div30DayAging","30DayAging");
            
-        d3.json("/MetraNet/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() +"&operation=ft30dayaging", function (error, data) {
+        d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() +"&operation=ft30dayaging", function (error, data) {
             if (error) console.log("Error:" + error.valueOf());
             else {
             data.Items.forEach(function (d) {
@@ -494,7 +494,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 
 /*
         //Pie Chart
-        d3.json("/MetraNet/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() + "&operation=ftgettotal", function (error, json) {
+        d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() + "&operation=ftgettotal", function (error, json) {
             if (error) console.log(error.valueOf());
             else {
 			var data = [];
@@ -521,7 +521,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 */
         //Overage Days
 
-        d3.json("/MetraNet/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() + "&operation=ftoverxdays&threshold=<%=failedUdrCleanupThreshold%>", function (error, json) {
+        d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() + "&operation=ftoverxdays&threshold=<%=failedUdrCleanupThreshold%>", function (error, json) {
             if (error) console.log("Error:" + error.valueOf());
             else {
                 var overXDaysData = json["Items"];
@@ -551,7 +551,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
         var maxDate = new Date();
         var minDate = new Date();
         minDate.setDate(maxDate.getDate() - 30);
-        d3.json("/MetraNet/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() +"&operation=batchusage30day", function (error, data) {
+        d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() +"&operation=batchusage30day", function (error, data) {
             if (error) console.log("Error:" + error.valueOf());
             else {
             data.Items.forEach(function (d) {
@@ -608,7 +608,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 
         //Recent Batch
 
-        d3.json("/MetraNet/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() + "&operation=getlastbatch", function (error, json) {
+        d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() + "&operation=getlastbatch", function (error, json) {
             if (error) console.log("Error:" + error.valueOf());
             else {
                 var lastBatchInfo = json["Items"];
@@ -664,7 +664,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
         var activeBillRunInterval = d3.select("#<%=ddActiveBillRun.ClientID %>").node().value;
 
 
-         d3.json("/MetraNet/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() +"&operation=activebillrun&intervalid=" + activeBillRunInterval, function (error, json) {
+         d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() +"&operation=activebillrun&intervalid=" + activeBillRunInterval, function (error, json) {
             if (error)
                 console.log(error.valueOf);
             else {
@@ -675,7 +675,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
         });
 
 
-        d3.json("/MetraNet/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() +"&operation=activebillrunsummary&intervalid=" + activeBillRunInterval, function (error, json) {
+        d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() +"&operation=activebillrunsummary&intervalid=" + activeBillRunInterval, function (error, json) {
             if (error)
                 console.log(error.valueOf);
             else {
@@ -896,7 +896,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
         var billCloseInterval = d3.select("#<%=ddBillCloses.ClientID %>").node().value;
 
 
-        d3.json("/MetraNet/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() +"&operation=billclosedetails&intervalid=" + billCloseInterval, function (error, json) {
+        d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() +"&operation=billclosedetails&intervalid=" + billCloseInterval, function (error, json) {
             if (error)
                 console.log(error.valueOf);
             else {
@@ -945,7 +945,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 
        //alert(billCloseInterval);
 
-        d3.json("/MetraNet/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() +"&operation=billclosesummary&intervalid=" + billCloseInterval, function (error, json) {
+        d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() +"&operation=billclosesummary&intervalid=" + billCloseInterval, function (error, json) {
             if (error)
                 console.log(error.valueOf);
             else {

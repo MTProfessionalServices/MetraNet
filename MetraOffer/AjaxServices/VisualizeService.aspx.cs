@@ -42,6 +42,11 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
             MTList<SQLRecord> items = new MTList<SQLRecord>();
             Dictionary<string, object> paramDict = new Dictionary<string, object>();
 
+            //System.Diagnostics.Debugger.Break();
+            string connectionInfo = "NetMeter";
+            string catalog = "Subscriptiondatamart";
+
+
             if (operation.Equals("ftoverxdays"))
             {
                 string threshold = Request["threshold"];
@@ -55,42 +60,42 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
                 }
 
                 paramDict.Add("%%AGE_THRESHOLD%%", int.Parse(threshold));
-                GetData("__GET_FAILEDTRANSACTIONS_OVERXDAYS__",paramDict,ref items);
+                VisualizeService.GetData(connectionInfo,catalog,"__GET_FAILEDTRANSACTIONS_OVERXDAYS__",paramDict,ref items);
             }
             else if (operation.Equals("AnalyticsTopMRR"))
             {
-                GetData("__SubscriptionSummary_TopMRR__", null, ref items);
+                VisualizeService.GetData(connectionInfo,catalog,"__SubscriptionSummary_TopMRR__", null, ref items);
             }
             else if (operation.Equals("AnalyticsTopMRRGain"))
             {
-                GetData("__SubscriptionSummary_TopMRRGain__", null, ref items);
+                VisualizeService.GetData(connectionInfo,catalog,"__SubscriptionSummary_TopMRRGain__", null, ref items);
             }
             else if (operation.Equals("AnalyticsTopMRRLoss"))
             {
-                GetData("__SubscriptionSummary_TopMRRLoss__", null, ref items);
+                VisualizeService.GetData(connectionInfo,catalog,"__SubscriptionSummary_TopMRRLoss__", null, ref items);
             }
 
             else if (operation.Equals("AnalyticsTopSubscriptions"))
             {
-                GetData("__SubscriptionSummary_TopSubscriptions__", null, ref items);
+                VisualizeService.GetData(connectionInfo,catalog,"__SubscriptionSummary_TopSubscriptions__", null, ref items);
             }
             else if (operation.Equals("AnalyticsTopSubscriptionGain"))
             {
-                GetData("__SubscriptionSummary_TopSubscriptionsGain__", null, ref items);
+                VisualizeService.GetData(connectionInfo,catalog,"__SubscriptionSummary_TopSubscriptionsGain__", null, ref items);
             }
             else if (operation.Equals("AnalyticsTopSubscriptionLoss"))
             {
-                GetData("__SubscriptionSummary_TopSubscriptionsLoss__", null, ref items);
+                VisualizeService.GetData(connectionInfo,catalog,"__SubscriptionSummary_TopSubscriptionsLoss__", null, ref items);
             }
 
             else if (operation.Equals("AnalyticsTopOfferingsByNewCustomers"))
             {
-                GetData("__SubscriptionSummary_TopSubscriptionsByNewCustomers__", null, ref items);
+                VisualizeService.GetData(connectionInfo,catalog,"__SubscriptionSummary_TopSubscriptionsByNewCustomers__", null, ref items);
             }
 
             else if (operation.Equals("AnalyticsSingleProductOverTime"))
             {
-                GetData("__SubscriptionSummary_SingleProductOverTime__", null, ref items);
+                VisualizeService.GetData(connectionInfo,catalog,"__SubscriptionSummary_SingleProductOverTime__", null, ref items);
             }
 
             else if (operation.Equals("billclosesummary") || operation.Equals("billclosedetails"))
@@ -111,9 +116,9 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
                     paramDict.Add("%%ID_USAGE_INTERVAL%%", int.Parse(id_usage_interval));
 
                     if(operation.Equals("billclosedetails"))
-                        GetData("__GET_BILLCLOSESYNOPSIS_DETAILS__", paramDict, ref items);
+                        VisualizeService.GetData(connectionInfo,catalog,"__GET_BILLCLOSESYNOPSIS_DETAILS__", paramDict, ref items);
                     else 
-                       GetData("__GET_BILLCLOSESYNOPSIS_SUMMARY__", paramDict, ref items);
+                       VisualizeService.GetData(connectionInfo,catalog,"__GET_BILLCLOSESYNOPSIS_SUMMARY__", paramDict, ref items);
                    
             }
 
@@ -125,7 +130,7 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
                 return;
             }
 
-            string json = SerializeItems(items);
+            string json = VisualizeService.SerializeItems(items);
             Logger.LogInfo("Returning " + json);
             Response.Write(json);
             Response.End();
@@ -134,158 +139,5 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
     }
 
 
-    private void GetData(string sqlQueryTag, Dictionary<string, object> paramDict, ref MTList<SQLRecord> items)
-    {
-        //System.Diagnostics.Debugger.Break();
-        ConnectionInfo ciReportingDBServer = new ConnectionInfo("ReportingDBServer");
-        ciReportingDBServer.Catalog = "Subscriptiondatamart";
-
-        using (IMTConnection conn = ConnectionManager.CreateConnection(ciReportingDBServer))
-        {
-
-            using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(sqlQueriesPath, sqlQueryTag))
-            {
-                if (paramDict != null)
-                {
-                    foreach (var pair in paramDict)
-                    {
-                        stmt.AddParam(pair.Key, pair.Value);
-                    }
-                }
-
-                using (IMTDataReader reader = stmt.ExecuteReader())
-                {
-
-                    ConstructItems(reader, ref items);
-                    // get the total rows that would be returned without paging
-                    
-                }
-            }
-
-            conn.Close();
-        }
-
-        
-
-    }
-
-
-
-    protected void ConstructItems(IMTDataReader rdr, ref MTList<SQLRecord> items)
-    {
-        items.Items.Clear();
-
-        // process the results
-        while (rdr.Read())
-        {
-            SQLRecord record = new SQLRecord();
-
-           
-            for (int i = 0; i < rdr.FieldCount; i++)
-            {
-                SQLField field = new SQLField();
-                field.FieldDataType = rdr.GetType(i);
-                field.FieldName = rdr.GetName(i);
-
-                if (!rdr.IsDBNull(i))
-                {
-                    field.FieldValue = rdr.GetValue(i);
-                }
-
-                record.Fields.Add(field);
-            }
-
-            items.Items.Add(record);
-        }
-    }
-
-  protected string SerializeItems(MTList<SQLRecord> items)
-  {
-    StringBuilder json = new StringBuilder();
-
-    //json.Append("{\"TotalRows\":");
-    //json.Append(items.TotalRows.ToString());
     
-      json.Append("{\"Items\":[");
-
-    for (int i = 0; i < items.Items.Count; i++ )
-    {
-      SQLRecord record = items.Items[i];
-
-      if (i > 0)
-      {
-        json.Append(",");
-      }
-
-      json.Append("{");
-
-      //iterate through fields
-      for (int j = 0; j < record.Fields.Count; j++)
-      {
-        SQLField field = record.Fields[j];
-        if (j > 0)
-        {
-          json.Append(",");
-        }
-
-        json.Append("\"");
-        json.Append(field.FieldName);
-        json.Append("\":");
-
-        if (field.FieldValue == null)
-        {
-          json.Append("null");
-        }
-        else
-        {
-
-            if (typeof(String) == field.FieldDataType || typeof(DateTime) == field.FieldDataType || typeof(Guid) == field.FieldDataType || typeof(Byte[]) == field.FieldDataType)
-          {
-            json.Append("\"");
-          }
-
-
-            string value = "0";
-            if (typeof(Byte[]) == field.FieldDataType)
-            {
-                System.Text.Encoding enc = System.Text.Encoding.ASCII;
-                value = enc.GetString((Byte[])(field.FieldValue));
-            }
-            else
-            {
-                value = field.FieldValue.ToString();
-            }
-
-
-          // CORE-5487 HtmlEncode the field so XSS tags don't show up in UI.
-          //StringBuilder sb = new StringBuilder(HttpUtility.HtmlEncode(value));
-          // CORE-5938: Audit log: incorrect character encoding in Details row 
-          StringBuilder sb = new StringBuilder((value ?? string.Empty).EncodeForHtml());
-          sb = sb.Replace("\"", "\\\"");
-          //CORE-5320: strip all the new line characters. They are not allowed in jason
-          // Oracle can return them and breeak our ExtJs grid with an ugly "Session Time Out" catch all error message
-          // TODO: need to find other places where JSON is generated and strip new line characters.
-          sb = sb.Replace("\n", "<br />");
-          sb = sb.Replace("\r", "");
-          string fieldvalue = sb.ToString();
-
-          json.Append(fieldvalue);
-
-          if (typeof(String) == field.FieldDataType || typeof(DateTime) == field.FieldDataType || typeof(Guid) == field.FieldDataType || typeof(Byte[]) == field.FieldDataType)
-          {
-            json.Append("\"");
-          }
-
-        }
-      }
-
-      json.Append("}");
-    }
-
-    json.Append("]");
-    
-    json.Append("}");
-
-    return json.ToString();
-  }
 }

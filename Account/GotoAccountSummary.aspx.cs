@@ -23,7 +23,7 @@ public partial class GotoAccountSummary : MTPage
   {
     if (!Page.IsPostBack)
     {
-      Response.Redirect("/MetraNet/Account/AccountLandingPage.aspx");
+      //Response.Redirect("/MetraNet/Account/AccountLandingPage.aspx");
       string summaryPage = ActiveAccount.AccountType.ToUpper() + "_SUMMARYPAGE";
       if(UI.DictionaryManager.Exist(summaryPage))
       {

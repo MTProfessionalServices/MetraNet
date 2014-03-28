@@ -300,7 +300,7 @@
 
       bbar:[
         {
-            //text: '<span id="subscriberInfo">Account:</span><span id="subscriberInfo">None Selected</span>',
+            text: '<span id="subscriberInfo"></span>',
             handler: function() {
                 Account.RefreshWithMenu();
                 

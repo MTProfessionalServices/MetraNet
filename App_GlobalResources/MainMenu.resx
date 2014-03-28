@@ -624,4 +624,7 @@
   <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
     <value>Usage Processing</value>
   </data>
+  <data name="TEXT_ACCOUNT" xml:space="preserve">
+    <value>Account</value>
+  </data>
 </root>

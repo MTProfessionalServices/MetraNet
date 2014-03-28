@@ -17,7 +17,7 @@ public class VisualizeService
 
   
 
-  public void GetData(string connectionInfo, string catalog, string sqlQueryTag, Dictionary<string, object> paramDict, ref MTList<SQLRecord> items)
+  public static void GetData(string connectionInfo, string catalog, string sqlQueryTag, Dictionary<string, object> paramDict, ref MTList<SQLRecord> items)
   {
     //System.Diagnostics.Debugger.Break();
     var ciDBServer = new ConnectionInfo(connectionInfo);
@@ -49,7 +49,7 @@ public class VisualizeService
   }
 
 
-  protected void ConstructItems(IMTDataReader rdr, ref MTList<SQLRecord> items)
+  protected static void ConstructItems(IMTDataReader rdr, ref MTList<SQLRecord> items)
   {
     items.Items.Clear();
 
@@ -77,7 +77,7 @@ public class VisualizeService
     }
   }
 
-  public string SerializeItems(MTList<SQLRecord> items)
+  public static string SerializeItems(MTList<SQLRecord> items)
   {
     var json = new StringBuilder();
 

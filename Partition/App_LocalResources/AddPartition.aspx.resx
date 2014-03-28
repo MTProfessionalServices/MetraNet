@@ -335,7 +335,7 @@
   <data name="ddAuthenticationTypeResource1.Label" xml:space="preserve">
     <value>Authentication Type</value>
   </data>
-  <data name="ddBillingCycleControl1Resource1" xml:space="preserve">
+  <data name="ddBillingCycleControl1Resource1.Label" xml:space="preserve">
     <value>Billing Cycle</value>
   </data>
   <data name="ddBrandedSiteResource1.Label" xml:space="preserve">
@@ -408,7 +408,7 @@
     <value>Account Information</value>
   </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Add Account</value>
+    <value>Add Partition</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>

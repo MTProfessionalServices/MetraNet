@@ -6,6 +6,8 @@ using MetraTech.DataAccess;
 using MetraTech.SecurityFramework;
 using MetraTech.UI.Common;
 using MetraTech;
+using MetraTech.UI.Controls;
+using System.Web.UI.WebControls;
 
 /// <summary>
 ///   Summary description for VisualizeService
@@ -14,6 +16,7 @@ public class VisualizeService
 {
   private const string sqlQueriesPath = @"..\Extensions\SystemConfig\config\SqlCore\Queries\UI\Dashboard";
   protected readonly static Logger logger = new Logger("[VisualizeService]");
+  private const int MAX_DD_COUNT = 50;
 
   
 
@@ -164,4 +167,103 @@ public class VisualizeService
 
     return json.ToString();
   }
+
+
+
+
+  public static  void ConfigureAndLoadGrid(MTFilterGrid grid, string queryName, string queryPath, Dictionary<string, object> paramDict)
+  {
+    try
+    {
+      SQLQueryInfo sqi = new SQLQueryInfo();
+      sqi.QueryName = queryName;
+      sqi.QueryDir = queryPath;
+
+      if (paramDict != null)
+      {
+        foreach (var pair in paramDict)
+        {
+          SQLQueryParam param = new SQLQueryParam();
+          param = new SQLQueryParam();
+          param.FieldName = pair.Key;
+          param.FieldValue = pair.Value;
+          sqi.Params.Add(param);
+        }
+      }
+
+      string qsParam = MetraTech.UI.Common.SQLQueryInfo.Compact(sqi);
+      grid.DataSourceURLParams.Add("q", qsParam);
+
+    }
+    catch
+    {
+      throw;
+    }
+  }
+
+
+ public static void ConfigureAndLoadDropDowns(MTDropDown dropDown, string colDisplay, string colValue, string queryName, string queryPath, Dictionary<string, object> paramDict)
+  {
+
+
+    using (IMTConnection conn = ConnectionManager.CreateConnection())
+    {
+
+      using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(queryPath, queryName))
+      {
+        if (paramDict != null)
+        {
+          foreach (var pair in paramDict)
+          {
+            stmt.AddParam(pair.Key, pair.Value);
+          }
+        }
+
+        using (IMTDataReader reader = stmt.ExecuteReader())
+        {
+          ListItem[] items = new ListItem[MAX_DD_COUNT];
+          int count = 0;
+          int displayOrdinal = 0;
+          int valueOrdinal = 0;
+
+          // process the results
+          while (reader.Read())
+          {
+
+            items[count] = new ListItem();
+
+
+            if (count == 0)
+            {
+              for (int i = 0; i < reader.FieldCount; i++)
+              {
+                if (reader.GetName(i).Equals(colDisplay))
+                  displayOrdinal = i;
+                if (reader.GetName(i).Equals(colValue))
+                  valueOrdinal = i;
+              }
+
+              items[count].Selected = true;
+            }
+
+            items[count].Text = reader.GetValue(displayOrdinal).ToString();
+            items[count].Value = reader.GetValue(valueOrdinal).ToString();
+
+
+
+
+            dropDown.Items.Add(items[count]);
+            count = count + 1;
+          }
+
+        }
+
+      }
+
+      conn.Close();
+    }
+
+  }
+
+
 }

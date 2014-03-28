@@ -304,7 +304,7 @@
                 </MT:MTPanel>
             </li>
             <li data-row="37" data-col="1" data-sizex="3" data-sizey="7">
-                <MT:MTPanel ID="pnlFailedAdapters" runat="server" Text="Failed Adapters" Width="325"
+                <MT:MTPanel ID="pnlFailedAdapters" runat="server" Text="Failed Adapters" Width="320"
                     Height="325">
                     <div height="100%" style="height: 248px">
                         <MT:MTFilterGrid ID="grdFailedAdapters" runat="Server" ExtensionName="SystemConfig"
@@ -314,7 +314,7 @@
                 </MT:MTPanel>
             </li>
             <li data-row="37" data-col="4" data-sizex="3" data-sizey="7">
-                <MT:MTPanel ID="pnlRunningAdapters" runat="server" Text="Running Adapters" Width="325"
+                <MT:MTPanel ID="pnlRunningAdapters" runat="server" Text="Running Adapters" Width="320"
                     Height="325">
                     <div height="100%" style="height: 248px">
                         <MT:MTFilterGrid ID="grdRunningAdapters" runat="Server" ExtensionName="SystemConfig"
@@ -324,7 +324,7 @@
                 </MT:MTPanel>
             </li>
             <li data-row="37" data-col="7" data-sizex="2" data-sizey="7">
-                <MT:MTPanel ID="pnlPuppetNodes" runat="server" Text="Puppet Nodes" Width="225" Height="325">
+                <MT:MTPanel ID="pnlPuppetNodes" runat="server" Text="Puppet Nodes" Width="220" Height="325">
                       
                       <div id="divPuppetNodes">
                         <svg class="barchart" id="svgPuppetNodes"> </svg>
@@ -644,8 +644,8 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 
     function makeActiveBillRunsPart() {
         var objActiveBillRunLineChartConfig = {
-            width: 400,
-            height: 207,
+            width: 450,
+            height: 200,
             margin: { left: 40, top: 20, right: 20, bottom: 20 },
             yAxis: {"Label":"Duration","IgnoreColumns": ["adapter"]},
             xAxis: {"Label":"Adapter","Column":"rownumber"},
@@ -1045,8 +1045,9 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
              
         ]
 
+    
 
-        data.forEach(function (d) {
+          data.forEach(function (d) {
                 d.value = +d.value;
             });
             var chart = dc.barChart("#divPuppetNodes");

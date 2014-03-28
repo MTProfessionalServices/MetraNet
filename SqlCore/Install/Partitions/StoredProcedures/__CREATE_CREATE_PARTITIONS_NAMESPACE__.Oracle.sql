@@ -9,6 +9,7 @@ PROCEDURE CREATE_PARTITIONS_NAMESPACE(
 	,v_invoiceNumDigits 	int
 	,v_invoiceDueDateOffset	int
 	,v_invoiceNumLast 	int
+	,v_accountNamespace 		VARCHAR2
 	,v_namespaceInsertCount OUT int
 	,v_invoiceNamespaceInsertCount OUT int
     ,v_errorNumber OUT int
@@ -16,12 +17,23 @@ PROCEDURE CREATE_PARTITIONS_NAMESPACE(
 AS
 v_total_rows_t_namespace INT;
 v_total_rows_t_invoice_n INT;
+v_total_rows_t_account_mapper INT;
 BEGIN
 
  v_errorNumber := 0;
  v_errorMessage := '';
  v_namespaceInsertCount := 0;
  v_invoiceNamespaceInsertCount := 0;
+
+ -- check that namespace of partition account corresponds to namespace of root account
+SELECT count(*) INTO v_total_rows_t_account_mapper  FROM t_account_mapper WHERE (id_acc = 1) AND (nm_space = v_accountNamespace)
+if (v_total_rows_t_account_mapper=0) THEN
+BEGIN
+  v_namespaceInsertCount := -1;
+  v_errorNumber := -486604800;
+  v_errorMessage := 'Branded Site of partition account should be MetraTech Sample Site';
+  return
+END
 
  select count(*) INTO v_total_rows_t_namespace from t_namespace where nm_space = v_namespace;
 

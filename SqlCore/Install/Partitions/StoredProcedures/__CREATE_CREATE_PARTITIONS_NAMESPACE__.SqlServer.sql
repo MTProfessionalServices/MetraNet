@@ -1,17 +1,18 @@
 CREATE PROCEDURE [dbo].[CREATE_PARTITIONS_NAMESPACE]
-	@v_namespace 		VARCHAR(4000)
+	@v_namespace 				VARCHAR(4000)
 	,@v_namespaceDescription 	VARCHAR(4000)
-	,@v_method       		VARCHAR(4000)
-	,@v_namespaceType 	VARCHAR(4000)									   
-	,@v_invoicePrefix 	VARCHAR(4000)
-	,@v_invoiceSuffix     	varchar(4000)
-	,@v_invoiceNumDigits 	int
+	,@v_method       			VARCHAR(4000)
+	,@v_namespaceType 			VARCHAR(4000)									   
+	,@v_invoicePrefix 			VARCHAR(4000)
+	,@v_invoiceSuffix     		VARCHAR(4000)
+	,@v_invoiceNumDigits 		int
 	,@v_invoiceDueDateOffset	int
-	,@v_invoiceNumLast 	int
-	,@v_errorNumber int OUTPUT
-	,@v_namespaceInsertCount int OUTPUT
+	,@v_invoiceNumLast 			int
+	,@v_accountNamespace 		VARCHAR(4000)
+	,@v_errorNumber 			int OUTPUT
+	,@v_namespaceInsertCount 	int OUTPUT
 	,@v_invoiceNamespaceInsertCount int OUTPUT
-	,@v_errorMessage varchar(4000) OUTPUT
+	,@v_errorMessage 			VARCHAR(4000) OUTPUT
 
 AS BEGIN
 
@@ -20,6 +21,13 @@ set @v_errorMessage = ''
 set @v_namespaceInsertCount = 0
 set @v_invoiceNamespaceInsertCount = 0
 
+-- check that namespace of partition account corresponds to namespace of root account
+if not exists (SELECT * FROM t_account_mapper WHERE (id_acc = 1) AND (nm_space = @v_accountNamespace))
+BEGIN
+  select @v_namespaceInsertCount = -1, @v_errorNumber = -486604800, @v_errorMessage = 'Branded Site of partition account should be "MetraTech Sample Site"'
+  return
+END
+  
 if not exists (select * from t_namespace where nm_space = @v_namespace)
 begin
   BEGIN TRY

@@ -74,6 +74,11 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
               GetData("__ACCOUNT_BALANCESUMMARY__", paramDict, ref items);
             }
 
+            if (operation.Equals("billingsummary"))
+            {
+              GetData("__ACCOUNT_BILLINGSUMMARY__", paramDict, ref items);
+            }
+
             if (operation.Equals("discountcommitmentsummary"))
             {
               GetData("__ACCOUNT_DISCOUNTANDCOMMITMENTSUMMARY__", paramDict, ref items);

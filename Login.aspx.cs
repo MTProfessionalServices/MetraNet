@@ -15,9 +15,15 @@ public partial class login: MTPage
     private const string SYSTEM_USER_NAMESPACE = "system_user";
     private const int m_ticketLifeSpanInMins = 65;
     public string dataLangNum = "1";
-    public String userName = " UserName";
-    public String password = "Password";
-           
+    public String userNameTxt = " UserName";
+    public String passwordTxt = "Password";
+    public String newpasswordTxt = "New Password";
+    public String confirmnewpasswordTxt = "Confirm New Password";
+   
+    public String loginTxt = "Login";
+    public String showFailureText = "false";
+    public String showChangePasswdFailureText = "false";
+    public string language = "en-US";
    
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -28,8 +34,18 @@ public partial class login: MTPage
 
 
         //Login1.LoginButtonText = GetLocalResourceObject("Login1Resource1.LoginButtonText").ToString();
-        userName = GetLocalResourceObject("Login1Resource1.UserNameLabelText").ToString();
-        password = GetLocalResourceObject("Login1Resource1.PasswordLabelText").ToString(); 
+        userNameTxt = GetLocalResourceObject("Login1Resource1.UserNameLabelText").ToString();
+        passwordTxt = GetLocalResourceObject("Login1Resource1.PasswordLabelText").ToString();
+        //newpasswordTxt = GetLocalResourceObject("Login1Resource1.NewPasswordLabelText").ToString();
+        //confirmnewpasswordTxt = GetLocalResourceObject("Login1Resource1.ConfirmNewPasswordLabelText").ToString(); 
+        language = (string)Session[Constants.SELECTED_LANGUAGE];
+     
+        Button btnLogin = (Button)Login1.FindControl("Login");
+        btnLogin.Text =  GetLocalResourceObject("Login1Resource1.LoginButtonText").ToString();
+
+        showFailureText = "false";
+        showChangePasswdFailureText = "false";
+        Page.Title = (string)GetLocalResourceObject("PageResource1.Title");
         Login1.Focus();
     }
 
@@ -58,39 +74,48 @@ public partial class login: MTPage
     }
 
     // Change Password OK Handler
-    protected void btnOK_Click(object sender, EventArgs e)
+    protected void btnChangePassword_Click(object sender, EventArgs e)
     {
         try
         {
-            Auth auth = new Auth();
-            auth.Initialize(tbUserName.Text, SYSTEM_USER_NAMESPACE);
 
-            MetraTech.Security.LoginStatus loginStatus = AttemptLogin(tbUserName.Text, tbOldPassword.Text, SYSTEM_USER_NAMESPACE);
+            Auth auth = new Auth();
+            auth.Initialize(Login1.UserName, SYSTEM_USER_NAMESPACE);
+
+            MetraTech.Security.LoginStatus loginStatus = AttemptLogin(Login1.UserName, CurrentPassword.Text, SYSTEM_USER_NAMESPACE);
+
 
             if ((loginStatus == MetraTech.Security.LoginStatus.OK) || (loginStatus == MetraTech.Security.LoginStatus.OKPasswordExpiringSoon))
             {
-                if (auth.ChangePassword(tbOldPassword.Text, tbNewPassword.Text, UI.SessionContext))
+                if (auth.ChangePassword(CurrentPassword.Text, NewPassword.Text, UI.SessionContext))
                 {
                     // Password change was successful... redirect to DefaultPage.
                     Response.Redirect(UI.DictionaryManager["DefaultPage"].ToString());
                 }
                 else  // Unable to change password
                 {
-                    reasonText.InnerHtml = Resources.ErrorMessages.ERROR_LOGIN_INVALID;
-                    ShowPopup.Value = "true";
+
+                    divChangePasswdFailureText.InnerHtml = Resources.ErrorMessages.ERROR_LOGIN_INVALID;
+                    showChangePasswdFailureText = "true";
                 }
             }
             else  // Failed login
             {
-                reasonText.InnerHtml = GetLoginStatusText(loginStatus);
-                ShowPopup.Value = "true";
+              divChangePasswdFailureText.InnerHtml = GetLoginStatusText(loginStatus);
+              showChangePasswdFailureText = "true"; 
             }
         }
         catch (Exception exp)
         {
-            reasonText.InnerHtml = Server.HtmlEncode(exp.Message);
-            ShowPopup.Value = "true";
+          divChangePasswdFailureText.InnerHtml = Server.HtmlEncode(exp.Message);
+            showChangePasswdFailureText = "true"; 
         }
+
+
+        pnlChangePassword.Visible = true;
+        pnlLogin.Visible = false;
+        pnlLogin.Style.Add("display", "none");
+        pnlChangePassword.Style.Add("display", "block");
     }
 
     protected void btnCancel_Click(object sender, EventArgs e)
@@ -100,6 +125,9 @@ public partial class login: MTPage
 
         pnlChangePassword.Visible = false;
         pnlLogin.Visible = true;
+        pnlLogin.Style.Add("display", "block");
+        pnlChangePassword.Style.Add("display", "none");
+       
     }
 
     protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
@@ -142,7 +170,7 @@ public partial class login: MTPage
 
             case MetraTech.Security.LoginStatus.OKPasswordExpiringSoon:
                 Auth auth = new Auth();
-                auth.Initialize(tbUserName.Text, SYSTEM_USER_NAMESPACE);
+                auth.Initialize(Login1.UserName, SYSTEM_USER_NAMESPACE);
                 int days = auth.DaysUntilPasswordExpires();
 
                 strErrText = String.Format(Resources.ErrorMessages.ERROR_LOGIN_PASSWORD_EXPIRING, days);
@@ -168,107 +196,125 @@ public partial class login: MTPage
         return strErrText;
     }
 
-    private void DoLogin()
+  private void DoLogin()
+  {
+    // Create a UIManager
+    UI = new UIManager();
+
+    // Retrieve username and password from control
+    string userName = Login1.UserName;
+    string password = Login1.Password;
+
+
+    // Attempt Login
+    // SECENG: ESR-4117 BSS 28332 MetraNet Security Framework DoS (Unauthenticated) (SecEx)
+    // The login logic updated with Password and UserName limitations: like it is in NetMeter DB fields size (255 for UserName and 1024 for Password)
+    if ((!string.IsNullOrEmpty(userName) && userName.Length > 255) ||
+        (!string.IsNullOrEmpty(password) && password.Length > 1024))
     {
-        // Create a UIManager
-        UI = new UIManager();
+      Login1.FailureText = Resources.ErrorMessages.ERROR_LOGIN_INVALID;
+      showFailureText = "true";
 
-        // Retrieve username and password from control
-        string userName = Login1.UserName;
-        string password = Login1.Password;
+      return;
+    }
 
+    object tmp = null; //IMTSessionContext
+    Auth auth = new Auth();
+    auth.Initialize(userName, SYSTEM_USER_NAMESPACE, userName, "MetraNet");
+    MetraTech.Security.LoginStatus status = auth.Login(password, null, ref tmp);
+    IMTSessionContext sessionContext = tmp as IMTSessionContext;
 
-        // Attempt Login
-        // SECENG: ESR-4117 BSS 28332 MetraNet Security Framework DoS (Unauthenticated) (SecEx)
-        // The login logic updated with Password and UserName limitations: like it is in NetMeter DB fields size (255 for UserName and 1024 for Password)
-        if ((!string.IsNullOrEmpty(userName) && userName.Length > 255) ||
-            (!string.IsNullOrEmpty(password) && password.Length > 1024))
+    string ticket = "";
+    // Don't generate ticket if user not authenticated
+
+    //GOWRI:Uncomment to check the change passwd
+   //status = MetraTech.Security.LoginStatus.OKPasswordExpiringSoon;
+
+    if (status == MetraTech.Security.LoginStatus.OK || status == MetraTech.Security.LoginStatus.OKPasswordExpiringSoon)
+    {
+      ticket = TicketManager.CreateTicket(sessionContext.AccountID, SYSTEM_USER_NAMESPACE, userName,
+                                          m_ticketLifeSpanInMins);
+    }
+
+    if (userName.ToLower() == "su")
+      status = LoginStatus.NoCapabilityToLogonToThisApplication;
+
+    string err = "";
+    bool isChangePwd = false;
+
+    
+    switch (status)
+    {
+        // Success cases
+      case MetraTech.Security.LoginStatus.OK:
+        SetupUserData(userName, SYSTEM_USER_NAMESPACE, sessionContext, ticket);
+        if (UI.CoarseCheckCapability("Manage Account Hierarchies"))
         {
-            Login1.FailureText = Resources.ErrorMessages.ERROR_LOGIN_INVALID;
-            return;
+          // CORE-4889 - Session Identifier Not Updated 
+          WebUtils.RegenerateSessionId();
+          Response.Redirect(UI.DictionaryManager["DefaultPage"].ToString());
         }
-
-        object tmp = null;  //IMTSessionContext
-        Auth auth = new Auth();
-        auth.Initialize(userName, SYSTEM_USER_NAMESPACE, userName, "MetraNet");
-        MetraTech.Security.LoginStatus status = auth.Login(password, null, ref tmp);
-        IMTSessionContext sessionContext = tmp as IMTSessionContext;
-
-        string ticket = "";
-        // Don't generate ticket if user not authenticated
-        if (status == MetraTech.Security.LoginStatus.OK || status == MetraTech.Security.LoginStatus.OKPasswordExpiringSoon)
+        else
         {
-            ticket = TicketManager.CreateTicket(sessionContext.AccountID, SYSTEM_USER_NAMESPACE, userName, m_ticketLifeSpanInMins);
+          err = Resources.ErrorMessages.ERROR_CAPABILITY_INVALID;
         }
+        break;
 
-        if (userName.ToLower() == "su")
-            status = LoginStatus.NoCapabilityToLogonToThisApplication;
+      case MetraTech.Security.LoginStatus.OKPasswordExpiringSoon:
 
-        string err = "";
-        switch (status)
-        {
-            // Success cases
-            case MetraTech.Security.LoginStatus.OK:
-                SetupUserData(userName, SYSTEM_USER_NAMESPACE, sessionContext, ticket);
-                if (UI.CoarseCheckCapability("Manage Account Hierarchies"))
-                {
-                    // CORE-4889 - Session Identifier Not Updated 
-                    WebUtils.RegenerateSessionId();
-                    Response.Redirect(UI.DictionaryManager["DefaultPage"].ToString());
-                }
-                else
-                {
-                    err = Resources.ErrorMessages.ERROR_CAPABILITY_INVALID;
-                }
-                break;
+        //PasswordManager passwordManager = new PasswordManager();
+        //passwordManager.Initialize(userName, SYSTEM_USER_NAMESPACE);
+        // int days = passwordManager.DaysUntilPasswordExpires();
 
-            case MetraTech.Security.LoginStatus.OKPasswordExpiringSoon:
+        // if days <= 0 then show change password panel, except for su which requires special steps.
+        //if (days <= 0)
+        //{
+        //  if (userName.ToLower() != "su")
+        //  {
+        pnlLogin.Style.Add("display", "none");
+        pnlChangePassword.Style.Add("display","block");
+        pnlChangePassword.Visible = true;
 
-                //PasswordManager passwordManager = new PasswordManager();
-                //passwordManager.Initialize(userName, SYSTEM_USER_NAMESPACE);
-                // int days = passwordManager.DaysUntilPasswordExpires();
+         Logger.LogInfo("Change password is " + userName);
+        isChangePwd = true;
+        break;
+        //  }
+        //}
 
-                // if days <= 0 then show change password panel, except for su which requires special steps.
-                //if (days <= 0)
-                //{
-                //  if (userName.ToLower() != "su")
-                //  {
-                pnlLogin.Visible = false;
-                pnlChangePassword.Visible = true;
+        //SetupUserData(userName, SYSTEM_USER_NAMESPACE, sessionContext);
 
-                tbUserName.Text = userName;
-                break;
-            //  }
-            //}
+        //  Session["ChangePasswordMsg"] = String.Format(Resources.ErrorMessages.ERROR_LOGIN_PASSWORD_EXPIRING, days);
+        //  Server.Transfer(UI.DictionaryManager["DefaultPage"] + "?URL=" + Encrypt(UI.DictionaryManager["ChangePasswordPage"].ToString()));
+        //   break;
 
-            //SetupUserData(userName, SYSTEM_USER_NAMESPACE, sessionContext);
+        // Error cases 
+          case MetraTech.Security.LoginStatus.FailedUsernameOrPassword:
+            err = Resources.ErrorMessages.ERROR_LOGIN_INVALID;
+            break;
 
-            //  Session["ChangePasswordMsg"] = String.Format(Resources.ErrorMessages.ERROR_LOGIN_PASSWORD_EXPIRING, days);
-            //  Server.Transfer(UI.DictionaryManager["DefaultPage"] + "?URL=" + Encrypt(UI.DictionaryManager["ChangePasswordPage"].ToString()));
-            //   break;
+          case MetraTech.Security.LoginStatus.FailedPasswordExpired:
+            err = Resources.ErrorMessages.ERROR_PASSWORD_EXPIRED;
+            break;
 
-            // Error cases 
-            case MetraTech.Security.LoginStatus.FailedUsernameOrPassword:
-                err = Resources.ErrorMessages.ERROR_LOGIN_INVALID;
-                break;
+          case MetraTech.Security.LoginStatus.NoCapabilityToLogonToThisApplication:
+            err = Resources.ErrorMessages.ERROR_LOGIN_INVALID;
+            break;
 
-            case MetraTech.Security.LoginStatus.FailedPasswordExpired:
-                err = Resources.ErrorMessages.ERROR_PASSWORD_EXPIRED;
-                break;
+          case MetraTech.Security.LoginStatus.FailedUsernameIsLocked:
+            err = Resources.ErrorMessages.ERROR_LOGIN_LOCKED;
+            break;
 
-            case MetraTech.Security.LoginStatus.NoCapabilityToLogonToThisApplication:
-                err = Resources.ErrorMessages.ERROR_LOGIN_INVALID;
-                break;
-
-            case MetraTech.Security.LoginStatus.FailedUsernameIsLocked:
-        err = Resources.ErrorMessages.ERROR_LOGIN_LOCKED;
-                break;
-
-            default:
-                err = Resources.ErrorMessages.ERROR_LOGIN_INVALID;
-                break;
+          default:
+            err = Resources.ErrorMessages.ERROR_LOGIN_INVALID;
+            break;
         }
         Login1.FailureText = err;
+
+        if (err != "")
+        {
+          if(!isChangePwd)
+            showFailureText = "true";
+        }
 
     }
 

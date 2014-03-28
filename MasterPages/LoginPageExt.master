@@ -9,15 +9,8 @@
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
   <title>MetraNet</title>
   
-  <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/ext-all.css?v=6.5" />
-  <link rel="stylesheet" type="text/css" href="<%= GetGlobalResourceObject("Resource", "LocalizedStyleSheet") %>" />
-  <link rel="stylesheet" type="text/css" href="/Res/Styles/menuStyle.css?v=6.5"/>
-  <link rel="stylesheet" type="text/css" href="/Res/Styles/MiscField.css?v=6.5"/>
-  <link rel="icon" type="image/ico" href="/MetraNet/favicon.ico" />
-   <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/xtheme-metranet.css" />
-   <link rel="stylesheet" type="text/css" href="/Res/Styles/login.css"/>
+    <link rel="stylesheet" type="text/css" href="/Res/Styles/login.css"/>
   
-
   <script type="text/javascript" src="/Res/Ext/adapter/ext/ext-base.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/Ext/ext-all.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/JavaScript/ExtHacks.js?v=6.5"></script>
@@ -28,8 +21,8 @@
   <script type="text/javascript" src="/Res/ux/form/MiscField.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/ux/form/PasswordMeter.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/ux/form/LargeNumberField.js?v=6.5"></script>
-
-
+ <script type="text/javascript" src="/Res/JavaScript/jquery.min.js"></script>
+ 
   <uc4:LocalizedIncludes ID="LocalizedIncludes1" runat="server" />
   <%=Constants.CJ_PROTECTION_CODE%>		
   <script type="text/javascript">
@@ -58,7 +51,7 @@
 </html>
 <script type="text/javascript">
     var flagOkLoadStore = "true";
-    var currentBackgroundImageNumber = 3;   //Math.floor(Math.random() * 9) + 1;
+    var currentBackgroundImageNumber = 11;   //Math.floor(Math.random() * 9) + 1;
 
     /*var currentImageValueFromCookies = parseInt(Ext.util.Cookies.get('currentBackgroundImageNumber'));
     if (!isNaN(currentImageValueFromCookies)) {

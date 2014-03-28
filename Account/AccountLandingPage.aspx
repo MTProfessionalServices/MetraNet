@@ -7,7 +7,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
   <script type="text/javascript">
-  // Sometimes when we come back from old MAM or MetraView we may have an extra frame.
+    // Sometimes when we come back from old MAM or MetraView we may have an extra frame.
     // This code busts out of it.
 //    Ext.onReady(function(){
 //      if(getFrameMetraNet().MainContentIframe )
@@ -51,7 +51,7 @@
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
-  background: #fff; 
+  background: #f1f1f1; 
 }
 
 #ctl00_ContentPlaceHolder1_lblAccount360Title {
@@ -238,10 +238,57 @@ white-space:nowrap;
   padding-right: 30px;
   margin-right: 30px;
 }
+
+
+ .widgetpanel { /* Taken from x-panel and x-gridpanel */
+   float: left;
+   border-bottom-color: #d0d0d0;
+   margin: 5px 5px 5px 10px;
+   border-color: #ccc;
+   -moz-border-radius: 2px;
+   -webkit-border-radius: 2px;
+   border-radius: 2px;
+   background-color: #f1f1f1;
+   border: solid 1px #ccc;
+   height: 75px;
+   color: #666;
+ }
+ 
+ .widgetpanel .valueLabel {
+  padding-left: 5px;
+  text-align: left;
+  font-size: smaller;
+  color: #a1a1a1;
+ }
+ 
+  .widgetpanel .valueHighlighted {
+    text-align: center;
+    display: block;
+    padding-top: 10px;
+    font-size: 18px;
+ }
+
+ .widgetpanel .positive {
+  color: darkgreen;
+ }
+  .widgetpanel .valueDetail {
+    text-align: right;
+    padding-right: 5px;
+    display: block;
+    padding-top: 10px;
+    font-size: smaller;
+    color: #a1a1a1;
+ } 
+
+  .widgetpanel .footer {
+    /*position: absolute; */
+    bottom: 0; 
+ }  
+ 
   </style>
 
   <script type="text/javascript">
-  //Initialize gridster
+    //Initialize gridster
 //    jQuery(function () {
 //      var widgets = $('.widget');
 
@@ -269,23 +316,43 @@ white-space:nowrap;
   <div class="widget" data-row="1" data-col="1" data-sizex="3" data-sizey="1">
   <div id="AccountSummaryInformation" style="padding: 15px;"></div>
   </div>
-<%--  
-  <div class="x-panel mtpanel-inner">
-    <div id="AccountBalanceInformation" style="padding: 15px;">Balance Information</div>
-  </div>--%>
   
-  <div class="widget" data-row="2" data-col="1" data-sizex="8" data-sizey="1">
-    <MT:MTPanel ID="MTPanel1" runat="server" Collapsed=false Collapsible="False" Visible="False" >
-      <div id="AccountBalanceInformation"></div>
-    </MT:MTPanel>
+  <div id="AccountStatus" class="widgetpanel" style="width:150px; display:none;">
+    <div id="Div1"><span class="valueLabel">Status</span><span class="valueHighlighted positive">N/A</span></div>
+  </div>
+  
+  <div id="BalanceInformation" class="widgetpanel" style="width:150px; display:none;">
+    <div><span class="valueLabel">Balance</span><span class="valueHighlighted">$13,569.23</span><span class="valueDetail footer">as of March 1st, 2014</span></div>
+  </div>
+
+<%--  <div class="widgetpanel" style="width:150px;">
+    <div id="Div2"><span class="valueLabel">Balance</span><span class="valueHighlighted">$13,569.23</span><span class="valueDetail footer">as of March 1st, 2014</span></div>
+  </div>--%>
+
+  <div class="widgetpanel" style="width:300px;">
+    <div id="Div3" style="float:left;margin-left: 10px;"><span class="valueLabel">LTV</span><span class="valueHighlighted" style='padding-left: 10px;'>$109,569.23</span></div>
+    <div id="Div4" style="float:left;margin-left: 10px"><span class="valueLabel">MRR</span><span class="valueHighlighted" style="padding: 10px;">$9,569.23</span></div>
+  </div>
+  
+  <br style="clear: both;" />
+
+<%--  <div class="widgetpanel" style="width:300px; display: none;">
+    <div id="AccountBalanceInformation" style="padding: 15px;">Balance Information</div>
+  </div>
+  
+  <MT:MTPanel ID="MTPanel1" runat="server" Collapsed=false Collapsible="False" Visible="false" >
+    <div id="AccountBalanceInformation"></div>
+  </MT:MTPanel>--%>
+  
+   <br style="clear: both;" />
   </div>
 
   <div class="widget" data-row="3" data-col="1" data-sizex="8" data-sizey="1">
 <%--  <img src="/Res/Images/Mockup/MetangaAccountSummaryAnalytic.png" width="720px;" style="padding: 15px;"/>
     <MT:MTPanel ID="SalesSummaryPanel" runat="server" Text="Sales Summary" >
       <div id="SalesSummaryInformation"></div>
-    </MT:MTPanel> --%>
-    <MT:MTFilterGrid ID="SalesSummaryGrid" runat="server" TemplateFileName="SalesSummary.xml" ExtensionName="Account" Resizable="False" Title="Sales Summary"></MT:MTFilterGrid>
+    </MT:MTPanel>
+    <MT:MTFilterGrid ID="SalesSummaryGrid" runat="server" TemplateFileName="SalesSummary.xml" ExtensionName="Account" Resizable="False" Title="Sales Summary"></MT:MTFilterGrid> --%>
   </div>
   
   <table style="width:100%; height:100%;"><tr style="vertical-align:top;"><td style="width:380px; height:336px;">
@@ -304,6 +371,14 @@ white-space:nowrap;
 
   <div class="widget" data-row="7" data-col="1" data-sizex="8" data-sizey="3">
   <MT:MTFilterGrid ID="SubscriptionSummaryGrid" runat="server" TemplateFileName="AccountSubscriptionSummary.xml" ExtensionName="Account" ></MT:MTFilterGrid>
+  </div>
+  
+  <div class="widget" data-row="8" data-col="1" data-sizex="8" data-sizey="3">
+  <MT:MTFilterGrid ID="InvoiceSummaryGrid" runat="server" TemplateFileName="AccountInvoiceSummary.xml" ExtensionName="Account" ></MT:MTFilterGrid>
+  </div>
+  
+  <div class="widget" data-row="9" data-col="1" data-sizex="8" data-sizey="3">
+    <MT:MTFilterGrid ID="PaymentGrid" runat="server" TemplateFileName="AccountPaymentSummary.xml" ExtensionName="Account" ></MT:MTFilterGrid>
   </div>
   
   <div class="widget" data-row="10" data-col="1" data-sizex="8" data-sizey="3">
@@ -553,72 +628,29 @@ white-space:nowrap;
       '</tpl>',
       '</tpl>',
       '<span class="AccountIdentifier">{UserName} ({_AccountID})</span><br/>',
+      '<br />',
+      '<tpl for="Internal">',      
+      //'{UsageCycleTypeValueDisplayName} {Currency} {LanguageValueDisplayName}<br/>',
+      //'{UsageCycleTypeDisplayName}: {UsageCycleTypeValueDisplayName}<br/>', 
+      '<span>{UsageCycleTypeValueDisplayName}<span><br/>',           
+      '</tpl>',     
       '<br><span>Account Status: {AccountStatusValueDisplayName} <a href="/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/AccountStateSetup.asp">Change</a></span><br/>',
-      '{AccountStartDate}<br/>',
-      '<span>Payer {_AccountID} {PayerID} {PayerAccount} </span><br/>',
-      //'{Internal.UsageCycleTypeValueDisplayName} {Internal.Currency} {Internal.LanguageValueDisplayName}<br/>',
-      //'<span>Balance: $23,345 as of Feb. 15, 2014</span><br/>',
-           
-
-
-//           '<tpl if="this.isNull(Address1) == false">',
-//             '{Address1:htmlEncode}<br/>',
-//           '</tpl>',
-
-//           '<tpl if="this.isNull(Address2) == false">',
-//             '{Address2:htmlEncode}<br/>',
-//           '</tpl>',
-
-//           '<tpl if="this.isNull(Address3) == false">',
-//             '{Address3:htmlEncode}<br/>',
-//           '</tpl>',
-
-//           '<tpl if="this.isNull(City) == false">',
-//              '{City:htmlEncode}',
-//           '</tpl>',
-
-//           '<tpl if="(this.isNull(City) == false) && (this.isNull(State) == false)">',
-//              ', ',
-//           '</tpl>',
-
-//           '<tpl if="this.isNull(State) == false">',
-//              '{State:htmlEncode}',
-//           '</tpl>',
-
-//           '<tpl if="(this.isNull(Zip) == false) && ((this.isNull(City) == false) ||(this.isNull(State) == false)) ">',
-//              ' ',
-//           '</tpl>',
-
-//           '<tpl if="this.isNull(Zip) == false">',
-//              '{Zip:htmlEncode}',
-//           '</tpl>',
-
-//           '<tpl if="(this.isNull(City) == false) || (this.isNull(State) == false) || (this.isNull(Zip) == false)">',
-//              '<br/>',
-//           '</tpl>',
-
-//           '<tpl if="this.isNull(CountryValueDisplayName) == false">',
-//              '{CountryValueDisplayName:htmlEncode}<br/>',
-//           '</tpl>',
-
-//           '<tpl if="(this.isNull(Email) == false) || (this.isNull(PhoneNumber) == false) || (this.isNull(FacsimileTelephoneNumber) == false)">',
-//            '<br/>',
-//           '</tpl>',
-
-//           '<tpl if="this.isNull(Email) == false">',
-//             '<img border="0" align="top" src="/Res/Images/icons/email.png"/> <a href="mailto:{Email}">{Email:htmlEncode}</a><br/>',
-//           '</tpl>',
-
-
-//           '<tpl if="this.isNull(PhoneNumber) == false">',
-//             '<img border="0" align="top" src="/Res/Images/icons/telephone.png"/> {PhoneNumber:htmlEncode}<br/>',
-//           '</tpl>',
-
-//           '<tpl if="this.isNull(FacsimileTelephoneNumber) == false">',
-//             '<img border="0" align="top" src="/Res/Images/icons/fax.png"/> {FacsimileTelephoneNumber:htmlEncode}<br/>',
-//           '</tpl>',
-
-//         '</tpl>',
+      '<tpl for="Internal">',      
+      //'{UsageCycleTypeValueDisplayName} {Currency} {LanguageValueDisplayName}<br/>',
+      //'{UsageCycleTypeDisplayName}: {UsageCycleTypeValueDisplayName}<br/>',      
+      '</tpl>',          
+      //'{Internal.UsageCycleTypeDisplayName}: {Internal.UsageCycleTypeValueDisplayName}<br/>',      
+      //'{AccountStartDate}<br/>',
+      //'<span>Payer {_AccountID} {PayerID} {PayerAccount} </span><br/>',
+      '<tpl if="(_AccountID == PayerID)">',
+      '<span>This account pays for itself</span> <a href="/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/PayerSetupHistory.asp">Change</a></span><br/>',
+      '</tpl>', 
+      '<tpl if="(_AccountID != PayerID)">',
+      //'<span>This account is paid for by <img alt="" src="/ImageHandler/images/Account/CorporateAccount/account.gif?Payees=0&amp;State=AC&amp;Folder=TRUE&amp;FolderOpen=FALSE" /><a href="/MetraNet/ManageAccount.aspx?id=946270527">{PayerAccount}</a></span> <a href="/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/PayerSetupHistory.asp">Change</a></span><br/>',
+      '<span>This account is paid for by <a href="/MetraNet/ManageAccount.aspx?id={PayerID}">{PayerAccount} ({PayerID})</a></span> <a href="/MetraNet/TicketToMam.aspx?URL=/MAM/default/dialog/PayerSetupHistory.asp">Change</a></span><br/>',
+     '</tpl>',  
+   
+ 
       '</tpl>',
 
       '', {
@@ -680,50 +712,94 @@ white-space:nowrap;
        
 //    });
     
-      var pBalanceInformation = new Ext.Panel({
-        items: [{
-            //title: TEXT_APPROVAL_CHANGES_PENDING_YOUR_APPROVAL,
-            header: false,
-            html: '',
-            renderTo: Ext.Element.get('AccountBalanceInformation'),
-            listeners: {
-              render: function (panel) {
-                var balanceInfoTpl = new Ext.XTemplate('<span>Balance {currentbalance} as of {currentbalancedate}</span>');           
+//      var pBalanceInformation = new Ext.Panel({
+//        items: [{
+//            title: 'Balance',
+//            header: false,
+//            html: '',
+//            renderTo: 'AccountBalanceInformation',
+//            listeners: {
+//              render: function (panel) {
+//                var balanceInfoTpl = new Ext.XTemplate('<span>Balance {currentbalance} as of {currentbalancedate}</span>');           
 
-                Ext.Ajax.request({
-                  url: '/MetraNet/AjaxServices/ManagedAccount.aspx?operation=balancesummary',
-                  timeout: 10000,
-                  params: {},
-                  success: function (response) {
-                    if (response.responseText == '[]' || Ext.decode(response.responseText).Items[0] == null) {
-                      //Nothing to show, hide the panel
-                      //pBalanceInformation.hide();
-                      //Ext.get("AccountBalanceInformation").hide();
-                    }
-                    else {
-                      balanceInfoTpl.overwrite(this.body, Ext.decode(response.responseText).Items[0]);
-//                      Ext.get("AccountBalanceInformation").fadeIn({
-//                        endOpacity: 1, //can be any value between 0 and 1 (e.g. .5)
-//                        easing: 'easeOut',
-//                        duration: 2
-//                      });
-                    }
+//                Ext.Ajax.request({
+//                  url: '/MetraNet/AjaxServices/ManagedAccount.aspx?operation=balancesummary',
+//                  timeout: 10000,
+//                  params: {},
+//                  success: function (response) {
+//                    if (response.responseText == '[]' || Ext.decode(response.responseText).Items[0] == null) {
+//                      //Nothing to show, hide the panel
+//                      //pBalanceInformation.hide();
+//                      //Ext.get("AccountBalanceInformation").hide();
+//                    }
+//                    else {
+//                      balanceInfoTpl.overwrite(this.body, Ext.decode(response.responseText).Items[0]);
+//                      
+////                      Ext.get("AccountBalanceInformation").fadeIn({
+////                        endOpacity: 1, //can be any value between 0 and 1 (e.g. .5)
+////                        easing: 'easeOut',
+////                        duration: 2
+////                      });
+//                    }
 
-                  },
-                  failure: function () {
-                  },
-                  scope: panel
-                });
+//                  },
+//                  failure: function () {
+//                  },
+//                  scope: panel
+//                });
+//              }
+//            }
+//          }
+//        ]
+//      });
+
+//    });
+//Ext.get("AccountBalanceInformation").hide(); 
+
+    
+                var balanceInfoTpl = new Ext.XTemplate('<span class="valueLabel">Balance</span><span class="valueHighlighted">{currentbalance} </span><span class="valueDetail footer">as of {currentbalancedate:date("F j, Y")}</span>',
+                    {
+                        formatCurrency: function(value, currency) {
+                            return value.toFixed(4); //TODO: Deepali currency formatting
+                        }
+                    }
+                );
+                
+                var wBalanceInformation = Ext.get('BalanceInformation');
+                
+                if (wBalanceInformation !=null)
+                {
+                  Ext.Ajax.request({
+                    url: '/MetraNet/AjaxServices/ManagedAccount.aspx?operation=balancesummary',
+                    timeout: 10000,
+                    params: {},
+                    success: function (response) {
+                      if (response.responseText == '[]' || Ext.decode(response.responseText).Items[0] == null) {
+                        //Nothing to show, hide the panel
+                        //pBalanceInformation.hide();
+                        //Ext.get("AccountBalanceInformation").hide();
+                      }
+                      else {
+                        balanceInfoTpl.overwrite(wBalanceInformation, Ext.decode(response.responseText).Items[0]);
+                        wBalanceInformation.show();
+                      }
+
+                    },
+                    failure: function () {
+                    }
+                   });
+              }   
+                
+              var accountStatusTpl = new Ext.XTemplate('<span class="valueLabel">Status</span><span class="valueHighlighted">{AccountStatusValueDisplayName} </span>');
+              var wAccountStatus = Ext.get('AccountStatus');
+
+              if (wAccountStatus != null && (jsonData !== undefined)) {
+                accountStatusTpl.overwrite(wAccountStatus, jsonData);
+                wAccountStatus.show();
               }
-            }
-          }
-        ]
-      });
-
+                
     });
-
-  //Ext.get("AccountBalanceInformation").hide(); 
-      
+                
   </script>
   
   <script>
@@ -766,8 +842,8 @@ white-space:nowrap;
     Ext.onReady(function() {
 
       var margin = { top: 25, right: 55, bottom: 20, left: 25 },
-          width = document.getElementById("NowCast-body").clientWidth - margin.left - margin.right,
-          height = 70 - margin.top - margin.bottom;
+      width = document.getElementById("NowCast-body").clientWidth - margin.left - margin.right,
+      height = 70 - margin.top - margin.bottom;
 
       var chart = d3.bullet()
         .width(width)

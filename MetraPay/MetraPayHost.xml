@@ -10,7 +10,12 @@
                         maxConcurrentInstances="1000" />
 		<MetraPayHost Port="51515" />
 		<ServiceInstances>
-			<ServiceInstance
+			  <ServiceInstance
+			  Name="Test"
+			  ProcessorType="MetraTech.MetraPay.PaymentGateway.TestGatewayStub, MetraTech.MetraPay.PaymentGateway.dll"
+			  ConfigFile="paymentsvr\Config\MetraPay\TestGatewayStub.xml"
+              Timeout="30000"/>
+			<!--<ServiceInstance
 			  Name="Test"
 			  ProcessorType="MetraTech.MetraPay.PaymentGateway.MetangaGateway, MetraTech.MetraPay.PaymentGateway.dll"
 			  ConfigFile="PaymentSvr\config\Gateway\Provider\Test.xml"
@@ -24,7 +29,7 @@
 			  Name="CyberSource"
 			  ProcessorType="MetraTech.MetraPay.PaymentGateway.MetangaGateway, MetraTech.MetraPay.PaymentGateway.dll"
 			  ConfigFile="PaymentSvr\config\Gateway\Provider\CyberSource.xml"
-			  Timeout="30000"/>
+			  Timeout="30000"/>-->
 		</ServiceInstances>
 	</MetraPayConfig>
 </configuration>

@@ -16,77 +16,9 @@
     <script type="text/javascript" src="/Res/JavaScript/Renderers.js"></script>
     <link rel="stylesheet" type="text/css" href="/Res/Styles/jquery.gridster.css">
     <link rel="stylesheet" type="text/css" href="/Res/Styles/dc.css">
+    <link rel="stylesheet" type="text/css" href="/Res/Styles/dashboard.css">
     <style>
-        .legend rect
-        {
-            fill: white;
-            stroke: black;
-            opacity: 0.8;
-        }
-        
-        .axis path, .axis line
-        {
-            fill: none;
-            stroke: #7F7F7F;
-            shape-rendering: crispEdges;
-        }
-		
-        .arc path
-        {
-            stroke: #7F7F7F;
-        }
-        
-        .line
-        {
-            fill: none;
-        }
-        
-        .label
-        {
-            text-align: right;
-        }
-        
-        .clszerovalue
-        {
-            border-style: solid;
-            border-width: medium;
-            border-color: #7F7F7F;
-            font-size: 15px;
-            color: #7F7F7F;
-            background: white;
-        }
-        
-        .clshasvalue
-        {
-            border-style: solid;
-            border-width: medium;
-            border-color: #7F7F7F;
-            font-size: 15px;
-            font-weight: bold;
-            color: #FF0000;
-            background: white;
-        }
-        
-        .divleftfloat
-        {
-            float: left;
-            width: 399px;
-        }
-        
-        .divrightfloat
-        {
-            float: right;
-            width: 399px;
-        }
-        
-        
-        
-        .barchart text
-        {
-            fill: black;
-            font: 4px sans-serif;
-            text-anchor: end;
-        }
+ 
 
 #formPanel_ctl00_ContentPlaceHolder1_pnlPendingBillClose {
   width: 100% !important;
@@ -118,109 +50,56 @@
   height: 100% !important;
 }
 
-.x-panel-bwrap {
-  width: 100%;
-  height: 100%;
-}
 
-.x-panel-body {
-  width: 100% !important;
-  height: 100% !important;
-  padding: 0px !important;
-}
-
-#gridsterul {
-  position: static !important;
-}
     </style>
     <MT:MTTitle ID="MTTitle1" Text="Operations Dashboard" runat="server" meta:resourcekey="MTTitle1Resource1" />
     <br />
     <div class="gridster" width="100%" height="100%">
 	<ul width="100%" height="100%" id="gridsterul" style="width:100%; align:left;">
             <li data-row="1" data-col="1" data-sizex="4" data-sizey="9" width="100%">
-                <MT:MTPanel ID="pnlFailedTransactionsQueue" runat="server" Text="Failed Transactions Queue"
-                    Width="430" Height="305">
-                    <table>
-                        <tr width="100%">
-                            <td rowspan="2">
-                                <div id="div30DayAging" width="100%" height="100%">
-                                </div>
-                            </td>
-                            <td>
-                                <div id="divTotalTransactions" width="100%" height="50%">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                                <div id="divOverXDays" width="100%" height="75%">
-                                    <table>
-                                        <tr>
-                                            <td align="center">
-                                                <MT:MTLabel ID="lblOverXDays" runat="server" />
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td id="tdOverXDays" class="clshasvalue" width="100%" height="40px" valign="middle"
-                                                align="center">
-                                                <MT:MTLabel ID="txtOverXDays" runat="server" />
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </td>
-                    </table>
+                <MT:MTPanel ID="pnlFailedTransactionsQueue" runat="server" 
+                    Width="430" Height="325" Text="Failed Transactions Queue"  Collapsible="True">
+                
+                       <div id="div30DayAging" class="base-bottom">
+                          <div id="div30DayAgingInfo" class="corner-bottom">
+                             <MT:MTLabel ID="lblOverXDays" runat="server" CssClass="label" />
+                             <MT:MTLabel ID="txtOverXDays" runat="server"/>  
+                          </div>
+                          <!--other stuff inside base-->
+                      </div>
+                  
                 </MT:MTPanel>
             </li>
             <li data-row="1" data-col="5" data-sizex="4" data-sizey="9">
                 <MT:MTPanel ID="pnlBatchUsage" runat="server" Text="Usage Data Records" Width="430"
-                    Height="305">
-                    <table>
-                        <tr width="100%">
-                            <td width="70%" height="100%">
-                                <div id="divBatchUsage" width="100%" height="100%">
-                                </div>
-                            </td>
-                            <td width="40%" height="100%">
-                                <div id="divLastBatch" width="100%" height="75%">
-                                    <table>
-                                        <tr>
-                                            <td align="center">
-                                                <MT:MTLabel ID="lblLastBatch" runat="server" />
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td id="tdLastBatch" class="clshasvalue" width="100%" height="40px" valign="middle"
-                                                align="center">
-                                                <MT:MTLabel ID="txtLastBatchDate" runat="server" />
-                                                <br />
-                                                <MT:MTLabel ID="txtLastBatchTime" runat="server" />
-                                                <br />
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </td>
-                    </table>
+                    Height="325">
+                   <div id="divBatchUsage" class="base-bottom">
+                          <div id="divLastBatch" class="corner-bottom">
+                             <MT:MTLabel ID="lblLastBatch" runat="server" CssClass="label" />
+                              <MT:MTLabel ID="txtLastBatch" runat="server" />
+                           </div>
+                          <!--other stuff inside base-->
+                      </div>
+                  
                 </MT:MTPanel>
             </li>
             <li data-row="10" data-col="1" data-sizex="4" data-sizey="9">
                 <MT:MTPanel ID="pnlPricingQueue" runat="server" Text="Pricing Queue"
-                    Width="430" Height="305">
+                    Width="430" Height="325">
 					<div id="divPricingQueues">
 					</div>
                 </MT:MTPanel>
             </li>
             <li data-row="10" data-col="5" data-sizex="4" data-sizey="9">
                 <MT:MTPanel ID="pnlPricingBacklog" runat="server" Text="Pricing Engine (Real-Time and Batch)"
-                    Width="430" Height="305">
+                    Width="430" Height="325">
                     <div id="divPricingBacklog">
                     </div>
                 </MT:MTPanel>
             </li>
             <li data-row="19" data-col="1" data-sizex="8" data-sizey="9">
                 <MT:MTPanel ID="pnlActiveBillRun" runat="server" Text="Active Bill Run" Width="870"
-                    Height="315">
+                    Height="325">
                      <div>
                         <MT:MTDropDown ID="ddActiveBillRun" runat="server" AllowBlank="False" HideLabel="True"
                             Listeners="{}" ReadOnly="False">
@@ -233,14 +112,16 @@
                                     <table>
                                         <tr>
                                             <td>
-                                                <table>
+                                                <table style="border-collapse:collapse;border:none">
                                                     <tr>
-                                                        <td align="center">
-                                                            <MT:MTLabel ID="lblFailedAdapters" runat="server" Text="Failed Adapters" />
+                                                      
+
+                                                        <td align="center" class="tbllabel" >
+                                                            <MT:MTLabel ID="lblFailedAdapters" runat="server" Text="Failed Adapters"/>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td id="tdFailedAdapters" class="clshasvalue" width="75px" height="50px" valign="middle"
+                                                        <td id="tdFailedAdapters" class="tblclshasvalue" width="75px" height="50px" valign="middle"
                                                             align="center">
                                                             <MT:MTLabel ID="txtFailedAdapters" runat="server" />
                                                         </td>
@@ -332,7 +213,7 @@
             </li>
             <li data-row="28" data-col="1" data-sizex="4" data-sizey="9" height="100%">
                 <MT:MTPanel ID="pnlPendingBillClose" runat="server" Text="Pending Bill Close" Width="430"
-                    Height="305">
+                    Height="325">
                     <div height="100%" style="height: 248px">
                         <MT:MTFilterGrid ID="grdPendingBillClose" runat="Server" ExtensionName="SystemConfig"
                             TemplateFileName="Dashboard.PendingBillCloses.xml" Width="100%" Height="100%">
@@ -342,17 +223,17 @@
             </li>
             <li data-row="28" data-col="5" data-sizex="4" data-sizey="9">
                 <MT:MTPanel ID="pnlBillCloseSynopsis" runat="server" Text="Bill Close Synopsis" Width="430"
-                    Height="305">
+                    Height="325">
                     <div style="width: 399px;">
                         <MT:MTDropDown ID="ddBillCloses" runat="server" AllowBlank="False" HideLabel="True"
                             Listeners="{}" ReadOnly="False">
                         </MT:MTDropDown>
                     </div>
                     <div style="width: 399px" height="100%">
-                        <table>
+                        <table >
                             <tr>
                                 <td width="50%">
-                                    <table>
+                                    <table style="border-collapse:collapse;border:none">
                                         <tr>
                                             <td>
                                                 &nbsp;
@@ -402,12 +283,12 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2" valign="middle" align="center">
+                                            <td colspan="2" valign="middle" align="center" class="tbllabel">
                                                 <MT:MTLabel ID="lblBillCloseSynopisDaysUntilRun" runat="server" Text="Days Until Run" />
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td height="50px" valign="middle" align="center" colspan="2" class="clshasvalue">
+                                            <td height="50px" valign="middle" align="center" colspan="2" class="tblclshasvalue">
                                                 <MT:MTLabel ID="txtBillCloseSynopisDaysUntilRun" runat="server" Text="1" />
                                             </td>
                                         </tr>
@@ -423,9 +304,9 @@
                 </MT:MTPanel>
             </li>
             <li data-row="37" data-col="1" data-sizex="3" data-sizey="7">
-                <MT:MTPanel ID="pnlFailedAdapters" runat="server" Text="Failed Adapters" Width="320"
-                    Height="235">
-                    <div height="100%" style="height: 128px">
+                <MT:MTPanel ID="pnlFailedAdapters" runat="server" Text="Failed Adapters" Width="325"
+                    Height="325">
+                    <div height="100%" style="height: 248px">
                         <MT:MTFilterGrid ID="grdFailedAdapters" runat="Server" ExtensionName="SystemConfig"
                             TemplateFileName="Dashboard.FailedAdapters.xml">
                         </MT:MTFilterGrid>
@@ -433,9 +314,9 @@
                 </MT:MTPanel>
             </li>
             <li data-row="37" data-col="4" data-sizex="3" data-sizey="7">
-                <MT:MTPanel ID="pnlRunningAdapters" runat="server" Text="Running Adapters" Width="320"
-                    Height="235">
-                    <div height="100%" style="height: 128px">
+                <MT:MTPanel ID="pnlRunningAdapters" runat="server" Text="Running Adapters" Width="325"
+                    Height="325">
+                    <div height="100%" style="height: 248px">
                         <MT:MTFilterGrid ID="grdRunningAdapters" runat="Server" ExtensionName="SystemConfig"
                             TemplateFileName="Dashboard.RunningAdapters.xml">
                         </MT:MTFilterGrid>
@@ -443,8 +324,7 @@
                 </MT:MTPanel>
             </li>
             <li data-row="37" data-col="7" data-sizex="2" data-sizey="7">
-                <MT:MTPanel ID="pnlPuppetNodes" runat="server" Text="Puppet Nodes" Width="210" Height="235">
-                      <a href="https://puppet-corp1" target="_blank">Puppet Master</a>
+                <MT:MTPanel ID="pnlPuppetNodes" runat="server" Text="Puppet Nodes" Width="225" Height="325">
                       
                       <div id="divPuppetNodes">
                         <svg class="barchart" id="svgPuppetNodes"> </svg>
@@ -512,11 +392,11 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlBillCloseSynopsis').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(6), 4, 1); });
             Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlBillCloseSynopsis').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(6), 4, 9); });
             Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlFailedAdapters').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(7), 3, 1); });
-            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlFailedAdapters').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(7), 3, 7); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlFailedAdapters').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(7), 3, 9); });
             Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlRunningAdapters').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(8), 3, 1); });
-            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlRunningAdapters').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(8), 3, 7); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlRunningAdapters').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(8), 3, 9); });
             Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPuppetNodes').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(9), 2, 1); });
-            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPuppetNodes').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(9), 2, 7); });
+            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPuppetNodes').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(9), 2, 9); });
         });
     </script>
     <script type="text/javascript">
@@ -539,7 +419,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
         makePendingBillClosePart();
         makeBillCloseSynopsisPart();
         makePuppetNodePart();
-		makePricingEnginePart();
+		    makePricingEnginePart();
 
     });
 
@@ -547,7 +427,8 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
     }
     
     function makeFailedTransactionsQueuePart() {
-        
+        var chart = dc.barChart("#div30DayAging","30DayAging");
+           
         d3.json("/MetraNet/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() +"&operation=ft30dayaging", function (error, data) {
             if (error) console.log("Error:" + error.valueOf());
             else {
@@ -563,86 +444,52 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var fixGroup = dateDimension.group().reduceSum(function(d){return d.fixed_count;});
             var openGroup = dateDimension.group().reduceSum(function(d){return d.open_count;});
             var uiGroup = dateDimension.group().reduceSum(function(d){return d.under_investigation_count;});
-			/*
-            var composite = dc.compositeChart("#div30DayAging");
-            composite
-                    .margins({top: 5, right: 5, bottom: 40, left: 5})
-					.height(255)
-					.width(400)
-                    .x(d3.scale.linear().domain([-30,0]))
-                    .elasticY(true)
-                    .transitionDuration(0)
-                    .legend(dc.legend().x(15).y(225).itemHeight(13).gap(5))
-                    .brushOn(false)
-					.renderHorizontalGridLines(true)
-                    .title("Open", function(d){ return -d.key + " days back: " + numberFormat(d.value) + " Open";});
-                    .title("Under Investigation", function(d){ return -d.key + " days back: " + numberFormat(d.value) + " Under Investigation";});
-                    .compose([
-                        dc.lineChart(composite)
-                                .dimension(dateDimension)
-                                .group(openGroup, "Open")
-                                .colors('#0070C0')
-                        ,
-                        dc.lineChart(composite)
-                                .dimension(dateDimension)
-                                .group(uiGroup, "Under Investigation")
-                                .colors('#148622')
-                    ])
-					;
-			composite.xAxis().tickSize(0,0).tickFormat("");
-            composite.xAxis().tickSize(0,0).tickFormat("");
 
-            composite.render();
-			*/
-            var chart = dc.barChart("#div30DayAging");
-            chart
+             chart
                     .margins({top: 5, right: 5, bottom: 40, left: 5})
-					.height(255)
-					.width(410)
+					          .height(255)
+				            .width(410)
                     .x(d3.scale.linear().domain([-30,0]))
                     .elasticY(true)
                     .transitionDuration(0)
                     .legend(dc.legend().x(15).y(225).itemHeight(13).gap(5))
-					.renderHorizontalGridLines(true)
+					          .renderHorizontalGridLines(true)
                     .brushOn(false)
                     .dimension(dateDimension)
-					.group(openGroup, "Open")
-                    .colors('#0070C0')
+					          .group(openGroup, "Open")
                     .stack(uiGroup, "Under Investigation")
-//                                .colors('#148622')
-                    .title("Open", function(d){ return -d.key + " days back: " + numberFormat(d.value) + " Open";})
+//                  .title("Open", function(d){ return -d.key + " days back: " + numberFormat(d.value) + " Open";})
                     .title("Under Investigation", function(d){ return -d.key + " days back: " + numberFormat(d.value) + " Under Investigation";})
-					.renderlet(function (_chart) {
-						function setStyle(selection, keyName) {
-							selection.style("fill", function (d) {
-								if (d[keyName] == "Open")
-									return "#0070C0";
-								else if (d[keyName] == "Under Investigation")
-									return "#148622";
-							});
-						}
-						// set the fill attribute for the bars
-						setStyle(_chart
-								.selectAll("g.stack")
-								.selectAll("rect.bar")
-							, "layer"
-						);
-						// set the fill attribute for the legend
-						setStyle(_chart
-								.selectAll("g.dc-legend-item")
-								.selectAll("rect")
-							, "name"
-						);
-					})
-					.renderHorizontalGridLines(true)
-			;
+					          .renderlet(function (_chart) {
+						          function setStyle(selection, keyName) {
+							          selection.style("fill", function (d) {
+								          if (d[keyName] == "Open")
+									          return "#0070C0";
+								          else if (d[keyName] == "Under Investigation")
+									          return "#148622";
+							          });
+						          }
+						          // set the fill attribute for the bars
+						          setStyle(_chart
+								          .selectAll("g.stack")
+								          .selectAll("rect.bar")
+							          , "layer"
+						          );
+						          // set the fill attribute for the legend
+						          setStyle(_chart
+								          .selectAll("g.dc-legend-item")
+								          .selectAll("rect")
+							          , "name"
+						          );
+					          })
+					          .renderHorizontalGridLines(true);
+            
             chart.xAxis().tickSize(0,0).tickFormat("");
             chart.yAxis().tickSize(0,0).tickFormat("");
-
             chart.render();
 						
-			dc.renderAll();
-			}
+			      dc.renderAll("30DayAging");
+			  }
 			});
 
 /*
@@ -679,21 +526,21 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             else {
                 var overXDaysData = json["Items"];
                 if (overXDaysData[0]["count_over_set_days"] != null) {
-                    var value = overXDaysData[0]["count_over_set_days"];
+                  var value = overXDaysData[0]["count_over_set_days"];
+                  var valueClass = "clshasvalue";
 
-                    if(value == 0){
-                        d3.select("#tdOverXDays").attr("class","clszerovalue");
-                     }
-                    else{
-                         d3.select("#tdOverXDays").attr("class","clshasvalue");
-                    }
+                  if (value == 0)
+                    valueClass = "clszerovalue";
+                  
+                  
+                   
+                  var txtOverXDays = d3.select("#<%=txtOverXDays.ClientID%>");
+                  
 
-
-                   d3.select("#<%=txtOverXDays.ClientID%>").text(value);
-
-                   d3.select("#<%=txtOverXDays.ClientID%>").style("cursor","pointer");
-                  d3.select("#<%=txtOverXDays.ClientID%>").on("click",function(){window.location="/MetraNet/MetraControl/FailedTransactions/FailedTransactionsView.aspx?Filter_FailedTransactionList=N";});
-                 
+                  txtOverXDays.text(value)
+                            .style("cursor","pointer")
+                            .attr("class",valueClass)
+                            .on("click",function(){window.location="/MetraNet/MetraControl/FailedTransactions/FailedTransactionsView.aspx?Filter_FailedTransactionList=N";});
 
                 }
             }
@@ -771,29 +618,23 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                      var lastbatchtime = lastBatchInfo[0]["time"];
                      var lastbatchid = lastBatchInfo[0]["batchid"];
                   
-                   
-                    if(timediff <= <%=udrBatchFrequencyThreshold%>){
- 
-                        d3.select("#tdLastBatch").attr("class","clszerovalue");
-                     }
-                    else{
-                         d3.select("#tdLastBatch").attr("class","clshasvalue");
-                    }
-                   
-                   
-                   d3.select("#<%=txtLastBatchDate.ClientID%>").text(lastbatchdate);
-                      
-                   d3.select("#<%=txtLastBatchTime.ClientID%>").text(lastbatchtime);
-                  
-                  
-                  d3.select("#<%=txtLastBatchDate.ClientID%>").style("cursor","pointer");
-                  d3.select("#<%=txtLastBatchDate.ClientID%>").on("click",function(){window.location="/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/BatchManagement.ViewEdit.asp?ID=" + lastbatchid;});
-                  
-                   d3.select("#<%=txtLastBatchTime.ClientID%>").style("cursor","pointer");
-                  d3.select("#<%=txtLastBatchTime.ClientID%>").on("click",function(){window.location="/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/BatchManagement.ViewEdit.asp?ID=" + lastbatchid;});
-               
-                         
+                     var valueClass = "clshasvalue";
 
+
+                  if (timediff <= <%=udrBatchFrequencyThreshold%>) {
+
+                    valueClass = "clszerovalue";
+
+                  }
+
+                  var txtLastBatch = d3.select("#<%=txtLastBatch.ClientID%>");
+                  
+
+                  txtLastBatch.text(lastbatchdate + " " +  lastbatchtime)
+                            .style("cursor","pointer")
+                            .attr("class",valueClass)
+                            .on("click",function(){window.location="/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/BatchManagement.ViewEdit.asp?ID=" + lastbatchid;});
+             
                 }
             }
         });
@@ -853,10 +694,10 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 
                   if(failed == 0){
  
-                        d3.select("#tdFailedAdapters").attr("class","clszerovalue");
+                        d3.select("#tdFailedAdapters").attr("class","tblclszerovalue");
                      }
                     else{
-                         d3.select("#tdFailedAdapters").attr("class","clshasvalue");
+                         d3.select("#tdFailedAdapters").attr("class","tblclshasvalue");
                     }
 
                      d3.select("#<%=txtFailedAdapters.ClientID%>").text(failed);
@@ -1119,10 +960,10 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                   
                  
                    if(daysuntilrun == 0){
-                        d3.select("#tdBillCloseSynopisDaysUntilRun").attr("class","clszerovalue");
+                        d3.select("#tdBillCloseSynopisDaysUntilRun").attr("class","tblclszerovalue");
                      }
                     else{
-                         d3.select("#tdBillCloseSynopisDaysUntilRun").attr("class","clshasvalue");
+                         d3.select("#tdBillCloseSynopisDaysUntilRun").attr("class","tblclshasvalue");
                     }
 
                       d3.select("#<%=txtBillCloseSynopisType.ClientID%>").text(type);
@@ -1204,22 +1045,6 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
              
         ]
 
-          /*var objPuppetBarChartConfig = {
-            width: 201,
-            height: 125,
-            margin: { left: 20, top: 10, right: 10, bottom: 10 },
-            xAxis: {"Label":"Nodes", "Column":"name"},
-            yAxis: {"Label":"Type","Column":"value"},
-            parentElementId: "#divPuppetNodes",
-            elementId: "#svgPuppetNodes",
-            chartTitle: "Puppet Status",
-            data:data,
-            colordata:colordata
-        };
-
-        fnVisualizeBarChart(  objPuppetBarChartConfig); */
-
-
 
         data.forEach(function (d) {
                 d.value = +d.value;
@@ -1234,32 +1059,33 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var colors = d3.scale.ordinal().domain(["Unchanged", "Unresponsive", "Failed", "Pending","Changed"]).range(['#00B0F0','#0070C0','#148622','#FFC000','#7F7F7F']);
                    
             chart
-                    .height(125)
-                    .margins({top: 10, right: 10, bottom: 50, left: 10})
+                    .height(258)
+                    .margins({top: 25, right: 10, bottom: 75, left: 10})
                     .dimension(nameDimension)
-					.transitionDuration(0)
+					          .transitionDuration(0)
                     .group(valueGroup)
                     .gap(10)
-//                    .xAxisPadding(20)
+    //                .xAxisPadding(20)
                     .x(d3.scale.ordinal().domain(["Unchanged", "Unresponsive", "Failed", "Pending","Changed"]))
-					.xUnits(dc.units.ordinal)
+					          .xUnits(dc.units.ordinal)
                     .centerBar(false)
-					.renderHorizontalGridLines(true)
+					          .renderHorizontalGridLines(true)
                     .brushOn(false)
                     .title(function(d){ return d.key + ": " + numberFormat(d.value);} )
                    // .legend(dc.legend().x(40).y(100).itemHeight(13).gap(5))
-					.renderlet(function (chart) {
+					            .renderlet(function (chart) {
                         // rotate x-axis ticks
-                        chart.selectAll("g.x text")
+                              chart.selectAll("g.x text")
                                 .style("text-anchor", "start")
                                 .attr('dx', '.3em')
                                 .attr('dy', '-.05em')
                                 .attr('transform', "rotate(45)");
-                        ;
 
-                        chart.selectAll("rect.bar").attr("fill", function(d){
-                             return colordata[d.x];
-                        });
+                              chart.selectAll("rect.bar").attr("fill", function(d){
+                                return colordata[d.x];
+                              });
+					              
+                             chart.selectAll("rect.bar").on("click", function(){window.open("https://puppet-corp1")});
                     });
 
              chart.yAxis().tickSize(0,0).tickFormat("");

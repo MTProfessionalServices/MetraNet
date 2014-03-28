@@ -31,8 +31,8 @@ public partial class OperationsDashboard : MTPage
       // MTGenericForm1.RenderObjectInstanceName = "Data";
       // MTGenericForm1.TemplatePath = TemplatePath;
       // MTGenericForm1.ReadOnly = false;
-        lblOverXDays.Text = "Over " + failedUdrCleanupThreshold.ToString() + " Days";
-        lblLastBatch.Text = "Last Batch";
+        lblOverXDays.Text = "Over " + failedUdrCleanupThreshold.ToString() + " Days:";
+        lblLastBatch.Text = "Last Batch:";
         
        
     }

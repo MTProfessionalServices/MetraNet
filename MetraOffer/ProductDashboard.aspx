@@ -12,9 +12,12 @@
   <script type="text/javascript" src="/Res/JavaScript/crossfilter.min.js"></script>
   <script type="text/javascript" src="/Res/JavaScript/dc.min.js"></script>
   <script type="text/javascript" src="/Res/JavaScript/Renderers.js"></script>
+  <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
   <link rel="stylesheet" type="text/css" href="/Res/Styles/jquery.gridster.css">
   <link rel="stylesheet" type="text/css" href="/Res/Styles/dc.css">
   <link rel="stylesheet" type="text/css" href="/Res/Styles/dashboard.css">
+
   <style>
  
  .dc-chart g.row text {
@@ -37,9 +40,12 @@
     }
     
     
-   #formPanel_<%=grdRecentOfferingChanges.ClientID%>, 
-   #formPanel_<%=grdRecentRateChanges.ClientID%>,
-   #formPanel_<%=grdMyRecentChanges.ClientID%> 
+   #formPanel_<%=pnlRecentOfferingChanges.ClientID%>, 
+   #formPanel_<%=pnlRecentRateChanges.ClientID%>,
+   #formPanel_<%=pnlMyRecentChanges.ClientID%>,
+   #grid-container_ctl00_ContentPlaceHolder1_grdRecentOfferingChanges,
+   #grid-container_ctl00_ContentPlaceHolder1_grdRecentRateChanges,
+   #grid-container_ctl00_ContentPlaceHolder1_grdMyRecentChanges
    {
       width: 100% !important;
       height: 100% !important;
@@ -62,8 +68,12 @@
      width: auto;
       height: 100%;
     }
+    
+    
+
   </style>
   <script type="text/javascript" >
+    var demomode = true;
     var currencyFormat = d3.format("$,.0f");
 
     function visualizeRowChart(op, divid, fnData, fnDim, fnGroup, fnTitle, colors, demodata) {
@@ -72,15 +82,18 @@
         if (error) alert(error);
         else {
 
-          //data = json.Items;
-          data = demodata;
+          if(demomode)
+            data = demodata;
+          else
+           data = json.Items;
+          
 
           var rowChart = dc.rowChart(divid, op);
 
           data.forEach(fnData);
 
           var ndx = crossfilter(data),
-          dimension = ndx.dimension(fnDim),
+              dimension = ndx.dimension(fnDim),
               group = dimension.group().reduceSum(fnGroup);
 
           rowChart.width(300)
@@ -93,7 +106,9 @@
             })
             .dimension(dimension)
             .renderLabel(false)
-           .title(fnTitle)
+            
+            
+            .title(fnTitle)
             .group(group)
             .colors(colors)
             //.elasticX(true)
@@ -127,16 +142,15 @@
           feMerge.append("feMergeNode")
             .attr("in", "SourceGraphic");
 
-          rowChart.selectAll("rect")
+          /*rowChart.selectAll("rect")
             .style("filter", "url(#drop-shadow)")
             .attr("rx", "4px")
-            .attr("ry", "4px");
+            .attr("ry", "4px");*/
 
 
         }
       });
-    }     
-
+    }
 
   </script>
   <MT:MTTitle ID="MTTitle1" Text="Product
@@ -144,11 +158,11 @@
   <br />
   <div class="gridster" width="100%" height="100%">
     <ul width="100%" height="100%" id="gridsterul" style="width: 100%; align: left;">
-      <li data-row="1" data-col="1" data-sizex="3" data-sizey="8">
-        <MT:MTPanel ID="pnlRecentOfferingChanges" runat="server" Text="Recent Offering Changes" >
-            <div style="height: 225px">
+      <li data-row="1" data-col="1" data-sizex="3" data-sizey="8" height="100%">
+        <MT:MTPanel ID="pnlRecentOfferingChanges" runat="server" Text="Recent Offering Changes">
+            <div style="height:228px">
                 <MT:MTFilterGrid ID="grdRecentOfferingChanges" runat="Server" ExtensionName="SystemConfig"
-                    TemplateFileName="Dashboard.RecentOfferingChanges.xml" Width="100%" Height="200px" >
+                    TemplateFileName="Dashboard.RecentOfferingChanges.xml" Width="100%" Height="100%" >
                 </MT:MTFilterGrid>
             </div>
         </MT:MTPanel>
@@ -156,7 +170,7 @@
 
       <li data-row="1" data-col="4" data-sizex="3" data-sizey="8">
         <MT:MTPanel ID="pnlRecentRateChanges" runat="server" Text="Recent Rate Changes" >
-         <div style="height:225px">
+         <div style="height:228px">
                 <MT:MTFilterGrid ID="grdRecentRateChanges" runat="Server" ExtensionName="SystemConfig"
                     TemplateFileName="Dashboard.RecentRateChanges.xml">
                 </MT:MTFilterGrid>
@@ -166,7 +180,7 @@
       
       <li data-row="1" data-col="7" data-sizex="3" data-sizey="8">
         <MT:MTPanel ID="pnlMyRecentChanges" runat="server" Text="My Recent Changes"  >
-            <div style="height:225px">
+            <div style="height:228px">
                 <MT:MTFilterGrid ID="grdMyRecentChanges" runat="Server" ExtensionName="SystemConfig"
                     TemplateFileName="Dashboard.RecentRateChanges.xml">
                 </MT:MTFilterGrid>
@@ -253,8 +267,62 @@
 
 
     });
+    
+
+     //Hack: Could't find our formatters so googled quick hack for now
+     //Drop the decimals since decimals aren't cool
+     function fnFormatCurrency(value, currencySymbol)
+     {
+         return currencySymbol + value.toFixed(0).replace(/./g, function (c, i, a) {
+             return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+         });
+     }
 
 
+    // First, checks if it isn't implemented yet.
+if (!String.prototype.format) {
+  String.prototype.format = function() {
+    var args = arguments;
+    return this.replace(/{(\d+)}/g, function(match, number) { 
+      return typeof args[number] != 'undefined'
+        ? args[number]
+        : match
+      ;
+    });
+  };
+}
+
+
+    var fnMRRTitle = (function (d) {
+        var perMRRChange = ((d["mrrchange"]/d["mrrprevious"])*100);
+        //var perSubscriptionChange = ((d["subscriptionschange"]/d["subscriptionsprevious"])*100).;
+        //var msgNewCustomerChange = formatPercentageChangeMessage(d["newcustomersprevious"],d["newcustomerschange"], "{0} new customer");
+        var html = "<div class=ProductCode>{0}</div>".format(d["productcode"]);
+        html += "<div class=Information>MRR: {0} <img src='/Res/Images/icons/arrow-{2}.png' style='vertical-align:sub;'/> {1}%</div>".format(d["mrr"], perMRRChange, perMRRChange<0 ? "down":"up");
+        //html += "<div class=Information>Subscriptions: {0} <img src='/Res/Images/icons/arrow-{2}.png' style='vertical-align:sub;'/> {1}%</div>".format(d["subscriptions"], perSubscriptionChange, perSubscriptionChange<0 ? "down":"up");
+        //html += "<div class=Information>New customers: {0} {1}</div>".format(d["newcustomers"], msgNewCustomerChange);
+        return html;
+    });
+
+    function formatPercentageChangeMessage(previous, change, changeText)
+    {
+      
+      if (change==0)
+      {
+        return "<span class=NoChange></span>";
+      }
+      if (previous!=0)
+      {
+        var percentChange = ((change/previous)*100).toFixed(1);
+        return "<img src='/Res/Images/icons/arrow-{1}.png' style='vertical-align:sub;'/> {0}%".format(percentChange, percentChange<0 ? "down":"up");
+      }
+      else
+      {
+        //We have no previous value so can't calculate the percentage
+        //Just list the numerical increase
+        return "<img src='/Res/Images/icons/arrow-{0}.png' style='vertical-align:sub;'/> {1}{2}".format(change<0 ? "down":"up", changeText, (change==1) ? "":"s");
+      }
+    }
 
     function makeTop10MRRPart() {
       
@@ -272,6 +340,7 @@
 
       var fnData = function(x) {
         x.mrr = +x.mrr;
+        x.productcode = +x.productcode;
       };
       
       var fnDim = function(d) {
@@ -283,9 +352,11 @@
       };
 
 
-      var fnTitle = function (d) { return d.key + " - " + currencyFormat(d.value); };
+      var fnTitle = fnMRRTitle;//function (d) { return d.key + " - " + currencyFormat(d.value); };
+      
+       
 
-      visualizeRowChart("AnalyticsTopMRR", "#divTop10MRRTotal", fnData, fnDim, fnGroup, fnTitle, "#1f77b4", data);
+      visualizeRowChart("AnalyticsTopMRR", "#divTop10MRRTotal", fnData, fnDim, fnGroup, fnTitle, "#0070c0", data);
       
       
       //DONE MRR TOTAL
@@ -297,16 +368,16 @@
       data.push({ productcode: 3, mrr: 100, productname: "On-Demand Cloud" ,change:"50"});
       data.push({ productcode: 8, mrr: 700, productname: "Content Squared Revenue Share contract",change:"100" });
 
-       fnData = function (x) {
+      fnData = function (x) {
         x.change = +x.change;
       };
 
       
-       fnGroup = function (d) {
+      fnGroup = function (d) {
         return d.change;
       };
 
-      visualizeRowChart("AnalyticsTopMRRGain", "#divTop10MRRGain", fnData, fnDim, fnGroup, fnTitle, "green", data);
+      visualizeRowChart("AnalyticsTopMRRGain", "#divTop10MRRGain", fnData, fnDim, fnGroup, fnTitle, "#148622", data);
 
 
       //END MRR GAIN
@@ -326,7 +397,7 @@
 
 
       fnTitle = function(d) { return d.key + " - -" + currencyFormat(d.value); };
-      visualizeRowChart("AnalyticsTopMRRLoss", "#divTop10MRRLoss", fnData, fnDim, fnGroup, fnTitle, "yellow", data);
+      visualizeRowChart("AnalyticsTopMRRLoss", "#divTop10MRRLoss", fnData, fnDim, fnGroup, fnTitle, "#C00", data);
       //END MRR LOSS
 
     }
@@ -362,7 +433,7 @@
 
       var fnTitle = function (d) { return d.key + " - " + d.value; };
 
-      visualizeRowChart("AnalyticsTopSubscription", "#divTop10SubsTotal", fnData, fnDim, fnGroup, fnTitle, "#1f77b4", data);
+      visualizeRowChart("AnalyticsTopSubscription", "#divTop10SubsTotal", fnData, fnDim, fnGroup, fnTitle, "#0070c0", data);
       
       
       //DONE Subs TOTAL
@@ -378,16 +449,16 @@
       data.push({ productcode: 7, subscriptions: 10000, productname: "Cloud10 WebSite Offer",subscriptionschange:"3000" });
       data.push({ productcode: 8, subscriptions: 300, productname: "Content Squared Revenue Share contract",subscriptionschange:"10" });
 
-       fnData = function (x) {
+      fnData = function (x) {
         x.subscriptionschange = +x.subscriptionschange;
       };
 
       
-       fnGroup = function (d) {
+      fnGroup = function (d) {
         return d.subscriptionschange;
       };
 
-      visualizeRowChart("AnalyticsTopSubscriptionGain", "#divTop10SubsGain", fnData, fnDim, fnGroup, fnTitle, "green", data);
+      visualizeRowChart("AnalyticsTopSubscriptionGain", "#divTop10SubsGain", fnData, fnDim, fnGroup, fnTitle, "#148622", data);
 
 
       //END Subs GAIN
@@ -395,7 +466,7 @@
       //START Subs LOSS
 
       data = [];
-       data.push({ productcode: 1, subscriptions: 7000, productname: "500 Free Minutes",subscriptionschange:"-1000" });
+      data.push({ productcode: 1, subscriptions: 7000, productname: "500 Free Minutes",subscriptionschange:"-1000" });
       
       fnGroup = function (d) {
         return -(d.subscriptionschange);
@@ -403,12 +474,12 @@
 
 
       fnTitle = function(d) { return d.key + " - -" + currencyFormat(d.value); };
-      visualizeRowChart("AnalyticsTopSubscriptionLoss", "#divTop10SubsLoss", fnData, fnDim, fnGroup, fnTitle, "yellow", data);
+      visualizeRowChart("AnalyticsTopSubscriptionLoss", "#divTop10SubsLoss", fnData, fnDim, fnGroup, fnTitle, "#C00", data);
       //END Subs LOSS
 
     }
 
-     function makeTop10UniqueCustomersPart() {
+    function makeTop10UniqueCustomersPart() {
       
       var data = [];
       data.push({ productcode: 1, subscriptions: 7000, productname: "500 Free Minutes",newcustomers:"125" });
@@ -434,9 +505,12 @@
       };
 
 
+
+
+
       var fnTitle = function (d) { return d.key + " - " + d.value; };
 
-      visualizeRowChart("AnalyticsTopOfferingsByNewCustomers", "#divTop10NewCustomers", fnData, fnDim, fnGroup, fnTitle, "#1f77b4", data);
+      visualizeRowChart("AnalyticsTopOfferingsByNewCustomers", "#divTop10NewCustomers", fnData, fnDim, fnGroup, fnTitle, "#0070c0", data);
       
 
     }
@@ -471,7 +545,7 @@
 
       var fnTitle = function (d) { return d.key + " - " + d.value; };
 
-      visualizeRowChart("AnalyticsTopOfferingsByNewCustomers", "#divTop10NewCustomers", fnData, fnDim, fnGroup, fnTitle, "#1f77b4", data);
+      visualizeRowChart("AnalyticsTopOfferingsByNewCustomers", "#divTop10NewCustomers", fnData, fnDim, fnGroup, fnTitle, "#0070c0", data);
       
 
     }

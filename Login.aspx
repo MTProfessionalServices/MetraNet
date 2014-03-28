@@ -225,7 +225,7 @@
           Ext.onReady(function () {
             // select curren language
             var dSelectedLang = Ext.get("selected-lang");
-            var dImgToSelect = Ext.DomQuery.selectNode("div#lang-picker img[lang-code=\"<%=language%>\"]");
+            var dImgToSelect = Ext.DomQuery.selectNode("div#lang-picker img[lang-code=\"<%=language.ToLower()%>\"]");
             var currentLang = dImgToSelect.getAttribute('data-langnum');
             dSelectedLang.set({ 'data-langnum': currentLang });
 
@@ -235,7 +235,7 @@
 
           });
 
-          
+
         </script>
       </div>
     </div>

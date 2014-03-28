@@ -99,7 +99,8 @@ public partial class MasterPages_MetraNetExt : System.Web.UI.MasterPage
                     typeAhead: false,
                     loadingText: TEXT_SEARCHING,
                     emptyText: TEXT_FIND_AN_ACCOUNT,
-                    width: 400,
+                    width: 400, 
+                    height: 27,
                     pageSize: 0,
                     hideTrigger: true,
                     minChars: 1,
@@ -113,7 +114,7 @@ public partial class MasterPages_MetraNetExt : System.Web.UI.MasterPage
                   }),
                   '-',
                   {
-                    iconCls: 'advancedFind',
+                    //iconCls: 'advancedFind',
                     text: TEXT_ADVANCED_FIND,
                     handler: function() { Ext.UI.LoadPage('/MetraNet/AdvancedFind.aspx'); },
                     scope: this

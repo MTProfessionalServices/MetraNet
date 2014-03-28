@@ -24,12 +24,12 @@
   <link rel="stylesheet" type="text/css" href="<%= GetGlobalResourceObject("Resource", "LocalizedStyleSheet") %>" />
 
 
-  <link rel="stylesheet" type="text/css" href="/Res/Styles/menuStyle.css?v=6.5"/>
   <link rel="stylesheet" type="text/css" href="/Res/Styles/MiscField.css?v=6.5"/>
   <link rel="stylesheet" type="text/css" href="/Res/Styles/Silk.css?v=6.5" /> 
   <link rel="icon" type="image/ico" href="/MetraNet/favicon.ico"/>
   <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/xtheme-metranet.css" />
-
+  <link rel="stylesheet" type="text/css" href="/Res/Styles/menuStyle.css?v=6.5"/>
+  
 
   <script type="text/javascript" src="/Res/Ext/adapter/ext/ext-base.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/Ext/ext-all.js?v=6.5"></script>
@@ -49,110 +49,12 @@
     var subscriberInfo = "<%=SubscriberInfo%>";
     var userInfo = "<%=UserInfo%>";
     var userId = <%=UserId%>;
+    var selectedLanguage = "<%= Session[Constants.SELECTED_LANGUAGE]%>";
      
   </script>
   <%=Constants.CJ_PROTECTION_CODE %>    
   
- <style>
-      
-#north-panel .x-panel-bbar .x-toolbar,#north-panel  .x-panel-tbar .x-toolbar {
-    margin: 5;
-    padding:5;
-    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.5);
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-    -ms-box-shadow: 0 1px 2px rgba(0,0,0,.5);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-    border : 0px;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=65)";
-    filter: alpha(opacity=65);
-     background: rgba(0,0,0,.65);
-    color: #FFF;
-}
-
-
-#north-panel  .x-panel-tbar .x-toolbar 
-{
-  height: 42px;
-}
-
-.x-btn button,.x-btn span 
-{
-
-/*background-color: rgb(85, 85, 85);*/
-font: bold 11px tahoma,arial,verdana,sans-serif;
-color: #fff;
-border-radius: 3px;
-}
-
-#north-panel .x-panel-body-noheader, .x-panel-mc .x-panel-body {
-border: 0px;
-}
-
-.ext-strict .ext-webkit .x-small-editor .x-form-text {
-height: 18px !important;
-}
-
-#subscriberInfoLabel
-{
-    font: bold 14px tahoma,arial,verdana,sans-serif;
-}
-
-
-.x-btn button .help {
-    background: #fff url(/Res/Images/ui/help_sm_sprite.png) no-repeat 6px -98px;
-    border: solid 1px #fff;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    color: #0085c7;
-    font-weight: bold;
-    padding-left: 25px;
-    text-decoration: underline;
-    color: #0085c7;
-    font-weight: bold;
-}
-
-.x-btn-text.metranetlogo
-{
-     background-image: url(/Res/Images/login/metranet_Logo_Wht.png);
-     width: 150px;
-     height:30px;
-   
-}
-
-.x-btn-focus button, .x-btn-over button
-{
-    background-color: rgb(51,51,51);
-}
-
-.x-btn-over .x-btn-tl, 
-.x-btn-over .x-btn-tr, 
-.x-btn-over .x-btn-tc, 
-.x-btn-over .x-btn-ml, 
-.x-btn-over .x-btn-mr, 
-.x-btn-over .x-btn-mc, 
-.x-btn-over .x-btn-bl, 
-.x-btn-over .x-btn-br, 
-.x-btn-over .x-btn-bc{
-	background-image:url(../images/gray/button/btn.gif); 
-	background: rgb(51, 51, 51);
-}
-
-
-.x-btn-focus .x-btn-tl, 
-.x-btn-focus .x-btn-tr, 
-.x-btn-focus .x-btn-tc, 
-.x-btn-focus .x-btn-ml, 
-.x-btn-focus .x-btn-mr, 
-.x-btn-focus .x-btn-mc, 
-.x-btn-focus .x-btn-bl, 
-.x-btn-focus .x-btn-br, 
-.x-btn-focus .x-btn-bc{
-	background-image:url(../images/gray/button/btn.gif); 
-	background: rgb(51, 51, 51);
-}
-
-</style>
+ 
      
 </head>
 

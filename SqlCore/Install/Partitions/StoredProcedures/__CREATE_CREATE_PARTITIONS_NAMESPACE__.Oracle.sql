@@ -26,15 +26,14 @@ BEGIN
  v_invoiceNamespaceInsertCount := 0;
 
  -- check that namespace of partition account corresponds to namespace of root account
-SELECT count(*) INTO v_total_rows_t_account_mapper  FROM t_account_mapper WHERE (id_acc = 1) AND (nm_space = v_accountNamespace)
-if (v_total_rows_t_account_mapper=0) THEN
-BEGIN
-  v_namespaceInsertCount := -1;
-  v_errorNumber := -486604800;
-  v_errorMessage := 'Branded Site of partition account should be MetraTech Sample Site';
-  return
-END
+SELECT count(*) INTO v_total_rows_t_account_mapper  FROM t_account_mapper WHERE id_acc = 1 AND nm_space = v_accountNamespace;
 
+IF (v_total_rows_t_account_mapper=0) THEN
+  v_namespaceInsertCount := -1;
+  v_invoiceNamespaceInsertCount := -1;
+  v_errorNumber := -486604800;
+  v_errorMessage := 'Branded Site of partition account should be MetraTech Sample Site';  
+ELSE
  select count(*) INTO v_total_rows_t_namespace from t_namespace where nm_space = v_namespace;
 
   if (v_total_rows_t_namespace=0) THEN
@@ -67,4 +66,5 @@ END
       v_errorMessage := SUBSTR(SQLERRM, 1, 200);
     END;
   END IF;  
+END IF;
 END;

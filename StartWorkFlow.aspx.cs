@@ -54,13 +54,11 @@ public partial class StartWorkFlow : MTPage
             return accID;
         }
 
-<<<<<<< HEAD
         //fringe case - got all the way to the top, but no corporate accts detected
         if (!acc.AncestorAccountID.HasValue)
         {
             return 0;
         }
-=======
       // Populate Proxy Class
       switch (WorkflowName)
       {
@@ -100,8 +98,6 @@ public partial class StartWorkFlow : MTPage
             }
             break;
           }
->>>>>>> develop
-
         //call recursively on ancestor
         return GetCorporateAcctForAcct(acc.AncestorAccountID.Value);
     }

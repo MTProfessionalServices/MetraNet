@@ -40,6 +40,12 @@
             <Parameter Name="SelectedAccountType" Description="Parameter to define selected account type" Type="System.String">
               <InternalName>SelectedAccountType</InternalName>
             </Parameter>
+            <Parameter Name="ParentAccountId" Description="Id of parent account" Type="System.Int32" Direction="In">
+              <InternalName>ParentAccountId</InternalName>
+            </Parameter>
+            <Parameter Name="ParentAccountName" Description="Name of parent account" Type="System.String" Direction="In">
+              <InternalName>ParentAccountName</InternalName>
+            </Parameter>
           </ParameterDefs>
         </EventMethod>    
         

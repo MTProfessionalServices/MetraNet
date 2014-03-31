@@ -54,11 +54,53 @@ public partial class StartWorkFlow : MTPage
             return accID;
         }
 
+<<<<<<< HEAD
         //fringe case - got all the way to the top, but no corporate accts detected
         if (!acc.AncestorAccountID.HasValue)
         {
             return 0;
         }
+=======
+      // Populate Proxy Class
+      switch (WorkflowName)
+      {
+        // Add Account
+        case "AddAccountWorkflow":
+          {
+            // Create Account Proxy class
+            if (Request["AccountType"] != null)
+            {
+              AddAccountEvents_StartAddAccountOfType_Client acc1 = new AddAccountEvents_StartAddAccountOfType_Client();
+              acc1.In_AccountId = new AccountIdentifier(UI.User.AccountId);
+              acc1.In_SelectedAccountType = Request["AccountType"];
+
+              if (Request["ParentId"] != null)
+              {
+                acc1.In_ParentAccountId = int.Parse(Request["ParentId"]);
+                acc1.In_ParentAccountName = Request["ParentName"];
+              }
+
+              PageNav.Execute(acc1);
+            }
+            else if (Request["AncestorID"] != null)
+            {
+              AddAccountEvents_StartAddAccountWithTemplate_Client accWithTemplate = new AddAccountEvents_StartAddAccountWithTemplate_Client();
+           
+              AccountIdentifier templateIdentifier = new AccountIdentifier(int.Parse(Request["AncestorID"]));
+              accWithTemplate.In_TemplateAccount = templateIdentifier;
+              accWithTemplate.In_AccountId = new AccountIdentifier(UI.User.AccountId);
+              accWithTemplate.In_TemplateEffectiveDate = ApplicationTime;
+              PageNav.Execute(accWithTemplate);
+            }
+            else
+            {
+              AddAccountEvents_StartAddAccount_Client acc = new AddAccountEvents_StartAddAccount_Client();
+              acc.In_AccountId = new AccountIdentifier(UI.User.AccountId);
+              PageNav.Execute(acc);
+            }
+            break;
+          }
+>>>>>>> develop
 
         //call recursively on ancestor
         return GetCorporateAcctForAcct(acc.AncestorAccountID.Value);

@@ -624,6 +624,9 @@
     <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
         <value>Assign Bill Messages</value>
     </data>
+    <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
+        <value>Add child Account</value>
+    </data>
   <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
     <value>View Item History</value>
   </data>        

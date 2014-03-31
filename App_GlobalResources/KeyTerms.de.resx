@@ -258,4 +258,13 @@
     <data name="TEXT_KEYTERM_USAGE_CHARGES_AGGREGATE" xml:space="preserve">
         <value>Nutzungsgebühren (aufaddiert)</value>
     </data>
+	<data name="TEXT_KEYTERM_CORE_SUBSCRIBER" xml:space="preserve">
+		<value>[DE] Core Subscriber</value>
+	</data>
+	<data name="TEXT_KEYTERM_DEPARTMENT_ACCOUNT" xml:space="preserve">
+		<value>[DE] Department Account</value>
+	</data>
+	<data name="TEXT_KEYTERM_GSM_SERVICE_ACCOUNT" xml:space="preserve">
+		<value>[DE] GSM Service Account</value>
+	</data>
 </root>

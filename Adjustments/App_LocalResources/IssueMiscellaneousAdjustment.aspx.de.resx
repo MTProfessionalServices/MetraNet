@@ -133,7 +133,7 @@
     <value>{DE}Internal Beschreibung</value>
   </data>
   <data name="adjDescriptionTextBoxResource2.Label" xml:space="preserve">
-    <value>{DE}Subscriber Description</value>
+    <value>{DE}Invoice Description</value>
   </data>
   <data name="adjDescriptionTextBoxResource1.MaxLength" xml:space="preserve">
     <value>-1</value>

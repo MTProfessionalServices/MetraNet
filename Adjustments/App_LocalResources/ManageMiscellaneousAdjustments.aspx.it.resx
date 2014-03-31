@@ -172,7 +172,7 @@
     <value>Continuare?  Verranno escluse tutte le rettifiche che soddisfano i criteri impostati per i filtri.  Se non ci sono filtri, verranno escluse tutte le rettifiche.</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>Descrizione</value>
+    <value>[it] Internal Descrizione</value>
   </data>
   <data name="TEXT_EMAIL_ADDRESS" xml:space="preserve">
     <value>Indirizzo e-mail</value>

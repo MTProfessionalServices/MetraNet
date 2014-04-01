@@ -564,6 +564,9 @@
   <data name="TEXT_UPDATE_EXISTING_REPORT_DEFINITIONS" xml:space="preserve">
     <value>Update Existing Report Definition</value>
   </data>
+  <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
+    <value>Usage Audit</value>
+  </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>Usage Server Maintenance</value>
   </data>

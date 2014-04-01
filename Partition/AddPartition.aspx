@@ -511,7 +511,9 @@
         return false;
       } else if (window.ValidateForm()) {
         var btnOk = window.Ext.getCmp('ctl00_ContentPlaceHolder1_btnOK');
+        var btnCancel = window.Ext.getCmp('ctl00_ContentPlaceHolder1_btnCancel');
         btnOk.setDisabled(true);
+        btnCancel.setDisabled(true);
         return true;
       } else return false;
     }

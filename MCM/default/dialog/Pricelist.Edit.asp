@@ -78,6 +78,11 @@ END FUNCTION
 PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
   On Error Resume Next
 	
+  
+  If Session("isPartitionUser") Then
+    COMObject.Instance.PLPartitionId = COMObject.Properties("PLPartitionId").DefaultValue
+  End If
+
 	'This is a RateSchedule, so we will call SaveWithRules
 	call COMObject.Instance.Save
     

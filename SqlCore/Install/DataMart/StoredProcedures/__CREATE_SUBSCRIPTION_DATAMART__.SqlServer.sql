@@ -689,8 +689,8 @@ sub.id_po as ProductOfferingId,
 mrr.Year,
 mrr.Month,
 count(1) as TotalParticipants,
-0 as DistinctHierarchies,
-0 as NewParticipants,
+count(distinct cust.HierarchyMetraNetId) as DistinctHierarchies,
+sum(case when datediff(day, sub.vt_start, getdate()) <= 30 then 1 else 0 end) as NewParticipants,
 sum(mrr.MRRPrimaryCurrency) as MRRPrimaryCurrency,
 sum(mrr.MRRNewPrimaryCurrency) as MRRNewPrimaryCurrency,
 sum(mrr.MRRBasePrimaryCurrency) as MRRBasePrimaryCurrency,
@@ -703,6 +703,7 @@ mrr.DaysInMonth
 into SubscriptionDataMart..SubscriptionSummary
 from SubscriptionDataMart..SubscriptionsByMonth mrr
 inner join t_sub sub with(nolock) on sub.id_sub = mrr.SubscriptionId
+inner join SubscriptionDataMart..Customer cust on cust.InstanceId = mrr.InstanceId and cust.MetraNetId = sub.id_acc
 where 1=1
 group by mrr.InstanceId, mrr.Year, mrr.Month, sub.id_po, mrr.DaysInMonth
 ;

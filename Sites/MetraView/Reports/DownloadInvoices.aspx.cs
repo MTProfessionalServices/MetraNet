@@ -5,17 +5,23 @@ using System.Runtime.InteropServices;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MetraTech.Core.Services.ClientProxies;
+using MetraTech.CreditNotes;
 using MetraTech.UI.Common;
 using MetraTech.Interop.RCD;
 using MetraTech.DomainModel.Billing;
 using System.Text;
 using System.Xml.Linq;
 using System.IO;
+using MetraTech.Core.CreditNotes;
+using MetraTech.CreditNotes;
+
+
 
 public partial class Reports_DownloadInvoices : MTPage
 {
   private XDocument reportFormats = new XDocument();
-
+  private bool _creditNotesEnabled = false;
   protected void Page_Load(object sender, EventArgs e)
   {
     Intervals1.RedirectURL = Request.FilePath;
@@ -23,6 +29,7 @@ public partial class Reports_DownloadInvoices : MTPage
     StringBuilder sb = new StringBuilder();
     var billManager = new BillManager(UI);
     Interval interval = billManager.GetCurrentInterval();
+    _creditNotesEnabled = MetraTech.CreditNotes.CreditNotePDFConfigurationManager.creditNotePDFConfig.creditNotesEnabled;
 
     if (interval == null)
     {
@@ -114,44 +121,51 @@ public partial class Reports_DownloadInvoices : MTPage
 
 
       //fill CreditNotes list
-
-      var creditNotesReports = billManager.GetCreditNotesReports();
-      sb = new StringBuilder();
-
-      if (creditNotesReports != null && creditNotesReports.Count > 0)
+      if (_creditNotesEnabled)
       {
-        if (Session[SiteConstants.CREDIT_NOTES_REPORT_DICTIONARY] == null)
-        {
-          Session[SiteConstants.CREDIT_NOTES_REPORT_DICTIONARY] = new Dictionary<string, ReportFile>();
-        }
+        var creditNotesReports = billManager.GetCreditNotesReports();
+        sb = new StringBuilder();
 
-        var creditNotesReportDictionary = Session[SiteConstants.CREDIT_NOTES_REPORT_DICTIONARY] as Dictionary<string, ReportFile>;
-
-        foreach (var reportFile in creditNotesReports)
+        if (creditNotesReports != null && creditNotesReports.Count > 0)
         {
-          // The reportFile objects are stored in a dictionary and the name is passed to ShowReports.aspx
-          if (creditNotesReportDictionary != null)
+          if (Session[SiteConstants.CREDIT_NOTES_REPORT_DICTIONARY] == null)
           {
-            if (!creditNotesReportDictionary.ContainsKey(String.Format("{0}", reportFile.FileName)))
+            Session[SiteConstants.CREDIT_NOTES_REPORT_DICTIONARY] = new Dictionary<string, ReportFile>();
+          }
+
+          var creditNotesReportDictionary =
+            Session[SiteConstants.CREDIT_NOTES_REPORT_DICTIONARY] as Dictionary<string, ReportFile>;
+
+          foreach (var reportFile in creditNotesReports)
+          {
+            // The reportFile objects are stored in a dictionary and the name is passed to ShowReports.aspx
+            if (creditNotesReportDictionary != null)
             {
-              creditNotesReportDictionary.Add((String.Format("{0}", reportFile.FileName)), reportFile);
+              if (!creditNotesReportDictionary.ContainsKey(String.Format("{0}", reportFile.FileName)))
+              {
+                creditNotesReportDictionary.Add((String.Format("{0}", reportFile.FileName)), reportFile);
+              }
+            }
+            string reportToList = AddReportToCreditNotesList(reportFile.FileName, intervalID);
+
+            if (!string.IsNullOrEmpty(reportToList))
+            {
+              sb.Append(reportToList);
+              Logger.LogInfo((string) GetLocalResourceObject("AddCreditNoteReport.Text"), reportFile.FileName);
             }
           }
-          string reportToList = AddReportToCreditNotesList(reportFile.FileName, intervalID);
-
-          if (!string.IsNullOrEmpty(reportToList))
-          {
-            sb.Append(reportToList);
-            Logger.LogInfo((string)GetLocalResourceObject("AddCreditNoteReport.Text"), reportFile.FileName);
-          }
         }
+        else
+        {
+          sb.Append(GetLocalResourceObject("NoCreditNotes.Text"));
+        }
+        CreditNoteList.Text = sb.ToString();
+
       }
       else
-      {
-        sb.Append(GetLocalResourceObject("NoCreditNotes.Text"));
+      { 
+        DownLoadCreditNotesDiv.Attributes.Add("style", "display: none;");
       }
-      CreditNoteList.Text = sb.ToString();
-
     }
     catch (Exception exp)
     {

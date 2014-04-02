@@ -10,6 +10,7 @@
                 var indent = target.getAttributeNS('ext', 'indent');
                 var page = target.getAttributeNS('ext', 'page');
                 var path = target.getAttributeNS('ext', 'path');
+                var currency = target.getAttributeNS('ext', 'currency');
                 if (position == "open") {
                     Ext.get('<%=PanelImpliedTaxes.ClientID %>').setStyle('display', 'none');  // to hide it
                     var elImg = Ext.fly("subtotalBullet");
@@ -39,6 +40,7 @@
                 var indent = target.getAttributeNS('ext', 'indent');
                 var page = target.getAttributeNS('ext', 'page');
                 var path = target.getAttributeNS('ext', 'path');
+                var currency = target.getAttributeNS('ext', 'currency');
                 if (position == "open") {
                     Ext.get('<%=TaxSubTotalsPanel.ClientID %>').setStyle('display', 'none');  // to hide it
                     var elImg = Ext.fly("taxBullet");

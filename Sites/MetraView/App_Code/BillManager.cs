@@ -973,14 +973,15 @@ public class BillManager: System.Web.UI.TemplateControl
       }
 
       sb.Append("<tr>");
-      sb.Append(String.Format("<td style=\"padding-left:{0}px;\"><img id=\"img{1}\" border=\"0\" src=\"images/bullet-gray.gif\" /><a style=\"text-decoration:none;cursor:pointer;\" ext:accId=\"{1}\" ext:accEffDate=\"{4}\" ext:position=\"closed\" ext:indent=\"{2}\">{3}</a></td>", 
+      sb.Append(String.Format("<td style=\"padding-left:{0}px;\"><img id=\"img{1}\" border=\"0\" src=\"images/bullet-gray.gif\" /><a style=\"text-decoration:none;cursor:pointer;\" ext:accId=\"{1}\" ext:accEffDate=\"{4}\" ext:position=\"closed\" ext:indent=\"{2}\" ext:currency=\"{5}\">{3}</a></td>", 
                                 indent * 10,
                                 uniqueId, 
                                 indent,
                                 // SECENG: CORE-4791 CLONE - MSOL BSS 31927 Online Bill - Stored XSS through the individual or tenant name associated with syndication orders (ESR for 31444)
                                 // Added HTML enecoding
                                 Utils.EncodeForHtml(level.Name),
-                                SliceConverter.ToString(level.AccountEffectiveDate)));
+                                SliceConverter.ToString(level.AccountEffectiveDate), 
+                                level.Currency));
 
       sb.Append(String.Format("<td class=\"{0}\">{1}</td>", GetAmountStyle(indent, isByProduct), level.DisplayAmountAsString));
 
@@ -1144,11 +1145,12 @@ public class BillManager: System.Web.UI.TemplateControl
   // By-Folder Report Rendering
   ////////////////////////////////////////////////////////////////////////////
   #region By-Folder Report Rendering
+
   /// <summary>
   /// Get By Folder Report
   /// </summary>
   /// <returns></returns>
-  public ReportLevel GetByFolderReport(int? folderId, DateRangeSlice accountEffectiveDate)
+  public ReportLevel GetByFolderReport(int? folderId, DateRangeSlice accountEffectiveDate, string currency = null)
   {
     if (UI.Subscriber.SelectedAccount == null)
       throw new UIException(Resources.ErrorMessages.ERROR_NOT_VALID_ACCOUNT);
@@ -1169,7 +1171,8 @@ public class BillManager: System.Web.UI.TemplateControl
       In_owner = new AccountIdentifier((int)UI.Subscriber.SelectedAccount._AccountID),
       In_accountEffectiveDate = accountEffectiveDate,
       In_repParams = ReportParams,
-      In_folder = acc 
+      In_folder = acc, 
+      In_currency = currency
     };
 
     try

@@ -186,6 +186,8 @@
 		and :dtBegin <= au.dt_session and :dtEnd >= au.dt_session
 		and
 		%%TIME_PREDICATE%%
+		and
+		%%CURRENCY%%
 		group by
 		au.id_payee,
 		mapd1.hierarchydisplayname, 

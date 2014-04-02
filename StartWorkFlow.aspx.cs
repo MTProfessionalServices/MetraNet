@@ -43,50 +43,7 @@ public partial class StartWorkFlow : MTPage
     {
       return 0;
     }
-    // Populate Proxy Class
-    switch (WorkflowName)
-    {
-      // Add Account
-      case "AddAccountWorkflow":
-        {
-          // Create Account Proxy class
-          if (Request["AccountType"] != null)
-          {
-            var acc1 = new AddAccountEvents_StartAddAccountOfType_Client
-              {
-                In_AccountId = new AccountIdentifier(UI.User.AccountId),
-                In_SelectedAccountType = Request["AccountType"]
-              };
-
-            if (Request["ParentId"] != null)
-            {
-              acc1.In_ParentAccountId = int.Parse(Request["ParentId"]);
-              acc1.In_ParentAccountName = Request["ParentName"];
-            }
-
-            PageNav.Execute(acc1);
-          }
-          else if (Request["AncestorID"] != null)
-          {
-            var accWithTemplate = new AddAccountEvents_StartAddAccountWithTemplate_Client();
-
-            var templateIdentifier = new AccountIdentifier(int.Parse(Request["AncestorID"]));
-            accWithTemplate.In_TemplateAccount = templateIdentifier;
-            accWithTemplate.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-            accWithTemplate.In_TemplateEffectiveDate = ApplicationTime;
-            PageNav.Execute(accWithTemplate);
-          }
-          else
-          {
-            var acc1 = new AddAccountEvents_StartAddAccount_Client
-              {
-                In_AccountId = new AccountIdentifier(UI.User.AccountId)
-              };
-            PageNav.Execute(acc1);
-          }
-          break;
-        }
-    }
+    
     //call recursively on ancestor
     return GetCorporateAcctForAcct(acc.AncestorAccountID.Value);
   }
@@ -118,6 +75,13 @@ public partial class StartWorkFlow : MTPage
                 In_AccountId = new AccountIdentifier(UI.User.AccountId),
                 In_SelectedAccountType = Request["AccountType"]
               };
+
+            if (Request["ParentId"] != null)
+            {
+              acc1.In_ParentAccountId = int.Parse(Request["ParentId"]);
+              acc1.In_ParentAccountName = Request["ParentName"];
+            }
+
             PageNav.Execute(acc1);
           }
           else if (Request["AncestorID"] != null)

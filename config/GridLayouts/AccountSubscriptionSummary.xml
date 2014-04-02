@@ -189,7 +189,7 @@
         <ID>subscriptionend</ID>
         <DataType>Date</DataType>
         <IsIdentity>false</IsIdentity>
-        <DataIndex>subscriptionstart</DataIndex>
+        <DataIndex>subscriptionend</DataIndex>
         <IsColumn>true</IsColumn>
         <HeaderText>
           <Value><![CDATA[End]]></Value>

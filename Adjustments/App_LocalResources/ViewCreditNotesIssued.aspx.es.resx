@@ -162,4 +162,7 @@
   <data name="TEXT_STATUS" xml:space="preserve">
     <value>{ES}Status</value>
   </data>
+  <data name="TEXT_STATUS_INFORMATION" xml:space="preserve">
+    <value>{ES}Status Information</value>
+  </data>
 </root>

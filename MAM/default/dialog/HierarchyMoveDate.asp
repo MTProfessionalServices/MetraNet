@@ -181,9 +181,9 @@ FUNCTION OK_Click(EventArg) ' As Boolean
         next
     
         If col.count = 1 Then
-          Call Session("CSR_YAAC").GetAncestorMgr().MoveAccount(strParent, CLng(col.item(1)), CDate(Service.Properties("StartDate")))
+          Call Session("SubscriberYAAC").GetAncestorMgr().MoveAccount(strParent, CLng(col.item(1)), CDate(Service.Properties("StartDate")))
         Else
-          Set Session("LAST_BATCH_ERRORS") = Session("CSR_YAAC").GetAncestorMgr().MoveAccountBatch(strParent, col, nothing, CDate(Service.Properties("StartDate")))
+          Set Session("LAST_BATCH_ERRORS") = Session("SubscriberYAAC").GetAncestorMgr().MoveAccountBatch(strParent, col, nothing, CDate(Service.Properties("StartDate")))
           
           If Err.Number <> 0 Then
             EventArg.Error.Save Err

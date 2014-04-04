@@ -46,7 +46,7 @@
     <div id="header">
       <div class="logo">
         <a href="#">
-          <img src="<%= SiteConfig.GetApplicationLogo() %>" /></a></div>
+          <img src="<%= SiteConfig.GetApplicationLogo() %>" alt="Company logo" /></a></div>
       <div id="headernav">
         <uc6:TopMenu ID="TopMenu1" runat="server" />
       </div>

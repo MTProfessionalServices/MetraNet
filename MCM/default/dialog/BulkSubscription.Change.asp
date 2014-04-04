@@ -42,12 +42,12 @@ mdm_Main ' invoke the mdm framework
 ' RETURNS		      : Return TRUE if ok else FALSE
 PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
     
-    Service.Properties.Add "PONameSource"       , MSIXDEF_TYPE_STRING,   256, TRUE,  Empty
-    Service.Properties.Add "PONameDestination"  , MSIXDEF_TYPE_STRING,   256, TRUE,  Empty
-    Service.Properties.Add "POIDSource"         , MSIXDEF_TYPE_INT32 ,   0  , FALSE, Empty
-    Service.Properties.Add "POIDDEstination"    , MSIXDEF_TYPE_INT32 ,   0  , FALSE, Empty
-    Service.Properties.Add "EffectiveDate"      , MSIXDEF_TYPE_TIMESTAMP,0  , TRUE, Empty
-    Service.Properties.Add "BillingCycleRelative", MSIXDEF_TYPE_BOOLEAN,0  , FALSE, Empty
+    Service.Properties.Add "PONameSource",         MSIXDEF_TYPE_STRING,   256, TRUE,  Empty
+    Service.Properties.Add "PONameDestination",    MSIXDEF_TYPE_STRING,   256, TRUE,  Empty
+    Service.Properties.Add "POIDSource",           MSIXDEF_TYPE_INT32,      0, FALSE, Empty
+    Service.Properties.Add "POIDDEstination",      MSIXDEF_TYPE_INT32,      0, FALSE, Empty
+    Service.Properties.Add "EffectiveDate",        MSIXDEF_TYPE_TIMESTAMP,  0, TRUE,  Empty
+    Service.Properties.Add "BillingCycleRelative", MSIXDEF_TYPE_BOOLEAN,    0, FALSE, Empty
     
     'Service.Properties("PONameSource").Enabled      = FALSE
     'Service.Properties("PONameDestination").Enabled = FALSE
@@ -56,7 +56,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
     Service.Properties("PONameDestination").Caption = FrameWork.GetDictionary("TEXT_BULK_SUBSCRIPTION_PO_DESTINATION")
     Service.Properties("EffectiveDate").Caption     = FrameWork.GetDictionary("TEXT_BULK_SUBSCRIPTION_EFFECTIVE_DATE")
     Service.Properties("BillingCycleRelative").Caption     = FrameWork.GetDictionary("TEXT_BULK_SUBSCRIPTION_EFFECTIVE_DATE_BILLING_CYCLE_RELATIVE")
-
+    
     mcm_IncludeCalendar
     Form_Initialize = TRUE
 END FUNCTION
@@ -64,19 +64,14 @@ END FUNCTION
 
 PRIVATE FUNCTION Form_Refresh(EventArg) ' As Boolean
 
-    If(UCase(Request.QueryString("POMode"))="SOURCE")Then
-        
+    If (UCase(Request.QueryString("POMode"))="SOURCE") Then        
         Service.Properties("PONameSource").Value = Request.QueryString("OptionalValues")
-        Service.Properties("POIDSource").Value = Request.QueryString("IDs")
-    
-    ElseIf(UCase(Request.QueryString("POMode"))="DESTINATION")Then
-    
+        Service.Properties("POIDSource").Value = Request.QueryString("IDs")            
+    ElseIf (UCase(Request.QueryString("POMode"))="DESTINATION") Then    
         Service.Properties("PONameDestination").Value = Request.QueryString("OptionalValues")
         Service.Properties("POIDDEstination").Value = Request.QueryString("IDs")
-    Else 
-    
     End if
-    
+        
     If(Service.Properties("POIDDEstination").Value = Service.Properties("POIDSource").Value)Then
 '    
  '       Service.Properties("PONameDestination").Value = Empty
@@ -97,22 +92,32 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
   Dim objMTProductCatalog
   Set objMTProductCatalog = GetProductCatalogObject
 
-  'Determine if destination PO has any UDRCS... we won't allow the bulk update
+  Dim prodOff
+  Set prodOff = objMTProductCatalog.GetProductOffering(Clng(Service.Properties("POIDSource").Value))
+
   Dim destPO
   Set destPO = objMTProductCatalog.GetProductOffering(CLng(Service.Properties("POIDDestination").Value))
 
-    dim objPriceableItems
-    set objPriceableItems = destPO.GetPriceableItems
-    dim FoundUDRCs
-    FoundUDRCs = FALSE
+  If prodOff.POPartitionId <> destPO.POPartitionId Then
+    EventArg.Error.Description = FrameWork.Dictionary().Item("MCM_ERROR_PARTITION_NOT_EQUAL").Value
+    EventArg.Error.Number = 1
+    OK_Click = FALSE
+    Exit Function
+  End If
+
+  'Determine if destination PO has any UDRCS... we won't allow the bulk update
+  dim objPriceableItems
+  set objPriceableItems = destPO.GetPriceableItems
+  dim FoundUDRCs
+  FoundUDRCs = FALSE
     
-    dim objPI
-    for each objPI in objPriceableItems
-      If ProductCatalogHelper.IsTypeUDRC(objPI.PriceAbleItemType) then
-        FoundUDRCs = TRUE
-        Exit Function
-      End If
-    next
+  dim objPI
+  for each objPI in objPriceableItems
+    If ProductCatalogHelper.IsTypeUDRC(objPI.PriceAbleItemType) then
+      FoundUDRCs = TRUE
+      Exit Function
+    End If
+  next
     
   If FoundUDRCs Then
     EventArg.Error.Description  = FrameWork.Dictionary().Item("MCM_ERROR_1009").Value
@@ -127,13 +132,12 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
 		Service.Properties("EffectiveDate").Value, _
 		Service.Properties("BillingCycleRelative").Value
     
-  If(Err.Number)Then
-    
-      EventArg.Error.Save Err
-      OK_Click = FALSE
-      Err.Clear
+  If (Err.Number) Then 
+    EventArg.Error.Save Err
+    OK_Click = FALSE
+    Err.Clear
   Else
-        OK_Click = TRUE        
+    OK_Click = TRUE        
   End If
 END FUNCTION
 %>

@@ -84,6 +84,10 @@
       <value>[TEXT_SHARED] Rates</value>
     </text>
 
+		<text id="TEXT_PRICELIST_PLPARTITIONID">
+      <value>Partition Id</value>
+    </text>
+
     <text id="TEXT_PRICELIST_CURRENCY_CHANGE_WARNING"><value><![CDATA[<strong>WARNING: Changing Currency of [TEXT_KEYTERM_PRICE_LIST]</strong><BR>The copy of the [TEXT_KEYTERM_PRICE_LIST] will be created with a different currency, however, the rates will not be changed and must be updated to reflect the appropriate value in the new currency.<BR>]]></value></text>
    
 </texts>

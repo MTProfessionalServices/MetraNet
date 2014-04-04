@@ -35,6 +35,9 @@ Option Explicit
 %>
 <!-- #INCLUDE FILE="../../MCMIncludes.asp" -->
 <!-- #INCLUDE VIRTUAL="/mdm/common/mdmPicker.Library.asp" -->
+
+<!-- #INCLUDE VIRTUAL="/mcm/default/lib/MultiTenancyLib.asp"-->
+
 <%
 Form.Version        = MDM_VERSION     ' Set the dialog version - we are version 2.0.
 FOrm.ErrorHandler   = FALSE
@@ -74,14 +77,23 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
     strFilterMessage= strFilterMessage & "Where currency is '" & Form("FILTER_CURRENCY") & "'"
   end if
   
-  Set ProductView.Properties.RowSet = objMTProductCatalog.FindPriceListsAsRowset(objMTFilter)
+  If Session("isPartitionUser") Then
+    'objMTFilter.Add "PartitionId", OPERATOR_TYPE_EQUAL, Session("topLevelAccountId")
+  End If
+
+  ' Set ProductView.Properties.RowSet = objMTProductCatalog.FindPriceListsAsRowset(objMTFilter)
+
+  Dim productOfferingCurrency, currentUserLanguageCode
+  productOfferingCurrency = CStr(Form("FILTER_CURRENCY"))
+  currentUserLanguageCode = Session("FRAMEWORK_SECURITY_SESSION_CONTEXT_SESSION_NAME").LanguageId
+  Set ProductView.Properties.RowSet = GetPriceListListOfValues(productOfferingCurrency, currentUserLanguageCode)
       
   ' Select the properties I want to print in the PV Browser   Order
   'ProductView.Properties.SelectAll
-  ProductView.Properties.ClearSelection    
-  ProductView.Properties("nm_name").Selected 			      = 1
-  ProductView.Properties("nm_desc").Selected 	          = 2
-  ProductView.Properties("nm_currency_code").Selected   = 3 
+  ProductView.Properties.ClearSelection
+  ProductView.Properties("nm_name").Selected          = 1
+  ProductView.Properties("nm_desc").Selected          = 2
+  ProductView.Properties("nm_currency_code").Selected = 3 
   
   ProductView.Properties("nm_name").Sorted               = MTSORT_ORDER_ASCENDING
   

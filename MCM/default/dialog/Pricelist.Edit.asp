@@ -63,6 +63,10 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
   Service.Properties.Add "pl_edit_name", "String",  1024, FALSE, TRUE
   Service.Properties("pl_edit_name") = SafeForHtml(COMObject.Instance.Name)
       
+  If Session("isPartitionUser") Then
+    COMObject.Properties("PLPartitionId").Enabled = FALSE
+  End If
+  
   Form_Initialize = TRUE
 END FUNCTION
 
@@ -74,6 +78,11 @@ END FUNCTION
 PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
   On Error Resume Next
 	
+  
+  If Session("isPartitionUser") Then
+    COMObject.Instance.PLPartitionId = COMObject.Properties("PLPartitionId").DefaultValue
+  End If
+
 	'This is a RateSchedule, so we will call SaveWithRules
 	call COMObject.Instance.Save
     
@@ -81,8 +90,19 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
 	  EventArg.Error.Save Err
 	  OK_Click = FALSE
 	  Err.Clear
-  Else
-	  OK_Click = TRUE
-  End If    
+    Else
+        Response.Write "<script language='JavaScript'>"
+        Response.Write "if (window.opener.top.MainContentIframe.LoadStoreWhenReady_ctl00_ContentPlaceHolder1_MTFilterGrid1) {"
+        Response.Write "  window.opener.top.MainContentIframe.LoadStoreWhenReady_ctl00_ContentPlaceHolder1_MTFilterGrid1();"
+        Response.Write "} else {"
+        'Response.Write "  window.opener.location.reload();"
+        Response.Write "  window.opener.location.href = (window.opener.location.href);"
+        Response.Write "}"
+        Response.Write "window.close();"
+        Response.Write "</script>"
+        Response.End
+
+        OK_Click = TRUE
+    End If    
 END FUNCTION
 %>

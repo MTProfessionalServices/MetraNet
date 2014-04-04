@@ -736,7 +736,7 @@
                                 <LocalizationTag>TEXT_MACHINE_ROLES</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/BME/BEList.aspx?Name=Core.MR.MachineRole&amp;Extension=Core&amp;NewBreadcrumb=True</Link>
+                          <Link>/MetraNet/BME/BEList.aspx?Name=Core.MR.MachineRole&amp;NewBreadcrumb=true&amp;Extension=Core</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/computer_add.png</Icon>
                             <Description></Description>

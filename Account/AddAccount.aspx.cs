@@ -44,7 +44,8 @@ public partial class AddAccount : MTAccountPage
     if (!IsPostBack)
     {
       Account = PageNav.Data.Out_StateInitData["Account"] as Account;
-
+            if (!IsPostBack)
+            {
       if (Account != null)
       {
           Account.AccountStartDate = DateTime.Now;
@@ -61,9 +62,45 @@ public partial class AddAccount : MTAccountPage
       MTGenericFormTax.TemplateName = "TaxTemplate";
       MTGenericFormTax.TemplatePath = TemplatePath;
       MTGenericFormTax.ReadOnly = false;
+            }
 
-      PriceListCol = PageNav.Data.Out_StateInitData["PriceListColl"] as List<PriceList>;
+      //PriceListCol = PageNav.Data.Out_StateInitData["PriceListColl"] as List<PriceList>;
       PopulatePresentationNameSpaceList(ddBrandedSite);
+
+            // For Partition users, only allow them to use their own namespace
+            if (PartitionLibrary.IsPartition)
+            {
+                string PartitionAccountsNameSpace = PartitionLibrary.PartitionData.PartitionUserName;
+                ListItem PartitionBrandedSiteListItem = null;
+                foreach (ListItem brandedSiteListItem in ddBrandedSite.Items)
+                {
+                    if (string.Compare(brandedSiteListItem.Value, PartitionAccountsNameSpace, true) == 0)
+                    {
+                        brandedSiteListItem.Selected = true;
+                        PartitionBrandedSiteListItem = brandedSiteListItem;
+                        continue;
+                    }
+                }
+
+                ddBrandedSite.Items.Clear();
+                if (PartitionBrandedSiteListItem != null)
+                {
+                    ddBrandedSite.Items.Add(PartitionBrandedSiteListItem);
+                }
+                ddBrandedSite.ReadOnly = true;
+            }
+            else
+            {
+                // Default to "mt" namespace
+                foreach (ListItem brandedSiteListItem in ddBrandedSite.Items)
+                {
+                    if (string.Compare(brandedSiteListItem.Value, "mt", true) == 0)
+                    {
+                        brandedSiteListItem.Selected = true;
+                        continue;
+                    }
+                }
+            }
 
       bool templatesApplied = (bool)PageNav.Data.Out_StateInitData["TemplatesApplied"];
       if (!templatesApplied)
@@ -87,15 +124,28 @@ public partial class AddAccount : MTAccountPage
           tbPayer.Visible = false;
           tbAncestorAccount.ReadOnly = true;
           Account.AncestorAccountID = 1;
+                    cbApplyTemplate.Visible = false;
           tbAncestorAccount.AllowBlank = true;
         }
 
         if (accountType.IsCorporate)
         {
           tbAncestorAccount.ReadOnly = false;      
-          Account.AncestorAccountID = 1;
+                    // Account.AncestorAccountID = 1;
+                    cbApplyTemplate.Visible = false;
           tbAncestorAccount.AllowBlank = false;
         }
+
+        if (accountType.Name == "Endpoint")
+        {
+          cbBillable.Checked = false;
+          cbBillable.ReadOnly = true;
+          cbBillable.Visible = true;
+          //Payer is required 
+          tbPayer.AllowBlank = false;
+        }
+
+
       }
      
       if (!MTDataBinder1.DataBind())
@@ -103,7 +153,10 @@ public partial class AddAccount : MTAccountPage
         Logger.LogError(MTDataBinder1.BindingErrors.ToHtml());
       }
       
-      PopulatePriceList(ddPriceList);
+            // PriceListCol = PageNav.Data.Out_StateInitData["PriceListColl"] as List<PriceList>;
+            // PopulatePriceList(ddPriceList);
+            PartitionLibrary.PopulatePriceListDropdown(ddPriceList);
+
       ddAuthenticationType.Items.Clear();
       ddAuthenticationType.EnumSpace = "metratech.com/accountcreation";
       ddAuthenticationType.EnumType = "AuthenticationType";
@@ -213,6 +266,17 @@ public partial class AddAccount : MTAccountPage
 
         }
     } // end if semi-monthly validation
+  
+    //Payer is mandatory for Endpoint account type
+    AccountTypeManager accountTypeManagerEndpoint = new AccountTypeManager();
+
+    IMTAccountType accountTypeEp = accountTypeManagerEndpoint.GetAccountTypeByName((MetraTech.Interop.MTProductCatalog.IMTSessionContext)UI.SessionContext, Account.AccountType);
+    
+    if ((accountTypeEp.Name == "Endpoint") && (tbPayer.Text == ""))
+    {
+      throw new ApplicationException(Resources.ErrorMessages.ERROR_PAYER_ID_IS_REQUIRED);
+    }
+
   }
 
   protected void btnOK_Click(object sender, EventArgs e)
@@ -228,7 +292,7 @@ public partial class AddAccount : MTAccountPage
       add.In_Account = Account;
       add.In_AccountId = new AccountIdentifier(UI.User.AccountId);
       add.In_SendEmail = cbEmailNotification.Checked;
-      add.In_ApplyAccountTemplates = false;
+            add.In_ApplyAccountTemplates = cbApplyTemplate.Checked;
       PageNav.Execute(add);
      
     }

@@ -54,6 +54,26 @@
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
+                            <ID>AddChildAccount</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_ADD_CHILD_ACCOUNT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link></Link>
+                            <Target></Target>
+                            <Icon>/Res/Images/Icons/user_add.png</Icon>
+                            <Description>Shows sub-menu with account types, that can be child of selected account</Description>
+                            <RequiredCapabilities>
+                                <Capability>Create Subscriber Accounts</Capability>
+                            </RequiredCapabilities>
+							<SubMenu>
+								<ID>AddChildAccountSubMenu</ID>
+								<Type>Context</Type>
+								<Description>Sub-menu of Add Child Account Menu item</Description>
+								<MenuSections></MenuSections>
+							</SubMenu>
+                        </MenuItem>
+                        <MenuItem>
                             <ID>SelfCarePortal</ID>
                             <Caption>
                                 <LocalizationTag>TEXT_SELF_CARE_PORTAL</LocalizationTag>
@@ -145,6 +165,26 @@
                             <RequiredCapabilities>
                                 <Capability>Update subscriber accounts</Capability>
                             </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>AddChildAccount</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_ADD_CHILD_ACCOUNT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link></Link>
+                            <Target></Target>
+                            <Icon>/Res/Images/Icons/user_add.png</Icon>
+                            <Description>Shows sub-menu with account types, that can be child of selected account</Description>
+                            <RequiredCapabilities>
+                                <Capability>Create Subscriber Accounts</Capability>
+                            </RequiredCapabilities>
+							<SubMenu>
+								<ID>AddChildAccountSubMenu</ID>
+								<Type>Context</Type>
+								<Description>Sub-menu of Add Child Account Menu item</Description>
+								<MenuSections></MenuSections>
+							</SubMenu>
                         </MenuItem>
                         <MenuItem>
                             <ID>SelfCarePortal</ID>
@@ -240,6 +280,26 @@
                             </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
+                            <ID>AddChildAccount</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_ADD_CHILD_ACCOUNT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link></Link>
+                            <Target></Target>
+                            <Icon>/Res/Images/Icons/user_add.png</Icon>
+                            <Description>Shows sub-menu with account types, that can be child of selected account</Description>
+                            <RequiredCapabilities>
+                                <Capability>Create Subscriber Accounts</Capability>
+                            </RequiredCapabilities>
+							<SubMenu>
+								<ID>AddChildAccountSubMenu</ID>
+								<Type>Context</Type>
+								<Description>Sub-menu of Add Child Account Menu item</Description>
+								<MenuSections></MenuSections>
+							</SubMenu>
+                        </MenuItem>
+                        <MenuItem>
                             <ID>SelfCarePortal</ID>
                             <Caption>
                                 <LocalizationTag>TEXT_SELF_CARE_PORTAL</LocalizationTag>
@@ -331,6 +391,26 @@
                             <RequiredCapabilities>
                                 <Capability>Update subscriber accounts</Capability>
                             </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>AddChildAccount</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_ADD_CHILD_ACCOUNT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link></Link>
+                            <Target></Target>
+                            <Icon>/Res/Images/Icons/user_add.png</Icon>
+                            <Description>Shows sub-menu with account types, that can be child of selected account</Description>
+                            <RequiredCapabilities>
+                                <Capability>Create Subscriber Accounts</Capability>
+                            </RequiredCapabilities>
+							<SubMenu>
+								<ID>AddChildAccountSubMenu</ID>
+								<Type>Context</Type>
+								<Description>Sub-menu of Add Child Account Menu item</Description>
+								<MenuSections></MenuSections>
+							</SubMenu>
                         </MenuItem>
                         <MenuItem>
                             <ID>SelfCarePortal</ID>

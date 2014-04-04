@@ -250,8 +250,8 @@
     <value>Criar retornos/reexecuções</value>
   </data>
   <data name="TEXT_CREATE_CREDIT_NOTE" xml:space="preserve">
-        <value>{PT-BR}Create Credit Note</value>
-    </data>
+    <value>{PT-BR}Create Credit Note</value>
+  </data>
   <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
     <value>Adicionar nova instância de relatório</value>
   </data>
@@ -562,8 +562,8 @@
     <value>Informação da versão</value>
   </data>
   <data name="TEXT_VIEW_CREDIT_NOTES_ISSUED" xml:space="preserve">
-        <value>{PT-BR}View Credit Notes Issued</value>
-    </data>
+    <value>{PT-BR}View Credit Notes Issued</value>
+  </data>
   <data name="TEXT_VIEW_METERING_STATISTICS" xml:space="preserve">
     <value>Exibir</value>
   </data>
@@ -596,5 +596,8 @@
   </data>
   <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
     <value>Portuguese</value>
+  </data>
+  <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
+    <value>[pt-br]Add child Account</value>
   </data>
 </root>

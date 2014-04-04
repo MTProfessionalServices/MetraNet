@@ -13,17 +13,17 @@ using MetraTech.Core.Services.ClientProxies;
 public partial class GenericUpdateAccount : MTAccountPage
 {
 
-    //Approval Framework Code Starts Here 
+  //Approval Framework Code Starts Here 
   public int? bAccountUpdateApprovalsEnabled
   {
     get { return ViewState["bAccountUpdateApprovalsEnabled"] as int?; }
     set { ViewState["bAccountUpdateApprovalsEnabled"] = value; }
   } //so we can read it any time in the session
-  
+
   public bool bAllowMoreThanOnePendingChange { get; set; }
-    public bool bAccountHasPendingChange { get; set; }
-    public string strChangeType { get; set; }
-    //Approval Framework Code Ends Here 
+  public bool bAccountHasPendingChange { get; set; }
+  public string strChangeType { get; set; }
+  //Approval Framework Code Ends Here 
 
   private List<string> skipProperties = new List<string>();
   private void SetupSkipProperties()
@@ -49,20 +49,20 @@ public partial class GenericUpdateAccount : MTAccountPage
       var Properties = Account.GetType().GetProperties();
       foreach (var property in Properties)
       {
-          object Result = ((PropertyInfo)property).GetValue(Account, null);
-          if (Result == null)
+        object Result = ((PropertyInfo)property).GetValue(Account, null);
+        if (Result == null)
+        {
+          try
           {
-              try
-              {
-                  Type type = ((PropertyInfo)property).PropertyType;
-                  if (!type.ToString().Contains("System."))
-                      property.SetValue(Account, Activator.CreateInstance(type), null);
-              }
-              catch (Exception)
-              {
-
-              }
+            Type type = ((PropertyInfo)property).PropertyType;
+            if (!type.ToString().Contains("System."))
+              property.SetValue(Account, Activator.CreateInstance(type), null);
           }
+          catch (Exception)
+          {
+
+          }
+        }
       }
       if (Account == null) return;
 
@@ -73,7 +73,7 @@ public partial class GenericUpdateAccount : MTAccountPage
       SetupSkipProperties();
       MTGenericForm1.IgnoreProperties = skipProperties;
 
-      //Approval Framework Code Starts Here 
+      #region Approval Framework Code Starts Here 
 
       ApprovalManagementServiceClient client = new ApprovalManagementServiceClient();
 
@@ -90,7 +90,7 @@ public partial class GenericUpdateAccount : MTAccountPage
       if (mactc.Items[0].Enabled)
       {
         bAccountUpdateApprovalsEnabled = 1;// mactc.Items[0].Enabled; 
-    }
+      }
 
       if (bAccountUpdateApprovalsEnabled == 1)
       {
@@ -105,7 +105,7 @@ public partial class GenericUpdateAccount : MTAccountPage
         if (pendingchangeids.Count != 0)
         {
           bAccountHasPendingChange = true;
-  }
+        }
 
         if (!bAllowMoreThanOnePendingChange)
         {
@@ -115,9 +115,7 @@ public partial class GenericUpdateAccount : MTAccountPage
             this.Logger.LogError(string.Format("The item {0} already has a pending change of the type {1} and this type of change does not allow more than one pending change.", UI.Subscriber.SelectedAccount.UserName, "AccountUpdate"));
             btnOK.Visible = false;
             client.Abort();
-
           }
-
         }
 
         if (bAccountHasPendingChange)
@@ -129,7 +127,8 @@ public partial class GenericUpdateAccount : MTAccountPage
         }
 
       }
-      //Approval Framework Code Ends Here 
+
+      #endregion//Approval Framework Code Ends Here
 
     }
   }
@@ -163,5 +162,5 @@ public partial class GenericUpdateAccount : MTAccountPage
     PageNav.Execute(cancel);
   }
 
- 
+
 }

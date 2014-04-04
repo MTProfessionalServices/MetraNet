@@ -172,7 +172,7 @@
     <value>¿Está seguro que desea continuar?  Esto denegará todos los ajustes que coinciden con sus criterios de filtro.  Si no hay filtros presentes, se denegarán todos los ajustes.</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>Descripción</value>
+    <value>[es-MX] Internal Descripción</value>
   </data>
   <data name="TEXT_EMAIL_ADDRESS" xml:space="preserve">
     <value>Dirección de correo electrónico</value>

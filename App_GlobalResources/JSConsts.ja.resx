@@ -1230,4 +1230,10 @@
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(JAPANESE) Middle initial is invalid</value>
   </data>    
+  <data name="TEXT_RETRY_COLUMN" xml:space="preserve">
+    <value>(JAPANESE) Retry</value>
+  </data>   
+  <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
+    <value>{JAPANESE} Resubmitted Request</value>
+  </data>       
 </root>

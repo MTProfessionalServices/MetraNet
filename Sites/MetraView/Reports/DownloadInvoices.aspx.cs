@@ -6,7 +6,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MetraTech.Core.Services.ClientProxies;
-using MetraTech.CreditNotes;
 using MetraTech.UI.Common;
 using MetraTech.Interop.RCD;
 using MetraTech.DomainModel.Billing;

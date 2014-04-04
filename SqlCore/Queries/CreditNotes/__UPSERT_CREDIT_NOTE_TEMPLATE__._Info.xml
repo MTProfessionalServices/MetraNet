@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Query>
+    <Action>Unknown</Action>
+    <Implementations>
+        <Implementation>SqlServer</Implementation>
+        <Implementation>Oracle</Implementation>
+    </Implementations>
+    <Parameters>
+        <Parameter>
+            <Name>TemplateName</Name>
+            <DataType>string</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description>Unique Name of the Template</Description>
+        </Parameter>
+        <Parameter>
+            <Name>CreditNotePrefix</Name>
+            <DataType>string</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description>Credit Note Prefix</Description>
+        </Parameter>
+        <Parameter>
+            <Name>LanguageCode</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description>Code indicating language of the template</Description>
+        </Parameter>
+        <Parameter>
+            <Name>CreditNoteTemplateID</Name>
+            <DataType>int32</DataType>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description>Unique Credit Note Template ID</Description>
+        </Parameter>
+    </Parameters>
+    <Description>Upserts a credit note template.</Description>
+    <ConversionAudit>
+        <ConversionDuplicateName></ConversionDuplicateName>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
+        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
+    </ConversionAudit>
+</Query>

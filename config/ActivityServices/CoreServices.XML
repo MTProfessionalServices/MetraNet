@@ -10,9 +10,6 @@
 		<MASCodeService ElementName="CreditNoteService" Type="MetraTech.Core.Services.CreditNoteService, MetraTech.Core.Services.dll" Description="Provides access to Credit Notes functionality">
             <Interface Name="CreditNoteService" ContractType="MetraTech.Core.Services.ICreditNoteService, MetraTech.Core.Services.dll" Description="Provides access to Credit Notes functionality" />
         </MASCodeService>
-        <MASCodeService ElementName="IntervalManagementService" Type="MetraTech.Core.Services.IntervalManagementService, MetraTech.Core.Services.dll" Description="Provides access to interval information">
-            <Interface Name="IntervalManagementService" ContractType="MetraTech.Core.Services.IIntervalManagementService, MetraTech.Core.Services.dll" Description="Provides access to interval information" />
-        </MASCodeService>
         <MASCodeService ElementName="AuditLogService" Type="MetraTech.Core.Services.AuditLogService, MetraTech.Core.Services.dll" Description="Provides access to the MT Auditing functionality &#xA;">
             <Interface Name="AuditLogService" ContractType="MetraTech.Core.Services.IAuditLogService, MetraTech.Core.Services.dll" Description="Provides access to the MT Auditing functionality. " />
         </MASCodeService>

@@ -11,7 +11,7 @@
     <FilterInputWidth>220</FilterInputWidth>
     <Expandable>true</Expandable>
     <Buttons>Custom</Buttons>
-    <DataSourceURL>/MetraView/AjaxServices/QueryService.aspx</DataSourceURL>
+    <DataSourceURL>~/AjaxServices/QueryService.aspx</DataSourceURL>
     <PageSize>10</PageSize>
     <!--
   <URLParameters>

@@ -11,9 +11,8 @@ using MetraTech.ActivityServices.Services.Common;
 
 public partial class AjaxServices_ReportLevelSvc : MTPage
 {
-  private int _pagesize = 100;
+  private const int _pagesize = 100;
   private int _page = 1;
-  private string _path;
 
   public ReportLevel ReportLevel
   {
@@ -23,9 +22,18 @@ public partial class AjaxServices_ReportLevelSvc : MTPage
 
   protected void Page_Load(object sender, EventArgs e)
   {
-    int accId = int.Parse(Request.Form["id"].Substring(0, Request.Form["id"].IndexOf("_")));
-    int indent = int.Parse(Request.Form["indent"]);
+    var accId = int.Parse(Request.Form["id"].Substring(0, Request.Form["id"].IndexOf("_", StringComparison.Ordinal)));
+    var indent = int.Parse(Request.Form["indent"]);
     var accEffDate = SliceConverter.FromString<DateRangeSlice>(Request.Form["accEffDate"]);
+    string currency = null;
+    
+    if (Request.Form["currency"] != null)
+    {
+      if (!String.IsNullOrEmpty(Request.Form["currency"]))
+      {
+        currency = Request.Form["currency"];
+      }
+    }
 
     if(Request.Form["page"] != null)
     {
@@ -35,15 +43,7 @@ public partial class AjaxServices_ReportLevelSvc : MTPage
       }
     }
 
-    if (Request.Form["path"] != null)
-    {
-      if (!String.IsNullOrEmpty(Request.Form["path"]))
-      {
-        _path = Request.Form["path"]; 
-      }
-    }
-
-    bool bIsPaging = (_page > 1) ? true : false;
+    var bIsPaging = _page > 1;
 
     //do not indent if paging
     if (!bIsPaging)
@@ -54,7 +54,7 @@ public partial class AjaxServices_ReportLevelSvc : MTPage
     if ((string)Session[SiteConstants.View] == "details")
     {
       var billManager = new BillManager(UI);
-      ReportLevel = billManager.GetByFolderReport(accId, accEffDate);
+      ReportLevel = billManager.GetByFolderReport(accId, accEffDate, currency);
     }
     var billManger = new BillManager(UI);
     var sb = new StringBuilder();
@@ -84,12 +84,12 @@ public partial class AjaxServices_ReportLevelSvc : MTPage
       {
         if (childrenLevels.TotalRows > 0 && childrenLevels.PageSize > 0)
         {
-          int numTotalPages = (int) Math.Ceiling((double) childrenLevels.TotalRows/childrenLevels.PageSize) ;
+          var numTotalPages = (int) Math.Ceiling((double) childrenLevels.TotalRows/childrenLevels.PageSize) ;
 
           if (_page * childrenLevels.PageSize < childrenLevels.TotalRows)
           {
-            string uniqueId = accId + "_more_" + Guid.NewGuid();
-            string moreString = String.Format("More... (Page {0} of {1})<hr />", _page, numTotalPages);
+            var uniqueId = accId + "_more_" + Guid.NewGuid();
+            var moreString = String.Format("More... (Page {0} of {1})<hr />", _page, numTotalPages);
             sb.Append("<table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">");
             sb.Append("<tr>");
             sb.Append(

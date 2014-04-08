@@ -10,7 +10,7 @@
     <Width>560</Width>
     <Expandable>false</Expandable>
     <Buttons>Custom</Buttons>
-    <DataSourceURL>/MetraView/AjaxServices/FindCCSvc.aspx</DataSourceURL>
+    <DataSourceURL>~/AjaxServices/FindCCSvc.aspx</DataSourceURL>
     <MultiSelect>false</MultiSelect>
     <SelectionModel>Standard</SelectionModel>
     <DisplayCount>false</DisplayCount>

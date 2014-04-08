@@ -31,7 +31,7 @@
     <DisplayCount>true</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
     <CustomImplementationFilePath></CustomImplementationFilePath>
-    <DataSourceURL>/MetraView/AjaxServices/PaymentHistoryListSvc.aspx</DataSourceURL>
+    <DataSourceURL>~/AjaxServices/PaymentHistoryListSvc.aspx</DataSourceURL>
     <ShowTopBar>false</ShowTopBar>
     <ShowFilterPanel>true</ShowFilterPanel>
     <ShowBottomBar>true</ShowBottomBar>

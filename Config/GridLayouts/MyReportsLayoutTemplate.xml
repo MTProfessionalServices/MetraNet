@@ -10,7 +10,7 @@
     <Width>400</Width>
     <Expandable>false</Expandable>
     <Buttons>None</Buttons>
-    <DataSourceURL>/MetraView/AjaxServices/MyReportsSvc.aspx</DataSourceURL>
+    <DataSourceURL>~/AjaxServices/MyReportsSvc.aspx</DataSourceURL>
     <MultiSelect>false</MultiSelect>
     <SelectionModel>Standard</SelectionModel>
     <TotalProperty>TotalRows</TotalProperty>
@@ -37,7 +37,7 @@
     <DisplayCount>false</DisplayCount>
     <DefaultSortDirection>Ascending</DefaultSortDirection>
     <CustomImplementationFilePath></CustomImplementationFilePath>
-    <DataSourceURL>/MetraView/AjaxServices/MyReportsSvc.aspx</DataSourceURL>
+    <DataSourceURL>~/AjaxServices/MyReportsSvc.aspx</DataSourceURL>
     <ShowBottomBar>true</ShowBottomBar>
     <ShowGridFrame>true</ShowGridFrame>
     <ShowGridHeader>true</ShowGridHeader>

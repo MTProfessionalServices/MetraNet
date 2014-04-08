@@ -66,6 +66,13 @@ public partial class UserControls_ticketToMCM : MTPage
 			Auth auth = new Auth();
 			auth.Initialize(UI.User.UserName, UI.User.NameSpace);
 			URL = auth.CreateEntryPoint("mcm", "system_user", 0, gotoURL, false, true);
+
+
+            if (Request.QueryString["Redirect"] != null && Request.QueryString["Redirect"].ToUpper() == "TRUE")
+            {
+                Response.Redirect(URL, true);
+            }
+
 		}
 	}
 }

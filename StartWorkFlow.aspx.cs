@@ -1,15 +1,4 @@
 using System;
-using System.Data;
-using System.Diagnostics;
-using System.Configuration;
-using System.Collections;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-using MetraTech;
 using MetraTech.UI.Common;
 using MetraTech.PageNav.ClientProxies;
 using MetraTech.ActivityServices.Common;
@@ -21,17 +10,12 @@ using MetraTech.Interop.MTProductCatalog;
 
 public partial class StartWorkFlow : MTPage
 {
-  private string mWorkflowName = null; 
-  public string WorkflowName
-  {
-    get { return mWorkflowName; }
-    set { mWorkflowName = value; }
-  }
+  public string WorkflowName { get; set; }
 
   private bool isCorporateAccount(int accID)
   {
-    AccountTypeManager accountTypeManager = new AccountTypeManager();
-    YAAC.MTYAAC yaac = new YAAC.MTYAAC();
+    var accountTypeManager = new AccountTypeManager();
+    var yaac = new YAAC.MTYAAC();
     yaac.InitAsSecuredResource(accID,
                                (MetraTech.Interop.MTYAAC.IMTSessionContext)UI.SessionContext,
                                ApplicationTime);
@@ -59,7 +43,7 @@ public partial class StartWorkFlow : MTPage
     {
       return 0;
     }
-
+    
     //call recursively on ancestor
     return GetCorporateAcctForAcct(acc.AncestorAccountID.Value);
   }
@@ -72,203 +56,216 @@ public partial class StartWorkFlow : MTPage
     // error when the PageNave.Execute doees a redirect.
     //try
     //{
-      if (Request["WorkFlowName"] != null)
-      {
-        WorkflowName = Request["WorkFlowName"].ToString();
-      }
+    if (Request["WorkFlowName"] != null)
+    {
+      WorkflowName = Request["WorkFlowName"];
+    }
 
-      // Populate Proxy Class
-      switch (WorkflowName)
-      {
-        // Add Account
-        case "AddAccountWorkflow":
+    // Populate Proxy Class
+    switch (WorkflowName)
+    {
+      // Add Account
+      case "AddAccountWorkflow":
+        {
+          // Create Account Proxy class
+          if (Request["AccountType"] != null)
           {
-            // Create Account Proxy class
-            if (Request["AccountType"] != null)
-            {
-              AddAccountEvents_StartAddAccountOfType_Client acc1 = new AddAccountEvents_StartAddAccountOfType_Client();
-              acc1.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-              acc1.In_SelectedAccountType = Request["AccountType"];
-
-              if (Request["ParentId"] != null)
+            var acc1 = new AddAccountEvents_StartAddAccountOfType_Client
               {
-                acc1.In_ParentAccountId = int.Parse(Request["ParentId"]);
-                acc1.In_ParentAccountName = Request["ParentName"];
-              }
+                In_AccountId = new AccountIdentifier(UI.User.AccountId),
+                In_SelectedAccountType = Request["AccountType"]
+              };
 
-              PageNav.Execute(acc1);
-            }
-            else if (Request["AncestorID"] != null)
+            if (Request["ParentId"] != null)
             {
-              AddAccountEvents_StartAddAccountWithTemplate_Client accWithTemplate = new AddAccountEvents_StartAddAccountWithTemplate_Client();
-           
-              AccountIdentifier templateIdentifier = new AccountIdentifier(int.Parse(Request["AncestorID"]));
-              accWithTemplate.In_TemplateAccount = templateIdentifier;
-              accWithTemplate.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-              accWithTemplate.In_TemplateEffectiveDate = ApplicationTime;
-              PageNav.Execute(accWithTemplate);
+              acc1.In_ParentAccountId = int.Parse(Request["ParentId"]);
+              acc1.In_ParentAccountName = Request["ParentName"];
             }
-            else
+
+            PageNav.Execute(acc1);
+          }
+          else if (Request["AncestorID"] != null)
+          {
+            var accWithTemplate = new AddAccountEvents_StartAddAccountWithTemplate_Client();
+
+            var templateIdentifier = new AccountIdentifier(int.Parse(Request["AncestorID"]));
+            accWithTemplate.In_TemplateAccount = templateIdentifier;
+            accWithTemplate.In_AccountId = new AccountIdentifier(UI.User.AccountId);
+            accWithTemplate.In_TemplateEffectiveDate = ApplicationTime;
+            PageNav.Execute(accWithTemplate);
+          }
+          else
+          {
+            var acc = new AddAccountEvents_StartAddAccount_Client
+              {
+                In_AccountId = new AccountIdentifier(UI.User.AccountId)
+              };
+            PageNav.Execute(acc);
+          }
+          break;
+        }
+
+      // Update Account
+      case "UpdateAccountWorkflow":
+        {
+          // Update Account Proxy class
+          var acc = new UpdateAccountEvents_StartUpdateAccount_Client
             {
-              AddAccountEvents_StartAddAccount_Client acc = new AddAccountEvents_StartAddAccount_Client();
-              acc.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-              PageNav.Execute(acc);
-            }
-            break;
-          }
+              In_AccountId = new AccountIdentifier(UI.User.AccountId),
+              In_UpdateAccountId = new AccountIdentifier(int.Parse(UI.Subscriber["_AccountID"])),
+              In_LoadTime = ApplicationTime
+            };
+          PageNav.Execute(acc);
+          break;
+        }
 
-        // Update Account
-        case "UpdateAccountWorkflow":
-          {
-            // Update Account Proxy class
-            UpdateAccountEvents_StartUpdateAccount_Client acc = new UpdateAccountEvents_StartUpdateAccount_Client();
-            acc.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-            acc.In_UpdateAccountId = new AccountIdentifier(int.Parse(UI.Subscriber["_AccountID"].ToString()));
-            acc.In_LoadTime = ApplicationTime;
-            PageNav.Execute(acc);
-            break;
-          }
-
-        // Update Contact Info
-        case "ContactUpdateWorkflow":
-          {
-            // Update contact Proxy class
-            ContactUpdateEvents_StartContactUpdate_Client acc = new ContactUpdateEvents_StartContactUpdate_Client();
-            acc.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-            acc.In_UpdateAccountId = new AccountIdentifier(int.Parse(UI.Subscriber["_AccountID"].ToString()));
-            PageNav.Execute(acc);
-            break;
-          }
-
-        // Subscriptions
-        case "SubscriptionsWorkflow":
-          {
-            // Subscriptions Proxy class
-            SubscriptionsEvents_StartSubscriptions_Client acc = new SubscriptionsEvents_StartSubscriptions_Client();
-            acc.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-            acc.In_AccountIdentifier = new AccountIdentifier(int.Parse(UI.Subscriber["_AccountID"].ToString()));
-            PageNav.Execute(acc);
-            break;
-          }
-
-        // GroupSubscriptions
-        case "GroupSubscriptionsWorkflow":
-          {
-            // Group Subscriptions Proxy class
-            GroupSubscriptionsEvents_StartGroupSubscriptions_Client GroupSubAcct = new GroupSubscriptionsEvents_StartGroupSubscriptions_Client();
-
-            if (GlobalGroupSubActivated)
+      // Update Contact Info
+      case "ContactUpdateWorkflow":
+        {
+          // Update contact Proxy class
+          var acc = new ContactUpdateEvents_StartContactUpdate_Client
             {
-                if (UI.Subscriber.SelectedAccount == null)
-                {
-                    GroupSubAcct.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-                    GroupSubAcct.In_AccountIdentifier = new AccountIdentifier(1);
-                    GroupSubAcct.In_AccountType = "CorporateAccount";
-                    GroupSubAcct.In_CorporateAccountIdentifier = new AccountIdentifier(1);
-                }
-                else
-                {
-                  GroupSubAcct.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-                  int idAcc = int.Parse(UI.Subscriber["_AccountID"].ToString());
-                  bool isCorporate = isCorporateAccount(idAcc);
-                  if (isCorporate)
-                    GroupSubAcct.In_AccountType = "CorporateAccount";
-                  else
-                    GroupSubAcct.In_AccountType = UI.Subscriber.SelectedAccount.AccountType;
-                  GroupSubAcct.In_AccountIdentifier = new AccountIdentifier(idAcc);
-                    GroupSubAcct.In_CorporateAccountIdentifier =
-                        //new AccountIdentifier(int.Parse(UI.Subscriber.SelectedAccount.AncestorAccountID.Value.ToString()));
-                                new AccountIdentifier(MetraTech.UI.Tools.Utils.GetCorporateAccountOfChildAccount(UI.Subscriber.SelectedAccount._AccountID.Value, ApplicationTime));     
-                }
-            }
-            else
-            {              
+              In_AccountId = new AccountIdentifier(UI.User.AccountId),
+              In_UpdateAccountId = new AccountIdentifier(int.Parse(UI.Subscriber["_AccountID"]))
+            };
+          PageNav.Execute(acc);
+          break;
+        }
+
+      // Subscriptions
+      case "SubscriptionsWorkflow":
+        {
+          // Subscriptions Proxy class
+          var acc = new SubscriptionsEvents_StartSubscriptions_Client
+            {
+              In_AccountId = new AccountIdentifier(UI.User.AccountId),
+              In_AccountIdentifier = new AccountIdentifier(int.Parse(UI.Subscriber["_AccountID"]))
+            };
+          PageNav.Execute(acc);
+          break;
+        }
+
+      // GroupSubscriptions
+      case "GroupSubscriptionsWorkflow":
+        {
+          // Group Subscriptions Proxy class
+          var GroupSubAcct = new GroupSubscriptionsEvents_StartGroupSubscriptions_Client();
+
+          if (GlobalGroupSubActivated)
+          {
+            if (UI.Subscriber.SelectedAccount == null)
+            {
               GroupSubAcct.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-              int idAcc = int.Parse(UI.Subscriber["_AccountID"].ToString());
+              GroupSubAcct.In_AccountIdentifier = new AccountIdentifier(1);
+              GroupSubAcct.In_AccountType = "CorporateAccount";
+              GroupSubAcct.In_CorporateAccountIdentifier = new AccountIdentifier(1);
+            }
+            else
+            {
+              GroupSubAcct.In_AccountId = new AccountIdentifier(UI.User.AccountId);
+              int idAcc = int.Parse(UI.Subscriber["_AccountID"]);
               bool isCorporate = isCorporateAccount(idAcc);
-              if (isCorporate)
-                GroupSubAcct.In_AccountType = "CorporateAccount";
-              else
-                GroupSubAcct.In_AccountType = UI.Subscriber.SelectedAccount.AccountType;
+              GroupSubAcct.In_AccountType = isCorporate ? "CorporateAccount" : UI.Subscriber.SelectedAccount.AccountType;
               GroupSubAcct.In_AccountIdentifier = new AccountIdentifier(idAcc);
+              if (UI.Subscriber.SelectedAccount._AccountID != null)
+                GroupSubAcct.In_CorporateAccountIdentifier =
+                  //new AccountIdentifier(int.Parse(UI.Subscriber.SelectedAccount.AncestorAccountID.Value.ToString()));
+                  new AccountIdentifier(MetraTech.UI.Tools.Utils.GetCorporateAccountOfChildAccount(UI.Subscriber.SelectedAccount._AccountID.Value, ApplicationTime));
+            }
+          }
+          else
+          {
+            GroupSubAcct.In_AccountId = new AccountIdentifier(UI.User.AccountId);
+            int idAcc = int.Parse(UI.Subscriber["_AccountID"]);
+            bool isCorporate = isCorporateAccount(idAcc);
+            GroupSubAcct.In_AccountType = isCorporate ? "CorporateAccount" : UI.Subscriber.SelectedAccount.AccountType;
+            GroupSubAcct.In_AccountIdentifier = new AccountIdentifier(idAcc);
+            if (UI.Subscriber.SelectedAccount._AccountID != null)
               GroupSubAcct.In_CorporateAccountIdentifier =
                 //new AccountIdentifier(int.Parse(UI.Subscriber.SelectedAccount.AncestorAccountID.Value.ToString()));
-                          new AccountIdentifier(MetraTech.UI.Tools.Utils.GetCorporateAccountOfChildAccount(UI.Subscriber.SelectedAccount._AccountID.Value, ApplicationTime));              
-            }
-
-            PageNav.Execute(GroupSubAcct);           
-            break;
+                new AccountIdentifier(MetraTech.UI.Tools.Utils.GetCorporateAccountOfChildAccount(UI.Subscriber.SelectedAccount._AccountID.Value, ApplicationTime));
           }
 
-
-	// Global GroupSubscriptions Hierarchy rules relaxed
-        case "GlobalGroupSubscriptionsWorkflow":
-          {
-              GlobalGroupSubActivated = true;
-              GroupSubscriptionsEvents_StartGroupSubscriptions_Client GroupSubAcct = new GroupSubscriptionsEvents_StartGroupSubscriptions_Client();
-              if (UI.Subscriber.SelectedAccount == null)
-              {
-                  // Subscriptions Proxy class                
-                  GroupSubAcct.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-                  GroupSubAcct.In_AccountIdentifier = new AccountIdentifier(1);
-                  GroupSubAcct.In_AccountType = "CorporateAccount";
-                  GroupSubAcct.In_CorporateAccountIdentifier = new AccountIdentifier(1);
-              }
-              else
-              {
-                  GroupSubAcct.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-                  int idAcc = int.Parse(UI.Subscriber["_AccountID"].ToString());
-                  bool isCorporate = isCorporateAccount(idAcc);
-                  if (isCorporate)
-                    GroupSubAcct.In_AccountType = "CorporateAccount";
-                  else
-                    GroupSubAcct.In_AccountType = UI.Subscriber.SelectedAccount.AccountType;
-                  GroupSubAcct.In_AccountIdentifier = new AccountIdentifier(idAcc);
-                  GroupSubAcct.In_CorporateAccountIdentifier =
-                      //new AccountIdentifier(int.Parse(UI.Subscriber.SelectedAccount.AncestorAccountID.Value.ToString()));
-                              new AccountIdentifier(MetraTech.UI.Tools.Utils.GetCorporateAccountOfChildAccount(UI.Subscriber.SelectedAccount._AccountID.Value, ApplicationTime));     
-              }
-
-             PageNav.Execute(GroupSubAcct);
-             break;
-          }
-
-
-        // Account Templates
-        case "TemplateWorkflow":
-          {
-            TemplateEvents_StartTemplateWorkflow_Client acc = new TemplateEvents_StartTemplateWorkflow_Client();
-            acc.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-            acc.In_AccountIdentifier = new AccountIdentifier(int.Parse(UI.Subscriber["_AccountID"].ToString()));
-            PageNav.Execute(acc);
-            break;
-          }
-
-        // Account Templates on Account Move
-        case "TemplateWorkflowMove":
-          {
-            // Parameters = &Mode=Move&AccountID=[ACCOUNTID]&AncestorAccountID=[ANCESTORACCOUNTID]&MoveStartDate=[MOVESTARTDATE]&Types=[TYPES]"
-            string ancestor = Request.QueryString["AncestorAccountID"].ToString();
-            TemplateEvents_StartMoveTemplateWorkflow_Client acc = new TemplateEvents_StartMoveTemplateWorkflow_Client();
-            acc.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-            acc.In_AccountIdentifier = new AccountIdentifier(int.Parse(ancestor));
-            acc.In_MoveAccountsString = Request.QueryString["Types"].ToString();
-            PageNav.Execute(acc);
-            break;
-          }
-
-        
-        default:
+          PageNav.Execute(GroupSubAcct);
           break;
+        }
 
-      }
 
-   // }
-   // catch (Exception exp)
-   // {
-   //   Logger.LogException("Error calling PageNav.Execute", exp);
-   //   SetError(exp.Message.ToString());
-   // }
+      // Global GroupSubscriptions Hierarchy rules relaxed
+      case "GlobalGroupSubscriptionsWorkflow":
+        {
+          GlobalGroupSubActivated = true;
+          var GroupSubAcct = new GroupSubscriptionsEvents_StartGroupSubscriptions_Client();
+          if (UI.Subscriber.SelectedAccount == null)
+          {
+            // Subscriptions Proxy class                
+            GroupSubAcct.In_AccountId = new AccountIdentifier(UI.User.AccountId);
+            GroupSubAcct.In_AccountIdentifier = new AccountIdentifier(1);
+            GroupSubAcct.In_AccountType = "CorporateAccount";
+            GroupSubAcct.In_CorporateAccountIdentifier = new AccountIdentifier(1);
+          }
+          else
+          {
+            GroupSubAcct.In_AccountId = new AccountIdentifier(UI.User.AccountId);
+            int idAcc = int.Parse(UI.Subscriber["_AccountID"]);
+            bool isCorporate = isCorporateAccount(idAcc);
+            GroupSubAcct.In_AccountType = isCorporate ? "CorporateAccount" : UI.Subscriber.SelectedAccount.AccountType;
+            GroupSubAcct.In_AccountIdentifier = new AccountIdentifier(idAcc);
+            if (UI.Subscriber.SelectedAccount._AccountID != null)
+              GroupSubAcct.In_CorporateAccountIdentifier =
+                //new AccountIdentifier(int.Parse(UI.Subscriber.SelectedAccount.AncestorAccountID.Value.ToString()));
+                new AccountIdentifier(MetraTech.UI.Tools.Utils.GetCorporateAccountOfChildAccount(UI.Subscriber.SelectedAccount._AccountID.Value, ApplicationTime));
+          }
+
+          PageNav.Execute(GroupSubAcct);
+          break;
+        }
+
+
+      // Account Templates
+      case "TemplateWorkflow":
+        {
+          var acc = new TemplateEvents_StartTemplateWorkflow_Client
+            {
+              In_AccountId = new AccountIdentifier(UI.User.AccountId),
+              In_AccountIdentifier = new AccountIdentifier(int.Parse(UI.Subscriber["_AccountID"]))
+            };
+          PageNav.Execute(acc);
+          break;
+        }
+
+      // Account Templates on Account Move
+      case "TemplateWorkflowMove":
+        {
+          // Parameters = &Mode=Move&AccountID=[ACCOUNTID]&AncestorAccountID=[ANCESTORACCOUNTID]&MoveStartDate=[MOVESTARTDATE]&Types=[TYPES]"
+          string ancestor = Request.QueryString["AncestorAccountID"];
+          var acc = new TemplateEvents_StartMoveTemplateWorkflow_Client
+            {
+              In_AccountId = new AccountIdentifier(UI.User.AccountId),
+              In_AccountIdentifier = new AccountIdentifier(int.Parse(ancestor)),
+              In_MoveAccountsString = Request.QueryString["Types"]
+            };
+          PageNav.Execute(acc);
+          break;
+        }
+
+      case "AddPartitionWorkflow":
+        {
+          var addPartitionClient = new AddPartitionEvents_StartAddPartition_Client
+            {
+              In_AccountId = new AccountIdentifier(UI.User.AccountId)
+            };
+          PageNav.Execute(addPartitionClient);
+          break;
+        }
+    }
+
+    // }
+    // catch (Exception exp)
+    // {
+    //   Logger.LogException("Error calling PageNav.Execute", exp);
+    //   SetError(exp.Message.ToString());
+    // }
   }
 
 

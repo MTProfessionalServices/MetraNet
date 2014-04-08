@@ -117,49 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Description.HeaderText" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="DisplayName.HeaderText" xml:space="preserve">
-    <value>Product Offering Name</value>
-  </data>
-  <data name="EndDate.HeaderText" xml:space="preserve">
-    <value>End Date</value>
-  </data>
-  <data name="ExternalInformationURL.HeaderText" xml:space="preserve">
-    <value>External Information URL</value>
-  </data>
-  <data name="GRID_TITLE" xml:space="preserve">
-    <value>Select Product Offering</value>
-  </data>
-  <data name="HasDiscounts.HeaderText" xml:space="preserve">
-    <value>Discount(s)</value>
-  </data>
-  <data name="HasRecurringCharges.HeaderText" xml:space="preserve">
-    <value>Rec. Charge(s)</value>
-  </data>
-  <data name="InternalInformationURL.HeaderText" xml:space="preserve">
-    <value>Internal Information URL</value>
-  </data>
-  <data name="lblSubscribeToPOTitleResource1.Text" xml:space="preserve">
-    <value>Subscribe to Product Offering</value>
-  </data>
-  <data name="MyGrid1Resource1.NoRecordsText" xml:space="preserve">
-    <value>There are no available Product Offerings for subscription.</value>
-  </data>
-  <data name="NO_RECORDS" xml:space="preserve">
-    <value>There are no available Product Offerings for subscription.</value>
-  </data>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet</value>
-  </data>
-  <data name="PRODUCT_OFFERING_ID" xml:space="preserve">
-    <value>Product Offering ID</value>
-  </data>
-  <data name="StartDate.HeaderText" xml:space="preserve">
-    <value>Start Date</value>
-  </data>
-  <data name="TEXT_PartitionID" xml:space="preserve">
-    <value>Partition Id</value>
+  <data name="MTTitle1.Text" xml:space="preserve">
+    <value>Créer l'offre produit</value>
   </data>
 </root>

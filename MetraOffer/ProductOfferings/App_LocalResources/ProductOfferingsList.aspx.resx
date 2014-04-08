@@ -117,47 +117,59 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Description.HeaderText" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="DisplayName.HeaderText" xml:space="preserve">
-    <value>Product Offering Name</value>
-  </data>
-  <data name="EndDate.HeaderText" xml:space="preserve">
-    <value>End Date</value>
-  </data>
-  <data name="ExternalInformationURL.HeaderText" xml:space="preserve">
-    <value>External Information URL</value>
-  </data>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value>Select Product Offering</value>
+    <value>Product Offerings</value>
   </data>
-  <data name="HasDiscounts.HeaderText" xml:space="preserve">
-    <value>Discount(s)</value>
+  <data name="MTFilterGrid1Resource1.ToolTip" xml:space="preserve">
+    <value>Product Offerings List</value>
   </data>
-  <data name="HasRecurringCharges.HeaderText" xml:space="preserve">
-    <value>Rec. Charge(s)</value>
-  </data>
-  <data name="InternalInformationURL.HeaderText" xml:space="preserve">
-    <value>Internal Information URL</value>
-  </data>
-  <data name="lblSubscribeToPOTitleResource1.Text" xml:space="preserve">
-    <value>Subscribe to Product Offering</value>
-  </data>
-  <data name="MyGrid1Resource1.NoRecordsText" xml:space="preserve">
-    <value>There are no available Product Offerings for subscription.</value>
-  </data>
-  <data name="NO_RECORDS" xml:space="preserve">
-    <value>There are no available Product Offerings for subscription.</value>
+  <data name="NO_RECORDS_TEXT" xml:space="preserve">
+    <value>No records found.</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
-  <data name="PRODUCT_OFFERING_ID" xml:space="preserve">
-    <value>Product Offering ID</value>
+  <data name="TEXT_ACTIONS" xml:space="preserve">
+    <value>Actions</value>
   </data>
-  <data name="StartDate.HeaderText" xml:space="preserve">
-    <value>Start Date</value>
+  <data name="TEXT_AVAILABLE_ENDDATE" xml:space="preserve">
+    <value>Available End Date</value>
+  </data>
+  <data name="TEXT_AVAILABLE_STARTDATE" xml:space="preserve">
+    <value>Available Start Date</value>
+  </data>
+  <data name="TEXT_CREATE_PRODUCTOFFERING" xml:space="preserve">
+    <value>Create Product Offering</value>
+  </data>
+  <data name="TEXT_CURRENCY" xml:space="preserve">
+    <value>Currency</value>
+  </data>
+  <data name="TEXT_DESCRIPTION" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="TEXT_DISPLAY_NAME" xml:space="preserve">
+    <value>Display Name</value>
+  </data>
+  <data name="TEXT_EFFECTIVE_ENDDATE" xml:space="preserve">
+    <value>Effective End Date</value>
+  </data>
+  <data name="TEXT_EFFECTIVE_STARTDATE" xml:space="preserve">
+    <value>Effective Start Date</value>
+  </data>
+  <data name="TEXT_EXTERNALINFORMATIONURL" xml:space="preserve">
+    <value>External Information URL</value>
+  </data>
+  <data name="TEXT_GLCODE" xml:space="preserve">
+    <value>GL Code</value>
+  </data>
+  <data name="TEXT_INTERNALINFORMATIONURL" xml:space="preserve">
+    <value>Internal Information URL</value>
+  </data>
+  <data name="TEXT_ISHIDDEN" xml:space="preserve">
+    <value>Hidden</value>
+  </data>
+  <data name="TEXT_NAME" xml:space="preserve">
+    <value>Name</value>
   </data>
   <data name="TEXT_PartitionID" xml:space="preserve">
     <value>Partition Id</value>

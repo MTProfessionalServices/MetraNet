@@ -323,6 +323,11 @@ function addTemplateEvents() {
         Checked="False" HideLabel="True" LabelSeparator=":" Listeners="{}" meta:resourcekey="cbApplyDefaultPolicyResource1"
         Name="cbApplyDefaultPolicy" OptionalExtConfig="boxLabel:'Apply Default Policy',&#13;&#10;inputValue:'policy',&#13;&#10;checked:false"
         ReadOnly="False" XType="Checkbox" XTypeNameSpace="form" />
+      <MT:MTCheckBoxControl ID="cbApplyTemplate" runat="server" BoxLabel="Apply Template"
+        Text="template" Value="template" TabIndex="245" ControlWidth="200" AllowBlank="False"
+        Checked="False" HideLabel="True" LabelSeparator=":" Listeners="{}" meta:resourcekey="cbApplyTemplateResource1"
+        Name="cbApplyTemplate" OptionalExtConfig="boxLabel:'Apply Template',&#13;&#10;inputValue:'template',&#13;&#10;checked:false"
+        ReadOnly="False" XType="Checkbox" XTypeNameSpace="form" />        
     </div>
     
     </MT:MTPanel>

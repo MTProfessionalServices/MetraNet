@@ -14,6 +14,7 @@ using System.Xml.Linq;
 using System.IO;
 using MetraTech.Core.CreditNotes;
 using MetraTech.CreditNotes;
+using RCD = MetraTech.Interop.RCD;
 
 
 
@@ -21,6 +22,7 @@ public partial class Reports_DownloadInvoices : MTPage
 {
   private XDocument reportFormats = new XDocument();
   private bool _creditNotesEnabled = false;
+  private RCD.IMTRcd rcd = new RCD.MTRcd();
   protected void Page_Load(object sender, EventArgs e)
   {
     Intervals1.RedirectURL = Request.FilePath;
@@ -28,8 +30,14 @@ public partial class Reports_DownloadInvoices : MTPage
     StringBuilder sb = new StringBuilder();
     var billManager = new BillManager(UI);
     Interval interval = billManager.GetCurrentInterval();
-    _creditNotesEnabled = MetraTech.CreditNotes.CreditNotePDFConfigurationManager.creditNotePDFConfig.creditNotesEnabled;
 
+    string reportingDir = Path.Combine(rcd.ExtensionDir, "Reporting");
+    if (Directory.Exists(reportingDir)) // check if Reporting extension exists
+    {
+      _creditNotesEnabled =
+        MetraTech.CreditNotes.CreditNotePDFConfigurationManager.creditNotePDFConfig.creditNotesEnabled;
+    }
+   
     if (interval == null)
     {
       this.Intervals1.Visible = false;

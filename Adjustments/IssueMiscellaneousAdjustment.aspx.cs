@@ -27,6 +27,8 @@ using MetraTech.UI.Common;
 using MetraTech.UI.Controls;
 using MetraTech.UI.Tools;
 using MetraTech.Security.Crypto;
+using RCD = MetraTech.Interop.RCD;
+
 public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
 {
     //[NonSerialized]
@@ -45,7 +47,8 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
     }
 
   private bool _creditNotesEnabled = false ;
-
+  private RCD.IMTRcd rcd = new RCD.MTRcd();
+  
     protected void Page_Load(object sender, EventArgs e)
     {
       CreditNoteServiceClient client = new CreditNoteServiceClient();
@@ -54,11 +57,16 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         client.ClientCredentials.UserName.UserName = UI.User.UserName;
         client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
       }
-      CreditNotePDFConfiguration config = null;
-      client.GetCreditNoteConfigurationObject(ref config);
-      _creditNotesEnabled = config.creditNotesEnabled;
-      
-        if (!Page.IsPostBack)
+
+      string reportingDir = Path.Combine(rcd.ExtensionDir, "Reporting");
+      if (Directory.Exists(reportingDir)) // check if Reporting extension exists
+      {
+        CreditNotePDFConfiguration config = null;
+        client.GetCreditNoteConfigurationObject(ref config);
+        _creditNotesEnabled = config.creditNotesEnabled;
+      }
+
+      if (!Page.IsPostBack)
         {
             adjAmountFld.DecimalSeparator
               = adjAmountFldTaxFederal.DecimalSeparator

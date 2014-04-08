@@ -27,8 +27,8 @@
                         <Field>
                             <AssemblyFilename>Core.Quoting.Entity.dll</AssemblyFilename>
                             <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
-                            <ID>QuoteID</ID>
-                            <Name>QuoteID</Name>
+                            <ID>IdQuote</ID>
+                            <Name>IdQuote</Name>
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
                             <ControlType>MetraTech.UI.Controls.MTNumberField</ControlType>

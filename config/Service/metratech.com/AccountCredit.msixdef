@@ -170,7 +170,7 @@
         <type>string</type>
         <length>40</length>
         <required>N</required>
-        <defaultvalue></defaultvalue>
+        <defaultvalue>mt</defaultvalue>
         <description>Namespace, only needed if ResolveWithAccountIDFlag flag is set to N.</description>
     </ptype>
     <ptype>

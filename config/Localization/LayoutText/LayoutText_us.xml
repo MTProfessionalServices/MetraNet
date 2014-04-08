@@ -3,6 +3,10 @@
     <language_code>us</language_code>
     <locale_space name="LayoutText">
         <locale_entry>
+            <Name>LayoutText/POListLayoutTemplate/</Name>
+            <Value></Value>
+        </locale_entry>
+        <locale_entry>
             <Name>LayoutText/AudioConfCall/Title</Name>
             <Value>Conference Details</Value>
         </locale_entry>

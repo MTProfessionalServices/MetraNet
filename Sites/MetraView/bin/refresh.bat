@@ -50,6 +50,7 @@ copy %RMPDIR%\Extensions\Account\bin\MetraTech.Account.ClientProxies.* %RMPDIR%\
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.CreditNotes.* %RMPDIR%\Extensions\MetraView\Sites\MetraView\bin
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.UsageServer.* %RMPDIR%\Extensions\MetraView\Sites\MetraView\bin
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.Reports.CrystalEnterprise.* %RMPDIR%\Extensions\MetraView\Sites\MetraView\bin
+copy %MTOUTDIR%\%VERSION%\bin\MetraTech.Reports.* %RMPDIR%\Extensions\MetraView\Sites\MetraView\bin
 
 
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.UI.* %RMPDIR%\Extensions\MetraView\Sites\MetraView\bin

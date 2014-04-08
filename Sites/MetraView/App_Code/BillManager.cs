@@ -553,24 +553,6 @@ public class BillManager: System.Web.UI.TemplateControl
   }
 
   /// <summary>
-  /// Returns fully qualified name 
-  /// </summary>
-  public string GetFQN(int id_view)
-  {
-      string nm_name = "";
-      var usageDetailsClient = new UsageHistoryService_GetFullyQualifiedName_Client
-      {
-          UserName = UI.User.UserName,
-          Password = UI.User.SessionPassword,
-          In_id_view =  id_view,
-          Out_nm_name = nm_name
-      };
-         usageDetailsClient.Invoke();
-
-      return usageDetailsClient.Out_nm_name;
-  }
-
-  /// <summary>
   /// Returns usage summaries for compound children 
   /// </summary>
   /// <param name="accountSlice"></param>

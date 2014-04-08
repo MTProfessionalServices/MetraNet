@@ -132,7 +132,6 @@
     <data name="SelectInterval.Text" xml:space="preserve">
         <value></value>
     </data>
-  </data>
    <data name="AddReport.Text" xml:space="preserve">
     <value>(DA) Add report {0} to InvioceList</value>
   </data>

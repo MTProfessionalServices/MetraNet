@@ -13,6 +13,7 @@ AS
    temp_id_pricelist            INT;
    temp_id_pi_template          INT;
    temp_id_pi_instance_parent   INT;
+   temp_id_partition		    INT;
 BEGIN
    BEGIN
       SELECT id_pi_type, id_pi_template, id_pi_instance_parent
@@ -36,19 +37,29 @@ BEGIN
       THEN
          NULL;
    END;
+   
+   BEGIN
+      SELECT po.c_POPartitionId
+        INTO temp_id_partition
+        FROM t_po po 
+       WHERE po.id_po = temp_id_po;
+   EXCEPTION
+      WHEN NO_DATA_FOUND
+      THEN
+         NULL;
+   END;
 
    INSERT INTO t_base_props
-               (id_prop, n_kind, n_name, n_display_name, n_desc
-               )
-        VALUES (seq_t_base_props.NEXTVAL, 150, 0, 0, 0
-               );
+               (id_prop, n_kind, n_name, n_display_name, n_desc)
+        VALUES (seq_t_base_props.NEXTVAL, 150, 0, 0, 0);
 
    SELECT seq_t_base_props.CURRVAL
      INTO temp_id_pricelist
      FROM DUAL;
 
    INSERT INTO t_pricelist
-        VALUES (temp_id_pricelist, 0, temp_currency);
+			   (id_pricelist,n_type,nm_currency_code,c_PLPartitionId)
+        VALUES (temp_id_pricelist, 0, temp_currency, temp_id_partition);
 
    INSERT INTO t_pl_map
                (id_paramtable, id_pi_type, id_pi_instance,

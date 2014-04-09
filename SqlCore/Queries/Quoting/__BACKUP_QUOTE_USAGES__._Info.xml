@@ -36,7 +36,7 @@
             <Name>BATCHIDS</Name>
             <DataType>sqlsubstitution</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
-			<SubstitutionSyntaxCheck>123,137</SubstitutionSyntaxCheck>
+			<SubstitutionSyntaxCheck>'0x123','0x137'</SubstitutionSyntaxCheck>
             <Description></Description>
         </Parameter>
     </Parameters>

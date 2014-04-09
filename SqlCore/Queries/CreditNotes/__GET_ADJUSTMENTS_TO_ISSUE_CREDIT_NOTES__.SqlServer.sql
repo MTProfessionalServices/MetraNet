@@ -1,10 +1,11 @@
 SELECT 
 	ALLADJUSTMENTS.AdjustmentID,
 	ALLADJUSTMENTS.AdjustmentType,
-	ALLADJUSTMENTS.Amount,
+	(case(ALLADJUSTMENTS.AdjustmentType) when 0 then 'Line Item' when 1 then 'Miscellaneous' end) AS 'AdjustmentTypeAsString',
+	ABS(ALLADJUSTMENTS.Amount) AS 'Amount',
 	ALLADJUSTMENTS.Currency,
 	ALLADJUSTMENTS.CreatedDate,
-	ALLADJUSTMENTS.AdjDesc,
+	ALLADJUSTMENTS.AdjustmentDescription,
 	CONCAT(TEMPLATE.c_CreditNotePrefix, CAST(CN.c_CreditNoteID AS VARCHAR)) AS 'CreditNoteIdentifier'
 FROM
 (
@@ -13,7 +14,7 @@ FROM
 		(ISNULL(USAGE.amount,0) + ISNULL(USAGE.tax_federal, 0) + ISNULL(USAGE.tax_state, 0) + ISNULL(USAGE.tax_county, 0) + ISNULL(USAGE.tax_local, 0) + ISNULL(USAGE.tax_other, 0)) AS 'Amount',
 		USAGE.am_currency AS 'Currency',
 		AC.c_CreditTime AS 'CreatedDate',
-		AC.c_InvoiceComment AS 'AdjDesc',
+		AC.c_InvoiceComment AS 'AdjustmentDescription',
 		AC.id_sess AS 'AdjustmentID'
 	FROM 
 		t_pv_AccountCredit AC
@@ -26,7 +27,7 @@ FROM
 		ISNULL(ADJUSTMENTS.AdjustmentAmount,0) + ISNULL(ADJUSTMENTS.aj_tax_federal, 0) + ISNULL(ADJUSTMENTS.aj_tax_state, 0) + ISNULL(ADJUSTMENTS.aj_tax_county, 0) + ISNULL(ADJUSTMENTS.aj_tax_local, 0) + ISNULL(ADJUSTMENTS.aj_tax_other, 0) AS 'Amount',
 		ADJUSTMENTS.am_currency AS 'Currency',
 		ADJUSTMENTS.dt_crt AS 'CreatedDate',
-		ADJUSTMENTS.tx_desc AS 'AdjDesc',
+		ADJUSTMENTS.tx_desc AS 'AdjustmentDescription',
 		ADJUSTMENTS.id_adj_trx AS 'AdjustmentID'
 	FROM 
 		t_adjustment_transaction ADJUSTMENTS

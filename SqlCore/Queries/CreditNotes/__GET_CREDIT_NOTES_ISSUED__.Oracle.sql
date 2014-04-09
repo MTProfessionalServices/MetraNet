@@ -8,7 +8,8 @@ SELECT
 	ABS(AMOUNTS.TotalTaxAmount) AS TaxAmount,
 	ABS(AMOUNTS.TotalAmount) + ABS(AMOUNTS.TotalTaxAmount) AS TotalAmount,
 	INTERNAL.c_Currency AS Currency,
-	CNPDF.c_Status AS CreditNotePDFStatus	
+	CNPDF.c_Status AS CreditNotePDFStatus,
+    CNPDF.c_StatusInformation AS CreditNotePDFStatusInformation	
 FROM t_be_cor_cre_creditnote CN
 INNER JOIN (SELECT
 							CN.c_CreditNote_Id,

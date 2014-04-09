@@ -14,14 +14,14 @@
       au.id_view as ViewID,
       descd2.tx_desc as ViewName,
       'Product' as ViewType,
-      {fn IFNULL(bp3d2.n_display_name, bp2d2.n_display_name)} as DescriptionID,
+      NVL(bp3d2.n_display_name, bp2d2.n_display_name) as DescriptionID,
       au.am_currency Currency,
-      SUM({fn IFNULL(au.Amount, 0.0)}) as Amount,
+      SUM(NVL(au.Amount, 0.0)) as Amount,
       /* prebill adjustments */
-      SUM({fn IFNULL(au.AtomicPrebillAdjAmt, 0.0)}) as AtomicPrebillAdjAmt,
-      SUM({fn IFNULL(au.CompoundPrebillAdjAmt, 0.0)}) as CompoundPrebillAdjAmt,
-      SUM({fn IFNULL(au.CompoundPrebillAdjedAmt, 0.0)}) as CompoundPrebillAdjedAmt,
-      SUM({fn IFNULL(au.AtomicPrebillAdjedAmt, 0.0)}) as AtomicPrebillAdjedAmt
+      SUM(NVL(au.AtomicPrebillAdjAmt, 0.0)) as AtomicPrebillAdjAmt,
+      SUM(NVL(au.CompoundPrebillAdjAmt, 0.0)) as CompoundPrebillAdjAmt,
+      SUM(NVL(au.CompoundPrebillAdjedAmt, 0.0)) as CompoundPrebillAdjedAmt,
+      SUM(NVL(au.AtomicPrebillAdjedAmt, 0.0)) as AtomicPrebillAdjedAmt
       ,SUM(au.CompoundPrebillFedTaxAdjAmt) As CompoundPrebillFedTaxAdjAmt
 			,SUM(au.CompoundPrebillStateTaxAdjAmt) AS CompoundPrebillStateTaxAdjAmt
 			,SUM(au.CompoundPrebillCntyTaxAdjAmt) AS CompoundPrebillCntyTaxAdjAmt
@@ -46,29 +46,28 @@
 			,SUM(au.AtomicPostbillLocalTaxAdjAmt) AS AtomicPostbillLocalTaxAdjAmt
 			,SUM(au.AtomicPostbillOtherTaxAdjAmt) AS AtomicPostbillOtherTaxAdjAmt
 			,SUM(au.AtomicPostbillTotalTaxAdjAmt) AS AtomicPostbillTotalTaxAdjAmt
-      ,SUM({fn IFNULL(au.Tax_Federal, 0.0)} + {fn IFNULL(au.Tax_State, 0.0)} + {fn IFNULL(au.Tax_County, 0.0)} + {fn IFNULL(au.Tax_Local, 0.0)} + {fn IFNULL(au.Tax_Other, 0.0)}) as TaxAmount,
-      SUM({fn IFNULL(au.tax_federal, 0.0)}) FederalTaxAmount,
-      SUM({fn IFNULL(au.tax_state, 0.0)}) StateTaxAmount,
-      SUM({fn IFNULL(au.tax_county, 0.0)}) CountyTaxAmount,
-      SUM({fn IFNULL(au.tax_local, 0.0)}) LocalTaxAmount,
-      SUM({fn IFNULL(au.tax_other, 0.0)}) OtherTaxAmount,
+      ,SUM(NVL(au.Tax_Federal, 0.0) + NVL(au.Tax_State, 0.0) + NVL(au.Tax_County, 0.0) + NVL(au.Tax_Local, 0.0) + NVL(au.Tax_Other, 0.0)) as TaxAmount,
+      SUM(NVL(au.tax_federal, 0.0)) FederalTaxAmount,
+      SUM(NVL(au.tax_state, 0.0)) StateTaxAmount,
+      SUM(NVL(au.tax_county, 0.0)) CountyTaxAmount,
+      SUM(NVL(au.tax_local, 0.0)) LocalTaxAmount,
+      SUM(NVL(au.tax_other, 0.0)) OtherTaxAmount,
       SUM(au.amount + 
 	      /*If implied taxes, then taxes are already included, don't add them again */
 	      (case when au.is_implied_tax = 'N' then 
-              ({fn IFNULL(au.tax_federal, 0.0)} + {fn IFNULL(au.tax_state, 0.0)} + {fn IFNULL(au.tax_county, 0.0)} + 
-                  {fn IFNULL(au.tax_local, 0.0)} + {fn IFNULL(au.tax_other, 0.0)}) else 0.0 end)
+              (NVL(au.tax_federal, 0.0) + NVL(au.tax_state, 0.0) + NVL(au.tax_county, 0.0) + 
+                  NVL(au.tax_local, 0.0) + NVL(au.tax_other, 0.0)) else 0.0 end)
 	      /*If informational taxes, then they shouldn't be in the total */
 			  - (CASE WHEN (au.tax_informational = 'Y') THEN 
-              ({fn IFNULL(au.tax_federal, 0.0)} + {fn IFNULL(au.tax_state, 0.0)} + {fn IFNULL(au.tax_county, 0.0)} + 
-                  {fn IFNULL(au.tax_local, 0.0)} + {fn IFNULL(au.tax_other, 0.0)}) else 0.0 end))
+              (NVL(au.tax_federal, 0.0) + NVL(au.tax_state, 0.0) + NVL(au.tax_county, 0.0) + 
+                  NVL(au.tax_local, 0.0) + NVL(au.tax_other, 0.0)) else 0.0 end))
 			  AmountWithTax,
       SUM((case when au.is_implied_tax = 'N' then %%DISPLAYAMOUNT%% else au.amount end) 
 	  /*If informational taxes, then they shouldn't be in the total */
 			  - (CASE WHEN (au.tax_informational = 'Y') THEN 
-              ({fn IFNULL(au.tax_federal, 0.0)} + {fn IFNULL(au.tax_state, 0.0)} + {fn IFNULL(au.tax_county, 0.0)} + 
-                  {fn IFNULL(au.tax_local, 0.0)} + {fn IFNULL(au.tax_other, 0.0)}) else 0.0 end)) 
-		AS DisplayAmount,,
-      
+              (NVL(au.tax_federal, 0.0) + NVL(au.tax_state, 0.0) + NVL(au.tax_county, 0.0) + 
+                  NVL(au.tax_local, 0.0) + NVL(au.tax_other, 0.0)) else 0.0 end)) 
+		AS DisplayAmount,      
       COUNT(1) as Count
       from
       (
@@ -95,10 +94,10 @@
             THEN prebillajs.AdjustmentAmount
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPreBillAdjustments.PrebillCompoundAdjAmt, 0.0)} AS CompoundPrebillAdjAmt,
+            NVL(ChildPreBillAdjustments.PrebillCompoundAdjAmt, 0.0) AS CompoundPrebillAdjAmt,
         (au.amount + CASE WHEN (prebillajs.AdjustmentAmount IS NOT NULL AND prebillajs.c_status = 'A')	
             THEN prebillajs.AdjustmentAmount
-            ELSE 0 END + {fn IFNULL(ChildPreBillAdjustments.PrebillCompoundAdjAmt, 0.0)}) AS CompoundPrebillAdjedAmt,
+            ELSE 0 END + NVL(ChildPreBillAdjustments.PrebillCompoundAdjAmt, 0.0)) AS CompoundPrebillAdjedAmt,
         (CASE WHEN (prebillajs.id_adj_trx IS NOT NULL AND prebillajs.c_status = 'A')	
 	            THEN prebillajs.AdjustmentAmount
 	            ELSE 0 END) AS AtomicPrebillAdjAmt,
@@ -114,32 +113,32 @@
             THEN prebillajs.aj_tax_federal
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPreBillAdjustments.PrebillCompoundFedTaxAdjAmt, 0.0)} AS CompoundPrebillFedTaxAdjAmt,            
+            NVL(ChildPreBillAdjustments.PrebillCompoundFedTaxAdjAmt, 0.0) AS CompoundPrebillFedTaxAdjAmt,            
         CASE WHEN (prebillajs.AdjustmentAmount IS NOT NULL AND prebillajs.c_status = 'A')	
             THEN prebillajs.aj_tax_state
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPreBillAdjustments.PrebillCompoundStateTaxAdjAmt, 0.0)} AS CompoundPrebillStateTaxAdjAmt,            
+            NVL(ChildPreBillAdjustments.PrebillCompoundStateTaxAdjAmt, 0.0) AS CompoundPrebillStateTaxAdjAmt,            
         CASE WHEN (prebillajs.AdjustmentAmount IS NOT NULL AND prebillajs.c_status = 'A')	
             THEN prebillajs.aj_tax_county
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPreBillAdjustments.PrebillCompoundCntyTaxAdjAmt, 0.0)} AS CompoundPrebillCntyTaxAdjAmt,            
+            NVL(ChildPreBillAdjustments.PrebillCompoundCntyTaxAdjAmt, 0.0) AS CompoundPrebillCntyTaxAdjAmt,            
         CASE WHEN (prebillajs.AdjustmentAmount IS NOT NULL AND prebillajs.c_status = 'A')	
             THEN prebillajs.aj_tax_local
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPreBillAdjustments.PrebillCompoundLocalTaxAdjAmt, 0.0)} AS CompoundPrebillLocalTaxAdjAmt,            
+            NVL(ChildPreBillAdjustments.PrebillCompoundLocalTaxAdjAmt, 0.0) AS CompoundPrebillLocalTaxAdjAmt,            
         CASE WHEN (prebillajs.AdjustmentAmount IS NOT NULL AND prebillajs.c_status = 'A')	
             THEN prebillajs.aj_tax_other
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPreBillAdjustments.PrebillCompoundOtherTaxAdjAmt, 0.0)} AS CompoundPrebillOtherTaxAdjAmt,            
+            NVL(ChildPreBillAdjustments.PrebillCompoundOtherTaxAdjAmt, 0.0) AS CompoundPrebillOtherTaxAdjAmt,            
         CASE WHEN (prebillajs.AdjustmentAmount IS NOT NULL AND prebillajs.c_status = 'A')	
             THEN (prebillajs.aj_tax_federal + prebillajs.aj_tax_state + prebillajs.aj_tax_county + prebillajs.aj_tax_local + prebillajs.aj_tax_other)
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPreBillAdjustments.PrebillCompoundTotalTaxAdjAmt, 0.0)} AS CompoundPrebillTotalTaxAdjAmt,            
+            NVL(ChildPreBillAdjustments.PrebillCompoundTotalTaxAdjAmt, 0.0) AS CompoundPrebillTotalTaxAdjAmt,            
 				/* ATOMIC PREBILL ADJUSTMENTS TO TAXES: */
 	      
 	      (CASE WHEN (prebillajs.AdjustmentAmount IS NOT NULL AND prebillajs.c_status = 'A')	
@@ -169,18 +168,18 @@
         /* POSTBILL ADJUSTMENTS: */
         CASE WHEN (postbillajs.AdjustmentAmount IS NOT NULL AND postbillajs.c_status = 'A')	
             THEN postbillajs.AdjustmentAmount
-            ELSE 0 END + {fn IFNULL(ChildPostBillAdjustments.PostbillCompoundAdjAmt, 0.0)} AS CompoundPostbillAdjAmt,
+            ELSE 0 END + NVL(ChildPostBillAdjustments.PostbillCompoundAdjAmt, 0.0) AS CompoundPostbillAdjAmt,
         /* when calculating postbill adjusted amounts, always consider prebill adjusted amounts */
         (au.amount + CASE WHEN (postbillajs.AdjustmentAmount IS NOT NULL AND postbillajs.c_status = 'A')	
             THEN postbillajs.AdjustmentAmount
-            ELSE 0 END  + {fn IFNULL(ChildPostBillAdjustments.PostbillCompoundAdjAmt, 0.0)} 
+            ELSE 0 END  + NVL(ChildPostBillAdjustments.PostbillCompoundAdjAmt, 0.0) 
         + 
         /* bring in prebill adjustments */
         CASE WHEN (prebillajs.AdjustmentAmount IS NOT NULL AND prebillajs.c_status = 'A')	
             THEN prebillajs.AdjustmentAmount
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPreBillAdjustments.PrebillCompoundAdjAmt, 0.0)}
+            NVL(ChildPreBillAdjustments.PrebillCompoundAdjAmt, 0.0)
         ) 
             AS CompoundPostbillAdjedAmt,
         (CASE WHEN (postbillajs.id_adj_trx IS NOT NULL AND postbillajs.c_status = 'A')	
@@ -205,33 +204,33 @@
             THEN postbillajs.aj_tax_federal
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPostBillAdjustments.PostbillCompoundFedTaxAdjAmt, 0.0)} AS CompoundPostbillFedTaxAdjAmt,            
+            NVL(ChildPostBillAdjustments.PostbillCompoundFedTaxAdjAmt, 0.0) AS CompoundPostbillFedTaxAdjAmt,            
         CASE WHEN (postbillajs.AdjustmentAmount IS NOT NULL AND postbillajs.c_status = 'A')	
             THEN postbillajs.aj_tax_state
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPostBillAdjustments.PostbillCompoundStateTaxAdjAmt, 0.0)} AS CompoundPostbillStateTaxAdjAmt,            
+            NVL(ChildPostBillAdjustments.PostbillCompoundStateTaxAdjAmt, 0.0) AS CompoundPostbillStateTaxAdjAmt,            
         CASE WHEN (postbillajs.AdjustmentAmount IS NOT NULL AND postbillajs.c_status = 'A')	
             THEN postbillajs.aj_tax_county
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPostBillAdjustments.PostbillCompoundCntyTaxAdjAmt, 0.0)} AS CompoundPostbillCntyTaxAdjAmt,            
+            NVL(ChildPostBillAdjustments.PostbillCompoundCntyTaxAdjAmt, 0.0) AS CompoundPostbillCntyTaxAdjAmt,            
         CASE WHEN (postbillajs.AdjustmentAmount IS NOT NULL AND postbillajs.c_status = 'A')	
             THEN postbillajs.aj_tax_local
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPostBillAdjustments.PostbillCompoundLocalTaxAdjAmt, 0.0)} AS CompoundPostbillLocalTaxAdjAmt,            
+            NVL(ChildPostBillAdjustments.PostbillCompoundLocalTaxAdjAmt, 0.0) AS CompoundPostbillLocalTaxAdjAmt,            
         CASE WHEN (postbillajs.AdjustmentAmount IS NOT NULL AND postbillajs.c_status = 'A')	
             THEN postbillajs.aj_tax_other
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPostBillAdjustments.PostbillCompoundOtherTaxAdjAmt, 0.0)} AS CompoundPostbillOtherTaxAdjAmt,            
+            NVL(ChildPostBillAdjustments.PostbillCompoundOtherTaxAdjAmt, 0.0) AS CompoundPostbillOtherTaxAdjAmt,            
         CASE WHEN (postbillajs.AdjustmentAmount IS NOT NULL AND postbillajs.c_status = 'A')	
             THEN (postbillajs.aj_tax_federal + postbillajs.aj_tax_state + 
 									postbillajs.aj_tax_county + postbillajs.aj_tax_local + postbillajs.aj_tax_other)
             ELSE 0 END
             + 
-            {fn IFNULL(ChildPostBillAdjustments.PostbillCompoundTotalTaxAdjAmt, 0.0)} AS CompoundPostbillTotalTaxAdjAmt,            
+            NVL(ChildPostBillAdjustments.PostbillCompoundTotalTaxAdjAmt, 0.0) AS CompoundPostbillTotalTaxAdjAmt,            
 				/* ATOMIC POST ADJUSTMENTS TO TAXES: */
 	      
 	      (CASE WHEN (postbillajs.AdjustmentAmount IS NOT NULL AND postbillajs.c_status = 'A')	

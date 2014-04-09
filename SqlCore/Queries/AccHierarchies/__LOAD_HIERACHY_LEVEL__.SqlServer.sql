@@ -1,105 +1,135 @@
-Declare @PageSize int;
-Declare @PageNumber int;
+if object_id('tempdb..#tmp') is not null
+drop table #tmp
 
-set @PageSize=%%PAGE_SIZE%%;
-set @PageNumber = %%PAGE_NUMBER%%;
+if object_id('tempdb..#tmpacc') is not null
+drop table #tmpacc
 
-with my_drivers as
-(
-select
-parent.id_ancestor,
-parent.id_descendent,
-parent.tx_path,
-parent.b_children,
-(SELECT COUNT(*) FROM t_payment_redirection WHERE id_payer = parent.id_descendent AND id_payer <> id_payee) as numpayees
-from t_account_ancestor parent
-left outer join t_payment_redirection pr on parent.id_descendent = pr.id_payer
-                                         and %%REF_DATE%% BETWEEN pr.vt_start and pr.vt_end
-                                         and pr.id_payee != pr.id_payer
-where 1=1
-and parent.id_ancestor = %%ANCESTOR%%
-and parent.num_generations = 1
+SELECT parent.* 
+INTO #tmp
+FROM t_account_ancestor parent
+WHERE
+  parent.id_ancestor = %%ANCESTOR%% 
 AND %%DESCENDENT_RANGE_CHECK%%
-%%REF_DATE%% between parent.vt_start and parent.vt_end
-group by id_ancestor, id_descendent, tx_path, b_children
-),
-my_types as
-(
-select at.id_type, CASE WHEN COUNT(adm.id_type) > 0 THEN 1 ELSE 0 END d_count from
-  t_account_type at
-  left outer join t_acctype_descendenttype_map adm on at.id_type = adm.id_type
-  group by at.id_type
-)
+      parent.num_generations = 1 
+AND %%REF_DATE%% BETWEEN parent.vt_start AND parent.vt_end  
 
-select top (@PageSize)
-RowNumber, account_type, icon, parent_id, child_id, b_children as children, nm_login, nm_space, hierarchyname,
-CASE when folder_owner IS NULL THEN N'' ELSE folder_owner END as folder_owner,
-folder, currency, status, numpayees, tx_path, WritePermission
+create index idx_tmp on #tmp(id_ancestor, num_generations)
+create index idx2_tmp on #tmp(id_descendent, num_generations)
 
+Declare @IsSuperUser bit
+
+/* Determine if the user is a member of "Surep User" role*/
+SELECT @IsSuperUser = CASE COUNT(*) WHEN 0 THEN 0 ELSE 1 END
+FROM t_principal_policy pp 
+	JOIN t_policy_role pr on pp.id_policy = pr.id_policy AND pp.id_acc = %%CURRENT_USER%%
+	JOIN t_role r on pr.id_role = r.id_role AND r.tx_name = 'Super User'
+
+CREATE TABLE #tmpacc
+(AccountID int, WritePermission bit)
+
+/* Don't check permissions for the Super User*/
+IF @IsSuperUser = 0
+	INSERT INTO #tmpacc
+	SELECT * FROM GetAccountsWithPermission(%%CURRENT_USER%%)
+
+create index idx3_tmp on #tmpacc(AccountID)
+
+Declare @PageSize int
+Declare @PageNumber int
+
+set @PageSize=%%PAGE_SIZE%%
+set @PageNumber = %%PAGE_NUMBER%%
+
+select top (@PageSize) *
 from (
 
 SELECT
-ROW_NUMBER() OVER(ORDER by descmap.d_count ASC, at.name ASC, CASE 
-		    WHEN map.nm_space = 'system_user' THEN map.nm_login        
-        ELSE map.nm_login
-      END ASC) RowNumber,
-at.name as account_type,
-'account.gif' as icon,
-accs.id_ancestor as parent_id,
-accs.id_descendent as child_id,
-accs.b_children,
-map.nm_login nm_login,
-map.nm_space nm_space,
-CASE
-                WHEN (htac.c_firstname IS NULL OR htac.c_firstname = '') AND (htac.c_lastname IS NULL OR htac.c_lastname = '') THEN map.nm_login
-                WHEN htac.c_firstname IS NULL OR htac.c_firstname = '' THEN htac.c_lastname
-                WHEN htac.c_lastname IS NULL OR htac.c_lastname = '' THEN htac.c_firstname
-                ELSE (htac.c_firstname + (' ' + htac.c_lastname))
-              END AS hierarchyname,
-CASE
-                WHEN (otac.c_firstname IS NULL OR otac.c_firstname = '') AND (otac.c_lastname IS NULL OR otac.c_lastname = '') THEN ownmap.nm_login
-                WHEN otac.c_firstname IS NULL OR otac.c_firstname = '' THEN otac.c_lastname
-                WHEN otac.c_lastname IS NULL OR otac.c_lastname = '' THEN otac.c_firstname
-                ELSE (otac.c_firstname + (' ' + otac.c_lastname))
-              END as folder_owner,
-descmap.d_count folder,
-tav.c_currency currency,
-accstate.status status,
-accs.numpayees,
-accs.tx_path,
-awp.WritePermission
-
-FROM my_drivers accs
- inner join GetAccountsWithPermission(%%CURRENT_USER%%) awp on accs.id_descendent = awp.AccountID
- inner join t_account acc on acc.id_acc = accs.id_descendent
- inner join t_account_type at on at.id_type = acc.id_type
-  INNER  JOIN t_av_internal tav ON tav.id_acc = accs.id_descendent %%FOLDERCHECK%%
-INNER JOIN t_account_mapper map ON map.id_acc = accs.id_descendent  
-		INNER JOIN dbo.t_namespace ns on ns.nm_space = map.nm_space 
-
-			AND ns.tx_typ_space IN ('system_mps', 'system_user', 'system_auth')
-  LEFT OUTER  JOIN t_impersonate imp ON imp.id_acc = accs.id_descendent
-LEFT OUTER JOIN t_account_mapper ownmap ON ownmap.id_acc = imp.id_owner  
-		LEFT OUTER JOIN dbo.t_namespace ownns on ownns.nm_space = ownmap.nm_space 
-
-			AND ownns.tx_typ_space IN ('system_mps', 'system_user', 'system_auth')
-left outer join t_account ownacc on ownacc.id_acc = imp.id_owner
- left outer join t_account_type ownat on ownat.id_type = ownacc.id_type
-  LEFT OUTER JOIN my_types descmap on descmap.id_type = at.id_type
-INNER JOIN dbo.t_enum_data ed ON ed.nm_enum_data = 'metratech.com/accountcreation/contacttype/bill-to'
-  LEFT OUTER JOIN t_av_contact htac ON htac.id_acc = accs.id_descendent AND htac.c_contacttype = ed.id_enum_data
-  LEFT OUTER JOIN t_av_contact otac ON otac.id_acc = ownacc.id_acc AND otac.c_contacttype = ed.id_enum_data
-INNER LOOP JOIN t_account_state accstate ON
-      accstate.id_acc = accs.id_descendent AND
-      accstate.status IN (%%EXCLUDED_STATES%%) AND
-     %%REF_DATE%% BETWEEN accstate.vt_start AND accstate.vt_end
-WHERE 1=1 
-AND at.b_IsVisibleInHierarchy = '1'
-AND ('%%COMPANY_NAME%%' = '' OR EXISTS (SELECT 1 FROM t_av_Contact avc WHERE avc.c_Company LIKE '%%COMPANY_NAME%%' AND avc.id_acc = acc.id_acc))
-AND ('%%USER_NAME%%' = '' OR map.nm_login LIKE '%%USER_NAME%%')
-AND ns.tx_typ_space = '%%TYPE_SPACE%%' 
-) a
-where 1=1
-AND RowNumber > @PageSize * (@PageNumber -1)
-ORDER BY RowNumber
-OPTION(MAXDOP 1)
+ ROW_NUMBER() OVER(ORDER by folder ASC, account_type ASC, hname.hierarchyname ASC) RowNumber,
+ foo.account_type,
+ hname.icon,
+ foo.parent_id,
+ foo.child_id,
+ foo.children,
+ map.nm_login nm_login,
+ map.nm_space nm_space,
+  hname.hierarchyname hierarchyname,
+  CASE WHEN ownername.hierarchyname IS NULL THEN N'' ELSE ownername.hierarchyname END AS folder_owner,
+ foo.folder,
+ foo.currency,
+ foo.status,
+ foo.numpayees,
+ foo.tx_path,
+ ISNULL(foo.WritePermission, @IsSuperUser) AS WritePermission,
+ (select CASE COUNT(*) WHEN 0 THEN 0 ELSE 1 END
+ from t_capability_instance ci
+    join t_composite_capability_type cct on ci.id_cap_type = cct.id_cap_type
+    join t_principal_policy pp_acc on pp_acc.id_acc = foo.child_id
+    join t_policy_role pr on pp_acc.id_policy = pr.id_policy
+    join t_principal_policy pp_p on pp_p.id_role = pr.id_role and ci.id_policy = pp_p.id_policy
+where cct.tx_name = 'Application LogOn') HasLogonCapability
+FROM
+(
+SELECT 
+  acctype.name account_type,
+ parent.id_ancestor parent_id,
+ parent.id_descendent child_id,
+ parent.b_children children,
+ case when descmap.id_type is null then 0 else 1 end folder,
+ tav.c_currency currency,
+ accstate.status status,
+  COUNT(redir.id_payee) numpayees,
+  parent.tx_path tx_path,
+  imp.id_owner,
+  avp.WritePermission
+FROM 
+  #tmp parent
+  /* get folder		  */   
+  INNER  JOIN t_av_internal tav ON tav.id_acc = parent.id_descendent %%FOLDERCHECK%%
+  LEFT JOIN #tmpacc avp ON avp.accountID = tav.id_acc
+  /* get account type */
+  INNER  JOIN t_account acc ON acc.id_acc = parent.id_descendent
+  INNER  JOIN t_account_type acctype ON acctype.id_type = acc.id_type
+   /* get if this account type can have any descendents */
+  LEFT OUTER  JOIN t_acctype_descendenttype_map descmap
+ on descmap.id_type = acctype.id_type
+  LEFT OUTER  JOIN t_impersonate imp ON imp.id_acc = parent.id_descendent
+  /* get account state  */ 
+  INNER  JOIN t_account_state accstate ON 
+      accstate.id_acc = parent.id_descendent AND
+    /* account state effective dates */
+      %%REF_DATE%% BETWEEN accstate.vt_start AND accstate.vt_end AND
+      /* make sure the account IS NOT closed OR archived */
+      accstate.status IN (%%EXCLUDED_STATES%%)
+  /* get account payment redirection payer IF EXISTS */
+  INNER  JOIN t_account_ancestor child ON child.id_descendent = parent.id_descendent AND child.num_generations = 0
+  LEFT OUTER  JOIN t_payment_redirection redir ON 
+  redir.id_payer = child.id_descendent AND
+  %%REF_DATE%% BETWEEN redir.vt_start AND redir.vt_end AND
+   redir.id_payee <> child.id_descendent
+WHERE
+  (@IsSuperUser = 1 OR avp.accountID IS NOT NULL) AND
+  acctype.b_IsVisibleInHierarchy = '1' AND
+  /* Filter by company and user name for nested levels in the hierarchy */
+  ('%%COMPANY_NAME%%' = '' OR EXISTS (SELECT 1 FROM t_av_Contact avc WHERE avc.c_Company LIKE '%%COMPANY_NAME%%' AND avc.id_acc = acc.id_acc)) AND
+  ('%%USER_NAME%%' = '' OR EXISTS (SELECT 1 FROM t_account_mapper am WHERE am.nm_login LIKE '%%USER_NAME%%' AND am.id_acc = acc.id_acc))
+GROUP BY
+ parent.id_ancestor,
+ parent.id_descendent,
+ parent.b_children,
+ tav.c_currency,
+ accstate.status,
+  parent.tx_path,
+  acctype.name,
+  descmap.id_type,
+  imp.id_owner,
+  avp.WritePermission
+) foo
+  /* get nm_login */
+  INNER JOIN vw_mps_or_system_acc_mapper map ON map.id_acc = foo.child_id 
+   /* account name */
+  INNER JOIN vw_mps_or_system_hierarchyname hname ON hname.id_acc = foo.child_id
+  LEFT OUTER JOIN vw_mps_or_system_hierarchyname ownername ON ownername.id_acc = foo.id_owner
+  WHERE	map.tx_typ_space = '%%TYPE_SPACE%%' OR (map.tx_typ_space = 'system_user' and foo.parent_id != 1)
+) m
+where m.RowNumber > @PageSize * (@PageNumber -1)
+order by m.RowNumber

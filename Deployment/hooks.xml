@@ -156,8 +156,9 @@ template unique name has been modified on MetraNet machine.]]></Description>
     <Short_Description>Synchronize Report Templates</Short_Description>
     <hook require_input="false">MetraTech.Reports.Hooks.DeployCEReports</hook>
   </hooklist>
-   
-    <hooklist>
+  
+  <!--   
+  <hooklist>
     <Description>
       <![CDATA[
             Synchronize the Credit Note Template Information to the BME table.<br><br>
@@ -167,7 +168,8 @@ template unique name has been modified on MetraNet machine.]]></Description>
     <Short_Description>Synchronize Credit Note Templates</Short_Description>
     <hook require_input="false">MetraTech.CreditNotes.Hooks.CreditNoteTemplateHook</hook>
   </hooklist>      
-   
+  --> 
+  
   <hooklist>
     <Description><![CDATA[UUpdate Metadata in database to be the same as ICE configured.<br><br>
 <b>When to run:</b> Created, removed or modified account view, parameter table, product view,

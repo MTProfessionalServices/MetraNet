@@ -14,18 +14,48 @@
                     </Caption>
                     <Description></Description>
                     <MenuItems>
+
+            <MenuItem>
+              <ID>NewProductOfferings</ID>
+              <Caption>
+                <ResourceClassKey>MainMenu</ResourceClassKey>
+                <LocalizationTag>TEXT_OFFERINGS</LocalizationTag>
+              </Caption>
+              <Link>/MetraNet/MetraOffer/ProductOfferings/ProductOfferingsList.aspx</Link>
+              <Target>MainContentIframe</Target>
+              <Icon>/Res/Images/icons/package.png</Icon>
+              <Description></Description>
+              <RequiredCapabilities>
+              </RequiredCapabilities>
+            </MenuItem>
+
+            <MenuItem>
+              <ID>MasterProductOfferings</ID>
+              <Caption>
+                <ResourceClassKey>MainMenu</ResourceClassKey>
+                <LocalizationTag>TEXT_MASTER_OFFERINGS</LocalizationTag>
+              </Caption>
+              <Link>/MetraNet/MetraOffer/ProductOfferings/ProductOfferingsList.aspx?Master=TRUE</Link>
+              <Target>MainContentIframe</Target>
+              <Icon>/Res/Images/icons/package.png</Icon>
+              <Description></Description>
+              <RequiredCapabilities>
+              </RequiredCapabilities>
+            </MenuItem>
+<!--
                         <MenuItem>
                             <ID>MetraOfferGeneral</ID>
                             <Caption>
                                 <LocalizationTag>TEXT_OFFERINGS</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-               <Link>/MetraNet/TicketToMCM.aspx?URL=/MCM/default/dialog/ProductOffering.List.Frame.asp|NextPage=[PRODUCTOFFERING_VIEW_EDIT_DIALOG_WITH_NAV]**Title=TEXT_KEYTERM_PRODUCT_OFFERINGS**LinkColumnMode=TRUE</Link>
+                            <Link>/MetraNet/TicketToMCM.aspx?URL=/MCM/default/dialog/ProductOffering.List.Frame.asp|NextPage=[PRODUCTOFFERING_VIEW_EDIT_DIALOG_WITH_NAV]**Title=TEXT_KEYTERM_PRODUCT_OFFERINGS**LinkColumnMode=TRUE</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/package.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
+-->
                         <MenuItem>
                             <ID>SharedProperties</ID>
                             <Caption>
@@ -40,6 +70,21 @@
                                 <Capability>Manage Specification Characteristics</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
+
+            <MenuItem>
+              <ID>NewSharedRates</ID>
+              <Caption>
+                <ResourceClassKey>MainMenu</ResourceClassKey>
+                <LocalizationTag>TEXT_SHARED_RATES</LocalizationTag>
+              </Caption>
+              <Link>/MetraNet/MetraOffer/PriceLists/PriceListsList.aspx</Link>
+              <Target>MainContentIframe</Target>
+              <Icon>/Res/Images/icons/package_link.png</Icon>
+              <Description></Description>
+              <RequiredCapabilities>
+              </RequiredCapabilities>
+            </MenuItem>
+<!--
                         <MenuItem>
                             <ID>SharedRates</ID>
                             <Caption>
@@ -52,6 +97,7 @@
                             <Description></Description>
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
+-->
                         <MenuItem>
                             <ID>PriceableItems</ID>
                             <Caption>
@@ -64,8 +110,40 @@
                             <Description></Description>
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
-                    </MenuItems>
-                </MenuSection>
+<!--
+            <MenuItem>
+                            <ID>MDTConfig</ID>
+                            <Caption>
+                                <Value><![CDATA[Dimensional Transactions]]></Value>
+                            </Caption>
+                            <Link>/MetraNet/DimensionalTransactionsManagement/ShowAllSettlementConfigurations.aspx?Name=MetraTech.RelationshipManagement.DimensionalTransactions.Configuration&amp;Extension=MetraTech.RelationshipManagement&amp;NewBreadcrumb=True</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/palette.png</Icon>
+                            <Description></Description>
+                            <RequiredCapabilities>
+                                <CompositeCapability name="Read Business Modeling Entities">
+                                    <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
+                                </CompositeCapability>
+                            </RequiredCapabilities>
+            </MenuItem>
+            <MenuItem>
+                            <ID>LOV</ID>
+                            <Caption>
+                                <Value><![CDATA[List Of Values]]></Value>
+                            </Caption>
+                            <Link>/MetraNet/BE/BEList.aspx?Name=MetraTech.RelationshipManagement.DimensionalTransactions.ListofValues&amp;Extension=MetraTech.RelationshipManagement&amp;NewBreadcrumb=True</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/layers.png</Icon>
+                            <Description>List of Values menu link</Description>
+                            <RequiredCapabilities>
+                                <CompositeCapability name="Read Business Modeling Entities">
+                                    <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
+                                </CompositeCapability>
+                         </RequiredCapabilities>
+           </MenuItem>
+-->
+          </MenuItems>
+        </MenuSection>
                 <MenuSection>
                     <ID>BillMessages</ID>
                     <Caption>
@@ -78,7 +156,7 @@
                             <Caption>
                                 <Value><![CDATA[Manage Bill Messages]]></Value>
                             </Caption>
-                        	<Link>/MetraNet/BillMessages/BillMessages.aspx?Name=Core.BillMessages.BillMessage&amp;Extension=Core&amp;NewBreadcrumb=False</Link>
+                            <Link>/MetraNet/BillMessages/BillMessages.aspx?Name=Core.BillMessages.BillMessage&amp;Extension=Core&amp;NewBreadcrumb=True</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/Icons/application_view_columns.png</Icon>
                             <Description>View/Edit Bill Messages</Description>
@@ -90,31 +168,7 @@
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
-				
-                <!-- 
-				<MenuSection>
-                    <ID>NotificationConfiguration</ID>
-                    <Caption>
-                        <Value><![CDATA[Notification]]></Value>
-                    </Caption>
-                    <Description>Notification Configuration</Description>
-                    <MenuItems>
-                        <MenuItem>
-                            <ID>ManageEndpoints</ID>
-                            <Caption>
-                                <Value><![CDATA[Manage Endpoints]]></Value>
-                            </Caption>
-                            <Link>/MetraNet/Notifications/NotificationEndpointList.aspx</Link>
-                            <Target>MainContentIframe</Target>
-                            <Icon>/Res/Images/Icons/application_view_columns.png</Icon>
-                            <Description>Notification Endpoints</Description>
-                            <RequiredCapabilities>
-                            </RequiredCapabilities>
-                        </MenuItem>
-                    </MenuItems>
-                </MenuSection>				
-                -->
-				
+
           <!-- MenuSection>
           <ID>AgreementTemplates</ID>
           <Caption>
@@ -184,6 +238,7 @@
                             <Description></Description>
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
+<!--
                         <MenuItem>
                             <ID>HiddenOfferings</ID>
                             <Caption>
@@ -196,6 +251,7 @@
                             <Description></Description>
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
+-->
                         <MenuItem>
                             <ID>ManageAmpDecisions</ID>
                             <Caption>

@@ -172,6 +172,11 @@ function addTemplateEvents() {
     <MT:MTDropDown ID="ddSecurityQuestion" runat="server" AllowBlank="True" Label="Security Question" TabIndex="370" ControlHeight="18" ControlWidth="200" ListWidth="200" HideLabel="False" LabelSeparator=":" Listeners="{}" meta:resourcekey="ddSecurityQuestionResource1" ReadOnly="False"></MT:MTDropDown>
     <MT:MTTextBoxControl ID="tbSecurityQuestionText" runat="server" AllowBlank="true" Label="Custom Security Question" TabIndex="375" ControlHeight="18" ControlWidth="200" HideLabel="false" LabelSeparator=":" Listeners="{}" meta:resourcekey="tbSecurityQuestionTextResource1" ReadOnly="false" />
     <MT:MTTextBoxControl ID="tbSecurityAnswer" runat="server" AllowBlank="True" Label="Security Answer" TabIndex="380" ControlWidth="200" ControlHeight="18" HideLabel="False" LabelSeparator=":" LabelWidth="120" Listeners="{}" meta:resourcekey="tbSecurityAnswerResource1" ReadOnly="False" XType="TextField" XTypeNameSpace="form" />
+    <MT:MTCheckBoxControl ID="cbApplyTemplate" runat="server" BoxLabel="Apply Template"
+  Text="template" Value="template" TabIndex="385" ControlWidth="200" AllowBlank="False"
+  Checked="False" HideLabel="True" LabelSeparator=":" Listeners="{}" meta:resourcekey="cbApplyTemplateResource1"
+  Name="cbApplyTemplate" OptionalExtConfig="boxLabel:'Apply Template',&#13;&#10;inputValue:'template',&#13;&#10;checked:false"
+  ReadOnly="False" XType="Checkbox" XTypeNameSpace="form" />  
   </div>
   </MT:MTPanel>
   

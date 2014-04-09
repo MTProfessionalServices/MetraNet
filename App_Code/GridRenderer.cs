@@ -150,13 +150,12 @@ public static class GridRenderer
       accountTypeElement.FilterDropdownItems.Add(filterItem);
     }
   }
+
+    public static void PopulateProductCatalogBooleanFilter(MTFilterGrid MyGrid1, string idElement)
+    {
+        Dictionary<string, string> pcBooleanList = new Dictionary<string, string>(2);
+        pcBooleanList.Add("Yes", "Y");
+        pcBooleanList.Add("No", "N");
+        AddFilterListToElement(MyGrid1, idElement, pcBooleanList);
+    }
 }
-
-
-
-
-  
-
-
-
-

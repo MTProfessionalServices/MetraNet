@@ -318,13 +318,12 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
                 if (IsAllowedCreate(totalAmount ?? 0) && cbIssueCreditNote.Checked)
                 {
                     // get the account credit just metered
-                    long sessionID = getAccoutCreditJustMetered(UI.Subscriber.SelectedAccount._AccountID.Value, ticks);
+                    long sessionID = GetAccountCreditJustMetered(UI.Subscriber.SelectedAccount._AccountID.Value, ticks);
 
                     // Creating a credit note only if sessionid is non null
                     if (sessionID != -1)
                     {
-                        CreateCreditNote(sessionID, ddTemplateTypes.SelectedItem.Text,
-                                             Int32.Parse(ddTemplateTypes.SelectedValue), CommentTextBox.Text, UI.User.AccountId);
+                      CreateCreditNote(sessionID, Int32.Parse(ddTemplateTypes.SelectedValue), CommentTextBox.Text);
                     }
                     else
                     {
@@ -378,8 +377,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         }
     }
 
-    private void CreateCreditNote(long sessionId, string creditNoteTemplateName, int creditNoteTemplateID,
-                                  string creditNoteDescription, int requestingAccountID)
+    private void CreateCreditNote(long sessionId, int creditNoteTemplateID, string creditNoteDescription)
     {
         CreditNoteServiceClient client = null;
         try
@@ -391,12 +389,11 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
                 client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
             }
 
-            Logger.LogDebug("Creating a Credit Note for AccountCredit with sessionid: " + sessionId,
-                            ", AccountID: " + UI.Subscriber.SelectedAccount._AccountID.Value + ", creditNoteTemplateID: " +
-                            creditNoteTemplateID + ", creditNoteDescription: " + creditNoteDescription +
-                            ", requestingAccountID: " + requestingAccountID);
-            client.CreateCreditNote(sessionId, UI.Subscriber.SelectedAccount._AccountID.Value, UI.SessionContext.ToXML(),
-                                        creditNoteTemplateID, creditNoteDescription, requestingAccountID);
+            Logger.LogDebug("Creating a Credit Note for AccountCredit with sessionid: {0}, AccountID: {1},  creditNoteTemplateID: {2}, creditNoteDescription: {3}",
+                            sessionId, UI.Subscriber.SelectedAccount._AccountID.Value, creditNoteTemplateID, creditNoteDescription);
+            
+            client.CreateCreditNote(new List<Tuple<long, MetraTech.CreditNotes.CreditNoteAdjustmentType>> { new Tuple<long, MetraTech.CreditNotes.CreditNoteAdjustmentType>(sessionId, MetraTech.CreditNotes.CreditNoteAdjustmentType.MiscAdjustment) }, UI.Subscriber.SelectedAccount._AccountID.Value,
+                                    UI.SessionContext.ToXML(), creditNoteTemplateID, creditNoteDescription);
         }
         catch (Exception ex)
         {
@@ -418,7 +415,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
     /// <param name="accountID">The AccountID product view property of the approved AccountCredit transaction to search for</param>
     /// <param name="miscAdjustmentID">The miscAdjustmentID product view property of the approved AccountCredit transaction to search for</param>
     /// <returns>SessionID of the AccountCredit if found. Returns -1 if not found.</returns>
-    private long getAccoutCreditJustMetered(int accountID, long miscAdjustmentID)
+    private long GetAccountCreditJustMetered(int accountID, long miscAdjustmentID)
     {
         long sessionID = -1;
         AdjustmentsServiceClient client = null;

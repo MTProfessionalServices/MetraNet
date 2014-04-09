@@ -172,7 +172,7 @@
     <value>Are you sure you want to continue?  This will deny all adjustments that match your filter criteria.  If no filters are present, then all the adjustments will be denied.</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>Description</value>
+    <value>Internal Description</value>
   </data>
   <data name="TEXT_EMAIL_ADDRESS" xml:space="preserve">
     <value>Email Address</value>

@@ -21,6 +21,7 @@ public partial class GenericAddAccount : MTAccountPage
   private static AccountTypeCollection mAccountTypeCollection = new AccountTypeCollection();
   private void SetupSkipProperties()
   {
+
     skipProperties.Add("username");
     skipProperties.Add("ancestoraccountid");
     skipProperties.Add("password_");
@@ -28,13 +29,13 @@ public partial class GenericAddAccount : MTAccountPage
     skipProperties.Add("name_space");
     skipProperties.Add("applydefaultsecuritypolicy");
     skipProperties.Add("internal.timezoneid");
-    skipProperties.Add("payerid"); 
+    skipProperties.Add("payerid");
     skipProperties.Add("accountstartdate");
-    skipProperties.Add("internal.language");
+    skipProperties.Add("internal.language");    
   }
 
 
-  protected void Page_Load(object sender, EventArgs e) 
+  protected void Page_Load(object sender, EventArgs e)
   {
     if (!IsPostBack)
     {
@@ -69,10 +70,12 @@ public partial class GenericAddAccount : MTAccountPage
       MTGenericForm1.TemplatePath = TemplatePath;
       MTGenericForm1.ReadOnly = false;
       SetupSkipProperties();
-      PriceListCol = PageNav.Data.Out_StateInitData["PriceListColl"] as List<PriceList>;
+      //PriceListCol = PageNav.Data.Out_StateInitData["PriceListColl"] as List<PriceList>;
       MTGenericForm1.IgnoreProperties = skipProperties;
 
-      PopulatePriceList(ddPriceList);
+      //PopulatePriceList(ddPriceList);
+
+      PartitionLibrary.PopulatePriceListDropdown(ddPriceList);
     }
   }
 
@@ -150,18 +153,18 @@ public partial class GenericAddAccount : MTAccountPage
     {
       Page.Validate();
 
-    if (Page.IsValid)
-    {
-      MTDataBinder1.Unbind();
+      if (Page.IsValid)
+      {
+        MTDataBinder1.Unbind();
 
-      AddAccountEvents_AddAccount_Client add = new AddAccountEvents_AddAccount_Client();
-      add.In_Account = Account;
+        AddAccountEvents_AddAccount_Client add = new AddAccountEvents_AddAccount_Client();
+        add.In_Account = Account;
         add.In_AccountId = new AccountIdentifier(UI.User.AccountId);
         add.In_SendEmail = cbEmailNotification.Checked;
-      add.In_ApplyAccountTemplates = cbApplyTemplate.Checked;
-      PageNav.Execute(add);
+        add.In_ApplyAccountTemplates = cbApplyTemplate.Checked;
+        PageNav.Execute(add);
+      }
     }
-  }
     catch (Exception exp)
     {
       SetError(exp.Message);
@@ -210,5 +213,5 @@ public partial class GenericAddAccount : MTAccountPage
     }
   }
 
- 
+
 }

@@ -52,6 +52,13 @@
             <ReplacementType>SqlParameter</ReplacementType>
             <Description></Description>
         </Parameter>
+		<Parameter>
+            <Name>PARTITIONFILTER</Name>
+            <DataType>sqlsubstitution</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>AND 1 = 1</SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
     </Parameters>
     <Description></Description>
     <ConversionAudit>

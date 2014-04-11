@@ -66,8 +66,7 @@
     <hook require_input="false">MetraHook.ParamTableHook.1</hook>
     <hook require_input="false">MetraHook.MTCounterTypeHook.1</hook>
     <hook require_input="false">MetraTech.Adjustments.Hooks.AdjustmentHook</hook>
-    <hook require_input="false">MetraTech.Product.Hooks.PriceableItemTypeHook</hook>
-    <hook require_input="false">MetraTech.Product.Hooks.MetraNetSiteHook</hook>
+    <hook require_input="false">MetraTech.Product.Hooks.PriceableItemTypeHook</hook>  
   </hooklist>
 
   <hooklist>

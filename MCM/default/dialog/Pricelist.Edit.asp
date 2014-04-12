@@ -53,9 +53,6 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
       Response.end
   End If
 	
-	COMObject.Properties("CurrencyCode").Enabled = FALSE
-	COMObject.Properties("CurrencyCode").SetPropertyType "ENUM","Global/SystemCurrencies","SystemCurrencies"
-		
   Form.Modal = TRUE   ' Tell the MDM this dialog is open in a  pop up window. 
                       ' The OK and CANCEL event will not terminate the dialog
                       ' but do a last rendering/refresh.

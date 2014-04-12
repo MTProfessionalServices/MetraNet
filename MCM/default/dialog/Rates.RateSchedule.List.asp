@@ -92,7 +92,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
 	' Let's save the ids in the session in case we go to the wizard
 	' I wish there was a better way to do this
 	session("RATES_PRICEABLEITEM_ID") = Request.QueryString("PI_ID")
-	session("RATES_POBASED") 		  = Request.QueryString("POBased")
+	session("RATES_POBASED") = Request.QueryString("POBased")
 		
 	' Dynamically Add Tabs to template
   If UCase(Form("POBased")) = "FALSE" Then
@@ -133,7 +133,7 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   dim sPricelistInformation
   dim sSummaryCaption
   dim sPricelistCurrency 'Used to format currency of summary
-  
+  Form("isEditable") = True
   
 	' Now branch on POBased = TRUE|FALSE
   If UCase(Form("POBased")) = "TRUE" Then
@@ -149,13 +149,17 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
     else
 	  Set ProductView.Properties.RowSet = objPricelistMap.FindRateSchedulesAsRowset
     end if
-    
-    
+        
 		Set COMObject.Instance  = objMTProductCatalog.GetParamTableDefinition(Form("PT_ID"))
     
     ' Now we need the pricelist name for display purposes
     dim objPricelist
     set objPricelist = objPricelistMap.GetPricelist()
+
+    If Session("isPartitionUser") Then 
+      Form("isEditable") = Session("topLevelAccountId") = objPricelist.PLPartitionId
+    End If
+
     sPricelistCurrency = objPriceList.CurrencyCode
     dim objParameterTable
     set objParameterTable = objPricelistMap.GetParameterTable()
@@ -194,9 +198,16 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
     end if
     
     sPricelistInformation = "Parameter Table: <b>" & sParamTableName & "</b><br>" ' & "Rates are stored on the shared pricelist '<b>" & COMObject.Instance.Name & "</b>'.<br>"
-
   End If
-  
+
+  Dim strButton
+  strButton = "<br><br>"
+  If Form("isEditable") Then 
+    strButton = "<button class=""clsButtonLarge"" name=""butNewRateSchedule"" onClick=""javascript:OpenDialogWindow('[NEW_RATESCHEDULE_WIZARD]', 'height=400,width=600,resizable=yes,scrollbars=yes'); return false;"">"
+    strButton = strButton & "<MDMLABEL Name='TEXT_RATES_NEW_RATE'>New Rates</MDMLABEL></button>"
+  End If
+  Form.HTMLTemplateSource = Replace(Form.HTMLTemplateSource, "<DYNAMIC_BUTTON_TEMPLATE />", strButton)    
+
   ProductView.Properties.ClearSelection
   'ProductView.Properties.SelectAll
   dim i
@@ -242,8 +253,7 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   Service.Properties.Add "PI_ID", "int32",  256, FALSE, 0, eMSIX_PROPERTY_FLAG_NOT_STORED_IN_ROWSET
   Service.Properties.Add "PL_ID", "int32",  256, FALSE, 0, eMSIX_PROPERTY_FLAG_NOT_STORED_IN_ROWSET
   Service.Properties.Add "DependencyCountMessage", "String",  0, FALSE, 0, eMSIX_PROPERTY_FLAG_NOT_STORED_IN_ROWSET
-
-  
+    
   Service.Properties("PT_ID").value = Form("PT_ID")
   Service.Properties("PI_ID").value = Form("PI_ID")
 
@@ -262,11 +272,9 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
       FrameWork.Dictionary().Add "DisplayDependencyCounts",FALSE
       
       Service.Properties("DependencyCountMessage").value= ""
-    End If
-    
-
+    End If 
   
-  Form_LoadProductView                              = TRUE ' Must Return TRUE To Render The Dialog
+  Form_LoadProductView = TRUE ' Must Return TRUE To Render The Dialog
 	
 END FUNCTION
 
@@ -302,28 +310,34 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
 	if (b_delete) then
 		b_delete = FrameWork.CheckCoarseCapability("Delete Rates")
 	end if
-		
+	   	
 	'We are drawing column based on their positions on the Rowset.
 	'Ideally this should be based on column names, but we need to display
 	'the view and edit gifs, so we can't do that.
   Select Case Form.Grid.Col
     
   Case 1
-  	HTML_LINK_EDIT = HTML_LINK_EDIT & "<td class='[CLASS]' width='40'>"                                                         
-    HTML_LINK_EDIT = HTML_LINK_EDIT & "<A HREF='[ASP_PAGE]?Reload=TRUE&EditMode=True&Rates=TRUE&Manage=False&ID=[ID]&PI_ID=[PI_ID]&PT_ID=[PT_ID]&RS_ID=[RS_ID]&POBased=[POBASED]'><img Alt='[ALT_EDIT]' Name='[IMAGE_EDIT_NAME]'  src='[IMAGE_EDIT]' Border='0'></A>&nbsp;"
+  	HTML_LINK_EDIT = HTML_LINK_EDIT & "<td class='[CLASS]' width='40'>"     
+        
+    If Form("isEditable") Then
+      HTML_LINK_EDIT = HTML_LINK_EDIT & "<A HREF='[ASP_PAGE]?Reload=TRUE&EditMode=True&Rates=TRUE&Manage=False&ID=[ID]&PI_ID=[PI_ID]&PT_ID=[PT_ID]&RS_ID=[RS_ID]&POBased=[POBASED]'><img Alt='[ALT_EDIT]' Name='[IMAGE_EDIT_NAME]'  src='[IMAGE_EDIT]' Border='0'></A>&nbsp;"
+    End If
+
     HTML_LINK_EDIT = HTML_LINK_EDIT & "<A HREF='[ASP_PAGE]?Reload=TRUE&EditMode=False&Rates=TRUE&Manage=False&ID=[ID]&PI_ID=[PI_ID]&PT_ID=[PT_ID]&RS_ID=[RS_ID]&POBased=[POBASED]'><img Alt='[ALT_VIEW]' src='[IMAGE_VIEW]' Border='0'></A>"
 		HTML_LINK_EDIT = HTML_LINK_EDIT & "</td>"
 			
 		MDMListDialog.PreProcessor.Clear
 		MDMListDialog.PreProcessor.Add "CLASS"       , Form.Grid.CellClass        
 		MDMListDialog.PreProcessor.Add "ASP_PAGE"    , getParamTablePage(Clng(Form("PT_ID")))
-		MDMListDialog.PreProcessor.Add "IMAGE_EDIT"  , Application("APP_HTTP_PATH") & "/default/localized/en-us/images/edit.gif"
 		MDMListDialog.PreProcessor.Add "IMAGE_VIEW"  , Application("APP_HTTP_PATH") & "/default/localized/en-us/images/icons/view.gif"
 		MDMListDialog.PreProcessor.Add "ALT_VIEW"    , mdm_GetDictionary().Item("TEXT_VIEW").Value
 
-    MDMListDialog.PreProcessor.Add "IMAGE_EDIT_NAME" , "EditIcon" & Form.Grid.Row ' For FredRunner
+    If Form("isEditable") Then
+      MDMListDialog.PreProcessor.Add "IMAGE_EDIT"  , Application("APP_HTTP_PATH") & "/default/localized/en-us/images/edit.gif"
+      MDMListDialog.PreProcessor.Add "IMAGE_EDIT_NAME" , "EditIcon" & Form.Grid.Row ' For FredRunner
+      MDMListDialog.PreProcessor.Add "ALT_EDIT"    , mdm_GetDictionary().Item("TEXT_EDIT").Value
+    End If
 
-		MDMListDialog.PreProcessor.Add "ALT_EDIT"    , mdm_GetDictionary().Item("TEXT_EDIT").Value
 		MDMListDialog.PreProcessor.Add "ID"	    	   , ProductView.Properties.Rowset.Value("id_sched")
 		MDMListDialog.PreProcessor.Add "PT_ID"    	 , Form("PT_ID")
 		MDMListDialog.PreProcessor.Add "PI_ID"    	 , Form("PI_ID")
@@ -354,7 +368,6 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
     MDMListDialog.PreProcessor.Add "CLASS", Form.Grid.CellClass
     EventArg.HTMLRendered           = MDMListDialog.PreProcess(HTML_LINK_EDIT)
 
-
 	Case 5
 		'SECENG: CORE-4797 CLONE - MSOL 30262 MetraOffer: Stored cross-site scripting - All output should be properly encoded
 		'Adding HTML Encoding
@@ -363,29 +376,28 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
     
 
  	Case 6,7 ' This is the column that will display a button, regardless of its contents
-    if Form.Grid.Col=6 AND Form("ShowSummaryInformation") then
+    If Form.Grid.Col=6 AND Form("ShowSummaryInformation") then
       if bShowSummaryAsFormattedCurrency then 
  		    EventArg.HTMLRendered = "<td nowrap class='" & Form.Grid.CellClass & "' style='text-align:right;'>" & mcm_FormatLocalizedCurrency(ProductView.Properties.Rowset.Value("Summary"),Service.Properties("PricelistCurrency")) & "</td>"
       else
  		    EventArg.HTMLRendered = "<td nowrap class='" & Form.Grid.CellClass & "' style='text-align:left;'>" & ProductView.Properties.Rowset.Value("Summary") & "</td>"
       end if        
-    else  
-
+    Else
   		HTML_LINK_EDIT = HTML_LINK_EDIT & "<td nowrap class='[CLASS]' align='center'>"
 
-  		HTML_LINK_EDIT = HTML_LINK_EDIT & "<button id='copy[RS_ID]' class='clsButtonXLarge' onclick=""OpenDialogWindow('[NEW_RATESCHEDULE_WIZARD]&CopyRateScheduleId=[RS_ID]', 'height=400,width=600,resizable=yes,scrollbars=yes'); return false;"" title=""Create a new rate schedule and copy the rates from this rate schedule""><span style='font-size:8pt;'>New Rate Schedule From This One</span></button>"
- 			HTML_LINK_EDIT = HTML_LINK_EDIT & "&nbsp;&nbsp;"
-
-  		HTML_LINK_EDIT = HTML_LINK_EDIT & "<button id='properties[RS_ID]' class='clsButtonBlueLarge' onclick=""OpenDialogWindow('[PROPERTIES_POPUP]?MDMReload=TRUE&EditMode=TRUE&Reload=TRUE&refresh=TRUE&PT_ID=[PT_ID]&RS_ID=[RS_ID]','_blank', 'height=100,width=100,resizable=yes,scrollbars=yes'); return false;"">[PROPERTIES_BUTTON]</button>"
-
-          
-  		' Use the stored business rule and capability checks to decide whether to display the delete button or not
-  		if b_delete then
-  			HTML_LINK_EDIT = HTML_LINK_EDIT & "&nbsp;&nbsp;"
-  			HTML_LINK_EDIT = HTML_LINK_EDIT & "<button id='delete[RS_ID]' class='clsButtonBlueMedium' onclick=""OpenDialogWindow('[DELETE_POPUP]?MDMReload=TRUE&EditMode=TRUE&Reload=TRUE&refresh=TRUE&PT_ID=[PT_ID]&RS_ID=[RS_ID]','_blank', 'height=100,width=100,resizable=yes,scrollbars=yes'); return false;"">[DELETE_BUTTON]</button>"
-  		end if
-  			HTML_LINK_EDIT = HTML_LINK_EDIT & "&nbsp;&nbsp;"
-  			HTML_LINK_EDIT = HTML_LINK_EDIT & "<button id='viewhistory[RS_ID]' class='clsButtonBlueMedium' onclick=""window.open('Rates.RateSchedule.ViewHistory.asp?MDMReload=TRUE&EditMode=TRUE&Reload=TRUE&refresh=TRUE&PT_ID=[PT_ID]&RS_ID=[RS_ID]&PL_ID=[PL_ID]','_blank', 'height=600,width=800,resizable=yes,scrollbars=yes'); return false;"">View History</button>"
+      If Form("isEditable") Then
+  		  HTML_LINK_EDIT = HTML_LINK_EDIT & "<button id='copy[RS_ID]' class='clsButtonXLarge' onclick=""OpenDialogWindow('[NEW_RATESCHEDULE_WIZARD]&CopyRateScheduleId=[RS_ID]', 'height=400,width=600,resizable=yes,scrollbars=yes'); return false;"" title=""Create a new rate schedule and copy the rates from this rate schedule""><span style='font-size:8pt;'>New Rate Schedule From This One</span></button>"
+ 			  HTML_LINK_EDIT = HTML_LINK_EDIT & "&nbsp;&nbsp;"
+        HTML_LINK_EDIT = HTML_LINK_EDIT & "<button id='properties[RS_ID]' class='clsButtonBlueLarge' onclick=""OpenDialogWindow('[PROPERTIES_POPUP]?MDMReload=TRUE&EditMode=TRUE&Reload=TRUE&refresh=TRUE&PT_ID=[PT_ID]&RS_ID=[RS_ID]','_blank', 'height=100,width=100,resizable=yes,scrollbars=yes'); return false;"">[PROPERTIES_BUTTON]</button>"
+        HTML_LINK_EDIT = HTML_LINK_EDIT & "&nbsp;&nbsp;"
+        ' Use the stored business rule and capability checks to decide whether to display the delete button or not
+        If b_delete Then
+          HTML_LINK_EDIT = HTML_LINK_EDIT & "<button id='delete[RS_ID]' class='clsButtonBlueMedium' onclick=""OpenDialogWindow('[DELETE_POPUP]?MDMReload=TRUE&EditMode=TRUE&Reload=TRUE&refresh=TRUE&PT_ID=[PT_ID]&RS_ID=[RS_ID]','_blank', 'height=100,width=100,resizable=yes,scrollbars=yes'); return false;"">[DELETE_BUTTON]</button>"
+          HTML_LINK_EDIT = HTML_LINK_EDIT & "&nbsp;&nbsp;"
+        End If
+      End If
+  		      
+  		HTML_LINK_EDIT = HTML_LINK_EDIT & "<button id='viewhistory[RS_ID]' class='clsButtonBlueMedium' onclick=""window.open('Rates.RateSchedule.ViewHistory.asp?MDMReload=TRUE&EditMode=TRUE&Reload=TRUE&refresh=TRUE&PT_ID=[PT_ID]&RS_ID=[RS_ID]&PL_ID=[PL_ID]','_blank', 'height=600,width=800,resizable=yes,scrollbars=yes'); return false;"">View History</button>"
   
   		MDMListDialog.PreProcessor.Clear
   		MDMListDialog.PreProcessor.Add "CLASS"       , Form.Grid.CellClass        
@@ -397,7 +409,7 @@ PUBLIC FUNCTION ViewEditMode_DisplayCell(EventArg) ' As Boolean
   		MDMListDialog.PreProcessor.Add "RS_ID"    	 , ProductView.Properties.Rowset.Value("id_sched")
   		MDMListDialog.PreProcessor.Add "PL_ID"    	 , Service.Properties("PL_ID").value
   		EventArg.HTMLRendered = MDMListDialog.PreProcess(HTML_LINK_EDIT)
-		end if
+		End If
     
 	Case Else
     ViewEditMode_DisplayCell =  Inherited("Form_DisplayCell()") ' Call the default implementation           

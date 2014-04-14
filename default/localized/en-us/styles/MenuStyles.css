@@ -1,73 +1,56 @@
-.clsMenuBody
-{
-  font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Arial;
-  font-size: 10pt;
-  color: black;
-  padding-top: -3px;
-  padding-left: -3px;
-  background-color: #D2E0F2;
+.clsMenuBody {
+  font-family:tahoma, arial, helvetica, sans-serif;
+  font-size:10pt;
+  color:white;
+  padding-top:-3px;
+  padding-left:-3px;
+	background-color:#003B8E;  
 }
 
-clsMenuLink:hover
-{
-  color: navy;
+clsMenuLink:hover{
+	color:#97CE21;
 }
 
-.clsTopLevelMenuItem
-{
-  font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Arial;
-  font-size: 10pt;
-  font-weight: bold;
-  color: black;
-  cursor: hand;
+.clsTopLevelMenuItem{
+  font-family:tahoma, arial, helvetica, sans-serif;
+  font-size:10pt;
+  font-weight:bold;
+  color:white;
+  cursor:hand;
 }
 
-.clsMenuRoot
-{
+
+
+.clsMenuRoot{
 }
 
-.clsMenuRootText
-{
-  font-weight: bold;
-  font-size: 10pt;
+.clsMenuRootText{
+	font-weight:bold;
+    font-size:10pt;
 }
-.clsTopLevelMenuGroupText
-{
-  font-size: 8pt;
-  font-weight: bold;
-  cursor: hand;
+.clsTopLevelMenuGroupText {
+	font-size:8pt;
+  font-weight:bold;
+  cursor:hand; 
+} 
+
+.clsMenuGroup {
+
 }
 
-.clsMenuGroup
-{
+.clsMenuGroupText{
+	font-size:8pt;
+  cursor:hand;    
 }
 
-.clsMenuGroupText
-{
-  font-size: 8pt;
-  cursor: hand;
+.clsMenuLink {
+  font-size:8pt;
+  color:white;
+  text-decoration:none;
+  cursor:hand;
 }
-
-.clsMenuLink
-{
-  font-size: 8pt;
-  color: black;
-  text-decoration: none;
-  cursor: hand;
+.clsMenuRow{
 }
-
-.clsMenuRow
-{
-}
-
-.clsMenuItemText
-{
-}
-
-.TreeContainer
-{
-  border:solid 1px #99BBE8;
-  background-color:#F0F0F0;
-  padding:5px;
-  height:100%;
+.clsMenuItemText{
+	
 }

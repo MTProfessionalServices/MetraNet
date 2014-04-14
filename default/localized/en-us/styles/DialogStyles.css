@@ -1,25 +1,30 @@
 .clsLoginMessage{
 	font-size: 11px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif; 
+	font-family: tahoma,arial,verdana,sans-serif; 
 	background-color:#D6D3CE;  /* Exact match for W2K gray default color */
 	margin: 0;
 	TEXT-ALIGN: Center;
 }
 
-.CaptionBar{
-	padding: 3px 3px 3px 15px;
-	font-size: 18px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
-	font-weight: bold;
-	text-align: left;
-	color: #FFFFFF;
-	background-color: #CFDBE5;
- 	background-image : url(../images/blend3.gif); 
-  background-repeat : no-repeat;
-	position: relative;
-	left : -10px;
-	top : -10px;
+.CaptionBar
+{
+  /*background: transparent url(/Res/Ext/resources/images/gray/panel/white-top-bottom.gif) repeat-x scroll 0pt -1px;
+  border-bottom: 1px solid #99BBE8;*/
+  background-color:#fff;
+  color: #000;
+  font-family: tahoma,arial,verdana,sans-serif;
+  font-size: 197%;
+  margin: .3em 0 .3em;
+  font-weight: bold;
+  padding: 5px 3px 4px 15px;
+  display: block;
+  font-size: 2em;
+  -webkit-margin-before: 0.67em;
+  -webkit-margin-after: 0.67em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
 }
+
 
 .clsWelcomeTitle{
 	padding: 5px 8px 5px 8px;
@@ -33,7 +38,7 @@
 
 .clsBulletList{
 	COLOR: black;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif; 
+	font-family: tahoma,arial,verdana,sans-serif; 
 	FONT-SIZE: 10pt;
 	TEXT-ALIGN: left;
 	FONT-WEIGHT: normal;
@@ -41,21 +46,21 @@
 
 .clsStandardText{
 	font-size: 11px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif; 
+	font-family: tahoma,arial,verdana,sans-serif; 
 	background-color:#D6D3CE;  /* Exact match for W2K gray default color */
 	margin: 0;
 }
 
 .clsMainTitle{
 	font-size: 12px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif; 
+	font-family: tahoma,arial,verdana,sans-serif; 
 	margin: 0;
 }
 
 .clsStandardTitle{
 	padding: 5px 8px 5px 8px;
 	font-size: 11px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family: tahoma,arial,verdana,sans-serif;
 	font-weight: bold;
 	text-align: left;
 	color: black;
@@ -63,7 +68,7 @@
 
 .clsInputBox{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif; 
+	font-family: tahoma,arial,verdana,sans-serif; 
 	border-style: solid;
 	border-width: 1px;	
 }
@@ -101,7 +106,7 @@ A:link, A:visited, A:active
 	BORDER-RIGHT: black solid 1px;
 	BORDER-TOP: #0099ff solid 1px;
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif;
+	font-family: tahoma,arial,verdana,sans-serif;
 	text-align: center;
 	color: #FFFFFF; 
 	background-color: #0065CE; 
@@ -123,7 +128,7 @@ a.TableHeaderA{
 
 .TableDetailCell{
 	font-size: 11px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif; 
+	font-family: tahoma,arial,verdana,sans-serif; 
 	background-color:#D6D3CE;  /* Exact match for W2K gray default color */
 	margin: 0;
 	BORDER-BOTTOM: white solid 1px;
@@ -134,7 +139,7 @@ a.TableHeaderA{
 
 .clsStaticInputBox{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif; 
+	font-family: tahoma,arial,verdana,sans-serif; 
 	border-style: none;
 	border-width: 1px;
 	background-color: #FFFFFF;
@@ -159,7 +164,7 @@ a.TableHeaderA{
 
 .ErrorMessageCaption{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif; 
+	font-family: tahoma,arial,verdana,sans-serif; 
 	BACKGROUND-COLOR: #FDFECF;
 	BORDER-BOTTOM: black solid 1px;
 	BORDER-LEFT: gray solid 1px;
@@ -175,13 +180,13 @@ a.TableHeaderA{
 	BORDER-RIGHT : black solid 1px;
 	BORDER-TOP : black solid 1px;
 	COLOR : black;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif; 
+	font-family: tahoma,arial,verdana,sans-serif; 
 	FONT-SIZE : 11px;
 }
 
 .clsFindInputBox{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif; 
+	font-family: tahoma,arial,verdana,sans-serif; 
 	border-style: solid;
 	border-width: 1px;
 }
@@ -193,7 +198,7 @@ a.TableHeaderA{
 BODY
 	{
 	font-size: 12px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif; 
+	font-family: tahoma,arial,verdana,sans-serif; 
 	background-color:#D6D3CE;  /* Exact match for W2K gray default color */
 	margin: 0;
 	}
@@ -216,7 +221,7 @@ INPUT.image
 SELECT
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif; 
+	font-family: tahoma,arial,verdana,sans-serif; 
 	border-style: none;
 	border-width: 1px;
 	}
@@ -241,7 +246,7 @@ OPTION
 .captionEW
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif;
+	font-family: tahoma,arial,verdana,sans-serif;
 	text-align: right;
 	vertical-align: baseline;
 	}
@@ -249,7 +254,7 @@ OPTION
 .captionEWRequired
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif; 
+	font-family: tahoma,arial,verdana,sans-serif; 
 	text-align: right; 
 	font-weight: bold;
 	vertical-align: baseline;
@@ -258,14 +263,14 @@ OPTION
 .captionNS
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif;
+	font-family: tahoma,arial,verdana,sans-serif;
 	text-align: left;
 	}
 
 .captionNSRequired
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif; 
+	font-family: tahoma,arial,verdana,sans-serif; 
 	text-align: left;
 	font-weight: bold;
 	}
@@ -273,7 +278,7 @@ OPTION
 INPUT.field
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif; 
+	font-family: tahoma,arial,verdana,sans-serif; 
 	border-style: solid;
 	border-width: 1px;
 	}
@@ -281,7 +286,7 @@ INPUT.field
 INPUT.fieldRequired
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif; 
+	font-family: tahoma,arial,verdana,sans-serif; 
 	border-style: solid;
 	border-width: 1px;	
 	}
@@ -289,7 +294,7 @@ INPUT.fieldRequired
 INPUT.fieldNumeric
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif; 
+	font-family: tahoma,arial,verdana,sans-serif; 
 	text-align: right; 
 	border-style: solid;
 	border-width: 1px;
@@ -298,7 +303,7 @@ INPUT.fieldNumeric
 INPUT.fieldNumericRequired
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif; 
+	font-family: tahoma,arial,verdana,sans-serif; 
 	border-style: solid;
 	border-width: 1px;	
 	text-align: right; 
@@ -307,7 +312,7 @@ INPUT.fieldNumericRequired
 .fieldNonEditable /* select WAS: INPUT.fieldNonEditable; removed INPUT so can use with static HTML text */
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif; 
+	font-family: tahoma,arial,verdana,sans-serif; 
 	border-style: solid;
 	border-width: 1px;
 	border-color: #BBBBBB;
@@ -317,7 +322,7 @@ INPUT.fieldNumericRequired
 TEXTAREA
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif; 
+	font-family: tahoma,arial,verdana,sans-serif; 
 	border-style: solid;
 	border-width: 1px;
 	}
@@ -325,7 +330,7 @@ TEXTAREA
 TEXTAREA.required
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif; 
+	font-family: tahoma,arial,verdana,sans-serif; 
 	border-style: solid;
 	border-width: 2px;
 	}
@@ -333,14 +338,14 @@ TEXTAREA.required
 .otherControl
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif;
+	font-family: tahoma,arial,verdana,sans-serif;
 	border-style: groove;
 	}
 
 .otherControlRequired
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif;
+	font-family: tahoma,arial,verdana,sans-serif;
 	}
 
 THEAD
@@ -352,13 +357,13 @@ THEAD
 TBODY
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif;
+	font-family: tahoma,arial,verdana,sans-serif;
 	}
 
 TH
 	{
 	font-size: 10px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif;
+	font-family: tahoma,arial,verdana,sans-serif;
 	text-align: center;
 	color: #FFFFFF; 
 	background-color: #0065CE; 
@@ -390,7 +395,7 @@ TH
 
 .clsRateText{
 	font-size: 14px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif; 
+	font-family: tahoma,arial,verdana,sans-serif; 
 	background-color: #edf0f8; 
 	margin: 0;
 }
@@ -407,7 +412,7 @@ TH
 }
 .clsRateTableSubHeader{
 	font-size: 12px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif;
+	font-family: tahoma,arial,verdana,sans-serif;
 	text-align: center;
 	color: #FFFFFF; 
 	background-color: #0065CE; 
@@ -422,7 +427,7 @@ TH
 }
 .clsRateConstraintTableHeader{
 	font-size: 12px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif;
+	font-family: tahoma,arial,verdana,sans-serif;
 	text-align: center;
 	color: #FFFFFF; 
 	background-color: black; 
@@ -430,7 +435,7 @@ TH
 }
 .clsRateTableSubHeader{
 	font-size: 12px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, "MS Sans Serif", Arial, Helvetica, sans-serif;
+	font-family: tahoma,arial,verdana,sans-serif;
 	text-align: center;
 	color: black; 
 	background-color: #e8e8e8; 

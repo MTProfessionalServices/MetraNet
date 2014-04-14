@@ -132,9 +132,6 @@
   <data name="SelectInterval.Text" xml:space="preserve">
     <value>Select Interval</value>
   </data>
-   <data name="AddReport.Text" xml:space="preserve">
-    <value>Add report {0} to InvioceList</value>
-  </data>
   <data name="AddCreditNoteReport.Text" xml:space="preserve">
     <value>Add report {0} to CreditNotesList</value>
   </data>

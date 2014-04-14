@@ -552,6 +552,9 @@
   <data name="TEXT_UPDATE_EXISTING_REPORT_DEFINITIONS" xml:space="preserve">
     <value>Actualizar definición de informe existente</value>
   </data>
+    <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
+        <value>Usage Audit</value>
+    </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>Mantenimiento de servidor de uso</value>
   </data>

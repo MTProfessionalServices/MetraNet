@@ -46,6 +46,7 @@
     <RootElement>Items</RootElement>
     <CustomImplementationFilePath></CustomImplementationFilePath>
     <SubGrid></SubGrid>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <Elements>
         <Element>
             <RecordElement>false</RecordElement>

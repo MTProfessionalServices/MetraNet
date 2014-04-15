@@ -187,7 +187,10 @@
 		s1.vt_start <= :dtEnd and s1.vt_end >= :dtBegin
 		/* HACK: The 0 generation record does not have a valid effective date, therefore we pass it in.  Probably
 		 should take care of this with a composite time slice. */
-		and :dtBegin <= au.dt_session and :dtEnd >= au.dt_session
+		and 
+		:dtBegin <= au.dt_session and :dtEnd >= au.dt_session
+		and 
+		%%CURRENCY%%
 		group by
 		au.id_prod,
 		bpd2.nm_display_name,

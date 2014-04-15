@@ -23,4 +23,3 @@
 				    when 2 then 'UNSUBSCRIPTION' 
 				    when 3 then 'Change-Subscription' end,
 				  am_currency
-			 

@@ -35,5 +35,3 @@
 				  and id_lang_code=%%ID_LANG_CODE%%
 				group by nm_name,am_currency,c_prorateddays,
 				  datediff(day,c_rcintervalstart,c_rcintervalend)+1
-				order by nm_name,am_currency
-			 

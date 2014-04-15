@@ -25,5 +25,3 @@
 				    when 3 then 'Change-Subscription' end,
 				  nm_name, 
 				  am_currency
-				order by bp.nm_name
-			 

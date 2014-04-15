@@ -6,6 +6,26 @@
             <Type>Vertical</Type>
             <Description></Description>
             <MenuSections>
+                <!--<MenuSection>
+                    <ID>ControlCenter</ID>
+                    <Caption>
+                        <Value><![CDATA[Control Center]]></Value>
+                    </Caption>
+                    <Description>Control Center</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>OperationsDashboard</ID>
+                            <Caption>
+                                <Value><![CDATA[Dashboard]]></Value>
+                            </Caption>
+                            <Link>/MetraNet/MetraControl/ControlCenter/OperationsDashboard.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/application_view_tile.png</Icon>
+                            <Description>Operations Dashboard</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>-->
                 <MenuSection>
                     <ID>BillingManagement</ID>
                     <Caption>
@@ -134,7 +154,7 @@
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
-                <MenuSection>
+ <!--               <MenuSection>
                     <ID>USM</ID>
                     <Caption>
                         <LocalizationTag>TEXT_USM</LocalizationTag>
@@ -154,30 +174,28 @@
                             <Description></Description>
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
-                      <!-- Commenting out, as it will not work with Multiple Billing Servers, when MetraControl is on one box and Billing server is on another box
-                        <MenuItem>
-                            <ID>SynchronzeAdapter</ID>
-                            <Caption>
-                                <LocalizationTag>TEXT_SYNC_ADAPTER</LocalizationTag>
-                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-                            </Caption>
-                            <Link>/MetraNet/TicketToMOM.aspx?URL=/MOM/default/dialog/UsageServer.Synchronize.asp</Link>
-                            <Target>MainContentIframe</Target>
-                            <Icon>/Res/Images/icons/database_refresh.png</Icon>
-                            <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
-                        </MenuItem>                     
-                        -->
                     </MenuItems>
-                </MenuSection>
+                </MenuSection>-->
                 <MenuSection>
                     <ID>BatchManagement</ID>
                     <Caption>
-                        <LocalizationTag>TEXT_BATCH_MANAGEMENT</LocalizationTag>
+                        <LocalizationTag>TEXT_USAGE_PROCESSING</LocalizationTag>
                         <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                     </Caption>
                     <Description></Description>
                     <MenuItems>
+                        <MenuItem>
+                          <ID>ViewMeteringStatistics</ID>
+                          <Caption>
+                            <LocalizationTag>TEXT_VIEW_METERING_STATISTICS</LocalizationTag>
+                            <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                          </Caption>
+                          <Link>/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/Usage.Statistics.Filter.asp</Link>
+                          <Target>MainContentIframe</Target>
+                          <Icon>/Res/Images/icons/grid.png</Icon>
+                          <Description></Description>
+                          <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>                      
                         <MenuItem>
                             <ID>Batch24</ID>
                             <Caption>
@@ -250,6 +268,20 @@
                             <Description></Description>
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
+                        <MenuItem>
+                            <ID>UsageDecisionAudit</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_USAGE_AUDIT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/MetraControl/Usage/SummaryGridView.aspx?SummaryGrid_TemplateFileName=UsageTransactionSummaryLayout</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/IntervalStateHardClosed.gif</Icon>
+                            <Description></Description>
+                            <RequiredCapabilities>
+                                <!--<Capability>Update Failed Transactions</Capability>-->
+                            </RequiredCapabilities>
+                        </MenuItem>
                     </MenuItems>
                 </MenuSection>
                 <MenuSection>
@@ -298,7 +330,6 @@
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
-                <!-- FEAT 144 Menu Section Starts Here -->
                 <MenuSection>
                     <ID>DataExportManagement</ID>
                     <Caption>
@@ -361,7 +392,6 @@
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
-              <!-- FEAT 144 Menu Section Starts Here -->
                 <MenuSection>
                     <ID>FileManagement</ID>
                     <Caption>
@@ -392,11 +422,7 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/application_edit.png</Icon>
                             <Description></Description>
-							<RequiredCapabilities>
-								<CompositeCapability name="Read Business Modeling Entities">
-									<AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-								</CompositeCapability>
-							</RequiredCapabilities>
+                            <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>FilesInLast24Hours</ID>
@@ -408,11 +434,7 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_white_find.png</Icon>
                             <Description></Description>
-							<RequiredCapabilities>
-								<CompositeCapability name="Read Business Modeling Entities">
-									<AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-								</CompositeCapability>
-							</RequiredCapabilities>
+                            <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>FilesInPastWeek</ID>
@@ -424,11 +446,7 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_white_find.png</Icon>
                             <Description></Description>
-							<RequiredCapabilities>
-								<CompositeCapability name="Read Business Modeling Entities">
-									<AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-								</CompositeCapability>
-							</RequiredCapabilities>
+                            <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>ActiveFiles</ID>
@@ -440,11 +458,7 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page.png</Icon>
                             <Description></Description>
-							<RequiredCapabilities>
-								<CompositeCapability name="Read Business Modeling Entities">
-									<AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-								</CompositeCapability>
-							</RequiredCapabilities>
+                            <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>ActiveFailedFiles</ID>
@@ -456,11 +470,7 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_red.png</Icon>
                             <Description></Description>
-							<RequiredCapabilities>
-								<CompositeCapability name="Read Business Modeling Entities">
-									<AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-								</CompositeCapability>
-							</RequiredCapabilities>
+                            <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>CompletedFiles</ID>
@@ -472,11 +482,7 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_green.png</Icon>
                             <Description></Description>
-							<RequiredCapabilities>
-								<CompositeCapability name="Read Business Modeling Entities">
-									<AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-								</CompositeCapability>
-							</RequiredCapabilities>
+                            <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>AllFiles</ID>
@@ -488,11 +494,7 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_copy.png</Icon>
                             <Description></Description>
-							<RequiredCapabilities>
-								<CompositeCapability name="Read Business Modeling Entities">
-									<AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-								</CompositeCapability>
-							</RequiredCapabilities>
+                            <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>RejectedFiles</ID>
@@ -504,14 +506,11 @@
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/page_white_error.png</Icon>
                             <Description></Description>
-							<RequiredCapabilities>
-								<CompositeCapability name="Read Business Modeling Entities">
-									<AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
-								</CompositeCapability>
-							</RequiredCapabilities>
+                            <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
+                <!-- available in usage section already
                 <MenuSection>
                     <ID>MeteringStatistics</ID>
                     <Caption>
@@ -534,6 +533,7 @@
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
+				-->
                 <MenuSection>
                     <ID>FailedTransactions</ID>
                     <Caption>
@@ -707,6 +707,18 @@
                     <Description></Description>
                     <MenuItems>
                         <MenuItem>
+                            <ID>USMConfig</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_USM_CONFIG</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/MetraControl/UsageServer/UsmConfig.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/cog_edit.png</Icon>
+                            <Description></Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>                      
+                        <MenuItem>
                             <ID>VersionInfo</ID>
                             <Caption>
                                 <LocalizationTag>TEXT_VERSION_INFO</LocalizationTag>
@@ -736,11 +748,17 @@
                                 <LocalizationTag>TEXT_MACHINE_ROLES</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                          <Link>/MetraNet/BME/BEList.aspx?Name=Core.MR.MachineRole&amp;NewBreadcrumb=true&amp;Extension=Core</Link>
+                            <Link>/MetraNet/BME/BEList.aspx?Name=Core.MR.MachineRole&amp;Extension=Core&amp;NewBreadcrumb=True</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/icons/computer_add.png</Icon>
                             <Description></Description>
-                            <RequiredCapabilities></RequiredCapabilities>
+                            <RequiredCapabilities>
+                                <RequiredCapabilities>
+                                    <CompositeCapability name="Read Business Modeling Entities">
+                                        <AtomicCapability atomic-type="EnumType" value=""></AtomicCapability>
+                                    </CompositeCapability>
+                                </RequiredCapabilities>
+                            </RequiredCapabilities>
                         </MenuItem>
                         <MenuItem>
                             <ID>Synchronize</ID>
@@ -756,7 +774,7 @@
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
-                <MenuSection>
+                <!--MenuSection>
                     <ID>PaymentsStatus</ID>
                     <Caption>
                         <LocalizationTag>TEXT_PAYMENTS</LocalizationTag>
@@ -777,7 +795,7 @@
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
-                </MenuSection>
+                </MenuSection-->
             </MenuSections>
         </Menu>
     </Menus>

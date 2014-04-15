@@ -299,19 +299,13 @@ public partial class Account_UpdateAccount : MTAccountPage
       update.In_Account = Account;
       update.In_AccountId = new AccountIdentifier(UI.User.AccountId);
       update.In_ApplyAccountTemplates = cbApplyTemplate.Checked;
+        update.In_LoadTime = ApplicationTime;
 
       //Approval Framework related code starts here
-      update.In_IsApprovalEnabled = false;
-
-      if (bAccountUpdateApprovalsEnabled == 1)
-      {
-        update.In_IsApprovalEnabled = true;
-      }
+        update.In_IsApprovalEnabled = bAccountUpdateApprovalsEnabled == 1;
       //Approval Framework related code ends here
 
-
       PageNav.Execute(update);
-
     }
     catch (Exception exp)
     {

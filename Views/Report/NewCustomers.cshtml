@@ -1,0 +1,19 @@
+﻿<div id="reportFilter" class="form-inline">
+  <span>Filter by territory:</span>
+  <div class="form-group">
+    @Html.DropDownList("territoryFilter", (IEnumerable<SelectListItem>)ViewBag.TerritoryList, new { @id = "territoryFilter", @class="form-control" })
+  </div>
+</div>
+<div class="control-group">
+  <div id="chartContainer">
+  </div>
+</div>
+<div class="control-group">
+  <div class="geboWrapper">
+    <div>
+      New customers for the last 60 days
+    </div>
+    <div>
+    </div>
+  </div>
+</div>

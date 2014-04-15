@@ -17,27 +17,27 @@
 
   <!-- Account Summary -->
   <item id="DEFAULT_SUMMARYPAGE">
-    <value>[APP_VIRTUAL_DIR]/Account/GenericAccountSummary.aspx</value>
+    <value>[APP_VIRTUAL_DIR]/Account/AccountLandingPage.aspx</value>
     <description>Default generic account summary page.</description>
   </item>
 
   <item id="CORESUBSCRIBER_SUMMARYPAGE">
-    <value>[APP_VIRTUAL_DIR]/Account/GenericAccountSummary.aspx</value>
+    <value>[APP_VIRTUAL_DIR]/Account/AccountLandingPage.aspx</value>
     <description>Default account summary page used for CoreSubscriber, Department, Corporate and Independent account types.</description>
   </item>
 
   <item id="DEPARTMENTACCOUNT_SUMMARYPAGE">
-    <value>[APP_VIRTUAL_DIR]/Account/GenericAccountSummary.aspx</value>
+    <value>[APP_VIRTUAL_DIR]/Account/AccountLandingPage.aspx</value>
     <description>Default account summary page used for CoreSubscriber, Department, Corporate and Independent account types.</description>
   </item>
 
   <item id="CORPORATEACCOUNT_SUMMARYPAGE">
-    <value>[APP_VIRTUAL_DIR]/Account/GenericAccountSummary.aspx</value>
+    <value>[APP_VIRTUAL_DIR]/Account/AccountLandingPage.aspx</value>
     <description>Default account summary page used for CoreSubscriber, Department, Corporate and Independent account types.</description>
   </item>
 
   <item id="INDEPENDENTACCOUNT_SUMMARYPAGE">
-    <value>[APP_VIRTUAL_DIR]/Account/GenericAccountSummary.aspx</value>
+    <value>[APP_VIRTUAL_DIR]/Account/AccountLandingPage.aspx</value>
     <description>Default account summary page used for CoreSubscriber, Department, Corporate and Independent account types.</description>
   </item>
   

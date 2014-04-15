@@ -1537,7 +1537,8 @@ PUBLIC FUNCTION Main
 		<% call response.write("<span>" & writeNumberOutput()  & "</span>") %> 
 		<BR>
 		<BR>
-		<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="2" WIDTH="100%" bgcolor="#999999"> 
+		 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" style="border-top: 1px solid #ccc" > 
+		
 		  <% call determinePaging(mbolRemove)%>
 		  <% 
 		    for each mstrTemp in mcolTableOutputStrings 

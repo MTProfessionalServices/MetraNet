@@ -124,12 +124,40 @@ function SizeWindow() {
    
     //Get the dimensions of the document
     if (b.ie) {
-      intX = document.body.scrollWidth + 28;
-      intY = document.body.scrollHeight + 31;
+     intX = document.body.scrollWidth + 40;
+    intY = document.body.scrollHeight + 40;
+
+    var tIntY = (!(document.documentElement.clientHeight)
+      || (document.documentElement.clientHeight === 0)) ?
+      // IE 5-7 Quirks and IE 4 case
+      document.body.clientHeight :
+      //IE 6+ Strict Case
+      document.documentElement.clientHeight;
+
+
+    var tIntX = (!(document.documentElement.clientWidth)
+      || (document.documentElement.clientWidth === 0)) ?
+      // IE 5-7 Quirks and IE 4 case
+      document.body.clientWidth :
+      //IE 6+ Strict Case
+      document.documentElement.clientWidth;
+
+
+    if (intX < tIntX)
+      intX = tIntX;
+
+    if (intY < document.body.scrollHeight)
+      intY = tIntY;
     }
     else {
-      intX = document.width;
-      intY = document.height;
+      intY = window.innerHeight;
+      intX = window.innerWidth;
+
+      if (intX < document.body.scrollWidth)
+        intX = document.body.scrollWidth;
+
+      if (intY < document.body.scrollHeight)
+        intY = document.body.scrollHeight;
     }
     
     //Resize if sizes are valid
@@ -146,7 +174,11 @@ function SizeWindow() {
   
     //alert('x: ' + intX + '  y: ' + intY);
     //now resize the window
+	
+	if(b.ie)
     window.resizeTo(intX+50, intY);
+	else
+		window.resizeBy(intX+50, intY);
   }
   
 }

@@ -159,7 +159,6 @@
                             <Description></Description>
                             <RequiredCapabilities>
                                 <Capability>View Quoting</Capability>
-                                <Capability>Manage Quoting</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
@@ -554,8 +553,7 @@
                             <Icon>/Res/Images/Icons/report.png</Icon>
                             <Description>Account Quoting List</Description>
                             <RequiredCapabilities>
-                                <Capability>View Quoting</Capability>
-                                <Capability>Manage Quoting</Capability>
+                                <Capability>View Quoting</Capability>								
                             </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
@@ -1077,8 +1075,7 @@
                             <Icon>/Res/Images/Icons/report.png</Icon>
                             <Description>Account Quoting List</Description>
                             <RequiredCapabilities>
-                                <Capability>View Quoting</Capability>
-                                <Capability>Manage Quoting</Capability>
+								<Capability>View Quoting</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>

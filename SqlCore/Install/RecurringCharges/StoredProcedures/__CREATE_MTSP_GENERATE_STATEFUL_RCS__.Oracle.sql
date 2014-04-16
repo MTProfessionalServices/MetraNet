@@ -260,7 +260,21 @@ BEGIN
 									  AND pci.dt_start < nui.dt_end
 									)
 							)
-							AND pci.dt_start BETWEEN rw.c_payerstart AND rw.c_payerend /* rc start goes to this payer */
+							AND (
+								pci.dt_start BETWEEN rw.c_payerstart  AND rw.c_payerend	/* rc start goes to this payer */
+								
+								/* Fix for CORE-7273:
+								Logic above, that relates to Account Billing Cycle, should be duplicated for Payer's Billing Cycle.
+								
+								CORE-7273 related case: If Now = EOP = Subscription Start then:
+								1. Not only RC's that starts in this payer's cycle should be charged, but also the one, that ends and overlaps it;
+								2. Proration wasn't calculated by trigger and should be done by EOP. */
+								OR (
+									  rw.c_SubscriptionStart >= rw.c_payerstart
+									  AND pci.dt_end >= rw.c_payerstart
+									  AND pci.dt_start < rw.c_payerend
+									)
+							)
 							AND rw.c_unitvaluestart		< pci.dt_end AND rw.c_unitvalueend	> pci.dt_start /* rc overlaps with this UDRC */
 							AND rw.c_membershipstart	< pci.dt_end AND rw.c_membershipend	> pci.dt_start /* rc overlaps with this membership */
 							AND rw.c_cycleeffectiveend	> pci.dt_start	/* rc overlaps with this cycle */

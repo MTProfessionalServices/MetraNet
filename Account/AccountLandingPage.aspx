@@ -354,20 +354,28 @@ white-space:nowrap;
     </MT:MTPanel>
     <MT:MTFilterGrid ID="SalesSummaryGrid" runat="server" TemplateFileName="SalesSummary.xml" ExtensionName="Account" Resizable="False" Title="Sales Summary"></MT:MTFilterGrid> --%>
   </div>
-  
-  <table style="width:100%; height:100%;"><tr style="vertical-align:top;"><td style="width:380px; height:336px;">
-  <div class="widget" data-row="4" data-col="1" data-sizex="3" data-sizey="3">
-    <MT:MTPanel ID="billingActivityPanel" runat="server" Text="Billing Activity" Width="380">
-      <div id="billsPaymentsChart" style="width:100%; height:100%;"></div>
-    </MT:MTPanel>
-  </div>
-  </td><td>
-  <div class="widget" data-row="4" data-col="4" data-sizex="5" data-sizey="3">
-    <MT:MTPanel ID="billingSummaryPanel" runat="server" Text="Invoices & Payments" Width="500">
-      <MT:MTFilterGrid ID="BillingSummaryGrid" runat="server" TemplateFileName="AccountBillingSummary.xml" ExtensionName="Account" Resizable="False"></MT:MTFilterGrid>
-    </MT:MTPanel>
-  </div>
-  </td></tr></table>
+
+  <table>
+    <tr style="vertical-align: top;">
+      <td style="width: 380px; height: 336px;">
+        <div class="widget" data-row="4" data-col="1" data-sizex="3" data-sizey="3">
+          <MT:MTPanel ID="billingActivityPanel" runat="server" Text="Billing Activity" Width="380">
+            <div id="billsPaymentsChart" style="width: 100%; height: 100%;">
+            </div>
+          </MT:MTPanel>
+        </div>
+      </td>
+      <td>
+        <div class="widget" data-row="4" data-col="4" data-sizex="5" data-sizey="3">
+          <MT:MTPanel ID="billingSummaryPanel" runat="server" Text="Invoices & Payments" Width="500">
+            <MT:MTFilterGrid ID="BillingSummaryGrid" runat="server" TemplateFileName="AccountBillingSummary.xml"
+              ExtensionName="Account" Resizable="False">
+            </MT:MTFilterGrid>
+          </MT:MTPanel>
+        </div>
+      </td>
+    </tr>
+  </table>
 
   <div class="widget" data-row="7" data-col="1" data-sizex="8" data-sizey="3">
   <MT:MTFilterGrid ID="SubscriptionSummaryGrid" runat="server" TemplateFileName="AccountSubscriptionSummary.xml" ExtensionName="Account" ></MT:MTFilterGrid>

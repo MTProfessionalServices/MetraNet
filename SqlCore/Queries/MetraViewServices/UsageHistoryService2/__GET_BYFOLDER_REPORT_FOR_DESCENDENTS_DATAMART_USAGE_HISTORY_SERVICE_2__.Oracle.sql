@@ -168,6 +168,8 @@
 		and :dtBegin <= au.dt_session and :dtEnd >= au.dt_session
 		and
 		%%TIME_PREDICATE%%
+		and
+		%%CURRENCY%%
 		group by
 		acc.id_acc,
 		mapd1.hierarchydisplayname, 

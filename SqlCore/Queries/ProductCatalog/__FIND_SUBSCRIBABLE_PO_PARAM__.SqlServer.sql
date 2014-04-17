@@ -1,4 +1,4 @@
-/*__FIND_SUBSCRIABLE_PO_PARAM__*/
+
 					SELECT
 					distinct(t_po.id_po),
 					t_po.id_eff_date, 
@@ -24,7 +24,8 @@
 					ta.dt_end as ta_dt_end, 
 					ta.n_endoffset as ta_n_endoffset,
 					template_po_map.b_RecurringCharge,
-					template_po_map. b_Discount1 as b_Discount
+					template_po_map. b_Discount1 as b_Discount,
+					t_po.c_POPartitionId 
 					%%COLUMNS%%
 					FROM
 						(select @refDate now) cdate,
@@ -66,6 +67,7 @@
 										inner join t_payment_redirection pr ON pr.id_payee = @idAcc
 										inner join t_av_internal tav ON tav.id_acc = pr.id_payer AND /* pl1.nm_currency_code = tav.c_Currency */
                                                                                 %%CURRENCYFILTER1%% 
+                                                                              AND %%CURRENCYFILTER3%%
 										where 
 										tav.c_Currency IS NOT NULL
 										GROUP BY c_Currency
@@ -112,6 +114,5 @@
 					ta.n_begintype <> 0 AND
 					t_base_props.id_prop = t_po.id_po AND
 					t_po.id_po = template_po_map.id_po AND
-					t_po.id_po in (select id_po from vw_acc_po_restrictions where id_acc=@idAcc) AND 
-				    %%CURRENCYFILTER3%%
-				
+					t_po.id_po in (select id_po from vw_acc_po_restrictions where id_acc=@idAcc)
+					%%PARTITIONFILTER%%

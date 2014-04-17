@@ -6,10 +6,10 @@
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>EXISTINGTEMPLATES</Name>
+            <Name>ExistingTemplates</Name>
             <DataType>sqlsubstitution</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <SubstitutionSyntaxCheck>SELECT c_TemplateName as TemplateName from t_be_cor_cre_creditnotetmpl</SubstitutionSyntaxCheck>
             <Description>List of existing templates in the system</Description>
         </Parameter>
     </Parameters>

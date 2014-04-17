@@ -96,7 +96,8 @@ WHERE 1=1
 AND at.b_IsVisibleInHierarchy = '1'
 AND ('%%COMPANY_NAME%%' = '' OR EXISTS (SELECT 1 FROM t_av_Contact avc WHERE avc.c_Company LIKE '%%COMPANY_NAME%%' AND avc.id_acc = acc.id_acc))
 AND ('%%USER_NAME%%' = '' OR map.nm_login LIKE '%%USER_NAME%%')
-AND ns.tx_typ_space = '%%TYPE_SPACE%%' 
+/* AND ns.tx_typ_space = '%%TYPE_SPACE%%' Fix for CORE-7409*/ 
+AND (ns.tx_typ_space = '%%TYPE_SPACE%%' OR ( (ns.tx_typ_space = 'system_user' and accs.id_ancestor <> 1 )))
 ) a
 where 1=1
 AND RowNumber > @PageSize * (@PageNumber -1)

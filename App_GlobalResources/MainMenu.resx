@@ -360,9 +360,6 @@
     <data name="TEXT_MANAGE_AGREEMENT_TEMPLATES" xml:space="preserve">
         <value>Manage Agreement Templates</value>
     </data>
-    <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
-        <value>Manage AMP Decision Types</value>
-    </data>
     <data name="TEXT_MANAGE_BILLSOFT_EXEMPTIONS" xml:space="preserve">
         <value>Manage BillSoft Exemptions</value>
     </data>
@@ -632,48 +629,21 @@
     </data>
   <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
     <value>View Item History</value>
-  </data>        
-  <data name="TEXT_SELF_CARE_PORTAL" xml:space="preserve">
-    <value>Self Care Portal</value>
-  </data>
-  <data name="TEXT_SHOW_ALL_CHANGES_SUMMARY" xml:space="preserve">
-    <value>All Changes</value>
   </data>
   <data name="TEXT_ADD_PARTITION" xml:space="preserve">
     <value>Add Partition</value>
   </data>
-  <data name="TEXT_SHOW_PENDING_CHANGES_SUMMARY" xml:space="preserve">
-    <value>Pending Changes</value>
-  </data>
   <data name="TEXT_MASTER_OFFERINGS" xml:space="preserve">
     <value>Master Product Offerings</value>
   </data>
-  <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
-    <value>Failed Changes</value>
-  </data>
-  <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
-    <value>Shared Properties</value>
-  </data>
-  <data name="TEXT_PAYMENT_TRANSACTIONS" xml:space="preserve">
-    <value>Payment Transactions</value>
-  </data>
   <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
     <value>Decision Types</value>
-  </data>
-  <data name="TEXT_MANAGE" xml:space="preserve">
-    <value>Manage</value>
-  </data>
-  <data name="TEXT_REFRESH" xml:space="preserve">
-    <value>Refresh</value>
   </data>
   <data name="TEXT_SELF_CARE_PORTAL" xml:space="preserve">
     <value>Self Care Portal</value>
   </data>
   <data name="TEXT_ADD_TENANT" xml:space="preserve">
     <value>Add Partition</value>
-  </data>
-  <data name="TEXT_MASTER_OFFERINGS" xml:space="preserve">
-    <value>Master Product Offerings</value>
   </data>
   <data name="TEXT_REPORTS" xml:space="preserve">
     <value>Reports</value>

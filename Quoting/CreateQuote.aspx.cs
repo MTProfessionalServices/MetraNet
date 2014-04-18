@@ -110,5 +110,15 @@ namespace MetraNet.Quoting
       return result;
     }
     #endregion
+
+    protected void btnGenerateQuote_Click(object sender, EventArgs e)
+    {
+      throw new NotImplementedException();
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+      throw new NotImplementedException();
+    }
   }
 }

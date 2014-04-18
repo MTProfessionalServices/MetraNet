@@ -319,6 +319,34 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="MetraTech.DomainModel.Enums.Core.Metratech_com.QuoteStatus, MetraTech.DomainModel.Enums.Generated" />
     </property>
+    <property name="AccountsInfo" column="c_AccountsInfo" length="2000">
+      <meta attribute="label">AccountsInfo</meta>
+      <meta attribute="description">String for display accounts in quote</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
+    <property name="POsInfo" column="c_POsInfo" length="2000">
+      <meta attribute="label">POsInfo</meta>
+      <meta attribute="description">String for display POs in quote</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
     <bag name="AccountForQuotes" access="field.camelcase-underscore" inverse="true" cascade="delete">
       <meta attribute="relationship-type">OneToMany</meta>
       <meta attribute="relationship-name">QuoteHeader_AccountForQuotes</meta>

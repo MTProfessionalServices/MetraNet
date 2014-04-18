@@ -552,9 +552,9 @@
   <data name="TEXT_UPDATE_EXISTING_REPORT_DEFINITIONS" xml:space="preserve">
     <value>既存の報告書定義の更新</value>
   </data>
-    <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-        <value>Usage Audit</value>
-    </data>
+  <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
+    <value>Usage Audit</value>
+  </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>利用サーバーのメンテナンス</value>
   </data>
@@ -590,5 +590,20 @@
   </data>
   <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
     <value>[ja]Add child Account</value>
+  </data>
+  <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
+    <value>[ja]Bill Messages</value>
+  </data>
+  <data name="TEXT_FINANCE_DASHBOARD" xml:space="preserve">
+    <value>[ja]Finance Dashboard</value>
+  </data>
+  <data name="TEXT_MANAGE_BILL_MESSAGES" xml:space="preserve">
+    <value>[ja]Manage Bill Messages</value>
+  </data>
+  <data name="TEXT_OPERATIONS_DASHBOARD" xml:space="preserve">
+    <value>[ja]Operations Dashboard</value>
+  </data>
+  <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
+    <value>[ja]Product Dashboard</value>
   </data>
 </root>

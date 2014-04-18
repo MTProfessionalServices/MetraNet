@@ -17,7 +17,8 @@
 						<MenuItem>
 							<ID>MetraOfferDashboard</ID>
 							<Caption>
-								<Value><![CDATA[Product Dashboard]]></Value>
+                <LocalizationTag>TEXT_PRODUCT_DASHBOARD</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
 							</Caption>
 							<Link>/MetraNet/MetraOffer/ProductDashboard.aspx</Link>
 							<Target>MainContentIframe</Target>
@@ -157,14 +158,16 @@
                 <MenuSection>
                     <ID>BillMessages</ID>
                     <Caption>
-                        <Value><![CDATA[Bill Messages]]></Value>
+                      <LocalizationTag>TEXT_BILL_MESSAGES</LocalizationTag>
+                      <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                     </Caption>
                     <Description>Bill Messages</Description>
                     <MenuItems>
                         <MenuItem>
                             <ID>ManageBillMessages</ID>
                             <Caption>
-                                <Value><![CDATA[Manage Bill Messages]]></Value>
+                              <LocalizationTag>TEXT_MANAGE_BILL_MESSAGES</LocalizationTag>
+                              <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link>/MetraNet/BillMessages/BillMessages.aspx?Name=Core.BillMessages.BillMessage&amp;Extension=Core&amp;NewBreadcrumb=True</Link>
                             <Target>MainContentIframe</Target>

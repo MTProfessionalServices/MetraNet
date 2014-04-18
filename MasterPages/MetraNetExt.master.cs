@@ -13,7 +13,7 @@ using YAAC = MetraTech.Interop.MTYAAC;
 public partial class MasterPages_MetraNetExt : System.Web.UI.MasterPage
 {
     public string LoadUserAccount = "#";
-    public string StartingURL = "/MetraNet/MetraControl/ControlCenter/OperationsDashboard.aspx";
+    public string StartingURL = "/MetraNet/Welcome.aspx";
     public string SubscriberInfo;
     public string UserInfo;
     public int UserId;

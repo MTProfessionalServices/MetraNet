@@ -28,7 +28,8 @@
                         <MenuItem>
                             <ID>ReportsMetraControlDashboard</ID>
                             <Caption>
-                                <Value><![CDATA[Operations Dashboard]]></Value>
+                              <LocalizationTag>TEXT_OPERATIONS_DASHBOARD</LocalizationTag>
+                              <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link>/MetraNet/MetraControl/ControlCenter/OperationsDashboard.aspx</Link>
                             <Target>MainContentIframe</Target>
@@ -39,7 +40,8 @@
                         <MenuItem>
                             <ID>ReportsMetraOfferDashboard</ID>
                             <Caption>
-                                <Value><![CDATA[Product Dashboard]]></Value>
+                              <LocalizationTag>TEXT_PRODUCT_DASHBOARD</LocalizationTag>
+                              <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link>/MetraNet/MetraOffer/ProductDashboard.aspx</Link>
                             <Target>MainContentIframe</Target>
@@ -50,7 +52,8 @@
                         <MenuItem>
                             <ID>ReportsAnalyticsDashboard</ID>
                             <Caption>
-                                <Value><![CDATA[Finance Dashboard]]></Value>
+                              <LocalizationTag>TEXT_FINANCE_DASHBOARD</LocalizationTag>
+                              <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link>/MetraNet/ReportsAnalyticsDashboard.aspx</Link>
                             <Target>MainContentIframe</Target>

@@ -603,4 +603,19 @@
   <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
     <value>[pt-br]Add child Account</value>
   </data>
+  <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
+    <value>[pt-br]Bill Messages</value>
+  </data>
+  <data name="TEXT_FINANCE_DASHBOARD" xml:space="preserve">
+    <value>[pt-br]Finance Dashboard</value>
+  </data>
+  <data name="TEXT_MANAGE_BILL_MESSAGES" xml:space="preserve">
+    <value>[pt-br]Manage Bill Messages</value>
+  </data>
+  <data name="TEXT_OPERATIONS_DASHBOARD" xml:space="preserve">
+    <value>[pt-br]Operations Dashboard</value>
+  </data>
+  <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
+    <value>[pt-br]Product Dashboard</value>
+  </data>
 </root>

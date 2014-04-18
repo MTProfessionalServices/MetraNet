@@ -1,29 +1,13 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.ServiceModel;
-using System.Text;
-using System.Web;
-using System.Web.Script.Serialization;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
 using MetraTech.ActivityServices.Common;
-using MetraTech.DataAccess;
 using MetraTech.Debug.Diagnostics;
-using MetraTech.SecurityFramework;
 using MetraTech.UI.Common;
 
 
 public partial class AjaxServices_VisualizeService : MTListServicePage
 {
-    string sqlQueriesPath = @"..\Extensions\SystemConfig\config\SqlCustom\Queries\UI\Dashboard";
-
-    protected void Page_Load(object sender, EventArgs e)
+  protected void Page_Load(object sender, EventArgs e)
     {
         //parse query name
         String operation = Request["operation"];

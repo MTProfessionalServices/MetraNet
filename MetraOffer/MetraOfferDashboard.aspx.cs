@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using MetraTech.UI.Common;
-using MetraTech.PageNav.ClientProxies;
-using MetraTech.DomainModel.BaseTypes;
 using MetraTech.UI.Controls;
 
 public partial class MetraOfferDashboard : MTPage
@@ -50,15 +48,13 @@ public partial class MetraOfferDashboard : MTPage
 
   private void loadGrids()
   {
-      string queryPath = "..\\Extensions\\SystemConfig\\config\\Queries";
-      Dictionary<string, object> paramDict = new Dictionary<string, object>();
+    //string queryPath = "..\\Extensions\\SystemConfig\\config\\Queries";
+    Dictionary<string, object> paramDict = new Dictionary<string, object>();
 
 
-       //ConfigureAndLoadGrid(grdFailedAdapters, "__GET_FAILED_ADAPTERS__", queryPath, paramDict);
-      //ConfigureAndLoadGrid(grdRunningAdapters, "__GET_RUNNING_ADAPTERS__", queryPath, paramDict);
-        
+    //ConfigureAndLoadGrid(grdFailedAdapters, "__GET_FAILED_ADAPTERS__", queryPath, paramDict);
+    //ConfigureAndLoadGrid(grdRunningAdapters, "__GET_RUNNING_ADAPTERS__", queryPath, paramDict);
   }
-
 
   private void ConfigureAndLoadGrid(MTFilterGrid grid, string queryName, string queryPath, Dictionary<string, object> paramDict)
   {

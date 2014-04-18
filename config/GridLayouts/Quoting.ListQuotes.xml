@@ -2,8 +2,8 @@
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <Name>Quoting.ListQuotes</Name>
     <Title>
-        <LocalizationTag>GRID_TITLE</LocalizationTag>
-        <ResourceClassKey></ResourceClassKey>
+        <LocalizationTag>QUOTE_LIST</LocalizationTag>
+        <ResourceClassKey>Quoting/App_LocalResources/QuoteList.aspx</ResourceClassKey>
     </Title>
     <Exportable>true</Exportable>
     <Height>0</Height>

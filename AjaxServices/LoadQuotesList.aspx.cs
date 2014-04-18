@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Web;
@@ -15,78 +16,6 @@ namespace MetraNet.AjaxServices
   public partial class LoadQuotesList : MTListServicePage
   {
     private const int MaxRecordsPerBatch = 50;
-
-    protected bool ExtractDataInternal(ref MTList<EntityInstance> items, int batchID, int limit)
-    {
-      try
-      {        
-          var client = new EntityInstanceService_LoadEntityInstances_Client {UserName = UI.User.UserName};
-          client.Password = UI.User.SessionPassword;
-
-          items.Items.Clear();
-
-          items.PageSize = limit;
-          items.CurrentPage = batchID;
-
-          client.In_entityName = "Core.Quoting.QuoteHeader";
-          client.InOut_entityInstances = items;
-
-          client.Invoke();
-          items = client.InOut_entityInstances;        
-      }
-      catch (FaultException<MASBasicFaultDetail> ex)
-      {
-        Response.StatusCode = 500;
-        Logger.LogError(ex.Detail.ErrorMessages[0]);
-        Response.End();
-        return false;
-      }
-      catch (Exception ex)
-      {
-        Response.StatusCode = 500;
-        Logger.LogError(ex.Message);
-        Response.End();
-        return false;
-      }
-
-      return true;
-    }
-
-    protected bool ExtractData(ref MTList<EntityInstance> items)
-    {
-      if (Page.Request["mode"] == "csv")
-      {
-        Response.BufferOutput = false;
-        Response.ContentType = "application/csv";
-        Response.AddHeader("Content-Disposition", "attachment; filename=export.csv");
-      }
-
-      //if there are more records to process than we can process at once, we need to break up into multiple batches
-      if ((items.PageSize > MaxRecordsPerBatch) && (Page.Request["mode"] == "csv"))
-      {
-        int advancePage = (items.PageSize % MaxRecordsPerBatch != 0) ? 1 : 0;
-
-        int numBatches = advancePage + (items.PageSize / MaxRecordsPerBatch);
-        for (int batchID = 0; batchID < numBatches; batchID++)
-        {
-          ExtractDataInternal(ref items, batchID + 1, MaxRecordsPerBatch);
-
-          string strCSV = ConvertObjectToCSV(items, (batchID == 0));
-          Response.Write(strCSV);
-        }
-      }
-      else
-      {
-        ExtractDataInternal(ref items, items.CurrentPage, items.PageSize);
-        if (Page.Request["mode"] == "csv")
-        {
-          string strCSV = ConvertObjectToCSV(items, true);
-          Response.Write(strCSV);
-        }
-      }
-
-      return true;
-    }
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -136,13 +65,132 @@ namespace MetraNet.AjaxServices
 
       }
     }
+
+    protected bool ExtractData(ref MTList<EntityInstance> items)
+    {
+      if (Page.Request["mode"] == "csv")
+      {
+        Response.BufferOutput = false;
+        Response.ContentType = "application/csv";
+        Response.AddHeader("Content-Disposition", "attachment; filename=export.csv");
+      }
+
+      //if there are more records to process than we can process at once, we need to break up into multiple batches
+      if ((items.PageSize > MaxRecordsPerBatch) && (Page.Request["mode"] == "csv"))
+      {
+        int advancePage = (items.PageSize%MaxRecordsPerBatch != 0) ? 1 : 0;
+
+        int numBatches = advancePage + (items.PageSize/MaxRecordsPerBatch);
+        for (int batchID = 0; batchID < numBatches; batchID++)
+        {
+          ExtractDataInternal(ref items, batchID + 1, MaxRecordsPerBatch);
+
+          string strCSV = ConvertObjectToCSV(items, (batchID == 0));
+          Response.Write(strCSV);
+        }
+      }
+      else
+      {
+        ExtractDataInternal(ref items, items.CurrentPage, items.PageSize);
+        if (Page.Request["mode"] == "csv")
+        {
+          string strCSV = ConvertObjectToCSV(items, true);
+          Response.Write(strCSV);
+        }
+      }
+
+      return true;
+    }
+
+    protected bool ExtractDataInternal(ref MTList<EntityInstance> items, int batchID, int limit)
+    {
+      items.Items.Clear();
+      items.PageSize = limit;
+      items.CurrentPage = batchID;
+      try
+      {
+        var accountsFilterValue = Request["Accounts"];
+        if (accountsFilterValue != "ALL" && UI.Subscriber.SelectedAccount != null)
+        {
+          var accountId = UI.Subscriber.SelectedAccount._AccountID.GetValueOrDefault();
+          GetQuotesByAccountId(ref items, accountId);
+        }
+        else
+          GetQuotes(ref items);
+      }
+      catch (FaultException<MASBasicFaultDetail> ex)
+      {
+        Response.StatusCode = 500;
+        Logger.LogError(ex.Detail.ErrorMessages[0]);
+        Response.End();
+        return false;
+      }
+      catch (Exception ex)
+      {
+        Response.StatusCode = 500;
+        Logger.LogError(ex.Message);
+        Response.End();
+        return false;
+      }
+
+      return true;
+    }
+
+    private void GetQuotesByAccountId(ref MTList<EntityInstance> items, int accountId)
+    {
+      var filter1 = new MTFilterElement("AccountID", MTFilterElement.OperationType.Equal, accountId);
+      var client1 = new EntityInstanceService_LoadEntityInstances_Client
+        {
+          UserName = UI.User.UserName,
+          Password = UI.User.SessionPassword,
+          In_entityName = "Core.Quoting.AccountForQuote",
+          InOut_entityInstances = new MTList<EntityInstance>()
+        };
+      client1.InOut_entityInstances.Filters.Add(filter1);
+      client1.Invoke();
+
+      var ids = client1.InOut_entityInstances.Items.Select(item => item.ForeignKeyProperties[0].Value).ToArray();
+      items.TotalRows = ids.Length;
+      var end = items.CurrentPage*items.PageSize;
+      var begin = end - items.PageSize;
+      if (end > ids.Length) end = ids.Length;
+      for (var i = begin; i < end; i++)
+      {
+        var filter2 = new MTFilterElement("Id", MTFilterElement.OperationType.Equal, ids[i]);
+        var client2 = GetClientQuote();
+        client2.InOut_entityInstances = new MTList<EntityInstance>();
+        client2.InOut_entityInstances.Filters.AddRange(items.Filters);
+        client2.InOut_entityInstances.Filters.Add(filter2);
+        client2.Invoke();
+        items.Items.AddRange(client2.InOut_entityInstances.Items);
+      }
+    }
+
+    private void GetQuotes(ref MTList<EntityInstance> items)
+    {
+      var client = GetClientQuote();
+      client.InOut_entityInstances = items;
+      client.Invoke();
+      items = client.InOut_entityInstances;
+    }
+
+    private EntityInstanceService_LoadEntityInstances_Client GetClientQuote()
+    {
+      return new EntityInstanceService_LoadEntityInstances_Client
+        {
+          UserName = UI.User.UserName,
+          Password = UI.User.SessionPassword,
+          In_entityName = "Core.Quoting.QuoteHeader"
+        };
+    }
+
     //for BME entity
     private string SerialiseItemsToJason(MTList<EntityInstance> items)
     {
       var json = new StringBuilder();
 
       json.Append("{\"TotalRows\":");
-// ReSharper disable SpecifyACultureInStringConversionExplicitly
+      // ReSharper disable SpecifyACultureInStringConversionExplicitly
       json.Append(items.TotalRows.ToString());
       json.Append(", \"Items\":[");
 
@@ -276,6 +324,5 @@ namespace MetraNet.AjaxServices
       json.Append("\"}");
       return json.ToString();
     }
-
   }
 }

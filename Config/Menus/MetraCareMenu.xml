@@ -153,7 +153,7 @@
                                 <LocalizationTag>TEXT_QUOTING_LIST</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/Quoting/QuoteList.aspx</Link>
+                            <Link>/MetraNet/Quoting/QuoteList.aspx?Accounts=ALL</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/Icons/report.png</Icon>
                             <Description></Description>

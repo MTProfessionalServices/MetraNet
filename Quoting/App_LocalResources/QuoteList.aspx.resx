@@ -117,6 +117,9 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="CREATE_QUOTE" xml:space="preserve">
+        <value>Create quote</value>
+    </data>
     <data name="CREATION_DATE" xml:space="preserve">
         <value>Creation date</value>
     </data>
@@ -140,6 +143,12 @@
     </data>
     <data name="QUOTE_FAILEDMESSAGE" xml:space="preserve">
         <value>Failed message</value>
+    </data>
+    <data name="QUOTE_LIST" xml:space="preserve">
+        <value>Quotes list</value>
+    </data>
+    <data name="QUOTE_PARAMETERS" xml:space="preserve">
+        <value>Quote parameters</value>
     </data>
     <data name="QUOTE_POS" xml:space="preserve">
         <value>Product offerings</value>

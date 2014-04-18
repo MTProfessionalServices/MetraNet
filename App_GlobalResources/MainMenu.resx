@@ -141,6 +141,9 @@
     <data name="TEXT_ADD_ACCOUNT_WEBSERVICE" xml:space="preserve">
         <value>Add Account with Web Service</value>
     </data>
+    <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
+        <value>Add child Account</value>
+    </data>
     <data name="TEXT_ADD_CSR" xml:space="preserve">
         <value>Add CSR</value>
     </data>
@@ -149,6 +152,9 @@
     </data>
     <data name="TEXT_ADD_NEW_REPORT_PARAMETERS" xml:space="preserve">
         <value>Add New Report Parameters</value>
+    </data>
+    <data name="TEXT_ADD_PARTITION" xml:space="preserve">
+        <value>Add Partition</value>
     </data>
     <data name="TEXT_ADJUST_TRANSACTIONS" xml:space="preserve">
         <value>Adjust Transactions</value>
@@ -179,6 +185,9 @@
     </data>
     <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
         <value>Approvals</value>
+    </data>
+    <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
+        <value>Assign Bill Messages</value>
     </data>
     <data name="TEXT_ASSIGN_UPDATE_REPORT_PARAMETERS" xml:space="preserve">
         <value>Assign Report Parameters</value>
@@ -261,11 +270,14 @@
     <data name="TEXT_CREATE_BACKOUT_RERUN" xml:space="preserve">
         <value>Create Backout/Rerun</value>
     </data>
-	<data name="TEXT_CREATE_CREDIT_NOTE" xml:space="preserve">
+    <data name="TEXT_CREATE_CREDIT_NOTE" xml:space="preserve">
         <value>Create Credit Note</value>
     </data>
     <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
         <value>Add New Report Instance</value>
+    </data>
+    <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
+        <value>Create quote</value>
     </data>
     <data name="TEXT_CREATE_REMITTANCE" xml:space="preserve">
         <value>Create Remittance</value>
@@ -381,7 +393,7 @@
     <data name="TEXT_MANAGE_MISC_ADJUSTMENTS" xml:space="preserve">
         <value>Manage Misc. Adjustments</value>
     </data>
-	<data name="TEXT_MANAGE_NON_STANDARD_CHARGES" xml:space="preserve">
+    <data name="TEXT_MANAGE_NON_STANDARD_CHARGES" xml:space="preserve">
         <value>Manage Nonstandard Charges</value>
     </data>
     <data name="TEXT_MANAGE_ORPHAN_ADJUSTMENTS" xml:space="preserve">
@@ -395,6 +407,9 @@
     </data>
     <data name="TEXT_MANAGE_SECURITY" xml:space="preserve">
         <value>Manage Security</value>
+    </data>
+    <data name="TEXT_MASTER_OFFERINGS" xml:space="preserve">
+        <value>Master Product Offerings</value>
     </data>
     <data name="TEXT_MENU_GENERATE_PASSWORD" xml:space="preserve">
         <value>Generate Password</value>
@@ -528,6 +543,9 @@
     <data name="TEXT_SECURITY" xml:space="preserve">
         <value>Security</value>
     </data>
+    <data name="TEXT_SELF_CARE_PORTAL" xml:space="preserve">
+        <value>Self Care Portal</value>
+    </data>
     <data name="TEXT_SEND_EMAIL_DIALOG" xml:space="preserve">
         <value>Send E-Mail</value>
     </data>
@@ -554,7 +572,10 @@
     </data>
     <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
         <value>View Failed Changes</value>
-    </data>    
+    </data>
+    <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
+        <value>View Item History</value>
+    </data>
     <data name="TEXT_SHOW_PENDING_CHANGES_SUMMARY" xml:space="preserve">
         <value>View Pending Changes</value>
     </data>
@@ -612,7 +633,7 @@
     <data name="TEXT_VERSION_INFO" xml:space="preserve">
         <value>Version Information</value>
     </data>
-	<data name="TEXT_VIEW_CREDIT_NOTES_ISSUED" xml:space="preserve">
+    <data name="TEXT_VIEW_CREDIT_NOTES_ISSUED" xml:space="preserve">
         <value>View Credit Notes Issued</value>
     </data>
     <data name="TEXT_VIEW_METERING_STATISTICS" xml:space="preserve">
@@ -621,22 +642,4 @@
     <data name="TEXT_VIEWONLINE_BILL" xml:space="preserve">
         <value>View Online Bill</value>
     </data>
-    <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
-        <value>Assign Bill Messages</value>
-    </data>
-    <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
-        <value>Add child Account</value>
-    </data>
-  <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
-    <value>View Item History</value>
-  </data>        
-  <data name="TEXT_SELF_CARE_PORTAL" xml:space="preserve">
-    <value>Self Care Portal</value>
-  </data>
-  <data name="TEXT_ADD_PARTITION" xml:space="preserve">
-    <value>Add Partition</value>
-  </data>
-  <data name="TEXT_MASTER_OFFERINGS" xml:space="preserve">
-    <value>Master Product Offerings</value>
-  </data>
 </root>

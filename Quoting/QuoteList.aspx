@@ -41,8 +41,7 @@
     }
 
     function onNew_<%= QuoteListGrid.ClientID %>() {
-      //document.location.href = String.format("QuoteEdit.aspx?accountId={0}", accountId);
-      alert("Does not implement");
+      document.location.href = String.format("CreateQuote.aspx");
     }
     
     function onEdit(entityId) {

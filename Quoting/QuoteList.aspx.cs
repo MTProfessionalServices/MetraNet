@@ -20,6 +20,15 @@ namespace MetraNet.Quoting
       Page.ClientScript.RegisterClientScriptBlock(GetType(), "CallServer", callbackScript, true);
     }
 
+    protected override void OnLoadComplete(EventArgs e)
+    {
+      var accountsFilterValue = Request["Accounts"];
+      if (String.IsNullOrEmpty(accountsFilterValue)) return;
+
+      if (accountsFilterValue == "ALL")
+        QuoteListGrid.DataSourceURL = @"../AjaxServices/LoadQuotesList.aspx?Accounts=ALL";
+    }
+
     #region Implementation of ICallbackEventHandler
 
     private string _callbackResult = string.Empty;

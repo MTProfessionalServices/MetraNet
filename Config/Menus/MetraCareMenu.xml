@@ -923,7 +923,7 @@
                           <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                         </Caption>
                         <!--<Link>[AccountSummaryPage]</Link>-->
-                        <Link>[APP_VIRTUAL_DIR]/Account/GenericAccountSummary.aspx</Link>
+                        <Link>/MetraNet/Account/GenericAccountSummary.aspx</Link>
                         <Target>MainContentIframe</Target>
                         <Icon>/Res/Images/icons/report_user.png</Icon>
                         <Description>Account Summary Details</Description>

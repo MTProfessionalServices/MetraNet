@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true"
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true"
   CodeFile="CreateQuote.aspx.cs" Inherits="MetraNet.Quoting.CreateQuote" Title="MetraNet - Create quote"
   Culture="auto" UICulture="auto" %>
 
@@ -26,8 +26,7 @@
   <br />
   <MT:MTPanel ID="MTPanelQuoteAccounts" runat="server" Text="Accounts for quote" Collapsible="True"
     Collapsed="False" meta:resourcekey="MTPanelQuoteAccountsResource">
-    <asp:PlaceHolder ID="PlaceHolderAccountsGrid" runat="server"></asp:PlaceHolder> 
-     <br />GRID WITH ACCOUNT IDs QUOTE (for add account to the list uses MTInlineSearch component and grid rendered by JS like on ubscriptions\SetUDRCValues.aspx page)<br /> <br />
+    <div id="PlaceHolderAccountsGrid" style="margin:10px"></div>
     <MT:MTCheckBoxControl BoxLabel="Is GroupSubscription" ID="MTcbIsGroupSubscription" Text = "Is GroupSubscription" runat="server" LabelWidth="200"  />
     <MT:MTDropDown ID="MTddCorporateAccount" Label = "Corporate Account" LabelWidth="200" runat="server" meta:resourcekey="MTDropDownCorporateAccountResource" />
     <%--<MT:MTInlineSearch ID="MTisAddAccount" runat="server" TabIndex="210" AllowBlank="False"

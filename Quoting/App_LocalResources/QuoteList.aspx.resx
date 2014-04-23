@@ -136,7 +136,7 @@
         <value>MetraNet - Quotes List</value>
     </data>
     <data name="QUOTE_ACCOUNTS" xml:space="preserve">
-        <value>Accounts</value>
+        <value>Account's IDs</value>
     </data>
     <data name="QUOTE_DESCRIPTION" xml:space="preserve">
         <value>Quote description</value>
@@ -151,7 +151,7 @@
         <value>Quote parameters</value>
     </data>
     <data name="QUOTE_POS" xml:space="preserve">
-        <value>Product offerings</value>
+        <value>Product offerings's IDs</value>
     </data>
     <data name="QUOTE_STATUS" xml:space="preserve">
         <value>Quote status</value>

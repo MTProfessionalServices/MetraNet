@@ -5,6 +5,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Web.Script.Serialization;
 using System.Web.UI;
+using MetraTech;
 using MetraTech.Domain.Quoting;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.UI.Common;
@@ -24,6 +25,9 @@ namespace MetraNet.Quoting
       var cbReference = Page.ClientScript.GetCallbackEventReference(this, "arg", "ReceiveServerData", "context");
       var callbackScript = "function CallServer(arg, context)" + "{ " + cbReference + ";}";
       Page.ClientScript.RegisterClientScriptBlock(GetType(), "CallServer", callbackScript, true);
+
+      MTdpStartDate.Text = MetraTime.Now.Date.ToString();
+      MTdpEndDate.Text = MetraTime.Now.Date.AddMonths(1).ToString();
 
       #region render Accounts grid
       //todo Create code to render Accounts grid dynamically
@@ -135,31 +139,41 @@ namespace MetraNet.Quoting
 
     protected void btnGenerateQuote_Click(object sender, EventArgs e)
     {
-      SetQuoteRequestInput();
-      InvokeCreateQuote(RequestForCreateQuote);
-      Response.Redirect("/MetraNet/Quoting/QuoteList.aspx", false);
+      try
+      {
+        Page.Validate();
+        InvokeCreateQuote(RequestForCreateQuote);
+        Response.Redirect("/MetraNet/Quoting/QuoteList.aspx", false);
+
+      }
+      catch (MASBasicException exp)
+      {
+        SetError(exp.Message);
+      }
+      catch (Exception exp)
+      {
+        SetError(exp.Message);
+      }
     }
 
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-      if (Request.UrlReferrer != null) 
-        Response.Redirect(Request.UrlReferrer.ToString());
-      else
-        Response.Redirect("/MetraNet/Quoting/QuoteList.aspx", false);
+      Response.Redirect(UI.DictionaryManager["DashboardPage"].ToString());
     }
 
     private QuoteRequest RequestForCreateQuote { get; set; }
 
     private void SetQuoteRequestInput()
     {
-      RequestForCreateQuote = new QuoteRequest();
-      RequestForCreateQuote.QuoteDescription = MTtbQuoteDescription.Text;
-      RequestForCreateQuote.EffectiveDate = Convert.ToDateTime(MTdpStartDate.CompareValue);
-      RequestForCreateQuote.EffectiveEndDate = Convert.ToDateTime(MTdpStartDate.CompareValue);
-      RequestForCreateQuote.ReportParameters.PDFReport = MTcbPdf.Checked;
-
-      RequestForCreateQuote.Accounts = Accounts;
-      RequestForCreateQuote.ProductOfferings = Pos;
+      RequestForCreateQuote = new QuoteRequest
+        {
+          QuoteDescription = MTtbQuoteDescription.Text,
+          EffectiveDate = Convert.ToDateTime(MTdpStartDate.Text),
+          EffectiveEndDate = Convert.ToDateTime(MTdpStartDate.Text),
+          ReportParameters = { PDFReport = MTcbPdf.Checked },
+          Accounts = Accounts,
+          ProductOfferings = Pos
+        };
 
       //RequestForCreateQuote.SubscriptionParameters.UDRCValues = UDRCs;
 
@@ -168,15 +182,22 @@ namespace MetraNet.Quoting
     public override void Validate()
     {
       SetQuoteRequestInput();
-      //todo call for Validate method
+
+      using (var client = new QuotingServiceClient())
+      {
+        if (client.ClientCredentials != null)
+        {
+          client.ClientCredentials.UserName.UserName = UI.User.UserName;
+          client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+        }
+        client.ValidateRequest(RequestForCreateQuote);
+      }
     }
 
 
     private void InvokeCreateQuote(QuoteRequest request)
     {
-      var client = new QuotingServiceClient();
-
-      try
+      using (var client = new QuotingServiceClient())
       {
         QuoteResponse response;
         if (client.ClientCredentials != null)
@@ -184,18 +205,7 @@ namespace MetraNet.Quoting
           client.ClientCredentials.UserName.UserName = UI.User.UserName;
           client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
         }
-        client.CreateQuote(request, out response);
-      }
-      finally
-      {
-        if (client.State == CommunicationState.Opened)
-        {
-          client.Close();
-        }
-        else
-        {
-          client.Abort();
-        }
+        client.CreateQuoteWithoutValidation(request, out response);
       }
     }
 
@@ -217,6 +227,6 @@ namespace MetraNet.Quoting
       //PlaceHolderPOJavaScript.Controls.Add(gridJS);
     }
 
-    
+
   }
 }

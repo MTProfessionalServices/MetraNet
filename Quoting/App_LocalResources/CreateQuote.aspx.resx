@@ -183,4 +183,19 @@
   <data name="USERNAME" xml:space="preserve">
     <value>User Name</value>
   </data>
+  <data name="POID" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="PONAME" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="PO_GRID_TITLE" xml:space="preserve">
+    <value>Product Offerings</value>
+  </data>
+  <data name="REMOVE_PO" xml:space="preserve">
+    <value>Remove product offering</value>
+  </data>
+  <data name="SELECT_POS" xml:space="preserve">
+    <value>Select Product Offerings</value>
+  </data>
 </root>

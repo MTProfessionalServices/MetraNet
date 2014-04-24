@@ -52,9 +52,8 @@ namespace MetraNet.Quoting
       #endregion
 
       #region render product offerings grid
-      //todo Create code to render product offerings grid dynamically
-      Pos = new List<int> { 123, 543 };
-      SetupPOGrid();
+      
+      PoRenderGrid();
 
       #endregion
     }
@@ -181,6 +180,7 @@ namespace MetraNet.Quoting
       RequestForCreateQuote = new QuoteRequest
         {
           QuoteDescription = MTtbQuoteDescription.Text,
+          QuoteIdentifier =  MTtbQuoteIdentifier.Text,
           EffectiveDate = Convert.ToDateTime(MTdpStartDate.Text),
           EffectiveEndDate = Convert.ToDateTime(MTdpStartDate.Text),
           ReportParameters = { PDFReport = MTcbPdf.Checked },
@@ -196,6 +196,10 @@ namespace MetraNet.Quoting
     {
       if (!string.IsNullOrEmpty(HiddenAcctIdTextBox.Value))
         Accounts = HiddenAcctIdTextBox.Value.Split(',').Select(int.Parse).ToList();
+
+      if (!string.IsNullOrEmpty(HiddenPoIdTextBox.Value))
+        Pos = HiddenPoIdTextBox.Value.Split(',').Select(int.Parse).ToList();
+
       SetQuoteRequestInput();
 
       using (var client = new QuotingServiceClient())
@@ -258,6 +262,22 @@ namespace MetraNet.Quoting
       if (!ClientScript.IsClientScriptBlockRegistered("accountGridScript"))
       {
         ClientScript.RegisterStartupScript(GetType(), "accountGridScript", accountJavaScript);
+      }
+    }
+
+    protected void PoRenderGrid()
+    {
+      poJavaScript = ReplaceString(poJavaScript, "[%SELECT_POS%]", "SELECT_POS");
+      poJavaScript = ReplaceString(poJavaScript, "[%POID%]", "POID");
+      poJavaScript = ReplaceString(poJavaScript, "[%PONAME%]", "PONAME");
+      poJavaScript = ReplaceString(poJavaScript, "[%ACTIONS%]", "ACTIONS");
+      poJavaScript = ReplaceString(poJavaScript, "[%PO_GRID_TITLE%]", "PO_GRID_TITLE");
+      poJavaScript = ReplaceString(poJavaScript, "[%REMOVE_PO%]", "REMOVE_PO");
+
+
+      if (!ClientScript.IsClientScriptBlockRegistered("poGridScript"))
+      {
+        ClientScript.RegisterStartupScript(GetType(), "poGridScript", poJavaScript);
       }
     }
 
@@ -417,6 +437,107 @@ namespace MetraNet.Quoting
 
   Ext.onReady(function(){
     grid.render(Ext.get('PlaceHolderAccountsGrid'));
+  });
+  </script>
+    ";
+    #endregion
+
+    #region JavaScript PO
+
+    public string poJavaScript = @"
+  <script type='text/javascript'>
+  
+  var poData = {pos:[]};
+  
+  // create the data store
+    var poStore = new Ext.data.JsonStore({
+        root:'pos',
+        fields: [
+           {name: 'Name'},
+           {name: 'ProductOfferingId'}           
+        ]
+    });
+    poStore.loadData(poData);
+  
+    var poToolBar = new Ext.Toolbar([{iconCls:'add',id:'Add',text:'[%SELECT_POS%]',handler:onAdd}]); 
+
+    // create the Grid
+    var poGrid = new Ext.grid.EditorGridPanel({
+        ds: poStore,
+        columns: [
+            {id:'ProductOfferingId',header: '[%POID%]', width: 50, sortable: true, dataIndex: 'ProductOfferingId'},
+            {header:'[%PONAME%]', width: 200, sortable:true,dataIndex:'Name'},
+            {header:'[%ACTIONS%]', width: 50, sortable:false,dataIndex:'',renderer:actionsRenderer}
+        ],
+        tbar: poToolBar, 
+        stripeRows: true,
+        height:350,
+        width:400,
+        iconCls:'icon-grid',
+		    frame:true,
+        title:'[%PO_GRID_TITLE%]'
+    });
+
+function poGridprocessClick(myGrid, rowIndex,columnIndex, eventObj)
+    {
+      var columnID = myGrid.getColumnModel().getColumnId(columnIndex);
+      if( myGrid.getColumnModel().getColumnById(columnID).dataIndex != 'SelectionScope')
+      {
+        return;
+      }
+    
+      var record = myGrid.getStore().getAt(rowIndex);
+                 
+      var cell = myGrid.getView().getCell(rowIndex, columnIndex);
+      
+          }
+
+    poGrid.on('celldblclick',function(myGrid, rowIndex, columnIndex, eventObj)
+    {
+      poGridprocessClick(myGrid, rowIndex,columnIndex, eventObj)
+    });
+    
+    poGrid.on('cellclick',function(myGrid, rowIndex, columnIndex, eventObj)
+    {
+     poGridprocessClick(myGrid, rowIndex,columnIndex, eventObj)
+    });
+
+   
+  //this will be called when accts are selected
+  function addPoCallback(ids, records, target)
+  {    
+    for (var i = 0; i < records.length; i++)
+    {
+      var ProductOfferingId = records[i].data.ProductOfferingId;
+      var found = poStore.find('ProductOfferingId', ProductOfferingId);
+      if(found == -1)
+      {
+        poStore.add(records[i]);
+      }
+    }    
+    poSelectorWin2.hide();
+  }
+
+  //add account button handler
+  function onAdd()
+  {
+    ShowMultiPoSelector('addPoCallback', 'Frame');
+  }
+
+  function actionsRenderer(value, meta, record, rowIndex, colIndex, store)
+  {
+    var str = String.format(""<a style='cursor:hand;' id='remove_{0}' title='{1}' href='JavaScript:removePo({0});'><img src='/Res/Images/icons/cross.png' alt='{1}' /></a>"", record.data.ProductOfferingId, '[%REMOVE_PO%]'); 
+    return str;
+  }
+  
+  function removePo(poID)
+  {
+    var idx = poStore.find('poID', poID);
+    poStore.remove(poStore.getAt(idx));
+  }
+
+  Ext.onReady(function(){
+    poGrid.render(Ext.get('PlaceHolderProductOfferingsGrid'));
   });
   </script>
     ";

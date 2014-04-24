@@ -14,30 +14,30 @@
   
   <MT:MTPanel ID="MTPanelQuoteParameters" runat="server" Text="Quote parameters" Collapsible="True"
     Collapsed="False" meta:resourcekey="MTPanelQuoteParametersResource">
-    <MT:MTTextBoxControl ID="MTtbQuoteDescription" Label = "Quote Description" LabelWidth="200" runat="server"/>
+    <div id="leftColumn2" class="LeftColumn">
+    <MT:MTTextBoxControl ID="MTtbQuoteDescription" AllowBlank="True" Label = "Quote Description" LabelWidth="120" runat="server"/>
+    <MT:MTTextBoxControl ID="MTtbQuoteIdentifier" AllowBlank="True" Label = "Quote Identifier" LabelWidth="120" runat="server"/>
+    <MT:MTCheckBoxControl ID="MTcbPdf" BoxLabel = "Generate PDF" runat="server" LabelWidth="120" meta:resourcekey="MTCheckBoxPdfResource" />
+    </div>
+    <div id="rightColumn2"  class="RightColumn">
     <MT:MTDatePicker AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpStartDate"
-      Label="Start date" LabelWidth="200" meta:resourcekey="dpStartDateResource1" ReadOnly="False"
+      Label="Start date" LabelWidth="120" meta:resourcekey="dpStartDateResource1" ReadOnly="False"
       runat="server"></MT:MTDatePicker>
     <MT:MTDatePicker AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpEndDate"
-      Label="End date" LabelWidth="200" meta:resourcekey="dpEndDateResource1" ReadOnly="False"
+      Label="End date" LabelWidth="120" meta:resourcekey="dpEndDateResource1" ReadOnly="False"
       runat="server"></MT:MTDatePicker>
-    <MT:MTCheckBoxControl ID="MTcbPdf" BoxLabel = "Generate PDF" runat="server" LabelWidth="200" meta:resourcekey="MTCheckBoxPdfResource" />
+    </div>
   </MT:MTPanel>
   <br />
   <MT:MTPanel ID="MTPanelQuoteAccounts" runat="server" Text="Accounts for quote" Collapsible="True"
     Collapsed="False" meta:resourcekey="MTPanelQuoteAccountsResource">
     <div id="PlaceHolderAccountsGrid" style="margin:10px"></div>
     <MT:MTCheckBoxControl BoxLabel="Is GroupSubscription" ID="MTcbIsGroupSubscription" Text = "Is GroupSubscription" runat="server" LabelWidth="200"  />
-    <MT:MTDropDown ID="MTddCorporateAccount" Label = "Corporate Account" LabelWidth="200" runat="server" meta:resourcekey="MTDropDownCorporateAccountResource" />
-    <%--<MT:MTInlineSearch ID="MTisAddAccount" runat="server" TabIndex="210" AllowBlank="False"
-      Label="Add account to quote" LabelWidth="200" HideLabel="False" meta:resourcekey="tbAncestorAccountResource1"></MT:MTInlineSearch>--%>
+    <MT:MTDropDown ID="MTddCorporateAccount" Label = "Corporate Account" LabelWidth="200" runat="server" meta:resourcekey="MTDropDownCorporateAccountResource" />    
   </MT:MTPanel>
   <MT:MTPanel ID="MTPanelProductOfferings" runat="server" Text="Product offerings for quote" Collapsible="True"
     Collapsed="False" meta:resourcekey="MTPanelProductOfferingsResource">
-    <asp:PlaceHolder ID="PlaceHolderProductOfferingsGrid" runat="server">      
-    </asp:PlaceHolder> 
-    <div id="ProductOfferingsGrid"></div>
-    <br />GRID WITH PO IDs and NAMES FOR QUOTE (for select PO uses code based on Subscriptions\SetUDRCValues.aspx page) <br /> <br />
+    <div id="PlaceHolderProductOfferingsGrid" style="margin:10px"></div>    
   </MT:MTPanel>
   <MT:MTPanel ID="MTPanelUDRCMetrics" runat="server" Text="UDRC metrics for quote" Collapsible="True"
     Collapsed="False" meta:resourcekey="MTPanelUDRCResource">
@@ -72,11 +72,12 @@
   </div>  
   
   <input id="HiddenAcctIdTextBox" runat="server" type="hidden" />
+  <input id="HiddenPoIdTextBox" runat="server" type="hidden" />
 
   <script language="javascript" type="text/javascript">
     
     function getDataGrids() {
-      return getAccountIds();
+      return getAccountIds() && getPoIds();
     }
 
     function getAccountIds() {
@@ -102,5 +103,63 @@
       window.Ext.get("<%=HiddenAcctIdTextBox.ClientID %>").dom.value = ids;
       return true;
     }
+
+    function getPoIds() {
+      var records = po_store.data.items;
+      if (records.length == 0) {
+        window.Ext.Msg.show({
+          title: window.TEXT_ERROR,
+          msg: window.TEXT_SELECT_GRPSUBMEM_ACCOUNTS,
+          buttons: window.Ext.Msg.OK,
+          icon: window.Ext.MessageBox.ERROR
+        });
+        return false;
+      }
+
+      var ids = "";
+      for (var i = 0; i < records.length; i++) {
+        if (i > 0) {
+          ids += ",";
+        }
+        ids += records[i].data._AccountID;
+      }
+
+      window.Ext.get("<%=HiddenPoIdTextBox.ClientID %>").dom.value = ids;
+      return true;
+    }
+    
+    function ShowMultiPoSelector(functionName, target) {
+            if (window.poSelectorWin2 == null || window.poSelectorWin2 === undefined ||
+             target != window.lastTarget2 || functionName != window.lastFunctionName2) {
+                window.poSelectorWin2 = new top.Ext.Window({
+                    title: 'TEXT_SELECT_PO',
+                    width: 800,
+                    height: 600,
+                    minWidth: 300,
+                    minHeight: 200,
+                    layout: 'fit',
+                    plain: true,
+                    bodyStyle: 'padding:5px;',
+                    buttonAlign: 'center',
+                    collapsible: true,
+                    resizeable: true,
+                    maximizable: false,
+                    closable: true,
+                    closeAction: 'close',
+                    html: '<iframe id="poSelectorWindow2" src="/MetraNet/Quoting/SelectPOForQuote.aspx?t=' + target + '&f=' + functionName + '" width="100%" height="100%" frameborder="0" scrolling="no"/>'
+                });
+            }
+            if (window.poSelectorWin != null) {
+                window.poSelectorWin.hide();
+            }
+            window.lastTarget2 = target;
+            window.lastFunctionName2 = functionName;
+            window.poSelectorWin2.show();
+
+            window.poSelectorWin2.on('close', function () {
+              window.poSelectorWin2 = null;
+            });
+        }
+    
   </script>
 </asp:Content>

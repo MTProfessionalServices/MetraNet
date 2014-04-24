@@ -88,14 +88,8 @@ public partial class GetData : MTPage
 
     int recordsRead = 0;
     int totalRecords = gde.PageSize; //read out the total number of records from pageSize
-    if (!String.IsNullOrEmpty(export) && export.Equals("curpage"))
-    {
-      // Don't change the PageSize if exporting the current page only from the grid
-    }
-    else
-    {
-      gde.PageSize = BATCH_SIZE;  //set it to the size of each batch; originally it was set to the total number of records
-    }
+    if (totalRecords > BATCH_SIZE)
+      gde.PageSize = BATCH_SIZE;    //set it to the size of each batch; originally it was set to the total number of records
 
     StringBuilder sb = new StringBuilder();
 

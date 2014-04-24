@@ -1,5 +1,6 @@
 select /* PO_CHANGE_EVENTS */
 top 100
+concat(nm_login, dt_crt, id_prop) as unique_id,
 am.nm_login as nm_login,
 a.dt_crt as dt_crt,
 ad.tx_details as tx_details,

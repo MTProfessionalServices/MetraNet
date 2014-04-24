@@ -1,5 +1,6 @@
 select /* RATE_CHANGE_EVENTS */
 top 100
+concat(nm_login, dt_crt, id_sched) as unique_id,
 am.nm_login as nm_login,
 a.dt_crt as dt_crt,
 a.id_entity as id_sched,

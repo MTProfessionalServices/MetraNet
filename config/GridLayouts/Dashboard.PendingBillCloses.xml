@@ -49,7 +49,7 @@
             <ObjectName></ObjectName>
             <ID>id_interval</ID>
             <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
+            <IsIdentity>true</IsIdentity>
             <DataIndex>id_interval</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>

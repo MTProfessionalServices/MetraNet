@@ -53,6 +53,7 @@ namespace MetraNet.Quoting
 
       #region render product offerings grid
       
+      
       PoRenderGrid();
 
       #endregion
@@ -194,8 +195,12 @@ namespace MetraNet.Quoting
 
     public override void Validate()
     {
-      if (!string.IsNullOrEmpty(HiddenAcctIdTextBox.Value))
-        Accounts = HiddenAcctIdTextBox.Value.Split(',').Select(int.Parse).ToList();
+      if (!string.IsNullOrEmpty(HiddenAccountIds.Value))
+        Accounts = HiddenAccountIds.Value.Split(',').Select(int.Parse).ToList();
+      
+      //todo read Account Id for group subscription
+      //if (!string.IsNullOrEmpty(HiddenGroupId.Value))
+        
 
       if (!string.IsNullOrEmpty(HiddenPoIdTextBox.Value))
         Pos = HiddenPoIdTextBox.Value.Split(',').Select(int.Parse).ToList();
@@ -249,12 +254,9 @@ namespace MetraNet.Quoting
     #region Render Grids   
     protected void AccountRenderGrid()
     {
-      accountJavaScript = ReplaceString(accountJavaScript, "[%CURRENT_NODE%]", "CURRENT_NODE");
-      accountJavaScript = ReplaceString(accountJavaScript, "[%DIRECT_DESCENDANTS%]", "DIRECT_DESCENDANTS");
-      accountJavaScript = ReplaceString(accountJavaScript, "[%ALL_DESCENDANTS%]", "ALL_DESCENDANTS");
       accountJavaScript = ReplaceString(accountJavaScript, "[%SELECT_ACCOUNTS%]", "SELECT_ACCOUNTS");
       accountJavaScript = ReplaceString(accountJavaScript, "[%USERNAME%]", "USERNAME");
-      accountJavaScript = ReplaceString(accountJavaScript, "[%SELECTION%]", "SELECTION");
+      accountJavaScript = ReplaceString(accountJavaScript, "[%ISGROUP%]", "ISGROUP");
       accountJavaScript = ReplaceString(accountJavaScript, "[%ACTIONS%]", "ACTIONS");
       accountJavaScript = ReplaceString(accountJavaScript, "[%GRID_TITLE%]", "GRID_TITLE");
       accountJavaScript = ReplaceString(accountJavaScript, "[%REMOVE_ACCOUNT%]", "REMOVE_ACCOUNT");
@@ -294,35 +296,33 @@ namespace MetraNet.Quoting
     public string accountJavaScript = @"
   <script type='text/javascript'>
   
-  var myData = {accounts:[]};
-  
-  var selectionScopeValues = [[0, '[%CURRENT_NODE%]'],[1, '[%DIRECT_DESCENDANTS%]'],[2, '[%ALL_DESCENDANTS%]']] ;
+  var accountData = {accounts:[]};
   
    // create the data store
-    var store = new Ext.data.JsonStore({
+  var accountStore = new Ext.data.JsonStore({
         root:'accounts',
         fields: [
+      {name: 'IsGroup'},
            {name: 'UserName'},
            {name: '_AccountID'},
            {name: 'AccountType'},
            {name: 'AccountStatus'},     
-           {name: 'Internal#Folder'}, 
-           {name: 'SelectionScope'}                   
+      {name: 'Internal#Folder'}
         ]
     });
-    store.loadData(myData);
+  accountStore.loadData(accountData);
   
-    var toolBar = new Ext.Toolbar([{iconCls:'add',id:'Add',text:'[%SELECT_ACCOUNTS%]',handler:onAdd}]); 
+  var accountToolBar = new Ext.Toolbar([{iconCls:'add',id:'Add',text:'[%SELECT_ACCOUNTS%]',handler:onAccountAdd}]); 
 
     // create the Grid
-    var grid = new Ext.grid.EditorGridPanel({
-        ds: store,
+  var accountGrid = new Ext.grid.EditorGridPanel({
+    ds: accountStore,
         columns: [
-            {id:'_AccountID',header: '[%USERNAME%]', width: 160, sortable: true, renderer:UsernameRenderer, dataIndex: '_AccountID'},
-            {header:'[%SELECTION%]',sortable:false,dataIndex:'SelectionScope',renderer:selectionScopeRenderer},
-            {header:'[%ACTIONS%]',sortable:false,dataIndex:'',renderer:actionsRenderer}
+      {id: '_AccountID', header: '[%USERNAME%]', width: 160, sortable: true, renderer: usernameRenderer, dataIndex: '_AccountID'},
+      {header: '[%ISGROUP%]', width: 120, sortable: false, dataIndex: 'IsGroup', renderer: isGroupSubscriptionRenderer},
+      {header: '[%ACTIONS%]', width: 80, sortable: false, dataIndex: '', renderer: actionsRenderer}
         ],
-        tbar: toolBar, 
+    tbar: accountToolBar, 
         stripeRows: true,
         height:350,
         width:400,
@@ -331,64 +331,26 @@ namespace MetraNet.Quoting
         title:'[%GRID_TITLE%]'
     });
    
-    function processClick(myGrid, rowIndex,columnIndex, eventObj)
-    {
-      var columnID = myGrid.getColumnModel().getColumnId(columnIndex);
-      if( myGrid.getColumnModel().getColumnById(columnID).dataIndex != 'SelectionScope')
-      {
-        return;
-      }
-    
-      var record = grid.getStore().getAt(rowIndex);
-      
-      //skip for non-folders
-      if (!record.data['Internal#Folder'])
-      {
-        return;
-      }
-      
-      if (record != null)
-      {
-        record.SelectionScope = (record.SelectionScope + 1) % 3;
-      }
-      
-      var cell = myGrid.getView().getCell(rowIndex, columnIndex);
-      
-      cell.innerHTML = ""<a href='#'><img border='0' src='/Res/Images/toggle.gif'>&nbsp;"" +  selectionScopeValues[record.SelectionScope][1] + ""</a>"";
-
-    }
-
-    grid.on('celldblclick',function(myGrid, rowIndex, columnIndex, eventObj)
-    {
-      processClick(myGrid, rowIndex,columnIndex, eventObj)
-    });
-    
-    grid.on('cellclick',function(myGrid, rowIndex, columnIndex, eventObj)
-    {
-      processClick(myGrid, rowIndex,columnIndex, eventObj)
-    });
-
   //this will be called when accts are selected
-  function addCallback(ids, records, target)
+  function accountCallback(ids, records, target)
   {    
     for (var i = 0; i < records.length; i++)
     {
       var accID = records[i].data._AccountID;
-      var found = store.find('_AccountID', accID);
+      var found = accountStore.find('_AccountID', accID);
       if(found == -1)
       {
-        records[i].SelectionScope = 0; //assume 0=current node, 1=direct descendants, 2=all descendants
-        store.add(records[i]);
+        records[i].IsGroup = 0;
+        accountStore.add(records[i]);
       }
     }
-    
     accountSelectorWin2.hide();
   }
 
   //add account button handler
-  function onAdd()
+  function onAccountAdd()
   {
-    Ext.UI.ShowMultiAccountSelector('addCallback', 'Frame');
+    Ext.UI.ShowMultiAccountSelector('accountCallback', 'Frame');
   }
 
   function actionsRenderer(value, meta, record, rowIndex, colIndex, store)
@@ -397,23 +359,8 @@ namespace MetraNet.Quoting
     return str;
   }
 
-  function selectionScopeRenderer(value, meta, record, rowIndex, colIndex, store)
+  function usernameRenderer(value, meta, record, rowIndex, colIndex, store)
   {   
-    //if not a folder, return empty string
-    if (!record.data['Internal#Folder'])
-    {
-      return '';
-    }
-    
-    var scope = record.SelectionScope; 
-    var displayHTML = ""<a href='#'><img border='0' src='/Res/Images/toggle.gif'>&nbsp;"" + selectionScopeValues[scope][1] + ""</a>"";
-    
-    return displayHTML;
-  } 
-  
-  function UsernameRenderer(value, meta, record, rowIndex, colIndex, store)
-  {
-  
     var folder = 'False' ;
     if (record.data['Internal#Folder'] == true) 
     { 
@@ -429,14 +376,35 @@ namespace MetraNet.Quoting
     return str;
   }
   
+  function isGroupSubscriptionRenderer(value, meta, record, rowIndex, colIndex, store)
+  {
+    var str = '';
+    if (record.data.AccountType == 'CorporateAccount') {
+      str = '<input ' + (record.data['IsGroup']==1 ? 'checked=checked' : '') + 'onchange=""setDefaultChecked(' + rowIndex + ');"" type=radio name=""radioButton' + record.data._AccountID + '"">'
+    }
+
+    return str;
+  }
+
+  function setDefaultChecked(rowIndex) 
+  { 
+    for(var index = 0; index < accountStore.data.items.length; index++) 
+    { 
+      if (accountStore.data.items[index].data.IsGroup == 1) 
+        accountStore.data.items[index].set('IsGroup', 0);    
+    } 
+    accountStore.data.items[rowIndex].set('IsGroup', 1);
+    accountStore.commitChanges();
+  }
+  
   function removeAcct(accID)
   {
-    var idx = store.find('_AccountID', accID);
-    store.remove(store.getAt(idx));
+    var idx = accountStore.find('_AccountID', accID);
+    accountStore.remove(accountStore.getAt(idx));
   }
 
   Ext.onReady(function(){
-    grid.render(Ext.get('PlaceHolderAccountsGrid'));
+    accountGrid.render(Ext.get('PlaceHolderAccountsGrid'));
   });
   </script>
     ";

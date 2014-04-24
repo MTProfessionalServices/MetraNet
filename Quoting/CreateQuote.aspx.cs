@@ -194,6 +194,8 @@ namespace MetraNet.Quoting
 
     public override void Validate()
     {
+      if (!string.IsNullOrEmpty(HiddenAcctIdTextBox.Value))
+        Accounts = HiddenAcctIdTextBox.Value.Split(',').Select(int.Parse).ToList();
       SetQuoteRequestInput();
 
       using (var client = new QuotingServiceClient())

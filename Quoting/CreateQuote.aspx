@@ -57,7 +57,7 @@
               <MT:MTCheckBoxControl ID="MTCheckBoxControl1" BoxLabel = "View result" runat="server" LabelWidth="100" meta:resourcekey="MTCheckBoxPdfResource" />
             </td>
             <td class="x-panel-btn-td">
-              <MT:MTButton ID="MTbtnGenerateQuote" runat="server" OnClick="btnGenerateQuote_Click"
+              <MT:MTButton ID="MTbtnGenerateQuote" runat="server" OnClientClick="return getDataGrids();" OnClick="btnGenerateQuote_Click"
                 TabIndex="150" meta:resourcekey="btnGenerateQuoteResource1" />
             </td>
             <td class="x-panel-btn-td">
@@ -70,4 +70,37 @@
       </div>
     </div>
   </div>  
+  
+  <input id="HiddenAcctIdTextBox" runat="server" type="hidden" />
+
+  <script language="javascript" type="text/javascript">
+    
+    function getDataGrids() {
+      return getAccountIds();
+    }
+
+    function getAccountIds() {
+      var records = store.data.items;
+      if (records.length == 0) {
+        window.Ext.Msg.show({
+          title: window.TEXT_ERROR,
+          msg: window.TEXT_SELECT_GRPSUBMEM_ACCOUNTS,
+          buttons: window.Ext.Msg.OK,
+          icon: window.Ext.MessageBox.ERROR
+        });
+        return false;
+      } 
+      
+      var ids = "";
+      for (var i = 0; i < records.length; i++) {
+        if (i > 0) {
+          ids += ",";
+        }
+        ids += records[i].data._AccountID;
+      }
+
+      window.Ext.get("<%=HiddenAcctIdTextBox.ClientID %>").dom.value = ids;
+      return true;
+    }
+  </script>
 </asp:Content>

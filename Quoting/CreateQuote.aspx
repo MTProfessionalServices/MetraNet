@@ -27,10 +27,6 @@
   <MT:MTPanel ID="MTPanelQuoteAccounts" runat="server" Text="Accounts for quote" Collapsible="True"
     Collapsed="False" meta:resourcekey="MTPanelQuoteAccountsResource">
     <div id="PlaceHolderAccountsGrid" style="margin:10px"></div>
-    <MT:MTCheckBoxControl BoxLabel="Is GroupSubscription" ID="MTcbIsGroupSubscription" Text = "Is GroupSubscription" runat="server" LabelWidth="200"  />
-    <MT:MTDropDown ID="MTddCorporateAccount" Label = "Corporate Account" LabelWidth="200" runat="server" meta:resourcekey="MTDropDownCorporateAccountResource" />
-    <%--<MT:MTInlineSearch ID="MTisAddAccount" runat="server" TabIndex="210" AllowBlank="False"
-      Label="Add account to quote" LabelWidth="200" HideLabel="False" meta:resourcekey="tbAncestorAccountResource1"></MT:MTInlineSearch>--%>
   </MT:MTPanel>
   <MT:MTPanel ID="MTPanelProductOfferings" runat="server" Text="Product offerings for quote" Collapsible="True"
     Collapsed="False" meta:resourcekey="MTPanelProductOfferingsResource">
@@ -71,7 +67,8 @@
     </div>
   </div>  
   
-  <input id="HiddenAcctIdTextBox" runat="server" type="hidden" />
+  <input id="HiddenAccountIds" runat="server" type="hidden" />
+  <input id="HiddenGroupId" runat="server" type="hidden" />
 
   <script language="javascript" type="text/javascript">
     
@@ -80,7 +77,7 @@
     }
 
     function getAccountIds() {
-      var records = store.data.items;
+      var records = accountStore.data.items;
       if (records.length == 0) {
         window.Ext.Msg.show({
           title: window.TEXT_ERROR,
@@ -89,17 +86,21 @@
           icon: window.Ext.MessageBox.ERROR
         });
         return false;
-      } 
-      
+      }
+
       var ids = "";
+      var gid = "";
       for (var i = 0; i < records.length; i++) {
         if (i > 0) {
           ids += ",";
         }
         ids += records[i].data._AccountID;
+        if (records[i].data.IsGroup == "1")
+          gid = records[i].data._AccountID;
       }
 
-      window.Ext.get("<%=HiddenAcctIdTextBox.ClientID %>").dom.value = ids;
+      window.Ext.get("<%=HiddenAccountIds.ClientID %>").dom.value = ids;
+      window.Ext.get("<%=HiddenGroupId.ClientID %>").dom.value = gid;
       return true;
     }
   </script>

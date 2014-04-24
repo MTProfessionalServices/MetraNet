@@ -159,23 +159,14 @@
   <data name="ACTIONS" xml:space="preserve">
     <value>Actions</value>
   </data>
-  <data name="ALL_DESCENDANTS" xml:space="preserve">
-    <value>All Descendants</value>
-  </data>
-  <data name="CURRENT_NODE" xml:space="preserve">
-    <value>Current Node</value>
-  </data>
-  <data name="DIRECT_DESCENDANTS" xml:space="preserve">
-    <value>Direct Descendants</value>
-  </data>
   <data name="GRID_TITLE" xml:space="preserve">
     <value>Accounts</value>
   </data>
   <data name="REMOVE_ACCOUNT" xml:space="preserve">
     <value>Remove Account</value>
   </data>
-  <data name="SELECTION" xml:space="preserve">
-    <value>Selection</value>
+  <data name="ISGROUP" xml:space="preserve">
+    <value>Is Group Subscription</value>
   </data>
   <data name="SELECT_ACCOUNTS" xml:space="preserve">
     <value>Select Accounts</value>

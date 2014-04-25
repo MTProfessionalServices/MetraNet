@@ -178,8 +178,8 @@ FUNCTION getRecurringEventRunHTML
     Service.Properties("ACTION_HTML") = getAvailableActionsHTML(rowset)     
 
     sHTML = sHTML & "<TABLE width='100%' BORDER='0'  CELLPADDING='0' CELLSPACING='0'>"        
-    sHTML = sHTML & "<tr class='TableHeader' style='background-color:#005DAA;color:white;'><td align='left' colspan='15'><strong><font size=4>Billing Process Adapters</font></strong></td></tr>"    
-    sHTML = sHTML & "<tr class='TableHeader' style='vertical-align:bottom;'><td align='left' width='10px' style='padding: 0px 0px 0px 0px; '><input type='checkbox' name='selectAllAdapters' " & IIF(bDisableActions,"disabled ","") & "value='' onClick='DoSelectAllAdapters(this);'></td><td align='left'>Adapter</td><td align='left'>Instance Id</td><td valign='bottom' align='left'>Status</td><td align='left'>Last<br>Action</td><td align='left'>Start Time [Duration]</td><td align='left'>Result</td><td align='left'>Machine</td></tr>"    
+    sHTML = sHTML & "<tr class='TableHeader' style='background-color:#C0C0C0;color:black;'><td align='left' colspan='15'><strong><font size=4>Billing Process Adapters</font></strong></td></tr>" 
+    sHTML = sHTML & "<tr class='TableHeader' style='vertical-align:bottom;color:black'><td align='left' width='10px' style='padding: 0px 0px 0px 0px; '><input type='checkbox' name='selectAllAdapters' " & IIF(bDisableActions,"disabled ","") & "value='' onClick='DoSelectAllAdapters(this);'></td><td align='left'>Adapter</td><td align='left'>Instance Id</td><td valign='bottom' align='left'>Status</td><td align='left'>Last<br>Action</td><td align='left'>Start Time [Duration]</td><td align='left'>Result</td><td align='left'>Machine</td></tr>"    
 
     if rowset.eof then
       sHTML = sHTML & "<tr class='TableDetailCell'><td colspan='15'>No adapter event runs for this interval currently.</td></tr>"
@@ -266,7 +266,7 @@ FUNCTION getRecurringEventRunHTML
             sSelectHTML = "&nbsp;"
             sLastRunActionHTML = "&nbsp;"
             sLastRunResultHTML = "&nbsp;"
-            sStyle = "height: 29px;text-align:middle;vertical-align: middle;BACKGROUND-COLOR:#CCDEF6; border-bottom: silver solid 1px;	BORDER-TOP: silver solid 1px;"            
+            sStyle = "height: 29px;text-align:middle;vertical-align: middle;BACKGROUND-COLOR:#D6D3CE; border-bottom: silver solid 1px;	BORDER-TOP: silver solid 1px;"            
             if sStatusCode = "NotYetRun" then
               'sStatus =  "<button  style='font-weight: bold;padding: 0px 0px 0px 0px;font-size: 8px;height=18px;width=60px;' name='AcknowledgeCheckPoint' onclick=""mdm_RefreshDialogUserCustom(this," & rowset.value("InstanceId") & ");return false;"">" & "Acknowledge" &  "</button>" & vbNewLine
               sStatus =  "<button class='clsButtonBlueMedium' name='AcknowledgeCheckPoint'" & IIF(bDependenciesMet and not bDisableActions, ""," disabled") & " onclick=""mdm_RefreshDialogUserCustom(this," & rowset.value("InstanceId") & ");return false;"">" & "<span style='font-size: 10px;'>Acknowledge</span>" &  "</button>" & vbNewLine

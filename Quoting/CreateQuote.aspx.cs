@@ -161,12 +161,12 @@ namespace MetraNet.Quoting
         {
           AsyncCreateQuote asynCall = InvokeCreateQuote;
           asynCall.BeginInvoke(RequestForCreateQuote, null, null);
-          Response.Redirect(@"/MetraNet/Quoting/QuoteList.aspx", false);
+          Response.Redirect(@"/MetraNet/Quoting/QuoteList.aspx?Accounts=ALL", false);
         }
         else
         {
           InvokeCreateQuote(RequestForCreateQuote);
-          Response.Redirect(@"/MetraNet/Quoting/QuoteList.aspx", false);
+          Response.Redirect(@"/MetraNet/Quoting/QuoteList.aspx?Accounts=ALL", false);
         }
         
       }
@@ -243,25 +243,7 @@ namespace MetraNet.Quoting
         client.CreateQuoteWithoutValidation(request, out response);
       }
     }
-
-    private void SetupPOGrid()
-    {
-      //todo Add code to setup POGrid
-      //var str = POsGridJS;
-
-      //if (Pos != null)
-      //{
-      //  string gridData = Pos.Aggregate("", (current, poId) => current + String.Format("['{0}'],", poId));
-      //  gridData = gridData.Trim(new char[] { ',' });
-
-      //  // Replace values in grid JS
-      //  str = str.Replace("%%DATA%%", gridData);
-      //}
-
-      //var gridJS = new LiteralControl(str);
-      //PlaceHolderPOJavaScript.Controls.Add(gridJS);
-    }
-
+    
     #region Render Grids   
     protected void AccountRenderGrid()
     {
@@ -336,7 +318,7 @@ namespace MetraNet.Quoting
     tbar: accountToolBar, 
     stripeRows: true,
     height: 300,
-    width: 350,
+    width: 340,
     iconCls: 'icon-grid',
     frame:true,
     title: '[%GRID_TITLE%]'
@@ -443,14 +425,14 @@ namespace MetraNet.Quoting
   var poGrid = new Ext.grid.EditorGridPanel({
       ds: poStore,
       columns: [
-          {id:'ProductOfferingId',header: '[%POID%]', width: 50, sortable: true, dataIndex: 'ProductOfferingId'},
+          {id:'ProductOfferingId',header: '[%POID%]', width: 45, sortable: true, dataIndex: 'ProductOfferingId'},
           {header:'[%PONAME%]', width: 220, sortable:true,dataIndex:'Name'},
-          {header:'[%ACTIONS%]', width: 50, sortable:false,dataIndex:'',renderer: poActionsRenderer}
+          {header:'[%ACTIONS%]', width: 45, sortable:false,dataIndex:'',renderer: poActionsRenderer}
       ],
       tbar: poToolBar, 
       stripeRows: true,
       height: 300,
-      width: 350,
+      width: 340,
       iconCls:'icon-grid',
 		  frame:true,
       title:'[%PO_GRID_TITLE%]'

@@ -29,13 +29,10 @@
     </div>
   </MT:MTPanel>
   <br />
-  <MT:MTPanel ID="MTPanelQuoteAccounts" runat="server" Text="Accounts for quote" Collapsible="True"
+  <MT:MTPanel ID="MTPanelQuoteAccounts" runat="server" Text="Accounts and product offerings for quote" Collapsible="True"
     Collapsed="False" meta:resourcekey="MTPanelQuoteAccountsResource">
-    <div id="PlaceHolderAccountsGrid" style="margin:10px"></div>
-  </MT:MTPanel>
-  <MT:MTPanel ID="MTPanelProductOfferings" runat="server" Text="Product offerings for quote" Collapsible="True"
-    Collapsed="False" meta:resourcekey="MTPanelProductOfferingsResource">
-    <div id="PlaceHolderProductOfferingsGrid" style="margin:10px"></div>    
+    <div id="PlaceHolderAccountsGrid" class="LeftColumn"></div>
+    <div id="PlaceHolderProductOfferingsGrid" class="RightColumn"></div>   
   </MT:MTPanel>
   <MT:MTPanel ID="MTPanelUDRCMetrics" runat="server" Text="UDRC metrics for quote" Collapsible="True"
     Collapsed="True" meta:resourcekey="MTPanelUDRCResource">

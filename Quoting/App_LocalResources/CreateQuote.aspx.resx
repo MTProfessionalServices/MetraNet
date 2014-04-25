@@ -130,7 +130,7 @@
     <value>Start date</value>
   </data>
   <data name="MTPanelQuoteAccountsResource.Text" xml:space="preserve">
-    <value>Accounts for quote</value>
+    <value>Accounts and product offerings for quote</value>
   </data>
   <data name="dpEndDateResource1.Text" xml:space="preserve">
     <value>End date</value>

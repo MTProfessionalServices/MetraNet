@@ -64,7 +64,7 @@
                 <ResourceClassKey>Quoting/App_LocalResources/QuoteList.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>60</Width>
+            <Width>65</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>true</PreventSortable>
             <Sortable>false</Sortable>
@@ -109,6 +109,42 @@
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
             <Filterable>false</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\Core.Quoting.Entity.dll</AssemblyFilename>
+            <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
+            <ID>EffectiveDate</ID>
+            <DataType>Date</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>EffectiveDate</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>CREATION_DATE</LocalizationTag>
+                <ResourceClassKey>Quoting/App_LocalResources/QuoteList.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>true</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -198,13 +234,13 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\Core.Quoting.Entity.dll</AssemblyFilename>
             <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
-            <ID>EffectiveDate</ID>
-            <DataType>Date</DataType>
+            <ID>Currency</ID>
+            <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>EffectiveDate</DataIndex>
+            <DataIndex>Currency</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>CREATION_DATE</LocalizationTag>
+                <LocalizationTag>CURRENCY</LocalizationTag>
                 <ResourceClassKey>Quoting/App_LocalResources/QuoteList.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
@@ -436,6 +472,42 @@
             <DefaultColumn>true</DefaultColumn>
             <Filterable>false</Filterable>
         </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\Core.Quoting.Entity.dll</AssemblyFilename>
+            <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
+            <ID>GroupSubscription</ID>
+            <DataType>Boolean</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>GroupSubscription</DataIndex>
+            <IsColumn>false</IsColumn>
+            <HeaderText>
+                <LocalizationTag>IS_GROUPSUBSCRIPTION</LocalizationTag>
+                <ResourceClassKey>Quoting/App_LocalResources/QuoteList.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>true</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>true</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
     </Elements>
     <ExpanderTemplate>
         <Section>
@@ -452,6 +524,12 @@
                             <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
                             <ID>AccountsInfo</ID>
                             <Name>AccountsInfo</Name>
+                        </Field>
+                        <Field>
+                            <AssemblyFilename></AssemblyFilename>
+                            <ObjectName></ObjectName>
+                            <ID>GroupSubscription</ID>
+                            <Name>GroupSubscription</Name>
                         </Field>
                         <Field>
                             <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\Core.Quoting.Entity.dll</AssemblyFilename>

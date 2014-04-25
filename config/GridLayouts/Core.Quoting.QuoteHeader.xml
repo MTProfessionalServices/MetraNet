@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <IsBusinessEntityLayout>true</IsBusinessEntityLayout>
     <Name>Core.Quoting.QuoteHeader</Name>
     <Title>
-      <Value><![CDATA[]]></Value>
+        <Value><![CDATA[]]></Value>
     </Title>
     <Exportable>true</Exportable>
     <Height>400</Height>
     <Width>720</Width>
     <Expandable>true</Expandable>
     <Buttons>Cancel</Buttons>
-	<ObjectName>Core.Quoting.QuoteHeader</ObjectName>
-	<AssemblyNameHint>Core.Quoting.Entity.dll</AssemblyNameHint>
+    <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
+    <AssemblyNameHint>Core.Quoting.Entity.dll</AssemblyNameHint>
     <DataSourceURL>../AjaxServices/BEListSvc.aspx?Name=Core.Quoting.QuoteHeader&amp;Assembly=Core.Quoting.Entity</DataSourceURL>
     <MultiSelect>false</MultiSelect>
     <SelectionModel>Standard</SelectionModel>
@@ -37,27 +37,38 @@
     <DisplayCount>true</DisplayCount>
     <SearchOnLoad>true</SearchOnLoad>
     <CustomImplementationFilePath></CustomImplementationFilePath>
-	  <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <SupportExportSelected>true</SupportExportSelected>
+    <ShowFilterPanel>true</ShowFilterPanel>
+    <ShowTopBar>true</ShowTopBar>
+    <ShowBottomBar>true</ShowBottomBar>
+    <ShowGridFrame>true</ShowGridFrame>
+    <ShowGridHeader>true</ShowGridHeader>
+    <ShowColumnHeaders>true</ShowColumnHeaders>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
+            <AssemblyFilename></AssemblyFilename>
+            <ObjectName></ObjectName>
             <ID>internalId</ID>
-            <DataIndex>internalId</DataIndex>
             <DataType>String</DataType>
             <IsIdentity>true</IsIdentity>
+            <DataIndex>internalId</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <Value><![CDATA[Internal ID]]></Value>
             </HeaderText>
+            <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>true</ShowInExpander>
             <Filterable>false</Filterable>
+            <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
             <FilterLabel />
@@ -73,18 +84,151 @@
         <Element>
             <RecordElement>false</RecordElement>
             <ID>Actions</ID>
+            <DataIndex></DataIndex>
             <IsColumn>true</IsColumn>
-            <ShowInExpander>false</ShowInExpander>
             <HeaderText>
                 <Value><![CDATA[Actions]]></Value>
             </HeaderText>
+            <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
             <ColumnHideable>false</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Filterable>false</Filterable>
-	    <ShowInExpander>false</ShowInExpander>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>Core.Quoting.Entity.dll</AssemblyFilename>
+            <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
+            <ID>IdQuote</ID>
+            <DataType>Numeric</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>IdQuote</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText />
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>true</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>Core.Quoting.Entity.dll</AssemblyFilename>
+            <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
+            <ID>QuoteDescription</ID>
+            <DataType>String</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>QuoteDescription</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText />
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>true</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>Core.Quoting.Entity.dll</AssemblyFilename>
+            <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
+            <ID>TotalAmount</ID>
+            <DataType>Numeric</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>TotalAmount</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText />
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>true</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>Core.Quoting.Entity.dll</AssemblyFilename>
+            <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
+            <ID>TotalTax</ID>
+            <DataType>Numeric</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>TotalTax</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText />
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>true</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
         </Element>
     </Elements>
     <ExpanderTemplate></ExpanderTemplate>
@@ -99,37 +243,37 @@
                 <Value><![CDATA[Add]]></Value>
             </ToolTip>
             <IconClass>Add</IconClass>
-            <Capability></Capability>
+            <RequiredCapabilities></RequiredCapabilities>
             <JSHandlerFunction>onNew</JSHandlerFunction>
         </Button>
         <Button>
-		  <ButtonID>Delete</ButtonID>
-			<ButtonText>
-			  <LocalizationTag>TEXT_DELETE</LocalizationTag>
-			  <ResourceClassKey>Resource</ResourceClassKey>
-			</ButtonText>
-			<ToolTip>
-			  <LocalizationTag>TEXT_DELETE</LocalizationTag>
-			  <ResourceClassKey>Resource</ResourceClassKey>
-			</ToolTip>
-			<IconClass>remove</IconClass>
-			<RequiredCapabilities></RequiredCapabilities>
-			<JSHandlerFunction>onDelete</JSHandlerFunction>
-		  </Button>			
-        <Button>  	  
-		  <ButtonID>BulkUpdate</ButtonID>
-			<ButtonText>
-			  <LocalizationTag>TEXT_BULKUPDATE</LocalizationTag>
-			  <ResourceClassKey>Resource</ResourceClassKey>
-			</ButtonText>
-			<ToolTip>
-			  <LocalizationTag>TEXT_BULKUPDATE</LocalizationTag>
-			  <ResourceClassKey>Resource</ResourceClassKey>
-			</ToolTip>
-			<IconClass>bulkupdate</IconClass>
-			<RequiredCapabilities></RequiredCapabilities>
-			<JSHandlerFunction>onBulkUpdate</JSHandlerFunction>
-		  </Button>          
+            <ButtonID>Delete</ButtonID>
+            <ButtonText>
+                <LocalizationTag>TEXT_DELETE</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
+            </ButtonText>
+            <ToolTip>
+                <LocalizationTag>TEXT_DELETE</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
+            </ToolTip>
+            <IconClass>remove</IconClass>
+            <RequiredCapabilities></RequiredCapabilities>
+            <JSHandlerFunction>onDelete</JSHandlerFunction>
+        </Button>
+        <Button>
+            <ButtonID>BulkUpdate</ButtonID>
+            <ButtonText>
+                <LocalizationTag>TEXT_BULKUPDATE</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
+            </ButtonText>
+            <ToolTip>
+                <LocalizationTag>TEXT_BULKUPDATE</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
+            </ToolTip>
+            <IconClass>bulkupdate</IconClass>
+            <RequiredCapabilities></RequiredCapabilities>
+            <JSHandlerFunction>onBulkUpdate</JSHandlerFunction>
+        </Button>
     </ToolbarButtons>
-
+    <SubGrid></SubGrid>
 </GridLayout>

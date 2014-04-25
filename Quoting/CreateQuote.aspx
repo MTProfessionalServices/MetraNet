@@ -108,7 +108,7 @@
     }
 
     function getPoIds() {
-      var records = po_store.data.items;
+      var records = poStore.data.items;
       if (records.length == 0) {
         window.Ext.Msg.show({
           title: window.TEXT_ERROR,
@@ -124,7 +124,7 @@
         if (i > 0) {
           ids += ",";
         }
-        ids += records[i].data._AccountID;
+        ids += records[i].data.ProductOfferingId;
       }
 
       window.Ext.get("<%=HiddenPoIdTextBox.ClientID %>").dom.value = ids;
@@ -132,37 +132,37 @@
     }
     
     function ShowMultiPoSelector(functionName, target) {
-            if (window.poSelectorWin2 == null || window.poSelectorWin2 === undefined ||
-             target != window.lastTarget2 || functionName != window.lastFunctionName2) {
-                window.poSelectorWin2 = new top.Ext.Window({
-                    title: 'TEXT_SELECT_PO',
-                    width: 800,
-                    height: 600,
-                    minWidth: 300,
-                    minHeight: 200,
-                    layout: 'fit',
-                    plain: true,
-                    bodyStyle: 'padding:5px;',
-                    buttonAlign: 'center',
-                    collapsible: true,
-                    resizeable: true,
-                    maximizable: false,
-                    closable: true,
-                    closeAction: 'close',
-                    html: '<iframe id="poSelectorWindow2" src="/MetraNet/Quoting/SelectPOForQuote.aspx?t=' + target + '&f=' + functionName + '" width="100%" height="100%" frameborder="0" scrolling="no"/>'
-                });
-            }
-            if (window.poSelectorWin != null) {
-                window.poSelectorWin.hide();
-            }
-            window.lastTarget2 = target;
-            window.lastFunctionName2 = functionName;
-            window.poSelectorWin2.show();
+      if (window.poSelectorWin2 == null || window.poSelectorWin2 === undefined ||
+        target != window.lastTarget2 || functionName != window.lastFunctionName2) {
+          window.poSelectorWin2 = new top.Ext.Window({
+              title: 'TEXT_SELECT_PO',
+              width: 700,
+              height: 500,
+              minWidth: 300,
+              minHeight: 200,
+              layout: 'fit',
+              plain: true,
+              bodyStyle: 'padding:5px;',
+              buttonAlign: 'center',
+              collapsible: true,
+              resizeable: true,
+              maximizable: false,
+              closable: true,
+              closeAction: 'close',
+              html: '<iframe id="poSelectorWindow2" src="/MetraNet/Quoting/SelectPOForQuote.aspx?t=' + target + '&f=' + functionName + '" width="100%" height="100%" frameborder="0" scrolling="no"/>'
+          });
+      }
+      if (window.poSelectorWin != null) {
+          window.poSelectorWin.hide();
+      }
+      window.lastTarget2 = target;
+      window.lastFunctionName2 = functionName;
+      window.poSelectorWin2.show();
 
-            window.poSelectorWin2.on('close', function () {
-              window.poSelectorWin2 = null;
-            });
-        }
+      window.poSelectorWin2.on('close', function() {
+        window.poSelectorWin2 = null;
+      });
+    }
     
   </script>
 </asp:Content>

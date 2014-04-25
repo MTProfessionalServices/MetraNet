@@ -157,19 +157,18 @@ public partial class AjaxServices_UsageAuditService : MTListServicePage
 //                    Logger.LogFatal(nmColumn + "(" + v.GetType().Name + "): " + v);
                     if (v is DateTime)
                     {
-                      // TODO: need to unify date format
                       var d = (DateTime)v;
-                      value = d.ToString();
+                      value = d.ToString("yyyy-MM-dd HH:mm:ss.fff");
                     }
                     else if (v is Guid)
                     {
-                      value = ((Guid) v).ToString();
+                      value = ((Guid) v).ToString("N").ToUpper();
                     }
                     else if (v is Byte[])
                     {
                       try
                       {
-                        value = new Guid((Byte[]) v).ToString();
+                        value = new Guid((Byte[]) v).ToString("N").ToUpper();
                       }
                       catch (Exception ex)
                       {

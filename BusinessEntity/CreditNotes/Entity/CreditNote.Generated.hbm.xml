@@ -86,20 +86,6 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
-    <property name="AccountID" column="c_AccountID" not-null="true">
-      <meta attribute="label">AccountID</meta>
-      <meta attribute="description">Id of an account</meta>
-      <meta attribute="defaultvalue" />
-      <meta attribute="sortable">false</meta>
-      <meta attribute="searchable">false</meta>
-      <meta attribute="association-entity" />
-      <meta attribute="encrypted">false</meta>
-      <meta attribute="computed">false</meta>
-      <meta attribute="computation-type-name" />
-      <meta attribute="record-history">true</meta>
-      <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="System.Int64, mscorlib" />
-    </property>
     <property name="CreatorID" column="c_CreatorID">
       <meta attribute="label">CreatorID</meta>
       <meta attribute="description">Id of creator of credit note</meta>
@@ -119,6 +105,20 @@
       <meta attribute="description">Credit NoteID</meta>
       <meta attribute="defaultvalue" />
       <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="AccountID" column="c_AccountID">
+      <meta attribute="label">AccountID</meta>
+      <meta attribute="description">Id of an account</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
       <meta attribute="searchable">false</meta>
       <meta attribute="association-entity" />
       <meta attribute="encrypted">false</meta>

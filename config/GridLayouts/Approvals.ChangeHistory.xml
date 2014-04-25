@@ -46,7 +46,7 @@
         <Operation>GetChangeItemHistory__Client</Operation>
     </DataBinder>
     <SubGrid></SubGrid>
-    <CustomOverrideJavascriptIncludes>\MetraNet\ApprovalFrameworkManagement\ShowChangeItemHistory.aspx</CustomOverrideJavascriptIncludes>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>

@@ -245,8 +245,8 @@ padding: 5px 3px 4px 15px;
 	text-align: center;
 	/*color: black; 
 	background-color: #CCDEF6; */
-	background-color: #f9f9f9;
-    background-image: url(/Res/Ext/resources/images/metranet/grid/grid3-hrow2.gif);    
+	background-color: #D6D3CE;
+	/*background-image: url(/Res/Ext/resources/images/metranet/grid/grid3-hrow2.gif);*/    
     FONT:normal 11px/15px arial, tahoma, helvetica, sans-serif;
     border-color: #d0d0d0;
     border-right: 1px solid #eee;
@@ -276,7 +276,7 @@ a.TableHeaderA{
 .TableDetailCell{
 	font-size: 11px;
 	font-family:tahoma, arial, helvetica, sans-serif;
-	background-color:#C1CBD7;    
+	background-color:#C1CBD7; 
 	margin: 0;
 	BORDER-BOTTOM: #8CA5CE solid 1px;
 	BORDER-LEFT: #8CA5CE solid 1px;

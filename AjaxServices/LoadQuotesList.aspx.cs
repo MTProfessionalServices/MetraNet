@@ -234,6 +234,14 @@ namespace MetraNet.AjaxServices
                               ? EnumHelper.GetEnumEntryName(propertyInstance.Value)
                               : propertyInstance.Value.ToString()).EncodeForJavaScript();
 
+            if (propertyInstance.PropertyType == MetraTech.BusinessEntity.Core.PropertyType.Decimal)
+            {
+              var n = dispalyValue.ToString().IndexOf(".", StringComparison.Ordinal);
+              dispalyValue = dispalyValue.ToString().Substring(0,n+3);
+              if (dispalyValue.ToString().StartsWith("0.00"))
+                dispalyValue = "0";
+            }
+
             if (propertyInstance.PropertyType == MetraTech.BusinessEntity.Core.PropertyType.String ||
                 propertyInstance.PropertyType == MetraTech.BusinessEntity.Core.PropertyType.Enum ||
                 propertyInstance.PropertyType == MetraTech.BusinessEntity.Core.PropertyType.DateTime ||

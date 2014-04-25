@@ -135,6 +135,15 @@
     <data name="PageResource1.Title" xml:space="preserve">
         <value>MetraNet - Quotes List</value>
     </data>
+    <data name="PO_DESCRIPTION" xml:space="preserve">
+        <value>Description</value>
+    </data>
+    <data name="PO_NAME" xml:space="preserve">
+        <value>Name</value>
+    </data>
+    <data name="PRODUCT_OFFERING_ID" xml:space="preserve">
+        <value>ID of Product offering</value>
+    </data>
     <data name="QUOTE_ACCOUNTS" xml:space="preserve">
         <value>Account's IDs</value>
     </data>

@@ -157,7 +157,6 @@ namespace MetraNet.Quoting
         Page.Validate();
         InvokeCreateQuote(RequestForCreateQuote);
         Response.Redirect(@"/MetraNet/Quoting/QuoteList.aspx", false);
-
       }
       catch (MASBasicException exp)
       {
@@ -300,36 +299,36 @@ namespace MetraNet.Quoting
   
    // create the data store
   var accountStore = new Ext.data.JsonStore({
-        root:'accounts',
-        fields: [
+    root:'accounts',
+    fields: [
       {name: 'IsGroup'},
-           {name: 'UserName'},
-           {name: '_AccountID'},
-           {name: 'AccountType'},
-           {name: 'AccountStatus'},     
+      {name: 'UserName'},
+      {name: '_AccountID'},
+      {name: 'AccountType'},
+      {name: 'AccountStatus'},     
       {name: 'Internal#Folder'}
-        ]
-    });
+    ]
+  });
   accountStore.loadData(accountData);
   
   var accountToolBar = new Ext.Toolbar([{iconCls:'add',id:'Add',text:'[%SELECT_ACCOUNTS%]',handler:onAccountAdd}]); 
 
-    // create the Grid
+  // create the Grid
   var accountGrid = new Ext.grid.EditorGridPanel({
     ds: accountStore,
-        columns: [
-      {id: '_AccountID', header: '[%USERNAME%]', width: 160, sortable: true, renderer: usernameRenderer, dataIndex: '_AccountID'},
+    columns: [
+      {id: '_AccountID', header: '[%USERNAME%]', width: 150, sortable: true, renderer: usernameRenderer, dataIndex: '_AccountID'},
       {header: '[%ISGROUP%]', width: 120, sortable: false, dataIndex: 'IsGroup', renderer: isGroupSubscriptionRenderer},
-      {header: '[%ACTIONS%]', width: 80, sortable: false, dataIndex: '', renderer: actionsRenderer}
-        ],
+      {header: '[%ACTIONS%]', width: 50, sortable: false, dataIndex: '', renderer: accountActionsRenderer}
+    ],
     tbar: accountToolBar, 
-        stripeRows: true,
-        height:350,
-        width:400,
-        iconCls:'icon-grid',
-		    frame:true,
-        title:'[%GRID_TITLE%]'
-    });
+    stripeRows: true,
+    height: 300,
+    width: 350,
+    iconCls: 'icon-grid',
+    frame:true,
+    title: '[%GRID_TITLE%]'
+  });
    
   //this will be called when accts are selected
   function accountCallback(ids, records, target)
@@ -353,7 +352,7 @@ namespace MetraNet.Quoting
     Ext.UI.ShowMultiAccountSelector('accountCallback', 'Frame');
   }
 
-  function actionsRenderer(value, meta, record, rowIndex, colIndex, store)
+  function accountActionsRenderer(value, meta, record, rowIndex, colIndex, store)
   {
     var str = String.format(""<a style='cursor:hand;' id='remove_{0}' title='{1}' href='JavaScript:removeAcct({0});'><img src='/Res/Images/icons/cross.png' alt='{1}' /></a>"", record.data._AccountID, '[%REMOVE_ACCOUNT%]'); 
     return str;
@@ -382,7 +381,6 @@ namespace MetraNet.Quoting
     if (record.data.AccountType == 'CorporateAccount') {
       str = '<input ' + (record.data['IsGroup']==1 ? 'checked=checked' : '') + 'onchange=""setDefaultChecked(' + rowIndex + ');"" type=radio name=""radioButton' + record.data._AccountID + '"">'
     }
-
     return str;
   }
 
@@ -397,9 +395,9 @@ namespace MetraNet.Quoting
     accountStore.commitChanges();
   }
   
-  function removeAcct(accID)
+  function removeAcct(accId)
   {
-    var idx = accountStore.find('_AccountID', accID);
+    var idx = accountStore.find('_AccountID', accId);
     accountStore.remove(accountStore.getAt(idx));
   }
 
@@ -418,59 +416,34 @@ namespace MetraNet.Quoting
   var poData = {pos:[]};
   
   // create the data store
-    var poStore = new Ext.data.JsonStore({
-        root:'pos',
-        fields: [
-           {name: 'Name'},
-           {name: 'ProductOfferingId'}           
-        ]
-    });
-    poStore.loadData(poData);
+  var poStore = new Ext.data.JsonStore({
+      root:'pos',
+      fields: [
+          {name: 'Name'},
+          {name: 'ProductOfferingId'}           
+      ]
+  });
+  poStore.loadData(poData);
   
-    var poToolBar = new Ext.Toolbar([{iconCls:'add',id:'Add',text:'[%SELECT_POS%]',handler:onAdd}]); 
+  var poToolBar = new Ext.Toolbar([{iconCls:'add', id: 'Add',text: '[%SELECT_POS%]',handler: onPoAdd}]); 
 
-    // create the Grid
-    var poGrid = new Ext.grid.EditorGridPanel({
-        ds: poStore,
-        columns: [
-            {id:'ProductOfferingId',header: '[%POID%]', width: 50, sortable: true, dataIndex: 'ProductOfferingId'},
-            {header:'[%PONAME%]', width: 200, sortable:true,dataIndex:'Name'},
-            {header:'[%ACTIONS%]', width: 50, sortable:false,dataIndex:'',renderer:actionsRenderer}
-        ],
-        tbar: poToolBar, 
-        stripeRows: true,
-        height:350,
-        width:400,
-        iconCls:'icon-grid',
-		    frame:true,
-        title:'[%PO_GRID_TITLE%]'
-    });
+  // create the Grid
+  var poGrid = new Ext.grid.EditorGridPanel({
+      ds: poStore,
+      columns: [
+          {id:'ProductOfferingId',header: '[%POID%]', width: 50, sortable: true, dataIndex: 'ProductOfferingId'},
+          {header:'[%PONAME%]', width: 220, sortable:true,dataIndex:'Name'},
+          {header:'[%ACTIONS%]', width: 50, sortable:false,dataIndex:'',renderer: poActionsRenderer}
+      ],
+      tbar: poToolBar, 
+      stripeRows: true,
+      height: 300,
+      width: 350,
+      iconCls:'icon-grid',
+		  frame:true,
+      title:'[%PO_GRID_TITLE%]'
+  });
 
-function poGridprocessClick(myGrid, rowIndex,columnIndex, eventObj)
-    {
-      var columnID = myGrid.getColumnModel().getColumnId(columnIndex);
-      if( myGrid.getColumnModel().getColumnById(columnID).dataIndex != 'SelectionScope')
-      {
-        return;
-      }
-    
-      var record = myGrid.getStore().getAt(rowIndex);
-                 
-      var cell = myGrid.getView().getCell(rowIndex, columnIndex);
-      
-          }
-
-    poGrid.on('celldblclick',function(myGrid, rowIndex, columnIndex, eventObj)
-    {
-      poGridprocessClick(myGrid, rowIndex,columnIndex, eventObj)
-    });
-    
-    poGrid.on('cellclick',function(myGrid, rowIndex, columnIndex, eventObj)
-    {
-     poGridprocessClick(myGrid, rowIndex,columnIndex, eventObj)
-    });
-
-   
   //this will be called when accts are selected
   function addPoCallback(ids, records, target)
   {    
@@ -487,20 +460,20 @@ function poGridprocessClick(myGrid, rowIndex,columnIndex, eventObj)
   }
 
   //add account button handler
-  function onAdd()
+  function onPoAdd()
   {
     ShowMultiPoSelector('addPoCallback', 'Frame');
   }
 
-  function actionsRenderer(value, meta, record, rowIndex, colIndex, store)
+  function poActionsRenderer(value, meta, record, rowIndex, colIndex, store)
   {
     var str = String.format(""<a style='cursor:hand;' id='remove_{0}' title='{1}' href='JavaScript:removePo({0});'><img src='/Res/Images/icons/cross.png' alt='{1}' /></a>"", record.data.ProductOfferingId, '[%REMOVE_PO%]'); 
     return str;
   }
   
-  function removePo(poID)
+  function removePo(poId)
   {
-    var idx = poStore.find('poID', poID);
+    var idx = poStore.find('ProductOfferingId', poId);
     poStore.remove(poStore.getAt(idx));
   }
 

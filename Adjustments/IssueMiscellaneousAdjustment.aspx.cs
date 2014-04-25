@@ -14,6 +14,7 @@ using MetraTech.ActivityServices.Services.Common;
 using MetraTech.Auth.Capabilities;
 using MetraTech.Core.CreditNotes;
 using MetraTech.Core.Services.ClientProxies;
+using MetraTech.CreditNotes;
 using MetraTech.DataAccess;
 using MetraTech.DomainModel.AccountTypes;
 using MetraTech.DomainModel.BaseTypes;
@@ -26,6 +27,8 @@ using MetraTech.UI.Common;
 using MetraTech.UI.Controls;
 using MetraTech.UI.Tools;
 using MetraTech.Security.Crypto;
+using RCD = MetraTech.Interop.RCD;
+
 public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
 {
     //[NonSerialized]
@@ -42,9 +45,28 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
             return HttpContext.Current.Application["AccountCreditPipelineMeteringHelperCache"] as PipelineMeteringHelperCache;
         }
     }
+
+  private bool _creditNotesEnabled = false ;
+  private RCD.IMTRcd rcd = new RCD.MTRcd();
+  
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Page.IsPostBack)
+      CreditNoteServiceClient client = new CreditNoteServiceClient();
+      if (client.ClientCredentials != null)
+      {
+        client.ClientCredentials.UserName.UserName = UI.User.UserName;
+        client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+      }
+
+      string reportingDir = Path.Combine(rcd.ExtensionDir, "Reporting");
+      if (Directory.Exists(reportingDir)) // check if Reporting extension exists
+      {
+        CreditNotePDFConfiguration config = null;
+        client.GetCreditNoteConfigurationObject(ref config);
+        _creditNotesEnabled = config.creditNotesEnabled;
+      }
+
+      if (!Page.IsPostBack)
         {
             adjAmountFld.DecimalSeparator
               = adjAmountFldTaxFederal.DecimalSeparator
@@ -69,8 +91,13 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
 
             lblMaxAmount.Text = String.Format("{0} {1}", maxAdjAmount, ((InternalView)UI.Subscriber.SelectedAccount.GetInternalView()).Currency);
 
+          if (_creditNotesEnabled)
+          {
             generateEnableControlsJS();
             PopulateCreditNotesTemplateTypes();
+          }
+          else
+            CreditNotesPanelDiv.Attributes.Add("style", "display: none;");
         }
 
         var accountIntervalsClient = new UsageHistoryService_GetAccountIntervals_Client
@@ -272,7 +299,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
                 row["IgnorePaymentRedirection"] = 0;
                 long ticks = System.DateTime.UtcNow.Ticks;
                 row["MiscAdjustmentID"] = ticks;
-                if (cbIssueCreditNote.Checked)
+                if (_creditNotesEnabled && cbIssueCreditNote.Checked)
                 {
                     row["IssueCreditNote"] = true;
                     row["CreditNoteTemplateId"] = ddTemplateTypes.SelectedValue;
@@ -315,7 +342,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
                 }
 
                 // Issue the credit note if requested in the UI and if the Account Credit was metered successfully without needed approval first
-                if (IsAllowedCreate(totalAmount ?? 0) && cbIssueCreditNote.Checked)
+                if (_creditNotesEnabled && IsAllowedCreate(totalAmount ?? 0) && cbIssueCreditNote.Checked)
                 {
                     // get the account credit just metered
                     long sessionID = GetAccountCreditJustMetered(UI.Subscriber.SelectedAccount._AccountID.Value, ticks);
@@ -350,7 +377,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
         {
             if (IsAllowedCreate(totalAmount ?? 0))
             {
-                if (cbIssueCreditNote.Checked)
+                if (_creditNotesEnabled && cbIssueCreditNote.Checked)
                 {
                     ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_CREATED_TITLE")),
                                    String.Format("{0} {1}", GetLocalResourceObject("TEXT_CREATED"), GetLocalResourceObject("TEXT_CREDIT_NOTE_CREATED")));
@@ -363,7 +390,7 @@ public partial class Adjustments_IssueMiscellaneousAdjustment : MTPage
             }
             else
             {
-                if (cbIssueCreditNote.Checked)
+                if (_creditNotesEnabled && cbIssueCreditNote.Checked)
                 {
                     ConfirmMessage(String.Format("{0}", GetLocalResourceObject("TEXT_PENDING_TITLE")),
                                    String.Format("{0} {1}", GetLocalResourceObject("TEXT_PENDING"), GetLocalResourceObject("TEXT_CREDIT_NOTE_PENDING")));

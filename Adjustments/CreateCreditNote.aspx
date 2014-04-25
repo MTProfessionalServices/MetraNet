@@ -38,7 +38,7 @@ meta:resourcekey="PageResource1" Culture="auto" UICulture="auto"%>
          <tr>
            <td  class="x-panel-btn-td">
              <asp:HiddenField ID="hdSelectedItemsList" runat="server" />
-             <MT:MTButton ID="MTButton1"  runat="server" OnClientClick="return GetAdjustmentIdsAndType();"
+             <MT:MTButton ID="MTButton1"  runat="server" OnClientClick="if(ValidateForm()) {return GetAdjustmentIdsAndType();} else {return false;}"
               OnClick="btnIssueCreditNote_Click" TabIndex="150" meta:resourcekey="btnIssueCreditNoteResource1" />
            </td>
            <td  class="x-panel-btn-td">

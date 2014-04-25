@@ -34,27 +34,27 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MetraCareWorkflowLibrary, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="MetraCareWorkflowLibrary">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTRMPBIN)\MetraCareWorkflowLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="MetraTech.Account.ProxyActivities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="MetraTech.Account.ProxyActivities">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTRMPBIN)\MetraTech.Account.ProxyActivities.dll</HintPath>
     </Reference>
-    <Reference Include="MetraTech.ActivityServices.Activities, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="MetraTech.ActivityServices.Activities">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTRMPBIN)\MetraTech.ActivityServices.Activities.dll</HintPath>
     </Reference>
-    <Reference Include="MetraTech.Core.Activities, Version=6.0.1.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="MetraTech.Core.Activities">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTRMPBIN)\MetraTech.Core.Activities.dll</HintPath>
     </Reference>
-    <Reference Include="MetraTech.Core.Services.ProxyActivities, Version=0.0.0.0, Culture=neutral, PublicKeyToken=a0f5c26dbec45a75, processorArchitecture=MSIL">
+    <Reference Include="MetraTech.Core.Services.ProxyActivities">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTRMPBIN)\MetraTech.Core.Services.ProxyActivities.dll</HintPath>
     </Reference>
-    <Reference Include="MetraTech.Core.Workflows, Version=6.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="MetraTech.Core.Workflows">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(MTRMPBIN)\MetraTech.Core.Workflows.dll</HintPath>
     </Reference>

@@ -1,17 +1,5 @@
 using System;
-using System.Data;
-using System.Configuration;
-using System.Collections;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-
 using MetraTech.UI.Common;
-using MetraTech.PageNav.ClientProxies;
-using MetraTech.DomainModel.Common;
 using MetraTech.UI.Controls;
 using MetraTech.SecurityFramework;
 using MetraTech.UI.Tools;
@@ -53,14 +41,14 @@ namespace MetraNet.Quoting
     /// <returns></returns>
     private string CheckParameter(string parameter)
     {
-      string result = string.Empty;
+      string result;
       try
       {
         // SECENG: Allow empty parameters
         if (!string.IsNullOrEmpty(parameter))
         {
-          ApiInput input = new ApiInput(parameter);
-          SecurityKernel.AccessController.Api.ExecuteDefaultByCategory(AccessControllerEngineCategory.UrlController.ToString(), input).ToString();
+          var input = new ApiInput(parameter);
+          return SecurityKernel.AccessController.Api.ExecuteDefaultByCategory(AccessControllerEngineCategory.UrlController.ToString(), input).ToString();
         }
 
         result = parameter;
@@ -93,10 +81,12 @@ namespace MetraNet.Quoting
         Target = CheckParameter(Request.QueryString["t"]);
       }
 
-      MTGridDataBindingArgument arg = new MTGridDataBindingArgument("POEffectiveDate", ApplicationTime.ToString());
+// ReSharper disable SpecifyACultureInStringConversionExplicitly
+      var arg = new MTGridDataBindingArgument("POEffectiveDate", ApplicationTime.ToString());
+// ReSharper restore SpecifyACultureInStringConversionExplicitly
       POForQuoteGrid.DataBinder.Arguments.Add(arg);
 
-      string inputfiltertype = "PO";
+      const string inputfiltertype = "PO";
       PartitionLibrary.SetupFilterGridForPartition(POForQuoteGrid, inputfiltertype);
 
       base.OnLoadComplete(e);

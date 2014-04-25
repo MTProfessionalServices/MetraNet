@@ -38,12 +38,12 @@
     <div id="PlaceHolderProductOfferingsGrid" style="margin:10px"></div>    
   </MT:MTPanel>
   <MT:MTPanel ID="MTPanelUDRCMetrics" runat="server" Text="UDRC metrics for quote" Collapsible="True"
-    Collapsed="False" meta:resourcekey="MTPanelUDRCResource">
+    Collapsed="True" meta:resourcekey="MTPanelUDRCResource">
      <asp:PlaceHolder ID="PlaceHolderUDRCMetricsGrid" runat="server"></asp:PlaceHolder> 
      <br />GRID WITH UDRC METRICS (GENERATED DYNAMICALLY ACCORDING TO SET OF POS ABOVE, uses code based on Subscriptions\SetUDRCValues.aspx page<br /> <br />
   </MT:MTPanel>
   <MT:MTPanel ID="MTPanelICBs" runat="server" Text="ICBs for quote" Collapsible="True"
-    Collapsed="False" meta:resourcekey="MTPanelICBResource">
+    Collapsed="True" meta:resourcekey="MTPanelICBResource">
     <br />GRID WITH ICB METRICS. (most likely we should create a new screen for rates edit instead of existed ASP page for Rates similar to Subscriptions\SetUDRCValues.aspx< page<br /> <br />
   </MT:MTPanel>
   <div class="x-panel-btns-ct">
@@ -52,7 +52,7 @@
         <table>
           <tr>
             <td class="x-panel-btn-td">
-              <MT:MTCheckBoxControl ID="MTCheckBoxControl1" BoxLabel = "View result" runat="server" LabelWidth="100" meta:resourcekey="MTCheckBoxPdfResource" />
+              <MT:MTCheckBoxControl ID="MTCheckBoxViewResult" Visible="False" BoxLabel = "View result" runat="server" LabelWidth="100" meta:resourcekey="MTCheckBoxPdfResource" />
             </td>
             <td class="x-panel-btn-td">
               <MT:MTButton ID="MTbtnGenerateQuote" runat="server" OnClientClick="return getDataGrids();" OnClick="btnGenerateQuote_Click"
@@ -135,8 +135,8 @@
       if (window.poSelectorWin2 == null || window.poSelectorWin2 === undefined ||
         target != window.lastTarget2 || functionName != window.lastFunctionName2) {
           window.poSelectorWin2 = new top.Ext.Window({
-              title: 'TEXT_SELECT_PO',
-              width: 700,
+              title: 'Select product offerings for quote',
+              width: 800,
               height: 500,
               minWidth: 300,
               minHeight: 200,

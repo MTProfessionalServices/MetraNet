@@ -127,7 +127,10 @@
         <value>Currency</value>
     </data>
     <data name="ID_QUOTE" xml:space="preserve">
-        <value>Id Quote</value>
+        <value>Quote Id</value>
+    </data>
+    <data name="IS_GROUPSUBSCRIPTION" xml:space="preserve">
+        <value>Is group subscription</value>
     </data>
     <data name="MTTitle1Resource1.Text" xml:space="preserve">
         <value>Quotes List</value>

@@ -150,13 +150,25 @@ namespace MetraNet.Quoting
     }
     #endregion
 
+    private delegate void AsyncCreateQuote(QuoteRequest request);
+
     protected void btnGenerateQuote_Click(object sender, EventArgs e)
     {
       try
       {
         Page.Validate();
-        InvokeCreateQuote(RequestForCreateQuote);
-        Response.Redirect(@"/MetraNet/Quoting/QuoteList.aspx", false);
+        if (!MTCheckBoxViewResult.Checked)  //do async call
+        {
+          AsyncCreateQuote asynCall = InvokeCreateQuote;
+          asynCall.BeginInvoke(RequestForCreateQuote, null, null);
+          Response.Redirect(@"/MetraNet/Quoting/QuoteList.aspx", false);
+        }
+        else
+        {
+          InvokeCreateQuote(RequestForCreateQuote);
+          Response.Redirect(@"/MetraNet/Quoting/QuoteList.aspx", false);
+        }
+        
       }
       catch (MASBasicException exp)
       {

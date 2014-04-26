@@ -8,7 +8,6 @@ using System.Web.UI;
 using MetraTech;
 using MetraTech.Domain.Quoting;
 using MetraTech.DomainModel.ProductCatalog;
-using MetraTech.SecurityFramework;
 using MetraTech.UI.Common;
 using MetraTech.ActivityServices.Common;
 using MetraTech.Core.Services.ClientProxies;
@@ -36,6 +35,8 @@ namespace MetraNet.Quoting
       set { Session["UDRCDictionary"] = value; }
     }
 
+    protected string AccountArray;
+
     protected void Page_Load(object sender, EventArgs e)
     {
       var cbReference = Page.ClientScript.GetCallbackEventReference(this, "arg", "ReceiveServerData", "context");
@@ -49,13 +50,6 @@ namespace MetraNet.Quoting
 
       AccountRenderGrid();
       
-      #endregion
-
-      #region render product offerings grid
-      
-      
-      PoRenderGrid();
-
       #endregion
     }
 
@@ -212,7 +206,6 @@ namespace MetraNet.Quoting
       //todo read Account Id for group subscription
       //if (!string.IsNullOrEmpty(HiddenGroupId.Value))
         
-
       if (!string.IsNullOrEmpty(HiddenPoIdTextBox.Value))
         Pos = HiddenPoIdTextBox.Value.Split(',').Select(int.Parse).ToList();
 
@@ -247,238 +240,13 @@ namespace MetraNet.Quoting
     #region Render Grids   
     protected void AccountRenderGrid()
     {
-      accountJavaScript = ReplaceString(accountJavaScript, "[%SELECT_ACCOUNTS%]", "SELECT_ACCOUNTS");
-      accountJavaScript = ReplaceString(accountJavaScript, "[%USERNAME%]", "USERNAME");
-      accountJavaScript = ReplaceString(accountJavaScript, "[%ISGROUP%]", "ISGROUP");
-      accountJavaScript = ReplaceString(accountJavaScript, "[%ACTIONS%]", "ACTIONS");
-      accountJavaScript = ReplaceString(accountJavaScript, "[%GRID_TITLE%]", "GRID_TITLE");
-      accountJavaScript = ReplaceString(accountJavaScript, "[%REMOVE_ACCOUNT%]", "REMOVE_ACCOUNT");
-
-      if (!ClientScript.IsClientScriptBlockRegistered("accountGridScript"))
+      if (UI.Subscriber.SelectedAccount != null)
       {
-        ClientScript.RegisterStartupScript(GetType(), "accountGridScript", accountJavaScript);
+        var account = UI.Subscriber.SelectedAccount;
+
       }
-    }
-
-    protected void PoRenderGrid()
-    {
-      poJavaScript = ReplaceString(poJavaScript, "[%SELECT_POS%]", "SELECT_POS");
-      poJavaScript = ReplaceString(poJavaScript, "[%POID%]", "POID");
-      poJavaScript = ReplaceString(poJavaScript, "[%PONAME%]", "PONAME");
-      poJavaScript = ReplaceString(poJavaScript, "[%ACTIONS%]", "ACTIONS");
-      poJavaScript = ReplaceString(poJavaScript, "[%PO_GRID_TITLE%]", "PO_GRID_TITLE");
-      poJavaScript = ReplaceString(poJavaScript, "[%REMOVE_PO%]", "REMOVE_PO");
-
-
-      if (!ClientScript.IsClientScriptBlockRegistered("poGridScript"))
-      {
-        ClientScript.RegisterStartupScript(GetType(), "poGridScript", poJavaScript);
-      }
-    }
-
-    private string ReplaceString(string source, string key, string value)
-    {
-      return source.Replace(key, ((string)GetLocalResourceObject(value)).EncodeForJavaScript());
     }
     #endregion
 
-    #region Dynamic JavaScript / UDRC Grid / Account Grid / Edit Window
-
-    #region JavaScript Account
-
-    public string accountJavaScript = @"
-  <script type='text/javascript'>
-  
-  var accountData = {accounts:[]};
-  
-   // create the data store
-  var accountStore = new Ext.data.JsonStore({
-    root:'accounts',
-    fields: [
-      {name: 'IsGroup'},
-      {name: 'UserName'},
-      {name: '_AccountID'},
-      {name: 'AccountType'},
-      {name: 'AccountStatus'},     
-      {name: 'Internal#Folder'}
-    ]
-  });
-  accountStore.loadData(accountData);
-  
-  var accountToolBar = new Ext.Toolbar([{iconCls:'add',id:'Add',text:'[%SELECT_ACCOUNTS%]',handler:onAccountAdd}]); 
-
-  // create the Grid
-  var accountGrid = new Ext.grid.EditorGridPanel({
-    ds: accountStore,
-    columns: [
-      {id: '_AccountID', header: '[%USERNAME%]', width: 150, sortable: true, renderer: usernameRenderer, dataIndex: '_AccountID'},
-      {header: '[%ISGROUP%]', width: 120, sortable: false, dataIndex: 'IsGroup', renderer: isGroupSubscriptionRenderer},
-      {header: '[%ACTIONS%]', width: 50, sortable: false, dataIndex: '', renderer: accountActionsRenderer}
-    ],
-    tbar: accountToolBar, 
-    stripeRows: true,
-    height: 300,
-    width: 340,
-    iconCls: 'icon-grid',
-    frame:true,
-    title: '[%GRID_TITLE%]'
-  });
-   
-  //this will be called when accts are selected
-  function accountCallback(ids, records, target)
-  {    
-    for (var i = 0; i < records.length; i++)
-    {
-      var accID = records[i].data._AccountID;
-      var found = accountStore.find('_AccountID', accID);
-      if(found == -1)
-      {
-        records[i].IsGroup = 0;
-        accountStore.add(records[i]);
-      }
-    }
-    accountSelectorWin2.hide();
-  }
-
-  //add account button handler
-  function onAccountAdd()
-  {
-    Ext.UI.ShowMultiAccountSelector('accountCallback', 'Frame');
-  }
-
-  function accountActionsRenderer(value, meta, record, rowIndex, colIndex, store)
-  {
-    var str = String.format(""<a style='cursor:hand;' id='remove_{0}' title='{1}' href='JavaScript:removeAcct({0});'><img src='/Res/Images/icons/cross.png' alt='{1}' /></a>"", record.data._AccountID, '[%REMOVE_ACCOUNT%]'); 
-    return str;
-  }
-
-  function usernameRenderer(value, meta, record, rowIndex, colIndex, store)
-  {   
-    var folder = 'False' ;
-    if (record.data['Internal#Folder'] == true) 
-    { 
-        folder = 'True' ;
-    } 
-
-    var str = String.format(""<span title='{2} ({1}) - {0}'><img src='/ImageHandler/images/Account/{0}/account.gif?State={3}&Folder={4}'> {2} ({1})</span>"",
-                                  record.data.AccountType,
-                                  record.data._AccountID,
-                                  record.data.UserName,
-                                  record.data.AccountStatus,
-                                  folder);
-    return str;
-  }
-  
-  function isGroupSubscriptionRenderer(value, meta, record, rowIndex, colIndex, store)
-  {
-    var str = '';
-    if (record.data.AccountType == 'CorporateAccount') {
-      str = '<input ' + (record.data['IsGroup']==1 ? 'checked=checked' : '') + 'onchange=""setDefaultChecked(' + rowIndex + ');"" type=radio name=""radioButton' + record.data._AccountID + '"">'
-    }
-    return str;
-  }
-
-  function setDefaultChecked(rowIndex) 
-  { 
-    for(var index = 0; index < accountStore.data.items.length; index++) 
-    { 
-      if (accountStore.data.items[index].data.IsGroup == 1) 
-        accountStore.data.items[index].set('IsGroup', 0);    
-    } 
-    accountStore.data.items[rowIndex].set('IsGroup', 1);
-    accountStore.commitChanges();
-  }
-  
-  function removeAcct(accId)
-  {
-    var idx = accountStore.find('_AccountID', accId);
-    accountStore.remove(accountStore.getAt(idx));
-  }
-
-  Ext.onReady(function(){
-    accountGrid.render(Ext.get('PlaceHolderAccountsGrid'));
-  });
-  </script>
-    ";
-    #endregion
-
-    #region JavaScript PO
-
-    public string poJavaScript = @"
-  <script type='text/javascript'>
-  
-  var poData = {pos:[]};
-  
-  // create the data store
-  var poStore = new Ext.data.JsonStore({
-      root:'pos',
-      fields: [
-          {name: 'Name'},
-          {name: 'ProductOfferingId'}           
-      ]
-  });
-  poStore.loadData(poData);
-  
-  var poToolBar = new Ext.Toolbar([{iconCls:'add', id: 'Add',text: '[%SELECT_POS%]',handler: onPoAdd}]); 
-
-  // create the Grid
-  var poGrid = new Ext.grid.EditorGridPanel({
-      ds: poStore,
-      columns: [
-          {id:'ProductOfferingId',header: '[%POID%]', width: 45, sortable: true, dataIndex: 'ProductOfferingId'},
-          {header:'[%PONAME%]', width: 220, sortable:true,dataIndex:'Name'},
-          {header:'[%ACTIONS%]', width: 45, sortable:false,dataIndex:'',renderer: poActionsRenderer}
-      ],
-      tbar: poToolBar, 
-      stripeRows: true,
-      height: 300,
-      width: 340,
-      iconCls:'icon-grid',
-		  frame:true,
-      title:'[%PO_GRID_TITLE%]'
-  });
-
-  //this will be called when accts are selected
-  function addPoCallback(ids, records, target)
-  {    
-    for (var i = 0; i < records.length; i++)
-    {
-      var ProductOfferingId = records[i].data.ProductOfferingId;
-      var found = poStore.find('ProductOfferingId', ProductOfferingId);
-      if(found == -1)
-      {
-        poStore.add(records[i]);
-      }
-    }    
-    poSelectorWin2.hide();
-  }
-
-  //add account button handler
-  function onPoAdd()
-  {
-    ShowMultiPoSelector('addPoCallback', 'Frame');
-  }
-
-  function poActionsRenderer(value, meta, record, rowIndex, colIndex, store)
-  {
-    var str = String.format(""<a style='cursor:hand;' id='remove_{0}' title='{1}' href='JavaScript:removePo({0});'><img src='/Res/Images/icons/cross.png' alt='{1}' /></a>"", record.data.ProductOfferingId, '[%REMOVE_PO%]'); 
-    return str;
-  }
-  
-  function removePo(poId)
-  {
-    var idx = poStore.find('ProductOfferingId', poId);
-    poStore.remove(poStore.getAt(idx));
-  }
-
-  Ext.onReady(function(){
-    poGrid.render(Ext.get('PlaceHolderProductOfferingsGrid'));
-  });
-  </script>
-    ";
-
-    #endregion
-
-    #endregion    
   }
 }

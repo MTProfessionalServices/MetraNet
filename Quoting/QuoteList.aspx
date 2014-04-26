@@ -41,7 +41,8 @@
     }
 
     function onNew_<%= QuoteListGrid.ClientID %>() {
-      document.location.href = String.format("CreateQuote.aspx");
+      var accountsFilterValue = "<%= AccountsFilterValue %>";
+      document.location.href = String.format("CreateQuote.aspx{0}", accountsFilterValue == "ALL" ? "" : "?Accounts=ONE");
     }
     
     function onEdit(entityId) {

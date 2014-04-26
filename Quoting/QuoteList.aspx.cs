@@ -13,6 +13,7 @@ namespace MetraNet.Quoting
 {
   public partial class QuotesList : MTPage, ICallbackEventHandler
   {
+    protected string AccountsFilterValue;
     protected void Page_Load(object sender, EventArgs e)
     {
       var cbReference = Page.ClientScript.GetCallbackEventReference(this, "arg", "ReceiveServerData", "context");
@@ -22,10 +23,10 @@ namespace MetraNet.Quoting
 
     protected override void OnLoadComplete(EventArgs e)
     {
-      var accountsFilterValue = Request["Accounts"];
-      if (String.IsNullOrEmpty(accountsFilterValue)) return;
+      AccountsFilterValue = Request["Accounts"];
+      if (String.IsNullOrEmpty(AccountsFilterValue)) return;
 
-      if (accountsFilterValue == "ALL")
+      if (AccountsFilterValue == "ALL")
         QuoteListGrid.DataSourceURL = @"../AjaxServices/LoadQuotesList.aspx?Accounts=ALL";
     }
 

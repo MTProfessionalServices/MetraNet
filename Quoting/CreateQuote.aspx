@@ -96,14 +96,14 @@
     var accountGrid = new Ext.grid.EditorGridPanel({
       ds: accountStore,
       columns: [
-        { id: '_AccountID', header: textUserName, width: 150, sortable: true, renderer: usernameRenderer, dataIndex: '_AccountID' },
+        { id: '_AccountID', header: textUserName, width: 145, sortable: true, renderer: usernameRenderer, dataIndex: '_AccountID' },
         { header: textIsGroup, width: 120, sortable: false, dataIndex: 'IsGroup', renderer: isGroupSubscriptionRenderer },
         { header: textAccountActions, width: 50, sortable: false, dataIndex: '', renderer: accountActionsRenderer }
       ],
       tbar: accountToolBar,
       stripeRows: true,
       height: 300,
-      width: 350,
+      width: 345,
       iconCls: 'icon-grid',
       frame: true,
       title: textAccountGridTitle
@@ -239,13 +239,13 @@
       ds: poStore,
       columns: [
         { id: 'ProductOfferingId', header: textPoId, width: 50, sortable: true, dataIndex: 'ProductOfferingId' },
-        { header: textPoName, width: 220, sortable: true, dataIndex: 'Name' },
+        { header: textPoName, width: 210, sortable: true, dataIndex: 'Name' },
         { header: textPoAction, width: 50, sortable: false, dataIndex: '', renderer: poActionsRenderer }
       ],
       tbar: poToolBar,
       stripeRows: true,
       height: 300,
-      width: 350,
+      width: 345,
       iconCls: 'icon-grid',
       frame: true,
       title: textPoGridTitle

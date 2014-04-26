@@ -222,7 +222,6 @@ namespace MetraNet.Quoting
       }
     }
 
-
     private void InvokeCreateQuote(QuoteRequest request)
     {
       using (var client = new QuotingServiceClient())
@@ -236,17 +235,26 @@ namespace MetraNet.Quoting
         client.CreateQuoteWithoutValidation(request, out response);
       }
     }
-    
-    #region Render Grids   
+      
     protected void AccountRenderGrid()
     {
-      if (UI.Subscriber.SelectedAccount != null)
-      {
-        var account = UI.Subscriber.SelectedAccount;
-
-      }
+      if (IsPostBack || UI.Subscriber.SelectedAccount == null) return;
+      
+      var accountsFilterValue = Request["Accounts"];
+      if (string.IsNullOrEmpty(accountsFilterValue) || accountsFilterValue != "ONE") return;
+      
+      var account = UI.Subscriber.SelectedAccount;
+      const string currentAccount = "[{6}'_AccountID': {0}, 'AccountStatus': {1}, 'AccountType': '{2}', 'Internal#Folder': {3}, 'IsGroup': {4}, 'UserName': '{5}'{7}]";
+      HiddenAccounts.Value = string.Format(
+        CultureInfo.CurrentCulture,
+        currentAccount,
+        account._AccountID,
+        (int) account.AccountStatus.GetValueOrDefault(),
+        account.AccountType,
+        "false",
+        0,
+        account.UserName,
+        "{", "}");
     }
-    #endregion
-
   }
 }

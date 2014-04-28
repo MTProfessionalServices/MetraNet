@@ -23,25 +23,33 @@ public partial class AjaxServices_DecisionService : MTListServicePage
 {
   protected void Page_Load ( object sender, EventArgs e )
   {
-    int id_interval;
+    int id_interval = 0;
     String str_interval = Request [ "id_interval" ];
     Logger.LogDebug("Looking for decisions for id_acc " + UI.Subscriber.SelectedAccount._AccountID.Value );
-	str_interval = "1058996256";
     if (string.IsNullOrEmpty(str_interval))
     {
-        Logger.LogWarning ( "No interval (id_interval) specified" );
-        Response.Write ( "{\"TotalRows\":\"0\",\"Items\":[]}" );
-        Response.End ();
-        return;
+		using ( var conn = ConnectionManager.CreateConnection ( ) )
+		{
+		  using ( var stmt = conn.CreateAdapterStatement ( "MetraViewServices", "__MVIEW_GET_CURRENT_INTERVAL__" ) )
+		  {
+			stmt.AddParam ( "%%ID_ACC%%", UI.Subscriber.SelectedAccount._AccountID.Value );
+			stmt.AddParam ( "%%DT_NOW%%", MetraTech.MetraTime.Now );
+			using ( var rdr = stmt.ExecuteReader () )
+			{
+			  while ( rdr.Read () )
+			  {
+				id_interval = rdr.GetInt32 ("id_interval");
+			  }
+			}
+		  }
+		}
     }
     else
     {
       id_interval = int.Parse ( str_interval );
     }
-//	id_interval = 1051131934;
+
     Logger.LogDebug("Looking for decisions for id_acc " + UI.Subscriber.SelectedAccount._AccountID.Value + " and interval " + id_interval);
-    // id_interval = 1039138849;  // ME May 2013
-    // id_interval = 1041104929;  // ME Jun 2013
 
     using ( new HighResolutionTimer ( "DecisionService", 5000 ) )
     {

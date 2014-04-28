@@ -83,7 +83,7 @@
   <table style="width:100%; height:100%;">
     <tr style="vertical-align: top;">
       <td style="width: 380px; height: 336px;"> 
-        <div class="widget" data-row="4" data-col="1" data-sizex="3" data-sizey="3">
+        <div class="widget" data-row="3" data-col="1" data-sizex="3" data-sizey="3">
           <MT:MTPanel ID="billingActivityPanel" runat="server"  Width="380" meta:resourcekey="billingActivityPanel">
             <div id="billsPaymentsChart" style="width: 100%; height: 100%;">
             </div>
@@ -91,7 +91,7 @@
         </div>
       </td>
       <td>
-        <div class="widget" data-row="4" data-col="4" data-sizex="5" data-sizey="3" >
+        <div class="widget" data-row="3" data-col="4" data-sizex="5" data-sizey="3" >
           <MT:MTPanel ID="billingSummaryPanel" runat="server" Width="500" meta:resourcekey="billingSummaryPanel">
             <MT:MTFilterGrid ID="BillingSummaryGrid" runat="server" TemplateFileName="AccountBillingSummary.xml"
               ExtensionName="Account" Resizable="False">
@@ -101,19 +101,19 @@
       </td>
     </tr>
   </table>
-  <div class="widget" data-row="7" data-col="1" data-sizex="8" data-sizey="3">
+  <div class="widget" data-row="6" data-col="1" data-sizex="8" data-sizey="3">
     <MT:MTFilterGrid ID="SubscriptionSummaryGrid" runat="server" TemplateFileName="AccountSubscriptionSummary.xml" ExtensionName="Account" ></MT:MTFilterGrid>
   </div>
   
-  <%--  <div class="widget" data-row="8" data-col="1" data-sizex="8" data-sizey="3">
+  <%--  <div class="widget" data-row="9" data-col="1" data-sizex="8" data-sizey="3">
     <MT:MTFilterGrid ID="InvoiceSummaryGrid" runat="server" TemplateFileName="AccountInvoiceSummary.xml" ExtensionName="Account" ></MT:MTFilterGrid>
     </div>
   
-    <div class="widget" data-row="9" data-col="1" data-sizex="8" data-sizey="3">
+    <div class="widget" data-row="12" data-col="1" data-sizex="8" data-sizey="3">
       <MT:MTFilterGrid ID="PaymentGrid" runat="server" TemplateFileName="AccountPaymentSummary.xml" ExtensionName="Account" ></MT:MTFilterGrid>
     </div>
   
-    <div class="widget" data-row="10" data-col="1" data-sizex="8" data-sizey="3">
+    <div class="widget" data-row="15" data-col="1" data-sizex="8" data-sizey="3">
       <MT:MTPanel ID="pnlNowCast" runat="server" Text="NowCast">
         <div id="NowCast-body"></div>
       </MT:MTPanel>

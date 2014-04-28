@@ -2,6 +2,21 @@
 <xmlconfig>
     <version ptype="INTEGER">2</version>
     <ScheduledAdapters>
+    <Adapter>
+      <Name>GenerateSubscriptionDatamart</Name>
+      <DisplayName>Generate and/or Populate Subscription Data Mart</DisplayName>
+      <ClassID>MetraTech.UsageServer.Adapters.SubscriptionDataMartAdapter,MetraTech.UsageServer.Adapters</ClassID>
+      <ConfigFile>GenerateSubscriptionDatamart.xml</ConfigFile>
+      <Description>
+      <![CDATA[
+        Generates the and/or populates the Subscription Data Mart
+      ]]>
+      </Description>
+	  <RecurrencePattern>
+		<SystemCycle>Daily</SystemCycle>
+	  </RecurrencePattern>
+    </Adapter>
+
         <!--
     <Adapter>
       <Name>MaterializedViewAdapter</Name>

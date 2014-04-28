@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PageLayout>
+  <IsBusinessEntityLayout>true</IsBusinessEntityLayout>
+	<Name>Core.Quoting.QuoteHeader_BulkUpdate</Name>
+  <Tenant>MetraTech</Tenant>	
+  <AssemblyName>Core.Quoting.Entity</AssemblyName>
+	<ObjectName>Core.Quoting.QuoteHeader</ObjectName>
+	<Description></Description>
+	<Header>
+    <PageTitle />
+  </Header>
+  <Help>
+    <Mode>None</Mode>
+		<Name></Name>
+		<URL></URL>
+	</Help>
+	<Sections>
+
+	</Sections>
+	<CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
+</PageLayout>

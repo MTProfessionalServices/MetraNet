@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,407 +59,410 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-        <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
             <xsd:complexType>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="metadata">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string" />
-                            <xsd:attribute name="type" type="xsd:string" />
-                            <xsd:attribute name="mimetype" type="xsd:string" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="assembly">
-                        <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string" />
-                            <xsd:attribute name="name" type="xsd:string" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="data">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="resheader">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" />
-                        </xsd:complexType>
-                    </xsd:element>
-                </xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="PAGE_TITLE_REPORTS" xml:space="preserve">
-        <value>報告書</value>
-    </data>
-    <data name="TEXT_ACCOUNT_ID" xml:space="preserve">
-        <value>お客様 ID</value>
-    </data>
-    <data name="TEXT_ACCOUNT_INFORMATION" xml:space="preserve">
-        <value>口座情報</value>
-    </data>
-    <data name="TEXT_ACCOUNT_LOCKED" xml:space="preserve">
-        <value>アカウント '{0}' がロックされています。</value>
-    </data>
-    <data name="TEXT_ACCOUNT_NAME" xml:space="preserve">
-        <value>口座名:</value>
-    </data>
-    <data name="TEXT_ACCOUNT_NUMBER" xml:space="preserve">
-        <value>口座番号:</value>
-    </data>
-    <data name="TEXT_ACCOUNT_SUMMARY" xml:space="preserve">
-        <value>口座の概要</value>
-    </data>
-    <data name="TEXT_ACCT_MOST_USAGE" xml:space="preserve">
-        <value>最も使用率の高いアカウントの棒グラフ</value>
-    </data>
-    <data name="TEXT_ACTIONS" xml:space="preserve">
-        <value>処理</value>
-    </data>
-    <data name="TEXT_ADD" xml:space="preserve">
-        <value>追加</value>
-    </data>
-    <data name="TEXT_ADD_BME" xml:space="preserve">
-        <value>追加</value>
-    </data>
-    <data name="TEXT_AFTER" xml:space="preserve">
-        <value>後</value>
-    </data>
-    <data name="TEXT_ALLOW_ONLINE_PAYMENT" xml:space="preserve">
-        <value>オンライン支払を許可する</value>
-    </data>
-    <data name="TEXT_ALLOW_SAVED_REPORTS" xml:space="preserve">
-        <value>保存済み報告書を許可する</value>
-    </data>
-    <data name="TEXT_ALLOW_SELF_CARE" xml:space="preserve">
-        <value>セルフ ケアを許可する</value>
-    </data>
-    <data name="TEXT_ALLOW_SHARED_REPORTS" xml:space="preserve">
-        <value>共通の報告書を許可する</value>
-    </data>
-    <data name="TEXT_AND" xml:space="preserve">
-        <value>および</value>
-    </data>
-    <data name="TEXT_APPLY_CHANGES" xml:space="preserve">
-        <value>変更の適用</value>
-    </data>
-    <data name="TEXT_AUTO" xml:space="preserve">
-        <value>自動</value>
-    </data>
-    <data name="TEXT_BACK_DASHBOARD" xml:space="preserve">
-        <value>Dashboard に戻る</value>
-    </data>
-    <data name="TEXT_BE_TITLE" xml:space="preserve">
-        <value>ビジネス エンティティの一覧表示</value>
-    </data>
-    <data name="TEXT_BEFORE" xml:space="preserve">
-        <value>前</value>
-    </data>
-    <data name="TEXT_BILLING_INFORMATION" xml:space="preserve">
-        <value>請求書発行情報</value>
-    </data>
-    <data name="TEXT_BREAD_CRUMB" xml:space="preserve">
-        <value>&amp;nbsp;&gt;&amp;nbsp;</value>
-    </data>
-    <data name="TEXT_BREAD_CRUMB_SPACER" xml:space="preserve">
-        <value>&amp;nbsp;&amp;nbsp;</value>
-    </data>
-    <data name="TEXT_CANCEL" xml:space="preserve">
-        <value>キャンセル</value>
-    </data>
-    <data name="TEXT_CAPABILITIES" xml:space="preserve">
-        <value>機能</value>
-    </data>
-    <data name="TEXT_CATEGORY" xml:space="preserve">
-        <value>カテゴリ</value>
-    </data>
-    <data name="TEXT_CHILD_ITEMS" xml:space="preserve">
-        <value>料金小計</value>
-    </data>
-    <data name="TEXT_COLUMN_TITLE" xml:space="preserve">
-        <value>タイトル</value>
-    </data>
-    <data name="TEXT_CONFIRMATION" xml:space="preserve">
-        <value>確認</value>
-    </data>
-    <data name="TEXT_CREATOR_ID" xml:space="preserve">
-        <value>作成者の ID</value>
-    </data>
-    <data name="TEXT_CSS_CLASS" xml:space="preserve">
-        <value>CssClass</value>
-    </data>
-    <data name="TEXT_CULTURE" xml:space="preserve">
-        <value>カルチャ</value>
-    </data>
-    <data name="TEXT_CUSTOM_LAYOUT" xml:space="preserve">
-        <value>カスタム レイアウト</value>
-    </data>
-    <data name="TEXT_CUSTOM_PAGE" xml:space="preserve">
-        <value>カスタム ページ</value>
-    </data>
-    <data name="TEXT_DELETE" xml:space="preserve">
-        <value>削除</value>
-    </data>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="PAGE_TITLE_REPORTS" xml:space="preserve">
+    <value>報告書</value>
+  </data>
+  <data name="TEXT_ACCOUNT_ID" xml:space="preserve">
+    <value>お客様 ID</value>
+  </data>
+  <data name="TEXT_ACCOUNT_INFORMATION" xml:space="preserve">
+    <value>口座情報</value>
+  </data>
+  <data name="TEXT_ACCOUNT_LOCKED" xml:space="preserve">
+    <value>アカウント '{0}' がロックされています。</value>
+  </data>
+  <data name="TEXT_ACCOUNT_NAME" xml:space="preserve">
+    <value>口座名:</value>
+  </data>
+  <data name="TEXT_ACCOUNT_NUMBER" xml:space="preserve">
+    <value>口座番号:</value>
+  </data>
+  <data name="TEXT_ACCOUNT_SUMMARY" xml:space="preserve">
+    <value>口座の概要</value>
+  </data>
+  <data name="TEXT_ACCT_MOST_USAGE" xml:space="preserve">
+    <value>最も使用率の高いアカウントの棒グラフ</value>
+  </data>
+  <data name="TEXT_ACTIONS" xml:space="preserve">
+    <value>処理</value>
+  </data>
+  <data name="TEXT_ADD" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="TEXT_ADD_BME" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="TEXT_AFTER" xml:space="preserve">
+    <value>後</value>
+  </data>
+  <data name="TEXT_ALLOW_ONLINE_PAYMENT" xml:space="preserve">
+    <value>オンライン支払を許可する</value>
+  </data>
+  <data name="TEXT_ALLOW_SAVED_REPORTS" xml:space="preserve">
+    <value>保存済み報告書を許可する</value>
+  </data>
+  <data name="TEXT_ALLOW_SELF_CARE" xml:space="preserve">
+    <value>セルフ ケアを許可する</value>
+  </data>
+  <data name="TEXT_ALLOW_SHARED_REPORTS" xml:space="preserve">
+    <value>共通の報告書を許可する</value>
+  </data>
+  <data name="TEXT_AND" xml:space="preserve">
+    <value>および</value>
+  </data>
+  <data name="TEXT_APPLY_CHANGES" xml:space="preserve">
+    <value>変更の適用</value>
+  </data>
+  <data name="TEXT_AUTO" xml:space="preserve">
+    <value>自動</value>
+  </data>
+  <data name="TEXT_BACK_DASHBOARD" xml:space="preserve">
+    <value>Dashboard に戻る</value>
+  </data>
+  <data name="TEXT_BE_TITLE" xml:space="preserve">
+    <value>ビジネス エンティティの一覧表示</value>
+  </data>
+  <data name="TEXT_BEFORE" xml:space="preserve">
+    <value>前</value>
+  </data>
+  <data name="TEXT_BILLING_INFORMATION" xml:space="preserve">
+    <value>請求書発行情報</value>
+  </data>
+  <data name="TEXT_BREAD_CRUMB" xml:space="preserve">
+    <value>&amp;nbsp;&gt;&amp;nbsp;</value>
+  </data>
+  <data name="TEXT_BREAD_CRUMB_SPACER" xml:space="preserve">
+    <value>&amp;nbsp;&amp;nbsp;</value>
+  </data>
+  <data name="TEXT_CANCEL" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="TEXT_CAPABILITIES" xml:space="preserve">
+    <value>機能</value>
+  </data>
+  <data name="TEXT_CATEGORY" xml:space="preserve">
+    <value>カテゴリ</value>
+  </data>
+  <data name="TEXT_CHILD_ITEMS" xml:space="preserve">
+    <value>料金小計</value>
+  </data>
+  <data name="TEXT_COLUMN_TITLE" xml:space="preserve">
+    <value>タイトル</value>
+  </data>
+  <data name="TEXT_CONFIRMATION" xml:space="preserve">
+    <value>確認</value>
+  </data>
+  <data name="TEXT_CREATOR_ID" xml:space="preserve">
+    <value>作成者の ID</value>
+  </data>
+  <data name="TEXT_CSS_CLASS" xml:space="preserve">
+    <value>CssClass</value>
+  </data>
+  <data name="TEXT_CULTURE" xml:space="preserve">
+    <value>カルチャ</value>
+  </data>
+  <data name="TEXT_CUSTOM_LAYOUT" xml:space="preserve">
+    <value>カスタム レイアウト</value>
+  </data>
+  <data name="TEXT_CUSTOM_PAGE" xml:space="preserve">
+    <value>カスタム ページ</value>
+  </data>
+  <data name="TEXT_DELETE" xml:space="preserve">
+    <value>削除</value>
+  </data>
   <data name="TEXT_BULKUPDATE" xml:space="preserve">
     <value>Bulk Update</value>
   </data>
-    <data name="TEXT_DESCRIPTION" xml:space="preserve">
-        <value>内容</value>
-    </data>
-    <data name="TEXT_DETAILS" xml:space="preserve">
-        <value>内訳</value>
-    </data>
-    <data name="TEXT_DISPLAY_AMOUNT" xml:space="preserve">
-        <value>表示金額</value>
-    </data>
-    <data name="TEXT_DISPLAY_AMOUNT_AS_STRING" xml:space="preserve">
-        <value>DisplayAmountAsString</value>
-    </data>
-    <data name="TEXT_DOWNLOAD_INVOICES" xml:space="preserve">
-        <value>明細書および報告書のダウンロード</value>
-    </data>
-	<data name="TEXT_DOWNLOAD_QUOTES" xml:space="preserve">
-        <value>引用をダウンロード</value>
-    </data>
-    <data name="TEXT_EDIT" xml:space="preserve">
-        <value>編集</value>
-    </data>
-    <data name="TEXT_EN_US" xml:space="preserve">
-        <value>米国英語</value>
-    </data>
-    <data name="TEXT_ENTRY_POINT_NAME" xml:space="preserve">
-        <value>エントリポイント名</value>
-    </data>
-    <data name="TEXT_ESTIMATE" xml:space="preserve">
-        <value>これは見積もりであり、最終的な請求書ではありません。</value>
-    </data>
-    <data name="TEXT_FR" xml:space="preserve">
-        <value>フランス</value>
-    </data>
-    <data name="TEXT_GENERAL" xml:space="preserve">
-        <value>一般</value>
-    </data>
-    <data name="TEXT_GO" xml:space="preserve">
-        <value>移動</value>
-    </data>
-    <data name="TEXT_GRID_ID" xml:space="preserve">
-        <value>グリッド ID</value>
-    </data>
-    <data name="TEXT_HEIGHT" xml:space="preserve">
-        <value>高さ</value>
-    </data>
-    <data name="TEXT_HIERARCHY_LEVELS" xml:space="preserve">
-        <value>最も多くのアカウントが含まれる階層レベル </value>
-    </data>
-    <data name="TEXT_ID" xml:space="preserve">
-        <value>ID</value>
-    </data>
-    <data name="TEXT_INLINE_ADJUSTMENTS" xml:space="preserve">
-        <value>テキスト インライン調整</value>
-    </data>
-    <data name="TEXT_INLINE_TAX" xml:space="preserve">
-        <value>税込み</value>
-    </data>
-    <data name="TEXT_INTERNAL_ID" xml:space="preserve">
-        <value>内部 ID</value>
-    </data>
-    <data name="TEXT_IS_REQUIRED" xml:space="preserve">
-        <value>IsRequired</value>
-    </data>
-    <data name="TEXT_IS_SITE_DOWN_FOR_MAINTENANCE" xml:space="preserve">
-        <value>メンテナンスのためサイトダウンしている</value>
-    </data>
-    <data name="TEXT_IS_VISIBLE" xml:space="preserve">
-        <value>表示できる</value>
-    </data>
-    <data name="TEXT_LAYOUT_EXTENSION_NAME" xml:space="preserve">
-        <value>レイアウトの拡張名</value>
-    </data>
-    <data name="TEXT_LAYOUT_NAME" xml:space="preserve">
-        <value>レイアウト名</value>
-    </data>
-    <data name="TEXT_LOGIN_INFORMATION" xml:space="preserve">
-        <value>ログイン情報</value>
-    </data>
-    <data name="TEXT_LOGO_IMAGE" xml:space="preserve">
-        <value>ロゴ画像</value>
-    </data>
-    <data name="TEXT_MACHINE_IDENTIFIER" xml:space="preserve">
-        <value>マシン識別子</value>
-    </data>
-    <data name="TEXT_MANAGE_GRPSUB" xml:space="preserve">
-        <value>グループ利用の管理</value>
-    </data>
-    <data name="TEXT_MORE_ITEMS" xml:space="preserve">
-        <value>項目の詳細</value>
-    </data>
-    <data name="TEXT_MY_REPORTS" xml:space="preserve">
-        <value>自分の報告書</value>
-    </data>
-    <data name="TEXT_NAME" xml:space="preserve">
-        <value>名前</value>
-    </data>
-    <data name="TEXT_NEW" xml:space="preserve">
-        <value>新規</value>
-    </data>
-    <data name="TEXT_NO" xml:space="preserve">
-        <value>いいえ</value>
-    </data>
-    <data name="TEXT_NO_BILL" xml:space="preserve">
-        <value>請求書はまだご利用になれません。&lt;a href="Usage.aspx?view=summary"&gt;ここ&lt;/a&gt;をクリックして、現在の利用状況を確認してください。</value>
-    </data>
-    <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
-        <value>記録が見つかりません</value>
-    </data>
-    <data name="TEXT_NO_TRANSACTIONS_FOUND" xml:space="preserve">
-        <value>お取引が見つかりません</value>
-    </data>
-    <data name="TEXT_OK" xml:space="preserve">
-        <value>OK</value>
-    </data>
-    <data name="TEXT_PAGE_ERROR" xml:space="preserve">
-        <value>ページを表示できません。</value>
-    </data>
-    <data name="TEXT_PAGEURL" xml:space="preserve">
-        <value>PageURL</value>
-    </data>
-    <data name="TEXT_POSITION" xml:space="preserve">
-        <value>位置</value>
-    </data>
-    <data name="TEXT_PRIORITY" xml:space="preserve">
-        <value>優先度</value>
-    </data>
-    <data name="TEXT_PRODUCT_VIEW_NAME" xml:space="preserve">
-        <value>製品ビュー名</value>
-    </data>
-    <data name="TEXT_PROPERTIES" xml:space="preserve">
-        <value>プロパティ</value>
-    </data>
-    <data name="TEXT_REASSIGN_MESSAGE" xml:space="preserve">
-        <value>送金された金額の振込先アカウントを選択します。</value>
-    </data>
-    <data name="TEXT_REASSIGN_MESSAGE_TITLE" xml:space="preserve">
-        <value>順序の再割り当て</value>
-    </data>
-    <data name="TEXT_REASSIGN_SUCCESS" xml:space="preserve">
-        <value>順序が正常に再割り当てされました。</value>
-    </data>
-    <data name="TEXT_RELATED_ENTITIES_1" xml:space="preserve">
-        <value>関連の追加 </value>
-    </data>
-    <data name="TEXT_RELATED_ENTITIES_2" xml:space="preserve">
-        <value>(s) for : </value>
-    </data>
-    <data name="TEXT_RELATIONSHIP" xml:space="preserve">
-        <value>関係 </value>
-    </data>
-    <data name="TEXT_REMOVE" xml:space="preserve">
-        <value>アカウントの削除</value>
-    </data>
-    <data name="TEXT_REMOVE_RELSHIP" xml:space="preserve">
-        <value>Japanese</value>
-    </data>
-    <data name="TEXT_REPORT_TYPE" xml:space="preserve">
-        <value>報告書種別</value>
-    </data>
-    <data name="TEXT_SAVE" xml:space="preserve">
-        <value>保存</value>
-    </data>
-    <data name="TEXT_SEARCH_LAYOUT" xml:space="preserve">
-        <value>検索レイアウト</value>
-    </data>
-    <data name="TEXT_SESSION_ID" xml:space="preserve">
-        <value>セッション ID</value>
-    </data>
-    <data name="TEXT_SHOW_SECOND_PASS_DATA" xml:space="preserve">
-        <value>2 番目の送信データの表示</value>
-    </data>
-    <data name="TEXT_SITE_DOWN_FOR_MAINTENANCE" xml:space="preserve">
-        <value>申し訳ありませんが、メンテナンスのために現在サイトが停止しています。後で改めて実行してください。</value>
-    </data>
-    <data name="TEXT_SITE_NAME" xml:space="preserve">
-        <value>サイト名</value>
-    </data>
-    <data name="TEXT_SPACER" xml:space="preserve">
-        <value>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</value>
-    </data>
-    <data name="TEXT_STYLE" xml:space="preserve">
-        <value>スタイル</value>
-    </data>
-    <data name="TEXT_SUB_DATE_MESSAGE" xml:space="preserve">
-        <value>申し込みの開始日および終了日は、{0} から {1} までの間でなければなりません。</value>
-    </data>
-    <data name="TEXT_SUB_DATE_MESSAGE_START" xml:space="preserve">
-        <value>申し込み日は次の日とする必要があります</value>
-    </data>
-    <data name="TEXT_THEME" xml:space="preserve">
-        <value>テーマ</value>
-    </data>
-    <data name="TEXT_TIMESTAMP" xml:space="preserve">
-        <value>タイムスタンプ</value>
-    </data>
-    <data name="TEXT_TIMEZONE" xml:space="preserve">
-        <value>タイム ゾーン</value>
-    </data>
-    <data name="TEXT_TITLE" xml:space="preserve">
-        <value>MetraView</value>
-    </data>
-    <data name="TEXT_TITLE_METRACONTROL" xml:space="preserve">
-        <value>MetraControl</value>
-    </data>
-    <data name="TEXT_UNRELATED_1" xml:space="preserve">
-        <value>無関係 </value>
-    </data>
-    <data name="TEXT_UNRELATED_2" xml:space="preserve">
-        <value>(s)</value>
-    </data>
-    <data name="TEXT_URL" xml:space="preserve">
-        <value>URL</value>
-    </data>
-    <data name="TEXT_VALIDATION_ERROR" xml:space="preserve">
-        <value>確認エラー。再入力してください。</value>
-    </data>
-    <data name="TEXT_VALUE" xml:space="preserve">
-        <value>値</value>
-    </data>
-    <data name="TEXT_WIDGET_PATH" xml:space="preserve">
-        <value>ウィジェット パス</value>
-    </data>
-    <data name="TEXT_WIDGET_TYPE" xml:space="preserve">
-        <value>ウィジェット種別</value>
-    </data>
-    <data name="TEXT_WIDTH" xml:space="preserve">
-        <value>幅</value>
-    </data>
-    <data name="TEXT_YES" xml:space="preserve">
-        <value>はい</value>
-    </data>
+  <data name="TEXT_DESCRIPTION" xml:space="preserve">
+    <value>内容</value>
+  </data>
+  <data name="TEXT_DETAILS" xml:space="preserve">
+    <value>内訳</value>
+  </data>
+  <data name="TEXT_DISPLAY_AMOUNT" xml:space="preserve">
+    <value>表示金額</value>
+  </data>
+  <data name="TEXT_DISPLAY_AMOUNT_AS_STRING" xml:space="preserve">
+    <value>DisplayAmountAsString</value>
+  </data>
+  <data name="TEXT_DOWNLOAD_INVOICES" xml:space="preserve">
+    <value>明細書および報告書のダウンロード</value>
+  </data>
+  <data name="TEXT_DOWNLOAD_QUOTES" xml:space="preserve">
+    <value>引用をダウンロード</value>
+  </data>
+  <data name="TEXT_EDIT" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="TEXT_EN_US" xml:space="preserve">
+    <value>米国英語</value>
+  </data>
+  <data name="TEXT_ENTRY_POINT_NAME" xml:space="preserve">
+    <value>エントリポイント名</value>
+  </data>
+  <data name="TEXT_ESTIMATE" xml:space="preserve">
+    <value>これは見積もりであり、最終的な請求書ではありません。</value>
+  </data>
+  <data name="TEXT_FR" xml:space="preserve">
+    <value>フランス</value>
+  </data>
+  <data name="TEXT_GENERAL" xml:space="preserve">
+    <value>一般</value>
+  </data>
+  <data name="TEXT_GO" xml:space="preserve">
+    <value>移動</value>
+  </data>
+  <data name="TEXT_GRID_ID" xml:space="preserve">
+    <value>グリッド ID</value>
+  </data>
+  <data name="TEXT_HEIGHT" xml:space="preserve">
+    <value>高さ</value>
+  </data>
+  <data name="TEXT_HIERARCHY_LEVELS" xml:space="preserve">
+    <value>最も多くのアカウントが含まれる階層レベル </value>
+  </data>
+  <data name="TEXT_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="TEXT_INLINE_ADJUSTMENTS" xml:space="preserve">
+    <value>テキスト インライン調整</value>
+  </data>
+  <data name="TEXT_INLINE_TAX" xml:space="preserve">
+    <value>税込み</value>
+  </data>
+  <data name="TEXT_INTERNAL_ID" xml:space="preserve">
+    <value>内部 ID</value>
+  </data>
+  <data name="TEXT_IS_REQUIRED" xml:space="preserve">
+    <value>IsRequired</value>
+  </data>
+  <data name="TEXT_IS_SITE_DOWN_FOR_MAINTENANCE" xml:space="preserve">
+    <value>メンテナンスのためサイトダウンしている</value>
+  </data>
+  <data name="TEXT_IS_VISIBLE" xml:space="preserve">
+    <value>表示できる</value>
+  </data>
+  <data name="TEXT_LAYOUT_EXTENSION_NAME" xml:space="preserve">
+    <value>レイアウトの拡張名</value>
+  </data>
+  <data name="TEXT_LAYOUT_NAME" xml:space="preserve">
+    <value>レイアウト名</value>
+  </data>
+  <data name="TEXT_LOGIN_INFORMATION" xml:space="preserve">
+    <value>ログイン情報</value>
+  </data>
+  <data name="TEXT_LOGO_IMAGE" xml:space="preserve">
+    <value>ロゴ画像</value>
+  </data>
+  <data name="TEXT_MACHINE_IDENTIFIER" xml:space="preserve">
+    <value>マシン識別子</value>
+  </data>
+  <data name="TEXT_MANAGE_GRPSUB" xml:space="preserve">
+    <value>グループ利用の管理</value>
+  </data>
+  <data name="TEXT_MORE_ITEMS" xml:space="preserve">
+    <value>項目の詳細</value>
+  </data>
+  <data name="TEXT_MY_REPORTS" xml:space="preserve">
+    <value>自分の報告書</value>
+  </data>
+  <data name="TEXT_NAME" xml:space="preserve">
+    <value>名前</value>
+  </data>
+  <data name="TEXT_NEW" xml:space="preserve">
+    <value>新規</value>
+  </data>
+  <data name="TEXT_NO" xml:space="preserve">
+    <value>いいえ</value>
+  </data>
+  <data name="TEXT_NO_BILL" xml:space="preserve">
+    <value>請求書はまだご利用になれません。&lt;a href="Usage.aspx?view=summary"&gt;ここ&lt;/a&gt;をクリックして、現在の利用状況を確認してください。</value>
+  </data>
+  <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
+    <value>記録が見つかりません</value>
+  </data>
+  <data name="TEXT_NO_TRANSACTIONS_FOUND" xml:space="preserve">
+    <value>お取引が見つかりません</value>
+  </data>
+  <data name="TEXT_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="TEXT_PAGE_ERROR" xml:space="preserve">
+    <value>ページを表示できません。</value>
+  </data>
+  <data name="TEXT_PAGEURL" xml:space="preserve">
+    <value>PageURL</value>
+  </data>
+  <data name="TEXT_POSITION" xml:space="preserve">
+    <value>位置</value>
+  </data>
+  <data name="TEXT_PRIORITY" xml:space="preserve">
+    <value>優先度</value>
+  </data>
+  <data name="TEXT_PRODUCT_VIEW_NAME" xml:space="preserve">
+    <value>製品ビュー名</value>
+  </data>
+  <data name="TEXT_PROPERTIES" xml:space="preserve">
+    <value>プロパティ</value>
+  </data>
+  <data name="TEXT_REASSIGN_MESSAGE" xml:space="preserve">
+    <value>送金された金額の振込先アカウントを選択します。</value>
+  </data>
+  <data name="TEXT_REASSIGN_MESSAGE_TITLE" xml:space="preserve">
+    <value>順序の再割り当て</value>
+  </data>
+  <data name="TEXT_REASSIGN_SUCCESS" xml:space="preserve">
+    <value>順序が正常に再割り当てされました。</value>
+  </data>
+  <data name="TEXT_RELATED_ENTITIES_1" xml:space="preserve">
+    <value>関連の追加 </value>
+  </data>
+  <data name="TEXT_RELATED_ENTITIES_2" xml:space="preserve">
+    <value>(s) for : </value>
+  </data>
+  <data name="TEXT_RELATIONSHIP" xml:space="preserve">
+    <value>関係 </value>
+  </data>
+  <data name="TEXT_REMOVE" xml:space="preserve">
+    <value>アカウントの削除</value>
+  </data>
+  <data name="TEXT_REMOVE_RELSHIP" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="TEXT_REPORT_TYPE" xml:space="preserve">
+    <value>報告書種別</value>
+  </data>
+  <data name="TEXT_SAVE" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="TEXT_SEARCH_LAYOUT" xml:space="preserve">
+    <value>検索レイアウト</value>
+  </data>
+  <data name="TEXT_SESSION_ID" xml:space="preserve">
+    <value>セッション ID</value>
+  </data>
+  <data name="TEXT_SHOW_SECOND_PASS_DATA" xml:space="preserve">
+    <value>2 番目の送信データの表示</value>
+  </data>
+  <data name="TEXT_SITE_DOWN_FOR_MAINTENANCE" xml:space="preserve">
+    <value>申し訳ありませんが、メンテナンスのために現在サイトが停止しています。後で改めて実行してください。</value>
+  </data>
+  <data name="TEXT_SITE_NAME" xml:space="preserve">
+    <value>サイト名</value>
+  </data>
+  <data name="TEXT_SPACER" xml:space="preserve">
+    <value>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</value>
+  </data>
+  <data name="TEXT_STYLE" xml:space="preserve">
+    <value>スタイル</value>
+  </data>
+  <data name="TEXT_SUB_DATE_MESSAGE" xml:space="preserve">
+    <value>申し込みの開始日および終了日は、{0} から {1} までの間でなければなりません。</value>
+  </data>
+  <data name="TEXT_SUB_DATE_MESSAGE_START" xml:space="preserve">
+    <value>申し込み日は次の日とする必要があります</value>
+  </data>
+  <data name="TEXT_THEME" xml:space="preserve">
+    <value>テーマ</value>
+  </data>
+  <data name="TEXT_TIMESTAMP" xml:space="preserve">
+    <value>タイムスタンプ</value>
+  </data>
+  <data name="TEXT_TIMEZONE" xml:space="preserve">
+    <value>タイム ゾーン</value>
+  </data>
+  <data name="TEXT_TITLE" xml:space="preserve">
+    <value>MetraView</value>
+  </data>
+  <data name="TEXT_TITLE_METRACONTROL" xml:space="preserve">
+    <value>MetraControl</value>
+  </data>
+  <data name="TEXT_UNRELATED_1" xml:space="preserve">
+    <value>無関係 </value>
+  </data>
+  <data name="TEXT_UNRELATED_2" xml:space="preserve">
+    <value>(s)</value>
+  </data>
+  <data name="TEXT_URL" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="TEXT_VALIDATION_ERROR" xml:space="preserve">
+    <value>確認エラー。再入力してください。</value>
+  </data>
+  <data name="TEXT_VALUE" xml:space="preserve">
+    <value>値</value>
+  </data>
+  <data name="TEXT_WIDGET_PATH" xml:space="preserve">
+    <value>ウィジェット パス</value>
+  </data>
+  <data name="TEXT_WIDGET_TYPE" xml:space="preserve">
+    <value>ウィジェット種別</value>
+  </data>
+  <data name="TEXT_WIDTH" xml:space="preserve">
+    <value>幅</value>
+  </data>
+  <data name="TEXT_YES" xml:space="preserve">
+    <value>はい</value>
+  </data>
+  <data name="TEXT_DOWNLOAD_CREDIT_NOTES" xml:space="preserve">
+    <value>(Japanese) Download Credit Notes</value>
+  </data>
 </root>

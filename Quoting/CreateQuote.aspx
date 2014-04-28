@@ -259,6 +259,8 @@
         var found = poStore.find('ProductOfferingId', productOfferingId);
         if (found == -1) {
           poStore.add(records[i]);
+          getUdrcByPoId(productOfferingId);
+          getIcbByPoId(productOfferingId);
         }
       }
       poSelectorWin2.hide();
@@ -835,6 +837,31 @@
       return getAccountIds() && getPoIds();
     }
     
+    function getUdrcByPoId(poId) {
+      window.CallServer(JSON.stringify({ action: 'getUDRC', poId: poId }));
+    }
+
+    function getIcbByPoId(poId) {
+      window.CallServer(JSON.stringify({ action: 'getICB', poId: poId }));
+    }
+    
+    function ReceiveServerData(value) {
+      if (typeof value !== 'string' || value === '') {
+        return;
+      }
+      var response = JSON.parse(value);
+      if (response.result !== 'ok') {
+        window.Ext.UI.SystemError(response.errorMessage);
+      }
+
+      if (response.action == 'getUDRC') {
+        //addItemToUdrc(response.items);
+      }
+
+      if (response.action == 'getICB') {
+        //addItemToIcb(response.items);
+      }
+    }
   </script>
     
 </asp:Content>

@@ -7,6 +7,7 @@ using System.Web.Script.Serialization;
 using System.Web.UI;
 using MetraTech;
 using MetraTech.Domain.Quoting;
+using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.UI.Common;
 using MetraTech.ActivityServices.Common;
@@ -72,36 +73,33 @@ namespace MetraNet.Quoting
     /// <param name="eventArgument">A string that represents an event argument to pass to the event handler.</param>
     public void RaiseCallbackEvent(string eventArgument)
     {
-      object result;
+      object result = null;
       var serializer = new JavaScriptSerializer();
       var value = serializer.Deserialize<Dictionary<string, string>>(eventArgument);
       var action = value["action"];
-
       try
       {
-        var entityIds = new List<int>();
         switch (action)
         {
-          case "deleteOne":
+          case "getUDRC":
             {
-              entityIds.Add(int.Parse(value["entityId"], CultureInfo.InvariantCulture));
+              var poId = int.Parse(value["poId"]);
+              result = GetPriceableItemsWithUdrc(action, poId);
               break;
             }
-          case "deleteBulk":
+          case "getICB":
             {
-              var ids = value["entityIds"].Split(new[] { ',' });
-              entityIds.AddRange(ids.Select(s => int.Parse(s, CultureInfo.InvariantCulture)));
+              var poId = int.Parse(value["poId"]);
+              result = GetPriceableItemsAllowIcb(action, poId);
               break;
             }
         }
-        result = DeleteQuote(entityIds);
       }
       catch (Exception ex)
       {
         Logger.LogError(ex.Message);
-        result = new { result = "error", errorMessage = ex.Message };
+        result = new {result = "error", errorMessage = ex.Message};
       }
-
       if (result != null)
       {
         _callbackResult = serializer.Serialize(result);
@@ -119,20 +117,40 @@ namespace MetraNet.Quoting
       return _callbackResult;
     }
 
-    private object DeleteQuote(IEnumerable<int> entityIds)
+    private object GetPriceableItemsWithUdrc(string action, int poId)
+    {
+      var filter = new MTFilterElement(
+        "PIKind", MTFilterElement.OperationType.Equal, (int) PriceableItemKinds.UnitDependentRecurring);
+      return GetPriceableItems(action, poId, filter);
+    }
+
+    private object GetPriceableItemsAllowIcb(string action, int poId)
+    {
+      var filter = new MTFilterElement(
+        "PICanICB", MTFilterElement.OperationType.Equal, "Y");
+      return GetPriceableItems(action, poId, filter);
+    }
+
+    private object GetPriceableItems(string action, int poId, MTFilterElement filter)
     {
       object result;
       try
       {
-        using (var client = new QuotingServiceClient())
+        var priceableItems = new MTList<BasePriceableItemInstance>();
+        priceableItems.Filters.Add(filter);
+
+        using (var client = new ProductOfferingServiceClient())
         {
           if (client.ClientCredentials != null)
           {
             client.ClientCredentials.UserName.UserName = UI.User.UserName;
             client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
           }
-          client.DeleteQuotes(entityIds);
-          result = new { result = "ok" };
+          var pciPoId = new PCIdentifier(poId);
+          client.GetPIInstancesForPO(pciPoId, ref priceableItems);
+          var items = priceableItems.Items.Select(
+            x => new {x.ID, x.Name, x.DisplayName, x.Description, x.PIKind}).ToArray();
+          result = new { result = "ok", action, items};
         }
       }
       catch (FaultException<MASBasicFaultDetail> ex)
@@ -142,6 +160,7 @@ namespace MetraNet.Quoting
       }
       return result;
     }
+
     #endregion
 
     private delegate void AsyncCreateQuote(QuoteRequest request);
@@ -151,6 +170,7 @@ namespace MetraNet.Quoting
       try
       {
         Page.Validate();
+        ValidateRequest();
         if (!MTCheckBoxViewResult.Checked)  //do async call
         {
           AsyncCreateQuote asynCall = InvokeCreateQuote;
@@ -198,14 +218,14 @@ namespace MetraNet.Quoting
 
     }
 
-    public override void Validate()
+    private void ValidateRequest()
     {
       if (!string.IsNullOrEmpty(HiddenAccountIds.Value))
         Accounts = HiddenAccountIds.Value.Split(',').Select(int.Parse).ToList();
-      
+
       //todo read Account Id for group subscription
       //if (!string.IsNullOrEmpty(HiddenGroupId.Value))
-        
+
       if (!string.IsNullOrEmpty(HiddenPoIdTextBox.Value))
         Pos = HiddenPoIdTextBox.Value.Split(',').Select(int.Parse).ToList();
 
@@ -236,7 +256,7 @@ namespace MetraNet.Quoting
       }
     }
       
-    protected void AccountRenderGrid()
+    private void AccountRenderGrid()
     {
       if (IsPostBack || UI.Subscriber.SelectedAccount == null) return;
       

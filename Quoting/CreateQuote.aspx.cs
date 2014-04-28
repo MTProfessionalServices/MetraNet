@@ -149,7 +149,15 @@ namespace MetraNet.Quoting
           var pciPoId = new PCIdentifier(poId);
           client.GetPIInstancesForPO(pciPoId, ref priceableItems);
           var items = priceableItems.Items.Select(
-            x => new {x.ID, x.Name, x.DisplayName, x.Description, x.PIKind}).ToArray();
+            x => new
+              {
+                PriceableItemId = x.ID, 
+                ProductOfferingId = poId, 
+                x.Name, 
+                x.DisplayName, 
+                x.Description, 
+                x.PIKind
+              }).ToArray();
           result = new { result = "ok", action, items};
         }
       }

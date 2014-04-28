@@ -125,7 +125,7 @@
                         <entry name="FR">
                             <value>3</value>
                             <value>250</value>
-                            <value>fr=FR</value>
+                            <value>fr-FR</value>
                         </entry>
                         <entry name="IT">
                             <value>4</value>
@@ -150,12 +150,12 @@
                         <entry name="MX">
                             <value>8</value>
                             <value>2058</value>
-                            <value>es-mx</value>
+                            <value>es-MX</value>
                         </entry>
                         <entry name="BR">
                             <value>9</value>
                             <value>1046</value>
-                            <value>pt-br</value>
+                            <value>pt-BR</value>
                         </entry>
                         <entry name="DA">
                             <value>10</value>

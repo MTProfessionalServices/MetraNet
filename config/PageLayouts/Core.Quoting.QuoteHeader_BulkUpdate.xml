@@ -1,21 +1,53 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <PageLayout>
-  <IsBusinessEntityLayout>true</IsBusinessEntityLayout>
-	<Name>Core.Quoting.QuoteHeader_BulkUpdate</Name>
-  <Tenant>MetraTech</Tenant>	
-  <AssemblyName>Core.Quoting.Entity</AssemblyName>
-	<ObjectName>Core.Quoting.QuoteHeader</ObjectName>
-	<Description></Description>
-	<Header>
-    <PageTitle />
-  </Header>
-  <Help>
-    <Mode>None</Mode>
-		<Name></Name>
-		<URL></URL>
-	</Help>
-	<Sections>
-
-	</Sections>
-	<CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
+    <IsBusinessEntityLayout>true</IsBusinessEntityLayout>
+    <Name>Core.Quoting.QuoteHeader_BulkUpdate</Name>
+    <Tenant>MetraTech</Tenant>
+    <AssemblyName>Core.Quoting.Entity</AssemblyName>
+    <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
+    <Description>Layout for bulk update</Description>
+    <Header>
+        <PageTitle>
+            <Value><![CDATA[]]></Value>
+        </PageTitle>
+    </Header>
+    <Help>
+        <Mode>None</Mode>
+        <Name></Name>
+        <URL></URL>
+    </Help>
+    <Sections>
+        <Section>
+            <Title>
+                <Value><![CDATA[]]></Value>
+            </Title>
+            <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
+            <Columns>
+                <Column>
+                    <Fields>
+                        <Field>
+                            <AssemblyFilename>Core.Quoting.Entity</AssemblyFilename>
+                            <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
+                            <ID>Status</ID>
+                            <Name>Status</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTDropDown</ControlType>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label />
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                    </Fields>
+                </Column>
+            </Columns>
+            <ToolbarButtons></ToolbarButtons>
+        </Section>
+    </Sections>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
 </PageLayout>

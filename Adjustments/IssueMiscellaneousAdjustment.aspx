@@ -117,6 +117,7 @@
       meta:resourcekey="ddBillingPeriod1" ReadOnly="False">
     </MT:MTDropDown>
 </MT:MTPanel>
+<div ID="CreditNotesPanelDiv" runat="server">
 <MT:MTPanel ID="MTPanel2" runat="server" Text="Issue Credit Note For This Adjustment" 
        Collapsed="False" Collapsible="True" EnableChrome="True" 
        meta:resourcekey="MTPanel2Resource1" >
@@ -135,7 +136,8 @@
       MinLength="0"
       ReadOnly="False" Enabled="False" ValidationRegex="null" 
       XType="TextArea" XTypeNameSpace="form" />
-</MT:MTPanel> 
+</MT:MTPanel>
+</div> 
     <div  class="x-panel-btns-ct">
     <div style="width:630px" class="x-panel-btns x-panel-btns-center"> 
     <center>  

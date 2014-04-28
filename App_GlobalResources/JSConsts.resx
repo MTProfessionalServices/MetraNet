@@ -151,7 +151,7 @@
     <value>Hierarchy</value>
   </data>
   <data name="TEXT_ACCOUNT_PROPERTIES" xml:space="preserve">
-    <value>Account Info</value>
+    <value>Properties</value>
   </data>
   <data name="TEXT_ACCOUNT_SNAPSHOT" xml:space="preserve">
     <value>Relationship Snapshot</value>
@@ -856,10 +856,10 @@
     <value>View</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_GENERAL_INFO" xml:space="preserve">
-    <value>Example: You want to give a special rate if the number of telephone minutes used during the month is &gt; 1000. You can determine the rate to use only after adding up all the usage records. If the minutes are &gt; 1000, then for each record the rate is changed and a new charge amount is calculated.</value>
+    <value>A &lt;i&gt;Decision&lt;/i&gt;  is used to analyze usage records (rated billing records) and possibly modify charges on the basis of this analysis.  Decisions are necessary when it is impossible to determine the amount by examining a single isolated record. &lt;br/&gt; For example, you may want to give a special rate if the number of telephone minutes used during the month is &gt; 1000.  You can only determine the rate to use after adding up all the usage records.  If the minutes are &gt; 1000, then for each record the rate is changed and a new charge amount is calculated. </value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
-    <value>A Decision Type must be associated with a Parameter Table, which provides a way to customize key values of the Decision Type.  For example, you might want the 'number of free minutes' to be editable rather than a fixed value.  &lt;br/&gt;&lt;br/&gt;Before a Decision Type is configured, its associated Parameter Table must be created using the Integrated Configuration Environment (ICE).</value>
+    <value>A Decision Type must be associated with a Parameter Table, which provides a way to customize key values of the Decision Type.  For example, you might want the 'number of free minutes' to be editable rather than a fixed value.  &lt;br/&gt;&lt;br/&gt;Before a Decision Type is configured, its associated Parameter Table must be created using the Integrated Configuration Environment (ICE).&lt;br/&gt;&lt;br/&gt;NOTE: After you click Next, you cannot choose a different parameter table for this decision type.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_ACCOUNT_GROUP" xml:space="preserve">
     <value>Example: One account (a parent) is billed for activity on child accounts. You want to find the total of all charges (parent and children).&lt;br/&gt;&lt;br/&gt;In addition to pulling in other accounts, you  want to ignore the Decision Type for some accounts.  For example, you want the Decision Type to apply only to accounts that receive paperless bills.</value>
@@ -1036,7 +1036,7 @@
     <value>No error message to report.</value>
   </data>
   <data name="TEXT_BACK" xml:space="preserve">
-    <value>Back</value>
+    <value>Previous</value>
   </data>
   <data name="TEXT_APPROVALS_ACTION_APPROVE" xml:space="preserve">
     <value>Approve This Change</value>
@@ -1191,4 +1191,10 @@
   <data name="TEXT_ACCOUNT_ACTIVITY" xml:space="preserve">
     <value>Account Activity</value>
   </data>
+  <data name="TEXT_RETRY_COLUMN" xml:space="preserve">
+    <value>Retry</value>
+  </data>       
+  <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
+    <value>Resubmitted Request</value>
+  </data>    
 </root>

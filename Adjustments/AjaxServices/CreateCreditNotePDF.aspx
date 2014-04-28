@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CreateCreditNotePDF.aspx.cs" Inherits="Adjustments_AjaxServices_CreateCreditNotePDF" %>

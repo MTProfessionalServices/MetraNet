@@ -139,11 +139,11 @@
 //      id: 'TabAcctProp',
 //      title: TEXT_ACCOUNT_PROPERTIES,
 //      autoScroll: true
-    }, {
-      html: '<div id="AccountActivity" name="AccountActivity" class="full"><p><i>' + TEXT_NO_ACCOUNT_LOADED + '</i></p></div>',
-      id: 'TabAcctActivity',
-      title: 'Account Activity',
-      autoScroll: true
+//    }, {
+//      html: '<div id="AccountActivity" name="AccountActivity" class="full"><p><i>' + TEXT_NO_ACCOUNT_LOADED + '</i></p></div>',
+//      id: 'TabAcctActivity',
+//      title: 'Account Activity',
+//      autoScroll: true
     }, {
       html: '<div id="AccountProps2" name="AccountProps2" class="full"><p><i>' + TEXT_NO_ACCOUNT_LOADED + '</i></p></div>',
       id: 'TabAcctPropGrid',

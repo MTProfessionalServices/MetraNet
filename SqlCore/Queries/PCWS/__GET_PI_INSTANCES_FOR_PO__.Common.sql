@@ -9,7 +9,8 @@
                 piTypeBP.nm_name PITypeName,
                 map.id_pi_template PITemplateID,
                 piTemplateBP.nm_name PITemplateName,
-				map.id_pi_instance_parent ParentPIInstanceID
+				map.id_pi_instance_parent ParentPIInstanceID, 
+				map.b_canICB PICanICB
                 from
                 t_pl_map map
                 inner join

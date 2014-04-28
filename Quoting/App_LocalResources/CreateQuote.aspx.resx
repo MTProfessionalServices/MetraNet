@@ -175,18 +175,45 @@
     <value>User Name</value>
   </data>
   <data name="POID" xml:space="preserve">
-    <value>Id</value>
+    <value>PO Id</value>
   </data>
   <data name="PONAME" xml:space="preserve">
-    <value>Name</value>
+    <value>Product Offering Name</value>
   </data>
   <data name="PO_GRID_TITLE" xml:space="preserve">
     <value>Product Offerings</value>
   </data>
   <data name="REMOVE_PO" xml:space="preserve">
-    <value>Remove product offering</value>
+    <value>Remove Product Offering</value>
   </data>
   <data name="SELECT_POS" xml:space="preserve">
     <value>Select Product Offerings</value>
+  </data>
+  <data name="ADD_ICB" xml:space="preserve">
+    <value>Add ICB</value>
+  </data>
+  <data name="BASE_AMOUNT" xml:space="preserve">
+    <value>Base Amount</value>
+  </data>
+  <data name="ICB_GRID_TITLE" xml:space="preserve">
+    <value>ICBs</value>
+  </data>
+  <data name="PIID" xml:space="preserve">
+    <value>PI Id</value>
+  </data>
+  <data name="PINAME" xml:space="preserve">
+    <value>Pricable Item Name</value>
+  </data>
+  <data name="PI_GRID_TITLE" xml:space="preserve">
+    <value>Pricable Items That Allows Custom Rates</value>
+  </data>
+  <data name="PRICE" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="UNIT_AMOUNT" xml:space="preserve">
+    <value>Unit Amount</value>
+  </data>
+  <data name="UNIT_VALUE" xml:space="preserve">
+    <value>Unit Value</value>
   </data>
 </root>

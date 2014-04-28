@@ -36,8 +36,9 @@
      <br />GRID WITH UDRC METRICS (GENERATED DYNAMICALLY ACCORDING TO SET OF POS ABOVE, uses code based on Subscriptions\SetUDRCValues.aspx page<br /> <br />
   </MT:MTPanel>
   <MT:MTPanel ID="MTPanelICBs" runat="server" Text="ICBs for quote" Collapsible="True"
-    Collapsed="True" meta:resourcekey="MTPanelICBResource">
-    <br />GRID WITH ICB METRICS. (most likely we should create a new screen for rates edit instead of existed ASP page for Rates similar to Subscriptions\SetUDRCValues.aspx< page<br /> <br />
+    Collapsed="False" meta:resourcekey="MTPanelICBResource">
+     <div id="PlaceHolderPIWithICBAllowedGrid" class="LeftColumn"></div>
+     <div id="PlaceHolderICBGrid" class="RightColumn"></div>
   </MT:MTPanel>
   <div class="x-panel-btns-ct">
     <div style="width: 630px" class="x-panel-btns x-panel-btns-center">
@@ -67,6 +68,7 @@
   <input id="HiddenPoIdTextBox" runat="server" type="hidden" />
   <input id="HiddenAccounts" runat="server" type="hidden" />
   <input id="HiddenPos" runat="server" type="hidden" />
+  <input id="HiddenICBs" runat="server" type="hidden" />
   
   <%-- Account Grid--%>
   <script language="javascript" type="text/javascript">
@@ -343,12 +345,255 @@
     }
   </script>
   
+  <%-- PI With Aloow ICB Grid--%>
+  <script language="javascript" type="text/javascript">
+    var piWithAllowIcbData = { pisWithAllowIcb: [] };
+
+    // create the data store
+    var piWithAllowIcbStore = new Ext.data.JsonStore({
+      root: 'pisWithAllowIcb',
+      fields: [
+        { name: 'ProductOfferingName' },
+        { name: 'PricableItemName' },
+        { name: 'PricableItemId' },
+        { name: 'ProductOfferingId' }        
+      ]
+    });
+    piWithAllowIcbStore.loadData(piWithAllowIcbData);
+
+   // var textSelectPos = '<%=GetLocalResourceObject("SELECT_POS")%>';
+    
+    // create the Grid
+    var textPoId = '<%=GetLocalResourceObject("POID")%>';
+    var textPiId = '<%=GetLocalResourceObject("PIID")%>';
+    var textPoName = '<%=GetLocalResourceObject("PONAME")%>';
+    var textPiName = '<%=GetLocalResourceObject("PINAME")%>';
+    var textPiWithICBAction = '<%=GetLocalResourceObject("ACTIONS")%>';
+    var textPiWithICBGridTitle = '<%=GetLocalResourceObject("PI_GRID_TITLE")%>';
+
+    var piWithAllowIcbGrid = new Ext.grid.EditorGridPanel({
+      ds: piWithAllowIcbStore,
+      columns: [
+        //{ id: 'ProductOfferingId', header: textPoId, width: 30, sortable: true, dataIndex: 'ProductOfferingId' },
+        { header: textPoName, width: 140, sortable: true, dataIndex: 'ProductOfferingName' },
+        { header: textPiName, width: 140, sortable: true, dataIndex: 'PricableItemName' },
+        { header: textPiWithICBAction, width: 50, sortable: false, dataIndex: '', renderer: piWithAllowIcbActionsRenderer }
+      ],
+      stripeRows: true,
+      height: 300,
+      width: 345,
+      iconCls: 'icon-grid',
+      frame: true,
+      title: textPiWithICBGridTitle
+    });
+
+    //this will be called when icbs are added
+    function addIcbCallback(ids, records) {
+//      for (var i = 0; i < records.length; i++) {
+//        var productOfferingId = records[i].data.ProductOfferingId;
+//        var found = poStore.find('ProductOfferingId', productOfferingId);
+//        if (found == -1) {
+//          poStore.add(records[i]);
+//        }
+//      }
+//      poSelectorWin2.hide();
+    }
+
+    var textIcbAdd = '<%=GetLocalResourceObject("ADD_ICB")%>';
+
+    function piWithAllowIcbActionsRenderer(value, meta, record) {
+      var str = String.format(
+        "<a style='cursor:hand;' id='addICB_{0}_{1}' title='{2}' href='JavaScript:addICB({0},{1});'><img src='/Res/Images/icons/money.png' alt='{2}' /></a>",
+        record.data.ProductOfferingId, record.data.PricableItemId, textIcbAdd);
+      return str;
+    }
+
+    function addICB(poId, piId) {
+      alert("Does not implement");
+      ShowIcbInputForm(addIcbCallback, "Frame");
+    }
+
+//    function getPoIds() {
+//      var records = poStore.data.items;
+//      if (records.length == 0) {
+//        window.Ext.Msg.show({
+//          title: window.TEXT_ERROR,
+//          msg: window.TEXT_SELECT_GRPSUBMEM_ACCOUNTS,
+//          buttons: window.Ext.Msg.OK,
+//          icon: window.Ext.MessageBox.ERROR
+//        });
+//        return false;
+//      }
+
+//      poData.pos.length = 0;
+//      var ids = "";
+//      for (var i = 0; i < records.length; i++) {
+//        poData.pos.push(records[i].data);
+//        if (i > 0) {
+//          ids += ",";
+//        }
+//        ids += records[i].data.ProductOfferingId;
+//      }
+
+//      window.Ext.get("<%=HiddenPoIdTextBox.ClientID %>").dom.value = ids;
+//      window.Ext.get("<%=HiddenPos.ClientID %>").dom.value = poData.pos.length > 0 ? window.Ext.encode(poData.pos) : "";
+//      return true;
+//    }
+
+    var form_addICB = new Ext.form.FormPanel({
+            baseCls: 'x-plain',
+            labelWidth: 55,
+            defaultType: 'textfield',
+
+            items: [{
+                xtype: 'datefield',
+                //fieldLabel: TEXT_START_DATE,
+                //format:DATE_FORMAT,
+                //altFormats:DATE_TIME_FORMAT,
+                //value: '%%MIN_DATE%%', 
+                id: 'StartDate',
+                name: 'StartDate',
+                allowBlank:true,
+                //disabled:%%FIRST_ITEM%%,
+                anchor:'100%'  
+            }]
+          });
+
+    function ShowIcbInputForm(functionName, target) {
+      if (window.addIcbWin2 == null || window.addIcbWin2 === undefined ||
+        target != window.lastTarget2 || functionName != window.lastFunctionName2) {
+        window.addIcbWin2 = new top.Ext.Window({
+          title: 'TEXT_ADD_ICB',
+          width: 700,
+          height: 500,
+          minWidth: 300,
+          minHeight: 200,
+          layout: 'fit',
+          plain: true,
+          bodyStyle: 'padding:5px;',
+          buttonAlign: 'center',
+          collapsible: true,
+          resizeable: true,
+          maximizable: false,
+          closable: true,
+          closeAction: 'close',
+          items: form_addICB
+        });
+      }
+      if (window.addIcbWin != null) {
+        window.addIcbWin.hide();
+      }
+      window.lastTarget2 = target;
+      window.lastFunctionName2 = functionName;
+      window.addIcbWin2.show();
+
+      window.addIcbWin2.on('close', function () {
+        window.addIcbWin2 = null;
+      });
+    }
+  </script>
+
+  <%-- ICB Grid--%>
+  <script language="javascript" type="text/javascript">
+    var icbData = { icbs: [] };
+
+    // create the data store
+    var icbStore = new Ext.data.JsonStore({
+      root: 'icbs',
+      fields: [        
+        { name: 'PricableItemId' },
+        { name: 'ProductOfferingId' },
+        { name: 'Price' },
+        { name: 'UnitValue' },
+        { name: 'UnitAmount' },
+        { name: 'BaseAmount' }
+      ]
+    });
+    icbStore.loadData(icbData);
+
+    // var textSelectPos = '<%=GetLocalResourceObject("SELECT_POS")%>';
+
+    // create the Grid
+    var textPoId = '<%=GetLocalResourceObject("POID")%>';
+    var textPiId = '<%=GetLocalResourceObject("PIID")%>';
+    var textPrice = '<%=GetLocalResourceObject("PRICE")%>';
+    var textUnitValue = '<%=GetLocalResourceObject("UNIT_VALUE")%>';
+    var textUnitAmount = '<%=GetLocalResourceObject("UNIT_AMOUNT")%>';
+    var textBaseAmount = '<%=GetLocalResourceObject("BASE_AMOUNT")%>';
+    var textICBAction = '<%=GetLocalResourceObject("ACTIONS")%>';
+    var textICBGridTitle = '<%=GetLocalResourceObject("ICB_GRID_TITLE")%>';
+
+    var icbGrid = new Ext.grid.EditorGridPanel({
+      ds: icbStore,
+      columns: [
+        { header: textPoId, width: 30, sortable: true, dataIndex: 'ProductOfferingId' },
+        { header: textPiId, width: 30, sortable: true, dataIndex: 'PricableItemId' },
+        { header: textPrice, width: 50, sortable: true, dataIndex: 'Price' },
+        { header: textUnitValue, width: 50, sortable: true, dataIndex: 'UnitValue' },
+        { header: textUnitAmount, width: 50, sortable: true, dataIndex: 'UnitAmount' },
+        { header: textBaseAmount, width: 50, sortable: true, dataIndex: 'BaseAmount' },
+
+        { header: textICBAction, width: 50, sortable: false, dataIndex: '', renderer: IcbActionsRenderer }
+      ],
+      stripeRows: true,
+      height: 300,
+      width: 345,
+      iconCls: 'icon-grid',
+      frame: true,
+      title: textICBGridTitle
+    });
+
+    //var textIcbAdd = '<%=GetLocalResourceObject("ADD_ICB")%>';
+
+    function IcbActionsRenderer(value, meta, record) {
+      var str = String.format(
+        "<a style='cursor:hand;' id='deleteICB_{0}' title='{1}' href='JavaScript:deleteICB({0});'><img src='/Res/Images/icons/cross.png' alt='{1}' /></a>",
+        record.data.ProductOfferingId, textIcbAdd);
+      return str;
+    }
+
+    function deleteICB(id) {
+      alert("Does not implement");
+      //ShowIcbInputForm(addIcbCallback, "Frame");
+    }
+
+    //    function getPoIds() {
+    //      var records = poStore.data.items;
+    //      if (records.length == 0) {
+    //        window.Ext.Msg.show({
+    //          title: window.TEXT_ERROR,
+    //          msg: window.TEXT_SELECT_GRPSUBMEM_ACCOUNTS,
+    //          buttons: window.Ext.Msg.OK,
+    //          icon: window.Ext.MessageBox.ERROR
+    //        });
+    //        return false;
+    //      }
+
+    //      poData.pos.length = 0;
+    //      var ids = "";
+    //      for (var i = 0; i < records.length; i++) {
+    //        poData.pos.push(records[i].data);
+    //        if (i > 0) {
+    //          ids += ",";
+    //        }
+    //        ids += records[i].data.ProductOfferingId;
+    //      }
+
+    //      window.Ext.get("<%=HiddenPoIdTextBox.ClientID %>").dom.value = ids;
+    //      window.Ext.get("<%=HiddenPos.ClientID %>").dom.value = poData.pos.length > 0 ? window.Ext.encode(poData.pos) : "";
+    //      return true;
+    //    }
+
+  </script>
+  
   <%-- General--%>
   <script language="javascript" type="text/javascript">
     
     Ext.onReady(function () {
       accountGrid.render(window.Ext.get('PlaceHolderAccountsGrid'));
       poGrid.render(window.Ext.get('PlaceHolderProductOfferingsGrid'));
+      piWithAllowIcbGrid.render(window.Ext.get('PlaceHolderPIWithICBAllowedGrid'));
+      icbGrid.render(window.Ext.get('PlaceHolderICBGrid'));
     });
 
     window.onload = function () {

@@ -31,9 +31,8 @@
     <div id="PlaceHolderProductOfferingsGrid" class="RightColumn"></div>   
   </MT:MTPanel>
   <MT:MTPanel ID="MTPanelUDRCMetrics" runat="server" Text="UDRC metrics for quote" Collapsible="True"
-    Collapsed="True" meta:resourcekey="MTPanelUDRCResource">
-     <asp:PlaceHolder ID="PlaceHolderUDRCMetricsGrid" runat="server"></asp:PlaceHolder> 
-     <br />GRID WITH UDRC METRICS (GENERATED DYNAMICALLY ACCORDING TO SET OF POS ABOVE, uses code based on Subscriptions\SetUDRCValues.aspx page<br /> <br />
+    Collapsed="False" meta:resourcekey="MTPanelUDRCResource">
+     <div id="PlaceHolderUDRCMetricsGrid"></div> 
   </MT:MTPanel>
   <MT:MTPanel ID="MTPanelICBs" runat="server" Text="ICBs for quote" Collapsible="True"
     Collapsed="False" meta:resourcekey="MTPanelICBResource">
@@ -345,6 +344,227 @@
     }
   </script>
   
+    <%-- UDRCs Grid--%>
+  <script language="javascript" type="text/javascript">
+  
+    var dropDownValues_UDRC = [ ]; 
+    var ddStoreUDRC = new Ext.data.SimpleStore({
+		          fields:['name', 'value'],
+		          data: dropDownValues_UDRC,
+		          storeId:'dropDownValues_UDRC_store'
+          });
+          
+          //var valueText = TEXT_VALUE + '<br/>' + TEXT_MIN + ' %%MIN_VALUE%% <br/>' + TEXT_MAX + ' %%MAX_VALUE%%';
+
+    var EditUDRCForm = new Ext.form.FormPanel({
+      baseCls: 'x-plain',
+      labelWidth: 55,
+      defaultType: 'textfield',
+
+      items: [{
+          readOnly: true,
+          fieldLabel: TEXT_NAME,
+          id: 'POName',
+          name: 'POName',
+          //value: '%%NAME%%',
+          value: 'PO NAME',
+          allowBlank: false,
+          anchor: '100%'
+        }, {
+          readOnly: true,
+          fieldLabel: TEXT_NAME,
+          id: 'UDRCName',
+          name: 'UDRCName',
+          //value: '%%NAME%%',
+          value: 'UDRC NAME',
+          allowBlank: false,
+          anchor: '100%'
+        }, {
+          xtype: 'combo',
+          //fieldLabel: valueText,
+          fieldLabel: 'Value:',
+          id: 'Value',
+          name: 'Value',
+          allowBlank: false,
+          editable: true,
+          forceSelection: false,
+          typeAhead: true,
+          triggerAction: 'all',
+          mode: 'local',
+          store: ddStoreUDRC,
+          valueField: 'value',
+          displayField: 'name',
+          anchor: '100%',
+          labelSeparator: ''
+        }, {
+          xtype: 'hidden',
+          hideLabel: true,
+          name: 'IsInteger',
+          //value: '%%IS_INTEGER%%'
+          value: 'true'
+        }, {
+          xtype: 'hidden',
+          hideLabel: true,
+          name: 'ID',
+          //value: '%%ID%%', 
+          value: '101',
+          anchor: '100% -53'  // anchor width by percentage and height by raw adjustment
+        }]
+    });
+
+    var EditUDRCWindow = new Ext.Window({
+      title: 'Edit UDRC value',
+      width: 400,
+      height: 250,
+      minWidth: 100,
+      minHeight: 100,
+      layout: 'fit',
+      plain: true,
+      bodyStyle: 'padding:5px;',
+      buttonAlign: 'center',
+      items: EditUDRCForm,
+      closable: false,
+
+      buttons: [{
+          text: TEXT_OK,
+          handler: onOK_EditUDRC
+        }, {
+          text: TEXT_CANCEL,
+          handler: onCancel_EditUDRC
+        }]
+    });
+
+    function onOK_EditUDRC() {
+
+      // Construct regular expressions for thousand separator and decimal separator.
+      var reThouSep;
+      if (THOUSAND_SEPARATOR == '.') {
+        reThouSep = new RegExp('\\.', 'g');
+      } else {
+        reThouSep = new RegExp(THOUSAND_SEPARATOR, 'g');
+      }
+      var reDecimalSep;
+      if (DECIMAL_SEPARATOR == '.') {
+        reDecimalSep = new RegExp('\\.', 'g');
+      } else {
+        reDecimalSep = new RegExp(DECIMAL_SEPARATOR, 'g');
+      }
+
+      //code added on 07/08/08 to prevent users from entering values outside of UDRC enum range
+      var selectval;
+
+      // Remove any thousand separators and convert decimal separator
+      // to a period before calling isNaN().
+      var noThousSepValue = Ext.get('Value').getValue().replace(reThouSep, '');
+      var tmpValue = noThousSepValue.replace(reDecimalSep, '.');
+      if (isNaN(tmpValue)) {
+        Ext.getCmp('Value').reset();
+      } else {
+        selectval = Number(tmpValue);
+      }
+
+      // MIN_VALUE and MAX_VALUE may contain commas as separators, so put in quotes.
+      var minval = '%%MIN_VALUE%%';
+      var maxval = '%%MAX_VALUE%%';
+
+      // Strip out thousand separators and convert decimal separators
+      // for minval and maxval before doing mathematical comparison.
+      minval = minval.replace(reThouSep, '');
+      minval = minval.replace(reDecimalSep, '.');
+      minval = Number(minval);
+      maxval = maxval.replace(reThouSep, '');
+      maxval = maxval.replace(reDecimalSep, '.');
+      maxval = Number(maxval);
+
+      if ((selectval < minval) || (selectval > maxval)) {
+        Ext.getCmp('Value').reset();
+      }
+
+      if (EditUDRCForm.form.isValid()) {
+
+        // Submit the form.
+
+        // Don't include thousand separators in value sent to server.
+        Ext.get('Value').dom.value = noThousSepValue;
+
+        /*EditUDRCForm.getForm().submit({
+          waitMsg: TEXT_ADDING_UDRC,
+          url: '/MetraNet/Quoting/CreateQuote.aspx?UPDATE=TRUE',
+          failure: function(form, action) {
+            //Ext.MessageBox.alert('Error Message', 'Error processing form on server.');
+          },
+          success: function(form, action) {
+            //Ext.MessageBox.alert('Confirm', action.result.info);
+            //window.hide();
+            //dataStore.load({params:{start:0, limit:10}});
+          }
+        });*/
+      } else {
+        Ext.MessageBox.alert(TEXT_ERROR, TEXT_PLEASE_FIX);
+      }
+    }
+
+    function onCancel_EditUDRC() {
+      EditUDRCWindow.hide();
+    }
+
+    function on_UDRC_grid_refresh() {
+      // Here is a place to load UDRCs 
+      UDRCData = { UDRCs: [{ POName: 'PO1', UDRCName: 'udrc1', Value: 1 }] };
+      window.UDRCStore.loadData(UDRCData);
+    }
+
+    var UDRCData = { UDRCs: [] };
+
+         // create the data store
+    var UDRCStore = new Ext.data.JsonStore({
+      root: 'UDRCs',
+      fields: [
+        { name: 'POName' },
+        { name: 'UDRCName' },
+        { name: 'Value' }
+      ]
+    });
+
+    var tbar_refresh_UDRC_grid = new Ext.Toolbar([{
+      text: '<%=GetLocalResourceObject("TEXT_REFRESH") %>',
+      handler: on_UDRC_grid_refresh,
+      tooltip: '<%=GetLocalResourceObject("TEXT_REFRESH_UDRC_GRID") %>',
+      iconCls: 'add'
+    }, '-']);
+          
+    // create the Grid
+    var UDRCgrid = new Ext.grid.GridPanel({
+      store: UDRCStore,
+      columns: [
+        { id: "Name", header: TEXT_NAME, width: 175, sortable: true, dataIndex: 'POName' },
+        { id: "Name", header: TEXT_NAME, width: 175, sortable: true, dataIndex: 'UDRCName' },
+        { header: TEXT_VALUE, width: 75, sortable: true, dataIndex: 'Value' },
+        { header: '<%=GetLocalResourceObject("ACTIONS") %>', width: 75, sortable: false, dataIndex: 'Actions', renderer: UDRCActionsRenderer }
+      ],
+      stripeRows: true,
+      autoExpandColumn: 'Name',
+      height: 150,
+      width: 600,
+      tbar: tbar_refresh_UDRC_grid,
+      title: 'UDRC metrics for quote'
+    });
+       
+    var textEditUDRCValue = '<%=GetLocalResourceObject("EDIT_UDRC_VALUE")%>';
+
+    function UDRCActionsRenderer(value, meta, record) {
+      var str = String.format(
+        "<a style='cursor:hand;' id='edit_udrc' title='{1}' href='JavaScript:editUDRCValue({0});'><img src='/Res/Images/icons/pencil.png' alt='{1}' /></a>",
+        record.data.id, textEditUDRCValue);
+      return str;
+    }
+
+    function editUDRCValue() {
+      EditUDRCWindow.show();
+    }
+
+  </script>
+  
   <%-- PI With Aloow ICB Grid--%>
   <script language="javascript" type="text/javascript">
     var piWithAllowIcbData = { pisWithAllowIcb: [] };
@@ -592,6 +812,7 @@
     Ext.onReady(function () {
       accountGrid.render(window.Ext.get('PlaceHolderAccountsGrid'));
       poGrid.render(window.Ext.get('PlaceHolderProductOfferingsGrid'));
+      UDRCgrid.render(window.Ext.get('PlaceHolderUDRCMetricsGrid'));
       piWithAllowIcbGrid.render(window.Ext.get('PlaceHolderPIWithICBAllowedGrid'));
       icbGrid.render(window.Ext.get('PlaceHolderICBGrid'));
     });
@@ -606,6 +827,8 @@
       if (hiddenPos.value.length > 0)
         poData.pos = window.Ext.decode(hiddenPos.value);
       window.poStore.loadData(poData);
+
+      window.UDRCStore.loadData(UDRCData);
     };
     
     function getDataGrids() {

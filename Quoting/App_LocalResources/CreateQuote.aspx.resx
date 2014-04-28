@@ -189,6 +189,15 @@
   <data name="SELECT_POS" xml:space="preserve">
     <value>Select Product Offerings</value>
   </data>
+  <data name="EDIT_UDRC_VALUE" xml:space="preserve">
+    <value>Edit UDRC value</value>
+  </data>
+  <data name="TEXT_REFRESH" xml:space="preserve">
+    <value>Refresh UDRCs grid</value>
+  </data>
+  <data name="TEXT_REFRESH_UDRC_GRID" xml:space="preserve">
+    <value>Refresh UDRCs grid</value>
+  </data>
   <data name="ADD_ICB" xml:space="preserve">
     <value>Add ICB</value>
   </data>

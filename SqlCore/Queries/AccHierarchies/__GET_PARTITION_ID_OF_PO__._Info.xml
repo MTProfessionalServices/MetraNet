@@ -6,7 +6,7 @@
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>ID_PO</Name>
+            <Name>idPo</Name>
             <DataType>int32</DataType>
             <ReplacementType>SqlParameter</ReplacementType>
             <Description></Description>

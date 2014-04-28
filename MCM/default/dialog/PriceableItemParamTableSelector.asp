@@ -9,7 +9,11 @@
   <LINK rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/ListTabs.css">
 	<title>Untitled</title>
 </head>
-<script>
+<script type="text/javascript">
+  if (document.documentElement.attachEvent)
+    document.documentElement.attachEvent('onmousedown', function () {
+      event.srcElement.hideFocus = true
+    });
 
       var strBaseImagePath = '/mcm/default/localized/en-us/images/Icons/'; //sectionExpand.gif" width="16" height="16" alt="" border="0">")%>';
 
@@ -100,9 +104,7 @@ function showParamTableSelectorTab(sSelectedTab,element)
 						</a>
 					</li>
 					<li>
-						<a onClick="javascript:showParamTableSelectorTab('Discount',this);" href="javascript:void(0);">
-							<span style='font-size:7pt'>	Discounts
-							</span>
+						<a onClick="javascript:showParamTableSelectorTab('Discount',this);" href="javascript:void(0);"> Discounts
 						</a>
 					</li>
 				</ul>

@@ -10,7 +10,10 @@
                 map.id_pi_template PITemplateID,
                 piTemplateBP.nm_name PITemplateName,
 				map.id_pi_instance_parent ParentPIInstanceID, 
-				map.b_canICB PICanICB
+				case (select count(1) from t_pl_map where b_canICB = 'Y' and id_pi_instance = map.id_pi_instance)
+				  when 0 then 'N'
+				  else 'Y'
+				end PICanICB
                 from
                 t_pl_map map
                 inner join

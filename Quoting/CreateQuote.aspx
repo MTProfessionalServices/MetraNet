@@ -573,15 +573,48 @@
 
     // create the data store
     var piWithAllowIcbStore = new Ext.data.JsonStore({
-      root: 'pisWithAllowIcb',
+      //root: 'pisWithAllowIcb',
       fields: [
-        { name: 'ProductOfferingName' },
-        { name: 'PricableItemName' },
+        { name: 'ProductOfferingId' },
         { name: 'PricableItemId' },
-        { name: 'ProductOfferingId' }        
+        { name: 'Name' },
+        { name: 'DisplayName' },
+        { name: 'Description' },
+        { name: 'PIKind' },
+        { name: 'RecordId' }       
       ]
     });
-    piWithAllowIcbStore.loadData(piWithAllowIcbData);
+
+    var PiWithAllowIcbRecord = Ext.data.Record.create([ // creates a subclass of Ext.data.Record
+        { name: 'ProductOfferingId' },
+        { name: 'PricableItemId' },
+        { name: 'Name' },
+        { name: 'DisplayName' },
+        { name: 'Description' },
+        { name: 'PIKind' },
+        { name: 'RecordId' } 
+    ]);
+
+    function addItemToPiWithAllowIcb(items) {
+      for (var i = 0; i < items.length; i++) {
+        var piId = items[i].PriceableItemId;
+        var poId = items[i].ProductOfferingId;
+        var recordId = piId + '-' + poId;
+        var found = piWithAllowIcbStore.find('RecordId', recordId);
+        if (found == -1) {
+          var myNewRecord = new PiWithAllowIcbRecord({
+            ProductOfferingId: items[i].ProductOfferingId,
+            PricableItemId: items[i].PricableItemId,
+            Name: items[i].Name,
+            DisplayName: items[i].DisplayName,
+            Description: items[i].Description,
+            PIKind: items[i].PIKind,
+            RecordId: items[i].RecordId,
+          });          
+          piWithAllowIcbStore.add(myNewRecord);
+        }
+      }
+    }
 
    // var textSelectPos = '<%=GetLocalResourceObject("SELECT_POS")%>';
     
@@ -597,8 +630,8 @@
       ds: piWithAllowIcbStore,
       columns: [
         //{ id: 'ProductOfferingId', header: textPoId, width: 30, sortable: true, dataIndex: 'ProductOfferingId' },
-        { header: textPoName, width: 140, sortable: true, dataIndex: 'ProductOfferingName' },
-        { header: textPiName, width: 140, sortable: true, dataIndex: 'PricableItemName' },
+        { header: textPoId, width: 140, sortable: true, dataIndex: 'ProductOfferingId' },
+        { header: textPiName, width: 140, sortable: true, dataIndex: 'Name' },
         { header: textPiWithICBAction, width: 50, sortable: false, dataIndex: '', renderer: piWithAllowIcbActionsRenderer }
       ],
       stripeRows: true,
@@ -728,11 +761,11 @@
         { name: 'Price' },
         { name: 'UnitValue' },
         { name: 'UnitAmount' },
-        { name: 'BaseAmount' }
+        { name: 'BaseAmount' },
+        { name: 'RecordId' }
       ]
     });
-    icbStore.loadData(icbData);
-
+        
     // var textSelectPos = '<%=GetLocalResourceObject("SELECT_POS")%>';
 
     // create the Grid
@@ -859,7 +892,7 @@
       }
 
       if (response.action == 'getICB') {
-        //addItemToIcb(response.items);
+        addItemToPiWithAllowIcb(response.items);
       }
     }
   </script>

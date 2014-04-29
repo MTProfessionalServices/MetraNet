@@ -23,11 +23,11 @@
       Label="End date" LabelWidth="120" meta:resourcekey="dpEndDateResource1" ReadOnly="False"
       runat="server"></MT:MTDatePicker>
     </div>
-  </MT:MTPanel>
-  <br />
+  </MT:MTPanel>  
   <MT:MTPanel ID="MTPanelQuoteAccounts" runat="server" Text="Accounts and product offerings for quote" Collapsible="True"
     Collapsed="False" meta:resourcekey="MTPanelQuoteAccountsResource">
-    <div id="PlaceHolderAccountsGrid" class="LeftColumn"></div>
+    <MT:MTCheckBoxControl ID="MTCheckBoxIsGroupSubscription" Visible="True" BoxLabel = "View result" runat="server" LabelWidth="100" meta:resourcekey="ISGROUP" />
+    <div id="PlaceHolderAccountsGrid" class="LeftColumn"></div>    
     <div id="PlaceHolderProductOfferingsGrid" class="RightColumn"></div>   
   </MT:MTPanel>
   <MT:MTPanel ID="MTPanelUDRCMetrics" runat="server" Text="UDRC metrics for quote" Collapsible="True"
@@ -283,6 +283,13 @@
     function removePo(poId) {
       var idx = poStore.find('ProductOfferingId', poId);
       poStore.remove(poStore.getAt(idx));
+
+      var n = piWithAllowIcbStore.data.length;
+      for (var i = n - 1; i >= 0; i--) 
+      {
+        if (piWithAllowIcbStore.data.items[i].data.ProductOfferingId == poId)
+          piWithAllowIcbStore.remove(piWithAllowIcbStore.getAt(i));
+      }      
     }
 
     function getPoIds() {
@@ -609,7 +616,7 @@
             DisplayName: items[i].DisplayName,
             Description: items[i].Description,
             PIKind: items[i].PIKind,
-            RecordId: items[i].RecordId,
+            RecordId: recordId,
           });          
           piWithAllowIcbStore.add(myNewRecord);
         }

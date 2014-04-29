@@ -1,4 +1,4 @@
-MERGE INTO t_be_cor_cre_creditnotetmpl tmpl USING dual on (c_TemplateName = TemplateName)
+MERGE INTO t_be_cor_cre_creditnotetmpl tmpl USING dual on (c_TemplateName = :TemplateName)
 WHEN NOT MATCHED THEN
 		INSERT(c_CreditNoteTmpl_Id
            ,c__version
@@ -17,11 +17,12 @@ WHEN NOT MATCHED THEN
            ,sysdate
            ,sysdate
            ,null
-           ,LanguageCode
-           ,TemplateName
-           ,CreditNotePrefix
-           ,CreditNoteTemplateID);
+           ,:LanguageCode
+           ,:TemplateName
+           ,:CreditNotePrefix
+           ,:CreditNoteTemplateID)
 WHEN MATCHED THEN 
-			UPDATE SET c_LanguageCode=@LanguageCode,
-     						c_CreditNotePrefix = @CreditNotePrefix,          
-     						c_CreditNoteTemplateID = @CreditNoteTemplateID;
+			UPDATE SET c_LanguageCode=:LanguageCode,
+     						c_CreditNotePrefix = :CreditNotePrefix,          
+     						c_CreditNoteTemplateID = :CreditNoteTemplateID,
+							c__version = c__version+1

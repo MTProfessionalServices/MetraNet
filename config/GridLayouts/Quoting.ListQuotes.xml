@@ -126,10 +126,10 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\Core.Quoting.Entity.dll</AssemblyFilename>
             <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
-            <ID>EffectiveDate</ID>
+            <ID>QuoteCreationDate</ID>
             <DataType>Date</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>EffectiveDate</DataIndex>
+            <DataIndex>QuoteCreationDate</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>CREATION_DATE</LocalizationTag>
@@ -526,8 +526,8 @@
                             <Name>AccountsInfo</Name>
                         </Field>
                         <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
+                            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\Core.Quoting.Entity.dll</AssemblyFilename>
+                            <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
                             <ID>GroupSubscription</ID>
                             <Name>GroupSubscription</Name>
                         </Field>

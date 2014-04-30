@@ -33,7 +33,9 @@
   </MT:MTPanel>
   <MT:MTPanel ID="MTPanelUDRCMetrics" runat="server" Text="UDRC metrics for quote" Collapsible="True"
     Collapsed="False" meta:resourcekey="MTPanelUDRCResource">
-     <div id="PlaceHolderUDRCMetricsGrid"></div> 
+     <!--<div id="PlaceHolderUDRCMetricsGrid"></div> -->
+     <div id="PlaceHolderPIWithUDRCAllowedGrid" class="LeftColumn"></div>
+     <div id="PlaceHolderUDRCGrid" class="RightColumn"></div>
   </MT:MTPanel>
   <MT:MTPanel ID="MTPanelICBs" runat="server" Text="ICBs for quote" Collapsible="True"
     Collapsed="False" meta:resourcekey="MTPanelICBResource">
@@ -69,11 +71,12 @@
   <input id="HiddenAccounts" runat="server" type="hidden" />
   <input id="HiddenPos" runat="server" type="hidden" />
   <input id="HiddenICBs" runat="server" type="hidden" />
+  <input id="HiddenUDRCs" runat="server" type="hidden" />
   
   <%-- Account Grid--%>
   <script language="javascript" type="text/javascript">
     var accountData = { accounts: [] };
-    
+
     // create the data store
     var accountStore = new Ext.data.JsonStore({
       root: 'accounts',
@@ -218,7 +221,7 @@
   <%-- Product Offering Grid--%>
   <script language="javascript" type="text/javascript">
     var poData = { pos: [] };
-  
+
     // create the data store
     var poStore = new Ext.data.JsonStore({
       root: 'pos',
@@ -255,15 +258,17 @@
 
     //this will be called when accts are selected
     function addPoCallback(ids, records) {
+      var poData = { poIds: [] };
+
       for (var i = 0; i < records.length; i++) {
         var productOfferingId = records[i].data.ProductOfferingId;
         var found = poStore.find('ProductOfferingId', productOfferingId);
         if (found == -1) {
           poStore.add(records[i]);
-          getUdrcByPoId(productOfferingId);
-          getIcbByPoId(productOfferingId);
+          poData.poIds.push(productOfferingId);
         }
       }
+      window.CallServer(JSON.stringify({ poIds: poData.poIds }));
       poSelectorWin2.hide();
     }
 
@@ -276,7 +281,7 @@
 
     function poActionsRenderer(value, meta, record) {
       var str = String.format(
-        "<a style='cursor:hand;' id='remove_{0}' title='{1}' href='JavaScript:removePo({0});'><img src='/Res/Images/icons/cross.png' alt='{1}' /></a>", 
+        "<a style='cursor:hand;' id='remove_{0}' title='{1}' href='JavaScript:removePo({0});'><img src='/Res/Images/icons/cross.png' alt='{1}' /></a>",
         record.data.ProductOfferingId, textPoRemove);
       return str;
     }
@@ -290,6 +295,12 @@
       {
         if (piWithAllowIcbStore.data.items[i].data.ProductOfferingId == poId)
           piWithAllowIcbStore.remove(piWithAllowIcbStore.getAt(i));
+      }
+
+      n = piWithAllowUDRCStore.data.length;
+      for (i = n - 1; i >= 0; i--) {
+        if (piWithAllowUDRCStore.data.items[i].data.ProductOfferingId == poId)
+          piWithAllowUDRCStore.remove(piWithAllowUDRCStore.getAt(i));
       }      
     }
 
@@ -319,7 +330,7 @@
       window.Ext.get("<%=HiddenPos.ClientID %>").dom.value = poData.pos.length > 0 ? window.Ext.encode(poData.pos) : "";
       return true;
     }
-    
+
     function ShowMultiPoSelector(functionName, target) {
       if (window.poSelectorWin2 == null || window.poSelectorWin2 === undefined ||
         target != window.lastTarget2 || functionName != window.lastFunctionName2) {
@@ -355,94 +366,25 @@
   </script>
   
     <%-- UDRCs Grid--%>
-  <script language="javascript" type="text/javascript">
-  
-    var dropDownValues_UDRC = [ ]; 
+  <%--<script language="javascript" type="text/javascript">
+
+    var dropDownValues_UDRC = [];
     var ddStoreUDRC = new Ext.data.SimpleStore({
-		          fields:['name', 'value'],
+      fields: ['name', 'value'],
 		          data: dropDownValues_UDRC,
-		          storeId:'dropDownValues_UDRC_store'
+      storeId: 'dropDownValues_UDRC_store'
           });
-          
-          //var valueText = TEXT_VALUE + '<br/>' + TEXT_MIN + ' %%MIN_VALUE%% <br/>' + TEXT_MAX + ' %%MAX_VALUE%%';
 
-    var EditUDRCForm = new Ext.form.FormPanel({
-      baseCls: 'x-plain',
-      labelWidth: 55,
-      defaultType: 'textfield',
 
-      items: [{
-          readOnly: true,
-          fieldLabel: TEXT_NAME,
-          id: 'POName',
-          name: 'POName',
-          //value: '%%NAME%%',
-          value: 'PO NAME',
-          allowBlank: false,
-          anchor: '100%'
-        }, {
-          readOnly: true,
-          fieldLabel: TEXT_NAME,
-          id: 'UDRCName',
-          name: 'UDRCName',
-          //value: '%%NAME%%',
-          value: 'UDRC NAME',
-          allowBlank: false,
-          anchor: '100%'
-        }, {
-          xtype: 'combo',
-          //fieldLabel: valueText,
-          fieldLabel: 'Value:',
-          id: 'Value',
-          name: 'Value',
-          allowBlank: false,
-          editable: true,
-          forceSelection: false,
-          typeAhead: true,
-          triggerAction: 'all',
-          mode: 'local',
-          store: ddStoreUDRC,
-          valueField: 'value',
-          displayField: 'name',
-          anchor: '100%',
-          labelSeparator: ''
-        }, {
+    var MIN_VALUE = 0;
+    var MAX_VALUE = 0;
+    var EditUDRCForm = new Ext.form.FormPanel();
+    var EditUDRCWindow = new Ext.Window();
+    var editRowIndexItem = {
           xtype: 'hidden',
           hideLabel: true,
-          name: 'IsInteger',
-          //value: '%%IS_INTEGER%%'
-          value: 'true'
-        }, {
-          xtype: 'hidden',
-          hideLabel: true,
-          name: 'ID',
-          //value: '%%ID%%', 
-          value: '101',
-          anchor: '100% -53'  // anchor width by percentage and height by raw adjustment
-        }]
-    });
-
-    var EditUDRCWindow = new Ext.Window({
-      title: 'Edit UDRC value',
-      width: 400,
-      height: 250,
-      minWidth: 100,
-      minHeight: 100,
-      layout: 'fit',
-      plain: true,
-      bodyStyle: 'padding:5px;',
-      buttonAlign: 'center',
-      items: EditUDRCForm,
-      closable: false,
-
-      buttons: [{
-          text: TEXT_OK,
-          handler: onOK_EditUDRC
-        }, {
-          text: TEXT_CANCEL,
-          handler: onCancel_EditUDRC
-        }]
-    });
+      name: 'RowId'
+    };
 
     function onOK_EditUDRC() {
 
@@ -474,8 +416,8 @@
       }
 
       // MIN_VALUE and MAX_VALUE may contain commas as separators, so put in quotes.
-      var minval = '%%MIN_VALUE%%';
-      var maxval = '%%MAX_VALUE%%';
+      var minval = MIN_VALUE.toString();
+      var maxval = MAX_VALUE.toString();
 
       // Strip out thousand separators and convert decimal separators
       // for minval and maxval before doing mathematical comparison.
@@ -491,24 +433,9 @@
       }
 
       if (EditUDRCForm.form.isValid()) {
-
-        // Submit the form.
-
-        // Don't include thousand separators in value sent to server.
-        Ext.get('Value').dom.value = noThousSepValue;
-
-        /*EditUDRCForm.getForm().submit({
-          waitMsg: TEXT_ADDING_UDRC,
-          url: '/MetraNet/Quoting/CreateQuote.aspx?UPDATE=TRUE',
-          failure: function(form, action) {
-            //Ext.MessageBox.alert('Error Message', 'Error processing form on server.');
-          },
-          success: function(form, action) {
-            //Ext.MessageBox.alert('Confirm', action.result.info);
-            //window.hide();
-            //dataStore.load({params:{start:0, limit:10}});
-          }
-        });*/
+        UDRCStore.data.items[editRowIndexItem.value].set('Value', noThousSepValue);
+        UDRCStore.commitChanges();
+        EditUDRCWindow.hide();
       } else {
         Ext.MessageBox.alert(TEXT_ERROR, TEXT_PLEASE_FIX);
       }
@@ -518,12 +445,6 @@
       EditUDRCWindow.hide();
     }
 
-    function on_UDRC_grid_refresh() {
-      // Here is a place to load UDRCs 
-      UDRCData = { UDRCs: [{ POName: 'PO1', UDRCName: 'udrc1', Value: 1 }] };
-      window.UDRCStore.loadData(UDRCData);
-    }
-
     var UDRCData = { UDRCs: [] };
 
          // create the data store
@@ -531,18 +452,15 @@
       root: 'UDRCs',
       fields: [
         { name: 'POName' },
+        { name: 'POId' },
         { name: 'UDRCName' },
-        { name: 'Value' }
+        { name: 'UDRCId' },
+        { name: 'Value' },
+        { name: 'MinValue' },
+        { name: 'MaxValue' }
       ]
     });
 
-    var tbar_refresh_UDRC_grid = new Ext.Toolbar([{
-      text: '<%=GetLocalResourceObject("TEXT_REFRESH") %>',
-      handler: on_UDRC_grid_refresh,
-      tooltip: '<%=GetLocalResourceObject("TEXT_REFRESH_UDRC_GRID") %>',
-      iconCls: 'add'
-    }, '-']);
-          
     // create the Grid
     var UDRCgrid = new Ext.grid.GridPanel({
       store: UDRCStore,
@@ -556,35 +474,342 @@
       autoExpandColumn: 'Name',
       height: 150,
       width: 600,
-      tbar: tbar_refresh_UDRC_grid,
       title: 'UDRC metrics for quote'
     });
-       
+
     var textEditUDRCValue = '<%=GetLocalResourceObject("EDIT_UDRC_VALUE")%>';
 
-    function UDRCActionsRenderer(value, meta, record) {
+    function UDRCActionsRenderer(value, meta, record, rowIndex) {
       var str = String.format(
-        "<a style='cursor:hand;' id='edit_udrc' title='{1}' href='JavaScript:editUDRCValue({0});'><img src='/Res/Images/icons/pencil.png' alt='{1}' /></a>",
-        record.data.id, textEditUDRCValue);
+        "<a style='cursor:hand;' id='edit_udrc' title='{5}' href='JavaScript:editUDRCValue({0}, {1}, {2}, {3}, {4});'><img src='/Res/Images/icons/pencil.png' alt='{5}' /></a>",
+        "\"" + record.data.POName + "\"", "\"" + record.data.UDRCName + "\"", record.data.MinValue, record.data.MaxValue, rowIndex, textEditUDRCValue);
       return str;
     }
 
-    function editUDRCValue() {
-      EditUDRCWindow.show();
+    function editUDRCValue(poName, udrcName, minValue, maxValue, rowIndex) {
+      MIN_VALUE = minValue;
+      MAX_VALUE = maxValue;
+      
+      editRowIndexItem.value = rowIndex;
+
+      var EditUDRCForm = new Ext.form.FormPanel({
+        baseCls: 'x-plain',
+        labelWidth: 55,
+        defaultType: 'textfield',
+
+        items: [{
+            readOnly: true,
+            fieldLabel: 'PO name',
+            id: 'POName',
+            name: 'POName',
+            value: poName,
+            allowBlank: false,
+            anchor: '100%'
+          },{
+            readOnly: true,
+            fieldLabel: 'UDRC name',
+            id: 'UDRCName',
+            name: 'UDRCName',
+            value: udrcName,
+            allowBlank: false,
+            anchor: '100%'
+          },{
+            xtype: 'combo',
+            id: 'Value',
+            name: 'Value',
+            fieldLabel: TEXT_VALUE + '<br/>' + TEXT_MIN + ' ' + MIN_VALUE + ' <br/>' + TEXT_MAX + ' ' + MAX_VALUE,
+            allowBlank: false,
+            editable: true,
+            forceSelection: false,
+            typeAhead: true,
+            triggerAction: 'all',
+            mode: 'local',
+            store: ddStoreUDRC,
+            valueField: 'value',
+            displayField: 'name',
+            anchor: '100%',
+            labelSeparator: ''
+          },
+          editRowIndexItem]
+      });
+
+      EditUDRCWindow = new Ext.Window({
+        title: 'Edit UDRC value',
+        width: 400,
+        height: 250,
+        minWidth: 100,
+        minHeight: 100,
+        layout: 'fit',
+        plain: true,
+        bodyStyle: 'padding:5px;',
+        buttonAlign: 'center',
+        items: EditUDRCForm,
+        closable: false,
+
+        buttons: [{
+            text: TEXT_OK,
+            handler: onOK_EditUDRC
+          }, {
+            text: TEXT_CANCEL,
+            handler: onCancel_EditUDRC
+          }]
+      });
+      
+      EditUDRCWindow.show(); 
     }
 
+    function addItemToUdrc(items) {
+      for (var i = 0; i < items.length; i++) {
+        var poId = items[i].ProductOfferingId;
+        var found = UDRCStore.find('RecordId', poId);
+        
+        if (found == -1) {
+          var myNewRecord = new PiWithAllowIcbRecord({
+            POName: 'POName1',
+            POId: items[i].ProductOfferingId,
+            UDRCId: items[i].PriceableItemId,
+            UDRCName: items[i].Name,
+            RecordId: items[i].RecordId,
+            MinValue: 1,
+            MaxValue: 10
+          });          
+          
+          UDRCStore.add(myNewRecord);
+        }
+      }
+      //window.Ext.get("<%=HiddenUDRCs.ClientID %>").dom.value = UDRCData.UDRCs.length > 0 ? window.Ext.encode(UDRCData.UDRCs) : "";
+    }
+  </script>--%>
+
+  <%-- PI With Allow UDRC Grid--%>
+  <script language="javascript" type="text/javascript">
+    var piWithAllowUDRCData = { pisWithAllowUDRC: [] };
+
+    // create the data store
+    var piWithAllowUDRCStore = new Ext.data.JsonStore({
+      fields: [
+        { name: 'ProductOfferingId' },
+        { name: 'PriceableItemId' },
+        { name: 'Name' },
+        { name: 'DisplayName' },
+        { name: 'Description' },
+        { name: 'PIKind' },
+        { name: 'PICanICB' },
+        { name: 'RecordId' }
+      ]
+    });
+
+    var PiWithAllowPiRecord = Ext.data.Record.create([// creates a subclass of Ext.data.Record
+      { name: 'ProductOfferingId' },
+      { name: 'PriceableItemId' },
+      { name: 'Name' },
+      { name: 'DisplayName' },
+      { name: 'Description' },
+      { name: 'PIKind' },
+      { name: 'PICanICB' },
+      { name: 'RecordId' }
+    ]);
+
+    function addItemToPIs(items) {
+      for (var i = 0; i < items.length; i++) {
+        var piId = items[i].PriceableItemId;
+        var poId = items[i].ProductOfferingId;
+        var recordId = piId + '-' + poId;
+        var piKind = items[i].PIKind;
+        var piCanICB = items[i].PICanICB;
+        
+        var myNewRecord = new PiWithAllowPiRecord({
+          ProductOfferingId: poId,
+          PriceableItemId: piId,
+          Name: items[i].Name,
+          DisplayName: items[i].DisplayName,
+          Description: items[i].Description,
+          PIKind: piKind,
+          RecordId: recordId
+        });
+        
+        if (piKind == 25) {
+          var found1 = piWithAllowUDRCStore.find('RecordId', recordId);
+          if (found1 == -1) {
+            piWithAllowUDRCStore.add(myNewRecord);
+          }
+        }
+
+        if (piCanICB == 'Y') {
+          var found2 = piWithAllowIcbStore.find('RecordId', recordId);
+          if (found2 == -1) {
+            piWithAllowIcbStore.add(myNewRecord);
+          }
+        }
+      }
+    }
+
+    /*
+    var filter = new MTFilterElement("PIKind", MTFilterElement.OperationType.Equal, (int) PriceableItemKinds.UnitDependentRecurring);
+    var filter = new MTFilterElement("PICanICB", MTFilterElement.OperationType.Equal, "Y");
+    }*/
+
+
+
+    // create the Grid
+    var textPoId = '<%=GetLocalResourceObject("POID")%>';
+    var textPiId = '<%=GetLocalResourceObject("PIID")%>';
+    var textPoName = '<%=GetLocalResourceObject("PONAME")%>';
+    var textPiName = '<%=GetLocalResourceObject("PINAME")%>';
+    var textPiWithUDRCAction = '<%=GetLocalResourceObject("ACTIONS")%>';
+    var textPiWithUDRCGridTitle = '<%=GetLocalResourceObject("UDRC_PI_GRID_TITLE")%>';
+
+    var piWithAllowUDRCGrid = new Ext.grid.EditorGridPanel({
+      ds: piWithAllowUDRCStore,
+      columns: [
+            { header: textPoId, width: 140, sortable: true, dataIndex: 'ProductOfferingId' },
+            { header: textPiName, width: 140, sortable: true, dataIndex: 'Name' },
+            { header: textPiWithUDRCAction, width: 50, sortable: false, dataIndex: '', renderer: piWithAllowUDRCActionsRenderer }
+          ],
+      stripeRows: true,
+      height: 300,
+      width: 345,
+      iconCls: 'icon-grid',
+      frame: true,
+      title: textPiWithUDRCGridTitle
+    });
+
+    var textUDRCAdd = '<%=GetLocalResourceObject("ADD_UDRC")%>';
+
+    function piWithAllowUDRCActionsRenderer(value, meta, record) {
+      var str = String.format(
+            "<a style='cursor:hand;' id='addUDRC_{0}_{1}' title='{2}' href='JavaScript:addUDRC({0},{1});'><img src='/Res/Images/icons/money.png' alt='{2}' /></a>",
+            record.data.ProductOfferingId, record.data.PriceableItemId, textUDRCAdd);
+      return str;
+    }
+
+    function addUDRC(poId, piId) {
+      alert("Does not implement");
+      ShowUDRCInputForm(addUDRCCallback, "Frame");
+    }
+
+    var form_addUDRC = new Ext.form.FormPanel({
+      baseCls: 'x-plain',
+      labelWidth: 55,
+      defaultType: 'textfield',
+
+      items: [{
+        xtype: 'datefield',
+        //fieldLabel: TEXT_START_DATE,
+        //format:DATE_FORMAT,
+        //altFormats:DATE_TIME_FORMAT,
+        //value: '%%MIN_DATE%%', 
+        id: 'StartDate',
+        name: 'StartDate',
+        allowBlank: true,
+        //disabled:%%FIRST_ITEM%%,
+        anchor: '100%'
+      }]
+    });
+
+    function ShowUDRCInputForm(functionName, target) {
+      if (window.addUDRCWin2 == null || window.addUDRCWin2 === undefined ||
+            target != window.lastTarget2 || functionName != window.lastFunctionName2) {
+        window.addUDRCWin2 = new top.Ext.Window({
+          title: 'TEXT_ADD_UDRC',
+          width: 700,
+          height: 500,
+          minWidth: 300,
+          minHeight: 200,
+          layout: 'fit',
+          plain: true,
+          bodyStyle: 'padding:5px;',
+          buttonAlign: 'center',
+          collapsible: true,
+          resizeable: true,
+          maximizable: false,
+          closable: true,
+          closeAction: 'close',
+          items: form_addUDRC
+        });
+      }
+      if (window.addUDRCWin != null) {
+        window.addUDRCWin.hide();
+      }
+      window.lastTarget2 = target;
+      window.lastFunctionName2 = functionName;
+      window.addUDRCWin2.show();
+
+      window.addUDRCWin2.on('close', function () {
+        window.addUDRCWin2 = null;
+      });
+    }
   </script>
   
-  <%-- PI With Aloow ICB Grid--%>
+  <%-- UDRC Grid--%>
+  <script language="javascript" type="text/javascript">
+    var udrcData = { UDRCs: [] };
+
+    // create the data store
+    var udrcStore = new Ext.data.JsonStore({
+      root: 'UDRCs',
+      fields: [
+        { name: 'PriceableItemId' },
+        { name: 'ProductOfferingId' },
+        { name: 'Price' },
+        { name: 'UnitValue' },
+        { name: 'UnitAmount' },
+        { name: 'BaseAmount' },
+        { name: 'RecordId' }
+      ]
+    });
+
+    // create the Grid
+    var textPoId = '<%=GetLocalResourceObject("POID")%>';
+    var textPiId = '<%=GetLocalResourceObject("PIID")%>';
+    var textPrice = '<%=GetLocalResourceObject("PRICE")%>';
+    var textUnitValue = '<%=GetLocalResourceObject("UNIT_VALUE")%>';
+    var textUnitAmount = '<%=GetLocalResourceObject("UNIT_AMOUNT")%>';
+    var textBaseAmount = '<%=GetLocalResourceObject("BASE_AMOUNT")%>';
+    var textUDRCAction = '<%=GetLocalResourceObject("ACTIONS")%>';
+    var textUDRCGridTitle = '<%=GetLocalResourceObject("UDRC_GRID_TITLE")%>';
+
+    var udrcGrid = new Ext.grid.EditorGridPanel({
+      ds: udrcStore,
+      columns: [
+        { header: textPoId, width: 30, sortable: true, dataIndex: 'ProductOfferingId' },
+        { header: textPiId, width: 30, sortable: true, dataIndex: 'PriceableItemId' },
+        { header: textPrice, width: 50, sortable: true, dataIndex: 'Price' },
+        { header: textUnitValue, width: 50, sortable: true, dataIndex: 'UnitValue' },
+        { header: textUnitAmount, width: 50, sortable: true, dataIndex: 'UnitAmount' },
+        { header: textBaseAmount, width: 50, sortable: true, dataIndex: 'BaseAmount' },
+        { header: textUDRCAction, width: 50, sortable: false, dataIndex: '', renderer: UdrcActionsRenderer }
+      ],
+      stripeRows: true,
+      height: 300,
+      width: 345,
+      iconCls: 'icon-grid',
+      frame: true,
+      title: textUDRCGridTitle
+    });
+
+    function UdrcActionsRenderer(value, meta, record) {
+      var str = String.format(
+        "<a style='cursor:hand;' id='deleteUDRC_{0}' title='{1}' href='JavaScript:deleteUDRC({0});'><img src='/Res/Images/icons/cross.png' alt='{1}' /></a>",
+        record.data.ProductOfferingId, textUdrcAdd);
+      return str;
+    }
+
+    function deleteUDRC(id) {
+      alert("Does not implement");
+      //ShowIcbInputForm(addIcbCallback, "Frame");
+    }
+  </script>
+
+  <%-- PI With Allow ICB Grid--%>
   <script language="javascript" type="text/javascript">
     var piWithAllowIcbData = { pisWithAllowIcb: [] };
 
     // create the data store
     var piWithAllowIcbStore = new Ext.data.JsonStore({
-      //root: 'pisWithAllowIcb',
       fields: [
         { name: 'ProductOfferingId' },
-        { name: 'PricableItemId' },
+            { name: 'PriceableItemId' },
         { name: 'Name' },
         { name: 'DisplayName' },
         { name: 'Description' },
@@ -595,7 +820,7 @@
 
     var PiWithAllowIcbRecord = Ext.data.Record.create([ // creates a subclass of Ext.data.Record
         { name: 'ProductOfferingId' },
-        { name: 'PricableItemId' },
+          { name: 'PriceableItemId' },
         { name: 'Name' },
         { name: 'DisplayName' },
         { name: 'Description' },
@@ -612,7 +837,7 @@
         if (found == -1) {
           var myNewRecord = new PiWithAllowIcbRecord({
             ProductOfferingId: items[i].ProductOfferingId,
-            PricableItemId: items[i].PricableItemId,
+                PriceableItemId: items[i].PriceableItemId,
             Name: items[i].Name,
             DisplayName: items[i].DisplayName,
             Description: items[i].Description,
@@ -625,14 +850,14 @@
     }
 
    // var textSelectPos = '<%=GetLocalResourceObject("SELECT_POS")%>';
-    
+
     // create the Grid
     var textPoId = '<%=GetLocalResourceObject("POID")%>';
     var textPiId = '<%=GetLocalResourceObject("PIID")%>';
     var textPoName = '<%=GetLocalResourceObject("PONAME")%>';
     var textPiName = '<%=GetLocalResourceObject("PINAME")%>';
     var textPiWithICBAction = '<%=GetLocalResourceObject("ACTIONS")%>';
-    var textPiWithICBGridTitle = '<%=GetLocalResourceObject("PI_GRID_TITLE")%>';
+    var textPiWithICBGridTitle = '<%=GetLocalResourceObject("ICB_PI_GRID_TITLE")%>';
 
     var piWithAllowIcbGrid = new Ext.grid.EditorGridPanel({
       ds: piWithAllowIcbStore,
@@ -652,14 +877,14 @@
 
     //this will be called when icbs are added
     function addIcbCallback(ids, records) {
-//      for (var i = 0; i < records.length; i++) {
-//        var productOfferingId = records[i].data.ProductOfferingId;
-//        var found = poStore.find('ProductOfferingId', productOfferingId);
-//        if (found == -1) {
-//          poStore.add(records[i]);
-//        }
-//      }
-//      poSelectorWin2.hide();
+          //      for (var i = 0; i < records.length; i++) {
+          //        var productOfferingId = records[i].data.ProductOfferingId;
+          //        var found = poStore.find('ProductOfferingId', productOfferingId);
+          //        if (found == -1) {
+          //          poStore.add(records[i]);
+          //        }
+          //      }
+          //      poSelectorWin2.hide();
     }
 
     var textIcbAdd = '<%=GetLocalResourceObject("ADD_ICB")%>';
@@ -667,7 +892,7 @@
     function piWithAllowIcbActionsRenderer(value, meta, record) {
       var str = String.format(
         "<a style='cursor:hand;' id='addICB_{0}_{1}' title='{2}' href='JavaScript:addICB({0},{1});'><img src='/Res/Images/icons/money.png' alt='{2}' /></a>",
-        record.data.ProductOfferingId, record.data.PricableItemId, textIcbAdd);
+            record.data.ProductOfferingId, record.data.PriceableItemId, textIcbAdd);
       return str;
     }
 
@@ -676,32 +901,32 @@
       ShowIcbInputForm(addIcbCallback, "Frame");
     }
 
-//    function getPoIds() {
-//      var records = poStore.data.items;
-//      if (records.length == 0) {
-//        window.Ext.Msg.show({
-//          title: window.TEXT_ERROR,
-//          msg: window.TEXT_SELECT_GRPSUBMEM_ACCOUNTS,
-//          buttons: window.Ext.Msg.OK,
-//          icon: window.Ext.MessageBox.ERROR
-//        });
-//        return false;
-//      }
+        //    function getPoIds() {
+        //      var records = poStore.data.items;
+        //      if (records.length == 0) {
+        //        window.Ext.Msg.show({
+        //          title: window.TEXT_ERROR,
+        //          msg: window.TEXT_SELECT_GRPSUBMEM_ACCOUNTS,
+        //          buttons: window.Ext.Msg.OK,
+        //          icon: window.Ext.MessageBox.ERROR
+        //        });
+        //        return false;
+        //      }
 
-//      poData.pos.length = 0;
-//      var ids = "";
-//      for (var i = 0; i < records.length; i++) {
-//        poData.pos.push(records[i].data);
-//        if (i > 0) {
-//          ids += ",";
-//        }
-//        ids += records[i].data.ProductOfferingId;
-//      }
+        //      poData.pos.length = 0;
+        //      var ids = "";
+        //      for (var i = 0; i < records.length; i++) {
+        //        poData.pos.push(records[i].data);
+        //        if (i > 0) {
+        //          ids += ",";
+        //        }
+        //        ids += records[i].data.ProductOfferingId;
+        //      }
 
-//      window.Ext.get("<%=HiddenPoIdTextBox.ClientID %>").dom.value = ids;
-//      window.Ext.get("<%=HiddenPos.ClientID %>").dom.value = poData.pos.length > 0 ? window.Ext.encode(poData.pos) : "";
-//      return true;
-//    }
+        //      window.Ext.get("<%=HiddenPoIdTextBox.ClientID %>").dom.value = ids;
+        //      window.Ext.get("<%=HiddenPos.ClientID %>").dom.value = poData.pos.length > 0 ? window.Ext.encode(poData.pos) : "";
+        //      return true;
+        //    }
 
     var form_addICB = new Ext.form.FormPanel({
             baseCls: 'x-plain',
@@ -716,9 +941,9 @@
                 //value: '%%MIN_DATE%%', 
                 id: 'StartDate',
                 name: 'StartDate',
-                allowBlank:true,
+            allowBlank: true,
                 //disabled:%%FIRST_ITEM%%,
-                anchor:'100%'  
+            anchor: '100%'
             }]
           });
 
@@ -763,8 +988,8 @@
     // create the data store
     var icbStore = new Ext.data.JsonStore({
       root: 'icbs',
-      fields: [        
-        { name: 'PricableItemId' },
+      fields: [
+        { name: 'PriceableItemId' },
         { name: 'ProductOfferingId' },
         { name: 'Price' },
         { name: 'UnitValue' },
@@ -790,7 +1015,7 @@
       ds: icbStore,
       columns: [
         { header: textPoId, width: 30, sortable: true, dataIndex: 'ProductOfferingId' },
-        { header: textPiId, width: 30, sortable: true, dataIndex: 'PricableItemId' },
+        { header: textPiId, width: 30, sortable: true, dataIndex: 'PriceableItemId' },
         { header: textPrice, width: 50, sortable: true, dataIndex: 'Price' },
         { header: textUnitValue, width: 50, sortable: true, dataIndex: 'UnitValue' },
         { header: textUnitAmount, width: 50, sortable: true, dataIndex: 'UnitAmount' },
@@ -851,13 +1076,16 @@
   
   <%-- General--%>
   <script language="javascript" type="text/javascript">
-    
+
     Ext.onReady(function () {
       accountGrid.render(window.Ext.get('PlaceHolderAccountsGrid'));
       poGrid.render(window.Ext.get('PlaceHolderProductOfferingsGrid'));
-      UDRCgrid.render(window.Ext.get('PlaceHolderUDRCMetricsGrid'));
+      //UDRCgrid.render(window.Ext.get('PlaceHolderUDRCMetricsGrid'));
       piWithAllowIcbGrid.render(window.Ext.get('PlaceHolderPIWithICBAllowedGrid'));
       icbGrid.render(window.Ext.get('PlaceHolderICBGrid'));
+
+      piWithAllowUDRCGrid.render(window.Ext.get('PlaceHolderPIWithUDRCAllowedGrid'));
+      udrcGrid.render(window.Ext.get('PlaceHolderUDRCGrid'));
     });
 
     window.onload = function () {
@@ -865,25 +1093,15 @@
       if (hiddenAccounts.value.length > 0)
         accountData.accounts = window.Ext.decode(hiddenAccounts.value);
       window.accountStore.loadData(accountData);
-      
+
       var hiddenPos = window.Ext.get("<%=HiddenPos.ClientID %>").dom;
       if (hiddenPos.value.length > 0)
         poData.pos = window.Ext.decode(hiddenPos.value);
       window.poStore.loadData(poData);
-
-      window.UDRCStore.loadData(UDRCData);
     };
-    
+
     function getDataGrids() {
       return getAccountIds() && getPoIds();
-    }
-    
-    function getUdrcByPoId(poId) {
-      window.CallServer(JSON.stringify({ action: 'getUDRC', poId: poId }));
-    }
-
-    function getIcbByPoId(poId) {
-      window.CallServer(JSON.stringify({ action: 'getICB', poId: poId }));
     }
     
     function ReceiveServerData(value) {
@@ -895,14 +1113,8 @@
         window.Ext.UI.SystemError(response.errorMessage);
       }
 
-      if (response.action == 'getUDRC') {
-        //addItemToUdrc(response.items);
+      addItemToPIs(response.items);
       }
-
-      if (response.action == 'getICB') {
-        addItemToPiWithAllowIcb(response.items);
-      }
-    }
   </script>
     
 </asp:Content>

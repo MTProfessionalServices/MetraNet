@@ -12,7 +12,6 @@ using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.UI.Common;
 using MetraTech.ActivityServices.Common;
 using MetraTech.Core.Services.ClientProxies;
-using MetraTech.DomainModel.Common;
 
 namespace MetraNet.Quoting
 {
@@ -30,9 +29,9 @@ namespace MetraNet.Quoting
       get { return Session["SubscriptionInstance"] as Subscription; }
       set { Session["SubscriptionInstance"] = value; }
     }
-    public Dictionary<string, MTTemporalList<UDRCInstanceValue>> UDRCDictionary
+    public Dictionary<string, List<UDRCInstanceValue>> UDRCDictionary
     {
-      get { return Session["UDRCDictionary"] as Dictionary<string, MTTemporalList<UDRCInstanceValue>>; }
+      get { return Session["UDRCDictionary"] as Dictionary<string, List<UDRCInstanceValue>>; }
       set { Session["UDRCDictionary"] = value; }
     }
 
@@ -73,32 +72,17 @@ namespace MetraNet.Quoting
     /// <param name="eventArgument">A string that represents an event argument to pass to the event handler.</param>
     public void RaiseCallbackEvent(string eventArgument)
     {
-      object result = null;
+      object result;
       var serializer = new JavaScriptSerializer();
-      var value = serializer.Deserialize<Dictionary<string, string>>(eventArgument);
-      var action = value["action"];
+      var value = serializer.Deserialize<Dictionary<string, string[]>>(eventArgument);
       try
       {
-        switch (action)
-        {
-          case "getUDRC":
-            {
-              var poId = int.Parse(value["poId"]);
-              result = GetPriceableItemsWithUdrc(action, poId);
-              break;
-            }
-          case "getICB":
-            {
-              var poId = int.Parse(value["poId"]);
-              result = GetPriceableItemsAllowIcb(action, poId);
-              break;
-            }
-        }
+        result = GetPriceableItems(value["poIds"]);
       }
       catch (Exception ex)
       {
         Logger.LogError(ex.Message);
-        result = new { result = "error", errorMessage = ex.Message };
+        result = new {result = "error", errorMessage = ex.Message};
       }
       if (result != null)
       {
@@ -117,28 +101,12 @@ namespace MetraNet.Quoting
       return _callbackResult;
     }
 
-    private object GetPriceableItemsWithUdrc(string action, int poId)
-    {
-      var filter = new MTFilterElement(
-        "PIKind", MTFilterElement.OperationType.Equal, (int)PriceableItemKinds.UnitDependentRecurring);
-      return GetPriceableItems(action, poId, filter);
-    }
-
-    private object GetPriceableItemsAllowIcb(string action, int poId)
-    {
-      var filter = new MTFilterElement(
-        "PICanICB", MTFilterElement.OperationType.Equal, "Y");
-      return GetPriceableItems(action, poId, filter);
-    }
-
-    private object GetPriceableItems(string action, int poId, MTFilterElement filter)
+    private object GetPriceableItems(IEnumerable<string> poIds)
     {
       object result;
+      var priceableItemsAll = new MTList<BasePriceableItemInstance>();
       try
       {
-        var priceableItems = new MTList<BasePriceableItemInstance>();
-        priceableItems.Filters.Add(filter);
-
         using (var client = new ProductOfferingServiceClient())
         {
           if (client.ClientCredentials != null)
@@ -146,20 +114,29 @@ namespace MetraNet.Quoting
             client.ClientCredentials.UserName.UserName = UI.User.UserName;
             client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
           }
-          var pciPoId = new PCIdentifier(poId);
-          client.GetPIInstancesForPO(pciPoId, ref priceableItems);
-          var items = priceableItems.Items.Select(
-            x => new
-              {
-                PriceableItemId = x.ID,
-                ProductOfferingId = poId,
-                x.Name,
-                x.DisplayName,
-                x.Description,
-                x.PIKind
-              }).ToArray();
-          result = new { result = "ok", action, items };
+          foreach (var poIdStr in poIds)
+          {
+            var poId = int.Parse(poIdStr);
+            var priceableItems = new MTList<BasePriceableItemInstance>();
+
+            var pciPoId = new PCIdentifier(poId);
+            client.GetPIInstancesForPO(pciPoId, ref priceableItems);
+
+            priceableItemsAll.Items.AddRange(priceableItems.Items);
+          }
         }
+        var items = priceableItemsAll.Items.Select(
+            x => new
+            {
+              PriceableItemId = x.ID,
+              ProductOfferingId = x.PO_ID,
+              x.Name,
+              x.DisplayName,
+              x.Description,
+              x.PIKind,
+              x.PICanICB
+            }).ToArray();
+        result = new { result = "ok", items };
       }
       catch (FaultException<MASBasicFaultDetail> ex)
       {
@@ -226,8 +203,11 @@ namespace MetraNet.Quoting
             CorporateAccountId = Convert.ToInt32(HiddenGroupId.Value)
           }
         };
-
-      //RequestForCreateQuote.SubscriptionParameters.UDRCValues = UDRCs;
+      foreach (var udrc in UDRCs)
+      {
+        //RequestForCreateQuote.SubscriptionParameters.Add(udrc.ID.ToString(), );
+      }
+      
 
     }
 

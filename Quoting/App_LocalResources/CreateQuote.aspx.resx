@@ -210,8 +210,8 @@
   <data name="PINAME" xml:space="preserve">
     <value>Pricable Item Name</value>
   </data>
-  <data name="PI_GRID_TITLE" xml:space="preserve">
-    <value>Pricable Items That Allows Custom Rates</value>
+  <data name="ICB_PI_GRID_TITLE" xml:space="preserve">
+    <value>Priсeable Items That Allows Custom Rates</value>
   </data>
   <data name="PRICE" xml:space="preserve">
     <value>Price</value>
@@ -227,5 +227,14 @@
   </data>
   <data name="ISGROUP" xml:space="preserve">
     <value>Is corp.</value>
+  </data>
+  <data name="ADD_UDRC" xml:space="preserve">
+    <value>Add UDRC</value>
+  </data>
+  <data name="UDRC_GRID_TITLE" xml:space="preserve">
+    <value>UDRCs</value>
+  </data>
+  <data name="UDRC_PI_GRID_TITLE" xml:space="preserve">
+    <value>Priсeable Items That Allows UDRCs</value>
   </data>
 </root>

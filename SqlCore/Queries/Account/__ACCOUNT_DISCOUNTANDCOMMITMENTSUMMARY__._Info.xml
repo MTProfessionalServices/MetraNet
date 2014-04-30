@@ -6,14 +6,8 @@
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>ACCOUNT_VIEW_NAME</Name>
-            <DataType>string</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <Description></Description>
-        </Parameter>
-        <Parameter>
-            <Name>ACCOUNT_TYPE_NAME</Name>
-            <DataType>string</DataType>
+            <Name>ACCOUNT_ID</Name>
+            <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>
         </Parameter>

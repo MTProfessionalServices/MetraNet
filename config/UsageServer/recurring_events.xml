@@ -2,6 +2,21 @@
 <xmlconfig>
     <version ptype="INTEGER">2</version>
     <ScheduledAdapters>
+    <Adapter>
+      <Name>GenerateSubscriptionDatamart</Name>
+      <DisplayName>Generate and/or Populate Subscription Data Mart</DisplayName>
+      <ClassID>MetraTech.UsageServer.Adapters.SubscriptionDataMartAdapter,MetraTech.UsageServer.Adapters</ClassID>
+      <ConfigFile>GenerateSubscriptionDatamart.xml</ConfigFile>
+      <Description>
+      <![CDATA[
+        Generates the and/or populates the Subscription Data Mart
+      ]]>
+      </Description>
+	  <RecurrencePattern>
+		<SystemCycle>Daily</SystemCycle>
+	  </RecurrencePattern>
+    </Adapter>
+
         <!--
     <Adapter>
       <Name>MaterializedViewAdapter</Name>
@@ -74,7 +89,7 @@
             </RecurrencePattern>
         </Adapter>
         <!-- Product Catalog Discounts -->
-        <!--Adapter>
+        <!--<Adapter>
             <Name>ScheduledDiscounts</Name>
             <DisplayName>Discount Adapter</DisplayName>
             <ClassID>Metratech.MTDiscountAdapter.1</ClassID>
@@ -89,7 +104,7 @@
             <RecurrencePattern>
                 <SystemCycle>Daily</SystemCycle>
             </RecurrencePattern>
-        </Adapter-->
+        </Adapter> -->
 
         <Adapter>
             <Name>PipelineFailoverAdapter</Name>
@@ -146,7 +161,7 @@
 
 
         <!-- Product Catalog Aggregate Charges -->
-        <!--Adapter>
+        <!-- <Adapter>
             <Name>AggregateCharges</Name>
             <DisplayName>Aggregate Charge Adapter</DisplayName>
             <ClassID>Metratech.MTAggRateAdapter.1</ClassID>
@@ -163,9 +178,9 @@
             <Dependencies>
                 <DependsOn>RecurringCharges</DependsOn>
             </Dependencies>
-        </Adapter-->
+        </Adapter> -->
         <!-- Product Catalog Discounts -->
-        <!--Adapter>
+        <!--<Adapter>
             <Name>Discounts</Name>
             <DisplayName>Discount Adapter</DisplayName>
             <ClassID>Metratech.MTDiscountAdapter.1</ClassID>
@@ -180,7 +195,7 @@
                 <DependsOn>AggregateCharges</DependsOn>
                 <DependsOn>NonRecurringCharges</DependsOn>
             </Dependencies>
-        </Adapter-->
+        </Adapter> -->
         <!-- PayerChange -->
         <Adapter>
             <Name>PayerChange</Name>

@@ -165,9 +165,6 @@
   <data name="REMOVE_ACCOUNT" xml:space="preserve">
     <value>Remove Account</value>
   </data>
-  <data name="ISGROUP" xml:space="preserve">
-    <value>Is Group Subscription</value>
-  </data>
   <data name="SELECT_ACCOUNTS" xml:space="preserve">
     <value>Select Accounts</value>
   </data>
@@ -224,5 +221,11 @@
   </data>
   <data name="UNIT_VALUE" xml:space="preserve">
     <value>Unit Value</value>
+  </data>
+  <data name="ISGROUP.Text" xml:space="preserve">
+    <value>Is Group Subscription</value>
+  </data>
+  <data name="ISGROUP" xml:space="preserve">
+    <value>Is corp.</value>
   </data>
 </root>

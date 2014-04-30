@@ -50,7 +50,7 @@ namespace MetraNet.Quoting
       #region render Accounts grid
 
       AccountRenderGrid();
-      
+
       #endregion
     }
 
@@ -98,7 +98,7 @@ namespace MetraNet.Quoting
       catch (Exception ex)
       {
         Logger.LogError(ex.Message);
-        result = new {result = "error", errorMessage = ex.Message};
+        result = new { result = "error", errorMessage = ex.Message };
       }
       if (result != null)
       {
@@ -120,7 +120,7 @@ namespace MetraNet.Quoting
     private object GetPriceableItemsWithUdrc(string action, int poId)
     {
       var filter = new MTFilterElement(
-        "PIKind", MTFilterElement.OperationType.Equal, (int) PriceableItemKinds.UnitDependentRecurring);
+        "PIKind", MTFilterElement.OperationType.Equal, (int)PriceableItemKinds.UnitDependentRecurring);
       return GetPriceableItems(action, poId, filter);
     }
 
@@ -151,14 +151,14 @@ namespace MetraNet.Quoting
           var items = priceableItems.Items.Select(
             x => new
               {
-                PriceableItemId = x.ID, 
-                ProductOfferingId = poId, 
-                x.Name, 
-                x.DisplayName, 
-                x.Description, 
+                PriceableItemId = x.ID,
+                ProductOfferingId = poId,
+                x.Name,
+                x.DisplayName,
+                x.Description,
                 x.PIKind
               }).ToArray();
-          result = new { result = "ok", action, items};
+          result = new { result = "ok", action, items };
         }
       }
       catch (FaultException<MASBasicFaultDetail> ex)
@@ -190,7 +190,7 @@ namespace MetraNet.Quoting
           InvokeCreateQuote(RequestForCreateQuote);
           Response.Redirect(@"/MetraNet/Quoting/QuoteList.aspx?Accounts=ALL", false);
         }
-        
+
       }
       catch (MASBasicException exp)
       {
@@ -214,12 +214,17 @@ namespace MetraNet.Quoting
       RequestForCreateQuote = new QuoteRequest
         {
           QuoteDescription = MTtbQuoteDescription.Text,
-          QuoteIdentifier =  MTtbQuoteIdentifier.Text,
+          QuoteIdentifier = MTtbQuoteIdentifier.Text,
           EffectiveDate = Convert.ToDateTime(MTdpStartDate.Text),
           EffectiveEndDate = Convert.ToDateTime(MTdpStartDate.Text),
           ReportParameters = { PDFReport = MTcbPdf.Checked },
           Accounts = Accounts,
-          ProductOfferings = Pos
+          ProductOfferings = Pos,
+          SubscriptionParameters = new SubscriptionParameters
+          {
+            IsGroupSubscription = MTCheckBoxIsGroupSubscription.Checked,
+            CorporateAccountId = Convert.ToInt32(HiddenGroupId.Value)
+          }
         };
 
       //RequestForCreateQuote.SubscriptionParameters.UDRCValues = UDRCs;
@@ -263,21 +268,21 @@ namespace MetraNet.Quoting
         client.CreateQuoteWithoutValidation(request, out response);
       }
     }
-      
+
     private void AccountRenderGrid()
     {
       if (IsPostBack || UI.Subscriber.SelectedAccount == null) return;
-      
+
       var accountsFilterValue = Request["Accounts"];
       if (string.IsNullOrEmpty(accountsFilterValue) || accountsFilterValue != "ONE") return;
-      
+
       var account = UI.Subscriber.SelectedAccount;
       const string currentAccount = "[{6}'_AccountID': {0}, 'AccountStatus': {1}, 'AccountType': '{2}', 'Internal#Folder': {3}, 'IsGroup': {4}, 'UserName': '{5}'{7}]";
       HiddenAccounts.Value = string.Format(
         CultureInfo.CurrentCulture,
         currentAccount,
         account._AccountID,
-        (int) account.AccountStatus.GetValueOrDefault(),
+        (int)account.AccountStatus.GetValueOrDefault(),
         account.AccountType,
         "false",
         0,

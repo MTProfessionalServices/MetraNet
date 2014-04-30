@@ -25,9 +25,10 @@
     </div>
   </MT:MTPanel>  
   <MT:MTPanel ID="MTPanelQuoteAccounts" runat="server" Text="Accounts and product offerings for quote" Collapsible="True"
-    Collapsed="False" meta:resourcekey="MTPanelQuoteAccountsResource">
-    <MT:MTCheckBoxControl ID="MTCheckBoxIsGroupSubscription" Visible="True" BoxLabel = "View result" runat="server" LabelWidth="100" meta:resourcekey="ISGROUP" />
-    <div id="PlaceHolderAccountsGrid" class="LeftColumn"></div>    
+    Collapsed="False" meta:resourcekey="MTPanelQuoteAccountsResource">        
+    <div id="PlaceHolderAccountsGrid" class="LeftColumn">
+      <MT:MTCheckBoxControl ID="MTCheckBoxIsGroupSubscription" Visible="True" BoxLabel = "Is group subscription" runat="server" LabelWidth="100" meta:resourcekey="ISGROUP" />
+    </div>    
     <div id="PlaceHolderProductOfferingsGrid" class="RightColumn"></div>   
   </MT:MTPanel>
   <MT:MTPanel ID="MTPanelUDRCMetrics" runat="server" Text="UDRC metrics for quote" Collapsible="True"
@@ -97,13 +98,13 @@
     var accountGrid = new Ext.grid.EditorGridPanel({
       ds: accountStore,
       columns: [
-        { id: '_AccountID', header: textUserName, width: 145, sortable: true, renderer: usernameRenderer, dataIndex: '_AccountID' },
-        { header: textIsGroup, width: 120, sortable: false, dataIndex: 'IsGroup', renderer: isGroupSubscriptionRenderer },
+        { id: '_AccountID', header: textUserName, width: 225, sortable: true, renderer: usernameRenderer, dataIndex: '_AccountID' },
+        { header: textIsGroup, width: 50, sortable: false, dataIndex: 'IsGroup', renderer: isGroupSubscriptionRenderer },
         { header: textAccountActions, width: 50, sortable: false, dataIndex: '', renderer: accountActionsRenderer }
       ],
       tbar: accountToolBar,
       stripeRows: true,
-      height: 300,
+      height: 205,
       width: 345,
       iconCls: 'icon-grid',
       frame: true,
@@ -245,7 +246,7 @@
       ],
       tbar: poToolBar,
       stripeRows: true,
-      height: 300,
+      height: 230,
       width: 345,
       iconCls: 'icon-grid',
       frame: true,

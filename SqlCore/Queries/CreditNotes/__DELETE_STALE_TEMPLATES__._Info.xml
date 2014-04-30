@@ -6,10 +6,10 @@
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>EXISTINGTEMPLATES</Name>
+            <Name>ExistingTemplates</Name>
             <DataType>sqlsubstitution</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
-            <SubstitutionSyntaxCheck></SubstitutionSyntaxCheck>
+            <SubstitutionSyntaxCheck>''</SubstitutionSyntaxCheck>
             <Description>List of existing templates in the system</Description>
         </Parameter>
     </Parameters>

@@ -13,4 +13,10 @@
         </Parameter>
     </Parameters>
     <Description>Billing summary for specified account for Account 360 page</Description>
+    <ConversionAudit>
+        <ConversionDuplicateName></ConversionDuplicateName>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
+        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
+    </ConversionAudit>
 </Query>

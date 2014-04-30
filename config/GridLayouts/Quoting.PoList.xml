@@ -9,7 +9,7 @@
     <Height>400</Height>
     <Width>720</Width>
     <Expandable>true</Expandable>
-    <Buttons>OKCancel</Buttons>
+    <Buttons>OK</Buttons>
     <DataSourceURL>../AjaxServices/LoadPosForQuote.aspx</DataSourceURL>
     <MultiSelect>true</MultiSelect>
     <SelectionModel>CheckBox</SelectionModel>

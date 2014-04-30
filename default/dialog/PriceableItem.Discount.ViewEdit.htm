@@ -76,7 +76,7 @@
 <br><br><CENTER>
     #MDMIf ShowEditButton
     <div style="display: inline;">
-    <button class="clsButtonSmall" id="EditItem" name="EDIT" onClick="javascript:window.open('[DISCOUNTS_EDIT_DIALOG_FROM_VIEW_EDIT_DISCOUNT_DIALOG]', '_blank', 'height=100,width=100,resizable=yes,scrollbars=yes'); return false;">
+    <button type="button" class="clsButtonSmall" id="EditItem" name="EDIT" onClick="javascript:window.open('[DISCOUNTS_EDIT_DIALOG_FROM_VIEW_EDIT_DISCOUNT_DIALOG]', '_blank', 'height=100,width=100,resizable=yes,scrollbars=yes'); return false;">
     <MDMLABEL Name="TEXT_EDIT">Edit</MDMLABEL></button>  
     </div>
     #MDMEndIf
@@ -86,11 +86,11 @@
 #MDMEndIf	
     
 #MDMIf ShowOKButton	
-	<BUTTON Name="OK"  Class="clsOKButton" OnClick="mdm_RefreshDialog(this);"><MDMLABEL Name='TEXT_OK'>OK</MDMLABEL></button>&nbsp;&nbsp;&nbsp;
+	<BUTTON Name="OK"  Class="clsOKButton" OnClick="mdm_RefreshDialog(this);return false;"><MDMLABEL Name='TEXT_OK'>OK</MDMLABEL></button>&nbsp;&nbsp;&nbsp;
 #MDMEndIf
 
 #MDMIf ShowCancelButton
-	<BUTTON Name="CANCEL" Class="clsOKButton" OnClick="mdm_RefreshDialog(this);"><MDMLABEL Name='TEXT_CANCEL'>Cancel</MDMLABEL></button>
+	<BUTTON Name="CANCEL" Class="clsOKButton" OnClick="mdm_RefreshDialog(this); return false;"><MDMLABEL Name='TEXT_CANCEL'>Cancel</MDMLABEL></button>
 #MDMEndIf	
 </CENTER>
 </form></body></html>

@@ -243,8 +243,8 @@ padding: 5px 3px 4px 15px;
 	border:solid 1px #98C0F4;*/
 	
 	text-align: center;
-	/*color: black; 
-	background-color: #CCDEF6; */
+	color: black; 
+	/*background-color: #CCDEF6; */
 	background-color: #D6D3CE;
 	/*background-image: url(/Res/Ext/resources/images/metranet/grid/grid3-hrow2.gif);*/    
     FONT:normal 11px/15px arial, tahoma, helvetica, sans-serif;
@@ -1503,7 +1503,7 @@ TH A:Hover
   margin: 5px;
 }
 
-button,.clsButtonBlueSmall,.clsButtonBlueMedium, .clsButtonBlueLarge,.clsButtonBlueXLarge,.clsButtonBlueXXLarge ,clsButtonBlueXXXLarge
+button,.clsButtonBlueSmall,.clsButtonBlueMedium, .clsButtonBlueLarge,.clsButtonBlueXLarge,.clsButtonBlueXXLarge ,.clsButtonBlueXXXLarge
   
 {
 align-items: flex-start;
@@ -1524,8 +1524,10 @@ font-size: 11px;
 font-weight: normal;
 letter-spacing: normal;
 }
-
-.button:hover
+button:disabled {
+  color: #807d7d;
+}
+button:hover
 {
 CURSOR: hand;
 }

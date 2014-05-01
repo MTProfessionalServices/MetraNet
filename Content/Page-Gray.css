@@ -189,7 +189,7 @@ table th
   font-size: 85%;
   font-family: Verdana, Tahoma, Arial, "Helvetica Neue" , Helvetica, Sans-Serif;
   font-weight: bold;
-  color: navy;
+  color:  #000;
   padding: 2px;
 }
 
@@ -549,9 +549,10 @@ html body * span.clear,html body * div.clear,html body * li.clear,html body * dd
 /* Consistency styles */
 .CaptionBar
 {
-  background: transparent url(/Res/Ext/resources/images/default/panel/white-top-bottom.gif) repeat-x scroll 0pt -1px;
-  border-bottom: 1px solid #99BBE8;
-  color: #15428B;
+  /*background: transparent url(/Res/Ext/resources/images/default/panel/white-top-bottom.gif) repeat-x scroll 0pt -1px;
+  border-bottom: 1px solid #99BBE8;*/
+  background-color: #fff;
+  color: #000;
   font-family: tahoma,arial,verdana,sans-serif;
   font-size: 13px;
   font-style: normal;

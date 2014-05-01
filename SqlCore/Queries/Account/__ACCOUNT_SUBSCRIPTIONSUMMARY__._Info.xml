@@ -10,13 +10,7 @@
             <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>
-        </Parameter>
-        <Parameter>
-            <Name>ACCOUNT_ID</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <Description></Description>
-        </Parameter>
+        </Parameter>       
     </Parameters>
     <Description></Description>
     <ConversionAudit>

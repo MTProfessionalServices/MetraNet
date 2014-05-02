@@ -394,7 +394,14 @@ public class BucketInstance
     int i = 0;
     array [ i ] = TierStart;
     indexes.Add ( "tier_start", i++ );
-    array [ i ] = TierEnd;
+	if (TierEnd==decimal.MaxValue)
+	{
+      array [ i ] = "";
+	}
+	else
+	{
+      array [ i ] = TierEnd;
+	}
     indexes.Add ( "tier_end", i++ );
     if ( !string.IsNullOrEmpty ( DecisionId ) )
     {
@@ -953,10 +960,6 @@ public class DecisionInstance
     get
     {
       string txt = GetLocalizedString ( "tick_title" );
-      if ( string.IsNullOrEmpty ( txt ) )
-      {
-        txt = "Minutes";
-      }
       if ( string.IsNullOrEmpty ( txt ) )
       {
         txt = TierMetric;

@@ -446,7 +446,7 @@
             .text("right click for options");
 
           var svgd = svg.data();
-          if ((typeof svgd === 'undefined') || svgd === undefined || svgd == null) {
+        if ((typeof svgd === 'undefined') || svgd === undefined || svgd == null || svgd.length == 0) {
             d3.select("#NowCast-body").append("text").text("No Transactions Found for the Current Interval");
             return;
           }

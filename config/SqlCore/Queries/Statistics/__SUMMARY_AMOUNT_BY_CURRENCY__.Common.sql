@@ -1,5 +1,6 @@
 
 				select 
+		  concat(bp.n_kind, am_currency) "Unique Identifier",		
           case bp.n_kind 
 		  when 10 then 'Usage'
 	          when 15 then 'Aggregate Rating' 

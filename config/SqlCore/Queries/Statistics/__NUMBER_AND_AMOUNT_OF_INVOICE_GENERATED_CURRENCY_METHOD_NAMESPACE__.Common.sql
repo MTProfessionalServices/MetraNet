@@ -1,5 +1,6 @@
 
-				select 
+				select
+                  concat(invoice_currency, tx_Desc, namespace) 'Unique Identifier',				
 				  count(*) "# of invoices",
 				  tx_desc "Invoice Method",
 				  namespace "Namespace",

@@ -14,18 +14,20 @@
                     </Caption>
                     <Description></Description>
                     <MenuItems>
-						<MenuItem>
-							<ID>MetraOfferDashboard</ID>
-							<Caption>
-                <LocalizationTag>TEXT_PRODUCT_DASHBOARD</LocalizationTag>
-                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
-							</Caption>
-							<Link>/MetraNet/MetraOffer/ProductDashboard.aspx</Link>
-							<Target>MainContentIframe</Target>
-							<Icon>/Res/Images/icons/application_view_tile.png</Icon>
-							<Description>MetraOffer Dashboard</Description>
-							<RequiredCapabilities></RequiredCapabilities>
-						</MenuItem>
+			<!--
+			<MenuItem>
+				<ID>MetraOfferDashboard</ID>
+				<Caption>
+                  <LocalizationTag>TEXT_PRODUCT_DASHBOARD</LocalizationTag>
+                  <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+				</Caption>
+				<Link>/MetraNet/MetraOffer/ProductDashboard.aspx</Link>
+				<Target>MainContentIframe</Target>
+				<Icon>/Res/Images/icons/application_view_tile.png</Icon>
+				<Description>MetraOffer Dashboard</Description>
+				<RequiredCapabilities></RequiredCapabilities>
+			</MenuItem>
+			-->
             <MenuItem>
               <ID>NewProductOfferings</ID>
               <Caption>

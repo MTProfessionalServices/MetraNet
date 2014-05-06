@@ -75,9 +75,9 @@ public partial class AjaxServices_Analytics : MTListServicePage
 
   private void GetData(string sqlQueryTag, Dictionary<string, object> paramDict, ref MTList<SQLRecord> items)
   {
-    var ciSubscriptionDatamart = new ConnectionInfo("NetMeter");
-    ciSubscriptionDatamart.Catalog = "Subscriptiondatamart";
-    using (IMTConnection conn = ConnectionManager.CreateConnection(ciSubscriptionDatamart))
+    var ciAnalyticsDatamart = new ConnectionInfo("NetMeter");
+    ciAnalyticsDatamart.Catalog = "AnalyticsDatamart";
+    using (IMTConnection conn = ConnectionManager.CreateConnection(ciAnalyticsDatamart))
     {
       using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(_sqlQueriesPath, sqlQueryTag))
       {

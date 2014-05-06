@@ -166,7 +166,7 @@ namespace ASP.Controllers
 
     private static DataMart GetDatamartContext()
     {
-      return new DataMart(GetDefaultDatabaseConnection("localhost", "Subscriptiondatamart", "nmdbo", "MetraTech1"));
+      return new DataMart(GetDefaultDatabaseConnection("localhost", "AnalyticsDatamart", "nmdbo", "MetraTech1"));
     }
 
     private static NetMeter GetNetMeterContext()

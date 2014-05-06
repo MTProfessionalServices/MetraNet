@@ -20,9 +20,9 @@ namespace MetraNet.DbContext
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
-	
-	
-	[System.Data.Linq.Mapping.DatabaseAttribute(Name="Subscriptiondatamart")]
+
+
+  [System.Data.Linq.Mapping.DatabaseAttribute(Name = "AnalyticsDatamart")]
 	public partial class DataMart : System.Data.Linq.DataContext
 	{
 		

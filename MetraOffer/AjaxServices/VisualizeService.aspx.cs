@@ -28,7 +28,7 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
 
             //System.Diagnostics.Debugger.Break();
             string connectionInfo = "NetMeter";
-            string catalog = "Subscriptiondatamart";
+            string catalog = "AnalyticsDatamart";
 
 
             if (operation.Equals("ftoverxdays"))

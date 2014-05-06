@@ -27,7 +27,7 @@
   </MT:MTPanel>
   <MT:MTPanel ID="MTPanelQuoteAccounts" runat="server" Collapsible="True" Collapsed="False" meta:resourcekey="MTPanelQuoteAccountsResource">
     <div id="PlaceHolderAccountsGrid" class="LeftColumn">
-      <MT:MTCheckBoxControl ID="MTCheckBoxIsGroupSubscription" BoxLabel="Is Group Subscription" Visible="True" runat="server" LabelWidth="100" meta:resourcekey="ISGROUP" />
+      <MT:MTCheckBoxControl ID="MTCheckBoxIsGroupSubscription" Visible="True" runat="server" LabelWidth="100" meta:resourcekey="ISGROUP" />
     </div>
     <div id="PlaceHolderProductOfferingsGrid" class="RightColumn">
     </div>
@@ -61,7 +61,7 @@
             </td>
             <td class="x-panel-btn-td">
               <MT:MTButton ID="MTbtnCancel" runat="server" OnClick="btnCancel_Click" CausesValidation="False"
-                TabIndex="160" meta:resourcekey="TEXT_CANCEL" />
+                TabIndex="160" meta:resourcekey="MTbtnCancelResource1" />
             </td>
           </tr>
         </table>
@@ -73,8 +73,12 @@
   <input id="HiddenPoIdTextBox" runat="server" type="hidden" />
   <input id="HiddenAccounts" runat="server" type="hidden" />
   <input id="HiddenPos" runat="server" type="hidden" />
-  <input id="HiddenICBs" runat="server" type="hidden" />
+  
   <input id="HiddenUDRCs" runat="server" type="hidden" />
+  <input id="HiddenPiUDRC" runat="server" type="hidden" />
+  
+  <input id="HiddenICBs" runat="server" type="hidden" />
+  <input id="HiddenPiICB" runat="server" type="hidden" />
   <%-- Account Grid--%>
   <script language="javascript" type="text/javascript">
     var accountData = { accounts: [] };
@@ -297,10 +301,10 @@
           piWithAllowIcbStore.remove(piWithAllowIcbStore.getAt(i));
       }
 
-      n = piWithAllowUDRCStore.data.length;
+      n = piUDRCStore.data.length;
       for (i = n - 1; i >= 0; i--) {
-        if (piWithAllowUDRCStore.data.items[i].data.ProductOfferingId == poId)
-          piWithAllowUDRCStore.remove(piWithAllowUDRCStore.getAt(i));
+        if (piUDRCStore.data.items[i].data.ProductOfferingId == poId)
+          piUDRCStore.remove(piUDRCStore.getAt(i));
       }
     }
 
@@ -581,10 +585,11 @@
   </script>--%>
   <%--UDRC PI Grid--%>
   <script language="javascript" type="text/javascript">
-    var piWithAllowUDRCData = { pisWithAllowUDRC: [] };
+    var piUDRCData = { piUDRC: [] };
 
     // create the data store
-    var piWithAllowUDRCStore = new Ext.data.JsonStore({
+    var piUDRCStore = new Ext.data.JsonStore({
+      root: 'piUDRC',
       fields: [
         { name: 'ProductOfferingId' },
         { name: 'PriceableItemId' },
@@ -627,9 +632,9 @@
         });
 
         if (piKind == 25) {
-          var found1 = piWithAllowUDRCStore.find('RecordId', recordId);
+          var found1 = piUDRCStore.find('RecordId', recordId);
           if (found1 == -1) {
-            piWithAllowUDRCStore.add(myNewRecord);
+            piUDRCStore.add(myNewRecord);
           }
         }
 
@@ -658,7 +663,7 @@
     var textPiWithUDRCGridTitle = '<%=GetLocalResourceObject("UDRC_PI_GRID_TITLE")%>';
 
     var piWithAllowUDRCGrid = new Ext.grid.EditorGridPanel({
-      ds: piWithAllowUDRCStore,
+      ds: piUDRCStore,
       columns: [
             { header: textPoId, width: 40, sortable: true, dataIndex: 'ProductOfferingId' },
             { header: textPiName, width: 210, sortable: true, dataIndex: 'Name' },
@@ -736,6 +741,18 @@
         window.addUDRCWin2 = null;
       });
     }
+
+    function getUDRCpis() {
+      var records = piUDRCStore.data.items;
+      piUDRCData.piUDRC.length = 0;
+
+      for (var i = 0; i < records.length; i++) 
+        piUDRCData.piUDRC.push(records[i].data);
+
+      window.Ext.get("<%=HiddenPiUDRC.ClientID %>").dom.value = piUDRCData.piUDRC.length > 0 ? window.Ext.encode(piUDRCData.piUDRC) : "";
+      return true;
+    }
+
   </script>
   <%-- UDRC Grid--%>
   <script language="javascript" type="text/javascript">
@@ -795,6 +812,16 @@
       alert("Does not implement");
       //ShowIcbInputForm(addIcbCallback, "Frame");
     }
+
+    function getUDRCs() {
+      var records = udrcStore.data.items;
+      udrcData.UDRCs.length = 0;
+      for (var i = 0; i < records.length; i++)
+        udrcData.UDRCs.push(records[i].data);
+
+      window.Ext.get("<%=HiddenUDRCs.ClientID %>").dom.value = udrcData.UDRCs.length > 0 ? window.Ext.encode(udrcData.UDRCs) : "";
+      return true;
+    }
   </script>
   <%-- PI With Allow ICB Grid--%>
   <script language="javascript" type="text/javascript">
@@ -802,6 +829,7 @@
 
     // create the data store
     var piWithAllowIcbStore = new Ext.data.JsonStore({
+      root: 'pisWithAllowIcb',
       fields: [
         { name: 'ProductOfferingId' },
         { name: 'PriceableItemId' },
@@ -976,22 +1004,6 @@
         AddICBWindow.show();
     }
 
-//     //this will be called when accts are selected
-//    function addPoCallback(ids, records) {
-//      var poData = { poIds: [] };
-
-//      for (var i = 0; i < records.length; i++) {
-//        var productOfferingId = records[i].data.ProductOfferingId;
-//        var found = poStore.find('ProductOfferingId', productOfferingId);
-//        if (found == -1) {
-//          poStore.add(records[i]);
-//          poData.poIds.push(productOfferingId);
-//        }
-//      }
-//      window.CallServer(JSON.stringify({ poIds: poData.poIds }));
-//      poSelectorWin2.hide();
-//    }
-
     function onOK_AddICB() {
 
       var isValidForm = form_addICB.getForm().isValid();
@@ -1026,7 +1038,19 @@
     function onCancel_AddICB() {
       form_addICB.getForm().reset({});
       AddICBWindow.destroy();
-    }    
+    }
+
+    function getICBpis() {
+      var records = piWithAllowIcbStore.data.items;
+      piWithAllowIcbData.pisWithAllowIcb.length = 0;
+
+      for (var i = 0; i < records.length; i++)
+        piWithAllowIcbData.pisWithAllowIcb.push(records[i].data);
+
+      window.Ext.get("<%=HiddenPiICB.ClientID %>").dom.value = piWithAllowIcbData.pisWithAllowIcb.length > 0 ? window.Ext.encode(piWithAllowIcbData.pisWithAllowIcb) : "";
+      return true;
+    }
+
   </script>
   <%-- ICB Grid--%>
   <script language="javascript" type="text/javascript">
@@ -1102,16 +1126,9 @@
 
     function getICBs() {
       var records = icbStore.data.items;
-
-      icbData.icbs.length = 0;
-      var ids = "";
-      for (var i = 0; i < records.length; i++) {
+      icbData.icbs.length = 0;      
+      for (var i = 0; i < records.length; i++) 
         icbData.icbs.push(records[i].data);
-        if (i > 0) {
-          ids += ",";
-        }
-        ids += records[i].data.RecordId;
-      }
 
       window.Ext.get("<%=HiddenICBs.ClientID %>").dom.value = icbData.icbs.length > 0 ? window.Ext.encode(icbData.icbs) : "";
       return true;
@@ -1143,14 +1160,29 @@
         poData.pos = window.Ext.decode(hiddenPos.value);
       window.poStore.loadData(poData);
 
+      var hiddenPiUDRCs = window.Ext.get("<%=HiddenPiUDRC.ClientID %>").dom;
+      if (hiddenPiUDRCs.value.length > 0)
+        piUDRCData.piUDRC = window.Ext.decode(hiddenPiUDRCs.value);
+      window.piUDRCStore.loadData(piUDRCData);
+
+      var hiddenPiICBs = window.Ext.get("<%=HiddenPiICB.ClientID %>").dom;
+      if (hiddenPiICBs.value.length > 0)
+        piWithAllowIcbData.pisWithAllowIcb = window.Ext.decode(hiddenPiICBs.value);
+      window.piWithAllowIcbStore.loadData(piWithAllowIcbData);
+
+      var hiddenUDRCs = window.Ext.get("<%=HiddenUDRCs.ClientID %>").dom;
+      if (hiddenUDRCs.value.length > 0)
+        udrcData.UDRCs = window.Ext.decode(hiddenUDRCs.value);
+      window.udrcStore.loadData(udrcData);
+
       var hiddenICBs = window.Ext.get("<%=HiddenICBs.ClientID %>").dom;
       if (hiddenICBs.value.length > 0)
-        icbData.pos = window.Ext.decode(hiddenICBs.value);
+        icbData.icbs = window.Ext.decode(hiddenICBs.value);
       window.icbStore.loadData(icbData);
     };
 
     function getDataGrids() {
-      return getAccountIds() && getPoIds() && getICBs();
+      return getAccountIds() && getPoIds() && getUDRCpis() && getICBpis() && getUDRCs() && getICBs();
     }
 
     function ReceiveServerData(value) {

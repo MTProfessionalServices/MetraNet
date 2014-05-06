@@ -204,7 +204,7 @@
   <data name="UNIT_VALUE" xml:space="preserve">
     <value>Unit Value</value>
   </data>
-  <data name="ISGROUP.Text" xml:space="preserve">
+  <data name="ISGROUP.BoxLabel" xml:space="preserve">
     <value>Is Group Subscription</value>
   </data>
   <data name="ISGROUP" xml:space="preserve">
@@ -221,6 +221,9 @@
   </data>
   <data name="TEXT_ADD_ICB" xml:space="preserve">
     <value>Add Custom Rate</value>
+  </data>
+  <data name="MTbtnCancelResource1.Text" xml:space="preserve">
+    <value>Cancel</value>
   </data>
   <data name="MTTitleCreateQuoteResource" xml:space="preserve">
     <value>Create Quote</value>

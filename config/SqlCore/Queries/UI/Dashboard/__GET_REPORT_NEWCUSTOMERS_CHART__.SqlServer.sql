@@ -1,6 +1,6 @@
 DECLARE @dateFrom DATE, @dateTo DATE
-SET @dateFrom = DATEADD(month, -13, GETDATE());
-SET @dateTo = DATEADD(month, -1, GETDATE());
+SET @dateFrom = DATEADD(month, -13, GETUTCDATE());
+SET @dateTo = DATEADD(month, -1, GETUTCDATE());
 SELECT c.AccountId as Account,
        CONVERT(DATE, CONCAT(DATEPART(month, st.StartDate),'-','01','-',DATEPART(year, st.StartDate)), 110) as [Date]
   FROM AnalyticsDatamart.dbo.Customer c

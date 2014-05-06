@@ -3,13 +3,13 @@
     <version ptype="INTEGER">2</version>
     <ScheduledAdapters>
     <Adapter>
-      <Name>GenerateSubscriptionDatamart</Name>
-      <DisplayName>Generate and/or Populate Subscription Data Mart</DisplayName>
-      <ClassID>MetraTech.UsageServer.Adapters.SubscriptionDataMartAdapter,MetraTech.UsageServer.Adapters</ClassID>
-      <ConfigFile>GenerateSubscriptionDatamart.xml</ConfigFile>
+      <Name>GenerateAnalyticsDatamart</Name>
+      <DisplayName>Generate and/or Populate Analytics Data Mart</DisplayName>
+      <ClassID>MetraTech.UsageServer.Adapters.AnalyticsDatamartAdapter,MetraTech.UsageServer.Adapters</ClassID>
+      <ConfigFile>GenerateAnalyticsDatamart.xml</ConfigFile>
       <Description>
       <![CDATA[
-        Generates the and/or populates the Subscription Data Mart
+        Generates the and/or populates the Analytics Data Mart
       ]]>
       </Description>
 	  <RecurrencePattern>

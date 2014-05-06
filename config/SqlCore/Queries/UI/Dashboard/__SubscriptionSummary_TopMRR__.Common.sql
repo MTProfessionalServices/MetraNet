@@ -9,11 +9,11 @@ SELECT top 10 po.ProductOfferingName,
 		sum(ss.NewParticipants) as NewCustomers, 
 		sum(prev.NewParticipants) as NewCustomersPrevious, 
 		sum(ss.NewParticipants)-sum(prev.NewParticipants) as NewCustomersChange
-FROM SubscriptionDataMart..SubscriptionSummary ss
-INNER JOIN SubscriptionDataMart..ProductOffering po 
+FROM AnalyticsDatamart..SubscriptionSummary ss
+INNER JOIN AnalyticsDatamart..ProductOffering po 
 ON po.ProductOfferingId = ss.ProductOfferingId 
 		AND ss.InstanceId = po.InstanceId
-LEFT JOIN SubscriptionDataMart..SubscriptionSummary prev 
+LEFT JOIN AnalyticsDatamart..SubscriptionSummary prev 
 ON ss.InstanceId = prev.InstanceId 
 	AND ss.ProductOfferingId = prev.ProductOfferingId 
 	AND prev.Month = DATEADD(m,-1,ss.Month)

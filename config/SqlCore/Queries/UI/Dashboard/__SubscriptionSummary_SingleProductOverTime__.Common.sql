@@ -12,11 +12,11 @@ SELECT  ss.ProductOfferingId,
 		sum(ss.SubscriptionRevenuePrimaryCurrency) as Revenue, 
 		sum(prev.SubscriptionRevenuePrimaryCurrency) as RevenuePrevious, 
 		sum(ss.SubscriptionRevenuePrimaryCurrency)-sum(prev.SubscriptionRevenuePrimaryCurrency) as RevenueChange
-FROM SubscriptionDataMart..SubscriptionSummary ss
-INNER JOIN SubscriptionDataMart..ProductOffering po 
+FROM AnalyticsDatamart..SubscriptionSummary ss
+INNER JOIN AnalyticsDatamart..ProductOffering po 
 ON po.ProductOfferingId = ss.ProductOfferingId 
 	AND ss.InstanceId = po.InstanceId
-LEFT JOIN SubscriptionDataMart..SubscriptionSummary prev 
+LEFT JOIN AnalyticsDatamart..SubscriptionSummary prev 
 ON ss.InstanceId = prev.InstanceId 
 	AND ss.ProductOfferingId = prev.ProductOfferingId 
 	AND prev.Month = DATEADD(m,-1,ss.Month)

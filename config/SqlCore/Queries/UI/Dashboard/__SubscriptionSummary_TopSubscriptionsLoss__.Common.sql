@@ -1,9 +1,9 @@
 select top 20 po.ProductOfferingName, ss.Month, sum(ss.MRRPrimaryCurrency) as 'MRR', sum(prev.MRRPrimaryCurrency) as 'MRRPrevious', sum(ss.MRRPrimaryCurrency)-sum(prev.MRRPrimaryCurrency) as 'MRRChange',
 sum(ss.TotalParticipants) as 'Subscriptions', sum(prev.TotalParticipants) as 'SubscriptionsPrevious', sum(ss.TotalParticipants)-sum(prev.TotalParticipants) as 'SubscriptionsChange',
 sum(ss.NewParticipants) as 'NewCustomers', sum(prev.NewParticipants) as 'NewCustomersPrevious', sum(ss.NewParticipants)-sum(prev.NewParticipants) as 'NewCustomersChange'
-from SubscriptionDataMart..SubscriptionSummary ss
-inner join SubscriptionDataMart..ProductOffering po on po.ProductOfferingId = ss.ProductOfferingId and ss.InstanceId = po.InstanceId
-left join SubscriptionDataMart..SubscriptionSummary prev on ss.InstanceId = prev.InstanceId AND ss.ProductOfferingId = prev.ProductOfferingId AND prev.Month = DATEADD(m,-1,ss.Month)
+from AnalyticsDatamart..SubscriptionSummary ss
+inner join AnalyticsDatamart..ProductOffering po on po.ProductOfferingId = ss.ProductOfferingId and ss.InstanceId = po.InstanceId
+left join AnalyticsDatamart..SubscriptionSummary prev on ss.InstanceId = prev.InstanceId AND ss.ProductOfferingId = prev.ProductOfferingId AND prev.Month = DATEADD(m,-1,ss.Month)
 WHERE DATEPART(m, ss.Month) = DATEPART(m, DATEADD(m, -1, getdate())) AND DATEPART(yyyy, ss.Month) = DATEPART(yyyy, DATEADD(m, -1, getdate()))
 GROUP BY ss.InstanceId, po.ProductOfferingName, ss.Month 
 HAVING sum(ss.TotalParticipants)-sum(prev.TotalParticipants) < 0

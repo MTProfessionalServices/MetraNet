@@ -1,6 +1,6 @@
 DECLARE @dateFrom DATE, @dateTo DATE
-SET @dateFrom = DATEADD(month, -13, GETDATE());
-SET @dateTo = DATEADD(month, 12, CONVERT(DATE, CONCAT(DATEPART(month, GETDATE()),'-','01','-',DATEPART(year, GETDATE())), 110));
+SET @dateFrom = DATEADD(month, -13, GETUTCDATE());
+SET @dateTo = DATEADD(month, 12, CONVERT(DATE, CONCAT(DATEPART(month, GETUTCDATE()),'-','01','-',DATEPART(year, GETUTCDATE())), 110));
 SELECT CONVERT(DATE, CONCAT(DATEPART(month, sm.[Month]),'-','01','-',DATEPART(year, sm.[Month])), 110) as [Date],
        st.FeeCurrency as CurrencyCode,
        SUM(sm.MRRBase + sm.MRRNew + sm.MRRRenewal + sm.MRRPriceChange + sm.MRRChurn + sm.MRRCancellation) as Amount

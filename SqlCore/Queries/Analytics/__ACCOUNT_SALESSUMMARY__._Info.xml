@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Query>
     <Action>Unknown</Action>
-    <Implementations>
-        <Implementation>Common</Implementation>
+     <Implementations>
+        <Implementation>SqlServer</Implementation>
+        <Implementation>Oracle</Implementation>
     </Implementations>
     <Parameters>
         <Parameter>
@@ -13,4 +14,10 @@
         </Parameter>
     </Parameters>
     <Description>High level Analytics Metrics for specified account from SalesSummary datamart</Description>
+    <ConversionAudit>
+        <ConversionDuplicateName></ConversionDuplicateName>
+        <CommonQuerySourceFile></CommonQuerySourceFile>
+        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
+        <OracleQuerySourceFile></OracleQuerySourceFile>
+    </ConversionAudit>
 </Query>

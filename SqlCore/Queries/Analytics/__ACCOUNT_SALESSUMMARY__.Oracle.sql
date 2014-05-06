@@ -14,6 +14,12 @@ SELECT SUM(subSum.SubscriptionRevenue) as LTV ,SUM(subSum.MRR) as MRR,subSum.MRR
 
 
 
-select %%ACCOUNT_ID%% as id_acc, 1313.55 as LTV, 1234.56 as MRR, 'USD' as 'Currency'
---FROM SubscriptionSummary
+select %%ACCOUNT_ID%% as id_acc, 
+				1313.55 as LTV, 
+				1234.56 as MRR, 
+				'USD' as Currency
+/* When start use %%%NETMETERSTAGE_PREFIX%%% prefixes  (for detail see R:\config\SqlCore\Queries\ProductView\__DROP_PRODUCT_VIEW_STAGE_TABLE__.Oracle.sql)
+*  the query should be move to COMMON
+*/				
+FROM SubscriptionDataMart.SubscriptionSummary
 

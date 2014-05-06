@@ -29,7 +29,7 @@ select Type =
       ui.id_interval as [IntervalID],
       CONVERT(VARCHAR(10), ui.dt_start, 101) as [Start],
       CONVERT(VARCHAR(10), ui.dt_end, 101) as [End],
-      tx_interval_status [Interval_Status], DATEDIFF(day, getdate(),
+      tx_interval_status [Interval_Status], DATEDIFF(day, GETUTCDATE(),
       ui.dt_end)+1 as [Days_Until_Run]
       from t_usage_interval ui
       where ui.id_interval = @id_interval;

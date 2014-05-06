@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CREATE_QUOTE" xml:space="preserve">
-    <value>Create quote</value>
-  </data>
-  <data name="CREATION_DATE" xml:space="preserve">
-    <value>Creation date</value>
-  </data>
   <data name="CURRENCY" xml:space="preserve">
     <value>Currency</value>
   </data>
@@ -185,5 +179,8 @@
   </data>
   <data name="GRID_TITLE" xml:space="preserve">
     <value>Availible product offerings</value>
+  </data>
+  <data name="SELECT_POS" xml:space="preserve">
+    <value>Select Product Offerings</value>
   </data>
 </root>

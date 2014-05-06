@@ -3,44 +3,48 @@
   Culture="auto" UICulture="auto" %>
 
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-  <asp:PlaceHolder ID="PlaceHolderPOJavaScript" runat="server"></asp:PlaceHolder> 
-  <MT:MTTitle ID="CreateQuoteTitle" Text="Create Quote" runat="server" />
-  <br />  
-  <MT:MTPanel ID="MTPanelQuoteParameters" runat="server" Text="Quote parameters" Collapsible="True"
-    Collapsed="False" meta:resourcekey="MTPanelQuoteParametersResource">
+  <asp:PlaceHolder ID="PlaceHolderPOJavaScript" runat="server"></asp:PlaceHolder>
+  <MT:MTTitle ID="CreateQuoteTitle" runat="server" meta:resourcekey="MTTitleCreateQuoteResource" />
+  <br />
+  <MT:MTPanel ID="MTPanelQuoteParameters" runat="server" Collapsible="True" Collapsed="False" meta:resourcekey="MTPanelQuoteParametersResource">
     <div id="leftColumn2" class="LeftColumn">
-    <MT:MTTextBoxControl ID="MTtbQuoteDescription" AllowBlank="True" Label = "Quote Description" LabelWidth="120" runat="server"/>
-    <MT:MTTextBoxControl ID="MTtbQuoteIdentifier" AllowBlank="True" Label = "Quote Identifier" LabelWidth="120" runat="server"/>
-    <MT:MTCheckBoxControl ID="MTcbPdf" BoxLabel = "Generate PDF" runat="server" LabelWidth="120" meta:resourcekey="MTCheckBoxPdfResource" />
+      <MT:MTTextBoxControl ID="MTtbQuoteDescription" AllowBlank="True" Label="Quote Description"
+        LabelWidth="120" runat="server" />
+      <MT:MTTextBoxControl ID="MTtbQuoteIdentifier" AllowBlank="True" Label="Quote Identifier"
+        LabelWidth="120" runat="server" />
+      <MT:MTCheckBoxControl ID="MTcbPdf" BoxLabel="Generate PDF" runat="server" LabelWidth="120"
+        meta:resourcekey="MTCheckBoxPdfResource" />
     </div>
-    <div id="rightColumn2"  class="RightColumn">
-    <MT:MTDatePicker AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpStartDate"
-      Label="Start date" LabelWidth="120" meta:resourcekey="dpStartDateResource1" ReadOnly="False"
-      runat="server"></MT:MTDatePicker>
-    <MT:MTDatePicker AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpEndDate"
-      Label="End date" LabelWidth="120" meta:resourcekey="dpEndDateResource1" ReadOnly="False"
-      runat="server"></MT:MTDatePicker>
+    <div id="rightColumn2" class="RightColumn">
+      <MT:MTDatePicker AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpStartDate"
+        Label="Start date" LabelWidth="120" meta:resourcekey="dpStartDateResource1" ReadOnly="False"
+        runat="server"></MT:MTDatePicker>
+      <MT:MTDatePicker AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpEndDate"
+        Label="End date" LabelWidth="120" meta:resourcekey="dpEndDateResource1" ReadOnly="False"
+        runat="server"></MT:MTDatePicker>
     </div>
-  </MT:MTPanel>  
-  <MT:MTPanel ID="MTPanelQuoteAccounts" runat="server" Text="Accounts and product offerings for quote" Collapsible="True"
-    Collapsed="False" meta:resourcekey="MTPanelQuoteAccountsResource">        
-    <div id="PlaceHolderAccountsGrid" class="LeftColumn">
-      <MT:MTCheckBoxControl ID="MTCheckBoxIsGroupSubscription" Visible="True" BoxLabel = "Is group subscription" runat="server" LabelWidth="100" meta:resourcekey="ISGROUP" />
-    </div>    
-    <div id="PlaceHolderProductOfferingsGrid" class="RightColumn"></div>   
   </MT:MTPanel>
-  <MT:MTPanel ID="MTPanelUDRCMetrics" runat="server" Text="UDRC metrics for quote" Collapsible="True"
-    Collapsed="False" meta:resourcekey="MTPanelUDRCResource">
-     <!--<div id="PlaceHolderUDRCMetricsGrid"></div> -->
-     <div id="PlaceHolderPIWithUDRCAllowedGrid" class="LeftColumn"></div>
-     <div id="PlaceHolderUDRCGrid" class="RightColumn"></div>
+  <MT:MTPanel ID="MTPanelQuoteAccounts" runat="server" Collapsible="True" Collapsed="False" meta:resourcekey="MTPanelQuoteAccountsResource">
+    <div id="PlaceHolderAccountsGrid" class="LeftColumn">
+      <MT:MTCheckBoxControl ID="MTCheckBoxIsGroupSubscription" BoxLabel="Is Group Subscription" Visible="True" runat="server" LabelWidth="100" meta:resourcekey="ISGROUP" />
+    </div>
+    <div id="PlaceHolderProductOfferingsGrid" class="RightColumn">
+    </div>
+  </MT:MTPanel>
+  <MT:MTPanel ID="MTPanelUDRCMetrics" runat="server" Text="UDRC metrics for quote"
+    Collapsible="True" Collapsed="False" meta:resourcekey="MTPanelUDRCResource">    
+    <div id="PlaceHolderPIWithUDRCAllowedGrid" class="LeftColumn">
+    </div>
+    <div id="PlaceHolderUDRCGrid" class="RightColumn">
+    </div>
   </MT:MTPanel>
   <MT:MTPanel ID="MTPanelICBs" runat="server" Text="ICBs for quote" Collapsible="True"
     Collapsed="False" meta:resourcekey="MTPanelICBResource">
-     <div id="PlaceHolderPIWithICBAllowedGrid" class="LeftColumn"></div>
-     <div id="PlaceHolderICBGrid" class="RightColumn"></div>
+    <div id="PlaceHolderPIWithICBAllowedGrid" class="LeftColumn">
+    </div>
+    <div id="PlaceHolderICBGrid" class="RightColumn">
+    </div>
   </MT:MTPanel>
   <div class="x-panel-btns-ct">
     <div style="width: 630px" class="x-panel-btns x-panel-btns-center">
@@ -48,23 +52,22 @@
         <table>
           <tr>
             <td class="x-panel-btn-td">
-              <MT:MTCheckBoxControl ID="MTCheckBoxViewResult" Visible="False" BoxLabel = "View result" runat="server" LabelWidth="100" meta:resourcekey="MTCheckBoxPdfResource" />
+              <MT:MTCheckBoxControl ID="MTCheckBoxViewResult" Visible="False" BoxLabel="View result"
+                runat="server" LabelWidth="100" meta:resourcekey="MTCheckBoxPdfResource" />
             </td>
             <td class="x-panel-btn-td">
-              <MT:MTButton ID="MTbtnGenerateQuote" runat="server" OnClientClick="return getDataGrids();" OnClick="btnGenerateQuote_Click"
-                TabIndex="150" meta:resourcekey="btnGenerateQuoteResource1" />
+              <MT:MTButton ID="MTbtnGenerateQuote" runat="server" OnClientClick="return getDataGrids();"
+                OnClick="btnGenerateQuote_Click" TabIndex="150" meta:resourcekey="btnGenerateQuoteResource1" />
             </td>
             <td class="x-panel-btn-td">
               <MT:MTButton ID="MTbtnCancel" runat="server" OnClick="btnCancel_Click" CausesValidation="False"
-                TabIndex="160" meta:resourcekey="btnCancelResource1" />
+                TabIndex="160" meta:resourcekey="TEXT_CANCEL" />
             </td>
-            
           </tr>
         </table>
       </div>
     </div>
-  </div>  
-  
+  </div>
   <input id="HiddenAccountIds" runat="server" type="hidden" />
   <input id="HiddenGroupId" runat="server" type="hidden" />
   <input id="HiddenPoIdTextBox" runat="server" type="hidden" />
@@ -72,7 +75,6 @@
   <input id="HiddenPos" runat="server" type="hidden" />
   <input id="HiddenICBs" runat="server" type="hidden" />
   <input id="HiddenUDRCs" runat="server" type="hidden" />
-  
   <%-- Account Grid--%>
   <script language="javascript" type="text/javascript">
     var accountData = { accounts: [] };
@@ -216,8 +218,7 @@
 
       return true;
     }
-  </script> 
-  
+  </script>
   <%-- Product Offering Grid--%>
   <script language="javascript" type="text/javascript">
     var poData = { pos: [] };
@@ -233,7 +234,7 @@
     poStore.loadData(poData);
 
     var textSelectPos = '<%=GetLocalResourceObject("SELECT_POS")%>';
-    var poToolBar = new Ext.Toolbar([{ iconCls: 'add', id: 'Add', text: textSelectPos, handler: onPoAdd }]);
+    var poToolBar = new Ext.Toolbar([{ iconCls: 'add', id: 'Add', text: textSelectPos, handler: onPoAdd}]);
 
     // create the Grid
     var textPoId = '<%=GetLocalResourceObject("POID")%>';
@@ -291,8 +292,7 @@
       poStore.remove(poStore.getAt(idx));
 
       var n = piWithAllowIcbStore.data.length;
-      for (var i = n - 1; i >= 0; i--) 
-      {
+      for (var i = n - 1; i >= 0; i--) {
         if (piWithAllowIcbStore.data.items[i].data.ProductOfferingId == poId)
           piWithAllowIcbStore.remove(piWithAllowIcbStore.getAt(i));
       }
@@ -301,7 +301,7 @@
       for (i = n - 1; i >= 0; i--) {
         if (piWithAllowUDRCStore.data.items[i].data.ProductOfferingId == poId)
           piWithAllowUDRCStore.remove(piWithAllowUDRCStore.getAt(i));
-      }      
+      }
     }
 
     function getPoIds() {
@@ -335,7 +335,7 @@
       if (window.poSelectorWin2 == null || window.poSelectorWin2 === undefined ||
         target != window.lastTarget2 || functionName != window.lastFunctionName2) {
         window.poSelectorWin2 = new top.Ext.Window({
-          title: 'TEXT_SELECT_PO',
+          title: '<%=GetLocalResourceObject("SELECT_POS")%>',
           width: 700,
           height: 500,
           minWidth: 300,
@@ -364,8 +364,7 @@
       });
     }
   </script>
-  
-    <%-- UDRCs Grid--%>
+  <%-- UDRCs Grid--%>
   <%--<script language="javascript" type="text/javascript">
 
     var dropDownValues_UDRC = [];
@@ -580,8 +579,7 @@
       //window.Ext.get("<%=HiddenUDRCs.ClientID %>").dom.value = UDRCData.UDRCs.length > 0 ? window.Ext.encode(UDRCData.UDRCs) : "";
     }
   </script>--%>
-
-  <%-- PI With Allow UDRC Grid--%>
+  <%--UDRC PI Grid--%>
   <script language="javascript" type="text/javascript">
     var piWithAllowUDRCData = { pisWithAllowUDRC: [] };
 
@@ -599,8 +597,8 @@
       ]
     });
 
-    var PiWithAllowPiRecord = Ext.data.Record.create([// creates a subclass of Ext.data.Record
-      { name: 'ProductOfferingId' },
+    var piRecord = Ext.data.Record.create([// creates a subclass of Ext.data.Record
+      {name: 'ProductOfferingId' },
       { name: 'PriceableItemId' },
       { name: 'Name' },
       { name: 'DisplayName' },
@@ -617,8 +615,8 @@
         var recordId = piId + '-' + poId;
         var piKind = items[i].PIKind;
         var piCanICB = items[i].PICanICB;
-        
-        var myNewRecord = new PiWithAllowPiRecord({
+
+        var myNewRecord = new piRecord({
           ProductOfferingId: poId,
           PriceableItemId: piId,
           Name: items[i].Name,
@@ -627,7 +625,7 @@
           PIKind: piKind,
           RecordId: recordId
         });
-        
+
         if (piKind == 25) {
           var found1 = piWithAllowUDRCStore.find('RecordId', recordId);
           if (found1 == -1) {
@@ -662,12 +660,12 @@
     var piWithAllowUDRCGrid = new Ext.grid.EditorGridPanel({
       ds: piWithAllowUDRCStore,
       columns: [
-            { header: textPoId, width: 140, sortable: true, dataIndex: 'ProductOfferingId' },
-            { header: textPiName, width: 140, sortable: true, dataIndex: 'Name' },
+            { header: textPoId, width: 40, sortable: true, dataIndex: 'ProductOfferingId' },
+            { header: textPiName, width: 210, sortable: true, dataIndex: 'Name' },
             { header: textPiWithUDRCAction, width: 50, sortable: false, dataIndex: '', renderer: piWithAllowUDRCActionsRenderer }
           ],
       stripeRows: true,
-      height: 300,
+      height: 200,
       width: 345,
       iconCls: 'icon-grid',
       frame: true,
@@ -678,13 +676,12 @@
 
     function piWithAllowUDRCActionsRenderer(value, meta, record) {
       var str = String.format(
-            "<a style='cursor:hand;' id='addUDRC_{0}_{1}' title='{2}' href='JavaScript:addUDRC({0},{1});'><img src='/Res/Images/icons/money.png' alt='{2}' /></a>",
+            "<a style='cursor:hand;' id='addUDRC_{0}_{1}' title='{2}' href='JavaScript:addUDRC({0},{1});'><img src='/Res/Images/icons/coins_add.png' alt='{2}' /></a>",
             record.data.ProductOfferingId, record.data.PriceableItemId, textUDRCAdd);
       return str;
     }
 
     function addUDRC(poId, piId) {
-      alert("Does not implement");
       ShowUDRCInputForm(addUDRCCallback, "Frame");
     }
 
@@ -711,7 +708,7 @@
       if (window.addUDRCWin2 == null || window.addUDRCWin2 === undefined ||
             target != window.lastTarget2 || functionName != window.lastFunctionName2) {
         window.addUDRCWin2 = new top.Ext.Window({
-          title: 'TEXT_ADD_UDRC',
+          title: '<%=GetLocalResourceObject("TEXT_ADD_UDRC")%>',
           width: 700,
           height: 500,
           minWidth: 300,
@@ -740,7 +737,6 @@
       });
     }
   </script>
-  
   <%-- UDRC Grid--%>
   <script language="javascript" type="text/javascript">
     var udrcData = { UDRCs: [] };
@@ -781,7 +777,7 @@
         { header: textUDRCAction, width: 50, sortable: false, dataIndex: '', renderer: UdrcActionsRenderer }
       ],
       stripeRows: true,
-      height: 300,
+      height: 200,
       width: 345,
       iconCls: 'icon-grid',
       frame: true,
@@ -800,7 +796,6 @@
       //ShowIcbInputForm(addIcbCallback, "Frame");
     }
   </script>
-
   <%-- PI With Allow ICB Grid--%>
   <script language="javascript" type="text/javascript">
     var piWithAllowIcbData = { pisWithAllowIcb: [] };
@@ -809,7 +804,7 @@
     var piWithAllowIcbStore = new Ext.data.JsonStore({
       fields: [
         { name: 'ProductOfferingId' },
-            { name: 'PriceableItemId' },
+        { name: 'PriceableItemId' },
         { name: 'Name' },
         { name: 'DisplayName' },
         { name: 'Description' },
@@ -817,39 +812,6 @@
         { name: 'RecordId' }       
       ]
     });
-
-    var PiWithAllowIcbRecord = Ext.data.Record.create([ // creates a subclass of Ext.data.Record
-        { name: 'ProductOfferingId' },
-          { name: 'PriceableItemId' },
-        { name: 'Name' },
-        { name: 'DisplayName' },
-        { name: 'Description' },
-        { name: 'PIKind' },
-        { name: 'RecordId' } 
-    ]);
-
-    function addItemToPiWithAllowIcb(items) {
-      for (var i = 0; i < items.length; i++) {
-        var piId = items[i].PriceableItemId;
-        var poId = items[i].ProductOfferingId;
-        var recordId = piId + '-' + poId;
-        var found = piWithAllowIcbStore.find('RecordId', recordId);
-        if (found == -1) {
-          var myNewRecord = new PiWithAllowIcbRecord({
-            ProductOfferingId: items[i].ProductOfferingId,
-                PriceableItemId: items[i].PriceableItemId,
-            Name: items[i].Name,
-            DisplayName: items[i].DisplayName,
-            Description: items[i].Description,
-            PIKind: items[i].PIKind,
-            RecordId: recordId,
-          });          
-          piWithAllowIcbStore.add(myNewRecord);
-        }
-      }
-    }
-
-   // var textSelectPos = '<%=GetLocalResourceObject("SELECT_POS")%>';
 
     // create the Grid
     var textPoId = '<%=GetLocalResourceObject("POID")%>';
@@ -863,30 +825,19 @@
       ds: piWithAllowIcbStore,
       columns: [
         //{ id: 'ProductOfferingId', header: textPoId, width: 30, sortable: true, dataIndex: 'ProductOfferingId' },
-        { header: textPoId, width: 140, sortable: true, dataIndex: 'ProductOfferingId' },
-        { header: textPiName, width: 140, sortable: true, dataIndex: 'Name' },
+        { header: textPoId, width: 40, sortable: true, dataIndex: 'ProductOfferingId' },
+        { header: textPiName, width: 210, sortable: true, dataIndex: 'Name' },
         { header: textPiWithICBAction, width: 50, sortable: false, dataIndex: '', renderer: piWithAllowIcbActionsRenderer }
       ],
       stripeRows: true,
-      height: 300,
+      height: 200,
       width: 345,
       iconCls: 'icon-grid',
       frame: true,
       title: textPiWithICBGridTitle
     });
 
-    //this will be called when icbs are added
-    function addIcbCallback(ids, records) {
-          //      for (var i = 0; i < records.length; i++) {
-          //        var productOfferingId = records[i].data.ProductOfferingId;
-          //        var found = poStore.find('ProductOfferingId', productOfferingId);
-          //        if (found == -1) {
-          //          poStore.add(records[i]);
-          //        }
-          //      }
-          //      poSelectorWin2.hide();
-    }
-
+   
     var textIcbAdd = '<%=GetLocalResourceObject("ADD_ICB")%>';
 
     function piWithAllowIcbActionsRenderer(value, meta, record) {
@@ -896,91 +847,187 @@
       return str;
     }
 
+    var form_addICB = new Ext.form.FormPanel();
+    var AddICBWindow = new Ext.Window();
+
     function addICB(poId, piId) {
-      alert("Does not implement");
-      ShowIcbInputForm(addIcbCallback, "Frame");
+
+      form_addICB = new Ext.form.FormPanel();
+      AddICBWindow = new Ext.Window();
+
+      var idx = poStore.find('ProductOfferingId', poId);    
+      var poName = '('+poId+') - '+poStore.getAt(idx).data.Name;
+      idx = piWithAllowIcbStore.find('PriceableItemId', piId);  
+      var piName = '('+piId+') - '+piWithAllowIcbStore.getAt(idx).data.Name;
+
+      form_addICB = new Ext.FormPanel({
+              baseCls: 'x-plain',
+              labelWidth: 70,
+              defaultType: 'textfield',
+
+              items: [{
+                      readOnly: true,
+                      fieldLabel: '<%=GetLocalResourceObject("PONAME")%>',
+                      id: 'form_addICB_POName',
+                      name: 'form_addICB_POName',
+                      value: poName,
+                      allowBlank: false,
+                      anchor: '100%'
+                      },
+                      {
+                      xtype: 'hidden',
+                      hideLabel: true,
+                      id: 'form_addICB_POId',
+                      name: 'form_addICB_POId',
+                      value: poId
+                      },                    
+                      {
+                      readOnly: true,
+                      fieldLabel: '<%=GetLocalResourceObject("PINAME")%>',
+                      id: 'form_addICB_PIName',
+                      name: 'form_addICB_PIName',
+                      value: piName,
+                      allowBlank: false,
+                      anchor: '100%'
+                      },
+                      {
+                      xtype: 'hidden',
+                      hideLabel: true,
+                      id: 'form_addICB_PIId',
+                      name: 'form_addICB_PIId',
+                      value: piId
+                      },
+                      {
+                      xtype: 'numberfield',
+                      allowDecimals: true,
+                      allowBlank: false,
+                      allowNegative: false,
+                      fieldLabel: '<%=GetLocalResourceObject("PRICE")%>',
+                      id: 'form_addICB_Price',
+                      name: 'form_addICB_Price',
+                      anchor:'100%',
+                      value: 0,
+                      tabIndex : 0
+                      },
+                      {
+                      xtype: 'numberfield',
+                      allowDecimals: true,
+                      allowBlank: false,
+                      allowNegative: false,
+                      fieldLabel: '<%=GetLocalResourceObject("UNIT_VALUE")%>',
+                      id: 'form_addICB_UnitValue',
+                      name: 'form_addICB_UnitValue',
+                      anchor:'100%',
+                      value: 0,
+                      tabIndex : 1
+                      },
+                      {
+                      xtype: 'numberfield',
+                      allowDecimals: true,
+                      allowBlank: false,
+                      allowNegative: false,
+                      fieldLabel: '<%=GetLocalResourceObject("UNIT_AMOUNT")%>',
+                      id: 'form_addICB_UnitAmount',
+                      name: 'form_addICB_UnitAmount',
+                      anchor:'100%',
+                      value: 0,
+                      tabIndex : 2
+                      },
+                      {
+                      xtype: 'numberfield',
+                      allowDecimals: true,
+                      allowBlank: false,
+                      allowNegative: false,
+                      fieldLabel: '<%=GetLocalResourceObject("BASE_AMOUNT")%>',
+                      id: 'form_addICB_BaseAmount',
+                      name: 'form_addICB_BaseAmount',
+                      anchor:'100%',
+                      value: 0,
+                      tabIndex : 3
+                      }]
+            });
+
+       AddICBWindow = new Ext.Window({
+                title: '<%=GetLocalResourceObject("TEXT_ADD_ICB")%>',
+                width: 400,
+                height: 250,
+                minWidth: 100,
+                minHeight: 100,
+                layout: 'fit',
+                plain: true,
+                bodyStyle: 'padding:5px;',
+                buttonAlign: 'center',
+                items: form_addICB,
+                closable: true,
+                resizeable: true,
+                maximizable: false,
+                closeAction: 'close',
+
+                buttons: [{
+                        text: '<%=GetLocalResourceObject("TEXT_OK")%>',
+                        handler: onOK_AddICB
+                        }, 
+                        {
+                        text: '<%=GetLocalResourceObject("TEXT_CANCEL")%>',
+                        handler: onCancel_AddICB
+                        }]
+                });
+
+        AddICBWindow.show();
     }
 
-        //    function getPoIds() {
-        //      var records = poStore.data.items;
-        //      if (records.length == 0) {
-        //        window.Ext.Msg.show({
-        //          title: window.TEXT_ERROR,
-        //          msg: window.TEXT_SELECT_GRPSUBMEM_ACCOUNTS,
-        //          buttons: window.Ext.Msg.OK,
-        //          icon: window.Ext.MessageBox.ERROR
-        //        });
-        //        return false;
-        //      }
+//     //this will be called when accts are selected
+//    function addPoCallback(ids, records) {
+//      var poData = { poIds: [] };
 
-        //      poData.pos.length = 0;
-        //      var ids = "";
-        //      for (var i = 0; i < records.length; i++) {
-        //        poData.pos.push(records[i].data);
-        //        if (i > 0) {
-        //          ids += ",";
-        //        }
-        //        ids += records[i].data.ProductOfferingId;
-        //      }
+//      for (var i = 0; i < records.length; i++) {
+//        var productOfferingId = records[i].data.ProductOfferingId;
+//        var found = poStore.find('ProductOfferingId', productOfferingId);
+//        if (found == -1) {
+//          poStore.add(records[i]);
+//          poData.poIds.push(productOfferingId);
+//        }
+//      }
+//      window.CallServer(JSON.stringify({ poIds: poData.poIds }));
+//      poSelectorWin2.hide();
+//    }
 
-        //      window.Ext.get("<%=HiddenPoIdTextBox.ClientID %>").dom.value = ids;
-        //      window.Ext.get("<%=HiddenPos.ClientID %>").dom.value = poData.pos.length > 0 ? window.Ext.encode(poData.pos) : "";
-        //      return true;
-        //    }
+    function onOK_AddICB() {
 
-    var form_addICB = new Ext.form.FormPanel({
-            baseCls: 'x-plain',
-            labelWidth: 55,
-            defaultType: 'textfield',
+      var isValidForm = form_addICB.getForm().isValid();
 
-            items: [{
-                xtype: 'datefield',
-                //fieldLabel: TEXT_START_DATE,
-                //format:DATE_FORMAT,
-                //altFormats:DATE_TIME_FORMAT,
-                //value: '%%MIN_DATE%%', 
-                id: 'StartDate',
-                name: 'StartDate',
-            allowBlank: true,
-                //disabled:%%FIRST_ITEM%%,
-            anchor: '100%'
-            }]
+      if (!(isValidForm == true))
+        Ext.Msg.alert('Failed', 'Wrong input');
+      else 
+      {
+        var recordId = form_addICB.items.get('form_addICB_POId').value + "_" +
+              form_addICB.items.get('form_addICB_PIId').value + "_" +
+              form_addICB.items.get('form_addICB_Price').value;
+
+        var found = icbStore.find('RecordId', recordId);
+        if (found == -1) {
+          var newICBRecord = new icbRecord({
+            ProductOfferingId: form_addICB.items.get('form_addICB_POId').value,
+            PriceableItemId: form_addICB.items.get('form_addICB_PIId').value,
+            Price: form_addICB.items.get('form_addICB_Price').value,
+            UnitValue: form_addICB.items.get('form_addICB_UnitValue').value,
+            UnitAmount: form_addICB.items.get('form_addICB_UnitAmount').value,
+            BaseAmount: form_addICB.items.get('form_addICB_BaseAmount').value,
+            RecordId: recordId
           });
 
-    function ShowIcbInputForm(functionName, target) {
-      if (window.addIcbWin2 == null || window.addIcbWin2 === undefined ||
-        target != window.lastTarget2 || functionName != window.lastFunctionName2) {
-        window.addIcbWin2 = new top.Ext.Window({
-          title: 'TEXT_ADD_ICB',
-          width: 700,
-          height: 500,
-          minWidth: 300,
-          minHeight: 200,
-          layout: 'fit',
-          plain: true,
-          bodyStyle: 'padding:5px;',
-          buttonAlign: 'center',
-          collapsible: true,
-          resizeable: true,
-          maximizable: false,
-          closable: true,
-          closeAction: 'close',
-          items: form_addICB
-        });
-      }
-      if (window.addIcbWin != null) {
-        window.addIcbWin.hide();
-      }
-      window.lastTarget2 = target;
-      window.lastFunctionName2 = functionName;
-      window.addIcbWin2.show();
+          icbStore.add(newICBRecord);
 
-      window.addIcbWin2.on('close', function () {
-        window.addIcbWin2 = null;
-      });
+          AddICBWindow.destroy();
+        }
+      }      
     }
-  </script>
 
+    function onCancel_AddICB() {
+      form_addICB.getForm().reset({});
+      AddICBWindow.destroy();
+    }    
+  </script>
   <%-- ICB Grid--%>
   <script language="javascript" type="text/javascript">
     var icbData = { icbs: [] };
@@ -998,7 +1045,17 @@
         { name: 'RecordId' }
       ]
     });
-        
+
+    var icbRecord = Ext.data.Record.create([ // creates a subclass of Ext.data.Record
+        { name: 'PriceableItemId' },
+        { name: 'ProductOfferingId' },
+        { name: 'Price' },
+        { name: 'UnitValue' },
+        { name: 'UnitAmount' },
+        { name: 'BaseAmount' },
+        { name: 'RecordId' }
+    ]);
+
     // var textSelectPos = '<%=GetLocalResourceObject("SELECT_POS")%>';
 
     // create the Grid
@@ -1024,56 +1081,43 @@
         { header: textICBAction, width: 50, sortable: false, dataIndex: '', renderer: IcbActionsRenderer }
       ],
       stripeRows: true,
-      height: 300,
+      height: 200,
       width: 345,
       iconCls: 'icon-grid',
       frame: true,
       title: textICBGridTitle
     });
 
-    //var textIcbAdd = '<%=GetLocalResourceObject("ADD_ICB")%>';
-
     function IcbActionsRenderer(value, meta, record) {
       var str = String.format(
-        "<a style='cursor:hand;' id='deleteICB_{0}' title='{1}' href='JavaScript:deleteICB({0});'><img src='/Res/Images/icons/cross.png' alt='{1}' /></a>",
-        record.data.ProductOfferingId, textIcbAdd);
+        "<a style='cursor:hand;' id='deleteICB_{0}' title='{1}' href='JavaScript:removeICB(\"{0}\");'><img src='/Res/Images/icons/cross.png' alt='{1}' /></a>",
+        record.data.RecordId, '<%=GetLocalResourceObject("REMOVE_ICB")%>');
       return str;
     }
 
-    function deleteICB(id) {
-      alert("Does not implement");
-      //ShowIcbInputForm(addIcbCallback, "Frame");
+    function removeICB(recordId) {
+      var idx = icbStore.find('RecordId', recordId);
+      icbStore.remove(icbStore.getAt(idx));      
     }
 
-    //    function getPoIds() {
-    //      var records = poStore.data.items;
-    //      if (records.length == 0) {
-    //        window.Ext.Msg.show({
-    //          title: window.TEXT_ERROR,
-    //          msg: window.TEXT_SELECT_GRPSUBMEM_ACCOUNTS,
-    //          buttons: window.Ext.Msg.OK,
-    //          icon: window.Ext.MessageBox.ERROR
-    //        });
-    //        return false;
-    //      }
+    function getICBs() {
+      var records = icbStore.data.items;
 
-    //      poData.pos.length = 0;
-    //      var ids = "";
-    //      for (var i = 0; i < records.length; i++) {
-    //        poData.pos.push(records[i].data);
-    //        if (i > 0) {
-    //          ids += ",";
-    //        }
-    //        ids += records[i].data.ProductOfferingId;
-    //      }
+      icbData.icbs.length = 0;
+      var ids = "";
+      for (var i = 0; i < records.length; i++) {
+        icbData.icbs.push(records[i].data);
+        if (i > 0) {
+          ids += ",";
+        }
+        ids += records[i].data.RecordId;
+      }
 
-    //      window.Ext.get("<%=HiddenPoIdTextBox.ClientID %>").dom.value = ids;
-    //      window.Ext.get("<%=HiddenPos.ClientID %>").dom.value = poData.pos.length > 0 ? window.Ext.encode(poData.pos) : "";
-    //      return true;
-    //    }
+      window.Ext.get("<%=HiddenICBs.ClientID %>").dom.value = icbData.icbs.length > 0 ? window.Ext.encode(icbData.icbs) : "";
+      return true;
+    }
 
   </script>
-  
   <%-- General--%>
   <script language="javascript" type="text/javascript">
 
@@ -1098,12 +1142,17 @@
       if (hiddenPos.value.length > 0)
         poData.pos = window.Ext.decode(hiddenPos.value);
       window.poStore.loadData(poData);
+
+      var hiddenICBs = window.Ext.get("<%=HiddenICBs.ClientID %>").dom;
+      if (hiddenICBs.value.length > 0)
+        icbData.pos = window.Ext.decode(hiddenICBs.value);
+      window.icbStore.loadData(icbData);
     };
 
     function getDataGrids() {
-      return getAccountIds() && getPoIds();
+      return getAccountIds() && getPoIds() && getICBs();
     }
-    
+
     function ReceiveServerData(value) {
       if (typeof value !== 'string' || value === '') {
         return;
@@ -1114,7 +1163,6 @@
       }
 
       addItemToPIs(response.items);
-      }
+    }
   </script>
-    
 </asp:Content>

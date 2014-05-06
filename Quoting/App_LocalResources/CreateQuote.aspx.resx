@@ -117,20 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="btnCancelResource1.Text" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
   <data name="btnGenerateQuoteResource1.Text" xml:space="preserve">
     <value>Generate Quote</value>
   </data>
   <data name="MTPanelQuoteParametersResource.Text" xml:space="preserve">
-    <value>Quote parameters</value>
+    <value>Quote Information</value>
   </data>
   <data name="dpStartDateResource1.Text" xml:space="preserve">
     <value>Start date</value>
   </data>
   <data name="MTPanelQuoteAccountsResource.Text" xml:space="preserve">
-    <value>Accounts and product offerings for quote</value>
+    <value>Accounts and product offerings</value>
   </data>
   <data name="dpEndDateResource1.Text" xml:space="preserve">
     <value>End date</value>
@@ -139,22 +136,13 @@
     <value>Generate PDF report</value>
   </data>
   <data name="MTTextBoxControlQuoteDescriptionResource.Text" xml:space="preserve">
-    <value>Quote description</value>
-  </data>
-  <data name="MTDropDownCorporateAccountResource.Text" xml:space="preserve">
-    <value>MTDropDownCorporateAccountResource</value>
-  </data>
-  <data name="MTCheckBoxControlIsGroupSubscriptionResource.Text" xml:space="preserve">
-    <value>MTCheckBoxControlIsGroupSubscriptionResource</value>
-  </data>
-  <data name="MTPanelProductOfferingsResource.Text" xml:space="preserve">
-    <value>Product offerings for quote</value>
+    <value>Quote Description</value>
   </data>
   <data name="MTPanelUDRCResource.Text" xml:space="preserve">
-    <value>UDRC metrics for quote</value>
+    <value>UDRC metrics</value>
   </data>
   <data name="MTPanelICBResource.Text" xml:space="preserve">
-    <value>ICBs for quote</value>
+    <value>Custom Rates</value>
   </data>
   <data name="ACTIONS" xml:space="preserve">
     <value>Actions</value>
@@ -175,7 +163,7 @@
     <value>PO Id</value>
   </data>
   <data name="PONAME" xml:space="preserve">
-    <value>Product Offering Name</value>
+    <value>PO Name</value>
   </data>
   <data name="PO_GRID_TITLE" xml:space="preserve">
     <value>Product Offerings</value>
@@ -188,12 +176,6 @@
   </data>
   <data name="EDIT_UDRC_VALUE" xml:space="preserve">
     <value>Edit UDRC value</value>
-  </data>
-  <data name="TEXT_REFRESH" xml:space="preserve">
-    <value>Refresh UDRCs grid</value>
-  </data>
-  <data name="TEXT_REFRESH_UDRC_GRID" xml:space="preserve">
-    <value>Refresh UDRCs grid</value>
   </data>
   <data name="ADD_ICB" xml:space="preserve">
     <value>Add ICB</value>
@@ -208,7 +190,7 @@
     <value>PI Id</value>
   </data>
   <data name="PINAME" xml:space="preserve">
-    <value>Pricable Item Name</value>
+    <value>PI Name</value>
   </data>
   <data name="ICB_PI_GRID_TITLE" xml:space="preserve">
     <value>Priсeable Items That Allows Custom Rates</value>
@@ -235,6 +217,27 @@
     <value>UDRCs</value>
   </data>
   <data name="UDRC_PI_GRID_TITLE" xml:space="preserve">
-    <value>Priсeable Items That Allows UDRCs</value>
+    <value>UDRC Priсeable Items</value>
+  </data>
+  <data name="TEXT_ADD_ICB" xml:space="preserve">
+    <value>Add Custom Rate</value>
+  </data>
+  <data name="MTTitleCreateQuoteResource" xml:space="preserve">
+    <value>Create Quote</value>
+  </data>
+  <data name="REMOVE_ICB" xml:space="preserve">
+    <value>Remove ICB</value>
+  </data>
+  <data name="TEXT_ADDING_ICB" xml:space="preserve">
+    <value>Adding ICB</value>
+  </data>
+  <data name="TEXT_ADD_UDRC" xml:space="preserve">
+    <value>Add UDRC metric</value>
+  </data>
+  <data name="TEXT_CANCEL" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="TEXT_OK" xml:space="preserve">
+    <value>OK</value>
   </data>
 </root>

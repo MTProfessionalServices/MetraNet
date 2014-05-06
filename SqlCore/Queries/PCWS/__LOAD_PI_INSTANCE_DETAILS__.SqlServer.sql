@@ -1,5 +1,6 @@
 
                 Select 	bp.n_kind PIKind,
+                id_po PO_ID,
                 map.id_pi_instance ID,
                 bp.nm_name Name,
                 bp.nm_display_name DisplayName,
@@ -35,7 +36,13 @@
                 COALESCE(discCycle.second_day_of_month, aggCycle.second_day_of_month)) SecondDayOfMonth,
                 COALESCE(recurCycle.start_day, COALESCE(discCycle.start_day, aggCycle.start_day)) StartDay,
                 COALESCE(recurCycle.start_month, COALESCE(discCycle.start_month, aggCycle.start_month)) StartMonth,
-                COALESCE(recurCycle.start_year, COALESCE(discCycle.start_year, aggCycle.start_year)) StartYear
+                COALESCE(recurCycle.start_year, COALESCE(discCycle.start_year, aggCycle.start_year)) StartYear,
+				case (select count(1) from t_pl_map where b_canICB = 'Y' and id_pi_instance = map.id_pi_instance)
+				  when 0 then 'N'
+				  else 'Y'
+				end PICanICB,
+				recur.max_unit_value MaxValue, 
+				recur.min_unit_value MinValue
                 from	t_pl_map map
                 inner join t_base_props bp on map.id_pi_instance = bp.id_prop
                 inner join t_base_props piTypeBP on map.id_pi_type = piTypeBP.id_prop

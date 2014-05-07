@@ -26,7 +26,7 @@
                 inner join
                 t_base_props piTemplateBP on map.id_pi_template = piTemplateBP.id_prop
 				left outer join
-                t_recur AS rc ON map.id_pi_instance = rc.id_prop
+                t_recur rc ON map.id_pi_instance = rc.id_prop
                 where id_po = %%PO_ID%% and id_paramtable is NULL
                 %%PARENT_SELECTION_CONDITION%%
                 

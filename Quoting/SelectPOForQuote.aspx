@@ -1,5 +1,5 @@
 <%@ Page AutoEventWireup="true" Culture="auto" Inherits="MetraNet.Quoting.SelectPOForQuote"
-  Language="C#" MasterPageFile="~/MasterPages/PageExt.master" CodeFile="SelectPOForQuote.aspx.cs"
+  Language="C#" MasterPageFile="~/MasterPages/NoMenuPageExt.master" CodeFile="SelectPOForQuote.aspx.cs"
   Title="MetraNet" UICulture="auto" %>
 
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>

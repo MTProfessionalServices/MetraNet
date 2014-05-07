@@ -35,6 +35,28 @@ namespace MetraNet.Quoting
       set { Session["UDRCDictionary"] = value; }
     }
 
+    public class Icb
+    {
+      public int PriceableItemId { get; set; }
+      public int ProductOfferingId { get; set; }
+      public decimal Price { get; set; }
+      public decimal UnitValue { get; set; }
+      public decimal UnitAmount { get; set; }
+      public decimal BaseAmount { get; set; }
+      public string RecordId { get; set; }
+    }
+
+    public class Udrc
+    {
+      public int PriceableItemId { get; set; }
+      public int ProductOfferingId { get; set; }
+      public decimal Value { get; set; }
+      public DateTime StartDate { get; set; }
+      public DateTime EndDate { get; set; }
+      public string GroupId { get; set; }
+      public string RecordId { get; set; }
+    }
+
     protected string AccountArray;
 
     protected void Page_Load(object sender, EventArgs e)
@@ -43,8 +65,8 @@ namespace MetraNet.Quoting
       var callbackScript = "function CallServer(arg, context)" + "{ " + cbReference + ";}";
       Page.ClientScript.RegisterClientScriptBlock(GetType(), "CallServer", callbackScript, true);
 
-      MTdpStartDate.Text = MetraTime.Now.Date.ToString();
-      MTdpEndDate.Text = MetraTime.Now.Date.AddMonths(1).ToString();
+      MTdpStartDate.Text = MetraTime.Now.Date.ToString(CultureInfo.InvariantCulture);
+      MTdpEndDate.Text = MetraTime.Now.Date.AddMonths(1).ToString(CultureInfo.InvariantCulture);
 
       #region render Accounts grid
 
@@ -188,40 +210,99 @@ namespace MetraNet.Quoting
 
     private void SetQuoteRequestInput()
     {
+      if (!string.IsNullOrEmpty(HiddenAccountIds.Value))
+        Accounts = HiddenAccountIds.Value.Split(',').Select(int.Parse).ToList();
+
+      if (!string.IsNullOrEmpty(HiddenPoIdTextBox.Value))
+        Pos = HiddenPoIdTextBox.Value.Split(',').Select(int.Parse).ToList();
+
+      var isGroupSubscription = Convert.ToBoolean(MTCheckBoxIsGroupSubscription.Value);
       RequestForCreateQuote = new QuoteRequest
         {
           QuoteDescription = MTtbQuoteDescription.Text,
           QuoteIdentifier = MTtbQuoteIdentifier.Text,
           EffectiveDate = Convert.ToDateTime(MTdpStartDate.Text),
           EffectiveEndDate = Convert.ToDateTime(MTdpStartDate.Text),
-          ReportParameters = { PDFReport = MTcbPdf.Checked },
+          ReportParameters = {PDFReport = MTcbPdf.Checked},
           Accounts = Accounts,
           ProductOfferings = Pos,
-          SubscriptionParameters = new SubscriptionParameters
-          {
-            IsGroupSubscription = Convert.ToBoolean(MTCheckBoxIsGroupSubscription.Value),
-            CorporateAccountId = Convert.ToInt32(HiddenGroupId.Value)
-          }
-        };
-      //foreach (var udrc in UDRCs)
-      //{
-      //  //RequestForCreateQuote.SubscriptionParameters.Add(udrc.ID.ToString(), );
-      //}
-      
+          IcbPrices = GetIcbPrices(),
 
+          SubscriptionParameters = new SubscriptionParameters
+            {
+              IsGroupSubscription = isGroupSubscription,
+              UDRCValues = GetUdrcPrices()
+            }
+        };
+      if (isGroupSubscription)
+        RequestForCreateQuote.SubscriptionParameters.CorporateAccountId = Convert.ToInt32(HiddenGroupId.Value);
+    }
+
+    private List<IndividualPrice> GetIcbPrices()
+    {
+      var icbList = new List<Icb>();
+      if (!string.IsNullOrEmpty(HiddenICBs.Value))
+      {
+        var icbStrArray = HiddenICBs.Value.Replace("[", "").Replace("]", "").Split(new[] { "}," }, StringSplitOptions.None).ToList();
+        icbList.AddRange(icbStrArray.Select(icbStr => icbStr.EndsWith("}") ? icbStr : icbStr + "}").Select(icbStr1 => new JavaScriptSerializer().Deserialize<Icb>(icbStr1)));
+      }
+
+      var icbPrices = new List<IndividualPrice>();
+      foreach (var record in icbList.Select(t => new { t.PriceableItemId, t.ProductOfferingId }).Distinct())
+      {
+        var record1 = record;
+        var chargesRates = icbList.Where(t => t.PriceableItemId == record1.PriceableItemId && t.ProductOfferingId == record1.ProductOfferingId).Select(icb => new ChargesRate
+        {
+          Price = icb.Price,
+          BaseAmount = icb.BaseAmount,
+          UnitAmount = icb.UnitAmount,
+          UnitValue = icb.UnitValue
+        });
+        var qip = new IndividualPrice
+        {
+          CurrentChargeType = ChargeType.RecurringCharge,//TODO investigate this code
+          ProductOfferingId = record.ProductOfferingId,
+          ChargesRates = chargesRates.ToList(),
+          PriceableItemId = record.PriceableItemId
+        };
+
+        icbPrices.Add(qip);
+      }
+
+      return icbPrices;
+    }
+
+    private Dictionary<string, List<UDRCInstanceValue>> GetUdrcPrices()
+    {
+      var udrcList = new List<Udrc>();
+      if (!string.IsNullOrEmpty(HiddenUDRCs.Value))
+      {
+        var udrcStrArray = HiddenUDRCs.Value.Replace("[", "").Replace("]", "").Split(new[] { "}," }, StringSplitOptions.None).ToList();
+        udrcList.AddRange(udrcStrArray.Select(udrcStr => udrcStr.EndsWith("}") ? udrcStr : udrcStr + "}").Select(udrcStr1 => new JavaScriptSerializer().Deserialize<Udrc>(udrcStr1)));
+      }
+
+      var udrcPrices = new Dictionary<string, List<UDRCInstanceValue>>();
+      foreach (var record in udrcList.Select(t => new { t.ProductOfferingId }).Distinct())
+      {
+        var record1 = record;
+        var uiv = udrcList
+          .Where(t => t.ProductOfferingId == record1.ProductOfferingId)
+          .Select(udrc => new UDRCInstanceValue
+        { 
+           StartDate = udrc.StartDate,
+           EndDate = udrc.EndDate, 
+           Value = udrc.Value, 
+           UDRC_Id = udrc.PriceableItemId
+        });
+
+        udrcPrices.Add(record1.ProductOfferingId.ToString(CultureInfo.InvariantCulture), uiv.ToList());
+      }
+
+      return udrcPrices;
     }
 
     private void ValidateRequest()
     {
-      if (!string.IsNullOrEmpty(HiddenAccountIds.Value))
-        Accounts = HiddenAccountIds.Value.Split(',').Select(int.Parse).ToList();
-
-      //todo read Account Id for group subscription
-      //if (!string.IsNullOrEmpty(HiddenGroupId.Value))
-
-      if (!string.IsNullOrEmpty(HiddenPoIdTextBox.Value))
-        Pos = HiddenPoIdTextBox.Value.Split(',').Select(int.Parse).ToList();
-
       SetQuoteRequestInput();
 
       using (var client = new QuotingServiceClient())

@@ -78,7 +78,7 @@
   <input id="HiddenPiUDRC" runat="server" type="hidden" />
   <input id="HiddenICBs" runat="server" type="hidden" />
   <input id="HiddenPiICB" runat="server" type="hidden" />
-  <input ID="MTCheckBoxIsGroupSubscription" runat="server" type="hidden" />
+  <input ID="MTCheckBoxIsGroupSubscription" runat="server" type="hidden" value="false" />
 
    <%-- General--%>
   <script language="javascript" type="text/javascript">

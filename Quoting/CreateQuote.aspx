@@ -33,14 +33,14 @@
     <div id="PlaceHolderProductOfferingsGrid" class="RightColumn">
     </div>
   </MT:MTPanel>
-  <MT:MTPanel ID="MTPanelUDRCMetrics" runat="server" Text="UDRC metrics for quote"
+  <MT:MTPanel ID="MTPanelUDRC" runat="server" Text="UDRC metrics for quote"
     Collapsible="True" Collapsed="False" meta:resourcekey="MTPanelUDRCResource">
     <div id="PlaceHolderPIWithUDRCAllowedGrid" class="LeftColumn">
     </div>
     <div id="PlaceHolderUDRCGrid" class="RightColumn">
     </div>
   </MT:MTPanel>
-  <MT:MTPanel ID="MTPanelICBs" runat="server" Text="ICBs for quote" Collapsible="True"
+  <MT:MTPanel ID="MTPanelICB" runat="server" Text="ICBs for quote" Collapsible="True"
     Collapsed="False" meta:resourcekey="MTPanelICBResource">
     <div id="PlaceHolderPIWithICBAllowedGrid" class="LeftColumn">
     </div>
@@ -84,6 +84,8 @@
   <script language="javascript" type="text/javascript">
 
     var GRID_HEIGHT = 300;
+    var ACTIONS_COLUMN_HEIGHT = 40;
+    var NAME_COLUMN_HEIGHT = 210;
 
     Ext.onReady(function () {
       accountGrid.render(window.Ext.get('PlaceHolderAccountsGrid'));
@@ -189,7 +191,7 @@
       columns: [
         { id: '_AccountID', header: textUserName, width: 225, sortable: true, renderer: usernameRenderer, dataIndex: '_AccountID' },
         { header: textIsGroup, width: 50, sortable: false, dataIndex: 'IsGroup', renderer: isGroupSubscriptionRenderer },
-        { header: textAccountActions, width: 50, sortable: false, dataIndex: '', renderer: accountActionsRenderer }
+        { header: textAccountActions, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: accountActionsRenderer }
       ],
       tbar: accountToolBar,
       stripeRows: true,
@@ -335,8 +337,8 @@
       ds: poStore,
       columns: [
         { id: 'ProductOfferingId', header: textPoId, hidden: true, dataIndex: 'ProductOfferingId' },
-        { header: textPoName, width: 270, sortable: true, dataIndex: 'Name' },
-        { header: textPoAction, width: 50, sortable: false, dataIndex: '', renderer: poActionsRenderer }
+        { header: textPoName, width: NAME_COLUMN_HEIGHT, sortable: true, dataIndex: 'Name' },
+        { header: textPoAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: poActionsRenderer }
       ],
       tbar: poToolBar,
       stripeRows: true,
@@ -391,6 +393,18 @@
       for (i = n - 1; i >= 0; i--) {
         if (piUDRCStore.data.items[i].data.ProductOfferingId == poId)
           piUDRCStore.remove(piUDRCStore.getAt(i));
+      }
+      
+      n = udrcStore.data.length;
+      for (i = n - 1; i >= 0; i--) {
+        if (udrcStore.data.items[i].data.ProductOfferingId == poId)
+          udrcStore.remove(udrcStore.getAt(i));
+      }
+
+      n = icbStore.data.length;
+      for (i = n - 1; i >= 0; i--) {
+        if (icbStore.data.items[i].data.ProductOfferingId == poId)
+          icbStore.remove(icbStore.getAt(i));
       }
     }
 
@@ -550,30 +564,6 @@
       ]
     });
 
-    // create the Grid
-    var UDRCgrid = new Ext.grid.GridPanel({
-      store: UDRCStore,
-      columns: [
-        { id: "Name", header: TEXT_NAME, width: 175, sortable: true, dataIndex: 'POName' },
-        { id: "Name", header: TEXT_NAME, width: 175, sortable: true, dataIndex: 'UDRCName' },
-        { header: TEXT_VALUE, width: 75, sortable: true, dataIndex: 'Value' },
-        { header: '<%=GetLocalResourceObject("ACTIONS") %>', width: 75, sortable: false, dataIndex: 'Actions', renderer: UDRCActionsRenderer }
-      ],
-      stripeRows: true,
-      autoExpandColumn: 'Name',
-      height: 150,
-      width: 600,
-      title: 'UDRC metrics for quote'
-    });
-
-    var textEditUDRCValue = '<%=GetLocalResourceObject("EDIT_UDRC_VALUE")%>';
-
-    function UDRCActionsRenderer(value, meta, record, rowIndex) {
-      var str = String.format(
-        "<a style='cursor:hand;' id='edit_udrc' title='{5}' href='JavaScript:editUDRCValue({0}, {1}, {2}, {3}, {4});'><img src='/Res/Images/icons/pencil.png' alt='{5}' /></a>",
-        "\"" + record.data.POName + "\"", "\"" + record.data.UDRCName + "\"", record.data.MinValue, record.data.MaxValue, rowIndex, textEditUDRCValue);
-      return str;
-    }
 
     function editUDRCValue(poName, udrcName, minValue, maxValue, rowIndex) {
       MIN_VALUE = minValue;
@@ -736,6 +726,16 @@
           }
         }
       }
+
+//      if (piUDRCStore.data.items.length > 0)
+//        window.Ext.get("<%=MTPanelUDRC.ClientID %>").Collapsed = false;
+//      else
+//        window.Ext.get("<%=MTPanelUDRC.ClientID %>").Collapsed = true;
+
+//      if (piWithAllowIcbStore.data.items.length > 0)
+//        window.Ext.get("<%=MTPanelICB.ClientID %>").Collapsed = false;
+//      else
+//        window.Ext.get("<%=MTPanelICB.ClientID %>").Collapsed = true;
     }
 
     // create the Grid
@@ -750,8 +750,8 @@
       ds: piUDRCStore,
       columns: [
             { header: textPoName, hidden: true,  dataIndex: 'ProductOfferingName' },
-            { header: textPiName, width: 260, sortable: true, dataIndex: 'Name' },            
-            { header: textPiWithUDRCAction, width: 50, sortable: false, dataIndex: '', renderer: piWithAllowUDRCActionsRenderer }
+            { header: textPiName, width: NAME_COLUMN_HEIGHT, sortable: true, dataIndex: 'Name' },
+            { header: textPiWithUDRCAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: piWithAllowUDRCActionsRenderer }
           ],
       stripeRows: true,
       height: GRID_HEIGHT,
@@ -901,7 +901,9 @@
         Ext.Msg.alert('Failed', 'Wrong input');
       else {
         var recordId = form_addUDRC.items.get('form_addUDRC_POId').value + "_" +
-              form_addUDRC.items.get('form_addUDRC_PIId').value;
+              form_addUDRC.items.get('form_addUDRC_PIId').value + "_" +
+              form_addUDRC.items.get('form_addUDRC_StartDate').value + "_" +
+              form_addUDRC.items.get('form_addUDRC_EndDate').value;
 
         var groupId = '<%=GetLocalResourceObject("PONAME")%>' + ": " +
               form_addUDRC.items.get('form_addUDRC_POName').value + "; " +
@@ -986,10 +988,10 @@
       ds: udrcStore,
       columns: [
         { hidden: true, header: ' ', dataIndex: 'GroupId' },
-        { header: textValue, width: 70, sortable: true, dataIndex: 'Value' },
-        { header: textStartDate, width: 70, sortable: true, dataIndex: 'StartDate' },
-        { header: textEndDate, width: 70, sortable: true, dataIndex: 'EndDate' },        
-        { header: textUDRCAction, width: 50, sortable: false, dataIndex: '', renderer: UdrcActionsRenderer }
+        { header: textValue, width: 95, sortable: true, dataIndex: 'Value' },
+        { header: textStartDate, width: 95, sortable: true, dataIndex: 'StartDate' },
+        { header: textEndDate, width: 95, sortable: true, dataIndex: 'EndDate' },
+        { header: textUDRCAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: UdrcActionsRenderer }
       ],
       stripeRows: true,
       height: GRID_HEIGHT,
@@ -1058,8 +1060,8 @@
       ds: piWithAllowIcbStore,
       columns: [      
         { header: textPoName, hidden: true, dataIndex: 'ProductOfferingName' },
-        { header: textPiName, width: 210, sortable: true, dataIndex: 'Name' },
-        { header: textPiWithICBAction, width: 50, sortable: false, dataIndex: '', renderer: piWithAllowIcbActionsRenderer }
+        { header: textPiName, width: NAME_COLUMN_HEIGHT, sortable: true, dataIndex: 'Name' },
+        { header: textPiWithICBAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: piWithAllowIcbActionsRenderer }
       ],
       stripeRows: true,
       height: GRID_HEIGHT,
@@ -1313,11 +1315,11 @@
       ds: icbStore,
       columns: [
         { header: ' ', hidden: true, dataIndex: 'GroupId' },
-        { header: textPrice, width: 50, sortable: true, dataIndex: 'Price' },
-        { header: textUnitValue, width: 55, sortable: true, dataIndex: 'UnitValue' },
-        { header: textUnitAmount, width: 60, sortable: true, dataIndex: 'UnitAmount' },
-        { header: textBaseAmount, width: 60, sortable: true, dataIndex: 'BaseAmount' },
-        { header: textICBAction, width: 35, sortable: false, dataIndex: '', renderer: IcbActionsRenderer }
+        { header: textPrice, width: 70, sortable: true, dataIndex: 'Price' },
+        { header: textUnitValue, width: 70, sortable: true, dataIndex: 'UnitValue' },
+        { header: textUnitAmount, width: 70, sortable: true, dataIndex: 'UnitAmount' },
+        { header: textBaseAmount, width: 70, sortable: true, dataIndex: 'BaseAmount' },
+        { header: textICBAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: IcbActionsRenderer }
       ],
       stripeRows: true,
       height: GRID_HEIGHT,

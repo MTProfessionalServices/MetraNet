@@ -199,14 +199,14 @@ namespace MetraNet.Quoting
           ProductOfferings = Pos,
           SubscriptionParameters = new SubscriptionParameters
           {
-            IsGroupSubscription = MTCheckBoxIsGroupSubscription.Checked,
+            IsGroupSubscription = Convert.ToBoolean(MTCheckBoxIsGroupSubscription.Value),
             CorporateAccountId = Convert.ToInt32(HiddenGroupId.Value)
           }
         };
-      foreach (var udrc in UDRCs)
-      {
-        //RequestForCreateQuote.SubscriptionParameters.Add(udrc.ID.ToString(), );
-      }
+      //foreach (var udrc in UDRCs)
+      //{
+      //  //RequestForCreateQuote.SubscriptionParameters.Add(udrc.ID.ToString(), );
+      //}
       
 
     }

@@ -7,7 +7,7 @@
     </Title>
     <Exportable>true</Exportable>
     <Height>400</Height>
-    <Width>720</Width>
+    <Width>650</Width>
     <Expandable>true</Expandable>
     <Buttons>OK</Buttons>
     <DataSourceURL>../AjaxServices/LoadPosForQuote.aspx</DataSourceURL>
@@ -52,7 +52,7 @@
             <DataType>Numeric</DataType>
             <IsIdentity>true</IsIdentity>
             <DataIndex>ProductOfferingId</DataIndex>
-            <IsColumn>true</IsColumn>
+            <IsColumn>false</IsColumn>
             <HeaderText>
                 <Value><![CDATA[Product Offering ID]]></Value>
             </HeaderText>
@@ -64,7 +64,7 @@
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
+            <ShowInExpander>true</ShowInExpander>
             <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
@@ -92,7 +92,7 @@
                 <Value><![CDATA[Name]]></Value>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>200</Width>
+            <Width>300</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
@@ -127,7 +127,7 @@
                 <Value><![CDATA[Description]]></Value>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>120</Width>
+            <Width>300</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
@@ -186,7 +186,31 @@
             <DropdownItems></DropdownItems>
         </Element>
     </Elements>
-    <ExpanderTemplate></ExpanderTemplate>
+    <ExpanderTemplate>
+        <Section>
+            <Title>
+                <Value><![CDATA[]]></Value>
+            </Title>
+            <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
+            <Columns>
+                <Column>
+                    <Fields>
+                        <Field>
+                            <AssemblyFilename></AssemblyFilename>
+                            <ObjectName></ObjectName>
+                            <ID>ProductOfferingId</ID>
+                            <Name>ProductOfferingId</Name>
+                        </Field>
+                    </Fields>
+                </Column>
+                <Column>
+                    <Fields></Fields>
+                </Column>
+            </Columns>
+            <ToolbarButtons></ToolbarButtons>
+        </Section>
+    </ExpanderTemplate>
     <GridButtons></GridButtons>
     <ToolbarButtons></ToolbarButtons>
 </GridLayout>

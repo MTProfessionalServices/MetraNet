@@ -2,7 +2,6 @@
 <Query>
     <Action>Get</Action>
     <Implementations>
-    <Implementations>
         <Implementation>SqlServer</Implementation>
         <Implementation>Oracle</Implementation>
     </Implementations>

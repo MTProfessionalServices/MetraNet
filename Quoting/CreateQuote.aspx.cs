@@ -65,8 +65,8 @@ namespace MetraNet.Quoting
       var callbackScript = "function CallServer(arg, context)" + "{ " + cbReference + ";}";
       Page.ClientScript.RegisterClientScriptBlock(GetType(), "CallServer", callbackScript, true);
 
-      MTdpStartDate.Text = MetraTime.Now.Date.ToString(CultureInfo.InvariantCulture);
-      MTdpEndDate.Text = MetraTime.Now.Date.AddMonths(1).ToString(CultureInfo.InvariantCulture);
+      MTdpStartDate.Text = MetraTime.Now.Date.ToString();
+      MTdpEndDate.Text = MetraTime.Now.Date.AddMonths(1).ToString();
 
       #region render Accounts grid
 
@@ -104,7 +104,7 @@ namespace MetraNet.Quoting
       catch (Exception ex)
       {
         Logger.LogError(ex.Message);
-        result = new {result = "error", errorMessage = ex.Message};
+        result = new { result = "error", errorMessage = ex.Message };
       }
       if (result != null)
       {
@@ -223,7 +223,7 @@ namespace MetraNet.Quoting
           QuoteIdentifier = MTtbQuoteIdentifier.Text,
           EffectiveDate = Convert.ToDateTime(MTdpStartDate.Text),
           EffectiveEndDate = Convert.ToDateTime(MTdpStartDate.Text),
-          ReportParameters = {PDFReport = MTcbPdf.Checked},
+          ReportParameters = { PDFReport = MTcbPdf.Checked },
           Accounts = Accounts,
           ProductOfferings = Pos,
           IcbPrices = GetIcbPrices(),
@@ -288,11 +288,11 @@ namespace MetraNet.Quoting
         var uiv = udrcList
           .Where(t => t.ProductOfferingId == record1.ProductOfferingId)
           .Select(udrc => new UDRCInstanceValue
-        { 
-           StartDate = udrc.StartDate,
-           EndDate = udrc.EndDate, 
-           Value = udrc.Value, 
-           UDRC_Id = udrc.PriceableItemId
+        {
+          StartDate = udrc.StartDate <= new DateTime() ? MetraTech.MetraTime.Min : udrc.StartDate,
+          EndDate = udrc.EndDate <= new DateTime() ? MetraTech.MetraTime.Max : udrc.EndDate,
+          Value = udrc.Value,
+          UDRC_Id = udrc.PriceableItemId
         });
 
         udrcPrices.Add(record1.ProductOfferingId.ToString(CultureInfo.InvariantCulture), uiv.ToList());

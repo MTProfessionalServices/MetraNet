@@ -214,7 +214,7 @@
     <value>Add UDRC</value>
   </data>
   <data name="UDRC_GRID_TITLE" xml:space="preserve">
-    <value>UDRCs</value>
+    <value>UDRC metrics</value>
   </data>
   <data name="UDRC_PI_GRID_TITLE" xml:space="preserve">
     <value>UDRC Priсeable Items</value>
@@ -240,8 +240,14 @@
   <data name="TEXT_CANCEL" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="TEXT_DATES_ERROR" xml:space="preserve">
+    <value>Start Date should be less then End Date</value>
+  </data>
   <data name="TEXT_END_DATE" xml:space="preserve">
     <value>End Date</value>
+  </data>
+  <data name="TEXT_MISSED_UDRC" xml:space="preserve">
+    <value>UDRC metrics set not for all Priceable Items</value>
   </data>
   <data name="TEXT_OK" xml:space="preserve">
     <value>OK</value>

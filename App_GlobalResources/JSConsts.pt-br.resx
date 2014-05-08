@@ -1196,32 +1196,35 @@
   </data>
   <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(BRAZILIAN PORTUGUESE) Passwords do not match.</value>
-  </data>  
+  </data>
   <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(BRAZILIAN PORTUGUESE) Enter a valid phone number. Format: 555-555-5555</value>
-  </data>    
+  </data>
   <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(BRAZILIAN PORTUGUESE) Credit card format is invalid</value>
-  </data>      
+  </data>
   <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(BRAZILIAN PORTUGUESE) CV Number is invalid</value>
-  </data>        
+  </data>
   <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(BRAZILIAN PORTUGUESE) SSN format: xxx-xx-xxxx</value>
-  </data>          
+  </data>
   <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(BRAZILIAN PORTUGUESE) Only numeric digits are allowed</value>
-  </data>            
+  </data>
   <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(BRAZILIAN PORTUGUESE) Zipcode is invalid</value>
-  </data>              
+  </data>
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(BRAZILIAN PORTUGUESE) Middle initial is invalid</value>
-  </data>     
+  </data>
   <data name="TEXT_RETRY_COLUMN" xml:space="preserve">
     <value>(BRAZILIAN PORTUGUESE) Retry</value>
-  </data>   
+  </data>
   <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
     <value>(BRAZILIAN PORTUGUESE) Resubmitted Request</value>
-  </data>     
+  </data>
+  <data name="TEXT_SELECT_PO_ERROR" xml:space="preserve">
+    <value />
+  </data>
 </root>

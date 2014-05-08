@@ -1202,32 +1202,35 @@
   </data>
   <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(German) Passwords do not match.</value>
-  </data>  
+  </data>
   <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(German) Enter a valid phone number. Format: 555-555-5555</value>
-  </data>    
+  </data>
   <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(German) Credit card format is invalid</value>
-  </data>      
+  </data>
   <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(German) CV Number is invalid</value>
-  </data>        
+  </data>
   <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(German) SSN format: xxx-xx-xxxx</value>
-  </data>          
+  </data>
   <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(German) Only numeric digits are allowed</value>
-  </data>            
+  </data>
   <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(German) Zipcode is invalid</value>
-  </data>              
+  </data>
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(German) Middle initial is invalid</value>
-  </data>                
+  </data>
   <data name="TEXT_RETRY_COLUMN" xml:space="preserve">
     <value>(German) Retry</value>
-  </data>    
+  </data>
   <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
     <value>{German} Resubmitted Request</value>
-  </data>                   
- </root>
+  </data>
+  <data name="TEXT_SELECT_PO_ERROR" xml:space="preserve">
+    <value />
+  </data>
+</root>

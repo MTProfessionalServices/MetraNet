@@ -535,7 +535,7 @@
           DisplayName: items[i].DisplayName,
           Description: items[i].Description,
           PIKind: piKind,
-          PICanICB: piCanICB,
+          PICanICB: piCanIcb,
           RecordId: recordId
         });
 
@@ -1024,7 +1024,7 @@
                   anchor: '100%',
                   value: 0,
                   tabIndex: 0
-          },
+                },                
                 {
                   xtype: 'numberfield',
                   allowDecimals: true,
@@ -1108,8 +1108,18 @@
 
         var groupId = '<%=GetLocalResourceObject("PONAME")%>' + ": " +
               form_addICB.items.get('form_addICB_POName').value + "; " +
-              '<%=GetLocalResourceObject("PINAME")%>' + ": " + 
+              '<%=GetLocalResourceObject("PINAME")%>' + ": " +
               form_addICB.items.get('form_addICB_PIName').value;
+
+        var unitValueComp = form_addICB.items.get('form_addICB_UnitValue');
+        var unitValue = 0;
+        if (unitValueComp != undefined)
+          unitValue = unitValueComp.value;
+
+        var unitAmountComp = form_addICB.items.get('form_addICB_UnitAmount');
+        var unitAmount = 0;
+        if (unitAmountComp != undefined)
+          unitAmount = unitAmountComp.value;
 
         var found = icbStore.find('RecordId', recordId);
         if (found == -1) {
@@ -1117,8 +1127,8 @@
             ProductOfferingId: form_addICB.items.get('form_addICB_POId').value,
             PriceableItemId: form_addICB.items.get('form_addICB_PIId').value,
             Price: form_addICB.items.get('form_addICB_Price').value,
-            UnitValue: form_addICB.items.get('form_addICB_UnitValue').value,
-            UnitAmount: form_addICB.items.get('form_addICB_UnitAmount').value,
+            UnitValue: unitValue,
+            UnitAmount: unitAmount,
             BaseAmount: form_addICB.items.get('form_addICB_BaseAmount').value,
             RecordId: recordId,
             GroupId: groupId

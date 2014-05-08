@@ -147,7 +147,12 @@
     };
 
     function getDataGrids() {
-      return getAccountIds() && getPoIds() && getUDRCpis() && getICBpis() && getUDRCs() && getICBs();
+      var result = getAccountIds() && getPoIds() && getUDRCpis() && getICBpis() && getUDRCs() && getICBs();
+      if (result) {
+        var btnOk = window.Ext.getCmp('ctl00_ContentPlaceHolder1_MTbtnGenerateQuote');
+        btnOk.setDisabled(true);
+      }
+      return result;
     }
 
     function ReceiveServerData(value) {
@@ -418,7 +423,7 @@
       if (records.length == 0) {
         window.Ext.Msg.show({
           title: window.TEXT_ERROR,
-          msg: window.TEXT_SELECT_GRPSUBMEM_ACCOUNTS,
+          msg: window.TEXT_SELECT_PO_ERROR,
           buttons: window.Ext.Msg.OK,
           icon: window.Ext.MessageBox.ERROR
         });
@@ -473,11 +478,11 @@
       });
     }
   </script>
-  <%--UDRC PI Grid--%>
+  <%-- UDRC PI Grid--%>
   <script language="javascript" type="text/javascript">
     var piUDRCData = { piUDRC: [] };
 
-    var piRecord = Ext.data.Record.create([// creates a subclass of Ext.data.Record
+    var PiRecord = Ext.data.Record.create([// creates a subclass of Ext.data.Record
       {name: 'ProductOfferingId' },
       { name: 'ProductOfferingName' },
       { name: 'PriceableItemId' },
@@ -520,9 +525,9 @@
         var poName = poStore.getAt(poStore.find('ProductOfferingId', poId)).data.Name;
         var recordId = piId + '-' + poId;
         var piKind = items[i].PIKind;
-        var piCanICB = items[i].PICanICB;
+        var piCanIcb = items[i].PICanICB;
 
-        var myNewRecord = new piRecord({
+        var myNewRecord = new PiRecord({
           ProductOfferingId: poId,
           ProductOfferingName: poName,
           PriceableItemId: piId,
@@ -541,23 +546,13 @@
           }
         }
 
-        if (piCanICB == 'Y') {
+        if (piCanIcb == 'Y') {
           var found2 = piWithAllowIcbStore.find('RecordId', recordId);
           if (found2 == -1) {
             piWithAllowIcbStore.add(myNewRecord);
           }
         }
       }
-
-//      if (piUDRCStore.data.items.length > 0)
-//        window.Ext.get("<%=MTPanelUDRC.ClientID %>").Collapsed = false;
-//      else
-//        window.Ext.get("<%=MTPanelUDRC.ClientID %>").Collapsed = true;
-
-//      if (piWithAllowIcbStore.data.items.length > 0)
-//        window.Ext.get("<%=MTPanelICB.ClientID %>").Collapsed = false;
-//      else
-//        window.Ext.get("<%=MTPanelICB.ClientID %>").Collapsed = true;
     }
 
     // create the Grid
@@ -616,13 +611,13 @@
         defaultType: 'textfield',
 
         items: [{
-          readOnly: true,
-          fieldLabel: '<%=GetLocalResourceObject("PONAME")%>',
-          id: 'form_addUDRC_POName',
-          name: 'form_addUDRC_POName',
-          value: poName,
-          allowBlank: false,
-          anchor: '100%'
+            readOnly: true,
+            fieldLabel: '<%=GetLocalResourceObject("PONAME")%>',
+            id: 'form_addUDRC_POName',
+            name: 'form_addUDRC_POName',
+            value: poName,
+            allowBlank: false,
+            anchor: '100%'
           },
           {
             xtype: 'hidden',
@@ -668,21 +663,21 @@
             //value: '%%MIN_DATE%%', 
             id: 'form_addUDRC_StartDate',
             name: 'form_addUDRC_StartDate',
-            allowBlank:true,
+            allowBlank: true,
             //disabled:%%FIRST_ITEM%%,
-            anchor:'100%'
+            anchor: '100%'
           },
           {
             xtype: 'datefield',
             fieldLabel: '<%=GetLocalResourceObject("TEXT_END_DATE")%>',
             //format:DATE_FORMAT,
-            altFormats:DATE_TIME_FORMAT,
+            altFormats: DATE_TIME_FORMAT,
             //value: '%%MAX_DATE%%', 
             id: 'form_addUDRC_EndDate',
             name: 'form_addUDRC_EndDate',
-            allowBlank:true,
+            allowBlank: true,
             //disabled:%%FIRST_ITEM%%,
-            anchor: '100%'  
+            anchor: '100%'
           }]
       });
 
@@ -703,13 +698,13 @@
         closeAction: 'close',
 
         buttons: [{
-                    text: '<%=GetLocalResourceObject("TEXT_OK")%>',
-                    handler: onOK_AddUDRC
-                  },
-                  {
-                    text: '<%=GetLocalResourceObject("TEXT_CANCEL")%>',
-                    handler: onCancel_AddUDRC
-                  }]
+            text: '<%=GetLocalResourceObject("TEXT_OK")%>',
+            handler: onOK_AddUDRC
+          },
+          {
+            text: '<%=GetLocalResourceObject("TEXT_CANCEL")%>',
+            handler: onCancel_AddUDRC
+          }]
       });
 
       AddUDRCWindow.show();
@@ -984,85 +979,85 @@
         defaultType: 'textfield',
 
         items: [{
-                  readOnly: true,
-                  fieldLabel: '<%=GetLocalResourceObject("PONAME")%>',
-                  id: 'form_addICB_POName',
-                  name: 'form_addICB_POName',
-                  value: poName,
-                  allowBlank: false,
-                  anchor: '100%'
-                },
-                {
-                  xtype: 'hidden',
-                  hideLabel: true,
-                  id: 'form_addICB_POId',
-                  name: 'form_addICB_POId',
-                  value: poId
-                },
-                {
-                  readOnly: true,
-                  fieldLabel: '<%=GetLocalResourceObject("PINAME")%>',
-                  id: 'form_addICB_PIName',
-                  name: 'form_addICB_PIName',
-                  value: piName,
-                  allowBlank: false,
-                  anchor: '100%'
-                },
-                {
-                  xtype: 'hidden',
-                  hideLabel: true,
-                  id: 'form_addICB_PIId',
-                  name: 'form_addICB_PIId',
-                  value: piId
-                },
-                {
-                  xtype: 'numberfield',
-                  allowDecimals: true,
-                  allowBlank: false,
-                  allowNegative: false,
-                  fieldLabel: '<%=GetLocalResourceObject("PRICE")%>',
-                  id: 'form_addICB_Price',
-                  name: 'form_addICB_Price',
-                  anchor: '100%',
-                  value: 0,
-                  tabIndex: 0
-                },
-                {
-                  xtype: 'numberfield',
-                  allowDecimals: true,
-                  allowBlank: false,
-                  allowNegative: false,
-                  fieldLabel: '<%=GetLocalResourceObject("UNIT_VALUE")%>',
-                  id: 'form_addICB_UnitValue',
-                  name: 'form_addICB_UnitValue',
-                  anchor: '100%',
-                  value: 0,
-                  tabIndex: 1
-                },
-                {
-                  xtype: 'numberfield',
-                  allowDecimals: true,
-                  allowBlank: false,
-                  allowNegative: false,
-                  fieldLabel: '<%=GetLocalResourceObject("UNIT_AMOUNT")%>',
-                  id: 'form_addICB_UnitAmount',
-                  name: 'form_addICB_UnitAmount',
-                  anchor: '100%',
-                  value: 0,
-                  tabIndex: 2
-                },
-                {
-                  xtype: 'numberfield',
-                  allowDecimals: true,
-                  allowBlank: false,
-                  allowNegative: false,
-                  fieldLabel: '<%=GetLocalResourceObject("BASE_AMOUNT")%>',
-                  id: 'form_addICB_BaseAmount',
-                  name: 'form_addICB_BaseAmount',
-                  anchor: '100%',
-                  value: 0,
-                  tabIndex: 3
-                }]
+            readOnly: true,
+            fieldLabel: '<%=GetLocalResourceObject("PONAME")%>',
+            id: 'form_addICB_POName',
+            name: 'form_addICB_POName',
+            value: poName,
+            allowBlank: false,
+            anchor: '100%'
+          },
+          {
+            xtype: 'hidden',
+            hideLabel: true,
+            id: 'form_addICB_POId',
+            name: 'form_addICB_POId',
+            value: poId
+          },
+          {
+            readOnly: true,
+            fieldLabel: '<%=GetLocalResourceObject("PINAME")%>',
+            id: 'form_addICB_PIName',
+            name: 'form_addICB_PIName',
+            value: piName,
+            allowBlank: false,
+            anchor: '100%'
+          },
+          {
+            xtype: 'hidden',
+            hideLabel: true,
+            id: 'form_addICB_PIId',
+            name: 'form_addICB_PIId',
+            value: piId
+          },
+          {
+            xtype: 'numberfield',
+            allowDecimals: true,
+            allowBlank: false,
+            allowNegative: false,
+            fieldLabel: '<%=GetLocalResourceObject("PRICE")%>',
+            id: 'form_addICB_Price',
+            name: 'form_addICB_Price',
+            anchor: '100%',
+            value: 0,
+            tabIndex: 0
+          },
+          {
+            xtype: 'numberfield',
+            allowDecimals: true,
+            allowBlank: false,
+            allowNegative: false,
+            fieldLabel: '<%=GetLocalResourceObject("UNIT_VALUE")%>',
+            id: 'form_addICB_UnitValue',
+            name: 'form_addICB_UnitValue',
+            anchor: '100%',
+            value: 0,
+            tabIndex: 1
+          },
+          {
+            xtype: 'numberfield',
+            allowDecimals: true,
+            allowBlank: false,
+            allowNegative: false,
+            fieldLabel: '<%=GetLocalResourceObject("UNIT_AMOUNT")%>',
+            id: 'form_addICB_UnitAmount',
+            name: 'form_addICB_UnitAmount',
+            anchor: '100%',
+            value: 0,
+            tabIndex: 2
+          },
+          {
+            xtype: 'numberfield',
+            allowDecimals: true,
+            allowBlank: false,
+            allowNegative: false,
+            fieldLabel: '<%=GetLocalResourceObject("BASE_AMOUNT")%>',
+            id: 'form_addICB_BaseAmount',
+            name: 'form_addICB_BaseAmount',
+            anchor: '100%',
+            value: 0,
+            tabIndex: 3
+          }]
       });
 
       AddICBWindow = new Ext.Window({
@@ -1082,13 +1077,13 @@
         closeAction: 'close',
 
         buttons: [{
-          text: '<%=GetLocalResourceObject("TEXT_OK")%>',
-          handler: onOK_AddICB
-        },
-                        {
-                          text: '<%=GetLocalResourceObject("TEXT_CANCEL")%>',
-                          handler: onCancel_AddICB
-                        }]
+            text: '<%=GetLocalResourceObject("TEXT_OK")%>',
+            handler: onOK_AddICB
+          },
+          {
+            text: '<%=GetLocalResourceObject("TEXT_CANCEL")%>',
+            handler: onCancel_AddICB
+          }]
       });
 
       AddICBWindow.show();
@@ -1113,7 +1108,7 @@
 
         var found = icbStore.find('RecordId', recordId);
         if (found == -1) {
-          var newICBRecord = new icbRecord({
+          var newICBRecord = new IcbRecord({
             ProductOfferingId: form_addICB.items.get('form_addICB_POId').value,
             PriceableItemId: form_addICB.items.get('form_addICB_PIId').value,
             Price: form_addICB.items.get('form_addICB_Price').value,
@@ -1168,7 +1163,7 @@
       groupField: 'GroupId'
     });
 
-    var icbRecord = Ext.data.Record.create([ // creates a subclass of Ext.data.Record
+    var IcbRecord = Ext.data.Record.create([ // creates a subclass of Ext.data.Record
         { name: 'PriceableItemId' },
         { name: 'ProductOfferingId' },
         { name: 'Price' },

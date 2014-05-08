@@ -11,4 +11,4 @@ join t_recevent re on re.id_event = rei.id_event
 where rei.tx_status = 'Failed'
 and rer.tx_status = 'Failed'
 and rer.dt_start > DATEADD(month, -1, getutcdate())
-order by Date desc
+order by EndDate desc

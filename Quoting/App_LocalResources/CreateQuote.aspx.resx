@@ -231,6 +231,9 @@
   <data name="REMOVE_ICB" xml:space="preserve">
     <value>Remove ICB</value>
   </data>
+  <data name="REMOVE_UDRC" xml:space="preserve">
+    <value>Remove UDRC</value>
+  </data>
   <data name="TEXT_ADDING_ICB" xml:space="preserve">
     <value>Adding ICB</value>
   </data>

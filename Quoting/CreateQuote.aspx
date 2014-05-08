@@ -534,7 +534,7 @@
           RecordId: recordId
         });
 
-        if (piKind == 25) {
+        if (piKind == 25) { //UDRC pi
           var found1 = piUDRCStore.find('RecordId', recordId);
           if (found1 == -1) {
             piUDRCStore.add(myNewRecord);
@@ -861,7 +861,7 @@
     function UdrcActionsRenderer(value, meta, record) {
       var str = String.format(
         "<a style='cursor:hand;' id='deleteICB_{0}' title='{1}' href='JavaScript:removeUDRC(\"{0}\");'><img src='/Res/Images/icons/cross.png' alt='{1}' /></a>",
-        record.data.RecordId, '<%=GetLocalResourceObject("REMOVE_ICB")%>');
+        record.data.RecordId, '<%=GetLocalResourceObject("REMOVE_UDRC")%>');
       return str;
     }
 
@@ -977,6 +977,9 @@
       var poName = poStore.getAt(idx).data.Name;
       idx = piWithAllowIcbStore.find('PriceableItemId', piId);
       var piName = piWithAllowIcbStore.getAt(idx).data.Name;
+      var piKind = piWithAllowIcbStore.getAt(idx).data.PIKind;
+
+      var isUDRC = (piKind == 25);
 
       form_addICB = new Ext.FormPanel({
         baseCls: 'x-plain',
@@ -1020,41 +1023,17 @@
                   allowDecimals: true,
                   allowBlank: false,
                   allowNegative: false,
-                  fieldLabel: '<%=GetLocalResourceObject("PRICE")%>',
+                  fieldLabel: '<b><%=GetLocalResourceObject("PRICE")%></b>',
                   id: 'form_addICB_Price',
                   name: 'form_addICB_Price',
                   anchor: '100%',
                   value: 0,
                   tabIndex: 0
-                },
+                },                
                 {
                   xtype: 'numberfield',
                   allowDecimals: true,
-                  allowBlank: false,
-                  allowNegative: false,
-                  fieldLabel: '<%=GetLocalResourceObject("UNIT_VALUE")%>',
-                  id: 'form_addICB_UnitValue',
-                  name: 'form_addICB_UnitValue',
-                  anchor: '100%',
-                  value: 0,
-                  tabIndex: 1
-                },
-                {
-                  xtype: 'numberfield',
-                  allowDecimals: true,
-                  allowBlank: false,
-                  allowNegative: false,
-                  fieldLabel: '<%=GetLocalResourceObject("UNIT_AMOUNT")%>',
-                  id: 'form_addICB_UnitAmount',
-                  name: 'form_addICB_UnitAmount',
-                  anchor: '100%',
-                  value: 0,
-                  tabIndex: 2
-                },
-                {
-                  xtype: 'numberfield',
-                  allowDecimals: true,
-                  allowBlank: false,
+                  allowBlank: true,
                   allowNegative: false,
                   fieldLabel: '<%=GetLocalResourceObject("BASE_AMOUNT")%>',
                   id: 'form_addICB_BaseAmount',
@@ -1063,7 +1042,33 @@
                   value: 0,
                   tabIndex: 3
                 }]
-      });
+              });
+
+              if (isUDRC) {
+                form_addICB.items.add(new Ext.form.NumberField({
+                  allowDecimals: true,
+                  allowBlank: true,
+                  allowNegative: false,
+                  fieldLabel: '<%=GetLocalResourceObject("UNIT_VALUE")%>',
+                  id: 'form_addICB_UnitValue',
+                  name: 'form_addICB_UnitValue',
+                  anchor: '100%',
+                  value: 0,
+                  tabIndex: 1
+                }));
+
+                form_addICB.items.add(new Ext.form.NumberField({
+                  allowDecimals: true,
+                  allowBlank: true,
+                  allowNegative: false,
+                  fieldLabel: '<%=GetLocalResourceObject("UNIT_AMOUNT")%>',
+                  id: 'form_addICB_UnitAmount',
+                  name: 'form_addICB_UnitAmount',
+                  anchor: '100%',
+                  value: 0,
+                  tabIndex: 2
+                }));
+              }
 
       AddICBWindow = new Ext.Window({
         title: '<%=GetLocalResourceObject("TEXT_ADD_ICB")%>',

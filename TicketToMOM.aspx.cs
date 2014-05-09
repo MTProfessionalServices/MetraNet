@@ -25,7 +25,8 @@ public partial class UserControls_ticketToMOM : MTPage
 
 			try
 			{
-				ApiInput input = new ApiInput(gotoURL);
+        gotoURL = gotoURL + "?language=" + Session["MTSelectedLanguage"];
+        ApiInput input = new ApiInput(gotoURL);
 				SecurityKernel.AccessController.Api.ExecuteDefaultByCategory(AccessControllerEngineCategory.UrlController.ToString(), input);
 			}
 			catch (AccessControllerException accessExp)

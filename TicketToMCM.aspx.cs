@@ -26,7 +26,10 @@ public partial class UserControls_ticketToMCM : MTPage
 
 			try
 			{
-        gotoURL = gotoURL + "&language=" + Session["MTSelectedLanguage"]; 
+        if (gotoURL.Contains("?"))
+          gotoURL = gotoURL + "&language=" + Session["MTSelectedLanguage"];
+        else
+          gotoURL = gotoURL + "?language=" + Session["MTSelectedLanguage"];
         ApiInput input = new ApiInput(gotoURL);
 				SecurityKernel.AccessController.Api.ExecuteDefaultByCategory(AccessControllerEngineCategory.UrlController.ToString(), input);
 			}

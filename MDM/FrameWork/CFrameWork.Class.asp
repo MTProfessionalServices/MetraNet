@@ -715,7 +715,12 @@ CLASS CFrameWork ' -- The FrameWork Class --
                           Session(FRAMEWORK_APP_LANGUAGE)           = FRAMEWORK_DEFAULT_LANGUAGE
                     end if 
               else
-                Session(FRAMEWORK_APP_LANGUAGE) = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 2)
+              dim lang
+              lang = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 2)
+              if (instr(1, lang, "en") <> 0) then
+                lang = "en-US"
+              end if
+                Session(FRAMEWORK_APP_LANGUAGE) = lang
               end if
 
 	            Session    (FRAMEWORK_APP_FOLDER)     = Server.MapPath(Application(FRAMEWORK_APP_STARTPAGE))

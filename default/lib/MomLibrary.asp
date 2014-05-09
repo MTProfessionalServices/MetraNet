@@ -380,7 +380,12 @@ FUNCTION InitializeApplication() ' As Boolean
                         Session("mdm_APP_LANGUAGE")           = mom_LANGUAGE
                   end if
               else
-                  Session("mdm_APP_LANGUAGE") = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 2) 
+                  dim lang
+                  lang = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 2)
+                  if (instr(1, lang, "en") <> 0) then
+                    lang = "en-US"
+                  end if
+                  Session("mdm_APP_LANGUAGE") = lang 
               end if
             end if
     FrameWork.Initialize TRUE

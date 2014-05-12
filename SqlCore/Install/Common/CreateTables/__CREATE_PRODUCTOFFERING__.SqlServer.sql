@@ -7,7 +7,7 @@ IsUserSubscribable char(1) NOT NULL,
 IsUserUnsubscribable char(1) NOT NULL,
 IsHidden char(1) NOT NULL,
 EffectiveStartDate datetime NOT NULL,
-EffectiveEndDate datetime,
+EffectiveEndDate datetime NOT NULL,
 AvailableStartDate datetime NOT NULL,
-AvailableEndDate datetime
+AvailableEndDate datetime NOT NULL
 )

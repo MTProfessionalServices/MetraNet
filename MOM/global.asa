@@ -41,17 +41,16 @@ FUNCTION InitializeApplication() ' As Boolean
                             Session("mdm_APP_LANGUAGE")           = L
                       else
                             Session("mdm_APP_LANGUAGE")           = mom_LANGUAGE
-                      end if
-                  end if 
-              else
+                      end if 
+                else
                   dim lang
                   lang = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 2)
                   if (instr(1, lang, "en") <> 0) then
                     lang = "en-US"
                   end if
-                  Session("PAGE_LANGUAGE") = lang
-              end if
-      
+                  Session("mdm_APP_LANGUAGE") = lang
+                end if
+          end if
     Set objRCD                = CreateObject("Metratech.RCD")    
     Session("VIRTUAL_DIR")    = mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1)
     Session("EXTENSION_DIR")  = objRCD.ExtensionDir

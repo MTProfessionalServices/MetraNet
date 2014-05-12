@@ -1,7 +1,8 @@
 DECLARE 
   l_tbl_count NUMBER;  
-  l_interval_id   t_usage_interval.id_interval%TYPE := %%ID_USAGE_INTERVAL%%;
+  l_interval_id   t_usage_interval.id_interval%TYPE := 123;
   p_result sys_refcursor;
+  v_sql VARCHAR2(4000);
 BEGIN
   SELECT COUNT(1)
   INTO l_tbl_count
@@ -35,20 +36,20 @@ BEGIN
                         group by rei.id_arg_interval, tx_display_name,  rer.dt_start
                         order by   rer.dt_start';
                   
-  MERGE into NM_Dashboard__Interval_Data ca
+ EXECUTE IMMEDIATE 'MERGE into NM_Dashboard__Interval_Data ca
   USING
   (
     SELECT tx_display_name, avg(duration) field2Sum
     FROM NM_Dashboard__Interval_Data sft
-    WHERE id_arg_interval <>  l_interval_id
+    WHERE id_arg_interval <> ' || l_interval_id ||'
     GROUP BY tx_display_name
   ) sft ON (ca.tx_display_name = sft.tx_display_name)
   WHEN MATCHED THEN UPDATE 
-  SET ca.three_month_avg = field2Sum;                        
-
-  OPEN p_result FOR
-    SELECT ROW_NUMBER() OVER (ORDER BY (SELECT 1 FROM dual)) RowNumber, tx_display_name Adapter, duration Duration, three_month_avg Average
+  SET ca.three_month_avg = field2Sum'; 
+  
+  v_sql := ' SELECT ROW_NUMBER() OVER (ORDER BY (SELECT 1 FROM dual)) RowNumber, tx_display_name Adapter, duration Duration, three_month_avg Average
     FROM NM_Dashboard__Interval_Data
-    WHERE id_arg_interval = l_interval_id;
-    
+    WHERE id_arg_interval = :1'; 
+     
+     OPEN p_result FOR v_sql USING l_interval_id;    
 END;

@@ -580,7 +580,9 @@
                 <ResourceClassKey>Resource</ResourceClassKey>
             </ToolTip>
             <IconClass>add</IconClass>
-            <RequiredCapabilities></RequiredCapabilities>
+            <RequiredCapabilities>
+				<Capability>Manage Quoting</Capability>
+			</RequiredCapabilities>
             <JSHandlerFunction>onNew</JSHandlerFunction>
         </Button>
         <Button>
@@ -594,7 +596,9 @@
                 <ResourceClassKey>Resource</ResourceClassKey>
             </ToolTip>
             <IconClass>remove</IconClass>
-            <RequiredCapabilities></RequiredCapabilities>
+            <RequiredCapabilities>
+				<Capability>Manage Quoting</Capability>
+			</RequiredCapabilities>
             <JSHandlerFunction>onDeleteBulk</JSHandlerFunction>
         </Button>
     </ToolbarButtons>

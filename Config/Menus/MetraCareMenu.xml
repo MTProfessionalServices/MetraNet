@@ -172,6 +172,7 @@
                             <Icon>/Res/Images/Icons/report.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
+								<Capability>Manage Quoting</Capability>
                                 <Capability>View Quoting</Capability>
                             </RequiredCapabilities>
                         </MenuItem>

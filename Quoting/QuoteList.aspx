@@ -23,6 +23,7 @@
   <script type="text/javascript">
     var textEdit = '<%=GetGlobalResourceObject("JSConsts", "TEXT_EDIT")%>';
     var textDelete = '<%=GetGlobalResourceObject("JSConsts", "TEXT_DELETE")%>';
+    var textConvert = '<%=GetGlobalResourceObject("JSConsts", "TEXT_CONVERT")%>';
     
     OverrideRenderer_<%=QuoteListGrid.ClientID%> = function(cm) {
       cm.setRenderer(cm.getIndexById('Actions'), actionsColumnRenderer);
@@ -31,9 +32,14 @@
     function actionsColumnRenderer(value, meta, record) {
       var str = "";
       var entityId = record.data.IdQuote;
+      var status = String.format("{0}", record.data.Status);
 
-      // Edit Quote
-      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"edit\" href=\"javascript:onEdit('{0}')\"><img src=\"/Res/Images/icons/table_edit.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textEdit));
+      // Convert Quote  
+      if(status == 'Complete')
+        str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"convert\" href=\"javascript:onConvert('{0}')\"><img src=\"/Res/Images/icons/arrow_rotate_clockwise.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textConvert));
+
+//      // Edit Quote
+//      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"edit\" href=\"javascript:onEdit('{0}')\"><img src=\"/Res/Images/icons/table_edit.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textEdit));
 
       // Delete Quote     
       str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"delete\" href=\"javascript:onDelete('{0}')\"><img src=\"/Res/Images/icons/cross.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textDelete));
@@ -79,6 +85,21 @@
         fn: function(btn) {
           if (btn == 'ok') {
             window.CallServer(JSON.stringify({ action: 'deleteBulk', entityIds: entityIds }));
+          }
+        },
+        animEl: 'elId',
+        icon: window.Ext.MessageBox.QUESTION
+      });
+    }
+    
+    function onConvert(entityId) {
+      top.Ext.MessageBox.show({
+        title: textConvert,
+        msg: String.format('<%=GetGlobalResourceObject("JSConsts", "TEXT_CONVERT_MESSAGE")%>', entityId),
+        buttons: window.Ext.MessageBox.OKCANCEL,
+        fn: function(btn) {
+          if (btn == 'ok') {
+            window.CallServer(JSON.stringify({ action: 'convertOne', entityId: entityId }));
           }
         },
         animEl: 'elId',

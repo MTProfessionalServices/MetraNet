@@ -1,5 +1,5 @@
 /* ANNALITICS DATAMART table*/
-        CREATE TABLE customers (
+        CREATE TABLE Customer (
         InstanceId varchar (255) NOT NULL,
 		MetraNetId int NOT NULL,
 		AccountType varchar(200) NOT NULL,

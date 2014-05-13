@@ -16,12 +16,14 @@ end;
 
 TRUNCATE TABLE Customer;
 TRUNCATE TABLE SalesRep;
-TRUNCATE TABLE SubscriptionByMonth;
-TRUNCATE TABLE Subscription;
-TRUNCATE TABLE SubscriptionPrice;
+/* [TODO:] need to be implemented */
+/* TRUNCATE TABLE SubscriptionByMonth;
+TRUNCATE TABLE Subscription; 
+TRUNCATE TABLE SubscriptionPrice; */
 TRUNCATE TABLE SubscriptionUnits;
 TRUNCATE TABLE SubscriptionSummary;
-TRUNCATE TABLE Counters;
+/* [TODO:] need to be implemented */
+/*TRUNCATE TABLE Counters;*/
 TRUNCATE TABLE CurrencyExchangeMonthly;
 TRUNCATE TABLE ProductOffering;
 
@@ -240,6 +242,38 @@ begin
 	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Reducing duplicate aliases from total: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
 end;
 
+insert into Customer
+		(InstanceId,
+		MetraNetId,
+		AccountType,
+		ExternalId,
+		ExternalIdSpace,
+		FirstName,
+		MiddleName,
+		LastName,
+		Company,
+		Currency,
+		City,
+		State,
+		ZipCode,
+		Country,
+		Email,
+		Phone,
+		HierarchyMetraNetId,
+		HierarchyAccountType,
+		HierarchyExternalId,
+		HierarchyExternalIdSpace,
+		HierarchyFirstName,
+		HierarchyMiddleName,
+		HierarchyLastName,
+		HierarchyCompany,
+		HierarchyCurrency,
+		HierarchyCity,
+		HierarchyState,
+		HierarchyZipCode,
+		HierarchyCountry,
+		HierarchyEmail,
+		HierarchyPhone)
 select
 		InstanceId,
 		MetraNetId,
@@ -272,45 +306,9 @@ select
 		HierarchyCountry,
 		HierarchyEmail,
 		HierarchyPhone
-into Customer
-from (
-		select
-		InstanceId,
-		MetraNetId,
-		AccountType,
-		ExternalId,
-		ExternalIdSpace,
-		FirstName,
-		MiddleName,
-		LastName,
-		Company,
-		Currency,
-		City,
-		State,
-		ZipCode,
-		Country,
-		Email,
-		Phone,
-		HierarchyMetraNetId,
-		HierarchyAccountType,
-		HierarchyExternalId,
-		HierarchyExternalIdSpace,
-		HierarchyFirstName,
-		HierarchyMiddleName,
-		HierarchyLastName,
-		HierarchyCompany,
-		HierarchyCurrency,
-		HierarchyCity,
-		HierarchyState,
-		HierarchyZipCode,
-		HierarchyCountry,
-		HierarchyEmail,
-		HierarchyPhone,
-		DENSE_RANK() OVER (PARTITION BY MetraNetId, HierarchyMetraNetId ORDER BY ExternalIdSpace, HierarchyExternalIdSpace) priority
 		FROM #tmp_all_customers
-	 ) a
 where 1=1
-and a.priority = 1
+and DENSE_RANK() OVER (PARTITION BY MetraNetId, HierarchyMetraNetId ORDER BY ExternalIdSpace, HierarchyExternalIdSpace) = 1
 ;
 
 select @l_count = count(1) from Customer;
@@ -322,14 +320,19 @@ begin
 end;
 
 /* sales reps */
-select
-@v_nm_instance as InstanceId,
+insert into SalesRep
+(	InstanceId,
+	MetraNetId,
+	ExternalId,
+	CustomerId,
+	Percentage,
+	RelationshipType)
+select @v_nm_instance as InstanceId,
 tao.id_owner as MetraNetId,
 am.nm_login as ExternalId,
 tao.id_owned as CustomerId,
 tao.n_percent as Percentage,
 substring(ted.nm_enum_data,37, 100) as RelationshipType
-into SalesRep
 from t_acc_ownership tao with(nolock)
 inner join t_enum_data ted with(nolock) on ted.id_enum_data = tao.id_relation_type
 inner join t_account_mapper am with(nolock) on am.id_acc = tao.id_owner and am.nm_space = 'system_user'
@@ -364,11 +367,21 @@ where 1=1
 and pl.n_type = 1
 ;
 
-select
-*
-into CurrencyExchangeMonthly
-from #tmp_fx
-;
+insert into CurrencyExchangeMonthly
+(	InstanceId,
+	StartDate,
+	EndDate,
+	SourceCurrency,
+	TargetCurrency,
+	ExchangeRate
+)
+select InstanceId,
+	StartDate,
+	EndDate,
+	SourceCurrency,
+	TargetCurrency,
+	ExchangeRate
+from #tmp_fx;
 
 select @l_count = count(1) from CurrencyExchangeMonthly;
 
@@ -674,6 +687,23 @@ begin
 	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Info', 'Generating SubscriptionSummary DataMart');
 end;
 
+insert into SubscriptionSummary
+(	InstanceId,
+	ProductOfferingId,
+	[Year],
+	[Month],
+	TotalParticipants,
+	DistinctHierarchies,
+	NewParticipants,
+	MRRPrimaryCurrency,
+	MRRNewPrimaryCurrency,
+	MRRBasePrimaryCurrency,
+	MRRRenewalPrimaryCurrency,
+	MRRPriceChangePrimaryCurrency,
+	MRRChurnPrimaryCurrency,
+	MRRCancelationPrimaryCurrency,
+	SubscriptionRevenuePrimaryCurrency,
+	DaysInMonth)
 select
 mrr.InstanceId,
 sub.id_po as ProductOfferingId,
@@ -691,7 +721,6 @@ sum(mrr.MRRChurnPrimaryCurrency) as MRRChurnPrimaryCurrency,
 sum(mrr.MRRCancelationPrimaryCurrency) as MRRCancelationPrimaryCurrency,
 sum(mrr.SubscriptionRevenuePrimaryCurrency) as SubscriptionRevenuePrimaryCurrency,
 mrr.DaysInMonth
-into SubscriptionSummary
 from SubscriptionsByMonth mrr
 inner join t_sub sub with(nolock) on sub.id_sub = mrr.SubscriptionId
 inner join Customer cust on cust.InstanceId = mrr.InstanceId and cust.MetraNetId = sub.id_acc
@@ -708,8 +737,17 @@ begin
 end;
 
 /* NOTE: this is UDRC's not decision counters */
-select
-@v_nm_instance as InstanceId,
+insert into SubscriptionUnits
+(	InstanceId,
+	SubscriptionId,
+	StartDate,
+	EndDate,
+	UdrcId,
+	UdrcName,
+	UnitName,
+	Units
+)
+select @v_nm_instance as InstanceId,
 rv.id_sub as SubscriptionId,
 rv.vt_start as StartDate,
 rv.vt_end as EndDate,
@@ -717,7 +755,6 @@ bp.id_prop as UdrcId,
 isnull(bp.nm_display_name, bp.nm_name) as UdrcName,
 IsNull(rc.nm_unit_display_name, rc.nm_unit_name) as UnitName,
 rv.n_value as Units
-into SubscriptionUnits
 from t_recur_value rv
 inner join t_base_props bp on bp.id_prop = rv.id_prop
 inner join t_recur rc on rc.id_prop = rv.id_prop
@@ -733,6 +770,17 @@ begin
 	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Info', 'Generating ProductOffering DataMart');
 end;
 
+insert into ProductOffering
+(	InstanceId,
+	ProductOfferingId,
+	ProductOfferingName,
+	IsUserSubscribable,
+	IsUserUnsubscribable,
+	IsHidden,
+	EffectiveStartDate,
+	EffectiveEndDate,
+	AvailableStartDate,
+	AvailableEndDate)
 select
 @v_nm_instance as InstanceId,
 po.id_po as ProductOfferingId,
@@ -744,7 +792,6 @@ IsNull(eff.dt_start, dbo.mtmindate()) as EffectiveStartDate,
 IsNull(eff.dt_end, dbo.mtmaxdate()) as EffectiveEndDate,
 IsNull(avl.dt_start, dbo.mtmindate()) as AvailableStartDate,
 IsNull(avl.dt_end, dbo.mtmaxdate()) as AvailableEndDate
-into ProductOffering
 from t_po po with(nolock)
 inner join t_effectivedate eff with(nolock) on eff.id_eff_date = po.id_eff_date
 inner join t_effectivedate avl with(nolock) on avl.id_eff_date = po.id_avail

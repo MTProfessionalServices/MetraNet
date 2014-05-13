@@ -3,7 +3,7 @@
     <Name>Quoting.PoList</Name>
     <Title>
         <LocalizationTag>GRID_TITLE</LocalizationTag>
-        <ResourceClassKey>Quoting/App_LocalResources/SelectPOForQuote</ResourceClassKey>
+        <ResourceClassKey>Quoting/App_LocalResources/SelectPOForQuote.aspx</ResourceClassKey>
     </Title>
     <Exportable>true</Exportable>
     <Height>400</Height>
@@ -54,7 +54,8 @@
             <DataIndex>ProductOfferingId</DataIndex>
             <IsColumn>false</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Product Offering ID]]></Value>
+                <LocalizationTag>PO_ID</LocalizationTag>
+                <ResourceClassKey>Quoting/App_LocalResources/SelectPOForQuote.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -89,7 +90,8 @@
             <DataIndex>Name</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Name]]></Value>
+                <LocalizationTag>PO_NAME</LocalizationTag>
+                <ResourceClassKey>Quoting/App_LocalResources/SelectPOForQuote.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>300</Width>
@@ -124,7 +126,8 @@
             <DataIndex>Description</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Description]]></Value>
+                <LocalizationTag>PO_DESCRIPTION</LocalizationTag>
+                <ResourceClassKey>Quoting/App_LocalResources/SelectPOForQuote.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>300</Width>
@@ -157,22 +160,22 @@
             <DataType>Numeric</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>POPartitionId</DataIndex>
-            <IsColumn>false</IsColumn>
+            <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_PartitionID</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
+                <LocalizationTag>PO_PARTITIONID</LocalizationTag>
+                <ResourceClassKey>Quoting/App_LocalResources/SelectPOForQuote.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>120</Width>
+            <Width>100</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
+            <DefaultColumn>false</DefaultColumn>
+            <Exportable>false</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
-            <FilterHideable>true</FilterHideable>
+            <Filterable>true</Filterable>
+            <FilterHideable>false</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
             <FilterLabel />
@@ -182,7 +185,7 @@
             <ElementValue2>
                 <Value><![CDATA[]]></Value>
             </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
+            <FilterReadOnly>true</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
     </Elements>
@@ -197,8 +200,8 @@
                 <Column>
                     <Fields>
                         <Field>
-                            <AssemblyFilename></AssemblyFilename>
-                            <ObjectName></ObjectName>
+                            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\MetraTech.DomainModel.ProductCatalog.Generated.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.DomainModel.ProductCatalog.ProductOffering</ObjectName>
                             <ID>ProductOfferingId</ID>
                             <Name>ProductOfferingId</Name>
                         </Field>

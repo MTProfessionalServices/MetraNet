@@ -222,7 +222,7 @@ namespace MetraNet.Quoting
           QuoteDescription = MTtbQuoteDescription.Text,
           QuoteIdentifier = MTtbQuoteIdentifier.Text,
           EffectiveDate = Convert.ToDateTime(MTdpStartDate.Text),
-          EffectiveEndDate = Convert.ToDateTime(MTdpStartDate.Text),
+          EffectiveEndDate = Convert.ToDateTime(MTdpEndDate.Text),
           ReportParameters = { PDFReport = MTcbPdf.Checked },
           Accounts = Accounts,
           ProductOfferings = Pos,

@@ -3,7 +3,6 @@
     <Action>CreateTable</Action>
     <Implementations>
         <Implementation>SqlServer</Implementation>
-        <Implementation>Oracle</Implementation>
     </Implementations>
     <Schemas>
         <Schema>NetMeter</Schema>

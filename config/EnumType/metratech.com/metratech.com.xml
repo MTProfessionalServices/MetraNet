@@ -254,6 +254,9 @@
                         <entry name="Complete">
                             <value>3</value>
                         </entry>
+                        <entry name="Converted">
+                            <value>4</value>
+                        </entry>
                     </entries>
                 </enum>
             </enums>

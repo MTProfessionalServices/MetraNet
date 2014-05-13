@@ -544,13 +544,7 @@
                             <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
                             <ID>POsInfo</ID>
                             <Name>POsInfo</Name>
-                        </Field>
-                        <Field>
-                            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\Core.Quoting.Entity.dll</AssemblyFilename>
-                            <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
-                            <ID>ReportLink</ID>
-                            <Name>ReportLink</Name>
-                        </Field>
+                        </Field>                        
                     </Fields>
                 </Column>
                 <Column>

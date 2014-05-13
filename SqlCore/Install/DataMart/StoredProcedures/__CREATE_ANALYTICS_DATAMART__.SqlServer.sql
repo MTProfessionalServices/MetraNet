@@ -16,9 +16,9 @@ end;
 
 TRUNCATE TABLE Customer;
 TRUNCATE TABLE SalesRep;
+TRUNCATE TABLE SubscriptionsByMonth;
 /* [TODO:] need to be implemented */
-/* TRUNCATE TABLE SubscriptionByMonth;
-TRUNCATE TABLE Subscription; 
+/*TRUNCATE TABLE Subscription; 
 TRUNCATE TABLE SubscriptionPrice; */
 TRUNCATE TABLE SubscriptionUnits;
 TRUNCATE TABLE SubscriptionSummary;
@@ -306,10 +306,11 @@ select
 		HierarchyCountry,
 		HierarchyEmail,
 		HierarchyPhone
-		FROM #tmp_all_customers
+from (select *, 
+		DENSE_RANK() OVER (PARTITION BY MetraNetId, HierarchyMetraNetId ORDER BY ExternalIdSpace, HierarchyExternalIdSpace) as [priority_col]		
+		FROM #tmp_all_customers) a
 where 1=1
-and DENSE_RANK() OVER (PARTITION BY MetraNetId, HierarchyMetraNetId ORDER BY ExternalIdSpace, HierarchyExternalIdSpace) = 1
-;
+and a.[priority_col] = 1
 
 select @l_count = count(1) from Customer;
 
@@ -607,7 +608,7 @@ sum(case when rcs.OldSubscriptionEndDate is null then rcs.DailyRate*rcs.Days els
 into #sum_rcs_by_month
 from #all_rcs_by_month rcs
 where 1=1
-group by 
+group by
 rcs.InstanceId,
 rcs.SubscriptionId,
 rcs.Currency,
@@ -642,31 +643,54 @@ end;
 /* TODO: churn */
 /* TODO: cancellations */
 /* TODO: subscription revenue */
-select
-cMonth.InstanceId,
-cMonth.SubscriptionId,
-cMonth.Year,
-cMonth.Month,
-cMonth.Currency,
-cMonth.TotalAmount as MRR,
-cMonth.TotalAmount*(case when @v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as MRRPrimaryCurrency,
-cMonth.NewAmount as MRRNew,
-cMonth.NewAmount*(case when @v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as MRRNewPrimaryCurrency,
-IsNull(pMonth.TotalAmount,0) as MRRBase,
-IsNull(pMonth.TotalAmount,0)*(case when @v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as MRRBasePrimaryCurrency,
-0 as MRRRenewal,
-0*(case when @v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as MRRRenewalPrimaryCurrency,
-(cMonth.TotalAmount - cMonth.OldAmount) as MRRPriceChange,
-(cMonth.TotalAmount - cMonth.OldAmount)*(case when @v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as MRRPriceChangePrimaryCurrency,
-0 as MRRChurn,
-0*(case when @v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as MRRChurnPrimaryCurrency,
-0 as MRRCancelation,
-0*(case when @v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as MRRCancelationPrimaryCurrency,
-0 as SubscriptionRevenue,
-0*(case when @v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as SubscriptionRevenuePrimaryCurrency,
-cMonth.DaysInMonth,
-cMonth.DaysActiveInMonth
-into SubscriptionsByMonth
+insert into SubscriptionsByMonth
+(	InstanceId,
+	SubscriptionId,
+	[Year],
+	[Month],
+	Currency,
+	MRR,
+	MRRPrimaryCurrency,
+	MRRNew,
+	MRRNewPrimaryCurrency,
+	MRRBase,
+	MRRBasePrimaryCurrency,
+	MRRRenewal,
+	MRRRenewalPrimaryCurrency,
+	MRRPriceChange,
+	MRRPriceChangePrimaryCurrency,
+	MRRChurn,
+	MRRChurnPrimaryCurrency,
+	MRRCancelation,
+	MRRCancelationPrimaryCurrency,
+	SubscriptionRevenue,
+	SubscriptionRevenuePrimaryCurrency,
+	DaysInMonth,
+	DaysActiveInMonth
+)
+select cMonth.InstanceId,
+	cMonth.SubscriptionId,
+	cMonth.Year,
+	cMonth.Month,
+	cMonth.Currency,
+	cMonth.TotalAmount as MRR,
+	cMonth.TotalAmount*(case when @v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as MRRPrimaryCurrency,
+	cMonth.NewAmount as MRRNew,
+	cMonth.NewAmount*(case when @v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as MRRNewPrimaryCurrency,
+	IsNull(pMonth.TotalAmount,0) as MRRBase,
+	IsNull(pMonth.TotalAmount,0)*(case when @v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as MRRBasePrimaryCurrency,
+	0 as MRRRenewal,
+	0*(case when @v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as MRRRenewalPrimaryCurrency,
+	(cMonth.TotalAmount - cMonth.OldAmount) as MRRPriceChange,
+	(cMonth.TotalAmount - cMonth.OldAmount)*(case when @v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as MRRPriceChangePrimaryCurrency,
+	0 as MRRChurn,
+	0*(case when @v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as MRRChurnPrimaryCurrency,
+	0 as MRRCancelation,
+	0*(case when @v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as MRRCancelationPrimaryCurrency,
+	0 as SubscriptionRevenue,
+	0*(case when @v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as SubscriptionRevenuePrimaryCurrency,
+	cMonth.DaysInMonth,
+	cMonth.DaysActiveInMonth
 from #sum_rcs_by_month cMonth
 left outer join #sum_rcs_by_month pMonth on  cMonth.InstanceId = pMonth.InstanceId
 										 and cMonth.SubscriptionId = pMonth.SubscriptionId

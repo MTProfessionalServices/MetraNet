@@ -9,9 +9,9 @@ SELECT  ss.ProductOfferingId,
 		sum(ss.NewParticipants) as NewCustomers, 
 		sum(prev.NewParticipants) as NewCustomersPrevious, 
 		sum(ss.NewParticipants)-sum(prev.NewParticipants) as NewCustomersChange,
-		sum(ss.SubscriptionRevenuePrimaryCurrency) as Revenue, 
-		sum(prev.SubscriptionRevenuePrimaryCurrency) as RevenuePrevious, 
-		sum(ss.SubscriptionRevenuePrimaryCurrency)-sum(prev.SubscriptionRevenuePrimaryCurrency) as RevenueChange
+		sum(ss.SubscriptionRevPrimaryCurrency) as Revenue, 
+		sum(prev.SubscriptionRevPrimaryCurrency) as RevenuePrevious, 
+		sum(ss.SubscriptionRevPrimaryCurrency)-sum(prev.SubscriptionRevPrimaryCurrency) as RevenueChange
 FROM SubscriptionSummary ss
 INNER JOIN ProductOffering po 
 ON po.ProductOfferingId = ss.ProductOfferingId 

@@ -75,15 +75,6 @@ namespace MetraNet.Quoting
       #endregion
     }
 
-    protected override void OnLoadComplete(EventArgs e)
-    {
-      //var accountsFilterValue = Request["Accounts"];
-      //if (String.IsNullOrEmpty(accountsFilterValue)) return;
-
-      //if (accountsFilterValue == "ALL")
-      //  QuoteListGrid.DataSourceURL = @"../AjaxServices/LoadQuotesList.aspx?Accounts=ALL";
-    }
-
     #region Implementation of ICallbackEventHandler
 
     private string _callbackResult = string.Empty;
@@ -178,18 +169,21 @@ namespace MetraNet.Quoting
       {
         Page.Validate();
         ValidateRequest();
+        var accountsFilterValue = Request["Accounts"];
+        var param = accountsFilterValue == "ONE" ? string.Empty : "Accounts=ALL";
+        var redirectPath = string.Format(@"/MetraNet/Quoting/QuoteList.aspx?{0}", param);
+        
         if (!MTCheckBoxViewResult.Checked)  //do async call
         {
           AsyncCreateQuote asynCall = InvokeCreateQuote;
           asynCall.BeginInvoke(RequestForCreateQuote, null, null);
-          Response.Redirect(@"/MetraNet/Quoting/QuoteList.aspx?Accounts=ALL", false);
+          Response.Redirect(redirectPath, false);
         }
         else
         {
           InvokeCreateQuote(RequestForCreateQuote);
-          Response.Redirect(@"/MetraNet/Quoting/QuoteList.aspx?Accounts=ALL", false);
+          Response.Redirect(redirectPath, false);
         }
-
       }
       catch (MASBasicException exp)
       {

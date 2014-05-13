@@ -48,24 +48,26 @@
     </div>
   </MT:MTPanel>
   <div class="x-panel-btns-ct">
-    <div style="width: 630px" class="x-panel-btns x-panel-btns-center">
+    <div style="width: 720px" class="x-panel-btns x-panel-btns-center">
       <div style="text-align: center;">
-        <table>
-          <tr>
-            <td class="x-panel-btn-td">
-              <MT:MTCheckBoxControl ID="MTCheckBoxViewResult" Visible="False" BoxLabel="View result"
-                runat="server" LabelWidth="100" meta:resourcekey="MTCheckBoxPdfResource" />
-            </td>
-            <td class="x-panel-btn-td">
-              <MT:MTButton ID="MTbtnGenerateQuote" runat="server" OnClientClick="return getDataGrids();"
-                OnClick="btnGenerateQuote_Click" TabIndex="150" meta:resourcekey="btnGenerateQuoteResource1" />
-            </td>
-            <td class="x-panel-btn-td">
-              <MT:MTButton ID="MTbtnCancel" runat="server" OnClick="btnCancel_Click" CausesValidation="False"
-                TabIndex="160" meta:resourcekey="MTbtnCancelResource1" />
-            </td>
-          </tr>
-        </table>
+        <center>
+          <table>
+            <tr>
+              <td class="x-panel-btn-td">
+                <MT:MTCheckBoxControl ID="MTCheckBoxViewResult" Visible="False" BoxLabel="View result"
+                  runat="server" LabelWidth="100" meta:resourcekey="MTCheckBoxPdfResource" />
+              </td>
+              <td class="x-panel-btn-td">
+                <MT:MTButton ID="MTbtnGenerateQuote" runat="server" OnClientClick="return getDataGrids();"
+                  OnClick="btnGenerateQuote_Click" TabIndex="150" meta:resourcekey="btnGenerateQuoteResource1" />
+              </td>
+              <td class="x-panel-btn-td">
+                <MT:MTButton ID="MTbtnCancel" runat="server" OnClick="btnCancel_Click" CausesValidation="False"
+                  TabIndex="160" meta:resourcekey="MTbtnCancelResource1" />
+              </td>
+            </tr>
+          </table>
+        </center>
       </div>
     </div>
   </div>

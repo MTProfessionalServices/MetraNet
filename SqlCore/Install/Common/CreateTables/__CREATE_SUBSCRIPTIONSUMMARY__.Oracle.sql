@@ -14,6 +14,6 @@ MRRRenewalPrimaryCurrency number(22,10) NOT NULL,
 MRRPriceChangePrimaryCurrency number(22,10) NOT NULL,
 MRRChurnPrimaryCurrency number(22,10) NOT NULL,
 MRRCancelationPrimaryCurrency number(22,10) NOT NULL,
-SubscriptionRevenuePrimaryCurrency number(22,10) NOT NULL,
+SubscriptionRevPrimaryCurrency number(22,10) NOT NULL,
 DaysInMonth int NOT NULL
 )

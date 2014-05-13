@@ -715,7 +715,7 @@ NVL(pMonth.TotalAmount,0)*(case when v_nm_currency <> cMonth.Currency then exc.E
 0 as MRRCancelation,
 0*(case when v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as MRRCancelationPrimaryCurrency,
 0 as SubscriptionRevenue,
-0*(case when v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as SubscriptionRevenuePrimaryCurrency,
+0*(case when v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as SubscriptionRevPrimaryCurrency,
 cMonth.DaysInMonth,
 cMonth.DaysActiveInMonth
 into SubscriptionsByMonth
@@ -753,7 +753,7 @@ sum(mrr.MRRRenewalPrimaryCurrency) as MRRRenewalPrimaryCurrency,
 sum(mrr.MRRPriceChangePrimaryCurrency) as MRRPriceChangePrimaryCurrency,
 sum(mrr.MRRChurnPrimaryCurrency) as MRRChurnPrimaryCurrency,
 sum(mrr.MRRCancelationPrimaryCurrency) as MRRCancelationPrimaryCurrency,
-sum(mrr.SubscriptionRevenuePrimaryCurrency) as SubscriptionRevenuePrimaryCurrency,
+sum(mrr.SubscriptionRevPrimaryCurrency) as SubscriptionRevPrimaryCurrency,
 mrr.DaysInMonth
 into SubscriptionSummary
 from SubscriptionsByMonth mrr

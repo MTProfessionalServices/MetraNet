@@ -1,5 +1,5 @@
 create table SalesRep (
-			InstanceId varchar2(1) null,
+			InstanceId varchar2(64),
             MetraNetId int not null,
             ExternalId nvarchar2(255) not null,
             CustomerId int not null,

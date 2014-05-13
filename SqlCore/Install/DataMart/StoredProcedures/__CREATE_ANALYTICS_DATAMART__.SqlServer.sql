@@ -664,7 +664,7 @@ insert into SubscriptionsByMonth
 	MRRCancelation,
 	MRRCancelationPrimaryCurrency,
 	SubscriptionRevenue,
-	SubscriptionRevenuePrimaryCurrency,
+	SubscriptionRevPrimaryCurrency,
 	DaysInMonth,
 	DaysActiveInMonth
 )
@@ -688,7 +688,7 @@ select cMonth.InstanceId,
 	0 as MRRCancelation,
 	0*(case when @v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as MRRCancelationPrimaryCurrency,
 	0 as SubscriptionRevenue,
-	0*(case when @v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as SubscriptionRevenuePrimaryCurrency,
+	0*(case when @v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as SubscriptionRevPrimaryCurrency,
 	cMonth.DaysInMonth,
 	cMonth.DaysActiveInMonth
 from #sum_rcs_by_month cMonth
@@ -726,7 +726,7 @@ insert into SubscriptionSummary
 	MRRPriceChangePrimaryCurrency,
 	MRRChurnPrimaryCurrency,
 	MRRCancelationPrimaryCurrency,
-	SubscriptionRevenuePrimaryCurrency,
+	SubscriptionRevPrimaryCurrency,
 	DaysInMonth)
 select
 mrr.InstanceId,
@@ -743,7 +743,7 @@ sum(mrr.MRRRenewalPrimaryCurrency) as MRRRenewalPrimaryCurrency,
 sum(mrr.MRRPriceChangePrimaryCurrency) as MRRPriceChangePrimaryCurrency,
 sum(mrr.MRRChurnPrimaryCurrency) as MRRChurnPrimaryCurrency,
 sum(mrr.MRRCancelationPrimaryCurrency) as MRRCancelationPrimaryCurrency,
-sum(mrr.SubscriptionRevenuePrimaryCurrency) as SubscriptionRevenuePrimaryCurrency,
+sum(mrr.SubscriptionRevPrimaryCurrency) as SubscriptionRevPrimaryCurrency,
 mrr.DaysInMonth
 from SubscriptionsByMonth mrr
 inner join t_sub sub with(nolock) on sub.id_sub = mrr.SubscriptionId

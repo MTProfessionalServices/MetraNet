@@ -1,10 +1,10 @@
-
-
---create table SubscriptionSummary (x clob);
---create table Customer(x clob) on commit delete rows;
---create table SalesRep(x clob) on commit delete rows;
---create table CurrencyExchangeMonthly(x clob) on commit delete rows;
---create table SubscriptionsByMonth(x clob) on commit delete rows;
+/*
+create table SubscriptionSummary (x clob);
+create table Customer(x clob) on commit delete rows;
+create table SalesRep(x clob) on commit delete rows;
+create table CurrencyExchangeMonthly(x clob) on commit delete rows;
+create table SubscriptionsByMonth(x clob) on commit delete rows;
+*/
 CREATE or replace PROCEDURE CreateAnalyticsDataMart (v_dt_now date, v_id_run int, v_nm_currency varchar, v_nm_instance varchar, v_n_months int)
 IS
 l_count int;

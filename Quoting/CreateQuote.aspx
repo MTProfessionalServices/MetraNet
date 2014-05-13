@@ -48,24 +48,26 @@
     </div>
   </MT:MTPanel>
   <div class="x-panel-btns-ct">
-    <div style="width: 630px" class="x-panel-btns x-panel-btns-center">
+    <div style="width: 720px" class="x-panel-btns x-panel-btns-center">
       <div style="text-align: center;">
-        <table>
-          <tr>
-            <td class="x-panel-btn-td">
-              <MT:MTCheckBoxControl ID="MTCheckBoxViewResult" Visible="False" BoxLabel="View result"
-                runat="server" LabelWidth="100" meta:resourcekey="MTCheckBoxPdfResource" />
-            </td>
-            <td class="x-panel-btn-td">
-              <MT:MTButton ID="MTbtnGenerateQuote" runat="server" OnClientClick="return getDataGrids();"
-                OnClick="btnGenerateQuote_Click" TabIndex="150" meta:resourcekey="btnGenerateQuoteResource1" />
-            </td>
-            <td class="x-panel-btn-td">
-              <MT:MTButton ID="MTbtnCancel" runat="server" OnClick="btnCancel_Click" CausesValidation="False"
-                TabIndex="160" meta:resourcekey="MTbtnCancelResource1" />
-            </td>
-          </tr>
-        </table>
+        <center>
+          <table>
+            <tr>
+              <td class="x-panel-btn-td">
+                <MT:MTCheckBoxControl ID="MTCheckBoxViewResult" Visible="False" BoxLabel="View result"
+                  runat="server" LabelWidth="100" meta:resourcekey="MTCheckBoxPdfResource" />
+              </td>
+              <td class="x-panel-btn-td">
+                <MT:MTButton ID="MTbtnGenerateQuote" runat="server" OnClientClick="return getDataGrids();"
+                  OnClick="btnGenerateQuote_Click" TabIndex="150" meta:resourcekey="btnGenerateQuoteResource1" />
+              </td>
+              <td class="x-panel-btn-td">
+                <MT:MTButton ID="MTbtnCancel" runat="server" OnClick="btnCancel_Click" CausesValidation="False"
+                  TabIndex="160" meta:resourcekey="MTbtnCancelResource1" />
+              </td>
+            </tr>
+          </table>
+        </center>
       </div>
     </div>
   </div>
@@ -142,8 +144,8 @@
       //window.icbStore.loadData(icbData);
       addICBs(icbData.icbs);
 
-      var value = window.Ext.get("<%=MTCheckBoxIsGroupSubscription.ClientID %>").dom.value;
-      accountToolBar.items.get('IsGroupSubscription').checked = window.Ext.get("<%=MTCheckBoxIsGroupSubscription.ClientID %>").dom.value;
+      if (window.Ext.get("<%=MTCheckBoxIsGroupSubscription.ClientID %>").dom.value == "true")
+        accountToolBar.items.get('IsGroupSubscription').checked = "checked";
     };
 
     function getDataGrids() {
@@ -151,7 +153,7 @@
       if (result) {
         var btnOk = window.Ext.getCmp('ctl00_ContentPlaceHolder1_MTbtnGenerateQuote');
         btnOk.setDisabled(true);
-    }
+      }
       return result;
     }
 
@@ -167,6 +169,7 @@
       addItemToPIs(response.items);
     }
   </script>
+
   <%-- Account Grid--%>
   <script language="javascript" type="text/javascript">
     var accountData = { accounts: [] };
@@ -188,7 +191,7 @@
     var accountToolBar = new Ext.Toolbar([
     { iconCls: 'add', id: 'Add', text: textSelectAccounts, handler: onAccountAdd },    
     '->',
-    { xtype: 'checkbox', id: 'IsGroupSubscription', checked: false, boxLabel: '<%=GetLocalResourceObject("ISGROUP.BoxLabel")%>', handler: onGroupSubscriptionCheck },
+    { xtype: 'checkbox', id: 'IsGroupSubscription', boxLabel: '<%=GetLocalResourceObject("ISGROUP.BoxLabel")%>', handler: onGroupSubscriptionCheck },
     { xtype: 'tbspacer', width: 50 } ]);
 
     // create the Grid
@@ -321,6 +324,7 @@
       return true;
     }
   </script>
+
   <%-- Product Offering Grid--%>
   <script language="javascript" type="text/javascript">
     var poData = { pos: [] };
@@ -478,6 +482,7 @@
       });
     }
   </script>
+
   <%--UDRC PI Grid--%>
   <script language="javascript" type="text/javascript">
     var piUDRCData = { piUDRC: [] };
@@ -778,6 +783,7 @@
     }
 
   </script>
+
   <%-- UDRC Grid--%>
   <script language="javascript" type="text/javascript">
     var udrcData = { UDRCs: [] };
@@ -903,6 +909,7 @@
       return true;
     }
   </script>
+
   <%-- PI With Allow ICB Grid--%>
   <script language="javascript" type="text/javascript">
     var piWithAllowIcbData = { pisWithAllowIcb: [] };
@@ -1158,6 +1165,7 @@
     }
 
   </script>
+
   <%-- ICB Grid--%>
   <script language="javascript" type="text/javascript">
     var icbData = { icbs: [] };
@@ -1191,7 +1199,7 @@
 
     function addICBs(items) {
       for (var i = 0; i < items.length; i++) {
-        var myNewRecord = new icbRecord({
+        var myNewRecord = new IcbRecord({
           PriceableItemId: items[i].PriceableItemId,
           ProductOfferingId: items[i].ProductOfferingId,
           Price: items[i].Price,
@@ -1252,6 +1260,15 @@
 
     function getICBs() {
       var records = icbStore.data.items;
+
+      if (accountToolBar.items.get('IsGroupSubscription').checked && records.length > 0) {
+        var res = confirm('<%=GetLocalResourceObject("ICB_GROUP_CONFIRM")%>');
+        return res == true ? readICBs(records) : false;
+      } 
+      return readICBs(records);
+    }
+    
+    function readICBs(records) {
       icbData.icbs.length = 0;
       for (var i = 0; i < records.length; i++)
         icbData.icbs.push(records[i].data);
@@ -1259,7 +1276,6 @@
       window.Ext.get("<%=HiddenICBs.ClientID %>").dom.value = icbData.icbs.length > 0 ? window.Ext.encode(icbData.icbs) : "";
       return true;
     }
-
   </script>
 
 </asp:Content>

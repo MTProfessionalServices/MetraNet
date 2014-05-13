@@ -9,30 +9,21 @@ begin
 	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Starting Analytics DataMart');
 end;
 
-if not exists (select 1 from master..sysdatabases where name='AnalyticsDataMart')
-begin
-	if (@v_id_run is not null)
-	begin
-		INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Info', 'Creating database for AnalyticsDataMart');
-	end;
-	create database AnalyticsDataMart;
-end;
-
 if (@v_id_run is not null)
 begin
 	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Flushing Analytics datamart tables');
 end;
 
-IF (EXISTS (SELECT 1 FROM AnalyticsDataMart.INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Customer')) DROP TABLE AnalyticsDataMart..Customer;
-IF (EXISTS (SELECT 1 FROM AnalyticsDataMart.INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'SalesRep')) DROP TABLE AnalyticsDataMart..SalesRep;
-IF (EXISTS (SELECT 1 FROM AnalyticsDataMart.INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'SubscrptionByMonth')) DROP TABLE AnalyticsDataMart..SubscriptionByMonth;
-IF (EXISTS (SELECT 1 FROM AnalyticsDataMart.INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Subscription')) DROP TABLE AnalyticsDataMart..Subscription;
-IF (EXISTS (SELECT 1 FROM AnalyticsDataMart.INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'SubscriptionPrice')) DROP TABLE AnalyticsDataMart..SubscriptionPrice;
-IF (EXISTS (SELECT 1 FROM AnalyticsDataMart.INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'SubscriptionUnits')) DROP TABLE AnalyticsDataMart..SubscriptionUnits;
-IF (EXISTS (SELECT 1 FROM AnalyticsDataMart.INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'SubscriptionSummary')) DROP TABLE AnalyticsDataMart..SubscriptionSummary;
-IF (EXISTS (SELECT 1 FROM AnalyticsDataMart.INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Counters')) DROP TABLE AnalyticsDataMart..Counters;
-IF (EXISTS (SELECT 1 FROM AnalyticsDataMart.INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'CurrencyExchangeMonthly')) DROP TABLE AnalyticsDataMart..CurrencyExchangeMonthly;
-IF (EXISTS (SELECT 1 FROM AnalyticsDataMart.INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'ProductOffering')) DROP TABLE AnalyticsDataMart..ProductOffering;
+TRUNCATE TABLE Customer;
+TRUNCATE TABLE SalesRep;
+TRUNCATE TABLE SubscriptionByMonth;
+TRUNCATE TABLE Subscription;
+TRUNCATE TABLE SubscriptionPrice;
+TRUNCATE TABLE SubscriptionUnits;
+TRUNCATE TABLE SubscriptionSummary;
+TRUNCATE TABLE Counters;
+TRUNCATE TABLE CurrencyExchangeMonthly;
+TRUNCATE TABLE ProductOffering;
 
 if (@v_id_run is not null)
 begin
@@ -281,7 +272,7 @@ select
 		HierarchyCountry,
 		HierarchyEmail,
 		HierarchyPhone
-into AnalyticsDataMart..Customer
+into Customer
 from (
 		select
 		InstanceId,
@@ -322,7 +313,7 @@ where 1=1
 and a.priority = 1
 ;
 
-select @l_count = count(1) from AnalyticsDataMart..Customer;
+select @l_count = count(1) from Customer;
 
 if (@v_id_run is not null)
 begin
@@ -338,7 +329,7 @@ am.nm_login as ExternalId,
 tao.id_owned as CustomerId,
 tao.n_percent as Percentage,
 substring(ted.nm_enum_data,37, 100) as RelationshipType
-into AnalyticsDataMart..SalesRep
+into SalesRep
 from t_acc_ownership tao with(nolock)
 inner join t_enum_data ted with(nolock) on ted.id_enum_data = tao.id_relation_type
 inner join t_account_mapper am with(nolock) on am.id_acc = tao.id_owner and am.nm_space = 'system_user'
@@ -346,7 +337,7 @@ where 1=1
 and @v_dt_now between tao.vt_start and tao.vt_end
 ;
 
-select @l_count = count(1) from AnalyticsDataMart..SalesRep;
+select @l_count = count(1) from SalesRep;
 
 if (@v_id_run is not null)
 begin
@@ -375,11 +366,11 @@ and pl.n_type = 1
 
 select
 *
-into AnalyticsDataMart..CurrencyExchangeMonthly
+into CurrencyExchangeMonthly
 from #tmp_fx
 ;
 
-select @l_count = count(1) from AnalyticsDataMart..CurrencyExchangeMonthly;
+select @l_count = count(1) from CurrencyExchangeMonthly;
 
 if (@v_id_run is not null)
 begin
@@ -662,7 +653,7 @@ IsNull(pMonth.TotalAmount,0)*(case when @v_nm_currency <> cMonth.Currency then e
 0*(case when @v_nm_currency <> cMonth.Currency then exc.ExchangeRate else 1.0 end) as SubscriptionRevenuePrimaryCurrency,
 cMonth.DaysInMonth,
 cMonth.DaysActiveInMonth
-into AnalyticsDataMart..SubscriptionsByMonth
+into SubscriptionsByMonth
 from #sum_rcs_by_month cMonth
 left outer join #sum_rcs_by_month pMonth on  cMonth.InstanceId = pMonth.InstanceId
 										 and cMonth.SubscriptionId = pMonth.SubscriptionId
@@ -675,7 +666,7 @@ left outer join #tmp_fx exc on exc.InstanceId = cMonth.InstanceId and exc.Source
 where 1=1
 ;
 
-select @l_count = count(1) from AnalyticsDataMart..SubscriptionsByMonth;
+select @l_count = count(1) from SubscriptionsByMonth;
 
 if (@v_id_run is not null)
 begin
@@ -700,15 +691,15 @@ sum(mrr.MRRChurnPrimaryCurrency) as MRRChurnPrimaryCurrency,
 sum(mrr.MRRCancelationPrimaryCurrency) as MRRCancelationPrimaryCurrency,
 sum(mrr.SubscriptionRevenuePrimaryCurrency) as SubscriptionRevenuePrimaryCurrency,
 mrr.DaysInMonth
-into AnalyticsDataMart..SubscriptionSummary
-from AnalyticsDataMart..SubscriptionsByMonth mrr
+into SubscriptionSummary
+from SubscriptionsByMonth mrr
 inner join t_sub sub with(nolock) on sub.id_sub = mrr.SubscriptionId
-inner join AnalyticsDataMart..Customer cust on cust.InstanceId = mrr.InstanceId and cust.MetraNetId = sub.id_acc
+inner join Customer cust on cust.InstanceId = mrr.InstanceId and cust.MetraNetId = sub.id_acc
 where 1=1
 group by mrr.InstanceId, mrr.Year, mrr.Month, sub.id_po, mrr.DaysInMonth
 ;
 
-select @l_count = count(1) from AnalyticsDataMart..SubscriptionSummary;
+select @l_count = count(1) from SubscriptionSummary;
 
 if (@v_id_run is not null)
 begin
@@ -726,7 +717,7 @@ bp.id_prop as UdrcId,
 isnull(bp.nm_display_name, bp.nm_name) as UdrcName,
 IsNull(rc.nm_unit_display_name, rc.nm_unit_name) as UnitName,
 rv.n_value as Units
-into AnalyticsDataMart..SubscriptionUnits
+into SubscriptionUnits
 from t_recur_value rv
 inner join t_base_props bp on bp.id_prop = rv.id_prop
 inner join t_recur rc on rc.id_prop = rv.id_prop
@@ -734,7 +725,7 @@ where 1=1
 and rv.tt_end = dbo.mtmaxdate()
 ;
 
-select @l_count = count(1) from AnalyticsDataMart..SubscriptionUnits;
+select @l_count = count(1) from SubscriptionUnits;
 
 if (@v_id_run is not null)
 begin
@@ -753,7 +744,7 @@ IsNull(eff.dt_start, dbo.mtmindate()) as EffectiveStartDate,
 IsNull(eff.dt_end, dbo.mtmaxdate()) as EffectiveEndDate,
 IsNull(avl.dt_start, dbo.mtmindate()) as AvailableStartDate,
 IsNull(avl.dt_end, dbo.mtmaxdate()) as AvailableEndDate
-into AnalyticsDataMart..ProductOffering
+into ProductOffering
 from t_po po with(nolock)
 inner join t_effectivedate eff with(nolock) on eff.id_eff_date = po.id_eff_date
 inner join t_effectivedate avl with(nolock) on avl.id_eff_date = po.id_avail
@@ -761,7 +752,7 @@ inner join t_base_props bp with(nolock) on bp.id_prop = po.id_po
 where 1=1
 ;
 
-select @l_count = count(1) from AnalyticsDataMart..SubscriptionUnits;
+select @l_count = count(1) from SubscriptionUnits;
 
 if (@v_id_run is not null)
 begin

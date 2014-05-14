@@ -63,7 +63,7 @@ namespace MetraNet.Quoting
 
     protected string Mode;
     protected int CurrentQuoteId;
-    
+
     protected void Page_Load(object sender, EventArgs e)
     {
       var cbReference = Page.ClientScript.GetCallbackEventReference(this, "arg", "ReceiveServerData", "context");
@@ -71,7 +71,7 @@ namespace MetraNet.Quoting
       Page.ClientScript.RegisterClientScriptBlock(GetType(), "CallServer", callbackScript, true);
 
       ParseRequest();
-      
+
       MTdpStartDate.Text = MetraTime.Now.Date.ToString();
       MTdpEndDate.Text = MetraTime.Now.Date.AddMonths(1).ToString();
 
@@ -179,7 +179,7 @@ namespace MetraNet.Quoting
         var accountsFilterValue = Request["Accounts"];
         var param = accountsFilterValue == "ONE" ? string.Empty : "Accounts=ALL";
         var redirectPath = string.Format(@"/MetraNet/Quoting/QuoteList.aspx?{0}", param);
-        
+
         if (!MTCheckBoxViewResult.Checked)  //do async call
         {
           AsyncCreateQuote asynCall = InvokeCreateQuote;
@@ -380,35 +380,105 @@ namespace MetraNet.Quoting
 
     private void LoadQuoteToControls()
     {
+
+      //MTPanelQuoteParameters
+
       MTtbQuoteDescription.Text = CurrentQuote.QuoteDescription;
+      MTtbQuoteIdentifier.Text = CurrentQuote.QuoteIdentifier;
+      MTcbPdf.Visible = false;
+
+      MTdpStartDate.Text = CurrentQuote.EffectiveDate.ToString(CultureInfo.InvariantCulture);
+      MTdpEndDate.Text = CurrentQuote.EffectiveEndDate.ToString(CultureInfo.InvariantCulture);
+
+      MTtbQuoteDescription.ReadOnly = true;
+      MTtbQuoteIdentifier.ReadOnly = true;
+
+      MTdpStartDate.ReadOnly = true;
+      MTdpEndDate.ReadOnly = true;
+
+      HiddenAccounts.Value = EncodeAccountsForHiddenControl(CurrentQuote.Accounts);
       
-      //if (!string.IsNullOrEmpty(HiddenAccountIds.Value))
-      //  Accounts = HiddenAccountIds.Value.Split(',').Select(int.Parse).ToList();
-
-      //if (!string.IsNullOrEmpty(HiddenPoIdTextBox.Value))
-      //  Pos = HiddenPoIdTextBox.Value.Split(',').Select(int.Parse).ToList();
-
-      //var isGroupSubscription = Convert.ToBoolean(MTCheckBoxIsGroupSubscription.Value);
-      //RequestForCreateQuote = new QuoteRequest
-      //{
-      //  QuoteDescription = MTtbQuoteDescription.Text,
-      //  QuoteIdentifier = MTtbQuoteIdentifier.Text,
-      //  EffectiveDate = Convert.ToDateTime(MTdpStartDate.Text),
-      //  EffectiveEndDate = Convert.ToDateTime(MTdpEndDate.Text),
-      //  ReportParameters = { PDFReport = MTcbPdf.Checked },
-      //  Accounts = Accounts,
-      //  ProductOfferings = Pos,
-      //  IcbPrices = GetIcbPrices(),
-
-      //  SubscriptionParameters = new SubscriptionParameters
-      //  {
-      //    IsGroupSubscription = isGroupSubscription,
-      //    UDRCValues = GetUdrcPrices()
-      //  }
-      //};
-      //if (isGroupSubscription)
-      //  RequestForCreateQuote.SubscriptionParameters.CorporateAccountId = Convert.ToInt32(HiddenGroupId.Value);
+      HiddenPos.Value = EncodePosForHiddenControl(CurrentQuote.ProductOfferings);
       
+      MTCheckBoxIsGroupSubscription.Value = CurrentQuote.GroupSubscription.ToString();
+      if (CurrentQuote.GroupSubscription)
+        HiddenGroupId.Value = EncodeAccountsForHiddenControl(new List<int> {CurrentQuote.CorporateAccountId});
+
+      PutUDRCsInControl();
+
+      PutICBsInControl();
+
+      //todo fill Quote results section
+
+    }
+
+    private string EncodeAccountsForHiddenControl(IEnumerable<int> accounts)
+    {
+      using (var qsc = new AccountServiceClient())
+      {
+        qsc.ClientCredentials.UserName.UserName = UI.User.UserName;
+        qsc.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+
+        const string accountStr = "{6}'_AccountID': {0}, 'AccountStatus': {1}, 'AccountType': '{2}', 'Internal#Folder': {3}, 'IsGroup': {4}, 'UserName': '{5}'{7}";
+
+        var hiddenAccountsValue = "[";
+        foreach (var accountId in accounts)
+        {
+          Account account;
+          qsc.LoadAccount(new AccountIdentifier(accountId), MetraTime.Now, out account);
+
+          hiddenAccountsValue += string.Format(
+                CultureInfo.CurrentCulture,
+                accountStr,
+                account._AccountID,
+                (int)account.AccountStatus.GetValueOrDefault(),
+                account.AccountType,
+                "false",
+                0,
+                account.UserName,
+                "{", "},");
+        }
+        hiddenAccountsValue = hiddenAccountsValue.Substring(0, hiddenAccountsValue.Length - 1);
+        return hiddenAccountsValue + "]";         
+      }
+    }
+
+
+    private string EncodePosForHiddenControl(IEnumerable<int> pos)
+    {
+      using (var qsc = new ProductOfferingServiceClient())
+      {
+        qsc.ClientCredentials.UserName.UserName = UI.User.UserName;
+        qsc.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+
+        const string poStr = "{2}'Name': '{0}', 'ProductOfferingId': {1}{3}";
+      
+        var hiddenPosValue = "[";
+        foreach (var poId in pos)
+        {
+          ProductOffering po;
+          qsc.GetProductOffering(new PCIdentifier(poId), out po);
+
+          hiddenPosValue += string.Format(
+                CultureInfo.CurrentCulture,
+                poStr,
+                po.Name,
+                po.ProductOfferingId,
+                "{", "},");
+        }
+        hiddenPosValue = hiddenPosValue.Substring(0, hiddenPosValue.Length - 1);
+        return hiddenPosValue + "]";
+      }
+    }
+
+    private void PutICBsInControl()
+    {
+      //throw new NotImplementedException();
+    }
+
+    private void PutUDRCsInControl()
+    {
+      //throw new NotImplementedException();
     }
 
     private void ParseRequest()

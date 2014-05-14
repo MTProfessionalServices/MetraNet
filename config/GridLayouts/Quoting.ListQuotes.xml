@@ -472,7 +472,7 @@
                 <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>60</Width>
+            <Width>75</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
             <Sortable>false</Sortable>
@@ -544,7 +544,7 @@
                             <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
                             <ID>POsInfo</ID>
                             <Name>POsInfo</Name>
-                        </Field>                        
+                        </Field>
                     </Fields>
                 </Column>
                 <Column>
@@ -575,8 +575,8 @@
             </ToolTip>
             <IconClass>add</IconClass>
             <RequiredCapabilities>
-				<Capability>Manage Quoting</Capability>
-			</RequiredCapabilities>
+                <Capability>Manage Quoting</Capability>
+            </RequiredCapabilities>
             <JSHandlerFunction>onNew</JSHandlerFunction>
         </Button>
         <Button>
@@ -591,8 +591,8 @@
             </ToolTip>
             <IconClass>remove</IconClass>
             <RequiredCapabilities>
-				<Capability>Manage Quoting</Capability>
-			</RequiredCapabilities>
+                <Capability>Manage Quoting</Capability>
+            </RequiredCapabilities>
             <JSHandlerFunction>onDeleteBulk</JSHandlerFunction>
         </Button>
     </ToolbarButtons>

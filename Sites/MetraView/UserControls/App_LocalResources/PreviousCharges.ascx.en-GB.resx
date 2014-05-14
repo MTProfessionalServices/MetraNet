@@ -136,6 +136,6 @@
         <value>Previous Balance</value>
     </data>
     <data name="TotalBalanceForward.Text" xml:space="preserve">
-        <value>Total Amount Due:</value>
+        <value>Total Balance Forward</value>
     </data>
 </root>

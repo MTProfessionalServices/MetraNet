@@ -133,6 +133,6 @@
         <value>Make a Payment</value>
     </data>
     <data name="TotalAmountDue.Text" xml:space="preserve">
-        <value></value>
+        <value>Total Amount Due:</value>
     </data>
 </root>

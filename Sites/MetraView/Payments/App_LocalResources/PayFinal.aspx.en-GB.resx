@@ -112,16 +112,16 @@
         <value>2.0</value>
     </resheader>
     <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="AccountNumber" xml:space="preserve">
         <value>Account Number</value>
     </data>
     <data name="BankAccountType" xml:space="preserve">
-        <value></value>
+        <value>Bank Account Type</value>
     </data>
     <data name="CardNumber" xml:space="preserve">
         <value>Card Number</value>
@@ -130,7 +130,7 @@
         <value>Card Type</value>
     </data>
     <data name="InstructionsTest.Text" xml:space="preserve">
-        <value>Your password is expiring in {0} day(s).  If you have time, why not change it now?  </value>
+        <value>Your payment has been processed</value>
     </data>
     <data name="lcAmount.Label" xml:space="preserve">
         <value>Amount</value>

@@ -124,6 +124,6 @@
         <value>.</value>
     </data>
     <data name="ProductUsageGraphText.Text" xml:space="preserve">
-        <value>Third</value>
+        <value>This chart represents the top usage charges for the current billing interval broken out by product.  To view more details regarding these charges click </value>
     </data>
 </root>

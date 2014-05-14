@@ -121,7 +121,7 @@
         <value>Add Credit Card</value>
     </data>
     <data name="ddCardTypeResource1.Label" xml:space="preserve">
-        <value></value>
+        <value>Credit Card Type</value>
     </data>
     <data name="ddExpMonthResource1.Label" xml:space="preserve">
         <value>Expiration Date</value>

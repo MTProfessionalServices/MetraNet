@@ -127,6 +127,6 @@
         <value>Configure Site</value>
     </data>
     <data name="TEXT_WIDGETS" xml:space="preserve">
-        <value>Widget Path</value>
+        <value>Widgets</value>
     </data>
 </root>

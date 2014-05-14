@@ -130,7 +130,7 @@
         <value>Go paperless</value>
     </data>
     <data name="lblGreenLabelResource1.Text" xml:space="preserve">
-        <value></value>
+        <value>Switch to paperless billing</value>
     </data>
     <data name="OnlinePayment.Text" xml:space="preserve">
         <value>, and online payment.</value>
@@ -145,9 +145,9 @@
         <value>Make a Payment</value>
     </data>
     <data name="Switch.Text" xml:space="preserve">
-        <value></value>
+        <value>Switch to our</value>
     </data>
     <data name="TotalAmountDue.Text" xml:space="preserve">
-        <value>Total Amount Due, {0}</value>
+        <value>Total Amount Due:</value>
     </data>
 </root>

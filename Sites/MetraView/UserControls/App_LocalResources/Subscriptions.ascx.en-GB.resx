@@ -148,6 +148,6 @@
         <value>My Subscriptions</value>
     </data>
     <data name="TotalAmountDue.Text" xml:space="preserve">
-        <value>Total Amount Due, {0}</value>
+        <value>Total Amount Due:</value>
     </data>
 </root>

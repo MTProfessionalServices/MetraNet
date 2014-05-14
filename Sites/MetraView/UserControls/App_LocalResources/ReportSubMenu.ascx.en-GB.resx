@@ -133,6 +133,6 @@
         <value>Usage</value>
     </data>
     <data name="UsageReport.Text" xml:space="preserve">
-        <value>Usage Cycle&lt;br&gt;Value</value>
+        <value>Usage Report</value>
     </data>
 </root>

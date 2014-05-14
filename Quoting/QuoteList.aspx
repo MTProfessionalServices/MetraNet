@@ -24,6 +24,7 @@
     var textEdit = '<%=GetGlobalResourceObject("JSConsts", "TEXT_EDIT")%>';
     var textDelete = '<%=GetGlobalResourceObject("JSConsts", "TEXT_DELETE")%>';
     var textConvert = '<%=GetGlobalResourceObject("JSConsts", "TEXT_CONVERT")%>';
+    var textView = '<%=GetGlobalResourceObject("JSConsts", "TEXT_VIEW")%>';
     
     OverrideRenderer_<%=QuoteListGrid.ClientID%> = function(cm) {
       cm.setRenderer(cm.getIndexById('Actions'), actionsColumnRenderer);
@@ -41,6 +42,9 @@
 //      // Edit Quote
 //      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"edit\" href=\"javascript:onEdit('{0}')\"><img src=\"/Res/Images/icons/table_edit.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textEdit));
 
+      // View Quote     
+      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"delete\" href=\"CreateQuote.aspx?mode=VIEW&quoteId={0}\"><img src=\"/Res/Images/icons/application_view_detail.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textView));
+      
       // Delete Quote     
       str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"delete\" href=\"javascript:onDelete('{0}')\"><img src=\"/Res/Images/icons/cross.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textDelete));
       return str;

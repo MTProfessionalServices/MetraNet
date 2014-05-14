@@ -59,12 +59,19 @@ namespace MetraNet.Quoting
 
     protected string AccountArray;
 
+    protected Quote CurrentQuote;
+
+    protected string Mode;
+    protected int CurrentQuoteId;
+    
     protected void Page_Load(object sender, EventArgs e)
     {
       var cbReference = Page.ClientScript.GetCallbackEventReference(this, "arg", "ReceiveServerData", "context");
       var callbackScript = "function CallServer(arg, context)" + "{ " + cbReference + ";}";
       Page.ClientScript.RegisterClientScriptBlock(GetType(), "CallServer", callbackScript, true);
 
+      ParseRequest();
+      
       MTdpStartDate.Text = MetraTime.Now.Date.ToString();
       MTdpEndDate.Text = MetraTime.Now.Date.AddMonths(1).ToString();
 
@@ -343,6 +350,91 @@ namespace MetraNet.Quoting
         0,
         account.UserName,
         "{", "}");
+    }
+
+    private void LoadQuote()
+    {
+      var qsc = new QuotingServiceClient();
+
+      try
+      {
+        qsc.ClientCredentials.UserName.UserName = UI.User.UserName;
+        qsc.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+
+        qsc.GetQuote(CurrentQuoteId, out CurrentQuote);
+      }
+
+
+      finally
+      {
+        if (qsc.State == CommunicationState.Opened)
+        {
+          qsc.Close();
+        }
+        else
+        {
+          qsc.Abort();
+        }
+      }
+    }
+
+    private void LoadQuoteToControls()
+    {
+      MTtbQuoteDescription.Text = CurrentQuote.QuoteDescription;
+      
+      //if (!string.IsNullOrEmpty(HiddenAccountIds.Value))
+      //  Accounts = HiddenAccountIds.Value.Split(',').Select(int.Parse).ToList();
+
+      //if (!string.IsNullOrEmpty(HiddenPoIdTextBox.Value))
+      //  Pos = HiddenPoIdTextBox.Value.Split(',').Select(int.Parse).ToList();
+
+      //var isGroupSubscription = Convert.ToBoolean(MTCheckBoxIsGroupSubscription.Value);
+      //RequestForCreateQuote = new QuoteRequest
+      //{
+      //  QuoteDescription = MTtbQuoteDescription.Text,
+      //  QuoteIdentifier = MTtbQuoteIdentifier.Text,
+      //  EffectiveDate = Convert.ToDateTime(MTdpStartDate.Text),
+      //  EffectiveEndDate = Convert.ToDateTime(MTdpEndDate.Text),
+      //  ReportParameters = { PDFReport = MTcbPdf.Checked },
+      //  Accounts = Accounts,
+      //  ProductOfferings = Pos,
+      //  IcbPrices = GetIcbPrices(),
+
+      //  SubscriptionParameters = new SubscriptionParameters
+      //  {
+      //    IsGroupSubscription = isGroupSubscription,
+      //    UDRCValues = GetUdrcPrices()
+      //  }
+      //};
+      //if (isGroupSubscription)
+      //  RequestForCreateQuote.SubscriptionParameters.CorporateAccountId = Convert.ToInt32(HiddenGroupId.Value);
+      
+    }
+
+    private void ParseRequest()
+    {
+      Mode = Request["mode"];
+
+
+      switch (Mode)
+      {
+        case "VIEW":
+          {
+            CurrentQuoteId = Convert.ToInt32(Request["quoteId"]);
+            LoadQuote();
+            LoadQuoteToControls();
+
+            break;
+          }
+        case "UPDATE":
+          {
+            break;
+          }
+        case "CLONE":
+          {
+            break;
+          }
+      }
     }
   }
 }

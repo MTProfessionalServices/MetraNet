@@ -1303,7 +1303,7 @@ PUBLIC FUNCTION mam_GetDisplayEndDate(datDate)
           mam_GetDisplayEndDate = "<img src='" & Application("APP_HTTP_PATH") & "/default/localized/en-us/images/minusinfinity.gif" & "'>"                              
     Else    
          ' mam_GetDisplayEndDate = Service.Tools.ConvertFromGMT(datDate, MAM().CSR("TimeZoneId").Value)
-          mam_GetDisplayEndDate = datDate
+          mam_GetDisplayEndDate = mdm_Format(datDate,mam_GetDictionary("DATE_FORMAT"))
     End If
 END FUNCTION
 

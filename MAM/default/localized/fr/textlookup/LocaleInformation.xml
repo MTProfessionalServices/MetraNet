@@ -25,16 +25,16 @@ This file defines the MAM system information that must be localized.
 		</text>
 
 		<text id='MDM_CALENDAR_WIDGET_DATEFORMAT'>
-			<value>yyyy/M/d</value>
+			<value>d/M/yyyy</value>
       		<description>Special date format used by javascript based calendar widget. See MDM/Common/Widgets/Calendar for more information.</description>
 		</text>
 
 
  		<text id='MDM_USE_24HOUR_CLOCK'>
-			<value>false</value>
+			<value>true</value>
       		<description>Use 24 hour clock (value=true) or AM/PM based clock (value=false).</description>
 		</text>
- 
+  
  <!--   
 		<text id='MDM_TYPE_TIMESTAMP_CHARS'>
 			<value>0123456789.: APMapm</value>
@@ -50,20 +50,25 @@ This file defines the MAM system information that must be localized.
 			<value>true</value>
       		<description>Use 24 hour clock (value=true) or AM/PM based clock (value=false).</description>
 		</text>
- -->	  
-    
+ -->
+
+  <text id='JS_DATE_FORMAT'>
+    <value>j/n/Y</value>
+    <description>ExtJS date format definition</description>
+  </text>
+  
 		<text id='END_OF_DAY'>
-			<value>11:59:59 PM</value>
+			<value>23:59:59</value>
       <description>End of day</description>
 		</text>
             
 		<text id='DATE_FORMAT'>
-			<value>yyyy/MM/dd</value>
+			<value>dd/MM/yyyy</value>
       <description>The date format used all accross the application. See the Visual Basic Format instructor for more help.</description>
 		</text>
 
 		<text id='DATE_TIME_FORMAT'>
-			<value>yyyy/MM/dd hh:mm:ss AMPM</value>
+			<value>dd/MM/yyyy H:mm:ss</value>
       <description>The time and date format used all accross the application. See the Visual Basic Format instructor for more help.</description>
 		</text>
 		
@@ -73,7 +78,7 @@ This file defines the MAM system information that must be localized.
 		</text>
     
 		<text id='TIME_FORMAT'>
-			<value>hh:mm:ss</value>
+			<value>H:mm:ss</value>
       <description>The time format used all accross the application. See the Visual Basic Format instructor for more help.</description>
 		</text>
     

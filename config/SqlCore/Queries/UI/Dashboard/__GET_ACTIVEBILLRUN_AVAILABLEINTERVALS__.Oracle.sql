@@ -1,6 +1,6 @@
 SELECT ui.id_interval,
-       CONVERT(VARCHAR(10), ui.dt_start, 101) AS dt_start,
-       CONVERT(VARCHAR(10), ui.dt_end, 101) AS dt_end
+       TO_CHAR(dt_start, 'mm/dd/yyyy') dt_start,
+       TO_CHAR(dt_end, 'mm/dd/yyyy') dt_end
 FROM   t_usage_interval ui
 WHERE  ui.tx_interval_status = 'B'
        AND EXISTS (

@@ -17,41 +17,8 @@
     <link rel="stylesheet" type="text/css" href="/Res/Styles/jquery.gridster.css">
     <link rel="stylesheet" type="text/css" href="/Res/Styles/dc.css">
     <link rel="stylesheet" type="text/css" href="/Res/Styles/dashboard.css">
-    <style>
- 
+    <link rel="stylesheet" type="text/css" href="Styles/OperationsDashboard.css">
 
-#formPanel_ctl00_ContentPlaceHolder1_pnlPendingBillClose {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-#formPanel_ctl00_ContentPlaceHolder1_pnlFailedAdapters {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-#formPanel_ctl00_ContentPlaceHolder1_pnlRunningAdapters {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-#grid-container_ctl00_ContentPlaceHolder1_grdPendingBillClose {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-#grid-container_ctl00_ContentPlaceHolder1_grdFailedAdapters {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-#grid-container_ctl00_ContentPlaceHolder1_grdRunningAdapters {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-
-    </style>
     <MT:MTTitle ID="MTTitle1" Text="Operations Dashboard" runat="server" meta:resourcekey="MTTitle1Resource1" />
     <br />
     <div class="gridster" width="100%" height="100%">

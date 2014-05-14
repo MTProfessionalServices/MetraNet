@@ -21,7 +21,6 @@ public partial class OperationsDashboard : MTPage
   protected int softCloseThreshold = 40;
   public string puppetMasterUrl = "https://puppet-corp1";
   public string puppetJsonUrl = "https://puppet-corp1.metratech.com:443/radiator.json";
-  private  string queryPath = @"..\Extensions\SystemConfig\config\SqlCustom\Queries\UI\Dashboard";
   public string puppetJson = "";
 
   protected void Page_Load(object sender, EventArgs e)
@@ -44,13 +43,11 @@ public partial class OperationsDashboard : MTPage
 
   protected override void OnLoadComplete(EventArgs e)
   {
-
       try
       {
-          loadGrids();
-          loadDropDowns();
-         // loadPuppetData();
-            
+          LoadGrids();
+          LoadDropDowns();
+         // loadPuppetData();   
       }
       catch (Exception ex)
       {
@@ -59,27 +56,21 @@ public partial class OperationsDashboard : MTPage
       base.OnLoadComplete(e);
   }
 
-
-  private void loadGrids()
+  private void LoadGrids()
   {
-     Dictionary<string, object> paramDict = new Dictionary<string, object>();
-     string querydir = "..\\Extensions\\SystemConfig\\config\\SqlCustom\\Queries\\UI\\Dashboard";
+    const string querydir = "..\\Extensions\\SystemConfig\\config\\SqlCustom\\Queries\\UI\\Dashboard";
 
-
-     VisualizeService.ConfigureAndLoadGrid(grdFailedAdapters, "__GET_FAILED_ADAPTERS__", querydir, null);
-     VisualizeService.ConfigureAndLoadGrid(grdRunningAdapters, "__GET_RUNNING_ADAPTERS__", querydir, null);
-     VisualizeService.ConfigureAndLoadGrid(grdPendingBillClose, "__GET_PENDINGBILLCLOSE_INFORMATION__", querydir, null);
-      
+    VisualizeService.ConfigureAndLoadGrid(grdFailedAdapters, "__GET_FAILED_ADAPTERS__", querydir);
+    VisualizeService.ConfigureAndLoadGrid(grdRunningAdapters, "__GET_RUNNING_ADAPTERS__", querydir);
+    VisualizeService.ConfigureAndLoadGrid(grdPendingBillClose, "__GET_PENDINGBILLCLOSE_INFORMATION__", querydir);
   }
 
-
-  private void loadDropDowns()
+  private void LoadDropDowns()
   {
-      Dictionary<string, object> paramDict = new Dictionary<string, object>();
-
-      VisualizeService.ConfigureAndLoadDropDowns(ddBillCloses, "dt_end", "id_usage_interval", "__GET_BILLCLOSESYNOPSIS_AVAILABLEINTERVALS__", queryPath, paramDict);
-      VisualizeService.ConfigureAndLoadDropDowns(ddActiveBillRun, "dt_end", "id_usage_interval", "__GET_ACTIVEBILLRUN_AVAILABLEINTERVALS__", queryPath, paramDict);
-   
+    VisualizeService.ConfigureAndLoadDropDowns(ddBillCloses, "dt_end", "id_usage_interval",
+                                               "__GET_BILLCLOSESYNOPSIS_AVAILABLEINTERVALS__");
+    VisualizeService.ConfigureAndLoadDropDowns(ddActiveBillRun, "dt_end", "id_usage_interval",
+                                               "__GET_ACTIVEBILLRUN_AVAILABLEINTERVALS__");
   }
 
   private void loadPuppetData()

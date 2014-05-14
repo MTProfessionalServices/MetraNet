@@ -212,8 +212,8 @@
                 </MT:MTPanel>
             </li>
             <li data-row="28" data-col="1" data-sizex="4" data-sizey="9" height="100%">
-                <MT:MTPanel ID="pnlPendingBillClose" runat="server" Text="Pending Bill Close" Width="430"
-                    Height="325">
+                <MT:MTPanel ID="pnlPendingBillClose" runat="server" Text="Pending Bill Close" meta:resourcekey="pnlPendingBillClose"
+                Width="430" Height="325">
                     <div height="100%" style="height: 248px">
                         <MT:MTFilterGrid ID="grdPendingBillClose" runat="Server" ExtensionName="SystemConfig"
                             TemplateFileName="Dashboard.PendingBillCloses.xml" Width="100%" Height="100%">

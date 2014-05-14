@@ -2,7 +2,7 @@
 CREATE TABLE Customer
       (InstanceId nvarchar(64) NOT NULL,
 			MetraNetId int NOT NULL,
-			IDAccountType int NOT NULL,
+			AccountType nvarchar(200) NOT NULL,
 			ExternalId nvarchar(255) NOT NULL,
 			ExternalIdSpace nvarchar(40) NULL,
 			FirstName nvarchar(40) NULL,
@@ -17,7 +17,7 @@ CREATE TABLE Customer
 			Country nvarchar(100) NULL,
 			Phone nvarchar(40) NULL,
 			HierarchyMetraNetId int NOT NULL,
-			HierarchyAccountType int NULL,
+			HierarchyAccountType nvarchar(200) NULL,
 			HierarchyExternalId nvarchar(255) NULL,
 			HierarchyExternalIdSpace nvarchar(40) NULL,
 			HierarchyFirstName nvarchar(40) NULL,

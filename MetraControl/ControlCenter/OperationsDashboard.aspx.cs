@@ -1,16 +1,5 @@
 using System;
-using System.Collections.Generic;
 using MetraTech.UI.Common;
-using MetraTech.PageNav.ClientProxies;
-using MetraTech.DomainModel.BaseTypes;
-using MetraTech.UI.Controls;
-using MetraTech.OnlineBill;
-using MetraTech.ActivityServices.Common;
-using MetraTech.DataAccess;
-using System.Web.UI.WebControls;
-using System.Net;
-using System.Text;
-using System.IO;
 
 public partial class OperationsDashboard : MTPage
 {
@@ -45,8 +34,9 @@ public partial class OperationsDashboard : MTPage
   {
       try
       {
-          loadGrids();
-          loadDropDowns();      }
+          LoadGrids();
+          LoadDropDowns();      
+      }
       catch (Exception ex)
       {
           Response.Write(ex.StackTrace);

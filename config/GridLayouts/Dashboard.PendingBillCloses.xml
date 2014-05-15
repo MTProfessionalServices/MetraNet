@@ -27,7 +27,7 @@
     <ShowGridHeader>false</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <NoRecordsText>
-        <LocalizationTag>NO_RECORDS_TEXT</LocalizationTag>
+        <LocalizationTag>NO_PENDING_BILL_CLOSE_TEXT</LocalizationTag>
         <ResourceClassKey>MetraControl/ControlCenter/App_LocalResources/OperationsDashboard.aspx</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>SingleColumn</FilterPanelLayout>

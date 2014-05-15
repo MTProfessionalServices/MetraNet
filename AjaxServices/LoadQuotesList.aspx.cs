@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
@@ -236,10 +237,17 @@ namespace MetraNet.AjaxServices
 
             if (propertyInstance.PropertyType == MetraTech.BusinessEntity.Core.PropertyType.Decimal)
             {
-              var n = dispalyValue.ToString().IndexOf(".", StringComparison.Ordinal);
-              if (dispalyValue.ToString().Length > (n + 3))
-                dispalyValue = dispalyValue.ToString().Substring(0, n + 3);
-              if (dispalyValue.ToString().StartsWith("0.00"))
+              var n = dispalyValue.ToString().IndexOf(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator, StringComparison.Ordinal);
+              if (n == -1)
+              {
+                dispalyValue += CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator + "00";
+              }
+              else
+              {
+                if (dispalyValue.ToString().Length > (n + 3))
+                  dispalyValue = dispalyValue.ToString().Substring(0, n + 3);
+              }
+              if (dispalyValue.ToString().StartsWith(String.Format("0{0}00", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator)))
                 dispalyValue = "0";
             }
 

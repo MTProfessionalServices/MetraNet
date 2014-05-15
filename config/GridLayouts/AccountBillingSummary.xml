@@ -2,7 +2,7 @@
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <Name>AccountBillingSummary</Name>
     <Title>
-      <Value><![CDATA[Invoices & Payments]]></Value>
+        <Value><![CDATA[Invoices & Payments]]></Value>
     </Title>
     <Exportable>false</Exportable>
     <Height>270</Height>
@@ -27,7 +27,8 @@
     <ShowGridHeader>false</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <NoRecordsText>
-      <Value><![CDATA[This account does not currently have any invoices or payments.]]></Value>
+        <LocalizationTag>NO_INVOICES_TEXT</LocalizationTag>
+        <ResourceClassKey>Account/App_LocalResources/AccountLandingPage.aspx</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>SingleColumn</FilterPanelLayout>
     <FilterPanelCollapsed>false</FilterPanelCollapsed>
@@ -53,13 +54,14 @@
             <DataIndex>nm_type</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Type]]></Value>
+                <LocalizationTag>TYPE_COL_HEADER_TEXT</LocalizationTag>
+                <ResourceClassKey>Account/App_LocalResources/AccountLandingPage.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>90</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
+            <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
@@ -78,7 +80,7 @@
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
-       <Element>
+        <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
@@ -88,13 +90,14 @@
             <DataIndex>id_transaction</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-               <Value>Identifier</Value>
+                <LocalizationTag>IDENTIFIER_COL_HEADER_TEXT</LocalizationTag>
+                <ResourceClassKey>Account/App_LocalResources/AccountLandingPage.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>90</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
+            <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
@@ -113,43 +116,7 @@
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
-<!--		
         <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename></AssemblyFilename>
-            <ObjectName></ObjectName>
-            <ID>productofferingname</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>productofferingname</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <Value>Subscription</Value>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>300</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>-->		
-       <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
@@ -159,13 +126,14 @@
             <DataIndex>dt_transaction</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Date]]></Value>
+                <LocalizationTag>DATE_COL_HEADER_TEXT</LocalizationTag>
+                <ResourceClassKey>Account/App_LocalResources/AccountLandingPage.aspx</ResourceClassKey>
             </HeaderText>
-            <Formatter>DateRenderer</Formatter>
+            <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
+            <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
@@ -184,144 +152,44 @@
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
-      <Element>
-        <RecordElement>true</RecordElement>
-        <AssemblyFilename></AssemblyFilename>
-        <ObjectName></ObjectName>
-        <ID>n_amount</ID>
-        <DataType>Numeric</DataType>
-        <IsIdentity>false</IsIdentity>
-        <DataIndex>n_amount</DataIndex>
-        <IsColumn>true</IsColumn>
-        <HeaderText>
-          <Value><![CDATA[Amount]]></Value>
-        </HeaderText>
-        <Formatter></Formatter>
-        <Width>120</Width>
-        <Resizeable>true</Resizeable>
-        <PreventSortable>false</PreventSortable>
-        <Sortable>true</Sortable>
-        <ColumnHideable>true</ColumnHideable>
-        <DefaultColumn>true</DefaultColumn>
-        <Exportable>true</Exportable>
-        <ShowInExpander>false</ShowInExpander>
-        <Filterable>true</Filterable>
-        <FilterHideable>true</FilterHideable>
-        <DefaultFilter>true</DefaultFilter>
-        <RequiredFilter>false</RequiredFilter>
-        <FilterLabel />
-        <ElementValue>
-          <Value><![CDATA[]]></Value>
-        </ElementValue>
-        <ElementValue2>
-          <Value><![CDATA[]]></Value>
-        </ElementValue2>
-        <FilterReadOnly>false</FilterReadOnly>
-        <DropdownItems></DropdownItems>
-      </Element>
-      <Element>
-        <RecordElement>true</RecordElement>
-        <AssemblyFilename></AssemblyFilename>
-        <ObjectName></ObjectName>
-        <ID>nm_currency</ID>
-        <DataType>String</DataType>
-        <IsIdentity>false</IsIdentity>
-        <DataIndex>nm_currency</DataIndex>
-        <IsColumn>true</IsColumn>
-        <HeaderText>
-          <Value><![CDATA[Currency]]></Value>
-        </HeaderText>
-        <Formatter></Formatter>
-        <Width>50</Width>
-        <Resizeable>true</Resizeable>
-        <PreventSortable>false</PreventSortable>
-        <Sortable>true</Sortable>
-        <ColumnHideable>true</ColumnHideable>
-        <DefaultColumn>false</DefaultColumn>
-        <Exportable>true</Exportable>
-        <ShowInExpander>false</ShowInExpander>
-        <Filterable>true</Filterable>
-        <FilterHideable>true</FilterHideable>
-        <DefaultFilter>true</DefaultFilter>
-        <RequiredFilter>false</RequiredFilter>
-        <FilterLabel />
-        <ElementValue>
-          <Value><![CDATA[]]></Value>
-        </ElementValue>
-        <ElementValue2>
-          <Value><![CDATA[]]></Value>
-        </ElementValue2>
-        <FilterReadOnly>false</FilterReadOnly>
-        <DropdownItems></DropdownItems>
-      </Element>
-      <!--<Element>
-        <RecordElement>true</RecordElement>
-        <AssemblyFilename></AssemblyFilename>
-        <ObjectName></ObjectName>
-        <ID>subscriptionend</ID>
-        <DataType>Date</DataType>
-        <IsIdentity>false</IsIdentity>
-        <DataIndex>subscriptionstart</DataIndex>
-        <IsColumn>true</IsColumn>
-        <HeaderText>
-          <Value><![CDATA[End]]></Value>
-        </HeaderText>
-        <Formatter>DateRenderer</Formatter>
-        <Width>120</Width>
-        <Resizeable>true</Resizeable>
-        <PreventSortable>false</PreventSortable>
-        <Sortable>true</Sortable>
-        <ColumnHideable>true</ColumnHideable>
-        <DefaultColumn>true</DefaultColumn>
-        <Exportable>true</Exportable>
-        <ShowInExpander>false</ShowInExpander>
-        <Filterable>true</Filterable>
-        <FilterHideable>true</FilterHideable>
-        <DefaultFilter>true</DefaultFilter>
-        <RequiredFilter>false</RequiredFilter>
-        <FilterLabel />
-        <ElementValue>
-          <Value><![CDATA[]]></Value>
-        </ElementValue>
-        <ElementValue2>
-          <Value><![CDATA[]]></Value>
-        </ElementValue2>
-        <FilterReadOnly>false</FilterReadOnly>
-        <DropdownItems></DropdownItems>
-      </Element>
-      <Element>
-        <RecordElement>false</RecordElement>
-        <ID>actions</ID>
-        <DataIndex>actions</DataIndex>
-        <IsColumn>true</IsColumn>
-        <HeaderText>
-          <Value><![CDATA[&nbsp;]]></Value>
-        </HeaderText>
-        --><!--<Formatter>actionsColRenderer</Formatter>--><!--
-        <Width>120</Width>
-        <Resizeable>true</Resizeable>
-        <PreventSortable>false</PreventSortable>
-        <Sortable>false</Sortable>
-        <ColumnHideable>true</ColumnHideable>
-        <DefaultColumn>true</DefaultColumn>
-        <Filterable>false</Filterable>
-      </Element>-->    
-	</Elements>
-    <GridButtons>
-        <!--<Button>
-            <ButtonID>UpdateStatus</ButtonID>
-            <ButtonText>
-                <LocalizationTag>ChangeStatusButton</LocalizationTag>
-                <ResourceClassKey>MetraControl/Payments/App_LocalResources/PaymentTransactions.aspx</ResourceClassKey>
-            </ButtonText>
-            <ToolTip>
-                <LocalizationTag>TEXT_CHANGE_STATUS</LocalizationTag>
-                <ResourceClassKey>FailedTransactionResources</ResourceClassKey>
-            </ToolTip>
-            <IconClass></IconClass>
-            <RequiredCapabilities></RequiredCapabilities>
-            <JSHandlerFunction>onUpdateStatus</JSHandlerFunction>
-        </Button>-->
-    </GridButtons>
-  <ToolbarButtons></ToolbarButtons>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename></AssemblyFilename>
+            <ObjectName></ObjectName>
+            <ID>n_amountAsString</ID>
+            <DataType>String</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>n_amountAsString</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>AMOUNT_COL_HEADER_TEXT</LocalizationTag>
+                <ResourceClassKey>Account/App_LocalResources/AccountLandingPage.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+    </Elements>
+    <ExpanderTemplate></ExpanderTemplate>
+    <GridButtons></GridButtons>
+    <ToolbarButtons></ToolbarButtons>
 </GridLayout>

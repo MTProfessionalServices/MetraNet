@@ -2,7 +2,8 @@
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <Name>AccountSubscriptionSummary</Name>
     <Title>
-      <Value><![CDATA[Subscriptions]]></Value>
+        <LocalizationTag>SUBSCRIPTION_GRID_TITLE_TEXT</LocalizationTag>
+        <ResourceClassKey>Account/App_LocalResources/AccountLandingPage.aspx</ResourceClassKey>
     </Title>
     <Exportable>false</Exportable>
     <Height>0</Height>
@@ -27,7 +28,8 @@
     <ShowGridHeader>true</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <NoRecordsText>
-      <Value><![CDATA[This account currently does not have any subscriptions.]]></Value>
+        <LocalizationTag>NO_SUBSCRIPTIONS_TEXT</LocalizationTag>
+        <ResourceClassKey>Account/App_LocalResources/AccountLandingPage.aspx</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>MultiColumn</FilterPanelLayout>
     <FilterPanelCollapsed>false</FilterPanelCollapsed>
@@ -41,8 +43,9 @@
     <SearchOnLoad>true</SearchOnLoad>
     <CustomImplementationFilePath></CustomImplementationFilePath>
     <SubGrid></SubGrid>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <Elements>
-       <Element>
+        <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
@@ -52,7 +55,7 @@
             <DataIndex>subscriptionid</DataIndex>
             <IsColumn>false</IsColumn>
             <HeaderText>
-               <Value>Subscription Id</Value>
+                <Value><![CDATA[Subscription Id]]></Value>
             </HeaderText>
             <Formatter></Formatter>
             <Width>90</Width>
@@ -87,83 +90,14 @@
             <DataIndex>subscriptiontype</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[&nbsp;]]></Value>
+                <LocalizationTag>SUBSCRIPTION_TYPE_HEADER_TEXT</LocalizationTag>
+                <ResourceClassKey>Account/App_LocalResources/AccountLandingPage.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>30</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>		
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename></AssemblyFilename>
-            <ObjectName></ObjectName>
-            <ID>productofferingname</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>productofferingname</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <Value>Subscription</Value>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>300</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>		
-       <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename></AssemblyFilename>
-            <ObjectName></ObjectName>
-            <ID>subscriptionstart</ID>
-            <DataType>Date</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>subscriptionstart</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <Value><![CDATA[Start]]></Value>
-            </HeaderText>
-            <Formatter>DateRenderer</Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
+            <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
@@ -182,111 +116,167 @@
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
-      <Element>
-        <RecordElement>true</RecordElement>
-        <AssemblyFilename></AssemblyFilename>
-        <ObjectName></ObjectName>
-        <ID>subscriptionend</ID>
-        <DataType>Date</DataType>
-        <IsIdentity>false</IsIdentity>
-        <DataIndex>subscriptionend</DataIndex>
-        <IsColumn>true</IsColumn>
-        <HeaderText>
-          <Value><![CDATA[End]]></Value>
-        </HeaderText>
-        <Formatter>DateRenderer</Formatter>
-        <Width>120</Width>
-        <Resizeable>true</Resizeable>
-        <PreventSortable>false</PreventSortable>
-        <Sortable>true</Sortable>
-        <ColumnHideable>true</ColumnHideable>
-        <DefaultColumn>true</DefaultColumn>
-        <Exportable>true</Exportable>
-        <ShowInExpander>false</ShowInExpander>
-        <Filterable>true</Filterable>
-        <FilterHideable>true</FilterHideable>
-        <DefaultFilter>true</DefaultFilter>
-        <RequiredFilter>false</RequiredFilter>
-        <FilterLabel />
-        <ElementValue>
-          <Value><![CDATA[]]></Value>
-        </ElementValue>
-        <ElementValue2>
-          <Value><![CDATA[]]></Value>
-        </ElementValue2>
-        <FilterReadOnly>false</FilterReadOnly>
-        <DropdownItems></DropdownItems>
-      </Element>
-      <Element>
-        <RecordElement>false</RecordElement>
-        <ID>actions</ID>
-        <DataIndex>actions</DataIndex>
-        <IsColumn>true</IsColumn>
-        <HeaderText>
-          <Value><![CDATA[&nbsp;]]></Value>
-        </HeaderText>
-        <!--<Formatter>actionsColRenderer</Formatter>-->
-        <Width>120</Width>
-        <Resizeable>true</Resizeable>
-        <PreventSortable>false</PreventSortable>
-        <Sortable>false</Sortable>
-        <ColumnHideable>true</ColumnHideable>
-        <DefaultColumn>true</DefaultColumn>
-        <Filterable>false</Filterable>
-      </Element>    
-	</Elements>
-    <GridButtons>
-        <!--<Button>
-            <ButtonID>UpdateStatus</ButtonID>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename></AssemblyFilename>
+            <ObjectName></ObjectName>
+            <ID>productofferingname</ID>
+            <DataType>String</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>productofferingname</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>SUBSCRIPTION_OFFERING_NAME_HEADER_TEXT</LocalizationTag>
+                <ResourceClassKey>Account/App_LocalResources/AccountLandingPage.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>300</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename></AssemblyFilename>
+            <ObjectName></ObjectName>
+            <ID>subscriptionstart</ID>
+            <DataType>Date</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>subscriptionstart</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>SUBSCRIPTION_START_HEADER_TEXT</LocalizationTag>
+                <ResourceClassKey>Account/App_LocalResources/AccountLandingPage.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename></AssemblyFilename>
+            <ObjectName></ObjectName>
+            <ID>subscriptionend</ID>
+            <DataType>Date</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>subscriptionend</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>SUBSCRIPTION_END_HEADER_TEXT</LocalizationTag>
+                <ResourceClassKey>Account/App_LocalResources/AccountLandingPage.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>false</RecordElement>
+            <ID>actions</ID>
+            <DataIndex>actions</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>SUBSCRIPTION_ACTIONS_HEADER_TEXT</LocalizationTag>
+                <ResourceClassKey>Account/App_LocalResources/AccountLandingPage.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Filterable>false</Filterable>
+        </Element>
+    </Elements>
+    <ExpanderTemplate></ExpanderTemplate>
+    <GridButtons></GridButtons>
+    <ToolbarButtons>
+        <Button>
+            <ButtonID>AddRegularSubscription</ButtonID>
             <ButtonText>
-                <LocalizationTag>ChangeStatusButton</LocalizationTag>
-                <ResourceClassKey>MetraControl/Payments/App_LocalResources/PaymentTransactions.aspx</ResourceClassKey>
+                <LocalizationTag>SUBSCRIPTION_ADD_BUTTON_TEXT</LocalizationTag>
+                <ResourceClassKey>Account/App_LocalResources/AccountLandingPage.aspx</ResourceClassKey>
             </ButtonText>
             <ToolTip>
-                <LocalizationTag>TEXT_CHANGE_STATUS</LocalizationTag>
-                <ResourceClassKey>FailedTransactionResources</ResourceClassKey>
+                <LocalizationTag>SUBSCRIPTION_ADD_BUTTON_TOOLTIP_TEXT</LocalizationTag>
+                <ResourceClassKey>Account/App_LocalResources/AccountLandingPage.aspx</ResourceClassKey>
             </ToolTip>
-            <IconClass></IconClass>
-            <RequiredCapabilities></RequiredCapabilities>
-            <JSHandlerFunction>onUpdateStatus</JSHandlerFunction>
-        </Button>-->
-    </GridButtons>
-  <ToolbarButtons>
-    <Button>
-      <ButtonID>AddRegularSubscription</ButtonID>
-      <ButtonText>
-        <Value><![CDATA[Add Subscription]]></Value>        
-        <!-- NICE TO FIGURE OUT HOW TO SHARE EXISTING LOCALIZATION<LocalizationTag>AddSubscription.ButtonText</LocalizationTag>
-        <ResourceClassKey></ResourceClassKey>-->
-      </ButtonText>
-      <ToolTip>
-        <Value><![CDATA[Create a new subscription to a Product Offering]]></Value>
-        <!-- NICE TO FIGURE OUT HOW TO SHARE EXISTING LOCALIZATION<LocalizationTag>AddSubscription.ButtonText</LocalizationTag>
-        <ResourceClassKey></ResourceClassKey>-->
-      </ToolTip>
-      <IconClass>add</IconClass>
-      <RequiredCapabilities>
-        <Capability>Create Subscription</Capability>
-      </RequiredCapabilities>
-      <JSHandlerFunction>onAddRegularSubscription</JSHandlerFunction>
-    </Button>
-    <Button>
-      <ButtonID>AddAccountToExistingGroupSubscription</ButtonID>
-      <ButtonText>
-        <Value><![CDATA[Join Group Subscription]]></Value>
-        <!-- NICE TO FIGURE OUT HOW TO SHARE EXISTING LOCALIZATION<LocalizationTag>AddSubscription.ButtonText</LocalizationTag>
-        <ResourceClassKey></ResourceClassKey>-->
-      </ButtonText>
-      <ToolTip>
-        <Value><![CDATA[Add this account as a member of an existing Group Subscription]]></Value>
-        <!-- NICE TO FIGURE OUT HOW TO SHARE EXISTING LOCALIZATION <LocalizationTag>AddSubscription.ButtonText</LocalizationTag>
-        <ResourceClassKey></ResourceClassKey>-->
-      </ToolTip>
-      <IconClass>add</IconClass>
-      <RequiredCapabilities>
-        <Capability>Create Subscription</Capability>
-      </RequiredCapabilities>
-      <JSHandlerFunction>onAddAccountToGroupSubscription</JSHandlerFunction>
-    </Button>
-   </ToolbarButtons>
+            <IconClass>add</IconClass>
+            <RequiredCapabilities>
+                <Capability>Create Subscription</Capability>
+            </RequiredCapabilities>
+            <JSHandlerFunction>onAddRegularSubscription</JSHandlerFunction>
+        </Button>
+        <Button>
+            <ButtonID>AddAccountToExistingGroupSubscription</ButtonID>
+            <ButtonText>
+                <LocalizationTag>SUBSCRIPTION_JOIN_BUTTON_TEXT</LocalizationTag>
+                <ResourceClassKey>Account/App_LocalResources/AccountLandingPage.aspx</ResourceClassKey>
+            </ButtonText>
+            <ToolTip>
+                <LocalizationTag>SUBSCRIPTION_JOIN_BUTTON_TOOLTIP_TEXT</LocalizationTag>
+                <ResourceClassKey>Account/App_LocalResources/AccountLandingPage.aspx</ResourceClassKey>
+            </ToolTip>
+            <IconClass>add</IconClass>
+            <RequiredCapabilities>
+                <Capability>Create Subscription</Capability>
+            </RequiredCapabilities>
+            <JSHandlerFunction>onAddAccountToGroupSubscription</JSHandlerFunction>
+        </Button>
+    </ToolbarButtons>
 </GridLayout>

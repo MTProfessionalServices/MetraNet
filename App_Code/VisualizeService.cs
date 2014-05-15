@@ -168,48 +168,32 @@ public class VisualizeService
     return json.ToString();
   }
 
-
-
-
-  public static  void ConfigureAndLoadGrid(MTFilterGrid grid, string queryName, string queryPath, Dictionary<string, object> paramDict)
+  public static void ConfigureAndLoadGrid(MTFilterGrid grid, string queryName, string queryPath,
+                                          Dictionary<string, object> paramDict = null)
   {
-    try
-    {
-      SQLQueryInfo sqi = new SQLQueryInfo();
-      sqi.QueryName = queryName;
-      sqi.QueryDir = queryPath;
+    var sqi = new SQLQueryInfo {QueryName = queryName, QueryDir = queryPath};
 
-      if (paramDict != null)
+    if (paramDict != null)
+    {
+      foreach (var pair in paramDict)
       {
-        foreach (var pair in paramDict)
-        {
-          SQLQueryParam param = new SQLQueryParam();
-          param = new SQLQueryParam();
-          param.FieldName = pair.Key;
-          param.FieldValue = pair.Value;
-          sqi.Params.Add(param);
-        }
+        var param = new SQLQueryParam {FieldName = pair.Key, FieldValue = pair.Value};
+        sqi.Params.Add(param);
       }
-
-      string qsParam = MetraTech.UI.Common.SQLQueryInfo.Compact(sqi);
-      grid.DataSourceURLParams.Add("q", qsParam);
-
     }
-    catch
-    {
-      throw;
-    }
+
+    var qsParam = SQLQueryInfo.Compact(sqi);
+    grid.DataSourceURLParams.Add("q", qsParam);
   }
 
 
- public static void ConfigureAndLoadDropDowns(MTDropDown dropDown, string colDisplay, string colValue, string queryName, string queryPath, Dictionary<string, object> paramDict)
+  public static void ConfigureAndLoadDropDowns(MTDropDown dropDown, string colDisplay, string colValue, string queryName,
+                                               string queryPath = sqlQueriesPath,
+                                               Dictionary<string, object> paramDict = null)
   {
-
-
-    using (IMTConnection conn = ConnectionManager.CreateConnection())
+    using (var conn = ConnectionManager.CreateConnection())
     {
-
-      using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(queryPath, queryName))
+      using (var stmt = conn.CreateAdapterStatement(queryPath, queryName))
       {
         if (paramDict != null)
         {
@@ -219,9 +203,9 @@ public class VisualizeService
           }
         }
 
-        using (IMTDataReader reader = stmt.ExecuteReader())
+        using (var reader = stmt.ExecuteReader())
         {
-          ListItem[] items = new ListItem[MAX_DD_COUNT];
+          var items = new ListItem[MAX_DD_COUNT];
           int count = 0;
           int displayOrdinal = 0;
           int valueOrdinal = 0;
@@ -229,10 +213,7 @@ public class VisualizeService
           // process the results
           while (reader.Read())
           {
-
             items[count] = new ListItem();
-
-
             if (count == 0)
             {
               for (int i = 0; i < reader.FieldCount; i++)
@@ -242,28 +223,18 @@ public class VisualizeService
                 if (reader.GetName(i).Equals(colValue))
                   valueOrdinal = i;
               }
-
               items[count].Selected = true;
             }
 
             items[count].Text = reader.GetValue(displayOrdinal).ToString();
             items[count].Value = reader.GetValue(valueOrdinal).ToString();
 
-
-
-
             dropDown.Items.Add(items[count]);
             count = count + 1;
           }
-
         }
-
       }
-
       conn.Close();
     }
-
   }
-
-
 }

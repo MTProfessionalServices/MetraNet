@@ -27,7 +27,8 @@
     <ShowGridHeader>false</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <NoRecordsText>
-        <Value><![CDATA[No Running Adapters]]></Value>
+        <LocalizationTag>NO_RUNNING_ADAPTERS_TEXT</LocalizationTag>
+        <ResourceClassKey>MetraControl/ControlCenter/App_LocalResources/OperationsDashboard.aspx</ResourceClassKey>
     </NoRecordsText>
     <FilterPanelLayout>SingleColumn</FilterPanelLayout>
     <FilterPanelCollapsed>false</FilterPanelCollapsed>
@@ -77,7 +78,8 @@
             <DataIndex>id_instance</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Instance]]></Value>
+                <LocalizationTag>TEXT_INSTANCE</LocalizationTag>
+                <ResourceClassKey>MetraControl/ControlCenter/App_LocalResources/OperationsDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>100</Width>
@@ -112,7 +114,8 @@
             <DataIndex>id_billgroup</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Bill Group]]></Value>
+                <LocalizationTag>TEXT_BILL_GROUP</LocalizationTag>
+                <ResourceClassKey>MetraControl/ControlCenter/App_LocalResources/OperationsDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>100</Width>
@@ -147,7 +150,8 @@
             <DataIndex>id_interval</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Interval]]></Value>
+                <LocalizationTag>TEXT_INTERVAL_ID</LocalizationTag>
+                <ResourceClassKey>MetraControl/ControlCenter/App_LocalResources/OperationsDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>100</Width>
@@ -182,7 +186,8 @@
             <DataIndex>name</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Name]]></Value>
+                <LocalizationTag>TEXT_NAME</LocalizationTag>
+                <ResourceClassKey>MetraControl/ControlCenter/App_LocalResources/OperationsDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>100</Width>
@@ -217,7 +222,8 @@
             <DataIndex>start</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Start]]></Value>
+                <LocalizationTag>TEXT_START</LocalizationTag>
+                <ResourceClassKey>MetraControl/ControlCenter/App_LocalResources/OperationsDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>99</Width>
@@ -252,7 +258,8 @@
             <DataIndex>status</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Status]]></Value>
+                <LocalizationTag>TEXT_STATUS</LocalizationTag>
+                <ResourceClassKey>MetraControl/ControlCenter/App_LocalResources/OperationsDashboard.aspx</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>100</Width>

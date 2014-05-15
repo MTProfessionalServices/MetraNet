@@ -52,6 +52,12 @@ public partial class FailedTransactionsView : MTPage
       SetGridFilterByColumnValue(FailedTransactionList, "status", statusFilterValue);
     }
 
+    string possiblePayerFilterValue = Request["Filter_" + FailedTransactionList.ID + "_PossiblePayer"];
+    if (!String.IsNullOrEmpty(possiblePayerFilterValue))
+    {
+      SetGridFilterByColumnValue(FailedTransactionList, "possiblepayeraccountid", possiblePayerFilterValue);
+    }
+
     string batchidFilterValue = Request["Filter_" + FailedTransactionList.ID + "_BatchId"];
     if (!String.IsNullOrEmpty(batchidFilterValue))
     {

@@ -280,8 +280,8 @@
                 </MT:MTPanel>
             </li>
             <li data-row="37" data-col="4" data-sizex="3" data-sizey="7">
-                <MT:MTPanel ID="pnlRunningAdapters" runat="server" Text="Running Adapters" Width="320"
-                    Height="325">
+                <MT:MTPanel ID="pnlRunningAdapters" runat="server" Text="Running Adapters" meta:resourcekey="pnlRunningAdapters"
+                Width="320" Height="325">
                     <div height="100%" style="height: 248px">
                         <MT:MTFilterGrid ID="grdRunningAdapters" runat="Server" ExtensionName="SystemConfig"
                             TemplateFileName="Dashboard.RunningAdapters.xml">

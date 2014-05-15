@@ -126,54 +126,37 @@
   <data name="pnlPendingBillClose.Text" xml:space="preserve">
     <value>{IT}Pending Bill Close</value>
   </data>
-  <data name="NO_RECORDS_TEXT" xml:space="preserve">
+  <data name="pnlRunningAdapters.Text" xml:space="preserve">
+    <value>{IT}Running Adapters</value>
+  </data>
+  <data name="NO_PENDING_BILL_CLOSE_TEXT" xml:space="preserve">
     <value>{IT}No Pending Bill Close</value>
   </data>
-  <data name="TEXT_INTERVAL_ID" xml:space="preserve">
-    <value>{IT}Interval ID</value>
+  <data name="NO_RUNNING_ADAPTERS_TEXT" xml:space="preserve">
+    <value>{IT}No Running Adapters</value>
   </data>
-  <data name="TEXT_START" xml:space="preserve">
-    <value>{IT}Start</value>
+   <data name="TEXT_BILL_GROUP" xml:space="preserve">
+    <value>{IT}Bill Group</value>
+  </data>
+  <data name="TEXT_CYCLE" xml:space="preserve">
+    <value>{IT}Cycle</value>
   </data>
   <data name="TEXT_END" xml:space="preserve">
     <value>{IT}End</value>
   </data>  
+  <data name="TEXT_INSTANCE" xml:space="preserve">
+    <value>{IT}Instance</value>
+  </data> 
+  <data name="TEXT_INTERVAL_ID" xml:space="preserve">
+    <value>{IT}Interval ID</value>
+  </data>
+  <data name="TEXT_NAME" xml:space="preserve">
+    <value>{IT}Name</value>
+  </data>  
+  <data name="TEXT_START" xml:space="preserve">
+    <value>{IT}Start</value>
+  </data>  
   <data name="TEXT_STATUS" xml:space="preserve">
     <value>{IT}Status</value>
-  </data>  
-  <data name="TEXT_CYCLE" xml:space="preserve">
-    <value>{IT}Cycle</value>
-  </data>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+  </data> 	
 </root>

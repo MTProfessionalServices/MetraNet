@@ -404,7 +404,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                     .margins({top: 5, right: 5, bottom: 40, left: 5})
 					          .height(255)
 				            .width(410)
-                    .x(d3.scale.linear().domain([-30,0]))
+                    .x(d3.scale.linear().domain([-30,1]))
                     .elasticY(true)
                     .transitionDuration(0)
                     .legend(dc.legend().x(15).y(225).itemHeight(13).gap(5))

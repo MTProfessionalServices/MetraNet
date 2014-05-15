@@ -1269,12 +1269,6 @@
     <data name="ACCOUNT_INVOICE_GRAPH_TEXT" xml:space="preserve">
     <value>[fr] Invoice</value>  
 	</data>
-  <data name="ACCOUNT_MRR_GRAPH_TEXT" xml:space="preserve">
-    <value>[fr] MRR</value>
-  </data>
-  <data name="ACCOUNT_INVOICE_GRAPH_TEXT" xml:space="preserve">
-    <value>[fr] Invoice</value>
-  </data>	
   <data name="ACCOUNT_FAILED_TRANSACTIONS_TEXT" xml:space="preserve">
     <value>[fr] Failed Transactions</value>
   </data>   

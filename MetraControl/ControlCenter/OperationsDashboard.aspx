@@ -270,8 +270,8 @@
                 </MT:MTPanel>
             </li>
             <li data-row="37" data-col="1" data-sizex="3" data-sizey="7">
-                <MT:MTPanel ID="pnlFailedAdapters" runat="server" Text="Failed Adapters" Width="320"
-                    Height="325">
+                <MT:MTPanel ID="pnlFailedAdapters" runat="server" Text="Failed Adapters" meta:resourcekey="pnlFailedAdapters"
+                Width="320" Height="325">
                     <div height="100%" style="height: 248px">
                         <MT:MTFilterGrid ID="grdFailedAdapters" runat="Server" ExtensionName="SystemConfig"
                             TemplateFileName="Dashboard.FailedAdapters.xml">

@@ -123,11 +123,17 @@
   <data name="PageResource1.Title" xml:space="preserve">
     <value>{DE}MetraNet - Operations Dashboard</value>
   </data>
+  <data name="pnlFailedAdapters.Text" xml:space="preserve">
+    <value>{DE}Failed Adapters</value>
+  </data>
   <data name="pnlPendingBillClose.Text" xml:space="preserve">
     <value>{DE}Pending Bill Close</value>
   </data>
   <data name="pnlRunningAdapters.Text" xml:space="preserve">
     <value>{DE}Running Adapters</value>
+  </data>
+  <data name="NO_FAILED_ADAPTER_RUNS_TEXT" xml:space="preserve">
+    <value>{DE}No Failed Adapter Runs</value>
   </data>
   <data name="NO_PENDING_BILL_CLOSE_TEXT" xml:space="preserve">
     <value>{DE}No Pending Bill Close</value>
@@ -141,6 +147,9 @@
   <data name="TEXT_CYCLE" xml:space="preserve">
     <value>{DE}Cycle</value>
   </data>
+  <data name="TEXT_DATE" xml:space="preserve">
+    <value>{DE}Date</value>
+  </data>
   <data name="TEXT_END" xml:space="preserve">
     <value>{DE}End</value>
   </data>  
@@ -150,6 +159,9 @@
   <data name="TEXT_INTERVAL_ID" xml:space="preserve">
     <value>{DE}Interval ID</value>
   </data>
+  <data name="TEXT_MESSAGE" xml:space="preserve">
+    <value>{DE}Message</value>
+  </data> 
   <data name="TEXT_NAME" xml:space="preserve">
     <value>{DE}Name</value>
   </data>  

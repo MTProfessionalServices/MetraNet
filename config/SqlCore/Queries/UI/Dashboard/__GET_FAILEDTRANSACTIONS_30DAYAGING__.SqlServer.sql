@@ -1,13 +1,33 @@
 /*create index IDX_FT_DATE ON t_failed_transaction (dt_failuretime desc) include(state);*/
-with cte1 as(
-select datediff(day,ft.dt_FailureTime, getutcdate()) as Days_Old, sum(case when ft.state='R' then 1 else 0 end) as Fixed_Count, sum(case when ft.state='N' then 1 else 0 end) as Open_Count, sum(case when ft.state='I' then 1 else 0 end) as Under_Investigation_Count from t_failed_transaction ft with (nolock, index(IDX_FT_DATE)) where 1=1
-and datediff(day,ft.dt_FailureTime, getutcdate()) <= 30
-group by datediff(day,ft.dt_FailureTime, getutcdate())
-),
-cte2 as(
-SELECT TOP (31) n = CONVERT(INT, ROW_NUMBER() OVER (ORDER BY s1.[object_id])) - 1
-FROM sys.all_objects AS s1 CROSS JOIN sys.all_objects AS s2
-)
-select cte2.n as Days_Old, IsNull(cte1.Fixed_Count,0) as Fixed_Count, IsNull(cte1.Open_Count,0) as Open_Count, IsNull(cte1.Under_Investigation_Count,0) as Under_Investigation_count from cte2 left outer join cte1 on cte2.n = cte1.Days_Old
-order by cte2.n asc
-OPTION (MAXDOP 1)
+
+WITH cte1 AS(
+                SELECT DATEDIFF(DAY, ft.dt_FailureTime, GETUTCDATE()) AS 
+                       Days_Old,
+                       SUM(CASE WHEN ft.state = 'R' THEN 1 ELSE 0 END) AS 
+                       Fixed_Count,
+                       SUM(CASE WHEN ft.state = 'N' THEN 1 ELSE 0 END) AS 
+                       Open_Count,
+                       SUM(CASE WHEN ft.state = 'I' THEN 1 ELSE 0 END) AS 
+                       Under_Investigation_Count
+                FROM   t_failed_transaction ft WITH (NOLOCK, INDEX(IDX_FT_DATE))
+                WHERE  DATEDIFF(DAY, ft.dt_FailureTime, GETUTCDATE()) <= 30
+                GROUP BY
+                       DATEDIFF(DAY, ft.dt_FailureTime, GETUTCDATE())
+            ),
+cte2 AS(
+           SELECT TOP(31) n = CONVERT(INT, ROW_NUMBER() OVER(ORDER BY s1.[object_id])) 
+                  - 1
+           FROM   sys.all_objects AS s1
+                  CROSS JOIN sys.all_objects AS s2
+       )
+SELECT cte2.n AS Days_Old,
+       ISNULL(cte1.Fixed_Count, 0) AS Fixed_Count,
+       ISNULL(cte1.Open_Count, 0) AS Open_Count,
+       ISNULL(cte1.Under_Investigation_Count, 0) AS Under_Investigation_count
+FROM   cte2
+       LEFT OUTER JOIN cte1
+            ON  cte2.n = cte1.Days_Old
+ORDER BY
+       cte2.n ASC 
+       OPTION(MAXDOP 1)
+

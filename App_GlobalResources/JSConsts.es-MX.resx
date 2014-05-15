@@ -1196,32 +1196,68 @@
   </data>
   <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(MEXICAN SPANISH) Passwords do not match.</value>
-  </data>  
+  </data>
   <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(MEXICAN SPANISH) Enter a valid phone number. Format: 555-555-5555</value>
-  </data>    
+  </data>
   <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(MEXICAN SPANISH) Credit card format is invalid</value>
-  </data>      
+  </data>
   <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(MEXICAN SPANISH) CV Number is invalid</value>
-  </data>        
+  </data>
   <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(MEXICAN SPANISH) SSN format: xxx-xx-xxxx</value>
-  </data>          
+  </data>
   <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(MEXICAN SPANISH) Only numeric digits are allowed</value>
-  </data>            
+  </data>
   <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(MEXICAN SPANISH) Zipcode is invalid</value>
-  </data>              
+  </data>
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
     <value>(MEXICAN SPANISH) Middle initial is invalid</value>
-  </data>    
+  </data>
   <data name="TEXT_RETRY_COLUMN" xml:space="preserve">
     <value>(MEXICAN SPANISH) Retry</value>
-  </data>    
+  </data>
   <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
     <value>{MEXICAN SPANISH} Resubmitted Request</value>
-  </data>             
+  </data>
+  <data name="ACCOUNT_PAYEE_SELF_TEXT" xml:space="preserve">
+    <value>[es-MX] This account pays for itself</value>
+  </data>
+  <data name="ACCOUNT_PAYEE_TEXT" xml:space="preserve">
+    <value>[es-MX] This account is paid for by</value>
+  </data>
+  <data name="ACCOUNT_STATUS_LABEL_TEXT" xml:space="preserve">
+    <value>[es-MX] Account Status</value>
+  </data>
+  <data name="ACCOUNT_STATUS_TEXT" xml:space="preserve">
+    <value>[es-MX] Status</value>
+  </data>
+  <data name="ACCOUNT_BALANCE_AS_OF_TEXT" xml:space="preserve">
+    <value>[es-MX] as of</value>
+  </data>
+  <data name="ACCOUNT_BALANCE_TEXT" xml:space="preserve">
+    <value>[es-MX] Balance</value>
+  </data>
+  <data name="ACCOUNT_EDIT_INFO_TEXT" xml:space="preserve">
+    <value>[es-MX] Change</value>
+  </data>
+  <data name="ACCOUNT_LTV_TEXT" xml:space="preserve">
+    <value>[es-MX] Ltv</value>
+  </data>
+  <data name="ACCOUNT_MRR_TEXT" xml:space="preserve">
+    <value>[es-MX] MRR</value>
+  </data>
+  <data name="ACCOUNT_MRR_GRAPH_TEXT" xml:space="preserve">
+    <value>[es-MX] MRR</value>
+  </data>
+  <data name="ACCOUNT_INVOICE_GRAPH_TEXT" xml:space="preserve">
+    <value>[es-MX] Invoice</value>
+  </data>  
+  <data name="ACCOUNT_FAILED_TRANSACTIONS_TEXT" xml:space="preserve">
+    <value>[es-MX] Failed Transactions</value>
+  </data>   
 </root>

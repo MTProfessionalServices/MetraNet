@@ -9,4 +9,4 @@ WHERE  ui.tx_interval_status = 'B'
                WHERE  au.id_usage_interval = ui.id_interval
            )
 ORDER BY
-       ui.dt_end;
+       ui.dt_end

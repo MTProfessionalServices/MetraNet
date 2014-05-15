@@ -49,7 +49,6 @@ public partial class OperationsDashboard : MTPage
       {
           loadGrids();
           loadDropDowns();
-         // loadPuppetData();
             
       }
       catch (Exception ex)
@@ -81,27 +80,4 @@ public partial class OperationsDashboard : MTPage
       VisualizeService.ConfigureAndLoadDropDowns(ddActiveBillRun, "dt_end", "id_usage_interval", "__GET_ACTIVEBILLRUN_AVAILABLEINTERVALS__", queryPath, paramDict);
    
   }
-
-  private void loadPuppetData()
-  {
-
-    WebRequest myReq = WebRequest.Create(puppetJsonUrl);
-
-    string username = "username";
-    string password = "password";
-    string usernamePassword = username + ":" + password;
-    CredentialCache mycache = new CredentialCache();
-    mycache.Add(new Uri(puppetJsonUrl), "Basic", new NetworkCredential(username, password));
-    myReq.Credentials = mycache;
-    myReq.Headers.Add("Authorization", "Basic " + Convert.ToBase64String(new ASCIIEncoding().GetBytes(usernamePassword)));
-
-    WebResponse wr = myReq.GetResponse();
-    Stream receiveStream = wr.GetResponseStream();
-    StreamReader reader = new StreamReader(receiveStream, Encoding.UTF8);
-
-    puppetJson = reader.ReadToEnd();
-    Logger.LogInfo(puppetJson);
-  }
-  
-
 }

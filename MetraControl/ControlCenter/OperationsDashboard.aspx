@@ -295,8 +295,7 @@
                                     </table>
                                 </td>
                                 <td>
-                                    <div id="divBillCloseSynopsis">
-                                    </svg>
+                                    <svg id="divBillCloseSynopsis"></svg>
                                 </td>
                             </tr>
                         </table>
@@ -321,15 +320,6 @@
                             TemplateFileName="Dashboard.RunningAdapters.xml">
                         </MT:MTFilterGrid>
                     </div>
-                </MT:MTPanel>
-            </li>
-            <li data-row="37" data-col="7" data-sizex="2" data-sizey="7">
-                <MT:MTPanel ID="pnlPuppetNodes" runat="server" Text="Puppet Nodes" Width="220" Height="325">
-                      
-                      <div id="divPuppetNodes">
-                        <svg class="barchart" id="svgPuppetNodes"> </svg>
-                    </div>
-                  
                 </MT:MTPanel>
             </li>
         </ul>
@@ -395,8 +385,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlFailedAdapters').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(7), 3, 9); });
             Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlRunningAdapters').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(8), 3, 1); });
             Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlRunningAdapters').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(8), 3, 9); });
-            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPuppetNodes').on('collapse', function (e) { gridster.resize_widget(gridster.$widgets.eq(9), 2, 1); });
-            Ext.getCmp('formPanel_ctl00_ContentPlaceHolder1_pnlPuppetNodes').on('expand', function (e) { gridster.resize_widget(gridster.$widgets.eq(9), 2, 9); });
+            
         });
     </script>
     <script type="text/javascript">
@@ -418,7 +407,6 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
         makeActiveBillRunsPart();
         makePendingBillClosePart();
         makeBillCloseSynopsisPart();
-        makePuppetNodePart();
 		    makePricingEnginePart();
 
     });
@@ -1011,90 +999,6 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
         CreateLegend(legenddata,d3.select("#svgBillCloseSynopsisLegend"));
 
    }
-
-    function makePuppetNodePart(){
-         var colordata = {
-            "Unresponsive":d3.rgb(0,176,240),
-            "Failed":d3.rgb(0,112,192),
-            "Changed":d3.rgb(31,73,125),
-            "Unchanged":d3.rgb(20,134,34),
-            "Pending":d3.rgb(256,192,0)
-        };
-        
-        var data = [
-               {
-                "name": "Unchanged",
-                "value": 10
-              },
-              {
-                "name": "Unresponsive",
-                "value": 5
-              },
-              {
-                "name": "Failed",
-                "value": 6
-              },
-              {
-                "name": "Pending",
-                "value": 2
-              },
-             {
-                "name": "Changed",
-                "value": 10
-              }
-             
-        ]
-
-    
-
-          data.forEach(function (d) {
-                d.value = +d.value;
-            });
-            var chart = dc.barChart("#divPuppetNodes");
-            var ndx = crossfilter(data);
-            var all = ndx.groupAll();
-            var nameDimension = ndx.dimension(function(d){ return d["name"];});
-                  
-            var valueGroup = nameDimension.group().reduceSum(dc.pluck('value'));
-
-            var colors = d3.scale.ordinal().domain(["Unchanged", "Unresponsive", "Failed", "Pending","Changed"]).range(['#00B0F0','#0070C0','#148622','#FFC000','#7F7F7F']);
-                   
-            chart
-                    .height(258)
-                    .margins({top: 25, right: 10, bottom: 75, left: 10})
-                    .dimension(nameDimension)
-					          .transitionDuration(0)
-                    .group(valueGroup)
-                    .gap(10)
-    //                .xAxisPadding(20)
-                    .x(d3.scale.ordinal().domain(["Unchanged", "Unresponsive", "Failed", "Pending","Changed"]))
-					          .xUnits(dc.units.ordinal)
-                    .centerBar(false)
-					          .renderHorizontalGridLines(true)
-                    .brushOn(false)
-                    .title(function(d){ return d.key + ": " + numberFormat(d.value);} )
-                   // .legend(dc.legend().x(40).y(100).itemHeight(13).gap(5))
-					            .renderlet(function (chart) {
-                        // rotate x-axis ticks
-                              chart.selectAll("g.x text")
-                                .style("text-anchor", "start")
-                                .attr('dx', '.3em')
-                                .attr('dy', '-.05em')
-                                .attr('transform', "rotate(45)");
-
-                              chart.selectAll("rect.bar").attr("fill", function(d){
-                                return colordata[d.x];
-                              });
-					              
-                             chart.selectAll("rect.bar").on("click", function(){window.open("https://puppet-corp1")});
-                    });
-
-             chart.yAxis().tickSize(0,0).tickFormat("");
-             chart.xAxis().outerTickSize(0);
-             
-             dc.renderAll(valueGroup);
-
-    }
 
     </script>
     <script type="text/javascript">

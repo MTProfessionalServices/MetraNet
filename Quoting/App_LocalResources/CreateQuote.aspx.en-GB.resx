@@ -177,8 +177,8 @@
   <data name="MTTextBoxControlQuoteDescriptionResource.Text" xml:space="preserve">
     <value>Quote Description</value>
   </data>
-  <data name="MTTitleCreateQuoteResource" xml:space="preserve">
-    <value>Create Quote</value>
+  <data name="MTTitleCreateQuoteResource.Text" xml:space="preserve">
+    <value>Manage Quote</value>
   </data>
   <data name="PIID" xml:space="preserve">
     <value>PI Id</value>

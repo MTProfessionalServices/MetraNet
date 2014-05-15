@@ -49,25 +49,23 @@
   </MT:MTPanel>
   <div class="x-panel-btns-ct">
     <div style="width: 720px" class="x-panel-btns x-panel-btns-center">
-      <div style="text-align: center;">
-        <center>
-          <table>
-            <tr>
-              <td class="x-panel-btn-td">
-                <MT:MTCheckBoxControl ID="MTCheckBoxViewResult" Visible="False" BoxLabel="View result"
-                  runat="server" LabelWidth="100" meta:resourcekey="MTCheckBoxPdfResource" />
-              </td>
-              <td class="x-panel-btn-td">
-                <MT:MTButton ID="MTbtnGenerateQuote" runat="server" OnClientClick="return getDataGrids();"
-                  OnClick="btnGenerateQuote_Click" TabIndex="150" meta:resourcekey="btnGenerateQuoteResource1" />
-              </td>
-              <td class="x-panel-btn-td">
-                <MT:MTButton ID="MTbtnCancel" runat="server" OnClick="btnCancel_Click" CausesValidation="False"
-                  TabIndex="160" meta:resourcekey="MTbtnCancelResource1" />
-              </td>
-            </tr>
-          </table>
-        </center>
+      <div style="text-align: center; width: 25%; margin: auto;">
+        <table>
+          <tr>
+            <td class="x-panel-btn-td">
+              <MT:MTCheckBoxControl ID="MTCheckBoxViewResult" Visible="False" BoxLabel="View result"
+                runat="server" LabelWidth="100" meta:resourcekey="MTCheckBoxPdfResource" />
+            </td>
+            <td class="x-panel-btn-td">
+              <MT:MTButton ID="MTbtnGenerateQuote" runat="server" OnClientClick="return getDataGrids();"
+                OnClick="btnGenerateQuote_Click" TabIndex="150" meta:resourcekey="btnGenerateQuoteResource1" />
+            </td>
+            <td class="x-panel-btn-td">
+              <MT:MTButton ID="MTbtnCancel" runat="server" OnClick="btnCancel_Click" CausesValidation="False"
+                TabIndex="160" meta:resourcekey="MTbtnCancelResource1" />
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>
@@ -88,11 +86,12 @@
     var GRID_HEIGHT = 300;
     var ACTIONS_COLUMN_HEIGHT = 40;
     var NAME_COLUMN_HEIGHT = 210;
+    var isViewMode = <%=IsViewMode.ToString().ToLower()%>;
 
     Ext.onReady(function () {
       accountGrid.render(window.Ext.get('PlaceHolderAccountsGrid'));
       poGrid.render(window.Ext.get('PlaceHolderProductOfferingsGrid'));
-      //UDRCgrid.render(window.Ext.get('PlaceHolderUDRCMetricsGrid'));
+
       piWithAllowIcbGrid.render(window.Ext.get('PlaceHolderPIWithICBAllowedGrid'));
       icbGrid.render(window.Ext.get('PlaceHolderICBGrid'));
 
@@ -100,20 +99,11 @@
       udrcGrid.render(window.Ext.get('PlaceHolderUDRCGrid'));
     });
 
-    //    function loadFromPostback(hidden, store, data, dataDetails) {
-    //      var hiddenItems = window.Ext.get(hidden).dom;
-    //      if (hiddenItems.value.length > 0)
-    //        dataDetails = window.Ext.decode(hiddenItems.value);
-    //      store.loadData(data);
-    //    }
-
     window.onload = function () {
       var hiddenAccounts = window.Ext.get("<%=HiddenAccounts.ClientID %>").dom;
       if (hiddenAccounts.value.length > 0)
         accountData.accounts = window.Ext.decode(hiddenAccounts.value);
       window.accountStore.loadData(accountData);
-
-      //loadFromPostback("<%=HiddenAccounts.ClientID %>", window.accountStore, accountData, accountData.accounts);
 
       var hiddenPos = window.Ext.get("<%=HiddenPos.ClientID %>").dom;
       if (hiddenPos.value.length > 0)
@@ -123,25 +113,21 @@
       var hiddenPiUDRCs = window.Ext.get("<%=HiddenPiUDRC.ClientID %>").dom;
       if (hiddenPiUDRCs.value.length > 0)
         piUDRCData.piUDRC = window.Ext.decode(hiddenPiUDRCs.value);
-      //window.piUDRCStore.loadData(piUDRCData);
       addItemToPIs(piUDRCData.piUDRC);
 
       var hiddenPiICBs = window.Ext.get("<%=HiddenPiICB.ClientID %>").dom;
       if (hiddenPiICBs.value.length > 0)
         piWithAllowIcbData.pisWithAllowIcb = window.Ext.decode(hiddenPiICBs.value);
-      //window.piWithAllowIcbStore.loadData(piWithAllowIcbData);
       addItemToPIs(piWithAllowIcbData.pisWithAllowIcb);
 
       var hiddenUDRCs = window.Ext.get("<%=HiddenUDRCs.ClientID %>").dom;
       if (hiddenUDRCs.value.length > 0)
         udrcData.UDRCs = window.Ext.decode(hiddenUDRCs.value);
-      //window.udrcStore.loadData(udrcData);
       addUDRCs(udrcData.UDRCs);
 
       var hiddenICBs = window.Ext.get("<%=HiddenICBs.ClientID %>").dom;
       if (hiddenICBs.value.length > 0)
         icbData.icbs = window.Ext.decode(hiddenICBs.value);
-      //window.icbStore.loadData(icbData);
       addICBs(icbData.icbs);
 
       if (window.Ext.get("<%=MTCheckBoxIsGroupSubscription.ClientID %>").dom.value == "true")
@@ -187,25 +173,31 @@
       ]
     });
 
-    var textSelectAccounts = '<%=GetLocalResourceObject("SELECT_ACCOUNTS")%>';
-    var accountToolBar = new Ext.Toolbar([
-    { iconCls: 'add', id: 'Add', text: textSelectAccounts, handler: onAccountAdd },    
-    '->',
-    { xtype: 'checkbox', id: 'IsGroupSubscription', boxLabel: '<%=GetLocalResourceObject("ISGROUP.BoxLabel")%>', handler: onGroupSubscriptionCheck },
-    { xtype: 'tbspacer', width: 50 } ]);
+    var accountToolBarElements = [
+      '->',
+      { xtype: 'checkbox', id: 'IsGroupSubscription', boxLabel: '<%=GetLocalResourceObject("ISGROUP.BoxLabel")%>', handler: onGroupSubscriptionCheck, disabled: isViewMode },
+      { xtype: 'tbspacer', width: 50}];
+    if (!isViewMode)
+      accountToolBarElements.unshift({ iconCls: 'add', id: 'Add', text: '<%=GetLocalResourceObject("SELECT_ACCOUNTS")%>', handler: onAccountAdd });
+    
+    var accountToolBar = new Ext.Toolbar(accountToolBarElements);
 
     // create the Grid
     var textUserName = '<%=GetLocalResourceObject("USERNAME")%>';
     var textIsGroup = '<%=GetLocalResourceObject("ISGROUP")%>';
     var textAccountActions = '<%=GetLocalResourceObject("ACTIONS")%>';
     var textAccountGridTitle = '<%=GetLocalResourceObject("GRID_TITLE")%>';
+    
+    var accountColumns = [
+      { id: '_AccountID', header: textUserName, width: 225, sortable: true, renderer: usernameRenderer, dataIndex: '_AccountID' },
+      { header: textIsGroup, width: 50, sortable: false, dataIndex: 'IsGroup', renderer: isGroupSubscriptionRenderer }
+    ];
+    if (!isViewMode)
+      accountColumns.push({ header: textAccountActions, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: accountActionsRenderer });
+
     var accountGrid = new Ext.grid.EditorGridPanel({
       ds: accountStore,
-      columns: [
-        { id: '_AccountID', header: textUserName, width: 225, sortable: true, renderer: usernameRenderer, dataIndex: '_AccountID' },
-        { header: textIsGroup, width: 50, sortable: false, dataIndex: 'IsGroup', renderer: isGroupSubscriptionRenderer },
-        { header: textAccountActions, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: accountActionsRenderer }
-      ],
+      columns: accountColumns,
       tbar: accountToolBar,
       stripeRows: true,
       height: GRID_HEIGHT,
@@ -222,8 +214,6 @@
 
     function onGroupSubscriptionCheck() {
       window.Ext.get("<%=MTCheckBoxIsGroupSubscription.ClientID %>").dom.value = accountToolBar.items.get('IsGroupSubscription').checked;
-//      accountGrid.colModel.config[1].width = accountToolBar.items.get('IsGroupSubscription').checked ? 50 : 0;
-//      accountGrid.syncSize();
     }
 
     function accountCallback(ids, records) {
@@ -338,22 +328,25 @@
       ]
     });
     poStore.loadData(poData);
-
-    var textSelectPos = '<%=GetLocalResourceObject("SELECT_POS")%>';
-    var poToolBar = new Ext.Toolbar([{ iconCls: 'add', id: 'Add', text: textSelectPos, handler: onPoAdd}]);
-
+    
     // create the Grid
     var textPoId = '<%=GetLocalResourceObject("POID")%>';
     var textPoName = '<%=GetLocalResourceObject("PONAME")%>';
     var textPoAction = '<%=GetLocalResourceObject("ACTIONS")%>';
     var textPoGridTitle = '<%=GetLocalResourceObject("PO_GRID_TITLE")%>';
+    
+    var poColumns = [
+      { id: 'ProductOfferingId', header: textPoId, hidden: true, dataIndex: 'ProductOfferingId' },
+      { header: textPoName, width: NAME_COLUMN_HEIGHT, sortable: true, dataIndex: 'Name' }
+    ];
+    if (!isViewMode)
+      poColumns.push({ header: textPoAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: poActionsRenderer });
+
+    var poToolBar = isViewMode ? null : new Ext.Toolbar([{ iconCls: 'add', id: 'Add', text: '<%=GetLocalResourceObject("SELECT_POS")%>', handler: onPoAdd}]);
+    
     var poGrid = new Ext.grid.EditorGridPanel({
       ds: poStore,
-      columns: [
-        { id: 'ProductOfferingId', header: textPoId, hidden: true, dataIndex: 'ProductOfferingId' },
-        { header: textPoName, width: NAME_COLUMN_HEIGHT, sortable: true, dataIndex: 'Name' },
-        { header: textPoAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: poActionsRenderer }
-      ],
+      columns: poColumns,
       tbar: poToolBar,
       stripeRows: true,
       height: GRID_HEIGHT,
@@ -499,13 +492,6 @@
       { name: 'RecordId' }
     ]);
 
-//    var piUDRCReader = new Ext.data.JsonReader({
-//            // metadata configuration options:
-//            idProperty: '',
-//            root: '',
-//            totalProperty: ''
-//            }, piRecord);
-
     // create the data store
     var piUDRCStore = new Ext.data.GroupingStore({
       root: 'piUDRC',
@@ -568,13 +554,16 @@
     var textPiWithUDRCAction = '<%=GetLocalResourceObject("ACTIONS")%>';
     var textPiWithUDRCGridTitle = '<%=GetLocalResourceObject("UDRC_PI_GRID_TITLE")%>';
 
+    var piWithAllowUDRCColumns = [
+      { header: textPoName, hidden: true, dataIndex: 'ProductOfferingName' },
+      { header: textPiName, width: NAME_COLUMN_HEIGHT, sortable: true, dataIndex: 'Name' }
+    ];
+    if (!isViewMode)
+      piWithAllowUDRCColumns.push({ header: textPiWithUDRCAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: piWithAllowUDRCActionsRenderer });
+    
     var piWithAllowUDRCGrid = new Ext.grid.GridPanel({
       ds: piUDRCStore,
-      columns: [
-            { header: textPoName, hidden: true,  dataIndex: 'ProductOfferingName' },
-            { header: textPiName, width: NAME_COLUMN_HEIGHT, sortable: true, dataIndex: 'Name' },
-            { header: textPiWithUDRCAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: piWithAllowUDRCActionsRenderer }
-          ],
+      columns: piWithAllowUDRCColumns,
       stripeRows: true,
       height: GRID_HEIGHT,
       width: 345,
@@ -837,15 +826,18 @@
     var textUDRCAction = '<%=GetLocalResourceObject("ACTIONS")%>';
     var textUDRCGridTitle = '<%=GetLocalResourceObject("UDRC_GRID_TITLE")%>';
 
+    var udrcColumns = [
+      { hidden: true, header: ' ', dataIndex: 'GroupId' },
+      { header: textValue, width: 95, sortable: true, dataIndex: 'Value' },
+      { header: textStartDate, width: 95, sortable: true, dataIndex: 'StartDate' },
+      { header: textEndDate, width: 95, sortable: true, dataIndex: 'EndDate' }
+    ];
+    if (!isViewMode)
+      udrcColumns.push({ header: textUDRCAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: UdrcActionsRenderer });
+
     var udrcGrid = new Ext.grid.GridPanel({
       ds: udrcStore,
-      columns: [
-        { hidden: true, header: ' ', dataIndex: 'GroupId' },
-        { header: textValue, width: 95, sortable: true, dataIndex: 'Value' },
-        { header: textStartDate, width: 95, sortable: true, dataIndex: 'StartDate' },
-        { header: textEndDate, width: 95, sortable: true, dataIndex: 'EndDate' },
-        { header: textUDRCAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: UdrcActionsRenderer }
-      ],
+      columns: udrcColumns,
       stripeRows: true,
       height: GRID_HEIGHT,
       width: 345,
@@ -938,13 +930,16 @@
     var textPiWithICBAction = '<%=GetLocalResourceObject("ACTIONS")%>';
     var textPiWithICBGridTitle = '<%=GetLocalResourceObject("ICB_PI_GRID_TITLE")%>';
 
+    var piWithAllowIcbColumns = [
+      { header: textPoName, hidden: true, dataIndex: 'ProductOfferingName' },
+      { header: textPiName, width: NAME_COLUMN_HEIGHT, sortable: true, dataIndex: 'Name' }
+    ];
+    if (!isViewMode)
+      piWithAllowIcbColumns.push({ header: textPiWithICBAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: piWithAllowIcbActionsRenderer });
+
     var piWithAllowIcbGrid = new Ext.grid.GridPanel({
       ds: piWithAllowIcbStore,
-      columns: [      
-        { header: textPoName, hidden: true, dataIndex: 'ProductOfferingName' },
-        { header: textPiName, width: NAME_COLUMN_HEIGHT, sortable: true, dataIndex: 'Name' },
-        { header: textPiWithICBAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: piWithAllowIcbActionsRenderer }
-      ],
+      columns: piWithAllowIcbColumns,
       stripeRows: true,
       height: GRID_HEIGHT,
       width: 345,
@@ -1236,16 +1231,19 @@
     var textICBAction = '<%=GetLocalResourceObject("ACTIONS")%>';
     var textICBGridTitle = '<%=GetLocalResourceObject("ICB_GRID_TITLE")%>';
 
+    var icbColumns = [
+      { header: ' ', hidden: true, dataIndex: 'GroupId' },
+      { header: textPrice, width: 70, sortable: true, dataIndex: 'Price' },
+      { header: textUnitValue, width: 70, sortable: true, dataIndex: 'UnitValue' },
+      { header: textUnitAmount, width: 70, sortable: true, dataIndex: 'UnitAmount' },
+      { header: textBaseAmount, width: 70, sortable: true, dataIndex: 'BaseAmount' }
+    ];
+    if (!isViewMode)
+      icbColumns.push({ header: textICBAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: IcbActionsRenderer });
+
     var icbGrid = new Ext.grid.GridPanel({
       ds: icbStore,
-      columns: [
-        { header: ' ', hidden: true, dataIndex: 'GroupId' },
-        { header: textPrice, width: 70, sortable: true, dataIndex: 'Price' },
-        { header: textUnitValue, width: 70, sortable: true, dataIndex: 'UnitValue' },
-        { header: textUnitAmount, width: 70, sortable: true, dataIndex: 'UnitAmount' },
-        { header: textBaseAmount, width: 70, sortable: true, dataIndex: 'BaseAmount' },
-        { header: textICBAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: IcbActionsRenderer }
-      ],
+      columns: icbColumns,
       stripeRows: true,
       height: GRID_HEIGHT,
       width: 345,

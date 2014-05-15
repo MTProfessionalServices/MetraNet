@@ -61,7 +61,10 @@ namespace MetraNet.Quoting
 
     protected Quote CurrentQuote;
 
-    protected string Mode;
+    private string _mode;
+
+    public bool IsViewMode { get { return _mode == "VIEW"; } }
+
     protected int CurrentQuoteId;
 
     protected void Page_Load(object sender, EventArgs e)
@@ -484,17 +487,15 @@ namespace MetraNet.Quoting
 
     private void ParseRequest()
     {
-      Mode = Request["mode"];
+      _mode = Request["mode"];
 
-
-      switch (Mode)
+      switch (_mode)
       {
         case "VIEW":
           {
             CurrentQuoteId = Convert.ToInt32(Request["quoteId"]);
             LoadQuote();
             LoadQuoteToControls();
-
             break;
           }
         case "UPDATE":

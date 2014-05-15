@@ -864,8 +864,7 @@
     }
 
     function getUDRCs() {
-      var records = udrcStore.data.items;
-
+      
       var recordsUDRCPi = piUDRCStore.data.items;
       var isAllUDRCSet = true;
       for (var i = 0; i < recordsUDRCPi.length; i++)

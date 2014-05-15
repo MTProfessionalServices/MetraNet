@@ -67,11 +67,16 @@ namespace MetraNet.Quoting
 
     protected int CurrentQuoteId;
 
+    private Dictionary<int, string> PoNames;
+    private Dictionary<int, string> PiNames;
+
     protected void Page_Load(object sender, EventArgs e)
     {
       var cbReference = Page.ClientScript.GetCallbackEventReference(this, "arg", "ReceiveServerData", "context");
       var callbackScript = "function CallServer(arg, context)" + "{ " + cbReference + ";}";
       Page.ClientScript.RegisterClientScriptBlock(GetType(), "CallServer", callbackScript, true);
+
+      ParseRequest();
 
       if (!IsPostBack)
       {
@@ -101,7 +106,7 @@ namespace MetraNet.Quoting
       var value = serializer.Deserialize<Dictionary<string, string[]>>(eventArgument);
       try
       {
-        result = GetPriceableItems(value["poIds"]);
+        result = GetPriceableItemsResult(value["poIds"]);
       }
       catch (Exception ex)
       {
@@ -125,30 +130,13 @@ namespace MetraNet.Quoting
       return _callbackResult;
     }
 
-    private object GetPriceableItems(IEnumerable<string> poIds)
+    private object GetPriceableItemsResult(IEnumerable<string> poIds)
     {
       object result;
-      var priceableItemsAll = new MTList<BasePriceableItemInstance>();
+
       try
       {
-        using (var client = new ProductOfferingServiceClient())
-        {
-          if (client.ClientCredentials != null)
-          {
-            client.ClientCredentials.UserName.UserName = UI.User.UserName;
-            client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
-          }
-          foreach (var poIdStr in poIds)
-          {
-            var poId = int.Parse(poIdStr);
-            var priceableItems = new MTList<BasePriceableItemInstance>();
-
-            var pciPoId = new PCIdentifier(poId);
-            client.GetPIInstancesForPO(pciPoId, ref priceableItems);
-
-            priceableItemsAll.Items.AddRange(priceableItems.Items);
-          }
-        }
+        var priceableItemsAll = GetPriceableItemsForPOs(poIds);
         var items = priceableItemsAll.Items.Select(
             x => new
             {
@@ -168,6 +156,30 @@ namespace MetraNet.Quoting
         result = new { result = "error", errorMessage = ex.Detail.ErrorMessages[0] };
       }
       return result;
+    }
+
+    private MTList<BasePriceableItemInstance> GetPriceableItemsForPOs(IEnumerable<string> poIds)
+    {
+      var priceableItemsAll = new MTList<BasePriceableItemInstance>();
+      using (var client = new ProductOfferingServiceClient())
+      {
+        if (client.ClientCredentials != null)
+        {
+          client.ClientCredentials.UserName.UserName = UI.User.UserName;
+          client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+        }
+        foreach (var poIdStr in poIds)
+        {
+          var poId = int.Parse(poIdStr);
+          var priceableItems = new MTList<BasePriceableItemInstance>();
+
+          var pciPoId = new PCIdentifier(poId);
+          client.GetPIInstancesForPO(pciPoId, ref priceableItems);
+
+          priceableItemsAll.Items.AddRange(priceableItems.Items);
+        }
+      }
+      return priceableItemsAll;
     }
 
     #endregion
@@ -358,29 +370,14 @@ namespace MetraNet.Quoting
 
     private void LoadQuote()
     {
-      var qsc = new QuotingServiceClient();
-
-      try
+      using (var qsc = new QuotingServiceClient())
       {
         qsc.ClientCredentials.UserName.UserName = UI.User.UserName;
         qsc.ClientCredentials.UserName.Password = UI.User.SessionPassword;
 
         qsc.GetQuote(CurrentQuoteId, out CurrentQuote);
       }
-
-
-      finally
-      {
-        if (qsc.State == CommunicationState.Opened)
-        {
-          qsc.Close();
         }
-        else
-        {
-          qsc.Abort();
-        }
-      }
-    }
 
     private void LoadQuoteToControls()
     {
@@ -404,13 +401,15 @@ namespace MetraNet.Quoting
       
       HiddenPos.Value = EncodePosForHiddenControl(CurrentQuote.ProductOfferings);
       
+      HiddenPiUDRC.Value = EncodePisForHiddenControl(CurrentQuote.ProductOfferings);
+
       MTCheckBoxIsGroupSubscription.Value = CurrentQuote.GroupSubscription.ToString();
       if (CurrentQuote.GroupSubscription)
         HiddenGroupId.Value = EncodeAccountsForHiddenControl(new List<int> {CurrentQuote.CorporateAccountId});
 
-      PutUDRCsInControl();
+      HiddenUDRCs.Value = EncodeUDRCsForHiddenControl();
 
-      PutICBsInControl();
+      HiddenICBs.Value = EncodeICBsForHiddenControl();
 
       //todo fill Quote results section
 
@@ -457,6 +456,8 @@ namespace MetraNet.Quoting
 
         const string poStr = "{2}'Name': '{0}', 'ProductOfferingId': {1}{3}";
       
+        PoNames = new Dictionary<int, string>();
+
         var hiddenPosValue = "[";
         foreach (var poId in pos)
         {
@@ -469,20 +470,149 @@ namespace MetraNet.Quoting
                 po.Name,
                 po.ProductOfferingId,
                 "{", "},");
+
+          PoNames.Add(Convert.ToInt32(po.ProductOfferingId), po.Name);
         }
         hiddenPosValue = hiddenPosValue.Substring(0, hiddenPosValue.Length - 1);
         return hiddenPosValue + "]";
       }
     }
 
-    private void PutICBsInControl()
+    private string EncodePisForHiddenControl(IEnumerable<int> pos)
     {
-      //throw new NotImplementedException();
+      var pis = GetPriceableItemsForPOs(pos.Select(poId => poId.ToString()));
+
+      //var items = priceableItemsAll.Items.Select(
+      //      x => new
+      //      {
+      //        PriceableItemId = x.ID,
+      //        ProductOfferingId = x.PO_ID,
+      //        x.Name,
+      //        x.DisplayName,
+      //        x.Description,
+      //        x.PIKind,
+      //        x.PICanICB
+      //      }).ToArray();
+
+
+      const string piStr = "{'ProductOfferingId':{0},'PriceableItemId':{1},'Value':'{2}','StartDate':'{3}','EndDate':'{4}','RecordId':'{5}','GroupId':'{6}'}";
+
+      PiNames = new Dictionary<int, string>();
+
+      var hiddenPisValue = "[";
+      foreach (var pi in pis.Items)
+      {
+        //hiddenPisValue += string.Format(
+        //      CultureInfo.CurrentCulture,
+        //      piStr,
+        //      po.Name,
+        //      po.ProductOfferingId,
+        //      "{", "},");
+
+        if (!PiNames.ContainsKey(Convert.ToInt32(pi.ID)))
+          PiNames.Add(Convert.ToInt32(pi.ID), pi.Name);
+    }
+      hiddenPisValue = hiddenPisValue.Substring(0, hiddenPisValue.Length - 1);
+      return String.Empty;
+      return hiddenPisValue + "]";
     }
 
-    private void PutUDRCsInControl()
+    private string EncodeICBsForHiddenControl()
     {
-      //throw new NotImplementedException();
+      const string icbStr = "{8}'ProductOfferingId':{0},'PriceableItemId':{1},'Price':'{2}','BaseAmount':'{3}','UnitValue':'{4}','UnitAmount':'{5}','RecordId':'{6}','GroupId':'{7}'{9}";
+      const string recodrIdStr = "{0}_{1}_{2}_{3}_{4}_{5}";      
+
+      if (CurrentQuote.IcbPrices.Count == 0)
+        return String.Empty;
+
+      var hiddenIcbsValue = "[";
+      foreach (var icb in CurrentQuote.IcbPrices)
+        foreach (var rate in icb.ChargesRates)
+        {
+          var recordId = string.Format(
+            CultureInfo.CurrentCulture,
+            recodrIdStr,
+            icb.ProductOfferingId,
+            icb.PriceableItemId,
+            rate.Price,
+            rate.BaseAmount,
+            rate.UnitValue,
+            rate.UnitAmount
+            );
+          var groupId = GetGroupId(icb.ProductOfferingId, Convert.ToInt32(icb.PriceableItemId));
+
+          hiddenIcbsValue += string.Format(
+            CultureInfo.CurrentCulture,
+            icbStr,
+            icb.ProductOfferingId,
+            icb.PriceableItemId,
+            Math.Round(rate.Price, 2),
+            Math.Round(rate.BaseAmount, 2),
+            Math.Round(rate.UnitValue, 2),
+            Math.Round(rate.UnitAmount, 2),
+            recordId,
+            groupId,
+            "{", "},");
+    }
+      hiddenIcbsValue = hiddenIcbsValue.Substring(0, hiddenIcbsValue.Length - 1);
+      return hiddenIcbsValue + "]";
+
+    }
+
+    private string GetGroupId(int poId, int piId)
+    {
+      const string groupIdStr = "{0}: {1}; {2}: {3}";
+      string poName;
+      PoNames.TryGetValue(poId, out poName);
+      string piName;
+      PiNames.TryGetValue(piId, out piName);
+      var groupId = string.Format(
+        CultureInfo.CurrentCulture,
+        groupIdStr,
+        GetLocalResourceObject("PONAME"),
+        poName,
+        GetLocalResourceObject("PINAME"),
+        piName
+        );
+      return groupId;
+    }
+
+    private string EncodeUDRCsForHiddenControl()
+    {
+      const string udrcStr = "{7}'ProductOfferingId':{0},'PriceableItemId':{1},'Value':'{2}','StartDate':'{3}','EndDate':'{4}','RecordId':'{5}','GroupId':'{6}'{8}";
+      const string recodrIdStr = "{0}_{1}_{2}_{3}";
+      
+      if (CurrentQuote.UdrcValues.Count == 0)
+        return String.Empty;
+
+      var hiddenUdrcsValue = "[";
+      foreach (var udrc in CurrentQuote.UdrcValues)
+      {
+        var recordId = string.Format(
+          CultureInfo.CurrentCulture,
+          recodrIdStr,
+          udrc.ProductOfferingId,
+          udrc.UDRC_Id,
+          udrc.StartDate,
+          udrc.EndDate
+          );
+        var groupId = GetGroupId(udrc.ProductOfferingId, Convert.ToInt32(udrc.UDRC_Id));
+
+        hiddenUdrcsValue += string.Format(
+          CultureInfo.CurrentCulture,
+          udrcStr,
+          udrc.ProductOfferingId,
+          udrc.UDRC_Id,
+          Math.Round(udrc.Value, 2),
+          udrc.StartDate.Date,
+          udrc.EndDate.Date,
+          recordId,
+          groupId,
+          "{", "},");
+      }
+      hiddenUdrcsValue = hiddenUdrcsValue.Substring(0, hiddenUdrcsValue.Length - 1);
+
+      return hiddenUdrcsValue + "]";
     }
 
     private void ParseRequest()

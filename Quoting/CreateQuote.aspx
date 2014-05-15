@@ -1019,58 +1019,59 @@
                   id: 'form_addICB_PIId',
                   name: 'form_addICB_PIId',
                   value: piId
-                },
-                {
-                  xtype: 'numberfield',
-                  allowDecimals: true,
-                  allowBlank: false,
-                  allowNegative: false,
-                  fieldLabel: '<b><%=GetLocalResourceObject("PRICE")%></b>',
-                  id: 'form_addICB_Price',
-                  name: 'form_addICB_Price',
-                  anchor: '100%',
-                  value: 0,
-                  tabIndex: 0
-                },                
-                {
-                  xtype: 'numberfield',
-                  allowDecimals: true,
-                  allowBlank: true,
-                  allowNegative: false,
-                  fieldLabel: '<%=GetLocalResourceObject("BASE_AMOUNT")%>',
-                  id: 'form_addICB_BaseAmount',
-                  name: 'form_addICB_BaseAmount',
-                  anchor: '100%',
-                  value: 0,
-                  tabIndex: 3
                 }]
               });
 
-              if (isUDRC) {
-                form_addICB.items.add(new Ext.form.NumberField({
-                  allowDecimals: true,
-                  allowBlank: true,
-                  allowNegative: false,
-                  fieldLabel: '<%=GetLocalResourceObject("UNIT_VALUE")%>',
-                  id: 'form_addICB_UnitValue',
-                  name: 'form_addICB_UnitValue',
-                  anchor: '100%',
-                  value: 0,
-                  tabIndex: 1
-                }));
+      if (isUDRC) {
+        form_addICB.items.add(new Ext.form.NumberField({
+          allowDecimals: true,
+          allowBlank: true,
+          allowNegative: false,
+          fieldLabel: '<%=GetLocalResourceObject("UNIT_VALUE")%>',
+          id: 'form_addICB_UnitValue',
+          name: 'form_addICB_UnitValue',
+          anchor: '100%',
+          value: 0,
+          tabIndex: 1
+        }));
 
-                form_addICB.items.add(new Ext.form.NumberField({
-                  allowDecimals: true,
-                  allowBlank: true,
-                  allowNegative: false,
-                  fieldLabel: '<%=GetLocalResourceObject("UNIT_AMOUNT")%>',
-                  id: 'form_addICB_UnitAmount',
-                  name: 'form_addICB_UnitAmount',
-                  anchor: '100%',
-                  value: 0,
-                  tabIndex: 2
-                }));
-              }
+        form_addICB.items.add(new Ext.form.NumberField({
+          allowDecimals: true,
+          allowBlank: true,
+          allowNegative: false,
+          fieldLabel: '<%=GetLocalResourceObject("UNIT_AMOUNT")%>',
+          id: 'form_addICB_UnitAmount',
+          name: 'form_addICB_UnitAmount',
+          anchor: '100%',
+          value: 0,
+          tabIndex: 2
+        }));
+
+        form_addICB.items.add(new Ext.form.NumberField({
+          allowDecimals: true,
+          allowBlank: true,
+          allowNegative: false,
+          fieldLabel: '<%=GetLocalResourceObject("BASE_AMOUNT")%>',
+          id: 'form_addICB_BaseAmount',
+          name: 'form_addICB_BaseAmount',
+          anchor: '100%',
+          value: 0,
+          tabIndex: 3
+        }));
+      } 
+      else {
+        form_addICB.items.add(new Ext.form.NumberField({
+          allowDecimals: true,
+          allowBlank: true,
+          allowNegative: false,
+          fieldLabel: '<%=GetLocalResourceObject("PRICE")%>',
+          id: 'form_addICB_Price',
+          name: 'form_addICB_Price',
+          anchor: '100%',
+          value: 0,
+          tabIndex: 1
+        }));
+      }
 
       AddICBWindow = new Ext.Window({
         title: '<%=GetLocalResourceObject("TEXT_ADD_ICB")%>',
@@ -1108,16 +1109,6 @@
       if (!(isValidForm == true))
         Ext.Msg.alert('Failed', 'Wrong input');
       else {
-        var recordId = form_addICB.items.get('form_addICB_POId').value + "_" +
-              form_addICB.items.get('form_addICB_PIId').value + "_" +
-              form_addICB.items.get('form_addICB_Price').value + +"_" +
-              form_addICB.items.get('form_addICB_BaseAmount').value;
-
-        var groupId = '<%=GetLocalResourceObject("PONAME")%>' + ": " +
-              form_addICB.items.get('form_addICB_POName').value + "; " +
-              '<%=GetLocalResourceObject("PINAME")%>' + ": " +
-              form_addICB.items.get('form_addICB_PIName').value;
-
         var unitValueComp = form_addICB.items.get('form_addICB_UnitValue');
         var unitValue = 0;
         if (unitValueComp != undefined)
@@ -1128,15 +1119,37 @@
         if (unitAmountComp != undefined)
           unitAmount = unitAmountComp.value;
 
+        var baseAmountComp = form_addICB.items.get('form_addICB_BaseAmount');
+        var baseAmount = 0;
+        if (baseAmountComp != undefined)
+          baseAmount = baseAmountComp.value;
+
+        var priceComp = form_addICB.items.get('form_addICB_Price');
+        var price = 0;
+        if (priceComp != undefined)
+          price = priceComp.value;
+        
+        var recordId = form_addICB.items.get('form_addICB_POId').value + "_" +
+              form_addICB.items.get('form_addICB_PIId').value + "_" +
+              price + "_" +
+              baseAmount + "_" +
+              unitValue + "_" +
+              unitAmount;
+
+        var groupId = '<%=GetLocalResourceObject("PONAME")%>' + ": " +
+              form_addICB.items.get('form_addICB_POName').value + "; " +
+              '<%=GetLocalResourceObject("PINAME")%>' + ": " +
+              form_addICB.items.get('form_addICB_PIName').value;
+
         var found = icbStore.find('RecordId', recordId);
         if (found == -1) {
           var newICBRecord = new IcbRecord({
             ProductOfferingId: form_addICB.items.get('form_addICB_POId').value,
             PriceableItemId: form_addICB.items.get('form_addICB_PIId').value,
-            Price: form_addICB.items.get('form_addICB_Price').value,
+            Price: price,
             UnitValue: unitValue,
             UnitAmount: unitAmount,
-            BaseAmount: form_addICB.items.get('form_addICB_BaseAmount').value,
+            BaseAmount: baseAmount,
             RecordId: recordId,
             GroupId: groupId
           });

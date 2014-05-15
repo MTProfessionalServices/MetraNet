@@ -70,10 +70,11 @@ namespace MetraNet.Quoting
       var callbackScript = "function CallServer(arg, context)" + "{ " + cbReference + ";}";
       Page.ClientScript.RegisterClientScriptBlock(GetType(), "CallServer", callbackScript, true);
 
-      ParseRequest();
-
-      MTdpStartDate.Text = MetraTime.Now.Date.ToString();
-      MTdpEndDate.Text = MetraTime.Now.Date.AddMonths(1).ToString();
+      if (!IsPostBack)
+      {
+        MTdpStartDate.Text = MetraTime.Now.Date.ToString();
+        MTdpEndDate.Text = MetraTime.Now.Date.AddMonths(1).ToString();
+      }
 
       #region render Accounts grid
 

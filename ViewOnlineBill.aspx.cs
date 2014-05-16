@@ -30,7 +30,7 @@ public partial class ViewOnlineBill : MTPage
 
     // New MetraView. Pass session variables to logout from asp applications when MetraView user logs out. Valid only when MetraView is loaded from MetraCare
     URL = String.Format(
-      "{0}/EntryPoint.aspx?MAM=TRUE&UserName={1}&NameSpace={2}&Ticket={3}&refURL={4}&URL={5}&ref={6}&IsMAMActive={7}&IsMOMActive={8}&IsMCMActive={9}",
+      "{0}/EntryPoint.aspx?MAM=TRUE&UserName={1}&NameSpace={2}&Ticket={3}&refURL={4}&URL={5}&ref={6}&IsMAMActive={7}&IsMOMActive={8}&IsMCMActive={9}&LanguageCode={10}",
       site,
       Server.UrlEncode(userName),
       Server.UrlEncode(nameSpace),
@@ -40,7 +40,8 @@ public partial class ViewOnlineBill : MTPage
       Server.UrlEncode(auth.EncryptStringData(Request.UrlReferrer.Host)),
       Session["IsMAMActive"],
       Session["IsMOMActive"],
-      Session["IsMCMActive"]
+      Session["IsMCMActive"],
+      Session[Constants.SELECTED_LANGUAGE] 
       );
   }
 }

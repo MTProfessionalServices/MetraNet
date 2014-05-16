@@ -162,12 +162,6 @@
       document.location.href = "/MetraNet/StartWorkFlow.aspx?WorkflowName=GroupSubscriptionsWorkflow&StartWithStepGr=JoinStep";
     }
 
-    function actionsColRenderer(value, meta, record, rowIndex, colIndex, store) {
-      var str = "";
-      //str += String.format("<span style='display:inline-block; vertical-align:middle'>&nbsp;<a style='cursor:hand;vertical-align:middle' id='viewaudit_{0}' title='{1}' href='JavaScript:onViewFailedTransactionAuditLog(\"{0}\",\"{2}\");'>View Log&nbsp;</a></span>", record.data.subscriptionid, TEXT_VIEW_AUDIT_FAILED_TRANSACTION, record.data.subscriptionid);
-
-      return str;
-    }
 
     function subscriptiontypeColRenderer(value, meta, record, rowIndex, colIndex, store) {
       return String.format("<span style='display:inline-block; vertical-align:middle'><img src='/Res/Images/icons/ProductCatalog_{0}.png' alt='{1}' align='middle'/></span>", record.data.subscriptiontype, value);
@@ -200,7 +194,6 @@
     {  
       cm.setRenderer(cm.getIndexById('subscriptiontype'), subscriptiontypeColRenderer);
       cm.setRenderer(cm.getIndexById('productofferingname'), subscriptionInformationColRenderer);
-      cm.setRenderer(cm.getIndexById('actions'), actionsColRenderer); 
     };
     
 //    function onCancel_<%= SubscriptionSummaryGrid.ClientID %>()

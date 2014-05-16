@@ -1,2 +1,2 @@
 SET LOCALPATH=%~dp0
-BMEImportExport.exe exp -E MetraTech.SysConfig.Reports.Report %LOCALPATH%
+BMEImportExport.exe exp -E MetraTech.SystemConfig.Reports.Report %LOCALPATH%

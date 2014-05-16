@@ -224,24 +224,6 @@
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
         </Element>
-        <Element>
-            <RecordElement>false</RecordElement>
-            <ID>actions</ID>
-            <DataIndex>actions</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag>SUBSCRIPTION_ACTIONS_HEADER_TEXT</LocalizationTag>
-                <ResourceClassKey>Account/App_LocalResources/AccountLandingPage.aspx</ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Filterable>false</Filterable>
-        </Element>
     </Elements>
     <ExpanderTemplate></ExpanderTemplate>
     <GridButtons></GridButtons>

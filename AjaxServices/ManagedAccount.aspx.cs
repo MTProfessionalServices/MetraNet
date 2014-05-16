@@ -100,7 +100,7 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
         //Looks like Response.End is deprecated/changed
         //Might have a lot of unhandled exceptions in product from when we call response.end
         //http://support.microsoft.com/kb/312629
-        //Logger.LogError("Thread Abort Exception: {0} {1}", ex.Message, ex.ToString());
+        Logger.LogError("Thread Abort Exception: {0} {1}", ex.Message, ex.ToString());
       }
       catch (Exception ex)
       {

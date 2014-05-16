@@ -1,6 +1,6 @@
 DECLARE 
   l_tbl_count NUMBER;  
-  l_interval_id   t_usage_interval.id_interval%TYPE := 123;
+  l_interval_id   t_usage_interval.id_interval%TYPE := %%ID_USAGE_INTERVAL%%;
   p_result sys_refcursor;
   v_sql VARCHAR2(4000);
 BEGIN

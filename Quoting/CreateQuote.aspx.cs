@@ -411,8 +411,22 @@ namespace MetraNet.Quoting
 
       HiddenICBs.Value = EncodeICBsForHiddenControl();
 
-      //todo fill Quote results section
+      MTbtnGenerateQuote.Visible = false;
+      MTPanelResult.Visible = true;
+      
+      MTTextBoxControlStatus.Text = CurrentQuote.Status.ToString();
+      MTTextBoxControlGroup.Text = CurrentQuote.GroupSubscription ? "Yes" : "No";
+      //ReportLink.Text = CurrentQuote.ReportLink;
 
+      MTTextBoxControlCurrency.Text = CurrentQuote.Currency;
+      MTTextBoxControlTotal.Text = CurrentQuote.TotalAmount.ToString(CultureInfo.CurrentCulture);
+      MTTextBoxControlTax.Text = CurrentQuote.TotalTax.ToString(CultureInfo.CurrentCulture);
+
+      MTTextAreaFailed.Text = CurrentQuote.FailedMessage;
+      var sb = new MTStringBuilder();
+      foreach (var rec in CurrentQuote.MessageLog)
+        sb.Append(string.Format("{0}: {1}", rec.DateAdded, rec.Message));
+      MTTextAreaLog.Text = sb.ToString();
     }
 
     private string EncodeAccountsForHiddenControl(IEnumerable<int> accounts)

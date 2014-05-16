@@ -255,4 +255,7 @@
   <data name="ICB_GROUP_CONFIRM" xml:space="preserve">
     <value>ICB for group subscriptions will not be applied (current limitation)</value>
   </data>
+  <data name="MTPanelResult.Text" xml:space="preserve">
+    <value>Quote Details</value>
+  </data>
 </root>

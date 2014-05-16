@@ -47,6 +47,32 @@
     <div id="PlaceHolderICBGrid" class="RightColumn">
     </div>
   </MT:MTPanel>
+  <MT:MTPanel ID="MTPanelResult" runat="server" Collapsible="True" Collapsed="False"
+    meta:resourcekey="MTPanelResult" Visible="False">
+    <div id="Div4" style="clear:left">
+    <div id="Div1" class="LeftColumn">
+      <MT:MTTextBoxControl ID="MTTextBoxControlStatus" AllowBlank="True" Label="Quote Status"
+        LabelWidth="100" runat="server" ReadOnly="True" />      
+       <MT:MTTextBoxControl ID="MTTextBoxControlGroup" AllowBlank="True" Label="Group Subscription"
+        LabelWidth="100" runat="server"  ReadOnly="True"/>
+      <asp:HyperLink ID="ReportLink" runat="server">Report Link</asp:HyperLink>
+    </div>
+    <div id="Div2" class="RightColumn">
+      <MT:MTTextBoxControl ID="MTTextBoxControlCurrency" AllowBlank="True" Label="Currency"
+        LabelWidth="100" runat="server"  ReadOnly="True"/>      
+      <MT:MTTextBoxControl ID="MTTextBoxControlTotal" AllowBlank="True" Label="Total Amount"
+        LabelWidth="100" runat="server"  ReadOnly="True"/>      
+      <MT:MTTextBoxControl ID="MTTextBoxControlTax" AllowBlank="True" Label="Total Tax"
+        LabelWidth="100" runat="server"  ReadOnly="True"/>
+    </div>
+    </div>
+    <div id="Div3" style="clear:left">
+      <MT:MTTextArea ID="MTTextAreaFailed" AllowBlank="True" Label="Failed Message"
+        LabelWidth="100" runat="server"  ReadOnly="True" ControlAutoWidth="True" />      
+      <MT:MTTextArea ID="MTTextAreaLog" AllowBlank="True" Label="Quote Log"
+        LabelWidth="100" runat="server"  ReadOnly="True" ControlAutoWidth="True" />      
+    </div>
+  </MT:MTPanel>
   <div class="x-panel-btns-ct">
     <div style="width: 720px" class="x-panel-btns x-panel-btns-center">
       <div style="text-align: center; width: 25%; margin: auto;">
@@ -173,14 +199,14 @@
       ]
     });
 
-    var accountToolBarElements = [
-      '->',
-      { xtype: 'checkbox', id: 'IsGroupSubscription', boxLabel: '<%=GetLocalResourceObject("ISGROUP.BoxLabel")%>', handler: onGroupSubscriptionCheck, disabled: isViewMode },
-      { xtype: 'tbspacer', width: 50}];
-    if (!isViewMode)
-      accountToolBarElements.unshift({ iconCls: 'add', id: 'Add', text: '<%=GetLocalResourceObject("SELECT_ACCOUNTS")%>', handler: onAccountAdd });
-    
-    var accountToolBar = new Ext.Toolbar(accountToolBarElements);
+    var accountToolBar = null;
+    if (!isViewMode) {
+      accountToolBar = new Ext.Toolbar([
+        { iconCls: 'add', id: 'Add', text: '<%=GetLocalResourceObject("SELECT_ACCOUNTS")%>', handler: onAccountAdd },
+        '->',
+        { xtype: 'checkbox', id: 'IsGroupSubscription', boxLabel: '<%=GetLocalResourceObject("ISGROUP.BoxLabel")%>', handler: onGroupSubscriptionCheck },
+        { xtype: 'tbspacer', width: 50 }]);
+    }
 
     // create the Grid
     var textUserName = '<%=GetLocalResourceObject("USERNAME")%>';

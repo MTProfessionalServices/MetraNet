@@ -189,4 +189,25 @@
   <data name="TEXT_OVER" xml:space="preserve">
     <value>{PT-BR}Over</value>
   </data>
+  <data name="pnlPricingQueue.Text" xml:space="preserve">
+    <value>{PT-BR}Pricing Queue</value>
+  </data>
+  <data name="TEXT_PIPELINE_QUEUE" xml:space="preserve">
+    <value>{PT-BR}Pipeline Queue</value>
+  </data>
+  <data name="TEXT_RAMP_QUEUE" xml:space="preserve">
+    <value>{PT-BR}RAMP Queue</value>
+  </data>
+  <data name="TEXT_SCHEDULER_QUEUE" xml:space="preserve">
+    <value>{PT-BR}Scheduler Queue</value>
+  </data>
+  <data name="TEXT_MESSAGES_WAITING_TO_BE_ASSIGNED" xml:space="preserve">
+    <value>{PT-BR}messages waiting to be assigned</value>
+  </data>
+   <data name="TEXT_MESSAGES_WAITING_IN_RABBITMQ" xml:space="preserve">
+    <value>{PT-BR}messages waiting in RabbitMQ</value>
+  </data>
+  <data name="TEXT_TASKS_WAITING_TO_BE_PROCESSED" xml:space="preserve">
+    <value>{PT-BR}tasks waiting to be processed</value>
+  </data>
 </root>

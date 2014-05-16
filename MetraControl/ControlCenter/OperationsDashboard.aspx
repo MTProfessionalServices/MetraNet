@@ -51,7 +51,7 @@
                 </MT:MTPanel>
             </li>
             <li data-row="10" data-col="1" data-sizex="4" data-sizey="9">
-                <MT:MTPanel ID="pnlPricingQueue" runat="server" Text="Pricing Queue"
+                <MT:MTPanel ID="pnlPricingQueue" runat="server" Text="Pricing Queue" meta:resourcekey="pnlPricingQueue"
                     Width="430" Height="325">
 					<div id="divPricingQueues">
 					</div>
@@ -734,30 +734,30 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 					.renderHorizontalGridLines(true)
                     .legend(dc.legend().x(15).y(200).itemHeight(13).gap(5))
                     .brushOn(false)
- 					.title("Pipeline Queue", function(d){ return numberFormat(d.value) + " messages waiting to be assigned"; })
-					.title("RAMP Queue", function(d){ return numberFormat(d.value) + " messages waiting in RabbitMQ"; })
-					.title("Scheduler Queue", function(d){ return numberFormat(d.value) + " tasks waiting to be processed"; })
+ 					.title("<%=pipelineQueueText%>", function(d){ return numberFormat(d.value) + " " + "<%=pipelineQueueToolTipText%>"; })
+					.title("<%=rampQueueText%>", function(d){ return numberFormat(d.value) + " " + "<%=rampQueueToolTipText%>"; })
+					.title("<%=schedulerQueueText%>", function(d){ return numberFormat(d.value) + " " + "<%=schedulerQueueToolTipText%>"; })
                    .compose([
                         dc.lineChart(composite1)
                                 .dimension(dateDimension)
-                                .group(pipeQGroup, "Pipeline Queue")
+                                .group(pipeQGroup, "<%=pipelineQueueText%>")
                                 .colors(colors(0))
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){ return numberFormat(d.value) + " messages waiting to be assigned"; })
+								.title(function(d){ return numberFormat(d.value) + " " + "<%=pipelineQueueToolTipText%>"; })
                         ,
                         dc.lineChart(composite1)
                                 .dimension(dateDimension)
-                                .group(msgqQGroup, "RAMP Queue")
+                                .group(msgqQGroup, "<%=rampQueueText%>")
                                 .colors(colors(1))
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){ return numberFormat(d.value) + " messages waiting in RabbitMQ"; })
+								.title(function(d){ return numberFormat(d.value) + " " + "<%=rampQueueToolTipText%>"; })
                         ,
                         dc.lineChart(composite1)
                                 .dimension(dateDimension)
-                                .group(schedulerQGroup, "Scheduler Queue")
+                                .group(schedulerQGroup, "<%=schedulerQueueText%>")
                                 .colors(colors(2))
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){ return numberFormat(d.value) + " tasks waiting to be processed"; })
+								.title(function(d){ return numberFormat(d.value) + " " + "<%=schedulerQueueToolTipText%>"; })
                     ]);
             composite1.xAxis().tickSize(0,0).tickFormat("");
             composite1.yAxis().tickSize(0,0).tickFormat("");

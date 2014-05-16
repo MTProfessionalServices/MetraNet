@@ -11,7 +11,13 @@ public partial class OperationsDashboard : MTPage
   public string puppetJsonUrl = "https://puppet-corp1.metratech.com:443/radiator.json";
   public string puppetJson = "";
   public string OpenWord;
-  public string UnderInvestigationWord;  
+  public string UnderInvestigationWord;
+  public string pipelineQueueText;
+  public string rampQueueText;
+  public string schedulerQueueText;
+  public string pipelineQueueToolTipText;
+  public string rampQueueToolTipText;
+  public string schedulerQueueToolTipText;
 
   protected void Page_Load(object sender, EventArgs e)
   {
@@ -30,6 +36,12 @@ public partial class OperationsDashboard : MTPage
 
       OpenWord = GetLocalResourceObject("TEXT_OPEN").ToString();
       UnderInvestigationWord = GetLocalResourceObject("TEXT_UNDER_INVESTIGATION").ToString();
+      pipelineQueueText = GetLocalResourceObject("TEXT_PIPELINE_QUEUE").ToString();
+      rampQueueText = GetLocalResourceObject("TEXT_RAMP_QUEUE").ToString();
+      schedulerQueueText = GetLocalResourceObject("TEXT_SCHEDULER_QUEUE").ToString();
+      pipelineQueueToolTipText = GetLocalResourceObject("TEXT_MESSAGES_WAITING_TO_BE_ASSIGNED").ToString();
+      rampQueueToolTipText = GetLocalResourceObject("TEXT_MESSAGES_WAITING_IN_RABBITMQ").ToString();
+      schedulerQueueToolTipText = GetLocalResourceObject("TEXT_TASKS_WAITING_TO_BE_PROCESSED").ToString();
     }
   }
 

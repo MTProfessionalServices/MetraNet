@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" auto-import="false" xmlns="urn:nhibernate-mapping-2.2">
+  <meta attribute="category">ConfigDriven</meta>
+  <class name="MetraTech.SystemConfig.Reports.Report, MetraTech.SystemConfig.Reports.Entity" table="t_be_sys_rep_report">
+    <meta attribute="description">MetraNet Report definition</meta>
+    <meta attribute="label">Report</meta>
+    <meta attribute="plural-name">Reports</meta>
+    <meta attribute="database">NetMeter</meta>
+    <meta attribute="custom-base-class-name" />
+    <meta attribute="record-history">false</meta>
+    <meta attribute="entity-type">Entity</meta>
+    <meta attribute="interface">MetraTech.SystemConfig.Reports.Interface.IReport, MetraTech.SystemConfig.Interface</meta>
+    <meta attribute="metranet-entity-association" />
+    <id name="Id" column="c_Report_Id">
+      <type name="guid" />
+      <generator class="guid.comb" />
+    </id>
+    <version name="_Version" column="c__version" />
+    <component class="MetraTech.SystemConfig.Reports.ReportBusinessKey, MetraTech.SystemConfig.Reports.Entity" name="ReportBusinessKey">
+      <meta attribute="business-key">true</meta>
+      <meta attribute="internal-business-key">false</meta>
+      <property name="Name" column="c_Name" length="100" not-null="true" unique-key="businesskey">
+        <meta attribute="label">Name</meta>
+        <meta attribute="description">The name of the report. Business Key.</meta>
+        <meta attribute="defaultvalue" />
+        <meta attribute="sortable">false</meta>
+        <meta attribute="searchable">false</meta>
+        <meta attribute="association-entity" />
+        <meta attribute="encrypted">false</meta>
+        <meta attribute="computed">false</meta>
+        <meta attribute="computation-type-name" />
+        <meta attribute="record-history">true</meta>
+        <meta attribute="is-custom-base-class-property">false</meta>
+        <type name="System.String, mscorlib" />
+      </property>
+    </component>
+    <property name="CreationDate" column="c_CreationDate">
+      <meta attribute="label" />
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+    <property name="UpdateDate" column="c_UpdateDate">
+      <meta attribute="label" />
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="Timestamp" />
+    </property>
+    <property name="UID" column="c_UID">
+      <meta attribute="label" />
+      <meta attribute="description" />
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">true</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.Int32, mscorlib" />
+    </property>
+    <property name="Description" column="c_Description" length="255">
+      <meta attribute="label">Description</meta>
+      <meta attribute="description">The report's description</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
+    <property name="QueryName" column="c_QueryName" length="255">
+      <meta attribute="label">QueryName</meta>
+      <meta attribute="description">The name of the query to be run. Only applicable if Type is Basic or Configured.</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
+    <property name="URL" column="c_URL" length="255">
+      <meta attribute="label">URL</meta>
+      <meta attribute="description">The URL to invoke. Only applicable if Type is Custom.</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
+    <property name="Security" column="c_Security" length="255">
+      <meta attribute="label">Security</meta>
+      <meta attribute="description">Capabilities required to access to this report</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
+    <property name="Category" column="c_Category" length="100">
+      <meta attribute="label">Category</meta>
+      <meta attribute="description">The category that the report belongs to. High-level, Operations, Finance, Product Management, Customer Management, etc.</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
+    <property name="GridLayoutName" column="c_GridLayoutName" length="100">
+      <meta attribute="label">GridLayoutName</meta>
+      <meta attribute="description">The name of the grid layout that was created in ICE.</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
+    <property name="SubCategory" column="c_SubCategory" length="100">
+      <meta attribute="label">SubCategory</meta>
+      <meta attribute="description">The sub category that the report belongs to. Optional, used to support page like Failed Transactions in which we want just the failed transaction.</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
+    <property name="Extension" column="c_Extension" length="100">
+      <meta attribute="label">Extension</meta>
+      <meta attribute="description">Provides a way to keep core, blueprints and customizations separate.</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="System.String, mscorlib" />
+    </property>
+    <property name="RequiresInput" column="c_RequiresInput">
+      <meta attribute="label">RequiresInput</meta>
+      <meta attribute="description">Whether this report requires input parameters. If it does, it requires a screen to request values for these parameters before the report page can be called.</meta>
+      <meta attribute="defaultvalue">False</meta>
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="TrueFalse" />
+    </property>
+    <property name="Type" column="c_Type">
+      <meta attribute="label">Type</meta>
+      <meta attribute="description">Basic: The QueryName query is run. The returned columns are mapped to grid with no localization.
+Configured. The QueryName query is run and applied to the GridLayout on a generic page. No filters and no charts. In the future, we could support simple filters via metadata configuration.
+IntervalStatistics: calls a hardwired report.
+Custom: The URL is invoked (you're on your own)</meta>
+      <meta attribute="defaultvalue" />
+      <meta attribute="sortable">false</meta>
+      <meta attribute="searchable">false</meta>
+      <meta attribute="association-entity" />
+      <meta attribute="encrypted">false</meta>
+      <meta attribute="computed">false</meta>
+      <meta attribute="computation-type-name" />
+      <meta attribute="record-history">true</meta>
+      <meta attribute="is-custom-base-class-property">false</meta>
+      <type name="MetraTech.DomainModel.Enums.Reporting.MetraTech_MetraNet_Reporting.ReportType, MetraTech.DomainModel.Enums.Generated" />
+    </property>
+  </class>
+</hibernate-mapping>

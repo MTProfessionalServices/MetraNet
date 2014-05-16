@@ -144,9 +144,6 @@
   <data name="NO_SUBSCRIPTIONS_TEXT" xml:space="preserve">
     <value>This account currently does not have any subscriptions.</value>
   </data>
-  <data name="SUBSCRIPTION_ACTIONS_HEADER_TEXT" xml:space="preserve">
-    <value />
-  </data>
   <data name="SUBSCRIPTION_END_HEADER_TEXT" xml:space="preserve">
     <value>End</value>
   </data>

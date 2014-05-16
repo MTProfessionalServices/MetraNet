@@ -307,9 +307,24 @@
 //      
 //      return str;
 //    };
+    
 
+	function adjustHeights(elem) {
+      var fontstep = 2;
+      if ($(elem).height()>($(elem).parent().height() - 30) || $(elem).width()>$(elem).parent().width()) {
+        $(elem).css('font-size',(($(elem).css('font-size').substr(0,2)-fontstep)) + 'px').css('line-height',(($(elem).css('font-size').substr(0,2))) + 'px');
+        adjustHeights(elem);
+      }
+    }
+  
+	function resize_to_fit(){
+		var children = document.getElementById('AccountStatus').children;
+		adjustHeights(children[1]);
+	}
+    
     Ext.onReady(function() {
       displayAccountStatusInformation();
+	  resize_to_fit();
       displayBalanceInformation();
       displayFailedTransactionCount(<% =int.Parse(UI.Subscriber["_AccountID"]) %>);
       //displayLtvAndMrrInformation();

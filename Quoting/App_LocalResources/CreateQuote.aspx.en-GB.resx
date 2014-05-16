@@ -267,4 +267,7 @@
   <data name="QuoteLog.Label" xml:space="preserve">
     <value>Quote Log</value>
   </data>
+  <data name="btnConvertQuoteResource.Text" xml:space="preserve">
+    <value>Convert to Subscription</value>
+  </data>
 </root>

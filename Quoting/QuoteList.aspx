@@ -42,8 +42,9 @@
 //      // Edit Quote
 //      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"edit\" href=\"javascript:onEdit('{0}')\"><img src=\"/Res/Images/icons/table_edit.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textEdit));
 
-      // View Quote     
-      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"delete\" href=\"CreateQuote.aspx?mode=VIEW&quoteId={0}\"><img src=\"/Res/Images/icons/application_view_detail.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textView));
+      // View Quote
+      var accountsFilterValue = "<%= AccountsFilterValue %>";
+      str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"view\" href=\"CreateQuote.aspx?{0}mode=VIEW&quoteId={1}\"><img src=\"/Res/Images/icons/application_view_detail.png\" title=\"{2}\" alt=\"{2}\"/></a>", accountsFilterValue == "ALL" ? "" : "Accounts=ONE&", entityId, String.escape(textView));
       
       // Delete Quote     
       str += String.format("&nbsp;<a style=\"cursor:hand;\" id=\"delete\" href=\"javascript:onDelete('{0}')\"><img src=\"/Res/Images/icons/cross.png\" title=\"{1}\" alt=\"{1}\"/></a>", entityId, String.escape(textDelete));

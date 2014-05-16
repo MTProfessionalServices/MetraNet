@@ -85,6 +85,10 @@
                 OnClick="btnGenerateQuote_Click" TabIndex="150" meta:resourcekey="btnGenerateQuoteResource1" />
             </td>
             <td class="x-panel-btn-td">
+              <MT:MTButton ID="MTbtnConvertQuote" runat="server" 
+                OnClick="btnConvertQuote_Click" Visible="False" TabIndex="150" meta:resourcekey="btnConvertQuoteResource" />
+            </td>
+            <td class="x-panel-btn-td">
               <MT:MTButton ID="MTbtnCancel" runat="server" OnClick="btnCancel_Click" CausesValidation="False"
                 TabIndex="160" meta:resourcekey="MTbtnCancelResource1" />
             </td>

@@ -255,6 +255,9 @@
   <data name="ICB_GROUP_CONFIRM" xml:space="preserve">
     <value />
   </data>
+  <data name="btnConvertQuoteResource.Text" xml:space="preserve">
+    <value />
+  </data>
   <data name="MTPanelLog.Text" xml:space="preserve">
     <value />
   </data>

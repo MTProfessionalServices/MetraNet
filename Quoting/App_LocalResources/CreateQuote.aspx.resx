@@ -264,6 +264,9 @@
   <data name="ICB_GROUP_CONFIRM" xml:space="preserve">
     <value>ICB for group subscriptions will not be applied (current limitation)</value>
   </data>
+  <data name="btnConvertQuoteResource.Text" xml:space="preserve">
+    <value>Convert to Subscription</value>
+  </data>
   <data name="MTPanelLog.Text" xml:space="preserve">
     <value>Quote Log / Failed Message</value>
   </data>

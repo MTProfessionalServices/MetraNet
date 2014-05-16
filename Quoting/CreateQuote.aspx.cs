@@ -12,6 +12,7 @@ using MetraTech;
 using MetraTech.Domain.Quoting;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.DomainModel.Billing;
+using MetraTech.DomainModel.Enums.Core.Metratech_com;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.Interop.RCD;
 using MetraTech.UI.Common;
@@ -199,9 +200,7 @@ namespace MetraNet.Quoting
       {
         Page.Validate();
         ValidateRequest();
-        var accountsFilterValue = Request["Accounts"];
-        var param = accountsFilterValue == "ONE" ? string.Empty : "Accounts=ALL";
-        var redirectPath = string.Format(@"/MetraNet/Quoting/QuoteList.aspx?{0}", param);
+        var redirectPath = GetRedirectPath();
 
         if (!MTCheckBoxViewResult.Checked)  //do async call
         {
@@ -223,6 +222,39 @@ namespace MetraNet.Quoting
       {
         SetError(exp.Message);
       }
+    }
+
+    protected void btnConvertQuote_Click(object sender, EventArgs e)
+    {
+      try
+      {
+        using (var client = new QuotingServiceClient())
+        {
+          if (client.ClientCredentials != null)
+          {
+            client.ClientCredentials.UserName.UserName = UI.User.UserName;
+            client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+          }
+          client.ConvertToSubscription(CurrentQuoteId);
+          var redirectPath = GetRedirectPath();
+          Response.Redirect(redirectPath, false);
+        }
+      }
+      catch (MASBasicException exp)
+      {
+        SetError(exp.Message);
+      }
+      catch (Exception exp)
+      {
+        SetError(exp.Message);
+      }
+    }
+
+    private string GetRedirectPath()
+    {
+      var accountsFilterValue = Request["Accounts"];
+      var param = accountsFilterValue == "ONE" ? string.Empty : "Accounts=ALL";
+      return string.Format(@"/MetraNet/Quoting/QuoteList.aspx?{0}", param);
     }
 
     protected void btnCancel_Click(object sender, EventArgs e)
@@ -390,7 +422,6 @@ namespace MetraNet.Quoting
 
     private void LoadQuoteToControls()
     {
-
       //MTPanelQuoteParameters
 
       MTtbQuoteDescription.Text = CurrentQuote.QuoteDescription;
@@ -421,6 +452,7 @@ namespace MetraNet.Quoting
       MTPanelICB.Visible = !string.IsNullOrEmpty(HiddenICBs.Value);
 
       MTbtnGenerateQuote.Visible = false;
+      MTbtnConvertQuote.Visible = CurrentQuote.Status == QuoteStatus.Complete;
       MTPanelResult.Visible = true;
       MTPanelLog.Visible = true;
 
@@ -480,7 +512,6 @@ namespace MetraNet.Quoting
         return hiddenAccountsValue + "]";
       }
     }
-
 
     private string EncodePosForHiddenControl(IEnumerable<int> pos)
     {

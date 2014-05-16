@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PageLayout>
+    <IsBusinessEntityLayout>true</IsBusinessEntityLayout>
+    <Name>MetraTech.SystemConfig.Reports.Report</Name>
+    <Tenant>MetraTech</Tenant>
+    <AssemblyName>MetraTech.SystemConfig.Reports.Entity</AssemblyName>
+    <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
+    <Description></Description>
+    <Header>
+        <PageTitle>
+            <Value><![CDATA[]]></Value>
+        </PageTitle>
+    </Header>
+    <Help>
+        <Mode>None</Mode>
+        <Name></Name>
+        <URL></URL>
+    </Help>
+    <Sections>
+        <Section>
+            <Title>
+                <Value><![CDATA[]]></Value>
+            </Title>
+            <TabOrder>LeftToRight</TabOrder>
+            <Name></Name>
+            <Columns>
+                <Column>
+                    <Fields>
+                        <Field>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
+                            <ID>Category</ID>
+                            <Name>Category</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <EditorValidation>
+                                <Required>true</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label />
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
+                            <ID>Name</ID>
+                            <Name>Name</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <EditorValidation>
+                                <Required>true</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label />
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
+                            <ID>Extension</ID>
+                            <Name>Extension</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label />
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
+                            <ID>QueryName</ID>
+                            <Name>QueryName</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label />
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
+                            <ID>URL</ID>
+                            <Name>URL</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label />
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
+                            <ID>RequiresInput</ID>
+                            <Name>RequiresInput</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTCheckBox</ControlType>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label />
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                    </Fields>
+                </Column>
+                <Column>
+                    <Fields>
+                        <Field>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
+                            <ID>SubCategory</ID>
+                            <Name>SubCategory</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label />
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
+                            <ID>Description</ID>
+                            <Name>Description</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label />
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
+                            <ID>Type</ID>
+                            <Name>Type</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTDropDown</ControlType>
+                            <EditorValidation>
+                                <Required>true</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label />
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
+                            <ID>GridLayoutName</ID>
+                            <Name>GridLayoutName</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label />
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                        <Field>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
+                            <ID>Security</ID>
+                            <Name>Security</Name>
+                            <Alignment>Left</Alignment>
+                            <ReadOnly>false</ReadOnly>
+                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <EditorValidation>
+                                <Required>false</Required>
+                                <ValidationType></ValidationType>
+                            </EditorValidation>
+                            <OptionalExtConfig></OptionalExtConfig>
+                            <Label />
+                            <RequiredCapabilities />
+                            <RequiredCapabilitiesReadonly />
+                        </Field>
+                    </Fields>
+                </Column>
+            </Columns>
+            <ToolbarButtons></ToolbarButtons>
+        </Section>
+    </Sections>
+    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
+</PageLayout>

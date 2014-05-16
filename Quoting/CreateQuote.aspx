@@ -75,7 +75,8 @@
   </MT:MTPanel>
   <div class="x-panel-btns-ct">
     <div style="width: 720px" class="x-panel-btns x-panel-btns-center">
-      <div style="text-align: center; width: 25%; margin: auto;">
+      <div style="text-align: center;">
+        <center>
         <table>
           <tr>
             <td class="x-panel-btn-td">
@@ -92,6 +93,7 @@
             </td>
           </tr>
         </table>
+        </center>
       </div>
     </div>
   </div>
@@ -100,10 +102,9 @@
   <input id="HiddenPoIdTextBox" runat="server" type="hidden" />
   <input id="HiddenAccounts" runat="server" type="hidden" />
   <input id="HiddenPos" runat="server" type="hidden" />
+  <input id="HiddenPis" runat="server" type="hidden" />
   <input id="HiddenUDRCs" runat="server" type="hidden" />
-  <input id="HiddenPiUDRC" runat="server" type="hidden" />
   <input id="HiddenICBs" runat="server" type="hidden" />
-  <input id="HiddenPiICB" runat="server" type="hidden" />
   <input ID="MTCheckBoxIsGroupSubscription" runat="server" type="hidden" value="false" />
 
    <%-- General--%>
@@ -114,10 +115,22 @@
     var NAME_COLUMN_HEIGHT = 210;
     var isViewMode = <%=IsViewMode.ToString().ToLower()%>;
 
+    var piRecord = Ext.data.Record.create([// creates a subclass of Ext.data.Record
+      {name: 'ProductOfferingId' },
+      { name: 'ProductOfferingName' },
+      { name: 'PriceableItemId' },
+      { name: 'Name' },
+      { name: 'DisplayName' },
+      { name: 'Description' },
+      { name: 'PIKind' },
+      { name: 'PICanICB' },
+      { name: 'RecordId' }
+    ]);
+    
     Ext.onReady(function () {
       accountGrid.render(window.Ext.get('PlaceHolderAccountsGrid'));
       poGrid.render(window.Ext.get('PlaceHolderProductOfferingsGrid'));
-
+      //UDRCgrid.render(window.Ext.get('PlaceHolderUDRCMetricsGrid'));
       piWithAllowIcbGrid.render(window.Ext.get('PlaceHolderPIWithICBAllowedGrid'));
       icbGrid.render(window.Ext.get('PlaceHolderICBGrid'));
 
@@ -125,35 +138,41 @@
       udrcGrid.render(window.Ext.get('PlaceHolderUDRCGrid'));
     });
 
+    //    function loadFromPostback(hidden, store, data, dataDetails) {
+    //      var hiddenItems = window.Ext.get(hidden).dom;
+    //      if (hiddenItems.value.length > 0)
+    //        dataDetails = window.Ext.decode(hiddenItems.value);
+    //      store.loadData(data);
+    //    }
+
     window.onload = function () {
       var hiddenAccounts = window.Ext.get("<%=HiddenAccounts.ClientID %>").dom;
       if (hiddenAccounts.value.length > 0)
         accountData.accounts = window.Ext.decode(hiddenAccounts.value);
       window.accountStore.loadData(accountData);
 
+      //loadFromPostback("<%=HiddenAccounts.ClientID %>", window.accountStore, accountData, accountData.accounts);
+
       var hiddenPos = window.Ext.get("<%=HiddenPos.ClientID %>").dom;
       if (hiddenPos.value.length > 0)
         poData.pos = window.Ext.decode(hiddenPos.value);
       window.poStore.loadData(poData);
 
-      var hiddenPiUDRCs = window.Ext.get("<%=HiddenPiUDRC.ClientID %>").dom;
-      if (hiddenPiUDRCs.value.length > 0)
-        piUDRCData.piUDRC = window.Ext.decode(hiddenPiUDRCs.value);
-      addItemToPIs(piUDRCData.piUDRC);
-
-      var hiddenPiICBs = window.Ext.get("<%=HiddenPiICB.ClientID %>").dom;
-      if (hiddenPiICBs.value.length > 0)
-        piWithAllowIcbData.pisWithAllowIcb = window.Ext.decode(hiddenPiICBs.value);
-      addItemToPIs(piWithAllowIcbData.pisWithAllowIcb);
+      var hiddenPi = window.Ext.get("<%=HiddenPis.ClientID %>").dom;
+      if (hiddenPi.value.length > 0)
+        piData.pi = window.Ext.decode(hiddenPi.value);      
+      addItemToPIs(piData.pi);
 
       var hiddenUDRCs = window.Ext.get("<%=HiddenUDRCs.ClientID %>").dom;
       if (hiddenUDRCs.value.length > 0)
         udrcData.UDRCs = window.Ext.decode(hiddenUDRCs.value);
+      //window.udrcStore.loadData(udrcData);
       addUDRCs(udrcData.UDRCs);
 
       var hiddenICBs = window.Ext.get("<%=HiddenICBs.ClientID %>").dom;
       if (hiddenICBs.value.length > 0)
         icbData.icbs = window.Ext.decode(hiddenICBs.value);
+      //window.icbStore.loadData(icbData);
       addICBs(icbData.icbs);
 
       if (window.Ext.get("<%=MTCheckBoxIsGroupSubscription.ClientID %>").dom.value == "true")
@@ -161,7 +180,7 @@
     };
 
     function getDataGrids() {
-      var result = getAccountIds() && getPoIds() && getUDRCpis() && getICBpis() && getUDRCs() && getICBs();
+      var result = getAccountIds() && getPoIds() && getUDRCs() && getICBs();
       if (result) {
         var btnOk = window.Ext.getCmp('ctl00_ContentPlaceHolder1_MTbtnGenerateQuote');
         btnOk.setDisabled(true);
@@ -203,9 +222,9 @@
     if (!isViewMode) {
       accountToolBar = new Ext.Toolbar([
         { iconCls: 'add', id: 'Add', text: '<%=GetLocalResourceObject("SELECT_ACCOUNTS")%>', handler: onAccountAdd },
-        '->',
-        { xtype: 'checkbox', id: 'IsGroupSubscription', boxLabel: '<%=GetLocalResourceObject("ISGROUP.BoxLabel")%>', handler: onGroupSubscriptionCheck },
-        { xtype: 'tbspacer', width: 50 }]);
+    '->',
+    { xtype: 'checkbox', id: 'IsGroupSubscription', boxLabel: '<%=GetLocalResourceObject("ISGROUP.BoxLabel")%>', handler: onGroupSubscriptionCheck },
+    { xtype: 'tbspacer', width: 50 } ]);
     }
 
     // create the Grid
@@ -240,6 +259,8 @@
 
     function onGroupSubscriptionCheck() {
       window.Ext.get("<%=MTCheckBoxIsGroupSubscription.ClientID %>").dom.value = accountToolBar.items.get('IsGroupSubscription').checked;
+//      accountGrid.colModel.config[1].width = accountToolBar.items.get('IsGroupSubscription').checked ? 50 : 0;
+//      accountGrid.syncSize();
     }
 
     function accountCallback(ids, records) {
@@ -344,8 +365,6 @@
   <%-- Product Offering Grid--%>
   <script language="javascript" type="text/javascript">
     var poData = { pos: [] };
-
-    // create the data store
     var poStore = new Ext.data.JsonStore({
       root: 'pos',
       fields: [
@@ -355,6 +374,17 @@
     });
     poStore.loadData(poData);
     
+    var piData = { pi: [] };
+    
+    var piStore = new Ext.data.GroupingStore({
+      root: 'piUDRC',
+      fields: piRecord,
+      groupField: 'ProductOfferingName'
+    });
+    
+    var textSelectPos = '<%=GetLocalResourceObject("SELECT_POS")%>';
+    var poToolBar = new Ext.Toolbar([{ iconCls: 'add', id: 'Add', text: textSelectPos, handler: onPoAdd}]);
+
     // create the Grid
     var textPoId = '<%=GetLocalResourceObject("POID")%>';
     var textPoName = '<%=GetLocalResourceObject("PONAME")%>';
@@ -398,6 +428,45 @@
       poSelectorWin2.hide();
     }
 
+    function addItemToPIs(items) {  
+      for (var i = 0; i < items.length; i++) {
+        var piId = items[i].PriceableItemId;
+        var poId = items[i].ProductOfferingId;
+        var poName = poStore.getAt(poStore.find('ProductOfferingId', poId)).data.Name;
+        var recordId = piId + '_' + poId;
+        var piKind = items[i].PIKind;
+        var piCanIcb = items[i].PICanICB;
+
+        var myNewRecord = new piRecord({
+          ProductOfferingId: poId,
+          ProductOfferingName: poName,
+          PriceableItemId: piId,
+          Name: items[i].Name,
+          DisplayName: items[i].DisplayName,
+          Description: items[i].Description,
+          PIKind: piKind,
+          PICanICB: piCanIcb,
+          RecordId: recordId
+        });
+
+        piStore.add(myNewRecord);
+
+        if ((piKind == 25) || (piKind == 'UnitDependentRecurring')) { //UDRC pi
+          var found1 = piUDRCStore.find('RecordId', recordId);
+          if (found1 == -1) {
+            piUDRCStore.add(myNewRecord);
+          }
+        }
+
+        if (piCanIcb == 'Y') {
+          var found2 = piWithAllowIcbStore.find('RecordId', recordId);
+          if (found2 == -1) {
+            piWithAllowIcbStore.add(myNewRecord);
+          }
+        }
+      }
+    }
+
     //add account button handler
     function onPoAdd() {
       ShowMultiPoSelector('addPoCallback', 'Frame');
@@ -439,6 +508,12 @@
         if (icbStore.data.items[i].data.ProductOfferingId == poId)
           icbStore.remove(icbStore.getAt(i));
       }
+
+      n = piStore.data.length;
+      for (i = n - 1; i >= 0; i--) {
+        if (piStore.data.items[i].data.ProductOfferingId == poId)
+          piStore.remove(piStore.getAt(i));
+    }
     }
 
     function getPoIds() {
@@ -465,6 +540,7 @@
 
       window.Ext.get("<%=HiddenPoIdTextBox.ClientID %>").dom.value = ids;
       window.Ext.get("<%=HiddenPos.ClientID %>").dom.value = poData.pos.length > 0 ? window.Ext.encode(poData.pos) : "";
+        window.Ext.get("<%=HiddenPis.ClientID %>").dom.value = piData.pi.length > 0 ? window.Ext.encode(piData.pi) : "";
       return true;
     }
 
@@ -506,71 +582,12 @@
   <script language="javascript" type="text/javascript">
     var piUDRCData = { piUDRC: [] };
 
-    var PiRecord = Ext.data.Record.create([// creates a subclass of Ext.data.Record
-      {name: 'ProductOfferingId' },
-      { name: 'ProductOfferingName' },
-      { name: 'PriceableItemId' },
-      { name: 'Name' },
-      { name: 'DisplayName' },
-      { name: 'Description' },
-      { name: 'PIKind' },
-      { name: 'PICanICB' },
-      { name: 'RecordId' }
-    ]);
-
     // create the data store
     var piUDRCStore = new Ext.data.GroupingStore({
       root: 'piUDRC',
-      fields: [
-        { name: 'ProductOfferingId' },
-        { name: 'ProductOfferingName' },
-        { name: 'PriceableItemId' },
-        { name: 'Name' },
-        { name: 'DisplayName' },
-        { name: 'Description' },
-        { name: 'PIKind' },
-        { name: 'PICanICB' },
-        { name: 'RecordId' }        
-      ],
+      fields: piRecord.fields,
       groupField: 'ProductOfferingName'
     });
-
-    function addItemToPIs(items) {
-      for (var i = 0; i < items.length; i++) {
-        var piId = items[i].PriceableItemId;
-        var poId = items[i].ProductOfferingId;
-        var poName = poStore.getAt(poStore.find('ProductOfferingId', poId)).data.Name;
-        var recordId = piId + '-' + poId;
-        var piKind = items[i].PIKind;
-        var piCanIcb = items[i].PICanICB;
-
-        var myNewRecord = new PiRecord({
-          ProductOfferingId: poId,
-          ProductOfferingName: poName,
-          PriceableItemId: piId,
-          Name: items[i].Name,
-          DisplayName: items[i].DisplayName,
-          Description: items[i].Description,
-          PIKind: piKind,
-          PICanICB: piCanIcb,
-          RecordId: recordId
-        });
-
-        if (piKind == 25) { //UDRC pi
-          var found1 = piUDRCStore.find('RecordId', recordId);
-          if (found1 == -1) {
-            piUDRCStore.add(myNewRecord);
-          }
-        }
-
-        if (piCanIcb == 'Y') {
-          var found2 = piWithAllowIcbStore.find('RecordId', recordId);
-          if (found2 == -1) {
-            piWithAllowIcbStore.add(myNewRecord);
-          }
-        }
-      }
-    }
 
     // create the Grid
     var textPoId = '<%=GetLocalResourceObject("POID")%>';
@@ -786,37 +803,11 @@
       AddUDRCWindow.destroy();
     }
 
-    function getUDRCpis() {
-      var records = piUDRCStore.data.items;
-      piUDRCData.piUDRC.length = 0;
-
-      for (var i = 0; i < records.length; i++)
-        piUDRCData.piUDRC.push(records[i].data);
-
-      window.Ext.get("<%=HiddenPiUDRC.ClientID %>").dom.value = piUDRCData.piUDRC.length > 0 ? window.Ext.encode(piUDRCData.piUDRC) : "";
-      return true;
-    }
-
   </script>
 
   <%-- UDRC Grid--%>
   <script language="javascript" type="text/javascript">
     var udrcData = { UDRCs: [] };
-
-    // create the data store
-    var udrcStore = new Ext.data.GroupingStore({
-      root: 'UDRCs',
-      fields: [
-        { name: 'PriceableItemId' },
-        { name: 'ProductOfferingId' },
-        { name: 'Value' },
-        { name: 'StartDate' },
-        { name: 'EndDate' },
-        { name: 'RecordId' },
-        { name: 'GroupId' }
-      ],
-      groupField: 'GroupId'
-    });
 
     var udrcRecord = Ext.data.Record.create([// creates a subclass of Ext.data.Record
         { name: 'PriceableItemId' },
@@ -827,6 +818,13 @@
         { name: 'RecordId' },
         { name: 'GroupId' }
     ]);
+
+    // create the data store
+    var udrcStore = new Ext.data.GroupingStore({
+      root: 'UDRCs',
+      fields: udrcRecord.fields,
+      groupField: 'GroupId'
+    });
 
     function addUDRCs(items) {
       for (var i = 0; i < items.length; i++) {        
@@ -934,16 +932,7 @@
     // create the data store
     var piWithAllowIcbStore = new Ext.data.GroupingStore({
       root: 'pisWithAllowIcb',
-      fields: [
-        { name: 'ProductOfferingId' },
-        { name: 'ProductOfferingName' },
-        { name: 'PriceableItemId' },
-        { name: 'Name' },
-        { name: 'DisplayName' },
-        { name: 'Description' },
-        { name: 'PIKind' },
-        { name: 'RecordId' }
-      ],
+      fields: piRecord.fields,
       groupField: 'ProductOfferingName'
     });
 
@@ -1163,7 +1152,7 @@
 
         var found = icbStore.find('RecordId', recordId);
         if (found == -1) {
-          var newICBRecord = new IcbRecord({
+          var newICBRecord = new icbRecord({
             ProductOfferingId: form_addICB.items.get('form_addICB_POId').value,
             PriceableItemId: form_addICB.items.get('form_addICB_PIId').value,
             Price: price,
@@ -1186,40 +1175,13 @@
       AddICBWindow.destroy();
     }
 
-    function getICBpis() {
-      var records = piWithAllowIcbStore.data.items;
-      piWithAllowIcbData.pisWithAllowIcb.length = 0;
-
-      for (var i = 0; i < records.length; i++)
-        piWithAllowIcbData.pisWithAllowIcb.push(records[i].data);
-
-      window.Ext.get("<%=HiddenPiICB.ClientID %>").dom.value = piWithAllowIcbData.pisWithAllowIcb.length > 0 ? window.Ext.encode(piWithAllowIcbData.pisWithAllowIcb) : "";
-      return true;
-    }
-
   </script>
 
   <%-- ICB Grid--%>
   <script language="javascript" type="text/javascript">
     var icbData = { icbs: [] };
 
-    // create the data store
-    var icbStore = new Ext.data.GroupingStore({
-      root: 'icbs',
-      fields: [
-        { name: 'PriceableItemId' },
-        { name: 'ProductOfferingId' },
-        { name: 'Price' },
-        { name: 'UnitValue' },
-        { name: 'UnitAmount' },
-        { name: 'BaseAmount' },
-        { name: 'RecordId' },
-        { name: 'GroupId' }
-      ],
-      groupField: 'GroupId'
-    });
-
-    var IcbRecord = Ext.data.Record.create([ // creates a subclass of Ext.data.Record
+    var icbRecord = Ext.data.Record.create([ // creates a subclass of Ext.data.Record
         { name: 'PriceableItemId' },
         { name: 'ProductOfferingId' },
         { name: 'Price' },
@@ -1230,9 +1192,16 @@
         { name: 'GroupId' }
     ]);
 
+    // create the data store
+    var icbStore = new Ext.data.GroupingStore({
+      root: 'icbs',
+      fields: icbRecord.fields,
+      groupField: 'GroupId'
+    });
+
     function addICBs(items) {
       for (var i = 0; i < items.length; i++) {
-        var myNewRecord = new IcbRecord({
+        var myNewRecord = new icbRecord({
           PriceableItemId: items[i].PriceableItemId,
           ProductOfferingId: items[i].ProductOfferingId,
           Price: items[i].Price,

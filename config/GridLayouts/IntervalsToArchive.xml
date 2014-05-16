@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <Name>Dashboard.PendingBillCloses</Name>
+    <Name>IntervalsToArchive</Name>
     <Title>
-        <Value><![CDATA[Pending Bill Close]]></Value>
+        <LocalizationTag>GRID_TITLE</LocalizationTag>
+        <ResourceClassKey></ResourceClassKey>
     </Title>
-    <Exportable>false</Exportable>
-    <Height>225</Height>
-    <Width>399</Width>
-    <Expandable>false</Expandable>
+    <Exportable>true</Exportable>
+    <Height>400</Height>
+    <Width>720</Width>
+    <Expandable>true</Expandable>
     <Buttons>None</Buttons>
     <DataSourceURL>~/AjaxServices/QueryService.aspx</DataSourceURL>
     <MultiSelect>false</MultiSelect>
@@ -15,26 +16,25 @@
     <TotalProperty>TotalRows</TotalProperty>
     <RootElement>Items</RootElement>
     <PageSize>10</PageSize>
-    <Description>Pending Bill Close</Description>
+    <Description></Description>
     <ExpansionCssClass></ExpansionCssClass>
-    <ShowFilterPanel>false</ShowFilterPanel>
-    <FilterInputWidth>100</FilterInputWidth>
-    <FilterLabelWidth>100</FilterLabelWidth>
-    <FilterColumnWidth>100</FilterColumnWidth>
-    <ShowTopBar>false</ShowTopBar>
-    <ShowBottomBar>false</ShowBottomBar>
-    <ShowGridFrame>false</ShowGridFrame>
-    <ShowGridHeader>false</ShowGridHeader>
+    <ShowFilterPanel>true</ShowFilterPanel>
+    <FilterInputWidth>220</FilterInputWidth>
+    <FilterLabelWidth>75</FilterLabelWidth>
+    <FilterColumnWidth>350</FilterColumnWidth>
+    <ShowTopBar>true</ShowTopBar>
+    <ShowBottomBar>true</ShowBottomBar>
+    <ShowGridFrame>true</ShowGridFrame>
+    <ShowGridHeader>true</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
     <NoRecordsText>
-        <LocalizationTag>NO_PENDING_BILL_CLOSE_TEXT</LocalizationTag>
-        <ResourceClassKey>MetraControl/ControlCenter/App_LocalResources/OperationsDashboard.aspx</ResourceClassKey>
+        <Value><![CDATA[]]></Value>
     </NoRecordsText>
-    <FilterPanelLayout>SingleColumn</FilterPanelLayout>
+    <FilterPanelLayout>MultiColumn</FilterPanelLayout>
     <FilterPanelCollapsed>false</FilterPanelCollapsed>
-    <EnableColumnConfig>false</EnableColumnConfig>
-    <EnableFilterConfig>false</EnableFilterConfig>
-    <Resizeable>false</Resizeable>
+    <EnableColumnConfig>true</EnableColumnConfig>
+    <EnableFilterConfig>true</EnableFilterConfig>
+    <Resizeable>true</Resizeable>
     <ButtonAlignment>Center</ButtonAlignment>
     <DefaultSortField></DefaultSortField>
     <DefaultSortDirection>Ascending</DefaultSortDirection>
@@ -42,6 +42,34 @@
     <SearchOnLoad>true</SearchOnLoad>
     <CustomImplementationFilePath></CustomImplementationFilePath>
     <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
+    <URLParameters>
+        <URLParameter>
+            <ParameterName>q</ParameterName>
+            <SQLQuery>
+                <QueryName>__INTERVALS_TO_ARCHIVE__</QueryName>
+                <QueryDir></QueryDir>
+                <QueryParameters></QueryParameters>
+                <QueryColumns>
+                    <QueryColumn>
+                        <Name>id_interval</Name>
+                        <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                    </QueryColumn>
+                    <QueryColumn>
+                        <Name>dt_start</Name>
+                        <Type>System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                    </QueryColumn>
+                    <QueryColumn>
+                        <Name>dt_end</Name>
+                        <Type>System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                    </QueryColumn>
+                    <QueryColumn>
+                        <Name>tx_interval_status</Name>
+                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                    </QueryColumn>
+                </QueryColumns>
+            </SQLQuery>
+        </URLParameter>
+    </URLParameters>
     <SubGrid></SubGrid>
     <Elements>
         <Element>
@@ -53,10 +81,7 @@
             <IsIdentity>true</IsIdentity>
             <DataIndex>id_interval</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag>TEXT_INTERVAL_ID</LocalizationTag>
-                <ResourceClassKey>MetraControl/ControlCenter/App_LocalResources/OperationsDashboard.aspx</ResourceClassKey>
-            </HeaderText>
+            <HeaderText />
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -89,10 +114,7 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>dt_start</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag>TEXT_START</LocalizationTag>
-                <ResourceClassKey>MetraControl/ControlCenter/App_LocalResources/OperationsDashboard.aspx</ResourceClassKey>
-            </HeaderText>
+            <HeaderText />
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -125,10 +147,7 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>dt_end</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag>TEXT_END</LocalizationTag>
-                <ResourceClassKey>MetraControl/ControlCenter/App_LocalResources/OperationsDashboard.aspx</ResourceClassKey>
-            </HeaderText>
+            <HeaderText />
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -161,46 +180,7 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>tx_interval_status</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag>TEXT_STATUS</LocalizationTag>
-                <ResourceClassKey>MetraControl/ControlCenter/App_LocalResources/OperationsDashboard.aspx</ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename></AssemblyFilename>
-            <ObjectName></ObjectName>
-            <ID>cycle</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>cycle</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag>TEXT_CYCLE</LocalizationTag>
-                <ResourceClassKey>MetraControl/ControlCenter/App_LocalResources/OperationsDashboard.aspx</ResourceClassKey>
-            </HeaderText>
+            <HeaderText />
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>

@@ -31,6 +31,9 @@
             <entry name="MetraTech.Reporting">
               <value>MetraTech.Reporting</value>
             </entry>
+            <entry name="MetraTech.SystemConfig">
+              <value>MetraTech.SystemConfig</value>
+            </entry>
           </entries>
         </enum>
       </enums>

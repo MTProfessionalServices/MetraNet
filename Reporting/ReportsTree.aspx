@@ -22,7 +22,7 @@
   <div style="padding: 10px">
     <MT:MTLabel ID="LblcurrentEntityName" runat="server" Font-Bold="true" Font-Size="Medium" />
   </div>
-  <a href="/MetraNet/BME/BEList.aspx?Name=MetraTech.Reporting.Reports.Report&Extension=MetraTech.Reporting&NewBreadcrumb=True&BMEGrid_TemplateFileName=MetraTech.Reporting.Reports.Report">Manage Reports</a>
+  <a href="/MetraNet/BME/BEList.aspx?Name=MetraTech.SystemConfig.Reports.Report&Extension=MetraTech.SystemConfig&NewBreadcrumb=True&BMEGrid_TemplateFileName=MetraTech.SystemConfig.Reports.Report">Manage Reports</a>
 	
   <script type="text/javascript">
     var referer ='<%=RefererUrl%>';
@@ -77,7 +77,7 @@
             tpl: new Ext.Template('<a href="{thehref}" title="{Description}">{Description}</a>')
           }],
         loader: new Ext.ux.CustomNodeTreeLoader({
-          dataUrl: '../AjaxServices/BEListSvc.aspx?Name=MetraTech.Reporting.Reports.Report&Assembly=MetraTech.Reporting.Reports.Entity&limit=10000',
+          dataUrl: '../AjaxServices/BEListSvc.aspx?Name=MetraTech.SystemConfig.Reports.Report&Assembly=MetraTech.SystemConfig.Reports.Entity&limit=10000',
           requestMethod: 'POST',
           customLoad: function(data, node) {
             var categories = {};

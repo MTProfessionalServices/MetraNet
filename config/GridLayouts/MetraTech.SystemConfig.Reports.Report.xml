@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <IsBusinessEntityLayout>true</IsBusinessEntityLayout>
-    <Name>MetraTech.Reporting.Reports.Report</Name>
+    <Name>MetraTech.SystemConfig.Reports.Report</Name>
     <Title>
         <Value><![CDATA[]]></Value>
     </Title>
@@ -14,9 +14,9 @@
 	<Width>90%</Width>
 	<Expandable>true</Expandable>
     <Buttons>Cancel</Buttons>
-    <ObjectName>MetraTech.Reporting.Reports.Report</ObjectName>
-    <AssemblyNameHint>MetraTech.Reporting.Reports.Entity.dll</AssemblyNameHint>
-    <DataSourceURL>../AjaxServices/BEListSvc.aspx?Name=MetraTech.Reporting.Reports.Report&amp;Assembly=MetraTech.Reporting.Reports.Entity</DataSourceURL>
+    <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
+    <AssemblyNameHint>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyNameHint>
+    <DataSourceURL>../AjaxServices/BEListSvc.aspx?Name=MetraTech.SystemConfig.Reports.Report&amp;Assembly=MetraTech.SystemConfig.Reports.Entity</DataSourceURL>
     <MultiSelect>false</MultiSelect>
     <SelectionModel>Standard</SelectionModel>
     <TotalProperty>TotalRows</TotalProperty>
@@ -105,8 +105,8 @@
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
-            <AssemblyFilename>MetraTech.Reporting.Reports.Entity.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Reporting.Reports.Report</ObjectName>
+            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
+            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
             <ID>Category</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
@@ -138,8 +138,8 @@
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
-            <AssemblyFilename>MetraTech.Reporting.Reports.Entity.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Reporting.Reports.Report</ObjectName>
+            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
+            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
             <ID>Name</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
@@ -171,8 +171,8 @@
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
-            <AssemblyFilename>MetraTech.Reporting.Reports.Entity.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Reporting.Reports.Report</ObjectName>
+            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
+            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
             <ID>Description</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
@@ -204,8 +204,8 @@
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
-            <AssemblyFilename>MetraTech.Reporting.Reports.Entity.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Reporting.Reports.Report</ObjectName>
+            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
+            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
             <ID>SubCategory</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
@@ -237,8 +237,8 @@
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
-            <AssemblyFilename>MetraTech.Reporting.Reports.Entity.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Reporting.Reports.Report</ObjectName>
+            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
+            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
             <ID>URL</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
@@ -270,8 +270,8 @@
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
-            <AssemblyFilename>MetraTech.Reporting.Reports.Entity.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Reporting.Reports.Report</ObjectName>
+            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
+            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
             <ID>Type</ID>
             <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
@@ -311,8 +311,8 @@
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
-            <AssemblyFilename>MetraTech.Reporting.Reports.Entity.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Reporting.Reports.Report</ObjectName>
+            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
+            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
             <ID>Extension</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
@@ -344,8 +344,8 @@
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
-            <AssemblyFilename>MetraTech.Reporting.Reports.Entity.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Reporting.Reports.Report</ObjectName>
+            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
+            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
             <ID>QueryName</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
@@ -377,8 +377,8 @@
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
-            <AssemblyFilename>MetraTech.Reporting.Reports.Entity.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Reporting.Reports.Report</ObjectName>
+            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
+            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
             <ID>GridLayoutName</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
@@ -410,8 +410,8 @@
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
-            <AssemblyFilename>MetraTech.Reporting.Reports.Entity.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Reporting.Reports.Report</ObjectName>
+            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
+            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
             <ID>RequiresInput</ID>
             <DataType>Boolean</DataType>
             <IsIdentity>false</IsIdentity>
@@ -443,8 +443,8 @@
         </Element>
         <Element>
             <RecordElement>true</RecordElement>
-            <AssemblyFilename>MetraTech.Reporting.Reports.Entity.dll</AssemblyFilename>
-            <ObjectName>MetraTech.Reporting.Reports.Report</ObjectName>
+            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
+            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
             <ID>Security</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
@@ -486,26 +486,26 @@
                 <Column>
                     <Fields>
                         <Field>
-                            <AssemblyFilename>MetraTech.Reporting.Reports.Entity.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.Reporting.Reports.Report</ObjectName>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
                             <ID>SubCategory</ID>
                             <Name>SubCategory</Name>
                         </Field>
                         <Field>
-                            <AssemblyFilename>MetraTech.Reporting.Reports.Entity.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.Reporting.Reports.Report</ObjectName>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
                             <ID>Extension</ID>
                             <Name>Extension</Name>
                         </Field>
                         <Field>
-                            <AssemblyFilename>MetraTech.Reporting.Reports.Entity.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.Reporting.Reports.Report</ObjectName>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
                             <ID>QueryName</ID>
                             <Name>QueryName</Name>
                         </Field>
                         <Field>
-                            <AssemblyFilename>MetraTech.Reporting.Reports.Entity.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.Reporting.Reports.Report</ObjectName>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
                             <ID>URL</ID>
                             <Name>URL</Name>
                         </Field>
@@ -514,26 +514,26 @@
                 <Column>
                     <Fields>
                         <Field>
-                            <AssemblyFilename>MetraTech.Reporting.Reports.Entity.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.Reporting.Reports.Report</ObjectName>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
                             <ID>RequiresInput</ID>
                             <Name>RequiresInput</Name>
                         </Field>
                         <Field>
-                            <AssemblyFilename>MetraTech.Reporting.Reports.Entity.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.Reporting.Reports.Report</ObjectName>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
                             <ID>Type</ID>
                             <Name>Type</Name>
                         </Field>
                         <Field>
-                            <AssemblyFilename>MetraTech.Reporting.Reports.Entity.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.Reporting.Reports.Report</ObjectName>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
                             <ID>GridLayoutName</ID>
                             <Name>GridLayoutName</Name>
                         </Field>
                         <Field>
-                            <AssemblyFilename>MetraTech.Reporting.Reports.Entity.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.Reporting.Reports.Report</ObjectName>
+                            <AssemblyFilename>MetraTech.SystemConfig.Reports.Entity.dll</AssemblyFilename>
+                            <ObjectName>MetraTech.SystemConfig.Reports.Report</ObjectName>
                             <ID>Security</ID>
                             <Name>Security</Name>
                         </Field>

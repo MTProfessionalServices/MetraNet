@@ -407,9 +407,7 @@ namespace MetraNet.Quoting
       MTdpEndDate.ReadOnly = true;
 
       HiddenAccounts.Value = EncodeAccountsForHiddenControl(CurrentQuote.Accounts);
-
       HiddenPos.Value = EncodePosForHiddenControl(CurrentQuote.ProductOfferings);
-
       HiddenPis.Value = EncodePisForHiddenControl(CurrentQuote.ProductOfferings);
 
       MTCheckBoxIsGroupSubscription.Value = CurrentQuote.GroupSubscription.ToString();
@@ -417,8 +415,10 @@ namespace MetraNet.Quoting
         HiddenGroupId.Value = EncodeAccountsForHiddenControl(new List<int> { CurrentQuote.CorporateAccountId });
 
       HiddenUDRCs.Value = EncodeUDRCsForHiddenControl();
+      MTPanelUDRC.Visible = !string.IsNullOrEmpty(HiddenUDRCs.Value);
 
       HiddenICBs.Value = EncodeICBsForHiddenControl();
+      MTPanelICB.Visible = !string.IsNullOrEmpty(HiddenICBs.Value);
 
       MTbtnGenerateQuote.Visible = false;
       MTPanelResult.Visible = true;
@@ -428,12 +428,12 @@ namespace MetraNet.Quoting
       MTTextBoxControlGroup.Text = CurrentQuote.GroupSubscription ? "Yes" : "No";
       ReportLink.Text = GetReportLink();
 
-      MTTextBoxControlTotal.Text = string.Format("{0} {1}",
-                                                 CurrentQuote.TotalAmount.ToString(CultureInfo.CurrentCulture),
-                                                 CurrentQuote.Currency);
-      MTTextBoxControlTax.Text = string.Format("{0} {1}",
-                                               CurrentQuote.TotalTax.ToString(CultureInfo.CurrentCulture),
-                                               CurrentQuote.Currency);
+      var curDecDig = CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalDigits;
+      var totalAmount = decimal.Round(CurrentQuote.TotalAmount, curDecDig).ToString(CultureInfo.CurrentCulture);
+      MTTextBoxControlTotal.Text = string.Format("{0} {1}", totalAmount, CurrentQuote.Currency);
+      
+      var taxAmount = decimal.Round(CurrentQuote.TotalTax, curDecDig).ToString(CultureInfo.CurrentCulture);
+      MTTextBoxControlTax.Text = string.Format("{0} {1}", taxAmount, CurrentQuote.Currency);
 
       MTMessageFailed.Text = string.Format("{0}: <br/> {1}",
                                            GetLocalResourceObject("QuoteFailed.Label"),
@@ -445,6 +445,7 @@ namespace MetraNet.Quoting
       foreach (var rec in CurrentQuote.MessageLog)
         sb.Append(string.Format("{0}: {1} <br/>", rec.DateAdded, rec.Message));
       MTMessageLog.Text = sb.ToString();
+      MTMessageLog.Visible = CurrentQuote.MessageLog.Count > 0;
     }
 
     private string EncodeAccountsForHiddenControl(IEnumerable<int> accounts)
@@ -694,10 +695,7 @@ namespace MetraNet.Quoting
       }
       finally
       {
-        if (rcd != null)
-        {
-          Marshal.ReleaseComObject(rcd);
-        }
+        Marshal.ReleaseComObject(rcd);
       }
       return reportFormats;
     }
@@ -720,7 +718,7 @@ namespace MetraNet.Quoting
           getReportsListClient.GetReportsList(new AccountIdentifier(accId), -1, out reports);
           // ReSharper restore PossibleNullReferenceException
         }
-        catch (EndpointNotFoundException Ex)
+        catch (EndpointNotFoundException)
         {
           //Logger.LogWarning("Unable to get PDF reports. Not able to connect to reporting service. Was reporting extension installed?");
           //Logger.LogWarning("error message was: {0}", Ex.Message);

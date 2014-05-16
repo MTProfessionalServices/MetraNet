@@ -259,10 +259,10 @@
     <value>Quote Details</value>
   </data>
   <data name="MTPanelLog.Text" xml:space="preserve">
-    <value>Quote Log</value>
+    <value>Quote Log / Failed Message</value>
   </data>
   <data name="QuoteFailed.Label" xml:space="preserve">
-    <value>Failed message</value>
+    <value>Failed Message</value>
   </data>
   <data name="QuoteLog.Label" xml:space="preserve">
     <value>Quote Log</value>

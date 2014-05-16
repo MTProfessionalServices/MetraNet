@@ -280,10 +280,6 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
             json.Append(item);
             item = string.Format("\"subscriptionid\":{0},", FormatFieldValue(record.Fields[subscriptionSummary_SubscriptionId_Index]));
             json.Append(item);
-            item = string.Format("\"recurringchargeAsString\":{0},", FormatCurrencyValue(record.Fields[subscriptionSummary_RecurringCharge_Index], record.Fields[subscriptionSummary_Currency_Index].FieldValue.ToString()));
-            json.Append(item);
-            item = string.Format("\"promocode\":{0},", FormatFieldValue(record.Fields[subscriptionSummary_Promocode_Index]));
-            json.Append(item);
             item = string.Format("\"groupsubscriptionname\":{0},", FormatFieldValue(record.Fields[subscriptionSummary_GroupSubName_Index]));
             json.Append(item);
             item = string.Format("\"groupsubscriptiondescription\":{0}", FormatFieldValue(record.Fields[subscriptionSummary_GroupSubDesc_Index]));

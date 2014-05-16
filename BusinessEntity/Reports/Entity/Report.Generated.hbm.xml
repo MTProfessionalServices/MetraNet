@@ -217,7 +217,7 @@ Custom: The URL is invoked (you're on your own)</meta>
       <meta attribute="computation-type-name" />
       <meta attribute="record-history">true</meta>
       <meta attribute="is-custom-base-class-property">false</meta>
-      <type name="MetraTech.DomainModel.Enums.Reporting.MetraTech_MetraNet_Reporting.ReportType, MetraTech.DomainModel.Enums.Generated" />
+      <type name="MetraTech.DomainModel.Enums.SystemConfig.MetraTech_MetraNet_Reporting.ReportType, MetraTech.DomainModel.Enums.Generated" />
     </property>
   </class>
 </hibernate-mapping>

@@ -19,7 +19,7 @@ public partial class AjaxServices_VisualizeService : MTListServicePage
     }
     Logger.LogInfo("operation : " + operation);
 
-    using (new HighResolutionTimer("QueryService", 500000))
+    using (new HighResolutionTimer("QueryService", 5000))
     {
       const string connectionInfo = "NetMeter";
       const string catalog = "NetMeter";

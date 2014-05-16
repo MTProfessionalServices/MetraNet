@@ -3,7 +3,6 @@ using MetraTech.UI.Common;
 
 public partial class OperationsDashboard : MTPage
 {
-
   public int failedUdrCleanupThreshold = 30;
   public int udrBatchFrequencyThreshold = 60;
   protected string primaryCurrency = "USD";
@@ -11,22 +10,26 @@ public partial class OperationsDashboard : MTPage
   public string puppetMasterUrl = "https://puppet-corp1";
   public string puppetJsonUrl = "https://puppet-corp1.metratech.com:443/radiator.json";
   public string puppetJson = "";
+  public string OpenWord;
+  public string UnderInvestigationWord;  
 
   protected void Page_Load(object sender, EventArgs e)
   {
     if (!IsPostBack)
     {
       // TODO:  Get data to bind to and place in viewstate
-     
+
       // TODO:  Set binding properties and template on MTGenericForm control
       // MTGenericForm1.RenderObjectType = Data.GetType();
       // MTGenericForm1.RenderObjectInstanceName = "Data";
       // MTGenericForm1.TemplatePath = TemplatePath;
       // MTGenericForm1.ReadOnly = false;
-        lblOverXDays.Text = "Over " + failedUdrCleanupThreshold.ToString() + " Days:";
-        lblLastBatch.Text = "Last Batch:";
-        
-       
+      lblOverXDays.Text = String.Format("{0} {1} {2}:", GetLocalResourceObject("TEXT_OVER"), failedUdrCleanupThreshold,
+                                        GetLocalResourceObject("TEXT_DAYS"));
+      lblLastBatch.Text = String.Format("{0}:", GetLocalResourceObject("TEXT_LAST_BATCH"));
+
+      OpenWord = GetLocalResourceObject("TEXT_OPEN").ToString();
+      UnderInvestigationWord = GetLocalResourceObject("TEXT_UNDER_INVESTIGATION").ToString();
     }
   }
 

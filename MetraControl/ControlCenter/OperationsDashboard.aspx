@@ -24,8 +24,8 @@
     <div class="gridster" width="100%" height="100%">
 	<ul width="100%" height="100%" id="gridsterul" style="width:100%; align:left;">
             <li data-row="1" data-col="1" data-sizex="4" data-sizey="9" width="100%">
-                <MT:MTPanel ID="pnlFailedTransactionsQueue" runat="server" 
-                    Width="430" Height="325" Text="Failed Transactions Queue"  Collapsible="True">
+                <MT:MTPanel ID="pnlFailedTransactionsQueue" runat="server" meta:resourcekey="pnlFailedTransactionsQueueResource"
+                    Width="430" Height="325" Text="Failed Transactions Queue" Collapsible="True">
                 
                        <div id="div30DayAging" class="base-bottom">
                           <div id="div30DayAgingInfo" class="corner-bottom">
@@ -411,16 +411,16 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 					          .renderHorizontalGridLines(true)
                     .brushOn(false)
                     .dimension(dateDimension)
-					          .group(openGroup, "Open")
-                    .stack(uiGroup, "Under Investigation")
+					          .group(openGroup, "<%=OpenWord%>")
+                    .stack(uiGroup, "<%=UnderInvestigationWord%>")
 //                  .title("Open", function(d){ return -d.key + " days back: " + numberFormat(d.value) + " Open";})
                     .title("Under Investigation", function(d){ return -d.key + " days back: " + numberFormat(d.value) + " Under Investigation";})
 					          .renderlet(function (_chart) {
 						          function setStyle(selection, keyName) {
 							          selection.style("fill", function (d) {
-								          if (d[keyName] == "Open")
-									          return "#0070C0";
-								          else if (d[keyName] == "Under Investigation")
+								          if (d[keyName] == "<%=OpenWord%>")
+								              return "#0070C0";
+								          else if (d[keyName] == "<%=UnderInvestigationWord%>")
 									          return "#148622";
 							          });
 						          }
@@ -946,13 +946,13 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             "x_axis": -100,
             "y_axis": 20,
              "color": "#148622",
-            "text": "Open"
+            "text": "<%=OpenWord%>"
           },
           {
             "x_axis": -100,
             "y_axis": 30,
             "color": "#0070C0",
-            "text": "Under Investigation"
+            "text": "<%=UnderInvestigationWord%>"
           },
           {
             "x_axis": -100,

@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
     <value>{IT}Operations Dashboard</value>
@@ -141,7 +141,7 @@
   <data name="NO_RUNNING_ADAPTERS_TEXT" xml:space="preserve">
     <value>{IT}No Running Adapters</value>
   </data>
-   <data name="TEXT_BILL_GROUP" xml:space="preserve">
+  <data name="TEXT_BILL_GROUP" xml:space="preserve">
     <value>{IT}Bill Group</value>
   </data>
   <data name="TEXT_CYCLE" xml:space="preserve">
@@ -152,23 +152,41 @@
   </data>
   <data name="TEXT_END" xml:space="preserve">
     <value>{IT}End</value>
-  </data>  
+  </data>
   <data name="TEXT_INSTANCE" xml:space="preserve">
     <value>{IT}Instance</value>
-  </data> 
+  </data>
   <data name="TEXT_INTERVAL_ID" xml:space="preserve">
     <value>{IT}Interval ID</value>
   </data>
   <data name="TEXT_MESSAGE" xml:space="preserve">
     <value>{IT}Message</value>
-  </data> 
+  </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>{IT}Name</value>
-  </data>  
+  </data>
   <data name="TEXT_START" xml:space="preserve">
     <value>{IT}Start</value>
-  </data>  
+  </data>
   <data name="TEXT_STATUS" xml:space="preserve">
     <value>{IT}Status</value>
-  </data> 	
+  </data>
+  <data name="pnlFailedTransactionsQueueResource.Text" xml:space="preserve">
+    <value>{IT}Failed Transactions Queue</value>
+  </data>
+  <data name="TEXT_OPEN" xml:space="preserve">
+    <value>{IT}Open</value>
+  </data>
+  <data name="TEXT_UNDER_INVESTIGATION" xml:space="preserve">
+    <value>{IT}Under Investigation</value>
+  </data>
+  <data name="TEXT_DAYS" xml:space="preserve">
+    <value>{IT}Days</value>
+  </data>
+  <data name="TEXT_LAST_BATCH" xml:space="preserve">
+    <value>{IT}Last Batch</value>
+  </data>
+  <data name="TEXT_OVER" xml:space="preserve">
+    <value>{IT}Over</value>
+  </data>
 </root>

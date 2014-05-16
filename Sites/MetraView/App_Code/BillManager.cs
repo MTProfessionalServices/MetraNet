@@ -24,6 +24,7 @@ using MetraTech.Interop.COMDBObjects;
 using ICOMLocaleTranslator = MetraTech.Interop.COMDBObjects.ICOMLocaleTranslator;
 using MetraTech.UI.Tools;
 using MetraTech.DomainModel.AccountTypes;
+using MetraTech.DomainModel.Enums;
 
 /// <summary>
 /// BillManager - used to load the online bill
@@ -1295,7 +1296,7 @@ public class BillManager: System.Web.UI.TemplateControl
       if (UI.Subscriber.SelectedAccount._AccountID != null)
       {
         var acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
-        client.GetSubscriptions(acct, ref subList);
+        client.GetSubscriptionsByLanguageCode(acct, Convert.ToInt32(EnumHelper.GetValueByEnum(GetLanguageCode(), 1)), ref subList);
       }
 
       client.Close();
@@ -1331,7 +1332,7 @@ public class BillManager: System.Web.UI.TemplateControl
       if (UI.Subscriber.SelectedAccount._AccountID != null)
       {
         var acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
-        client.GetEligiblePOsForSubscriptionMetraView(acct, MetraTime.Now, false, ref poList);
+        client.GetEligiblePOsForSubscriptionMetraView(acct, MetraTime.Now, false, Convert.ToInt32(EnumHelper.GetValueByEnum(GetLanguageCode(), 1)), ref poList);
       }
 
       client.Close();

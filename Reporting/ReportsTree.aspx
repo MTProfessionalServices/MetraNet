@@ -22,7 +22,7 @@
   <div style="padding: 10px">
     <MT:MTLabel ID="LblcurrentEntityName" runat="server" Font-Bold="true" Font-Size="Medium" />
   </div>
-  <a href="/MetraNet/BME/BEList.aspx?Name=MetraTech.SystemConfig.Reports.Report&Extension=MetraTech.SystemConfig&NewBreadcrumb=True&BMEGrid_TemplateFileName=MetraTech.SystemConfig.Reports.Report">Manage Reports</a>
+  <a href="/MetraNet/BME/BEList.aspx?Name=MetraTech.SystemConfig.Reports.Report&Extension=MetraTech.SystemConfig&NewBreadcrumb=True&BMEGrid_TemplateFileName=MetraTech.SystemConfig.Reports.Report"><asp:Label ID="ManageReports" runat="server" Text="Manage Reports" meta:resourcekey="ManageReports"></asp:Label></a>
 	
   <script type="text/javascript">
     var referer ='<%=RefererUrl%>';
@@ -66,12 +66,12 @@
         width: 810,
 
         columns: [{
-            header: 'Name',
+            header: REPORTS_TREE_HEADER_NAME,
             dataIndex: 'Name',
             width: 350,
             tpl: new Ext.Template('<a href="{thehref}" title="{Name}">{Name}</a>')
           }, {
-            header: 'Description',
+            header: REPORTS_TREE_HEADER_DESCRIPTION,
             dataIndex: 'Description',
             width: 457,
             tpl: new Ext.Template('<a href="{thehref}" title="{Description}">{Description}</a>')

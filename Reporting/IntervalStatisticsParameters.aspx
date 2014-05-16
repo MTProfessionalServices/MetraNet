@@ -10,23 +10,23 @@
 
         <div id="leftColumn1" class="LeftColumn">
           
-          <MT:MTDropDown ID="ddBillingCycle" runat="server" AllowBlank="true" Label="Billing Cycle"
+          <MT:MTDropDown ID="ddBillingCycle" runat="server" AllowBlank="true" Label="Billing Cycle" meta:resourcekey="ddBillingCycle"
             TabIndex="100" ControlWidth="200" ListWidth="200" HideLabel="False" LabelSeparator=":" Listeners="{ select: onBillingCycleChange }"
-            meta:resourcekey="ddBillingCycle" ReadOnly="False">
+            ReadOnly="False">
           </MT:MTDropDown>
           
           <div id="SectionIntervalId" style="display: block;">
-              <MT:MTDropDown ID="ddIntervalId" runat="server" AllowBlank="true" Label="Billing Interval"
+              <MT:MTDropDown ID="ddIntervalId" runat="server" AllowBlank="true" Label="Billing Interval" meta:resourcekey="ddIntervalId"
                 TabIndex="100" ControlWidth="400" ListWidth="400" HideLabel="False" LabelSeparator=":" Listeners="{ select: onIntervalIdChange }"
-                meta:resourcekey="ddIntervalId" ReadOnly="False" Enabled="false">
+                ReadOnly="False" Enabled="false">
               </MT:MTDropDown>
               <input id="txtIntervalId" runat="server" type="hidden" />
           </div>
           
           <div id="SectionBillGroupId" style="display: block;">
-              <MT:MTDropDown ID="ddBillGroupId" runat="server" AllowBlank="true" Label="Billing Group"
+              <MT:MTDropDown ID="ddBillGroupId" runat="server" AllowBlank="true" Label="Billing Group" meta:resourcekey="ddBillGroupId"
                 TabIndex="101" ControlWidth="400" ListWidth="400" HideLabel="False" LabelSeparator=":" Listeners="{ select: onBillGroupIdChange }"
-                meta:resourcekey="ddBillGroupId" ReadOnly="False" Enabled="false">
+                ReadOnly="False" Enabled="false">
               </MT:MTDropDown>
               <input id="txtBillGroupId" runat="server" type="hidden" />
           </div>
@@ -89,7 +89,7 @@
         }
 
         function onWaitForAjaxRequest() {
-            pnlMTPanel1El.mask('Loading...'); // Need to localize message
+          pnlMTPanel1El.mask(TEXT_LOADING);
         }
 
         function onDoneAjaxRequest() {
@@ -130,7 +130,7 @@
                             ddIntervalId.enable();
                         } else {
                             // Default value = N/A - no elements to show
-                            insertNewOption(ddIntervalId, "", "N/A");
+                            insertNewOption(ddIntervalId, "", REPORTS_TREE_NOT_APPLICABLE_TEXT);
                             ddIntervalId.disable();
                         }
                         ddIntervalId.setValue(ddIntervalId.store.getAt(0).data.value); // Default to first item (blank)
@@ -168,7 +168,7 @@
                         ddBillGroupId.enable();
                     } else {
                         // Default value = N/A - no elements to show
-                        insertNewOption(ddBillGroupId, "", "N/A");
+                        insertNewOption(ddBillGroupId, "", REPORTS_TREE_NOT_APPLICABLE_TEXT);
                         ddBillGroupId.disable();
                     }
                     ddBillGroupId.setValue(ddBillGroupId.store.getAt(0).data.value); // Default to first item (blank)

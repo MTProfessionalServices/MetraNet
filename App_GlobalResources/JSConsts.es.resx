@@ -1268,8 +1268,17 @@
   </data>
   <data name="ACCOUNT_INVOICE_GRAPH_TEXT" xml:space="preserve">
     <value>[es] Invoice</value>
-  </data>  
+  </data>
   <data name="ACCOUNT_FAILED_TRANSACTIONS_TEXT" xml:space="preserve">
     <value>[es] Failed Transactions</value>
-  </data>   
+  </data>
+  <data name="REPORTS_TREE_HEADER_DESCRIPTION" xml:space="preserve">
+    <value>(SPANISH) Description</value>
+  </data>
+  <data name="REPORTS_TREE_HEADER_NAME" xml:space="preserve">
+    <value>(SPANISH) Name</value>
+  </data>
+  <data name="REPORTS_TREE_NOT_APPLICABLE_TEXT" xml:space="preserve">
+    <value>(SPANISH) N/A</value>
+  </data>
 </root>

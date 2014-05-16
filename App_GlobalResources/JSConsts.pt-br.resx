@@ -1253,11 +1253,20 @@
   </data>
   <data name="ACCOUNT_MRR_GRAPH_TEXT" xml:space="preserve">
     <value>[pt-BR] MRR</value>
-  </data>  
+  </data>
   <data name="ACCOUNT_INVOICE_GRAPH_TEXT" xml:space="preserve">
     <value>[pt-BR] Invoice</value>
-  </data>  
+  </data>
   <data name="ACCOUNT_FAILED_TRANSACTIONS_TEXT" xml:space="preserve">
     <value>[[pt-BR] Failed Transactions</value>
-  </data>   
+  </data>
+  <data name="REPORTS_TREE_HEADER_DESCRIPTION" xml:space="preserve">
+    <value>(BRAZILIAN PORTUGUESE) Description</value>
+  </data>
+  <data name="REPORTS_TREE_HEADER_NAME" xml:space="preserve">
+    <value>(BRAZILIAN PORTUGUESE) Name</value>
+  </data>
+  <data name="REPORTS_TREE_NOT_APPLICABLE_TEXT" xml:space="preserve">
+    <value>(BRAZILIAN PORTUGUESE) N/A</value>
+  </data>
 </root>

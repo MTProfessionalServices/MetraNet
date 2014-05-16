@@ -734,7 +734,7 @@ namespace MetraNet.Quoting
       if (reports.Count <= 0)
         return String.Empty;
       
-      string fileName = String.Format(@"\Quotes\{0}\Quote_{1}", accId, CurrentQuote.IdQuote);  //todo read from quotingconfiguration
+      string fileName = String.Format(@"Quote_{1}", accId, CurrentQuote.IdQuote);  //todo read from quotingconfiguration
       var reportFileNameForShowReports = String.Empty;
       foreach (var report in reports.Where(report => report.FileName.Contains(fileName)))
       {
@@ -752,10 +752,11 @@ namespace MetraNet.Quoting
       foreach (XElement format in reportFormats.Root.Elements().Where(format => format.Attribute("type").Value.Equals(reportFormat)))
       {
         return String.Format(
-          "<li><a href=\"ShowReports.aspx?report={0}&reportType=quote\"><img src='{1}'/>{2}</a></li>",
+          "<li><a href=\"ShowReports.aspx?report={0}&account={3}\"><img src='{1}'/>PDF report for quote {2}</a></li>",
           Server.UrlEncode(reportFileNameForShowReports),
           format.Element("ReportImage").Value,
-          reportFileNameForShowReports);
+          CurrentQuote.IdQuote,
+          accId);
       }
 // ReSharper restore PossibleNullReferenceException
 

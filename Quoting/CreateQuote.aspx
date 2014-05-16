@@ -534,6 +534,11 @@
         ids += records[i].data.ProductOfferingId;
       }
 
+      records = piStore.data.items;
+      piData.pi.length = 0;
+      for (var i = 0; i < records.length; i++) 
+        piData.pi.push(records[i].data);              
+
       window.Ext.get("<%=HiddenPoIdTextBox.ClientID %>").dom.value = ids;
       window.Ext.get("<%=HiddenPos.ClientID %>").dom.value = poData.pos.length > 0 ? window.Ext.encode(poData.pos) : "";
         window.Ext.get("<%=HiddenPis.ClientID %>").dom.value = piData.pi.length > 0 ? window.Ext.encode(piData.pi) : "";

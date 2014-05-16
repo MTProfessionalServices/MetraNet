@@ -255,4 +255,16 @@
   <data name="ICB_GROUP_CONFIRM" xml:space="preserve">
     <value />
   </data>
+  <data name="MTPanelLog.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MTPanelResult.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="QuoteFailed.Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="QuoteLog.Label" xml:space="preserve">
+    <value />
+  </data>
 </root>

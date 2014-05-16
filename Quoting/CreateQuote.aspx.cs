@@ -422,20 +422,29 @@ namespace MetraNet.Quoting
 
       MTbtnGenerateQuote.Visible = false;
       MTPanelResult.Visible = true;
+      MTPanelLog.Visible = true;
 
       MTTextBoxControlStatus.Text = CurrentQuote.Status.ToString();
       MTTextBoxControlGroup.Text = CurrentQuote.GroupSubscription ? "Yes" : "No";
       ReportLink.Text = GetReportLink();
 
-      MTTextBoxControlCurrency.Text = CurrentQuote.Currency;
-      MTTextBoxControlTotal.Text = CurrentQuote.TotalAmount.ToString(CultureInfo.CurrentCulture);
-      MTTextBoxControlTax.Text = CurrentQuote.TotalTax.ToString(CultureInfo.CurrentCulture);
+      MTTextBoxControlTotal.Text = string.Format("{0} {1}",
+                                                 CurrentQuote.TotalAmount.ToString(CultureInfo.CurrentCulture),
+                                                 CurrentQuote.Currency);
+      MTTextBoxControlTax.Text = string.Format("{0} {1}",
+                                               CurrentQuote.TotalTax.ToString(CultureInfo.CurrentCulture),
+                                               CurrentQuote.Currency);
 
-      MTTextAreaFailed.Text = CurrentQuote.FailedMessage;
+      MTMessageFailed.Text = string.Format("{0}: <br/> {1}",
+                                           GetLocalResourceObject("QuoteFailed.Label"),
+                                           CurrentQuote.FailedMessage);
+      MTMessageFailed.Visible = !string.IsNullOrEmpty(CurrentQuote.FailedMessage);
+      
       var sb = new MTStringBuilder();
+      sb.Append(string.Format("{0}: <br/>", GetLocalResourceObject("QuoteLog.Label")));
       foreach (var rec in CurrentQuote.MessageLog)
-        sb.Append(string.Format("{0}: {1}", rec.DateAdded, rec.Message));
-      MTTextAreaLog.Text = sb.ToString();
+        sb.Append(string.Format("{0}: {1} <br/>", rec.DateAdded, rec.Message));
+      MTMessageLog.Text = sb.ToString();
     }
 
     private string EncodeAccountsForHiddenControl(IEnumerable<int> accounts)

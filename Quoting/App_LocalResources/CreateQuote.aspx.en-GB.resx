@@ -258,4 +258,13 @@
   <data name="MTPanelResult.Text" xml:space="preserve">
     <value>Quote Details</value>
   </data>
+  <data name="MTPanelLog.Text" xml:space="preserve">
+    <value>Quote Log</value>
+  </data>
+  <data name="QuoteFailed.Label" xml:space="preserve">
+    <value>Failed message</value>
+  </data>
+  <data name="QuoteLog.Label" xml:space="preserve">
+    <value>Quote Log</value>
+  </data>
 </root>

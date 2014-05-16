@@ -49,7 +49,6 @@
   </MT:MTPanel>
   <MT:MTPanel ID="MTPanelResult" runat="server" Collapsible="True" Collapsed="False"
     meta:resourcekey="MTPanelResult" Visible="False">
-    <div id="Div4" style="clear:left">
     <div id="Div1" class="LeftColumn">
       <MT:MTTextBoxControl ID="MTTextBoxControlStatus" AllowBlank="True" Label="Quote Status"
         LabelWidth="100" runat="server" ReadOnly="True" />      
@@ -57,26 +56,24 @@
         LabelWidth="100" runat="server"  ReadOnly="True"/>
       <asp:HyperLink ID="ReportLink" runat="server">Report Link</asp:HyperLink>
     </div>
-    <div id="Div2" class="RightColumn">
-      <MT:MTTextBoxControl ID="MTTextBoxControlCurrency" AllowBlank="True" Label="Currency"
-        LabelWidth="100" runat="server"  ReadOnly="True"/>      
+    <div id="Div2" class="RightColumn">    
       <MT:MTTextBoxControl ID="MTTextBoxControlTotal" AllowBlank="True" Label="Total Amount"
         LabelWidth="100" runat="server"  ReadOnly="True"/>      
       <MT:MTTextBoxControl ID="MTTextBoxControlTax" AllowBlank="True" Label="Total Tax"
         LabelWidth="100" runat="server"  ReadOnly="True"/>
     </div>
-    </div>
-    <div id="Div3" style="clear:left">
-      <MT:MTTextArea ID="MTTextAreaFailed" AllowBlank="True" Label="Failed Message"
-        LabelWidth="100" runat="server"  ReadOnly="True" ControlAutoWidth="True" />      
-      <MT:MTTextArea ID="MTTextAreaLog" AllowBlank="True" Label="Quote Log"
-        LabelWidth="100" runat="server"  ReadOnly="True" ControlAutoWidth="True" />      
+  </MT:MTPanel>
+  <MT:MTPanel ID="MTPanelLog" runat="server" Collapsible="True" Collapsed="True"
+    meta:resourcekey="MTPanelLog" Visible="False">
+    <div id="Div3" style="width: 100%; margin: auto;">
+      <MT:MTMessage ID="MTMessageFailed" runat="server" ScrollBars="Auto" WarningLevel="Error" Width="720" />      
+      <MT:MTMessage ID="MTMessageLog" runat="server" ScrollBars="Auto" WarningLevel="Info" Width="720" />      
     </div>
   </MT:MTPanel>
+
   <div class="x-panel-btns-ct">
     <div style="width: 720px" class="x-panel-btns x-panel-btns-center">
-      <div style="text-align: center;">
-        <center>
+      <div style="text-align: center; width: 25%; margin: auto;">
         <table>
           <tr>
             <td class="x-panel-btn-td">
@@ -93,7 +90,6 @@
             </td>
           </tr>
         </table>
-        </center>
       </div>
     </div>
   </div>

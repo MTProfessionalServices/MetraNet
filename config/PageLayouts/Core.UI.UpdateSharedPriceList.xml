@@ -64,26 +64,7 @@
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
-                        </Field>
-                        <Field>
-                            <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
-                            <ObjectName>MetraTech.DomainModel.BaseTypes.PriceList</ObjectName>
-                            <ID>Currency</ID>
-                            <Name>Currency</Name>
-                            <Alignment>Left</Alignment>
-                            <ReadOnly>false</ReadOnly>
-                            <ControlType>MetraTech.UI.Controls.MTDropDown</ControlType>
-                            <EditorValidation>
-                                <Required>false</Required>
-                                <ValidationType></ValidationType>
-                            </EditorValidation>
-                            <OptionalExtConfig></OptionalExtConfig>
-                            <Label>
-                                <Value><![CDATA[Currency]]></Value>
-                            </Label>
-                            <RequiredCapabilities />
-                            <RequiredCapabilitiesReadonly />
-                        </Field>
+                        </Field>                        
                         <Field>
                             <AssemblyFilename>MetraTech.DomainModel.BaseTypes.dll</AssemblyFilename>
                             <ObjectName>MetraTech.DomainModel.BaseTypes.PriceList</ObjectName>

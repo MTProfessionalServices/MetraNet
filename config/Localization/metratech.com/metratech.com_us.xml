@@ -195,8 +195,16 @@
             <Value>Prebill Adjustment Amount</Value>
         </locale_entry>
         <locale_entry>
+            <Name>metratech.com/QuoteStatus/Actualized</Name>
+            <Value>Actualized</Value>
+        </locale_entry>
+        <locale_entry>
             <Name>metratech.com/QuoteStatus/Complete</Name>
             <Value>Complete</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/QuoteStatus/Converted</Name>
+            <Value>Actualized</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/QuoteStatus/Failed</Name>

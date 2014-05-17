@@ -117,47 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TEXT_APPROVAL_CHANGE_APPROVER_ID" xml:space="preserve">
-    <value>Approbateur</value>
+  <data name="PO_DESCRIPTION" xml:space="preserve">
+    <value>Description</value>
   </data>
-  <data name="TEXT_APPROVAL_CHANGE_COMMENT" xml:space="preserve">
-    <value>Commentaire</value>
+  <data name="PO_NAME" xml:space="preserve">
+    <value>Name</value>
   </data>
-  <data name="TEXT_APPROVAL_CHANGE_CURRENT_STATE" xml:space="preserve">
-    <value>Statut actuel</value>
+  <data name="PO_ID" xml:space="preserve">
+    <value>Product offering ID</value>
   </data>
-  <data name="TEXT_APPROVAL_CHANGE_ID" xml:space="preserve">
-    <value>Action</value>
+  <data name="GRID_TITLE" xml:space="preserve">
+    <value>Availible product offerings</value>
   </data>
-  <data name="TEXT_APPROVAL_CHANGE_LAST_MODIFIED_DATE" xml:space="preserve">
-    <value>Date de dernière modification</value>
+  <data name="PO_PARTITIONID" xml:space="preserve">
+    <value>Partition Id</value>
   </data>
-  <data name="TEXT_APPROVAL_CHANGE_SUBMITTED_DATE" xml:space="preserve">
-    <value>Date de soumission</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_DISPLAYNAME" xml:space="preserve">
-    <value>Emetteur</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_ID" xml:space="preserve">
-    <value>ID de l'émetteur</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_TYPE" xml:space="preserve">
-    <value>Type</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_ID" xml:space="preserve">
-    <value>Unique Élément ID</value>
-  </data>
-  <data name="TEXT_APPROVAL_NO_RECORD_TEXT" xml:space="preserve">
-    <value>Aucun enregistrement trouvé</value>
-  </data>
-  <data name="TEXT_APPROVAL_VIEW_CHANGES_SUMMARY" xml:space="preserve">
-    <value>Afficher les modifications</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_STATE_DISPLAYNAME" xml:space="preserve">
-    <value>Statut</value>
-  </data>
-  <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_DISPLAYNAME" xml:space="preserve">
-    <value>Élément modifié</value>
-  </data>
-
 </root>

@@ -162,18 +162,32 @@
                     <Description></Description>
                     <MenuItems>
                         <MenuItem>
+                            <ID>CreateQuote</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_CREATE_QUOTE</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>/MetraNet/Quoting/CreateQuote.aspx</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/add.png</Icon>
+                            <Description></Description>
+                            <RequiredCapabilities>
+                                <Capability>Manage Quoting</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+						<MenuItem>
                             <ID>QuotingList</ID>
                             <Caption>
                                 <LocalizationTag>TEXT_QUOTING_LIST</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
-                            <Link>/MetraNet/Quoting/QuoteList.aspx</Link>
+                            <Link>/MetraNet/Quoting/QuoteList.aspx?Accounts=ALL</Link>
                             <Target>MainContentIframe</Target>
                             <Icon>/Res/Images/Icons/report.png</Icon>
                             <Description></Description>
                             <RequiredCapabilities>
+								<Capability>Manage Quoting</Capability>
                                 <Capability>View Quoting</Capability>
-                                <Capability>Manage Quoting</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
@@ -549,8 +563,7 @@
                             <Icon>/Res/Images/Icons/report.png</Icon>
                             <Description>Account Quoting List</Description>
                             <RequiredCapabilities>
-                                <Capability>View Quoting</Capability>
-                                <Capability>Manage Quoting</Capability>
+                                <Capability>View Quoting</Capability>								
                             </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
@@ -1073,8 +1086,7 @@
                             <Icon>/Res/Images/Icons/report.png</Icon>
                             <Description>Account Quoting List</Description>
                             <RequiredCapabilities>
-                                <Capability>View Quoting</Capability>
-                                <Capability>Manage Quoting</Capability>
+								<Capability>View Quoting</Capability>
                             </RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>

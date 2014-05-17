@@ -555,4 +555,16 @@
   <data name="updateSubscription" xml:space="preserve">
     <value>[IT]Subscription Update</value>
   </data>
+  <data name="TEXT_QUOTE_DETAILS" xml:space="preserve">
+    <value>More Items...</value>
+  </data>
+  <data name="ACCOUNT_FOR_QUOTES" xml:space="preserve">
+    <value>More Items...</value>
+  </data>
+  <data name="PO_FOR_QUOTES" xml:space="preserve">
+    <value>More Items...</value>
+  </data>
+  <data name="LOG_FOR_QUOTES" xml:space="preserve">
+    <value>Quote log</value>
+  </data>
 </root>

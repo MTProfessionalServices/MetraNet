@@ -117,47 +117,142 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TEXT_APPROVAL_CHANGE_APPROVER_ID" xml:space="preserve">
-    <value>Approbateur</value>
+  <data name="ACTIONS" xml:space="preserve">
+    <value>Actions</value>
   </data>
-  <data name="TEXT_APPROVAL_CHANGE_COMMENT" xml:space="preserve">
-    <value>Commentaire</value>
+  <data name="ADD_ICB" xml:space="preserve">
+    <value>Add ICB</value>
   </data>
-  <data name="TEXT_APPROVAL_CHANGE_CURRENT_STATE" xml:space="preserve">
-    <value>Statut actuel</value>
+  <data name="ADD_UDRC" xml:space="preserve">
+    <value>Add UDRC</value>
   </data>
-  <data name="TEXT_APPROVAL_CHANGE_ID" xml:space="preserve">
-    <value>Action</value>
+  <data name="BASE_AMOUNT" xml:space="preserve">
+    <value>Base Amount</value>
   </data>
-  <data name="TEXT_APPROVAL_CHANGE_LAST_MODIFIED_DATE" xml:space="preserve">
-    <value>Date de dernière modification</value>
+  <data name="btnGenerateQuoteResource1.Text" xml:space="preserve">
+    <value>Generate Quote</value>
   </data>
-  <data name="TEXT_APPROVAL_CHANGE_SUBMITTED_DATE" xml:space="preserve">
-    <value>Date de soumission</value>
+  <data name="dpEndDateResource1.Text" xml:space="preserve">
+    <value>End date</value>
   </data>
-  <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_DISPLAYNAME" xml:space="preserve">
-    <value>Emetteur</value>
+  <data name="dpStartDateResource1.Text" xml:space="preserve">
+    <value>Start date</value>
   </data>
-  <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_ID" xml:space="preserve">
-    <value>ID de l'émetteur</value>
+  <data name="EDIT_UDRC_VALUE" xml:space="preserve">
+    <value>Edit UDRC value</value>
   </data>
-  <data name="TEXT_APPROVAL_CHANGE_TYPE" xml:space="preserve">
-    <value>Type</value>
+  <data name="GRID_TITLE" xml:space="preserve">
+    <value>Accounts</value>
   </data>
-  <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_ID" xml:space="preserve">
-    <value>Unique Élément ID</value>
+  <data name="ICB_GRID_TITLE" xml:space="preserve">
+    <value>ICBs</value>
   </data>
-  <data name="TEXT_APPROVAL_NO_RECORD_TEXT" xml:space="preserve">
-    <value>Aucun enregistrement trouvé</value>
+  <data name="ICB_PI_GRID_TITLE" xml:space="preserve">
+    <value>Priсeable Items That Allows Custom Rates</value>
   </data>
-  <data name="TEXT_APPROVAL_VIEW_CHANGES_SUMMARY" xml:space="preserve">
-    <value>Afficher les modifications</value>
+  <data name="ISGROUP" xml:space="preserve">
+    <value>Is corp.</value>
   </data>
-  <data name="TEXT_APPROVAL_CHANGE_STATE_DISPLAYNAME" xml:space="preserve">
-    <value>Statut</value>
+  <data name="ISGROUP.BoxLabel" xml:space="preserve">
+    <value>Is Group Subscription</value>
   </data>
-  <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_DISPLAYNAME" xml:space="preserve">
-    <value>Élément modifié</value>
+  <data name="MTbtnCancelResource1.Text" xml:space="preserve">
+    <value>Cancel</value>
   </data>
-
+  <data name="MTCheckBoxPdfResource.Text" xml:space="preserve">
+    <value>Generate PDF report</value>
+  </data>
+  <data name="MTPanelICBResource.Text" xml:space="preserve">
+    <value>Custom Rates</value>
+  </data>
+  <data name="MTPanelQuoteAccountsResource.Text" xml:space="preserve">
+    <value>Accounts and product offerings</value>
+  </data>
+  <data name="MTPanelQuoteParametersResource.Text" xml:space="preserve">
+    <value>Quote Information</value>
+  </data>
+  <data name="MTPanelUDRCResource.Text" xml:space="preserve">
+    <value>UDRC metrics</value>
+  </data>
+  <data name="MTTextBoxControlQuoteDescriptionResource.Text" xml:space="preserve">
+    <value>Quote Description</value>
+  </data>
+  <data name="MTTitleCreateQuoteResource.Text" xml:space="preserve">
+    <value>Manage Quote</value>
+  </data>
+  <data name="PIID" xml:space="preserve">
+    <value>PI Id</value>
+  </data>
+  <data name="PINAME" xml:space="preserve">
+    <value>PI Name</value>
+  </data>
+  <data name="POID" xml:space="preserve">
+    <value>PO Id</value>
+  </data>
+  <data name="PONAME" xml:space="preserve">
+    <value>PO Name</value>
+  </data>
+  <data name="PO_GRID_TITLE" xml:space="preserve">
+    <value>Product Offerings</value>
+  </data>
+  <data name="PRICE" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="REMOVE_ACCOUNT" xml:space="preserve">
+    <value>Remove Account</value>
+  </data>
+  <data name="REMOVE_ICB" xml:space="preserve">
+    <value>Remove ICB</value>
+  </data>
+  <data name="REMOVE_PO" xml:space="preserve">
+    <value>Remove Product Offering</value>
+  </data>
+  <data name="SELECT_ACCOUNTS" xml:space="preserve">
+    <value>Select Accounts</value>
+  </data>
+  <data name="SELECT_POS" xml:space="preserve">
+    <value>Select Product Offerings</value>
+  </data>
+  <data name="TEXT_ADDING_ICB" xml:space="preserve">
+    <value>Adding ICB</value>
+  </data>
+  <data name="TEXT_ADD_ICB" xml:space="preserve">
+    <value>Add Custom Rate</value>
+  </data>
+  <data name="TEXT_ADD_UDRC" xml:space="preserve">
+    <value>Add UDRC metric</value>
+  </data>
+  <data name="TEXT_CANCEL" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="TEXT_END_DATE" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="TEXT_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="TEXT_START_DATE" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="TEXT_VALUE" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="UDRC_GRID_TITLE" xml:space="preserve">
+    <value>UDRCs</value>
+  </data>
+  <data name="UDRC_PI_GRID_TITLE" xml:space="preserve">
+    <value>UDRC Priсeable Items</value>
+  </data>
+  <data name="UNIT_AMOUNT" xml:space="preserve">
+    <value>Unit Amount</value>
+  </data>
+  <data name="UNIT_VALUE" xml:space="preserve">
+    <value>Unit Value</value>
+  </data>
+  <data name="USERNAME" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="ICB_GROUP_CONFIRM" xml:space="preserve">
+    <value>ICB for group subscriptions will not be applied (current limitation)</value>
+  </data>
 </root>

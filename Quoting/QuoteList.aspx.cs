@@ -13,11 +13,21 @@ namespace MetraNet.Quoting
 {
   public partial class QuotesList : MTPage, ICallbackEventHandler
   {
+    protected string AccountsFilterValue;
     protected void Page_Load(object sender, EventArgs e)
     {
       var cbReference = Page.ClientScript.GetCallbackEventReference(this, "arg", "ReceiveServerData", "context");
       var callbackScript = "function CallServer(arg, context)" + "{ " + cbReference + ";}";
       Page.ClientScript.RegisterClientScriptBlock(GetType(), "CallServer", callbackScript, true);
+    }
+
+    protected override void OnLoadComplete(EventArgs e)
+    {
+      AccountsFilterValue = Request["Accounts"];
+      if (String.IsNullOrEmpty(AccountsFilterValue)) return;
+
+      if (AccountsFilterValue == "ALL")
+        QuoteListGrid.DataSourceURL = @"../AjaxServices/LoadQuotesList.aspx?Accounts=ALL";
     }
 
     #region Implementation of ICallbackEventHandler
@@ -30,7 +40,7 @@ namespace MetraNet.Quoting
     /// <param name="eventArgument">A string that represents an event argument to pass to the event handler.</param>
     public void RaiseCallbackEvent(string eventArgument)
     {
-      object result;
+      object result = null;
       var serializer = new JavaScriptSerializer();
       var value = serializer.Deserialize<Dictionary<string, string>>(eventArgument);
       var action = value["action"];
@@ -43,16 +53,24 @@ namespace MetraNet.Quoting
           case "deleteOne":
             {
               entityIds.Add(int.Parse(value["entityId"], CultureInfo.InvariantCulture));
+              result = DeleteQuote(entityIds);
               break;
             }
           case "deleteBulk":
             {
               var ids = value["entityIds"].Split(new[] {','});
               entityIds.AddRange(ids.Select(s => int.Parse(s, CultureInfo.InvariantCulture)));
+              result = DeleteQuote(entityIds);
+              break;
+            }
+          case "convertOne":
+            {
+              var entityId = int.Parse(value["entityId"], CultureInfo.InvariantCulture);              
+              result = ConvertQuote(entityId);
               break;
             }
         }
-        result = DeleteQuote(entityIds);
+        
       }
       catch (Exception ex)
       {
@@ -98,6 +116,30 @@ namespace MetraNet.Quoting
         Logger.LogError(ex.Detail.ErrorMessages[0]);
         result = new {result = "error", errorMessage = ex.Detail.ErrorMessages[0]};
       }     
+      return result;
+    }
+
+    private object ConvertQuote(int entityId)
+    {
+      object result;
+      try
+      {
+        using (var client = new QuotingServiceClient())
+        {
+          if (client.ClientCredentials != null)
+          {
+            client.ClientCredentials.UserName.UserName = UI.User.UserName;
+            client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+          }
+          client.ConvertToSubscription(entityId);
+          result = new { result = "ok" };
+        }
+      }
+      catch (FaultException<MASBasicFaultDetail> ex)
+      {
+        Logger.LogError(ex.Detail.ErrorMessages[0]);
+        result = new { result = "error", errorMessage = ex.Detail.ErrorMessages[0] };
+      }
       return result;
     }
     #endregion

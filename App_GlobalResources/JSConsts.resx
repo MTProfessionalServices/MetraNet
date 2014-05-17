@@ -1187,7 +1187,6 @@
   </data>
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
     <value>Middle initial is invalid</value>
-  </data>     
   </data>
   <data name="TEXT_ACCOUNT_ACTIVITY" xml:space="preserve">
     <value>Account Activity</value>

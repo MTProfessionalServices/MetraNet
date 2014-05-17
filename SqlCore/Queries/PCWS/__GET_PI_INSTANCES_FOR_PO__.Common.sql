@@ -1,5 +1,6 @@
 
                 select
+				id_po PO_ID,
                 bp.n_kind PIKind,
                 map.id_pi_instance ID,
                 bp.nm_name Name,
@@ -9,7 +10,13 @@
                 piTypeBP.nm_name PITypeName,
                 map.id_pi_template PITemplateID,
                 piTemplateBP.nm_name PITemplateName,
-				map.id_pi_instance_parent ParentPIInstanceID
+				map.id_pi_instance_parent ParentPIInstanceID, 
+				case (select count(1) from t_pl_map where b_canICB = 'Y' and id_pi_instance = map.id_pi_instance)
+				  when 0 then 'N'
+				  else 'Y'
+				end PICanICB,
+				rc.max_unit_value MaxValue, 
+				rc.min_unit_value MinValue
                 from
                 t_pl_map map
                 inner join
@@ -18,6 +25,8 @@
                 t_base_props piTypeBP on map.id_pi_type = piTypeBP.id_prop
                 inner join
                 t_base_props piTemplateBP on map.id_pi_template = piTemplateBP.id_prop
+				left outer join
+                t_recur rc ON map.id_pi_instance = rc.id_prop
                 where id_po = %%PO_ID%% and id_paramtable is NULL
                 %%PARENT_SELECTION_CONDITION%%
                 

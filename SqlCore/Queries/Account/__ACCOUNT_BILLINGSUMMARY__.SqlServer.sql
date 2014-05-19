@@ -9,16 +9,19 @@ FROM (select dense_rank () OVER (order by invoice_date asc, id_invoice) AS n_ord
 		current_balance n_balance_amount, 
 		ar_adj_ttl_amt+postbill_adj_ttl_amt AS n_adj_amount, 
 		payment_ttl_amt AS n_payment_amount, 
-		isnull(mrr.mrr,0.0) AS n_mrr_amount
+		--isnull(mrr.mrr,0.0) AS n_mrr_amount
+		0.0 as n_mrr_amount,
+		inv.invoice_currency as currency,
+		CONVERT(NVARCHAR, inv.invoice_string) as item_desc
 FROM t_invoice inv with(nolock)
 LEFT OUTER JOIN t_gsubmember mbr with(nolock)
 ON mbr.id_acc = inv.id_acc
 LEFT OUTER JOIN t_sub sub with(nolock)
 ON sub.id_group = mbr.id_group
-LEFT OUTER JOIN SubscriptionDataMart..SubscriptionsByMonth mrr 
-ON mrr.SubscriptionId = sub.id_sub 
-	AND datepart(year, inv.invoice_date) = mrr.year 
-	AND datepart(month, inv.invoice_date) = mrr.month
+--LEFT OUTER JOIN SubscriptionDataMart..SubscriptionsByMonth mrr 
+--ON mrr.SubscriptionId = sub.id_sub 
+--	AND datepart(year, inv.invoice_date) = mrr.year 
+--	AND datepart(month, inv.invoice_date) = mrr.month
 WHERE 1=1 AND inv.id_acc = %%ACCOUNT_ID%%
 ) a where a.n_order <= 10
 UNION ALL
@@ -33,7 +36,9 @@ FROM (select dense_rank () OVER (order by pv.c_eventdate asc, pv.id_sess) AS n_o
 		null AS n_balance_amount, 
 		null AS n_adj_amount, 
 		au.amount AS n_payment_amount, 
-		null AS n_mrr_amount
+		null AS n_mrr_amount,
+		au.am_currency as currency,
+		CONVERT(NVARCHAR, pv.id_usage_interval) as item_desc
 FROM t_pv_payment pv with(nolock)
 INNER JOIN t_acc_usage au with(nolock) 
 ON pv.id_usage_interval = au.id_usage_interval 

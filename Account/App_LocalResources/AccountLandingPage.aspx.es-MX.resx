@@ -171,4 +171,10 @@
   <data name="SUBSCRIPTION_JOIN_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
     <value>[es-MX] Add this account as a member of an existing Group Subscription</value>
   </data>      
+  <data name="SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
+    <value>[es-MX] Subscription</value>
+  </data>      
+  <data name="GROUP_SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
+    <value>[es-MX] Group Subscription</value>
+  </data>           
 </root>

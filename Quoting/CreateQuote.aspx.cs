@@ -50,6 +50,7 @@ namespace MetraNet.Quoting
       public decimal UnitAmount { get; set; }
       public decimal BaseAmount { get; set; }
       public string RecordId { get; set; }
+      public int PIKind { get; set; }
     }
 
     public class Udrc
@@ -305,7 +306,7 @@ namespace MetraNet.Quoting
       }
 
       var icbPrices = new List<IndividualPrice>();
-      foreach (var record in icbList.Select(t => new { t.PriceableItemId, t.ProductOfferingId }).Distinct())
+      foreach (var record in icbList.Select(t => new { t.PriceableItemId, t.ProductOfferingId, t.PIKind }).Distinct())
       {
         var record1 = record;
         var chargesRates = icbList.Where(t => t.PriceableItemId == record1.PriceableItemId && t.ProductOfferingId == record1.ProductOfferingId).Select(icb => new ChargesRate
@@ -313,16 +314,21 @@ namespace MetraNet.Quoting
           Price = icb.Price,
           BaseAmount = icb.BaseAmount,
           UnitAmount = icb.UnitAmount,
-          UnitValue = icb.UnitValue
+          UnitValue = icb.UnitValue,
         });
         var qip = new IndividualPrice
-        {
-          CurrentChargeType = ChargeType.RecurringCharge,//TODO investigate this code
+        {          
           ProductOfferingId = record.ProductOfferingId,
           ChargesRates = chargesRates.ToList(),
           PriceableItemId = record.PriceableItemId
         };
-
+        switch (record.PIKind)
+        {
+          case 20: { qip.CurrentChargeType = ChargeType.RecurringCharge; break; }     //Recurring = 20,
+          case 25: { qip.CurrentChargeType = ChargeType.UDRC; break; }                //UnitDependentRecurring = 25,
+          case 30: { qip.CurrentChargeType = ChargeType.NonRecurringCharge; break; }  //NonRecurring = 30,
+          default: { qip.CurrentChargeType = ChargeType.None; break; }
+        }        
         icbPrices.Add(qip);
       }
 

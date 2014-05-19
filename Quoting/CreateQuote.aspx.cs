@@ -87,7 +87,8 @@ namespace MetraNet.Quoting
       if (!IsPostBack)
       {
         // ReSharper disable SpecifyACultureInStringConversionExplicitly
-        MTdpStartDate.Text = MetraTime.Now.Date.ToString();
+        if (_mode != "VIEW")
+          MTdpStartDate.Text = MetraTime.Now.Date.ToString();
         //MTdpEndDate.Text = MetraTime.Now.Date.AddMonths(1).ToString();
         // ReSharper restore SpecifyACultureInStringConversionExplicitly
       }
@@ -422,14 +423,19 @@ namespace MetraNet.Quoting
 
     private void LoadQuoteToControls()
     {
-      //MTPanelQuoteParameters
+      if (_mode == "VIEW")
+      {
+        MTPanelUDRC.Visible = false;
+        MTPanelICB.Visible = false;
+        MTPanelUDRCandICB.Visible = true;
+      }
 
       MTtbQuoteDescription.Text = CurrentQuote.QuoteDescription;
       MTtbQuoteIdentifier.Text = CurrentQuote.QuoteIdentifier;
       MTcbPdf.Visible = false;
 
-      MTdpStartDate.Text = CurrentQuote.EffectiveDate.ToString(CultureInfo.InvariantCulture);
-      MTdpEndDate.Text = CurrentQuote.EffectiveEndDate.ToString(CultureInfo.InvariantCulture);
+      MTdpStartDate.Text = CurrentQuote.EffectiveDate.ToString("d");
+      MTdpEndDate.Text = CurrentQuote.EffectiveEndDate.ToString("d");
 
       MTtbQuoteDescription.ReadOnly = true;
       MTtbQuoteIdentifier.ReadOnly = true;
@@ -446,10 +452,11 @@ namespace MetraNet.Quoting
         HiddenGroupId.Value = EncodeAccountsForHiddenControl(new List<int> { CurrentQuote.CorporateAccountId });
 
       HiddenUDRCs.Value = EncodeUDRCsForHiddenControl();
-      MTPanelUDRC.Visible = !string.IsNullOrEmpty(HiddenUDRCs.Value);
 
       HiddenICBs.Value = EncodeICBsForHiddenControl();
-      MTPanelICB.Visible = !string.IsNullOrEmpty(HiddenICBs.Value);
+
+      if (CurrentQuote.UdrcValues.Count == 0 && CurrentQuote.IcbPrices.Count == 0)
+        MTPanelUDRCandICB.Collapsed = true;
 
       MTbtnGenerateQuote.Visible = false;
       MTbtnConvertQuote.Visible = CurrentQuote.Status == QuoteStatus.Complete;
@@ -463,15 +470,17 @@ namespace MetraNet.Quoting
       var curDecDig = CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalDigits;
       var totalAmount = decimal.Round(CurrentQuote.TotalAmount, curDecDig).ToString(CultureInfo.CurrentCulture);
       MTTextBoxControlTotal.Text = string.Format("{0} {1}", totalAmount, CurrentQuote.Currency);
-      
-      var taxAmount = decimal.Round(CurrentQuote.TotalTax, curDecDig).ToString(CultureInfo.CurrentCulture);
+
+      var taxAmount = decimal.Round(CurrentQuote.TotalTax, curDecDig).ToString(CultureInfo.CurrentCulture);      
       MTTextBoxControlTax.Text = string.Format("{0} {1}", taxAmount, CurrentQuote.Currency);
+
+      MTdpCreationDate.Text = CurrentQuote.CreationDate.ToString();
 
       MTMessageFailed.Text = string.Format("{0}: <br/> {1}",
                                            GetLocalResourceObject("QuoteFailed.Label"),
                                            CurrentQuote.FailedMessage);
       MTMessageFailed.Visible = !string.IsNullOrEmpty(CurrentQuote.FailedMessage);
-      
+
       var sb = new MTStringBuilder();
       sb.Append(string.Format("{0}: <br/>", GetLocalResourceObject("QuoteLog.Label")));
       foreach (var rec in CurrentQuote.MessageLog)
@@ -665,8 +674,8 @@ namespace MetraNet.Quoting
           recodrIdStr,
           udrc.ProductOfferingId,
           udrc.UDRC_Id,
-          udrc.StartDate,
-          udrc.EndDate
+          udrc.StartDate.ToString("d"),
+          udrc.EndDate.ToString("d")
           );
         var groupId = GetGroupId(udrc.ProductOfferingId, Convert.ToInt32(udrc.UDRC_Id));
 
@@ -676,8 +685,8 @@ namespace MetraNet.Quoting
           udrc.ProductOfferingId,
           udrc.UDRC_Id,
           Math.Round(udrc.Value, 2),
-          udrc.StartDate.Date,
-          udrc.EndDate.Date,
+          udrc.StartDate.ToString("d"),
+          udrc.EndDate.ToString("d"),
           recordId,
           groupId,
           "{", "},");
@@ -739,7 +748,7 @@ namespace MetraNet.Quoting
       List<ReportFile> reports;
       var accId = CurrentQuote.Accounts.First();
 
-      using(var getReportsListClient = new StaticReportsServiceClient())
+      using (var getReportsListClient = new StaticReportsServiceClient())
       {
         try
         {
@@ -764,7 +773,7 @@ namespace MetraNet.Quoting
 
       if (reports.Count <= 0)
         return String.Empty;
-      
+
       string fileName = String.Format(@"Quote_{1}", accId, CurrentQuote.IdQuote);  //todo read from quotingconfiguration
       var reportFileNameForShowReports = String.Empty;
       foreach (var report in reports.Where(report => report.FileName.Contains(fileName)))
@@ -778,18 +787,19 @@ namespace MetraNet.Quoting
 
       string reportFormat = Path.GetExtension(reportFileNameForShowReports);
       reportFormats = GetReportFormatConfigFile();
-      
-// ReSharper disable PossibleNullReferenceException
+
+      // ReSharper disable PossibleNullReferenceException
       foreach (XElement format in reportFormats.Root.Elements().Where(format => format.Attribute("type").Value.Equals(reportFormat)))
       {
         return String.Format(
-          "<li><a href=\"ShowReports.aspx?report={0}&account={3}\"><img src='{1}'/>PDF report for quote {2}</a></li>",
+          "<li><a href=\"ShowReports.aspx?report={0}&account={3}\"><img src='{1}'/>{4} {2}</a></li>",
           Server.UrlEncode(reportFileNameForShowReports),
           format.Element("ReportImage").Value,
           CurrentQuote.IdQuote,
-          accId);
+          accId,
+          GetLocalResourceObject("REPORT_LINK_TEXT"));
       }
-// ReSharper restore PossibleNullReferenceException
+      // ReSharper restore PossibleNullReferenceException
 
       return String.Empty;
     }

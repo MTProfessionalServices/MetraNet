@@ -28,6 +28,7 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
   const int billingSummary_InvoiceAmount_Index = 6;
   const int billingSummary_MrrAmount_Index = 10;
   const int billingSummary_Currency_Index = 11;
+  const int billingSummary_ItemDesc_Index = 12;
   const int subscriptionSummary_Type_Index = 0;
   const int subscriptionSummary_POName_Index = 1;
   const int subscriptionSummary_PODesc_Index = 2;
@@ -260,7 +261,9 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
             json.Append(item);
             item = string.Format("\"n_mrr_amount\":{0},", FormatFieldValue(record.Fields[billingSummary_MrrAmount_Index], invariantCulture));
             json.Append(item);
-            item = string.Format("\"n_mrramountAsString\":{0}", FormatCurrencyValue(record.Fields[billingSummary_MrrAmount_Index], record.Fields[billingSummary_Currency_Index].FieldValue.ToString()));
+            item = string.Format("\"n_mrramountAsString\":{0},", FormatCurrencyValue(record.Fields[billingSummary_MrrAmount_Index], record.Fields[billingSummary_Currency_Index].FieldValue.ToString()));
+            json.Append(item);
+            item = string.Format("\"item_desc\":{0}", FormatFieldValue(record.Fields[billingSummary_ItemDesc_Index]));
             json.Append(item);
             break;
           case "subscriptionsummary":
@@ -329,12 +332,12 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
 
   private string FormatCurrencyValue(SQLField field, string currency)
   {
-    return string.Format("\"{0}\"", (field.FieldValue == null) ? "" : CurrencyFormatter.Format(field.FieldValue, currency));
+    return string.Format("\"{0}\"", (field.FieldValue == null) ? "" : CurrencyFormatter.Format(field.FieldValue, currency).EncodeForHtml());
   }
 
   private string FormatDateTime(SQLField field, string format)
   {
-    return (field.FieldValue == null) ? "null" : string.Format("\"{0}\"", Convert.ToDateTime(field.FieldValue).ToString(format));
+    return (field.FieldValue == null) ? "null" : string.Format("\"{0}\"", Convert.ToDateTime(field.FieldValue).ToString(format).EncodeForHtml());
   }
 
   //protected string SerializeItems(MTList<SQLRecord> items)

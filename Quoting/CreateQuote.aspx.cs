@@ -88,7 +88,7 @@ namespace MetraNet.Quoting
       {
         // ReSharper disable SpecifyACultureInStringConversionExplicitly
         MTdpStartDate.Text = MetraTime.Now.Date.ToString();
-        MTdpEndDate.Text = MetraTime.Now.Date.AddMonths(1).ToString();
+        //MTdpEndDate.Text = MetraTime.Now.Date.AddMonths(1).ToString();
         // ReSharper restore SpecifyACultureInStringConversionExplicitly
       }
 
@@ -278,7 +278,7 @@ namespace MetraNet.Quoting
           QuoteDescription = MTtbQuoteDescription.Text,
           QuoteIdentifier = MTtbQuoteIdentifier.Text,
           EffectiveDate = Convert.ToDateTime(MTdpStartDate.Text),
-          EffectiveEndDate = Convert.ToDateTime(MTdpEndDate.Text),
+          EffectiveEndDate = String.IsNullOrEmpty(MTdpEndDate.Text) ? MetraTime.Max : Convert.ToDateTime(MTdpEndDate.Text),
           ReportParameters = { PDFReport = MTcbPdf.Checked },
           Accounts = Accounts,
           ProductOfferings = Pos,

@@ -21,7 +21,7 @@
       <MT:MTDatePicker AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpStartDate"
         Label="Start date" LabelWidth="120" meta:resourcekey="dpStartDateResource1" ReadOnly="False"
         runat="server"></MT:MTDatePicker>
-      <MT:MTDatePicker AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpEndDate"
+      <MT:MTDatePicker AllowBlank="True" Enabled="True" HideLabel="False" ID="MTdpEndDate"
         Label="End date" LabelWidth="120" meta:resourcekey="dpEndDateResource1" ReadOnly="False"
         runat="server"></MT:MTDatePicker>
     </div>
@@ -85,7 +85,7 @@
                 OnClick="btnGenerateQuote_Click" TabIndex="150" meta:resourcekey="btnGenerateQuoteResource1" />
             </td>
             <td class="x-panel-btn-td">
-              <MT:MTButton ID="MTbtnConvertQuote" runat="server" 
+              <MT:MTButton ID="MTbtnConvertQuote" runat="server" OnClientClick="return getConvertApprove();"
                 OnClick="btnConvertQuote_Click" Visible="False" TabIndex="150" meta:resourcekey="btnConvertQuoteResource" />
             </td>
             <td class="x-panel-btn-td">
@@ -110,9 +110,14 @@
    <%-- General--%>
   <script language="javascript" type="text/javascript">
 
+  function getConvertApprove()
+  {                
+      return confirm('<%=GetGlobalResourceObject("JSConsts", "TEXT_CONVERT_MESSAGE")%>');        
+  }
+
     var GRID_HEIGHT = 300;
-    var ACTIONS_COLUMN_HEIGHT = 40;
-    var NAME_COLUMN_HEIGHT = 210;
+    var ACTIONS_COLUMN_HEIGHT = 25;
+    var NAME_COLUMN_HEIGHT = 225;
     var isViewMode = <%=IsViewMode.ToString().ToLower()%>;
 
     var piRecord = Ext.data.Record.create([// creates a subclass of Ext.data.Record
@@ -131,11 +136,16 @@
       accountGrid.render(window.Ext.get('PlaceHolderAccountsGrid'));
       poGrid.render(window.Ext.get('PlaceHolderProductOfferingsGrid'));
       //UDRCgrid.render(window.Ext.get('PlaceHolderUDRCMetricsGrid'));
+      if(window.Ext.get('PlaceHolderPIWithICBAllowedGrid')!=null)
+      {
       piWithAllowIcbGrid.render(window.Ext.get('PlaceHolderPIWithICBAllowedGrid'));
       icbGrid.render(window.Ext.get('PlaceHolderICBGrid'));
-
+      }
+      if(window.Ext.get('PlaceHolderPIWithUDRCAllowedGrid')!=null)
+      {
       piWithAllowUDRCGrid.render(window.Ext.get('PlaceHolderPIWithUDRCAllowedGrid'));
       udrcGrid.render(window.Ext.get('PlaceHolderUDRCGrid'));
+      }
     });
 
     //    function loadFromPostback(hidden, store, data, dataDetails) {
@@ -230,7 +240,7 @@
     // create the Grid
     var textUserName = '<%=GetLocalResourceObject("USERNAME")%>';
     var textIsGroup = '<%=GetLocalResourceObject("ISGROUP")%>';
-    var textAccountActions = '<%=GetLocalResourceObject("ACTIONS")%>';
+    var textAccountActions = ''; //'<%=GetLocalResourceObject("ACTIONS")%>';
     var textAccountGridTitle = '<%=GetLocalResourceObject("GRID_TITLE")%>';
     
     var accountColumns = [
@@ -388,12 +398,12 @@
     // create the Grid
     var textPoId = '<%=GetLocalResourceObject("POID")%>';
     var textPoName = '<%=GetLocalResourceObject("PONAME")%>';
-    var textPoAction = '<%=GetLocalResourceObject("ACTIONS")%>';
+    var textPoAction = ''; //'<%=GetLocalResourceObject("ACTIONS")%>';
     var textPoGridTitle = '<%=GetLocalResourceObject("PO_GRID_TITLE")%>';
     
     var poColumns = [
       { id: 'ProductOfferingId', header: textPoId, hidden: true, dataIndex: 'ProductOfferingId' },
-      { header: textPoName, width: NAME_COLUMN_HEIGHT, sortable: true, dataIndex: 'Name' }
+      { header: textPoName, width: NAME_COLUMN_HEIGHT+40, sortable: true, dataIndex: 'Name' }
     ];
     if (!isViewMode)
       poColumns.push({ header: textPoAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: poActionsRenderer });
@@ -599,7 +609,7 @@
     var textPiId = '<%=GetLocalResourceObject("PIID")%>';
     var textPoName = '<%=GetLocalResourceObject("PONAME")%>';
     var textPiName = '<%=GetLocalResourceObject("PINAME")%>';
-    var textPiWithUDRCAction = '<%=GetLocalResourceObject("ACTIONS")%>';
+    var textPiWithUDRCAction = ''; //'<%=GetLocalResourceObject("ACTIONS")%>';
     var textPiWithUDRCGridTitle = '<%=GetLocalResourceObject("UDRC_PI_GRID_TITLE")%>';
 
     var piWithAllowUDRCColumns = [
@@ -638,6 +648,9 @@
     var AddUDRCWindow = new Ext.Window();
 
     function addUDRC(poId, piId) {
+
+      if (AddUDRCWindow.rendered)
+        return;
 
       form_addUDRC = new Ext.form.FormPanel();
       AddUDRCWindow = new Ext.Window();
@@ -798,6 +811,7 @@
             udrcStore.add(newUDRCRecord);
 
             AddUDRCWindow.destroy();
+            AddUDRCWindow.rendered = false;
           }
         }
       }
@@ -806,6 +820,7 @@
     function onCancel_AddUDRC() {
       form_addUDRC.getForm().reset({});
       AddUDRCWindow.destroy();
+      AddUDRCWindow.rendered = false;
     }
 
   </script>
@@ -852,7 +867,7 @@
     var textValue = '<%=GetLocalResourceObject("TEXT_VALUE")%>';
     var textStartDate = '<%=GetLocalResourceObject("TEXT_START_DATE")%>';
     var textEndDate = '<%=GetLocalResourceObject("TEXT_END_DATE")%>';
-    var textUDRCAction = '<%=GetLocalResourceObject("ACTIONS")%>';
+    var textUDRCAction = ''; //'<%=GetLocalResourceObject("ACTIONS")%>';
     var textUDRCGridTitle = '<%=GetLocalResourceObject("UDRC_GRID_TITLE")%>';
 
     var udrcColumns = [
@@ -946,7 +961,7 @@
     var textPiId = '<%=GetLocalResourceObject("PIID")%>';
     var textPoName = '<%=GetLocalResourceObject("PONAME")%>';
     var textPiName = '<%=GetLocalResourceObject("PINAME")%>';
-    var textPiWithICBAction = '<%=GetLocalResourceObject("ACTIONS")%>';
+    var textPiWithICBAction = ''; //'<%=GetLocalResourceObject("ACTIONS")%>';
     var textPiWithICBGridTitle = '<%=GetLocalResourceObject("ICB_PI_GRID_TITLE")%>';
 
     var piWithAllowIcbColumns = [
@@ -985,6 +1000,9 @@
     var AddICBWindow = new Ext.Window();
 
     function addICB(poId, piId) {
+
+      if (AddICBWindow.rendered)
+        return;
 
       form_addICB = new Ext.form.FormPanel();
       AddICBWindow = new Ext.Window();
@@ -1171,6 +1189,7 @@
           icbStore.add(newICBRecord);
 
           AddICBWindow.destroy();
+          AddICBWindow.rendered = false;
         }
       }
     }
@@ -1178,6 +1197,7 @@
     function onCancel_AddICB() {
       form_addICB.getForm().reset({});
       AddICBWindow.destroy();
+      AddICBWindow.rendered = false;
     }
 
   </script>
@@ -1227,15 +1247,15 @@
     var textUnitValue = '<%=GetLocalResourceObject("UNIT_VALUE")%>';
     var textUnitAmount = '<%=GetLocalResourceObject("UNIT_AMOUNT")%>';
     var textBaseAmount = '<%=GetLocalResourceObject("BASE_AMOUNT")%>';
-    var textICBAction = '<%=GetLocalResourceObject("ACTIONS")%>';
+    var textICBAction = '';// '<%=GetLocalResourceObject("ACTIONS")%>';
     var textICBGridTitle = '<%=GetLocalResourceObject("ICB_GRID_TITLE")%>';
 
     var icbColumns = [
       { header: ' ', hidden: true, dataIndex: 'GroupId' },
-      { header: textPrice, width: 70, sortable: true, dataIndex: 'Price' },
+      { header: textPrice, width: 55, sortable: true, dataIndex: 'Price' },
       { header: textUnitValue, width: 70, sortable: true, dataIndex: 'UnitValue' },
-      { header: textUnitAmount, width: 70, sortable: true, dataIndex: 'UnitAmount' },
-      { header: textBaseAmount, width: 70, sortable: true, dataIndex: 'BaseAmount' }
+      { header: textUnitAmount, width: 80, sortable: true, dataIndex: 'UnitAmount' },
+      { header: textBaseAmount, width: 85, sortable: true, dataIndex: 'BaseAmount' }
     ];
     if (!isViewMode)
       icbColumns.push({ header: textICBAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: IcbActionsRenderer });

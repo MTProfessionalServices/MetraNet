@@ -164,8 +164,13 @@
 
 
     function subscriptiontypeColRenderer(value, meta, record, rowIndex, colIndex, store) {
-      return String.format("<span style='display:inline-block; vertical-align:middle'><img src='/Res/Images/icons/ProductCatalog_{0}.png' alt='{1}' align='middle'/></span>", record.data.subscriptiontype, value);
- 
+      var localizedSubscriptionType = "";
+      if (value.toLowerCase() == "subscription") {
+        localizedSubscriptionType = '<%=GetLocalResourceObject("SUBSCRIPTION_TYPE_TEXT") %>';
+      } else {
+        localizedSubscriptionType = '<%=GetLocalResourceObject("GROUP_SUBSCRIPTION_TYPE_TEXT") %>';
+      }
+      return String.format("<span style='display:inline-block; vertical-align:middle'><img src='/Res/Images/icons/ProductCatalog_{0}.png' title='{1}' align='middle'/></span>", record.data.subscriptiontype, localizedSubscriptionType);
     }
 
 
@@ -173,7 +178,7 @@
       meta.attr = 'style="white-space:normal"';
       var str = "";
   
-      if (record.data.subscriptiontype === 'Subscription') {
+      if (record.data.subscriptiontype.toLowerCase() === 'subscription') {
         str = String.format("<a href='JavaScript:editSubscription({0});' class='ItemName'>{1}</a><br/><span class='ItemDescription'>{2}</span>", record.json.subscriptionid, record.json.productofferingname, (record.json.productofferingdescription || ''));
       } else {
         str = String.format("<span class='ItemName'>{0}</span><br/><span class='ItemDescription'>{1}</span><br /><br /><span class='ItemName'>{2}</span><br/><span class='ItemDescription'>{3}</span>", record.data.productofferingname, (record.json.productofferingdescription || ''), (record.json.groupsubscriptionname  || ''), (record.json.groupsubscriptiondescription || ''));
@@ -324,7 +329,7 @@
     
     Ext.onReady(function() {
       displayAccountStatusInformation();
-	  resize_to_fit();
+	    resize_to_fit();
       displayBalanceInformation();
       displayFailedTransactionCount(<% =int.Parse(UI.Subscriber["_AccountID"]) %>);
       //displayLtvAndMrrInformation();

@@ -90,6 +90,41 @@
             <DataIndex>id_transaction</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
+                <Value><![CDATA[]]></Value>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>90</Width>
+            <Resizeable>false</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>false</ColumnHideable>
+            <DefaultColumn>false</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>false</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename></AssemblyFilename>
+            <ObjectName></ObjectName>
+            <ID>item_desc</ID>
+            <DataType>String</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>item_desc</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
                 <LocalizationTag>IDENTIFIER_COL_HEADER_TEXT</LocalizationTag>
                 <ResourceClassKey>Account/App_LocalResources/AccountLandingPage.aspx</ResourceClassKey>
             </HeaderText>

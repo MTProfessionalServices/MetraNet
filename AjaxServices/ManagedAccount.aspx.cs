@@ -35,9 +35,6 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
   const int subscriptionSummary_EndDt_Index = 4;
   const int subscriptionSummary_POId_Index = 5;
   const int subscriptionSummary_SubscriptionId_Index = 6;
-  const int subscriptionSummary_RecurringCharge_Index = 7;
-  const int subscriptionSummary_Currency_Index = 8;
-  const int subscriptionSummary_Promocode_Index = 9;
   const int subscriptionSummary_GroupSubName_Index = 10;
   const int subscriptionSummary_GroupSubDesc_Index = 11;
   const int failedtransactionsummary_TotalCount_Index = 0;
@@ -100,7 +97,8 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
         //Looks like Response.End is deprecated/changed
         //Might have a lot of unhandled exceptions in product from when we call response.end
         //http://support.microsoft.com/kb/312629
-        Logger.LogError("Thread Abort Exception: {0} {1}", ex.Message, ex.ToString());
+        //Logger.LogError("Thread Abort Exception: {0} {1}", ex.Message, ex.ToString());
+        Logger.LogInfo("Handled Exception from Response.Write() {0} ", ex.Message);
       }
       catch (Exception ex)
       {

@@ -65,23 +65,22 @@
     <div><span class="valueLabel">Failed Transactions</span><span class="valueHighlighted"></span><span class="valueDetail footer"></span></div>
   </div>
 
-<%--
-  <div class="widgetpanel" style="width:318px;">
+
+  <%--<div class="widgetpanel" style="width:318px;">
     <div id="LTVInformation" style="float:left;margin-left: 10px;"><span class="valueLabel">LTV</span><span class="valueHighlighted" style='padding-left: 10px;'></span></div>
     <div id="MRRInformation" style="float:left;margin-left: 10px"><span class="valueLabel">MRR</span><span class="valueHighlighted" style="padding: 10px;"></span></div>
-  </div>
---%>  
-  <br style="clear: both;" />
+  </div>--%>
 
+  <br style="clear: both;" />
+   
   <div class="widget" data-row="3" data-col="1" data-sizex="8" data-sizey="1">
-<%--  <img src="/Res/Images/Mockup/MetangaAccountSummaryAnalytic.png" width="720px;" style="padding: 15px;"/>
+  <%--  <img src="/Res/Images/Mockup/MetangaAccountSummaryAnalytic.png" width="720px;" style="padding: 15px;"/>
     <MT:MTPanel ID="SalesSummaryPanel" runat="server" Text="Sales Summary" >
       <div id="SalesSummaryInformation"></div>
     </MT:MTPanel>
-    <MT:MTFilterGrid ID="SalesSummaryGrid" runat="server" TemplateFileName="SalesSummary.xml" ExtensionName="Account" Resizable="False" Title="Sales Summary"></MT:MTFilterGrid> --%>
+    <MT:MTFilterGrid ID="SalesSummaryGrid" runat="server" TemplateFileName="SalesSummary.xml" ExtensionName="Account" Resizable="False" Title="Sales Summary"></MT:MTFilterGrid>   --%>
   </div>
-  <%-- 
-  <table>
+  <table style="width:100%; height:100%;">
     <tr style="vertical-align: top;">
       <td style="width: 380px; height: 336px;"> 
         <div class="widget" data-row="4" data-col="1" data-sizex="3" data-sizey="3">
@@ -102,7 +101,6 @@
       </td>
     </tr>
   </table>
-  --%>
   <div class="widget" data-row="7" data-col="1" data-sizex="8" data-sizey="3">
     <MT:MTFilterGrid ID="SubscriptionSummaryGrid" runat="server" TemplateFileName="AccountSubscriptionSummary.xml" ExtensionName="Account" ></MT:MTFilterGrid>
   </div>
@@ -147,7 +145,7 @@
       </MT:MTDataBindingItem>
     </DataBindingItems>
   </MT:MTDataBinder>
-  
+  </div>
   <script type="text/javascript">
 
     //MOVE THIS TO GENERIC FUNCTION HANDLER TO BE INCLUDED
@@ -164,13 +162,13 @@
 
 
     function subscriptiontypeColRenderer(value, meta, record, rowIndex, colIndex, store) {
-      var localizedSubscriptionType = "";
+      var localizedSubscriptionTypeText = "";
       if (value.toLowerCase() == "subscription") {
-        localizedSubscriptionType = '<%=GetLocalResourceObject("SUBSCRIPTION_TYPE_TEXT") %>';
+        localizedSubscriptionTypeText = '<%=GetLocalResourceObject("SUBSCRIPTION_TYPE_TEXT") %>';
       } else {
-        localizedSubscriptionType = '<%=GetLocalResourceObject("GROUP_SUBSCRIPTION_TYPE_TEXT") %>';
+        localizedSubscriptionTypeText = '<%=GetLocalResourceObject("GROUP_SUBSCRIPTION_TYPE_TEXT") %>';
       }
-      return String.format("<span style='display:inline-block; vertical-align:middle'><img src='/Res/Images/icons/ProductCatalog_{0}.png' title='{1}' align='middle'/></span>", record.data.subscriptiontype, localizedSubscriptionType);
+      return String.format("<span style='display:inline-block; vertical-align:middle'><img src='/Res/Images/icons/ProductCatalog_{0}.png' title='{1}' align='middle'/></span>", record.data.subscriptiontype, localizedSubscriptionTypeText);
     }
 
 
@@ -199,6 +197,21 @@
     {  
       cm.setRenderer(cm.getIndexById('subscriptiontype'), subscriptiontypeColRenderer);
       cm.setRenderer(cm.getIndexById('productofferingname'), subscriptionInformationColRenderer);
+    };
+    
+    function itemtypeColRenderer(value, meta, record, rowIndex, colIndex, store) {
+      var localizedItemTypeText = "";
+      if (value.toLowerCase() == "invoice") {
+        localizedItemTypeText = '<%=GetLocalResourceObject("INVOICE_ITEM_TEXT") %>';
+      } else {
+        localizedItemTypeText = '<%=GetLocalResourceObject("PAYMENT_ITEM_TEXT") %>';
+      }
+      return String.format("<span style='display:inline-block; vertical-align:middle'>{0}</span>", localizedItemTypeText);
+    }
+        
+    OverrideRenderer_<%= BillingSummaryGrid.ClientID %> = function(cm)
+    {  
+      cm.setRenderer(cm.getIndexById('nm_type'), itemtypeColRenderer);
     };
     
 //    function onCancel_<%= SubscriptionSummaryGrid.ClientID %>()
@@ -314,18 +327,18 @@
 //    };
     
 
-	function adjustHeights(elem) {
-      var fontstep = 2;
-      if ($(elem).height()>($(elem).parent().height() - 30) || $(elem).width()>$(elem).parent().width()) {
-        $(elem).css('font-size',(($(elem).css('font-size').substr(0,2)-fontstep)) + 'px').css('line-height',(($(elem).css('font-size').substr(0,2))) + 'px');
-        adjustHeights(elem);
+	  function adjustHeights(elem) {
+        var fontstep = 2;
+        if ($(elem).height()>($(elem).parent().height() - 30) || $(elem).width()>$(elem).parent().width()) {
+          $(elem).css('font-size',(($(elem).css('font-size').substr(0,2)-fontstep)) + 'px').css('line-height',(($(elem).css('font-size').substr(0,2))) + 'px');
+          adjustHeights(elem);
+        }
       }
-    }
   
-	function resize_to_fit(){
-		var children = document.getElementById('AccountStatus').children;
-		adjustHeights(children[1]);
-	}
+	  function resize_to_fit(){
+		  var children = document.getElementById('AccountStatus').children;
+		  adjustHeights(children[1]);
+	  }
     
     Ext.onReady(function() {
       displayAccountStatusInformation();
@@ -333,7 +346,7 @@
       displayBalanceInformation();
       displayFailedTransactionCount(<% =int.Parse(UI.Subscriber["_AccountID"]) %>);
       //displayLtvAndMrrInformation();
-      //displayBillingActivityGraph();
+      displayBillingActivityGraph();
     });
     
    

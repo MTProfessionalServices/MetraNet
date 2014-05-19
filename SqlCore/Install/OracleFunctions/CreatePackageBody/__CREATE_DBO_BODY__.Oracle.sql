@@ -869,7 +869,6 @@ TYPE REC IS RECORD
           );
 TYPE TAB_REC IS TABLE OF REC INDEX by binary_integer;
 v_results TAB_REC;
-v_results_comp TAB_REC;
 
 BEGIN
 
@@ -924,10 +923,10 @@ BEGIN
   /* checks for each member there is only one payer cycle across all payers */
   FOR i in v_results.FIRST .. v_results.last
   LOOP
-      FOR j in v_results_comp.FIRST .. v_results_comp.last
+      FOR j in v_results.FIRST .. v_results.last
       LOOP
-        IF v_results(i).id_acc = v_results_comp(j).id_acc AND 
-           v_results(i).id_usage_cycle <> v_results_comp(j).id_usage_cycle THEN
+        IF v_results(i).id_acc = v_results(j).id_acc AND 
+           v_results(i).id_usage_cycle <> v_results(j).id_usage_cycle THEN
             RETURN -289472442; /* MTPCUSER_EBCR_MEMBERS_CONFLICT_WITH_EACH_OTHER */
         END IF;
       END LOOP;

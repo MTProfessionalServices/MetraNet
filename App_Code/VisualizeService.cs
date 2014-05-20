@@ -142,7 +142,7 @@ public class VisualizeService
     return json.ToString();
   }
 
-  public static void ConfigureAndLoadGrid(MTFilterGrid grid, string queryName, string queryPath,
+  public static void ConfigureAndLoadGrid(MTFilterGrid grid, string queryName, string queryPath = SqlQueriesPath,
                                           Dictionary<string, object> paramDict = null)
   {
     var sqi = new SQLQueryInfo {QueryName = queryName, QueryDir = queryPath};

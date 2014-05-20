@@ -524,41 +524,40 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var composite = dc.compositeChart("#divBatchUsage");
             composite
                     .margins({top: 5, right: 5, bottom: 40, left: 5})
-					.height(255)
-					.width(410)
+                    .height(255)
+                    .width(410)
                     .x(d3.time.scale().domain([minDate, maxDate]))
                     .elasticY(true)
                     .transitionDuration(0)
                     .legend(dc.legend().x(15).y(225).itemHeight(13).gap(5))
-					.renderHorizontalGridLines(true)
+                    .renderHorizontalGridLines(true)
                     .brushOn(false)
-					.title("UDRs", function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " UDRs";})
-					.title("Batches", function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " Batches";})
+                    .title("UDRs", function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " UDRs";})
+                    .title("Batches", function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " Batches";})
                     .compose([
                         dc.lineChart(composite)
                                 .dimension(dateDimension)
                                 .group(udrGroup, "UDRs")
-                                .colors('#0070C0')
-								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " UDRs";})
+                                //.colors('#0070C0')
+                                .renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
+                                .title(function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " UDRs";})
                         ,
                         dc.lineChart(composite)
                                 .dimension(dateDimension)
                                 .group(batchGroup, "Batches")
                                 .colors('#148622')
-								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.useRightYAxis(true)
-								.title(function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " Batches";})
+                                .renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
+                                .title(function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " Batches";})
                     ])
-					;
-			composite.xAxis().tickSize(0,0).tickFormat("");
-			composite.yAxis().tickSize(0,0).tickFormat("");
-			composite.rightYAxis().tickSize(0,0).tickFormat("");
+                    ;
+            composite.xAxis().tickSize(0,0).tickFormat("");
+            composite.yAxis().tickSize(0,0).tickFormat("");
+            composite.rightYAxis().tickSize(0,0).tickFormat("");
 
             composite.render();
-			composite.redraw();
-			dc.renderAll();
-			}
+            composite.redraw();
+            dc.renderAll();
+            }
         });
 
         //Recent Batch

@@ -120,4 +120,13 @@
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
     <value>(MEXICAN SPANISH) Report</value>
   </data>
+  <data name="TEXT_INTERVALS_TO_ARCHIVE_DT_END" xml:space="preserve">
+    <value>(MEXICAN SPANISH) End Date</value>
+  </data>
+  <data name="TEXT_INTERVALS_TO_ARCHIVE_DT_START" xml:space="preserve">
+    <value>(MEXICAN SPANISH) Start Date</value>
+  </data>
+  <data name="TEXT_INTERVALS_TO_ARCHIVE_ID_INTERVAL" xml:space="preserve">
+    <value>(MEXICAN SPANISH) Interval ID</value>
+  </data>
 </root>

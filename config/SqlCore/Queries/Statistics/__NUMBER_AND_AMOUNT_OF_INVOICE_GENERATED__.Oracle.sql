@@ -6,7 +6,7 @@
 			  from t_invoice inv 
 				inner join t_av_internal av on inv.id_payer=av.id_acc
 				left outer join t_description des on av.c_invoicemethod=des.id_desc
-				where id_payer_interval= 1
-				  and (id_lang_code=271 
+				where id_payer_interval= %%ID_INTERVAL%%
+				  and (id_lang_code=%%ID_LANG_CODE%% 
 				       or id_lang_code is null)
-				group by invoice_currency;
+				group by invoice_currency

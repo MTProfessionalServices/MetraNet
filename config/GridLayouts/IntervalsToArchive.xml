@@ -8,7 +8,7 @@
     <Exportable>true</Exportable>
     <Height>400</Height>
     <Width>720</Width>
-    <Expandable>true</Expandable>
+    <Expandable>false</Expandable>
     <Buttons>None</Buttons>
     <DataSourceURL>~/AjaxServices/QueryService.aspx</DataSourceURL>
     <MultiSelect>false</MultiSelect>
@@ -81,7 +81,10 @@
             <IsIdentity>true</IsIdentity>
             <DataIndex>id_interval</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>TEXT_INTERVALS_TO_ARCHIVE_ID_INTERVAL</LocalizationTag>
+                <ResourceClassKey></ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -114,7 +117,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>dt_start</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>TEXT_INTERVALS_TO_ARCHIVE_DT_START</LocalizationTag>
+                <ResourceClassKey></ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -147,40 +153,10 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>dt_end</DataIndex>
             <IsColumn>true</IsColumn>
-            <HeaderText />
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename></AssemblyFilename>
-            <ObjectName></ObjectName>
-            <ID>tx_interval_status</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>tx_interval_status</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText />
+            <HeaderText>
+                <LocalizationTag>TEXT_INTERVALS_TO_ARCHIVE_DT_END</LocalizationTag>
+                <ResourceClassKey></ResourceClassKey>
+            </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>

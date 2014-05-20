@@ -2,7 +2,7 @@
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-  <link rel="stylesheet" type="text/css" href="/Res/Styles/buttonWhiteBg.css?v=6.5" /> 
+
   <MT:MTTitle ID="MTTitle1" runat="server" Text="Add Account" meta:resourcekey="MTTitle1Resource1" /><br />
 
   <MT:MTPanel Collapsible="false" Text="Select Account Type" Width="630" ID="pnlMain"  meta:resourcekey="pnlMain" runat="Server">

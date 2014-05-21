@@ -291,5 +291,9 @@
       <Name>metratech.com/QuoteStatus/None</Name>
       <Value>metratech.com/QuoteStatus/None</Value>
     </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/QuoteStatus/Converted</Name>
+      <Value>metratech.com/QuoteStatus/Converted</Value>
+    </locale_entry>
   </locale_space>
 </mt_config>

@@ -50,6 +50,7 @@ namespace MetraNet.Quoting
       public decimal UnitAmount { get; set; }
       public decimal BaseAmount { get; set; }
       public string RecordId { get; set; }
+      public int PIKind { get; set; }
     }
 
     public class Udrc
@@ -153,7 +154,6 @@ namespace MetraNet.Quoting
               ProductOfferingId = x.PO_ID,
               x.Name,
               x.DisplayName,
-              x.Description,
               x.PIKind,
               x.PICanICB
             }).ToArray();
@@ -260,7 +260,7 @@ namespace MetraNet.Quoting
 
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-      Response.Redirect(UI.DictionaryManager["DashboardPage"].ToString());
+      Response.Redirect(GetRedirectPath(), false);
     }
 
     private QuoteRequest RequestForCreateQuote { get; set; }
@@ -305,7 +305,7 @@ namespace MetraNet.Quoting
       }
 
       var icbPrices = new List<IndividualPrice>();
-      foreach (var record in icbList.Select(t => new { t.PriceableItemId, t.ProductOfferingId }).Distinct())
+      foreach (var record in icbList.Select(t => new { t.PriceableItemId, t.ProductOfferingId, t.PIKind }).Distinct())
       {
         var record1 = record;
         var chargesRates = icbList.Where(t => t.PriceableItemId == record1.PriceableItemId && t.ProductOfferingId == record1.ProductOfferingId).Select(icb => new ChargesRate
@@ -313,16 +313,21 @@ namespace MetraNet.Quoting
           Price = icb.Price,
           BaseAmount = icb.BaseAmount,
           UnitAmount = icb.UnitAmount,
-          UnitValue = icb.UnitValue
+          UnitValue = icb.UnitValue,
         });
         var qip = new IndividualPrice
-        {
-          CurrentChargeType = ChargeType.RecurringCharge,//TODO investigate this code
+        {          
           ProductOfferingId = record.ProductOfferingId,
           ChargesRates = chargesRates.ToList(),
           PriceableItemId = record.PriceableItemId
         };
-
+        switch (record.PIKind)
+        {
+          case 20: { qip.CurrentChargeType = ChargeType.RecurringCharge; break; }     //Recurring = 20,
+          case 25: { qip.CurrentChargeType = ChargeType.UDRC; break; }                //UnitDependentRecurring = 25,
+          case 30: { qip.CurrentChargeType = ChargeType.NonRecurringCharge; break; }  //NonRecurring = 30,
+          default: { qip.CurrentChargeType = ChargeType.None; break; }
+        }        
         icbPrices.Add(qip);
       }
 
@@ -383,13 +388,13 @@ namespace MetraNet.Quoting
           client.ClientCredentials.UserName.UserName = UI.User.UserName;
           client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
         }
-        client.CreateQuoteWithoutValidation(request, out response);
+        client.CreateQuote(request, out response);
       }
     }
 
     private void AccountRenderGrid()
     {
-      if (IsPostBack || UI.Subscriber.SelectedAccount == null) return;
+      if (IsPostBack || UI.Subscriber.SelectedAccount == null || IsViewMode) return;
 
       var accountsFilterValue = Request["Accounts"];
       if (string.IsNullOrEmpty(accountsFilterValue) || accountsFilterValue != "ONE") return;
@@ -559,7 +564,7 @@ namespace MetraNet.Quoting
     {
       var pis = GetPriceableItemsForPOs(pos.Select(poId => poId.ToString(CultureInfo.InvariantCulture)));
 
-      const string piStr = "{9}'ProductOfferingId':{0},'ProductOfferingName':'{1}','PriceableItemId':{2},'Name':'{3}','DisplayName':'{4}','Description':'{5}','PIKind':'{6}','PICanICB':'{7}','RecordId':'{8}'{10}";
+      const string piStr = "{9}'ProductOfferingId':{0},'ProductOfferingName':'{1}','PriceableItemId':{2},'Name':'{3}','DisplayName':'{4}','PIKind':'{6}','PICanICB':'{7}','RecordId':'{8}'{10}";
       const string recodrIdStr = "{0}_{1}";
 
       PiNames = new Dictionary<int, string>();
@@ -583,7 +588,7 @@ namespace MetraNet.Quoting
               pi.ID,
               pi.Name,
               pi.DisplayName,
-              pi.Description,
+              "",
               pi.PIKind,
               pi.PICanICB,
               recordId,

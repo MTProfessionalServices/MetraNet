@@ -136,7 +136,6 @@
       { name: 'PriceableItemId' },
       { name: 'Name' },
       { name: 'DisplayName' },
-      { name: 'Description' },
       { name: 'PIKind' },
       { name: 'PICanICB' },
       { name: 'RecordId' }
@@ -284,8 +283,6 @@
 
     function onGroupSubscriptionCheck() {
       window.Ext.get("<%=MTCheckBoxIsGroupSubscription.ClientID %>").dom.value = accountToolBar.items.get('IsGroupSubscription').checked;
-      //      accountGrid.colModel.config[1].width = accountToolBar.items.get('IsGroupSubscription').checked ? 50 : 0;
-      //      accountGrid.syncSize();
     }
 
     function accountCallback(ids, records) {
@@ -378,7 +375,17 @@
         if (records[i].data.IsGroup == "1")
           gid = records[i].data._AccountID;
       }
-
+      
+      if (accountToolBar.items.get('IsGroupSubscription').checked && gid.length == 0) {
+        window.Ext.Msg.show({
+          title: window.TEXT_ERROR,
+          msg: '<%=GetLocalResourceObject("TEXT_ISGROUP_CHEKED")%>',
+          buttons: window.Ext.Msg.OK,
+          icon: window.Ext.MessageBox.ERROR
+        });
+        return false;
+      }
+        
       window.Ext.get("<%=HiddenAccountIds.ClientID %>").dom.value = ids;
       window.Ext.get("<%=HiddenGroupId.ClientID %>").dom.value = gid;
       window.Ext.get("<%=HiddenAccounts.ClientID %>").dom.value = accountData.accounts.length > 0 ? window.Ext.encode(accountData.accounts) : "";
@@ -467,7 +474,6 @@
           PriceableItemId: piId,
           Name: items[i].Name,
           DisplayName: items[i].DisplayName,
-          Description: items[i].Description,
           PIKind: piKind,
           PICanICB: piCanIcb,
           RecordId: recordId
@@ -1061,6 +1067,13 @@
                   id: 'form_addICB_PIId',
                   name: 'form_addICB_PIId',
                   value: piId
+                },
+                {
+                  xtype: 'hidden',
+                  hideLabel: true,
+                  id: 'form_addICB_PIKind',
+                  name: 'form_addICB_PIKind',
+                  value: piKind
                 }]
       });
 
@@ -1171,6 +1184,8 @@
         if (priceComp != undefined)
           price = priceComp.value;
 
+          var pIKind = form_addICB.items.get('form_addICB_PIKind').value
+
         var recordId = form_addICB.items.get('form_addICB_POId').value + "_" +
               form_addICB.items.get('form_addICB_PIId').value + "_" +
               price + "_" +
@@ -1192,6 +1207,7 @@
             UnitValue: unitValue,
             UnitAmount: unitAmount,
             BaseAmount: baseAmount,
+            PIKind: pIKind,
             RecordId: recordId,
             GroupId: groupId
           });
@@ -1222,6 +1238,7 @@
         { name: 'UnitValue' },
         { name: 'UnitAmount' },
         { name: 'BaseAmount' },
+        { name: 'PIKind' },
         { name: 'RecordId' },
         { name: 'GroupId' }
     ]);
@@ -1242,6 +1259,7 @@
           UnitValue: items[i].UnitValue,
           UnitAmount: items[i].UnitAmount,
           BaseAmount: items[i].BaseAmount,
+          PIKind: items[i].PIKind,
           RecordId: items[i].RecordId,
           GroupId: items[i].GroupId
         });

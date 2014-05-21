@@ -35,5 +35,9 @@
       <Name>metratech.com/BusinessEntity/BusinessEntityExtension/MetraTech.Reporting</Name>
       <Value>metratech.com/BusinessEntity/BusinessEntityExtension/MetraTech.Reporting</Value>
     </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/BusinessEntity/BusinessEntityExtension/MetraTech.SystemConfig</Name>
+      <Value>metratech.com/BusinessEntity/BusinessEntityExtension/MetraTech.SystemConfig</Value>
+    </locale_entry>
   </locale_space>
 </mt_config>

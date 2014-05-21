@@ -35,5 +35,9 @@
       <Name>metratech.com/BusinessEntity/BusinessEntityExtension/smoketest</Name>
       <Value>metratech.com/BusinessEntity/BusinessEntityExtension/smoketest</Value>
     </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/BusinessEntity/BusinessEntityExtension/MetraTech.SystemConfig</Name>
+      <Value>metratech.com/BusinessEntity/BusinessEntityExtension/MetraTech.SystemConfig</Value>
+    </locale_entry>
   </locale_space>
 </mt_config>

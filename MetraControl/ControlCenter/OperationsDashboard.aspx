@@ -38,8 +38,8 @@
                 </MT:MTPanel>
             </li>
             <li data-row="1" data-col="5" data-sizex="4" data-sizey="9">
-                <MT:MTPanel ID="pnlBatchUsage" runat="server" Text="Usage Data Records" Width="430"
-                    Height="325">
+                <MT:MTPanel ID="pnlBatchUsage" runat="server" meta:resourcekey="pnlBatchUsageResource"
+                   Text="Usage Data Records" Width="430" Height="325">
                    <div id="divBatchUsage" class="base-bottom">
                           <div id="divLastBatch" class="corner-bottom">
                              <MT:MTLabel ID="lblLastBatch" runat="server" CssClass="label" />
@@ -58,15 +58,15 @@
                 </MT:MTPanel>
             </li>
             <li data-row="10" data-col="5" data-sizex="4" data-sizey="9">
-                <MT:MTPanel ID="pnlPricingBacklog" runat="server" Text="Pricing Engine (Real-Time and Batch)"
+                <MT:MTPanel ID="pnlPricingBacklog" runat="server" Text="Pricing Engine (Real-Time and Batch)" meta:resourcekey="pnlPricingBacklog"
                     Width="430" Height="325">
                     <div id="divPricingBacklog">
                     </div>
                 </MT:MTPanel>
             </li>
             <li data-row="19" data-col="1" data-sizex="8" data-sizey="9">
-                <MT:MTPanel ID="pnlActiveBillRun" runat="server" Text="Active Bill Run" Width="870"
-                    Height="325">
+                <MT:MTPanel ID="pnlActiveBillRun" runat="server" meta:resourcekey="pnlActiveBillRun"
+                    Text="Active Bill Run" Width="870" Height="325">
                      <div>
                         <MT:MTDropDown ID="ddActiveBillRun" runat="server" AllowBlank="False" HideLabel="True"
                             Listeners="{}" ReadOnly="False">
@@ -81,8 +81,6 @@
                                             <td>
                                                 <table style="border-collapse:collapse;border:none">
                                                     <tr>
-                                                      
-
                                                         <td align="center" class="tbllabel" >
                                                             <MT:MTLabel ID="lblFailedAdapters" runat="server" Text="Failed Adapters"/>
                                                         </td>
@@ -189,7 +187,7 @@
                 </MT:MTPanel>
             </li>
             <li data-row="28" data-col="5" data-sizex="4" data-sizey="9">
-                <MT:MTPanel ID="pnlBillCloseSynopsis" runat="server" Text="Bill Close Synopsis" Width="450">
+                <MT:MTPanel ID="pnlBillCloseSynopsis" runat="server" Text="Bill Close Synopsis" meta:resourcekey="pnlBillCloseSynopsisResource" Width="450">
                     <div style="width: 399px; height: 27px">
                         <MT:MTDropDown ID="ddBillCloses" runat="server" AllowBlank="False" HideLabel="True"
                             Listeners="{}" ReadOnly="False">
@@ -210,7 +208,7 @@
                                         </tr>
                                         <tr>
                                             <td class="label">
-                                                <MT:MTLabel ID="lblBillCloseSynopisType" runat="server" Text="Type:" />
+                                                <MT:MTLabel ID="lblBillCloseSynopisType" runat="server" meta:resourcekey="lblBillCloseSynopisTypeResource" Text="Type:" />
                                             </td>
                                             <td>
                                                 <MT:MTLabel ID="txtBillCloseSynopisType" runat="server" />
@@ -218,7 +216,7 @@
                                         </tr>
                                         <tr>
                                             <td class="label">
-                                                <MT:MTLabel ID="lblBillCloseSynopisBillGroups" runat="server" Text="Bill Groups:" />
+                                                <MT:MTLabel ID="lblBillCloseSynopisBillGroups" runat="server" meta:resourcekey="lblBillCloseSynopisBillGroupsResource" Text="Bill Groups:" />
                                             </td>
                                             <td>
                                                 <MT:MTLabel ID="txtBillCloseSynopisBillGroups" runat="server" />
@@ -226,7 +224,7 @@
                                         </tr>
                                         <tr>
                                             <td class="label">
-                                                <MT:MTLabel ID="lblBillCloseSynopisStart" runat="server" Text="Start:" />
+                                                <MT:MTLabel ID="lblBillCloseSynopisStart" runat="server" meta:resourcekey="lblBillCloseSynopisStartResource" Text="Start:" />
                                             </td>
                                             <td>
                                                 <MT:MTLabel ID="txtBillCloseSynopisStart" runat="server" />
@@ -234,7 +232,7 @@
                                         </tr>
                                         <tr>
                                             <td class="label">
-                                                <MT:MTLabel ID="lblBillCloseSynopisEnd" runat="server" Text="End:" />
+                                                <MT:MTLabel ID="lblBillCloseSynopisEnd" runat="server" meta:resourcekey="lblBillCloseSynopisEndResource" Text="End:" />
                                             </td>
                                             <td>
                                                 <MT:MTLabel ID="txtBillCloseSynopisEnd" runat="server" />
@@ -250,7 +248,7 @@
                                         </tr>
                                         <tr>
                                             <td colspan="2" valign="middle" align="center" class="tbllabel">
-                                                <MT:MTLabel ID="lblBillCloseSynopisDaysUntilRun" runat="server" Text="Days Until Run" />
+                                                <MT:MTLabel ID="lblBillCloseSynopisDaysUntilRun" runat="server" meta:resourcekey="lblBillCloseSynopisDaysUntilRunResource" Text="Days Until Run" />
                                             </td>
                                         </tr>
                                         <tr>
@@ -531,19 +529,19 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                     .legend(dc.legend().x(15).y(225).itemHeight(13).gap(5))
                     .renderHorizontalGridLines(true)
                     .brushOn(false)
-                    .title("UDRs", function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " UDRs";})
-                    .title("Batches", function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " Batches";})
+                    .title("<%=UDRsWord%>", function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " <%=UDRsWord%>";})
+                    .title("<%=BatchesWord%>", function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " <%=BatchesWord%>";})
                     .compose([
                         dc.lineChart(composite)
                                 .dimension(dateDimension)
-                                .group(udrGroup, "UDRs")
+                                .group(udrGroup, "<%=UDRsWord%>")
                                 //.colors('#0070C0')
                                 .renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-                                .title(function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " UDRs";})
+                                .title(function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " <%=UDRsWord%>";})
                         ,
                         dc.lineChart(composite)
                                 .dimension(dateDimension)
-                                .group(batchGroup, "Batches")
+                                .group(batchGroup, "<%=BatchesWord%>")
                                 .colors('#148622')
                                 .renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
                                 .title(function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " Batches";})
@@ -600,39 +598,33 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             width: 450,
             height: 200,
             margin: { left: 40, top: 20, right: 20, bottom: 20 },
-            yAxis: {"Label":"Duration","IgnoreColumns": ["adapter"]},
-            xAxis: {"Label":"Adapter","Column":"rownumber"},
+            yAxis: {"Label":"<%=DurationWord%>","IgnoreColumns": ["adapter"]},
+            xAxis: {"Label":"<%=AdapterWord%>","Column":"rownumber"},
             parentElementId: "#divActiveBillRun",
             elementId: "#svgActiveBillRun",
-            chartTitle: "Current vs 3 Month Average",
+            chartTitle: "<%=CurrentVs3MonthAverageText%>",
             colordata:{
                 "duration":"#148622",
                 "average":"#FFC000"
-        
             }
-
-            
         };
 
         var activeBillRunInterval = d3.select("#<%=ddActiveBillRun.ClientID %>").node().value;
+        var ajaxReqStr = "/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() + "&operation=activebillrun&intervalid=" + activeBillRunInterval;
 
-
-         d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() +"&operation=activebillrun&intervalid=" + activeBillRunInterval, function (error, json) {
+        d3.json(ajaxReqStr, function (error, json) {
             if (error)
                 console.log(error.valueOf);
             else {
                 objActiveBillRunLineChartConfig.data = json["Items"];
-                
                 fnVisualizeLineChart2(objActiveBillRunLineChartConfig);
             }
         });
-
 
         d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() +"&operation=activebillrunsummary&intervalid=" + activeBillRunInterval, function (error, json) {
             if (error)
                 console.log(error.valueOf);
             else {
-                
                 var activebillrunsummary = json["Items"];
                 if (activebillrunsummary[0] != null) {
                     var successful = activebillrunsummary[0]["eop_succeeded_adapter_count"];
@@ -641,12 +633,9 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                     var ready = activebillrunsummary[0]["eop_rtr_adapter_count"];
                     var variance = activebillrunsummary[0]["variance"];
                     var earliesteta = activebillrunsummary[0]["earliest_eta"];
-                 
-                   
                  }
 
                   if(failed == 0){
- 
                         d3.select("#tdFailedAdapters").attr("class","tblclszerovalue");
                      }
                     else{
@@ -662,32 +651,26 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 
                       d3.select("#<%=txtFailedAdapters.ClientID%>").style("cursor","pointer");
                       d3.select("#<%=txtFailedAdapters.ClientID%>").on("click",function(){window.location="/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/IntervalManagement.asp?ID=" + activeBillRunInterval;});
-                  
-
             }
         });
-
 
         var legenddata = [
           {
             "x_axis": 40,
             "y_axis": 10,
             "color": "#FFC000",
-            "text": "3 Month Average"
+                "text": "<%=ThreeMonthAverageText%>"
           },
           {
             "x_axis": 40,
             "y_axis": 20,
              "color": "#148622",
-            "text": "Current Run"
+                "text": "<%=CurrentRunText%>"
           }
-            ]
+        ];
 
-         
         CreateLegend(legenddata,d3.select("#svgActiveBillRunLegend"));
-
     }
-
 
      function makePricingEnginePart() {
         var ndx;
@@ -777,24 +760,25 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                     .legend(dc.legend().x(15).y(200).itemHeight(13).gap(5))
                     .brushOn(false)
 					.renderHorizontalGridLines(true)
-					.title("Pipeline Wait Duration", function(d){ return numberFormat(d.value) + " seconds waiting to be assigned"; })
-					.title("Pipeline Processing Duration", function(d){ return numberFormat(d.value) + " seconds processing in the pipeline"; })
+					.title("<%=pipelineWaitDurationText%>", function(d){ return numberFormat(d.value) + " " + "<%=pipelineWaitDurationToolTipText%>"; })
+          .title("<%=pipelineProcessingDurationText%>", function(d){ return numberFormat(d.value) + " " + "<%=pipelineProcessingDurationToolTipText%>"; })   
                     .compose([
                         dc.lineChart(composite2)
                                 .dimension(dateDimension)
-                                .group(pipeBacklogGroup, "Pipeline Wait Duration")
+                                .group(pipeBacklogGroup, "<%=pipelineWaitDurationText%>")
                                 .colors(colors(0))
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){ return numberFormat(d.value) + " seconds waiting to be assigned"; })
+								.title(function(d){ return numberFormat(d.value) + " " + "<%=pipelineWaitDurationToolTipText%>"; })
                         ,
                         dc.lineChart(composite2)
                                 .dimension(dateDimension)
-                                .group(pipeGroup, "Pipeline Processing Duration")
+                                .group(pipeGroup, "<%=pipelineProcessingDurationText%>")
                                 .colors(colors(1))
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){ return numberFormat(d.value) + " seconds processing in the pipeline"; })
+								.title(function(d){ return numberFormat(d.value) + " " + "<%=pipelineProcessingDurationToolTipText%>"; })
                     ])
 			;
+
             composite2.xAxis().tickSize(0,0).tickFormat("");
             composite2.yAxis().tickSize(0,0).tickFormat("");
 			
@@ -863,7 +847,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                     .group(countGroup)
 //                    .xAxisPadding(15)
                     .gap(10)
-                    .x(d3.scale.ordinal().domain(["Open", "Under Investigation", "Fixed", "Unguided"]))
+                    .x(d3.scale.ordinal().domain(["<%=OpenWord%>", "<%=UnderInvestigationWord%>", "<%=FixedWord%>", "<%=UnguidedWord%>"]))
 					.xUnits(dc.units.ordinal)
                     .centerBar(false)
                     .brushOn(false)
@@ -932,7 +916,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             "x_axis": -100,
             "y_axis": 10,
             "color": "#1F497D",
-            "text": "Fixed"
+            "text": "<%=FixedWord%>"
           },
           {
             "x_axis": -100,
@@ -950,7 +934,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             "x_axis": -100,
             "y_axis": 40,
             "color": "#7F7F7F",
-            "text": "Unguided"
+            "text": "<%=UnguidedWord%>"
           }
             ];
 

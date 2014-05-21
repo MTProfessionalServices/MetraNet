@@ -6,15 +6,7 @@ DECLARE @FixedFTs int
 DECLARE @UnguidedFTs int
 
 set @id_interval = %%ID_USAGE_INTERVAL%% --set interval here
-set @interval_type = (
-select Type = 
-      CASE DAY(dt_end)
-         WHEN '5' THEN 7
-         WHEN '12' THEN 14
-         WHEN '19' THEN 21
-         WHEN '26' THEN 28
-         ELSE 30
-      END
+set @interval_type = (select id_usage_cycle
 from t_usage_interval ui
 where ui.id_interval = @id_interval)
 

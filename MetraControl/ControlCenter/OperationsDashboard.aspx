@@ -65,8 +65,8 @@
                 </MT:MTPanel>
             </li>
             <li data-row="19" data-col="1" data-sizex="8" data-sizey="9">
-                <MT:MTPanel ID="pnlActiveBillRun" runat="server" Text="Active Bill Run" Width="870"
-                    Height="325">
+                <MT:MTPanel ID="pnlActiveBillRun" runat="server" meta:resourcekey="pnlActiveBillRun"
+                    Text="Active Bill Run" Width="870" Height="325">
                      <div>
                         <MT:MTDropDown ID="ddActiveBillRun" runat="server" AllowBlank="False" HideLabel="True"
                             Listeners="{}" ReadOnly="False">
@@ -81,8 +81,6 @@
                                             <td>
                                                 <table style="border-collapse:collapse;border:none">
                                                     <tr>
-                                                      
-
                                                         <td align="center" class="tbllabel" >
                                                             <MT:MTLabel ID="lblFailedAdapters" runat="server" Text="Failed Adapters"/>
                                                         </td>
@@ -601,39 +599,33 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             width: 450,
             height: 200,
             margin: { left: 40, top: 20, right: 20, bottom: 20 },
-            yAxis: {"Label":"Duration","IgnoreColumns": ["adapter"]},
-            xAxis: {"Label":"Adapter","Column":"rownumber"},
+            yAxis: {"Label":"<%=DurationWord%>","IgnoreColumns": ["adapter"]},
+            xAxis: {"Label":"<%=AdapterWord%>","Column":"rownumber"},
             parentElementId: "#divActiveBillRun",
             elementId: "#svgActiveBillRun",
-            chartTitle: "Current vs 3 Month Average",
+            chartTitle: "<%=CurrentVs3MonthAverageText%>",
             colordata:{
                 "duration":"#148622",
                 "average":"#FFC000"
-        
             }
-
-            
         };
 
         var activeBillRunInterval = d3.select("#<%=ddActiveBillRun.ClientID %>").node().value;
-
-
-         d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() +"&operation=activebillrun&intervalid=" + activeBillRunInterval, function (error, json) {
+        var ajaxReqStr = "/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() + "&operation=activebillrun&intervalid=" + activeBillRunInterval;
+      
+        d3.json(ajaxReqStr, function (error, json) {
             if (error)
                 console.log(error.valueOf);
             else {
                 objActiveBillRunLineChartConfig.data = json["Items"];
-                
                 fnVisualizeLineChart2(objActiveBillRunLineChartConfig);
             }
         });
-
 
         d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() +"&operation=activebillrunsummary&intervalid=" + activeBillRunInterval, function (error, json) {
             if (error)
                 console.log(error.valueOf);
             else {
-                
                 var activebillrunsummary = json["Items"];
                 if (activebillrunsummary[0] != null) {
                     var successful = activebillrunsummary[0]["eop_succeeded_adapter_count"];
@@ -642,54 +634,45 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                     var ready = activebillrunsummary[0]["eop_rtr_adapter_count"];
                     var variance = activebillrunsummary[0]["variance"];
                     var earliesteta = activebillrunsummary[0]["earliest_eta"];
-                 
-                   
-                 }
+                }
 
-                  if(failed == 0){
- 
-                        d3.select("#tdFailedAdapters").attr("class","tblclszerovalue");
-                     }
-                    else{
-                         d3.select("#tdFailedAdapters").attr("class","tblclshasvalue");
-                    }
+                if(failed == 0){
+                    d3.select("#tdFailedAdapters").attr("class","tblclszerovalue");
+                }
+                else{
+                    d3.select("#tdFailedAdapters").attr("class","tblclshasvalue");
+                }
 
-                     d3.select("#<%=txtFailedAdapters.ClientID%>").text(failed);
-                      d3.select("#<%=txtSuccessful.ClientID%>").text(successful);
-                      d3.select("#<%=txtWaiting.ClientID%>").text(waiting);
-                      d3.select("#<%=txtReady.ClientID%>").text(ready);
-                      d3.select("#<%=txtVariance.ClientID%>").text(variance);
-                      d3.select("#<%=txtEarliestETA.ClientID%>").text(earliesteta);
+                d3.select("#<%=txtFailedAdapters.ClientID%>").text(failed);
+                d3.select("#<%=txtSuccessful.ClientID%>").text(successful);
+                d3.select("#<%=txtWaiting.ClientID%>").text(waiting);
+                d3.select("#<%=txtReady.ClientID%>").text(ready);
+                d3.select("#<%=txtVariance.ClientID%>").text(variance);
+                d3.select("#<%=txtEarliestETA.ClientID%>").text(earliesteta);
 
-                      d3.select("#<%=txtFailedAdapters.ClientID%>").style("cursor","pointer");
-                      d3.select("#<%=txtFailedAdapters.ClientID%>").on("click",function(){window.location="/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/IntervalManagement.asp?ID=" + activeBillRunInterval;});
-                  
-
+                d3.select("#<%=txtFailedAdapters.ClientID%>").style("cursor","pointer");
+                d3.select("#<%=txtFailedAdapters.ClientID%>").on("click",function(){window.location="/MetraNet/TicketToMOM.aspx?URL=/mom/default/dialog/IntervalManagement.asp?ID=" + activeBillRunInterval;});
             }
         });
 
-
         var legenddata = [
-          {
-            "x_axis": 40,
-            "y_axis": 10,
-            "color": "#FFC000",
-            "text": "3 Month Average"
-          },
-          {
-            "x_axis": 40,
-            "y_axis": 20,
-             "color": "#148622",
-            "text": "Current Run"
-          }
-            ]
-
+            {
+                "x_axis": 40,
+                "y_axis": 10,
+                "color": "#FFC000",
+                "text": "<%=ThreeMonthAverageText%>"
+            },
+            {
+                "x_axis": 40,
+                "y_axis": 20,
+                "color": "#148622",
+                "text": "<%=CurrentRunText%>"
+            }
+        ];
          
         CreateLegend(legenddata,d3.select("#svgActiveBillRunLegend"));
-
     }
-
-
+    
      function makePricingEnginePart() {
         var ndx;
         var all;

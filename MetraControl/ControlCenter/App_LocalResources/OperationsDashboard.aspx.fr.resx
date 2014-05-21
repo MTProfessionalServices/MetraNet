@@ -219,4 +219,37 @@
   <data name="TEXT_UDRS" xml:space="preserve">
     <value>{FR}UDRs</value>
   </data>
+  <data name="pnlActiveBillRun.Text" xml:space="preserve">
+    <value>{FR}Active Bill Run</value>
+  </data>
+  <data name="TEXT_3_MONTH_AVERAGE" xml:space="preserve">
+    <value>{FR}3 Month Average</value>
+  </data>
+  <data name="TEXT_ADAPTER" xml:space="preserve">
+    <value>{FR}Adapter</value>
+  </data>
+  <data name="TEXT_CURRENT_RUN" xml:space="preserve">
+    <value>{FR}Current Run</value>
+  </data>
+  <data name="TEXT_CURRENT_VS_3_MONTH_AVERAGE" xml:space="preserve">
+    <value>{FR}Current vs 3 Month Average</value>
+  </data>
+  <data name="TEXT_DURATION" xml:space="preserve">
+    <value>{FR}Duration</value>
+  </data>
+  <data name="TEXT_EARLIEST_ETA" xml:space="preserve">
+    <value>{FR}Earliest ETA</value>
+  </data>
+  <data name="TEXT_READY" xml:space="preserve">
+    <value>{FR}Ready</value>
+  </data>
+  <data name="TEXT_SUCCESSFUL" xml:space="preserve">
+    <value>{FR}Successful</value>
+  </data>
+  <data name="TEXT_VARIANCE" xml:space="preserve">
+    <value>{FR}Variance</value>
+  </data>
+  <data name="TEXT_WAITING" xml:space="preserve">
+    <value>{FR}Waiting</value>
+  </data>
 </root>

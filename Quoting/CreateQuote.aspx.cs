@@ -395,7 +395,7 @@ namespace MetraNet.Quoting
 
     private void AccountRenderGrid()
     {
-      if (IsPostBack || UI.Subscriber.SelectedAccount == null) return;
+      if (IsPostBack || UI.Subscriber.SelectedAccount == null || IsViewMode) return;
 
       var accountsFilterValue = Request["Accounts"];
       if (string.IsNullOrEmpty(accountsFilterValue) || accountsFilterValue != "ONE") return;

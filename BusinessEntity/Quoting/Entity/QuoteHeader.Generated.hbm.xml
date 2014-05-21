@@ -184,7 +184,7 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
-    <property name="QuoteDescription" column="c_QuoteDescription" length="255">
+    <property name="QuoteDescription" column="c_QuoteDescription" length="1024">
       <meta attribute="label">QuoteDescription</meta>
       <meta attribute="description">Custom description</meta>
       <meta attribute="defaultvalue" />

@@ -100,7 +100,7 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
-    <property name="QuoteIdentifier" column="c_QuoteIdentifier" length="512">
+    <property name="QuoteIdentifier" column="c_QuoteIdentifier" length="1024">
       <meta attribute="label">QuoteIdentifier</meta>
       <meta attribute="description" />
       <meta attribute="defaultvalue" />

@@ -12,6 +12,8 @@ public partial class OperationsDashboard : MTPage
   public string puppetJson = "";
   public string OpenWord;
   public string UnderInvestigationWord;
+  public string UDRsWord;
+  public string BatchesWord;
   public string pipelineQueueText;
   public string rampQueueText;
   public string schedulerQueueText;
@@ -36,6 +38,8 @@ public partial class OperationsDashboard : MTPage
 
       OpenWord = GetLocalResourceObject("TEXT_OPEN").ToString();
       UnderInvestigationWord = GetLocalResourceObject("TEXT_UNDER_INVESTIGATION").ToString();
+      UDRsWord = GetLocalResourceObject("TEXT_UDRS").ToString();
+      BatchesWord = GetLocalResourceObject("TEXT_BATCHES").ToString();
       pipelineQueueText = GetLocalResourceObject("TEXT_PIPELINE_QUEUE").ToString();
       rampQueueText = GetLocalResourceObject("TEXT_RAMP_QUEUE").ToString();
       schedulerQueueText = GetLocalResourceObject("TEXT_SCHEDULER_QUEUE").ToString();

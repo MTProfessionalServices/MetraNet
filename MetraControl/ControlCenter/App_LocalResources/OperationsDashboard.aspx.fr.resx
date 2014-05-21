@@ -204,10 +204,19 @@
   <data name="TEXT_MESSAGES_WAITING_TO_BE_ASSIGNED" xml:space="preserve">
     <value>{FR}messages waiting to be assigned</value>
   </data>
-   <data name="TEXT_MESSAGES_WAITING_IN_RABBITMQ" xml:space="preserve">
+  <data name="TEXT_MESSAGES_WAITING_IN_RABBITMQ" xml:space="preserve">
     <value>{FR}messages waiting in RabbitMQ</value>
   </data>
   <data name="TEXT_TASKS_WAITING_TO_BE_PROCESSED" xml:space="preserve">
     <value>{FR}tasks waiting to be processed</value>
+  </data>
+  <data name="pnlBatchUsageResource.Text" xml:space="preserve">
+    <value>{FR}Usage Data Records</value>
+  </data>
+  <data name="TEXT_BATCHES" xml:space="preserve">
+    <value>{FR}Batches</value>
+  </data>
+  <data name="TEXT_UDRS" xml:space="preserve">
+    <value>{FR}UDRs</value>
   </data>
 </root>

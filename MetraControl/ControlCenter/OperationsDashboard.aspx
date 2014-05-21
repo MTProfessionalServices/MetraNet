@@ -38,8 +38,8 @@
                 </MT:MTPanel>
             </li>
             <li data-row="1" data-col="5" data-sizex="4" data-sizey="9">
-                <MT:MTPanel ID="pnlBatchUsage" runat="server" Text="Usage Data Records" Width="430"
-                    Height="325">
+                <MT:MTPanel ID="pnlBatchUsage" runat="server" meta:resourcekey="pnlBatchUsageResource"
+                   Text="Usage Data Records" Width="430" Height="325">
                    <div id="divBatchUsage" class="base-bottom">
                           <div id="divLastBatch" class="corner-bottom">
                              <MT:MTLabel ID="lblLastBatch" runat="server" CssClass="label" />
@@ -532,19 +532,19 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                     .legend(dc.legend().x(15).y(225).itemHeight(13).gap(5))
                     .renderHorizontalGridLines(true)
                     .brushOn(false)
-                    .title("UDRs", function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " UDRs";})
-                    .title("Batches", function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " Batches";})
+                    .title("<%=UDRsWord%>", function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " <%=UDRsWord%>";})
+                    .title("<%=BatchesWord%>", function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " <%=BatchesWord%>";})
                     .compose([
                         dc.lineChart(composite)
                                 .dimension(dateDimension)
-                                .group(udrGroup, "UDRs")
+                                .group(udrGroup, "<%=UDRsWord%>")
                                 //.colors('#0070C0')
                                 .renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-                                .title(function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " UDRs";})
+                                .title(function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " <%=UDRsWord%>";})
                         ,
                         dc.lineChart(composite)
                                 .dimension(dateDimension)
-                                .group(batchGroup, "Batches")
+                                .group(batchGroup, "<%=BatchesWord%>")
                                 .colors('#148622')
                                 .renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
                                 .title(function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " Batches";})

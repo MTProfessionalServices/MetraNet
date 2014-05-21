@@ -22,7 +22,7 @@
     <MT:MTTitle ID="MTTitle1" Text="Operations Dashboard" runat="server" meta:resourcekey="MTTitle1Resource1" />
     <br />
     <div class="gridster" width="100%" height="100%">
-	<ul width="100%" height="100%" id="gridsterul" style="width:100%; align:left;">
+	<ul width="100%" height="100%" id="gridsterul" style="width:100%; text-align:left;">
             <li data-row="1" data-col="1" data-sizex="4" data-sizey="9" width="100%">
                 <MT:MTPanel ID="pnlFailedTransactionsQueue" runat="server" meta:resourcekey="pnlFailedTransactionsQueueResource"
                     Width="430" Height="325" Text="Failed Transactions Queue" Collapsible="True">
@@ -189,17 +189,16 @@
                 </MT:MTPanel>
             </li>
             <li data-row="28" data-col="5" data-sizex="4" data-sizey="9">
-                <MT:MTPanel ID="pnlBillCloseSynopsis" runat="server" Text="Bill Close Synopsis" Width="430"
-                    Height="325">
-                    <div style="width: 399px;">
+                <MT:MTPanel ID="pnlBillCloseSynopsis" runat="server" Text="Bill Close Synopsis" Width="450">
+                    <div style="width: 399px; height: 27px">
                         <MT:MTDropDown ID="ddBillCloses" runat="server" AllowBlank="False" HideLabel="True"
                             Listeners="{}" ReadOnly="False">
                         </MT:MTDropDown>
                     </div>
-                    <div style="width: 399px" height="100%">
+                    <div style="width: 100%; height:230px">
                         <table >
                             <tr>
-                                <td width="50%">
+                                <td>
                                     <table style="border-collapse:collapse;border:none">
                                         <tr>
                                             <td>
@@ -838,17 +837,8 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 
 
     function makeBillCloseSynopsisPart(){
-
-        var colordata = {
-            "Fixed":"#1F497D",
-            "Open":"#148622",
-            "Under Investigation":"#0070C0",
-            "Unguided":"#7F7F7F"
-        };
-        
-   
+      
         var billCloseInterval = d3.select("#<%=ddBillCloses.ClientID %>").node().value;
-
 
         d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?_" + new Date().getTime() +"&operation=billclosedetails&intervalid=" + billCloseInterval, function (error, json) {
             if (error)
@@ -863,10 +853,11 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var all = ndx.groupAll();
             var statusDimension = ndx.dimension(function(d){return d.status;});
             var countGroup = statusDimension.group().reduceSum(dc.pluck('count'));
+            
             chart
                     .margins({top: 10, right: 10, bottom: 75, left: 60})
-					.width(240)
-					.height(230)
+					.width(320)
+					.height(220)
                     .dimension(statusDimension)
 					.transitionDuration(0)
                     .group(countGroup)
@@ -878,19 +869,21 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                     .brushOn(false)
 					.renderHorizontalGridLines(true)
                     .title(function(d){ return d.key + ": " + numberFormat(d.value);} )
-//                    .legend(dc.legend().x(40).y(100).itemHeight(13).gap(5))
-					.colors(d3.scale.ordinal().domain([0,1,2,3,4]).range(['#00B0F0','#0070C0','#148622','#FFC000','#7F7F7F']))
-                    .renderlet(function (chart) {
+                  .renderlet(function(chartRen) {
+                     var colors =d3.scale.ordinal().domain(["Open", "Under Investigation", "Fixed", "Unguided"])
+                                      .range(['#00B0F0','#0070C0','#148622','#FFC000']);
+                    chart.selectAll('rect.bar').each(function(d){
+                                d3.select(this).attr("style", "fill: " + colors(d.x)); });
+
                         // rotate x-axis ticks
-                        chart.selectAll("g.x text")
-                                .style("text-anchor", "start")
-                                .attr('dx', '.3em')
-                                .attr('dy', '-.05em')
-                                .attr('transform', "rotate(45)");
-                        ;
+                      chartRen.selectAll("g.x text")
+                        .style("text-anchor", "start")
+                        .attr('dx', '.3em')
+                        .attr('dy', '1em')
+                        .attr('transform', "rotate(45)");
                     })
             ;
-            chart.yAxis().tickSize(0,0).tickFormat("");
+            chart.yAxis().tickSize(0).tickFormat(function(v) { return (v == Math.round(v)) ? v : ""; });
             chart.xAxis().outerTickSize(0);
             dc.renderAll();
             }

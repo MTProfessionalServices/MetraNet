@@ -136,7 +136,6 @@
       { name: 'PriceableItemId' },
       { name: 'Name' },
       { name: 'DisplayName' },
-      { name: 'Description' },
       { name: 'PIKind' },
       { name: 'PICanICB' },
       { name: 'RecordId' }
@@ -475,7 +474,6 @@
           PriceableItemId: piId,
           Name: items[i].Name,
           DisplayName: items[i].DisplayName,
-          Description: items[i].Description,
           PIKind: piKind,
           PICanICB: piCanIcb,
           RecordId: recordId

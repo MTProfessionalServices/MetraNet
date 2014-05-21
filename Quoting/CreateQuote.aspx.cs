@@ -154,7 +154,6 @@ namespace MetraNet.Quoting
               ProductOfferingId = x.PO_ID,
               x.Name,
               x.DisplayName,
-              x.Description,
               x.PIKind,
               x.PICanICB
             }).ToArray();
@@ -565,7 +564,7 @@ namespace MetraNet.Quoting
     {
       var pis = GetPriceableItemsForPOs(pos.Select(poId => poId.ToString(CultureInfo.InvariantCulture)));
 
-      const string piStr = "{9}'ProductOfferingId':{0},'ProductOfferingName':'{1}','PriceableItemId':{2},'Name':'{3}','DisplayName':'{4}','Description':'{5}','PIKind':'{6}','PICanICB':'{7}','RecordId':'{8}'{10}";
+      const string piStr = "{9}'ProductOfferingId':{0},'ProductOfferingName':'{1}','PriceableItemId':{2},'Name':'{3}','DisplayName':'{4}','PIKind':'{6}','PICanICB':'{7}','RecordId':'{8}'{10}";
       const string recodrIdStr = "{0}_{1}";
 
       PiNames = new Dictionary<int, string>();
@@ -589,7 +588,7 @@ namespace MetraNet.Quoting
               pi.ID,
               pi.Name,
               pi.DisplayName,
-              pi.Description,
+              "",
               pi.PIKind,
               pi.PICanICB,
               recordId,

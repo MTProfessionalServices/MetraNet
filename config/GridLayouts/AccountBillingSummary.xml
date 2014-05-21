@@ -6,7 +6,7 @@
     </Title>
     <Exportable>false</Exportable>
     <Height>270</Height>
-    <Width>430</Width>
+    <Width>455</Width>
     <Expandable>false</Expandable>
     <Buttons>None</Buttons>
     <DataSourceURL>~/AjaxServices/ManagedAccount.aspx?operation=billingsummary</DataSourceURL>

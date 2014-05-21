@@ -284,8 +284,6 @@
 
     function onGroupSubscriptionCheck() {
       window.Ext.get("<%=MTCheckBoxIsGroupSubscription.ClientID %>").dom.value = accountToolBar.items.get('IsGroupSubscription').checked;
-      //      accountGrid.colModel.config[1].width = accountToolBar.items.get('IsGroupSubscription').checked ? 50 : 0;
-      //      accountGrid.syncSize();
     }
 
     function accountCallback(ids, records) {
@@ -378,7 +376,17 @@
         if (records[i].data.IsGroup == "1")
           gid = records[i].data._AccountID;
       }
-
+      
+      if (accountToolBar.items.get('IsGroupSubscription').checked && gid.length == 0) {
+        window.Ext.Msg.show({
+          title: window.TEXT_ERROR,
+          msg: '<%=GetLocalResourceObject("TEXT_ISGROUP_CHEKED")%>',
+          buttons: window.Ext.Msg.OK,
+          icon: window.Ext.MessageBox.ERROR
+        });
+        return false;
+      }
+        
       window.Ext.get("<%=HiddenAccountIds.ClientID %>").dom.value = ids;
       window.Ext.get("<%=HiddenGroupId.ClientID %>").dom.value = gid;
       window.Ext.get("<%=HiddenAccounts.ClientID %>").dom.value = accountData.accounts.length > 0 ? window.Ext.encode(accountData.accounts) : "";

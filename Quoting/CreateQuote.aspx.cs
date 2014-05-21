@@ -261,7 +261,7 @@ namespace MetraNet.Quoting
 
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-      Response.Redirect(UI.DictionaryManager["DashboardPage"].ToString());
+      Response.Redirect(GetRedirectPath(), false);
     }
 
     private QuoteRequest RequestForCreateQuote { get; set; }
@@ -389,7 +389,7 @@ namespace MetraNet.Quoting
           client.ClientCredentials.UserName.UserName = UI.User.UserName;
           client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
         }
-        client.CreateQuoteWithoutValidation(request, out response);
+        client.CreateQuote(request, out response);
       }
     }
 

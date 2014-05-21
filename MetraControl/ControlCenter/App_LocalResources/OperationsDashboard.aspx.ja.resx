@@ -252,4 +252,28 @@
   <data name="TEXT_WAITING" xml:space="preserve">
     <value>{JA}Waiting</value>
   </data>
+  <data name="lblBillCloseSynopisBillGroupsResource.Text" xml:space="preserve">
+    <value>{JA}Bill Groups:</value>
+  </data>
+  <data name="lblBillCloseSynopisDaysUntilRunResource.Text" xml:space="preserve">
+    <value>{JA}Days Until Run</value>
+  </data>
+  <data name="lblBillCloseSynopisEndResource.Text" xml:space="preserve">
+    <value>{JA}End:</value>
+  </data>
+  <data name="lblBillCloseSynopisStartResource.Text" xml:space="preserve">
+    <value>{JA}Start:</value>
+  </data>
+  <data name="lblBillCloseSynopisTypeResource.Text" xml:space="preserve">
+    <value>{JA}Type:</value>
+  </data>
+  <data name="pnlBillCloseSynopsisResource.Text" xml:space="preserve">
+    <value>{JA}Bill Close Synopsis</value>
+  </data>
+  <data name="TEXT_FIXED" xml:space="preserve">
+    <value>{JA}Fixed</value>
+  </data>
+  <data name="TEXT_UNGUIDED" xml:space="preserve">
+    <value>{JA}Unguided</value>
+  </data>
 </root>

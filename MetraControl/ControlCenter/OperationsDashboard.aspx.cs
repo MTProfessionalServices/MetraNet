@@ -29,7 +29,9 @@ public partial class OperationsDashboard : MTPage
   public string CurrentVs3MonthAverageText;
   public string ThreeMonthAverageText;
   public string CurrentRunText;
-  
+  public string FixedWord;
+  public string UnguidedWord;
+
   #endregion
 
   protected void Page_Load(object sender, EventArgs e)
@@ -103,5 +105,7 @@ public partial class OperationsDashboard : MTPage
     pipelineQueueToolTipText = GetLocalResourceObject("TEXT_MESSAGES_WAITING_TO_BE_ASSIGNED").ToString();
     rampQueueToolTipText = GetLocalResourceObject("TEXT_MESSAGES_WAITING_IN_RABBITMQ").ToString();
     schedulerQueueToolTipText = GetLocalResourceObject("TEXT_TASKS_WAITING_TO_BE_PROCESSED").ToString();
+    FixedWord = GetLocalResourceObject("TEXT_FIXED").ToString();
+    UnguidedWord = GetLocalResourceObject("TEXT_UNGUIDED").ToString();
   }
 }

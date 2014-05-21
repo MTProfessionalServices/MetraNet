@@ -187,8 +187,8 @@
                 </MT:MTPanel>
             </li>
             <li data-row="28" data-col="5" data-sizex="4" data-sizey="9">
-                <MT:MTPanel ID="pnlBillCloseSynopsis" runat="server" Text="Bill Close Synopsis" Width="430"
-                    Height="325">
+                <MT:MTPanel ID="pnlBillCloseSynopsis" runat="server" Text="Bill Close Synopsis" meta:resourcekey="pnlBillCloseSynopsisResource"
+                    Width="430" Height="325">
                     <div style="width: 399px;">
                         <MT:MTDropDown ID="ddBillCloses" runat="server" AllowBlank="False" HideLabel="True"
                             Listeners="{}" ReadOnly="False">
@@ -209,7 +209,7 @@
                                         </tr>
                                         <tr>
                                             <td class="label">
-                                                <MT:MTLabel ID="lblBillCloseSynopisType" runat="server" Text="Type:" />
+                                                <MT:MTLabel ID="lblBillCloseSynopisType" runat="server" meta:resourcekey="lblBillCloseSynopisTypeResource" Text="Type:" />
                                             </td>
                                             <td>
                                                 <MT:MTLabel ID="txtBillCloseSynopisType" runat="server" />
@@ -217,7 +217,7 @@
                                         </tr>
                                         <tr>
                                             <td class="label">
-                                                <MT:MTLabel ID="lblBillCloseSynopisBillGroups" runat="server" Text="Bill Groups:" />
+                                                <MT:MTLabel ID="lblBillCloseSynopisBillGroups" runat="server" meta:resourcekey="lblBillCloseSynopisBillGroupsResource" Text="Bill Groups:" />
                                             </td>
                                             <td>
                                                 <MT:MTLabel ID="txtBillCloseSynopisBillGroups" runat="server" />
@@ -225,7 +225,7 @@
                                         </tr>
                                         <tr>
                                             <td class="label">
-                                                <MT:MTLabel ID="lblBillCloseSynopisStart" runat="server" Text="Start:" />
+                                                <MT:MTLabel ID="lblBillCloseSynopisStart" runat="server" meta:resourcekey="lblBillCloseSynopisStartResource" Text="Start:" />
                                             </td>
                                             <td>
                                                 <MT:MTLabel ID="txtBillCloseSynopisStart" runat="server" />
@@ -233,7 +233,7 @@
                                         </tr>
                                         <tr>
                                             <td class="label">
-                                                <MT:MTLabel ID="lblBillCloseSynopisEnd" runat="server" Text="End:" />
+                                                <MT:MTLabel ID="lblBillCloseSynopisEnd" runat="server" meta:resourcekey="lblBillCloseSynopisEndResource" Text="End:" />
                                             </td>
                                             <td>
                                                 <MT:MTLabel ID="txtBillCloseSynopisEnd" runat="server" />
@@ -249,7 +249,7 @@
                                         </tr>
                                         <tr>
                                             <td colspan="2" valign="middle" align="center" class="tbllabel">
-                                                <MT:MTLabel ID="lblBillCloseSynopisDaysUntilRun" runat="server" Text="Days Until Run" />
+                                                <MT:MTLabel ID="lblBillCloseSynopisDaysUntilRun" runat="server" meta:resourcekey="lblBillCloseSynopisDaysUntilRunResource" Text="Days Until Run" />
                                             </td>
                                         </tr>
                                         <tr>
@@ -855,7 +855,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                     .group(countGroup)
 //                    .xAxisPadding(15)
                     .gap(10)
-                    .x(d3.scale.ordinal().domain(["Open", "Under Investigation", "Fixed", "Unguided"]))
+                    .x(d3.scale.ordinal().domain(["<%=OpenWord%>", "<%=UnderInvestigationWord%>", "<%=FixedWord%>", "<%=UnguidedWord%>"]))
 					.xUnits(dc.units.ordinal)
                     .centerBar(false)
                     .brushOn(false)
@@ -922,7 +922,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             "x_axis": -100,
             "y_axis": 10,
             "color": "#1F497D",
-            "text": "Fixed"
+            "text": "<%=FixedWord%>"
           },
           {
             "x_axis": -100,
@@ -940,7 +940,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             "x_axis": -100,
             "y_axis": 40,
             "color": "#7F7F7F",
-            "text": "Unguided"
+            "text": "<%=UnguidedWord%>"
           }
             ];
 

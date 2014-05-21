@@ -85,20 +85,10 @@ namespace MetraNet.Quoting
 
       ParseRequest();
 
-      if (!IsPostBack)
-      {
-        // ReSharper disable SpecifyACultureInStringConversionExplicitly
-        if (_mode != "VIEW")
-          MTdpStartDate.Text = MetraTime.Now.Date.ToString();
-        //MTdpEndDate.Text = MetraTime.Now.Date.AddMonths(1).ToString();
-        // ReSharper restore SpecifyACultureInStringConversionExplicitly
-      }
-
-      #region render Accounts grid
-
-      AccountRenderGrid();
-
-      #endregion
+      if (IsPostBack) return;
+      if (!IsViewMode)
+        MTdpStartDate.Text = MetraTime.Now.Date.ToString();
+      //MTdpEndDate.Text = MetraTime.Now.Date.AddMonths(1).ToString();
     }
 
     #region Implementation of ICallbackEventHandler
@@ -251,16 +241,16 @@ namespace MetraNet.Quoting
       }
     }
 
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+      Response.Redirect(GetRedirectPath(), false);
+    }
+
     private string GetRedirectPath()
     {
       var accountsFilterValue = Request["Accounts"];
       var param = accountsFilterValue == "ONE" ? string.Empty : "Accounts=ALL";
       return string.Format(@"/MetraNet/Quoting/QuoteList.aspx?{0}", param);
-    }
-
-    protected void btnCancel_Click(object sender, EventArgs e)
-    {
-      Response.Redirect(GetRedirectPath(), false);
     }
 
     private QuoteRequest RequestForCreateQuote { get; set; }
@@ -324,7 +314,7 @@ namespace MetraNet.Quoting
         switch (record.PIKind)
         {
           case 20: { qip.CurrentChargeType = ChargeType.RecurringCharge; break; }     //Recurring = 20,
-          case 25: { qip.CurrentChargeType = ChargeType.UDRC; break; }                //UnitDependentRecurring = 25,
+          //case 25: { qip.CurrentChargeType = ChargeType.UDRC; break; }                //UnitDependentRecurring = 25,
           case 30: { qip.CurrentChargeType = ChargeType.NonRecurringCharge; break; }  //NonRecurring = 30,
           default: { qip.CurrentChargeType = ChargeType.None; break; }
         }        
@@ -392,7 +382,27 @@ namespace MetraNet.Quoting
       }
     }
 
-    private void AccountRenderGrid()
+    private void ParseRequest()
+    {
+      _mode = Request["mode"];
+      switch (_mode)
+      {
+        case "VIEW":
+          CurrentQuoteId = Convert.ToInt32(Request["quoteId"]);
+          LoadQuote();
+          LoadQuoteToControls();
+          break;
+        case "UPDATE":
+          break;
+        case "CLONE":
+          break;
+        default:
+          NewQuote();
+          break;
+      }
+    }
+
+    private void NewQuote()
     {
       if (IsPostBack || UI.Subscriber.SelectedAccount == null || IsViewMode) return;
 
@@ -417,36 +427,33 @@ namespace MetraNet.Quoting
     {
       using (var qsc = new QuotingServiceClient())
       {
-        // ReSharper disable PossibleNullReferenceException
-        qsc.ClientCredentials.UserName.UserName = UI.User.UserName;
-        qsc.ClientCredentials.UserName.Password = UI.User.SessionPassword;
-        // ReSharper restore PossibleNullReferenceException
-
+        if (qsc.ClientCredentials != null)
+        {
+          qsc.ClientCredentials.UserName.UserName = UI.User.UserName;
+          qsc.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+        }
         qsc.GetQuote(CurrentQuoteId, out CurrentQuote);
       }
     }
 
     private void LoadQuoteToControls()
     {
-      if (_mode == "VIEW")
-      {
-        MTPanelUDRC.Visible = false;
-        MTPanelICB.Visible = false;
-        MTPanelUDRCandICB.Visible = true;
-      }
+      MTPanelUDRC.Visible = !IsViewMode;
+      MTPanelICB.Visible = !IsViewMode;
+      MTPanelUDRCandICB.Visible = IsViewMode;
 
       MTtbQuoteDescription.Text = CurrentQuote.QuoteDescription;
       MTtbQuoteIdentifier.Text = CurrentQuote.QuoteIdentifier;
-      MTcbPdf.Visible = false;
+      MTcbPdf.Visible = !IsViewMode;
 
       MTdpStartDate.Text = CurrentQuote.EffectiveDate.ToString("d");
       MTdpEndDate.Text = CurrentQuote.EffectiveEndDate.ToString("d");
 
-      MTtbQuoteDescription.ReadOnly = true;
-      MTtbQuoteIdentifier.ReadOnly = true;
+      MTtbQuoteDescription.ReadOnly = IsViewMode;
+      MTtbQuoteIdentifier.ReadOnly = IsViewMode;
 
-      MTdpStartDate.ReadOnly = true;
-      MTdpEndDate.ReadOnly = true;
+      MTdpStartDate.ReadOnly = IsViewMode;
+      MTdpEndDate.ReadOnly = IsViewMode;
 
       HiddenAccounts.Value = EncodeAccountsForHiddenControl(CurrentQuote.Accounts);
       HiddenPos.Value = EncodePosForHiddenControl(CurrentQuote.ProductOfferings);
@@ -463,10 +470,10 @@ namespace MetraNet.Quoting
       if (CurrentQuote.UdrcValues.Count == 0 && CurrentQuote.IcbPrices.Count == 0)
         MTPanelUDRCandICB.Collapsed = true;
 
-      MTbtnGenerateQuote.Visible = false;
+      MTbtnGenerateQuote.Visible = !IsViewMode;
       MTbtnConvertQuote.Visible = CurrentQuote.Status == QuoteStatus.Complete;
-      MTPanelResult.Visible = true;
-      MTPanelLog.Visible = true;
+      MTPanelResult.Visible = IsViewMode;
+      MTPanelLog.Visible = IsViewMode;
 
       MTTextBoxControlStatus.Text = CurrentQuote.Status.ToString();
       MTTextBoxControlGroup.Text = CurrentQuote.GroupSubscription ? "Yes" : "No";
@@ -498,10 +505,11 @@ namespace MetraNet.Quoting
     {
       using (var qsc = new AccountServiceClient())
       {
-        // ReSharper disable PossibleNullReferenceException
-        qsc.ClientCredentials.UserName.UserName = UI.User.UserName;
-        qsc.ClientCredentials.UserName.Password = UI.User.SessionPassword;
-        // ReSharper restore PossibleNullReferenceException
+        if (qsc.ClientCredentials != null)
+        {
+          qsc.ClientCredentials.UserName.UserName = UI.User.UserName;
+          qsc.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+        }
 
         const string accountStr = "{6}'_AccountID': {0}, 'AccountStatus': {1}, 'AccountType': '{2}', 'Internal#Folder': {3}, 'IsGroup': {4}, 'UserName': '{5}'{7}";
 
@@ -518,7 +526,7 @@ namespace MetraNet.Quoting
                 (int)account.AccountStatus.GetValueOrDefault(),
                 account.AccountType,
                 "false",
-                0,
+                CurrentQuote.CorporateAccountId == accountId ? 1 : 0,
                 account.UserName,
                 "{", "},");
         }
@@ -564,7 +572,7 @@ namespace MetraNet.Quoting
     {
       var pis = GetPriceableItemsForPOs(pos.Select(poId => poId.ToString(CultureInfo.InvariantCulture)));
 
-      const string piStr = "{9}'ProductOfferingId':{0},'ProductOfferingName':'{1}','PriceableItemId':{2},'Name':'{3}','DisplayName':'{4}','PIKind':'{6}','PICanICB':'{7}','RecordId':'{8}'{10}";
+      const string piStr = "{8}'ProductOfferingId':{0},'ProductOfferingName':'{1}','PriceableItemId':{2},'Name':'{3}','DisplayName':'{4}','PIKind':'{5}','PICanICB':'{6}','RecordId':'{7}'{9}";
       const string recodrIdStr = "{0}_{1}";
 
       PiNames = new Dictionary<int, string>();
@@ -588,13 +596,10 @@ namespace MetraNet.Quoting
               pi.ID,
               pi.Name,
               pi.DisplayName,
-              "",
               pi.PIKind,
               pi.PICanICB,
               recordId,
               "{", "},");
-
-
 
         if (!PiNames.ContainsKey(Convert.ToInt32(pi.ID)))
           PiNames.Add(Convert.ToInt32(pi.ID), pi.Name);
@@ -809,29 +814,5 @@ namespace MetraNet.Quoting
       return String.Empty;
     }
     #endregion
-
-    private void ParseRequest()
-    {
-      _mode = Request["mode"];
-
-      switch (_mode)
-      {
-        case "VIEW":
-          {
-            CurrentQuoteId = Convert.ToInt32(Request["quoteId"]);
-            LoadQuote();
-            LoadQuoteToControls();
-            break;
-          }
-        case "UPDATE":
-          {
-            break;
-          }
-        case "CLONE":
-          {
-            break;
-          }
-      }
-    }
   }
 }

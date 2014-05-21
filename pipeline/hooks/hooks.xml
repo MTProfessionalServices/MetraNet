@@ -19,12 +19,14 @@
     <!--   Second argument is 1 (meaning before) -->
     <before_plugin>
         <!-- hook>VBPlugInDebugger.PlugInDebugger</hook -->
+        <hook>VBPlugInDebugger.PlugInDebugger</hook>
     </before_plugin>
     <!-- hooks called after a plug-in executes -->
     <!--   First argument is an MTExecutionInfo object -->
     <!--   Second argument is 2 (meaning after) -->
     <after_plugin>
         <!--hook>VBPlugInDebugger.PlugInDebugger</hook-->
+        <hook>VBPlugInDebugger.PlugInDebugger</hook>
     </after_plugin>
     <!-- hooks called before a pipeline audit is run -->
     <!--   First argument is the number of hours passed into the auditor -->

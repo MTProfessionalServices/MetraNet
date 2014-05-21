@@ -31,6 +31,10 @@ public partial class OperationsDashboard : MTPage
   public string CurrentRunText;
   public string FixedWord;
   public string UnguidedWord;
+  public string pipelineWaitDurationText;
+  public string pipelineProcessingDurationText;
+  public string pipelineWaitDurationToolTipText;
+  public string pipelineProcessingDurationToolTipText;
 
   #endregion
 
@@ -107,5 +111,9 @@ public partial class OperationsDashboard : MTPage
     schedulerQueueToolTipText = GetLocalResourceObject("TEXT_TASKS_WAITING_TO_BE_PROCESSED").ToString();
     FixedWord = GetLocalResourceObject("TEXT_FIXED").ToString();
     UnguidedWord = GetLocalResourceObject("TEXT_UNGUIDED").ToString();
+    pipelineWaitDurationText = GetLocalResourceObject("TEXT_PIPELINE_WAIT_DURATION").ToString();
+    pipelineProcessingDurationText = GetLocalResourceObject("TEXT_PIPELINE_PROCESSING_DURATION").ToString();
+    pipelineWaitDurationToolTipText = GetLocalResourceObject("TEXT_SECONDS_WAITING_TO_BE_ASSIGNED").ToString();
+    pipelineProcessingDurationToolTipText = GetLocalResourceObject("TEXT_SECONDS_PROCESSING_IN_PIPELINE").ToString();
   }
 }

@@ -276,4 +276,19 @@
   <data name="TEXT_UNGUIDED" xml:space="preserve">
     <value>{JA}Unguided</value>
   </data>
+  <data name="pnlPricingBacklog.Text" xml:space="preserve">
+    <value>{JA}Pricing Engine (Real-Time and Batch)</value>
+  </data>
+  <data name="TEXT_PIPELINE_WAIT_DURATION" xml:space="preserve">
+    <value>{JA}Pipeline Wait Duration</value>
+  </data>
+  <data name="TEXT_PIPELINE_PROCESSING_DURATION" xml:space="preserve">
+    <value>{JA}Pipeline Processing Duration</value>
+  </data>
+  <data name="TEXT_SECONDS_PROCESSING_IN_PIPELINE" xml:space="preserve">
+    <value>{JA}seconds processing in the pipeline </value>
+  </data>
+  <data name="TEXT_SECONDS_WAITING_TO_BE_ASSIGNED" xml:space="preserve">
+    <value>{JA}seconds waiting to be assigned</value>
+  </data>
 </root>

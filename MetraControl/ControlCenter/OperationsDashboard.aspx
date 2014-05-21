@@ -58,7 +58,7 @@
                 </MT:MTPanel>
             </li>
             <li data-row="10" data-col="5" data-sizex="4" data-sizey="9">
-                <MT:MTPanel ID="pnlPricingBacklog" runat="server" Text="Pricing Engine (Real-Time and Batch)"
+                <MT:MTPanel ID="pnlPricingBacklog" runat="server" Text="Pricing Engine (Real-Time and Batch)" meta:resourcekey="pnlPricingBacklog"
                     Width="430" Height="325">
                     <div id="divPricingBacklog">
                     </div>
@@ -761,24 +761,25 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                     .legend(dc.legend().x(15).y(200).itemHeight(13).gap(5))
                     .brushOn(false)
 					.renderHorizontalGridLines(true)
-					.title("Pipeline Wait Duration", function(d){ return numberFormat(d.value) + " seconds waiting to be assigned"; })
-					.title("Pipeline Processing Duration", function(d){ return numberFormat(d.value) + " seconds processing in the pipeline"; })
-                    .compose([
+					.title("<%=pipelineWaitDurationText%>", function(d){ return numberFormat(d.value) + " " + "<%=pipelineWaitDurationToolTipText%>"; })
+          .title("<%=pipelineProcessingDurationText%>", function(d){ return numberFormat(d.value) + " " + "<%=pipelineProcessingDurationToolTipText%>"; })   
+					      .compose([
                         dc.lineChart(composite2)
                                 .dimension(dateDimension)
-                                .group(pipeBacklogGroup, "Pipeline Wait Duration")
+                                .group(pipeBacklogGroup, "<%=pipelineWaitDurationText%>")
                                 .colors(colors(0))
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){ return numberFormat(d.value) + " seconds waiting to be assigned"; })
+								.title(function(d){ return numberFormat(d.value) + " " + "<%=pipelineWaitDurationToolTipText%>"; })
                         ,
                         dc.lineChart(composite2)
                                 .dimension(dateDimension)
-                                .group(pipeGroup, "Pipeline Processing Duration")
+                                .group(pipeGroup, "<%=pipelineProcessingDurationText%>")
                                 .colors(colors(1))
 								.renderDataPoints({ radius: 3, fillOpacity: 0.3, strokeOpacity: 0.6 })
-								.title(function(d){ return numberFormat(d.value) + " seconds processing in the pipeline"; })
+								.title(function(d){ return numberFormat(d.value) + " " + "<%=pipelineProcessingDurationToolTipText%>"; })
                     ])
-			;
+			;   
+
             composite2.xAxis().tickSize(0,0).tickFormat("");
             composite2.yAxis().tickSize(0,0).tickFormat("");
 			

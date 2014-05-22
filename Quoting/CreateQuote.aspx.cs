@@ -314,7 +314,7 @@ namespace MetraNet.Quoting
         switch (record.PIKind)
         {
           case 20: { qip.CurrentChargeType = ChargeType.RecurringCharge; break; }     //Recurring = 20,
-          //case 25: { qip.CurrentChargeType = ChargeType.UDRC; break; }                //UnitDependentRecurring = 25,
+          case 25: { qip.CurrentChargeType = ChargeType.UDRC; break; }                //UnitDependentRecurring = 25,
           case 30: { qip.CurrentChargeType = ChargeType.NonRecurringCharge; break; }  //NonRecurring = 30,
           default: { qip.CurrentChargeType = ChargeType.None; break; }
         }        

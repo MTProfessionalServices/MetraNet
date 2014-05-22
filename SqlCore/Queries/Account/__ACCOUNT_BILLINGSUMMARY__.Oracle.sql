@@ -43,7 +43,7 @@ FROM t_pv_payment pv
 INNER JOIN t_acc_usage au 
 ON pv.id_usage_interval = au.id_usage_interval 
 	AND pv.id_sess = au.id_sess
-WHERE 1=1 AND pv.c_source <> 'MT'
+WHERE 1=1 
 		AND au.id_acc = %%ACCOUNT_ID%%
 ) a WHERE a.n_order <= 10
 ORDER BY 5 asc, 4 asc

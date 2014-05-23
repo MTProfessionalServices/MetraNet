@@ -854,7 +854,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 					.renderHorizontalGridLines(true)
                     .title(function(d){ return d.key + ": " + numberFormat(d.value);} )
                   .renderlet(function(chartRen) {
-                     var colors =d3.scale.ordinal().domain(["Open", "Under Investigation", "Fixed", "Unguided"])
+                     var colors =d3.scale.ordinal().domain(["<%=OpenWord%>", "<%=UnderInvestigationWord%>", "<%=FixedWord%>", "<%=UnguidedWord%>"])
                                       .range(['#00B0F0','#0070C0','#148622','#FFC000']);
                     chart.selectAll('rect.bar').each(function(d){
                                 d3.select(this).attr("style", "fill: " + colors(d.x)); });

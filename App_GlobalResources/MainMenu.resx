@@ -180,6 +180,9 @@
     <data name="TEXT_ALL_INTERVALS" xml:space="preserve">
         <value>All Intervals</value>
     </data>
+	<data name="TEXT_ANALYTICS" xml:space="preserve">
+        <value>Analytics</value>
+    </data>	
     <data name="TEXT_APP_AUDIT_LOG" xml:space="preserve">
         <value>Application Audit Log</value>
     </data>

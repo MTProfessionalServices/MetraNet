@@ -9,8 +9,9 @@
                 <MenuSection>
                     <ID>ReportsSection</ID>
                     <Caption>
-                        <Value><![CDATA[Analytics]]></Value>
-                    </Caption>
+					  <LocalizationTag>TEXT_ANALYTICS</LocalizationTag>
+                      <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>                        
+					</Caption>
                     <Description></Description>
                     <MenuItems>
                         <MenuItem>

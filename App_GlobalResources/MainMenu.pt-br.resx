@@ -165,6 +165,9 @@
   <data name="TEXT_ALL_INTERVALS" xml:space="preserve">
     <value>Todos os intervalos</value>
   </data>
+  <data name="TEXT_ANALYTICS" xml:space="preserve">
+    <value>[pt-br]Analytics</value>
+  </data>
   <data name="TEXT_APP_AUDIT_LOG" xml:space="preserve">
     <value>Log de auditoria da aplicação</value>
   </data>

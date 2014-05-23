@@ -597,4 +597,7 @@
   <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
     <value>[es-MX]Product Dashboard</value>
   </data>
+  <data name="TEXT_REPORTS" xml:space="preserve">
+    <value>[es-MX] Reports</value>
+  </data>  
 </root>

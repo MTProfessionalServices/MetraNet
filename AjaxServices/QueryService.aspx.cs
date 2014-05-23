@@ -505,8 +505,7 @@ public partial class AjaxServices_QueryService : MTListServicePage
         }
         else
         {
-
-            if (typeof(String) == field.FieldDataType || typeof(DateTime) == field.FieldDataType || typeof(Guid) == field.FieldDataType || typeof(Byte[]) == field.FieldDataType)
+          if (typeof(Decimal) == field.FieldDataType || typeof(String) == field.FieldDataType || typeof(DateTime) == field.FieldDataType || typeof(Guid) == field.FieldDataType || typeof(Byte[]) == field.FieldDataType)
           {
             json.Append("\"");
           }
@@ -538,7 +537,7 @@ public partial class AjaxServices_QueryService : MTListServicePage
 
           json.Append(fieldvalue);
 
-          if (typeof(String) == field.FieldDataType || typeof(DateTime) == field.FieldDataType || typeof(Guid) == field.FieldDataType || typeof(Byte[]) == field.FieldDataType)
+          if (typeof(Decimal) == field.FieldDataType ||  typeof(String) == field.FieldDataType || typeof(DateTime) == field.FieldDataType || typeof(Guid) == field.FieldDataType || typeof(Byte[]) == field.FieldDataType)
           {
             json.Append("\"");
           }

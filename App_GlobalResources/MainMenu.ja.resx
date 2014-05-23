@@ -606,4 +606,7 @@
   <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
     <value>[ja]Product Dashboard</value>
   </data>
+   <data name="TEXT_REPORTS" xml:space="preserve">
+    <value>[ja] Reports</value>
+  </data> 
 </root>

@@ -64,11 +64,11 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/AccountCredit/InternalComment</Name>
-            <Value>Comentario interno</Value>
+            <Value>[es-MX]Internal Description</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/AccountCredit/InvoiceComment</Name>
-            <Value>Comentario de factura</Value>
+            <Value>[es-MX]Invoice Description</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/AccountCredit/Issuer</Name>

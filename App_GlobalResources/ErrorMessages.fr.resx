@@ -140,7 +140,6 @@
   </data>
   <data name="ERROR_CAPABILITY_INVALID" xml:space="preserve">
     <value>Fonctionnalité par défaut non valide.</value>
-    <comment>ERROR_CAPABILITY_INVALID</comment>
   </data>
   <data name="ERROR_CC_ADD" xml:space="preserve">
     <value>Impossible d’ajouter la carte de crédit à ce compte</value>
@@ -277,4 +276,34 @@
     <data name="SpecCharacteristicsController_SetDisplayOrder_Couldn_t_find_property_" xml:space="preserve">
         <value>Impossible de trouver la propriété.</value>
     </data>
+  <data name="ERROR_USERNAME_LOCKED" xml:space="preserve">
+    <value>[FR]You have exceeded the number of logins attempts and your account is locked. Please contact your system admin.</value>
+  </data>
+  <data name="ERROR_MULTIPLE_ACCOUNT_UPDATE_PENDING_CHANGES" xml:space="preserve">
+    <value>[FR]This account already has a pending change of type Account Update. Only one pending change of this type is permitted.</value>
+  </data>
+  <data name="ERROR_PAYER_ID_IS_REQUIRED" xml:space="preserve">
+    <value>[FR]Invalid or Missing Payer</value>
+  </data>
+  <data name="ERROR_INVALID_CURRENCY" xml:space="preserve">
+    <value>[FR]Invalid Currency</value>
+  </data>
+  <data name="ERROR_INVALID_PARTITIONID" xml:space="preserve">
+    <value>[FR]Invalid Partition ID</value>
+  </data>
+  <data name="ERROR_REPORT_CONFIG" xml:space="preserve">
+    <value>[FR]Error in config ReportFormat file</value>
+  </data>
+  <data name="ERROR_REPORT_FORMAT" xml:space="preserve">
+    <value>[FR]Error in config ReportFormat file. Report format type isn't defined.</value>
+  </data>
+  <data name="ERROR_REPORT_FORMAT_CONFIG" xml:space="preserve">
+    <value>[FR]Error in config ReportFormat file. Incorrect file structure.</value>
+  </data>
+  <data name="ERROR_REPORT_IMAGE" xml:space="preserve">
+    <value>[FR]Error in config ReportFormat file. Report image  isn't defined.</value>
+  </data>
+  <data name="ERROR_REPORT_OPEN" xml:space="preserve">
+    <value>[FR]Unable open and save report</value>
+  </data>
 </root>

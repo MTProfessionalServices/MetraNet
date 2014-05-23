@@ -117,28 +117,61 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="MTTitle1.Text" xml:space="preserve">
-    <value>Create Product Offering</value>
+  <data name="GRID_TITLE" xml:space="preserve">
+    <value>Offres produit</value>
+  </data>
+  <data name="MTFilterGrid1Resource1.ToolTip" xml:space="preserve">
+    <value>[FR]Product Offerings List</value>
+  </data>
+  <data name="NO_RECORDS_TEXT" xml:space="preserve">
+    <value>Aucun enregistrement trouvé.</value>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>MetraNet</value>
+  </data>
+  <data name="TEXT_ACTIONS" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="TEXT_AVAILABLE_ENDDATE" xml:space="preserve">
+    <value>La date de fin disponible</value>
+  </data>
+  <data name="TEXT_AVAILABLE_STARTDATE" xml:space="preserve">
+    <value>La date de début disponible</value>
+  </data>
+  <data name="TEXT_CREATE_PRODUCTOFFERING" xml:space="preserve">
+    <value>Créer l'offre produit</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
-    <value>Currency</value>
+    <value>Devise</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
     <value>Description</value>
   </data>
   <data name="TEXT_DISPLAY_NAME" xml:space="preserve">
-    <value>Display name</value>
+    <value>Le nom d’affichage</value>
   </data>
-  <data name="TEXT_EFFECTIVE_START_DATE" xml:space="preserve">
-    <value>Effective Start Date</value>
+  <data name="TEXT_EFFECTIVE_ENDDATE" xml:space="preserve">
+    <value>Date de fin de validité</value>
+  </data>
+  <data name="TEXT_EFFECTIVE_STARTDATE" xml:space="preserve">
+    <value>Date de début de validité</value>
+  </data>
+  <data name="TEXT_EXTERNALINFORMATIONURL" xml:space="preserve">
+    <value>[FR]External Information URL</value>
+  </data>
+  <data name="TEXT_GLCODE" xml:space="preserve">
+    <value>[FR]GL Code</value>
+  </data>
+  <data name="TEXT_INTERNALINFORMATIONURL" xml:space="preserve">
+    <value>[FR]Internal Information URL</value>
+  </data>
+  <data name="TEXT_ISHIDDEN" xml:space="preserve">
+    <value>[FR]Hidden</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
-    <value>Name</value>
+    <value>[FR]Name</value>
   </data>
-  <data name="TEXT_PAGE_TITLE" xml:space="preserve">
-    <value>Add Product Offering</value>
-  </data>
-  <data name="TEXT_PARTITION_ID" xml:space="preserve">
-    <value>Partition Id</value>
+  <data name="TEXT_PartitionID" xml:space="preserve">
+    <value>[FR]Partition Id</value>
   </data>
 </root>

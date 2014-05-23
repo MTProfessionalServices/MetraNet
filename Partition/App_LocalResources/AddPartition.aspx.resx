@@ -452,4 +452,19 @@
   <data name="MTSection5Resource1.Text" xml:space="preserve">
     <value>Containers to be created</value>
   </data>
+  <data name="cbChannelsResource1.BoxLabel" xml:space="preserve">
+    <value>Channels</value>
+  </data>
+  <data name="cbResellersResource1.BoxLabel" xml:space="preserve">
+    <value>Resellers</value>
+  </data>
+  <data name="cbRetailResource1.BoxLabel" xml:space="preserve">
+    <value>Retail</value>
+  </data>
+  <data name="cbSystemUsersResource1.BoxLabel" xml:space="preserve">
+    <value>System Users</value>
+  </data>
+  <data name="cbVendorsResource1.BoxLabel" xml:space="preserve">
+    <value>Vendors</value>
+  </data>
 </root>

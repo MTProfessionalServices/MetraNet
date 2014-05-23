@@ -124,7 +124,7 @@
     <value>&lt;br/&gt;&lt;br/&gt;The account is dormant.  You may unlock it.</value>
   </data>
   <data name="ERROR_ACH_ADD" xml:space="preserve">
-    <value />
+    <value>Unable to add ACH payment method to this account</value>
   </data>
   <data name="ERROR_ACH_LIST" xml:space="preserve">
     <value>Unable to retrieve the details of the file.</value>
@@ -142,7 +142,7 @@
     <value>Invalid default capability.</value>
   </data>
   <data name="ERROR_CC_ADD" xml:space="preserve">
-    <value />
+    <value>Unable to add credit card to this account</value>
   </data>
   <data name="ERROR_CC_LIST" xml:space="preserve">
     <value>Unable to retrieve the history details of this run.</value>
@@ -196,7 +196,7 @@
     <value>Invalid security answer.</value>
   </data>
     <data name="ERROR_SECURITY_QUESTION_INVALID" xml:space="preserve">
-        <value></value>
+        <value>Unable to set both the Security Question and the Custom Security Question.</value>
     </data>
   <data name="ERROR_SUBSCRIBER_NULL" xml:space="preserve">
     <value>You can unsubscribe members with existing usage.</value>
@@ -246,23 +246,17 @@
   <data name="ERROR_USM_CONFIG_UNABLE_TO_SAVE" xml:space="preserve">
     <value>Unable to save changes.</value>
   </data>
-  <data name="ERROR_MULTIPLE_ACCOUNT_UPDATE_PENDING_CHANGES" xml:space="preserve">
-    <value>This account already has a pending change of type Account Update. Only one pending change of this type is permitted.</value>
-  </data>
-    <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
-        <value></value>
+  <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
+        <value>Failed deleting spec.</value>
     </data>
     <data name="SpecCharacteristicRepository_LoadSpecCharacteristic_Didn_t_find_matching_spec_" xml:space="preserve">
-        <value></value>
+        <value>Didn't find matching spec.</value>
     </data>
     <data name="SpecCharacteristicRepository_LoadSpecCharacteristics_Failed_getting_specs_" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="SpecCharacteristicRepository_LoadSubCharacteristicValues_Failed_getting_entity_properties_" xml:space="preserve">
-        <value></value>
+        <value>Failed getting specs.</value>
     </data>
     <data name="SpecCharacteristicRepository_SaveSpecCharacteristic_Failed_saving_spec_" xml:space="preserve">
-        <value></value>
+        <value>Failed saving spec.</value>
     </data>
     <data name="SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_" xml:space="preserve">
         <value></value>
@@ -276,4 +270,37 @@
     <data name="SpecCharacteristicsController_SetDisplayOrder_Couldn_t_find_property_" xml:space="preserve">
         <value></value>
     </data>
+  <data name="SpecCharacteristicRepository_LoadSubCharacteristicValues_Failed_getting_entity_properties_" xml:space="preserve">
+    <value>Failed getting entity properties.</value>
+  </data>
+  <data name="ERROR_USERNAME_LOCKED" xml:space="preserve">
+    <value>You have exceeded the number of logins attempts and your account is locked. Please contact your system admin.</value>
+  </data>
+  <data name="ERROR_MULTIPLE_ACCOUNT_UPDATE_PENDING_CHANGES" xml:space="preserve">
+    <value>This account already has a pending change of type Account Update. Only one pending change of this type is permitted.</value>
+  </data>
+  <data name="ERROR_PAYER_ID_IS_REQUIRED" xml:space="preserve">
+    <value>Invalid or Missing Payer</value>
+  </data>
+  <data name="ERROR_INVALID_CURRENCY" xml:space="preserve">
+    <value>Invalid Currency</value>
+  </data>
+  <data name="ERROR_INVALID_PARTITIONID" xml:space="preserve">
+    <value>Invalid Partition ID</value>
+  </data>
+  <data name="ERROR_REPORT_CONFIG" xml:space="preserve">
+    <value>Error in config ReportFormat file</value>
+  </data>
+  <data name="ERROR_REPORT_FORMAT" xml:space="preserve">
+    <value>Error in config ReportFormat file. Report format type isn't defined.</value>
+  </data>
+  <data name="ERROR_REPORT_FORMAT_CONFIG" xml:space="preserve">
+    <value>Error in config ReportFormat file. Incorrect file structure.</value>
+  </data>
+  <data name="ERROR_REPORT_IMAGE" xml:space="preserve">
+    <value>Error in config ReportFormat file. Report image  isn't defined.</value>
+  </data>
+  <data name="ERROR_REPORT_OPEN" xml:space="preserve">
+    <value>Unable open and save report</value>
+  </data>
 </root>

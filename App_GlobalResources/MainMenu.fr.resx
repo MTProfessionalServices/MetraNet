@@ -120,6 +120,9 @@
   <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
     <value>Détails du compte</value>
   </data>
+  <data name="TEXT_ACCOUNT_QUOTING_LIST" xml:space="preserve">
+    <value>[FR]Quotes</value>
+  </data>
   <data name="TEXT_ACCOUNT_STATE" xml:space="preserve">
     <value>Statut de compte</value>
   </data>
@@ -147,6 +150,9 @@
   <data name="TEXT_ADD_NEW_REPORT_PARAMETERS" xml:space="preserve">
     <value>Ajouter de nouveaux paramètres de rapport</value>
   </data>
+  <data name="TEXT_ADD_PARTITION" xml:space="preserve">
+    <value>[FR]Add Partition</value>
+  </data>
   <data name="TEXT_ADJUST_TRANSACTIONS" xml:space="preserve">
     <value>Ajuster les transactions</value>
   </data>
@@ -158,6 +164,12 @@
   </data>
   <data name="TEXT_ADVANCED_OPTIONS" xml:space="preserve">
     <value>Options avancées</value>
+  </data>
+  <data name="TEXT_AGREEMENT_TEMPLATES" xml:space="preserve">
+    <value>[FR]Agreement Templates</value>
+  </data>
+  <data name="TEXT_AGREEMENTS" xml:space="preserve">
+    <value>[FR]Agreements</value>
   </data>
   <data name="TEXT_ALL_FILES" xml:space="preserve">
     <value>Toutes les tâches</value>
@@ -255,6 +267,9 @@
   <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
     <value>Ajouter une nouvelle instance de rapport</value>
   </data>
+    <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
+        <value>[FR]Create quote</value>
+    </data>
   <data name="TEXT_CREATE_REMITTANCE" xml:space="preserve">
     <value>Créer un virement</value>
   </data>
@@ -336,11 +351,20 @@
   <data name="TEXT_MAKE_PAYMENT" xml:space="preserve">
     <value>Effectuer un paiement</value>
   </data>
+  <data name="TEXT_MANAGE" xml:space="preserve">
+    <value>[FR]Manage</value>
+  </data>
   <data name="TEXT_MANAGE_ACCOUNTS" xml:space="preserve">
     <value>Gérer les comptes</value>
   </data>
   <data name="TEXT_MANAGE_ADJUSTMENTS" xml:space="preserve">
     <value>Gérer les ajustements</value>
+  </data>
+  <data name="TEXT_MANAGE_AGREEMENT_TEMPLATES" xml:space="preserve">
+    <value>[FR]Manage Agreement Templates</value>
+  </data>
+  <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
+    <value>[FR]Manage AMP Decision Types</value>
   </data>
   <data name="TEXT_MANAGE_CALENDARS" xml:space="preserve">
     <value>Gérer les calendriers</value>
@@ -441,6 +465,9 @@
   <data name="TEXT_PAYMENT_METHODS" xml:space="preserve">
     <value>Méthodes de paiement</value>
   </data>
+    <data name="TEXT_PAYMENT_TRANSACTIONS" xml:space="preserve">
+        <value>[FR]Payment Transactions</value>
+    </data>
   <data name="TEXT_PAYMENTS" xml:space="preserve">
     <value>Paiements</value>
   </data>
@@ -459,6 +486,15 @@
   <data name="TEXT_QUEUE_ADHOC_REPORTS" xml:space="preserve">
     <value>Mettre les rapport ad hoc dans la file d’attente</value>
   </data>
+    <data name="TEXT_QUOTING" xml:space="preserve">
+        <value>[FR]Manage Quotes</value>
+    </data>
+    <data name="TEXT_QUOTING_LIST" xml:space="preserve">
+        <value>[FR]View All Quotes</value>
+    </data>
+    <data name="TEXT_REFRESH" xml:space="preserve">
+        <value>[FR]Refresh</value>
+    </data>
   <data name="TEXT_REJECTED_FILES" xml:space="preserve">
     <value>Fichiers rejetés</value>
   </data>
@@ -495,8 +531,14 @@
   <data name="TEXT_SECURITY" xml:space="preserve">
     <value>Sécurité</value>
   </data>
+  <data name="TEXT_SELF_CARE_PORTAL" xml:space="preserve">
+    <value>[FR]Self Care Portal</value>
+  </data>
   <data name="TEXT_SEND_EMAIL_DIALOG" xml:space="preserve">
     <value>Envoyer un e-mail</value>
+  </data>
+  <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
+    <value>[FR]Shared Properties</value>
   </data>
   <data name="TEXT_SHARED_RATES" xml:space="preserve">
     <value>Taux partagés</value>

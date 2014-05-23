@@ -22,8 +22,7 @@
     <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
-        <CommonQuerySourceFile></CommonQuerySourceFile>
-        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
-        <OracleQuerySourceFile></OracleQuerySourceFile>
+        <SqlServerQuerySourceFile>R:\Extensions\SystemConfig\Config\Queries\Statistics\MTQueries_SQL.xml</SqlServerQuerySourceFile>
+        <OracleQuerySourceFile>R:\Extensions\SystemConfig\Config\Queries\Statistics\MTQueries_Oracle.xml</OracleQuerySourceFile>       <OracleQuerySourceFile></OracleQuerySourceFile>
     </ConversionAudit>
 </Query>

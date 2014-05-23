@@ -12,7 +12,8 @@
             <Value><![CDATA[Create Product Offering]]></Value>
         </PageTitle-->
         <PageTitle>
-            <Value><![CDATA[]]></Value>
+            <LocalizationTag>TEXT_PAGE_TITLE</LocalizationTag>
+            <ResourceClassKey>MetraOffer/ProductOfferings/App_LocalResources/CreateProductOffering.aspx</ResourceClassKey>
         </PageTitle>
     </Header>
     <Help>
@@ -44,7 +45,8 @@
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <Value><![CDATA[Name]]></Value>
+                                <LocalizationTag>TEXT_NAME</LocalizationTag>
+                                <ResourceClassKey>MetraOffer/ProductOfferings/App_LocalResources/CreateProductOffering.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -63,7 +65,8 @@
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <Value><![CDATA[Display Name]]></Value>
+                                <LocalizationTag>TEXT_DISPLAY_NAME</LocalizationTag>
+                                <ResourceClassKey>MetraOffer/ProductOfferings/App_LocalResources/CreateProductOffering.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -82,7 +85,8 @@
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <Value><![CDATA[Description]]></Value>
+                                <LocalizationTag>TEXT_DESCRIPTION</LocalizationTag>
+                                <ResourceClassKey>MetraOffer/ProductOfferings/App_LocalResources/CreateProductOffering.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -105,7 +109,8 @@
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <Value><![CDATA[Currency]]></Value>
+                                <LocalizationTag>TEXT_CURRENCY</LocalizationTag>
+                                <ResourceClassKey>MetraOffer/ProductOfferings/App_LocalResources/CreateProductOffering.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -124,7 +129,8 @@
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <Value><![CDATA[Effective Start Date]]></Value>
+                                <LocalizationTag>TEXT_EFFECTIVE_START_DATE</LocalizationTag>
+                                <ResourceClassKey>MetraOffer/ProductOfferings/App_LocalResources/CreateProductOffering.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />
@@ -143,7 +149,8 @@
                             </EditorValidation>
                             <OptionalExtConfig></OptionalExtConfig>
                             <Label>
-                                <Value><![CDATA[Partition Id]]></Value>
+                                <LocalizationTag>TEXT_PARTITION_ID</LocalizationTag>
+                                <ResourceClassKey>MetraOffer/ProductOfferings/App_LocalResources/CreateProductOffering.aspx</ResourceClassKey>
                             </Label>
                             <RequiredCapabilities />
                             <RequiredCapabilitiesReadonly />

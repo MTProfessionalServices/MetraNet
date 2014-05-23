@@ -204,7 +204,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/QuoteStatus/Converted</Name>
-            <Value>Actualized</Value>
+            <Value>Converted</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/QuoteStatus/Failed</Name>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<texts id="Main" type="collection">
+
+    <description>Key Terms</description>
+
+        
+    <!-- Product Offering -->
+    <text id="TEXT_KEYTERM_PRODUCT_OFFERING">
+        <value>[FR]Product Offering</value>
+	<description>Product Offering</description>
+    </text> 
+    <text id="TEXT_KEYTERM_PRODUCT_OFFERINGS">
+        <value>[FR]Product Offerings</value>
+	<description>Product Offerings</description>
+    </text> 
+
+    <!-- Priceable Items -->   
+    <text id="TEXT_KEYTERM_PRICEABLE_ITEM">
+        <value>[FR]Priceable Item</value>
+	<description>Priceable Item</description>
+    </text>              
+    <text id="TEXT_KEYTERM_PRICEABLE_ITEMS">
+        <value>[FR]Priceable Items</value>
+	<description>Priceable Items</description>
+    </text>              
+
+    <!-- Usage Charge -->   
+    <text id="TEXT_KEYTERM_USAGE_CHARGE">
+        <value>[FR]Usage Charge</value>
+	<description>Usage Charge</description>
+    </text>              
+    <text id="TEXT_KEYTERM_USAGE_CHARGES">
+        <value>[FR]Usage Charges</value>
+	<description>Usage Charges</description>
+    </text>              
+
+    <!-- Usage Charge (aggregate) -->   
+    <text id="TEXT_KEYTERM_USAGE_CHARGE_AGGREGATE">
+        <value>[FR]Usage Charge (Aggregate)</value>
+	<description>Usage Charge (Aggregate)</description>
+    </text>              
+    <text id="TEXT_KEYTERM_USAGE_CHARGES_AGGREGATE">
+        <value>[FR]Usage Charges (Aggregate)</value>
+	<description>Usage Charges (Aggregate)</description>
+    </text>              
+
+    <!-- Recurring Charge -->   
+    <text id="TEXT_KEYTERM_RECURRING_CHARGE">
+        <value>[FR]Recurring Charge</value>
+	<description>Recurring Charge</description>
+    </text>     
+    <text id="TEXT_KEYTERM_RECURRING_CHARGES">
+        <value>[FR]Recurring Charges</value>
+	<description>Recurring Charges</description>
+    </text>     
+
+    <!-- Non-Recurring Charge -->   
+    <text id="TEXT_KEYTERM_NON_RECURRING_CHARGE">
+        <value>[FR]Non-Recurring Charge</value>
+	<description>Nonrecurring Charge</description>
+    </text>     
+    <text id="TEXT_KEYTERM_NON_RECURRING_CHARGES">
+        <value>[FR]Non-Recurring Charges</value>
+	<description>Nonrecurring Charges</description>
+    </text>     
+    
+    <!-- Discounts -->   
+    <text id="TEXT_KEYTERM_DISCOUNT">
+        <value>[FR]Discount</value>
+	<description>Discount</description>
+    </text>              
+    <text id="TEXT_KEYTERM_DISCOUNTS">
+        <value>[FR]Discounts</value>
+	<description>Discounts</description>
+    </text>              
+
+    <!-- Price List -->   
+    <text id="TEXT_KEYTERM_PRICE_LIST">
+        <value>[FR]Price List</value>
+	<description>Price List</description>
+    </text>
+    <text id="TEXT_KEYTERM_PRICE_LISTS">
+        <value>[FR]Price Lists</value>
+	<description>Price Lists</description>
+    </text>                 
+
+    <!-- Rate Schedule -->   
+    <text id="TEXT_KEYTERM_RATE_SCHEDULE">
+        <value>[FR]Rate Schedule</value>
+	<description>Rate Schedule</description>
+    </text>
+    <text id="TEXT_KEYTERM_RATE_SCHEDULES">
+        <value>[FR]Rate Schedules</value>
+	<description>Rate Schedules</description>
+    </text>              
+
+    <!-- Personal Rate -->   
+    <text id="TEXT_KEYTERM_PERSONAL_RATE">
+        <value>[FR]Custom Rate</value>
+	      <description>Custom Rate</description>
+    </text>                
+    <text id="TEXT_KEYTERM_PERSONAL_RATES">
+        <value>[FR]Custom Rates</value>
+	      <description>Custom Rates</description>
+    </text>              
+   
+    <!-- Counter -->   
+    <text id="TEXT_KEYTERM_COUNTER">
+        <value>[FR]Counter</value>
+	<description>Counter</description>
+    </text>           
+    <text id="TEXT_KEYTERM_COUNTERS">
+        <value>[FR]Counters</value>
+	<description>Counters</description>
+    </text>               
+        
+    <!-- Parameter Table -->   
+    <text id="TEXT_KEYTERM_PARAMETER_TABLE">
+        <value>[FR]Parameter Table</value>
+	<description>Parameter Table</description>
+    </text>           
+    <text id="TEXT_KEYTERM_PARAMETER_TABLES">
+        <value>[FR]Parameter Tables</value>
+	<description>Parameter Tables</description>
+    </text>				
+	
+	<!-- Calendars -->           
+		<text id="TEXT_KEYTERM_CALENDAR">
+        <value>[FR]Calendar</value>
+		<description>Calendar</description>
+    </text>
+						
+    <text id="TEXT_KEYTERM_CALENDARS">
+        <value>[FR]Calendars</value>
+		<description>Calendars</description>
+    </text>
+		
+		<text id="TEXT_KEYTERM_GROUP_SUBSCRIPTION">
+			<value>[FR]Group Subscription</value>
+			<description>Group Subscription</description>
+		</text>
+
+		<text id="TEXT_KEYTERM_GROUP_SUBSCRIPTIONS">
+			<value>[FR]Group Subscriptions</value>
+			<description>Group Subscriptions</description>
+		</text>		
+				            
+		<text id="TEXT_KEYTERM_CORPORATE_ACCOUNT">
+			<value>[FR]Corporate Account</value>
+			<description>Corporate Account</description>
+		</text> 
+				
+		<text id="PAYER_ACCOUNT">
+			<value>[FR]Payer</value>
+			<description>Payer</description>
+		</text> 
+
+		<text id="PAYEE_ACCOUNT">
+			<value>[FR]Payee</value>
+			<description>Payee</description>
+		</text> 
+
+		<text id="INDEPENDENT_ACCOUNT">
+			<value>[FR]Indepdendent account</value>
+			<description>Independent Account</description>
+		</text>
+    
+    <!-- Service Endpoint(s) -->
+    <text id="TEXT_KEYTERM_SERVICE_ENDPOINT">
+      <value>[FR]Service Endpoint</value>
+      <description>Service Endpoint</description>
+    </text>
+    <text id="TEXT_KEYTERM_SERVICE_ENDPOINTS">
+      <value>[FR]Service Endpoints</value>
+      <description>Service Endpoints</description>
+    </text> 
+    
+    <!-- Unit-Dependent Recurring Charge(s) -->
+    <text id="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGE">
+      <value>[FR]Unit-Dependent Recurring Charge</value>
+      <description>Unit-Dependent Recurring Charge</description>
+    </text>
+    <text id="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGES">
+      <value>[FR]Unit-Dependent Recurring Charges</value>
+      <description>Unit-Dependent Recurring Charges</description>
+    </text> 
+    
+    <!-- Shared Price List(s) -->
+    <text id="TEXT_KEYTERM_SHARED_PRICE_LIST">
+      <value>[FR]Shared Price List</value>
+      <description>Shared Price List</description>
+    </text>
+    <text id="TEXT_KEYTERM_SHARED_PRICE_LISTS">
+      <value>[FR]Shared Price Lists</value>
+      <description>Shared Price Lists</description>
+    </text> 
+    
+    <!-- Non-Shared Price List(s) -->
+    <text id="TEXT_KEYTERM_NON_SHARED_PRICE_LIST">
+      <value>[FR]Non-Shared Price List</value>
+      <description>Nonshared Price List</description>
+    </text>
+    <text id="TEXT_KEYTERM_NON_SHARED_PRICE_LISTS">
+      <value>[FR]Non-Shared Price Lists</value>
+      <description>Nonshared Price Lists</description>
+    </text> 
+   
+    
+</texts>
+
+

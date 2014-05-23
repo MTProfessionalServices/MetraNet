@@ -43,8 +43,7 @@
     <CustomImplementationFilePath></CustomImplementationFilePath>
     <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
     <SubGrid></SubGrid>
-    <!--URLParameters>
-        <URLParameter>
+        <!--URLParameter>
             <ParameterName>q</ParameterName>
             <SQLQuery>
                 <QueryName>__GET_RUNNING_ADAPTERS__</QueryName>
@@ -67,13 +66,53 @@
             </SQLQuery>
         </URLParameter>
     </URLParameters-->
+    <!--URLParameters>
+        <URLParameter>
+            <ParameterName>q</ParameterName>
+            <SQLQuery>
+                <QueryName>__GET_RUNNING_ADAPTERS__</QueryName>
+                <QueryDir></QueryDir>
+                <QueryParameters></QueryParameters>
+                <QueryColumns>
+                    <QueryColumn>
+                        <Name>id_instance</Name>
+                        <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                    </QueryColumn>
+                    <QueryColumn>
+                        <Name>id_billgroup</Name>
+                        <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                    </QueryColumn>
+                    <QueryColumn>
+                        <Name>id_interval</Name>
+                        <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                    </QueryColumn>
+                    <QueryColumn>
+                        <Name>Name</Name>
+                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                    </QueryColumn>
+                    <QueryColumn>
+                        <Name>StartDate</Name>
+                        <Type>System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                    </QueryColumn>
+                    <QueryColumn>
+                        <Name>EndDate</Name>
+                        <Type>System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                    </QueryColumn>
+                    <QueryColumn>
+                        <Name>Status</Name>
+                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                    </QueryColumn>
+                </QueryColumns>
+            </SQLQuery>
+        </URLParameter>
+    </URLParameters-->
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
             <ID>id_instance</ID>
-            <DataType>Numeric</DataType>
+            <DataType>String</DataType>
             <IsIdentity>true</IsIdentity>
             <DataIndex>id_instance</DataIndex>
             <IsColumn>true</IsColumn>
@@ -109,7 +148,7 @@
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
             <ID>id_billgroup</ID>
-            <DataType>Numeric</DataType>
+            <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>id_billgroup</DataIndex>
             <IsColumn>true</IsColumn>
@@ -145,7 +184,7 @@
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
             <ID>id_interval</ID>
-            <DataType>Numeric</DataType>
+            <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>id_interval</DataIndex>
             <IsColumn>true</IsColumn>
@@ -216,10 +255,10 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>start</ID>
+            <ID>startdate</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>start</DataIndex>
+            <DataIndex>startdate</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_START</LocalizationTag>

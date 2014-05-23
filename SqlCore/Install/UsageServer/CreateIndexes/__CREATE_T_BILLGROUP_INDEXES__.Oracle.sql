@@ -13,3 +13,5 @@
     create index idx_billgroup_tmp on t_billgroup_tmp(id_materialization);
 
     create index idx_billgroup_member_tmp on t_billgroup_member_tmp(id_materialization,id_acc);
+	
+	create index idx_s_billgroup_member_history on t_billgroup_member_history (DECODE (tx_status, 'Failed', 1, NULL));  

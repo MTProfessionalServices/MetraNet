@@ -10,6 +10,6 @@ INNER JOIN t_billgroup_member_history bgmh
 WHERE  bgm.dt_start IN (SELECT MAX(dt_start)
                                        FROM t_billgroup_materialization 
                                        WHERE id_usage_interval = %%ID_INTERVAL%%) AND
-            bgmh.tx_status = 'Failed'
+               bgmh.tx_status = 'Failed'
 GROUP BY bgm.id_materialization
    

@@ -49,7 +49,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
     Dim objUSM
     Set objUSM = mom_GetUsageServerClientObject()
     Dim interval
-    Set interval = objUSM.GetUsageInterval(CLng(Form("IntervalID")))
+    Set interval = objUSM.GetUsageIntervalWithoutAccountStats(CLng(Form("IntervalID"))) 
     If CBool(interval.HasBeenMaterialized) Then
       mdm_GetDictionary().Add "MATERIALIZE_TEXT", mom_GetDictionary("TEXT_REMATERIALIZE")
       ' Reset the message
@@ -228,7 +228,7 @@ PRIVATE FUNCTION Materialize_Click(EventArg)
   
   Dim objUSM, materializationID, interval
   Set objUSM = mom_GetUsageServerClientObject()
-  Set interval = objUSM.GetUsageInterval(CLng(Form("IntervalID")))
+  Set interval = objUSM.GetUsageIntervalWithoutAccountStats(CLng(Form("IntervalID")))
     
   ' Materialize or Re-Materialize Billing Groups
   If CBool(interval.HasBeenMaterialized) Then

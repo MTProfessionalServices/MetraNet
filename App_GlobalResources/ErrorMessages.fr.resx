@@ -246,9 +246,6 @@
   <data name="ERROR_USM_CONFIG_UNABLE_TO_SAVE" xml:space="preserve">
     <value>Impossible d’enregistrer les modifications de la configuration. Reportez-vous au journal pour plus de détails.</value>
   </data>
-  <data name="ERROR_MULTIPLE_ACCOUNT_UPDATE_PENDING_CHANGES" xml:space="preserve">
-    <value>French</value>
-  </data>
     <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
         <value>Échec de suppression de spéc.</value>
     </data>

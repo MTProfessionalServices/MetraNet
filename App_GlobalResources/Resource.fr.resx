@@ -504,12 +504,6 @@
   <data name="TEXT_BULKUPDATE" xml:space="preserve">
     <value>[FR]Bulk Update</value>
   </data>
-  <data name="TEXT_UNRELATED_ENTITY_1" xml:space="preserve">
-    <value>[FR]List of unrelated  </value>
-  </data>
-  <data name="TEXT_UNRELATED_ENTITY_2" xml:space="preserve">
-    <value>[FR]entity instances</value>
-  </data>
   <data name="SpecCharacteristicsController_Index_Product_Offering_Properties" xml:space="preserve">
     <value>[FR]Product Offering Properties</value>
   </data>

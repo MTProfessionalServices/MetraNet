@@ -62,19 +62,19 @@
                 </QueryParameters>
                 <QueryColumns>
                     <QueryColumn>
-                        <Name># of invoices</Name>
+                        <Name>NUMOFINV</Name>
                         <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
                     </QueryColumn>
                     <QueryColumn>
-                        <Name>Currency</Name>
+                        <Name>CURRENCY</Name>
                         <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
                     </QueryColumn>
                     <QueryColumn>
-                        <Name>Amount</Name>
+                        <Name>TOTALAMT</Name>
                         <Type>System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
                     </QueryColumn>
                     <QueryColumn>
-                        <Name>Tax Amount</Name>
+                        <Name>TOTALTAX</Name>
                         <Type>System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
                     </QueryColumn>
                 </QueryColumns>
@@ -87,10 +87,10 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID># of invoices</ID>
+            <ID>numofinv</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex># of invoices</DataIndex>
+            <DataIndex>numofinv</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_NUM_INVOICES</LocalizationTag>
@@ -159,10 +159,10 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>amount</ID>
+            <ID>totalamt</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>amount</DataIndex>
+            <DataIndex>totalamt</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_AMOUNT</LocalizationTag>
@@ -195,16 +195,16 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>tax amount</ID>
+            <ID>totaltax</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>tax amount</DataIndex>
+            <DataIndex>totaltax</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_TAX_AMOUNT</LocalizationTag>
                 <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
             </HeaderText>
-            <Formatter></Formatter>
+            <Formatter>CurrencyRenderer</Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>

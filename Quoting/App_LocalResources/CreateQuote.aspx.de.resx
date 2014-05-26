@@ -255,4 +255,82 @@
   <data name="ICB_GROUP_CONFIRM" xml:space="preserve">
     <value />
   </data>
+  <data name="btnConvertQuoteResource.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MTPanelLog.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MTPanelResult.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="QuoteFailed.Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="QuoteLog.Label" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MTTextBoxControlGroupResource.Text" xml:space="preserve">
+    <value>Group Subscription</value>
+  </data>
+  <data name="MTPanelUDRCandICBResource.Text" xml:space="preserve">
+    <value>UDRC metrics and ICBs</value>
+  </data>
+  <data name="MTdpCreationDateResource.Text" xml:space="preserve">
+    <value>Creation Date</value>
+  </data>
+  <data name="MTTextBoxControlStatusResource.Text" xml:space="preserve">
+    <value>Quote Status</value>
+  </data>
+  <data name="TEXT_MISSED_UDRC" xml:space="preserve">
+    <value>UDRC metrics set not for all Priceable Items</value>
+  </data>
+  <data name="TEXT_DATES_ERROR" xml:space="preserve">
+    <value>Start Date should be less then End Date</value>
+  </data>
+  <data name="REMOVE_UDRC" xml:space="preserve">
+    <value>Remove UDRC</value>
+  </data>
+  <data name="MTTextBoxControlTotalResource.Text" xml:space="preserve">
+    <value>Total Amount</value>
+  </data>
+  <data name="MTTextBoxControlTotalTaxResource.Text" xml:space="preserve">
+    <value>Total Tax</value>
+  </data>
+  <data name="MTtbQuoteIdentifierResource.Text" xml:space="preserve">
+    <value>Quote Identifier</value>
+  </data>
+  <data name="MTCheckBoxPdfResource.BoxLabel" xml:space="preserve">
+    <value>Generate PDF report</value>
+  </data>
+  <data name="MTtbQuoteDescriptionResource.Text" xml:space="preserve">
+    <value>Quote Description</value>
+  </data>
+  <data name="MTdpCreationDateResource.Label" xml:space="preserve">
+    <value>Creation Date</value>
+  </data>
+  <data name="MTTextBoxControlStatusResource.Label" xml:space="preserve">
+    <value>Quote Status</value>
+  </data>
+  <data name="MTTextBoxControlGroupResource.Label" xml:space="preserve">
+    <value>Group Subscription</value>
+  </data>
+  <data name="MTTextBoxControlTotalResource.Label" xml:space="preserve">
+    <value>Total Amount</value>
+  </data>
+  <data name="MTTextBoxControlTotalTaxResource.Label" xml:space="preserve">
+    <value>Total Tax</value>
+  </data>
+  <data name="MTtbQuoteIdentifierResource.Label" xml:space="preserve">
+    <value>Quote Identifier</value>
+  </data>
+  <data name="MTtbQuoteDescriptionResource.Label" xml:space="preserve">
+    <value>Quote Description</value>
+  </data>
+  <data name="REPORT_LINK_TEXT" xml:space="preserve">
+    <value>"PDF report for quote"</value>
+  </data>
+  <data name="TEXT_ISGROUP_CHEKED" xml:space="preserve">
+    <value>Corporate account for group subscription should be selected.</value>
+  </data>
 </root>

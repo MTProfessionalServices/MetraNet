@@ -117,28 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="MTTitle1.Text" xml:space="preserve">
-    <value>Create Product Offering</value>
+  <data name="GRID_TITLE" xml:space="preserve">
+    <value>[FR]Shared Price Lists</value>
+  </data>
+  <data name="MTFilterGrid1Resource1.ToolTip" xml:space="preserve">
+    <value>[FR]Shared Price Lists</value>
+  </data>
+  <data name="GROUP_SUBSCRIPTION" xml:space="preserve">
+    <value>[FR]Group subscription</value>
+  </data>
+  <data name="ID_QUOTE" xml:space="preserve">
+    <value>[FR]Id Quote</value>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>[FR]MetraNet</value>
+  </data>
+  <data name="TEXT_ACTIONS" xml:space="preserve">
+    <value>[FR]Actions</value>
+  </data>
+  <data name="TEXT_CREATE_PRICELIST" xml:space="preserve">
+    <value>[FR]Create Price List</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
-    <value>Currency</value>
+    <value>[FR]Currency</value>
   </data>
-  <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>Description</value>
+  <data name="QuoteListTitle.Text" xml:space="preserve">
+    <value>[FR]Quotes List</value>
   </data>
-  <data name="TEXT_DISPLAY_NAME" xml:space="preserve">
-    <value>Display name</value>
-  </data>
-  <data name="TEXT_EFFECTIVE_START_DATE" xml:space="preserve">
-    <value>Effective Start Date</value>
+  <data name="REPORT_LINK" xml:space="preserve">
+    <value>[FR]Report link</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
-    <value>Name</value>
+    <value>[FR]Name</value>
   </data>
-  <data name="TEXT_PAGE_TITLE" xml:space="preserve">
-    <value>Add Product Offering</value>
+  <data name="TEXT_PartitionID" xml:space="preserve">
+    <value>[FR]Partition Id</value>
   </data>
-  <data name="TEXT_PARTITION_ID" xml:space="preserve">
-    <value>Partition Id</value>
+  <data name="TOTAL_AMOUNT" xml:space="preserve">
+    <value>[FR]Total amount</value>
+  </data>
+  <data name="TOTAL_TAX" xml:space="preserve">
+    <value>[FR]Total Tax</value>
   </data>
 </root>

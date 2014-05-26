@@ -1,14 +1,20 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.ServiceModel;
 using System.Web.Script.Serialization;
 using System.Web.UI;
+using System.Xml.Linq;
 using MetraTech;
 using MetraTech.Domain.Quoting;
 using MetraTech.DomainModel.BaseTypes;
+using MetraTech.DomainModel.Billing;
+using MetraTech.DomainModel.Enums.Core.Metratech_com;
 using MetraTech.DomainModel.ProductCatalog;
+using MetraTech.Interop.RCD;
 using MetraTech.UI.Common;
 using MetraTech.ActivityServices.Common;
 using MetraTech.Core.Services.ClientProxies;
@@ -44,6 +50,7 @@ namespace MetraNet.Quoting
       public decimal UnitAmount { get; set; }
       public decimal BaseAmount { get; set; }
       public string RecordId { get; set; }
+      public int PIKind { get; set; }
     }
 
     public class Udrc
@@ -67,23 +74,21 @@ namespace MetraNet.Quoting
 
     protected int CurrentQuoteId;
 
+    private Dictionary<int, string> PoNames;
+    private Dictionary<int, string> PiNames;
+
     protected void Page_Load(object sender, EventArgs e)
     {
       var cbReference = Page.ClientScript.GetCallbackEventReference(this, "arg", "ReceiveServerData", "context");
       var callbackScript = "function CallServer(arg, context)" + "{ " + cbReference + ";}";
       Page.ClientScript.RegisterClientScriptBlock(GetType(), "CallServer", callbackScript, true);
 
-      if (!IsPostBack)
-      {
+      ParseRequest();
+
+      if (IsPostBack) return;
+      if (!IsViewMode)
         MTdpStartDate.Text = MetraTime.Now.Date.ToString();
-        MTdpEndDate.Text = MetraTime.Now.Date.AddMonths(1).ToString();
-      }
-
-      #region render Accounts grid
-
-      AccountRenderGrid();
-
-      #endregion
+      //MTdpEndDate.Text = MetraTime.Now.Date.AddMonths(1).ToString();
     }
 
     #region Implementation of ICallbackEventHandler
@@ -101,7 +106,7 @@ namespace MetraNet.Quoting
       var value = serializer.Deserialize<Dictionary<string, string[]>>(eventArgument);
       try
       {
-        result = GetPriceableItems(value["poIds"]);
+        result = GetPriceableItemsResult(value["poIds"]);
       }
       catch (Exception ex)
       {
@@ -125,30 +130,13 @@ namespace MetraNet.Quoting
       return _callbackResult;
     }
 
-    private object GetPriceableItems(IEnumerable<string> poIds)
+    private object GetPriceableItemsResult(IEnumerable<string> poIds)
     {
       object result;
-      var priceableItemsAll = new MTList<BasePriceableItemInstance>();
+
       try
       {
-        using (var client = new ProductOfferingServiceClient())
-        {
-          if (client.ClientCredentials != null)
-          {
-            client.ClientCredentials.UserName.UserName = UI.User.UserName;
-            client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
-          }
-          foreach (var poIdStr in poIds)
-          {
-            var poId = int.Parse(poIdStr);
-            var priceableItems = new MTList<BasePriceableItemInstance>();
-
-            var pciPoId = new PCIdentifier(poId);
-            client.GetPIInstancesForPO(pciPoId, ref priceableItems);
-
-            priceableItemsAll.Items.AddRange(priceableItems.Items);
-          }
-        }
+        var priceableItemsAll = GetPriceableItemsForPOs(poIds);
         var items = priceableItemsAll.Items.Select(
             x => new
             {
@@ -156,7 +144,6 @@ namespace MetraNet.Quoting
               ProductOfferingId = x.PO_ID,
               x.Name,
               x.DisplayName,
-              x.Description,
               x.PIKind,
               x.PICanICB
             }).ToArray();
@@ -170,6 +157,30 @@ namespace MetraNet.Quoting
       return result;
     }
 
+    private MTList<BasePriceableItemInstance> GetPriceableItemsForPOs(IEnumerable<string> poIds)
+    {
+      var priceableItemsAll = new MTList<BasePriceableItemInstance>();
+      using (var client = new ProductOfferingServiceClient())
+      {
+        if (client.ClientCredentials != null)
+        {
+          client.ClientCredentials.UserName.UserName = UI.User.UserName;
+          client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+        }
+        foreach (var poIdStr in poIds)
+        {
+          var poId = int.Parse(poIdStr);
+          var priceableItems = new MTList<BasePriceableItemInstance>();
+
+          var pciPoId = new PCIdentifier(poId);
+          client.GetPIInstancesForPO(pciPoId, ref priceableItems);
+
+          priceableItemsAll.Items.AddRange(priceableItems.Items);
+        }
+      }
+      return priceableItemsAll;
+    }
+
     #endregion
 
     private delegate void AsyncCreateQuote(QuoteRequest request);
@@ -180,9 +191,7 @@ namespace MetraNet.Quoting
       {
         Page.Validate();
         ValidateRequest();
-        var accountsFilterValue = Request["Accounts"];
-        var param = accountsFilterValue == "ONE" ? string.Empty : "Accounts=ALL";
-        var redirectPath = string.Format(@"/MetraNet/Quoting/QuoteList.aspx?{0}", param);
+        var redirectPath = GetRedirectPath();
 
         if (!MTCheckBoxViewResult.Checked)  //do async call
         {
@@ -206,9 +215,42 @@ namespace MetraNet.Quoting
       }
     }
 
+    protected void btnConvertQuote_Click(object sender, EventArgs e)
+    {
+      try
+      {
+        using (var client = new QuotingServiceClient())
+        {
+          if (client.ClientCredentials != null)
+          {
+            client.ClientCredentials.UserName.UserName = UI.User.UserName;
+            client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+          }
+          client.ConvertToSubscription(CurrentQuoteId);
+          var redirectPath = GetRedirectPath();
+          Response.Redirect(redirectPath, false);
+        }
+      }
+      catch (MASBasicException exp)
+      {
+        SetError(exp.Message);
+      }
+      catch (Exception exp)
+      {
+        SetError(exp.Message);
+      }
+    }
+
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-      Response.Redirect(UI.DictionaryManager["DashboardPage"].ToString());
+      Response.Redirect(GetRedirectPath(), false);
+    }
+
+    private string GetRedirectPath()
+    {
+      var accountsFilterValue = Request["Accounts"];
+      var param = accountsFilterValue == "ONE" ? string.Empty : "Accounts=ALL";
+      return string.Format(@"/MetraNet/Quoting/QuoteList.aspx?{0}", param);
     }
 
     private QuoteRequest RequestForCreateQuote { get; set; }
@@ -227,7 +269,7 @@ namespace MetraNet.Quoting
           QuoteDescription = MTtbQuoteDescription.Text,
           QuoteIdentifier = MTtbQuoteIdentifier.Text,
           EffectiveDate = Convert.ToDateTime(MTdpStartDate.Text),
-          EffectiveEndDate = Convert.ToDateTime(MTdpEndDate.Text),
+          EffectiveEndDate = String.IsNullOrEmpty(MTdpEndDate.Text) ? MetraTime.Max : Convert.ToDateTime(MTdpEndDate.Text),
           ReportParameters = { PDFReport = MTcbPdf.Checked },
           Accounts = Accounts,
           ProductOfferings = Pos,
@@ -253,7 +295,7 @@ namespace MetraNet.Quoting
       }
 
       var icbPrices = new List<IndividualPrice>();
-      foreach (var record in icbList.Select(t => new { t.PriceableItemId, t.ProductOfferingId }).Distinct())
+      foreach (var record in icbList.Select(t => new { t.PriceableItemId, t.ProductOfferingId, t.PIKind }).Distinct())
       {
         var record1 = record;
         var chargesRates = icbList.Where(t => t.PriceableItemId == record1.PriceableItemId && t.ProductOfferingId == record1.ProductOfferingId).Select(icb => new ChargesRate
@@ -261,16 +303,21 @@ namespace MetraNet.Quoting
           Price = icb.Price,
           BaseAmount = icb.BaseAmount,
           UnitAmount = icb.UnitAmount,
-          UnitValue = icb.UnitValue
+          UnitValue = icb.UnitValue,
         });
         var qip = new IndividualPrice
-        {
-          CurrentChargeType = ChargeType.RecurringCharge,//TODO investigate this code
+        {          
           ProductOfferingId = record.ProductOfferingId,
           ChargesRates = chargesRates.ToList(),
           PriceableItemId = record.PriceableItemId
         };
-
+        switch (record.PIKind)
+        {
+          case 20: { qip.CurrentChargeType = ChargeType.RecurringCharge; break; }     //Recurring = 20,
+          case 25: { qip.CurrentChargeType = ChargeType.UDRC; break; }                //UnitDependentRecurring = 25,
+          case 30: { qip.CurrentChargeType = ChargeType.NonRecurringCharge; break; }  //NonRecurring = 30,
+          default: { qip.CurrentChargeType = ChargeType.None; break; }
+        }        
         icbPrices.Add(qip);
       }
 
@@ -294,8 +341,8 @@ namespace MetraNet.Quoting
           .Where(t => t.ProductOfferingId == record1.ProductOfferingId)
           .Select(udrc => new UDRCInstanceValue
         {
-          StartDate = udrc.StartDate <= new DateTime() ? MetraTech.MetraTime.Min : udrc.StartDate,
-          EndDate = udrc.EndDate <= new DateTime() ? MetraTech.MetraTime.Max : udrc.EndDate,
+          StartDate = udrc.StartDate <= new DateTime() ? MetraTime.Min : udrc.StartDate,
+          EndDate = udrc.EndDate <= new DateTime() ? MetraTime.Max : udrc.EndDate,
           Value = udrc.Value,
           UDRC_Id = udrc.PriceableItemId
         });
@@ -331,13 +378,33 @@ namespace MetraNet.Quoting
           client.ClientCredentials.UserName.UserName = UI.User.UserName;
           client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
         }
-        client.CreateQuoteWithoutValidation(request, out response);
+        client.CreateQuote(request, out response);
       }
     }
 
-    private void AccountRenderGrid()
+    private void ParseRequest()
     {
-      if (IsPostBack || UI.Subscriber.SelectedAccount == null) return;
+      _mode = Request["mode"];
+      switch (_mode)
+      {
+        case "VIEW":
+          CurrentQuoteId = Convert.ToInt32(Request["quoteId"]);
+          LoadQuote();
+          LoadQuoteToControls();
+          break;
+        case "UPDATE":
+          break;
+        case "CLONE":
+          break;
+        default:
+          NewQuote();
+          break;
+      }
+    }
+
+    private void NewQuote()
+    {
+      if (IsPostBack || UI.Subscriber.SelectedAccount == null || IsViewMode) return;
 
       var accountsFilterValue = Request["Accounts"];
       if (string.IsNullOrEmpty(accountsFilterValue) || accountsFilterValue != "ONE") return;
@@ -358,70 +425,91 @@ namespace MetraNet.Quoting
 
     private void LoadQuote()
     {
-      var qsc = new QuotingServiceClient();
-
-      try
+      using (var qsc = new QuotingServiceClient())
       {
-        qsc.ClientCredentials.UserName.UserName = UI.User.UserName;
-        qsc.ClientCredentials.UserName.Password = UI.User.SessionPassword;
-
+        if (qsc.ClientCredentials != null)
+        {
+          qsc.ClientCredentials.UserName.UserName = UI.User.UserName;
+          qsc.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+        }
         qsc.GetQuote(CurrentQuoteId, out CurrentQuote);
-      }
-
-
-      finally
-      {
-        if (qsc.State == CommunicationState.Opened)
-        {
-          qsc.Close();
-        }
-        else
-        {
-          qsc.Abort();
-        }
       }
     }
 
     private void LoadQuoteToControls()
     {
-
-      //MTPanelQuoteParameters
+      MTPanelUDRC.Visible = !IsViewMode;
+      MTPanelICB.Visible = !IsViewMode;
+      MTPanelUDRCandICB.Visible = IsViewMode;
 
       MTtbQuoteDescription.Text = CurrentQuote.QuoteDescription;
       MTtbQuoteIdentifier.Text = CurrentQuote.QuoteIdentifier;
-      MTcbPdf.Visible = false;
+      MTcbPdf.Visible = !IsViewMode;
 
-      MTdpStartDate.Text = CurrentQuote.EffectiveDate.ToString(CultureInfo.InvariantCulture);
-      MTdpEndDate.Text = CurrentQuote.EffectiveEndDate.ToString(CultureInfo.InvariantCulture);
+      MTdpStartDate.Text = CurrentQuote.EffectiveDate.ToString("d");
+      MTdpEndDate.Text = CurrentQuote.EffectiveEndDate.ToString("d");
 
-      MTtbQuoteDescription.ReadOnly = true;
-      MTtbQuoteIdentifier.ReadOnly = true;
+      MTtbQuoteDescription.ReadOnly = IsViewMode;
+      MTtbQuoteIdentifier.ReadOnly = IsViewMode;
 
-      MTdpStartDate.ReadOnly = true;
-      MTdpEndDate.ReadOnly = true;
+      MTdpStartDate.ReadOnly = IsViewMode;
+      MTdpEndDate.ReadOnly = IsViewMode;
 
       HiddenAccounts.Value = EncodeAccountsForHiddenControl(CurrentQuote.Accounts);
-      
       HiddenPos.Value = EncodePosForHiddenControl(CurrentQuote.ProductOfferings);
-      
+      HiddenPis.Value = EncodePisForHiddenControl(CurrentQuote.ProductOfferings);
+
       MTCheckBoxIsGroupSubscription.Value = CurrentQuote.GroupSubscription.ToString();
       if (CurrentQuote.GroupSubscription)
-        HiddenGroupId.Value = EncodeAccountsForHiddenControl(new List<int> {CurrentQuote.CorporateAccountId});
+        HiddenGroupId.Value = EncodeAccountsForHiddenControl(new List<int> { CurrentQuote.CorporateAccountId });
 
-      PutUDRCsInControl();
+      HiddenUDRCs.Value = EncodeUDRCsForHiddenControl();
 
-      PutICBsInControl();
+      HiddenICBs.Value = EncodeICBsForHiddenControl();
 
-      //todo fill Quote results section
+      if (CurrentQuote.UdrcValues.Count == 0 && CurrentQuote.IcbPrices.Count == 0)
+        MTPanelUDRCandICB.Collapsed = true;
 
+      MTbtnGenerateQuote.Visible = !IsViewMode;
+      MTbtnConvertQuote.Visible = CurrentQuote.Status == QuoteStatus.Complete;
+      MTPanelResult.Visible = IsViewMode;
+      MTPanelLog.Visible = IsViewMode;
+
+      MTTextBoxControlStatus.Text = CurrentQuote.Status.ToString();
+      MTTextBoxControlGroup.Text = CurrentQuote.GroupSubscription ? "Yes" : "No";
+      ReportLink.Text = GetReportLink();
+
+      var curDecDig = CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalDigits;
+      var totalAmount = decimal.Round(CurrentQuote.TotalAmount, curDecDig).ToString(CultureInfo.CurrentCulture);
+      MTTextBoxControlTotal.Text = string.Format("{0} {1}", totalAmount, CurrentQuote.Currency);
+
+      var taxAmount = decimal.Round(CurrentQuote.TotalTax, curDecDig).ToString(CultureInfo.CurrentCulture);      
+      MTTextBoxControlTax.Text = string.Format("{0} {1}", taxAmount, CurrentQuote.Currency);
+
+      MTdpCreationDate.Text = CurrentQuote.CreationDate.ToString();
+
+      MTMessageFailed.Text = string.Format("{0}: <br/> {1}",
+                                           GetLocalResourceObject("QuoteFailed.Label"),
+                                           CurrentQuote.FailedMessage);
+      MTMessageFailed.Visible = !string.IsNullOrEmpty(CurrentQuote.FailedMessage);
+
+      var sb = new MTStringBuilder();
+      sb.Append(string.Format("{0}: <br/>", GetLocalResourceObject("QuoteLog.Label")));
+      foreach (var rec in CurrentQuote.MessageLog)
+        sb.Append(string.Format("{0}: {1} <br/>", rec.DateAdded, rec.Message));
+      MTMessageLog.Text = sb.ToString();
+      MTMessageLog.Visible = CurrentQuote.MessageLog.Count > 0;
     }
 
     private string EncodeAccountsForHiddenControl(IEnumerable<int> accounts)
     {
       using (var qsc = new AccountServiceClient())
       {
-        qsc.ClientCredentials.UserName.UserName = UI.User.UserName;
-        qsc.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+        if (qsc.ClientCredentials != null)
+        {
+          qsc.ClientCredentials.UserName.UserName = UI.User.UserName;
+          qsc.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+        }
 
         const string accountStr = "{6}'_AccountID': {0}, 'AccountStatus': {1}, 'AccountType': '{2}', 'Internal#Folder': {3}, 'IsGroup': {4}, 'UserName': '{5}'{7}";
 
@@ -438,25 +526,28 @@ namespace MetraNet.Quoting
                 (int)account.AccountStatus.GetValueOrDefault(),
                 account.AccountType,
                 "false",
-                0,
+                CurrentQuote.CorporateAccountId == accountId ? 1 : 0,
                 account.UserName,
                 "{", "},");
         }
         hiddenAccountsValue = hiddenAccountsValue.Substring(0, hiddenAccountsValue.Length - 1);
-        return hiddenAccountsValue + "]";         
+        return hiddenAccountsValue + "]";
       }
     }
-
 
     private string EncodePosForHiddenControl(IEnumerable<int> pos)
     {
       using (var qsc = new ProductOfferingServiceClient())
       {
+        // ReSharper disable PossibleNullReferenceException
         qsc.ClientCredentials.UserName.UserName = UI.User.UserName;
         qsc.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+        // ReSharper restore PossibleNullReferenceException
 
         const string poStr = "{2}'Name': '{0}', 'ProductOfferingId': {1}{3}";
-      
+
+        PoNames = new Dictionary<int, string>();
+
         var hiddenPosValue = "[";
         foreach (var poId in pos)
         {
@@ -469,44 +560,259 @@ namespace MetraNet.Quoting
                 po.Name,
                 po.ProductOfferingId,
                 "{", "},");
+
+          PoNames.Add(Convert.ToInt32(po.ProductOfferingId), po.Name);
         }
         hiddenPosValue = hiddenPosValue.Substring(0, hiddenPosValue.Length - 1);
         return hiddenPosValue + "]";
       }
     }
 
-    private void PutICBsInControl()
+    private string EncodePisForHiddenControl(IEnumerable<int> pos)
     {
-      //throw new NotImplementedException();
-    }
+      var pis = GetPriceableItemsForPOs(pos.Select(poId => poId.ToString(CultureInfo.InvariantCulture)));
 
-    private void PutUDRCsInControl()
-    {
-      //throw new NotImplementedException();
-    }
+      const string piStr = "{8}'ProductOfferingId':{0},'ProductOfferingName':'{1}','PriceableItemId':{2},'Name':'{3}','DisplayName':'{4}','PIKind':'{5}','PICanICB':'{6}','RecordId':'{7}'{9}";
+      const string recodrIdStr = "{0}_{1}";
 
-    private void ParseRequest()
-    {
-      _mode = Request["mode"];
+      PiNames = new Dictionary<int, string>();
 
-      switch (_mode)
+      var hiddenPisValue = "[";
+      foreach (var pi in pis.Items)
       {
-        case "VIEW":
+        var recordId = string.Format(
+            CultureInfo.CurrentCulture,
+            recodrIdStr,
+            pi.PO_ID,
+            pi.ID);
+
+        string poName;
+        PoNames.TryGetValue(Convert.ToInt32(pi.PO_ID), out poName);
+        hiddenPisValue += string.Format(
+              CultureInfo.CurrentCulture,
+              piStr,
+              pi.PO_ID,
+              poName,
+              pi.ID,
+              pi.Name,
+              pi.DisplayName,
+              pi.PIKind,
+              pi.PICanICB,
+              recordId,
+              "{", "},");
+
+        if (!PiNames.ContainsKey(Convert.ToInt32(pi.ID)))
+          PiNames.Add(Convert.ToInt32(pi.ID), pi.Name);
+      }
+      hiddenPisValue = hiddenPisValue.Substring(0, hiddenPisValue.Length - 1);
+      return hiddenPisValue + "]";
+    }
+
+    private string EncodeICBsForHiddenControl()
+    {
+      const string icbStr = "{8}'ProductOfferingId':{0},'PriceableItemId':{1},'Price':'{2}','BaseAmount':'{3}','UnitValue':'{4}','UnitAmount':'{5}','RecordId':'{6}','GroupId':'{7}'{9}";
+      const string recodrIdStr = "{0}_{1}_{2}_{3}_{4}_{5}";
+
+      if (CurrentQuote.IcbPrices.Count == 0)
+        return String.Empty;
+
+      var hiddenIcbsValue = "[";
+      foreach (var icb in CurrentQuote.IcbPrices)
+        foreach (var rate in icb.ChargesRates)
+        {
+          var recordId = string.Format(
+            CultureInfo.CurrentCulture,
+            recodrIdStr,
+            icb.ProductOfferingId,
+            icb.PriceableItemId,
+            rate.Price,
+            rate.BaseAmount,
+            rate.UnitValue,
+            rate.UnitAmount
+            );
+          var groupId = GetGroupId(icb.ProductOfferingId, Convert.ToInt32(icb.PriceableItemId));
+
+          hiddenIcbsValue += string.Format(
+            CultureInfo.CurrentCulture,
+            icbStr,
+            icb.ProductOfferingId,
+            icb.PriceableItemId,
+            Math.Round(rate.Price, 2),
+            Math.Round(rate.BaseAmount, 2),
+            Math.Round(rate.UnitValue, 2),
+            Math.Round(rate.UnitAmount, 2),
+            recordId,
+            groupId,
+            "{", "},");
+        }
+      hiddenIcbsValue = hiddenIcbsValue.Substring(0, hiddenIcbsValue.Length - 1);
+      return hiddenIcbsValue + "]";
+
+    }
+
+    private string GetGroupId(int poId, int piId)
+    {
+      const string groupIdStr = "{0}: {1}; {2}: {3}";
+      string poName;
+      PoNames.TryGetValue(poId, out poName);
+      string piName;
+      PiNames.TryGetValue(piId, out piName);
+      var groupId = string.Format(
+        CultureInfo.CurrentCulture,
+        groupIdStr,
+        GetLocalResourceObject("PONAME"),
+        poName,
+        GetLocalResourceObject("PINAME"),
+        piName
+        );
+      return groupId;
+    }
+
+    private string EncodeUDRCsForHiddenControl()
+    {
+      const string udrcStr = "{7}'ProductOfferingId':{0},'PriceableItemId':{1},'Value':'{2}','StartDate':'{3}','EndDate':'{4}','RecordId':'{5}','GroupId':'{6}'{8}";
+      const string recodrIdStr = "{0}_{1}_{2}_{3}";
+
+      if (CurrentQuote.UdrcValues.Count == 0)
+        return String.Empty;
+
+      var hiddenUdrcsValue = "[";
+      foreach (var udrc in CurrentQuote.UdrcValues)
+      {
+        var recordId = string.Format(
+          CultureInfo.CurrentCulture,
+          recodrIdStr,
+          udrc.ProductOfferingId,
+          udrc.UDRC_Id,
+          udrc.StartDate.ToString("d"),
+          udrc.EndDate.ToString("d")
+          );
+        var groupId = GetGroupId(udrc.ProductOfferingId, Convert.ToInt32(udrc.UDRC_Id));
+
+        hiddenUdrcsValue += string.Format(
+          CultureInfo.CurrentCulture,
+          udrcStr,
+          udrc.ProductOfferingId,
+          udrc.UDRC_Id,
+          Math.Round(udrc.Value, 2),
+          udrc.StartDate.ToString("d"),
+          udrc.EndDate.ToString("d"),
+          recordId,
+          groupId,
+          "{", "},");
+      }
+      hiddenUdrcsValue = hiddenUdrcsValue.Substring(0, hiddenUdrcsValue.Length - 1);
+
+      return hiddenUdrcsValue + "]";
+    }
+
+    #region PDF
+    private XDocument reportFormats = new XDocument();
+    private void ReportFormatConfigValidation()
+    {
+      if (reportFormats.Root != null)
+      {
+        foreach (XElement format in reportFormats.Root.Elements())
+        {
+          XAttribute formatType = format.Attribute("type");
+          XElement reportImage = format.Element("ReportImage");
+
+          if ((formatType == null) || (string.IsNullOrEmpty(formatType.Value)))
           {
-            CurrentQuoteId = Convert.ToInt32(Request["quoteId"]);
-            LoadQuote();
-            LoadQuoteToControls();
-            break;
+            throw new UIException(Resources.ErrorMessages.ERROR_REPORT_FORMAT);
           }
-        case "UPDATE":
+          if (reportImage == null)
           {
-            break;
+            throw new UIException(Resources.ErrorMessages.ERROR_REPORT_IMAGE);
           }
-        case "CLONE":
-          {
-            break;
-          }
+        }
       }
     }
+    private XDocument GetReportFormatConfigFile()
+    {
+      IMTRcd rcd = new MTRcd();
+      string reportFormatFile = String.Empty;
+
+      try
+      {
+        reportFormatFile = Path.Combine(rcd.ExtensionDir, @"MetraView\Config\ReportFormats.xml");
+        reportFormats = XDocument.Load(reportFormatFile);
+        ReportFormatConfigValidation();
+      }
+      catch (Exception exp)
+      {
+        throw new UIException(String.Format("{0} {1} Details:{2}", Resources.ErrorMessages.ERROR_REPORT_CONFIG, reportFormatFile, exp));
+      }
+      finally
+      {
+        Marshal.ReleaseComObject(rcd);
+      }
+      return reportFormats;
+    }
+
+    private string GetReportLink()
+    {
+      if (CurrentQuote.ReportLink == null)
+        return String.Empty;
+
+      List<ReportFile> reports;
+      var accId = CurrentQuote.Accounts.First();
+
+      using (var getReportsListClient = new StaticReportsServiceClient())
+      {
+        try
+        {
+          // ReSharper disable PossibleNullReferenceException
+          getReportsListClient.ClientCredentials.UserName.UserName = UI.User.UserName;
+          getReportsListClient.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+          getReportsListClient.GetReportsList(new AccountIdentifier(accId), -1, out reports);
+          // ReSharper restore PossibleNullReferenceException
+        }
+        catch (EndpointNotFoundException)
+        {
+          //Logger.LogWarning("Unable to get PDF reports. Not able to connect to reporting service. Was reporting extension installed?");
+          //Logger.LogWarning("error message was: {0}", Ex.Message);
+          return String.Empty;
+        }
+        catch (Exception exp)
+        {
+          Logger.LogException("Error getting PDF reports", exp);
+          return String.Empty;   // possibly no report server
+        }
+      }
+
+      if (reports.Count <= 0)
+        return String.Empty;
+
+      string fileName = String.Format(@"Quote_{1}", accId, CurrentQuote.IdQuote);  //todo read from quotingconfiguration
+      var reportFileNameForShowReports = String.Empty;
+      foreach (var report in reports.Where(report => report.FileName.Contains(fileName)))
+      {
+        reportFileNameForShowReports = report.FileName;
+        break;
+      }
+
+      if (String.IsNullOrEmpty(reportFileNameForShowReports))
+        return String.Empty;
+
+      string reportFormat = Path.GetExtension(reportFileNameForShowReports);
+      reportFormats = GetReportFormatConfigFile();
+
+      // ReSharper disable PossibleNullReferenceException
+      foreach (XElement format in reportFormats.Root.Elements().Where(format => format.Attribute("type").Value.Equals(reportFormat)))
+      {
+        return String.Format(
+          "<li><a href=\"ShowReports.aspx?report={0}&account={3}\"><img src='{1}'/>{4} {2}</a></li>",
+          Server.UrlEncode(reportFileNameForShowReports),
+          format.Element("ReportImage").Value,
+          CurrentQuote.IdQuote,
+          accId,
+          GetLocalResourceObject("REPORT_LINK_TEXT"));
+      }
+      // ReSharper restore PossibleNullReferenceException
+
+      return String.Empty;
+    }
+    #endregion
   }
 }

@@ -10,31 +10,31 @@
   <MT:MTPanel ID="MTPanelQuoteParameters" runat="server" Collapsible="True" Collapsed="False"
     meta:resourcekey="MTPanelQuoteParametersResource">
     <div id="leftColumn2" class="LeftColumn">
-      <MT:MTTextBoxControl ID="MTtbQuoteDescription" AllowBlank="True" Label="Quote Description"
-        LabelWidth="120" runat="server" />
-      <MT:MTTextBoxControl ID="MTtbQuoteIdentifier" AllowBlank="True" Label="Quote Identifier"
-        LabelWidth="120" runat="server" />
-      <MT:MTCheckBoxControl ID="MTcbPdf" BoxLabel="Generate PDF" runat="server" LabelWidth="120"
+      <MT:MTTextBoxControl ID="MTtbQuoteDescription" AllowBlank="True" 
+        LabelWidth="120" runat="server" meta:resourcekey="MTtbQuoteDescriptionResource" />
+      <MT:MTTextBoxControl ID="MTtbQuoteIdentifier" AllowBlank="True" LabelWidth="120" runat="server"
+       meta:resourcekey="MTtbQuoteIdentifierResource"/>
+      <MT:MTCheckBoxControl ID="MTcbPdf" runat="server" LabelWidth="120"
         meta:resourcekey="MTCheckBoxPdfResource" />
     </div>
     <div id="rightColumn2" class="RightColumn">
       <MT:MTDatePicker AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpStartDate"
         Label="Start date" LabelWidth="120" meta:resourcekey="dpStartDateResource1" ReadOnly="False"
         runat="server"></MT:MTDatePicker>
-      <MT:MTDatePicker AllowBlank="False" Enabled="True" HideLabel="False" ID="MTdpEndDate"
+      <MT:MTDatePicker AllowBlank="True" Enabled="True" HideLabel="False" ID="MTdpEndDate"
         Label="End date" LabelWidth="120" meta:resourcekey="dpEndDateResource1" ReadOnly="False"
         runat="server"></MT:MTDatePicker>
     </div>
   </MT:MTPanel>
   <MT:MTPanel ID="MTPanelQuoteAccounts" runat="server" Collapsible="True" Collapsed="False"
     meta:resourcekey="MTPanelQuoteAccountsResource">
-    <div id="PlaceHolderAccountsGrid" class="LeftColumn">     
+    <div id="PlaceHolderAccountsGrid" class="LeftColumn">
     </div>
     <div id="PlaceHolderProductOfferingsGrid" class="RightColumn">
     </div>
   </MT:MTPanel>
-  <MT:MTPanel ID="MTPanelUDRC" runat="server" Text="UDRC metrics for quote"
-    Collapsible="True" Collapsed="False" meta:resourcekey="MTPanelUDRCResource">
+  <MT:MTPanel ID="MTPanelUDRC" runat="server" Text="UDRC metrics for quote" Collapsible="True"
+    Collapsed="False" meta:resourcekey="MTPanelUDRCResource">
     <div id="PlaceHolderPIWithUDRCAllowedGrid" class="LeftColumn">
     </div>
     <div id="PlaceHolderUDRCGrid" class="RightColumn">
@@ -45,6 +45,41 @@
     <div id="PlaceHolderPIWithICBAllowedGrid" class="LeftColumn">
     </div>
     <div id="PlaceHolderICBGrid" class="RightColumn">
+    </div>
+  </MT:MTPanel>
+  <MT:MTPanel ID="MTPanelUDRCandICB" runat="server" Text="ICBs for quote" Collapsible="True"
+    Collapsed="False" meta:resourcekey="MTPanelUDRCandICBResource" Visible="false">
+    <div id="PlaceHolderUDRCGrid_ViewMode" class="LeftColumn">
+    </div>
+    <div id="PlaceHolderICBGrid_ViewMode" class="RightColumn">
+    </div>
+  </MT:MTPanel>
+  <MT:MTPanel ID="MTPanelResult" runat="server" Collapsible="True" Collapsed="False"
+    meta:resourcekey="MTPanelResult" Visible="False">
+    <div id="Div1" class="LeftColumn">
+      <MT:MTTextBoxControl ID="MTTextBoxControlStatus" AllowBlank="True" 
+        LabelWidth="100" meta:resourcekey="MTTextBoxControlStatusResource" runat="server" ReadOnly="True" />
+      <MT:MTTextBoxControl ID="MTTextBoxControlGroup" AllowBlank="True"
+        LabelWidth="100" meta:resourcekey="MTTextBoxControlGroupResource" runat="server" ReadOnly="True" />
+      <asp:HyperLink ID="ReportLink" runat="server">Report Link</asp:HyperLink>
+    </div>
+    <div id="Div2" class="RightColumn">
+        <MT:MTDatePicker AllowBlank="True" ReadOnly="True" HideLabel="False" ID="MTdpCreationDate"
+        Label="Creation date" LabelWidth="120" meta:resourcekey="MTdpCreationDateResource" 
+        runat="server"></MT:MTDatePicker>
+      <MT:MTTextBoxControl ID="MTTextBoxControlTotal" AllowBlank="True"
+        LabelWidth="100" meta:resourcekey="MTTextBoxControlTotalResource" runat="server" ReadOnly="True" />
+      <MT:MTTextBoxControl ID="MTTextBoxControlTax" AllowBlank="True"
+        LabelWidth="100" meta:resourcekey="MTTextBoxControlTotalTaxResource" runat="server" ReadOnly="True" />
+    </div>
+  </MT:MTPanel>
+  <MT:MTPanel ID="MTPanelLog" runat="server" Collapsible="True" Collapsed="True" meta:resourcekey="MTPanelLog"
+    Visible="False">
+    <div id="Div3" style="width: 100%; margin: auto;">
+      <MT:MTMessage ID="MTMessageFailed" runat="server" ScrollBars="Auto" WarningLevel="Error"
+        Width="720" />
+      <MT:MTMessage ID="MTMessageLog" runat="server" ScrollBars="Auto" WarningLevel="Info"
+        Width="720" />
     </div>
   </MT:MTPanel>
   <div class="x-panel-btns-ct">
@@ -61,6 +96,10 @@
                 OnClick="btnGenerateQuote_Click" TabIndex="150" meta:resourcekey="btnGenerateQuoteResource1" />
             </td>
             <td class="x-panel-btn-td">
+              <MT:MTButton ID="MTbtnConvertQuote" runat="server" OnClientClick="return getConvertApprove();"
+                OnClick="btnConvertQuote_Click" Visible="False" TabIndex="150" meta:resourcekey="btnConvertQuoteResource" />
+            </td>
+            <td class="x-panel-btn-td">
               <MT:MTButton ID="MTbtnCancel" runat="server" OnClick="btnCancel_Click" CausesValidation="False"
                 TabIndex="160" meta:resourcekey="MTbtnCancelResource1" />
             </td>
@@ -74,30 +113,62 @@
   <input id="HiddenPoIdTextBox" runat="server" type="hidden" />
   <input id="HiddenAccounts" runat="server" type="hidden" />
   <input id="HiddenPos" runat="server" type="hidden" />
+  <input id="HiddenPis" runat="server" type="hidden" />
   <input id="HiddenUDRCs" runat="server" type="hidden" />
-  <input id="HiddenPiUDRC" runat="server" type="hidden" />
   <input id="HiddenICBs" runat="server" type="hidden" />
-  <input id="HiddenPiICB" runat="server" type="hidden" />
-  <input ID="MTCheckBoxIsGroupSubscription" runat="server" type="hidden" value="false" />
-
-   <%-- General--%>
+  <input id="MTCheckBoxIsGroupSubscription" runat="server" type="hidden" value="false" />
+  <%-- General--%>
   <script language="javascript" type="text/javascript">
 
+  function getConvertApprove()
+  {                
+      return confirm('<%=GetGlobalResourceObject("JSConsts", "TEXT_CONVERT_MESSAGE")%>');        
+  }
+
     var GRID_HEIGHT = 300;
-    var ACTIONS_COLUMN_HEIGHT = 40;
-    var NAME_COLUMN_HEIGHT = 210;
+    var ACTIONS_COLUMN_HEIGHT = 25;
+    var NAME_COLUMN_HEIGHT = 225;
     var isViewMode = <%=IsViewMode.ToString().ToLower()%>;
 
+    var piRecord = Ext.data.Record.create([// creates a subclass of Ext.data.Record
+      {name: 'ProductOfferingId' },
+      { name: 'ProductOfferingName' },
+      { name: 'PriceableItemId' },
+      { name: 'Name' },
+      { name: 'DisplayName' },
+      { name: 'PIKind' },
+      { name: 'PICanICB' },
+      { name: 'RecordId' }
+    ]);
+    
     Ext.onReady(function () {
       accountGrid.render(window.Ext.get('PlaceHolderAccountsGrid'));
       poGrid.render(window.Ext.get('PlaceHolderProductOfferingsGrid'));
-
+      //UDRCgrid.render(window.Ext.get('PlaceHolderUDRCMetricsGrid'));
+      if(isViewMode)
+      {
+      icbGrid.render(window.Ext.get('PlaceHolderICBGrid_ViewMode'));
+      udrcGrid.render(window.Ext.get('PlaceHolderUDRCGrid_ViewMode'));
+      }
+      else
+      if(window.Ext.get('PlaceHolderPIWithICBAllowedGrid')!=null)
+      {
       piWithAllowIcbGrid.render(window.Ext.get('PlaceHolderPIWithICBAllowedGrid'));
       icbGrid.render(window.Ext.get('PlaceHolderICBGrid'));
-
+      }
+      if(window.Ext.get('PlaceHolderPIWithUDRCAllowedGrid')!=null)
+      {
       piWithAllowUDRCGrid.render(window.Ext.get('PlaceHolderPIWithUDRCAllowedGrid'));
       udrcGrid.render(window.Ext.get('PlaceHolderUDRCGrid'));
+      }
     });
+
+    //    function loadFromPostback(hidden, store, data, dataDetails) {
+    //      var hiddenItems = window.Ext.get(hidden).dom;
+    //      if (hiddenItems.value.length > 0)
+    //        dataDetails = window.Ext.decode(hiddenItems.value);
+    //      store.loadData(data);
+    //    }
 
     window.onload = function () {
       var hiddenAccounts = window.Ext.get("<%=HiddenAccounts.ClientID %>").dom;
@@ -105,29 +176,28 @@
         accountData.accounts = window.Ext.decode(hiddenAccounts.value);
       window.accountStore.loadData(accountData);
 
+      //loadFromPostback("<%=HiddenAccounts.ClientID %>", window.accountStore, accountData, accountData.accounts);
+
       var hiddenPos = window.Ext.get("<%=HiddenPos.ClientID %>").dom;
       if (hiddenPos.value.length > 0)
         poData.pos = window.Ext.decode(hiddenPos.value);
       window.poStore.loadData(poData);
 
-      var hiddenPiUDRCs = window.Ext.get("<%=HiddenPiUDRC.ClientID %>").dom;
-      if (hiddenPiUDRCs.value.length > 0)
-        piUDRCData.piUDRC = window.Ext.decode(hiddenPiUDRCs.value);
-      addItemToPIs(piUDRCData.piUDRC);
-
-      var hiddenPiICBs = window.Ext.get("<%=HiddenPiICB.ClientID %>").dom;
-      if (hiddenPiICBs.value.length > 0)
-        piWithAllowIcbData.pisWithAllowIcb = window.Ext.decode(hiddenPiICBs.value);
-      addItemToPIs(piWithAllowIcbData.pisWithAllowIcb);
+      var hiddenPi = window.Ext.get("<%=HiddenPis.ClientID %>").dom;
+      if (hiddenPi.value.length > 0)
+        piData.pi = window.Ext.decode(hiddenPi.value);      
+      addItemToPIs(piData.pi);
 
       var hiddenUDRCs = window.Ext.get("<%=HiddenUDRCs.ClientID %>").dom;
       if (hiddenUDRCs.value.length > 0)
         udrcData.UDRCs = window.Ext.decode(hiddenUDRCs.value);
+      //window.udrcStore.loadData(udrcData);
       addUDRCs(udrcData.UDRCs);
 
       var hiddenICBs = window.Ext.get("<%=HiddenICBs.ClientID %>").dom;
       if (hiddenICBs.value.length > 0)
         icbData.icbs = window.Ext.decode(hiddenICBs.value);
+      //window.icbStore.loadData(icbData);
       addICBs(icbData.icbs);
 
       if (window.Ext.get("<%=MTCheckBoxIsGroupSubscription.ClientID %>").dom.value == "true")
@@ -135,7 +205,7 @@
     };
 
     function getDataGrids() {
-      var result = getAccountIds() && getPoIds() && getUDRCpis() && getICBpis() && getUDRCs() && getICBs();
+      var result = getAccountIds() && getPoIds() && getUDRCs() && getICBs();
       if (result) {
         var btnOk = window.Ext.getCmp('ctl00_ContentPlaceHolder1_MTbtnGenerateQuote');
         btnOk.setDisabled(true);
@@ -155,7 +225,6 @@
       addItemToPIs(response.items);
     }
   </script>
-
   <%-- Account Grid--%>
   <script language="javascript" type="text/javascript">
     var accountData = { accounts: [] };
@@ -173,21 +242,21 @@
       ]
     });
 
-    var accountToolBarElements = [
-      '->',
-      { xtype: 'checkbox', id: 'IsGroupSubscription', boxLabel: '<%=GetLocalResourceObject("ISGROUP.BoxLabel")%>', handler: onGroupSubscriptionCheck, disabled: isViewMode },
-      { xtype: 'tbspacer', width: 50}];
-    if (!isViewMode)
-      accountToolBarElements.unshift({ iconCls: 'add', id: 'Add', text: '<%=GetLocalResourceObject("SELECT_ACCOUNTS")%>', handler: onAccountAdd });
-    
-    var accountToolBar = new Ext.Toolbar(accountToolBarElements);
+    var accountToolBar = null;
+    if (!isViewMode) {
+      accountToolBar = new Ext.Toolbar([
+        { iconCls: 'add', id: 'Add', text: '<%=GetLocalResourceObject("SELECT_ACCOUNTS")%>', handler: onAccountAdd },
+    '->',
+    { xtype: 'checkbox', id: 'IsGroupSubscription', boxLabel: '<%=GetLocalResourceObject("ISGROUP.BoxLabel")%>', handler: onGroupSubscriptionCheck },
+    { xtype: 'tbspacer', width: 50}]);
+    }
 
     // create the Grid
     var textUserName = '<%=GetLocalResourceObject("USERNAME")%>';
     var textIsGroup = '<%=GetLocalResourceObject("ISGROUP")%>';
-    var textAccountActions = '<%=GetLocalResourceObject("ACTIONS")%>';
+    var textAccountActions = ''; //'<%=GetLocalResourceObject("ACTIONS")%>';
     var textAccountGridTitle = '<%=GetLocalResourceObject("GRID_TITLE")%>';
-    
+
     var accountColumns = [
       { id: '_AccountID', header: textUserName, width: 225, sortable: true, renderer: usernameRenderer, dataIndex: '_AccountID' },
       { header: textIsGroup, width: 50, sortable: false, dataIndex: 'IsGroup', renderer: isGroupSubscriptionRenderer }
@@ -306,7 +375,17 @@
         if (records[i].data.IsGroup == "1")
           gid = records[i].data._AccountID;
       }
-
+      
+      if (accountToolBar.items.get('IsGroupSubscription').checked && gid.length == 0) {
+        window.Ext.Msg.show({
+          title: window.TEXT_ERROR,
+          msg: '<%=GetLocalResourceObject("TEXT_ISGROUP_CHEKED")%>',
+          buttons: window.Ext.Msg.OK,
+          icon: window.Ext.MessageBox.ERROR
+        });
+        return false;
+      }
+        
       window.Ext.get("<%=HiddenAccountIds.ClientID %>").dom.value = ids;
       window.Ext.get("<%=HiddenGroupId.ClientID %>").dom.value = gid;
       window.Ext.get("<%=HiddenAccounts.ClientID %>").dom.value = accountData.accounts.length > 0 ? window.Ext.encode(accountData.accounts) : "";
@@ -314,12 +393,9 @@
       return true;
     }
   </script>
-
   <%-- Product Offering Grid--%>
   <script language="javascript" type="text/javascript">
     var poData = { pos: [] };
-
-    // create the data store
     var poStore = new Ext.data.JsonStore({
       root: 'pos',
       fields: [
@@ -328,22 +404,33 @@
       ]
     });
     poStore.loadData(poData);
-    
+
+    var piData = { pi: [] };
+
+    var piStore = new Ext.data.GroupingStore({
+      root: 'piUDRC',
+      fields: piRecord,
+      groupField: 'ProductOfferingName'
+    });
+
+    var textSelectPos = '<%=GetLocalResourceObject("SELECT_POS")%>';
+    var poToolBar = new Ext.Toolbar([{ iconCls: 'add', id: 'Add', text: textSelectPos, handler: onPoAdd}]);
+
     // create the Grid
     var textPoId = '<%=GetLocalResourceObject("POID")%>';
     var textPoName = '<%=GetLocalResourceObject("PONAME")%>';
-    var textPoAction = '<%=GetLocalResourceObject("ACTIONS")%>';
+    var textPoAction = ''; //'<%=GetLocalResourceObject("ACTIONS")%>';
     var textPoGridTitle = '<%=GetLocalResourceObject("PO_GRID_TITLE")%>';
-    
+
     var poColumns = [
       { id: 'ProductOfferingId', header: textPoId, hidden: true, dataIndex: 'ProductOfferingId' },
-      { header: textPoName, width: NAME_COLUMN_HEIGHT, sortable: true, dataIndex: 'Name' }
+      { header: textPoName, width: NAME_COLUMN_HEIGHT + 40, sortable: true, dataIndex: 'Name' }
     ];
     if (!isViewMode)
       poColumns.push({ header: textPoAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: poActionsRenderer });
 
     var poToolBar = isViewMode ? null : new Ext.Toolbar([{ iconCls: 'add', id: 'Add', text: '<%=GetLocalResourceObject("SELECT_POS")%>', handler: onPoAdd}]);
-    
+
     var poGrid = new Ext.grid.EditorGridPanel({
       ds: poStore,
       columns: poColumns,
@@ -370,6 +457,44 @@
       }
       window.CallServer(JSON.stringify({ poIds: poData.poIds }));
       poSelectorWin2.hide();
+    }
+
+    function addItemToPIs(items) {
+      for (var i = 0; i < items.length; i++) {
+        var piId = items[i].PriceableItemId;
+        var poId = items[i].ProductOfferingId;
+        var poName = poStore.getAt(poStore.find('ProductOfferingId', poId)).data.Name;
+        var recordId = piId + '_' + poId;
+        var piKind = items[i].PIKind;
+        var piCanIcb = items[i].PICanICB;
+
+        var myNewRecord = new piRecord({
+          ProductOfferingId: poId,
+          ProductOfferingName: poName,
+          PriceableItemId: piId,
+          Name: items[i].Name,
+          DisplayName: items[i].DisplayName,
+          PIKind: piKind,
+          PICanICB: piCanIcb,
+          RecordId: recordId
+        });
+
+        piStore.add(myNewRecord);
+
+        if ((piKind == 25) || (piKind == 'UnitDependentRecurring')) { //UDRC pi
+          var found1 = piUDRCStore.find('RecordId', recordId);
+          if (found1 == -1) {
+            piUDRCStore.add(myNewRecord);
+          }
+        }
+
+        if (piCanIcb == 'Y') {
+          var found2 = piWithAllowIcbStore.find('RecordId', recordId);
+          if (found2 == -1) {
+            piWithAllowIcbStore.add(myNewRecord);
+          }
+        }
+      }
     }
 
     //add account button handler
@@ -401,7 +526,7 @@
         if (piUDRCStore.data.items[i].data.ProductOfferingId == poId)
           piUDRCStore.remove(piUDRCStore.getAt(i));
       }
-      
+
       n = udrcStore.data.length;
       for (i = n - 1; i >= 0; i--) {
         if (udrcStore.data.items[i].data.ProductOfferingId == poId)
@@ -412,6 +537,12 @@
       for (i = n - 1; i >= 0; i--) {
         if (icbStore.data.items[i].data.ProductOfferingId == poId)
           icbStore.remove(icbStore.getAt(i));
+      }
+
+      n = piStore.data.length;
+      for (i = n - 1; i >= 0; i--) {
+        if (piStore.data.items[i].data.ProductOfferingId == poId)
+          piStore.remove(piStore.getAt(i));
       }
     }
 
@@ -437,8 +568,14 @@
         ids += records[i].data.ProductOfferingId;
       }
 
+      records = piStore.data.items;
+      piData.pi.length = 0;
+      for (var i = 0; i < records.length; i++)
+        piData.pi.push(records[i].data);
+
       window.Ext.get("<%=HiddenPoIdTextBox.ClientID %>").dom.value = ids;
       window.Ext.get("<%=HiddenPos.ClientID %>").dom.value = poData.pos.length > 0 ? window.Ext.encode(poData.pos) : "";
+      window.Ext.get("<%=HiddenPis.ClientID %>").dom.value = piData.pi.length > 0 ? window.Ext.encode(piData.pi) : "";
       return true;
     }
 
@@ -475,83 +612,23 @@
       });
     }
   </script>
-
   <%--UDRC PI Grid--%>
   <script language="javascript" type="text/javascript">
     var piUDRCData = { piUDRC: [] };
 
-    var PiRecord = Ext.data.Record.create([// creates a subclass of Ext.data.Record
-      {name: 'ProductOfferingId' },
-      { name: 'ProductOfferingName' },
-      { name: 'PriceableItemId' },
-      { name: 'Name' },
-      { name: 'DisplayName' },
-      { name: 'Description' },
-      { name: 'PIKind' },
-      { name: 'PICanICB' },
-      { name: 'RecordId' }
-    ]);
-
     // create the data store
     var piUDRCStore = new Ext.data.GroupingStore({
       root: 'piUDRC',
-      fields: [
-        { name: 'ProductOfferingId' },
-        { name: 'ProductOfferingName' },
-        { name: 'PriceableItemId' },
-        { name: 'Name' },
-        { name: 'DisplayName' },
-        { name: 'Description' },
-        { name: 'PIKind' },
-        { name: 'PICanICB' },
-        { name: 'RecordId' }        
-      ],
+      fields: piRecord.fields,
       groupField: 'ProductOfferingName'
     });
-
-    function addItemToPIs(items) {
-      for (var i = 0; i < items.length; i++) {
-        var piId = items[i].PriceableItemId;
-        var poId = items[i].ProductOfferingId;
-        var poName = poStore.getAt(poStore.find('ProductOfferingId', poId)).data.Name;
-        var recordId = piId + '-' + poId;
-        var piKind = items[i].PIKind;
-        var piCanIcb = items[i].PICanICB;
-
-        var myNewRecord = new PiRecord({
-          ProductOfferingId: poId,
-          ProductOfferingName: poName,
-          PriceableItemId: piId,
-          Name: items[i].Name,
-          DisplayName: items[i].DisplayName,
-          Description: items[i].Description,
-          PIKind: piKind,
-          PICanICB: piCanIcb,
-          RecordId: recordId
-        });
-
-        if (piKind == 25) { //UDRC pi
-          var found1 = piUDRCStore.find('RecordId', recordId);
-          if (found1 == -1) {
-            piUDRCStore.add(myNewRecord);
-          }
-        }
-
-        if (piCanIcb == 'Y') {
-          var found2 = piWithAllowIcbStore.find('RecordId', recordId);
-          if (found2 == -1) {
-            piWithAllowIcbStore.add(myNewRecord);
-          }
-        }
-      }
-    }
 
     // create the Grid
     var textPoId = '<%=GetLocalResourceObject("POID")%>';
     var textPiId = '<%=GetLocalResourceObject("PIID")%>';
     var textPoName = '<%=GetLocalResourceObject("PONAME")%>';
     var textPiName = '<%=GetLocalResourceObject("PINAME")%>';
-    var textPiWithUDRCAction = '<%=GetLocalResourceObject("ACTIONS")%>';
+    var textPiWithUDRCAction = ''; //'<%=GetLocalResourceObject("ACTIONS")%>';
     var textPiWithUDRCGridTitle = '<%=GetLocalResourceObject("UDRC_PI_GRID_TITLE")%>';
 
     var piWithAllowUDRCColumns = [
@@ -560,7 +637,7 @@
     ];
     if (!isViewMode)
       piWithAllowUDRCColumns.push({ header: textPiWithUDRCAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: piWithAllowUDRCActionsRenderer });
-    
+
     var piWithAllowUDRCGrid = new Ext.grid.GridPanel({
       ds: piUDRCStore,
       columns: piWithAllowUDRCColumns,
@@ -584,12 +661,15 @@
             "<a style='cursor:hand;' id='addUDRC_{0}_{1}' title='{2}' href='JavaScript:addUDRC({0},{1});'><img src='/Res/Images/icons/coins_add.png' alt='{2}' /></a>",
             record.data.ProductOfferingId, record.data.PriceableItemId, textUDRCAdd);
       return str;
-    }   
+    }
 
     var form_addUDRC = new Ext.form.FormPanel();
     var AddUDRCWindow = new Ext.Window();
 
     function addUDRC(poId, piId) {
+
+      if (AddUDRCWindow.rendered)
+        return;
 
       form_addUDRC = new Ext.form.FormPanel();
       AddUDRCWindow = new Ext.Window();
@@ -612,7 +692,7 @@
           value: poName,
           allowBlank: false,
           anchor: '100%'
-          },
+        },
           {
             xtype: 'hidden',
             hideLabel: true,
@@ -636,19 +716,19 @@
             name: 'form_addUDRC_PIId',
             value: piId
           },
-          //////////
+        //////////
           {
-            xtype: 'numberfield',
-            allowDecimals: true,
-            allowBlank: false,
-            allowNegative: false,
-            fieldLabel: '<%=GetLocalResourceObject("TEXT_VALUE")%>',
-            id: 'form_addUDRC_Value',
-            name: 'form_addUDRC_Value',
-            anchor: '100%',
-            value: 0,
-            tabIndex: 0
-          },
+          xtype: 'numberfield',
+          allowDecimals: true,
+          allowBlank: false,
+          allowNegative: false,
+          fieldLabel: '<%=GetLocalResourceObject("TEXT_VALUE")%>',
+          id: 'form_addUDRC_Value',
+          name: 'form_addUDRC_Value',
+          anchor: '100%',
+          value: 0,
+          tabIndex: 0
+        },
           {
             xtype: 'datefield',
             fieldLabel: '<%=GetLocalResourceObject("TEXT_START_DATE")%>',
@@ -657,21 +737,21 @@
             //value: '%%MIN_DATE%%', 
             id: 'form_addUDRC_StartDate',
             name: 'form_addUDRC_StartDate',
-            allowBlank:true,
+            allowBlank: true,
             //disabled:%%FIRST_ITEM%%,
-            anchor:'100%'
+            anchor: '100%'
           },
           {
             xtype: 'datefield',
             fieldLabel: '<%=GetLocalResourceObject("TEXT_END_DATE")%>',
             //format:DATE_FORMAT,
-            altFormats:DATE_TIME_FORMAT,
+            altFormats: DATE_TIME_FORMAT,
             //value: '%%MAX_DATE%%', 
             id: 'form_addUDRC_EndDate',
             name: 'form_addUDRC_EndDate',
-            allowBlank:true,
+            allowBlank: true,
             //disabled:%%FIRST_ITEM%%,
-            anchor: '100%'  
+            anchor: '100%'
           }]
       });
 
@@ -692,9 +772,9 @@
         closeAction: 'close',
 
         buttons: [{
-                    text: '<%=GetLocalResourceObject("TEXT_OK")%>',
-                    handler: onOK_AddUDRC
-                  },
+          text: '<%=GetLocalResourceObject("TEXT_OK")%>',
+          handler: onOK_AddUDRC
+        },
                   {
                     text: '<%=GetLocalResourceObject("TEXT_CANCEL")%>',
                     handler: onCancel_AddUDRC
@@ -750,6 +830,7 @@
             udrcStore.add(newUDRCRecord);
 
             AddUDRCWindow.destroy();
+            AddUDRCWindow.rendered = false;
           }
         }
       }
@@ -758,42 +839,16 @@
     function onCancel_AddUDRC() {
       form_addUDRC.getForm().reset({});
       AddUDRCWindow.destroy();
-    }
-
-    function getUDRCpis() {
-      var records = piUDRCStore.data.items;
-      piUDRCData.piUDRC.length = 0;
-
-      for (var i = 0; i < records.length; i++)
-        piUDRCData.piUDRC.push(records[i].data);
-
-      window.Ext.get("<%=HiddenPiUDRC.ClientID %>").dom.value = piUDRCData.piUDRC.length > 0 ? window.Ext.encode(piUDRCData.piUDRC) : "";
-      return true;
+      AddUDRCWindow.rendered = false;
     }
 
   </script>
-
   <%-- UDRC Grid--%>
   <script language="javascript" type="text/javascript">
     var udrcData = { UDRCs: [] };
 
-    // create the data store
-    var udrcStore = new Ext.data.GroupingStore({
-      root: 'UDRCs',
-      fields: [
-        { name: 'PriceableItemId' },
-        { name: 'ProductOfferingId' },
-        { name: 'Value' },
-        { name: 'StartDate' },
-        { name: 'EndDate' },
-        { name: 'RecordId' },
-        { name: 'GroupId' }
-      ],
-      groupField: 'GroupId'
-    });
-
     var udrcRecord = Ext.data.Record.create([// creates a subclass of Ext.data.Record
-        { name: 'PriceableItemId' },
+        {name: 'PriceableItemId' },
         { name: 'ProductOfferingId' },
         { name: 'Value' },
         { name: 'StartDate' },
@@ -802,8 +857,15 @@
         { name: 'GroupId' }
     ]);
 
+    // create the data store
+    var udrcStore = new Ext.data.GroupingStore({
+      root: 'UDRCs',
+      fields: udrcRecord.fields,
+      groupField: 'GroupId'
+    });
+
     function addUDRCs(items) {
-      for (var i = 0; i < items.length; i++) {        
+      for (var i = 0; i < items.length; i++) {
         var myNewRecord = new udrcRecord({
           ProductOfferingId: items[i].ProductOfferingId,
           PriceableItemId: items[i].PriceableItemId,
@@ -814,8 +876,8 @@
           GroupId: items[i].GroupId
         });
         udrcStore.add(myNewRecord);
-        }
       }
+    }
 
     // create the Grid
     var textPoId = '<%=GetLocalResourceObject("POID")%>';
@@ -823,7 +885,7 @@
     var textValue = '<%=GetLocalResourceObject("TEXT_VALUE")%>';
     var textStartDate = '<%=GetLocalResourceObject("TEXT_START_DATE")%>';
     var textEndDate = '<%=GetLocalResourceObject("TEXT_END_DATE")%>';
-    var textUDRCAction = '<%=GetLocalResourceObject("ACTIONS")%>';
+    var textUDRCAction = ''; //'<%=GetLocalResourceObject("ACTIONS")%>';
     var textUDRCGridTitle = '<%=GetLocalResourceObject("UDRC_GRID_TITLE")%>';
 
     var udrcColumns = [
@@ -864,23 +926,21 @@
     }
 
     function getUDRCs() {
-      var records = udrcStore.data.items;
 
       var recordsUDRCPi = piUDRCStore.data.items;
       var isAllUDRCSet = true;
-      for (var i = 0; i < recordsUDRCPi.length; i++)
-        {
-          var idx = udrcStore.find('ProductOfferingId', recordsUDRCPi[i].data.ProductOfferingId);
-          if (idx == -1) {
-            isAllUDRCSet = false;
-            break; 
-          }
-          idx = udrcStore.find('PriceableItemId', recordsUDRCPi[i].data.PriceableItemId);
-          if (idx == -1) {
-            isAllUDRCSet = false;
-            break;
-          }
+      for (var i = 0; i < recordsUDRCPi.length; i++) {
+        var idx = udrcStore.find('ProductOfferingId', recordsUDRCPi[i].data.ProductOfferingId);
+        if (idx == -1) {
+          isAllUDRCSet = false;
+          break;
         }
+        idx = udrcStore.find('PriceableItemId', recordsUDRCPi[i].data.PriceableItemId);
+        if (idx == -1) {
+          isAllUDRCSet = false;
+          break;
+        }
+      }
 
       if (!isAllUDRCSet) {
         window.Ext.Msg.show({
@@ -901,7 +961,6 @@
       return true;
     }
   </script>
-
   <%-- PI With Allow ICB Grid--%>
   <script language="javascript" type="text/javascript">
     var piWithAllowIcbData = { pisWithAllowIcb: [] };
@@ -909,16 +968,7 @@
     // create the data store
     var piWithAllowIcbStore = new Ext.data.GroupingStore({
       root: 'pisWithAllowIcb',
-      fields: [
-        { name: 'ProductOfferingId' },
-        { name: 'ProductOfferingName' },
-        { name: 'PriceableItemId' },
-        { name: 'Name' },
-        { name: 'DisplayName' },
-        { name: 'Description' },
-        { name: 'PIKind' },
-        { name: 'RecordId' }
-      ],
+      fields: piRecord.fields,
       groupField: 'ProductOfferingName'
     });
 
@@ -927,7 +977,7 @@
     var textPiId = '<%=GetLocalResourceObject("PIID")%>';
     var textPoName = '<%=GetLocalResourceObject("PONAME")%>';
     var textPiName = '<%=GetLocalResourceObject("PINAME")%>';
-    var textPiWithICBAction = '<%=GetLocalResourceObject("ACTIONS")%>';
+    var textPiWithICBAction = ''; //'<%=GetLocalResourceObject("ACTIONS")%>';
     var textPiWithICBGridTitle = '<%=GetLocalResourceObject("ICB_PI_GRID_TITLE")%>';
 
     var piWithAllowIcbColumns = [
@@ -967,6 +1017,9 @@
 
     function addICB(poId, piId) {
 
+      if (AddICBWindow.rendered)
+        return;
+
       form_addICB = new Ext.form.FormPanel();
       AddICBWindow = new Ext.Window();
 
@@ -984,14 +1037,14 @@
         defaultType: 'textfield',
 
         items: [{
-                  readOnly: true,
-                  fieldLabel: '<%=GetLocalResourceObject("PONAME")%>',
-                  id: 'form_addICB_POName',
-                  name: 'form_addICB_POName',
-                  value: poName,
-                  allowBlank: false,
-                  anchor: '100%'
-                },
+          readOnly: true,
+          fieldLabel: '<%=GetLocalResourceObject("PONAME")%>',
+          id: 'form_addICB_POName',
+          name: 'form_addICB_POName',
+          value: poName,
+          allowBlank: false,
+          anchor: '100%'
+        },
                 {
                   xtype: 'hidden',
                   hideLabel: true,
@@ -1014,8 +1067,15 @@
                   id: 'form_addICB_PIId',
                   name: 'form_addICB_PIId',
                   value: piId
+                },
+                {
+                  xtype: 'hidden',
+                  hideLabel: true,
+                  id: 'form_addICB_PIKind',
+                  name: 'form_addICB_PIKind',
+                  value: piKind
                 }]
-              });
+      });
 
       if (isUDRC) {
         form_addICB.items.add(new Ext.form.NumberField({
@@ -1053,7 +1113,7 @@
           value: 0,
           tabIndex: 3
         }));
-      } 
+      }
       else {
         form_addICB.items.add(new Ext.form.NumberField({
           allowDecimals: true,
@@ -1123,7 +1183,9 @@
         var price = 0;
         if (priceComp != undefined)
           price = priceComp.value;
-        
+
+          var pIKind = form_addICB.items.get('form_addICB_PIKind').value
+
         var recordId = form_addICB.items.get('form_addICB_POId').value + "_" +
               form_addICB.items.get('form_addICB_PIId').value + "_" +
               price + "_" +
@@ -1138,13 +1200,14 @@
 
         var found = icbStore.find('RecordId', recordId);
         if (found == -1) {
-          var newICBRecord = new IcbRecord({
+          var newICBRecord = new icbRecord({
             ProductOfferingId: form_addICB.items.get('form_addICB_POId').value,
             PriceableItemId: form_addICB.items.get('form_addICB_PIId').value,
             Price: price,
             UnitValue: unitValue,
             UnitAmount: unitAmount,
             BaseAmount: baseAmount,
+            PIKind: pIKind,
             RecordId: recordId,
             GroupId: groupId
           });
@@ -1152,6 +1215,7 @@
           icbStore.add(newICBRecord);
 
           AddICBWindow.destroy();
+          AddICBWindow.rendered = false;
         }
       }
     }
@@ -1159,61 +1223,43 @@
     function onCancel_AddICB() {
       form_addICB.getForm().reset({});
       AddICBWindow.destroy();
-    }
-
-    function getICBpis() {
-      var records = piWithAllowIcbStore.data.items;
-      piWithAllowIcbData.pisWithAllowIcb.length = 0;
-
-      for (var i = 0; i < records.length; i++)
-        piWithAllowIcbData.pisWithAllowIcb.push(records[i].data);
-
-      window.Ext.get("<%=HiddenPiICB.ClientID %>").dom.value = piWithAllowIcbData.pisWithAllowIcb.length > 0 ? window.Ext.encode(piWithAllowIcbData.pisWithAllowIcb) : "";
-      return true;
+      AddICBWindow.rendered = false;
     }
 
   </script>
-
   <%-- ICB Grid--%>
   <script language="javascript" type="text/javascript">
     var icbData = { icbs: [] };
 
-    // create the data store
-    var icbStore = new Ext.data.GroupingStore({
-      root: 'icbs',
-      fields: [
-        { name: 'PriceableItemId' },
+    var icbRecord = Ext.data.Record.create([ // creates a subclass of Ext.data.Record
+        {name: 'PriceableItemId' },
         { name: 'ProductOfferingId' },
         { name: 'Price' },
         { name: 'UnitValue' },
         { name: 'UnitAmount' },
         { name: 'BaseAmount' },
-        { name: 'RecordId' },
-        { name: 'GroupId' }
-      ],
-      groupField: 'GroupId'
-    });
-
-    var IcbRecord = Ext.data.Record.create([ // creates a subclass of Ext.data.Record
-        { name: 'PriceableItemId' },
-        { name: 'ProductOfferingId' },
-        { name: 'Price' },
-        { name: 'UnitValue' },
-        { name: 'UnitAmount' },
-        { name: 'BaseAmount' },
+        { name: 'PIKind' },
         { name: 'RecordId' },
         { name: 'GroupId' }
     ]);
 
+    // create the data store
+    var icbStore = new Ext.data.GroupingStore({
+      root: 'icbs',
+      fields: icbRecord.fields,
+      groupField: 'GroupId'
+    });
+
     function addICBs(items) {
       for (var i = 0; i < items.length; i++) {
-        var myNewRecord = new IcbRecord({
+        var myNewRecord = new icbRecord({
           PriceableItemId: items[i].PriceableItemId,
           ProductOfferingId: items[i].ProductOfferingId,
           Price: items[i].Price,
           UnitValue: items[i].UnitValue,
           UnitAmount: items[i].UnitAmount,
           BaseAmount: items[i].BaseAmount,
+          PIKind: items[i].PIKind,
           RecordId: items[i].RecordId,
           GroupId: items[i].GroupId
         });
@@ -1228,15 +1274,15 @@
     var textUnitValue = '<%=GetLocalResourceObject("UNIT_VALUE")%>';
     var textUnitAmount = '<%=GetLocalResourceObject("UNIT_AMOUNT")%>';
     var textBaseAmount = '<%=GetLocalResourceObject("BASE_AMOUNT")%>';
-    var textICBAction = '<%=GetLocalResourceObject("ACTIONS")%>';
+    var textICBAction = ''; // '<%=GetLocalResourceObject("ACTIONS")%>';
     var textICBGridTitle = '<%=GetLocalResourceObject("ICB_GRID_TITLE")%>';
 
     var icbColumns = [
       { header: ' ', hidden: true, dataIndex: 'GroupId' },
-      { header: textPrice, width: 70, sortable: true, dataIndex: 'Price' },
+      { header: textPrice, width: 55, sortable: true, dataIndex: 'Price' },
       { header: textUnitValue, width: 70, sortable: true, dataIndex: 'UnitValue' },
-      { header: textUnitAmount, width: 70, sortable: true, dataIndex: 'UnitAmount' },
-      { header: textBaseAmount, width: 70, sortable: true, dataIndex: 'BaseAmount' }
+      { header: textUnitAmount, width: 80, sortable: true, dataIndex: 'UnitAmount' },
+      { header: textBaseAmount, width: 85, sortable: true, dataIndex: 'BaseAmount' }
     ];
     if (!isViewMode)
       icbColumns.push({ header: textICBAction, width: ACTIONS_COLUMN_HEIGHT, sortable: false, dataIndex: '', renderer: IcbActionsRenderer });
@@ -1275,10 +1321,10 @@
       if (accountToolBar.items.get('IsGroupSubscription').checked && records.length > 0) {
         var res = confirm('<%=GetLocalResourceObject("ICB_GROUP_CONFIRM")%>');
         return res == true ? readICBs(records) : false;
-      } 
+      }
       return readICBs(records);
     }
-    
+
     function readICBs(records) {
       icbData.icbs.length = 0;
       for (var i = 0; i < records.length; i++)
@@ -1288,5 +1334,4 @@
       return true;
     }
   </script>
-
 </asp:Content>

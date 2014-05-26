@@ -135,6 +135,9 @@
   <data name="MTCheckBoxPdfResource.Text" xml:space="preserve">
     <value>Generate PDF report</value>
   </data>
+  <data name="MTCheckBoxPdfResource.BoxLabel" xml:space="preserve">
+    <value>Generate PDF report</value>
+  </data>
   <data name="MTTextBoxControlQuoteDescriptionResource.Text" xml:space="preserve">
     <value>Quote Description</value>
   </data>
@@ -263,5 +266,50 @@
   </data>
   <data name="ICB_GROUP_CONFIRM" xml:space="preserve">
     <value>ICB for group subscriptions will not be applied (current limitation)</value>
+  </data>
+  <data name="btnConvertQuoteResource.Text" xml:space="preserve">
+    <value>Convert to Subscription</value>
+  </data>
+  <data name="MTPanelLog.Text" xml:space="preserve">
+    <value>Quote Log / Failed Message</value>
+  </data>
+  <data name="MTPanelResult.Text" xml:space="preserve">
+    <value>Quote Details</value>
+  </data>
+  <data name="QuoteFailed.Label" xml:space="preserve">
+    <value>Failed Message</value>
+  </data>
+  <data name="QuoteLog.Label" xml:space="preserve">
+    <value>Quote Log</value>
+  </data>
+  <data name="MTPanelUDRCandICBResource.Text" xml:space="preserve">
+    <value>UDRC metrics and ICBs</value>
+  </data>
+  <data name="MTdpCreationDateResource.Label" xml:space="preserve">
+    <value>Creation Date</value>
+  </data>
+  <data name="MTTextBoxControlStatusResource.Label" xml:space="preserve">
+    <value>Quote Status</value>
+  </data>
+  <data name="MTTextBoxControlGroupResource.Label" xml:space="preserve">
+    <value>Group Subscription</value>
+  </data>
+  <data name="MTTextBoxControlTotalResource.Label" xml:space="preserve">
+    <value>Total Amount</value>
+  </data>
+  <data name="MTTextBoxControlTotalTaxResource.Label" xml:space="preserve">
+    <value>Total Tax</value>
+  </data>
+  <data name="MTtbQuoteIdentifierResource.Label" xml:space="preserve">
+    <value>Quote Identifier</value>
+  </data>
+  <data name="MTtbQuoteDescriptionResource.Label" xml:space="preserve">
+    <value>Quote Description</value>
+  </data>
+  <data name="REPORT_LINK_TEXT" xml:space="preserve">
+    <value>PDF report for quote</value>
+  </data>
+  <data name="TEXT_ISGROUP_CHEKED" xml:space="preserve">
+    <value>Corporate account for group subscription should be selected.</value>
   </data>
 </root>

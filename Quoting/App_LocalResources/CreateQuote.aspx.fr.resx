@@ -118,141 +118,219 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btnGenerateQuoteResource1.Text" xml:space="preserve">
-    <value />
+    <value>[FR]Generate Quote</value>
   </data>
   <data name="MTPanelQuoteParametersResource.Text" xml:space="preserve">
-    <value />
+    <value>[FR]Quote Information</value>
   </data>
   <data name="dpStartDateResource1.Text" xml:space="preserve">
-    <value />
+    <value>[FR]Start date</value>
   </data>
   <data name="MTPanelQuoteAccountsResource.Text" xml:space="preserve">
-    <value />
+    <value>[FR]Accounts and product offerings</value>
   </data>
   <data name="dpEndDateResource1.Text" xml:space="preserve">
-    <value />
+    <value>[FR]End date</value>
   </data>
   <data name="MTCheckBoxPdfResource.Text" xml:space="preserve">
-    <value />
+    <value>[FR]Generate PDF report</value>
   </data>
   <data name="MTTextBoxControlQuoteDescriptionResource.Text" xml:space="preserve">
-    <value />
+    <value>[FR]Quote Description</value>
   </data>
   <data name="MTPanelUDRCResource.Text" xml:space="preserve">
-    <value />
+    <value>[FR]UDRC metrics</value>
   </data>
   <data name="MTPanelICBResource.Text" xml:space="preserve">
-    <value />
+    <value>[FR]Custom Rates</value>
   </data>
   <data name="ACTIONS" xml:space="preserve">
-    <value />
+    <value>[FR]Actions</value>
   </data>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value />
+    <value>[FR]Accounts</value>
   </data>
   <data name="REMOVE_ACCOUNT" xml:space="preserve">
-    <value />
+    <value>[FR]Remove Account</value>
   </data>
   <data name="SELECT_ACCOUNTS" xml:space="preserve">
-    <value />
+    <value>[FR]Select Accounts</value>
   </data>
   <data name="USERNAME" xml:space="preserve">
-    <value />
+    <value>[FR]User Name</value>
   </data>
   <data name="POID" xml:space="preserve">
-    <value />
+    <value>[FR]PO Id</value>
   </data>
   <data name="PONAME" xml:space="preserve">
-    <value />
+    <value>[FR]PO Name</value>
   </data>
   <data name="PO_GRID_TITLE" xml:space="preserve">
-    <value />
+    <value>[FR]Product Offerings</value>
   </data>
   <data name="REMOVE_PO" xml:space="preserve">
-    <value />
+    <value>[FR]Remove Product Offering</value>
   </data>
   <data name="SELECT_POS" xml:space="preserve">
-    <value />
+    <value>[FR]Select Product Offerings</value>
   </data>
   <data name="EDIT_UDRC_VALUE" xml:space="preserve">
-    <value />
+    <value>[FR]Edit UDRC value</value>
   </data>
   <data name="ADD_ICB" xml:space="preserve">
-    <value />
+    <value>[FR]Add ICB</value>
   </data>
   <data name="BASE_AMOUNT" xml:space="preserve">
-    <value />
+    <value>[FR]Base Amount</value>
   </data>
   <data name="ICB_GRID_TITLE" xml:space="preserve">
-    <value />
+    <value>[FR]ICBs</value>
   </data>
   <data name="PIID" xml:space="preserve">
-    <value />
+    <value>[FR]PI Id</value>
   </data>
   <data name="PINAME" xml:space="preserve">
-    <value />
+    <value>[FR]PI Name</value>
   </data>
   <data name="ICB_PI_GRID_TITLE" xml:space="preserve">
-    <value />
+    <value>[FR]Priсeable Items That Allows Custom Rates</value>
   </data>
   <data name="PRICE" xml:space="preserve">
-    <value />
+    <value>[FR]Price</value>
   </data>
   <data name="UNIT_AMOUNT" xml:space="preserve">
-    <value />
+    <value>[FR]Unit Amount</value>
   </data>
   <data name="UNIT_VALUE" xml:space="preserve">
-    <value />
+    <value>[FR]Unit Value</value>
   </data>
   <data name="ISGROUP.BoxLabel" xml:space="preserve">
-    <value />
+    <value>[FR]Is Group Subscription</value>
   </data>
   <data name="ISGROUP" xml:space="preserve">
-    <value />
+    <value>[FR]Is corp.</value>
   </data>
   <data name="ADD_UDRC" xml:space="preserve">
-    <value />
+    <value>[FR]Add UDRC</value>
   </data>
   <data name="UDRC_GRID_TITLE" xml:space="preserve">
-    <value />
+    <value>[FR]UDRC metrics</value>
   </data>
   <data name="UDRC_PI_GRID_TITLE" xml:space="preserve">
-    <value />
+    <value>[FR]UDRC Priсeable Items</value>
   </data>
   <data name="TEXT_ADD_ICB" xml:space="preserve">
-    <value />
+    <value>[FR]Add Custom Rate</value>
   </data>
   <data name="MTbtnCancelResource1.Text" xml:space="preserve">
-    <value />
+    <value>[FR]Cancel</value>
   </data>
   <data name="MTTitleCreateQuoteResource.Text" xml:space="preserve">
-    <value />
+    <value>[FR]Manage Quote</value>
   </data>
   <data name="REMOVE_ICB" xml:space="preserve">
-    <value />
+    <value>[FR]Remove ICB</value>
   </data>
   <data name="TEXT_ADDING_ICB" xml:space="preserve">
-    <value />
+    <value>[FR]Adding ICB</value>
   </data>
   <data name="TEXT_ADD_UDRC" xml:space="preserve">
-    <value />
+    <value>[FR]Add UDRC metric</value>
   </data>
   <data name="TEXT_CANCEL" xml:space="preserve">
-    <value />
+    <value>[FR]Cancel</value>
   </data>
   <data name="TEXT_END_DATE" xml:space="preserve">
-    <value />
+    <value>[FR]End Date</value>
   </data>
   <data name="TEXT_OK" xml:space="preserve">
-    <value />
+    <value>[FR]OK</value>
   </data>
   <data name="TEXT_START_DATE" xml:space="preserve">
-    <value />
+    <value>[FR]Start Date</value>
   </data>
   <data name="TEXT_VALUE" xml:space="preserve">
-    <value />
+    <value>[FR]Value</value>
   </data>
   <data name="ICB_GROUP_CONFIRM" xml:space="preserve">
-    <value />
+    <value>[FR]ICB for group subscriptions will not be applied (current limitation)</value>
+  </data>
+  <data name="btnConvertQuoteResource.Text" xml:space="preserve">
+    <value>[FR]Convert to Subscription</value>
+  </data>
+  <data name="MTPanelLog.Text" xml:space="preserve">
+    <value>[FR]Quote Log / Failed Message</value>
+  </data>
+  <data name="MTPanelResult.Text" xml:space="preserve">
+    <value>[FR]Quote Details</value>
+  </data>
+  <data name="QuoteFailed.Label" xml:space="preserve">
+    <value>[FR]Failed Message</value>
+  </data>
+  <data name="QuoteLog.Label" xml:space="preserve">
+    <value>[FR]Quote Log</value>
+  </data>
+  <data name="MTTextBoxControlGroupResource.Text" xml:space="preserve">
+    <value>[FR]Group Subscription</value>
+  </data>
+  <data name="MTPanelUDRCandICBResource.Text" xml:space="preserve">
+    <value>[FR]UDRC metrics and ICBs</value>
+  </data>
+  <data name="MTdpCreationDateResource.Text" xml:space="preserve">
+    <value>[FR]Creation Date</value>
+  </data>
+  <data name="MTTextBoxControlStatusResource.Text" xml:space="preserve">
+    <value>[FR]Quote Status</value>
+  </data>
+  <data name="TEXT_MISSED_UDRC" xml:space="preserve">
+    <value>[FR]UDRC metrics set not for all Priceable Items</value>
+  </data>
+  <data name="TEXT_DATES_ERROR" xml:space="preserve">
+    <value>[FR]Start Date should be less then End Date</value>
+  </data>
+  <data name="REMOVE_UDRC" xml:space="preserve">
+    <value>[FR]Remove UDRC</value>
+  </data>
+  <data name="MTTextBoxControlTotalResource.Text" xml:space="preserve">
+    <value>[FR]Total Amount</value>
+  </data>
+  <data name="MTTextBoxControlTotalTaxResource.Text" xml:space="preserve">
+    <value>[FR]Total Tax</value>
+  </data>
+  <data name="MTtbQuoteIdentifierResource.Text" xml:space="preserve">
+    <value>[FR]Quote Identifier</value>
+  </data>
+  <data name="MTCheckBoxPdfResource.BoxLabel" xml:space="preserve">
+    <value>[FR]Generate PDF report</value>
+  </data>
+  <data name="MTtbQuoteDescriptionResource.Text" xml:space="preserve">
+    <value>[FR]Quote Description</value>
+  </data>
+  <data name="MTdpCreationDateResource.Label" xml:space="preserve">
+    <value>[FR]Creation Date</value>
+  </data>
+  <data name="MTTextBoxControlStatusResource.Label" xml:space="preserve">
+    <value>[FR]Quote Status</value>
+  </data>
+  <data name="MTTextBoxControlGroupResource.Label" xml:space="preserve">
+    <value>[FR]Group Subscription</value>
+  </data>
+  <data name="MTTextBoxControlTotalResource.Label" xml:space="preserve">
+    <value>[FR]Total Amount</value>
+  </data>
+  <data name="MTTextBoxControlTotalTaxResource.Label" xml:space="preserve">
+    <value>[FR]Total Tax</value>
+  </data>
+  <data name="MTtbQuoteIdentifierResource.Label" xml:space="preserve">
+    <value>[FR]Quote Identifier</value>
+  </data>
+  <data name="MTtbQuoteDescriptionResource.Label" xml:space="preserve">
+    <value>[FR]Quote Description</value>
+  </data>
+  <data name="REPORT_LINK_TEXT" xml:space="preserve">
+    <value>[FR]PDF report for quote</value>
+  </data>
+  <data name="TEXT_ISGROUP_CHEKED" xml:space="preserve">
+    <value>Corporate account for group subscription should be selected.</value>
   </data>
 </root>

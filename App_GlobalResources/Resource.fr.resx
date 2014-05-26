@@ -502,31 +502,91 @@
     <value>Largeur</value>
   </data>
   <data name="TEXT_BULKUPDATE" xml:space="preserve">
-    <value>Bulk Update</value>
+    <value>[FR]Bulk Update</value>
+  </data>
+  <data name="SpecCharacteristicsController_Index_Product_Offering_Properties" xml:space="preserve">
+    <value>[FR]Product Offering Properties</value>
+  </data>
+  <data name="Index_cshtml_Execute_Spec_Characteristics" xml:space="preserve">
+    <value>[FR]Spec Characteristics</value>
+  </data>
+  <data name="TEXT_ACTION_ADD_CATEGORY" xml:space="preserve">
+    <value>[FR]add category</value>
+  </data>
+  <data name="TEXT_ACTION_ADD_PROPERTY" xml:space="preserve">
+    <value>[FR]add property</value>
+  </data>
+  <data name="TEXT_ACTION_DELETE" xml:space="preserve">
+    <value>[FR]delete</value>
+  </data>
+  <data name="TEXT_ACTION_EDIT" xml:space="preserve">
+    <value>[FR]edit</value>
+  </data>
+  <data name="TEXT_ACTION_ADD_EXISTING_PROPERTY" xml:space="preserve">
+    <value>[FR]add existing property</value>
+  </data>
+  <data name="SpecCharacteristicsController_SetDisplayOrder_Successfully_moved_" xml:space="preserve">
+    <value>[FR]Successfully moved.</value>
+  </data>
+  <data name="SpecCharacteristicsController_Delete_Successfully_deleted_property_" xml:space="preserve">
+    <value>[FR]Successfully deleted property.</value>
+  </data>
+  <data name="SpecCharacteristicsController_AddSharedProperty_Successfully_added_property_" xml:space="preserve">
+    <value>[FR]Successfully added property.</value>
+  </data>
+  <data name="TEXT_BACK" xml:space="preserve">
+    <value>[FR]Previous</value>
+  </data>
+  <data name="TEXT_FROM_PARAM_TABLE" xml:space="preserve">
+    <value>[FR]From Parameter Table</value>
+  </data>
+  <data name="TEXT_NEXT" xml:space="preserve">
+    <value>[FR]Next</value>
+  </data>
+  <data name="TEXT_SAVE_AND_CONTINUE" xml:space="preserve">
+    <value>[FR]Save &amp; Continue</value>
+  </data>
+  <data name="TEXT_SAVE_NEW_USAGE_QUALIFICATION" xml:space="preserve">
+    <value>[FR]Save New Usage Qualification</value>
+  </data>
+  <data name="TEXT_CONTINUE" xml:space="preserve">
+    <value>[FR]Continue</value>
+  </data>
+  <data name="TEXT_YES" xml:space="preserve">
+    <value>[FR]Yes</value>
+  </data>
+  <data name="TEXT_NO" xml:space="preserve">
+    <value>[FR]No</value>
+  </data>
+  <data name="TEXT_FROM_PARAMETER_TABLE" xml:space="preserve">
+    <value>[FR]From parameter table</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Add_Category" xml:space="preserve">
-    <value>add category</value>
+    <value>[FR]add category</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Add_Property" xml:space="preserve">
-    <value>add property</value>
+    <value>[FR]add property</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Available_Shared_Properties" xml:space="preserve">
-    <value>Available Shared Properties</value>
+    <value>[FR]Available Shared Properties</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Back_To_Properties" xml:space="preserve">
-    <value>back to properties</value>
+    <value>[FR]back to properties</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_ADDED_YET_TO_AGREEMENT_TEMPLATE" xml:space="preserve">
-    <value>This agreement template has no shared properties.</value>
+    <value>[FR]This agreement template has no shared properties.</value>
   </data>
   <data name="_PropertyForm_cshtml_Set_Localization" xml:space="preserve">
-    <value>Set localization</value>
+    <value>[FR]Set localization</value>
   </data>
   <data name="_PropertyForm_cshtml_Set_Localization_Title" xml:space="preserve">
-    <value>Set Localization</value>
+    <value>[FR]Set Localization</value>
   </data>
-	<data name="TEXT_FROM_PARAMETER_TABLE" xml:space="preserve">
-    <value>From parameter table (French)</value>
+  <data name="TEXT_BUTTON_DELETE" xml:space="preserve">
+    <value>[FR]Delete</value>
+  </data>
+  <data name="TEXT_BUTTON_EDIT" xml:space="preserve">
+    <value>[FR]Edit</value>
   </data>
   <data name="newSubscription" xml:space="preserve">
     <value>[FR]New Subscription</value>
@@ -535,15 +595,15 @@
     <value>[FR]Subscription Update</value>
   </data>
   <data name="TEXT_QUOTE_DETAILS" xml:space="preserve">
-    <value>More Items...</value>
+    <value>[FR]More Items...</value>
   </data>
   <data name="ACCOUNT_FOR_QUOTES" xml:space="preserve">
-    <value>More Items...</value>
+    <value>[FR]More Items...</value>
   </data>
   <data name="PO_FOR_QUOTES" xml:space="preserve">
-    <value>More Items...</value>
+    <value>[FR]More Items...</value>
   </data>
   <data name="LOG_FOR_QUOTES" xml:space="preserve">
-    <value>Quote log</value>
+    <value>[FR]Quote log</value>
   </data>
 </root>

@@ -340,17 +340,16 @@
   <!--  -->
   <MT:MTPanel ID="MTPanelContainerList" runat="server" meta:resourcekey="MTSection5Resource1">
     <div id="MTPanelContainerListLeftColumn" runat="server" class="LeftColumn">
-      <MT:MTCheckBoxControl ID="cbRetail" runat="server" AllowBlank="True" BoxLabel="Retail" Text="Retail" Value="Retail" 
+      <MT:MTCheckBoxControl ID="cbRetail" runat="server" AllowBlank="True" meta:resourcekey="cbRetailResource1" Value="Retail" 
       TabIndex="400" ControlWidth="200" ReadOnly="False" Checked="False" HideLabel="True" XType="Checkbox" XTypeNameSpace="form" />
-      <MT:MTCheckBoxControl ID="cbResellers" runat="server" AllowBlank="True" BoxLabel="Resellers" Text="Resellers" Value="Resellers" 
+      <MT:MTCheckBoxControl ID="cbResellers" runat="server" AllowBlank="True" meta:resourcekey="cbResellersResource1" Value="Resellers" 
       TabIndex="400" ControlWidth="200" ReadOnly="False" Checked="False" HideLabel="True" XType="Checkbox" XTypeNameSpace="form" />
-      <MT:MTCheckBoxControl ID="cbVendors" runat="server" AllowBlank="True" BoxLabel="Vendors" Text="Vendors" Value="Vendors" 
+      <MT:MTCheckBoxControl ID="cbVendors" runat="server" AllowBlank="True" meta:resourcekey="cbVendorsResource1" Value="Vendors" 
       TabIndex="400" ControlWidth="200" ReadOnly="False" Checked="False" HideLabel="True" XType="Checkbox" XTypeNameSpace="form" />
-      <MT:MTCheckBoxControl ID="cbChannels" runat="server" AllowBlank="True" BoxLabel="Channels" Text="Channels" Value="Channels" 
+      <MT:MTCheckBoxControl ID="cbChannels" runat="server" AllowBlank="True" meta:resourcekey="cbChannelsResource1" Value="Channels" 
       TabIndex="400" ControlWidth="200" ReadOnly="False" Checked="False" HideLabel="True" XType="Checkbox" XTypeNameSpace="form" />
-      <MT:MTCheckBoxControl ID="cbSystemUsers" runat="server" AllowBlank="True" BoxLabel="System Users" Text="System Users" Value="System Users"
+      <MT:MTCheckBoxControl ID="cbSystemUsers" runat="server" AllowBlank="True" meta:resourcekey="cbSystemUsersResource1" Value="System Users"
       TabIndex="400" ControlWidth="200" ReadOnly="false" Checked="True" HideLabel="True" XType="Checkbox" XTypeNameSpace="form" />
-
     </div>
     <div id="MTPanelContainerListRightColumn" runat="server" class="RightColumn"></div>
   </MT:MTPanel>

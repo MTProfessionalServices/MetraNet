@@ -288,4 +288,19 @@
   <data name="ERROR_INVALID_PARTITIONID" xml:space="preserve">
     <value>Invalid Partition ID</value>
   </data>
+  <data name="ERROR_REPORT_CONFIG" xml:space="preserve">
+    <value>Error in config ReportFormat file</value>
+  </data>
+  <data name="ERROR_REPORT_FORMAT" xml:space="preserve">
+    <value>Error in config ReportFormat file. Report format type isn't defined.</value>
+  </data>
+  <data name="ERROR_REPORT_FORMAT_CONFIG" xml:space="preserve">
+    <value>Error in config ReportFormat file. Incorrect file structure.</value>
+  </data>
+  <data name="ERROR_REPORT_IMAGE" xml:space="preserve">
+    <value>Error in config ReportFormat file. Report image  isn't defined.</value>
+  </data>
+  <data name="ERROR_REPORT_OPEN" xml:space="preserve">
+    <value>Unable open and save report</value>
+  </data>
 </root>

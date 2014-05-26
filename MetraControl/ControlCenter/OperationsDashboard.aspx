@@ -680,7 +680,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 		var realMaxDate;
 		maxDate.setMonth(maxDate.getMonth() - 10);
 		minDate.setMonth(minDate.getYear() + 10);
-		d3.json("/MetraNet/AjaxServices/PricingEngineDashboardService.aspx?_=" + new Date().getTime(), function (error, json) {
+		d3.json("/MetraNet/AjaxServices/PricingEngineDashboardService.aspx", function (error, json) {
             if (error) console.log("Error:" + error.valueOf());
             else {
             json.Items.forEach(function (d) {

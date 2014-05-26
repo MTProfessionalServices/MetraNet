@@ -20,7 +20,7 @@
     <Sections>
         <Section>
             <Title>
-                <Value><![CDATA[Add Product Offering]]></Value>
+                <LocalizationTag>TEXT_PAGE_TITLE</LocalizationTag>
             </Title>
             <TabOrder>LeftToRight</TabOrder>
             <Columns>

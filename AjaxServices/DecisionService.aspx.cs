@@ -49,6 +49,8 @@ public partial class AjaxServices_DecisionService : MTListServicePage
       id_interval = int.Parse ( str_interval );
     }
 	
+//	id_interval = 1055195169;
+
     Logger.LogDebug("Looking for decisions for id_acc " + UI.Subscriber.SelectedAccount._AccountID.Value + " and interval " + id_interval);
 
     using ( new HighResolutionTimer ( "DecisionService", 5000 ) )
@@ -815,6 +817,7 @@ public class DecisionInstance
     get
     {
       string txt = GetLocalizedString ( "marker_title" );
+	  txt = "Amount: {marker_amount:c}";
       if ( string.IsNullOrEmpty ( txt ) )
       {
         txt = string.Empty;
@@ -832,6 +835,7 @@ public class DecisionInstance
     get
     {
       string txt = GetLocalizedString ( "projected_marker_before_title" );
+	  txt = "Projected Amount: {projected_amount:c}";
       if ( string.IsNullOrEmpty ( txt ) )
       {
         txt = string.Empty;
@@ -898,7 +902,15 @@ public class DecisionInstance
     {
       if ( !indexes.ContainsKey ( key ) )
       {
-        array [ i ] = DecisionTypeAttributes [ key ];
+	    decimal myd;
+		if (Decimal.TryParse(DecisionTypeAttributes [ key ], out myd))
+		{
+		  array [ i ] = myd;
+		}
+		else
+		{
+          array [ i ] = DecisionTypeAttributes [ key ];
+		}
         indexes.Add ( key, i++ );
       }
     }
@@ -1122,6 +1134,7 @@ public class DecisionInstance
       }
       if (max > decimal.MinValue)
       {
+          DecisionTypeAttributes["marker_amount"] = max.ToString();
           list.Add(max);
           if (IncludeProjections)
           {
@@ -1135,6 +1148,7 @@ public class DecisionInstance
               {
                   var ratio = n / d;
 				  var a = max * ((decimal) ratio);
+				  DecisionTypeAttributes["projected_amount"] = a.ToString();
                   list.Add(a);
               }
           }
@@ -1162,6 +1176,29 @@ public class DecisionInstance
           else
           {
               return false;
+          }
+      }
+  }
+
+  public bool ProjectionExceedGood
+  {
+      get
+      {
+          string val;
+          if (DecisionTypeAttributes.TryGetValue("projection_exceeds_good", out val))
+          {
+              if (!string.IsNullOrEmpty(val))
+              {
+                  return Convert.ToBoolean(val);
+              }
+              else
+              {
+                  return true;
+              }
+          }
+          else
+          {
+              return true;
           }
       }
   }
@@ -1201,11 +1238,11 @@ public class DecisionInstance
                     var projected = max * ((decimal)ratio);
                     if (projected > end)
                     {
-                        list.Add("good");
+                        list.Add(ProjectionExceedGood?"good":"bad");
                     }
                     else
                     {
-                        list.Add("bad");
+                        list.Add(ProjectionExceedGood?"bad":"good");
                     }
                 }
             }

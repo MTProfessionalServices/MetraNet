@@ -285,9 +285,11 @@
                 <EnumClassName></EnumClassName>
                 <EnumSpace>metratech.com</EnumSpace>
                 <EnumType>QuoteStatus</EnumType>
-                <UseEnumValue>false</UseEnumValue>
+                <UseEnumValue>true</UseEnumValue>
                 <DefaultValue></DefaultValue>
-                <HideEnumValues />
+                <HideEnumValues>
+                    <EnumValue>None</EnumValue>
+                </HideEnumValues>
             </FilterEnum>
             <DataIndex>Status</DataIndex>
             <IsColumn>true</IsColumn>

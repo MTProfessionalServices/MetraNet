@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<texts id="Main" type="collection">
+
+    <description></description>
+
+    <text id="TEXT_CREATE_NEW_DISCOUNT">
+        <value>[FR]Create New [TEXT_KEYTERM_DISCOUNT]</value>
+    </text>   	
+	
+    <text id="TEXT_EXISTING_OR_NEW_DISCOUNT">
+        <value>[FR]Would you like to use an existing [TEXT_KEYTERM_DISCOUNT] or add a new one?</value><description></description>
+    </text>
+    <text id="TEXT_EXISTING_DISCOUNT">
+        <value>[FR]Existing [TEXT_KEYTERM_DISCOUNTS]</value><description></description>
+    </text>
+	<text id="TEXT_CREATE_A_NEW_DISCOUNT">
+        <value>[FR]Add New [TEXT_KEYTERM_DISCOUNT]</value><description></description>
+    </text>
+    <text id="TEXT_ADD_DISCOUNT">
+        <value>[FR]Add [TEXT_KEYTERM_DISCOUNT]</value><description></description>
+    </text>
+	<text id="TEXT_WHAT_TYPE_DISCOUNT">
+        <value>[FR]What type of [TEXT_KEYTERM_DISCOUNT] would you like to create?</value><description></description>
+    </text>
+    <text id="TEXT_DISCOUNT_TYPE">
+        <value>[FR][TEXT_KEYTERM_DISCOUNT] Type</value><description></description>
+    </text> 
+    <text id="TEXT_DISCOUNT">
+        <value>[FR][TEXT_KEYTERM_DISCOUNT]</value><description></description>
+    </text>
+   <text id="TEXT_DISC_PERIOD">
+        <value>[FR][TEXT_KEYTERM_DISCOUNT] Period</value><description></description>
+   </text>
+   <text id="TEXT_DISCOUNT_SUMMARY_DESCRIPTION1">
+        <value>[FR]Here is a summary of the [TEXT_KEYTERM_DISCOUNT] you are about to create.</value><description></description>
+  </text>
+  
+  <text id="TEXT_DISCOUNT_SUMMARY_DESCRIPTION2">
+        <value>[FR]Click Finish to create this [TEXT_KEYTERM_DISCOUNT].</value><description></description>
+  </text> 
+  <text id="TEXT_DISCOUNT_BASED_COUNTERS">
+        <value>[FR]This [TEXT_KEYTERM_DISCOUNT] is based on the following [TEXT_KEYTERM_COUNTERS]</value><description></description>
+  </text> 
+  <text id="TEXT_DISCOUNT_COUNTER_DESCRIPTION">
+        <value>[FR][TEXT_KEYTERM_COUNTER] [TEXT_COLUMN_DESCRIPTION]</value><description></description>
+  </text> 
+  <text id="TEXT_DISCOUNT_COUNTER_CONFIGURATION_DESCRIPTION">
+        <value>[FR]Configuration [TEXT_COLUMN_DESCRIPTION]</value><description></description>
+  </text> 
+	<text id="TEXT_NO_COUNTER_FOR_DISCOUNT">
+        <value>[FR]	There are no [TEXT_KEYTERM_COUNTER] definitions for this [TEXT_KEYTERM_DISCOUNT].</value><description></description>
+  </text> 
+	<text id="TEXT_SELECT_PERIOD">
+        <value>[FR][TEXT_SELECT] Period</value><description></description>
+  </text> 
+  <text id="TEXT_DISCOUNT_PARAMETER_TABLE_TITLE">
+        <value>[FR]This [TEXT_KEYTERM_DISCOUNT] uses the following [TEXT_KEYTERM_PARAMETER_TABLES]</value><description></description>
+  </text>
+</texts>
+
+
+

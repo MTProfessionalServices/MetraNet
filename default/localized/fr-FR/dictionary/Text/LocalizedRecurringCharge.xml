@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<texts id="Main" type="collection">
+
+    <description></description>
+
+	 <!-- Recurring Charge-->
+   
+	 <text id="TEXT_CHARGE_IN">
+        <value>[FR]Charge in</value><description></description>
+   </text>
+ 	 <text id="TEXT_PRORATION">
+        <value>[FR]Proration</value><description></description>
+   </text>
+	 <text id="TEXT_PRORATE_ON">
+        <value>[FR]Prorate On</value><description></description>
+    </text>
+	 <text id="TEXT_PRORATE_LENGTH">
+        <value>[FR]Proration Length</value><description></description>
+    </text>
+	 <text id="TEXT_PRORATE_ACTIVATION">
+        <value>[FR]Prorate on activation</value><description></description>
+    </text>
+  <text id="TEXT_PRORATE_INSTANTLY">
+    <value>[FR]Prorate instantly</value>
+  </text>
+
+  <text id="TEXT_PRORATE_DEACTIVATION">
+        <value>[FR]Prorate on the date of deactivation</value><description></description>
+    </text>
+  <text id="TEXT_PRORATE_UNSUBSCRIPTION">
+    <value>[FR]Prorate based on unsubscription date</value>
+  </text>
+  <text id="TEXT_PRORATE_RATE_CHANGE">
+        <value>[FR]Prorate on rate change</value><description></description>
+    </text>
+    
+   <text id="TEXT_PRORATE_BASEDON">
+        <value>[FR]Prorate based on</value><description></description>
+    </text>
+    
+	<text id="TEXT_DAYS_IN_PERIOD">
+        <value>[FR] days in period</value><description></description>
+  </text>
+  
+  <text id="TEXT_WHAT_TYPE_REC_CHARGE">
+        <value>[FR]What type of [TEXT_KEYTERM_RECURRING_CHARGE] would you like to create?</value><description></description>
+  </text>
+
+  <text id="TEXT_EXISTING_OR_NEW_REC_CHARGE">
+        <value>[FR]Would you like to use an existing [TEXT_KEYTERM_RECURRING_CHARGE] or add a new one?</value><description></description>
+  </text>
+
+  <text id="TEXT_EXISTING_REC_CHARGE">
+        <value>[FR]Existing [TEXT_KEYTERM_RECURRING_CHARGES]</value><description></description>
+  </text>
+
+  <text id="TEXT_CREATE_NEW_RECURRING_CHARGE">
+        <value>[FR]Create New [TEXT_KEYTERM_RECURRING_CHARGE]</value>
+  </text>
+
+  <text id="TEXT_ADD_NEW_RECURRING_CHARGE">
+        <value>[FR]Add New [TEXT_KEYTERM_RECURRING_CHARGE]</value>
+  </text>
+  
+  <text id="TEXT_SUMMARY">
+        <value>[FR]Summary</value><description></description>
+  </text>
+ 
+  <text id="TEXT_SUMMARY_DESCRIPTION1">
+        <value>[FR]Here is a summary of the [TEXT_KEYTERM_RECURRING_CHARGE] you are about to create.</value><description></description>
+  </text>
+  
+  <text id="TEXT_SUMMARY_DESCRIPTION2">
+        <value>[FR]Click Finish to create this [TEXT_KEYTERM_RECURRING_CHARGE].</value><description></description>
+  </text>
+  
+  <text id="TEXT_RECURRING">
+        <value>[FR][TEXT_KEYTERM_RECURRING_CHARGE]</value><description></description>
+  </text>
+  
+  <text id="TEXT_ADD_RECURRING">
+        <value>[FR]Add [TEXT_KEYTERM_RECURRING_CHARGE]</value><description></description>
+  </text>
+  
+  <text id="TEXT_RECURRING_CHARGE_TYPE">
+        <value>[FR][TEXT_KEYTERM_RECURRING_CHARGE] Type</value><description></description>
+  </text> 
+  
+  <text id="TEXT_RECURRING_PERIOD">
+        <value>[FR][TEXT_KEYTERM_RECURRING_CHARGE] Period</value><description></description>
+  </text> 
+ <text id="TEXT_SELECT">
+        <value>[FR]Select</value><description></description>
+ </text> 
+  <text id="TEXT_SELECT_TYPE">
+        <value>[FR][TEXT_SELECT] Type</value><description></description>
+ </text> 
+ <text id="TEXT_SELECT_PERIOD">
+        <value>[FR][TEXT_SELECT] Period</value><description></description>
+ </text> 
+ <text id="TEXT_NAME_TIP">
+        <value>[FR]This is a short name for the [TEXT_KEYTERM_RECURRING_CHARGE] in the [TEXT_KEYTERM_PRODUCT_OFFERING].</value><description></description>
+ </text> 
+ <text id="TEXT_DISPLAY_NAME_TIP">
+        <value>[FR]The name of the [TEXT_KEYTERM_RECURRING_CHARGE] as it appears in other applications and to subscribers.</value><description></description>
+ </text>  
+ <text id="TEXT_DESCRIPTION_TIP">
+        <value>[FR]The description of the [TEXT_KEYTERM_RECURRING_CHARGE] used only for reference.</value><description></description>
+ </text> 
+  <text id="TEXT_ADVANCE">
+        <value>[FR]Advance</value><description></description>
+ </text> 
+  <text id="TEXT_ARREARS">
+        <value>[FR]Arrears</value><description></description>
+ </text> 
+ <text id="TEXT_ACTUAL">
+        <value>[FR]Actual</value><description></description>
+ </text> 
+ <text id="TEXT_FIXED">
+        <value>[FR]Fixed</value><description></description>
+ </text> 
+ 
+ <text id="TEXT_PER_SUBSCRIPTION">
+        <value>[FR]One charge per subscription</value><description></description>
+ </text> 
+ 
+ <text id="TEXT_PER_PARTICIPANT">
+        <value>[FR]One charge per participant</value><description></description>
+ </text> 
+ 
+ <text id="TEXT_GROUP_CHARGES">
+        <value>[FR]Group Subscriptions</value><description></description>
+ </text> 
+ 
+ <text id="TEXT_UDRC_UNIT_VALUE_ENUMERATION">
+        <value>[FR]Valid Enumeration Values</value><description></description>
+ </text>  
+ <text id="TEXT_UDRC_UNIT_VALUE_ENUMERATION_SEPARATOR_HELP">
+        <value>[FR]Use the space char as separator</value><description></description>
+ </text>   
+ 
+ <text id="TEXT_UDRCIntegerUnitValue">
+        <value>[FR]Integer Type</value><description></description>
+ </text>  
+ <text id="TEXT_UDRCMinUnitValue">
+        <value>[FR]Minimum Unit Value</value><description></description>
+ </text>  
+ <text id="TEXT_UDRCMaxUnitValue">
+        <value>[FR]Maximum Unit Value</value><description></description>
+ </text>     
+ 
+</texts>
+
+
+

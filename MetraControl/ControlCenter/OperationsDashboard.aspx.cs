@@ -35,6 +35,7 @@ public partial class OperationsDashboard : MTPage
   public string pipelineProcessingDurationText;
   public string pipelineWaitDurationToolTipText;
   public string pipelineProcessingDurationToolTipText;
+  public string DaysBackText;
 
   #endregion
 
@@ -115,5 +116,6 @@ public partial class OperationsDashboard : MTPage
     pipelineProcessingDurationText = GetLocalResourceObject("TEXT_PIPELINE_PROCESSING_DURATION").ToString();
     pipelineWaitDurationToolTipText = GetLocalResourceObject("TEXT_SECONDS_WAITING_TO_BE_ASSIGNED").ToString();
     pipelineProcessingDurationToolTipText = GetLocalResourceObject("TEXT_SECONDS_PROCESSING_IN_PIPELINE").ToString();
+    DaysBackText = GetLocalResourceObject("TEXT_DAYS_BACK").ToString();
   }
 }

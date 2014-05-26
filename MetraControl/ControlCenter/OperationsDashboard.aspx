@@ -410,8 +410,8 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
                     .dimension(dateDimension)
 					          .group(openGroup, "<%=OpenWord%>")
                     .stack(uiGroup, "<%=UnderInvestigationWord%>")
-//                  .title("Open", function(d){ return -d.key + " days back: " + numberFormat(d.value) + " Open";})
-                    .title("Under Investigation", function(d){ return -d.key + " days back: " + numberFormat(d.value) + " Under Investigation";})
+                    .title("<%=OpenWord%>", function(d){ return -d.key + " <%=DaysBackText%>: " + numberFormat(d.value) + " <%=OpenWord%>";})
+                    .title("<%=UnderInvestigationWord%>", function(d){ return -d.key + " <%=DaysBackText%>: " + numberFormat(d.value) + " <%=UnderInvestigationWord%>";})
 					          .renderlet(function (_chart) {
 						          function setStyle(selection, keyName) {
 							          selection.style("fill", function (d) {
@@ -521,13 +521,13 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var composite = dc.compositeChart("#divBatchUsage");
             composite
                     .margins({top: 5, right: 5, bottom: 40, left: 5})
-					.height(255)
-					.width(410)
+                    .height(255)
+                    .width(410)
                     .x(d3.time.scale().domain([minDate, maxDate]))
                     .elasticY(true)
                     .transitionDuration(0)
                     .legend(dc.legend().x(15).y(225).itemHeight(13).gap(5))
-					.renderHorizontalGridLines(true)
+                    .renderHorizontalGridLines(true)
                     .brushOn(false)
                     .title("<%=UDRsWord%>", function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " <%=UDRsWord%>";})
                     .title("<%=BatchesWord%>", function(d){return dayFormat(d.key) + ": " + numberFormat(d.value) + " <%=BatchesWord%>";})

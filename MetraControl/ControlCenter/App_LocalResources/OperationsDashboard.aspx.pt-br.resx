@@ -291,4 +291,7 @@
   <data name="TEXT_SECONDS_WAITING_TO_BE_ASSIGNED" xml:space="preserve">
     <value>{PT-BR}seconds waiting to be assigned</value>
   </data>
+  <data name="TEXT_DAYS_BACK" xml:space="preserve">
+    <value>{PT-BR}days back</value>
+  </data>
 </root>

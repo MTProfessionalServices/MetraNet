@@ -12,6 +12,6 @@
       ui.dt_start AS DtStart,
       ui.dt_end AS DtEnd,
       tx_interval_status AS Interval_Status, 
-      GETUTCDATE()-ui.dt_end+1 AS Days_Until_Run
+      TRUNC(GETUTCDATE())-TRUNC(ui.dt_end)+1 AS Days_Until_Run
       from t_usage_interval ui
       where ui.id_interval = %%ID_USAGE_INTERVAL%%

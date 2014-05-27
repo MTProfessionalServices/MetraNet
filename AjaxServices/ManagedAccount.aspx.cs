@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 using System.Threading;
+using MetraTech;
 using MetraTech.ActivityServices.Common;
 using MetraTech.DataAccess;
 using MetraTech.Debug.Diagnostics;
+using MetraTech.Interop.QueryAdapter;
 using MetraTech.SecurityFramework;
 using MetraTech.UI.Common;
 
@@ -118,30 +120,36 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
     {
       case "subscriptionsummary":
         sqlQuery = "__ACCOUNT_SUBSCRIPTIONSUMMARY__";
+        SetSorting(items);
+        GetSortableData(sqlQuery, Convert.ToInt32(paramDict["%%ACCOUNT_ID%%"]), ref items);
         break;
       case "paymentsummary":
         sqlQuery = "__ACCOUNT_PAYMENTSUMMARY__";
+        GetData(sqlQuery, paramDict, ref items);
         break;
       //case "invoicesummary":
       //  sqlQuery = "__ACCOUNT_INVOICESUMMARY__";
       //  break;
       case "balancesummary":
         sqlQuery = "__ACCOUNT_BALANCESUMMARY__";
+        GetData(sqlQuery, paramDict, ref items);
         break;
       case "billingsummary":
         sqlQuery = "__ACCOUNT_BILLINGSUMMARY__";
+        GetData(sqlQuery, paramDict, ref items);
         break;
       //case "discountcommitmentsummary":
       //  sqlQuery = "__ACCOUNT_DISCOUNTANDCOMMITMENTSUMMARY__";
       //  break;
       case "salessummary":
         sqlQuery = "__ACCOUNT_SALESSUMMARY__";
+        GetData(sqlQuery, paramDict, ref items);
         break;
       case "failedtransactionsummary":
         sqlQuery = "__ACCOUNT_FAILEDTRANSACTION_COUNT__";
+        GetData(sqlQuery, paramDict, ref items);
         break;
     }
-    GetData(sqlQuery, paramDict, ref items);
   }
 
   private void GetData(string sqlQueryTag, Dictionary<string, object> paramDict, ref MTList<SQLRecord> items)
@@ -149,7 +157,7 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
 
     using (IMTConnection conn = ConnectionManager.CreateConnection())
     {
-
+      
       using (IMTAdapterStatement stmt = conn.CreateAdapterStatement(sqlQueriesPath, sqlQueryTag))
       {
         if (paramDict != null)
@@ -172,6 +180,32 @@ public partial class AjaxServices_ManagedAccount : MTListServicePage
 
 
 
+  }
+
+  private void GetSortableData(string sqlQueryTag, int accountId, ref MTList<SQLRecord> items)
+  {
+    using (IMTConnection conn = ConnectionManager.CreateConnection())
+      {
+        using (MTComSmartPtr<IMTQueryAdapter> queryAdapter = new MTComSmartPtr<IMTQueryAdapter>())
+        {
+          queryAdapter.Item = new MTQueryAdapterClass();
+          queryAdapter.Item.Init(sqlQueriesPath);
+          queryAdapter.Item.SetQueryTag(sqlQueryTag);
+
+          using (IMTPreparedFilterSortStatement filterSortStmt =
+              conn.CreatePreparedFilterSortStatement(queryAdapter.Item.GetRawSQLQuery(true)))
+          {
+            filterSortStmt.AddParam("AccountId", MTParameterType.Integer, accountId);
+            MTListFilterSort.ApplyFilterSortCriteria(filterSortStmt, items);
+            using (IMTDataReader reader = filterSortStmt.ExecuteReader())
+            {
+              ConstructItems(reader, ref items);
+            }
+            items.TotalRows = filterSortStmt.TotalRows;
+          }
+        }
+        conn.Close();
+      }
   }
 
   protected void ConstructItems(IMTDataReader rdr, ref MTList<SQLRecord> items)

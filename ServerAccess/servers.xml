@@ -273,7 +273,7 @@
     <server>
         <servertype>MindTouch</servertype>
         <servername>doc.metratech.com</servername>
-        <username>joeschmo</username>
+        <username>MetraNetCommunityUser</username>
         <password encrypted="false">40d2312c7b5345c1b8228cbc9a6cddb7</password>
     </server>
 

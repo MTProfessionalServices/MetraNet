@@ -2,15 +2,16 @@
 <Query>
     <Action>Unknown</Action>
     <Implementations>
-        <Implementation>Common</Implementation>
+        <Implementation>SqlServer</Implementation>
+        <Implementation>Oracle</Implementation>
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>ACCOUNT_ID</Name>
+            <Name>AccountId</Name>
             <DataType>int32</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
+            <ReplacementType>SqlParameter</ReplacementType>
             <Description></Description>
-        </Parameter>       
+        </Parameter>
     </Parameters>
     <Description></Description>
     <ConversionAudit>

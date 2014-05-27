@@ -14,8 +14,8 @@
   <script type="text/javascript" src="/Res/JavaScript/Bullet.js"></script>
   <link rel="stylesheet" type="text/css" href="/Res/Styles/jquery.gridster.css">
   <link rel="stylesheet" type="text/css" href="/Res/Styles/dc.css">
-  <link rel="stylesheet" type="text/css" href="/Res/Styles/Account360.css">
-  <script type="text/javascript" src="/Res/JavaScript/Account360.js"></script>
+  <link rel="stylesheet" type="text/css" href="Styles/Account360.css">
+  <script type="text/javascript" src="js/Account360.js"></script>
   <div class="CaptionBar">
     <asp:Label ID="lblAccount360Title" runat="server" meta:resourcekey="lblAccount360Title"></asp:Label>
   </div>

@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -26,19 +27,11 @@ public partial class Help : System.Web.UI.Page
   public string URL = @"https://doc.metratech.com/MetraNet/MetraNet_8.0/Application_Help/MetraCare";
   protected void Page_Load(object sender, EventArgs e)
   {
-    //Response.Redirect(URL);
-    //MindTouch.MindTouchSso.GetHelpPageUrl(System.Threading.Thread.CurrentThread.CurrentCulture.ToString(),)
-    //var impersonationToken = MindTouchSso.GetImpersonationToken(MindTouchSso.DefaultUser);
-    //var pageUrl = MindTouchSso.GetHelpPageUrl("en-US", "VersionInfo.asp");
-
-    //var redirectUrl = string.Format(
-    //    CultureInfo.InvariantCulture,
-    //    "http://{0}/@api/deki/users/authenticate?authtoken={1}&redirect={2}",
-    //    MindTouchSso.ServerName, impersonationToken, pageUrl);
-
-    string pageName = Request["PageName"];
+    var pageName = Request["PageName"];
     if (string.IsNullOrEmpty(pageName)) pageName = "VersionInfo.asp";
-    string redirectUrl = MindTouchSso.GetRedirectUrl(MindTouchSso.DefaultUser, "en-US", pageName);
+
+    var lang = Thread.CurrentThread.CurrentCulture.ToString();
+    string redirectUrl = MindTouchSso.GetRedirectUrl(MindTouchSso.DefaultUser, lang, pageName);
     Logger.LogDebug("redirect URL for page {0} is {1}", pageName, redirectUrl);
     URL = redirectUrl;
   }

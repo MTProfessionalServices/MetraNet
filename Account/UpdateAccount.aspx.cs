@@ -1,17 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Web.UI.WebControls;
-using System.Windows.Forms;
 using MetraTech.DomainModel.Enums.Account.Metratech_com_accountcreation;
 using MetraTech.UI.Common;
 using MetraTech.PageNav.ClientProxies;
 using MetraTech.DomainModel.AccountTypes;
-using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.Accounts.Type;
 using MetraTech.Interop.IMTAccountType;
-using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
-using MetraTech.DomainModel.Enums.Core.Global;
 using MetraTech.DomainModel.BaseTypes;
 using MetraTech.ActivityServices.Common;
 using MetraTech.UI.Controls;
@@ -39,7 +34,7 @@ public partial class Account_UpdateAccount : MTAccountPage
   {
     get
     {
-      StringBuilder sb = new StringBuilder();
+      var sb = new StringBuilder();
 
       foreach (MTDataBindingItem itm in MTDataBinder1.DataBindingItems)
       {
@@ -82,17 +77,18 @@ public partial class Account_UpdateAccount : MTAccountPage
         PopulatePresentationNameSpaceList(ddBrandedSite);
 
         //CORE-7585 Fix, new logic to read branded site for an account
-        string ddFindByText = "";
-        ddFindByText = PopulateAccountBrandedSite(Convert.ToInt32(UI.Subscriber.SelectedAccount._AccountID));
+        string ddFindByText = PopulateAccountBrandedSite(Convert.ToInt32(UI.Subscriber.SelectedAccount._AccountID));
         ddBrandedSite.SelectedValue = ddBrandedSite.Items.FindByText(ddFindByText).Value;
 
         PriceListCol = PageNav.Data.Out_StateInitData["PriceListColl"] as List<PriceList>;
         PopulatePriceList(ddPriceList);
         PartitionLibrary.PopulatePriceListDropdown(ddPriceList);
-        int? selPriceList;
         if (((InternalView)Account.GetInternalView()).PriceList != null)
         {
-          selPriceList = ((InternalView)Account.GetInternalView()).PriceList.Value;
+          var priceList = ((InternalView) Account.GetInternalView()).PriceList;
+          int? selPriceList = null;
+          if (priceList != null)
+            selPriceList = priceList.Value;
           ddPriceList.SelectedValue = selPriceList.ToString();
         }
         else
@@ -102,7 +98,7 @@ public partial class Account_UpdateAccount : MTAccountPage
 
 
         // Set display rules based on the account type metadata.
-        AccountTypeManager accountTypeManager = new AccountTypeManager();
+        var accountTypeManager = new AccountTypeManager();
         IMTAccountType accountType =
             accountTypeManager.GetAccountTypeByName(
                 (MetraTech.Interop.MTProductCatalog.IMTSessionContext)UI.SessionContext, Account.AccountType);
@@ -142,15 +138,18 @@ public partial class Account_UpdateAccount : MTAccountPage
         }
 
         //Approval Framework Code Starts Here 
-        ApprovalManagementServiceClient client = new ApprovalManagementServiceClient();
+        var client = new ApprovalManagementServiceClient();
 
-        client.ClientCredentials.UserName.UserName = UI.User.UserName;
-        client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+        if (client.ClientCredentials != null)
+        {
+          client.ClientCredentials.UserName.UserName = UI.User.UserName;
+          client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+        }
         strChangeType = "AccountUpdate";
         bAccountHasPendingChange = false;
         bAccountUpdateApprovalsEnabled = 0;
 
-        MTList<ChangeTypeConfiguration> mactc = new MTList<ChangeTypeConfiguration>();
+        var mactc = new MTList<ChangeTypeConfiguration>();
 
         client.RetrieveChangeTypeConfiguration(strChangeType, ref mactc);
 
@@ -164,8 +163,7 @@ public partial class Account_UpdateAccount : MTAccountPage
           bAllowMoreThanOnePendingChange = mactc.Items[0].AllowMoreThanOnePendingChange;
 
           List<int> pendingchangeids;
-          string straccountid = "";
-          straccountid = UI.Subscriber.SelectedAccount._AccountID.ToString();
+          string straccountid = UI.Subscriber.SelectedAccount._AccountID.ToString();
 
           client.GetPendingChangeIdsForItem(strChangeType, straccountid, out pendingchangeids);
 
@@ -178,26 +176,20 @@ public partial class Account_UpdateAccount : MTAccountPage
           {
             if (bAccountHasPendingChange)
             {
-
-              SetError(
-                  "This account already has Account Update type pending change. This type of change does not allow more than one pending changes.");
-              this.Logger.LogError(
-                  string.Format(
-                      "The item {0} already has a pending change of the type {1} and this type of change does not allow more than one pending change.",
+              //todo potential localization issue
+              SetError("This account already has Account Update type pending change. This type of change does not allow more than one pending changes.");
+              Logger.LogError(string.Format("The item {0} already has a pending change of the type {1} and this type of change does not allow more than one pending change.",
                       UI.Subscriber.SelectedAccount.UserName, "AccountUpdate"));
               btnOk.Visible = false;
               client.Abort();
-
             }
-
           }
 
           if (bAccountHasPendingChange)
           {
-            string approvalframeworkmanagementurl =
-                "<a href='/MetraNet/ApprovalFrameworkManagement/ShowChangesSummary.aspx?showchangestate=PENDING'</a>";
-            string strPendingChangeWarning =
-                "This account already has pending change in the approval framework queue. " + approvalframeworkmanagementurl + " Click here to view pending changes.";
+            //todo potential localization issue
+            const string approvalframeworkmanagementurl = "<a href='/MetraNet/ApprovalFrameworkManagement/ShowChangesSummary.aspx?showchangestate=PENDING'</a>";
+            const string strPendingChangeWarning = "This account already has pending change in the approval framework queue. " + approvalframeworkmanagementurl + " Click here to view pending changes.";
             divLblMessage.Visible = true;
             lblMessage.Text = strPendingChangeWarning;
           }
@@ -271,7 +263,7 @@ public partial class Account_UpdateAccount : MTAccountPage
     } // end if semi-monthly validation
 
     //Payer is mandatory for Endpoint account type
-    AccountTypeManager accountTypeManagerEndpoint = new AccountTypeManager();
+    var accountTypeManagerEndpoint = new AccountTypeManager();
 
     IMTAccountType accountTypeEp = accountTypeManagerEndpoint.GetAccountTypeByName((MetraTech.Interop.MTProductCatalog.IMTSessionContext)UI.SessionContext, Account.AccountType);
 
@@ -295,18 +287,16 @@ public partial class Account_UpdateAccount : MTAccountPage
         ((InternalView)Account.GetInternalView()).PriceList = null;
       }
 
-      UpdateAccountEvents_UpdateAccount_Client update = new UpdateAccountEvents_UpdateAccount_Client();
-      update.In_Account = Account;
-      update.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-      update.In_ApplyAccountTemplates = cbApplyTemplate.Checked;
+      var update = new UpdateAccountEvents_UpdateAccount_Client
+        {
+          In_Account = Account,
+          In_AccountId = new AccountIdentifier(UI.User.AccountId),
+          In_ApplyAccountTemplates = cbApplyTemplate.Checked,
+          In_IsApprovalEnabled = bAccountUpdateApprovalsEnabled == 1
+        };
 
       //Approval Framework related code starts here
-      update.In_IsApprovalEnabled = false;
 
-      if (bAccountUpdateApprovalsEnabled == 1)
-      {
-        update.In_IsApprovalEnabled = true;
-      }
       //Approval Framework related code ends here
 
 
@@ -321,8 +311,10 @@ public partial class Account_UpdateAccount : MTAccountPage
 
   protected void btnCancel_Click(object sender, EventArgs e)
   {
-    UpdateAccountEvents_CancelUpdateAccount_Client cancel = new UpdateAccountEvents_CancelUpdateAccount_Client();
-    cancel.In_AccountId = new AccountIdentifier(UI.User.AccountId);
+    var cancel = new UpdateAccountEvents_CancelUpdateAccount_Client
+      {
+        In_AccountId = new AccountIdentifier(UI.User.AccountId)
+      };
     PageNav.Execute(cancel);
   }
 

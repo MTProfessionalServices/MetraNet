@@ -355,7 +355,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
     <script type="text/javascript">
 
         var dayFormat = d3.time.format("%A, %B %e");
-        var dateFormat = d3.time.format("%m/%d/%Y %I:%M:%S %p");
+        var dateFormat = d3.time.format("<%=DateFormatJs%>");
         var numberFormat = d3.format(",");
         var currencyFormat = d3.format("$,.0f");
         var percentageFormat = d3.format(".1%");

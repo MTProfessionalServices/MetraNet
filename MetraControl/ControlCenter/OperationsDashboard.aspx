@@ -194,9 +194,9 @@
                         </MT:MTDropDown>
                     </div>
                     <div style="width: 100%; height:230px">
-                        <table >
+                        <table style="width: 100%; height: 100%">
                             <tr>
-                                <td>
+                                <td width="30%" style="vertical-align:top">
                                     <table style="border-collapse:collapse;border:none">
                                         <tr>
                                             <td>
@@ -258,7 +258,7 @@
                                         </tr>
                                     </table>
                                 </td>
-                                <td>
+                                <td width="70%">
                                     <svg id="divBillCloseSynopsis"></svg>
                                 </td>
                             </tr>

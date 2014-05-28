@@ -141,6 +141,7 @@
         }
 
         function onIntervalIdChange() {
+            btnOk.disable(); 
             ddBillGroupId.store.removeAll();
             ddBillGroupId.clearValue();
             ddBillGroupId.disable();
@@ -172,15 +173,20 @@
                         ddBillGroupId.disable();
                     }
                     ddBillGroupId.setValue(ddBillGroupId.store.getAt(0).data.value); // Default to first item (blank)
-                    btnOk.enable(); // Only at this point it is ok to enable the "Ok" button (even if not bill groups were returned)
+                    var billGroups = jsonData.records;
+                    if (billGroups.length == 0)
+                      btnOk.enable(); // Only at this point it is ok to enable the "Ok" button (even if not bill groups were returned)
                 },
                 failure: function () { console.log('failure'); }
             });
         }
 
         function onBillGroupIdChange() {
-            var ddBillGroupIdSelectedValue = ddBillGroupId.getValue();
-            txtBillGroupId.value = ddBillGroupIdSelectedValue;
+          btnOk.disable();
+          var ddBillGroupIdSelectedValue = ddBillGroupId.getValue();
+          txtBillGroupId.value = ddBillGroupIdSelectedValue;
+          if (ddBillGroupId.store.getCount() > 1 && ddBillGroupIdSelectedValue.length != 0)
+            btnOk.enable();
         }
 
         function insertNewOption(comboBox, value, text) {

@@ -642,4 +642,22 @@
     <data name="TEXT_VIEWONLINE_BILL" xml:space="preserve">
         <value>View Online Bill</value>
     </data>
+  <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
+    <value>Bill Messages</value>
+  </data>
+  <data name="TEXT_FINANCE_DASHBOARD" xml:space="preserve">
+    <value>Finance Dashboard</value>
+  </data>
+  <data name="TEXT_MANAGE_BILL_MESSAGES" xml:space="preserve">
+    <value>Manage Bill Messages</value>
+  </data>
+  <data name="TEXT_OPERATIONS_DASHBOARD" xml:space="preserve">
+    <value>Operations Dashboard</value>
+  </data>
+  <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
+    <value>Product Dashboard</value>
+  </data>
+  <data name="TEXT_REPORTS" xml:space="preserve">
+    <value>Reports</value>
+  </data>  
 </root>

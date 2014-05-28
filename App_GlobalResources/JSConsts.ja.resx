@@ -1245,5 +1245,49 @@
   <data name="TEXT_CONVERT_MESSAGE" xml:space="preserve">
     <value>Are you sure that you want to convert quote to subscriptions?</value>
   </data>
-
+  <data name="ACCOUNT_PAYEE_SELF_TEXT" xml:space="preserve">
+    <value>This account pays for itself</value>
+  </data>
+  <data name="ACCOUNT_PAYEE_TEXT" xml:space="preserve">
+    <value>[ja] This account is paid for by</value>
+  </data>
+  <data name="ACCOUNT_STATUS_LABEL_TEXT" xml:space="preserve">
+    <value>[ja] Account Status</value>
+  </data>
+  <data name="ACCOUNT_STATUS_TEXT" xml:space="preserve">
+    <value>[ja] Status</value>
+  </data>
+  <data name="ACCOUNT_BALANCE_AS_OF_TEXT" xml:space="preserve">
+    <value>[ja] as of</value>
+  </data>
+  <data name="ACCOUNT_BALANCE_TEXT" xml:space="preserve">
+    <value>[ja] Balance</value>
+  </data>
+  <data name="ACCOUNT_EDIT_INFO_TEXT" xml:space="preserve">
+    <value>[ja] Change</value>
+  </data>
+  <data name="ACCOUNT_LTV_TEXT" xml:space="preserve">
+    <value>[ja] Ltv</value>
+  </data>
+  <data name="ACCOUNT_MRR_TEXT" xml:space="preserve">
+    <value>[ja] MRR</value>
+  </data>
+  <data name="ACCOUNT_MRR_GRAPH_TEXT" xml:space="preserve">
+    <value>[ja] MRR</value>
+  </data>
+  <data name="ACCOUNT_INVOICE_GRAPH_TEXT" xml:space="preserve">
+    <value>[ja] Invoice</value>
+  </data>
+  <data name="ACCOUNT_FAILED_TRANSACTIONS_TEXT" xml:space="preserve">
+    <value>[ja] Failed Transactions</value>
+  </data>
+  <data name="REPORTS_TREE_HEADER_DESCRIPTION" xml:space="preserve">
+    <value>(JAPANESE) Description</value>
+  </data>
+  <data name="REPORTS_TREE_HEADER_NAME" xml:space="preserve">
+    <value>(JAPANESE) Name</value>
+  </data>
+  <data name="REPORTS_TREE_NOT_APPLICABLE_TEXT" xml:space="preserve">
+    <value>(JAPANESE) N/A</value>
+  </data>
 </root>

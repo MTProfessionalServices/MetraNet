@@ -177,6 +177,9 @@
   <data name="TEXT_ALL_INTERVALS" xml:space="preserve">
     <value>Tous les intervalles</value>
   </data>
+  <data name="TEXT_ANALYTICS" xml:space="preserve">
+    <value>[fr]Analytics</value>
+  </data>	
   <data name="TEXT_APP_AUDIT_LOG" xml:space="preserve">
     <value>Journal d’audit de l’application</value>
   </data>
@@ -262,8 +265,8 @@
     <value>Créer une annulation/réexécution</value>
   </data>
   <data name="TEXT_CREATE_CREDIT_NOTE" xml:space="preserve">
-        <value>{FR}Create Credit Note</value>
-    </data>
+    <value>{FR}Create Credit Note</value>
+  </data>
   <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
     <value>Ajouter une nouvelle instance de rapport</value>
   </data>
@@ -398,7 +401,7 @@
   </data>
   <data name="TEXT_MANAGE_BILLSOFT_OVERRIDES" xml:space="preserve">
     <value>Gérer BillSoft Remplacements</value>
-  </data>  
+  </data>
   <data name="TEXT_MENU_GENERATE_PASSWORD" xml:space="preserve">
     <value>Générer un mot de passe</value>
   </data>
@@ -600,6 +603,9 @@
   <data name="TEXT_UPDATE_EXISTING_REPORT_DEFINITIONS" xml:space="preserve">
     <value>Mettre à jour la définition de rapport existante</value>
   </data>
+  <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
+    <value>Usage Audit</value>
+  </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>Maintenance du serveur d’utilisation</value>
   </data>
@@ -610,8 +616,8 @@
     <value>Informations sur la version</value>
   </data>
   <data name="TEXT_VIEW_CREDIT_NOTES_ISSUED" xml:space="preserve">
-        <value>{FR}View Credit Notes Issued</value>
-    </data>
+    <value>{FR}View Credit Notes Issued</value>
+  </data>
   <data name="TEXT_VIEW_METERING_STATISTICS" xml:space="preserve">
     <value>Afficher</value>
   </data>
@@ -636,7 +642,25 @@
   <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
     <value>Assigner des messages aux factures</value>
   </data>
-   <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
-        <value>[Fr]Add child Account</value>
-   </data>
+  <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
+    <value>[Fr]Add child Account</value>
+  </data>
+  <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
+    <value>[fr]Bill Messages</value>
+  </data>
+  <data name="TEXT_FINANCE_DASHBOARD" xml:space="preserve">
+    <value>[fr]Finance Dashboard</value>
+  </data>
+  <data name="TEXT_MANAGE_BILL_MESSAGES" xml:space="preserve">
+    <value>[fr]Manage Bill Messages</value>
+  </data>
+  <data name="TEXT_OPERATIONS_DASHBOARD" xml:space="preserve">
+    <value>[fr]Operations Dashboard</value>
+  </data>
+  <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
+    <value>[fr]Product Dashboard</value>
+  </data>
+  <data name="TEXT_REPORTS" xml:space="preserve">
+    <value>[fr] Reports</value>
+  </data>  
 </root>

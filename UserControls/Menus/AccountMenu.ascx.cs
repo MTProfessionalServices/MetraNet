@@ -12,7 +12,6 @@ using IMTSQLRowset=MetraTech.Interop.IMTAccountType.IMTSQLRowset;
 using RCD = MetraTech.Interop.RCD;
 using MetraTech.Interop.MTAuth;
 using System.Configuration;
-using MetraTech.UI.Tools;
 
 public partial class UserControls_AccountMenu : System.Web.UI.UserControl
 {
@@ -153,12 +152,6 @@ public partial class UserControls_AccountMenu : System.Web.UI.UserControl
       {
         menu.RemoveMenuItemById("EditAccountTemplate");
       }
-
-       //remove UpdateContact if the managed user doesn't have contact information 
-       if (!Utils.CheckingExistenceOfProperty(page.UI.Subscriber.SelectedAccount, "LDAP"))
-       { 
-        menu.RemoveMenuItemById("UpdateContact"); 
-       } 
 
       // Don't show move account for account types that are not visible in the hierarchy
       if (!accType.IsVisibleInHierarchy)

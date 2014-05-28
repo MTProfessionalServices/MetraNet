@@ -141,6 +141,11 @@ public partial class StartWorkFlow : MTPage
               In_AccountId = new AccountIdentifier(UI.User.AccountId),
               In_AccountIdentifier = new AccountIdentifier(int.Parse(UI.Subscriber["_AccountID"]))
             };
+            if (!String.IsNullOrEmpty(Request["StartWithStep"]))
+            {
+              acc.In_StartWithStep = Request["StartWithStep"];
+            }
+
           PageNav.Execute(acc);
           break;
         }
@@ -185,6 +190,11 @@ public partial class StartWorkFlow : MTPage
                 //new AccountIdentifier(int.Parse(UI.Subscriber.SelectedAccount.AncestorAccountID.Value.ToString()));
                 new AccountIdentifier(MetraTech.UI.Tools.Utils.GetCorporateAccountOfChildAccount(UI.Subscriber.SelectedAccount._AccountID.Value, ApplicationTime));
           }
+
+            if (!String.IsNullOrEmpty(Request["StartWithStepGr"]))
+            {
+              GroupSubAcct.In_StartWithStepGr = Request["StartWithStepGr"];
+            }
 
           PageNav.Execute(GroupSubAcct);
           break;

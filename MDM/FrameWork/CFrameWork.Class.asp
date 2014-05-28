@@ -701,6 +701,7 @@ CLASS CFrameWork ' -- The FrameWork Class --
 	            CheckInternalStuff booMDMMode
 	        
 	            ' Setup application start page
+             if(instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")=0) then
 	                Dim userLocale
                     userLocale = request.ServerVariables("HTTP_ACCEPT_LANGUAGE")
                     dim Languages
@@ -713,7 +714,14 @@ CLASS CFrameWork ' -- The FrameWork Class --
                     else
                           Session(FRAMEWORK_APP_LANGUAGE)           = FRAMEWORK_DEFAULT_LANGUAGE
                     end if 
-
+              else
+              dim lang
+              lang = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 2)
+              if (instr(1, lang, "en") <> 0) then
+                lang = "en-US"
+              end if
+                Session(FRAMEWORK_APP_LANGUAGE) = lang
+              end if
 
 	            Session    (FRAMEWORK_APP_FOLDER)     = Server.MapPath(Application(FRAMEWORK_APP_STARTPAGE))
 	            Set Session(FRAMEWORK_APP_DICTIONARY) = Server.CreateObject("MTMSIX.Dictionary")

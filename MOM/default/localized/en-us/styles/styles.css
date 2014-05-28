@@ -26,8 +26,8 @@
 
 .clsNote{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
-	BACKGROUND-COLOR: white;
+	font-family:tahoma, arial, helvetica, sans-serif;
+	BACKGROUND-COLOR: whitesmoke;
   color:black;
   BORDER-BOTTOM: black solid 1px;
 	BORDER-LEFT: gray solid 1px;
@@ -37,16 +37,16 @@
 
 .clsLoginMessage{
 	font-size: 11px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	background-color:black;
-  color:white; 
+    color:white; 
 	margin: 5;
 }
 
 .CaptionBar{
-	padding: 3px 3px 3px 17px;
+	/*padding: 3px 3px 3px 17px;
 	font-size: 18px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	font-weight: bold;
 	text-align: left;
 	color: #FFFFFF;
@@ -55,7 +55,17 @@
   background-repeat : no-repeat;
 	position: relative;
 	left : 0px;
-	top : 0px;
+	top : 0px;*/
+	
+	background-color: #fff;
+color: #000;
+font-family:tahoma, arial, helvetica, sans-serif;
+font-size: 15px;
+font-style: normal;
+font-variant: normal;
+font-weight: bold;
+line-height: 15px;
+padding: 5px 3px 4px 15px;
 }
 
 .loginTopBevel{
@@ -74,7 +84,7 @@
 	{
 	color: white;
 	font-size: 11px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	text-align: right;
 	font-weight: bold;
 	vertical-align: baseline;
@@ -83,7 +93,7 @@
 .loginBar{
 	padding: 2px 15px 15px 15px;
 	font-size: 16px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	font-weight: bolder;
 	text-align: left;
 	color: #FFFFFF;
@@ -96,16 +106,16 @@
 .clsNote{
 	padding: 5px 8px 5px 8px;
 	font-size: 12px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	font-weight: bold;
 	text-align: left;
 	color: #20336A;
-	background-color: whitesmoke;
+	background-color: #ffffcc;
 }
-  
+
 .sectionCaptionBar{
   color:#15428B;
-  font-family:Verdana,Arial Unicode MS,Lucida Sans Unicode,Tahoma,Verdana,Arial,Helvetica,sans-serif;
+  font-family:tahoma, arial, helvetica, sans-serif;
   font-size:12px;
   font-weight:bold;
   padding:5px 8px;
@@ -115,7 +125,7 @@
 .clsWelcomeTitle{
 	padding: 5px 8px 5px 8px;
 	font-size: 16px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	font-weight: bold;
 	text-align: left;
 	color: #FFFFFF;
@@ -124,7 +134,7 @@
 
 .clsBulletList{
 	COLOR: black;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	FONT-SIZE: 14pt;
 	TEXT-ALIGN: left;
 	FONT-WEIGHT: normal;
@@ -132,34 +142,35 @@
 
 .clsStandardText{
 	font-size: 11px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	margin: 0;
 }
 
 .clsLargeText{
 	font-size: 12px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	margin: 0;
 }
 
 .clsMainTitle{
-	font-size: 12px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	/*font-size: 12px;
+	font-family:tahoma, arial, helvetica, sans-serif;*/
+	
 	margin: 0;
 }
 
 .clsStandardTitle{
   color:#15428B;
-  font-family:Verdana,Arial Unicode MS,Lucida Sans Unicode,Tahoma,Verdana,Arial,Helvetica,sans-serif;
-  font-size:12px;
+  font-family:tahoma, arial, helvetica, sans-serif;
+   font-size:12px;
   font-weight:bold;
   padding:5px 8px;
-	text-align: left;
+  text-align:left;
 }
 
 .clsInputBox{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	border-style: solid;
 	border-width: 1px;	
 }
@@ -167,7 +178,7 @@
 .CaptionBarHelp{
 	padding: 5px 8px 5px 8px;
 	font-size: 20px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	font-weight: bold;
 	text-align: left;
 	color: #FFFFFF;
@@ -178,7 +189,7 @@
 {
   color:Black;
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	background-color: #EEEEEE;
 	padding: 2px 2px 2px 2px;
 }
@@ -186,29 +197,29 @@
 {
   color:Black;
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	background-color: white;
 	padding: 2px 2px 2px 2px;
 }
 .TableCellSelected{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
-	background-color: #446E9E;
+	font-family:tahoma, arial, helvetica, sans-serif;
+	background-color: red;
 	padding: 2px 2px 2px 2px;
   color: black;
 }
 .TableCellHighlighted {
 	font-size: 11px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	background-color: Yellow;
 	padding: 2px 2px 2px 2px;
 	color: Black;
 }
 .TableCellAltBold
 {
-  color:Black;
+   color :Black;
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	background-color: #EEEEEE;
 	padding: 2px 2px 2px 2px;
 	font-weight: bold;  
@@ -217,19 +228,30 @@
 {
   color:Black;
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
-	background-color: #C1CBD7;
+	font-family:tahoma, arial, helvetica, sans-serif;
+	background-color: #f9f9f9;
 	padding: 2px 2px 2px 2px;
 	font-weight: bold;  
 }
 .TableHeader{
-	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	/*font-size: 11px; 
+	font-family:tahoma, arial, helvetica, sans-serif;
 	text-align: center;
 	color: black; 
 	background-color: #CCDEF6; 
 	padding: 2px 2px 2px 2px;	
-	border:solid 1px #98C0F4;
+	border:solid 1px #98C0F4;*/
+	
+	text-align: center;
+	color: black; 
+	/*background-color: #CCDEF6; */
+	background-color: #D6D3CE;
+	/*background-image: url(/Res/Ext/resources/images/metranet/grid/grid3-hrow2.gif);*/    
+    FONT:normal 11px/15px arial, tahoma, helvetica, sans-serif;
+    border-color: #d0d0d0;
+    border-right: 1px solid #eee;
+    border-left:1px solid #d0d0d0;
+    padding: 4px 3px 4px 5px;
 }
 .SelectedBorder{
 	BORDER-BOTTOM: black solid 1px;
@@ -241,26 +263,30 @@ a.TableHeaderA:hover{
 	COLOR : black;
 	text-decoration: none;
 	padding: 2px 2px 2px 2px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;  
+	font-family:tahoma, arial, helvetica, sans-serif;  
 }
 
 a.TableHeaderA{
 	COLOR : black;
 	text-decoration: none;
 	padding: 2px 2px 2px 2px;  
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;  
+	font-family:tahoma, arial, helvetica, sans-serif;  
 }
 
 .TableDetailCell{
 	font-size: 11px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
-	background-color:white;  
+	font-family:tahoma, arial, helvetica, sans-serif;
+	background-color:#C1CBD7; 
 	margin: 0;
+	BORDER-BOTTOM: #8CA5CE solid 1px;
+	BORDER-LEFT: #8CA5CE solid 1px;
+	BORDER-RIGHT: #8CA5CE solid 1px;
+	BORDER-TOP: #8CA5CE solid 0px;
 }
 
 .clsStaticInputBox{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	border-style: none;
 	border-width: 1px;
 	background-color: #FFFFFF;
@@ -277,7 +303,7 @@ a.TableHeaderA{
 	clipRight: 100%;
 	clipTop: 0px;
 	COLOR: black;
-	FONT-FAMILY: Arial;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	FONT-SIZE: 10pt;
 	FONT-WEIGHT: bold;
 	TEXT-ALIGN: left;
@@ -285,9 +311,9 @@ a.TableHeaderA{
 
 .ErrorMessageCaption{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	BACKGROUND-COLOR: #FDFECF;
-  BORDER-BOTTOM: black solid 1px;
+	BORDER-BOTTOM: black solid 1px;
 	BORDER-LEFT: gray solid 1px;
 	BORDER-RIGHT: black solid 1px;
 	BORDER-TOP: gray solid 1px;
@@ -301,31 +327,32 @@ a.TableHeaderA{
 	BORDER-RIGHT : black solid 1px;
 	BORDER-TOP : black solid 1px;
 	COLOR : black;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	FONT-SIZE : 11px;
 }
 
 .clsFindInputBox{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	border-style: solid;
 	border-width: 1px;
 }
 
 BODY
-	{
+{
 	font-size: 11px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
-  margin: 0;
-  background: url(/Res/Images/bg.png) repeat-x scroll 0pt -60px;
-  background-color: White;
-	}
+	font-family:tahoma, arial, helvetica, sans-serif;
+    margin: 0;
+  /*background: url(/Res/Images/bg.png) repeat-x scroll 0pt -60px;*/
+    background-color: White;
+}
 
 .side
 {
-  background:#D2E0F2;
+ /* background:#D2E0F2;
   margin:10px 14px 6px 5px;
-  border-right:solid 1px #99BBE8;
+  border-right:solid 1px #99BBE8;*/
+  margin:0 14px 6px 5px;
 }
 
 INPUT.checkbox
@@ -346,7 +373,7 @@ INPUT.image
 SELECT
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	border-style: none;
 	border-width: 1px;
 	}
@@ -355,7 +382,7 @@ SELECT
 	{
 	padding: 5px 8px 5px 8px;
 	font-size: 20px;
-	font-family: Georgia, Verdana, Arial, Helvetica, sans-serif;
+	font-family: tahoma, arial, helvetica, sans-serif;
 	font-weight: bold;
 	text-align: left;
 	color: #FFFFFF;
@@ -364,7 +391,7 @@ SELECT
 .captionEW
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	text-align: right;
 	vertical-align: baseline;
 	}
@@ -372,7 +399,7 @@ SELECT
 .captionEWRequired
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	text-align: right; 
 	font-weight: bold;
 	vertical-align: baseline;
@@ -381,14 +408,14 @@ SELECT
 .captionNS
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	text-align: left;
 	}
 
 .captionNSRequired
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	text-align: left;
 	font-weight: bold;
 	}
@@ -396,7 +423,7 @@ SELECT
 INPUT.field
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	border-style: solid;
 	border-width: 1px;
 	}
@@ -404,7 +431,7 @@ INPUT.field
 INPUT.fieldRequired
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	border-style: solid;
 	border-width: 1px;	
 	}
@@ -412,7 +439,7 @@ INPUT.fieldRequired
 INPUT.fieldNumeric
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	text-align: right; 
 	border-style: solid;
 	border-width: 1px;
@@ -421,7 +448,7 @@ INPUT.fieldNumeric
 INPUT.fieldNumericRequired
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	border-style: solid;
 	border-width: 1px;	
 	text-align: right; 
@@ -430,7 +457,7 @@ INPUT.fieldNumericRequired
 .fieldNonEditable 
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	border-style: solid;
 	border-width: 1px;
 	border-color: #BBBBBB;
@@ -440,7 +467,7 @@ INPUT.fieldNumericRequired
 TEXTAREA
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	border-style: solid;
 	border-width: 1px;
 	}
@@ -448,7 +475,7 @@ TEXTAREA
 TEXTAREA.required
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	border-style: solid;
 	border-width: 1px;
 	}
@@ -456,20 +483,20 @@ TEXTAREA.required
 .otherControl
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	border-style: groove;
 	}
 
 .otherControlRequired
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	}
 /*
 BUTTON
 	{
 	font-size: 11px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	text-align: center; 
 	vertical-align: baseline;
 	margin: 0px 2px 0px 2px;
@@ -482,7 +509,7 @@ BUTTON
  .clsSmallButton
 	{
 	font-size: 9px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	text-align: center; 
 	vertical-align: baseline;
   height:20px;
@@ -493,7 +520,7 @@ BUTTON
 .pushbutton
 	{
 	font-size: 11px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	text-align: center; 
 	vertical-align: baseline;
 	margin: 0px 2px 0px 2px;
@@ -512,13 +539,13 @@ THEAD
 TBODY
 	{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	}
 
 TH
 	{
 	font-size: 10px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	text-align: center;
 	color: #FFFFFF; 
 	background-color: #184173; 
@@ -544,11 +571,11 @@ TH
 	{
 	background-color: #EEEEEE;
 	}
-
+	
 .clsRateCaptionBar{
 	padding: 3px 3px 3px 5px;
 	font-size: 18px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	font-weight: bold;
 	text-align: left;
 	color: #FFFFFF;
@@ -560,7 +587,7 @@ TH
 
 .clsRateCaptionBarSubText{
 	font-size: 12px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	font-weight: bold;
 	text-align: left;
 	color: #FFFFFF;
@@ -568,14 +595,14 @@ TH
 
 .clsRateText{
 	font-size: 14px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	background-color: #edf0f8; 
 	margin: 0;
 }
 .clsRateHeader{
 	padding: 2px 4px 2px 4px;
 	font-size: 14px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	font-weight: bold;
 	text-align: left;
 	color: #FFFFFF;
@@ -585,7 +612,7 @@ TH
 }
 .clsRateTableSubHeader{
 	font-size: 12px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	text-align: center;
 	color: #FFFFFF; 
 	background-color: #0065CE; 
@@ -600,7 +627,7 @@ TH
 }
 .clsRateConstraintTableHeader{
 	font-size: 12px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	text-align: center;
 	color: #FFFFFF; 
 	background-color: black; 
@@ -608,7 +635,7 @@ TH
 }
 .clsRateTableSubHeader{
 	font-size: 12px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	text-align: center;
 	color: black; 
 	background-color: #e8e8e8; 
@@ -727,12 +754,13 @@ TH
   	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Arial, sans-serif;     
     font-weight: normal; 
     cursor:hand;    
-  }      
-  */      
+  }
+  */
+  
   .clsButtonBlueSmall {
     width: 50px; 
     height: 24px;
-    background-color: transparent;
+    /*background-color: transparent;
     background-image: url(../images/buttonbluesmall.gif);
   	background-repeat : no-repeat;	
     border: 0;
@@ -740,12 +768,13 @@ TH
    	font-size: 11px;
   	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Arial, sans-serif;     
     font-weight: normal; 
-    cursor:hand;    
+    cursor:hand; */     
   }    
+  
   .clsButtonBlueMedium {
     width: 77px; 
     height: 24px;
-    background-color: transparent;
+    /*background-color: transparent;
     background-image: url(../images/buttonbluemedium.gif);
   	background-repeat : no-repeat;	
     border: 0;
@@ -753,61 +782,70 @@ TH
    	font-size: 11px;
   	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Arial, sans-serif;     
     font-weight: normal; 
-    cursor:hand;    
-  }        
+    cursor:hand;  */  
+  }
+          
   .clsButtonBlueLarge {
     width: 100px; 
     height: 24px;
-    background-color: transparent;
-    background-image: url(../images/buttonbluelarge.gif);
-  	background-repeat : no-repeat;	
+   /* background-color: transparent;
+    background-image: url(/Res/Ext/resources/images/metranet/button/btn.gif);
+  	background-repeat : repeat-x scroll 0pt;	
     border: 0;
   	padding: 2px 2px 2px 2px;   
    	font-size: 11px;
   	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Arial, sans-serif;     
     font-weight: normal; 
-    cursor:hand;    
+    cursor:hand;    */
   }    
   .clsButtonBlueXLarge {
     width: 150px; 
     height: 24px;
-    background-color: transparent;
-    background-image: url(../images/buttonblueXlarge.gif);
-  	background-repeat : no-repeat;	
+    /*background-color: transparent;
+    background-image: url(/Res/Ext/resources/images/metranet/button/btn.gif);
+  	background-repeat : repeat-x scroll 0pt;	
     border: 0;
   	padding: 2px 2px 2px 2px;   
    	font-size: 11px;
-  	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Arial, sans-serif;     
+  	font-family: rial Unicode MS, Lucida Sans Unicode, Tahoma, Arial, sans-serif;     
     font-weight: normal; 
-    cursor:hand;    
+    cursor:hand;    */
   }     
-  .clsButtonBlueXXLarge {
+  
+.clsButtonBlueXXLarge {
     width: 200px; 
     height: 24px;
-    background-color: transparent;
+  /*  background-color: transparent;
     background-image: url(../images/buttonblueXXlarge.gif);
-  	background-repeat : no-repeat;	
+    background-image: url(/Res/Ext/resources/images/metranet/button/btn.gif);
+  	background-size: 100%;
+  	background-repeat: repeat-x scroll 0pt;
     border: 0;
   	padding: 2px 2px 2px 2px;   
    	font-size: 11px;
   	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Arial, sans-serif;     
     font-weight: normal; 
     cursor:hand;    
+    color: #333;*/
   }    
-  .clsButtonBlueXXXLarge {
+  
+.clsButtonBlueXXXLarge {
     width: 250px; 
     height: 24px;
-    background-color: transparent;
-    background-image: url(../images/buttonblueXXXlarge.gif);
-  	background-repeat : no-repeat;	
+   /* background-color: transparent;
+     background-image: url(/Res/Ext/resources/images/metranet/button/btn.gif);
+    background-size: 100%;
+  	background-repeat: repeat-x scroll 0pt;;
     border: 0;
   	padding: 2px 2px 2px 2px;   
    	font-size: 11px;
   	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Arial, sans-serif;     
     font-weight: normal; 
     cursor:hand;
-  }        
-  HR{
+    color: #333;*/
+  } 
+             
+HR{
     color:transparent;
    	background-image : url(../images/hr.gif);   
     height: 8px; 
@@ -816,14 +854,14 @@ TH
 	  left : -6px;
 	  top : -6px;    
   }
-
-  .clsTopMenu{
+ 
+.clsTopMenu{
   padding: 0px 0px 0px 0px;
   }
 
 A{
 	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	color: black; 
 	}    
  
@@ -841,35 +879,35 @@ A{
 	color:#04468D;
 } 
 .clsHeaderToolbar{
-	  font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
-    font-size:8pt;
+	font-family:tahoma, arial, helvetica, sans-serif;
+  font-size:8pt;
   background-color:#CCDEF6;
-    color:#263406;
+  color:#263406;
   border:solid 1px #98C0F4;
 }
 .clsBreadCrumbGutter{
-  	padding: 0px 0px 0px 0px;
+ 	padding: 0px 0px 0px 0px;
 	  position:absolute;
     left:25px; 
     width:1800px;
     background-image : url(../images/gutter.gif);   
     background-repeat : repeat-x;
-	  BORDER-BOTTOM : black solid 0px;
-	  BORDER-LEFT : #668BBD solid 0px;
-	  BORDER-RIGHT : black solid 0px;
-	  BORDER-TOP : black solid 0px;    
+    BORDER-BOTTOM : black solid 0px;
+    BORDER-LEFT : #668BBD solid 0px;
+    BORDER-RIGHT : black solid 0px;
+    BORDER-TOP : black solid 0px;    
 }
   .clsBreadCrumbs{
 	padding: 1px 1px 1px 1px;
 	font-size: 11px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	font-weight: normal;
 	text-align: left;
 	color: black;
 	text-decoration: none;
   }
-  
- 
+
+
 .clsDrag{
   font-size:8pt;
   cursor:hand;
@@ -912,16 +950,16 @@ A{
   color:#97CE21;
 }
 .clsDragDiv{
-    position:absolute;
+	position:absolute;
 	font-size:8pt;
 	font-weight:bold;
 	cursor:hand;
 	display : none;
   overflow:hidden;
-   }
-  
+}
+
 .clsContextMenu{
-    position:absolute;
+	position:absolute;
 	width:175px;
 	padding:5px 0px;
 	border:2px solid black;
@@ -1008,21 +1046,21 @@ A{
 a.clsAdvancedFind:hover{
 	COLOR: #ADEF8C;
   padding: 8px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;  
+	font-family:tahoma, arial, helvetica, sans-serif;  
 	/*text-decoration: none;*/
 }
 
 a.clsAdvancedFind{
   color: white;
   padding: 8px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;  
+	font-family:tahoma, arial, helvetica, sans-serif;  
  	/*text-decoration: none;*/
 }
 
 .UserWarning{
 	padding:  2px 2px 2px 2px;
 	font-size: 11px;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-family:tahoma, arial, helvetica, sans-serif;
 	text-align: left;
 	color: black;
 	background-color: #FFFFC0;
@@ -1036,13 +1074,27 @@ a.clsAdvancedFind{
 {
   color: white;
 	font-size:8pt;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;  
+	font-family:tahoma, arial, helvetica, sans-serif;  
   text-align:left;
 	PADDING-BOTTOM: 0px;
 	PADDING-LEFT: 8px;
 	PADDING-RIGHT: 0px;
 	PADDING-TOP: 15px;    
 }
+
+.clsNote2{
+  margin: 5px;
+  background-color:#efefef;
+	background-image: url('../images/icons/infosmall.gif');
+	background-position: 5px center;
+	background-repeat: no-repeat;
+  border:solid #848284 1px;
+  white-space:nowrap;
+  display: inline;
+  padding:5px;
+  padding-left:25px;
+  border-radius:3px;
+ }
 
 .clsButtonBox
 {
@@ -1154,7 +1206,7 @@ input
 
 select
 {
-  background: #FFFFFF url(/Res/Ext/resources/images/default/form/text-bg.gif) repeat-x scroll 0pt;
+  background: #FFFFFF url(/Res/Ext/resources/images/metranet/form/text-bg.gif) repeat-x scroll 0pt;
   border: 1px solid #B5B8C8;
   padding: 1px 3px;
   font-size: 10px;
@@ -1208,36 +1260,42 @@ h3
 HR
 {
   height: 1px;
-  background-color:#99BBE8;
+  background-color:#ccc;
 }
 
 .Drop
 {
   dropable: true;
   color: black;
-    background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-position: right;
 }
 
 .CaptionBar
 {
-  background: transparent url(/Res/Ext/resources/images/default/panel/white-top-bottom.gif) repeat-x scroll 0pt -1px;
-  border-bottom: 1px solid #99BBE8;
-  color: #15428B;
+  /*background: transparent url(/Res/Ext/resources/images/gray/panel/white-top-bottom.gif) repeat-x scroll 0pt -1px;
+  border-bottom: 1px solid #99BBE8;*/
+  background-color:#fff;
+  color: #000;
   font-family: tahoma,arial,verdana,sans-serif;
-  font-size: 11px;
-  font-style: normal;
-  font-variant: normal;
+  font-size: 197%;
+  margin: .3em 0 .3em;
   font-weight: bold;
-  line-height: 15px; 
-  padding: 5px 3px 4px 5px;
+  padding: 5px 3px 4px 15px;
+  display: block;
+  font-size: 2em;
+  -webkit-margin-before: 0.67em;
+  -webkit-margin-after: 0.67em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
 }
+
 
 .FilterHeader
 {
   padding: 3px 3px 3px 17px;
   font-size: 10px;
-  font-family: Verdana, Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-family: tahoma, arial, helvetica, sans-serif;
   font-weight: bold;
   text-align: left;
   color: #FFFFFF;
@@ -1248,21 +1306,21 @@ HR
 {
   padding: 3px 3px 3px 17px;
   font-size: 10px;
-  font-family: Verdana, Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-family: tahoma, arial, helvetica, sans-serif;
   font-weight: bold;
   text-align: left;
   color: #FFFFFF;
   background-color: #877B6D;
-  }
+}
 
 .SectionCaptionBar
 {
   padding: 5px 8px 5px 8px;
   font-size: 12px;
-  font-family: Verdana, Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-family: tahoma, arial, helvetica, sans-serif;
   font-weight: bold;
   text-align: left;
-    color:black;
+  color: black;
 }
 
 .Caption
@@ -1280,7 +1338,7 @@ HR
 
 .SmallText
 {
-    font-size:9px;
+  font-size: 9px;
 }
 
 .BigText
@@ -1322,8 +1380,8 @@ HR
 .Header
 {
   font-size: 11px;
-  font-family: Arial;
-    text-align:center;
+  font-family:tahoma, arial, helvetica, sans-serif;
+  text-align: center;
   color: white;
   background-color: #215379;
   border-bottom: black solid 1px;
@@ -1335,7 +1393,7 @@ HR
 TH A
 {
   font-size: 11px;
-  font-family: Arial;
+  font-family:tahoma, arial, helvetica, sans-serif;
   text-align: center;
   font-weight: bold;
   color: white; /*background-color: #007AE5;*/
@@ -1344,7 +1402,7 @@ TH A
 TH A:Hover
 {
   font-size: 11px;
-  font-family: Arial;
+  font-family:tahoma, arial, helvetica, sans-serif;
   text-align: center;
   font-weight: bold;
   color: navy;
@@ -1355,7 +1413,7 @@ TH A:Hover
 {
   background-color: #C1CBD7;
   color: black;
-  font-family: Arial;
+  font-family:tahoma, arial, helvetica, sans-serif;
   font-size: 10px;
   font-weight: normal;
   padding-left: 3px;
@@ -1366,7 +1424,7 @@ TH A:Hover
 {
   background-color: #CFDBE5;
   color: black;
-  font-family: Arial;
+  font-family:tahoma, arial, helvetica, sans-serif;
   font-size: 10px;
   font-weight: normal;
   padding-left: 3px;
@@ -1377,7 +1435,7 @@ TH A:Hover
 {
   background-color: #F6F6F6;
   color: black;
-  font-family: Arial;
+  font-family:tahoma, arial, helvetica, sans-serif;
   font-size: 10px;
   font-weight: normal;
   padding-left: 3px;
@@ -1445,25 +1503,38 @@ TH A:Hover
   margin: 5px;
 }
 
-button
+button,.clsButtonBlueSmall,.clsButtonBlueMedium, .clsButtonBlueLarge,.clsButtonBlueXLarge,.clsButtonBlueXXLarge ,.clsButtonBlueXXXLarge
+  
 {
-PADDING-RIGHT: 3px;
-PADDING-LEFT: 3px;
-BACKGROUND: none transparent scroll repeat 0% 0%;
-MARGIN: 0px;
-FONT: 11px tahoma,verdana,helvetica;
-OVERFLOW: visible;
-WIDTH: auto;
-CURSOR: pointer;
+align-items: flex-start;
+text-align: center;
+cursor: default;
+color: #333;
+padding: 2px 6px 3px;
+border: 2px outset buttonface;
+border-image-source: initial;
+border-image-slice: initial;
+border-image-width: initial;
+border-image-outset: initial;
+border-image-repeat: initial;
+background-color: buttonface;
+box-sizing: border-box;
+font-family: arial, tahoma, verdana, helvetica;
+font-size: 11px;
+font-weight: normal;
+letter-spacing: normal;
 }
-.button:hover
+button:disabled {
+  color: #807d7d;
+}
+button:hover
 {
 CURSOR: hand;
 }
 .Buttons
 {
 TEXT-ALIGN: center;
-   }
+}
 
 /* INTERVAL PROGRESS */
   #progressContainer {
@@ -1495,133 +1566,16 @@ TEXT-ALIGN: center;
     font-size:9px;
     text-align:center;
     background-color:transparent; 
-	  vertical-align:top;
+	vertical-align:top;
    }
    
-   * General Table Styles */
-.clsTable{
-    background-color: #B1CBE6;
-}
-.clsTableHeader {
-/*    BACKGROUND-COLOR: #2F4899;
-    COLOR: white;
-    FONT-FAMILY: tahoma, Helvetica, sans-serif;
-    FONT-SIZE: 9pt;
-    FONT-WEIGHT: normal;
-    CURSOR: default;
-    PADDING-LEFT: 4px;
-    PADDING-RIGHT: 3px;
-    TEXT-ALIGN: center */
-	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
-	text-align: center;
-	color: white; 
-    font-weight:bold;
-	background-color: #007AE5;     
-    }
-.clsTableHeaderLeft {
-/*	BACKGROUND-COLOR: #2F4899;
-	COLOR: white;
-	FONT-FAMILY: tahoma, Helvetica, sans-serif;
-	FONT-SIZE: 9pt;
-	FONT-WEIGHT: normal;
-	CURSOR: default;
-	PADDING-LEFT: 4px;
-	PADDING-RIGHT: 3px;
-	TEXT-ALIGN: left*/
-    	BORDER-BOTTOM: black solid 1px;
-	BORDER-LEFT: #0057AF solid 1px;
-	BORDER-RIGHT: black solid 1px;
-	BORDER-TOP: #0057AF solid 1px;
-	font-size: 11px; 
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
-	text-align: center;
-	color: white; 
-	background-color: #007AE5; 
-}
-.clsTableSubHeader {
-	BACKGROUND-COLOR: #188594;
-	COLOR: white;
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
-	FONT-SIZE: 9pt;
-	FONT-WEIGHT: normal;
-	CURSOR: default;
-	PADDING-LEFT: 4px;
-	PADDING-RIGHT: 3px;
-/*	TEXT-ALIGN: left */
-}
-.clsTableText {  
-/*    BACKGROUND-COLOR: #f7f7ef; */
-    background-color:#CFDBE5;
-    COLOR: black;
-    font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
-    FONT-SIZE: 9pt;
-    FONT-WEIGHT: normal;
-    CURSOR: default;
-    PADDING-LEFT: 4px;
-    PADDING-RIGHT: 3px
-	}
-.clsTableTextEven {
-/*    BACKGROUND-COLOR: #f7f7ef; */
-    background-color:#CFDBE5;
-    COLOR: black;
-    font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
-    FONT-SIZE: 9pt;
-    FONT-WEIGHT: normal;
-    CURSOR: default;
-    PADDING-LEFT: 4px;
-    PADDING-RIGHT: 3px
-    }
-.clsTableTextEvenLabel {
-    background-color:#CFDBE5;
-    COLOR: black;
-    font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
-    FONT-SIZE: 9pt;
-    FONT-WEIGHT: bold;
-    CURSOR: default;
-    PADDING-LEFT: 4px;
-    PADDING-RIGHT: 3px
-    }
-.clsTableTextOdd {
-/*    BACKGROUND-COLOR: #efefe6; */
-    background-color: #C1CBD7;
-    COLOR: black;
-    font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
-    FONT-SIZE: 9pt;
-    FONT-WEIGHT: normal;
-    CURSOR: default;
-    PADDING-LEFT: 4px;
-    PADDING-RIGHT: 3px
-    }
-.clsTableTextOddLabel {
-    background-color: #C1CBD7;
-    COLOR: black;
-    font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
-    FONT-SIZE: 9pt;
-    FONT-WEIGHT: bold;
-    CURSOR: default;
-    PADDING-LEFT: 4px;
-    PADDING-RIGHT: 3px
-    }
-
-.clsPrompt{
-	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
-    font-size:10pt;
-}
-
-.clsInput{
-    font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
-    font-size:10pt;
-    border: 1px solid Black;
-}
-.clsSelect{
-    font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
-    font-size:10pt;
-    border: 1px solid Black;
-    z-index:10;
-}
-.clsSmallInput{
-    font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
-    font-size:8pt;
-    border: 1px solid Black;
-}
+   fieldset
+   {
+       border: 1px solid #ccc;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        border-radius: 2px;
+   }
+   
+   
+   :focus, textarea { outline: #ccc !important; }

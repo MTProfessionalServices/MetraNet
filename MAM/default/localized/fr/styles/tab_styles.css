@@ -1,30 +1,64 @@
 .clsTabAngleTopImage{
-	background-color:#CEDEE7;
+	/*background-color:#fff;*/
+	/*background-color: #eaeaea;
+	border-color: #d0d0d0;
+    background-image: url(/res/ext/resources/images/gray/panel/white-top-bottom.gif) ;
+    background-repeat: no-repeat;*/
+    background:transparent;
+    padding-left: 10px;
+    border-bottom: 1px solid #d0d0d0;
 }
+
+/*background-color: #dbdbdb;
+background-image: url(../images/gray/tabs/tab-strip-bg.gif);
+border-bottom-color: #d0d0d0;*/
+
 .clsTabBody{
 	background-color: #CEDEEF;
+	font: 11px tahoma, arial, helvetica, sans-serif;
+    border-color: #dbdbdb;
+    border-style:solid;
+    border-width:1px;
 	margin: 0px 0px 0px 5px;
 }
+
 .clsTabAngleTopUnselected{
-/*  background-color:#CEDEEF;*/
-	font:Arial;
-	font-size:10pt;
-	text-decoration:none;
+   background-color: #dbdbdb;
+    background-image: url(../images/gray/tabs/tab-strip-bg.gif);
+    /* display: list-item; */
+    margin: 2px;
+    padding: 5px;
+    border-top-right-radius: 5px;
+    border-top-left-radius:  5px;
 }
+
 .clsTabAngleTopSelected{
   	background-color:white;/*smoke;/*#ecf5ff;*/
-    font:Arial;
-    color:black;
-    font-size:10pt;
-    text-decoration:none;
+    border-color: #dbdbdb;
+    border-width:1px;
+    border-style:solid;
+    border-top-right-radius: 5px;
+    border-top-left-radius:  5px;
 }
+
+
 .clsTabAngleTopLinkUnsel {
-	font:Arial;
-    font-size:10pt;
+	 font: 11px tahoma, arial, helvetica, sans-serif;
     text-decoration:none;
     color:black;
 /*  background-color:#CEDEEF;	*/	
 }
+
+.clsTabAngleTopLinkSel {
+	font: 11px tahoma, arial, helvetica, sans-serif;
+	font-weight:bold;
+    text-decoration:none;
+    color:black;
+/*  background-color:#CEDEEF;	*/	
+}
+
+
+
 .clsHideableTab{
 	position: absolute;
     left:10px; top:90px;

@@ -464,7 +464,10 @@
 <value>ce</value>
     	<description>this</description>
  </text> 
- 
+ <text id="TEXT_ACCOUNT_OWNED_BY">
+		  <value>Account owned by</value>
+		  <description></description>
+	  </text>
  <text id="TEXT_ADD_CAPABILITY_TO_ROLE_TITLE">
 <value>Ajouter [TEXT_KEYTERM_CAPABILITY]</value>
     	<description>Select capability to add to role</description>
@@ -474,7 +477,10 @@
 <value>Description [TEXT_KEYTERM_CAPABILITY]</value>
     	<description>Capability</description>
  </text> 
-
+<text id="TEXT_MANAGE_ACCOUNT_HIERARCHIES">
+		  <value>Requires Manage Account Hierarchies</value>
+		  <description>Hierarchy</description>
+	  </text>
  <text id="TEXT_CAPABILITY_NAME">
 <value>Nom [TEXT_KEYTERM_CAPABILITY]</value>
     	<description>Capability Name</description>

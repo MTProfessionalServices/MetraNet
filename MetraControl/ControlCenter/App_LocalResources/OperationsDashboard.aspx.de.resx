@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MTTitle1Resource1.Text" xml:space="preserve">
+    <value>{DE}Operations Dashboard</value>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>{DE}MetraNet - Operations Dashboard</value>
+  </data>
+  <data name="pnlFailedAdapters.Text" xml:space="preserve">
+    <value>{DE}Failed Adapters</value>
+  </data>
+  <data name="pnlPendingBillClose.Text" xml:space="preserve">
+    <value>{DE}Pending Bill Close</value>
+  </data>
+  <data name="pnlRunningAdapters.Text" xml:space="preserve">
+    <value>{DE}Running Adapters</value>
+  </data>
+  <data name="NO_FAILED_ADAPTER_RUNS_TEXT" xml:space="preserve">
+    <value>{DE}No Failed Adapter Runs</value>
+  </data>
+  <data name="NO_PENDING_BILL_CLOSE_TEXT" xml:space="preserve">
+    <value>{DE}No Pending Bill Close</value>
+  </data>
+  <data name="NO_RUNNING_ADAPTERS_TEXT" xml:space="preserve">
+    <value>{DE}No Running Adapters</value>
+  </data>
+  <data name="TEXT_BILL_GROUP" xml:space="preserve">
+    <value>{DE}Bill Group</value>
+  </data>
+  <data name="TEXT_CYCLE" xml:space="preserve">
+    <value>{DE}Cycle</value>
+  </data>
+  <data name="TEXT_DATE" xml:space="preserve">
+    <value>{DE}Date</value>
+  </data>
+  <data name="TEXT_END" xml:space="preserve">
+    <value>{DE}End</value>
+  </data>
+  <data name="TEXT_INSTANCE" xml:space="preserve">
+    <value>{DE}Instance</value>
+  </data>
+  <data name="TEXT_INTERVAL_ID" xml:space="preserve">
+    <value>{DE}Interval ID</value>
+  </data>
+  <data name="TEXT_MESSAGE" xml:space="preserve">
+    <value>{DE}Message</value>
+  </data>
+  <data name="TEXT_NAME" xml:space="preserve">
+    <value>{DE}Name</value>
+  </data>
+  <data name="TEXT_START" xml:space="preserve">
+    <value>{DE}Start</value>
+  </data>
+  <data name="TEXT_STATUS" xml:space="preserve">
+    <value>{DE}Status</value>
+  </data>
+  <data name="pnlFailedTransactionsQueueResource.Text" xml:space="preserve">
+    <value>{DE}Failed Transactions Queue</value>
+  </data>
+  <data name="TEXT_OPEN" xml:space="preserve">
+    <value>{DE}Open</value>
+  </data>
+  <data name="TEXT_UNDER_INVESTIGATION" xml:space="preserve">
+    <value>{DE}Under Investigation</value>
+  </data>
+  <data name="TEXT_DAYS" xml:space="preserve">
+    <value>{DE}Days</value>
+  </data>
+  <data name="TEXT_LAST_BATCH" xml:space="preserve">
+    <value>{DE}Last Batch</value>
+  </data>
+  <data name="TEXT_OVER" xml:space="preserve">
+    <value>{DE}Over</value>
+  </data>
+  <data name="pnlPricingQueue.Text" xml:space="preserve">
+    <value>{DE}Pricing Queue</value>
+  </data>
+  <data name="TEXT_PIPELINE_QUEUE" xml:space="preserve">
+    <value>{DE}Pipeline Queue</value>
+  </data>
+  <data name="TEXT_RAMP_QUEUE" xml:space="preserve">
+    <value>{DE}RAMP Queue</value>
+  </data>
+  <data name="TEXT_SCHEDULER_QUEUE" xml:space="preserve">
+    <value>{DE}Scheduler Queue</value>
+  </data>
+  <data name="TEXT_MESSAGES_WAITING_TO_BE_ASSIGNED" xml:space="preserve">
+    <value>{DE}messages waiting to be assigned</value>
+  </data>
+  <data name="TEXT_MESSAGES_WAITING_IN_RABBITMQ" xml:space="preserve">
+    <value>{DE}messages waiting in RabbitMQ</value>
+  </data>
+  <data name="TEXT_TASKS_WAITING_TO_BE_PROCESSED" xml:space="preserve">
+    <value>{DE}tasks waiting to be processed</value>
+  </data>
+  <data name="pnlBatchUsageResource.Text" xml:space="preserve">
+    <value>{DE}Usage Data Records</value>
+  </data>
+  <data name="TEXT_BATCHES" xml:space="preserve">
+    <value>{DE}Batches</value>
+  </data>
+  <data name="TEXT_UDRS" xml:space="preserve">
+    <value>{DE}UDRs</value>
+  </data>
+  <data name="pnlActiveBillRun.Text" xml:space="preserve">
+    <value>{DE}Active Bill Run</value>
+  </data>
+  <data name="TEXT_3_MONTH_AVERAGE" xml:space="preserve">
+    <value>{DE}3 Month Average</value>
+  </data>
+  <data name="TEXT_ADAPTER" xml:space="preserve">
+    <value>{DE}Adapter</value>
+  </data>
+  <data name="TEXT_CURRENT_RUN" xml:space="preserve">
+    <value>{DE}Current Run</value>
+  </data>
+  <data name="TEXT_CURRENT_VS_3_MONTH_AVERAGE" xml:space="preserve">
+    <value>{DE}Current vs 3 Month Average</value>
+  </data>
+  <data name="TEXT_DURATION" xml:space="preserve">
+    <value>{DE}Duration</value>
+  </data>
+  <data name="TEXT_EARLIEST_ETA" xml:space="preserve">
+    <value>{DE}Earliest ETA</value>
+  </data>
+  <data name="TEXT_READY" xml:space="preserve">
+    <value>{DE}Ready</value>
+  </data>
+  <data name="TEXT_SUCCESSFUL" xml:space="preserve">
+    <value>{DE}Successful</value>
+  </data>
+  <data name="TEXT_VARIANCE" xml:space="preserve">
+    <value>{DE}Variance</value>
+  </data>
+  <data name="TEXT_WAITING" xml:space="preserve">
+    <value>{DE}Waiting</value>
+  </data>
+  <data name="lblBillCloseSynopisBillGroupsResource.Text" xml:space="preserve">
+    <value>{DE}Bill Groups:</value>
+  </data>
+  <data name="lblBillCloseSynopisDaysUntilRunResource.Text" xml:space="preserve">
+    <value>{DE}Days Until Run</value>
+  </data>
+  <data name="lblBillCloseSynopisEndResource.Text" xml:space="preserve">
+    <value>{DE}End:</value>
+  </data>
+  <data name="lblBillCloseSynopisStartResource.Text" xml:space="preserve">
+    <value>{DE}Start:</value>
+  </data>
+  <data name="lblBillCloseSynopisTypeResource.Text" xml:space="preserve">
+    <value>{DE}Type:</value>
+  </data>
+  <data name="pnlBillCloseSynopsisResource.Text" xml:space="preserve">
+    <value>{DE}Bill Close Synopsis</value>
+  </data>
+  <data name="TEXT_FIXED" xml:space="preserve">
+    <value>{DE}Fixed</value>
+  </data>
+  <data name="TEXT_UNGUIDED" xml:space="preserve">
+    <value>{DE}Unguided</value>
+  </data>
+  <data name="pnlPricingBacklog.Text" xml:space="preserve">
+    <value>{DE}Pricing Engine (Real-Time and Batch)</value>
+  </data>
+  <data name="TEXT_PIPELINE_WAIT_DURATION" xml:space="preserve">
+    <value>{DE}Pipeline Wait Duration</value>
+  </data>
+  <data name="TEXT_PIPELINE_PROCESSING_DURATION" xml:space="preserve">
+    <value>{DE}Pipeline Processing Duration</value>
+  </data>
+  <data name="TEXT_SECONDS_PROCESSING_IN_PIPELINE" xml:space="preserve">
+    <value>{DE}seconds processing in the pipeline </value>
+  </data>
+  <data name="TEXT_SECONDS_WAITING_TO_BE_ASSIGNED" xml:space="preserve">
+    <value>{DE}seconds waiting to be assigned</value>
+  </data>
+  <data name="TEXT_DAYS_BACK" xml:space="preserve">
+    <value>{DE}days back</value>
+  </data>
+</root>

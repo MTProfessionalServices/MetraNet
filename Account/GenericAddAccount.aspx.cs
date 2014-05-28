@@ -8,7 +8,6 @@ using MetraTech.DomainModel.AccountTypes;
 using MetraTech.DomainModel.Enums.Account.Metratech_com_accountcreation;
 using MetraTech.DomainModel.Enums.Core.Global;
 using MetraTech.DomainModel.Enums.Core.Metratech_com_billingcycle;
-using MetraTech.Interop.IMTAccountType;
 using MetraTech.UI.Common;
 using MetraTech.PageNav.ClientProxies;
 using MetraTech.DomainModel.BaseTypes;
@@ -17,8 +16,8 @@ using MetraTech.UI.Controls;
 
 public partial class GenericAddAccount : MTAccountPage
 {
-  private List<string> skipProperties = new List<string>();
-  private static AccountTypeCollection mAccountTypeCollection = new AccountTypeCollection();
+  private readonly List<string> skipProperties = new List<string>();
+  private static readonly AccountTypeCollection mAccountTypeCollection = new AccountTypeCollection();
   private void SetupSkipProperties()
   {
 
@@ -97,7 +96,7 @@ public partial class GenericAddAccount : MTAccountPage
     }
 
     // user name
-    Regex regexPattern = new Regex(ConfigurationManager.AppSettings["AcctUserNameRegex"]);
+    var regexPattern = new Regex(ConfigurationManager.AppSettings["AcctUserNameRegex"]);
     if (!regexPattern.IsMatch(tbUserName.Text))
     {
       tbUserName.Text = "";
@@ -132,7 +131,7 @@ public partial class GenericAddAccount : MTAccountPage
       }
     }
 
-    // [TODO] After fixing CORE-6642 validation of SemiMonthly Cycle is no longer required here. Before removing it:
+    // TODO After fixing CORE-6642 validation of SemiMonthly Cycle is no longer required here. Before removing it:
     // Use localized "Resources.ErrorMessages.ERROR_ENDDOM_INVALID"(see below) instead of unlocalized INVALID_FIRST_DAY in S:\MetraTech\DomainModel\Validators\AccountValidator.cs
 
     // Validate the semi-monthly selected days if semi-monthly defined.
@@ -157,11 +156,13 @@ public partial class GenericAddAccount : MTAccountPage
       {
         MTDataBinder1.Unbind();
 
-        AddAccountEvents_AddAccount_Client add = new AddAccountEvents_AddAccount_Client();
-        add.In_Account = Account;
-        add.In_AccountId = new AccountIdentifier(UI.User.AccountId);
-        add.In_SendEmail = cbEmailNotification.Checked;
-        add.In_ApplyAccountTemplates = cbApplyTemplate.Checked;
+        var add = new AddAccountEvents_AddAccount_Client
+          {
+            In_Account = Account,
+            In_AccountId = new AccountIdentifier(UI.User.AccountId),
+            In_SendEmail = cbEmailNotification.Checked,
+            In_ApplyAccountTemplates = cbApplyTemplate.Checked
+          };
         PageNav.Execute(add);
       }
     }
@@ -173,14 +174,13 @@ public partial class GenericAddAccount : MTAccountPage
 
   protected void btnCancel_Click(object sender, EventArgs e)
   {
-    AddAccountEvents_CancelAddAccount_Client cancel = new AddAccountEvents_CancelAddAccount_Client();
-    cancel.In_AccountId = new AccountIdentifier(UI.User.AccountId);
+    var cancel = new AddAccountEvents_CancelAddAccount_Client {In_AccountId = new AccountIdentifier(UI.User.AccountId)};
     if (PageNav != null) PageNav.Execute(cancel);
   }
 
   protected void setDefaultProperties(Account acct)
   {
-    InternalView internalView = (InternalView)acct.GetInternalView();
+    var internalView = (InternalView)acct.GetInternalView();
 
     if (internalView != null)
     {
@@ -190,20 +190,20 @@ public partial class GenericAddAccount : MTAccountPage
       internalView.UsageCycleType = UsageCycleType.Monthly;
     }
 
-    BindingFlags memberAccess = BindingFlags.Public | BindingFlags.NonPublic |
-         BindingFlags.Static | BindingFlags.Instance | BindingFlags.IgnoreCase;
+    const BindingFlags memberAccess = BindingFlags.Public | BindingFlags.NonPublic |
+                                      BindingFlags.Static | BindingFlags.Instance | BindingFlags.IgnoreCase;
 
     var contactViews = Account.GetType().GetProperty("LDAP", memberAccess);
     if (contactViews != null)
     {
-      List<ContactView> views = contactViews.GetValue(Account, null) as List<ContactView>;
+      var views = contactViews.GetValue(Account, null) as List<ContactView>;
 
       try
       {
         foreach (ContactView view in views)
           if (view.ContactType == null)
           {
-            ((ContactView)view).ContactType = ContactType.Bill_To;
+            view.ContactType = ContactType.Bill_To;
           }
       }
       catch

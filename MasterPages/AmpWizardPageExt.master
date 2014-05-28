@@ -12,9 +12,10 @@
   NOTE:  All future updates that are made to NoMenuPageExt should probably
   be made to AmpWizardPageExt too!
 -------------------------------------------------------------------------------->
-<!DOCTYPE html>
+
 <html>
 <head id="Head1" runat="server">
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
   <title>MetraNet</title>
   
   <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/ext-all.css?v=6.5" />
@@ -23,6 +24,9 @@
   <link rel="stylesheet" type="text/css" href="/Res/Styles/MiscField.css?v=6.5"/>
   <link rel="stylesheet" type="text/css" href="/Res/Styles/AmpWizard.css"/>
   <link rel="icon" type="image/ico" href="/MetraNet/favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="/Res/Ext/resources/css/xtheme-metranet.css" />
+
+
 
   <script type="text/javascript" src="/Res/Ext/adapter/ext/ext-base.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/Ext/ext-all.js?v=6.5"></script>
@@ -34,7 +38,6 @@
   <script type="text/javascript" src="/Res/ux/form/MiscField.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/ux/form/PasswordMeter.js?v=6.5"></script>
   <script type="text/javascript" src="/Res/ux/form/LargeNumberField.js?v=6.5"></script>
-  <script type="text/javascript" src="/Res/jqPlot/jquery.js"></script>
 
 
   <!-- For AMP wizard pages -->

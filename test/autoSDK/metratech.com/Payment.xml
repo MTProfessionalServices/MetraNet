@@ -15,7 +15,7 @@
     </inputs>
   </session>
 
-  <session>
+<!--   <session>
     <ServiceName>metratech.com/Payment</ServiceName>
     <inputs>
       <Payer>demo</Payer>
@@ -26,6 +26,6 @@
       <CheckOrCardNumber>101</CheckOrCardNumber>
       <SessionTime>2002-09-30T00:00:00Z</SessionTime>
     </inputs>
-  </session>
+  </session> -->
 
 </xmlconfig>

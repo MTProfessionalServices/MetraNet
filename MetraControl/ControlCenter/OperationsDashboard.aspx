@@ -187,7 +187,7 @@
                 </MT:MTPanel>
             </li>
             <li data-row="28" data-col="5" data-sizex="4" data-sizey="9">
-                <MT:MTPanel ID="pnlBillCloseSynopsis" runat="server" Text="Bill Close Synopsis" meta:resourcekey="pnlBillCloseSynopsisResource" Width="450">
+                <MT:MTPanel ID="pnlBillCloseSynopsis" runat="server" Text="Bill Close Synopsis" meta:resourcekey="pnlBillCloseSynopsisResource" Width="430">
                     <div style="width: 399px; height: 27px">
                         <MT:MTDropDown ID="ddBillCloses" runat="server" AllowBlank="False" HideLabel="True"
                             Listeners="{}" ReadOnly="False">
@@ -216,7 +216,7 @@
                                         </tr>
                                         <tr>
                                             <td class="label">
-                                                <MT:MTLabel ID="lblBillCloseSynopisBillGroups" runat="server" meta:resourcekey="lblBillCloseSynopisBillGroupsResource" Text="Bill Groups:" />
+                                                <MT:MTLabel ID="lblBillCloseSynopisBillGroups" runat="server" meta:resourcekey="lblBillCloseSynopisBillGroupsResource" Text="Bill Groups:" Width="80" />
                                             </td>
                                             <td>
                                                 <MT:MTLabel ID="txtBillCloseSynopisBillGroups" runat="server" />
@@ -266,7 +266,7 @@
                     </div>
                 </MT:MTPanel>
             </li>
-            <li data-row="37" data-col="1" data-sizex="3" data-sizey="7">
+            <li data-row="37" data-col="1" data-sizex="4" data-sizey="9">
                 <MT:MTPanel ID="pnlFailedAdapters" runat="server" Text="Failed Adapters" meta:resourcekey="pnlFailedAdapters"
                 Width="320" Height="325">
                     <div height="100%" style="height: 248px">
@@ -276,7 +276,7 @@
                     </div>
                 </MT:MTPanel>
             </li>
-            <li data-row="37" data-col="4" data-sizex="3" data-sizey="7">
+            <li data-row="37" data-col="5" data-sizex="4" data-sizey="9">
                 <MT:MTPanel ID="pnlRunningAdapters" runat="server" Text="Running Adapters" meta:resourcekey="pnlRunningAdapters"
                 Width="320" Height="325">
                     <div height="100%" style="height: 248px">
@@ -838,8 +838,8 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var countGroup = statusDimension.group().reduceSum(dc.pluck('count'));
             
             chart
-                    .margins({top: 10, right: 10, bottom: 75, left: 60})
-					.width(320)
+                    .margins({top: 10, right: 10, bottom: 75, left: 50})
+					.width(310)
 					.height(220)
                     .dimension(statusDimension)
 					.transitionDuration(0)

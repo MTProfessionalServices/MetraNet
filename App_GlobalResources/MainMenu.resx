@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,64 +59,64 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-        <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
             <xsd:complexType>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="metadata">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string" />
-                            <xsd:attribute name="type" type="xsd:string" />
-                            <xsd:attribute name="mimetype" type="xsd:string" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="assembly">
-                        <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string" />
-                            <xsd:attribute name="name" type="xsd:string" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="data">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="resheader">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" />
-                        </xsd:complexType>
-                    </xsd:element>
-                </xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
     <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
         <value>Account Details</value>
     </data>
@@ -180,6 +180,9 @@
     <data name="TEXT_ALL_INTERVALS" xml:space="preserve">
         <value>All Intervals</value>
     </data>
+	<data name="TEXT_ANALYTICS" xml:space="preserve">
+        <value>Analytics</value>
+    </data>	
     <data name="TEXT_APP_AUDIT_LOG" xml:space="preserve">
         <value>Application Audit Log</value>
     </data>
@@ -232,7 +235,7 @@
         <value>Billable Intervals</value>
     </data>
     <data name="TEXT_BILLING_MANAGEMENT" xml:space="preserve">
-        <value>Billing Management</value>
+        <value>Billing</value>
     </data>
     <data name="TEXT_BULK_ADJUST_TRANSACTIONS" xml:space="preserve">
         <value>Bulk Adjust Transactions</value>
@@ -286,7 +289,7 @@
         <value>Dashboard</value>
     </data>
     <data name="TEXT_DATA_EXPORT_REPORT_MANAGEMENT" xml:space="preserve">
-        <value>Data Export Report Management</value>
+        <value>Data Export</value>
     </data>
     <data name="TEXT_DEFAULT_SECURITY" xml:space="preserve">
         <value>Default Security</value>
@@ -295,10 +298,10 @@
         <value>Dismissed</value>
     </data>
     <data name="TEXT_EDIT_MAPPING" xml:space="preserve">
-        <value>Edit Aliases</value>
+        <value>Aliases</value>
     </data>
     <data name="TEXT_EDIT_NAMESPACES" xml:space="preserve">
-        <value>Edit Namespaces</value>
+        <value>Namespaces</value>
     </data>
     <data name="TEXT_EDIT_TEMPLATE" xml:space="preserve">
         <value>Edit Template</value>
@@ -331,7 +334,7 @@
         <value>Feeds</value>
     </data>
     <data name="TEXT_FILE_MANAGEMENT" xml:space="preserve">
-        <value>File Management</value>
+        <value>File Processing</value>
     </data>
     <data name="TEXT_FILES_IN_LAST_2_DAYS" xml:space="preserve">
         <value>Jobs in the Past 2 Days</value>
@@ -367,13 +370,13 @@
         <value>Manage Accounts</value>
     </data>
     <data name="TEXT_MANAGE_ADJUSTMENTS" xml:space="preserve">
-        <value>Manage Adjustments</value>
+        <value>Adjustments</value>
     </data>
     <data name="TEXT_MANAGE_AGREEMENT_TEMPLATES" xml:space="preserve">
         <value>Manage Agreement Templates</value>
     </data>
     <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
-        <value>Manage AMP Decision Types</value>
+        <value>Decision Types</value>
     </data>
     <data name="TEXT_MANAGE_BILLSOFT_EXEMPTIONS" xml:space="preserve">
         <value>Manage BillSoft Exemptions</value>
@@ -382,28 +385,28 @@
         <value>Manage BillSoft Overrides</value>
     </data>
     <data name="TEXT_MANAGE_CALENDARS" xml:space="preserve">
-        <value>Manage Calendars</value>
+        <value>Calendars</value>
     </data>
     <data name="TEXT_MANAGE_DATA_EXPORT_FRAMEWORK" xml:space="preserve">
-        <value>Data Export Report Management</value>
+        <value>Data Export</value>
     </data>
     <data name="TEXT_MANAGE_DEFAULT_SECURITY" xml:space="preserve">
         <value>Default Security</value>
     </data>
     <data name="TEXT_MANAGE_MISC_ADJUSTMENTS" xml:space="preserve">
-        <value>Manage Misc. Adjustments</value>
+        <value>Misc. Adjustments</value>
     </data>
     <data name="TEXT_MANAGE_NON_STANDARD_CHARGES" xml:space="preserve">
-        <value>Manage Nonstandard Charges</value>
+        <value>Nonstandard Charges</value>
     </data>
     <data name="TEXT_MANAGE_ORPHAN_ADJUSTMENTS" xml:space="preserve">
-        <value>Manage Orphan Adjustments</value>
+        <value>Orphan Adjustments</value>
     </data>
     <data name="TEXT_MANAGE_REPORTS" xml:space="preserve">
         <value>Manage Reports</value>
     </data>
     <data name="TEXT_MANAGE_ROLES" xml:space="preserve">
-        <value>Manage Roles</value>
+        <value>User Roles</value>
     </data>
     <data name="TEXT_MANAGE_SECURITY" xml:space="preserve">
         <value>Manage Security</value>
@@ -469,7 +472,7 @@
         <value>Pay for Accounts</value>
     </data>
     <data name="TEXT_PAY_FOR_ME" xml:space="preserve">
-        <value>Edit Payers</value>
+        <value>Payers</value>
     </data>
     <data name="TEXT_PAYMENT_HISTORY" xml:space="preserve">
         <value>Payment History</value>
@@ -619,7 +622,7 @@
         <value>Update Account</value>
     </data>
     <data name="TEXT_UPDATE_CONTACT" xml:space="preserve">
-        <value>Update Contacts</value>
+        <value>Contacts</value>
     </data>
     <data name="TEXT_UPDATE_EXISTING_REPORT_DEFINITIONS" xml:space="preserve">
         <value>Update Existing Report Definition</value>
@@ -628,7 +631,7 @@
         <value>Usage Server Maintenance</value>
     </data>
     <data name="TEXT_USM_CONFIG" xml:space="preserve">
-        <value>USM Configuration</value>
+        <value>Usage Server</value>
     </data>
     <data name="TEXT_VERSION_INFO" xml:space="preserve">
         <value>Version Information</value>
@@ -637,9 +640,39 @@
         <value>View Credit Notes Issued</value>
     </data>
     <data name="TEXT_VIEW_METERING_STATISTICS" xml:space="preserve">
-        <value>View</value>
+        <value>All Events</value>
     </data>
     <data name="TEXT_VIEWONLINE_BILL" xml:space="preserve">
         <value>View Online Bill</value>
     </data>
+  <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
+    <value>Usage Audit</value>
+  </data>
+  <data name="TEXT_ADD_TENANT" xml:space="preserve">
+    <value>Add Partition</value>
+  </data>
+  <data name="TEXT_REPORTS" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
+    <value>Usage Processing</value>
+  </data>
+  <data name="TEXT_ACCOUNT" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
+    <value>Bill Messages</value>
+  </data>
+  <data name="TEXT_FINANCE_DASHBOARD" xml:space="preserve">
+    <value>Finance Dashboard</value>
+  </data>
+  <data name="TEXT_MANAGE_BILL_MESSAGES" xml:space="preserve">
+    <value>Manage Bill Messages</value>
+  </data>
+  <data name="TEXT_OPERATIONS_DASHBOARD" xml:space="preserve">
+    <value>Operations Dashboard</value>
+  </data>
+  <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
+    <value>Product Dashboard</value>
+  </data>
 </root>

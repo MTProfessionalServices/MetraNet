@@ -294,14 +294,19 @@ public partial class Account_UpdateAccount : MTAccountPage
           In_ApplyAccountTemplates = cbApplyTemplate.Checked,
           In_IsApprovalEnabled = bAccountUpdateApprovalsEnabled == 1
         };
+<<<<<<< HEAD
 
       //Approval Framework related code starts here
 
+=======
+        update.In_LoadTime = ApplicationTime;
+
+      //Approval Framework related code starts here
+        update.In_IsApprovalEnabled = bAccountUpdateApprovalsEnabled == 1;
+>>>>>>> 699916e... Merge branch 'feature/CMI' of https://github.com/MetraTech/MetraNetDev into feature/CMI
       //Approval Framework related code ends here
 
-
       PageNav.Execute(update);
-
     }
     catch (Exception exp)
     {

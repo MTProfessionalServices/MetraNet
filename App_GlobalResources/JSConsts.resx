@@ -894,18 +894,6 @@
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
     <value>Decisions are used when a monetary charge amount cannot be calculated by looking at a single record. Instead, many usage records must be examined and a total must be the number of events, units of usage, or charge amounts. The total, or aggregate, is then used to help determine the charge amount.</value>
   </data>
-  <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_MONETARY_CHARGE" xml:space="preserve">
-    <value>Example: \"Apply a discount if there's over $100 in charges.\"</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_UNIT_OF_USAGE" xml:space="preserve">
-    <value>Example: \"Use a special rate if over 1,000 minutes.\"</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_COUNT_NUMBER_OF_EVENTS" xml:space="preserve">
-    <value>Example: \"Apply a discount if over 100 calls were made.\"</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_FROM_PARAMETER_TABLE" xml:space="preserve">
-    <value>Usage is aggregated based on the value set in the parameter table.</value>
-  </data>
   <data name="TEXT_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
     <value>Example: There are two decisions that consider the same usage record. Both decisions are configured to consume the usage records. &lt;br/&gt;&lt;br/&gt;The decisions' priority levels determine the order in which to process the decisions. A lower numeric priority level is processed earlier than a higher priority level. Decisions that have the same priority level are processed in nondeterministic order. On the Decision Priority page you can specify the priority level of the decision type you are now configuring.</value>
   </data>
@@ -942,17 +930,8 @@
   <data name="TITLE_AMPWIZARD_HELP_RESTART_RANGE" xml:space="preserve">
     <value>Help: Restart Range</value>
   </data>
-  <data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE_PRORATION" xml:space="preserve">
-    <value>Help: Decision Range Proration</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
-    <value>Help: Decision Range</value>
-  </data>
   <data name="TEXT_AMPWIZARD_MORE_DECISION_CYCLE" xml:space="preserve">
     <value>Example: A billing cycle is monthly, but you want to give a special rate if \"more than 1000 minutes are used in three months\". This is known as the Decision Cycle.</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_HELP_MORE_DECISION_CYCLE" xml:space="preserve">
-    <value>Help: Decision Cycle</value>
   </data>
   <data name="TITLE_AMPWIZARD_ACTIVATION_RESULTS" xml:space="preserve">
     <value>Activation Results</value>
@@ -974,18 +953,6 @@
   </data>
   <data name="TEXT_AMPWIZARD_HELP_INCREMENTAL_OR_BULK" xml:space="preserve">
     <value>&lt;i&gt;Act on each record individually&lt;/i&gt; means that the decision takes a record, adds it to the total, and if the total is within the range, performs an action.  &lt;i&gt;Act on all the records together&lt;/i&gt; means that the decision totals &lt;u&gt;ALL&lt;/u&gt; the records, and if the total falls within the range, applies the action to &lt;u&gt;ALL&lt;/u&gt; the records.</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
-    <value>Help: Multi-bucket</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
-    <value>Act on each individual record.  Usage may have different prices  which are determined by the bucket into which they fall.</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
-    <value>Help: Single-bucket</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
-    <value>Act on all the records together.  All usage has same price which is determined by total volume.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_UNIT_RATE" xml:space="preserve">
     <value>Help:  New Unit Rate</value>
@@ -1010,12 +977,6 @@
   </data>
   <data name="TEXT_AMPWIZARD_HELP_GENERATED_CHARGE" xml:space="preserve">
     <value>Choose this option to have the Decision Type generate a new Charge or Credit.  You will define the Charge/Credit on the next set of screens.</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
-    <value>Help:  None</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
-    <value>Do not generate a charge for this decision</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_GENERATED_CHARGE_GRID" xml:space="preserve">
     <value>Help:  Generated Charges/Credits Grid</value>
@@ -1227,6 +1188,9 @@
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
     <value>Middle initial is invalid</value>
   </data>
+  <data name="TEXT_ACCOUNT_ACTIVITY" xml:space="preserve">
+    <value>Account Activity</value>
+  </data>
   <data name="TEXT_RETRY_COLUMN" xml:space="preserve">
     <value>Retry</value>
   </data>
@@ -1241,5 +1205,50 @@
   </data>
   <data name="TEXT_CONVERT_MESSAGE" xml:space="preserve">
     <value>Are you sure that you want to convert quote to subscriptions?</value>
+  </data>
+  <data name="ACCOUNT_PAYEE_SELF_TEXT" xml:space="preserve">
+    <value>This account pays for itself</value>
+  </data>
+  <data name="ACCOUNT_PAYEE_TEXT" xml:space="preserve">
+    <value>This account is paid for by</value>
+  </data>
+  <data name="ACCOUNT_STATUS_LABEL_TEXT" xml:space="preserve">
+    <value>Account Status</value>
+  </data>
+  <data name="ACCOUNT_STATUS_TEXT" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ACCOUNT_BALANCE_AS_OF_TEXT" xml:space="preserve">
+    <value>as of</value>
+  </data>
+  <data name="ACCOUNT_BALANCE_TEXT" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="ACCOUNT_EDIT_INFO_TEXT" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="ACCOUNT_LTV_TEXT" xml:space="preserve">
+    <value>Ltv</value>
+  </data>
+  <data name="ACCOUNT_MRR_TEXT" xml:space="preserve">
+    <value>MRR</value>
+  </data>
+  <data name="ACCOUNT_MRR_GRAPH_TEXT" xml:space="preserve">
+    <value>MRR</value>
+  </data>
+  <data name="ACCOUNT_INVOICE_GRAPH_TEXT" xml:space="preserve">
+    <value>Invoice</value>
+  </data>
+  <data name="ACCOUNT_FAILED_TRANSACTIONS_TEXT" xml:space="preserve">
+    <value>Failed Transactions</value>
+  </data>
+  <data name="REPORTS_TREE_HEADER_DESCRIPTION" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="REPORTS_TREE_HEADER_NAME" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="REPORTS_TREE_NOT_APPLICABLE_TEXT" xml:space="preserve">
+    <value>N/A</value>
   </data>
 </root>

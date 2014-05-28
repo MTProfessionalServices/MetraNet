@@ -1,0 +1,579 @@
+﻿* {	margin: 0; padding: 0; }
+
+html, body
+{
+  font-size: small;
+  font-family: Verdana, Tahoma, Arial, "Helvetica Neue" , Helvetica, Sans-Serif;
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+  overflow: auto;
+}
+
+button {
+  padding:2px;
+}
+
+.editor-label {
+  clear:both;
+  padding-left: 5px;
+}
+
+.editor-label label {
+  float:left;
+  width: 150px;
+}
+
+/* FORM LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset 
+{
+    border:1px solid #ddd;
+    padding:0 1.4em 1.4em 1.4em;
+    margin:0 0 1.5em 0;
+}
+
+legend 
+{
+    font-size:1.2em;
+    font-weight: bold;
+}
+
+textarea 
+{
+    width: 200px;
+    min-height: 75px;
+}
+
+select
+{
+    width: 200px;
+    border: 1px solid #CCC;
+}
+
+input[type="text"] 
+{
+    width: 200px;
+    border: 1px solid #CCC;
+}
+
+input[type="password"] 
+{
+    width: 200px;
+    border: 1px solid #CCC;
+}
+
+/* TABLE
+----------------------------------------------------------*/
+
+table 
+{
+  border: solid 1px #e8eef4;
+  border-collapse: collapse;
+}
+
+table td 
+{
+  padding: 5px;   
+  border: solid 1px #e8eef4;
+}
+
+table th
+{
+  padding: 6px 5px;
+  text-align: left;
+  background-color: #e8eef4; 
+  border: solid 1px #e8eef4;   
+}
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.editor-validate
+{
+  font-size: x-small;
+  color: #FF0000;
+}
+
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+.display-label,
+.editor-label
+{
+    margin: 1em 0 0 0;
+}
+
+.display-field,
+.editor-field
+{
+    margin:0.5em 0 0 0;
+}
+
+.text-box
+{
+    width: 30em;
+}
+
+.text-box.multi-line
+{
+    height: 6.5em;
+}
+
+.tri-state
+{
+    width: 6em;
+}
+
+
+#info {
+	display: block;
+	padding: 10px; margin-bottom: 20px;
+	border: 1px solid #333;
+	background-color: #efefef;
+}
+
+#info.sticky {
+     position: fixed;
+     top: 0;
+}
+
+.sortable
+{
+  list-style: none;
+}
+
+.sortable li
+{
+  display: block;
+  padding: 5px 5px;
+  margin-bottom: 2px;
+  border-bottom: thin;
+  border-bottom-color: #C0C0C0;
+  border-bottom-style: dotted;
+}
+
+.sortable li img.handle {
+	margin-right: 20px;
+	cursor: move;
+}
+
+.section
+{
+  font-size: 85%;
+  font-family: Verdana, Tahoma, Arial, "Helvetica Neue" , Helvetica, Sans-Serif;
+  font-weight: bold;
+  color:  #000;
+  padding: 2px;
+}
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=Buttons
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+.action
+{
+  font-size: 80%;
+  background: no-repeat 6px 2px;
+  color: #666666;
+  padding-left: 20px;
+  text-decoration: underline;
+}
+
+.right {
+  position:relative;
+  float:right;
+}
+
+.action:hover, .action:active
+{
+  color: navy;
+  cursor: pointer;
+}
+.action.active {
+	color: #000;
+	text-decoration: none;
+}
+
+.smallEdit
+{
+  background-image: url(/Res/Images/icons/small_edit.png) !important;
+}
+
+.smallDelete
+{
+  background-image: url(/Res/Images/icons/small_delete.png) !important;
+}
+
+.smallAdd
+{
+  background-image: url(/Res/Images/icons/small_add.png) !important;
+}
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=Corners
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+.rounded-sm {
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
+.rounded-med {
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+	.rounded-med-top {
+		-moz-border-radius-topleft: 4px;
+		-moz-border-radius-topright: 4px;
+		-webkit-border-top-left-radius: 4px;
+		-webkit-border-top-right-radius: 4px;
+		border-top-left-radius: 4px;
+		border-top-right-radius: 4px;
+	}
+	.rounded-med-bottom {
+		-moz-border-radius-bottomleft: 4px;
+		-moz-border-radius-bottomright: 4px;
+		-webkit-border-bottom-left-radius: 4px;
+		-webkit-border-bottom-right-radius: 4px;
+		border-bottom-left-radius: 4px;
+		border-bottom-right-radius: 4px;
+	}
+.rounded-lg {
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+}
+	.rounded-lg-top {
+		-moz-border-radius-topleft: 8px;
+		-moz-border-radius-topright: 8px;
+		-webkit-border-top-left-radius: 8px;
+		-webkit-border-top-right-radius: 8px;
+		border-top-left-radius: 8px;
+		border-top-right-radius: 8px;
+	}
+	.rounded-lg-bottom {
+		-moz-border-radius-bottomleft: 8px;
+		-moz-border-radius-bottomright: 8px;
+		-webkit-border-bottom-left-radius: 8px;
+		-webkit-border-bottom-right-radius: 8px;
+		border-bottom-left-radius: 8px;
+		border-bottom-right-radius: 8px;
+	}
+
+
+/* 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=Grid 
+	Liquid 960 Grid 
+	Documented at: http://www.designinfluences.com/fluid960gs/16/fluid/jquery/
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+.container_12,.container_16{width:92%;margin-left:4%;margin-right:4%;} .grid_1,.grid_2,.grid_3,.grid_4,.grid_5,.grid_6,.grid_7,.grid_8,.grid_9,.grid_10,.grid_11,.grid_12,.grid_13,.grid_14,.grid_15,.grid_16{display:inline;float:left;margin-left:1%;margin-right:1%;} .container_12 .grid_3,.container_16 .grid_4{width:23%;} .container_12 .grid_6,.container_16 .grid_8{width:48%;} .container_12 .grid_9,.container_16 .grid_12{width:73%;} .container_12 .grid_12,.container_16 .grid_16{width:98%;} .alpha{margin-left:0;} .omega{margin-right:0;} .container_12 .grid_1{width:6.333%;} .container_12 .grid_2{width:14.666%;} .container_12 .grid_4{width:31.33%;} .container_12 .grid_5{width:39.666%;} .container_12 .grid_7{width:56.333%;} .container_12 .grid_8{width:64.666%;} .container_12 .grid_10{width:81.333%;} .container_12 .grid_11{width:89.666%;} .container_16 .grid_1{width:4.25%;} .container_16 .grid_2{width:10.5%;} .container_16 .grid_3{width:16.75%;} .container_16 .grid_5{width:29.25%;} .container_16 .grid_6{width:35.5%;} .container_16 .grid_7{width:41.75%;} .container_16 .grid_9{width:54.25%;} .container_16 .grid_10{width:60.5%;} .container_16 .grid_11{width:66.75%;} .container_16 .grid_13{width:79.25%;} .container_16 .grid_14{width:85.5%;} .container_16 .grid_15{width:91.75%;} .container_12 .prefix_3,.container_16 .prefix_4{padding-left:25%;} .container_12 .prefix_6,.container_16 .prefix_8{padding-left:50%;} .container_12 .prefix_9,.container_16 .prefix_12{padding-left:75%;} .container_12 .prefix_1{padding-left:8.333%;} .container_12 .prefix_2{padding-left:16.666%;} .container_12 .prefix_4{padding-left:33.333%;} .container_12 .prefix_5{padding-left:41.666%;} .container_12 .prefix_7{padding-left:58.333%;} .container_12 .prefix_8{padding-left:66.666%;} .container_12 .prefix_10{padding-left:83.333%;} .container_12 .prefix_11{padding-left:91.666%;} .container_16 .prefix_1{padding-left:6.25%;} .container_16 .prefix_2{padding-left:12.5%;} .container_16 .prefix_3{padding-left:18.75%;} .container_16 .prefix_5{padding-left:31.25%;} .container_16 .prefix_6{padding-left:37.5%;} .container_16 .prefix_7{padding-left:43.75%;} .container_16 .prefix_9{padding-left:56.25%;} .container_16 .prefix_10{padding-left:62.5%;} .container_16 .prefix_11{padding-left:68.75%;} .container_16 .prefix_13{padding-left:81.25%;} .container_16 .prefix_14{padding-left:87.5%;} .container_16 .prefix_15{padding-left:93.75%;} .container_12 .suffix_3,.container_16 .suffix_4{padding-right:25%;} .container_12 .suffix_6,.container_16 .suffix_8{padding-right:50%;} .container_12 .suffix_9,.container_16 .suffix_12{padding-right:75%;} .container_12 .suffix_1{padding-right:8.333%;} .container_12 .suffix_2{padding-right:16.666%;} .container_12 .suffix_4{padding-right:33.333%;} .container_12 .suffix_5{padding-right:41.666%;} .container_12 .suffix_7{padding-right:58.333%;} .container_12 .suffix_8{padding-right:66.666%;} .container_12 .suffix_10{padding-right:83.333%;} .container_12 .suffix_11{padding-right:91.666%;} .container_16 .suffix_1{padding-right:6.25%;} .container_16 .suffix_2{padding-right:16.5%;} .container_16 .suffix_3{padding-right:18.75%;} .container_16 .suffix_5{padding-right:31.25%;} .container_16 .suffix_6{padding-right:37.5%;} .container_16 .suffix_7{padding-right:43.75%;} .container_16 .suffix_9{padding-right:56.25%;} .container_16 .suffix_10{padding-right:62.5%;} .container_16 .suffix_11{padding-right:68.75%;} .container_16 .suffix_13{padding-right:81.25%;} .container_16 .suffix_14{padding-right:87.5%;} .container_16 .suffix_15{padding-right:93.75%;} 
+
+/* Clearing styles for grid (or any element), and specifically form-field list items */
+html body * span.clear,html body * div.clear,html body * li.clear,html body * dd.clear{background:none;border:0;clear:both;display:block;float:none;font-size:0;list-style:none;overflow:hidden;visibility:hidden;width:0;height:0;margin:0;padding:0;}
+.clearfix:after,.form-fields li:after {clear:both;content:'.';display:block;visibility:hidden;height:0;} 
+.clearfix,.form-fields li{display:block;} * html .clearfix, * html .form-fields li{height:1%;}
+.clear-both {clear:both;}
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=Spacing 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+.fullwidth {width: 100% !important;}
+
+.bspace {			margin-bottom: 1em !important; /* Standard */}
+.bspace-half {		margin-bottom: 0.5em !important;}
+.bspace-extra {		margin-bottom: 1.5em !important;}
+.bspace-double {	margin-bottom: 2em !important;}
+.bspace-none {		margin-bottom: 0 !important;}
+
+.tspace {			margin-top: 1em !important;}
+.tspace-half {		margin-top: 0.5em !important;}
+.tspace-extra {		margin-top: 1.5em !important;}
+.tspace-double {	margin-top: 2em !important;}
+.tspace-none {		margin-top: 0 !important;}
+
+.lspace {			margin-left: 1em !important;}
+.lspace-half {		margin-left: 0.5em !important;}
+.lspace-extra {		margin-left: 1.5em !important;}
+.lspace-double {	margin-left: 2em !important;}
+.lspace-none {		margin-left: 0 !important;}
+
+.rspace {			margin-right: 1em !important;}
+.rspace-half {		margin-right: 0.5em !important;}
+.rspace-extra {		margin-right: 1.5em !important;}
+.rspace-double {	margin-right: 2em !important;}
+.rspace-none {		margin-right: 0 !important;}
+
+.inset {
+	margin-left: 10px !important;
+	margin-right: 10px !important;
+}
+.inset-double {
+	margin-left: 20px !important;
+	margin-right: 20px !important;
+}
+.pad {
+	padding: 10px;
+}
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=Containers
+  A container is a content block with a header, a content area, and an optional footer. 
+  Containers are designed to be very flexible and content-indepedent. 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+.container {
+	display: block;
+}
+	.container > header, 
+	.container > .content > .inner, .container > .content > li, 
+	.container > footer {
+		padding: 0.2em 1.5em;
+	}
+
+	/* Header */
+	.container > header {
+		background: #ddd url(/Res/images/grad_tabs.png) repeat-x 0 -1px; /* #eee */
+		border-bottom: solid 1px #ddd;
+		margin: 1px 1px 0;
+		position: relative;
+	}
+		.container > header h2 {
+			margin: 0;
+			padding: 0;
+			text-shadow: 0 1px 0 #fff;
+		}
+			.container header h2 span {
+				font-weight: normal;
+				margin-left: 0.2em;
+			}
+			/* Ordinal numbers for steps in a sequence */
+			.container header h2 .ordinal {
+				background: #007CB8 url(/Res/images/grad_btt_w50_30px.png) repeat-x 0 -10px;
+				border: solid 1px #00558A;
+				-moz-border-radius: 20px;
+				-webkit-border-radius: 20px;
+				border-radius: 20px;
+				color: #fff;
+				display: inline-block;
+				font-size: 86%;
+				margin: -0.1em 0.2em 0 -0.75em;
+				padding: 0.05em 0.55em 0.10em;
+				position: relative;
+				text-shadow: 0 -1px 0px #00558A;
+				top: -0.05em;
+			}
+    /* Reverse-out headers */
+    .container > header.reverse-out {
+        background-color: #666;
+        border-bottom-color: #222;
+    }
+        .container > header.reverse-out h2 {
+            color: #fff;
+            text-shadow: 0 1px 0 #000;
+        }
+	
+	/* Container UI controls */
+	.container .ui-controls {
+		position: absolute;
+		right: 0.3em;
+		top: 0.35em;
+		z-index: 10;
+	}
+		.container .ui-controls a {
+			margin-left: 0.5em;
+		}
+		.container .ui-controls .action {
+			display: inline-block;
+			margin: 0 0.5em;
+			position: relative;
+		}
+		.container.collapsible .ui-controls .action {
+			top: -3px; /* Small alignment adjustment -JimATF */
+		}
+	.container.collapsed {}
+		.container.collapsed header {
+			border: none;
+			margin-bottom: 1px;
+		}
+            .container.collapsed header h2 {
+                cursor: pointer;
+            }
+			.container.collapsed header .action {
+				display: none !important;
+			}
+		.container.collapsed .content, .container.collapsed > div, .container.collapsed > table, .container.collapsed footer {
+			display: none !important;
+		}
+		/* Close button for modals */
+		.container .close {
+			background: transparent url(/Res/images/close_sprite.png) no-repeat 0 50px;
+			height: 24px;
+			overflow: hidden;
+			position: absolute;
+			right: -10px;
+			text-indent: -9999px;
+			top: -8px;
+			width: 24px;
+			z-index: 100;
+		}
+		.container header:hover .close {
+			background-position: 0 0;
+		}
+		.container .close:hover, .container .close:active {
+			background-position: 0 -50px !important;
+		}
+	
+	/* Content */
+	.container .content {
+		margin-top: 1px;
+	}
+	
+	/* Footer */
+	.container > footer {
+		padding-top: 0.8em;
+		padding-bottom: 0.8em;
+	}
+	.container > footer.actions {
+		background: #eee;
+		border-top: solid 1px #ccc;
+	}
+		.action-secondary {
+			margin-left: 1em;
+		}
+
+/* Container variations */
+.container.flat {
+	background-color: #fff;
+	border: solid 1px #ccc;
+}
+.container.pop {
+	border: solid 1px #ccc;
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+.container.control {
+	background: #eee url(/Res/images/grad_btt_w50_100px.png) repeat-x 0 0;
+	border: solid 1px #bbb;
+}
+	.container.control > .inner {
+		padding: 0.8em 1.5%;
+	}
+	.container.control .button-row {
+		padding-top: 2px;
+		padding-bottom: 2px;
+	}
+
+.container.control.extra {
+  padding-top: 10px;
+}
+
+/* Edit Settings */
+.container.edit {
+	background: #eee;
+	border: solid 3px #555;
+	left: -9999px;
+	margin: -1px;
+}
+	.container.edit header {
+		background-color: #555;
+		color: #fff;
+		margin: 0;
+	}
+		.container.edit header h2 {
+			text-shadow: 0 1px 0 #000;
+		}
+			.container header h2 .editing {
+				font-style: italic;
+				margin: 0 0.2em 0 0;
+			}
+	.container.edit .content {
+		padding: 0.5em 4% 2.9em;
+	}
+
+
+	.expand
+	{
+		float:left;
+		display:inline;
+		background-image:url('images/toggle-sprite.png');
+		background-position: 0px -16px;
+		width:16px;
+		height:16px;
+	}	
+	.collapse
+	{
+		float:left;
+		display:inline;
+		background-image:url('images/toggle-sprite.png');
+		background-position: 0px 0px;
+		width:16px;
+		height:16px;
+	}
+	
+/* Consistency styles */
+.CaptionBar
+{
+  /*background: transparent url(/Res/Ext/resources/images/default/panel/white-top-bottom.gif) repeat-x scroll 0pt -1px;
+  border-bottom: 1px solid #99BBE8;*/
+  background-color: #fff;
+  color: #000;
+  font-family: tahoma,arial,verdana,sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  line-height: 15px; 
+  padding: 5px 3px 4px 15px;
+}
+
+.ErrorLabel
+{
+  font-size: 11px;
+  color: Maroon;
+}
+
+.ErrorField
+{
+  width: 100%;
+  font-size: 10px;
+  padding:2px;
+  padding-left:20px;
+  border-bottom: 2px solid red;
+  background: #F6F6F6 url(/Res/Images/icons/exclamation.png) no-repeat 0px;
+}

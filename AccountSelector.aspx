@@ -2,13 +2,14 @@
 <%@ Import Namespace="MetraTech.UI.Tools" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
   <script type="text/javascript" src="/Res/JavaScript/Renderers.js"></script> 
   <div id="FilteredResults1" class="InfoMessage" style="display:none;"></div>  
   <MT:MTFilterGrid ID="MyGrid1" runat="server" ExtensionName="Account" TemplateFileName="AccountSelectorLayoutTemplate"></MT:MTFilterGrid>
   
   <script type="text/javascript">
 
-  var ROOT_CRUMB_HTML = "<div id=\"crumb\" style=\"clip:auto;overflow-x:auto;width:285px;height:10px;padding:1px;\"><a href=\"JavaScript:NavigateAncestor(1, 'Root');\">root (1)</a></div>";
+  var ROOT_CRUMB_HTML = "<div id=\"crumb\" style=\"clip:auto;overflow-x:auto;width:285px;height:10px;padding:0px;\"><a href=\"JavaScript:NavigateAncestor(1, 'Root');\">root (1)</a></div>";
     
   function BeforeSearch_<%=MyGrid1.ClientID %>()
   {

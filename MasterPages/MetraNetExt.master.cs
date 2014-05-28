@@ -108,7 +108,8 @@ public partial class MasterPages_MetraNetExt : System.Web.UI.MasterPage
                     typeAhead: false,
                     loadingText: TEXT_SEARCHING,
                     emptyText: TEXT_FIND_AN_ACCOUNT,
-                    width: 200,
+                    width: 400, 
+                    height: 27,
                     pageSize: 0,
                     hideTrigger: true,
                     minChars: 1,
@@ -122,11 +123,12 @@ public partial class MasterPages_MetraNetExt : System.Web.UI.MasterPage
                   }),
                   '-',
                   {
-                    iconCls: 'advancedFind',
+                    //iconCls: 'advancedFind',
                     text: TEXT_ADVANCED_FIND,
                     handler: function() { Ext.UI.LoadPage('/MetraNet/AdvancedFind.aspx'); },
                     scope: this
-                  },'-',";
+                  },";
+//'-',";
 
         return BaseUI.CoarseCheckCapability("Manage Account Hierarchies") ? str : "'-',";
     }
@@ -140,12 +142,12 @@ public partial class MasterPages_MetraNetExt : System.Web.UI.MasterPage
             title: 'Account',
             collapsed: true,
             collapsible: true,
-            split: true,
+            split: false,
             width: 400,
             minSize: 100,
             maxSize: 800,
             layout: 'fit',
-            margins: '0 5 0 0',
+            margins: '0 0 0 0',
             items: AcctTabPanel
           },";
 
@@ -161,6 +163,15 @@ public partial class MasterPages_MetraNetExt : System.Web.UI.MasterPage
     var addMetraCare = auth.HasAppLoginCapability((IMTSessionContext) BaseUI.SessionContext, "MAM");
     var addMetraControl = auth.HasAppLoginCapability((IMTSessionContext) BaseUI.SessionContext, "MOM");
     var addMetraOffer = auth.HasAppLoginCapability((IMTSessionContext) BaseUI.SessionContext, "MCM");
+
+    var strMetraNetMenu = @"{
+              contentEl: 'metranet',
+              title: 'MetraNet',
+              border: true,
+              autoScroll: true,
+              layout: 'fit',
+              iconCls: 'MetraNetMenu'
+            }";
 
         var strMetraCareMenu = @"{
               contentEl: 'metracare',
@@ -191,6 +202,9 @@ public partial class MasterPages_MetraNetExt : System.Web.UI.MasterPage
             }";
 
         string str = "";
+
+        str += strMetraNetMenu + sep;
+
         if (addMetraCare)
         {
             str += strMetraCareMenu;
@@ -237,12 +251,44 @@ public partial class MasterPages_MetraNetExt : System.Web.UI.MasterPage
         if (ConfigurationManager.AppSettings["EnableAccountTreeView"].ToLower() == "true")
         {
             str = @" {
+                  title: TEXT_ACCOUNT_HIERARCHY,
+                  //header: false,
+                  xtype: 'container',
+                  border:false,
+                  autoScroll:true,
+                  //layout:'fit',
+
+
+    items: [{
+      xtype: 'panel',
+      header: false,
+      border: false,
+      id: 'accountSummaryPanel',
+      collapsible: true,
+      hidden: false,
+      items: [{
+        xtype: 'panel', // combo box panel, no title
+        html: ''
+        }],
+      style: { marginBottom: '10px', marginTop: '10px', marginLeft: '10px', marginRight: '10px'}
+      },
+      {
                   contentEl: 'accountTree',
                   title:TEXT_ACCOUNT_HIERARCHY,
                   border:false,
                   autoScroll:false,
                   layout:'fit'
+      }]
                 },";
+
+
+            //      str =@" {
+            //                  contentEl: 'accountTree',
+            //                  title:TEXT_ACCOUNT_HIERARCHY,
+            //                  border:false,
+            //                  autoScroll:true,
+            //                  layout:'fit'
+            //                },";
         }
         return str;
     }

@@ -133,7 +133,7 @@
         <value>Log In</value>
     </data>
     <data name="Login1Resource1.PasswordLabelText" xml:space="preserve">
-        <value>Password:</value>
+        <value>Password</value>
     </data>
     <data name="Login1Resource1.PasswordRequiredErrorMessage" xml:space="preserve">
         <value>Password is required.</value>
@@ -142,13 +142,13 @@
         <value>Remember me next time.</value>
     </data>
     <data name="Login1Resource1.UserNameLabelText" xml:space="preserve">
-        <value>User Name:</value>
+        <value>User Name</value>
     </data>
     <data name="Login1Resource1.UserNameRequiredErrorMessage" xml:space="preserve">
         <value>User Name is required.</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
-        <value>MetraNet</value>
+        <value>MetraNet | Login</value>
     </data>
     <data name="tbConfirmPasswordResource1.Label" xml:space="preserve">
         <value>Confirm Password</value>

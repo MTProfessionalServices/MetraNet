@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using MetraTech.UI.Common;
+using MetraTech.Security;
 
 public partial class TicketToMOMNoMenu : System.Web.UI.Page
 {
@@ -25,7 +22,7 @@ public partial class TicketToMOMNoMenu : System.Web.UI.Page
 
     HelpPage = MetraTech.Core.UI.CoreUISiteGateway.GetHelpPageAsp(Server, Session, gotoURL, Logger);
 
-    Auth auth = new Auth();
+    var auth = new Auth();
     auth.Initialize(UI.User.UserName, UI.User.NameSpace);
     URL = auth.CreateEntryPoint("mom", "system_user", 0, gotoURL, false, true);
   }

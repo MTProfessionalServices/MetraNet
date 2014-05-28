@@ -234,4 +234,4 @@
 
 </script>
 
-<div id="tree-div" style="overflow:auto; height:98%;width:99%;border:1px solid #c3daf9;"></div>
+<div id="tree-div" style="overflow:auto; height:98%;width:99%;border:0px;"></div>

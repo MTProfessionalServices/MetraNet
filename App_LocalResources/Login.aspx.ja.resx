@@ -133,7 +133,7 @@
         <value>ログイン</value>
     </data>
     <data name="Login1Resource1.PasswordLabelText" xml:space="preserve">
-        <value>パスワード:</value>
+        <value>パスワード</value>
     </data>
     <data name="Login1Resource1.PasswordRequiredErrorMessage" xml:space="preserve">
         <value>パスワードは必須です。</value>
@@ -142,13 +142,13 @@
         <value>次回から自動的に読み込みます。</value>
     </data>
     <data name="Login1Resource1.UserNameLabelText" xml:space="preserve">
-        <value>ユーザ名 :</value>
+        <value>ユーザ名 </value>
     </data>
     <data name="Login1Resource1.UserNameRequiredErrorMessage" xml:space="preserve">
         <value>ユーザ名は必須です。</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
-        <value>MetraNet</value>
+        <value>MetraNet | ログイン</value>
     </data>
     <data name="tbConfirmPasswordResource1.Label" xml:space="preserve">
         <value>パスワードの確認</value>

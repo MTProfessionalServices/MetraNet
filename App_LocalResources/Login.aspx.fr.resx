@@ -133,7 +133,7 @@
         <value>Ouvrir une session</value>
     </data>
     <data name="Login1Resource1.PasswordLabelText" xml:space="preserve">
-        <value>Mot de passe :</value>
+        <value>Mot de passe </value>
     </data>
     <data name="Login1Resource1.PasswordRequiredErrorMessage" xml:space="preserve">
         <value>Le mot de passe est obligatoire.</value>
@@ -142,13 +142,13 @@
         <value>Mémoriser mes infos.</value>
     </data>
     <data name="Login1Resource1.UserNameLabelText" xml:space="preserve">
-        <value>Nom d’utilisateur:</value>
+        <value>Nom d’utilisateur</value>
     </data>
     <data name="Login1Resource1.UserNameRequiredErrorMessage" xml:space="preserve">
         <value>Le nom d’utilisateur est obligatoire.</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
-        <value>MetraNet</value>
+        <value>MetraNet | Connexion</value>
     </data>
     <data name="tbConfirmPasswordResource1.Label" xml:space="preserve">
         <value>Confirmer le mot de passe</value>

@@ -165,6 +165,9 @@
   <data name="TEXT_ALL_INTERVALS" xml:space="preserve">
     <value>Todos los intervalos</value>
   </data>
+  <data name="TEXT_ANALYTICS" xml:space="preserve">
+    <value>[es-MX]Analytics</value>
+  </data>
   <data name="TEXT_APP_AUDIT_LOG" xml:space="preserve">
     <value>Registro de auditoría de aplicación</value>
   </data>
@@ -552,6 +555,9 @@
   <data name="TEXT_UPDATE_EXISTING_REPORT_DEFINITIONS" xml:space="preserve">
     <value>Actualizar definición de informe existente</value>
   </data>
+  <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
+    <value>Usage Audit</value>
+  </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>Mantenimiento de servidor de uso</value>
   </data>
@@ -579,4 +585,22 @@
   <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
     <value>[es-MX]Add child Account</value>
   </data>
+  <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
+    <value>[es-MX]Bill Messages</value>
+  </data>
+  <data name="TEXT_FINANCE_DASHBOARD" xml:space="preserve">
+    <value>[es-MX]Finance Dashboard</value>
+  </data>
+  <data name="TEXT_MANAGE_BILL_MESSAGES" xml:space="preserve">
+    <value>[es-MX]Manage Bill Messages</value>
+  </data>
+  <data name="TEXT_OPERATIONS_DASHBOARD" xml:space="preserve">
+    <value>[es-MX]Operations Dashboard</value>
+  </data>
+  <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
+    <value>[es-MX]Product Dashboard</value>
+  </data>
+  <data name="TEXT_REPORTS" xml:space="preserve">
+    <value>[es-MX] Reports</value>
+  </data>  
 </root>

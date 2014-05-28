@@ -253,7 +253,7 @@
   
   void Session_Start(object sender, EventArgs e) 
   {
-    // Session[Constants.SELECTED_LANGUAGE] = "ja";
+      Session[Constants.SELECTED_LANGUAGE] = "en-US";
   }
 
   void Session_End(object sender, EventArgs e) 

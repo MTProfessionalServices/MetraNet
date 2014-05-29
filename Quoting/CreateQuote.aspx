@@ -795,15 +795,6 @@
         var startDate = form_addUDRC.items.get('form_addUDRC_StartDate').value;
         var endDate = form_addUDRC.items.get('form_addUDRC_EndDate').value;
 
-        if (new Date(startDate) > new Date(endDate)) {
-          window.Ext.Msg.show({
-            title: window.TEXT_ERROR,
-            msg: '<%=GetLocalResourceObject("TEXT_DATES_ERROR")%>',
-            buttons: window.Ext.Msg.OK,
-            icon: window.Ext.MessageBox.ERROR
-          });
-        }
-        else {
 
           var recordId = form_addUDRC.items.get('form_addUDRC_POId').value + "_" +
               form_addUDRC.items.get('form_addUDRC_PIId').value + "_" +
@@ -832,7 +823,6 @@
             AddUDRCWindow.destroy();
             AddUDRCWindow.rendered = false;
           }
-        }
       }
     }
 

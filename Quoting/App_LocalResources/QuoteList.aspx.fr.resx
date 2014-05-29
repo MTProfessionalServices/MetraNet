@@ -176,5 +176,8 @@
     </data>
     <data name="TOTAL_TAX" xml:space="preserve">
         <value>[FR]Total Tax</value>
-  </data>
+    </data>
+	<data name="TEXT_ACTIONS" xml:space="preserve">
+		<value>[FR]Actions</value>
+	</data>
 </root>

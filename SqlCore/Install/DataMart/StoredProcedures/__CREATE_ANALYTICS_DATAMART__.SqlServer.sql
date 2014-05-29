@@ -6,12 +6,12 @@ DECLARE @l_count int;
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Debug', 'Starting Analytics DataMart');
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Debug', 'Starting Analytics DataMart');
 end;
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Debug', 'Flushing Analytics datamart tables');
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Debug', 'Flushing Analytics datamart tables');
 end;
 
 TRUNCATE TABLE Customer;
@@ -29,7 +29,7 @@ TRUNCATE TABLE ProductOffering;
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Debug', 'Cleaning out temporary tables');
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Debug', 'Cleaning out temporary tables');
 end;
 
 IF OBJECT_ID('tempdb..#tmp_unrooted') IS NOT NULL drop table #tmp_unrooted;
@@ -44,7 +44,7 @@ IF OBJECT_ID('tempdb..#tmp_fx') IS NOT NULL drop table #tmp_fx;
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Info', 'Generating Customers DataMart');
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Generating Customers DataMart');
 end;
 
 /* TODO: info */
@@ -73,7 +73,7 @@ select @l_count = count(1) from #tmp_corps;
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Debug', 'Found Corporate Accounts: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Debug', 'Found Corporate Accounts: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
 end;
 
 ;with my_gens as
@@ -97,7 +97,7 @@ select @l_count = count(1) from #tmp_accs;
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Debug', 'Found Corporate Hierarchy Accounts: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Debug', 'Found Corporate Hierarchy Accounts: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
 end;
 
 ; with root_accts as
@@ -128,7 +128,7 @@ select @l_count = count(1) from #tmp_accs;
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Debug', 'Added Non-Corporate Hierarchy Accounts, Total Now: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Debug', 'Added Non-Corporate Hierarchy Accounts, Total Now: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
 end;
 
 /* non-corporate nodes without hierarchy */
@@ -146,7 +146,7 @@ select @l_count = count(1) from #tmp_accs;
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Debug', 'Added Non-Corporate Non-Hierarchy Accounts, Total Now: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Debug', 'Added Non-Corporate Non-Hierarchy Accounts, Total Now: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
 end;
 
 /* unrooted nodes */
@@ -178,7 +178,7 @@ select @l_count = count(1) from #tmp_accs;
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Debug', 'Added Non-Rooted Accounts, Total Now: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Debug', 'Added Non-Rooted Accounts, Total Now: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
 end;
 
 declare @billTo int;
@@ -239,7 +239,7 @@ select @l_count = count(1) from #tmp_all_customers;
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Debug', 'Reducing duplicate aliases from total: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Debug', 'Reducing duplicate aliases from total: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
 end;
 
 insert into Customer
@@ -316,8 +316,8 @@ select @l_count = count(1) from Customer;
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Info', 'Customers: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Info', 'Generating SalesRep DataMart');
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Customers: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Generating SalesRep DataMart');
 end;
 
 /* sales reps */
@@ -345,28 +345,20 @@ select @l_count = count(1) from SalesRep;
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Info', 'Sales Reps: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Info', 'Generating CurrencyExchangeMonthly DataMart');
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Sales Reps: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Generating CurrencyExchangeMonthly DataMart');
 end;
 
 /* TODO: change name of table */
 select
 @p_nm_instance as InstanceId,
-IsNull(eff.dt_start, dbo.mtmindate()) as StartDate,
-IsNull(eff.dt_end, dbo.MTMaxDate()) as EndDate,
-substring(ted1.nm_enum_data, 42, 100) as SourceCurrency,
-substring(ted2.nm_enum_data, 42, 100) as TargetCurrency,
-pt.c_ExchangeRates as ExchangeRate
+vt_start as StartDate,
+vt_end  as EndDate,
+nm_country_source as SourceCurrency,
+nm_country_target as TargetCurrency,
+c_exchange_rate as ExchangeRate
 into #tmp_fx
-from t_pricelist pl
-inner join t_rsched rs on pl.id_pricelist = rs.id_pricelist
-inner join t_effectivedate eff on eff.id_eff_date = rs.id_eff_date
-inner join t_pt_CurrencyExchangeRates pt on pt.id_sched = rs.id_sched and pt.tt_end = dbo.MTMaxDate()
-inner join t_enum_data ted1 on ted1.id_enum_data = pt.c_SourceCurrency
-inner join t_enum_data ted2 on ted2.id_enum_data = pt.c_TargetCurrency
-where 1=1
-and pl.n_type = 1
-;
+from t_vw_adm_exchange_rates;
 
 insert into CurrencyExchangeMonthly
 (	InstanceId,
@@ -388,8 +380,8 @@ select @l_count = count(1) from CurrencyExchangeMonthly;
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Info', 'Currency Exchange Rates: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Info', 'Generating SubscriptionsByMonth DataMart');
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Currency Exchange Rates: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Generating SubscriptionsByMonth DataMart');
 end;
 
 ;
@@ -498,14 +490,14 @@ select @l_count = count(1) from #all_rcs;
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Debug', 'Found RCs: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Debug', 'Found RCs: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
 end;
 
 create index idx_all_rcs on #all_rcs (InstanceId, SubscriptionId, PayeeId, PriceableItemTemplateId, PriceableItemInstanceId, StartDate, EndDate, ActionType, Currency);
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Debug', 'Created index for RC linkage');
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Debug', 'Created index for RC linkage');
 end;
 
 select
@@ -533,14 +525,14 @@ select @l_count = count(1) from #all_rcs_linked;
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Debug', 'Found Linked RCs: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Debug', 'Found Linked RCs: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
 end;
 
 create index idx_all_rcs_linked on #all_rcs_linked (InstanceId, SubscriptionId, PriceableItemTemplateId, PriceableItemInstanceId, StartDate, EndDate);
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Debug', 'Created index for linked RCs');
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Debug', 'Created index for linked RCs');
 end;
 
 select
@@ -585,7 +577,7 @@ select @l_count = count(1) from #all_rcs_by_month;
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Debug', 'Found RCs by month: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Debug', 'Found RCs by month: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
 end;
 
 select
@@ -622,21 +614,21 @@ select @l_count = count(1) from #sum_rcs_by_month;
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Debug', 'Summarized RCs by month: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Debug', 'Summarized RCs by month: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
 end;
 
 create index idx_monthly_rcs on #sum_rcs_by_month (InstanceId, SubscriptionId, PriceableItemTemplateId, PriceableItemInstanceId, Year, Month, Currency);
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Debug', 'Created index for summarized subscriptions');
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Debug', 'Created index for summarized subscriptions');
 end;
 
 create index idx_tmp_fx_rate on #tmp_fx (InstanceId,SourceCurrency,TargetCurrency,StartDate,EndDate);
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Debug', 'Created index for exchange rates');
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Debug', 'Created index for exchange rates');
 end;
 
 /* TODO: renewals */
@@ -707,8 +699,8 @@ select @l_count = count(1) from SubscriptionsByMonth;
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Info', 'Subscriptions by month: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Info', 'Generating SubscriptionSummary DataMart');
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Subscriptions by month: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Generating SubscriptionSummary DataMart');
 end;
 
 insert into SubscriptionSummary
@@ -756,8 +748,8 @@ select @l_count = count(1) from SubscriptionSummary;
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Info', 'Subscription summaries: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Info', 'Generating SubscriptionUnits DataMart');
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Subscription summaries: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Generating SubscriptionUnits DataMart');
 end;
 
 /* NOTE: this is UDRC's not decision counters */
@@ -790,8 +782,8 @@ select @l_count = count(1) from SubscriptionUnits;
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Info', 'Subscription units: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Info', 'Generating ProductOffering DataMart');
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Subscription units: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Generating ProductOffering DataMart');
 end;
 
 insert into ProductOffering
@@ -827,7 +819,7 @@ select @l_count = count(1) from SubscriptionUnits;
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Info', 'Product Offerings: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Product Offerings: ' + CAST(IsNull(@l_count, 0) AS VARCHAR(64)));
 end;
 
 /* TODO: churn/renewal/cancellations */
@@ -844,7 +836,7 @@ end;
 
 if (@p_id_run is not null)
 begin
-	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, GETUTCDATE(), 'Info', 'Finished generating DataMart');
+	INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@p_id_run, @p_dt_now, 'Info', 'Finished generating DataMart');
 end;
 
 end;

@@ -295,6 +295,7 @@ public partial class Account_UpdateAccount : MTAccountPage
           In_IsApprovalEnabled = bAccountUpdateApprovalsEnabled == 1
         };
 <<<<<<< HEAD
+<<<<<<< HEAD
 
       //Approval Framework related code starts here
 
@@ -306,6 +307,14 @@ public partial class Account_UpdateAccount : MTAccountPage
 >>>>>>> 699916e... Merge branch 'feature/CMI' of https://github.com/MetraTech/MetraNetDev into feature/CMI
       //Approval Framework related code ends here
 
+=======
+        update.In_LoadTime = ApplicationTime;
+
+      //Approval Framework related code starts here
+        update.In_IsApprovalEnabled = bAccountUpdateApprovalsEnabled == 1;
+      //Approval Framework related code ends here
+
+>>>>>>> 88a9115... Merge branch 'feature/CMI' of https://github.com/MetraTech/MetraNetDev into feature/CMI
       PageNav.Execute(update);
     }
     catch (Exception exp)

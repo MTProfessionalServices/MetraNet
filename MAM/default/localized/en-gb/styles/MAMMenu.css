@@ -1,0 +1,231 @@
+BODY
+{
+	font-size: 11px;
+	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  background-color:#003B8E;
+  margin: 0px 10px 6px 5px;
+}
+
+A
+{
+	font-size: 11px; 
+	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	color: black; 
+}   
+
+.clsTopMenu
+{
+  padding: 0px 0px 0px 0px;
+}
+    
+.TabContainer
+{
+	width:95%;
+	position:relative;
+	margin:5px;
+	behavior:url(tabs.htc);
+  border:1px solid black;
+}
+
+.clsPart
+{
+	width:100%;
+	position:relative;
+	margin:5px;
+	behavior:url(tabs.htc);
+  border:1px solid black;
+}
+
+.MenuTabLeft
+{
+	BACKGROUND-COLOR: #20336A;
+	text-align:center;
+	font-weight : bold;
+  color: white;
+}
+
+.MenuTabLeftHidden
+{
+	BACKGROUND-COLOR: #20336A;
+	text-align:center;
+	font-weight : bold;
+  color: white;
+}
+
+.MenuTab{
+	font-size: 11px;
+	font-family: Arial Unicode MS, Lucida Sans Unicode, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: #20336A;
+	text-align:left;
+	font-weight : bold;
+  color: white;
+  padding-left:10px;
+  white-space:nowrap;
+}
+
+.MenuTabHidden{
+	BACKGROUND-COLOR: #20336A;
+	text-align:left;
+	font-weight : bold;
+  color: white;
+  padding-left:10px;  
+  white-space:nowrap;  
+}
+
+.MenuTabRight
+{
+	BACKGROUND-COLOR: #20336A;
+	text-align:right;
+	font-weight : bold;
+  color: white;
+	background-image: url(../images/chevronUp.gif);
+	background-position: top right;
+	background-repeat:no-repeat;
+	cursor:hand;
+  white-space:nowrap;  
+	PADDING-BOTTOM: 0px;
+	PADDING-LEFT: 8px;
+	PADDING-RIGHT: 2px;
+	PADDING-TOP: 0px;
+}
+
+.MenuTabRightHidden
+{
+	BACKGROUND-COLOR: #20336A;
+	text-align:right;
+	font-weight : bold;
+  color: white;
+	background-image: url(../images/chevronDown.gif);
+	background-position: top right;
+	background-repeat:no-repeat;
+	cursor:hand;
+  white-space:nowrap;  
+	PADDING-BOTTOM: 0px;
+	PADDING-LEFT: 8px;
+	PADDING-RIGHT: 2px;
+	PADDING-TOP: 0px;  
+}
+
+.MenuTabEnd{
+	BACKGROUND-COLOR: 003B8E;
+  white-space:nowrap;  
+}
+
+a.MenuItemA{
+	text-decoration: none;
+  color:white;
+	PADDING-TOP: 2px;
+  white-space:nowrap;  
+}
+
+a.MenuItemA:hover{
+	text-decoration: none;
+  color:ADEF8C;
+	PADDING-TOP: 2px;
+  white-space:nowrap;  
+}
+
+.MenuBackground{
+  BACKGROUND-COLOR: white;
+}
+
+.MenuItem{
+	BACKGROUND-COLOR: #688ABA;
+	PADDING-BOTTOM: 0px;
+	PADDING-LEFT: 5px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 1px;
+	TEXT-ALIGN : left;
+  color:black;
+  white-space:nowrap;  
+
+}
+
+.MenuItem:hover{
+
+}
+
+a.MenuItemNotEnableA{
+	text-decoration: none;
+	PADDING-TOP: 2px;
+	color: Silver; 
+}
+
+.MenuItemNotEnable{
+	BACKGROUND-COLOR: Gray;
+	PADDING-BOTTOM: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px;
+	TEXT-ALIGN: left;
+}
+
+.MenuItemSeparator{
+	BACKGROUND-COLOR:#688ABA;
+	PADDING-BOTTOM: 0px;
+	PADDING-LEFT: 5px;
+	PADDING-RIGHT: 5px;
+	PADDING-TOP: 0px;
+	TEXT-ALIGN : left;
+}
+
+.MenuImage{
+	BACKGROUND-COLOR: :#E7E5E6;
+	PADDING-BOTTOM: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px;
+	TEXT-ALIGN: left
+}
+
+.clsCloseSubscriber{
+	TEXT-ALIGN : right;
+  white-space: nowrap;
+	PADDING-BOTTOM: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px;  
+}
+
+.clsSubscriberHeading{
+	text-align:left;
+	FONT-WEIGHT: bold;
+	color:white;
+  width:100%;
+  white-space:nowrap;  
+} 
+
+.clsSubscriberHeadingDrag{
+	text-align:left;
+	FONT-WEIGHT: bold;
+	color:white;
+  dragable:true;
+  cursor:hand;    
+}
+
+.clsSelectedAccount{
+  color:#ADEF8C;
+  dragable:true;  
+  cursor:hand;  
+  white-space:nowrap;        
+}
+
+.clsSeparator{
+	background-color:#688ABA;
+	PADDING-BOTTOM: 2px;
+	PADDING-LEFT: 2px;
+	PADDING-RIGHT: 2px;
+	PADDING-TOP: 2px;  
+}
+.clsSubMenuHeading{
+  width:94%;
+ 	background-image : url(../images/SubTab.jpg); 
+  background-repeat : repeat-x; 
+	text-align:Left;
+	PADDING-BOTTOM: 0px;
+	PADDING-LEFT: 3px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px;
+	color: #313031;
+	font-weight : bold;  
+}

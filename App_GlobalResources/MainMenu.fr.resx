@@ -414,9 +414,6 @@
   <data name="TEXT_MASTER_OFFERINGS" xml:space="preserve">
     <value>[FR]Master Product Offerings</value>
   </data>
-  <data name="TEXT_MANAGE_BILLSOFT_OVERRIDES" xml:space="preserve">
-    <value>Gérer BillSoft Remplacements</value>
-  </data>
   <data name="TEXT_MENU_GENERATE_PASSWORD" xml:space="preserve">
     <value>Générer un mot de passe</value>
   </data>
@@ -630,9 +627,6 @@
   <data name="TEXT_UPDATE_EXISTING_REPORT_DEFINITIONS" xml:space="preserve">
     <value>Mettre à jour la définition de rapport existante</value>
   </data>
-  <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-    <value>Usage Audit</value>
-  </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>Maintenance du serveur d’utilisation</value>
   </data>
@@ -643,30 +637,42 @@
     <value>Informations sur la version</value>
   </data>
   <data name="TEXT_VIEW_CREDIT_NOTES_ISSUED" xml:space="preserve">
-        <value>{FR}View Credit Notes Issued</value>
-    </data>
+    <value>[FR]View Credit Notes Issued</value>
+  </data>
   <data name="TEXT_VIEW_METERING_STATISTICS" xml:space="preserve">
     <value>Afficher</value>
   </data>
   <data name="TEXT_VIEWONLINE_BILL" xml:space="preserve">
     <value>Afficher la facture en ligne</value>
   </data>
-  <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
-    <value>[fr]Bill Messages</value>
+  <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
+    <value>[FR]Usage Audit</value>
   </data>
-  <data name="TEXT_FINANCE_DASHBOARD" xml:space="preserve">
-    <value>[fr]Finance Dashboard</value>
-  </data>
-  <data name="TEXT_MANAGE_BILL_MESSAGES" xml:space="preserve">
-    <value>[fr]Manage Bill Messages</value>
-  </data>
-  <data name="TEXT_OPERATIONS_DASHBOARD" xml:space="preserve">
-    <value>[fr]Operations Dashboard</value>
-  </data>
-  <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
-    <value>[fr]Product Dashboard</value>
+  <data name="TEXT_ADD_TENANT" xml:space="preserve">
+    <value>[FR]Add Partition</value>
   </data>
   <data name="TEXT_REPORTS" xml:space="preserve">
-    <value>[fr] Reports</value>
-  </data>  
+    <value>[FR]Reports</value>
+  </data>
+  <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
+    <value>[FR]Usage Processing</value>
+  </data>
+  <data name="TEXT_ACCOUNT" xml:space="preserve">
+    <value>[FR]Account</value>
+  </data>
+  <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
+    <value>[FR]Bill Messages</value>
+  </data>
+  <data name="TEXT_FINANCE_DASHBOARD" xml:space="preserve">
+    <value>[FR]Finance Dashboard</value>
+  </data>
+  <data name="TEXT_MANAGE_BILL_MESSAGES" xml:space="preserve">
+    <value>[FR]Manage Bill Messages</value>
+  </data>
+  <data name="TEXT_OPERATIONS_DASHBOARD" xml:space="preserve">
+    <value>[FR]Operations Dashboard</value>
+  </data>
+  <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
+    <value>[FR]Product Dashboard</value>
+  </data>
 </root>

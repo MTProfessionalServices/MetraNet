@@ -1,4 +1,4 @@
-CREATE PROCEDURE [dbo].[CreateAnalyticsDataMart] @p_dt_now datetime, @p_id_run int, @p_nm_currency varchar, @p_nm_instance varchar, @p_n_months int, @p_STAGINGDB_prefix varchar
+CREATE PROCEDURE [dbo].[CreateAnalyticsDataMart] @p_dt_now datetime, @p_id_run int, @p_nm_currency nvarchar(3), @p_nm_instance varchar, @p_n_months int, @p_STAGINGDB_prefix varchar
 AS
 BEGIN
 
@@ -727,7 +727,7 @@ mrr.Year,
 mrr.Month,
 count(1) as TotalParticipants,
 count(distinct cust.HierarchyMetraNetId) as DistinctHierarchies,
-sum(case when datediff(day, sub.vt_start, getdate()) <= 30 then 1 else 0 end) as NewParticipants,
+sum(case when datediff(day, sub.vt_start, @p_dt_now) <= 30 then 1 else 0 end) as NewParticipants,
 sum(mrr.MRRPrimaryCurrency) as MRRPrimaryCurrency,
 sum(mrr.MRRNewPrimaryCurrency) as MRRNewPrimaryCurrency,
 sum(mrr.MRRBasePrimaryCurrency) as MRRBasePrimaryCurrency,

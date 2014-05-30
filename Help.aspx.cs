@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Threading;
 using MetraTech;
 using MindTouch;
@@ -24,15 +23,8 @@ public partial class Help : System.Web.UI.Page
     if (string.IsNullOrEmpty(pageName)) pageName = "VersionInfo.asp";
     
     var lang = Thread.CurrentThread.CurrentCulture.ToString();
-    var redirectUrl = MindTouchSso.GetRedirectUrl(MindTouchSso.DefaultUser, lang, pageName, GetMetraNetVersion());
+    var redirectUrl = MindTouchSso.GetRedirectUrl(MindTouchSso.DefaultUser, lang, pageName);
     Logger.LogDebug("redirect URL for page {0} is {1}", pageName, redirectUrl);
     URL = redirectUrl;
-  }
-
-  private static string GetMetraNetVersion()
-  {
-    var rmpBin = Environment.GetEnvironmentVariable("MTRMPBIN");
-    var metraNetVersionInfo = FileVersionInfo.GetVersionInfo(rmpBin + "\\pipeline.exe");
-    return String.Format("{0}.{1}", metraNetVersionInfo.FileMajorPart, metraNetVersionInfo.FileMinorPart);
   }
 }

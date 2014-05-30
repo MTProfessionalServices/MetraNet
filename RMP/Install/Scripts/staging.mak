@@ -48,7 +48,7 @@ BLDTYPE=release
 
 S_BASE_DIR         = S:
 S_METRANET_DIR     = R:
-S_METRACONNECT_DIR = V:\Legacy_Internal\MetraConnect
+S_METRACONNECT_DIR = V:\MetraConnect
 S_TECHDOC_DIR      = P:\TechDoc
 S_3RDPARTY_DIR     = $(THIRDPARTY)
 S_KEY_DIR          = $(S_BASE_DIR)\build\keys
@@ -284,6 +284,8 @@ BINARIES = \
   MetraTech.Core.Services.ProxyActivities.pdb \
   MetraTech.Core.Workflows.Dll \
   MetraTech.Core.Workflows.pdb \
+  MetraTech.CreditNotes.dll \
+  MetraTech.CreditNotes.pdb \
   MetraTech.Crypto511.dll \
   MetraTech.Crypto511.pdb \
   MetraTech.DataAccess.Hinter.dll \
@@ -1702,7 +1704,7 @@ RMP_Extensions:
   $(CPDIR) . $(P_BILLSOFT_PE_DIR)\config\ActivityServices .svn
   @echo $(LABEL) > $(P_BILLSOFT_PE_DIR)\$(PLACEHOLDER)
 
-    
+
 ################################################
 # Attributes Reset
 ################################################

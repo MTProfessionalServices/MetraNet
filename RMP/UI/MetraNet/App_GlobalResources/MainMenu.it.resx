@@ -249,6 +249,9 @@
     <data name="TEXT_CREATE_BACKOUT_RERUN" xml:space="preserve">
         <value>Crea ritiro/nuova esecuzione</value>
     </data>
+	<data name="TEXT_CREATE_CREDIT_NOTE" xml:space="preserve">
+        <value>{IT}Create Credit Note</value>
+    </data>
     <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
         <value>Aggiungi nuova istanza rapporto</value>
     </data>
@@ -558,6 +561,9 @@
     <data name="TEXT_VERSION_INFO" xml:space="preserve">
         <value>Informazioni sulla versione</value>
     </data>
+	<data name="TEXT_VIEW_CREDIT_NOTES_ISSUED" xml:space="preserve">
+        <value>{IT}View Credit Notes Issued</value>
+    </data>
     <data name="TEXT_VIEW_METERING_STATISTICS" xml:space="preserve">
         <value>Visualizza</value>
     </data>
@@ -582,4 +588,10 @@
   <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
     <value>Italian</value>
   </data>
+  <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
+    <value>Italian</value>
+  </data>
+    <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
+        <value>[It]Add child Account</value>
+    </data>
 </root>

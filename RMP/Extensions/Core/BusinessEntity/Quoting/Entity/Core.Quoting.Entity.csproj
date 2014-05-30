@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{323c0c55-e8da-4811-a27a-d913c118069b}</ProjectGuid>
+    <ProjectGuid>{9c68275f-8e18-4865-b048-652cca77ec0e}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MetraTech.Core.Quoting</RootNamespace>

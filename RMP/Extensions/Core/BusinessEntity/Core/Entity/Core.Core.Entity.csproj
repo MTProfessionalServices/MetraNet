@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{e9fb8ca7-1e2f-4f7b-a3ab-b5e71adf606c}</ProjectGuid>
+    <ProjectGuid>{35689c20-8bb0-4b8f-9bd0-0c5db2924d97}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MetraTech.Core.Core</RootNamespace>

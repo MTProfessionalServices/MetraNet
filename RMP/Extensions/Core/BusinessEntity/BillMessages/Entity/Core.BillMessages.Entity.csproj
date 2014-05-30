@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{252d5b7b-fe36-4006-9407-fc4c2ae1568a}</ProjectGuid>
+    <ProjectGuid>{b8e29118-6553-4ef7-843d-dde041d3da1c}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MetraTech.Core.BillMessages</RootNamespace>

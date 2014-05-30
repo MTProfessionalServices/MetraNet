@@ -173,9 +173,6 @@
                         ddBillGroupId.disable();
                     }
                     ddBillGroupId.setValue(ddBillGroupId.store.getAt(0).data.value); // Default to first item (blank)
-                    var billGroups = jsonData.records;
-                    if (billGroups.length == 0)
-                      btnOk.enable(); // Only at this point it is ok to enable the "Ok" button (even if not bill groups were returned)
                 },
                 failure: function () { console.log('failure'); }
             });

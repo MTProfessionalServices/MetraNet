@@ -372,6 +372,9 @@
   <data name="TEXT_MANAGE_SECURITY" xml:space="preserve">
     <value>Sicherheit verwalten</value>
   </data>
+  <data name="TEXT_MASTER_OFFERINGS" xml:space="preserve">
+    <value>{DE}Master Product Offerings</value>
+  </data>
   <data name="TEXT_MENU_GENERATE_PASSWORD" xml:space="preserve">
     <value>Kennwort generieren</value>
   </data>
@@ -556,7 +559,7 @@
     <value>Vorhandene Berichtsdefinition aktualisieren</value>
   </data>
   <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-    <value>Usage Audit</value>
+    <value>{DE}Usage Audit</value>
   </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>Wartung des Verwendungsservers</value>
@@ -577,7 +580,7 @@
     <value>Online-Rechnung anzeigen</value>
   </data>
   <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
-    <value>Approvals</value>
+    <value>{DE}Approvals</value>
   </data>
   <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
     <value>View Item History</value>
@@ -617,5 +620,14 @@
   </data>
   <data name="TEXT_REPORTS" xml:space="preserve">
     <value>[de] Reports</value>
-  </data>  
+  </data> 
+  <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
+    <value>{DE}Usage Processing</value>
+  </data>
+  <data name="TEXT_ADD_PARTITION" xml:space="preserve">
+    <value>{DE}Add Partition</value>
+  </data>
+  <data name="TEXT_QUOTING" xml:space="preserve">
+    <value>{DE}Manage Quotes</value>
+  </data>   
 </root>

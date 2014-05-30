@@ -372,6 +372,9 @@
   <data name="TEXT_MANAGE_SECURITY" xml:space="preserve">
     <value>セキュリティの管理</value>
   </data>
+  <data name="TEXT_MASTER_OFFERINGS" xml:space="preserve">
+    <value>{JA}Master Product Offerings</value>
+  </data>
   <data name="TEXT_MENU_GENERATE_PASSWORD" xml:space="preserve">
     <value>パスワードの生成</value>
   </data>
@@ -556,7 +559,7 @@
     <value>既存の報告書定義の更新</value>
   </data>
   <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-    <value>Usage Audit</value>
+    <value>{JA}Usage Audit</value>
   </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>利用サーバーのメンテナンス</value>
@@ -577,7 +580,7 @@
     <value>オンライン請求書の表示</value>
   </data>
   <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
-    <value>Approvals</value>
+    <value>{JA}Approvals</value>
   </data>
   <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
     <value>View Item History</value>
@@ -611,5 +614,14 @@
   </data>
    <data name="TEXT_REPORTS" xml:space="preserve">
     <value>[ja] Reports</value>
+  </data>
+  <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
+    <value>{JA}Usage Processing</value>
+  </data> 
+  <data name="TEXT_ADD_PARTITION" xml:space="preserve">
+    <value>{JA}Add Partition</value>
+  </data>
+  <data name="TEXT_QUOTING" xml:space="preserve">
+    <value>{JA}Manage Quotes</value>
   </data> 
 </root>

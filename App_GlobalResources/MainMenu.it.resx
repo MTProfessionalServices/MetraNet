@@ -372,6 +372,9 @@
   <data name="TEXT_MANAGE_SECURITY" xml:space="preserve">
     <value>Gestisci sicurezza</value>
   </data>
+  <data name="TEXT_MASTER_OFFERINGS" xml:space="preserve">
+    <value>{IT}Master Product Offerings</value>
+  </data>
   <data name="TEXT_MENU_GENERATE_PASSWORD" xml:space="preserve">
     <value>Genera password</value>
   </data>
@@ -556,7 +559,7 @@
     <value>Aggiorna definizione rapporto esistente</value>
   </data>
   <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-    <value>Usage Audit</value>
+    <value>{IT}Usage Audit</value>
   </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>Manutenzione server di utilizzo</value>
@@ -577,7 +580,7 @@
     <value>Visualizza fattura in linea</value>
   </data>
   <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
-    <value>Approvals</value>
+    <value>{IT}Approvals</value>
   </data>
   <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
     <value>View Item History</value>
@@ -617,5 +620,14 @@
   </data>
   <data name="TEXT_REPORTS" xml:space="preserve">
     <value>[it] Reports</value>
+  </data>
+  <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
+    <value>{IT}Usage Processing</value>
   </data> 
+  <data name="TEXT_ADD_PARTITION" xml:space="preserve">
+    <value>{IT}Add Partition</value>
+  </data>
+  <data name="TEXT_QUOTING" xml:space="preserve">
+    <value>{IT}Manage Quotes</value>
+  </data>  
 </root>

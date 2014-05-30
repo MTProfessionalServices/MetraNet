@@ -396,6 +396,9 @@
   <data name="TEXT_MANAGE_SECURITY" xml:space="preserve">
     <value>Gérer la sécurité</value>
   </data>
+  <data name="TEXT_MASTER_OFFERINGS" xml:space="preserve">
+    <value>{FR}Master Product Offerings</value>
+  </data>
   <data name="TEXT_MANAGE_BILLSOFT_EXEMPTIONS" xml:space="preserve">
     <value>Gérer BillSoft Exonérations</value>
   </data>
@@ -604,7 +607,7 @@
     <value>Mettre à jour la définition de rapport existante</value>
   </data>
   <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-    <value>Usage Audit</value>
+    <value>{FR}Usage Audit</value>
   </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>Maintenance du serveur d’utilisation</value>
@@ -625,7 +628,7 @@
     <value>Afficher la facture en ligne</value>
   </data>
   <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
-    <value>Approvals</value>
+    <value>{FR}Approvals</value>
   </data>
   <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
     <value>Afficher les détails historiques</value>
@@ -662,5 +665,8 @@
   </data>
   <data name="TEXT_REPORTS" xml:space="preserve">
     <value>[fr] Reports</value>
+  </data> 
+  <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
+    <value>{FR}Usage Processing</value>
   </data>  
 </root>

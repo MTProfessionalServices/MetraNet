@@ -171,6 +171,9 @@
   <data name="TEXT_APP_AUDIT_LOG" xml:space="preserve">
     <value>Registro de auditoría de aplicación</value>
   </data>
+  <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
+    <value>{ES-MX}Approvals</value>
+  </data>
   <data name="TEXT_ASSIGN_UPDATE_REPORT_PARAMETERS" xml:space="preserve">
     <value>Asignar parámetros de informe</value>
   </data>
@@ -372,6 +375,9 @@
   <data name="TEXT_MANAGE_SECURITY" xml:space="preserve">
     <value>Administrar seguridad</value>
   </data>
+  <data name="TEXT_MASTER_OFFERINGS" xml:space="preserve">
+    <value>{ES_MX}Master Product Offerings</value>
+  </data>
   <data name="TEXT_MENU_GENERATE_PASSWORD" xml:space="preserve">
     <value>Generar contraseña</value>
   </data>
@@ -556,7 +562,7 @@
     <value>Actualizar definición de informe existente</value>
   </data>
   <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-    <value>Usage Audit</value>
+    <value>{ES-MX}Usage Audit</value>
   </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>Mantenimiento de servidor de uso</value>
@@ -602,5 +608,14 @@
   </data>
   <data name="TEXT_REPORTS" xml:space="preserve">
     <value>[es-MX] Reports</value>
-  </data>  
+  </data>
+  <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
+    <value>{ES-MX}Usage Processing</value>
+  </data>
+  <data name="TEXT_ADD_PARTITION" xml:space="preserve">
+    <value>{ES-MX}Add Partition</value>
+  </data>
+  <data name="TEXT_QUOTING" xml:space="preserve">
+    <value>{ES-MX}Manage Quotes</value>
+  </data>   
 </root>

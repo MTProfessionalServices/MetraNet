@@ -525,4 +525,40 @@
   <data name="LOG_FOR_QUOTES" xml:space="preserve">
     <value>Quote log</value>
   </data>
+  <data name="TEXT_TAX" xml:space="preserve">
+    <value>Tax</value>
+  </data>
+  <data name="TEXT_TAX_VENDOR" xml:space="preserve">
+    <value>Tax Vendor</value>
+  </data>
+  <data name="TEXT_TAX_SERVICE_ADDRESS_PCODE" xml:space="preserve">
+    <value>Tax Service Address PCode</value>
+  </data>
+  <data name="TEXT_METRATAX_COUNTRY_ELIGIBILITY" xml:space="preserve">
+    <value>MetraTax Country Eligibility</value>
+  </data>
+  <data name="TEXT_METRATAX_COUNTRY_ZONE" xml:space="preserve">
+    <value>MetraTax Country Zone</value>
+  </data>
+  <data name="TEXT_METRATAX_HAS_OVERRIDE_BAND" xml:space="preserve">
+    <value>MetraTax Has Override Band</value>
+  </data>
+  <data name="TEXT_METRATAX_OVERRIDE_BAND" xml:space="preserve">
+    <value>MetraTax Override Band</value>
+  </data>
+  <data name="TEXT_TAX_REGISTRY_REFERENCE" xml:space="preserve">
+    <value>Tax Registry Reference</value>
+  </data>
+  <data name="TEXT_TAX_EXEMPT_REASON" xml:space="preserve">
+    <value>Tax Exempt Reason</value>
+  </data>
+  <data name="TEXT_TAX_EXEMPT_START_DATE" xml:space="preserve">
+    <value>Tax Exempt Start Date</value>
+  </data>
+  <data name="TEXT_TAX_EXEMPT_END_DATE" xml:space="preserve">
+    <value>Tax Exempt End Date</value>
+  </data>
+  <data name="TEXT_USE_STANDARD_INCLUSIVE_TAX_CALCULATION" xml:space="preserve">
+    <value>Use Standard Inclusive Tax Calculation</value>
+  </data>
 </root>

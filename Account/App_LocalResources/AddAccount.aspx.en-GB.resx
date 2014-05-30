@@ -243,8 +243,8 @@
     <data name="tbSecurityAnswerResource1.Label" xml:space="preserve">
         <value>Security Answer</value>
     </data>
-    <data name="tbSecurityQuestionTextResource1" xml:space="preserve">
-        <value></value>
+    <data name="tbSecurityQuestionTextResource1.Label" xml:space="preserve">
+        <value>Custom Security Question</value>
     </data>
     <data name="tbStartDateResource1.Label" xml:space="preserve">
         <value>Account Start Date</value>

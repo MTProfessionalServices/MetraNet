@@ -243,7 +243,7 @@
     <data name="tbSecurityAnswerResource1.Label" xml:space="preserve">
         <value>Security Answer</value>
     </data>
-    <data name="tbSecurityQuestionTextResource1" xml:space="preserve">
+    <data name="tbSecurityQuestionTextResource1.Label" xml:space="preserve">
         <value>Custom Security Question</value>
     </data>
     <data name="tbStartDateResource1.Label" xml:space="preserve">
@@ -258,7 +258,7 @@
     <data name="tbUserNameResource1.Label" xml:space="preserve">
         <value>User Name</value>
     </data>
-  <data name="ddAuthenticationTypeResource1.Label" xml:space="preserve">
-    <value>Authentication Type</value>
-  </data>
+    <data name="ddAuthenticationTypeResource1.Label" xml:space="preserve">
+        <value>Authentication Type</value>
+    </data>	
 </root>

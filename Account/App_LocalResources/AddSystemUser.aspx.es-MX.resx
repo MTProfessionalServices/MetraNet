@@ -219,6 +219,9 @@
     <data name="tbSecurityAnswerResource1.Label" xml:space="preserve">
         <value>Respuesta de seguridad</value>
     </data>
+	<data name="tbSecurityQuestionTextResource1.Label" xml:space="preserve">
+        <value>Pregunta de seguridad personalizada</value>
+    </data>
     <data name="tbStartDateResource1.Label" xml:space="preserve">
         <value>Fecha de apertura de la cuenta</value>
     </data>

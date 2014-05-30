@@ -124,7 +124,7 @@
         <value>False</value>
     </data>
     <data name="ddBrandedSiteResource1.AllowBlank" xml:space="preserve">
-        <value></value>
+        <value>True</value>
     </data>
     <data name="ddBrandedSiteResource1.HideLabel" xml:space="preserve">
         <value>False</value>
@@ -136,7 +136,7 @@
         <value>False</value>
     </data>
     <data name="ddLanguageResource1.AllowBlank" xml:space="preserve">
-        <value></value>
+        <value>True</value>
     </data>
     <data name="ddLanguageResource1.HideLabel" xml:space="preserve">
         <value>False</value>
@@ -148,7 +148,7 @@
         <value>False</value>
     </data>
     <data name="ddTimeZoneResource1.AllowBlank" xml:space="preserve">
-        <value></value>
+        <value>True</value>
     </data>
     <data name="ddTimeZoneResource1.HideLabel" xml:space="preserve">
         <value>False</value>

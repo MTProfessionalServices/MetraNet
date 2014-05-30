@@ -3,10 +3,7 @@ using MetraTech.UI.Common;
 using MetraTech.Approvals;
 using MetraTech.Core.Services.ClientProxies;
 using MetraTech.DomainModel.BaseTypes;
-
-using MetraTech.UI.Tools;
 using MetraTech.ActivityServices.Common;
-using System.Windows.Forms;
 
 public partial class Account_AccountUpdated : MTPage
 {
@@ -28,32 +25,40 @@ public partial class Account_AccountUpdated : MTPage
   {
     if (!IsPostBack)
     {
-      UpdatedAccountId =int.Parse(((MetraTech.DomainModel.BaseTypes.Account)PageNav.Data.Out_StateInitData["Account"])._AccountID.ToString());
+      UpdatedAccountId = int.Parse(((Account)PageNav.Data.Out_StateInitData["Account"])._AccountID.ToString());
     }
 
     //Approval Framework Code Starts Here 
 
-    ApprovalManagementServiceClient client = new ApprovalManagementServiceClient();
+    var client = new ApprovalManagementServiceClient();
 
-    client.ClientCredentials.UserName.UserName = UI.User.UserName;
-    client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+    if (client.ClientCredentials != null)
+    {
+      client.ClientCredentials.UserName.UserName = UI.User.UserName;
+      client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+    }
     strChangeType = "AccountUpdate";
 
     bAccountUpdateApprovalsEnabled = 0;
 
-    MTList<ChangeTypeConfiguration> mactc = new MTList<ChangeTypeConfiguration>();
+    var mactc = new MTList<ChangeTypeConfiguration>();
 
     client.RetrieveChangeTypeConfiguration(strChangeType, ref mactc);
 
     if (mactc.Items[0].Enabled)
     {
       bAccountUpdateApprovalsEnabled = 1;// mactc.Items[0].Enabled; 
-  }
+    }
 
     if (bAccountUpdateApprovalsEnabled == 1)
     {
-      Panel1.Text = Server.HtmlEncode(GetLocalResourceObject("accountchangesubmittedSuccessTitle").ToString()); ;
-      Label1.Text = Server.HtmlEncode(GetLocalResourceObject("accountchangesubmittedSuccessMsg").ToString());
+      var resourceObject = GetLocalResourceObject("accountchangesubmittedSuccessTitle");
+      if (resourceObject != null)
+        Panel1.Text = Server.HtmlEncode(resourceObject.ToString());
+
+      var localResourceObject = GetLocalResourceObject("accountchangesubmittedSuccessMsg");
+      if (localResourceObject != null)
+        Label1.Text = Server.HtmlEncode(localResourceObject.ToString());
     }
   }
 

@@ -195,7 +195,7 @@
             <ID>date</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>date</DataIndex>
+            <DataIndex>enddate</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
                 <LocalizationTag>TEXT_DATE</LocalizationTag>

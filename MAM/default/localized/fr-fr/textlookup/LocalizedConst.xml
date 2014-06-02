@@ -1928,5 +1928,17 @@
   <text id="TEXT_Disabled_CRS3">
 	<value>Annuler dans CRS3?</value>  
     	<description />
+  </text>
+  
+  <text id="TEXT_VIEW_DEFAULT_SECURITY_OWNERS">
+    <value>{FR}View Default Security Owners</value>    	
+  </text> 
+  
+  <text id="TEXT_ADD_MEMBERS_TO_ROLE">
+    <value>{FR}Add Members to Role</value>    	
+  </text>   
+  
+  <text id="TEXT_SELECT_ACCOUNTS">
+    <value>{FR}Select Accounts</value>
   </text> 
 </texts>

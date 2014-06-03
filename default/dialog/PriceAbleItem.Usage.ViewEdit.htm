@@ -73,7 +73,7 @@
 	<CENTER>
       #MDMIf ShowEditButton
 	  <div style="display: inline;">
-     <button type="button" class="clsButtonSmall" id="EditItem" name="EDIT" onClick="javascript:window.open('PriceAbleItem.Usage.Edit.asp?ID=[CURRENT_PRICE_ABLE_ITEM_ID]&Kind=[CURRENT_PRICE_ABLE_ITEM_KIND]&POBASED=[CURRENT_PO_BASED]', '_blank', 'height=100,width=100,resizable=yes,scrollbars=yes');return false;">
+     <button class="clsButtonSmall" id="EditItem" name="EDIT" onClick="javascript:window.open('PriceAbleItem.Usage.Edit.asp?ID=[CURRENT_PRICE_ABLE_ITEM_ID]&Kind=[CURRENT_PRICE_ABLE_ITEM_KIND]&POBASED=[CURRENT_PO_BASED]', '_blank', 'height=100,width=100,resizable=yes,scrollbars=yes');return false;">
      <MDMLABEL Name='TEXT_EDIT'>Edit</MDMLABEL>
      </button>
     </div>
@@ -81,17 +81,17 @@
     
     
 #MDMIf IS_PO_BASED
-      <button type="button" class="clsButtonLarge" name="EditAdjustment" onClick="javascript:window.open('[ADJUSTMENT_INSTANCES_EDIT_DIALOG]?TemplateType=USAGE&ID=[CURRENT_PRICE_ABLE_ITEM_ID]&POID=[POID]', '_blank', 'height=400,width=600,resizable=yes,scrollbars=yes');return false;">
+      <button class="clsButtonLarge" name="EditAdjustment" onClick="javascript:window.open('[ADJUSTMENT_INSTANCES_EDIT_DIALOG]?TemplateType=USAGE&ID=[CURRENT_PRICE_ABLE_ITEM_ID]&POID=[POID]', '_blank', 'height=400,width=600,resizable=yes,scrollbars=yes');return false;">
           <MDMLABEL Name='TEXT_BUTTON_SET_UP_ADJUSTMENTS'></MDMLABEL>
       </button>
 #MDMEndIf      
 
 #MDMIf ShowOKButton
-	<BUTTON Name="OK"  Class="clsOKButton" OnClick="mdm_RefreshDialog(this);return false;"><MDMLABEL Name='TEXT_OK'>OK</MDMLABEL></BUTTON>
+	<BUTTON Name="OK"  Class="clsOKButton" OnClick="mdm_RefreshDialog(this);"><MDMLABEL Name='TEXT_OK'>OK</MDMLABEL></BUTTON>
 #MDMEndIf
 		&nbsp;&nbsp;&nbsp;
 #MDMIf ShowCancelButton
-		<BUTTON Name="CANCEL" Class="clsOKButton" OnClick="mdm_RefreshDialog(this);return false;"><MDMLABEL Name='TEXT_CANCEL'>Cancel</MDMLABEL></BUTTON>
+		<BUTTON Name="CANCEL" Class="clsOKButton" OnClick="mdm_RefreshDialog(this);"><MDMLABEL Name='TEXT_CANCEL'>Cancel</MDMLABEL></BUTTON>
 #MDMEndIf	
 	</CENTER>
 

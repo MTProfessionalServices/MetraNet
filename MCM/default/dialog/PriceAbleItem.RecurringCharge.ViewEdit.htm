@@ -44,14 +44,15 @@
 			 	  	 <td class="captionEWRequired"><MDMLABEL name="TEXT_FIELD_NAME">Name</MDMLABEL>:&nbsp;&nbsp;</td>
 				    	<td><input name="name" class="field" size="50" type="text"></td>
 	 			   </tr>
-				 <tr>
-				   <td class="captionEWRequired"><MDMLABEL name="TEXT_FIELD_DISPLAY_NAME">Display Name</MDMLABEL>:&nbsp;&nbsp;</td>
-				   <td><input name="DISPLAYNAMES" MultiLanguage="true" class="field" size="50" type="text"></td>
-				 </tr>
-				   <tr>
-				     <td class="captionEWRequired" style='vertical-align: top;'><MDMLABEL name="TEXT_FIELD_DESCRIPTION">Description</MDMLABEL>:&nbsp;&nbsp;</td>
-				     <td><input name="DISPLAYDESCRIPTIONS" MultiLanguage="true" class="field" type="text" size="50"></td>
+		  		 <tr>
+			       <td class="captionEWRequired"><MDMLABEL name="TEXT_FIELD_DISPLAY_NAME">Display Name</MDMLABEL>:&nbsp;&nbsp;</td>
+				     <td><input name="DISPLAYNAMES" MultiLanguage="true" class="field" size="50" type="text"></td>
 				   </tr>
+			     <tr>
+			      	<td class="captionEW" style='vertical-align: top;'><MDMLABEL name="TEXT_FIELD_DESCRIPTION">Description</MDMLABEL>:&nbsp;</td>
+				    <td><textarea class="field" name="description" cols="50" rows="4"></TEXTAREA></td>
+			     </tr>
+           
    			  <tr><td>&nbsp;</td></tr>			 
           </table>
           <table>
@@ -168,22 +169,22 @@
 	<CENTER>
       #MDMIf ShowEditButton
 	    <div style="display: inline;">
-      <button type="button" class="clsButtonSmall" id="EditItem" name="EDIT" onClick="javascript:window.open('PriceAbleItem.RecurringCharge.Edit.asp?ID=[CURRENT_RECURRING_ITEM_ID]&POBASED=[CURRENT_PO_BASED]', '_blank', 'height=100,width=200,resizable=yes,scrollbars=yes');return false;">
+      <button class="clsButtonSmall" id="EditItem" name="EDIT" onClick="javascript:window.open('PriceAbleItem.RecurringCharge.Edit.asp?ID=[CURRENT_RECURRING_ITEM_ID]&POBASED=[CURRENT_PO_BASED]', '_blank', 'height=100,width=200,resizable=yes,scrollbars=yes');return false;">
         <MDMLABEL Name="TEXT_EDIT">Edit</MDMLABEL>
       </button>
       
-      <button type="button" class="clsButtonLarge" name="EditAdjustmentInstance" onClick="javascript:window.open('[ADJUSTMENT_INSTANCES_EDIT_DIALOG]?TemplateType=RC&ID=[CURRENT_RECURRING_ITEM_ID]&POID=[POID]', '_blank', 'height=500,width=600,resizable=yes,scrollbars=yes');return false;">
+      <button class="clsButtonLarge" name="EditAdjustmentInstance" onClick="javascript:window.open('[ADJUSTMENT_INSTANCES_EDIT_DIALOG]?TemplateType=RC&ID=[CURRENT_RECURRING_ITEM_ID]&POID=[POID]', '_blank', 'height=500,width=600,resizable=yes,scrollbars=yes');return false;">
       <MDMLABEL Name='TEXT_BUTTON_SET_UP_ADJUSTMENTS'></MDMLABEL>
       </button>
       </div>
       #MDMEndIf	
       	
 #MDMIf ShowOKButton
-	<BUTTON Name="OK"  Class="clsOKButton" OnClick="mdm_RefreshDialog(this); return false;"><MDMLABEL Name="TEXT_OK">OK</MDMLABEL></BUTTON>
+	<BUTTON Name="OK"  Class="clsOKButton" OnClick="mdm_RefreshDialog(this);"><MDMLABEL Name="TEXT_OK">OK</MDMLABEL></BUTTON>
 #MDMEndIf	
 &nbsp;&nbsp;&nbsp;
 #MDMIf ShowCancelButton
-		<BUTTON Name="CANCEL" Class="clsOKButton" OnClick="mdm_RefreshDialog(this); return false;"><MDMLABEL Name="TEXT_CANCEL">Cancel</MDMLABEL></BUTTON>
+		<BUTTON Name="CANCEL" Class="clsOKButton" OnClick="mdm_RefreshDialog(this);"><MDMLABEL Name="TEXT_CANCEL">Cancel</MDMLABEL></BUTTON>
 #MDMEndIf	
 	</CENTER>
   </td>

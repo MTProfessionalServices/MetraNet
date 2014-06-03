@@ -79,7 +79,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
     mcm_IncludeCalendar
     
 	  Form_Initialize = TRUE
-    ProductCatalogHelper.CheckAttributesForUI COMObject, COMObject.Instance, Form("POBased")="True" , Empty
+    ProductCatalogHelper.CheckAttributesForUI COMObject, COMObject.Instance, Form("POBased")="TRUE" , Empty
 	  
 END FUNCTION
 

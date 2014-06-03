@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.ServiceModel;
 using MetraTech.ActivityServices.Common;
 using MetraTech.Core.Services.ClientProxies;
 using MetraTech.DomainModel.Enums.Core.Global;
@@ -92,13 +93,18 @@ namespace MetraNet.MetraOffer.ProductOfferings
                               : ProductOffering.DisplayName;
 
           // check PO with the same name already exists
-          ProductOffering productOffering;
-          client.GetProductOffering(new PCIdentifier(displayName), out productOffering);
-          if (productOffering != null)
+          try
           {
+            ProductOffering productOffering;
+            client.GetProductOffering(new PCIdentifier(displayName), out productOffering);
             throw new ApplicationException(Resources.ErrorMessages.ERROR_PO_EXISTS);
           }
-
+          catch (Exception exception)
+          {
+            if (((FaultException<MASBasicFaultDetail>)exception).Detail.ErrorMessages[0] != "Invalid Product Offering id.")
+            throw;
+          }
+          
           var codes = Enum.GetNames(typeof (LanguageCode));
           var localizedDisplayName =
             codes.Select(code => (LanguageCode) Enum.Parse(typeof (LanguageCode), code))

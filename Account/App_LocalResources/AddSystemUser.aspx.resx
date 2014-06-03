@@ -157,7 +157,7 @@
     <value>Invalid Username</value>
   </data>
   <data name="lblUsernameOKResource1.Text" xml:space="preserve">
-    <value>Valid User Name</value>
+    <value>User Name</value>
   </data>
   <data name="ListItemResource1.Text" xml:space="preserve">
     <value>MetraView</value>

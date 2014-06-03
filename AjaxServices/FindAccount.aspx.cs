@@ -235,7 +235,6 @@ public partial class AjaxServices_FindAccount : MTPage
     Response.Buffer = false;
     Response.ContentType = "application/csv";
     Response.AddHeader("Content-Disposition", "attachment; filename=export.csv");
-    Response.BinaryWrite(BOM);
 
     string csvContent = Converter.RowsetToCSV(rs, start, limit, true);
 

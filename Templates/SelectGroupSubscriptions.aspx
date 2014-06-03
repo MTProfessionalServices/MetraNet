@@ -20,31 +20,14 @@
         if (checkButtonClickCount() == true) {
           var records = grid_<%= MTFilterGrid1.ClientID %>.getSelectionModel().getSelections();
           var ids = "";
-          var GrSubNames = ""; 
-	 	      var PONames = ""; 
- 	        var StartDates = ""; 
-	 	      var EndDates = "";
           for (var i = 0; i < records.length; i++) {
             if (i > 0) {
               ids += ",";
-              GrSubNames += ","; 
- 	            PONames += ","; 
-	 	          StartDates += ","; 
- 	            EndDates += ",";
             }
             ids += records[i].data.GroupId;
-            GrSubNames += records[i].data.Name; 
- 	          if(records[i].data['ProductOffering#DisplayName']!=null) { 
- 	            PONames += records[i].data['ProductOffering#DisplayName']; 
- 	          } 
-	          if(records[i].data['SubscriptionSpan#StartDate']!=null) { 
-	            StartDates += records[i].data['SubscriptionSpan#StartDate']; 
-	          } 
- 	          if(records[i].data['SubscriptionSpan#EndDate']!=null) 
- 	            EndDates += records[i].data['SubscriptionSpan#EndDate'];    
-            }
+          }
 
-          var args = "IDs=" + ids + ";sep;" + GrSubNames + ";sep;" + PONames + ";sep;" + StartDates + ";sep;" + EndDates; 
+          var args = "IDs=" + ids;
           pageNav.Execute("TemplateEvents_OKSelectGroupSubscriptions_Client", args, null);
         }
       }

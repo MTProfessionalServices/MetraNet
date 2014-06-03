@@ -51,7 +51,6 @@ public partial class MetraOffer_AmpGui_AjaxServices_AmountChainGroupForProdViewS
             Response.BufferOutput = false;
             Response.ContentType = "application/csv";
             Response.AddHeader("Content-Disposition", "attachment; filename=export.csv");
-            Response.BinaryWrite(BOM);
         }
 
         //if there are more records to process than we can process at once, we need to break up into multiple batches

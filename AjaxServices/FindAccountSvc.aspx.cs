@@ -129,7 +129,6 @@ public partial class AjaxServices_FindAccountSvc : MTListServicePage
             Response.BufferOutput = false;
             Response.ContentType = "application/csv";
             Response.AddHeader("Content-Disposition", "attachment; filename=export.csv");
-            Response.BinaryWrite(BOM);
         }
         else
         {

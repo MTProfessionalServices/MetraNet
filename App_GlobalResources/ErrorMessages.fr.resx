@@ -195,9 +195,9 @@
   <data name="ERROR_SECURITY_ANSWER_INVALID" xml:space="preserve">
     <value>Réponse de sécurité non valide.</value>
   </data>
-    <data name="ERROR_SECURITY_QUESTION_INVALID" xml:space="preserve">
-        <value>Impossible de définir la question de sécurité et la question de sécurité personnalisée.</value>
-    </data>
+  <data name="ERROR_SECURITY_QUESTION_INVALID" xml:space="preserve">
+    <value>Impossible de définir la question de sécurité et la question de sécurité personnalisée.</value>
+  </data>
   <data name="ERROR_SUBSCRIBER_NULL" xml:space="preserve">
     <value>Vous devez d’abord gérer un compte avant de pouvoir exécuter une action l’impliquant.</value>
   </data>
@@ -246,33 +246,33 @@
   <data name="ERROR_USM_CONFIG_UNABLE_TO_SAVE" xml:space="preserve">
     <value>Impossible d’enregistrer les modifications de la configuration. Reportez-vous au journal pour plus de détails.</value>
   </data>
-    <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
-        <value>Échec de suppression de spéc.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_LoadSpecCharacteristic_Didn_t_find_matching_spec_" xml:space="preserve">
-        <value>Spéc. correspondante introuvable.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_LoadSpecCharacteristics_Failed_getting_specs_" xml:space="preserve">
-        <value>Échec d’obtention de spéc.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_LoadSubCharacteristicValues_Failed_getting_entity_properties_" xml:space="preserve">
-        <value>Échec d’obtention des propriétés de l’entité.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_SaveSpecCharacteristic_Failed_saving_spec_" xml:space="preserve">
-        <value>Échec d’enregistrement de spéc.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_" xml:space="preserve">
-        <value>Accès refusé.</value>
-    </data>
-    <data name="SpecCharacteristicsController_AddSharedProperty_Couldn_t_add_property_" xml:space="preserve">
-        <value>Impossible d’ajouter la propriété.</value>
-    </data>
-    <data name="SpecCharacteristicsController_Delete_Couldn_t_delete_property_" xml:space="preserve">
-        <value>Impossible de supprimer la propriété.</value>
-    </data>
-    <data name="SpecCharacteristicsController_SetDisplayOrder_Couldn_t_find_property_" xml:space="preserve">
-        <value>Impossible de trouver la propriété.</value>
-    </data>
+  <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
+    <value>Échec de suppression de spéc.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_LoadSpecCharacteristic_Didn_t_find_matching_spec_" xml:space="preserve">
+    <value>Spéc. correspondante introuvable.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_LoadSpecCharacteristics_Failed_getting_specs_" xml:space="preserve">
+    <value>Échec d’obtention de spéc.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_LoadSubCharacteristicValues_Failed_getting_entity_properties_" xml:space="preserve">
+    <value>Échec d’obtention des propriétés de l’entité.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_SaveSpecCharacteristic_Failed_saving_spec_" xml:space="preserve">
+    <value>Échec d’enregistrement de spéc.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_" xml:space="preserve">
+    <value>Accès refusé.</value>
+  </data>
+  <data name="SpecCharacteristicsController_AddSharedProperty_Couldn_t_add_property_" xml:space="preserve">
+    <value>Impossible d’ajouter la propriété.</value>
+  </data>
+  <data name="SpecCharacteristicsController_Delete_Couldn_t_delete_property_" xml:space="preserve">
+    <value>Impossible de supprimer la propriété.</value>
+  </data>
+  <data name="SpecCharacteristicsController_SetDisplayOrder_Couldn_t_find_property_" xml:space="preserve">
+    <value>Impossible de trouver la propriété.</value>
+  </data>
   <data name="ERROR_USERNAME_LOCKED" xml:space="preserve">
     <value>[FR]You have exceeded the number of logins attempts and your account is locked. Please contact your system admin.</value>
   </data>
@@ -302,5 +302,8 @@
   </data>
   <data name="ERROR_REPORT_OPEN" xml:space="preserve">
     <value>[FR]Unable open and save report</value>
+  </data>
+  <data name="ERROR_PO_EXISTS" xml:space="preserve">
+    <value>[FR]PO with the same name already exists</value>
   </data>
 </root>

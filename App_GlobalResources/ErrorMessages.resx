@@ -303,4 +303,7 @@
   <data name="ERROR_REPORT_OPEN" xml:space="preserve">
     <value>Unable open and save report</value>
   </data>
+  <data name="ERROR_PO_EXISTS" xml:space="preserve">
+    <value>PO with the same name already exists</value>
+  </data>
 </root>

@@ -370,7 +370,7 @@ public partial class AjaxServices_QueryService : MTListServicePage
         {
           SQLField curField = curRecord.Fields[i];
 
-          if (curField.FieldName.ToLower() == columnID.ToLower())
+          if (curField.FieldName.ToLower() == columnID.ToLower() && !exportColumns.Contains(i))
           {
             exportColumns.Add(i);
             break;

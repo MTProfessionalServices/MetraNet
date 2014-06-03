@@ -617,5 +617,8 @@
   </data>
   <data name="TEXT_QUOTING" xml:space="preserve">
     <value>{ES-MX}Manage Quotes</value>
-  </data>   
+  </data>
+  <data name="TEXT_ACCOUNT" xml:space="preserve">
+    <value>{ES-MX}Account</value>
+  </data>    
 </root>

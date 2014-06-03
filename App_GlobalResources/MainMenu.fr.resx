@@ -668,5 +668,8 @@
   </data> 
   <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
     <value>{FR}Usage Processing</value>
-  </data>  
+  </data>
+  <data name="TEXT_ACCOUNT" xml:space="preserve">
+    <value>{FR}Account</value>
+  </data>    
 </root>

@@ -623,5 +623,8 @@
   </data>
   <data name="TEXT_QUOTING" xml:space="preserve">
     <value>{JA}Manage Quotes</value>
-  </data> 
+  </data>
+  <data name="TEXT_ACCOUNT" xml:space="preserve">
+    <value>{JA}Account</value>
+  </data>    
 </root>

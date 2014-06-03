@@ -51,6 +51,70 @@
     <SubGrid></SubGrid>
     <Elements>
         <Element>
+            <RecordElement>false</RecordElement>
+            <ID>Actions</ID>
+            <DataIndex>actions</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>TEXT_ACTIONS</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>75</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>false</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Filterable>false</Filterable>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\Core.Quoting.Entity.dll</AssemblyFilename>
+            <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
+            <ID>Status</ID>
+            <DataType>List</DataType>
+            <IsIdentity>false</IsIdentity>
+            <FilterEnum>
+                <EnumClassName></EnumClassName>
+                <EnumSpace>metratech.com</EnumSpace>
+                <EnumType>QuoteStatus</EnumType>
+                <UseEnumValue>true</UseEnumValue>
+                <DefaultValue></DefaultValue>
+                <HideEnumValues>
+                    <EnumValue>None</EnumValue>
+                </HideEnumValues>
+            </FilterEnum>
+            <DataIndex>Status</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <LocalizationTag>QUOTE_STATUS</LocalizationTag>
+                <ResourceClassKey>Quoting/App_LocalResources/QuoteList.aspx</ResourceClassKey>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>true</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>true</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\Core.Quoting.Entity.dll</AssemblyFilename>
             <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
@@ -278,52 +342,6 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\Core.Quoting.Entity.dll</AssemblyFilename>
             <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
-            <ID>Status</ID>
-            <DataType>List</DataType>
-            <IsIdentity>false</IsIdentity>
-            <FilterEnum>
-                <EnumClassName></EnumClassName>
-                <EnumSpace>metratech.com</EnumSpace>
-                <EnumType>QuoteStatus</EnumType>
-                <UseEnumValue>true</UseEnumValue>
-                <DefaultValue></DefaultValue>
-                <HideEnumValues>
-                    <EnumValue>None</EnumValue>
-                </HideEnumValues>
-            </FilterEnum>
-            <DataIndex>Status</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag>QUOTE_STATUS</LocalizationTag>
-                <ResourceClassKey>Quoting/App_LocalResources/QuoteList.aspx</ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>true</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
-            <Filterable>true</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename>C:\dev\MetraNetDev\output\Debug\Bin\Core.Quoting.Entity.dll</AssemblyFilename>
-            <ObjectName>Core.Quoting.QuoteHeader</ObjectName>
             <ID>FailedMessage</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
@@ -463,24 +481,6 @@
             </ElementValue2>
             <FilterReadOnly>false</FilterReadOnly>
             <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>false</RecordElement>
-            <ID>Actions</ID>
-            <DataIndex>actions</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag>TEXT_ACTIONS</LocalizationTag>
-                <ResourceClassKey>Resource</ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>75</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>false</Sortable>
-            <ColumnHideable>false</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Filterable>false</Filterable>
         </Element>
         <Element>
             <RecordElement>true</RecordElement>

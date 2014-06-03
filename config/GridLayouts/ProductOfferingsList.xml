@@ -57,7 +57,7 @@
                 <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
-            <Width>120</Width>
+            <Width>150</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>true</PreventSortable>
             <Sortable>false</Sortable>

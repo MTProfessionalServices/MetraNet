@@ -13,6 +13,7 @@ using MetraTech.ActivityServices.Common;
 using MetraTech.ActivityServices.Services.Common;
 using MetraTech.Core.Services.ClientProxies;
 using MetraTech.DomainModel.Common;
+using MetraTech.DomainModel.Enums;
 using MetraTech.DomainModel.Enums.Core.Global;
 using MetraTech.UI.Common;
 using MetraTech.DomainModel.Billing;
@@ -792,14 +793,28 @@ public class BillManager: System.Web.UI.TemplateControl
   {
     try
     {
-      var languageCode = (LanguageCode)CommonEnumHelper.GetEnumByValue(typeof(LanguageCode), Thread.CurrentThread.CurrentUICulture.ToString());
-      return languageCode;
+      if (Thread.CurrentThread.CurrentUICulture.ToString().ToLower() == "ja-jp")
+      {
+        return LanguageCode.JP;
+      }
+      if (Thread.CurrentThread.CurrentUICulture.ToString().ToLower() == "it-it")
+      {
+        return LanguageCode.IT;
+      }
+      return (LanguageCode)CommonEnumHelper.GetEnumByValue(typeof(LanguageCode), Thread.CurrentThread.CurrentUICulture.ToString());
     }
     catch (Exception)
     {
       Logger.LogWarning("using default language code");
       return LanguageCode.US;
     }
+  }
+
+  public int GetLanguageID()
+  {
+    LanguageCode languageCode = GetLanguageCode();
+    int result = Convert.ToInt32(EnumHelper.GetValueByEnum(languageCode, 1));
+    return result;
   }
 
   /// <summary>
@@ -1295,7 +1310,7 @@ public class BillManager: System.Web.UI.TemplateControl
       if (UI.Subscriber.SelectedAccount._AccountID != null)
       {
         var acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
-        client.GetSubscriptions(acct, ref subList);
+        client.GetLocalizedSubscriptions(acct, GetLanguageID(), ref subList);
       }
 
       client.Close();
@@ -1319,7 +1334,7 @@ public class BillManager: System.Web.UI.TemplateControl
   public MTList<ProductOffering> GetEligiblePOsForSubscriptions(MTList<ProductOffering> poList)
   {
     SubscriptionServiceClient client = null;
-
+     
     try
     {
 
@@ -1331,7 +1346,7 @@ public class BillManager: System.Web.UI.TemplateControl
       if (UI.Subscriber.SelectedAccount._AccountID != null)
       {
         var acct = new AccountIdentifier(UI.Subscriber.SelectedAccount._AccountID.Value);
-        client.GetEligiblePOsForSubscriptionMetraView(acct, MetraTime.Now, false, ref poList);
+        client.GetLocalizedEligiblePOsForSubscriptionMetraView(acct, GetLanguageID(), MetraTime.Now, false, ref poList);
       }
 
       client.Close();

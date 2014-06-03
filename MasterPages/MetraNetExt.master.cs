@@ -139,7 +139,7 @@ public partial class MasterPages_MetraNetExt : System.Web.UI.MasterPage
           @"{
             region: 'east',
             id: 'east-panel',
-            title: 'Account',
+            title: TEXT_ACCOUNT,
             collapsed: true,
             collapsible: true,
             split: false,

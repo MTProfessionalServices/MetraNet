@@ -168,6 +168,9 @@
   <data name="SUCCESS" xml:space="preserve">
     <value>Éxito</value>
   </data>
+  <data name="TEXT_ACCOUNT" xml:space="preserve">
+    <value>{ES-MX}Account</value>
+  </data>
   <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
     <value>Detalles</value>
   </data>

@@ -61,6 +61,10 @@ END FUNCTION
 PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
 
     On Error Resume Next
+    Dim displayName
+        For each displayName In COMObject.Instance.DisplayNames
+                if displayName.LanguageCode = "US" And displayName.Value <> "" Then COMObject.Instance.DisplayName = displayName.Value End If  
+        Next
     AdjustmentTemplateHelper.Instance.Save
     If(Err.Number)Then
         

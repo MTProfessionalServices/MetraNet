@@ -70,19 +70,24 @@ PRIVATE FUNCTION Form_Refresh(EventArg) ' As Boolean
 
     Set Form.Grids("AdjustmentInstanceGrid").RowSet = Nothing ' Clear the grid
 
-    If AdjustmentTemplateHelper.InstanceAdjustments.Count Then
-    
-        Set Form.Grids("AdjustmentInstanceGrid").RowSet = FrameWork.CollectionToRowset(AdjustmentTemplateHelper.InstanceAdjustments,"DisplayName,Id","DisplayName,Id","")
-        
-        Form.Grids("AdjustmentInstanceGrid").Properties.ClearSelection
-        'Form.Grids("AdjustmentInstanceGrid").Properties("Name").Selected            = 1
-        Form.Grids("AdjustmentInstanceGrid").Properties("DisplayName").Selected     = 1
-        Form.Grids("AdjustmentInstanceGrid").Properties("ID").Selected              = 2
-        
-        Form.Grids("AdjustmentInstanceGrid").Properties("Id").Caption               = " "
-        Form.Grids("AdjustmentInstanceGrid").Properties("DisplayName").Caption = FrameWork.Dictionary.Item("TEXT_FIELD_DISPLAY_NAME").Value
-        
-        FrameWork.Dictionary.Add  "Adjustment.Instances.Edit.USER_MESSAGE", FrameWork.Dictionary.Item("TEXT_CONFIGURED_ADJUSTMENTS").Value
+    If AdjustmentTemplateHelper.InstanceAdjustments.Count Then    
+      Dim adj, displayName
+      For Each adj In AdjustmentTemplateHelper.InstanceAdjustments 
+            For Each displayName In adj.DisplayNames
+                if displayName.LanguageCode = "US" And displayName.Value <> "" Then adj.DisplayName = displayName.Value End If 
+            Next
+      Next
+      Set Form.Grids("AdjustmentInstanceGrid").RowSet = FrameWork.CollectionToRowset(AdjustmentTemplateHelper.InstanceAdjustments,"DisplayName,Id","DisplayName,Id","")
+      
+      Form.Grids("AdjustmentInstanceGrid").Properties.ClearSelection
+      'Form.Grids("AdjustmentInstanceGrid").Properties("Name").Selected            = 1
+      Form.Grids("AdjustmentInstanceGrid").Properties("DisplayName").Selected     = 1
+      Form.Grids("AdjustmentInstanceGrid").Properties("ID").Selected              = 2
+      
+      Form.Grids("AdjustmentInstanceGrid").Properties("Id").Caption               = " "
+      Form.Grids("AdjustmentInstanceGrid").Properties("DisplayName").Caption = FrameWork.Dictionary.Item("TEXT_FIELD_DISPLAY_NAME").Value
+      
+      FrameWork.Dictionary.Add  "Adjustment.Instances.Edit.USER_MESSAGE", FrameWork.Dictionary.Item("TEXT_CONFIGURED_ADJUSTMENTS").Value
     Else
         FrameWork.Dictionary.Add  "Adjustment.Instances.Edit.USER_MESSAGE", FrameWork.Dictionary.Item("TEXT_PRICEABLE_ITEM_DOES_NOT_SUPPORT_ADJUSTMENT").Value        
     End If

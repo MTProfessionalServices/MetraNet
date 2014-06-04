@@ -76,7 +76,7 @@
                         <MenuItem>
                             <ID>SelfCarePortal</ID>
                             <Caption>
-                                <LocalizationTag>TEXT_SELF_CARE_PORTAL</LocalizationTag>
+                                <LocalizationTag>TEXT_VIEWONLINE_BILL</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link>javascript:getFrameMetraNet().Account.LoadPage(node.id, '/MetraNet/ViewOnlineBill.aspx');</Link>
@@ -190,7 +190,7 @@
                         <MenuItem>
                             <ID>SelfCarePortal</ID>
                             <Caption>
-                                <LocalizationTag>TEXT_SELF_CARE_PORTAL</LocalizationTag>
+                                <LocalizationTag>TEXT_VIEWONLINE_BILL</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link>javascript:getFrameMetraNet().Account.LoadPage(node.id, '/MetraNet/ViewOnlineBill.aspx');</Link>
@@ -304,7 +304,7 @@
                         <MenuItem>
                             <ID>SelfCarePortal</ID>
                             <Caption>
-                                <LocalizationTag>TEXT_SELF_CARE_PORTAL</LocalizationTag>
+                                <LocalizationTag>TEXT_VIEWONLINE_BILL</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link>javascript:getFrameMetraNet().Account.LoadPage(node.id, '/MetraNet/ViewOnlineBill.aspx');</Link>
@@ -418,7 +418,7 @@
                         <MenuItem>
                             <ID>SelfCarePortal</ID>
                             <Caption>
-                                <LocalizationTag>TEXT_SELF_CARE_PORTAL</LocalizationTag>
+                                <LocalizationTag>TEXT_VIEWONLINE_BILL</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link>javascript:getFrameMetraNet().Account.LoadPage(node.id, '/MetraNet/ViewOnlineBill.aspx');</Link>

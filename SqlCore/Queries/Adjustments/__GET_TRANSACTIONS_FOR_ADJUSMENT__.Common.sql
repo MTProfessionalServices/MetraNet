@@ -27,7 +27,7 @@
       /* CR 11284: Need to find out if a parent transaction has been postbill rebilled. If it was,  */
       /* then none of the children should be adjustable */
       /* 'A' means Apporved, 1 means PostBill */
-      LEFT OUTER JOIN t_adjustment_transaction parentajt ON parentajt.id_sess = ajv.id_parent_sess AND parentajt.c_status = 'A' AND parentajt.n_adjustmenttype = 1
-      LEFT OUTER JOIN t_adjustment_type parentajtype ON parentajtype.id_prop = parentajt.id_aj_type AND parentajtype.n_adjustmentType = 4
+      LEFT OUTER JOIN t_adjustment_transaction parentajt ON parentajt.id_sess = ajv.id_parent_sess AND ajv.id_usage_interval = parentajt.id_usage_interval AND parentajt.c_status = 'A' AND parentajt.n_adjustmenttype = 1 
+	  LEFT OUTER JOIN t_adjustment_type parentajtype ON parentajtype.id_prop = parentajt.id_aj_type AND parentajtype.n_adjustmentType = 4
       %%PREDICATE%%
 			

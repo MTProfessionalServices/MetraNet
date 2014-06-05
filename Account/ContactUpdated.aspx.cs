@@ -2,11 +2,7 @@ using System;
 using MetraTech.UI.Common;
 using MetraTech.Approvals;
 using MetraTech.Core.Services.ClientProxies;
-using MetraTech.DomainModel.BaseTypes;
-
-using MetraTech.UI.Tools;
 using MetraTech.ActivityServices.Common;
-using System.Windows.Forms;
 
 
 public partial class ContactUpdated : MTPage
@@ -18,20 +14,23 @@ public partial class ContactUpdated : MTPage
   } //so we can read it any time in the session
   public string strChangeType { get; set; }
 
-  
+
   protected void Page_Load(object sender, EventArgs e)
   {
     //Approval Framework Code Starts Here 
 
-    ApprovalManagementServiceClient client = new ApprovalManagementServiceClient();
+    var client = new ApprovalManagementServiceClient();
 
-    client.ClientCredentials.UserName.UserName = UI.User.UserName;
-    client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+    if (client.ClientCredentials != null)
+    {
+      client.ClientCredentials.UserName.UserName = UI.User.UserName;
+      client.ClientCredentials.UserName.Password = UI.User.SessionPassword;
+    }
     strChangeType = "AccountUpdate";
 
     bAccountUpdateApprovalsEnabled = 0;
 
-    MTList<ChangeTypeConfiguration> mactc = new MTList<ChangeTypeConfiguration>();
+    var mactc = new MTList<ChangeTypeConfiguration>();
 
     client.RetrieveChangeTypeConfiguration(strChangeType, ref mactc);
 
@@ -39,7 +38,7 @@ public partial class ContactUpdated : MTPage
     {
       bAccountUpdateApprovalsEnabled = 1;// mactc.Items[0].Enabled; 
     }
-
+    // ReSharper disable PossibleNullReferenceException
     if (bAccountUpdateApprovalsEnabled == 1)
     {
       lblMessage.Text = Server.HtmlEncode(GetLocalResourceObject("contactchangesubmittedSuccessMsg").ToString());
@@ -48,14 +47,16 @@ public partial class ContactUpdated : MTPage
 
     else
     {
-    lblMessage.Text = Server.HtmlEncode(GetLocalResourceObject("contactUpdateSuccessMsg").ToString());
-    lblTitle.Text = Server.HtmlEncode(GetLocalResourceObject("contactUpdateSuccessTitle").ToString());
-  }
+      lblMessage.Text = Server.HtmlEncode(GetLocalResourceObject("contactUpdateSuccessMsg").ToString());
+      lblTitle.Text = Server.HtmlEncode(GetLocalResourceObject("contactUpdateSuccessTitle").ToString());
+    }
 
-}
+  }
 
   protected void btnOK_Click(object sender, EventArgs e)
   {
+    // ReSharper disable Html.PathError
     Response.Redirect("/MetraNet/StartWorkFlow.aspx?WorkFlowName=ContactUpdateWorkflow");
+    // ReSharper restore Html.PathError
   }
 }

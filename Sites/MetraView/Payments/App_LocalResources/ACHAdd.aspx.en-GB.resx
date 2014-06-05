@@ -121,7 +121,7 @@
         <value>Add ACH</value>
     </data>
     <data name="ddCardTypeResource1.Label" xml:space="preserve">
-        <value></value>
+        <value>Credit Card Type</value>
     </data>
     <data name="ddExpMonthResource1.Label" xml:space="preserve">
         <value>Expiration Date</value>
@@ -157,10 +157,10 @@
         <value>Savings</value>
     </data>
     <data name="tbAccountNumberLinkResource1.Text" xml:space="preserve">
-        <value>Account Number</value>
+        <value>Account Number </value>
     </data>
     <data name="tbAccountNumberResource1.Label" xml:space="preserve">
-        <value>Account Number</value>
+        <value>Account Number </value>
     </data>
     <data name="tbAddress2Resource1.Label" xml:space="preserve">
         <value>Address Line 2</value>
@@ -196,9 +196,9 @@
         <value>Routing Number </value>
     </data>
     <data name="tbStateResource1.Label" xml:space="preserve">
-        <value>State was {0}, changed to {1}. </value>
+        <value>State/Province</value>
     </data>
     <data name="tbZipCodeResource1.Label" xml:space="preserve">
-        <value>Zip code was {0}, changed to {1}. </value>
+        <value>Zip/Postal Code</value>
     </data>
 </root>

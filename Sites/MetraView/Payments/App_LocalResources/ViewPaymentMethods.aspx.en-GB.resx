@@ -154,7 +154,7 @@
         <value>Country</value>
     </data>
     <data name="CREDIT_CARD_TYPE" xml:space="preserve">
-        <value></value>
+        <value>Payment Method</value>
     </data>
     <data name="EXPIRATION_DATE" xml:space="preserve">
         <value>Exp. Date</value>
@@ -181,7 +181,7 @@
         <value>Priority</value>
     </data>
     <data name="STATE_PROVINCE" xml:space="preserve">
-        <value></value>
+        <value>State / Province</value>
     </data>
     <data name="TEXT_ERROR_MSG" xml:space="preserve">
         <value>An account must be selected to view this page.</value>
@@ -190,9 +190,9 @@
         <value>Payment Methods</value>
     </data>
     <data name="ZIP_CODE" xml:space="preserve">
-        <value></value>
+        <value>Zip / Postal Code</value>
     </data>
   <data name="PAYMENT_METHOD_REFUSED" xml:space="preserve">
-    <value>Your payment method was refused; please try again.(GB)</value>
+    <value>Your payment method was refused; please try again.</value>
   </data>
 </root>

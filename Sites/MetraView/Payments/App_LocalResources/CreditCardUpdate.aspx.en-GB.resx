@@ -118,7 +118,7 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="ddCardTypeResource1.Label" xml:space="preserve">
-        <value></value>
+        <value>Credit Card Type</value>
     </data>
     <data name="ddExpMonthResource1.Label" xml:space="preserve">
         <value>Expiration Date</value>
@@ -136,10 +136,10 @@
         <value>Credit Card Information</value>
     </data>
     <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>Update Contacts</value>
+        <value>Update Credit Card</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
-        <value>Update Contacts</value>
+        <value>Update Credit Card</value>
     </data>
     <data name="tbAddress2Resource1.Label" xml:space="preserve">
         <value>Address Line 2</value>

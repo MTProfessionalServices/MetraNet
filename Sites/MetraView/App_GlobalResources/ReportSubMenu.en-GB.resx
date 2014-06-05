@@ -127,9 +127,9 @@
         <value>Shared Reports</value>
     </data>
     <data name="TEXT_USAGE_REPORT" xml:space="preserve">
-        <value></value>
+        <value>Usage</value>
     </data>
     <data name="TEXT_USAGE_SECTION" xml:space="preserve">
-        <value>Usage Cycle&lt;br&gt;Type</value>
+        <value>Usage Report</value>
     </data>
 </root>

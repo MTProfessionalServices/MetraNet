@@ -112,15 +112,15 @@
         <value>2.0</value>
     </resheader>
     <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="PageResource1.Title" xml:space="preserve">
         <value>Account Information</value>
     </data>
     <data name="SuccessMessage.Text" xml:space="preserve">
-        <value>You received this credit because your subscription with a recurring charge being billed in advance changed during this billing period.&lt;BR&gt;&lt;BR&gt;On your previous bill, we charged you [RCAmount] in advance. We are now refunding you this amount.&lt;BR&gt;</value>
+        <value>Your account information was successfully updated.</value>
     </data>
 </root>

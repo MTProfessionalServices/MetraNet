@@ -126,8 +126,9 @@ public partial class AddAccount : MTAccountPage
 
         if (accountType.IsCorporate)
         {
+          var parerntId = Account.AncestorAccountID ?? 1;          
           tbAncestorAccount.ReadOnly = false;
-          // Account.AncestorAccountID = 1;
+          Account.AncestorAccountID = parerntId;
           cbApplyTemplate.Visible = false;
           tbAncestorAccount.AllowBlank = false;
         }

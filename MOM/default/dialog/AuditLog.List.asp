@@ -114,7 +114,8 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   strGMTDateFormat = "yyyy-mm-dd hh:mm:ssZ"
   ProductView.Properties.ClearSelection                       ' Select the properties I want to print in the PV Browser   Order
   ProductView.Properties("Time").Selected 			      = 1
-  'ProductView.Properties("Time").Format  			        = strGMTDateFormat
+  ProductView.Properties("Time").SetPropertyType("TIMESTAMP")
+  ProductView.Properties("Time").Format  			        = mom_GetDictionary("DATE_TIME_FORMAT")
 
   ProductView.Properties("UserName").Selected 	      = 2
   ProductView.Properties("EventName").Selected 	      = 3
@@ -143,9 +144,8 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   ProductView.Properties("dt_crt").Caption 	            = mom_GetDictionary("TEXT_AUDIT_DT_CRT")
   ProductView.Properties("tx_logged_in_as").Caption 	  = mom_GetDictionary("TEXT_AUDIT_TX_LOGGED_IN_AS")
   ProductView.Properties("tx_application_name").Caption = mom_GetDictionary("TEXT_AUDIT_TX_APPLICATION_NAME")
-  
+  ProductView.Properties("Time").Sorted                 = MTSORT_ORDER_DESCENDING
   mdm_SetMultiColumnFilteringModeWithCustomProperties "~Time~EntityName~UserName~EntityId~"
-  ProductView.Properties("Time").Sorted               = MTSORT_ORDER_DESCENDING
 
   'Set current time message
   '//dim strCurrentTime

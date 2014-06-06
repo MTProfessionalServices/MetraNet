@@ -294,4 +294,7 @@
   <data name="TEXT_DAYS_BACK" xml:space="preserve">
     <value>{ES-MX}days back</value>
   </data>
+  <data name="DATE_FORMAT_JS" xml:space="preserve">
+    <value>%d/%m/%Y %X</value>
+  </data>
 </root>

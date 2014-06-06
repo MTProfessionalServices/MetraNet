@@ -595,7 +595,7 @@
     <value>[FR]Set Localization</value>
   </data>
   <data name="TEXT_BUTTON_ADD" xml:space="preserve">
-    <value>[FR]Add</value>
+    <value>{FR}Add</value>
   </data>
   <data name="TEXT_BUTTON_DELETE" xml:space="preserve">
     <value>[FR]Delete</value>
@@ -608,5 +608,41 @@
   </data>
   <data name="updateSubscription" xml:space="preserve">
     <value>[FR]Subscription Update</value>
+  </data>
+  <data name="TEXT_TAX" xml:space="preserve">
+    <value>{FR}Tax</value>
+  </data>
+  <data name="TEXT_TAX_VENDOR" xml:space="preserve">
+    <value>{FR}Tax Vendor</value>
+  </data>
+  <data name="TEXT_TAX_SERVICE_ADDRESS_PCODE" xml:space="preserve">
+    <value>{FR}Tax Service Address PCode</value>
+  </data>
+  <data name="TEXT_METRATAX_COUNTRY_ELIGIBILITY" xml:space="preserve">
+    <value>{FR}MetraTax Country Eligibility</value>
+  </data>
+  <data name="TEXT_METRATAX_COUNTRY_ZONE" xml:space="preserve">
+    <value>{FR}MetraTax Country Zone</value>
+  </data>
+  <data name="TEXT_METRATAX_HAS_OVERRIDE_BAND" xml:space="preserve">
+    <value>{FR}MetraTax Has Override Band</value>
+  </data>
+  <data name="TEXT_METRATAX_OVERRIDE_BAND" xml:space="preserve">
+    <value>{FR}MetraTax Override Band</value>
+  </data>
+  <data name="TEXT_TAX_REGISTRY_REFERENCE" xml:space="preserve">
+    <value>{FR}Tax Registry Reference</value>
+  </data>
+  <data name="TEXT_TAX_EXEMPT_REASON" xml:space="preserve">
+    <value>{FR}Tax Exempt Reason</value>
+  </data>
+  <data name="TEXT_TAX_EXEMPT_START_DATE" xml:space="preserve">
+    <value>{FR}Tax Exempt Start Date</value>
+  </data>
+  <data name="TEXT_TAX_EXEMPT_END_DATE" xml:space="preserve">
+    <value>{FR}Tax Exempt End Date</value>
+  </data>
+  <data name="TEXT_USE_STANDARD_INCLUSIVE_TAX_CALCULATION" xml:space="preserve">
+    <value>{FR}Use Standard Inclusive Tax Calculation</value>
   </data>
 </root>

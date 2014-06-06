@@ -243,7 +243,7 @@
     <data name="tbSecurityAnswerResource1.Label" xml:space="preserve">
         <value>セキュリティ回答</value>
     </data>
-    <data name="tbSecurityQuestionTextResource1" xml:space="preserve">
+    <data name="tbSecurityQuestionTextResource1.Label" xml:space="preserve">
         <value>カスタム セキュリティの質問</value>
     </data>
     <data name="tbStartDateResource1.Label" xml:space="preserve">

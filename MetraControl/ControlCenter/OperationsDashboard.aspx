@@ -187,16 +187,16 @@
                 </MT:MTPanel>
             </li>
             <li data-row="28" data-col="5" data-sizex="4" data-sizey="9">
-                <MT:MTPanel ID="pnlBillCloseSynopsis" runat="server" Text="Bill Close Synopsis" meta:resourcekey="pnlBillCloseSynopsisResource" Width="450">
+                <MT:MTPanel ID="pnlBillCloseSynopsis" runat="server" Text="Bill Close Synopsis" meta:resourcekey="pnlBillCloseSynopsisResource" Width="430">
                     <div style="width: 399px; height: 27px">
                         <MT:MTDropDown ID="ddBillCloses" runat="server" AllowBlank="False" HideLabel="True"
                             Listeners="{}" ReadOnly="False">
                         </MT:MTDropDown>
                     </div>
                     <div style="width: 100%; height:230px">
-                        <table >
+                        <table style="width: 100%; height: 100%">
                             <tr>
-                                <td>
+                                <td width="30%" style="vertical-align:top">
                                     <table style="border-collapse:collapse;border:none">
                                         <tr>
                                             <td>
@@ -216,7 +216,7 @@
                                         </tr>
                                         <tr>
                                             <td class="label">
-                                                <MT:MTLabel ID="lblBillCloseSynopisBillGroups" runat="server" meta:resourcekey="lblBillCloseSynopisBillGroupsResource" Text="Bill Groups:" />
+                                                <MT:MTLabel ID="lblBillCloseSynopisBillGroups" runat="server" meta:resourcekey="lblBillCloseSynopisBillGroupsResource" Text="Bill Groups:" Width="80" />
                                             </td>
                                             <td>
                                                 <MT:MTLabel ID="txtBillCloseSynopisBillGroups" runat="server" />
@@ -258,7 +258,7 @@
                                         </tr>
                                     </table>
                                 </td>
-                                <td>
+                                <td width="70%">
                                     <svg id="divBillCloseSynopsis"></svg>
                                 </td>
                             </tr>
@@ -266,7 +266,7 @@
                     </div>
                 </MT:MTPanel>
             </li>
-            <li data-row="37" data-col="1" data-sizex="3" data-sizey="7">
+            <li data-row="37" data-col="1" data-sizex="4" data-sizey="9">
                 <MT:MTPanel ID="pnlFailedAdapters" runat="server" Text="Failed Adapters" meta:resourcekey="pnlFailedAdapters"
                 Width="320" Height="325">
                     <div height="100%" style="height: 248px">
@@ -276,7 +276,7 @@
                     </div>
                 </MT:MTPanel>
             </li>
-            <li data-row="37" data-col="4" data-sizex="3" data-sizey="7">
+            <li data-row="37" data-col="5" data-sizex="4" data-sizey="9">
                 <MT:MTPanel ID="pnlRunningAdapters" runat="server" Text="Running Adapters" meta:resourcekey="pnlRunningAdapters"
                 Width="320" Height="325">
                     <div height="100%" style="height: 248px">
@@ -355,7 +355,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
     <script type="text/javascript">
 
         var dayFormat = d3.time.format("%A, %B %e");
-        var dateFormat = d3.time.format("%m/%d/%Y %I:%M:%S %p");
+        var dateFormat = d3.time.format("<%=DateFormatJs%>");
         var numberFormat = d3.format(",");
         var currencyFormat = d3.format("$,.0f");
         var percentageFormat = d3.format(".1%");
@@ -838,8 +838,8 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
             var countGroup = statusDimension.group().reduceSum(dc.pluck('count'));
             
             chart
-                    .margins({top: 10, right: 10, bottom: 75, left: 60})
-					.width(320)
+                    .margins({top: 10, right: 10, bottom: 75, left: 50})
+					.width(310)
 					.height(220)
                     .dimension(statusDimension)
 					.transitionDuration(0)

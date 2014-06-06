@@ -141,6 +141,9 @@
   <data name="NO_RECORDS_FOUND" xml:space="preserve">
     <value>No records found</value>
   </data>
+  <data name="TEXT_ACCOUNT" xml:space="preserve">
+    <value>Account</value>
+  </data>
   <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
     <value>Details</value>
   </data>

@@ -319,13 +319,13 @@
         <value>Summary By Account</value>
     </data>
     <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_INTERVAL_TYPE_MENU" xml:space="preserve">
-        <value>Summary By Interval Type</value>
+        <value>Summary By Account</value>
     </data>
     <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_STAGE_PLUGIN" xml:space="preserve">
         <value>Failed Transaction Summary By Stage and Plugin</value>
     </data>
     <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_STAGE_PLUGIN_MENU" xml:space="preserve">
-        <value>Summary By Stage and Plugin</value>
+        <value>Summary By Account and Error Type</value>
     </data>
     <data name="TEXT_FEEDS" xml:space="preserve">
         <value>Feeds</value>

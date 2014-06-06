@@ -260,27 +260,8 @@ Function WriteChargeConfiguration(strWizardName)
   
   '// Write out the Javascript that dims/undims the ProrateBasedOn field
   strHTML = "<script language='javascript'>function updateBasedOnField(){"  & vbNewLine 
-  strHTML = strHTML & "if (document.WizardForm.AddRecurring_ProrateOnDeactivation.checked || document.WizardForm.AddRecurring_ProrateOnActivation.checked || document.WizardForm.AddRecurring_ProrateInstantly.checked){disableDIV('ProrateOn',false);  }else  {disableDIV('ProrateOn',true);}"
+  strHTML = strHTML & "if (document.WizardForm.AddRecurring_ProrateOnDeactivation.checked || document.WizardForm.AddRecurring_ProrateOnActivation.checked){disableDiv('ProrateOn',false);  }else  {disableDiv('ProrateOn',true);}"
   strHTML = strHTML & "}"
-
-  '//This javascript updates the prorate instantly/on deactivation buttons depending on what's been clicked.
-  strHTML = strHTML & "function updateDeactivation()	{" & vbNewLine
-  strHTML = strHTML & "		if (document.WizardForm.AddRecurring_ProrateOnUnsubscribeDate.checked)		{" & vbNewLine
-  strHTML = strHTML & "		  disableDiv('ProrateOnDeactivationDiv', false);" & vbNewLine
-  strHTML = strHTML & "		  disableDiv('ProrateInstantlyDiv', false);" & vbNewLine
-	strHTML = strHTML & "     if (!document.WizardForm.AddRecurring_ProrateOnDeactivation.checked && !document.WizardForm.AddRecurring_ProrateInstantly.checked){" & vbNewLine
-  strHTML = strHTML & "        document.WizardForm.AddRecurring_ProrateOnDeactivation.checked = true;" & vbNewLine
-  strHTML = strHTML & "        document.WizardForm.AddRecurring_ProrateInstantly.checked = false;" & vbNewLine
-  strHTML = strHTML & "      }" & vbNewLine
-  strHTML = strHTML & "   }" & vbNewLine
-  strHTML = strHTML & "else	" & vbNewLine
-  strHTML = strHTML & "  {" & vbNewLine
-  strHTML = strHTML & "     document.WizardForm.AddRecurring_ProrateOnDeactivation.checked = false;" & vbNewLine
-  strHTML = strHTML & "     document.WizardForm.AddRecurring_ProrateInstantly.checked = false;" & vbNewLine
-  strHTML = strHTML & "     disableDiv('ProrateOnDeactivationDiv', true);" & vbNewLine
-  strHTML = strHTML & "     disableDiv('ProrateInstantlyDiv', true);" & vbNewLine
-  strHTML = strHTML & "  }" & vbNewLine
-  strHTML = strHTML & "}" & vbNewLine
 
   strHTML = strHTML & "function disableDiv(sDivName,bDisable) {" & vbNewLine
   strHTML = strHTML & "		toggleDisabled(document.getElementById(sDivName), bDisable);" & vbNewLine
@@ -330,30 +311,15 @@ Function WriteChargeConfiguration(strWizardName)
   end if
       strHTML = strHTML & FrameWork.GetDictionary("TEXT_PRORATE_ACTIVATION") & "<BR>"
 
-  strInput = strWizardName & "_ProrateOnUnsubscribeDate"
+  strInput = strWizardName & "_ProrateOnDeactivation"
   strHTML = strHTML & "<tr><td >"
   strHTML = strHTML & "<tr><td>"
   if session(strInput) = "TRUE" then
- 	  strHTML = strHTML & vbNewLine & gobjMTForms.AddCheckboxInputWithoutPrompt(strInput, "TRUE", true," onClick='updateDeactivation();updateBasedOnField();' ")
+ 	  strHTML = strHTML & vbNewLine & gobjMTForms.AddCheckboxInputWithoutPrompt(strInput, "TRUE", true," onClick='updateBasedOnField();' ")
   else
- 	  strHTML = strHTML  & vbNewLine & gobjMTForms.AddCheckboxInputWithoutPrompt(strInput, "TRUE", false," onClick='updateDeactivation();updateBasedOnField();' ")
+ 	  strHTML = strHTML  & vbNewLine & gobjMTForms.AddCheckboxInputWithoutPrompt(strInput, "TRUE", false," onClick='updateBasedOnField();' ")
   end if
       strHTML = strHTML & FrameWork.GetDictionary("TEXT_PRORATE_UNSUBSCRIPTION") & "<BR>" & vbNewLine
-
-  strInput = strWizardName & "_ProrateOnDeactivation"  
-  strHTML = strHTML & "<tr><td >" & vbNewLine & "<DIV id=""ProrateOnDeactivationDiv"" name=""ProrateOnDeactivationDiv"" style='display: block;'>"
-  strHTML = strHTML & "<table align=""center"" valign=""center"" border=""0"">" & vbNewLine
-  strHTML = strHTML & "<tr><td>"   & vbNewLine
-  strHTML = strHTML & gobjMTForms.AddRadioInput(strInput,  Session(strInput), "", Array(FrameWork.GetDictionary("TEXT_PRORATE_DEACTIVATION")), Array(TRUE), 1, "  onClick='document.WizardForm.AddRecurring_ProrateInstantly.checked=false;updateBasedOnField();'")
-  strHTML = strHTML & "</DIV>"
-  
- strInput = strWizardName & "_ProrateInstantly"
-  strHTML = strHTML & "<tr><td><DIV id=""ProrateInstantlyDiv"" name=""ProrateInstantlyDiv"" style='display: block;'>"
-  strHTML = strHTML & gobjMTForms.AddRadioInput(strInput,  Session(strInput), "", Array(FrameWork.GetDictionary("TEXT_PRORATE_INSTANTLY")), Array(TRUE), 1, "  onClick='document.WizardForm.AddRecurring_ProrateOnDeactivation.checked=false;updateBasedOnField();'")
-  strHTML = strHTML & "</DIV>"
-	strHTML = strHTML & "</td></tr>"
-  strHTML = strHTML & "</table>"
-  strHTML = strHTML & "</td></tr>"
 
   strInput = strWizardName & "_ProrateBasedOn"
 	strHTML = strHTML & "<tr><td align='center'>"
@@ -397,9 +363,9 @@ Function WriteChargeConfiguration(strWizardName)
     sDisableProration="false"
   end if
   
-  strHTML = strHTML & "<script language='javascript'>disableDIV('Proration'," & sDisableProration & ");</script>"
+  strHTML = strHTML & "<script language='javascript'>disableDiv('Proration'," & sDisableProration & ");</script>"
 	if sDisableProration="false" then
-  	strHTML = strHTML & "<script language='javascript'>updateBasedOnField();updateDeactivation();</script>"
+  	strHTML = strHTML & "<script language='javascript'>updateBasedOnField();</script>"
   end if
 	
   WriteChargeConfiguration = strHTML
@@ -981,7 +947,6 @@ Function WriteSummary(strWizardName)
   Dim StrChargeIn
 	Dim StrProrateOn
 	Dim StrProrateActivation
-  Dim StrProrateInstantly
 	Dim StrProrateDeActivation
   Dim StrChargePerParticipant
   Dim strTiered
@@ -1003,7 +968,6 @@ Function WriteSummary(strWizardName)
 		   session(strWizardName & "_ChargeInAdvance") 				= objPriceableItem.ChargeInAdvance
 			 session(strWizardName & "_ProrateBasedOn")					= objPriceableItem.FixedProrationLength
 			 session(strWizardName & "_ProrateOnActivation") 		= objPriceableItem.ProrateOnActivation
-			 session(strWizardName & "_ProrateInstantly") 	    = objPriceableItem.ProrateInstantly
        session(strWizardName & "_ProrateOnDeactivation") 	= objPriceableItem.ProrateOnDeactivation
 		   session(strWizardName & "_ChargePerParticipant") 	= objPriceableItem.ChargePerParticipant
 			 
@@ -1024,14 +988,7 @@ Function WriteSummary(strWizardName)
 	  Else
 		   StrProrateActivation = FrameWork.GetDictionary("TEXT_NO")	   			
 		End If	
-
-    If Ucase(session(strWizardName & "_ProrateInstantly")) = "TRUE" Then
-	 			StrProrateInstantly = FrameWork.GetDictionary("TEXT_YES")
-        bDisplayProrateBasedOn = true
-	  Else
-		   StrProrateInstantly= FrameWork.GetDictionary("TEXT_NO")	   			
-		End If	
-	
+    	
 	  If Ucase(session(strWizardName & "_ProrateOnDeactivation")) = "TRUE" Then
 	 			StrProrateDeActivation = FrameWork.GetDictionary("TEXT_YES")
         bDisplayProrateBasedOn = true

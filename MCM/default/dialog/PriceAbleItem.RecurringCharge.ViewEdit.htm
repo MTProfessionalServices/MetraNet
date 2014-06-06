@@ -54,58 +54,65 @@
 				   </tr>
    			  <tr><td>&nbsp;</td></tr>			 
           </table>
-          <table>
-			    <tr>
-				 		<td Class="captionEWRequired"><MDMLABEL name="TEXT_CHARGE_IN">Charge In</MDMLABEL>:&nbsp;&nbsp;</td>
-						<td> <SELECT  class='clsInputBox' name='ChargeInAdvance'></SELECT></td>
-				  </tr>
-          <div id='Proration' name='Proration' style='display: block;'>  
-          <tr><td>&nbsp;</td></tr>	
-          <tr>
-		     			<td Class="captionEWRequired" width="130px"><MDMLABEL name="TEXT_PRORATION">Proration</MDMLABEL>:&nbsp;&nbsp;</td>
-				      <td Class='clsStandardText' ><INPUT Name="ProrateOnActivation"   Type="CheckBox" onClick="updateProrationBasedOnField();"><MDMLABEL name="TEXT_PRORATE_ACTIVATION">Prorate On Activation</MDMLABEL></td>
-			    </tr>
-         <tr>
-              <td></td>  
-				      <td Class='clsStandardText' ><INPUT disabled Name="ProrateOnUnsubscribeDate"   Type="CheckBox" [ProrateOnUnsubscribeDateComValue] onClick="updateDeactivation();updateProrationBasedOnField();">
-              <MDMLABEL name="TEXT_PRORATE_UNSUBSCRIPTION">Prorate On Unsubscription Date</MDMLABEL></td>
-			    </tr>
-          <tr>
-		          <td></td><td></td>
-              <td Class='clsStandardText'> 
-                    <DIV id='ProrateOnDeactivationDiv' name='ProrateOnDeactivationDiv' style='display: block;'>
-						          <INPUT Name="ProrateOnDeactivation" Type="radio" [ProrateOnDeactivationComValue] onClick="document.mdm.ProrateInstantly.checked=false;updateProrationBasedOnField();">
-							        <MDMLABEL name="TEXT_PRORATE_DEACTIVATION">Prorate On Deactivation</MDMLABEL>
-                    </DIV>
-              </td>
-		    	  </tr>
-		   		  <tr>
-				       <td></td><td></td>
-				       <td Class='clsStandardText'> 
-                 <DIV id='ProrateInstantlyDiv' name='ProrateInstantlyDiv' style='display: block;'>
-                   <INPUT Name="ProrateInstantly" Type="radio" [ProrateInstantlyComValue] onClick="document.mdm.ProrateOnDeactivation.checked=false;updateProrationBasedOnField();">
-                   <MDMLABEL name="TEXT_PRORATE_INSTANTLY">Prorate Instantly</MDMLABEL>
-                 </DIV>
-               </td>
-		    	  </tr>
 
-				  <tr>
-						<td Class="captionEW">&nbsp;</td>
-						<td><div id='ProrateOn' name='ProrateOn' style='display: block;'><MDMLABEL name="TEXT_PRORATE_BASEDON">Prorate</MDMLABEL>&nbsp;&nbsp;<select name="FixedProrationLength" size="1" Class='clsInputBox'></select>&nbsp;<MDMLABEL name="TEXT_DAYS_IN_PERIOD">days in period.</MDMLABEL></div></td>
-				  </tr>
-        </div>
-			  <tr>
-		     	<td Class="captionEWRequired" width="130px"><MDMLABEL name="TEXT_GROUP_CHARGES">Generate Group Charges</MDMLABEL>:&nbsp;&nbsp;</td>
-				  <td><INPUT Name="ChargePerParticipant" Type="Radio" Value="FALSE"><MDMLABEL name="TEXT_PER_SUBSCRIPTION">One charge per subscription</MDMLABEL></td>
-			  </tr>
-		   	<tr>
-				  <td></td>
-				  <td><INPUT Name="ChargePerParticipant" Type="Radio" Value="TRUE"><MDMLABEL name="TEXT_PER_PARTICIPANT">One charge per subscription</MDMLABEL></td>
-		    </tr>					
-      </table>
-      
-      </div>
-         
+          <table>
+            <tr>
+              <td Class="captionEWRequired">
+                <MDMLABEL name="TEXT_CHARGE_IN">Charge In</MDMLABEL>:&nbsp;&nbsp;
+              </td>
+              <td>
+                <SELECT  class='clsInputBox' name='ChargeInAdvance'></SELECT>
+              </td>
+            </tr>
+            <div id='Proration' name='Proration' style='display: block;'>  
+              <tr>
+                <td>&nbsp;</td>
+              </tr>	
+              <tr>
+                <td Class="captionEWRequired" width="130px">
+                  <MDMLABEL name="TEXT_PRORATION">Proration</MDMLABEL>:&nbsp;&nbsp;
+                </td>
+                <td Class='clsStandardText' >
+                  <INPUT Name="ProrateOnActivation"   Type="CheckBox" onClick="updateProrationBasedOnField();" />
+                  <MDMLABEL name="TEXT_PRORATE_ACTIVATION">Prorate On Activation</MDMLABEL>
+                </td>
+              </tr>
+              <tr>
+                <td />  
+                <td Class='clsStandardText'>
+                  <INPUT Name="ProrateOnDeactivation" Type="CheckBox" onClick="updateProrationBasedOnField();" />
+                  <MDMLABEL name="TEXT_PRORATE_UNSUBSCRIPTION">Prorate On Unsubscription Date</MDMLABEL>
+                </td>
+              </tr>
+              <tr>
+                <td Class="captionEW">&nbsp;</td>
+                <td>
+                  <div id='ProrateOn' name='ProrateOn' style='display: block;'>
+                    <MDMLABEL name="TEXT_PRORATE_BASEDON">Prorate</MDMLABEL>&nbsp;&nbsp;
+                    <select name="FixedProrationLength" size="1" Class='clsInputBox' />&nbsp;
+                    <MDMLABEL name="TEXT_DAYS_IN_PERIOD">days in period.</MDMLABEL>
+                  </div>
+                </td>
+              </tr>
+            </div>
+            <tr>
+              <td Class="captionEWRequired" width="130px">
+                <MDMLABEL name="TEXT_GROUP_CHARGES">Generate Group Charges</MDMLABEL>:&nbsp;&nbsp;
+              </td>
+              <td>
+                <INPUT Name="ChargePerParticipant" Type="Radio" Value="FALSE" />
+                <MDMLABEL name="TEXT_PER_SUBSCRIPTION">One charge per subscription</MDMLABEL>
+              </td>
+            </tr>
+            <tr>
+              <td />
+              <td>
+                <INPUT Name="ChargePerParticipant" Type="Radio" Value="TRUE" />
+                <MDMLABEL name="TEXT_PER_PARTICIPANT">One charge per subscription</MDMLABEL>
+              </td>
+            </tr>					
+          </table>
+               
 #MDMIF IsUDRC
           <tr><td>&nbsp;</td></tr>
           <tr><td colspan=4>

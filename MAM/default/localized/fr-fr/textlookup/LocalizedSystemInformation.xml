@@ -9,7 +9,7 @@ This file defines the MAM system information that must be localized.
               
 
   <text id='DEFAULT_PATH_SEARCH'>
-<value>/mam/default/localized/fr</value>
+<value>/mam/default/localized/fr-fr</value>
       <description>
 The path defined in the HTML Dialog template file. In this case we keep /mam/ because it is hard code this way in the HTML template file. 
 The MDM Renderer process use this string to perform a string search/replace.
@@ -17,12 +17,12 @@ The MDM Renderer process use this string to perform a string search/replace.
   </text>       
 
   <text id='CUSTOM_PATH_SEARCH'>
-<value>/mam/custom/localized/fr</value>
+<value>/mam/custom/localized/fr-fr</value>
       <description>Same as DEFAULT_PATH_SEARCH but for the folder custom.</description>
   </text>        
 
   <text id='DEFAULT_PATH_REPLACE'>
-<value>[APP_HTTP_PATH]/default/localized/fr</value>
+<value>[APP_HTTP_PATH]/default/localized/fr-fr</value>
       <description>
 Define where are located the localized folders (images, style, textlookup) for the current user based on his language.
 This string is used by the MDM Renderer process use this string to perform a string search/replace.
@@ -31,7 +31,7 @@ This string is the replaced string. Here we do not hard code mam but we use the 
   </text>
 
     <text id='CUSTOM_PATH_REPLACE'>
-<value>[APP_HTTP_PATH]/default/localized/fr</value>
+<value>[APP_HTTP_PATH]/default/localized/fr-fr</value>
       <description>Same as CUSTOM_PATH_SEARCH but for the folder custom.</description>
   </text>
 

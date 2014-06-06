@@ -92,7 +92,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
     Form_Refresh EventArg
     Form_Initialize = TRUE
 '   disable the cycle at instance level
-   ProductCatalogHelper.CheckAttributesForUI COMObject, COMObject.Instance, Form("POBased")="TRUE" , Empty
+   ProductCatalogHelper.CheckAttributesForUI COMObject, COMObject.Instance, Form("POBased")="True" , Empty
 
 END FUNCTION
 
@@ -113,7 +113,42 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
     If Form("POBASED") <> "TRUE" Then
       	If(Not ProductCatalogBillingCycle.UpdateProperties())Then Exit Function
     End If
-  
+     On Error Resume Next
+
+    dim sUsersCurrentLanguageCode
+    sUsersCurrentLanguageCode = Framework.GetLanguageCodeForCurrentUser()
+
+    'if Descriptions have been added/edited, build and save the multi language values
+    ' First, we need to get the value set for the description text for the language the logged in user is using. This is the value we will save globally in COMObject.Instance
+    dim desc
+    for each desc in COMObject.Instance.DisplayDescriptions
+      if desc.LanguageCode=sUsersCurrentLanguageCode then
+        ' Set localized Description label
+        ' We need to do this in a separate loop because the sUsersCurrentLanguageCode is not necessarely the first desc in the COMObject.Instance.DisplayDescriptions
+        COMObject.Instance.Description = desc.Value
+      end if
+    next
+
+    for each desc in COMObject.Instance.DisplayDescriptions
+      if desc.LanguageCode=sUsersCurrentLanguageCode then
+        'User specified this language
+        COMObject.Instance.DisplayDescriptions.SetMapping desc.LanguageCode, desc.Value
+      else
+        if desc.Value = "" then
+          'Set the default for other language as what the user specified plus the language code
+          COMObject.Instance.DisplayDescriptions.SetMapping desc.LanguageCode, COMObject.Instance.Description & " {" & desc.LanguageCode & "}"
+        else
+          'Don't change the value if it was not empty and if it does not contain the language code inside {}'s
+          if InStr(1, desc.Value, " {" & desc.LanguageCode & "}") > 0 then
+            'We found {LanguageCode} in desc.Value, so set the default value for this language
+            COMObject.Instance.DisplayDescriptions.SetMapping desc.LanguageCode, COMObject.Instance.Description & " {" & desc.LanguageCode & "}"
+          else
+            'We didn't find {LanguageCode} in desc.Value, so leave the value as is for this language and don't overwrite it with the default value
+            COMObject.Instance.DisplayDescriptions.SetMapping desc.LanguageCode, desc.Value
+          end if
+        end if
+      end if
+    next
    On Error Resume Next
    COMObject.Instance.Save
     If(Err.Number)Then

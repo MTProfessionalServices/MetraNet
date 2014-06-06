@@ -1281,4 +1281,7 @@
   <data name="REPORTS_TREE_NOT_APPLICABLE_TEXT" xml:space="preserve">
     <value>(MEXICAN SPANISH) N/A</value>
   </data>
+  <data name="TEXT_ACCOUNT_TYPE" xml:space="preserve">
+    <value>{ES-MX}Account Type</value>
+  </data>
 </root>

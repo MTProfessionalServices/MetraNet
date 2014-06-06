@@ -620,5 +620,14 @@
   </data>
   <data name="TEXT_ACCOUNT" xml:space="preserve">
     <value>{ES-MX}Account</value>
-  </data>    
+  </data>
+  <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
+    <value>{ES-MX}Create Quote</value>
+  </data>   
+  <data name="TEXT_QUOTING_LIST" xml:space="preserve">
+    <value>{ES-MX}View All Quotes</value>
+  </data>
+  <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
+    <value>{ES-MX}Shared Properties</value>
+  </data>     
 </root>

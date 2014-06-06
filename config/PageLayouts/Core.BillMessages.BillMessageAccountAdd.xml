@@ -33,7 +33,7 @@
                             <Name>MessageCode</Name>
                             <Alignment>Left</Alignment>
                             <ReadOnly>false</ReadOnly>
-                            <ControlType>MetraTech.UI.Controls.MTTextBox</ControlType>
+                            <ControlType>MetraTech.UI.Controls.MTDropDown</ControlType>
                             <EditorValidation>
                                 <Required>true</Required>
                                 <ValidationType></ValidationType>

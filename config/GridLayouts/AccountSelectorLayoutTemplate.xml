@@ -315,9 +315,7 @@
             <IsIdentity>false</IsIdentity>
             <DataIndex>AccountTypeID</DataIndex>
             <IsColumn>false</IsColumn>
-            <HeaderText>
-                <Value><![CDATA[Account Type]]></Value>
-            </HeaderText>
+            <HeaderText />
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
@@ -331,7 +329,10 @@
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>false</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
+            <FilterLabel>
+                <LocalizationTag>TEXT_ACCOUNT_TYPE</LocalizationTag>
+                <ResourceClassKey>App_GlobalResources/JSConsts</ResourceClassKey>
+            </FilterLabel>
             <ElementValue>
                 <Value><![CDATA[]]></Value>
             </ElementValue>

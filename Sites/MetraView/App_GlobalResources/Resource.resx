@@ -468,4 +468,22 @@
     <data name="TEXT_YES" xml:space="preserve">
         <value>YES</value>
     </data>
+    <data name="TEXT_PRODUCT_VIEW_MAPPINGS" xml:space="preserve">
+        <value>Product View Mappings</value>
+    </data>
+    <data name="TEXT_BILL_SETTING" xml:space="preserve">
+        <value>Bill Setting</value>
+    </data>
+    <data name="TEXT_DASHBOARDS" xml:space="preserve">
+        <value>Dashboards</value>
+    </data>
+    <data name="TEXT_ENTRY_POINTS" xml:space="preserve">
+        <value>Entry Points</value>
+    </data>
+    <data name="TEXT_REPORT_INVENTORIES" xml:space="preserve">
+        <value>Report Inventories</value>
+    </data>
+    <data name="TEXT_SITE" xml:space="preserve">
+        <value>Site</value>
+    </data>
 </root>

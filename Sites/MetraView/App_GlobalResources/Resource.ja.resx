@@ -465,4 +465,22 @@
   <data name="TEXT_DOWNLOAD_CREDIT_NOTES" xml:space="preserve">
     <value>(Japanese) Download Credit Notes</value>
   </data>
+  <data name="TEXT_PRODUCT_VIEW_MAPPINGS" xml:space="preserve">
+    <value>(JA)Product View Mappings</value>
+  </data>
+  <data name="TEXT_BILL_SETTING" xml:space="preserve">
+    <value>(JA)Bill Setting</value>
+  </data>
+  <data name="TEXT_DASHBOARDS" xml:space="preserve">
+    <value>(JA)Dashboards</value>
+  </data>
+  <data name="TEXT_ENTRY_POINTS" xml:space="preserve">
+    <value>(JA)Entry Points</value>
+  </data>
+  <data name="TEXT_REPORT_INVENTORIES" xml:space="preserve">
+    <value>(JA)Report Inventories</value>
+  </data>
+  <data name="TEXT_SITE" xml:space="preserve">
+    <value>(JA)Site</value>
+  </data>
 </root>

@@ -532,6 +532,16 @@ public partial class BEList : MTPage
                             link.ParentId = "{internalId}";
                             link.ParentName = BEName;
                             link.Text = ent.Entity.GetLocalizedLabel();
+                            
+                            if (link.Text.Equals("BillSetting"))
+                            {
+                              link.Text = GetGlobalResourceObject("Resource", "TEXT_BILL_SETTING").ToString();
+                            }
+                            else if (link.Text.Equals("Site"))
+                            {
+                              link.Text = GetGlobalResourceObject("Resource", "TEXT_SITE").ToString();
+                            }
+
                             link.RenderControl(writer);
                         }
                         else
@@ -542,6 +552,24 @@ public partial class BEList : MTPage
                             link.ParentId = "{internalId}";
                             link.ParentName = BEName;
                             link.Text = ent.Entity.PluralName;
+
+                            if (link.Text.Equals("Dashboards"))
+                            {
+                              link.Text = GetGlobalResourceObject("Resource", "TEXT_DASHBOARDS").ToString();
+                            }
+                            else if (link.Text.Equals("EntryPoints"))
+                            {
+                              link.Text = GetGlobalResourceObject("Resource", "TEXT_ENTRY_POINTS").ToString();
+                            }
+                            else if (link.Text.Equals("ProductViewMappings"))
+                            {
+                              link.Text = GetGlobalResourceObject("Resource", "TEXT_PRODUCT_VIEW_MAPPINGS").ToString();
+                            }
+                            else if (link.Text.Equals("ReportInventories"))
+                            {
+                              link.Text = GetGlobalResourceObject("Resource", "TEXT_REPORT_INVENTORIES").ToString();
+                            }
+
                             link.RenderControl(writer);
                         }
 

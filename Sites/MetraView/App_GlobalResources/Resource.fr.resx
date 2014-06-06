@@ -465,4 +465,22 @@
   <data name="TEXT_DOWNLOAD_CREDIT_NOTES" xml:space="preserve">
     <value>(French) Download Credit Notes</value>
   </data>
+  <data name="TEXT_PRODUCT_VIEW_MAPPINGS" xml:space="preserve">
+    <value>(FR)Product View Mappings</value>
+  </data>
+  <data name="TEXT_BILL_SETTING" xml:space="preserve">
+    <value>(FR)Bill Setting</value>
+  </data>
+  <data name="TEXT_DASHBOARDS" xml:space="preserve">
+    <value>(FR)Dashboards</value>
+  </data>
+  <data name="TEXT_ENTRY_POINTS" xml:space="preserve">
+    <value>(FR)Entry Points</value>
+  </data>
+  <data name="TEXT_REPORT_INVENTORIES" xml:space="preserve">
+    <value>(FR)Report Inventories</value>
+  </data>
+  <data name="TEXT_SITE" xml:space="preserve">
+    <value>(FR)Site</value>
+  </data>
 </root>

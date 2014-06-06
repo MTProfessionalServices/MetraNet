@@ -716,10 +716,7 @@ CLASS CFrameWork ' -- The FrameWork Class --
                     end if 
               else
               dim lang
-              lang = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 2)
-              if (instr(1, lang, "en") <> 0) then
-                lang = "en-US"
-              end if
+              lang = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 5)
                 Session(FRAMEWORK_APP_LANGUAGE) = lang
               end if
 

@@ -161,11 +161,11 @@ PRIVATE FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
     ' View default policy, Add Members, go back
     strEndOfPageHTMLCode = "<br><div align='center'>" & vbNewLine
 
-    strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button class='clsButtonBlueXXLarge' name=""DefaultPolicy"" onclick=""window.location.href='" & mam_GetDictionary("ROLE_MEMBER_DEFAULT_POLICY_DIALOG") & "?MDMReload=TRUE&id=" &  Form("id") & "&RoleName=" & server.URLEncode(Form("RoleName")) & "'"">" & "View Default Security Owners" & "</button><br><br><br>" & vbNewLine
+    strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button class='clsButtonBlueXXLarge' name=""DefaultPolicy"" onclick=""window.location.href='" & mam_GetDictionary("ROLE_MEMBER_DEFAULT_POLICY_DIALOG") & "?MDMReload=TRUE&id=" &  Form("id") & "&RoleName=" & server.URLEncode(Form("RoleName")) & "'"">" & mam_GetDictionary("TEXT_VIEW_DEFAULT_SECURITY_OWNERS") & "</button><br><br><br>" & vbNewLine
     
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button class='clsButtonLarge' name=""Back"" onclick=""window.location.href='" & mam_GetDictionary("MANAGE_ROLES_DIALOG")  & "'"">" & mam_GetDictionary("TEXT_BACK_TO_MANAGE_ROLES") & "</button>&nbsp;&nbsp;&nbsp;" & vbNewLine
     
-    strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button class='clsButtonLarge' name=""roleaddmember"" onclick=""window.location.href='" & "RoleMemberAdd.asp?MDMReload=TRUE" & "&RoleName=" & server.URLEncode(Form("RoleName")) & "'"">" & "Add Members to Role" & "</button>&nbsp;&nbsp;&nbsp;" & vbNewLine
+    strEndOfPageHTMLCode = strEndOfPageHTMLCode & "<button class='clsButtonLarge' name=""roleaddmember"" onclick=""window.location.href='" & "RoleMemberAdd.asp?MDMReload=TRUE" & "&RoleName=" & server.URLEncode(Form("RoleName")) & "'"">" & mam_GetDictionary("TEXT_ADD_MEMBERS_TO_ROLE") & "</button>&nbsp;&nbsp;&nbsp;" & vbNewLine
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & "</div>" & vbNewLine
         
     ' Here we must not forget to concat rather than set because we want to keep the result of the inherited event.

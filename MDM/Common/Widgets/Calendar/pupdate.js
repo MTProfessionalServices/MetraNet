@@ -27,6 +27,7 @@ var ppcUY = 4;
 /* Do not edit below this line unless you are sure what are you doing! */
 var ppcIE = (navigator.appName == "Microsoft Internet Explorer" || (navigator.appName == "Netscape" && Object.hasOwnProperty.call(window, "ActiveXObject") && !window.ActiveXObject)); // In IE 11, navigator.appName is set to "Netscape", so need to use feature detection to check if is IE
 var ppcNN=((navigator.appName == "Netscape")&&(document.layers));
+var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
 var ppcTT="<table width=\"200\" cellspacing=\"1\" cellpadding=\"2\" border=\"1\" bordercolorlight=\"#000000\" bordercolordark=\"#000000\">\n";
 var ppcCD=ppcTT;var ppcFT="<font face=\"MS Sans Serif, sans-serif\" size=\"1\" color=\"#000000\">";var ppcFC=true;
 var ppcTI=false;var ppcSV=null;var ppcRL=null;var ppcXC=null;var ppcYC=null;
@@ -265,13 +266,13 @@ function getCalendarFor(target,rules)
 	 if((parseInt(event.clientY) + calendarSizeY) >= document.body.clientHeight){
 	     obj.style.top = document.body.scrollTop + document.body.clientHeight - calendarSizeY;
 	  }
-   if (ppcIE)
+	   if (ppcIE || is_chrome)
 	 {
  	   // set Calendar visible 
 		   obj.style.visibility = "visible";
        adjustiFrame(true);
    }
-	 else if(ppcNN)	
+	 else if(ppcNN )	
    { obj.visibility = "show";}
 	 
  else {showError(ppcER[0]);}}
@@ -290,10 +291,10 @@ function moveMonth(dir) {
  var limit = false;
  var tmp,dptrYear,dptrMonth;
  
- if (ppcIE) {
+ if (ppcIE|| is_chrome) {
    obj = document.ppcMonthList.sItem;
  }
- else if (ppcNN) {
+ else if (ppcNN ) {
    obj = document.layers['PopUpCalendar'].document.layers['monthSelector'].document.ppcMonthList.sItem;
  }
  else {
@@ -405,8 +406,8 @@ function setCalendar(year,month) {
 function updateContent() {
  //window.alert("updateContent");
  generateContent();
- if (ppcIE) {document.all['monthDays'].innerHTML = ppcCD;}
- else if (ppcNN) {
+ if (ppcIE || is_chrome) {document.all['monthDays'].innerHTML = ppcCD;}
+ else if (ppcNN ) {
   with (document.layers['PopUpCalendar'].document.layers['monthDays'].document) {
    open("text/html");
    write("<html>\n<head>\n<title>DynDoc</title>\n</head>\n<body bgcolor=\"#FFFFFF\">\n");
@@ -463,13 +464,15 @@ function setSelectList(year,month) {
  var i = 0;
  var obj = null;
 
- if (ppcIE) {
+ if (ppcIE || is_chrome) {
    obj = document.ppcMonthList.sItem;
  }
  else if (ppcNN) {
    obj = document.layers['PopUpCalendar'].document.layers['monthSelector'].document.ppcMonthList.sItem;
  }
- else {/* NOP */}
+ else {
+/* NOP */
+ }
  
  // Set 2 years of data in dropdown
  while (i < 241)
@@ -493,7 +496,7 @@ function setSelectList(year,month) {
 
 function hideCalendar()
 {
- if (ppcIE) {document.all['PopUpCalendar'].style.visibility = "hidden";}
+ if (ppcIE || is_chrome) {document.all['PopUpCalendar'].style.visibility = "hidden";}
  else if (ppcNN) {document.layers['PopUpCalendar'].visibility = "hide";window.status = " ";}
  else {/* NOP */}
  ppcTI = false;

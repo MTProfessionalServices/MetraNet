@@ -677,11 +677,5 @@
 	</data>
 	<data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
 		<value>Product Dashboard</value>
-	</data>
-	<data name="TEXT_QUOTING_LIST" xml:space="preserve">
-        <value>View All Quotes</value>
-    </data>
-    <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
-        <value>Shared Properties</value>
-    </data> 
-</root>
+	</data>	
+ </root>

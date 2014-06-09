@@ -249,6 +249,9 @@
 	<data name="TEXT_DOWNLOAD_QUOTES" xml:space="preserve">
         <value>引用をダウンロード</value>
     </data>
+	<data name="TEXT_DOWNLOAD_CREDIT_NOTES" xml:space="preserve">
+        <value>(Japanese) Download Credit Notes</value>
+    </data>	
     <data name="TEXT_EDIT" xml:space="preserve">
         <value>編集</value>
     </data>

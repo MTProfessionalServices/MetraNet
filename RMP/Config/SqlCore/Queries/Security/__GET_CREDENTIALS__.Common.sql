@@ -12,7 +12,7 @@
 			/* Unlike C++ code the C# enum contains 0 and 1 values instead of 1 and 2 */
 			CASE WHEN tuc.nm_login IS NULL THEN 1 ELSE 0 END AS auth_type
 		from 
-			t_account_mapper tam LEFT JOIN t_user_credentials tuc  %%%READCOMMITTED%%% ON tuc.nm_login = tam.nm_login AND tuc.nm_space = tam.nm_space
+			t_account_mapper tam  %%%READCOMMITTED%%% LEFT JOIN t_user_credentials tuc  %%%READCOMMITTED%%% ON tuc.nm_login = tam.nm_login AND tuc.nm_space = tam.nm_space
 
 		where 
 			%%%UPPER%%%(tam.nm_login) = %%%UPPER%%%(N'%%USERNAME%%') and %%%UPPER%%%(tam.nm_space) = %%%UPPER%%%(N'%%NAME_SPACE%%') 

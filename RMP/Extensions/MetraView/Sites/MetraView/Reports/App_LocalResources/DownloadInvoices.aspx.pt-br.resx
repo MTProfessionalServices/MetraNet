@@ -126,4 +126,16 @@
   <data name="SelectInterval.Text" xml:space="preserve">
     <value>Selecionar intervalo</value>
   </data>
+   <data name="AddReport.Text" xml:space="preserve">
+    <value>(Brazilian Portuguese) Add report {0} to InvioceList</value>
+  </data>
+  <data name="AddCreditNoteReport.Text" xml:space="preserve">
+    <value>(Brazilian Portuguese) Add report {0} to CreditNotesList</value>
+  </data>
+  <data name="ErrorDownload.Text" xml:space="preserve">
+    <value>(Brazilian Portuguese) Unable to download reports</value>
+  </data>
+  <data name="NoCreditNotes.Text" xml:space="preserve">
+    <value>(Brazilian Portuguese) No Credit Notes Found</value>
+  </data>
 </root>

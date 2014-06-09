@@ -47,6 +47,11 @@ copy %RMPDIR%\Extensions\PageNav\bin\MetraTech.PageNav.ClientProxies.* %RMPDIR%\
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.DomainModel.* %RMPDIR%\Extensions\MetraView\Sites\MetraView\bin
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.Core.Services.ClientProxies.* %RMPDIR%\Extensions\MetraView\Sites\MetraView\bin
 copy %RMPDIR%\Extensions\Account\bin\MetraTech.Account.ClientProxies.* %RMPDIR%\Extensions\MetraView\Sites\MetraView\bin
+copy %MTOUTDIR%\%VERSION%\bin\MetraTech.CreditNotes.* %RMPDIR%\Extensions\MetraView\Sites\MetraView\bin
+copy %MTOUTDIR%\%VERSION%\bin\MetraTech.UsageServer.* %RMPDIR%\Extensions\MetraView\Sites\MetraView\bin
+copy %MTOUTDIR%\%VERSION%\bin\MetraTech.Reports.CrystalEnterprise.* %RMPDIR%\Extensions\MetraView\Sites\MetraView\bin
+copy %MTOUTDIR%\%VERSION%\bin\MetraTech.Reports.* %RMPDIR%\Extensions\MetraView\Sites\MetraView\bin
+
 
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.UI.* %RMPDIR%\Extensions\MetraView\Sites\MetraView\bin
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.Events* %RMPDIR%\Extensions\MetraView\Sites\MetraView\bin

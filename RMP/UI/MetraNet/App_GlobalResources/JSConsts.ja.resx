@@ -124,7 +124,7 @@
     <value> Y/n/j</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>Y/n/j g:i:s | Y/n/j</value>
+    <value>Y/n/j g:i:s|Y/n/j</value>
   </data>
   <data name="DATE_TIME_FORMAT_DEF" xml:space="preserve">
     <value>n/j/Y g:i:s A</value>
@@ -135,45 +135,45 @@
   <data name="DECIMAL_SEPARATOR" xml:space="preserve">
     <value>.</value>
   </data>
-    <data name="DUPLICATE" xml:space="preserve">
-        <value>複製</value>
-    </data>
+  <data name="DUPLICATE" xml:space="preserve">
+    <value>複製</value>
+  </data>
   <data name="ERR_DATE_FORMAT" xml:space="preserve">
     <value>YYYY/mm/dd</value>
   </data>
-    <data name="FAILURE" xml:space="preserve">
-        <value>失敗</value>
-    </data>
-    <data name="MANUAL_PENDING" xml:space="preserve">
-        <value>手動による保留</value>
-    </data>
-    <data name="MANUALLY_REVERSED" xml:space="preserve">
-        <value>手動で反転しました</value>
-    </data>
+  <data name="FAILURE" xml:space="preserve">
+    <value>失敗</value>
+  </data>
+  <data name="MANUAL_PENDING" xml:space="preserve">
+    <value>手動による保留</value>
+  </data>
+  <data name="MANUALLY_REVERSED" xml:space="preserve">
+    <value>手動で反転しました</value>
+  </data>
   <data name="NO_RECORDS_FOUND" xml:space="preserve">
     <value>記録が見つかりません</value>
   </data>
-    <data name="POST_PROCESSING_SUCCESSFUL" xml:space="preserve">
-        <value>事後処理に成功しました</value>
-    </data>
-    <data name="RECEIVED_REQUEST" xml:space="preserve">
-        <value>要求を受信しました</value>
-    </data>
-    <data name="RECEIVED_RESPONSE" xml:space="preserve">
-        <value>応答を受信しました</value>
-    </data>
-    <data name="REJECTED" xml:space="preserve">
-        <value>拒否済み</value>
-    </data>
-    <data name="REVERSED" xml:space="preserve">
-        <value>反転済み</value>
-    </data>
-    <data name="SUBMITTED_REQUEST" xml:space="preserve">
-        <value>要求を送信しました</value>
-    </data>
-    <data name="SUCCESS" xml:space="preserve">
-        <value>成功</value>
-    </data>
+  <data name="POST_PROCESSING_SUCCESSFUL" xml:space="preserve">
+    <value>事後処理に成功しました</value>
+  </data>
+  <data name="RECEIVED_REQUEST" xml:space="preserve">
+    <value>要求を受信しました</value>
+  </data>
+  <data name="RECEIVED_RESPONSE" xml:space="preserve">
+    <value>応答を受信しました</value>
+  </data>
+  <data name="REJECTED" xml:space="preserve">
+    <value>拒否済み</value>
+  </data>
+  <data name="REVERSED" xml:space="preserve">
+    <value>反転済み</value>
+  </data>
+  <data name="SUBMITTED_REQUEST" xml:space="preserve">
+    <value>要求を送信しました</value>
+  </data>
+  <data name="SUCCESS" xml:space="preserve">
+    <value>成功</value>
+  </data>
   <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
     <value>内訳</value>
   </data>
@@ -237,54 +237,54 @@
   <data name="TEXT_APPLY_TEMPLATE" xml:space="preserve">
     <value>テンプレートの適用</value>
   </data>
-    <data name="TEXT_APPROVAL_CHANGES_PENDING_YOUR_APPROVAL" xml:space="preserve">
-        <value>承認の保留の変更</value>
-    </data>
-    <data name="TEXT_APPROVAL_NO_CHANGES_PENDING_YOUR_APPROVAL" xml:space="preserve">
-        <value>承認できる保留中の変更はありません</value>
-    </data>
-    <data name="TEXT_APPROVALS_ACTION_APPROVE" xml:space="preserve">
-        <value>この変更を承認</value>
-    </data>
-    <data name="TEXT_APPROVALS_ACTION_APPROVE_TIP" xml:space="preserve">
-        <value>この変更を承認することは、変更をシステムに適用することに同意することを示します</value>
-    </data>
-    <data name="TEXT_APPROVALS_ACTION_DENY" xml:space="preserve">
-        <value>この変更を拒否</value>
-    </data>
-    <data name="TEXT_APPROVALS_ACTION_DISMISS" xml:space="preserve">
-        <value>この変更を却下</value>
-    </data>
-    <data name="TEXT_APPROVALS_ACTION_RESUBMIT" xml:space="preserve">
-        <value>再送信</value>
-    </data>
-    <data name="TEXT_APPROVALS_ACTION_RESUBMIT_TIP" xml:space="preserve">
-        <value>再送信すると、承認された変更のシステムへの適用を再試行します。</value>
-    </data>
-    <data name="TEXT_APPROVALS_COMMENT_LABEL" xml:space="preserve">
-        <value>コメント:</value>
-    </data>
-    <data name="TEXT_APPROVALS_ERROR_UPDATING_CHANGE_ID" xml:space="preserve">
-        <value>変更 ID の更新中にエラーが発生しました</value>
-    </data>
-    <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPLIED" xml:space="preserve">
-        <value>この変更はシステムに適用されました。他の処理を行う必要はありません。</value>
-    </data>
-    <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPROVEDWAITINGTOBEAPPLIED" xml:space="preserve">
-        <value>この変更は承認済みであり、システムへの適用を待機しています。</value>
-    </data>
-    <data name="TEXT_APPROVALS_STATE_EXPLANATION_DISMISSED" xml:space="preserve">
-        <value>この変更は却下されました。他の処理を行うことはできません。</value>
-    </data>
-    <data name="TEXT_APPROVALS_STATE_EXPLANATION_FAILEDTOAPPLY" xml:space="preserve">
-        <value>この変更は承認済みですが、システムへの適用に失敗しました。</value>
-    </data>
-    <data name="TEXT_APPROVALS_STATE_EXPLANATION_PENDING" xml:space="preserve">
-        <value>この変更は現在保留中です。</value>
-    </data>
-    <data name="TEXT_APPROVALS_STATE_EXPLANATION_SUBMITTER" xml:space="preserve">
-        <value>この保留の変更の送信者は、この変更を「却下」して考慮事項から削除できます。</value>
-    </data>
+  <data name="TEXT_APPROVAL_CHANGES_PENDING_YOUR_APPROVAL" xml:space="preserve">
+    <value>承認の保留の変更</value>
+  </data>
+  <data name="TEXT_APPROVAL_NO_CHANGES_PENDING_YOUR_APPROVAL" xml:space="preserve">
+    <value>承認できる保留中の変更はありません</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_APPROVE" xml:space="preserve">
+    <value>この変更を承認</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_APPROVE_TIP" xml:space="preserve">
+    <value>この変更を承認することは、変更をシステムに適用することに同意することを示します</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_DENY" xml:space="preserve">
+    <value>この変更を拒否</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_DISMISS" xml:space="preserve">
+    <value>この変更を却下</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_RESUBMIT" xml:space="preserve">
+    <value>再送信</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_RESUBMIT_TIP" xml:space="preserve">
+    <value>再送信すると、承認された変更のシステムへの適用を再試行します。</value>
+  </data>
+  <data name="TEXT_APPROVALS_COMMENT_LABEL" xml:space="preserve">
+    <value>コメント:</value>
+  </data>
+  <data name="TEXT_APPROVALS_ERROR_UPDATING_CHANGE_ID" xml:space="preserve">
+    <value>変更 ID の更新中にエラーが発生しました</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPLIED" xml:space="preserve">
+    <value>この変更はシステムに適用されました。他の処理を行う必要はありません。</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPROVEDWAITINGTOBEAPPLIED" xml:space="preserve">
+    <value>この変更は承認済みであり、システムへの適用を待機しています。</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_DISMISSED" xml:space="preserve">
+    <value>この変更は却下されました。他の処理を行うことはできません。</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_FAILEDTOAPPLY" xml:space="preserve">
+    <value>この変更は承認済みですが、システムへの適用に失敗しました。</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_PENDING" xml:space="preserve">
+    <value>この変更は現在保留中です。</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_SUBMITTER" xml:space="preserve">
+    <value>この保留の変更の送信者は、この変更を「却下」して考慮事項から削除できます。</value>
+  </data>
   <data name="TEXT_AUDIT_HISTORY_FAILED" xml:space="preserve">
     <value>失敗した取引のケース番号の監査履歴</value>
   </data>
@@ -365,6 +365,9 @@
   </data>
   <data name="TEXT_DELETE" xml:space="preserve">
     <value>削除</value>
+  </data>
+  <data name="TEXT_BILL_MESSAGE" xml:space="preserve">
+    <value>Bill Message {0} has {1} accounts associated with it.</value>
   </data>
   <data name="TEXT_BULKUPDATE" xml:space="preserve">
     <value>Bulk Update</value>
@@ -532,26 +535,26 @@
     <value>Bulk Update Search Results</value>
   </data>
   <data name="TEXT_ERROR_NOTHING_UPDATED_BULKUPDATE" xml:space="preserve">
-      <value>Nothing will be updated</value>
-    </data>
+    <value>Nothing will be updated</value>
+  </data>
   <data name="TEXT_NO_SELECTED_BME_FOR_BULKUPDATE" xml:space="preserve">
-      <value>There are no selected BMEs for bulk update</value>
-    </data>
+    <value>There are no selected BMEs for bulk update</value>
+  </data>
   <data name="TEXT_ERROR_TOO_MANY_RECORDS_BULKUPDATE" xml:space="preserve">
     <value>Too many records to update</value>
   </data>
   <data name="TEXT_LIMIT_DOWN_SEARCH_TO_BULKUPDATE" xml:space="preserve">
     <value>You are going to update NUMBER_TO_UPDATE items. Choose less items to fit {0} item(s) limitation</value>
   </data>
-    <data name="TEXT_NO_PROPERTIES_FOR_BULKUPDATE" xml:space="preserve">
-      <value>There are no properties for bulk update</value>
-    </data>
-    <data name="TEXT_ATTENTION_CHANGES_PERMANENT" xml:space="preserve">
-      <value>Attention. Your changes will be permanent</value>
-    </data>
-    <data name="TEXT_SURE_MAKE_CHANGE" xml:space="preserve">
-      <value>Are you sure that you want to make these changes?</value>
-    </data>
+  <data name="TEXT_NO_PROPERTIES_FOR_BULKUPDATE" xml:space="preserve">
+    <value>There are no properties for bulk update</value>
+  </data>
+  <data name="TEXT_ATTENTION_CHANGES_PERMANENT" xml:space="preserve">
+    <value>Attention. Your changes will be permanent</value>
+  </data>
+  <data name="TEXT_SURE_MAKE_CHANGE" xml:space="preserve">
+    <value>Are you sure that you want to make these changes?</value>
+  </data>
   <data name="TEXT_NO_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
     <value>No properties are going to be updated</value>
   </data>
@@ -922,10 +925,10 @@
     <value>Japanese</value>
   </data>
   <data name="TEXT_FLS_ERROR_MESSAGE" xml:space="preserve">
-	<value>Japanese</value>
+    <value>Japanese</value>
   </data>
   <data name="TEXT_FLS_NO_ERROR_MESSAGE" xml:space="preserve">
-	<value>Japanese</value>
+    <value>Japanese</value>
   </data>
   <data name="TEXT_ACTIVATE_DEACTIVATE" xml:space="preserve">
     <value>Japanese</value>
@@ -937,7 +940,7 @@
     <value>Japanese</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_GENERAL_INFO" xml:space="preserve">
-    <value>A &lt;i&gt;Decision&lt;/i&gt;  is used to analyze usage records (rated billing records) and possibly modify charges on the basis of this analysis.  Decisions are necessary when it is impossible to determine the amount by examining a single isolated record.<br/>For example, you may want to give a special rate if the number of telephone minutes used during the month is &gt; 1000.  You can only determine the rate to use after adding up all the usage records.  If the minutes are &gt; 1000, then for each record the rate is changed and a new charge amount is calculated. (Japanese)</value>
+    <value />
   </data>
   <data name="TEXT_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
     <value>Japanese</value>
@@ -975,7 +978,7 @@
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
     <value>(JAPANESE) Decisions are used when a monetary charge amount cannot be calculated by looking at a single record. Instead, many usage records must be examined and a total must be the number of events, units of usage, or charge amounts. The total, or aggregate, is then used to help determine the charge amount.</value>
   </data>
-   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_MONETARY_CHARGE" xml:space="preserve">
+  <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_MONETARY_CHARGE" xml:space="preserve">
     <value>(JAPANESE) Example: \"Apply a discount if there's over $100 in charges.\"</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_UNIT_OF_USAGE" xml:space="preserve">
@@ -1020,13 +1023,12 @@
   <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE_PRORATION" xml:space="preserve">
     <value>Japanese</value>
   </data>
-	<data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE_PRORATION" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE_PRORATION" xml:space="preserve">
     <value>Japanese</value>
   </data>
-	<data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
     <value>Japanese</value>
   </data>
-
   <data name="TITLE_AMPWIZARD_HELP_RESTART_RANGE" xml:space="preserve">
     <value>Japanese</value>
   </data>
@@ -1051,13 +1053,13 @@
   <data name="TEXT_AMPWIZARD_HELP_INCREMENTAL_OR_BULK" xml:space="preserve">
     <value>Japanese</value>
   </data>
- <data name="TITLE_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
     <value>(Japanese)Help: Multi-bucket</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
     <value>(Japanese)Act on each individual record.  Usage may have different prices  which are determined by the bucket into which they fall.</value>
   </data>
-   <data name="TITLE_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
     <value>(Japanese)Help: Single-bucket</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
@@ -1102,10 +1104,10 @@
   <data name="TEXT_AMPWIZARD_MORE_DECISION_CYCLE" xml:space="preserve">
     <value>Japanese</value>
   </data>
-	<data name="TITLE_AMPWIZARD_HELP_MORE_DECISION_CYCLE" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_HELP_MORE_DECISION_CYCLE" xml:space="preserve">
     <value>Japanese</value>
   </data>
-	<data name="TITLE_AMPWIZARD_ADD_MISC_ATTRIBUTE" xml:space="preserve">
+  <data name="TITLE_AMPWIZARD_ADD_MISC_ATTRIBUTE" xml:space="preserve">
     <value>Japanese</value>
   </data>
   <data name="TITLE_AMPWIZARD_EDIT_MISC_ATTRIBUTE" xml:space="preserve">
@@ -1133,7 +1135,7 @@
     <value>Japanese</value>
   </data>
   <data name="TITLE_AMPWIZARD_ERROR" xml:space="preserve">
-    <value>Japanese</value> 
+    <value>Japanese</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_USAGE_QUALIFICATION" xml:space="preserve">
     <value>Japanese</value>
@@ -1170,7 +1172,7 @@
   </data>
   <data name="TEXT_VIEW_ACCOUNT_GROUP" xml:space="preserve">
     <value>Japanese</value>
-  </data>  
+  </data>
   <data name="TEXT_AMPWIZARD_HELP_EDIT_ACCOUNT_GROUP" xml:space="preserve">
     <value>Japanese</value>
   </data>
@@ -1186,7 +1188,52 @@
   <data name="TEXT_AMPWIZARD_HELP_DIRECTIVE_FILTER" xml:space="preserve">
     <value>Japanese</value>
   </data>
-    <data name="ERROR_BILL_MESSAGE_DATES" xml:space="preserve">
+  <data name="ERROR_BILL_MESSAGE_DATES" xml:space="preserve">
     <value>Japanese</value>
   </data>
+  <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
+    <value>[ja]Start Date can't be greater than End Date</value>
+  </data>
+  <data name="TEXT_HARD_CLOSED_INTERVAL_STATUS" xml:space="preserve">
+    <value>(JAPANESE) Hard Closed</value>
+  </data>
+  <data name="TEXT_OPEN_INTERVAL_STATUS" xml:space="preserve">
+    <value>(JAPANESE) Open</value>
+  </data>
+  <data name="TEXT_SOFT_CLOSED_INTERVAL_STATUS" xml:space="preserve">
+    <value>(JAPANESE) Soft Closed</value>
+  </data>
+  <data name="TEXT_UNKNOWN_INTERVAL_STATUS" xml:space="preserve">
+    <value>(JAPANESE) Unknown</value>
+  </data>
+  <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(JAPANESE) Passwords do not match.</value>
+  </data>  
+  <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(JAPANESE) Enter a valid phone number. Format: 555-555-5555</value>
+  </data>    
+  <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(JAPANESE) Credit card format is invalid</value>
+  </data>      
+  <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(JAPANESE) CV Number is invalid</value>
+  </data>        
+  <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(JAPANESE) SSN format: xxx-xx-xxxx</value>
+  </data>          
+  <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(JAPANESE) Only numeric digits are allowed</value>
+  </data>            
+  <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(JAPANESE) Zipcode is invalid</value>
+  </data>              
+  <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
+    <value>(JAPANESE) Middle initial is invalid</value>
+  </data>    
+  <data name="TEXT_RETRY_COLUMN" xml:space="preserve">
+    <value>(JAPANESE) Retry</value>
+  </data>   
+  <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
+    <value>{JAPANESE} Resubmitted Request</value>
+  </data>       
 </root>

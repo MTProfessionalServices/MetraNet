@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{dabe0537-f655-4565-8e6f-95277afa1c9a}</ProjectGuid>
+    <ProjectGuid>{6c19f8b7-c461-41c3-9138-ed5db8a2a588}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MetraTech.Core.FileLandingService</RootNamespace>

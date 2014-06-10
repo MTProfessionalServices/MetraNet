@@ -261,6 +261,7 @@ public partial class login : MTPage
 
       case MetraTech.Security.LoginStatus.FailedPasswordExpired:
         err = Resources.ErrorMessages.ERROR_LOGIN_LOCKED;
+        auth.LockAccount();
         break;
 
       case MetraTech.Security.LoginStatus.NoCapabilityToLogonToThisApplication:

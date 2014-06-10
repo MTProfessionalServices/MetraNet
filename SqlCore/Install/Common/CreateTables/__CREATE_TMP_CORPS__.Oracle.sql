@@ -1,0 +1,1 @@
+create global temporary table tmp_corps(x clob) on commit delete rows

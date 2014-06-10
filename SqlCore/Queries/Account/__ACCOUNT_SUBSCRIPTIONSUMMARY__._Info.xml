@@ -7,22 +7,16 @@
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>ID_ACC</Name>
+            <Name>AccountId</Name>
             <DataType>int32</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <Description>Account to pull decisions for</Description>
-        </Parameter>
-        <Parameter>
-            <Name>ID_INTERVAL</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <Description>Usage interval to pull decisions for</Description>
+            <ReplacementType>SqlParameter</ReplacementType>
+            <Description></Description>
         </Parameter>
     </Parameters>
-    <Description>Used by MetraView counter display to fetch all CDE state</Description>
+    <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
-        <CommonQuerySourceFile></CommonQuerySourceFile>
+        <CommonQuerySourceFile>R:\Config\Queries\Account\CommonQueries.xml</CommonQuerySourceFile>
         <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
         <OracleQuerySourceFile></OracleQuerySourceFile>
     </ConversionAudit>

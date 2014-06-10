@@ -270,6 +270,13 @@
         <password encrypted="false">test</password>
     </server>
 
+    <server>
+        <servertype>MindTouch</servertype>
+        <servername>doc.metratech.com</servername>
+        <username>MetraNetCommunityUser</username>
+        <password encrypted="false">40d2312c7b5345c1b8228cbc9a6cddb7</password>
+    </server>
+
 	<!-- To turn off sending messages, comment out the JabberServer.
        The datasourcename is a unique id for you, if you are using
        a shared JabberServer.

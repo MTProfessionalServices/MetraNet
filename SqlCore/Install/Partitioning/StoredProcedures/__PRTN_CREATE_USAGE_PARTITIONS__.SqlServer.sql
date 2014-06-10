@@ -92,6 +92,10 @@
 				
 				END TRY
 				BEGIN CATCH
+				
+				 /* unpause pipeline in any error   CORE-7640  */  
+					EXEC PausePipelineProcessing 0 
+				
 					DECLARE @ErrorMessage NVARCHAR(4000), @ErrorSeverity INT, @ErrorState INT	
 					SELECT @ErrorMessage = ERROR_MESSAGE(), @ErrorSeverity = ERROR_SEVERITY(), @ErrorState = ERROR_STATE()
 					EXEC PausePipelineProcessing 0

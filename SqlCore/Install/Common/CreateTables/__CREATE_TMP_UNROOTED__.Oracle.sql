@@ -1,0 +1,1 @@
+create global temporary table tmp_unrooted(x clob) on commit delete rows

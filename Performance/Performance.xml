@@ -2,5 +2,5 @@
 <configuration>
     <!--  The enabled flag indicates performance metric gathering is turned off or on. -->
     <!--  Valid values are true and false. -->
-    <enabled>true</enabled>
+    <enabled>false</enabled>
 </configuration>

@@ -7,19 +7,13 @@
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>ID_ACC</Name>
+            <Name>ACCOUNT_ID</Name>
             <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
-            <Description>Account to pull decisions for</Description>
-        </Parameter>
-        <Parameter>
-            <Name>ID_INTERVAL</Name>
-            <DataType>int32</DataType>
-            <ReplacementType>DoublePercent</ReplacementType>
-            <Description>Usage interval to pull decisions for</Description>
+            <Description></Description>
         </Parameter>
     </Parameters>
-    <Description>Used by MetraView counter display to fetch all CDE state</Description>
+    <Description>Billing summary for specified account for Account 360 page</Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
         <CommonQuerySourceFile></CommonQuerySourceFile>

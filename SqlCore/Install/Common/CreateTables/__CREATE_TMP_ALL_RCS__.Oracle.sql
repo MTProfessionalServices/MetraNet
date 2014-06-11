@@ -1,0 +1,1 @@
+create global temporary table all_rcs(x clob) on commit delete rows

@@ -208,8 +208,8 @@ PRIVATE FUNCTION Form_DisplayCell(EventArg) ' As Boolean
              EventArg.HTMLRendered = EventArg.HTMLRendered & nFailedTransactions
            else
              'EventArg.HTMLRendered = EventArg.HTMLRendered & "<A title=""Click To View List Of Failed Transactions For This Batch"" href=""javascript:void(0);"" onclick=""window.open('FailedTransaction.List.asp?BatchView_ID=" & Server.UrlEncode(ProductView.Properties.RowSet.Value("BatchId")) & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">" & nFailedTransactions & "</A>"
-              EventArg.HTMLRendered = EventArg.HTMLRendered & "<A title=""Click To View List Of Failed Transactions For This Batch"" href=""javascript:void(0);"" onclick=""window.open('/MetraNet/MetraControl/FailedTransactions/FailedTransactionsView.aspx?Filter_FailedTransactionList=N&Filter_FailedTransactionList_BatchId=" & Server.UrlEncode(ProductView.Properties.RowSet.Value("BatchId")) & "&PageTitle=" & Server.UrlEncode(mdm_GetDictionary().Item("TEXT_FAILED_TRANSACTIONS_FOR_BATCH") & " " & ProductView.Properties.RowSet.Value("BatchId")) & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">" & nFailedTransactions & "</A>"   
-           end if
+              EventArg.HTMLRendered = EventArg.HTMLRendered & "<A title=""Click To View List Of Failed Transactions For This Batch"" href=""javascript:void(0);"" onclick=""window.open('/MetraNet/MetraControl/FailedTransactions/FailedTransactionViewFromBatch.aspx?Filter_FailedTransactionList_BatchId=" & Server.UrlEncode(ProductView.Properties.RowSet.Value("BatchId")) & "&PageTitle=" & Server.UrlEncode(mdm_GetDictionary().Item("TEXT_FAILED_TRANSACTIONS_FOR_BATCH") & " " & ProductView.Properties.RowSet.Value("BatchId")) & "','', 'height=600,width=800, resizable=yes, scrollbars=yes, status=yes')"">" & nFailedTransactions & "</A>"
+			end if
            EventArg.HTMLRendered = EventArg.HTMLRendered & "</td>"
 
   			   Form_DisplayCell = TRUE

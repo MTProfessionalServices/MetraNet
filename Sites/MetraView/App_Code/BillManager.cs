@@ -25,7 +25,6 @@ using MetraTech.Interop.COMDBObjects;
 using ICOMLocaleTranslator = MetraTech.Interop.COMDBObjects.ICOMLocaleTranslator;
 using MetraTech.UI.Tools;
 using MetraTech.DomainModel.AccountTypes;
-using MetraTech.DomainModel.Enums;
 
 /// <summary>
 /// BillManager - used to load the online bill

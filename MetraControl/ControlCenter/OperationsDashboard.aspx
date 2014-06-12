@@ -69,7 +69,7 @@
                     Text="Active Bill Run" Width="870" Height="325">
                      <div>
                         <MT:MTDropDown ID="ddActiveBillRun" runat="server" AllowBlank="False" HideLabel="True"
-                            Listeners="{}" ReadOnly="False">
+                            Listeners="{'select' : { fn: this.makeActiveBillRunsPart, scope: this }}" ReadOnly="False">
                         </MT:MTDropDown>
                     </div>
                     <div id="divActiveBillRun">
@@ -190,7 +190,7 @@
                 <MT:MTPanel ID="pnlBillCloseSynopsis" runat="server" Text="Bill Close Synopsis" meta:resourcekey="pnlBillCloseSynopsisResource" Width="430">
                     <div style="width: 399px; height: 27px">
                         <MT:MTDropDown ID="ddBillCloses" runat="server" AllowBlank="False" HideLabel="True"
-                            Listeners="{}" ReadOnly="False">
+                            Listeners="{'select' : { fn: this.makeBillCloseSynopsisPart, scope: this }}" ReadOnly="False">
                         </MT:MTDropDown>
                     </div>
                     <div style="width: 100%; height:230px">
@@ -362,7 +362,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 
 	Ext.onReady(function () {
 
-        d3.select("#<%=ddBillCloses.ClientID %>").on("change", makeBillCloseSynopsisPart);
+        //d3.select("#<%=ddBillCloses.ClientID %>").on("change", makeBillCloseSynopsisPart);
        
         //Failed transaction area
         makeFailedTransactionsQueuePart();
@@ -593,6 +593,7 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 
 
     function makeActiveBillRunsPart() {
+      
         var objActiveBillRunLineChartConfig = {
             width: 450,
             height: 200,
@@ -819,8 +820,8 @@ IntervalStatusLinkRenderer = function(value, meta, record, rowIndex, colIndex, s
 	}
 
 
-    function makeBillCloseSynopsisPart(){
-      
+    function makeBillCloseSynopsisPart  () {
+     
         var billCloseInterval = d3.select("#<%=ddBillCloses.ClientID %>").node().value;
 
         d3.json("/MetraNet/MetraControl/ControlCenter/AjaxServices/VisualizeService.aspx?operation=billclosedetails&intervalid=" + billCloseInterval + "&curTime=" + new Date().getTime(), function (error, json) {

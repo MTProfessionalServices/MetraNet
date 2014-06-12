@@ -60,6 +60,33 @@ var winGridToRefresh = null;
       });   
   }
 
+  function getSelectIdsAndPerformAction(ids, length, grid, action) {
+    // then go to the status page via popup
+    var params = new Object();
+
+    //configure data source URL
+    var dataSourceURL = '/MetraNet/AjaxServices/ResubmitService.aspx';
+
+    params.SelectedIDs = ids;
+    params._TotalRows = length;
+    Ext.Ajax.request({
+      url: dataSourceURL,
+      params: params,
+      scope: this,
+      disableCaching: true,
+      callback: function (options, success, response) {
+        var responseJSON = Ext.decode(response.responseText);
+        if (responseJSON) {
+          popupStatusChange("all", responseJSON, action, grid);
+        }
+        else {
+          Ext.UI.msg(TEXT_ERROR, responseJSON.Message);
+        }
+      }
+    });
+  }
+
+
 
 function caseNumberColRenderer(value, meta, record, rowIndex, colIndex, store) {
   return String.format("<span style='display:inline-block; vertical-align:middle'>&nbsp;<a style='cursor:hand;vertical-align:middle' id='editcase_{0}' title='{1}' href='JavaScript:onEditFailedTransaction(\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\");'>{0}&nbsp;<img src='/Res/Images/icons/database_edit.png' alt='{1}' align='middle'/></a></span>", record.data.casenumber, window.TEXT_EDIT_FAILED_TRANSACTION, record.data.failurecompoundsessionid, record.data.compound, store.sm.grid.id);
@@ -196,8 +223,10 @@ function onUpdateStatus(grid, gridname) {
     }
     ids += records[i].data.failurecompoundsessionid;
   }
-  var message = window.TEXT_SELECTED + records.length + window.TEXT_ITEMS
+  var message = window.TEXT_SELECTED + records.length + window.TEXT_ITEMS;
   var responseJson = { Success: true, Message: message };
+  grid.getSelectionModel().deselectAll();
+  grid.getSelectionModel().selections.clear();
   popupStatusChange(ids, responseJson, "prompt", grid);
 }
 
@@ -214,7 +243,7 @@ function onResubmit(grid, gridname) {
     }
     ids += records[i].data.failurecompoundsessionid;
   }
-  var message = window.TEXT_SELECTED + records.length + window.TEXT_ITEMS;
-  var responseJson = { Success: true, Message: message };
-  popupStatusChange(ids, responseJson, "resubmit", grid);
+  grid.getSelectionModel().deselectAll();
+  grid.getSelectionModel().selections.clear();
+  getSelectIdsAndPerformAction(ids, records.length, grid, "resubmit");
 }

@@ -100,7 +100,7 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   ProductView.Properties.ClearSelection                       ' Select the properties I want to print in the PV Browser   Order
   ProductView.Properties("Time").Selected 			      = 1
   ProductView.Properties("Time").SetPropertyType "TIMESTAMP"
-  'ProductView.Properties("Time").Format  			        = strGMTDateFormat
+  ProductView.Properties("Time").Format  			        = FrameWork.GetDictionary("DATE_TIME_FORMAT")
 
   ProductView.Properties("UserName").Selected 	      = 2
   ProductView.Properties("EventName").Selected 	      = 3

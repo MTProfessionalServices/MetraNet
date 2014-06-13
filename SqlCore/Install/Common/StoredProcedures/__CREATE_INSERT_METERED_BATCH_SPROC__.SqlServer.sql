@@ -56,7 +56,7 @@
 						@n_expected,
 						@n_metered )
 
-					select @id_batch = @@identity
+					select @id_batch = max(id_batch) from t_batch 
 				END
 				ELSE
 				BEGIN

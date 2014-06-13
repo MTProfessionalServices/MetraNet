@@ -1,5 +1,4 @@
-BEGIN 
-    EXECUTE IMMEDIATE 'create table t_adjustment_transaction ( 
+create table t_adjustment_transaction ( 
         id_adj_trx NUMBER(10) not null, 
         id_sess NUMBER(20) null, 
         id_parent_sess NUMBER(20) null, 
@@ -30,9 +29,4 @@ BEGIN
         div_currency nvarchar2(3) NULL, 
         div_amount number(22,10) NULL, 
         CONSTRAINT PK_T_ADJUSTMENT_TRANSACTION PRIMARY KEY(ID_ADJ_TRX), 
-        CONSTRAINT aj_trxcheck CHECK  (id_aj_template IS NOT NULL OR id_aj_instance IS NOT NULL) 
-    )'; 
-    EXECUTE IMMEDIATE 'create index idx_adj_txn_dt_crt_ndel_usage on t_adjustment_transaction 
-        (dt_crt, UPPER(c_status), id_sess)'; 
-END; 
-	        
+        CONSTRAINT aj_trxcheck CHECK  (id_aj_template IS NOT NULL OR id_aj_instance IS NOT NULL) )

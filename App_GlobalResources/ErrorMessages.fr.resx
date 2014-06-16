@@ -304,6 +304,6 @@
     <value>[FR]Unable open and save report</value>
   </data>
   <data name="ERROR_PO_EXISTS" xml:space="preserve">
-    <value>[FR]PO with the same name already exists</value>
+    <value>[FR]Name of product offering must be unique</value>
   </data>
 </root>

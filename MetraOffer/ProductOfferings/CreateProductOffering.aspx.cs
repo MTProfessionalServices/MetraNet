@@ -101,7 +101,8 @@ namespace MetraNet.MetraOffer.ProductOfferings
           }
           catch (Exception exception)
           {
-            if (((FaultException<MASBasicFaultDetail>)exception).Detail.ErrorMessages[0] != "Invalid Product Offering id.")
+            var faultExceprion = exception as FaultException<MASBasicFaultDetail>;
+            if (faultExceprion == null || faultExceprion.Detail.ErrorMessages[0] != "Invalid Product Offering id.")
             throw;
           }
           

@@ -50,7 +50,7 @@ insert into tmp_newrw
     orw.c_LastIdRun ,
     orw.c_MembershipStart ,
     orw.c_MembershipEnd,
-    AllowInitialArrersCharge(orw.c_Advance, orw.c__AccountID, orw.c_SubscriptionEnd, currentDate) c__IsAllowGenChargeByTrigger
+    AllowInitialArrersCharge(orw.c_Advance, :new.id_payer, orw.c_SubscriptionEnd, currentDate) c__IsAllowGenChargeByTrigger
   FROM tmp_oldrw orw
   WHERE orw.c__AccountId = :new.id_payee;
   

@@ -66,7 +66,7 @@ BEGIN
     -1 c_LastIdRun ,
     dbo.mtmindate() c_MembershipStart ,
     dbo.mtmaxdate() c_MembershipEnd,
-    AllowInitialArrersCharge(rcr.b_advance, pay.id_payee, sub.vt_end, startDate) c__IsAllowGenChargeByTrigger
+    AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, sub.vt_end, startDate) c__IsAllowGenChargeByTrigger
     from t_sub sub
       INNER JOIN t_payment_redirection pay ON pay.id_payee = sub.id_acc AND pay.vt_start < sub.vt_end AND pay.vt_end > sub.vt_start
       INNER JOIN t_pl_map plm ON plm.id_po = sub.id_po AND plm.id_paramtable IS NULL
@@ -102,7 +102,7 @@ BEGIN
     -1 c_LastIdRun ,
     dbo.mtmindate() c_MembershipStart ,
     dbo.mtmaxdate() c_MembershipEnd,
-    AllowInitialArrersCharge(rcr.b_advance, pay.id_payee, gsm.vt_end, startDate) c__IsAllowGenChargeByTrigger
+    AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, gsm.vt_end, startDate) c__IsAllowGenChargeByTrigger
     FROM t_gsubmember gsm
       INNER JOIN t_sub sub ON sub.id_group = gsm.id_group
       INNER JOIN t_payment_redirection pay ON pay.id_payee = gsm.id_acc

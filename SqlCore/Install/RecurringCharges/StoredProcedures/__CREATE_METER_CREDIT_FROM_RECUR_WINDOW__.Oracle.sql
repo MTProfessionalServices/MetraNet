@@ -45,7 +45,7 @@ SELECT DISTINCT
     INNER JOIN t_sub_history current_sub on current_sub.id_acc = rw.c__AccountID and current_sub.id_sub = rw.c__SubscriptionID
       AND current_sub.tt_end  = dbo.SubtractSecond(new_sub.tt_start)
     INNER JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
-    JOIN t_acc_usage_cycle auc ON auc.id_acc = rw.c__AccountID
+    JOIN t_acc_usage_cycle auc ON auc.id_acc = rw.c__payingaccount
     /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
     INNER JOIN t_pc_interval pci
       ON pci.id_cycle = 
@@ -113,7 +113,7 @@ SELECT DISTINCT
     INNER JOIN t_sub_history current_sub on current_sub.id_acc = rw.c__AccountID and current_sub.id_sub = rw.c__SubscriptionID
       AND current_sub.tt_end  = dbo.SubtractSecond(new_sub.tt_start)
     INNER JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
-    JOIN t_acc_usage_cycle auc ON auc.id_acc = rw.c__AccountID 
+    JOIN t_acc_usage_cycle auc ON auc.id_acc = rw.c__payingaccount 
     /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
     INNER JOIN t_pc_interval pci
       ON pci.id_cycle = 
@@ -185,7 +185,7 @@ SELECT DISTINCT
     INNER JOIN t_sub_history current_sub on current_sub.id_acc = rw.c__AccountID and current_sub.id_sub = rw.c__SubscriptionID
       AND current_sub.tt_end  = dbo.SubtractSecond(new_sub.tt_start)
     INNER JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
-    JOIN t_acc_usage_cycle auc ON auc.id_acc = rw.c__AccountID
+    JOIN t_acc_usage_cycle auc ON auc.id_acc = rw.c__payingaccount
     /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
     INNER JOIN t_pc_interval pci
       ON pci.id_cycle = 

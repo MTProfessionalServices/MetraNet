@@ -58,7 +58,7 @@ v_id_sub INTEGER;
       -1 c_LastIdRun,
       :new.vt_start c_MembershipStart,
       :new.vt_end c_MembershipEnd,
-	   AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.vt_end, currentDate) c__IsAllowGenChargeByTrigger
+	   AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, sub.vt_end, currentDate) c__IsAllowGenChargeByTrigger
       from t_sub sub INNER JOIN t_payment_redirection pay
          ON pay.id_payee = :new.id_acc AND pay.vt_start < sub.vt_end
           AND pay.vt_end > sub.vt_start

@@ -56,7 +56,7 @@ PROCEDURE MeterPayerChangeFromRecWind (currentDate date) AS
 		WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle 
 		WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type) 
 		ELSE NULL END
-      JOIN t_acc_usage_cycle auc on auc.id_acc = rw.c__AccountID and auc.id_usage_cycle = ccl.id_usage_cycle
+      JOIN t_acc_usage_cycle auc on auc.id_acc = rw.c__payingaccount and auc.id_usage_cycle = ccl.id_usage_cycle
       /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
       INNER JOIN t_pc_interval pci ON pci.id_cycle = ccl.id_usage_cycle
                                    AND pci.dt_start BETWEEN ui.dt_start     AND ui.dt_end                            /* rc start falls in this interval */

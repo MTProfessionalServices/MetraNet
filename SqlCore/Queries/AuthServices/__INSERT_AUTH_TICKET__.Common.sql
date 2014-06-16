@@ -1,1 +1,1 @@
-INSERT INTO t_active_tickets (id_ticket, nm_salt, id_acc, nm_space, nm_login, n_lifespanminutes, dt_create, dt_expiration) values (?, ?, ?, ?, ?, ?, ?, ?)
+INSERT INTO t_active_tickets (id_ticket, nm_salt, id_acc, nm_space, nm_login, n_lifespanminutes, dt_create, dt_expiration, id_lang_code) values (?, ?, ?, ?, ?, ?, ?, ?, ?)

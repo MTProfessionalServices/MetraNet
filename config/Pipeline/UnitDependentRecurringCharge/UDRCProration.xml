@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xmlconfig>
   <mtsysconfigdata>
     <effective_date ptype="DATETIME">1998-11-19T00:00:00Z</effective_date>
@@ -96,7 +97,7 @@
 			SET @ProratedOnUnitValueChange = @ProratedDays <> @ProrationBasis AND @UnitValueChangedInInterval AND NOT (@SubscribedThisInterval OR @UnsubscribedThisInterval)
 
 			-- Now let's do the actual calculation
-			SET @ProratedDailyRate = round(@RCAmount / CAST(@ProrationBasis AS DECIMAL), 2)
+			SET @ProratedDailyRate = @RCAmount / CAST(@ProrationBasis AS DECIMAL)
 			SET @ProratedAmount = CASE WHEN @ProratedOnSubscription OR @ProratedOnUnsubscription OR @ProratedOnUnitValueChange THEN @ProratedDailyRate * CAST(@ProratedDays AS DECIMAL) ELSE @RCAmount END
 
 			SET @ProratedAmount = CASE WHEN @IssueCreditOrCorrection THEN -@ProratedAmount ELSE @ProratedAmount END

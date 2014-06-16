@@ -1917,4 +1917,20 @@
   <text id="TEXT_ACCOUNTS_TO_MOVE">
     <value>{PT-BR}Select Accounts to Move</value>
   </text> 
+  
+  <text id="TEXT_CAPABILITIES">
+     <value>{PT-BR}Capabilities</value>    	
+  </text>
+  
+    <text id="TEXT_PROG_ID">
+    <value>{PT-BR}ProgID</value>    	
+  </text>
+  
+  <text id="TEXT_NUMBER_OF_ATOMICS">
+    <value>{PT-BR}Number of Atomics</value>    	
+  </text>
+  
+  <text id="TEXT_REQUIRES_MANAGE_ACCOUNT_HIERARCHIES">
+    <value>{PT-BR}Requires Manage Account Hierarchies</value>    	
+  </text>
  </texts>

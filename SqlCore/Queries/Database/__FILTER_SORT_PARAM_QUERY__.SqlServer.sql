@@ -1,4 +1,4 @@
-
+			%%DECLARE%%
 			Declare @TotalRows int
 			SELECT @TotalRows = COUNT(1) FROM (SELECT %%TOP_ROWS%% * FROM (%%INNER_QUERY%%) CAPPED) CNTQ;
 			SELECT @TotalRows;

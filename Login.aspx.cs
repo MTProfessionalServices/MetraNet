@@ -2,6 +2,7 @@ using System;
 using System.Web.Security;
 using System.Web.UI.WebControls;
 using MetraTech.Core.Services.ClientProxies;
+using MetraTech.DomainModel.Enums;
 using MetraTech.Interop.MTAuth;
 using MetraTech.Security;
 using MetraTech.UI.Common;
@@ -110,7 +111,7 @@ public partial class login : MTPage
           divChangePasswdFailureText.InnerHtml = Server.HtmlEncode(exp.Message);
             showChangePasswdFailureText = "true"; 
         }
-
+    var currLanguage = Convert.ToInt16(EnumHelper.GetValueByEnum(GetLanguageCode(), 1));
 
         pnlChangePassword.Visible = true;
         pnlLogin.Visible = false;
@@ -196,8 +197,11 @@ public partial class login : MTPage
         return strErrText;
     }
 
+ var currLanguage = Convert.ToInt16(EnumHelper.GetValueByEnum(GetLanguageCode(), 1));
+    auth.Initialize(userName, SYSTEM_USER_NAMESPACE, userName, "MetraNet", currLanguage);
     private void DoLogin()
     {
+        ticket = TicketManager.CreateTicket(sessionContext.AccountID, SYSTEM_USER_NAMESPACE, userName, m_ticketLifeSpanInMins, currLanguage);
         // Create a UIManager
         UI = new UIManager();
 

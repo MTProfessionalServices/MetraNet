@@ -132,6 +132,9 @@
   <data name="TEXT_EFFECTIVE_START_DATE" xml:space="preserve">
     <value>Effective Start Date</value>
   </data>
+  <data name="TEXT_MASTER" xml:space="preserve">
+    <value>Create Master Product Offering</value>
+  </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>Name</value>
   </data>

@@ -29,11 +29,15 @@ namespace MetraNet.MetraOffer.ProductOfferings
       get { return PartitionLibrary.PartitionData.POPartitionId; }
     }
 
+    public bool IsMaster = false;
+
     protected void Page_Load(object sender, EventArgs e)
     {
       if (IsPostBack) return;
       try
       {
+        IsMaster = Convert.ToBoolean(Request["Master"]);
+
         ProductOffering = new BaseProductOffering();
 
         MTGenericForm1.DataBinderInstanceName = "MTDataBinder1";
@@ -48,14 +52,23 @@ namespace MetraNet.MetraOffer.ProductOfferings
 
         ProductOffering.Currency = SystemCurrencies.USD; //Default Currency set to USD on page load
 
-        if (IsPartition)
+        if (IsMaster)
         {
-          ProductOffering.POPartitionId = PartitionId;
-          ProductOffering.Name = PartitionLibrary.PartitionData.PartitionUserName + ":";
+          ProductOffering.POPartitionId = 0;
+          var masterLocalizedText = GetLocalResourceObject("TEXT_MASTER") ?? "Create Master Product Offering";
+          MTTitle1.Text = masterLocalizedText.ToString();
         }
         else
         {
-          ProductOffering.POPartitionId = 1;
+          if (IsPartition)
+          {
+            ProductOffering.POPartitionId = PartitionId;
+            ProductOffering.Name = PartitionLibrary.PartitionData.PartitionUserName + ":";
+          }
+          else
+          {
+            ProductOffering.POPartitionId = 1;
+          }
         }
 
         if (!MTDataBinder1.DataBind())

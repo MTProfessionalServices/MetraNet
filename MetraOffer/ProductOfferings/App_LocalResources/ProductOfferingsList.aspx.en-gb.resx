@@ -192,4 +192,7 @@
   <data name="TEXT_ViewPO" xml:space="preserve">
     <value>View Product Offering</value>
   </data>
+  <data name="TEXT_MASTER" xml:space="preserve">
+    <value>Master Product Offerings</value>
+  </data>
 </root>

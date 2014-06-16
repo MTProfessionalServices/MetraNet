@@ -49,6 +49,9 @@
       var isPartition = <%=IsPartition.ToString().ToLower()%>;
       tbPartId.disabled = isPartition;
       selectAccount.hidden = isPartition;
+      
+      var partitionZone = window.Ext.get('dropzone').dom;
+      partitionZone.hidden = <%=IsMaster.ToString().ToLower()%>;
     });
   </script>
 </asp:Content>

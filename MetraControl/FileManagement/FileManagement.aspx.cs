@@ -97,9 +97,9 @@ public partial class MetraControl_FileManagement_FileManagement : MTPage
             {
                 DateTime dt2 = DateTime.Now;
                 DateTime dt1 = dt2.AddDays(-7);
-              
-              dateElement.ElementValue = dt1.ToShortDateString();
-              dateElement.ElementValue2 = dt2.ToShortDateString();
+
+                dateElement.ElementValue = dt1.ToString("M/d/yyyy");
+                dateElement.ElementValue2 = dt2.ToString("M/d/yyyy");
             }
             else if (filter == "2") // Active
             {
@@ -115,12 +115,9 @@ public partial class MetraControl_FileManagement_FileManagement : MTPage
             }
             else if (filter == "4") // Completed
             {
-                stateElement.ElementValue =
-                    EnumHelper.GetDbValueByEnum(EInvocationState.COMPLETED).ToString();
-                stateElement.ElementValue2 = "COMPLETED";
-            }
-            else // All
-            {
+              stateElement.ElementValue =
+                EnumHelper.GetDbValueByEnum(EInvocationState.COMPLETED).ToString();
+              stateElement.ElementValue2 = "COMPLETED";
             }
         }
 

@@ -61,10 +61,10 @@ BEGIN
 	/* Rebuild UNUSABLE global indexes */
 	RebuildGlobalIndexes(p_tab);
 
-	/* Enable all unique constraints (that are DISABLED) */
-	AlterTableUniqueConstraints(p_tab, 'enable');
-
 	/* Rebuild UNUSABLE local index partitions. */
 	RebuildLocalIndexParts(p_tab);
+
+	/* Enable all unique constraints (that are DISABLED) */
+	AlterTableUniqueConstraints(p_tab, 'enable');
 
 END prtn_deploy_usage_table;

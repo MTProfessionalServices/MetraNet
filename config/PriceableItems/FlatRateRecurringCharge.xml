@@ -60,11 +60,11 @@
         Create Procedure DoAdjustmentCalc 
 	        -- inputs
 	        @RCAdjustmentPercent DECIMAL,
-	        @_Amount DECIMAL,
+	        @Amount DECIMAL,
 	        -- outputs
 	        @TotalAdjustmentAmount DECIMAL OUTPUT
 	        as
-	        set @TotalAdjustmentAmount = round(@_Amount*@RCAdjustmentPercent*0.01, 2)
+	        set @TotalAdjustmentAmount = round(@Amount*@RCAdjustmentPercent*0.01, 2)
 	    ]]>
     </formula>
     <applicabilityrules>
@@ -75,11 +75,6 @@
         name="RCAdjustmentPercent"
         type="DECIMAL"
         displayname="Percent of the Amount to adjust recurring charge"
-      />
-      <input_val
-        name="_Amount"
-        type="DECIMAL"
-        displayname="Amount of recurring charge"
       />
     </required_inputs>
     <outputs>

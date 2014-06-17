@@ -184,7 +184,7 @@
       <meta attribute="is-custom-base-class-property">false</meta>
       <type name="System.String, mscorlib" />
     </property>
-    <property name="QuoteDescription" column="c_QuoteDescription" length="1024">
+    <property name="QuoteDescription" column="c_QuoteDescription" length="2000">
       <meta attribute="label">QuoteDescription</meta>
       <meta attribute="description">Custom description</meta>
       <meta attribute="defaultvalue" />
@@ -419,4 +419,4 @@
       <one-to-many class="Core.Quoting.QuoteLog, Core.Quoting.Entity" />
     </bag>
   </class>
-</hibernate-mapping>
+0</hibernate-mapping>

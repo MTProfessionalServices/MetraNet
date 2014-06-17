@@ -11,7 +11,7 @@
 	     
 <SQLServerquery>
    <![CDATA[
-    select reverse(substring(reverse(ed1.nm_enum_data),1,charindex('/',reverse(ed1.nm_enum_data))-1)) as Language,
+    select UPPER(reverse(substring(reverse(ed1.nm_enum_data),1,charindex('/',reverse(ed1.nm_enum_data))-1))) as Language, 
        avc.c_email as AddressedTo,
        amp.id_acc as AccountID,
        avc.c_firstname as FirstName,
@@ -39,7 +39,7 @@
   
   <Oraclequery>
    <![CDATA[
-    select REVERSE(to_char(substr(REVERSE(to_char(ed1.nm_enum_data)),1,
+    select UPPER(REVERSE(to_char(substr(REVERSE(to_char(ed1.nm_enum_data)),1, 
 				instr(reverse(to_char(ed1.nm_enum_data)),'/',1,1)-1)))as Language, 
        avc.c_email as AddressedTo,
        amp.id_acc as AccountID,

@@ -140,21 +140,22 @@ AS
       maxdate := mtmaxdate();
 
       mt_rate_pkg.current_id_audit := apply_subscriptions.id_audit;
+
+      INSERT INTO t_gsubmember_historical (id_group, id_acc, vt_start, vt_end, tt_start, tt_end)
+      SELECT id_group, id_acc, vt_start, NVL(vt_end, maxdate), apply_subscriptions.systemdate, maxdate
+      FROM   tmp_gsubmember;
+
       INSERT INTO t_gsubmember (id_group, id_acc, vt_start, vt_end)
       SELECT tmp.id_group, tmp.id_acc, tmp.vt_start, NVL(tmp.vt_end, maxdate)
       FROM   tmp_gsubmember tmp;
 
-      --INSERT INTO t_gsubmember_historical (id_group, id_acc, vt_start, vt_end, tt_start, tt_end)
-      --SELECT id_group, id_acc, vt_start, NVL(vt_end, maxdate), apply_subscriptions.systemdate, maxdate
-      --FROM   tmp_gsubmember;
+      INSERT INTO t_sub_history (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end, tt_start, tt_end)
+      SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, NVL(vt_end, maxdate), apply_subscriptions.systemdate, maxdate
+      FROM   tmp_sub;
 
       INSERT INTO t_sub (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end)
       SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, NVL(vt_end, maxdate)
       FROM   tmp_sub;
-
-      --INSERT INTO t_sub_history (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end, tt_start, tt_end)
-      --SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, NVL(vt_end, maxdate), apply_subscriptions.systemdate, maxdate
-      --FROM   tmp_sub;
 
       INSERT INTO t_audit_details (id_auditdetails, id_audit, tx_details)
       SELECT seq_t_audit_details.NEXTVAL, tmp.my_id_audit, tmp.tx_details

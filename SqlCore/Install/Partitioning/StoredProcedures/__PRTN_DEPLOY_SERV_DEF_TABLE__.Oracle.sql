@@ -37,11 +37,11 @@ BEGIN
         /* Rebuild UNUSABLE global indexes */
         RebuildGlobalIndexes(p_tab);
 
-        /* Enable all unique constraints (that are DISABLED) */
-        AlterTableUniqueConstraints(p_tab, 'enable');
-
         /* Rebuild UNUSABLE local index partitions. */
         RebuildLocalIndexParts(p_tab);
+
+        /* Enable all unique constraints (that are DISABLED) */
+        AlterTableUniqueConstraints(p_tab, 'enable');
 
         dbms_output.put_line('First partition was created for "' || p_tab || '" with current id_partition = ' || current_id_part);
 

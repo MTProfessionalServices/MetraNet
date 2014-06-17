@@ -1230,7 +1230,7 @@
   <data name="TEXT_SELECT_PO_ERROR" xml:space="preserve">
     <value />
   </data>
-    <data name="TEXT_CONVERT" xml:space="preserve">
+  <data name="TEXT_CONVERT" xml:space="preserve">
     <value>Convert</value>
   </data>
   <data name="TEXT_CONVERT_MESSAGE" xml:space="preserve">
@@ -1283,5 +1283,8 @@
   </data>
   <data name="TEXT_ACCOUNT_TYPE" xml:space="preserve">
     <value>{ES-MX}Account Type</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_INVALID_UQG_NAME" xml:space="preserve">
+    <value>[ES-MX] The value in this field is invalid. Valid Usage Qualification names can only consist of alphanumeric characters (Aa-Zz, 0-9) and the underscore '_' character.</value>
   </data>
 </root>

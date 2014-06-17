@@ -33,7 +33,7 @@
   <br />
 
   <MT:MTTextBoxControl ID="UsageQualificationName" runat="server" meta:resourcekey="UsageQualificationNameResource"
-                       Label="Name" ControlWidth="500" TabIndex="200" VType="decisionRelatedName" />
+                       Label="Name" ControlWidth="500" TabIndex="200" VType="decisionRelatedName" ValidationRegex="/^\w+$/" OptionalExtConfig="invalidText:TEXT_AMPWIZARD_INVALID_UQG_NAME" />
   <br />
   <div id="editDescriptionDiv" runat="server">
     <MT:MTTextArea ID="UsageQualificationDescription" runat="server" meta:resourcekey="UsageQualificationDescriptionResource"

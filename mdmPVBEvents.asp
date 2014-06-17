@@ -456,12 +456,10 @@ PRIVATE FUNCTION inheritedForm_DisplayCell(EventArg) ' As Boolean
             
             ' Test if the property has a format assigned, if yes format the value
             strFormat = Form.Grid.SelectedProperty.Format
-            If(Len(strFormat))Then
-            
-                'strValue = ProductView.Tools.Format(strValue,strFormat)
+            If(Len(strFormat))Then            
+                strValue = ProductView.Tools.Format(strValue,strFormat) 'CORE-7367
                 ' 3.6 - support decimal localization
-                strValue = Service.Tools.Format(strValue, FrameWork.Dictionary())
-        
+                'strValue = Service.Tools.Format(strValue, FrameWork.Dictionary())        
             End If
             
             If (Len(strValue)=0) Then strValue = " "

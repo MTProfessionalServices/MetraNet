@@ -361,7 +361,11 @@ PUBLIC FUNCTION mom_GetAccountCreationMsixdefFileName()
 
     mom_GetAccountCreationMsixdefFileName = mdm_GetDictionary().Item("ACCOUNT_CREATION_MSIXDEF_FILE_NAME")
 END FUNCTION
-
+Function FolderExists(fldr)
+   Dim fso
+   Set fso = CreateObject("Scripting.FileSystemObject")
+      FolderExists = fso.FolderExists(fldr)
+End Function
 FUNCTION InitializeApplication() ' As Boolean
 
     DIM APP_FOLDER, objDictionary, objRCD
@@ -382,6 +386,9 @@ FUNCTION InitializeApplication() ' As Boolean
               else
                   dim lang
                   lang = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 5)
+                  if(not FolderExists(Application("startPage")  & "/default/localized/" & lang)) then
+                    lang = mom_LANGUAGE
+                  end if
                   Session("mdm_APP_LANGUAGE") = lang 
               end if
             end if
@@ -394,7 +401,7 @@ FUNCTION InitializeApplication() ' As Boolean
     
     ' setup application start page
     Application("startPage")                    = Mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1)   '"
-    Session("LocalizedPath")                    = Application("startPage")  & "/default/localized/en-us/"
+    Session("LocalizedPath")                    = Application("startPage")  & "/default/localized/" & Session("mdm_APP_LANGUAGE")
     APP_FOLDER                                  = Server.MapPath("/mom")
     Session("mdm_APP_FOLDER")                   = APP_FOLDER ' Store the application folder for the mdm
     Application("APP_HTTP_PATH")                = Mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1) ' " 

@@ -252,7 +252,6 @@
     <inputs>
       <input type='checkbox'>AddRecurring_ProrateOnActivation</input>
       <input type='checkbox'>AddRecurring_ProrateOnEndDate</input>
-      <input type='radio'>AddRecurring_ProrateInstantly</input>
       <input type='checkbox'>AddRecurring_ProrateOnRateChange</input>
     </inputs>  
 	  <left_frame_file>[CREATE_RECURRING_CONFIG_CHARGE]</left_frame_file>                                      	

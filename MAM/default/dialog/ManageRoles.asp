@@ -170,7 +170,7 @@ PUBLIC FUNCTION Form_DisplayCell(EventArg) ' As Boolean
 
          Case "id_role"
             HTML_LINK_EDIT = HTML_LINK_EDIT  & "<td class='[CLASS]' Width='16'>"
-						HTML_LINK_EDIT = HTML_LINK_EDIT  & "	 <button onclick=""location.href='" & mam_GetDictionary("ROLE_SETUP_DIALOG") & "?id=" &  ProductView.Properties("id_role") & "&RoleName=" & server.URLEncode(ProductView.Properties("tx_name")) & "';return false;"" name='EditCapabilities." & ProductView.Properties("id_role") & "' Class='clsButtonBlueMedium'>Capabilities</button>"
+						HTML_LINK_EDIT = HTML_LINK_EDIT  & "	 <button onclick=""location.href='" & mam_GetDictionary("ROLE_SETUP_DIALOG") & "?id=" &  ProductView.Properties("id_role") & "&RoleName=" & server.URLEncode(ProductView.Properties("tx_name")) & "';return false;"" name='EditCapabilities." & ProductView.Properties("id_role") & "' Class='clsButtonBlueMedium'>[TEXT_CAPABILITIES]</button>"
             HTML_LINK_EDIT = HTML_LINK_EDIT  & "</td>"        
             
             Set m_objPP = mdm_CreateObject(CPreProcessor)

@@ -5,18 +5,6 @@
   <title><MDMLABEL Name="TEXT_KEYTERM_RECURRING_CHARGE"></MDMLABEL></title>  
   <SCRIPT language="JavaScript" src="/mcm/default/lib/utilForm.js"></SCRIPT>
   <script language='javascript'>
-	function updateProrationBasedOnField()
-	{
-		if (document.mdm.ProrateOnDeactivation.checked || document.mdm.ProrateOnActivation.checked || document.mdm.ProrateInstantly.checked)
-		{
-			disableDiv('ProrateOn',false);
-		}
-		else
-		{
-			disableDiv('ProrateOn',true);
-		}
-	}
-
 	function disableDiv(sDivName,bDisable) {
 		toggleDisabled(document.getElementById(sDivName), bDisable);
 	}
@@ -36,28 +24,7 @@
 			}
 		}
 	}
-
-	function updateDeactivation()
-	{
-		if (document.mdm.ProrateOnUnsubscribeDate.checked)
-		{
-		  disableDiv('ProrateOnDeactivationDiv', false);
-		  disableDiv('ProrateInstantlyDiv', false);
-		  //Make prorate on deactivation the default if nothing is checked
-		  if (!document.mdm.ProrateOnDeactivation.checked && !document.mdm.ProrateInstantly.checked){
-	        document.mdm.ProrateOnDeactivation.checked = true;
-		    document.mdm.ProrateInstantly.checked = false;
-		  }
-		}
-		else
-		{
-		  document.mdm.ProrateOnDeactivation.checked = false;
-		  document.mdm.ProrateInstantly.checked = false;
-		  disableDiv('ProrateOnDeactivationDiv', true);
-		  disableDiv('ProrateInstantlyDiv', true);
-		}
-	}
-			
+  
   </script>                                 
                                  
 </HEAD>
@@ -95,55 +62,43 @@
 				  </tr>
       </table>
       
-      <br>
+      <br />
       <!-- This DIV is used the gray all object included -->
 			<DIV id='Proration' name='Proration' style='display: block;'>    
       
- 				<table border="0" cellpadding="0" cellspacing="0" width="100%">
-          
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">          
           <tr>
-		     			<td Class="captionEWRequired" width="120px"><MDMLABEL name="TEXT_PRORATION">Proration</MDMLABEL>:&nbsp;&nbsp;</td>
-				      <td Class='clsStandardText' >
-					    <INPUT Name="ProrateOnActivation"   Type="CheckBox" onClick="updateProrationBasedOnField();">
-						<MDMLABEL name="TEXT_PRORATE_ACTIVATION">Prorate On Activation</MDMLABEL>
-				      </td>
-			    </tr>
-          <tr>
-              <td></td>  
-				      <td Class='clsStandardText' ><INPUT Name="ProrateOnUnsubscribeDate"   Type="CheckBox" [ProrateOnUnsubscribeDateComValue] onClick="updateDeactivation();updateProrationBasedOnField();">
-              <MDMLABEL name="TEXT_PRORATE_UNSUBSCRIPTION">Prorate On Unsubscription Date</MDMLABEL></td>
-			    </tr>
-          <tr>
-		          <td></td><td></td>
-              <td Class='clsStandardText'> 
-                    <DIV id='ProrateOnDeactivationDiv' name='ProrateOnDeactivationDiv' style='display: block;'>
-						          <INPUT Name="ProrateOnDeactivation" Type="radio" [ProrateOnDeactivationComValue] onClick="document.mdm.ProrateInstantly.checked=false;updateProrationBasedOnField();">
-							        <MDMLABEL name="TEXT_PRORATE_DEACTIVATION">Prorate On Deactivation</MDMLABEL>
-                    </DIV>
-              </td>
-		    	  </tr>
-		   		  <tr>
-				       <td></td><td></td>
-				       <td Class='clsStandardText'> 
-                 <DIV id='ProrateInstantlyDiv' name='ProrateInstantlyDiv' style='display: block;'>
-                   <INPUT Name="ProrateInstantly" Type="radio" [ProrateInstantlyComValue] onClick="document.mdm.ProrateOnDeactivation.checked=false;updateProrationBasedOnField();">
-                   <MDMLABEL name="TEXT_PRORATE_INSTANTLY">Prorate Instantly</MDMLABEL>
-                 </DIV>
-               </td>
-		    	  </tr>
-		  <tr>
-			<td Class="captionEW">&nbsp;</td>
-			<td>
-                <DIV id='ProrateOn' name='ProrateOn' style='display: block;'>
-                      <MDMLABEL name="TEXT_PRORATE_BASEDON">Prorate</MDMLABEL>&nbsp;&nbsp;<select name="FixedProrationLength" size="1" Class='clsInputBox'></select>&nbsp;<MDMLABEL name="TEXT_DAYS_IN_PERIOD">days in period.</MDMLABEL>
-                </DIV>
+            <td Class="captionEWRequired" width="120px">
+              <MDMLABEL name="TEXT_PRORATION">Proration</MDMLABEL>:&nbsp;&nbsp;
+             </td>
+            <td Class='clsStandardText' >
+              <INPUT Name="ProrateOnActivation"   Type="CheckBox" onClick="updateProrationBasedOnField();" />
+              <MDMLABEL name="TEXT_PRORATE_ACTIVATION">Prorate On Activation</MDMLABEL>
             </td>
-		  </tr>
+          </tr>
+          <tr>
+            <td />  
+            <td Class='clsStandardText' >
+              <INPUT Name="ProrateOnDeactivation" Type="CheckBox" onClick="updateProrationBasedOnField();" />
+              <MDMLABEL name="TEXT_PRORATE_UNSUBSCRIPTION">Prorate On Unsubscription Date</MDMLABEL>
+            </td>
+          </tr>
+          <tr>
+            <td Class="captionEW">&nbsp;</td>
+            <td>
+              <br/>
+              <DIV id='ProrateOn' name='ProrateOn' style='display: block;'>
+                <MDMLABEL name="TEXT_PRORATE_BASEDON">Prorate</MDMLABEL>&nbsp;&nbsp;
+                <select name="FixedProrationLength" size="1" Class='clsInputBox'></select>&nbsp;
+                <MDMLABEL name="TEXT_DAYS_IN_PERIOD">days in period.</MDMLABEL>
+              </DIV>
+            </td>
+          </tr>
         </table>
           
       </DIV>                    
 
-      <br>
+      <br />
       <table border="0" cellpadding="0" cellspacing="0">
         <tr>
           <td Class="captionEWRequired"><MDMLABEL name="TEXT_GROUP_CHARGES">Generate Group Charges</MDMLABEL>:&nbsp;&nbsp;</td>
@@ -245,7 +200,7 @@
     else
     {
        disableDiv('Proration',false);
-       if (document.mdm.ProrateOnDeactivation.checked || document.mdm.ProrateOnActivation.checked || document.mdm.ProrateInstantly.checked)
+       if (document.mdm.ProrateOnDeactivation.checked || document.mdm.ProrateOnActivation.checked)
 			 {
 			 	ProrateOn.style.visibility="visible";
 				disableDiv('ProrateOn',false);
@@ -256,16 +211,14 @@
 				disableDiv('ProrateOn',true);
 		   }
     }
-	  updateDeactivation();
 	}
-
-
+  
   updateProrationBasedOnField();
 </script>
 
 <CENTER>
 <!--On OK, we turn back on disabled DIVs to be able to read their values.  This is admittedly a bit of a kludge.-->
-<button Name="OK"  Class="clsOKButton" OnClick="disableDiv('ProrateOnDeactivationDiv', false);disableDiv('ProrateInstantlyDiv', false);mdm_RefreshDialog(this);return false;"><MDMLABEL Name='TEXT_OK'>OK</MDMLABEL></button>&nbsp;&nbsp;&nbsp;
+<button Name="OK"  Class="clsOKButton" OnClick="mdm_RefreshDialog(this);return false;"><MDMLABEL Name='TEXT_OK'>OK</MDMLABEL></button>&nbsp;&nbsp;&nbsp;
 <button Name="CANCEL" Class="clsOKButton" OnClick="mdm_RefreshDialog(this);"><MDMLABEL Name='TEXT_CANCEL'>Cancel</MDMLABEL></button>&nbsp;&nbsp;&nbsp;
 </CENTER>
 </FORM></BODY></HTML>

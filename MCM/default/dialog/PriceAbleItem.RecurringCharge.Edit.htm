@@ -7,26 +7,26 @@
   </title>  
   <script language="javascript" src="../default/lib/utilForm.js"></script>
   <script language='javascript'>
-    function disableDIV(sDivName, bDisable) {
+	function disableDIV(sDivName,bDisable){
       //TODO: problem code. not working (not optimization), you need to refactoring!
-      var section = document.all.item(sDivName).all.tags("input");
-      for (i = 0; i < section.length; i++) {
-        section.item(i).disabled = bDisable;
-      }
+		var section = document.all.item(sDivName).all.tags("input");
+		for (i =0; i < section.length; i++) {
+			section.item(i).disabled= bDisable;
+		}
 
-      var section = document.all.item(sDivName).all.tags("select");
-      for (i = 0; i < section.length; i++) {
-        section.item(i).disabled = bDisable;
-      }
+		var section = document.all.item(sDivName).all.tags("select");
+		for (i =0; i < section.length; i++) {
+			section.item(i).disabled= bDisable;
+		}
 
-      var section = document.all.item(sDivName).all.tags("td");
-      sColor = (bDisable) ? 'gray' : 'black';
-      for (i = 0; i < section.length; i++) {
-        //section.item(i).class = 'clsStandardTextDisabled';
-        section.item(i).style.color = sColor;
-      }
-    }
-  </script>                                                             
+		var section = document.all.item(sDivName).all.tags("td");
+		sColor =  (bDisable) ? 'gray' : 'black';
+		for (i =0; i < section.length; i++) {
+			//section.item(i).class = 'clsStandardTextDisabled';
+			section.item(i).style.color = sColor;
+		}
+	}
+  </script>                                 
 </head>
 <body onload="SizeWindow();">
 <form name='mdm'>
@@ -40,45 +40,47 @@
 	  </tr>
 	</table>
   <table width="100%">
-    <tr><td></td><td></td>
+	 <tr><td></td><td></td>
       <td style="vertical-align: top;">
       <table width="100%">
-        <tr>
+			   <tr>
           <td class="captionEWRequired" width="130px">
             <MDMLABEL name="TEXT_FIELD_NAME">Name</MDMLABEL>:&nbsp;&nbsp;
           </td>
           <td>
             <input readonly name="name" class="fieldNonEditable" size="50" type="text"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           </td>
-        </tr>
-        <tr>
+			   </tr>
+				<tr>
           <td class="captionEWRequired">
             <MDMLABEL name="TEXT_FIELD_DISPLAY_NAME">Display Name</MDMLABEL>:&nbsp;&nbsp;
           </td>
           <td>
             <input name="DISPLAYNAMES" MultiLanguage="true" class="field" size="50" type="text"/>
           </td>
-        </tr>
-        <tr>
+				 </tr>
+			     <tr>
           <td class="captionEWRequired" style='vertical-align: top;'>
             <MDMLABEL name="TEXT_FIELD_DESCRIPTION">Description</MDMLABEL>:&nbsp;&nbsp;
           </td>
           <td>
             <input name="DISPLAYDESCRIPTIONS" MultiLanguage="true" class="field" type="text" size="50"/>
           </td>
-        </tr>
-        <tr><td>&nbsp;</td></tr>	 
-        <tr>
+			    </tr>
+			    <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>			 
+				  <tr>
           <td class="captionEWRequired"><MDMLABEL name="TEXT_CHARGE_IN">Charge In</MDMLABEL>:&nbsp;&nbsp;</td>
           <td>
             <select  class='clsInputBox' name='ChargeInAdvance'></select>
           </td>
-        </tr>
+				  </tr>
       </table>
       <div id='Proration' name='Proration' style='display: block;'>    
         <table width="100%">
           <tr>
-            <td class="captionEWRequired" width="130px"><MDMLABEL name="TEXT_PRORATION">Proration</MDMLABEL>:&nbsp;&nbsp;</td>
+            <td Class="captionEWRequired" width="130px">
+              <MDMLABEL name="TEXT_PRORATION">Proration</MDMLABEL>:&nbsp;&nbsp;
+            </td>
             <td class='clsStandardText' >
               <input name="ProrateOnActivation" type="checkbox" onclick="updateProrationBasedOnField();"/>
               <MDMLABEL name="TEXT_PRORATE_ACTIVATION">Prorate On Activation</MDMLABEL>
@@ -87,26 +89,8 @@
           <tr>
             <td></td>  
             <td class='clsStandardText'>
-              <input name="ProrateOnUnsubscribeDate"  type="checkbox" [ProrateOnUnsubscribeDateComValue] onclick="updateDeactivation();updateProrationBasedOnField();"/>
+              <input name="ProrateOnDeactivation"  type="checkbox" onclick="updateProrationBasedOnField();"/>
               <MDMLABEL name="TEXT_PRORATE_UNSUBSCRIPTION">Prorate On Unsubscription Date</MDMLABEL>
-            </td>
-          </tr>
-          <tr>
-            <td></td><td></td>
-            <td class='clsStandardText'> 
-              <div id='ProrateOnDeactivationDiv' name='ProrateOnDeactivationDiv' style='display: block;'>
-                <input name="ProrateOnDeactivation" type="radio" [ProrateOnDeactivationComValue] onclick="document.mdm.ProrateInstantly.checked=false;updateProrationBasedOnField();"/>
-                <MDMLABEL name="TEXT_PRORATE_DEACTIVATION">Prorate On Deactivation</MDMLABEL>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td></td><td></td>
-            <td class='clsStandardText'> 
-              <div id='ProrateInstantlyDiv' name='ProrateInstantlyDiv' style='display: block;'>
-                <input name="ProrateInstantly" type="radio" [ProrateInstantlyComValue] onclick="document.mdm.ProrateOnDeactivation.checked=false;updateProrationBasedOnField();"/>
-                <MDMLABEL name="TEXT_PRORATE_INSTANTLY">Prorate Instantly</MDMLABEL>
-              </div>
             </td>
           </tr>
           <tr>
@@ -120,66 +104,66 @@
           </tr>
         </table>
       </div>
-      #MDMIF IsUDRC
+#MDMIF IsUDRC
       <table width="100%">
-        <tr><td>&nbsp;</td></tr>
-        <tr>
+       <tr><td>&nbsp;</td></tr>
+          <tr>
           <td class="captionEWRequired">
             <MDMLABEL name="TEXT_UDRC"></MDMLABEL>:&nbsp;
           </td>
-        </tr>            
-        <tr>
+          </tr>            
+		  		 <tr>
           <td class="captionEWRequired">
             <MDMLABEL name="TEXT_UNIT_NAME"></MDMLABEL>:&nbsp;
           </td>
           <td>
             <input name="UnitName" class="field" size="50" type="text"/>
           </td>
-        </tr>
-        <tr>
+				   </tr>
+				   <tr>
           <td class="captionEWRequired">
             <MDMLABEL name="TEXT_UNIT_DISPLAY_NAME"></MDMLABEL>:&nbsp;&nbsp;
           </td>
           <td>
             <input name="UNITDISPLAYNAMES" MultiLanguage="true" class="field" size="50" type="text"/>
           </td>
-        </tr>	
-        <tr>
+				   </tr>	
+           <tr>
           <td class="captionEWRequired">
             <MDMLABEL name="TEXT_RATING_TYPE"></MDMLABEL>:&nbsp;
           </td>
           <td>
             <select  class='clsInputBox' name='RatingType'></select>
           </td>
-        </tr>                    
-        <tr>
+          </tr>                    
+           <tr>
           <td class="captionEW"></td>
           <td><input name="IntegerUnitValue" type="checkbox"/>
             <MDMLABEL name="IntegerUnitValue" type="caption"></MDMLABEL></td>
-        </tr>
-        <tr>
-          <td class="captionEW"><MDMLABEL name="MinUnitValue" type="caption"></MDMLABEL>:&nbsp;&nbsp;</td>
+          </tr>
+		  		 <tr>
+			       <td class="captionEW"><MDMLABEL name="MinUnitValue" type="caption"></MDMLABEL>:&nbsp;&nbsp;</td>
           <td nowrap>
             <input name="MinUnitValue" class="field" size="20" type="text"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <MDMLABEL name="MaxUnitValue" type="caption"></MDMLABEL>:&nbsp;&nbsp;
+			       <MDMLABEL name="MaxUnitValue" type="caption"></MDMLABEL>:&nbsp;&nbsp;
             <input name="MaxUnitValue" class="field" size="20" type="text"/>
           </td>             
-        </tr>
+				   </tr>
       </table>
-    </tr>         
-    <tr>
+          </tr>          
+           <tr>
       <td class="captionEW" style="vertical-align: bottom;">
         <MDMLABEL name="UDRCUnitValueEnumeration" type="caption"></MDMLABEL>:&nbsp;&nbsp;
       </td>
-      <td>              
+				      <td>              
         &nbsp;&nbsp;[TEXT_UDRC_UNIT_VALUE_ENUMERATION_SEPARATOR_HELP]<br><input name="UDRCUnitValueEnumeration" class="field" size="50" type="text"/>
-      </td>
-    </tr>            
-  </table>
-#MDMENDIF       
-  <div id='ChargePerParticipantDiv' name='ChargePerParticipantDiv' style='display: block;'>    
+              </td>
+          </tr>            
+          </table>
+#MDMENDIF        
+      <div id='ChargePerParticipantDiv' name='ChargePerParticipantDiv' style='display: block;'>    
     <table width="100%">
-      <tr>
+			  <tr>
         <td class="captionEWRequired" width="130px">
           <MDMLABEL name="TEXT_GROUP_CHARGES">Generate Group Charges</MDMLABEL>:&nbsp;&nbsp;
         </td>
@@ -187,23 +171,23 @@
           <input Name="ChargePerParticipant" type="radio" Value="FALSE">
           <MDMLABEL name="TEXT_PER_SUBSCRIPTION"/>One charge per subscription
         </td>
-      </tr>
-      <tr>
-        <td></td>
+			  </tr>
+		   	<tr>
+				  <td></td>
         <td>
           <input name="ChargePerParticipant" type="Radio" Value="TRUE"/>
           <MDMLABEL name="TEXT_PER_PARTICIPANT">One charge per subscription</MDMLABEL>
         </td>
-      </tr>					
-    </table>
-  </div>
+		    </tr>					
+      </table>
+      </div>
   <table width="100%">
-    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
     <tr>
       <td colspan='2'>[BILLING_CYCLE_HTML_SUB_TEMPLATE]</td>
     </tr> 
-  </table>
-</td>			
+	        </table>
+	    </td>			
       <td style="vertical-align:top">
       <!-- Extended Properties -->
       <fieldset style="padding: 20px 10px 10px 10px;">
@@ -218,52 +202,52 @@
       </fieldset>
       </td>   
 	 </tr>
-</table>
+</table> 
   <script type="text/javascript">
     //TODO: problem code. not working (not optimization), you need to refactoring!
     function handleCycleConfigurationDataChange() {
-      //window.alert("handleCycleConfigurationDataChange");
-      updateProrationBasedOnField();
-    }
-
+    //window.alert("handleCycleConfigurationDataChange");
+    updateProrationBasedOnField();
+  }
+  
     function isDailyCycleSelected() {
-      return ((frmsGetElementValue('mdm', 'Cycle__Relative') == "True" && frmsGetElementValue('mdm', 'Cycle@BillingCycleTypeID') == 3) || (frmsGetElementValue('mdm', 'Cycle__Relative') == "False" && frmsGetElementValue('mdm', 'Cycle__CycleTypeID') == 3))
-    }
+    return ((frmsGetElementValue('mdm','Cycle__Relative')=="True"  && frmsGetElementValue('mdm','Cycle@BillingCycleTypeID')==3) || (frmsGetElementValue('mdm','Cycle__Relative')=="False"  && frmsGetElementValue('mdm','Cycle__CycleTypeID')==3))
+  }
 
     function isProrationEditable() {
-      return (document.mdm.ProrateOnActivation.disabled == false)
+    return (document.mdm.ProrateOnActivation.disabled==false)
+  }
+  function isGroupSubscriptionEditable(){
+  
+    return (document.mdm.ChargePerParticipant.disabled==false)
+  }  
+  function updateProrationBasedOnField(){
+  
+  
+    disableDIV("ChargePerParticipantDiv",!isGroupSubscriptionEditable());
+    document.all.item("ChargePerParticipantDiv").all.tags("td").item(0).style.color = ''; //Do not gray the label...
+  
+    if (isDailyCycleSelected() || (!isProrationEditable()))  //((frmsGetElementValue('mdm','Cycle__Relative')=="True"  && frmsGetElementValue('mdm','Cycle@BillingCycleTypeID')==3) || (frmsGetElementValue('mdm','Cycle__Relative')=="False"  && frmsGetElementValue('mdm','Cycle__CycleTypeID')==3))
+    {
+      //window.alert("handleCycleConfigurationDataChange: Disable proration");
+      disableDIV("Proration",true); 
+      document.all.item("Proration").all.tags("td").item(0).style.color = ''; //Do not gray the label...
+      disableDIV('ProrateOn',true);
     }
-    function isGroupSubscriptionEditable() {
-
-      return (document.mdm.ChargePerParticipant.disabled == false)
-    }
-    function updateProrationBasedOnField() {
-
-
-      disableDIV("ChargePerParticipantDiv", !isGroupSubscriptionEditable());
-      document.all.item("ChargePerParticipantDiv").all.tags("td").item(0).style.color = ''; //Do not gray the label...
-
-      if (isDailyCycleSelected() || (!isProrationEditable()))  //((frmsGetElementValue('mdm','Cycle__Relative')=="True"  && frmsGetElementValue('mdm','Cycle@BillingCycleTypeID')==3) || (frmsGetElementValue('mdm','Cycle__Relative')=="False"  && frmsGetElementValue('mdm','Cycle__CycleTypeID')==3))
-      {
-        //window.alert("handleCycleConfigurationDataChange: Disable proration");
-        disableDIV("Proration", true);
-        document.all.item("Proration").all.tags("td").item(0).style.color = ''; //Do not gray the label...
-        disableDIV('ProrateOn', true);
-      }
       else {
-        disableDIV("Proration", false);
+       disableDIV("Proration",false);
         if (document.mdm.ProrateOnDeactivation.checked || document.mdm.ProrateOnActivation.checked) {
-          //ProrateOn.style.visibility="visible";
-          disableDIV('ProrateOn', false);
-        }
+			 	//ProrateOn.style.visibility="visible";
+       	disableDIV('ProrateOn',false);
+			 }
         else {
-          //ProrateOn.style.visibility="hidden";
-          disableDIV('ProrateOn', true);
-        }
-      }
+			 	//ProrateOn.style.visibility="hidden";
+       	disableDIV('ProrateOn',true);
+			 }
     }
-    updateProrationBasedOnField();
-  </script> 
+  }  
+  updateProrationBasedOnField();
+</script> 
   <div style="text-align: center;" >
     <button name="OK"  class="clsOKButton" onclick="mdm_RefreshDialog(this); return false;">
       <MDMLABEL Name='TEXT_OK'>OK</MDMLABEL>

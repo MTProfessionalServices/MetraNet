@@ -135,20 +135,6 @@ PRIVATE FUNCTION RefreshData(EventArg,booInitializeEvent) ' As Boolean
     SetMSIXPropertyTypeToChargeInEnumType       COMObject.Properties("ChargeInAdvance")		
     SetMSIXPropertyTypeToProrationLengthOnEnumType COMObject.Properties("FixedProrationLength")
 	
-    mdm_GetDictionary().Add "ProrateOnUnsubscribeDateComValue", ""
-    If COMObject.Instance.ProrateInstantly <> 0 Then 
-         mdm_GetDictionary().Add "ProrateInstantlyComValue", "Checked"
-         mdm_GetDictionary().Add "ProrateOnUnsubscribeDateComValue", "Checked"
-    Else
-         mdm_GetDictionary().Add "ProrateInstantlyComValue", ""
-    End If
-
-    If COMObject.Instance.ProrateOnDeactivation <> 0 Then 
-         mdm_GetDictionary().Add "ProrateOnDeactivationComValue", "Checked"
-         mdm_GetDictionary().Add "ProrateOnUnsubscribeDateComValue", "Checked"
-    Else
-         mdm_GetDictionary().Add "ProrateOnDeactivationComValue", ""
-    End If
     COMObject.Properties.Enabled  = FALSE ' Set Enabled all the Property
     RefreshData = TRUE
 		

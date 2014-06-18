@@ -1,0 +1,411 @@
+/* Styles for MetraConfig */
+
+.clsLoginBody{
+	background-color:white;
+	margin:0;
+}
+
+.clsWelcomeBody{
+	margin:0;
+}
+.clsLoginTitle{
+/*	padding: 3px 15px 3px 15px; */
+	font-size: 18px;
+	font-family: tahoma,arial,verdana,sans-serif;
+	font-weight: bold;
+	text-align: left;
+	color: #FFFFFF;
+	background-color: #CFDBE5;
+ 	background-image : url(../images/blend3.gif); 
+  background-repeat : no-repeat;
+}
+.clsLoginMessage{
+	font-size: 11px;
+	font-family: tahoma,arial,verdana,sans-serif;
+	background-color:#CFDBE5;  /* Exact match for W2K gray default color */
+	TEXT-ALIGN: Center;
+}
+.clsLoginPrompt{
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif;
+	font-weight: bold;
+}
+.clsLoginInput{
+    font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif;
+	border-style: solid;
+	border-width: 1px;	
+}
+
+.CaptionBar
+{
+  /*background: transparent url(/Res/Ext/resources/images/gray/panel/white-top-bottom.gif) repeat-x scroll 0pt -1px;
+  border-bottom: 1px solid #99BBE8;*/
+  background-color:#fff;
+  color: #000;
+  font-family: tahoma,arial,verdana,sans-serif;
+  font-size: 197%;
+  margin: .3em 0 .3em;
+  font-weight: bold;
+  padding: 5px 3px 4px 15px;
+  display: block;
+  font-size: 2em;
+  -webkit-margin-before: 0.67em;
+  -webkit-margin-after: 0.67em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+
+    
+.loginTopBevel{
+  background-color: #00337c;
+  background-image : url(../images/Header/loginbeveltop.gif);
+  background-repeat : repeat-x;
+}
+
+.loginLeftBevel{
+  background-color: #00337c;
+  background-image : url(../images/Header/loginbevelleft.gif);
+  background-repeat : repeat-y;
+}
+
+.loginCaption{
+  color: white;
+  font-size: 11px;
+  font-family: tahoma,arial,verdana,sans-serif;
+  text-align: right;
+  font-weight: bold;
+  vertical-align: baseline;
+}
+
+.loginBar{
+  padding: 2px 15px 15px 15px;
+  font-size: 16px;
+  font-family: tahoma,arial,verdana,sans-serif;
+  font-weight: bolder;
+  text-align: left;
+  color: #FFFFFF;
+  background-color: #00337c;
+  background-image : url(../images/Header/loginbarbkgd.gif);
+  background-repeat : repeat-x;
+  position: relative;
+}
+
+/* Header Styles */
+.clsHeaderTitle{
+	  font-family: tahoma,arial,verdana,sans-serif;
+    font-size:10pt;
+    font-weight:bold;
+    font-style:Italic;
+}
+.clsHeaderToolbar{
+    font-family: tahoma,arial,verdana,sans-serif;
+    font-size:8pt;
+    background-color:#97CE21;
+    color:#263406;
+    
+}
+
+/* Link styles */
+.clsLink {
+	text-decoration:none;
+    cursor:hand;
+	color:white;
+}
+.clsFileLink{
+	text-decoration:none;
+    cursor:hand;
+    color:black;
+    font-size:8pt;
+    font-family: tahoma,arial,verdana,sans-serif;
+}
+.clsHelpHeaderLink{
+	text-decoration:none;
+    cursor:hand;
+    color:white;
+    font-size:10pt;
+    font-family: tahoma,arial,verdana,sans-serif;
+    font-weight:bold;
+}
+
+/* Loading Style */
+.clsLoadingText{
+	position:absolute;
+	font-family: tahoma,arial,verdana,sans-serif;
+	font-size: 12pt;
+	font-weight: normal;
+	background-color:#CFDBE5;      
+	color:#04468D;
+	
+}
+
+/* Warning Text */
+.clsWarning{
+    background-color: yellow;
+    font-size:12pt;
+    font-family: tahoma,arial,verdana,sans-serif;
+    border: medium double;
+    border-color:#04468D;
+}
+/* Standard Text */
+.clsStandardText{
+    font-family: tahoma,arial,verdana,sans-serif;
+    font-size:10pt;	
+}
+.clsSmallText{
+    font-family: tahoma,arial,verdana,sans-serif;
+    font-size:8pt;	
+}
+/* Page Styles */
+.clsPageTitle{
+	padding: 3px 3px 3px 17px;
+	font-size: 18px;
+	font-family: tahoma,arial,verdana,sans-serif;
+	font-weight: bold;
+	text-align: left;
+	color: #FFFFFF;
+	background-color: #CFDBE5;
+ 	background-image : url(../images/blend3.gif); 
+  background-repeat : no-repeat;
+	position: relative;
+	left : 0px;
+	top : 0px;
+}
+
+.clsPageNotes{
+    font-family: "Courier New";
+    font-size:8pt;
+}
+/* Validation Alert */
+.clsValidateAlert{  
+    BACKGROUND-COLOR: yellow;
+    COLOR: red;
+    font-family: tahoma,arial,verdana,sans-serif;
+    FONT-SIZE: 9pt;
+    FONT-WEIGHT: normal;
+    CURSOR: default;
+    PADDING-LEFT: 4px;
+    PADDING-RIGHT: 3px;
+}
+
+/* Loading Style */
+
+/* General Table Styles */
+.clsTable{
+    background-color: #B1CBE6;
+}
+.clsTableHeader {
+/*    BACKGROUND-COLOR: #2F4899;
+    COLOR: white;
+    FONT-FAMILY: tahoma, Helvetica, sans-serif;
+    FONT-SIZE: 9pt;
+    FONT-WEIGHT: normal;
+    CURSOR: default;
+    PADDING-LEFT: 4px;
+    PADDING-RIGHT: 3px;
+    TEXT-ALIGN: center */
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif;
+	text-align: center;
+	color: white; 
+    font-weight:bold;
+	background-color: #007AE5;     
+    }
+.clsTableHeaderLeft {
+/*	BACKGROUND-COLOR: #2F4899;
+	COLOR: white;
+	FONT-FAMILY: tahoma, Helvetica, sans-serif;
+	FONT-SIZE: 9pt;
+	FONT-WEIGHT: normal;
+	CURSOR: default;
+	PADDING-LEFT: 4px;
+	PADDING-RIGHT: 3px;
+	TEXT-ALIGN: left*/
+    	BORDER-BOTTOM: black solid 1px;
+	BORDER-LEFT: #0057AF solid 1px;
+	BORDER-RIGHT: black solid 1px;
+	BORDER-TOP: #0057AF solid 1px;
+	font-size: 11px; 
+	font-family: tahoma,arial,verdana,sans-serif;
+	text-align: center;
+	color: white; 
+	background-color: #007AE5; 
+}
+.clsTableSubHeader {
+	BACKGROUND-COLOR: #188594;
+	COLOR: white;
+	font-family: tahoma,arial,verdana,sans-serif;
+	FONT-SIZE: 9pt;
+	FONT-WEIGHT: normal;
+	CURSOR: default;
+	PADDING-LEFT: 4px;
+	PADDING-RIGHT: 3px;
+/*	TEXT-ALIGN: left */
+}
+.clsTableText {  
+/*    BACKGROUND-COLOR: #f7f7ef; */
+    background-color:#CFDBE5;
+    COLOR: black;
+    font-family: tahoma,arial,verdana,sans-serif;
+    FONT-SIZE: 9pt;
+    FONT-WEIGHT: normal;
+    CURSOR: default;
+    PADDING-LEFT: 4px;
+    PADDING-RIGHT: 3px
+	}
+.clsTableTextEven {
+/*    BACKGROUND-COLOR: #f7f7ef; */
+    background-color:#CFDBE5;
+    COLOR: black;
+    font-family: tahoma,arial,verdana,sans-serif;
+    FONT-SIZE: 9pt;
+    FONT-WEIGHT: normal;
+    CURSOR: default;
+    PADDING-LEFT: 4px;
+    PADDING-RIGHT: 3px
+    }
+.clsTableTextEvenLabel {
+    background-color:#CFDBE5;
+    COLOR: black;
+    font-family: tahoma,arial,verdana,sans-serif;
+    FONT-SIZE: 9pt;
+    FONT-WEIGHT: bold;
+    CURSOR: default;
+    PADDING-LEFT: 4px;
+    PADDING-RIGHT: 3px
+    }
+.clsTableTextOdd {
+/*    BACKGROUND-COLOR: #efefe6; */
+    background-color: #C1CBD7;
+    COLOR: black;
+    font-family: tahoma,arial,verdana,sans-serif;
+    FONT-SIZE: 9pt;
+    FONT-WEIGHT: normal;
+    CURSOR: default;
+    PADDING-LEFT: 4px;
+    PADDING-RIGHT: 3px
+    }
+.clsTableTextOddLabel {
+    background-color: #C1CBD7;
+    COLOR: black;
+    font-family: tahoma,arial,verdana,sans-serif;
+    FONT-SIZE: 9pt;
+    FONT-WEIGHT: bold;
+    CURSOR: default;
+    PADDING-LEFT: 4px;
+    PADDING-RIGHT: 3px
+    }
+
+.clsPrompt{
+	font-family: tahoma,arial,verdana,sans-serif;
+    font-size:10pt;
+}
+
+.clsInput{
+    font-family: tahoma,arial,verdana,sans-serif;
+    font-size:10pt;
+    border: 1px solid Black;
+}
+.clsSelect{
+    font-family: tahoma,arial,verdana,sans-serif;
+    font-size:10pt;
+    border: 1px solid Black;
+    z-index:10;
+}
+.clsSmallInput{
+    font-family: tahoma,arial,verdana,sans-serif;
+    font-size:8pt;
+    border: 1px solid Black;
+}
+    /* FLEXML styles */
+.clsFlexListText{
+    text-align : left;
+    font-family: tahoma,arial,verdana,sans-serif;
+    font-size:10pt;
+    font-style:Italic;
+    font-weight:normal;
+}
+
+.clsFlexGroupText{
+    text-align : left;
+    font-family: tahoma,arial,verdana,sans-serif;
+    font-size:10pt;
+    font-style:Italic;
+    font-weight:normal;
+}
+    
+    /* Forms Styles */
+ .clsInputBox {  
+	BORDER-BOTTOM: black solid 1px;
+    BORDER-LEFT: black solid 1px;
+    BORDER-RIGHT: black solid 1px;
+    BORDER-TOP: black solid 1px;
+    BACKGROUND-COLOR: white;
+    COLOR: black;
+    font-family: tahoma,arial,verdana,sans-serif;
+    FONT-SIZE: 9pt
+	}
+   
+  .clsFixedPos{
+	position:absolute;
+}
+.clsApplicationHeader{
+	position:absolute;
+	font-family: tahoma,arial,verdana,sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	top:28px;
+	left:300px;
+	background-color:#97CE21;
+	color:#04468D;
+	
+} 
+.clsServiceMonitorBody{
+	font-family: tahoma,arial,verdana,sans-serif;
+	font-size:8pt;
+	color:black;
+	margin : 0px 0px 0px 0px;
+}
+.clsHookError{
+	color:red;
+    margin-left:30px;
+}
+.clsLegend {
+  font-size:8pt;
+}
+.clsErrorDiv{
+    background-color:#FFCC00;
+    color:black;
+    position:absolute;
+    z-index: 101;
+    font-family: tahoma,arial,verdana,sans-serif;
+    font-size:10pt;
+}
+.clsDivCloseButton{
+    background-color:lightgrey;
+    color:black;
+    font-weight:bold;
+    border : medium groove White;
+}
+.clsErrorTableHeader{
+	font-size: 11px; 
+  font-family: tahoma,arial,verdana,sans-serif;	color: white; 
+  font-weight:bold;
+	background-color: #007AE5; 
+    padding: 2px 2px 2px 2px;
+    border-top: thin black solid;
+    border-right: thin black solid;
+    border-left: thin black solid;        
+}
+.clsErrorText{
+    COLOR: black;
+    font-family: tahoma,arial,verdana,sans-serif;    FONT-SIZE: 9pt;
+    FONT-WEIGHT: normal;
+    CURSOR: default;
+    PADDING-LEFT: 4px;
+    PADDING-RIGHT: 3px
+}
+.clsErrorMessage{
+    background-color:#FFCC00;
+    border: thin solid black;    
+}

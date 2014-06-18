@@ -626,3 +626,45 @@ function old____dateFormat(year,month,date)
  
  return unescape(str);
 }
+
+function setEndDateTimeAndShowCalendar(target, rules) {
+
+  showCalendarTimeBlock(true);
+  setCalendarValueBasedOnTarget(target);
+
+  //if the enddate is empty or if only date part is entered
+  if (target.value.length==0 || isTimePortionEmpty(target))
+  {
+         //If the original (target) value is blank, then seed the end time
+    if (ppc24Clock)
+    {
+      setTimeForCalendarTimeBlock("23","59","59","");
+    }
+    else
+    {
+      setTimeForCalendarTimeBlock("11","59","59","PM");
+    }
+  }
+  getCalendarFor(target,rules);
+}
+
+function isTimePortionEmpty(target) {
+    if ((target.value != null) && (target.value.length != 0)) {
+    dtParseResult = getDateFromFormat(target.value, ppcDF);
+
+    if (dtParseResult == 0) {
+      ppcNow = new Date();
+    }
+    else {
+      ppcNow = new Date(dtParseResult);
+    }
+  }
+  else {
+    ppcNow = getCurrentDate();
+  }
+
+  var hours = ppcNow.getUTCHours();
+  var minutes = ppcNow.getUTCMinutes();
+  var seconds = ppcNow.getUTCSeconds();
+  return (hours == 0 && minutes == 0 && seconds == 0);
+}

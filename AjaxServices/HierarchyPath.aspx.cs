@@ -14,7 +14,7 @@ public partial class AjaxServices_HierarchyPath : MTPage
   protected void Page_Load(object sender, EventArgs e)
   {
       var id = 0;
-      var type = "system_mps";
+      var type = "'system_mps', 'system_user'";
     if(Request["node"] != null)
       id = int.Parse(Request["node"]);
     if (Request["type"] != null)
@@ -49,7 +49,7 @@ public partial class AjaxServices_HierarchyPath : MTPage
         using (var stmt = conn.CreateAdapterStatement("Queries\\AccHierarchies", "__HIERARCHY_BROWESER_LEVELS__"))
         {
             stmt.AddParam("%%DESCENDENT%%", idAcc);
-            stmt.AddParam("%%TYPE_SPACE%%", nmtype);
+            stmt.AddParam("%%TYPE_SPACE%%", nmtype, true);
             stmt.AddParam("%%REF_DATE%%", MetraTech.MetraTime.Now);
             using (var crsr = stmt.ExecuteReader())
             {

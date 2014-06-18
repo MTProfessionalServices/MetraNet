@@ -1,5 +1,5 @@
 CREATE PROCEDURE prtn_deploy_table
-	@partition_table_name	VARCHAR(32),
+	@partition_table_name	VARCHAR(200),
 	@pk_columns				VARCHAR(200),
 	@partition_schema		VARCHAR(100),
 	@partition_column		VARCHAR(32),

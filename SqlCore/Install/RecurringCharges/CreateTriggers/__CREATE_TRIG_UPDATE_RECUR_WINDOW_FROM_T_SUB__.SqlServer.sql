@@ -43,7 +43,7 @@ declare @temp datetime
         ,-1 AS c_LastIdRun
         ,dbo.mtmindate() AS c_MembershipStart
         ,dbo.mtmaxdate() AS c_MembershipEnd
-		, dbo.AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.vt_end, sub.dt_crt) AS c__IsAllowGenChargeByTrigger
+        , dbo.AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, sub.vt_end, sub.dt_crt) AS c__IsAllowGenChargeByTrigger
       --We'll use #recur_window_holder in the stored proc that operates only on the latest data
         INTO #recur_window_holder
         FROM inserted sub

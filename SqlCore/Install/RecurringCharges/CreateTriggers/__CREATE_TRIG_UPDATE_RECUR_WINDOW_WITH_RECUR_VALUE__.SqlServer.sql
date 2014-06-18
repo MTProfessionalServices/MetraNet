@@ -41,7 +41,7 @@ select @startDate = tt_start from inserted
       , -1 AS c_LastIdRun
       , dbo.mtmindate() AS c_MembershipStart
       , dbo.mtmaxdate() AS c_MembershipEnd
-	  , dbo.AllowInitialArrersCharge(rcr.b_advance, pay.id_payee, sub.vt_end, @startDate) AS c__IsAllowGenChargeByTrigger
+      , dbo.AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, sub.vt_end, @startDate) AS c__IsAllowGenChargeByTrigger
       INTO #recur_window_holder
       FROM t_sub sub
       INNER JOIN t_payment_redirection pay ON pay.id_payee = sub.id_acc AND pay.vt_start < sub.vt_end AND pay.vt_end > sub.vt_start
@@ -119,7 +119,7 @@ SELECT
       , -1 AS c_LastIdRun
       , grm.vt_start AS c_MembershipStart
       , grm.vt_end AS c_MembershipEnd
-	  , dbo.AllowInitialArrersCharge(rcr.b_advance, pay.id_payee, sub.vt_end, @startDate) AS c__IsAllowGenChargeByTrigger
+      , dbo.AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, sub.vt_end, @startDate) AS c__IsAllowGenChargeByTrigger
       FROM t_gsub_recur_map grm
       /* TODO: GRM dates or sub dates or both for filtering */
       INNER JOIN t_sub sub ON grm.id_group = sub.id_group

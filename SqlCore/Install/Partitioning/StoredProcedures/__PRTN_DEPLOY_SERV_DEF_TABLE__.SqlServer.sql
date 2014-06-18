@@ -1,5 +1,5 @@
 CREATE PROCEDURE prtn_deploy_serv_def_table
-		@svc_table_name 		VARCHAR(32)
+		@svc_table_name 		VARCHAR(200)
 AS
 DECLARE @meter_partition_schema	NVARCHAR(50),
 		@error_message			NVARCHAR(4000)

@@ -93,14 +93,14 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   	
   ProductView.Properties("tx_name").Caption = mam_GetDictionary("TEXT_CAPABILITY_NAME")
   ProductView.Properties("tx_desc").Caption = mam_GetDictionary("TEXT_CAPABILITY_DESCRIPTION")
-  ProductView.Properties("tx_progid").Caption = "ProgID"
-  ProductView.Properties("umbrella_sensitive").Caption = "Requires Manage Account Hierarchies"
+  ProductView.Properties("tx_progid").Caption = mam_GetDictionary("TEXT_PROG_ID")
+  ProductView.Properties("umbrella_sensitive").Caption = mam_GetDictionary("TEXT_REQUIRES_MANAGE_ACCOUNT_HIERARCHIES")
   	
 	' Show parameters when we are in read only mode
 	If UCase(Form("ReadOnly")) = "TRUE" Then
 	  ProductView.Properties("num_atomic").Caption = "Parameters"
 	Else
-    ProductView.Properties("num_atomic").Caption = "Number of Atomics"
+    ProductView.Properties("num_atomic").Caption = mam_GetDictionary("TEXT_NUMBER_OF_ATOMICS")
   End IF
 				
   ProductView.Properties("tx_desc").Sorted = MTSORT_ORDER_ASCENDING

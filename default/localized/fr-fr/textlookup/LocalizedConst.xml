@@ -1945,4 +1945,20 @@
   <text id="TEXT_ACCOUNTS_TO_MOVE">
     <value>{FR}Select Accounts to Move</value>
   </text> 
+  
+  <text id="TEXT_CAPABILITIES">
+    <value>{FR}Capabilities</value>    	
+  </text>
+  
+    <text id="TEXT_PROG_ID">
+    <value>{FR}ProgID</value>    	
+  </text>
+  
+  <text id="TEXT_NUMBER_OF_ATOMICS">
+    <value>{FR}Number of Atomics</value>    	
+  </text>
+  
+  <text id="TEXT_REQUIRES_MANAGE_ACCOUNT_HIERARCHIES">
+    <value>{FR}Requires Manage Account Hierarchies</value>    	
+  </text>
 </texts>

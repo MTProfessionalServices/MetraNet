@@ -1293,4 +1293,7 @@
   <data name="REPORTS_TREE_NOT_APPLICABLE_TEXT" xml:space="preserve">
     <value>(FRENCH) N/A</value>
   </data>
+  <data name="TEXT_ACCOUNT_TYPE" xml:space="preserve">
+    <value>{FR}Account Type</value>
+  </data>
 </root>

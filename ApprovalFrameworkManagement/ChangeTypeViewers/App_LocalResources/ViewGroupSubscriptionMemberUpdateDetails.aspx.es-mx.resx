@@ -147,4 +147,7 @@
     <data name="TEXT_APPROVALS_CHANGEDETAILS_UPDATEDVALUE" xml:space="preserve">
         <value>Nuevo valor</value>
     </data>
+  <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_ACCOUNTNAME" xml:space="preserve">
+    <value>[es-MX] Member Name</value>
+  </data>     
 </root>

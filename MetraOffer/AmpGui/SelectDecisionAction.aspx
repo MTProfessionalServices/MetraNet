@@ -191,7 +191,7 @@
                   }
               }
           } else if (radDiscount.checked) {
-              var ddval = document.getElementById("ctl00_ContentPlaceHolder1_unitRate_ddSourceType").value;
+                  var ddval = document.getElementById("ctl00_ContentPlaceHolder1_discount_ddSourceType").value;
               if (ddval.toString() == zero.toString()) {
                   var discountrate = document.getElementById("ctl00_ContentPlaceHolder1_discount_tbNumericSource").value.toString();
                   if (discountrate == "") {

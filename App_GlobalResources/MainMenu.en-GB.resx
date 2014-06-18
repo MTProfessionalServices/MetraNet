@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
     <!-- 
     Microsoft ResX Schema 
@@ -142,7 +142,7 @@
         <value>Add Account with Web Service</value>
     </data>
     <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
-        <value>[en-GB]Add child Account</value>
+        <value>Add child Account</value>
     </data>
     <data name="TEXT_ADD_CSR" xml:space="preserve">
         <value>Add CSR</value>
@@ -226,7 +226,7 @@
         <value>Orders</value>
     </data>
     <data name="TEXT_BILL_MANAGEES" xml:space="preserve">
-        <value>Bill Managees</value>
+        <value>Managed Online Bills</value>
     </data>
     <data name="TEXT_BILL_MANAGER" xml:space="preserve">
         <value>Bill Managers</value>
@@ -235,7 +235,7 @@
         <value>Billable Intervals</value>
     </data>
     <data name="TEXT_BILLING_MANAGEMENT" xml:space="preserve">
-        <value>Billing Management</value>
+        <value>Billing</value>
     </data>
     <data name="TEXT_BULK_ADJUST_TRANSACTIONS" xml:space="preserve">
         <value>Bulk Adjust Transactions</value>
@@ -319,13 +319,13 @@
         <value>Summary By Account</value>
     </data>
     <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_INTERVAL_TYPE_MENU" xml:space="preserve">
-        <value>Summary By Account</value>
+        <value>Summary By Interval Type</value>
     </data>
     <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_STAGE_PLUGIN" xml:space="preserve">
         <value>Failed Transaction Summary By Stage and Plugin</value>
     </data>
     <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_STAGE_PLUGIN_MENU" xml:space="preserve">
-        <value>Summary By Account and Error Type</value>
+        <value>Summary By Stage and Plugin</value>
     </data>
     <data name="TEXT_FEEDS" xml:space="preserve">
         <value>Feeds</value>
@@ -391,7 +391,7 @@
         <value>Default Security</value>
     </data>
     <data name="TEXT_MANAGE_MISC_ADJUSTMENTS" xml:space="preserve">
-        <value>Manage Misc. Adjustments</value>
+        <value>Misc. Adjustments</value>
     </data>
     <data name="TEXT_MANAGE_NON_STANDARD_CHARGES" xml:space="preserve">
         <value>Manage Nonstandard Charges</value>
@@ -403,7 +403,7 @@
         <value>Manage Reports</value>
     </data>
     <data name="TEXT_MANAGE_ROLES" xml:space="preserve">
-        <value>Manage Roles</value>
+        <value>User Roles</value>
     </data>
     <data name="TEXT_MANAGE_SECURITY" xml:space="preserve">
         <value>Manage Security</value>
@@ -469,7 +469,7 @@
         <value>Pay for Accounts</value>
     </data>
     <data name="TEXT_PAY_FOR_ME" xml:space="preserve">
-        <value>Edit Payers</value>
+        <value>Payers</value>
     </data>
     <data name="TEXT_PAYMENT_HISTORY" xml:space="preserve">
         <value>Payment History</value>
@@ -631,7 +631,7 @@
         <value>Usage Server Maintenance</value>
     </data>
     <data name="TEXT_USM_CONFIG" xml:space="preserve">
-        <value>USM Configuration</value>
+        <value>Usage Server</value>
     </data>
     <data name="TEXT_VERSION_INFO" xml:space="preserve">
         <value>Version Information</value>
@@ -645,4 +645,37 @@
     <data name="TEXT_VIEWONLINE_BILL" xml:space="preserve">
         <value>View Online Bill</value>
     </data>
-</root>
+	<data name="TEXT_CREATE_QUOTE" xml:space="preserve">
+		<value>Create Quote</value>
+	</data>
+	<data name="TEXT_USAGE_AUDIT" xml:space="preserve">
+		<value>Usage Audit</value>
+	</data>
+	<data name="TEXT_ADD_TENANT" xml:space="preserve">
+		<value>Add Partition</value>
+	</data>
+	<data name="TEXT_REPORTS" xml:space="preserve">
+		<value>Reports</value>
+	</data>
+	<data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
+		<value>Usage Processing</value>
+	</data>
+	<data name="TEXT_ACCOUNT" xml:space="preserve">
+		<value>Account</value>
+	</data>
+	<data name="TEXT_BILL_MESSAGES" xml:space="preserve">
+		<value>Bill Messages</value>
+	</data>
+	<data name="TEXT_FINANCE_DASHBOARD" xml:space="preserve">
+		<value>Finance Dashboard</value>
+	</data>
+	<data name="TEXT_MANAGE_BILL_MESSAGES" xml:space="preserve">
+		<value>Manage Bill Messages</value>
+	</data>
+	<data name="TEXT_OPERATIONS_DASHBOARD" xml:space="preserve">
+		<value>Operations Dashboard</value>
+	</data>
+	<data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
+		<value>Product Dashboard</value>
+	</data>	
+ </root>

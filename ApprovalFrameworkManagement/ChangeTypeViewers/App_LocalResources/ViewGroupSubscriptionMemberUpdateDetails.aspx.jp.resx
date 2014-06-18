@@ -147,4 +147,7 @@
   <data name="TEXT_APPROVAL_GROUP_SUBSCRIPTION_CHANGE_DETAILS" xml:space="preserve">
     <value>グループ利用メンバーが更新されました</value>
   </data>
+  <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_ACCOUNTNAME" xml:space="preserve">
+    <value>[ja] Member Name</value>
+  </data>   
 </root>

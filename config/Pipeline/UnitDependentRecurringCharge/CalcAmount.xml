@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xmlconfig>
   <mtsysconfigdata>
     <effective_date ptype="DATETIME">1998-11-19T00:00:00Z</effective_date>
@@ -36,7 +37,7 @@
 CREATE PROCEDURE CalcAmount @BaseAmount DECIMAL @UnitAmount DECIMAL @UnitValue DECIMAL @RCAmount DECIMAL OUTPUT
 AS
 -- straight copy - might be something else later
-SET @RCAmount = @BaseAmount + round(@UnitAmount*@UnitValue, 2)
+SET @RCAmount = @BaseAmount + @UnitAmount*@UnitValue
 	  ]]>
   </Program> 
 			

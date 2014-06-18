@@ -286,7 +286,7 @@
     <value>Este cambio está Pendiente actualmente.</value>
   </data>
   <data name="TEXT_APPROVALS_STATE_EXPLANATION_SUBMITTER" xml:space="preserve">
-    <value>Como remitente de este cambio Pendiente, puede "Descartar" este cambio, lo que hará que no se vuelva a considerar.</value>
+    <value>Como remitente de este cambio Pendiente, puede 'Descartar' este cambio, lo que hará que no se vuelva a considerar.</value>
   </data>
   <data name="TEXT_AUDIT_HISTORY_FAILED" xml:space="preserve">
     <value>Historial de auditoría de números de casos de transacciones fallidas</value>

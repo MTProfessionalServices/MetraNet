@@ -15,25 +15,23 @@ BEGIN
          dbo.mtminoftwodates(pci.dt_end, rw.c_SubscriptionEnd)           AS c_RCIntervalSubscriptionEnd,
          rw.c_SubscriptionStart                                          AS c_SubscriptionStart,
          rw.c_SubscriptionEnd                                            AS c_SubscriptionEnd,
-         /* Booleans are, stupidly enough, stored as Y/N in one table, but 0/1 in another table.  Convert them. */
+         dbo.MTMinOfTwoDates(pci.dt_end, rw.c_SubscriptionEnd)           AS c_BilledRateDate,
+         rcr.n_rating_type                                               AS c_RatingType,
          CASE WHEN rw.c_advance = 'Y' THEN '1' ELSE '0' END              AS c_Advance,
          CASE WHEN rcr.b_prorate_on_activate = 'Y' THEN '1' ELSE '0' END AS c_ProrateOnSubscription,
-         /* NOTE: c_ProrateInstantly - No longer used */
-         CASE WHEN rcr.b_prorate_instantly = 'Y' THEN '1' ELSE '0' END   AS c_ProrateInstantly,
-         rw.c_UnitValueStart                                             AS c_UnitValueStart,
-         rw.c_UnitValueEnd                                               AS c_UnitValueEnd,
-         rw.c_UnitValue                                                  AS c_UnitValue,
-         rcr.n_rating_type                                               AS c_RatingType,
+         CASE WHEN rcr.b_prorate_instantly = 'Y' THEN '1' ELSE '0' END   AS c_ProrateInstantly, /* NOTE: c_ProrateInstantly - No longer used */
          CASE WHEN rcr.b_prorate_on_deactivate = 'Y' THEN '1' ELSE '0' END                   AS c_ProrateOnUnsubscription,
          CASE WHEN rcr.b_fixed_proration_length = 'Y' THEN fxd.n_proration_length ELSE 0 END AS c_ProrationCycleLength,
-         dbo.MTMinOfTwoDates(pci.dt_end, rw.c_SubscriptionEnd)           AS c_BilledRateDate,
-         rw.c__subscriptionid                                            AS c__SubscriptionID,
          rw.c__accountid                                                 AS c__AccountID,
          rw.c__payingaccount                                             AS c__PayingAccount,
          rw.c__priceableiteminstanceid                                   AS c__PriceableItemInstanceID,
          rw.c__priceableitemtemplateid                                   AS c__PriceableItemTemplateID,
          rw.c__productofferingid                                         AS c__ProductOfferingID,
+         rw.c_UnitValueStart                                             AS c_UnitValueStart,
+         rw.c_UnitValueEnd                                               AS c_UnitValueEnd,
+         rw.c_UnitValue                                                  AS c_UnitValue,
          currentui.id_interval                                           AS c__IntervalID,
+         rw.c__subscriptionid                                            AS c__SubscriptionID,
          NEWID()                                                         AS idSourceSess 
          INTO #tmp_rc
   FROM   #recur_window_holder rw

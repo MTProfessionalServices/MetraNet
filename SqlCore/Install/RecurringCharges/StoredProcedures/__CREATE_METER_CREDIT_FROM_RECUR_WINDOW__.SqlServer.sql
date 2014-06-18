@@ -19,25 +19,23 @@ BEGIN
 	       dbo.mtminoftwodates(pci.dt_end,dbo.MTMaxOfTwoDates(new_sub.vt_end, current_sub.vt_end))    AS c_RCIntervalSubscriptionEnd,
 	       dbo.MTMinOfTwoDates(new_sub.vt_end, current_sub.vt_end)                                    AS c_SubscriptionStart,
 	       dbo.MTMaxOfTwoDates(new_sub.vt_end, current_sub.vt_end)                                    AS c_SubscriptionEnd,
-	       /* Booleans are, stupidly enough, stored as Y/N in one table, but 0/1 in another table.  Convert them. */
+	       dbo.MTMinOfTwoDates(new_sub.vt_end, current_sub.vt_end)                                    AS c_BilledRateDate,
+	       rcr.n_rating_type                                                                          AS c_RatingType,
 	       CASE WHEN rw.c_advance = 'Y' THEN '1' ELSE '0' END                                         AS c_Advance,
 	       CASE WHEN rcr.b_prorate_on_activate = 'Y' THEN '1' ELSE '0' END                            AS c_ProrateOnSubscription,
-	       /* NOTE: c_ProrateInstantly - No longer used */
-	       CASE WHEN rcr.b_prorate_instantly = 'Y' THEN '1' ELSE '0' END                              AS c_ProrateInstantly,
+	       CASE WHEN rcr.b_prorate_instantly = 'Y' THEN '1' ELSE '0' END                              AS c_ProrateInstantly, /* NOTE: c_ProrateInstantly - No longer used */
 	       CASE WHEN rcr.b_prorate_on_deactivate = 'Y' THEN '1' ELSE '0' END                          AS c_ProrateOnUnsubscription,
 	       CASE WHEN rcr.b_fixed_proration_length = 'Y' THEN fxd.n_proration_length ELSE 0 END        AS c_ProrationCycleLength,
-	       rw.c_UnitValueStart                                                                        AS c_UnitValueStart,
-	       rw.c_UnitValueEnd                                                                          AS c_UnitValueEnd,
-	       rw.c_UnitValue                                                                             AS c_UnitValue,
-	       rcr.n_rating_type                                                                          AS c_RatingType,
 	       rw.c__accountid                                                                            AS c__AccountID,
 	       rw.c__payingaccount                                                                        AS c__PayingAccount,
 	       rw.c__priceableiteminstanceid                                                              AS c__PriceableItemInstanceID,
 	       rw.c__priceableitemtemplateid                                                              AS c__PriceableItemTemplateID,
 	       rw.c__productofferingid                                                                    AS c__ProductOfferingID,
-	       dbo.MTMinOfTwoDates(new_sub.vt_end, current_sub.vt_end)                                    AS c_BilledRateDate,
-	       rw.c__subscriptionid                                                                       AS c__SubscriptionID,
-	       currentui.id_interval                                                                      AS c__IntervalID 
+	       rw.c_UnitValueStart                                                                        AS c_UnitValueStart,
+	       rw.c_UnitValueEnd                                                                          AS c_UnitValueEnd,
+	       rw.c_UnitValue                                                                             AS c_UnitValue,
+	       currentui.id_interval                                                                      AS c__IntervalID,
+	       rw.c__subscriptionid                                                                       AS c__SubscriptionID
 	       INTO #tmp_rc_1
 	FROM   #recur_window_holder rw
 	       INNER LOOP JOIN t_sub_history new_sub ON new_sub.id_acc = rw.c__AccountID AND new_sub.id_sub = rw.c__SubscriptionID AND new_sub.tt_end = dbo.MTMaxDate()
@@ -83,7 +81,7 @@ BEGIN
 	
 	SELECT DISTINCT 
 /* Now, credit or debit the difference in the start of the subscription.  If the new one is earlier, this will be a debit, otherwise a credit*/
-          CASE WHEN new_sub.vt_start < current_sub.vt_start THEN 'InitialDebit' ELSE 'InitialCredit' END  AS c_RCActionType,
+         CASE WHEN new_sub.vt_start < current_sub.vt_start THEN 'InitialDebit' ELSE 'InitialCredit' END  AS c_RCActionType,
 	       pci.dt_start                                                                               AS c_RCIntervalStart,
 	       pci.dt_end                                                                                 AS c_RCIntervalEnd,
 	       paymentInterval.dt_start                                                                   AS c_BillingIntervalStart,
@@ -92,25 +90,23 @@ BEGIN
 	       dbo.mtminoftwodates(pci.dt_end, dbo.MTMaxOfTwoDates(new_sub.vt_start, current_sub.vt_start))   AS c_RCIntervalSubscriptionEnd,
 	       dbo.MTMinOfTwoDates(new_sub.vt_start, current_sub.vt_start)                                AS c_SubscriptionStart,
 	       dbo.MTMaxOfTwoDates(new_sub.vt_start, current_sub.vt_start)                                AS c_SubscriptionEnd,
-	       /* Booleans are, stupidly enough, stored as Y/N in one table, but 0/1 in another table.  Convert them. */
+	       dbo.MTMaxOfTwoDates(new_sub.vt_start, current_sub.vt_start)                                AS c_BilledRateDate,
+	       rcr.n_rating_type                                                                          AS c_RatingType,
 	       CASE WHEN rw.c_advance = 'Y' THEN '1' ELSE '0' END                                         AS c_Advance,
 	       CASE WHEN rcr.b_prorate_on_activate = 'Y' THEN '1' ELSE '0' END                            AS c_ProrateOnSubscription,
-	       /* NOTE: c_ProrateInstantly - No longer used */
-	       CASE WHEN rcr.b_prorate_instantly = 'Y' THEN '1' ELSE '0' END                              AS c_ProrateInstantly,
+	       CASE WHEN rcr.b_prorate_instantly = 'Y' THEN '1' ELSE '0' END                              AS c_ProrateInstantly, /* NOTE: c_ProrateInstantly - No longer used */
 	       CASE WHEN rcr.b_prorate_on_deactivate = 'Y' THEN '1' ELSE '0' END                          AS c_ProrateOnUnsubscription,
 	       CASE WHEN rcr.b_fixed_proration_length = 'Y' THEN fxd.n_proration_length ELSE 0 END        AS c_ProrationCycleLength,
-	       rw.c_UnitValueStart                                                                        AS c_UnitValueStart,
-	       rw.c_UnitValueEnd                                                                          AS c_UnitValueEnd,
-	       rw.c_UnitValue                                                                             AS c_UnitValue,
-	       rcr.n_rating_type                                                                          AS c_RatingType,
 	       rw.c__accountid                                                                            AS c__AccountID,
 	       rw.c__payingaccount                                                                        AS c__PayingAccount,
 	       rw.c__priceableiteminstanceid                                                              AS c__PriceableItemInstanceID,
 	       rw.c__priceableitemtemplateid                                                              AS c__PriceableItemTemplateID,
 	       rw.c__productofferingid                                                                    AS c__ProductOfferingID,
-	       dbo.MTMaxOfTwoDates(new_sub.vt_start, current_sub.vt_start)                                AS c_BilledRateDate,
-	       rw.c__subscriptionid                                                                       AS c__SubscriptionID,
-	       currentui.id_interval                                                                      AS c__IntervalID
+	       rw.c_UnitValueStart                                                                        AS c_UnitValueStart,
+	       rw.c_UnitValueEnd                                                                          AS c_UnitValueEnd,
+	       rw.c_UnitValue                                                                             AS c_UnitValue,
+	       currentui.id_interval                                                                      AS c__IntervalID,
+	       rw.c__subscriptionid                                                                       AS c__SubscriptionID
 	FROM   #recur_window_holder rw
 	       INNER LOOP JOIN t_sub_history new_sub ON new_sub.id_acc = rw.c__AccountID AND new_sub.id_sub = rw.c__SubscriptionID AND new_sub.tt_end = dbo.MTMaxDate()
 	       INNER LOOP JOIN t_sub_history current_sub ON current_sub.id_acc = rw.c__AccountID AND current_sub.id_sub = rw.c__SubscriptionID
@@ -156,7 +152,7 @@ BEGIN
 	SELECT DISTINCT 
 	/* Now, handle the exceptional case above, where (a) an arrears charge, (b) old sub end date was after the end of the pci, (c) new sub end date is inside the pci.
 	* In this case, issue a debit from the pci start to the subscription end immediately. */
-           'Debit'                                                                                    AS c_RCActionType,
+         'Debit'                                                                                    AS c_RCActionType,
 	       pci.dt_start                                                                               AS c_RCIntervalStart,
 	       pci.dt_end                                                                                 AS c_RCIntervalEnd,
 	       paymentInterval.dt_start                                                                   AS c_BillingIntervalStart,
@@ -165,25 +161,23 @@ BEGIN
 	       new_sub.vt_end                                                                             AS c_RCIntervalSubscriptionEnd,
 	       new_sub.vt_start                                                                           AS c_SubscriptionStart,
 	       new_sub.vt_end                                                                             AS c_SubscriptionEnd,
-	       /* Booleans are, stupidly enough, stored as Y/N in one table, but 0/1 in another table.  Convert them. */
+	       new_sub.vt_start                                                                           AS c_BilledRateDate,
+	       rcr.n_rating_type                                                                          AS c_RatingType,
 	       CASE WHEN rw.c_advance = 'Y' THEN '1' ELSE '0' END                                         AS c_Advance,
 	       CASE WHEN rcr.b_prorate_on_activate = 'Y' THEN '1' ELSE '0' END                            AS c_ProrateOnSubscription,
-	       /* NOTE: c_ProrateInstantly - No longer used */
-	       CASE WHEN rcr.b_prorate_instantly = 'Y' THEN '1' ELSE '0' END                              AS c_ProrateInstantly,
+	       CASE WHEN rcr.b_prorate_instantly = 'Y' THEN '1' ELSE '0' END                              AS c_ProrateInstantly, /* NOTE: c_ProrateInstantly - No longer used */
 	       CASE WHEN rcr.b_prorate_on_deactivate = 'Y' THEN '1' ELSE '0' END                          AS c_ProrateOnUnsubscription,
 	       CASE WHEN rcr.b_fixed_proration_length = 'Y' THEN fxd.n_proration_length ELSE 0 END        AS c_ProrationCycleLength,
-	       rw.c_UnitValueStart                                                                        AS c_UnitValueStart,
-	       rw.c_UnitValueEnd                                                                          AS c_UnitValueEnd,
-	       rw.c_UnitValue                                                                             AS c_UnitValue,
-	       rcr.n_rating_type                                                                          AS c_RatingType,
 	       rw.c__accountid                                                                            AS c__AccountID,
 	       rw.c__payingaccount                                                                        AS c__PayingAccount,
 	       rw.c__priceableiteminstanceid                                                              AS c__PriceableItemInstanceID,
 	       rw.c__priceableitemtemplateid                                                              AS c__PriceableItemTemplateID,
 	       rw.c__productofferingid                                                                    AS c__ProductOfferingID,
-	       new_sub.vt_start                                                                           AS c_BilledRateDate,
-	       rw.c__subscriptionid                                                                       AS c__SubscriptionID,
-	       currentui.id_interval                                                                      AS c__IntervalID
+	       rw.c_UnitValueStart                                                                        AS c_UnitValueStart,
+	       rw.c_UnitValueEnd                                                                          AS c_UnitValueEnd,
+	       rw.c_UnitValue                                                                             AS c_UnitValue,
+	       currentui.id_interval                                                                      AS c__IntervalID,
+	       rw.c__subscriptionid                                                                       AS c__SubscriptionID
 	FROM   #recur_window_holder rw
 	       INNER LOOP JOIN t_sub_history new_sub ON new_sub.id_acc = rw.c__AccountID AND new_sub.id_sub = rw.c__SubscriptionID AND new_sub.tt_end = dbo.MTMaxDate()
 	       INNER LOOP JOIN t_sub_history current_sub ON current_sub.id_acc = rw.c__AccountID AND current_sub.id_sub = rw.c__SubscriptionID

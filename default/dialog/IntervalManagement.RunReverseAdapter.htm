@@ -77,7 +77,7 @@
 <!-- Buttons -->
 #MDMIf ADAPTER_RUN_REVERSE_ERROR
 <BR>
-<button OnClick="mdm_RefreshDialog(this)" name="ok" Class="clsOkButton"><MDMLABEL Name="TEXT_OK"></MDMLABEL></button>
+<button OnClick="mdm_RefreshDialog(this); return false;" name="ok" Class="clsOkButton"><MDMLABEL Name="TEXT_OK"></MDMLABEL></button>
 #MDMENDIF 
 
 #MDMNOTIf ADAPTER_RUN_REVERSE_ERROR
@@ -116,8 +116,8 @@
 </script>
 
 <BR><BR>
-<button OnClick="mdm_RefreshDialog(this)" name="ProceedWithWarnings" Class="clsOkButton">Continue</button>
-<button OnClick="mdm_RefreshDialog(this)" name="cancel" Class="clsOkButton"><MDMLABEL Name="TEXT_CANCEL"></MDMLABEL></button>
+<button OnClick="mdm_RefreshDialog(this); return false;" name="ProceedWithWarnings" Class="clsOkButton">Continue</button>
+<button OnClick="mdm_RefreshDialog(this); return false;" name="cancel" Class="clsOkButton"><MDMLABEL Name="TEXT_CANCEL"></MDMLABEL></button>
 #MDMENDIf
 
 </FORM>

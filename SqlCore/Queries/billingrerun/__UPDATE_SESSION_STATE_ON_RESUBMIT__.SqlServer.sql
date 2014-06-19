@@ -2,7 +2,7 @@
 		    declare @mtmaxdate datetime
 	      set @mtmaxdate = dbo.MTMaxDate() 	
 	      update t_session_state
-		        set dt_end =  @mtmaxdate
+		        set dt_end =  %%METRADATE%%
 		        from %%RERUN_TABLE_NAME%%  rr
 		      inner join t_session_state ss WITH (READCOMMITTED)
 		      on rr.id_source_sess = ss.id_sess

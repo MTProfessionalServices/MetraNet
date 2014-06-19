@@ -190,9 +190,9 @@ END FUNCTION
 PRIVATE FUNCTION GetHTMLCodeForButton(strDisplayName,strName,lngReRunID)
 
    if len(strDisplayName)>20 then
-    GetHTMLCodeForButton = PreProcess("&nbsp;&nbsp;<button class='clsButtonBlueXXLarge' name='but[NAME]' OnClick='mdm_RefreshDialogUserCustom(this,""[RERUNID]"");'>[DISPLAYNAME]</button>[CRLF]",Array("DISPLAYNAME",strDisplayName,"NAME",strName,"RERUNID",lngReRunID,"CRLF",vbNewLine))
+    GetHTMLCodeForButton = PreProcess("&nbsp;&nbsp;<button class='clsButtonBlueXXLarge' name='but[NAME]' OnClick='mdm_RefreshDialogUserCustom(this,""[RERUNID]""); return false;'>[DISPLAYNAME]</button>[CRLF]",Array("DISPLAYNAME",strDisplayName,"NAME",strName,"RERUNID",lngReRunID,"CRLF",vbNewLine))
    else
-    GetHTMLCodeForButton = PreProcess("&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='but[NAME]' OnClick='mdm_RefreshDialogUserCustom(this,""[RERUNID]"");'>[DISPLAYNAME]</button>[CRLF]",Array("DISPLAYNAME",strDisplayName,"NAME",strName,"RERUNID",lngReRunID,"CRLF",vbNewLine))
+    GetHTMLCodeForButton = PreProcess("&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='but[NAME]' OnClick='mdm_RefreshDialogUserCustom(this,""[RERUNID]""); return false;'>[DISPLAYNAME]</button>[CRLF]",Array("DISPLAYNAME",strDisplayName,"NAME",strName,"RERUNID",lngReRunID,"CRLF",vbNewLine))
    end if 
 END FUNCTION
 

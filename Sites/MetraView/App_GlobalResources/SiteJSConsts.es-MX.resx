@@ -673,27 +673,27 @@
     <value />
   </data>
   <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{es-MX} Passwords do not match.</value>
+    <value>[es-MX] Passwords do not match.</value>
   </data>  
   <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{es-MX} Enter a valid phone number. Format: 555-555-5555</value>
+    <value>[es-MX] Enter a valid phone number. Format: 555-555-5555</value>
   </data>    
   <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{es-MX} Credit card format is invalid</value>
+    <value>[es-MX] Credit card format is invalid</value>
   </data>      
   <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{es-MX} CV Number is invalid</value>
+    <value>[es-MX] CV Number is invalid</value>
   </data>        
   <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{es-MX} SSN format: xxx-xx-xxxx</value>
+    <value>[es-MX] SSN format: xxx-xx-xxxx</value>
   </data>          
   <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{es-MX} Only numeric digits are allowed</value>
+    <value>[es-MX] Only numeric digits are allowed</value>
   </data>            
   <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{es-MX} Zipcode is invalid</value>
+    <value>[es-MX] Zipcode is invalid</value>
   </data>              
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{es-MX} Middle initial is invalid</value>
+    <value>[es-MX] Middle initial is invalid</value>
   </data>  
 </root>

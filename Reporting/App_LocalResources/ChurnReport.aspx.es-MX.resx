@@ -118,30 +118,30 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="ACCOUNT_ID" xml:space="preserve">
-        <value>(MEXICAN SPANISH) Account Id</value>
+        <value>[es-MX] Account Id</value>
     </data>
     <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>(MEXICAN SPANISH) Churn Report</value>
+        <value>[es-MX] Churn Report</value>
     </data>
     <data name="NO_RECORDS" xml:space="preserve">
-        <value>(MEXICAN SPANISH) No data for display</value>
+        <value>[es-MX] No data for display</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
-        <value>(MEXICAN SPANISH) MetraNet - Churn Report</value>
+        <value>[es-MX] MetraNet - Churn Report</value>
     </data>
     <data name="REPORT_TITLE" xml:space="preserve">
-        <value>(MEXICAN SPANISH) Churn report</value>
+        <value>[es-MX] Churn report</value>
     </data>
     <data name="SUBSCRIPTION_DESCRIPTION" xml:space="preserve">
-        <value>(MEXICAN SPANISH) Subscription description</value>
+        <value>[es-MX] Subscription description</value>
     </data>
     <data name="SUBSCRIPTION_END_DATE" xml:space="preserve">
-        <value>(MEXICAN SPANISH) Subscription end date</value>
+        <value>[es-MX] Subscription end date</value>
     </data>
     <data name="SUBSCRIPTION_NAME" xml:space="preserve">
-        <value>(MEXICAN SPANISH) Subscription name</value>
+        <value>[es-MX] Subscription name</value>
     </data>
     <data name="SUBSCRIPTION_START_DATE" xml:space="preserve">
-        <value>(MEXICAN SPANISH) Subscription start date</value>
+        <value>[es-MX] Subscription start date</value>
     </data>
 </root>

@@ -130,10 +130,10 @@
     <value>Data do ajuste</value>
   </data>
   <data name="adjDescriptionTextBoxResource1.Label" xml:space="preserve">
-    <value>{PT-BR}Internal Descrição</value>
+    <value>[pt-BR]Internal Descrição</value>
   </data>
   <data name="adjDescriptionTextBoxResource2.Label" xml:space="preserve">
-    <value>{PT-BR}Invoice Description</value>
+    <value>[pt-BR]Invoice Description</value>
   </data>
   <data name="adjDescriptionTextBoxResource1.MaxLength" xml:space="preserve">
     <value>-1</value>
@@ -154,16 +154,16 @@
     <value>True</value>
   </data>
   <data name="cbIssueCreditNoteResource1.BoxLabel" xml:space="preserve">
-    <value>{PT-BR}Issue Credit Note For This Adjustment</value>
+    <value>[pt-BR]Issue Credit Note For This Adjustment</value>
   </data>
   <data name="CommentTextBoxResource1.Label" xml:space="preserve">
-    <value>{PT-BR}Comment</value>
+    <value>[pt-BR]Comment</value>
   </data>
   <data name="ddBillingPeriod1.Label" xml:space="preserve">
     <value>Período de faturamento</value>
   </data>
   <data name="ddTemplateTypesResource1.Label" xml:space="preserve">
-    <value>{PT-BR}Credit Note Template To Use</value>
+    <value>[pt-BR]Credit Note Template To Use</value>
   </data>
   <data name="ddReasonCodeResource1.AllowBlank" xml:space="preserve">
     <value>False</value>
@@ -181,7 +181,7 @@
     <value>Emitir ajuste diverso</value>
   </data>
   <data name="MTPanel2Resource1.Text" xml:space="preserve">
-    <value>{PT-BR}Issue Credit Note For This Adjustment</value>
+    <value>[pt-BR]Issue Credit Note For This Adjustment</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
@@ -271,9 +271,9 @@
     <value>[pt-br]Total Adjustment Being Issued</value>
   </data>
   <data name="TEXT_CREDIT_NOTE_CREATED" xml:space="preserve">
-    <value>{PT-BR}A credit note for this Miscellaneous Adjustment was created.</value>
+    <value>[pt-BR]A credit note for this Miscellaneous Adjustment was created.</value>
   </data>
   <data name="TEXT_CREDIT_NOTE_PENDING" xml:space="preserve">
-    <value>{PT-BR}A credit note for this Miscellaneous Adjustment will be created when this Miscellaneous Adjusment is approved.</value>
+    <value>[pt-BR]A credit note for this Miscellaneous Adjustment will be created when this Miscellaneous Adjusment is approved.</value>
   </data>
 </root>

@@ -253,7 +253,7 @@
     <value>取り消し/再実行の作成</value>
   </data>
   <data name="TEXT_CREATE_CREDIT_NOTE" xml:space="preserve">
-    <value>{JA}Create Credit Note</value>
+    <value>[JA]Create Credit Note</value>
   </data>
   <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
     <value>新しい報告書インスタンスの追加</value>
@@ -373,7 +373,7 @@
     <value>セキュリティの管理</value>
   </data>
   <data name="TEXT_MASTER_OFFERINGS" xml:space="preserve">
-    <value>{JA}Master Product Offerings</value>
+    <value>[JA]Master Product Offerings</value>
   </data>
   <data name="TEXT_MENU_GENERATE_PASSWORD" xml:space="preserve">
     <value>パスワードの生成</value>
@@ -559,7 +559,7 @@
     <value>既存の報告書定義の更新</value>
   </data>
   <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-    <value>{JA}Usage Audit</value>
+    <value>[JA]Usage Audit</value>
   </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>利用サーバーのメンテナンス</value>
@@ -571,7 +571,7 @@
     <value>バージョン情報</value>
   </data>
   <data name="TEXT_VIEW_CREDIT_NOTES_ISSUED" xml:space="preserve">
-    <value>{JA}View Credit Notes Issued</value>
+    <value>[JA]View Credit Notes Issued</value>
   </data>
   <data name="TEXT_VIEW_METERING_STATISTICS" xml:space="preserve">
     <value>ビュー</value>
@@ -580,7 +580,7 @@
     <value>オンライン請求書の表示</value>
   </data>
   <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
-    <value>{JA}Approvals</value>
+    <value>[JA]Approvals</value>
   </data>
   <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
     <value>View Item History</value>
@@ -616,24 +616,15 @@
     <value>[ja] Reports</value>
   </data>
   <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
-    <value>{JA}Usage Processing</value>
+    <value>[JA]Usage Processing</value>
   </data> 
   <data name="TEXT_ADD_PARTITION" xml:space="preserve">
-    <value>{JA}Add Partition</value>
+    <value>[JA]Add Partition</value>
   </data>
   <data name="TEXT_QUOTING" xml:space="preserve">
-    <value>{JA}Manage Quotes</value>
+    <value>[JA]Manage Quotes</value>
   </data>
   <data name="TEXT_ACCOUNT" xml:space="preserve">
-    <value>{JA}Account</value>
-  </data>
-  <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
-    <value>{JA}Create Quote</value>
-  </data> 
-  <data name="TEXT_QUOTING_LIST" xml:space="preserve">
-    <value>{JA}View All Quotes</value>
-  </data>
-  <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
-    <value>{JA}Shared Properties</value>
-  </data>   
+    <value>[JA]Account</value>
+  </data>    
 </root>

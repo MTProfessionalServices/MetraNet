@@ -127,7 +127,7 @@
     <value>Product offering ID</value>
   </data>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value>Availible product offerings</value>
+    <value>Available product offerings</value>
   </data>
   <data name="PO_PARTITIONID" xml:space="preserve">
     <value>Partition Id</value>

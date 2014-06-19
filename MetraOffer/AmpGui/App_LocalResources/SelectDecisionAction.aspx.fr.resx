@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
    <data name="PageResource1.Title" xml:space="preserve">
-    <value>(French)MetraNet</value>
+    <value>[FR]MetraNet</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Decision Action for {0} (French)</value>
+    <value>Decision Action for {0} [FR]</value>
   </data>
   <data name="lblIncrementalOrBulkResource1.Text" xml:space="preserve">
     <value>French</value>
   </data>
   <data name="rblIncrementallyResource1.Text" xml:space="preserve">
-    <value>Multi-Bucket (French)</value>
+    <value>Multi-Bucket [FR]</value>
   </data>
   <data name="rblInBulkResource1.Text" xml:space="preserve">
-    <value>Single-Bucket(French)</value>
+    <value>Single-Bucket[FR]</value>
   </data>
   <data name="lblDecisionActionResource1.Text" xml:space="preserve">
     <value>French</value>
@@ -148,7 +148,7 @@
     <value>French</value>
   </data>
   <data name="noChargeResource1.Text" xml:space="preserve">
-    <value>None(French)</value>
+    <value>None[FR]</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>French</value>

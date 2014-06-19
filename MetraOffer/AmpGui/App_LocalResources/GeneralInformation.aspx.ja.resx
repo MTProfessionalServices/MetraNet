@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblGenInfoResource1.Text" xml:space="preserve">
-    <value>Enter information used to describe this decision type. (Japanese)</value>
+    <value>Enter information used to describe this decision type. [JA]</value>
   </data>
   <data name="lblEnterInfoResource1.Text" xml:space="preserve">
     <value>Japanese</value>

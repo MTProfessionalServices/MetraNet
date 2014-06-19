@@ -118,181 +118,181 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>{PT-BR}Operations Dashboard</value>
+    <value>[pt-BR]Operations Dashboard</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>{PT-BR}MetraNet - Operations Dashboard</value>
+    <value>[pt-BR]MetraNet - Operations Dashboard</value>
   </data>
   <data name="pnlFailedAdapters.Text" xml:space="preserve">
-    <value>{PT-BR}Failed Adapters</value>
+    <value>[pt-BR]Failed Adapters</value>
   </data>
   <data name="pnlPendingBillClose.Text" xml:space="preserve">
-    <value>{PT-BR}Pending Bill Close</value>
+    <value>[pt-BR]Pending Bill Close</value>
   </data>
   <data name="pnlRunningAdapters.Text" xml:space="preserve">
-    <value>{PT-BR}Running Adapters</value>
+    <value>[pt-BR]Running Adapters</value>
   </data>
   <data name="NO_FAILED_ADAPTER_RUNS_TEXT" xml:space="preserve">
-    <value>{PT-BR}No Failed Adapter Runs</value>
+    <value>[pt-BR]No Failed Adapter Runs</value>
   </data>
   <data name="NO_PENDING_BILL_CLOSE_TEXT" xml:space="preserve">
-    <value>{PT-BR}No Pending Bill Close</value>
+    <value>[pt-BR]No Pending Bill Close</value>
   </data>
   <data name="NO_RUNNING_ADAPTERS_TEXT" xml:space="preserve">
-    <value>{PT-BR}No Running Adapters</value>
+    <value>[pt-BR]No Running Adapters</value>
   </data>
   <data name="TEXT_BILL_GROUP" xml:space="preserve">
-    <value>{PT-BR}Bill Group</value>
+    <value>[pt-BR]Bill Group</value>
   </data>
   <data name="TEXT_CYCLE" xml:space="preserve">
-    <value>{PT-BR}Cycle</value>
+    <value>[pt-BR]Cycle</value>
   </data>
   <data name="TEXT_DATE" xml:space="preserve">
-    <value>{PT-BR}Date</value>
+    <value>[pt-BR]Date</value>
   </data>
   <data name="TEXT_END" xml:space="preserve">
-    <value>{PT-BR}End</value>
+    <value>[pt-BR]End</value>
   </data>
   <data name="TEXT_INSTANCE" xml:space="preserve">
-    <value>{PT-BR}Instance</value>
+    <value>[pt-BR]Instance</value>
   </data>
   <data name="TEXT_INTERVAL_ID" xml:space="preserve">
-    <value>{PT-BR}Interval ID</value>
+    <value>[pt-BR]Interval ID</value>
   </data>
   <data name="TEXT_MESSAGE" xml:space="preserve">
-    <value>{PT-BR}Message</value>
+    <value>[pt-BR]Message</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
-    <value>{PT-BR}Name</value>
+    <value>[pt-BR]Name</value>
   </data>
   <data name="TEXT_START" xml:space="preserve">
-    <value>{PT-BR}Start</value>
+    <value>[pt-BR]Start</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
-    <value>{PT-BR}Status</value>
+    <value>[pt-BR]Status</value>
   </data>
   <data name="pnlFailedTransactionsQueueResource.Text" xml:space="preserve">
-    <value>{PT-BR}Failed Transactions Queue</value>
+    <value>[pt-BR]Failed Transactions Queue</value>
   </data>
   <data name="TEXT_OPEN" xml:space="preserve">
-    <value>{PT-BR}Open</value>
+    <value>[pt-BR]Open</value>
   </data>
   <data name="TEXT_UNDER_INVESTIGATION" xml:space="preserve">
-    <value>{PT-BR}Under Investigation</value>
+    <value>[pt-BR]Under Investigation</value>
   </data>
   <data name="TEXT_DAYS" xml:space="preserve">
-    <value>{PT-BR}Days</value>
+    <value>[pt-BR]Days</value>
   </data>
   <data name="TEXT_LAST_BATCH" xml:space="preserve">
-    <value>{PT-BR}Last Batch</value>
+    <value>[pt-BR]Last Batch</value>
   </data>
   <data name="TEXT_OVER" xml:space="preserve">
-    <value>{PT-BR}Over</value>
+    <value>[pt-BR]Over</value>
   </data>
   <data name="pnlPricingQueue.Text" xml:space="preserve">
-    <value>{PT-BR}Pricing Queue</value>
+    <value>[pt-BR]Pricing Queue</value>
   </data>
   <data name="TEXT_PIPELINE_QUEUE" xml:space="preserve">
-    <value>{PT-BR}Pipeline Queue</value>
+    <value>[pt-BR]Pipeline Queue</value>
   </data>
   <data name="TEXT_RAMP_QUEUE" xml:space="preserve">
-    <value>{PT-BR}RAMP Queue</value>
+    <value>[pt-BR]RAMP Queue</value>
   </data>
   <data name="TEXT_SCHEDULER_QUEUE" xml:space="preserve">
-    <value>{PT-BR}Scheduler Queue</value>
+    <value>[pt-BR]Scheduler Queue</value>
   </data>
   <data name="TEXT_MESSAGES_WAITING_TO_BE_ASSIGNED" xml:space="preserve">
-    <value>{PT-BR}messages waiting to be assigned</value>
+    <value>[pt-BR]messages waiting to be assigned</value>
   </data>
   <data name="TEXT_MESSAGES_WAITING_IN_RABBITMQ" xml:space="preserve">
-    <value>{PT-BR}messages waiting in RabbitMQ</value>
+    <value>[pt-BR]messages waiting in RabbitMQ</value>
   </data>
   <data name="TEXT_TASKS_WAITING_TO_BE_PROCESSED" xml:space="preserve">
-    <value>{PT-BR}tasks waiting to be processed</value>
+    <value>[pt-BR]tasks waiting to be processed</value>
   </data>
   <data name="pnlBatchUsageResource.Text" xml:space="preserve">
-    <value>{PT-BR}Usage Data Records</value>
+    <value>[pt-BR]Usage Data Records</value>
   </data>
   <data name="TEXT_BATCHES" xml:space="preserve">
-    <value>{PT-BR}Batches</value>
+    <value>[pt-BR]Batches</value>
   </data>
   <data name="TEXT_UDRS" xml:space="preserve">
-    <value>{PT-BR}UDRs</value>
+    <value>[pt-BR]UDRs</value>
   </data>
   <data name="pnlActiveBillRun.Text" xml:space="preserve">
-    <value>{PT-BR}Active Bill Run</value>
+    <value>[pt-BR]Active Bill Run</value>
   </data>
   <data name="TEXT_3_MONTH_AVERAGE" xml:space="preserve">
-    <value>{PT-BR}3 Month Average</value>
+    <value>[pt-BR]3 Month Average</value>
   </data>
   <data name="TEXT_ADAPTER" xml:space="preserve">
-    <value>{PT-BR}Adapter</value>
+    <value>[pt-BR]Adapter</value>
   </data>
   <data name="TEXT_CURRENT_RUN" xml:space="preserve">
-    <value>{PT-BR}Current Run</value>
+    <value>[pt-BR]Current Run</value>
   </data>
   <data name="TEXT_CURRENT_VS_3_MONTH_AVERAGE" xml:space="preserve">
-    <value>{PT-BR}Current vs 3 Month Average</value>
+    <value>[pt-BR]Current vs 3 Month Average</value>
   </data>
   <data name="TEXT_DURATION" xml:space="preserve">
-    <value>{PT-BR}Duration</value>
+    <value>[pt-BR]Duration</value>
   </data>
   <data name="TEXT_EARLIEST_ETA" xml:space="preserve">
-    <value>{PT-BR}Earliest ETA</value>
+    <value>[pt-BR]Earliest ETA</value>
   </data>
   <data name="TEXT_READY" xml:space="preserve">
-    <value>{PT-BR}Ready</value>
+    <value>[pt-BR]Ready</value>
   </data>
   <data name="TEXT_SUCCESSFUL" xml:space="preserve">
-    <value>{PT-BR}Successful</value>
+    <value>[pt-BR]Successful</value>
   </data>
   <data name="TEXT_VARIANCE" xml:space="preserve">
-    <value>{PT-BR}Variance</value>
+    <value>[pt-BR]Variance</value>
   </data>
   <data name="TEXT_WAITING" xml:space="preserve">
-    <value>{PT-BR}Waiting</value>
+    <value>[pt-BR]Waiting</value>
   </data>
   <data name="lblBillCloseSynopisBillGroupsResource.Text" xml:space="preserve">
-    <value>{PT-BR}Bill Groups:</value>
+    <value>[pt-BR]Bill Groups:</value>
   </data>
   <data name="lblBillCloseSynopisDaysUntilRunResource.Text" xml:space="preserve">
-    <value>{PT-BR}Days Until Run</value>
+    <value>[pt-BR]Days Until Run</value>
   </data>
   <data name="lblBillCloseSynopisEndResource.Text" xml:space="preserve">
-    <value>{PT-BR}End:</value>
+    <value>[pt-BR]End:</value>
   </data>
   <data name="lblBillCloseSynopisStartResource.Text" xml:space="preserve">
-    <value>{PT-BR}Start:</value>
+    <value>[pt-BR]Start:</value>
   </data>
   <data name="lblBillCloseSynopisTypeResource.Text" xml:space="preserve">
-    <value>{PT-BR}Type:</value>
+    <value>[pt-BR]Type:</value>
   </data>
   <data name="pnlBillCloseSynopsisResource.Text" xml:space="preserve">
-    <value>{PT-BR}Bill Close Synopsis</value>
+    <value>[pt-BR]Bill Close Synopsis</value>
   </data>
   <data name="TEXT_FIXED" xml:space="preserve">
-    <value>{PT-BR}Fixed</value>
+    <value>[pt-BR]Fixed</value>
   </data>
   <data name="TEXT_UNGUIDED" xml:space="preserve">
-    <value>{PT-BR}Unguided</value>
+    <value>[pt-BR]Unguided</value>
   </data>
   <data name="pnlPricingBacklog.Text" xml:space="preserve">
-    <value>{PT-BR}Pricing Engine (Real-Time and Batch)</value>
+    <value>[pt-BR]Pricing Engine (Real-Time and Batch)</value>
   </data>
   <data name="TEXT_PIPELINE_WAIT_DURATION" xml:space="preserve">
-    <value>{PT-BR}Pipeline Wait Duration</value>
+    <value>[pt-BR]Pipeline Wait Duration</value>
   </data>
   <data name="TEXT_PIPELINE_PROCESSING_DURATION" xml:space="preserve">
-    <value>{PT-BR}Pipeline Processing Duration</value>
+    <value>[pt-BR]Pipeline Processing Duration</value>
   </data>
   <data name="TEXT_SECONDS_PROCESSING_IN_PIPELINE" xml:space="preserve">
-    <value>{PT-BR}seconds processing in the pipeline </value>
+    <value>[pt-BR]seconds processing in the pipeline </value>
   </data>
   <data name="TEXT_SECONDS_WAITING_TO_BE_ASSIGNED" xml:space="preserve">
-    <value>{PT-BR}seconds waiting to be assigned</value>
+    <value>[pt-BR]seconds waiting to be assigned</value>
   </data>
   <data name="TEXT_DAYS_BACK" xml:space="preserve">
-    <value>{PT-BR}days back</value>
+    <value>[pt-BR]days back</value>
   </data>
   <data name="DATE_FORMAT_JS" xml:space="preserve">
     <value>%d/%m/%Y %X</value>

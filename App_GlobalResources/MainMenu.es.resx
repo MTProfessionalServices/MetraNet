@@ -253,7 +253,7 @@
     <value>Crear devolución/repetición</value>
   </data>
   <data name="TEXT_CREATE_CREDIT_NOTE" xml:space="preserve">
-    <value>{ES}Create Credit Note</value>
+    <value>[ES]Create Credit Note</value>
   </data>
   <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
     <value>Añadir nueva instancia de informe</value>
@@ -373,7 +373,7 @@
     <value>Gestionar seguridad</value>
   </data>
   <data name="TEXT_MASTER_OFFERINGS" xml:space="preserve">
-    <value>{ES}Master Product Offerings</value>
+    <value>[ES]Master Product Offerings</value>
   </data>
   <data name="TEXT_MENU_GENERATE_PASSWORD" xml:space="preserve">
     <value>Generar contraseña</value>
@@ -559,7 +559,7 @@
     <value>Actualizar definición de informe existente</value>
   </data>
   <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-    <value>{ES}Usage Audit</value>
+    <value>[ES]Usage Audit</value>
   </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>Mantenimiento del servidor de uso</value>
@@ -571,7 +571,7 @@
     <value>Información de la versión</value>
   </data>
   <data name="TEXT_VIEW_CREDIT_NOTES_ISSUED" xml:space="preserve">
-    <value>{ES}View Credit Notes Issued</value>
+    <value>[ES]View Credit Notes Issued</value>
   </data>
   <data name="TEXT_VIEW_METERING_STATISTICS" xml:space="preserve">
     <value>Ver</value>
@@ -580,7 +580,7 @@
     <value>Ver factura en línea</value>
   </data>
   <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
-    <value>{ES}Approvals</value>
+    <value>[ES]Approvals</value>
   </data>
   <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
     <value>View Item History</value>
@@ -622,16 +622,16 @@
     <value>[es] Reports</value>
   </data> 
   <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
-    <value>{ES}Usage Processing</value>
+    <value>[ES]Usage Processing</value>
   </data>
   <data name="TEXT_ADD_PARTITION" xml:space="preserve">
-    <value>{ES}Add Partition</value>
+    <value>[ES]Add Partition</value>
   </data>
   <data name="TEXT_QUOTING" xml:space="preserve">
-    <value>{ES}Manage Quotes</value>
+    <value>[ES]Manage Quotes</value>
   </data> 
   <data name="TEXT_ACCOUNT" xml:space="preserve">
-    <value>{ES}Account</value>
+    <value>[ES]Account</value>
   </data>
   <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
     <value>{ES}Create Quote</value>

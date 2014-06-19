@@ -118,48 +118,48 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TEXT_DB_STATUS" xml:space="preserve">
-    <value>(BRAZILAN PORTUGUESE) DB Status</value>
+    <value>[pt-BR] DB Status</value>
   </data>
   <data name="TEXT_END_DATE" xml:space="preserve">
-    <value>(BRAZILAN PORTUGUESE) End Date</value>
+    <value>[pt-BR] End Date</value>
   </data>
   <data name="TEXT_GRID_TITLE" xml:space="preserve">
-    <value>(BRAZILAN PORTUGUESE) All Intervals</value>
+    <value>[pt-BR] All Intervals</value>
   </data>
   <data name="TEXT_GRID_TITLE_ACTIVE_INTERVALS" xml:space="preserve">
-    <value>(BRAZILAN PORTUGUESE) Active Intervals</value>
+    <value>[pt-BR] Active Intervals</value>
   </data>
   <data name="TEXT_GRID_TITLE_BILLABLE_INTERVALS" xml:space="preserve">
-    <value>(BRAZILAN PORTUGUESE) Billable Intervals</value>
+    <value>[pt-BR] Billable Intervals</value>
   </data>
   <data name="TEXT_GRID_TITLE_COMPLETED_INTERVALS" xml:space="preserve">
-    <value>(BRAZILAN PORTUGUESE) Completed Intervals</value>
+    <value>[pt-BR] Completed Intervals</value>
   </data>
   <data name="TEXT_GROUP" xml:space="preserve">
-    <value>(BRAZILAN PORTUGUESE) Groups</value>
+    <value>[pt-BR] Groups</value>
   </data>
   <data name="TEXT_HARD_CLOSED" xml:space="preserve">
-    <value>(BRAZILAN PORTUGUESE) Hard Closed</value>
+    <value>[pt-BR] Hard Closed</value>
   </data>
   <data name="TEXT_ID" xml:space="preserve">
-    <value>(BRAZILAN PORTUGUESE) Interval ID</value>
+    <value>[pt-BR] Interval ID</value>
   </data>
   <data name="TEXT_OPEN" xml:space="preserve">
-    <value>(BRAZILAN PORTUGUESE) Open</value>
+    <value>[pt-BR] Open</value>
   </data>
   <data name="TEXT_SOFT_CLOSED" xml:space="preserve">
-    <value>(BRAZILAN PORTUGUESE) Soft Closed</value>
+    <value>[pt-BR] Soft Closed</value>
   </data>
   <data name="TEXT_START_DATE" xml:space="preserve">
-    <value>(BRAZILAN PORTUGUESE) Start Date</value>
+    <value>[pt-BR] Start Date</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
-    <value>(BRAZILAN PORTUGUESE) Status</value>
+    <value>[pt-BR] Status</value>
   </data>
   <data name="TEXT_UNKNOWN" xml:space="preserve">
-    <value>(BRAZILAN PORTUGUESE) Unknown</value>
+    <value>[pt-BR] Unknown</value>
   </data>
   <data name="TEXT_USAGE_CYCLE_TYPE" xml:space="preserve">
-    <value>(BRAZILAN PORTUGUESE) Usage Cycle Type</value>
+    <value>[pt-BR] Usage Cycle Type</value>
   </data>
 </root>

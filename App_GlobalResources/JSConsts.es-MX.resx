@@ -169,7 +169,7 @@
     <value>Éxito</value>
   </data>
   <data name="TEXT_ACCOUNT" xml:space="preserve">
-    <value>{ES-MX}Account</value>
+    <value>[es-MX]Account</value>
   </data>
   <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
     <value>Detalles</value>
@@ -931,7 +931,7 @@
     <value>Mexican Spanish</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_GENERAL_INFO" xml:space="preserve">
-    <value>A &lt;i&gt;Decision&lt;/i&gt;  is used to analyze usage records (rated billing records) and possibly modify charges on the basis of this analysis.  Decisions are necessary when it is impossible to determine the amount by examining a single isolated record.&lt;br/&gt;For example, you may want to give a special rate if the number of telephone minutes used during the month is &gt; 1000.  You can only determine the rate to use after adding up all the usage records.  If the minutes are &gt; 1000, then for each record the rate is changed and a new charge amount is calculated. (Mexican Spanish)</value>
+    <value>A &lt;i&gt;Decision&lt;/i&gt;  is used to analyze usage records (rated billing records) and possibly modify charges on the basis of this analysis.  Decisions are necessary when it is impossible to determine the amount by examining a single isolated record.&lt;br/&gt;For example, you may want to give a special rate if the number of telephone minutes used during the month is &gt; 1000.  You can only determine the rate to use after adding up all the usage records.  If the minutes are &gt; 1000, then for each record the rate is changed and a new charge amount is calculated. [es-MX]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
     <value>Mexican Spanish</value>
@@ -961,25 +961,25 @@
     <value>Mexican Spanish</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_ITEMS_TO_AGGREGATE" xml:space="preserve">
-    <value>(MEXICAN SPANISH) For example, suppose the Decision Type is \"Use a special rate if the number of minutes of usage is over 500\". The settings might include \"500\" and the \"special rate\" to apply.</value>
+    <value>[es-MX] For example, suppose the Decision Type is \"Use a special rate if the number of minutes of usage is over 500\". The settings might include \"500\" and the \"special rate\" to apply.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Help:  Aggregation Method</value>
+    <value>[es-MX] Help:  Aggregation Method</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Decisions are used when a monetary charge amount cannot be calculated by looking at a single record. Instead, many usage records must be examined and a total must be the number of events, units of usage, or charge amounts. The total, or aggregate, is then used to help determine the charge amount.</value>
+    <value>[es-MX] Decisions are used when a monetary charge amount cannot be calculated by looking at a single record. Instead, many usage records must be examined and a total must be the number of events, units of usage, or charge amounts. The total, or aggregate, is then used to help determine the charge amount.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_MONETARY_CHARGE" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Example: \"Apply a discount if there's over $100 in charges.\"</value>
+    <value>[es-MX] Example: \"Apply a discount if there's over $100 in charges.\"</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_UNIT_OF_USAGE" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Example: \"Use a special rate if over 1,000 minutes.\"</value>
+    <value>[es-MX] Example: \"Use a special rate if over 1,000 minutes.\"</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_COUNT_NUMBER_OF_EVENTS" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Example: \"Apply a discount if over 100 calls were made.\"</value>
+    <value>[es-MX] Example: \"Apply a discount if over 100 calls were made.\"</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_FROM_PARAMETER_TABLE" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Usage is aggregated based on the value set in the parameter table.</value>
+    <value>[es-MX] Usage is aggregated based on the value set in the parameter table.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
     <value>Mexican Spanish</value>
@@ -991,7 +991,7 @@
     <value>Mexican Spanish</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Help:  Decision Domain</value>
+    <value>[es-MX] Help:  Decision Domain</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP" xml:space="preserve">
     <value>Mexican Spanish</value>
@@ -1045,16 +1045,16 @@
     <value>Mexican Spanish</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
-    <value>(Mexican Spanish)Help: Multi-bucket</value>
+    <value>[es-MX]Help: Multi-bucket</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
-    <value>(Mexican Spanish)Act on each individual record.  Usage may have different prices  which are determined by the bucket into which they fall.</value>
+    <value>[es-MX]Act on each individual record.  Usage may have different prices  which are determined by the bucket into which they fall.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
-    <value>(Mexican Spanish)Help: Single-bucket</value>
+    <value>[es-MX]Help: Single-bucket</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
-    <value>(Mexican Spanish)Act on all the records together.  All usage has same price which is determined by total volume.</value>
+    <value>[es-MX]Act on all the records together.  All usage has same price which is determined by total volume.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_UNIT_RATE" xml:space="preserve">
     <value>Mexican Spanish</value>
@@ -1081,10 +1081,10 @@
     <value>Mexican Spanish</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
-    <value>(Mexican Spanish) Help:  None</value>
+    <value>[es-MX] Help:  None</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
-    <value>(Mexican Spanish) Do not generate a charge for this decision</value>
+    <value>[es-MX] Do not generate a charge for this decision</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_GENERATED_CHARGE_GRID" xml:space="preserve">
     <value>Mexican Spanish</value>
@@ -1186,43 +1186,43 @@
     <value>[es-MX]Start Date can't be greater than End Date</value>
   </data>
   <data name="TEXT_HARD_CLOSED_INTERVAL_STATUS" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Hard Closed</value>
+    <value>[es-MX] Hard Closed</value>
   </data>
   <data name="TEXT_OPEN_INTERVAL_STATUS" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Open</value>
+    <value>[es-MX] Open</value>
   </data>
   <data name="TEXT_SOFT_CLOSED_INTERVAL_STATUS" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Soft Closed</value>
+    <value>[es-MX] Soft Closed</value>
   </data>
   <data name="TEXT_UNKNOWN_INTERVAL_STATUS" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Unknown</value>
+    <value>[es-MX] Unknown</value>
   </data>
   <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Passwords do not match.</value>
+    <value>[es-MX] Passwords do not match.</value>
   </data>
   <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Enter a valid phone number. Format: 555-555-5555</value>
+    <value>[es-MX] Enter a valid phone number. Format: 555-555-5555</value>
   </data>
   <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Credit card format is invalid</value>
+    <value>[es-MX] Credit card format is invalid</value>
   </data>
   <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(MEXICAN SPANISH) CV Number is invalid</value>
+    <value>[es-MX] CV Number is invalid</value>
   </data>
   <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(MEXICAN SPANISH) SSN format: xxx-xx-xxxx</value>
+    <value>[es-MX] SSN format: xxx-xx-xxxx</value>
   </data>
   <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Only numeric digits are allowed</value>
+    <value>[es-MX] Only numeric digits are allowed</value>
   </data>
   <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Zipcode is invalid</value>
+    <value>[es-MX] Zipcode is invalid</value>
   </data>
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Middle initial is invalid</value>
+    <value>[es-MX] Middle initial is invalid</value>
   </data>
   <data name="TEXT_RETRY_COLUMN" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Retry</value>
+    <value>[es-MX] Retry</value>
   </data>
   <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
     <value>{MEXICAN SPANISH} Resubmitted Request</value>
@@ -1273,13 +1273,13 @@
     <value>[es-MX] Failed Transactions</value>
   </data>
   <data name="REPORTS_TREE_HEADER_DESCRIPTION" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Description</value>
+    <value>[es-MX] Description</value>
   </data>
   <data name="REPORTS_TREE_HEADER_NAME" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Name</value>
+    <value>[es-MX] Name</value>
   </data>
   <data name="REPORTS_TREE_NOT_APPLICABLE_TEXT" xml:space="preserve">
-    <value>(MEXICAN SPANISH) N/A</value>
+    <value>[es-MX] N/A</value>
   </data>
   <data name="TEXT_ACCOUNT_TYPE" xml:space="preserve">
     <value>{ES-MX}Account Type</value>

@@ -118,181 +118,181 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>{ES}Operations Dashboard</value>
+    <value>[ES]Operations Dashboard</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>{ES}MetraNet - Operations Dashboard</value>
+    <value>[ES]MetraNet - Operations Dashboard</value>
   </data>
   <data name="pnlFailedAdapters.Text" xml:space="preserve">
-    <value>{ES}Failed Adapters</value>
+    <value>[ES]Failed Adapters</value>
   </data>
   <data name="pnlPendingBillClose.Text" xml:space="preserve">
-    <value>{ES}Pending Bill Close</value>
+    <value>[ES]Pending Bill Close</value>
   </data>
   <data name="pnlRunningAdapters.Text" xml:space="preserve">
-    <value>{ES}Running Adapters</value>
+    <value>[ES]Running Adapters</value>
   </data>
   <data name="NO_FAILED_ADAPTER_RUNS_TEXT" xml:space="preserve">
-    <value>{ES}No Failed Adapter Runs</value>
+    <value>[ES]No Failed Adapter Runs</value>
   </data>
   <data name="NO_PENDING_BILL_CLOSE_TEXT" xml:space="preserve">
-    <value>{ES}No Pending Bill Close</value>
+    <value>[ES]No Pending Bill Close</value>
   </data>
   <data name="NO_RUNNING_ADAPTERS_TEXT" xml:space="preserve">
-    <value>{ES}No Running Adapters</value>
+    <value>[ES]No Running Adapters</value>
   </data>
   <data name="TEXT_BILL_GROUP" xml:space="preserve">
-    <value>{ES}Bill Group</value>
+    <value>[ES]Bill Group</value>
   </data>
   <data name="TEXT_CYCLE" xml:space="preserve">
-    <value>{ES}Cycle</value>
+    <value>[ES]Cycle</value>
   </data>
   <data name="TEXT_DATE" xml:space="preserve">
-    <value>{ES}Date</value>
+    <value>[ES]Date</value>
   </data>
   <data name="TEXT_END" xml:space="preserve">
-    <value>{ES}End</value>
+    <value>[ES]End</value>
   </data>
   <data name="TEXT_INSTANCE" xml:space="preserve">
-    <value>{ES}Instance</value>
+    <value>[ES]Instance</value>
   </data>
   <data name="TEXT_INTERVAL_ID" xml:space="preserve">
-    <value>{ES}Interval ID</value>
+    <value>[ES]Interval ID</value>
   </data>
   <data name="TEXT_MESSAGE" xml:space="preserve">
-    <value>{ES}Message</value>
+    <value>[ES]Message</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
-    <value>{ES}Name</value>
+    <value>[ES]Name</value>
   </data>
   <data name="TEXT_START" xml:space="preserve">
-    <value>{ES}Start</value>
+    <value>[ES]Start</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
-    <value>{ES}Status</value>
+    <value>[ES]Status</value>
   </data>
   <data name="pnlFailedTransactionsQueueResource.Text" xml:space="preserve">
-    <value>{ES}Failed Transactions Queue</value>
+    <value>[ES]Failed Transactions Queue</value>
   </data>
   <data name="TEXT_OPEN" xml:space="preserve">
-    <value>{ES}Open</value>
+    <value>[ES]Open</value>
   </data>
   <data name="TEXT_UNDER_INVESTIGATION" xml:space="preserve">
-    <value>{ES}Under Investigation</value>
+    <value>[ES]Under Investigation</value>
   </data>
   <data name="TEXT_DAYS" xml:space="preserve">
-    <value>{ES}Days</value>
+    <value>[ES]Days</value>
   </data>
   <data name="TEXT_LAST_BATCH" xml:space="preserve">
-    <value>{ES}Last Batch</value>
+    <value>[ES]Last Batch</value>
   </data>
   <data name="TEXT_OVER" xml:space="preserve">
-    <value>{ES}Over</value>
+    <value>[ES]Over</value>
   </data>
   <data name="pnlPricingQueue.Text" xml:space="preserve">
-    <value>{ES}Pricing Queue</value>
+    <value>[ES]Pricing Queue</value>
   </data>
   <data name="TEXT_PIPELINE_QUEUE" xml:space="preserve">
-    <value>{ES}Pipeline Queue</value>
+    <value>[ES]Pipeline Queue</value>
   </data>
   <data name="TEXT_RAMP_QUEUE" xml:space="preserve">
-    <value>{ES}RAMP Queue</value>
+    <value>[ES]RAMP Queue</value>
   </data>
   <data name="TEXT_SCHEDULER_QUEUE" xml:space="preserve">
-    <value>{ES}Scheduler Queue</value>
+    <value>[ES]Scheduler Queue</value>
   </data>
   <data name="TEXT_MESSAGES_WAITING_TO_BE_ASSIGNED" xml:space="preserve">
-    <value>{ES}messages waiting to be assigned</value>
+    <value>[ES]messages waiting to be assigned</value>
   </data>
   <data name="TEXT_MESSAGES_WAITING_IN_RABBITMQ" xml:space="preserve">
-    <value>{ES}messages waiting in RabbitMQ</value>
+    <value>[ES]messages waiting in RabbitMQ</value>
   </data>
   <data name="TEXT_TASKS_WAITING_TO_BE_PROCESSED" xml:space="preserve">
-    <value>{ES}tasks waiting to be processed</value>
+    <value>[ES]tasks waiting to be processed</value>
   </data>
   <data name="pnlBatchUsageResource.Text" xml:space="preserve">
-    <value>{ES}Usage Data Records</value>
+    <value>[ES]Usage Data Records</value>
   </data>
   <data name="TEXT_BATCHES" xml:space="preserve">
-    <value>{ES}Batches</value>
+    <value>[ES]Batches</value>
   </data>
   <data name="TEXT_UDRS" xml:space="preserve">
-    <value>{ES}UDRs</value>
+    <value>[ES]UDRs</value>
   </data>
   <data name="pnlActiveBillRun.Text" xml:space="preserve">
-    <value>{ES}Active Bill Run</value>
+    <value>[ES]Active Bill Run</value>
   </data>
   <data name="TEXT_3_MONTH_AVERAGE" xml:space="preserve">
-    <value>{ES}3 Month Average</value>
+    <value>[ES]3 Month Average</value>
   </data>
   <data name="TEXT_ADAPTER" xml:space="preserve">
-    <value>{ES}Adapter</value>
+    <value>[ES]Adapter</value>
   </data>
   <data name="TEXT_CURRENT_RUN" xml:space="preserve">
-    <value>{ES}Current Run</value>
+    <value>[ES]Current Run</value>
   </data>
   <data name="TEXT_CURRENT_VS_3_MONTH_AVERAGE" xml:space="preserve">
-    <value>{ES}Current vs 3 Month Average</value>
+    <value>[ES]Current vs 3 Month Average</value>
   </data>
   <data name="TEXT_DURATION" xml:space="preserve">
-    <value>{ES}Duration</value>
+    <value>[ES]Duration</value>
   </data>
   <data name="TEXT_EARLIEST_ETA" xml:space="preserve">
-    <value>{ES}Earliest ETA</value>
+    <value>[ES]Earliest ETA</value>
   </data>
   <data name="TEXT_READY" xml:space="preserve">
-    <value>{ES}Ready</value>
+    <value>[ES]Ready</value>
   </data>
   <data name="TEXT_SUCCESSFUL" xml:space="preserve">
-    <value>{ES}Successful</value>
+    <value>[ES]Successful</value>
   </data>
   <data name="TEXT_VARIANCE" xml:space="preserve">
-    <value>{ES}Variance</value>
+    <value>[ES]Variance</value>
   </data>
   <data name="TEXT_WAITING" xml:space="preserve">
-    <value>{ES}Waiting</value>
+    <value>[ES]Waiting</value>
   </data>
   <data name="lblBillCloseSynopisBillGroupsResource.Text" xml:space="preserve">
-    <value>{ES}Bill Groups:</value>
+    <value>[ES]Bill Groups:</value>
   </data>
   <data name="lblBillCloseSynopisDaysUntilRunResource.Text" xml:space="preserve">
-    <value>{ES}Days Until Run</value>
+    <value>[ES]Days Until Run</value>
   </data>
   <data name="lblBillCloseSynopisEndResource.Text" xml:space="preserve">
-    <value>{ES}End:</value>
+    <value>[ES]End:</value>
   </data>
   <data name="lblBillCloseSynopisStartResource.Text" xml:space="preserve">
-    <value>{ES}Start:</value>
+    <value>[ES]Start:</value>
   </data>
   <data name="lblBillCloseSynopisTypeResource.Text" xml:space="preserve">
-    <value>{ES}Type:</value>
+    <value>[ES]Type:</value>
   </data>
   <data name="pnlBillCloseSynopsisResource.Text" xml:space="preserve">
-    <value>{ES}Bill Close Synopsis</value>
+    <value>[ES]Bill Close Synopsis</value>
   </data>
   <data name="TEXT_FIXED" xml:space="preserve">
-    <value>{ES}Fixed</value>
+    <value>[ES]Fixed</value>
   </data>
   <data name="TEXT_UNGUIDED" xml:space="preserve">
-    <value>{ES}Unguided</value>
+    <value>[ES]Unguided</value>
   </data>
   <data name="pnlPricingBacklog.Text" xml:space="preserve">
-    <value>{ES}Pricing Engine (Real-Time and Batch)</value>
+    <value>[ES]Pricing Engine (Real-Time and Batch)</value>
   </data>
   <data name="TEXT_PIPELINE_WAIT_DURATION" xml:space="preserve">
-    <value>{ES}Pipeline Wait Duration</value>
+    <value>[ES]Pipeline Wait Duration</value>
   </data>
   <data name="TEXT_PIPELINE_PROCESSING_DURATION" xml:space="preserve">
-    <value>{ES}Pipeline Processing Duration</value>
+    <value>[ES]Pipeline Processing Duration</value>
   </data>
   <data name="TEXT_SECONDS_PROCESSING_IN_PIPELINE" xml:space="preserve">
-    <value>{ES}seconds processing in the pipeline </value>
+    <value>[ES]seconds processing in the pipeline </value>
   </data>
   <data name="TEXT_SECONDS_WAITING_TO_BE_ASSIGNED" xml:space="preserve">
-    <value>{ES}seconds waiting to be assigned</value>
+    <value>[ES]seconds waiting to be assigned</value>
   </data>
   <data name="TEXT_DAYS_BACK" xml:space="preserve">
-    <value>{ES}days back</value>
+    <value>[ES]days back</value>
   </data>
   <data name="DATE_FORMAT_JS" xml:space="preserve">
     <value>%d/%m/%Y %X</value>

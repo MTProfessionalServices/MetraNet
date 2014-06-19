@@ -253,7 +253,7 @@
     <value>Crea ritiro/nuova esecuzione</value>
   </data>
   <data name="TEXT_CREATE_CREDIT_NOTE" xml:space="preserve">
-    <value>{IT}Create Credit Note</value>
+    <value>[IT]Create Credit Note</value>
   </data>
   <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
     <value>Aggiungi nuova istanza rapporto</value>
@@ -373,7 +373,7 @@
     <value>Gestisci sicurezza</value>
   </data>
   <data name="TEXT_MASTER_OFFERINGS" xml:space="preserve">
-    <value>{IT}Master Product Offerings</value>
+    <value>[IT]Master Product Offerings</value>
   </data>
   <data name="TEXT_MENU_GENERATE_PASSWORD" xml:space="preserve">
     <value>Genera password</value>
@@ -559,7 +559,7 @@
     <value>Aggiorna definizione rapporto esistente</value>
   </data>
   <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-    <value>{IT}Usage Audit</value>
+    <value>[IT]Usage Audit</value>
   </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>Manutenzione server di utilizzo</value>
@@ -571,7 +571,7 @@
     <value>Informazioni sulla versione</value>
   </data>
   <data name="TEXT_VIEW_CREDIT_NOTES_ISSUED" xml:space="preserve">
-    <value>{IT}View Credit Notes Issued</value>
+    <value>[IT]View Credit Notes Issued</value>
   </data>
   <data name="TEXT_VIEW_METERING_STATISTICS" xml:space="preserve">
     <value>Visualizza</value>
@@ -580,7 +580,7 @@
     <value>Visualizza fattura in linea</value>
   </data>
   <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
-    <value>{IT}Approvals</value>
+    <value>[IT]Approvals</value>
   </data>
   <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
     <value>View Item History</value>
@@ -622,24 +622,15 @@
     <value>[it] Reports</value>
   </data>
   <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
-    <value>{IT}Usage Processing</value>
+    <value>[IT]Usage Processing</value>
   </data> 
   <data name="TEXT_ADD_PARTITION" xml:space="preserve">
-    <value>{IT}Add Partition</value>
+    <value>[IT]Add Partition</value>
   </data>
   <data name="TEXT_QUOTING" xml:space="preserve">
-    <value>{IT}Manage Quotes</value>
+    <value>[IT]Manage Quotes</value>
   </data>
   <data name="TEXT_ACCOUNT" xml:space="preserve">
-    <value>{IT}Account</value>
-  </data>
-  <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
-    <value>{IT}Create Quote</value>
+    <value>[IT]Account</value>
   </data>  
-  <data name="TEXT_QUOTING_LIST" xml:space="preserve">
-    <value>{IT}View All Quotes</value>
-  </data>
-  <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
-    <value>{IT}Shared Properties</value>
-  </data>   
 </root>

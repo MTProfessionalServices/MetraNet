@@ -111,6 +111,7 @@ public partial class ApprovalFrameworkManagement_AjaxServices_GetGroupSubscripti
                 changeDetailsDisplay.StartDate = (timeSpan.StartDate == null) ? " " : timeSpan.StartDate.ToString();
                 changeDetailsDisplay.EndDate = (timeSpan.EndDate == null) ? " " : timeSpan.EndDate.ToString();
               }
+              changeDetailsDisplay.AccountName = string.IsNullOrEmpty(account.Key.Username) ? string.Empty : account.Key.Username;
               items.Items.Add(changeDetailsDisplay);
             }
           }
@@ -184,7 +185,7 @@ public partial class ApprovalFrameworkManagement_AjaxServices_GetGroupSubscripti
         changeDetailsDisplay.StartDate = (timeSpan.StartDate == null) ? " " : timeSpan.StartDate.ToString();
         changeDetailsDisplay.EndDate = (timeSpan.EndDate == null) ? " " : timeSpan.EndDate.ToString();
       }
-
+      changeDetailsDisplay.AccountName = string.IsNullOrEmpty(account.AccountName) ? string.Empty : account.AccountName;
       GroupSubscriptionMember oldMemberInfo = null;
       gsClient.GetMemberInfoForGroupSubscription(changeDetailsDisplay.GroupSubId, changeDetailsDisplay.MemberId, ref oldMemberInfo);
       changeDetailsDisplay.OldStartDate = (oldMemberInfo != null) ? oldMemberInfo.MembershipSpan.StartDate.ToString() : "";

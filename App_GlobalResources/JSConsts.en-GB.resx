@@ -1218,4 +1218,7 @@
   <data name="REPORTS_TREE_NOT_APPLICABLE_TEXT" xml:space="preserve">
     <value>N/A</value>
   </data>
+  <data name="TEXT_ACCOUNT_TYPE" xml:space="preserve">
+    <value>Account Type</value>
+  </data>
 </root>

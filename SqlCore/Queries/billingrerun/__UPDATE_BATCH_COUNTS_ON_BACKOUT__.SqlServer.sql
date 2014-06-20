@@ -1,7 +1,8 @@
+
 update t_batch
   set t_batch.n_completed = t_batch.n_completed - ISNULL(count_summ.backout_count, 0),
       /*t_batch.n_failed = t_batch.n_failed - ISNULL(count_summ.error_count, 0),*/
-      t_batch.n_failed = (select COUNT(*) from t_failed_transaction ft where ft.tx_Batch_Encoded=t_batch.tx_Batch_Encoded and ft.State='N') - ISNULL(count_summ.error_count,0),
+	  t_batch.n_failed = ((select count(*) from t_failed_transaction ft where ft.tx_Batch_Encoded=t_batch.tx_Batch_Encoded and ft.State in ('I','N','C')) - ISNULL(count_summ.error_count,0)),
       /* CORE-1426 - keep track of dismissed records */
       /*t_batch.n_dismissed = ISNULL(t_batch.n_dismissed, 0) + ISNULL(count_summ.error_count, 0),*/
       t_batch.n_dismissed = (select COUNT(*) from t_failed_transaction ft where ft.tx_Batch_Encoded=t_batch.tx_Batch_Encoded and ft.State='P'),

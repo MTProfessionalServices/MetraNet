@@ -6,8 +6,8 @@ ProductOfferingName nvarchar2(255),
 IsUserSubscribable char(1) NOT NULL,
 IsUserUnsubscribable char(1) NOT NULL,
 IsHidden char(1) NOT NULL,
-EffectiveStartDate datetime NOT NULL,
-EffectiveEndDate datetime NOT NULL,
-AvailableStartDate datetime NOT NULL,
-AvailableEndDate datetime NOT NULL
+EffectiveStartDate date NOT NULL,
+EffectiveEndDate date NOT NULL,
+AvailableStartDate date NOT NULL,
+AvailableEndDate date NOT NULL
 )

@@ -51,7 +51,7 @@ delete from t_recur_window where exists (
       , -1 AS c_LastIdRun
       , grm.vt_start AS c_MembershipStart
       , grm.vt_end AS c_MembershipEnd
-	  , dbo.AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.vt_end, sub.dt_crt) AS c__IsAllowGenChargeByTrigger
+      , dbo.AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, sub.vt_end, sub.dt_crt) AS c__IsAllowGenChargeByTrigger
 	  into #recur_window_holder
 FROM inserted grm
       /* TODO: GRM dates or sub dates or both for filtering */

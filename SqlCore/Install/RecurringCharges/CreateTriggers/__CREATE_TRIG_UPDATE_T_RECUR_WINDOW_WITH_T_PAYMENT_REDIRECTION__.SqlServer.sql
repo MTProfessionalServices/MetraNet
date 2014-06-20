@@ -42,7 +42,7 @@ SELECT orw.c_CycleEffectiveDate
        ,orw.c_LastIdRun
        ,orw.c_MembershipStart
        ,orw.c_MembershipEnd
-	   , dbo.AllowInitialArrersCharge(orw.c_Advance, orw.c__AccountID, orw.c_SubscriptionEnd, @currentDate) AS c__IsAllowGenChargeByTrigger
+       , dbo.AllowInitialArrersCharge(orw.c_Advance, INSERTED.id_payer, orw.c_SubscriptionEnd, @currentDate) AS c__IsAllowGenChargeByTrigger
 
         INTO #tmp_newrw FROM #tmp_oldrw orw JOIN INSERTED ON orw.c__AccountId = INSERTED.id_payee;
 

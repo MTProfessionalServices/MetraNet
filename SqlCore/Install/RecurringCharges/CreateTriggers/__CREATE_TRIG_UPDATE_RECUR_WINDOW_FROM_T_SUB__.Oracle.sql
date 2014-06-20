@@ -61,7 +61,7 @@ BEGIN
         -1 c_LastIdRun,
         dbo.mtmindate() c_MembershipStart,
         dbo.mtmaxdate() c_MembershipEnd, 
-        AllowInitialArrersCharge(rcr.b_advance, :new.id_acc, :new.vt_end, :new.dt_crt) c__IsAllowGenChargeByTrigger
+        AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, :new.vt_end, :new.dt_crt) c__IsAllowGenChargeByTrigger
       from t_payment_redirection pay INNER JOIN t_pl_map plm
          ON plm.id_po = :new.id_po AND plm.id_paramtable IS NULL
       INNER JOIN t_recur rcr ON plm.id_pi_instance = rcr.id_prop

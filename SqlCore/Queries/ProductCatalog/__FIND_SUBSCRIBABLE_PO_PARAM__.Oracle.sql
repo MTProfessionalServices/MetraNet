@@ -141,7 +141,7 @@ FROM
          and ( ( rc.tx_cycle_mode = 'BCR Constrained' 
          and rc.id_cycle_type    <> 
          cycle_type.id
-         ) ) 
+         )  
          or ( rc.tx_cycle_mode = 'EBCR' 
          and dbo.checkebcrcycletypecompatible (rc.id_cycle_type, 
          cycle_type.id 
@@ -151,7 +151,7 @@ FROM
          cycle_type.id ) 
          or ( t_aggregate.id_cycle_type is not null 
          and t_aggregate.id_cycle_type <> 
-         cycle_type.id )
+         cycle_type.id ))
       ) 
    GROUP BY template_po_map0.id_po
    ) 

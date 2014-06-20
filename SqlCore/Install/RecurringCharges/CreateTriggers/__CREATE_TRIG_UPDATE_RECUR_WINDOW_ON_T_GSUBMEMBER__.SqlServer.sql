@@ -58,7 +58,7 @@ WHEN matched AND t_recur_window.c__SubscriptionID = source.id_sub
       , -1 AS c_LastIdRun
       , dbo.mtmindate() AS c_MembershipStart
       , dbo.mtmaxdate() AS c_MembershipEnd
-	  , dbo.AllowInitialArrersCharge(rcr.b_advance, sub.id_acc, sub.vt_end, @startDate) AS c__IsAllowGenChargeByTrigger
+      , dbo.AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, sub.vt_end, @startDate) AS c__IsAllowGenChargeByTrigger
 	INTO #recur_window_holder
     FROM INSERTED gsm
       INNER JOIN t_sub sub ON sub.id_group = gsm.id_group

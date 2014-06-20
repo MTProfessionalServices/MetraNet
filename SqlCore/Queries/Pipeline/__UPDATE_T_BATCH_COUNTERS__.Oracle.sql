@@ -4,7 +4,7 @@
 				           SELECT COUNT(*)
 				           FROM   t_failed_transaction ft
 				           WHERE  ft.tx_Batch_Encoded = b.tx_Batch_Encoded
-				                  AND ft.State = 'N'
+				                  AND ft.State in ('I','N','C')
 				       ),
 				       b.n_dismissed = (
 				           SELECT COUNT(*)

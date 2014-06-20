@@ -1,7 +1,7 @@
 	CREATE PROCEDURE prtn_deploy_all_meter_tables
 	AS
 	BEGIN
-		DECLARE @svc_table_name VARCHAR(50),
+		DECLARE @svc_table_name VARCHAR(200),
 				@meter_partition_schema VARCHAR(100)
 
 		BEGIN TRY 

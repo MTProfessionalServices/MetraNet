@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Configuration;
 using System.Data;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -619,12 +620,32 @@ public partial class AmpUsageQualificationPage : AmpWizardBasePage
     UsageQualificationFilter.Text = newValue;
   }
 
+  protected bool validateUsageQualificationName(string name)
+  {
+    if (String.IsNullOrEmpty(name))
+      return false;
+
+    Regex regex = new Regex("^[a-zA-Z0-9_]*$");
+    if (!regex.IsMatch(name))
+    {
+      return false;
+    }
+
+    return true;
+  }
+
   protected void btnContinue_Click(object sender, EventArgs e)
   {
     if (AmpUsageQualificationAction != "View")
     {
-      AmpServiceClient ampSvcStoreUsageQualificationClient = null;
       string name = UsageQualificationName.Text;
+      if (!validateUsageQualificationName(name))
+      {
+        var errorMessage = String.Format(GetGlobalResourceObject("JSConsts", "TEXT_AMPWIZARD_INVALID_UQG_NAME").ToString(), name);
+        SetError(errorMessage);
+        return;
+      }
+      AmpServiceClient ampSvcStoreUsageQualificationClient = null;
       try
       {
         ampSvcStoreUsageQualificationClient = new AmpServiceClient();

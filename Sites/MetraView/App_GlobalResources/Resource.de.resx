@@ -462,4 +462,22 @@
   <data name="TEXT_DOWNLOAD_CREDIT_NOTES" xml:space="preserve">
     <value>(German) Download Credit Notes</value>
   </data>
+  <data name="TEXT_PRODUCT_VIEW_MAPPINGS" xml:space="preserve">
+    <value>(DE)Product View Mappings</value>
+  </data>
+  <data name="TEXT_BILL_SETTING" xml:space="preserve">
+    <value>(DE)Bill Setting</value>
+  </data>
+  <data name="TEXT_DASHBOARDS" xml:space="preserve">
+    <value>(DE)Dashboards</value>
+  </data>
+  <data name="TEXT_ENTRY_POINTS" xml:space="preserve">
+    <value>(DE)Entry Points</value>
+  </data>
+  <data name="TEXT_REPORT_INVENTORIES" xml:space="preserve">
+    <value>(DE)Report Inventories</value>
+  </data>
+  <data name="TEXT_SITE" xml:space="preserve">
+    <value>(DE)Site</value>
+  </data>
 </root>

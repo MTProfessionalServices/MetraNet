@@ -1,6 +1,6 @@
 CREATE PROCEDURE [dbo].[MeterInitialFromRecurWindow]
-     @currentDate dateTime
-    AS
+      @currentDate dateTime
+AS
     BEGIN
 	IF ((SELECT value FROM t_db_values WHERE parameter = N'InstantRc') = 'false') return;
 	
@@ -37,6 +37,7 @@ SELECT
     ,rw.c__productofferingid      AS c__ProductOfferingID
     ,currentui.id_interval AS c__IntervalID
     ,NEWID() AS idSourceSess
+	,sub.tx_quoting_batch as c__QuoteBatchId
 INTO #tmp_rc
 FROM #recur_window_holder rw
     INNER JOIN t_usage_interval ui on
@@ -69,6 +70,7 @@ FROM #recur_window_holder rw
         ELSE NULL END
     INNER LOOP JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
 	inner join t_usage_interval currentui on @currentDate between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = ui.id_usage_cycle
+	INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
 where 1=1
 --Only meter new subscriptions as initial -- so select only items that have at most one entry in t_sub_history
     AND NOT EXISTS (SELECT 1 FROM t_sub_history tsh WHERE tsh.id_sub = rw.C__SubscriptionID AND tsh.id_acc = rw.c__AccountID

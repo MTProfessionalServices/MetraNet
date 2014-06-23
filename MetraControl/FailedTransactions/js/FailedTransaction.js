@@ -67,8 +67,15 @@ function caseNumberColRenderer(value, meta, record, rowIndex, colIndex, store) {
 
 function actionsColRenderer(value, meta, record, rowIndex, colIndex, store) {
   var str = "";
-  str += String.format("<span style='display:inline-block; vertical-align:middle'>&nbsp;<a style='cursor:hand;vertical-align:middle' id='viewaudit_{0}' title='{1}' href='JavaScript:onViewFailedTransactionAuditLog(\"{0}\",\"{2}\");'>View Log&nbsp;</a></span>", record.data.casenumber, TEXT_VIEW_AUDIT_FAILED_TRANSACTION, record.data.failurecompoundsessionid);
-
+  if(record.data.status =='R') 
+  {
+    meta.attr = 'style="white-space:normal"';
+    str += record.data.casenumber;     
+  }
+  else
+  {
+    str += String.format("<span style='display:inline-block; vertical-align:middle'>&nbsp;<a style='cursor:hand;vertical-align:middle' id='viewaudit_{0}' title='{1}'   href='JavaScript:onViewFailedTransactionAuditLog(\"{0}\",\"{2}\");'>View Log&nbsp;</a></span>", record.data.casenumber, TEXT_VIEW_AUDIT_FAILED_TRANSACTION, record.data.failurecompoundsessionid);
+  }
   return str;
 }
 

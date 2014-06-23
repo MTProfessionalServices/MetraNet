@@ -547,39 +547,39 @@
     <value>Quote log</value>
   </data>
   <data name="TEXT_TAX" xml:space="preserve">
-    <value>{PT-BR}Tax</value>
+    <value>[pt-BR]Tax</value>
   </data>
   <data name="TEXT_TAX_VENDOR" xml:space="preserve">
-    <value>{PT-BR}Tax Vendor</value>
+    <value>[pt-BR]Tax Vendor</value>
   </data>
   <data name="TEXT_TAX_SERVICE_ADDRESS_PCODE" xml:space="preserve">
-    <value>{PT-BR}Tax Service Address PCode</value>
+    <value>[pt-BR]Tax Service Address PCode</value>
   </data>
   <data name="TEXT_METRATAX_COUNTRY_ELIGIBILITY" xml:space="preserve">
-    <value>{PT-BR}MetraTax Country Eligibility</value>
+    <value>[pt-BR]MetraTax Country Eligibility</value>
   </data>
   <data name="TEXT_METRATAX_COUNTRY_ZONE" xml:space="preserve">
-    <value>{PT-BR}MetraTax Country Zone</value>
+    <value>[pt-BR]MetraTax Country Zone</value>
   </data>
   <data name="TEXT_METRATAX_HAS_OVERRIDE_BAND" xml:space="preserve">
-    <value>{PT-BR}MetraTax Has Override Band</value>
+    <value>[pt-BR]MetraTax Has Override Band</value>
   </data>
   <data name="TEXT_METRATAX_OVERRIDE_BAND" xml:space="preserve">
-    <value>{PT-BR}MetraTax Override Band</value>
+    <value>[pt-BR]MetraTax Override Band</value>
   </data>
   <data name="TEXT_TAX_REGISTRY_REFERENCE" xml:space="preserve">
-    <value>{PT-BR}Tax Registry Reference</value>
+    <value>[pt-BR]Tax Registry Reference</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_REASON" xml:space="preserve">
-    <value>{PT-BR}Tax Exempt Reason</value>
+    <value>[pt-BR]Tax Exempt Reason</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_START_DATE" xml:space="preserve">
-    <value>{PT-BR}Tax Exempt Start Date</value>
+    <value>[pt-BR]Tax Exempt Start Date</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_END_DATE" xml:space="preserve">
-    <value>{PT-BR}Tax Exempt End Date</value>
+    <value>[pt-BR]Tax Exempt End Date</value>
   </data>
   <data name="TEXT_USE_STANDARD_INCLUSIVE_TAX_CALCULATION" xml:space="preserve">
-    <value>{PT-BR}Use Standard Inclusive Tax Calculation</value>
+    <value>[pt-BR]Use Standard Inclusive Tax Calculation</value>
   </data>
 </root>

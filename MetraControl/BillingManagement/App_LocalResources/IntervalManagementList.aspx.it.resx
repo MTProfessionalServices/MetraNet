@@ -118,48 +118,48 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TEXT_DB_STATUS" xml:space="preserve">
-    <value>(ITALIAN) DB Status</value>
+    <value>[IT] DB Status</value>
   </data>
   <data name="TEXT_END_DATE" xml:space="preserve">
-    <value>(ITALIAN) End Date</value>
+    <value>[IT] End Date</value>
   </data>
   <data name="TEXT_GRID_TITLE" xml:space="preserve">
-    <value>(ITALIAN) All Intervals</value>
+    <value>[IT] All Intervals</value>
   </data>
   <data name="TEXT_GRID_TITLE_ACTIVE_INTERVALS" xml:space="preserve">
-    <value>(ITALIAN) Active Intervals</value>
+    <value>[IT] Active Intervals</value>
   </data>
   <data name="TEXT_GRID_TITLE_BILLABLE_INTERVALS" xml:space="preserve">
-    <value>(ITALIAN) Billable Intervals</value>
+    <value>[IT] Billable Intervals</value>
   </data>
   <data name="TEXT_GRID_TITLE_COMPLETED_INTERVALS" xml:space="preserve">
-    <value>(ITALIAN) Completed Intervals</value>
+    <value>[IT] Completed Intervals</value>
   </data>
   <data name="TEXT_GROUP" xml:space="preserve">
-    <value>(ITALIAN) Groups</value>
+    <value>[IT] Groups</value>
   </data>
   <data name="TEXT_HARD_CLOSED" xml:space="preserve">
-    <value>(ITALIAN) Hard Closed</value>
+    <value>[IT] Hard Closed</value>
   </data>
   <data name="TEXT_ID" xml:space="preserve">
-    <value>(ITALIAN) Interval ID</value>
+    <value>[IT] Interval ID</value>
   </data>
   <data name="TEXT_OPEN" xml:space="preserve">
-    <value>(ITALIAN) Open</value>
+    <value>[IT] Open</value>
   </data>
   <data name="TEXT_SOFT_CLOSED" xml:space="preserve">
-    <value>(ITALIAN) Soft Closed</value>
+    <value>[IT] Soft Closed</value>
   </data>
   <data name="TEXT_START_DATE" xml:space="preserve">
-    <value>(ITALIAN) Start Date</value>
+    <value>[IT] Start Date</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
-    <value>(ITALIAN) Status</value>
+    <value>[IT] Status</value>
   </data>
   <data name="TEXT_UNKNOWN" xml:space="preserve">
-    <value>(ITALIAN) Unknown</value>
+    <value>[IT] Unknown</value>
   </data>
   <data name="TEXT_USAGE_CYCLE_TYPE" xml:space="preserve">
-    <value>(ITALIAN) Usage Cycle Type</value>
+    <value>[IT] Usage Cycle Type</value>
   </data>
 </root>

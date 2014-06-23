@@ -505,10 +505,10 @@
     <value>Anchura</value>
   </data>
   <data name="TEXT_BACK" xml:space="preserve">
-    <value>(SPANISH) Previous</value>
+    <value>[ES] Previous</value>
   </data>
 <data name="TEXT_NEXT" xml:space="preserve">
-    <value>(SPANISH) Next</value>
+    <value>[ES] Next</value>
   </data>
   <data name="TEXT_SAVE_AND_CONTINUE" xml:space="preserve">
     <value>Spanish</value>
@@ -547,7 +547,7 @@
     <value>Set Localization</value>
   </data>
 	<data name="TEXT_FROM_PARAMETER_TABLE" xml:space="preserve">
-    <value>From parameter table (Spanish)</value>
+    <value>From parameter table [ES]</value>
   </data>
   <data name="newSubscription" xml:space="preserve">
     <value>[ES]New Subscription</value>
@@ -568,39 +568,39 @@
     <value>Quote log</value>
   </data>
   <data name="TEXT_TAX" xml:space="preserve">
-    <value>{ES}Tax</value>
+    <value>[ES]Tax</value>
   </data>
   <data name="TEXT_TAX_VENDOR" xml:space="preserve">
-    <value>{ES}Tax Vendor</value>
+    <value>[ES]Tax Vendor</value>
   </data>
   <data name="TEXT_TAX_SERVICE_ADDRESS_PCODE" xml:space="preserve">
-    <value>{ES}Tax Service Address PCode</value>
+    <value>[ES]Tax Service Address PCode</value>
   </data>
   <data name="TEXT_METRATAX_COUNTRY_ELIGIBILITY" xml:space="preserve">
-    <value>{ES}MetraTax Country Eligibility</value>
+    <value>[ES]MetraTax Country Eligibility</value>
   </data>
   <data name="TEXT_METRATAX_COUNTRY_ZONE" xml:space="preserve">
-    <value>{ES}MetraTax Country Zone</value>
+    <value>[ES]MetraTax Country Zone</value>
   </data>
   <data name="TEXT_METRATAX_HAS_OVERRIDE_BAND" xml:space="preserve">
-    <value>{ES}MetraTax Has Override Band</value>
+    <value>[ES]MetraTax Has Override Band</value>
   </data>
   <data name="TEXT_METRATAX_OVERRIDE_BAND" xml:space="preserve">
-    <value>{ES}MetraTax Override Band</value>
+    <value>[ES]MetraTax Override Band</value>
   </data>
   <data name="TEXT_TAX_REGISTRY_REFERENCE" xml:space="preserve">
-    <value>{ES}Tax Registry Reference</value>
+    <value>[ES]Tax Registry Reference</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_REASON" xml:space="preserve">
-    <value>{ES}Tax Exempt Reason</value>
+    <value>[ES]Tax Exempt Reason</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_START_DATE" xml:space="preserve">
-    <value>{ES}Tax Exempt Start Date</value>
+    <value>[ES]Tax Exempt Start Date</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_END_DATE" xml:space="preserve">
-    <value>{ES}Tax Exempt End Date</value>
+    <value>[ES]Tax Exempt End Date</value>
   </data>
   <data name="TEXT_USE_STANDARD_INCLUSIVE_TAX_CALCULATION" xml:space="preserve">
-    <value>{ES}Use Standard Inclusive Tax Calculation</value>
+    <value>[ES]Use Standard Inclusive Tax Calculation</value>
   </data>
 </root>

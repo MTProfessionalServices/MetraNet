@@ -505,10 +505,10 @@
     <value>幅</value>
   </data>
   <data name="TEXT_BACK" xml:space="preserve">
-    <value>(JAPANESE) Previous</value>
+    <value>[JA] Previous</value>
   </data>
   <data name="TEXT_NEXT" xml:space="preserve">
-    <value>(JAPANESE) Next</value>
+    <value>[JA] Next</value>
   </data>
   <data name="TEXT_SAVE_AND_CONTINUE" xml:space="preserve">
     <value>Japanese</value>
@@ -547,7 +547,7 @@
     <value>Set Localization</value>
   </data>
 	<data name="TEXT_FROM_PARAMETER_TABLE" xml:space="preserve">
-    <value>From parameter table (Japanese)</value>
+    <value>From parameter table [JA]</value>
   </data>
   <data name="newSubscription" xml:space="preserve">
     <value>[JA]New Subscription</value>
@@ -568,39 +568,39 @@
     <value>Quote log</value>
   </data>
   <data name="TEXT_TAX" xml:space="preserve">
-    <value>{JA}Tax</value>
+    <value>[JA]Tax</value>
   </data>
   <data name="TEXT_TAX_VENDOR" xml:space="preserve">
-    <value>{JA}Tax Vendor</value>
+    <value>[JA]Tax Vendor</value>
   </data>
   <data name="TEXT_TAX_SERVICE_ADDRESS_PCODE" xml:space="preserve">
-    <value>{JA}Tax Service Address PCode</value>
+    <value>[JA]Tax Service Address PCode</value>
   </data>
   <data name="TEXT_METRATAX_COUNTRY_ELIGIBILITY" xml:space="preserve">
-    <value>{JA}MetraTax Country Eligibility</value>
+    <value>[JA]MetraTax Country Eligibility</value>
   </data>
   <data name="TEXT_METRATAX_COUNTRY_ZONE" xml:space="preserve">
-    <value>{JA}MetraTax Country Zone</value>
+    <value>[JA]MetraTax Country Zone</value>
   </data>
   <data name="TEXT_METRATAX_HAS_OVERRIDE_BAND" xml:space="preserve">
-    <value>{JA}MetraTax Has Override Band</value>
+    <value>[JA]MetraTax Has Override Band</value>
   </data>
   <data name="TEXT_METRATAX_OVERRIDE_BAND" xml:space="preserve">
-    <value>{JA}MetraTax Override Band</value>
+    <value>[JA]MetraTax Override Band</value>
   </data>
   <data name="TEXT_TAX_REGISTRY_REFERENCE" xml:space="preserve">
-    <value>{JA}Tax Registry Reference</value>
+    <value>[JA]Tax Registry Reference</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_REASON" xml:space="preserve">
-    <value>{JA}Tax Exempt Reason</value>
+    <value>[JA]Tax Exempt Reason</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_START_DATE" xml:space="preserve">
-    <value>{JA}Tax Exempt Start Date</value>
+    <value>[JA]Tax Exempt Start Date</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_END_DATE" xml:space="preserve">
-    <value>{JA}Tax Exempt End Date</value>
+    <value>[JA]Tax Exempt End Date</value>
   </data>
   <data name="TEXT_USE_STANDARD_INCLUSIVE_TAX_CALCULATION" xml:space="preserve">
-    <value>{JA}Use Standard Inclusive Tax Calculation</value>
+    <value>[JA]Use Standard Inclusive Tax Calculation</value>
   </data>
 </root>

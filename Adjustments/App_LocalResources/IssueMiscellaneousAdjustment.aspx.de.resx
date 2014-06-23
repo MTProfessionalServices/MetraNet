@@ -130,10 +130,10 @@
     <value>Anpassungsdatum</value>
   </data>
   <data name="adjDescriptionTextBoxResource1.Label" xml:space="preserve">
-    <value>{DE}Internal Beschreibung</value>
+    <value>[DE]Internal Beschreibung</value>
   </data>
   <data name="adjDescriptionTextBoxResource2.Label" xml:space="preserve">
-    <value>{DE}Invoice Description</value>
+    <value>[DE]Invoice Description</value>
   </data>
   <data name="adjDescriptionTextBoxResource1.MaxLength" xml:space="preserve">
     <value>-1</value>
@@ -154,16 +154,16 @@
     <value>True</value>
   </data>
   <data name="cbIssueCreditNoteResource1.BoxLabel" xml:space="preserve">
-    <value>{DE}Issue Credit Note For This Adjustment</value>
+    <value>[DE]Issue Credit Note For This Adjustment</value>
   </data>
   <data name="CommentTextBoxResource1.Label" xml:space="preserve">
-    <value>{DE}Comment</value>
+    <value>[DE]Comment</value>
   </data>
   <data name="ddBillingPeriod1.Label" xml:space="preserve">
     <value>Rechnungszeitraum</value>
   </data>
   <data name="ddTemplateTypesResource1.Label" xml:space="preserve">
-    <value>{DE}Credit Note Template To Use</value>
+    <value>[DE]Credit Note Template To Use</value>
   </data>
   <data name="ddReasonCodeResource1.AllowBlank" xml:space="preserve">
     <value>False</value>
@@ -181,7 +181,7 @@
     <value>Sonstige Anpassung ausstellen</value>
   </data>
   <data name="MTPanel2Resource1.Text" xml:space="preserve">
-    <value>{DE}Issue Credit Note For This Adjustment</value>
+    <value>[DE]Issue Credit Note For This Adjustment</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
@@ -274,9 +274,9 @@
     <value>[de] Total Adjustment Being Issued</value>
   </data>
   <data name="TEXT_CREDIT_NOTE_CREATED" xml:space="preserve">
-    <value>{DE}A credit note for this Miscellaneous Adjustment was created.</value>
+    <value>[DE]A credit note for this Miscellaneous Adjustment was created.</value>
   </data>
   <data name="TEXT_CREDIT_NOTE_PENDING" xml:space="preserve">
-    <value>{DE}A credit note for this Miscellaneous Adjustment will be created when this Miscellaneous Adjusment is approved.</value>
+    <value>[DE]A credit note for this Miscellaneous Adjustment will be created when this Miscellaneous Adjusment is approved.</value>
   </data>
 </root>

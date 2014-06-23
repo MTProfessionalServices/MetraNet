@@ -253,7 +253,7 @@
     <value>Criar retornos/reexecuções</value>
   </data>
   <data name="TEXT_CREATE_CREDIT_NOTE" xml:space="preserve">
-    <value>{PT-BR}Create Credit Note</value>
+    <value>[pt-BR]Create Credit Note</value>
   </data>
   <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
     <value>Adicionar nova instância de relatório</value>
@@ -373,7 +373,7 @@
     <value>Gerenciar segurança</value>
   </data>
   <data name="TEXT_MASTER_OFFERINGS" xml:space="preserve">
-    <value>{PT-BR}Master Product Offerings</value>
+    <value>[pt-BR]Master Product Offerings</value>
   </data>
   <data name="TEXT_MENU_GENERATE_PASSWORD" xml:space="preserve">
     <value>Gerar senha</value>
@@ -559,7 +559,7 @@
     <value>Atualizar definição de relatório existente</value>
   </data>
   <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-    <value>{PT-BR}Usage Audit</value>
+    <value>[pt-BR]Usage Audit</value>
   </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>Manutenção do servidor de utilização</value>
@@ -571,7 +571,7 @@
     <value>Informação da versão</value>
   </data>
   <data name="TEXT_VIEW_CREDIT_NOTES_ISSUED" xml:space="preserve">
-    <value>{PT-BR}View Credit Notes Issued</value>
+    <value>[pt-BR]View Credit Notes Issued</value>
   </data>
   <data name="TEXT_VIEW_METERING_STATISTICS" xml:space="preserve">
     <value>Exibir</value>
@@ -595,7 +595,7 @@
     <value>Ver mudanças falharam</value>
   </data>
   <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
-    <value>{PT-BR}Shared Properties</value>
+    <value>Shared Properties</value>
   </data>
   <data name="TEXT_PAYMENT_TRANSACTIONS" xml:space="preserve">
     <value>Payment Transactions</value>
@@ -628,21 +628,15 @@
     <value>[pt-br] Reports</value>
   </data>
   <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
-    <value>{PT-BR}Usage Processing</value>
+    <value>[pt-BR]Usage Processing</value>
   </data>
   <data name="TEXT_ADD_PARTITION" xml:space="preserve">
-    <value>{PT-BR}Add Partition</value>
+    <value>[pt-BR]Add Partition</value>
   </data>
   <data name="TEXT_QUOTING" xml:space="preserve">
-    <value>{PT-BR}Manage Quotes</value>
+    <value>[pt-BR]Manage Quotes</value>
   </data>
   <data name="TEXT_ACCOUNT" xml:space="preserve">
-    <value>{PT-BR}Account</value>
-  </data>
-  <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
-    <value>{PT-BR}Create Quote</value>
-  </data> 
-  <data name="TEXT_QUOTING_LIST" xml:space="preserve">
-    <value>{PT-BR}View All Quotes</value>
+    <value>[pt-BR]Account</value>
   </data>    
 </root>

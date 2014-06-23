@@ -114,7 +114,6 @@ public partial class Account_UpdateAccount : MTAccountPage
 
         if (accountType.IsCorporate)
         {
-          tbAncestorAccount.ReadOnly = true;
           tbPayer.ReadOnly = true;
           cbApplyTemplate.Visible = false;
         }
@@ -295,7 +294,6 @@ public partial class Account_UpdateAccount : MTAccountPage
           In_LoadTime = ApplicationTime,
           In_IsApprovalEnabled = bAccountUpdateApprovalsEnabled == 1
         };
-
 
       PageNav.Execute(update);
     }

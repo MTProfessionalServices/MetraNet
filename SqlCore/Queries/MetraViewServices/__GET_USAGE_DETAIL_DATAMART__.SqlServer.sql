@@ -3,7 +3,7 @@
   	  select *
       from
       (
-      SELECT 
+      SELECT TOP 1000
 		--__GET_USAGE_DETAIL_DATAMART__
       au.id_view ViewID, 
       au.id_sess SessionID, 

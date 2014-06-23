@@ -165,6 +165,7 @@
 						<ActivityBind Path="CONST_Container" Name="AddAccountWorkflow" />
 					</ns1:MTSwitch.Cases>
 				</SetStateActivity>
+				<!-- TODO: Need to be ref-factoring on using the only AddAccount, after that AddAccountWorkflow can be thrown from MetraNet project-->
 				<SetStateActivity x:Name="Default_Case_GenericAccount" TargetStateName="GenericAddAccount" />
 			</ns1:MTSwitch>
 		</StateInitializationActivity>

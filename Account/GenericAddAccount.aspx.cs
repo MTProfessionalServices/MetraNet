@@ -14,8 +14,15 @@ using MetraTech.DomainModel.BaseTypes;
 using MetraTech.ActivityServices.Common;
 using MetraTech.UI.Controls;
 
+//TODO: Need to be ref-factoring on using the only AddAccount, after that AddAccountWorkflow and all other
+//TODO: GenericAddAccount.aspx/GenericUpdateAccount.aspx/GenericAccountSummary.aspx can be thrown from MetraNet project
 public partial class GenericAddAccount : MTAccountPage
 {
+  private readonly List<string> skipSections = new List<string>
+  {
+    "TEXT_LOGIN_INFORMATION",
+    "TEXT_ACCOUNT_INFORMATION"
+  };
   private readonly List<string> skipProperties = new List<string>();
   private static readonly AccountTypeCollection mAccountTypeCollection = new AccountTypeCollection();
   private void SetupSkipProperties()
@@ -71,6 +78,7 @@ public partial class GenericAddAccount : MTAccountPage
       SetupSkipProperties();
       //PriceListCol = PageNav.Data.Out_StateInitData["PriceListColl"] as List<PriceList>;
       MTGenericForm1.IgnoreProperties = skipProperties;
+      MTGenericForm1.IgnoreSectionsByLocalizationTag = skipSections;
 
       //PopulatePriceList(ddPriceList);
 

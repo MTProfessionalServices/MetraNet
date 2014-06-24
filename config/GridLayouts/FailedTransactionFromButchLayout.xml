@@ -236,27 +236,6 @@
                       <ResourceClassKey>FailedTransactionResources</ResourceClassKey>
                     </Value>
                 </DropdownItem>
-                <DropdownItem>
-                    <Key>P</Key>
-                    <Value>                       
-                      <LocalizationTag>TEXT_DISMISSED</LocalizationTag>
-                      <ResourceClassKey>FailedTransactionResources</ResourceClassKey>
-                    </Value>
-                </DropdownItem>
-                <DropdownItem>
-                    <Key>D</Key>
-                    <Value>                       
-                      <LocalizationTag>TEXT_DELETED</LocalizationTag>
-                      <ResourceClassKey>FailedTransactionResources</ResourceClassKey>
-                    </Value>
-                </DropdownItem>
-                <DropdownItem>
-                    <Key>R</Key>
-                    <Value>                     
-                      <LocalizationTag>TEXT_RESUBMITTED</LocalizationTag>
-                      <ResourceClassKey>FailedTransactionResources</ResourceClassKey>
-                    </Value>
-                </DropdownItem>
             </DropdownItems>
         </Element>
         <Element>

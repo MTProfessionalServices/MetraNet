@@ -196,9 +196,9 @@ FUNCTION OK_Click(EventArg) ' As Boolean
         next
     
         If col.count = 1 Then
-          Call Session("SubscriberYAAC").GetAncestorMgr().MoveAccount(strParent, CLng(col.item(1)), CDate(Service.Properties("StartDate")))
+          Call Session("CURRENT_SYSTEM_USER").GetAncestorMgr().MoveAccount(strParent, CLng(col.item(1)), CDate(Service.Properties("StartDate")))
         Else
-          Set Session("LAST_BATCH_ERRORS") = Session("SubscriberYAAC").GetAncestorMgr().MoveAccountBatch(strParent, col, nothing, CDate(Service.Properties("StartDate")))
+          Set Session("LAST_BATCH_ERRORS") = Session("CURRENT_SYSTEM_USER").GetAncestorMgr().MoveAccountBatch(strParent, col, nothing, CDate(Service.Properties("StartDate")))
           
           If Err.Number <> 0 Then
             EventArg.Error.Save Err
@@ -210,8 +210,8 @@ FUNCTION OK_Click(EventArg) ' As Boolean
     
           ' Get Batch Errors  
           If Session("LAST_BATCH_ERRORS").RecordCount > 0 Then
-            EventArg.Error.number = 2015
-            EventArg.Error.description = mam_GetDictionary("MAM_ERROR_2015")
+            EventArg.Error.number = 2016
+            EventArg.Error.description = mam_GetDictionary("MAM_ERROR_2016")
             OK_Click = FALSE       
             Set Session(mdm_EVENT_ARG_ERROR) = EventArg 
             Response.Redirect mdm_GetCurrentFullURL()             

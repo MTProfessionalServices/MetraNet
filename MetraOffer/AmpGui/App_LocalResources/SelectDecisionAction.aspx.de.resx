@@ -121,16 +121,16 @@
     <value>MetraNet</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Decision Action for {0} (German)</value>
+    <value>Decision Action for {0} [DE]</value>
   </data>
   <data name="lblIncrementalOrBulkResource1.Text" xml:space="preserve">
     <value>German</value>
   </data>
   <data name="rblIncrementallyResource1.Text" xml:space="preserve">
-    <value>Multi-Bucket (German)</value>
+    <value>Multi-Bucket [DE]</value>
   </data>
   <data name="rblInBulkResource1.Text" xml:space="preserve">
-    <value>Single-Bucket(German)</value>
+    <value>Single-Bucket[DE]</value>
   </data>
   <data name="lblDecisionActionResource1.Text" xml:space="preserve">
     <value>German</value>
@@ -148,7 +148,7 @@
     <value>German</value>
   </data>
   <data name="noChargeResource1.Text" xml:space="preserve">
-    <value>None(German)</value>
+    <value>None[DE]</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>German</value>

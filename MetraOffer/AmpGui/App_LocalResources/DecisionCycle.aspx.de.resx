@@ -118,87 +118,87 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblDecisionCycle.Text" xml:space="preserve">
-    <value>(GERMAN)Your Decision Type can aggregate events or usage across different billing intervals or time periods.</value>
+    <value>[DE]Your Decision Type can aggregate events or usage across different billing intervals or time periods.</value>
   </data>
   <data name="lblDecisionEffect.Text" xml:space="preserve">
-    <value>(GERMAN)How long should the Decision Type be in effect?</value>
+    <value>[DE]How long should the Decision Type be in effect?</value>
   </data>
   <data name="lblNumberDaysBillingInterval.Text" xml:space="preserve">
-    <value>(GERMAN)Number of days from the subscription start to the start of the Decision Cycle:</value>
+    <value>[DE]Number of days from the subscription start to the start of the Decision Cycle:</value>
   </data>
   <data name="lblNumberMonthBillingInterval.Text" xml:space="preserve">
-    <value>(GERMAN)Number of months from the subscription start to the start of the Decision Cycle:</value>
+    <value>[DE]Number of months from the subscription start to the start of the Decision Cycle:</value>
   </data>
   <data name="lblNumberOfDays.Text" xml:space="preserve">
-    <value>(GERMAN)Number of days in the Decision Cycle:</value>
+    <value>[DE]Number of days in the Decision Cycle:</value>
   </data>
   <data name="lblNumberOfMonth.Text" xml:space="preserve">
-    <value>(GERMAN)Number of months in the Decision Cycle:</value>
+    <value>[DE]Number of months in the Decision Cycle:</value>
   </data>
   <data name="lblNumberOfQuarters.Text" xml:space="preserve">
-    <value>(GERMAN)Number of quarters in the Decision Cycle:</value>
+    <value>[DE]Number of quarters in the Decision Cycle:</value>
   </data>
   <data name="lblNumberOfTimeUnits.Text" xml:space="preserve">
-    <value>(GERMAN)Number of time units in the Decision Cycle:</value>
+    <value>[DE]Number of time units in the Decision Cycle:</value>
   </data>
   <data name="lblNumberOfWeeks.Text" xml:space="preserve">
-    <value>(GERMAN)Number of weeks in the Decision Cycle:</value>
+    <value>[DE]Number of weeks in the Decision Cycle:</value>
   </data>
   <data name="lblNumberOfYears.Text" xml:space="preserve">
-    <value>(GERMAN)Number of years in the Decision Cycle:</value>
+    <value>[DE]Number of years in the Decision Cycle:</value>
   </data>
   <data name="lblNumberQuartersBillingInterval.Text" xml:space="preserve">
-    <value>(GERMAN)Number of quarters from the subscription start to the start of the Decision Cycle:</value>
+    <value>[DE]Number of quarters from the subscription start to the start of the Decision Cycle:</value>
   </data>
   <data name="lblNumberTimeUnitsBillingInterval.Text" xml:space="preserve">
-    <value>(GERMAN)Number of time units from the subscription start to the start of the Decision Cycle:</value>
+    <value>[DE]Number of time units from the subscription start to the start of the Decision Cycle:</value>
   </data>
   <data name="lblNumberWeeksBillingInterval.Text" xml:space="preserve">
-    <value>(GERMAN)Number of weeks from the subscription start to the start of the Decision Cycle:</value>
+    <value>[DE]Number of weeks from the subscription start to the start of the Decision Cycle:</value>
   </data>
   <data name="lblNumberYearsBillingInterval.Text" xml:space="preserve">
-    <value>(GERMAN)Number of years from the subscription start to the start of the Decision Cycle:</value>
+    <value>[DE]Number of years from the subscription start to the start of the Decision Cycle:</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>(GERMAN)Decision Cycle</value>
+    <value>[DE]Decision Cycle</value>
   </data>
   <data name="lblUnitOfTime.Text" xml:space="preserve">
-    <value>(GERMAN)Unit of time for the Decision Cycle:</value>
+    <value>[DE]Unit of time for the Decision Cycle:</value>
   </data>
   <data name="rblDays.Text" xml:space="preserve">
-    <value>(GERMAN)Days</value>
+    <value>[DE]Days</value>
   </data>
   <data name="rblDecisionCycleBillingInterval.Text" xml:space="preserve">
-    <value>(GERMAN)The Decision Cycle matches the billing interval</value>
+    <value>[DE]The Decision Cycle matches the billing interval</value>
   </data>
   <data name="rblIndefinitely.Text" xml:space="preserve">
-    <value>(GERMAN)Indefinitely</value>
+    <value>[DE]Indefinitely</value>
   </data>
   <data name="rblMonths.Text" xml:space="preserve">
-    <value>(GERMAN)Months</value>
+    <value>[DE]Months</value>
   </data>
   <data name="rblQuarters.Text" xml:space="preserve">
-    <value>(GERMAN)Quarters</value>
+    <value>[DE]Quarters</value>
   </data>
   <data name="rblSpecified.Text" xml:space="preserve">
-    <value>(GERMAN)For a specific number of Decision Cycles:</value>
+    <value>[DE]For a specific number of Decision Cycles:</value>
   </data>
   <data name="rblUnitOfTimeFromParamTable.Text" xml:space="preserve">
-    <value>(GERMAN)Get unit of time from parameter table:</value>
+    <value>[DE]Get unit of time from parameter table:</value>
   </data>
   <data name="rblWeeks.Text" xml:space="preserve">
-    <value>(GERMAN)Weeks</value>
+    <value>[DE]Weeks</value>
   </data>
   <data name="rblYears.Text" xml:space="preserve">
-    <value>(GERMAN)Years</value>
+    <value>[DE]Years</value>
   </data>
   <data name="TEXT_ERROR_NO_VALUE_FOR_UNIT_OF_TIME" xml:space="preserve">
-    <value>(GERMAN)Error: You must specify the number of units in the Decision Cycle.</value>
+    <value>[DE]Error: You must specify the number of units in the Decision Cycle.</value>
   </data>
   <data name="TEXT_ERROR_NO_VALUE_FOR_UNIT_OF_TIME_INTERVAL" xml:space="preserve">
-    <value>(GERMAN)Error: You must specify the Decision Cycle's offset from the subscription start.</value>
+    <value>[DE]Error: You must specify the Decision Cycle's offset from the subscription start.</value>
   </data>
   <data name="TEXT_ERROR_NO_VALUE_SPECIFIC_NUMBER" xml:space="preserve">
-    <value>(GERMAN)Error: You must specify the number of Decision Cycles that the Decision will be in effect.</value>
+    <value>[DE]Error: You must specify the number of Decision Cycles that the Decision will be in effect.</value>
   </data>
 </root>

@@ -118,48 +118,48 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TEXT_DB_STATUS" xml:space="preserve">
-    <value>(MEXICAN SPANISH) DB Status</value>
+    <value>[es-MX] DB Status</value>
   </data>
   <data name="TEXT_END_DATE" xml:space="preserve">
-    <value>(MEXICAN SPANISH) End Date</value>
+    <value>[es-MX] End Date</value>
   </data>
   <data name="TEXT_GRID_TITLE" xml:space="preserve">
-    <value>(MEXICAN SPANISH) All Intervals</value>
+    <value>[es-MX] All Intervals</value>
   </data>
   <data name="TEXT_GRID_TITLE_ACTIVE_INTERVALS" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Active Intervals</value>
+    <value>[es-MX] Active Intervals</value>
   </data>
   <data name="TEXT_GRID_TITLE_BILLABLE_INTERVALS" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Billable Intervals</value>
+    <value>[es-MX] Billable Intervals</value>
   </data>
   <data name="TEXT_GRID_TITLE_COMPLETED_INTERVALS" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Completed Intervals</value>
+    <value>[es-MX] Completed Intervals</value>
   </data>
   <data name="TEXT_GROUP" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Groups</value>
+    <value>[es-MX] Groups</value>
   </data>
   <data name="TEXT_HARD_CLOSED" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Hard Closed</value>
+    <value>[es-MX] Hard Closed</value>
   </data>
   <data name="TEXT_ID" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Interval ID</value>
+    <value>[es-MX] Interval ID</value>
   </data>
   <data name="TEXT_OPEN" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Open</value>
+    <value>[es-MX] Open</value>
   </data>
   <data name="TEXT_SOFT_CLOSED" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Soft Closed</value>
+    <value>[es-MX] Soft Closed</value>
   </data>
   <data name="TEXT_START_DATE" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Start Date</value>
+    <value>[es-MX] Start Date</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Status</value>
+    <value>[es-MX] Status</value>
   </data>
   <data name="TEXT_UNKNOWN" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Unknown</value>
+    <value>[es-MX] Unknown</value>
   </data>
   <data name="TEXT_USAGE_CYCLE_TYPE" xml:space="preserve">
-    <value>(MEXICAN SPANISH) Usage Cycle Type</value>
+    <value>[es-MX] Usage Cycle Type</value>
   </data>
 </root>

@@ -118,48 +118,48 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TEXT_DB_STATUS" xml:space="preserve">
-    <value>(GERMAN) DB Status</value>
+    <value>[DE] DB Status</value>
   </data>
   <data name="TEXT_END_DATE" xml:space="preserve">
-    <value>(GERMAN) End Date</value>
+    <value>[DE] End Date</value>
   </data>
   <data name="TEXT_GRID_TITLE" xml:space="preserve">
-    <value>(GERMAN) All Intervals</value>
+    <value>[DE] All Intervals</value>
   </data>
   <data name="TEXT_GRID_TITLE_ACTIVE_INTERVALS" xml:space="preserve">
-    <value>(GERMAN) Active Intervals</value>
+    <value>[DE] Active Intervals</value>
   </data>
   <data name="TEXT_GRID_TITLE_BILLABLE_INTERVALS" xml:space="preserve">
-    <value>(GERMAN) Billable Intervals</value>
+    <value>[DE] Billable Intervals</value>
   </data>
   <data name="TEXT_GRID_TITLE_COMPLETED_INTERVALS" xml:space="preserve">
-    <value>(GERMAN) Completed Intervals</value>
+    <value>[DE] Completed Intervals</value>
   </data>
   <data name="TEXT_GROUP" xml:space="preserve">
-    <value>(GERMAN) Groups</value>
+    <value>[DE] Groups</value>
   </data>
   <data name="TEXT_HARD_CLOSED" xml:space="preserve">
-    <value>(GERMAN) Hard Closed</value>
+    <value>[DE] Hard Closed</value>
   </data>
   <data name="TEXT_ID" xml:space="preserve">
-    <value>(GERMAN) Interval ID</value>
+    <value>[DE] Interval ID</value>
   </data>
   <data name="TEXT_OPEN" xml:space="preserve">
-    <value>(GERMAN) Open</value>
+    <value>[DE] Open</value>
   </data>
   <data name="TEXT_SOFT_CLOSED" xml:space="preserve">
-    <value>(GERMAN) Soft Closed</value>
+    <value>[DE] Soft Closed</value>
   </data>
   <data name="TEXT_START_DATE" xml:space="preserve">
-    <value>(GERMAN) Start Date</value>
+    <value>[DE] Start Date</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
-    <value>(GERMAN) Status</value>
+    <value>[DE] Status</value>
   </data>
   <data name="TEXT_UNKNOWN" xml:space="preserve">
-    <value>(GERMAN) Unknown</value>
+    <value>[DE] Unknown</value>
   </data>
   <data name="TEXT_USAGE_CYCLE_TYPE" xml:space="preserve">
-    <value>(GERMAN) Usage Cycle Type</value>
+    <value>[DE] Usage Cycle Type</value>
   </data>
 </root>

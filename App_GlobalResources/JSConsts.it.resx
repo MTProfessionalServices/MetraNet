@@ -175,7 +175,7 @@
     <value>Operazione riuscita</value>
   </data>
   <data name="TEXT_ACCOUNT" xml:space="preserve">
-    <value>{IT}Account</value>
+    <value>[IT]Account</value>
   </data>
   <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
     <value>Dettagli</value>
@@ -973,25 +973,25 @@
     <value>Italian</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_ITEMS_TO_AGGREGATE" xml:space="preserve">
-    <value>(ITALIAN) For example, suppose the Decision Type is \"Use a special rate if the number of minutes of usage is over 500\". The settings might include \"500\" and the \"special rate\" to apply.</value>
+    <value>[IT] For example, suppose the Decision Type is \"Use a special rate if the number of minutes of usage is over 500\". The settings might include \"500\" and the \"special rate\" to apply.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
-    <value>(ITALIAN) Help:  Aggregation Method</value>
+    <value>[IT] Help:  Aggregation Method</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
-    <value>(ITALIAN) Decisions are used when a monetary charge amount cannot be calculated by looking at a single record. Instead, many usage records must be examined and a total must be the number of events, units of usage, or charge amounts. The total, or aggregate, is then used to help determine the charge amount.</value>
+    <value>[IT] Decisions are used when a monetary charge amount cannot be calculated by looking at a single record. Instead, many usage records must be examined and a total must be the number of events, units of usage, or charge amounts. The total, or aggregate, is then used to help determine the charge amount.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_MONETARY_CHARGE" xml:space="preserve">
-    <value>(ITALIAN) Example: \"Apply a discount if there's over $100 in charges.\"</value>
+    <value>[IT] Example: \"Apply a discount if there's over $100 in charges.\"</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_UNIT_OF_USAGE" xml:space="preserve">
-    <value>(ITALIAN) Example: \"Use a special rate if over 1,000 minutes.\"</value>
+    <value>[IT] Example: \"Use a special rate if over 1,000 minutes.\"</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_COUNT_NUMBER_OF_EVENTS" xml:space="preserve">
-    <value>(ITALIAN) Example: \"Apply a discount if over 100 calls were made.\"</value>
+    <value>[IT] Example: \"Apply a discount if over 100 calls were made.\"</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_FROM_PARAMETER_TABLE" xml:space="preserve">
-    <value>(ITALIAN) Usage is aggregated based on the value set in the parameter table.</value>
+    <value>[IT] Usage is aggregated based on the value set in the parameter table.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
     <value>Italian</value>
@@ -1003,7 +1003,7 @@
     <value>Italian</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
-    <value>(ITALIAN) Help:  Decision Domain</value>
+    <value>[IT] Help:  Decision Domain</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP" xml:space="preserve">
     <value>Italian</value>
@@ -1057,16 +1057,16 @@
     <value>Italian</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
-    <value>(Italian)Help: Multi-bucket</value>
+    <value>[IT]Help: Multi-bucket</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
-    <value>(Italian)Act on each individual record.  Usage may have different prices  which are determined by the bucket into which they fall.</value>
+    <value>[IT]Act on each individual record.  Usage may have different prices  which are determined by the bucket into which they fall.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
-    <value>(Italian)Help: Single-bucket</value>
+    <value>[IT]Help: Single-bucket</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
-    <value>(Italian)Act on all the records together.  All usage has same price which is determined by total volume.</value>
+    <value>[IT]Act on all the records together.  All usage has same price which is determined by total volume.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_UNIT_RATE" xml:space="preserve">
     <value>Italian</value>
@@ -1093,10 +1093,10 @@
     <value>Italian</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
-    <value>(Italian) Help:  None</value>
+    <value>[IT] Help:  None</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
-    <value>(Italian) Do not generate a charge for this decision</value>
+    <value>[IT] Do not generate a charge for this decision</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_GENERATED_CHARGE_GRID" xml:space="preserve">
     <value>Italian</value>
@@ -1198,43 +1198,43 @@
     <value>[it]Start Date can't be greater than End Date</value>
   </data>
   <data name="TEXT_HARD_CLOSED_INTERVAL_STATUS" xml:space="preserve">
-    <value>(ITALIAN) Hard Closed</value>
+    <value>[IT] Hard Closed</value>
   </data>
   <data name="TEXT_OPEN_INTERVAL_STATUS" xml:space="preserve">
-    <value>(ITALIAN) Open</value>
+    <value>[IT] Open</value>
   </data>
   <data name="TEXT_SOFT_CLOSED_INTERVAL_STATUS" xml:space="preserve">
-    <value>(ITALIAN) Soft Closed</value>
+    <value>[IT] Soft Closed</value>
   </data>
   <data name="TEXT_UNKNOWN_INTERVAL_STATUS" xml:space="preserve">
-    <value>(ITALIAN) Unknown</value>
+    <value>[IT] Unknown</value>
   </data>
   <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(ITALIAN) Passwords do not match.</value>
+    <value>[IT] Passwords do not match.</value>
   </data>
   <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(ITALIAN) Enter a valid phone number. Format: 555-555-5555</value>
+    <value>[IT] Enter a valid phone number. Format: 555-555-5555</value>
   </data>
   <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(ITALIAN) Credit card format is invalid</value>
+    <value>[IT] Credit card format is invalid</value>
   </data>
   <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(ITALIAN) CV Number is invalid</value>
+    <value>[IT] CV Number is invalid</value>
   </data>
   <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(ITALIAN) SSN format: xxx-xx-xxxx</value>
+    <value>[IT] SSN format: xxx-xx-xxxx</value>
   </data>
   <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(ITALIAN) Only numeric digits are allowed</value>
+    <value>[IT] Only numeric digits are allowed</value>
   </data>
   <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(ITALIAN) Zipcode is invalid</value>
+    <value>[IT] Zipcode is invalid</value>
   </data>
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(ITALIAN) Middle initial is invalid</value>
+    <value>[IT] Middle initial is invalid</value>
   </data>
   <data name="TEXT_RETRY_COLUMN" xml:space="preserve">
-    <value>(ITALIAN) Retry</value>
+    <value>[IT] Retry</value>
   </data>
   <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
     <value>{ITALIAN} Resubmitted Request</value>
@@ -1285,13 +1285,13 @@
     <value>[it] Failed Transactions</value>
   </data>
   <data name="REPORTS_TREE_HEADER_DESCRIPTION" xml:space="preserve">
-    <value>(ITALIAN) Description</value>
+    <value>[IT] Description</value>
   </data>
   <data name="REPORTS_TREE_HEADER_NAME" xml:space="preserve">
-    <value>(ITALIAN) Name</value>
+    <value>[IT] Name</value>
   </data>
   <data name="REPORTS_TREE_NOT_APPLICABLE_TEXT" xml:space="preserve">
-    <value>(ITALIAN) N/A</value>
+    <value>[IT] N/A</value>
   </data>
   <data name="TEXT_ACCOUNT_TYPE" xml:space="preserve">
     <value>{IT}Account Type</value>

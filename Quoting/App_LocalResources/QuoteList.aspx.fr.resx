@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -118,63 +118,66 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CREATE_QUOTE" xml:space="preserve">
-        <value>[FR]Create quote</value>
-    </data>
-    <data name="CREATION_DATE" xml:space="preserve">
-        <value>[FR]Creation date</value>
-    </data>
-    <data name="CURRENCY" xml:space="preserve">
-        <value>[FR]Currency</value>
-    </data>
-    <data name="ID_QUOTE" xml:space="preserve">
-        <value>[FR]Quote Id</value>
-    </data>
-    <data name="IS_GROUPSUBSCRIPTION" xml:space="preserve">
-        <value>[FR]Is group subscription</value>
-    </data>
-    <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>[FR]Quotes List</value>
-    </data>
-    <data name="PageResource1.Title" xml:space="preserve">
-        <value>[FR]MetraNet - Quotes List</value>
-    </data>
-    <data name="QUOTE_ACCOUNTS" xml:space="preserve">
-        <value>[FR]Account's IDs</value>
-    </data>
-    <data name="QUOTE_DESCRIPTION" xml:space="preserve">
-        <value>[FR]Quote description</value>
-    </data>
-    <data name="QUOTE_FAILEDMESSAGE" xml:space="preserve">
-        <value>[FR]Failed message</value>
-    </data>
-    <data name="QUOTE_LIST" xml:space="preserve">
-        <value>[FR]Quotes list</value>
-    </data>
-    <data name="QUOTE_PARAMETERS" xml:space="preserve">
-        <value>[FR]Quote parameters</value>
-    </data>
-    <data name="QUOTE_POS" xml:space="preserve">
-        <value>[FR]Product offerings's IDs</value>
-    </data>
-    <data name="QUOTE_STATUS" xml:space="preserve">
-        <value>[FR]Quote status</value>
-    </data>
-    <data name="QuoteListTitle.Text" xml:space="preserve">
-        <value>[FR]Quotes List</value>
-    </data>
-    <data name="REPORT_LINK" xml:space="preserve">
-        <value>[FR]Report link</value>
-    </data>
-    <data name="STATUS_CLEANUP" xml:space="preserve">
-        <value>[FR]Status cleanup</value>
-    </data>
-    <data name="STATUS_REPORT" xml:space="preserve">
-        <value>[FR]Status report</value>
-    </data>
-    <data name="TOTAL_AMOUNT" xml:space="preserve">
-        <value>[FR]Total amount</value>
-    </data>
-    <data name="TOTAL_TAX" xml:space="preserve">
-        <value>[FR]Total Tax</value>
+    <value>[FR]Create quote</value>
+  </data>
+  <data name="CREATION_DATE" xml:space="preserve">
+    <value>[FR]Creation date</value>
+  </data>
+  <data name="CURRENCY" xml:space="preserve">
+    <value>[FR]Currency</value>
+  </data>
+  <data name="ID_QUOTE" xml:space="preserve">
+    <value>[FR]Quote Id</value>
+  </data>
+  <data name="IS_GROUPSUBSCRIPTION" xml:space="preserve">
+    <value>[FR]Is group subscription</value>
+  </data>
+  <data name="MTTitle1Resource1.Text" xml:space="preserve">
+    <value>[FR]Quotes List</value>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>[FR]MetraNet - Quotes List</value>
+  </data>
+  <data name="QUOTE_ACCOUNTS" xml:space="preserve">
+    <value>[FR]Account's IDs</value>
+  </data>
+  <data name="QUOTE_DESCRIPTION" xml:space="preserve">
+    <value>[FR]Quote description</value>
+  </data>
+  <data name="QUOTE_FAILEDMESSAGE" xml:space="preserve">
+    <value>[FR]Failed message</value>
+  </data>
+  <data name="QUOTE_LIST" xml:space="preserve">
+    <value>[FR]Quotes list</value>
+  </data>
+  <data name="QUOTE_PARAMETERS" xml:space="preserve">
+    <value>[FR]Quote parameters</value>
+  </data>
+  <data name="QUOTE_POS" xml:space="preserve">
+    <value>[FR]Product offerings's IDs</value>
+  </data>
+  <data name="QUOTE_STATUS" xml:space="preserve">
+    <value>[FR]Quote status</value>
+  </data>
+  <data name="QuoteListTitle.Text" xml:space="preserve">
+    <value>[FR]Quotes List</value>
+  </data>
+  <data name="REPORT_LINK" xml:space="preserve">
+    <value>[FR]Report link</value>
+  </data>
+  <data name="STATUS_CLEANUP" xml:space="preserve">
+    <value>[FR]Status cleanup</value>
+  </data>
+  <data name="STATUS_REPORT" xml:space="preserve">
+    <value>[FR]Status report</value>
+  </data>
+  <data name="TOTAL_AMOUNT" xml:space="preserve">
+    <value>[FR]Total amount</value>
+  </data>
+  <data name="TOTAL_TAX" xml:space="preserve">
+    <value>[FR]Total Tax</value>
+  </data>
+  <data name="TEXT_ACTIONS" xml:space="preserve">
+    <value>[FR]Actions</value>
   </data>
 </root>

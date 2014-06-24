@@ -118,30 +118,30 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="ACCOUNT_ID" xml:space="preserve">
-        <value>(ITALIAN) Account Id</value>
+        <value>[IT] Account Id</value>
     </data>
     <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>(ITALIAN) Churn Report</value>
+        <value>[IT] Churn Report</value>
     </data>
     <data name="NO_RECORDS" xml:space="preserve">
-        <value>(ITALIAN) No data for display</value>
+        <value>[IT] No data for display</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
-        <value>(ITALIAN) MetraNet - Churn Report</value>
+        <value>[IT] MetraNet - Churn Report</value>
     </data>
     <data name="REPORT_TITLE" xml:space="preserve">
-        <value>(ITALIAN) Churn report</value>
+        <value>[IT] Churn report</value>
     </data>
     <data name="SUBSCRIPTION_DESCRIPTION" xml:space="preserve">
-        <value>(ITALIAN) Subscription description</value>
+        <value>[IT] Subscription description</value>
     </data>
     <data name="SUBSCRIPTION_END_DATE" xml:space="preserve">
-        <value>(ITALIAN) Subscription end date</value>
+        <value>[IT] Subscription end date</value>
     </data>
     <data name="SUBSCRIPTION_NAME" xml:space="preserve">
-        <value>(ITALIAN) Subscription name</value>
+        <value>[IT] Subscription name</value>
     </data>
     <data name="SUBSCRIPTION_START_DATE" xml:space="preserve">
-        <value>(ITALIAN) Subscription start date</value>
+        <value>[IT] Subscription start date</value>
     </data>
 </root>

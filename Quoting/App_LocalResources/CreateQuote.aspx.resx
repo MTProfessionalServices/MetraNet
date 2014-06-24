@@ -123,13 +123,13 @@
   <data name="MTPanelQuoteParametersResource.Text" xml:space="preserve">
     <value>Quote Information</value>
   </data>
-  <data name="dpStartDateResource1.Text" xml:space="preserve">
+  <data name="dpStartDateResource1.Label" xml:space="preserve">
     <value>Start date</value>
   </data>
   <data name="MTPanelQuoteAccountsResource.Text" xml:space="preserve">
     <value>Accounts and product offerings</value>
   </data>
-  <data name="dpEndDateResource1.Text" xml:space="preserve">
+  <data name="dpEndDateResource1.Label" xml:space="preserve">
     <value>End date</value>
   </data>
   <data name="MTCheckBoxPdfResource.Text" xml:space="preserve">

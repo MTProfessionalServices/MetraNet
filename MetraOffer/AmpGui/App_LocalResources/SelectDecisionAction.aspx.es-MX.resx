@@ -121,16 +121,16 @@
     <value>MetraNet</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Decision Action for {0} (Mexican Spanish)</value>
+    <value>Decision Action for {0} [es-MX]</value>
   </data>
   <data name="lblIncrementalOrBulkResource1.Text" xml:space="preserve">
     <value>Mexican Spanish</value>
   </data>
   <data name="rblIncrementallyResource1.Text" xml:space="preserve">
-    <value>Multi-Bucket (Mexican Spanish)</value>
+    <value>Multi-Bucket [es-MX]</value>
   </data>
   <data name="rblInBulkResource1.Text" xml:space="preserve">
-    <value>Single-Bucket(Mexican Spanish)</value>
+    <value>Single-Bucket[es-MX]</value>
   </data>
   <data name="lblDecisionActionResource1.Text" xml:space="preserve">
     <value>Mexican Spanish</value>
@@ -148,7 +148,7 @@
     <value>Mexican Spanish</value>
   </data>
   <data name="noChargeResource1.Text" xml:space="preserve">
-    <value>None(Mexican Spanish)</value>
+    <value>None[es-MX]</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>Mexican Spanish</value>

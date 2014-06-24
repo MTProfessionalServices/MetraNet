@@ -84,7 +84,7 @@ namespace MetraNet.MetraOffer.ProductOfferings
         var objMtProductCatalogCopyPo = new MTProductCatalog();
 
         var sourceProductOffering = objMtProductCatalogCopyPo.GetProductOffering(IntincomingPoId);
-        var copyProductOffering = sourceProductOffering.CreateCopy(productoffering.Name, productoffering.Currency);
+        var copyProductOffering = sourceProductOffering.CreateCopy(productoffering.Name, productoffering.Currency.ToString());
     
         copyProductOffering.Name = productoffering.Name;
         copyProductOffering.DisplayName = productoffering.DisplayName;

@@ -118,7 +118,9 @@
       <MDMLABEL name="PRICELISTNAME" type="caption">Price List</MDMLABEL>:&nbsp;&nbsp;
       <input class="fieldNonEditable" style="vertical-align: middle;" type="text" name="PRICELISTNAME" size="30" readonly>
       #MDMNOTIF CAN_NOT_BE_MODIFIED
-      <button class="clsButtonBlueXLarge" id="BtnCounter" style="vertical-align: middle;" onclick="window.open('[PRICE_LIST_PICKER_DIALOG]?MonoSelect=TRUE&FILTER_CURRENCY=<MDMLABEL name="ProductOfferingCurrency" type="value"></MDMLABEL>&Title=TEXT_SELECT_PRICELIST_MAPPING&Parameters=PickerAddMapping|TRUE;PARAMTABLEID|99999','', 'height=400,width=600, resizable=yes, scrollbars=yes, status=yes'); return false;">
+      <button class="clsButtonBlueXLarge" id="BtnCounter" style="vertical-align: middle;"
+        onclick=" mdm_RefreshDialog(this);window.open('[PRICE_LIST_PICKER_DIALOG]?MonoSelect=TRUE&FILTER_CURRENCY=<MDMLABEL name="ProductOfferingCurrency" type="value">
+        </MDMLABEL>&Title=TEXT_SELECT_PRICELIST_MAPPING&Parameters=PickerAddMapping|TRUE;PARAMTABLEID|99999','', 'height=400,width=600, resizable=yes, scrollbars=yes, status=yes');return false;">
         <MDMLABEL Name="TEXT_SELECT_A_PRICE_LIST">Select Price List</MDMLABEL>&nbsp;
         <IMG localized='true' align=middle alt="" border=0 src="/mcm/default/localized/en-us/images/icons/arrowSelect.gif">
       </button>

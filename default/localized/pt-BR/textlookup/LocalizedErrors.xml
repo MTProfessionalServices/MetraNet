@@ -82,10 +82,7 @@ Quando o SDK de medição retorna um erro para o MAM, analise a mensagem no Metr
     <text id="MAM_ERROR_2011"><value>Falha ao excluir o modelo da conta.  Solicite que seu administrador verifique o log do sistema.</value></text>
     <text id="MAM_ERROR_2012"><value>Ocorreram um ou mais avisos. Não foi possível salvar o ajuste</value></text>
     <text id="MAM_ERROR_2013"><value>Falha ao criar o modelo da conta.  Solicite que seu administrador verifique o log do sistema.</value></text>    
-
     <text id="MAM_ERROR_2014"><value>Nenhuma conta encontrada para a qual aplicar o modelo.</value></text>
-	<text id="MAM_ERROR_2015">
-		<value>A operação em lote falhou e todas as alterações foram retrocedidas.</value>
-	</text>
-
+    <text id="MAM_ERROR_2015"><value>A operação em lote falhou e todas as alterações foram retrocedidas.</value></text>
+    <text id="MAM_ERROR_2016"><value>[pt-BR] Both the parent and child account must share the same Corporate Account.</value></text>
 </texts>

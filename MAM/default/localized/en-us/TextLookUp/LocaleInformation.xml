@@ -114,37 +114,33 @@ This file defines the MAM system information that must be localized.
 			<value>TRUE</value>
       <description>Define if the day light saving mode must be used when the date are localized.</description>
 		</text>
+    <text id='TODAY_TEXT'>
+      <value>Today</value>
+      <description>Define if the day light saving mode must be used when the date are localized.</description>
+    </text>
 
-  <text id='TODAY_TEXT'>
-    <value>Aujourd\'hui</value>
-    <description></description>
-  </text>
-
-  <text id='MONTH_NAMES'>
-    <value>Janvier,Fevrier,Mars,Avril,Mai,Juin,July,Aut,Sptembre,Octobre,Novembre,Decembre</value>
-    <description></description>
-  </text>
+    <text id='MONTH_NAMES'>
+      <value>January,Febtuary,March,April,May,June,July,August,September,October,November,December</value>
+      <description>Define if the day light saving mode must be used when the date are localized.</description>
+    </text>
   <text id='DAY_NAMES'>
-    <value>Dimanche,Luni,Mardi,Mercredi,Jeudi,Vendredi,Samedi</value>
+    <value>Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday</value>
     <description>weekdays.</description>
   </text>
   <text id='START_DAY_OF_WEEK'>
-    <value>1</value>
+    <value>0</value>
     <description></description>
   </text>
   <text id='CALENDAR_CANCEL'>
-    <value>annule</value>
+    <value>Cancel</value>
     <description></description>
   </text>
   <text id='NEXT_MONTH_TEXT'>
-    <value>prochaine mois</value>
+    <value>Next Month</value>
     <description></description>
   </text>
   <text id='PREV_MONTH_TEXT'>
-    <value>mois dernier</value>
+    <value>Previous month</value>
     <description></description>
   </text>
-
-
-
 </texts>

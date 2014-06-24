@@ -2,7 +2,7 @@ SELECT
 	ALLADJUSTMENTS.AdjustmentID,
 	ALLADJUSTMENTS.AdjustmentType,
 	(case(ALLADJUSTMENTS.AdjustmentType) when 0 then 'Line Item' when 1 then 'Miscellaneous' end) AS AdjustmentTypeAsString,
-	ABS(ALLADJUSTMENTS.Amount) AS Amount,
+	( -1 * ALLADJUSTMENTS.Amount) AS Amount,
 	ALLADJUSTMENTS.Currency,
 	ALLADJUSTMENTS.CreatedDate,
 	ALLADJUSTMENTS.AdjustmentDescription,

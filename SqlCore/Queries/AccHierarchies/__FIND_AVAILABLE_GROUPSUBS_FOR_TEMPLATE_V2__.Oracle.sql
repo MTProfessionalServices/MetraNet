@@ -26,6 +26,9 @@
     INNER JOIN t_po tpo on tpo.id_po = ts.id_po
     INNER JOIN t_effectivedate te on te.id_eff_date = tpo.id_avail AND
 	       ((te.dt_end IS NOT NULL AND %%REFDATE%% between te.dt_start AND te.dt_end) or (te.dt_end IS NULL AND %%REFDATE%% >= te.dt_start))
+     /* Next 2 joins needed to test currency matching conditions */ 
+    INNER JOIN t_pricelist pl1 on pl1.id_pricelist = tpo.id_nonshared_pl   
+    INNER JOIN t_av_internal tav on tav.id_acc = %%ID_ACC%%      
     /* CR 13655 make sure that PO is either wide open or allows template account type */
     /*LEFT OUTER JOIN t_acc_template at ON id_folder = %%ID_ACC%% and id_acc_type = %%ACCOUNT_TYPE%%*/
     LEFT OUTER JOIN t_po_account_type_map atm ON ts.id_po = atm.id_po
@@ -41,5 +44,6 @@
      left outer join t_acc_template act on act.id_acc_template = tsubs.id_acc_template
      and id_folder = %%ID_ACC%% and id_acc_type = %%ACCOUNT_TYPE%%
     )
-    AND (atm.id_account_type IS NULL OR atm.id_account_type = %%ACCOUNT_TYPE%% OR tp.all_types = 1)      
+    AND (atm.id_account_type IS NULL OR atm.id_account_type = %%ACCOUNT_TYPE%% OR tp.all_types = 1) 
+    AND (%%CURRENCYFILTER1%%)    
    	

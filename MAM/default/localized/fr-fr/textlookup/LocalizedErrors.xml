@@ -82,6 +82,5 @@ When the Metering SDK returns an error to the MAM looks up the message in the Me
 <text id="MAM_ERROR_2011"><value>Échec de la suppression du modèle de compte.Veuillez demander à votre administrateur de vérifier le journal système.</value></text>
 <text id="MAM_ERROR_2012"><value>En raison d'un ou plusieurs avertissement(s), l'ajustement ne peut être enregistré.</value></text>
 <text id="MAM_ERROR_2013"><value>Échec de la création du modèle de compte.Veuillez demander à votre administrateur de vérifier le journal système.</value></text>    
-<text id="MAM_ERROR_2014"><value>Aucun compte n'a été trouvé pour l'application du modèle.</value></text>
-<text id="MAM_ERROR_2016"><value>[FR] Both the parent and child account must share the same Corporate Account.</value></text>  
+<text id="MAM_ERROR_2014"><value>Aucun compte n'a été trouvé pour l'application du modèle.</value></text>    
 </texts>

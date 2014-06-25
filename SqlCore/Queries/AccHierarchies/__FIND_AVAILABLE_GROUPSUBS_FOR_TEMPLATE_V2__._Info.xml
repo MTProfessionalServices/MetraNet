@@ -30,6 +30,13 @@
             <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>
         </Parameter>
+        <Parameter>
+            <Name>CURRENCYFILTER1</Name>
+            <DataType>sqlsubstitution</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <SubstitutionSyntaxCheck>1=1</SubstitutionSyntaxCheck>
+            <Description></Description>
+        </Parameter>
     </Parameters>
     <Description></Description>
     <ConversionAudit>

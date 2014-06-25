@@ -4,6 +4,7 @@ Option Explicit
 CONST DEFAULT_LANGUAGE = "en-us"
 
 Sub Application_OnStart
+   Set Application("cache_enumconfig") = server.CreateObject("Metratech.MTEnumConfig.1")  
 End Sub
 
 Sub Application_OnEnd

@@ -26,7 +26,7 @@ BEGIN
                                          END
   END;
 
-  SELECT DISTINCT 
+  SELECT 
          /* First, credit or debit the difference in the ending of the subscription.  If the new one is later, this will be a debit, otherwise a credit.
          * There's a weird exception when this is (a) an arrears charge, (b) the old subscription end was after the pci end date, 
          * and (c) the new sub end is inside the pci end date.*/
@@ -36,7 +36,7 @@ BEGIN
          ui.dt_start                                                                                AS c_BillingIntervalStart,
          ui.dt_end                                                                                  AS c_BillingIntervalEnd,
          dbo.mtmaxoftwodates(pci.dt_start, @subscriptionStart)                                      AS c_RCIntervalSubscriptionStart,
-         dbo.mtminoftwodates(pci.dt_end,@subscriptionEnd)                                           AS c_RCIntervalSubscriptionEnd,
+         dbo.mtminoftwodates(pci.dt_end, @subscriptionEnd)                                          AS c_RCIntervalSubscriptionEnd,
          @subscriptionStart                                                                         AS c_SubscriptionStart,
          @subscriptionEnd                                                                           AS c_SubscriptionEnd,
          dbo.MTMinOfTwoDates(pci.dt_end, @subscriptionStart)                                        AS c_BilledRateDate,
@@ -60,7 +60,7 @@ BEGIN
   FROM   t_usage_interval ui
          INNER JOIN #recur_window_holder rw
               ON  rw.c_payerstart          < ui.dt_end AND rw.c_payerend          > ui.dt_start /* next interval overlaps with payer */
-              AND rw.c_cycleeffectivestart < ui.dt_end AND rw.c_cycleeffectiveend > ui.dt_start /* next interval overlaps with cycle */
+              /* rw.c_cycleeffectivestart EQUAL TO @subscriptionStart , rw.c_cycleeffectiveend EQUAL TO @subscriptionEnd */
               AND rw.c_membershipstart     < ui.dt_end AND rw.c_membershipend     > ui.dt_start /* next interval overlaps with membership */
               AND @subscriptionStart       < ui.dt_end AND @subscriptionEnd       > ui.dt_start
               AND rw.c_unitvaluestart      < ui.dt_end AND rw.c_unitvalueend      > ui.dt_start /* next interval overlaps with UDRC */  
@@ -83,17 +83,15 @@ BEGIN
               AND pci.dt_end BETWEEN    rw.c_payerstart AND rw.c_payerend                         /* rc start goes to this payer */              
               AND rw.c_unitvaluestart      < pci.dt_end AND rw.c_unitvalueend      > pci.dt_start /* rc overlaps with this UDRC */
               AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
-              AND rw.c_cycleeffectivestart < pci.dt_end AND rw.c_cycleeffectiveend > pci.dt_start /* rc overlaps with this cycle */
+              /* rw.c_cycleeffectivestart EQUAL TO @subscriptionStart , rw.c_cycleeffectiveend EQUAL TO @subscriptionEnd */
               AND @subscriptionStart       < pci.dt_end AND @subscriptionEnd       > pci.dt_start /* rc overlaps with this subscription */
          INNER JOIN t_usage_interval currentui ON @currentDate BETWEEN currentui.dt_start AND currentui.dt_end
               AND currentui.id_usage_cycle = ui.id_usage_cycle
   WHERE
-         /* TODO: Remove it - it is always true now. */
-         EXISTS (SELECT 1 FROM t_sub_history tsh WHERE tsh.id_sub = rw.C__SubscriptionID AND tsh.id_acc = rw.c__AccountID AND tsh.tt_end < dbo.MTMaxDate()) 
-         AND ui.dt_start < @currentDate
+         ui.dt_start < @currentDate
          AND rw.c__IsAllowGenChargeByTrigger = 1
 
-  UNION
+  UNION ALL
 
   SELECT DISTINCT
 /* Now, credit or debit the difference in the start of the subscription.  If the new one is earlier, this will be a debit, otherwise a credit*/

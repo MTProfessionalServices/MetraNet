@@ -6,99 +6,99 @@ CREATE PROCEDURE [dbo].[MeterCreditFromRecurWindow]
   @currentDate DATETIME
 AS
 BEGIN
-	/* SET NOCOUNT ON added to prevent extra result sets from interfering with SELECT statements. */
-	SET NOCOUNT ON;
-	IF (( SELECT VALUE FROM t_db_values WHERE parameter = N'InstantRc' ) = 'false' ) RETURN;
+  /* SET NOCOUNT ON added to prevent extra result sets from interfering with SELECT statements. */
+  SET NOCOUNT ON;
+  IF (( SELECT VALUE FROM t_db_values WHERE parameter = N'InstantRc' ) = 'false' ) RETURN;
 
-	DECLARE @rcActionForEndDateUpdate nvarchar(255),
-	        @subscriptionStart        DATETIME,
-	        @subscriptionEnd          DATETIME
+  DECLARE @rcActionForEndDateUpdate nvarchar(255),
+          @subscriptionStart        DATETIME,
+          @subscriptionEnd          DATETIME
 
-	IF (@newSubEnd <> @curSubEnd)
-	BEGIN
-	    SELECT @subscriptionStart = dbo.MTMinOfTwoDates(@newSubEnd, @curSubEnd),
-	           @subscriptionEnd = dbo.MTMaxOfTwoDates(@newSubEnd, @curSubEnd),
-	           @rcActionForEndDateUpdate = CASE 
-	                                            WHEN @newSubEnd > @curSubEnd THEN 
-	                                                 'Debit'
-	                                            ELSE 'Credit'
-	                                       END
-	END;
+  IF (@newSubEnd <> @curSubEnd)
+  BEGIN
+      SELECT @subscriptionStart = dbo.MTMinOfTwoDates(@newSubEnd, @curSubEnd),
+             @subscriptionEnd = dbo.MTMaxOfTwoDates(@newSubEnd, @curSubEnd),
+             @rcActionForEndDateUpdate = CASE 
+                                              WHEN @newSubEnd > @curSubEnd THEN 
+                                                   'Debit'
+                                              ELSE 'Credit'
+                                         END
+  END;
 
-	SELECT DISTINCT 
-	       /* First, credit or debit the difference in the ending of the subscription.  If the new one is later, this will be a debit, otherwise a credit.
-	       * There's a weird exception when this is (a) an arrears charge, (b) the old subscription end was after the pci end date, 
-	       * and (c) the new sub end is inside the pci end date.*/
-	       @rcActionForEndDateUpdate                                                                  AS c_RCActionType,
-	       pci.dt_start                                                                               AS c_RCIntervalStart,
-	       pci.dt_end                                                                                 AS c_RCIntervalEnd,
-	       paymentInterval.dt_start                                                                   AS c_BillingIntervalStart,
-	       paymentInterval.dt_end                                                                     AS c_BillingIntervalEnd,
-	       dbo.mtmaxoftwodates(pci.dt_start, @subscriptionStart)                                      AS c_RCIntervalSubscriptionStart,
-	       dbo.mtminoftwodates(pci.dt_end,@subscriptionEnd)                                           AS c_RCIntervalSubscriptionEnd,
-	       @subscriptionStart                                                                         AS c_SubscriptionStart,
-	       @subscriptionEnd                                                                           AS c_SubscriptionEnd,
-	       @subscriptionStart                                                                         AS c_BilledRateDate,
-	       rcr.n_rating_type                                                                          AS c_RatingType,
-	       CASE WHEN rw.c_advance = 'Y' THEN '1' ELSE '0' END                                         AS c_Advance,
-	       CASE WHEN rcr.b_prorate_on_activate = 'Y' THEN '1' ELSE '0' END                            AS c_ProrateOnSubscription,
-	       CASE WHEN rcr.b_prorate_instantly = 'Y' THEN '1' ELSE '0' END                              AS c_ProrateInstantly, /* NOTE: c_ProrateInstantly - No longer used */
-	       CASE WHEN rcr.b_prorate_on_deactivate = 'Y' THEN '1' ELSE '0' END                          AS c_ProrateOnUnsubscription,
-	       CASE WHEN rcr.b_fixed_proration_length = 'Y' THEN fxd.n_proration_length ELSE 0 END        AS c_ProrationCycleLength,
-	       rw.c__accountid                                                                            AS c__AccountID,
-	       rw.c__payingaccount                                                                        AS c__PayingAccount,
-	       rw.c__priceableiteminstanceid                                                              AS c__PriceableItemInstanceID,
-	       rw.c__priceableitemtemplateid                                                              AS c__PriceableItemTemplateID,
-	       rw.c__productofferingid                                                                    AS c__ProductOfferingID,
-	       rw.c_UnitValueStart                                                                        AS c_UnitValueStart,
-	       rw.c_UnitValueEnd                                                                          AS c_UnitValueEnd,
-	       rw.c_UnitValue                                                                             AS c_UnitValue,
-	       currentui.id_interval                                                                      AS c__IntervalID,
-	       rw.c__subscriptionid                                                                       AS c__SubscriptionID
-	       INTO #tmp_rc_1
-	FROM   #recur_window_holder rw
-	       INNER LOOP JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
-	       INNER LOOP JOIN t_acc_usage_cycle auc ON auc.id_acc = rw.c__payingaccount
-	       /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
-	       INNER LOOP JOIN t_pc_interval pci WITH(INDEX(pci_cycle_dt_idx))
-	            ON  pci.id_cycle = CASE 
-	                                    WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle
-	                                    WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN auc.id_usage_cycle
-	                                    WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(auc.id_usage_cycle,rw.c_SubscriptionStart,rcr.id_cycle_type)
-	                                    ELSE NULL
-	                               END
-	            AND dbo.MTMinOfTwoDates(pci.dt_end, @curSubEnd) != dbo.MTMinOfTwoDates(pci.dt_end, @newSubEnd)
-	            AND pci.dt_start < @subscriptionEnd
-	            /* Check this case!
-	            For the EndDate update scenario we're always peeking the earlier StartDate,
-	            without knowing how Start Date was updated. */
-	            AND pci.dt_end > dbo.MTMinOfTwoDates(@newSubStart, @curSubStart)
-	            AND pci.dt_end BETWEEN    rw.c_payerstart AND rw.c_payerend /* rc start goes to this payer */
-	            AND pci.dt_start < @currentDate /* Don't go into the future*/
-	            AND rw.c_unitvaluestart      < pci.dt_end AND rw.c_unitvalueend      > pci.dt_start /* rc overlaps with this UDRC */
-	            AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
-	       INNER LOOP JOIN t_usage_interval paymentInterval ON pci.dt_start BETWEEN paymentInterval.dt_start AND paymentInterval.dt_end
-	            AND paymentInterval.id_usage_cycle = pci.id_cycle
-	       INNER LOOP JOIN t_usage_cycle ccl
-	            ON  ccl.id_usage_cycle = CASE
-	                                          WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle
-	                                          WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN auc.id_usage_cycle
-	                                          WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(auc.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type)
-	                                          ELSE NULL
-	                                     END
-	       INNER LOOP JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
-	       INNER JOIN t_usage_interval currentui ON @currentDate BETWEEN currentui.dt_start AND currentui.dt_end AND currentui.id_usage_cycle = paymentInterval.id_usage_cycle
-	WHERE
-	       EXISTS (SELECT 1 FROM t_sub_history tsh WHERE tsh.id_sub = rw.C__SubscriptionID AND tsh.id_acc = rw.c__AccountID AND tsh.tt_end < dbo.MTMaxDate())
-	       /* We have one exceptional case: (a) an arrears charge, (b) old sub end date was after the end of the pci, (c) new sub end date is inside the pci.  We'll deal with this 
-	       * elsewhere.
-	       */
-	       AND NOT (rcr.b_advance = 'N' AND @curSubEnd > pci.dt_end AND @newSubEnd < pci.dt_end)
-	       AND rw.c__IsAllowGenChargeByTrigger = 1
+  SELECT DISTINCT 
+         /* First, credit or debit the difference in the ending of the subscription.  If the new one is later, this will be a debit, otherwise a credit.
+         * There's a weird exception when this is (a) an arrears charge, (b) the old subscription end was after the pci end date, 
+         * and (c) the new sub end is inside the pci end date.*/
+         @rcActionForEndDateUpdate                                                                  AS c_RCActionType,
+         pci.dt_start                                                                               AS c_RCIntervalStart,
+         pci.dt_end                                                                                 AS c_RCIntervalEnd,
+         paymentInterval.dt_start                                                                   AS c_BillingIntervalStart,
+         paymentInterval.dt_end                                                                     AS c_BillingIntervalEnd,
+         dbo.mtmaxoftwodates(pci.dt_start, @subscriptionStart)                                      AS c_RCIntervalSubscriptionStart,
+         dbo.mtminoftwodates(pci.dt_end,@subscriptionEnd)                                           AS c_RCIntervalSubscriptionEnd,
+         @subscriptionStart                                                                         AS c_SubscriptionStart,
+         @subscriptionEnd                                                                           AS c_SubscriptionEnd,
+         @subscriptionStart                                                                         AS c_BilledRateDate,
+         rcr.n_rating_type                                                                          AS c_RatingType,
+         CASE WHEN rw.c_advance = 'Y' THEN '1' ELSE '0' END                                         AS c_Advance,
+         CASE WHEN rcr.b_prorate_on_activate = 'Y' THEN '1' ELSE '0' END                            AS c_ProrateOnSubscription,
+         CASE WHEN rcr.b_prorate_instantly = 'Y' THEN '1' ELSE '0' END                              AS c_ProrateInstantly, /* NOTE: c_ProrateInstantly - No longer used */
+         CASE WHEN rcr.b_prorate_on_deactivate = 'Y' THEN '1' ELSE '0' END                          AS c_ProrateOnUnsubscription,
+         CASE WHEN rcr.b_fixed_proration_length = 'Y' THEN fxd.n_proration_length ELSE 0 END        AS c_ProrationCycleLength,
+         rw.c__accountid                                                                            AS c__AccountID,
+         rw.c__payingaccount                                                                        AS c__PayingAccount,
+         rw.c__priceableiteminstanceid                                                              AS c__PriceableItemInstanceID,
+         rw.c__priceableitemtemplateid                                                              AS c__PriceableItemTemplateID,
+         rw.c__productofferingid                                                                    AS c__ProductOfferingID,
+         rw.c_UnitValueStart                                                                        AS c_UnitValueStart,
+         rw.c_UnitValueEnd                                                                          AS c_UnitValueEnd,
+         rw.c_UnitValue                                                                             AS c_UnitValue,
+         currentui.id_interval                                                                      AS c__IntervalID,
+         rw.c__subscriptionid                                                                       AS c__SubscriptionID
+         INTO #tmp_rc_1
+  FROM   #recur_window_holder rw
+         INNER LOOP JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
+         INNER LOOP JOIN t_acc_usage_cycle auc ON auc.id_acc = rw.c__payingaccount
+         /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
+         INNER LOOP JOIN t_pc_interval pci WITH(INDEX(pci_cycle_dt_idx))
+              ON  pci.id_cycle = CASE
+                                      WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle
+                                      WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN auc.id_usage_cycle
+                                      WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(auc.id_usage_cycle,rw.c_SubscriptionStart,rcr.id_cycle_type)
+                                      ELSE NULL
+                                 END
+              AND dbo.MTMinOfTwoDates(pci.dt_end, @curSubEnd) != dbo.MTMinOfTwoDates(pci.dt_end, @newSubEnd)
+              AND pci.dt_start < @subscriptionEnd
+              /* Check this case!
+              For the EndDate update scenario we're always peeking the earlier StartDate,
+              without knowing how Start Date was updated. */
+              AND pci.dt_end > dbo.MTMinOfTwoDates(@newSubStart, @curSubStart)
+              AND pci.dt_end BETWEEN    rw.c_payerstart AND rw.c_payerend /* rc start goes to this payer */
+              AND pci.dt_start < @currentDate /* Don't go into the future*/
+              AND rw.c_unitvaluestart      < pci.dt_end AND rw.c_unitvalueend      > pci.dt_start /* rc overlaps with this UDRC */
+              AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
+         INNER LOOP JOIN t_usage_interval paymentInterval ON pci.dt_start BETWEEN paymentInterval.dt_start AND paymentInterval.dt_end
+              AND paymentInterval.id_usage_cycle = pci.id_cycle
+         INNER LOOP JOIN t_usage_cycle ccl
+              ON  ccl.id_usage_cycle = CASE
+                                            WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle
+                                            WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN auc.id_usage_cycle
+                                            WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(auc.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type)
+                                            ELSE NULL
+                                       END
+         INNER LOOP JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
+         INNER JOIN t_usage_interval currentui ON @currentDate BETWEEN currentui.dt_start AND currentui.dt_end AND currentui.id_usage_cycle = paymentInterval.id_usage_cycle
+  WHERE
+         EXISTS (SELECT 1 FROM t_sub_history tsh WHERE tsh.id_sub = rw.C__SubscriptionID AND tsh.id_acc = rw.c__AccountID AND tsh.tt_end < dbo.MTMaxDate())
+         /* We have one exceptional case: (a) an arrears charge, (b) old sub end date was after the end of the pci, (c) new sub end date is inside the pci.  We'll deal with this 
+         * elsewhere.
+         */
+         AND NOT (rcr.b_advance = 'N' AND @curSubEnd > pci.dt_end AND @newSubEnd < pci.dt_end)
+         AND rw.c__IsAllowGenChargeByTrigger = 1
 
-	UNION
-	
-	SELECT DISTINCT 
+  UNION
+
+  SELECT DISTINCT
 /* Now, credit or debit the difference in the start of the subscription.  If the new one is earlier, this will be a debit, otherwise a credit*/
          CASE WHEN new_sub.vt_start < current_sub.vt_start THEN 'InitialDebit' ELSE 'InitialCredit' END  AS c_RCActionType,
 	       pci.dt_start                                                                               AS c_RCIntervalStart,
@@ -164,7 +164,7 @@ BEGIN
 	       * We'll deal with this elsewhere.
 	       */
 	       AND NOT (rcr.b_advance = 'N' AND current_sub.vt_end > pci.dt_end AND new_sub.vt_end < pci.dt_end)
-	       AND rw.c__IsAllowGenChargeByTrigger = 1 
+	       AND rw.c__IsAllowGenChargeByTrigger = 1
 
  UNION
 

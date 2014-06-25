@@ -84,6 +84,5 @@ When the Metering SDK returns an error to the MAM looks up the message in the Me
     <text id="MAM_ERROR_2012"><value>One or more warnings occurred, Adjustment cannot be saved</value></text>
     <text id="MAM_ERROR_2013"><value>Failed to create account template.  Please have your administrator check the system log.</value></text>    
     <text id="MAM_ERROR_2014"><value>No accounts found to apply template to.</value></text>
-    <text id="MAM_ERROR_2015"><value>The batch operation failed and all changes were rolled back.</value></text>
-    <text id="MAM_ERROR_2016"><value>Both the parent and child account must share the same Corporate Account.</value></text>
+	<text id="MAM_ERROR_2015"><value>The batch operation failed and all changes were rolled back.</value></text>
 </texts>

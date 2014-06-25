@@ -220,7 +220,7 @@
     <value>2</value>
   </data>
   <data name="adjAmountFldResourceTaxCounty.Label" xml:space="preserve">
-    <value>[de] Tax County</value>
+    <value>[DE]Tax County</value>
   </data>
   <data name="adjAmountFldResourceTaxCounty.MaxLenght" xml:space="preserve">
     <value>-1</value>
@@ -229,7 +229,7 @@
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxFederal.Label" xml:space="preserve">
-    <value>[de] Tax Federal</value>
+    <value>[DE]Tax Federal</value>
   </data>
   <data name="adjAmountFldResourceTaxFederal.MaxLenght" xml:space="preserve">
     <value>-1</value>
@@ -238,7 +238,7 @@
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxLocal.Label" xml:space="preserve">
-    <value>[de] Tax Local</value>
+    <value>[DE]Tax Local</value>
   </data>
   <data name="adjAmountFldResourceTaxLocal.MaxLenght" xml:space="preserve">
     <value>-1</value>
@@ -247,7 +247,7 @@
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxOther.Label" xml:space="preserve">
-    <value>[de] Tax Other</value>
+    <value>[DE]Tax Other</value>
   </data>
   <data name="adjAmountFldResourceTaxOther.MaxLenght" xml:space="preserve">
     <value>-1</value>
@@ -256,7 +256,7 @@
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxState.Label" xml:space="preserve">
-    <value>[de] Tax State</value>
+    <value>[DE]Tax State</value>
   </data>
   <data name="adjAmountFldResourceTaxState.MaxLenght" xml:space="preserve">
     <value>-1</value>
@@ -271,7 +271,7 @@
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxTotal.Label" xml:space="preserve">
-    <value>[de] Total Adjustment Being Issued</value>
+    <value>[DE]Total Adjustment Being Issued</value>
   </data>
   <data name="TEXT_CREDIT_NOTE_CREATED" xml:space="preserve">
     <value>[DE]A credit note for this Miscellaneous Adjustment was created.</value>

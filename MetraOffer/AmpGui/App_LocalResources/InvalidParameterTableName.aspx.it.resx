@@ -125,6 +125,6 @@
     <value>MetraNet</value>
   </data>
   <data name="TEXT_MESSAGE" xml:space="preserve">
-    <value>Italian '{0}'  '{1}'</value>
+    <value>[IT] '{0}'  '{1}'</value>
   </data>
 </root>

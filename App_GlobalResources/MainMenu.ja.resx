@@ -334,7 +334,7 @@
     <value>すべてのエンティティの一覧表示</value>
   </data>
   <data name="TEXT_MACHINE_ROLES" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_MAKE_PAYMENT" xml:space="preserve">
     <value>支払い</value>
@@ -589,10 +589,10 @@
     <value>View Failed Changes</value>
   </data>
   <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
     <value>[ja]Add child Account</value>

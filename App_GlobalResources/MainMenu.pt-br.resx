@@ -166,7 +166,7 @@
     <value>Todos os intervalos</value>
   </data>
   <data name="TEXT_ANALYTICS" xml:space="preserve">
-    <value>[pt-br]Analytics</value>
+    <value>[pt-BR]Analytics</value>
   </data>
   <data name="TEXT_APP_AUDIT_LOG" xml:space="preserve">
     <value>Log de auditoria da aplicação</value>
@@ -601,31 +601,31 @@
     <value>Payment Transactions</value>
   </data>
   <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
-    <value>[pt-br]Add child Account</value>
+    <value>[pt-BR]Add child Account</value>
   </data>
   <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
-    <value>[pt-br]Bill Messages</value>
+    <value>[pt-BR]Bill Messages</value>
   </data>
   <data name="TEXT_FINANCE_DASHBOARD" xml:space="preserve">
-    <value>[pt-br]Finance Dashboard</value>
+    <value>[pt-BR]Finance Dashboard</value>
   </data>
   <data name="TEXT_MANAGE_BILL_MESSAGES" xml:space="preserve">
-    <value>[pt-br]Manage Bill Messages</value>
+    <value>[pt-BR]Manage Bill Messages</value>
   </data>
   <data name="TEXT_OPERATIONS_DASHBOARD" xml:space="preserve">
-    <value>[pt-br]Operations Dashboard</value>
+    <value>[pt-BR]Operations Dashboard</value>
   </data>
   <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
-    <value>[pt-br]Product Dashboard</value>
+    <value>[pt-BR]Product Dashboard</value>
   </data>
   <data name="TEXT_REPORTS" xml:space="preserve">
-    <value>[pt-br] Reports</value>
+    <value>[pt-BR] Reports</value>
   </data>
   <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
     <value>[pt-BR]Usage Processing</value>

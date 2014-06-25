@@ -370,10 +370,10 @@
     <value>削除</value>
   </data>
   <data name="TEXT_BILL_MESSAGE" xml:space="preserve">
-    <value>Bill Message {0} has {1} accounts associated with it.</value>
+    <value>[JA]Bill Message {0} has {1} accounts associated with it.</value>
   </data>
   <data name="TEXT_BULKUPDATE" xml:space="preserve">
-    <value>Bulk Update</value>
+    <value>[JA]Bulk Update</value>
   </data>
   <data name="TEXT_DELETE_ACCOUNT_NOTE" xml:space="preserve">
     <value>この勘定書を削除しますか?</value>
@@ -514,55 +514,55 @@
     <value>エクスポート</value>
   </data>
   <data name="TEXT_EXPORT_ALL_RECORDS" xml:space="preserve">
-    <value>Export All Filtered Records</value>
+    <value>[JA]Export All Filtered Records</value>
   </data>
   <data name="TEXT_BULKUPDATE_ALL_RECORDS" xml:space="preserve">
-    <value>Bulk Update All Filtered Records</value>
+    <value>[JA]Bulk Update All Filtered Records</value>
   </data>
   <data name="TEXT_EXPORT_SELECTED_RECORDS" xml:space="preserve">
-    <value>Export Selected Records</value>
+    <value>[JA]Export Selected Records</value>
   </data>
   <data name="TEXT_BULKUPDATE_SELECTED_RECORDS" xml:space="preserve">
-    <value>Bulk Update Selected Records</value>
+    <value>[JA]Bulk Update Selected Records</value>
   </data>
   <data name="TEXT_EXPORT_CURRENT_PAGE_ONLY" xml:space="preserve">
     <value>現在のページのみエクスポート</value>
   </data>
   <data name="TEXT_BULKUPDATE_CURRENT_PAGE_ONLY" xml:space="preserve">
-    <value>Bulk Update Current Page Only</value>
+    <value>[JA]Bulk Update Current Page Only</value>
   </data>
   <data name="TEXT_EXPORT_SEARCH_RESULTS" xml:space="preserve">
     <value>検索結果のエクスポート</value>
   </data>
   <data name="TEXT_BULKUPDATE_SEARCH_RESULTS" xml:space="preserve">
-    <value>Bulk Update Search Results</value>
+    <value>[JA]Bulk Update Search Results</value>
   </data>
   <data name="TEXT_ERROR_NOTHING_UPDATED_BULKUPDATE" xml:space="preserve">
-    <value>Nothing will be updated</value>
+    <value>[JA]Nothing will be updated</value>
   </data>
   <data name="TEXT_NO_SELECTED_BME_FOR_BULKUPDATE" xml:space="preserve">
-    <value>There are no selected BMEs for bulk update</value>
+    <value>[JA]There are no selected BMEs for bulk update</value>
   </data>
   <data name="TEXT_ERROR_TOO_MANY_RECORDS_BULKUPDATE" xml:space="preserve">
-    <value>Too many records to update</value>
+    <value>[JA]Too many records to update</value>
   </data>
   <data name="TEXT_LIMIT_DOWN_SEARCH_TO_BULKUPDATE" xml:space="preserve">
-    <value>You are going to update NUMBER_TO_UPDATE items. Choose less items to fit {0} item(s) limitation</value>
+    <value>[JA]You are going to update NUMBER_TO_UPDATE items. Choose less items to fit {0} item(s) limitation</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_FOR_BULKUPDATE" xml:space="preserve">
-    <value>There are no properties for bulk update</value>
+    <value>[JA]There are no properties for bulk update</value>
   </data>
   <data name="TEXT_ATTENTION_CHANGES_PERMANENT" xml:space="preserve">
-    <value>Attention. Your changes will be permanent</value>
+    <value>[JA]Attention. Your changes will be permanent</value>
   </data>
   <data name="TEXT_SURE_MAKE_CHANGE" xml:space="preserve">
-    <value>Are you sure that you want to make these changes?</value>
+    <value>[JA]Are you sure that you want to make these changes?</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
-    <value>No properties are going to be updated</value>
+    <value>[JA]No properties are going to be updated</value>
   </data>
   <data name="TEXT_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
-    <value>Properties that are going to be updated</value>
+    <value>[JA]Properties that are going to be updated</value>
   </data>
   <data name="TEXT_EXTERNAL" xml:space="preserve">
     <value>外部情報</value>
@@ -766,7 +766,7 @@
     <value>選択した関係 (複数可) を削除しますか?</value>
   </data>
   <data name="TEXT_REMOVE_THIS_RELSHIP" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_RESUBMIT_FAILED" xml:space="preserve">
     <value>失敗した取引を再送信しています...</value>
@@ -904,7 +904,7 @@
     <value>ACH</value>
   </data>
   <data name="TEXT_WILL_LOSE_CHANGES" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_WRITE_OFF" xml:space="preserve">
     <value>小額残金の償却の追加</value>
@@ -925,52 +925,52 @@
     <value>次を対象とする関係: </value>
   </data>
   <data name="TITLE_REMOVE_RELATIONSHIP" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_FLS_ERROR_MESSAGE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_FLS_NO_ERROR_MESSAGE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_ACTIVATE_DEACTIVATE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_CLONE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_VIEW" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_GENERAL_INFO" xml:space="preserve">
     <value />
   </data>
   <data name="TEXT_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_ACCOUNT_GROUP" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_CUSTOM_ACCT_GRP" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_SELECT_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_SUCCESS_RESORTING_GRID" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_ERROR_ACTIVATE_DECISION" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_CUSTOM_ACCT_GRP" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_MORE_INFO" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_ITEMS_TO_AGGREGATE" xml:space="preserve">
     <value>[JA] For example, suppose the Decision Type is \"Use a special rate if the number of minutes of usage is over 500\". The settings might include \"500\" and the \"special rate\" to apply.</value>
@@ -994,67 +994,67 @@
     <value>[JA] Usage is aggregated based on the value set in the parameter table.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
     <value>[JA] Help:  Decision Domain</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_AMP_UI_NAME_ILLEGAL_CHAR" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_HOW_APPLY" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_HOW_APPLY" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE_PRORATION" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE_PRORATION" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_RESTART_RANGE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_ACTIVATION_RESULTS" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_ERROR_CHECK_RESULTS" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP_2" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_PRODUCT_VIEW" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_INCREMENTAL_OR_BULK" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_INCREMENTAL_OR_BULK" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
     <value>[JA]Help: Multi-bucket</value>
@@ -1069,28 +1069,28 @@
     <value>[JA]Act on all the records together.  All usage has same price which is determined by total volume.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_UNIT_RATE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_UNIT_RATE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_EVENT_RATE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_EVENT_RATE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_DISCOUNT" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DISCOUNT" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_GENERATED_CHARGE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_GENERATED_CHARGE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
     <value>[JA] Help:  None</value>
@@ -1099,103 +1099,103 @@
     <value>[JA] Do not generate a charge for this decision</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_GENERATED_CHARGE_GRID" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_GENERATED_CHARGE_GRID" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_DECISION_CYCLE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_MORE_DECISION_CYCLE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_ADD_MISC_ATTRIBUTE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_EDIT_MISC_ATTRIBUTE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_EDIT_DECISION_MISC_ATTRIBUTE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_CHARGE_CREDIT_DIRECTIVE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DIRECTIVES" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_DIRECTIVES" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_DIRECTIVES" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_DELETE_DECISION_MISC_ATTRIBUTE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_DELETE_MISC_ATTRIBUTE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_ERROR" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_FILTER" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_FILTER_HELP" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_CLONE_DECISION" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_DELETE_DIRECTIVE_CONFIRM" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_DELETE_DIRECTIVE_CONFIRM" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_DELETE_BS_EXEMPTION" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_DELETE_BS_OVERRIDE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_ADD_ACCOUNT_GROUP" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_DELETE_ACCOUNT_GROUP" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_EDIT_ACCOUNT_GROUP" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_VIEW_ACCOUNT_GROUP" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_EDIT_ACCOUNT_GROUP" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_DELETE_ACCOUNT_QUALIFICATION_CONFIRM" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_DELETE_ACCOUNT_QUALIFICATION_CONFIRM" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_DIRECTIVE_FILTER" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DIRECTIVE_FILTER" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="ERROR_BILL_MESSAGE_DATES" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
-    <value>[ja]Start Date can't be greater than End Date</value>
+    <value>[JA]Start Date can't be greater than End Date</value>
   </data>
   <data name="TEXT_HARD_CLOSED_INTERVAL_STATUS" xml:space="preserve">
     <value>[JA] Hard Closed</value>
@@ -1237,52 +1237,52 @@
     <value>[JA] Retry</value>
   </data>
   <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
-    <value>{JAPANESE} Resubmitted Request</value>
+    <value>[JA] Resubmitted Request</value>
   </data>
   <data name="TEXT_SELECT_PO_ERROR" xml:space="preserve">
-    <value />
+    <value>[JA]</value>
   </data>
     <data name="TEXT_CONVERT" xml:space="preserve">
-    <value>Convert</value>
+    <value>[JA]Convert</value>
   </data>
   <data name="TEXT_CONVERT_MESSAGE" xml:space="preserve">
-    <value>Are you sure that you want to convert quote to subscriptions?</value>
+    <value>[JA]Are you sure that you want to convert quote to subscriptions?</value>
   </data>
   <data name="ACCOUNT_PAYEE_SELF_TEXT" xml:space="preserve">
-    <value>This account pays for itself</value>
+    <value>[JA]This account pays for itself</value>
   </data>
   <data name="ACCOUNT_PAYEE_TEXT" xml:space="preserve">
-    <value>[ja] This account is paid for by</value>
+    <value>[JA] This account is paid for by</value>
   </data>
   <data name="ACCOUNT_STATUS_LABEL_TEXT" xml:space="preserve">
-    <value>[ja] Account Status</value>
+    <value>[JA] Account Status</value>
   </data>
   <data name="ACCOUNT_STATUS_TEXT" xml:space="preserve">
-    <value>[ja] Status</value>
+    <value>[JA] Status</value>
   </data>
   <data name="ACCOUNT_BALANCE_AS_OF_TEXT" xml:space="preserve">
-    <value>[ja] as of</value>
+    <value>[JA] as of</value>
   </data>
   <data name="ACCOUNT_BALANCE_TEXT" xml:space="preserve">
-    <value>[ja] Balance</value>
+    <value>[JA] Balance</value>
   </data>
   <data name="ACCOUNT_EDIT_INFO_TEXT" xml:space="preserve">
-    <value>[ja] Change</value>
+    <value>[JA] Change</value>
   </data>
   <data name="ACCOUNT_LTV_TEXT" xml:space="preserve">
-    <value>[ja] Ltv</value>
+    <value>[JA] Ltv</value>
   </data>
   <data name="ACCOUNT_MRR_TEXT" xml:space="preserve">
-    <value>[ja] MRR</value>
+    <value>[JA] MRR</value>
   </data>
   <data name="ACCOUNT_MRR_GRAPH_TEXT" xml:space="preserve">
-    <value>[ja] MRR</value>
+    <value>[JA] MRR</value>
   </data>
   <data name="ACCOUNT_INVOICE_GRAPH_TEXT" xml:space="preserve">
-    <value>[ja] Invoice</value>
+    <value>[JA] Invoice</value>
   </data>
   <data name="ACCOUNT_FAILED_TRANSACTIONS_TEXT" xml:space="preserve">
-    <value>[ja] Failed Transactions</value>
+    <value>[JA] Failed Transactions</value>
   </data>
   <data name="REPORTS_TREE_HEADER_DESCRIPTION" xml:space="preserve">
     <value>[JA] Description</value>
@@ -1294,6 +1294,6 @@
     <value>[JA] N/A</value>
   </data>
   <data name="TEXT_ACCOUNT_TYPE" xml:space="preserve">
-    <value>{JA}Account Type</value>
+    <value>[JA]Account Type</value>
   </data>
 </root>

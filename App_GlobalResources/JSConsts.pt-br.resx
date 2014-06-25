@@ -505,55 +505,55 @@
     <value>Exportar</value>
   </data>
   <data name="TEXT_EXPORT_ALL_RECORDS" xml:space="preserve">
-    <value>Export All Filtered Records</value>
+    <value>[pt-BR]Export All Filtered Records</value>
   </data>
   <data name="TEXT_BULKUPDATE_ALL_RECORDS" xml:space="preserve">
-    <value>Bulk Update All Filtered Records</value>
+    <value>[pt-BR]Bulk Update All Filtered Records</value>
   </data>
   <data name="TEXT_EXPORT_SELECTED_RECORDS" xml:space="preserve">
-    <value>Export Selected Records</value>
+    <value>[pt-BR]Export Selected Records</value>
   </data>
   <data name="TEXT_BULKUPDATE_SELECTED_RECORDS" xml:space="preserve">
-    <value>Bulk Update Selected Records</value>
+    <value>Bulk [pt-BR]Update Selected Records</value>
   </data>
   <data name="TEXT_EXPORT_CURRENT_PAGE_ONLY" xml:space="preserve">
     <value>Exportar só a página atual</value>
   </data>
   <data name="TEXT_BULKUPDATE_CURRENT_PAGE_ONLY" xml:space="preserve">
-    <value>Bulk Update Current Page Only</value>
+    <value>[pt-BR]Bulk Update Current Page Only</value>
   </data>
   <data name="TEXT_EXPORT_SEARCH_RESULTS" xml:space="preserve">
     <value>Exportar resultados da busca</value>
   </data>
   <data name="TEXT_BULKUPDATE_SEARCH_RESULTS" xml:space="preserve">
-    <value>Bulk Update Search Results</value>
+    <value>[pt-BR]Bulk Update Search Results</value>
   </data>
   <data name="TEXT_ERROR_NOTHING_UPDATED_BULKUPDATE" xml:space="preserve">
-    <value>Nothing will be updated</value>
+    <value>[pt-BR]Nothing will be updated</value>
   </data>
   <data name="TEXT_NO_SELECTED_BME_FOR_BULKUPDATE" xml:space="preserve">
-    <value>There are no selected BMEs for bulk update</value>
+    <value>[pt-BR]There are no selected BMEs for bulk update</value>
   </data>
   <data name="TEXT_ERROR_TOO_MANY_RECORDS_BULKUPDATE" xml:space="preserve">
-    <value>Too many records to update</value>
+    <value>[pt-BR]Too many records to update</value>
   </data>
   <data name="TEXT_LIMIT_DOWN_SEARCH_TO_BULKUPDATE" xml:space="preserve">
-    <value>You are going to update NUMBER_TO_UPDATE items. Choose less items to fit {0} item(s) limitation</value>
+    <value>[pt-BR]You are going to update NUMBER_TO_UPDATE items. Choose less items to fit {0} item(s) limitation</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_FOR_BULKUPDATE" xml:space="preserve">
-    <value>There are no properties for bulk update</value>
+    <value>[pt-BR]There are no properties for bulk update</value>
   </data>
   <data name="TEXT_ATTENTION_CHANGES_PERMANENT" xml:space="preserve">
-    <value>Attention. Your changes will be permanent</value>
+    <value>[pt-BR]Attention. Your changes will be permanent</value>
   </data>
   <data name="TEXT_SURE_MAKE_CHANGE" xml:space="preserve">
-    <value>Are you sure that you want to make these changes?</value>
+    <value>[pt-BR]Are you sure that you want to make these changes?</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
-    <value>No properties are going to be updated</value>
+    <value>[pt-BR]No properties are going to be updated</value>
   </data>
   <data name="TEXT_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
-    <value>Properties that are going to be updated</value>
+    <value>[pt-BR]Properties that are going to be updated</value>
   </data>
   <data name="TEXT_EXTERNAL" xml:space="preserve">
     <value>Informações externas</value>
@@ -571,10 +571,10 @@
     <value>Localizar uma conta...</value>
   </data>
   <data name="TEXT_FLS_ERROR_MESSAGE" xml:space="preserve">
-    <value>Error Message:&lt;br/&gt;[ErrorMessage]</value>
+    <value>[pt-BR]Error Message:&lt;br/&gt;[ErrorMessage]</value>
   </data>
   <data name="TEXT_FLS_NO_ERROR_MESSAGE" xml:space="preserve">
-    <value>No error message to report.</value>
+    <value>[pt-BR]No error message to report.</value>
   </data>
   <data name="TEXT_FUTURE" xml:space="preserve">
     <value>Futuro</value>
@@ -655,7 +655,7 @@
     <value>Modificar membros de grupo</value>
   </data>
   <data name="TEXT_MENU" xml:space="preserve">
-    <value>Menu</value>
+    <value>[pt-BR]Menu</value>
   </data>
   <data name="TEXT_MESSAGES" xml:space="preserve">
     <value>Mensagens</value>
@@ -763,7 +763,7 @@
     <value>Tem certeza que deseja excluir os relacionamentos selecionados?</value>
   </data>
   <data name="TEXT_REMOVE_THIS_RELSHIP" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_RESUBMIT_FAILED" xml:space="preserve">
     <value>Reenvio de transações com falha em progresso...</value>
@@ -805,7 +805,7 @@
     <value>Selecionado </value>
   </data>
   <data name="TEXT_SELFCARE_LOGIN" xml:space="preserve">
-    <value>Login do SelfCare</value>
+    <value>[pt-BR]Login do SelfCare</value>
   </data>
   <data name="TEXT_SESSION_TIMEOUT_TEXT" xml:space="preserve">
     <value>Sua sessão expirou. Faça login novamente.</value>
@@ -901,7 +901,7 @@
     <value>ACH (câmara de compensação automática)</value>
   </data>
   <data name="TEXT_WILL_LOSE_CHANGES" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_WRITE_OFF" xml:space="preserve">
     <value>Adicionar eliminação de pequeno balanço</value>
@@ -919,322 +919,322 @@
     <value>Relacionamento para :</value>
   </data>
   <data name="TITLE_REMOVE_RELATIONSHIP" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_ACTIVATE_DEACTIVATE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_CLONE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_VIEW" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_GENERAL_INFO" xml:space="preserve">
     <value />
   </data>
   <data name="TEXT_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_ACCOUNT_GROUP" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_CUSTOM_ACCT_GRP" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_SELECT_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_SUCCESS_RESORTING_GRID" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_ERROR_ACTIVATE_DECISION" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_CUSTOM_ACCT_GRP" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_MORE_INFO" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_ITEMS_TO_AGGREGATE" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Example: If the Decision Type is \"Use a special rate if the number of minutes of usage is over 500\", the settings might include \"500\" and the \"special rate\" to apply.</value>
+    <value>[pt-BR] Example: If the Decision Type is \"Use a special rate if the number of minutes of usage is over 500\", the settings might include \"500\" and the \"special rate\" to apply.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Help:  Aggregation Method</value>
+    <value>[pt-BR] Help:  Aggregation Method</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Decisions are used when a monetary charge amount cannot be calculated by looking at a single record. Instead, many usage records must be examined and a total must be the number of events, units of usage, or charge amounts. The total, or aggregate, is then used to help determine the charge amount.</value>
+    <value>[pt-BR] Decisions are used when a monetary charge amount cannot be calculated by looking at a single record. Instead, many usage records must be examined and a total must be the number of events, units of usage, or charge amounts. The total, or aggregate, is then used to help determine the charge amount.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_MONETARY_CHARGE" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Example: \"Apply a discount if there's over $100 in charges.\"</value>
+    <value>[pt-BR] Example: \"Apply a discount if there's over $100 in charges.\"</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_ADD_UP_UNIT_OF_USAGE" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Example: \"Use a special rate if over 1,000 minutes.\"</value>
+    <value>[pt-BR] Example: \"Use a special rate if over 1,000 minutes.\"</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_COUNT_NUMBER_OF_EVENTS" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Example: \"Apply a discount if over 100 calls were made.\"</value>
+    <value>[pt-BR] Example: \"Apply a discount if over 100 calls were made.\"</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AGGREGATION_METHOD_FROM_PARAMETER_TABLE" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Usage is aggregated based on the value set in the parameter table.</value>
+    <value>[pt-BR] Usage is aggregated based on the value set in the parameter table.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Help:  Decision Domain</value>
+    <value>[pt-BR] Help:  Decision Domain</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_AMP_UI_NAME_ILLEGAL_CHAR" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_HOW_APPLY" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_HOW_APPLY" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE_PRORATION" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE_PRORATION" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_RESTART_RANGE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_ACTIVATION_RESULTS" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_ERROR_CHECK_RESULTS" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP_2" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_PRODUCT_VIEW" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_INCREMENTAL_OR_BULK" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_INCREMENTAL_OR_BULK" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
-    <value>(Portuguese)Help: Multi-bucket</value>
+    <value>[pt-BR]Help: Multi-bucket</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_MULTIBUCKET" xml:space="preserve">
-    <value>(Portuguese)Act on each individual record.  Usage may have different prices  which are determined by the bucket into which they fall.</value>
+    <value>[pt-BR]Act on each individual record.  Usage may have different prices  which are determined by the bucket into which they fall.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
-    <value>(Portuguese)Help: Single-bucket</value>
+    <value>[pt-BR]Help: Single-bucket</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_SINGLEBUCKET" xml:space="preserve">
-    <value>(Portuguese)Act on all the records together.  All usage has same price which is determined by total volume.</value>
+    <value>[pt-BR]Act on all the records together.  All usage has same price which is determined by total volume.</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_UNIT_RATE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_UNIT_RATE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_EVENT_RATE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_EVENT_RATE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_DISCOUNT" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DISCOUNT" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_GENERATED_CHARGE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_GENERATED_CHARGE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
-    <value>(Portuguese) Help:  None</value>
+    <value>[pt-BR] Help:  None</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_NO_CHARGE" xml:space="preserve">
-    <value>(Portuguese) Do not generate a charge for this decision</value>
+    <value>[pt-BR] Do not generate a charge for this decision</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_GENERATED_CHARGE_GRID" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_GENERATED_CHARGE_GRID" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_DECISION_CYCLE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_MORE_DECISION_CYCLE" xml:space="preserve">
-    <value>Portuese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_ADD_MISC_ATTRIBUTE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_EDIT_MISC_ATTRIBUTE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_EDIT_DECISION_MISC_ATTRIBUTE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_CHARGE_CREDIT_DIRECTIVE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DIRECTIVES" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_MORE_DIRECTIVES" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_DIRECTIVES" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_DELETE_DECISION_MISC_ATTRIBUTE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_DELETE_MISC_ATTRIBUTE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_ERROR" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_FILTER" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_FILTER_HELP" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_CLONE_DECISION" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_DELETE_DIRECTIVE_CONFIRM" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_DELETE_DIRECTIVE_CONFIRM" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_DELETE_BS_EXEMPTION" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_DELETE_BS_OVERRIDE" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_ADD_ACCOUNT_GROUP" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_DELETE_ACCOUNT_GROUP" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_EDIT_ACCOUNT_GROUP" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_VIEW_ACCOUNT_GROUP" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_EDIT_ACCOUNT_GROUP" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_DELETE_ACCOUNT_QUALIFICATION_CONFIRM" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_DELETE_ACCOUNT_QUALIFICATION_CONFIRM" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_DIRECTIVE_FILTER" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DIRECTIVE_FILTER" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="ERROR_BILL_MESSAGE_DATES" xml:space="preserve">
-    <value>Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
   <data name="ERROR_SUBSCRIPTION_STARTDATE_BIGGER_ENDDATE" xml:space="preserve">
-    <value>[pt-br]Start Date can't be greater than End Date</value>
+    <value>[pt-BR]Start Date can't be greater than End Date</value>
   </data>
   <data name="TEXT_HARD_CLOSED_INTERVAL_STATUS" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Hard Closed</value>
+    <value>[pt-BR] Hard Closed</value>
   </data>
   <data name="TEXT_OPEN_INTERVAL_STATUS" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Open</value>
+    <value>[pt-BR] Open</value>
   </data>
   <data name="TEXT_SOFT_CLOSED_INTERVAL_STATUS" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Soft Closed</value>
+    <value>[pt-BR] Soft Closed</value>
   </data>
   <data name="TEXT_UNKNOWN_INTERVAL_STATUS" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Unknown</value>
+    <value>[pt-BR] Unknown</value>
   </data>
   <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Passwords do not match.</value>
+    <value>[pt-BR] Passwords do not match.</value>
   </data>
   <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Enter a valid phone number. Format: 555-555-5555</value>
+    <value>[pt-BR] Enter a valid phone number. Format: 555-555-5555</value>
   </data>
   <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Credit card format is invalid</value>
+    <value>[pt-BR] Credit card format is invalid</value>
   </data>
   <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) CV Number is invalid</value>
+    <value>[pt-BR] CV Number is invalid</value>
   </data>
   <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) SSN format: xxx-xx-xxxx</value>
+    <value>[pt-BR] SSN format: xxx-xx-xxxx</value>
   </data>
   <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Only numeric digits are allowed</value>
+    <value>[pt-BR] Only numeric digits are allowed</value>
   </data>
   <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Zipcode is invalid</value>
+    <value>[pt-BR] Zipcode is invalid</value>
   </data>
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Middle initial is invalid</value>
+    <value>[pt-BR] Middle initial is invalid</value>
   </data>
   <data name="TEXT_RETRY_COLUMN" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Retry</value>
+    <value>[pt-BR] Retry</value>
   </data>
   <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Resubmitted Request</value>
+    <value>[pt-BR] Resubmitted Request</value>
   </data>
   <data name="TEXT_SELECT_PO_ERROR" xml:space="preserve">
-    <value />
+    <value>[pt-BR]</value>
   </data>
   <data name="TEXT_CONVERT" xml:space="preserve">
-    <value>Convert</value>
+    <value>[pt-BR]Convert</value>
   </data>
   <data name="TEXT_CONVERT_MESSAGE" xml:space="preserve">
-    <value>Are you sure that you want to convert quote to subscriptions?</value>
+    <value>[pt-BR]Are you sure that you want to convert quote to subscriptions?</value>
   </data>
   <data name="ACCOUNT_PAYEE_SELF_TEXT" xml:space="preserve">
     <value>[pt-BR] This account pays for itself</value>
@@ -1270,18 +1270,18 @@
     <value>[pt-BR] Invoice</value>
   </data>
   <data name="ACCOUNT_FAILED_TRANSACTIONS_TEXT" xml:space="preserve">
-    <value>[[pt-BR] Failed Transactions</value>
+    <value>[pt-BR] Failed Transactions</value>
   </data>
   <data name="REPORTS_TREE_HEADER_DESCRIPTION" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Description</value>
+    <value>[pt-BR] Description</value>
   </data>
   <data name="REPORTS_TREE_HEADER_NAME" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) Name</value>
+    <value>[pt-BR] Name</value>
   </data>
   <data name="REPORTS_TREE_NOT_APPLICABLE_TEXT" xml:space="preserve">
-    <value>(BRAZILIAN PORTUGUESE) N/A</value>
+    <value>[pt-BR] N/A</value>
   </data>
   <data name="TEXT_ACCOUNT_TYPE" xml:space="preserve">
-    <value>{PT-BR}Account Type</value>
+    <value>[pt-BR] Account Type</value>
   </data>
 </root>

@@ -8,7 +8,7 @@ using MetraTech.Debug.Diagnostics;
 using MetraTech.DomainModel.Enums.Core.Global;
 using MetraTech.DomainModel.ProductCatalog;
 using MetraTech.UI.Common;
-using MetraTech.Agreements.Models;
+//using MetraTech.Agreements.Models;
 using Resources;
 using PropertyType = MetraTech.DomainModel.Enums.Core.Global.PropertyType;
 using MetraTech;

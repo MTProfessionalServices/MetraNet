@@ -14,7 +14,7 @@
     <asp:Label ID="lblTitle" runat="server" Text="Advanced Find" meta:resourcekey="lblTitle"></asp:Label>
   </div>
   <div id="FilteredResults" class="InfoMessage" style="display:none;"></div>
-  <MT:MTFilterGrid ID="MyGrid1" runat="Server" ExtensionName="Account" TemplateFileName="AccountListLayoutTemplate.xml"></MT:MTFilterGrid>
+  <MT:MTFilterGrid ID="MyGrid1" runat="Server" ExtensionName="Account" TemplateFileName="AccountListLayoutTemplate.xml" AjaxTimeout="180000"></MT:MTFilterGrid>
   <MT:MTPanel ID="InvoiceSearch" runat="server" Collapsed="True" Collapsible="True" Text="<%$ Resources: InvoiceSearch.Text%>" Width="720px">
     <div class="x-form-item">
       <table cellspacing="0" cellpadding="0" border="0">
@@ -59,35 +59,6 @@
     adjustGridPosition();
   }
   
-  function AfterSearch_<%=MyGrid1.ClientID %>()
-  {
-    autoSaveSearch();
-  }
-
-  function autoSaveSearch()
-  {
-    Ext.Ajax.request({
-      url:'<%=GetVirtualFolder()%>/AjaxServices/LoadSavedSearchByName.aspx',
-      params: {
-        SavedSearchName: "autosave",
-        PageUrl: "<%=HttpUtility.HtmlEncode(HttpUtility.UrlDecode(Page.Request.Url.PathAndQuery).Replace(";", string.Empty).Replace("'",string.Empty).Replace("\"",string.Empty).Replace("+",string.Empty))%>",
-        GridID:'<%=MyGrid1.ID %>', 
-        SearchLayout:xmlPath_<%=MyGrid1.ClientID %>
-      },
-      timeout: 10000,
-      success: function(response) {
-        var searchFilters = Ext.util.JSON.decode(response.responseText);
-        for(var i = 0 ; i < searchFilters.Items.length; i++)
-        {
-          Ext.Ajax.request({
-            url:'<%=GetVirtualFolder()%>/AjaxServices/DeleteSavedSearch.aspx',
-            params: {'delete': searchFilters.Items[i].Id}
-          });
-        }
-      },
-      scope: this
-    });  
-
     searchNameField_<%=MyGrid1.ClientID %> = new Ext.form.TextField({
       fieldLabel: TEXT_SEARCH_NAME,
       width:200,
@@ -115,26 +86,6 @@
     }); //end ajax request
   }
   
-  function loadAutoSavedSearch()
-  {
-      Ext.Ajax.request({
-        url:'<%=GetVirtualFolder()%>/AjaxServices/LoadSavedSearchByName.aspx',
-        params: {
-          SavedSearchName: "autosave",
-          PageUrl: "<%=HttpUtility.HtmlEncode(HttpUtility.UrlDecode(Page.Request.Url.PathAndQuery).Replace(";", string.Empty).Replace("'",string.Empty).Replace("\"",string.Empty).Replace("+",string.Empty))%>",
-          GridID:'<%=MyGrid1.ID %>', 
-          SearchLayout:xmlPath_<%=MyGrid1.ClientID %>
-        },
-        timeout: 10000,
-        success: function(response) {
-          var searchFilters = Ext.util.JSON.decode(response.responseText);
-          if(searchFilters && searchFilters.TotalRows > 0)
-            LoadSavedSearch_<%=MyGrid1.ClientID %>(searchFilters.Items[0].Id);
-        },
-        scope: this
-    });  
-  }
-
   function onAddAccount()
   {
     location.href = '/MetraNet/StartWorkflow.aspx?WorkFlowName=AddAccountWorkflow';
@@ -440,7 +391,6 @@
          el.dom.innerHTML = "";
         }
     });
-    loadAutoSavedSearch();
 
     var invoicePanel = Ext.getCmp('formPanel_<%=InvoiceSearch.ClientID %>');
     invoicePanel.on('collapse', function(){

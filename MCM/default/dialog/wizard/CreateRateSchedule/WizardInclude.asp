@@ -304,7 +304,7 @@ FUNCTION WriteEffectiveDates(strWizardName) 'PLug this in
 	strHTML = strHTML &	"			<INPUT type=""radio"" class=" & inputRadioClass & " value=""ABS"" name=""" & strWizardName & "_enddate_pick""" & writeChecked(iend_checked, "ABS") & " " & writeDisabled(iend_checked, "ABS") & ">"  & vbNewLine
 	strHTML = strHTML &				FrameWork.GetDictionary("TEXT_ABSOLUTE_DATE_TYPE") & vbNewLine
 	strHTML = strHTML &	"			<INPUT type=""text"" class=" & inputClass & " name=""" & strWizardName & "_abs_enddate_tf"" value=""" & writeValue (iend_checked, "ABS", "end", strWizardName) & """ size=""22"" maxlength=""22"" " & writeDisabled(iend_checked, "ABS") & ">"  & vbNewLine
-	strHTML = strHTML &	"			<A HREF=""#"" onClick=""getCalendarForEndDate(document.WizardForm." & strWizardName & "_abs_enddate_tf);return false"">"  & vbNewLine
+	strHTML = strHTML &	"			<A HREF=""#"" onClick=""setEndDateTimeAndShowCalendar(document.WizardForm." & strWizardName & "_abs_enddate_tf);return false"">"  & vbNewLine
 	strHTML = strHTML &	"				<img src='../../../localized/en-us/images/popupcalendar.gif' width=16 height=16 border=0 alt=''>" & vbNewLine
 	strHTML = strHTML &	"			</A>" & vbNewLine
 	strHTML = strHTML & " 	</TD>" & vbNewLine

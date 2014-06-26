@@ -93,13 +93,14 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   
   ProductView.Properties.ClearSelection ' Select the properties I want to print in the PV Browser Order
   i = 1
-  ProductView.Properties("RerunId").Selected       = i : i=i+1
-  ProductView.Properties("Filter").Selected       = i : i=i+1
-  ProductView.Properties("Tag").Selected       = i : i=i+1
-  ProductView.Properties("LastAction").Selected       = i : i=i+1
-  ProductView.Properties("Time").Selected       = i : i=i+1
-  ProductView.Properties("UserName").Selected       = i : i=i+1
-  ProductView.Properties("Comment").Selected       = i : i=i+1
+  ProductView.Properties("RerunId").Selected     = i : i=i+1
+  ProductView.Properties("Filter").Selected      = i : i=i+1
+  ProductView.Properties("Tag").Selected         = i : i=i+1
+  ProductView.Properties("LastAction").Selected  = i : i=i+1
+  ProductView.Properties("Time").Selected        = i : i=i+1
+  ProductView.Properties("Time").Format          = mom_GetDictionary("DATE_TIME_FORMAT")
+  ProductView.Properties("UserName").Selected    = i : i=i+1
+  ProductView.Properties("Comment").Selected     = i : i=i+1
   
   ProductView.Properties.CancelLocalization
  

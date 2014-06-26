@@ -91,19 +91,6 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
 
 '   disable the cycle at instance level
    ProductCatalogHelper.CheckAttributesForUI COMObject, COMObject.Instance, Form("POBased")="TRUE" , Empty
-   mdm_GetDictionary().Add "ProrateOnUnsubscribeDateComValue", ""
-   If COMObject.Instance.ProrateInstantly <> 0 Then 
-       mdm_GetDictionary().Add "ProrateInstantlyComValue", "Checked"
-       mdm_GetDictionary().Add "ProrateOnUnsubscribeDateComValue", "Checked"
-   Else
-          mdm_GetDictionary().Add "ProrateInstantlyComValue", ""
-   End If
-   If COMObject.Instance.ProrateOnDeactivation <> 0 Then 
-       mdm_GetDictionary().Add "ProrateOnDeactivationComValue", "Checked"
-       mdm_GetDictionary().Add "ProrateOnUnsubscribeDateComValue", "Checked"
-   Else
-       mdm_GetDictionary().Add "ProrateOnDeactivationComValue", ""
-   End If
 
    Form_Initialize = Form_Refresh(EventArg)
 
@@ -166,18 +153,14 @@ PRIVATE FUNCTION Ok_Click(EventArg) ' As Boolean
     next
 
     On Error Resume Next
-    If (request.form("ProrateInstantly").Count < 1) Then
-        COMObject.Instance.ProrateInstantly = False
-    Else
-        COMObject.Instance.ProrateInstantly = True
-    End If
    If (request.form("ProrateOnDeactivation").Count < 1) Then
         COMObject.Instance.ProrateOnDeactivation = False
     Else
         COMObject.Instance.ProrateOnDeactivation = True
     End If
-
-
+    
+    ' FEAT-4151 - ProrateInstantly is an obsolete property, that won't be used in future.
+    COMObject.Instance.ProrateInstantly = False
     COMObject.Instance.Save
     If(Err.Number)Then
     

@@ -1,0 +1,1 @@
+ALTER TABLE mvm_scheduled_tasks  MODIFY ( mvm_poll_guid VARCHAR2(100) default '0' NULL);

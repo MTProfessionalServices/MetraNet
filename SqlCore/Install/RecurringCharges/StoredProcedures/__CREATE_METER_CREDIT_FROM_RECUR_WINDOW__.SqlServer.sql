@@ -16,20 +16,20 @@ BEGIN
 
   IF (@newSubEnd <> @curSubEnd)
   BEGIN
-      /* Start date should have 23:59:59 time. It is a specific of Credit/Debit calculation */
       SELECT @subscriptionStart = dbo.MTMinOfTwoDates(@newSubEnd, @curSubEnd),
              @subscriptionEnd = dbo.MTMaxOfTwoDates(@newSubEnd, @curSubEnd),
              @rcActionForEndDateUpdate = CASE 
                                               WHEN @newSubEnd > @curSubEnd THEN 
                                                    'Debit'
                                               ELSE 'Credit'
-                                         END
+                                         END;
+      /* Start date has 23:59:59 time. We need the next day and 00:00:00 time for Start date */
+      SELECT @subscriptionStart = dbo.AddSecond(@subscriptionStart);
   END;
 
   SELECT 
          /* First, credit or debit the difference in the ending of the subscription.  If the new one is later, this will be a debit, otherwise a credit.
-         * There's a weird exception when this is (a) an arrears charge, (b) the old subscription end was after the pci end date, 
-         * and (c) the new sub end is inside the pci end date.*/
+         * TODO: Remove this comment:"There's a weird exception when this is (a) an arrears charge, (b) the old subscription end was after the pci end date, and (c) the new sub end is inside the pci end date." */
          @rcActionForEndDateUpdate                                                                  AS c_RCActionType,
          pci.dt_start                                                                               AS c_RCIntervalStart,
          pci.dt_end                                                                                 AS c_RCIntervalEnd,

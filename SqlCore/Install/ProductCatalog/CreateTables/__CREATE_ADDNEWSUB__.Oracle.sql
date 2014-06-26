@@ -11,9 +11,8 @@ CREATE OR REPLACE PROCEDURE addnewsub (
    p_id_sub                          INTEGER,
    p_status                    OUT   INTEGER,
    p_datemodified              OUT   VARCHAR2,
-   p_allow_acc_po_curr_mismatch      INTEGER default 0,
-   p_allow_multiple_pi_sub_rcnrc     INTEGER default 0,
-   p_quoting_batch_id                VARCHAR2 default null
+   p_allow_acc_po_curr_mismatch INTEGER default 0,
+   p_allow_multiple_pi_sub_rcnrc INTEGER default 0
 )
 AS
    real_begin_date   DATE;
@@ -52,9 +51,8 @@ BEGIN
                         p_id_sub,
                         p_status,
                         p_datemodified,
-                        p_allow_acc_po_curr_mismatch,
-                        p_allow_multiple_pi_sub_rcnrc,
-                        p_quoting_batch_id
+			p_allow_acc_po_curr_mismatch,
+   			p_allow_multiple_pi_sub_rcnrc
                        );
 END;
 					

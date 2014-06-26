@@ -17,7 +17,6 @@ PROCEDURE creategroupsubscription (
    p_enforce_same_corporation            VARCHAR2,
    p_allow_acc_po_curr_mismatch IN       INTEGER DEFAULT 0,
    p_id_sub													     INTEGER,
-   p_quoting_batch_id                    VARCHAR2,
    p_id_group                   OUT      INTEGER,
    p_status                     OUT      INTEGER,
    p_datemodified               OUT      VARCHAR2
@@ -88,10 +87,7 @@ BEGIN /* business rule checks*/
                         p_systemdate,
                         p_id_sub,
                         p_status,
-                        p_datemodified,
-                        0,
-                        0,
-                        p_quoting_batch_id
+                        p_datemodified
                        ); /* done*/
 END;
 		

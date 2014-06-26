@@ -209,8 +209,7 @@ BEGIN
                              real_begin_date,
                              real_end_date,
                              p_systemdate,
-                             null,
-                             p_status,                             
+                             p_status
                             );
    RETURN;
 END;

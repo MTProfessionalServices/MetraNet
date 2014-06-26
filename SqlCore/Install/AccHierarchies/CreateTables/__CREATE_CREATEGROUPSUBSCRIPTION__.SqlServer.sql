@@ -16,7 +16,6 @@ create procedure CreateGroupSubscription(
 @p_enforce_same_corporation varchar,
 @p_allow_acc_po_curr_mismatch int = 0,
 @p_id_sub int,
-@p_quoting_batch_id     varchar(256),
 @p_id_group int OUTPUT,
 @p_status int OUTPUT,
 @p_datemodified varchar OUTPUT
@@ -52,19 +51,7 @@ else
 	-- group subscription ID
 	select @p_id_group =@@identity
  -- add group entry
-   exec AddSubscriptionBase 
-      NULL,
-      @p_id_group,
-      @p_id_po,
-      @p_startdate,
-      @p_enddate,
-      @p_group_GUID,
-      @p_systemdate,
-      @p_id_sub, 
-      @p_status output,
-      @p_datemodified output, 
-      0,
-      0, 
-      @p_quoting_batch_id
+  exec AddSubscriptionBase NULL,@p_id_group,@p_id_po,@p_startdate,@p_enddate,
+	@p_group_GUID,@p_systemdate,@p_id_sub,@p_status output,@p_datemodified output
 end
 			

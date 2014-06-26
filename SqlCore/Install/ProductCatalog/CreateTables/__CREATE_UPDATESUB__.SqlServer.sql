@@ -149,16 +149,8 @@ BEGIN
 		return
 	end
 
-	exec CreateSubscriptionRecord 
-		@p_id_sub,
-		@temp_guid,
-		@p_id_acc,
-		@id_group,
-		@p_id_po,
-		@p_systemdate,
-		@real_begin_date,
-		@real_end_date,
-		@p_systemdate, 
-		null, 
-		@p_status OUTPUT
+	exec CreateSubscriptionRecord @p_id_sub,@temp_guid,@p_id_acc,@id_group,
+		@p_id_po,@p_systemdate,@real_begin_date,@real_end_date,
+		@p_systemdate,@p_status OUTPUT
 END
+		

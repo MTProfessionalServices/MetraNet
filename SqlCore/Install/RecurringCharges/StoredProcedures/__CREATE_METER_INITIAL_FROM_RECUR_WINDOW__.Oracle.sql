@@ -27,17 +27,16 @@ PROCEDURE METERinitialFROMRECURWINDOW (currentDate date) AS
     ,rw.c_UnitValue AS c_UnitValue
     ,rcr.n_rating_type AS c_RatingType
     ,case when rcr.b_prorate_on_deactivate  ='Y' then '1' else '0' end          AS c_ProrateOnUnsubscription
-    ,CASE WHEN rcr.b_fixed_proration_length = 'Y' THEN fxd.n_proration_length ELSE 0 END          AS  c_ProrationCycleLength
+    ,CASE WHEN rcr.b_fixed_proration_length = 'Y' THEN fxd.n_proration_length ELSE 0 END          AS c_ProrationCycleLength
     ,rw.c__accountid AS c__AccountID
     ,rw.c__payingaccount      AS c__PayingAccount
     ,rw.c__priceableiteminstanceid      AS c__PriceableItemInstanceID
     ,rw.c__priceableitemtemplateid      AS c__PriceableItemTemplateID
     ,rw.c__productofferingid      AS c__ProductOfferingID
-    ,dbo.MTMinOfTwoDates(pci.dt_end,rw.c_SubscriptionEnd)  AS c_BilledRateDate
+     ,dbo.MTMinOfTwoDates(pci.dt_end,rw.c_SubscriptionEnd)  AS c_BilledRateDate
     ,rw.c__subscriptionid      AS c__SubscriptionID
     ,currentui.id_interval AS c__IntervalID 
-    ,SYS_GUID () as id_source_sess
-    ,sub.tx_quoting_batch as c__QuoteBatchId
+      ,SYS_GUID () as id_source_sess
      FROM t_usage_interval ui
       INNER JOIN tmp_newrw rw on
         rw.c_payerstart          < ui.dt_end AND rw.c_payerend          > ui.dt_start /* next interval overlaps with payer */
@@ -69,7 +68,6 @@ PROCEDURE METERinitialFROMRECURWINDOW (currentDate date) AS
         ELSE NULL END 
     INNER JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
 	inner join t_usage_interval currentui on currentDate between currentui.dt_start and currentui.dt_end and currentui.id_usage_cycle = ui.id_usage_cycle
-  INNER JOIN t_sub sub on sub.id_sub = rw.c__SubscriptionID
 where 1=1
 /*Only meter new subscriptions as initial -- so select only items that have at most one entry in t_sub_history*/
     AND NOT EXISTS (SELECT 1 FROM t_sub_history tsh WHERE tsh.id_sub = rw.c__SubscriptionID AND tsh.id_acc = rw.c__AccountID

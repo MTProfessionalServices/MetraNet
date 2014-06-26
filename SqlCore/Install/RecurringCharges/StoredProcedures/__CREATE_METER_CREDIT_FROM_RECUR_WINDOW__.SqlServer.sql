@@ -32,7 +32,7 @@ BEGIN
                                                    'Debit'
                                               ELSE 'Credit'
                                          END;
-      /* Sub. start date has 23:59:59 time. We need next day and 00:00:00 time for the etart date */
+      /* Sub. start date has 23:59:59 time. We need next day and 00:00:00 time for the start date */
       SET @subscriptionStart = dbo.AddSecond(@subscriptionStart);   
   END;
 
@@ -127,8 +127,13 @@ BEGIN
          pci.dt_end                                                                                 AS c_RCIntervalEnd,
          ui.dt_start                                                                                AS c_BillingIntervalStart,
          ui.dt_end                                                                                  AS c_BillingIntervalEnd,
-         dbo.mtmaxoftwodates(pci.dt_start, @subscriptionStart2)                                     AS c_RCIntervalSubscriptionStart,
-         dbo.mtminoftwodates(pci.dt_end, @subscriptionEnd2)                                         AS c_RCIntervalSubscriptionEnd,
+         /* TODO: Fix backdating */
+         dbo.mtmaxoftwodates(pci.dt_start, @subscriptionStart2)                                     AS c_RCIntervalSubscriptionStart,         
+         /* If new Subscription Start somewhere in future, after EOP - always use End of RC cycle */
+         CASE
+              WHEN ui.dt_end <= @subscriptionEnd2 THEN pci.dt_end
+              ELSE dbo.mtminoftwodates(pci.dt_end, @subscriptionEnd2)
+         END                                                                                        AS c_RCIntervalSubscriptionEnd,
          @subscriptionStart2                                                                        AS c_SubscriptionStart,
          @subscriptionEnd2                                                                          AS c_SubscriptionEnd,
          dbo.MTMinOfTwoDates(pci.dt_end, @subscriptionStart2)                                       AS c_BilledRateDate,

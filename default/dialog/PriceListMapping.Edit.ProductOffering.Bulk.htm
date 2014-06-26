@@ -5,24 +5,20 @@
   <title>Bulk Update <MDMLABEL Name="TEXT_PRICELIST_MAPPING"></MDMLABEL></title>
   
   <script language="Javascript">
-    function ValidateForm()
-    { 
+    function ValidateForm() {
       var strMessage = '';
       var strName;
     
       strName = document.mdm.PRICELISTNAME.value;
-
-      if ((document.mdm.UpdatePricelist.checked) && (strName.length == 0) && (!document.mdm.NonSharedPriceList(0).checked)) 
+      if ((document.mdm.UpdatePricelist.checked) && (strName.length == 0) && (!document.mdm.NonSharedPriceList[0].checked)) 
       {
         strMessage = '<MDMLABEL name="TEXT_PRICELIST_MAPPING_NO_NAME" type="caption">Price List</MDMLABEL>';
       }
-
       if ((!document.mdm.UpdatePricelist.checked) && (!document.mdm.UpdateICB.checked))
       {
         strMessage = 'Please select if you want Price List information to be updated, "Allow Personal Rates" information to be updated or both.\n\nCurrently, nothing has been selected to be updated.';
       }
-
-      var checkboxes = document.mdm.paramtable_selected
+      var checkboxes = document.mdm.paramtable_selected;
 	  if (typeof(checkboxes)=="undefined")
       {
         strMessage = 'This Product Offering does not contain any items. There are no pricelist mappings to update.';
@@ -54,16 +50,16 @@
 			strMessage = 'No parameter tables have been selected to have their Price List mapping information updated.\n\nPlease select one or more parameter tables on the left to have their mapping information updated.';
 		}
       }
-      
-      if (strMessage.length==0)
-      {
+
+      if (strMessage.length==0) {
+        
         mdm_RefreshDialog(document.mdm.OK);
       } 
       else 
       {
         alert(strMessage);
         //document.mdm.PRICELISTNAME.focus();
-      } 
+      }
     }
     
     function ClearPriceListNameBox()

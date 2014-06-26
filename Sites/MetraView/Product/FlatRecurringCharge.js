@@ -13,15 +13,8 @@ BeforeExpanderRender_ctl00_ContentPlaceHolder1_MTFilterGrid1 = function(tplStrin
 };
 
 
-function reformatDate(date, addDays) {
-  var parsedDate = new Date();
-  parsedDate = Date.parseDate(date, EXTJS_DATE_LONG_FORMAT);
-  parsedDate = parsedDate.add(Date.DAY, addDays);
-  return parsedDate.format(EXTJS_DATE_FORMAT);
-}
-
 // On expand get proration details
-onExpand = function (record) {
+onExpand = function(record) {
 
   var proratedRecurringChargeMessage = TEXT_NO_PRORATION;
 
@@ -38,10 +31,11 @@ onExpand = function (record) {
       proratedRecurringChargeMessage = TEXT_RECURRING_CHARGE_CREDIT;
     }
   }
-
+ 
   // Replace values
-  var str = proratedRecurringChargeMessage.replace("[ProratedIntervalStartNextDay]", reformatDate(record.data.ProratedIntervalStart,1));
-  str = str.replace("[ProratedIntervalEnd]", reformatDate(record.data.ProratedIntervalEnd,0));
+  var str = proratedRecurringChargeMessage.replace("[ProratedIntervalStart]", record.data.ProratedIntervalStart);
+  str = str.replace("[ProratedIntervalStart]", record.data.ProratedIntervalStart);
+  str = str.replace("[ProratedIntervalEnd]", record.data.ProratedIntervalEnd);
   str = str.replace("[ProratedDays]", record.data.ProratedDays);
   str = str.replace("[ProratedDays]", record.data.ProratedDays);
   str = str.replace("[ProratedDailyRate]", record.data.ProratedDailyRate);
@@ -49,11 +43,9 @@ onExpand = function (record) {
   str = str.replace("[Amount]", record.data.DisplayAmountAsString);
   str = str.replace("[RCAmount]", record.data.RCAmount);
   str = str.replace("[RCAmount]", record.data.RCAmount);
-  str = str.replace("[RCIntervalStart]", reformatDate(record.data.RCIntervalStart,0));
-  str = str.replace("[ProratedIntervalStart]", reformatDate(record.data.ProratedIntervalStart,0));
-  str = str.replace("[RCIntervalSubscriptionStart]", reformatDate(record.data.RCIntervalSubscriptionStart,0));
-  str = str.replace("[RCIntervalSubscriptionEnd]", reformatDate(record.data.RCIntervalSubscriptionEnd,0));
+  str = str.replace("[RCIntervalStart]", record.data.RCIntervalStart);
 
+  
   // Insert string
   var el = Ext.fly("ProrationDetails" + record.data.SessionID);
   el.dom.innerHTML = str;

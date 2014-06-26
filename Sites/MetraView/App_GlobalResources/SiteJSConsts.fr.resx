@@ -361,10 +361,10 @@
     <value>Bulk Update Search Results</value>
   </data>
   <data name="TEXT_ERROR_NOTHING_UPDATED_BULKUPDATE" xml:space="preserve">
-    <value>Nothing will be updated</value>
+      <value>Nothing will be updated</value>
   </data>
   <data name="TEXT_NO_SELECTED_BME_FOR_BULKUPDATE" xml:space="preserve">
-    <value>There are no selected BMEs for bulk update</value>
+      <value>There are no selected BMEs for bulk update</value>
   </data>
   <data name="TEXT_ERROR_TOO_MANY_RECORDS_BULKUPDATE" xml:space="preserve">
     <value>Too many records to update</value>
@@ -520,7 +520,7 @@
     <value>Propriétés</value>
   </data>
   <data name="TEXT_PRORATED_RECURRING_CHARGE_CREDIT_MESSAGE" xml:space="preserve">
-    <value>Vous avez reçu ce crédit car votre abonnement avec frais récurrents à facturer en avance a changé pendant cette période de facturation.&lt;BR&gt;&lt;BR&gt;Sur votre facture précédente, nous vous avons facturé [RCAmount] en avance. Vous n’avez utilisé le service que de [RCIntervalStart] à [ProratedIntervalStart]. Donc, ce crédit est égal à la différence entre [ProratedIntervalStartNextDay] et [ProratedIntervalEnd]. Cela représente une période de [ProratedDays] jours.&lt;BR&gt;&lt;BR&gt;Pour calculer le crédit, nous avons utilisé des frais journaliers de [ProratedDailyRate]. Les frais journaliers ont été calculés en divisant la valeur [RCAmount] par le nombre de jours compris dans la période. Donc, nous avons pris la période de [ProratedDays] jours et nous l’avons multipliée par [ProratedDailyRate] pour vous offrir un crédit de [Amount].&lt;BR&gt;</value>
+    <value>Vous avez reçu ce crédit car votre abonnement avec frais récurrents à facturer en avance a changé pendant cette période de facturation.&lt;BR&gt;&lt;BR&gt;Sur votre facture précédente, nous vous avons facturé [RCAmount] en avance. Vous n’avez utilisé le service que de [RCIntervalStart] à [ProratedIntervalStart]. Donc, ce crédit est égal à la différence entre [ProratedIntervalStart] et [ProratedIntervalEnd]. Cela représente une période de [ProratedDays] jours.&lt;BR&gt;&lt;BR&gt;Pour calculer le crédit, nous avons utilisé des frais journaliers de [ProratedDailyRate]. Les frais journaliers ont été calculés en divisant la valeur [RCAmount] par le nombre de jours compris dans la période. Donc, nous avons pris la période de [ProratedDays] jours et nous l’avons multipliée par [ProratedDailyRate] pour vous offrir un crédit de [Amount].&lt;BR&gt;</value>
   </data>
   <data name="TEXT_PRORATED_RECURRING_CHARGE_MESSAGE" xml:space="preserve">
     <value>Ces frais ont été estimés au prorata.  L’estimation au prorata permet de réduire les frais en ne vous facturant que pour le nombre de jours pendant lesquels vous vous êtes abonné à un service pendant une période de facturation donnée.&lt;BR&gt;&lt;BR&gt;Concernant cet élément, vos frais ont commencé le [ProratedIntervalStart] et se sont terminés le [ProratedIntervalEnd].  Vous avez donc bénéficié de [ProratedDays] jours de service.  Vos frais pour cette période ont été calculés en multipliant les frais journaliers [ProratedDailyRate] par [ProratedDays] jours pendant lesquels vous étiez abonné.  Cette opération est égale à [Amount].  (Les frais journaliers [ProratedDailyRate] sont calculés en divisant les frais relatifs à la période [RCAmount] par le nombre de jours compris dans la période).&lt;BR&gt;</value>
@@ -674,32 +674,26 @@
   </data>
   <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
     <value>{FR} Passwords do not match.</value>
-  </data>
+  </data>  
   <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
     <value>{FR} Enter a valid phone number. Format: 555-555-5555</value>
-  </data>
+  </data>    
   <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
     <value>{FR} Credit card format is invalid</value>
-  </data>
+  </data>      
   <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
     <value>{FR} CV Number is invalid</value>
-  </data>
+  </data>        
   <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
     <value>{FR} SSN format: xxx-xx-xxxx</value>
-  </data>
+  </data>          
   <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
     <value>{FR} Only numeric digits are allowed</value>
-  </data>
+  </data>            
   <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
     <value>{FR} Zipcode is invalid</value>
-  </data>
+  </data>              
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
     <value>{FR} Middle initial is invalid</value>
-  </data>
-  <data name="EXTJS_DATE_FORMAT" xml:space="preserve">
-    <value>d/m/Y</value>
-  </data>
-  <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
-    <value>d/m/Y H:i:s</value>
-  </data>
+  </data>  
 </root>

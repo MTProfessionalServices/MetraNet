@@ -10,12 +10,21 @@ BEGIN
   SET NOCOUNT ON;
   IF (( SELECT VALUE FROM t_db_values WHERE parameter = N'InstantRc' ) = 'false' ) RETURN;
 
-  DECLARE @rcActionForEndDateUpdate nvarchar(255),
+  DECLARE @rcActionForEndDateUpdate nvarchar(20),
           @subscriptionStart        DATETIME,
-          @subscriptionEnd          DATETIME
+          @subscriptionEnd          DATETIME,
+          @isEndDateUpdated         BIT = 0,
+  /* TODO: Remove duplicated values once 1-st and 2-nd query is executed conditionally */
+          @rcActionForEndDateUpdate2 nvarchar(20),
+          @subscriptionStart2        DATETIME,
+          @subscriptionEnd2          DATETIME,
+          @isStartDateUpdated        BIT = 0
 
   IF (@newSubEnd <> @curSubEnd)
   BEGIN
+      /* TODO: Run only 1-st query if condition is true */
+      SET @isEndDateUpdated = 1
+
       SELECT @subscriptionStart = dbo.MTMinOfTwoDates(@newSubEnd, @curSubEnd),
              @subscriptionEnd = dbo.MTMaxOfTwoDates(@newSubEnd, @curSubEnd),
              @rcActionForEndDateUpdate = CASE 
@@ -23,11 +32,28 @@ BEGIN
                                                    'Debit'
                                               ELSE 'Credit'
                                          END;
-      /* Start date has 23:59:59 time. We need the next day and 00:00:00 time for Start date */
-      SELECT @subscriptionStart = dbo.AddSecond(@subscriptionStart);
+      /* Sub. start date has 23:59:59 time. We need next day and 00:00:00 time for the etart date */
+      SET @subscriptionStart = dbo.AddSecond(@subscriptionStart);   
   END;
 
-  SELECT 
+  IF (@newSubStart <> @curSubStart)
+  BEGIN
+      /* TODO: Run only 2-nd query if condition is true */
+      SET @isStartDateUpdated = 1
+
+      SELECT @subscriptionStart2 = dbo.MTMinOfTwoDates(@newSubStart, @curSubStart),
+             @subscriptionEnd2 = dbo.MTMaxOfTwoDates(@newSubStart, @curSubStart),
+             @rcActionForEndDateUpdate2 = CASE 
+                                              WHEN @newSubStart < @curSubStart THEN 
+                                                   'InitialDebit'
+                                              ELSE 'InitialCredit'
+                                         END;
+      /* Sub. end date has 00:00:00 time. We need previous day and 23:59:59 time for the end date */
+      SELECT @subscriptionEnd2 = dbo.SubtractSecond(@subscriptionEnd2);  
+  END;
+
+
+  SELECT
          /* First, credit or debit the difference in the ending of the subscription.  If the new one is later, this will be a debit, otherwise a credit.
          * TODO: Remove this comment:"There's a weird exception when this is (a) an arrears charge, (b) the old subscription end was after the pci end date, and (c) the new sub end is inside the pci end date." */
          @rcActionForEndDateUpdate                                                                  AS c_RCActionType,
@@ -90,76 +116,72 @@ BEGIN
   WHERE
          ui.dt_start < @currentDate
          AND rw.c__IsAllowGenChargeByTrigger = 1
+         AND @isEndDateUpdated = 1
 
   UNION ALL
 
-  SELECT DISTINCT
-/* Now, credit or debit the difference in the start of the subscription.  If the new one is earlier, this will be a debit, otherwise a credit*/
-         CASE WHEN new_sub.vt_start < current_sub.vt_start THEN 'InitialDebit' ELSE 'InitialCredit' END  AS c_RCActionType,
-	       pci.dt_start                                                                               AS c_RCIntervalStart,
-	       pci.dt_end                                                                                 AS c_RCIntervalEnd,
-	       paymentInterval.dt_start                                                                   AS c_BillingIntervalStart,
-	       paymentInterval.dt_end                                                                     AS c_BillingIntervalEnd,
-	       dbo.mtmaxoftwodates(pci.dt_start, dbo.MTMinOfTwoDates(new_sub.vt_start, current_sub.vt_start)) AS c_RCIntervalSubscriptionStart,
-	       dbo.mtminoftwodates(pci.dt_end, dbo.MTMaxOfTwoDates(new_sub.vt_start, current_sub.vt_start))   AS c_RCIntervalSubscriptionEnd,
-	       dbo.MTMinOfTwoDates(new_sub.vt_start, current_sub.vt_start)                                AS c_SubscriptionStart,
-	       dbo.MTMaxOfTwoDates(new_sub.vt_start, current_sub.vt_start)                                AS c_SubscriptionEnd,
-	       dbo.MTMaxOfTwoDates(new_sub.vt_start, current_sub.vt_start)                                AS c_BilledRateDate,
-	       rcr.n_rating_type                                                                          AS c_RatingType,
-	       CASE WHEN rw.c_advance = 'Y' THEN '1' ELSE '0' END                                         AS c_Advance,
-	       CASE WHEN rcr.b_prorate_on_activate = 'Y' THEN '1' ELSE '0' END                            AS c_ProrateOnSubscription,
-	       CASE WHEN rcr.b_prorate_instantly = 'Y' THEN '1' ELSE '0' END                              AS c_ProrateInstantly, /* NOTE: c_ProrateInstantly - No longer used */
-	       CASE WHEN rcr.b_prorate_on_deactivate = 'Y' THEN '1' ELSE '0' END                          AS c_ProrateOnUnsubscription,
-	       CASE WHEN rcr.b_fixed_proration_length = 'Y' THEN fxd.n_proration_length ELSE 0 END        AS c_ProrationCycleLength,
-	       rw.c__accountid                                                                            AS c__AccountID,
-	       rw.c__payingaccount                                                                        AS c__PayingAccount,
-	       rw.c__priceableiteminstanceid                                                              AS c__PriceableItemInstanceID,
-	       rw.c__priceableitemtemplateid                                                              AS c__PriceableItemTemplateID,
-	       rw.c__productofferingid                                                                    AS c__ProductOfferingID,
-	       rw.c_UnitValueStart                                                                        AS c_UnitValueStart,
-	       rw.c_UnitValueEnd                                                                          AS c_UnitValueEnd,
-	       rw.c_UnitValue                                                                             AS c_UnitValue,
-	       currentui.id_interval                                                                      AS c__IntervalID,
-	       rw.c__subscriptionid                                                                       AS c__SubscriptionID
-	FROM   #recur_window_holder rw
-	       INNER LOOP JOIN t_sub_history new_sub ON new_sub.id_acc = rw.c__AccountID AND new_sub.id_sub = rw.c__SubscriptionID AND new_sub.tt_end = dbo.MTMaxDate()
-	       INNER LOOP JOIN t_sub_history current_sub ON current_sub.id_acc = rw.c__AccountID AND current_sub.id_sub = rw.c__SubscriptionID
-                                                   AND current_sub.tt_end = dbo.SubtractSecond(new_sub.tt_start)
-	       INNER LOOP JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
-	       INNER LOOP JOIN t_acc_usage_cycle auc ON auc.id_acc = rw.c__payingaccount 
-	       /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
-	       INNER LOOP JOIN t_pc_interval pci WITH(INDEX(pci_cycle_dt_idx))
-	            ON pci.id_cycle = CASE 
-	                                    WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle
-	                                    WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN auc.id_usage_cycle
-	                                    WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(auc.id_usage_cycle,rw.c_SubscriptionStart,rcr.id_cycle_type)
-	                                    ELSE NULL
-	                               END
-	            AND dbo.MTMaxOfTwoDates(pci.dt_start, current_sub.vt_start) != dbo.MTMaxOfTwoDates(pci.dt_start, new_sub.vt_start)
-	            AND pci.dt_start < dbo.MTMaxOfTwoDates(current_sub.vt_end, new_sub.vt_end)
-              AND pci.dt_end > dbo.MTMinOfTwoDates(current_sub.vt_start, new_sub.vt_start)
-	            AND pci.dt_end BETWEEN rw.c_payerstart AND rw.c_payerend /* rc start goes to this payer */
-	            AND pci.dt_start < @currentDate /* Don't go into the future*/
-	            AND rw.c_unitvaluestart      < pci.dt_end AND rw.c_unitvalueend      > pci.dt_start /* rc overlaps with this UDRC */
-	            AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
-	       INNER LOOP JOIN t_usage_interval paymentInterval ON pci.dt_start BETWEEN paymentInterval.dt_start AND paymentInterval.dt_end
-	            AND paymentInterval.id_usage_cycle = pci.id_cycle
-	       INNER LOOP JOIN t_usage_cycle ccl
-	            ON  ccl.id_usage_cycle = CASE 
-	                                          WHEN rcr.tx_cycle_mode = 'Fixed' THEN rcr.id_usage_cycle
-	                                          WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN auc.id_usage_cycle
-	                                          WHEN rcr.tx_cycle_mode = 'EBCR' THEN dbo.DeriveEBCRCycle(auc.id_usage_cycle, rw.c_SubscriptionStart, rcr.id_cycle_type)
-	                                          ELSE NULL
-	                                     END
-	       INNER LOOP JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
-	       INNER JOIN t_usage_interval currentui ON @currentDate BETWEEN currentui.dt_start AND currentui.dt_end AND currentui.id_usage_cycle = paymentInterval.id_usage_cycle
-	WHERE
-	       EXISTS (SELECT 1 FROM  t_sub_history tsh WHERE  tsh.id_sub = rw.C__SubscriptionID AND tsh.id_acc = rw.c__AccountID AND tsh.tt_end < dbo.MTMaxDate() ) 
-	       /* We have one exceptional case: (a) an arrears charge, (b) old sub end date was after the end of the pci, (c) new sub end date is inside the pci.
-	       * We'll deal with this elsewhere.
-	       */
-	       AND NOT (rcr.b_advance = 'N' AND current_sub.vt_end > pci.dt_end AND new_sub.vt_end < pci.dt_end)
-	       AND rw.c__IsAllowGenChargeByTrigger = 1 
+  SELECT
+         /* Now, credit or debit the difference in the start of the subscription.  If the new one is earlier, this will be a debit, otherwise a credit*/
+         @rcActionForEndDateUpdate2                                                                 AS c_RCActionType,
+         pci.dt_start                                                                               AS c_RCIntervalStart,
+         pci.dt_end                                                                                 AS c_RCIntervalEnd,
+         ui.dt_start                                                                                AS c_BillingIntervalStart,
+         ui.dt_end                                                                                  AS c_BillingIntervalEnd,
+         dbo.mtmaxoftwodates(pci.dt_start, @subscriptionStart2)                                     AS c_RCIntervalSubscriptionStart,
+         dbo.mtminoftwodates(pci.dt_end, @subscriptionEnd2)                                         AS c_RCIntervalSubscriptionEnd,
+         @subscriptionStart2                                                                        AS c_SubscriptionStart,
+         @subscriptionEnd2                                                                          AS c_SubscriptionEnd,
+         dbo.MTMinOfTwoDates(pci.dt_end, @subscriptionStart2)                                       AS c_BilledRateDate,
+         rcr.n_rating_type                                                                          AS c_RatingType,
+         CASE WHEN rw.c_advance = 'Y' THEN '1' ELSE '0' END                                         AS c_Advance,
+         CASE WHEN rcr.b_prorate_on_activate = 'Y' THEN '1' ELSE '0' END                            AS c_ProrateOnSubscription,
+         CASE WHEN rcr.b_prorate_instantly = 'Y' THEN '1' ELSE '0' END                              AS c_ProrateInstantly, /* NOTE: c_ProrateInstantly - No longer used */
+         CASE WHEN rcr.b_prorate_on_deactivate = 'Y' THEN '1' ELSE '0' END                          AS c_ProrateOnUnsubscription,
+         CASE WHEN rcr.b_fixed_proration_length = 'Y' THEN fxd.n_proration_length ELSE 0 END        AS c_ProrationCycleLength,
+         rw.c__accountid                                                                            AS c__AccountID,
+         rw.c__payingaccount                                                                        AS c__PayingAccount,
+         rw.c__priceableiteminstanceid                                                              AS c__PriceableItemInstanceID,
+         rw.c__priceableitemtemplateid                                                              AS c__PriceableItemTemplateID,
+         rw.c__productofferingid                                                                    AS c__ProductOfferingID,
+         rw.c_UnitValueStart                                                                        AS c_UnitValueStart,
+         rw.c_UnitValueEnd                                                                          AS c_UnitValueEnd,
+         rw.c_UnitValue                                                                             AS c_UnitValue,
+         currentui.id_interval                                                                      AS c__IntervalID,
+         rw.c__subscriptionid                                                                       AS c__SubscriptionID
+  FROM   t_usage_interval ui
+         INNER JOIN #recur_window_holder rw
+              ON  rw.c_payerstart          < ui.dt_end AND rw.c_payerend          > ui.dt_start /* next interval overlaps with payer */
+              /* rw.c_cycleeffectivestart EQUAL TO @subscriptionStart , rw.c_cycleeffectiveend EQUAL TO @subscriptionEnd */
+              AND rw.c_membershipstart     < ui.dt_end AND rw.c_membershipend     > ui.dt_start /* next interval overlaps with membership */
+              AND @subscriptionStart2      < ui.dt_end AND @subscriptionEnd2      > ui.dt_start
+              AND rw.c_unitvaluestart      < ui.dt_end AND rw.c_unitvalueend      > ui.dt_start /* next interval overlaps with UDRC */  
+         INNER LOOP JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop         
+         INNER LOOP JOIN t_acc_usage_cycle auc ON auc.id_acc = rw.c__payingaccount AND auc.id_usage_cycle = ui.id_usage_cycle
+         INNER LOOP JOIN t_usage_cycle ccl
+              ON  ccl.id_usage_cycle = CASE 
+                                            WHEN rcr.tx_cycle_mode = 'Fixed'           THEN rcr.id_usage_cycle
+                                            WHEN rcr.tx_cycle_mode = 'BCR Constrained' THEN ui.id_usage_cycle
+                                            WHEN rcr.tx_cycle_mode = 'EBCR'            THEN dbo.DeriveEBCRCycle(ui.id_usage_cycle, @subscriptionStart2, rcr.id_cycle_type)
+                                            ELSE NULL
+                                       END
+         INNER LOOP JOIN t_usage_cycle_type fxd ON fxd.id_cycle_type = ccl.id_cycle_type
+         INNER LOOP JOIN t_pc_interval pci WITH(INDEX(cycle_time_pc_interval_index)) ON pci.id_cycle = ccl.id_usage_cycle
+              AND (
+                      (rcr.b_advance = 'Y' AND pci.dt_start BETWEEN ui.dt_start AND ui.dt_end) /* If this is in advance, check if rc start falls in this interval */
+                      OR pci.dt_end BETWEEN ui.dt_start AND ui.dt_end                          /* or check if the cycle end falls into this interval */
+                      OR (pci.dt_start < ui.dt_start AND pci.dt_end > ui.dt_end)               /* or this interval could be in the middle of the cycle */
+                  )
+              AND pci.dt_end BETWEEN    rw.c_payerstart AND rw.c_payerend                         /* rc start goes to this payer */              
+              AND rw.c_unitvaluestart      < pci.dt_end AND rw.c_unitvalueend      > pci.dt_start /* rc overlaps with this UDRC */
+              AND rw.c_membershipstart     < pci.dt_end AND rw.c_membershipend     > pci.dt_start /* rc overlaps with this membership */
+              /* rw.c_cycleeffectivestart EQUAL TO @subscriptionStart , rw.c_cycleeffectiveend EQUAL TO @subscriptionEnd */
+              AND @subscriptionStart2      < pci.dt_end AND @subscriptionEnd2      > pci.dt_start /* rc overlaps with this subscription */
+         INNER JOIN t_usage_interval currentui ON @currentDate BETWEEN currentui.dt_start AND currentui.dt_end
+              AND currentui.id_usage_cycle = ui.id_usage_cycle
+  WHERE
+         ui.dt_start < @currentDate
+         AND rw.c__IsAllowGenChargeByTrigger = 1
+         AND @isStartDateUpdated = 1
 
  UNION
 

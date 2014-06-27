@@ -32,4 +32,7 @@
         div_amount numeric(22,10) NULL,
         constraint pk_t_adjustment_transaction primary key(id_adj_trx),
         CONSTRAINT aj_trxcheck CHECK 	(id_aj_template IS NOT NULL OR id_aj_instance IS NOT NULL))
-      
+		
+		 
+        create index idx_adj_txn_dt_crt_ndel_usage on t_adjustment_transaction 
+        (dt_crt, c_status, id_sess) 

@@ -48,7 +48,8 @@ else
 end as b_PersonalRate,
 map.b_canICB,
 sub.vt_start dt_start,
-sub.vt_end dt_end
+sub.vt_end dt_end,
+rec.n_rating_type as n_rating_type
 from t_vw_base_props tb
 INNER JOIN t_sub sub on sub.id_sub = %%ID_SUB%%
 INNER JOIN t_pl_map map on map.id_po = sub.id_po AND
@@ -57,7 +58,11 @@ INNER JOIN t_vw_base_props tb_pt on tb_pt.id_prop = map.id_paramtable and tb_pt.
 INNER JOIN t_vw_base_props tb_po on tb_po.id_prop = map.id_po and tb_po.id_lang_code = %%LANGCODE%%
 INNER JOIN t_pi_template on t_pi_template.id_template = map.id_pi_template
 LEFT OUTER JOIN t_vw_base_props tb_ip on  tb_ip.id_prop = map.id_pi_instance_parent AND tb_ip.id_lang_code = %%LANGCODE%%
+LEFT OUTER JOIN t_recur rec on map.id_pi_instance = rec.id_prop 
 where
 tb.id_prop =  map.id_pi_instance and tb.id_lang_code = %%LANGCODE%%
 ) Query
+where (n_rating_type=0  and upper(pt_nm_name)=upper('metratech.com/udrctiered')) 
+	 or (n_rating_type=1  and upper(pt_nm_name)=upper('metratech.com/udrctapered')) 
+	 or (upper(pt_nm_name)not in(upper('metratech.com/udrctapered'),upper('metratech.com/udrctiered')) )  
   

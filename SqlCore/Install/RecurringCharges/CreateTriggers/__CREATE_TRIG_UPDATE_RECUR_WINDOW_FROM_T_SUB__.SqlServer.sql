@@ -93,47 +93,12 @@ BEGIN
          AND sub.id_group IS NULL
          AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)
 
-  SELECT @now = new_sub.tt_start,
-         @newSubStart = new_sub.vt_start,
-         @newSubEnd = new_sub.vt_end,
-         @idAcc = new_sub.id_acc,
-         @idSub = new_sub.id_sub
-  FROM   INSERTED sub
-         JOIN t_sub_history new_sub
-              ON  new_sub.id_acc = sub.id_acc
-              AND new_sub.id_sub = sub.id_sub
-              AND new_sub.tt_end = dbo.MTMaxDate()
-
-  SELECT @curSubStart = current_sub.vt_start,
-         @curSubEnd = current_sub.vt_end
-  FROM   t_sub_history current_sub
-  WHERE  current_sub.id_acc = @idAcc
-         AND current_sub.id_sub = @idSub
-         AND current_sub.tt_end = dbo.SubtractSecond(@now)
-
-  /* My RC logging */
-  /*
-  IF OBJECT_ID (N'my_rc_log_test_table', N'U') IS NOT NULL 
-    drop table my_rc_log_test_table  
-  create table my_rc_log_test_table (m varchar(500))
-
-  insert into my_rc_log_test_table values('@now = ' + convert(varchar, @now, 100))
-  insert into my_rc_log_test_table values('@newSubStart = ' + convert(varchar, @newSubStart, 100))
-  insert into my_rc_log_test_table values('@newSubEnd = ' + convert(varchar, @newSubEnd, 100))
-  insert into my_rc_log_test_table values('@curSubStart = ' + convert(varchar, @curSubStart, 100))
-  insert into my_rc_log_test_table values('@curSubEnd = ' + convert(varchar, @curSubEnd, 100))
-  */
+  SELECT @now = tsh.tt_start FROM t_sub_history tsh JOIN INSERTED sub ON tsh.id_acc = sub.id_acc AND tsh.id_sub = sub.id_sub AND tsh.tt_end = dbo.MTMaxDate();
 
    /* adds charges to METER tables */
   EXEC MeterInitialFromRecurWindow @currentDate = @now;
-
   /* If this is update of existing subscription add also Credit/Debit charges */
-  IF @curSubStart IS NOT NULL
-    EXEC MeterCreditFromRecurWindow  @newSubStart = @newSubStart,
-                                     @newSubEnd   = @newSubEnd,
-                                     @curSubStart = @curSubStart,
-                                     @curSubEnd   = @curSubEnd,
-                                     @currentDate = @now;
+  EXEC MeterCreditFromRecurWindow  @currentDate = @now;
 
   INSERT INTO t_recur_window
   SELECT c_CycleEffectiveDate,

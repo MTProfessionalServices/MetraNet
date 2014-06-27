@@ -1,8 +1,4 @@
 CREATE PROCEDURE [dbo].[MeterCreditFromRecurWindow]
-  @newSubStart DATETIME,
-  @newSubEnd DATETIME,
-  @curSubStart DATETIME,
-  @curSubEnd DATETIME,
   @currentDate DATETIME
 AS
 BEGIN
@@ -10,7 +6,11 @@ BEGIN
   SET NOCOUNT ON;
   IF (( SELECT VALUE FROM t_db_values WHERE parameter = N'InstantRc' ) = 'false' ) RETURN;
 
-  DECLARE @rcActionForEndDateUpdate nvarchar(20),
+  DECLARE @newSubStart DATETIME,
+          @newSubEnd   DATETIME,
+          @curSubStart DATETIME,
+          @curSubEnd   DATETIME,          
+          @rcActionForEndDateUpdate nvarchar(20),
           @subscriptionStart        DATETIME,
           @subscriptionEnd          DATETIME,
           @isEndDateUpdated         BIT = 0,
@@ -20,6 +20,20 @@ BEGIN
           @subscriptionEnd2          DATETIME,
           @isStartDateUpdated        BIT = 0
 
+  /* Assuming only 1 subscription can be changed at a time */
+  SELECT @newSubStart = new_sub.vt_start, @newSubEnd = new_sub.vt_end,
+         @curSubStart = current_sub.vt_start, @curSubEnd = current_sub.vt_end
+  FROM #recur_window_holder rw
+      INNER LOOP JOIN t_sub_history new_sub ON new_sub.id_acc = rw.c__AccountID
+          AND new_sub.id_sub = rw.c__SubscriptionID
+          AND new_sub.tt_end = dbo.MTMaxDate()
+      INNER LOOP JOIN t_sub_history current_sub ON current_sub.id_acc = rw.c__AccountID
+          AND current_sub.id_sub = rw.c__SubscriptionID
+          AND current_sub.tt_end = dbo.SubtractSecond(new_sub.tt_start)
+
+  /* It is a new subscription - nothing to recharge */
+  IF @curSubStart IS NULL RETURN;
+          
   IF (@newSubEnd <> @curSubEnd)
   BEGIN
       /* TODO: Run only 1-st query if condition is true */

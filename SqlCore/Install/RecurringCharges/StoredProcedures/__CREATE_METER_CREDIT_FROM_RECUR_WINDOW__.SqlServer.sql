@@ -21,7 +21,8 @@ BEGIN
           @isStartDateUpdated        BIT = 0
 
   /* Assuming only 1 subscription can be changed at a time */
-  SELECT @newSubStart = new_sub.vt_start, @newSubEnd = new_sub.vt_end,
+  SELECT TOP 1 /* Using only 1-st PI of RC */
+         @newSubStart = new_sub.vt_start, @newSubEnd = new_sub.vt_end,
          @curSubStart = current_sub.vt_start, @curSubEnd = current_sub.vt_end
   FROM #recur_window_holder rw
       INNER LOOP JOIN t_sub_history new_sub ON new_sub.id_acc = rw.c__AccountID
@@ -141,7 +142,6 @@ BEGIN
          pci.dt_end                                                                                 AS c_RCIntervalEnd,
          ui.dt_start                                                                                AS c_BillingIntervalStart,
          ui.dt_end                                                                                  AS c_BillingIntervalEnd,
-         /* TODO: Fix backdating */
          dbo.mtmaxoftwodates(pci.dt_start, @subscriptionStart2)                                     AS c_RCIntervalSubscriptionStart,         
          /* If new Subscription Start somewhere in future, after EOP - always use End of RC cycle */
          CASE

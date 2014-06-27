@@ -158,25 +158,25 @@ FUNCTION getAvailableActionsHTML()
 
 
     if bShowRunOption then
-      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='RunAdapters' onclick=""mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this);"">" & "Run Adapter" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='RunAdapters' onclick=""mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this); return false;"">" & "Run Adapter" &  "</button>" & vbNewLine
     else
       sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueLarge' id='EditMapping' onclick=""window.open('protoDefaultDialogFailedTransactionStatus.asp','', 'height=400,width=400, resizable=yes, scrollbars=yes, status=yes'); return false;"">" & "Run Adapter" &  "</button>" & vbNewLine
     end if
 
     if bShowRunOption then
-      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='RunAdaptersLater' onclick=""mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this);"">" & "Run Adapter Later" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='RunAdaptersLater' onclick=""mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this); return false;"">" & "Run Adapter Later" &  "</button>" & vbNewLine
     else
       sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXLarge' name='EditMapping' onclick=''>" & "Run Adapter Later" &  "</button>" & vbNewLine
     end if
     
     if bShowReverseOption then
-      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='ReverseAdapters' onclick=""mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this);"">" & "Reverse Adapter" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueLarge' name='ReverseAdapters' onclick=""mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this); return false;"">" & "Reverse Adapter" &  "</button>" & vbNewLine
     else
       sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueLarge' name='ReverseAdapters' onclick=''>" & "Reverse Adapter" &  "</button>" & vbNewLine
     end if
 
     if bShowReverseOption then
-      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='ReverseAdaptersLater' onclick=""mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this);"">" & "Reverse Adapter Later" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='ReverseAdaptersLater' onclick=""mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this); return false;"">" & "Reverse Adapter Later" &  "</button>" & vbNewLine
     else
       sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXLarge' name='ReverseAdaptersLater' onclick=''>" & "Reverse Adapter" &  "</button>" & vbNewLine
     end if
@@ -188,7 +188,7 @@ FUNCTION getAvailableActionsHTML()
     'end if   
          
     if bShowMarkAsNotReadyToRun then
-      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='CancelPendingAction' onclick=""mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this);"">" & "Cancel Submitted Action" &  "</button>" & vbNewLine
+      sHTML = sHTML & "&nbsp;&nbsp;<button class='clsButtonBlueXLarge' name='CancelPendingAction' onclick=""mdm_PVBPageUpdateSelectedIDs(null);mdm_RefreshDialog(this); return false;"">" & "Cancel Submitted Action" &  "</button>" & vbNewLine
     else
       sHTML = sHTML & "&nbsp;&nbsp;<button disabled class='clsButtonBlueXLarge' id='CancelPendingAction' onclick=""window.open('protoDefaultDialogFailedTransactionStatus.asp','', 'height=400,width=400, resizable=yes, scrollbars=yes, status=yes'); return false;"">" & "Cancel Submitted Action" &  "</button>" & vbNewLine
     end if      

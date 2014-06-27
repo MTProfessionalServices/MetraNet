@@ -230,8 +230,8 @@
 		<description>PT</description>
 	</text>
 	  <text id="TEXT_ACCOUNTS_PAID_FOR_BY">
-		  <value>PT:Accounts paid for by </value>
-		  <description></description>
+		  <value>Contas pagas pelo</value>
+		  <description>Contas pagas pelo</description>
 	  </text>
 	  <text id="TEXT_MOVING_ACCOUNTS">
       <value>Movendo contas</value>
@@ -1811,7 +1811,7 @@
   </text>
 
   <text id="TEXT_EVENT_DETAILS">
-    <value>PT: characters left for Detalhes</value>
+    <value>characters left for Details</value>
     <description>Legenda para detalhes de evento</description>
   </text>
 
@@ -1915,7 +1915,7 @@
   </text>   
   
   <text id="TEXT_ACCOUNTS_TO_MOVE">
-    <value>[PT-BR]Select Accounts to Move</value>
+    <value>Selecionar contas para mover</value>
   </text> 
   
   <text id="TEXT_CAPABILITIES">

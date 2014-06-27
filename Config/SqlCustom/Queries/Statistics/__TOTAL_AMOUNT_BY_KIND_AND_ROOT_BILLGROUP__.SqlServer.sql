@@ -30,4 +30,3 @@ where au.id_usage_interval = %%ID_INTERVAL%%
   and (bp.n_kind <> 15 or upper(ed.nm_enum_data) NOT LIKE '%_TEMP')
   and (bp.n_kind <> 40 or upper(ed.nm_enum_data) NOT LIKE '%_TEMP')
 group by bg.tx_name, am_currency, bp.n_kind
-order by bg.tx_name, am_currency, bp.n_kind

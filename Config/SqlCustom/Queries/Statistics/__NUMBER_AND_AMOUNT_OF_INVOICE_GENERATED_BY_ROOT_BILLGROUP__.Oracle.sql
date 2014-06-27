@@ -11,4 +11,4 @@ join t_billgroup_member bgm on inv.id_acc = bgm.id_acc
 join t_billgroup bg on bgm.id_root_billgroup = bg.id_billgroup
 where id_interval = %%ID_INTERVAL%%
 group by bg.tx_name, inv.invoice_currency
-order by 1, 2
+

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <Name>InvoiceNumberAndAmount</Name>
+    <Name>CheckForUnprocessedMessages</Name>
     <Title>
         <LocalizationTag>GRID_TITLE</LocalizationTag>
         <ResourceClassKey></ResourceClassKey>
@@ -8,7 +8,7 @@
     <Exportable>true</Exportable>
     <Height>400</Height>
     <Width>720</Width>
-    <Expandable>false</Expandable>
+    <Expandable>true</Expandable>
     <Buttons>None</Buttons>
     <DataSourceURL>~/AjaxServices/QueryService.aspx</DataSourceURL>
     <MultiSelect>false</MultiSelect>
@@ -16,7 +16,7 @@
     <TotalProperty>TotalRows</TotalProperty>
     <RootElement>Items</RootElement>
     <PageSize>10</PageSize>
-    <Description>Invoice Number and Amount</Description>
+    <Description></Description>
     <ExpansionCssClass></ExpansionCssClass>
     <ShowFilterPanel>true</ShowFilterPanel>
     <FilterInputWidth>220</FilterInputWidth>
@@ -47,36 +47,21 @@
         <URLParameter>
             <ParameterName>q</ParameterName>
             <SQLQuery>
-                <QueryName>__NUMBER_AND_AMOUNT_OF_INVOICE_GENERATED__</QueryName>
+                <QueryName>__CHECK_FOR_UNPROCESSED_MESSAGES__</QueryName>
                 <QueryDir></QueryDir>
-                <QueryParameters>
-                    <QueryParameter>
-                        <Name>%%ID_INTERVAL%%</Name>
-                        <Value></Value>
-                        <DataType>String</DataType>
-                    </QueryParameter>
-                    <QueryParameter>
-                        <Name>%%ID_LANG_CODE%%</Name>
-                        <Value></Value>
-                        <DataType>String</DataType>
-                    </QueryParameter>
-                </QueryParameters>
+                <QueryParameters></QueryParameters>
                 <QueryColumns>
                     <QueryColumn>
-                        <Name>NUMOFINV</Name>
-                        <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>CURRENCY</Name>
+                        <Name>nm_enum_data</Name>
                         <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
                     </QueryColumn>
                     <QueryColumn>
-                        <Name>TOTALAMT</Name>
-                        <Type>System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                        <Name>id_pipeline</Name>
+                        <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
                     </QueryColumn>
                     <QueryColumn>
-                        <Name>TOTALTAX</Name>
-                        <Type>System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                        <Name>Column1</Name>
+                        <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
                     </QueryColumn>
                 </QueryColumns>
             </SQLQuery>
@@ -88,56 +73,19 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>numofinv</ID>
-            <DataType>String</DataType>
-            <IsIdentity>false</IsIdentity>
-            <DataIndex>numofinv</DataIndex>
-            <IsColumn>true</IsColumn>
-            <HeaderText>
-                <LocalizationTag>TEXT_NUM_INVOICES</LocalizationTag>
-                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
-            </HeaderText>
-            <Formatter></Formatter>
-            <Width>120</Width>
-            <Resizeable>true</Resizeable>
-            <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
-            <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
-            <Exportable>true</Exportable>
-            <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
-            <FilterHideable>true</FilterHideable>
-            <DefaultFilter>true</DefaultFilter>
-            <RequiredFilter>false</RequiredFilter>
-            <FilterLabel />
-            <ElementValue>
-                <Value><![CDATA[]]></Value>
-            </ElementValue>
-            <ElementValue2>
-                <Value><![CDATA[]]></Value>
-            </ElementValue2>
-            <FilterReadOnly>false</FilterReadOnly>
-            <DropdownItems></DropdownItems>
-        </Element>
-        <Element>
-            <RecordElement>true</RecordElement>
-            <AssemblyFilename></AssemblyFilename>
-            <ObjectName></ObjectName>
-            <ID>currency</ID>
+            <ID>nm_enum_data</ID>
             <DataType>String</DataType>
             <IsIdentity>true</IsIdentity>
-            <DataIndex>currency</DataIndex>
+            <DataIndex>nm_enum_data</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_CURRENCY</LocalizationTag>
-                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+                <Value><![CDATA[Message Type]]></Value>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
+            <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
@@ -160,20 +108,19 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>totalamt</ID>
+            <ID>id_pipeline</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>totalamt</DataIndex>
+            <DataIndex>id_pipeline</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_AMOUNT</LocalizationTag>
-                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+                <Value><![CDATA[Pipeline ID]]></Value>
             </HeaderText>
-            <Formatter>CurrencyRenderer</Formatter>
+            <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
+            <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
@@ -196,20 +143,19 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>totaltax</ID>
+            <ID>unprocessed_messages</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>totaltax</DataIndex>
+            <DataIndex>unprocessed_messages</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_TAX_AMOUNT</LocalizationTag>
-                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+                <Value><![CDATA[Unprocessed Messages]]></Value>
             </HeaderText>
-            <Formatter>CurrencyRenderer</Formatter>
+            <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
+            <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>

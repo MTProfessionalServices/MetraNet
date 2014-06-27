@@ -559,7 +559,7 @@
     <value>Actualizar definición de informe existente</value>
   </data>
   <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-    <value>{ES}Usage Audit</value>
+    <value>{ES}Usage Calculation Decision Details</value>
   </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>Mantenimiento del servidor de uso</value>

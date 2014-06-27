@@ -559,7 +559,7 @@
     <value>既存の報告書定義の更新</value>
   </data>
   <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-    <value>{JA}Usage Audit</value>
+    <value>{JA}Usage Calculation Decision Details</value>
   </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>利用サーバーのメンテナンス</value>

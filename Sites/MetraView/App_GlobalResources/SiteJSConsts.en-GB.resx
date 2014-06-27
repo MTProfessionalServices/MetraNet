@@ -520,7 +520,7 @@
     <value>Properties</value>
   </data>
   <data name="TEXT_PRORATED_RECURRING_CHARGE_CREDIT_MESSAGE" xml:space="preserve">
-    <value>You received this credit because your subscription with a recurring charge being billed in advance changed during this billing period.&lt;BR&gt;&lt;BR&gt;On your previous bill, we charged you [RCAmount] in advance.  You only used the service from [RCIntervalStart] to [ProratedIntervalStart].  So, this credit represents the difference from [ProratedIntervalStart] to [ProratedIntervalEnd].  This is a period of [ProratedDays] days.&lt;BR&gt;&lt;BR&gt;To calculate the credit, we used a daily rate of [ProratedDailyRate].  The daily rate was calculated taking [RCAmount] and dividing it by the number of days in the period.  So, we took the period of [ProratedDays] days and multiplied it by [ProratedDailyRate] giving you a credit of [Amount].&lt;BR&gt;</value>
+    <value>You received this credit because your subscription with a recurring charge being billed in advance changed during this billing period.&lt;BR&gt;&lt;BR&gt;On your previous bill, we charged you [RCAmount] in advance.  You only used the service from [RCIntervalStart] to [ProratedIntervalStartPreviousDay].  So, this credit represents the difference from [ProratedIntervalStart] to [ProratedIntervalEnd].  This is a period of [ProratedDays] days.&lt;BR&gt;&lt;BR&gt;To calculate the credit, we used a daily rate of [ProratedDailyRate].  The daily rate was calculated taking [RCAmount] and dividing it by the number of days in the period.  So, we took the period of [ProratedDays] days and multiplied it by [ProratedDailyRate] giving you a credit of [Amount].&lt;BR&gt;</value>
   </data>
   <data name="TEXT_PRORATED_RECURRING_CHARGE_MESSAGE" xml:space="preserve">
     <value>This charge has been prorated.  Prorating reduces charges by charging you only for the number of days that you have subscribed to a service in a given billing period.&lt;BR&gt;&lt;BR&gt;For this item, your charges started on [ProratedIntervalStart] and ended on [ProratedIntervalEnd].  Therefore, you received [ProratedDays] days of service.  Your charge for this period was calculated by multiplying the daily rate of [ProratedDailyRate] by [ProratedDays] days you were subscribed.  This equals [Amount].  (The daily rate of [ProratedDailyRate] is calculated by dividing the period charges of [RCAmount] by the number of days in the period).&lt;BR&gt;</value>
@@ -696,4 +696,7 @@
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
     <value>Middle initial is invalid</value>
   </data>      
+  <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
+    <value>n/j/Y g:i:s A</value>
+  </data>
 </root>

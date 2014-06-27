@@ -520,7 +520,7 @@
     <value>Proprietà</value>
   </data>
   <data name="TEXT_PRORATED_RECURRING_CHARGE_CREDIT_MESSAGE" xml:space="preserve">
-    <value>Si è ricevuto questo credito in quanto l'abbonamento con addebito ricorrente fatturato in anticipo è stato modificato durante il periodo di fatturazione. &lt;BR&gt;&lt;BR&gt;Nella fattura precedente è stato addebitato un importo pari a [RCAmount] in anticipo. Basta utilizzare il servizio da [RCIntervalStart] a [ProratedIntervalStart]. Quindi, questo credito rappresenta la differenza da [ProratedIntervalStart] a [ProratedIntervalEnd]. Questo è un periodo di [ProratedDays] giorni. &lt;BR&gt; Per calcolare il credito, abbiamo usato una tariffa giornaliera di [ProratedDailyRate]. La tariffa giornaliera è stata calcolata prendendo [RCAmount] e dividendola per il numero di giorni del periodo. Quindi, abbiamo preso il periodo di [ProratedDays] giorni e moltiplicato dalla [ProratedDailyRate] dando un credito di [Importo]. &lt;BR&gt;</value>
+    <value>Si è ricevuto questo credito in quanto l'abbonamento con addebito ricorrente fatturato in anticipo è stato modificato durante il periodo di fatturazione. &lt;BR&gt;&lt;BR&gt;Nella fattura precedente è stato addebitato un importo pari a [RCAmount] in anticipo. Basta utilizzare il servizio da [RCIntervalStart] a [ProratedIntervalStartPreviousDay]. Quindi, questo credito rappresenta la differenza da [ProratedIntervalStart] a [ProratedIntervalEnd]. Questo è un periodo di [ProratedDays] giorni. &lt;BR&gt; Per calcolare il credito, abbiamo usato una tariffa giornaliera di [ProratedDailyRate]. La tariffa giornaliera è stata calcolata prendendo [RCAmount] e dividendola per il numero di giorni del periodo. Quindi, abbiamo preso il periodo di [ProratedDays] giorni e moltiplicato dalla [ProratedDailyRate] dando un credito di [Importo]. &lt;BR&gt;</value>
   </data>
   <data name="TEXT_PRORATED_RECURRING_CHARGE_MESSAGE" xml:space="preserve">
     <value>L'addebito è stato ripartito proporzionalmente.  La ripartizione proporzionale riduce gli addebiti in quanto l'importo addebitato è relativo solo al numero di giorni per i quali è stato richiesto l'abbonamento a un servizio in un determinato periodo di fatturazione. &lt;BR&gt;&lt;BR&gt; Per questa voce, gli addebiti sono iniziati il [ProratedIntervalStart] e sono finiti il [ProratedIntervalEnd].  Pertanto, sono stati ricevuti [ProratedDays] giorni di servizio.  L'addebito per questo periodo è stato calcolato moltiplicando la tariffa giornaliera [ProratedDailyRate] per i [ProratedDays] giorni di abbonamento.  Il risultato ottenuto da questo calcolo corrisponde a [Amount].  La tariffa giornaliera pari a [ProratedDailyRate] viene calcolata dividendo gli addebiti periodici pari a [RCAmount] per il numero di giorni del periodo.&lt;BR&gt;</value>
@@ -696,4 +696,7 @@
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
     <value>{IT} Middle initial is invalid</value>
   </data>  
+  <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
+    <value>d/m/Y H:i:s</value>
+  </data>
 </root>

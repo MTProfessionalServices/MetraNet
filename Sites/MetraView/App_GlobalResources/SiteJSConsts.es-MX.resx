@@ -520,7 +520,7 @@
     <value>Propiedades</value>
   </data>
   <data name="TEXT_PRORATED_RECURRING_CHARGE_CREDIT_MESSAGE" xml:space="preserve">
-    <value>Recibió este crédito debido a que su suscripción con un cargo recurrente que se factura en forma anticipada cambió durante este período de facturación.&lt;BR&gt;&lt;BR&gt;En su factura anterior, le cobramos [RCAmount] en forma anticipada.  Usted solo utilizó el servicio entre [RCIntervalStart] y [ProratedIntervalStart].  Por lo tanto, este crédito representa la diferencia entre [ProratedIntervalStart] y [ProratedIntervalEnd].  Este es un período de [ProratedDays] días.&lt;BR&gt;&lt;BR&gt;Para calcular el crédito, utilizamos una tarifa diaria de [ProratedDailyRate].  La tarifa diaria se calculó al tomar [RCAmount] y dividirlo por el número de días en el período.  Por lo tanto, tomamos el período de [ProratedDays] días y lo multiplicamos por [ProratedDailyRate], lo que le otorga un crédito de [Amount].&lt;BR&gt;</value>
+    <value>Recibió este crédito debido a que su suscripción con un cargo recurrente que se factura en forma anticipada cambió durante este período de facturación.&lt;BR&gt;&lt;BR&gt;En su factura anterior, le cobramos [RCAmount] en forma anticipada.  Usted solo utilizó el servicio entre [RCIntervalStart] y [ProratedIntervalStartPreviousDay].  Por lo tanto, este crédito representa la diferencia entre [ProratedIntervalStart] y [ProratedIntervalEnd].  Este es un período de [ProratedDays] días.&lt;BR&gt;&lt;BR&gt;Para calcular el crédito, utilizamos una tarifa diaria de [ProratedDailyRate].  La tarifa diaria se calculó al tomar [RCAmount] y dividirlo por el número de días en el período.  Por lo tanto, tomamos el período de [ProratedDays] días y lo multiplicamos por [ProratedDailyRate], lo que le otorga un crédito de [Amount].&lt;BR&gt;</value>
   </data>
   <data name="TEXT_PRORATED_RECURRING_CHARGE_MESSAGE" xml:space="preserve">
     <value>Este cargo se ha prorrateado.  El prorrateo reduce los cargos al cobrarlo solo el número de días que se ha suscrito a un servicio en un período de facturación determinado.&lt;BR&gt;&lt;BR&gt;Para este elemento, sus cargos comenzaron el [ProratedIntervalStart] y terminaron el [ProratedIntervalEnd].  En consecuencia, recibió [ProratedDays] días de servicio.  Su cargo por este período se calculó al multiplicar la tarifa diaria de [ProratedDailyRate] por [ProratedDays] días de suscripción.  Esto es igual a [Amount].  (La tarifa diaria de [ProratedDailyRate] se calcula al dividir cargos del período de [RCAmount] por el número de días en el período).&lt;BR&gt;</value>
@@ -696,4 +696,7 @@
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
     <value>{es-MX} Middle initial is invalid</value>
   </data>  
+  <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
+    <value>n/j/Y g:i:s A</value>
+  </data>
 </root>

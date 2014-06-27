@@ -12,6 +12,12 @@ BeforeExpanderRender_ctl00_ContentPlaceHolder1_MTFilterGrid1 = function(tplStrin
   return tplString;
 };
 
+function reformatDate(date, subtractSeconds) {
+  var parsedDate = new Date();
+  parsedDate = Date.parseDate(date, EXTJS_DATE_LONG_FORMAT);
+  parsedDate = parsedDate.add(Date.SECOND, subtractSeconds);
+  return parsedDate.format(EXTJS_DATE_LONG_FORMAT);
+}
 
 // On expand get proration details
 onExpand = function(record) {
@@ -33,7 +39,7 @@ onExpand = function(record) {
   }
  
   // Replace values
-  var str = proratedRecurringChargeMessage.replace("[ProratedIntervalStart]", record.data.ProratedIntervalStart);
+  var str = proratedRecurringChargeMessage.replace("[ProratedIntervalStartPreviousDay]", reformatDate(record.data.ProratedIntervalStart,-1));
   str = str.replace("[ProratedIntervalStart]", record.data.ProratedIntervalStart);
   str = str.replace("[ProratedIntervalEnd]", record.data.ProratedIntervalEnd);
   str = str.replace("[ProratedDays]", record.data.ProratedDays);

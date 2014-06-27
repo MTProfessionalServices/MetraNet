@@ -141,9 +141,9 @@
   <data name="TEXT_ADD_ACCOUNT_WEBSERVICE" xml:space="preserve">
     <value>Ajouter un compte avec service Web</value>
   </data>
-    <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
-        <value>[FR]Add child Account</value>
-    </data>
+  <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
+    <value>[FR]Add child Account</value>
+  </data>
   <data name="TEXT_ADD_CSR" xml:space="preserve">
     <value>Ajouter un conseiller du service à la clientèle</value>
   </data>
@@ -186,12 +186,12 @@
   <data name="TEXT_APP_AUDIT_LOG" xml:space="preserve">
     <value>Journal d’audit de l’application</value>
   </data>
-    <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
-        <value>[FR]Approvals</value>
-    </data>
-    <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
-        <value>Assigner des messages aux factures</value>
-    </data>
+  <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
+    <value>[FR]Approvals</value>
+  </data>
+  <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
+    <value>Assigner des messages aux factures</value>
+  </data>
   <data name="TEXT_ASSIGN_UPDATE_REPORT_PARAMETERS" xml:space="preserve">
     <value>Affecter les paramètres de rapport</value>
   </data>
@@ -274,14 +274,14 @@
     <value>Créer une annulation/réexécution</value>
   </data>
   <data name="TEXT_CREATE_CREDIT_NOTE" xml:space="preserve">
-        <value>[FR]Create Credit Note</value>
-    </data>
+    <value>[FR]Create Credit Note</value>
+  </data>
   <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
     <value>Ajouter une nouvelle instance de rapport</value>
   </data>
-    <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
-        <value>[FR]Create quote</value>
-    </data>
+  <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
+    <value>[FR]Create quote</value>
+  </data>
   <data name="TEXT_CREATE_REMITTANCE" xml:space="preserve">
     <value>Créer un virement</value>
   </data>
@@ -378,12 +378,12 @@
   <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
     <value>[FR]Manage AMP Decision Types</value>
   </data>
-    <data name="TEXT_MANAGE_BILLSOFT_EXEMPTIONS" xml:space="preserve">
-        <value>Gérer BillSoft Exonérations</value>
-    </data>
-    <data name="TEXT_MANAGE_BILLSOFT_OVERRIDES" xml:space="preserve">
-        <value>Gérer BillSoft Remplacements</value>
-    </data>
+  <data name="TEXT_MANAGE_BILLSOFT_EXEMPTIONS" xml:space="preserve">
+    <value>Gérer BillSoft Exonérations</value>
+  </data>
+  <data name="TEXT_MANAGE_BILLSOFT_OVERRIDES" xml:space="preserve">
+    <value>Gérer BillSoft Remplacements</value>
+  </data>
   <data name="TEXT_MANAGE_CALENDARS" xml:space="preserve">
     <value>Gérer les calendriers</value>
   </data>
@@ -480,9 +480,9 @@
   <data name="TEXT_PAYMENT_METHODS" xml:space="preserve">
     <value>Méthodes de paiement</value>
   </data>
-    <data name="TEXT_PAYMENT_TRANSACTIONS" xml:space="preserve">
-        <value>[FR]Payment Transactions</value>
-    </data>
+  <data name="TEXT_PAYMENT_TRANSACTIONS" xml:space="preserve">
+    <value>[FR]Payment Transactions</value>
+  </data>
   <data name="TEXT_PAYMENTS" xml:space="preserve">
     <value>Paiements</value>
   </data>
@@ -501,15 +501,15 @@
   <data name="TEXT_QUEUE_ADHOC_REPORTS" xml:space="preserve">
     <value>Mettre les rapport ad hoc dans la file d’attente</value>
   </data>
-    <data name="TEXT_QUOTING" xml:space="preserve">
-        <value>[FR]Manage Quotes</value>
-    </data>
-    <data name="TEXT_QUOTING_LIST" xml:space="preserve">
-        <value>[FR]View All Quotes</value>
-    </data>
-    <data name="TEXT_REFRESH" xml:space="preserve">
-        <value>[FR]Refresh</value>
-    </data>
+  <data name="TEXT_QUOTING" xml:space="preserve">
+    <value>[FR]Manage Quotes</value>
+  </data>
+  <data name="TEXT_QUOTING_LIST" xml:space="preserve">
+    <value>[FR]View All Quotes</value>
+  </data>
+  <data name="TEXT_REFRESH" xml:space="preserve">
+    <value>[FR]Refresh</value>
+  </data>
   <data name="TEXT_REJECTED_FILES" xml:space="preserve">
     <value>Fichiers rejetés</value>
   </data>
@@ -561,9 +561,9 @@
   <data name="TEXT_SHOW_A_REPORT_INSTANCE_DETAILS" xml:space="preserve">
     <value>Afficher les détails de l’instance de rapport</value>
   </data>
-    <data name="TEXT_SHOW_ALL_CHANGES_SUMMARY" xml:space="preserve">
-        <value>Afficher toutes les modifications</value>
-    </data>
+  <data name="TEXT_SHOW_ALL_CHANGES_SUMMARY" xml:space="preserve">
+    <value>Afficher toutes les modifications</value>
+  </data>
   <data name="TEXT_SHOW_ALL_REPORT_PARAMETERS" xml:space="preserve">
     <value>Afficher tous les paramètres de rapport</value>
   </data>
@@ -573,15 +573,15 @@
   <data name="TEXT_SHOW_DATAEXPORT_QUEUE_DASHBOARD" xml:space="preserve">
     <value>File d’attente d’exportation des données</value>
   </data>
-    <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
-        <value>Afficher les modifications erronées</value>
-    </data>
-    <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
-        <value>Afficher les détails historiques</value>
-    </data>
-    <data name="TEXT_SHOW_PENDING_CHANGES_SUMMARY" xml:space="preserve">
-        <value>Afficher les modifications en attente</value>
-    </data>
+  <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
+    <value>Afficher les modifications erronées</value>
+  </data>
+  <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
+    <value>Afficher les détails historiques</value>
+  </data>
+  <data name="TEXT_SHOW_PENDING_CHANGES_SUMMARY" xml:space="preserve">
+    <value>Afficher les modifications en attente</value>
+  </data>
   <data name="TEXT_SUBSCRIBER_LOG_ADD" xml:space="preserve">
     <value>Ajouter une entrée du journal</value>
   </data>

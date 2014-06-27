@@ -195,4 +195,91 @@
     <data name="TEXT_GRID_TITLE" xml:space="preserve">
         <value>Usage Audit</value>
     </data>
+    <data name="BEFORE_AFTER_GRID_TITLE" xml:space="preserve">
+        <value>Usage Changes</value>
+    </data>
+    <data name="TEXT_NM_COLUMN" xml:space="preserve">
+        <value>Column</value>
+    </data>
+    <data name="TEXT_TX_BEFORE" xml:space="preserve">
+        <value>Value Before</value>
+    </data>
+    <data name="TEXT_TX_AFTER" xml:space="preserve">
+        <value>Value After</value>
+    </data>
+    <data name="TEXT_B_CHANGED" xml:space="preserve">
+        <value>Changed?</value>
+    </data>
+    <data name="TEXT_NM_PV_TABLE" xml:space="preserve">
+        <value>Product View Table</value>
+    </data>
+    <data name="TEXT_TIER_PRIORITY" xml:space="preserve">
+        <value>Priority</value>
+    </data>
+    <data name="TEXT_TIER_DISCOUNT" xml:space="preserve">
+        <value>Discount</value>
+    </data>
+    <data name="TEXT_TIER_DOMAIN" xml:space="preserve">
+        <value>Domain</value>
+    </data>
+    <data name="TEXT_TIER_DOMAIN_APPLY" xml:space="preserve">
+        <value>Apply to Domain</value>
+    </data>
+    <data name="TEXT_TIER_DOMAIN_IMPACT" xml:space="preserve">
+        <value>Impact Domain</value>
+    </data>
+    <data name="TEXT_CYCLES" xml:space="preserve">
+        <value>Cycle Count</value>
+    </data>
+    <data name="TEXT_CYCLE_UNIT_TYPE" xml:space="preserve">
+        <value>Cycle Type</value>
+    </data>
+    <data name="TEXT_CYCLE_UNITS_PER_TIER" xml:space="preserve">
+        <value>Cycles per Tier</value>
+    </data>
+    <data name="TEXT_TIER_NAME" xml:space="preserve">
+        <value>Tier Name</value>
+    </data>
+    <data name="TEXT_TITLE" xml:space="preserve">
+        <value>NowCast Title</value>
+    </data>
+    <data name="TEXT_SUBTITLE" xml:space="preserve">
+        <value>NowCast Subtitle</value>
+    </data>
+    <data name="TEXT_CHARGE_TYPE" xml:space="preserve">
+        <value>Charge Method</value>
+    </data>
+    <data name="TEXT_CHARGE_TYPE_ID" xml:space="preserve">
+        <value>Generate Charge of Type</value>
+    </data>
+    <data name="TEXT_TIER_START" xml:space="preserve">
+        <value>Tier Start</value>
+    </data>
+    <data name="TEXT_TIER_END" xml:space="preserve">
+        <value>Tier End</value>
+    </data>
+    <data name="TEXT_TIER_METRIC" xml:space="preserve">
+        <value>Tier Metric</value>
+    </data>
+    <data name="TEXT_TIER_TYPE" xml:space="preserve">
+        <value>Tier Type</value>
+    </data>
+    <data name="TEXT_CHARGE_ON_FINAL" xml:space="preserve">
+        <value>Generate Charge upon Finalization</value>
+    </data>
+    <data name="TEXT_CHARGE_ON_EVERY" xml:space="preserve">
+        <value>Generate Charge Every Time</value>
+    </data>
+    <data name="TEXT_CHARGE_ON_INBOUND" xml:space="preserve">
+        <value>Generate Charge upon Tier Entry</value>
+    </data>
+    <data name="TEXT_CHARGE_ON_OUTBOUND" xml:space="preserve">
+        <value>Generate Charge upon Tier Exit</value>
+    </data>
+    <data name="TEXT_PER_UNIT_RATE" xml:space="preserve">
+        <value>Per Unit Rate</value>
+    </data>
+    <data name="TEXT_PER_EVENT_RATE" xml:space="preserve">
+        <value>Per Event Rate</value>
+    </data>
 </root>

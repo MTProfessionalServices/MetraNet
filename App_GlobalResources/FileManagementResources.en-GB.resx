@@ -139,7 +139,7 @@
         <value>Argument Properties</value>
     </data>
     <data name="ASSEMBLY_TITLE" xml:space="preserve">
-        <value></value>
+        <value>Assembly</value>
     </data>
     <data name="DETAIL_COMMAND" xml:space="preserve">
         <value>Issued Command</value>
@@ -154,7 +154,7 @@
         <value>Current State</value>
     </data>
     <data name="DETAIL_DO_RETRY" xml:space="preserve">
-        <value></value>
+        <value>Try to Run the Job Again</value>
     </data>
     <data name="DETAIL_FILES" xml:space="preserve">
         <value>Files</value>
@@ -163,7 +163,7 @@
         <value>Get MetraFlow Execution Details</value>
     </data>
     <data name="DETAIL_STATE_HISTORY" xml:space="preserve">
-        <value>State / Province</value>
+        <value>State History Details</value>
     </data>
     <data name="DETAIL_STATE_HISTORY_DATE" xml:space="preserve">
         <value>Date</value>
@@ -172,7 +172,7 @@
         <value>State</value>
     </data>
     <data name="DETAIL_TARGET" xml:space="preserve">
-        <value></value>
+        <value>Target</value>
     </data>
     <data name="DETAIL_TITLE" xml:space="preserve">
         <value>Detailed Job Report</value>
@@ -202,19 +202,19 @@
         <value>Rejected Files</value>
     </data>
     <data name="FILE_RETRY_HINT" xml:space="preserve">
-        <value>True</value>
+        <value>Try processing this file again.</value>
     </data>
     <data name="FILE_RETRY_MESSAGE" xml:space="preserve">
         <value>Are you sure you want to retry this file?</value>
     </data>
     <data name="FILE_RETRY_TITLE" xml:space="preserve">
-        <value></value>
+        <value>Retry</value>
     </data>
     <data name="FILE_STATE" xml:space="preserve">
         <value>State</value>
     </data>
     <data name="FILE_TITLE" xml:space="preserve">
-        <value></value>
+        <value>File</value>
     </data>
     <data name="GLOBAL_ACTIVE_DIR" xml:space="preserve">
         <value>Active Directory</value>
@@ -229,7 +229,7 @@
         <value>Incoming Directory</value>
     </data>
     <data name="GLOBAL_INCOMING_DIR_HELP" xml:space="preserve">
-        <value>The following Group Subscription was updated successfully:</value>
+        <value>The incoming directory must be located on the system running the File Landing Service. Do not enter the server name. For example, if FLS is running on MNServer3 in D:\\IncomingFLS, you would enter D:\\IncomingFLS.</value>
     </data>
     <data name="GLOBAL_PANEL_TITLE" xml:space="preserve">
         <value>File Management Globals</value>
@@ -280,7 +280,7 @@
         <value>Job</value>
     </data>
     <data name="JOB_TRACKING_ID" xml:space="preserve">
-        <value>Total Charges</value>
+        <value>Tracking ID</value>
     </data>
     <data name="METRAFLOW_HISTORY_DESCRIPTION" xml:space="preserve">
         <value>Description</value>
@@ -295,7 +295,7 @@
         <value>Sequence Number</value>
     </data>
     <data name="METRAFLOW_HISTORY_STARTING_TIME" xml:space="preserve">
-        <value></value>
+        <value>Starting Time</value>
     </data>
     <data name="METRAFLOW_HISTORY_TITLE" xml:space="preserve">
         <value>MetraFlow Step Log</value>
@@ -307,7 +307,7 @@
         <value>Service Host</value>
     </data>
     <data name="SUCCESSFUL_SAVE" xml:space="preserve">
-        <value></value>
+        <value>Successfully saved.</value>
     </data>
     <data name="TARGET_ACTION" xml:space="preserve">
         <value>Action</value>
@@ -319,10 +319,10 @@
         <value>Description</value>
     </data>
     <data name="TARGET_EXECUTABLE" xml:space="preserve">
-        <value></value>
+        <value>Executable</value>
     </data>
     <data name="TARGET_FILTER" xml:space="preserve">
-        <value></value>
+        <value>Target Filter</value>
     </data>
     <data name="TARGET_GRID_TITLE" xml:space="preserve">
         <value>File Management Targets</value>
@@ -334,16 +334,16 @@
         <value>Name</value>
     </data>
     <data name="TARGET_TITLE" xml:space="preserve">
-        <value></value>
+        <value>Target</value>
     </data>
     <data name="TEXT_ACTIONS" xml:space="preserve">
         <value>Actions</value>
     </data>
     <data name="TEXT_ADD" xml:space="preserve">
-        <value>add</value>
+        <value>Add</value>
     </data>
     <data name="TEXT_ADD_BME" xml:space="preserve">
-        <value></value>
+        <value>Add</value>
     </data>
     <data name="TEXT_BE" xml:space="preserve">
         <value>BE</value>
@@ -370,24 +370,24 @@
         <value>Order</value>
     </data>
     <data name="TEXT_REGEX" xml:space="preserve">
-        <value>Regex</value>
+        <value>Filter</value>
     </data>
     <data name="TEXT_RESCAN_INTERVAL_ERROR" xml:space="preserve">
-        <value>The passwords do not match</value>
+        <value>The rescan interval must be between 2 and 86400.</value>
     </data>
     <data name="TEXT_RETRIEVE_FILE_DETAILS_ERROR" xml:space="preserve">
         <value>Error occurred retrieving file details.</value>
     </data>
     <data name="TEXT_RETRIEVE_HISTORY_DETAILS_RUN_ERROR" xml:space="preserve">
-        <value>Unable to retrieve payment information</value>
+        <value>Unable to retrieve the history details of this run.</value>
     </data>
     <data name="TEXT_RETRIEVE_RUN_DETAILS_ERROR" xml:space="preserve">
-        <value>Unable to retrieve list of payment methods</value>
+        <value>Unable to retrieve the details of this run.</value>
     </data>
     <data name="TEXT_RETRIEVE_TARGET_DETAILS_ERROR" xml:space="preserve">
         <value>Error occurred retrieving target details.</value>
     </data>
     <data name="TEXT_UNABLE_RETRIEVE_FILE_DETAILS_ERROR" xml:space="preserve">
-        <value>Unable to retrieve the configuration. See log for details.</value>
+        <value>Unable to retrieve the details of the file.</value>
     </data>
 </root>

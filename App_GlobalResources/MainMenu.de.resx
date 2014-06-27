@@ -120,6 +120,9 @@
   <data name="TEXT_ACCOUNT_DETAILS" xml:space="preserve">
     <value>Kontodetails</value>
   </data>
+  <data name="TEXT_ACCOUNT_QUOTING_LIST" xml:space="preserve">
+    <value>Quotes</value>
+  </data>
   <data name="TEXT_ACCOUNT_STATE" xml:space="preserve">
     <value>Kontostatus</value>
   </data>
@@ -138,6 +141,9 @@
   <data name="TEXT_ADD_ACCOUNT_WEBSERVICE" xml:space="preserve">
     <value>Konto mit Webservice hinzufügen</value>
   </data>
+  <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
+    <value>[DE]Add child Account</value>
+  </data>
   <data name="TEXT_ADD_CSR" xml:space="preserve">
     <value>Kundendienstmitarbeiter hinzufügen</value>
   </data>
@@ -146,6 +152,9 @@
   </data>
   <data name="TEXT_ADD_NEW_REPORT_PARAMETERS" xml:space="preserve">
     <value>Neue Berichtsparameter hinzufügen</value>
+  </data>
+  <data name="TEXT_ADD_PARTITION" xml:space="preserve">
+    <value>[DE]Add Partition</value>
   </data>
   <data name="TEXT_ADJUST_TRANSACTIONS" xml:space="preserve">
     <value>Transaktionen anpassen</value>
@@ -159,6 +168,12 @@
   <data name="TEXT_ADVANCED_OPTIONS" xml:space="preserve">
     <value>Erweiterte Optionen</value>
   </data>
+  <data name="TEXT_AGREEMENT_TEMPLATES" xml:space="preserve">
+    <value>[DE]Agreement Templates</value>
+  </data>
+  <data name="TEXT_AGREEMENTS" xml:space="preserve">
+    <value>[DE]Agreements</value>
+  </data>
   <data name="TEXT_ALL_FILES" xml:space="preserve">
     <value>Alle Aufträge</value>
   </data>
@@ -170,6 +185,12 @@
   </data>
   <data name="TEXT_APP_AUDIT_LOG" xml:space="preserve">
     <value>Anwendungs-Audit-Protokoll</value>
+  </data>
+  <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
+    <value>[DE]Approvals</value>
+  </data>
+  <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
+    <value>[DE]Assign Bill Messages</value>
   </data>
   <data name="TEXT_ASSIGN_UPDATE_REPORT_PARAMETERS" xml:space="preserve">
     <value>Berichtsparameter zuweisen</value>
@@ -258,6 +279,9 @@
   <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
     <value>Neue Berichtsinstanz hinzufügen</value>
   </data>
+    <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
+        <value>[DE]Create Quote</value>
+    </data>
   <data name="TEXT_CREATE_REMITTANCE" xml:space="preserve">
     <value>Überweisung erstellen</value>
   </data>
@@ -339,11 +363,26 @@
   <data name="TEXT_MAKE_PAYMENT" xml:space="preserve">
     <value>Zahlung vornehmen</value>
   </data>
+  <data name="TEXT_MANAGE" xml:space="preserve">
+    <value>[DE]Manage</value>
+  </data>
   <data name="TEXT_MANAGE_ACCOUNTS" xml:space="preserve">
     <value>Konten verwalten</value>
   </data>
   <data name="TEXT_MANAGE_ADJUSTMENTS" xml:space="preserve">
     <value>Anpassungen verwalten</value>
+  </data>
+  <data name="TEXT_MANAGE_AGREEMENT_TEMPLATES" xml:space="preserve">
+    <value>[DE]Manage Agreement Templates</value>
+  </data>
+  <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
+    <value>[DE]Decision Types</value>
+  </data>
+  <data name="TEXT_MANAGE_BILLSOFT_EXEMPTIONS" xml:space="preserve">
+    <value>[DE]Manage BillSoft Exemptions</value>
+  </data>
+  <data name="TEXT_MANAGE_BILLSOFT_OVERRIDES" xml:space="preserve">
+    <value>[DE]Manage BillSoft Overrides</value>
   </data>
   <data name="TEXT_MANAGE_CALENDARS" xml:space="preserve">
     <value>Kalender verwalten</value>
@@ -441,6 +480,9 @@
   <data name="TEXT_PAYMENT_METHODS" xml:space="preserve">
     <value>Zahlungsarten</value>
   </data>
+  <data name="TEXT_PAYMENT_TRANSACTIONS" xml:space="preserve">
+    <value>[DE]Payment Transactions</value>
+  </data>
   <data name="TEXT_PAYMENTS" xml:space="preserve">
     <value>Zahlungen</value>
   </data>
@@ -458,6 +500,15 @@
   </data>
   <data name="TEXT_QUEUE_ADHOC_REPORTS" xml:space="preserve">
     <value>Ad-hoc-Berichte in Warteschlange stellen</value>
+  </data>
+  <data name="TEXT_QUOTING" xml:space="preserve">
+    <value>[DE]Manage Quotes</value>
+  </data>
+  <data name="TEXT_QUOTING_LIST" xml:space="preserve">
+    <value>[DE]View All Quotes</value>
+  </data>
+  <data name="TEXT_REFRESH" xml:space="preserve">
+    <value>[DE]Refresh</value>
   </data>
   <data name="TEXT_REJECTED_FILES" xml:space="preserve">
     <value>Abgelehnte Dateien</value>
@@ -495,14 +546,23 @@
   <data name="TEXT_SECURITY" xml:space="preserve">
     <value>Sicherheit</value>
   </data>
+  <data name="TEXT_SELF_CARE_PORTAL" xml:space="preserve">
+    <value>[DE]Self Care Portal</value>
+  </data>
   <data name="TEXT_SEND_EMAIL_DIALOG" xml:space="preserve">
     <value>E-Mail senden</value>
+  </data>
+  <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
+    <value>[DE]Shared Properties</value>
   </data>
   <data name="TEXT_SHARED_RATES" xml:space="preserve">
     <value>Gemeinsame Raten</value>
   </data>
   <data name="TEXT_SHOW_A_REPORT_INSTANCE_DETAILS" xml:space="preserve">
     <value>Details der Berichtsinstanz anzeigen</value>
+  </data>
+  <data name="TEXT_SHOW_ALL_CHANGES_SUMMARY" xml:space="preserve">
+    <value>[DE]View All Changes</value>
   </data>
   <data name="TEXT_SHOW_ALL_REPORT_PARAMETERS" xml:space="preserve">
     <value>Alle Berichtsparameter anzeigen</value>
@@ -512,6 +572,15 @@
   </data>
   <data name="TEXT_SHOW_DATAEXPORT_QUEUE_DASHBOARD" xml:space="preserve">
     <value>Warteschlange für Datenexport</value>
+  </data>
+  <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
+    <value>[DE]View Failed Changes</value>
+  </data>
+  <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
+    <value>[DE]View Item History</value>
+  </data>
+  <data name="TEXT_SHOW_PENDING_CHANGES_SUMMARY" xml:space="preserve">
+    <value>[DE]View Pending Changes</value>
   </data>
   <data name="TEXT_SUBSCRIBER_LOG_ADD" xml:space="preserve">
     <value>Protokolleintrag hinzufügen</value>
@@ -558,9 +627,6 @@
   <data name="TEXT_UPDATE_EXISTING_REPORT_DEFINITIONS" xml:space="preserve">
     <value>Vorhandene Berichtsdefinition aktualisieren</value>
   </data>
-  <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-    <value>{DE}Usage Calculation Decision Details</value>
-  </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>Wartung des Verwendungsservers</value>
   </data>
@@ -579,29 +645,20 @@
   <data name="TEXT_VIEWONLINE_BILL" xml:space="preserve">
     <value>Online-Rechnung anzeigen</value>
   </data>
-  <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
-    <value>[DE]Approvals</value>
+  <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
+    <value>Usage Audit</value>
   </data>
-  <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
-    <value>[DE]View Item History</value>
+  <data name="TEXT_ADD_TENANT" xml:space="preserve">
+    <value>Add Partition</value>
   </data>
-  <data name="TEXT_SHOW_ALL_CHANGES_SUMMARY" xml:space="preserve">
-    <value>[DE]View All Changes</value>
+  <data name="TEXT_REPORTS" xml:space="preserve">
+    <value>[DE]Reports</value>
   </data>
-  <data name="TEXT_SHOW_PENDING_CHANGES_SUMMARY" xml:space="preserve">
-    <value>[DE]View Pending Changes</value>
+  <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
+    <value>[DE]Usage Processing</value>
   </data>
-  <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
-    <value>[DE]View Failed Changes</value>
-  </data>
-  <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
-    <value>[DE]</value>
-  </data>
-  <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
-    <value>[DE]</value>
-  </data>
-  <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
-    <value>[DE]Add child Account</value>
+  <data name="TEXT_ACCOUNT" xml:space="preserve">
+    <value>[DE]Account</value>
   </data>
   <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
     <value>[DE]Bill Messages</value>
@@ -618,19 +675,7 @@
   <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
     <value>[DE]Product Dashboard</value>
   </data>
-  <data name="TEXT_REPORTS" xml:space="preserve">
-    <value>[DE] Reports</value>
-  </data> 
-  <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
-    <value>[DE]Usage Processing</value>
+  <data name="TEXT_SEARCH" xml:space="preserve">
+    <value>Search</value>
   </data>
-  <data name="TEXT_ADD_PARTITION" xml:space="preserve">
-    <value>[DE]Add Partition</value>
-  </data>
-  <data name="TEXT_QUOTING" xml:space="preserve">
-    <value>[DE]Manage Quotes</value>
-  </data>
-  <data name="TEXT_ACCOUNT" xml:space="preserve">
-    <value>[DE]Account</value>
-  </data>    
 </root>

@@ -160,7 +160,7 @@
         <value>Adjust Transactions</value>
     </data>
     <data name="TEXT_ADJUSTMENTS" xml:space="preserve">
-        <value>Adjustments</value>
+        <value>Adjustments / Charges</value>
     </data>
     <data name="TEXT_ADMINISTRATION" xml:space="preserve">
         <value>Administration</value>
@@ -180,9 +180,9 @@
     <data name="TEXT_ALL_INTERVALS" xml:space="preserve">
         <value>All Intervals</value>
     </data>
-	  <data name="TEXT_ANALYTICS" xml:space="preserve">
-    <value>Analytics</value>
-	</data>
+	<data name="TEXT_ANALYTICS" xml:space="preserve">
+        <value>Analytics</value>
+    </data>	
     <data name="TEXT_APP_AUDIT_LOG" xml:space="preserve">
         <value>Application Audit Log</value>
     </data>
@@ -278,6 +278,9 @@
     </data>
     <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
         <value>Add New Report Instance</value>
+    </data>
+    <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
+        <value>Create Quote</value>
     </data>
     <data name="TEXT_CREATE_REMITTANCE" xml:space="preserve">
         <value>Create Remittance</value>
@@ -579,9 +582,6 @@
     <data name="TEXT_SHOW_PENDING_CHANGES_SUMMARY" xml:space="preserve">
         <value>View Pending Changes</value>
     </data>
-    <data name="TEXT_SHOW_PENDING_CHANGES_SUMMARY1" xml:space="preserve">
-        <value>View Pending Changes</value>
-    </data>
     <data name="TEXT_SUBSCRIBER_LOG_ADD" xml:space="preserve">
         <value>Add Log Entry</value>
     </data>
@@ -640,14 +640,11 @@
         <value>View Credit Notes Issued</value>
     </data>
     <data name="TEXT_VIEW_METERING_STATISTICS" xml:space="preserve">
-        <value>View</value>
+        <value>All Events</value>
     </data>
     <data name="TEXT_VIEWONLINE_BILL" xml:space="preserve">
         <value>View Online Bill</value>
     </data>
-	<data name="TEXT_CREATE_QUOTE" xml:space="preserve">
-		<value>Create Quote</value>
-	</data>
 	<data name="TEXT_USAGE_AUDIT" xml:space="preserve">
 		<value>Usage Calculation Decision Details</value>
 	</data>
@@ -677,5 +674,8 @@
 	</data>
 	<data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
 		<value>Product Dashboard</value>
-	</data>	
- </root>
+    </data>
+    <data name="TEXT_SEARCH" xml:space="preserve">
+        <value>Search</value>
+    </data>
+</root>

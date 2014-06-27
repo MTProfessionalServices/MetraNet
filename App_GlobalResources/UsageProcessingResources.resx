@@ -193,7 +193,7 @@
         <value>Decision Type</value>
     </data>
     <data name="TEXT_GRID_TITLE" xml:space="preserve">
-        <value>Decision Audit</value>
+        <value>Usage Audit</value>
     </data>
     <data name="BEFORE_AFTER_GRID_TITLE" xml:space="preserve">
         <value>Usage Changes</value>

@@ -124,7 +124,7 @@
         <value>Payee</value>
     </data>
     <data name="PAYER_ACCOUNT" xml:space="preserve">
-        <value></value>
+        <value>Payer</value>
     </data>
     <data name="TEXT_KEYTERM_ACCOUNT_TYPE" xml:space="preserve">
         <value>Account Type</value>
@@ -154,7 +154,7 @@
         <value>Discounts</value>
     </data>
     <data name="TEXT_KEYTERM_GROUP_SUBSCRIPTION" xml:space="preserve">
-        <value></value>
+    <value>Group Subscription</value>
     </data>
     <data name="TEXT_KEYTERM_GROUP_SUBSCRIPTIONS" xml:space="preserve">
         <value>Group Subscriptions</value>
@@ -241,30 +241,30 @@
         <value>Shared Price Lists</value>
     </data>
     <data name="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGE" xml:space="preserve">
-        <value>Unit Dependent Recurring Charge Account Configuration</value>
+    <value>Unit-Dependent Recurring Charge</value>
     </data>
     <data name="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGES" xml:space="preserve">
-        <value>Unit Dependent Recurring Charge Configuration</value>
+    <value>Unit-Dependent Recurring Charges</value>
     </data>
     <data name="TEXT_KEYTERM_USAGE_CHARGE" xml:space="preserve">
-        <value>Usage</value>
+    <value>Usage Charge</value>
     </data>
     <data name="TEXT_KEYTERM_USAGE_CHARGE_AGGREGATE" xml:space="preserve">
-        <value>Usage</value>
+    <value>Usage Charge (Aggregate)</value>
     </data>
     <data name="TEXT_KEYTERM_USAGE_CHARGES" xml:space="preserve">
-        <value>Usage Charge</value>
+    <value>Usage Charges</value>
     </data>
     <data name="TEXT_KEYTERM_USAGE_CHARGES_AGGREGATE" xml:space="preserve">
-        <value>Usage Charge (Aggregate)</value>
+    <value>Usage Charges (Aggregate)</value>
     </data>
 	<data name="TEXT_KEYTERM_CORE_SUBSCRIBER" xml:space="preserve">
-		<value>[EN-GB] Core Subscriber</value>
+		<value>[en-GB]Core Subscriber</value>
 	</data>
 	<data name="TEXT_KEYTERM_DEPARTMENT_ACCOUNT" xml:space="preserve">
-		<value>[EN-GB] Department Account</value>
+		<value>[en-GB]Department Account</value>
 	</data>
 	<data name="TEXT_KEYTERM_GSM_SERVICE_ACCOUNT" xml:space="preserve">
-		<value>[EN-GB] GSM Service Account</value>
+		<value>[en-GB]GSM Service Account</value>
 	</data>
 </root>

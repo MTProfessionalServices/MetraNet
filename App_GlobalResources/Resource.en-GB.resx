@@ -130,7 +130,7 @@
     <value>/Res/Styles/baseStyle.css?v=6.5</value>
   </data>
   <data name="LocalizedWelcomePage" xml:space="preserve">
-    <value>Weekly</value>
+    <value>Welcome.htm</value>
   </data>
   <data name="TEXT_ACCOUNT_ID" xml:space="preserve">
     <value>AccountId</value>
@@ -139,7 +139,7 @@
     <value>Account Information</value>
   </data>
   <data name="TEXT_ACCOUNT_LOCKED" xml:space="preserve">
-    <value>TextField</value>
+    <value>The account '{0} is locked.</value>
   </data>
   <data name="TEXT_ACCOUNT_NAME" xml:space="preserve">
     <value>Account Name</value>
@@ -208,7 +208,7 @@
     <value>Category</value>
   </data>
   <data name="TEXT_COLUMN_TITLE" xml:space="preserve">
-    <value>Timezone</value>
+    <value>Title</value>
   </data>
   <data name="TEXT_CONFIRMATION" xml:space="preserve">
     <value>Confirmation</value>
@@ -241,7 +241,7 @@
     <value>Details</value>
   </data>
   <data name="TEXT_DISPLAY_AMOUNT" xml:space="preserve">
-    <value />
+    <value>Display Amount</value>
   </data>
   <data name="TEXT_DISPLAY_AMOUNT_AS_STRING" xml:space="preserve">
     <value>DisplayAmountAsString</value>
@@ -277,7 +277,7 @@
     <value>Id</value>
   </data>
   <data name="TEXT_INLINE_ADJUSTMENTS" xml:space="preserve">
-    <value />
+    <value>Text Inline Adjustments</value>
   </data>
   <data name="TEXT_INLINE_TAX" xml:space="preserve">
     <value>Inline Tax</value>
@@ -315,6 +315,18 @@
   <data name="TEXT_MORE_ITEMS" xml:space="preserve">
     <value>More Items...</value>
   </data>
+  <data name="TEXT_QUOTE_DETAILS" xml:space="preserve">
+    <value>Quote details</value>
+  </data>
+  <data name="ACCOUNT_FOR_QUOTES" xml:space="preserve">
+    <value>Accounts</value>
+  </data>
+  <data name="PO_FOR_QUOTES" xml:space="preserve">
+    <value>Product offerings</value>
+  </data>
+  <data name="LOG_FOR_QUOTES" xml:space="preserve">
+    <value>Quote log</value>
+  </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>Name</value>
   </data>
@@ -328,7 +340,7 @@
     <value>OK</value>
   </data>
   <data name="TEXT_PAGE_ERROR" xml:space="preserve">
-    <value>Unable to delete saved search.</value>
+    <value>Unable to display page.</value>
   </data>
   <data name="TEXT_PAGEURL" xml:space="preserve">
     <value>PageURL</value>
@@ -352,7 +364,7 @@
     <value>Reassign Orders</value>
   </data>
   <data name="TEXT_REASSIGN_SUCCESS" xml:space="preserve">
-    <value>The last login for {0} was on {1}.  There have been {2} failed login attempts since the last successful login.</value>
+    <value>The orders have been reassigned successfully.</value>
   </data>
   <data name="TEXT_RELATED_ENTITIES_1" xml:space="preserve">
     <value>Add related </value>
@@ -367,7 +379,7 @@
     <value>Remove Accounts</value>
   </data>
   <data name="TEXT_REMOVE_RELSHIP" xml:space="preserve">
-    <value>Remove</value>
+    <value>Remove Relationship</value>
   </data>
   <data name="TEXT_REPORT_TYPE" xml:space="preserve">
     <value>Report Type</value>
@@ -385,7 +397,7 @@
     <value>Show Second Pass Data</value>
   </data>
   <data name="TEXT_SITE_DOWN_FOR_MAINTENANCE" xml:space="preserve">
-    <value>Warn On EBCR Start Date Change</value>
+    <value>We are sorry for the inconvenience, but the site is currently down for maintenance.  Please try again later.</value>
   </data>
   <data name="TEXT_SITE_NAME" xml:space="preserve">
     <value>Site Name</value>
@@ -394,52 +406,52 @@
     <value>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</value>
   </data>
   <data name="TEXT_STYLE" xml:space="preserve">
-    <value />
+    <value>Style</value>
   </data>
   <data name="TEXT_SUB_DATE_MESSAGE" xml:space="preserve">
-    <value>The routing number is invalid.</value>
+    <value>The subscription start and end dates must be between {0} and {1}.</value>
   </data>
   <data name="TEXT_SUB_DATE_MESSAGE_START" xml:space="preserve">
-    <value>The platform will periodically run configured scheduled adapters.  Note: If this setting is not selected, all scheduled adadaters will need to be run manually.</value>
+    <value>The subscription dates must be</value>
   </data>
   <data name="TEXT_THEME" xml:space="preserve">
-    <value>The system only allows {0} login attempts before the account is temporarily locked for {1} minutes.  You may manually unlock the account.</value>
+    <value>Theme</value>
   </data>
   <data name="TEXT_TIMESTAMP" xml:space="preserve">
-    <value />
+    <value>TimeStamp</value>
   </data>
   <data name="TEXT_TIMEZONE" xml:space="preserve">
-    <value />
+    <value>Timezone</value>
   </data>
   <data name="TEXT_TITLE" xml:space="preserve">
     <value>MetraNet</value>
   </data>
   <data name="TEXT_TITLE_METRACONTROL" xml:space="preserve">
-    <value />
+    <value>MetraControl</value>
   </data>
   <data name="TEXT_UNRELATED_1" xml:space="preserve">
-    <value>Unlimited</value>
+    <value>Unrelated </value>
   </data>
   <data name="TEXT_UNRELATED_2" xml:space="preserve">
     <value>(s)</value>
   </data>
   <data name="TEXT_URL" xml:space="preserve">
-    <value />
+    <value>Url</value>
   </data>
   <data name="TEXT_VALIDATION_ERROR" xml:space="preserve">
-    <value>Validate</value>
-  </data>
-  <data name="TEXT_VALUE" xml:space="preserve">
     <value>Validation error.  Please try again.</value>
   </data>
+  <data name="TEXT_VALUE" xml:space="preserve">
+    <value>Value</value>
+  </data>
   <data name="TEXT_WIDGET_PATH" xml:space="preserve">
-    <value />
+    <value>Widget Path</value>
   </data>
   <data name="TEXT_WIDGET_TYPE" xml:space="preserve">
-    <value>When automatically closing intervals, block the intervals to new accounts.</value>
+    <value>Widget Type</value>
   </data>
   <data name="TEXT_WIDTH" xml:space="preserve">
-    <value>Widget Type</value>
+    <value>Width</value>
   </data>
   <data name="TEXT_ADD_RELATED_ENTITIES" xml:space="preserve">
     <value>Add related entities for </value>
@@ -462,8 +474,83 @@
   <data name="TEXT_APPROVAL_BUTTON_RESUBMIT" xml:space="preserve">
     <value>Resubmit</value>
   </data>
+  <data name="SpecCharacteristicsController_Index_Product_Offering_Properties" xml:space="preserve">
+    <value>Product Offering Properties</value>
+  </data>
+  <data name="Index_cshtml_Execute_Spec_Characteristics" xml:space="preserve">
+    <value>Spec Characteristics</value>
+  </data>
+  <data name="TEXT_ACTION_ADD_CATEGORY" xml:space="preserve">
+    <value>add category</value>
+  </data>
+  <data name="TEXT_ACTION_ADD_PROPERTY" xml:space="preserve">
+    <value>add property</value>
+  </data>
+  <data name="TEXT_ACTION_DELETE" xml:space="preserve">
+    <value>delete</value>
+  </data>
+  <data name="TEXT_ACTION_EDIT" xml:space="preserve">
+    <value>edit</value>
+  </data>
+  <data name="TEXT_ARE_YOU_SURE" xml:space="preserve">
+    <value>Are you sure?</value>
+  </data>
+  <data name="TEXT_CORRECT_ERRORS" xml:space="preserve">
+    <value>Please correct the errors and try again.</value>
+  </data>
+  <data name="TEXT_MISSING_LOCALIZATION" xml:space="preserve">
+    <value>Missing localization</value>
+  </data>
+  <data name="TEXT_NO_PROPERTIES_YET" xml:space="preserve">
+    <value>There are no properties defined yet...</value>
+  </data>
+  <data name="TEXT_OK_DELETE_1" xml:space="preserve">
+    <value>Click 'OK' to delete the</value>
+  </data>
+  <data name="TEXT_OK_DELETE_2" xml:space="preserve">
+    <value>property.</value>
+  </data>
+  <data name="TEXT_RESTRICTIONS" xml:space="preserve">
+    <value>Restrictions</value>
+  </data>
+  <data name="TEXT_TITLE_ADD_CATEGORY" xml:space="preserve">
+    <value>Create Category</value>
+  </data>
+  <data name="TEXT_TITLE_ADD_PROPERTY" xml:space="preserve">
+    <value>Add Property</value>
+  </data>
+  <data name="TEXT_TITLE_EDIT_PROPERTY" xml:space="preserve">
+    <value>Edit Property</value>
+  </data>
+  <data name="TEXT_WAITING_FOR_UPDATE" xml:space="preserve">
+    <value>Waiting for update...</value>
+  </data>
+  <data name="TEXT_ACTION_ADD_EXISTING_PROPERTY" xml:space="preserve">
+    <value>add existing property</value>
+  </data>
+  <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
+    <value>Shared Properties</value>
+  </data>
+  <data name="SpecCharacteristicsController_SetDisplayOrder_Successfully_moved_" xml:space="preserve">
+    <value>Successfully moved.</value>
+  </data>
+  <data name="SpecCharacteristicsController_Delete_Successfully_deleted_property_" xml:space="preserve">
+    <value>Successfully deleted property.</value>
+  </data>
+  <data name="SpecCharacteristicsController_AddSharedProperty_Successfully_added_property_" xml:space="preserve">
+    <value>Successfully added property.</value>
+  </data>
+  <data name="TEXT_AVAILABLE_SHARED_PROPERTIES" xml:space="preserve">
+    <value>Available Shared Properties</value>
+  </data>
+  <data name="TEXT_PROPERTY" xml:space="preserve">
+    <value>Property</value>
+  </data>
   <data name="TEXT_BACK" xml:space="preserve">
     <value>Previous</value>
+  </data>
+  <data name="TEXT_FROM_PARAM_TABLE" xml:space="preserve">
+    <value>From Parameter Table</value>
   </data>
   <data name="TEXT_NEXT" xml:space="preserve">
     <value>Next</value>
@@ -482,6 +569,9 @@
   </data>
   <data name="TEXT_NO" xml:space="preserve">
     <value>No</value>
+  </data>
+  <data name="TEXT_FROM_PARAMETER_TABLE" xml:space="preserve">
+    <value>From parameter table</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Add_Category" xml:space="preserve">
     <value>add category</value>
@@ -504,26 +594,20 @@
   <data name="_PropertyForm_cshtml_Set_Localization_Title" xml:space="preserve">
     <value>Set Localization</value>
   </data>
-  <data name="TEXT_FROM_PARAMETER_TABLE" xml:space="preserve">
-    <value>From parameter table</value>
+  <data name="TEXT_BUTTON_ADD" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="TEXT_BUTTON_DELETE" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="TEXT_BUTTON_EDIT" xml:space="preserve">
+    <value>Edit</value>
   </data>
   <data name="newSubscription" xml:space="preserve">
-    <value>[EN-GB]New Subscription</value>
+    <value>New Subscription</value>
   </data>
   <data name="updateSubscription" xml:space="preserve">
-    <value>[EN-GB]Subscription Update</value>
-  </data>
-  <data name="TEXT_QUOTE_DETAILS" xml:space="preserve">
-    <value>More Items...</value>
-  </data>
-  <data name="ACCOUNT_FOR_QUOTES" xml:space="preserve">
-    <value>More Items...</value>
-  </data>
-  <data name="PO_FOR_QUOTES" xml:space="preserve">
-    <value>More Items...</value>
-  </data>
-  <data name="LOG_FOR_QUOTES" xml:space="preserve">
-    <value>Quote log</value>
+    <value>Subscription Update</value>
   </data>
   <data name="TEXT_TAX" xml:space="preserve">
     <value>Tax</value>

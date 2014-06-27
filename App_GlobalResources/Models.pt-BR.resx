@@ -117,154 +117,130 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="INDEPENDENT_ACCOUNT" xml:space="preserve">
-    <value>独立アカウント</value>
+  <data name="SpecCharacteristicModel_Category" xml:space="preserve">
+    <value>[pt-BR]Category:</value>
   </data>
-  <data name="PAYEE_ACCOUNT" xml:space="preserve">
-    <value>払受人</value>
+  <data name="SpecCharacteristicModel_DefaultValue" xml:space="preserve">
+    <value>[pt-BR]Default Value:</value>
   </data>
-  <data name="PAYER_ACCOUNT" xml:space="preserve">
-    <value>支払者</value>
+  <data name="SpecCharacteristicModel_DisplayOrder" xml:space="preserve">
+    <value>[pt-BR]Display Order:</value>
   </data>
-  <data name="TEXT_KEYTERM_ACCOUNT_TYPE" xml:space="preserve">
-    <value>口座種別</value>
+  <data name="SpecCharacteristicModel_EntityId" xml:space="preserve">
+    <value>[pt-BR]Entity ID:</value>
   </data>
-  <data name="TEXT_KEYTERM_ACCOUNT_TYPES" xml:space="preserve">
-    <value>口座種別</value>
+  <data name="SpecCharacteristicModel_Name" xml:space="preserve">
+    <value>[pt-BR]Name:</value>
   </data>
-  <data name="TEXT_KEYTERM_CAPABILITIES" xml:space="preserve">
-    <value>機能</value>
+  <data name="SpecCharacteristicModel_SpecId" xml:space="preserve">
+    <value>[pt-BR]Spec ID:</value>
   </data>
-  <data name="TEXT_KEYTERM_CAPABILITY" xml:space="preserve">
-    <value>機能</value>
+  <data name="SpecCharacteristicModel_SpecType" xml:space="preserve">
+    <value>[pt-BR]Property Type:</value>
   </data>
-  <data name="TEXT_KEYTERM_CORPORATE_ACCOUNT" xml:space="preserve">
-    <value>法人アカウント</value>
+  <data name="SpecCharacteristicValueModel_Between_End" xml:space="preserve">
+    <value>[pt-BR]Between End:</value>
   </data>
-  <data name="TEXT_KEYTERM_COUNTER" xml:space="preserve">
-    <value>カウンタ</value>
+  <data name="SpecCharacteristicValueModel_Between_Start" xml:space="preserve">
+    <value>[pt-BR]Between Start:</value>
   </data>
-  <data name="TEXT_KEYTERM_COUNTERS" xml:space="preserve">
-    <value>カウンタ</value>
+  <data name="SpecCharacteristicValueModel_BooleanValue" xml:space="preserve">
+    <value>[pt-BR]Boolean Value:</value>
   </data>
-  <data name="TEXT_KEYTERM_DISCOUNT" xml:space="preserve">
-    <value>割引</value>
+  <data name="SpecCharacteristicValueModel_Category" xml:space="preserve">
+    <value>[pt-BR]Category:</value>
   </data>
-  <data name="TEXT_KEYTERM_DISCOUNTS" xml:space="preserve">
-    <value>割引</value>
+  <data name="SpecCharacteristicValueModel_CategoryDisplayNames" xml:space="preserve">
+    <value>[pt-BR]Category Display Names:</value>
   </data>
-  <data name="TEXT_KEYTERM_GROUP_SUBSCRIPTION" xml:space="preserve">
-    <value>グループ利用</value>
+  <data name="SpecCharacteristicValueModel_Choices" xml:space="preserve">
+    <value>[pt-BR]Choices:</value>
   </data>
-  <data name="TEXT_KEYTERM_GROUP_SUBSCRIPTIONS" xml:space="preserve">
-    <value>グループ利用</value>
+  <data name="SpecCharacteristicValueModel_ChoicesDisplayNames" xml:space="preserve">
+    <value>[pt-BR]Choices Display Names:</value>
   </data>
-  <data name="TEXT_KEYTERM_NON_RECURRING_CHARGE" xml:space="preserve">
-    <value>非定額料金</value>
+  <data name="SpecCharacteristicValueModel_DatetimeValue" xml:space="preserve">
+    <value>[pt-BR]Datetime Value:</value>
   </data>
-  <data name="TEXT_KEYTERM_NON_RECURRING_CHARGES" xml:space="preserve">
-    <value>非定額料金</value>
+  <data name="SpecCharacteristicValueModel_DecimalValue" xml:space="preserve">
+    <value>[pt-BR]Decimal Value:</value>
   </data>
-  <data name="TEXT_KEYTERM_NON_SHARED_PRICE_LIST" xml:space="preserve">
-    <value>個別料金リスト</value>
+  <data name="SpecCharacteristicValueModel_DefaultChoice" xml:space="preserve">
+    <value>[pt-BR]Default Choice:</value>
   </data>
-  <data name="TEXT_KEYTERM_NON_SHARED_PRICE_LISTS" xml:space="preserve">
-    <value>個別料金リスト</value>
+  <data name="SpecCharacteristicValueModel_Description" xml:space="preserve">
+    <value>[pt-BR]Description:</value>
   </data>
-  <data name="TEXT_KEYTERM_PARAMETER_TABLE" xml:space="preserve">
-    <value>パラメータ表</value>
+  <data name="SpecCharacteristicValueModel_DescriptionDisplayNames" xml:space="preserve">
+    <value>[pt-BR]Description Display Names:</value>
   </data>
-  <data name="TEXT_KEYTERM_PARAMETER_TABLES" xml:space="preserve">
-    <value>パラメータ表</value>
+  <data name="SpecCharacteristicValueModel_IntValue" xml:space="preserve">
+    <value>[pt-BR]Int Value:</value>
   </data>
-  <data name="TEXT_KEYTERM_PERSONAL_RATE" xml:space="preserve">
-    <value>通関料</value>
+  <data name="SpecCharacteristicValueModel_Length" xml:space="preserve">
+    <value>[pt-BR]Length:</value>
   </data>
-  <data name="TEXT_KEYTERM_PRICE_LIST" xml:space="preserve">
-    <value>料金リスト</value>
+  <data name="SpecCharacteristicValueModel_Max" xml:space="preserve">
+    <value>[pt-BR]Max:</value>
   </data>
-  <data name="TEXT_KEYTERM_PRICE_LISTS" xml:space="preserve">
-    <value>料金リスト</value>
+  <data name="SpecCharacteristicValueModel_MaxDecimal" xml:space="preserve">
+    <value>[pt-BR]Max Decimal:</value>
   </data>
-  <data name="TEXT_KEYTERM_PRICEABLE_ITEM" xml:space="preserve">
-    <value>有料項目</value>
+  <data name="SpecCharacteristicValueModel_Min" xml:space="preserve">
+    <value>[pt-BR]Min:</value>
   </data>
-  <data name="TEXT_KEYTERM_PRICEABLE_ITEMS" xml:space="preserve">
-    <value>有料項目</value>
+  <data name="SpecCharacteristicValueModel_MixDecimal" xml:space="preserve">
+    <value>[pt-BR]Min Decimal:</value>
   </data>
-  <data name="TEXT_KEYTERM_PRODUCT_OFFERING" xml:space="preserve">
-    <value>ご利用プラン</value>
+  <data name="SpecCharacteristicValueModel_Name" xml:space="preserve">
+    <value>[pt-BR]Name:</value>
   </data>
-  <data name="TEXT_KEYTERM_PRODUCT_OFFERINGS" xml:space="preserve">
-    <value>ご利用プラン</value>
+  <data name="SpecCharacteristicValueModel_NameDisplayNames" xml:space="preserve">
+    <value>[pt-BR]Name Display Names:</value>
   </data>
-  <data name="TEXT_KEYTERM_RATE_SCHEDULE" xml:space="preserve">
-    <value>料金表</value>
+  <data name="SpecCharacteristicValueModel_Required" xml:space="preserve">
+    <value>[pt-BR]Required:</value>
   </data>
-  <data name="TEXT_KEYTERM_RATE_SCHEDULES" xml:space="preserve">
-    <value>料金表</value>
+  <data name="SpecCharacteristicValueModel_SpecId" xml:space="preserve">
+    <value>[pt-BR]Spec ID:</value>
   </data>
-  <data name="TEXT_KEYTERM_REBILL_NAME" xml:space="preserve">
-    <value>再割り当て</value>
+  <data name="SpecCharacteristicValueModel_SpecType" xml:space="preserve">
+    <value>[pt-BR]Property Type:</value>
   </data>
-  <data name="TEXT_KEYTERM_REBILL_VERB" xml:space="preserve">
-    <value>再割り当て</value>
+  <data name="SpecCharacteristicValueModel_StringValue" xml:space="preserve">
+    <value>[pt-BR]String Value:</value>
   </data>
-  <data name="TEXT_KEYTERM_RECURRING_CHARGE" xml:space="preserve">
-    <value>定期定額料金</value>
+  <data name="SpecCharacteristicValueModel_UserEditable" xml:space="preserve">
+    <value>[pt-BR]Editable:</value>
   </data>
-  <data name="TEXT_KEYTERM_RECURRING_CHARGES" xml:space="preserve">
-    <value>定期定額料金</value>
+  <data name="SpecCharacteristicValueModel_UserVisible" xml:space="preserve">
+    <value>[pt-BR]Subscriber Visible:</value>
   </data>
-  <data name="TEXT_KEYTERM_ROLE" xml:space="preserve">
-    <value>役割</value>
+  <data name="SpecCharacteristicValueModel_ValueId" xml:space="preserve">
+    <value>[pt-BR]Value ID:</value>
   </data>
-  <data name="TEXT_KEYTERM_ROLES" xml:space="preserve">
-    <value>役割</value>
+  <data name="SpecCharacteristicValueModel_Values" xml:space="preserve">
+    <value>[pt-BR]Values:</value>
   </data>
-  <data name="TEXT_KEYTERM_SERVICE_CHARGE" xml:space="preserve">
-    <value>サービス料金</value>
+  <data name="ErrorrMessage_SpecCharacteristicValueModel_Description" xml:space="preserve">
+    <value>[pt-BR]Description cannot be longer than 256 characters</value>
   </data>
-  <data name="TEXT_KEYTERM_SERVICE_CHARGES" xml:space="preserve">
-    <value>サービス料金</value>
+  <data name="ErrorrMessage_SpecCharacteristicValueModel_Value" xml:space="preserve">
+    <value>[pt-BR]Value cannot be longer than 20 characters</value>
   </data>
-  <data name="TEXT_KEYTERM_SERVICE_ENDPOINT" xml:space="preserve">
-    <value>サービス エンドポイント</value>
+  <data name="ErrorMessage_SpecCharacteristicModel_Description" xml:space="preserve">
+    <value>[pt-BR]ErrorrMessage_SpecCharacteristicValueModel_Description cannot be longer than 256 characters</value>
   </data>
-  <data name="TEXT_KEYTERM_SERVICE_ENDPOINTS" xml:space="preserve">
-    <value>サービス エンドポイント</value>
+  <data name="SpecCharacteristicModel_Description" xml:space="preserve">
+    <value>[pt-BR]Description:</value>
   </data>
-  <data name="TEXT_KEYTERM_SHARED_PRICE_LIST" xml:space="preserve">
-    <value>共通料金リスト</value>
+  <data name="SpecCharacteristicModel_Required" xml:space="preserve">
+    <value>[pt-BR]Required:</value>
   </data>
-  <data name="TEXT_KEYTERM_SHARED_PRICE_LISTS" xml:space="preserve">
-    <value>共通料金リスト</value>
+  <data name="SpecCharacteristicModel_UserEditable" xml:space="preserve">
+    <value>[pt-BR]Editable:</value>
   </data>
-  <data name="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGE" xml:space="preserve">
-    <value>単位型定期定額料金</value>
-  </data>
-  <data name="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGES" xml:space="preserve">
-    <value>単位型定期定額料金</value>
-  </data>
-  <data name="TEXT_KEYTERM_USAGE_CHARGE" xml:space="preserve">
-    <value>利用料金</value>
-  </data>
-  <data name="TEXT_KEYTERM_USAGE_CHARGE_AGGREGATE" xml:space="preserve">
-    <value>利用料金 (総計)</value>
-  </data>
-  <data name="TEXT_KEYTERM_USAGE_CHARGES" xml:space="preserve">
-    <value>利用料金</value>
-  </data>
-  <data name="TEXT_KEYTERM_USAGE_CHARGES_AGGREGATE" xml:space="preserve">
-    <value>利用料金 (総計)</value>
-  </data>
-  <data name="TEXT_KEYTERM_CORE_SUBSCRIBER" xml:space="preserve">
-    <value>[JA]Core Subscriber</value>
-  </data>
-  <data name="TEXT_KEYTERM_DEPARTMENT_ACCOUNT" xml:space="preserve">
-    <value>[JA]Department Account</value>
-  </data>
-  <data name="TEXT_KEYTERM_GSM_SERVICE_ACCOUNT" xml:space="preserve">
-    <value>[JA]GSM Service Account</value>
+  <data name="SpecCharacteristicModel_UserVisible" xml:space="preserve">
+    <value>[pt-BR]Subscriber Visible:</value>
   </data>
 </root>

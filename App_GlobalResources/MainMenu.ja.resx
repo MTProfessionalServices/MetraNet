@@ -166,7 +166,7 @@
     <value>すべての期間</value>
   </data>
   <data name="TEXT_ANALYTICS" xml:space="preserve">
-    <value>[ja]Analytics</value>
+    <value>[JA]Analytics</value>
   </data>
   <data name="TEXT_APP_AUDIT_LOG" xml:space="preserve">
     <value>アプリケーション監査ログ</value>
@@ -583,10 +583,10 @@
     <value>[JA]Approvals</value>
   </data>
   <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
-    <value>View Item History</value>
+    <value>[JA]View Item History</value>
   </data>
   <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
-    <value>View Failed Changes</value>
+    <value>[JA]View Failed Changes</value>
   </data>
   <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
     <value>[JA]</value>
@@ -595,25 +595,25 @@
     <value>[JA]</value>
   </data>
   <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
-    <value>[ja]Add child Account</value>
+    <value>[JA]Add child Account</value>
   </data>
   <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
-    <value>[ja]Bill Messages</value>
+    <value>[JA]Bill Messages</value>
   </data>
   <data name="TEXT_FINANCE_DASHBOARD" xml:space="preserve">
-    <value>[ja]Finance Dashboard</value>
+    <value>[JA]Finance Dashboard</value>
   </data>
   <data name="TEXT_MANAGE_BILL_MESSAGES" xml:space="preserve">
-    <value>[ja]Manage Bill Messages</value>
+    <value>[JA]Manage Bill Messages</value>
   </data>
   <data name="TEXT_OPERATIONS_DASHBOARD" xml:space="preserve">
-    <value>[ja]Operations Dashboard</value>
+    <value>[JA]Operations Dashboard</value>
   </data>
   <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
-    <value>[ja]Product Dashboard</value>
+    <value>[JA]Product Dashboard</value>
   </data>
    <data name="TEXT_REPORTS" xml:space="preserve">
-    <value>[ja] Reports</value>
+    <value>[JA]Reports</value>
   </data>
   <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
     <value>[JA]Usage Processing</value>

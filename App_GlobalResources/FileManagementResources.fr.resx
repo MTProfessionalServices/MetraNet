@@ -139,7 +139,7 @@
         <value>Propriétés des arguments</value>
     </data>
     <data name="ASSEMBLY_TITLE" xml:space="preserve">
-        <value>Assembly</value>
+        <value>[FR]Assembly</value>
     </data>
     <data name="DETAIL_COMMAND" xml:space="preserve">
         <value>Commande émise</value>
@@ -148,7 +148,7 @@
         <value>Code d’erreur actuel</value>
     </data>
     <data name="DETAIL_CURRENT_ERROR_MESSAGE" xml:space="preserve">
-        <value>Current Error Message</value>
+        <value>[FR]Current Error Message</value>
     </data>
     <data name="DETAIL_CURRENT_STATE" xml:space="preserve">
         <value>État actuel</value>
@@ -184,7 +184,7 @@
         <value>Date</value>
     </data>
     <data name="FILE_ERROR_MESSAGE" xml:space="preserve">
-        <value>Error Message</value>
+        <value>[FR]Error Message</value>
     </data>
     <data name="FILE_GENERAL_TITLE" xml:space="preserve">
         <value>Fichiers</value>

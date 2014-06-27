@@ -463,7 +463,7 @@
     <value>de l’entité non liés</value>
   </data>
   <data name="TEXT_APPROVAL_BUTTON_APPROVE" xml:space="preserve">
-    <value>Approve</value>
+    <value>[FR]Approve</value>
   </data>
   <data name="TEXT_APPROVAL_BUTTON_DENY" xml:space="preserve">
     <value>[FR]Deny</value>

@@ -139,7 +139,7 @@
         <value>Propiedades del argumento</value>
     </data>
     <data name="ASSEMBLY_TITLE" xml:space="preserve">
-        <value>Assembly</value>
+        <value>[ES]Assembly</value>
     </data>
     <data name="DETAIL_COMMAND" xml:space="preserve">
         <value>Comando emitido</value>
@@ -148,7 +148,7 @@
         <value>Código de error actual</value>
     </data>
     <data name="DETAIL_CURRENT_ERROR_MESSAGE" xml:space="preserve">
-        <value>Current Error Message</value>
+        <value>[ES]Current Error Message</value>
     </data>
     <data name="DETAIL_CURRENT_STATE" xml:space="preserve">
         <value>Estado actual</value>
@@ -184,7 +184,7 @@
         <value>Fecha</value>
     </data>
     <data name="FILE_ERROR_MESSAGE" xml:space="preserve">
-        <value>Error Message</value>
+        <value>[ES]Error Message</value>
     </data>
     <data name="FILE_GENERAL_TITLE" xml:space="preserve">
         <value>Archivos</value>

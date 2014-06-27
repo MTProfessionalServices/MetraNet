@@ -142,7 +142,7 @@
         <value>Change Case / Failed Transaction Status</value>
     </data>
     <data name="TEXT_CODE" xml:space="preserve">
-        <value></value>
+        <value>Code</value>
     </data>
     <data name="TEXT_CODE_MESSAGE" xml:space="preserve">
         <value>Code Message</value>
@@ -163,7 +163,7 @@
         <value>Dismissed</value>
     </data>
     <data name="TEXT_ERROR_MESSAGE" xml:space="preserve">
-        <value></value>
+        <value>Error Message</value>
     </data>
     <data name="TEXT_ERROR_TYPE_EXAMPLE" xml:space="preserve">
         <value>Error Type (Example)</value>
@@ -172,13 +172,13 @@
         <value>Payer - Error Type Failure Summary</value>
     </data>
     <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_STAGE_PLUGIN" xml:space="preserve">
-        <value></value>
+        <value>Stage and Plugin Failure Summary</value>
     </data>
     <data name="TEXT_FAILURE_TIME" xml:space="preserve">
-        <value></value>
+        <value>Failure Time</value>
     </data>
     <data name="TEXT_GRID_TITLE" xml:space="preserve">
-        <value></value>
+        <value>Summary By Error Type</value>
     </data>
     <data name="TEXT_GRID_TITLE_INTERVAL_TYPE" xml:space="preserve">
         <value>Failed Transactions (Including Interval Type)</value>
@@ -199,19 +199,19 @@
         <value>Minimum&lt;br&gt;Age (Days)</value>
     </data>
     <data name="TEXT_NO" xml:space="preserve">
-        <value>NO</value>
+        <value>No</value>
     </data>
     <data name="TEXT_OPEN" xml:space="preserve">
         <value>Open</value>
     </data>
     <data name="TEXT_PAYER" xml:space="preserve">
-        <value></value>
+        <value>Payer</value>
     </data>
     <data name="TEXT_PLUGIN" xml:space="preserve">
-        <value></value>
+        <value>Plugin</value>
     </data>
     <data name="TEXT_POSSIBLE_ACCOUNT_ID" xml:space="preserve">
-        <value></value>
+        <value>Possible Account Id</value>
     </data>
     <data name="TEXT_POSSIBLE_PAYER_ACCOUNT_ID" xml:space="preserve">
         <value>Possible Payer Account Id</value>
@@ -229,39 +229,39 @@
         <value>Service</value>
     </data>
     <data name="TEXT_SESSION_ID" xml:space="preserve">
-        <value>Session ID</value>
+        <value>Session Id</value>
     </data>
     <data name="TEXT_STAGE" xml:space="preserve">
-        <value></value>
+        <value>Stage</value>
     </data>
     <data name="TEXT_STATE_REASON_CODE" xml:space="preserve">
-        <value>State / Province</value>
+        <value>State Reason Code</value>
     </data>
     <data name="TEXT_STATUS" xml:space="preserve">
         <value>Status</value>
     </data>
     <data name="TEXT_UCYCLE_TYPE" xml:space="preserve">
-        <value>Usage Cycle Configuration</value>
-    </data>
-    <data name="TEXT_UCYCLE_VALUE" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="TEXT_UNDER_INVESTIGATION" xml:space="preserve">
-        <value></value>
-    </data>
-    <data name="TEXT_UNIQUE_ID" xml:space="preserve">
-        <value>Under Investigation</value>
-    </data>
-    <data name="TEXT_USAGE_CYCLE_TYPE" xml:space="preserve">
-        <value>Usage Cycle Type Value</value>
-    </data>
-    <data name="TEXT_USAGE_CYCLE_TYPE_VALUE" xml:space="preserve">
         <value>Usage Cycle Type</value>
     </data>
-    <data name="TEXT_USAGE_CYCLE_VALUE" xml:space="preserve">
+    <data name="TEXT_UCYCLE_VALUE" xml:space="preserve">
         <value>Usage Cycle Value</value>
     </data>
+    <data name="TEXT_UNDER_INVESTIGATION" xml:space="preserve">
+        <value>Under Investigation</value>
+    </data>
+    <data name="TEXT_UNIQUE_ID" xml:space="preserve">
+        <value>Unique Id</value>
+    </data>
+    <data name="TEXT_USAGE_CYCLE_TYPE" xml:space="preserve">
+        <value>Usage Cycle&lt;br&gt;Type</value>
+    </data>
+    <data name="TEXT_USAGE_CYCLE_TYPE_VALUE" xml:space="preserve">
+        <value>Usage Cycle Type Value</value>
+    </data>
+    <data name="TEXT_USAGE_CYCLE_VALUE" xml:space="preserve">
+        <value>Usage Cycle&lt;br&gt;Value</value>
+    </data>
     <data name="TEXT_YES" xml:space="preserve">
-        <value></value>
+        <value>Yes</value>
     </data>
 </root>

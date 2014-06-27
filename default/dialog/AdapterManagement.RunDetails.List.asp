@@ -190,7 +190,7 @@ PRIVATE FUNCTION Form_DisplayEndOfPage(EventArg) ' As Boolean
     Dim strEndOfPageHTMLCode, strTmp
     
     
-    strTmp = "</table><div align=center><BR><BR><button  onclick='mdm_RefreshDialog(this)' name='refresh' Class='clsOkButton'>Refresh</button><button  name='CLOSE' Class='clsOkButton' onclick='window.close();'>Close</button>" & vbNewLine
+    strTmp = "</table><div align=center><BR><BR><button  onclick='mdm_RefreshDialog(this); return false;' name='refresh' Class='clsOkButton'>Refresh</button><button  name='CLOSE' Class='clsOkButton' onclick='window.close();'>Close</button>" & vbNewLine
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & strTmp
         
     strEndOfPageHTMLCode = strEndOfPageHTMLCode & "</FORM>"

@@ -13,7 +13,7 @@ This file defines the system information that must be localized.
 		</text>
 
   <text id='SESSION_LCID'>
-    <value>1033</value>
+    <value>1046</value>
     <description>
       The LCID of the locale that IIS should use. This affects formatting and should match format specified below.
       Leave blank to not set a LCID and just accept the default.

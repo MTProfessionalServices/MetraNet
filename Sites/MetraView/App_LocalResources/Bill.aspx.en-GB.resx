@@ -132,7 +132,4 @@
     <data name="SummaryView.Text" xml:space="preserve">
         <value>Summary View</value>
     </data>
-    <data name="Charge.Text" xml:space="preserve">
-      <value>Charges</value>
-    </data>
 </root>

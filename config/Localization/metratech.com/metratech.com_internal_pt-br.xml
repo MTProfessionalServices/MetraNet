@@ -22,6 +22,22 @@
             <Name>metratech.com/internal/Language</Name>
             <Value>Idioma</Value>
         </locale_entry>
+         <locale_entry>
+            <Name>metratech.com/Internal/MetraTaxCountryEligibility</Name>
+            <Value>Elegibilidade do país</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/Internal/MetraTaxCountryZone</Name>
+            <Value>Zona país</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/Internal/MetraTaxHasOverrideBand</Name>
+            <Value>Tem banda substituição</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/Internal/MetraTaxOverrideBand</Name>
+            <Value>Substituir banda</Value>
+        </locale_entry>
         <locale_entry>
             <Name>metratech.com/internal/PaymentMethod</Name>
             <Value>Método de pagamento</Value>

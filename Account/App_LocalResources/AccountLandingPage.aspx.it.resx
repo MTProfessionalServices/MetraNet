@@ -118,69 +118,69 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AMOUNT_COL_HEADER_TEXT" xml:space="preserve">
-    <value>[it] Amount</value>
+    <value>[IT]Amount</value>
   </data>
   <data name="DATE_COL_HEADER_TEXT" xml:space="preserve">
-    <value>[it] Date</value>
+    <value>[IT]Date</value>
   </data>
   <data name="IDENTIFIER_COL_HEADER_TEXT" xml:space="preserve">
-    <value>[it] Identifier</value>
+    <value>[IT]Identifier</value>
   </data>
   <data name="lblAccount360Title.Text" xml:space="preserve">
-    <value>[it] Account 360</value>
+    <value>[IT]Account 360</value>
   </data>
   <data name="TYPE_COL_HEADER_TEXT" xml:space="preserve">
-    <value>[it] Type</value>
+    <value>[IT]Type</value>
   </data>
   <data name="billingActivityPanel.Text" xml:space="preserve">
-    <value>[it] Billing Activity</value>
+    <value>[IT]Billing Activity</value>
   </data>  
   <data name="billingSummaryPanel.Text" xml:space="preserve">
-    <value>[it] Invoices and Payments</value>
+    <value>[IT]Invoices and Payments</value>
   </data>     
   <data name="NO_INVOICES_TEXT" xml:space="preserve">
-    <value>[it] This account does not currently have any invoices or payments.</value>
+    <value>[IT]This account does not currently have any invoices or payments.</value>
   </data>
   <data name="NO_SUBSCRIPTIONS_TEXT" xml:space="preserve">
-    <value>[it] This account currently does not have any subscriptions.</value>
+    <value>[IT]This account currently does not have any subscriptions.</value>
   </data>
   <data name="SUBSCRIPTION_GRID_TITLE_TEXT" xml:space="preserve">
-    <value>[it] Subscriptions</value>
+    <value>[IT]Subscriptions</value>
   </data>   
   <data name="SUBSCRIPTION_END_HEADER_TEXT" xml:space="preserve">
-    <value>[it] End</value>
+    <value>[IT]End</value>
   </data>
   <data name="SUBSCRIPTION_OFFERING_NAME_HEADER_TEXT" xml:space="preserve">
-    <value>[it] Subscription</value>
+    <value>[IT]Subscription</value>
   </data>
   <data name="SUBSCRIPTION_START_HEADER_TEXT" xml:space="preserve">
-    <value>[it] Start</value>
+    <value>[IT]Start</value>
   </data>
   <data name="SUBSCRIPTION_TYPE_HEADER_TEXT" xml:space="preserve">
-    <value />
+    <value>[IT]</value>
   </data>  
   <data name="SUBSCRIPTION_ADD_BUTTON_TEXT" xml:space="preserve">
-    <value>[it] Add Subscription</value>
+    <value>[IT]Add Subscription</value>
   </data>
   <data name="SUBSCRIPTION_ADD_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
-    <value>[it] Create a new subscription to a Product Offering</value>
+    <value>[IT]Create a new subscription to a Product Offering</value>
   </data>    
   <data name="SUBSCRIPTION_JOIN_BUTTON_TEXT" xml:space="preserve">
-    <value>[it] Join Group Subscription</value>
+    <value>[IT]Join Group Subscription</value>
   </data>  
   <data name="SUBSCRIPTION_JOIN_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
-    <value>[it] Add this account as a member of an existing Group Subscription</value>
+    <value>[IT]Add this account as a member of an existing Group Subscription</value>
   </data>      
   <data name="SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
-    <value>[it] Subscription</value>
+    <value>[IT]Subscription</value>
   </data>      
   <data name="GROUP_SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
-    <value>[it] Group Subscription</value>
+    <value>[IT]Group Subscription</value>
   </data>          
   <data name="INVOICE_ITEM_TEXT" xml:space="preserve">
-    <value>[it] Invoice</value>
+    <value>[IT]Invoice</value>
   </data>      
   <data name="PAYMENT_ITEM_TEXT" xml:space="preserve">
-    <value>[it] Payment</value>
+    <value>[IT]Payment</value>
   </data>            
 </root>

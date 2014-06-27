@@ -126,7 +126,7 @@
     <data name="cbTaxExemptResource1.BoxLabel" xml:space="preserve">
         <value>Esente da imposte</value>
     </data>
-    <data name="ddBillingCycleControl1Resource1" xml:space="preserve">
+    <data name="ddBillingCycleControl1Resource1.Label" xml:space="preserve">
         <value>Cicli di fatturazione</value>
     </data>
     <data name="ddBrandedSiteResource1.Label" xml:space="preserve">

@@ -25,7 +25,6 @@ copy %MTOUTDIR%\%VERSION%\bin\MetraTech.Collections.* %ROOTDIR%\MetraTech\UI\Met
 copy %MTOUTDIR%\%VERSION%\bin\MTProductCatalogExec.interop.* %ROOTDIR%\MetraTech\UI\MetraNet\bin
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.Utils.* %ROOTDIR%\MetraTech\UI\MetraNet\bin
 
-copy %MTOUTDIR%\%VERSION%\bin\MetraTech.Agreements.* %ROOTDIR%\MetraTech\UI\MetraNet\bin
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.Approvals.* %ROOTDIR%\MetraTech\UI\MetraNet\bin
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.MetraAR.*.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin
 copy %MTOUTDIR%\%VERSION%\bin\MetraTech.Localization.dll %ROOTDIR%\MetraTech\UI\MetraNet\bin

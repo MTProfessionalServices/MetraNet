@@ -140,6 +140,7 @@ FUNCTION OK_Click(EventArg) ' As Boolean
     Dim i
     Dim col
     Dim objYAAC
+    Dim nameSpace
     Dim newCol
     Dim id
     Dim ENUM_SINGLE, DIRECT_DESCENDENTS, RECURISVE
@@ -150,9 +151,10 @@ FUNCTION OK_Click(EventArg) ' As Boolean
     On Error Resume Next
     
     If FrameWork.DecodeFieldID(Service.Properties("Parent").value, strParent) Then
-        if strParent <> "1" then
+        If strParent <> "1" then
           ' Make sure we have a valid Parent account
-          Set objYAAC = FrameWork.AccountCatalog.GetAccount(strParent, CDate(Service.Properties("StartDate")))
+          Set objYAAC = FrameWork.AccountCatalog.GetAccount(strParent, CDate(Service.Properties("StartDate")))           
+          
           If Err.Number <> 0 Then
               EventArg.Error.number = 1049
               EventArg.Error.description = mam_GetDictionary("MAM_ERROR_1049")
@@ -161,8 +163,12 @@ FUNCTION OK_Click(EventArg) ' As Boolean
               Response.Redirect mdm_GetCurrentFullURL()             
               Exit Function  
           End If   
+
+          nameSpace = objYAAC.Namespace
+        Else 
+          nameSpace = "mt"
         End If
-      
+
         ' Make sure we have at least one account to act on
         If Form.Grids("DropGrid").Rowset.recordCount = 0 Then
             EventArg.Error.number = 1033
@@ -175,15 +181,24 @@ FUNCTION OK_Click(EventArg) ' As Boolean
         
         set col = GetAccountIDCollection()
       	Set newCol = Server.CreateObject(MT_COLLECTION_PROG_ID)
+
         for each id in col
            Set objYAAC = FrameWork.AccountCatalog.GetAccount(id, mam_GetHierarchyTime())
+           If (objYAAC.Namespace <> nameSpace) Then 
+             EventArg.Error.number = 1053
+             EventArg.Error.description = mam_GetDictionary("MAM_ERROR_1053")
+             OK_Click = FALSE       
+             Set Session(mdm_EVENT_ARG_ERROR) = EventArg 
+             Response.Redirect mdm_GetCurrentFullURL()             
+             Exit Function
+           End If
            Call objYAAC.GetDescendents(newCol, mam_GetHierarchyTime(), RECURISVE, CBool(mam_GetDictionary("INCLUDE_FOLDERS_IN_BATCH_OPERATIONS"))) 
         next
     
         If col.count = 1 Then
-          Call Session("SubscriberYAAC").GetAncestorMgr().MoveAccount(strParent, CLng(col.item(1)), CDate(Service.Properties("StartDate")))
+          Call objYAAC.GetAncestorMgr().MoveAccount(strParent, CLng(col.item(1)), CDate(Service.Properties("StartDate")))
         Else
-          Set Session("LAST_BATCH_ERRORS") = Session("SubscriberYAAC").GetAncestorMgr().MoveAccountBatch(strParent, col, nothing, CDate(Service.Properties("StartDate")))
+          Set Session("LAST_BATCH_ERRORS") = objYAAC.GetAncestorMgr().MoveAccountBatch(strParent, col, nothing, CDate(Service.Properties("StartDate")))
           
           If Err.Number <> 0 Then
             EventArg.Error.Save Err
@@ -196,7 +211,13 @@ FUNCTION OK_Click(EventArg) ' As Boolean
           ' Get Batch Errors  
           If Session("LAST_BATCH_ERRORS").RecordCount > 0 Then
             EventArg.Error.number = 2015
-            EventArg.Error.description = mam_GetDictionary("MAM_ERROR_2015")
+            Dim errorMessage 
+            errorMessage = Session("LAST_BATCH_ERRORS").PopulatedRecordSet.Fields("description").Value
+            If ((errorMessage = Empty) Or (errorMessage = "")) Then
+              EventArg.Error.description = mam_GetDictionary("MAM_ERROR_2015")
+            Else
+              EventArg.Error.description = errorMessage
+            End If
             OK_Click = FALSE       
             Set Session(mdm_EVENT_ARG_ERROR) = EventArg 
             Response.Redirect mdm_GetCurrentFullURL()             

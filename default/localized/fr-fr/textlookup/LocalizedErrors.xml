@@ -66,8 +66,8 @@ When the Metering SDK returns an error to the MAM looks up the message in the Me
       <value>
 <![CDATA[ L'opération du modèle de lot a échoué pour certains comptes.<br><br> <i>Veuillez prendre note que toutes les opérations de mise à jour de compte réussies ne seront pas recalées.Cependant, les Inscriptions de groupe s'effectuent en une seule transaction.Si une erreur se produit avec un des comptes de l'inscription de groupe, aucun de ceux-ci ne sera ajouté.</i>]]>
       </value>
-	  </text>		
-	     
+	  </text>
+<text id="MAM_ERROR_1053"><value>[FR] Account cannot be moved to another namespace.</value></text>     
 <text id="MAM_ERROR_2000"><value>Une erreur s'est produite lors de l'ajout du mappage de l'ID.Veuillez demander à votre administrateur de vérifier le journal système.</value></text>
 <text id="MAM_ERROR_2001"><value>Une erreur s'est produite lors du retrait du mappage de l'ID.Veuillez demander à votre administrateur de vérifier le journal système.</value></text>
 <text id="MAM_ERROR_2002"><value>Une erreur s'est produite lors de la mise à jour du mappage de l'ID.Veuillez demander à votre administrateur de vérifier le journal système.</value></text>
@@ -82,7 +82,5 @@ When the Metering SDK returns an error to the MAM looks up the message in the Me
 <text id="MAM_ERROR_2011"><value>Échec de la suppression du modèle de compte.Veuillez demander à votre administrateur de vérifier le journal système.</value></text>
 <text id="MAM_ERROR_2012"><value>En raison d'un ou plusieurs avertissement(s), l'ajustement ne peut être enregistré.</value></text>
 <text id="MAM_ERROR_2013"><value>Échec de la création du modèle de compte.Veuillez demander à votre administrateur de vérifier le journal système.</value></text>    
-
 <text id="MAM_ERROR_2014"><value>Aucun compte n'a été trouvé pour l'application du modèle.</value></text>    
-    
 </texts>

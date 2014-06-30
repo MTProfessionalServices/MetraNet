@@ -117,25 +117,37 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <data name="Charge.Text" xml:space="preserve">
-        <value>Frais</value>
-    </data>
-    <data name="PrebillAdjustments.Text" xml:space="preserve">
-        <value>Ajustements avant facturation</value>
-    </data>
-    <data name="SubTotal.Text" xml:space="preserve">
-        <value>Sous-total</value>
-    </data>
-    <data name="Tax.Text" xml:space="preserve">
-        <value>Taxe</value>
-    </data>
-    <data name="TaxAdjustments.Text" xml:space="preserve">
-        <value>Ajustements des taxes</value>
-    </data>
-    <data name="Total.Text" xml:space="preserve">
-        <value>Total</value>
-    </data>
-    <data name="TotalCharges.Text" xml:space="preserve">
-        <value>Frais totaux</value>
-    </data>
+  <data name="ActualTax.Text" xml:space="preserve">
+    <value>[FR]Actual Tax</value>
+  </data>
+  <data name="ImpliedTax.Text" xml:space="preserve">
+    <value>[FR]Included Tax</value>
+  </data>
+  <data name="IncludedInformationalTax.Text" xml:space="preserve">
+    <value>[FR]Included Informational Tax</value>
+  </data>
+  <data name="InformationalTax.Text" xml:space="preserve">
+    <value>[FR]Informational Tax</value>
+  </data>
+  <data name="PrebillAdjustments.Text" xml:space="preserve">
+    <value>Ajustements avant facturation</value>
+  </data>
+  <data name="SubTotal.Text" xml:space="preserve">
+    <value>Sous-total</value>
+  </data>
+  <data name="Tax.Text" xml:space="preserve">
+    <value>Taxe</value>
+  </data>
+  <data name="TaxAdjustments.Text" xml:space="preserve">
+    <value>Ajustements des taxes</value>
+  </data>
+  <data name="Total.Text" xml:space="preserve">
+    <value>[FR]Total</value>
+  </data>
+  <data name="TotalCharges.Text" xml:space="preserve">
+    <value>Frais totaux</value>
+  </data>
+  <data name="Usage.Text" xml:space="preserve">
+    <value>[FR]Usage</value>
+  </data>
 </root>

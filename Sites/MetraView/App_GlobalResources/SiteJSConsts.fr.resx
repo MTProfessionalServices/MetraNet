@@ -673,28 +673,28 @@
     <value />
   </data>
   <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{FR} Passwords do not match.</value>
+    <value>[FR] Passwords do not match.</value>
   </data>  
   <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{FR} Enter a valid phone number. Format: 555-555-5555</value>
+    <value>[FR] Enter a valid phone number. Format: 555-555-5555</value>
   </data>    
   <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{FR} Credit card format is invalid</value>
+    <value>[FR] Credit card format is invalid</value>
   </data>      
   <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{FR} CV Number is invalid</value>
+    <value>[FR] CV Number is invalid</value>
   </data>        
   <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{FR} SSN format: xxx-xx-xxxx</value>
+    <value>[FR] SSN format: xxx-xx-xxxx</value>
   </data>          
   <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{FR} Only numeric digits are allowed</value>
+    <value>[FR] Only numeric digits are allowed</value>
   </data>            
   <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{FR} Zipcode is invalid</value>
+    <value>[FR] Zipcode is invalid</value>
   </data>              
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{FR} Middle initial is invalid</value>
+    <value>[FR] Middle initial is invalid</value>
   </data>  
   <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
     <value>d/m/Y H:i:s</value>

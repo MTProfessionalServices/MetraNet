@@ -66,8 +66,9 @@ When the Metering SDK returns an error to the MAM looks up the message in the Me
       <value>
         <![CDATA[  The batch template operation failed for some accounts. <br><br> <i>Please note that any account update operations that succeeded will not be rolled back.  However, Group Subscriptions are done in a single transaction.  This means that if there is an error with one of the accounts being placed in a Group Subscription none of them will be added.</i> ]]>  
       </value>
-	  </text>		
-	     
+	  </text>
+    <text id="MAM_ERROR_1053"><value>Account cannot be moved to another namespace.</value></text> 
+  
     <text id="MAM_ERROR_2000"><value>An error occurred while adding the id mapping.  Please have your administrator check the system log.</value></text>
     <text id="MAM_ERROR_2001"><value>An error occurred while removing an id mapping.  Please have your administrator check the system log.</value></text>
     <text id="MAM_ERROR_2002"><value>An error occurred while updating the id mapping.  Please have your administrator check the system log.</value></text>
@@ -82,9 +83,6 @@ When the Metering SDK returns an error to the MAM looks up the message in the Me
     <text id="MAM_ERROR_2011"><value>Failed to delete account template.  Please have your administrator check the system log.</value></text>
     <text id="MAM_ERROR_2012"><value>One or more warnings occurred, Adjustment cannot be saved</value></text>
     <text id="MAM_ERROR_2013"><value>Failed to create account template.  Please have your administrator check the system log.</value></text>    
-
     <text id="MAM_ERROR_2014"><value>No accounts found to apply template to.</value></text>
-	<text id="MAM_ERROR_2015">
-		<value>The batch operation failed and all changes were rolled back.</value>
-	</text>
+	<text id="MAM_ERROR_2015"><value>The batch operation failed and all changes were rolled back.</value></text>
 </texts>

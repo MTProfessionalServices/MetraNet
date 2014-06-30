@@ -117,19 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="GRID_TITLE" xml:space="preserve">
-    <value>Availible product offerings</value>
-  </data>
   <data name="PO_DESCRIPTION" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="PO_ID" xml:space="preserve">
-    <value>Product offering ID</value>
+    <value>[en-GB]Description</value>
   </data>
   <data name="PO_NAME" xml:space="preserve">
-    <value>Name</value>
+    <value>[en-GB]Name</value>
+  </data>
+  <data name="PO_ID" xml:space="preserve">
+    <value>[en-GB]Product offering ID</value>
+  </data>
+  <data name="GRID_TITLE" xml:space="preserve">
+    <value>[en-GB]Available product offerings</value>
   </data>
   <data name="PO_PARTITIONID" xml:space="preserve">
-    <value>Partition Id</value>
+    <value>[en-GB]Partition Id</value>
   </data>
 </root>

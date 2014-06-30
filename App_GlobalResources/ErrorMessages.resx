@@ -303,4 +303,7 @@
   <data name="ERROR_REPORT_OPEN" xml:space="preserve">
     <value>Unable open and save report</value>
   </data>
+  <data name="ERROR_PO_EXISTS" xml:space="preserve">
+    <value>Name of product offering must be unique</value>
+  </data>
 </root>

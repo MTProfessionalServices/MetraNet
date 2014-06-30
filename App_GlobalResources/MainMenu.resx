@@ -675,4 +675,7 @@
   <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
     <value>Product Dashboard</value>
   </data>
+  <data name="TEXT_SEARCH" xml:space="preserve">
+    <value>Search</value>
+  </data>
 </root>

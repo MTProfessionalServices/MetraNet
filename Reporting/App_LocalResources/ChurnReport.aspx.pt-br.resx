@@ -112,36 +112,36 @@
         <value>2.0</value>
     </resheader>
     <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="ACCOUNT_ID" xml:space="preserve">
-        <value>(BRAZILIAN PORTUGUESE) Account Id</value>
+        <value>[pt-BR] Account Id</value>
     </data>
     <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>(BRAZILIAN PORTUGUESE) Churn Report</value>
+        <value>[pt-BR] Churn Report</value>
     </data>
     <data name="NO_RECORDS" xml:space="preserve">
-        <value>(BRAZILIAN PORTUGUESE) No data for display</value>
+        <value>[pt-BR] No data for display</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
-        <value>(BRAZILIAN PORTUGUESE) MetraNet - Churn Report</value>
+        <value>[pt-BR] MetraNet - Churn Report</value>
     </data>
     <data name="REPORT_TITLE" xml:space="preserve">
-        <value>(BRAZILIAN PORTUGUESE) Churn report</value>
+        <value>[pt-BR] Churn report</value>
     </data>
     <data name="SUBSCRIPTION_DESCRIPTION" xml:space="preserve">
-        <value>(BRAZILIAN PORTUGUESE) Subscription description</value>
+        <value>[pt-BR] Subscription description</value>
     </data>
     <data name="SUBSCRIPTION_END_DATE" xml:space="preserve">
-        <value>(BRAZILIAN PORTUGUESE) Subscription end date</value>
+        <value>[pt-BR] Subscription end date</value>
     </data>
     <data name="SUBSCRIPTION_NAME" xml:space="preserve">
-        <value>(BRAZILIAN PORTUGUESE) Subscription name</value>
+        <value>[pt-BR] Subscription name</value>
     </data>
     <data name="SUBSCRIPTION_START_DATE" xml:space="preserve">
-        <value>(BRAZILIAN PORTUGUESE) Subscription start date</value>
+        <value>[pt-BR] Subscription start date</value>
     </data>
 </root>

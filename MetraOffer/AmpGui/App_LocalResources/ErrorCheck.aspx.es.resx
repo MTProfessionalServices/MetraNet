@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ActivateDecisionLabel.Text" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnBackResource1.ServerSide" type="System.Boolean, mscorlib">
@@ -131,10 +131,10 @@
     <value>True</value>
   </data>
   <data name="CheckForErrorsLabel.Text" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Spanish </value>
+    <value>[ES] </value>
   </data>
   <data name="MTButtonActivateDecisionResource1.ServerSide" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -146,24 +146,24 @@
     <value>MetraNet</value>
   </data>
   <data name="TEXT_ACTIVATE_DECISION" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_CHECK_FOR_ERRORS" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_ACTIVATED_DECISION" xml:space="preserve">
-    <value>Spanish </value>
+    <value>[ES] </value>
   </data>
   <data name="DeactivateDecisionLabel.Text" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_DEACTIVATE_DECISION" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_ERROR_ACTIVATING_DECISION" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_ERROR_DEACTIVATING_DECISION1" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
 </root>

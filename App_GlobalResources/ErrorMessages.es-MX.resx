@@ -247,7 +247,7 @@
     <value>No se puede guardar los cambios en la configuración. Consulte detalles en el registro.</value>
   </data>
   <data name="ERROR_MULTIPLE_ACCOUNT_UPDATE_PENDING_CHANGES" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]</value>
   </data>
     <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
         <value>No se pueden eliminar las espec.</value>

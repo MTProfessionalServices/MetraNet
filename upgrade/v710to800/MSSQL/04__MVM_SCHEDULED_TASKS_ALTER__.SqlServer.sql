@@ -1,0 +1,1 @@
+ALTER TABLE mvm_scheduled_tasks ALTER COLUMN mvm_poll_guid varchar(100) NULL

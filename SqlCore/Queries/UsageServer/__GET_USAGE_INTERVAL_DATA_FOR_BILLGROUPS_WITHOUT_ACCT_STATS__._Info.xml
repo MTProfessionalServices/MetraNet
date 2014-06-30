@@ -17,9 +17,7 @@
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
         <CommonQuerySourceFile></CommonQuerySourceFile>
-        <SqlServerQuerySourceFile>R:\Config\Queries\UsageServer\MTSQLServer.xml</SqlServerQuerySourceFile>
-        <OracleQuerySourceFile>R:\Config\Queries\UsageServer\MTOracle.xml</OracleQuerySourceFile>
-        <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
-        <OracleQuerySourceFile></OracleQuerySourceFile>
+        <SqlServerQuerySourceFile>R:\config\Queries\UsageServer\MTSQLServer.xml</SqlServerQuerySourceFile>
+        <OracleQuerySourceFile>R:\config\Queries\UsageServer\MTOracle.xml</OracleQuerySourceFile>
     </ConversionAudit>
 </Query>

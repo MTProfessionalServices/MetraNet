@@ -82,7 +82,7 @@ INNER LOOP JOIN t_account_state accstate ON
       %%REF_DATE%% BETWEEN accstate.vt_start AND accstate.vt_end
 WHERE 1=1 
 AND at.b_IsVisibleInHierarchy = '1'
-AND ns.tx_typ_space = '%%TYPE_SPACE%%' 
+AND ns.tx_typ_space IN (%%TYPE_SPACE%%)
 ) a
 where 1=1
 ORDER BY num_generations desc

@@ -559,7 +559,7 @@
     <value>Aggiorna definizione rapporto esistente</value>
   </data>
   <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-    <value>[IT]Usage Audit</value>
+    <value>{IT}Usage Calculation Decision Details</value>
   </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>Manutenzione server di utilizzo</value>

@@ -1199,11 +1199,11 @@
   </data>
   <data name="TEXT_REQUEST_SUBMITTED" xml:space="preserve">
     <value>[DE]Resubmitted Request</value>
-  </data>                   
+  </data>
   <data name="TEXT_SELECT_PO_ERROR" xml:space="preserve">
     <value>[DE]Please select product offerings to be added</value>
   </data>
-    <data name="TEXT_CONVERT" xml:space="preserve">
+  <data name="TEXT_CONVERT" xml:space="preserve">
     <value>[DE]Convert</value>
   </data>
   <data name="TEXT_CONVERT_MESSAGE" xml:space="preserve">
@@ -1256,5 +1256,8 @@
   </data>
   <data name="TEXT_ACCOUNT_TYPE" xml:space="preserve">
     <value>[DE]Account Type</value>
+  </data>
+  <data name="TEXT_AMPWIZARD_INVALID_UQG_NAME" xml:space="preserve">
+    <value>[DE] The value in this field is invalid. Valid Usage Qualification names can only consist of alphanumeric characters (Aa-Zz, 0-9) and the underscore '_' character.</value>
   </data>
 </root>

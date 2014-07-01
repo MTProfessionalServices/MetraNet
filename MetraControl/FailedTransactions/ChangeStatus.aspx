@@ -66,7 +66,7 @@
       Ext.UI.startLoading(document.body, '<asp:Localize meta:resourcekey="ResubmitProgress" runat="server">' + TEXT_RESUBMIT_FAILED + '</asp:Localize>');
       
       // add delay for loading...
-      setTimeout("finishCheckProgress(" + id + ");", 1000);
+      setTimeout(function () { finishCheckProgress(id); }, 4000);
     }
 
     function finishCheckProgress(id) {
@@ -84,7 +84,7 @@
             }
           }
           else {
-            setTimeout("checkProgress(" + id + ");", 1000);
+            setTimeout(function () { checkProgress(id);}, 1000);
           }
         }
       });

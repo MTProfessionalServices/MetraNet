@@ -17,12 +17,12 @@
   <script type="text/javascript" src="/Res/Ext/examples/ux/treegrid/TreeGrid.js"></script>
 
   <MT:MTTitle ID="MTTitle1" Text="Reports" runat="server" meta:resourcekey="MTTitle1Resource1" />
-  <div id="treeDIV" style="width: 100%">
+  <div id="treeDIV" style="width: 100%; padding: 10px">
   </div>
   <div style="padding: 10px">
     <MT:MTLabel ID="LblcurrentEntityName" runat="server" Font-Bold="true" Font-Size="Medium" />
   </div>
-  <a href="/MetraNet/BME/BEList.aspx?Name=MetraTech.SystemConfig.Reports.Report&Extension=MetraTech.SystemConfig&NewBreadcrumb=True&BMEGrid_TemplateFileName=MetraTech.SystemConfig.Reports.Report"><asp:Label ID="ManageReports" runat="server" Text="Manage Reports" meta:resourcekey="ManageReports"></asp:Label></a>
+  <a style="padding:10px" href="/MetraNet/BME/BEList.aspx?Name=MetraTech.SystemConfig.Reports.Report&Extension=MetraTech.SystemConfig&NewBreadcrumb=True&BMEGrid_TemplateFileName=MetraTech.SystemConfig.Reports.Report"><asp:Label ID="ManageReports" runat="server" Text="Manage Reports" meta:resourcekey="ManageReports"></asp:Label></a>
 	
   <script type="text/javascript">
     var referer ='<%=RefererUrl%>';

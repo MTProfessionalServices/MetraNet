@@ -45,7 +45,7 @@ IF ((SELECT value FROM t_db_values WHERE parameter = N'InstantRc') = 'false') re
     FROM #recur_window_holder rw_new 
 	INNER JOIN t_recur_window trw ON rw_new.c__AccountID = trw.c__AccountID AND rw_new.c__SubscriptionID = trw.c__SubscriptionID
 	   -- AND (rw_new.c_UnitValueStart <= trw.c_UnitValueStart OR rw_new.c_UnitValueEnd >= trw.c_UnitValueEnd)
-	INNER JOIN t_recur_value trv on trv.id_sub = rw_new.C__SubscriptionID AND trv.tt_end = dbo.MTMaxDate()
+	INNER JOIN t_recur_value trv on trv.id_sub = rw_new.C__SubscriptionID --AND trv.tt_end = dbo.MTMaxDate()
 	  and trv.vt_start < rw_new.c_UnitValueEnd AND trv.vt_end > rw_new.c_UnitValueStart
 	INNER JOIN t_usage_interval ui ON  
 	  rw_new.c_UnitValueStart < ui.dt_end and rw_new.c_UnitValueEnd > ui.dt_start
@@ -70,9 +70,10 @@ IF ((SELECT value FROM t_db_values WHERE parameter = N'InstantRc') = 'false') re
     INNER JOIN #tmp_old_units tou ON tou.n_value IS NOT NULL
   where
       --Don't issue corrections for old values that are going to stay the same.
-      NOT EXISTS (SELECT 1 FROM #tmp_old_units tou WHERE rw_new.c_UnitValueStart = tou.vt_start OR rw_new.c_UnitValueEnd = tou.vt_end)
+    --  NOT EXISTS (SELECT 1 FROM #tmp_old_units tou WHERE rw_new.c_UnitValueStart = tou.vt_start OR rw_new.c_UnitValueEnd = tou.vt_end)
       --Only issue corrections if there's a previous iteration.
-      AND EXISTS (SELECT 1 FROM t_recur_value trv WHERE trv.id_sub = rw_new.c__SubscriptionID AND trv.tt_end < dbo.MTMaxDate())
+      --AND 
+      EXISTS (SELECT 1 FROM t_recur_value trv WHERE trv.id_sub = rw_new.c__SubscriptionID AND trv.tt_end < dbo.MTMaxDate())
       AND rw_new.c_UnitValue IS NOT NULL
       AND rw_new.c__IsAllowGenChargeByTrigger = 1;
  

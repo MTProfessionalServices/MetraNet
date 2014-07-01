@@ -10,14 +10,14 @@ select @startDate = tt_start from inserted
   --     ones that haven't changed.
   select * into #tmp_new_units 
   FROM inserted rdnew 
-  WHERE NOT EXISTS 
-   (SELECT * FROM inserted rdold where
-     rdnew.n_value = rdold.n_value
-     AND rdnew.vt_start = rdold.vt_start
-     AND rdnew.vt_end = rdold.vt_end
-	  and rdnew.id_prop = rdold.id_prop
-     and rdnew.id_sub = rdold.id_sub
-     AND rdold.tt_end < dbo.MTMaxDate()) /* FIXME: this should join to new tt_start + 1 second */
+  --WHERE NOT EXISTS 
+  -- (SELECT * FROM inserted rdold where
+   --  rdnew.n_value = rdold.n_value
+   --  AND rdnew.vt_start = rdold.vt_start
+   --  AND rdnew.vt_end = rdold.vt_end
+	 -- and rdnew.id_prop = rdold.id_prop
+    -- and rdnew.id_sub = rdold.id_sub
+    -- AND rdold.tt_end < dbo.MTMaxDate()) /* FIXME: this should join to new tt_start + 1 second */
      
   SELECT 
        sub.vt_start AS c_CycleEffectiveDate
@@ -48,9 +48,10 @@ select @startDate = tt_start from inserted
       INNER JOIN t_pl_map plm ON plm.id_po = sub.id_po AND plm.id_paramtable IS NULL
       INNER JOIN t_recur rcr ON plm.id_pi_instance = rcr.id_prop
       INNER JOIN t_base_props bp ON bp.id_prop = rcr.id_prop
-      JOIN #tmp_new_units rv ON rv.id_prop = rcr.id_prop AND sub.id_sub = rv.id_sub AND rv.tt_end = dbo.MTMaxDate() 
-        AND rv.vt_start < sub.vt_end AND rv.vt_end > sub.vt_start 
-        AND rv.vt_start < pay.vt_end AND rv.vt_end > pay.vt_start
+      JOIN #tmp_new_units rv ON rv.id_prop = rcr.id_prop AND sub.id_sub = rv.id_sub 
+        --AND rv.tt_end = dbo.MTMaxDate() 
+       -- AND rv.vt_start < sub.vt_end AND rv.vt_end > sub.vt_start 
+       -- AND rv.vt_start < pay.vt_end AND rv.vt_end > pay.vt_start
       WHERE 1=1
       AND sub.id_group IS NULL
       AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)
@@ -152,10 +153,10 @@ select distinct trw.c__SubscriptionID AS id_sub,
   AND trw.c_UnitValue = rwh.c_UnitValue
   --A possibly clumsy attempt at an XOR.  We want one of the start or end dates
   --  to match the old start/end, but not the other one.
-  AND (trw.c_UnitValueStart = rwh.c_UnitValueStart
-  or trw.c_UnitValueEnd = rwh.c_UnitValueEnd)
-  AND (trw.c_UnitValueStart != rwh.c_UnitValueStart
-  or trw.c_UnitValueEnd != rwh.c_UnitValueEnd)
+ -- AND (trw.c_UnitValueStart = rwh.c_UnitValueStart
+  --or trw.c_UnitValueEnd = rwh.c_UnitValueEnd)
+  --AND (trw.c_UnitValueStart != rwh.c_UnitValueStart
+  --or trw.c_UnitValueEnd != rwh.c_UnitValueEnd)
   JOIN t_recur_value trv 
     ON rwh.c__SubscriptionID = trv.id_sub
     and trv.id_prop = rwh.c__PriceableItemInstanceId

@@ -27,17 +27,17 @@ BEGIN
   /*Get the old vt_start and vt_end for recur values that have changed*/
   INSERT INTO tmp_new_units
   SELECT *
-  FROM tmp_rv_new rdnew
-  WHERE NOT EXISTS
-    (SELECT *
-    FROM tmp_rv_new rdold
-    WHERE rdnew.n_value = rdold.n_value
-    AND rdnew.vt_start  = rdold.vt_start
-    AND rdnew.vt_end    = rdold.vt_end
-	AND rdnew.id_prop = rdold.id_prop
-    AND rdnew.id_sub = rdold.id_sub
-    AND rdold.tt_end    < dbo.MTMaxDate()
-    ) ;
+  FROM tmp_rv_new rdnew;
+  --WHERE NOT EXISTS
+   -- (SELECT *
+   -- FROM tmp_rv_new rdold
+   -- WHERE rdnew.n_value = rdold.n_value
+   -- AND rdnew.vt_start  = rdold.vt_start
+   -- AND rdnew.vt_end    = rdold.vt_end
+	--AND rdnew.id_prop = rdold.id_prop
+   -- AND rdnew.id_sub = rdold.id_sub
+   -- AND rdold.tt_end    < dbo.MTMaxDate()
+   -- ) ;
 	
   /*TODO: look at MSSQL version... now it different */
   SELECT metratime(1,'RC') INTO startDate FROM dual; 
@@ -72,9 +72,10 @@ BEGIN
       INNER JOIN t_pl_map plm ON plm.id_po = sub.id_po AND plm.id_paramtable IS NULL
       INNER JOIN t_recur rcr ON plm.id_pi_instance = rcr.id_prop
       INNER JOIN t_base_props bp ON bp.id_prop = rcr.id_prop
-      JOIN tmp_new_units rv ON rv.id_prop = rcr.id_prop AND sub.id_sub = rv.id_sub AND rv.tt_end = dbo.MTMaxDate()
-        AND rv.vt_start < sub.vt_end AND rv.vt_end > sub.vt_start
-        AND rv.vt_start < pay.vt_end AND rv.vt_end > pay.vt_start
+      JOIN tmp_new_units rv ON rv.id_prop = rcr.id_prop AND sub.id_sub = rv.id_sub 
+       -- AND rv.tt_end = dbo.MTMaxDate()
+       -- AND rv.vt_start < sub.vt_end AND rv.vt_end > sub.vt_start
+       -- AND rv.vt_start < pay.vt_end AND rv.vt_end > pay.vt_start
       WHERE
       		sub.id_group IS NULL
       		AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)
@@ -173,8 +174,8 @@ BEGIN
     and trw.c__PriceableItemTemplateId = rwh.c__PriceableItemTemplateId
     and trw.c__PriceableItemInstanceId = rwh.c__PriceableItemInstanceId
     /*A possibly clumsy attempt at an XOR.  We want one of the start or end dates     to match the old start/end, but not the other one.*/
-    AND (trw.c_UnitValueStart  = rwh.c_UnitValueStart OR trw.c_UnitValueEnd = rwh.c_UnitValueEnd)
-    AND (trw.c_UnitValueStart != rwh.c_UnitValueStart OR trw.c_UnitValueEnd != rwh.c_UnitValueEnd)
+  --  AND (trw.c_UnitValueStart  = rwh.c_UnitValueStart OR trw.c_UnitValueEnd = rwh.c_UnitValueEnd)
+   -- AND (trw.c_UnitValueStart != rwh.c_UnitValueStart OR trw.c_UnitValueEnd != rwh.c_UnitValueEnd)
   JOIN t_recur_value trv ON rwh.c__SubscriptionID = trv.id_sub
     AND trw.c_UnitValueStart = trv.vt_start AND trw.c_UnitValueEnd = trv.vt_end
     AND trv.tt_end < dbo.MTMaxDate() ;

@@ -10,7 +10,7 @@
     <Width>90%</Width>
     <Expandable>true</Expandable>
     <Buttons>None</Buttons>
-    <DataSourceURL>~/AjaxServices/QueryService.aspx</DataSourceURL>
+    <DataSourceURL>/MetraNet/AjaxServices/QueryService.aspx</DataSourceURL>
     <MultiSelect>false</MultiSelect>
     <SelectionModel>Standard</SelectionModel>
     <TotalProperty>TotalRows</TotalProperty>
@@ -19,9 +19,9 @@
     <Description>The grid layout for the Usage Audit Summary Grid.</Description>
     <ExpansionCssClass></ExpansionCssClass>
     <ShowFilterPanel>true</ShowFilterPanel>
-    <FilterInputWidth>220</FilterInputWidth>
+    <FilterInputWidth>300</FilterInputWidth>
     <FilterLabelWidth>75</FilterLabelWidth>
-    <FilterColumnWidth>350</FilterColumnWidth>
+    <FilterColumnWidth>430</FilterColumnWidth>
     <ShowTopBar>true</ShowTopBar>
     <ShowBottomBar>true</ShowBottomBar>
     <ShowGridFrame>true</ShowGridFrame>
@@ -124,13 +124,13 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>id_acc</ID>
-            <DataType>Account</DataType>
+            <ID>id_usage_interval</ID>
+            <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>id_acc</DataIndex>
+            <DataIndex>id_usage_interval</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_ID_ACC</LocalizationTag>
+              <LocalizationTag>TEXT_ID_USAGE_INTERVAL</LocalizationTag>
               <ResourceClassKey>UsageProcessingResources</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
@@ -139,7 +139,7 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>true</DefaultColumn>
+            <DefaultColumn>false</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>true</ShowInExpander>
             <Filterable>true</Filterable>
@@ -160,13 +160,13 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>id_usage_interval</ID>
-            <DataType>String</DataType>
+            <ID>id_acc</ID>
+            <DataType>Account</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>id_usage_interval</DataIndex>
+            <DataIndex>id_acc</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-              <LocalizationTag>TEXT_ID_USAGE_INTERVAL</LocalizationTag>
+              <LocalizationTag>TEXT_ID_ACC</LocalizationTag>
               <ResourceClassKey>UsageProcessingResources</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
@@ -175,7 +175,7 @@
             <PreventSortable>false</PreventSortable>
             <Sortable>true</Sortable>
             <ColumnHideable>true</ColumnHideable>
-            <DefaultColumn>false</DefaultColumn>
+            <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>true</ShowInExpander>
             <Filterable>true</Filterable>
@@ -347,7 +347,7 @@
                 <EnumClassName></EnumClassName>
                 <EnumSpace>Global/SystemCurrencies</EnumSpace>
                 <EnumType>SystemCurrencies</EnumType>
-                <UseEnumValue>false</UseEnumValue>
+                <UseEnumValue>true</UseEnumValue>
                 <DefaultValue></DefaultValue>
 				<HideEnumValues/>
             </FilterEnum>
@@ -385,7 +385,7 @@
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
             <ID>nm_view</ID>
-            <DataType>String</DataType>
+            <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>nm_view</DataIndex>
             <IsColumn>true</IsColumn>
@@ -457,7 +457,7 @@
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
             <ID>nm_pi_template</ID>
-            <DataType>String</DataType>
+            <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>nm_pi_template</DataIndex>
             <IsColumn>true</IsColumn>
@@ -529,7 +529,7 @@
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
             <ID>nm_pv_table</ID>
-            <DataType>String</DataType>
+            <DataType>List</DataType>
             <IsIdentity>false</IsIdentity>
             <DataIndex>nm_pv_table</DataIndex>
             <IsColumn>true</IsColumn>

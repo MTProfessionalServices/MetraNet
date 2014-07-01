@@ -11,7 +11,7 @@ select /* __MVIEW_GET_CURRENT_DECISION_STATE__ */
 tui_start.dt_start as dt_slice_start, tui_end.dt_end as dt_slice_end,
 info.*, audt.*
 from agg_decision_info info
-inner join agg_decision_audit_trail audt on info.decision_unique_id + case when info.decision_object_id like '%<|BULK_AGGREGATE<|%' then 'a' else '' end = audt.decision_unique_id
+inner join agg_decision_audit_trail audt on info.decision_unique_id = audt.decision_unique_id
 inner join intv_gaps g on g.id_interval_old = audt.id_usage_interval and g.n_gap = NVL(audt.intervals_remaining,0)
 inner join t_usage_interval tui_start on tui_start.id_interval = audt.id_usage_interval
 inner join t_pc_interval tui_end on tui_end.id_interval = g.id_interval_new

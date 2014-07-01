@@ -1,0 +1,4 @@
+
+DELETE FROM T_CHAR_VALUES WHERE id_scv = %%SPEC_CHAR_VAL_ID%% and id_entity = %%ENTITY_ID%%;
+INSERT INTO T_CHAR_VALUES VALUES(%%SPEC_CHAR_VAL_ID%%, %%ENTITY_ID%%, '%%VALUE%%', %%START_DATE%%, %%END_DATE%%, '%%SPEC_NAME%%', %%SPEC_TYPE%%)
+            

@@ -633,6 +633,9 @@
   <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
     <value>Afficher les détails historiques</value>
   </data>
+  <data name="TEXT_ADD_TENANT" xml:space="preserve">
+    <value>[FR]Add Partition</value>
+  </data>
   <data name="TEXT_SHOW_ALL_CHANGES_SUMMARY" xml:space="preserve">
     <value>Afficher toutes les modifications</value>
   </data>

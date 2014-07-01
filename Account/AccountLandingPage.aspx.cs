@@ -24,10 +24,11 @@ using MetraTech.Interop.MTProductCatalog;
 
 public partial class Account_AccountLandingPage : MTPage
 {
+  protected string NoDecisionsText;
   public bool IsPrototypePage { get; set; }
   public bool ShowFinancialInformation { get; set; } //TODO: Hook to financial capability
   public bool AccountCanSubscribe { get; set; }
-
+  
   public string MetraTimeNow
   {
     get { return ApplicationTime.ToShortDateString(); }
@@ -66,6 +67,14 @@ public partial class Account_AccountLandingPage : MTPage
     //                                                                 yaac.AccountTypeID);
     //  isCorporate = accType.IsCorporate;     
     //}
+  }
+
+  protected void Page_Load(object sender, EventArgs e)
+  {
+    if (!IsPostBack)
+    {
+      NoDecisionsText = string.Format("{0}", GetLocalResourceObject("NO_DECISIONS_TEXT"));
+    }
   }
 
   protected override void OnLoadComplete(EventArgs e)

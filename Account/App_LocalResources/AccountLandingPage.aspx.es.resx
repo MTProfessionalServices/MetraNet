@@ -183,4 +183,7 @@
   <data name="PAYMENT_ITEM_TEXT" xml:space="preserve">
     <value>[es] Payment</value>
   </data>            
+  <data name="NO_DECISIONS_TEXT" xml:space="preserve">
+    <value>[es] No Transactions Found for the Current Interval</value>
+  </data>   
 </root>

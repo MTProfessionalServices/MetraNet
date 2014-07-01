@@ -27,19 +27,17 @@
     INNER JOIN t_effectivedate te on te.id_eff_date = tpo.id_avail AND
 	       ((te.dt_end IS NOT NULL AND %%REFDATE%% between te.dt_start AND te.dt_end) or (te.dt_end IS NULL AND %%REFDATE%% >= te.dt_start))
     /* CR 13655 make sure that PO is either wide open or allows template account type */
-    /*LEFT OUTER JOIN t_acc_template at ON id_folder = %%ID_ACC%% and id_acc_type = %%ACCOUNT_TYPE%%*/
     LEFT OUTER JOIN t_po_account_type_map atm ON ts.id_po = atm.id_po
     LEFT OUTER JOIN t_acc_tmpl_types tp ON tp.id = 1
     WHERE
-      ts.id_group IS NOT NULL AND tg.id_corporate_account = %%CORPORATEACCOUNT%% 
+      tg.id_corporate_account = %%CORPORATEACCOUNT%% 
     AND ts.id_po not in 
     (
       select ts1.id_po from t_acc_template_subs_pub tsubs
       INNER JOIN t_group_sub tg1 on tsubs.id_group = tg1.id_group
       INNER JOIN t_sub ts1 on ts1.id_group = tg1.id_group
-     /* where id_acc_template = at.id_acc_template */
-     left outer join t_acc_template act on act.id_acc_template = tsubs.id_acc_template
-     and id_folder = %%ID_ACC%% and id_acc_type = %%ACCOUNT_TYPE%%
+      INNER JOIN t_acc_template act on act.id_acc_template = tsubs.id_acc_template
+      WHERE act.id_folder = %%ID_ACC%% and act.id_acc_type = %%ACCOUNT_TYPE%% 
     )
     AND (atm.id_account_type IS NULL OR atm.id_account_type = %%ACCOUNT_TYPE%% OR tp.all_types = 1)      
    	

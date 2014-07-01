@@ -22,7 +22,7 @@
       <configdata>
         <Rounding>
           <Value>_Amount</Value>
-          <Precision ptype="INTEGER">2</Precision>
+          <Precision ptype="INTEGER">10</Precision>
         </Rounding>
       </configdata>
     </processor>

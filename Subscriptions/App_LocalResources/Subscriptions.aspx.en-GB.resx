@@ -124,7 +124,7 @@
         <value>Add Subscription</value>
     </data>
     <data name="DisplayName.HeaderText" xml:space="preserve">
-        <value></value>
+        <value>Subscription Name</value>
     </data>
     <data name="EndDate.HeaderText" xml:space="preserve">
         <value>End Date</value>
@@ -169,6 +169,6 @@
         <value>Status</value>
     </data>
     <data name="SubscriptionID" xml:space="preserve">
-        <value></value>
+        <value>Subscription ID</value>
     </data>
 </root>

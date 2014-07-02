@@ -127,21 +127,21 @@
         <value>Display Name</value>
     </data>
     <data name="lblSubscriptionResource1" xml:space="preserve">
-        <value>The following Group Subscription was created successfully:</value>
+        <value>The following Subscription was created successfully:  </value>
     </data>
     <data name="lblSubscriptionUpdatedResource1" xml:space="preserve">
-        <value>The following Group Subscription was created successfully:  </value>
+        <value>The following Subscription was updated successfully: </value>
     </data>
     <data name="lblTitleResource1" xml:space="preserve">
-        <value>Subscription</value>
+        <value>Subscription Created Successfully</value>
     </data>
     <data name="lblTitleUpdatedResource1" xml:space="preserve">
-        <value></value>
+        <value>Subscription Updated Successfully</value>
     </data>
     <data name="MTPanel1.Text" xml:space="preserve">
         <value>Subscriptions</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
-        <value>MetraNet </value>
+        <value>MetraNet</value>
     </data>
 </root>

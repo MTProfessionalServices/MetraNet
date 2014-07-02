@@ -157,7 +157,7 @@
     <value>MetraNet</value>
   </data>
   <data name="PendingChangeWarning" xml:space="preserve">
-    <value>Italian {0}</value>
+    <value>[IT] {0}</value>
   </data>
   <data name="pnlAccountInfoResource1.Text" xml:space="preserve">
     <value>Informazioni sull'account</value>

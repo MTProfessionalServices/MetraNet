@@ -135,11 +135,44 @@
   <data name="DECIMAL_SEPARATOR" xml:space="preserve">
     <value>.</value>
   </data>
+  <data name="DUPLICATE" xml:space="preserve">
+    <value>Duplicate</value>
+  </data>
   <data name="ERR_DATE_FORMAT" xml:space="preserve">
     <value>mm/dd/YYYY</value>
   </data>
+  <data name="FAILURE" xml:space="preserve">
+    <value>Failure</value>
+  </data>
+  <data name="MANUAL_PENDING" xml:space="preserve">
+    <value>Manual Pending</value>
+  </data>
+  <data name="MANUALLY_REVERSED" xml:space="preserve">
+    <value>Manually Reversed</value>
+  </data>
   <data name="NO_RECORDS_FOUND" xml:space="preserve">
     <value>No records found</value>
+  </data>
+  <data name="POST_PROCESSING_SUCCESSFUL" xml:space="preserve">
+    <value>Post Processing Successful</value>
+  </data>
+  <data name="RECEIVED_REQUEST" xml:space="preserve">
+    <value>Received Request</value>
+  </data>
+  <data name="RECEIVED_RESPONSE" xml:space="preserve">
+    <value>Received Response</value>
+  </data>
+  <data name="REJECTED" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="REVERSED" xml:space="preserve">
+    <value>Reversed</value>
+  </data>
+  <data name="SUBMITTED_REQUEST" xml:space="preserve">
+    <value>Submitted Request</value>
+  </data>
+  <data name="SUCCESS" xml:space="preserve">
+    <value>Success</value>
   </data>
   <data name="TEXT_ACCOUNT" xml:space="preserve">
     <value>Account</value>
@@ -203,6 +236,54 @@
   </data>
   <data name="TEXT_APPLY_TEMPLATE" xml:space="preserve">
     <value>Apply Template</value>
+  </data>
+  <data name="TEXT_APPROVAL_CHANGES_PENDING_YOUR_APPROVAL" xml:space="preserve">
+    <value>Changes Pending Your Approval</value>
+  </data>
+  <data name="TEXT_APPROVAL_NO_CHANGES_PENDING_YOUR_APPROVAL" xml:space="preserve">
+    <value>There are no pending changes that you can approve</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_APPROVE" xml:space="preserve">
+    <value>Approve This Change</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_APPROVE_TIP" xml:space="preserve">
+    <value>Approving this change indicates you agree that it should be made to the system</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_DENY" xml:space="preserve">
+    <value>Deny This Change</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_DISMISS" xml:space="preserve">
+    <value>Dismiss This Change</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_RESUBMIT" xml:space="preserve">
+    <value>Resubmit</value>
+  </data>
+  <data name="TEXT_APPROVALS_ACTION_RESUBMIT_TIP" xml:space="preserve">
+    <value>Resubmitting will re-attempt to apply this approved change to the system.</value>
+  </data>
+  <data name="TEXT_APPROVALS_COMMENT_LABEL" xml:space="preserve">
+    <value>Comment:</value>
+  </data>
+  <data name="TEXT_APPROVALS_ERROR_UPDATING_CHANGE_ID" xml:space="preserve">
+    <value>Error Updating Change Id</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPLIED" xml:space="preserve">
+    <value>This change has been applied to the system. No further actions need to be taken.</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPROVEDWAITINGTOBEAPPLIED" xml:space="preserve">
+    <value>This change was Approved and is waiting to be applied to the system.</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_DISMISSED" xml:space="preserve">
+    <value>This change was Dismissed. No further actions can be taken.</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_FAILEDTOAPPLY" xml:space="preserve">
+    <value>This change was Approved but failed while being applied to the system.</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_PENDING" xml:space="preserve">
+    <value>This change is currently Pending.</value>
+  </data>
+  <data name="TEXT_APPROVALS_STATE_EXPLANATION_SUBMITTER" xml:space="preserve">
+    <value>As the submitter of this Pending change, you can 'Dismiss' this change which will remove it from consideration.</value>
   </data>
   <data name="TEXT_AUDIT_HISTORY_FAILED" xml:space="preserve">
     <value>Audit History For Failed Transaction Case Number</value>
@@ -843,12 +924,6 @@
   <data name="TITLE_REMOVE_RELATIONSHIP" xml:space="preserve">
     <value>Remove Relationship</value>
   </data>
-  <data name="TEXT_APPROVAL_CHANGES_PENDING_YOUR_APPROVAL" xml:space="preserve">
-    <value>Changes Pending Your Approval</value>
-  </data>
-  <data name="TEXT_APPROVAL_NO_CHANGES_PENDING_YOUR_APPROVAL" xml:space="preserve">
-    <value>There are no pending changes that you can approve</value>
-  </data>
   <data name="TEXT_ACTIVATE_DEACTIVATE" xml:space="preserve">
     <value>Activate/Deactivate</value>
   </data>
@@ -915,6 +990,12 @@
   <data name="TEXT_AMPWIZARD_AMP_UI_NAME_ILLEGAL_CHAR" xml:space="preserve">
     <value>The name cannot contain single or double quote characters.</value>
   </data>
+  <data name="TEXT_AMPWIZARD_HELP_HOW_APPLY" xml:space="preserve">
+    <value>- If the charge/credit is applied proportionally, the following fraction of the chagre/credit value is applied:&lt;br /&gt;  (the total - range start) / (range end - range start)&lt;br /&gt;- If the charge/credit is applied inversely proportionally, the following fraction of the chagre/credit value is applied:&lt;br /&gt;  (range end - the total) / (range end - range start)&lt;br /&gt;- If the charge/credit is applied as an aggregate multiplier, the amount of the chagre/credit is computed as:&lt;br /&gt;  (charge or credit value) * (aggregated value for the Decision)&lt;br /&gt;where the aggregated value can be money, units of usage, or events.&lt;br /&gt;- Otherwise, the entire charge/credit value is applied.</value>
+  </data>
+  <data name="TITLE_AMPWIZARD_HELP_HOW_APPLY" xml:space="preserve">
+    <value>Help: How should the Charge/Credit be applied?</value>
+  </data>
   <data name="TEXT_AMPWIZARD_HELP_DECISION_RANGE" xml:space="preserve">
     <value>For example, you are aggregating by amount and you want something special to happen every $1000.</value>
   </data>
@@ -924,17 +1005,8 @@
   <data name="TEXT_AMPWIZARD_MORE_DECISION_RANGE_PRORATION" xml:space="preserve">
     <value>The proration factor to apply to the range is determined by comparing the intended start and end dates of a Decision Type instance with the actual start and end dates of that instance.  &lt;b/&gt;&lt;b/&gt;Example: If a Decision is intended to include 30 days of usage but really only covers 15 days (that is, the subscription starts or ends mid-period), the proration factor would be 15/30, or 0.5.  If the end of range is 500 before proration, it becomes 250 after applying the proration factor.&lt;br/&gt;&lt;br/&gt;Prorating on activation and termination independently allows the user control of whether activation or termination reduces the proration factor.  Example: If a Decision starts 15 days into the cycle, but proration on activation is not chosen, those 15 days will not reduce the proration factor.</value>
   </data>
-  <data name="TEXT_AMPWIZARD_HELP_HOW_APPLY" xml:space="preserve">
-    <value>- If the charge/credit is applied proportionally, the following fraction of the charge/credit value is applied:&lt;br /&gt;  (the total - range start) / (range end - range start)&lt;br /&gt;- If the charge/credit is applied inversely proportionally, the following fraction of the chagre/credit value is applied:&lt;br /&gt;  (range end - the total) / (range end - range start)&lt;br /&gt;- If the charge/credit is applied as an aggregate multiplier, the amount of the charge/credit is computed as:&lt;br /&gt;  (charge or credit value) * (aggregated value for the Decision)&lt;br /&gt;where the aggregated value can be money, units of usage, or events.&lt;br /&gt;- Otherwise, the entire charge/credit value is applied.</value>
-  </data>
-  <data name="TITLE_AMPWIZARD_HELP_HOW_APPLY" xml:space="preserve">
-    <value>Help: How should the Charge/Credit be applied?</value>
-  </data>
   <data name="TITLE_AMPWIZARD_HELP_RESTART_RANGE" xml:space="preserve">
     <value>Help: Restart Range</value>
-  </data>
-  <data name="TEXT_AMPWIZARD_MORE_DECISION_CYCLE" xml:space="preserve">
-    <value>Example: A billing cycle is monthly, but you want to give a special rate if \"more than 1000 minutes are used in three months\". This is known as the Decision Cycle.</value>
   </data>
   <data name="TITLE_AMPWIZARD_ACTIVATION_RESULTS" xml:space="preserve">
     <value>Activation Results</value>
@@ -987,6 +1059,9 @@
   <data name="TEXT_AMPWIZARD_HELP_GENERATED_CHARGE_GRID" xml:space="preserve">
     <value>Each Generated Charge/Credit in the grid is associated with a Product View and specifies how to set the fields in the Product View and in t_acc_usage.</value>
   </data>
+  <data name="TEXT_AMPWIZARD_MORE_DECISION_CYCLE" xml:space="preserve">
+    <value>For example, maybe the billing cycle is monthly, but you want to give a special rate if \"more than 1000 minutes are used in three months\". This is known as the Decision Cycle.</value>
+  </data>
   <data name="TITLE_AMPWIZARD_ADD_MISC_ATTRIBUTE" xml:space="preserve">
     <value>Add Miscellaneous Attribute</value>
   </data>
@@ -999,39 +1074,6 @@
   <data name="TEXT_AMPWIZARD_MORE_CHARGE_CREDIT_DIRECTIVE" xml:space="preserve">
     <value>As part of generating a charge or credit, a directive can do the following types of work:&lt;br/&gt;- Table Inclusion - Join to a database table or view.  All fields from the selected row in the included table or view will be added as fields to the object in memory.&lt;br/&gt;- Field Population - Populate a field of the object in memory by evaluating an expression or by assigning a default value.&lt;br/&gt;- Procedure Execution - Execute an MVM procedure. Procedure execution provides a mechanism for doing anything that cannot be accomplished through table inclusion and field population.</value>
   </data>
-  <data name="DUPLICATE" xml:space="preserve">
-    <value>Duplicate</value>
-  </data>
-  <data name="FAILURE" xml:space="preserve">
-    <value>Failure</value>
-  </data>
-  <data name="MANUALLY_REVERSED" xml:space="preserve">
-    <value>Manually Reversed</value>
-  </data>
-  <data name="MANUAL_PENDING" xml:space="preserve">
-    <value>Manual Pending</value>
-  </data>
-  <data name="POST_PROCESSING_SUCCESSFUL" xml:space="preserve">
-    <value>Post Processing Successful</value>
-  </data>
-  <data name="RECEIVED_REQUEST" xml:space="preserve">
-    <value>Received Request</value>
-  </data>
-  <data name="RECEIVED_RESPONSE" xml:space="preserve">
-    <value>Received Response</value>
-  </data>
-  <data name="REJECTED" xml:space="preserve">
-    <value>Rejected</value>
-  </data>
-  <data name="REVERSED" xml:space="preserve">
-    <value>Reversed</value>
-  </data>
-  <data name="SUBMITTED_REQUEST" xml:space="preserve">
-    <value>Submitted Request</value>
-  </data>
-  <data name="SUCCESS" xml:space="preserve">
-    <value>Success</value>
-  </data>
   <data name="TEXT_FLS_ERROR_MESSAGE" xml:space="preserve">
     <value>Error Message:&lt;br/&gt;[ErrorMessage]</value>
   </data>
@@ -1040,48 +1082,6 @@
   </data>
   <data name="TEXT_BACK" xml:space="preserve">
     <value>Previous</value>
-  </data>
-  <data name="TEXT_APPROVALS_ACTION_APPROVE" xml:space="preserve">
-    <value>Approve This Change</value>
-  </data>
-  <data name="TEXT_APPROVALS_ACTION_APPROVE_TIP" xml:space="preserve">
-    <value>Approving this change indicates you agree that it should be made to the system</value>
-  </data>
-  <data name="TEXT_APPROVALS_ACTION_RESUBMIT" xml:space="preserve">
-    <value>Resubmit</value>
-  </data>
-  <data name="TEXT_APPROVALS_ACTION_RESUBMIT_TIP" xml:space="preserve">
-    <value>Resubmitting will re-attempt to apply this approved change to the system.</value>
-  </data>
-  <data name="TEXT_APPROVALS_COMMENT_LABEL" xml:space="preserve">
-    <value>Comment:</value>
-  </data>
-  <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPLIED" xml:space="preserve">
-    <value>This change has been applied to the system. No further actions need to be taken.</value>
-  </data>
-  <data name="TEXT_APPROVALS_STATE_EXPLANATION_APPROVEDWAITINGTOBEAPPLIED" xml:space="preserve">
-    <value>This change was Approved and is waiting to be applied to the system.</value>
-  </data>
-  <data name="TEXT_APPROVALS_STATE_EXPLANATION_DISMISSED" xml:space="preserve">
-    <value>This change was Dismissed. No further actions can be taken.</value>
-  </data>
-  <data name="TEXT_APPROVALS_STATE_EXPLANATION_FAILEDTOAPPLY" xml:space="preserve">
-    <value>This change was Approved but failed while being applied to the system.</value>
-  </data>
-  <data name="TEXT_APPROVALS_STATE_EXPLANATION_PENDING" xml:space="preserve">
-    <value>This change is currently Pending.</value>
-  </data>
-  <data name="TEXT_APPROVALS_STATE_EXPLANATION_SUBMITTER" xml:space="preserve">
-    <value>As the submitter of this Pending change, you can 'Dismiss' this change which will remove it from consideration.</value>
-  </data>
-  <data name="TEXT_APPROVALS_ACTION_DENY" xml:space="preserve">
-    <value>Deny This Change</value>
-  </data>
-  <data name="TEXT_APPROVALS_ACTION_DISMISS" xml:space="preserve">
-    <value>Dismiss This Change</value>
-  </data>
-  <data name="TEXT_APPROVALS_ERROR_UPDATING_CHANGE_ID" xml:space="preserve">
-    <value>Error Updating Change Id</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_DIRECTIVES" xml:space="preserve">
     <value>This table shows which fields in the product view and t_acc_usage have Field Population directives defined for them, Use this table to determine which fields still need to be set.</value>
@@ -1256,5 +1256,8 @@
   </data>
   <data name="TEXT_ACCOUNT_TYPE" xml:space="preserve">
     <value>Account Type TEST</value>
-  </data>  
+  </data>
+  <data name="TEXT_AMPWIZARD_INVALID_UQG_NAME" xml:space="preserve">
+    <value>The value in this field is invalid. Valid Usage Qualification names can only consist of alphanumeric characters (Aa-Zz, 0-9) and the underscore '_' character.</value>
+  </data>
 </root>

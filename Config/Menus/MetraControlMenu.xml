@@ -774,7 +774,7 @@
                         </MenuItem>
                     </MenuItems>
                 </MenuSection>
-                <!--MenuSection>
+                <MenuSection>
                     <ID>PaymentsStatus</ID>
                     <Caption>
                         <LocalizationTag>TEXT_PAYMENTS</LocalizationTag>
@@ -795,7 +795,7 @@
                             <RequiredCapabilities></RequiredCapabilities>
                         </MenuItem>
                     </MenuItems>
-                </MenuSection-->
+                </MenuSection>
             </MenuSections>
         </Menu>
     </Menus>

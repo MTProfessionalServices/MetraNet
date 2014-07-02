@@ -8,6 +8,8 @@ using MetraTech.Approvals;
 using MetraTech.Core.Services.ClientProxies;
 
 
+//TODO: Need to be ref-factoring on using the only AddAccount, after that AddAccountWorkflow and all other
+//TODO: GenericAddAccount.aspx/GenericUpdateAccount.aspx/GenericAccountSummary.aspx can be thrown from MetraNet project
 public partial class GenericUpdateAccount : MTAccountPage
 {
 
@@ -64,7 +66,7 @@ public partial class GenericUpdateAccount : MTAccountPage
           }
         }
       }
-      
+
       MTGenericForm1.RenderObjectType = Account.GetType();
       MTGenericForm1.RenderObjectInstanceName = "Account";
       MTGenericForm1.TemplatePath = TemplatePath;
@@ -72,7 +74,7 @@ public partial class GenericUpdateAccount : MTAccountPage
       SetupSkipProperties();
       MTGenericForm1.IgnoreProperties = skipProperties;
 
-      #region Approval Framework Code Starts Here 
+      #region Approval Framework Code Starts Here
 
       var client = new ApprovalManagementServiceClient();
 
@@ -143,13 +145,13 @@ public partial class GenericUpdateAccount : MTAccountPage
       MTDataBinder1.Unbind();
 
       var update = new UpdateAccountEvents_UpdateAccount_Client
-        {
-          In_Account = Account,
-          In_AccountId = new AccountIdentifier(UI.User.AccountId),
-          In_ApplyAccountTemplates = cbApplyTemplate.Checked,
-          In_LoadTime = ApplicationTime,
-          In_IsApprovalEnabled = bAccountUpdateApprovalsEnabled == 1
-        };
+      {
+        In_Account = Account,
+        In_AccountId = new AccountIdentifier(UI.User.AccountId),
+        In_ApplyAccountTemplates = cbApplyTemplate.Checked,
+        In_LoadTime = ApplicationTime,
+        In_IsApprovalEnabled = bAccountUpdateApprovalsEnabled == 1
+      };
 
       //Approval Framework related code starts here
 
@@ -163,9 +165,9 @@ public partial class GenericUpdateAccount : MTAccountPage
   protected void btnCancel_Click(object sender, EventArgs e)
   {
     var cancel = new UpdateAccountEvents_CancelUpdateAccount_Client
-      {
-        In_AccountId = new AccountIdentifier(UI.User.AccountId)
-      };
+    {
+      In_AccountId = new AccountIdentifier(UI.User.AccountId)
+    };
     PageNav.Execute(cancel);
   }
 

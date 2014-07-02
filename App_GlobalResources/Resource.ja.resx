@@ -511,19 +511,19 @@
     <value>[JA] Next</value>
   </data>
   <data name="TEXT_SAVE_AND_CONTINUE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_SAVE_NEW_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_CONTINUE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_YES" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_NO" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Add_Category" xml:space="preserve">
     <value>add category</value>

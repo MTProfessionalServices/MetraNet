@@ -4,6 +4,8 @@ using MetraTech.UI.Controls;
 using MetraTech.DomainModel.AccountTypes;
 using MetraTech.DomainModel.BaseTypes;
 
+//TODO: Need to be ref-factoring on using the only AddAccount, after that AddAccountWorkflow and all other
+//TODO: GenericAddAccount.aspx/GenericUpdateAccount.aspx/GenericAccountSummary.aspx can be thrown from MetraNet project
 public partial class Account_GenericAccountSummary : MTPage
 {
 

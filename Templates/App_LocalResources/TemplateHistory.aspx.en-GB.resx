@@ -112,13 +112,13 @@
         <value>2.0</value>
     </resheader>
     <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="ACCOUNT_TYPE" xml:space="preserve">
-        <value></value>
+        <value>Account Type</value>
     </data>
     <data name="ACTIONS" xml:space="preserve">
         <value>Actions</value>
@@ -127,10 +127,10 @@
         <value>Details</value>
     </data>
     <data name="GRID_TITLE" xml:space="preserve">
-        <value></value>
+        <value>Template Activity</value>
     </data>
     <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value></value>
+        <value>Template Activity</value>
     </data>
     <data name="NO_RECORDS" xml:space="preserve">
         <value>No templates have been applied.</value>
@@ -172,18 +172,18 @@
         <value>Status</value>
     </data>
     <data name="SUBMISSION_DATE" xml:space="preserve">
-        <value>Style</value>
-    </data>
-    <data name="SUBMITTER_ID" xml:space="preserve">
-        <value>Sub Charges</value>
-    </data>
-    <data name="SUBMITTER_NAME" xml:space="preserve">
         <value>Submision Date</value>
     </data>
+    <data name="SUBMITTER_ID" xml:space="preserve">
+        <value>Submitter ID</value>
+    </data>
+    <data name="SUBMITTER_NAME" xml:space="preserve">
+        <value>Submitter Name</value>
+    </data>
     <data name="TEMPLATE_OWNER_ID" xml:space="preserve">
-        <value>Template ID</value>
+        <value>Template Owner ID</value>
     </data>
     <data name="TEMPLATE_OWNER_NAME" xml:space="preserve">
-        <value>Template Description</value>
+        <value>Template Owner</value>
     </data>
 </root>

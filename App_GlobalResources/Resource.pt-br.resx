@@ -223,7 +223,7 @@
     <value>ID do criador</value>
   </data>
   <data name="TEXT_CSS_CLASS" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Brazilian Portuguese</value>
   </data>
   <data name="TEXT_CULTURE" xml:space="preserve">
     <value>Cultura</value>
@@ -277,7 +277,7 @@
     <value>Níveis hierárquicos com mais contas </value>
   </data>
   <data name="TEXT_ID" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Brazilian Portuguese</value>
   </data>
   <data name="TEXT_INLINE_ADJUSTMENTS" xml:space="preserve">
     <value>Ajustes em série do texto</value>
@@ -289,10 +289,10 @@
     <value>Id interno</value>
   </data>
   <data name="TEXT_IS_REQUIRED" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Brazilian Portuguese</value>
   </data>
   <data name="TEXT_IS_SITE_DOWN_FOR_MAINTENANCE" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Brazilian Portuguese</value>
   </data>
   <data name="TEXT_IS_VISIBLE" xml:space="preserve">
     <value>está visível</value>
@@ -343,7 +343,7 @@
     <value>Não foi possível exibir a página.</value>
   </data>
   <data name="TEXT_PAGEURL" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Brazilian Portuguese</value>
   </data>
   <data name="TEXT_POSITION" xml:space="preserve">
     <value>Posição</value>
@@ -472,114 +472,114 @@
     <value>instâncias de entidade</value>
   </data>
   <data name="TEXT_APPROVAL_BUTTON_APPROVE" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Brazilian Portuguese</value>
   </data>
   <data name="TEXT_APPROVAL_BUTTON_DENY" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Brazilian Portuguese</value>
   </data>
   <data name="TEXT_APPROVAL_BUTTON_DISMISS" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Brazilian Portuguese</value>
   </data>
   <data name="TEXT_APPROVAL_BUTTON_RESUBMIT" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Brazilian Portuguese</value>
   </data>
   <data name="TEXT_BACK" xml:space="preserve">
-    <value>[pt-BR] Previous</value>
+    <value>(BRAZILIAN PORTUGUESE) Previous</value>
   </data>
   <data name="TEXT_NEXT" xml:space="preserve">
-    <value>[pt-BR] Next</value>
+    <value>(BRAZILIAN PORTUGUESE) Next</value>
   </data>
   <data name="TEXT_SAVE_AND_CONTINUE" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Brazilian Portuguese</value>
   </data>
   <data name="TEXT_SAVE_NEW_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Brazilian Portuguese</value>
   </data>
   <data name="TEXT_CONTINUE" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Brazilian Portuguese</value>
   </data>
   <data name="TEXT_YES" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Brazilian Portuguese</value>
   </data>
   <data name="TEXT_NO" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Brazilian Portuguese</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Add_Category" xml:space="preserve">
-    <value>[pt-BR]add category</value>
+    <value>add category</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Add_Property" xml:space="preserve">
-    <value>[pt-BR]add property</value>
+    <value>add property</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Available_Shared_Properties" xml:space="preserve">
-    <value>[pt-BR]Available Shared Properties</value>
+    <value>Available Shared Properties</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Back_To_Properties" xml:space="preserve">
-    <value>[pt-BR]back to properties</value>
+    <value>back to properties</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_ADDED_YET_TO_AGREEMENT_TEMPLATE" xml:space="preserve">
-    <value>[pt-BR]This agreement template has no shared properties.</value>
+    <value>This agreement template has no shared properties.</value>
   </data>
   <data name="_PropertyForm_cshtml_Set_Localization" xml:space="preserve">
-    <value>[pt-BR]Set localization</value>
+    <value>Set localization</value>
   </data>
   <data name="_PropertyForm_cshtml_Set_Localization_Title" xml:space="preserve">
-    <value>[pt-BR]Set Localization</value>
+    <value>Set Localization</value>
   </data>
-	<data name="TEXT_FROM_PARAMETER_TABLE" xml:space="preserve">
-    <value>[pt-BR]From parameter table</value>
+  <data name="TEXT_FROM_PARAMETER_TABLE" xml:space="preserve">
+    <value>From parameter table (Brazil)</value>
   </data>
   <data name="newSubscription" xml:space="preserve">
-    <value>[pt-BR]New Subscription</value>
+    <value>[PT-BR]New Subscription</value>
   </data>
   <data name="updateSubscription" xml:space="preserve">
-    <value>[pt-BR]Subscription Update</value>
+    <value>[PT-BR]Subscription Update</value>
   </data>
   <data name="TEXT_QUOTE_DETAILS" xml:space="preserve">
-    <value>[pt-BR]More Items...</value>
+    <value>More Items...</value>
   </data>
   <data name="ACCOUNT_FOR_QUOTES" xml:space="preserve">
-    <value>[pt-BR]More Items...</value>
+    <value>More Items...</value>
   </data>
   <data name="PO_FOR_QUOTES" xml:space="preserve">
-    <value>[pt-BR]More Items...</value>
+    <value>More Items...</value>
   </data>
   <data name="LOG_FOR_QUOTES" xml:space="preserve">
-    <value>[pt-BR]Quote log</value>
+    <value>Quote log</value>
   </data>
   <data name="TEXT_TAX" xml:space="preserve">
-    <value>[pt-BR]Tax</value>
+    <value>Tax</value>
   </data>
   <data name="TEXT_TAX_VENDOR" xml:space="preserve">
-    <value>[pt-BR]Tax Vendor</value>
+    <value>Fornecedor fiscal</value>
   </data>
   <data name="TEXT_TAX_SERVICE_ADDRESS_PCODE" xml:space="preserve">
-    <value>[pt-BR]Tax Service Address PCode</value>
+    <value>Endereço Código postal</value>
   </data>
   <data name="TEXT_METRATAX_COUNTRY_ELIGIBILITY" xml:space="preserve">
-    <value>[pt-BR]MetraTax Country Eligibility</value>
+    <value>Elegibilidade do país</value>
   </data>
   <data name="TEXT_METRATAX_COUNTRY_ZONE" xml:space="preserve">
-    <value>[pt-BR]MetraTax Country Zone</value>
+    <value>Zona país</value>
   </data>
   <data name="TEXT_METRATAX_HAS_OVERRIDE_BAND" xml:space="preserve">
-    <value>[pt-BR]MetraTax Has Override Band</value>
+    <value>Tem banda substituição</value>
   </data>
   <data name="TEXT_METRATAX_OVERRIDE_BAND" xml:space="preserve">
-    <value>[pt-BR]MetraTax Override Band</value>
+    <value>Substituir banda</value>
   </data>
   <data name="TEXT_TAX_REGISTRY_REFERENCE" xml:space="preserve">
-    <value>[pt-BR]Tax Registry Reference</value>
+    <value>Registro de referência</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_REASON" xml:space="preserve">
-    <value>[pt-BR]Tax Exempt Reason</value>
+    <value>Razão isentos</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_START_DATE" xml:space="preserve">
-    <value>[pt-BR]Tax Exempt Start Date</value>
+    <value>Data de início isentos</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_END_DATE" xml:space="preserve">
-    <value>[pt-BR]Tax Exempt End Date</value>
+    <value>Data final isentos</value>
   </data>
   <data name="TEXT_USE_STANDARD_INCLUSIVE_TAX_CALCULATION" xml:space="preserve">
-    <value>[pt-BR]Use Standard Inclusive Tax Calculation</value>
+    <value>Use Padrão Cálculo do Imposto Inclusive</value>
   </data>
 </root>

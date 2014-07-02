@@ -123,13 +123,13 @@
   <data name="accountchangesubmittedSuccessTitle" xml:space="preserve">
     <value>Account Change Submitted</value>
   </data>
-    <data name="Label1Resource1.Text" xml:space="preserve">
-        <value>The account was updated successfully.</value>
-    </data>
-    <data name="Label2Resource1.Text" xml:space="preserve">
-        <value>Account Updated</value>
-    </data>
-    <data name="PageResource1.Title" xml:space="preserve">
-        <value>MetraNet</value>
-    </data>
+  <data name="Label1Resource1.Text" xml:space="preserve">
+    <value>The account was updated successfully.</value>
+  </data>
+  <data name="Label2Resource1.Text" xml:space="preserve">
+    <value>Account Updated</value>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>MetraNet</value>
+  </data>
 </root>

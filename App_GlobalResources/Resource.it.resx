@@ -552,7 +552,7 @@
   <data name="TEXT_FROM_PARAM_TABLE" xml:space="preserve">
     <value>[IT]From Parameter Table</value>
   </data>
- <data name="TEXT_NEXT" xml:space="preserve">
+  <data name="TEXT_NEXT" xml:space="preserve">
     <value>[IT]Next</value>
   </data>
   <data name="TEXT_SAVE_AND_CONTINUE" xml:space="preserve">

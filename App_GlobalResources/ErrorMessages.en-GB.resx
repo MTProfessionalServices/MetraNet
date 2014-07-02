@@ -195,9 +195,9 @@
   <data name="ERROR_SECURITY_ANSWER_INVALID" xml:space="preserve">
     <value>Invalid security answer.</value>
   </data>
-    <data name="ERROR_SECURITY_QUESTION_INVALID" xml:space="preserve">
-        <value>Unable to set both the Security Question and the Custom Security Question.</value>
-    </data>
+  <data name="ERROR_SECURITY_QUESTION_INVALID" xml:space="preserve">
+    <value>Unable to set both the Security Question and the Custom Security Question.</value>
+  </data>
   <data name="ERROR_SUBSCRIBER_NULL" xml:space="preserve">
     <value>You must first manage an account before you can perform an action on it.</value>
   </data>
@@ -250,24 +250,24 @@
     <value>This account already has a pending change of type Account Update. Only one pending change of this type is permitted.</value>
   </data>
   <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
-        <value>Failed deleting spec.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_LoadSpecCharacteristic_Didn_t_find_matching_spec_" xml:space="preserve">
-        <value>Didn't find matching spec.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_LoadSpecCharacteristics_Failed_getting_specs_" xml:space="preserve">
-        <value>Failed getting specs.</value>
-    </data>
+    <value>Failed deleting spec.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_LoadSpecCharacteristic_Didn_t_find_matching_spec_" xml:space="preserve">
+    <value>Didn't find matching spec.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_LoadSpecCharacteristics_Failed_getting_specs_" xml:space="preserve">
+    <value>Failed getting specs.</value>
+  </data>
   <data name="SpecCharacteristicRepository_LoadSubCharacteristicValues_Failed_getting_entity_properties_" xml:space="preserve">
     <value>Failed getting entity properties.</value>
   </data>
-    <data name="SpecCharacteristicRepository_SaveSpecCharacteristic_Failed_saving_spec_" xml:space="preserve">
-        <value>Failed saving spec.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_" xml:space="preserve">
+  <data name="SpecCharacteristicRepository_SaveSpecCharacteristic_Failed_saving_spec_" xml:space="preserve">
+    <value>Failed saving spec.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_" xml:space="preserve">
     <value>Access denied.</value>
-    </data>
-    <data name="SpecCharacteristicsController_AddSharedProperty_Couldn_t_add_property_" xml:space="preserve">
+  </data>
+  <data name="SpecCharacteristicsController_AddSharedProperty_Couldn_t_add_property_" xml:space="preserve">
     <value>Couldn't add property.</value>
   </data>
   <data name="SpecCharacteristicsController_Delete_Couldn_t_delete_property_" xml:space="preserve">

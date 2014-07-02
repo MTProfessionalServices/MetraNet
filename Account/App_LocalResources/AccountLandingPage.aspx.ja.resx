@@ -134,10 +134,10 @@
   </data>
   <data name="billingActivityPanel.Text" xml:space="preserve">
     <value>[JA]Billing Activity</value>
-  </data>  
+  </data>
   <data name="billingSummaryPanel.Text" xml:space="preserve">
     <value>[JA]Invoices and Payments</value>
-  </data>     
+  </data>
   <data name="NO_INVOICES_TEXT" xml:space="preserve">
     <value>[JA]This account does not currently have any invoices or payments.</value>
   </data>
@@ -146,7 +146,7 @@
   </data>
   <data name="SUBSCRIPTION_GRID_TITLE_TEXT" xml:space="preserve">
     <value>[JA]Subscriptions</value>
-  </data>   
+  </data>
   <data name="SUBSCRIPTION_END_HEADER_TEXT" xml:space="preserve">
     <value>[JA]End</value>
   </data>
@@ -158,16 +158,16 @@
   </data>
   <data name="SUBSCRIPTION_TYPE_HEADER_TEXT" xml:space="preserve">
     <value>[JA]</value>
-  </data>  
+  </data>
   <data name="SUBSCRIPTION_ADD_BUTTON_TEXT" xml:space="preserve">
     <value>[JA]Add Subscription</value>
   </data>
   <data name="SUBSCRIPTION_ADD_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
     <value>[JA]Create a new subscription to a Product Offering</value>
-  </data>    
+  </data>
   <data name="SUBSCRIPTION_JOIN_BUTTON_TEXT" xml:space="preserve">
     <value>[JA]Join Group Subscription</value>
-  </data>  
+  </data>
   <data name="SUBSCRIPTION_JOIN_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
     <value>[JA]Add this account as a member of an existing Group Subscription</value>
   </data>
@@ -176,7 +176,7 @@
   </data>      
   <data name="GROUP_SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
     <value>[JA]Group Subscription</value>
-  </data>          
+  </data>
   <data name="INVOICE_ITEM_TEXT" xml:space="preserve">
     <value>[JA]Invoice</value>
   </data>      

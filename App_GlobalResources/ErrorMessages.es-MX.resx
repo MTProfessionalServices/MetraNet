@@ -195,9 +195,9 @@
   <data name="ERROR_SECURITY_ANSWER_INVALID" xml:space="preserve">
     <value>Respuesta de seguridad no válida.</value>
   </data>
-    <data name="ERROR_SECURITY_QUESTION_INVALID" xml:space="preserve">
-        <value>No se puede configurar la Pregunta de seguridad y la Pregunta de seguridad personalizada.</value>
-    </data>
+  <data name="ERROR_SECURITY_QUESTION_INVALID" xml:space="preserve">
+    <value>No se puede configurar la Pregunta de seguridad y la Pregunta de seguridad personalizada.</value>
+  </data>
   <data name="ERROR_SUBSCRIBER_NULL" xml:space="preserve">
     <value>Debe administrar una cuenta primero antes de poder actuar sobre ella.</value>
   </data>

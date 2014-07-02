@@ -121,13 +121,13 @@
         <value>Manage Newly Created Account</value>
     </data>
     <data name="Label1Resource1.Text" xml:space="preserve">
-        <value>The account '{0} is locked.</value>
+        <value>The account was created successfully.</value>
     </data>
     <data name="Label2Resource1.Text" xml:space="preserve">
         <value>Account Created</value>
     </data>
     <data name="lblFutureAccountResource1.Text" xml:space="preserve">
-        <value>To</value>
+        <value>To manage this account set Application Time to {0}</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
         <value>MetraNet</value>

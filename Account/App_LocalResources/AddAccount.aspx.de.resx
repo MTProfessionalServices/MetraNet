@@ -258,4 +258,7 @@
     <data name="tbUserNameResource1.Label" xml:space="preserve">
         <value>Benutzername</value>
     </data>
+    <data name="ddAuthenticationTypeResource1.Label" xml:space="preserve">
+        <value>[DE]Authentication Type</value>
+    </data>	
 </root>

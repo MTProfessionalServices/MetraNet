@@ -279,9 +279,9 @@
   <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
     <value>Neue Berichtsinstanz hinzufügen</value>
   </data>
-    <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
-        <value>[DE]Create Quote</value>
-    </data>
+  <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
+    <value>[DE]Create Quote</value>
+  </data>
   <data name="TEXT_CREATE_REMITTANCE" xml:space="preserve">
     <value>Überweisung erstellen</value>
   </data>

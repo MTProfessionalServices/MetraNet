@@ -127,7 +127,7 @@
         <value>Contact List</value>
     </data>
     <data name="Label1Resource1.Text" xml:space="preserve">
-        <value>Update ACH</value>
+        <value>Update Contacts</value>
     </data>
     <data name="NO_RECORDS_TEXT" xml:space="preserve">
         <value>No records found.</value>

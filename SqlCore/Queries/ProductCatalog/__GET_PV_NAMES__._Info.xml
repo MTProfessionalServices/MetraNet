@@ -2,23 +2,20 @@
 <Query>
     <Action>Unknown</Action>
     <Implementations>
-        <Implementation>SqlServer</Implementation>
-        <Implementation>Oracle</Implementation>
+        <Implementation>Common</Implementation>
     </Implementations>
     <Parameters>
         <Parameter>
-            <Name>ID_INTERVAL</Name>
+            <Name>ID_LANG_CODE</Name>
             <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
-            <Description></Description>
+            <Description>Language to retrieve descriptions for</Description>
         </Parameter>
     </Parameters>
     <Description></Description>
     <ConversionAudit>
         <ConversionDuplicateName></ConversionDuplicateName>
         <CommonQuerySourceFile></CommonQuerySourceFile>
-        <SqlServerQuerySourceFile>R:\Config\Queries\UsageServer\MTSQLServer.xml</SqlServerQuerySourceFile>
-        <OracleQuerySourceFile>R:\Config\Queries\UsageServer\MTOracle.xml</OracleQuerySourceFile>
         <SqlServerQuerySourceFile></SqlServerQuerySourceFile>
         <OracleQuerySourceFile></OracleQuerySourceFile>
     </ConversionAudit>

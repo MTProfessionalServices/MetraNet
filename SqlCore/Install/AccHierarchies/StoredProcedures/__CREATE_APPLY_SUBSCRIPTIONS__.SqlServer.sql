@@ -171,22 +171,23 @@ AS
 
 	BEGIN TRY
 		/* Persist the data in transaction */
+
+		INSERT INTO t_gsubmember_historical (id_group, id_acc, vt_start, vt_end, tt_start, tt_end)
+		SELECT id_group, id_acc, vt_start, vt_end, @systemdate, @maxdate
+		FROM   #tmp_gsubmember
+
 		INSERT INTO t_gsubmember(id_group, id_acc, vt_start, vt_end)
 		SELECT id_group, id_acc, vt_start, vt_end
 		FROM   #tmp_gsubmember
 
-		--INSERT INTO t_gsubmember_historical (id_group, id_acc, vt_start, vt_end, tt_start, tt_end)
-		--SELECT id_group, id_acc, vt_start, vt_end, @systemdate, @maxdate
-		--FROM   #tmp_gsubmember
+		INSERT INTO t_sub_history
+			  (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end, tt_start, tt_end)
+		SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end, @systemdate, @maxdate
+		FROM   #tmp_sub
 
 		INSERT INTO t_sub (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end)
 		SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end
 		FROM   #tmp_sub
-
-		--INSERT INTO t_sub_history
-		--	  (id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end, tt_start, tt_end)
-		--SELECT id_sub, id_sub_ext, id_acc, id_group, id_po, dt_crt, vt_start, vt_end, @systemdate, @maxdate
-		--FROM   #tmp_sub
 
 		INSERT INTO t_audit_details (id_audit, tx_details)
 		SELECT @my_id_audit,

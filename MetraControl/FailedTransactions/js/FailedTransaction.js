@@ -89,21 +89,24 @@ var winGridToRefresh = null;
 
 
 function caseNumberColRenderer(value, meta, record, rowIndex, colIndex, store) {
-  return String.format("<span style='display:inline-block; vertical-align:middle'>&nbsp;<a style='cursor:hand;vertical-align:middle' id='editcase_{0}' title='{1}' href='JavaScript:onEditFailedTransaction(\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\");'>{0}&nbsp;<img src='/Res/Images/icons/database_edit.png' alt='{1}' align='middle'/></a></span>", record.data.casenumber, window.TEXT_EDIT_FAILED_TRANSACTION, record.data.failurecompoundsessionid, record.data.compound, store.sm.grid.id);
+    var str = ""; 
+	if(record.data.status =='R') 
+	{ 
+	 meta.attr = 'style="white-space:normal"'; 
+	 str += record.data.casenumber; 
+	} 
+	else 
+	{ 
+	  str += String.format("<span style='display:inline-block; vertical-align:middle'>&nbsp;<a style='cursor:hand;vertical-align:middle' id='editcase_{0}' title='{1}' href='JavaScript:onEditFailedTransaction(\"{0}\",\"{3}\",\"{2}\");'>{0}&nbsp;<img src='/Res/Images/icons/database_edit.png' alt='{1}' align='middle'/></a></span>", record.data.casenumber, TEXT_EDIT_FAILED_TRANSACTION, record.data.compound, record.data.failurecompoundsessionid); 
+	} 
+	return str;  
 }
 
 function actionsColRenderer(value, meta, record, rowIndex, colIndex, store) {
-  var str = "";
-  if(record.data.status =='R') 
-  {
-    meta.attr = 'style="white-space:normal"';
-    str += record.data.casenumber;     
-  }
-  else
-  {
-    str += String.format("<span style='display:inline-block; vertical-align:middle'>&nbsp;<a style='cursor:hand;vertical-align:middle' id='viewaudit_{0}' title='{1}'   href='JavaScript:onViewFailedTransactionAuditLog(\"{0}\",\"{2}\");'>View Log&nbsp;</a></span>", record.data.casenumber, TEXT_VIEW_AUDIT_FAILED_TRANSACTION, record.data.failurecompoundsessionid);
-  }
-  return str;
+  var str = ""; 
+	str += String.format("<span style='display:inline-block; vertical-align:middle'>&nbsp;<a style='cursor:hand;vertical-align:middle' id='viewaudit_{0}' title='{1}' href='JavaScript:onViewFailedTransactionAuditLog(\"{0}\",\"{2}\");'>View Log&nbsp;</a></span>", record.data.casenumber, TEXT_VIEW_AUDIT_FAILED_TRANSACTION, record.data.failurecompoundsessionid); 
+ 	 
+ 	return str; 
 }
 
 function errorMessageColRenderer(value, meta, record, rowIndex, colIndex, store) {

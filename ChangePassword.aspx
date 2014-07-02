@@ -16,12 +16,24 @@
           <asp:Label ID="lblMessage" runat="server" meta:resourcekey="lblMessageResource1"></asp:Label>
         </div>
         <br />
-        <MT:MTTextBoxControl ID="tbUserName" runat="server" AllowBlank="False" Label="User Name" TabIndex="100" ControlWidth="120" ControlHeight="18" HideLabel="False" LabelWidth="120" Listeners="{}" meta:resourcekey="tbUserNameResource1" ReadOnly="False" XType="TextField" XTypeNameSpace="form" />
-        <MT:MTTextBoxControl ID="tbOldPassword" runat="server" AllowBlank="False" Label="Old Password" OptionalExtConfig="inputType:'password'" TabIndex="110" ControlWidth="120" ControlHeight="18" HideLabel="False" LabelWidth="120" Listeners="{}" meta:resourcekey="tbOldPasswordResource1" ReadOnly="False" XType="TextField" XTypeNameSpace="form" />
-        <MT:MTPasswordMeter ID="tbNewPassword" runat="server" AllowBlank="False" Label="New Password" TabIndex="120" ControlWidth="120" ControlHeight="18" HideLabel="False" LabelWidth="120" Listeners="{}" meta:resourcekey="tbNewPasswordResource1" ReadOnly="False" XType="PasswordMeter" XTypeNameSpace="ux" />
-        <MT:MTTextBoxControl ID="tbConfirmPassword" runat="server" AllowBlank="False" Label="Confirm Password" OptionalExtConfig="inputType:'password',initialPassField:'ctl00_ContentPlaceHolder1_tbNewPassword'" TabIndex="130" VType="password" ControlWidth="120" ControlHeight="18" HideLabel="False" LabelWidth="120" Listeners="{}" meta:resourcekey="tbConfirmPasswordResource1" ReadOnly="False" XType="TextField" XTypeNameSpace="form" />
+        <table>
+          <tr>
+            <td colspan="2"><MT:MTTextBoxControl ID="tbUserName" runat="server" AllowBlank="False" Label="User Name" TabIndex="100" ControlWidth="120" ControlHeight="18" HideLabel="False" LabelWidth="120" Listeners="{}" meta:resourcekey="tbUserNameResource1" ReadOnly="False" XType="TextField" XTypeNameSpace="form" /></td>
+          </tr>
+          <tr>
+            <td>
+            <MT:MTTextBoxControl ID="tbOldPassword" runat="server" AllowBlank="False" Label="Old Password" OptionalExtConfig="inputType:'password'" TabIndex="110" ControlWidth="120" ControlHeight="18" HideLabel="False" LabelWidth="120" Listeners="{}" meta:resourcekey="tbOldPasswordResource1" ReadOnly="False" XType="TextField" XTypeNameSpace="form" />     
+            </td>
+            <td><asp:Label ID="lblIncorrectPassword" runat="server"  Visible="False" class="ErrorMessage" meta:resourcekey="lblIncorrectPasswordResource1" BorderStyle="None" ></asp:Label></td>
+          </tr>
+          <tr>
+            <td colspan="2"><MT:MTPasswordMeter ID="tbNewPassword" runat="server" AllowBlank="False" Label="New Password" TabIndex="120" ControlWidth="120" ControlHeight="18" HideLabel="False" LabelWidth="120" Listeners="{}" meta:resourcekey="tbNewPasswordResource1" ReadOnly="False" XType="PasswordMeter" XTypeNameSpace="ux" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><MT:MTTextBoxControl ID="tbConfirmPassword" runat="server" AllowBlank="False" Label="Confirm Password" OptionalExtConfig="inputType:'password',initialPassField:'ctl00_ContentPlaceHolder1_tbNewPassword'" TabIndex="130" VType="password" ControlWidth="120" ControlHeight="18" HideLabel="False" LabelWidth="120" Listeners="{}" meta:resourcekey="tbConfirmPasswordResource1" ReadOnly="False" XType="TextField" XTypeNameSpace="form" /></td>
+          </tr>
+        </table>
      </MT:MTPanel>
-
   <!-- BUTTONS -->
   <div  class="x-panel-btns-ct">
     <div style="width:630px" class="x-panel-btns x-panel-btns-center"> 

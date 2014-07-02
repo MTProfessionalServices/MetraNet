@@ -127,13 +127,13 @@
         <value>Error while loading UDRC instances.</value>
     </data>
     <data name="Grid.Title" xml:space="preserve">
-        <value>UDRC Value Configuration</value>
+        <value>UDRC Values</value>
     </data>
     <data name="lblErrorMessageResource1" xml:space="preserve">
         <value>Error Messages</value>
     </data>
     <data name="lblUDRCValueTitleResource1" xml:space="preserve">
-        <value>UDRC Value Unit Display Name: </value>
+        <value>UDRC Values</value>
     </data>
     <data name="NoRecordsFound.HeaderText" xml:space="preserve">
         <value>No records found.</value>

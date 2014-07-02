@@ -154,9 +154,9 @@
         <value>Start Date</value>
     </data>
     <data name="UDRCGrid.Title" xml:space="preserve">
-        <value></value>
+        <value>Unit Dependent Recurring Charge Configuration</value>
     </data>
     <data name="UDRCInstanceId.HeaderText" xml:space="preserve">
-        <value>UDRC Values</value>
+        <value>UDRCInstanceId</value>
     </data>
 </root>

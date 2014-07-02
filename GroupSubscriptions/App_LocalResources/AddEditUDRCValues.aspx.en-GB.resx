@@ -130,7 +130,7 @@
         <value>Please enter a valid end date.</value>
     </data>
     <data name="ErrorUDRCInitStartEndDate" xml:space="preserve">
-        <value>The system only allows {0} login attempts before the account is temporarily locked for {1} minutes.  You may manually unlock the account.</value>
+        <value>The UDRC values must span across the entire period of the group subscription's start and end dates.</value>
     </data>
     <data name="ErrorUDRCStartDate" xml:space="preserve">
         <value>Please enter a valid start date.</value>
@@ -142,7 +142,7 @@
         <value>Error Messages</value>
     </data>
     <data name="lblMinMaxVal" xml:space="preserve">
-        <value>The subscription start and end dates must be between {0} and {1}.</value>
+        <value>The UDRC value must be between </value>
     </data>
     <data name="lblSetUDRCValuesTitleResource1" xml:space="preserve">
         <value>Set UDRC Values</value>
@@ -157,18 +157,18 @@
         <value>Min:</value>
     </data>
     <data name="StartDate" xml:space="preserve">
-        <value></value>
+        <value>Start Date</value>
     </data>
     <data name="UDRCId" xml:space="preserve">
-        <value></value>
+        <value>UDRC Id</value>
     </data>
     <data name="UDRCValue" xml:space="preserve">
         <value>Value</value>
     </data>
     <data name="UDRCValueConfigHeader" xml:space="preserve">
-        <value>Type</value>
+        <value>UDRC Value Configuration</value>
     </data>
     <data name="UDRCValueUnitName" xml:space="preserve">
-        <value>UDRC Display Name: </value>
+        <value>UDRC Value Unit Display Name: </value>
     </data>
 </root>

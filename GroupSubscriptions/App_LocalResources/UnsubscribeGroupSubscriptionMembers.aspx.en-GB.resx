@@ -127,7 +127,7 @@
         <value>Error Messages</value>
     </data>
     <data name="lblUnsubscribeGroupSubMembersTitleResource1.Text" xml:space="preserve">
-        <value>Unsubscribe</value>
+        <value>Unsubscribe Group Subscription Members</value>
     </data>
     <data name="MTEffecEndDatePickerResource1.ControlHeight" xml:space="preserve">
         <value>18</value>
@@ -158,7 +158,7 @@
         <value>200</value>
     </data>
     <data name="TextGroupSubNameResource1.Label" xml:space="preserve">
-        <value></value>
+        <value>Group Subscription</value>
     </data>
     <data name="TextGroupSubNameResource1.LabelSeparator" xml:space="preserve">
         <value>:</value>

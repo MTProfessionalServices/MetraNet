@@ -133,7 +133,7 @@
         <value>Error Messages</value>
     </data>
     <data name="lblMessageResource1.Text" xml:space="preserve">
-        <value></value>
+        <value>You are about to permanently delete this group subscription and all contained data from the system. This is only allowed if there was never any participation in this group subscription. This group subscription will be removed from any account templates it may have been assigned to.</value>
     </data>
     <data name="MTEffecStartDatePickerResource1.Text" xml:space="preserve">
         <value>Effective Start Date</value>

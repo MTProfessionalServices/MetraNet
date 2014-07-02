@@ -127,18 +127,18 @@
         <value>Error while saving group subscription.</value>
     </data>
     <data name="lblCreatedResource1" xml:space="preserve">
-        <value>The account was updated successfully.</value>
+        <value>The following Group Subscription was created successfully:</value>
     </data>
     <data name="lblDisplayNameResource1.Text" xml:space="preserve">
         <value>Display Name</value>
     </data>
     <data name="lblGroupSubscriptionResource1.Text" xml:space="preserve">
-        <value>The contact information was updated successfully.</value>
+        <value>The following Group Subscription was created successfully:  </value>
     </data>
     <data name="lblTitleResource1.Text" xml:space="preserve">
         <value>Group Subscription </value>
     </data>
     <data name="lblUpdatedResource1" xml:space="preserve">
-        <value>The credit card verification number is invalid.</value>
+        <value>The following Group Subscription was updated successfully:</value>
     </data>
 </root>

@@ -210,4 +210,7 @@
     <data name="StartDate" xml:space="preserve">
         <value>Fecha inicial</value>
     </data>
+    <data name="pnlSubscriptionProperties.Text" xml:space="preserve">
+        <value>Propiedades</value>
+    </data>
 </root>

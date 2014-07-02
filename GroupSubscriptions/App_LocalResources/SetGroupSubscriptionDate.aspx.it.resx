@@ -195,9 +195,6 @@
     <data name="PageResource1.Title" xml:space="preserve">
         <value>MetraCare</value>
     </data>
-    <data name="pnlSubscriptionProperties.Text" xml:space="preserve">
-        <value>Proprietà</value>
-    </data>
     <data name="ProductOffering" xml:space="preserve">
         <value>Offerta di prodotti</value>
     </data>
@@ -212,5 +209,8 @@
     </data>
     <data name="StartDate" xml:space="preserve">
         <value>Data di inizio</value>
+    </data>
+    <data name="pnlSubscriptionProperties.Text" xml:space="preserve">
+        <value>Proprietà</value>
     </data>
 </root>

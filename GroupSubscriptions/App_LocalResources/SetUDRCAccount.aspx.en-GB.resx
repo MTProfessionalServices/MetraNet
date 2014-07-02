@@ -133,15 +133,15 @@
         <value>Error Messages</value>
     </data>
     <data name="lblSetUDRChargeAccountTitleResource1" xml:space="preserve">
-        <value>Under Investigation</value>
+        <value>Unit Dependent Recurring Charge Account Configuration</value>
     </data>
     <data name="StartDate" xml:space="preserve">
         <value>Effective Start Date</value>
     </data>
     <data name="UDRCConfigHeader" xml:space="preserve">
-        <value>Unique Id</value>
+        <value>Unit Dependent Recurring Charge Configuration</value>
     </data>
     <data name="UDRCDisplayName" xml:space="preserve">
-        <value></value>
+        <value>UDRC Display Name: </value>
     </data>
 </root>

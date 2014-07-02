@@ -142,7 +142,7 @@
         <value>Accounts</value>
     </data>
     <data name="GROUP_SUBSCRIPTION" xml:space="preserve">
-        <value></value>
+        <value>Group Subscription</value>
     </data>
     <data name="lblAddGroupSubMembersTitleResource1" xml:space="preserve">
         <value>Group Subscription Time Span</value>

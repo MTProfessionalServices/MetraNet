@@ -121,7 +121,7 @@
         <value>End Date</value>
     </data>
     <data name="GRID_TITLE" xml:space="preserve">
-        <value></value>
+        <value>Subscribe to Product Offering</value>
     </data>
     <data name="GRID_TITLE1" xml:space="preserve">
         <value>Select Product Offering</value>
@@ -133,16 +133,16 @@
         <value>Rec. Charge(s)</value>
     </data>
     <data name="lblSubscribeToPOTitleResource1.Text" xml:space="preserve">
-        <value>Submitter ID</value>
+        <value>Subscribe to Product Offering</value>
     </data>
     <data name="lblSubscribeToPOTitleResource1.Text1" xml:space="preserve">
-        <value>Submitter Name</value>
+        <value>Subscribe to Product Offering</value>
     </data>
     <data name="MyGrid1Resource1.NoRecordsText" xml:space="preserve">
-        <value>Theme</value>
+        <value>There are no available Product Offerings for subscription.</value>
     </data>
     <data name="NO_RECORDS" xml:space="preserve">
-        <value>There are no Account Templates on this account.</value>
+        <value>There are no available Product Offerings for subscription.</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
         <value>MetraNet</value>

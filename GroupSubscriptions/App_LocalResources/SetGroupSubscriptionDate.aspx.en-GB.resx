@@ -118,7 +118,7 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="cbEmailNotificationResource1.BoxLabel" xml:space="preserve">
-        <value></value>
+        <value>Use cycle enforced by the product offering</value>
     </data>
     <data name="CorporateAccount" xml:space="preserve">
         <value>Corporate Account</value>
@@ -151,7 +151,7 @@
         <value>Group Name</value>
     </data>
     <data name="GroupSubscriptionProperties" xml:space="preserve">
-        <value>Group Subscription Properties</value>
+        <value>Details</value>
     </data>
     <data name="GrpDiscAcct.Text" xml:space="preserve">
         <value>Account for group discount</value>
@@ -160,7 +160,7 @@
         <value>Changing this start date may adversely affect billing cycle aligned charges contained in the associated Product Offering.</value>
     </data>
     <data name="LblEnforced.Text" xml:space="preserve">
-        <value>Usage Server Maintenance</value>
+        <value>Use cycle enforced by the product offering</value>
     </data>
     <data name="lblErrorMessageResource1.Text" xml:space="preserve">
         <value>Error Messages</value>
@@ -178,10 +178,10 @@
         <value>Discount Configuration</value>
     </data>
     <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>Set Group Subscription</value>
+        <value>Group Subscription Details</value>
     </data>
     <data name="MTUsageCyclePanel.Text" xml:space="preserve">
-        <value>Usage Charges</value>
+        <value>Usage Cycle Configuration</value>
     </data>
     <data name="NoSharedCountersBoxLabel.BoxLabel" xml:space="preserve">
         <value>Do not use shared counters</value>
@@ -193,7 +193,7 @@
         <value>Offering Start Date</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
-        <value></value>
+        <value>MetraCare</value>
     </data>
     <data name="ProductOffering" xml:space="preserve">
         <value>Product Offering</value>
@@ -205,9 +205,12 @@
         <value>Account for usage cycle</value>
     </data>
     <data name="SharedCountersBoxLabel.BoxLabel" xml:space="preserve">
-        <value>Use Quoted Identifiers</value>
+        <value>Use shared counters</value>
     </data>
     <data name="StartDate" xml:space="preserve">
         <value>Start Date</value>
+    </data>
+    <data name="pnlSubscriptionProperties.Text" xml:space="preserve">
+        <value>Properties</value>
     </data>
 </root>

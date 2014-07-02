@@ -118,7 +118,7 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="AccountId.HeaderText" xml:space="preserve">
-        <value></value>
+        <value>Account Id</value>
     </data>
     <data name="AccountName.HeaderText" xml:space="preserve">
         <value>User Name</value>
@@ -136,7 +136,7 @@
         <value>Delete Members</value>
     </data>
     <data name="DeleteButtonToolTip.HeaderText" xml:space="preserve">
-        <value></value>
+        <value>You can delete members who have no usage.</value>
     </data>
     <data name="EndDate.HeaderText" xml:space="preserve">
         <value>End Date</value>
@@ -157,9 +157,9 @@
         <value>Start Date</value>
     </data>
     <data name="UnsubscribeButton.HeaderText" xml:space="preserve">
-        <value>Unsubscribe</value>
+        <value>Unsubscribe Members</value>
     </data>
     <data name="UnsubscribeButtonToolTip.HeaderText" xml:space="preserve">
-        <value>You can delete members who have no usage.</value>
+        <value>You can unsubscribe members with existing usage.</value>
     </data>
 </root>

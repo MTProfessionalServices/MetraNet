@@ -156,12 +156,6 @@
     <data name="StartDate.HeaderText" xml:space="preserve">
         <value>Fecha inicial</value>
     </data>
-    <data name="String" xml:space="preserve">
-        <value>**Spanish**</value>
-    </data>
-    <data name="String1" xml:space="preserve">
-        <value></value>
-    </data>
     <data name="UnsubscribeButton.HeaderText" xml:space="preserve">
         <value>Cancelar la suscripción de los miembros</value>
     </data>

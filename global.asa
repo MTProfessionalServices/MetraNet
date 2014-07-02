@@ -35,6 +35,13 @@ End Function
 FUNCTION InitializeApplication() ' As Boolean
 
     DIM APP_FOLDER, objDictionary, objRCD
+    Set objRCD                = CreateObject("Metratech.RCD")    
+    Session("VIRTUAL_DIR")    = mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1)
+    Session("EXTENSION_DIR")  = objRCD.ExtensionDir
+    Session("INSTALL_DIR")    = objRCD.InstallDir
+    APP_FOLDER                                  = Server.MapPath("/mom")
+    Session("mdm_APP_FOLDER")                   = APP_FOLDER ' Store the application folder for the mdm
+
     	      If(IsEmpty(Session("mdm_APP_LANGUAGE")))Then        
 	              if(instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")=0) then
                     Dim userLocale
@@ -52,22 +59,16 @@ FUNCTION InitializeApplication() ' As Boolean
                 else
                   dim lang
                   lang = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 5)
-                  if(not FolderExists(Application("startPage")  & "/default/localized/" & lang)) then
+                  if(not FolderExists(APP_FOLDER  & "\Default\Localized\" & lang)) then
                     lang = mom_LANGUAGE
                   end if                  
                   Session("mdm_APP_LANGUAGE") = lang
                 end if
           end if
-    Set objRCD                = CreateObject("Metratech.RCD")    
-    Session("VIRTUAL_DIR")    = mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1)
-    Session("EXTENSION_DIR")  = objRCD.ExtensionDir
-    Session("INSTALL_DIR")    = objRCD.InstallDir
     
     ' setup application start page
     Application("startPage")                    = Mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1)   '"
     Session("LocalizedPath")                    = Application("startPage")  & "/default/localized/"& Session("mdm_APP_LANGUAGE")
-    APP_FOLDER                                  = Server.MapPath("/mom")
-    Session("mdm_APP_FOLDER")                   = APP_FOLDER ' Store the application folder for the mdm
     Application("APP_HTTP_PATH")                = Mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1) ' " 
     Session("VIRTUAL_DIR")                      = Mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1) ' "
     Set Session("mdm_LOCALIZATION_DICTIONARY")  = CreateObject("MTMSIX.DICTIONARY")  

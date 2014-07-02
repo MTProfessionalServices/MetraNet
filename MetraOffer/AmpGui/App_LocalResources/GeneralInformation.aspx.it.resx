@@ -121,39 +121,39 @@
     <value>Enter information used to describe this decision type. [IT]</value>
   </data>
   <data name="lblEnterInfoResource1.Text" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
   <data name="TEXT_SUCCESS_CREATE_DECISION" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="TEXT_ERROR_ADD_EDIT_DECISION" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="TEXT_ERROR_DUPLICATE_DECISION_NAME" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_PARAM_TABLE_NAMES" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="ddParamTableResource1.Label" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="tbDescriptionResource1.Label" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="tbGenInfoNameResource1.Label" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="ViewDescriptionLabelResource.Text" xml:space="preserve">
-    <value>Italian:</value>
+    <value>[IT]:</value>
   </data>
   <data name="lblCantChangeParamTableResource1.Text" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
 </root>

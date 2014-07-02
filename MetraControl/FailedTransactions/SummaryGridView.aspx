@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPages/PageExt.master" AutoEventWireup="true" CodeFile="SummaryGridView.aspx.cs" Inherits="SummaryGridView" Title="<%$Resources:Resource,TEXT_TITLE%>"  Culture="auto" UICulture="auto" %>
+<%@ Import Namespace="Resources" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
   <table>
@@ -35,7 +36,7 @@
   </script>
 
   <div id="results-win" class="x-hidden"> 
-    <div id="UpdateStatusWindowTitle" class="x-window-header">TEXT_CHANGE_TRANSACTION_STATUS</div> 
+    <div id="UpdateStatusWindowTitle" class="x-window-header" > "<%= GetGlobalResourceObject("FailedTransactionResources", "TEXT_CHANGE_TRANSACTION_STATUS")%>"</div> 
     <div id="result-content"> 
     </div> 
   </div> 

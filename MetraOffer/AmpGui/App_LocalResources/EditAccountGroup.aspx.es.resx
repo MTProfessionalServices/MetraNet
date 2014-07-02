@@ -118,78 +118,78 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ACCOUNT_QUALIFICATIONS_GRID_TITLE" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="lblEditAccountGroupResource1.Text" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="lblAcctQualGridResource1.Text" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="tbAcctGroupNameResource1.Label" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="tbAcctGroupDescriptionResource1.Label" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_ORDER" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_INCLUDE_TABLE" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_ADD" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_RAISE_PRIORITY" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_REDUCE_PRIORITY" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_ERROR_RAISE_PRIORITY" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_ERROR_REDUCE_PRIORITY" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_ERROR_DELETING" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_ERROR_UPDATING_ACCT_GROUP_DESCRIPTION" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_DB_FILTER" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_MATCH_FIELD" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_MODE" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_MVM_FILTER" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_OUTPUT_FIELD" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_SOURCE_FIELD" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="ViewDescriptionLabelResource.Text" xml:space="preserve">
-    <value>Spanish:</value>
+    <value>[ES]:</value>
   </data>
 </root>

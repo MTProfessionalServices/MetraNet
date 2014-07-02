@@ -181,7 +181,7 @@
     <value>Tous les intervalles</value>
   </data>
   <data name="TEXT_ANALYTICS" xml:space="preserve">
-    <value>[fr]Analytics</value>
+    <value>[FR]Analytics</value>
   </data>	
   <data name="TEXT_APP_AUDIT_LOG" xml:space="preserve">
     <value>Journal d’audit de l’application</value>
@@ -626,6 +626,9 @@
   </data>
   <data name="TEXT_UPDATE_EXISTING_REPORT_DEFINITIONS" xml:space="preserve">
     <value>Mettre à jour la définition de rapport existante</value>
+  </data>
+  <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
+    <value>{FR}Usage Calculation Decision Details</value>
   </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>Maintenance du serveur d’utilisation</value>

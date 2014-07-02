@@ -376,7 +376,7 @@
     <value>Administrar seguridad</value>
   </data>
   <data name="TEXT_MASTER_OFFERINGS" xml:space="preserve">
-    <value>[ES-MX]Master Product Offerings</value>
+    <value>[es-MX]Master Product Offerings</value>
   </data>
   <data name="TEXT_MENU_GENERATE_PASSWORD" xml:space="preserve">
     <value>Generar contraseña</value>
@@ -562,7 +562,7 @@
     <value>Actualizar definición de informe existente</value>
   </data>
   <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-    <value>[es-MX]Usage Audit</value>
+    <value>{ES-MX}Usage Calculation Decision Details</value>
   </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>Mantenimiento de servidor de uso</value>
@@ -583,10 +583,10 @@
     <value>Ver factura en línea</value>
   </data>
   <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[es-MX]</value>
   </data>
   <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[es-MX]</value>
   </data>
   <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
     <value>[es-MX]Add child Account</value>
@@ -622,12 +622,12 @@
     <value>[es-MX]Account</value>
   </data>
   <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
-    <value>{ES-MX}Create Quote</value>
+    <value>[es-MX]Create Quote</value>
   </data>   
   <data name="TEXT_QUOTING_LIST" xml:space="preserve">
-    <value>{ES-MX}View All Quotes</value>
+    <value>[es-MX]View All Quotes</value>
   </data>
   <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
-    <value>{ES-MX}Shared Properties</value>
+    <value>[es-MX]Shared Properties</value>
   </data>     
 </root>

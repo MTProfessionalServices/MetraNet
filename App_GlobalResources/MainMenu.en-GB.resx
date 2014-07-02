@@ -649,7 +649,7 @@
 		<value>Create Quote</value>
 	</data>
 	<data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-		<value>Usage Audit</value>
+		<value>Usage Calculation Decision Details</value>
 	</data>
 	<data name="TEXT_ADD_TENANT" xml:space="preserve">
 		<value>Add Partition</value>

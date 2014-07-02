@@ -13,6 +13,8 @@ using MetraTech.UI.Controls;
 using MetraTech.Approvals;
 using MetraTech.Core.Services.ClientProxies;
 
+//TODO: Need to be ref-factoring on using the only AddAccount, after that AddAccountWorkflow and all other
+//TODO: GenericAddAccount.aspx/GenericUpdateAccount.aspx/GenericAccountSummary.aspx can be thrown from MetraNet project
 public partial class Account_UpdateAccount : MTAccountPage
 {
   //Approval Framework Code Starts Here 
@@ -114,7 +116,6 @@ public partial class Account_UpdateAccount : MTAccountPage
 
         if (accountType.IsCorporate)
         {
-          tbAncestorAccount.ReadOnly = true;
           tbPayer.ReadOnly = true;
           cbApplyTemplate.Visible = false;
         }
@@ -295,7 +296,6 @@ public partial class Account_UpdateAccount : MTAccountPage
           In_LoadTime = ApplicationTime,
           In_IsApprovalEnabled = bAccountUpdateApprovalsEnabled == 1
         };
-
 
       PageNav.Execute(update);
     }

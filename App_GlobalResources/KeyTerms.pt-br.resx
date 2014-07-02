@@ -259,12 +259,12 @@
     <value>Taxas de utilização (Agregado)</value>
   </data>
   <data name="TEXT_KEYTERM_CORE_SUBSCRIBER" xml:space="preserve">
-    <value>[PT-BR] Core Subscriber</value>
+    <value>[pt-BR] Core Subscriber</value>
   </data>
   <data name="TEXT_KEYTERM_DEPARTMENT_ACCOUNT" xml:space="preserve">
-    <value>[PT-BR] Department Account</value>
+    <value>[pt-BR] Department Account</value>
   </data>
   <data name="TEXT_KEYTERM_GSM_SERVICE_ACCOUNT" xml:space="preserve">
-    <value>[PT-BR] GSM Service Account</value>
+    <value>[pt-BR] GSM Service Account</value>
   </data>
 </root>

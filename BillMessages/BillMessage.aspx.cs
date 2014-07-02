@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ServiceModel;
 using System.Web.UI.WebControls;
+using Core.BillMessages;
 using MetraTech.ActivityServices.Common;
 using MetraTech.BusinessEntity.Core;
 using MetraTech.Events;
@@ -273,8 +274,31 @@ public partial class BillMessage : MTPage
           }
         }
 
-       
+        // Now update all BillMessageAccount related entities
+        MTList<EntityInstance> entityInstances = new MTList<EntityInstance>();
+        var relatedEntitiesClient = new EntityInstanceService_LoadEntityInstancesFor_Client
+          {
+            UserName = UI.User.UserName,
+            Password = UI.User.SessionPassword,
+            In_entityName = "Core.BillMessages.BillMessageAccount",
+            In_forEntityName = BE.EntityFullName,
+            In_forEntityId = BE.Id,
+            InOut_mtList = entityInstances
+          };
+        relatedEntitiesClient.Invoke();
 
+        foreach (var relation in relatedEntitiesClient.InOut_mtList.Items)
+        {
+          relation["MessageCode"].Value = BE["MessageCode"].Value;
+        }
+
+        var updateRelatedEntitiesClient = new EntityInstanceService_SaveEntityInstances_Client
+          {
+            UserName = UI.User.UserName,
+            Password = UI.User.SessionPassword,
+            InOut_entityInstances = relatedEntitiesClient.InOut_mtList.Items
+          };
+        updateRelatedEntitiesClient.Invoke();
       }
       catch (FaultException<MASBasicFaultDetail> fe)
       {

@@ -49,7 +49,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
     Dim objUSM
     Set objUSM = mom_GetUsageServerClientObject()
     Dim interval
-    Set interval = objUSM.GetUsageInterval(CLng(Form("IntervalID")))
+    Set interval = objUSM.GetUsageIntervalWithoutAccountStats(CLng(Form("IntervalID"))) 
     If CBool(interval.HasBeenMaterialized) Then
       mdm_GetDictionary().Add "MATERIALIZE_TEXT", mom_GetDictionary("TEXT_REMATERIALIZE")
       ' Reset the message
@@ -139,12 +139,12 @@ PRIVATE FUNCTION Form_LoadProductView(EventArg) ' As Boolean
   ProductView.Properties("AdapterSucceededCount").Selected = i : i=i+1
   ProductView.Properties("AdapterFailedCount").Selected    = i : i=i+1
            
-	ProductView.Properties("Name").Caption			             = "Billing Group"
-	ProductView.Properties("Status").Caption		             = "Status"  
-  ProductView.Properties("MemberCount").Caption		         = "Members"
-	ProductView.Properties("AdapterCount").Caption	         = "Adapters"
-  ProductView.Properties("AdapterSucceededCount").Caption  = "Succeeded"
-  ProductView.Properties("AdapterFailedCount").Caption     = "Failed"
+	ProductView.Properties("Name").Caption			             = mom_GetDictionary("TEXT_BILLING_GROUP")
+	ProductView.Properties("Status").Caption		             = mom_GetDictionary("TEXT_STATUS") 
+  ProductView.Properties("MemberCount").Caption		         = mom_GetDictionary("TEXT_MEMBERS")
+	ProductView.Properties("AdapterCount").Caption	         = mom_GetDictionary("TEXT_ADAPTERS")
+  ProductView.Properties("AdapterSucceededCount").Caption  = mom_GetDictionary("TEXT_SUCCEED")
+  ProductView.Properties("AdapterFailedCount").Caption     = mom_GetDictionary("TEXT_FAILED")
   
   ProductView.Properties("Name").Sorted = MTSORT_ORDER_ASCENDING
   mdm_SetMultiColumnFilteringMode TRUE 
@@ -228,7 +228,7 @@ PRIVATE FUNCTION Materialize_Click(EventArg)
   
   Dim objUSM, materializationID, interval
   Set objUSM = mom_GetUsageServerClientObject()
-  Set interval = objUSM.GetUsageInterval(CLng(Form("IntervalID")))
+  Set interval = objUSM.GetUsageIntervalWithoutAccountStats(CLng(Form("IntervalID")))
     
   ' Materialize or Re-Materialize Billing Groups
   If CBool(interval.HasBeenMaterialized) Then

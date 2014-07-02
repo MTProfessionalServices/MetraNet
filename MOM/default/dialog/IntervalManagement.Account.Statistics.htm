@@ -1,0 +1,29 @@
+<HTML>
+ <HEAD>
+  <title>Interval</title>    
+  <LINK rel="STYLESHEET" type="text/css" href="/mom/default/localized/us/styles/Styles.css">  
+ </HEAD>
+<body>
+<FORM name='mdm'>
+  <TABLE border="0" cellpadding="1" cellspacing="0" width="100%"s>
+    <tr><td Class='CaptionBar' nowrap>Interval: <small><MDMLABEL Name="IntervalID"></MDMLABEL></small></td></tr>
+  </TABLE>
+  
+    </td>
+    <td valign="top">
+
+        <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" ID="Table1"> 
+                    <TD class="captionEWRequired">Open Unassigned Accounts:&nbsp;</TD>
+            <TD class="fieldRequired"><a title="View Members" href="#" OnClick="window.open('BillingGroups.UnassignedAccounts.asp?MDMReload=TRUE&IntervalID=[IntervalId]&Status=Open','', 'height=750,width=1000, resizable=yes, scrollbars=yes, status=yes');"><MDMLABEL Name="OpenUnassignedAccountsCount"></MDMLABEL></a>
+            </TD>
+        </TR>
+        <TR>
+            <TD class="captionEWRequired">Hard closed Unassigned Accounts:&nbsp;</TD>
+            <TD class="fieldRequired"><a title="View Members" href="#" OnClick="window.open('BillingGroups.UnassignedAccounts.asp?Status=HardClosed&MDMReload=TRUE&IntervalID=[IntervalId]','', 'height=750,width=1000, resizable=yes, scrollbars=yes, status=yes');"><MDMLABEL Name="HardClosedUnassignedAccountsCount"></MDMLABEL></a></TD>
+        </TR>                     
+ 
+  </table>
+  
+</form>
+</body>
+</html>

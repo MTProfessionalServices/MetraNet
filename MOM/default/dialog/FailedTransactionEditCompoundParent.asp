@@ -214,7 +214,9 @@ END FUNCTION
 
 
 PUBLIC FUNCTION Form_Refresh(EventArg)
-    
+  'Refresh the parent values on the page
+  Service.Properties("PayerDisplayName").Value                 = SafeForHtml(Service.Properties("Payer").Value)
+
   'Build a html table that holds the list of children and links
   Dim sChildServiceToShowInitially
   

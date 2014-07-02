@@ -66,8 +66,8 @@ Quando o SDK de medição retorna um erro para o MAM, analise a mensagem no Metr
       <value>
         <![CDATA[ A operação do modelo de lote falhou para algumas contas. <br><br> <i>Observe que nenhuma operação de atualização de conta que tenha sido bem-sucedida será retrocedida.  No entanto, as assinaturas em grupo são feitas em uma transação única.  Isso significa que se houver um erro com uma das contas que esteja sendo posicionada em uma assinatura em grupo, nenhuma delas será adicionada.</i> ]]>  
       </value>
-	  </text>		
-	     
+	  </text>
+    <text id="MAM_ERROR_1053"><value>[pt-BR] Account cannot be moved to another namespace.</value></text>
     <text id="MAM_ERROR_2000"><value>Ocorreu um erro durante a adição do mapeamento de id.  Solicite que seu administrador verifique o log do sistema.</value></text>
     <text id="MAM_ERROR_2001"><value>Ocorreu um erro durante a remoção de um mapeamento de id.  Solicite que seu administrador verifique o log do sistema.</value></text>
     <text id="MAM_ERROR_2002"><value>Ocorreu um erro durante a atualização do mapeamento de id.  Solicite que seu administrador verifique o log do sistema.</value></text>
@@ -82,10 +82,6 @@ Quando o SDK de medição retorna um erro para o MAM, analise a mensagem no Metr
     <text id="MAM_ERROR_2011"><value>Falha ao excluir o modelo da conta.  Solicite que seu administrador verifique o log do sistema.</value></text>
     <text id="MAM_ERROR_2012"><value>Ocorreram um ou mais avisos. Não foi possível salvar o ajuste</value></text>
     <text id="MAM_ERROR_2013"><value>Falha ao criar o modelo da conta.  Solicite que seu administrador verifique o log do sistema.</value></text>    
-
     <text id="MAM_ERROR_2014"><value>Nenhuma conta encontrada para a qual aplicar o modelo.</value></text>
-	<text id="MAM_ERROR_2015">
-		<value>A operação em lote falhou e todas as alterações foram retrocedidas.</value>
-	</text>
-
+	<text id="MAM_ERROR_2015"><value>A operação em lote falhou e todas as alterações foram retrocedidas.</value></text>
 </texts>

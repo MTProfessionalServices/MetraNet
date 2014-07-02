@@ -1811,7 +1811,7 @@
   </text>
 
   <text id="TEXT_EVENT_DETAILS">
-    <value>characters left for Details</value>
+    <value>[pt-BR] Characters Left for Details</value>
     <description>Legenda para detalhes de evento</description>
   </text>
 

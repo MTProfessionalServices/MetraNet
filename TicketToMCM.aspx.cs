@@ -21,15 +21,15 @@ public partial class UserControls_ticketToMCM : MTPage
     var gotoURL = Request.QueryString["URL"].Replace("|", "?").Replace("**", "&");
     gotoURL = gotoURL.Replace("!", "|");
 
-    HelpPage = MetraTech.Core.UI.CoreUISiteGateway.GetHelpPageAsp(Server, Session, gotoURL, Logger);
+    HelpPage = MetraTech.Core.UI.CoreUISiteGateway.GetDefaultHelpPage(Server, Session, gotoURL, Logger);
 
     var auth = new Auth();
     auth.Initialize(UI.User.UserName, UI.User.NameSpace);
     URL = auth.CreateEntryPoint("mcm", "system_user", 0, gotoURL, false, true);
-    
-    if (Request.QueryString["Redirect"] != null && Request.QueryString["Redirect"].ToUpper() == "TRUE")
-    {
-      Response.Redirect(URL, true);
-    }
+
+    if (Request.QueryString["Redirect"] == null || Request.QueryString["Redirect"].ToUpper() != "TRUE") return;
+
+    var response = MetraTech.Core.UI.CoreUISiteGateway.GetAspResponse(HelpPage, URL);
+    Response.Write(response);
   }
 }

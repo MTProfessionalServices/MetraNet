@@ -20,7 +20,7 @@ public partial class UserControls_ticketToMAM : MTPage
 	  // replace | with ? and ** with &
 	  var gotoURL = Request.QueryString["URL"].Replace("|", "?").Replace("**", "&");
 
-	  HelpPage = MetraTech.Core.UI.CoreUISiteGateway.GetHelpPageAsp(Server, Session, gotoURL, Logger);
+	  HelpPage = MetraTech.Core.UI.CoreUISiteGateway.GetDefaultHelpPage(Server, Session, gotoURL, Logger);
 
 	  var auth = new Auth();
 	  auth.Initialize(UI.User.UserName, UI.User.NameSpace);

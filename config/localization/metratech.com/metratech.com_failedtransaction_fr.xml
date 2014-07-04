@@ -4,7 +4,7 @@
     <locale_space name="metratech.com/failedtransaction">
         <locale_entry>
             <Name>metratech.com/failedtransaction/DismissedReasonCode/ResendOriginal</Name>
-            <Value>La transaction d’origine sera chronométrée à nouveau</Value>
+            <Value>La transaction d'origine sera chronométrée à nouveau</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/failedtransaction/DismissedReasonCode/Test</Name>
@@ -16,15 +16,15 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/failedtransaction/InvestigationReasonCode/AccountResolution</Name>
-            <Value>Résolution de problèmes sur le compte</Value>
+            <Value>Problème de résolution de compte</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/failedtransaction/InvestigationReasonCode/OperationsIssue</Name>
-            <Value>Problème lors d’opérations</Value>
+            <Value>Problème lors d'opérations</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/failedtransaction/InvestigationReasonCode/RateResolution</Name>
-            <Value>Tarification</Value>
+            <Value>Problème de résolution de prix</Value>
         </locale_entry>
     </locale_space>
 </mt_config>

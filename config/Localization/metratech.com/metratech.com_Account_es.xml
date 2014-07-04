@@ -39,6 +39,10 @@
             <Value>Aplicar política de seguridad predeterminada</Value>
         </locale_entry>
         <locale_entry>
+            <Name>metratech.com/account/AuthenticationType</Name>
+            <Value>[ES]Authentication Type</Value>
+        </locale_entry>
+        <locale_entry>
             <Name>metratech.com/account/DayOfMonth</Name>
             <Value>Día del mes</Value>
         </locale_entry>
@@ -105,6 +109,18 @@
         <locale_entry>
             <Name>metratech.com/account/UserName</Name>
             <Value>Nombre de usuario</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/account/AccountTypeID</Name>
+            <Value>[ES]Account Type ID</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/account/CanHaveChildren</Name>
+            <Value>[ES]Can Have Children</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/account/HasLogonCapability</Name>
+            <Value>[ES]Has Logon Capability</Value>
         </locale_entry>
     </locale_space>
 </mt_config>

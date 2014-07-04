@@ -224,11 +224,11 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/InvoiceMethod/Standard</Name>
-            <Value>Standard</Value>
+            <Value>[IT]Standard</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/InvoiceMethod/StandardWithBillMessages</Name>
-            <Value>[IT] Standard With Bill Messages</Value>
+            <Value>[IT]Standard With Bill Messages</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/Language</Name>
@@ -332,7 +332,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/SecurityQuestion/FirstSchool</Name>
-            <Value>FirstSchool</Value>
+            <Value>[IT]What is the name of the first school you attended?</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/SecurityQuestion/MothersMaidenName</Name>
@@ -344,11 +344,11 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/SecurityQuestion/PIN</Name>
-            <Value>PIN</Value>
+            <Value>[IT]What was the name of your first car?</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/SecurityQuestion/SSN</Name>
-            <Value>SSN</Value>
+            <Value>[IT]What school did you attend for sixth grade?</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/startday</Name>

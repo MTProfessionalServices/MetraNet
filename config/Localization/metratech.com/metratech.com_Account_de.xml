@@ -39,6 +39,10 @@
             <Value>Standard Security Policy Zuweissen</Value>
         </locale_entry>
         <locale_entry>
+            <Name>metratech.com/account/AuthenticationType</Name>
+            <Value>[DE]Authentication Type</Value>
+        </locale_entry>
+        <locale_entry>
             <Name>metratech.com/account/DayOfMonth</Name>
             <Value>Tag des Monats</Value>
         </locale_entry>
@@ -105,6 +109,18 @@
         <locale_entry>
             <Name>metratech.com/account/UserName</Name>
             <Value>Benutzername</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/account/AccountTypeID</Name>
+            <Value>[DE]Account Type ID</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/account/CanHaveChildren</Name>
+            <Value>[DE]Can Have Children</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/account/HasLogonCapability</Name>
+            <Value>[DE]Has Logon Capability</Value>
         </locale_entry>
     </locale_space>
 </mt_config>

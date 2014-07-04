@@ -39,6 +39,10 @@
             <Value>デフォルト セキュリティ ポリシーの適用</Value>
         </locale_entry>
         <locale_entry>
+            <Name>metratech.com/account/AuthenticationType</Name>
+            <Value>[JA]Authentication Type</Value>
+        </locale_entry>
+        <locale_entry>
             <Name>metratech.com/account/DayOfMonth</Name>
             <Value>月の日付</Value>
         </locale_entry>
@@ -105,6 +109,18 @@
         <locale_entry>
             <Name>metratech.com/account/UserName</Name>
             <Value>ユーザ名</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/account/AccountTypeID</Name>
+            <Value>[JA]Account Type ID</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/account/CanHaveChildren</Name>
+            <Value>[JA]Can Have Children</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/account/HasLogonCapability</Name>
+            <Value>[JA]Has Logon Capability</Value>
         </locale_entry>
     </locale_space>
 </mt_config>

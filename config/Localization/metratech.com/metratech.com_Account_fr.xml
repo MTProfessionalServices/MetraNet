@@ -110,5 +110,17 @@
             <Name>metratech.com/account/UserName</Name>
             <Value>Nom d'utilisateur</Value>
         </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/account/AccountTypeID</Name>
+            <Value>[FR]Account Type ID</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/account/CanHaveChildren</Name>
+            <Value>[FR]Can Have Children</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/account/HasLogonCapability</Name>
+            <Value>[FR]Has Logon Capability</Value>
+        </locale_entry>
     </locale_space>
 </mt_config>

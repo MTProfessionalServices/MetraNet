@@ -16,11 +16,11 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Contact/City</Name>
-            <Value></Value>
+            <Value>City</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Contact/Company</Name>
-            <Value></Value>
+            <Value>Company</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Contact/ContactType</Name>
@@ -28,11 +28,11 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Contact/Country</Name>
-            <Value></Value>
+            <Value>Country</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Contact/Email</Name>
-            <Value></Value>
+            <Value>Email</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Contact/FacsimileTelephoneNumber</Name>
@@ -40,15 +40,15 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Contact/FirstName</Name>
-            <Value></Value>
+            <Value>First Name</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Contact/LastName</Name>
-            <Value></Value>
+            <Value>Last Name</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Contact/MiddleInitial</Name>
-            <Value></Value>
+            <Value>Middle Initial</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Contact/PassportID</Name>
@@ -60,15 +60,15 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Contact/PhoneNumber</Name>
-            <Value></Value>
+            <Value>Phone Number</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Contact/State</Name>
-            <Value>Start Year</Value>
+            <Value>State</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Contact/Zip</Name>
-            <Value>Zambia</Value>
+            <Value>Zip</Value>
         </locale_entry>
     </locale_space>
 </mt_config>

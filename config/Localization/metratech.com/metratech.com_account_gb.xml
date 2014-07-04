@@ -4,15 +4,15 @@
     <locale_space name="metratech.com/account">
         <locale_entry>
             <Name>metratech.com/account/_AccountID</Name>
-            <Value></Value>
+            <Value>Account Id</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/account/AccountEndDate</Name>
-            <Value></Value>
+            <Value>End Date</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/account/AccountStartDate</Name>
-            <Value></Value>
+            <Value>Start Date</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/account/AccountStatus</Name>
@@ -20,7 +20,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/account/AccountType</Name>
-            <Value></Value>
+            <Value>Account Type</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/account/AncestorAccount</Name>
@@ -68,11 +68,11 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/account/Password_</Name>
-            <Value></Value>
+            <Value>Password</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/account/PayerAccount</Name>
-            <Value></Value>
+            <Value>Payer</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/account/PayerAccountNS</Name>
@@ -96,19 +96,31 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/account/StartDay</Name>
-            <Value></Value>
-        </locale_entry>
-        <locale_entry>
-            <Name>metratech.com/account/StartMonth</Name>
             <Value>Start Day</Value>
         </locale_entry>
         <locale_entry>
+            <Name>metratech.com/account/StartMonth</Name>
+            <Value>Start Month</Value>
+        </locale_entry>
+        <locale_entry>
             <Name>metratech.com/account/StartYear</Name>
-            <Value></Value>
+            <Value>Start Year</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/account/UserName</Name>
-            <Value></Value>
+            <Value>User name</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/account/AccountTypeID</Name>
+            <Value>Account Type ID</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/account/CanHaveChildren</Name>
+            <Value>Can Have Children</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/account/HasLogonCapability</Name>
+            <Value>Has Logon Capability</Value>
         </locale_entry>
     </locale_space>
 </mt_config>

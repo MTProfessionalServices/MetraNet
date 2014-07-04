@@ -4,11 +4,11 @@
     <locale_space name="metratech.com/SystemAccountcreation">
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation</Name>
-            <Value>Syria</Value>
+            <Value>System Account Creation</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/_Accountid</Name>
-            <Value></Value>
+            <Value>Account ID</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/accountenddate</Name>
@@ -16,7 +16,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/accountstartdate</Name>
-            <Value></Value>
+            <Value>Account Start Date</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/AccountStatus</Name>
@@ -24,7 +24,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/systemaccountcreation/accounttype</Name>
-            <Value></Value>
+            <Value>Account Type</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/systemaccountcreation/actiontype</Name>
@@ -44,7 +44,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/ancestorAccount</Name>
-            <Value></Value>
+            <Value>Parent Account</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/ancestorAccountID</Name>
@@ -60,7 +60,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/ApplyDefaultSecurityPolicy</Name>
-            <Value>Apply Default Security Policy</Value>
+            <Value>Apply default security policy</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/billable</Name>
@@ -68,7 +68,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/city</Name>
-            <Value></Value>
+            <Value>City</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/company</Name>
@@ -80,11 +80,11 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/country</Name>
-            <Value></Value>
+            <Value>Country</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/currency</Name>
-            <Value></Value>
+            <Value>Currency</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/dayofmonth</Name>
@@ -108,7 +108,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/firstname</Name>
-            <Value></Value>
+            <Value>First Name</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/folder</Name>
@@ -124,15 +124,15 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/InvoiceMethod</Name>
-            <Value></Value>
+            <Value>Paper Invoice</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/Language</Name>
-            <Value></Value>
+            <Value>Language</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/lastname</Name>
-            <Value></Value>
+            <Value>Last Name</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/LoginApplication</Name>
@@ -140,7 +140,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/middleinitial</Name>
-            <Value></Value>
+            <Value>Middle Initial</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/name_space</Name>
@@ -152,11 +152,11 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/password_</Name>
-            <Value></Value>
+            <Value>Password</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/PaymentMethod</Name>
-            <Value></Value>
+            <Value>Payment Method</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/phonenumber</Name>
@@ -172,71 +172,71 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/SecurityAnswer</Name>
-            <Value></Value>
+            <Value>Security Answer</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/SecurityQuestion</Name>
-            <Value></Value>
+            <Value>Security Question</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/startday</Name>
-            <Value></Value>
+            <Value>Start Day</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/startmonth</Name>
-            <Value></Value>
+            <Value>Start Month</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/startyear</Name>
-            <Value></Value>
+            <Value>Start Year</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/state</Name>
-            <Value>State Tax Amount</Value>
+            <Value>State/Province</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/StatusReason</Name>
-            <Value></Value>
-        </locale_entry>
-        <locale_entry>
-            <Name>metratech.com/SystemAccountcreation/StatusReasonOther</Name>
             <Value>Status Reason</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/SystemAccountcreation/taxexempt</Name>
-            <Value>Tax Amount</Value>
+            <Name>metratech.com/SystemAccountcreation/StatusReasonOther</Name>
+            <Value>Status Reason Other</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/SystemAccountcreation/TaxExemptID</Name>
+            <Name>metratech.com/SystemAccountcreation/taxexempt</Name>
             <Value>Tax Exempt</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/SystemAccountcreation/timezoneID</Name>
-            <Value>Time of Credit</Value>
+            <Name>metratech.com/SystemAccountcreation/TaxExemptID</Name>
+            <Value>Tax Exempt ID</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/SystemAccountcreation/timezoneoffset</Name>
+            <Name>metratech.com/SystemAccountcreation/timezoneID</Name>
             <Value>Time Zone</Value>
         </locale_entry>
         <locale_entry>
+            <Name>metratech.com/SystemAccountcreation/timezoneoffset</Name>
+            <Value>Time Zone Offset</Value>
+        </locale_entry>
+        <locale_entry>
             <Name>metratech.com/SystemAccountcreation/transactioncookie</Name>
-            <Value>Total Units</Value>
+            <Value>Transaction Cookie</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/TruncateOldSubscriptions</Name>
-            <Value></Value>
+            <Value>Truncate Old Subscriptions</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/usagecycletype</Name>
-            <Value></Value>
+            <Value>Usage Cycle Type</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/systemaccountcreation/username</Name>
-            <Value></Value>
+            <Value>User Name</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/zip</Name>
-            <Value></Value>
+            <Value>ZIP/Postal Code</Value>
         </locale_entry>
     </locale_space>
 </mt_config>

@@ -56,19 +56,19 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/AccountCredit/GuideIntervalID</Name>
-            <Value>ID de l'intervalle de guidage</Value>
+            <Value>ID d'intervalle de guide</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/AccountCredit/IgnorePaymentRedirection</Name>
-            <Value>Ignorer le transfert de paiement</Value>
+            <Value>Ignorer réacheminement paiement</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/AccountCredit/InternalComment</Name>
-            <Value>[fr]Internal Description</Value>
+            <Value>Description interne</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/AccountCredit/InvoiceComment</Name>
-            <Value>[fr]Invoice Description</Value>
+            <Value>Description de la facture</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/AccountCredit/Issuer</Name>
@@ -76,7 +76,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/AccountCredit/NameSpace</Name>
-            <Value>Espace de nom</Value>
+            <Value>Espace de nommage</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/AccountCredit/Other</Name>
@@ -100,7 +100,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/AccountCredit/ResolveWithAccountIDFlag</Name>
-            <Value>Résoudre avec indicateur de compte</Value>
+            <Value>Résoudre avec ID de compte</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/AccountCredit/ReturnCode</Name>
@@ -108,7 +108,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/AccountCredit/Status</Name>
-            <Value>Statut</Value>
+            <Value>État</Value>
         </locale_entry>
     </locale_space>
 </mt_config>

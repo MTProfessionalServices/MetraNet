@@ -8,11 +8,11 @@
         </locale_entry>
         <!--<locale_entry>
             <Name>metratech.com/balanceadjustments/PaymentMethod/Cash</Name>
-            <Value>Espèces</Value>
+            <Value>Cash</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/balanceadjustments/PaymentMethod/Check</Name>
-            <Value>Chèque</Value>
+            <Value>Check</Value>
         </locale_entry>-->
         <locale_entry>
             <Name>metratech.com/balanceadjustments/PaymentMethod/CreditCard</Name>

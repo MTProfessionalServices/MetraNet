@@ -20,19 +20,19 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/flatrecurringcharge/ProratedDailyRate</Name>
-            <Value>Frais journaliers au prorata</Value>
+            <Value>Frais journaliers proportionnels</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/flatrecurringcharge/ProratedDays</Name>
-            <Value>Jours au prorata</Value>
+            <Value>Jours proportionnels</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/flatrecurringcharge/ProratedIntervalEnd</Name>
-            <Value>Fin de l'intervalle au prorata</Value>
+            <Value>Fin de l'intervalle proportionnel</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/flatrecurringcharge/ProratedIntervalStart</Name>
-            <Value>Début de l'intervalle au prorata</Value>
+            <Value>Début de l'intervalle proportionnel</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/flatrecurringcharge/ProratedOnSubscription</Name>

@@ -12,7 +12,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/endpointtestservice/CorporateNamespace</Name>
-            <Value>Espace de nom externe de l'entreprise</Value>
+            <Value>Espace de nommage externe de l'entreprise</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/endpointtestservice/DecProp1</Name>
@@ -36,7 +36,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/endpointtestservice/EndpointNamespace</Name>
-            <Value>Espace de nom externe du point limite</Value>
+            <Value>Espace de nommage externe du point limite</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/endpointtestservice/time</Name>

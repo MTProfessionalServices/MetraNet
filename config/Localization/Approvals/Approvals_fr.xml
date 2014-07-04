@@ -4,65 +4,63 @@
     <locale_space name="Approvals">
       <locale_entry>
         <Name>Approvals/ChangeType/AccountUpdate</Name>
-        <Value>[FR] Account Properties Update</Value>
+        <Value>Mise à jour des propriétés du compte</Value>
       </locale_entry>
       <locale_entry>
         <Name>Approvals/ChangeType/RateUpdate</Name>
-        <Value>[FR] Rate Schedule Rules Update</Value>
+        <Value>Mise à jour des règles de planification des taux</Value>
       </locale_entry>
       <locale_entry>
         <Name>Approvals/ChangeState/Pending</Name>
-        <Value>[FR] Pending</Value>
+        <Value>En attente</Value>
       </locale_entry>
       <locale_entry>
         <Name>Approvals/ChangeState/ApprovedWaitingToBeApplied</Name>
-        <Value>[FR] Approved Waiting to Be Applied</Value>
+        <Value>Approuvé, en attente d'application</Value>
       </locale_entry>
       <locale_entry>
         <Name>Approvals/ChangeState/FailedToApply</Name>
-        <Value>[FR] Failed to Apply</Value>
+        <Value>Échec de l'application</Value>
       </locale_entry>
       <locale_entry>
         <Name>Approvals/ChangeState/Applied</Name>
-        <Value>[FR] Applied</Value>
+        <Value>Appliqué</Value>
       </locale_entry>
       <locale_entry>
         <Name>Approvals/ChangeState/Dismissed</Name>
-        <Value>[FR] Dismissed</Value>
+        <Value>Ignoré</Value>
       </locale_entry>
       <locale_entry>
         <Name>Approvals/ChangeType/ProductOfferingUpdate</Name>
-        <Value>[FR] Product Offering Date Update</Value>
+        <Value>Mise à jour de la date de l'offre produit</Value>
       </locale_entry>
       <locale_entry>
         <Name>Approvals/ChangeType/Subscription.Add</Name>
-        <Value>[FR] New Subscription</Value>
+        <Value>Nouvel abonnement</Value>
       </locale_entry>
       <locale_entry>
         <Name>Approvals/ChangeType/Subscription.Update</Name>
-        <Value>[FR] Subscription Update</Value>
+        <Value>Mise à jour de l'abonnement</Value>
       </locale_entry>
       <locale_entry>
         <Name>Approvals/ChangeType/GroupSubscription.AddMemberHierarchies</Name>
-        <Value>[FR] Group Subscription: Add Member Hierarchy</Value>
+        <Value>Abonnement groupé : ajouter une hiérarchie de membres</Value>
       </locale_entry>
       <locale_entry>
         <Name>Approvals/ChangeType/GroupSubscription.AddMembers</Name>
-        <Value>[FR] Group Subscription: Add Member</Value>
+        <Value>Abonnement groupé : ajouter un membre</Value>
       </locale_entry>
       <locale_entry>
         <Name>Approvals/ChangeType/GroupSubscription.UnsubscribeMembers</Name>
-        <Value>[FR] Group Subscription: Unsubscribe Member</Value>
+        <Value>Abonnement groupé : désabonner un membre</Value>
       </locale_entry>
       <locale_entry>
         <Name>Approvals/ChangeType/GroupSubscription.UpdateMember</Name>
-        <Value>[FR] Group Subscription: Update Member</Value>
+        <Value>Abonnement groupé : mettre à jour un membre</Value>
       </locale_entry>
       <locale_entry>
         <Name>Approvals/ChangeType/GroupSubscription.DeleteMembers</Name>
-        <Value>[FR] Group Subscription: Delete Member</Value>
+        <Value>Abonnement groupé : supprimer un membre</Value>
       </locale_entry>
     </locale_space>
 </mt_config>
-
-

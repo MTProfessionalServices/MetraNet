@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <mt_config>
-    <language_code>fr</language_code>
+    <language_code>FR</language_code>
     <locale_space name="metratech.com/AccountCreditRequest">
         <locale_entry>
             <Name>metratech.com/AccountCreditRequest</Name>
@@ -44,7 +44,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreditrequest/guideintervalid</Name>
-            <Value>ID de l'intervalle de guidage</Value>
+            <Value>ID d'intervalle de guide</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/AccountCreditRequest/Other</Name>
@@ -56,7 +56,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/AccountCreditRequest/Status</Name>
-            <Value>Statut</Value>
+            <Value>État</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/AccountCreditRequest/SubscriberAccountID</Name>

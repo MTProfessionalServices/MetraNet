@@ -4,7 +4,7 @@
     <locale_space name="pipeline/error">
         <locale_entry>
             <Name>pipeline/error</Name>
-            <Value>Erreurs de système</Value>
+            <Value>Échecs système</Value>
         </locale_entry>
         <locale_entry>
             <Name>pipeline/error/Code</Name>
@@ -12,23 +12,23 @@
         </locale_entry>
         <locale_entry>
             <Name>pipeline/error/ErrorMessage</Name>
-            <Value>Messages d’erreur</Value>
+            <Value>Message d'erreur</Value>
         </locale_entry>
         <locale_entry>
             <Name>pipeline/error/FailureCompoundID</Name>
-            <Value>ID composé de l'erreur</Value>
+            <Value>Échec ID composé</Value>
         </locale_entry>
         <locale_entry>
             <Name>pipeline/error/FailureID</Name>
-            <Value>ID de l'erreur</Value>
+            <Value>Échec ID</Value>
         </locale_entry>
         <locale_entry>
             <Name>pipeline/error/FailureServiceName</Name>
-            <Value>Nom du Service erroné</Value>
+            <Value>Échec nom de service</Value>
         </locale_entry>
         <locale_entry>
             <Name>pipeline/error/FailureTime</Name>
-            <Value>Heure de l'erreur</Value>
+            <Value>Échec temps</Value>
         </locale_entry>
         <locale_entry>
             <Name>pipeline/error/Line</Name>
@@ -64,11 +64,11 @@
         </locale_entry>
         <locale_entry>
             <Name>pipeline/error/State</Name>
-            <Value>Département</Value>
+            <Value>État</Value>
         </locale_entry>
         <locale_entry>
             <Name>pipeline/error/tx_batch</Name>
-            <Value>Lot(s)</Value>
+            <Value>Lot</Value>
         </locale_entry>
     </locale_space>
 </mt_config>

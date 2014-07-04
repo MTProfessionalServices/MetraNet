@@ -48,23 +48,23 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/BillMessageType/FOOTER</Name>
-            <Value>FOOTER</Value>
+            <Value>Pied de page</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/BillMessageType/HEADER</Name>
-            <Value>HEADER</Value>
+            <Value>En-tête</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/BillMessageType/INSERT</Name>
-            <Value>INSERT</Value>
+            <Value>Insérer</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/BillMessageType/OTHER</Name>
-            <Value>OTHER</Value>
+            <Value>Autre</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/CountyTaxAmount</Name>
-            <Value>Montant de la taxe du Comté</Value>
+            <Value>Montant de la taxe appliquée par le pays</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/CreditCardType/American Express</Name>
@@ -76,7 +76,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/CreditCardType/Discover</Name>
-            <Value>Discover</Value>
+            <Value>Découvrir</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/CreditCardType/JCB</Name>
@@ -96,7 +96,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/CreditCardType/None</Name>
-            <Value>None</Value>
+            <Value>Aucun(e)</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/CreditCardType/Visa</Name>
@@ -112,7 +112,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/FederalTaxAmount</Name>
-            <Value>Montant de taxe fédérale</Value>
+            <Value>Montant de la taxe fédérale</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/GroupByLeaderNameView</Name>
@@ -124,7 +124,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/LocalTaxAmount</Name>
-            <Value>Montant de taxe locale</Value>
+            <Value>Montant de la taxe locale</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/mam/DayOfWeek/Friday</Name>
@@ -176,7 +176,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Position/Engineer</Name>
-            <Value>Ingénieur</Value>
+            <Value>Engineer</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Position/Executive</Name>
@@ -184,7 +184,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Position/Manager</Name>
-            <Value>Responsable</Value>
+            <Value>Directeur</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/PostbillAdjustmentAmount</Name>
@@ -196,39 +196,39 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/QuoteStatus/Actualized</Name>
-            <Value>[FR]Actualized</Value>
+            <Value>Actualisé</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/QuoteStatus/Complete</Name>
-            <Value>[FR]Complete</Value>
+            <Value>Terminé</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/QuoteStatus/Converted</Name>
-            <Value>[FR]Actualized</Value>
+            <Value>Converti</Value>
         </locale_entry>
         <locale_entry>
-            <Name>[FR]Failed</Name>
-            <Value>metratech.com/QuoteStatus/Failed</Value>
+            <Name>metratech.com/QuoteStatus/Failed</Name>
+            <Value>Échec</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/QuoteStatus/InProgress</Name>
-            <Value>[FR]InProgress</Value>
+            <Value>En cours</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/QuoteStatus/None</Name>
-            <Value>[FR]None</Value>
+            <Value>Aucun(e)</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SaleForceRelationship/Account Development</Name>
-            <Value>Développement de compte</Value>
+            <Value>Développement de comptes</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SaleForceRelationship/Account Executive</Name>
-            <Value>Responsable du compte</Value>
+            <Value>Responsable de compte</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SaleForceRelationship/Channel Manager</Name>
-            <Value>Responsable du réseau de distribution</Value>
+            <Value>Gestionnaire de canal</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SaleForceRelationship/Executive Sponsor</Name>
@@ -244,7 +244,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SaleForceRelationship/Project Manager</Name>
-            <Value>Responsable de projet</Value>
+            <Value>Chef de projet</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SaleForceRelationship/Sales Agent</Name>
@@ -268,7 +268,39 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/StateTaxAmount</Name>
-            <Value>Montant de la taxe d'état</Value>
+            <Value>Montant de la taxe appliquée par l'État</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/SubscriberCreditAccountRequestReason/BadService</Name>
+            <Value>Service faible</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/SubscriberCreditAccountRequestReason/DroppedCall</Name>
+            <Value>Appel abandonné</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/SubscriberCreditAccountRequestReason/GeneralDissatisfaction</Name>
+            <Value>Insatisfaction générale</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/SubscriberCreditAccountRequestReason/Other</Name>
+            <Value>Autre</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/SubscriberCreditAccountRequestReason/PoorConnection</Name>
+            <Value>Connexion faible</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/SubscriberCreditAccountRequestStatus/APPROVED</Name>
+            <Value>APPROUVÉ</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/SubscriberCreditAccountRequestStatus/DENIED</Name>
+            <Value>REFUSÉ</Value>
+        </locale_entry>
+        <locale_entry>
+            <Name>metratech.com/SubscriberCreditAccountRequestStatus/PENDING</Name>
+            <Value>EN ATTENTE</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/TaxAmount</Name>
@@ -280,23 +312,23 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/TransactionTypes/BeginDistributed</Name>
-            <Value>Commencer distribuée</Value>
+            <Value>En cours de distribution</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/TransactionTypes/BeginLocal</Name>
-            <Value>Commencer locale</Value>
+            <Value>Local</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/TransactionTypes/Commit</Name>
-            <Value>Exécuter</Value>
+            <Value>Engagement</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/TransactionTypes/JoinDistributed</Name>
-            <Value>Joindre distribuée</Value>
+            <Value>Distribué</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/ViewID</Name>
-            <Value>Afficher l'ID</Value>
+            <Value>Afficher ID</Value>
         </locale_entry>
     </locale_space>
 </mt_config>

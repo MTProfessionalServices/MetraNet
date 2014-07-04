@@ -80,7 +80,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/billingcycle/UsageCycleType/Quarterly</Name>
-            <Value>Tous les trimestres</Value>
+            <Value>Trimestriel</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/billingcycle/UsageCycleType/SemiAnnually</Name>

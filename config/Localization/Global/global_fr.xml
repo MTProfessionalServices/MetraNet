@@ -4,11 +4,11 @@
     <locale_space name="Global">
         <locale_entry>
             <Name>Global/AccessLevel/READ</Name>
-            <Value>READ</Value>
+            <Value>LECTURE</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/AccessLevel/WRITE</Name>
-            <Value>WRITE</Value>
+            <Value>ECRITURE</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/Application/Application/MAM</Name>
@@ -76,7 +76,7 @@
         </locale_entry>
         <locale_entry>
             <Name>Global/CountryName/American Samoa</Name>
-            <Value>Samoa (Etats-Unis)</Value>
+            <Value>Samoa (États-Unis)</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/CountryName/Andorra</Name>
@@ -456,19 +456,19 @@
         </locale_entry>
         <locale_entry>
             <Name>Global/CountryName/Inmarsat - East Atlantic Ocean</Name>
-            <Value>Inmarsat (Atlantique)</Value>
+            <Value>Inmarsat - Océan Atlantique Est</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/CountryName/Inmarsat - Indian Ocean</Name>
-            <Value>Inmarsat (Indien)</Value>
+            <Value>Inmarsat - Océan Indien</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/CountryName/Inmarsat - Pacific Ocean</Name>
-            <Value>Inmarsat (Pacifique)</Value>
+            <Value>Inmarsat - Océan Pacifique</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/CountryName/Inmarsat - West Atlantic Ocean</Name>
-            <Value>Inmarsat (Atlantique ouest)</Value>
+            <Value>Inmarsat - Océan Pacifique Ouest</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/CountryName/Iran</Name>
@@ -964,7 +964,7 @@
         </locale_entry>
         <locale_entry>
             <Name>Global/CountryName/USA</Name>
-            <Value>Etats-Unis</Value>
+            <Value>USA</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/CountryName/Uzbekistan</Name>
@@ -1040,19 +1040,19 @@
         </locale_entry>
         <locale_entry>
             <Name>Global/EntityType/AgreementTemplate</Name>
-            <Value>AgreementTemplate</Value>
+            <Value>Modèle d'accord</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/EntityType/ProductOffering</Name>
-            <Value>ProductOffering</Value>
+            <Value>Offre produit</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/LanguageCode/BR</Name>
-            <Value>Portuguese-Brazil</Value>
+            <Value>Portugais-Brésilien</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/LanguageCode/DA</Name>
-            <Value>Danish</Value>
+            <Value>Danois</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/LanguageCode/de</Name>
@@ -1060,7 +1060,7 @@
         </locale_entry>
         <locale_entry>
             <Name>Global/LanguageCode/ES</Name>
-            <Value>ES</Value>
+            <Value>Espagnol</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/LanguageCode/fr</Name>
@@ -1068,7 +1068,7 @@
         </locale_entry>
         <locale_entry>
             <Name>Global/LanguageCode/GB</Name>
-            <Value>Anglais</Value>
+            <Value>Anglais (Britannique)</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/LanguageCode/it</Name>
@@ -1080,7 +1080,7 @@
         </locale_entry>
         <locale_entry>
             <Name>Global/LanguageCode/MX</Name>
-            <Value>Spanish-Mexican</Value>
+            <Value>Espagnol-Mexicain</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/LanguageCode/us</Name>
@@ -1148,15 +1148,15 @@
         </locale_entry>
         <locale_entry>
             <Name>Global/PropertyType/boolean</Name>
-            <Value>boolean</Value>
+            <Value>booléen</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/PropertyType/datetime</Name>
-            <Value>datetime</Value>
+            <Value>Date/Heure</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/PropertyType/decimal</Name>
-            <Value>decimal</Value>
+            <Value>Valeur décimale</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/PropertyType/int</Name>
@@ -1164,11 +1164,11 @@
         </locale_entry>
         <locale_entry>
             <Name>Global/PropertyType/list</Name>
-            <Value>list</Value>
+            <Value>liste</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/PropertyType/string</Name>
-            <Value>string</Value>
+            <Value>chaîne</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT 03:00) Baghdad</Name>
@@ -1176,7 +1176,7 @@
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT) Greenwich Mean Time; Dublin, Edinburgh, London, Lisbon</Name>
-            <Value>Heure de Greenwich (GMT) ; Dublin, Edimbourg, Londres, Lisbonne</Value>
+            <Value>Heure de Greenwich (GMT) ; Dublin, Edimbourg, Londres, Lisbonne</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT) Monrovia, Casablanca</Name>
@@ -1212,19 +1212,19 @@
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT+03:00) Baghdad</Name>
-            <Value>(GMT+03:00) Baghdad</Value>
+            <Value>(GMT+03:00) Bagdad</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT+03:00) Kuwait, Nairobi, Riyadh</Name>
-            <Value>(GMT+03:00) Kuwait, Nairobi, Riyadh</Value>
+            <Value>(GMT+03:00) Kowait, Nairobi, Riyadh</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT+03:00) Kuwait, Riyadh, Nairobi</Name>
-            <Value>(GMT+03:00) Kuwait, Nairobi, Riyadh</Value>
+            <Value>(GMT+03:00) Kowait, Riyadh, Nairobi</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT+03:00) Moscow, St. Petersburg, Kazan, Volgograd</Name>
-            <Value>(GMT+03:00) Moscou, Saint-Pétersbourg, Kazan, Volgograd</Value>
+            <Value>(GMT+03:00) Moscou, Saint Petersbourg, Kazan, Volgograd</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT+03:30) Tehran</Name>
@@ -1232,7 +1232,7 @@
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT+04:00) Abu Dhabi, Muscat, Tbilisi</Name>
-            <Value>(GMT+04:00) Abu Dhabi, Muscat, Tbilissi</Value>
+            <Value>(GMT+04:00) Abu Dhabi, Muscat, Tbilisi</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT+04:30) Kabul</Name>
@@ -1240,7 +1240,7 @@
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT+05:00) Islamabad, Karachi, Ekaterinburg, Tashkent</Name>
-            <Value>(GMT+05:00) Islamabad, Karachi, Ekaterinbourg, Tachkent</Value>
+            <Value>(GMT+05:00) Islamabad, Karachi, Ekaterinbourg, Tashkent</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT+05:30) Bombay, Calcutta, Madras, New Delhi, Colombo</Name>
@@ -1248,7 +1248,7 @@
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT+06:00) Almaty, Dhaka</Name>
-            <Value>(GMT+06:00) Alma Ata, Dhaka</Value>
+            <Value>(GMT+06:00) Almaty, Dhaka</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT+07:00) Bangkok, Jakarta, Hanoi</Name>
@@ -1256,7 +1256,7 @@
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT+08:00) Beijing, Chongqing, Urumqi</Name>
-            <Value>(GMT+08:00) Beijing, Chongqoing, Urumchi</Value>
+            <Value>(GMT+08:00) Pékin, Chongqing, Urumqi</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT+08:00) Hong Kong, Perth, Singapore, Taipei</Name>
@@ -1264,11 +1264,11 @@
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT+09:00) Tokyo, Osaka, Sapporo, Seoul, Yakutsk</Name>
-            <Value>(GMT+09:00) Tokyo, Osaka, Sapporo, Séoul, Iakutsk</Value>
+            <Value>(GMT+09:00) Tokyo, Osaka, Sapporo, Seoul, Yakutsk</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT+09:30) Adelaide</Name>
-            <Value>(GMT+09:30) Adélaïde</Value>
+            <Value>(GMT+09:30) Adelaide</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT+09:30) Darwin</Name>
@@ -1284,7 +1284,7 @@
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT+10:00) Hobart</Name>
-            <Value>(GMT+10:00) Hobart</Value>
+            <Value>(GMT-10:00) Hobart</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT+10:00) Sydney, Melbourne</Name>
@@ -1292,11 +1292,11 @@
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT+11:00) Magadan, Solomon Is., New Caledonia</Name>
-            <Value>(GMT+11:00) Magadan, Iles Salomon, Nouvelle-Calédonie</Value>
+            <Value>(GMT+11:00) Magadan, Iles Solomon, Nouvelle Calédonie</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT+12:00) Fiji, Kamchatka, Marshall Is.</Name>
-            <Value>(GMT+12:00) Fidji, Kamtchatka, Iles Marshall</Value>
+            <Value>(GMT+12:00) Fiji, Kamchatka, Ile Marshall</Value>
         </locale_entry>
         <locale_entry>
             <Name>Global/TimeZoneID/(GMT+12:00) Wellington, Auckland</Name>

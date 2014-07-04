@@ -8,11 +8,11 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/tariffs/TariffID/ConferenceExpress</Name>
-            <Value>ConférenceExpress</Value>
+            <Value>ConferenceExpress</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/tariffs/TariffID/Default</Name>
-            <Value>Valeur par défaut</Value>
+            <Value>Par défaut</Value>
         </locale_entry>
     </locale_space>
 </mt_config>

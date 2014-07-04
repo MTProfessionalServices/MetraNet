@@ -4,7 +4,7 @@
     <locale_space name="metratech.com/defaultadjustmentdetail">
         <locale_entry>
             <Name>metratech.com/DefaultAdjustmentDetail</Name>
-            <Value>Détails de l’ajustement</Value>
+            <Value>Détails de l'ajustement</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/DefaultAdjustmentDetail/AdjustedAmount</Name>
@@ -32,23 +32,23 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/DefaultAdjustmentDetail/AdjustmentAmountWithTax</Name>
-            <Value>Montant d’ajustement avec taxe</Value>
+            <Value>Montant d'ajustement avec taxe</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/DefaultAdjustmentDetail/AdjustmentAmountWithTaxAsString</Name>
-            <Value>Montant d’ajustement avec taxe</Value>
+            <Value>Montant d'ajustement avec taxe</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/DefaultAdjustmentDetail/AdjustmentInstanceDisplayName</Name>
-            <Value>Nom d’affichage de l’instance d’ajustement</Value>
+            <Value>Nom d'affichage de l'instance d'ajustement</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/DefaultAdjustmentDetail/AdjustmentReason</Name>
-            <Value>Motif de l’ajustement</Value>
+            <Value>Motif de l'ajustement</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/DefaultAdjustmentDetail/AdjustmentTemplateDisplayName</Name>
-            <Value>Nom d’affichage du modèle d’ajustement</Value>
+            <Value>Nom d'affichage du modèle d'ajustement</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/DefaultAdjustmentDetail/CountyTax</Name>
@@ -76,7 +76,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/DefaultAdjustmentDetail/StateTax</Name>
-            <Value>Taxe appliquée par l’État</Value>
+            <Value>Taxe appliquée par l'État</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/DefaultAdjustmentDetail/UnadjustedAmount</Name>

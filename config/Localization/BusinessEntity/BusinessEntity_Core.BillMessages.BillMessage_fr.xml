@@ -4,19 +4,19 @@
     <locale_space name="BusinessEntity/Core.BillMessages.BillMessage">
         <locale_entry>
             <Name>BusinessEntity/Core.BillMessages.BillMessage/MessageCode/Label</Name>
-            <Value>Message Code</Value>
+            <Value>Code du message</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/Core.BillMessages.BillMessage/MessageFormat/Label</Name>
-            <Value>Message Format</Value>
+            <Value>Format du message</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/Core.BillMessages.BillMessage/MessageText/Label</Name>
-            <Value>Message Text</Value>
+            <Value>Texte du message</Value>
         </locale_entry>
         <locale_entry>
             <Name>BusinessEntity/Core.BillMessages.BillMessage/MessageType/Label</Name>
-            <Value>Message Type</Value>
+            <Value>Type du message</Value>
         </locale_entry>
     </locale_space>
 </mt_config>

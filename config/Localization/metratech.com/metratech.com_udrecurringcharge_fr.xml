@@ -4,7 +4,7 @@
     <locale_space name="metratech.com/udrecurringcharge">
         <locale_entry>
             <Name>metratech.com/udrecurringcharge</Name>
-            <Value>Frais récurrents dépendant de l’unité</Value>
+            <Value>Frais récurrents en fonction de l'unité</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/udrecurringcharge/Advance</Name>
@@ -20,19 +20,19 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/udrecurringcharge/ProratedDailyRate</Name>
-            <Value>Frais journaliers au prorata</Value>
+            <Value>Frais journaliers proportionnels</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/udrecurringcharge/ProratedDays</Name>
-            <Value>Jours au prorata</Value>
+            <Value>Jours proportionnels</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/udrecurringcharge/ProratedIntervalEnd</Name>
-            <Value>Fin de l'intervalle au prorata</Value>
+            <Value>Fin de l'intervalle proportionnel</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/udrecurringcharge/ProratedIntervalStart</Name>
-            <Value>Début de l'intervalle au prorata</Value>
+            <Value>Début de l'intervalle proportionnel</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/udrecurringcharge/ProratedOnSubscription</Name>

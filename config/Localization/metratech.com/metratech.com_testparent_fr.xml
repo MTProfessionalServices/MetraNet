@@ -4,7 +4,7 @@
     <locale_space name="metratech.com/testparent">
         <locale_entry>
             <Name>metratech.com/testparent</Name>
-            <Value>Parent pour test</Value>
+            <Value>Test principal</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/testparent/description</Name>

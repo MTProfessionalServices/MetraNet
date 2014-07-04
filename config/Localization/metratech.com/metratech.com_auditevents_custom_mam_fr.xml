@@ -4,7 +4,7 @@
     <locale_space name="metratech.com/auditevents/custom/mam">
         <locale_entry>
             <Name>metratech.com/auditevents/custom/mam/note</Name>
-            <Value>Notation du conseiller</Value>
+            <Value>Notation CSR</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/custom/mam/telephone</Name>

@@ -131,6 +131,6 @@
     <value>[JA]</value>
   </data>
   <data name="TEXT_QUESTION" xml:space="preserve">
-    <value>[JA] {0} {1}</value>
+    <value>[JA]{0} {1}</value>
   </data>
 </root>

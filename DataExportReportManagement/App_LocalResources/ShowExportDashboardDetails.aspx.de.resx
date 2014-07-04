@@ -120,6 +120,12 @@
   <data name="lblShowExportDashboardDetailsTitleResource1.Text" xml:space="preserve">
     <value>Übersichtsseite für Datenexport-Framework</value>
   </data>
+  <data name="lblShowExportDashboardDetailsTitleResource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="MyGrid1Resource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>Übersichtsseite für Datenexport-Framework</value>
   </data>
@@ -134,6 +140,9 @@
   </data>
   <data name="TEXT_DEF_LAST_RUN_DATE" xml:space="preserve">
     <value>Letztes Ausführungsdatum</value>
+  </data>
+  <data name="TEXT_DEF_NAME" xml:space="preserve">
+    <value>Name</value>
   </data>
   <data name="TEXT_DEF_NEXT_RUN_DATE" xml:space="preserve">
     <value>Datum der nächsten Ausführung</value>

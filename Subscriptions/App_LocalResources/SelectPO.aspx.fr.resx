@@ -133,7 +133,7 @@
     <value>Sélectionner une offre produit</value>
   </data>
   <data name="HasDiscounts.HeaderText" xml:space="preserve">
-    <value>Remises</value>
+    <value>Remise(s)</value>
   </data>
   <data name="HasRecurringCharges.HeaderText" xml:space="preserve">
     <value>Frais récurr.</value>
@@ -160,6 +160,6 @@
     <value>Date de début</value>
   </data>
   <data name="TEXT_PartitionID" xml:space="preserve">
-    <value>[FR]Partition Id</value>
+    <value>ID de partition</value>
   </data>
 </root>

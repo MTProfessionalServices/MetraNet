@@ -120,8 +120,17 @@
   <data name="lblManageReportInstanceSchedulesTitleResource1.Text" xml:space="preserve">
     <value>Gérer le calendrier des instances de rapport</value>
   </data>
+  <data name="lblManageReportInstanceSchedulesTitleResource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="MyGrid1Resource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>Gérer le calendrier des instances de rapport</value>
+  </data>
+  <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
+    <value>Description</value>
   </data>
   <data name="TEXT_DEF_SCHEDULE_ID" xml:space="preserve">
     <value>ID du calendrier</value>

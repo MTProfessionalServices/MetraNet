@@ -139,7 +139,7 @@
     <value>[pt-BR]</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_GENERATED_CHARGE" xml:space="preserve">
-    <value>[pt-BR] '{0}'</value>
+    <value>[pt-BR]'{0}'</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_GENERATED_CHARGE_ACTION" xml:space="preserve">
     <value>[pt-BR]</value>
@@ -148,7 +148,7 @@
     <value>[pt-BR]</value>
   </data>
   <data name="TEXT_ERROR_CREATE_GENERATED_CHARGE" xml:space="preserve">
-    <value>[pt-BR] '{0}'</value>
+    <value>[pt-BR]'{0}'</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>[pt-BR]</value>

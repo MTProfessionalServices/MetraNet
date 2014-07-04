@@ -157,7 +157,7 @@
     <value>ID sessione conflitto</value>
   </data>
   <data name="TEXT_COUNTY_AMOUNT" xml:space="preserve">
-    <value>[it] Tax County</value>
+    <value>[IT]Tax County</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
     <value>Valuta</value>
@@ -172,7 +172,7 @@
     <value>Continuare?  Verranno escluse tutte le rettifiche che soddisfano i criteri impostati per i filtri.  Se non ci sono filtri, verranno escluse tutte le rettifiche.</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>[it] Internal Descrizione</value>
+    <value>[IT]Internal Descrizione</value>
   </data>
   <data name="TEXT_EMAIL_ADDRESS" xml:space="preserve">
     <value>Indirizzo e-mail</value>
@@ -184,7 +184,7 @@
     <value>Si è verificato un errore durante l'elaborazione della rettifica varia.</value>
   </data>
   <data name="TEXT_FEDERAL_AMOUNT" xml:space="preserve">
-    <value>[it] Tax Federal</value>
+    <value>[IT]Tax Federal</value>
   </data>
   <data name="TEXT_GUIDE_INTERVAL_ID" xml:space="preserve">
     <value>ID intervallo guida</value>
@@ -193,7 +193,7 @@
     <value>ID intervallo</value>
   </data>
   <data name="TEXT_LOCAL_AMOUNT" xml:space="preserve">
-    <value>[it] Tax Local</value>
+    <value>[IT]Tax Local</value>
   </data>
   <data name="TEXT_NO_IDS" xml:space="preserve">
     <value>Selezionare le rettifiche da elaborare.</value>
@@ -202,7 +202,7 @@
     <value>Altro</value>
   </data>
   <data name="TEXT_OTHER_AMOUNT" xml:space="preserve">
-    <value>[it] Tax Other</value>
+    <value>[IT]Tax Other</value>
   </data>
   <data name="TEXT_PENDING_STATUS" xml:space="preserve">
     <value>In sospeso</value>
@@ -217,7 +217,7 @@
     <value>Tipo sessione</value>
   </data>
   <data name="TEXT_STATE_AMOUNT" xml:space="preserve">
-    <value>[it] Tax State</value>
+    <value>[IT]Tax State</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
     <value>Stato</value>

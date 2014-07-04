@@ -131,6 +131,6 @@
     <value>[DE]</value>
   </data>
   <data name="TEXT_QUESTION" xml:space="preserve">
-    <value>[DE] {0} {1}</value>
+    <value>[DE]{0} {1}</value>
   </data>
 </root>

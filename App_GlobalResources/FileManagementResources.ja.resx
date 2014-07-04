@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,335 +59,335 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-        <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
             <xsd:complexType>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="metadata">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string" />
-                            <xsd:attribute name="type" type="xsd:string" />
-                            <xsd:attribute name="mimetype" type="xsd:string" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="assembly">
-                        <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string" />
-                            <xsd:attribute name="name" type="xsd:string" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="data">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="resheader">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" />
-                        </xsd:complexType>
-                    </xsd:element>
-                </xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="ARGUMENT_CONDITIONAL" xml:space="preserve">
-        <value>条件付き</value>
-    </data>
-    <data name="ARGUMENT_FILTER" xml:space="preserve">
-        <value>引数フィルタ</value>
-    </data>
-    <data name="ARGUMENT_FORMAT" xml:space="preserve">
-        <value>形式</value>
-    </data>
-    <data name="ARGUMENT_GRID_TITLE" xml:space="preserve">
-        <value>引数</value>
-    </data>
-    <data name="ARGUMENT_ORDER" xml:space="preserve">
-        <value>注文</value>
-    </data>
-    <data name="ARGUMENT_PANEL_TITLE" xml:space="preserve">
-        <value>プロパティ</value>
-    </data>
-    <data name="ARGUMENT_TITLE" xml:space="preserve">
-        <value>引数のプロパティ</value>
-    </data>
-    <data name="ASSEMBLY_TITLE" xml:space="preserve">
-        <value>[JA]Assembly</value>
-    </data>
-    <data name="DETAIL_COMMAND" xml:space="preserve">
-        <value>発行されたコマンド</value>
-    </data>
-    <data name="DETAIL_CURRENT_ERROR_CODE" xml:space="preserve">
-        <value>現在のエラー コード</value>
-    </data>
-    <data name="DETAIL_CURRENT_ERROR_MESSAGE" xml:space="preserve">
-        <value>[JA]Current Error Message</value>
-    </data>
-    <data name="DETAIL_CURRENT_STATE" xml:space="preserve">
-        <value>現在の状態</value>
-    </data>
-    <data name="DETAIL_DO_RETRY" xml:space="preserve">
-        <value>ジョブを再度実行してください</value>
-    </data>
-    <data name="DETAIL_FILES" xml:space="preserve">
-        <value>ファイル</value>
-    </data>
-    <data name="DETAIL_METRAFLOW_HISTORY" xml:space="preserve">
-        <value>MetraFlow 実行詳細の取得</value>
-    </data>
-    <data name="DETAIL_STATE_HISTORY" xml:space="preserve">
-        <value>状態履歴の詳細</value>
-    </data>
-    <data name="DETAIL_STATE_HISTORY_DATE" xml:space="preserve">
-        <value>日付</value>
-    </data>
-    <data name="DETAIL_STATE_HISTORY_STATE" xml:space="preserve">
-        <value>都道府県</value>
-    </data>
-    <data name="DETAIL_TARGET" xml:space="preserve">
-        <value>対象</value>
-    </data>
-    <data name="DETAIL_TITLE" xml:space="preserve">
-        <value>詳細なジョブ報告書</value>
-    </data>
-    <data name="DETAIL_WAS_MARKED_FOR_RETRY" xml:space="preserve">
-        <value>再試行としてマークされました</value>
-    </data>
-    <data name="FILE_DATE" xml:space="preserve">
-        <value>日付</value>
-    </data>
-    <data name="FILE_ERROR_MESSAGE" xml:space="preserve">
-        <value>[JA]Error Message</value>
-    </data>
-    <data name="FILE_GENERAL_TITLE" xml:space="preserve">
-        <value>ファイル</value>
-    </data>
-    <data name="FILE_NAME" xml:space="preserve">
-        <value>名前</value>
-    </data>
-    <data name="FILE_PENDING_TITLE" xml:space="preserve">
-        <value>ファイルの保留</value>
-    </data>
-    <data name="FILE_REJECT_REASON" xml:space="preserve">
-        <value>拒否理由</value>
-    </data>
-    <data name="FILE_REJECTED_TITLE" xml:space="preserve">
-        <value>拒否されたファイル</value>
-    </data>
-    <data name="FILE_RETRY_HINT" xml:space="preserve">
-        <value>このファイルを再度処理してください。</value>
-    </data>
-    <data name="FILE_RETRY_MESSAGE" xml:space="preserve">
-        <value>このファイルを再試行しますか?</value>
-    </data>
-    <data name="FILE_RETRY_TITLE" xml:space="preserve">
-        <value>再試行</value>
-    </data>
-    <data name="FILE_STATE" xml:space="preserve">
-        <value>都道府県</value>
-    </data>
-    <data name="FILE_TITLE" xml:space="preserve">
-        <value>ファイル</value>
-    </data>
-    <data name="GLOBAL_ACTIVE_DIR" xml:space="preserve">
-        <value>[JA]Active Directory</value>
-    </data>
-    <data name="GLOBAL_COMPLETED_DIR" xml:space="preserve">
-        <value>完了したディレクトリ</value>
-    </data>
-    <data name="GLOBAL_FAILED_DIR" xml:space="preserve">
-        <value>失敗したディレクトリ</value>
-    </data>
-    <data name="GLOBAL_INCOMING_DIR" xml:space="preserve">
-        <value>受信ディレクトリ</value>
-    </data>
-    <data name="GLOBAL_INCOMING_DIR_HELP" xml:space="preserve">
-        <value>受信ディレクトリは、ファイル ランディング サービス (FLS) が実行されているシステムに配置されている必要があります。サーバー名を入力しないでください。たとえば、FLS が MNServer3 の D:\\IncomingFLS で実行されている場合、D:\\IncomingFLS と入力します。</value>
-    </data>
-    <data name="GLOBAL_PANEL_TITLE" xml:space="preserve">
-        <value>ファイル管理のグローバル</value>
-    </data>
-    <data name="GLOBAL_RESCAN_INTERVAL" xml:space="preserve">
-        <value>秒単位の再スキャン間隔</value>
-    </data>
-    <data name="GLOBAL_TITLE" xml:space="preserve">
-        <value>グローバル</value>
-    </data>
-    <data name="JOB_ACTIVE_TITLE" xml:space="preserve">
-        <value>ファイル管理の有効なジョブ</value>
-    </data>
-    <data name="JOB_ALL_TITLE" xml:space="preserve">
-        <value>ファイル管理のすべてのジョブ</value>
-    </data>
-    <data name="JOB_BATCH_ID" xml:space="preserve">
-        <value>バッチ ID</value>
-    </data>
-    <data name="JOB_COMPLETED_TITLE" xml:space="preserve">
-        <value>ファイル管理の完了したジョブ</value>
-    </data>
-    <data name="JOB_CONTROL_NUMBER" xml:space="preserve">
-        <value>制御番号</value>
-    </data>
-    <data name="JOB_DATE" xml:space="preserve">
-        <value>日付</value>
-    </data>
-    <data name="JOB_ERROR_CODE" xml:space="preserve">
-        <value>エラー コード</value>
-    </data>
-    <data name="JOB_FAILED_TITLE" xml:space="preserve">
-        <value>ファイル管理の失敗したジョブ</value>
-    </data>
-    <data name="JOB_GRID_GENERAL_TITLE" xml:space="preserve">
-        <value>ジョブ</value>
-    </data>
-    <data name="JOB_PAST_TWO_DAYS_TITLE" xml:space="preserve">
-        <value>過去 2 日以内のファイル管理ジョブ</value>
-    </data>
-    <data name="JOB_PAST_WEEK_TITLE" xml:space="preserve">
-        <value>過去 1 週間以内のファイル管理ジョブ</value>
-    </data>
-    <data name="JOB_STATE" xml:space="preserve">
-        <value>都道府県</value>
-    </data>
-    <data name="JOB_TITLE" xml:space="preserve">
-        <value>ジョブ</value>
-    </data>
-    <data name="JOB_TRACKING_ID" xml:space="preserve">
-        <value>追跡 ID</value>
-    </data>
-    <data name="METRAFLOW_HISTORY_DESCRIPTION" xml:space="preserve">
-        <value>内容</value>
-    </data>
-    <data name="METRAFLOW_HISTORY_ENDING_TIME" xml:space="preserve">
-        <value>終了時刻</value>
-    </data>
-    <data name="METRAFLOW_HISTORY_INSTRUCTION_NO" xml:space="preserve">
-        <value>手順番号</value>
-    </data>
-    <data name="METRAFLOW_HISTORY_SEQ_NO" xml:space="preserve">
-        <value>シーケンス番号</value>
-    </data>
-    <data name="METRAFLOW_HISTORY_STARTING_TIME" xml:space="preserve">
-        <value>開始時刻</value>
-    </data>
-    <data name="METRAFLOW_HISTORY_TITLE" xml:space="preserve">
-        <value>MetraFlow の設定手順ログ</value>
-    </data>
-    <data name="PROGRAM_CODE_TITLE" xml:space="preserve">
-        <value>プログラム コード</value>
-    </data>
-    <data name="SERVICE_HOST_TITLE" xml:space="preserve">
-        <value>サービス ホスト</value>
-    </data>
-    <data name="SUCCESSFUL_SAVE" xml:space="preserve">
-        <value>正常に保存されました。</value>
-    </data>
-    <data name="TARGET_ACTION" xml:space="preserve">
-        <value>処理</value>
-    </data>
-    <data name="TARGET_ADD" xml:space="preserve">
-        <value>追加</value>
-    </data>
-    <data name="TARGET_DESCRIPTION" xml:space="preserve">
-        <value>内容</value>
-    </data>
-    <data name="TARGET_EXECUTABLE" xml:space="preserve">
-        <value>実行可能</value>
-    </data>
-    <data name="TARGET_FILTER" xml:space="preserve">
-        <value>対象フィルタ</value>
-    </data>
-    <data name="TARGET_GRID_TITLE" xml:space="preserve">
-        <value>ファイル管理の対象</value>
-    </data>
-    <data name="TARGET_MISSING_DATAFILE_ARG" xml:space="preserve">
-        <value>警告:この対象には、データファイルの引数がありません。</value>
-    </data>
-    <data name="TARGET_NAME" xml:space="preserve">
-        <value>名前</value>
-    </data>
-    <data name="TARGET_TITLE" xml:space="preserve">
-        <value>対象</value>
-    </data>
-    <data name="TEXT_ACTIONS" xml:space="preserve">
-        <value>処理</value>
-    </data>
-    <data name="TEXT_ADD" xml:space="preserve">
-        <value>追加</value>
-    </data>
-    <data name="TEXT_ADD_BME" xml:space="preserve">
-        <value>追加</value>
-    </data>
-    <data name="TEXT_BE" xml:space="preserve">
-        <value>BE</value>
-    </data>
-    <data name="TEXT_CONDITIONAL_FLAG" xml:space="preserve">
-        <value>条件付きフラグ</value>
-    </data>
-    <data name="TEXT_EDIT_BE" xml:space="preserve">
-        <value>BE の編集</value>
-    </data>
-    <data name="TEXT_FORMAT" xml:space="preserve">
-        <value>形式</value>
-    </data>
-    <data name="TEXT_INTERNAL_ERROR" xml:space="preserve">
-        <value>内部エラーが発生しました。</value>
-    </data>
-    <data name="TEXT_INTERNAL_ID" xml:space="preserve">
-        <value>内部 ID</value>
-    </data>
-    <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
-        <value>記録が見つかりません</value>
-    </data>
-    <data name="TEXT_ORDER" xml:space="preserve">
-        <value>注文</value>
-    </data>
-    <data name="TEXT_REGEX" xml:space="preserve">
-        <value>ファイル</value>
-    </data>
-    <data name="TEXT_RESCAN_INTERVAL_ERROR" xml:space="preserve">
-        <value>再スキャン間隔は 2 ～ 86400 とする必要があります。</value>
-    </data>
-    <data name="TEXT_RETRIEVE_FILE_DETAILS_ERROR" xml:space="preserve">
-        <value>ファイルの詳細の取得でエラーが発生しました。</value>
-    </data>
-    <data name="TEXT_RETRIEVE_HISTORY_DETAILS_RUN_ERROR" xml:space="preserve">
-        <value>この実行の履歴の詳細を取得できません。</value>
-    </data>
-    <data name="TEXT_RETRIEVE_RUN_DETAILS_ERROR" xml:space="preserve">
-        <value>この実行の詳細を取得できません。</value>
-    </data>
-    <data name="TEXT_RETRIEVE_TARGET_DETAILS_ERROR" xml:space="preserve">
-        <value>対象の詳細の取得でエラーが発生しました。</value>
-    </data>
-    <data name="TEXT_UNABLE_RETRIEVE_FILE_DETAILS_ERROR" xml:space="preserve">
-        <value>ファイルの詳細を取得できません。</value>
-    </data>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ARGUMENT_CONDITIONAL" xml:space="preserve">
+    <value>条件付き</value>
+  </data>
+  <data name="ARGUMENT_FILTER" xml:space="preserve">
+    <value>引数フィルタ</value>
+  </data>
+  <data name="ARGUMENT_FORMAT" xml:space="preserve">
+    <value>形式</value>
+  </data>
+  <data name="ARGUMENT_GRID_TITLE" xml:space="preserve">
+    <value>引数</value>
+  </data>
+  <data name="ARGUMENT_ORDER" xml:space="preserve">
+    <value>注文</value>
+  </data>
+  <data name="ARGUMENT_PANEL_TITLE" xml:space="preserve">
+    <value>プロパティ</value>
+  </data>
+  <data name="ARGUMENT_TITLE" xml:space="preserve">
+    <value>引数のプロパティ</value>
+  </data>
+  <data name="ASSEMBLY_TITLE" xml:space="preserve">
+    <value>[JA]Assembly</value>
+  </data>
+  <data name="DETAIL_COMMAND" xml:space="preserve">
+    <value>発行されたコマンド</value>
+  </data>
+  <data name="DETAIL_CURRENT_ERROR_CODE" xml:space="preserve">
+    <value>現在のエラー コード</value>
+  </data>
+  <data name="DETAIL_CURRENT_ERROR_MESSAGE" xml:space="preserve">
+    <value>[JA]Current Error Message</value>
+  </data>
+  <data name="DETAIL_CURRENT_STATE" xml:space="preserve">
+    <value>現在の状態</value>
+  </data>
+  <data name="DETAIL_DO_RETRY" xml:space="preserve">
+    <value>ジョブを再度実行してください</value>
+  </data>
+  <data name="DETAIL_FILES" xml:space="preserve">
+    <value>ファイル</value>
+  </data>
+  <data name="DETAIL_METRAFLOW_HISTORY" xml:space="preserve">
+    <value>MetraFlow 実行詳細の取得</value>
+  </data>
+  <data name="DETAIL_STATE_HISTORY" xml:space="preserve">
+    <value>状態履歴の詳細</value>
+  </data>
+  <data name="DETAIL_STATE_HISTORY_DATE" xml:space="preserve">
+    <value>日付</value>
+  </data>
+  <data name="DETAIL_STATE_HISTORY_STATE" xml:space="preserve">
+    <value>都道府県</value>
+  </data>
+  <data name="DETAIL_TARGET" xml:space="preserve">
+    <value>対象</value>
+  </data>
+  <data name="DETAIL_TITLE" xml:space="preserve">
+    <value>詳細なジョブ報告書</value>
+  </data>
+  <data name="DETAIL_WAS_MARKED_FOR_RETRY" xml:space="preserve">
+    <value>再試行としてマークされました</value>
+  </data>
+  <data name="FILE_DATE" xml:space="preserve">
+    <value>日付</value>
+  </data>
+  <data name="FILE_ERROR_MESSAGE" xml:space="preserve">
+    <value>[JA]Error Message</value>
+  </data>
+  <data name="FILE_GENERAL_TITLE" xml:space="preserve">
+    <value>ファイル</value>
+  </data>
+  <data name="FILE_NAME" xml:space="preserve">
+    <value>名前</value>
+  </data>
+  <data name="FILE_PENDING_TITLE" xml:space="preserve">
+    <value>ファイルの保留</value>
+  </data>
+  <data name="FILE_REJECT_REASON" xml:space="preserve">
+    <value>拒否理由</value>
+  </data>
+  <data name="FILE_REJECTED_TITLE" xml:space="preserve">
+    <value>拒否されたファイル</value>
+  </data>
+  <data name="FILE_RETRY_HINT" xml:space="preserve">
+    <value>このファイルを再度処理してください。</value>
+  </data>
+  <data name="FILE_RETRY_MESSAGE" xml:space="preserve">
+    <value>このファイルを再試行しますか?</value>
+  </data>
+  <data name="FILE_RETRY_TITLE" xml:space="preserve">
+    <value>再試行</value>
+  </data>
+  <data name="FILE_STATE" xml:space="preserve">
+    <value>都道府県</value>
+  </data>
+  <data name="FILE_TITLE" xml:space="preserve">
+    <value>ファイル</value>
+  </data>
+  <data name="GLOBAL_ACTIVE_DIR" xml:space="preserve">
+    <value>[JA]Active Directory</value>
+  </data>
+  <data name="GLOBAL_COMPLETED_DIR" xml:space="preserve">
+    <value>完了したディレクトリ</value>
+  </data>
+  <data name="GLOBAL_FAILED_DIR" xml:space="preserve">
+    <value>失敗したディレクトリ</value>
+  </data>
+  <data name="GLOBAL_INCOMING_DIR" xml:space="preserve">
+    <value>受信ディレクトリ</value>
+  </data>
+  <data name="GLOBAL_INCOMING_DIR_HELP" xml:space="preserve">
+    <value>受信ディレクトリは、ファイル ランディング サービス (FLS) が実行されているシステムに配置されている必要があります。サーバー名を入力しないでください。たとえば、FLS が MNServer3 の D:\\IncomingFLS で実行されている場合、D:\\IncomingFLS と入力します。</value>
+  </data>
+  <data name="GLOBAL_PANEL_TITLE" xml:space="preserve">
+    <value>ファイル管理のグローバル</value>
+  </data>
+  <data name="GLOBAL_RESCAN_INTERVAL" xml:space="preserve">
+    <value>秒単位の再スキャン間隔</value>
+  </data>
+  <data name="GLOBAL_TITLE" xml:space="preserve">
+    <value>グローバル</value>
+  </data>
+  <data name="JOB_ACTIVE_TITLE" xml:space="preserve">
+    <value>ファイル管理の有効なジョブ</value>
+  </data>
+  <data name="JOB_ALL_TITLE" xml:space="preserve">
+    <value>ファイル管理のすべてのジョブ</value>
+  </data>
+  <data name="JOB_BATCH_ID" xml:space="preserve">
+    <value>バッチ ID</value>
+  </data>
+  <data name="JOB_COMPLETED_TITLE" xml:space="preserve">
+    <value>ファイル管理の完了したジョブ</value>
+  </data>
+  <data name="JOB_CONTROL_NUMBER" xml:space="preserve">
+    <value>制御番号</value>
+  </data>
+  <data name="JOB_DATE" xml:space="preserve">
+    <value>日付</value>
+  </data>
+  <data name="JOB_ERROR_CODE" xml:space="preserve">
+    <value>エラー コード</value>
+  </data>
+  <data name="JOB_FAILED_TITLE" xml:space="preserve">
+    <value>ファイル管理の失敗したジョブ</value>
+  </data>
+  <data name="JOB_GRID_GENERAL_TITLE" xml:space="preserve">
+    <value>ジョブ</value>
+  </data>
+  <data name="JOB_PAST_TWO_DAYS_TITLE" xml:space="preserve">
+    <value>過去 2 日以内のファイル管理ジョブ</value>
+  </data>
+  <data name="JOB_PAST_WEEK_TITLE" xml:space="preserve">
+    <value>過去 1 週間以内のファイル管理ジョブ</value>
+  </data>
+  <data name="JOB_STATE" xml:space="preserve">
+    <value>都道府県</value>
+  </data>
+  <data name="JOB_TITLE" xml:space="preserve">
+    <value>ジョブ</value>
+  </data>
+  <data name="JOB_TRACKING_ID" xml:space="preserve">
+    <value>追跡 ID</value>
+  </data>
+  <data name="METRAFLOW_HISTORY_DESCRIPTION" xml:space="preserve">
+    <value>内容</value>
+  </data>
+  <data name="METRAFLOW_HISTORY_ENDING_TIME" xml:space="preserve">
+    <value>終了時刻</value>
+  </data>
+  <data name="METRAFLOW_HISTORY_INSTRUCTION_NO" xml:space="preserve">
+    <value>手順番号</value>
+  </data>
+  <data name="METRAFLOW_HISTORY_SEQ_NO" xml:space="preserve">
+    <value>シーケンス番号</value>
+  </data>
+  <data name="METRAFLOW_HISTORY_STARTING_TIME" xml:space="preserve">
+    <value>開始時刻</value>
+  </data>
+  <data name="METRAFLOW_HISTORY_TITLE" xml:space="preserve">
+    <value>MetraFlow の設定手順ログ</value>
+  </data>
+  <data name="PROGRAM_CODE_TITLE" xml:space="preserve">
+    <value>プログラム コード</value>
+  </data>
+  <data name="SERVICE_HOST_TITLE" xml:space="preserve">
+    <value>サービス ホスト</value>
+  </data>
+  <data name="SUCCESSFUL_SAVE" xml:space="preserve">
+    <value>正常に保存されました。</value>
+  </data>
+  <data name="TARGET_ACTION" xml:space="preserve">
+    <value>処理</value>
+  </data>
+  <data name="TARGET_ADD" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="TARGET_DESCRIPTION" xml:space="preserve">
+    <value>内容</value>
+  </data>
+  <data name="TARGET_EXECUTABLE" xml:space="preserve">
+    <value>実行可能</value>
+  </data>
+  <data name="TARGET_FILTER" xml:space="preserve">
+    <value>対象フィルタ</value>
+  </data>
+  <data name="TARGET_GRID_TITLE" xml:space="preserve">
+    <value>ファイル管理の対象</value>
+  </data>
+  <data name="TARGET_MISSING_DATAFILE_ARG" xml:space="preserve">
+    <value>警告:この対象には、データファイルの引数がありません。</value>
+  </data>
+  <data name="TARGET_NAME" xml:space="preserve">
+    <value>名前</value>
+  </data>
+  <data name="TARGET_TITLE" xml:space="preserve">
+    <value>対象</value>
+  </data>
+  <data name="TEXT_ACTIONS" xml:space="preserve">
+    <value>処理</value>
+  </data>
+  <data name="TEXT_ADD" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="TEXT_ADD_BME" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="TEXT_BE" xml:space="preserve">
+    <value>BE</value>
+  </data>
+  <data name="TEXT_CONDITIONAL_FLAG" xml:space="preserve">
+    <value>条件付きフラグ</value>
+  </data>
+  <data name="TEXT_EDIT_BE" xml:space="preserve">
+    <value>BE の編集</value>
+  </data>
+  <data name="TEXT_FORMAT" xml:space="preserve">
+    <value>形式</value>
+  </data>
+  <data name="TEXT_INTERNAL_ERROR" xml:space="preserve">
+    <value>内部エラーが発生しました。</value>
+  </data>
+  <data name="TEXT_INTERNAL_ID" xml:space="preserve">
+    <value>内部 ID</value>
+  </data>
+  <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
+    <value>記録が見つかりません</value>
+  </data>
+  <data name="TEXT_ORDER" xml:space="preserve">
+    <value>注文</value>
+  </data>
+  <data name="TEXT_REGEX" xml:space="preserve">
+    <value>ファイル</value>
+  </data>
+  <data name="TEXT_RESCAN_INTERVAL_ERROR" xml:space="preserve">
+    <value>再スキャン間隔は 2 ～ 86400 とする必要があります。</value>
+  </data>
+  <data name="TEXT_RETRIEVE_FILE_DETAILS_ERROR" xml:space="preserve">
+    <value>ファイルの詳細の取得でエラーが発生しました。</value>
+  </data>
+  <data name="TEXT_RETRIEVE_HISTORY_DETAILS_RUN_ERROR" xml:space="preserve">
+    <value>この実行の履歴の詳細を取得できません。</value>
+  </data>
+  <data name="TEXT_RETRIEVE_RUN_DETAILS_ERROR" xml:space="preserve">
+    <value>この実行の詳細を取得できません。</value>
+  </data>
+  <data name="TEXT_RETRIEVE_TARGET_DETAILS_ERROR" xml:space="preserve">
+    <value>対象の詳細の取得でエラーが発生しました。</value>
+  </data>
+  <data name="TEXT_UNABLE_RETRIEVE_FILE_DETAILS_ERROR" xml:space="preserve">
+    <value>ファイルの詳細を取得できません。</value>
+  </data>
 </root>

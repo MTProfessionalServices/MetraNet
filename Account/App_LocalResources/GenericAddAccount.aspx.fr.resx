@@ -178,7 +178,7 @@
     <value>Ajouter un compte</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet</value>
+    <value>MetraNet </value>
   </data>
   <data name="pnlAccountInfoResource1.Text" xml:space="preserve">
     <value>Informations du compte</value>
@@ -193,7 +193,7 @@
     <value>False</value>
   </data>
   <data name="tbAncestorAccountIDResource1.Label" xml:space="preserve">
-    <value>Compte-parent</value>
+    <value>Compte parent</value>
   </data>
   <data name="tbAncestorAccountIDResource1.ReadOnly" xml:space="preserve">
     <value>False</value>
@@ -217,10 +217,10 @@
     <value>0</value>
   </data>
   <data name="tbStartDateResource1.Label" xml:space="preserve">
-    <value>Date d'effet du compte</value>
+    <value>Date de début de compte</value>
   </data>
   <data name="tbUserNameResource1.Label" xml:space="preserve">
-    <value>Nom d'utilisateur</value>
+    <value>Nom d’utilisateur</value>
   </data>
   <data name="tbUserNameResource1.MaxLength" xml:space="preserve">
     <value>-1</value>
@@ -229,7 +229,7 @@
     <value>0</value>
   </data>
   <data name="tbSecurityQuestionTextResource1.Label" xml:space="preserve">
-    <value>[FR]Custom Security Question</value>
+    <value>Question de sécurité personnalisée</value>
   </data>
   <data name="ddCurrencyResource1.Label" xml:space="preserve">
     <value>Devise</value>
@@ -241,7 +241,7 @@
     <value>Facturable</value>
   </data>
   <data name="ddStatusReasonResource1.Label" xml:space="preserve">
-    <value>Raison du statut</value>
+    <value>Motif état</value>
   </data>
   <data name="tbOtherResource1.Label" xml:space="preserve">
     <value>Autre</value>

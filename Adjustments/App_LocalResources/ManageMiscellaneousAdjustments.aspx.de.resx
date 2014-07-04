@@ -157,7 +157,7 @@
     <value>Konflikt Sitzungs-ID</value>
   </data>
   <data name="TEXT_COUNTY_AMOUNT" xml:space="preserve">
-    <value>[DE] Tax County</value>
+    <value>[DE]Tax County</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
     <value>Währung</value>
@@ -187,7 +187,7 @@
     <value>[DE]Tax Federal</value>
   </data>
   <data name="TEXT_GUIDE_INTERVAL_ID" xml:space="preserve">
-    <value>Guide Interval Id</value>
+    <value>[DE]Guide Interval Id</value>
   </data>
   <data name="TEXT_INTERVAL_ID" xml:space="preserve">
     <value>Intervall-ID</value>

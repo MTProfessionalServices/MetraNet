@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,152 +59,151 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-        <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
             <xsd:complexType>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="metadata">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string" />
-                            <xsd:attribute name="type" type="xsd:string" />
-                            <xsd:attribute name="mimetype" type="xsd:string" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="assembly">
-                        <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string" />
-                            <xsd:attribute name="name" type="xsd:string" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="data">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="resheader">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" />
-                        </xsd:complexType>
-                    </xsd:element>
-                </xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="btnNext.Text" xml:space="preserve">
-        <value>次へ</value>
-    </data>
-    <data name="Cancel.Text" xml:space="preserve">
-        <value>キャンセル</value>
-    </data>
-    <data name="CheckingSavingsAccount" xml:space="preserve">
-        <value>当座預金/普通預金の口座</value>
-    </data>
-    <data name="CreditDebitCard" xml:space="preserve">
-        <value>クレジット カード/デビット カード</value>
-    </data>
-    <data name="ddPaymentMethod.Label" xml:space="preserve">
-        <value>支払方法</value>
-    </data>
-    <data name="InstructionsText.Text" xml:space="preserve">
-        <value>当座預金/普通預金口座またはクレジット カード/デビット カードを使用して料金を支払うことができます。
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnNext.Text" xml:space="preserve">
+    <value>次へ</value>
+  </data>
+  <data name="Cancel.Text" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="CheckingSavingsAccount" xml:space="preserve">
+    <value>当座預金/普通預金の口座</value>
+  </data>
+  <data name="CreditDebitCard" xml:space="preserve">
+    <value>クレジット カード/デビット カード</value>
+  </data>
+  <data name="ddPaymentMethod.Label" xml:space="preserve">
+    <value>支払方法</value>
+  </data>
+  <data name="InstructionsText.Text" xml:space="preserve">
+    <value>当座預金/普通預金口座またはクレジット カード/デビット カードを使用して料金を支払うことができます。
 
-まず、支払い金額、支払方法、および支払い期日を選択します。
-</value>
-    </data>
-    <data name="lblPaymentAmount.Text" xml:space="preserve">
-        <value>支払い金額</value>
-    </data>
-    <data name="lblPaymentDate.Text" xml:space="preserve">
-        <value>支払い期日</value>
-    </data>
-    <data name="lblPaymentMethod.Text" xml:space="preserve">
-        <value>支払方法</value>
-    </data>
-    <data name="MakePayment.Text" xml:space="preserve">
-        <value>支払い</value>
-    </data>
-    <data name="MSGFormat.ACH" xml:space="preserve">
-        <value>{0} アカウント ****-{1}</value>
-    </data>
-    <data name="MSGFormat.CreditCard" xml:space="preserve">
-        <value>{0} ****-{1}</value>
-    </data>
-    <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>支払い</value>
-    </data>
-    <data name="PageResource1.Title" xml:space="preserve">
-        <value>MetraNet</value>
-    </data>
-    <data name="panel1.Text" xml:space="preserve">
-        <value>支払い情報</value>
-    </data>
-    <data name="rcAddACHAccount.BoxLabel" xml:space="preserve">
-        <value>当座預金/普通預金の口座</value>
-    </data>
-    <data name="rcAddCreditCard.BoxLabel" xml:space="preserve">
-        <value>クレジット カード/デビット カード</value>
-    </data>
-    <data name="rcExistingPaymentMethod.BoxLabel" xml:space="preserve">
-        <value>既存の支払方法</value>
-    </data>
-    <data name="rcOtherAmount.BoxLabel" xml:space="preserve">
-        <value>この金額 (円) で支払う</value>
-    </data>
-    <data name="rcPayNow.BoxLabel" xml:space="preserve">
-        <value>今すぐ支払</value>
-    </data>
-    <data name="rcSchedulePaymentDate.BoxLabel" xml:space="preserve">
-        <value>支払い期日のスケジュール</value>
-    </data>
-    <data name="rcTotalAmountDue.BoxLabel" xml:space="preserve">
-        <value>合計金額支払い期限, {0}</value>
-    </data>
-    <data name="TEXT_INVALID_SCHEDULED_DATE" xml:space="preserve">
-        <value>支払い期日は現在より後にする必要があります</value>
-    </data>
-    <data name="TEXT_NO_PAYMENT_IS_DUE" xml:space="preserve">
-        <value>お支払いはありません</value>
-    </data>
-    <data name="TEXT_PAYMENT_AMOUNT_MUST_BE_POSITIVE" xml:space="preserve">
-        <value>支払い金額は、ゼロより大きな数字でなければなりません。</value>
-    </data>
-    <data name="TEXT_RETRIEVE_PAYMENT_ERROR" xml:space="preserve">
-        <value>支払い情報を取得できません。</value>
-    </data>
-    <data name="TEXT_RETRIEVE_PAYMENT_METHODS_ERROR" xml:space="preserve">
-        <value>ACH 払い方式のリストを取得できません</value>
-    </data>
-    <data name="TEXT_SELECT_PAYMENT_METHOD" xml:space="preserve">
-        <value>支払方法の選択</value>
-    </data>
-    <data name="TEXT_UNKNOWN" xml:space="preserve">
-        <value>不明</value>
-    </data>
+まず、支払い金額、支払方法、および支払い期日を選択します。</value>
+  </data>
+  <data name="lblPaymentAmount.Text" xml:space="preserve">
+    <value>支払い金額</value>
+  </data>
+  <data name="lblPaymentDate.Text" xml:space="preserve">
+    <value>支払い期日</value>
+  </data>
+  <data name="lblPaymentMethod.Text" xml:space="preserve">
+    <value>支払方法</value>
+  </data>
+  <data name="MakePayment.Text" xml:space="preserve">
+    <value>支払い</value>
+  </data>
+  <data name="MSGFormat.ACH" xml:space="preserve">
+    <value>{0} アカウント ****-{1}</value>
+  </data>
+  <data name="MSGFormat.CreditCard" xml:space="preserve">
+    <value>{0} ****-{1}</value>
+  </data>
+  <data name="MTTitle1Resource1.Text" xml:space="preserve">
+    <value>支払い</value>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>MetraNet</value>
+  </data>
+  <data name="panel1.Text" xml:space="preserve">
+    <value>支払い情報</value>
+  </data>
+  <data name="rcAddACHAccount.BoxLabel" xml:space="preserve">
+    <value>当座預金/普通預金の口座</value>
+  </data>
+  <data name="rcAddCreditCard.BoxLabel" xml:space="preserve">
+    <value>クレジット カード/デビット カード</value>
+  </data>
+  <data name="rcExistingPaymentMethod.BoxLabel" xml:space="preserve">
+    <value>既存の支払方法</value>
+  </data>
+  <data name="rcOtherAmount.BoxLabel" xml:space="preserve">
+    <value>この金額 (円) で支払う</value>
+  </data>
+  <data name="rcPayNow.BoxLabel" xml:space="preserve">
+    <value>今すぐ支払</value>
+  </data>
+  <data name="rcSchedulePaymentDate.BoxLabel" xml:space="preserve">
+    <value>支払い期日のスケジュール</value>
+  </data>
+  <data name="rcTotalAmountDue.BoxLabel" xml:space="preserve">
+    <value>合計金額支払い期限, {0}</value>
+  </data>
+  <data name="TEXT_INVALID_SCHEDULED_DATE" xml:space="preserve">
+    <value>支払い期日は現在より後にする必要があります</value>
+  </data>
+  <data name="TEXT_NO_PAYMENT_IS_DUE" xml:space="preserve">
+    <value>お支払いはありません</value>
+  </data>
+  <data name="TEXT_PAYMENT_AMOUNT_MUST_BE_POSITIVE" xml:space="preserve">
+    <value>支払い金額は、ゼロより大きな数字でなければなりません。</value>
+  </data>
+  <data name="TEXT_RETRIEVE_PAYMENT_ERROR" xml:space="preserve">
+    <value>支払い情報を取得できません。</value>
+  </data>
+  <data name="TEXT_RETRIEVE_PAYMENT_METHODS_ERROR" xml:space="preserve">
+    <value>ACH 払い方式のリストを取得できません</value>
+  </data>
+  <data name="TEXT_SELECT_PAYMENT_METHOD" xml:space="preserve">
+    <value>支払方法の選択</value>
+  </data>
+  <data name="TEXT_UNKNOWN" xml:space="preserve">
+    <value>不明</value>
+  </data>
 </root>

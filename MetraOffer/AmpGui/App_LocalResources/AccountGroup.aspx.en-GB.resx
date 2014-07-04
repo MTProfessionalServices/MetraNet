@@ -152,5 +152,8 @@
   </data>
   <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
     <value>Create a new Account Group</value>
-  </data>  
+  </data>
+  <data name="TEXT_ERROR_NO_ACCOUNT_GROUP" xml:space="preserve">
+    <value>Error: You must select an Account Group</value>
+  </data>
 </root>

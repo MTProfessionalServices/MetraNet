@@ -120,6 +120,12 @@
   <data name="lblShowAllReportDefinitionsTitleResource1.Text" xml:space="preserve">
     <value>Mostra tutte le definizioni dei rapporti</value>
   </data>
+  <data name="lblShowAllReportDefinitionsTitleResource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="MyGrid1Resource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>Mostra tutte le definizioni dei rapporti</value>
   </data>

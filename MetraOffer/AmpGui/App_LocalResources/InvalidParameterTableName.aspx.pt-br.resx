@@ -125,6 +125,6 @@
     <value>MetraNet</value>
   </data>
   <data name="TEXT_MESSAGE" xml:space="preserve">
-    <value>[pt-BR] '{0}'  '{1}'</value>
+    <value>[pt-BR]'{0}'  '{1}'</value>
   </data>
 </root>

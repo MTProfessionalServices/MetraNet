@@ -134,7 +134,7 @@
     <value>[JA]</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[JA] </value>
+    <value>[JA]</value>
   </data>
   <data name="MTButtonActivateDecisionResource1.ServerSide" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -152,7 +152,7 @@
     <value>[JA]</value>
   </data>
   <data name="TEXT_ACTIVATED_DECISION" xml:space="preserve">
-    <value>[JA] </value>
+    <value>[JA]</value>
   </data>
   <data name="DeactivateDecisionLabel.Text" xml:space="preserve">
     <value>[JA]</value>

@@ -134,7 +134,7 @@
     <value>[IT]</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[IT] </value>
+    <value>[IT]</value>
   </data>
   <data name="MTButtonActivateDecisionResource1.ServerSide" type="System.Boolean, mscorlib">
     <value>True</value>

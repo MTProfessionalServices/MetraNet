@@ -145,7 +145,7 @@
     <value>Type</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_ID" xml:space="preserve">
-    <value>Unique Item ID</value>
+    <value>Modified Item ID</value>
   </data>
   <data name="TEXT_APPROVAL_NO_RECORD_TEXT" xml:space="preserve">
     <value>No Records Found</value>

@@ -131,6 +131,6 @@
     <value>[pt-BR]</value>
   </data>
   <data name="TEXT_QUESTION" xml:space="preserve">
-    <value>[pt-BR] {0} {1}</value>
+    <value>[pt-BR]{0} {1}</value>
   </data>
 </root>

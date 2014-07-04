@@ -175,7 +175,7 @@
     <value>[DE]</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_CHARGE_COLUMN_NAMES" xml:space="preserve">
-    <value>[DE] '{0}'</value>
+    <value>[DE]'{0}'</value>
   </data>
   <data name="TEXT_ERROR_NO_GENERATED_CHARGE" xml:space="preserve">
     <value>[DE]</value>

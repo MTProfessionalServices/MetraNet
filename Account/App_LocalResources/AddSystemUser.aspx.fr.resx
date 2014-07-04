@@ -157,7 +157,7 @@
     <value>Nom d’utilisateur non valide</value>
   </data>
   <data name="lblUsernameOKResource1.Text" xml:space="preserve">
-    <value>Nom d’utilisateur OK</value>
+    <value>Nom d’utilisateur valide</value>
   </data>
   <data name="ListItemResource1.Text" xml:space="preserve">
     <value>MetraView</value>
@@ -184,7 +184,7 @@
     <value>Adresse</value>
   </data>
   <data name="tbAncestorAccountResource1.Label" xml:space="preserve">
-    <value>Compte-parent</value>
+    <value>Compte parent</value>
   </data>
   <data name="tbCityResource1.Label" xml:space="preserve">
     <value>Ville</value>
@@ -196,7 +196,7 @@
     <value>Confirmer le mot de passe</value>
   </data>
   <data name="tbEmailResource1.Label" xml:space="preserve">
-    <value>E-mail</value>
+    <value>E-Mail</value>
   </data>
   <data name="tbFaxResource1.Label" xml:space="preserve">
     <value>Fax</value>
@@ -217,13 +217,13 @@
     <value>Numéro de téléphone</value>
   </data>
   <data name="tbSecurityAnswerResource1.Label" xml:space="preserve">
-    <value>Réponse à la question de sécurité</value>
+    <value>Réponse de sécurité</value>
   </data>
   <data name="tbSecurityQuestionTextResource1.Label" xml:space="preserve">
-    <value>Question de sécurité personnalisée</value>
+    <value>[FR]Custom Security Question</value>
   </data>
   <data name="tbStartDateResource1.Label" xml:space="preserve">
-    <value>Date d'effet du compte</value>
+    <value>Date de début de compte</value>
   </data>
   <data name="tbStateResource1.Label" xml:space="preserve">
     <value>Département</value>
@@ -235,6 +235,6 @@
     <value>Code postal</value>
   </data>
   <data name="ddAuthenticationTypeResource1.Label" xml:space="preserve">
-    <value>[FR]Authentication Type</value>
+    <value>Type d'authentification</value>
   </data>
 </root>

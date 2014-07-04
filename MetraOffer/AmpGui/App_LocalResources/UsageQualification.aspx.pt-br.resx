@@ -170,13 +170,13 @@
     <value>[pt-BR]</value>
   </data>
   <data name="TEXT_ERROR_ADD_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>[pt-BR] '{0}'</value>
+    <value>[pt-BR]'{0}'</value>
   </data>
   <data name="TEXT_ERROR_MUST_USE_UNIQUE_NAME_FOR_NEW_UQ" xml:space="preserve">
-    <value>[pt-BR] '{0}'</value>
+    <value>[pt-BR]'{0}'</value>
   </data>
   <data name="TEXT_SUCCESS_CREATE_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>[pt-BR] '{0}'</value>
+    <value>[pt-BR]'{0}'</value>
   </data>
   <data name="FilterLabelResource.Text" xml:space="preserve">
     <value>[pt-BR]</value>

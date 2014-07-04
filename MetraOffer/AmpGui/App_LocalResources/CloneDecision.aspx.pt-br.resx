@@ -121,7 +121,7 @@
     <value>MetraNet</value>
   </data>
   <data name="cbDeactivateDecisionResource1.BoxLabel" xml:space="preserve">
-    <value>[pt-BR] '{0}'.</value>
+    <value>[pt-BR]'{0}'.</value>
   </data>
   <data name="tbOrigDecisionNameResource1.Label" xml:space="preserve">
     <value>[pt-BR]</value>

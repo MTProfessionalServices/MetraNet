@@ -120,6 +120,9 @@
   <data name="GRID_TITLE" xml:space="preserve">
     <value>Gerenciar cobranças extraordinárias</value>
   </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>MetraNet</value>
+  </data>
   <data name="TEXT_ADDITIONAL_CODE" xml:space="preserve">
     <value>Código adicional</value>
   </data>
@@ -213,8 +216,14 @@
   <data name="TEXT_SESSION_ID" xml:space="preserve">
     <value>ID da sessão</value>
   </data>
+  <data name="TEXT_STATUS" xml:space="preserve">
+    <value>[pt-BR]Status</value>
+  </data>
   <data name="TEXT_SUBSCRIBER_ACCOUNT_ID" xml:space="preserve">
     <value>ID da conta do assinante</value>
+  </data>
+  <data name="TEXT_TIMESTAMP" xml:space="preserve">
+    <value>[pt-BR]Timestamp</value>
   </data>
   <data name="TEXT_VIEW_ID" xml:space="preserve">
     <value>Exibir ID</value>

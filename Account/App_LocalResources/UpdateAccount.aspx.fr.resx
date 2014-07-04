@@ -148,7 +148,7 @@
     <value>Question de sécurité</value>
   </data>
   <data name="ddStatusReasonResource1.Label" xml:space="preserve">
-    <value>Raison du statut</value>
+    <value>Motif état</value>
   </data>
   <data name="ddTimeZoneResource1.Label" xml:space="preserve">
     <value>Fuseau horaire</value>
@@ -172,7 +172,7 @@
     <value>Sélectionner l’intervalle</value>
   </data>
   <data name="LblStartDay" xml:space="preserve">
-    <value>Jour de début</value>
+    <value>Date de début</value>
   </data>
   <data name="lblStartMonth" xml:space="preserve">
     <value>Mois de début</value>
@@ -196,7 +196,7 @@
     <value>MetraNet</value>
   </data>
   <data name="tbAncestorAccountResource1.Label" xml:space="preserve">
-    <value>Compte-parent</value>
+    <value>Compte parent</value>
   </data>
   <data name="tbOtherResource1.Label" xml:space="preserve">
     <value>Autre</value>
@@ -205,10 +205,10 @@
     <value>Payeur</value>
   </data>
   <data name="tbSecurityAnswerResource1.Label" xml:space="preserve">
-    <value>Réponse à la question de sécurité</value>
+    <value>Réponse de sécurité</value>
   </data>
   <data name="tbStartDateResource1.Label" xml:space="preserve">
-    <value>Date d'effet du compte</value>
+    <value>Date de début de compte</value>
   </data>
   <data name="tbTaxExemptIDResource1.Label" xml:space="preserve">
     <value>ID d'exemption de taxe</value>
@@ -217,7 +217,7 @@
     <value>Nom d’utilisateur</value>
   </data>
   <data name="tbSecurityQuestionTextResource1.Label" xml:space="preserve">
-    <value>Question de sécurité</value>
+    <value>Question de sécurité personnalisée</value>
   </data>
   <data name="tbAuthenticationTypeResource1.Label" xml:space="preserve">
     <value>Type d'authentification</value>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,206 +59,206 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-        <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
             <xsd:complexType>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="metadata">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string" />
-                            <xsd:attribute name="type" type="xsd:string" />
-                            <xsd:attribute name="mimetype" type="xsd:string" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="assembly">
-                        <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string" />
-                            <xsd:attribute name="name" type="xsd:string" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="data">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="resheader">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" />
-                        </xsd:complexType>
-                    </xsd:element>
-                </xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="btnGeneratePasswordResource1.Text" xml:space="preserve">
-        <value>生成</value>
-    </data>
-    <data name="btnGeneratePasswordResource1.Tooltip" xml:space="preserve">
-        <value>パスワードの生成</value>
-    </data>
-    <data name="btnValidateResource1.Text" xml:space="preserve">
-        <value>確認</value>
-    </data>
-    <data name="btnValidateResource1.Tooltip" xml:space="preserve">
-        <value>ユーザ名の確認</value>
-    </data>
-    <data name="cbApplyDefaultPolicyResource1.BoxLabel" xml:space="preserve">
-        <value>デフォルト ポリシーの適用</value>
-    </data>
-    <data name="cbApplyTemplateResource1.BoxLabel" xml:space="preserve">
-        <value>テンプレートの適用</value>
-    </data>
-    <data name="cbBillableResource1.BoxLabel" xml:space="preserve">
-        <value>請求可能</value>
-    </data>
-    <data name="cbEmailNotificationResource1.BoxLabel" xml:space="preserve">
-        <value>電子メールによる通知</value>
-    </data>
-    <data name="cbTaxExemptResource1.BoxLabel" xml:space="preserve">
-        <value>免税</value>
-    </data>
-    <data name="ddBillingCycleControl1Resource1.Label" xml:space="preserve">
-        <value>請求サイクル</value>
-    </data>
-    <data name="ddBrandedSiteResource1.Label" xml:space="preserve">
-        <value>ブランド化されたサイト</value>
-    </data>
-    <data name="ddCurrencyResource1.Label" xml:space="preserve">
-        <value>通貨</value>
-    </data>
-    <data name="ddLanguageResource1.Label" xml:space="preserve">
-        <value>言語</value>
-    </data>
-    <data name="ddPaperInvoiceResource1.Label" xml:space="preserve">
-        <value>明細書のハードコピー</value>
-    </data>
-    <data name="ddPriceListResource1.Label" xml:space="preserve">
-        <value>料金リスト</value>
-    </data>
-    <data name="ddSecurityQuestionResource1.Label" xml:space="preserve">
-        <value>セキュリティの質問</value>
-    </data>
-    <data name="ddStatusReasonResource1.Label" xml:space="preserve">
-        <value>状況の理由</value>
-    </data>
-    <data name="ddTimeZoneResource1.Label" xml:space="preserve">
-        <value>タイム ゾーン</value>
-    </data>
-    <data name="LblCyclelist" xml:space="preserve">
-        <value>請求サイクル</value>
-    </data>
-    <data name="LblEndDayOfMonth" xml:space="preserve">
-        <value>月の最終日</value>
-    </data>
-    <data name="LblEndDayOfWeek" xml:space="preserve">
-        <value>週の最終日</value>
-    </data>
-    <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-        <value>エラー メッセージ</value>
-    </data>
-    <data name="LblFirstEndDayOfMonth" xml:space="preserve">
-        <value>第 1 週目の最終日</value>
-    </data>
-    <data name="lblIsValidUsernameResource1.Text" xml:space="preserve">
-        <value>無効なユーザ名</value>
-    </data>
-    <data name="LblSecondEndDayOfMonth" xml:space="preserve">
-        <value>第 2 週目の最終日</value>
-    </data>
-    <data name="LblSelectInterval" xml:space="preserve">
-        <value>期間の選択</value>
-    </data>
-    <data name="LblStartDay" xml:space="preserve">
-        <value>開始曜日</value>
-    </data>
-    <data name="lblStartMonth" xml:space="preserve">
-        <value>開始月</value>
-    </data>
-    <data name="lblUsernameOKResource1.Text" xml:space="preserve">
-        <value>ユーザ名 OK</value>
-    </data>
-    <data name="ListItemResource1.Text" xml:space="preserve">
-        <value>なし</value>
-    </data>
-    <data name="ListItemResource2.Text" xml:space="preserve">
-        <value>米国英語</value>
-    </data>
-    <data name="MTSection2Resource1.Text" xml:space="preserve">
-        <value>ログイン情報</value>
-    </data>
-    <data name="MTSection3Resource1.Text" xml:space="preserve">
-        <value>口座情報</value>
-    </data>
-    <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>アカウントの追加</value>
-    </data>
-    <data name="PageResource1.Title" xml:space="preserve">
-        <value>MetraNet</value>
-    </data>
-    <data name="tbAncestorAccountResource1.Label" xml:space="preserve">
-        <value>親アカウント</value>
-    </data>
-    <data name="tbConfirmPasswordResource1.Label" xml:space="preserve">
-        <value>パスワードの確認</value>
-    </data>
-    <data name="tbOtherResource1.Label" xml:space="preserve">
-        <value>その他</value>
-    </data>
-    <data name="tbPasswordResource1.Label" xml:space="preserve">
-        <value>パスワード</value>
-    </data>
-    <data name="tbPasswordResource1.XType" xml:space="preserve">
-        <value>PasswordMeter</value>
-    </data>
-    <data name="tbPayerResource1.Label" xml:space="preserve">
-        <value>支払者</value>
-    </data>
-    <data name="tbSecurityAnswerResource1.Label" xml:space="preserve">
-        <value>セキュリティ回答</value>
-    </data>
-    <data name="tbSecurityQuestionTextResource1.Label" xml:space="preserve">
-        <value>カスタム セキュリティの質問</value>
-    </data>
-    <data name="tbStartDateResource1.Label" xml:space="preserve">
-        <value>アカウントの開始日</value>
-    </data>
-    <data name="tbTaxExemptIDResource1.Label" xml:space="preserve">
-        <value>免税 ID</value>
-    </data>
-    <data name="tbTaxExemptIDResource1.XType" xml:space="preserve">
-        <value>TextField</value>
-    </data>
-    <data name="tbUserNameResource1.Label" xml:space="preserve">
-        <value>ユーザ名</value>
-    </data>
-    <data name="ddAuthenticationTypeResource1.Label" xml:space="preserve">
-        <value>[JA]Authentication Type</value>
-    </data>	
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnGeneratePasswordResource1.Text" xml:space="preserve">
+    <value>生成</value>
+  </data>
+  <data name="btnGeneratePasswordResource1.Tooltip" xml:space="preserve">
+    <value>パスワードの生成</value>
+  </data>
+  <data name="btnValidateResource1.Text" xml:space="preserve">
+    <value>確認</value>
+  </data>
+  <data name="btnValidateResource1.Tooltip" xml:space="preserve">
+    <value>ユーザ名の確認</value>
+  </data>
+  <data name="cbApplyDefaultPolicyResource1.BoxLabel" xml:space="preserve">
+    <value>デフォルト ポリシーの適用</value>
+  </data>
+  <data name="cbApplyTemplateResource1.BoxLabel" xml:space="preserve">
+    <value>テンプレートの適用</value>
+  </data>
+  <data name="cbBillableResource1.BoxLabel" xml:space="preserve">
+    <value>請求可能</value>
+  </data>
+  <data name="cbEmailNotificationResource1.BoxLabel" xml:space="preserve">
+    <value>電子メールによる通知</value>
+  </data>
+  <data name="cbTaxExemptResource1.BoxLabel" xml:space="preserve">
+    <value>免税</value>
+  </data>
+  <data name="ddBillingCycleControl1Resource1.Label" xml:space="preserve">
+    <value>請求サイクル</value>
+  </data>
+  <data name="ddBrandedSiteResource1.Label" xml:space="preserve">
+    <value>ブランド化されたサイト</value>
+  </data>
+  <data name="ddCurrencyResource1.Label" xml:space="preserve">
+    <value>通貨</value>
+  </data>
+  <data name="ddLanguageResource1.Label" xml:space="preserve">
+    <value>言語</value>
+  </data>
+  <data name="ddPaperInvoiceResource1.Label" xml:space="preserve">
+    <value>明細書のハードコピー</value>
+  </data>
+  <data name="ddPriceListResource1.Label" xml:space="preserve">
+    <value>料金リスト</value>
+  </data>
+  <data name="ddSecurityQuestionResource1.Label" xml:space="preserve">
+    <value>セキュリティの質問</value>
+  </data>
+  <data name="ddStatusReasonResource1.Label" xml:space="preserve">
+    <value>状況の理由</value>
+  </data>
+  <data name="ddTimeZoneResource1.Label" xml:space="preserve">
+    <value>タイム ゾーン</value>
+  </data>
+  <data name="LblCyclelist" xml:space="preserve">
+    <value>請求サイクル</value>
+  </data>
+  <data name="LblEndDayOfMonth" xml:space="preserve">
+    <value>月の最終日</value>
+  </data>
+  <data name="LblEndDayOfWeek" xml:space="preserve">
+    <value>週の最終日</value>
+  </data>
+  <data name="lblErrorMessageResource1.Text" xml:space="preserve">
+    <value>エラー メッセージ</value>
+  </data>
+  <data name="LblFirstEndDayOfMonth" xml:space="preserve">
+    <value>第 1 週目の最終日</value>
+  </data>
+  <data name="lblIsValidUsernameResource1.Text" xml:space="preserve">
+    <value>無効なユーザ名</value>
+  </data>
+  <data name="LblSecondEndDayOfMonth" xml:space="preserve">
+    <value>第 2 週目の最終日</value>
+  </data>
+  <data name="LblSelectInterval" xml:space="preserve">
+    <value>期間の選択</value>
+  </data>
+  <data name="LblStartDay" xml:space="preserve">
+    <value>開始曜日</value>
+  </data>
+  <data name="lblStartMonth" xml:space="preserve">
+    <value>開始月</value>
+  </data>
+  <data name="lblUsernameOKResource1.Text" xml:space="preserve">
+    <value>ユーザ名 OK</value>
+  </data>
+  <data name="ListItemResource1.Text" xml:space="preserve">
+    <value>なし</value>
+  </data>
+  <data name="ListItemResource2.Text" xml:space="preserve">
+    <value>米国英語</value>
+  </data>
+  <data name="MTSection2Resource1.Text" xml:space="preserve">
+    <value>ログイン情報</value>
+  </data>
+  <data name="MTSection3Resource1.Text" xml:space="preserve">
+    <value>口座情報</value>
+  </data>
+  <data name="MTTitle1Resource1.Text" xml:space="preserve">
+    <value>アカウントの追加</value>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>MetraNet</value>
+  </data>
+  <data name="tbAncestorAccountResource1.Label" xml:space="preserve">
+    <value>親アカウント</value>
+  </data>
+  <data name="tbConfirmPasswordResource1.Label" xml:space="preserve">
+    <value>パスワードの確認</value>
+  </data>
+  <data name="tbOtherResource1.Label" xml:space="preserve">
+    <value>その他</value>
+  </data>
+  <data name="tbPasswordResource1.Label" xml:space="preserve">
+    <value>パスワード</value>
+  </data>
+  <data name="tbPasswordResource1.XType" xml:space="preserve">
+    <value>PasswordMeter</value>
+  </data>
+  <data name="tbPayerResource1.Label" xml:space="preserve">
+    <value>支払者</value>
+  </data>
+  <data name="tbSecurityAnswerResource1.Label" xml:space="preserve">
+    <value>セキュリティ回答</value>
+  </data>
+  <data name="tbSecurityQuestionTextResource1.Label" xml:space="preserve">
+    <value>カスタム セキュリティの質問</value>
+  </data>
+  <data name="tbStartDateResource1.Label" xml:space="preserve">
+    <value>アカウントの開始日</value>
+  </data>
+  <data name="tbTaxExemptIDResource1.Label" xml:space="preserve">
+    <value>免税 ID</value>
+  </data>
+  <data name="tbTaxExemptIDResource1.XType" xml:space="preserve">
+    <value>TextField</value>
+  </data>
+  <data name="tbUserNameResource1.Label" xml:space="preserve">
+    <value>ユーザ名</value>
+  </data>
+  <data name="ddAuthenticationTypeResource1.Label" xml:space="preserve">
+    <value>[JA]Authentication Type</value>
+  </data>
 </root>

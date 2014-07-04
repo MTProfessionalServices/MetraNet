@@ -118,51 +118,51 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="NO_RECORDS_TEXT" xml:space="preserve">
-    <value>[FR]No records found.</value>
+    <value>Aucun enregistrement trouvé.</value>
   </data>
   <data name="MTFilterGrid1Resource1.Title" xml:space="preserve">
-    <value>[FR]Credit Note Documents</value>
+    <value>Documents de la note de crédit</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>[FR]MetraNet - View Credit Notes Issued</value>
+    <value>MetraNet - Afficher les notes de crédit émises</value>
   </data>
   <data name="TEXT_ACCOUNT" xml:space="preserve">
-    <value>[FR]Account</value>
+    <value>Compte</value>
   </data>
   <data name="TEXT_AMOUNT" xml:space="preserve">
-    <value>[FR]Amount</value>
+    <value>Montant</value>
   </data>
   <data name="TEXT_DISPLAY_AMOUNT" xml:space="preserve">
-    <value>[FR]Amount</value>
+    <value>Montant</value>
   </data>
   <data name="TEXT_CREATED_BY" xml:space="preserve">
-    <value>[FR]Created By</value>
+    <value>Créé par</value>
   </data>
   <data name="TEXT_CREDIT_NOTE_IDENTIFIER" xml:space="preserve">
-    <value>[FR]Credit Note Identifier</value>
+    <value>Identifiant de note de crédit</value>
   </data>
   <data name="TEXT_DATE" xml:space="preserve">
-    <value>[FR]Date</value>
+    <value>d’exp.</value>
   </data>
   <data name="TEXT_ID" xml:space="preserve">
-    <value>[FR]Id</value>
+    <value>ID</value>
   </data>
   <data name="TEXT_TAX" xml:space="preserve">
-    <value>[FR]Tax</value>
+    <value>Taxe</value>
   </data>
   <data name="TEXT_DISPLAY_TAX" xml:space="preserve">
-    <value>[FR]Tax</value>
+    <value>Taxe</value>
   </data>
   <data name="TEXT_TOTAL" xml:space="preserve">
-    <value>[FR]Total</value>
+    <value>Total</value>
   </data>
   <data name="TEXT_DISPLAY_TOTAL" xml:space="preserve">
-    <value>[FR]Total</value>
+    <value>Total</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
-    <value>[FR]Status</value>
+    <value>État</value>
   </data>
   <data name="TEXT_STATUS_INFORMATION" xml:space="preserve">
-    <value>[FR]Status Information</value>
+    <value>Informations d'état</value>
   </data>
 </root>

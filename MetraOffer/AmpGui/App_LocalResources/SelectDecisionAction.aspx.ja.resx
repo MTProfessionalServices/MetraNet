@@ -121,16 +121,16 @@
     <value>MetraNet</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>ecision Action for {0} [JA]</value>
+    <value>[JA]Decision Action for {0}</value>
   </data>
   <data name="lblIncrementalOrBulkResource1.Text" xml:space="preserve">
     <value>[JA]</value>
   </data>
   <data name="rblIncrementallyResource1.Text" xml:space="preserve">
-    <value>Multi-Bucket [JA]</value>
+    <value>[JA]Multi-Bucket</value>
   </data>
   <data name="rblInBulkResource1.Text" xml:space="preserve">
-    <value>Single-Bucket[JA]</value>
+    <value>[JA]Single-Bucket</value>
   </data>
   <data name="lblDecisionActionResource1.Text" xml:space="preserve">
     <value>[JA]</value>
@@ -148,7 +148,7 @@
     <value>[JA]</value>
   </data>
   <data name="noChargeResource1.Text" xml:space="preserve">
-    <value>None[JA]</value>
+    <value>[JA]None</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>[JA]</value>

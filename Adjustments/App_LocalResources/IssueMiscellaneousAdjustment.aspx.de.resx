@@ -216,9 +216,6 @@
   <data name="TEXT_UNLIMITED" xml:space="preserve">
     <value>Unbegrenzt</value>
   </data>
-  <data name="y" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="adjAmountFldResourceTaxCounty.Label" xml:space="preserve">
     <value>[DE]Tax County</value>
   </data>

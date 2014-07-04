@@ -7,143 +7,142 @@ This file defines the MAM tool tips localization.
 
 
     <text id="TEXT_NEW_SESSION">
-<value>Lancer nouvelle fenetre MetraCare</value>
+        <value>Ouvrir une nouvelle fenêtre MetraCare</value>
         <description></description>
     </text>
     
     <text id="TEXT_OK">
-<value>OK</value>
+        <value>OK</value>
         <description></description>
     </text>
 
     <text id="TEXT_CANCEL">
-<value>Annuler</value>
+        <value>Annuler</value>
         <description></description>
     </text>
 
     <text id="TEXT_CLEAR">
-<value>Effacer</value>
+        <value>Effacer</value>
         <description></description>
     </text>
 
     <text id="TEXT_EDIT">
-<value>Modifier</value>
+        <value>Modifier</value>
         <description></description>
     </text>
 
     <text id="TEXT_VIEW">
-<value>Afficher</value>
+        <value>Afficher</value>
         <description></description>
     </text>
 
     <text id="TEXT_DELETE">
-<value>Supprimer</value>
+        <value>Supprimer</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD">
-<value>Ajouter</value>
+        <value>Ajouter</value>
         <description></description>
     </text>
 
     <text id="TEXT_UPDATE">
-<value>Mettre à jour</value>
+        <value>Mettre à jour</value>
         <description></description>
     </text>
 
     <text id="TEXT_HELP">
-<value>Aide MetraCare</value>
+        <value>Aide de MetraCare</value>
         <description></description>
     </text>
 
     <text id="TEXT_FULLSCREEN">
-<value>Plein ecran/fenetres</value>
+        <value>Alterner avec la vue Plein écran</value>
         <description></description>
     </text>
 
     <text id="TEXT_GO">
-<value>Exécuter</value>
+        <value>Aller</value>
         <description></description>
     </text>
 
     <text id="TEXT_FIND_ACCOUNT_OR_SERVICE_END_POINT">
-<value>Trouver comptes ou [TEXT_KEYTERM_SERVICE_ENDPOINTS]</value>
+        <value>Rechercher des comptes ou des [TEXT_KEYTERM_SERVICE_ENDPOINTS]</value>
         <description></description>
     </text>    
 
     <text id="TEXT_ADVANCED">
-<value>Résultats détaillés</value>
+        <value>Recherche avancée</value>
         <description></description>
     </text>
 
     <text id="TEXT_TURN_DOWN">
-<value>Afficher l'information détaillée</value>
+        <value>Afficher les informations détaillées</value>
         <description></description>
     </text>
 
     <text id="TEXT_TURN_UP">
-<value>Masquer l'information détaillée</value>
+        <value>Masquer les informations détaillées</value>
         <description></description>
     </text>
 
     <text id="TEXT_CLOSEWINDOW">
-<value>Fermer le compte</value>
+        <value>Fermer le compte</value>
         <description></description>
     </text>
 
     <text id="TEXT_ADD_PAYMENT_METHOD">
-<value>Ajouter un mode de paiement</value>
+        <value>Ajouter une méthode de paiement</value>
         <description></description>
     </text>
 
     <text id="TEXT_ENTER">
-<value>Entrer</value>
+        <value>Entrer</value>
         <description></description>
     </text>
 
     <text id="TEXT_GO_BACK">
-<value>Revenir à la liste des résultats de Trouver comptes</value>
+        <value>Revenir à la liste de résultats de la recherche de comptes</value>
         <description></description>
     </text>
     <text id="TEXT_APPLY">
-<value>Appliquer</value>
+        <value>Appliquer</value>
         <description></description>
     </text>		
     
     <text id="TEXT_SUCCEED">
-<value>Réussi</value>
+        <value>Opération réussie</value>
         <description></description>
     </text>
 
     <text id="TEXT_FAILED">
-<value>Échoué</value>
+        <value>Échec de l'opération</value>
         <description></description>
     </text>
 
     <text id="TEXT_NONE">
-<value>Aucune</value>
+        <value>Aucun(e)</value>
         <description></description>
     </text>
     
    <text id="TEXT_NO">
-<value>Non</value>
+        <value>Non</value>
         <description></description>
     </text>    
     
     <text id="TEXT_YES">
-<value>Oui</value>
+        <value>Oui</value>
         <description></description>
     </text>       
     
     <text id="TEXT_CLOSE">
-<value>Fermer</value>
+        <value>Fermer</value>
         <description></description>
     </text>
     
     <text id="TEXT_INFO_SUCCEFULLY_ADDED">
-<value>L'information a été ajoutée.</value>
+        <value>Les informations ont été ajoutées.</value>
         <description></description>
     </text>
         
 </texts>
-

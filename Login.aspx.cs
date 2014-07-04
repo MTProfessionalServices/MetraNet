@@ -145,15 +145,16 @@ public partial class login : MTPage
 
         // Attempt Login
         object tmp = null;  //IMTSessionContext
-
+        var currLanguage = Convert.ToInt16(EnumHelper.GetValueByEnum(GetLanguageCode(), 1));
         Auth auth = new Auth();
-        auth.Initialize(username, name_space);
+        auth.Initialize(username, name_space, currLanguage);
         MetraTech.Security.LoginStatus status = auth.Login(password, null, ref tmp);
+
         IMTSessionContext context = tmp as IMTSessionContext;
         if ((status == MetraTech.Security.LoginStatus.OK) || (status == MetraTech.Security.LoginStatus.OKPasswordExpiringSoon))
         {
             IMTSessionContext sessionContext = tmp as IMTSessionContext;
-            string ticket = TicketManager.CreateTicket(context.AccountID, name_space, username, m_ticketLifeSpanInMins);
+            string ticket = TicketManager.CreateTicket(context.AccountID, name_space, username, m_ticketLifeSpanInMins, currLanguage);
             SetupUserData(username, name_space, sessionContext, ticket);
         }
 
@@ -197,11 +198,9 @@ public partial class login : MTPage
         return strErrText;
     }
 
- var currLanguage = Convert.ToInt16(EnumHelper.GetValueByEnum(GetLanguageCode(), 1));
-    auth.Initialize(userName, SYSTEM_USER_NAMESPACE, userName, "MetraNet", currLanguage);
+ 
     private void DoLogin()
     {
-        ticket = TicketManager.CreateTicket(sessionContext.AccountID, SYSTEM_USER_NAMESPACE, userName, m_ticketLifeSpanInMins, currLanguage);
         // Create a UIManager
         UI = new UIManager();
 
@@ -224,8 +223,9 @@ public partial class login : MTPage
 
     object tmp = null; //IMTSessionContext
         Auth auth = new Auth();
-        auth.Initialize(userName, SYSTEM_USER_NAMESPACE, userName, "MetraNet");
-        MetraTech.Security.LoginStatus status = auth.Login(password, null, ref tmp);
+        var currLanguage = Convert.ToInt16(EnumHelper.GetValueByEnum(GetLanguageCode(), 1));
+        auth.Initialize(userName, SYSTEM_USER_NAMESPACE, userName, "MetraNet", currLanguage);
+       MetraTech.Security.LoginStatus status = auth.Login(password, null, ref tmp);
         IMTSessionContext sessionContext = tmp as IMTSessionContext;
 
         string ticket = "";
@@ -236,8 +236,7 @@ public partial class login : MTPage
 
         if (status == MetraTech.Security.LoginStatus.OK || status == MetraTech.Security.LoginStatus.OKPasswordExpiringSoon)
         {
-      ticket = TicketManager.CreateTicket(sessionContext.AccountID, SYSTEM_USER_NAMESPACE, userName,
-                                          m_ticketLifeSpanInMins);
+     ticket = TicketManager.CreateTicket(sessionContext.AccountID, SYSTEM_USER_NAMESPACE, userName, m_ticketLifeSpanInMins, currLanguage);
         }
 
         if (userName.ToLower() == "su")

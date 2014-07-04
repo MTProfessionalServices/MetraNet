@@ -1,95 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="Main" type="collection">
 
   <description>Text strings related to Adjustments and Reason Codes</description>
 
   <text id="TEXT_ADJUSTMENT">
-    <value>[FR]Adjustment</value>
+    <value>Ajustement</value>
   </text>
   <text id="TEXT_ADJUSTMENTS">
-    <value>[FR]Adjustments</value>
+    <value>Ajustements</value>
   </text>    
 
   <text id="TEXT_ADJUSTMENT_TYPE">
-    <value>[FR]Adjustment Type</value>
+    <value>Type d’ajustement</value>
   </text>
   <text id="TEXT_ADJUSTMENT_TYPES">
-    <value>[FR]Adjustment Types</value>
+    <value>Types d’ajustements</value>
   </text>    
 
   <text id="TEXT_REASON_CODE">
-    <value>[FR]Reason Code</value>
+    <value>Code de motif</value>
   </text>
   <text id="TEXT_REASON_CODES">
-    <value>[FR]Reason Codes</value>
+    <value>Codes de motifs</value>
   </text>    
 
   <text id="TEXT_ADJUSTMENT_REASON_CODE">
-    <value>[FR]Adjustment Reason Code</value>
+    <value>Code de motif de l’ajustement</value>
   </text>
   <text id="TEXT_ADJUSTMENT_REASON_CODES">
-    <value>[FR]Adjustment Reason Codes</value>
+    <value>Codes de motifs d'ajustement</value>
   </text>    
     
   <text id="TEXT_MANAGE_ADJUSTMENT_REASON_CODES">  
-    <value>[FR]Manage [TEXT_ADJUSTMENT_REASON_CODES]</value>
+    <value>Gérer les [TEXT_ADJUSTMENT_REASON_CODES]</value>
   </text>       
   
   <text id="TEXT_MANAGE_ADJUSTMENT_REASON_CODES_DESCRIPTION">  
-    <value>[FR]Create or edit [TEXT_ADJUSTMENT_REASON_CODES].</value>
+    <value>Créer ou modifier des [TEXT_ADJUSTMENT_REASON_CODES].</value>
   </text>
   
   <text id="TEXT_CREATE_NEW_ADJUSTMENT_REASON_CODE">  
-    <value>[FR]Create New [TEXT_ADJUSTMENT_REASON_CODE]</value>
+    <value>Créer de nouveaux [TEXT_ADJUSTMENT_REASON_CODE]</value>
   </text>  
   
   <text id="TEXT_BUTTON_ADD_EXISTING">  
-    <value>[FR]Add Existing</value>
+    <value>Ajouter un code existant</value>
   </text>  
   
   <text id="TEXT_BUTTON_CREATE_NEW">  
-    <value>[FR]Create New</value>
+    <value>Créer un nouveau code</value>
   </text>  
   
   <text id="TEXT_BUTTON_SET_UP_ADJUSTMENT_TYPES">  
-    <value>[FR]Configure [TEXT_ADJUSTMENT_TYPES]</value>
+    <value>Configurer des [TEXT_ADJUSTMENT_TYPES]</value>
   </text>  
   
   <text id="TEXT_BUTTON_SET_UP_ADJUSTMENTS">  
-    <value>[FR]Configure [TEXT_ADJUSTMENTS]</value>
+    <value>Configurer des [TEXT_ADJUSTMENTS]</value>
   </text>  
   
   <text id="TEXT_SET_UP_ADJUSTMENT_TYPE">  
-    <value>[FR]Configure [TEXT_ADJUSTMENT_TYPE]</value>
+    <value>Configurer un [TEXT_ADJUSTMENT_TYPE]</value>
   </text>  
   
   <text id="TEXT_SET_UP_ADJUSTMENT">  
-    <value>[FR]Configure [TEXT_ADJUSTMENT]</value>
+    <value>Configurer un [TEXT_ADJUSTMENT]</value>
   </text>      
   
   <text id="TEXT_ADD_ADJUSTMENT_REASON_CODE">  
-    <value>[FR]Add [TEXT_ADJUSTMENT_REASON_CODE]</value>
+    <value>Ajouter un [TEXT_ADJUSTMENT_REASON_CODE]</value>
   </text>       
   
   <text id="TEXT_SELECT_AN_ADJUSTMENT_REASON_CODE">  
-    <value>[FR]Select an [TEXT_ADJUSTMENT_REASON_CODE]</value>
+    <value>Sélectionner un [TEXT_ADJUSTMENT_REASON_CODE]</value>
   </text>         
   
   <text id="TEXT_BUTTON_ADD_ADJUSTMENT">  
-    <value>[FR]Add [TEXT_ADJUSTMENT]</value>
+    <value>Ajouter un [TEXT_ADJUSTMENT]</value>
   </text>         
  
   <text id="TEXT_CONFIGURED_ADJUSTMENTS">
-	  <value>[FR]The following [TEXT_ADJUSTMENTS] have been configured</value>
+	  <value>Les [TEXT_ADJUSTMENTS] ont été configurés</value>
   </text>
   
   <text id="TEXT_PRICEABLE_ITEM_DOES_NOT_SUPPORT_ADJUSTMENT">
-	  <value>[FR][TEXT_KEYTERM_PRICEABLE_ITEM] does not support any [TEXT_ADJUSTMENTS]</value>
+	  <value>L'[TEXT_KEYTERM_PRICEABLE_ITEM] ne prend pas en charge les [TEXT_ADJUSTMENTS]</value>
   </text>
   
 	
 	<text id="TEXT_SELECT_AN_ADJUSTMENT_TYPE">
-	  <value>[FR]Select an [TEXT_ADJUSTMENT_TYPE]</value>
+	  <value>Sélectionnez un [TEXT_ADJUSTMENT_TYPE]</value>
   </text>
 </texts>

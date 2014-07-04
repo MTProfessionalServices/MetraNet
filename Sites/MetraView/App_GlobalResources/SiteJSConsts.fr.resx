@@ -118,22 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ALT_FORMAT" xml:space="preserve">
-    <value>d/m/Y</value>
+    <value>j/m/A</value>
   </data>
   <data name="DATE_FORMAT" xml:space="preserve">
-    <value>j/n/Y</value>
+    <value>n/j/Y</value>
   </data>
   <data name="DATE_LONG_FORMAT" xml:space="preserve">
-    <value>j/n/Y g:i:s </value>
+    <value>n/j/Y g:i:s A</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>j/n/Y g:i:s | j/n/Y</value>
+    <value>n/j/Y g:i:s A|n/j/Y</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
-    <value>j/n/Y g:i:s</value>
+    <value>n/j/Y g:i:s A</value>
   </data>
   <data name="ERR_DATE_FORMAT" xml:space="preserve">
-    <value>dd/mm/YYYY</value>
+    <value>jj/mm/AAAA</value>
   </data>
   <data name="GRAPH_CURRENCY_FORMAT" xml:space="preserve">
     <value>$%.2f</value>
@@ -178,7 +178,7 @@
     <value>Ajouter une valeur</value>
   </data>
   <data name="TEXT_ADDING_UDRC" xml:space="preserve">
-    <value>Ajout d’une valeur UDRC…</value>
+    <value>Ajout d’une valeur UDRC...</value>
   </data>
   <data name="TEXT_ADVANCED_FIND" xml:space="preserve">
     <value>Recherche avancée</value>
@@ -208,7 +208,7 @@
     <value>Colonne</value>
   </data>
   <data name="TEXT_COLUMN_CONFIG_PROMPT" xml:space="preserve">
-    <value>Sélectionnez toutes les colonnes visibles. Réorganisez les données par glisser-déposer.</value>
+    <value>Sélectionnez toutes les colonnes visibles. Utilisez l'opération de glisser-déposer pour effectuer une réorganisation</value>
   </data>
   <data name="TEXT_CONFIGURATION_COMPLETED" xml:space="preserve">
     <value>Modification de la configuration réussie</value>
@@ -220,7 +220,7 @@
     <value>Configurer les colonnes</value>
   </data>
   <data name="TEXT_CONFIGURE_FILTERS" xml:space="preserve">
-    <value>Configure des filtres</value>
+    <value>Configurer des filtres</value>
   </data>
   <data name="TEXT_CREATE_REL" xml:space="preserve">
     <value>Créer une relation</value>
@@ -241,22 +241,22 @@
     <value>Supprimer</value>
   </data>
   <data name="TEXT_BULKUPDATE" xml:space="preserve">
-    <value>Bulk Update</value>
+    <value>Mise à jour en vrac</value>
   </data>
   <data name="TEXT_DELETE_MESSAGE" xml:space="preserve">
-    <value>Êtes-vous sûr de vouloir supprimer {0}?</value>
+    <value>Êtes-vous sûr de vouloir effectuer la suppression de {0} ?</value>
   </data>
   <data name="TEXT_DELETE_SEARCH_CONFIRM" xml:space="preserve">
-    <value>Êtes-vous sûr de vouloir supprimer cette recherche enregistrée ?</value>
+    <value>Êtes-vous sûr de vouloir supprimer cette recherche enregistrée ?</value>
   </data>
   <data name="TEXT_DELETE_SELECTED_ROWS" xml:space="preserve">
     <value>Êtes-vous sûr de vouloir supprimer les lignes sélectionnées ?</value>
   </data>
   <data name="TEXT_DELETE_TEMPLATE_MESSAGE" xml:space="preserve">
-    <value>Êtes-vous sûr de vouloir supprimer le modèle {0}?</value>
+    <value>Êtes-vous sûr de vouloir supprimer le modèle {0} ?</value>
   </data>
   <data name="TEXT_DELETE_TEMPLATE_SUB_MESSAGE" xml:space="preserve">
-    <value>’Êtes-vous sûr de vouloir supprimer {0} du modèle ?</value>
+    <value>’Êtes-vous sûr de vouloir supprimer {0} de ce modèle ?</value>
   </data>
   <data name="TEXT_DELETE1" xml:space="preserve">
     <value>Supprimer</value>
@@ -295,7 +295,7 @@
     <value>Date de fin</value>
   </data>
   <data name="TEXT_ERROR" xml:space="preserve">
-    <value>Erreur</value>
+    <value>ERREUR</value>
   </data>
   <data name="TEXT_ERROR_CREATE_RELSHIP" xml:space="preserve">
     <value>Erreur lors de la création d’une ou plusieurs relations</value>
@@ -307,7 +307,7 @@
     <value>Impossible de supprimer la recherche enregistrée.</value>
   </data>
   <data name="TEXT_ERROR_INVALID_VALUE" xml:space="preserve">
-    <value>Valeur incorrecte !</value>
+    <value>Valeur incorrecte !</value>
   </data>
   <data name="TEXT_ERROR_LOADING_ACCOUNT" xml:space="preserve">
     <value>Erreur lors du chargement des données du compte.</value>
@@ -337,55 +337,55 @@
     <value>Exporter</value>
   </data>
   <data name="TEXT_EXPORT_ALL_RECORDS" xml:space="preserve">
-    <value>Export All Filtered Records</value>
+    <value>Exporter tous les enregistrements filtrés</value>
   </data>
   <data name="TEXT_BULKUPDATE_ALL_RECORDS" xml:space="preserve">
-    <value>Bulk Update All Filtered Records</value>
+    <value>Effectuer une mise à jour en vrac de tous les enregistrements filtrés</value>
   </data>
   <data name="TEXT_EXPORT_SELECTED_RECORDS" xml:space="preserve">
-    <value>Export Selected Records</value>
+    <value>Exporter les enregistrements sélectionnés</value>
   </data>
   <data name="TEXT_BULKUPDATE_SELECTED_RECORDS" xml:space="preserve">
-    <value>Bulk Update Selected Records</value>
+    <value>Effectuer une mise à jour en vrac des enregistrements sélectionnés</value>
   </data>
   <data name="TEXT_EXPORT_CURRENT_PAGE_ONLY" xml:space="preserve">
     <value>Exporter la page active seulement</value>
   </data>
   <data name="TEXT_BULKUPDATE_CURRENT_PAGE_ONLY" xml:space="preserve">
-    <value>Bulk Update Current Page Only</value>
+    <value>Effectuer une mise à jour en vrac de la page en cours uniquement</value>
   </data>
   <data name="TEXT_EXPORT_SEARCH_RESULTS" xml:space="preserve">
     <value>Exporter les résultats de la recherche</value>
   </data>
   <data name="TEXT_BULKUPDATE_SEARCH_RESULTS" xml:space="preserve">
-    <value>Bulk Update Search Results</value>
+    <value>Résultats de la recherche de mise à jour en vrac</value>
   </data>
   <data name="TEXT_ERROR_NOTHING_UPDATED_BULKUPDATE" xml:space="preserve">
-      <value>Nothing will be updated</value>
+    <value>Rien ne sera mis à jour</value>
   </data>
   <data name="TEXT_NO_SELECTED_BME_FOR_BULKUPDATE" xml:space="preserve">
-      <value>There are no selected BMEs for bulk update</value>
+    <value>Il n'y a aucun BME sélectionné pour effectuer une mise à jour en vrac</value>
   </data>
   <data name="TEXT_ERROR_TOO_MANY_RECORDS_BULKUPDATE" xml:space="preserve">
-    <value>Too many records to update</value>
+    <value>Trop grand nombre d'enregistrements à mettre à jour</value>
   </data>
   <data name="TEXT_LIMIT_DOWN_SEARCH_TO_BULKUPDATE" xml:space="preserve">
-    <value>You are going to update NUMBER_TO_UPDATE items. Choose less items to fit {0} item(s) limitation</value>
+    <value>Vous allez mettre à jour les éléments NUMBER_TO_UPDATE. Sélectionnez un nombre moins important d'éléments pour respecter la limitation (fixée à {0} éléments)</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_FOR_BULKUPDATE" xml:space="preserve">
-    <value>There are no properties for bulk update</value>
+    <value>Il n'y a pas de propriétés pour la mise à jour en vrac</value>
   </data>
   <data name="TEXT_ATTENTION_CHANGES_PERMANENT" xml:space="preserve">
-    <value>Attention. Your changes will be permanent</value>
+    <value>Attention ! Vos modifications seront permanentes</value>
   </data>
   <data name="TEXT_SURE_MAKE_CHANGE" xml:space="preserve">
-    <value>Are you sure that you want to make these changes?</value>
+    <value>Voulez-vous vraiment appliquer ces modifications ?</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
-    <value>No properties are going to be updated</value>
+    <value>Aucune propriété ne sera mise à jour</value>
   </data>
   <data name="TEXT_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
-    <value>Properties that are going to be updated</value>
+    <value>Propriétés qui seront mises à jour</value>
   </data>
   <data name="TEXT_EXTERNAL" xml:space="preserve">
     <value>Informations externes</value>
@@ -394,13 +394,13 @@
     <value>Échec du chargement de la page.</value>
   </data>
   <data name="TEXT_FILTER_CONFIG_PROMPT" xml:space="preserve">
-    <value>Sélectionnez tous les filtres visibles. Réorganisez les données par glisser-déposer.</value>
+    <value>Sélectionnez tous les filtres visibles. Utilisez l'opération de glisser-déposer pour effectuer une réorganisation</value>
   </data>
   <data name="TEXT_FIND_ACCOUNT" xml:space="preserve">
     <value>Rechercher le compte</value>
   </data>
   <data name="TEXT_FIND_AN_ACCOUNT" xml:space="preserve">
-    <value>Rechercher un compte…</value>
+    <value>Rechercher un compte...</value>
   </data>
   <data name="TEXT_FUTURE" xml:space="preserve">
     <value>Futur</value>
@@ -424,7 +424,7 @@
     <value>Racine de la hiérarchie</value>
   </data>
   <data name="TEXT_HISTORY_TOOLTIP" xml:space="preserve">
-    <value>Nombre de comptes :  {0} &amp;lt;br/&amp;gt;Nombre de comptes terminés : {1} &amp;lt;br/&amp;gt;Nombre d’erreurs de compte : {2} &amp;lt;br/&amp;gt;Nombre d’abonnements : {3} &amp;lt;br/&amp;gt;Nombre d’abonnements terminés :  {4}&amp;lt;br/&amp;gt; Nombre d’erreurs d’abonnement : {5}</value>
+    <value>Nombre de comptes :  {0} &lt;br/&gt;Nombre de comptes terminés : {1} &lt;br/&gt;Nombre d'erreurs de compte : {2} &lt;br/&gt;Nombre d'abonnements : {3} &lt;br/&gt;Nombre d'abonnements terminés :  {4}&lt;br/&gt; Nombre d'erreurs d'abonnement : {5}</value>
   </data>
   <data name="TEXT_INTERNAL" xml:space="preserve">
     <value>Informations internes</value>
@@ -442,7 +442,7 @@
     <value>Charger la recherche enregistrée</value>
   </data>
   <data name="TEXT_LOADING" xml:space="preserve">
-    <value>Chargement en cours…</value>
+    <value>Chargement en cours...</value>
   </data>
   <data name="TEXT_LOGIN" xml:space="preserve">
     <value>Ouverture d’une session MetraView</value>
@@ -451,16 +451,16 @@
     <value>Déconnexion</value>
   </data>
   <data name="TEXT_LOGOUT_QUESTION" xml:space="preserve">
-    <value>Êtes-vous sûr de vouloir vous déconnecter ?</value>
+    <value>Êtes-vous sûr de vouloir vous déconnecter ?</value>
   </data>
   <data name="TEXT_LONG_DATE_FORMAT" xml:space="preserve">
-    <value>j/n/Y g:ia</value>
+    <value>n/j/Y g:ia</value>
   </data>
   <data name="TEXT_MANAGE_ACCOUNT" xml:space="preserve">
     <value>Gérer le compte</value>
   </data>
   <data name="TEXT_MAX" xml:space="preserve">
-    <value>Max. :</value>
+    <value>Max. :</value>
   </data>
   <data name="TEXT_MEMBERS" xml:space="preserve">
     <value>Modifier les membres du groupe</value>
@@ -472,10 +472,10 @@
     <value>Messages</value>
   </data>
   <data name="TEXT_MIN" xml:space="preserve">
-    <value>Min. :</value>
+    <value>Min. :</value>
   </data>
   <data name="TEXT_MORE_ITEMS" xml:space="preserve">
-    <value>Autres éléments…</value>
+    <value>Autres éléments...</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>Nom</value>
@@ -487,7 +487,7 @@
     <value>Aucun compte chargé.</value>
   </data>
   <data name="TEXT_NO_PRORATION" xml:space="preserve">
-    <value>Aucun modèle n’a été appliqué.</value>
+    <value>Aucun prorata ou crédit appliqué.</value>
   </data>
   <data name="TEXT_NO_RECENT_ACCOUNTS" xml:space="preserve">
     <value>Aucun compte récent.</value>
@@ -520,19 +520,19 @@
     <value>Propriétés</value>
   </data>
   <data name="TEXT_PRORATED_RECURRING_CHARGE_CREDIT_MESSAGE" xml:space="preserve">
-    <value>Vous avez reçu ce crédit car votre abonnement avec frais récurrents à facturer en avance a changé pendant cette période de facturation.&lt;BR&gt;&lt;BR&gt;Sur votre facture précédente, nous vous avons facturé [RCAmount] en avance. Vous n’avez utilisé le service que de [RCIntervalStart] à [ProratedIntervalStartPreviousDay]. Donc, ce crédit est égal à la différence entre [ProratedIntervalStart] et [ProratedIntervalEnd]. Cela représente une période de [ProratedDays] jours.&lt;BR&gt;&lt;BR&gt;Pour calculer le crédit, nous avons utilisé des frais journaliers de [ProratedDailyRate]. Les frais journaliers ont été calculés en divisant la valeur [RCAmount] par le nombre de jours compris dans la période. Donc, nous avons pris la période de [ProratedDays] jours et nous l’avons multipliée par [ProratedDailyRate] pour vous offrir un crédit de [Amount].&lt;BR&gt;</value>
+    <value>Vous avez reçu ce crédit car votre abonnement facturé à l'avance a changé pendant cette période de facturation.&lt;BR&gt;&lt;BR&gt;Sur votre facture précédente, nous vous avons facturé [RCAmount] à l'avance.  Vous n'avez utilisé le service que du [RCIntervalStart] au [RCIntervalEnd].  Par conséquent, ce crédit représente la différence entre [ProratedIntervalStart] et [ProratedIntervalEnd].  Cela correspond à une période de [ProratedDays] jours.&lt;BR&gt;&lt;BR&gt;Pour calculer le crédit, nous avons utilisé un taux journalier de [ProratedDailyRate].  Le taux journalier a été calculé sur la base du montant [RCAmount] , en divisant ce montant par le nombre de jours contenu dans cette période. Nous avons donc pris en compte la période de [ProratedDays] jours et l'avons multipliée par[ProratedDailyRate] , ce qui a permis d'obtenir un crédit de [Amount].&lt;BR&gt;</value>
   </data>
   <data name="TEXT_PRORATED_RECURRING_CHARGE_MESSAGE" xml:space="preserve">
-    <value>Ces frais ont été estimés au prorata.  L’estimation au prorata permet de réduire les frais en ne vous facturant que pour le nombre de jours pendant lesquels vous vous êtes abonné à un service pendant une période de facturation donnée.&lt;BR&gt;&lt;BR&gt;Concernant cet élément, vos frais ont commencé le [ProratedIntervalStart] et se sont terminés le [ProratedIntervalEnd].  Vous avez donc bénéficié de [ProratedDays] jours de service.  Vos frais pour cette période ont été calculés en multipliant les frais journaliers [ProratedDailyRate] par [ProratedDays] jours pendant lesquels vous étiez abonné.  Cette opération est égale à [Amount].  (Les frais journaliers [ProratedDailyRate] sont calculés en divisant les frais relatifs à la période [RCAmount] par le nombre de jours compris dans la période).&lt;BR&gt;</value>
+    <value>Ces frais ont été calculés au prorata.  Cela permet de diminuer les frais en ne facturant que le nombre de jours d'abonnement à un service au cours d'une période de facturation donnée.&lt;BR&gt;&lt;BR&gt;Pour cet élément, les frais ont débuté le [ProratedIntervalStart] pour se terminer le [ProratedIntervalEnd]. Vous avez donc bénéficié de [ProratedDays] jours de service. Votre facture pour cette période fait donc apparaître un montant calculé via la multiplication du taux journalier de [ProratedDailyRate] par [ProratedDays] jours pendant lesquels vous avez bénéficié de l'abonnement.  Cela représente [Amount].  (Le taux journalier de [ProratedDailyRate] est calculé en divisant les frais de la période (qui s'élèvent à [RCAmount]) par le nombre de jours de la période).&lt;BR&gt;</value>
   </data>
   <data name="TEXT_RATES" xml:space="preserve">
-    <value>Prix </value>
+    <value>Prix  </value>
   </data>
   <data name="TEXT_RECENT_ACCOUNTS" xml:space="preserve">
     <value>Comptes récents</value>
   </data>
   <data name="TEXT_RECURRING_CHARGE_CREDIT" xml:space="preserve">
-    <value>Vous avez reçu ce crédit car votre abonnement avec frais récurrents à facturer en avance a changé pendant cette période de facturation.&lt;BR&gt;&lt;BR&gt;Sur votre facture précédente, nous vous avons facturé [RCAmount] en avance. Nous vous remboursons actuellement ce montant.&lt;BR&gt;</value>
+    <value>Vous avez reçu ce crédit car votre abonnement avec frais récurrents à facturer en avance a changé pendant cette période de facturation.&lt;BR&gt;&lt;BR&gt;Sur votre facture précédente, nous vous avons facturé [RCAmount] en avance. Nous vous remboursons ce montant.&lt;BR&gt;</value>
   </data>
   <data name="TEXT_RELOAD_ACCOUNT" xml:space="preserve">
     <value>Recharger le compte</value>
@@ -556,7 +556,7 @@
     <value>Êtes-vous sûr de vouloir supprimer la/les relations sélectionnées ?</value>
   </data>
   <data name="TEXT_REQUIRES_FLASH" xml:space="preserve">
-    <value>Ce contenu nécessite Adobe Flash Player.</value>
+    <value>Ce contenu nécessite Adobe Flash Player.  </value>
   </data>
   <data name="TEXT_SAVE_SEARCH" xml:space="preserve">
     <value>Enregistrer la recherche</value>
@@ -571,7 +571,7 @@
     <value>Chercher un nom</value>
   </data>
   <data name="TEXT_SEARCHING" xml:space="preserve">
-    <value>Recherche en cours…</value>
+    <value>Recherche en cours...</value>
   </data>
   <data name="TEXT_SELECT_ACCOUNT" xml:space="preserve">
     <value>Sélectionner un compte</value>
@@ -586,7 +586,7 @@
     <value>Connexion à l’auto-gestion</value>
   </data>
   <data name="TEXT_SESSION_TIMEOUT_TEXT" xml:space="preserve">
-    <value>Votre session a expiré.  Ouvrez-la à nouveau.</value>
+    <value>Votre session est arrivée à expiration. Veuillez vous reconnecter.</value>
   </data>
   <data name="TEXT_SESSION_TIMEOUT_TITLE" xml:space="preserve">
     <value>La session a expiré</value>
@@ -595,7 +595,7 @@
     <value>Paramètres</value>
   </data>
   <data name="TEXT_SETUP_CHARGE_ACCOUNT" xml:space="preserve">
-    <value>Configurez le compte de frais avant d’ajouter les valeurs UDRC</value>
+    <value>Configurez le compte de frais avant d’ajouter les valeurs UDRC</value>
   </data>
   <data name="TEXT_SHIP_TO" xml:space="preserve">
     <value>Destinataire</value>
@@ -607,7 +607,7 @@
     <value>Date de début</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
-    <value>Statut</value>
+    <value>État</value>
   </data>
   <data name="TEXT_SUBSCRIPTIONS" xml:space="preserve">
     <value>Abonnements</value>
@@ -637,7 +637,7 @@
     <value>Historique des utilisations</value>
   </data>
   <data name="TEXT_VALIDATION_ERROR" xml:space="preserve">
-    <value>Cette page comporte des erreurs de validation. Renseignez les champs obligatoires.</value>
+    <value>Cette page comporte des erreurs de validation. Veuillez renseigner les zones obligatoires.</value>
   </data>
   <data name="TEXT_VALUE" xml:space="preserve">
     <value>Valeur</value>
@@ -655,7 +655,7 @@
     <value>Afficher la/les relations</value>
   </data>
   <data name="TEXT_WELCOME" xml:space="preserve">
-    <value>Bienvenue !</value>
+    <value>Bienvenue !</value>
   </data>
   <data name="TEXT_YES" xml:space="preserve">
     <value>Oui</value>
@@ -670,33 +670,30 @@
     <value>Relations pour :</value>
   </data>
   <data name="TEXT_AMPWIZARD_AMP_UI_NAME_ILLEGAL_CHAR" xml:space="preserve">
-    <value />
+    <value>Le nom ne peut pas contenir d'apostrophes ou de guillemets.</value>
   </data>
   <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[FR] Passwords do not match.</value>
-  </data>  
+    <value>Les mots de passe ne correspondent pas.</value>
+  </data>
   <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[FR] Enter a valid phone number. Format: 555-555-5555</value>
-  </data>    
+    <value>Entrez un numéro de téléphone valide. Format : 555-555-5555</value>
+  </data>
   <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[FR] Credit card format is invalid</value>
-  </data>      
+    <value>Le format de la carte de crédit est incorrect.</value>
+  </data>
   <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[FR] CV Number is invalid</value>
-  </data>        
+    <value>Le numéro CV est incorrect</value>
+  </data>
   <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[FR] SSN format: xxx-xx-xxxx</value>
-  </data>          
+    <value>Format SSN : xxx-xx-xxxx</value>
+  </data>
   <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[FR] Only numeric digits are allowed</value>
-  </data>            
+    <value>Seules les valeurs numériques sont autorisées</value>
+  </data>
   <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[FR] Zipcode is invalid</value>
-  </data>              
+    <value>Le code postal est incorrect</value>
+  </data>
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[FR] Middle initial is invalid</value>
-  </data>  
-  <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
-    <value>d/m/Y H:i:s</value>
+    <value>Le milieu initial est incorrecte</value>
   </data>
 </root>

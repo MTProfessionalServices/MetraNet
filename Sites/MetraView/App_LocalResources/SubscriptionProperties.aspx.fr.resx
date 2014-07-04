@@ -141,4 +141,7 @@
   <data name="EmptyLiteral.Text" xml:space="preserve">
     <value>Aucun enregistrement trouvé</value>
   </data>
+  <data name="pnlSubscriptionProperties.Text" xml:space="preserve">
+    <value />
+  </data>
 </root>

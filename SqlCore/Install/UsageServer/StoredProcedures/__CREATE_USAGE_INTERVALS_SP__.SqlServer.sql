@@ -1,3 +1,4 @@
+
 CREATE PROC CreateUsageIntervals
 (
   @dt_now   DATETIME,  -- the MetraTech system's date
@@ -8,7 +9,14 @@ AS
 
   BEGIN TRAN
 
-
+/*  
+  -- debug mode --
+  declare @dt_now datetime 
+  select @dt_now = CAST('2/9/2003' AS DATETIME) --GetUTCDate()
+  declare @pretend int
+  select @pretend = null
+  declare @n_count int
+*/  
 
   --
   -- PRECONDITIONS:
@@ -34,65 +42,108 @@ AS
   -- represents the end date that an interval must
   -- fall into to be considered 
   DECLARE @dt_end DATETIME
-  DECLARE @dt_start DATETIME
-  SELECT @dt_end = (@dt_now + n_adv_interval_creation), @dt_start = IsNull(dt_last_interval_creation, dbo.mtmaxdate()) FROM t_usage_server
+  SELECT @dt_end = (@dt_now + n_adv_interval_creation) FROM t_usage_server
 
-if object_id('tempdb..#missing_intervals') is not null
-drop table #missing_intervals
+  DECLARE @new_mappings TABLE
+  (
+    id_acc INT NOT NULL,
+    id_usage_interval INT NOT NULL,
+    tx_status VARCHAR(1)  
+  )
 
--- determines what usage intervals need to be added
--- ; on next line is not a typo, required for CTE on SQL server
-  ;
-  with my_cycles as
-(
-select
-id_usage_cycle, min(CASE WHEN ac.dt_crt >= @dt_start THEN acc.vt_start WHEN acc.vt_start > @dt_start THEN acc.vt_start ELSE @dt_start END) vt_start, max(vt_end) vt_end
-from t_acc_usage_cycle auc
-inner join t_account_state acc on auc.id_acc = acc.id_acc
-inner join t_account ac on ac.id_acc = auc.id_acc
-and acc.status <> 'AR'
-where 1=1
-and (acc.vt_end > @dt_start or ac.dt_crt > @dt_start)
-group by id_usage_cycle
-)
-select
-pci.id_interval,
-used.id_usage_cycle,
-pci.dt_start,
-pci.dt_end,
-ui.tx_interval_status
-into #missing_intervals
-from my_cycles used
-inner join t_pc_interval pci on pci.id_cycle = used.id_usage_cycle
-and used.vt_start <= pci.dt_end
-and used.vt_end >= pci.dt_start
-left outer join t_usage_interval ui on ui.id_interval = pci.id_interval
-where 1=1
-and pci.dt_start <= @dt_end
-;
+if object_id('tempdb..#minstart') is not null
+drop table #minstart
 
-  -- records how many intervals would be added
-  SELECT @n_count = COUNT(1) FROM #missing_intervals where tx_interval_status is null
+    SELECT 
+      accstate.id_acc,
+      -- if the usage cycle was updated, consider the time of update as the start date
+      -- this prevents backfilling mappings for the previous cycle
+      MIN(ISNULL(maxaui.dt_effective, accstate.vt_start)) dt_start,
+      MAX(CASE WHEN vt_end > @dt_end THEN @dt_end ELSE vt_end END) dt_end
+ into #minstart
+    FROM t_account_state accstate
+    LEFT OUTER JOIN 
+    (
+      SELECT 
+        id_acc,
+        MAX(CASE WHEN dt_effective IS NULL THEN NULL ELSE dbo.AddSecond(dt_effective) END) dt_effective
+      FROM t_acc_usage_interval
+      GROUP BY id_acc
+    ) maxaui ON maxaui.id_acc = accstate.id_acc
+    WHERE 
+      -- excludes archived accounts
+      accstate.status <> 'AR' AND 
+      -- the account has already started or is about to start
+      accstate.vt_start < @dt_end AND
+      -- the account has not yet ended
+      accstate.vt_end >= @dt_now
+    GROUP BY accstate.id_acc
+
+create clustered index idx_minstart on #minstart(id_acc)
 
   -- associate accounts with intervals based on their cycle mapping
   -- this will detect missing mappings and add them
-select
-auc.id_acc,
-ui.id_interval,
-'O' tx_status,
-NULL dt_effective
-into #missing_mappings
-from #missing_intervals ui
-inner join t_acc_usage_cycle auc on ui.id_usage_cycle = auc.id_usage_cycle
-inner join t_account_state acc on acc.id_acc = auc.id_acc
-and acc.vt_start <= ui.dt_end
-and acc.vt_end >= ui.dt_start
-and acc.status <> 'AR'
-left outer join t_acc_usage_interval aui on aui.id_acc = auc.id_acc and aui.id_usage_interval = ui.id_interval
-where 1=1
-and IsNull(ui.tx_interval_status, 'O') <> 'B'
-and aui.id_acc is null
-;
+  INSERT INTO @new_mappings
+  SELECT 
+    auc.id_acc,
+    ref.id_interval,
+    ISNULL(ui.tx_interval_status, 'O')
+  FROM t_acc_usage_cycle auc
+  INNER JOIN 
+	#minstart minstart ON minstart.id_acc = auc.id_acc
+  INNER JOIN t_pc_interval ref ON
+    ref.id_cycle = auc.id_usage_cycle AND
+    -- reference interval must at least partially overlap the [minstart, maxend] period
+    (ref.dt_end >= minstart.dt_start AND ref.dt_start <= minstart.dt_end)
+  LEFT OUTER JOIN t_usage_interval ui
+    ON ui.id_interval = ref.id_interval 
+  WHERE
+  not exists (select 1 from t_acc_usage_interval aui where
+    aui.id_usage_interval = ref.id_interval AND
+    aui.id_acc = auc.id_acc  
+) 
+and
+    -- Only add mappings for non-blocked intervals
+    (ui.tx_interval_status IS NULL OR ui.tx_interval_status != 'B')
+--  SELECT count(*) FROM @new_mappings
+
+if object_id('tempdb..#minstart') is not null
+drop table #minstart
+
+
+  DECLARE @new_intervals TABLE
+  (
+    id_interval INT NOT NULL,
+    id_usage_cycle INT NOT NULL,
+    dt_start DATETIME NOT NULL,
+    dt_end DATETIME NOT NULL,
+    tx_interval_status VARCHAR(1) NOT NULL,
+    id_cycle_type INT NOT NULL
+  )
+
+  -- determines what usage intervals need to be added
+  -- based on the new account-to-interval mappings  
+  INSERT INTO @new_intervals
+  SELECT 
+    ref.id_interval,
+    ref.id_cycle,
+    ref.dt_start,
+    ref.dt_end,
+    'O',  -- Open
+    uct.id_cycle_type
+  FROM t_pc_interval ref
+  INNER JOIN 
+  (
+    SELECT DISTINCT id_usage_interval FROM @new_mappings
+  ) mappings ON mappings.id_usage_interval = ref.id_interval
+  INNER JOIN t_usage_cycle uc ON uc.id_usage_cycle = ref.id_cycle
+  INNER JOIN t_usage_cycle_type uct ON uct.id_cycle_type = uc.id_cycle_type
+  WHERE 
+    -- don't add any intervals already in t_usage_interval
+    ref.id_interval NOT IN (SELECT id_interval FROM t_usage_interval)
+
+  -- records how many intervals would be added
+  SET @n_count = @@ROWCOUNT
 
   -- only adds the new intervals and mappings if pretend is false
   IF ISNULL(@pretend, 0) = 0
@@ -101,19 +152,18 @@ and aui.id_acc is null
     -- adds the new intervals
     INSERT INTO t_usage_interval(id_interval,id_usage_cycle,dt_start,dt_end,tx_interval_status)
     SELECT id_interval, id_usage_cycle, dt_start, dt_end, tx_interval_status
-    FROM #missing_intervals
-	where tx_interval_status is null
+    FROM @new_intervals
 
     -- adds the new mappings
     INSERT INTO t_acc_usage_interval(id_acc,id_usage_interval,tx_status,dt_effective)
-    SELECT id_acc, id_usage_interval, tx_status, dt_effective
-    FROM #missing_mappings
+    SELECT id_acc, id_usage_interval, tx_status, NULL
+    FROM @new_mappings    
 
     -- updates the last interval creation time, useful for debugging
     UPDATE t_usage_server SET dt_last_interval_creation = @dt_now
   END
 
   -- returns the added intervals
-  SELECT * FROM #missing_intervals where tx_interval_status is null
+  SELECT * FROM @new_intervals
   COMMIT
   

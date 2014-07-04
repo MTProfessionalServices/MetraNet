@@ -4,15 +4,15 @@
     <locale_space name="metratech.com/Contact">
         <locale_entry>
             <Name>metratech.com/Contact/Address1</Name>
-            <Value>Ligne d’adresse 1</Value>
+            <Value>Ligne d'adresse 1</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Contact/Address2</Name>
-            <Value>Ligne d’adresse 2</Value>
+            <Value>Ligne d'adresse 2</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Contact/Address3</Name>
-            <Value>Ligne d’adresse 3</Value>
+            <Value>Ligne d'adresse 3</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/Contact/City</Name>

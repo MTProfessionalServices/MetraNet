@@ -36,11 +36,11 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/address2</Name>
-            <Value>Ligne d’adresse 2</Value>
+            <Value>Ligne d'adresse 2</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/address3</Name>
-            <Value>Ligne d’adresse 3</Value>
+            <Value>Ligne d'adresse 3</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/ancestorAccount</Name>
@@ -232,7 +232,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/username</Name>
-            <Value>Nom d’utilisateur</Value>
+            <Value>Nom d'utilisateur</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/SystemAccountcreation/zip</Name>

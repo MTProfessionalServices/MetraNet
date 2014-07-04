@@ -108,7 +108,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/account/UserName</Name>
-            <Value>Nom d’utilisateur</Value>
+            <Value>Nom d'utilisateur</Value>
         </locale_entry>
     </locale_space>
 </mt_config>

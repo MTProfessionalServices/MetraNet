@@ -4,7 +4,7 @@
     <locale_space name="metratech.com/tax">
         <locale_entry>
             <Name>metratech.com/tax/BillSoftTaxLevel/County</Name>
-            <Value>comté</Value>
+            <Value>Pays</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/tax/BillSoftTaxLevel/Federal</Name>
@@ -12,55 +12,55 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/tax/BillSoftTaxLevel/Local</Name>
-            <Value>local</Value>
+            <Value>Local</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/tax/BillSoftTaxLevel/Other</Name>
-            <Value>autre</Value>
+            <Value>Autre</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/tax/BillSoftTaxLevel/State</Name>
-            <Value>état</Value>
+            <Value>État</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/tax/TaxBand/exempt</Name>
-            <Value>Exempt</Value>
+            <Value>Exemption</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/tax/TaxBand/reduce1</Name>
-            <Value>Reduce1</Value>
+            <Value>Réduction1</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/tax/TaxBand/reduce2</Name>
-            <Value>Reduce2</Value>
+            <Value>Réduction2</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/tax/TaxBand/reduce3</Name>
-            <Value>Reduce3</Value>
+            <Value>Réduction3</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/tax/TaxBand/reduce4</Name>
-            <Value>Reduce4</Value>
+            <Value>Réduction4</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/tax/TaxBand/standard</Name>
-            <Value>standard</Value>
+            <Value>Standard</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/tax/TaxDetail/Other</Name>
-            <Value>autre</Value>
+            <Value>Autre</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/tax/TaxDetail/tax_details</Name>
-            <Value>renseignements fiscaux</Value>
+            <Value>tax_details</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/tax/TaxExemptReason/NotExempt</Name>
-            <Value>pas exonérée</Value>
+            <Value>Pas d'exemption</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/tax/TaxExemptReason/Other</Name>
-            <Value>autre</Value>
+            <Value>Autre</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/tax/TaxVendor/BillSoft</Name>

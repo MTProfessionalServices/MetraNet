@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="ProductCatalogCOMObject" type="collection">
 
     <description>
@@ -9,15 +8,15 @@
     
     <!-- Priceable Items Properties -->
     <text id="TEXT_PRICEABLE_ITEM_USAGE">
-        <value>Usage Charge</value><description></description>
+        <value>Frais d’utilisation</value><description></description>
     </text>   
 
     <text id="TEXT_PRICEABLE_NAME">
-        <value>Name</value><description></description>
+        <value>Nom</value><description></description>
     </text>   
 
     <text id="TEXT_PRICEABLE_DISPLAYNAME">
-        <value>Display Name</value><description></description>
+        <value>Nom d’affichage</value><description></description>
     </text>   
     
     <text id="TEXT_PRICEABLE_DESCRIPTION">
@@ -29,11 +28,8 @@
     </text>   
     
     <text id="TEXT_PRICEABLE_SERVICE_DEFINITION">
-        <value>Service Definition</value><description></description>
+        <value>Définition du service</value><description></description>
     </text>   	
     
  
 </texts>
-
-
-

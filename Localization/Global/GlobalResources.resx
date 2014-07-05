@@ -377,7 +377,7 @@
   </data>
   <data name="TEXT_EXCEPTION_SAVING_SPECS_TO_ENTITY" xml:space="preserve">
     <value>Unhandled Exception while trying to save specification characteristics to entity.</value>
-    </data>
+  </data>
   <data name="TEXT_REVIEW_LOGS" xml:space="preserve">
     <value>An unknown error occurred.  Please have the system administrator review your logs.</value>
   </data>
@@ -407,10 +407,10 @@
   </data>
   <data name="ADDING_SPEC_CHAR_VALS" xml:space="preserve">
     <value>Adding specification characteristic values.</value>
-  </data>   
+  </data>
   <data name="ADDED_SPEC_CHAR_VALS" xml:space="preserve">
     <value>Added specification characteristic values.</value>
-  </data>  
+  </data>
   <data name="TEXT_CREATED_SPEC" xml:space="preserve">
     <value>Created specification characteristic.</value>
   </data>
@@ -446,10 +446,10 @@
   </data>
   <data name="TEXT_REMOVING_SPEC_FROM_ENTITY" xml:space="preserve">
     <value>Removing specification characteristic from entity.</value>
-  </data>  
+  </data>
   <data name="TEXT_CANOT_DELETE_SPEC_IN_USE" xml:space="preserve">
     <value>Cannot remove specification characteristic because it is in use.</value>
-  </data>   
+  </data>
   <data name="TEXT_REMOVED_SPEC_FROM_ENTITY" xml:space="preserve">
     <value>Removed specification characteristic from entity.</value>
   </data>
@@ -470,7 +470,7 @@
   </data>
   <data name="TEXT_RETRIEVED_SPECS_FOR_ENTITY" xml:space="preserve">
     <value>Retrieved specification characteristics for entity.</value>
-  </data>  
+  </data>
   <data name="TEXT_COULD_NOT_RETRIEVE_SPEC_CHAR_VALS" xml:space="preserve">
     <value>Could not retrieved specification characteristic values from system.</value>
   </data>
@@ -479,7 +479,7 @@
   </data>
   <data name="TEXT_SPEC_CHAR_VAL_IN_USE" xml:space="preserve">
     <value>Cannot update the sepcification characteristic value because it is in use.</value>
-  </data>   
+  </data>
   <data name="TEXT_UPDATED_SPEC_CHAR_VAL" xml:space="preserve">
     <value>Updated the specification characteristic value.</value>
   </data>
@@ -488,7 +488,7 @@
   </data>
   <data name="TEXT_SAVED_SPEC_CHAR_VAL_FAILED" xml:space="preserve">
     <value>An error occurred saving the sepcification characteristic value.</value>
-  </data>  
+  </data>
   <data name="TEXT_CREATING_SPEC_VAL_MAP" xml:space="preserve">
     <value>Creating entries in spec val map for specification characteristic and values.</value>
   </data>
@@ -506,7 +506,7 @@
   </data>
   <data name="TEXT_REMOVED_SPEC_VAL_MAP_FAILED" xml:space="preserve">
     <value>Failed Removing entries in spec val map for specification characteristic and values.</value>
-  </data>  
+  </data>
   <data name="TEXT_NO_VALS_TO_DELETE" xml:space="preserve">
     <value>No mapping values to delete.</value>
   </data>
@@ -647,10 +647,10 @@
   </data>
   <data name="ADDING_SHARED_PROPERTY_VALUES" xml:space="preserve">
     <value>Adding shared property values.</value>
-  </data>     
+  </data>
   <data name="ADDED_SHARED_PROPERTY_VALUES" xml:space="preserve">
     <value>Added shared property values.</value>
-  </data>    
+  </data>
   <data name="TEXT_CREATED_SHARED_PROPERTY" xml:space="preserve">
     <value>Created shared property.</value>
   </data>
@@ -687,16 +687,16 @@
   <data name="TEXT_CANT_LOAD_TEMPLATE_LIST" xml:space="preserve">
     <value>Could not load template list.</value>
   </data>
-    <data name="TEXT_CANT_DISPLAY_TEMPLATE_LIST" xml:space="preserve">
+  <data name="TEXT_CANT_DISPLAY_TEMPLATE_LIST" xml:space="preserve">
     <value>Could not display list of templates.</value>
   </data>
   <data name="TEXT_CANT_CREATE_WEB_REQUEST" xml:space="preserve">
     <value>Could not create WebRequest for {0}.</value>
   </data>
-    <data name="GOT_NO_RESPONSE" xml:space="preserve">
+  <data name="GOT_NO_RESPONSE" xml:space="preserve">
     <value>Got no response from {0}.</value>
   </data>
-    <data name="COULD_NOT_DESERIALIZE_JSON" xml:space="preserve">
+  <data name="COULD_NOT_DESERIALIZE_JSON" xml:space="preserve">
     <value>Could not deserialize JSON {0} into type {1}.</value>
   </data>
 </root>

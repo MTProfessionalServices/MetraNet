@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,485 +59,644 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-        <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
             <xsd:complexType>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="metadata">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string" />
-                            <xsd:attribute name="type" type="xsd:string" />
-                            <xsd:attribute name="mimetype" type="xsd:string" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="assembly">
-                        <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string" />
-                            <xsd:attribute name="name" type="xsd:string" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="data">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="resheader">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" />
-                        </xsd:complexType>
-                    </xsd:element>
-                </xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="ACOUNT_STATE_WAS" xml:space="preserve">
-        <value>O estado da conta era {0}, foi alterado para {1}. </value>
-    </data>
-    <data name="ANCESTOR_ACOUNT_ID_WAS" xml:space="preserve">
-        <value>O ID da conta ancestral era {0}, foi alterado para {1}. </value>
-    </data>
-    <data name="ANCESTOR_ACOUNT_NS_WAS" xml:space="preserve">
-        <value>O espaço de nomes da conta ancestral era {0}, foi alterado para {1}. </value>
-    </data>
-    <data name="ANCESTOR_ACOUNT_WAS" xml:space="preserve">
-        <value>A conta ancestral era {0}, foi alterada para {1}. </value>
-    </data>
-    <data name="BILLING_CYCLES" xml:space="preserve">
-        <value>Ciclos de faturamento</value>
-    </data>
-    <data name="CHANGED_CHILD_PI_INSTANCE" xml:space="preserve">
-        <value>A instância de PI filho foi alterado de {0} para {1}. </value>
-    </data>
-    <data name="CHANGED_PROP" xml:space="preserve">
-        <value>A propriedade '{0}' foi alterada de '{1}' para '{2}'.</value>
-    </data>
-    <data name="CITY_CHANGED" xml:space="preserve">
-        <value>A cidade era {0}, foi alterada para {1}. </value>
-    </data>
-    <data name="COUNTRY_CHANGED" xml:space="preserve">
-        <value>O país era {0}, foi alterado para {1}. </value>
-    </data>
-    <data name="DAY_OF_MONTH_WAS" xml:space="preserve">
-        <value>O dia do mês era {0}, foi alterado para {1}. </value>
-    </data>
-    <data name="DAY_OF_WEEK_WAS" xml:space="preserve">
-        <value>O dia da semana era {0}, foi alterado para {1}. </value>
-    </data>
-    <data name="END_DATE_WAS" xml:space="preserve">
-        <value>A data de término era {0}, foi alterada para {1}. </value>
-    </data>
-    <data name="END_DAY_OF_MONTH" xml:space="preserve">
-        <value>Dia final do mês</value>
-    </data>
-    <data name="END_DAY_OF_WEEK" xml:space="preserve">
-        <value>Dia final da semana</value>
-    </data>
-    <data name="EXPIRATION_CHANGED" xml:space="preserve">
-        <value>A data de expiração era {0}, foi alterada para {1}.</value>
-    </data>
-    <data name="FIRST_DAY_OF_MONTH_WAS" xml:space="preserve">
-        <value>O primeiro dia do mês era {0}, foi alterado para {1}. </value>
-    </data>
-    <data name="FIRST_END_DAY_OF_MONTH" xml:space="preserve">
-        <value>1º dia final do mês</value>
-    </data>
-    <data name="FIRST_NAME_CHANGED" xml:space="preserve">
-        <value>O nome era {0}, foi alterado para {1}. </value>
-    </data>
-    <data name="LAST_NAME_CHANGED" xml:space="preserve">
-        <value>O sobrenome era {0}, foi alterado para {1}.</value>
-    </data>
-    <data name="MAX_CHARGE_CHANGED" xml:space="preserve">
-        <value>A cobrança máxima por ciclo era {0}, foi alterada para {1}. </value>
-    </data>
-    <data name="TEMPLATE_ID_LESS_THAN_0" xml:space="preserve">
-    <value>(Portuguese)Agreement template ID cannot be less than 0.</value>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ACOUNT_STATE_WAS" xml:space="preserve">
+    <value>O estado da conta era {0}, foi alterado para {1}. </value>
   </data>
-    <data name="MIDDLE_NAME_CHANGED" xml:space="preserve">
-        <value>O nome do meio era {0}, foi alterado para {1}. </value>
-    </data>
-    <data name="ENTITY_LIST_CONTAINS_ID" xml:space="preserve">
-    <value>(Portuguese)Entity list already contains entity with id {0}.</value>
+  <data name="ANCESTOR_ACOUNT_ID_WAS" xml:space="preserve">
+    <value>O ID da conta ancestral era {0}, foi alterado para {1}. </value>
   </data>
-    <data name="ENTITY_LIST_DOES_NOT_CONTAIN_ID" xml:space="preserve">
-    <value>(Portuguese)Entity list does not contain entity with id {0}.</value>
+  <data name="ANCESTOR_ACOUNT_NS_WAS" xml:space="preserve">
+    <value>O espaço de nomes da conta ancestral era {0}, foi alterado para {1}. </value>
   </data>
-    <data name="ERROR_START_DATE_AFTER_END_DATE" xml:space="preserve">
-    <value>(Portuguese)The Effective End Date cannot be earlier than the Effective Start Date.</value>
+  <data name="ANCESTOR_ACOUNT_WAS" xml:space="preserve">
+    <value>A conta ancestral era {0}, foi alterada para {1}. </value>
   </data>
-    <data name="CREATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
-    <value>(Portuguese)New Agreement Template created successfully with id {0}.</value>
+  <data name="BAD_TRANSACTION_TYPE" xml:space="preserve">
+    <value>[pt-BR]Transaction {0} is of type {1}, but got a AlreadySettledException</value>
   </data>
-    <data name="UPDTED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
-    <value>(Portuguese)Updated Agreement Template with id {0}.</value>
+  <data name="BILLING_CYCLES" xml:space="preserve">
+    <value>Ciclos de faturamento</value>
   </data>
-    <data name="FAILED_TO_SAVE_AGREEMENT_TEMPLATE" xml:space="preserve">
-    <value>(Portuguese)Failed to save agreement template {0}.</value>
+  <data name="CHANGED_CHILD_PI_INSTANCE" xml:space="preserve">
+    <value>A instância de PI filho foi alterado de {0} para {1}. </value>
   </data>
-    <data name="ADDED_ENTITY" xml:space="preserve">
-    <value>(Portuguese)Added entity with ID {0} to entity list</value>
+  <data name="CHANGED_PROP" xml:space="preserve">
+    <value>A propriedade '{0}' foi alterada de '{1}' para '{2}'.</value>
   </data>
-    <data name="DELETED_ENTITY" xml:space="preserve">
-    <value>(Portuguese)Deleted entity with ID {0} from entity list</value>
+  <data name="CITY_CHANGED" xml:space="preserve">
+    <value>A cidade era {0}, foi alterada para {1}. </value>
   </data>
-    <data name="VALUE_CHANGED" xml:space="preserve">
-    <value>(Portuguese){0} was {1}, changed to {2}.</value>
+  <data name="COUNTRY_CHANGED" xml:space="preserve">
+    <value>O país era {0}, foi alterado para {1}. </value>
   </data>
-    <data name="PAYER_ACCOUNT_NS_WAS" xml:space="preserve">
-        <value>O espaço de nomes da conta do pagador era {0}, foi alterado para {1}. </value>
-    </data>
-    <data name="PAYER_ACCOUNT_WAS" xml:space="preserve">
-        <value>A conta do pagador era {0}, foi alterada para {1}. </value>
-    </data>
-    <data name="PAYER_ID_WAS" xml:space="preserve">
-        <value>O ID do pagador era {0}, foi alterado para {1}. </value>
-    </data>
-    <data name="PI_DESCRIPTION_WAS" xml:space="preserve">
-        <value>A descrição era {0}, foi alterada para {1}. </value>
-    </data>
-    <data name="PI_DISPLAY_NAME_WAS" xml:space="preserve">
-        <value>O nome exibido era {0}, foi alterado para {1}. </value>
-    </data>
-    <data name="PI_KIND_WAS" xml:space="preserve">
-        <value>O tipo era {0}, foi alterado para {1}. </value>
-    </data>
-    <data name="PI_NAME_WAS" xml:space="preserve">
-        <value>O nome era {0}, foi alterado para {1}.</value>
-    </data>
-    <data name="ROOT" xml:space="preserve">
-        <value>Hierarquia de conta (1)</value>
-    </data>
-    <data name="SECOND_DAY_OF_MONTH_WAS" xml:space="preserve">
-        <value>O segundo dia do mês era {0}, foi alterado para {1}. </value>
-    </data>
-    <data name="SECOND_END_DAY_OF_MONTH" xml:space="preserve">
-        <value>2º dia final do mês</value>
-    </data>
-    <data name="SELECT_INTERVAL" xml:space="preserve">
-        <value>Selecionar intervalo</value>
-    </data>
-    <data name="START_DATE_WAS" xml:space="preserve">
-        <value>A data de início era {0}, foi alterada para {1}. </value>
-    </data>
-    <data name="START_DAY" xml:space="preserve">
-        <value>Data de início</value>
-    </data>
-    <data name="START_DAY_IS" xml:space="preserve">
-        <value>A data de início é {0}. </value>
-    </data>
-    <data name="START_DAY_WAS" xml:space="preserve">
-        <value>O dia de início era {0}, foi alterado para {1}. </value>
-    </data>
-    <data name="START_MONTH" xml:space="preserve">
-        <value>Mês de início</value>
-    </data>
-    <data name="START_MONTH_IS" xml:space="preserve">
-        <value>O mês de início é {0}. </value>
-    </data>
-    <data name="START_MONTH_WAS" xml:space="preserve">
-        <value>O mês de início era {0}, foi alterado para {1}. </value>
-    </data>
-    <data name="START_YEAR_WAS" xml:space="preserve">
-        <value>O ano de início era {0}, foi alterado para {1}. </value>
-    </data>
-    <data name="STATE_CHANGED" xml:space="preserve">
-        <value>O estado era {0}, foi alterado para {1}. </value>
-    </data>
-    <data name="STREET_2_CHANGED" xml:space="preserve">
-        <value>A rua(2) era {0}, foi alterada para {1}.</value>
-    </data>
-    <data name="STREET_CHANGED" xml:space="preserve">
-        <value>A rua era {0}, foi alterada para {1}. </value>
-    </data>
-    <data name="SUCCESSFULLY_UPDATED_ACCOUNT_FOR" xml:space="preserve">
-        <value>Atualização de conta para o nome de usuário '{0}' com id '{1} realizada. ' </value>
-    </data>
-    <data name="TEXT_ACCOUNT_CANNOT_BE_OWN_BILL_MANAGER" xml:space="preserve">
-        <value>A conta não pode ser seu próprio gerenciador de fatura</value>
-    </data>
-    <data name="TEXT_ADDED_BILL_MANAGEE" xml:space="preserve">
-        <value>Gerenciado de fatura adicionado</value>
-    </data>
-    <data name="TEXT_ADDED_BILL_MANAGER" xml:space="preserve">
-        <value>Gerenciador de fatura da conta adicionado com sucesso</value>
-    </data>
-    <data name="TEXT_APPROVED_NS_CHARGES" xml:space="preserve">
-        <value>Cobranças relevantes extraordinárias aprovadas</value>
-    </data>
-    <data name="TEXT_APPROVING_NS_CHARGES" xml:space="preserve">
-        <value>Aprovando as cobranças relevantes extraordinárias</value>
-    </data>
-    <data name="TEXT_BILL_MANAGER_CORPORATION" xml:space="preserve">
-        <value>O gerenciador de fatura e a conta devem estar na mesma corporação</value>
-    </data>
-    <data name="TEXT_BILL_MANAGER_EXISTS" xml:space="preserve">
-        <value>Gerenciador de fatura já existe</value>
-    </data>
-    <data name="TEXT_CANNOT_ADD_BILL_MANAGEES" xml:space="preserve">
-        <value>Não foi possível adicionar o gerenciado de fatura</value>
-    </data>
-    <data name="TEXT_CANNOT_ADD_BILL_MANAGER" xml:space="preserve">
-        <value>Não é possível adicionar gerenciador de faturamento ao sistema</value>
-    </data>
-    <data name="TEXT_CANNOT_REMOVE_BILL_MANAGEES" xml:space="preserve">
-        <value>Não foi possível excluir o gerenciado de fatura</value>
-    </data>
-    <data name="TEXT_CANNOT_REMOVE_BILL_MANAGER" xml:space="preserve">
-        <value>Não é possível excluir o gerenciador de faturamento do sistema</value>
-    </data>
-    <data name="TEXT_CANNOT_RETRIEVE_DATA" xml:space="preserve">
-        <value>Não é possível recuperar os dados do gerenciamento de faturas</value>
-    </data>
-    <data name="TEXT_DENIED_NS_CHARGES" xml:space="preserve">
-        <value>Cobranças relevantes extraordinárias negadas</value>
-    </data>
-    <data name="TEXT_DENYING_NS_CHARGES" xml:space="preserve">
-        <value>Negando as cobranças relevantes extraordinárias</value>
-    </data>
-    <data name="TEXT_NO_CHARGE_FOR_APPROVE" xml:space="preserve">
-        <value>Nenhuma cobrança para aprovação</value>
-    </data>
-    <data name="TEXT_NO_CHARGE_FOR_DENY" xml:space="preserve">
-        <value>Nenhuma cobrança fornecida para rejeição</value>
-    </data>
-    <data name="TEXT_NO_CHARGE_FOUND" xml:space="preserve">
-        <value>Não é possível recuperar as cobranças extraordinárias do sistema</value>
-    </data>
-    <data name="TEXT_NO_SESSION_IDS" xml:space="preserve">
-        <value>Nenhum ID de sessão fornecido para aprovação.</value>
-    </data>
-    <data name="TEXT_REMOVED_BILL_MANAGER" xml:space="preserve">
-        <value>Gerenciador de fatura removido</value>
-    </data>
-    <data name="TEXT_UNABLE_TO_APPROVE_PENDING_NS" xml:space="preserve">
-        <value>Não foi possível aprovar as cobranças extraordinárias.</value>
-    </data>
-    <data name="TEXT_UNABLE_TO_DENY_PENDING_NS" xml:space="preserve">
-        <value>Não foi possível negar as cobranças pendentes extraordinárias.</value>
-    </data>
-    <data name="TEXT_UNABLE_TO_PROCESS" xml:space="preserve">
-        <value>Sua solicitação não pode ser processada devido aos seguintes erros:</value>
-    </data>
-    <data name="UPDATED_PAYMENT_INST_AUDIT" xml:space="preserve">
-        <value>Atualização de instrumento de pagamento '{0}' para conta '{1} realizada. {2} </value>
-    </data>
-    <data name="USAGE_CYCLE_WAS" xml:space="preserve">
-        <value>O ciclo de utilização era {0}, foi alterado para {1}. </value>
-    </data>
-    <data name="ZIP_CHANGED" xml:space="preserve">
-        <value>O CEP era {0}, foi alterado para {1}. </value>
-    </data>
-    <data name="TEXT_RETRIEVING_FILENAME_DETAILS" xml:space="preserve">
-        <value>Retrieving details for filename </value>
-    </data>
-    <data name="TEXT_FILE_REJECTED" xml:space="preserve">
-        <value>The file was rejected.</value>
-    </data>
-    <data name="TEXT_FILE_PENDING" xml:space="preserve">
-        <value>The file is pending.</value>
-    </data>
-    <data name="TEXT_FILE_PROCESSING" xml:space="preserve">
-        <value>The file is being processed.</value>
-    </data>
-    <data name="TEXT_FILE_COMPLETED" xml:space="preserve">
-        <value>The file is being processed.</value>
-    </data>
-    <data name="TEXT_RETRIEVED_FILE_DETAILS" xml:space="preserve">
-        <value>Retrieved details for file </value>
-    </data>
-    <data name="TEXT_LOAD_DATA_EXCEPTION" xml:space="preserve">
-        <value>A load data exception occurred </value>
-    </data>
-    <data name="TEXT_DATA_ACCESS_EXCEPTION" xml:space="preserve">
-        <value>A data access exception occurred </value>
-    </data>
-    <data name="TEXT_UNKOWN_EXCEPTION" xml:space="preserve">
-        <value>An exception occurred </value>
-    </data>
-    <data name="TEXT_RETRIEVING_FILES" xml:space="preserve">
-        <value>Retrieving a list of failed filenames </value>
-    </data>
-    <data name="TEXT_RETRIEVED_FILES" xml:space="preserve">
-        <value>Retrieved a list of failed filenames </value>
-    </data>
+  <data name="DAY_OF_MONTH_WAS" xml:space="preserve">
+    <value>O dia do mês era {0}, foi alterado para {1}. </value>
+  </data>
+  <data name="DAY_OF_WEEK_WAS" xml:space="preserve">
+    <value>O dia da semana era {0}, foi alterado para {1}. </value>
+  </data>
+  <data name="END_DATE_WAS" xml:space="preserve">
+    <value>A data de término era {0}, foi alterada para {1}. </value>
+  </data>
+  <data name="END_DAY_OF_MONTH" xml:space="preserve">
+    <value>Dia final do mês</value>
+  </data>
+  <data name="END_DAY_OF_WEEK" xml:space="preserve">
+    <value>Dia final da semana</value>
+  </data>
+  <data name="EXPIRATION_CHANGED" xml:space="preserve">
+    <value>A data de expiração era {0}, foi alterada para {1}.</value>
+  </data>
+  <data name="FIRST_DAY_OF_MONTH_WAS" xml:space="preserve">
+    <value>O primeiro dia do mês era {0}, foi alterado para {1}. </value>
+  </data>
+  <data name="FIRST_END_DAY_OF_MONTH" xml:space="preserve">
+    <value>1º dia final do mês</value>
+  </data>
+  <data name="FIRST_NAME_CHANGED" xml:space="preserve">
+    <value>O nome era {0}, foi alterado para {1}. </value>
+  </data>
+  <data name="TEMPLATE_ID_LESS_THAN_0" xml:space="preserve">
+    <value>[pt-BR]Agreement template ID cannot be less than 0.</value>
+  </data>
+  <data name="LAST_NAME_CHANGED" xml:space="preserve">
+    <value>O sobrenome era {0}, foi alterado para {1}.</value>
+  </data>
+  <data name="CREATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
+    <value>[pt-BR]New Agreement Template created successfully with id {0}.</value>
+  </data>
+  <data name="FAILED_TO_SAVE_AGREEMENT_TEMPLATE" xml:space="preserve">
+    <value>[pt-BR]Failed to save agreement template {0}.</value>
+  </data>
+  <data name="UPDATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
+    <value>[pt-BR]Updated Agreement Template with id {0}.</value>
+  </data>
+  <data name="ENTITY_LIST_CONTAINS_ID" xml:space="preserve">
+    <value>[pt-BR]Entity list already contains entity with id {0}.</value>
+  </data>
+  <data name="ENTITY_LIST_DOES_NOT_CONTAIN_ID" xml:space="preserve">
+    <value>[pt-BR]Entity list does not contain entity with id {0}.</value>
+  </data>
+  <data name="ADDED_ENTITY" xml:space="preserve">
+    <value>[pt-BR]Added entity with ID {0} to entity list</value>
+  </data>
+  <data name="DELETED_ENTITY" xml:space="preserve">
+    <value>[pt-BR]Deleted entity with ID {0} from entity list</value>
+  </data>
+  <data name="VALUE_CHANGED" xml:space="preserve">
+    <value>[pt-BR]{0} was {1}, changed to {2}.</value>
+  </data>
+  <data name="ERROR_START_DATE_AFTER_END_DATE" xml:space="preserve">
+    <value>[pt-BR]The Effective End Date cannot be earlier than the Effective Start Date.</value>
+  </data>
+  <data name="MAX_CHARGE_CHANGED" xml:space="preserve">
+    <value>A cobrança máxima por ciclo era {0}, foi alterada para {1}. </value>
+  </data>
+  <data name="MIDDLE_NAME_CHANGED" xml:space="preserve">
+    <value>O nome do meio era {0}, foi alterado para {1}. </value>
+  </data>
+  <data name="PAYER_ACCOUNT_NS_WAS" xml:space="preserve">
+    <value>O espaço de nomes da conta do pagador era {0}, foi alterado para {1}. </value>
+  </data>
+  <data name="PAYER_ACCOUNT_WAS" xml:space="preserve">
+    <value>A conta do pagador era {0}, foi alterada para {1}. </value>
+  </data>
+  <data name="PAYER_ID_WAS" xml:space="preserve">
+    <value>O ID do pagador era {0}, foi alterado para {1}. </value>
+  </data>
+  <data name="PI_DESCRIPTION_WAS" xml:space="preserve">
+    <value>A descrição era {0}, foi alterada para {1}. </value>
+  </data>
+  <data name="PI_DISPLAY_NAME_WAS" xml:space="preserve">
+    <value>O nome exibido era {0}, foi alterado para {1}. </value>
+  </data>
+  <data name="PI_KIND_WAS" xml:space="preserve">
+    <value>O tipo era {0}, foi alterado para {1}. </value>
+  </data>
+  <data name="PI_NAME_WAS" xml:space="preserve">
+    <value>O nome era {0}, foi alterado para {1}.</value>
+  </data>
+  <data name="ROOT" xml:space="preserve">
+    <value>Hierarquia de conta (1)</value>
+  </data>
+  <data name="SECOND_DAY_OF_MONTH_WAS" xml:space="preserve">
+    <value>O segundo dia do mês era {0}, foi alterado para {1}. </value>
+  </data>
+  <data name="SECOND_END_DAY_OF_MONTH" xml:space="preserve">
+    <value>2º dia final do mês</value>
+  </data>
+  <data name="SELECT_INTERVAL" xml:space="preserve">
+    <value>Selecionar intervalo</value>
+  </data>
+  <data name="START_DATE_WAS" xml:space="preserve">
+    <value>A data de início era {0}, foi alterada para {1}. </value>
+  </data>
+  <data name="START_DAY" xml:space="preserve">
+    <value>Data de início</value>
+  </data>
+  <data name="START_DAY_IS" xml:space="preserve">
+    <value>A data de início é {0}. </value>
+  </data>
+  <data name="START_DAY_WAS" xml:space="preserve">
+    <value>O dia de início era {0}, foi alterado para {1}. </value>
+  </data>
+  <data name="START_MONTH" xml:space="preserve">
+    <value>Mês de início</value>
+  </data>
+  <data name="START_MONTH_IS" xml:space="preserve">
+    <value>O mês de início é {0}. </value>
+  </data>
+  <data name="START_MONTH_WAS" xml:space="preserve">
+    <value>O mês de início era {0}, foi alterado para {1}. </value>
+  </data>
+  <data name="START_YEAR_WAS" xml:space="preserve">
+    <value>O ano de início era {0}, foi alterado para {1}. </value>
+  </data>
+  <data name="STATE_CHANGED" xml:space="preserve">
+    <value>O estado era {0}, foi alterado para {1}. </value>
+  </data>
+  <data name="STREET_2_CHANGED" xml:space="preserve">
+    <value>A rua(2) era {0}, foi alterada para {1}.</value>
+  </data>
+  <data name="STREET_CHANGED" xml:space="preserve">
+    <value>A rua era {0}, foi alterada para {1}. </value>
+  </data>
+  <data name="SUCCESSFULLY_UPDATED_ACCOUNT_FOR" xml:space="preserve">
+    <value>Atualização de conta para o nome de usuário '{0}' com id '{1} realizada. ' </value>
+  </data>
+  <data name="TEXT_ACCOUNT_CANNOT_BE_OWN_BILL_MANAGER" xml:space="preserve">
+    <value>A conta não pode ser seu próprio gerenciador de fatura</value>
+  </data>
+  <data name="TEXT_ADDED_BILL_MANAGEE" xml:space="preserve">
+    <value>Gerenciado de fatura adicionado</value>
+  </data>
+  <data name="TEXT_ADDED_BILL_MANAGER" xml:space="preserve">
+    <value>Gerenciador de fatura da conta adicionado com sucesso</value>
+  </data>
+  <data name="TEXT_APPROVED_NS_CHARGES" xml:space="preserve">
+    <value>Cobranças relevantes extraordinárias aprovadas</value>
+  </data>
+  <data name="TEXT_APPROVING_NS_CHARGES" xml:space="preserve">
+    <value>Aprovando as cobranças relevantes extraordinárias</value>
+  </data>
+  <data name="TEXT_BILL_MANAGER_CORPORATION" xml:space="preserve">
+    <value>O gerenciador de fatura e a conta devem estar na mesma corporação</value>
+  </data>
+  <data name="TEXT_BILL_MANAGER_EXISTS" xml:space="preserve">
+    <value>Gerenciador de fatura já existe</value>
+  </data>
+  <data name="TEXT_CANNOT_ADD_BILL_MANAGEES" xml:space="preserve">
+    <value>Não foi possível adicionar o gerenciado de fatura</value>
+  </data>
+  <data name="TEXT_CANNOT_ADD_BILL_MANAGER" xml:space="preserve">
+    <value>Não é possível adicionar gerenciador de faturamento ao sistema</value>
+  </data>
+  <data name="TEXT_CANNOT_REMOVE_BILL_MANAGEES" xml:space="preserve">
+    <value>Não foi possível excluir o gerenciado de fatura</value>
+  </data>
+  <data name="TEXT_CANNOT_REMOVE_BILL_MANAGER" xml:space="preserve">
+    <value>Não é possível excluir o gerenciador de faturamento do sistema</value>
+  </data>
+  <data name="TEXT_CANNOT_RETRIEVE_DATA" xml:space="preserve">
+    <value>Não é possível recuperar os dados do gerenciamento de faturas</value>
+  </data>
+  <data name="TEXT_DENIED_NS_CHARGES" xml:space="preserve">
+    <value>Cobranças relevantes extraordinárias negadas</value>
+  </data>
+  <data name="TEXT_DENYING_NS_CHARGES" xml:space="preserve">
+    <value>Negando as cobranças relevantes extraordinárias</value>
+  </data>
+  <data name="TEXT_NO_CHARGE_FOR_APPROVE" xml:space="preserve">
+    <value>Nenhuma cobrança para aprovação</value>
+  </data>
+  <data name="TEXT_NO_CHARGE_FOR_DENY" xml:space="preserve">
+    <value>Nenhuma cobrança fornecida para rejeição</value>
+  </data>
+  <data name="TEXT_NO_CHARGE_FOUND" xml:space="preserve">
+    <value>Não é possível recuperar as cobranças extraordinárias do sistema</value>
+  </data>
+  <data name="TEXT_NO_SESSION_IDS" xml:space="preserve">
+    <value>Nenhum ID de sessão fornecido para aprovação.</value>
+  </data>
+  <data name="TEXT_REMOVED_BILL_MANAGER" xml:space="preserve">
+    <value>Gerenciador de fatura removido</value>
+  </data>
+  <data name="TEXT_UNABLE_TO_APPROVE_PENDING_NS" xml:space="preserve">
+    <value>Não foi possível aprovar as cobranças extraordinárias.</value>
+  </data>
+  <data name="TEXT_UNABLE_TO_DENY_PENDING_NS" xml:space="preserve">
+    <value>Não foi possível negar as cobranças pendentes extraordinárias.</value>
+  </data>
+  <data name="TEXT_UNABLE_TO_PROCESS" xml:space="preserve">
+    <value>Sua solicitação não pode ser processada devido aos seguintes erros:</value>
+  </data>
+  <data name="TIMEOUT_EXCEPTION" xml:space="preserve">
+    <value>[pt-BR]Method timed out</value>
+  </data>
+  <data name="TRANSACTION_NOT_FOUND" xml:space="preserve">
+    <value>[pt-BR]Transaction {0} not found.</value>
+  </data>
+  <data name="TX_ALREADY_REJECTED" xml:space="preserve">
+    <value>[pt-BR]Trasnaction {0} was already submitted, and was rejected by the payment processor.</value>
+  </data>
+  <data name="TX_ALREADY_SUBMITTED" xml:space="preserve">
+    <value>[pt-BR]Transaction {0} was already submitted.</value>
+  </data>
+  <data name="UPDATED_PAYMENT_INST_AUDIT" xml:space="preserve">
+    <value>Atualização de instrumento de pagamento '{0}' para conta '{1} realizada. {2} </value>
+  </data>
+  <data name="USAGE_CYCLE_WAS" xml:space="preserve">
+    <value>O ciclo de utilização era {0}, foi alterado para {1}. </value>
+  </data>
+  <data name="VOIDING_TIMEOUT" xml:space="preserve">
+    <value>[pt-BR]Timeout exception while voiding payment for Invoice {0}.</value>
+  </data>
+  <data name="ZIP_CHANGED" xml:space="preserve">
+    <value>O CEP era {0}, foi alterado para {1}. </value>
+  </data>
+  <data name="TEXT_MAS_BASE_SAVING_SPECS_TO_ENTITY" xml:space="preserve">
+    <value>[pt-BR]MASBasicException while trying to save specification characteristics to entity.</value>
+  </data>
+  <data name="TEXT_EXCEPTION_SAVING_SPECS_TO_ENTITY" xml:space="preserve">
+    <value>[pt-BR]Unhandled Exception while trying to save specification characteristics to entity.</value>
+  </data>
+  <data name="TEXT_REVIEW_LOGS" xml:space="preserve">
+    <value>[pt-BR]An unknown error occurred.  Please have the system administrator review your logs.</value>
+  </data>
+  <data name="TEXT_UPDATING_SPEC" xml:space="preserve">
+    <value>[pt-BR]Updating specification characteristic.</value>
+  </data>
+  <data name="TEXT_COULD_NOT_GET_LOCALE" xml:space="preserve">
+    <value>[pt-BR]Could not retrieve localization data.</value>
+  </data>
+  <data name="TEXT_RETRIEVED_LOCALE" xml:space="preserve">
+    <value>[pt-BR]Retrieved localization data.</value>
+  </data>
+  <data name="TEXT_PROCESSED_LOCALE" xml:space="preserve">
+    <value>[pt-BR]Processed localization data.</value>
+  </data>
+  <data name="TEXT_UPDATING_VALUES_FOR_SPEC" xml:space="preserve">
+    <value>[pt-BR]Updating values for specification characteristic.</value>
+  </data>
+  <data name="TEXT_UPDATED_VALUES_FOR_SPEC" xml:space="preserve">
+    <value>[pt-BR]Updated specification characteristic values for specification characteristic.</value>
+  </data>
+  <data name="TEXT_UPDATED_SPEC" xml:space="preserve">
+    <value>[pt-BR]Updated specification characteristic.</value>
+  </data>
+  <data name="TEXT_CREATING_SPEC" xml:space="preserve">
+    <value>[pt-BR]Creating specification characteristic.</value>
+  </data>
+  <data name="ADDING_SPEC_CHAR_VALS" xml:space="preserve">
+    <value>[pt-BR]Adding specification characteristic values.</value>
+  </data>
+  <data name="ADDED_SPEC_CHAR_VALS" xml:space="preserve">
+    <value>[pt-BR]Added specification characteristic values.</value>
+  </data>
+  <data name="TEXT_CREATED_SPEC" xml:space="preserve">
+    <value>[pt-BR]Created specification characteristic.</value>
+  </data>
+  <data name="TEXT_CREATED_SPEC_FAILED" xml:space="preserve">
+    <value>[pt-BR]Failed Created specification characteristic.</value>
+  </data>
+  <data name="TEXT_RETRIEVED" xml:space="preserve">
+    <value>[pt-BR]specification characteristics retrieved from system.</value>
+  </data>
+  <data name="TEXT_CANNOT_GET_SPECS" xml:space="preserve">
+    <value>[pt-BR]Unable to retrieve specification characteristics from system.</value>
+  </data>
+  <data name="TEXT_RETRIEVING_SPEC" xml:space="preserve">
+    <value>[pt-BR]Retrieving specification characteristic from system.</value>
+  </data>
+  <data name="TEXT_RETRIEVED_SPEC" xml:space="preserve">
+    <value>[pt-BR]Retrieved specification characteristic from system.</value>
+  </data>
+  <data name="TEXT_RETRIEVING_LOCALE" xml:space="preserve">
+    <value>[pt-BR]Retrieved localization from system.</value>
+  </data>
+  <data name="TEXT_UNABLE_TO_RETRIEVE_SPEC" xml:space="preserve">
+    <value>[pt-BR]Unable to retrieve specification characteristic from system.</value>
+  </data>
+  <data name="TEXT_RETRIEVING_SPEC_CHAR_VALS" xml:space="preserve">
+    <value>[pt-BR]Retrieving specification characteristic values from system.</value>
+  </data>
+  <data name="TEXT_RETRIEVED_SPEC_CHAR_VALS" xml:space="preserve">
+    <value>[pt-BR]Retrieved specification characteristic values from system.</value>
+  </data>
+  <data name="TEXT_CANNOT_GET_SPEC_VALS" xml:space="preserve">
+    <value>[pt-BR]Cannot retrieve specification characteristic values from system.</value>
+  </data>
+  <data name="TEXT_REMOVING_SPEC_FROM_ENTITY" xml:space="preserve">
+    <value>[pt-BR]Removing specification characteristic from entity.</value>
+  </data>
+  <data name="TEXT_CANOT_DELETE_SPEC_IN_USE" xml:space="preserve">
+    <value>[pt-BR]Cannot remove specification characteristic because it is in use.</value>
+  </data>
+  <data name="TEXT_REMOVED_SPEC_FROM_ENTITY" xml:space="preserve">
+    <value>[pt-BR]Removed specification characteristic from entity.</value>
+  </data>
+  <data name="TEXT_UNABLE_TO_REMOVE_SPEC_FROM_ENTITY" xml:space="preserve">
+    <value>[pt-BR]An error occurred removing specification characteristic from entity.</value>
+  </data>
+  <data name="TEXT_DELETING_SPEC" xml:space="preserve">
+    <value>[pt-BR]Deleting specification characteristic from system.</value>
+  </data>
+  <data name="TEXT_DELETED_SPEC" xml:space="preserve">
+    <value>[pt-BR]Deleted specification characteristic from system.</value>
+  </data>
+  <data name="TEXT_COULD_NOT_DELETE_SPEC" xml:space="preserve">
+    <value>[pt-BR]An error occurred deleting specification characteristic from system.</value>
+  </data>
+  <data name="TEXT_RETRIEVING_SPECS_FOR_ENTITY" xml:space="preserve">
+    <value>[pt-BR]Retrieving specification characteristics for entity.</value>
+  </data>
+  <data name="TEXT_RETRIEVED_SPECS_FOR_ENTITY" xml:space="preserve">
+    <value>[pt-BR]Retrieved specification characteristics for entity.</value>
+  </data>
+  <data name="TEXT_COULD_NOT_RETRIEVE_SPEC_CHAR_VALS" xml:space="preserve">
+    <value>[pt-BR]Could not retrieved specification characteristic values from system.</value>
+  </data>
+  <data name="TEXT_SAVING_SPEC_CHAR_VAL" xml:space="preserve">
+    <value>[pt-BR]Saving specification characteristic value to system.</value>
+  </data>
+  <data name="TEXT_SPEC_CHAR_VAL_IN_USE" xml:space="preserve">
+    <value>[pt-BR]Cannot update the sepcification characteristic value because it is in use.</value>
+  </data>
+  <data name="TEXT_UPDATED_SPEC_CHAR_VAL" xml:space="preserve">
+    <value>[pt-BR]Updated the specification characteristic value.</value>
+  </data>
+  <data name="TEXT_SAVED_SPEC_CHAR_VAL" xml:space="preserve">
+    <value>[pt-BR]Saved the specification characteristic value.</value>
+  </data>
+  <data name="TEXT_SAVED_SPEC_CHAR_VAL_FAILED" xml:space="preserve">
+    <value>[pt-BR]An error occurred saving the sepcification characteristic value.</value>
+  </data>
+  <data name="TEXT_CREATING_SPEC_VAL_MAP" xml:space="preserve">
+    <value>[pt-BR]Creating entries in spec val map for specification characteristic and values.</value>
+  </data>
+  <data name="TEXT_CREATED_SPEC_VAL_MAP" xml:space="preserve">
+    <value>[pt-BR]Created entries in spec val map for specification characteristic and values.</value>
+  </data>
+  <data name="TEXT_CREATED_SPEC_VAL_MAP_FAILED" xml:space="preserve">
+    <value>[pt-BR]Failed creating entries in spec val map for specification characteristic and values.</value>
+  </data>
+  <data name="TEXT_REMOVING_SPEC_VAL_MAP" xml:space="preserve">
+    <value>[pt-BR]Removing entries in spec val map for specification characteristic and values.</value>
+  </data>
+  <data name="TEXT_REMOVED_SPEC_VAL_MAP" xml:space="preserve">
+    <value>[pt-BR]Removed entries in spec val map for specification characteristic and values.</value>
+  </data>
+  <data name="TEXT_REMOVED_SPEC_VAL_MAP_FAILED" xml:space="preserve">
+    <value>[pt-BR]Failed Removing entries in spec val map for specification characteristic and values.</value>
+  </data>
+  <data name="TEXT_NO_VALS_TO_DELETE" xml:space="preserve">
+    <value>[pt-BR]No mapping values to delete.</value>
+  </data>
+  <data name="TEXT_SPEC_VAL_MAPPING_IN_USE" xml:space="preserve">
+    <value>[pt-BR]Mapping cannot be deleted because it is in use.</value>
+  </data>
+  <data name="TEXT_RETRIEVING_FILENAME_DETAILS" xml:space="preserve">
+    <value>[pt-BR]Retrieving details for filename </value>
+  </data>
+  <data name="TEXT_FILE_REJECTED" xml:space="preserve">
+    <value>[pt-BR]The file was rejected.</value>
+  </data>
+  <data name="TEXT_FILE_PENDING" xml:space="preserve">
+    <value>[pt-BR]The file is pending.</value>
+  </data>
+  <data name="TEXT_FILE_PROCESSING" xml:space="preserve">
+    <value>[pt-BR]The file is being processed.</value>
+  </data>
+  <data name="TEXT_FILE_COMPLETED" xml:space="preserve">
+    <value>[pt-BR]The file completed processing.</value>
+  </data>
+  <data name="TEXT_RETRIEVED_FILE_DETAILS" xml:space="preserve">
+    <value>[pt-BR]Retrieved details for file </value>
+  </data>
+  <data name="TEXT_LOAD_DATA_EXCEPTION" xml:space="preserve">
+    <value>[pt-BR]A load data exception occurred </value>
+  </data>
+  <data name="TEXT_DATA_ACCESS_EXCEPTION" xml:space="preserve">
+    <value>[pt-BR]A data access exception occurred </value>
+  </data>
+  <data name="TEXT_UNKOWN_EXCEPTION" xml:space="preserve">
+    <value>[pt-BR]An exception occurred </value>
+  </data>
+  <data name="TEXT_RETRIEVING_FILES" xml:space="preserve">
+    <value>[pt-BR]Retrieving a list of failed filenames </value>
+  </data>
+  <data name="TEXT_RETRIEVED_FILES" xml:space="preserve">
+    <value>[pt-BR]Retrieved a list of failed filenames </value>
+  </data>
   <data name="TEXT_RETRIEVING_SHARED_PROPERTIES_FOR_ENTITY" xml:space="preserve">
-    <value>(Portuguese)Retrieving shared properties for entity.</value>
+    <value>[pt-BR]Retrieving shared properties for entity.</value>
   </data>
   <data name="TEXT_RETRIEVING_SHARED_PROPERTIES_FOR_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
-    <value>(Portuguese)Retrieving shared properties for entity with entity type: </value>
-  </data> 
+    <value>[pt-BR]Retrieving shared properties for entity with entity type: </value>
+  </data>
   <data name="TEXT_RETRIEVED_SHARED_PROPERTIES_FOR_ENTITY" xml:space="preserve">
-    <value>(Portuguese)Retrieved shared properties for entity.</value>
+    <value>[pt-BR]Retrieved shared properties for entity.</value>
   </data>
   <data name="TEXT_RETRIEVED_SHARED_PROPERTIES_FOR_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
-    <value>(Portuguese)Retrieved shared properties for entity with entity type: </value>
+    <value>[pt-BR]Retrieved shared properties for entity with entity type: </value>
   </data>
   <data name="TEXT_CANNOT_GET_SHARED_PROPERTIES" xml:space="preserve">
-    <value>(Portuguese)Unable to retrieve shared properties from system.</value>
+    <value>[pt-BR]Unable to retrieve shared properties from system.</value>
   </data>
   <data name="TEXT_DATA_SAVING_SHARED_PROPERTIES_TO_ENTITY" xml:space="preserve">
-    <value>(Portuguese)DataException while trying to save shared properties to entity.</value>
+    <value>[pt-BR]DataException while trying to save shared properties to entity.</value>
   </data>
   <data name="TEXT_EXCEPTION_SAVING_SHARED_PROPERTIES_TO_ENTITY" xml:space="preserve">
-    <value>(Portuguese)Unhandled Exception while trying to save shared properties to entity.</value>
+    <value>[pt-BR]Unhandled Exception while trying to save shared properties to entity.</value>
   </data>
   <data name="TEXT_RETRIEVING_SHARED_PROPERTY" xml:space="preserve">
-	<value>(Portuguese)Retrieving shared property from system.</value>
+	<value>[pt-BR]Retrieving shared property from system.</value>
   </data>
   <data name="TEXT_UNABLE_TO_RETRIEVE_SHARED_PROPERTY" xml:space="preserve">
-    <value>(Portuguese)Unable to retrieve shared property from system.</value>
+    <value>[pt-BR]Unable to retrieve shared property from system.</value>
   </data>
   <data name="TEXT_RETRIEVED_SHARED_PROPERTY_VALUES" xml:space="preserve">
-    <value>(Portuguese)Retrieved shared property values from system.</value>
+    <value>[pt-BR]Retrieved shared property values from system.</value>
   </data>
   <data name="TEXT_REMOVING_SHARED_PROPERTY_FROM_ENTITY" xml:space="preserve">
-    <value>(Portuguese)Removing shared property from entity.</value>
+    <value>[pt-BR]Removing shared property from entity.</value>
   </data>
   <data name="TEXT_REMOVING_SHARED_PROPERTY_FROM_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
-    <value>(Portuguese)Removing shared property from entity with entity type: </value>
+    <value>[pt-BR]Removing shared property from entity with entity type: </value>
   </data>
   <data name="TEXT_UNABLE_TO_REMOVE_SHARED_PROPERTY_FROM_ENTITY" xml:space="preserve">
-    <value>(Portuguese)An error occurred removing shared property from entity.</value>
+    <value>[pt-BR]An error occurred removing shared property from entity.</value>
   </data>
   <data name="TEXT_REMOVED_SHARED_PROPERTY_FROM_ENTITY" xml:space="preserve">
-    <value>(Portuguese)Removed shared property from entity.</value>
+    <value>[pt-BR]Removed shared property from entity.</value>
   </data>
   <data name="TEXT_REMOVED_SHARED_PROPERTY_FROM_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
-    <value>(Portuguese)Removed shared property from entity with entity type: </value>
+    <value>[pt-BR]Removed shared property from entity with entity type: </value>
   </data>
   <data name="TEXT_DELETING_SHARED_PROPERTY" xml:space="preserve">
-    <value>(Portuguese)Deleting shared property from system.</value>
+    <value>[pt-BR]Deleting shared property from system.</value>
   </data>
   <data name="TEXT_CANNOT_DELETE_SHARED_PROPERTY_IN_USE" xml:space="preserve">
-    <value>(Portuguese)Cannot remove shared property because it is in use.</value>
+    <value>[pt-BR]Cannot remove shared property because it is in use.</value>
   </data>
   <data name="TEXT_DELETED_SHARED_PROPERTY" xml:space="preserve">
-    <value>(Portuguese)Deleted shared property from system.</value>
+    <value>[pt-BR]Deleted shared property from system.</value>
   </data>
   <data name="TEXT_COULD_NOT_DELETE_SHARED_PROPERTY" xml:space="preserve">
-    <value>(Portuguese)An error occurred deleting shared property from system.</value>
+    <value>[pt-BR]An error occurred deleting shared property from system.</value>
   </data>
   <data name="TEXT_CREATING_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
-    <value>(Portuguese)Creating entries in shared property value map for shared property and values.</value>
+    <value>[pt-BR]Creating entries in shared property value map for shared property and values.</value>
   </data>
   <data name="TEXT_CREATED_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
-    <value>(Portuguese)Created entries in shared property value map for shared property and values.</value>
+    <value>[pt-BR]Created entries in shared property value map for shared property and values.</value>
   </data>
   <data name="TEXT_CREATE_SHARED_PROPERTY_VALUE_MAP_FAILED" xml:space="preserve">
-    <value>(Portuguese)Failed creating entries in shared property value map for shared property and values.</value>
+    <value>[pt-BR]Failed creating entries in shared property value map for shared property and values.</value>
   </data>
   <data name="TEXT_REMOVING_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
-    <value>(Portuguese)Removing entries in shared property value map for shared property and values.</value>
+    <value>[pt-BR]Removing entries in shared property value map for shared property and values.</value>
   </data>
   <data name="TEXT_SHARED_PROPERTY_VALUE_MAPPING_IN_USE" xml:space="preserve">
-    <value>(Portuguese)Mapping cannot be deleted because it is in use.</value>
+    <value>[pt-BR]Mapping cannot be deleted because it is in use.</value>
   </data>
   <data name="TEXT_REMOVED_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
-    <value>(Portuguese)Removed entries in shared property value map for shared property and values.</value>
+    <value>[pt-BR]Removed entries in shared property value map for shared property and values.</value>
   </data>
   <data name="TEXT_REMOVE_SHARED_PROPERTY_VALUE_MAP_FAILED" xml:space="preserve">
-    <value>(Portuguese)Failed Removing entries in shared property value map for shared property and values.</value>
+    <value>[pt-BR]Failed Removing entries in shared property value map for shared property and values.</value>
   </data>
   <data name="TEXT_RETRIEVING_SHARED_PROPERTY_VALUES" xml:space="preserve">
-    <value>(Portuguese)Retrieving shared property values from system.</value>
+    <value>[pt-BR]Retrieving shared property values from system.</value>
   </data>
   <data name="TEXT_CANNOT_GET_SHARED_PROPERTY_VALUES" xml:space="preserve">
-    <value>(Portuguese)Cannot retrieve shared property values from system.</value>
+    <value>[pt-BR]Cannot retrieve shared property values from system.</value>
   </data>
   <data name="TEXT_UPDATING_SHARED_PROPERTY" xml:space="preserve">
-    <value>(Portuguese)Updating shared property.</value>
+    <value>[pt-BR]Updating shared property.</value>
   </data>
   <data name="TEXT_UPDATING_VALUES_FOR_SHARED_PROPERTY" xml:space="preserve">
-    <value>(Portuguese)Updating values for shared property.</value>
+    <value>[pt-BR]Updating values for shared property.</value>
   </data>
   <data name="TEXT_UPDATED_VALUES_FOR_SHARED_PROPERTY" xml:space="preserve">
-    <value>(Portuguese)Updated values for shared property.</value>
+    <value>[pt-BR]Updated values for shared property.</value>
   </data>
   <data name="TEXT_UPDATED_SHARED_PROPERTY" xml:space="preserve">
-    <value>(Portuguese)Updated shared property.</value>
+    <value>[pt-BR]Updated shared property.</value>
   </data>
   <data name="TEXT_CREATING_SHARED_PROPERTY" xml:space="preserve">
-    <value>(Portuguese)Creating shared property.</value>
+    <value>[pt-BR]Creating shared property.</value>
   </data>
   <data name="ADDING_SHARED_PROPERTY_VALUES" xml:space="preserve">
-    <value>(Portuguese)Adding shared property values.</value>
-  </data>     
+    <value>[pt-BR]Adding shared property values.</value>
+  </data>
   <data name="ADDED_SHARED_PROPERTY_VALUES" xml:space="preserve">
-    <value>(Portuguese)Added shared property values.</value>
-  </data>    
+    <value>[pt-BR]Added shared property values.</value>
+  </data>
   <data name="TEXT_CREATED_SHARED_PROPERTY" xml:space="preserve">
-    <value>(Portuguese)Created shared property.</value>
+    <value>[pt-BR]Created shared property.</value>
   </data>
   <data name="TEXT_CREATE_SHARED_PROPERTY_FAILED" xml:space="preserve">
-    <value>(Portuguese)Failed creating shared property.</value>
+    <value>[pt-BR]Failed creating shared property.</value>
   </data>
   <data name="TEXT_BADLY_FORMATTED_FILTER" xml:space="preserve">
-    <value>(Portuguese)Filter value string has bad format: {0}</value>
+    <value>[pt-BR]Filter value string has bad format: {0}</value>
   </data>
   <data name="TEXT_INVALID_OP_IN_FILTER" xml:space="preserve">
-    <value>(Portuguese)Filter value string contains an invalid operation: {0}</value>
+    <value>[pt-BR]Filter value string contains an invalid operation: {0}</value>
   </data>
   <data name="TEXT_BADLY_FORMATTED_SORT" xml:space="preserve">
-    <value>(Portuguese)Sort value string has bad format: {0}</value>
+    <value>[pt-BR]Sort value string has bad format: {0}</value>
   </data>
   <data name="TEXT_BADLY_FORMATTED_PARAMETERS" xml:space="preserve">
-    <value>(Portuguese)The request contained badly formatted parameters.</value>
+    <value>[pt-BR]The request contained badly formatted parameters.</value>
   </data>
   <data name="TEXT_CANT_FIND_TEMPLATE" xml:space="preserve">
-    <value>(Portuguese)Could not find template {0}.</value>
+    <value>[pt-BR]Could not find template {0}.</value>
+  </data>
+  <data name="TEXT_REQUEST_ID_DOESNT_MATCH_TEMPLATE_ID" xml:space="preserve">
+    <value>[pt-BR]Request ID {0} does not match template ID {1}.</value>
   </data>
   <data name="TEXT_CANT_LOAD_TEMPLATE" xml:space="preserve">
-    <value>(Portuguese)Could not load template {0}.</value>
-  </data>
-    <data name="TEXT_REQUEST_ID_DOESNT_MATCH_TEMPLATE_ID" xml:space="preserve">
-    <value>(Portuguese)Request ID {0} does not match template ID {1}.</value>
+    <value>[pt-BR]Could not load template {0}.</value>
   </data>
   <data name="TEXT_CANT_CREATE_TEMPLATE" xml:space="preserve">
-    <value>(Portuguese)Could not create template.</value>
+    <value>[pt-BR]Could not create template.</value>
   </data>
   <data name="TEXT_CANT_SAVE_TEMPLATE" xml:space="preserve">
-    <value>(Portuguese)Could not save template {0}.</value>
+    <value>[pt-BR]Could not save template {0}.</value>
   </data>
   <data name="TEXT_CANT_LOAD_TEMPLATE_LIST" xml:space="preserve">
-    <value>(Portuguese)Could not load template list.</value>
+    <value>[pt-BR]Could not load template list.</value>
   </data>
-    <data name="TEXT_CANT_DISPLAY_TEMPLATE_LIST" xml:space="preserve">
-    <value>(Portuguese)Could not display list of templates.</value>
+  <data name="TEXT_CANT_DISPLAY_TEMPLATE_LIST" xml:space="preserve">
+    <value>[pt-BR]Could not display list of templates.</value>
   </data>
-    <data name="TEXT_CANT_CREATE_WEB_REQUEST" xml:space="preserve">
-    <value>(Portuguese)Could not create WebRequest for {0}.</value>
+  <data name="TEXT_CANT_CREATE_WEB_REQUEST" xml:space="preserve">
+    <value>[pt-BR]Could not create WebRequest for {0}.</value>
   </data>
-    <data name="GOT_NO_RESPONSE" xml:space="preserve">
-    <value>(Portuguese)Got no response from {0}.</value>
+  <data name="GOT_NO_RESPONSE" xml:space="preserve">
+    <value>[pt-BR]Got no response from {0}.</value>
   </data>
-    <data name="COULD_NOT_DESERIALIZE_JSON" xml:space="preserve">
-    <value>(Portuguese)Could not deserialize JSON {0} into type {1}.</value>
-    </data>
+  <data name="COULD_NOT_DESERIALIZE_JSON" xml:space="preserve">
+    <value>[pt-BR]Could not deserialize JSON {0} into type {1}.</value>
+  </data>
 </root>

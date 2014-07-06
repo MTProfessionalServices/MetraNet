@@ -3,6 +3,8 @@ Option Explicit
 
 CONST mom_LANGUAGE = "en-us"
 
+
+
 Sub Application_OnStart
 End Sub
 
@@ -24,6 +26,11 @@ Sub Session_OnStart
     end if
     
 End Sub
+Function FolderExists(fldr)
+   Dim fso
+   Set fso = CreateObject("Scripting.FileSystemObject")
+      FolderExists = fso.FolderExists(fldr)
+End Function
 
 FUNCTION InitializeApplication() ' As Boolean
 
@@ -45,6 +52,9 @@ FUNCTION InitializeApplication() ' As Boolean
                 else
                   dim lang
                   lang = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 5)
+                  if(not FolderExists(Application("startPage")  & "/default/localized/" & lang)) then
+                    lang = mom_LANGUAGE
+                  end if                  
                   Session("mdm_APP_LANGUAGE") = lang
                 end if
           end if

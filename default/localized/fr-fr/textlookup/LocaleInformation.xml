@@ -30,7 +30,7 @@ This file defines the MAM system information that must be localized.
 
 
  		<text id="MDM_USE_24HOUR_CLOCK">
-			<value>faux</value>
+			<value>false</value>
       		<description>Use 24 hour clock (value=true) or AM/PM based clock (value=false).</description>
 		</text>
  
@@ -110,7 +110,7 @@ This file defines the MAM system information that must be localized.
 		</text>
 
     <text id="DAY_LIGHT_SAVING">
-			<value>Vrai</value>
+			<value>True</value>
       <description>Define if the day light saving mode must be used when the date are localized.</description>
 		</text>             
     

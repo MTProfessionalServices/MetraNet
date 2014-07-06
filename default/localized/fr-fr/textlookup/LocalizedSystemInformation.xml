@@ -56,7 +56,7 @@ This string is the replaced string. Here we do not hard code mam but we use the 
     
      
     <text id="DEFAULT_TAX_EXEMPT">
-   <value>FAUX</value>
+   <value>FALSE</value>
       <description>When you open add account define the default tax exempt value.</description>
   </text>        
 
@@ -98,7 +98,7 @@ Tag List : END_DATE,START_DATE,LABEL,MONTH,DAY,NAMEDDAY,SECONDDAY,YEAR.
   </text>
     
     <text id="DEFAULT_DEFAULT_ADD_ACCOUNT_EMAIL_NOTIFICATION">
-   <value>FAUX</value>
+   <value>FALSE</value>
       <description>When you open add account define if the Add Account dialog Email notification check box is checked.</description>
   </text>    
 

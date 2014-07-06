@@ -11,6 +11,11 @@ End Sub
 
 Sub Session_OnEnd
 End Sub
+Function FolderExists(fldr)
+   Dim fso
+   Set fso = CreateObject("Scripting.FileSystemObject")
+      FolderExists = fso.FolderExists(fldr)
+End Function
 
 Sub Session_OnStart
 
@@ -37,6 +42,9 @@ Sub Session_OnStart
     else
       dim lang
       lang = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 5)
+      if(not FolderExists(APP_FOLDER & "\Default\Localized\" & lang)) then
+        lang = DEFAULT_LANGUAGE
+      end if
       Session("PAGE_LANGUAGE") = lang
     end if
 

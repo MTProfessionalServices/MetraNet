@@ -142,6 +142,6 @@
     <value>Aucun enregistrement trouvé</value>
   </data>
   <data name="pnlSubscriptionProperties.Text" xml:space="preserve">
-    <value />
+    <value></value>
   </data>
 </root>

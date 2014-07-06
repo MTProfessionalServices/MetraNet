@@ -117,19 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ddAccountLinksResource1.AllowBlank" xml:space="preserve">
-    <value>Falso</value>
+  <data name="FAILED.Text" xml:space="preserve">
+    <value>[JA]Your credit card was rejected by worldpay.</value>
   </data>
-  <data name="ddAccountLinksResource1.HideLabel" xml:space="preserve">
-    <value>Falso</value>
-  </data>
-  <data name="ddAccountLinksResource1.Label" xml:space="preserve">
-    <value>Selecionar fatura</value>
-  </data>
-  <data name="ddAccountLinksResource1.ReadOnly" xml:space="preserve">
-    <value>Falso</value>
-  </data>
-  <data name="TEXT_REDIRECT_MESSAGE" xml:space="preserve">
-    <value>Use a opção do menu Selecionar Fatura para navegar na fatura.</value>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>[JA]WorldPay Failure</value>
   </data>
 </root>

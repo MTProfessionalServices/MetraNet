@@ -120,9 +120,6 @@
   <data name="ActualTax.Text" xml:space="preserve">
     <value>Taxe réelle</value>
   </data>
-  <data name="Charge.Text" xml:space="preserve">
-    <value>Frais</value>
-  </data>
   <data name="ImpliedTax.Text" xml:space="preserve">
     <value>Taxe incluse</value>
   </data>

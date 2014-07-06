@@ -120,9 +120,6 @@
   <data name="ActualTax.Text" xml:space="preserve">
     <value>Actual Tax</value>
   </data>
-  <data name="Charge.Text" xml:space="preserve">
-    <value>Charges</value>
-  </data>
   <data name="ImpliedTax.Text" xml:space="preserve">
     <value>Included Tax</value>
   </data>

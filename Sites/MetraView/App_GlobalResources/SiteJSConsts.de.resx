@@ -241,7 +241,7 @@
     <value>Löschen</value>
   </data>
   <data name="TEXT_BULKUPDATE" xml:space="preserve">
-    <value>Bulk Update</value>
+    <value>[DE]Bulk Update</value>
   </data>
   <data name="TEXT_DELETE_MESSAGE" xml:space="preserve">
     <value>Möchten Sie {0} wirklich löschen?</value>
@@ -337,55 +337,55 @@
     <value>Exportieren</value>
   </data>
   <data name="TEXT_EXPORT_ALL_RECORDS" xml:space="preserve">
-    <value>Export All Filtered Records</value>
+    <value>[DE]Export All Filtered Records</value>
   </data>
   <data name="TEXT_BULKUPDATE_ALL_RECORDS" xml:space="preserve">
-    <value>Bulk Update All Filtered Records</value>
+    <value>[DE]Bulk Update All Filtered Records</value>
   </data>
   <data name="TEXT_EXPORT_SELECTED_RECORDS" xml:space="preserve">
-    <value>Export Selected Records</value>
+    <value>[DE]Export Selected Records</value>
   </data>
   <data name="TEXT_BULKUPDATE_SELECTED_RECORDS" xml:space="preserve">
-    <value>Bulk Update Selected Records</value>
+    <value>[DE]Bulk Update Selected Records</value>
   </data>
   <data name="TEXT_EXPORT_CURRENT_PAGE_ONLY" xml:space="preserve">
     <value>Nur aktuelle Seite exportieren</value>
   </data>
   <data name="TEXT_BULKUPDATE_CURRENT_PAGE_ONLY" xml:space="preserve">
-    <value>Bulk Update Current Page Only</value>
+    <value>[DE]Bulk Update Current Page Only</value>
   </data>
   <data name="TEXT_EXPORT_SEARCH_RESULTS" xml:space="preserve">
     <value>Suchergebnisse exportieren</value>
   </data>
   <data name="TEXT_BULKUPDATE_SEARCH_RESULTS" xml:space="preserve">
-    <value>Bulk Update Search Results</value>
+    <value>[DE]Bulk Update Search Results</value>
   </data>
   <data name="TEXT_ERROR_NOTHING_UPDATED_BULKUPDATE" xml:space="preserve">
-      <value>Nothing will be updated</value>
-    </data>
+    <value>[DE]Nothing will be updated</value>
+  </data>
   <data name="TEXT_NO_SELECTED_BME_FOR_BULKUPDATE" xml:space="preserve">
-      <value>There are no selected BMEs for bulk update</value>
+    <value>[DE]There are no selected BMEs for bulk update</value>
   </data>
   <data name="TEXT_ERROR_TOO_MANY_RECORDS_BULKUPDATE" xml:space="preserve">
-    <value>Too many records to update</value>
+    <value>[DE]Too many records to update</value>
   </data>
   <data name="TEXT_LIMIT_DOWN_SEARCH_TO_BULKUPDATE" xml:space="preserve">
-    <value>You are going to update NUMBER_TO_UPDATE items. Choose less items to fit {0} item(s) limitation</value>
+    <value>[DE]You are going to update NUMBER_TO_UPDATE items. Choose less items to fit {0} item(s) limitation</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_FOR_BULKUPDATE" xml:space="preserve">
-    <value>There are no properties for bulk update</value>
+    <value>[DE]There are no properties for bulk update</value>
   </data>
   <data name="TEXT_ATTENTION_CHANGES_PERMANENT" xml:space="preserve">
-    <value>Attention. Your changes will be permanent</value>
+    <value>[DE]Attention. Your changes will be permanent</value>
   </data>
   <data name="TEXT_SURE_MAKE_CHANGE" xml:space="preserve">
-    <value>Are you sure that you want to make these changes?</value>
+    <value>[DE]Are you sure that you want to make these changes?</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
-    <value>No properties are going to be updated</value>
+    <value>[DE]No properties are going to be updated</value>
   </data>
   <data name="TEXT_PROPERTIES_GOING_TO_UPDATED" xml:space="preserve">
-    <value>Properties that are going to be updated</value>
+    <value>[DE]Properties that are going to be updated</value>
   </data>
   <data name="TEXT_EXTERNAL" xml:space="preserve">
     <value>Externe Informationen</value>
@@ -670,32 +670,32 @@
     <value>Beziehungen für:</value>
   </data>
   <data name="TEXT_AMPWIZARD_AMP_UI_NAME_ILLEGAL_CHAR" xml:space="preserve">
-    <value />
+    <value>[DE]The name cannot contain single or double quote characters.</value>
   </data>
   <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[DE] Passwords do not match.</value>
-  </data>  
+    <value>[DE]Passwords do not match.</value>
+  </data>
   <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[DE] Enter a valid phone number. Format: 555-555-5555</value>
-  </data>    
+    <value>[DE]Enter a valid phone number. Format: 555-555-5555</value>
+  </data>
   <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[DE] Credit card format is invalid</value>
-  </data>      
+    <value>[DE]Credit card format is invalid</value>
+  </data>
   <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[DE] CV Number is invalid</value>
-  </data>        
+    <value>[DE]CV Number is invalid</value>
+  </data>
   <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[DE] SSN format: xxx-xx-xxxx</value>
-  </data>          
+    <value>[DE]SSN format: xxx-xx-xxxx</value>
+  </data>
   <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[DE] Only numeric digits are allowed</value>
-  </data>            
+    <value>[DE]Only numeric digits are allowed</value>
+  </data>
   <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[DE] Zipcode is invalid</value>
-  </data>              
+    <value>[DE]Zipcode is invalid</value>
+  </data>
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>[DE] Middle initial is invalid</value>
-  </data>  
+    <value>[DE]Middle initial is invalid</value>
+  </data>
   <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
     <value>d/m/Y H:i:s</value>
   </data>

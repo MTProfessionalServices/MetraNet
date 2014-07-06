@@ -118,25 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ddAccountLinksResource1.AllowBlank" xml:space="preserve">
-    <value>Faux</value>
+    <value>False</value>
   </data>
   <data name="ddAccountLinksResource1.ControlHeight" xml:space="preserve">
-    <value />
+    <value></value>
   </data>
   <data name="ddAccountLinksResource1.ControlWidth" xml:space="preserve">
-    <value />
+    <value></value>
   </data>
   <data name="ddAccountLinksResource1.EnumSpace" xml:space="preserve">
-    <value />
+    <value></value>
   </data>
   <data name="ddAccountLinksResource1.EnumType" xml:space="preserve">
-    <value />
+    <value></value>
   </data>
   <data name="ddAccountLinksResource1.HideLabel" xml:space="preserve">
-    <value>Faux</value>
+    <value>False</value>
   </data>
   <data name="ddAccountLinksResource1.InlineScript" xml:space="preserve">
-    <value />
+    <value></value>
   </data>
   <data name="ddAccountLinksResource1.Label" xml:space="preserve">
     <value>Sélectionner une facture</value>
@@ -145,28 +145,28 @@
     <value>:</value>
   </data>
   <data name="ddAccountLinksResource1.LabelWidth" xml:space="preserve">
-    <value />
+    <value></value>
   </data>
   <data name="ddAccountLinksResource1.Listeners" xml:space="preserve">
     <value>{ 'select' : { fn: this.onChange, scope: this } }</value>
   </data>
   <data name="ddAccountLinksResource1.ListWidth" xml:space="preserve">
-    <value />
+    <value></value>
   </data>
   <data name="ddAccountLinksResource1.OptionalExtConfig" xml:space="preserve">
-    <value />
+    <value></value>
   </data>
   <data name="ddAccountLinksResource1.ReadOnly" xml:space="preserve">
-    <value>Faux</value>
+    <value>False</value>
   </data>
   <data name="ddAccountLinksResource1.ToolTip" xml:space="preserve">
-    <value />
+    <value></value>
   </data>
   <data name="lblAccountLinksResource1.Text" xml:space="preserve">
-    <value />
+    <value></value>
   </data>
   <data name="lblAccountLinksResource1.ToolTip" xml:space="preserve">
-    <value />
+    <value></value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraView</value>

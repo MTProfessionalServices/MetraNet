@@ -256,7 +256,7 @@
     <value>Êtes-vous sûr de vouloir supprimer le modèle {0} ?</value>
   </data>
   <data name="TEXT_DELETE_TEMPLATE_SUB_MESSAGE" xml:space="preserve">
-    <value>’Êtes-vous sûr de vouloir supprimer {0} de ce modèle ?</value>
+    <value>Êtes-vous sûr de vouloir supprimer {0} de ce modèle ?</value>
   </data>
   <data name="TEXT_DELETE1" xml:space="preserve">
     <value>Supprimer</value>
@@ -695,5 +695,8 @@
   </data>
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
     <value>Le milieu initial est incorrecte</value>
+  </data>
+  <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
+    <value>n/j/Y g:i:s A</value>
   </data>
 </root>

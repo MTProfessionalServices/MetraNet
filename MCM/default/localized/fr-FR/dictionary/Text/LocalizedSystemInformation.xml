@@ -3,7 +3,7 @@
 
 	
 		<text id="APPSETTING_DISPLAY_RATE_SCHEDULE_DEPENDENCY_COUNTS">
-			<value>Vrai</value>
+			<value>True</value>
 		</text>
     
 		<text id="PRODUCT_CATALOG_DEFAULT_LOCALIZED_DISPLAY_NAME_SUFFIX">

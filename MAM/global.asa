@@ -39,7 +39,12 @@ End Sub
 Sub Application_OnEnd
 '   Call Application("PERF_TIMER_MANAGER").WriteOutputXMLFile()
 End Sub
-
+'-----------------------
+Function FolderExists(fldr)
+   Dim fso
+   Set fso = CreateObject("Scripting.FileSystemObject")
+      FolderExists = fso.FolderExists(fldr)
+End Function
 ' ---------------------------------------------------------------------------------------------------------------------------------------
 ' FUNCTION 		: Session_OnStart
 ' PARAMETERS	:
@@ -55,6 +60,22 @@ Sub Session_OnStart
    '   Call session("PERF_TIMER_SCRIPT_TIMER").Init(Application("PERF_TIMER_MANAGER").InitializeTimerXML(Date & " " & Time & " [" & Session.SessionID & "]"))
     'end if
     
+	  Dim objMAM      ' As Object
+    DIM APP_FOLDER  ' As String
+    
+    ' This help the mdm to know when the session time out
+    Session("mdm_SESSION_ID")     = "MDM_SESSION_ID=" & Now()
+  
+    ' Setup application start page
+    Application("startPage")      = mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1) ' "
+  
+    ' Setup application virtual directory path (this may be different than the start page)
+    Application("APP_HTTP_PATH")  = mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1) ' "
+    
+    APP_FOLDER                    = server.MapPath(application("startPage"))   ' "
+  	Set objMAM                    = Server.CreateObject("MTMAM.MAM")    ' "
+    Session("mdm_APP_FOLDER")     = APP_FOLDER ' Store the application folder for the mdm
+
     if(instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")=0) then
       Dim userLocale
       userLocale = request.ServerVariables("HTTP_ACCEPT_LANGUAGE")
@@ -71,23 +92,12 @@ Sub Session_OnStart
     else
       dim lang
       lang = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 5)
+      if(not FolderExists(APP_FOLDER & "\custom\Localized\" & lang)) then
+        lang = DEFAULT_LANGUAGE
+      end if
       Session("PAGE_LANGUAGE") = lang
     end if
-	  Dim objMAM      ' As Object
-    DIM APP_FOLDER  ' As String
-    
-    ' This help the mdm to know when the session time out
-    Session("mdm_SESSION_ID")     = "MDM_SESSION_ID=" & Now()
-  
-    ' Setup application start page
-    Application("startPage")      = mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1) ' "
-  
-    ' Setup application virtual directory path (this may be different than the start page)
-    Application("APP_HTTP_PATH")  = mid(request.ServerVariables("SCRIPT_NAME"), 1, instr(2, request.ServerVariables("SCRIPT_NAME"), "/") - 1) ' "
-    
-    APP_FOLDER                    = server.MapPath(application("startPage"))   ' "
-  	Set objMAM                    = Server.CreateObject("MTMAM.MAM")    ' "
-    Session("mdm_APP_FOLDER")     = APP_FOLDER ' Store the application folder for the mdm
+
     
     ' It is required to load the dictionary before we initialize the MAM componant.
     mam_LoadDictionary objMAM, Session("PAGE_LANGUAGE") 

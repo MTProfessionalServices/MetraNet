@@ -120,7 +120,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/ApplyAccountTemplate</Name>
-            <Value>ApplyAccountTemplate</Value>
+            <Value>[IT]ApplyAccountTemplate</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/ApplyDefaultSecurityPolicy</Name>
@@ -420,11 +420,11 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/transactioncookie</Name>
-            <Value>Transactioncookie</Value>
+            <Value>[IT]Transactioncookie</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/TruncateOldSubscriptions</Name>
-            <Value>TruncateOldSubscriptions</Value>
+            <Value>[IT]TruncateOldSubscriptions</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/usagecycletype</Name>

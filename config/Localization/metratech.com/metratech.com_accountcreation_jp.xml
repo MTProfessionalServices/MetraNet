@@ -32,11 +32,11 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/AccountStatus/PendingActiveApproval</Name>
-            <Value>PendingActiveApproval</Value>
+            <Value>[JA]PendingActiveApproval</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/AccountStatus/PendingFinalBill</Name>
-            <Value>PendingFinalBill</Value>
+            <Value>[JA]PendingFinalBill</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/AccountStatus/Suspended</Name>
@@ -96,7 +96,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/address1</Name>
-            <Value></Value>
+            <Value>[JA]Address</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/address2</Name>
@@ -120,7 +120,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/ApplyAccountTemplate</Name>
-            <Value>ApplyAccountTemplate</Value>
+            <Value>[JA]ApplyAccountTemplate</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/ApplyDefaultSecurityPolicy</Name>
@@ -128,11 +128,11 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/AuthenticationType/ActiveDirectory</Name>
-            <Value>ActiveDirectory</Value>
+            <Value>[JA]LDAP Authentication</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/AuthenticationType/MetraNetInternal</Name>
-            <Value>MetraNetInternal</Value>
+            <Value>[JA]MetraNet Authentication</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/billable</Name>
@@ -188,7 +188,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/facsimiletelephonenumber</Name>
-            <Value>Fax</Value>
+            <Value>[JA]Fax</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/firstdayofmonth</Name>
@@ -420,11 +420,11 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/transactioncookie</Name>
-            <Value>Transactioncookie</Value>
+            <Value>[JA]Transactioncookie</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/TruncateOldSubscriptions</Name>
-            <Value>TruncateOldSubscriptions</Value>
+            <Value>[JA]TruncateOldSubscriptions</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/usagecycletype</Name>

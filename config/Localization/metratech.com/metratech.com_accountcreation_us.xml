@@ -151,15 +151,15 @@
             <Value>Contact Type</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/accountcreation/contacttype/bill-to</Name>
+            <Name>metratech.com/accountcreation/ContactType/Bill-To</Name>
             <Value>Bill-To</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/accountcreation/contacttype/none</Name>
+            <Name>metratech.com/accountcreation/ContactType/None</Name>
             <Value>None</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/accountcreation/contacttype/ship-to</Name>
+            <Name>metratech.com/accountcreation/ContactType/Ship-To</Name>
             <Value>Ship-To</Value>
         </locale_entry>
         <locale_entry>

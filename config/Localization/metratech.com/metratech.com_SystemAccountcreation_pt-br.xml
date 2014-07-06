@@ -23,11 +23,11 @@
             <Value>Status da conta</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/systemaccountcreation/accounttype</Name>
+            <Name>metratech.com/SystemAccountcreation/accounttype</Name>
             <Value>Tipo de conta</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/systemaccountcreation/actiontype</Name>
+            <Name>metratech.com/SystemAccountcreation/actiontype</Name>
             <Value>Tipo de ação</Value>
         </locale_entry>
         <locale_entry>
@@ -147,7 +147,7 @@
             <Value>NameSpace</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/systemaccountcreation/operation</Name>
+            <Name>metratech.com/SystemAccountcreation/operation</Name>
             <Value>Operação</Value>
         </locale_entry>
         <locale_entry>
@@ -231,7 +231,7 @@
             <Value>Tipo de ciclo de utilização</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/systemaccountcreation/username</Name>
+            <Name>metratech.com/SystemAccountcreation/username</Name>
             <Value>Nome do usuário</Value>
         </locale_entry>
         <locale_entry>

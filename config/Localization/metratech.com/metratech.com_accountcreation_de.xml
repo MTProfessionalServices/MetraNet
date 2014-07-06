@@ -20,7 +20,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/AccountStatus/Active</Name>
-            <Value>Active</Value>
+            <Value>[DE]Active</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/AccountStatus/Archived</Name>
@@ -28,15 +28,15 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/AccountStatus/Closed</Name>
-            <Value>Closed</Value>
+            <Value>[DE]Closed</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/AccountStatus/PendingActiveApproval</Name>
-            <Value>PendingActiveApproval</Value>
+            <Value>[DE]PendingActiveApproval</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/AccountStatus/PendingFinalBill</Name>
-            <Value>PendingFinalBill</Value>
+            <Value>[DE]PendingFinalBill</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/AccountStatus/Suspended</Name>
@@ -84,7 +84,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/ActionType/Account</Name>
-            <Value>Account</Value>
+            <Value>[DE]Account</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/ActionType/Both</Name>
@@ -120,7 +120,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/ApplyAccountTemplate</Name>
-            <Value>ApplyAccountTemplate</Value>
+            <Value>[DE]ApplyAccountTemplate</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/ApplyDefaultSecurityPolicy</Name>
@@ -128,11 +128,11 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/AuthenticationType/ActiveDirectory</Name>
-            <Value>LDAP Authentication</Value>
+            <Value>[DE]LDAP Authentication</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/AuthenticationType/MetraNetInternal</Name>
-            <Value>MetraNet Authentication</Value>
+            <Value>[DE]MetraNet Authentication</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/billable</Name>
@@ -224,11 +224,11 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/InvoiceMethod/Standard</Name>
-            <Value>Standard</Value>
+            <Value>[DE]Standard</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/InvoiceMethod/StandardWithBillMessages</Name>
-            <Value>[DE] Standard With Bill Messages</Value>
+            <Value>[DE]Standard With Bill Messages</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/Language</Name>

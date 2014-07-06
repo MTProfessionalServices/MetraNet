@@ -151,15 +151,15 @@
             <Value>Contact Type</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/accountcreation/contacttype/bill-to</Name>
+            <Name>metratech.com/accountcreation/ContactType/Bill-To</Name>
             <Value>Bill-To</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/accountcreation/contacttype/none</Name>
+            <Name>metratech.com/accountcreation/ContactType/None</Name>
             <Value>None</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/accountcreation/contacttype/ship-to</Name>
+            <Name>metratech.com/accountcreation/ContactType/Ship-To</Name>
             <Value>Ship-To</Value>
         </locale_entry>
         <locale_entry>
@@ -344,11 +344,11 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/SecurityQuestion/PIN</Name>
-            <Value>Personal Identification Number</Value>
+            <Value>What was the name of your first car?</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/SecurityQuestion/SSN</Name>
-            <Value>Small</Value>
+            <Value>What school did you attend for sixth grade?</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/startday</Name>

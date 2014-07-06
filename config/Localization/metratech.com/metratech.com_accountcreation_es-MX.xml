@@ -32,11 +32,11 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/AccountStatus/PendingActiveApproval</Name>
-            <Value>PendingActiveApproval</Value>
+            <Value>[es-MX]PendingActiveApproval</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/AccountStatus/PendingFinalBill</Name>
-            <Value>PendingFinalBill</Value>
+            <Value>[es-MX]PendingFinalBill</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/AccountStatus/Suspended</Name>
@@ -120,7 +120,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/ApplyAccountTemplate</Name>
-            <Value>ApplyAccountTemplate</Value>
+            <Value>[es-MX]ApplyAccountTemplate</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/ApplyDefaultSecurityPolicy</Name>
@@ -151,15 +151,15 @@
             <Value>Tipo de contacto</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/accountcreation/contacttype/bill-to</Name>
+            <Name>metratech.com/accountcreation/ContactType/Bill-To</Name>
             <Value>Facturar a</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/accountcreation/contacttype/none</Name>
+            <Name>metratech.com/accountcreation/ContactType/None</Name>
             <Value>Ninguno(a)</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/accountcreation/contacttype/ship-to</Name>
+            <Name>metratech.com/accountcreation/ContactType/Ship-To</Name>
             <Value>Enviar a</Value>
         </locale_entry>
         <locale_entry>
@@ -420,11 +420,11 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/transactioncookie</Name>
-            <Value>Transactioncookie</Value>
+            <Value>[es-MX]Transactioncookie</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/TruncateOldSubscriptions</Name>
-            <Value>TruncateOldSubscriptions</Value>
+            <Value>[es-MX]TruncateOldSubscriptions</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/usagecycletype</Name>

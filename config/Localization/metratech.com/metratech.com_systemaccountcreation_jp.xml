@@ -23,11 +23,11 @@
             <Value>アカウントの状況</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/systemaccountcreation/accounttype</Name>
+            <Name>metratech.com/SystemAccountcreation/accounttype</Name>
             <Value>口座種別</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/systemaccountcreation/actiontype</Name>
+            <Name>metratech.com/SystemAccountcreation/actiontype</Name>
             <Value>処理種別</Value>
         </locale_entry>
         <locale_entry>
@@ -147,7 +147,7 @@
             <Value>ネームスペース</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/systemaccountcreation/operation</Name>
+            <Name>metratech.com/SystemAccountcreation/operation</Name>
             <Value>運用</Value>
         </locale_entry>
         <locale_entry>
@@ -231,7 +231,7 @@
             <Value>ご利用頻度種別</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/systemaccountcreation/username</Name>
+            <Name>metratech.com/SystemAccountcreation/username</Name>
             <Value>ユーザ名</Value>
         </locale_entry>
         <locale_entry>

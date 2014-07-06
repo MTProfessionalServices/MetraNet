@@ -332,7 +332,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/SecurityQuestion/FirstSchool</Name>
-            <Value>FirstSchool</Value>
+            <Value>[FR]What is the name of the first school you attended?</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/accountcreation/SecurityQuestion/MothersMaidenName</Name>

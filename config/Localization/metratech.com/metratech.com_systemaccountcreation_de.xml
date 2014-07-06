@@ -23,11 +23,11 @@
             <Value>Kontostatus</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/SystemAccountcreation/AccountType</Name>
+            <Name>metratech.com/SystemAccountcreation/accounttype</Name>
             <Value>Kontoart</Value>
         </locale_entry>
         <locale_entry>
-            <Name>metratech.com/SystemAccountcreation/ActionType</Name>
+            <Name>metratech.com/SystemAccountcreation/actiontype</Name>
             <Value>Aktiontyp</Value>
         </locale_entry>
         <locale_entry>

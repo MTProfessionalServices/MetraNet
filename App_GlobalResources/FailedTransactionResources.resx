@@ -118,150 +118,150 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value>Échec de transactions</value>
+    <value>Failed Transactions</value>
   </data>
   <data name="NO_RECORDS_TEXT" xml:space="preserve">
-    <value>Aucun enregistrement trouvé.</value>
+    <value>No records found.</value>
   </data>
   <data name="TEXT_AVERAGE_AGE_DAYS" xml:space="preserve">
-    <value>Âge&lt;br&gt;moyen (jours)</value>
+    <value>Average&lt;br&gt;Age (Days)</value>
   </data>
   <data name="TEXT_BATCH_ID" xml:space="preserve">
-    <value>ID de lot</value>
+    <value>Batch ID</value>
   </data>
   <data name="TEXT_CASE_NUMBER" xml:space="preserve">
-    <value>N° de dossier</value>
+    <value>Case Number</value>
   </data>
   <data name="TEXT_CHANGE_ALL_STATUSES" xml:space="preserve">
-    <value>Modifier tous les états</value>
+    <value>Change All Statuses</value>
   </data>
   <data name="TEXT_CHANGE_STATUS" xml:space="preserve">
-    <value>Modifier l&#x2;p0000c&#x4;x:=&lt;span&gt;&#x3;’&#x2;p0000c&#x4;x:=&lt;/span&gt;&#x3;état</value>
+    <value>Change Status</value>
   </data>
   <data name="TEXT_CHANGE_TRANSACTION_STATUS" xml:space="preserve">
-    <value>Modifier le dossier / état d’échec de transaction</value>
+    <value>Change Case / Failed Transaction Status</value>
   </data>
   <data name="TEXT_CODE" xml:space="preserve">
     <value>Code</value>
   </data>
   <data name="TEXT_CODE_MESSAGE" xml:space="preserve">
-    <value>Message du code</value>
+    <value>Code Message</value>
   </data>
   <data name="TEXT_COMPOUND_SESSION_ID" xml:space="preserve">
-    <value>ID de session composé</value>
+    <value>Compound Session Id</value>
   </data>
   <data name="TEXT_CORRECTED" xml:space="preserve">
-    <value>Corrigé</value>
+    <value>Corrected</value>
   </data>
   <data name="TEXT_COUNT" xml:space="preserve">
-    <value>Nombre</value>
+    <value>Count</value>
   </data>
   <data name="TEXT_DELETED" xml:space="preserve">
-    <value>Supprimé</value>
+    <value>Deleted</value>
   </data>
   <data name="TEXT_DISMISSED" xml:space="preserve">
-    <value>Ignoré</value>
+    <value>Dismissed</value>
   </data>
   <data name="TEXT_ERROR_MESSAGE" xml:space="preserve">
-    <value>Message d’erreur</value>
+    <value>Error Message</value>
   </data>
   <data name="TEXT_ERROR_TYPE_EXAMPLE" xml:space="preserve">
-    <value>Type d’erreur (Exemple)</value>
+    <value>Error Type (Example)</value>
   </data>
   <data name="TEXT_ERROR_TYPE_FAILURE_SUMMARY" xml:space="preserve">
-    <value>Payeur - Résumé des échecs du type d’intervalle</value>
+    <value>Payer - Error Type Failure Summary</value>
   </data>
   <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_STAGE_PLUGIN" xml:space="preserve">
-    <value>Résumé des échecs de phase et de plug-in</value>
+    <value>Stage and Plugin Failure Summary</value>
   </data>
   <data name="TEXT_FAILURE_TIME" xml:space="preserve">
-    <value>Heure de l'échec</value>
+    <value>Failure Time</value>
   </data>
   <data name="TEXT_GRID_TITLE" xml:space="preserve">
-    <value>Résumé par type d’erreur</value>
+    <value>Summary By Error Type</value>
   </data>
   <data name="TEXT_GRID_TITLE_INTERVAL_TYPE" xml:space="preserve">
-    <value>Échec de transactions (y compris type d’intervalle)</value>
+    <value>Failed Transactions (Including Interval Type)</value>
   </data>
   <data name="TEXT_GRID_TITLE_INTERVAL_TYPE_FAILURE_SUMMARY" xml:space="preserve">
-    <value>Résumé des échecs du type d’intervalle</value>
+    <value>Interval Type Failure Summary</value>
   </data>
   <data name="TEXT_INTERVAL_FAILURE_SUMMARY" xml:space="preserve">
-    <value>Payeur - Résumé des échecs d’intervalle</value>
+    <value>Payer - Interval Failure Summary</value>
   </data>
   <data name="TEXT_IS_CHILD" xml:space="preserve">
-    <value>Est Enfant</value>
+    <value>Is child</value>
   </data>
   <data name="TEXT_MAXIMUM_AGE_DAYS" xml:space="preserve">
-    <value>Âge&lt;br&gt;maximum (Jours)</value>
+    <value>Maximum&lt;br&gt;Age (Days)</value>
   </data>
   <data name="TEXT_MINIMUM_AGE_DAYS" xml:space="preserve">
-    <value>Âge&lt;br&gt;minimum (Jours)</value>
+    <value>Minimum&lt;br&gt;Age (Days)</value>
   </data>
   <data name="TEXT_NO" xml:space="preserve">
-    <value>Non</value>
+    <value>No</value>
   </data>
   <data name="TEXT_OPEN" xml:space="preserve">
-    <value>Ouvrir</value>
+    <value>Open</value>
   </data>
   <data name="TEXT_PAYER" xml:space="preserve">
-    <value>Payeur</value>
+    <value>Payer</value>
   </data>
   <data name="TEXT_PLUGIN" xml:space="preserve">
-    <value>Plug-in</value>
+    <value>Plugin</value>
   </data>
   <data name="TEXT_POSSIBLE_ACCOUNT_ID" xml:space="preserve">
-    <value>ID de compte possible</value>
+    <value>Possible Account Id</value>
   </data>
   <data name="TEXT_POSSIBLE_PAYER_ACCOUNT_ID" xml:space="preserve">
-    <value>ID de compte du payeur possible</value>
+    <value>Possible Payer Account Id</value>
   </data>
   <data name="TEXT_RESUBMIT" xml:space="preserve">
-    <value>Renvoyer</value>
+    <value>Resubmit</value>
   </data>
   <data name="TEXT_RESUBMIT_ALL" xml:space="preserve">
-    <value>Renvoyer tout</value>
+    <value>Resubmit All</value>
   </data>
   <data name="TEXT_RESUBMITTED" xml:space="preserve">
-    <value>Renvoyé</value>
+    <value>Resubmitted</value>
   </data>
   <data name="TEXT_SERVICE" xml:space="preserve">
     <value>Service</value>
   </data>
   <data name="TEXT_SESSION_ID" xml:space="preserve">
-    <value>ID de la session</value>
+    <value>Session Id</value>
   </data>
   <data name="TEXT_STAGE" xml:space="preserve">
-    <value>Phase</value>
+    <value>Stage</value>
   </data>
   <data name="TEXT_STATE_REASON_CODE" xml:space="preserve">
-    <value>Code du motif d’état</value>
+    <value>State Reason Code</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
-    <value>État</value>
+    <value>Status</value>
   </data>
   <data name="TEXT_UCYCLE_TYPE" xml:space="preserve">
-    <value>Type de cycle d’utilisation</value>
+    <value>Usage Cycle Type</value>
   </data>
   <data name="TEXT_UCYCLE_VALUE" xml:space="preserve">
-    <value>Valeur du cycle d’utilisation</value>
+    <value>Usage Cycle Value</value>
   </data>
   <data name="TEXT_UNDER_INVESTIGATION" xml:space="preserve">
-    <value>En cours d’examen</value>
+    <value>Under Investigation</value>
   </data>
   <data name="TEXT_UNIQUE_ID" xml:space="preserve">
-    <value>ID unique</value>
+    <value>Unique Id</value>
   </data>
   <data name="TEXT_USAGE_CYCLE_TYPE" xml:space="preserve">
-    <value>Type&lt;br&gt;du cycle d’utilisation</value>
+    <value>Usage Cycle&lt;br&gt;Type</value>
   </data>
   <data name="TEXT_USAGE_CYCLE_TYPE_VALUE" xml:space="preserve">
-    <value>Valeur du type de cycle d’utilisation</value>
+    <value>Usage Cycle Type Value</value>
   </data>
   <data name="TEXT_USAGE_CYCLE_VALUE" xml:space="preserve">
-    <value>Valeur&lt;br&gt;du cycle d’utilisation</value>
+    <value>Usage Cycle&lt;br&gt;Value</value>
   </data>
   <data name="TEXT_YES" xml:space="preserve">
-    <value>Oui</value>
+    <value>Yes</value>
   </data>
 </root>

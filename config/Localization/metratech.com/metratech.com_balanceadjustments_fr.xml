@@ -1,34 +1,26 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <mt_config>
-    <language_code>fr</language_code>
-    <locale_space name="metratech.com/balanceadjustments">
-        <locale_entry>
-            <Name>metratech.com/balanceadjustments/PaymentMethod/ACH</Name>
-            <Value>ACH</Value>
-        </locale_entry>
-        <!--<locale_entry>
-            <Name>metratech.com/balanceadjustments/PaymentMethod/Cash</Name>
-            <Value>Cash</Value>
-        </locale_entry>
-        <locale_entry>
-            <Name>metratech.com/balanceadjustments/PaymentMethod/Check</Name>
-            <Value>Check</Value>
-        </locale_entry>-->
-        <locale_entry>
-            <Name>metratech.com/balanceadjustments/PaymentMethod/CreditCard</Name>
-            <Value>Carte de crédit</Value>
-        </locale_entry>
-        <locale_entry>
-            <Name>metratech.com/balanceadjustments/ReasonCode/1</Name>
-            <Value>Solde transféré sur le compte du payeur</Value>
-        </locale_entry>
-        <locale_entry>
-            <Name>metratech.com/balanceadjustments/ReasonCode/2</Name>
-            <Value>Solde transféré du compte du bénéficiaire</Value>
-        </locale_entry>
-        <locale_entry>
-            <Name>metratech.com/balanceadjustments/ReasonCode/3</Name>
-            <Value>Autre</Value>
-        </locale_entry>
-    </locale_space>
+  <language_code>fr</language_code>
+  <locale_space name="metratech.com/balanceadjustments">
+    <locale_entry>
+      <Name>metratech.com/balanceadjustments/PaymentMethod/ACH</Name>
+      <Value>ACH</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/balanceadjustments/PaymentMethod/CreditCard</Name>
+      <Value>Carte de crédit</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/balanceadjustments/ReasonCode/1</Name>
+      <Value>Solde transféré sur le compte du payeur</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/balanceadjustments/ReasonCode/2</Name>
+      <Value>Solde transféré du compte du bénéficiaire</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/balanceadjustments/ReasonCode/3</Name>
+      <Value>Autre</Value>
+    </locale_entry>
+  </locale_space>
 </mt_config>

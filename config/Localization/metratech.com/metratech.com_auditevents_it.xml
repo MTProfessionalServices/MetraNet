@@ -80,7 +80,7 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_ACCOUNT_TEMPLATE_DELETE_DENIED</Name>
-            <Value>(Italian)Delete account template denied</Value>
+            <Value>[IT]Delete account template denied</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_ACCOUNT_TEMPLATE_DELETE_FAILED</Name>
@@ -160,11 +160,11 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_CREDIT_ACH_FAILED</Name>
-            <Value>(Italian)Credit ACH failed</Value>
+            <Value>[IT]Credit ACH failed</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_CREDIT_ACH_SUCCESS</Name>
-            <Value>(Italian)Credit ACH Success</Value>
+            <Value>[IT]Credit ACH Success</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_CREDIT_CREDITCARD_FAILED</Name>
@@ -176,11 +176,11 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_DEBIT_ACH_FAILED</Name>
-            <Value>(Italian)Debit ACH failed</Value>
+            <Value>[IT]Debit ACH failed</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_DEBIT_ACH_SUCCESS</Name>
-            <Value>(Italian)Debit ACH Success</Value>
+            <Value>[IT]Debit ACH Success</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_DEBIT_CREDITCARD_FAILED</Name>
@@ -328,45 +328,45 @@
       </locale_entry>
       <locale_entry>
         <Name>metratech.com/auditevents/AUDITEVENT_UPDATE_ACH_SUCCESS</Name>
-        <Value>Update ACH Succeeded (Italian)</Value>
+        <Value>Update ACH Succeeded [IT]</Value>
       </locale_entry>
 
       <locale_entry>
         <Name>metratech.com/auditevents/AUDITEVENT_DELETE_ACH_SUCCESS</Name>
-        <Value>Delete ACH succeeded (Italian)</Value>
+        <Value>Delete ACH succeeded [IT]</Value>
       </locale_entry>
 
       <locale_entry>
         <Name>metratech.com/auditevents/AUDITEVENT_ASSIGN_ACH_SUCCESS</Name>
-        <Value>Assign ACH succeeded (Italian)</Value>
+        <Value>Assign ACH succeeded [IT]</Value>
       </locale_entry>
 
       <locale_entry>
         <Name>metratech.com/auditevents/AUDITEVENT_ADD_ACH_FAILED</Name>
-        <Value>Add ACH failed (Italian)</Value>
+        <Value>Add ACH failed [IT]</Value>
       </locale_entry>
 
       <locale_entry>
         <Name>metratech.com/auditevents/AUDITEVENT_UPDATE_ACH_FAILED</Name>
-        <Value>Update ACH failed (Italian)</Value>
+        <Value>Update ACH failed [IT]</Value>
       </locale_entry>
 
       <locale_entry>
         <Name>metratech.com/auditevents/AUDITEVENT_DELETE_ACH_FAILED</Name>
-        <Value>Delete ACH failed (Italian)</Value>
+        <Value>Delete ACH failed [IT]</Value>
       </locale_entry>
 
       <locale_entry>
         <Name>metratech.com/auditevents/AUDITEVENT_ASSIGN_ACH_FAILED</Name>
-        <Value>Assign ACH failed (Italian)</Value>
+        <Value>Assign ACH failed [IT]</Value>
       </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_ONETIME_CREDIT_ACH_FAILED</Name>
-            <Value>(Italian)One time Credit ACH failed</Value>
+            <Value>[IT]One time Credit ACH failed</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_ONETIME_CREDIT_ACH_SUCCESS</Name>
-            <Value>(Italian)One time Credit ACH Success</Value>
+            <Value>[IT]One time Credit ACH Success</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_ONETIME_CREDIT_CREDITCARD_FAILED</Name>
@@ -378,11 +378,11 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_ONETIME_DEBIT_ACH_FAILED</Name>
-            <Value>(Italian)One time Debit ACH failed</Value>
+            <Value>[IT]One time Debit ACH failed</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_ONETIME_DEBIT_ACH_SUCCESS</Name>
-            <Value>(Italian)One time Debit ACH Success</Value>
+            <Value>[IT]One time Debit ACH Success</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_ONETIME_DEBIT_CREDITCARD_FAILED</Name>
@@ -394,39 +394,39 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_PLM_CREATE</Name>
-            <Value>(Italian)PLM create succeeded</Value>
+            <Value>[IT]PLM create succeeded</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_PLM_CREATE_DENIED</Name>
-            <Value>(Italian) PLM Create denied</Value>
+            <Value>[IT] PLM Create denied</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_PLM_CREATE_FAILED</Name>
-            <Value>(Italian)PLM create failed</Value>
+            <Value>[IT]PLM create failed</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_PLM_DELETE</Name>
-            <Value>(Italian)PLM delete succeeded</Value>
+            <Value>[IT]PLM delete succeeded</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_PLM_DELETE_DENIED</Name>
-            <Value>(Italian) PLM Delete denied</Value>
+            <Value>[IT] PLM Delete denied</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_PLM_DELETE_FAILED</Name>
-            <Value>(Italian)PLM delete failed</Value>
+            <Value>[IT]PLM delete failed</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_PLM_UPDATE</Name>
-            <Value>(Italian)PLM update succeeded</Value>
+            <Value>[IT]PLM update succeeded</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_PLM_UPDATE_DENIED</Name>
-            <Value>(Italian) PLM Update denied</Value>
+            <Value>[IT] PLM Update denied</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_PLM_UPDATE_FAILED</Name>
-            <Value>(Italian)PLM update failed</Value>
+            <Value>[IT]PLM update failed</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_PREAUTH_CAPTURE_CREDITCARD_FAILED</Name>
@@ -850,51 +850,51 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/SelfSubscription</Name>
-            <Value>(Italian)Self Subscription succeeded</Value>
+            <Value>[IT]Self Subscription succeeded</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/SelfSubscriptionDENIED</Name>
-            <Value>(Italian) Self Subscription denied</Value>
+            <Value>[IT] Self Subscription denied</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/SelfUnsubscription</Name>
-            <Value>(Italian) Self Unsubscription succeeded</Value>
+            <Value>[IT] Self Unsubscription succeeded</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/ServiceEndpointConnected</Name>
-            <Value>(Italian) Service endpoint connected</Value>
+            <Value>[IT] Service endpoint connected</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/ServiceEndpointConnectedDENIED</Name>
-            <Value>(Italian) Service endpoint denied</Value>
+            <Value>[IT] Service endpoint denied</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/ServiceEndpointConnectionMoved</Name>
-            <Value>(Italian) Service endpoint moved</Value>
+            <Value>[IT] Service endpoint moved</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/ServiceEndpointConnectionMovedDENIED</Name>
-            <Value>(Italian) Service endpoint move denied</Value>
+            <Value>[IT] Service endpoint move denied</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/ServiceEndpointConnectionRemoved</Name>
-            <Value>(Italian) Service endpoint removed</Value>
+            <Value>[IT] Service endpoint removed</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/ServiceEndpointConnectionRemovedDENIED</Name>
-            <Value>(Italian) Service endpoint remove denied</Value>
+            <Value>[IT] Service endpoint remove denied</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/ServiceEndpointConnectionUpdated</Name>
-            <Value>(Italian) Service endpoint updated</Value>
+            <Value>[IT] Service endpoint updated</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/ServiceEndpointConnectionUpdatedDENIED</Name>
-            <Value>(Italian) Service endpoint update denied</Value>
+            <Value>[IT] Service endpoint update denied</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/ServiceEndpointManageAccountDENIED</Name>
-            <Value>(Italian) Service endpoint manage account denied</Value>
+            <Value>[IT] Service endpoint manage account denied</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/unknown</Name>

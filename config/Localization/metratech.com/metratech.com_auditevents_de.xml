@@ -156,42 +156,42 @@
         </locale_entry>
         <locale_entry>
         <Name>metratech.com/auditevents/AUDITEVENT_ADD_ACH_SUCCESS</Name>
-        <Value>Add ACH succeeded (German)</Value>
+        <Value>Add ACH succeeded [DE]</Value>
       </locale_entry>
 
       <locale_entry>
         <Name>metratech.com/auditevents/AUDITEVENT_UPDATE_ACH_SUCCESS</Name>
-        <Value>Update ACH Succeeded (German)</Value>
+        <Value>Update ACH Succeeded [DE]</Value>
       </locale_entry>
 
       <locale_entry>
         <Name>metratech.com/auditevents/AUDITEVENT_DELETE_ACH_SUCCESS</Name>
-        <Value>Delete ACH succeeded (German)</Value>
+        <Value>Delete ACH succeeded [DE]</Value>
       </locale_entry>
 
       <locale_entry>
         <Name>metratech.com/auditevents/AUDITEVENT_ASSIGN_ACH_SUCCESS</Name>
-        <Value>Assign ACH succeeded (German)</Value>
+        <Value>Assign ACH succeeded [DE]</Value>
       </locale_entry>
 
       <locale_entry>
         <Name>metratech.com/auditevents/AUDITEVENT_ADD_ACH_FAILED</Name>
-        <Value>Add ACH failed (German)</Value>
+        <Value>Add ACH failed [DE]</Value>
       </locale_entry>
 
       <locale_entry>
         <Name>metratech.com/auditevents/AUDITEVENT_UPDATE_ACH_FAILED</Name>
-        <Value>Update ACH failed (German)</Value>
+        <Value>Update ACH failed [DE]</Value>
       </locale_entry>
 
       <locale_entry>
         <Name>metratech.com/auditevents/AUDITEVENT_DELETE_ACH_FAILED</Name>
-        <Value>Delete ACH failed (German)</Value>
+        <Value>Delete ACH failed [DE]</Value>
       </locale_entry>
 
       <locale_entry>
         <Name>metratech.com/auditevents/AUDITEVENT_ASSIGN_ACH_FAILED</Name>
-        <Value>Assign ACH failed (German)</Value>
+        <Value>Assign ACH failed [DE]</Value>
       </locale_entry>
 
       <locale_entry>
@@ -364,15 +364,15 @@
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_PLM_CREATE_DENIED</Name>
-            <Value>(German) PLM Create denied</Value>
+            <Value>[DE]PLM Create denied</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_PLM_DELETE_DENIED</Name>
-            <Value>(German) PLM Delete denied</Value>
+            <Value>[DE]PLM Delete denied</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_PLM_UPDATE_DENIED</Name>
-            <Value>(German) PLM Update denied</Value>
+            <Value>[DE]PLM Update denied</Value>
         </locale_entry>
         <locale_entry>
             <Name>metratech.com/auditevents/AUDITEVENT_PREAUTH_CAPTURE_CREDITCARD_FAILED</Name>

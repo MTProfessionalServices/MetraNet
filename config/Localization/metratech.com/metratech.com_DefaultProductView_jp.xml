@@ -88,11 +88,11 @@
         </locale_entry>
 		<locale_entry>
 			<Name>metratech.com/DefaultProductView/IsTaxInclusive</Name>
-			<Value>(Japanese)Is tax inclusive?</Value>
+			<Value>[JA]Is tax inclusive?</Value>
 		</locale_entry>
 		<locale_entry>
 			<Name>metratech.com/DefaultProductView/IsTaxInformational</Name>
-			<Value>(Japanese)Is tax informational?</Value>
+			<Value>[JA]Is tax informational?</Value>
 		</locale_entry>
         <locale_entry>
             <Name>metratech.com/DefaultProductView/LocalTaxAmount</Name>

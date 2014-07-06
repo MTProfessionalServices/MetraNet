@@ -88,11 +88,11 @@
         </locale_entry>
 		<locale_entry>
 			<Name>metratech.com/DefaultProductView/IsTaxInclusive</Name>
-			<Value>(Mexican)Is tax inclusive?</Value>
+			<Value>[es-MX]Is tax inclusive?</Value>
 		</locale_entry>
 		<locale_entry>
 			<Name>metratech.com/DefaultProductView/IsTaxInformational</Name>
-			<Value>(Mexican)Is tax informational?</Value>
+			<Value>[es-MX]Is tax informational?</Value>
 		</locale_entry> <locale_entry>
             <Name>metratech.com/DefaultProductView/LocalTaxAmount</Name>
             <Value>Monto del impuesto local</Value>

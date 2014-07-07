@@ -193,6 +193,6 @@
     <value>CEP</value>
   </data>
   <data name="PAYMENT_METHOD_REFUSED" xml:space="preserve">
-  <value[pt-BR]>Your payment method was refused; please try again.</value>
+  <value>[pt-BR]Your payment method was refused; please try again.</value>
   </data>
 </root>

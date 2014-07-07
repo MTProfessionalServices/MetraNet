@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <mt_config>
-  <language_code>es</language_code>
+  <language_code>pt-BR</language_code>
   <locale_space name="BusinessEntity/Core.BillMessages.BillMessageAccount">
     <locale_entry>
       <Name>BusinessEntity/Core.BillMessages.BillMessageAccount/EndDate/Label</Name>

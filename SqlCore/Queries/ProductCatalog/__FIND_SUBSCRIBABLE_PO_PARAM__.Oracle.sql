@@ -76,7 +76,7 @@ FROM
             FROM t_payment_redirection pr 
             LEFT OUTER JOIN t_av_internal tav ON tav.id_acc = pr.id_payer 
             WHERE pr.id_payee = :idAcc 
-        ) tmp ON tmp.payercurrency = t_pricelist.nm_currency_code
+        ) tmp ON %%CURRENCYFILTER2%%
         INNER JOIN t_base_props tb ON tb.id_prop = t_pl_map.id_pi_template
         INNER JOIN t_av_internal tav on tav.id_acc = :idAcc 
         WHERE  1=1
@@ -92,7 +92,7 @@ FROM
             WHERE subs.id_acc = :idAcc 
             /*
             %%CURRENCYFILTER1%%
-            %%CURRENCYFILTER2%%
+            %%CURRENCYFILTER3%%
             */
             AND ( (subs.dt_end = inner_te.dt_end) OR (inner_te.dt_end IS NULL AND subs.dt_end = dbo.mtmaxdate ()))
             AND subs.dt_start <= :refDate

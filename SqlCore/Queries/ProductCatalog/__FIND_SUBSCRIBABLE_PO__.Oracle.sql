@@ -76,10 +76,10 @@ FROM
             FROM t_payment_redirection pr 
             LEFT OUTER JOIN t_av_internal tav ON tav.id_acc = pr.id_payer 
             WHERE pr.id_payee = %%ACC_ID%% 
-        ) tmp ON tmp.payercurrency = t_pricelist.nm_currency_code
+        ) tmp ON %%CURRENCYFILTER2%%
         INNER JOIN t_base_props tb ON tb.id_prop = t_pl_map.id_pi_template
         INNER JOIN t_av_internal tav on tav.id_acc = %%ACC_ID%% 
-        WHERE  1=1
+        WHERE  1=1 /* %%CURRENCYFILTER1%% */
         AND DECODE (to_char(t_pl_map.id_paramtable), NULL, 1, 0) = 0
         AND DECODE (to_char(t_pl_map.id_sub), NULL, 1, 0) = 1
         AND DECODE (to_char(t_pl_map.id_acc), NULL, 1, 0) = 1

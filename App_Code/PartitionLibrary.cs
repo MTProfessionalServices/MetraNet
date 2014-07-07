@@ -126,14 +126,13 @@ public class PartitionLibrary
       {
         grid.Title = string.Format("{0} <i>({1})</i>", grid.Title, partitionData.PartitionName);
         gdel.ElementValue = partitionData.POPartitionId.ToString(CultureInfo.CurrentCulture);
-        gdel.FilterReadOnly = true;
-        gdel.FilterHideable = false;
-      }
+		gdel.FilterReadOnly = true;      }
       else
       {
-        gdel.FilterReadOnly = false;
-        gdel.FilterHideable = true;
-      }
+        gdel.ElementValue = "1";
+		gdel.FilterReadOnly = false;
+      }      
+      gdel.FilterHideable = true;
     }
     else
     {
@@ -149,16 +148,14 @@ public class PartitionLibrary
       if (partitionData.isPartitionUser)
       {
         grid.Title = string.Format("{0} <i>({1})</i>", grid.Title, partitionData.PartitionName);
-        gdel.ElementValue = partitionData.PLPartitionId.ToString(CultureInfo.CurrentCulture);
-        gdel.FilterReadOnly = true;
-        gdel.FilterHideable = false;
-
-      }
+        gdel.ElementValue = partitionData.PLPartitionId.ToString(CultureInfo.CurrentCulture);        
+		gdel.FilterReadOnly = true;      }
       else
       {
-        gdel.FilterReadOnly = false;
-        gdel.FilterHideable = true;
-      }
+        gdel.ElementValue = "1";                
+		gdel.FilterReadOnly = false;
+      }      
+      gdel.FilterHideable = true;
     }
   }
 

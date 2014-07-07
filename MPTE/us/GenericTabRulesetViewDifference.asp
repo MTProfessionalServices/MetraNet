@@ -175,7 +175,7 @@ mdm_Initialize();
 
         rowset.SetQueryTag("__SELECT_RATE_SCHEDULE_DISPLAY_INFORMATION__")
         rowset.AddParam "%%RS_ID%%", idRateSchedule1
-        rowset.AddParam "%%TX_LANG_CODE%%", Session("FRAMEWORK_APP_LANGUAGE")
+        rowset.AddParam "%%TX_LANG_CODE%%", GetFrameworkAppLanguageFromPageLanguage(Session("FRAMEWORK_APP_LANGUAGE"))
         rowset.Execute
         
         dim sPriceListName
@@ -306,7 +306,7 @@ mdm_Initialize();
         rowset.Init "queries\audit"
         rowset.SetQueryTag("__SELECT_RATE_SCHEDULE_DISPLAY_INFORMATION__")
         rowset.AddParam "%%RS_ID%%", objMTRateSched.Id
-        rowset.AddParam "%%TX_LANG_CODE%%", Session("FRAMEWORK_APP_LANGUAGE")
+        rowset.AddParam "%%TX_LANG_CODE%%", GetFrameworkAppLanguageFromPageLanguage(Session("FRAMEWORK_APP_LANGUAGE"))
         rowset.Execute
         
         if len(rowset.value("PriceListName"))>0 then
@@ -1115,6 +1115,19 @@ PUBLIC FUNCTION GetEffectiveDateTextByType(a_type, dt_date, int_offset, bStart)
   
   GetEffectiveDateTextByType = strText
   
+END FUNCTION
+
+PUBLIC FUNCTION GetFrameworkAppLanguageFromPageLanguage(strPageLanguage)
+  IF (LCASE(strPageLanguage) = "pt-br" OR LCASE(strPageLanguage) = "es-mx") THEN
+    GetFrameworkAppLanguageFromPageLanguage = strPageLanguage
+  END IF
+  Dim dashIndex 
+  dashIndex = INSTR(strPageLanguage,"-")
+  IF ( dashIndex > 0)  THEN
+    GetFrameworkAppLanguageFromPageLanguage = CSTR(MID(strPageLanguage, dashIndex + 1, LEN(strPageLanguage)))
+  ELSE
+    GetFrameworkAppLanguageFromPageLanguage = strPageLanguage
+  END IF
 END FUNCTION
 
 %>

@@ -118,10 +118,31 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="BothEOPandScheduledLabelResource.Text" xml:space="preserve">
+    <value>[FR]Both EOP and Scheduled</value>
+  </data>
   <data name="btnBackResource1.ServerSide" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="btnContinueResource1.ServerSide" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="EOPLabelResource.Text" xml:space="preserve">
+    <value>[FR]End-of-Period (EOP)</value>
+  </data>
+  <data name="lblGenInfoResource1.Text" xml:space="preserve">
+    <value>[FR]A Decision can be processed by AMP as part of End-of-Period (EOP) processing and/or on a scheduled basis, independent of billing intervals.</value>
+  </data>
+  <data name="lblGenInfoResource2.Text" xml:space="preserve">
+    <value>[FR]What is the execution frequency for this Decision Type?</value>
+  </data>
+  <data name="lblTitleResource1.Text" xml:space="preserve">
+    <value>[FR]Execution Frequency</value>
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>MetraNet</value>
+  </data>
+  <data name="ScheduledLabelResource.Text" xml:space="preserve">
+    <value>[FR]Scheduled - periodic, but independent of billing intervals</value>
   </data>
 </root>

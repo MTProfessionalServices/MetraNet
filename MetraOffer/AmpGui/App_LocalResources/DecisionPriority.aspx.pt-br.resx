@@ -143,30 +143,30 @@
     <value>False</value>
   </data>
   <data name="DecisionPriority.Text" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>[pt-BR]Decision Priority</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>[pt-BR]Decision Interactions</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet</value>
+    <value>[pt-BR]MetraNet</value>
   </data>
   <data name="PriorityLevelLabel.Text" xml:space="preserve">
-    <value>[pt-BR]:</value>
+    <value>[pt-BR]Priority Level:</value>
   </data>
   <data name="tbPriorityLevel" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>[pt-BR]Fixed value</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>[pt-BR]Description</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>[pt-BR]Name</value>
   </data>
   <data name="TEXT_NUMERIC_PRIORITY_LEVEL" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>[pt-BR]Numeric Priority Level</value>
   </data>
   <data name="DECISIONS_GRID_TITLE" xml:space="preserve">
-    <value>[pt-BR]:</value>
+    <value>[pt-BR]Decision Types Ordered by Priority (lower number means earlier execution):</value>
   </data>
 </root>

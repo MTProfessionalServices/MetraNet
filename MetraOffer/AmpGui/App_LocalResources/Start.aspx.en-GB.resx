@@ -162,6 +162,9 @@
   <data name="TEXT_IS_ACTIVE" xml:space="preserve">
     <value>Is Active?</value>
   </data>
+  <data name="TEXT_ERROR_GET_PARAMETER_TABLE_NAMES" xml:space="preserve">
+    <value>An error occurred while retrieving Parameter Table Names</value>
+  </data>
   <data name="TEXT_PT_NOT_EXIST" xml:space="preserve">
     <value>This action cannot be performed because the parameter table associated with the Decision Type does not exist.</value>
   </data>
@@ -170,9 +173,6 @@
   </data>
   <data name="TITLE_UNABLE_TO_CLONE" xml:space="preserve">
     <value>Unable to Clone Decision Type</value>
-  </data>
-  <data name="TEXT_ERROR_GET_PARAMETER_TABLE_NAMES" xml:space="preserve">
-    <value>An error occurred while retrieving Parameter Table Names</value>
   </data>
   <data name="TEXT_PRIORITY" xml:space="preserve">
     <value>Priority</value>

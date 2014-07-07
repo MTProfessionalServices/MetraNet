@@ -121,39 +121,37 @@
     <value>[ES]Enter information used to describe this decision type.</value>
   </data>
   <data name="lblEnterInfoResource1.Text" xml:space="preserve">
-    <value>[ES]</value>
+    <value>[ES]Enter information about this Decision Type:</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>[ES]</value>
+    <value>[ES]General Information for {0}</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
   <data name="TEXT_SUCCESS_CREATE_DECISION" xml:space="preserve">
-    <value>[ES]</value>
+    <value>[ES]Successfully created Decision Type</value>
   </data>
   <data name="TEXT_ERROR_ADD_EDIT_DECISION" xml:space="preserve">
-    <value>[ES]</value>
+    <value>[ES]Error while creating/editing Decision Type</value>
   </data>
   <data name="TEXT_ERROR_DUPLICATE_DECISION_NAME" xml:space="preserve">
-    <value>[ES]</value>
+    <value>[ES]Error: Decision Type name already in use</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_PARAM_TABLE_NAMES" xml:space="preserve">
-    <value>[ES]</value>
+    <value>[ES]Error while retrieving parameter table names</value>
   </data>
   <data name="ddParamTableResource1.Label" xml:space="preserve">
-    <value>[ES]</value>
+    <value>[ES]Parameter Table</value>
   </data>
   <data name="tbDescriptionResource1.Label" xml:space="preserve">
-    <value>[ES]</value>
+    <value>[ES]Description</value>
   </data>
   <data name="tbGenInfoNameResource1.Label" xml:space="preserve">
-    <value>[ES]</value>
+    <value>[ES]Decision Type Name</value>
   </data>
   <data name="ViewDescriptionLabelResource.Text" xml:space="preserve">
-    <value>[ES]:</value>
-  </data>
-  <data name="lblCantChangeParamTableResource1.Text" xml:space="preserve">
-    <value>[ES]</value>
+    <value>[ES]Description:</value>
   </data>
 </root>
+

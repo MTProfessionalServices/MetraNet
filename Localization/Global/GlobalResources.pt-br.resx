@@ -130,7 +130,7 @@
     <value>A conta ancestral era {0}, foi alterada para {1}. </value>
   </data>
   <data name="BAD_TRANSACTION_TYPE" xml:space="preserve">
-    <value>[pt-BR]Transaction {0} is of type {1}, but got a AlreadySettledException</value>
+    <value>A transação {0} é do tipo {1}, mas foi obtido uma AlreadySettledException</value>
   </data>
   <data name="BILLING_CYCLES" xml:space="preserve">
     <value>Ciclos de faturamento</value>
@@ -175,37 +175,37 @@
     <value>O nome era {0}, foi alterado para {1}. </value>
   </data>
   <data name="TEMPLATE_ID_LESS_THAN_0" xml:space="preserve">
-    <value>[pt-BR]Agreement template ID cannot be less than 0.</value>
+    <value>ID do modelo de contrato não pode ser menor que 0.</value>
   </data>
   <data name="LAST_NAME_CHANGED" xml:space="preserve">
     <value>O sobrenome era {0}, foi alterado para {1}.</value>
   </data>
   <data name="CREATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
-    <value>[pt-BR]New Agreement Template created successfully with id {0}.</value>
+    <value>Novo modelo de contrato criado com sucesso com id {0}.</value>
   </data>
   <data name="FAILED_TO_SAVE_AGREEMENT_TEMPLATE" xml:space="preserve">
-    <value>[pt-BR]Failed to save agreement template {0}.</value>
+    <value>Falha ao salvar o modelo de contrato {0}.</value>
   </data>
   <data name="UPDATED_AGREEMENT_TEMPLATE_AUDIT" xml:space="preserve">
-    <value>[pt-BR]Updated Agreement Template with id {0}.</value>
+    <value>Modelo de contrato atualizado com id {0}.</value>
   </data>
   <data name="ENTITY_LIST_CONTAINS_ID" xml:space="preserve">
-    <value>[pt-BR]Entity list already contains entity with id {0}.</value>
+    <value>A lista de entidades já contém uma entidade com id {0}.</value>
   </data>
   <data name="ENTITY_LIST_DOES_NOT_CONTAIN_ID" xml:space="preserve">
-    <value>[pt-BR]Entity list does not contain entity with id {0}.</value>
+    <value>A lista de entidades não contém uma entidade com id {0}.</value>
   </data>
   <data name="ADDED_ENTITY" xml:space="preserve">
-    <value>[pt-BR]Added entity with ID {0} to entity list</value>
+    <value>Entidade adicionada com ID {0} à lista de entidades</value>
   </data>
   <data name="DELETED_ENTITY" xml:space="preserve">
-    <value>[pt-BR]Deleted entity with ID {0} from entity list</value>
+    <value>Entidade excluída com ID {0} da lista de entidades</value>
   </data>
   <data name="VALUE_CHANGED" xml:space="preserve">
-    <value>[pt-BR]{0} was {1}, changed to {2}.</value>
+    <value>{0} era {1}, foi alterado(a) para {2}.</value>
   </data>
   <data name="ERROR_START_DATE_AFTER_END_DATE" xml:space="preserve">
-    <value>[pt-BR]The Effective End Date cannot be earlier than the Effective Start Date.</value>
+    <value>A data de término da vigência não pode ser anterior que a data de início da vigência</value>
   </data>
   <data name="MAX_CHARGE_CHANGED" xml:space="preserve">
     <value>A cobrança máxima por ciclo era {0}, foi alterada para {1}. </value>
@@ -280,7 +280,7 @@
     <value>A rua era {0}, foi alterada para {1}. </value>
   </data>
   <data name="SUCCESSFULLY_UPDATED_ACCOUNT_FOR" xml:space="preserve">
-    <value>Atualização de conta para o nome de usuário '{0}' com id '{1} realizada. ' </value>
+    <value>Sucesso na atualização de conta do nome de usuário '{0}' com id '{1}. ' </value>
   </data>
   <data name="TEXT_ACCOUNT_CANNOT_BE_OWN_BILL_MANAGER" xml:space="preserve">
     <value>A conta não pode ser seu próprio gerenciador de fatura</value>
@@ -349,354 +349,354 @@
     <value>Sua solicitação não pode ser processada devido aos seguintes erros:</value>
   </data>
   <data name="TIMEOUT_EXCEPTION" xml:space="preserve">
-    <value>[pt-BR]Method timed out</value>
+    <value>O método expirou</value>
   </data>
   <data name="TRANSACTION_NOT_FOUND" xml:space="preserve">
-    <value>[pt-BR]Transaction {0} not found.</value>
+    <value>Transação {0} não encontrada.</value>
   </data>
   <data name="TX_ALREADY_REJECTED" xml:space="preserve">
-    <value>[pt-BR]Trasnaction {0} was already submitted, and was rejected by the payment processor.</value>
+    <value>A transação {0} já foi enviada e foi rejeitada pelo processador do pagamento.</value>
   </data>
   <data name="TX_ALREADY_SUBMITTED" xml:space="preserve">
-    <value>[pt-BR]Transaction {0} was already submitted.</value>
+    <value>A transação {0} já foi enviada.</value>
   </data>
   <data name="UPDATED_PAYMENT_INST_AUDIT" xml:space="preserve">
-    <value>Atualização de instrumento de pagamento '{0}' para conta '{1} realizada. {2} </value>
+    <value>Sucesso na atualização de instrumento de pagamento {0} para conta {1}. {2} </value>
   </data>
   <data name="USAGE_CYCLE_WAS" xml:space="preserve">
     <value>O ciclo de utilização era {0}, foi alterado para {1}. </value>
   </data>
   <data name="VOIDING_TIMEOUT" xml:space="preserve">
-    <value>[pt-BR]Timeout exception while voiding payment for Invoice {0}.</value>
+    <value>Exceção de tempo limite ao anular pagamento da fatura {0}.</value>
   </data>
   <data name="ZIP_CHANGED" xml:space="preserve">
     <value>O CEP era {0}, foi alterado para {1}. </value>
   </data>
   <data name="TEXT_MAS_BASE_SAVING_SPECS_TO_ENTITY" xml:space="preserve">
-    <value>[pt-BR]MASBasicException while trying to save specification characteristics to entity.</value>
+    <value>MASBasicException ao tentar salvar características de especificação à entidade.</value>
   </data>
   <data name="TEXT_EXCEPTION_SAVING_SPECS_TO_ENTITY" xml:space="preserve">
-    <value>[pt-BR]Unhandled Exception while trying to save specification characteristics to entity.</value>
+    <value>Exceção não processada ao tentar salvar características de especificação à entidade.</value>
   </data>
   <data name="TEXT_REVIEW_LOGS" xml:space="preserve">
-    <value>[pt-BR]An unknown error occurred.  Please have the system administrator review your logs.</value>
+    <value>Ocorreu um erro desconhecido. Peça ao administrador de sistemas revisar seus logs.</value>
   </data>
   <data name="TEXT_UPDATING_SPEC" xml:space="preserve">
-    <value>[pt-BR]Updating specification characteristic.</value>
+    <value>Atualizando característica de especificação.</value>
   </data>
   <data name="TEXT_COULD_NOT_GET_LOCALE" xml:space="preserve">
-    <value>[pt-BR]Could not retrieve localization data.</value>
+    <value>Não foi possível recuperar os dados de localização.</value>
   </data>
   <data name="TEXT_RETRIEVED_LOCALE" xml:space="preserve">
-    <value>[pt-BR]Retrieved localization data.</value>
+    <value>Dados de localização recuperados.</value>
   </data>
   <data name="TEXT_PROCESSED_LOCALE" xml:space="preserve">
-    <value>[pt-BR]Processed localization data.</value>
+    <value>Dados de localização processados.</value>
   </data>
   <data name="TEXT_UPDATING_VALUES_FOR_SPEC" xml:space="preserve">
-    <value>[pt-BR]Updating values for specification characteristic.</value>
+    <value>Atualizando valores de característica de especificação.</value>
   </data>
   <data name="TEXT_UPDATED_VALUES_FOR_SPEC" xml:space="preserve">
-    <value>[pt-BR]Updated specification characteristic values for specification characteristic.</value>
+    <value>Valores da característica de especificação atualizados.</value>
   </data>
   <data name="TEXT_UPDATED_SPEC" xml:space="preserve">
-    <value>[pt-BR]Updated specification characteristic.</value>
+    <value>Característica de especificação atualizada.</value>
   </data>
   <data name="TEXT_CREATING_SPEC" xml:space="preserve">
-    <value>[pt-BR]Creating specification characteristic.</value>
+    <value>Criando característica de especificação.</value>
   </data>
   <data name="ADDING_SPEC_CHAR_VALS" xml:space="preserve">
-    <value>[pt-BR]Adding specification characteristic values.</value>
+    <value>Adicionando valores de característica de especificação.</value>
   </data>
   <data name="ADDED_SPEC_CHAR_VALS" xml:space="preserve">
-    <value>[pt-BR]Added specification characteristic values.</value>
+    <value>Valores de característica de especificação adicionados.</value>
   </data>
   <data name="TEXT_CREATED_SPEC" xml:space="preserve">
-    <value>[pt-BR]Created specification characteristic.</value>
+    <value>Característica de especificação criada.</value>
   </data>
   <data name="TEXT_CREATED_SPEC_FAILED" xml:space="preserve">
-    <value>[pt-BR]Failed Created specification characteristic.</value>
+    <value>Falha da característica de especificação criada.</value>
   </data>
   <data name="TEXT_RETRIEVED" xml:space="preserve">
-    <value>[pt-BR]specification characteristics retrieved from system.</value>
+    <value>características de especificação recuperadas do sistema.</value>
   </data>
   <data name="TEXT_CANNOT_GET_SPECS" xml:space="preserve">
-    <value>[pt-BR]Unable to retrieve specification characteristics from system.</value>
+    <value>Não é possível recuperar características de especificação do sistema.</value>
   </data>
   <data name="TEXT_RETRIEVING_SPEC" xml:space="preserve">
-    <value>[pt-BR]Retrieving specification characteristic from system.</value>
+    <value>Recuperando características de especificação do sistema.</value>
   </data>
   <data name="TEXT_RETRIEVED_SPEC" xml:space="preserve">
-    <value>[pt-BR]Retrieved specification characteristic from system.</value>
+    <value>Características de especificação do sistema recuperadas.</value>
   </data>
   <data name="TEXT_RETRIEVING_LOCALE" xml:space="preserve">
-    <value>[pt-BR]Retrieved localization from system.</value>
+    <value>Localização recuperada do sistema.</value>
   </data>
   <data name="TEXT_UNABLE_TO_RETRIEVE_SPEC" xml:space="preserve">
-    <value>[pt-BR]Unable to retrieve specification characteristic from system.</value>
+    <value>Não é possível recuperar característica de especificação do sistema.</value>
   </data>
   <data name="TEXT_RETRIEVING_SPEC_CHAR_VALS" xml:space="preserve">
-    <value>[pt-BR]Retrieving specification characteristic values from system.</value>
+    <value>Recuperando valores de característica de especificação do sistema.</value>
   </data>
   <data name="TEXT_RETRIEVED_SPEC_CHAR_VALS" xml:space="preserve">
-    <value>[pt-BR]Retrieved specification characteristic values from system.</value>
+    <value>Valores de característica de especificação do sistema recuperados.</value>
   </data>
   <data name="TEXT_CANNOT_GET_SPEC_VALS" xml:space="preserve">
-    <value>[pt-BR]Cannot retrieve specification characteristic values from system.</value>
+    <value>Não é possível recuperar valores de característica de especificação do sistema.</value>
   </data>
   <data name="TEXT_REMOVING_SPEC_FROM_ENTITY" xml:space="preserve">
-    <value>[pt-BR]Removing specification characteristic from entity.</value>
+    <value>Removendo característica de especificação da entidade.</value>
   </data>
   <data name="TEXT_CANOT_DELETE_SPEC_IN_USE" xml:space="preserve">
-    <value>[pt-BR]Cannot remove specification characteristic because it is in use.</value>
+    <value>Não é possível remover característica de especificação, pois ela está em uso.</value>
   </data>
   <data name="TEXT_REMOVED_SPEC_FROM_ENTITY" xml:space="preserve">
-    <value>[pt-BR]Removed specification characteristic from entity.</value>
+    <value>Característica de especificação removida da entidade.</value>
   </data>
   <data name="TEXT_UNABLE_TO_REMOVE_SPEC_FROM_ENTITY" xml:space="preserve">
-    <value>[pt-BR]An error occurred removing specification characteristic from entity.</value>
+    <value>Ocorreu um erro ao remover a característica de especificação da entidade</value>
   </data>
   <data name="TEXT_DELETING_SPEC" xml:space="preserve">
-    <value>[pt-BR]Deleting specification characteristic from system.</value>
+    <value>Excluindo características de especificação do sistema.</value>
   </data>
   <data name="TEXT_DELETED_SPEC" xml:space="preserve">
-    <value>[pt-BR]Deleted specification characteristic from system.</value>
+    <value>Característica de especificação excluída do sistema.</value>
   </data>
   <data name="TEXT_COULD_NOT_DELETE_SPEC" xml:space="preserve">
-    <value>[pt-BR]An error occurred deleting specification characteristic from system.</value>
+    <value>Ocorreu um erro ao excluir a característica de especificação do sistema.</value>
   </data>
   <data name="TEXT_RETRIEVING_SPECS_FOR_ENTITY" xml:space="preserve">
-    <value>[pt-BR]Retrieving specification characteristics for entity.</value>
+    <value>Recuperando características de especificação para entidade.</value>
   </data>
   <data name="TEXT_RETRIEVED_SPECS_FOR_ENTITY" xml:space="preserve">
-    <value>[pt-BR]Retrieved specification characteristics for entity.</value>
+    <value>Características de especificação recuperadas para entidade.</value>
   </data>
   <data name="TEXT_COULD_NOT_RETRIEVE_SPEC_CHAR_VALS" xml:space="preserve">
-    <value>[pt-BR]Could not retrieved specification characteristic values from system.</value>
+    <value>Não foi possível recuperar valores de característica de especificação do sistema.</value>
   </data>
   <data name="TEXT_SAVING_SPEC_CHAR_VAL" xml:space="preserve">
-    <value>[pt-BR]Saving specification characteristic value to system.</value>
+    <value>Salvando valor de característica de especificação para o sistema.</value>
   </data>
   <data name="TEXT_SPEC_CHAR_VAL_IN_USE" xml:space="preserve">
-    <value>[pt-BR]Cannot update the sepcification characteristic value because it is in use.</value>
+    <value>Não é possível atualizar o valor de característica de especificação, pois ele está em uso.</value>
   </data>
   <data name="TEXT_UPDATED_SPEC_CHAR_VAL" xml:space="preserve">
-    <value>[pt-BR]Updated the specification characteristic value.</value>
+    <value>Valor de característica de especificação atualizado.</value>
   </data>
   <data name="TEXT_SAVED_SPEC_CHAR_VAL" xml:space="preserve">
-    <value>[pt-BR]Saved the specification characteristic value.</value>
+    <value>Valor de característica de especificação salvo.</value>
   </data>
   <data name="TEXT_SAVED_SPEC_CHAR_VAL_FAILED" xml:space="preserve">
-    <value>[pt-BR]An error occurred saving the sepcification characteristic value.</value>
+    <value>Ocorreu um erro ao salvar o valor de característica de especificação.</value>
   </data>
   <data name="TEXT_CREATING_SPEC_VAL_MAP" xml:space="preserve">
-    <value>[pt-BR]Creating entries in spec val map for specification characteristic and values.</value>
+    <value>Criando entradas no mapa de val de espec para características e valores de especificação.</value>
   </data>
   <data name="TEXT_CREATED_SPEC_VAL_MAP" xml:space="preserve">
-    <value>[pt-BR]Created entries in spec val map for specification characteristic and values.</value>
+    <value>Entradas criadas no mapa de val de espec para características e valores de especificação.</value>
   </data>
   <data name="TEXT_CREATED_SPEC_VAL_MAP_FAILED" xml:space="preserve">
-    <value>[pt-BR]Failed creating entries in spec val map for specification characteristic and values.</value>
+    <value>Falha ao criar entradas no mapa de val de espec para características e valores de especificação.</value>
   </data>
   <data name="TEXT_REMOVING_SPEC_VAL_MAP" xml:space="preserve">
-    <value>[pt-BR]Removing entries in spec val map for specification characteristic and values.</value>
+    <value>Removendo entradas no mapa de val de espec para características e valores de especificação.</value>
   </data>
   <data name="TEXT_REMOVED_SPEC_VAL_MAP" xml:space="preserve">
-    <value>[pt-BR]Removed entries in spec val map for specification characteristic and values.</value>
+    <value>Entradas removidas no mapa de val de espec para características e valores de especificação.</value>
   </data>
   <data name="TEXT_REMOVED_SPEC_VAL_MAP_FAILED" xml:space="preserve">
-    <value>[pt-BR]Failed Removing entries in spec val map for specification characteristic and values.</value>
+    <value>Falha ao remover entradas no mapa de val de espec para características e valores de especificação.</value>
   </data>
   <data name="TEXT_NO_VALS_TO_DELETE" xml:space="preserve">
-    <value>[pt-BR]No mapping values to delete.</value>
+    <value>Nenhum valor de mapeamento a excluir.</value>
   </data>
   <data name="TEXT_SPEC_VAL_MAPPING_IN_USE" xml:space="preserve">
-    <value>[pt-BR]Mapping cannot be deleted because it is in use.</value>
+    <value>Não é possível excluir o mapeamento, pois ele está em uso.</value>
   </data>
   <data name="TEXT_RETRIEVING_FILENAME_DETAILS" xml:space="preserve">
-    <value>[pt-BR]Retrieving details for filename </value>
+    <value>Recuperando detalhes do nome de arquivo </value>
   </data>
   <data name="TEXT_FILE_REJECTED" xml:space="preserve">
-    <value>[pt-BR]The file was rejected.</value>
+    <value>O arquivo foi rejeitado.</value>
   </data>
   <data name="TEXT_FILE_PENDING" xml:space="preserve">
-    <value>[pt-BR]The file is pending.</value>
+    <value>O arquivo está pendente.</value>
   </data>
   <data name="TEXT_FILE_PROCESSING" xml:space="preserve">
-    <value>[pt-BR]The file is being processed.</value>
+    <value>O arquivo está sendo processado.</value>
   </data>
   <data name="TEXT_FILE_COMPLETED" xml:space="preserve">
-    <value>[pt-BR]The file completed processing.</value>
+    <value>O arquivo terminou o processamento.</value>
   </data>
   <data name="TEXT_RETRIEVED_FILE_DETAILS" xml:space="preserve">
-    <value>[pt-BR]Retrieved details for file </value>
+    <value>Detalhes recuperados para o arquivo </value>
   </data>
   <data name="TEXT_LOAD_DATA_EXCEPTION" xml:space="preserve">
-    <value>[pt-BR]A load data exception occurred </value>
+    <value>Ocorreu uma exceção de dados de carregamento. </value>
   </data>
   <data name="TEXT_DATA_ACCESS_EXCEPTION" xml:space="preserve">
-    <value>[pt-BR]A data access exception occurred </value>
+    <value>Ocorreu uma exceção de acesso de dados </value>
   </data>
   <data name="TEXT_UNKOWN_EXCEPTION" xml:space="preserve">
-    <value>[pt-BR]An exception occurred </value>
+    <value>Ocorreu uma exceção </value>
   </data>
   <data name="TEXT_RETRIEVING_FILES" xml:space="preserve">
-    <value>[pt-BR]Retrieving a list of failed filenames </value>
+    <value>Recuperando uma lista de nomes de arquivos com falha </value>
   </data>
   <data name="TEXT_RETRIEVED_FILES" xml:space="preserve">
-    <value>[pt-BR]Retrieved a list of failed filenames </value>
+    <value>Lista de nomes de arquivos com falha recuperada </value>
   </data>
   <data name="TEXT_RETRIEVING_SHARED_PROPERTIES_FOR_ENTITY" xml:space="preserve">
-    <value>[pt-BR]Retrieving shared properties for entity.</value>
+    <value>Recuperando propriedades compartilhadas para entidade.</value>
   </data>
   <data name="TEXT_RETRIEVING_SHARED_PROPERTIES_FOR_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
-    <value>[pt-BR]Retrieving shared properties for entity with entity type: </value>
+    <value>Recuperando propriedades compartilhadas para entidade com tipo de entidade: </value>
   </data>
   <data name="TEXT_RETRIEVED_SHARED_PROPERTIES_FOR_ENTITY" xml:space="preserve">
-    <value>[pt-BR]Retrieved shared properties for entity.</value>
+    <value>Propriedades compartilhadas para entidade recuperadas.</value>
   </data>
   <data name="TEXT_RETRIEVED_SHARED_PROPERTIES_FOR_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
-    <value>[pt-BR]Retrieved shared properties for entity with entity type: </value>
+    <value>Propriedades compartilhadas recuperadas para entidade com tipo de entidade: </value>
   </data>
   <data name="TEXT_CANNOT_GET_SHARED_PROPERTIES" xml:space="preserve">
-    <value>[pt-BR]Unable to retrieve shared properties from system.</value>
+    <value>Não é possível recuperar propriedades compartilhadas do sistema.</value>
   </data>
   <data name="TEXT_DATA_SAVING_SHARED_PROPERTIES_TO_ENTITY" xml:space="preserve">
-    <value>[pt-BR]DataException while trying to save shared properties to entity.</value>
+    <value>Exceção de dados ao tentar salvar propriedades compartilhadas à entidade.</value>
   </data>
   <data name="TEXT_EXCEPTION_SAVING_SHARED_PROPERTIES_TO_ENTITY" xml:space="preserve">
-    <value>[pt-BR]Unhandled Exception while trying to save shared properties to entity.</value>
+    <value>Exceção não processada ao tentar salvar propriedades compartilhadas à entidade.</value>
   </data>
   <data name="TEXT_RETRIEVING_SHARED_PROPERTY" xml:space="preserve">
-	<value>[pt-BR]Retrieving shared property from system.</value>
+    <value>Recuperando propriedade compartilhada do sistema.</value>
   </data>
   <data name="TEXT_UNABLE_TO_RETRIEVE_SHARED_PROPERTY" xml:space="preserve">
-    <value>[pt-BR]Unable to retrieve shared property from system.</value>
+    <value>Não é possível recuperar propriedade compartilhada do sistema.</value>
   </data>
   <data name="TEXT_RETRIEVED_SHARED_PROPERTY_VALUES" xml:space="preserve">
-    <value>[pt-BR]Retrieved shared property values from system.</value>
+    <value>Valores de propriedade compartilhada recuperados do sistema.</value>
   </data>
   <data name="TEXT_REMOVING_SHARED_PROPERTY_FROM_ENTITY" xml:space="preserve">
-    <value>[pt-BR]Removing shared property from entity.</value>
+    <value>Removendo propriedade compartilhada da entidade.</value>
   </data>
   <data name="TEXT_REMOVING_SHARED_PROPERTY_FROM_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
-    <value>[pt-BR]Removing shared property from entity with entity type: </value>
+    <value>Removendo propriedades compartilhadas da entidade com tipo de entidade: </value>
   </data>
   <data name="TEXT_UNABLE_TO_REMOVE_SHARED_PROPERTY_FROM_ENTITY" xml:space="preserve">
-    <value>[pt-BR]An error occurred removing shared property from entity.</value>
+    <value>Ocorreu um erro ao remover propriedade compartilhada da entidade.</value>
   </data>
   <data name="TEXT_REMOVED_SHARED_PROPERTY_FROM_ENTITY" xml:space="preserve">
-    <value>[pt-BR]Removed shared property from entity.</value>
+    <value>Propriedade compartilhada removida da entidade.</value>
   </data>
   <data name="TEXT_REMOVED_SHARED_PROPERTY_FROM_ENTITY_WITH_ENTITY_TYPE" xml:space="preserve">
-    <value>[pt-BR]Removed shared property from entity with entity type: </value>
+    <value>Propriedade compartilhada removida da entidade com tipo de entidade: </value>
   </data>
   <data name="TEXT_DELETING_SHARED_PROPERTY" xml:space="preserve">
-    <value>[pt-BR]Deleting shared property from system.</value>
+    <value>Excluindo propriedade compartilhada do sistema.</value>
   </data>
   <data name="TEXT_CANNOT_DELETE_SHARED_PROPERTY_IN_USE" xml:space="preserve">
-    <value>[pt-BR]Cannot remove shared property because it is in use.</value>
+    <value>Não é possível remover a propriedade compartilhada, pois ela está em uso.</value>
   </data>
   <data name="TEXT_DELETED_SHARED_PROPERTY" xml:space="preserve">
-    <value>[pt-BR]Deleted shared property from system.</value>
+    <value>Propriedade compartilhada excluída do sistema.</value>
   </data>
   <data name="TEXT_COULD_NOT_DELETE_SHARED_PROPERTY" xml:space="preserve">
-    <value>[pt-BR]An error occurred deleting shared property from system.</value>
+    <value>Ocorreu um erro ao excluir propriedade compartilhada do sistema.</value>
   </data>
   <data name="TEXT_CREATING_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
-    <value>[pt-BR]Creating entries in shared property value map for shared property and values.</value>
+    <value>Criando entradas em mapa de valores de propriedade para propriedade e valores compartilhados.</value>
   </data>
   <data name="TEXT_CREATED_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
-    <value>[pt-BR]Created entries in shared property value map for shared property and values.</value>
+    <value>Entradas criadas em mapa de valores de propriedade para propriedade e valores compartilhados.</value>
   </data>
   <data name="TEXT_CREATE_SHARED_PROPERTY_VALUE_MAP_FAILED" xml:space="preserve">
-    <value>[pt-BR]Failed creating entries in shared property value map for shared property and values.</value>
+    <value>Falha ao criar entradas em mapa de valores de propriedade para propriedade e valores compartilhados.</value>
   </data>
   <data name="TEXT_REMOVING_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
-    <value>[pt-BR]Removing entries in shared property value map for shared property and values.</value>
+    <value>Removendo entradas em mapa de valores de propriedade para propriedade e valores compartilhados.</value>
   </data>
   <data name="TEXT_SHARED_PROPERTY_VALUE_MAPPING_IN_USE" xml:space="preserve">
-    <value>[pt-BR]Mapping cannot be deleted because it is in use.</value>
+    <value>Não é possível excluir o mapeamento, pois ele está em uso.</value>
   </data>
   <data name="TEXT_REMOVED_SHARED_PROPERTY_VALUE_MAP" xml:space="preserve">
-    <value>[pt-BR]Removed entries in shared property value map for shared property and values.</value>
+    <value>Entradas removidas no mapa de valores de propriedade para propriedade e valores compartilhados.</value>
   </data>
   <data name="TEXT_REMOVE_SHARED_PROPERTY_VALUE_MAP_FAILED" xml:space="preserve">
-    <value>[pt-BR]Failed Removing entries in shared property value map for shared property and values.</value>
+    <value>Falha ao remover entradas em mapa de valores de propriedade para propriedade e valores compartilhados.</value>
   </data>
   <data name="TEXT_RETRIEVING_SHARED_PROPERTY_VALUES" xml:space="preserve">
-    <value>[pt-BR]Retrieving shared property values from system.</value>
+    <value>Recuperando valores de propriedade compartilhada do sistema.</value>
   </data>
   <data name="TEXT_CANNOT_GET_SHARED_PROPERTY_VALUES" xml:space="preserve">
-    <value>[pt-BR]Cannot retrieve shared property values from system.</value>
+    <value>Não é possível recuperar valores de propriedade compartilhada do sistema.</value>
   </data>
   <data name="TEXT_UPDATING_SHARED_PROPERTY" xml:space="preserve">
-    <value>[pt-BR]Updating shared property.</value>
+    <value>Atualizando propriedade compartilhada.</value>
   </data>
   <data name="TEXT_UPDATING_VALUES_FOR_SHARED_PROPERTY" xml:space="preserve">
-    <value>[pt-BR]Updating values for shared property.</value>
+    <value>Atualizando valores para propriedade compartilhada.</value>
   </data>
   <data name="TEXT_UPDATED_VALUES_FOR_SHARED_PROPERTY" xml:space="preserve">
-    <value>[pt-BR]Updated values for shared property.</value>
+    <value>Valores atualizados para propriedade compartilhada.</value>
   </data>
   <data name="TEXT_UPDATED_SHARED_PROPERTY" xml:space="preserve">
-    <value>[pt-BR]Updated shared property.</value>
+    <value>Propriedade compartilhada atualizada.</value>
   </data>
   <data name="TEXT_CREATING_SHARED_PROPERTY" xml:space="preserve">
-    <value>[pt-BR]Creating shared property.</value>
+    <value>Criando propriedade compartilhada.</value>
   </data>
   <data name="ADDING_SHARED_PROPERTY_VALUES" xml:space="preserve">
-    <value>[pt-BR]Adding shared property values.</value>
+    <value>Adicionando valores de propriedade compartilhada.</value>
   </data>
   <data name="ADDED_SHARED_PROPERTY_VALUES" xml:space="preserve">
-    <value>[pt-BR]Added shared property values.</value>
+    <value>Valores de propriedade compartilhada adicionados.</value>
   </data>
   <data name="TEXT_CREATED_SHARED_PROPERTY" xml:space="preserve">
-    <value>[pt-BR]Created shared property.</value>
+    <value>Propriedade compartilhada criada.</value>
   </data>
   <data name="TEXT_CREATE_SHARED_PROPERTY_FAILED" xml:space="preserve">
-    <value>[pt-BR]Failed creating shared property.</value>
+    <value>Falha ao criar propriedade compartilhada.</value>
   </data>
   <data name="TEXT_BADLY_FORMATTED_FILTER" xml:space="preserve">
-    <value>[pt-BR]Filter value string has bad format: {0}</value>
+    <value>A string de valores do filtro tem formato ruim: {0}</value>
   </data>
   <data name="TEXT_INVALID_OP_IN_FILTER" xml:space="preserve">
-    <value>[pt-BR]Filter value string contains an invalid operation: {0}</value>
+    <value>A string de valores do filtro contém uma operação inválida: {0}</value>
   </data>
   <data name="TEXT_BADLY_FORMATTED_SORT" xml:space="preserve">
-    <value>[pt-BR]Sort value string has bad format: {0}</value>
+    <value>A string de valores de classificação tem formato ruim: {0}</value>
   </data>
   <data name="TEXT_BADLY_FORMATTED_PARAMETERS" xml:space="preserve">
-    <value>[pt-BR]The request contained badly formatted parameters.</value>
+    <value>A solicitação continha parâmetros com falha de formatação.</value>
   </data>
   <data name="TEXT_CANT_FIND_TEMPLATE" xml:space="preserve">
-    <value>[pt-BR]Could not find template {0}.</value>
+    <value>Não foi possível encontrar o modelo {0}.</value>
   </data>
   <data name="TEXT_REQUEST_ID_DOESNT_MATCH_TEMPLATE_ID" xml:space="preserve">
-    <value>[pt-BR]Request ID {0} does not match template ID {1}.</value>
+    <value>O ID da solicitação {0} não corresponde ao ID do modelo {1}.</value>
   </data>
   <data name="TEXT_CANT_LOAD_TEMPLATE" xml:space="preserve">
-    <value>[pt-BR]Could not load template {0}.</value>
+    <value>Não foi possível carregar o modelo {0}.</value>
   </data>
   <data name="TEXT_CANT_CREATE_TEMPLATE" xml:space="preserve">
-    <value>[pt-BR]Could not create template.</value>
+    <value>Não foi possível criar modelo</value>
   </data>
   <data name="TEXT_CANT_SAVE_TEMPLATE" xml:space="preserve">
-    <value>[pt-BR]Could not save template {0}.</value>
+    <value>Não foi possível salvar o modelo {0}.</value>
   </data>
   <data name="TEXT_CANT_LOAD_TEMPLATE_LIST" xml:space="preserve">
-    <value>[pt-BR]Could not load template list.</value>
+    <value>Não foi possível carregar a lista de modelos.</value>
   </data>
   <data name="TEXT_CANT_DISPLAY_TEMPLATE_LIST" xml:space="preserve">
-    <value>[pt-BR]Could not display list of templates.</value>
+    <value>Não foi possível exibir a lista de modelos.</value>
   </data>
   <data name="TEXT_CANT_CREATE_WEB_REQUEST" xml:space="preserve">
-    <value>[pt-BR]Could not create WebRequest for {0}.</value>
+    <value>Não foi possível criar WebRequest para {0}.</value>
   </data>
   <data name="GOT_NO_RESPONSE" xml:space="preserve">
-    <value>[pt-BR]Got no response from {0}.</value>
+    <value>Sem resposta de {0}.</value>
   </data>
   <data name="COULD_NOT_DESERIALIZE_JSON" xml:space="preserve">
-    <value>[pt-BR]Could not deserialize JSON {0} into type {1}.</value>
+    <value>Não foi possível desserializar JSON {0} no tipo {1}.</value>
   </data>
 </root>

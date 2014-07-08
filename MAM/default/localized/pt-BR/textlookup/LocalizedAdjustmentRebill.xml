@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="Adjustments and Re-Bills" type="collection">
-  <description>Termos localizados relacionados aos ajustes e ao refaturamentos.</description>
+  <description>Localized terms related to adjustments and re-bills.</description>
 
     <!-- To be removed [Why? - Simon]-->
     <text id="TEXT_ADJUSTMENT">
@@ -18,10 +17,10 @@
     </text>
         
     <text id="TEXT_MISC_ADJUSTMENT">
-      <value>Diversos Ajuste</value>    
+      <value>Ajuste diverso</value>    
     </text>
     <text id="TEXT_MISC_ADJUSTMENTS">
-      <value>Diversos Ajustes</value>
+      <value>Ajustes diversos</value>
     </text>        
 
     <text id="TEXT_MISCELLANEOUS_ADJUSTMENT">
@@ -45,7 +44,7 @@
   <text id="TEXT_CREATE_ADJUSTMENTS"><value>Ajustar transações</value></text>
   <text id="TEXT_CREATE_BULKADJUSTMENTS"><value>Transações de ajuste em massa</value></text>
   <text id="TEXT_MANAGE_ADJUSTMENTS"><value>Gerenciar [TEXT_ADJUSTMENTS]</value></text>
-  <text id="TEXT_MANAGE_ORPHAN_ADJUSTMENTS"><value>Gerenciar [TEXT_ORPHAN_ADJUSTMENTS] </value></text>
+  <text id="TEXT_MANAGE_ORPHAN_ADJUSTMENTS"><value>Gerenciar [TEXT_ORPHAN_ADJUSTMENTS]</value></text>
   <text id="TEXT_MANAGE_ORPHAN_ADJUSTMENT"><value>Gerenciar [TEXT_ORPHAN_ADJUSTMENT]</value></text>
   
   <text id="TEXT_TRANSACTIONS_FINDER"><value>Localizador de transações</value></text>
@@ -59,7 +58,7 @@
   
   <text id="TEXT_ADJUSTMENT(s)_HAS_BEEN_APPROVED"><value>O(s) [TEXT_ADJUSTMENT](s) foram aprovados</value></text>
   
-  <text id="TEXT_REBILL_SUCCEEDED"><value>Operação [TEXT_KEYTERM_REBILL_VERB] bem-sucedida</value></text>
+  <text id="TEXT_REBILL_SUCCEEDED"><value>Operação de [TEXT_KEYTERM_REBILL_VERB] bem-sucedida</value></text>
 <text id="TEXT_REBILL_TOTAL_TRANSACTIONS"><value>Transações totais</value></text>
 
   
@@ -75,7 +74,7 @@
   
   <text id="TEXT_ADJUSTMENT_STATUSES">
       <value>P:Pendente, D:Excluído, A:Aprovado, U:Desconhecido</value>
-      <description>A última descrição deve ser Desconhecido</description>
+      <description>The last description must be Unknown</description>
   </text>
   
   <text id="TEXT_PREBILL"><value>Pré-faturamento</value></text>
@@ -83,7 +82,7 @@
   
   <text id="TEXT_APPROVE"><value>Aprovar</value></text>
   
-  <text id="TEXT_TRANSACTION_ADJUSTMENT_STATUS"><value>[lngTotalAdjustment] [TEXT_ADJUSTMENT](s) já existe. [lngPrebillAdjusted] PreBill [TEXT_ADJUSTMENT](s). [lngPostbillAdjusted] PostBill [TEXT_ADJUSTMENT](s)</value></text>
+  <text id="TEXT_TRANSACTION_ADJUSTMENT_STATUS"><value>[lngTotalAdjustment] [TEXT_ADJUSTMENT](s) já existem. [lngPrebillAdjusted] [TEXT_ADJUSTMENT](s) de pré-fatura. [lngPostbillAdjusted] [TEXT_ADJUSTMENT](s) de pós-fatura</value></text>
   <text id="TEXT_TRANSACTION_ADJUSTMENT_NOTHING_LEFT_TO_ADJUST"><value>Não há mais nada para ajustar!</value></text>
   
     <text id="TEXT_DELETE_ADJUSTED_TRANSACTION"><value>Excluir transações ajustadas</value></text>
@@ -95,7 +94,7 @@
 		<!-- Menu Text Strings -->
     <text id="TEXT_MENU_ISSUE_MISC_ADJUSTMENT"><value>Emitir [TEXT_MISC_ADJUSTMENT]</value></text>        
     <text id="TEXT_MENU_MANAGE_ADJUSTMENTS"><value>Gerenciar [TEXT_ADJUSTMENTS]</value></text>        
-    <text id="TEXT_MENU_MANAGE_ORPHAN_ADJUSTMENTS"><value>Gerenciar [TEXT_ORPHAN_ADJUSTMENTS] </value></text>        
+    <text id="TEXT_MENU_MANAGE_ORPHAN_ADJUSTMENTS"><value>Gerenciar [TEXT_ORPHAN_ADJUSTMENTS]</value></text>        
     <text id="TEXT_MENU_MANAGE_MISC_ADJUSTMENTS"><value>Gerenciar [TEXT_MISC_ADJUSTMENTS]</value></text>        
 
     <text id="TEXT_ISSUE_MISC_ADJUSTEMENT_DIALOG"><value>Emitir [TEXT_MISCELLANEOUS_ADJUSTMENT]</value></text>        
@@ -141,7 +140,7 @@
     
     <text id="TEXT_ACCOUNT_FINDER_PRICEABLEITEM_COMBOBOX_LABEL"><value>[TEXT_KEYTERM_PRICEABLE_ITEM]</value></text>
     
-    <text id="TEXT_ORPHAN_ADJUSTMENT_WERE_APPROVED_DENIED_AS_MISC_ADJUSTMENT"><value>[APPROVED_COUNT] [TEXT_MISCELLANEOUS_ADJUSTMENT] aprovado. [PENDING_COUNT] [TEXT_MISCELLANEOUS_ADJUSTMENT] pendente.</value></text>
+    <text id="TEXT_ORPHAN_ADJUSTMENT_WERE_APPROVED_DENIED_AS_MISC_ADJUSTMENT"><value>[APPROVED_COUNT] [TEXT_MISCELLANEOUS_ADJUSTMENT] aprovado.[PENDING_COUNT] [TEXT_MISCELLANEOUS_ADJUSTMENT] pendente.</value></text>
     
     <text id="TEXT_ADJUST_OR_MANAGE_ADJUSTMENT_CHILDREN"><value>Ajustar ou gerenciar filhos</value></text>
     <text id="TEXT_MANAGE_ADJUSTMENT_CHILDREN"><value>Gerenciar filhos</value></text>
@@ -173,8 +172,64 @@
     <text id="TEXT_REBILL_TYPE"><value>Tipo de [TEXT_KEYTERM_REBILL_NAME]</value></text>
     
     <text id="TEXT_SESSION_ID"><value>ID da sessão</value></text>
-    
-    <text id="TEXT_ADJUSTMENT_TYPE"><value>Tipo de [TEXT_ADJUSTMENT]</value></text>
+  
+    <text id="TEXT_VIEW_ID"><value>Exibir ID</value></text>
+    <text id="TEXT_CURRENCY"><value>Moeda</value></text>
+    <text id="TEXT_ACCOUNT_ID"><value>ID de conta</value></text>
+    <text id="TEXT_PI_TEMPLATE"><value>Modelo de PI</value></text>
+    <text id="TEXT_PI_INSTANCE"><value>Instância de PI</value></text>
+    <text id="TEXT_SESSION_TYPE"><value>Tipo de sessão</value></text>
+    <text id="TEXT_TAX_AMOUNT"><value>Valores do imposto</value></text>
+    <text id="TEXT_FEDERAL_TAX_AMOUNT"><value>Valor do imposto federal</value></text>
+    <text id="TEXT_STATE_TAX_AMOUNT"><value>Valor do imposto estadual</value></text>
+    <text id="TEXT_COUNTY_TAX_AMOUNT"><value>Valor do imposto do condado</value></text>
+    <text id="TEXT_LOCAL_TAX_AMOUNT"><value>Valor do imposto local</value></text>
+    <text id="TEXT_OTHER_TAX_AMOUNT"><value>Outros valores de impostos</value></text>
+    <text id="TEXT_AMOUNT_WITH_TAX"><value>Valor com impostos</value></text>
+    <text id="TEXT_INTERVAL_ID"><value>ID do intervalo</value></text>
+    <text id="TEXT_COMPOUNDPOSTBILLADJAMT"><value>CompoundPostbillAdjAmt</value></text>
+    <text id="TEXT_COMPOUNDPOSTBILLADJEDAMT"><value>CompoundPostbillAdjedAmt</value></text>
+    <text id="TEXT_ATOMICPREBILLADJAMT"><value>AtomicPrebillAdjAmt</value></text>
+    <text id="TEXT_ATOMICPREBILLADJUSTEDAMOUNT"><value>AtomicPrebillAdjustedAmount</value></text>
+    <text id="TEXT_ATOMICPOSTBILLADJAMT"><value>AtomicPostbillAdjAmt</value></text>
+    <text id="TEXT_ATOMICPOSTBILLADJUSTEDAMOUNT"><value>AtomicPostbillAdjustedAmount</value></text>
+    <text id="TEXT_COMPOUNDPREBILLFEDTAXADJAMT"><value>CompoundPreBillFedTaxAdjAmt</value></text>
+    <text id="TEXT_COMPOUNDPREBILLSTATETAXADJAMT"><value>CompoundPrebillStateTaxAdjAmt</value></text>
+    <text id="TEXT_COMPOUNDPREBILLCNTRYTAXADJAMT"><value>CompoundPrebillCntryTaxAdjAmt</value></text>
+    <text id="TEXT_COMPOUNDPREBILLLOCALTAXADJAMT"><value>CompoundPrebillLocalTaxAdjAmt</value></text>
+    <text id="TEXT_COMPOUNDPREBILLOTHERTAXADJAMT"><value>CompoundPrebillOtherTaxAdjAmt</value></text>
+    <text id="TEXT_COMPOUNDPREBILLTOTALTAXADJAMT"><value>CompoundPrebillTotalTaxAdjAmt</value></text>
+    <text id="TEXT_COMPOUNDPOSTBILLFEDTAXADJAMT"><value>CompoundPostBillFedTaxAdjAmt</value></text>
+    <text id="TEXT_COMPOUNDPOSTBILLSTATETAXADJAMT"><value>CompoundPostbillStateTaxAdjAmt</value></text>
+    <text id="TEXT_COMPOUNDPOSTBILLCNTRYTAXADJAMT"><value>CompoundPostbillCntryTaxAdjAmt</value></text>
+    <text id="TEXT_COMPOUNDPOSTBILLLOCALTAXADJAMT"><value>CompoundPostbillLocalTaxAdjAmt</value></text>
+    <text id="TEXT_COMPOUNDPOSTBILLOTHERTAXADJAMT"><value>CompoundPostbillOtherTaxAdjAmt</value></text>
+    <text id="TEXT_COMPOUNDPOSTBILLTOTALTAXADJAMT"><value>CompoundPostbillTotalTaxAdjAmt</value></text>
+    <text id="TEXT_ATOMICPREBILLFEDTAXADJAMT"><value>AtomicPreBillFedTaxAdjAmt</value></text>
+    <text id="TEXT_ATOMICPREBILLSTATETAXADJAMT"><value>AtomicPrebillStateTaxAdjAmt</value></text>
+    <text id="TEXT_ATOMICPREBILLCNTRYTAXADJAMT"><value>AtomicPrebillCntryTaxAdjAmt</value></text>
+    <text id="TEXT_ATOMICPREBILLLOCALTAXADJAMT"><value>AtomicPrebillLocalTaxAdjAmt</value></text>
+    <text id="TEXT_ATOMICPREBILLOTHERTAXADJAMT"><value>AtomicPrebillOtherTaxAdjAmt</value></text>
+    <text id="TEXT_ATOMICPREBILLTOTALTAXADJAMT"><value>AtomicPrebillTotalTaxAdjAmt</value></text>
+    <text id="TEXT_ATOMICPOSTBILLFEDTAXADJAMT"><value>AtomicPostBillFedTaxAdjAmt</value></text>
+    <text id="TEXT_ATOMICPOSTBILLSTATETAXADJAMT"><value>AtomicPostbillStateTaxAdjAmt</value></text>
+    <text id="TEXT_ATOMICPOSTBILLCNTRYTAXADJAMT"><value>AtomicPostbillCntryTaxAdjAmt</value></text>
+    <text id="TEXT_ATOMICPOSTBILLLOCALTAXADJAMT"><value>AtomicPostbillLocalTaxAdjAmt</value></text>
+    <text id="TEXT_ATOMICPOSTBILLOTHERTAXADJAMT"><value>AtomicPostbillOtherTaxAdjAmt</value></text>
+    <text id="TEXT_ATOMICPOSTBILLTOTALTAXADJAMT"><value>AtomicPostbillTotalTaxAdjAmt</value></text>
+    <text id="TEXT_ISPREBILLTRANSACTION"><value>É uma transação pré-faturamento?</value></text>
+    <text id="TEXT_ISADJUSTED"><value>Está ajustado?</value></text>
+    <text id="TEXT_ISPREBILLADJUSTED"><value>É ajustado antes do faturamento?</value></text>
+    <text id="TEXT_ISPOSTBILLADJUSTED"><value>È ajustado após o faturamento?</value></text>
+    <text id="TEXT_CANADJUST"><value>Pode ajustar?</value></text>
+    <text id="TEXT_CANREBILL"><value>Pode refaturar?</value></text>
+    <text id="TEXT_CANMANAGEADJUSTMENTS"><value>Pode gerenciar ajustes?</value></text>
+    <text id="TEXT_PREBILLADJUSTMENTID"><value>ID de ajuste pré-faturamento</value></text>
+    <text id="TEXT_POSTBILLADJUSTMENTID"><value>ID de ajuste pós-faturamento</value></text>
+    <text id="TEXT_ISINTERVALSOFTCLOSED"><value>é fechado simplificadamente no intervalo?</value></text>
+    <text id="TEXT_DISPLAYAMOUNT"><value>Valor exibido</value></text>
+  
+  <text id="TEXT_ADJUSTMENT_TYPE"><value>Tipo de [TEXT_ADJUSTMENT]</value></text>
     
     <text id="TEXT_CANNOT_ADJUST_MANAGE_ADJUSTMENT_IN_SOFT_CLOSE"><value>Não é possível emitir ou gerenciar um ajuste quando o intervalo for de fechamento simples</value></text>
     <text id="TEXT_CANNOT_ADJUST_MANAGE_ADJUSTMENT_BECAUSE_ALREADY_BUILD"><value>Não é possível emitir ou gerenciar um ajuste porque o ajuste de pós-faturamento já foi faturado</value></text>

@@ -92,7 +92,7 @@ Sub Session_OnStart
     else
       dim lang
       lang = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 5)
-      if(not FolderExists(APP_FOLDER & "\custom\Localized\" & lang)) then
+      if(not FolderExists(APP_FOLDER & "\default\Localized\" & lang)) then
         lang = DEFAULT_LANGUAGE
       end if
       Session("PAGE_LANGUAGE") = lang

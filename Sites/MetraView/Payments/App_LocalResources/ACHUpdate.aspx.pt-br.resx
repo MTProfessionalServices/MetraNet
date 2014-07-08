@@ -142,7 +142,7 @@
     <value>Atualizar ACH</value>
   </data>
   <data name="tbAccountNumberResource1.Label" xml:space="preserve">
-    <value>Número da conta </value>
+    <value>Número da conta</value>
   </data>
   <data name="tbAccountTypeResource1.Label" xml:space="preserve">
     <value>Tipo de conta</value>

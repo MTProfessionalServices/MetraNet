@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -127,10 +127,10 @@
     <value>Minhas assinaturas</value>
   </data>
   <data name="TEXT_MY_COUNTERS" xml:space="preserve">
-    <value>[pt-BR]My Counters</value>
+    <value>Meus contadores</value>
   </data>
   <data name="TEXT_NO_COUNTERS" xml:space="preserve">
-    <value>[pt-BR]No Counters Defined</value>
+    <value>Nenhum contador definido</value>
   </data>
   <data name="TEXT_USAGE_BY_DEPARTMENT" xml:space="preserve">
     <value>Uso atual por departamento</value>

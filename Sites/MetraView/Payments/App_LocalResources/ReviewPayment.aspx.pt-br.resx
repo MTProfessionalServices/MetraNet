@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccountNumber" xml:space="preserve">
-    <value>Número da conta </value>
+    <value>Número da conta</value>
   </data>
   <data name="BankAccountType" xml:space="preserve">
     <value>Tipo de conta bancária</value>
@@ -133,7 +133,7 @@
     <value>Tipo de cartão</value>
   </data>
   <data name="Instructions.Text" xml:space="preserve">
-    <value>Verifique os detalhes de pagamento. Se tudo estiver correto, clique no botão Avançar para continuar.</value>
+    <value>Reveja os detalhes do seu pagamento. Se tudo estiver correto, clique no botão Avançar para prosseguir.</value>
   </data>
   <data name="lcAmount.Label" xml:space="preserve">
     <value>Valor</value>

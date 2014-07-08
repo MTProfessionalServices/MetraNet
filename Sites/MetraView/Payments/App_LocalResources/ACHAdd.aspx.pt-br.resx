@@ -190,10 +190,10 @@
     <value>Inicial do nome do meio</value>
   </data>
   <data name="tbRoutingNumberLinkResource1.Text" xml:space="preserve">
-    <value>Número de identificação</value>
+    <value>Número de identificação </value>
   </data>
   <data name="tbRoutingNumberResource1.Label" xml:space="preserve">
-    <value>Número de identificação</value>
+    <value>Número de identificação </value>
   </data>
   <data name="tbStateResource1.Label" xml:space="preserve">
     <value>Estado/Província</value>

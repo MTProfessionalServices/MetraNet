@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -121,7 +121,7 @@
     <value>Histórico de faturamento</value>
   </data>
   <data name="TEXT_DOWNLOADS" xml:space="preserve">
-    <value>[pt-BR]Downloads</value>
+    <value>Downloads</value>
   </data>
   <data name="TEXT_PAYMENT_HISTORY" xml:space="preserve">
     <value>Histórico de pagamento</value>

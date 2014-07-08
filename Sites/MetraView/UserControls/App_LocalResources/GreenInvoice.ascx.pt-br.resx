@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -136,7 +136,7 @@
     <value>, e pagamento online.</value>
   </data>
   <data name="PaperlessBilling.Text" xml:space="preserve">
-    <value>Faturamento digital</value>
+    <value>faturamento digital</value>
   </data>
   <data name="PaymentDue.Text" xml:space="preserve">
     <value>Vencimento do pagamento:</value>

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ACCOUNT_NUMBER" xml:space="preserve">
-    <value>Número da conta </value>
+    <value>Número da conta</value>
   </data>
   <data name="ACCOUNT_TYPE" xml:space="preserve">
     <value>Tipo de conta</value>
@@ -157,7 +157,7 @@
     <value>Método de pagamento</value>
   </data>
   <data name="EXPIRATION_DATE" xml:space="preserve">
-    <value>Exp. Data</value>
+    <value>Data de expiração</value>
   </data>
   <data name="FIRST_NAME" xml:space="preserve">
     <value>Nome</value>
@@ -181,7 +181,7 @@
     <value>Prioridade</value>
   </data>
   <data name="STATE_PROVINCE" xml:space="preserve">
-    <value>Estado / Província</value>
+    <value>Estado/Província</value>
   </data>
   <data name="TEXT_ERROR_MSG" xml:space="preserve">
     <value>Uma conta deve ser selecionada para exibir essa página.</value>
@@ -193,6 +193,6 @@
     <value>CEP</value>
   </data>
   <data name="PAYMENT_METHOD_REFUSED" xml:space="preserve">
-  <value>[pt-BR]Your payment method was refused; please try again.</value>
+    <value>Seu método de pagamento foi recusado; tente novamente.</value>
   </data>
 </root>

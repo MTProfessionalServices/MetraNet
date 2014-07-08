@@ -133,9 +133,9 @@
     <value>Método de pagamento</value>
   </data>
   <data name="InstructionsText.Text" xml:space="preserve">
-    <value>Você pode pagar sua fatura usando uma conta corrente/poupança ou um cartão de crédito/débito.
+    <value>É possível pagar sua conta usando uma conta corrente/poupança ou um cartão de crédito/débito.
 
-Comece escolhendo o valor que deseja pagar, o método e a data de pagamento.</value>
+Comece escolhendo o valor que deseja pagar, seu método de pagamento e sua data de pagamento.</value>
   </data>
   <data name="lblPaymentAmount.Text" xml:space="preserve">
     <value>Valor do pagamento</value>

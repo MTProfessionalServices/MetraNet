@@ -20,10 +20,10 @@
     <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
     <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
     <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-          <value>[base64 mime encoded serialized .NET Framework object]</value>
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
     </data>
     <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-          <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
                 
@@ -118,16 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ActualTax.Text" xml:space="preserve">
-    <value>[pt-BR]Actual Tax</value>
+    <value>Imposto real</value>
   </data>
   <data name="ImpliedTax.Text" xml:space="preserve">
-    <value>[pt-BR]Included Tax</value>
+    <value>Imposto incluso</value>
   </data>
   <data name="IncludedInformationalTax.Text" xml:space="preserve">
-    <value>[pt-BR]Included Informational Tax</value>
+    <value>Imposto informativo incluso</value>
   </data>
   <data name="InformationalTax.Text" xml:space="preserve">
-    <value>[pt-BR]Informational Tax</value>
+    <value>Imposto informativo</value>
   </data>
   <data name="PrebillAdjustments.Text" xml:space="preserve">
     <value>Ajustes pré-faturamento</value>
@@ -148,6 +148,6 @@
     <value>Total de cobranças</value>
   </data>
   <data name="Usage.Text" xml:space="preserve">
-    <value>[pt-BR]Usage</value>
+    <value>Utilização</value>
   </data>
 </root>

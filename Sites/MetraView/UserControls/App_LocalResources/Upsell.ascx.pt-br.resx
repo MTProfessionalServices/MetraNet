@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -124,7 +124,7 @@
     <value>Em movimento?</value>
   </data>
   <data name="ViewOnGo.Text" xml:space="preserve">
-    <value>você pode visualizar sua utilização e pagar sua fatura em qualquer lugar.  Em breve...</value>
+    <value>você pode visualizar sua utilização e pagar sua fatura em qualquer lugar. Em breve...</value>
   </data>
   <data name="WithOur.Text" xml:space="preserve">
     <value>Com o nosso</value>

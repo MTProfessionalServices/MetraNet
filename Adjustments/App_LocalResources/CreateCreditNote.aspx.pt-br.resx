@@ -118,54 +118,54 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btnIssueCreditNoteResource1.Text" xml:space="preserve">
-    <value>{PT-BR}Issue Credit Note</value>
+    <value>[pt-BR]Issue Credit Note</value>
   </data>
   <data name="btnCancelResource1.Text" xml:space="preserve">
-    <value>{PT-BR}Cancel</value>
+    <value>[pt-BR]Cancel</value>
   </data>
   <data name="CommentTextBoxResource1.Label" xml:space="preserve">
-    <value>{PT-BR}Comment</value>
+    <value>[pt-BR]Comment</value>
   </data>
    <data name="ddTemplateTypesResource1.Label" xml:space="preserve">
-    <value>{PT-BR}Credit Note Template To Use</value>
+    <value>[pt-BR]Credit Note Template To Use</value>
   </data>
   <data name="ddTimeIntervalsResource1.Text" xml:space="preserve">
-    <value>7 {PT-BR}Days,30 {PT-BR}Days,90 {PT-BR}Days,120 {PT-BR}Days,365 {PT-BR}Days</value>
+    <value>7 [pt-BR]Days,30 [pt-BR]Days,90 [pt-BR]Days,120 [pt-BR]Days,365 [pt-BR]Days</value>
   </data>
   <data name="ddTimeIntervalsResource1.Label" xml:space="preserve">
-    <value>{PT-BR}Adjustments Issued In The Past</value>
+    <value>[pt-BR]Adjustments Issued In The Past</value>
   </data>
   <data name="MTFilterGrid1Resource1.Title" xml:space="preserve">
-    <value>{PT-BR}Credit Note Documents</value>
+    <value>[pt-BR]Credit Note Documents</value>
   </data>
   <data name="MTPanel1Resource1.Text" xml:space="preserve">
-    <value>{PT-BR}Create Credit Note Document for Adjustment Issued</value>
+    <value>[pt-BR]Create Credit Note Document for Adjustment Issued</value>
   </data>
   <data name="NO_RECORDS_TEXT" xml:space="preserve">
-    <value>{PT-BR}No records found.</value>
+    <value>[pt-BR]No records found.</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>{PT-BR}MetraNet - Create Credit Note Document for Adjustments Issued</value>
+    <value>[pt-BR]MetraNet - Create Credit Note Document for Adjustments Issued</value>
   </data>   
   <data name="TEXT_ADJUSTMENT_TYPE" xml:space="preserve">
-    <value>{PT-BR}Adjustment</value>
+    <value>[pt-BR]Adjustment</value>
   </data>
   <data name="TEXT_AMOUNT" xml:space="preserve">
-    <value>{PT-BR}Amount</value>
+    <value>[pt-BR]Amount</value>
   </data>
   <data name="TEXT_CREDIT_NOTE_IDENTIFIER" xml:space="preserve">
-    <value>{PT-BR}Credit Note Identifier</value>
+    <value>[pt-BR]Credit Note Identifier</value>
   </data>
   <data name="TEXT_DATE" xml:space="preserve">
-    <value>{PT-BR}Date</value>
+    <value>[pt-BR]Date</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>{PT-BR}Description</value>
+    <value>[pt-BR]Description</value>
   </data>
   <data name="TEXT_DISPLAY_ADJUSTMENT_TYPE" xml:space="preserve">
-    <value>{PT-BR}Adjustment</value>
+    <value>[pt-BR]Adjustment</value>
   </data>
   <data name="TEXT_DISPLAY_AMOUNT" xml:space="preserve">
-    <value>{PT-BR}Amount</value>
+    <value>[pt-BR]Amount</value>
   </data>  
 </root>

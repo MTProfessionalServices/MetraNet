@@ -118,48 +118,48 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TEXT_DB_STATUS" xml:space="preserve">
-    <value>(JAPANESE) DB Status</value>
+    <value>[JA] DB Status</value>
   </data>
   <data name="TEXT_END_DATE" xml:space="preserve">
-    <value>(JAPANESE) End Date</value>
+    <value>[JA] End Date</value>
   </data>
   <data name="TEXT_GRID_TITLE" xml:space="preserve">
-    <value>(JAPANESE) All Intervals</value>
+    <value>[JA] All Intervals</value>
   </data>
   <data name="TEXT_GRID_TITLE_ACTIVE_INTERVALS" xml:space="preserve">
-    <value>(JAPANESE) Active Intervals</value>
+    <value>[JA] Active Intervals</value>
   </data>
   <data name="TEXT_GRID_TITLE_BILLABLE_INTERVALS" xml:space="preserve">
-    <value>(JAPANESE) Billable Intervals</value>
+    <value>[JA] Billable Intervals</value>
   </data>
   <data name="TEXT_GRID_TITLE_COMPLETED_INTERVALS" xml:space="preserve">
-    <value>(JAPANESE) Completed Intervals</value>
+    <value>[JA] Completed Intervals</value>
   </data>
   <data name="TEXT_GROUP" xml:space="preserve">
-    <value>(JAPANESE) Groups</value>
+    <value>[JA] Groups</value>
   </data>
   <data name="TEXT_HARD_CLOSED" xml:space="preserve">
-    <value>(JAPANESE) Hard Closed</value>
+    <value>[JA] Hard Closed</value>
   </data>
   <data name="TEXT_ID" xml:space="preserve">
-    <value>(JAPANESE) Interval ID</value>
+    <value>[JA] Interval ID</value>
   </data>
   <data name="TEXT_OPEN" xml:space="preserve">
-    <value>(JAPANESE) Open</value>
+    <value>[JA] Open</value>
   </data>
   <data name="TEXT_SOFT_CLOSED" xml:space="preserve">
-    <value>(JAPANESE) Soft Closed</value>
+    <value>[JA] Soft Closed</value>
   </data>
   <data name="TEXT_START_DATE" xml:space="preserve">
-    <value>(JAPANESE) Start Date</value>
+    <value>[JA] Start Date</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
-    <value>(JAPANESE) Status</value>
+    <value>[JA] Status</value>
   </data>
   <data name="TEXT_UNKNOWN" xml:space="preserve">
-    <value>(JAPANESE) Unknown</value>
+    <value>[JA] Unknown</value>
   </data>
   <data name="TEXT_USAGE_CYCLE_TYPE" xml:space="preserve">
-    <value>(JAPANESE) Usage Cycle Type</value>
+    <value>[JA] Usage Cycle Type</value>
   </data>
 </root>

@@ -247,7 +247,7 @@
     <value>Não foi possível salvar as alterações de configuração. Consulte o log para obter detalhes.</value>
   </data>
   <data name="ERROR_MULTIPLE_ACCOUNT_UPDATE_PENDING_CHANGES" xml:space="preserve">
-    <value>Brazilian Portuguese</value>
+    <value>[pt-BR]</value>
   </data>
     <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
         <value>Falha ao excluir as especificações</value>

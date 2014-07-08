@@ -123,11 +123,11 @@
   <data name="MTFilterGrid1Resource1.ToolTip" xml:space="preserve">
     <value>Shared Price Lists</value>
   </data>
-    <data name="GROUP_SUBSCRIPTION" xml:space="preserve">
-        <value>Group subscription</value>
-    </data>
-    <data name="ID_QUOTE" xml:space="preserve">
-        <value>Id Quote</value>
+  <data name="GROUP_SUBSCRIPTION" xml:space="preserve">
+    <value>Group subscription</value>
+  </data>
+  <data name="ID_QUOTE" xml:space="preserve">
+    <value>Id Quote</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
@@ -141,11 +141,11 @@
   <data name="TEXT_CURRENCY" xml:space="preserve">
     <value>Currency</value>
   </data>
-    <data name="QuoteListTitle.Text" xml:space="preserve">
-        <value>Quotes List</value>
-    </data>
-    <data name="REPORT_LINK" xml:space="preserve">
-        <value>Report link</value>
+  <data name="QuoteListTitle.Text" xml:space="preserve">
+    <value>Quotes List</value>
+  </data>
+  <data name="REPORT_LINK" xml:space="preserve">
+    <value>Report link</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>Name</value>
@@ -153,10 +153,10 @@
   <data name="TEXT_PartitionID" xml:space="preserve">
     <value>Partition Id</value>
   </data>
-    <data name="TOTAL_AMOUNT" xml:space="preserve">
-        <value>Total amount</value>
-    </data>
-    <data name="TOTAL_TAX" xml:space="preserve">
-        <value>Total Tax</value>
-    </data>
+  <data name="TOTAL_AMOUNT" xml:space="preserve">
+    <value>Total amount</value>
+  </data>
+  <data name="TOTAL_TAX" xml:space="preserve">
+    <value>Total Tax</value>
+  </data>
 </root>

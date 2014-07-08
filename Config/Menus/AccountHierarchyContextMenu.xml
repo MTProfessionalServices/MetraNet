@@ -76,7 +76,7 @@
                         <MenuItem>
                             <ID>SelfCarePortal</ID>
                             <Caption>
-                                <LocalizationTag>TEXT_SELF_CARE_PORTAL</LocalizationTag>
+                                <LocalizationTag>TEXT_VIEWONLINE_BILL</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link>javascript:getFrameMetraNet().Account.LoadPage(node.id, '/MetraNet/ViewOnlineBill.aspx');</Link>
@@ -102,7 +102,8 @@
                         <MenuItem>
                             <ID>Find</ID>
                             <Caption>
-                                <Value><![CDATA[Search]]></Value>
+                                <LocalizationTag>TEXT_SEARCH</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link>javascript:getFrameMetraNet().Account.LoadPage(node.id, '/MetraNet/AdvancedFind.aspx?AncestorAccountID=' + node.id);</Link>
                             <Target>MainContentIframe</Target>
@@ -189,7 +190,7 @@
                         <MenuItem>
                             <ID>SelfCarePortal</ID>
                             <Caption>
-                                <LocalizationTag>TEXT_SELF_CARE_PORTAL</LocalizationTag>
+                                <LocalizationTag>TEXT_VIEWONLINE_BILL</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link>javascript:getFrameMetraNet().Account.LoadPage(node.id, '/MetraNet/ViewOnlineBill.aspx');</Link>
@@ -215,7 +216,8 @@
                         <MenuItem>
                             <ID>Find</ID>
                             <Caption>
-                                <Value><![CDATA[Search]]></Value>
+                                <LocalizationTag>TEXT_SEARCH</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link>javascript:getFrameMetraNet().Account.LoadPage(node.id, '/MetraNet/AdvancedFind.aspx?AncestorAccountID=' + node.id);</Link>
                             <Target>MainContentIframe</Target>
@@ -302,7 +304,7 @@
                         <MenuItem>
                             <ID>SelfCarePortal</ID>
                             <Caption>
-                                <LocalizationTag>TEXT_SELF_CARE_PORTAL</LocalizationTag>
+                                <LocalizationTag>TEXT_VIEWONLINE_BILL</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link>javascript:getFrameMetraNet().Account.LoadPage(node.id, '/MetraNet/ViewOnlineBill.aspx');</Link>
@@ -328,7 +330,8 @@
                         <MenuItem>
                             <ID>Find</ID>
                             <Caption>
-                                <Value><![CDATA[Search]]></Value>
+                                <LocalizationTag>TEXT_SEARCH</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link>javascript:getFrameMetraNet().Account.LoadPage(node.id, '/MetraNet/AdvancedFind.aspx?AncestorAccountID=' + node.id);</Link>
                             <Target>MainContentIframe</Target>
@@ -412,10 +415,10 @@
 								<MenuSections></MenuSections>
 							</SubMenu>
                         </MenuItem>
-                        <MenuItem>
+						<MenuItem>
                             <ID>SelfCarePortal</ID>
                             <Caption>
-                                <LocalizationTag>TEXT_SELF_CARE_PORTAL</LocalizationTag>
+                                <LocalizationTag>TEXT_VIEWONLINE_BILL</LocalizationTag>
                                 <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link>javascript:getFrameMetraNet().Account.LoadPage(node.id, '/MetraNet/ViewOnlineBill.aspx');</Link>
@@ -441,7 +444,108 @@
                         <MenuItem>
                             <ID>Find</ID>
                             <Caption>
-                                <Value><![CDATA[Search]]></Value>
+                                <LocalizationTag>TEXT_SEARCH</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>javascript:getFrameMetraNet().Account.LoadPage(node.id, '/MetraNet/AdvancedFind.aspx?AncestorAccountID=' + node.id);</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/find.png</Icon>
+                            <Description>On clicking the “Search” option, Advanced find view opens with account's children.</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+                    </MenuItems>
+                </MenuSection>
+            </MenuSections>
+        </Menu>
+        <Menu>
+            <ID>SystemAccount</ID>
+            <Type>Context</Type>
+            <Description>System Account Hierarchy Context Menu</Description>
+            <MenuSections>
+                <MenuSection>
+                    <ID>Common</ID>
+                    <Caption>
+                        <Value><![CDATA[Common]]></Value>
+                    </Caption>
+                    <Description>Common Section</Description>
+                    <MenuItems>
+                        <MenuItem>
+                            <ID>Manage</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_MANAGE</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>javascript:getFrameMetraNet().Account.Load(node.id);</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/report_user.png</Icon>
+                            <Description>On clicking the “Manage” option, the chosen account should be selected and accessible for any of the available actions such as updating information, changing payer and payee information, issuing misc. adjustments etc based on my permission set.</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>UpdateAccount</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_UPDATE_ACCOUNT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>javascript:getFrameMetraNet().Account.LoadPage(node.id, '/MetraNet/StartWorkFlow.aspx?WorkflowName=UpdateAccountWorkflow');</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/user_edit.png</Icon>
+                            <Description>On clicking the “Update Account” option, the chosen account should be selected and the “Update Account” page automatically brought up for the selected account.</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>UpdateContact</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_UPDATE_CONTACT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>javascript:getFrameMetraNet().Account.LoadPage(node.id, '/MetraNet/StartWorkFlow.aspx?WorkflowName=ContactUpdateWorkflow');</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/icons/vcard_edit.png</Icon>
+                            <Description>On clicking the “Update Contact” option, the chosen account should be selected and the “Update Contact” page automatically brought up for the selected account.</Description>
+                            <RequiredCapabilities>
+                                <Capability>Update subscriber accounts</Capability>
+                            </RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>AddChildAccount</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_ADD_CHILD_ACCOUNT</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link></Link>
+                            <Target></Target>
+                            <Icon>/Res/Images/Icons/user_add.png</Icon>
+                            <Description>Shows sub-menu with account types, that can be child of selected account</Description>
+                            <RequiredCapabilities>
+                                <Capability>Create Subscriber Accounts</Capability>
+                            </RequiredCapabilities>
+							<SubMenu>
+								<ID>AddChildAccountSubMenu</ID>
+								<Type>Context</Type>
+								<Description>Sub-menu of Add Child Account Menu item</Description>
+								<MenuSections></MenuSections>
+							</SubMenu>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>Refresh</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_REFRESH</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
+                            </Caption>
+                            <Link>javascript:Account.RefreshNode(node);</Link>
+                            <Target>MainContentIframe</Target>
+                            <Icon>/Res/Images/Icons/arrow_refresh.png</Icon>
+                            <Description>On clicking the “Refresh” option, the entire hierarchy should refresh using the hierarchy date that is currently entered in the account hierarchy tab.</Description>
+                            <RequiredCapabilities></RequiredCapabilities>
+                        </MenuItem>
+                        <MenuItem>
+                            <ID>Find</ID>
+                            <Caption>
+                                <LocalizationTag>TEXT_SEARCH</LocalizationTag>
+                                <ResourceClassKey>App_GlobalResources/MainMenu</ResourceClassKey>
                             </Caption>
                             <Link>javascript:getFrameMetraNet().Account.LoadPage(node.id, '/MetraNet/AdvancedFind.aspx?AncestorAccountID=' + node.id);</Link>
                             <Target>MainContentIframe</Target>

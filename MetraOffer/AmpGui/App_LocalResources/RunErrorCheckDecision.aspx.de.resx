@@ -125,24 +125,24 @@
     <value>MetraNet</value>
   </data>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="VALIDATION_ERROR_MESSAGE" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="VALIDATION_ERROR_SEVERITY" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="TEXT_RAN_VALIDATE_FOR_DECISION" xml:space="preserve">
-    <value>German </value>
+    <value>[DE]</value>
   </data>
   <data name="ErrorLabel.Text" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="NavigateLabel.Text" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="CheckMarkLabel.Text" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
 </root>

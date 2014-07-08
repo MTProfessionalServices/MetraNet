@@ -172,7 +172,7 @@
     <value>Registro de auditoría de aplicación</value>
   </data>
   <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
-    <value>{ES-MX}Approvals</value>
+    <value>[es-MX]Approvals</value>
   </data>
   <data name="TEXT_ASSIGN_UPDATE_REPORT_PARAMETERS" xml:space="preserve">
     <value>Asignar parámetros de informe</value>
@@ -256,7 +256,7 @@
     <value>Crear devolución/repetición</value>
   </data>
   <data name="TEXT_CREATE_CREDIT_NOTE" xml:space="preserve">
-    <value>{ES-MX}Create Credit Note</value>
+    <value>[es-MX]Create Credit Note</value>
   </data>
   <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
     <value>Agregar nueva instancia de informe</value>
@@ -376,7 +376,7 @@
     <value>Administrar seguridad</value>
   </data>
   <data name="TEXT_MASTER_OFFERINGS" xml:space="preserve">
-    <value>{ES_MX}Master Product Offerings</value>
+    <value>[es-MX]Master Product Offerings</value>
   </data>
   <data name="TEXT_MENU_GENERATE_PASSWORD" xml:space="preserve">
     <value>Generar contraseña</value>
@@ -574,7 +574,7 @@
     <value>Información de la versión</value>
   </data>
   <data name="TEXT_VIEW_CREDIT_NOTES_ISSUED" xml:space="preserve">
-    <value>{ES-MX}View Credit Notes Issued</value>
+    <value>[es-MX]View Credit Notes Issued</value>
   </data>
   <data name="TEXT_VIEW_METERING_STATISTICS" xml:space="preserve">
     <value>Ver</value>
@@ -583,10 +583,10 @@
     <value>Ver factura en línea</value>
   </data>
   <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[es-MX]</value>
   </data>
   <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[es-MX]</value>
   </data>
   <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
     <value>[es-MX]Add child Account</value>
@@ -610,24 +610,24 @@
     <value>[es-MX] Reports</value>
   </data>
   <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
-    <value>{ES-MX}Usage Processing</value>
+    <value>[es-MX]Usage Processing</value>
   </data>
   <data name="TEXT_ADD_PARTITION" xml:space="preserve">
-    <value>{ES-MX}Add Partition</value>
+    <value>[es-MX]Add Partition</value>
   </data>
   <data name="TEXT_QUOTING" xml:space="preserve">
-    <value>{ES-MX}Manage Quotes</value>
+    <value>[es-MX]Manage Quotes</value>
   </data>
   <data name="TEXT_ACCOUNT" xml:space="preserve">
-    <value>{ES-MX}Account</value>
+    <value>[es-MX]Account</value>
   </data>
   <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
-    <value>{ES-MX}Create Quote</value>
+    <value>[es-MX]Create Quote</value>
   </data>   
   <data name="TEXT_QUOTING_LIST" xml:space="preserve">
-    <value>{ES-MX}View All Quotes</value>
+    <value>[es-MX]View All Quotes</value>
   </data>
   <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
-    <value>{ES-MX}Shared Properties</value>
+    <value>[es-MX]Shared Properties</value>
   </data>     
 </root>

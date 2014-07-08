@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.ServiceModel;
 using System.Web.Script.Serialization;
@@ -330,7 +331,8 @@ namespace MetraNet.Quoting
       if (!string.IsNullOrEmpty(HiddenUDRCs.Value))
       {
         var udrcStrArray = HiddenUDRCs.Value.Replace("[", "").Replace("]", "").Split(new[] { "}," }, StringSplitOptions.None).ToList();
-        udrcList.AddRange(udrcStrArray.Select(udrcStr => udrcStr.EndsWith("}") ? udrcStr : udrcStr + "}").Select(udrcStr1 => new JavaScriptSerializer().Deserialize<Udrc>(udrcStr1)));
+        udrcList.AddRange(udrcStrArray.Select(udrcStr => udrcStr.EndsWith("}") ? udrcStr : udrcStr + "}")
+          .Select(udrcStr1 => ExtendedJavaScriptConverter<Udrc>.GetSerializer().Deserialize<Udrc>(udrcStr1)));
       }
 
       var udrcPrices = new Dictionary<string, List<UDRCInstanceValue>>();
@@ -814,5 +816,71 @@ namespace MetraNet.Quoting
       return String.Empty;
     }
     #endregion
+  }
+
+  public class ExtendedJavaScriptConverter<T> : JavaScriptConverter where T : new()
+  {
+    public override IEnumerable<Type> SupportedTypes
+    {
+      get
+      {
+        return new[] { typeof(T) };
+      }
+    }
+
+    public override object Deserialize(IDictionary<string, object> dictionary, Type type, JavaScriptSerializer serializer)
+    {
+      var p = new T();
+
+      var props = typeof(T).GetProperties();
+
+      foreach (var key in dictionary.Keys)
+      {
+        var prop = props.FirstOrDefault(t => t.Name == key);
+        if (prop == null) continue;
+        switch ( prop.PropertyType.ToString())
+        {
+          case "System.DateTime":
+            prop.SetValue(p, DateTime.Parse(dictionary[key].ToString()), null);
+            break;
+          case "System.Decimal":
+            prop.SetValue(p, Decimal.Parse(dictionary[key].ToString()), null);
+            break;
+          default:
+            prop.SetValue(p, dictionary[key], null);
+            break;
+        }
+      }
+
+      return p;
+    }
+
+    public override IDictionary<string, object> Serialize(object obj, JavaScriptSerializer serializer)
+    {
+      var p = (T)obj;
+      IDictionary<string, object> serialized = new Dictionary<string, object>();
+
+      foreach (var pi in typeof(T).GetProperties())
+      {
+        if (pi.PropertyType == typeof(DateTime))
+        {
+          serialized[pi.Name] = ((DateTime)pi.GetValue(p, null)).ToString(CultureInfo.CurrentCulture);
+        }
+        else
+        {
+          serialized[pi.Name] = pi.GetValue(p, null);
+        }
+
+      }
+
+      return serialized;
+    }
+    public static JavaScriptSerializer GetSerializer()
+    {
+      var serializer = new JavaScriptSerializer();
+      serializer.RegisterConverters(new[] { new ExtendedJavaScriptConverter<T>() });
+
+      return serializer;
+    }
   }
 }

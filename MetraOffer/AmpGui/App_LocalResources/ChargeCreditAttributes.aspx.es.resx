@@ -118,69 +118,69 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lbChargeValueResource1.Text" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="lbHowApplied.Text" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="lbNegativeValueResource1.Text" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="lbPositiveValueResource1.Text" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="lbWhenGenerate.Text" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="radAggrMultText" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="radEntireValueText" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="radEveryTimeText" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="radInvPropText" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="radOnceAfterSummedText" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="radOnceFirstEnterText" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="radOnceFirstExitText" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="radPropText" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="tbChargeCreditNameResource1.LabelSeparator" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="tbDescriptionResource1.Label" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_ADD" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_CHARGE_COLUMN_NAMES" xml:space="preserve">
-    <value>Spanish '{0}'</value>
+    <value>[ES] '{0}'</value>
   </data>
   <data name="TEXT_ERROR_NO_GENERATED_CHARGE" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="GENERATEDCHARGES_GRID_TITLE" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_ERROR_UPDATING_CHARGE_CREDIT_ATTRIBUTE" xml:space="preserve">
-    <value>Spanish: </value>
+    <value>[ES]: </value>
   </data>
 </root>

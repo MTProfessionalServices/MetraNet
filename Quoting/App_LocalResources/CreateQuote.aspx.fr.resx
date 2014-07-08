@@ -123,13 +123,13 @@
   <data name="MTPanelQuoteParametersResource.Text" xml:space="preserve">
     <value>[FR]Quote Information</value>
   </data>
-  <data name="dpStartDateResource1.Text" xml:space="preserve">
+  <data name="dpStartDateResource1.Label" xml:space="preserve">
     <value>[FR]Start date</value>
   </data>
   <data name="MTPanelQuoteAccountsResource.Text" xml:space="preserve">
     <value>[FR]Accounts and product offerings</value>
   </data>
-  <data name="dpEndDateResource1.Text" xml:space="preserve">
+  <data name="dpEndDateResource1.Label" xml:space="preserve">
     <value>[FR]End date</value>
   </data>
   <data name="MTCheckBoxPdfResource.Text" xml:space="preserve">
@@ -331,6 +331,6 @@
     <value>[FR]PDF report for quote</value>
   </data>
   <data name="TEXT_ISGROUP_CHEKED" xml:space="preserve">
-    <value>Corporate account for group subscription should be selected.</value>
+    <value>[FR]Corporate account for group subscription should be selected.</value>
   </data>
 </root>

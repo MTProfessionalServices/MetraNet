@@ -256,13 +256,13 @@
     <value>Löschen</value>
   </data>
   <data name="TEXT_BULKUPDATE" xml:space="preserve">
-    <value>Bulk Update</value>
+    <value>[DE]Bulk Update</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
     <value>Beschreibung</value>
   </data>
   <data name="TEXT_DETAILS" xml:space="preserve">
-    <value>Details</value>
+    <value>[DE]Details</value>
   </data>
   <data name="TEXT_DISPLAY_AMOUNT" xml:space="preserve">
     <value>Betrag anzeigen</value>
@@ -505,49 +505,49 @@
     <value>Breite</value>
   </data>
   <data name="TEXT_BACK" xml:space="preserve">
-    <value>(GERMAN) Previous</value>
+    <value>[DE] Previous</value>
   </data>
   <data name="TEXT_NEXT" xml:space="preserve">
-    <value>(GERMAN) Next</value>
+    <value>[DE] Next</value>
   </data>
   <data name="TEXT_SAVE_AND_CONTINUE" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="TEXT_SAVE_NEW_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="TEXT_CONTINUE" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="TEXT_YES" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="TEXT_NO" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Add_Category" xml:space="preserve">
-    <value>add category</value>
+    <value>[DE]add category</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Add_Property" xml:space="preserve">
-    <value>add property</value>
+    <value>[DE]add property</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Available_Shared_Properties" xml:space="preserve">
-    <value>Available Shared Properties</value>
+    <value>[DE]Available Shared Properties</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Back_To_Properties" xml:space="preserve">
-    <value>back to properties</value>
+    <value>[DE]back to properties</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_ADDED_YET_TO_AGREEMENT_TEMPLATE" xml:space="preserve">
-    <value>This agreement template has no shared properties.</value>
+    <value>[DE]This agreement template has no shared properties.</value>
   </data>
   <data name="_PropertyForm_cshtml_Set_Localization" xml:space="preserve">
-    <value>Set localization</value>
+    <value>[DE]Set localization</value>
   </data>
   <data name="_PropertyForm_cshtml_Set_Localization_Title" xml:space="preserve">
-    <value>Set Localization</value>
+    <value>[DE]Set Localization</value>
   </data>
 	<data name="TEXT_FROM_PARAMETER_TABLE" xml:space="preserve">
-    <value>From parameter table (German)</value>
+    <value>[DE]From parameter table</value>
   </data>
   <data name="newSubscription" xml:space="preserve">
     <value>[DE]New Subscription</value>
@@ -556,51 +556,51 @@
     <value>[DE]Subscription Update</value>
   </data>
   <data name="TEXT_QUOTE_DETAILS" xml:space="preserve">
-    <value>More Items...</value>
+    <value>[DE]More Items...</value>
   </data>
   <data name="ACCOUNT_FOR_QUOTES" xml:space="preserve">
-    <value>More Items...</value>
+    <value>[DE]More Items...</value>
   </data>
   <data name="PO_FOR_QUOTES" xml:space="preserve">
-    <value>More Items...</value>
+    <value>[DE]More Items...</value>
   </data>
   <data name="LOG_FOR_QUOTES" xml:space="preserve">
-    <value>Quote log</value>
+    <value>[DE]Quote log</value>
   </data>
   <data name="TEXT_TAX" xml:space="preserve">
-    <value>{DE}Tax</value>
+    <value>[DE]Tax</value>
   </data>
   <data name="TEXT_TAX_VENDOR" xml:space="preserve">
-    <value>{DE}Tax Vendor</value>
+    <value>[DE]Tax Vendor</value>
   </data>
   <data name="TEXT_TAX_SERVICE_ADDRESS_PCODE" xml:space="preserve">
-    <value>{DE}Tax Service Address PCode</value>
+    <value>[DE]Tax Service Address PCode</value>
   </data>
   <data name="TEXT_METRATAX_COUNTRY_ELIGIBILITY" xml:space="preserve">
-    <value>{DE}MetraTax Country Eligibility</value>
+    <value>[DE]MetraTax Country Eligibility</value>
   </data>
   <data name="TEXT_METRATAX_COUNTRY_ZONE" xml:space="preserve">
-    <value>{DE}MetraTax Country Zone</value>
+    <value>[DE]MetraTax Country Zone</value>
   </data>
   <data name="TEXT_METRATAX_HAS_OVERRIDE_BAND" xml:space="preserve">
-    <value>{DE}MetraTax Has Override Band</value>
+    <value>[DE]MetraTax Has Override Band</value>
   </data>
   <data name="TEXT_METRATAX_OVERRIDE_BAND" xml:space="preserve">
-    <value>{DE}MetraTax Override Band</value>
+    <value>[DE]MetraTax Override Band</value>
   </data>
   <data name="TEXT_TAX_REGISTRY_REFERENCE" xml:space="preserve">
-    <value>{DE}Tax Registry Reference</value>
+    <value>[DE]Tax Registry Reference</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_REASON" xml:space="preserve">
-    <value>{DE}Tax Exempt Reason</value>
+    <value>[DE]Tax Exempt Reason</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_START_DATE" xml:space="preserve">
-    <value>{DE}Tax Exempt Start Date</value>
+    <value>[DE]Tax Exempt Start Date</value>
   </data>
   <data name="TEXT_TAX_EXEMPT_END_DATE" xml:space="preserve">
-    <value>{DE}Tax Exempt End Date</value>
+    <value>[DE]Tax Exempt End Date</value>
   </data>
   <data name="TEXT_USE_STANDARD_INCLUSIVE_TAX_CALCULATION" xml:space="preserve">
-    <value>{DE}Use Standard Inclusive Tax Calculation</value>
+    <value>[DE]Use Standard Inclusive Tax Calculation</value>
   </data>
 </root>

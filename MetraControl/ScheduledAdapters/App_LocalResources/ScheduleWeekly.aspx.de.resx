@@ -132,7 +132,7 @@
         <value>MetraNet</value>
     </data>
     <data name="PageTitleResource1.Text" xml:space="preserve">
-        <value>German</value>
+        <value>[DE]</value>
     </data>
     <data name="RecurEveryLiteralResource1.Label" xml:space="preserve">
         <value>Wiederholen alle</value>

@@ -162,7 +162,7 @@ public class PartitionLibrary
     }
   }
 
-  public static void SetupFilterGridForMaster(MetraTech.UI.Controls.MTFilterGrid grid)
+  public static void SetupFilterGridForMaster(MetraTech.UI.Controls.MTFilterGrid grid, string masterLocalizedText)
   {
     var gdel = grid.FindElementByID("POPartitionId");
 
@@ -174,7 +174,7 @@ public class PartitionLibrary
           grid.TemplateFileName));
     }
 
-    grid.Title = string.Format("Master {0}", grid.Title);
+    grid.Title = masterLocalizedText;
     gdel.ElementValue = "0";
     gdel.FilterReadOnly = true;
     gdel.FilterHideable = false;

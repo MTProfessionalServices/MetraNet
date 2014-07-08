@@ -174,4 +174,25 @@
   <data name="TEXT_PartitionID" xml:space="preserve">
     <value>[FR]Partition Id</value>
   </data>
+  <data name="TEXT_CopyPO" xml:space="preserve">
+    <value>[FR]Copy Product Offering</value>
+  </data>
+  <data name="TEXT_DeletePO" xml:space="preserve">
+    <value>[FR]Delete Product Offering</value>
+  </data>
+  <data name="TEXT_EditPO" xml:space="preserve">
+    <value>[FR]Edit Product Offering</value>
+  </data>
+  <data name="TEXT_HidePO" xml:space="preserve">
+    <value>[FR]Hide Product Offering</value>
+  </data>
+  <data name="TEXT_UnhidePO" xml:space="preserve">
+    <value>[FR]Unhide Product Offering</value>
+  </data>
+  <data name="TEXT_ViewPO" xml:space="preserve">
+    <value>[FR]View Product Offering</value>
+  </data>
+  <data name="TEXT_MASTER" xml:space="preserve">
+    <value>[FR]Master Product Offerings</value>
+  </data>
 </root>

@@ -1,6 +1,6 @@
 <%
 ' ---------------------------------------------------------------------------------------------------------------------------------------
-'  @doc $Workfile: IntervalManagement.ViewEdit.asp$
+'  @doc $Workfile: IntervalManagement.Acccount.Stastics.asp$
 ' 
 '  Copyright 1998-2005 by MetraTech Corporation
 '  All rights reserved.
@@ -17,7 +17,7 @@
 '  documentation shall at all times remain with MetraTech Corporation,
 '  and USER agrees to preserve the same.
 ' 
-'  Created by: Rudi, Kevin
+'  Created by: Chris Arsenault
 ' ---------------------------------------------------------------------------------------------------------------------------------------
 Option Explicit
 %>
@@ -44,7 +44,8 @@ FUNCTION Form_Initialize(EventArg)
   If Len(Request.QueryString("ID")) > 0 Then
     Form("IntervalID") = Request.QueryString("ID")
   End If  
-  Service.Clear 
+
+	Service.Clear 
   Service.Properties.Add "IntervalID", "string", 0, TRUE , Empty, eMSIX_PROPERTY_FLAG_NONE
   Service.Properties.Add "IntervalType", "string", 0, TRUE, Empty, eMSIX_PROPERTY_FLAG_NONE
   Service.Properties.Add "IntervalStartDateTime", MSIXDEF_TYPE_TIMESTAMP, 0, TRUE, Empty, eMSIX_PROPERTY_FLAG_NONE
@@ -57,7 +58,7 @@ FUNCTION Form_Initialize(EventArg)
   Service.Properties.Add "HardClosedUnassignedAccountsCount", "string", 0, TRUE, "0", eMSIX_PROPERTY_FLAG_NONE
   Service.Properties.Add "IntervalBlockedToUsageFromNewAccountsMessage", "string", 0, TRUE, "0", eMSIX_PROPERTY_FLAG_NONE
   Service.Properties.Add "Status", "string", 0, TRUE, "0", eMSIX_PROPERTY_FLAG_NONE
- 
+
   'Service.Properties.Add "Percentage", "string", 0, TRUE, "0", eMSIX_PROPERTY_FLAG_NONE
   
   Form_Initialize = Form_Refresh(EventArg)
@@ -72,9 +73,8 @@ FUNCTION Form_Refresh(EventArg)
 
   Dim objUSM, objInterval
   Set objUSM = mom_GetUsageServerClientObject()
-  'Set objInterval = objUSM.GetUsageInterval(Form("IntervalID"))
-  Set objInterval = objUSM.GetUsageIntervalWithoutAccountStats(Form("IntervalID"))
-
+  Set objInterval = objUSM.GetUsageInterval(Form("IntervalID"))
+ 
   Service.Properties("IntervalID").Value = CStr(objInterval.IntervalID)
   Service.Properties("IntervalType").Value = GetBillingGroupCycleType(objInterval.CycleType)
   Service.Properties("IntervalStartDateTime").Value = CDate(objInterval.StartDate)
@@ -83,8 +83,8 @@ FUNCTION Form_Refresh(EventArg)
   Service.Properties("TotalBillingGroupAdapterCount").Value = objInterval.TotalBillingGroupAdapterCount + objInterval.TotalIntervalOnlyAdapterCount
   Service.Properties("SucceededAdapterCount").Value = objInterval.SucceededAdapterCount
   Service.Properties("FailedAdapterCount").Value = objInterval.FailedAdapterCount
-  'Service.Properties("OpenUnassignedAccountsCount").Value = objInterval.OpenUnassignedAccountsCount
-  'Service.Properties("HardClosedUnassignedAccountsCount").Value = objInterval.HardClosedUnassignedAccountsCount
+  Service.Properties("OpenUnassignedAccountsCount").Value = objInterval.OpenUnassignedAccountsCount
+  Service.Properties("HardClosedUnassignedAccountsCount").Value = objInterval.HardClosedUnassignedAccountsCount
   'Service.Properties("Percentage").Value = objInterval.Progress
   Service.Properties("Status").Value = objInterval.Status
 

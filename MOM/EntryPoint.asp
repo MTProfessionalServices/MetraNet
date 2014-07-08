@@ -63,7 +63,7 @@ On Error resume next
     ' Attempt to login
     Call FrameWork.LogOn("MOM", strLogon , Empty , strNamespace, strTicket, Empty) 
     
-    Session("LocalizedPath") = Application("APP_HTTP_PATH") & "/default/localized/en-us/"
+    Session("LocalizedPath") = Application("APP_HTTP_PATH") &  "/default/localized/" &Session("mdm_APP_LANGUAGE")
 
     Session("bTickected") = TRUE ' setting this to false will not close the page on logout
     

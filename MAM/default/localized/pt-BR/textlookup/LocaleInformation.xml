@@ -114,5 +114,34 @@ This file defines the MAM system information that must be localized.
 			<value>TRUE</value>
       <description>Define if the day light saving mode must be used when the date are localized.</description>
 		</text>             
-    
+      <text id='TODAY_TEXT'>
+    <value>Aujourd\'hui</value>
+    <description></description>
+  </text>
+
+  <text id='MONTH_NAMES'>
+    <value>Janvier,Fevrier,Mars,Avril,Mai,Juin,July,Aut,Sptembre,Octobre,Novembre,Decembre</value>
+    <description></description>
+  </text>
+  <text id='DAY_NAMES'>
+    <value>Dimanche,Luni,Mardi,Mercredi,Jeudi,Vendredi,Samedi</value>
+    <description>weekdays.</description>
+  </text>
+  <text id='START_DAY_OF_WEEK'>
+    <value>1</value>
+    <description></description>
+  </text>
+  <text id='CALENDAR_CANCEL'>
+    <value>annule</value>
+    <description></description>
+  </text>
+  <text id='NEXT_MONTH_TEXT'>
+    <value>prochaine mois</value>
+    <description></description>
+  </text>
+  <text id='PREV_MONTH_TEXT'>
+    <value>mois dernier</value>
+    <description></description>
+  </text>
+
 </texts>

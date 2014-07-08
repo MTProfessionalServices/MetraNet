@@ -44,7 +44,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
 
     Dim objMTProductCatalog  
     Set objMTProductCatalog = GetProductCatalogObject
-    Form("POBASED") = Request.QueryString("POBASED")
+    Form("POBASED") = UCase(Request.QueryString("POBASED"))
     Form.Modal = TRUE ' Tell the MDM this dialog is open in a  pop up window. 
                       ' The OK and CANCEL event will no terminate the dialog
                       ' but do a last rendering/refresh. The client dialog must set the property         

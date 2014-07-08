@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <texts id="Main" type='collection'>
-
   <text id="TEXT_BILLING_GROUP">
-    <value>Billing Group</value>
+    <value>[FR]Billing Group</value>
   </text>  
-  
+  <text id="TEXT_SUCCEED">
+    <value>[FR]Succeed</value>
+  </text>  
+  <text id="TEXT_FAILED">
+    <value>[FR]Succeed</value>
+  </text>  
+  <text id="TEXT_ADAPTERS">
+    <value>[FR]Adapters</value>
+  </text>  
+  <text id="TEXT_MEMBERS">
+    <value>[FR]Members</value>
+  </text>  
+  <text id="TEXT_STATUS">
+    <value>[FR]Status</value>
+  </text>  
   <text id="TEXT_BILLING_GROUPS">
     <value>Billing Groups</value>
   </text>    

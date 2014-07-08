@@ -98,7 +98,7 @@
             <ObjectName></ObjectName>
             <ID>partition</ID>
             <DataType>String</DataType>
-            <IsIdentity>true</IsIdentity>
+            <IsIdentity>false</IsIdentity>
             <DataIndex>partition</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>

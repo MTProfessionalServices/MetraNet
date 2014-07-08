@@ -75,7 +75,7 @@
             <ObjectName></ObjectName>
             <ID>nm_enum_data</ID>
             <DataType>String</DataType>
-            <IsIdentity>true</IsIdentity>
+            <IsIdentity>false</IsIdentity>
             <DataIndex>nm_enum_data</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>

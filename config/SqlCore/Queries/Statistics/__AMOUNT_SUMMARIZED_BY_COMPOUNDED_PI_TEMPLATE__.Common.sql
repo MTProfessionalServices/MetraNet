@@ -1,7 +1,7 @@
 
 				select bp.nm_name "COMPOUNDED PI TEMPLATE",
 				  count(*) "# Transactions Affected",
-				  am_currency currency,
+				  am_currency Currency,
 				  SUM({fn ifnull(au.Amount, 0.0)}) "Monetary Amount" 
 				from t_acc_usage au 
 				inner join t_vw_base_props bp on au.id_pi_template = bp.id_prop

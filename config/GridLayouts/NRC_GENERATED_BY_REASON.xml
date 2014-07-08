@@ -90,7 +90,7 @@
             <ObjectName></ObjectName>
             <ID>number of nrcs generated</ID>
             <DataType>String</DataType>
-            <IsIdentity>true</IsIdentity>
+            <IsIdentity>false</IsIdentity>
             <DataIndex>number of nrcs generated</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>

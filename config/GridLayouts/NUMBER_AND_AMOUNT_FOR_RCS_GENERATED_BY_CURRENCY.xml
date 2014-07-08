@@ -90,7 +90,7 @@
             <ObjectName></ObjectName>
             <ID>type of rc</ID>
             <DataType>String</DataType>
-            <IsIdentity>true</IsIdentity>
+            <IsIdentity>false</IsIdentity>
             <DataIndex>type of rc</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>

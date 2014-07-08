@@ -111,7 +111,7 @@
             <ObjectName></ObjectName>
             <ID>id_country</ID>
             <DataType>String</DataType>
-            <IsIdentity>true</IsIdentity>
+            <IsIdentity>false</IsIdentity>
             <DataIndex>id_country</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>

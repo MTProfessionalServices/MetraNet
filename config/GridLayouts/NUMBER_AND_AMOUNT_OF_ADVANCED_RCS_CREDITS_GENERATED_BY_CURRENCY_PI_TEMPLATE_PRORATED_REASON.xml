@@ -102,7 +102,7 @@
             <ObjectName></ObjectName>
             <ID>pi template</ID>
             <DataType>String</DataType>
-            <IsIdentity>true</IsIdentity>
+            <IsIdentity>false</IsIdentity>
             <DataIndex>pi template</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>

@@ -90,7 +90,7 @@
             <ObjectName></ObjectName>
             <ID>discount name</ID>
             <DataType>String</DataType>
-            <IsIdentity>true</IsIdentity>
+            <IsIdentity>false</IsIdentity>
             <DataIndex>discount name</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>

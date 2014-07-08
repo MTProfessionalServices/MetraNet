@@ -71,7 +71,7 @@
                         <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
                     </QueryColumn>
                     <QueryColumn>
-                        <Name>currency</Name>
+                        <Name>Currency</Name>
                         <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
                     </QueryColumn>
                     <QueryColumn>
@@ -90,7 +90,7 @@
             <ObjectName></ObjectName>
             <ID>non-compounded pi template</ID>
             <DataType>String</DataType>
-            <IsIdentity>true</IsIdentity>
+            <IsIdentity>false</IsIdentity>
             <DataIndex>non-compounded pi template</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>

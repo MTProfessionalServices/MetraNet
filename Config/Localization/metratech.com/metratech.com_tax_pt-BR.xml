@@ -1,66 +1,66 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <mt_config>
-  <language_code>pt-BR</language_code>
+  <language_code>pt-br</language_code>
   <locale_space name="metratech.com/tax">
     <locale_entry>
       <Name>metratech.com/tax/BillSoftTaxLevel/County</Name>
-      <Value>condado</Value>
+      <Value>Condado</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/BillSoftTaxLevel/Federal</Name>
-      <Value>federal</Value>
+      <Value>Federal</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/BillSoftTaxLevel/Local</Name>
-      <Value>local</Value>
+      <Value>Local</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/BillSoftTaxLevel/Other</Name>
-      <Value>otro</Value>
+      <Value>Outro</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/BillSoftTaxLevel/State</Name>
-      <Value>estado</Value>
+      <Value>Estado</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxBand/exempt</Name>
-      <Value>exento</Value>
+      <Value>Isenção</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxBand/reduce1</Name>
-      <Value>[pt-BR]Reduce1</Value>
+      <Value>Redução1</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxBand/reduce2</Name>
-      <Value>[pt-BR]Reduce2</Value>
+      <Value>Redução2</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxBand/reduce3</Name>
-      <Value>[pt-BR]Reduce3</Value>
+      <Value>Redução3</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxBand/reduce4</Name>
-      <Value>[pt-BR]Reduce4</Value>
+      <Value>Redução4</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxBand/standard</Name>
-      <Value>estándar</Value>
+      <Value>Padrão</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxDetail/Other</Name>
-      <Value>otro</Value>
+      <Value>Outro</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxDetail/tax_details</Name>
-      <Value>datos fiscales</Value>
+      <Value>tax_details</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxExemptReason/NotExempt</Name>
-      <Value>No Exento</Value>
+      <Value>NotExempt</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxExemptReason/Other</Name>
-      <Value>otro</Value>
+      <Value>Outro</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxVendor/BillSoft</Name>
@@ -84,27 +84,27 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxZone/Zone1</Name>
-      <Value>Zone1</Value>
+      <Value>Zona1</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxZone/Zone2</Name>
-      <Value>Zone2</Value>
+      <Value>Zona2</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxZone/Zone3</Name>
-      <Value>Zone3</Value>
+      <Value>Zona3</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxZone/Zone4</Name>
-      <Value>Zone4</Value>
+      <Value>Zona4</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxZone/Zone5</Name>
-      <Value>Zone5</Value>
+      <Value>Zona5</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/tax/TaxZone/Zone6</Name>
-      <Value>Zone6</Value>
+      <Value>Zona6</Value>
     </locale_entry>
   </locale_space>
 </mt_config>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,30 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ACCOUNT_ID" xml:space="preserve">
-    <value>[pt-BR]Account Id</value>
+    <value>Id de conta</value>
   </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>[pt-BR]Churn Report</value>
+    <value>Relatório de cancelamento de clientes</value>
   </data>
   <data name="NO_RECORDS" xml:space="preserve">
-    <value>[pt-BR]No data for display</value>
+    <value>Nenhuma data a exibir</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>[pt-BR]MetraNet - Churn Report</value>
+    <value>MetraNet - Relatório de cancelamento de clientes</value>
   </data>
   <data name="REPORT_TITLE" xml:space="preserve">
-    <value>[pt-BR]Churn report</value>
+    <value>Relatório de cancelamento de clientes</value>
   </data>
   <data name="SUBSCRIPTION_DESCRIPTION" xml:space="preserve">
-    <value>[pt-BR]Subscription description</value>
+    <value>Descrição de assinatura</value>
   </data>
   <data name="SUBSCRIPTION_END_DATE" xml:space="preserve">
-    <value>[pt-BR]Subscription end date</value>
+    <value>Data de término da assinatura</value>
   </data>
   <data name="SUBSCRIPTION_NAME" xml:space="preserve">
-    <value>[pt-BR]Subscription name</value>
+    <value>Nome da assinatura</value>
   </data>
   <data name="SUBSCRIPTION_START_DATE" xml:space="preserve">
-    <value>[pt-BR]Subscription start date</value>
+    <value>Data de início da assinatura</value>
   </data>
 </root>

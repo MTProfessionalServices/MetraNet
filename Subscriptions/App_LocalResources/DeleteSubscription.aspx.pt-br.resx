@@ -121,7 +121,7 @@
     <value>Nome exibido</value>
   </data>
   <data name="lblMessageResource1.Text" xml:space="preserve">
-    <value>Use essa opção de exclusão de assinatura somente quando desejar remover totalmente todo o histórico ao qual essa conta assinava para essa oferta de produto.  Senão, use o botão Cancelar Assinatura na página de assinaturas anterior. Consulte o tópico de ajuda "Sobre Exclusão de Assinaturas" para obter mais detalhes.</value>
+    <value>Use essa opção Excluir assinatura penas quando desejar remover inteiramente todo o histórico que essa conta assinou nessa oferta de produto. Caso contrário use o botão Cancelar assinatura na página Assinaturas. Consulte o tópico de ajuda Sobre exclusão de assinaturas para obter mais detalhes.</value>
   </data>
   <data name="lblPrompt.Text" xml:space="preserve">
     <value>Tem certeza que deseja excluir essa assinatura?</value>

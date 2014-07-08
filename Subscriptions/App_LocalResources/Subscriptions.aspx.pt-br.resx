@@ -142,7 +142,7 @@
     <value>Taxa personalizada</value>
   </data>
   <data name="HasRecurringCharges.HeaderText" xml:space="preserve">
-    <value>Rec. Cobrança(s)</value>
+    <value>Cobrança(s) recorrente(s)</value>
   </data>
   <data name="InternalInformationURL.HeaderText" xml:space="preserve">
     <value>URL da informação interna</value>

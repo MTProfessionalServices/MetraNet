@@ -121,13 +121,13 @@
     <value>Bloquear conta</value>
   </data>
   <data name="btnLockResource1.Width" xml:space="preserve">
-    <value>125px</value>
+    <value>110px</value>
   </data>
   <data name="btnUnLockResource1.Text" xml:space="preserve">
     <value>Desbloquear conta</value>
   </data>
   <data name="btnUnLockResource1.Width" xml:space="preserve">
-    <value>150px</value>
+    <value>120px</value>
   </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
     <value>Bloquear / Desbloquear conta</value>

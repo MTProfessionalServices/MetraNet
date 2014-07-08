@@ -217,9 +217,9 @@
     <value>Nome do usuário</value>
   </data>
   <data name="tbSecurityQuestionTextResource1.Label" xml:space="preserve">
-    <value>[pt-BR]Custom Security Question</value>
+    <value>Pergunta de segurança personalizada</value>
   </data>
   <data name="tbAuthenticationTypeResource1.Label" xml:space="preserve">
-    <value>[pt-BR]Authentication Type</value>
+    <value>Tipo de autenticação</value>
   </data>
 </root>

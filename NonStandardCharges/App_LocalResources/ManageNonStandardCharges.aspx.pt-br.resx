@@ -217,13 +217,13 @@
     <value>ID da sessão</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
-    <value>[pt-BR]Status</value>
+    <value>Status</value>
   </data>
   <data name="TEXT_SUBSCRIBER_ACCOUNT_ID" xml:space="preserve">
     <value>ID da conta do assinante</value>
   </data>
   <data name="TEXT_TIMESTAMP" xml:space="preserve">
-    <value>[pt-BR]Timestamp</value>
+    <value>Timestamp</value>
   </data>
   <data name="TEXT_VIEW_ID" xml:space="preserve">
     <value>Exibir ID</value>

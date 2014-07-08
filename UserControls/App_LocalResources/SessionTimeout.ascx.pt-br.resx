@@ -127,7 +127,7 @@
     <value>Sua sessão se encerra após {0} minutos de inatividade. </value>
   </data>
   <data name="SessionTimeoutMsg3.Text" xml:space="preserve">
-    <value>Clique em OK para manter sua sessão ativa.  Você tem </value>
+    <value>Clique em OK para manter sua sessão ativa. Você tem </value>
   </data>
   <data name="SessionTimeoutSeconds.Text" xml:space="preserve">
     <value> segundos</value>

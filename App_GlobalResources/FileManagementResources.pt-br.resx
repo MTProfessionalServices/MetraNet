@@ -148,7 +148,7 @@
     <value>Código de erro atual</value>
   </data>
   <data name="DETAIL_CURRENT_ERROR_MESSAGE" xml:space="preserve">
-    <value>[pt-BR]Current Error Message</value>
+    <value>Mensagem de erro atual</value>
   </data>
   <data name="DETAIL_CURRENT_STATE" xml:space="preserve">
     <value>Estado atual</value>
@@ -184,7 +184,7 @@
     <value>Data</value>
   </data>
   <data name="FILE_ERROR_MESSAGE" xml:space="preserve">
-    <value>[pt-BR]Error Message</value>
+    <value>Mensagem de erro</value>
   </data>
   <data name="FILE_GENERAL_TITLE" xml:space="preserve">
     <value>Arquivos</value>
@@ -229,7 +229,7 @@
     <value>Diretório de entrada</value>
   </data>
   <data name="GLOBAL_INCOMING_DIR_HELP" xml:space="preserve">
-    <value>O diretório de entrada deve estar localizado no sistema executando o File Landing Service (Serviço de Chegada de Arquivo). Não insira o nome do servidor. Por exemplo, se o FLS estiver sendo executado no MNServer3 em D:\\IncomingFLS, você deve inserir D:\\IncomingFLS.</value>
+    <value>O diretório de entrada deve estar localizado no sistema que executa o FLS (File Landing Service). Não insira o nome do servidor. Por exemplo, se o FLS estiver sendo executado no MNServer3 em D:\\IncomingFLS, você deve inserir D:\\IncomingFLS.</value>
   </data>
   <data name="GLOBAL_PANEL_TITLE" xml:space="preserve">
     <value>Globais do Gerenciamento de arquivos</value>
@@ -328,7 +328,7 @@
     <value>Alvos do Gerenciamento de arquivos</value>
   </data>
   <data name="TARGET_MISSING_DATAFILE_ARG" xml:space="preserve">
-    <value>Cuidado: Não foi encontrado um argumento para o arquivo de dados desse alvo.</value>
+    <value>Cuidado: o alvo não contém um argumento para o arquivo de dados.</value>
   </data>
   <data name="TARGET_NAME" xml:space="preserve">
     <value>Nome</value>
@@ -379,7 +379,7 @@
     <value>Ocorreu um erro na recuperação dos detalhes do arquivo.</value>
   </data>
   <data name="TEXT_RETRIEVE_HISTORY_DETAILS_RUN_ERROR" xml:space="preserve">
-    <value>Não é possível recuperar os detalhes de histórico dessa execução</value>
+    <value>Não foi possível recuperar os detalhes do histórico para essa execução.</value>
   </data>
   <data name="TEXT_RETRIEVE_RUN_DETAILS_ERROR" xml:space="preserve">
     <value>Não foi possível recuperar os detalhes do arquivo para essa execução.</value>

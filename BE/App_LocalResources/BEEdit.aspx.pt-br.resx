@@ -133,7 +133,7 @@
     <value>Editar </value>
   </data>
   <data name="TEXT_NUMBER_UPDATING_ITEM" xml:space="preserve">
-    <value>[pt-BR]You are going to update {0} item(s)</value>
+    <value>Você vai atualizar {0} item/itens</value>
   </data>
   <data name="TEXT_MORE_ITEMS" xml:space="preserve">
     <value>Mais itens...</value>

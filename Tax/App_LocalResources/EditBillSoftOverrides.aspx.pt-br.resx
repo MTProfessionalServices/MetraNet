@@ -124,10 +124,10 @@
     <value>Escopo</value>
   </data>
   <data name="ddTaxLevel.Label" xml:space="preserve">
-    <value>Nível de impostos</value>
+    <value>Nível de imposto</value>
   </data>
   <data name="tbExcessTaxRateResource1.Label" xml:space="preserve">
-    <value>Nível excessivo de impostos</value>
+    <value>Taxa de imposto excedente</value>
   </data>
   <data name="tbIdAccResource.Label" xml:space="preserve">
     <value>ID de conta</value>
@@ -139,16 +139,16 @@
     <value>Código de localização permanente</value>
   </data>
   <data name="tbTaxRateResource1.Label" xml:space="preserve">
-    <value>Alíquota</value>
+    <value>Taxa de imposto</value>
   </data>
   <data name="tbTaxTypeResource.Label" xml:space="preserve">
     <value>Tipo de imposto</value>
   </data>
   <data name="TEXT_UPDATED" xml:space="preserve">
-    <value>Substituição de BillSoft atualizada</value>
+    <value>Substituição BillSoft atualizada</value>
   </data>
   <data name="TEXT_UPDATED_TITLE" xml:space="preserve">
-    <value>Substituição de BillSoft atualizada</value>
+    <value>Substituição BillSoft atualizada</value>
   </data>
   <data name="cbApplyDescendentsResource1.BoxLabel" xml:space="preserve">
     <value>Aplicar aos descendentes da conta</value>

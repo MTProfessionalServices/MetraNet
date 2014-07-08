@@ -118,81 +118,81 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value>[pt-BR]Product Offerings</value>
+    <value>Ofertas de produto</value>
   </data>
   <data name="MTFilterGrid1Resource1.ToolTip" xml:space="preserve">
-    <value>[pt-BR]Product Offerings List</value>
+    <value>Lista de ofertas de produto</value>
   </data>
   <data name="NO_RECORDS_TEXT" xml:space="preserve">
-    <value>[pt-BR]No records found.</value>
+    <value>Nenhum registro encontrado.</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>[pt-BR]MetraNet</value>
+    <value>MetraNet</value>
   </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>[pt-BR]Actions</value>
+    <value>Ações</value>
   </data>
   <data name="TEXT_AVAILABLE_ENDDATE" xml:space="preserve">
-    <value>[pt-BR]Available End Date</value>
+    <value>Data de término disponível</value>
   </data>
   <data name="TEXT_AVAILABLE_STARTDATE" xml:space="preserve">
-    <value>[pt-BR]Available Start Date</value>
+    <value>Data de início disponível</value>
   </data>
   <data name="TEXT_CopyPO" xml:space="preserve">
-    <value>[pt-BR]Copy Product Offering</value>
+    <value>[pr-BR]Copy Product Offering</value>
   </data>
   <data name="TEXT_CREATE_PRODUCTOFFERING" xml:space="preserve">
-    <value>[pt-BR]Create Product Offering</value>
+    <value>Criar oferta de produto</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
-    <value>[pt-BR]Currency</value>
+    <value>Moeda</value>
   </data>
   <data name="TEXT_DeletePO" xml:space="preserve">
-    <value>[pt-BR]Delete Product Offering</value>
+    <value>[pr-BR]Delete Product Offering</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>[pt-BR]Description</value>
+    <value>Descrição</value>
   </data>
   <data name="TEXT_DISPLAY_NAME" xml:space="preserve">
-    <value>[pt-BR]Display Name</value>
+    <value>Nome exibido</value>
   </data>
   <data name="TEXT_EditPO" xml:space="preserve">
-    <value>[pt-BR]Edit Product Offering</value>
+    <value>[pr-BR]Edit Product Offering</value>
   </data>
   <data name="TEXT_EFFECTIVE_ENDDATE" xml:space="preserve">
-    <value>[pt-BR]Effective End Date</value>
+    <value>Data de término da vigência</value>
   </data>
   <data name="TEXT_EFFECTIVE_STARTDATE" xml:space="preserve">
-    <value>[pt-BR]Effective Start Date</value>
+    <value>Data de início da vigência</value>
   </data>
   <data name="TEXT_EXTERNALINFORMATIONURL" xml:space="preserve">
-    <value>[pt-BR]External Information URL</value>
+    <value>URL da informação externo</value>
   </data>
   <data name="TEXT_GLCODE" xml:space="preserve">
-    <value>[pt-BR]GL Code</value>
+    <value>Código GL</value>
   </data>
   <data name="TEXT_HidePO" xml:space="preserve">
-    <value>[pt-BR]Hide Product Offering</value>
+    <value>[pr-BR]Hide Product Offering</value>
   </data>
   <data name="TEXT_INTERNALINFORMATIONURL" xml:space="preserve">
-    <value>[pt-BR]Internal Information URL</value>
+    <value>URL da informação interna</value>
   </data>
   <data name="TEXT_ISHIDDEN" xml:space="preserve">
-    <value>[pt-BR]Hidden</value>
+    <value>Oculto</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
-    <value>[pt-BR]Name</value>
+    <value>Nome</value>
   </data>
   <data name="TEXT_PartitionID" xml:space="preserve">
-    <value>[pt-BR]Partition Id</value>
+    <value>Id da partição</value>
   </data>
   <data name="TEXT_UnhidePO" xml:space="preserve">
-    <value>[pt-BR]Unhide Product Offering</value>
+    <value>[pr-BR]Unhide Product Offering</value>
   </data>
   <data name="TEXT_ViewPO" xml:space="preserve">
-    <value>[pt-BR]View Product Offering</value>
+    <value>[pr-BR]View Product Offering</value>
   </data>
   <data name="TEXT_MASTER" xml:space="preserve">
-    <value>[pt-BR]Master Product Offerings</value>
+    <value>[pr-BR]Master Product Offerings</value>
   </data>
 </root>

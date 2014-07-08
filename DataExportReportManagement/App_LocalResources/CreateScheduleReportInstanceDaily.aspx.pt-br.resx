@@ -184,6 +184,6 @@
     <value>Pular primeiro dia do mês</value>
   </data>
   <data name="TEXT_DEF_SKIP_LAST_DAY_OF_MONTH" xml:space="preserve">
-    <value>Skip Last Day Of Month</value>
+    <value>Pular último dia do mês</value>
   </data>
 </root>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -136,7 +136,7 @@
     <value>A seguinte assinatura em grupo foi criada com sucesso:  </value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Assinatura em grupo</value>
+    <value>Assinatura em grupo </value>
   </data>
   <data name="lblUpdatedResource1" xml:space="preserve">
     <value>A seguinte assinatura em grupo foi atualizada com sucesso:</value>

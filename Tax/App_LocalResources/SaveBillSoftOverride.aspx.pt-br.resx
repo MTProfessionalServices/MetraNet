@@ -127,15 +127,15 @@
     <value>ID de conta</value>
   </data>
   <data name="TEXT_CREATED" xml:space="preserve">
-    <value>Substituição de BillSoft criada</value>
+    <value>Substituição BillSoft criada</value>
   </data>
   <data name="TEXT_CREATED_TITLE" xml:space="preserve">
-    <value>Substituição de BillSoft criada</value>
+    <value>Substituição BillSoft criada</value>
   </data>
   <data name="TEXT_UPDATED" xml:space="preserve">
-    <value>Substituição de BillSoft atualizada</value>
+    <value>Substituição BillSoft atualizada</value>
   </data>
   <data name="TEXT_UPDATED_TITLE" xml:space="preserve">
-    <value>Substituição de BillSoft atualizada</value>
+    <value>Substituição BillSoft atualizada</value>
   </data>
 </root>

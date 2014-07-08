@@ -118,45 +118,45 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value>[pt-BR]Shared Price Lists</value>
+    <value>Listas de preços compartilhadas</value>
   </data>
   <data name="MTFilterGrid1Resource1.ToolTip" xml:space="preserve">
-    <value>[pt-BR]Shared Price Lists</value>
+    <value>Listas de preços compartilhadas</value>
   </data>
   <data name="GROUP_SUBSCRIPTION" xml:space="preserve">
-    <value>[pt-BR]Group subscription</value>
+    <value>Assinatura em grupo</value>
   </data>
   <data name="ID_QUOTE" xml:space="preserve">
-    <value>[pt-BR]Id Quote</value>
+    <value>ID da cotação</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>[pt-BR]MetraNet</value>
+    <value>MetraNet</value>
   </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>[pt-BR]Actions</value>
+    <value>Ações</value>
   </data>
   <data name="TEXT_CREATE_PRICELIST" xml:space="preserve">
-    <value>[pt-BR]Create Price List</value>
+    <value>Criar lista de preços</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
-    <value>[pt-BR]Currency</value>
+    <value>Moeda</value>
   </data>
   <data name="QuoteListTitle.Text" xml:space="preserve">
-    <value>[pt-BR]Quotes List</value>
+    <value>Lista de cotações</value>
   </data>
   <data name="REPORT_LINK" xml:space="preserve">
-    <value>[pt-BR]Report link</value>
+    <value>Link de relatório</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
-    <value>[pt-BR]Name</value>
+    <value>Nome</value>
   </data>
   <data name="TEXT_PartitionID" xml:space="preserve">
-    <value>[pt-BR]Partition Id</value>
+    <value>Id da partição</value>
   </data>
   <data name="TOTAL_AMOUNT" xml:space="preserve">
-    <value>[pt-BR]Total amount</value>
+    <value>Valor total</value>
   </data>
   <data name="TOTAL_TAX" xml:space="preserve">
-    <value>[pt-BR]Total Tax</value>
+    <value>Imposto total</value>
   </data>
 </root>

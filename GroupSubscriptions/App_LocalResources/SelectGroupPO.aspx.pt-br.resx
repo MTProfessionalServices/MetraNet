@@ -130,7 +130,7 @@
     <value>Desconto(s)</value>
   </data>
   <data name="HasRecurringCharges.HeaderText" xml:space="preserve">
-    <value>Rec. Cobrança(s)</value>
+    <value>Cobrança(s) recorrente(s)</value>
   </data>
   <data name="lblSubscribeToPOTitleResource1.Text" xml:space="preserve">
     <value>Assinar oferta do produto</value>

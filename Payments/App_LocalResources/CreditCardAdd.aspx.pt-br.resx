@@ -175,9 +175,9 @@
     <value>CEP</value>
   </data>
   <data name="tbEmail.Label" xml:space="preserve">
-    <value>[pt-BR]Email</value>
+    <value>Email</value>
   </data>
   <data name="CreditCardTypeError" xml:space="preserve">
-    <value>[pt-BR]is not a supported card type for this payment integration</value>
+    <value>não é um tipo de cartão suportado para essa integração de pagamento</value>
   </data>
 </root>

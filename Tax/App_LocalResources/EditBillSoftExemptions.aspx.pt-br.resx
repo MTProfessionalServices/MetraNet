@@ -130,10 +130,10 @@
     <value>Código de localização permanente</value>
   </data>
   <data name="tbCertificateIdResource.Label" xml:space="preserve">
-    <value>ID do comprovante</value>
+    <value>ID do certificado</value>
   </data>
   <data name="ddTaxLevelResource.Label" xml:space="preserve">
-    <value>Nível de impostos</value>
+    <value>Nível de imposto</value>
   </data>
   <data name="tbTaxTypeResource.Label" xml:space="preserve">
     <value>Tipo de imposto</value>

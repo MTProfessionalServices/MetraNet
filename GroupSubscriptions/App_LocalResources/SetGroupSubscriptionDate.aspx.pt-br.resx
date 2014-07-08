@@ -151,7 +151,7 @@
     <value>Nome do grupo</value>
   </data>
   <data name="GroupSubscriptionProperties" xml:space="preserve">
-    <value>Propriedades da assinatura em grupo</value>
+    <value>Detalhes</value>
   </data>
   <data name="GrpDiscAcct.Text" xml:space="preserve">
     <value>Conta para desconto de grupo</value>
@@ -169,7 +169,7 @@
     <value>Selecionar conta</value>
   </data>
   <data name="MTDiscDistResource1.Text" xml:space="preserve">
-    <value>Distribuição do desconto:  Valor total para uma conta</value>
+    <value>Distribuição de desconto: valor total para uma conta</value>
   </data>
   <data name="MTSection1Resource1.Text" xml:space="preserve">
     <value>Configuração do contador de desconto e taxas agregadas</value>
@@ -178,7 +178,7 @@
     <value>Configuração do desconto</value>
   </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Definir assinatura em grupo</value>
+    <value>Detalhes de assinatura em grupo</value>
   </data>
   <data name="MTUsageCyclePanel.Text" xml:space="preserve">
     <value>Configuração do ciclo de utilização</value>

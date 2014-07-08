@@ -214,7 +214,7 @@
     <value>120</value>
   </data>
   <data name="pmFTPPasswordResource1.OptionalExtConfig" xml:space="preserve">
-    <value>Comprimento máx. = 50</value>
+    <value>Comprimento máximo = 50</value>
   </data>
   <data name="pmFTPPasswordResource1.Text" xml:space="preserve">
     <value></value>
@@ -247,7 +247,7 @@
     <value>0</value>
   </data>
   <data name="tbControlFileLocationResource1.OptionalExtConfig" xml:space="preserve">
-    <value>Comprimento máx. = 50</value>
+    <value>Comprimento máximo = 50</value>
   </data>
   <data name="tbControlFileLocationResource1.Text" xml:space="preserve">
     <value></value>
@@ -256,7 +256,7 @@
     <value></value>
   </data>
   <data name="tbControlFileLocationResource1.ValidationRegex" xml:space="preserve">
-    <value>nulo</value>
+    <value>null</value>
   </data>
   <data name="tbFTPUserResource1.ControlHeight" xml:space="preserve">
     <value></value>
@@ -283,7 +283,7 @@
     <value>0</value>
   </data>
   <data name="tbFTPUserResource1.OptionalExtConfig" xml:space="preserve">
-    <value>Comprimento máx. = 50</value>
+    <value>Comprimento máximo = 50</value>
   </data>
   <data name="tbFTPUserResource1.Text" xml:space="preserve">
     <value></value>
@@ -292,7 +292,7 @@
     <value></value>
   </data>
   <data name="tbFTPUserResource1.ValidationRegex" xml:space="preserve">
-    <value>nulo</value>
+    <value>null</value>
   </data>
   <data name="tbReportDestinationResource1.ControlHeight" xml:space="preserve">
     <value></value>
@@ -319,7 +319,7 @@
     <value>0</value>
   </data>
   <data name="tbReportDestinationResource1.OptionalExtConfig" xml:space="preserve">
-    <value>Comprimento máx. = 50</value>
+    <value>Comprimento máximo = 50</value>
   </data>
   <data name="tbReportDestinationResource1.Text" xml:space="preserve">
     <value></value>
@@ -328,7 +328,7 @@
     <value></value>
   </data>
   <data name="tbReportDestinationResource1.ValidationRegex" xml:space="preserve">
-    <value>nulo</value>
+    <value>null</value>
   </data>
   <data name="TEXT_DEF_ACTIVATION_DATE" xml:space="preserve">
     <value>Data de ativação</value>

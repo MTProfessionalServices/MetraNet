@@ -133,13 +133,13 @@
     <value>Assinatura</value>
   </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Definir data da assinatura em grupo</value>
+    <value>Detalhes da assinatura</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet</value>
+    <value>MetraNet </value>
   </data>
   <data name="pnlMain.Text" xml:space="preserve">
-    <value>Propriedades</value>
+    <value>Detalhes</value>
   </data>
   <data name="StartDateResource1.Label" xml:space="preserve">
     <value>Data de início</value>
@@ -148,9 +148,9 @@
     <value>Propriedades</value>
   </data>
   <data name="pendingChangeUiErrorFormat" xml:space="preserve">
-    <value>[pt-BR]This Subscription already has a '{0}' change pending approval. A new change cannot be submitted until the previous change is either approved or denied.</value>
+    <value>A assinatura já tem uma aprovação pendente de alteração '{0}'. Não é possível enviar uma nova alteração até que a anterior seja aprovada ou negada.</value>
   </data>
   <data name="pendingChangeWarningFormat" xml:space="preserve">
-    <value>[pt-BR]This Subscription already has a '{0}' change pending approval. &lt;a href='{1}'&gt;Click here to view the pending change.&lt;/a&gt;</value>
+    <value>A assinatura já tem uma aprovação pendente de alteração '{0}'. &lt;a href='{1}'&gt;Clique aqui para exibir a alteração pendente.&lt;/a&gt;</value>
   </data>
 </root>

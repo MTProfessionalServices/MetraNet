@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="LocalizedJavaScript" xml:space="preserve">
-    <value>/Res/JavaScript/Localized.pt-br.js?v=6.5</value>
+    <value>/Res/JavaScript/Localized.js?v=6.5</value>
   </data>
   <data name="LocalizedJavaScriptTemplates" xml:space="preserve">
     <value>/Res/JavaScript/Templates.js?v=6.5</value>
@@ -133,19 +133,19 @@
     <value>Welcome.htm</value>
   </data>
   <data name="TEXT_ACCOUNT_ID" xml:space="preserve">
-    <value>ID du compte</value>
+    <value>AccountId</value>
   </data>
   <data name="TEXT_ACCOUNT_INFORMATION" xml:space="preserve">
-    <value>Informations du compte</value>
+    <value>Informações de conta</value>
   </data>
   <data name="TEXT_ACCOUNT_LOCKED" xml:space="preserve">
-    <value>Le compte '{0}' est bloqué.</value>
+    <value>A conta '{0} está bloqueada.</value>
   </data>
   <data name="TEXT_ACCOUNT_NAME" xml:space="preserve">
-    <value>Nom du compte </value>
+    <value>Nome da conta</value>
   </data>
   <data name="TEXT_ACCOUNT_SUMMARY" xml:space="preserve">
-    <value>Résumé du compte</value>
+    <value>Resumo de conta</value>
   </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
     <value>Ações</value>
@@ -178,7 +178,7 @@
     <value>Aplicar alterações</value>
   </data>
   <data name="TEXT_AUTO" xml:space="preserve">
-    <value>[pt-BR]Auto</value>
+    <value>Auto</value>
   </data>
   <data name="TEXT_BACK_DASHBOARD" xml:space="preserve">
     <value>Voltar ao painel</value>
@@ -232,7 +232,7 @@
     <value>Excluir</value>
   </data>
   <data name="TEXT_BULKUPDATE" xml:space="preserve">
-    <value>[pt-BR]Bulk Update</value>
+    <value>Atualização em massa</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
     <value>Descrição</value>
@@ -274,7 +274,7 @@
     <value>Níveis hierárquicos com mais contas </value>
   </data>
   <data name="TEXT_ID" xml:space="preserve">
-    <value>Id</value>
+    <value>ID</value>
   </data>
   <data name="TEXT_INLINE_ADJUSTMENTS" xml:space="preserve">
     <value>Ajustes em série do texto</value>
@@ -313,19 +313,19 @@
     <value>Gerenciar assinaturas em grupo</value>
   </data>
   <data name="TEXT_MORE_ITEMS" xml:space="preserve">
-    <value>Mais itens...B2693</value>
+    <value>Mais itens...</value>
   </data>
   <data name="TEXT_QUOTE_DETAILS" xml:space="preserve">
-    <value>[pt-BR]Quote details</value>
+    <value>Detalhes da cotação</value>
   </data>
   <data name="ACCOUNT_FOR_QUOTES" xml:space="preserve">
-    <value>[pt-BR]Accounts</value>
+    <value>Contas</value>
   </data>
   <data name="PO_FOR_QUOTES" xml:space="preserve">
-    <value>[pt-BR]Product offerings</value>
+    <value>Ofertas de produto</value>
   </data>
   <data name="LOG_FOR_QUOTES" xml:space="preserve">
-    <value>[pt-BR]Quote log</value>
+    <value>Log da cotação</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
     <value>Nome</value>
@@ -343,7 +343,7 @@
     <value>Não foi possível exibir a página.</value>
   </data>
   <data name="TEXT_PAGEURL" xml:space="preserve">
-    <value>[pt-BR]PageURL</value>
+    <value>PageURL</value>
   </data>
   <data name="TEXT_POSITION" xml:space="preserve">
     <value>Posição</value>
@@ -379,7 +379,7 @@
     <value>Remover contas</value>
   </data>
   <data name="TEXT_REMOVE_RELSHIP" xml:space="preserve">
-    <value>Remover</value>
+    <value>Remover relacionamento</value>
   </data>
   <data name="TEXT_REPORT_TYPE" xml:space="preserve">
     <value>Tipo de relatório</value>
@@ -397,7 +397,7 @@
     <value>Exibir dados da segunda passagem</value>
   </data>
   <data name="TEXT_SITE_DOWN_FOR_MAINTENANCE" xml:space="preserve">
-    <value>Desculpe pelo transtorno, mas o site está em manutenção.  Tente novamente mais tarde.</value>
+    <value>Desculpe pelo transtorno, mas o site está em manutenção. Tente novamente mais tarde.</value>
   </data>
   <data name="TEXT_SITE_NAME" xml:space="preserve">
     <value>Nome do site</value>
@@ -418,7 +418,7 @@
     <value>Tema</value>
   </data>
   <data name="TEXT_TIMESTAMP" xml:space="preserve">
-    <value>[pt-BR]TimeStamp</value>
+    <value>TimeStamp</value>
   </data>
   <data name="TEXT_TIMEZONE" xml:space="preserve">
     <value>Fuso horário</value>
@@ -433,13 +433,13 @@
     <value>Não relacionado </value>
   </data>
   <data name="TEXT_UNRELATED_2" xml:space="preserve">
-    <value>[pt-BR](s)</value>
+    <value>(s)</value>
   </data>
   <data name="TEXT_URL" xml:space="preserve">
     <value>Url</value>
   </data>
   <data name="TEXT_VALIDATION_ERROR" xml:space="preserve">
-    <value>Erro na validação.  Tente novamente.</value>
+    <value>Erro de validação. Tente novamente.</value>
   </data>
   <data name="TEXT_VALUE" xml:space="preserve">
     <value>Valor</value>
@@ -463,34 +463,34 @@
     <value>instâncias de entidade</value>
   </data>
   <data name="TEXT_APPROVAL_BUTTON_APPROVE" xml:space="preserve">
-    <value>[pt-BR]Approve</value>
+    <value>Aprovar</value>
   </data>
   <data name="TEXT_APPROVAL_BUTTON_DENY" xml:space="preserve">
-    <value>[pt-BR]Deny</value>
+    <value>Negar</value>
   </data>
   <data name="TEXT_APPROVAL_BUTTON_DISMISS" xml:space="preserve">
-    <value>[pt-BR]Dismiss</value>
+    <value>Rejeitar</value>
   </data>
   <data name="TEXT_APPROVAL_BUTTON_RESUBMIT" xml:space="preserve">
-    <value>[pt-BR]Resubmit</value>
+    <value>Reenviar</value>
   </data>
   <data name="SpecCharacteristicsController_Index_Product_Offering_Properties" xml:space="preserve">
-    <value>[pt-BR]Product Offering Properties</value>
+    <value>Propriedades da oferta de produto</value>
   </data>
   <data name="Index_cshtml_Execute_Spec_Characteristics" xml:space="preserve">
-    <value>[pt-BR]Spec Characteristics</value>
+    <value>Características de espec.</value>
   </data>
   <data name="TEXT_ACTION_ADD_CATEGORY" xml:space="preserve">
-    <value>[pt-BR]add category</value>
+    <value>adicionar categoria</value>
   </data>
   <data name="TEXT_ACTION_ADD_PROPERTY" xml:space="preserve">
-    <value>[pt-BR]add property</value>
+    <value>adicionar propriedade</value>
   </data>
   <data name="TEXT_ACTION_DELETE" xml:space="preserve">
-    <value>[pt-BR]delete</value>
+    <value>excluir</value>
   </data>
   <data name="TEXT_ACTION_EDIT" xml:space="preserve">
-    <value>[pt-BR]edit</value>
+    <value>editar</value>
   </data>
   <data name="TEXT_ARE_YOU_SURE" xml:space="preserve">
     <value>Você tem certeza?</value>
@@ -526,19 +526,19 @@
     <value>Aguardando atualização...</value>
   </data>
   <data name="TEXT_ACTION_ADD_EXISTING_PROPERTY" xml:space="preserve">
-    <value>[pt-BR]add existing property</value>
+    <value>adicionar propriedade existente</value>
   </data>
   <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
     <value>Propriedades compartilhadas</value>
   </data>
   <data name="SpecCharacteristicsController_SetDisplayOrder_Successfully_moved_" xml:space="preserve">
-    <value>[pt-BR]Successfully moved.</value>
+    <value>Movido com sucesso.</value>
   </data>
   <data name="SpecCharacteristicsController_Delete_Successfully_deleted_property_" xml:space="preserve">
-    <value>[pt-BR]Successfully deleted property.</value>
+    <value>Propriedade excluída com sucesso.</value>
   </data>
   <data name="SpecCharacteristicsController_AddSharedProperty_Successfully_added_property_" xml:space="preserve">
-    <value>[pt-BR]Successfully added property.</value>
+    <value>Propriedade adicionada com sucesso.</value>
   </data>
   <data name="TEXT_AVAILABLE_SHARED_PROPERTIES" xml:space="preserve">
     <value>Propriedades compartilhadas disponíveis</value>
@@ -547,67 +547,67 @@
     <value>Propriedade</value>
   </data>
   <data name="TEXT_BACK" xml:space="preserve">
-    <value>[pt-BR]Previous</value>
+    <value>Anterior</value>
   </data>
   <data name="TEXT_FROM_PARAM_TABLE" xml:space="preserve">
-    <value>[pt-BR]From Parameter Table</value>
+    <value>Da tabela de parâmetros</value>
   </data>
   <data name="TEXT_NEXT" xml:space="preserve">
-    <value>[pt-BR]Next</value>
+    <value>Avançar</value>
   </data>
   <data name="TEXT_SAVE_AND_CONTINUE" xml:space="preserve">
-    <value>[pt-BR]Save &amp; Continue</value>
+    <value>Salvar e continuar</value>
   </data>
   <data name="TEXT_SAVE_NEW_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>[pt-BR]Save New Usage Qualification</value>
+    <value>Salvar nova qualificação de utilização</value>
   </data>
   <data name="TEXT_CONTINUE" xml:space="preserve">
-    <value>[pt-BR]Continue</value>
+    <value>Continuar</value>
   </data>
   <data name="TEXT_YES" xml:space="preserve">
-    <value>[pt-BR]Yes</value>
+    <value>Sim</value>
   </data>
   <data name="TEXT_NO" xml:space="preserve">
-    <value>[pt-BR]No</value>
+    <value>Não</value>
   </data>
   <data name="TEXT_FROM_PARAMETER_TABLE" xml:space="preserve">
-    <value>[pt-BR]From parameter table</value>
+    <value>Da tabela de parâmetros</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Add_Category" xml:space="preserve">
-    <value>[pt-BR]add category</value>
+    <value>adicionar categoria</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Add_Property" xml:space="preserve">
-    <value>[pt-BR]add property</value>
+    <value>adicionar propriedade</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Available_Shared_Properties" xml:space="preserve">
-    <value>[pt-BR]Available Shared Properties</value>
+    <value>Propriedades compartilhadas disponíveis</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Back_To_Properties" xml:space="preserve">
-    <value>[pt-BR]back to properties</value>
+    <value>voltar às propriedades</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_ADDED_YET_TO_AGREEMENT_TEMPLATE" xml:space="preserve">
-    <value>[pt-BR]This agreement template has no shared properties.</value>
+    <value>Esse modelo de contrato não tem propriedades compartilhadas.</value>
   </data>
   <data name="_PropertyForm_cshtml_Set_Localization" xml:space="preserve">
-    <value>[pt-BR]Set localization</value>
+    <value>Definir localização</value>
   </data>
   <data name="_PropertyForm_cshtml_Set_Localization_Title" xml:space="preserve">
-    <value>[pt-BR]Set Localization</value>
+    <value>Definir localização</value>
   </data>
   <data name="TEXT_BUTTON_ADD" xml:space="preserve">
-    <value>[pt-BR]Add</value>
+    <value>Adicionar</value>
   </data>
   <data name="TEXT_BUTTON_DELETE" xml:space="preserve">
-    <value>[pt-BR]Delete</value>
+    <value>Excluir</value>
   </data>
   <data name="TEXT_BUTTON_EDIT" xml:space="preserve">
-    <value>[pt-BR]Edit</value>
+    <value>Editar</value>
   </data>
   <data name="newSubscription" xml:space="preserve">
-    <value>[pt-BR]New Subscription</value>
+    <value>Nova assinatura</value>
   </data>
   <data name="updateSubscription" xml:space="preserve">
-    <value>[pt-BR]Subscription Update</value>
+    <value>Atualização da assinatura</value>
   </data>
   <data name="TEXT_TAX" xml:space="preserve">
     <value>[pt-BR]Tax</value>

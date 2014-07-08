@@ -117,18 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnCancelResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnCancelResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
   <data name="btnCancelResource1.ToolTip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
-  <data name="btnOKResource1.ServerSide" type="System.Boolean, mscorlib">
+  <data name="btnOKResource1.ServerSide" xml:space="preserve">
     <value>True</value>
   </data>
   <data name="btnOKResource1.ToolTip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="MTGenericForm1Resource1.TabIndex" xml:space="preserve">
     <value>10</value>
@@ -137,7 +136,7 @@
     <value>Atualizar agenda de relatório diário</value>
   </data>
   <data name="MTTitle1Resource1.ToolTip" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>Atualizar agenda de relatório diário</value>

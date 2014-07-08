@@ -121,7 +121,7 @@
     <value>Erro</value>
   </data>
   <data name="ERROR_ACCOUNT_DORMANT" xml:space="preserve">
-    <value>&lt;br/&gt;&lt;br/&gt;A conta está inativa.  Você pode desbloqueá-la.</value>
+    <value>&lt;br/&gt;&lt;br/&gt;A conta está inativa. Você pode desbloqueá-la.</value>
   </data>
   <data name="ERROR_ACH_ADD" xml:space="preserve">
     <value>Não é possível adicionar método de pagamento ACH a esta conta</value>
@@ -160,19 +160,19 @@
     <value>Endereço de email é necessário.</value>
   </data>
   <data name="ERROR_ENDDOM_INVALID" xml:space="preserve">
-    <value>Dia final do mês inválido selecionado  O dia DEVE estar após o dia de início</value>
+    <value>Dia de fim de mês inválido selecionado. O dia DEVE ser posterior ao dia de início.</value>
   </data>
   <data name="ERROR_LAST_LOGIN" xml:space="preserve">
-    <value>O último login para {0} foi em {1}.  Houve {2} tentativas erradas de login desde o último login bem sucedido.</value>
+    <value>O último login de {0} foi em {1}.  Houveram {2} tentativas de login com falha desde o último login bem-sucedido.</value>
   </data>
   <data name="ERROR_LOGIN_INVALID" xml:space="preserve">
     <value>Nome de usuário ou senha inválida.</value>
   </data>
   <data name="ERROR_LOGIN_LOCKED" xml:space="preserve">
-    <value>Sua conta foi bloqueada por motivos de segurança.  Entre em contato com o suporte para resolver esse problema.</value>
+    <value>Sua conta foi bloqueada por motivos de segurança. Entre em contato com o suporte para resolver esse problema.</value>
   </data>
   <data name="ERROR_LOGIN_PASSWORD_EXPIRING" xml:space="preserve">
-    <value>Sua senha expirará em {0} dia(s).  Se tiver tempo, por que não alterá-la agora?  </value>
+    <value>Sua senha expira em {0} dia(s). Se tiver tempo, altere-a agora.  </value>
   </data>
   <data name="ERROR_MAIN_MENU" xml:space="preserve">
     <value>Arquivo de menu inválido, notifique o administrador do sistema.</value>
@@ -202,13 +202,13 @@
     <value>Primeiro, você precisa gerenciar uma conta antes de executar uma ação nela.</value>
   </data>
   <data name="ERROR_TEMP_LOCK" xml:space="preserve">
-    <value>O sistema só permite {0} tentativas de login antes de que a conta seja bloqueada temporariamente por {1} minutos.  Você pode desbloquear manualmente a conta.</value>
+    <value>O sistema só permite {0} tentativas de login antes de que a conta seja bloqueada temporariamente por {1} minutos. Você pode desbloquear manualmente a conta.</value>
   </data>
   <data name="ERROR_UNABLE_SAVE_DATA" xml:space="preserve">
     <value>Não foi possível salvar as alterações.</value>
   </data>
   <data name="ERROR_UNABLE_TO_UNLOCK_ACCOUNT" xml:space="preserve">
-    <value>Não é possível bloquear a conta.  Você tem permissão?</value>
+    <value>Não é possível bloquear a conta. Você tem permissão?</value>
   </data>
   <data name="ERROR_USERNAME_INVALID" xml:space="preserve">
     <value>O nome do usuário é inválido.</value>
@@ -241,13 +241,13 @@
     <value>deve ser um número inteiro maior ou igual a zero.</value>
   </data>
   <data name="ERROR_USM_CONFIG_UNABLE_TO_RETRIEVE" xml:space="preserve">
-    <value>Não foi possível recuperar a configuração. Consulte o log para obter detalhes.</value>
+    <value>Não é possível recuperar a configuração. Consulte os detalhes no log.</value>
   </data>
   <data name="ERROR_USM_CONFIG_UNABLE_TO_SAVE" xml:space="preserve">
-    <value>Não foi possível salvar as alterações de configuração. Consulte o log para obter detalhes.</value>
+    <value>Não é possível salvar as alterações de configuração. Consulte os detalhes no log.</value>
   </data>
   <data name="ERROR_MULTIPLE_ACCOUNT_UPDATE_PENDING_CHANGES" xml:space="preserve">
-    <value>[pt-BR]This account already has a pending change of type Account Update. Only one pending change of this type is permitted.</value>
+    <value>Essa conta já tem uma alteração pendente do tipo Atualização de conta. Apenas uma alteração pendente desse tipo é permitida.</value>
   </data>
   <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
     <value>Falha ao excluir as especificações</value>
@@ -277,31 +277,31 @@
     <value>Não foi possível encontrar a propriedade.</value>
   </data>
   <data name="ERROR_USERNAME_LOCKED" xml:space="preserve">
-    <value>[pt-BR]You have exceeded the number of logins attempts and your account is locked. Please contact your system admin.</value>
+    <value>Você ultrapassou o número de tentativas de login e sua conta está bloqueada. Entre em contato com seu administrador de sistema.</value>
   </data>
   <data name="ERROR_PAYER_ID_IS_REQUIRED" xml:space="preserve">
-    <value>[pt-BR]Invalid or Missing Payer</value>
+    <value>Pagador inválido ou não encontrado</value>
   </data>
   <data name="ERROR_INVALID_CURRENCY" xml:space="preserve">
-    <value>[pt-BR]Invalid Currency</value>
+    <value>Moeda inválida</value>
   </data>
   <data name="ERROR_INVALID_PARTITIONID" xml:space="preserve">
-    <value>[pt-BR]Invalid Partition ID</value>
+    <value>ID de partição inválido</value>
   </data>
   <data name="ERROR_REPORT_CONFIG" xml:space="preserve">
-    <value>[pt-BR]Error in config ReportFormat file</value>
+    <value>Erro no arquivo de configuração ReportFormat</value>
   </data>
   <data name="ERROR_REPORT_FORMAT" xml:space="preserve">
-    <value>[pt-BR]Error in config ReportFormat file. Report format type isn't defined.</value>
+    <value>Erro ao configurar o arquivo ReportFormat. O tipo de formato de relatório não está definido.</value>
   </data>
   <data name="ERROR_REPORT_FORMAT_CONFIG" xml:space="preserve">
-    <value>[pt-BR]Error in config ReportFormat file. Incorrect file structure.</value>
+    <value>Erro ao configurar o arquivo ReportFormat. Estrutura de arquivo incorreta.</value>
   </data>
   <data name="ERROR_REPORT_IMAGE" xml:space="preserve">
-    <value>[pt-BR]Error in config ReportFormat file. Report image  isn't defined.</value>
+    <value>Erro ao configurar o arquivo ReportFormat. Imagem do relatório não está definida.</value>
   </data>
   <data name="ERROR_REPORT_OPEN" xml:space="preserve">
-    <value>[pt-BR]Unable open and save report</value>
+    <value>Não é possível abrir e salvar o relatório</value>
   </data>
   <data name="ERROR_PO_EXISTS" xml:space="preserve">
     <value>[pt-BR]Name of product offering must be unique</value>

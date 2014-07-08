@@ -133,9 +133,9 @@
     <value>MetraNet</value>
   </data>
   <data name="contactchangesubmittedSuccessMsg" xml:space="preserve">
-    <value>[pt-BR]Contact Change submitted to Approval Framework</value>
+    <value>Alteração de contato enviada para a estrutura de aprovação</value>
   </data>
   <data name="contactchangesubmittedSuccessTitle" xml:space="preserve">
-    <value>[pt-BR]Contact Change Submitted</value>
+    <value>Alteração de contato enviada</value>
   </data>
 </root>

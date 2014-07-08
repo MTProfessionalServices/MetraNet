@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ACCOUNT_NUMBER" xml:space="preserve">
-    <value>Número da conta </value>
+    <value>Número da conta</value>
   </data>
   <data name="ACTIONS" xml:space="preserve">
     <value>Ações</value>
@@ -151,7 +151,7 @@
     <value>Tipo de cartão</value>
   </data>
   <data name="EXPIRATION_DATE" xml:space="preserve">
-    <value>Exp. Data</value>
+    <value>Data de expiração</value>
   </data>
   <data name="FIRST_NAME" xml:space="preserve">
     <value>Nome</value>
@@ -181,7 +181,7 @@
     <value>Uma conta deve ser selecionada para exibir essa página.</value>
   </data>
   <data name="STATE_PROVINCE" xml:space="preserve">
-    <value>Estado / Província</value>
+    <value>Estado/Província</value>
   </data>
   <data name="ZIP_CODE" xml:space="preserve">
     <value>CEP</value>

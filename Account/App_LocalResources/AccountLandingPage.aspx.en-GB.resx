@@ -173,13 +173,13 @@
   </data>
   <data name="SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
     <value>Subscription</value>
-  </data>      
+  </data>
   <data name="GROUP_SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
     <value>Group Subscription</value>
   </data>
   <data name="INVOICE_ITEM_TEXT" xml:space="preserve">
     <value>Invoice</value>
-  </data>      
+  </data>
   <data name="PAYMENT_ITEM_TEXT" xml:space="preserve">
     <value>Payment</value>
   </data>

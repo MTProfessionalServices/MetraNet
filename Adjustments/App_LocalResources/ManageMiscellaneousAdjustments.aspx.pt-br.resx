@@ -157,7 +157,7 @@
     <value>ID da sessão de contenção</value>
   </data>
   <data name="TEXT_COUNTY_AMOUNT" xml:space="preserve">
-    <value>[pt-BR]Tax County</value>
+    <value>Imposto do condado</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
     <value>Moeda</value>
@@ -169,10 +169,10 @@
     <value>Negar tudo</value>
   </data>
   <data name="TEXT_DENY_ALL_CONFIRM" xml:space="preserve">
-    <value>Tem certeza que deseja prosseguir?  Isso negará todos os ajustes que correspondam aos critérios do seu filtro.  Se nenhum filtro estiver presente, então todos os ajustes serão negados.</value>
+    <value>Tem certeza que deseja prosseguir? Isso negará todos os ajustes que correspondem ao seus critérios de filtro. Se nenhum filtro estiver presente, então todos os ajustes serão negados.</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>[pt-BR]Internal Descrição</value>
+    <value>Descrição interna</value>
   </data>
   <data name="TEXT_EMAIL_ADDRESS" xml:space="preserve">
     <value>Endereço de email</value>
@@ -184,7 +184,7 @@
     <value>Ocorreu um erro durante o processamento de um ajuste diverso.</value>
   </data>
   <data name="TEXT_FEDERAL_AMOUNT" xml:space="preserve">
-    <value>[pt-BR]Tax Federal</value>
+    <value>Imposto federal</value>
   </data>
   <data name="TEXT_GUIDE_INTERVAL_ID" xml:space="preserve">
     <value>ID do intervalo do guia</value>
@@ -193,7 +193,7 @@
     <value>ID do intervalo</value>
   </data>
   <data name="TEXT_LOCAL_AMOUNT" xml:space="preserve">
-    <value>[pt-BR]Tax Local</value>
+    <value>Imposto local</value>
   </data>
   <data name="TEXT_NO_IDS" xml:space="preserve">
     <value>Selecione ajustes para processar.</value>
@@ -202,7 +202,7 @@
     <value>Outro</value>
   </data>
   <data name="TEXT_OTHER_AMOUNT" xml:space="preserve">
-    <value>[pt-BR]Tax Other</value>
+    <value>Outros impostos</value>
   </data>
   <data name="TEXT_PENDING_STATUS" xml:space="preserve">
     <value>Pendente</value>
@@ -217,7 +217,7 @@
     <value>Tipo de sessão</value>
   </data>
   <data name="TEXT_STATE_AMOUNT" xml:space="preserve">
-    <value>[pt-BR]Tax State</value>
+    <value>Imposto estadual</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
     <value>Status</value>

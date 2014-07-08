@@ -121,7 +121,7 @@
     <value>Erro ao excluir membro da assinatura em grupo.</value>
   </data>
   <data name="InfoMsg.Text" xml:space="preserve">
-    <value>Uma ou mais assinaturas em grupo estão prestes a ser deletadas. Como algumas dessas assinaturas ainda estão ativas, edite a data de início da vigência movendo-a um dia para frente para permitir a exclusão. Você não verá mais esses membros na lista de assinantes e o registro de suas assinaturas será removido.</value>
+    <value>Uma ou mais assinaturas de membro estão prestes a serem excluídas. Como algumas dessas assinaturas ainda estão ativas, edite a data de início de vigência movendo-a um dia para frente para permitir a exclusão. Você não verá mais esses membros na lista de assinantes e o registro de suas assinaturas será removido.</value>
   </data>
   <data name="lblConfirmResource1.Text" xml:space="preserve">
     <value>Tem certeza que deseja excluir?</value>
@@ -133,7 +133,7 @@
     <value>Mensagens de erro</value>
   </data>
   <data name="lblMessageResource1.Text" xml:space="preserve">
-    <value>Você está prestes a excluir permanentemente essa assinatura em grupo e todos os dados contidos desse sistema. Isso só é permitido se nunca houve uma participação nessa assinatura em grupo. Essa assinatura de grupo será removida de todos os modelos de conta aos quais ela possa estar associada.</value>
+    <value>Você está prestes a excluir permanentemente essa assinatura em grupo e todos os dados contidos do sistema. Isso é permitido apenas se nunca houver nenhuma participação nessa assinatura em grupo. Essa assinatura em grupo será removida de quaisquer modelos de conta que possam ter sido atribuídos a ela.</value>
   </data>
   <data name="MTEffecStartDatePickerResource1.Text" xml:space="preserve">
     <value>Data de início da vigência</value>

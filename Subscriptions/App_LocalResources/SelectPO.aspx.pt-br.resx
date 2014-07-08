@@ -136,7 +136,7 @@
     <value>Desconto(s)</value>
   </data>
   <data name="HasRecurringCharges.HeaderText" xml:space="preserve">
-    <value>Rec. Cobrança(s)</value>
+    <value>Cobrança(s) recorrente(s)</value>
   </data>
   <data name="InternalInformationURL.HeaderText" xml:space="preserve">
     <value>URL da informação interna</value>
@@ -160,6 +160,6 @@
     <value>Data de início</value>
   </data>
   <data name="TEXT_PartitionID" xml:space="preserve">
-    <value>[pt-BR]Partition Id</value>
+    <value>Id da partição</value>
   </data>
 </root>

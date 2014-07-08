@@ -121,7 +121,7 @@
     <value>Erro ao cancelar a assinatura de um membro da assinatura em grupo.</value>
   </data>
   <data name="InfoMsg.Text" xml:space="preserve">
-    <value>A assinatura de um ou mais membros está prestes a ser cancelada, o que significa que eles não serão mais assinantes dessa assinatura em grupo. Isso não afetará seus históricos de uso atuais. Você continuará vendo esses membros na lista de assinantes e o registro de suas assinaturas será preservado.</value>
+    <value>Um ou mais membros estão prestes a terem a assinatura cancelada, o que significa que eles não serão mais assinantes nessa assinatura em grupo. Isso não afetará seu histórico de utilização atual. Você continuará a ver esses membros na lista de assinantes e o registro de suas assinaturas será preservado.</value>
   </data>
   <data name="lblErrorMessageResource1.Text" xml:space="preserve">
     <value>Mensagens de erro</value>
@@ -146,10 +146,10 @@
   </data>
   <data name="MTEffecEndDatePickerResource1.OptionalExtConfig" xml:space="preserve">
     <value>format:DATE_FORMAT,
-               altFormats:DATE_TIME_FORMAT</value>
+                             altFormats:DATE_TIME_FORMAT</value>
   </data>
   <data name="MTEffecEndDatePickerResource1.ValidationRegex" xml:space="preserve">
-    <value>nulo</value>
+    <value>null</value>
   </data>
   <data name="TextGroupSubNameResource1.ControlHeight" xml:space="preserve">
     <value>18</value>
@@ -173,6 +173,6 @@
     <value>0</value>
   </data>
   <data name="TextGroupSubNameResource1.ValidationRegex" xml:space="preserve">
-    <value>nulo</value>
+    <value>null</value>
   </data>
 </root>

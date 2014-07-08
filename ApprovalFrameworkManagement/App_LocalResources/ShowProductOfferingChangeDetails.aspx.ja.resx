@@ -117,34 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TEXT_APPROVALS_CHANGEDETAILS_UPDATEDVALUE" xml:space="preserve">
-    <value>Novo valor</value>
+  <data name="TEXT_APPROVAL_VIEW_PRODUCT_OFFERING_CHANGE_DETAILS" xml:space="preserve">
+    <value>[JA]Product Offering Change Details</value>
   </data>
-  <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_CURRENTVALUE" xml:space="preserve">
-    <value>Valor anterior</value>
+  <data name="TEXT_APPROVAL_PRODUCTOFFERINGCHANGEDETAILS_PROPERTYNAME" xml:space="preserve">
+    <value>[JA]Property Name</value>
   </data>
-  <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_ENDDATE" xml:space="preserve">
-    <value>Data de término</value>
+  <data name="TEXT_APPROVAL_PRODUCTOFFERINGCHANGEDETAILS_CURRENTVALUE" xml:space="preserve">
+    <value>[JA]Current Value</value>
   </data>
-  <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_GROUPSUBID" xml:space="preserve">
-    <value>ID de assinatura do grupo</value>
+  <data name="TEXT_APPROVAL_PRODUCTOFFERINGCHANGEDETAILS_UPDATEDVALUE" xml:space="preserve">
+    <value>[JA]Updated Value</value>
   </data>
-  <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_MEMBERID" xml:space="preserve">
-    <value>ID de membro</value>
+  <data name="TEXT_APPROVAL_BUTTON_APPROVE_CHANGE" xml:space="preserve">
+    <value>[JA]Approve</value>
   </data>
-  <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_PROPERTYNAME" xml:space="preserve">
-    <value>Nome da propriedade</value>
+  <data name="TEXT_APPROVAL_BUTTON_DISMISS_CHANGE" xml:space="preserve">
+    <value>[JA]Dismiss</value>
   </data>
-  <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_STARTDATE" xml:space="preserve">
-    <value>Data de início</value>
-  </data>
-  <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_OLD_STARTDATE" xml:space="preserve">
-    <value>Data de início antiga</value>
-  </data>
-  <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_OLD_ENDDATE" xml:space="preserve">
-    <value>Data de término antiga</value>
-  </data>
-  <data name="TEXT_APPROVAL_GROUP_SUBSCRIPTION_CHANGE_DETAILS" xml:space="preserve">
-    <value>Membros da assinatura em grupo atualizados</value>
+  <data name="TEXT_APPROVAL_BUTTON_BACK" xml:space="preserve">
+    <value>[JA]Back</value>
   </data>
 </root>

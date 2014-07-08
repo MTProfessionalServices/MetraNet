@@ -118,45 +118,45 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ACCOUNT_TYPE" xml:space="preserve">
-  <value>Tipo de conta</value>
+    <value>Tipo de conta</value>
   </data>
   <data name="ACTIONS" xml:space="preserve">
-  <value>Ações</value>
+    <value>Ações</value>
   </data>
   <data name="ADD_TEMPLATE" xml:space="preserve">
-  <value>Adicionar modelo</value>
+    <value>Adicionar modelo</value>
   </data>
   <data name="CREATION_DATE" xml:space="preserve">
-  <value>Data de criação</value>
+    <value>Data de criação</value>
   </data>
   <data name="DETAILS" xml:space="preserve">
-  <value>Detalhes</value>
+    <value>Detalhes</value>
   </data>
   <data name="GRID_TITLE" xml:space="preserve">
-  <value>Modelos de conta</value>
+    <value>Modelos de conta</value>
   </data>
   <data name="MESSAGE" xml:space="preserve">
-  <value>Aplicar modelo nos tipos de contas movidas a seguir:</value>
+    <value>Aplicar modelo nos tipos de contas movidas a seguir:</value>
   </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-  <value>Modelos de conta</value>
+    <value>Modelos de conta</value>
   </data>
   <data name="NO_RECORDS" xml:space="preserve">
-  <value>Não há modelos de conta nessa conta.</value>
+    <value>Não há modelos de conta nessa conta.</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-  <value>MetraNet</value>
+    <value>MetraNet</value>
   </data>
   <data name="TEMPLATE_DESC" xml:space="preserve">
-  <value>Descrição do modelo</value>
+    <value>Descrição do modelo</value>
   </data>
   <data name="TEMPLATE_ID" xml:space="preserve">
-  <value>ID do modelo</value>
+    <value>ID do modelo</value>
   </data>
   <data name="TEMPLATE_NAME" xml:space="preserve">
-  <value>Nome do modelo</value>
+    <value>Nome do modelo</value>
   </data>
   <data name="VIEW_HISTORY" xml:space="preserve">
-  <value>Exibir histórico</value>
+    <value>Exibir histórico</value>
   </data>
 </root>

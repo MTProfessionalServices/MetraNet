@@ -127,9 +127,9 @@
     <value>Aplicar aos descendentes da conta</value>
   </data>
   <data name="TEXT_CREATED_TITLE" xml:space="preserve">
-    <value>Isenção de BillSoft criada</value>
+    <value>Isenção BillSoft criada</value>
   </data>
   <data name="TEXT_CREATED" xml:space="preserve">
-    <value>Isenção de BillSoft criada com sucesso</value>
+    <value>Isenção BillSoft criada com sucesso</value>
   </data>
 </root>

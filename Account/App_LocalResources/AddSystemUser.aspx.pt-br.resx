@@ -157,7 +157,7 @@
     <value>Nome de usuário inválido</value>
   </data>
   <data name="lblUsernameOKResource1.Text" xml:space="preserve">
-    <value>Nome de usuário</value>
+    <value>Nome de usuário válido</value>
   </data>
   <data name="ListItemResource1.Text" xml:space="preserve">
     <value>MetraView</value>
@@ -193,10 +193,10 @@
     <value>Empresa</value>
   </data>
   <data name="tbConfirmPasswordResource1.Label" xml:space="preserve">
-    <value>Confirmar senha</value>
+    <value>Senha de confirmação</value>
   </data>
   <data name="tbEmailResource1.Label" xml:space="preserve">
-    <value>E-Mail</value>
+    <value>E-mail</value>
   </data>
   <data name="tbFaxResource1.Label" xml:space="preserve">
     <value>Fax</value>
@@ -220,13 +220,13 @@
     <value>Resposta de segurança</value>
   </data>
   <data name="tbSecurityQuestionTextResource1.Label" xml:space="preserve">
-    <value>Pergunta de segurança personalizada</value>
+    <value>[pt-BR]Custom Security Question</value>
   </data>
   <data name="tbStartDateResource1.Label" xml:space="preserve">
     <value>Data de início da conta</value>
   </data>
   <data name="tbStateResource1.Label" xml:space="preserve">
-    <value>Estado / Província</value>
+    <value>Estado/Província</value>
   </data>
   <data name="tbUserNameResource1.Label" xml:space="preserve">
     <value>Nome do usuário</value>
@@ -235,6 +235,6 @@
     <value>CEP</value>
   </data>
   <data name="ddAuthenticationTypeResource1.Label" xml:space="preserve">
-    <value>[pt-BR]Authentication Type</value>
+    <value>Tipo de autenticação</value>
   </data>
 </root>

@@ -112,10 +112,10 @@
         <value>2.0</value>
     </resheader>
     <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="DETAIL" xml:space="preserve">
         <value>Detail</value>
@@ -130,16 +130,16 @@
         <value>Details</value>
     </data>
     <data name="GRID_TITLE" xml:space="preserve">
-        <value></value>
+        <value>Template Activity Details</value>
     </data>
     <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>Template Activity</value>
+        <value>Template Activity Details</value>
     </data>
     <data name="NO_RECORDS_TEXT" xml:space="preserve">
         <value>No records found.</value>
     </data>
     <data name="NUM_RETRIES" xml:space="preserve">
-        <value></value>
+        <value>Number of Retries</value>
     </data>
     <data name="PageResource1.Title" xml:space="preserve">
         <value>MetraNet</value>
@@ -151,9 +151,9 @@
         <value>Seq.</value>
     </data>
     <data name="SESSION_ID" xml:space="preserve">
-        <value></value>
+        <value>Session ID</value>
     </data>
     <data name="TYPE" xml:space="preserve">
-        <value></value>
+        <value>Type</value>
     </data>
 </root>

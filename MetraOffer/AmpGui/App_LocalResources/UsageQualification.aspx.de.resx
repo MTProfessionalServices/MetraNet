@@ -128,16 +128,16 @@
     <value>True</value>
   </data>
   <data name="lblInfoResource.Text" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="UsageQualificationDescriptionResource.Label" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="UsageQualificationDescriptionResource.LabelSeparator" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="UsageQualificationDescriptionResource1.MaxLength" type="System.Int32, mscorlib">
     <value>-1</value>
@@ -152,10 +152,10 @@
     <value>0</value>
   </data>
   <data name="UsageQualificationNameResource.Label" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="UsageQualificationNameResource.LabelSeparator" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="UsageQualificationNameResource1.MaxLength" type="System.Int32, mscorlib">
     <value>-1</value>
@@ -164,69 +164,69 @@
     <value>0</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_USAGE_QUALIFICATION_ACTION" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_USAGE_QUALIFICATION_FILTER" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="TEXT_ERROR_ADD_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>German '{0}'</value>
+    <value>[DE] '{0}'</value>
   </data>
   <data name="TEXT_ERROR_MUST_USE_UNIQUE_NAME_FOR_NEW_UQ" xml:space="preserve">
-    <value>German '{0}'</value>
+    <value>[DE] '{0}'</value>
   </data>
   <data name="TEXT_SUCCESS_CREATE_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>German '{0}'</value>
+    <value>[DE] '{0}'</value>
   </data>
   <data name="FilterLabelResource.Text" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="FieldLabelResource.Text" xml:space="preserve">
-    <value>German:</value>
+    <value>[DE]</value>
   </data>
   <data name="LogicLabelResource.Text" xml:space="preserve">
-    <value>German:</value>
+    <value>[DE]</value>
   </data>
   <data name="TableLabelResource.Text" xml:space="preserve">
-    <value>German:</value>
+    <value>[DE]</value>
   </data>
   <data name="TEXT_INSERT" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="UsageQualificationFilterResource.Label" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="UsageQualificationFilterResource.LabelSeparator" xml:space="preserve">
     <value>:</value>
   </data>
   <data name="AnotherUQGLogicLabelResource.Text" xml:space="preserve">
-    <value>German:</value>
+    <value>[DE]</value>
   </data>
   <data name="lblAnotherUQGPanelResource.Text" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="lblUsageFieldPanelResource.Text" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="LOGIC_DOES_NOT_MEET_THIS_QUALIFICATION" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="LOGIC_MEETS_THIS_QUALIFICATION" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_UQGS" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="UsageQualificationLabelResource.Text" xml:space="preserve">
-    <value>German:</value>
+    <value>[DE]</value>
   </data>
   <data name="TEXT_ERROR_GETTING_DATA" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="ViewDescriptionLabelResource.Text" xml:space="preserve">
-    <value>German:</value>
+    <value>[DE]</value>
   </data>
   <data name="ViewUsageQualificationFilterLabelResource.Text" xml:space="preserve">
-    <value>German:</value>
+    <value>[DE]</value>
   </data>
 </root>

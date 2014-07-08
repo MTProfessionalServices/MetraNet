@@ -125,6 +125,6 @@
     <value>MetraNet</value>
   </data>
   <data name="TEXT_MESSAGE" xml:space="preserve">
-    <value>Mexican Spanish '{0}'  '{1}'</value>
+    <value>[es-MX] '{0}'  '{1}'</value>
   </data>
 </root>

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AllDecisionsAccessToUsageRecord.Text" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnBackResource1.ServerSide" type="System.Boolean, mscorlib">
@@ -146,22 +146,22 @@
     <value>False</value>
   </data>
   <data name="DecisionApportionQuestion.Text" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]</value>
   </data>
   <data name="ExclusiveAccessToConsumedUsage.Text" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]</value>
   </data>
   <data name="IntroInfo.Text" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]</value>
   </data>
   <data name="ListItemResource1.Value" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]</value>
   </data>
   <data name="ListItemResource2.Value" xml:space="preserve">
-    <value>Mexican Spanish</value>
+    <value>[es-MX]</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>

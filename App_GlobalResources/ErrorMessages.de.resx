@@ -247,33 +247,33 @@
     <value>Die Konfigurationsänderungen können nicht gespeichert werden. Details finden Sie im Protokoll.</value>
   </data>
   <data name="ERROR_MULTIPLE_ACCOUNT_UPDATE_PENDING_CHANGES" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
-    <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
-        <value>Die Spezifikation konnte nicht gelöscht werden.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_LoadSpecCharacteristic_Didn_t_find_matching_spec_" xml:space="preserve">
-        <value>Es wurde keine passende Spezifikation gefunden.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_LoadSpecCharacteristics_Failed_getting_specs_" xml:space="preserve">
-        <value>Die Spezifikation konnte nicht abgerufen werden.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_LoadSubCharacteristicValues_Failed_getting_entity_properties_" xml:space="preserve">
-        <value>Die Eigenschaften für die Einheit konnten nicht abgerufen werden.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_SaveSpecCharacteristic_Failed_saving_spec_" xml:space="preserve">
-        <value>Die Spezifikation konnte nicht gespeichert werden.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_" xml:space="preserve">
-        <value>Zugriff verweigert.</value>
-    </data>
-    <data name="SpecCharacteristicsController_AddSharedProperty_Couldn_t_add_property_" xml:space="preserve">
-        <value>Die Eigenschaft konnte nicht hinzugefügt werden.</value>
-    </data>
-    <data name="SpecCharacteristicsController_Delete_Couldn_t_delete_property_" xml:space="preserve">
-        <value>Die Eigenschaft konnte nicht gelöscht werden.</value>
-    </data>
-    <data name="SpecCharacteristicsController_SetDisplayOrder_Couldn_t_find_property_" xml:space="preserve">
-        <value>Die Eigenschaft konnte nicht gefunden werden.</value>
-    </data>
+  <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
+    <value>Die Spezifikation konnte nicht gelöscht werden.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_LoadSpecCharacteristic_Didn_t_find_matching_spec_" xml:space="preserve">
+    <value>Es wurde keine passende Spezifikation gefunden.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_LoadSpecCharacteristics_Failed_getting_specs_" xml:space="preserve">
+    <value>Die Spezifikation konnte nicht abgerufen werden.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_LoadSubCharacteristicValues_Failed_getting_entity_properties_" xml:space="preserve">
+    <value>Die Eigenschaften für die Einheit konnten nicht abgerufen werden.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_SaveSpecCharacteristic_Failed_saving_spec_" xml:space="preserve">
+    <value>Die Spezifikation konnte nicht gespeichert werden.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_" xml:space="preserve">
+    <value>Zugriff verweigert.</value>
+  </data>
+  <data name="SpecCharacteristicsController_AddSharedProperty_Couldn_t_add_property_" xml:space="preserve">
+    <value>Die Eigenschaft konnte nicht hinzugefügt werden.</value>
+  </data>
+  <data name="SpecCharacteristicsController_Delete_Couldn_t_delete_property_" xml:space="preserve">
+    <value>Die Eigenschaft konnte nicht gelöscht werden.</value>
+  </data>
+  <data name="SpecCharacteristicsController_SetDisplayOrder_Couldn_t_find_property_" xml:space="preserve">
+    <value>Die Eigenschaft konnte nicht gefunden werden.</value>
+  </data>
 </root>

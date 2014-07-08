@@ -30,7 +30,8 @@ public partial class ProductOfferingsList : MTPage
     // Handle Partition Id logic
     if (IsMaster)
     {
-      PartitionLibrary.SetupFilterGridForMaster(MTFilterGrid1);
+      var masterLocalizedText = GetLocalResourceObject("TEXT_MASTER") ?? "Master Product Offering";
+      PartitionLibrary.SetupFilterGridForMaster(MTFilterGrid1, masterLocalizedText.ToString());
     }
     else
     {

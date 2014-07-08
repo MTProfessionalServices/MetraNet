@@ -112,10 +112,10 @@
         <value>2.0</value>
     </resheader>
     <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="cbEndNextBillingPeriodResource1.BoxLabel" xml:space="preserve">
         <value>Próxima finalización del período de facturación del pagador después de esta fecha</value>
@@ -148,9 +148,9 @@
         <value>Fecha de inicio</value>
     </data>
 	<data name="pendingChangeUiErrorFormat" xml:space="preserve">
-		<value>[ES-MX]This Subscription already has a '{0}' change pending approval. A new change cannot be submitted until the previous change is either approved or denied.</value>
+		<value>[es-MX]This Subscription already has a '{0}' change pending approval. A new change cannot be submitted until the previous change is either approved or denied.</value>
 	</data>
 	<data name="pendingChangeWarningFormat" xml:space="preserve">
-		<value>[ES-MX]This Subscription already has a '{0}' change pending approval. &lt;a href='{1}'&gt;Click here to view the pending change.&lt;/a&gt;</value>
+		<value>[es-MX]This Subscription already has a '{0}' change pending approval. &lt;a href='{1}'&gt;Click here to view the pending change.&lt;/a&gt;</value>
 	</data>
 </root>

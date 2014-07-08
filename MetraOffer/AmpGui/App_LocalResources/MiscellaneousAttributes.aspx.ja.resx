@@ -128,36 +128,36 @@
     <value>True</value>
   </data>
   <data name="lblGenInfoResource1.Text" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Japanese </value>
+    <value>[JA] </value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
   <data name="lblGenInfoResource2.Text" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="COLUMN_NAME" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="HARDCODED_VALUE" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="NAME" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_ADD" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
   <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
 </root>

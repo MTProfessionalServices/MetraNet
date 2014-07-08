@@ -121,63 +121,63 @@
     <value>MetraNet</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Decision Action for {0} (Italian)</value>
+    <value>[IT]Decision Action for {0}</value>
   </data>
   <data name="lblIncrementalOrBulkResource1.Text" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="rblIncrementallyResource1.Text" xml:space="preserve">
-    <value>Multi-Bucket (Italian)</value>
+    <value>[IT]Multi-Bucket</value>
   </data>
   <data name="rblInBulkResource1.Text" xml:space="preserve">
-    <value>Single-Bucket(Italian)</value>
+    <value>[IT]Single-Bucket</value>
   </data>
   <data name="lblDecisionActionResource1.Text" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="radUnitRateResource1.Text" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="radEventRateResource1.Text" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="radDiscountResource1.Text" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="radGenChargeResource1.Text" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="noChargeResource1.Text" xml:space="preserve">
-    <value>None(Italian)</value>
+    <value>[IT]None</value>
   </data>
   <data name="TEXT_NAME" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="TEXT_PRODUCT_VIEW_NAME" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="TEXT_UNIQUE_ID" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="TEXT_ERROR_NO_INCREMENTAL_OR_BULK" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="TEXT_ERROR_NO_DECISION_ACTION" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="TEXT_ERROR_NO_UNIT_RATE_VALUE" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="TEXT_ERROR_NO_EVENT_RATE_VALUE" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="TEXT_ERROR_NO_DISCOUNT_VALUE" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
 </root>

@@ -166,7 +166,7 @@
     <value>Todos los intervalos</value>
   </data>
   <data name="TEXT_ANALYTICS" xml:space="preserve">
-    <value>[es]Analytics</value>
+    <value>[ES]Analytics</value>
   </data>	
   <data name="TEXT_APP_AUDIT_LOG" xml:space="preserve">
     <value>Registro de auditoría de la aplicación</value>
@@ -253,7 +253,7 @@
     <value>Crear devolución/repetición</value>
   </data>
   <data name="TEXT_CREATE_CREDIT_NOTE" xml:space="preserve">
-    <value>{ES}Create Credit Note</value>
+    <value>[ES]Create Credit Note</value>
   </data>
   <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
     <value>Añadir nueva instancia de informe</value>
@@ -334,7 +334,7 @@
     <value>Listado de todas las entidades</value>
   </data>
   <data name="TEXT_MACHINE_ROLES" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_MAKE_PAYMENT" xml:space="preserve">
     <value>Realizar un pago</value>
@@ -373,7 +373,7 @@
     <value>Gestionar seguridad</value>
   </data>
   <data name="TEXT_MASTER_OFFERINGS" xml:space="preserve">
-    <value>{ES}Master Product Offerings</value>
+    <value>[ES]Master Product Offerings</value>
   </data>
   <data name="TEXT_MENU_GENERATE_PASSWORD" xml:space="preserve">
     <value>Generar contraseña</value>
@@ -571,7 +571,7 @@
     <value>Información de la versión</value>
   </data>
   <data name="TEXT_VIEW_CREDIT_NOTES_ISSUED" xml:space="preserve">
-    <value>{ES}View Credit Notes Issued</value>
+    <value>[ES]View Credit Notes Issued</value>
   </data>
   <data name="TEXT_VIEW_METERING_STATISTICS" xml:space="preserve">
     <value>Ver</value>
@@ -580,66 +580,66 @@
     <value>Ver factura en línea</value>
   </data>
   <data name="TEXT_APPROVAL_FRAMEWORK_MANAGEMENT" xml:space="preserve">
-    <value>{ES}Approvals</value>
+    <value>[ES]Approvals</value>
   </data>
   <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
-    <value>View Item History</value>
+    <value>[ES]View Item History</value>
   </data>
   <data name="TEXT_SHOW_ALL_CHANGES_SUMMARY" xml:space="preserve">
-    <value>View All Changes</value>
+    <value>[ES]View All Changes</value>
   </data>
   <data name="TEXT_SHOW_PENDING_CHANGES_SUMMARY" xml:space="preserve">
-    <value>View Pending Changes</value>
+    <value>[ES]View Pending Changes</value>
   </data>
   <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
-    <value>View Failed Changes</value>
+    <value>[ES]View Failed Changes</value>
   </data>
   <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
-    <value>Spanish</value>
+    <value>[ES]</value>
   </data>
   <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
-    <value>[es]Add child Account</value>
+    <value>[ES]Add child Account</value>
   </data>
   <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
-    <value>[es]Bill Messages</value>
+    <value>[ES]Bill Messages</value>
   </data>
   <data name="TEXT_FINANCE_DASHBOARD" xml:space="preserve">
-    <value>[es]Finance Dashboard</value>
+    <value>[ES]Finance Dashboard</value>
   </data>
   <data name="TEXT_MANAGE_BILL_MESSAGES" xml:space="preserve">
-    <value>[es]Manage Bill Messages</value>
+    <value>[ES]Manage Bill Messages</value>
   </data>
   <data name="TEXT_OPERATIONS_DASHBOARD" xml:space="preserve">
-    <value>[es]Operations Dashboard</value>
+    <value>[ES]Operations Dashboard</value>
   </data>
   <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
-    <value>[es]Product Dashboard</value>
+    <value>[ES]Product Dashboard</value>
   </data>
   <data name="TEXT_REPORTS" xml:space="preserve">
-    <value>[es] Reports</value>
+    <value>[ES] Reports</value>
   </data> 
   <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
-    <value>{ES}Usage Processing</value>
+    <value>[ES]Usage Processing</value>
   </data>
   <data name="TEXT_ADD_PARTITION" xml:space="preserve">
-    <value>{ES}Add Partition</value>
+    <value>[ES]Add Partition</value>
   </data>
   <data name="TEXT_QUOTING" xml:space="preserve">
-    <value>{ES}Manage Quotes</value>
+    <value>[ES]Manage Quotes</value>
   </data> 
   <data name="TEXT_ACCOUNT" xml:space="preserve">
-    <value>{ES}Account</value>
+    <value>[ES]Account</value>
   </data>
   <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
-    <value>{ES}Create Quote</value>
+    <value>[ES]Create Quote</value>
   </data> 
   <data name="TEXT_QUOTING_LIST" xml:space="preserve">
-    <value>{ES}View All Quotes</value>
+    <value>[ES]View All Quotes</value>
   </data>
   <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
-    <value>{ES}Shared Properties</value>
+    <value>[ES]Shared Properties</value>
   </data>     
 </root>

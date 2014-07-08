@@ -76,8 +76,8 @@
         <LoadSubGridAutomaticallyWhenParentRowSelected>true</LoadSubGridAutomaticallyWhenParentRowSelected>
         <ParentGridParameters>
             <ParentGridParameter>
-                <ParameterName>usagecycletype</ParameterName>
-                <ElementID>usagecycletype</ElementID>
+                <ParameterName>usagecycletypename</ParameterName>
+                <ElementID>usagecycletypename</ElementID>
                 <UseParamAsFilter>true</UseParamAsFilter>
             </ParentGridParameter>
             <ParentGridParameter>

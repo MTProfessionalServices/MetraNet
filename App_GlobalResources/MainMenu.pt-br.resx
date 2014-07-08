@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -638,5 +638,11 @@
   </data>
   <data name="TEXT_ACCOUNT" xml:space="preserve">
     <value>[pt-BR]Account</value>
+  </data>
+  <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
+    <value>{PT-BR}Create Quote</value>
+  </data> 
+  <data name="TEXT_QUOTING_LIST" xml:space="preserve">
+    <value>{PT-BR}View All Quotes</value>
   </data>    
 </root>

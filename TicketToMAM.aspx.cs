@@ -1,6 +1,9 @@
 using System;
+using System.IO;
+using System.Threading;
 using MetraTech.UI.Common;
 using MetraTech.Security;
+using MetraTech.SecurityFramework;
 
 public partial class UserControls_ticketToMAM : MTPage
 {
@@ -13,18 +16,67 @@ public partial class UserControls_ticketToMAM : MTPage
 			Title = Server.HtmlEncode(Request.QueryString["Title"]);
 		}
 
-	  if (Request.QueryString["URL"] == null) return;
+		if (Request.QueryString["URL"] != null)
+		{
+			Session["IsMAMActive"] = true;
 
-	  Session["IsMAMActive"] = true;
+			// replace | with ? and ** with &
+			string gotoURL = Request.QueryString["URL"].Replace("|", "?").Replace("**", "&");
 
-	  // replace | with ? and ** with &
-	  var gotoURL = Request.QueryString["URL"].Replace("|", "?").Replace("**", "&");
+			try
+			{
+			  if(gotoURL.Contains("?"))
+          gotoURL = gotoURL + "&language=" +Session["MTSelectedLanguage"];
+        else
+          gotoURL = gotoURL + "?language=" + Session["MTSelectedLanguage"];
+        ApiInput input = new ApiInput(gotoURL);
+				SecurityKernel.AccessController.Api.ExecuteDefaultByCategory(AccessControllerEngineCategory.UrlController.ToString(), input);
+			}
+			catch (AccessControllerException accessExp)
+			{
+				Session[Constants.ERROR] = accessExp.Message;
+				gotoURL = string.Empty;
+			}
+			catch (Exception exp)
+			{
+				Session[Constants.ERROR] = exp.Message;
+				throw exp;
+			}
 
-	  HelpPage = MetraTech.Core.UI.CoreUISiteGateway.GetHelpPageAsp(Server, Session, gotoURL, Logger);
+			// Setup help URL
+			string helpName = "welcome.aspx";
+			string filePath = "";
+			try
+			{
+				string[] helpArr = gotoURL.Split('?');
+				helpName = helpArr[0].Substring(helpArr[0].LastIndexOf("/") + 1);
+				helpName = helpName.Substring(0, helpName.LastIndexOf('.'));
+			}
+			catch (Exception exp)
+			{
+				// Could not get help url
+				Logger.LogException("Could not get help URL from:" + gotoURL, exp);
+			}
+			HelpPage = "/MetraNetHelp/" + Thread.CurrentThread.CurrentCulture + "/index.htm?toc.htm?" + helpName + ".hlp.htm";
+			filePath = Server.MapPath(HelpPage.Substring(0, HelpPage.IndexOf('?')));
 
-	  var auth = new Auth();
-	  auth.Initialize(UI.User.UserName, UI.User.NameSpace);
-	  var accountId = UI.Subscriber.SelectedAccount == null ? 0 : int.Parse(UI.Subscriber["_AccountID"]);
-	  URL = auth.CreateEntryPoint("mam", "system_user", accountId, gotoURL, false, true);
+			if (!File.Exists(filePath))
+			{
+				// Set to en-us if you can't find Current Culture Help
+				HelpPage = "/MetraNetHelp/" + "en-us" + "/index.htm?toc.htm?" + helpName + ".hlp.htm";
+			}
+
+			Auth auth = new Auth();
+			auth.Initialize(UI.User.UserName, UI.User.NameSpace);
+			if (UI.Subscriber.SelectedAccount != null)
+			{
+				URL = auth.CreateEntryPoint("mam", "system_user", int.Parse(UI.Subscriber["_AccountID"]), gotoURL, false, true);
+			}
+			else
+			{
+				URL = auth.CreateEntryPoint("mam", "system_user", 0, gotoURL, false, true);
+			}
+		}
 	}
+
 }

@@ -66,7 +66,7 @@ On Error resume next
     
     Call mam_SetupCSR(strLogon, strNamespace, strNamespaceType)
       
-    Session("LocalizedPath") = Application("APP_HTTP_PATH") & "/default/localized/en-us/"
+    Session("LocalizedPath") = Application("APP_HTTP_PATH") & "/default/localized/" & Session("PAGE_LANGUAGE")
 
     Session("bTickectFromMetraView") = TRUE ' setting this to false will not close the page on logout
     

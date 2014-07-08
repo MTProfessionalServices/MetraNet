@@ -2,14 +2,14 @@
 <texts id="Payment Methods" type="collection">
 
 <description>
-O arquivo define a maioria dos textos estáticos MAM para o servidor de pagamento.
-O MAM/MDM também usa a localização fornecida pelo formato da placa MetraTech.
+The file define most of the MAM static texts related to the payment server. 
+The MAM/MDM use also the localization supplied by the MetraTech plate form.
 </description>
 
 
     <text id="TEXT_CARD_VERIFY_VALUE">
         <value>Valor de verificação do cartão</value>
-        <description>Este é o número de 3 dígitos exibido na parte de trás dos cartões MasterCard e Visa na caixa de assinatura. O propósito deste recurso é reduzir as fraudes nas transações em que o cartão não é apresentado. O proprietário do cartão fornece esta informação para provar que está de posse do cartão.</description>
+        <description>This is the 3-digit number that appears on the back of MasterCard and Visa cards in the signature box. The purpose is to aid in reducing fraud in card-not-present transactions. The cardholder provides this information to prove they are in possession of the card.</description>
     </text>
 
     <text id="TEXT_CONFIRM_REQUESTED">
@@ -34,11 +34,11 @@ O MAM/MDM também usa a localização fornecida pelo formato da placa MetraTech.
 
     <text id="TEXT_SELECTED_ELECTRONIC">
         <value>Este é o tipo de pagamento eletrônico selecionado</value>
-        <description>A mensagem a exibir, caso este seja o tipo de pagamento eletrônico preferencial</description>
+        <description>Message to display if this is the preferred electronic payment type</description>
     </text>
     
     <text id="TEXT_ERROR_ROWSET">
-        <value>Nenhuma informação de pagamento encontrada.  Solicite que seu administrador verifique sua configuração.</value>
+        <value>Nenhuma informação de pagamento encontrada. Peça ao seu administrador para verificar sua configuração.</value>
         <description></description>
     </text>
 
@@ -138,7 +138,7 @@ O MAM/MDM também usa a localização fornecida pelo formato da placa MetraTech.
     </text>
 
     <text id="TEXT_CONFIRM_DELETE_CREDIT_CARD">
-        <value>Tem certeza de que deseja remover a parte final do cartão de crédito com os seguintes últimos quatro dígitos?  [DIGITS]?</value>
+        <value>Tem certeza que deseja remover o término do cartão de crédito pelos quatro últimos dígitos de:[DIGITS]?</value>
         <description></description>
     </text>
 
@@ -228,7 +228,7 @@ O MAM/MDM também usa a localização fornecida pelo formato da placa MetraTech.
     </text>
 
     <text id="TEXT_CONFIRM_DELETE_ACH">
-        <value>Tem certeza de que deseja remover a parte final da conta ACH com os seguintes últimos quatro dígitos? [DIGITS]?</value>
+        <value>Tem certeza que deseja remover o término de conta ACH pelos quatro últimos dígitos de:[DIGITS]?</value>
         <description></description>
     </text>
 
@@ -338,12 +338,12 @@ O MAM/MDM também usa a localização fornecida pelo formato da placa MetraTech.
     </text>
 
     <text id="TEXT_PS_PRENOTE_FAILURE">
-        <value>Erro durante a execução da pré-anotação ACH.  Solicite que seu administrador verifique sua configuração do servidor de pagamentos.</value>
+        <value>Erro ao executar Pré-nota ACH. Peça ao seu administrador para verificar sua configuração de servidor de pagamento.</value>
         <description></description>
     </text>
 
     <text id="TEXT_AUTH_FAILURE">
-        <value>Erro durante a execução da autorização de arquivo ACH.  Solicite que seu administrador verifique sua configuração do servidor de pagamentos.</value>
+        <value>Erro ao executar autorização de arquivo ACH. Peça ao seu administrador para verificar sua configuração de servidor de pagamento.</value>
         <description></description>
     </text>
     <text id="TEXT_ISSUER_NUMBER">
@@ -356,4 +356,3 @@ O MAM/MDM também usa a localização fornecida pelo formato da placa MetraTech.
         <description></description>
     </text>
 </texts>
-

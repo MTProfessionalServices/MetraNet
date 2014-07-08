@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="fred" type="collection">
 
     <description></description>
@@ -10,7 +9,7 @@
     </text>
 
     <text id="TEXT_NO_AUTH">
-        <value>Sua sessão expirou.  Faça login novamente.</value>
+        <value>Sua sessão expirou. Faça login novamente.</value>
         <description></description>
     </text>
 
@@ -30,11 +29,8 @@
     </text>
 
     <text id="TEXT_INVALID_BLANK_LOGIN">
-        <value>O nome de usuário ou senha não podem ficar em branco.  Tente novamente.</value>
+        <value>Nome de usuário ou senha não podem ficar em branco. Tente novamente.</value>
         <description></description>
     </text> 	  
                   
 </texts>
-
-
-

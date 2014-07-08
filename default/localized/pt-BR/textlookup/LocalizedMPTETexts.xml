@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="MPTE" type="collection">
 
     <description></description>
@@ -83,7 +82,7 @@
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_UNSAVED_CHANGES">
-        <value>Você optou por atualizar ou fechar, mas no momento você tem alterações não salvas. Tem certeza que deseja continuar?</value>
+        <value>Você escolheu atualizar ou fecha, mas tem alterações não salvas no momento. Tem certeza que deseja prosseguir?</value>
 		<description></description>
     </text>
 
@@ -119,12 +118,12 @@
 		
 		<text id="TEXT_MPTE_IMPORT_BTN">
         <value>Copiar regras</value>
-		    <description>Copiar regras por meio de outro agendamento de taxa</description>
+		    <description>Copy Rules From Another Rate Schedule</description>
     </text>
     
 		<text id="TEXT_MPTE_EDIT_AS_XML_BTN">
         <value>Editar como XML</value>
-		    <description>Editar essas regras no formato XML</description>
+		    <description>Edit these rules in XML form</description>
     </text>
     
 		<text id="TEXT_MPTE_EDIT_AS_XML">
@@ -329,7 +328,7 @@
     </text>
 		
 		<text id="TEXT_MPTE_ERROR_CALENDAR_NAME_DUPLICATE">
-        <value>Um calendário com este nome já existe no sistema. Renomeie este calendário e tente novamente.</value><description></description>
+        <value>Já existe um calendário com esse nome no sistema. Renomeie esse calendário e tente novamente.</value><description></description>
 				<description></description>
     </text>
 		
@@ -419,7 +418,7 @@
     </text>
 		
 		<text id="TEXT_MPTE_NO_CALENDAR_CONFIGURED">
-        <value>Aviso: Nenhum calendário configurado</value>
+        <value>Aviso: nenhum calendário configurado</value>
 		<description></description>
     </text>
 		
@@ -442,7 +441,7 @@
     </text>
 		
     <text id="TEXT_MPTE_CALENDAR_SAVED">
-        <value>O calendário foi salvo com sucesso.  Se o uso já tiver sido classificado usando este calendário, o pipeline deverá ser reiniciado para que os novos valores entrem em vigor.</value>
+        <value>O calendário foi salvo com sucesso. Se a utilização já foi avaliada usando esse calendário, o pipeline pode precisar ser reiniciado para que os novos valores entrem em vigor.</value>
     </text>
 		
 		<text id="TEXT_RATESCHEDULE_PICKER_TITLE">
@@ -651,11 +650,11 @@
     </text>
 
     <text id="TEXT_MPTE_ERROR_UNKNOWN">
-        <value>Ocorreu um erro desconhecido.  Tente novamente mais tarde. Se o problema continuar, entre em contato com o administrador do sistema.</value><description></description>
+        <value>Ocorreu um erro desconhecido. Tente novamente mais tarde. Se o problema persistir, entre em contato com o administrador do sistema.</value><description></description>
     </text>
 
     <text id="TEXT_MPTE_ERROR_CANNOT_CREATE_OBJ">
-        <value>Não foi possível criar o objeto. Verifique se o objeto está disponível e registrado.</value><description></description>
+        <value>Não foi possível criar o objeto. Certifique-se de que esse objeto está disponível e registrado.</value><description></description>
     </text>
 
     <text id="TEXT_MPTE_ERROR_NOT_FOUND">
@@ -663,7 +662,7 @@
     </text>
 
 		<text id="TEXT_MPTE_ERROR_RATESCHEDULE_SAVE_FAILED">
-        <value>Não foi possível salvar [TEXT_KEYTERM_RATE_SCHEDULE] com regras para o banco de dados. Verifique seu arquivo de log.</value><description></description>
+        <value>Não foi possível salvar a [TEXT_KEYTERM_RATE_SCHEDULE] com regras no banco de dados. Verifique seu arquivo de log.</value><description></description>
     </text>
 		
     <text id="TEXT_MPTE_ERROR_CANNOT_INITIALIZE_OBJ">
@@ -679,7 +678,7 @@
     </text>
 		
     <text id="TEXT_MPTE_WARNING_EDIT_PAST_RATES">
-        <value><![CDATA[<b>Aviso:</b> você está editando as taxas que podem ser (ou foram) efetivas.]]></value><description></description>
+        <value><![CDATA[<b>Aviso:</b> você está editando taxas que podem estar (ou que estiveram) vigentes.]]></value><description></description>
     </text>
 
     <text id="TEXT_MPTE_ERROR_OVERFLOW">
@@ -703,7 +702,7 @@
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_WARNING_WHEN_EDITING">
-        <value>Aviso: Muitos [TEXT_KEYTERM_RATE_SCHEDULES] podem estar usando este calendário. Qualquer alteração feita afetará todos eles. </value>
+        <value>Aviso: muitas [TEXT_KEYTERM_RATE_SCHEDULES] podem estar usando esse calendário. Qualquer alteração feita poderá afetá-las. </value>
 				<description></description>
     </text>
 
@@ -728,7 +727,7 @@
 				<description></description>
     </text>
 		<text id="TEXT_MPTE_DIFF_DISPLAY_NOCHANGE_MESSAGE">
-        <value><![CDATA[<b>Os dois conjuntos de dados são idênticos.</b><BR>Isso pode acontecer quando um conjunto de regras é salvo mas nenhuma edição é feita no conjunto de regras.&nbsp;&nbsp;
+        <value><![CDATA[<b>Os dois conjuntos de regras são idênticos.</b><BR>Isso pode acontecer quando um conjunto de regras é salvo, mas não é feita nenhuma edição no conjunto de regras.&nbsp;&nbsp;
 ]]></value>
 				<description></description>
     </text>
@@ -737,7 +736,7 @@
 				<description></description>
     </text>
   <text id="TEXT_APPROVALS_RATESCHEDULE_ALREADY_HAS_PENDING_CHANGE">
-    <value>Esse agendamento de taxa tem uma aprovação pendente de atualização no momento. Para obter consistência, não será possível executar as futuras atualizações até que a alteração pendente seja aprovada ou negada.</value>
+    <value>Essa agenda de taxas atualmente tem uma atualização cuja aprovação está pendente. Para manter a consistência, atualizações posteriores não podem ser feitas até que a alteração pendente seja aprovada ou negada.</value>
     <description></description>
   </text>
   <text id="TEXT_APPROVALS_VIEW_PENDING_CHANGE">

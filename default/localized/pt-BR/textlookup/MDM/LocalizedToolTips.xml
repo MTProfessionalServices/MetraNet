@@ -2,7 +2,7 @@
 <texts id="Tool Tips" type="collection">
 
 <description>
-Este arquivo define a localização das dicas de ferramenta MAM
+This file defines the MAM tool tips localization.
 </description>
 
 
@@ -146,4 +146,3 @@ Este arquivo define a localização das dicas de ferramenta MAM
     </text>
         
 </texts>
-

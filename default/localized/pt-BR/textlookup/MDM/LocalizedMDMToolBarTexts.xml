@@ -42,25 +42,24 @@
 				<description></description>
 		</text>
 
-	 <text id='MDM_TOOL_BAR_PAGE_WORD'>
+	 <text id="MDM_TOOL_BAR_PAGE_WORD">
 			<value>Página</value>
 		</text> 	
-		<text id='MDM_TOOL_BAR_OF_WORD'>
+		<text id="MDM_TOOL_BAR_OF_WORD">
 			<value>de</value>
     </text> 
     
-    <text id='MDM_SELECT_ALL'>
+    <text id="MDM_SELECT_ALL">
 			<value>Selecionar tudo</value>
     </text>     
-    <text id='MDM_UNSELECT_ALL'>
+    <text id="MDM_UNSELECT_ALL">
 			<value>Desmarcar tudo</value>
     </text>             
-    <text id='MDM_SELECT_PAGE'>
+    <text id="MDM_SELECT_PAGE">
 			<value>Selecionar página</value>
     </text>             
-    <text id='MDM_UNSELECT_PAGE'>
+    <text id="MDM_UNSELECT_PAGE">
 			<value>Desmarcar página</value>
     </text>                 
     
 </texts>
-

@@ -1,17 +1,32 @@
 
         /*Summary by AccountName and Error Type*/
         select
-            RAWTOHEX(SYS_GUID()) as UniqueId, 
-             (CASE WHEN id_PossiblePayerID = -1  THEN N'UNKNOWN' ELSE MAX(hn.hierarchyname) END) as PayerAccountHierarchyName,
-            id_PossiblePayerID as PayerID,
-            SUBSTR(tx_ErrorMessage, 1, 8) as Error,
-            MAX(tx_ErrorMessage) as ExampleError,
-            COUNT(*) as Count
-        from 
-          t_failed_transaction ft
-        left join VW_HIERARCHYNAME hn on ft.id_PossiblePayerID = hn.id_acc
-        where 
-          State in ('N','I', 'C')
-        group by id_PossiblePayerID, SUBSTR(tx_ErrorMessage, 1, 8)
-        order by Count desc
+              Rawtohex(Sys_Guid()) As Uniqueid, 
+ 	            MAX(hn.hierarchyname) as PayerAccountHierarchyName, 
+ 	            id_PossiblePayerID as PayerID, 
+ 	            SUBSTR(tx_ErrorMessage, 1, 8) as Error, 
+ 	            Max(Tx_Errormessage) As Exampleerror, 
+ 	            COUNT(ft.id_failed_transaction) as Count 
+ 	        from 
+ 	             t_failed_transaction ft 
+ 	        join VW_HIERARCHYNAME hn on ft.id_PossiblePayerID = hn.id_acc 
+ 	        where 
+ 	             State in ('N','I', 'C') 
+       Group By Id_Possiblepayerid, Substr(Tx_Errormessage, 1, 8) 
+       
+       Union all 
+ 	      select 
+ 	            Rawtohex(Sys_Guid()) As Uniqueid, 
+ 	            N'UNKNOWN' as PayerAccountHierarchyName, 
+ 	            id_PossiblePayerID as PayerID, 
+ 	            SUBSTR(tx_ErrorMessage, 1, 8) as Error, 
+ 	            Max(Tx_Errormessage) As Exampleerror, 
+ 	            COUNT(ft.id_failed_transaction) as Count 
+ 	        from 
+ 	            t_failed_transaction ft 
+ 	       where 
+ 	            State In ('N','I', 'C') 
+ 	         And Id_Possiblepayerid = -1 
+ 	    Group By Id_Possiblepayerid, Substr(Tx_Errormessage, 1, 8) 
+ 	    order by Count DESC  
             

@@ -24,19 +24,19 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/audit/enmApplicationID/UNKNOWN</Name>
-      <Value>[pt-BR]UNKNOWN</Value>
+      <Value>DESCONHECIDO</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/audit/enmAuditOperation/Add</Name>
-      <Value>[pt-BR]Add</Value>
+      <Value>Adicionar</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/audit/enmAuditOperation/Delete</Name>
-      <Value>[pt-BR]Delete</Value>
+      <Value>Excluir</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/audit/enmAuditOperation/Update</Name>
-      <Value>[pt-BR]Update</Value>
+      <Value>Atualizar</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/audit/subscriberaccountID</Name>

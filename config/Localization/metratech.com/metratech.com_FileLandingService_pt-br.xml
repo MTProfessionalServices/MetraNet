@@ -4,11 +4,11 @@
   <locale_space name="metratech.com/FileLandingService">
     <locale_entry>
       <Name>metratech.com/FileLandingService/eArgumentType/BATCHID</Name>
-      <Value>[pt-BR]BATCHID</Value>
+      <Value>BATCHID</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eArgumentType/FILE</Name>
-      <Value>Arquivo</Value>
+      <Value>ARQUIVO</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eArgumentType/FIXED</Name>
@@ -16,15 +16,15 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eArgumentType/KVP</Name>
-      <Value>[pt-BR]KVP</Value>
+      <Value>KVP</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eArgumentType/SCRIPT</Name>
-      <Value>[pt-BR]SCRIPT</Value>
+      <Value>SCRIPT</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eArgumentType/TRACKINGID</Name>
-      <Value>[pt-BR]TRACKINGID</Value>
+      <Value>TRACKINGID</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eConditionalType/ALWAYS</Name>
@@ -40,15 +40,15 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eConditionalType/ONRESUBMIT</Name>
-      <Value>[pt-BR]ONRESUBMIT</Value>
+      <Value>ONRESUBMIT</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eDirectoryType/COMPLETED</Name>
-      <Value>Concluído</Value>
+      <Value>CONCLUÍDO</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eDirectoryType/FAILED</Name>
-      <Value>Falhou</Value>
+      <Value>FALHOU</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eDirectoryType/METERED</Name>
@@ -56,7 +56,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eDirectoryType/TEMP</Name>
-      <Value>[pt-BR]TEMP</Value>
+      <Value>TEMP</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eDirectoryType/WATCHED</Name>
@@ -64,7 +64,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eEventFilterType/ALL</Name>
-      <Value>TUDO</Value>
+      <Value>TODOS</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eEventFilterType/CHANGED</Name>
@@ -76,7 +76,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eEventFilterType/DELETED</Name>
-      <Value>Excluído</Value>
+      <Value>EXCLUÍDO</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eEventFilterType/RENAMED</Name>
@@ -104,23 +104,23 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eFileState/PENDING</Name>
-      <Value>Pendente</Value>
+      <Value>PENDENTE</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eFileState/REJECTED</Name>
-      <Value>Rejeitado</Value>
+      <Value>REJEITADO</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/EInvocationState/ACTIVE</Name>
-      <Value>Ativo</Value>
+      <Value>ATIVO</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/EInvocationState/COMPLETED</Name>
-      <Value>Concluído</Value>
+      <Value>CONCLUÍDO</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/EInvocationState/FAILED</Name>
-      <Value>Falhou</Value>
+      <Value>FALHOU</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/EInvocationState/MATCHED</Name>
@@ -132,7 +132,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/EInvocationState/PENDING</Name>
-      <Value>Pendente</Value>
+      <Value>PENDENTE</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/EInvocationState/QUEUED</Name>
@@ -140,7 +140,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/EInvocationState/UNKNOWN</Name>
-      <Value>Desconhecido</Value>
+      <Value>DESCONHECIDO</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/EInvocationState/UNMATCHED</Name>
@@ -168,7 +168,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eRejectionReason/ImproperN</Name>
-      <Value>[pt-BR]ImproperN</Value>
+      <Value>ImproperN</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eRejectionReason/INTERFERENCE</Name>
@@ -216,7 +216,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/ESecurityTokenType/TOKEN</Name>
-      <Value>[pt-BR]TOKEN</Value>
+      <Value>TOKEN</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/EServiceState/Active</Name>
@@ -252,15 +252,15 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eTargetType/EXECUTABLE</Name>
-      <Value>Executável</Value>
+      <Value>EXECUTÁVEL</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/eTargetType/GENERATED</Name>
-      <Value>Conjunto</Value>
+      <Value>CONJUNTO</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/ScriptArgumentType/FILE</Name>
-      <Value>Arquivo</Value>
+      <Value>ARQUIVO</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/FileLandingService/ScriptArgumentType/KVP</Name>

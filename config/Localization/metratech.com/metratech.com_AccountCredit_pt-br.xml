@@ -56,19 +56,19 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/AccountCredit/GuideIntervalID</Name>
-      <Value>[pt-BR]GuideIntervalID</Value>
+      <Value>GuideIntervalID</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/AccountCredit/IgnorePaymentRedirection</Name>
-      <Value>[pt-BR]IgnorePaymentRedirection</Value>
+      <Value>IgnorePaymentRedirection</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/AccountCredit/InternalComment</Name>
-      <Value>[pt-BR]Internal Description</Value>
+      <Value>Descrição interna</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/AccountCredit/InvoiceComment</Name>
-      <Value>[pt-BR]Invoice Description</Value>
+      <Value>Descrição de fatura</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/AccountCredit/Issuer</Name>
@@ -76,7 +76,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/AccountCredit/NameSpace</Name>
-      <Value>[pt-BR]NameSpace</Value>
+      <Value>NameSpace</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/AccountCredit/Other</Name>
@@ -92,7 +92,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/AccountCredit/RequestAmount</Name>
-      <Value>[pt-BR]RequestAmount</Value>
+      <Value>RequestAmount</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/AccountCredit/RequestID</Name>
@@ -108,7 +108,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/AccountCredit/Status</Name>
-      <Value>[pt-BR]Status</Value>
+      <Value>Status</Value>
     </locale_entry>
   </locale_space>
 </mt_config>

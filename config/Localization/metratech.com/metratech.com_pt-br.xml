@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <mt_config>
   <language_code>pt-br</language_code>
   <locale_space name="metratech.com">
@@ -8,7 +8,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/AccountID</Name>
-      <Value>Id de conta</Value>
+      <Value>ID de conta</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/AccountingCodeView</Name>
@@ -32,7 +32,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/audit/enmApplicationID/UNKNOWN</Name>
-      <Value>Desconhecido</Value>
+      <Value>DESCONHECIDO</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/audit/enmAuditOperation/Add</Name>
@@ -48,19 +48,19 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/BillMessageType/FOOTER</Name>
-      <Value>[pt-BR]Footer</Value>
+      <Value>Rodapé</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/BillMessageType/HEADER</Name>
-      <Value>[pt-BR]Header</Value>
+      <Value>Cabeçalho</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/BillMessageType/INSERT</Name>
-      <Value>[pt-BR]Insert</Value>
+      <Value>Inserir</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/BillMessageType/OTHER</Name>
-      <Value>[pt-BR]Other</Value>
+      <Value>Outro</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/CountyTaxAmount</Name>
@@ -76,7 +76,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/CreditCardType/Discover</Name>
-      <Value>Discover</Value>
+      <Value>Descobrir</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/CreditCardType/JCB</Name>
@@ -96,7 +96,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/CreditCardType/None</Name>
-      <Value>[pt-BR]None</Value>
+      <Value>Nenhum</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/CreditCardType/Visa</Name>
@@ -200,7 +200,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/Complete</Name>
-      <Value>[pt-BR]Complete</Value>
+      <Value>Concluído</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/Converted</Name>
@@ -208,7 +208,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/Failed</Name>
-      <Value>[pt-BR]Failed</Value>
+      <Value>Falhou</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/InProgress</Name>
@@ -216,7 +216,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/QuoteStatus/None</Name>
-      <Value>[pt-BR]None</Value>
+      <Value>Nenhum</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SaleForceRelationship/Account Development</Name>
@@ -284,7 +284,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestReason/Other</Name>
-      <Value>[pt-BR]Other</Value>
+      <Value>Outro</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestReason/PoorConnection</Name>
@@ -292,15 +292,15 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestStatus/APPROVED</Name>
-      <Value>[pt-BR]APPROVED</Value>
+      <Value>APROVADO</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestStatus/DENIED</Name>
-      <Value>[pt-BR]DENIED</Value>
+      <Value>NEGADO</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/SubscriberCreditAccountRequestStatus/PENDING</Name>
-      <Value>[pt-BR]PENDING</Value>
+      <Value>PENDENTE</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/TaxAmount</Name>

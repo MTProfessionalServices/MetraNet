@@ -4,11 +4,11 @@
   <locale_space name="Global">
     <locale_entry>
       <Name>Global/AccessLevel/READ</Name>
-      <Value>LIDO</Value>
+      <Value>READ</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/AccessLevel/WRITE</Name>
-      <Value>GRAVAR</Value>
+      <Value>WRITE</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/Application/Application/MAM</Name>
@@ -172,7 +172,7 @@
     </locale_entry>
     <locale_entry>
       <Name>Global/CountryName/Bosnia/Hercegovina</Name>
-      <Value>Bósnia/Herzegóvina</Value>
+      <Value>Bósnia/Herzegovina</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/CountryName/Botswana</Name>
@@ -204,7 +204,7 @@
     </locale_entry>
     <locale_entry>
       <Name>Global/CountryName/Cambodia</Name>
-      <Value>Cambodja</Value>
+      <Value>Camboja</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/CountryName/Cameroon</Name>
@@ -684,7 +684,7 @@
     </locale_entry>
     <locale_entry>
       <Name>Global/CountryName/Niger Republic</Name>
-      <Value>República do Niger</Value>
+      <Value>República do Níger</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/CountryName/Nigeria</Name>
@@ -1040,19 +1040,19 @@
     </locale_entry>
     <locale_entry>
       <Name>Global/EntityType/AgreementTemplate</Name>
-      <Value>AgreementTemplate</Value>
+      <Value>Modelo de contrato</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/EntityType/ProductOffering</Name>
-      <Value>ProductOffering</Value>
+      <Value>Oferta de produto</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/LanguageCode/BR</Name>
-      <Value>Portuguese-Brazil</Value>
+      <Value>Português-Brasil</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/LanguageCode/DA</Name>
-      <Value>Danish</Value>
+      <Value>Dinamarquês</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/LanguageCode/de</Name>
@@ -1060,7 +1060,7 @@
     </locale_entry>
     <locale_entry>
       <Name>Global/LanguageCode/ES</Name>
-      <Value>ES</Value>
+      <Value>Espanhol</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/LanguageCode/fr</Name>
@@ -1080,7 +1080,7 @@
     </locale_entry>
     <locale_entry>
       <Name>Global/LanguageCode/MX</Name>
-      <Value>Spanish-Mexico</Value>
+      <Value>Espanhol-México</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/LanguageCode/us</Name>
@@ -1148,27 +1148,27 @@
     </locale_entry>
     <locale_entry>
       <Name>Global/PropertyType/boolean</Name>
-      <Value>Global/PropertyType/boolean</Value>
+      <Value>booleano</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/PropertyType/datetime</Name>
-      <Value>Global/PropertyType/datetime</Value>
+      <Value>data-hora</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/PropertyType/decimal</Name>
-      <Value>Global/PropertyType/decimal</Value>
+      <Value>decimal</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/PropertyType/int</Name>
-      <Value>Global/PropertyType/int</Value>
+      <Value>int</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/PropertyType/list</Name>
-      <Value>Global/PropertyType/list</Value>
+      <Value>lista</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/PropertyType/string</Name>
-      <Value>Global/PropertyType/string</Value>
+      <Value>string</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/TimeZoneID/(GMT 03:00) Baghdad</Name>
@@ -1216,11 +1216,11 @@
     </locale_entry>
     <locale_entry>
       <Name>Global/TimeZoneID/(GMT+03:00) Kuwait, Nairobi, Riyadh</Name>
-      <Value>(GMT+03:00) Kuwait, Nairobi, Riad</Value>
+      <Value>(GMT+03:00) Kuwait, Nairóbi, Riad</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/TimeZoneID/(GMT+03:00) Kuwait, Riyadh, Nairobi</Name>
-      <Value>(GMT+03:00) Kuwait, Riad, Nairobi</Value>
+      <Value>(GMT+03:00) Kuwait, Riad, Nairóbi</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/TimeZoneID/(GMT+03:00) Moscow, St. Petersburg, Kazan, Volgograd</Name>
@@ -1244,11 +1244,11 @@
     </locale_entry>
     <locale_entry>
       <Name>Global/TimeZoneID/(GMT+05:30) Bombay, Calcutta, Madras, New Delhi, Colombo</Name>
-      <Value>(GMT+05:30) Bombai, Calcutá, Madras, Nova Déli, Colombo</Value>
+      <Value>(GMT+05:30) Bombaim, Calcutá, Madras, Nova Déli, Colombo</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/TimeZoneID/(GMT+06:00) Almaty, Dhaka</Name>
-      <Value>(GMT+06:00) Almaty, Dhaka</Value>
+      <Value>(GMT+06:00) Almaty, Dhâka</Value>
     </locale_entry>
     <locale_entry>
       <Name>Global/TimeZoneID/(GMT+07:00) Bangkok, Jakarta, Hanoi</Name>

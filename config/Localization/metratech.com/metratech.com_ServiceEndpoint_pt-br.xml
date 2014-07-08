@@ -4,7 +4,7 @@
   <locale_space name="metratech.com/ServiceEndpoint">
     <locale_entry>
       <Name>metratech.com/ServiceEndpoint/Operation/AddIDMapping</Name>
-      <Value>[pt-BR]AddIDMapping</Value>
+      <Value>AddIDMapping</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/ServiceEndpoint/Operation/Connect</Name>

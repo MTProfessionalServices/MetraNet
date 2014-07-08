@@ -36,19 +36,19 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/flatrecurringcharge/ProratedOnSubscription</Name>
-      <Value>Reteado devido à assinatura</Value>
+      <Value>Rateado devido à assinatura</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/flatrecurringcharge/ProratedOnUnSubscription</Name>
-      <Value>Reteado devido ao cancelamento da assinatura</Value>
+      <Value>Rateado devido ao cancelamento da assinatura</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/flatrecurringcharge/ProrateOnSubscription</Name>
-      <Value>Retear devido à assinatura</Value>
+      <Value>Ratear devido à assinatura</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/flatrecurringcharge/ProrateOnUnSubscription</Name>
-      <Value>Retear devido ao cancelamento da assinatura</Value>
+      <Value>Ratear devido ao cancelamento da assinatura</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/flatrecurringcharge/RCAmount</Name>

@@ -4,7 +4,7 @@
   <locale_space name="Approvals">
     <locale_entry>
       <Name>Approvals/ChangeType/AccountUpdate</Name>
-      <Value>Atualização das propriedades da conta</Value>
+      <Value>Atualização de propriedades de conta</Value>
     </locale_entry>
     <locale_entry>
       <Name>Approvals/ChangeType/RateUpdate</Name>
@@ -16,7 +16,7 @@
     </locale_entry>
     <locale_entry>
       <Name>Approvals/ChangeState/ApprovedWaitingToBeApplied</Name>
-      <Value>Aprovada e aguardando aplicação</Value>
+      <Value>Aprovado aguardando ser aplicado</Value>
     </locale_entry>
     <locale_entry>
       <Name>Approvals/ChangeState/FailedToApply</Name>
@@ -36,31 +36,31 @@
     </locale_entry>
     <locale_entry>
       <Name>Approvals/ChangeType/Subscription.Add</Name>
-      <Value>[PT-BR]New Subscription</Value>
+      <Value>Nova assinatura</Value>
     </locale_entry>
     <locale_entry>
       <Name>Approvals/ChangeType/Subscription.Update</Name>
-      <Value>[PT-BR]Subscription Update</Value>
+      <Value>Atualização da assinatura</Value>
     </locale_entry>
     <locale_entry>
       <Name>Approvals/ChangeType/GroupSubscription.AddMemberHierarchies</Name>
-      <Value>Assinatura em grupo: adicionar hierarquia de membro</Value>
+      <Value>Assinatura em grupo: Adição de hierarquia de membro</Value>
     </locale_entry>
     <locale_entry>
       <Name>Approvals/ChangeType/GroupSubscription.AddMembers</Name>
-      <Value>Assinatura em grupo: adicionar membro</Value>
+      <Value>Assinatura em grupo: adição de membro</Value>
     </locale_entry>
     <locale_entry>
       <Name>Approvals/ChangeType/GroupSubscription.UnsubscribeMembers</Name>
-      <Value>Assinatura em grupo: cancelar assinatura de membros</Value>
+      <Value>Assinatura em grupo: cancelamento da assinatura do membro</Value>
     </locale_entry>
     <locale_entry>
       <Name>Approvals/ChangeType/GroupSubscription.UpdateMember</Name>
-      <Value>Assinatura em grupo: atualização de membro</Value>
+      <Value>Assinatura em grupo: Atualização do membro</Value>
     </locale_entry>
     <locale_entry>
       <Name>Approvals/ChangeType/GroupSubscription.DeleteMembers</Name>
-      <Value>Assinatura em grupo: excluir membros</Value>
+      <Value>Assinatura em grupo: exclusão do membro</Value>
     </locale_entry>
   </locale_space>
 </mt_config>

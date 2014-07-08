@@ -40,7 +40,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/AddCharge/NameSpace</Name>
-      <Value>[pt-BR]NameSpace</Value>
+      <Value>NameSpace</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/AddCharge/otherchargetypecomment</Name>
@@ -64,7 +64,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/AddCharge/taxtype</Name>
-      <Value>Taxável</Value>
+      <Value>Tributável</Value>
     </locale_entry>
   </locale_space>
 </mt_config>

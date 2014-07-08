@@ -76,11 +76,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DefaultProductView/IsTaxInclusive</Name>
-      <Value>[pt-BR]Is tax inclusive?</Value>
+      <Value>Inclui impostos?</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DefaultProductView/IsTaxInformational</Name>
-      <Value>[pt-BR]Is tax informational?</Value>
+      <Value>Informa impostos?</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DefaultProductView/IsPostBillAdjusted</Name>
@@ -160,7 +160,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DefaultProductView/TimeStamp</Name>
-      <Value>[pt-BR]Time Stamp</Value>
+      <Value>Time Stamp</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/DefaultProductView/ViewID</Name>

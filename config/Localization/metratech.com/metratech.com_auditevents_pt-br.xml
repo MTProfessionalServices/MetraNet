@@ -80,7 +80,7 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_ACCOUNT_TEMPLATE_DELETE_DENIED</Name>
-      <Value>[pt-BR]Delete account template denied</Value>
+      <Value>Exclusão do modelo de conta negada</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_ACCOUNT_TEMPLATE_DELETE_FAILED</Name>
@@ -160,50 +160,50 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_CREDIT_ACH_FAILED</Name>
-      <Value>[pt-BR]Credit ACH failed</Value>
+      <Value>Falha no ACH de crédito</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_CREDIT_ACH_SUCCESS</Name>
-      <Value>[pt-BR]Credit ACH Success</Value>
+      <Value>Sucesso no crédito ACH</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_ADD_ACH_SUCCESS</Name>
-      <Value>[pt-BR]Add ACH succeeded</Value>
+      <Value>Adição de ACH realizada</Value>
     </locale_entry>
 
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_UPDATE_ACH_SUCCESS</Name>
-      <Value>[pt-BR]Update ACH Succeeded</Value>
+      <Value>Atualização ACH bem sucedida</Value>
     </locale_entry>
 
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_DELETE_ACH_SUCCESS</Name>
-      <Value>[pt-BR]Delete ACH succeeded</Value>
+      <Value>Exclusão de ACH realizada</Value>
     </locale_entry>
 
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_ASSIGN_ACH_SUCCESS</Name>
-      <Value>[pt-BR]Assign ACH succeeded</Value>
+      <Value>Atribuição de ACH realizada</Value>
     </locale_entry>
 
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_ADD_ACH_FAILED</Name>
-      <Value>[pt-BR]Add ACH failed</Value>
+      <Value>Falha ao adicionar ACH</Value>
     </locale_entry>
 
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_UPDATE_ACH_FAILED</Name>
-      <Value>[pt-BR]Update ACH failed</Value>
+      <Value>Falha na atualização ACH</Value>
     </locale_entry>
 
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_DELETE_ACH_FAILED</Name>
-      <Value>[pt-BR]Delete ACH failed</Value>
+      <Value>Falha na exclusão de ACH</Value>
     </locale_entry>
 
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_ASSIGN_ACH_FAILED</Name>
-      <Value>[pt-BR]Assign ACH failed</Value>
+      <Value>Falha ao atribuir ACH</Value>
     </locale_entry>
 
     <locale_entry>
@@ -216,11 +216,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_DEBIT_ACH_FAILED</Name>
-      <Value>[pt-BR]Debit ACH failed</Value>
+      <Value>Falha no débito ACH</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_DEBIT_ACH_SUCCESS</Name>
-      <Value>[pt-BR]Debit ACH Success</Value>
+      <Value>Sucesso no ACH de débito</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_DEBIT_CREDITCARD_FAILED</Name>
@@ -296,83 +296,83 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_CREATE_SPEC_CHAR</Name>
-      <Value>[pt-BR]Created specfication charactertistic.</Value>
+      <Value>Característica de especificação criada.</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEEVENT_DELETE_SPEC_CHAR</Name>
-      <Value>[pt-BR]Deleted specification characteristic</Value>
+      <Value>Característica de especificação excluída.</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_UPDATE_SPEC_CHAR</Name>
-      <Value>[pt-BR]Updated specification characteristic</Value>
+      <Value>Característica de especificação atualizada</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_CREATE_SPEC_CHAR_VAL</Name>
-      <Value>[pt-BR]Created specification characteristic value</Value>
+      <Value>Valor de característica de especificação criado</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_DELETE_SPEC_CHAR_VAL</Name>
-      <Value>[pt-BR]Deleted specfication charactertistic value</Value>
+      <Value>Valor de característica de especificação excluído</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_UPDATE_SPEC_CHAR_VAL</Name>
-      <Value>[pt-BR]Updated specification characteristic value</Value>
+      <Value>Valor de característica de especificação atualizado</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_CREATED_CHAR_VAL</Name>
-      <Value>[pt-BR]Created characteristic value</Value>
+      <Value>Valor de característica criado</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_REMOVED_CHAR_VAL</Name>
-      <Value>[pt-BR]Removed characteristic value</Value>
+      <Value>Valor de característica removido</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_CREATE_SPEC_CHAR_FAILED</Name>
-      <Value>[pt-BR]Created specfication charactertistic failed.</Value>
+      <Value>Falha na característica de especificação criada.</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEEVENT_DELETE_SPEC_CHAR_FAILED</Name>
-      <Value>[pt-BR]Deleted specification characteristic failed</Value>
+      <Value>Falha no valor de característica de especificação excluído</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_UPDATE_SPEC_CHAR_FAILED</Name>
-      <Value>[pt-BR]Updated specification characteristic failed</Value>
+      <Value>Falha na característica de especificação atualizada</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_CREATE_SPEC_CHAR_VAL_FAILED</Name>
-      <Value>[pt-BR]Created specification characteristic value failed</Value>
+      <Value>Falha no valor de característica de especificação criado</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_DELETE_SPEC_CHAR_VAL_FAILED</Name>
-      <Value>[pt-BR]Deleted specfication charactertistic value failed</Value>
+      <Value>Falha no valor de característica de especificação excluído</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_UPDATE_SPEC_CHAR_VAL_FAILED</Name>
-      <Value>[pt-BR]Updated specification characteristic value failed</Value>
+      <Value>Falha no valor de característica de especificação atualizado</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_CREATED_CHAR_VAL_FAILED</Name>
-      <Value>[pt-BR]Created characteristic value failed</Value>
+      <Value>Falha no valor de característica criado</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_REMOVED_CHAR_VAL_FAILED</Name>
-      <Value>[pt-BR]Removed characteristic value failed</Value>
+      <Value>Falha no valor de característica removido</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_ADD_SPEC_TO_ENTITY</Name>
-      <Value>[pt-BR]Added specification characteristic to entity</Value>
+      <Value>Característica de especificação adicionada à entidade</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_REMOVE_SPEC_FROM_ENTITY</Name>
-      <Value>[pt-BR]Removed specification characteristic from entity</Value>
+      <Value>Característica de especificação removida da entidade</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_ONETIME_CREDIT_ACH_FAILED</Name>
-      <Value>[pt-BR]One time Credit ACH failed</Value>
+      <Value>Falha de ACH de crédito único</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_ONETIME_CREDIT_ACH_SUCCESS</Name>
-      <Value>[pt-BR]One time Credit ACH Success</Value>
+      <Value>Sucesso no ACH de crédito único</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_ONETIME_CREDIT_CREDITCARD_FAILED</Name>
@@ -384,11 +384,11 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_ONETIME_DEBIT_ACH_FAILED</Name>
-      <Value>[pt-BR]One time Debit ACH failed</Value>
+      <Value>Falha de ACH de débito único</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_ONETIME_DEBIT_ACH_SUCCESS</Name>
-      <Value>[pt-BR]One time Debit ACH Success</Value>
+      <Value>Sucesso no ACH de débito único</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_ONETIME_DEBIT_CREDITCARD_FAILED</Name>
@@ -400,39 +400,39 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_PLM_CREATE</Name>
-      <Value>[pt-BR]PLM create succeeded</Value>
+      <Value>PLM criado com sucesso</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_PLM_CREATE_DENIED</Name>
-      <Value>[pt-BR]PLM Create denied</Value>
+      <Value> Criação de PLM negada</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_PLM_CREATE_FAILED</Name>
-      <Value>[pt-BR]PLM create failed</Value>
+      <Value>Falha na criação de PLM</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_PLM_DELETE</Name>
-      <Value>[pt-BR]PLM delete succeeded</Value>
+      <Value>PLM excluído com sucesso</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_PLM_DELETE_DENIED</Name>
-      <Value>[pt-BR]PLM Delete denied</Value>
+      <Value> Exclusão de PLM negada</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_PLM_DELETE_FAILED</Name>
-      <Value>[pt-BR]PLM delete failed</Value>
+      <Value>Falha na exclusão de PLM</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_PLM_UPDATE</Name>
-      <Value>[pt-BR]PLM update succeeded</Value>
+      <Value>PLM atualizado com sucesso</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_PLM_UPDATE_DENIED</Name>
-      <Value>[pt-BR]PLM Update denied</Value>
+      <Value> Atualização de PLM negada</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_PLM_UPDATE_FAILED</Name>
-      <Value>[pt-BR]PLM update failed</Value>
+      <Value>Falha na atualização de PLM</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_PREAUTH_CAPTURE_CREDITCARD_FAILED</Name>
@@ -856,51 +856,51 @@
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/SelfSubscription</Name>
-      <Value>[pt-BR]Self Subscription succeeded</Value>
+      <Value>Auto-assinatura bem-sucedida</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/SelfSubscriptionDENIED</Name>
-      <Value>[pt-BR]Self Subscription denied</Value>
+      <Value>Auto-assinatura negada</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/SelfUnsubscription</Name>
-      <Value>[pt-BR]Self Unsubscription succeeded</Value>
+      <Value>Auto-cancelamento de assinatura bem-sucedido</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/ServiceEndpointConnected</Name>
-      <Value>[pt-BR]Service endpoint connected</Value>
+      <Value>Terminal de serviço conectado</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/ServiceEndpointConnectedDENIED</Name>
-      <Value>[pt-BR]Service endpoint denied</Value>
+      <Value>Terminal de serviço negado</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/ServiceEndpointConnectionMoved</Name>
-      <Value>[pt-BR]Service endpoint moved</Value>
+      <Value>Terminal de serviço movido</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/ServiceEndpointConnectionMovedDENIED</Name>
-      <Value>[pt-BR]Service endpoint move denied</Value>
+      <Value>Mudança de terminal de serviço negado</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/ServiceEndpointConnectionRemoved</Name>
-      <Value>[pt-BR]Service endpoint removed</Value>
+      <Value>Terminal de serviço removido</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/ServiceEndpointConnectionRemovedDENIED</Name>
-      <Value>[pt-BR]Service endpoint remove denied</Value>
+      <Value>Remoção de terminal de serviço negada</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/ServiceEndpointConnectionUpdated</Name>
-      <Value>[pt-BR]Service endpoint updated</Value>
+      <Value>Terminal de serviço atualizado</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/ServiceEndpointConnectionUpdatedDENIED</Name>
-      <Value>[pt-BR]Service endpoint update denied</Value>
+      <Value>Atualização de terminal de serviço negada</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/ServiceEndpointManageAccountDENIED</Name>
-      <Value>[pt-BR]Service endpoint manage account denied</Value>
+      <Value>Conta de gerenciamento de terminal de serviços negada</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/unknown</Name>
@@ -1070,92 +1070,92 @@
     <!-- Audit Event Localization for Approval Framework-->
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_APPROVALMANAGEMENT_CHANGESUBMITTED</Name>
-      <Value>[pt-BR]Change Submitted for Approval</Value>
+      <Value>Alteração enviada para aprovação</Value>
     </locale_entry>
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_APPROVALMANAGEMENT_CHANGEAPPROVED</Name>
-      <Value>[pt-BR]Change Approved</Value>
+      <Value>Alteração aprovada</Value>
     </locale_entry>
 
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_APPROVALMANAGEMENT_CHANGEAPPLIED</Name>
-      <Value>[pt-BR]Approved Change Applied</Value>
+      <Value>Alteração aprovada aplicada</Value>
     </locale_entry>
 
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_APPROVALMANAGEMENT_CHANGEDENIED</Name>
-      <Value>[pt-BR]Change Denied</Value>
+      <Value>Alteração negada</Value>
     </locale_entry>
 
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_APPROVALMANAGEMENT_CHANGEREMOVED</Name>
-      <Value>[pt-BR]Change Removed</Value>
+      <Value>Alteração removida</Value>
     </locale_entry>
 
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_APPROVALMANAGEMENT_CHANGEDETAILSUPDATED</Name>
-      <Value>[pt-BR]Change Details Updated</Value>
+      <Value>Detalhes de alteração atualizados</Value>
     </locale_entry>
 
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_APPROVALMANAGEMENT_CHANGEAPPLYFAILED</Name>
-      <Value>[pt-BR]Apply Change Failed</Value>
+      <Value>Falha na aplicação de alteração</Value>
     </locale_entry>
 
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_APPROVALMANAGEMENT_CHANGEDISMISSED</Name>
-      <Value>[pt-BR]Change Dismissed</Value>
+      <Value>Alteração rejeitada</Value>
     </locale_entry>
 
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_APPROVALMANAGEMENT_FAILEDCHANGERESUBMITTED</Name>
-      <Value>[pt-BR]Failed Change Resubmitted</Value>
+      <Value>Falha no novo envio de alteração</Value>
     </locale_entry>
 
     <!-- Agreement Template Related Audit Events -->
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_AGREEMENT_TEMPLATECREATED</Name>
-      <Value>[pt-BR]Template Created</Value>
+      <Value>Modelo criado</Value>
     </locale_entry>
 
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_AGREEMENT_TEMPLATEUPDATED</Name>
-      <Value>[pt-BR]Template Updated</Value>
+      <Value>Modelo atualizado</Value>
     </locale_entry>
 
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_AGREEMENT_TEMPLATEDELETED</Name>
-      <Value>[pt-BR]Template Deleted</Value>
+      <Value>Modelo excluído</Value>
     </locale_entry>
 
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_AGREEMENT_POADDEDTOTEMPLATE</Name>
-      <Value>[pt-BR]PO Added To Template</Value>
+      <Value>PO adicionado ao modelo</Value>
     </locale_entry>
 
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_AGREEMENT_POREMOVEDFROMTEMPLATE</Name>
-      <Value>[pt-BR]PO Removed From Template</Value>
+      <Value>PO removido do modelo</Value>
     </locale_entry>
 
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_AGREEMENT_RMEADDEDTOTEMPLATE</Name>
-      <Value>[pt-BR]RME Added To Template</Value>
+      <Value>RME adicionado ao modelo</Value>
     </locale_entry>
 
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_AGREEMENT_RMEREMOVEDFROMTEMPLATE</Name>
-      <Value>[pt-BR]RME Removed From Template</Value>
+      <Value>RME removido do modelo</Value>
     </locale_entry>
 
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_AGREEMENT_MAPPEDENTITIESREMOVEDFROMTEMPLATE</Name>
-      <Value>[pt-BR]All Mapped Entities Removed From Template</Value>
+      <Value>Todas as entidades mapeadas removidas do modelo</Value>
     </locale_entry>
 
     <locale_entry>
       <Name>metratech.com/auditevents/AUDITEVENT_AGREEMENT_ADDEDCOREAGREEMENTPROPTOTEMPLATE</Name>
-      <Value>[pt-BR]Core Property Added To Template</Value>
+      <Value>Propriedade principal adicionada ao modelo</Value>
     </locale_entry>
 
   </locale_space>

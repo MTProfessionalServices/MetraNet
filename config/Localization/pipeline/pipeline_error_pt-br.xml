@@ -48,7 +48,7 @@
     </locale_entry>
     <locale_entry>
       <Name>pipeline/error/PlugIn</Name>
-      <Value>Plugin</Value>
+      <Value>PlugIn</Value>
     </locale_entry>
     <locale_entry>
       <Name>pipeline/error/PossibleAccountID</Name>

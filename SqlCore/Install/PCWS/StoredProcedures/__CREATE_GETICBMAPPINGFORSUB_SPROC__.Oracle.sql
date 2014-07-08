@@ -13,6 +13,7 @@
 					l_currency varchar2(10);
 					l_id_po int;
 					l_id_defaultpl int;
+					l_id_partition int;
 				BEGIN			
 					p_status := 0;
 					
@@ -25,8 +26,8 @@
 					  corporation. This will take care of the case when gsubs are generated "globally".
 					  Also, this seems to be correct for all other cases as well */
 					
-					select pl.nm_currency_code, po.id_po
-					into l_currency, l_id_po
+					select pl.nm_currency_code, po.id_po, po.c_POPartitionId
+					into l_currency, l_id_po, l_id_partition
 					from 
 						t_po po
 						inner join 
@@ -61,8 +62,8 @@
 
 							select seq_t_base_props.currval into p_id_pricelist from dual;
 							
-							insert into t_pricelist(id_pricelist,n_type,nm_currency_code) 
-								values (p_id_pricelist, 0, l_currency);
+							insert into t_pricelist(id_pricelist, n_type, nm_currency_code, c_PLPartitionId) 
+								values (p_id_pricelist, 0, l_currency, l_id_partition);
 							
 							insert into t_pl_map(
 							  id_paramtable,

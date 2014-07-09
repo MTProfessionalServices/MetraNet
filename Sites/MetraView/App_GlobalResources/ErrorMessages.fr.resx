@@ -244,13 +244,13 @@
     <value>Échec de suppression des propriétés.</value>
   </data>
   <data name="SpecCharacteristicRepository_LoadSpecCharacteristics_Failed_getting_specs_" xml:space="preserve">
-    <value>Échec d&#x2;p0000c&#x4;x:=&lt;span&gt;&#x3;’&#x2;p0000c&#x4;x:=&lt;/span&gt;&#x3;obtention des propriétés.</value>
+    <value>Échec d’obtention des propriétés.</value>
   </data>
   <data name="SpecCharacteristicRepository_LoadSubCharacteristicValues_Failed_getting_entity_properties_" xml:space="preserve">
     <value>Échec d’obtention des propriétés de l’entité.</value>
   </data>
   <data name="SpecCharacteristicRepository_SaveSpecCharacteristic_Failed_saving_spec_" xml:space="preserve">
-    <value>Échec d&#x2;p0000c&#x4;x:=&lt;span&gt;&#x3;’&#x2;p0000c&#x4;x:=&lt;/span&gt;&#x3;enregistrement des propriétés.</value>
+    <value>Échec d’enregistrement des propriétés.</value>
   </data>
   <data name="SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_" xml:space="preserve">
     <value>Accès refusé</value>

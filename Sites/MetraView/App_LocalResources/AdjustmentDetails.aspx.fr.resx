@@ -136,7 +136,7 @@
     <value>Détails de l’ajustement</value>
   </data>
   <data name="NO_RECORDS_TEXT" xml:space="preserve">
-    <value>&#x2;p0000c&#x4;x:=&lt;a&gt;&#x3;Aucun enregistrement trouvé.</value>
+    <value>Aucun enregistrement trouvé.</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>Détails de l’ajustement</value>

@@ -132,4 +132,7 @@
     <data name="TEXT_USAGE_BY_PRODUCT" xml:space="preserve">
         <value>Uso actual por producto</value>
     </data>
+    <data name="TEXT_DECISION_INSTANCES" xml:space="preserve">
+        <value>[es-MX] NowCast</value>
+    </data>    
 </root>

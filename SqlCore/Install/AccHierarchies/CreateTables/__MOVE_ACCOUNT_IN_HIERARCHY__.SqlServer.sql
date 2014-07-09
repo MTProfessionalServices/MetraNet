@@ -201,7 +201,12 @@ aa2.tx_path
 into #deletethese
 from
 t_account_ancestor aa1
-inner join t_account_ancestor aa2 on aa1.id_ancestor=aa2.id_ancestor and aa1.vt_start <= aa2.vt_end and aa2.vt_start <= aa1.vt_end and aa2.vt_start <= @vt_move_end and @vt_move_start_trunc <= aa2.vt_end
+inner join t_account_ancestor aa2    on aa1.id_ancestor=aa2.id_ancestor 
+                                     and aa1.vt_start <= aa2.vt_end 
+                                     and aa2.vt_start <= aa1.vt_end 
+                                     and aa2.vt_start <= @vt_move_end 
+                                     and @vt_move_start_trunc <= aa2.vt_end 
+                                     and aa2.id_descendent in (select id_descendent from t_account_ancestor where id_ancestor = @account_being_moved)
 inner join t_account_ancestor aa3 on aa2.id_descendent=aa3.id_descendent and aa3.vt_start <= aa2.vt_end and aa2.vt_start <= aa3.vt_end and aa3.vt_start <= @vt_move_end and @vt_move_start_trunc <= aa3.vt_end
 where
 aa1.id_descendent=@account_being_moved

@@ -45,7 +45,7 @@ PROCEDURE METERinitialFROMRECURWINDOW (currentDate date) AS
     AND rw.c_SubscriptionStart < ui.dt_end AND rw.c_SubscriptionEnd > ui.dt_start
     AND rw.c_unitvaluestart      < ui.dt_end AND rw.c_unitvalueend      > ui.dt_start /* next interval overlaps with UDRC */
     INNER JOIN t_recur rcr ON rw.c__priceableiteminstanceid = rcr.id_prop
-    JOIN t_acc_usage_cycle auc ON auc.id_acc = rw.c__AccountID AND auc.id_usage_cycle = ui.id_usage_cycle
+    JOIN t_acc_usage_cycle auc ON auc.id_acc = rw.c__payingaccount AND auc.id_usage_cycle = ui.id_usage_cycle
     /* NOTE: we do not join RC interval by id_interval.  It is different (not sure what the reasoning is) */
     INNER JOIN t_pc_interval pci
       ON pci.id_cycle = CASE 

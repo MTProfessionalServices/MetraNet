@@ -256,19 +256,19 @@
     <value>Spéc. correspondante introuvable.</value>
   </data>
   <data name="SpecCharacteristicRepository_LoadSpecCharacteristics_Failed_getting_specs_" xml:space="preserve">
-    <value>Échec d&#x2;p0000c&#x4;x:=&lt;span&gt;&#x3;’&#x2;p0000c&#x4;x:=&lt;/span&gt;&#x3;obtention de spéc.</value>
+    <value>Échec d’obtention de spéc.</value>
   </data>
   <data name="SpecCharacteristicRepository_LoadSubCharacteristicValues_Failed_getting_entity_properties_" xml:space="preserve">
     <value>Échec d’obtention des propriétés de l’entité.</value>
   </data>
   <data name="SpecCharacteristicRepository_SaveSpecCharacteristic_Failed_saving_spec_" xml:space="preserve">
-    <value>Échec d&#x2;p0000c&#x4;x:=&lt;span&gt;&#x3;’&#x2;p0000c&#x4;x:=&lt;/span&gt;&#x3;enregistrement de spéc.</value>
+    <value>Échec d’enregistrement de spéc.</value>
   </data>
   <data name="SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_" xml:space="preserve">
     <value>Accès refusé.</value>
   </data>
   <data name="SpecCharacteristicsController_AddSharedProperty_Couldn_t_add_property_" xml:space="preserve">
-    <value>Impossible d&#x2;p0000c&#x4;x:=&lt;span&gt;&#x3;’&#x2;p0000c&#x4;x:=&lt;/span&gt;&#x3;ajouter la propriété.</value>
+    <value>Impossible d’ajouter la propriété.</value>
   </data>
   <data name="SpecCharacteristicsController_Delete_Couldn_t_delete_property_" xml:space="preserve">
     <value>Impossible de supprimer la propriété.</value>
@@ -301,7 +301,7 @@
     <value>Error in config ReportFormat file. Report image  isn't defined.</value>
   </data>
   <data name="ERROR_REPORT_OPEN" xml:space="preserve">
-    <value>Impossible d&#x2;p0000c&#x4;x:=&lt;span&gt;&#x3;’&#x2;p0000c&#x4;x:=&lt;/span&gt;&#x3;ouvrir et d&#x2;p0000c&#x4;x:=&lt;span&gt;&#x3;’&#x2;p0000c&#x4;x:=&lt;/span&gt;&#x3;enregistrer le rapport</value>
+    <value>Impossible d’ouvrir et d’enregistrer le rapport</value>
   </data>
   <data name="ERROR_PO_EXISTS" xml:space="preserve">
     <value>[FR]Name of product offering must be unique</value>

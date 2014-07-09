@@ -460,7 +460,7 @@
     <value>Liste des éléments non liés  </value>
   </data>
   <data name="TEXT_UNRELATED_ENTITY_2" xml:space="preserve">
-    <value>instances de l&#x2;p0000c&#x4;x:=&lt;span&gt;&#x3;’&#x2;p0000c&#x4;x:=&lt;/span&gt;&#x3;entité</value>
+    <value>instances de l’entité</value>
   </data>
   <data name="TEXT_APPROVAL_BUTTON_APPROVE" xml:space="preserve">
     <value>Approuver</value>
@@ -502,7 +502,7 @@
     <value>Localisation manquante</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_YET" xml:space="preserve">
-    <value>Pour l&#x2;p0000c&#x4;x:=&lt;span&gt;&#x3;’&#x2;p0000c&#x4;x:=&lt;/span&gt;&#x3;instant, aucune propriété n&#x2;p0000c&#x4;x:=&lt;span&gt;&#x3;’&#x2;p0000c&#x4;x:=&lt;/span&gt;&#x3;est définie...</value>
+    <value>Pour l’instant, aucune propriété n’est définie...</value>
   </data>
   <data name="TEXT_OK_DELETE_1" xml:space="preserve">
     <value>Cliquez sur OK pour supprimer la</value>

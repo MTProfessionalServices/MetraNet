@@ -159,13 +159,13 @@ BEGIN
          WHERE uc.id_usage_cycle = @usageCycle
 
          -- infers the start month from the subscription start date   
-         /* ESR-6221 a port of ESR-5793 */ 
+         /* CORE-6221 a port of ESR-5793 */ 
          select @startMonth = DATEPART(month, tui.dt_start)
 			    from t_usage_interval tui
-			      join t_usage_cycle tuc on tuc.id_usage_cycle = tui.id_usage_cycle
-			      where tui.id_usage_cycle = @usageCycle
-			      and tui.dt_start <= @subStart
-			      and tui.dt_end > @subStart         
+			    join t_usage_cycle tuc on tuc.id_usage_cycle = tui.id_usage_cycle
+			    where tui.id_usage_cycle = @usageCycle
+			    and tui.dt_start <= @subStart
+			    and tui.dt_end > @subStart         
 
          -- translates the end day to a start day since Monthly cycle types
          -- use end days and Quarterly and Annual cycle types use start days
@@ -233,7 +233,7 @@ BEGIN
          SET @startDay = @endDay + 1
 
          -- infers the start month from the subscription start date   
-         /* ESR-6221 a port of ESR-5793 */ 
+         /* CORE-6221 a port of ESR-5793 */ 
          select @startMonth = DATEPART(month, tui.dt_start)
 			    from t_usage_interval tui
 			      join t_usage_cycle tuc on tuc.id_usage_cycle = tui.id_usage_cycle
@@ -301,8 +301,13 @@ BEGIN
          SET @startDay = @endDay + 1
 
          -- infers the start month from the subscription start date   
-         SET @startMonth = DATEPART(month, @subStart)
-
+          /* CORE-7739 port of ESR-5793*/ 
+         select @startMonth = DATEPART(month, tui.dt_start)
+              from t_usage_interval tui
+              join t_usage_cycle tuc on tuc.id_usage_cycle = tui.id_usage_cycle
+              where tui.id_usage_cycle = @usageCycle
+              and tui.dt_start <= @subStart
+              and tui.dt_end > @subStart
          -- wraps to beginning of the next month
          -- NOTE: it is important to have the start date of the EBCR cycle
          -- come after the sub start date so that certain RC charges 

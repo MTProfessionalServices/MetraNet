@@ -22,5 +22,11 @@
 <asp:Literal ID="CreditNoteList" runat="server"></asp:Literal>
 </ul>
 </div>
+
+<script language='javascript'>
+  function startLoad() {
+    setTimeout(function () { window.checkFrameLoading(); }, 3000);
+  }
+</script>
 </asp:Content>
 

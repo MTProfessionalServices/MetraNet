@@ -118,36 +118,36 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="APPLICATION_NAME" xml:space="preserve">
-    <value>aplicação</value>
+    <value>Aplicação</value>
   </data>
   <data name="AUDIT_ID" xml:space="preserve">
-    <value>auditoria ID</value>
+    <value>ID da auditoria</value>
   </data>
   <data name="DETAILS" xml:space="preserve">
-    <value>detalhes</value>
+    <value>Detalhes</value>
   </data>
   <data name="ENTITY_NAME" xml:space="preserve">
-    <value>item</value>
+    <value>Item</value>
   </data>
   <data name="EVENT_NAME" xml:space="preserve">
-    <value>evento</value>
+    <value>Evento</value>
   </data>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value>Meu Registro de Atividade</value>
+    <value>Meu log de atividades</value>
   </data>
   <data name="LOGGED_IN_AS" xml:space="preserve">
-    <value>Logado como</value>
+    <value>Conectado como</value>
   </data>
   <data name="NO_RECORDS_TEXT" xml:space="preserve">
     <value>Nenhum registro encontrado.</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>Minhas atividades</value>
+    <value>Minha atividade</value>
   </data>
   <data name="TIME" xml:space="preserve">
-    <value>tempo</value>
+    <value>Hora</value>
   </data>
   <data name="USERNAME" xml:space="preserve">
-    <value>usuário</value>
+    <value>Usuário</value>
   </data>
 </root>

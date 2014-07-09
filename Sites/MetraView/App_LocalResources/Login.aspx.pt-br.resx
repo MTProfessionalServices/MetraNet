@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblDetailsResource1.Text" xml:space="preserve">
-    <value>Detalhes</value>
+    <value>detalhes</value>
   </data>
   <data name="lblMessageResource1.Text" xml:space="preserve">
     <value>Sua senha expirou</value>
@@ -127,13 +127,13 @@
     <value>Altere sua senha</value>
   </data>
   <data name="Login.Text" xml:space="preserve">
-    <value>[pt-BR]Login</value>
+    <value>Login</value>
   </data>
   <data name="Login1Resource1.FailureText" xml:space="preserve">
-    <value>Sua tentativa de login não foi bem sucedida. Tente novamente.</value>
+    <value>Sua tentativa de login não foi bem-sucedida. Tente novamente.</value>
   </data>
   <data name="Login1Resource1.LoginButtonText" xml:space="preserve">
-    <value>[pt-BR]Login</value>
+    <value>Login</value>
   </data>
   <data name="Login1Resource1.PasswordLabelText" xml:space="preserve">
     <value>Senha:</value>
@@ -151,13 +151,13 @@
     <value>O nome do usuário é obrigatório.</value>
   </data>
   <data name="tbConfirmPasswordResource1.Label" xml:space="preserve">
-    <value>Confirmar senha</value>
+    <value>Senha de confirmação</value>
   </data>
   <data name="tbNewPasswordResource1.Label" xml:space="preserve">
     <value>Nova senha</value>
   </data>
   <data name="tbNewPasswordResource1.XType" xml:space="preserve">
-    <value>PasswordMeter</value>
+    <value>[pt-BR]PasswordMeter</value>
   </data>
   <data name="tbOldPasswordResource1.Label" xml:space="preserve">
     <value>Senha antiga</value>

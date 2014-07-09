@@ -121,13 +121,13 @@
     <value>Informações de conta</value>
   </data>
   <data name="Address1" xml:space="preserve">
-    <value>Endereço 1</value>
+    <value>Endereço1</value>
   </data>
   <data name="Address2" xml:space="preserve">
-    <value>Endereço 2</value>
+    <value>Endereço2</value>
   </data>
   <data name="Address3" xml:space="preserve">
-    <value>Endereço 3</value>
+    <value>Endereço3</value>
   </data>
   <data name="BillingAddress" xml:space="preserve">
     <value>Endereço de faturamento</value>

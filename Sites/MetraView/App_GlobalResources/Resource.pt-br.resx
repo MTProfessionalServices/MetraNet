@@ -133,7 +133,7 @@
     <value>Nome da conta:</value>
   </data>
   <data name="TEXT_ACCOUNT_NUMBER" xml:space="preserve">
-    <value>Número da conta :</value>
+    <value>Número da conta:</value>
   </data>
   <data name="TEXT_ACCOUNT_SUMMARY" xml:space="preserve">
     <value>Resumo de conta</value>
@@ -229,7 +229,7 @@
     <value>Excluir</value>
   </data>
   <data name="TEXT_BULKUPDATE" xml:space="preserve">
-    <value>[pt-BR]Bulk Update</value>
+    <value>Atualização em massa</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
     <value>Descrição</value>
@@ -241,16 +241,16 @@
     <value>Valor exibido</value>
   </data>
   <data name="TEXT_DISPLAY_AMOUNT_AS_STRING" xml:space="preserve">
-    <value>DisplayAmountAsString</value>
+    <value>[pt-BR]DisplayAmountAsString</value>
   </data>
   <data name="TEXT_DOWNLOAD_INVOICES" xml:space="preserve">
     <value>Baixar faturas e relatórios</value>
   </data>
   <data name="TEXT_DOWNLOAD_QUOTES" xml:space="preserve">
-    <value>Baixar citações</value>
+    <value>Baixar cotações</value>
   </data>
   <data name="TEXT_DOWNLOAD_CREDIT_NOTES" xml:space="preserve">
-    <value>[pt-BR]Download Credit Notes</value>
+    <value>Baixar notas de crédito</value>
   </data>
   <data name="TEXT_EDIT" xml:space="preserve">
     <value>Editar </value>
@@ -286,16 +286,16 @@
     <value>ID</value>
   </data>
   <data name="TEXT_INLINE_ADJUSTMENTS" xml:space="preserve">
-    <value>Ajustes em série do texto</value>
+    <value>Mostrar ajustes em série</value>
   </data>
   <data name="TEXT_INLINE_TAX" xml:space="preserve">
-    <value>Imposto em série</value>
+    <value>Mostrar imposto em série</value>
   </data>
   <data name="TEXT_INTERNAL_ID" xml:space="preserve">
-    <value>ID interno</value>
+    <value>Id interno</value>
   </data>
   <data name="TEXT_IS_REQUIRED" xml:space="preserve">
-    <value>IsRequired</value>
+    <value>[pt-BR]IsRequired</value>
   </data>
   <data name="TEXT_IS_SITE_DOWN_FOR_MAINTENANCE" xml:space="preserve">
     <value>está desativado para manutenção</value>
@@ -334,13 +334,13 @@
     <value>Novo </value>
   </data>
   <data name="TEXT_NO" xml:space="preserve">
-    <value>Não</value>
+    <value>NÃO</value>
   </data>
   <data name="TEXT_NO_BILL" xml:space="preserve">
-    <value>Sua fatura ainda não está disponível.  Clique &lt;a href="Usage.aspx?view=summary"&gt;aqui&lt;/a&gt; para consultar sua utilização no momento.</value>
+    <value>Sua fatura ainda não está disponível. Clique &lt;a href="Usage.aspx?view=summary"&gt;aqui&lt;/a&gt; para ver sua utilização atual.</value>
   </data>
   <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
-    <value>Nenhum registro encontrado.</value>
+    <value>Nenhum registro encontrado</value>
   </data>
   <data name="TEXT_NO_TRANSACTIONS_FOUND" xml:space="preserve">
     <value>Nenhuma transação encontrada</value>
@@ -388,7 +388,7 @@
     <value>Remover contas</value>
   </data>
   <data name="TEXT_REMOVE_RELSHIP" xml:space="preserve">
-    <value>[pt-BR]Remove</value>
+    <value>Remover</value>
   </data>
   <data name="TEXT_REPORT_TYPE" xml:space="preserve">
     <value>Tipo de relatório</value>
@@ -403,13 +403,13 @@
     <value>ID da sessão</value>
   </data>
   <data name="TEXT_SHOW_ONLY_HARD_CLOSED_INTERVALS" xml:space="preserve">
-    <value>[pt-BR]Show Only Hard Closed Intervals</value>
+    <value>Mostrar apenas intervalos fechados detalhadamente</value>
   </data>
   <data name="TEXT_SHOW_SECOND_PASS_DATA" xml:space="preserve">
     <value>Exibir dados da segunda passagem</value>
   </data>
   <data name="TEXT_SITE_DOWN_FOR_MAINTENANCE" xml:space="preserve">
-    <value>Desculpe pelo transtorno, mas o site está em manutenção.  Tente novamente mais tarde.</value>
+    <value>Desculpe pelo transtorno, mas o site está em manutenção. Tente novamente mais tarde.</value>
   </data>
   <data name="TEXT_SITE_NAME" xml:space="preserve">
     <value>Nome do site</value>
@@ -430,7 +430,7 @@
     <value>Tema</value>
   </data>
   <data name="TEXT_TIMESTAMP" xml:space="preserve">
-    <value>Timestamp</value>
+    <value>TimeStamp</value>
   </data>
   <data name="TEXT_TIMEZONE" xml:space="preserve">
     <value>Fuso horário</value>
@@ -445,13 +445,13 @@
     <value>Não relacionado </value>
   </data>
   <data name="TEXT_UNRELATED_2" xml:space="preserve">
-    <value>[pt-BR](s)</value>
+    <value>(s)</value>
   </data>
   <data name="TEXT_URL" xml:space="preserve">
     <value>Url</value>
   </data>
   <data name="TEXT_VALIDATION_ERROR" xml:space="preserve">
-    <value>Erro na validação.  Tente novamente.</value>
+    <value>Erro de validação. Tente novamente.</value>
   </data>
   <data name="TEXT_VALUE" xml:space="preserve">
     <value>Valor</value>

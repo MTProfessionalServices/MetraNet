@@ -127,7 +127,7 @@
     <value>Fuso horário</value>
   </data>
   <data name="EmptyLabel.Text" xml:space="preserve">
-    <value>Nenhum registro encontrado.</value>
+    <value>Nenhum registro encontrado</value>
   </data>
   <data name="ErrorSelectPO" xml:space="preserve">
     <value>Selecione uma oferta de produto válida</value>
@@ -139,6 +139,6 @@
     <value>Minhas assinaturas</value>
   </data>
   <data name="EmptyLiteral.Text" xml:space="preserve">
-    <value>[pt-BR]No records found</value>
+    <value>Nenhum registro encontrado</value>
   </data>
 </root>

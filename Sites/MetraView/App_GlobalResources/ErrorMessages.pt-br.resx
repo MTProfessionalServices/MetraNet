@@ -127,7 +127,7 @@
     <value>Acesso negado.</value>
   </data>
   <data name="ERROR_ACCOUNT_DORMANT" xml:space="preserve">
-    <value>&lt;br/&gt;&lt;br/&gt;A conta está inativa.  Você pode desbloqueá-la.</value>
+    <value>&lt;br/&gt;&lt;br/&gt;A conta está inativa. Você pode desbloqueá-la.</value>
   </data>
   <data name="ERROR_ACH_ADD" xml:space="preserve">
     <value>Não é possível adicionar método de pagamento ACH a esta conta.</value>
@@ -172,28 +172,28 @@
     <value>A data de término deve ser posterior à data de início</value>
   </data>
   <data name="ERROR_LAST_LOGIN" xml:space="preserve">
-    <value>O último login para {0} foi em {1}.  Houve {2} tentativas erradas de login desde o último login bem sucedido.</value>
+    <value>O último login de {0} foi em {1}.  Houveram {2} tentativas de login com falha desde o último login bem-sucedido.</value>
   </data>
   <data name="ERROR_LOGIN_INVALID" xml:space="preserve">
     <value>Nome de usuário ou senha inválida.</value>
   </data>
   <data name="ERROR_LOGIN_LOCKED" xml:space="preserve">
-    <value>Sua conta foi bloqueada por motivos de segurança.  Entre em contato com o suporte para resolver esse problema.</value>
+    <value>Sua conta foi bloqueada por motivos de segurança. Entre em contato com o suporte para resolver esse problema.</value>
   </data>
   <data name="ERROR_LOGIN_PASSWORD_EXPIRING" xml:space="preserve">
-    <value>Sua senha expirará em {0} dia(s).  Se tiver tempo, por que não alterá-la agora?  </value>
+    <value>Sua senha expira em {0} dia(s). Se tiver tempo, altere-a agora.  </value>
   </data>
   <data name="ERROR_MAIN_MENU" xml:space="preserve">
     <value>Arquivo de menu inválido, notifique o administrador do sistema.</value>
   </data>
   <data name="ERROR_MAKE_PAYMENT" xml:space="preserve">
-    <value>Não foi possível processar seu pagamento. Verifique seus dados de pagamento e tente novamente. Se o problema persistir, entre em contato conosco para completar a transação.</value>
+    <value>Não conseguimos processar seu pagamento. Verifique os detalhes do seu pagamento e tente novamente. Se o problema persistir, entre em contato conosco para concluir sua transação.</value>
   </data>
   <data name="ERROR_NEVER_LOGGED" xml:space="preserve">
     <value>Este usuário nunca fez login no MetraView.</value>
   </data>
   <data name="ERROR_NO_REPORTS_FOUND" xml:space="preserve">
-    <value>Nenhum Relatório Encontrado</value>
+    <value>Nenhum relatório encontrado</value>
   </data>
   <data name="ERROR_NOT_VALID_ACCOUNT" xml:space="preserve">
     <value>Conta inválida</value>
@@ -208,13 +208,13 @@
     <value>Erro no arquivo de configuração ReportFormat</value>
   </data>
   <data name="ERROR_REPORT_FORMAT" xml:space="preserve">
-    <value>Erro no arquivo de configuração ReportFormat. Tipo de formato de relatório não está definido.</value>
+    <value>Erro ao configurar o arquivo ReportFormat. O tipo de formato de relatório não está definido.</value>
   </data>
   <data name="ERROR_REPORT_FORMAT_CONFIG" xml:space="preserve">
-    <value>Erro no arquivo de configuração ReportFormat. Estrutura de arquivo incorreto.</value>
+    <value>Erro ao configurar o arquivo ReportFormat. Estrutura de arquivo incorreta.</value>
   </data>
   <data name="ERROR_REPORT_IMAGE" xml:space="preserve">
-    <value>Erro no arquivo de configuração ReportFormat. Relatório de imagem não está definido.</value>
+    <value>Erro ao configurar o arquivo ReportFormat. Imagem do relatório não está definida.</value>
   </data>
   <data name="ERROR_REPORT_OPEN" xml:space="preserve">
     <value>Não é possível abrir e salvar o relatório </value>
@@ -229,10 +229,10 @@
     <value>Primeiro, você precisa gerenciar uma conta antes de executar uma ação nela.</value>
   </data>
   <data name="ERROR_TEMP_LOCK" xml:space="preserve">
-    <value>O sistema só permite {0} tentativas de login antes de que a conta seja bloqueada temporariamente por {1} minutos.  Você pode desbloquear manualmente a conta.</value>
+    <value>O sistema só permite {0} tentativas de login antes de que a conta seja bloqueada temporariamente por {1} minutos. Você pode desbloquear manualmente a conta.</value>
   </data>
   <data name="ERROR_UNABLE_TO_UNLOCK_ACCOUNT" xml:space="preserve">
-    <value>Não é possível bloquear a conta.  Você tem permissão?</value>
+    <value>Não é possível bloquear a conta. Você tem permissão?</value>
   </data>
   <data name="ERROR_UPDATING_ACCOUNT" xml:space="preserve">
     <value>Não é possível atualizar informações da conta.</value>

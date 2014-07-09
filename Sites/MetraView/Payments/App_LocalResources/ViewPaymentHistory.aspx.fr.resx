@@ -181,7 +181,7 @@
     <value>Description</value>
   </data>
   <data name="EMPTY_TEXT" xml:space="preserve">
-    <value>&#x2;p0000c&#x4;x:=&lt;a&gt;&#x3;Aucun enregistrement trouvé.</value>
+    <value>Aucun enregistrement trouvé.</value>
   </data>
   <data name="EXPIRATION_DATE" xml:space="preserve">
     <value>Date de fin</value>

@@ -985,7 +985,7 @@
     <value>Aide : Domaine de décision</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_AMOUNT_CHAIN_GROUP" xml:space="preserve">
-    <value>Sélectionnez un groupe de chaîne de montants à utiliser par le type de décision pour le comptage et le calcul des valeurs relatives.  &lt;br/&gt;&lt;br/&gt;Exemple : une chaîne de montant possède quatre zones associées dans une vue produit :  \"nombre de minutes utilisées\", \"prix par minute\", \"montant des frais"\" et \"taxe sur le montant de frais\".</value>
+    <value>Sélectionnez un groupe de chaîne de montants à utiliser par le type de décision pour le comptage et le calcul des valeurs relatives.  &lt;br/&gt;&lt;br/&gt;Exemple : une chaîne de montant possède quatre zones associées dans une vue produit :  \"nombre de minutes utilisées\", \"prix par minute\", \"montant des frais\" et \"taxe sur le montant de frais\".</value>
   </data>
   <data name="TEXT_AMPWIZARD_AMP_UI_NAME_ILLEGAL_CHAR" xml:space="preserve">
     <value>Le nom ne peut pas contenir d'apostrophes ou de guillemets.</value>

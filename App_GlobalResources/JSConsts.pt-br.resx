@@ -283,7 +283,7 @@
     <value>Esta alteração está pendente.</value>
   </data>
   <data name="TEXT_APPROVALS_STATE_EXPLANATION_SUBMITTER" xml:space="preserve">
-    <value>Como o solicitante desta alteração pendente, é possível "Rejeitar" esta alteração que irá removê-la da deliberação.</value>
+    <value>Como o solicitante desta alteração pendente, é possível \"Rejeitar\" esta alteração que irá removê-la da deliberação.</value>
   </data>
   <data name="TEXT_AUDIT_HISTORY_FAILED" xml:space="preserve">
     <value>Histórico de auditoria para número de casos de transações com falha</value>
@@ -937,7 +937,7 @@
     <value>Uma &lt;i&gt;Decisão&lt;/i&gt;  é utilizada para analisar registros de utilização (registros de cobrança rateados) e possivelmente modificar cobranças nas bases dessa análise. As decisões são necessárias quando é impossível determinar o valor ao examinar um registro isolado. &lt;br/&gt; Por exemplo, se quiser fornecer uma taxa especial se o número de minutos de telefone usado durante o mês for maior que 1000. Você pode determinar apenas a taxa a usar após adicionar todos os registros de utilização. Se os minutos forem maiores que 1000, então, para cada registro, a taxa é alterada e o novo valor de cobrança é calculado. </value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_PARAM_TABLE" xml:space="preserve">
-    <value>Um tipo de decisão deve estar associado com uma tabela de parâmetros, que fornece uma maneira para personalizar valores importantes do tipo de decisão. Por exemplo, o "número de minutos grátis" pode ser editável em vez de ter um valor fixo. &lt;br/&gt;&lt;br/&gt;Antes que um tipo de decisão seja configurado, sua tabela de parâmetros associada deve ser criada usando o Integrated Configuration Environment (ICE).&lt;br/&gt;&lt;br/&gt;OBS.: após clicar em Avançar, não é possível escolher uma tabela de parâmetros diferente para esse tipo de decisão.</value>
+    <value>Um tipo de decisão deve estar associado com uma tabela de parâmetros, que fornece uma maneira para personalizar valores importantes do tipo de decisão. Por exemplo, o \"número de minutos grátis\" pode ser editável em vez de ter um valor fixo. &lt;br/&gt;&lt;br/&gt;Antes que um tipo de decisão seja configurado, sua tabela de parâmetros associada deve ser criada usando o Integrated Configuration Environment (ICE).&lt;br/&gt;&lt;br/&gt;OBS.: após clicar em Avançar, não é possível escolher uma tabela de parâmetros diferente para esse tipo de decisão.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_ACCOUNT_GROUP" xml:space="preserve">
     <value>Exemplo: uma conta (um pai) é faturada para atividade das contas filhas. Você quer encontrar o total de todas as cobranças (pai e filha).&lt;br/&gt;&lt;br/&gt;Além de extrair de outras contas, você deseja ignorar o tipo de decisão de algumas contas. Por exemplo, você quer que o tipo de decisão seja aplicado apenas a contas que recebem faturas virtuais.</value>
@@ -976,7 +976,7 @@
     <value>Exemplo: há duas decisões que consideram o mesmo recurso de utilização. Ambas as decisões são configuradas para consumir os registros de utilização. &lt;br/&gt;&lt;br/&gt;Os níveis de prioridade de decisões determinam a ordem na qual as decisões serão processadas. Um nível de prioridade numérico menor é processado mais cedo que um nível de prioridade maior. As decisões que têm o mesmo nível de prioridade são processados em ordem não determinada. Na página Prioridade de Decisão, é possível especificar o nível de prioridade do tipo de decisão que está sendo configurado.</value>
   </data>
   <data name="TEXT_AMPWIZARD_HELP_USAGE_OVERLAP" xml:space="preserve">
-    <value>Exemplo: um tipo de decisão totaliza \"minutos\" e \"todos os minutos &lt; 1000 são gratuitos\".  Um segundo tipo de decisão totaliza \"minutos\", mas você deseja contar apenas os minutos que não fazem parte dos 1000. Você quer que o segundo tipo de decisão considere apenas os minutos não consumidos pelo primeiro tipo de decisão. Para isso, defina o domínio de decisão de ambos os tipos de decisão como "proporcional".</value>
+    <value>Exemplo: um tipo de decisão totaliza \"minutos\" e \"todos os minutos &lt; 1000 são gratuitos\".  Um segundo tipo de decisão totaliza \"minutos\", mas você deseja contar apenas os minutos que não fazem parte dos 1000. Você quer que o segundo tipo de decisão considere apenas os minutos não consumidos pelo primeiro tipo de decisão. Para isso, defina o domínio de decisão de ambos os tipos de decisão como \"proporcional\".</value>
   </data>
   <data name="TITLE_AMPWIZARD_HELP_DECISION_PRIORITY" xml:space="preserve">
     <value>Ajuda: prioridade de decisão</value>

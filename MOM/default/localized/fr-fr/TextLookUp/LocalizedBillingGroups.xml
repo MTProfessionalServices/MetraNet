@@ -73,8 +73,11 @@
 
   <text id="TEXT_HARD_CLOSE_THIS_INTERVAL">
     <value>[FR]Hard Close This Interval</value>
-  </text>   
-  
+  </text>
+  <text id="TEXT_TOGGLE_HIERARCHY_DISPLAY">
+    <value>[FR]Toggle Hierarchy Display</value>
+  </text>
+
   <text id="TEXT_SUB_BILLING_GROUPS">
     <value>[FR]Sub-Billing Groups Created from Pull Lists:</value>
   </text> 
@@ -121,7 +124,10 @@
 
   <text id="TEXT_VIEW_STATISTICS">
     <value>[FR]View Statistics</value>
-  </text>   
+  </text>
+  <text id="TEXT_REFRESH_INTERVAL_DETAILS">
+    <value>[FR]Refresh interval details</value>
+  </text>
 
   <text id="TEXT_LOCATE_PAYER">
     <value>[FR]Locate Payer</value>

@@ -9,12 +9,14 @@ with intv_gaps as
 )
 select /* __MVIEW_GET_CURRENT_DECISION_STATE__ */
 tui_start.dt_start as dt_slice_start, tui_end.dt_end as dt_slice_end,
+avi.c_currency c_currency,
 info.*, audt.*
 from agg_decision_info info
 inner join agg_decision_audit_trail audt on info.decision_unique_id = audt.decision_unique_id
 inner join intv_gaps g on g.id_interval_old = audt.id_usage_interval and g.n_gap = isnull(audt.intervals_remaining,0)
 inner join t_usage_interval tui_start on tui_start.id_interval = audt.id_usage_interval
 inner join t_pc_interval tui_end on tui_end.id_interval = g.id_interval_new
+inner join t_av_internal avi on avi.id_acc = info.id_acc
 where 1=1
 and info.id_acc = %%ID_ACC%%
 and audt.id_usage_interval = %%ID_INTERVAL%%

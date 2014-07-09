@@ -69,6 +69,8 @@ public partial class FailedTransactionsView : MTPage
     if (string.Compare(statusFilterValue, "R", StringComparison.InvariantCultureIgnoreCase) == 0)
     {
       FailedTransactionList.GridButtons.RemoveAll(p => p.ButtonID == "Resubmit" || p.ButtonID == "ResubmitAll");
+      FailedTransactionList.GridButtons.RemoveAll(p => p.ButtonID == "UpdateStatus" || p.ButtonID == "UpdateAllStatuses"); 
+      FailedTransactionList.SelectionModel = MTGridSelectionModel.Standard; 
     }
   }
 

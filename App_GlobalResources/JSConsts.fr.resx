@@ -1260,4 +1260,10 @@
   <data name="TEXT_AMPWIZARD_INVALID_UQG_NAME" xml:space="preserve">
     <value>[FR] The value in this field is invalid. Valid Usage Qualification names can only consist of alphanumeric characters (Aa-Zz, 0-9) and the underscore '_' character.</value>
   </data>
+  <data name="TEXT_NOWCAST_REFRESH" xml:space="preserve">
+    <value>[FR] Refresh</value>
+  </data>
+  <data name="TEXT_NOWCAST_RIGHT_CLICK_FOR_OPTIONS" xml:space="preserve">
+    <value>[FR] right click for options</value>
+  </data>  
 </root>

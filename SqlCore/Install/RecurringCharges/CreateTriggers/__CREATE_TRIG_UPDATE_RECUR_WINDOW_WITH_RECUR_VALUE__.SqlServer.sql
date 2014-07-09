@@ -3,22 +3,31 @@
  ON t_recur_value for INSERT, UPDATE, delete
  as 
 BEGIN
-declare @startDate datetime;
-select @startDate = tt_start from inserted
-  --Get the values which are new (the problem is that we delete and
-  --     re-insert EVERY unit value for this subscription, even the
-  --     ones that haven't changed.
-  select * into #tmp_new_units 
-  FROM inserted rdnew 
-  WHERE NOT EXISTS 
-   (SELECT * FROM inserted rdold where
-     rdnew.n_value = rdold.n_value
-     AND rdnew.vt_start = rdold.vt_start
-     AND rdnew.vt_end = rdold.vt_end
-	  and rdnew.id_prop = rdold.id_prop
-     and rdnew.id_sub = rdold.id_sub
-     AND rdold.tt_end < dbo.MTMaxDate()) /* FIXME: this should join to new tt_start + 1 second */
-     
+  IF @@rowcount = 0 RETURN;
+
+  DECLARE @startDate datetime;
+  SELECT @startDate = tt_start FROM inserted;
+
+  IF EXISTS (SELECT * FROM DELETED)
+  BEGIN
+    /* Delete old values from t_recur_window */
+    DELETE
+    FROM   t_recur_window
+    WHERE  EXISTS
+           (
+               SELECT 1 FROM DELETED d
+               WHERE  t_recur_window.c__SubscriptionID = d.id_sub
+                      AND t_recur_window.c__PriceableItemInstanceID = d.id_prop
+                      AND t_recur_window.c_UnitValueStart = d.vt_start
+                      AND t_recur_window.c_UnitValueEnd = d.vt_end
+           );
+    RETURN;
+  END;
+
+  SELECT * INTO #tmp_new_units FROM INSERTED; 
+  /* Creating this table empty for now, as it is used in logic, that is currently turned off. */
+  SELECT * INTO #tmp_old_units FROM INSERTED where 1=0;
+
   SELECT 
        sub.vt_start AS c_CycleEffectiveDate
       ,sub.vt_start AS c_CycleEffectiveStart
@@ -136,66 +145,28 @@ SELECT
       	AND rcr.b_charge_per_participant = 'N'
       	AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)
 ;
---Get the old vt_start and vt_end for recur values that have changed
-select distinct trw.c__SubscriptionID AS id_sub, 
-    trw.c_UnitValue as n_value,
-   IsNull(trw.c_UnitValueStart, dbo.mtmindate()) AS vt_start, 
-    IsNull(trw.c_UnitValueEnd, dbo.mtmaxdate()) AS vt_end,
-    trv.tt_end
-  into  #tmp_old_units 
-  FROM
-     t_recur_window trw 
-     JOIN #recur_window_holder rwh ON
-  trw.c__SubscriptionID = rwh.c__SubscriptionID
-  and trw.c__PriceableItemTemplateId = rwh.c__PriceableItemTemplateId
-  and trw.c__PriceableItemInstanceId = rwh.c__PriceableItemInstanceId
-  AND trw.c_UnitValue = rwh.c_UnitValue
-  --A possibly clumsy attempt at an XOR.  We want one of the start or end dates
-  --  to match the old start/end, but not the other one.
-  AND (trw.c_UnitValueStart = rwh.c_UnitValueStart
-  or trw.c_UnitValueEnd = rwh.c_UnitValueEnd)
-  AND (trw.c_UnitValueStart != rwh.c_UnitValueStart
-  or trw.c_UnitValueEnd != rwh.c_UnitValueEnd)
-  JOIN t_recur_value trv 
-    ON rwh.c__SubscriptionID = trv.id_sub
-    and trv.id_prop = rwh.c__PriceableItemInstanceId
-    AND trw.c_UnitValueStart = trv.vt_start
-    and trw.c_UnitValueEnd = trv.vt_end
-    AND trv.tt_end < dbo.MTMaxDate() ; /* FIXME: this should join to new tt_start + 1 second */
-    
---The recur_window_holder has too many entries, because of the way we drop all entries for a sub
---  then re-insert them.  So, drop all the entries that already exist in t_recur_window
-DELETE FROM #recur_window_holder WHERE EXISTS
-(SELECT 1 FROM t_recur_window trw  JOIN t_recur_value trv 
-    ON trw.c__SubscriptionID = trv.id_sub
-    AND trw.c__PriceableItemInstanceId = trv.id_prop
-    AND trw.c_UnitValueStart = trv.vt_start
-    AND trw.c_UnitValueEnd = trv.vt_end
-    AND trv.tt_end = dbo.MTMaxDate()
-WHERE
-   trw.c__SubscriptionID = #recur_window_holder.c__SubscriptionID
-   AND trw.c_UnitValue = #recur_window_holder.c_UnitValue
-   AND trw.c_UnitValueStart = #recur_window_holder.c_UnitValueStart
-   AND trw.c_UnitValueEnd = #recur_window_holder.c_UnitValueEnd
-   and trw.c__PriceableItemInstanceID = #recur_window_holder.c__PriceableItemInstanceID
-   and trw.c__PriceableItemTemplateID = #recur_window_holder.c__PriceableItemTemplateID
-)
-      
-      EXEC MeterInitialFromRecurWindow @currentDate = @startDate;
-	  EXEC MeterUdrcFromRecurWindow @currentDate = @startDate;
 
---Delete old values from t_recur_window
-delete from t_recur_window WHERE EXISTS 
-  (SELECT 1 FROM t_recur_value oldunits join t_pl_map plm on oldunits.id_sub = plm.id_sub
-  and oldunits.id_prop = plm.id_pi_instance
-     where 
-  t_recur_window.c__SubscriptionID = oldunits.id_sub
-  AND t_recur_window.c_UnitValueStart = oldunits.vt_start 
-  AND t_recur_window.c_UnitValueEnd = oldunits.vt_end
-  and plm.id_pi_instance = t_recur_window.c__PriceableItemInstanceID
-  and plm.id_pi_template = t_recur_window.c__PriceableItemTemplateID  
-  ); 
-                  
+  /* TODO: Not sure we need this. Check and delete. */
+  DELETE FROM #recur_window_holder WHERE EXISTS
+  (SELECT 1 FROM t_recur_window trw  JOIN t_recur_value trv 
+      ON trw.c__SubscriptionID = trv.id_sub
+      AND trw.c__PriceableItemInstanceId = trv.id_prop
+      AND trw.c_UnitValueStart = trv.vt_start
+      AND trw.c_UnitValueEnd = trv.vt_end
+      AND trv.tt_end = dbo.MTMaxDate()
+  WHERE
+     trw.c__SubscriptionID = #recur_window_holder.c__SubscriptionID
+     AND trw.c_UnitValue = #recur_window_holder.c_UnitValue
+     AND trw.c_UnitValueStart = #recur_window_holder.c_UnitValueStart
+     AND trw.c_UnitValueEnd = #recur_window_holder.c_UnitValueEnd
+     and trw.c__PriceableItemInstanceID = #recur_window_holder.c__PriceableItemInstanceID
+     and trw.c__PriceableItemTemplateID = #recur_window_holder.c__PriceableItemTemplateID
+  )
+
+	EXEC MeterInitialFromRecurWindow @currentDate = @startDate;
+	EXEC MeterUdrcFromRecurWindow @currentDate = @startDate;
+
+
 	INSERT INTO t_recur_window    
 	SELECT DISTINCT c_CycleEffectiveDate,
 	c_CycleEffectiveStart,

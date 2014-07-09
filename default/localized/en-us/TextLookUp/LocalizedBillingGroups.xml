@@ -73,7 +73,10 @@
   <text id="TEXT_NO_PAYING_ACCOUNTS_IN_INTERVAL_DESCRIPTION">
     <value>This interval does not have any paying accounts or any accounts to invoice. It can be hard closed directly by clicking on the button below.
 </value>
-  </text>     
+  </text>
+  <text id="TEXT_TOGGLE_HIERARCHY_DISPLAY">
+    <value>Toggle Hierarchy Display</value>
+  </text>
 
   <text id="TEXT_HARD_CLOSE_THIS_INTERVAL">
     <value>Hard Close This Interval</value>
@@ -125,7 +128,10 @@
 
   <text id="TEXT_VIEW_STATISTICS">
     <value>View Statistics</value>
-  </text>   
+  </text>
+  <text id="TEXT_REFRESH_INTERVAL_DETAILS">
+    <value>Refresh interval details</value>
+  </text>
 
   <text id="TEXT_LOCATE_PAYER">
     <value>Locate Payer</value>

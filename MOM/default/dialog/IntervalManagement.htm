@@ -49,11 +49,28 @@
 
         <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" ID="Table1"> 
           <TR>
-             <button OnClick="window.open('IntervalManagement.Account.Statistics.asp?ID=[IntervalId]','', 'height=200,width=400,resizable=yes, scrollbars=yes, status=yes');" name="ShowAll" Class="clsButtonBlueXLarge" ID="AccountButton" >Account Statistics</button> 
-	          </TR> 
- 	        <TR align="left"> 
- 	            <TD align="left" style="align=right" class="captionEWRequired">Status:&nbsp;</TD> 
- 	            <TD align="left" class="fieldRequired"><MDMLABEL Name="Status"></MDMLABEL></TD>            
+            <TD class="captionEWRequired">Open Unassigned Accounts:&nbsp;</TD>
+            <TD class="fieldRequired"><a title="View Members" href="#" OnClick="window.open('BillingGroups.UnassignedAccounts.asp?MDMReload=TRUE&IntervalID=[IntervalId]&Status=Open','', 'height=750,width=1000, resizable=yes, scrollbars=yes, status=yes');"><MDMLABEL Name="OpenUnassignedAccountsCount"></MDMLABEL></a>
+            #MDMIf INTERVAL_ACCOUNTS_CAN_BE_MANUALLY_ASSIGNED
+            <br><a title="[TEXT_TEMP_BILLING_GROUP]" href="#" OnClick="window.open('BillingGroupManualCreate.asp?IntervalID=<MDMLABEL Name="IntervalId"></MDMLABEL>','', 'height=700,width=790, resizable=yes, scrollbars=yes, status=yes');">[TEXT_MANUALLY_ASSIGN_ACCOUNTS]</a>
+            #MDMENDIF            
+            </TD>
+        </TR>
+        <TR>
+            <TD class="captionEWRequired">Hard closed Unassigned Accounts:&nbsp;</TD>
+            <TD class="fieldRequired"><a title="View Members" href="#" OnClick="window.open('BillingGroups.UnassignedAccounts.asp?Status=HardClosed&MDMReload=TRUE&IntervalID=[IntervalId]','', 'height=750,width=1000, resizable=yes, scrollbars=yes, status=yes');"><MDMLABEL Name="HardClosedUnassignedAccountsCount"></MDMLABEL></a></TD>
+        </TR>                     
+        <!--<TR>
+            <TD class="fieldRequired" style="align:center;" colspan="2"><a title="View Members" href="#" OnClick="window.open('IntervalManagement.ChangeAccountCreationState.asp?MDMReload=TRUE&IntervalID=[IntervalId]','', 'height=750,width=1000, resizable=yes, scrollbars=yes, status=yes');">Back dated accounts can be created for this interval and accept usage</a></TD>
+        </TR>    
+
+        <TR>
+            <TD class="captionEWRequired">Blocked:&nbsp;</TD>
+            <TD class="fieldRequired"><MDMLABEL Name="IntervalBlockedToUsageFromNewAccountsMessage"></MDMLABEL></TD>
+        </TR>  --> 
+        <TR>
+            <TD class="captionEWRequired">Status:&nbsp;</TD>
+            <TD class="fieldRequired"><MDMLABEL Name="Status"></MDMLABEL></TD>
         </TR>
         <TR>
             <TD class="fieldRequired" colspan="2">

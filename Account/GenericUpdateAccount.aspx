@@ -21,7 +21,7 @@
 
   <MT:MTCheckBoxControl ID="cbApplyTemplate" runat="server" BoxLabel="Apply Template"
     Text="template" Value="template" TabIndex="95" ControlWidth="200" AllowBlank="False"
-    Checked="False" HideLabel="True" LabelSeparator=":" Listeners="{}" meta:resourcekey="cbApplyTemplateResource1"
+    Checked="False" Visible="false" HideLabel="True" LabelSeparator=":" Listeners="{}" meta:resourcekey="cbApplyTemplateResource1"
     Name="cbApplyTemplate" OptionalExtConfig="boxLabel:'Apply Template',&#13;&#10;inputValue:'template',&#13;&#10;checked:false"
     ReadOnly="False" XType="Checkbox" XTypeNameSpace="form" />  
         
@@ -42,7 +42,3 @@
 <MT:MTDataBinder ID="MTDataBinder1" runat="server"></MT:MTDataBinder>
 
 </asp:Content>
-
-
-
-

@@ -157,7 +157,7 @@
     <value>ID de la session de débat</value>
   </data>
   <data name="TEXT_COUNTY_AMOUNT" xml:space="preserve">
-    <value>[fr] Tax County</value>
+    <value>[fr] County Tax</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
     <value>Devise</value>
@@ -184,7 +184,7 @@
     <value>Une erreur est survenue lors du traitement de l’ajustement divers.</value>
   </data>
   <data name="TEXT_FEDERAL_AMOUNT" xml:space="preserve">
-    <value>[fr] Tax Federal</value>
+    <value>[fr] Federal Tax</value>
   </data>
   <data name="TEXT_GUIDE_INTERVAL_ID" xml:space="preserve">
     <value>ID de l'intervalle de guidage</value>
@@ -193,7 +193,7 @@
     <value>ID de l'intervalle</value>
   </data>
   <data name="TEXT_LOCAL_AMOUNT" xml:space="preserve">
-    <value>[fr] Tax Local</value>
+    <value>[fr] Local Tax</value>
   </data>
   <data name="TEXT_NO_IDS" xml:space="preserve">
     <value>Sélectionnez les ajustements à traiter.</value>
@@ -202,7 +202,7 @@
     <value>Autre</value>
   </data>
   <data name="TEXT_OTHER_AMOUNT" xml:space="preserve">
-    <value>[fr] Tax Other</value>
+    <value>[fr] Other Tax</value>
   </data>
   <data name="TEXT_PENDING_STATUS" xml:space="preserve">
     <value>En attente</value>
@@ -217,7 +217,7 @@
     <value>Type de session</value>
   </data>
   <data name="TEXT_STATE_AMOUNT" xml:space="preserve">
-    <value>[fr] Tax State</value>
+    <value>[fr] State Tax</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
     <value>Statut</value>

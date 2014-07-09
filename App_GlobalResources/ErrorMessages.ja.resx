@@ -247,7 +247,7 @@
     <value>設定の変更を保存できません。詳細は、ログを確認してください。</value>
   </data>
   <data name="ERROR_MULTIPLE_ACCOUNT_UPDATE_PENDING_CHANGES" xml:space="preserve">
-    <value>Japanese</value>
+    <value>[JA]</value>
   </data>
     <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
         <value>仕様の削除に失敗しました。</value>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -130,10 +130,10 @@
     <value>Data do ajuste</value>
   </data>
   <data name="adjDescriptionTextBoxResource1.Label" xml:space="preserve">
-    <value>[pt-BR]Internal Descrição</value>
+    <value>{PT-BR}Internal Descrição</value>
   </data>
   <data name="adjDescriptionTextBoxResource2.Label" xml:space="preserve">
-    <value>[pt-BR]Invoice Description</value>
+    <value>{PT-BR}Invoice Description</value>
   </data>
   <data name="adjDescriptionTextBoxResource1.MaxLength" xml:space="preserve">
     <value>-1</value>
@@ -154,16 +154,16 @@
     <value>True</value>
   </data>
   <data name="cbIssueCreditNoteResource1.BoxLabel" xml:space="preserve">
-    <value>[pt-BR]Issue Credit Note For This Adjustment</value>
+    <value>{PT-BR}Issue Credit Note For This Adjustment</value>
   </data>
   <data name="CommentTextBoxResource1.Label" xml:space="preserve">
-    <value>[pt-BR]Comment</value>
+    <value>{PT-BR}Comment</value>
   </data>
   <data name="ddBillingPeriod1.Label" xml:space="preserve">
     <value>Período de faturamento</value>
   </data>
   <data name="ddTemplateTypesResource1.Label" xml:space="preserve">
-    <value>[pt-BR]Credit Note Template To Use</value>
+    <value>{PT-BR}Credit Note Template To Use</value>
   </data>
   <data name="ddReasonCodeResource1.AllowBlank" xml:space="preserve">
     <value>False</value>
@@ -181,7 +181,7 @@
     <value>Emitir ajuste diverso</value>
   </data>
   <data name="MTPanel2Resource1.Text" xml:space="preserve">
-    <value>[pt-BR]Issue Credit Note For This Adjustment</value>
+    <value>{PT-BR}Issue Credit Note For This Adjustment</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
@@ -217,7 +217,7 @@
     <value>Ilimitado</value>
   </data>
   <data name="adjAmountFldResourceTaxCounty.Label" xml:space="preserve">
-    <value>[pt-br] Tax County</value>
+    <value>[pt-BR] County Tax</value>
   </data>
   <data name="adjAmountFldResourceTaxCounty.MaxLenght" xml:space="preserve">
     <value>-1</value>
@@ -226,7 +226,7 @@
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxFederal.Label" xml:space="preserve">
-    <value>[pt-br] Tax Federal</value>
+    <value>[pt-BR] Federal Tax</value>
   </data>
   <data name="adjAmountFldResourceTaxFederal.MaxLenght" xml:space="preserve">
     <value>-1</value>
@@ -235,7 +235,7 @@
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxLocal.Label" xml:space="preserve">
-    <value>[pt-br] Tax Local</value>
+    <value>[pt-BR] Local Tax</value>
   </data>
   <data name="adjAmountFldResourceTaxLocal.MaxLenght" xml:space="preserve">
     <value>-1</value>
@@ -244,7 +244,7 @@
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxOther.Label" xml:space="preserve">
-    <value>[pt-br] Tax Other</value>
+    <value>[pt-BR] Other Tax</value>
   </data>
   <data name="adjAmountFldResourceTaxOther.MaxLenght" xml:space="preserve">
     <value>-1</value>
@@ -253,7 +253,7 @@
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxState.Label" xml:space="preserve">
-    <value>[pt-br] Tax State</value>
+    <value>[pt-BR] State Tax</value>
   </data>
   <data name="adjAmountFldResourceTaxState.MaxLenght" xml:space="preserve">
     <value>-1</value>
@@ -268,7 +268,7 @@
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxTotal.Label" xml:space="preserve">
-    <value>[pt-br]Total Adjustment Being Issued</value>
+    <value>[pt-BR]Total Adjustment Being Issued</value>
   </data>
   <data name="TEXT_CREDIT_NOTE_CREATED" xml:space="preserve">
     <value>[pt-BR]A credit note for this Miscellaneous Adjustment was created.</value>

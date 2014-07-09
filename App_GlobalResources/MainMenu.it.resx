@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -334,7 +334,7 @@
     <value>Elenca tutte le entità</value>
   </data>
   <data name="TEXT_MACHINE_ROLES" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="TEXT_MAKE_PAYMENT" xml:space="preserve">
     <value>Effettua un pagamento</value>
@@ -559,7 +559,7 @@
     <value>Aggiorna definizione rapporto esistente</value>
   </data>
   <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-    <value>[IT]Usage Audit</value>
+    <value>{IT}Usage Calculation Decision Details</value>
   </data>
   <data name="TEXT_USM" xml:space="preserve">
     <value>Manutenzione server di utilizzo</value>
@@ -583,43 +583,43 @@
     <value>[IT]Approvals</value>
   </data>
   <data name="TEXT_SHOW_ITEM_HISTORY" xml:space="preserve">
-    <value>View Item History</value>
+    <value>[IT]View Item History</value>
   </data>
   <data name="TEXT_SHOW_ALL_CHANGES_SUMMARY" xml:space="preserve">
-    <value>View All Changes</value>
+    <value>[IT]View All Changes</value>
   </data>
   <data name="TEXT_SHOW_PENDING_CHANGES_SUMMARY" xml:space="preserve">
-    <value>View Pending Changes</value>
+    <value>[IT]View Pending Changes</value>
   </data>
   <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
-    <value>View Failed Changes</value>
+    <value>[IT]View Failed Changes</value>
   </data>
   <data name="TEXT_MANAGE_AMP_DECISIONS" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="TEXT_ASSIGN_BILL_MESSAGES" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
-    <value>[It]Add child Account</value>
+    <value>[IT]Add child Account</value>
   </data>
   <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
-    <value>[it]Bill Messages</value>
+    <value>[IT]Bill Messages</value>
   </data>
   <data name="TEXT_FINANCE_DASHBOARD" xml:space="preserve">
-    <value>[it]Finance Dashboard</value>
+    <value>[IT]Finance Dashboard</value>
   </data>
   <data name="TEXT_MANAGE_BILL_MESSAGES" xml:space="preserve">
-    <value>[it]Manage Bill Messages</value>
+    <value>[IT]Manage Bill Messages</value>
   </data>
   <data name="TEXT_OPERATIONS_DASHBOARD" xml:space="preserve">
-    <value>[it]Operations Dashboard</value>
+    <value>[IT]Operations Dashboard</value>
   </data>
   <data name="TEXT_PRODUCT_DASHBOARD" xml:space="preserve">
-    <value>[it]Product Dashboard</value>
+    <value>[IT]Product Dashboard</value>
   </data>
   <data name="TEXT_REPORTS" xml:space="preserve">
-    <value>[it] Reports</value>
+    <value>[IT] Reports</value>
   </data>
   <data name="TEXT_USAGE_PROCESSING" xml:space="preserve">
     <value>[IT]Usage Processing</value>
@@ -632,5 +632,14 @@
   </data>
   <data name="TEXT_ACCOUNT" xml:space="preserve">
     <value>[IT]Account</value>
+  </data>
+  <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
+    <value>{IT}Create Quote</value>
   </data>  
+  <data name="TEXT_QUOTING_LIST" xml:space="preserve">
+    <value>{IT}View All Quotes</value>
+  </data>
+  <data name="TEXT_SHARED_PROPERTIES" xml:space="preserve">
+    <value>{IT}Shared Properties</value>
+  </data>   
 </root>

@@ -89,13 +89,13 @@ public partial class Adjustments_AjaxServices_LoadAdjustmentsIssued : MTListServ
 
   protected void Page_Load(object sender, EventArgs e)
   {
-   using (new HighResolutionTimer("LoadAdjustmentsIssued", 5000))
+   using (new HighResolutionTimer("LoadAdjustmentsIssued", 60000))
     {
       CreditNoteServiceClient client = null;
       try
       {
         client = new CreditNoteServiceClient();
-
+        client.Endpoint.Binding.SendTimeout = new TimeSpan(0, 3, 0);  
         if (client.ClientCredentials != null)
         {
           client.ClientCredentials.UserName.UserName = UI.User.UserName;

@@ -256,7 +256,7 @@
     <value>Elimina</value>
   </data>
   <data name="TEXT_BULKUPDATE" xml:space="preserve">
-    <value>Bulk Update</value>
+    <value>[IT]Bulk Update</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
     <value>Descrizione</value>
@@ -511,43 +511,43 @@
     <value>[IT] Next</value>
   </data>
   <data name="TEXT_SAVE_AND_CONTINUE" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="TEXT_SAVE_NEW_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="TEXT_CONTINUE" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="TEXT_YES" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="TEXT_NO" xml:space="preserve">
-    <value>Italian</value>
+    <value>[IT]</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Add_Category" xml:space="preserve">
-    <value>add category</value>
+    <value>[IT]add category</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Add_Property" xml:space="preserve">
-    <value>add property</value>
+    <value>[IT]add property</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Available_Shared_Properties" xml:space="preserve">
-    <value>Available Shared Properties</value>
+    <value>[IT]Available Shared Properties</value>
   </data>
   <data name="AvailableSharedProperties_cshtml_Back_To_Properties" xml:space="preserve">
-    <value>back to properties</value>
+    <value>[IT]back to properties</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_ADDED_YET_TO_AGREEMENT_TEMPLATE" xml:space="preserve">
-    <value>This agreement template has no shared properties.</value>
+    <value>[IT]This agreement template has no shared properties.</value>
   </data>
   <data name="_PropertyForm_cshtml_Set_Localization" xml:space="preserve">
-    <value>Set localization</value>
+    <value>[IT]Set localization</value>
   </data>
   <data name="_PropertyForm_cshtml_Set_Localization_Title" xml:space="preserve">
-    <value>Set Localization</value>
+    <value>[IT]Set Localization</value>
   </data>
 	<data name="TEXT_FROM_PARAMETER_TABLE" xml:space="preserve">
-    <value>From parameter table [IT]</value>
+    <value>[IT]From parameter table [IT]</value>
   </data>
   <data name="newSubscription" xml:space="preserve">
     <value>[IT]New Subscription</value>
@@ -556,16 +556,16 @@
     <value>[IT]Subscription Update</value>
   </data>
   <data name="TEXT_QUOTE_DETAILS" xml:space="preserve">
-    <value>More Items...</value>
+    <value>[IT]More Items...</value>
   </data>
   <data name="ACCOUNT_FOR_QUOTES" xml:space="preserve">
-    <value>More Items...</value>
+    <value>[IT]More Items...</value>
   </data>
   <data name="PO_FOR_QUOTES" xml:space="preserve">
-    <value>More Items...</value>
+    <value>[IT]More Items...</value>
   </data>
   <data name="LOG_FOR_QUOTES" xml:space="preserve">
-    <value>Quote log</value>
+    <value>[IT]Quote log</value>
   </data>
   <data name="TEXT_TAX" xml:space="preserve">
     <value>[IT]Tax</value>

@@ -125,6 +125,6 @@
     <value>MetraNet</value>
   </data>
   <data name="TEXT_MESSAGE" xml:space="preserve">
-    <value>German '{0}'  '{1}'</value>
+    <value>[DE] '{0}'  '{1}'</value>
   </data>
 </root>

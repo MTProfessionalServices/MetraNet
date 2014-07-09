@@ -144,7 +144,26 @@ public partial class DataExportReportManagement_CreateScheduleReportInstanceDail
 
       catch (Exception ex)
       {
-        SetError(ex.Message);
+        string errorMsgToFind = "Execute Time should be equal to or greater than Execute Start Time";
+        bool isFound = false;
+        if (ex is System.ServiceModel.FaultException<MetraTech.ActivityServices.Common.MASBasicFaultDetail>)
+        {
+          var masFault = ex as System.ServiceModel.FaultException<MetraTech.ActivityServices.Common.MASBasicFaultDetail>;
+
+          foreach (var message in masFault.Detail.ErrorMessages)
+          {
+            if (message.Contains((errorMsgToFind)))
+            {
+              SetError(errorMsgToFind);
+              isFound = true;
+              break;
+            }
+          }
+        }
+        if (!isFound)
+        {
+          SetError(ex.Message);
+        }
         this.Logger.LogError(ex.Message);
         client.Abort();
       }

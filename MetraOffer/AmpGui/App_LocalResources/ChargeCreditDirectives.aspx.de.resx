@@ -118,57 +118,57 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="lbDescription.Text" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="lbGrid2TitleResource1.Text" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="tbChargeCreditNameResource1.LabelSeparator" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="tbProductViewNameResource1.LabelSeparator" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="TEXT_ADD" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="TEXT_ADD_TOOLTIP" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="TEXT_DETAILS" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="TEXT_TYPE" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="TEXT_ACTIONS" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="TEXT_FIELDNAME" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="TEXT_POPULATED" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="TEXT_ERROR_RAISE_PRIORITY" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="TEXT_ERROR_REDUCE_PRIORITY" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="TEXT_RAISE_PRIORITY" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="TEXT_REDUCE_PRIORITY" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
   <data name="TEXT_ORDER" xml:space="preserve">
-    <value>German</value>
+    <value>[DE]</value>
   </data>
 </root>

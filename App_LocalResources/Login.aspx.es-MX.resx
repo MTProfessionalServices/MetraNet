@@ -177,4 +177,22 @@
     <data name="tbUserNameResource1.LabelWidth" xml:space="preserve">
         <value>140</value>
     </data>
+    <data name="NEW_PASSWORD_TEXT" xml:space="preserve">
+        <value>{es-mx} New Password</value>
+    </data>        
+    <data name="CONFIRM_PASSWORD_TEXT" xml:space="preserve">
+        <value>{es-mx} Confirm New Password</value>
+    </data>         
+    <data name="ENTER_PASSWORD" xml:space="preserve">
+        <value>{es-mx} Enter Password</value>
+    </data>    
+    <data name="ENTER_NEW_PASSWORD" xml:space="preserve">
+        <value>{es-mx} Enter New Password</value>
+    </data>        
+    <data name="ENTER_CONFIRM_PASSWORD" xml:space="preserve">
+        <value>{es-mx} Enter Confirm Password</value>
+    </data>            
+    <data name="PASSWORDS_DONT_MATCH" xml:space="preserve">
+        <value>{es-mx} Passwords donot match</value>
+    </data>    
 </root>

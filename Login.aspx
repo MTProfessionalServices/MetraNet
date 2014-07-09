@@ -50,7 +50,37 @@
       });
 
     }
-   
+
+    function validateEnteredPasswords() {
+      var errorTextDiv = document.getElementById('<%= divChangePasswdFailureText.ClientID %>');
+      var currentPwd = document.getElementById('<%= CurrentPassword.ClientID %>');
+      var newPwd = document.getElementById('<%= NewPassword.ClientID %>');
+      var confirmNewPwd = document.getElementById('<%= ConfirmNewPassword.ClientID %>');
+      var validationFailed = false;
+
+
+      if (currentPwd.value == '<%=passwordTxt%>') {
+        validationFailed = true;
+        errorTextDiv.innerHTML = '<%=enterPasswordTxt%>';
+      }
+      else if (newPwd.value == '<%=newpasswordTxt%>') {
+        validationFailed = true;
+        errorTextDiv.innerHTML = '<%=enterNewPasswordTxt%>';
+      }
+      else if (confirmNewPwd.value == '<%=confirmnewpasswordTxt%>') {
+        validationFailed = true;
+        errorTextDiv.innerHTML = '<%=enterConfirmPasswordTxt%>';
+      }
+      else if (newPwd.value != confirmNewPwd.value) {
+        validationFailed = true;
+        errorTextDiv.innerHTML = '<%=passwordsDontMatchTxt%>';
+      }
+      if (validationFailed) {
+        displayChangePasswdErrorBox();
+        return false;
+      }
+      return true;
+    }
 
   </script>
   <div id="LoginDiv" class="transparent-container borders-on shadow-on rounded-lg">
@@ -91,17 +121,21 @@
       </asp:Panel>
       <script type="text/javascript">
         Ext.onReady(function () {
-          document.getElementById("<%= Login1.ClientID%>" + "_UserName").placeholder = "<%=userNameTxt%>";
-          document.getElementById("<%= Login1.ClientID%>" + "_Password").placeholder = "<%=passwordTxt%>";
-          
+          if (document.getElementById("<%= Login1.ClientID%>" + "_UserName") != null) {
+            document.getElementById("<%= Login1.ClientID%>" + "_UserName").placeholder = "<%=userNameTxt%>";
+          }
+          if (document.getElementById("<%= Login1.ClientID%>" + "_Password") != null) {
+            document.getElementById("<%= Login1.ClientID%>" + "_Password").placeholder = "<%=passwordTxt%>";
+          }
+
           // Fix for IE
           if (Object.hasOwnProperty.call(window, "ActiveXObject") && !window.ActiveXObject) {
             // is IE11
 
             var dataPlaceholders = document.querySelectorAll("input[placeholder]"),
                 l = dataPlaceholders.length,
-                // Set caret at the beginning of the input
-                setCaret = function(evt) {
+            // Set caret at the beginning of the input
+                setCaret = function (evt) {
                   if (this.value === this.getAttribute("data-placeholder")) {
                     this.setSelectionRange(0, 0);
                     evt.preventDefault();
@@ -109,8 +143,8 @@
                     return false;
                   }
                 },
-                // Clear placeholder value at user input
-                clearPlaceholder = function(evt) {
+            // Clear placeholder value at user input
+                clearPlaceholder = function (evt) {
                   if (!(evt.shiftKey && evt.keyCode === 16) && evt.keyCode !== 9) {
                     if (this.value === this.getAttribute("data-placeholder")) {
                       this.value = "";
@@ -121,17 +155,17 @@
                     }
                   }
                 },
-                restorePlaceHolder = function() {
+                restorePlaceHolder = function () {
                   if (this.value.length === 0) {
                     this.value = this.getAttribute("data-placeholder");
                     setCaret.apply(this, arguments);
                     this.className = "";
                     if (this.type === "password") {
-                        this.type = "text";
+                      this.type = "text";
                     }
                   }
                 },
-                clearPlaceholderAtSubmit = function(evt) {
+                clearPlaceholderAtSubmit = function (evt) {
                   for (var i = 0, placeholder; i < l; i++) {
                     placeholder = dataPlaceholders[i];
                     if (placeholder.value === placeholder.getAttribute("data-placeholder")) {
@@ -166,7 +200,7 @@
               // Clear all default placeholder values from the form at submit
               placeholder.form.addEventListener("submit", clearPlaceholderAtSubmit, false);
             }
-          }        
+          }
 
           if ("true" == "<%=showFailureText%>") {
             displayErrorBox();
@@ -175,7 +209,7 @@
         
           function displayErrorBox() {
               $('#<%= Login1.ClientID%>').find('.alert').not('.ajax').slideDown("fast");
-              $('#<%= Login1.ClientID%>').find('input[type=password]').val('');
+           	  $('#<%= Login1.ClientID%>').find('input[type=password]').val('');
               $('#<%= Login1.ClientID%>').focus();
               $("#<%= Login1.ClientID%>").attr("style", "");
           }
@@ -221,7 +255,7 @@
                        <li>
                          <div style="width:100%;margin-top: 10px">
                           <div style="float:left;width:48%">
-                             <asp:Button ID="ChangePassword" OnClick="btnChangePassword_Click" runat="server" 
+                             <asp:Button ID="ChangePassword" OnClick="btnChangePassword_Click" runat="server" OnClientClick="return validateEnteredPasswords();"
                              CssClass="left lg-button lg-button-submit rounded-lg" Text="<%$Resources:Resource,TEXT_OK%>"/>
                            </div>
                            <div style="float:right;width:48%">
@@ -236,16 +270,16 @@
           Ext.onReady(function () {
             document.getElementById("<%= CurrentPassword.ClientID%>").placeholder = "<%=passwordTxt%>";
             document.getElementById("<%= NewPassword.ClientID%>").placeholder = "<%=newpasswordTxt%>";
-            document.getElementById("<%= ConfirmNewPassword.ClientID%>" ).placeholder = "<%=confirmnewpasswordTxt%>";
+            document.getElementById("<%= ConfirmNewPassword.ClientID%>").placeholder = "<%=confirmnewpasswordTxt%>";
 
-          // Fix for IE
-          if (Object.hasOwnProperty.call(window, "ActiveXObject") && !window.ActiveXObject) {
-            // is IE11
+            // Fix for IE
+            if (Object.hasOwnProperty.call(window, "ActiveXObject") && !window.ActiveXObject) {
+              // is IE11
 
-            var dataPlaceholders = document.querySelectorAll("input[placeholder]"),
+              var dataPlaceholders = document.querySelectorAll("input[placeholder]"),
                 l = dataPlaceholders.length,
-                // Set caret at the beginning of the input
-                setCaret = function(evt) {
+              // Set caret at the beginning of the input
+                setCaret = function (evt) {
                   if (this.value === this.getAttribute("data-placeholder")) {
                     this.setSelectionRange(0, 0);
                     evt.preventDefault();
@@ -253,8 +287,8 @@
                     return false;
                   }
                 },
-                // Clear placeholder value at user input
-                clearPlaceholder = function(evt) {
+              // Clear placeholder value at user input
+                clearPlaceholder = function (evt) {
                   if (!(evt.shiftKey && evt.keyCode === 16) && evt.keyCode !== 9) {
                     if (this.value === this.getAttribute("data-placeholder")) {
                       this.value = "";
@@ -267,17 +301,17 @@
                     }
                   }
                 },
-                restorePlaceHolder = function() {
+                restorePlaceHolder = function () {
                   if (this.value.length === 0) {
                     this.value = this.getAttribute("data-placeholder");
                     setCaret.apply(this, arguments);
                     this.className = "";
                     if (this.type === "password") {
-                        this.type = "text";
+                      this.type = "text";
                     }
                   }
                 },
-                clearPlaceholderAtSubmit = function(evt) {
+                clearPlaceholderAtSubmit = function (evt) {
                   for (var i = 0, placeholder; i < l; i++) {
                     placeholder = dataPlaceholders[i];
                     if (placeholder.value === placeholder.getAttribute("data-placeholder")) {
@@ -286,34 +320,34 @@
                   }
                 };
 
-            for (var i = 0, placeholder, placeholderVal; i < l; i++) {
-              placeholder = dataPlaceholders[i];
-              placeholderVal = placeholder.getAttribute("placeholder");
-              placeholder.setAttribute("data-placeholder", placeholderVal);
-              placeholder.removeAttribute("placeholder");
+              for (var i = 0, placeholder, placeholderVal; i < l; i++) {
+                placeholder = dataPlaceholders[i];
+                placeholderVal = placeholder.getAttribute("placeholder");
+                placeholder.setAttribute("data-placeholder", placeholderVal);
+                placeholder.removeAttribute("placeholder");
 
-              if (placeholder.value.length === 0) {
-                placeholder.value = placeholderVal;
-                if (placeholder.type === "password") {
-                  placeholder.type = "text";
+                if (placeholder.value.length === 0) {
+                  placeholder.value = placeholderVal;
+                  if (placeholder.type === "password") {
+                    placeholder.type = "text";
+                  }
+                } else {
+                  placeholder.className = "active";
                 }
-              } else {
-                placeholder.className = "active";
+
+                // Apply events for placeholder handling         
+                placeholder.addEventListener("focus", setCaret, false);
+                placeholder.addEventListener("drop", setCaret, false);
+                placeholder.addEventListener("click", setCaret, false);
+                placeholder.addEventListener("keydown", clearPlaceholder, false);
+                placeholder.addEventListener("keyup", restorePlaceHolder, false);
+                placeholder.addEventListener("blur", restorePlaceHolder, false);
+
+                // Clear all default placeholder values from the form at submit
+                placeholder.form.addEventListener("submit", clearPlaceholderAtSubmit, false);
               }
-
-              // Apply events for placeholder handling         
-              placeholder.addEventListener("focus", setCaret, false);
-              placeholder.addEventListener("drop", setCaret, false);
-              placeholder.addEventListener("click", setCaret, false);
-              placeholder.addEventListener("keydown", clearPlaceholder, false);
-              placeholder.addEventListener("keyup", restorePlaceHolder, false);
-              placeholder.addEventListener("blur", restorePlaceHolder, false);
-
-              // Clear all default placeholder values from the form at submit
-              placeholder.form.addEventListener("submit", clearPlaceholderAtSubmit, false);
             }
-          }
-          
+
             if ("true" == "<%=showChangePasswdFailureText%>") {
               displayChangePasswdErrorBox();
             }
@@ -321,7 +355,7 @@
 
           function displayChangePasswdErrorBox() {
             $('#<%= pnlChangePassword.ClientID%>').find('.alert').not('.ajax').slideDown("fast");
-            $('#<%= pnlChangePassword.ClientID%>').find('input[type=password]').val('');
+            <%-- $('#<%= pnlChangePassword.ClientID%>').find('input[type=password]').val(''); --%>
             $('#<%= pnlChangePassword.ClientID%>').focus();
             $("#<%= pnlChangePassword.ClientID%>").attr("style", "");
           }

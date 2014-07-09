@@ -120,6 +120,9 @@
     <data name="BillAndPayments.Text" xml:space="preserve">
         <value>Rechnung und Zahlungen</value>
     </data>
+    <data name="Charge.Text" xml:space="preserve">
+      <value>Gebühren</value>
+    </data>
     <data name="DetailedView.Text" xml:space="preserve">
         <value>Detailansicht</value>
     </data>

@@ -520,7 +520,7 @@
     <value>Propiedades</value>
   </data>
   <data name="TEXT_PRORATED_RECURRING_CHARGE_CREDIT_MESSAGE" xml:space="preserve">
-    <value>You received this credit because your subscription with a recurring charge being billed in advance changed during this billing period.&lt;BR&gt;&lt;BR&gt;On your previous bill, we charged you [RCAmount] in advance.  You only used the service from [RCIntervalStart] to [RCIntervalEnd].  So, this credit represents the difference from [ProratedIntervalStart] to [ProratedIntervalEnd].  This is a period of [ProratedDays] days.&lt;BR&gt;&lt;BR&gt;To calculate the credit, we used a daily rate of [ProratedDailyRate].  The daily rate was calculated taking [RCAmount] and dividing it by the number of days in the period.  So, we took the period of [ProratedDays] days and multiplied it by [ProratedDailyRate] giving you a credit of [Amount].&lt;BR&gt;</value>
+    <value>You received this credit because your subscription with a recurring charge being billed in advance changed during this billing period.&lt;BR&gt;&lt;BR&gt;On your previous bill, we charged you [RCAmount] in advance.  You only used the service from [RCIntervalStart] to [ProratedIntervalStartPreviousDay].  So, this credit represents the difference from [ProratedIntervalStart] to [ProratedIntervalEnd].  This is a period of [ProratedDays] days.&lt;BR&gt;&lt;BR&gt;To calculate the credit, we used a daily rate of [ProratedDailyRate].  The daily rate was calculated taking [RCAmount] and dividing it by the number of days in the period.  So, we took the period of [ProratedDays] days and multiplied it by [ProratedDailyRate] giving you a credit of [Amount].&lt;BR&gt;</value>
   </data>
   <data name="TEXT_PRORATED_RECURRING_CHARGE_MESSAGE" xml:space="preserve">
     <value>Este cargo ha sido prorrateado.  El prorrateo reduce los cargos, al cobrarle únicamente por el número de días que ha permanecido suscrito a un servicio en un período de facturación dado.&lt;BR&gt;&lt;BR&gt;Para este artículo, sus cargos comenzaron el [InicioIntervaloProrrateo] y finalizaron el [FinalIntervaloProrrateo].  Por consiguiente, recibió usted [DíasProrrateados] días de servicio.  El cargo correspondiente a este período se calculó multiplicando la tarifa diaria de [TarifaDiariaProrrateada] por los [DíasProrrateados] días que estuvo suscrito.  El cálculo anterior arroja un resultado de [Importe].  (La tarifa diaria de [TarifaDiariaProrrateada] se calcula dividiendo los cargos del período de [ImporteRC] por el número de días del período).&lt;BR&gt;</value>
@@ -696,4 +696,7 @@
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
     <value>[es] Middle initial is invalid</value>
   </data>  
+  <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
+    <value>d/m/Y H:i:s</value>
+  </data>
 </root>

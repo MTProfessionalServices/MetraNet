@@ -520,7 +520,7 @@
     <value>プロパティ</value>
   </data>
   <data name="TEXT_PRORATED_RECURRING_CHARGE_CREDIT_MESSAGE" xml:space="preserve">
-    <value>You received this credit because your subscription with a recurring charge being billed in advance changed during this billing period.&lt;BR&gt;&lt;BR&gt;On your previous bill, we charged you [RCAmount] in advance.  You only used the service from [RCIntervalStart] to [RCIntervalEnd].  So, this credit represents the difference from [ProratedIntervalStart] to [ProratedIntervalEnd].  This is a period of [ProratedDays] days.&lt;BR&gt;&lt;BR&gt;To calculate the credit, we used a daily rate of [ProratedDailyRate].  The daily rate was calculated taking [RCAmount] and dividing it by the number of days in the period.  So, we took the period of [ProratedDays] days and multiplied it by [ProratedDailyRate] giving you a credit of [Amount].&lt;BR&gt;</value>
+    <value>You received this credit because your subscription with a recurring charge being billed in advance changed during this billing period.&lt;BR&gt;&lt;BR&gt;On your previous bill, we charged you [RCAmount] in advance.  You only used the service from [RCIntervalStart] to [ProratedIntervalStartPreviousDay].  So, this credit represents the difference from [ProratedIntervalStart] to [ProratedIntervalEnd].  This is a period of [ProratedDays] days.&lt;BR&gt;&lt;BR&gt;To calculate the credit, we used a daily rate of [ProratedDailyRate].  The daily rate was calculated taking [RCAmount] and dividing it by the number of days in the period.  So, we took the period of [ProratedDays] days and multiplied it by [ProratedDailyRate] giving you a credit of [Amount].&lt;BR&gt;</value>
   </data>
   <data name="TEXT_PRORATED_RECURRING_CHARGE_MESSAGE" xml:space="preserve">
     <value>この電荷は日割り計算されています。比例配分は、あなたが特定の請求にサービスに加入していることの日数を入力する充電することによって費用を削減</value>
@@ -696,4 +696,7 @@
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
     <value>[JA] Middle initial is invalid</value>
   </data>     
+  <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
+    <value>Y/m/d H:i:s</value>
+  </data>
 </root>

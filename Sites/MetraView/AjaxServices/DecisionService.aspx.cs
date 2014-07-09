@@ -50,6 +50,7 @@ public partial class AjaxServices_DecisionService : MTListServicePage
     Logger.LogDebug("Looking for decisions for id_acc " + UI.User.AccountId + " and interval " + id_interval);
     // id_interval = 1039138849;  // ME May 2013
     // id_interval = 1041104929;  // ME Jun 2013
+//	id_interval = 1055195169;
 
     using ( new HighResolutionTimer ( "DecisionService", 5000 ) )
     {
@@ -402,7 +403,14 @@ public class BucketInstance
     int i = 0;
     array [ i ] = TierStart;
     indexes.Add ( "tier_start", i++ );
-    array [ i ] = TierEnd;
+	if (TierEnd==decimal.MaxValue)
+	{
+      array [ i ] = "";
+	}
+	else
+	{
+      array [ i ] = TierEnd;
+	}
     indexes.Add ( "tier_end", i++ );
     if ( !string.IsNullOrEmpty ( DecisionId ) )
     {
@@ -454,6 +462,24 @@ public class BucketInstance
         }
         if ( index > -1 )
         {
+		  if (( !string.IsNullOrEmpty ( fmt ) ) && fmt.Equals ( ":ENUM", StringComparison.InvariantCultureIgnoreCase ))
+		  {
+			using ( var conn = ConnectionManager.CreateConnection ( ) )
+			{
+			  using ( var stmt = conn.CreateAdapterStatement ( "select tx_desc from t_enum_data ted inner join t_description dsc on dsc.id_desc = ted.id_enum_data where dsc.id_lang_code = %%ID_LANG%% and ted.id_enum_data = %%ID_ENUM%%" ) )
+			  {
+				stmt.AddParam ( "%%ID_ENUM%%", array[index] );
+				stmt.AddParam ( "%%ID_LANG%%", 840 );
+				using ( var rdr = stmt.ExecuteReader () )
+				{
+				  while ( rdr.Read () )
+				  {
+					return rdr.GetString ("tx_desc");
+				  }
+				}
+			  }
+			}
+		  }
             // TODO: support currency symbol
             // TODO: support currency precision override
           object currency;
@@ -790,6 +816,7 @@ public class DecisionInstance
     get
     {
       string txt = GetLocalizedString ( "marker_title" );
+	  txt = "Amount: {marker_amount:c}";
       if ( string.IsNullOrEmpty ( txt ) )
       {
         txt = string.Empty;
@@ -807,6 +834,7 @@ public class DecisionInstance
     get
     {
       string txt = GetLocalizedString ( "projected_marker_before_title" );
+	  txt = "Projected Amount: {projected_amount:c}";
       if ( string.IsNullOrEmpty ( txt ) )
       {
         txt = string.Empty;
@@ -873,7 +901,15 @@ public class DecisionInstance
     {
       if ( !indexes.ContainsKey ( key ) )
       {
-        array [ i ] = DecisionTypeAttributes [ key ];
+	    decimal myd;
+		if (Decimal.TryParse(DecisionTypeAttributes [ key ], out myd))
+		{
+		  array [ i ] = myd;
+		}
+		else
+		{
+          array [ i ] = DecisionTypeAttributes [ key ];
+		}
         indexes.Add ( key, i++ );
       }
     }
@@ -911,6 +947,24 @@ public class DecisionInstance
         }
         if (index > -1)
         {
+		  if (( !string.IsNullOrEmpty ( fmt ) ) && fmt.Equals ( ":ENUM", StringComparison.InvariantCultureIgnoreCase ))
+		  {
+			using ( var conn = ConnectionManager.CreateConnection ( ) )
+			{
+			  using ( var stmt = conn.CreateAdapterStatement ( "select tx_desc from t_enum_data ted inner join t_description dsc on dsc.id_desc = ted.id_enum_data where dsc.id_lang_code = %%ID_LANG%% and ted.id_enum_data = %%ID_ENUM%%" ) )
+			  {
+				stmt.AddParam ( "%%ID_ENUM%%", array[index] );
+				stmt.AddParam ( "%%ID_LANG%%", 840 );
+				using ( var rdr = stmt.ExecuteReader () )
+				{
+				  while ( rdr.Read () )
+				  {
+					return rdr.GetString ("tx_desc");
+				  }
+				}
+			  }
+			}
+		  }
             // TODO: support currency symbol
             // TODO: support currency precision override
           string currency;
@@ -961,10 +1015,6 @@ public class DecisionInstance
     get
     {
       string txt = GetLocalizedString ( "tick_title" );
-      if ( string.IsNullOrEmpty ( txt ) )
-      {
-        txt = "Minutes";
-      }
       if ( string.IsNullOrEmpty ( txt ) )
       {
         txt = TierMetric;
@@ -1019,6 +1069,7 @@ public class DecisionInstance
 	  {
 	    var m = b.QualifiedTotal;
 		if (m < b.TierStart) continue;
+		if ( m > b.TierEnd && !"incremental".Equals(b.DecisionInstAttributes["tier_type"])) continue;
 		if ( m > b.TierEnd )
 		{
 		  m = b.TierEnd;
@@ -1050,7 +1101,10 @@ public class DecisionInstance
         int i = 0;
         foreach (var b in BucketInstances)
         {
-            if (b.QualifiedTotal > b.TierStart)
+		    if ( b.QualifiedTotal > b.TierEnd && !"incremental".Equals(b.DecisionInstAttributes["tier_type"]))
+			{
+			}
+			else if (b.QualifiedTotal > b.TierStart)
             {
                 list.Add(i);
             }
@@ -1079,6 +1133,7 @@ public class DecisionInstance
       }
       if (max > decimal.MinValue)
       {
+          DecisionTypeAttributes["marker_amount"] = max.ToString();
           list.Add(max);
           if (IncludeProjections)
           {
@@ -1092,6 +1147,7 @@ public class DecisionInstance
               {
                   var ratio = n / d;
 				  var a = max * ((decimal) ratio);
+				  DecisionTypeAttributes["projected_amount"] = a.ToString();
                   list.Add(a);
               }
           }
@@ -1119,6 +1175,29 @@ public class DecisionInstance
           else
           {
               return false;
+          }
+      }
+  }
+
+  public bool ProjectionExceedGood
+  {
+      get
+      {
+          string val;
+          if (DecisionTypeAttributes.TryGetValue("projection_exceeds_good", out val))
+          {
+              if (!string.IsNullOrEmpty(val))
+              {
+                  return Convert.ToBoolean(val);
+              }
+              else
+              {
+                  return true;
+              }
+          }
+          else
+          {
+              return true;
           }
       }
   }
@@ -1158,11 +1237,11 @@ public class DecisionInstance
                     var projected = max * ((decimal)ratio);
                     if (projected > end)
                     {
-                        list.Add("good");
+                        list.Add(ProjectionExceedGood?"good":"bad");
                     }
                     else
                     {
-                        list.Add("bad");
+                        list.Add(ProjectionExceedGood?"bad":"good");
                     }
                 }
             }
@@ -1178,7 +1257,11 @@ public class DecisionInstance
         List<string> list = new List<string>();
         foreach (var b in BucketInstances)
         {
-			if (b.QualifiedTotal == 0.0m)
+            if ( b.QualifiedTotal > b.TierEnd && !"incremental".Equals(b.DecisionInstAttributes["tier_type"]))
+			{
+                list.Add("expired");
+			}
+			else if (b.QualifiedTotal == 0.0m)
 			{
                 list.Add("expired");
 			}
@@ -1220,6 +1303,7 @@ public class DecisionInstance
         List<string> list = new List<string>();
         foreach (var b in BucketInstances)
         {
+		    if ( b.QualifiedTotal > b.TierEnd && !"incremental".Equals(b.DecisionInstAttributes["tier_type"])) continue;
 		    if (b.QualifiedTotal > b.TierStart)
 			{
 				list.Add(b.MeasureTitle);

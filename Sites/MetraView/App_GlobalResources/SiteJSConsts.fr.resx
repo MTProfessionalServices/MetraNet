@@ -520,7 +520,7 @@
     <value>Propriétés</value>
   </data>
   <data name="TEXT_PRORATED_RECURRING_CHARGE_CREDIT_MESSAGE" xml:space="preserve">
-    <value>Vous avez reçu ce crédit car votre abonnement avec frais récurrents à facturer en avance a changé pendant cette période de facturation.&lt;BR&gt;&lt;BR&gt;Sur votre facture précédente, nous vous avons facturé [RCAmount] en avance. Vous n’avez utilisé le service que de [RCIntervalStart] à [RCIntervalEnd]. Donc, ce crédit est égal à la différence entre [ProratedIntervalStart] et [ProratedIntervalEnd]. Cela représente une période de [ProratedDays] jours.&lt;BR&gt;&lt;BR&gt;Pour calculer le crédit, nous avons utilisé des frais journaliers de [ProratedDailyRate]. Les frais journaliers ont été calculés en divisant la valeur [RCAmount] par le nombre de jours compris dans la période. Donc, nous avons pris la période de [ProratedDays] jours et nous l’avons multipliée par [ProratedDailyRate] pour vous offrir un crédit de [Amount].&lt;BR&gt;</value>
+    <value>Vous avez reçu ce crédit car votre abonnement avec frais récurrents à facturer en avance a changé pendant cette période de facturation.&lt;BR&gt;&lt;BR&gt;Sur votre facture précédente, nous vous avons facturé [RCAmount] en avance. Vous n’avez utilisé le service que de [RCIntervalStart] à [ProratedIntervalStartPreviousDay]. Donc, ce crédit est égal à la différence entre [ProratedIntervalStart] et [ProratedIntervalEnd]. Cela représente une période de [ProratedDays] jours.&lt;BR&gt;&lt;BR&gt;Pour calculer le crédit, nous avons utilisé des frais journaliers de [ProratedDailyRate]. Les frais journaliers ont été calculés en divisant la valeur [RCAmount] par le nombre de jours compris dans la période. Donc, nous avons pris la période de [ProratedDays] jours et nous l’avons multipliée par [ProratedDailyRate] pour vous offrir un crédit de [Amount].&lt;BR&gt;</value>
   </data>
   <data name="TEXT_PRORATED_RECURRING_CHARGE_MESSAGE" xml:space="preserve">
     <value>Ces frais ont été estimés au prorata.  L’estimation au prorata permet de réduire les frais en ne vous facturant que pour le nombre de jours pendant lesquels vous vous êtes abonné à un service pendant une période de facturation donnée.&lt;BR&gt;&lt;BR&gt;Concernant cet élément, vos frais ont commencé le [ProratedIntervalStart] et se sont terminés le [ProratedIntervalEnd].  Vous avez donc bénéficié de [ProratedDays] jours de service.  Vos frais pour cette période ont été calculés en multipliant les frais journaliers [ProratedDailyRate] par [ProratedDays] jours pendant lesquels vous étiez abonné.  Cette opération est égale à [Amount].  (Les frais journaliers [ProratedDailyRate] sont calculés en divisant les frais relatifs à la période [RCAmount] par le nombre de jours compris dans la période).&lt;BR&gt;</value>
@@ -696,4 +696,7 @@
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
     <value>[FR] Middle initial is invalid</value>
   </data>  
+  <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
+    <value>d/m/Y H:i:s</value>
+  </data>
 </root>

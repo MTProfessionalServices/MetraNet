@@ -1,6 +1,5 @@
-
 CREATE or replace VIEW vw_audit_log AS
-        select 	audit1.dt_crt as Time,
+        select /*+ INDEX_DESC(audit1 PK_T_AUDIT) */     audit1.dt_crt as Time, 
        	accmap.nm_login || case accmap.nm_login when null then null else '/' end || accmap.nm_space as username,
         	audit1.id_userid userid,
         	audit1.id_Event eventid,

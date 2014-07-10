@@ -648,9 +648,6 @@
   <data name="TEXT_VIEWONLINE_BILL" xml:space="preserve">
     <value>Afficher la facture en ligne</value>
   </data>
-  <data name="TEXT_USAGE_AUDIT" xml:space="preserve">
-    <value>[FR]Usage Audit</value>
-  </data>
   <data name="TEXT_ADD_TENANT" xml:space="preserve">
     <value>[FR]Add Partition</value>
   </data>

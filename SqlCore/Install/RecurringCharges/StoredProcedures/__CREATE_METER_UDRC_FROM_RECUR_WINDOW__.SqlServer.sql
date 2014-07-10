@@ -12,6 +12,10 @@ BEGIN
 	
 IF ((SELECT value FROM t_db_values WHERE parameter = N'InstantRc') = 'false') return;
 
+  /* It joins with either Deleted or Updated values of #tmp_old_units. And doing nothing for newly inserted values.
+  This SP does not make sense, so turning it off */
+  RETURN;
+
 	SELECT      DISTINCT 
       pci.dt_start      AS c_RCIntervalStart
       ,pci.dt_end      AS c_RCIntervalEnd

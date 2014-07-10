@@ -673,30 +673,39 @@
     <value />
   </data>
   <data name="TEXT_PASSWORD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{ES} Passwords do not match.</value>
+    <value>[es] Passwords do not match.</value>
   </data>  
   <data name="TEXT_PHONE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{ES} Enter a valid phone number. Format: 555-555-5555</value>
+    <value>[es] Enter a valid phone number. Format: 555-555-5555</value>
   </data>    
   <data name="TEXT_CREDITCARD_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{ES} Credit card format is invalid</value>
+    <value>[es] Credit card format is invalid</value>
   </data>      
   <data name="TEXT_CREDITCARD_VERIFICATIONNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{ES} CV Number is invalid</value>
+    <value>[es] CV Number is invalid</value>
   </data>        
   <data name="TEXT_SSN_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{ES} SSN format: xxx-xx-xxxx</value>
+    <value>[es] SSN format: xxx-xx-xxxx</value>
   </data>          
   <data name="TEXT_ACCOUNTNO_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{ES} Only numeric digits are allowed</value>
+    <value>[es] Only numeric digits are allowed</value>
   </data>            
   <data name="TEXT_ZIPCODE_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{ES} Zipcode is invalid</value>
+    <value>[es] Zipcode is invalid</value>
   </data>              
   <data name="TEXT_MIDDLEINITIAL_VALIDATION_MESSAGE" xml:space="preserve">
-    <value>{ES} Middle initial is invalid</value>
+    <value>[es] Middle initial is invalid</value>
   </data>  
   <data name="EXTJS_DATE_LONG_FORMAT" xml:space="preserve">
     <value>d/m/Y H:i:s</value>
   </data>
+  <data name="TEXT_NOWCAST_REFRESH" xml:space="preserve">
+    <value>[ES] Refresh</value>
+  </data>
+  <data name="TEXT_NOWCAST_RIGHT_CLICK_FOR_OPTIONS" xml:space="preserve">
+    <value>[ES] right click for options</value>
+  </data>
+  <data name="NO_DECISIONS_TEXT" xml:space="preserve">
+    <value>[ES] No Transactions Found for the Current Interval</value>
+  </data>  
 </root>

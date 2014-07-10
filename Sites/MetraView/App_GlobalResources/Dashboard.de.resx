@@ -136,4 +136,7 @@
     <data name="TEXT_USAGE_BY_PRODUCT" xml:space="preserve">
         <value>Derzeitige Nutzung nach Produkt</value>
     </data>
+    <data name="TEXT_DECISION_INSTANCES" xml:space="preserve">
+        <value>[DE] NowCast</value>
+    </data>    
 </root>

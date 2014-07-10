@@ -117,25 +117,37 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <data name="Charge.Text" xml:space="preserve">
-        <value>Cargos</value>
-    </data>
-    <data name="PrebillAdjustments.Text" xml:space="preserve">
-        <value>Ajustes previos a la facturación</value>
-    </data>
-    <data name="SubTotal.Text" xml:space="preserve">
-        <value>Subtotal</value>
-    </data>
-    <data name="Tax.Text" xml:space="preserve">
-        <value>Impuesto</value>
-    </data>
-    <data name="TaxAdjustments.Text" xml:space="preserve">
-        <value>Ajustes de impuestos</value>
-    </data>
-    <data name="Total.Text" xml:space="preserve">
-        <value>Total</value>
-    </data>
-    <data name="TotalCharges.Text" xml:space="preserve">
-        <value>Total de cargos</value>
-    </data>
+  <data name="ActualTax.Text" xml:space="preserve">
+    <value>[ES]Actual Tax</value>
+  </data>
+  <data name="ImpliedTax.Text" xml:space="preserve">
+    <value>[ES]Included Tax</value>
+  </data>
+  <data name="IncludedInformationalTax.Text" xml:space="preserve">
+    <value>[ES]Included Informational Tax</value>
+  </data>
+  <data name="InformationalTax.Text" xml:space="preserve">
+    <value>[ES]Informational Tax</value>
+  </data>
+  <data name="PrebillAdjustments.Text" xml:space="preserve">
+    <value>Ajustes previos a la facturación</value>
+  </data>
+  <data name="SubTotal.Text" xml:space="preserve">
+    <value>Subtotal</value>
+  </data>
+  <data name="Tax.Text" xml:space="preserve">
+    <value>Impuesto</value>
+  </data>
+  <data name="TaxAdjustments.Text" xml:space="preserve">
+    <value>Ajustes de impuestos</value>
+  </data>
+  <data name="Total.Text" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="TotalCharges.Text" xml:space="preserve">
+    <value>Total de cargos</value>
+  </data>
+  <data name="Usage.Text" xml:space="preserve">
+    <value>[ES]Usage</value>
+  </data>
 </root>

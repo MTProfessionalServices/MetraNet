@@ -117,25 +117,37 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <data name="Charge.Text" xml:space="preserve">
-        <value>Addebiti</value>
-    </data>
-    <data name="PrebillAdjustments.Text" xml:space="preserve">
-        <value>Rettifiche pre-fatturazione</value>
-    </data>
-    <data name="SubTotal.Text" xml:space="preserve">
-        <value>Subtotale</value>
-    </data>
-    <data name="Tax.Text" xml:space="preserve">
-        <value>Imposta</value>
-    </data>
-    <data name="TaxAdjustments.Text" xml:space="preserve">
-        <value>Rettifiche imposta</value>
-    </data>
-    <data name="Total.Text" xml:space="preserve">
-        <value>Totale</value>
-    </data>
-    <data name="TotalCharges.Text" xml:space="preserve">
-        <value>Addebiti totali</value>
-    </data>
+  <data name="ActualTax.Text" xml:space="preserve">
+    <value>[IT]Actual Tax</value>
+  </data>
+  <data name="ImpliedTax.Text" xml:space="preserve">
+    <value>[IT]Included Tax</value>
+  </data>
+  <data name="IncludedInformationalTax.Text" xml:space="preserve">
+    <value>[IT]Included Informational Tax</value>
+  </data>
+  <data name="InformationalTax.Text" xml:space="preserve">
+    <value>[IT]Informational Tax</value>
+  </data>
+  <data name="PrebillAdjustments.Text" xml:space="preserve">
+    <value>Rettifiche pre-fatturazione</value>
+  </data>
+  <data name="SubTotal.Text" xml:space="preserve">
+    <value>Subtotale</value>
+  </data>
+  <data name="Tax.Text" xml:space="preserve">
+    <value>Imposta</value>
+  </data>
+  <data name="TaxAdjustments.Text" xml:space="preserve">
+    <value>Rettifiche imposta</value>
+  </data>
+  <data name="Total.Text" xml:space="preserve">
+    <value>Totale</value>
+  </data>
+  <data name="TotalCharges.Text" xml:space="preserve">
+    <value>Addebiti totali</value>
+  </data>
+  <data name="Usage.Text" xml:space="preserve">
+    <value>[IT]Usage</value>
+  </data>
 </root>

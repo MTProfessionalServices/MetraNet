@@ -2,7 +2,7 @@
 <Query>
     <Action>UnknownDdl</Action>
     <Implementations>
-        <Implementation>Common</Implementation>
+        <Implementation>SqlServer</Implementation>
     </Implementations>
     <Parameters>
         <Parameter>

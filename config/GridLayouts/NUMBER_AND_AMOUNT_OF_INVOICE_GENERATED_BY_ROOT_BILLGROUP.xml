@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <Name>InvoiceNumberAndAmount</Name>
+    <Name>NUMBER_AND_AMOUNT_OF_INVOICE_GENERATED_BY_ROOT_BILLGROUP</Name>
     <Title>
         <LocalizationTag>GRID_TITLE</LocalizationTag>
         <ResourceClassKey></ResourceClassKey>
@@ -8,7 +8,7 @@
     <Exportable>true</Exportable>
     <Height>400</Height>
     <Width>720</Width>
-    <Expandable>false</Expandable>
+    <Expandable>true</Expandable>
     <Buttons>None</Buttons>
     <DataSourceURL>~/AjaxServices/QueryService.aspx</DataSourceURL>
     <MultiSelect>false</MultiSelect>
@@ -16,7 +16,7 @@
     <TotalProperty>TotalRows</TotalProperty>
     <RootElement>Items</RootElement>
     <PageSize>10</PageSize>
-    <Description>Invoice Number and Amount</Description>
+    <Description>Grid layout for report Invoice Amounts Summarized by Partition </Description>
     <ExpansionCssClass></ExpansionCssClass>
     <ShowFilterPanel>true</ShowFilterPanel>
     <FilterInputWidth>220</FilterInputWidth>
@@ -27,7 +27,7 @@
     <ShowGridFrame>true</ShowGridFrame>
     <ShowGridHeader>true</ShowGridHeader>
     <ShowColumnHeaders>true</ShowColumnHeaders>
-     <NoRecordsText>
+    <NoRecordsText>
         <LocalizationTag>NO_RECORDS_TEXT</LocalizationTag>
         <ResourceClassKey></ResourceClassKey>
     </NoRecordsText>
@@ -47,7 +47,7 @@
         <URLParameter>
             <ParameterName>q</ParameterName>
             <SQLQuery>
-                <QueryName>__NUMBER_AND_AMOUNT_OF_INVOICE_GENERATED__</QueryName>
+                <QueryName>__NUMBER_AND_AMOUNT_OF_INVOICE_GENERATED_BY_ROOT_BILLGROUP__</QueryName>
                 <QueryDir></QueryDir>
                 <QueryParameters>
                     <QueryParameter>
@@ -55,47 +55,52 @@
                         <Value></Value>
                         <DataType>String</DataType>
                     </QueryParameter>
-                    <QueryParameter>
-                        <Name>%%ID_LANG_CODE%%</Name>
-                        <Value></Value>
-                        <DataType>String</DataType>
-                    </QueryParameter>
                 </QueryParameters>
                 <QueryColumns>
                     <QueryColumn>
-                        <Name>NUMOFINV</Name>
-                        <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
-                    </QueryColumn>
-                    <QueryColumn>
-                        <Name>CURRENCY</Name>
+                        <Name>Partition</Name>
                         <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
                     </QueryColumn>
                     <QueryColumn>
-                        <Name>TOTALAMT</Name>
+                        <Name>Currency</Name>
+                        <Type>System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                    </QueryColumn>
+                    <QueryColumn>
+                        <Name># Invoices</Name>
+                        <Type>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                    </QueryColumn>
+                    <QueryColumn>
+                        <Name>Total Amount</Name>
                         <Type>System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
                     </QueryColumn>
                     <QueryColumn>
-                        <Name>TOTALTAX</Name>
+                        <Name>Total Payment Amount</Name>
+                        <Type>System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                    </QueryColumn>
+                    <QueryColumn>
+                        <Name>Total Tax Amount</Name>
+                        <Type>System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
+                    </QueryColumn>
+                    <QueryColumn>
+                        <Name>Total Adjustment Amount</Name>
                         <Type>System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Type>
                     </QueryColumn>
                 </QueryColumns>
             </SQLQuery>
         </URLParameter>
     </URLParameters>
-    <SubGrid></SubGrid>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>numofinv</ID>
+            <ID>partition</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>numofinv</DataIndex>
+            <DataIndex>partition</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_NUM_INVOICES</LocalizationTag>
-                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+                <Value><![CDATA[Partition]]></Value>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -106,7 +111,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
+            <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -126,12 +131,11 @@
             <ObjectName></ObjectName>
             <ID>currency</ID>
             <DataType>String</DataType>
-            <IsIdentity>true</IsIdentity>
+            <IsIdentity>false</IsIdentity>
             <DataIndex>currency</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_CURRENCY</LocalizationTag>
-                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+                <Value><![CDATA[Currency]]></Value>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -142,7 +146,7 @@
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
             <ShowInExpander>false</ShowInExpander>
-            <Filterable>false</Filterable>
+            <Filterable>true</Filterable>
             <FilterHideable>true</FilterHideable>
             <DefaultFilter>true</DefaultFilter>
             <RequiredFilter>false</RequiredFilter>
@@ -160,20 +164,19 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>totalamt</ID>
+            <ID># invoices</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>totalamt</DataIndex>
+            <DataIndex># invoices</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_AMOUNT</LocalizationTag>
-                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+                <Value><![CDATA[Number of Invoices]]></Value>
             </HeaderText>
-            <Formatter>CurrencyRenderer</Formatter>
+            <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
+            <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
@@ -196,20 +199,124 @@
             <RecordElement>true</RecordElement>
             <AssemblyFilename></AssemblyFilename>
             <ObjectName></ObjectName>
-            <ID>totaltax</ID>
+            <ID>total amount</ID>
             <DataType>String</DataType>
             <IsIdentity>false</IsIdentity>
-            <DataIndex>totaltax</DataIndex>
+            <DataIndex>total amount</DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <LocalizationTag>TEXT_TAX_AMOUNT</LocalizationTag>
-                <ResourceClassKey>App_GlobalResources/Reports</ResourceClassKey>
+                <Value><![CDATA[Total Amount]]></Value>
             </HeaderText>
-            <Formatter>CurrencyRenderer</Formatter>
+            <Formatter></Formatter>
             <Width>120</Width>
             <Resizeable>true</Resizeable>
             <PreventSortable>false</PreventSortable>
-            <Sortable>true</Sortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>false</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename></AssemblyFilename>
+            <ObjectName></ObjectName>
+            <ID>total payment amount</ID>
+            <DataType>String</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>total payment amount</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <Value><![CDATA[Total Payment Amount]]></Value>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>false</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename></AssemblyFilename>
+            <ObjectName></ObjectName>
+            <ID>total tax amount</ID>
+            <DataType>String</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>total tax amount</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <Value><![CDATA[Total Tax Amount]]></Value>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
+            <ColumnHideable>true</ColumnHideable>
+            <DefaultColumn>true</DefaultColumn>
+            <Exportable>true</Exportable>
+            <ShowInExpander>false</ShowInExpander>
+            <Filterable>false</Filterable>
+            <FilterHideable>true</FilterHideable>
+            <DefaultFilter>true</DefaultFilter>
+            <RequiredFilter>false</RequiredFilter>
+            <FilterLabel />
+            <ElementValue>
+                <Value><![CDATA[]]></Value>
+            </ElementValue>
+            <ElementValue2>
+                <Value><![CDATA[]]></Value>
+            </ElementValue2>
+            <FilterReadOnly>false</FilterReadOnly>
+            <DropdownItems></DropdownItems>
+        </Element>
+        <Element>
+            <RecordElement>true</RecordElement>
+            <AssemblyFilename></AssemblyFilename>
+            <ObjectName></ObjectName>
+            <ID>total adjustment amount</ID>
+            <DataType>String</DataType>
+            <IsIdentity>false</IsIdentity>
+            <DataIndex>total adjustment amount</DataIndex>
+            <IsColumn>true</IsColumn>
+            <HeaderText>
+                <Value><![CDATA[Total Adjustment Amount]]></Value>
+            </HeaderText>
+            <Formatter></Formatter>
+            <Width>120</Width>
+            <Resizeable>true</Resizeable>
+            <PreventSortable>false</PreventSortable>
+            <Sortable>false</Sortable>
             <ColumnHideable>true</ColumnHideable>
             <DefaultColumn>true</DefaultColumn>
             <Exportable>true</Exportable>
@@ -232,4 +339,5 @@
     <ExpanderTemplate></ExpanderTemplate>
     <GridButtons></GridButtons>
     <ToolbarButtons></ToolbarButtons>
+    <SubGrid></SubGrid>
 </GridLayout>

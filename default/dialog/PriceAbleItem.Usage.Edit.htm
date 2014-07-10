@@ -3,8 +3,14 @@
 <head>
   <link localized="TRUE" rel="STYLESHEET" type="text/css" href="/mcm/default/localized/en-us/styles/styles.css">
   <title><MDMLABEL name="TEXT_KEYTERM_USAGE_CHARGE"></MDMLABEL></title>       
+  <script>
+    function chkForreadonly() {
+      var elm = document.getElementById("DisplayDescription_TD").getElementsByTagName("input");
+      for (var i = 0; i < elm.length; i++) {try {elm[i].attributes.removeNamedItem("readonly");} catch (e) { }}
+    }
+  </script>
 </head>
-<body onLoad="SizeWindow();">
+<body onLoad="SizeWindow();setTimeout(chkForreadonly,100);">
 
 <form name="mdm">
 
@@ -30,7 +36,7 @@
       </tr>
       <tr>
        <td class="captionEWRequired"><MDMLABEL name="TEXT_FIELD_DESCRIPTION">Description</MDMLABEL>:&nbsp;&nbsp;</td>
-        <td><input name="DISPLAYDESCRIPTIONS" MultiLanguage="true" class="field" size="50" type="text"></td>
+        <td id="DisplayDescription_TD"><input name="DISPLAYDESCRIPTIONS" MultiLanguage="true" class="field" size="50" type="text"></td>
       </tr>
      
         <tr><td>&nbsp;</td><td>&nbsp;</td></tr>

@@ -21,6 +21,14 @@ BEGIN
           @id_message bigint,
           @id_ss      int,
           @tx_batch   binary(16);
+          
+  IF OBJECT_ID (N't_rec_win_bcp_for_reverse', N'U') IS NOT NULL
+    DROP TABLE t_rec_win_bcp_for_reverse
+
+  SELECT c_BilledThroughDate, c__PriceableItemInstanceID, c__PriceableItemTemplateID, c__ProductOfferingID, c__SubscriptionID
+  INTO t_rec_win_bcp_for_reverse FROM t_recur_window
+
+  
 INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Debug', 'Retrieving RC candidates');
 SELECT
 *
@@ -508,4 +516,3 @@ END;
 INSERT INTO [dbo].[t_recevent_run_details] ([id_run], [dt_crt], [tx_type], [tx_detail]) VALUES (@v_id_run, GETUTCDATE(), 'Info', 'Finished submitting RCs, count: ' + CAST(@total_rcs AS VARCHAR));
 
 END;
-

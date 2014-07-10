@@ -121,13 +121,13 @@
     <value>d/m/y</value>
   </data>
   <data name="DATE_FORMAT" xml:space="preserve">
-    <value>j/n/Y</value>
+    <value>j.n.Y</value>
   </data>
   <data name="DATE_LONG_FORMAT" xml:space="preserve">
-    <value>j/n/Y g:i:s</value>
+    <value>j.n.Y g:i:s</value>
   </data>
   <data name="DATE_TIME_FORMAT" xml:space="preserve">
-    <value>j/n/Y g:i:s | n/j/Y</value>
+    <value>j.n.Y g:i:s | j.n.Y</value>
   </data>
   <data name="DATE_TIME_RENDERER" xml:space="preserve">
     <value>j.n.Y g:i:s</value>

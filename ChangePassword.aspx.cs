@@ -6,6 +6,7 @@ public partial class ChangePassword : MTPage
 {
   protected void Page_Load(object sender, EventArgs e)
   {
+    lblIncorrectPassword.Visible = false; 
     tbUserName.Text = UI.User.UserName;
 
     if (!IsPostBack)
@@ -36,6 +37,10 @@ public partial class ChangePassword : MTPage
         // Password change successful
         Session["ChangePasswordMsg"] = null;
         Response.Redirect(UI.DictionaryManager["DashboardPage"].ToString(), false);
+      }
+      else
+      {
+        lblIncorrectPassword.Visible = true;
       }
     }
     catch(Exception exp)

@@ -112,7 +112,7 @@
     <div class="widget" data-row="12" data-col="1" data-sizex="8" data-sizey="3">
       <MT:MTFilterGrid ID="PaymentGrid" runat="server" TemplateFileName="AccountPaymentSummary.xml" ExtensionName="Account" ></MT:MTFilterGrid>
     </div>
-  
+ 
     <div class="widget" data-row="15" data-col="1" data-sizex="8" data-sizey="3">
       <MT:MTPanel ID="pnlNowCast" runat="server" Text="NowCast">
         <div id="NowCast-body"></div>
@@ -352,7 +352,7 @@
    
   </script>
 
-  <%-- script used for NowCast widget  
+  <%-- script used for NowCast widget   
       <script>
 
       function populateDatePicker(id) {
@@ -447,7 +447,7 @@
 
           var svgd = svg.data();
         if ((typeof svgd === 'undefined') || svgd === undefined || svgd == null || svgd.length == 0) {
-            d3.select("#NowCast-body").append("text").text("No Transactions Found for the Current Interval");
+            d3.select("#NowCast-body").append("text").text('<%=NoDecisionsText%>');
             return;
           }
 

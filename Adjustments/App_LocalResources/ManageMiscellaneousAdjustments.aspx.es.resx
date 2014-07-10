@@ -157,7 +157,7 @@
     <value>ID de sesión de contención</value>
   </data>
   <data name="TEXT_COUNTY_AMOUNT" xml:space="preserve">
-    <value>[ES]Tax County</value>
+    <value>[ES]County Tax</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
     <value>Divisa</value>
@@ -184,7 +184,7 @@
     <value>Se produjo un error al procesar el ajuste variado.</value>
   </data>
   <data name="TEXT_FEDERAL_AMOUNT" xml:space="preserve">
-    <value>[ES]Tax Federal</value>
+    <value>[ES]Federal Tax</value>
   </data>
   <data name="TEXT_GUIDE_INTERVAL_ID" xml:space="preserve">
     <value>ID de intervalo de guía</value>
@@ -193,7 +193,7 @@
     <value>ID de intervalo</value>
   </data>
   <data name="TEXT_LOCAL_AMOUNT" xml:space="preserve">
-    <value>[ES]Tax Local</value>
+    <value>[ES]Local Tax</value>
   </data>
   <data name="TEXT_NO_IDS" xml:space="preserve">
     <value>Seleccione los ajustes que se deberán procesar.</value>
@@ -202,7 +202,7 @@
     <value>Otro</value>
   </data>
   <data name="TEXT_OTHER_AMOUNT" xml:space="preserve">
-    <value>[ES]Tax Other</value>
+    <value>[ES]Other Tax</value>
   </data>
   <data name="TEXT_PENDING_STATUS" xml:space="preserve">
     <value>Pendiente</value>
@@ -217,7 +217,7 @@
     <value>Tipo de sesión</value>
   </data>
   <data name="TEXT_STATE_AMOUNT" xml:space="preserve">
-    <value>[ES]Tax State</value>
+    <value>[ES]State Tax</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
     <value>Estado</value>

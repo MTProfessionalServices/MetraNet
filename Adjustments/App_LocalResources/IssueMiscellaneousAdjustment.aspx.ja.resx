@@ -217,7 +217,7 @@
     <value>無制限</value>
   </data>
   <data name="adjAmountFldResourceTaxCounty.Label" xml:space="preserve">
-    <value>[JA]Tax County</value>
+    <value>[JA]County Tax</value>
   </data>
   <data name="adjAmountFldResourceTaxCounty.MaxLenght" xml:space="preserve">
     <value>-1</value>
@@ -226,7 +226,7 @@
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxFederal.Label" xml:space="preserve">
-    <value>[JA]Tax Federal</value>
+    <value>[JA]Federal Tax</value>
   </data>
   <data name="adjAmountFldResourceTaxFederal.MaxLenght" xml:space="preserve">
     <value>-1</value>
@@ -235,7 +235,7 @@
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxLocal.Label" xml:space="preserve">
-    <value>[JA]Tax Local</value>
+    <value>[JA]Local Tax</value>
   </data>
   <data name="adjAmountFldResourceTaxLocal.MaxLenght" xml:space="preserve">
     <value>-1</value>
@@ -244,7 +244,7 @@
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxOther.Label" xml:space="preserve">
-    <value>[JA]Tax Other</value>
+    <value>[JA]Other Tax</value>
   </data>
   <data name="adjAmountFldResourceTaxOther.MaxLenght" xml:space="preserve">
     <value>-1</value>
@@ -253,7 +253,7 @@
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxState.Label" xml:space="preserve">
-    <value>[JA]Tax State</value>
+    <value>[JA]State Tax</value>
   </data>
   <data name="adjAmountFldResourceTaxState.MaxLenght" xml:space="preserve">
     <value>-1</value>

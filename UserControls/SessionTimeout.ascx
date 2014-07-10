@@ -41,6 +41,12 @@
       icon: Ext.MessageBox.INFO
     });
 
+    var dlg = Ext.MessageBox.getDialog();
+    var buttons = dlg.buttons;
+    for (i = 0; i < buttons.length; i++) {
+      buttons[i].addClass('custom-class');
+    }
+
     var timeoutMsg = Ext.get("timeoutMsg");
 
     if (timeoutMsg != null) {

@@ -157,7 +157,7 @@
     <value>ID sessione conflitto</value>
   </data>
   <data name="TEXT_COUNTY_AMOUNT" xml:space="preserve">
-    <value>[IT]Tax County</value>
+    <value>[IT]County Tax</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
     <value>Valuta</value>
@@ -184,7 +184,7 @@
     <value>Si è verificato un errore durante l'elaborazione della rettifica varia.</value>
   </data>
   <data name="TEXT_FEDERAL_AMOUNT" xml:space="preserve">
-    <value>[IT]Tax Federal</value>
+    <value>[IT] Federal Tax</value>
   </data>
   <data name="TEXT_GUIDE_INTERVAL_ID" xml:space="preserve">
     <value>ID intervallo guida</value>
@@ -193,7 +193,7 @@
     <value>ID intervallo</value>
   </data>
   <data name="TEXT_LOCAL_AMOUNT" xml:space="preserve">
-    <value>[IT]Tax Local</value>
+    <value>[IT]Local Tax</value>
   </data>
   <data name="TEXT_NO_IDS" xml:space="preserve">
     <value>Selezionare le rettifiche da elaborare.</value>
@@ -202,7 +202,7 @@
     <value>Altro</value>
   </data>
   <data name="TEXT_OTHER_AMOUNT" xml:space="preserve">
-    <value>[IT]Tax Other</value>
+    <value>[IT]Other Tax</value>
   </data>
   <data name="TEXT_PENDING_STATUS" xml:space="preserve">
     <value>In sospeso</value>
@@ -217,7 +217,7 @@
     <value>Tipo sessione</value>
   </data>
   <data name="TEXT_STATE_AMOUNT" xml:space="preserve">
-    <value>[IT]Tax State</value>
+    <value>[IT]State Tax</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
     <value>Stato</value>

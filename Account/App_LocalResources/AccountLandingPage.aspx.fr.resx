@@ -1,4 +1,4 @@
-ï»¿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -121,7 +121,7 @@
     <value>Montant</value>
   </data>
   <data name="DATE_COL_HEADER_TEXT" xml:space="preserve">
-    <value>dâ€™exp.</value>
+    <value>d’exp.</value>
   </data>
   <data name="IDENTIFIER_COL_HEADER_TEXT" xml:space="preserve">
     <value>Identifiant</value>
@@ -133,7 +133,7 @@
     <value>Type</value>
   </data>
   <data name="billingActivityPanel.Text" xml:space="preserve">
-    <value>ActivitÃ© de facturation</value>
+    <value>Activité de facturation</value>
   </data>
   <data name="billingSummaryPanel.Text" xml:space="preserve">
     <value>Factures et paiements</value>
@@ -154,7 +154,7 @@
     <value>Abonnement</value>
   </data>
   <data name="SUBSCRIPTION_START_HEADER_TEXT" xml:space="preserve">
-    <value>DÃ©but</value>
+    <value>Début</value>
   </data>
   <data name="SUBSCRIPTION_TYPE_HEADER_TEXT" xml:space="preserve">
     <value></value>
@@ -163,24 +163,27 @@
     <value>Ajouter un abonnement</value>
   </data>
   <data name="SUBSCRIPTION_ADD_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
-    <value>CrÃ©er un nouvel abonnement pour une offre produit</value>
+    <value>Créer un nouvel abonnement pour une offre produit</value>
   </data>
   <data name="SUBSCRIPTION_JOIN_BUTTON_TEXT" xml:space="preserve">
-    <value>AdhÃ©rer Ã  un abonnement groupÃ©</value>
+    <value>Adhérer à un abonnement groupé</value>
   </data>
   <data name="SUBSCRIPTION_JOIN_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
-    <value>Ajouter ce compte en tant que membre d'un abonnement groupÃ© existant</value>
+    <value>Ajouter ce compte en tant que membre d'un abonnement groupé existant</value>
   </data>
   <data name="SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
     <value>Abonnement</value>
   </data>
   <data name="GROUP_SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
-    <value>Abonnement groupÃ©</value>
+    <value>Abonnement groupé</value>
   </data>
   <data name="INVOICE_ITEM_TEXT" xml:space="preserve">
     <value>Facture</value>
   </data>
   <data name="PAYMENT_ITEM_TEXT" xml:space="preserve">
     <value>Paiement</value>
+  </data>
+  <data name="NO_DECISIONS_TEXT" xml:space="preserve">
+    <value>[FR]No Transactions Found for the Current Interval</value>
   </data>
 </root>

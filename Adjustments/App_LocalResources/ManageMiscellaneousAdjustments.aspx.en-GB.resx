@@ -157,7 +157,7 @@
     <value>Contention Session Id</value>
   </data>
   <data name="TEXT_COUNTY_AMOUNT" xml:space="preserve">
-    <value>Tax County</value>
+    <value>County Tax</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
     <value>Currency</value>
@@ -184,7 +184,7 @@
     <value>An error occurred while processing the miscellaneous adjustment.</value>
   </data>
   <data name="TEXT_FEDERAL_AMOUNT" xml:space="preserve">
-    <value>Tax Federal</value>
+    <value>Federal Tax</value>
   </data>
   <data name="TEXT_GUIDE_INTERVAL_ID" xml:space="preserve">
     <value>Guide Interval Id</value>
@@ -193,7 +193,7 @@
     <value>Interval Id</value>
   </data>
   <data name="TEXT_LOCAL_AMOUNT" xml:space="preserve">
-    <value>Tax Local</value>
+    <value>Local Tax</value>
   </data>
   <data name="TEXT_NO_IDS" xml:space="preserve">
     <value>Please select adjustments to process.</value>
@@ -202,7 +202,7 @@
     <value>Other</value>
   </data>
   <data name="TEXT_OTHER_AMOUNT" xml:space="preserve">
-    <value>Tax Other</value>
+    <value>Other Tax</value>
   </data>
   <data name="TEXT_PENDING_STATUS" xml:space="preserve">
     <value>Pending</value>
@@ -217,7 +217,7 @@
     <value>Session Type</value>
   </data>
   <data name="TEXT_STATE_AMOUNT" xml:space="preserve">
-    <value>Tax State</value>
+    <value>State Tax</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
     <value>Status</value>

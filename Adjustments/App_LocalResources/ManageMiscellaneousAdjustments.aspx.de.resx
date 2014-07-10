@@ -157,7 +157,7 @@
     <value>Konflikt Sitzungs-ID</value>
   </data>
   <data name="TEXT_COUNTY_AMOUNT" xml:space="preserve">
-    <value>[DE]Tax County</value>
+    <value>[DE]County Tax</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
     <value>Währung</value>
@@ -184,7 +184,7 @@
     <value>Bei der Bearbeitung der sonstigen Anpassung ist ein Fehler aufgetreten.</value>
   </data>
   <data name="TEXT_FEDERAL_AMOUNT" xml:space="preserve">
-    <value>[DE]Tax Federal</value>
+    <value>[DE]Federal Tax</value>
   </data>
   <data name="TEXT_GUIDE_INTERVAL_ID" xml:space="preserve">
     <value>[DE]Guide Interval Id</value>
@@ -193,7 +193,7 @@
     <value>Intervall-ID</value>
   </data>
   <data name="TEXT_LOCAL_AMOUNT" xml:space="preserve">
-    <value>[DE]Tax Local</value>
+    <value>[DE]Local Tax</value>
   </data>
   <data name="TEXT_NO_IDS" xml:space="preserve">
     <value>Bitte wählen Sie Anpassungen zur Bearbeitung aus.</value>
@@ -202,7 +202,7 @@
     <value>Andere</value>
   </data>
   <data name="TEXT_OTHER_AMOUNT" xml:space="preserve">
-    <value>[DE]Tax Other</value>
+    <value>[DE]Other Tax</value>
   </data>
   <data name="TEXT_PENDING_STATUS" xml:space="preserve">
     <value>Ausstehend</value>
@@ -217,10 +217,10 @@
     <value>Sitzungstyp</value>
   </data>
   <data name="TEXT_STATE_AMOUNT" xml:space="preserve">
-    <value>[DE]Tax State</value>
+    <value>[DE]State Tax</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
-    <value>[DE]Status</value>
+    <value>Status</value>
   </data>
   <data name="TEXT_SUBSCRIBER_ACCOUNT_ID" xml:space="preserve">
     <value>Teilnehmerkonto-ID</value>

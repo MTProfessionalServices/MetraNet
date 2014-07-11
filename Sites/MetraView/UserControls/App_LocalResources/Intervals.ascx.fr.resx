@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -124,15 +124,15 @@
     <value>False</value>
   </data>
   <data name="ddIntervalsResource1.Label" xml:space="preserve">
-    <value>Sélectionner la période de facturation</value>
+    <value>SÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©lectionner la pÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©riode de facturation</value>
   </data>
   <data name="ddIntervalsResource1.ReadOnly" xml:space="preserve">
     <value>False</value>
   </data>
   <data name="Invoice.Text" xml:space="preserve">
-    <value>N° de la facture :</value>
+    <value>NÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â° de la factureÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â :</value>
   </data>
   <data name="SelectInterval.Text" xml:space="preserve">
-    <value>Sélectionner l’intervalle</value>
+    <value>SÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©lectionner lÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢intervalle</value>
   </data>
 </root>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AvailablePlans.Text" xml:space="preserve">
-    <value>Ofertas de produtos disponíveis</value>
+    <value>Ofertas de produtos disponÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­veis</value>
   </data>
   <data name="BillAndPayments.Text" xml:space="preserve">
-    <value>Informações de pagamento</value>
+    <value>InformaÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âµes de pagamento</value>
   </data>
   <data name="btnAddResource1.Text" xml:space="preserve">
     <value>Adicionar assinatura</value>
@@ -136,7 +136,7 @@
     <value>http://</value>
   </data>
   <data name="LastPayment.Text" xml:space="preserve">
-    <value>Último pagamento</value>
+    <value>ÃƒÆ’Ã†â€™Ãƒâ€¦Ã‚Â¡ltimo pagamento</value>
   </data>
   <data name="PaymentDue.Text" xml:space="preserve">
     <value>Vencimento do pagamento:</value>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -121,15 +121,15 @@
     <value>Faturas</value>
   </data>
   <data name="TEXT_MY_REPORTS_SECTION" xml:space="preserve">
-    <value>Meus relatórios</value>
+    <value>Meus relatÃƒÂ³rios</value>
   </data>
   <data name="TEXT_SHARED_REPORTS_SECTION" xml:space="preserve">
-    <value>Relatórios compartilhados</value>
+    <value>RelatÃƒÂ³rios compartilhados</value>
   </data>
   <data name="TEXT_USAGE_REPORT" xml:space="preserve">
-    <value>Utilização</value>
+    <value>UtilizaÃƒÂ§ÃƒÂ£o</value>
   </data>
   <data name="TEXT_USAGE_SECTION" xml:space="preserve">
-    <value>Relatórios de utilização</value>
+    <value>RelatÃƒÂ³rios de utilizaÃƒÂ§ÃƒÂ£o</value>
   </data>
 </root>

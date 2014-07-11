@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lblDetailsResource1.Text" xml:space="preserve">
-    <value>détails</value>
+    <value>dÃƒÆ’Ã‚Â©tails</value>
   </data>
   <data name="lblMessageResource1.Text" xml:space="preserve">
-    <value>Votre mot de passe a expiré</value>
+    <value>Votre mot de passe a expirÃƒÆ’Ã‚Â©</value>
   </data>
   <data name="lblPleaseChangeResource1.Text" xml:space="preserve">
     <value>Modifiez votre mot de passe</value>
@@ -130,25 +130,25 @@
     <value>Ouvrir une session</value>
   </data>
   <data name="Login1Resource1.FailureText" xml:space="preserve">
-    <value>Votre tentative d'ouverture de session a échoué. Réessayez.</value>
+    <value>Votre tentative d'ouverture de session a ÃƒÆ’Ã‚Â©chouÃƒÆ’Ã‚Â©. RÃƒÆ’Ã‚Â©essayez.</value>
   </data>
   <data name="Login1Resource1.LoginButtonText" xml:space="preserve">
     <value>Ouvrir une session</value>
   </data>
   <data name="Login1Resource1.PasswordLabelText" xml:space="preserve">
-    <value>Mot de passe :</value>
+    <value>Mot de passeÃƒâ€šÃ‚Â :</value>
   </data>
   <data name="Login1Resource1.PasswordRequiredErrorMessage" xml:space="preserve">
     <value>Le mot de passe est obligatoire.</value>
   </data>
   <data name="Login1Resource1.RememberMeText" xml:space="preserve">
-    <value>Mémoriser mes infos.</value>
+    <value>MÃƒÆ’Ã‚Â©moriser mes infos.</value>
   </data>
   <data name="Login1Resource1.UserNameLabelText" xml:space="preserve">
-    <value>Nom d’utilisateur :</value>
+    <value>Nom dÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢utilisateur :</value>
   </data>
   <data name="Login1Resource1.UserNameRequiredErrorMessage" xml:space="preserve">
-    <value>Le nom d’utilisateur est obligatoire.</value>
+    <value>Le nom dÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢utilisateur est obligatoire.</value>
   </data>
   <data name="tbConfirmPasswordResource1.Label" xml:space="preserve">
     <value>Confirmer le mot de passe</value>
@@ -163,6 +163,6 @@
     <value>Ancien mot de passe</value>
   </data>
   <data name="tbUserNameResource1.Label" xml:space="preserve">
-    <value>Nom d’utilisateur</value>
+    <value>Nom dÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢utilisateur</value>
   </data>
 </root>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -127,10 +127,10 @@
     <value>Oui</value>
   </data>
   <data name="lblConfirmResource1.Text" xml:space="preserve">
-    <value>Êtes-vous sûr de vouloir supprimer le compte ACH ci-dessous ?</value>
+    <value>ÃƒÆ’Ã†â€™Ãƒâ€¦Ã‚Â tes-vous sÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â»r de vouloir supprimer le compte ACH ci-dessousÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â ?</value>
   </data>
   <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-    <value>Messages d’erreur</value>
+    <value>Messages dÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢erreur</value>
   </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
     <value>Supprimer ACH</value>

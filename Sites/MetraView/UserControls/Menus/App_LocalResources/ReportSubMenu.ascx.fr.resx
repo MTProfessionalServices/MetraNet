@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -127,10 +127,10 @@
     <value>Aucune facture disponible.</value>
   </data>
   <data name="SharedReports.Text" xml:space="preserve">
-    <value>Rapports partagés</value>
+    <value>Rapports partagÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©s</value>
   </data>
   <data name="Usage.Text" xml:space="preserve">
-    <value>Frais d’utilisation</value>
+    <value>Frais dÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢utilisation</value>
   </data>
   <data name="UsageReport.Text" xml:space="preserve">
     <value>Rapport sur les utilisations</value>

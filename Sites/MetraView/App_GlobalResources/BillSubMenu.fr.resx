@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -121,13 +121,13 @@
     <value>Historique de facturation</value>
   </data>
   <data name="TEXT_DOWNLOADS" xml:space="preserve">
-    <value>Téléchargements</value>
+    <value>TÃƒÂ©lÃƒÂ©chargements</value>
   </data>
   <data name="TEXT_PAYMENT_HISTORY" xml:space="preserve">
     <value>Historique des paiements</value>
   </data>
   <data name="TEXT_PAYMENT_METHODS" xml:space="preserve">
-    <value>Méthodes de paiement</value>
+    <value>MÃƒÂ©thodes de paiement</value>
   </data>
   <data name="TEXT_VIEW_BILL" xml:space="preserve">
     <value>Afficher la facture</value>

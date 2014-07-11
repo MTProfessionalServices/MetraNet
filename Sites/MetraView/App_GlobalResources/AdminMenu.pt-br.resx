@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -121,7 +121,7 @@
     <value>Logs</value>
   </data>
   <data name="TEXT_REPORTS" xml:space="preserve">
-    <value>Relatórios</value>
+    <value>RelatÃƒÂ³rios</value>
   </data>
   <data name="TEXT_SITE" xml:space="preserve">
     <value>Configurar site</value>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -121,21 +121,21 @@
     <value>N/D</value>
   </data>
   <data name="PaymentsCreditsAdjustments.Text" xml:space="preserve">
-    <value>Pagamentos, créditos e ajustes</value>
+    <value>Pagamentos, crÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©ditos e ajustes</value>
   </data>
   <data name="PaymentsReceived.Text" xml:space="preserve">
     <value>Pagamentos recebidos</value>
   </data>
   <data name="PostbillAdjustments.Text" xml:space="preserve">
-    <value>Ajustes pós-faturamento</value>
+    <value>Ajustes pÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³s-faturamento</value>
   </data>
   <data name="PostBillAdjustmentsTax.Text" xml:space="preserve">
     <value>Imposto ajustado</value>
   </data>
   <data name="PreviousBalance.Text" xml:space="preserve">
-    <value>Balanço anterior</value>
+    <value>BalanÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§o anterior</value>
   </data>
   <data name="TotalBalanceForward.Text" xml:space="preserve">
-    <value>Balanço total encaminhado</value>
+    <value>BalanÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§o total encaminhado</value>
   </data>
 </root>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -130,10 +130,10 @@
     <value>Mes compteurs</value>
   </data>
   <data name="TEXT_NO_COUNTERS" xml:space="preserve">
-    <value>Aucun compteur défini</value>
+    <value>Aucun compteur dÃƒÂ©fini</value>
   </data>
   <data name="TEXT_USAGE_BY_DEPARTMENT" xml:space="preserve">
-    <value>Utilisation actuelle par département</value>
+    <value>Utilisation actuelle par dÃƒÂ©partement</value>
   </data>
   <data name="TEXT_USAGE_BY_PRODUCT" xml:space="preserve">
     <value>Utilisation actuelle par produit</value>

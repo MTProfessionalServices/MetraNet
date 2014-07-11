@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -124,6 +124,6 @@
     <value>.</value>
   </data>
   <data name="UsageGraphText.Text" xml:space="preserve">
-    <value>Esse gráfico representa as cobranças mais utilizadas para o intervalo atual de faturamento divididas por grupo. Para exibir mais detalhes sobre essas cobranças, clique</value>
+    <value>Esse grÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡fico representa as cobranÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§as mais utilizadas para o intervalo atual de faturamento divididas por grupo. Para exibir mais detalhes sobre essas cobranÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§as, clique</value>
   </data>
 </root>

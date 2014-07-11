@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -121,12 +121,12 @@
     <value>App. iPhone</value>
   </data>
   <data name="OnTheGo.Text" xml:space="preserve">
-    <value>En déplacement ?</value>
+    <value>En dÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©placement ?</value>
   </data>
   <data name="ViewOnGo.Text" xml:space="preserve">
-    <value>Vous pouvez consulter votre utilisation et payer votre facture lorsque vous êtes en déplacement. Prochainement...</value>
+    <value>Vous pouvez consulter votre utilisation et payer votre facture lorsque vous ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âªtes en dÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©placement. Prochainement...</value>
   </data>
   <data name="WithOur.Text" xml:space="preserve">
-    <value>Grâce à notre</value>
+    <value>GrÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ce ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â  notre</value>
   </data>
 </root>

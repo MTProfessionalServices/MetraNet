@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,9 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Segurança da conta</value>
+    <value>SeguranÃƒÆ’Ã‚Â§a da conta</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraCare - Segurança de conta</value>
+    <value>MetraCare - SeguranÃƒÆ’Ã‚Â§a de conta</value>
   </data>
 </root>

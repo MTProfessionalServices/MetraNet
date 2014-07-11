@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -130,7 +130,7 @@
     <value>Offre produit actuelle</value>
   </data>
   <data name="EmptyLiteral.Text" xml:space="preserve">
-    <value>&lt;br /&gt;Aucun enregistrement trouvé.</value>
+    <value>&lt;br /&gt;Aucun enregistrement trouvÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©.</value>
   </data>
   <data name="HttpUrl" xml:space="preserve">
     <value>http://</value>
@@ -139,7 +139,7 @@
     <value>Dernier paiement</value>
   </data>
   <data name="PaymentDue.Text" xml:space="preserve">
-    <value>Paiement dû :</value>
+    <value>Paiement dÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â»ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â :</value>
   </data>
   <data name="PayNow.Text" xml:space="preserve">
     <value>Effectuer un paiement</value>
@@ -148,6 +148,6 @@
     <value>Mes abonnements</value>
   </data>
   <data name="TotalAmountDue.Text" xml:space="preserve">
-    <value>Montant total dû :</value>
+    <value>Montant total dÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â»ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â :</value>
   </data>
 </root>

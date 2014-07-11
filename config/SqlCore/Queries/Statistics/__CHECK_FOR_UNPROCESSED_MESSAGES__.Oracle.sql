@@ -1,6 +1,6 @@
 select enum.nm_enum_data, 
 				id_pipeline,
-				count(*) as '# Messages'
+				count(*)  "# Messages"
 from t_session_set ss 
 join t_message tm 
 on tm.id_message=ss.id_message 

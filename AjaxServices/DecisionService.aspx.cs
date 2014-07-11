@@ -239,95 +239,95 @@ public class BucketInstance
 
   protected MetraTech.ILogger Logger;
 
-  public BucketInstance ( MetraTech.ILogger Logger, IMTDataReader rdr )
+  public BucketInstance(MetraTech.ILogger Logger, IMTDataReader rdr)
   {
     this.Logger = Logger;
-    DecisionInstAttributes = new Dictionary<string, object> ();
+    DecisionInstAttributes = new Dictionary<string, object>();
     TierStart = decimal.MinValue;
     TierEnd = decimal.MaxValue;
-	bool hasStart = false;
-	bool hasEnd = false;
-
-    for ( int i = 0; i < rdr.FieldCount; i++ )
+    bool hasStart = false;
+    bool hasEnd = false;
+    Currency = rdr.GetString("c_currency");
+    for (int i = 0; i < rdr.FieldCount; i++)
     {
-      Logger.LogDebug ( rdr.GetName ( i ) + " = " + rdr.GetValue ( i ) );
-      if ( rdr.GetName ( i ).Equals ( "id_usage_interval", StringComparison.InvariantCultureIgnoreCase ) )
+      Logger.LogDebug(rdr.GetName(i) + " = " + rdr.GetValue(i));
+      if (rdr.GetName(i).Equals("id_usage_interval", StringComparison.InvariantCultureIgnoreCase))
       {
-        IntervalId = rdr.GetInt32 ( i );
+        IntervalId = rdr.GetInt32(i);
       }
-      else if ( rdr.GetName ( i ).Equals ( "tier_start", StringComparison.InvariantCultureIgnoreCase ) )
+      else if (rdr.GetName(i).Equals("tier_start", StringComparison.InvariantCultureIgnoreCase))
       {
-        if ( !rdr.IsDBNull ( i ) )
+        if (!rdr.IsDBNull(i))
         {
-          TierStart = rdr.GetDecimal ( i );
-		  hasStart = true;
+          TierStart = rdr.GetDecimal(i);
+          hasStart = true;
         }
       }
-      else if ( rdr.GetName ( i ).Equals ( "tier_end", StringComparison.InvariantCultureIgnoreCase ) )
+      else if (rdr.GetName(i).Equals("tier_end", StringComparison.InvariantCultureIgnoreCase))
       {
-        if ( !rdr.IsDBNull ( i ) )
+        if (!rdr.IsDBNull(i))
         {
-          TierEnd = rdr.GetDecimal ( i );
-		  hasEnd = true;
+          TierEnd = rdr.GetDecimal(i);
+          hasEnd = true;
         }
       }
-      else if ( rdr.GetName ( i ).Equals ( "qualified_total", StringComparison.InvariantCultureIgnoreCase ) )
+      else if (rdr.GetName(i).Equals("qualified_total", StringComparison.InvariantCultureIgnoreCase))
       {
-        if ( !rdr.IsDBNull ( i ) )
+        if (!rdr.IsDBNull(i))
         {
-          QualifiedTotal = rdr.GetDecimal ( i );
+          QualifiedTotal = rdr.GetDecimal(i);
         }
       }
-      else if ( rdr.GetName ( i ).Equals ( "decision_object_id", StringComparison.InvariantCultureIgnoreCase ) )
+      else if (rdr.GetName(i).Equals("decision_object_id", StringComparison.InvariantCultureIgnoreCase))
       {
-        string [] values = rdr.GetString ( i ).Split ( new string [ 1 ] { "<|" }, StringSplitOptions.None );
-        string [] headers = GetHeaders ( Convert.ToInt32 ( values [ 0 ] ) );
-        for ( int j = 0; j < headers.Length; j++ )
+        string[] values = rdr.GetString(i).Split(new string[1] {"<|"}, StringSplitOptions.None);
+        string[] headers = GetHeaders(Convert.ToInt32(values[0]));
+        for (int j = 0; j < headers.Length; j++)
         {
-		  decimal dec;
-		  string av = values [ j + 1 ];
-		  if ((!string.IsNullOrEmpty(av)) && Decimal.TryParse(av, out dec))
-		  {
-            DecisionInstAttributes [ headers [ j ] ] = dec;
-		  }
-		  else
-		  {
-            DecisionInstAttributes [ headers [ j ] ] = av;
-		  }
-          Logger.LogDebug ( "\t" + headers [ j ] + " = " + av );
-          if ( headers [ j ].Equals ( "tier_start", StringComparison.InvariantCultureIgnoreCase ) )
+          decimal dec;
+          string av = values[j + 1];
+          if ((!string.IsNullOrEmpty(av)) && Decimal.TryParse(av, out dec))
           {
-		    if (!hasStart && !string.IsNullOrEmpty(values [ j + 1 ]))
-		    {
-              TierStart = Convert.ToDecimal(values [ j + 1 ]);
-			  hasStart = true;
-			}
+            DecisionInstAttributes[headers[j]] = dec;
           }
-          else if ( headers [ j ].Equals ( "tier_end", StringComparison.InvariantCultureIgnoreCase ) )
+          else
           {
-		    if (!hasEnd && !string.IsNullOrEmpty(values [ j + 1 ]))
-		    {
-              TierEnd = Convert.ToDecimal ( values [ j + 1 ] );
-			  hasEnd = true;
-			}
+            DecisionInstAttributes[headers[j]] = av;
+          }
+          Logger.LogDebug("\t" + headers[j] + " = " + av);
+          if (headers[j].Equals("tier_start", StringComparison.InvariantCultureIgnoreCase))
+          {
+            if (!hasStart && !string.IsNullOrEmpty(values[j + 1]))
+            {
+              TierStart = Convert.ToDecimal(values[j + 1]);
+              hasStart = true;
+            }
+          }
+          else if (headers[j].Equals("tier_end", StringComparison.InvariantCultureIgnoreCase))
+          {
+            if (!hasEnd && !string.IsNullOrEmpty(values[j + 1]))
+            {
+              TierEnd = Convert.ToDecimal(values[j + 1]);
+              hasEnd = true;
+            }
           }
         }
       }
-      if ( !rdr.IsDBNull ( i ) )
+      if (!rdr.IsDBNull(i))
       {
-        DecisionInstAttributes [ rdr.GetName ( i ).ToLowerInvariant() ] = rdr.GetValue ( i );
+        DecisionInstAttributes[rdr.GetName(i).ToLowerInvariant()] = rdr.GetValue(i);
       }
     }
-	
-	if (!hasStart)
-	{
-	  TierStart = 0;
-	}
-	if (!hasEnd)
-	{
-//	  TierEnd = TierStart;
-	}
-	
+
+    if (!hasStart)
+    {
+      TierStart = 0;
+    }
+    if (!hasEnd)
+    {
+      //	  TierEnd = TierStart;
+    }
+
     object DecisionIdFormat;
     DecisionInstAttributes.TryGetValue("decision_id_format", out DecisionIdFormat);
 
@@ -336,7 +336,6 @@ public class BucketInstance
       DecisionIdFormat = "{id_acc}:{id_sub}:{id_po}:{id_sched}:{id_pi_template}:{id_pi_instance}";
     }
     DecisionId = Format(DecisionIdFormat as string);
-
   }
 
   // TODO: cache this
@@ -495,14 +494,32 @@ public class BucketInstance
                 }
               }
             }
-            // TODO: support currency symbol
+
+
+            // support currency symbol
             // TODO: support currency precision override
             object currency;
             if ((!string.IsNullOrEmpty(fmt)) && fmt.Equals(":C", StringComparison.InvariantCultureIgnoreCase) &&
                 DecisionInstAttributes.TryGetValue("tier_currency", out currency))
             {
               // lookup correct currency format for currency, and use that to format string
-              var formattedAmountString = CurrencyFormatter.Format(array[index], currency.ToString());
+              // First, check to see if tier_currency is an enum value
+              int currencyAsInt;
+              string formattedAmountString;
+              if (Int32.TryParse(currency.ToString(), out currencyAsInt))
+              {
+                formattedAmountString = CurrencyFormatter.Format(array[index], EnumHelper.GetGeneratedEnumByValue(typeof(SystemCurrencies), currencyAsInt).ToString());
+              }
+              else
+              {
+                formattedAmountString = CurrencyFormatter.Format(array[index], currency.ToString());
+              }
+              return textInfo.ToTitleCase(string.Format("{0}", formattedAmountString));
+            }
+            else if ((!string.IsNullOrEmpty(fmt)) && fmt.Equals(":C", StringComparison.InvariantCultureIgnoreCase) &&
+                   !String.IsNullOrEmpty(Currency) && !String.IsNullOrEmpty(array[index].ToString()))
+            {
+              string formattedAmountString = CurrencyFormatter.Format(array[index], Currency);
               return textInfo.ToTitleCase(string.Format("{0}", formattedAmountString));
             }
             else
@@ -622,7 +639,11 @@ public class BucketInstance
       }
   }
 
-
+  public string Currency
+  {
+    get;
+    set;
+  }
 }
 
 public class DecisionInstance : MTListServicePage

@@ -12,7 +12,7 @@
   
   @if (HttpContext.Current.Items.Contains(@Constants.StyleSection))
   {
-    @Html.Raw(HttpContext.Current.Items[@Constants.StyleSection])
+    @Html.Raw(HttpContext.Current.Items[@Constants.StyleSection].ToString())
   }
   @RenderSection("Style", false)      
 
@@ -57,7 +57,7 @@
   @RenderSection("JavaScript", false)
   @if (HttpContext.Current.Items.Contains(@Constants.JavaScriptSection))
   {
-    @Html.Raw(HttpContext.Current.Items[@Constants.JavaScriptSection])
+    @Html.Raw(HttpContext.Current.Items[@Constants.JavaScriptSection].ToString())
   }
 </body>
 

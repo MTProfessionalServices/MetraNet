@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -121,27 +121,27 @@
     <value>ID du compte</value>
   </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Rapport sur les désabonnements</value>
+    <value>Rapport sur les dÃƒÂ©sabonnements</value>
   </data>
   <data name="NO_RECORDS" xml:space="preserve">
-    <value>Aucune donnée à afficher</value>
+    <value>Aucune donnÃƒÂ©e ÃƒÂ  afficher</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet - Rapport sur les désabonnements</value>
+    <value>MetraNet - Rapport sur les dÃƒÂ©sabonnements</value>
   </data>
   <data name="REPORT_TITLE" xml:space="preserve">
-    <value>Rapport sur les désabonnements</value>
+    <value>Rapport sur les dÃƒÂ©sabonnements</value>
   </data>
   <data name="SUBSCRIPTION_DESCRIPTION" xml:space="preserve">
     <value>Description de l'abonnement</value>
   </data>
   <data name="SUBSCRIPTION_END_DATE" xml:space="preserve">
-    <value>Date de fin de l’abonnement</value>
+    <value>Date de fin de lÃ¢â‚¬â„¢abonnement</value>
   </data>
   <data name="SUBSCRIPTION_NAME" xml:space="preserve">
-    <value>Nom de l’abonnement</value>
+    <value>Nom de lÃ¢â‚¬â„¢abonnement</value>
   </data>
   <data name="SUBSCRIPTION_START_DATE" xml:space="preserve">
-    <value>Date de début de l’abonnement</value>
+    <value>Date de dÃƒÂ©but de lÃ¢â‚¬â„¢abonnement</value>
   </data>
 </root>

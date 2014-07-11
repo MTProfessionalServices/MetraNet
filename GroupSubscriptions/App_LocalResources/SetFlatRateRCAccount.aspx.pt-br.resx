@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,33 +118,33 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ChargeAccountId" xml:space="preserve">
-    <value>ID da conta de cobrança</value>
+    <value>ID da conta de cobranÃƒÂ§a</value>
   </data>
   <data name="EndDate" xml:space="preserve">
-    <value>Data de término da vigência</value>
+    <value>Data de tÃƒÂ©rmino da vigÃƒÂªncia</value>
   </data>
   <data name="ErrorChargeAcctId" xml:space="preserve">
-    <value>Selecione uma conta de cobrança válida.</value>
+    <value>Selecione uma conta de cobranÃƒÂ§a vÃƒÂ¡lida.</value>
   </data>
   <data name="ErrorEditFlatRateRCAcct" xml:space="preserve">
-    <value>Erro ao configurar conta de cobrança recorrente de taxa fixa.</value>
+    <value>Erro ao configurar conta de cobranÃƒÂ§a recorrente de taxa fixa.</value>
   </data>
   <data name="FlatRateRecurringCharge" xml:space="preserve">
     <value>RC de taxa fixa</value>
   </data>
   <data name="FRRCConfigHeader" xml:space="preserve">
-    <value>Configuração de conta de cobrança recorrente de taxa fixa</value>
+    <value>ConfiguraÃƒÂ§ÃƒÂ£o de conta de cobranÃƒÂ§a recorrente de taxa fixa</value>
   </data>
   <data name="FRRCDisplayName" xml:space="preserve">
-    <value>Nome de exibição da cobrança recorrente de taxa fixa: </value>
+    <value>Nome de exibiÃƒÂ§ÃƒÂ£o da cobranÃƒÂ§a recorrente de taxa fixa: </value>
   </data>
   <data name="lblErrorMessageResource1" xml:space="preserve">
     <value>Mensagens de erro</value>
   </data>
   <data name="lblSetFRRCAccountTitle" xml:space="preserve">
-    <value>Configuração de conta de cobrança recorrente de taxa fixa</value>
+    <value>ConfiguraÃƒÂ§ÃƒÂ£o de conta de cobranÃƒÂ§a recorrente de taxa fixa</value>
   </data>
   <data name="StartDate" xml:space="preserve">
-    <value>Data de início da vigência</value>
+    <value>Data de inÃƒÂ­cio da vigÃƒÂªncia</value>
   </data>
 </root>

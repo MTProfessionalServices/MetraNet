@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -121,27 +121,27 @@
     <value>Id de conta</value>
   </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Relatório de cancelamento de clientes</value>
+    <value>RelatÃƒÂ³rio de cancelamento de clientes</value>
   </data>
   <data name="NO_RECORDS" xml:space="preserve">
     <value>Nenhuma data a exibir</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet - Relatório de cancelamento de clientes</value>
+    <value>MetraNet - RelatÃƒÂ³rio de cancelamento de clientes</value>
   </data>
   <data name="REPORT_TITLE" xml:space="preserve">
-    <value>Relatório de cancelamento de clientes</value>
+    <value>RelatÃƒÂ³rio de cancelamento de clientes</value>
   </data>
   <data name="SUBSCRIPTION_DESCRIPTION" xml:space="preserve">
-    <value>Descrição de assinatura</value>
+    <value>DescriÃƒÂ§ÃƒÂ£o de assinatura</value>
   </data>
   <data name="SUBSCRIPTION_END_DATE" xml:space="preserve">
-    <value>Data de término da assinatura</value>
+    <value>Data de tÃƒÂ©rmino da assinatura</value>
   </data>
   <data name="SUBSCRIPTION_NAME" xml:space="preserve">
     <value>Nome da assinatura</value>
   </data>
   <data name="SUBSCRIPTION_START_DATE" xml:space="preserve">
-    <value>Data de início da assinatura</value>
+    <value>Data de inÃƒÂ­cio da assinatura</value>
   </data>
 </root>

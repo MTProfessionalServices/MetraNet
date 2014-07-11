@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -130,31 +130,31 @@
     <value>Date de fin</value>
   </data>
   <data name="ErrorSaveGroupSub" xml:space="preserve">
-    <value>Erreur lors de l’enregistrement d’un abonnement groupé.</value>
+    <value>Erreur lors de lÃ¢â‚¬â„¢enregistrement dÃ¢â‚¬â„¢un abonnement groupÃƒÂ©.</value>
   </data>
   <data name="FlatRateRCGrid.Title" xml:space="preserve">
-    <value>Configuration des frais récurrents forfaitaires</value>
+    <value>Configuration des frais rÃƒÂ©currents forfaitaires</value>
   </data>
   <data name="FlatRateRCInstanceId.HeaderText" xml:space="preserve">
     <value>IDInstanceFRForfaitaires</value>
   </data>
   <data name="lblErrorMessageResource1" xml:space="preserve">
-    <value>Messages d’erreur</value>
+    <value>Messages dÃ¢â‚¬â„¢erreur</value>
   </data>
   <data name="lblSetChargeAccountResource1" xml:space="preserve">
-    <value>Configurez les comptes de frais forfaitaires/UDRC avant d’ajouter les valeurs UDRC</value>
+    <value>Configurez les comptes de frais forfaitaires/UDRC avant dÃ¢â‚¬â„¢ajouter les valeursÃ‚Â UDRC</value>
   </data>
   <data name="lblTitleResource1" xml:space="preserve">
-    <value>Comptes des frais récurrents</value>
+    <value>Comptes des frais rÃƒÂ©currents</value>
   </data>
   <data name="NoRecordsFound.HeaderText" xml:space="preserve">
-    <value>Aucun enregistrement trouvé.</value>
+    <value>Aucun enregistrement trouvÃƒÂ©.</value>
   </data>
   <data name="StartDate.HeaderText" xml:space="preserve">
-    <value>Date de début</value>
+    <value>Date de dÃƒÂ©but</value>
   </data>
   <data name="UDRCGrid.Title" xml:space="preserve">
-    <value>Configuration des frais récurrents en fonction de l’unité</value>
+    <value>Configuration des frais rÃƒÂ©currents en fonction de lÃ¢â‚¬â„¢unitÃƒÂ©</value>
   </data>
   <data name="UDRCInstanceId.HeaderText" xml:space="preserve">
     <value>IDInstanceUDRC</value>

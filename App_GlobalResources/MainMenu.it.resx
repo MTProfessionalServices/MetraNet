@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -220,7 +220,7 @@
     <value>Batch dell'ultima settimana</value>
   </data>
   <data name="TEXT_BE" xml:space="preserve">
-    <value>Entità modelling business</value>
+    <value>EntitÃƒÂ  modelling business</value>
   </data>
   <data name="TEXT_BE_ORDERS" xml:space="preserve">
     <value>Ordine</value>
@@ -355,7 +355,7 @@
     <value>Ritiri/nuove esecuzioni in corso</value>
   </data>
   <data name="TEXT_LIST_ENTITITES" xml:space="preserve">
-    <value>Elenca tutte le entità</value>
+    <value>Elenca tutte le entitÃƒÂ </value>
   </data>
   <data name="TEXT_MACHINE_ROLES" xml:space="preserve">
     <value>[IT]</value>

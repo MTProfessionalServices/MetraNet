@@ -63,7 +63,7 @@ This file defines the MAM system information that must be localized.
 		</text>
 
     <text id='JS_DATE_FORMAT'>
-      <value>j/n/Y</value>
+      <value>n/j/Y</value>
       <description>ExtJS date format definition</description>
     </text>
   

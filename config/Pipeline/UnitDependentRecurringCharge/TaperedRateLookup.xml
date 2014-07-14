@@ -12,12 +12,6 @@
       <name>TaperedRateLookup</name>
       <progid>MetraPipeline.PCRate.1</progid>
       <description>Look up tapered rate.</description>
-      <inputs>
-        <input type="DECIMAL">UnitValue</input>
-      </inputs>
-      <outputs>
-        <output type="DECIMAL">UnitAmount</output>
-      </outputs>
 
       <condition>
       <![CDATA[

@@ -42,8 +42,8 @@
   
   <MT:MTDataBinder ID="MTDataBinder1" runat="server">
     <DataBindingItems>
-      <MT:MTDataBindingItem runat="server" BindingSource="GroupSubscriptionInstance.ProductOffering"
-        BindingSourceMember="DisplayName" ControlId="lblDisplayName" ErrorMessageLocation="RedTextAndIconBelow">
+      <MT:MTDataBindingItem runat="server" BindingSource="GroupSubscriptionInstance"
+        BindingSourceMember="Name" ControlId="lblDisplayName" ErrorMessageLocation="RedTextAndIconBelow">
       </MT:MTDataBindingItem>
       <MT:MTDataBindingItem runat="server" ControlId="btnBackToManage" ErrorMessageLocation="RedTextAndIconBelow">
       </MT:MTDataBindingItem>

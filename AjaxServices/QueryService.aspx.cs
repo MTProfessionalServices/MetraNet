@@ -441,7 +441,30 @@ public partial class AjaxServices_QueryService : MTListServicePage
       int realFieldID = exportColumns[i];
       if (curRecord.Fields[realFieldID].FieldValue != null)
       {
-        sb.Append(curRecord.Fields[realFieldID].FieldValue.ToString().Replace("\"", "\"\""));
+        string renderer = Request["column[" + i + "][renderer]"];
+        if (curRecord.Fields[realFieldID].FieldDataType == typeof (DateTime) && !String.IsNullOrEmpty(renderer))
+        {
+          if (renderer.Equals("shortdatestring", StringComparison.Ordinal))
+          {
+            try
+            {
+              DateTime dt = (DateTime) curRecord.Fields[realFieldID].FieldValue;
+              sb.Append(dt.ToShortDateString().Replace("\"", "\"\""));
+            }
+            catch
+            {
+              sb.Append(curRecord.Fields[realFieldID].FieldValue.ToString().Replace("\"", "\"\""));
+            }
+          }
+          else
+          {
+            sb.Append(curRecord.Fields[realFieldID].FieldValue.ToString().Replace("\"", "\"\""));
+          }
+        }
+        else
+        {
+          sb.Append(curRecord.Fields[realFieldID].FieldValue.ToString().Replace("\"", "\"\""));
+        }
       }
       sb.Append("\"");
     }

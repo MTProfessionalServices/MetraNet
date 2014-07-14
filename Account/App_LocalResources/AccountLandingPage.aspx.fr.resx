@@ -118,72 +118,72 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AMOUNT_COL_HEADER_TEXT" xml:space="preserve">
-    <value>Amount</value>
+    <value>Montant</value>
   </data>
   <data name="DATE_COL_HEADER_TEXT" xml:space="preserve">
-    <value>Date</value>
+    <value>d’exp.</value>
   </data>
   <data name="IDENTIFIER_COL_HEADER_TEXT" xml:space="preserve">
-    <value>Identifier</value>
+    <value>Identifiant</value>
   </data>
   <data name="lblAccount360Title.Text" xml:space="preserve">
-    <value>Account 360</value>
+    <value>Compte 360</value>
   </data>
   <data name="TYPE_COL_HEADER_TEXT" xml:space="preserve">
     <value>Type</value>
   </data>
   <data name="billingActivityPanel.Text" xml:space="preserve">
-    <value>Billing Activity</value>
+    <value>Activité de facturation</value>
   </data>
   <data name="billingSummaryPanel.Text" xml:space="preserve">
-    <value>Invoices and Payments</value>
+    <value>Factures et paiements</value>
   </data>
   <data name="NO_INVOICES_TEXT" xml:space="preserve">
-    <value>This account does not currently have any invoices or payments.</value>
+    <value>Actuellement, ce compte ne contient pas de factures/paiements.</value>
   </data>
   <data name="NO_SUBSCRIPTIONS_TEXT" xml:space="preserve">
-    <value>This account currently does not have any subscriptions.</value>
+    <value>Actuellement, ce compte ne contient pas d'abonnements.</value>
   </data>
   <data name="SUBSCRIPTION_GRID_TITLE_TEXT" xml:space="preserve">
-    <value>Subscriptions</value>
+    <value>Abonnements</value>
   </data>
   <data name="SUBSCRIPTION_END_HEADER_TEXT" xml:space="preserve">
-    <value>End</value>
+    <value>Fin</value>
   </data>
   <data name="SUBSCRIPTION_OFFERING_NAME_HEADER_TEXT" xml:space="preserve">
-    <value>Subscription</value>
+    <value>Abonnement</value>
   </data>
   <data name="SUBSCRIPTION_START_HEADER_TEXT" xml:space="preserve">
-    <value>Start</value>
+    <value>Début</value>
   </data>
   <data name="SUBSCRIPTION_TYPE_HEADER_TEXT" xml:space="preserve">
     <value></value>
   </data>
   <data name="SUBSCRIPTION_ADD_BUTTON_TEXT" xml:space="preserve">
-    <value>Add Subscription</value>
+    <value>Ajouter un abonnement</value>
   </data>
   <data name="SUBSCRIPTION_ADD_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
-    <value>Create a new subscription to a Product Offering</value>
+    <value>Créer un nouvel abonnement pour une offre produit</value>
   </data>
   <data name="SUBSCRIPTION_JOIN_BUTTON_TEXT" xml:space="preserve">
-    <value>Join Group Subscription</value>
+    <value>Adhérer à un abonnement groupé</value>
   </data>
   <data name="SUBSCRIPTION_JOIN_BUTTON_TOOLTIP_TEXT" xml:space="preserve">
-    <value>Add this account as a member of an existing Group Subscription</value>
+    <value>Ajouter ce compte en tant que membre d'un abonnement groupé existant</value>
   </data>
   <data name="SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
-    <value>Subscription</value>
+    <value>Abonnement</value>
   </data>
   <data name="GROUP_SUBSCRIPTION_TYPE_TEXT" xml:space="preserve">
-    <value>Group Subscription</value>
+    <value>Abonnement groupé</value>
   </data>
   <data name="INVOICE_ITEM_TEXT" xml:space="preserve">
-    <value>Invoice</value>
+    <value>Facture</value>
   </data>
   <data name="PAYMENT_ITEM_TEXT" xml:space="preserve">
-    <value>Payment</value>
+    <value>Paiement</value>
   </data>
   <data name="NO_DECISIONS_TEXT" xml:space="preserve">
-    <value>No Transactions Found for the Current Interval</value>
+    <value>[FR]No Transactions Found for the Current Interval</value>
   </data>
 </root>

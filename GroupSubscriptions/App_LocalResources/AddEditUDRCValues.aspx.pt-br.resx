@@ -118,25 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="EndDate" xml:space="preserve">
-    <value>Data de tÃƒÂ©rmino</value>
+    <value>Data de término</value>
   </data>
   <data name="ErrorAddUDRCValues" xml:space="preserve">
     <value>Erro ao adicionar valores udcr.</value>
   </data>
   <data name="ErrorStartEndDates" xml:space="preserve">
-    <value>Digite datas de inÃƒÂ­cio e tÃƒÂ©rmino vÃƒÂ¡lidas.</value>
+    <value>Digite datas de início e término válidas.</value>
   </data>
   <data name="ErrorUDRCEndDate" xml:space="preserve">
-    <value>Digite uma data de tÃƒÂ©rmino vÃƒÂ¡lida.</value>
+    <value>Digite uma data de término válida.</value>
   </data>
   <data name="ErrorUDRCInitStartEndDate" xml:space="preserve">
-    <value>Os valores UDRC devem se estender por todo o perÃƒÂ­odo compreendido entre as datas de inÃƒÂ­cio e tÃƒÂ©rmino da assinatura em grupo.</value>
+    <value>Os valores UDRC devem se estender por todo o período compreendido entre as datas de início e término da assinatura em grupo.</value>
   </data>
   <data name="ErrorUDRCStartDate" xml:space="preserve">
-    <value>Digite uma data de inÃƒÂ­cio vÃƒÂ¡lida.</value>
+    <value>Digite uma data de início válida.</value>
   </data>
   <data name="ErrorUDRCValue" xml:space="preserve">
-    <value>Digite um valor UDRC vÃƒÂ¡lido.</value>
+    <value>Digite um valor UDRC válido.</value>
   </data>
   <data name="lblErrorMessageResource1" xml:space="preserve">
     <value>Mensagens de erro</value>
@@ -148,16 +148,16 @@
     <value>Definir valores UDRC</value>
   </data>
   <data name="Max" xml:space="preserve">
-    <value>MÃƒÂ¡x:</value>
+    <value>Máx:</value>
   </data>
   <data name="Message" xml:space="preserve">
     <value> e </value>
   </data>
   <data name="Min" xml:space="preserve">
-    <value>MÃƒÂ­n:</value>
+    <value>Mín:</value>
   </data>
   <data name="StartDate" xml:space="preserve">
-    <value>Data de inÃƒÂ­cio</value>
+    <value>Data de início</value>
   </data>
   <data name="UDRCId" xml:space="preserve">
     <value>ID do UDRC</value>
@@ -166,9 +166,9 @@
     <value>Valor</value>
   </data>
   <data name="UDRCValueConfigHeader" xml:space="preserve">
-    <value>ConfiguraÃƒÂ§ÃƒÂ£o do valor UDRC</value>
+    <value>Configuração do valor UDRC</value>
   </data>
   <data name="UDRCValueUnitName" xml:space="preserve">
-    <value>Nome de exibiÃƒÂ§ÃƒÂ£o da unidade de valor UDRC: </value>
+    <value>Nome de exibição da unidade de valor UDRC: </value>
   </data>
 </root>

@@ -121,10 +121,10 @@
     <value>Adicionar</value>
   </data>
   <data name="EndDate.HeaderText" xml:space="preserve">
-    <value>Data de tÃƒÂ©rmino</value>
+    <value>Data de término</value>
   </data>
   <data name="ErrorLoadUDRCInstances" xml:space="preserve">
-    <value>Erro ao carregar instÃƒÂ¢ncias UDRC.</value>
+    <value>Erro ao carregar instâncias UDRC.</value>
   </data>
   <data name="Grid.Title" xml:space="preserve">
     <value>Valores UDRC</value>
@@ -139,7 +139,7 @@
     <value>Nenhum registro encontrado.</value>
   </data>
   <data name="StartDate.HeaderText" xml:space="preserve">
-    <value>Data de inÃƒÂ­cio</value>
+    <value>Data de início</value>
   </data>
   <data name="UDRCValue.HeaderText" xml:space="preserve">
     <value>Valor</value>

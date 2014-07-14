@@ -118,22 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ACTIONS" xml:space="preserve">
-    <value>AÃƒÂ§ÃƒÂµes</value>
+    <value>Ações</value>
   </data>
   <data name="ALL_DESCENDANTS" xml:space="preserve">
     <value>Todos os descendentes</value>
   </data>
   <data name="CURRENT_NODE" xml:space="preserve">
-    <value>NÃƒÂ³ atual</value>
+    <value>Nó atual</value>
   </data>
   <data name="DIRECT_DESCENDANTS" xml:space="preserve">
     <value>Descendentes diretos</value>
   </data>
   <data name="EffectiveEndDate" xml:space="preserve">
-    <value>Data de tÃƒÂ©rmino da vigÃƒÂªncia</value>
+    <value>Data de término da vigência</value>
   </data>
   <data name="EffectiveStartDate" xml:space="preserve">
-    <value>Data de inÃƒÂ­cio da vigÃƒÂªncia</value>
+    <value>Data de início da vigência</value>
   </data>
   <data name="ErrorAddGroupSubMember" xml:space="preserve">
     <value>Erro ao adicionar membros de assinatura em grupo.</value>
@@ -145,13 +145,13 @@
     <value>Assinatura em grupo</value>
   </data>
   <data name="lblAddGroupSubMembersTitleResource1" xml:space="preserve">
-    <value>PerÃƒÂ­odo de tempo da assinatura em grupo</value>
+    <value>Período de tempo da assinatura em grupo</value>
   </data>
   <data name="lblErrorMessageResource1.Text" xml:space="preserve">
     <value>Mensagens de erro</value>
   </data>
   <data name="MTTitle1.Text" xml:space="preserve">
-    <value>Adicionar membros ÃƒÂ  assinatura em grupo '{0}'</value>
+    <value>Adicionar membros à assinatura em grupo '{0}'</value>
   </data>
   <data name="REMOVE_ACCOUNT" xml:space="preserve">
     <value>Remover conta</value>
@@ -160,9 +160,9 @@
     <value>Selecionar contas</value>
   </data>
   <data name="SELECTION" xml:space="preserve">
-    <value>SeleÃƒÂ§ÃƒÂ£o</value>
+    <value>Seleção</value>
   </data>
   <data name="USERNAME" xml:space="preserve">
-    <value>Nome do usuÃƒÂ¡rio</value>
+    <value>Nome do usuário</value>
   </data>
 </root>

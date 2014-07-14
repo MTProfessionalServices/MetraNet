@@ -1,16 +1,48 @@
-
- create trigger trig_update_t_recur_window_with_recur_value
- ON t_recur_value for INSERT, UPDATE, delete
- as 
+CREATE TRIGGER trig_update_t_recur_window_with_recur_value
+ON t_recur_value FOR INSERT, UPDATE, DELETE
+AS 
 BEGIN
-  IF @@rowcount = 0 RETURN;
+/* Notes:
+Trigger is executed 7 times after each update of UDRC values.
+5 first times INSERTED and DELETED tables are empty.
+On 6 time we have update (INSERTED and DELETED have same number of rows)
+On 7 time we have insert (INSERTED only have rows)
+*/
+  IF @@ROWCOUNT = 0 RETURN;
 
   DECLARE @startDate datetime;
   SELECT @startDate = tt_start FROM inserted;
 
+  SELECT *, 1 AS c__IsAllowGenChargeByTrigger INTO #recur_window_holder FROM t_recur_window WHERE 1=0;
+  SELECT * INTO #tmp_changed_units FROM t_recur_value WHERE 1=0;
+
   IF EXISTS (SELECT * FROM DELETED)
   BEGIN
-    /* Delete old values from t_recur_window */
+    INSERT INTO #tmp_changed_units SELECT * FROM DELETED;
+
+    INSERT INTO #recur_window_holder
+    SELECT *, 1 AS c__IsAllowGenChargeByTrigger
+    FROM   t_recur_window
+    WHERE  EXISTS
+           (
+               SELECT 1 FROM DELETED d
+               WHERE  t_recur_window.c__SubscriptionID = d.id_sub
+                      AND t_recur_window.c__PriceableItemInstanceID = d.id_prop
+                      AND t_recur_window.c_UnitValueStart = d.vt_start
+                      AND t_recur_window.c_UnitValueEnd = d.vt_end
+           );
+
+    UPDATE rw
+    SET rw.c_SubscriptionStart = current_sub.vt_start,
+        rw.c_SubscriptionEnd = current_sub.vt_end
+    FROM #recur_window_holder rw
+        INNER LOOP JOIN t_sub_history new_sub ON new_sub.id_acc = rw.c__AccountID
+            AND new_sub.id_sub = rw.c__SubscriptionID
+            AND new_sub.tt_end = dbo.MTMaxDate()
+        INNER LOOP JOIN t_sub_history current_sub ON current_sub.id_acc = rw.c__AccountID
+            AND current_sub.id_sub = rw.c__SubscriptionID
+            AND current_sub.tt_end = dbo.SubtractSecond(new_sub.tt_start);
+
     DELETE
     FROM   t_recur_window
     WHERE  EXISTS
@@ -21,13 +53,14 @@ BEGIN
                       AND t_recur_window.c_UnitValueStart = d.vt_start
                       AND t_recur_window.c_UnitValueEnd = d.vt_end
            );
+
+    EXEC MeterUdrcFromRecurWindow @currentDate = @startDate, @actionType = 'AdvanceCorrection';
     RETURN;
   END;
-
-  SELECT * INTO #tmp_new_units FROM INSERTED; 
-  /* Creating this table empty for now, as it is used in logic, that is currently turned off. */
-  SELECT * INTO #tmp_old_units FROM INSERTED where 1=0;
-
+  
+  INSERT INTO #tmp_changed_units SELECT * FROM INSERTED;
+  
+  INSERT INTO #recur_window_holder
   SELECT 
        sub.vt_start AS c_CycleEffectiveDate
       ,sub.vt_start AS c_CycleEffectiveStart
@@ -51,13 +84,12 @@ BEGIN
       , dbo.mtmindate() AS c_MembershipStart
       , dbo.mtmaxdate() AS c_MembershipEnd
       , dbo.AllowInitialArrersCharge(rcr.b_advance, pay.id_payer, sub.vt_end, @startDate) AS c__IsAllowGenChargeByTrigger
-      INTO #recur_window_holder
       FROM t_sub sub
       INNER JOIN t_payment_redirection pay ON pay.id_payee = sub.id_acc AND pay.vt_start < sub.vt_end AND pay.vt_end > sub.vt_start
       INNER JOIN t_pl_map plm ON plm.id_po = sub.id_po AND plm.id_paramtable IS NULL
       INNER JOIN t_recur rcr ON plm.id_pi_instance = rcr.id_prop
       INNER JOIN t_base_props bp ON bp.id_prop = rcr.id_prop
-      JOIN #tmp_new_units rv ON rv.id_prop = rcr.id_prop AND sub.id_sub = rv.id_sub AND rv.tt_end = dbo.MTMaxDate() 
+      JOIN #tmp_changed_units rv ON rv.id_prop = rcr.id_prop AND sub.id_sub = rv.id_sub AND rv.tt_end = dbo.MTMaxDate() 
         AND rv.vt_start < sub.vt_end AND rv.vt_end > sub.vt_start 
         AND rv.vt_start < pay.vt_end AND rv.vt_end > pay.vt_start
       WHERE 1=1
@@ -96,7 +128,7 @@ SELECT
       INNER JOIN t_pl_map plm ON plm.id_po = sub.id_po AND plm.id_paramtable IS NULL
       INNER JOIN t_recur rcr ON plm.id_pi_instance = rcr.id_prop
       INNER JOIN t_base_props bp ON bp.id_prop = rcr.id_prop
-      JOIN #tmp_new_units rv ON rv.id_prop = rcr.id_prop 
+      JOIN #tmp_changed_units rv ON rv.id_prop = rcr.id_prop 
         AND sub.id_sub = rv.id_sub 
         AND rv.tt_end = dbo.MTMaxDate() 
         AND rv.vt_start < sub.vt_end AND rv.vt_end > sub.vt_start 
@@ -136,35 +168,18 @@ SELECT
       INNER JOIN t_pl_map plm ON plm.id_po = sub.id_po AND plm.id_paramtable IS NULL
       INNER JOIN t_recur rcr ON plm.id_pi_instance = rcr.id_prop
       INNER JOIN t_base_props bp ON bp.id_prop = rcr.id_prop
-      JOIN #tmp_new_units rv ON rv.id_prop = rcr.id_prop AND sub.id_sub = rv.id_sub 
+      JOIN #tmp_changed_units rv ON rv.id_prop = rcr.id_prop AND sub.id_sub = rv.id_sub 
       AND rv.tt_end = dbo.MTMaxDate() 
       AND rv.vt_start < sub.vt_end AND rv.vt_end > sub.vt_start 
       AND rv.vt_start < pay.vt_end AND rv.vt_end > pay.vt_start
       WHERE
       	grm.tt_end = dbo.mtmaxdate()
       	AND rcr.b_charge_per_participant = 'N'
-      	AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL)
-;
+      	AND (bp.n_kind = 20 OR rv.id_prop IS NOT NULL);
 
-  /* TODO: Not sure we need this. Check and delete. */
-  DELETE FROM #recur_window_holder WHERE EXISTS
-  (SELECT 1 FROM t_recur_window trw  JOIN t_recur_value trv 
-      ON trw.c__SubscriptionID = trv.id_sub
-      AND trw.c__PriceableItemInstanceId = trv.id_prop
-      AND trw.c_UnitValueStart = trv.vt_start
-      AND trw.c_UnitValueEnd = trv.vt_end
-      AND trv.tt_end = dbo.MTMaxDate()
-  WHERE
-     trw.c__SubscriptionID = #recur_window_holder.c__SubscriptionID
-     AND trw.c_UnitValue = #recur_window_holder.c_UnitValue
-     AND trw.c_UnitValueStart = #recur_window_holder.c_UnitValueStart
-     AND trw.c_UnitValueEnd = #recur_window_holder.c_UnitValueEnd
-     and trw.c__PriceableItemInstanceID = #recur_window_holder.c__PriceableItemInstanceID
-     and trw.c__PriceableItemTemplateID = #recur_window_holder.c__PriceableItemTemplateID
-  )
 
-	EXEC MeterInitialFromRecurWindow @currentDate = @startDate;
-	EXEC MeterUdrcFromRecurWindow @currentDate = @startDate;
+  EXEC MeterInitialFromRecurWindow @currentDate = @startDate;
+  EXEC MeterUdrcFromRecurWindow @currentDate = @startDate, @actionType = 'DebitCorrection';
 
 
 	INSERT INTO t_recur_window    

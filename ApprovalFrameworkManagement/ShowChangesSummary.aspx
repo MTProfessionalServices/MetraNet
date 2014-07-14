@@ -3,6 +3,7 @@
     Culture="auto" UICulture="auto" CodeFile="ShowChangesSummary.aspx.cs" meta:resourcekey="PageResource1" %>
 
 <%@ Import Namespace="MetraTech.UI.Tools" %>
+<%@ Import Namespace="Resources" %>
 <%@ Register Assembly="MetraTech.UI.Controls" Namespace="MetraTech.UI.Controls" TagPrefix="MT" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 <style>
@@ -415,8 +416,8 @@
     //Set the parameters
     urlDetails = urlDetails.replace(/%%CHANGE_ID%%/g, id);
     urlDetails = urlDetails.replace(/%%CHANGE_STATE%%/g, currentState);
-
-    //alert("urlDetails:" + urlDetails);
+    
+    urlDetails = urlDetails.replace(/%%CHANGE_TYPE%%/g, changeTypeConfig.GridTitle );
     window.frames['changedetailsframe'].document.location.href = urlDetails;
 
     //Make sure to unhide or make the details frame visible

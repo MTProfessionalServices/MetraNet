@@ -246,7 +246,8 @@ public partial class ApprovalFrameworkManagement_ShowChangesSummary : MTPage
 
       foreach (ChangeTypeConfiguration changeConfiguration in approvalConfiguration.Values)
       {
-        sb.Append(string.Format("changeTypesConfiguration['{0}'] = {{WebpageForView: '{1}', WebpageForEdit: '{2}' }};" + System.Environment.NewLine, changeConfiguration.Name, TranslateApprovalsUrl(changeConfiguration.WebpageForView != null ? changeConfiguration.WebpageForView.URL : ""), changeConfiguration.WebpageForEdit != null ? changeConfiguration.WebpageForEdit.URL : ""));
+        if (changeConfiguration.LocalizationTag != null)
+          sb.Append(string.Format("changeTypesConfiguration['{0}'] = {{WebpageForView: '{1}', WebpageForEdit: '{2}', GridTitle: '{3}' }};" + System.Environment.NewLine, changeConfiguration.Name, TranslateApprovalsUrl(changeConfiguration.WebpageForView != null ? changeConfiguration.WebpageForView.URL : ""), changeConfiguration.WebpageForEdit != null ? changeConfiguration.WebpageForEdit.URL : "", changeConfiguration != null ? GetGlobalResourceObject("JSConsts", changeConfiguration.LocalizationTag) : ""));
       }
 
       return sb.ToString();

@@ -5,7 +5,7 @@
   <hooklist>
     <!-- Note! Order is very important! -->
     <Description>
-    <![CDATA[
+      <![CDATA[
       Synchronize the database with localization information.<br><br>
       <b>When to run:</b> Whenever the following have been added or changed:
       <ul>
@@ -20,7 +20,7 @@
   <hooklist>
     <!-- Note! Order is very important! -->
     <Description>
-    <![CDATA[
+      <![CDATA[
       Synchronize the database with new service definitions, product views, account types, materialized views, enumerated types, and audit events.<br><br>
       <b>When to run:</b> Whenever the following have been added or changed:
       <ul>
@@ -33,7 +33,7 @@
       </ul>
       Note that when a new priceable item is created, new product views are often created as well.
     ]]>
-      
+
     </Description>
     <Short_Description>Synchronize Database</Short_Description>
     <hook require_input="false">MetraHook.ConfigRefresh.1</hook>
@@ -44,10 +44,10 @@
     <hook require_input="false">MetraHook.AuditHook.1</hook>
     <hook require_input="false">MetraTech.Product.Hooks.MaterializedViewHook</hook>
   </hooklist>
-  
+
   <hooklist>
-     <Description>
-    <![CDATA[
+    <Description>
+      <![CDATA[
       Synchronize the database with product catalog information.<br><br>
       <b>When to run:</b> Whenever the following have been added or changed:
       <ul>
@@ -72,7 +72,7 @@
 
   <hooklist>
     <Description>
-    <![CDATA[
+      <![CDATA[
       Synchronize the database with Security information.<br><br>
       <b>When to run:</b> Whenever capability types or security policies have changed.
     ]]>
@@ -81,57 +81,52 @@
     <hook require_input="false">MetraHook.MTCapabilityHook</hook>
     <hook secured="true" require_input="false">MetraHook.MTSecurityPolicyHook</hook>
   </hooklist>
-  
+
   <hooklist>
     <Description>
-    <![CDATA[
-    Synchronize Adjustment applicability rules and reason codes.<br><br>
+      <![CDATA[Synchronize Adjustment applicability rules and reason codes.<br><br>
             <b>When to run:</b> Whenever applicability rules and reason codes have been added or changed.  (Note that the 
             Synchronize Product Catalog hook runs this hook, so if that hook has been run, this hook is not necessary)
           ]]>
     </Description>
     <Short_Description>Synchronize Adjustments</Short_Description>
     <hook require_input="false">MetraTech.Adjustments.Hooks.AdjustmentHook</hook>
-  </hooklist>    
+  </hooklist>
 
   <hooklist>
     <Description>
-    <![CDATA[
-            Synchronize the database with Usage Server information.<br><br>
+      <![CDATA[Synchronize the database with Usage Server information.<br><br>
             <b>When to run:</b> Whenever usage server-related configuration files have been changed.
           ]]>
     </Description>
     <Short_Description>Synchronize Usage Server</Short_Description>
     <hook secured="true" require_input="false">MetraTech.UsageServer.Hook</hook>
-  </hooklist>    
+  </hooklist>
 
   <hooklist>
     <Description>
-      <![CDATA[
-            Synchronize the database with Tax Framework information.<br><br>
+      <![CDATA[Synchronize the database with Tax Framework information.<br><br>
             <b>When to run:</b> Whenever tax framework-related configuration files have been changed.
           ]]>
     </Description>
     <Short_Description>Synchronize Tax Framework</Short_Description>
     <hook require_input="false">MetraTech.Tax.Framework.Hooks.VendorParamsHook</hook>
-  </hooklist>    
+  </hooklist>
 
   <hooklist>
     <Description>
-      <![CDATA[
-        Notify the system that configuration information has changed. <br><br>
+      <![CDATA[Notify the system that configuration information has changed. <br><br>
         <b>When to run:</b>  If the pipeline is running and any configuration files used by the pipeline, such as service definitions and plug-in configuration files, have 
         changed.  If services have been added, it will be necessary to restart the pipeline.
         ]]>
-      </Description>
+    </Description>
     <Short_Description>Refresh system configuration</Short_Description>
     <hook require_input="false">MetraHook.ConfigRefresh.1</hook>
   </hooklist>
 
   <hooklist>
     <Description>
-    <![CDATA[
-      Synchronize the database with MetraNet Properties information.<br><br>
+      <![CDATA[Synchronize the database with MetraNet Properties information.<br><br>
       <b>When to run:</b> Whenever a Relaxed Hierarchy rule is changed
     ]]>
     </Description>
@@ -141,33 +136,34 @@
 
   <hooklist>
     <Description>
-    <![CDATA[
-      Register all the COM objects in extensions.<br><br>
+      <![CDATA[Register all the COM objects in extensions.<br><br>
       <b>When to run:</b> A COM object has been created or modified in a platform extension.
-      ]]></Description>
+      ]]>
+    </Description>
     <Short_Description>Register extension COM objects</Short_Description>
     <hook require_input="true">MetraHook.RegisterExtensionObjects.1</hook>
   </hooklist>
 
-  <hooklist>
-    <Description><![CDATA[Update Report Template Information in Crystal Enterprise internal storage.<br><br>
-<b>When to run:</b> Report Template (RPT file) has been modified on MetraNet machine or report
-template unique name has been modified on MetraNet machine.]]></Description>
+  <!--hooklist>
+    <Description>
+      <![CDATA[Update Report Template Information in Crystal Enterprise internal storage.<br><br>
+      <b>When to run:</b> Report Template (RPT file) has been modified on MetraNet machine or report
+      template unique name has been modified on MetraNet machine.]]>
+    </Description>
     <Short_Description>Synchronize Report Templates</Short_Description>
     <hook require_input="false">MetraTech.Reports.Hooks.DeployCEReports</hook>
-  </hooklist>
-   
-    <hooklist>
+  </hooklist-->
+
+  <hooklist>
     <Description>
-      <![CDATA[
-            Synchronize the Credit Note Template Information to the BME table.<br><br>
+      <![CDATA[Synchronize the Credit Note Template Information to the BME table.<br><br>
             <b>When to run:</b> Run this hook when you have updated credit note template information.
           ]]>
     </Description>
     <Short_Description>Synchronize Credit Note Templates</Short_Description>
     <hook require_input="false">MetraTech.CreditNotes.Hooks.CreditNoteTemplateHook</hook>
-  </hooklist>      
-   
+  </hooklist>
+
   <!--hooklist>
     <Description><![CDATA[UUpdate Metadata in database to be the same as ICE configured.<br><br>
 <b>When to run:</b> Created, removed or modified account view, parameter table, product view,
@@ -175,5 +171,5 @@ service definition, business model entity.]]></Description>
     <Short_Description>Synchronize Metadata</Short_Description>
     <hook require_input="false">MetraTech.ExpressionEngine.Metadata.Hook.MetadataHook</hook>
   </hooklist-->
-   
+
 </synchronization>

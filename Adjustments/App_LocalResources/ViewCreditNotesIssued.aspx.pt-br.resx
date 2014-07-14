@@ -118,51 +118,51 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="NO_RECORDS_TEXT" xml:space="preserve">
-    <value>[pt-BR]No records found.</value>
+    <value>{PT-BR}No records found.</value>
   </data>
   <data name="MTFilterGrid1Resource1.Title" xml:space="preserve">
-    <value>[pt-BR]Credit Note Documents</value>
+    <value>{PT-BR}Credit Note Documents</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>[pt-BR]MetraNet - View Credit Notes Issued</value>
+    <value>{PT-BR}MetraNet - View Credit Notes Issued</value>
   </data>
   <data name="TEXT_ACCOUNT" xml:space="preserve">
-    <value>[pt-BR]Account</value>
+    <value>{PT-BR}Account</value>
   </data>
   <data name="TEXT_AMOUNT" xml:space="preserve">
-    <value>[pt-BR]Amount</value>
+    <value>{PT-BR}Amount</value>
   </data>
   <data name="TEXT_DISPLAY_AMOUNT" xml:space="preserve">
-    <value>[pt-BR]Amount</value>
+    <value>{PT-BR}Amount</value>
   </data>
   <data name="TEXT_CREATED_BY" xml:space="preserve">
-    <value>[pt-BR]Created By</value>
+    <value>{PT-BR}Created By</value>
   </data>
   <data name="TEXT_CREDIT_NOTE_IDENTIFIER" xml:space="preserve">
-    <value>[pt-BR]Credit Note Identifier</value>
+    <value>{PT-BR}Credit Note Identifier</value>
   </data>
   <data name="TEXT_DATE" xml:space="preserve">
-    <value>[pt-BR]Date</value>
+    <value>{PT-BR}Date</value>
   </data>
   <data name="TEXT_ID" xml:space="preserve">
-    <value>[pt-BR]Id</value>
+    <value>{PT-BR}Id</value>
   </data>
   <data name="TEXT_TAX" xml:space="preserve">
-    <value>[pt-BR]Tax</value>
+    <value>{PT-BR}Tax</value>
   </data>
   <data name="TEXT_DISPLAY_TAX" xml:space="preserve">
-    <value>[pt-BR]Tax</value>
+    <value>{PT-BR}Tax</value>
   </data>
   <data name="TEXT_TOTAL" xml:space="preserve">
-    <value>[pt-BR]Total</value>
+    <value>{PT-BR}Total</value>
   </data>
   <data name="TEXT_DISPLAY_TOTAL" xml:space="preserve">
-    <value>[pt-BR]Total</value>
+    <value>{PT-BR}Total</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
-    <value>[pt-BR]Status</value>
+    <value>{PT-BR}Status</value>
   </data>
   <data name="TEXT_STATUS_INFORMATION" xml:space="preserve">
-    <value>[pt-BR]Status Information</value>
+    <value>{PT-BR}Status Information</value>
   </data>
 </root>

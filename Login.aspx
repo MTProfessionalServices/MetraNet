@@ -66,29 +66,26 @@
           TitleText="" meta:resourcekey="Login1Resource1">
           <LayoutTemplate>
             <u1>
-                    
-                        <li>
-                            <asp:TextBox ID="UserName" runat="server"  />
-                        </li>
-                        <li>
-                             <asp:TextBox ID="Password" runat="server" TextMode="Password" />
-                        </li>
-                        <li>
-                          <div id="divLoginFailure" class="alert error rounded-med">
-                            <div class="inner">
-                              <div class="loginerror">
-                                  <h5><asp:Literal ID="FailureText" runat="server" EnableViewState="false" /></h5> 
-                              </div>
-                              <a class="close-alert" href=""></a>
-                            </div>
-                          </div>
-                        
-                      </li>
-                        <li>
-                             <asp:Button ID="Login" CommandName="Login" runat="server" 
-                             CssClass="lg-button lg-button-submit rounded-lg" />
-                        </li>
-                    </u1>
+              <li>
+                <asp:TextBox ID="UserName" runat="server"  />
+              </li>
+              <li>
+                <asp:TextBox ID="Password" runat="server" TextMode="Password" />
+              </li>
+              <li>
+                <div id="divLoginFailure" class="alert error rounded-med">
+                  <div class="inner">
+                    <div class="loginerror">
+                      <h5><asp:Literal ID="FailureText" runat="server" EnableViewState="false" /></h5> 
+                    </div>
+                    <a class="close-alert" href=""></a>
+                  </div>
+                </div>        
+              </li>
+              <li>
+                <asp:Button ID="Login" CommandName="Login" runat="server" CssClass="lg-button lg-button-submit rounded-lg" />
+              </li>
+            </u1>
           </LayoutTemplate>
         </asp:Login>
       </asp:Panel>
@@ -97,6 +94,79 @@
           document.getElementById("<%= Login1.ClientID%>" + "_UserName").placeholder = "<%=userNameTxt%>";
           document.getElementById("<%= Login1.ClientID%>" + "_Password").placeholder = "<%=passwordTxt%>";
           
+          // Fix for IE
+          if (Object.hasOwnProperty.call(window, "ActiveXObject") && !window.ActiveXObject) {
+            // is IE11
+
+            var dataPlaceholders = document.querySelectorAll("input[placeholder]"),
+                l = dataPlaceholders.length,
+                // Set caret at the beginning of the input
+                setCaret = function(evt) {
+                  if (this.value === this.getAttribute("data-placeholder")) {
+                    this.setSelectionRange(0, 0);
+                    evt.preventDefault();
+                    evt.stopPropagation();
+                    return false;
+                  }
+                },
+                // Clear placeholder value at user input
+                clearPlaceholder = function(evt) {
+                  if (!(evt.shiftKey && evt.keyCode === 16) && evt.keyCode !== 9) {
+                    if (this.value === this.getAttribute("data-placeholder")) {
+                      this.value = "";
+                      this.className = "active";
+                      if (this.id === "<%= Login1.ClientID%>" + "_Password") {
+                        this.type = "password";
+                      }
+                    }
+                  }
+                },
+                restorePlaceHolder = function() {
+                  if (this.value.length === 0) {
+                    this.value = this.getAttribute("data-placeholder");
+                    setCaret.apply(this, arguments);
+                    this.className = "";
+                    if (this.type === "password") {
+                        this.type = "text";
+                    }
+                  }
+                },
+                clearPlaceholderAtSubmit = function(evt) {
+                  for (var i = 0, placeholder; i < l; i++) {
+                    placeholder = dataPlaceholders[i];
+                    if (placeholder.value === placeholder.getAttribute("data-placeholder")) {
+                      placeholder.value = "";
+                    }
+                  }
+                };
+
+            for (var i = 0, placeholder, placeholderVal; i < l; i++) {
+              placeholder = dataPlaceholders[i];
+              placeholderVal = placeholder.getAttribute("placeholder");
+              placeholder.setAttribute("data-placeholder", placeholderVal);
+              placeholder.removeAttribute("placeholder");
+
+              if (placeholder.value.length === 0) {
+                placeholder.value = placeholderVal;
+                if (placeholder.type === "password") {
+                  placeholder.type = "text";
+                }
+              } else {
+                placeholder.className = "active";
+              }
+
+              // Apply events for placeholder handling         
+              placeholder.addEventListener("focus", setCaret, false);
+              placeholder.addEventListener("drop", setCaret, false);
+              placeholder.addEventListener("click", setCaret, false);
+              placeholder.addEventListener("keydown", clearPlaceholder, false);
+              placeholder.addEventListener("keyup", restorePlaceHolder, false);
+              placeholder.addEventListener("blur", restorePlaceHolder, false);
+
+              // Clear all default placeholder values from the form at submit
+              placeholder.form.addEventListener("submit", clearPlaceholderAtSubmit, false);
+            }
+          }        
 
           if ("true" == "<%=showFailureText%>") {
             displayErrorBox();
@@ -168,7 +238,82 @@
             document.getElementById("<%= NewPassword.ClientID%>").placeholder = "<%=newpasswordTxt%>";
             document.getElementById("<%= ConfirmNewPassword.ClientID%>" ).placeholder = "<%=confirmnewpasswordTxt%>";
 
+          // Fix for IE
+          if (Object.hasOwnProperty.call(window, "ActiveXObject") && !window.ActiveXObject) {
+            // is IE11
 
+            var dataPlaceholders = document.querySelectorAll("input[placeholder]"),
+                l = dataPlaceholders.length,
+                // Set caret at the beginning of the input
+                setCaret = function(evt) {
+                  if (this.value === this.getAttribute("data-placeholder")) {
+                    this.setSelectionRange(0, 0);
+                    evt.preventDefault();
+                    evt.stopPropagation();
+                    return false;
+                  }
+                },
+                // Clear placeholder value at user input
+                clearPlaceholder = function(evt) {
+                  if (!(evt.shiftKey && evt.keyCode === 16) && evt.keyCode !== 9) {
+                    if (this.value === this.getAttribute("data-placeholder")) {
+                      this.value = "";
+                      this.className = "active";
+                      if (this.id === "<%= CurrentPassword.ClientID%>" ||
+                      this.id === "<%= NewPassword.ClientID%>" ||
+                      this.id === "<%= ConfirmNewPassword.ClientID%>") {
+                        this.type = "password";
+                      }
+                    }
+                  }
+                },
+                restorePlaceHolder = function() {
+                  if (this.value.length === 0) {
+                    this.value = this.getAttribute("data-placeholder");
+                    setCaret.apply(this, arguments);
+                    this.className = "";
+                    if (this.type === "password") {
+                        this.type = "text";
+                    }
+                  }
+                },
+                clearPlaceholderAtSubmit = function(evt) {
+                  for (var i = 0, placeholder; i < l; i++) {
+                    placeholder = dataPlaceholders[i];
+                    if (placeholder.value === placeholder.getAttribute("data-placeholder")) {
+                      placeholder.value = "";
+                    }
+                  }
+                };
+
+            for (var i = 0, placeholder, placeholderVal; i < l; i++) {
+              placeholder = dataPlaceholders[i];
+              placeholderVal = placeholder.getAttribute("placeholder");
+              placeholder.setAttribute("data-placeholder", placeholderVal);
+              placeholder.removeAttribute("placeholder");
+
+              if (placeholder.value.length === 0) {
+                placeholder.value = placeholderVal;
+                if (placeholder.type === "password") {
+                  placeholder.type = "text";
+                }
+              } else {
+                placeholder.className = "active";
+              }
+
+              // Apply events for placeholder handling         
+              placeholder.addEventListener("focus", setCaret, false);
+              placeholder.addEventListener("drop", setCaret, false);
+              placeholder.addEventListener("click", setCaret, false);
+              placeholder.addEventListener("keydown", clearPlaceholder, false);
+              placeholder.addEventListener("keyup", restorePlaceHolder, false);
+              placeholder.addEventListener("blur", restorePlaceHolder, false);
+
+              // Clear all default placeholder values from the form at submit
+              placeholder.form.addEventListener("submit", clearPlaceholderAtSubmit, false);
+            }
+          }
+          
             if ("true" == "<%=showChangePasswdFailureText%>") {
               displayChangePasswdErrorBox();
             }

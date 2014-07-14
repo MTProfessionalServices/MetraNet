@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -183,4 +183,7 @@
   <data name="PAYMENT_ITEM_TEXT" xml:space="preserve">
     <value>[pt-BR] Payment</value>
   </data>            
+  <data name="NO_DECISIONS_TEXT" xml:space="preserve">
+    <value>[pt-BR] No Transactions Found for the Current Interval</value>
+  </data>   
 </root>

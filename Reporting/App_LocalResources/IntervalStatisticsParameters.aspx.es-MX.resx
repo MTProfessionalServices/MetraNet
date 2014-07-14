@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
     <!-- 
     Microsoft ResX Schema 
@@ -117,34 +117,16 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="ddBillGroupId.Label" xml:space="preserve">
+        <value>(MEXICAN SPANISH) Billing Group</value>
+    </data>
+    <data name="ddBillingCycle.Label" xml:space="preserve">
+        <value>(MEXICAN SPANISH) Billing Cycle</value>
+    </data>
+    <data name="ddIntervalId.Label" xml:space="preserve">
+        <value>(MEXICAN SPANISH) Billing Interval</value>
+    </data>
     <data name="MTTitle1Resource1.Text" xml:space="preserve">
-        <value>Modifica password</value>
+        <value>(MEXICAN SPANISH) Interval Statistics Parameters</value>
     </data>
-    <data name="PageResource1.Title" xml:space="preserve">
-        <value>MetraNet</value>
-    </data>
-    <data name="tbConfirmPasswordResource1.Label" xml:space="preserve">
-        <value>Conferma password</value>
-    </data>
-    <data name="tbNewPasswordResource1.Label" xml:space="preserve">
-        <value>Nuova password</value>
-    </data>
-    <data name="tbOldPasswordResource1.Label" xml:space="preserve">
-        <value>Password precedenti</value>
-    </data>
-    <data name="tbUserNameResource1.Label" xml:space="preserve">
-        <value>Nome utente</value>
-    </data>
-    <data name="TEXT_STANDARD_CHANGE_PASSWORD_MSG" xml:space="preserve">
-        <value>&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Le password devono essere composte da almeno 7 caratteri&amp;lt;/li&amp;gt;
-                             &amp;lt;li&amp;gt;Le password devono contenere caratteri sia alfabetici che numerici&amp;lt;/li&amp;gt;
-                             &amp;lt;li&amp;gt;Una volta modificata, la password non deve essere uguale a una delle 4 password precedenti&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;
-</value>
-    </data>
-    <data name="TEXT_SU_NOTE" xml:space="preserve">
-        <value>&amp;lt;br /&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;b&amp;gt;NOTA:&amp;lt;/b&amp;gt; in qualità di utente con privilegi avanzati si dovrà anche modificare la voce in ServerAccess su ogni macchina e crittografarla.</value>
-    </data>
-    <data name="lblIncorrectPasswordResource1.Text" xml:space="preserve">
-        <value>[it] Incorrect old password</value>
-    </data>        
 </root>

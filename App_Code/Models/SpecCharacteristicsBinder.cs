@@ -49,7 +49,7 @@ public static class SpecCharacteristicsBinder
 
     // get the specs for this po
     var repository = new SpecCharacteristicRepository(page.UI);
-    var specs = repository.LoadSpecCharacteristics(poId, EntityType.ProductOffering, false);
+    var specs = repository.LoadSpecCharacteristics(poId, false);
 
     // get the CharacteristicValues for the sub
     if (subId != null && subId != 0)
@@ -76,7 +76,7 @@ public static class SpecCharacteristicsBinder
     foreach (var group in groupedSpecs)
     {
       var section = new LiteralControl { Text = String.Format("<div class='SectionCaptionBar'>{0}</div>", @group.Key) };  // todo: get localization
-      
+
       panel.Controls.Add(section);
 
       foreach (var spec in group)
@@ -102,10 +102,10 @@ public static class SpecCharacteristicsBinder
                              Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName.Replace("en", "us"), true)];
               if (tbTemp.Label == "") tbTemp.Label = fullSpec.Name;
               tbTemp.AllowBlank = !fullSpec.IsRequired;
-              tbTemp.ReadOnly = fullSpec.IsUserEditable == false; 
+              tbTemp.ReadOnly = fullSpec.IsUserEditable == false;
               tbTemp.TabIndex = i;
               tbTemp.MaxLength = fullSpec.Length ?? 4000;
-              if(subId != null && subId != 0)
+              if (subId != null && subId != 0)
               {
                 foreach (var val in sub.CharacteristicValues.Where(val => val.SpecName == fullSpec.Name))
                 {
@@ -115,7 +115,7 @@ public static class SpecCharacteristicsBinder
               }
               else
               {
-                tbTemp.Text = fullSpec.StringValue;  
+                tbTemp.Text = fullSpec.StringValue;
               }
               panel.Controls.Add(tbTemp);
               SpecValues.Add(tbTemp.ID, fullSpec);
@@ -131,11 +131,11 @@ public static class SpecCharacteristicsBinder
                              Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName.Replace("en", "us"), true)];
               if (tbTempInt.Label == "") tbTempInt.Label = fullSpec.Name;
               tbTempInt.AllowBlank = !fullSpec.IsRequired;
-              tbTempInt.ReadOnly = fullSpec.IsUserEditable == false; 
+              tbTempInt.ReadOnly = fullSpec.IsUserEditable == false;
               tbTempInt.TabIndex = i;
 
               if (fullSpec.MinDecimal.HasValue)
-                 tbTempInt.MinValue = fullSpec.Min.ToString();
+                tbTempInt.MinValue = fullSpec.Min.ToString();
               if (fullSpec.MaxDecimal.HasValue)
                 tbTempInt.MaxValue = fullSpec.Max.ToString();
 
@@ -169,11 +169,11 @@ public static class SpecCharacteristicsBinder
               tbTempDec.ReadOnly = fullSpec.IsUserEditable == false;
               tbTempDec.TabIndex = i;
 
-              if(fullSpec.Min.HasValue)
-                tbTempDec.MinValue =  fullSpec.MinDecimal.ToString();
-              if(fullSpec.Max.HasValue)
-                tbTempDec.MaxValue =  fullSpec.MaxDecimal.ToString();
-              
+              if (fullSpec.Min.HasValue)
+                tbTempDec.MinValue = fullSpec.MinDecimal.ToString();
+              if (fullSpec.Max.HasValue)
+                tbTempDec.MaxValue = fullSpec.MaxDecimal.ToString();
+
               tbTempDec.AllowDecimals = true;
               if (subId != null && subId != 0)
               {
@@ -187,7 +187,7 @@ public static class SpecCharacteristicsBinder
               {
                 tbTempDec.Text = fullSpec.DecimalValue.ToString();
               }
-// ReSharper restore SpecifyACultureInStringConversionExplicitly
+              // ReSharper restore SpecifyACultureInStringConversionExplicitly
               panel.Controls.Add(tbTempDec);
               SpecValues.Add(tbTempDec.ID, fullSpec);
               break;
@@ -202,7 +202,7 @@ public static class SpecCharacteristicsBinder
                              Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName.Replace("en", "us"), true)];
               if (tbTempDD.Label == "") tbTempDD.Label = fullSpec.Name;
               tbTempDD.AllowBlank = !fullSpec.IsRequired;
-              tbTempDD.ReadOnly = fullSpec.IsUserEditable == false; 
+              tbTempDD.ReadOnly = fullSpec.IsUserEditable == false;
               tbTempDD.TabIndex = i;
               var values = fullSpec.Choices.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
               foreach (var tempVal in values)
@@ -270,15 +270,15 @@ public static class SpecCharacteristicsBinder
                              Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName.Replace("en", "us"), true)];
               if (tbTempDate.Label == "") tbTempDate.Label = fullSpec.Name;
               tbTempDate.AllowBlank = !fullSpec.IsRequired;
-              tbTempDate.ReadOnly = fullSpec.IsUserEditable == false; 
+              tbTempDate.ReadOnly = fullSpec.IsUserEditable == false;
               tbTempDate.TabIndex = i;
-// ReSharper disable SpecifyACultureInStringConversionExplicitly
+              // ReSharper disable SpecifyACultureInStringConversionExplicitly
               tbTempDate.MaxValue = fullSpec.BetweenEndDate.HasValue ? fullSpec.BetweenEndDate.ToString() : "";
-// ReSharper restore SpecifyACultureInStringConversionExplicitly
-// ReSharper disable SpecifyACultureInStringConversionExplicitly
+              // ReSharper restore SpecifyACultureInStringConversionExplicitly
+              // ReSharper disable SpecifyACultureInStringConversionExplicitly
               tbTempDate.MinValue = fullSpec.BetweenStartDate.HasValue ? fullSpec.BetweenStartDate.ToString() : "";
-// ReSharper restore SpecifyACultureInStringConversionExplicitly
-// ReSharper disable SpecifyACultureInStringConversionExplicitly
+              // ReSharper restore SpecifyACultureInStringConversionExplicitly
+              // ReSharper disable SpecifyACultureInStringConversionExplicitly
               if (subId != null && subId != 0)
               {
                 foreach (var val in sub.CharacteristicValues.Where(val => val.SpecName == fullSpec.Name))
@@ -290,8 +290,8 @@ public static class SpecCharacteristicsBinder
               else
               {
                 tbTempDate.Text = fullSpec.DatetimeValue.ToString();
-              }           
-// ReSharper restore SpecifyACultureInStringConversionExplicitly
+              }
+              // ReSharper restore SpecifyACultureInStringConversionExplicitly
               panel.Controls.Add(tbTempDate);
               SpecValues.Add(tbTempDate.ID, fullSpec);
               break;
@@ -324,18 +324,18 @@ public static class SpecCharacteristicsBinder
           val = panel.Page.Request[clientId];
           break;
         case PropertyType.Int:
-          val = panel.Page.Request[clientId]; 
+          val = panel.Page.Request[clientId];
           break;
         case PropertyType.Decimal:
-          val = panel.Page.Request[clientId]; 
+          val = panel.Page.Request[clientId];
           break;
         case PropertyType.List:
-          val = panel.Page.Request[clientId.Replace("_", "$")]; 
+          val = panel.Page.Request[clientId.Replace("_", "$")];
           break;
         case PropertyType.Boolean:
           if (panel.Page.Request[clientId] != null)
           {
-            val = "Y"; 
+            val = "Y";
           }
           else
           {
@@ -343,13 +343,13 @@ public static class SpecCharacteristicsBinder
           }
           break;
         case PropertyType.Datetime:
-          val = panel.Page.Request[clientId]; 
+          val = panel.Page.Request[clientId];
           break;
         default:
           throw new ArgumentOutOfRangeException();
       }
 
-      var characteristicValue = new CharacteristicValue {SpecName = v.Value.Name, Value = val, SpecType = v.Value.SpecType};
+      var characteristicValue = new CharacteristicValue { SpecName = v.Value.Name, Value = val, SpecType = v.Value.SpecType };
 
       if (v.Value.ValueId.HasValue)
         characteristicValue.SpecCharValId = v.Value.ValueId;

@@ -246,11 +246,12 @@ white-space:nowrap;
     <div class="widget" data-row="12" data-col="1" data-sizex="8" data-sizey="3">
       <MT:MTFilterGrid ID="PaymentGrid" runat="server" TemplateFileName="AccountPaymentSummary.xml" ExtensionName="Account" ></MT:MTFilterGrid>
     </div>--%>
-
-    <div class="widget" data-row="15" data-col="1" data-sizex="8" data-sizey="3">
+    <div style="width: 99.4%; margin-left: 0;" >
+    <div class="widget" data-row="15" data-col="1" data-sizex="8" data-sizey="3" >
 	  <MT:MTPanel ID="pnlNowCast" runat="server" Text="NowCast">
-        <div id="NowCast-body"></div>
+        <div id="NowCast-body" ></div>
       </MT:MTPanel>
+    </div>
     </div>
 
   <%--  <MT:MTFilterGrid ID="PaymentGrid" runat="server" TemplateFileName="AccountPaymentTransactionList.xml"
@@ -546,14 +547,14 @@ white-space:nowrap;
           svg.style("margin-bottom", "5px");
           svg.append("rect").attr("width", width + margin.right - 10).attr("height", height + margin.top + margin.bottom + 30).attr("fill", "white").attr("fill-opacity", 0);
           svg.on("contextmenu", function (d, i) {
-              d3.selectAll(".bullet .contextmenu").attr("display", "none");
-              var cm = d3.select("#contextmenu" + 0)
+            d3.selectAll(".bullet .contextmenu").attr("display", "none");
+            var cm = d3.select("#contextmenu" + 0)
                 .style("display", "block")
                 .style("left", d3.event.pageX + "px")
-                .style("top", d3.event.pageY-60 + "px");
-              d3.event.preventDefault();
-              return false;
-            });
+                .style("top", d3.event.pageY - 60 + "px");
+            d3.event.preventDefault();
+            return false;
+          });
 
           svg = svg.append("g")
             .attr("transform", "translate(" + margin.left + "," + (margin.top + 20) + ")")
@@ -582,7 +583,7 @@ white-space:nowrap;
 
           var svgd = svg.data();
           if ((typeof svgd === 'undefined') || svgd === undefined || svgd == null || svgd.length == 0) {
-            d3.select("#NowCast-body").append("text").text('<%=NoDecisionsText%>');
+            d3.select("#NowCast-body").append("text").text('<%=NoDecisionsText%>').style("color", "gray");
             return;
           }
 

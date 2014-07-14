@@ -3,7 +3,8 @@
     <IsBusinessEntityLayout>true</IsBusinessEntityLayout>
     <Name>Core.BillMessages.BillMessage</Name>
     <Title>
-        <Value><![CDATA[Bill Messages]]></Value>
+      <LocalizationTag>TEXT_BILL_MESSAGES</LocalizationTag>
+      <ResourceClassKey>Resource</ResourceClassKey>
     </Title>
     <Exportable>true</Exportable>
     <Height>400</Height>
@@ -269,7 +270,8 @@
             <DataIndex></DataIndex>
             <IsColumn>true</IsColumn>
             <HeaderText>
-                <Value><![CDATA[Actions]]></Value>
+                <LocalizationTag>TEXT_ACTIONS</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </HeaderText>
             <Formatter></Formatter>
             <Width>120</Width>
@@ -287,10 +289,12 @@
         <Button>
             <ButtonID>Add</ButtonID>
             <ButtonText>
-                <Value><![CDATA[Add]]></Value>
+                <LocalizationTag>TEXT_ADD</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </ButtonText>
             <ToolTip>
-                <Value><![CDATA[Add]]></Value>
+                <LocalizationTag>TEXT_ADD</LocalizationTag>
+                <ResourceClassKey>Resource</ResourceClassKey>
             </ToolTip>
             <IconClass>add</IconClass>
             <RequiredCapabilities></RequiredCapabilities>

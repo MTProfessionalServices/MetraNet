@@ -18,5 +18,9 @@
       <Name>BusinessEntity/Core.BillMessages.BillMessage/MessageType/Label</Name>
       <Value>Tipo da mensagem</Value>
     </locale_entry>
+    <locale_entry>
+      <Name>BusinessEntity/Core.BillMessages.BillMessage/Language/Label</Name>
+      <Value>[pt-BR]Language</Value>
+    </locale_entry>
   </locale_space>
 </mt_config>

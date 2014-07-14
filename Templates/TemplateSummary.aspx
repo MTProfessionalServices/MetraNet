@@ -65,6 +65,11 @@
                animEl: 'elId',
                icon: Ext.MessageBox.QUESTION
             });
+               var dlg = top.Ext.MessageBox.getDialog();
+               var buttons = dlg.buttons;
+ 	             for (i = 0; i < buttons.length; i++) {
+               buttons[i].addClass('custom-class');
+      }
     }
    
     function deleteResult(responseText)

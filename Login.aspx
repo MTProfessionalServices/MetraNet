@@ -59,15 +59,15 @@
       var validationFailed = false;
 
 
-      if (currentPwd.value == '<%=passwordTxt%>') {
+      if (currentPwd.value == '<%=passwordTxt%>' || currentPwd.value == '') {
         validationFailed = true;
         errorTextDiv.innerHTML = '<%=enterPasswordTxt%>';
       }
-      else if (newPwd.value == '<%=newpasswordTxt%>') {
+      else if (newPwd.value == '<%=newpasswordTxt%>' || newPwd.value == '') {
         validationFailed = true;
         errorTextDiv.innerHTML = '<%=enterNewPasswordTxt%>';
       }
-      else if (confirmNewPwd.value == '<%=confirmnewpasswordTxt%>') {
+      else if (confirmNewPwd.value == '<%=confirmnewpasswordTxt%>' || confirmNewPwd.value == '') {
         validationFailed = true;
         errorTextDiv.innerHTML = '<%=enterConfirmPasswordTxt%>';
       }

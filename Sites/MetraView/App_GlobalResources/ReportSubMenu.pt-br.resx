@@ -121,15 +121,15 @@
     <value>Faturas</value>
   </data>
   <data name="TEXT_MY_REPORTS_SECTION" xml:space="preserve">
-    <value>Meus relatÃƒÂ³rios</value>
+    <value>Meus relatórios</value>
   </data>
   <data name="TEXT_SHARED_REPORTS_SECTION" xml:space="preserve">
-    <value>RelatÃƒÂ³rios compartilhados</value>
+    <value>Relatórios compartilhados</value>
   </data>
   <data name="TEXT_USAGE_REPORT" xml:space="preserve">
-    <value>UtilizaÃƒÂ§ÃƒÂ£o</value>
+    <value>Utilização</value>
   </data>
   <data name="TEXT_USAGE_SECTION" xml:space="preserve">
-    <value>RelatÃƒÂ³rios de utilizaÃƒÂ§ÃƒÂ£o</value>
+    <value>Relatórios de utilização</value>
   </data>
 </root>

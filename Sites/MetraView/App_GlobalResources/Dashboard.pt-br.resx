@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TEXT_ACCOUNT_INFORMATION" xml:space="preserve">
-    <value>InformaÃƒÂ§ÃƒÂµes de conta</value>
+    <value>Informações de conta</value>
   </data>
   <data name="TEXT_MY_REPORTS" xml:space="preserve">
-    <value>Meus relatÃƒÂ³rios</value>
+    <value>Meus relatórios</value>
   </data>
   <data name="TEXT_MY_SUBSCRIPTIONS" xml:space="preserve">
     <value>Minhas assinaturas</value>

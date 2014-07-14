@@ -127,10 +127,10 @@
     <value>Oui</value>
   </data>
   <data name="lblConfirmResource1.Text" xml:space="preserve">
-    <value>ÃƒÆ’Ã†â€™Ãƒâ€¦Ã‚Â tes-vous sÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â»r de vouloir supprimer le compte ACH ci-dessousÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â ?</value>
+    <value>Êtes-vous sûr de vouloir supprimer le compte ACH ci-dessous ?</value>
   </data>
   <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-    <value>Messages dÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢erreur</value>
+    <value>Messages d’erreur</value>
   </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
     <value>Supprimer ACH</value>

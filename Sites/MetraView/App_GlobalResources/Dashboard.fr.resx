@@ -130,10 +130,10 @@
     <value>Mes compteurs</value>
   </data>
   <data name="TEXT_NO_COUNTERS" xml:space="preserve">
-    <value>Aucun compteur dÃƒÂ©fini</value>
+    <value>Aucun compteur défini</value>
   </data>
   <data name="TEXT_USAGE_BY_DEPARTMENT" xml:space="preserve">
-    <value>Utilisation actuelle par dÃƒÂ©partement</value>
+    <value>Utilisation actuelle par département</value>
   </data>
   <data name="TEXT_USAGE_BY_PRODUCT" xml:space="preserve">
     <value>Utilisation actuelle par produit</value>

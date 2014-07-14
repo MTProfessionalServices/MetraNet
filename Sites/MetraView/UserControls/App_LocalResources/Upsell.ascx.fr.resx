@@ -121,12 +121,12 @@
     <value>App. iPhone</value>
   </data>
   <data name="OnTheGo.Text" xml:space="preserve">
-    <value>En dÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©placement ?</value>
+    <value>En déplacement ?</value>
   </data>
   <data name="ViewOnGo.Text" xml:space="preserve">
-    <value>Vous pouvez consulter votre utilisation et payer votre facture lorsque vous ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âªtes en dÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©placement. Prochainement...</value>
+    <value>Vous pouvez consulter votre utilisation et payer votre facture lorsque vous êtes en déplacement. Prochainement...</value>
   </data>
   <data name="WithOur.Text" xml:space="preserve">
-    <value>GrÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ce ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â  notre</value>
+    <value>Grâce à notre</value>
   </data>
 </root>

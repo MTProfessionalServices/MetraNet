@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BillAndPayments.Text" xml:space="preserve">
-    <value>InformaÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âµes de pagamento</value>
+    <value>Informações de pagamento</value>
   </data>
   <data name="LastPayment.Text" xml:space="preserve">
-    <value>ÃƒÆ’Ã†â€™Ãƒâ€¦Ã‚Â¡ltimo pagamento</value>
+    <value>Último pagamento</value>
   </data>
   <data name="NoPaymentIsDue.Text" xml:space="preserve">
     <value>Nenhum pagamento devido</value>

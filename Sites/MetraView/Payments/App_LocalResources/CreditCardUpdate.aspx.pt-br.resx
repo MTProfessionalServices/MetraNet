@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ddCardTypeResource1.Label" xml:space="preserve">
-    <value>Tipo de cartÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£o de crÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©dito</value>
+    <value>Tipo de cartão de crédito</value>
   </data>
   <data name="ddExpMonthResource1.Label" xml:space="preserve">
-    <value>Data de expiraÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£o</value>
+    <value>Data de expiração</value>
   </data>
   <data name="ddExpYearResource1.Label" xml:space="preserve">
     <value>/</value>
@@ -133,28 +133,28 @@
     <value>Mensagens de erro</value>
   </data>
   <data name="MTSection1Resource1.Text" xml:space="preserve">
-    <value>InformaÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âµes do cartÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£o de crÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©dito</value>
+    <value>Informações do cartão de crédito</value>
   </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Atualizar cartÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£o de crÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©dito</value>
+    <value>Atualizar cartão de crédito</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>Atualizar cartÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£o de crÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©dito</value>
+    <value>Atualizar cartão de crédito</value>
   </data>
   <data name="tbAddress2Resource1.Label" xml:space="preserve">
-    <value>EndereÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§o linha 2</value>
+    <value>Endereço linha 2</value>
   </data>
   <data name="tbAddressResource1.Label" xml:space="preserve">
-    <value>EndereÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§o linha 1</value>
+    <value>Endereço linha 1</value>
   </data>
   <data name="tbCCNumberResource1.Label" xml:space="preserve">
-    <value>NÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âºmero do cartÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£o</value>
+    <value>Número do cartão</value>
   </data>
   <data name="tbCityResource1.Label" xml:space="preserve">
     <value>Cidade</value>
   </data>
   <data name="tbCountryResource1.Label" xml:space="preserve">
-    <value>PaÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­s</value>
+    <value>País</value>
   </data>
   <data name="tbFirstNameResource1.Label" xml:space="preserve">
     <value>Nome</value>
@@ -166,12 +166,12 @@
     <value>Inicial do nome do meio</value>
   </data>
   <data name="tbStateResource1.Label" xml:space="preserve">
-    <value>Estado/ProvÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­ncia</value>
+    <value>Estado/Província</value>
   </data>
   <data name="tbZipCodeResource1.Label" xml:space="preserve">
     <value>CEP</value>
   </data>
   <data name="UpdateCC.Text" xml:space="preserve">
-    <value>Atualizar cartÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£o de crÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©dito</value>
+    <value>Atualizar cartão de crédito</value>
   </data>
 </root>

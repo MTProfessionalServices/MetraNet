@@ -121,18 +121,18 @@
     <value>Faturas</value>
   </data>
   <data name="MyReports.Text" xml:space="preserve">
-    <value>Meus relatÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³rios</value>
+    <value>Meus relatórios</value>
   </data>
   <data name="NoInvoices.Text" xml:space="preserve">
-    <value>Nenhuma fatura disponÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­vel.</value>
+    <value>Nenhuma fatura disponível.</value>
   </data>
   <data name="SharedReports.Text" xml:space="preserve">
-    <value>RelatÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³rios compartilhados</value>
+    <value>Relatórios compartilhados</value>
   </data>
   <data name="Usage.Text" xml:space="preserve">
-    <value>UtilizaÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£o</value>
+    <value>Utilização</value>
   </data>
   <data name="UsageReport.Text" xml:space="preserve">
-    <value>RelatÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³rios de utilizaÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£o</value>
+    <value>Relatórios de utilização</value>
   </data>
 </root>

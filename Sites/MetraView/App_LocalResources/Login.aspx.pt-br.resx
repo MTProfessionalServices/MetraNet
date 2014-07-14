@@ -130,7 +130,7 @@
     <value>Login</value>
   </data>
   <data name="Login1Resource1.FailureText" xml:space="preserve">
-    <value>Sua tentativa de login nÃƒÆ’Ã‚Â£o foi bem-sucedida. Tente novamente.</value>
+    <value>Sua tentativa de login não foi bem-sucedida. Tente novamente.</value>
   </data>
   <data name="Login1Resource1.LoginButtonText" xml:space="preserve">
     <value>Login</value>
@@ -139,19 +139,19 @@
     <value>Senha:</value>
   </data>
   <data name="Login1Resource1.PasswordRequiredErrorMessage" xml:space="preserve">
-    <value>Uma senha ÃƒÆ’Ã‚Â© necessÃƒÆ’Ã‚Â¡ria.</value>
+    <value>Uma senha é necessária.</value>
   </data>
   <data name="Login1Resource1.RememberMeText" xml:space="preserve">
-    <value>Lembre-se de mim na prÃƒÆ’Ã‚Â³xima vez.</value>
+    <value>Lembre-se de mim na próxima vez.</value>
   </data>
   <data name="Login1Resource1.UserNameLabelText" xml:space="preserve">
-    <value>Nome do usuÃƒÆ’Ã‚Â¡rio:</value>
+    <value>Nome do usuário:</value>
   </data>
   <data name="Login1Resource1.UserNameRequiredErrorMessage" xml:space="preserve">
-    <value>O nome do usuÃƒÆ’Ã‚Â¡rio ÃƒÆ’Ã‚Â© obrigatÃƒÆ’Ã‚Â³rio.</value>
+    <value>O nome do usuário é obrigatório.</value>
   </data>
   <data name="tbConfirmPasswordResource1.Label" xml:space="preserve">
-    <value>Senha de confirmaÃƒÆ’Ã‚Â§ÃƒÆ’Ã‚Â£o</value>
+    <value>Senha de confirmação</value>
   </data>
   <data name="tbNewPasswordResource1.Label" xml:space="preserve">
     <value>Nova senha</value>
@@ -163,6 +163,6 @@
     <value>Senha antiga</value>
   </data>
   <data name="tbUserNameResource1.Label" xml:space="preserve">
-    <value>Nome do usuÃƒÆ’Ã‚Â¡rio</value>
+    <value>Nome do usuário</value>
   </data>
 </root>

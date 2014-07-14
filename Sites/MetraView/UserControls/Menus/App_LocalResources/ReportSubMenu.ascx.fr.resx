@@ -127,10 +127,10 @@
     <value>Aucune facture disponible.</value>
   </data>
   <data name="SharedReports.Text" xml:space="preserve">
-    <value>Rapports partagÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©s</value>
+    <value>Rapports partagés</value>
   </data>
   <data name="Usage.Text" xml:space="preserve">
-    <value>Frais dÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢utilisation</value>
+    <value>Frais d’utilisation</value>
   </data>
   <data name="UsageReport.Text" xml:space="preserve">
     <value>Rapport sur les utilisations</value>

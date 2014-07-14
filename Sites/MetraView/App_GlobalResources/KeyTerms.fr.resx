@@ -118,16 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="INDEPENDENT_ACCOUNT" xml:space="preserve">
-    <value>Compte indÃƒÂ©pendant</value>
+    <value>Compte indépendant</value>
   </data>
   <data name="PAYEE_ACCOUNT" xml:space="preserve">
-    <value>BÃƒÂ©nÃƒÂ©ficiaire</value>
+    <value>Bénéficiaire</value>
   </data>
   <data name="PAYER_ACCOUNT" xml:space="preserve">
     <value>Payeur</value>
   </data>
   <data name="String1" xml:space="preserve">
-    <value>Prix personnalisÃƒÂ©s</value>
+    <value>Prix personnalisés</value>
   </data>
   <data name="TEXT_KEYTERM_ACCOUNT_TYPE" xml:space="preserve">
     <value>Type de compte</value>
@@ -136,13 +136,13 @@
     <value>Types de comptes</value>
   </data>
   <data name="TEXT_KEYTERM_CAPABILITIES" xml:space="preserve">
-    <value>FonctionnalitÃƒÂ©s</value>
+    <value>Fonctionnalités</value>
   </data>
   <data name="TEXT_KEYTERM_CAPABILITY" xml:space="preserve">
-    <value>FonctionnalitÃƒÂ©</value>
+    <value>Fonctionnalité</value>
   </data>
   <data name="TEXT_KEYTERM_CORPORATE_ACCOUNT" xml:space="preserve">
-    <value>Compte dÃ¢â‚¬â„¢entreprise</value>
+    <value>Compte d’entreprise</value>
   </data>
   <data name="TEXT_KEYTERM_COUNTER" xml:space="preserve">
     <value>Compteur</value>
@@ -157,31 +157,31 @@
     <value>Remises</value>
   </data>
   <data name="TEXT_KEYTERM_GROUP_SUBSCRIPTION" xml:space="preserve">
-    <value>Abonnement groupÃƒÂ©</value>
+    <value>Abonnement groupé</value>
   </data>
   <data name="TEXT_KEYTERM_GROUP_SUBSCRIPTIONS" xml:space="preserve">
-    <value>Abonnements groupÃƒÂ©s</value>
+    <value>Abonnements groupés</value>
   </data>
   <data name="TEXT_KEYTERM_NON_RECURRING_CHARGE" xml:space="preserve">
-    <value>Frais non rÃƒÂ©currents</value>
+    <value>Frais non récurrents</value>
   </data>
   <data name="TEXT_KEYTERM_NON_RECURRING_CHARGES" xml:space="preserve">
-    <value>Frais non rÃƒÂ©currents</value>
+    <value>Frais non récurrents</value>
   </data>
   <data name="TEXT_KEYTERM_NON_SHARED_PRICE_LIST" xml:space="preserve">
-    <value>Tarif non partagÃƒÂ©</value>
+    <value>Tarif non partagé</value>
   </data>
   <data name="TEXT_KEYTERM_NON_SHARED_PRICE_LISTS" xml:space="preserve">
-    <value>Tarifs non partagÃƒÂ©s</value>
+    <value>Tarifs non partagés</value>
   </data>
   <data name="TEXT_KEYTERM_PARAMETER_TABLE" xml:space="preserve">
-    <value>Tableau des paramÃƒÂ¨tres</value>
+    <value>Tableau des paramètres</value>
   </data>
   <data name="TEXT_KEYTERM_PARAMETER_TABLES" xml:space="preserve">
-    <value>Tableaux des paramÃƒÂ¨tres</value>
+    <value>Tableaux des paramètres</value>
   </data>
   <data name="TEXT_KEYTERM_PERSONAL_RATE" xml:space="preserve">
-    <value>Prix personnalisÃƒÂ©</value>
+    <value>Prix personnalisé</value>
   </data>
   <data name="TEXT_KEYTERM_PRICE_LIST" xml:space="preserve">
     <value>Tarif</value>
@@ -190,10 +190,10 @@
     <value>Tarifs</value>
   </data>
   <data name="TEXT_KEYTERM_PRICEABLE_ITEM" xml:space="preserve">
-    <value>Ãƒâ€°lÃƒÂ©ment ÃƒÂ  prix</value>
+    <value>Élément à prix</value>
   </data>
   <data name="TEXT_KEYTERM_PRICEABLE_ITEMS" xml:space="preserve">
-    <value>Ãƒâ€°lÃƒÂ©ments ÃƒÂ  prix</value>
+    <value>Éléments à prix</value>
   </data>
   <data name="TEXT_KEYTERM_PRODUCT_OFFERING" xml:space="preserve">
     <value>Offre produit</value>
@@ -202,28 +202,28 @@
     <value>Offres produit</value>
   </data>
   <data name="TEXT_KEYTERM_RATE_SCHEDULE" xml:space="preserve">
-    <value>Ãƒâ€°chelle tarifaire</value>
+    <value>Échelle tarifaire</value>
   </data>
   <data name="TEXT_KEYTERM_RATE_SCHEDULES" xml:space="preserve">
-    <value>Ãƒâ€°chelles tarifaires</value>
+    <value>Échelles tarifaires</value>
   </data>
   <data name="TEXT_KEYTERM_REBILL_NAME" xml:space="preserve">
-    <value>RÃƒÂ©affectation</value>
+    <value>Réaffectation</value>
   </data>
   <data name="TEXT_KEYTERM_REBILL_VERB" xml:space="preserve">
-    <value>RÃƒÂ©affecter</value>
+    <value>Réaffecter</value>
   </data>
   <data name="TEXT_KEYTERM_RECURRING_CHARGE" xml:space="preserve">
-    <value>Frais rÃƒÂ©currents</value>
+    <value>Frais récurrents</value>
   </data>
   <data name="TEXT_KEYTERM_RECURRING_CHARGES" xml:space="preserve">
-    <value>Frais rÃƒÂ©currents</value>
+    <value>Frais récurrents</value>
   </data>
   <data name="TEXT_KEYTERM_ROLE" xml:space="preserve">
-    <value>RÃƒÂ´le</value>
+    <value>Rôle</value>
   </data>
   <data name="TEXT_KEYTERM_ROLES" xml:space="preserve">
-    <value>RÃƒÂ´les</value>
+    <value>Rôles</value>
   </data>
   <data name="TEXT_KEYTERM_SERVICE_CHARGE" xml:space="preserve">
     <value>Frais de service</value>
@@ -238,27 +238,27 @@
     <value>Points limites du service</value>
   </data>
   <data name="TEXT_KEYTERM_SHARED_PRICE_LIST" xml:space="preserve">
-    <value>Tarif partagÃƒÂ©</value>
+    <value>Tarif partagé</value>
   </data>
   <data name="TEXT_KEYTERM_SHARED_PRICE_LISTS" xml:space="preserve">
-    <value>Tarifs partagÃƒÂ©s</value>
+    <value>Tarifs partagés</value>
   </data>
   <data name="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGE" xml:space="preserve">
-    <value>Frais rÃƒÂ©currents dÃƒÂ©pendant de lÃ¢â‚¬â„¢unitÃƒÂ©</value>
+    <value>Frais récurrents dépendant de l’unité</value>
   </data>
   <data name="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGES" xml:space="preserve">
-    <value>Frais rÃƒÂ©currents dÃƒÂ©pendant de lÃ¢â‚¬â„¢unitÃƒÂ©</value>
+    <value>Frais récurrents dépendant de l’unité</value>
   </data>
   <data name="TEXT_KEYTERM_USAGE_CHARGE" xml:space="preserve">
-    <value>Frais dÃ¢â‚¬â„¢utilisation</value>
+    <value>Frais d’utilisation</value>
   </data>
   <data name="TEXT_KEYTERM_USAGE_CHARGE_AGGREGATE" xml:space="preserve">
-    <value>Frais dÃ¢â‚¬â„¢utilisation (ConsolidÃƒÂ©s)</value>
+    <value>Frais d’utilisation (Consolidés)</value>
   </data>
   <data name="TEXT_KEYTERM_USAGE_CHARGES" xml:space="preserve">
-    <value>Frais dÃ¢â‚¬â„¢utilisation</value>
+    <value>Frais d’utilisation</value>
   </data>
   <data name="TEXT_KEYTERM_USAGE_CHARGES_AGGREGATE" xml:space="preserve">
-    <value>Frais dÃ¢â‚¬â„¢utilisation (ConsolidÃƒÂ©s)</value>
+    <value>Frais d’utilisation (Consolidés)</value>
   </data>
 </root>

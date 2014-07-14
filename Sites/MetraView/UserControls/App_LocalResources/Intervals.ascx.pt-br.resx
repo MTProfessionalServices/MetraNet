@@ -124,13 +124,13 @@
     <value>False</value>
   </data>
   <data name="ddIntervalsResource1.Label" xml:space="preserve">
-    <value>Selecionar perÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­odo de faturamento</value>
+    <value>Selecionar período de faturamento</value>
   </data>
   <data name="ddIntervalsResource1.ReadOnly" xml:space="preserve">
     <value>False</value>
   </data>
   <data name="Invoice.Text" xml:space="preserve">
-    <value>nÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Âº fatura:</value>
+    <value>nº fatura:</value>
   </data>
   <data name="SelectInterval.Text" xml:space="preserve">
     <value>Selecionar intervalo</value>

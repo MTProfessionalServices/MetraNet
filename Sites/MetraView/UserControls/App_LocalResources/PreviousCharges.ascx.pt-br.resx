@@ -121,21 +121,21 @@
     <value>N/D</value>
   </data>
   <data name="PaymentsCreditsAdjustments.Text" xml:space="preserve">
-    <value>Pagamentos, crÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©ditos e ajustes</value>
+    <value>Pagamentos, créditos e ajustes</value>
   </data>
   <data name="PaymentsReceived.Text" xml:space="preserve">
     <value>Pagamentos recebidos</value>
   </data>
   <data name="PostbillAdjustments.Text" xml:space="preserve">
-    <value>Ajustes pÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³s-faturamento</value>
+    <value>Ajustes pós-faturamento</value>
   </data>
   <data name="PostBillAdjustmentsTax.Text" xml:space="preserve">
     <value>Imposto ajustado</value>
   </data>
   <data name="PreviousBalance.Text" xml:space="preserve">
-    <value>BalanÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§o anterior</value>
+    <value>Balanço anterior</value>
   </data>
   <data name="TotalBalanceForward.Text" xml:space="preserve">
-    <value>BalanÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§o total encaminhado</value>
+    <value>Balanço total encaminhado</value>
   </data>
 </root>

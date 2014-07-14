@@ -121,13 +121,13 @@
     <value>Historique de facturation</value>
   </data>
   <data name="TEXT_DOWNLOADS" xml:space="preserve">
-    <value>TÃƒÂ©lÃƒÂ©chargements</value>
+    <value>Téléchargements</value>
   </data>
   <data name="TEXT_PAYMENT_HISTORY" xml:space="preserve">
     <value>Historique des paiements</value>
   </data>
   <data name="TEXT_PAYMENT_METHODS" xml:space="preserve">
-    <value>MÃƒÂ©thodes de paiement</value>
+    <value>Méthodes de paiement</value>
   </data>
   <data name="TEXT_VIEW_BILL" xml:space="preserve">
     <value>Afficher la facture</value>

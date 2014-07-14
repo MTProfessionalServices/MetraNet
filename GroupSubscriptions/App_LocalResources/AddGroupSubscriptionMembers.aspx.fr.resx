@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -124,45 +124,45 @@
     <value>Tous les descendants</value>
   </data>
   <data name="CURRENT_NODE" xml:space="preserve">
-    <value>Nœud actuel</value>
+    <value>NÃ…â€œud actuel</value>
   </data>
   <data name="DIRECT_DESCENDANTS" xml:space="preserve">
     <value>Descendants directs</value>
   </data>
   <data name="EffectiveEndDate" xml:space="preserve">
-    <value>Date de fin de validité</value>
+    <value>Date de fin de validitÃƒÂ©</value>
   </data>
   <data name="EffectiveStartDate" xml:space="preserve">
-    <value>Date de début de validité</value>
+    <value>Date de dÃƒÂ©but de validitÃƒÂ©</value>
   </data>
   <data name="ErrorAddGroupSubMember" xml:space="preserve">
-    <value>Erreur lors de l’ajout des membres de l’abonnement groupé.</value>
+    <value>Erreur lors de lÃ¢â‚¬â„¢ajout des membres de lÃ¢â‚¬â„¢abonnement groupÃƒÂ©.</value>
   </data>
   <data name="GRID_TITLE" xml:space="preserve">
     <value>Comptes</value>
   </data>
   <data name="GROUP_SUBSCRIPTION" xml:space="preserve">
-    <value>Abonnement groupé</value>
+    <value>Abonnement groupÃƒÂ©</value>
   </data>
   <data name="lblAddGroupSubMembersTitleResource1" xml:space="preserve">
-    <value>Période de validité de l’abonnement groupé</value>
+    <value>PÃƒÂ©riode de validitÃƒÂ© de lÃ¢â‚¬â„¢abonnement groupÃƒÂ©</value>
   </data>
   <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-    <value>Messages d’erreur</value>
+    <value>Messages dÃ¢â‚¬â„¢erreur</value>
   </data>
   <data name="MTTitle1.Text" xml:space="preserve">
-    <value>Ajouter des membres à l’abonnement groupé {0}</value>
+    <value>Ajouter des membres ÃƒÂ  lÃ¢â‚¬â„¢abonnement groupÃƒÂ© {0}</value>
   </data>
   <data name="REMOVE_ACCOUNT" xml:space="preserve">
     <value>Supprimer le compte</value>
   </data>
   <data name="SELECT_ACCOUNTS" xml:space="preserve">
-    <value>Sélectionner des comptes</value>
+    <value>SÃƒÂ©lectionner des comptes</value>
   </data>
   <data name="SELECTION" xml:space="preserve">
-    <value>Sélection</value>
+    <value>SÃƒÂ©lection</value>
   </data>
   <data name="USERNAME" xml:space="preserve">
-    <value>Nom d’utilisateur</value>
+    <value>Nom dÃ¢â‚¬â„¢utilisateur</value>
   </data>
 </root>

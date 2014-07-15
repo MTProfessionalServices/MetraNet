@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <texts id="MAM Static Texts" type="collection">
 	  <description>
-      O arquivo define a maioria dos textos estáticos MAM. O MAM/MDM também usa a localização
-      fornecida pelo formato da placa MetraTech.
+      The file define most of the MAM static texts. The MAM/MDM use also the localization
+      supplied by the MetraTech plate form.
     </description>
     
  <text id="TEXT_MANUAL_PAYMENT_SUCCESS">
@@ -51,13 +51,13 @@
  </text>
     
  <text id="TEXT_MOVE_ACROSS_CORPORATE">
-      <value><![CDATA[ <br>&nbsp;&nbsp;Você só pode mover contas dentro da mesma hierarquia corporativa. ]]></value>
+      <value><![CDATA[ <br>&nbsp;&nbsp;Você só pode mover contas dentro da mesma hierarquia de corporação. ]]></value>
     	<description></description>
  </text>
     
  <text id="TEXT_BATCH_OPERATION_WARNING">
       <value>As operações em lote podem demorar muito e só devem ser feitas quando o sistema não estiver ocupado.</value>
-    	<description>Aviso em lote</description>
+    	<description>Batch warning</description>
  </text>
      
   <text id="TEXT_FOLDER">
@@ -71,7 +71,7 @@
  </text>
  
   <text id="TEXT_UNABLE_TO_MANAGE_ACCOUNT">
-      <value><![CDATA[ <br>&nbsp;&nbsp;Não foi possível gerenciar a conta.  Essa pode ser uma restrição de segurança <br>&nbsp;&nbsp;ou a conta pode não existir no momento atual na hierarquia. ]]></value>
+      <value><![CDATA[ <br>&nbsp;&nbsp;Não é possível gerenciar a conta. Isso pode ser uma restrição de segurança <br>&nbsp;&nbsp;ou a conta pode não existir no momento atual na hierarquia. ]]></value>
     	<description></description>
  </text>
       
@@ -115,7 +115,7 @@
  </text>
  
   <text id="TEXT_APP_MAM">
-      <value><![CDATA[ <b>MetraCare</b> - Self-care do cliente e gerenciamento da conta ]]></value>
+      <value><![CDATA[ <b>MetraCare</b> - Gerenciamento de conta e autoatendimento do cliente ]]></value>
     	<description></description>
  </text>
   <text id="TEXT_APP_MCM">
@@ -127,220 +127,221 @@
     	<description></description>
  </text> 
   <text id="TEXT_APP_MPS">
-      <value><![CDATA[ <b>MetraView</b> - Geração de relatórios interativa e apresentação de fatura ]]></value>
+      <value><![CDATA[ <b>MetraView</b> - Relatórios e apresentação de faturas interativos ]]></value>
     	<description></description>
  </text>
 
   <text id="TEXT_PAYMENT_HISTORY">
       <value>Histórico de pagamento</value>
-    	<description>Histórico de pagamento</description>
+    	<description>Payment History</description>
  </text>
  
   <text id="TEXT_ADVANCED_ENTRY">
       <value>Avançado</value>
-    	<description>Avançado</description>
+    	<description>Advanced</description>
  </text>
 
   <text id="TEXT_ACCOUNTS_TO_MOVE">
       <value>Selecionar contas para mover</value>
-    	<description>Selecionar contas para mover</description>
+        <description>Select Accounts to Move</description>
  </text>
  
   <text id="TEXT_ACCOUNT_IDS">
       <value>Adicionar IDs da conta</value>
-    	<description>Adicionar IDs da conta</description>
+    	<description>Add Account IDs</description>
  </text>
  
   <text id="TEXT_UPDATE">
       <value>Atualizar</value>
-    	<description>Atualizar</description>
+    	<description>Update</description>
  </text>
  
  <text id="TEXT_ADD_FOLDER_OWNERSHIP">
       <value>Adicionar conta para administração</value>
-    	<description>Adicionar pasta para propriedade</description>
+    	<description>Add folder for ownership</description>
  </text>
  
  <text id="TEXT_DRAG_FOLDERS_HERE">
       <value>Arraste e solte contas aqui...</value>
-    	<description>Arraste e solte pastas aqui...</description>
+    	<description>Drag and drop folders here...</description>
  </text>
  
   <text id="TEXT_DRAG_ONLY_FOLDERS_HERE">
       <value>Você só pode adicionar pastas.</value>
-    	<description>somente pastas</description>
+    	<description>folders only</description>
  </text>
  
  <text id="TEXT_ACCOUNT_STATE">
       <value>Estado da conta</value>
-    	<description>Estado da conta</description>
+    	<description>Account State</description>
  </text>
  
  <text id="TEXT_LOGIN_INFORMATION">
       <value>Informações de login</value>
-    	<description>Informações de login</description>
+    	<description>Login Information</description>
  </text>
  
  <text id="TEXT_OTHER">
       <value>Outro</value>
-    	<description>Outro</description>
+    	<description>Other</description>
  </text>
  
  <text id="TEXT_ANCESTOR">
       <value>Pai</value>
-    	<description>Pai</description>
+    	<description>Parent</description>
  </text>
  
  <text id="TEXT_ACCOUNT">
       <value>Conta</value>
-    	<description>Conta</description>
+    	<description>Account</description>
  </text>
 
  <text id="TEXT_PAYER">
       <value>Pagador</value>
-    	<description>Pagador</description>
+    	<description>Payer</description>
  </text>
   
  <text id="TEXT_ADDING_MEMBER_TO_GROUP_SUB">
       <value>Adicionando membro ao grupo</value>
-    	<description>Adicionando membro ao grupo</description>
+    	<description>Adding Member to Group</description>
  </text> 
  
  <text id="TEXT_REMOVING_MEMBER_FROM_GROUP_SUB">
       <value>Removendo membro do grupo</value>
-    	<description>Removendo membro do grupo</description>
+    	<description>Removing Member from Group</description>
  </text> 
  
  <text id="TEXT_SETTING_PAYER">
       <value>Definindo pagador</value>
-    	<description>Definindo pagador</description>
+    	<description>Setting Payer</description>
  </text> 
  
  <text id="TEXT_ADDING_ROLE_TO_MEMBER">
       <value>Adicionando membros à função</value>
-    	<description>Adicionando membros à função</description>
+    	<description>Adding Members to Role</description>
  </text> 
 
  <text id="TEXT_FOLDERS_IMPERSONETED_BY">
       <value>Contas administradas por</value>
-    	<description>Pastas pertencentes a</description>
+    	<description>Folders Owned By</description>
  </text>
 	<text id="TEXT_ACCOUNT_OWNER_IMPERSONETED_BY">
-		<value>PT</value>
-		<description>PT</description>
+		  <value>Proprietário da conta de </value>
+		  <description>owner</description>
 	</text>
 	  <text id="TEXT_ACCOUNTS_PAID_FOR_BY">
 		  <value>Contas pagas pelo</value>
 		  <description>Contas pagas pelo</description>
 	  </text>
+
 	  <text id="TEXT_MOVING_ACCOUNTS">
       <value>Movendo contas</value>
-    	<description>Movendo contas</description>
+    	<description>Moving Accounts</description>
  </text> 
  
   <text id="TEXT_CURRENT_ACCOUNT_STATE">
       <value>Estado atual da conta</value>
-    	<description>Estado atual da conta</description>
+    	<description>Current Account State</description>
  </text> 
 
  <text id="TEXT_NEW_ACCOUNT_STATE">
       <value>Novo estado da conta</value>
-    	<description>Novo estado da conta</description>
+    	<description>New Account State</description>
  </text> 
  
   <text id="ACCOUNT_STATE_UPDATE">
       <value>Atualizar estado da conta</value>
-    	<description>Atualizar estado da conta</description>
+    	<description>Update Account State</description>
  </text> 
  
   <text id="TEXT_ACCOUNT_STATE">
       <value>Estado da conta</value>
-    	<description>Estado da conta</description>
+    	<description>Account State</description>
  </text> 
  
  <text id="TEXT_BACK">
       <value>Voltar</value>
-    	<description>Voltar</description>
+    	<description>Back</description>
  </text> 
  
  <text id="TEXT_CSR_DEFAULT_POLICY">
       <value>Segurança padrão</value>
-    	<description>Segurança padrão</description>
+    	<description>Default Security</description>
  </text> 
  
   <text id="TEXT_ADD_ACCOUNTS_FOR_PAYMENT">
       <value>Adicionar contas para pagamento</value>
-    	<description>Adicionar contas para pagamento</description>
+    	<description>Add Accounts for Payment</description>
  </text> 
  
  <text id="TEXT_MOVE_ACCOUNTS">
       <value>Mover contas</value>
-    	<description>Mover contas</description>
+    	<description>Move Accounts</description>
  </text> 
  
  <text id="TEXT_MOVE_ACCOUNT">
       <value>Mover conta</value>
-    	<description>Mover conta</description>
+    	<description>Move Account</description>
  </text> 
  
  <text id="TEXT_MEMBERS">
       <value>Membros</value>
-    	<description>Membros</description>
+    	<description>Members</description>
  </text> 
  
  <text id="TEXT_MOVE_DATE">
       <value>Mover data de vigência</value>
-    	<description>Mover data</description>
+    	<description>Move Date</description>
  </text> 
 
   <text id="TEXT_UPDATE_PAYER_TITLE">
       <value>Atualizar informações de pagador para a conta [USERNAME]</value>
-    	<description>Contas</description>
+    	<description>Accounts</description>
  </text> 
 
  <text id="TEXT_ACCOUNTS">
       <value>Contas</value>
-    	<description>Contas</description>
+    	<description>Accounts</description>
  </text> 
 
  <text id="TEXT_USER">
       <value>Usuário</value>
-    	<description>Usuário</description>
+    	<description>User</description>
  </text> 
  
  <text id="TEXT_GROUP_SUBSCRIPTIONS_NAME">
       <value>Nome</value>
-    	<description>Nome da assinatura em grupo</description>
+    	<description>Group Subscription Name</description>
  </text> 
 
  <text id="TEXT_SET_GROUP_PRICEABLE_ITEMS">
       <value>Suporta operações em grupo</value>
-    	<description>Suporta operações em grupo</description>
+    	<description>Support Group Operations</description>
  </text>
  
  <text id="TEXT_GROUP_SUBSCRIPTIONS_NOTE">
       <value>Selecione um conta corporativa para visualizar uma lista de [TEXT_GROUP_SUBSCRIPTIONS]:</value>
-    	<description>Observação de assinaturas de grupo</description>
+    	<description>Group Subscriptions Note</description>
  </text> 
  
  <text id="TEXT_GROUP_SUBSCRIPTIONS">
       <value>Assinaturas em grupo</value>
-    	<description>Assinaturas em grupo</description>
+    	<description>Group Subscriptions</description>
  </text>
 
   <text id="TEXT_SUBSCRIBE_PO">
       <value>Assinar [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
-    	<description>Assinaturas em grupo</description>
+    	<description>Group Subscriptions</description>
  </text>
 
   <text id="TEXT_SUBSCRIBE_GROUP">
       <value>Aderir à [TEXT_KEYTERM_GROUP_SUBSCRIPTION]</value>
-    	<description>Assinaturas em grupo</description>
+    	<description>Group Subscriptions</description>
  </text>
  
  <text id="TEXT_PRODUCT_OFFERING_SUBSCRIPTIONS">
       <value>Assinaturas de [TEXT_KEYTERM_PRODUCT_OFFERING]</value>
-    	<description>Assinaturas do PO</description>
+    	<description>PO Subscriptions</description>
  </text>
  
  <text id="TEXT_AVAILABLE_GROUPSUBSCRIPTION_PO_SELECTION">
@@ -355,107 +356,107 @@
  
  <text id="TEXT_MANAGE_DEFAULT_SECURITY">
       <value>Permissões de segurança padrão</value>
-    	<description>Segurança padrão</description>
+    	<description>Default Security</description>
  </text> 
  
  <text id="TEXT_ADD_ROLE_TO_ACCOUNT_TITLE">
       <value>Adicionar [TEXT_KEYTERM_ROLE]</value>
-    	<description>Adicionar função à conta</description>
+    	<description>Add role to account</description>
  </text> 
 
  <text id="TEXT_NO_ROLES">
       <value>Nenhum [TEXT_KEYTERM_ROLES] foi configurado.</value>
-    	<description>Nenhuma função</description>
+    	<description>No roles</description>
  </text> 
 
  <text id="TEXT_NO_CAPABILITIES">
       <value>Nenhum [TEXT_KEYTERM_CAPABILITIES] foi configurado.</value>
-    	<description>Sem recursos</description>
+    	<description>No capabilities</description>
  </text> 
  
  <text id="TEXT_ROLES_ON_ACCOUNT">
       <value>Essa conta tem as seguintes [TEXT_KEYTERM_ROLES]:</value>
-    	<description>funções na conta</description>
+    	<description>roles on account</description>
  </text> 
  
  <text id="TEXT_CAPABILITIES_ON_ACCOUNT">
       <value>Essa conta tem os seguintes [TEXT_KEYTERM_CAPABILITIES]:</value>
-    	<description>recursos na conta</description>
+    	<description>capabilities on account</description>
  </text> 
  		
  <text id="TEXT_ADD_CAPABILITY">
       <value>Adicionar [TEXT_KEYTERM_CAPABILITY]</value>
-    	<description>Adicionar recurso</description>
+    	<description>Add Capability</description>
  </text> 
 
  <text id="TEXT_MANAGE_SECURITY">
       <value>Permissões de segurança</value>
-    	<description>Segurança</description>
+    	<description>Security</description>
  </text> 
  
  <text id="TEXT_MANAGE_SECURITY_HINT">
-      <value>Gerenciar funções e recursos de segurança</value>
-    	<description>Segurança</description>
+      <value>Gerenciar funções e capacidades de segurança</value>
+    	<description>Security</description>
  </text> 
 
  <text id="TEXT_MANAGE">
       <value>Gerenciar</value>
-    	<description>Gerenciar</description>
+    	<description>Manage</description>
  </text> 
  
  <text id="TEXT_ACTION">
       <value>Ação</value>
-    	<description>Ação</description>
+    	<description>Action</description>
  </text> 
 
   <text id="TEXT_SUBSCRIBER_ASSIGNABLE">
       <value>Atribuível do assinante</value>
-    	<description>atribuível do assinante</description>
+    	<description>subscriber assignable</description>
  </text> 
 
   <text id="TEXT_CSR_ASSIGNABLE">
       <value>Atribuível do CSR</value>
-    	<description>Atribuível do CSR</description>
+    	<description>CSR assignable</description>
  </text> 
  
   <text id="TEXT_PATH_CAPABILITY_HELP">
       <value>Você pode usar a Hierarquia de conta para localização um nó na hierarquia e arrastá-lo para o campo de caminho.</value>
-    	<description>Acessar recurso de digitação</description>
+    	<description>Access Type Capability</description>
  </text> 
 
   <text id="TEXT_CAPABILITY_ACCESS_TYPE">
       <value>Acessar [TEXT_KEYTERM_CAPABILITY]</value>
-    	<description>Acessar recurso de digitação</description>
+    	<description>Access Type Capability</description>
  </text> 
  
  <text id="TEXT_CAPABILITY_PATH_TYPE">
       <value>Caminho [TEXT_KEYTERM_CAPABILITY]</value>
-    	<description>Recurso de digitação do caminho</description>
+    	<description>Path Type Capability</description>
  </text> 
  
  <text id="TEXT_ADD_PATH">
       <value>Adicionar outro caminho</value>
-    	<description>Adicionar outro caminho</description>
+    	<description>Add Another Path</description>
  </text> 
 
  <text id="TEXT_ALL_DESCENDANTS">
       <value>Todos os descendentes</value>
-    	<description>Todos os descendentes</description>
+    	<description>All Descendants</description>
  </text> 
  
  <text id="TEXT_DIRECT_DESCENDANTS">
       <value>Descendentes diretos</value>
-    	<description>Descendentes diretos</description>
+    	<description>Direct Descendants</description>
  </text> 
  
  <text id="TEXT_CURRENT_NODE">
       <value>Nó atual</value>
-    	<description>Nó atual</description>
+    	<description>Current Node</description>
  </text> 
  				
  <text id="TEXT_WOULD_YOU_LIKE_TO_REMOVE">
       <value>Você deseja remover</value>
-    	<description>Você deseja remover</description>
+    	<description>Would you like to remove</description>
  </text> 
  
  <text id="TEXT_MSGBOX_DELETE_ITEM">
@@ -465,60 +466,60 @@
  
   <text id="TEXT_FROM">
       <value>de</value>
-    	<description>de</description>
+    	<description>from</description>
  </text> 
 
  <text id="TEXT_THIS">
       <value>deste</value>
-    	<description>deste</description>
+    	<description>this</description>
  </text>
 	  <text id="TEXT_ACCOUNT_OWNED_BY">
-		  <value> PT: account owned by</value>
+		  <value>Conta de propriedade de</value>
 		  <description></description>
 	  </text>
 
 	  <text id="TEXT_ADD_CAPABILITY_TO_ROLE_TITLE">
       <value>Adicionar [TEXT_KEYTERM_CAPABILITY]</value>
-    	<description>Selecione o recurso para adicionar à função</description>
+    	<description>Select capability to add to role</description>
  </text> 
 
  <text id="TEXT_CAPABILITY_DESCRIPTION">
       <value>Descrição de [TEXT_KEYTERM_CAPABILITY]</value>
-    	<description>Capacidade</description>
+    	<description>Capability</description>
  </text>
 	  <text id="TEXT_MANAGE_ACCOUNT_HIERARCHIES">
-		  <value>PT:Requires Manage Account Hierarchies</value>
+		  <value>Exige gerenciar hierarquias de conta</value>
 		  <description>Hierarchy</description>
 	  </text>
 
 	  <text id="TEXT_CAPABILITY_NAME">
       <value>Nome do [TEXT_KEYTERM_CAPABILITY]</value>
-    	<description>Nome do recurso</description>
+    	<description>Capability Name</description>
  </text> 
  
   <text id="TEXT_BACK_SECURITY">
       <value>Voltar</value>
-    	<description>Voltar</description>
+    	<description>Back</description>
  </text> 
  
  <text id="TEXT_BACK_TO_MANAGE_ROLES">
       <value>Voltar para Gerenciar funções</value>
-    	<description>Voltar para Gerenciar funções</description>
+    	<description>Back to Manage Roles</description>
  </text> 
  
  <text id="TEXT_ROLE_SETUP_READONLY">
       <value>Exibir [TEXT_KEYTERM_CAPABILITIES] para </value>
-    	<description>exibir recursos para a função</description>
+    	<description>view capabilities for role</description>
  </text> 
  
  <text id="TEXT_ROLE_SETUP">
       <value>Configurar [TEXT_KEYTERM_CAPABILITIES] para </value>
-    	<description>Configurar recursos para a função</description>
+    	<description>Configure capabilities for role</description>
  </text> 
 		
  <text id="TEXT_ROLE_ADD_CAPABILITY">
       <value>Adicionar [TEXT_KEYTERM_CAPABILITY]</value>
-    	<description>Adicionar recurso</description>
+    	<description>Add Capability</description>
  </text> 
 
  <text id="TEXT_ADD_ROLE">
@@ -527,12 +528,12 @@
  </text>  
  
  <text id="TEXT_ROLE_NAME">
-       <value>Nome do [TEXT_KEYTERM_ROLE]</value>
+       <value>Nome da [TEXT_KEYTERM_ROLE]</value>
        <description></description>
  </text>  
 
  <text id="TEXT_ROLE_DESCRIPTION">
-       <value>Descrição de [TEXT_KEYTERM_ROLE]</value>
+       <value>Descrição da [TEXT_KEYTERM_ROLE]</value>
        <description></description>
  </text>  
 	
@@ -542,7 +543,7 @@
   </text> 
   
  <text id="TEXT_TIME_FORMAT">
-       <value>(MM/DD/AAAA HH:MM:SS PP)</value>
+       <value>(MM/DD/YYYY HH:MM:SS PP)</value>
        <description></description>
   </text> 
 
@@ -707,6 +708,18 @@
         <description></description>
     </text> 
           
+	<text id="TEXT_PERIOD_OF_TIME">
+		<value>Período</value>
+	</text>
+
+	<text id="TEXT_BILLING_INTERVAL">
+		<value>Intervalo de faturamento</value>
+	</text>
+
+	<text id="TEXT_FIXED_DATE">
+		<value>Data fixa</value>
+	</text> 
+          
     <text id="TEXT_COLUMN_NAME">
         <value>Nome</value>
         <description></description>
@@ -853,7 +866,7 @@
     </text>   
          
     <text id="TEXT_DISCOUNT">
-        <value>[TEXT_KEYTERM_DISCOUNT](s)</value>
+        <value>[TEXT_KEYTERM_DISCOUNT]</value>
         <description></description>
     </text>        
 
@@ -933,7 +946,7 @@
     </text>
 
     <text id="TEXT_INVALID_BLANK_LOGIN">
-        <value>O nome de usuário ou senha não podem ficar em branco.  Tente novamente.</value>
+        <value>Nome de usuário ou senha não podem ficar em branco. Tente novamente.</value>
         <description></description>
     </text>
 
@@ -1038,7 +1051,7 @@
     </text>
 
     <text id="TEXT_MPS_FAIL">
-        <value>Não é possível efetuar log-on na fatura interativa da conta.  Verifique se o assinante tem o recurso de log-on correto para o MetraView.  Se ainda houver um problema solicite que seu administrador verifique o log do sistema e tente novamente mais tarde.</value>
+        <value>Não é possível fazer log on em uma conta interativa. Verifique se o assinante tem o recurso de logon correto para MetraView.  Se ainda houver um problema, peça a seu administrador verificar o log do sistema e tente novamente mais tarde.</value>
         <description></description>
     </text>
 
@@ -1369,7 +1382,7 @@
     </text>
 
     <text id="TEXT_MAM_VERSION">
-        <value>3.5</value>
+        <value>3,5</value>
         <description></description>
     </text>
 
@@ -1594,15 +1607,15 @@
     <description></description>
   </text>
 	<text id="TEXT_NO_TEMPLATE_SUBSCRIPTIONS">
-    <description>Diálogo de modelos</description>
+    <description>Templates Dialog</description>
     <value>Não há assinaturas definidas para esse modelo.</value>
   </text>
   <text id="TEXT_UPDATE_TEMPLATE_PROPERTIES">
-    <description>Diálogo de modelos</description>
+    <description>Templates Dialog</description>
     <value>Atualizar propriedades</value>
   </text>
   <text id="TEXT_MSGBOX_REMOVE_TEMPLATE_SUBSCRIPTION">
-    <description>Diálogo de modelos</description>
+    <description>Templates Dialog</description>
     <value>Remover oferta de produto [ITEM] do modelo?</value>
   </text>
 
@@ -1677,7 +1690,7 @@
 </text>
 
 <text id="TEXT_DO_YOU_WANT_TO_COPY_PARENT_TEMPLATE">
-      <value>A pasta não tem modelo. Deseja copiar o modelo pai ?</value>
+      <value>A pasta não tem modelo. Você deseja copiar o modelo pai?</value>
 </text>
 
 <text id="TEXT_NEW_PARENT">
@@ -1703,52 +1716,52 @@
     </text> 
 
 	<text id="TEXT_NO_TEMPLATE_EXISTS">
-    <description>Diálogo de modelos</description>
+    <description>Templates Dialog</description>
     <value>Não existe modelo para esta pasta, portanto, uma nova será criada.</value>
   </text>
   <text id="TEXT_USE_ANCESTOR_TEMPLATE">
-    <description>Diálogo de modelos</description>
+    <description>Templates Dialog</description>
     <value>Deseja preencher previamente o novo modelo com informações de modelo para </value>
   </text>
   <text id="TEXT_CREATE_NEW_TEMPLATE">
-    <description>Criar novo modelo?</description>
+    <description>Create New Template?</description>
     <value>Deseja criar um novo modelo</value>
   </text>
   <text id="TEXT_TEMPLATE_NAME">
-    <description>Diálogo de modelos</description>
+    <description>Templates Dialog</description>
     <value>Nome do modelo de conta</value>
   </text>
   <text id="TEXT_TEMPLATE_DESCRIPTION">
-    <description>Diálogo de modelos</description>
+    <description>Templates Dialog</description>
     <value>Descrição do modelo de conta</value>
   </text>
   <text id="TEXT_TEMPLATE_APPLY_SECURITY">
-    <description>Diálogo de modelos</description>
+    <description>Templates Dialog</description>
     <value>Aplicar política de segurança padrão</value>
   </text>
   <text id="TEXT_NO_DEFAULT_SECURITY_POLICY_ROLES">
-    <description>Diálogo de modelos</description>
+    <description>Templates Dialog</description>
     <value>Nenhuma função foi definida para a política de segurança padrão.</value>
   </text>
   
   <text id="TEXT_DELETE_SUBSCRIPTION_EXPLANATION">
     <description></description>
-    <value>Use esse botão de exclusão de assinatura somente quando desejar remover totalmente todo o histórico ao qual essa conta assinava para essa oferta de produto.  Senão, use o botão Cancelar Assinatura na página de assinaturas anterior. Consulte o tópico de ajuda 'Sobre Exclusão de Assinaturas' para obter mais detalhes.</value>
+    <value>Use esse botão "Excluir assinatura" quando desejar remover inteiramente todo o histórico que essa conta tem da assinatura dessa oferta de produto. Caso contrário, use o botão "Cancelar assinatura" na tela Assinaturas anterior. Veja o tópico de ajuda Sobre exclusão de assinaturas para obter mais detalhes.</value>
   </text>
 	
   <text id="TEXT_DELETE_SUBSCRIPTION_WARNING">
     <description></description>
-    <value>Você está prestes a excluir permanentemente esta assinatura do sistema. Para simplesmente encerrá-la em uma data especificada, use o recurso de cancelamento de assinatura.</value>
+    <value>Você está prestes a excluir permanentemente essa assinatura do sistema. Para encerrá-la em uma determinada data, use o recurso para cancelar assinatura.</value>
   </text>
 
   <text id="TEXT_DELETE_GROUP_SUBSCRIPTION_WARNING">
     <description></description>
-    <value>Você está prestes a excluir permanentemente essa assinatura em grupo e todos os dados contidos desse sistema. Isso só é permitido se nunca houve uma participação nessa assinatura em grupo.  Essa assinatura de grupo será removida de todos os modelos de conta aos quais ela possa estar associada.</value>
+    <value>Você está prestes a excluir permanentemente essa assinatura em grupo e todos os dados contidos do sistema. Isso é permitido apenas se nunca houver nenhuma participação nessa assinatura em grupo. Essa assinatura em grupo será removida de quaisquer modelos de conta que possam ter sido atribuídos a ela.</value>
   </text>  
   
   <text id="TEXT_DELETE_GROUP_SUBSCRIPTION_MEMBERSHIP_WARNING">
     <description></description>
-    <value>Você está prestes a remover permanentemente esta assinatura. Clique em OK para continuar ou em Cancelar para voltar.</value>
+    <value>Você está prestes a remover permanentemente essa assinatura. Clique em OK para prosseguir ou Cancelar para voltar.</value>
   </text>
 
   <text id="TEXT_DELETE_MESSAGE_WARNING_COMPLEMENT">
@@ -1757,27 +1770,27 @@
   </text>      
   
   <text id="TEXT_EDIT_ACCOUNT_TEMPLATE_SUCCESS">
-    <description>Diálogo de modelos</description>
+    <description>Templates Dialog</description>
     <value>Modelo de conta atualizado com sucesso.</value>
   </text>
 
   <text id="TEXT_CURRENT_SUBSCRIPTION">
-    <description>Assinatura atual</description>
+    <description>Current Subscription</description>
     <value>Atual</value>
   </text>
 	
   <text id="TEXT_PAST_SUBSCRIPTION">
-    <description>Assinatura passada</description>
+    <description>Past Subscription</description>
     <value>Passado</value>
   </text>
 	
   <text id="TEXT_FUTURE_SUBSCRIPTION">
-    <description>Assinatura futura</description>
+    <description>Future Subscription</description>
     <value>Futuro</value>
   </text>
 
   <text id="TEXT_SUBSCRIPTION_FILTER_MESSAGE">
-    <description>Mensagem de assinatura</description>
+    <description>Subscription Message</description>
     <value>Exibindo assinaturas que estavam ativas nos últimos dias de [SUBSCRIPTION_FILTERING_INTERVAL]</value>
   </text>
   
@@ -1881,7 +1894,7 @@
   </text> 
   
   <text id="TEXT_DISPLAY_RESTRICTED_TO_1000_RESULTS">
-    <value>Esta exibição está limitada a 1.000 resultados. Use os critérios de filtro para visualizar os resultados que não estão listados aqui.</value>
+    <value>Essa exibição está limitada a 1000 resultados. Use os critérios de filtro para ver os resultados não listados aqui.</value>
     <description />
   </text> 
     

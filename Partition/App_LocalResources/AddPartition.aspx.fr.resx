@@ -333,7 +333,7 @@
     <value>Exempt de taxe</value>
   </data>
   <data name="ddAuthenticationTypeResource1.Label" xml:space="preserve">
-    <value>Type d'authentification</value>
+    <value>Type d’authentification</value>
   </data>
   <data name="ddBillingCycleControl1Resource1.Label" xml:space="preserve">
     <value>Cycle de facturation</value>
@@ -441,7 +441,7 @@
     <value>Date de début de compte</value>
   </data>
   <data name="tbTaxExemptIDResource1.Label" xml:space="preserve">
-    <value>ID d'exemption de taxe</value>
+    <value>ID d’exemption de taxe</value>
   </data>
   <data name="tbTaxExemptIDResource1.XType" xml:space="preserve">
     <value>ChampTexte</value>

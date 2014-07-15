@@ -202,7 +202,7 @@
     <value>Vous devez d’abord gérer un compte avant de pouvoir exécuter une action l’impliquant.</value>
   </data>
   <data name="ERROR_TEMP_LOCK" xml:space="preserve">
-    <value>Le système n'autorise que {0} tentatives de connexion avant que le compte ne soit temporairement verrouillé pendant {1} minutes.  Vous pouvez déverrouiller manuellement le compte.</value>
+    <value>Le système n’autorise que {0} tentatives de connexion avant que le compte ne soit temporairement verrouillé pendant {1} minutes.  Vous pouvez déverrouiller manuellement le compte.</value>
   </data>
   <data name="ERROR_UNABLE_SAVE_DATA" xml:space="preserve">
     <value>Impossible d’enregistrer les modifications.</value>
@@ -241,10 +241,10 @@
     <value>doit être un entier supérieur ou égal à zéro.</value>
   </data>
   <data name="ERROR_USM_CONFIG_UNABLE_TO_RETRIEVE" xml:space="preserve">
-    <value>Impossible de récupérer la configuration. Pour plus d'informations, consultez le journal.</value>
+    <value>Impossible de récupérer la configuration. Pour plus d’informations, consultez le journal.</value>
   </data>
   <data name="ERROR_USM_CONFIG_UNABLE_TO_SAVE" xml:space="preserve">
-    <value>Impossible d'enregistrer les changements de configuration. Pour plus d'informations, consultez le journal.</value>
+    <value>Impossible d’enregistrer les changements de configuration. Pour plus d’informations, consultez le journal.</value>
   </data>
   <data name="ERROR_MULTIPLE_ACCOUNT_UPDATE_PENDING_CHANGES" xml:space="preserve">
     <value>Ce compte a déjà un changement en attente de type Mise à jour de compte. Seul un changement en attente de ce type est autorisé.</value>
@@ -292,7 +292,7 @@
     <value>Erreur de configuration du fichier ReportFormat</value>
   </data>
   <data name="ERROR_REPORT_FORMAT" xml:space="preserve">
-    <value>Erreur dans le fichier config ReportFormat. Le type de format de rapport n'est pas défini.</value>
+    <value>Erreur dans le fichier config ReportFormat. Le type de format de rapport n’est pas défini.</value>
   </data>
   <data name="ERROR_REPORT_FORMAT_CONFIG" xml:space="preserve">
     <value>Erreur dans le fichier config ReportFormat. Structure de fichier incorrecte.</value>

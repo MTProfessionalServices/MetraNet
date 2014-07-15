@@ -175,7 +175,7 @@
     <value>Résumé des échecs de phase et de plug-in</value>
   </data>
   <data name="TEXT_FAILURE_TIME" xml:space="preserve">
-    <value>Heure de l'erreur</value>
+    <value>Heure de l’erreur</value>
   </data>
   <data name="TEXT_GRID_TITLE" xml:space="preserve">
     <value>Résumé par type d’erreur</value>

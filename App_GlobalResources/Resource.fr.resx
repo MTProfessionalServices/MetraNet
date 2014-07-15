@@ -559,7 +559,7 @@
     <value>Enregistrer &amp; Continuer</value>
   </data>
   <data name="TEXT_SAVE_NEW_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>Enregistrer la nouvelle qualification d'utilisation</value>
+    <value>Enregistrer la nouvelle qualification d’utilisation</value>
   </data>
   <data name="TEXT_CONTINUE" xml:space="preserve">
     <value>Continuer</value>
@@ -586,7 +586,7 @@
     <value>revenir aux propriétés</value>
   </data>
   <data name="TEXT_NO_PROPERTIES_ADDED_YET_TO_AGREEMENT_TEMPLATE" xml:space="preserve">
-    <value>Ce modèle d'accord ne contient aucune propriété partagée.</value>
+    <value>Ce modèle d’accord ne contient aucune propriété partagée.</value>
   </data>
   <data name="_PropertyForm_cshtml_Set_Localization" xml:space="preserve">
     <value>Définir la localisation</value>

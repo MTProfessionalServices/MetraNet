@@ -121,27 +121,27 @@
     <value>ID du compte</value>
   </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Rapport sur les dÃƒÂ©sabonnements</value>
+    <value>Rapport sur les désabonnements</value>
   </data>
   <data name="NO_RECORDS" xml:space="preserve">
-    <value>Aucune donnÃƒÂ©e ÃƒÂ  afficher</value>
+    <value>Aucune donnée à afficher</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraNet - Rapport sur les dÃƒÂ©sabonnements</value>
+    <value>MetraNet - Rapport sur les désabonnements</value>
   </data>
   <data name="REPORT_TITLE" xml:space="preserve">
-    <value>Rapport sur les dÃƒÂ©sabonnements</value>
+    <value>Rapport sur les désabonnements</value>
   </data>
   <data name="SUBSCRIPTION_DESCRIPTION" xml:space="preserve">
     <value>Description de l'abonnement</value>
   </data>
   <data name="SUBSCRIPTION_END_DATE" xml:space="preserve">
-    <value>Date de fin de lÃ¢â‚¬â„¢abonnement</value>
+    <value>Date de fin de l’abonnement</value>
   </data>
   <data name="SUBSCRIPTION_NAME" xml:space="preserve">
-    <value>Nom de lÃ¢â‚¬â„¢abonnement</value>
+    <value>Nom de l’abonnement</value>
   </data>
   <data name="SUBSCRIPTION_START_DATE" xml:space="preserve">
-    <value>Date de dÃƒÂ©but de lÃ¢â‚¬â„¢abonnement</value>
+    <value>Date de début de l’abonnement</value>
   </data>
 </root>

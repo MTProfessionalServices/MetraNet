@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Actions.HeaderText" xml:space="preserve">
-    <value>AÃƒÂ§ÃƒÂµes</value>
+    <value>Ações</value>
   </data>
   <data name="ChargeAccountId.HeaderText" xml:space="preserve">
     <value>ChargeAccountId</value>
@@ -127,13 +127,13 @@
     <value> Nome</value>
   </data>
   <data name="EndDate.HeaderText" xml:space="preserve">
-    <value>Data de tÃƒÂ©rmino</value>
+    <value>Data de término</value>
   </data>
   <data name="ErrorSaveGroupSub" xml:space="preserve">
     <value>Erro ao salvar assinatura em grupo.</value>
   </data>
   <data name="FlatRateRCGrid.Title" xml:space="preserve">
-    <value>ConfiguraÃƒÂ§ÃƒÂ£o de cobranÃƒÂ§a recorrente de taxa fixa</value>
+    <value>Configuração de cobrança recorrente de taxa fixa</value>
   </data>
   <data name="FlatRateRCInstanceId.HeaderText" xml:space="preserve">
     <value>FlatRateRCInstanceId</value>
@@ -142,19 +142,19 @@
     <value>Mensagens de erro</value>
   </data>
   <data name="lblSetChargeAccountResource1" xml:space="preserve">
-    <value>Configure contas de cobranÃƒÂ§a UDRC/taxa fixa antes de adicionar valores UDRC</value>
+    <value>Configure contas de cobrança UDRC/taxa fixa antes de adicionar valores UDRC</value>
   </data>
   <data name="lblTitleResource1" xml:space="preserve">
-    <value>Contas de cobranÃƒÂ§a recorrentes</value>
+    <value>Contas de cobrança recorrentes</value>
   </data>
   <data name="NoRecordsFound.HeaderText" xml:space="preserve">
     <value>Nenhum registro encontrado.</value>
   </data>
   <data name="StartDate.HeaderText" xml:space="preserve">
-    <value>Data de inÃƒÂ­cio</value>
+    <value>Data de início</value>
   </data>
   <data name="UDRCGrid.Title" xml:space="preserve">
-    <value>ConfiguraÃƒÂ§ÃƒÂ£o de cobranÃƒÂ§a recorrente dependente de unidade</value>
+    <value>Configuração de cobrança recorrente dependente de unidade</value>
   </data>
   <data name="UDRCInstanceId.HeaderText" xml:space="preserve">
     <value>UDRCInstanceId</value>

@@ -220,7 +220,7 @@
     <value>Batch dell'ultima settimana</value>
   </data>
   <data name="TEXT_BE" xml:space="preserve">
-    <value>EntitÃƒÂ  modelling business</value>
+    <value>Entità modelling business</value>
   </data>
   <data name="TEXT_BE_ORDERS" xml:space="preserve">
     <value>Ordine</value>
@@ -355,7 +355,7 @@
     <value>Ritiri/nuove esecuzioni in corso</value>
   </data>
   <data name="TEXT_LIST_ENTITITES" xml:space="preserve">
-    <value>Elenca tutte le entitÃƒÂ </value>
+    <value>Elenca tutte le entità</value>
   </data>
   <data name="TEXT_MACHINE_ROLES" xml:space="preserve">
     <value>[IT]</value>

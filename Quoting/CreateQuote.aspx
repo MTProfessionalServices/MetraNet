@@ -481,14 +481,18 @@
 
         piStore.add(myNewRecord);
 
-        if ((piKind == 25) || (piKind == 'UnitDependentRecurring')) { //UDRC pi
+        var isUDRC = (piKind == 25) || (piKind == 'UnitDependentRecurring');
+        var isRC = (piKind == 20) || (piKind == 'Recurring');
+        var isNRC = (piKind == 30) || (piKind == 'NonRecurring');
+
+        if (isUDRC) { //UDRC pi
           var found1 = piUDRCStore.find('RecordId', recordId);
           if (found1 == -1) {
             piUDRCStore.add(myNewRecord);
           }
         }
 
-        if (piCanIcb == 'Y') {
+        if ((piCanIcb == 'Y') && (isUDRC || isRC || isNRC)) {
           var found2 = piWithAllowIcbStore.find('RecordId', recordId);
           if (found2 == -1) {
             piWithAllowIcbStore.add(myNewRecord);

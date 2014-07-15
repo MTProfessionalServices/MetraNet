@@ -127,31 +127,31 @@
     <value>Kontostatus</value>
   </data>
   <data name="TEXT_ACTIVE_FILES" xml:space="preserve">
-    <value>Aktive AuftrÃƒÂ¤ge</value>
+    <value>Aktive Aufträge</value>
   </data>
   <data name="TEXT_ACTIVE_INTERVALS" xml:space="preserve">
     <value>Aktive Intervalle</value>
   </data>
   <data name="TEXT_ADD_ACCOUNT" xml:space="preserve">
-    <value>Konto hinzufÃƒÂ¼gen</value>
+    <value>Konto hinzufügen</value>
   </data>
   <data name="TEXT_ADD_ACCOUNT_SPLIT" xml:space="preserve">
-    <value>Kontosplit hinzufÃƒÂ¼gen</value>
+    <value>Kontosplit hinzufügen</value>
   </data>
   <data name="TEXT_ADD_ACCOUNT_WEBSERVICE" xml:space="preserve">
-    <value>Konto mit Webservice hinzufÃƒÂ¼gen</value>
+    <value>Konto mit Webservice hinzufügen</value>
   </data>
   <data name="TEXT_ADD_CHILD_ACCOUNT" xml:space="preserve">
     <value>[DE]Add child Account</value>
   </data>
   <data name="TEXT_ADD_CSR" xml:space="preserve">
-    <value>Kundendienstmitarbeiter hinzufÃƒÂ¼gen</value>
+    <value>Kundendienstmitarbeiter hinzufügen</value>
   </data>
   <data name="TEXT_ADD_NEW_REPORT_DEFINITION" xml:space="preserve">
-    <value>Neue Berichtsdefinition hinzufÃƒÂ¼gen</value>
+    <value>Neue Berichtsdefinition hinzufügen</value>
   </data>
   <data name="TEXT_ADD_NEW_REPORT_PARAMETERS" xml:space="preserve">
-    <value>Neue Berichtsparameter hinzufÃƒÂ¼gen</value>
+    <value>Neue Berichtsparameter hinzufügen</value>
   </data>
   <data name="TEXT_ADD_PARTITION" xml:space="preserve">
     <value>[DE]Add Partition</value>
@@ -160,7 +160,7 @@
     <value>Transaktionen anpassen</value>
   </data>
   <data name="TEXT_ADJUSTMENTS" xml:space="preserve">
-    <value>Anpassungen/GebÃƒÂ¼hren</value>
+    <value>Anpassungen/Gebühren</value>
   </data>
   <data name="TEXT_ADMINISTRATION" xml:space="preserve">
     <value>Verwaltung</value>
@@ -175,7 +175,7 @@
     <value>[DE]Agreements</value>
   </data>
   <data name="TEXT_ALL_FILES" xml:space="preserve">
-    <value>Alle AuftrÃƒÂ¤ge</value>
+    <value>Alle Aufträge</value>
   </data>
   <data name="TEXT_ALL_INTERVALS" xml:space="preserve">
     <value>Alle Intervalle</value>
@@ -196,7 +196,7 @@
     <value>Berichtsparameter zuweisen</value>
   </data>
   <data name="TEXT_BACKOUT_RERUN" xml:space="preserve">
-    <value>RÃƒÂ¼ckschritt-Verwaltung</value>
+    <value>Rückschritt-Verwaltung</value>
   </data>
   <data name="TEXT_BATCH_24" xml:space="preserve">
     <value>Stapel in den vergangenen 24 Stunden</value>
@@ -220,7 +220,7 @@
     <value>Stapel in der letzten Woche</value>
   </data>
   <data name="TEXT_BE" xml:space="preserve">
-    <value>GeschÃƒÂ¤ftsmodellierungseinheiten</value>
+    <value>Geschäftsmodellierungseinheiten</value>
   </data>
   <data name="TEXT_BE_ORDERS" xml:space="preserve">
     <value>Bestellung</value>
@@ -232,31 +232,31 @@
     <value>Rechnungsmanager</value>
   </data>
   <data name="TEXT_BILLABLE_INTERVALS" xml:space="preserve">
-    <value>AbrechnungsfÃƒÂ¤hige Intervalle</value>
+    <value>Abrechnungsfähige Intervalle</value>
   </data>
   <data name="TEXT_BILLING_MANAGEMENT" xml:space="preserve">
     <value>Rechnungsmanagement</value>
   </data>
   <data name="TEXT_BULK_ADJUST_TRANSACTIONS" xml:space="preserve">
-    <value>Sammelanpassung fÃƒÂ¼r Transaktionen ausfÃƒÂ¼hren</value>
+    <value>Sammelanpassung für Transaktionen ausführen</value>
   </data>
   <data name="TEXT_BULK_ADJUSTMENTS" xml:space="preserve">
     <value>Sammelanpassungen</value>
   </data>
   <data name="TEXT_BULK_SUBSCRIPTION_CHANGE" xml:space="preserve">
-    <value>SammelÃƒÂ¤nderung fÃƒÂ¼r Nutzungsanmeldung</value>
+    <value>Sammeländerung für Nutzungsanmeldung</value>
   </data>
   <data name="TEXT_CHANGE_PASSWORD" xml:space="preserve">
-    <value>Kennwort ÃƒÂ¤ndern</value>
+    <value>Kennwort ändern</value>
   </data>
   <data name="TEXT_CHARTS" xml:space="preserve">
     <value>Diagramme</value>
   </data>
   <data name="TEXT_COMPLETED_BACKOUT_RERUN" xml:space="preserve">
-    <value>Abgeschlossene RÃƒÂ¼ckschritte/Wiederholungen</value>
+    <value>Abgeschlossene Rückschritte/Wiederholungen</value>
   </data>
   <data name="TEXT_COMPLETED_FILES" xml:space="preserve">
-    <value>Abgeschlossene AuftrÃƒÂ¤ge</value>
+    <value>Abgeschlossene Aufträge</value>
   </data>
   <data name="TEXT_COMPLETED_INTERVALS" xml:space="preserve">
     <value>Abgeschlossene Intervalle</value>
@@ -271,25 +271,25 @@
     <value>Korrigiert, wartet</value>
   </data>
   <data name="TEXT_CREATE_BACKOUT_RERUN" xml:space="preserve">
-    <value>RÃƒÂ¼ckschritt/Wiederholung erstellen</value>
+    <value>Rückschritt/Wiederholung erstellen</value>
   </data>
   <data name="TEXT_CREATE_CREDIT_NOTE" xml:space="preserve">
     <value>[DE]Create Credit Note</value>
   </data>
   <data name="TEXT_CREATE_NEW_REPORT_INSTANCE" xml:space="preserve">
-    <value>Neue Berichtsinstanz hinzufÃƒÂ¼gen</value>
+    <value>Neue Berichtsinstanz hinzufügen</value>
   </data>
   <data name="TEXT_CREATE_QUOTE" xml:space="preserve">
     <value>[DE]Create Quote</value>
   </data>
   <data name="TEXT_CREATE_REMITTANCE" xml:space="preserve">
-    <value>ÃƒÅ“berweisung erstellen</value>
+    <value>Überweisung erstellen</value>
   </data>
   <data name="TEXT_DASHBOARD" xml:space="preserve">
-    <value>ÃƒÅ“bersichtsseite</value>
+    <value>Übersichtsseite</value>
   </data>
   <data name="TEXT_DATA_EXPORT_REPORT_MANAGEMENT" xml:space="preserve">
-    <value>Berichtsmanagement fÃƒÂ¼r Datenexport</value>
+    <value>Berichtsmanagement für Datenexport</value>
   </data>
   <data name="TEXT_DEFAULT_SECURITY" xml:space="preserve">
     <value>Standardsicherheit</value>
@@ -310,25 +310,25 @@
     <value>Ereignisliste</value>
   </data>
   <data name="TEXT_FAILED_FILES" xml:space="preserve">
-    <value>Fehlgeschlagene AuftrÃƒÂ¤ge</value>
+    <value>Fehlgeschlagene Aufträge</value>
   </data>
   <data name="TEXT_FAILED_TRANSACTIONS" xml:space="preserve">
     <value>Fehlgeschlagene Transaktionen</value>
   </data>
   <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_ACCOUNT_ERROR_TYPE_MENU" xml:space="preserve">
-    <value>ÃƒÅ“bersicht nach Konto und Fehlertyp</value>
+    <value>Übersicht nach Konto und Fehlertyp</value>
   </data>
   <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_ACCOUNT_INTERVAL_MENU" xml:space="preserve">
-    <value>ÃƒÅ“bersicht nach Konto</value>
+    <value>Übersicht nach Konto</value>
   </data>
   <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_INTERVAL_TYPE_MENU" xml:space="preserve">
-    <value>ÃƒÅ“bersicht nach Intervalltyp</value>
+    <value>Übersicht nach Intervalltyp</value>
   </data>
   <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_STAGE_PLUGIN" xml:space="preserve">
-    <value>ÃƒÅ“bersicht der fehlgeschlagenen Transaktion nach Stufe und Plug-In</value>
+    <value>Übersicht der fehlgeschlagenen Transaktion nach Stufe und Plug-In</value>
   </data>
   <data name="TEXT_FAILED_TRANSACTIONS_SUMMARY_STAGE_PLUGIN_MENU" xml:space="preserve">
-    <value>ÃƒÅ“bersicht nach Stufe und Plug-In</value>
+    <value>Übersicht nach Stufe und Plug-In</value>
   </data>
   <data name="TEXT_FEEDS" xml:space="preserve">
     <value>Feeds</value>
@@ -337,10 +337,10 @@
     <value>Dateiverwaltung</value>
   </data>
   <data name="TEXT_FILES_IN_LAST_2_DAYS" xml:space="preserve">
-    <value>AuftrÃƒÂ¤ge in den vergangenen 2 Tagen</value>
+    <value>Aufträge in den vergangenen 2 Tagen</value>
   </data>
   <data name="TEXT_FILES_IN_PAST_WEEK" xml:space="preserve">
-    <value>AuftrÃƒÂ¤ge in der vergangenen Woche</value>
+    <value>Aufträge in der vergangenen Woche</value>
   </data>
   <data name="TEXT_FOLDER_OWNER" xml:space="preserve">
     <value>Kontoadministrator</value>
@@ -352,7 +352,7 @@
     <value>Versteckte Angebote</value>
   </data>
   <data name="TEXT_INPROGRESS_BACKOUT_RERUN" xml:space="preserve">
-    <value>RÃƒÂ¼ckschritt/Wiederholungen in Bearbeitung</value>
+    <value>Rückschritt/Wiederholungen in Bearbeitung</value>
   </data>
   <data name="TEXT_LIST_ENTITITES" xml:space="preserve">
     <value>Alle Einheiten auflisten</value>
@@ -388,7 +388,7 @@
     <value>Kalender verwalten</value>
   </data>
   <data name="TEXT_MANAGE_DATA_EXPORT_FRAMEWORK" xml:space="preserve">
-    <value>Berichtsmanagement fÃƒÂ¼r Datenexport</value>
+    <value>Berichtsmanagement für Datenexport</value>
   </data>
   <data name="TEXT_MANAGE_DEFAULT_SECURITY" xml:space="preserve">
     <value>Standardsicherheit</value>
@@ -397,10 +397,10 @@
     <value>Sonstige Anpassungen verwalten</value>
   </data>
   <data name="TEXT_MANAGE_NON_STANDARD_CHARGES" xml:space="preserve">
-    <value>AuÃƒÅ¸erordentliche GebÃƒÂ¼hren verwalten</value>
+    <value>Außerordentliche Gebühren verwalten</value>
   </data>
   <data name="TEXT_MANAGE_ORPHAN_ADJUSTMENTS" xml:space="preserve">
-    <value>KontounabhÃƒÂ¤ngige Anpassungen verwalten</value>
+    <value>Kontounabhängige Anpassungen verwalten</value>
   </data>
   <data name="TEXT_MANAGE_REPORTS" xml:space="preserve">
     <value>Berichte verwalten</value>
@@ -448,19 +448,19 @@
     <value>Meine Konten</value>
   </data>
   <data name="TEXT_NO_ACCOUNT_SELECTED" xml:space="preserve">
-    <value>Kein Konto ausgewÃƒÂ¤hlt.</value>
+    <value>Kein Konto ausgewählt.</value>
   </data>
   <data name="TEXT_NONSTANDARD_CHARGES" xml:space="preserve">
-    <value>AuÃƒÅ¸erordentliche GebÃƒÂ¼hren</value>
+    <value>Außerordentliche Gebühren</value>
   </data>
   <data name="TEXT_OFFERINGS" xml:space="preserve">
     <value>Produktangebote</value>
   </data>
   <data name="TEXT_OPEN_FAILED_TRANSACTIONS" xml:space="preserve">
-    <value>Ãƒâ€“ffnen</value>
+    <value>Öffnen</value>
   </data>
   <data name="TEXT_ORPHAN_ADJUSTMENTS" xml:space="preserve">
-    <value>KontounabhÃƒÂ¤ngige Anpassungen</value>
+    <value>Kontounabhängige Anpassungen</value>
   </data>
   <data name="TEXT_OWNED_FOLDERS" xml:space="preserve">
     <value>Verwaltete Konten</value>
@@ -469,7 +469,7 @@
     <value>Kontoinhaber</value>
   </data>
   <data name="TEXT_PAY_FOR_ACCOUNTS" xml:space="preserve">
-    <value>FÃƒÂ¼r Konten zahlen</value>
+    <value>Für Konten zahlen</value>
   </data>
   <data name="TEXT_PAY_FOR_ME" xml:space="preserve">
     <value>Zahler bearbeiten</value>
@@ -496,7 +496,7 @@
     <value>Auspreisbare Positionen</value>
   </data>
   <data name="TEXT_QUEUE_ADHOC_REPORT_FOR_EXECUTION" xml:space="preserve">
-    <value>Ad-hoc-Bericht in AusfÃƒÂ¼hrungswarteschlange stellen</value>
+    <value>Ad-hoc-Bericht in Ausführungswarteschlange stellen</value>
   </data>
   <data name="TEXT_QUEUE_ADHOC_REPORTS" xml:space="preserve">
     <value>Ad-hoc-Berichte in Warteschlange stellen</value>
@@ -517,28 +517,28 @@
     <value>Beziehungen</value>
   </data>
   <data name="TEXT_RESUBMITTED_FAILED_TRANSACTIONS" xml:space="preserve">
-    <value>Erneut ÃƒÂ¼bermittelt</value>
+    <value>Erneut übermittelt</value>
   </data>
   <data name="TEXT_RUN_SCHEDULED_ADAPTER" xml:space="preserve">
-    <value>Eingeplanten Adapter jetzt ausfÃƒÂ¼hren</value>
+    <value>Eingeplanten Adapter jetzt ausführen</value>
   </data>
   <data name="TEXT_RUNS_ALL" xml:space="preserve">
-    <value>AusfÃƒÂ¼hrungen (alle)</value>
+    <value>Ausführungen (alle)</value>
   </data>
   <data name="TEXT_RUNS_IN_LAST_24" xml:space="preserve">
-    <value>AusfÃƒÂ¼hrungen in den vergangenen 24 Stunden</value>
+    <value>Ausführungen in den vergangenen 24 Stunden</value>
   </data>
   <data name="TEXT_RUNS_IN_LAST_WEEK" xml:space="preserve">
-    <value>AusfÃƒÂ¼hrungen in der vergangenen Woche</value>
+    <value>Ausführungen in der vergangenen Woche</value>
   </data>
   <data name="TEXT_SCHEDULE_REPORT_INSTANCE_DAILY" xml:space="preserve">
-    <value>Berichtsinstanz tÃƒÂ¤glich einplanen</value>
+    <value>Berichtsinstanz täglich einplanen</value>
   </data>
   <data name="TEXT_SCHEDULE_REPORT_INSTANCE_MONTHLY" xml:space="preserve">
     <value>Berichtsinstanz monatlich einplanen</value>
   </data>
   <data name="TEXT_SCHEDULE_REPORT_INSTANCE_WEEKLY" xml:space="preserve">
-    <value>Berichtsinstanz wÃƒÂ¶chentlich einplanen</value>
+    <value>Berichtsinstanz wöchentlich einplanen</value>
   </data>
   <data name="TEXT_SCHEDULED_ADAPTERS" xml:space="preserve">
     <value>Eingeplante Adapter</value>
@@ -571,7 +571,7 @@
     <value>Berichts-Audit-Verlauf</value>
   </data>
   <data name="TEXT_SHOW_DATAEXPORT_QUEUE_DASHBOARD" xml:space="preserve">
-    <value>Warteschlange fÃƒÂ¼r Datenexport</value>
+    <value>Warteschlange für Datenexport</value>
   </data>
   <data name="TEXT_SHOW_FAILED_CHANGES_SUMMARY" xml:space="preserve">
     <value>[DE]View Failed Changes</value>
@@ -583,7 +583,7 @@
     <value>[DE]View Pending Changes</value>
   </data>
   <data name="TEXT_SUBSCRIBER_LOG_ADD" xml:space="preserve">
-    <value>Protokolleintrag hinzufÃƒÂ¼gen</value>
+    <value>Protokolleintrag hinzufügen</value>
   </data>
   <data name="TEXT_SUBSCRIBER_LOG_VIEW" xml:space="preserve">
     <value>Kontoprotokoll anzeigen</value>
@@ -592,10 +592,10 @@
     <value>Nutzungsanmeldungen</value>
   </data>
   <data name="TEXT_SUMMARY" xml:space="preserve">
-    <value>KontoÃƒÂ¼bersicht</value>
+    <value>Kontoübersicht</value>
   </data>
   <data name="TEXT_SUMMARY_BY_ERROR_TYPE" xml:space="preserve">
-    <value>ÃƒÅ“bersicht nach Fehlertyp</value>
+    <value>Übersicht nach Fehlertyp</value>
   </data>
   <data name="TEXT_SUSPENDED_TRANSACTIONS" xml:space="preserve">
     <value>Ausgesetzt</value>

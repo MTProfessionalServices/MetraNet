@@ -645,4 +645,13 @@
   <data name="TEXT_USE_STANDARD_INCLUSIVE_TAX_CALCULATION" xml:space="preserve">
     <value>[pt-BR]Use Standard Inclusive Tax Calculation</value>
   </data>
+  <data name="TEXT_BILL_MESSAGE_ASSOCIATIONS" xml:space="preserve">
+    <value>[pt-BR]Bill Message Associations</value>
+  </data>
+  <data name="TEXT_BILL_MESSAGES" xml:space="preserve">
+    <value>[pt-BR]Bill Messages</value>
+  </data>
+  <data name="TEXT_ADD" xml:space="preserve">
+    <value>[pt-BR]Add</value>
+  </data>
 </root>

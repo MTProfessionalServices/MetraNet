@@ -124,22 +124,22 @@
     <value>Date de fin</value>
   </data>
   <data name="ErrorLoadUDRCInstances" xml:space="preserve">
-    <value>Erreur lors du chargement dÃ¢â‚¬â„¢instances UDRC.</value>
+    <value>Erreur lors du chargement d’instances UDRC.</value>
   </data>
   <data name="Grid.Title" xml:space="preserve">
     <value>Valeurs UDRC</value>
   </data>
   <data name="lblErrorMessageResource1" xml:space="preserve">
-    <value>Messages dÃ¢â‚¬â„¢erreur</value>
+    <value>Messages d’erreur</value>
   </data>
   <data name="lblUDRCValueTitleResource1" xml:space="preserve">
     <value>Valeurs UDRC</value>
   </data>
   <data name="NoRecordsFound.HeaderText" xml:space="preserve">
-    <value>Aucun enregistrement trouvÃƒÂ©.</value>
+    <value>Aucun enregistrement trouvé.</value>
   </data>
   <data name="StartDate.HeaderText" xml:space="preserve">
-    <value>Date de dÃƒÂ©but</value>
+    <value>Date de début</value>
   </data>
   <data name="UDRCValue.HeaderText" xml:space="preserve">
     <value>Valeur</value>

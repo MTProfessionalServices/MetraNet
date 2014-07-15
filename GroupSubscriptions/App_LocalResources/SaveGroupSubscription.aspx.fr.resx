@@ -118,27 +118,27 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btnBackToManageResource1.Text" xml:space="preserve">
-    <value>GÃƒÂ©rer les abonnements groupÃƒÂ©s</value>
+    <value>Gérer les abonnements groupés</value>
   </data>
   <data name="btnCancelResource1.Text" xml:space="preserve">
     <value>Retour au tableau de bord</value>
   </data>
   <data name="ErrorSaveGroupSub" xml:space="preserve">
-    <value>Erreur lors de lÃ¢â‚¬â„¢enregistrement dÃ¢â‚¬â„¢un abonnement groupÃƒÂ©.</value>
+    <value>Erreur lors de l’enregistrement d’un abonnement groupé.</value>
   </data>
   <data name="lblCreatedResource1" xml:space="preserve">
-    <value>LÃ¢â‚¬â„¢abonnement groupÃƒÂ© suivant a ÃƒÂ©tÃƒÂ© crÃƒÂ©ÃƒÂ© avec succÃƒÂ¨sÃ‚Â :</value>
+    <value>L’abonnement groupé suivant a été créé avec succès :</value>
   </data>
   <data name="lblDisplayNameResource1.Text" xml:space="preserve">
-    <value>Nom dÃ¢â‚¬â„¢affichage</value>
+    <value>Nom d’affichage</value>
   </data>
   <data name="lblGroupSubscriptionResource1.Text" xml:space="preserve">
-    <value>LÃ¢â‚¬â„¢abonnement groupÃƒÂ© suivant a ÃƒÂ©tÃƒÂ© crÃƒÂ©ÃƒÂ© avec succÃƒÂ¨sÃ‚Â :  </value>
+    <value>L’abonnement groupé suivant a été créé avec succès :  </value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Abonnement groupÃƒÂ© </value>
+    <value>Abonnement groupé </value>
   </data>
   <data name="lblUpdatedResource1" xml:space="preserve">
-    <value>LÃ¢â‚¬â„¢abonnement groupÃƒÂ© suivant a ÃƒÂ©tÃƒÂ© mis ÃƒÂ  jour avec succÃƒÂ¨sÃ‚Â :</value>
+    <value>L’abonnement groupé suivant a été mis à jour avec succès :</value>
   </data>
 </root>

@@ -7,7 +7,8 @@ aa.id_ancestor,
 aa2.id_ancestor as id_parent,
 aa.id_descendent,
 aa3.b_children,
-COUNT(1) numpayees
+COUNT(1) numpayees,
+pr.id_payee id_payee
 from t_account_ancestor aa
 inner join t_account_ancestor aa2 on aa2.id_descendent = aa.id_ancestor and %%REF_DATE%% between aa2.vt_start and aa2.vt_end and aa2.num_generations=1
 inner join t_account_ancestor aa3 on aa3.id_descendent = aa.id_ancestor and %%REF_DATE%% between aa3.vt_start and aa3.vt_end and aa3.num_generations=0 and aa3.id_ancestor = aa.id_ancestor
@@ -17,7 +18,7 @@ left outer join t_payment_redirection pr on aa.id_descendent = pr.id_payer
 where 1=1
 and aa.id_descendent = %%DESCENDENT%%
 and %%REF_DATE%% between aa.vt_start and aa.vt_end
-group by aa.num_generations, aa.id_ancestor, aa2.id_ancestor, aa.id_descendent, aa3.b_children
+group by aa.num_generations, aa.id_ancestor, aa2.id_ancestor, aa.id_descendent, aa3.b_children, pr.id_payee
 ),
 my_types as
 (
@@ -30,7 +31,7 @@ select at.id_type, CASE WHEN COUNT(adm.id_type) > 0 THEN 1 ELSE 0 END d_count fr
 select
 num_generations,account_type, icon, parent_id, id_parent, child_id, b_children as children, nm_login, nm_space, hierarchyname,
 CASE when folder_owner IS NULL THEN N'' ELSE folder_owner END as folder_owner,
-folder, currency, status, numpayees
+folder, currency, status, numpayees, id_payee
 
 from (
 
@@ -59,7 +60,8 @@ CASE
 descmap.d_count folder,
 tav.c_currency currency,
 accstate.status status,
-accs.numpayees
+accs.numpayees,
+accs.id_payee
 FROM my_drivers accs
  inner join t_account acc on acc.id_acc = accs.id_ancestor
  inner join t_account_type at on at.id_type = acc.id_type

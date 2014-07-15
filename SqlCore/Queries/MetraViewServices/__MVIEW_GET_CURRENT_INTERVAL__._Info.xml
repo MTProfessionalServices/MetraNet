@@ -17,6 +17,12 @@
             <ReplacementType>DoublePercent</ReplacementType>
             <Description>Usage interval to pull decisions for</Description>
         </Parameter>
+        <Parameter>
+            <Name>DT_NOW</Name>
+            <DataType>timestamp</DataType>
+            <ReplacementType>DoublePercent</ReplacementType>
+            <Description></Description>
+        </Parameter>
     </Parameters>
     <Description>Used by MetraView counter display to fetch all CDE state</Description>
     <ConversionAudit>

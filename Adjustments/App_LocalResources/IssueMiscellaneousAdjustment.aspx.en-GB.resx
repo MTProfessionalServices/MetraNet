@@ -133,7 +133,7 @@
     <value>Internal Description</value>
   </data>
   <data name="adjDescriptionTextBoxResource2.Label" xml:space="preserve">
-    <value>Inovice Description</value>
+    <value>Invoice Description</value>
   </data>
   <data name="adjDescriptionTextBoxResource1.MaxLength" xml:space="preserve">
     <value>-1</value>
@@ -268,7 +268,7 @@
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxTotal.Label" xml:space="preserve">
-    <value>[en-GB] Total Adjustment Being Issued</value>
+    <value>Total Adjustment Being Issued</value>
   </data>
   <data name="TEXT_CREDIT_NOTE_CREATED" xml:space="preserve">
     <value>A credit note for this Miscellaneous Adjustment was created.</value>

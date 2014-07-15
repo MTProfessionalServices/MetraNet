@@ -187,7 +187,10 @@
   <data name="LogicLabelResource.Text" xml:space="preserve">
     <value>Logic:</value>
   </data>
-  <data name="TableLabelResource.Text" xml:space="preserve">
+	<data name="ValueLabelResource.Text" xml:space="preserve">
+    <value>Value:</value>
+  </data>
+	<data name="TableLabelResource.Text" xml:space="preserve">
     <value>Table:</value>
   </data>
   <data name="TEXT_INSERT" xml:space="preserve">

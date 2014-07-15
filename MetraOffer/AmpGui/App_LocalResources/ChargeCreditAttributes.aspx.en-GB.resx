@@ -141,7 +141,10 @@
   <data name="radAggrMultText" xml:space="preserve">
     <value>As an aggregate multiplier</value>
   </data>
-  <data name="radEntireValueText" xml:space="preserve">
+	<data name="radParamTableText" xml:space="preserve">
+    <value>From parameter table</value>
+  </data>
+	<data name="radEntireValueText" xml:space="preserve">
     <value>Apply the entire charge/credit value</value>
   </data>
   <data name="radEveryTimeText" xml:space="preserve">
@@ -154,10 +157,10 @@
     <value>Only once, after all the usage records have been summed, if the total falls within the Decision Range.</value>
   </data>
   <data name="radOnceFirstEnterText" xml:space="preserve">
-    <value>Only once, when a usage record first causes the total to enter the Decision Range.</value>
+    <value>Only once, when a usage record first causes the total to &lt;i&gt;enter&lt;/i&gt; the Decision Range.</value>
   </data>
   <data name="radOnceFirstExitText" xml:space="preserve">
-    <value>Only once, when a usage record first causes the total to exit the Decision Range.</value>
+    <value>Only once, when a usage record first causes the total to &lt;i&gt;exit&lt;/i&gt; the Decision Range.</value>
   </data>
   <data name="radPropText" xml:space="preserve">
     <value>Proportionally</value>

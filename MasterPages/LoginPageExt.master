@@ -7,6 +7,9 @@
 <html>
 <head id="Head1" runat="server">
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <noscript>
+    <meta http-equiv="Refresh" content="0; url=../MetraNet/JavaScriptError.aspx" />
+  </noscript>
   <title>MetraNet</title>
   
     <link rel="stylesheet" type="text/css" href="/Res/Styles/login.css"/>

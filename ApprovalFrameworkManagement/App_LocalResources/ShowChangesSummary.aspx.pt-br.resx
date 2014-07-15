@@ -118,45 +118,45 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TEXT_APPROVAL_CHANGE_APPROVER_ID" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>ID do aprovador</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_COMMENT" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Comentário</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_CURRENT_STATE" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Estado atual</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_ID" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Ação</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_LAST_MODIFIED_DATE" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Última data de modificação</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTED_DATE" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Nome de envio</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_DISPLAYNAME" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Remetente</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_ID" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>ID do remetente</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_TYPE" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Tipo</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_ID" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>ID de item modificado</value>
   </data>
   <data name="TEXT_APPROVAL_NO_RECORD_TEXT" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Nenhum registro encontrado</value>
   </data>
   <data name="TEXT_APPROVAL_VIEW_CHANGES_SUMMARY" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Exibir alterações</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_STATE_DISPLAYNAME" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Estado</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_DISPLAYNAME" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>Item modificado</value>
   </data>
 </root>

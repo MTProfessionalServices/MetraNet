@@ -118,34 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TEXT_APPROVAL_CHANGE_APPROVER_ID" xml:space="preserve">
-    <value>Approbateur</value>
+    <value>ID du valideur</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_COMMENT" xml:space="preserve">
     <value>Commentaire</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_CURRENT_STATE" xml:space="preserve">
-    <value>Statut actuel</value>
+    <value>État actuel</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_ID" xml:space="preserve">
     <value>Action</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_LAST_MODIFIED_DATE" xml:space="preserve">
-    <value>Date de dernière modification</value>
+    <value>Date de la dernière modification</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTED_DATE" xml:space="preserve">
     <value>Date de soumission</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_DISPLAYNAME" xml:space="preserve">
-    <value>Emetteur</value>
+    <value>Expéditeur</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_ID" xml:space="preserve">
-    <value>ID de l'émetteur</value>
+    <value>ID de l’expéditeur</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_TYPE" xml:space="preserve">
     <value>Type</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_ID" xml:space="preserve">
-    <value>Unique Élément ID</value>
+    <value>ID de l'élément modifié</value>
   </data>
   <data name="TEXT_APPROVAL_NO_RECORD_TEXT" xml:space="preserve">
     <value>Aucun enregistrement trouvé</value>
@@ -154,10 +154,9 @@
     <value>Afficher les modifications</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_STATE_DISPLAYNAME" xml:space="preserve">
-    <value>Statut</value>
+    <value>État</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_DISPLAYNAME" xml:space="preserve">
     <value>Élément modifié</value>
   </data>
-
 </root>

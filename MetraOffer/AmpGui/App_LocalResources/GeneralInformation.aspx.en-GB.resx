@@ -121,10 +121,10 @@
     <value>Enter information used to describe this decision type.</value>
   </data>
   <data name="lblEnterInfoResource1.Text" xml:space="preserve">
-    <value>Enter information about this Decision:</value>
+    <value>Enter information about this Decision Type:</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>General Information</value>
+    <value>General Information for {0}</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
@@ -152,8 +152,5 @@
   </data>
   <data name="ViewDescriptionLabelResource.Text" xml:space="preserve">
     <value>Description:</value>
-  </data>
-  <data name="lblCantChangeParamTableResource1.Text" xml:space="preserve">
-    <value>Note:  It is not possible to choose a different parameter table for this decision type after you have clicked on the Save &amp; Continue button.</value>
   </data>
 </root>

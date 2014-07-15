@@ -130,7 +130,7 @@
     <value>[ES]Credit Note Template To Use</value>
   </data>
   <data name="ddTimeIntervalsResource1.Text" xml:space="preserve">
-    <value>7 [es]Days,30 [es]Days,90 [es]Days,120 [es]Days,365 [es]Days</value>
+    <value>7 [ES]Days,30 [ES]Days,90 [ES]Days,120 [ES]Days,365 [ES]Days</value>
   </data>
   <data name="ddTimeIntervalsResource1.Label" xml:space="preserve">
     <value>[ES]Adjustments Issued In The Past</value>

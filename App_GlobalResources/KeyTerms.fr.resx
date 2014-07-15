@@ -126,9 +126,6 @@
   <data name="PAYER_ACCOUNT" xml:space="preserve">
     <value>Payeur</value>
   </data>
-  <data name="String1" xml:space="preserve">
-    <value>Tarification personnalisée</value>
-  </data>
   <data name="TEXT_KEYTERM_ACCOUNT_TYPE" xml:space="preserve">
     <value>Type de compte</value>
   </data>
@@ -262,12 +259,12 @@
     <value>Frais d’utilisation (Consolidés)</value>
   </data>
   <data name="TEXT_KEYTERM_CORE_SUBSCRIBER" xml:space="preserve">
-    <value>[FR] Core Subscriber</value>
+    <value>Abonné principal</value>
   </data>
   <data name="TEXT_KEYTERM_DEPARTMENT_ACCOUNT" xml:space="preserve">
-    <value>[FR] Department Account</value>
+    <value>Compte service</value>
   </data>
   <data name="TEXT_KEYTERM_GSM_SERVICE_ACCOUNT" xml:space="preserve">
-    <value>[FR] GSM Service Account</value>
+    <value>Compte service GSM</value>
   </data>
 </root>

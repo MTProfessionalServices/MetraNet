@@ -130,10 +130,10 @@
     <value>調整日</value>
   </data>
   <data name="adjDescriptionTextBoxResource1.Label" xml:space="preserve">
-    <value>{JA}Internal 内容</value>
+    <value>[JA]Internal 内容</value>
   </data>
   <data name="adjDescriptionTextBoxResource2.Label" xml:space="preserve">
-    <value>{JA}Invoice Description</value>
+    <value>[JA]Invoice Description</value>
   </data>
   <data name="adjDescriptionTextBoxResource1.MaxLength" xml:space="preserve">
     <value>-1</value>
@@ -154,16 +154,16 @@
     <value>True</value>
   </data>
   <data name="cbIssueCreditNoteResource1.BoxLabel" xml:space="preserve">
-    <value>{JA}Issue Credit Note For This Adjustment</value>
+    <value>[JA]Issue Credit Note For This Adjustment</value>
   </data>
   <data name="CommentTextBoxResource1.Label" xml:space="preserve">
-    <value>{JA}Comment</value>
+    <value>[JA]Comment</value>
   </data>
   <data name="ddBillingPeriod1.Label" xml:space="preserve">
     <value>請求期間</value>
   </data>
   <data name="ddTemplateTypesResource1.Label" xml:space="preserve">
-    <value>{JA}Credit Note Template To Use</value>
+    <value>[JA]Credit Note Template To Use</value>
   </data>
   <data name="ddReasonCodeResource1.AllowBlank" xml:space="preserve">
     <value>False</value>
@@ -181,7 +181,7 @@
     <value>各種調整の発行</value>
   </data>
   <data name="MTPanel2Resource1.Text" xml:space="preserve">
-    <value>{JA}Issue Credit Note For This Adjustment</value>
+    <value>[JA]Issue Credit Note For This Adjustment</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
@@ -217,7 +217,7 @@
     <value>無制限</value>
   </data>
   <data name="adjAmountFldResourceTaxCounty.Label" xml:space="preserve">
-    <value>[ja] County Tax</value>
+    <value>[JA]County Tax</value>
   </data>
   <data name="adjAmountFldResourceTaxCounty.MaxLenght" xml:space="preserve">
     <value>-1</value>
@@ -226,7 +226,7 @@
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxFederal.Label" xml:space="preserve">
-    <value>[ja] Federal Tax</value>
+    <value>[JA]Federal Tax</value>
   </data>
   <data name="adjAmountFldResourceTaxFederal.MaxLenght" xml:space="preserve">
     <value>-1</value>
@@ -235,7 +235,7 @@
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxLocal.Label" xml:space="preserve">
-    <value>[ja] Local Tax</value>
+    <value>[JA]Local Tax</value>
   </data>
   <data name="adjAmountFldResourceTaxLocal.MaxLenght" xml:space="preserve">
     <value>-1</value>
@@ -244,7 +244,7 @@
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxOther.Label" xml:space="preserve">
-    <value>[ja] Other Tax</value>
+    <value>[JA]Other Tax</value>
   </data>
   <data name="adjAmountFldResourceTaxOther.MaxLenght" xml:space="preserve">
     <value>-1</value>
@@ -253,16 +253,13 @@
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxState.Label" xml:space="preserve">
-    <value>[ja] State Tax</value>
+    <value>[JA]State Tax</value>
   </data>
   <data name="adjAmountFldResourceTaxState.MaxLenght" xml:space="preserve">
     <value>-1</value>
   </data>
   <data name="adjAmountFldResourceTaxState.MinLenght" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="String1" xml:space="preserve">
-    <value />
   </data>
   <data name="adjAmountFldResourceTaxTota.MaxLenght" xml:space="preserve">
     <value>-1</value>
@@ -271,12 +268,12 @@
     <value>0</value>
   </data>
   <data name="adjAmountFldResourceTaxTotal.Label" xml:space="preserve">
-    <value>[ja] Total Adjustment Being Issued</value>
+    <value>[JA]Total Adjustment Being Issued</value>
   </data>
   <data name="TEXT_CREDIT_NOTE_CREATED" xml:space="preserve">
-    <value>{JA}A credit note for this Miscellaneous Adjustment was created.</value>
+    <value>[JA]A credit note for this Miscellaneous Adjustment was created.</value>
   </data>
   <data name="TEXT_CREDIT_NOTE_PENDING" xml:space="preserve">
-    <value>{JA}A credit note for this Miscellaneous Adjustment will be created when this Miscellaneous Adjusment is approved.</value>
+    <value>[JA]A credit note for this Miscellaneous Adjustment will be created when this Miscellaneous Adjusment is approved.</value>
   </data>
 </root>

@@ -118,153 +118,153 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TEXT_ADAPTER_NAME" xml:space="preserve">
-    <value>[es] Adapter Name</value>
+    <value>[ES]Adapter Name</value>
   </data>
   <data name="TEXT_AMOUNT" xml:space="preserve">
-    <value>[es] Amount</value>
+    <value>[ES]Amount</value>
   </data>
   <data name="TEXT_AMOUNT_IF_NOT_PRORATED" xml:space="preserve">
-    <value>[es] Amount would have if it weren't Prorated</value>
+    <value>[ES]Amount would have if it weren't Prorated</value>
   </data>
   <data name="TEXT_CODE" xml:space="preserve">
-    <value>[es] Code</value>
+    <value>[ES]Code</value>
   </data>
   <data name="TEXT_COMPLETED" xml:space="preserve">
-    <value>[es] Completed</value>
+    <value>[ES]Completed</value>
   </data>
   <data name="TEXT_COMPOUNDED_PI_TEMPLATE" xml:space="preserve">
-    <value>[es] Compounded PI Template</value>
+    <value>[ES]Compounded PI Template</value>
   </data>
   <data name="TEXT_CONTRIBUTING_ACCOUNTS" xml:space="preserve">
-    <value>[es] Contributing Accounts</value>
+    <value>[ES]Contributing Accounts</value>
   </data>
   <data name="TEXT_COUNT" xml:space="preserve">
-    <value>[es] Count</value>
+    <value>[ES]Count</value>
   </data>
   <data name="TEXT_CURRENCY" xml:space="preserve">
-    <value>[es] Currency</value>
+    <value>[ES]Currency</value>
   </data>
   <data name="TEXT_DATE_FIRST" xml:space="preserve">
-    <value>[es] Date First</value>
+    <value>[ES]Date First</value>
   </data>
   <data name="TEXT_DATE_HISTORY" xml:space="preserve">
-    <value>[es] Date History</value>
+    <value>[ES]Date History</value>
   </data>
   <data name="TEXT_DATE_LAST" xml:space="preserve">
-    <value>[es] Date Last</value>
+    <value>[ES]Date Last</value>
   </data>
   <data name="TEXT_DISCOUNT_NAME" xml:space="preserve">
-    <value>[es] Discount Name</value>
+    <value>[ES]Discount Name</value>
   </data>
   <data name="TEXT_DISMISSED" xml:space="preserve">
-    <value>[es] Dismissed</value>
+    <value>[ES]Dismissed</value>
   </data>
   <data name="TEXT_DISTINCT_PAYEES" xml:space="preserve">
-    <value>[es] Distinct Payees</value>
+    <value>[ES]Distinct Payees</value>
   </data>
   <data name="TEXT_DISTINCT_PAYERS" xml:space="preserve">
-    <value>[es] Distinct Payers</value>
+    <value>[ES]Distinct Payers</value>
   </data>
   <data name="TEXT_EXPECTED" xml:space="preserve">
-    <value>[es] Expected</value>
+    <value>[ES]Expected</value>
   </data>
   <data name="TEXT_FAILED" xml:space="preserve">
-    <value>[es] Failed</value>
+    <value>[ES]Failed</value>
   </data>
   <data name="TEXT_GENERATION_REASON" xml:space="preserve">
-    <value>[es] Reason for Generation</value>
+    <value>[ES]Reason for Generation</value>
   </data>
   <data name="TEXT_GROUP_SUBSCRIPTION" xml:space="preserve">
-    <value>[es] Group Subscription</value>
+    <value>[ES]Group Subscription</value>
   </data>
   <data name="TEXT_INVOICE_METHOD" xml:space="preserve">
-    <value>[es] Invoice Method</value>
+    <value>[ES]Invoice Method</value>
   </data>
   <data name="TEXT_INVOICE_NUMBER" xml:space="preserve">
-    <value>[es] Invoice Number</value>
+    <value>[ES]Invoice Number</value>
   </data>
   <data name="TEXT_MESSAGE" xml:space="preserve">
-    <value>[es] Message</value>
+    <value>[ES]Message</value>
   </data>
   <data name="TEXT_METERED" xml:space="preserve">
-    <value>[es] Metered</value>
+    <value>[ES]Metered</value>
   </data>
   <data name="TEXT_MONETARY_AMOUNT" xml:space="preserve">
-    <value>[es] Monetary Amount</value>
+    <value>[ES]Monetary Amount</value>
   </data>
   <data name="TEXT_NAMESPACE" xml:space="preserve">
-    <value>[es] Namespace</value>
+    <value>[ES]Namespace</value>
   </data>
   <data name="TEXT_NON_COMPOUNDED_PI_TEMPLATE" xml:space="preserve">
-    <value>[es] Non-Compounded PI Template</value>
+    <value>[ES]Non-Compounded PI Template</value>
   </data>
   <data name="TEXT_NUM_ADV_RCS_CREDITS_GENERATED" xml:space="preserve">
-    <value>[es] # of Advanced RCs Credits Generated</value>
+    <value>[ES]# of Advanced RCs Credits Generated</value>
   </data>
   <data name="TEXT_NUM_ADV_RCS_GENERATED" xml:space="preserve">
-    <value>[es] # of Advanced RCs Generated</value>
+    <value>[ES]# of Advanced RCs Generated</value>
   </data>
   <data name="TEXT_NUM_ARREARS_GENERATED" xml:space="preserve">
-    <value>[es] # of Arrears Generated</value>
+    <value>[ES]# of Arrears Generated</value>
   </data>
   <data name="TEXT_NUM_DAYS_IN_PERIOD" xml:space="preserve">
-    <value>[es] # of Days in Period</value>
+    <value>[ES]# of Days in Period</value>
   </data>
   <data name="TEXT_NUM_DAYS_PRORATED" xml:space="preserve">
-    <value>[es] # of Days Prorated</value>
+    <value>[ES]# of Days Prorated</value>
   </data>
   <data name="TEXT_NUM_DISCOUNTS_GENERATED" xml:space="preserve">
-    <value>[es] # of Discounts Generated</value>
+    <value>[ES]# of Discounts Generated</value>
   </data>
   <data name="TEXT_NUM_INVOICES" xml:space="preserve">
-    <value>[es] # of Invoices</value>
+    <value>[ES]# of Invoices</value>
   </data>
   <data name="TEXT_NUM_NRCS_GENERATED" xml:space="preserve">
-    <value>[es] Number of NRCs Generated</value>
+    <value>[ES]Number of NRCs Generated</value>
   </data>
   <data name="TEXT_NUM_TRANS_AFFECTED" xml:space="preserve">
-    <value>[es] # of Transactions Affected</value>
+    <value>[ES]# of Transactions Affected</value>
   </data>
   <data name="TEXT_NUM_TRANS_GENERATED" xml:space="preserve">
-    <value>[es] # of Transactions Generated</value>
+    <value>[ES]# of Transactions Generated</value>
   </data>
   <data name="TEXT_PAYER" xml:space="preserve">
-    <value>[es] Payer</value>
+    <value>[ES]Payer</value>
   </data>
   <data name="TEXT_PERCENTAGE" xml:space="preserve">
-    <value>[es] Percentage</value>
+    <value>[ES]Percentage</value>
   </data>
   <data name="TEXT_PI_TEMPLATE" xml:space="preserve">
-    <value>[es] PI Template</value>
+    <value>[ES]PI Template</value>
   </data>
   <data name="TEXT_PO_SUBSCRIBED_TO" xml:space="preserve">
-    <value>[es] PO Subscribed to</value>
+    <value>[ES]PO Subscribed to</value>
   </data>
   <data name="TEXT_PRORATION_REASON" xml:space="preserve">
-    <value>[es] Reason for Proration</value>
+    <value>[ES]Reason for Proration</value>
   </data>
   <data name="TEXT_RC_TYPE" xml:space="preserve">
-    <value>[es] Type of RC</value>
+    <value>[ES]Type of RC</value>
   </data>
   <data name="TEXT_STATE" xml:space="preserve">
-    <value>[es] State</value>
+    <value>[ES]State</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
-    <value>[es] Status</value>
+    <value>[ES]Status</value>
   </data>
   <data name="TEXT_TAX_AMOUNT" xml:space="preserve">
-    <value>[es] Tax Amount</value>
+    <value>[ES]Tax Amount</value>
   </data>
   <data name="TEXT_TOTAL" xml:space="preserve">
-    <value>[es] Total</value>
+    <value>[ES]Total</value>
   </data>
   <data name="TEXT_TOTAL_MONETARY_AMOUNT" xml:space="preserve">
-    <value>[es] Total Monetary Amount</value>
+    <value>[ES]Total Monetary Amount</value>
   </data>
   <data name="TEXT_VIEW_ID" xml:space="preserve">
-    <value>[es] View Id</value>
+    <value>[ES]View Id</value>
   </data>
   <data name="TEXT_VIEW_NAME" xml:space="preserve">
-    <value>[es] View Name</value>
+    <value>[ES]View Name</value>
   </data>
 </root>

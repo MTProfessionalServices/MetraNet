@@ -132,11 +132,17 @@
   <data name="Comment" xml:space="preserve">
     <value>Anmerkung</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>[DE]Details</value>
+  </data>
   <data name="InvoiceNumber" xml:space="preserve">
     <value>Rechnungsnummer</value>
   </data>
   <data name="Payer" xml:space="preserve">
     <value>Zahler</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>[DE]Status</value>
   </data>
   <data name="TransactionDate" xml:space="preserve">
     <value>Transaktionsdatum</value>

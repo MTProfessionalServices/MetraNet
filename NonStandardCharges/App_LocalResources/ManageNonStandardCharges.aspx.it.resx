@@ -120,6 +120,9 @@
   <data name="GRID_TITLE" xml:space="preserve">
     <value>Gestisci addebiti non standard</value>
   </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>MetraNet</value>
+  </data>
   <data name="TEXT_ADDITIONAL_CODE" xml:space="preserve">
     <value>Codice aggiuntivo</value>
   </data>
@@ -218,6 +221,9 @@
   </data>
   <data name="TEXT_SUBSCRIBER_ACCOUNT_ID" xml:space="preserve">
     <value>ID account abbonato</value>
+  </data>
+  <data name="TEXT_TIMESTAMP" xml:space="preserve">
+    <value>[IT]Timestamp</value>
   </data>
   <data name="TEXT_VIEW_ID" xml:space="preserve">
     <value>ID visualizzazione</value>

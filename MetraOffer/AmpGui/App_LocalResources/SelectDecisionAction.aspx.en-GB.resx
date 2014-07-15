@@ -121,16 +121,19 @@
     <value>MetraNet</value>
   </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
-    <value>Decision Action for {0} </value>
+    <value>Decision Action for {0}</value>
   </data>
   <data name="lblIncrementalOrBulkResource1.Text" xml:space="preserve">
     <value>How should the Decision Type process the records?</value>
   </data>
   <data name="rblIncrementallyResource1.Text" xml:space="preserve">
-    <value>Multi-Bucket </value>
+    <value>Multi-Bucket</value>
   </data>
   <data name="rblInBulkResource1.Text" xml:space="preserve">
     <value>Single-Bucket</value>
+  </data>
+  <data name="rblParamTableResource1.Text" xml:space="preserve">
+    <value>From Paramter Table</value>
   </data>
   <data name="lblDecisionActionResource1.Text" xml:space="preserve">
     <value>What action should the Decision Type take?</value>
@@ -179,5 +182,14 @@
   </data>
   <data name="TEXT_ERROR_NO_DISCOUNT_VALUE" xml:space="preserve">
     <value>Error: You must specify the percentage discount to be applied by this Decision Type</value>
+  </data>
+  <data name="TEXT_ERROR_NO_VALUE_FOR_RATE_FOR_UNITS" xml:space="preserve">
+    <value>Error: You must specify a rate for units</value>
+  </data>
+  <data name="TEXT_ERROR_NO_VALUE_FOR_DISCOUNT" xml:space="preserve">
+    <value>Error: You must specify a percentage for discount</value>
+  </data>
+  <data name="TEXT_ERROR_NO_VALUE_FOR_RATE_FOR_EVENTS" xml:space="preserve">
+    <value>Error: You must specify a rate for events</value>
   </data>
 </root>

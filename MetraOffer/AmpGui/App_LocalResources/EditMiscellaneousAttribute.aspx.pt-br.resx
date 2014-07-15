@@ -125,12 +125,12 @@
     <value>True</value>
   </data>
   <data name="NameLabel.Text" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>[pt-BR]Name:</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>MetraNet</value>
   </data>
   <data name="ValueLabel.Text" xml:space="preserve">
-    <value>[pt-BR]</value>
+    <value>[pt-BR]Value:</value>
   </data>
 </root>

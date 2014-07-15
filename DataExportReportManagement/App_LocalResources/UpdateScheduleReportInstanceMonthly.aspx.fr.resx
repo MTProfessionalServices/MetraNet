@@ -117,8 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnCancelResource1.ServerSide" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnCancelResource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="btnOKResource1.ServerSide" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnOKResource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="MTGenericForm1Resource1.TabIndex" xml:space="preserve">
+    <value>10</value>
+  </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
     <value>Mettre à jour le calendrier de rapports mensuel</value>
+  </data>
+  <data name="MTTitle1Resource1.ToolTip" xml:space="preserve">
+    <value></value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>Mettre à jour le calendrier de rapports mensuel</value>
@@ -152,6 +171,12 @@
   </data>
   <data name="TEXT_DEF_DELIVERY_METHOD" xml:space="preserve">
     <value>Mode de livraison</value>
+  </data>
+  <data name="TEXT_DEF_DESCRIPTION" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="TEXT_DEF_DESTINATION" xml:space="preserve">
+    <value>Destination</value>
   </data>
   <data name="TEXT_DEF_EXECUTE_DAY" xml:space="preserve">
     <value>Jour d’exécution</value>
@@ -223,7 +248,7 @@
     <value>Septembre</value>
   </data>
   <data name="TEXT_DEF_MONTH_TO_DATE" xml:space="preserve">
-    <value>Mois à la date</value>
+    <value>Mois à ce jour</value>
   </data>
   <data name="TEXT_DEF_NAME" xml:space="preserve">
     <value>Nom</value>
@@ -274,7 +299,7 @@
     <value>Ignorer le premier jour du mois</value>
   </data>
   <data name="TEXT_DEF_SKIP_LAST_DAY_OF_MONTH" xml:space="preserve">
-    <value>Ignorer le dernier jour du mois</value>
+    <value></value>
   </data>
   <data name="TEXT_DEF_UPDATE_DAILY_SCHEDULE" xml:space="preserve">
     <value>Mettre à jour le calendrier quotidien</value>

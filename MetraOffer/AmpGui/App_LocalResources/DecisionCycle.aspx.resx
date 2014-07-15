@@ -216,5 +216,4 @@
 	<data name="lblNumberBIBillingInterval.Text" xml:space="preserve">
     <value>Number of billing intervals from the subscription start to the start of the Decision Cycle:</value>
   </data>
-
 </root>

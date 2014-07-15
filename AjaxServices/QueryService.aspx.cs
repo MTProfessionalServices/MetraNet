@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Globalization;
 using System.ServiceModel;
 using System.Text;
 using System.Web;
@@ -138,12 +139,21 @@ public partial class AjaxServices_QueryService : MTListServicePage
       }
       else if (filterElement.GetType() == typeof(MTFilterElement))
       {
-          MTFilterElement fe = filterElement as MTFilterElement;
-          object filterValue = fe.Value;
+        var currentCulture = System.Threading.Thread.CurrentThread.CurrentCulture;
+        try
+        {
+          System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+          var fe = filterElement as MTFilterElement;
+          var filterValue = fe.Value;
 
           bfe = new FilterElement(fe.PropertyName.Replace('.', '_'),
-            (FilterElement.OperationType)((int)fe.Operation),
-            filterValue);
+                                  (FilterElement.OperationType)((int)fe.Operation),
+                                  filterValue);
+        }
+        finally
+        {
+          System.Threading.Thread.CurrentThread.CurrentCulture = currentCulture;
+        }
       }
       else
       {

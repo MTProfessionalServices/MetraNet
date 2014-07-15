@@ -118,51 +118,51 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="NO_RECORDS_TEXT" xml:space="preserve">
-    <value>{IT}No records found.</value>
+    <value>[IT]No records found.</value>
   </data>
   <data name="MTFilterGrid1Resource1.Title" xml:space="preserve">
-    <value>{IT}Credit Note Documents</value>
+    <value>[IT]Credit Note Documents</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>{IT}MetraNet - View Credit Notes Issued</value>
+    <value>[IT]MetraNet - View Credit Notes Issued</value>
   </data>
   <data name="TEXT_ACCOUNT" xml:space="preserve">
-    <value>{IT}Account</value>
+    <value>[IT]Account</value>
   </data>
   <data name="TEXT_AMOUNT" xml:space="preserve">
-    <value>{IT}Amount</value>
+    <value>[IT]Amount</value>
   </data>
   <data name="TEXT_DISPLAY_AMOUNT" xml:space="preserve">
-    <value>{IT}Amount</value>
+    <value>[IT]Amount</value>
   </data>
   <data name="TEXT_CREATED_BY" xml:space="preserve">
-    <value>{IT}Created By</value>
+    <value>[IT]Created By</value>
   </data>
   <data name="TEXT_CREDIT_NOTE_IDENTIFIER" xml:space="preserve">
-    <value>{IT}Credit Note Identifier</value>
+    <value>[IT]Credit Note Identifier</value>
   </data>
   <data name="TEXT_DATE" xml:space="preserve">
-    <value>{IT}Date</value>
+    <value>[IT]Date</value>
   </data>
   <data name="TEXT_ID" xml:space="preserve">
-    <value>{IT}Id</value>
+    <value>[IT]Id</value>
   </data>
   <data name="TEXT_TAX" xml:space="preserve">
-    <value>{IT}Tax</value>
+    <value>[IT]Tax</value>
   </data>
   <data name="TEXT_DISPLAY_TAX" xml:space="preserve">
-    <value>{IT}Tax</value>
+    <value>[IT]Tax</value>
   </data>
   <data name="TEXT_TOTAL" xml:space="preserve">
-    <value>{IT}Total</value>
+    <value>[IT]Total</value>
   </data>
   <data name="TEXT_DISPLAY_TOTAL" xml:space="preserve">
-    <value>{IT}Total</value>
+    <value>[IT]Total</value>
   </data>
   <data name="TEXT_STATUS" xml:space="preserve">
-    <value>{IT}Status</value>
+    <value>[IT]Status</value>
   </data>
   <data name="TEXT_STATUS_INFORMATION" xml:space="preserve">
-    <value>{IT}Status Information</value>
+    <value>[IT]Status Information</value>
   </data>
 </root>

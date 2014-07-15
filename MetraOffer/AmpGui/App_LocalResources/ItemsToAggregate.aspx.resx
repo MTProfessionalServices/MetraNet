@@ -141,7 +141,7 @@
   </data>
   <data name="lblGenInfoResource3.Text" xml:space="preserve">
     <value>How should usage be aggregated?</value>
-  </data>  
+  </data>
   <data name="lblTitleResource1.Text" xml:space="preserve">
     <value>Items to Aggregate for {0}</value>
   </data>

@@ -148,6 +148,6 @@
     <value>グループ利用メンバーが更新されました</value>
   </data>
   <data name="TEXT_APPROVAL_GROUPSUBSCRIPTIONCHANGEDETAILS_ACCOUNTNAME" xml:space="preserve">
-    <value>[ja] Member Name</value>
-  </data>   
+    <value>[JA]Member Name</value>
+  </data>
 </root>

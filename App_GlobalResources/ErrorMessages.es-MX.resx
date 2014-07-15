@@ -195,9 +195,9 @@
   <data name="ERROR_SECURITY_ANSWER_INVALID" xml:space="preserve">
     <value>Respuesta de seguridad no válida.</value>
   </data>
-    <data name="ERROR_SECURITY_QUESTION_INVALID" xml:space="preserve">
-        <value>No se puede configurar la Pregunta de seguridad y la Pregunta de seguridad personalizada.</value>
-    </data>
+  <data name="ERROR_SECURITY_QUESTION_INVALID" xml:space="preserve">
+    <value>No se puede configurar la Pregunta de seguridad y la Pregunta de seguridad personalizada.</value>
+  </data>
   <data name="ERROR_SUBSCRIBER_NULL" xml:space="preserve">
     <value>Debe administrar una cuenta primero antes de poder actuar sobre ella.</value>
   </data>
@@ -247,33 +247,63 @@
     <value>No se puede guardar los cambios en la configuración. Consulte detalles en el registro.</value>
   </data>
   <data name="ERROR_MULTIPLE_ACCOUNT_UPDATE_PENDING_CHANGES" xml:space="preserve">
-    <value>[es-MX]</value>
+    <value>[es-MX]This account already has a pending change of type Account Update. Only one pending change of this type is permitted.</value>
   </data>
-    <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
-        <value>No se pueden eliminar las espec.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_LoadSpecCharacteristic_Didn_t_find_matching_spec_" xml:space="preserve">
-        <value>No se encontró la espec. coincidente</value>
-    </data>
-    <data name="SpecCharacteristicRepository_LoadSpecCharacteristics_Failed_getting_specs_" xml:space="preserve">
-        <value>Error al obtener espec.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_LoadSubCharacteristicValues_Failed_getting_entity_properties_" xml:space="preserve">
-        <value>Error al obtener propiedades de entidad.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_SaveSpecCharacteristic_Failed_saving_spec_" xml:space="preserve">
-        <value>Error al guardar las espec.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_" xml:space="preserve">
-        <value>Acceso denegado.</value>
-    </data>
-    <data name="SpecCharacteristicsController_AddSharedProperty_Couldn_t_add_property_" xml:space="preserve">
-        <value>No se pudo agregar la propiedad.</value>
-    </data>
-    <data name="SpecCharacteristicsController_Delete_Couldn_t_delete_property_" xml:space="preserve">
-        <value>No se pudo eliminar la propiedad.</value>
-    </data>
-    <data name="SpecCharacteristicsController_SetDisplayOrder_Couldn_t_find_property_" xml:space="preserve">
-        <value>No se pudo encontrar la propiedad.</value>
-    </data>
+  <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
+    <value>No se pueden eliminar las espec.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_LoadSpecCharacteristic_Didn_t_find_matching_spec_" xml:space="preserve">
+    <value>No se encontró la espec. coincidente</value>
+  </data>
+  <data name="SpecCharacteristicRepository_LoadSpecCharacteristics_Failed_getting_specs_" xml:space="preserve">
+    <value>Error al obtener espec.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_LoadSubCharacteristicValues_Failed_getting_entity_properties_" xml:space="preserve">
+    <value>Error al obtener propiedades de entidad.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_SaveSpecCharacteristic_Failed_saving_spec_" xml:space="preserve">
+    <value>Error al guardar las espec.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_" xml:space="preserve">
+    <value>Acceso denegado.</value>
+  </data>
+  <data name="SpecCharacteristicsController_AddSharedProperty_Couldn_t_add_property_" xml:space="preserve">
+    <value>No se pudo agregar la propiedad.</value>
+  </data>
+  <data name="SpecCharacteristicsController_Delete_Couldn_t_delete_property_" xml:space="preserve">
+    <value>No se pudo eliminar la propiedad.</value>
+  </data>
+  <data name="SpecCharacteristicsController_SetDisplayOrder_Couldn_t_find_property_" xml:space="preserve">
+    <value>No se pudo encontrar la propiedad.</value>
+  </data>
+  <data name="ERROR_USERNAME_LOCKED" xml:space="preserve">
+    <value>[es-MX]You have exceeded the number of logins attempts and your account is locked. Please contact your system admin.</value>
+  </data>
+  <data name="ERROR_PAYER_ID_IS_REQUIRED" xml:space="preserve">
+    <value>[es-MX]Invalid or Missing Payer</value>
+  </data>
+  <data name="ERROR_INVALID_CURRENCY" xml:space="preserve">
+    <value>[es-MX]Invalid Currency</value>
+  </data>
+  <data name="ERROR_INVALID_PARTITIONID" xml:space="preserve">
+    <value>[es-MX]Invalid Partition ID</value>
+  </data>
+  <data name="ERROR_REPORT_CONFIG" xml:space="preserve">
+    <value>[es-MX]Error in config ReportFormat file</value>
+  </data>
+  <data name="ERROR_REPORT_FORMAT" xml:space="preserve">
+    <value>[es-MX]Error in config ReportFormat file. Report format type isn't defined.</value>
+  </data>
+  <data name="ERROR_REPORT_FORMAT_CONFIG" xml:space="preserve">
+    <value>[es-MX]Error in config ReportFormat file. Incorrect file structure.</value>
+  </data>
+  <data name="ERROR_REPORT_IMAGE" xml:space="preserve">
+    <value>[es-MX]Error in config ReportFormat file. Report image  isn't defined.</value>
+  </data>
+  <data name="ERROR_REPORT_OPEN" xml:space="preserve">
+    <value>[es-MX]Unable open and save report</value>
+  </data>
+  <data name="ERROR_PO_EXISTS" xml:space="preserve">
+    <value>[es-MX]Name of product offering must be unique</value>
+  </data>
 </root>

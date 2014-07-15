@@ -129,6 +129,9 @@
   <data name="TEXT_APPROVAL_AUDIT_EVENTDISPLAYNAME" xml:space="preserve">
     <value>Event </value>
   </data>
+  <data name="TEXT_APPROVAL_AUDIT_ID" xml:space="preserve">
+    <value>Id</value>
+  </data>
   <data name="TEXT_APPROVAL_AUDIT_USER" xml:space="preserve">
     <value>User Name</value>
   </data>

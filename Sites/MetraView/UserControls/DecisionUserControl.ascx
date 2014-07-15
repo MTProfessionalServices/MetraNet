@@ -3,7 +3,7 @@
 <style>
   button
   {
-    position: absolute;
+    position: static;
     right: 10px;
     top: 10px;
   }

@@ -1,183 +1,182 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="Localized Key Terms" type="collection">
 
     <description>Key Terms. When editing through MPM, the Localized Key Terms screen under Applications...MCM should be used.</description>
 		
     <text id="TEXT_KEYTERM_ACCOUNT_TYPE">
-<value>Type de compte</value>
+        <value>Type de compte</value>
       	<description>Account Type</description>
     </text> 
 
     <text id="TEXT_KEYTERM_ACCOUNT_TYPES">
-<value>Types de compte</value>
+        <value>Types de comptes</value>
       	<description>Account Types</description>
     </text>     
     		
 		<!-- Auth / Auth -->
     <text id="TEXT_KEYTERM_ROLE">
-<value>Rôle</value>
+        <value>Rôle</value>
       	<description>Security Role</description>
     </text> 
 
     <text id="TEXT_KEYTERM_ROLES">
-<value>Rôles</value>
+        <value>Rôles</value>
       	<description>Security Roles</description>
     </text> 
 
     <text id="TEXT_KEYTERM_CAPABILITY">
-<value>Capacité</value>
+        <value>Fonctionnalité</value>
       	<description>Capability</description>
     </text> 
     
 		<text id="TEXT_KEYTERM_CAPABILITIES">
-<value>Capacités</value>
+        <value>Fonctionnalités</value>
       	<description>Capabilities</description>
     </text> 
 		
     <!-- Product Offering -->
     <text id="TEXT_KEYTERM_PRODUCT_OFFERING">
-<value>Offre de produit</value>
+        <value>Offre produit</value>
 	<description>Product Offering</description>
     </text> 
     <text id="TEXT_KEYTERM_PRODUCT_OFFERINGS">
-<value>Offres de produit</value>
+        <value>Offres produit</value>
 	<description>Product Offerings</description>
     </text> 
 
     <!-- Service Charge -->   
     <text id="TEXT_KEYTERM_SERVICE_CHARGE">
-<value>Frais de service</value>
+        <value>Frais de service</value>
 	<description>Service Charge</description>
     </text>              
     <text id="TEXT_KEYTERM_SERVICE_CHARGES">
-<value>Frais de service</value>
+        <value>Frais de service</value>
 	<description>Service Charges</description>
     </text>              
 
     <!-- Priceable Items -->   
     <text id="TEXT_KEYTERM_PRICEABLE_ITEM">
-<value>Élément facturable</value>
+        <value>Élément à prix</value>
 	<description>Priceable Item</description>
     </text>              
     <text id="TEXT_KEYTERM_PRICEABLE_ITEMS">
-<value>Éléments facturables</value>
+        <value>Éléments à prix</value>
 	<description>Priceable Items</description>
     </text>              
 
     <!-- Usage Charge -->   
     <text id="TEXT_KEYTERM_USAGE_CHARGE">
-<value>Frais d’utilisation</value>
+        <value>Frais d’utilisation</value>
 	<description>Usage Charge</description>
     </text>              
     <text id="TEXT_KEYTERM_USAGE_CHARGES">
-<value>Frais d’utilisation</value>
+        <value>Frais d’utilisation</value>
 	<description>Usage Charges</description>
     </text>              
 
     <!-- Usage Charge (aggregate) -->   
     <text id="TEXT_KEYTERM_USAGE_CHARGE_AGGREGATE">
-<value>Frais d’utilisation (total)</value>
+        <value>Frais d’utilisation (Consolidés)</value>
 	<description>Usage Charge (Aggregate)</description>
     </text>              
     <text id="TEXT_KEYTERM_USAGE_CHARGES_AGGREGATE">
-<value>Frais d’utilisation (total)</value>
+        <value>Frais d’utilisation (Consolidés)</value>
 	<description>Usage Charges (Aggregate)</description>
     </text>              
 
     <!-- Recurring Charge -->   
     <text id="TEXT_KEYTERM_RECURRING_CHARGE">
-<value>Frais périodiques</value>
+        <value>Frais récurrents</value>
 	<description>Recurring Charge</description>
     </text>     
     <text id="TEXT_KEYTERM_RECURRING_CHARGES">
-<value>Frais périodiques</value>
+        <value>Frais récurrents</value>
 	<description>Recurring Charges</description>
     </text>     
 
     <!-- Non-Recurring Charge -->   
     <text id="TEXT_KEYTERM_NON_RECURRING_CHARGE">
-<value>Frais non périodiques</value>
+        <value>Frais non récurrents</value>
 	<description>Non-Recurring Charge</description>
     </text>     
     <text id="TEXT_KEYTERM_NON_RECURRING_CHARGES">
-<value>Frais non périodiques</value>
+        <value>Frais non récurrents</value>
 	<description>Non-Recurring Charges</description>
     </text>     
     
     <!-- Discounts -->   
     <text id="TEXT_KEYTERM_DISCOUNT">
-<value>Rabais</value>
+        <value>Remise</value>
 	<description>Discount</description>
     </text>              
     <text id="TEXT_KEYTERM_DISCOUNTS">
-<value>Rabais</value>
+        <value>Remises</value>
 	<description>Discounts</description>
     </text>              
 
     <!-- Price List -->   
     <text id="TEXT_KEYTERM_PRICE_LIST">
-<value>Liste de prix</value>
+        <value>Tarif</value>
 	<description>Price List</description>
     </text>
     <text id="TEXT_KEYTERM_PRICE_LISTS">
-<value>Listes de prix</value>
+        <value>Tarifs</value>
 	<description>Price Lists</description>
     </text>                 
 
     <!-- Rate Schedule -->   
     <text id="TEXT_KEYTERM_RATE_SCHEDULE">
-<value>Horaire de tarification</value>
+        <value>Échelle tarifaire</value>
 	<description>Rate Schedule</description>
     </text>
     <text id="TEXT_KEYTERM_RATE_SCHEDULES">
-<value>Horaires de tarification</value>
+        <value>Échelles tarifaires</value>
 	<description>Rate Schedules</description>
     </text>              
 
     <!-- Personal Rate -->   
     <text id="TEXT_KEYTERM_PERSONAL_RATE">
-<value>Tarif personnalisé</value>
+        <value>Prix personnalisé</value>
 	<description>Custom Rate</description>
     </text>                
     <text id="TEXT_KEYTERM_PERSONAL_RATES">
-<value>Tarifs personnalisés</value>
+        <value>Prix personnalisés</value>
 	<description>Custom Rates</description>
     </text>              
    
     <!-- Counter -->   
     <text id="TEXT_KEYTERM_COUNTER">
-<value>Compteur</value>
+        <value>Compteur</value>
 	<description>Counter</description>
     </text>           
     <text id="TEXT_KEYTERM_COUNTERS">
-<value>Compteurs</value>
+        <value>Compteurs</value>
 	<description>Counters</description>
     </text>               
         
     <!-- Parameter Table -->   
     <text id="TEXT_KEYTERM_PARAMETER_TABLE">
-<value>Tableau de paramètres</value>
+        <value>Tableau des paramètres</value>
 	<description>Parameter Table</description>
     </text>           
 
 		<text id="TEXT_KEYTERM_PARAMETER_TABLES">
-			<value>Tableaux de paramètres</value>
+			<value>Tableaux des paramètres</value>
 			<description>Parameter Tables</description>
 		</text> 
 		
 		<text id="TEXT_KEYTERM_GROUP_SUBSCRIPTION">
-			<value>Inscription de groupe</value>
+			<value>Abonnement groupé</value>
 			<description>group subscription</description>
 		</text>
 
 		<text id="TEXT_KEYTERM_GROUP_SUBSCRIPTIONS">
-			<value>Inscriptions de groupe</value>
+			<value>Abonnements groupés</value>
 			<description>group subscriptions</description>
 		</text>		
 				            
 		<text id="TEXT_KEYTERM_CORPORATE_ACCOUNT">
-			<value>Compte commercial</value>
+			<value>Compte d’entreprise</value>
 			<description>Corporate Account</description>
 		</text> 
 				
@@ -199,50 +198,50 @@
 
     <!-- Service Endpoint(s) -->
     <text id="TEXT_KEYTERM_SERVICE_ENDPOINT">
-<value>Point d’extrémité de service</value>
+      <value>Point limite du service</value>
       <description>Service Endpoint</description>
     </text>
     <text id="TEXT_KEYTERM_SERVICE_ENDPOINTS">
-<value>Points d’extrémité de service</value>
+      <value>Points limites du service</value>
       <description>Service Endpoints</description>
     </text>
 
     <!-- Unit-Dependent Recurring Charge(s) -->
     <text id="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGE">
-<value>Frais périodiques dépendant de l’unité</value>
+      <value>Frais récurrents dépendant de l’unité</value>
       <description>Unit-Dependent Recurring Charge</description>
     </text>
     <text id="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGES">
-<value>Frais périodiques dépendant de l’unité</value>
+      <value>Frais récurrents dépendant de l’unité</value>
       <description>Unit-Dependent Recurring Charges</description>
     </text>
 
     <!-- Shared Price List(s) -->
     <text id="TEXT_KEYTERM_SHARED_PRICE_LIST">
-<value>Liste de prix partagée</value>
+      <value>Tarif partagé</value>
       <description>Shared Price List</description>
     </text>
     <text id="TEXT_KEYTERM_SHARED_PRICE_LISTS">
-<value>Listes de prix partagées</value>
+      <value>Tarifs partagés</value>
       <description>Shared Price Lists</description>
     </text>
 
     <!-- Non-Shared Price List(s) -->
     <text id="TEXT_KEYTERM_NON_SHARED_PRICE_LIST">
-<value>Liste de prix non partagée</value>
+      <value>Tarif non partagé</value>
       <description>Non-Shared Price List</description>
     </text>
     <text id="TEXT_KEYTERM_NON_SHARED_PRICE_LISTS">
-<value>Listes de prix non partagées</value>
+      <value>Tarifs non partagés</value>
       <description>Non-Shared Price Lists</description>
     </text>
     
     <text id="TEXT_KEYTERM_REBILL_VERB">
-<value>Réaffecter</value>
+      <value>Réaffecter</value>
       <description></description>
     </text>    
     <text id="TEXT_KEYTERM_REBILL_NAME">
-<value>Réaffectation</value>
+      <value>Réaffectation</value>
       <description></description>
     </text>        
 
@@ -250,5 +249,3 @@
         
     
 </texts>
-
-

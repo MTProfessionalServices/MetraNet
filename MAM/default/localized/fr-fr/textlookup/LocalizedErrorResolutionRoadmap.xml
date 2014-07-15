@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="Roadmap Messages" type="collection">
 
 <description>
@@ -11,69 +10,69 @@
     <text id="ROADMAP-516947931">
 			 <description>Synchronous metering timed out.</description>
 		   <value>
-			 <![CDATA[ Le pipeline MetraTech ne semble pas fonctionner en ce moment sur le serveur.Veuillez demander à votre administrateur de vérifier si le serveur fonctionne correctement.L'action sera soumise dès que le pipeline démarrera. ]]>
+    			 <![CDATA[ Il semblerait que le pipeline MetraTech ne fonctionne pas sur le serveur. Demandez à notre administrateur de vérifier que le serveur fonctionne correctement. Cette action sera envoyée au démarrage du pipeline.  ]]>
 			 </value>
 		</text>
     <text id="ROADMAP-486604795">
 			 <description>The paying account is not billable.</description>
 		   <value>
-		       <![CDATA[ Vous devez d'abord définir le compte comme étant facturable avant de le configurer pour qu'il puisse payer pour d'autre comptes.Vous pouvez faire ceci sur l'écran Info du compte. ]]>  
+		       <![CDATA[ Vous devez au préalable marquer le compte de paiement en tant que facturable, pour pouvoir le configurer en vue du paiement d'autres comptes. Pour cela, utilisez l'écran Infos du compte.  ]]>  
 			 </value>
 	  </text>		
     <text id="ROADMAP-469368830">
 			 <description>This account is a payee.  It cannot be suspended.</description>
 		   <value>
-		       <![CDATA[ Vous devez d'abord définir le compte comme étant non facturable avant de le suspendre.]]>  
+		       <![CDATA[ Vous devez au préalable marquer le compte de paiement en tant que non facturable, pour pouvoir le suspendre. ]]>  
 			 </value>
 	  </text>		
     <text id="ROADMAP1025">
 			 <description>Batch failed</description>
 		   <value>
-		       <![CDATA[ Pour obtenir plus d'informations au sujet des opérations en lot qui ont échouées, cliquez <a target="main" href="[BATCH_ERROR_LIST_DIALOG]">ici</a>. ]]>  
+		       <![CDATA[ Pour plus d'informations sur les échecs d'opérations du lot, cliquez &lt;a target="MainContentIframe" href="[BATCH_ERROR_LIST_DIALOG]"&gt;ici&lt;/a&gt;.  ]]>  
 			 </value>
 	  </text>		
     <text id="ROADMAP1036">
 			 <description>Batch failed</description>
 		   <value>
-		       <![CDATA[ Pour obtenir plus d'informations au sujet des comptes dont l'inscription a échoué, cliquez <a target="main" href="[BATCH_ERROR_LIST_DIALOG]">ici</a>. ]]>  
+		       <![CDATA[ Pour plus d'informations sur les échecs d'abonnement de comptes, cliquez &lt;a target="MainContentIframe" href="[BATCH_ERROR_LIST_DIALOG]"&gt;ici&lt;/a&gt;. ]]> 
 			 </value>
 	  </text>		   
     <text id="ROADMAP1052">
       <description>Batch template failed</description>    
       <value>
-<![CDATA[ L'opération du modèle de lot a échoué pour certains comptes.Pour obtenir plus d'informations au sujet des comptes dont l'inscription a échoué, cliquez a target="main" href="[BATCH_ERROR_LIST_DIALOG]">ici</a>. ]]>  
+        <![CDATA[ L'opération de modèle de lot a échoué pour certains comptes. Pour plus d'informations sur les comptes ayant échoué, cliquez &lt;a target="MainContentIframe" href="[BATCH_ERROR_LIST_DIALOG]"&gt;ici&lt;/a&gt;. ]]> 
       </value>
 	  </text>		 	   
     <text id="ROADMAP-492896235">
 			 <description>Role cannot be deleted with members</description>
 		   <value>
-		       <![CDATA[ Le rôle que vous tentez de supprimer possède actuellement des membres.Vous devez d'abord retirer tous les membres affectés à ce rôle avant de le supprimer.Cliquez <a target="main" href="[MANAGE_ROLES_DIALOG]">ici</a> pour revenir à Gérer les rôles, puis sélectionnez l'icône Membres afin d'afficher les membres actuellement affectés à ce rôle. ]]>  
+		       <![CDATA[ Le rôle que vous tentez de supprimer possède des membres. Vous devez au préalable supprimer tous les membres du rôle avant de pouvoir supprimer ce dernier. Cliquez &lt;a target="MainContentIframe" href="[MANAGE_ROLES_DIALOG]"&gt;ici&lt;/a&gt; pour revenir à la gestion des rôles, puis sélectionnez l'icône Membres pour afficher les personnes actuellement associées à ce rôle. ]]>  
 			 </value>
 	  </text>		    
     <text id="ROADMAP-492896216">
-			 <description>Manage Account Hierarchies capability can not be associated with Subscriber Assignable Role</description>
+			 <description>Manage Account Hierarchies capability cannot be associated with Subscriber Assignable Role</description>
 		   <value>
-		       <![CDATA[ Afin d'affecter la capacité Gérer les hiérarchies de compte à un abonné, vous devez placer la capacité directement sur le compte.<a target="main" href="[LAST_ROLE_PAGE]">Revenir à Configurer les capacités</a>. ]]>  
+		       <![CDATA[ Pour affecter la capacité de gestion des hiérarchies de comptes à un abonné, vous devez placer directement cette capacité dans le compte.  &lt;a target="MainContentIframe" href="[LAST_ROLE_PAGE]"&gt;Revenir à la configuration des capacités&lt;/a&gt;. ]]>   
 			 </value>
 	  </text>		
     <text id="ROADMAP-OVERRIDESUBDATE">
 			 <description>Subscription date override according to group sub or product offering effective dates.</description>
 		   <value>
-		       <![CDATA[ La date d'inscription que vous avez sélectionnée a été remplacée par la date maximale autorisée en conformité avec les dates d'entrée en vigueur de l'Offre de produit ou de l'inscription de groupe.]]>  
+		       <![CDATA[ La date d'abonnement sélectionnée a été remplacée par la date maximum autorisée conforme aux dates de validité de l'offre de prix ou des abonnements groupés. ]]>  
 			 </value>
 	  </text>	
 
     <text id="ROADMAP-OVERRIDEGROUPSUBDATE">
 			 <description>Group Subscription date override according to product offering effective date.</description>
 		   <value>
-		       <![CDATA[ La date d'entrée en vigueur de l'inscription de groupe a été remplacée par la date maximale autorisée en conformité avec la date d'entrée en vigueur de l'offre de produit. ]]>  
+		       <![CDATA[ La date de validité de votre abonnement groupé a été remplacée par la valeur maximum autorisée conforme à la date de validité de l'offre produit. ]]>   
 			 </value>
 	  </text>	
 
     <text id="ROADMAP-OVERRIDEMEMBERSHIPDATE">
 			 <description>Group Subscription membership date override according to product offering or group subscription effective dates.</description>
 		   <value>
-		       <![CDATA[ La date d'adhésion de groupe a été remplacée par la date maximale autorisée en conformité avec la date d'entrée en vigueur de l'offre de produit ou de l'inscription de groupe. ]]>  
+		       <![CDATA[ Votre date a été remplacée par la valeur maximum autorisée conforme à la date de validité de l'offre groupée ou de l'abonnement groupé. ]]>   
 			 </value>
 	  </text>		
   

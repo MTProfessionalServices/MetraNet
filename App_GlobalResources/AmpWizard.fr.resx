@@ -118,111 +118,111 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="NAV_PANEL_HEADER" xml:space="preserve">
-    <value>[FR]Manage AMP Decision Type</value>
+    <value>Gestion du type de décision AMP</value>
   </data>
   <data name="PAGETITLE_ACCOUNT_GROUP" xml:space="preserve">
-    <value>[FR]2. Account Group</value>
+    <value>2. Groupe de comptes</value>
   </data>
   <data name="PAGETITLE_AMOUNT_CHAIN_GROUP" xml:space="preserve">
-    <value>[FR]8. Amount Chain Group</value>
+    <value>8. Groupe de chaînes de montants</value>
   </data>
   <data name="PAGETITLE_CHARGE_CREDIT_ATTRIBUTES" xml:space="preserve">
-    <value>[FR]Charge/Credit:  Attributes</value>
+    <value>Frais/Crédit :  Attributs</value>
   </data>
   <data name="PAGETITLE_CHARGE_CREDIT_DIRECTIVE" xml:space="preserve">
-    <value>[FR]Charge/Credit:  Directive</value>
+    <value>Frais/Crédit :  Directive</value>
   </data>
   <data name="PAGETITLE_CHARGE_CREDIT_DIRECTIVES" xml:space="preserve">
-    <value>[FR]Charge/Credit:  Directives</value>
+    <value>Frais/Crédit :  Directives</value>
   </data>
   <data name="PAGETITLE_CHARGE_CREDIT_PRODUCT_VIEW" xml:space="preserve">
-    <value>[FR]Charge/Credit:  Product View</value>
+    <value>Frais/Crédit :  Vue Produit</value>
   </data>
   <data name="PAGETITLE_DECISION_ACTION" xml:space="preserve">
-    <value>[FR]Decision Action</value>
+    <value>Action de décision</value>
   </data>
   <data name="PAGETITLE_DECISION_CYCLE" xml:space="preserve">
-    <value>[FR]6. Decision Cycle</value>
+    <value>6. Cycle</value>
   </data>
   <data name="PAGETITLE_DECISION_INTERACTIONS" xml:space="preserve">
-    <value>[FR]10. Decision Interactions</value>
+    <value>10. Interactions</value>
   </data>
   <data name="PAGETITLE_DECISION_RANGE" xml:space="preserve">
-    <value>[FR]5. Decision Range</value>
+    <value>5. Plage</value>
   </data>
   <data name="PAGETITLE_DECISION_SETTINGS" xml:space="preserve">
-    <value>[FR]Decision Settings</value>
+    <value>Paramètres de décision</value>
   </data>
   <data name="PAGETITLE_END" xml:space="preserve">
-    <value>[FR]13. End</value>
+    <value>13. Fin</value>
   </data>
   <data name="PAGETITLE_ERROR_CHECK" xml:space="preserve">
-    <value>[FR]12. Error Check</value>
+    <value>12. Finalisation</value>
   </data>
   <data name="PAGETITLE_EXECUTION_FREQUENCY" xml:space="preserve">
-    <value>[FR]9. Execution Frequency</value>
+    <value>9. Fréquence</value>
   </data>
   <data name="PAGETITLE_GENERAL_INFORMATION" xml:space="preserve">
-    <value>[FR]1. General Information</value>
+    <value>1. Informations générales</value>
   </data>
   <data name="PAGETITLE_GENERATE_A_NEW_CHARGE_CREDIT" xml:space="preserve">
-    <value>[FR]New Charge/Credit</value>
+    <value>Nouveaux frais/Crédits</value>
   </data>
   <data name="PAGETITLE_ITEMS_TO_AGGREGATE" xml:space="preserve">
-    <value>[FR]4. Items to Aggregate</value>
+    <value>4. Éléments à regrouper</value>
   </data>
   <data name="PAGETITLE_MISCELLANEOUS_ATTRIBUTES" xml:space="preserve">
-    <value>[FR]11. Miscellaneous Attributes</value>
+    <value>11. Attributs divers</value>
   </data>
   <data name="PAGETITLE_SELECT_DECISION_ACTION" xml:space="preserve">
-    <value>[FR]7. Decision Action</value>
+    <value>7. Action</value>
   </data>
   <data name="PAGETITLE_SELECT_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>[FR]3. Usage Qualification</value>
+    <value>3. Qualification d'utilisation</value>
   </data>
   <data name="PAGETITLE_USAGE_QUALIFICATION" xml:space="preserve">
-    <value>[FR]Usage Qualification</value>
+    <value>Qualification d'utilisation</value>
   </data>
   <data name="TEXT_ADVANCED_FEATURE" xml:space="preserve">
-    <value>[FR]Advanced Feature</value>
+    <value>Fonction avancée</value>
   </data>
   <data name="TEXT_ERROR_MISSING_MISC_ATTRIBUTE_TEXT_VALUE" xml:space="preserve">
-    <value>[FR]You must supply a value for this attribute.</value>
+    <value>Vous devez indiquer une valeur pour cet attribut.</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_ACCOUNT_QUALIFICATION_GROUP" xml:space="preserve">
-    <value>[FR]An error occurred while retrieving Account Qualification Group '{0}'</value>
+    <value>Une erreur s'est produite pendant l'extraction du groupe de qualifications de compte '{0}'</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_DECISION" xml:space="preserve">
-    <value>[FR]An error occurred while retrieving Decision '{0}'</value>
+    <value>Une erreur s'est produite pendant l'extraction de la décision '{0}'</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_GENERATED_CHARGE" xml:space="preserve">
-    <value>[FR]An error occurred while retrieving Generated Charge'{0}'</value>
+    <value>Une erreur s'est produite pendant l'extraction des frais générés '{0}'</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_PARAM_TABLE_COLUMN_NAMES" xml:space="preserve">
-    <value>[FR]An error occurred while retrieving parameter table column names</value>
+    <value>Une erreur s'est produite pendant l'extraction des noms de colonnes de la table de paramètres</value>
   </data>
   <data name="TEXT_ERROR_RETRIEVE_TABLE_COLUMN_NAMES" xml:space="preserve">
-    <value>[FR]An error occurred while retrieving column names for database table '{0}'</value>
+    <value>Une erreur s'est produite pendant l'extraction des noms de colonnes de la table de base de données '{0}'</value>
   </data>
   <data name="TEXT_ERROR_SAVE_DECISION" xml:space="preserve">
-    <value>[FR]An error occurred while saving Decision '{0}'</value>
+    <value>Une erreur s'est produite pendant l'enregistrement de la décision '{0}'</value>
   </data>
   <data name="TEXT_ERROR_SAVE_GENERATED_CHARGE" xml:space="preserve">
-    <value>[FR]An error occurred while saving Generated Charge '{0}'</value>
+    <value>Une erreur s'est produite pendant l'enregistrement des frais générés '{0}'</value>
   </data>
   <data name="TEXT_ERROR_STORE_ACCOUNT_QUALIFICATION_GROUP" xml:space="preserve">
-    <value>[FR]An error occurred while storing Account Qualification Group '{0}'</value>
+    <value>Une erreur s'est produite pendant l'enregistrement du groupe de qualifications de compte '{0}'</value>
   </data>
   <data name="TEXT_FIXED_VALUE" xml:space="preserve">
-    <value>[FR]Fixed Value</value>
+    <value>Valeur fixe</value>
   </data>
   <data name="TEXT_GET_FROM_PARAM_TABLE_COLUMN" xml:space="preserve">
-    <value>[FR]Get from Parameter Table</value>
+    <value>Extraction à partir de la table de paramètres</value>
   </data>
   <data name="TEXT_MORE" xml:space="preserve">
-    <value>[FR]&lt;u&gt;More...&lt;/u&gt;</value>
+    <value>&lt;u&gt;Autre...&lt;/u&gt;</value>
   </data>
   <data name="TEXT_SUCCESS_SAVE_DECISION" xml:space="preserve">
-    <value>[FR]Successfully saved Decision '{0}'</value>
+    <value>L'enregistrement de la décision '{0}' a abouti</value>
   </data>
 </root>

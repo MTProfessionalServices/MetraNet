@@ -139,7 +139,7 @@
     <value>Rec. Charge(s)</value>
   </data>
   <data name="InternalInformationURL.HeaderText" xml:space="preserve">
-    <value>Internal Information URL</value>
+   <value>Internal Information URL</value>
   </data>
   <data name="lblSubscribeToPOTitleResource1.Text" xml:space="preserve">
     <value>Subscribe to Product Offering</value>

@@ -120,6 +120,12 @@
   <data name="lblShowAllReportParametersTitleResource1.Text" xml:space="preserve">
     <value>Berichtsparameter auswählen</value>
   </data>
+  <data name="lblShowAllReportParametersTitleResource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="MTFilterGrid1Resource1.ToolTip" xml:space="preserve">
+    <value></value>
+  </data>
   <data name="PageResource1.Title" xml:space="preserve">
     <value>Berichtsparameter auswählen</value>
   </data>
@@ -128,6 +134,9 @@
   </data>
   <data name="TEXT_DEF_MANAGE_REPORT_PARAMETERS" xml:space="preserve">
     <value>Berichtsparameter verwalten</value>
+  </data>
+  <data name="TEXT_DEF_NAME" xml:space="preserve">
+    <value>Name</value>
   </data>
   <data name="TEXT_DEF_PARAMETER_ID" xml:space="preserve">
     <value>Parameter-ID</value>

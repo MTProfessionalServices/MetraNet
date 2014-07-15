@@ -130,28 +130,28 @@
     <value>Ação</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_LAST_MODIFIED_DATE" xml:space="preserve">
-    <value>Data da última modificação</value>
+    <value>Última data de modificação</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTED_DATE" xml:space="preserve">
-    <value>Data de apresentação</value>
+    <value>Nome de envio</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_DISPLAYNAME" xml:space="preserve">
-    <value>Submitter</value>
+    <value>Remetente</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_SUBMITTER_ID" xml:space="preserve">
-    <value>ID Submitter</value>
+    <value>ID do remetente</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_TYPE" xml:space="preserve">
     <value>Tipo</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_ID" xml:space="preserve">
-    <value>Item ID modificado</value>
+    <value>ID de item modificado</value>
   </data>
   <data name="TEXT_APPROVAL_NO_RECORD_TEXT" xml:space="preserve">
-    <value>Sem registos encontrados</value>
+    <value>Nenhum registro encontrado</value>
   </data>
   <data name="TEXT_APPROVAL_VIEW_CHANGES_SUMMARY" xml:space="preserve">
-    <value>Visualizar as alteracoes</value>
+    <value>Exibir alterações</value>
   </data>
   <data name="TEXT_APPROVAL_CHANGE_STATE_DISPLAYNAME" xml:space="preserve">
     <value>Estado</value>

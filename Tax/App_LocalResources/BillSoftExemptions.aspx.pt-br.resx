@@ -117,8 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>MetraNet</value>
+  </data>
   <data name="GRID_TITLE" xml:space="preserve">
-    <value>Isenções de BillSoft</value>
+    <value>Isenções BillSoft</value>
   </data>
   <data name="TEXT_ACCOUNT_ID" xml:space="preserve">
     <value>ID de conta</value>
@@ -127,19 +130,19 @@
     <value>Ações</value>
   </data>
   <data name="TEXT_ADD" xml:space="preserve">
-    <value>Adicionar nova isenção de BillSoft</value>
+    <value>Adicionar nova isenção BillSoft</value>
   </data>
   <data name="TEXT_APPLY_TO_ACCOUNT_DESCENDENTS" xml:space="preserve">
     <value>Aplicar aos descendentes da conta</value>
   </data>
   <data name="TEXT_CERTIFICATE_ID" xml:space="preserve">
-    <value>ID do comprovante</value>
+    <value>ID do certificado</value>
   </data>
   <data name="TEXT_CONFIRM_CONTINUE" xml:space="preserve">
     <value>Tem certeza que deseja excluir essa extensão?</value>
   </data>
   <data name="TEXT_CREATE_DATE" xml:space="preserve">
-    <value>Data de criação</value>
+    <value>Criar data</value>
   </data>
   <data name="TEXT_EDIT" xml:space="preserve">
     <value>Editar isenção</value>
@@ -157,7 +160,7 @@
     <value>Data de início</value>
   </data>
   <data name="TEXT_TAX_LEVEL" xml:space="preserve">
-    <value>Nível de impostos</value>
+    <value>Nível de imposto</value>
   </data>
   <data name="TEXT_TAX_TYPE" xml:space="preserve">
     <value>Tipo de imposto</value>
@@ -169,6 +172,6 @@
     <value>Data de atualização</value>
   </data>
   <data name="TEXT_VIEW" xml:space="preserve">
-    <value>Visualizar isenção</value>
+    <value>Exibir isenção</value>
   </data>
 </root>

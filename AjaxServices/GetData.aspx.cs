@@ -378,11 +378,13 @@ public partial class GetData : MTPage
       string columnID = Request["column[" + columnIndex + "][columnID]"];
       string dataIndex = Request["column[" + columnIndex + "][mapping]"];
       string headerText = Request["column[" + columnIndex + "][headerText]"];
+      string renderer = Request["column[" + columnIndex + "][renderer]"];
 
       MTColumnElement ce = new MTColumnElement();
       ce.ColumnID = columnID;
       ce.DataIndex = dataIndex;
       ce.HeaderText = headerText;
+      ce.Renderer = renderer;
 
       gde.Columns.Add(ce);
 

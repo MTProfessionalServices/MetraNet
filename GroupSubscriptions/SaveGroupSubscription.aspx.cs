@@ -18,7 +18,7 @@ using MetraTech.ActivityServices.Common;
 
 public partial class GroupSubscriptions_SaveGroupSubscription : MTPage
 {
-  public Subscription GroupSubscriptionInstance
+  public GroupSubscription GroupSubscriptionInstance
   {
     get { return ViewState["GroupSubscriptionInstance"] as GroupSubscription; }
     set { ViewState["GroupSubscriptionInstance"] = value; }

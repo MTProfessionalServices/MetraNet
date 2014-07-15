@@ -120,6 +120,9 @@
   <data name="GRID_TITLE" xml:space="preserve">
     <value>Außerordentliche Gebühren verwalten</value>
   </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>MetraNet</value>
+  </data>
   <data name="TEXT_ADDITIONAL_CODE" xml:space="preserve">
     <value>Zusätzlicher Code</value>
   </data>
@@ -212,6 +215,9 @@
   </data>
   <data name="TEXT_SESSION_ID" xml:space="preserve">
     <value>Sitzungs-ID</value>
+  </data>
+  <data name="TEXT_STATUS" xml:space="preserve">
+    <value>[DE]Status</value>
   </data>
   <data name="TEXT_SUBSCRIBER_ACCOUNT_ID" xml:space="preserve">
     <value>Teilnehmerkonto-ID</value>

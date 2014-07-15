@@ -1,752 +1,751 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="MPTE" type="collection">
 
     <description></description>
  
     <!-- Columns -->
     <text id="TEXT_MPTE_BUTTON_SETEFFDATE">
-        <value>[FR]Set Effective Date and Description</value>
+        <value>Définir la date d'entrée en vigueur et la description</value>
 		<description></description>
     </text>
     <text id="TEXT_MPTE_FILTERON">
-        <value>[FR]Filter on</value>
+        <value>Filtrage activé</value>
 		<description></description>
     </text>	            
     <text id="TEXT_MPTE_FILTEROFF">
-        <value>[FR]Filter off</value>
+        <value>Filtrage désactivé</value>
 		<description></description>
     </text>		
     <text id="TEXT_MPTE_OWNER_APP">
-        <value>[FR]MCM</value>
+        <value>MCM</value>
 		<description></description>
     </text>
     <text id="TEXT_MPTE_WARNING_NORATE_CONFIGURED">
-        <value>[FR]Warning: no rates currently configured</value>
+        <value>Avertissement : aucun prix n'est actuellement configuré</value>
 		<description></description>
     </text>
     <text id="TEXT_MPTE_CONNECTOR_AND">
-        <value>[FR]and</value>
+        <value>et</value>
 		<description></description>
     </text>
     <text id="TEXT_MPTE_CONNECTOR_IF">
-        <value>[FR][FR]if</value>
+        <value>si</value>
 		<description></description>
     </text>
     <text id="TEXT_MPTE_CONNECTOR_THEN">
-        <value>[FR][FR]then</value>
+        <value>donc</value>
 		<description></description>
     </text>
     <text id="TEXT_MPTE_CONNECTOR_MOVE">
-        <value>[FR][FR]Move</value>
+        <value>Déplacer</value>
 		<description></description>
     </text>
     
     <text id="TEXT_MPTE_CONNECTOR_ADD">
-        <value>[FR]Add</value>
+        <value>Ajouter</value>
 		<description></description>
     </text>
 
     <text id="TEXT_MPTE_CONNECTOR_EDIT">
-        <value>[FR]Edit</value>
+        <value>Modifier</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_DEFAULTRULE">
-        <value>[FR]The default rule</value>
+        <value>Règle par défaut</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_DEFAULTRULE_NOT_ALLOWED">
-        <value>[FR]Default rule not allowed on this parameter table</value>
+        <value>La règle par défaut n'est pas autorisée dans cette table de paramètres</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_NO_DEFAULTRULE">
-        <value>[FR]No default rule configured</value>
+        <value>Aucune règle par défaut configurée</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_ADD_DEFAULTRULE">
-        <value>[FR]Add default rule</value>
+        <value>Ajouter une règle par défaut</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_TOTAL">
-        <value>[FR]Total:</value>
+        <value>Total :</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_RULES">
-        <value>[FR]Rules</value>
+        <value>Règles</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_FILTERED">
-        <value>[FR]Filtered out</value>
+        <value>Filtré</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_UNSAVED_CHANGES">
-        <value>[FR]You have chosen to refresh or close, but you currently have unsaved changes. Are you sure you want to proceed?</value>
+        <value>Vous avez choisi d'actualiser ou de fermer, mais les modifications n'ont pas été enregistrées. Voulez-vous vraiment continuer ?</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_ADD_BTN">
-        <value>[FR]Add</value>
+        <value>Ajouter</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_REMOVE_BTN">
-        <value>[FR]Remove</value>
+        <value>Supprimer</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_COMMITREMOVE_BTN">
-        <value>[FR]Remove</value>
+        <value>Supprimer</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_FILTER_BTN">
-        <value>[FR]Filter</value>
+        <value>Filtre</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_OK_BTN">
-        <value>[FR]OK</value>
+        <value>OK</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CANCEL_BTN">
-        <value>[FR]Cancel</value>
+        <value>Annuler</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_IMPORT_BTN">
-        <value>[FR]Copy Rules</value>
+        <value>Copier les règles</value>
 		    <description>Copy Rules From Another Rate Schedule</description>
     </text>
     
 		<text id="TEXT_MPTE_EDIT_AS_XML_BTN">
-        <value>[FR]Edit As XML</value>
+        <value>Modifier au format XML</value>
 		    <description>Edit these rules in XML form</description>
     </text>
     
 		<text id="TEXT_MPTE_EDIT_AS_XML">
-        <value>[FR]Edit Current Rule Set As XML</value>
+        <value>Modifier les règles actuelles au format XML</value>
 		    <description></description>
     </text>
 		
 		<text id="TEXT_MPTE_SAVE_BTN">
-        <value>[FR]Save</value>
+        <value>Enregistrer</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_EDIT_BTN">
-        <value>[FR]Edit</value>
+        <value>Modifier</value>
 		<description></description>
     </text>
 		         
     <text id="TEXT_MPTE_CLOSE_BTN">
-        <value>[FR]Close</value>
+        <value>Fermer</value>
 		<description></description>
     </text>	            
 
 		<text id="TEXT_MPTE_MOREINFO">
-        <value>[FR]More Info</value>
+        <value>Plus d'infos</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_FILTERPAGING_ERROR">
-        <value>[FR]Paging is not available when filtering is on</value>
+        <value>La pagination n'est pas disponible lorsque le filtrage est activé</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_ALT_FIRSTPAGE">
-        <value>[FR]First Page</value>
+        <value>Première page</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_ALT_LASTPAGE">
-        <value>[FR]Last Page</value>
+        <value>Dernière page</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_ALT_PREVIOUSPAGE">
-        <value>[FR]Previous Page</value>
+        <value>Page précédente</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_ALT_NEXTPAGE">
-        <value>[FR]Next Page</value>
+        <value>Page suivante</value>
 		<description></description>
     </text>
 		<text id="TEXT_MPTE_ALT_EDITGLOBALSETTINGS">
-        <value>[FR]Edit Global Settings</value>
+        <value>Modifier les paramètres globaux</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ALT_MOVERULEUP">
-        <value>[FR]Move Rule Up</value>
+        <value>Déplacer la règle vers le haut</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ALT_MOVERULEDOWN">
-        <value>[FR]Move Rule Down</value>
+        <value>Déplacer la règle vers le bas</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ALT_EDITROW">
-        <value>[FR]Edit Row</value>
+        <value>Modifier la ligne</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_ALT_ADDROW">
-        <value>[FR]Add Row Before This Row</value>
+        <value>Ajouter une ligne avant cette ligne</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_ALT_EDITDEFAULTRULE">
-        <value>[FR]Edit Default Rule</value>
+        <value>Modifier la règle par défaut</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_CONNECTOR_REMOVE">
-        <value>[FR]Remove</value>
+        <value>Supprimer</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ALT_REMOVEITEMSCLICK">
-        <value>[FR]Check all items that you want to remove</value>
+        <value>Vérifier tous les éléments à supprimer</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_ALT_OK">
-        <value>[FR]OK</value>
+        <value>OK</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ALT_CANCEL">
-        <value>[FR]Cancel</value>
+        <value>Annuler</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ALT_CALENDAR_EDITDAY">
-        <value>[FR]Edit</value>
+        <value>Modifier</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ERROR_ALLCONDITIONSBLANK">
-        <value>[FR]At least one condition must have a value</value>
+        <value>Au moins une condition doit porter une valeur</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_GLOBALACTIONS">
-        <value>[FR]Global Actions</value>
+        <value>Actions globales</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_FILTERDEFINE">
-        <value>[FR]Define the filters you would like to use</value>
+        <value>Définissez les filtres à utiliser</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_EDITCALENDAR">
-        <value>[FR]Edit Properties</value>
+        <value>Modifier des propriétés</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_IMPORTCALENDAR">
-        <value>[FR]Import Calendar</value>
+        <value>Importer un calendrier</value>
 		<description></description>
 		</text>
 		
 		<text id="TEXT_MPTE_SELECTCALENDAR">
-        <value>[FR]Select Calendar</value>
+        <value>Sélectionner un calendrier</value>
 		<description></description>
 
     </text>
 
 		<text id="TEXT_MPTE_NEWCALENDAR">
-        <value>[FR]New Calendar</value>
+        <value>Nouveau calendrier</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_WRONG_TYPE_ERROR">
-      <value>[FR]No items of this type</value>
+      <value>Absence d'éléments de ce type</value>
 			<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDAR_EDIT_DAY">
-    	<value>[FR]Weekdays</value>
+    	<value>Jours de la semaine</value>
 			<description></description>
     </text>
 
 		
 		<text id="TEXT_MPTE_CALENDAR_WEEKDAYS_CHOICE">
-    	<value>[FR]Weekdays</value>
+    	<value>Jours de la semaine</value>
 			<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDAR_WEEKENDS_CHOICE">
-    	<value>[FR]Weekends</value>
+    	<value>Week-ends</value>
 			<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDAR_HOLIDAYS_CHOICE">
-        <value>[FR]Holidays</value>
+        <value>Vacances</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDAR_WEEKDAY">
-        <value>[FR]Weekday</value>
+        <value>Jour de la semaine</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDAR_WEEKDAYS">
-        <value>[FR]Weekdays</value>
+        <value>Jours de la semaine</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_WEEKEND">
-        <value>[FR]Weekend</value>
+        <value>Week-end</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDAR_WEEKENDS">
-        <value>[FR]Weekends</value>
+        <value>Week-end</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDAR_HOLIDAY">
-        <value>[FR]Holiday</value>
+        <value>Vacances</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_DATE">
-        <value>[FR]Date</value>
+        <value>d’exp.</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_DAY_OF_WEEK">
-        <value>[FR]Day of Week</value>
+        <value>Jour de la semaine</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDAR_HOLIDAYS">
-        <value>[FR]Holidays</value>
+        <value>Vacances</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CANNOT_CREATE_CALENDAR">
-        <value>[FR]Could not create calendar object</value>
+        <value>Impossible de créer un objet de calendrier</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ERROR_CALENDAR_NAME_DUPLICATE">
-        <value>[FR]A calendar with this name already exists on the system. Please rename this calendar and try again.</value><description></description>
+        <value>Un calendrier portant ce nom existe déjà dans le système. Renommez ce calendrier et réessayez.</value><description></description>
 				<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CANNOT_SAVE_CALENDAR">
-        <value>[FR]Could not save this calendar to the database</value>
+        <value>Impossible d'enregistrer ce calendrier dans la base de données</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_CANNOT_LINK_TO_CALENDAR">
-        <value>[FR]Could not map rateschedule to this calendar.</value>
+        <value>Impossible de mapper le tarif à ce calendrier.</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MTPE_CANNOT_SET_WEEKDAY_TO_DEFAULT">
-        <value>[FR]Could not set weekday to default</value>
+        <value>Impossible d'utiliser la valeur par défaut pour définir le jour de la semaine</value>
 		<description></description>
     </text>
 				
 		<text id="TEXT_MPTE_CALENDAR_CANNOT_CREATE_WEEKDAY">
-        <value>[FR]Could not create weekday</value>
+        <value>Impossible de créer le jour de la semaine</value>
 		<description></description>
     </text>
 								
 		<text id="TEXT_MPTE_CANNOT_LOAD_CALENDAR">
-        <value>[FR]Could not load calendar</value>
+        <value>Impossible de charger le calendrier</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ADDWEEKDAY">
-        <value>[FR]Customize Day</value>
+        <value>Personnaliser le jour</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_REMOVEDAY">
-        <value>[FR]Remove</value>
+        <value>Supprimer</value>
 		<description></description>
     </text>
 				
 		<text id="TEXT_MPTE_ADDHOLIDAY_BTN">
-        <value>[FR]New Holiday</value>
+        <value>Nouvelles vacances</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_REMOVEHOLIDAY_BTN">
-        <value>[FR]Remove</value>
+        <value>Supprimer</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_NEW_HOLIDAY">
-        <value>[FR]New Holiday</value>
+        <value>Nouvelles vacances</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_HOLIDAY_NAME">
-        <value>[FR]Name</value>
+        <value>Nom</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_HOLIDAY_DATE">
-        <value>[FR]Date</value>
+        <value>d’exp.</value>
 		<description></description>
     </text>
 				
 		<text id="TEXT_MPTE_ADD_PERIOD_BTN">
-        <value>[FR]Add</value>
+        <value>Ajouter</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_REMOVE_PERIOD_BTN">
-        <value>[FR]Remove</value>
+        <value>Supprimer</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_REMOVE_PERIODS_TITLE">
-        <value>[FR]Remove Periods</value>
+        <value>Supprimer des périodes</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_ADD_PERIOD_TITLE">
-        <value>[FR]Add Period</value>
+        <value>Ajouter une période</value>
 		<description></description>
     </text>
 		
 		
 		<text id="TEXT_MPTE_RECURRING_CHARGE_AMOUNT">
-        <value>[FR]Recurring Charge Amount</value><description></description>
+        <value>Montant des frais récurrents</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_NO_CALENDAR_CONFIGURED">
-        <value>[FR]Warning: No Calendar configured</value>
+        <value>Avertissement : aucun calendrier configuré</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_MPTE_NO_CALENDAR_CONFIGURED_SUGESTION_MSG">
-        <value>[FR]Please select an existing one or create a new one.</value>
+        <value>Sélectionnez un calendrier existant ou créez-en un.</value>
 		<description></description>
     </text>
 
 		<text id="TEXT_MPTE_NO_CALENDAR_CONFIGURED_MAM_SUGESTION_MSG">
-        <value>[FR]Please create a new one.</value>
+        <value>Veuillez en créer un.</value>
 		<description></description>
     </text>
 		
 		<text id="TEXT_CALENDAR_PICKER_TITLE">
-        <value>[FR]Select Calendar</value><description></description>
+        <value>Sélectionner un calendrier</value><description></description>
     </text>
 		
     <text id="TEXT_MPTE_NEW_CALENDAR_SAVED">
-        <value>[FR]The calendar has been successfully saved.</value>
+        <value>L'enregistrement du calendrier a abouti.</value>
     </text>
 		
     <text id="TEXT_MPTE_CALENDAR_SAVED">
-        <value>[FR]The calendar has been successfully saved.  If usage has already been rated using this calendar, the pipeline may need to be restarted in order for the new values to take effect.</value>
+        <value>Le calendrier a été enregistré. Si l'utilisation a déjà été évaluée à l'aide de ce calendrier, le pipeline doit peut-être redémarrer afin que les nouvelles valeurs soient prises en considération.</value>
     </text>
 		
 		<text id="TEXT_RATESCHEDULE_PICKER_TITLE">
-        <value>[FR]Select [TEXT_KEYTERM_RATE_SCHEDULE] to import rules from</value><description></description>
+        <value>Sélectionnez [TEXT_KEYTERM_RATE_SCHEDULE] pour importer les règles à partir de</value><description></description>
     </text>
 		
 		<text id="TEXT_NULL_START_DATE_TYPE">
-        <value>[FR]No start date</value><description></description>
+        <value>Date de début du cycle</value><description></description>
     </text>
 		
 		<text id="TEXT_NULL_END_DATE_TYPE">
-        <value>[FR]No end date</value><description></description>
+        <value>Date de fin du cycle</value><description></description>
     </text>
 		
 		<text id="TEXT_ABSOLUTE_DATE_TYPE">
-        <value>[FR]Absolute date on</value><description></description>
+        <value>Date absolue x</value><description></description>
     </text>
 		
 		<text id="TEXT_SUBSCRIPTIONRELATIVE_DATE_TYPE">
-        <value>[FR]day(s) after subscription</value><description></description>
+        <value>jour(s) après l'abonnement</value><description></description>
     </text>
 		
 		<text id="TEXT_BILLINGCYCLE_DATE_TYPE">
-        <value>[FR]Next billing cycle after</value><description></description>
+        <value>Prochain cycle de facturation après</value><description></description>
     </text>	
 		
 		<text id="TEXT_RATES_START_DATE">
-        <value>[FR]Starts</value><description></description>
+        <value>Commence</value><description></description>
     </text>
 
 		<text id="TEXT_RATES_END_DATE">
-        <value>[FR]Ends</value><description></description>
+        <value>Se termine</value><description></description>
     </text>
 		
 		<text id="TEXT_CALENDAR_NAME">
-        <value>[FR]Name</value><description></description>
+        <value>Nom</value><description></description>
     </text>
 		
 		<text id="TEXT_CALENDAR_DESCRIPTION">
-        <value>[FR]Description</value><description></description>
+        <value>Description</value><description></description>
     </text>
 		
 		<text id="TEXT_CALENDAR_PROPERTIES">
-        <value>[FR]Calendar Properties</value><description></description>
+        <value>Propriétés du calendrier</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_DAY">
-        <value>[FR]Day</value><description></description>
+        <value>Jour</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_DATE">
-        <value>[FR]Date</value><description></description>
+        <value>d’exp.</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDAR_STARTTIME">
-        <value>[FR]Start Time</value><description></description>
+        <value>Heure de début</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDAR_ENDTIME">
-        <value>[FR]End Time</value><description></description>
+        <value>Heure de fin</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_CODE">
-        <value>[FR]Code</value><description></description>
+        <value>Code</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_DEFCODE">
-        <value>[FR]Default Code</value><description></description>
+        <value>Code par défaut</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_GRAPH">
-        <value>[FR]Graph</value><description></description>
+        <value>Graphique</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_PERIODS">
-        <value>[FR]Periods</value><description></description>
+        <value>Période</value><description></description>
     </text>		
 		
 		<text id="TEXT_MPTE_ERROR_PERIODSTART_AFTER_END">
-        <value>[FR]The start time must be before the end time</value><description></description>
+        <value>L'heure de début doit être antérieure à l'heure de fin</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_CALENDARNAME_BLANK">
-        <value>[FR]Calendar name can not be blank</value><description></description>
+        <value>Le nom du calendrier doit être renseigné</value><description></description>
     </text>		
 
 		<text id="TEXT_MPTE_HOLIDAYNAME_DUPLICATE">
-        <value>[FR]This name is already in use by another holiday on this calendar</value><description></description>
+        <value>Ce nom est déjà utilisé par d'autres vacances dans ce calendrier</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_HOLIDAYNAME_BLANK">
-        <value>[FR]Holiday name can not be blank</value><description></description>
+        <value>Le nom des vacances doit être renseigné</value><description></description>
     </text>		
 
 		<text id="TEXT_MPTE_HOLIDAYNAME_INVALID">
-        <value>[FR]Holiday name has invalid characters</value><description></description>
+        <value>Le nom des vacances comporte des caractères incorrects</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_HOLIDAYDATE_INVALID">
-        <value>[FR]Holiday date is invalid</value><description></description>
+        <value>La date des vacances est incorrecte</value><description></description>
     </text>		
 
 		<text id="TEXT_MPTE_CANNOT_REMOVE_HOLIDAY">
-        <value>[FR]Holiday could not be removed from this calendar.</value><description></description>
+        <value>Les vacances n'ont pas pu être supprimées de ce calendrier.</value><description></description>
     </text>		
 		
 		<text id="TEXT_MPTE_SET_DAY_TO_DEFAULT">
-        <value>[FR]Make Default</value><description></description>
+        <value>Utiliser comme valeur par défaut</value><description></description>
     </text>		
 
 		<text id="TEXT_MPTE_CUSTOMIZE_DAY">
-        <value>[FR]Customize</value><description></description>
+        <value>Personnaliser</value><description></description>
     </text>		
 		
 		<text id="TEXT_MPTE_CALENDAR_EDITDAY">
-        <value>[FR]Edit</value><description></description>
+        <value>Modifier</value><description></description>
     </text>		
 
 		<text id="TEXT_MPTE_CALENDAR_EDITDAY">
-        <value>[FR]Edit</value><description></description>
+        <value>Modifier</value><description></description>
     </text>		
 
 		<text id="TEXT_MPTE_CALENDAR_MONDAY">
-        <value>[FR]Monday</value><description></description>
+        <value>Lundi</value><description></description>
     </text>		
 		<text id="TEXT_MPTE_CALENDAR_TUESDAY">
-        <value>[FR]Tuesday</value><description></description>
+        <value>Mardi</value><description></description>
     </text>		
 		<text id="TEXT_MPTE_CALENDAR_WEDNESDAY">
-        <value>[FR]Wednesday</value><description></description>
+        <value>Mercredi</value><description></description>
     </text>		
 		<text id="TEXT_MPTE_CALENDAR_THURSDAY">
-        <value>[FR]Thursday</value><description></description>
+        <value>Jeudi</value><description></description>
     </text>		
 		<text id="TEXT_MPTE_CALENDAR_FRIDAY">
-        <value>[FR]Friday</value><description></description>
+        <value>Vendredi</value><description></description>
     </text>		
 		<text id="TEXT_MPTE_CALENDAR_SATURDAY">
-        <value>[FR]Saturday</value><description></description>
+        <value>Samedi</value><description></description>
     </text>		
 		<text id="TEXT_MPTE_CALENDAR_SUNDAY">
-        <value>[FR]Sunday</value><description></description>
+        <value>Dimanche</value><description></description>
     </text>		
 		<text id="TEXT_MPTE_CALENDAR_DEFAULTWEEKEND">
-        <value>[FR]Default Weekend</value><description></description>
+        <value>Week-end par défaut</value><description></description>
     </text>		
 		<text id="TEXT_MPTE_CALENDAR_DEFAULTWEEKDAY">
-        <value>[FR]Default Weekday</value><description></description>
+        <value>Jour de la semaine par défaut</value><description></description>
     </text>		
 
 		
 		<text id="TEXT_MPTE_CALENDAR_ADDPERIOD">
-        <value>[FR]Add</value><description></description>
+        <value>Ajouter</value><description></description>
     </text>		
 
 		<text id="TEXT_MPTE_CALENDAR_REMOVEPERIOD">
-        <value>[FR]Remove</value><description></description>
+        <value>Supprimer</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ERROR_NO_ENUMERATOR">
-        <value>[FR]Unable to find enumerator for this value</value><description></description>
+        <value>L'énumérateur de cette valeur est introuvable</value><description></description>
     </text>
 				
 		<text id="TEXT_MPTE_ERROR_FILE_NOT_LOCATED">
-        <value>[FR]Could not locate the file</value><description></description>
+        <value>Ce fichier est introuvable</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_ERROR_FILE_NOT_READABLE">
-        <value>[FR]Error occurred while reading the file</value><description></description>
+        <value>Une erreur s'est produite pendant la lecture du fichier</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ERROR_NO_ENUMERATOR">
-        <value>[FR]Unable to find enumerator for this value</value><description></description>
+        <value>L'énumérateur de cette valeur est introuvable</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_ERROR_NOT_BLANK1">
-        <value>[FR]cannot be blank.</value><description></description>
+        <value>Cette zone doit être renseignée.</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_ERROR_NOT_BLANK2">
-        <value>[FR]The default value of</value><description></description>
+        <value>La valeur par défaut de</value><description></description>
     </text>		
 		
 		<text id="TEXT_MPTE_ERROR_NOT_BLANK3">
-        <value>[FR]is being used.</value><description></description>
+        <value>est utilisée.</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_ERROR_MUSTBE_INTEGER">
-        <value>[FR]must be an integer</value><description></description>
+        <value>doit être un nombre entier</value><description></description>
     </text>
 				
 		<text id="TEXT_MPTE_ERROR_MUSTBE_NUMBER">
-        <value>[FR]must be a number</value><description></description>
+        <value>doit être un nombre</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_ERROR_MUSTBE_AMOUNT">
-        <value>[FR]Input Error. Please type an amount.</value><description></description>
+        <value>Erreur de saisie. Saisissez un montant.</value><description></description>
     </text>
 		
 		<text id="TEXT_MPTE_ERROR_MUSTBE_DATE">
-        <value>[FR]must be a date</value><description></description>
+        <value>doit être une date</value><description></description>
     </text>
 
     <text id="TEXT_MPTE_ERROR_LONG_OVERFLOW">
-        <value>[FR] does not fit in the range of a long integer</value><description></description>
+        <value> ne tient pas dans la plage des nombres entiers longs</value><description></description>
     </text>
 
     <text id="TEXT_MPTE_ERROR_UNKNOWN">
-        <value>[FR]An unknown error has occurred.  Please try again later. If this problem persists, please contact your system administrator.</value><description></description>
+        <value>Une erreur inconnue s'est produite. Réessayez ultérieurement. Si le problème persiste, contactez votre administrateur système.</value><description></description>
     </text>
 
     <text id="TEXT_MPTE_ERROR_CANNOT_CREATE_OBJ">
-        <value>[FR]Object could not be created. Please make sure that object is available and registered.</value><description></description>
+        <value>L'objet n'a pas pu être créé. Vérifiez que cet objet est disponible et enregistré.</value><description></description>
     </text>
 
     <text id="TEXT_MPTE_ERROR_NOT_FOUND">
-        <value>[FR]was not found ID=</value><description></description>
+        <value>Introuvable, ID =</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_ERROR_RATESCHEDULE_SAVE_FAILED">
-        <value>[FR]Could not save [TEXT_KEYTERM_RATE_SCHEDULE] with rules to the database. Please check your log file.</value><description></description>
+        <value>Impossible d'enregistrer [TEXT_KEYTERM_RATE_SCHEDULE] avec les règles de la base de données. Vérifiez votre fichier journal.</value><description></description>
     </text>
 		
     <text id="TEXT_MPTE_ERROR_CANNOT_INITIALIZE_OBJ">
-        <value>[FR]Object failed to run initialize function.</value><description></description>
+        <value>L'exécution de la fonction par l'objet a échoué.</value><description></description>
     </text>
 		
     <text id="TEXT_MPTE_ERROR_CANNOT_LOAD_ENUMTYPES">
-        <value>[FR]Object could not load enumerated types.</value><description></description>
+        <value>L'objet n'a pas pu charger les types énumérés.</value><description></description>
     </text>	
 		
     <text id="TEXT_MPTE_ERROR_CANNOT_LOAD_ENUMTYPES">
-        <value>[FR]Object could not load enumerated types.</value><description></description>
+        <value>L'objet n'a pas pu charger les types énumérés.</value><description></description>
     </text>
 		
     <text id="TEXT_MPTE_WARNING_EDIT_PAST_RATES">
-        <value>[FR]<![CDATA[<b>Warning:</b> You are editing rates that may be (or may have been) effective.]]></value><description></description>
+        <value><![CDATA[<b>Avertissement :</b> vous modifiez des prix qui peuvent être (ou avoir été) en vigueur.]]></value><description></description>
     </text>
 
     <text id="TEXT_MPTE_ERROR_OVERFLOW">
-        <value>[FR]value is out of bounds</value><description></description>
+        <value>cette valeur est hors limites</value><description></description>
     </text>
 
     <text id="TEXT_MPTE_VALUE_NOT_CONFIGURED">
-        <value>[FR]value not configured</value><description></description>
+        <value>cette valeur n'est pas configurée</value><description></description>
     </text>
 
     <text id="TEXT_MPTE_NO_PERIODS_CONFIGURED">
-        <value>[FR]No periods configured</value><description></description>
+        <value>Aucune période configurée</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_CANNOT_CREATE_PERIOD">
-        <value>[FR]Could not create calendar period</value><description></description>
+        <value>Impossible de créer la période de calendrier</value><description></description>
     </text>
 
     <text id="TEXT_MPTE_CALENDAR_SAVE_OK">
-        <value>[FR]Calendar saved</value><description></description>
+        <value>Calendrier enregistré</value><description></description>
     </text>
 
 		<text id="TEXT_MPTE_CALENDAR_WARNING_WHEN_EDITING">
-        <value>[FR]Warning: Many [TEXT_KEYTERM_RATE_SCHEDULES] may be using this calendar. Any changes you make will affect all of them. </value>
+        <value>Avertissement : de nombreuses [TEXT_KEYTERM_RATE_SCHEDULES] peuvent utiliser ce calendrier. Toute modification apportée affectera la totalité d'entre elles. </value>
 				<description></description>
     </text>
 
 		<text id="TEXT_MPTE_DIFF_DISPLAY_NULLVALUE">
-        <value>[FR]BLANK</value>
+        <value>VIDE</value>
 				<description></description>
     </text>
 		<text id="TEXT_MPTE_DIFF_DISPLAY_DELETED">
-        <value>[FR]Deleted</value>
+        <value>Supprimé</value>
 				<description></description>
     </text>
 		<text id="TEXT_MPTE_DIFF_DISPLAY_UPDATED">
-        <value>[FR]Modified</value>
+        <value>Modifié</value>
 				<description></description>
     </text>
 		<text id="TEXT_MPTE_DIFF_DISPLAY_ADDED">
-        <value>[FR]Added</value>
+        <value>Ajouté</value>
 				<description></description>
     </text>
 		<text id="TEXT_MPTE_DIFF_DISPLAY_NOCHANGE">
-        <value>[FR]<![CDATA[&nbsp;]]></value>
+        <value><![CDATA[&nbsp;]]></value>
 				<description></description>
     </text>
 		<text id="TEXT_MPTE_DIFF_DISPLAY_NOCHANGE_MESSAGE">
-        <value>[FR]<![CDATA[<b>The two rulesets are identical.</b><BR>This can happen when a ruleset is saved but no edits were made to the ruleset.&nbsp;&nbsp;
+        <value><![CDATA[<b>Les deux ensembles de règles sont identiques.</b><BR>Cela peut se produire quand un ensemble de règles est enregistré mais qu'aucune modification n'a été apportée.
 ]]></value>
 				<description></description>
     </text>
 		<text id="TEXT_ICB_PRICELIST_DISPLAY_NAME">
-        <value>[FR]<![CDATA[Customer Specific (Custom Rate)]]></value>
+        <value><![CDATA[En fonction du client (prix personnalisé)]]></value>
 				<description></description>
     </text>
   <text id="TEXT_APPROVALS_RATESCHEDULE_ALREADY_HAS_PENDING_CHANGE">
-    <value>[FR]This Rate Schedule currently has an update pending approval. For consistency, further updates cannot be made until the pending change is either approved or denied.</value>
+    <value>Cette échelle tarifaire contient une mise à jour en attente d'approbation. Pour des raisons de cohérence, aucune autre mise à jour ne peut être effectuée tant que cette mise à jour n'a pas été approuvée ou refusée.</value>
     <description></description>
   </text>
   <text id="TEXT_APPROVALS_VIEW_PENDING_CHANGE">
-    <value>[FR]View Pending Change</value>
+    <value>Afficher la modification en attente</value>
     <description></description>
   </text>    
 </texts>

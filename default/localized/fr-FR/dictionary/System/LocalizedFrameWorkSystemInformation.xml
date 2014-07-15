@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<texts id="Main" type='collection'>
+<texts id="Main" type="collection">
 
 <description>
 This file defines the MAM system information that must be localized.
 </description>
 
     <text id="TEXT_PRODUCT_OFFERING_LIST">
-        <value>List</value>
+        <value>Liste</value>
         <description></description>
     </text>
     
-		<text id='DEFAULT_PATH_SEARCH'>
+		<text id="DEFAULT_PATH_SEARCH">
 			<value>/mcm/default/localized/us</value>
       <description>
 The path defined in the HTML Dialog template file. In this case we keep /mam/ because it is hard code this way in the HTML template file. 
@@ -19,12 +18,12 @@ The MDM Renderer process use this string to perform a string search/replace.
       .</description>
 		</text>       
 
-		<text id='CUSTOM_PATH_SEARCH'>
+		<text id="CUSTOM_PATH_SEARCH">
 			<value>/mcm/custom/localized/us</value>
       <description>Same as DEFAULT_PATH_SEARCH but for the folder custom.</description>
 		</text>        
 
-		<text id='DEFAULT_PATH_REPLACE'>
+		<text id="DEFAULT_PATH_REPLACE">
 			<value>[APP_HTTP_PATH]/default/localized/en-us</value>
       <description>
 Define where are located the localized folders (images, style, textlookup) for the current user based on his language.
@@ -33,13 +32,13 @@ This string is the replaced string. Here we do not hard code mam but we use the 
       </description>
 		</text>
 
-    <text id='CUSTOM_PATH_REPLACE'>
+    <text id="CUSTOM_PATH_REPLACE">
 			<value>[APP_HTTP_PATH]/custom/localized/us</value>
       <description>Same as CUSTOM_PATH_SEARCH but for the folder custom.</description>
 		</text>
 
     <text id="TEXT_JAVASCRIPT_ERROR">
-        <value>Your browser does not seem to have JavaScript enabled.  Follow this link to correct the situation.</value>
+        <value>JavaScript ne semble pas activé sur votre navigateur. Cliquez sur ce lien pour corriger ce problème.</value>
         <description></description>
     </text>  
       

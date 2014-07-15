@@ -3,64 +3,63 @@
 	 
 	 
 		<text id="GO_TOOL_TIP">
-				<value>[FR]Go</value>
+				<value>Aller</value>
 				<description></description>
 		</text>
 		<text id="RESET_TOOL_TIP">
-				<value>[FR]Reset</value>
+				<value>Réinitialiser</value>
 				<description></description>
 		</text>
 		
 			 
 		<text id="NEXT_PAGE_TOOL_TIP">
-				<value>[FR]Next Page</value>
+				<value>Page suivante</value>
 				<description></description>
 		</text>
 
 		<text id="PREVIOUS_PAGE_TOOL_TIP">
-				<value>[FR]Previous Page</value>
+				<value>Page précédente</value>
 				<description></description>
 		</text>
 
 		<text id="FIRST_PAGE_TOOL_TIP">
-				<value>[FR]First Page</value>
+				<value>Première page</value>
 				<description></description>
 		</text>
 
 		<text id="LAST_PAGE_TOOL_TIP">
-				<value>[FR]Last Page</value>
+				<value>Dernière page</value>
 				<description></description>
 		</text>
 
 		<text id="REFRESH_PAGE_TOOL_TIP">
-				<value>[FR]Refresh Page</value>
+				<value>Actualiser la page</value>
 				<description></description>
 		</text>
 
 		<text id="EXPORT_PAGE_TOOL_TIP">
-				<value>[FR]Export</value>
+				<value>Exporter</value>
 				<description></description>
 		</text>
 
-	 <text id='MDM_TOOL_BAR_PAGE_WORD'>
-			<value>[FR]Page</value>
+	 <text id="MDM_TOOL_BAR_PAGE_WORD">
+			<value>Page</value>
 		</text> 	
-		<text id='MDM_TOOL_BAR_OF_WORD'>
-			<value>[FR]of</value>
+		<text id="MDM_TOOL_BAR_OF_WORD">
+			<value>sur</value>
     </text> 
     
-    <text id='MDM_SELECT_ALL'>
-			<value>[FR]Select All</value>
+    <text id="MDM_SELECT_ALL">
+			<value>Sélectionner tout</value>
     </text>     
-    <text id='MDM_UNSELECT_ALL'>
-			<value>[FR]UnSelect All</value>
+    <text id="MDM_UNSELECT_ALL">
+			<value>Désélectionner tout</value>
     </text>             
-    <text id='MDM_SELECT_PAGE'>
-			<value>[FR]Select Page</value>
+    <text id="MDM_SELECT_PAGE">
+			<value>Sélectionner la page</value>
     </text>             
-    <text id='MDM_UNSELECT_PAGE'>
-			<value>[FR]UnSelect Page</value>
+    <text id="MDM_UNSELECT_PAGE">
+			<value>Désélectionner la page</value>
     </text>                 
     
 </texts>
-

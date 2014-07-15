@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texts id="fred" type="collection">
+
+    <description></description>
+
+    <text id="TEXT_LOGIN_TITLE">
+        <value>Login do MetraOffer</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_NO_AUTH">
+        <value>Sua sessão expirou. Faça login novamente.</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_LOGIN_NAME">
+        <value>Nome do usuário</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_LOGIN_PASSWORD">
+        <value>Senha</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_INVALID_LOGIN">
+        <value>Verifique seu nome e senha de usuário e selecione Inserir para tentar novamente.</value>
+        <description></description>
+    </text>
+
+    <text id="TEXT_INVALID_BLANK_LOGIN">
+        <value>Nome de usuário ou senha não podem ficar em branco. Tente novamente.</value>
+        <description></description>
+    </text> 	  
+                  
+</texts>

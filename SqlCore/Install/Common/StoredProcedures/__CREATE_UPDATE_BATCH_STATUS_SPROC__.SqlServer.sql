@@ -22,9 +22,7 @@ update t_batch
     -- ESR-4575 MetraControl- failed batches have completed status. Corrected batches have failed status
     -- Added a condition to mark batches with failed transections as Failed
     t_batch.tx_status =
-       case when (t_batch.tx_status = 'A' and (t_batch.n_failed > 0))
-            then 'F'
-            when ((t_batch.n_completed + t_batch.n_failed + ISNULL(t_batch.n_dismissed, 0) + @n_completed) = t_batch.n_expected
+       case when ((t_batch.n_completed + t_batch.n_failed + ISNULL(t_batch.n_dismissed, 0) + @n_completed) = t_batch.n_expected
                    or 
                   (((t_batch.n_completed + t_batch.n_failed + + ISNULL(t_batch.n_dismissed, 0) + @n_completed) = t_batch.n_metered)                      and t_batch.n_expected = 0)) 
             then 'C'

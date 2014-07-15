@@ -11,6 +11,10 @@
             <Value>Moeda</Value>
         </locale_entry>
         <locale_entry>
+      <Name>metratech.com/Internal/Division</Name>
+      <Value>[pt-BR]Division</Value>
+    </locale_entry>
+    <locale_entry>
             <Name>metratech.com/internal/Folder</Name>
             <Value>Pasta</Value>
         </locale_entry>
@@ -22,7 +26,7 @@
             <Name>metratech.com/internal/Language</Name>
             <Value>Idioma</Value>
         </locale_entry>
-         <locale_entry>
+    <locale_entry>
             <Name>metratech.com/Internal/MetraTaxCountryEligibility</Name>
             <Value>Elegibilidade do país</Value>
         </locale_entry>
@@ -55,6 +59,10 @@
             <Value>Pergunta de segurança</Value>
         </locale_entry>
         <locale_entry>
+      <Name>metratech.com/internal/SecurityQuestionText</Name>
+      <Value>[pt-BR]Custom Security Question</Value>
+    </locale_entry>
+    <locale_entry>
             <Name>metratech.com/internal/StatusReason</Name>
             <Value>Motivo do status</Value>
         </locale_entry>
@@ -67,10 +75,34 @@
             <Value>Isenção de imposto</Value>
         </locale_entry>
         <locale_entry>
+      <Name>metratech.com/Internal/TaxExemptEndDate</Name>
+      <Value>[pt-BR]Tax Exempt End Date</Value>
+    </locale_entry>
+    <locale_entry>
             <Name>metratech.com/internal/TaxExemptID</Name>
             <Value>ID de isenção de imposto</Value>
         </locale_entry>
         <locale_entry>
+      <Name>metratech.com/Internal/TaxExemptReason</Name>
+      <Value>[pt-BR]Tax Exempt Reason</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/Internal/TaxExemptStartDate</Name>
+      <Value>[pt-BR]Tax Exempt Start Date</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/Internal/TaxRegistryReference</Name>
+      <Value>[pt-BR]Tax Registry Reference</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/Internal/TaxServiceAddressPCode</Name>
+      <Value>[pt-BR]Tax Service Address PCode</Value>
+    </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/Internal/TaxVendor</Name>
+      <Value>[pt-BR]Tax Vendor</Value>
+    </locale_entry>
+    <locale_entry>
             <Name>metratech.com/internal/TimezoneID</Name>
             <Value>Fuso horário</Value>
         </locale_entry>
@@ -78,5 +110,9 @@
             <Name>metratech.com/internal/UsageCycleType</Name>
             <Value>Ciclo de faturamento</Value>
         </locale_entry>
+    <locale_entry>
+      <Name>metratech.com/Internal/UseStdImpliedTaxAlg</Name>
+      <Value>[pt-BR]Use Standard Inclusive Tax Calculation</Value>
+    </locale_entry>
     </locale_space>
 </mt_config>

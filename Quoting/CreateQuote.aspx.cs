@@ -803,13 +803,15 @@ namespace MetraNet.Quoting
       // ReSharper disable PossibleNullReferenceException
       foreach (XElement format in reportFormats.Root.Elements().Where(format => format.Attribute("type").Value.Equals(reportFormat)))
       {
+        const string startLoad = "setTimeout(function () { checkFrameLoading(); }, 1000);";
         return String.Format(
-          "<li><a href=\"ShowReports.aspx?report={0}&account={3}\"><img src='{1}'/>{4} {2}</a></li>",
+          "<li><a href=\"ShowReports.aspx?report={0}&account={1}\" onclick=\"{2}\"><img src='{3}'/>{4} {5}</a></li>",
           Server.UrlEncode(reportFileNameForShowReports),
-          format.Element("ReportImage").Value,
-          CurrentQuote.IdQuote,
           accId,
-          GetLocalResourceObject("REPORT_LINK_TEXT"));
+          startLoad,
+          format.Element("ReportImage").Value,
+          GetLocalResourceObject("REPORT_LINK_TEXT"),
+          CurrentQuote.IdQuote);
       }
       // ReSharper restore PossibleNullReferenceException
 

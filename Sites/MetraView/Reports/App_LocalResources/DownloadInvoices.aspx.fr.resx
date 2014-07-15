@@ -117,25 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddReport.Text" xml:space="preserve">
+    <value>Ajouter le rapport {0} à la liste des factures</value>
+  </data>
+  <data name="AddCreditNoteReport.Text" xml:space="preserve">
+    <value>Ajouter le rapport {0} à la liste des notes de crédit</value>
+  </data>
+  <data name="ErrorDownload.Text" xml:space="preserve">
+    <value>Impossible de télécharger les rapports</value>
+  </data>
   <data name="NoInvoices.Text" xml:space="preserve">
     <value>Aucune facture trouvée</value>
   </data>
   <data name="NoQuotes.Text" xml:space="preserve">
-    <value>Pas de citations trouvées</value>
+    <value>Aucun bon de commande trouvé</value>
+  </data>
+  <data name="NoCreditNotes.Text" xml:space="preserve">
+    <value>Aucune note de crédit trouvée</value>
   </data>
   <data name="SelectInterval.Text" xml:space="preserve">
     <value>Sélectionner l’intervalle</value>
-  </data>
-    <data name="AddReport.Text" xml:space="preserve">
-    <value>(French) Add report {0} to InvioceList</value>
-  </data>
-  <data name="AddCreditNoteReport.Text" xml:space="preserve">
-    <value>(French) Add report {0} to CreditNotesList</value>
-  </data>
-  <data name="ErrorDownload.Text" xml:space="preserve">
-    <value>(French) Unable to download reports</value>
-  </data>
-  <data name="NoCreditNotes.Text" xml:space="preserve">
-    <value>(French) No Credit Notes Found</value>
   </data>
 </root>

@@ -130,10 +130,10 @@
     <value>Le compte '{0}' est bloqué.</value>
   </data>
   <data name="TEXT_ACCOUNT_NAME" xml:space="preserve">
-    <value>Nom du compte :</value>
+    <value>Nom du compte :</value>
   </data>
   <data name="TEXT_ACCOUNT_NUMBER" xml:space="preserve">
-    <value>Numéro de compte:</value>
+    <value>Numéro de compte :</value>
   </data>
   <data name="TEXT_ACCOUNT_SUMMARY" xml:space="preserve">
     <value>Résumé du compte</value>
@@ -229,7 +229,7 @@
     <value>Supprimer</value>
   </data>
   <data name="TEXT_BULKUPDATE" xml:space="preserve">
-    <value>Bulk Update</value>
+    <value>Mise à jour en vrac</value>
   </data>
   <data name="TEXT_DESCRIPTION" xml:space="preserve">
     <value>Description</value>
@@ -247,10 +247,13 @@
     <value>Télécharger factures et rapports</value>
   </data>
   <data name="TEXT_DOWNLOAD_QUOTES" xml:space="preserve">
-    <value>Télécharger quotes</value>
+    <value>Télécharger les bons de commande</value>
+  </data>
+  <data name="TEXT_DOWNLOAD_CREDIT_NOTES" xml:space="preserve">
+    <value>Télécharger les notes de crédit</value>
   </data>
   <data name="TEXT_EDIT" xml:space="preserve">
-    <value>Modifier</value>
+    <value>Modifier </value>
   </data>
   <data name="TEXT_EN_US" xml:space="preserve">
     <value>Anglais (États-Unis)</value>
@@ -283,10 +286,10 @@
     <value>ID</value>
   </data>
   <data name="TEXT_INLINE_ADJUSTMENTS" xml:space="preserve">
-    <value>Ajustements en ligne du texte</value>
+    <value>Afficher les ajustements en ligne</value>
   </data>
   <data name="TEXT_INLINE_TAX" xml:space="preserve">
-    <value>Taxe en ligne</value>
+    <value>Afficher la taxe en ligne</value>
   </data>
   <data name="TEXT_INTERNAL_ID" xml:space="preserve">
     <value>ID interne</value>
@@ -319,7 +322,7 @@
     <value>Gérer les abonnements groupés</value>
   </data>
   <data name="TEXT_MORE_ITEMS" xml:space="preserve">
-    <value>Autres éléments…</value>
+    <value>Autres éléments...</value>
   </data>
   <data name="TEXT_MY_REPORTS" xml:space="preserve">
     <value>Mes rapports</value>
@@ -331,10 +334,10 @@
     <value>Nouveau </value>
   </data>
   <data name="TEXT_NO" xml:space="preserve">
-    <value>Non</value>
+    <value>NON</value>
   </data>
   <data name="TEXT_NO_BILL" xml:space="preserve">
-    <value>Votre facture n’est pas encore disponible.  Cliquez &lt;a href="Usage.aspx?view=summary"&gt;ici&lt;/a&gt; pour consulter votre utilisation actuelle.</value>
+    <value>Votre facture n'est pas encore disponible.  Cliquez &lt;a href="Usage.aspx?view=summary"&gt;ici&lt;/a&gt; pour afficher l'utilisation actuelle.</value>
   </data>
   <data name="TEXT_NO_RECORDS_FOUND" xml:space="preserve">
     <value>Aucun enregistrement trouvé</value>
@@ -385,7 +388,7 @@
     <value>Supprimer les comptes</value>
   </data>
   <data name="TEXT_REMOVE_RELSHIP" xml:space="preserve">
-    <value>French</value>
+    <value>Supprimer</value>
   </data>
   <data name="TEXT_REPORT_TYPE" xml:space="preserve">
     <value>Type du rapport</value>
@@ -399,11 +402,14 @@
   <data name="TEXT_SESSION_ID" xml:space="preserve">
     <value>ID de la session</value>
   </data>
+  <data name="TEXT_SHOW_ONLY_HARD_CLOSED_INTERVALS" xml:space="preserve">
+    <value>Afficher uniquement les intervalles clos</value>
+  </data>
   <data name="TEXT_SHOW_SECOND_PASS_DATA" xml:space="preserve">
     <value>Afficher les données de la deuxième transmission</value>
   </data>
   <data name="TEXT_SITE_DOWN_FOR_MAINTENANCE" xml:space="preserve">
-    <value>Le site est actuellement indisponible pour cause de maintenance. Nous sommes désolés des désagréments que cela peut vous causer.  Réessayez ultérieurement.</value>
+    <value>Le site est actuellement indisponible pour cause de maintenance. Nous sommes désolés des désagréments que cela peut vous causer. Essayez ultérieurement.</value>
   </data>
   <data name="TEXT_SITE_NAME" xml:space="preserve">
     <value>Nom du site</value>
@@ -445,7 +451,7 @@
     <value>URL</value>
   </data>
   <data name="TEXT_VALIDATION_ERROR" xml:space="preserve">
-    <value>Erreur de validation. Réessayez.</value>
+    <value>Erreur de validation. Réessayez ultérieurement.</value>
   </data>
   <data name="TEXT_VALUE" xml:space="preserve">
     <value>Valeur</value>
@@ -460,27 +466,24 @@
     <value>Largeur</value>
   </data>
   <data name="TEXT_YES" xml:space="preserve">
-    <value>Oui</value>
-  </data>
-  <data name="TEXT_DOWNLOAD_CREDIT_NOTES" xml:space="preserve">
-    <value>(French) Download Credit Notes</value>
+    <value>OUI</value>
   </data>
   <data name="TEXT_PRODUCT_VIEW_MAPPINGS" xml:space="preserve">
-    <value>(FR)Product View Mappings</value>
+    <value>[FR]Product View Mappings</value>
   </data>
   <data name="TEXT_BILL_SETTING" xml:space="preserve">
-    <value>(FR)Bill Setting</value>
+    <value>[FR]Bill Setting</value>
   </data>
   <data name="TEXT_DASHBOARDS" xml:space="preserve">
-    <value>(FR)Dashboards</value>
+    <value>[FR]Dashboards</value>
   </data>
   <data name="TEXT_ENTRY_POINTS" xml:space="preserve">
-    <value>(FR)Entry Points</value>
+    <value>[FR]Entry Points</value>
   </data>
   <data name="TEXT_REPORT_INVENTORIES" xml:space="preserve">
-    <value>(FR)Report Inventories</value>
+    <value>[FR]Report Inventories</value>
   </data>
   <data name="TEXT_SITE" xml:space="preserve">
-    <value>(FR)Site</value>
+    <value>[FR]Site</value>
   </data>
 </root>

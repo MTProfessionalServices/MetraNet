@@ -61,7 +61,7 @@ function onDetails()
         
   </div>
       <!--/box500-->
-  <p class="loginlegal">&copy;2013 MetraTech Corp. All rights reserved.</p>
+  <p class="loginlegal">&copy;2014 MetraTech Corp. All rights reserved.</p>
 </div><!--/loginwrapper-->
 
 

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,200 +59,200 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-        <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
             <xsd:complexType>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="metadata">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string" />
-                            <xsd:attribute name="type" type="xsd:string" />
-                            <xsd:attribute name="mimetype" type="xsd:string" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="assembly">
-                        <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string" />
-                            <xsd:attribute name="name" type="xsd:string" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="data">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="resheader">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" />
-                        </xsd:complexType>
-                    </xsd:element>
-                </xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="AjaxServices_ProductDetailSvc_ExtractDataInternal_You_do_not_have_access_to_view_these_details_" xml:space="preserve">
-        <value>Sie haben keine Anzeigeberechtigung für diese Details.</value>
-    </data>
-    <data name="ERROR" xml:space="preserve">
-        <value>Fehler</value>
-    </data>
-    <data name="ERROR_ACCESS_DENIED" xml:space="preserve">
-        <value>Zugriff verweigert.</value>
-    </data>
-    <data name="ERROR_ACCOUNT_DORMANT" xml:space="preserve">
-        <value>&lt;br/&gt;&lt;br/&gt; L'account è inattivo. Si può sbloccarlo.</value>
-    </data>
-    <data name="ERROR_ACH_ADD" xml:space="preserve">
-        <value>Das ACH-Zahlungsverfahren kann nicht zu diesem Konto hinzugefügt werden.</value>
-    </data>
-    <data name="ERROR_ACH_LIST" xml:space="preserve">
-        <value>Die Liste der ACH-Zahlungsmethoden kann nicht abgerufen werden.</value>
-    </data>
-    <data name="ERROR_ACH_LOAD" xml:space="preserve">
-        <value>Die Kontodetails zur ACH-Zahlung können nicht angezeigt werden.</value>
-    </data>
-    <data name="ERROR_ACH_REMOVE" xml:space="preserve">
-        <value>Das ACH-Zahlungsverfahren kann nicht von diesem Konto entfernt werden.</value>
-    </data>
-    <data name="ERROR_ACH_UPDATE" xml:space="preserve">
-        <value>Die Angaben zum ACH-Zahlungsverfahren können nicht bearbeitet werden.</value>
-    </data>
-    <data name="ERROR_ADD_SUBSCRIPTION" xml:space="preserve">
-        <value>Nutzungsanmeldung kann nicht hinzugefügt werden.</value>
-    </data>
-    <data name="ERROR_CC_ADD" xml:space="preserve">
-        <value>Die Kreditkarte kann nicht zu diesem Konto hinzugefügt werden.</value>
-    </data>
-    <data name="ERROR_CC_LIST" xml:space="preserve">
-        <value>Die Liste der Kreditkarten kann nicht abgerufen werden.</value>
-    </data>
-    <data name="ERROR_CC_LOAD" xml:space="preserve">
-        <value>Die Kreditkartendetails können nicht angezeigt werden.</value>
-    </data>
-    <data name="ERROR_CC_REMOVE" xml:space="preserve">
-        <value>Die Kreditkarte kann nicht von diesem Konto entfernt werden.</value>
-    </data>
-    <data name="ERROR_CC_UPDATE" xml:space="preserve">
-        <value>Die Angaben zur Kreditkarte können nicht bearbeitet werden.</value>
-    </data>
-    <data name="ERROR_DOWNLOAD_REPORTS" xml:space="preserve">
-        <value>Die Berichte können nicht heruntergeladen werden.</value>
-    </data>
-    <data name="ERROR_EMAIL_REQUIRED" xml:space="preserve">
-        <value>Sie müssen eine E-Mail-Adresse angeben.</value>
-    </data>
-    <data name="ERROR_END_DATE_BEFORE_START_DATE" xml:space="preserve">
-        <value>Das Enddatum muss nach dem Startdatum liegen.</value>
-    </data>
-    <data name="ERROR_LAST_LOGIN" xml:space="preserve">
-        <value>Die letzte Anmeldung für {0} war am {1}.  Seit der letzten erfolgreichen Anmeldung sind {2} Anmeldungen fehlgeschlagen.</value>
-    </data>
-    <data name="ERROR_LOGIN_INVALID" xml:space="preserve">
-        <value>Benutzername oder Kennwort sind ungültig.</value>
-    </data>
-    <data name="ERROR_LOGIN_LOCKED" xml:space="preserve">
-        <value>Ihr Konto wurde aus Sicherheitsgründen gesperrt. Bitte wenden Sie sich zur Behebung dieses Problems an den Kundendienst.</value>
-    </data>
-    <data name="ERROR_LOGIN_PASSWORD_EXPIRING" xml:space="preserve">
-        <value>Ihr Kennwort läuft in {0} Tag(en) ab. Möchten Sie es einfach gleich jetzt ändern?</value>
-    </data>
-    <data name="ERROR_MAIN_MENU" xml:space="preserve">
-        <value>Ungültige Menüdatei, verständigen Sie Ihren Systemadministrator.</value>
-    </data>
-    <data name="ERROR_MAKE_PAYMENT" xml:space="preserve">
-        <value>Ihre Zahlung konnte nicht durchgeführt werden. Bitte überprüfen Sie die Zahlungsdetails, und versuchen Sie es erneut. Sollte sich das Problem nicht beheben lassen, setzen Sie sich zur Abwicklung Ihrer Zahlung bitte mit uns in Verbindung.</value>
-    </data>
-    <data name="ERROR_NEVER_LOGGED" xml:space="preserve">
-        <value>Dieser Benutzer hat sich noch nie bei MetraView angemeldet.</value>
-    </data>
-    <data name="ERROR_NO_REPORTS_FOUND" xml:space="preserve">
-        <value>Es Wurden Keine Datensätze Gefunden</value>
-    </data>
-    <data name="ERROR_NOT_VALID_ACCOUNT" xml:space="preserve">
-        <value>Ungültiges Konto</value>
-    </data>
-    <data name="ERROR_PASSWORD_EXPIRED" xml:space="preserve">
-        <value>Ihr Kennwort ist abgelaufen.</value>
-    </data>
-    <data name="ERROR_PASSWORDS_DO_NOT_MATCH" xml:space="preserve">
-        <value>Die Kennwörter stimmen nicht überein.</value>
-    </data>
-    <data name="ERROR_REPORT_CONFIG" xml:space="preserve">
-        <value>Fehler in Konfigurationsdatei 'ReportFormat'</value>
-    </data>
-    <data name="ERROR_REPORT_FORMAT" xml:space="preserve">
-        <value>Fehler in Konfigurationsdatei 'ReportFormat'. Der Formattyp für den Bericht wurde nicht festgelegt.</value>
-    </data>
-    <data name="ERROR_REPORT_FORMAT_CONFIG" xml:space="preserve">
-        <value>Fehler in Konfigurationsdatei 'ReportFormat'. Die Dateistruktur ist nicht korrekt.</value>
-    </data>
-    <data name="ERROR_REPORT_IMAGE" xml:space="preserve">
-        <value>Fehler in Konfigurationsdatei 'ReportFormat'. Das Bild für den Bericht wurde nicht festgelegt.</value>
-    </data>
-    <data name="ERROR_REPORT_OPEN" xml:space="preserve">
-        <value>Der Bericht kann nicht geöffnet und gespeichert werden. </value>
-    </data>
-    <data name="ERROR_SECURITY_ANSWER_INVALID" xml:space="preserve">
-        <value>Geben Sie die Sicherheitsfrage oder die benutzerdefinierte Sicherheitsfrage an.</value>
-    </data>
-    <data name="ERROR_SECURITY_QUESTION_INVALID" xml:space="preserve">
-        <value>Es können nicht sowohl die Sicherheitsfrage als auch die benutzerdefinierte Sicherheitsfrage festgelegt werden.</value>
-    </data>
-    <data name="ERROR_SUBSCRIBER_NULL" xml:space="preserve">
-        <value>Sie müssen ein Konto erst verwalten, bevor Sie Aktionen durchführen können.</value>
-    </data>
-    <data name="ERROR_TEMP_LOCK" xml:space="preserve">
-        <value>Das System lässt nur {0} Anmeldeversuche zu. Danach wird das Konto vorübergehend für {1} Minuten gesperrt. Sie können die Kontosperre manuell aufheben.</value>
-    </data>
-    <data name="ERROR_UNABLE_TO_UNLOCK_ACCOUNT" xml:space="preserve">
-        <value>Das Konto kann nicht gesperrt werden. Haben Sie die entsprechende Berechtigung?</value>
-    </data>
-    <data name="ERROR_UPDATING_ACCOUNT" xml:space="preserve">
-        <value>Die Kontodaten können nicht aktualisiert werden.</value>
-    </data>
-    <data name="ERROR_USERNAME_INVALID" xml:space="preserve">
-        <value>Der Benutzername ist ungültig.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
-        <value>Die Eigenschaft konnte nicht entfernt werden.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_LoadSpecCharacteristics_Failed_getting_specs_" xml:space="preserve">
-        <value>Die Eigenschaften konnten nicht abgerufen werden.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_LoadSubCharacteristicValues_Failed_getting_entity_properties_" xml:space="preserve">
-        <value>Die Eigenschaften der Einheit konnten nicht abgerufen werden.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_SaveSpecCharacteristic_Failed_saving_spec_" xml:space="preserve">
-        <value>Die Eigenschaften konnten nicht gespeichert werden.</value>
-    </data>
-    <data name="SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_" xml:space="preserve">
-        <value>Zugriff verweigert</value>
-    </data>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AjaxServices_ProductDetailSvc_ExtractDataInternal_You_do_not_have_access_to_view_these_details_" xml:space="preserve">
+    <value>Sie haben keine Anzeigeberechtigung für diese Details.</value>
+  </data>
+  <data name="ERROR" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="ERROR_ACCESS_DENIED" xml:space="preserve">
+    <value>Zugriff verweigert.</value>
+  </data>
+  <data name="ERROR_ACCOUNT_DORMANT" xml:space="preserve">
+    <value>&lt;br/&gt;&lt;br/&gt; L'account è inattivo. Si può sbloccarlo.</value>
+  </data>
+  <data name="ERROR_ACH_ADD" xml:space="preserve">
+    <value>Das ACH-Zahlungsverfahren kann nicht zu diesem Konto hinzugefügt werden.</value>
+  </data>
+  <data name="ERROR_ACH_LIST" xml:space="preserve">
+    <value>Die Liste der ACH-Zahlungsmethoden kann nicht abgerufen werden.</value>
+  </data>
+  <data name="ERROR_ACH_LOAD" xml:space="preserve">
+    <value>Die Kontodetails zur ACH-Zahlung können nicht angezeigt werden.</value>
+  </data>
+  <data name="ERROR_ACH_REMOVE" xml:space="preserve">
+    <value>Das ACH-Zahlungsverfahren kann nicht von diesem Konto entfernt werden.</value>
+  </data>
+  <data name="ERROR_ACH_UPDATE" xml:space="preserve">
+    <value>Die Angaben zum ACH-Zahlungsverfahren können nicht bearbeitet werden.</value>
+  </data>
+  <data name="ERROR_ADD_SUBSCRIPTION" xml:space="preserve">
+    <value>Nutzungsanmeldung kann nicht hinzugefügt werden.</value>
+  </data>
+  <data name="ERROR_CC_ADD" xml:space="preserve">
+    <value>Die Kreditkarte kann nicht zu diesem Konto hinzugefügt werden.</value>
+  </data>
+  <data name="ERROR_CC_LIST" xml:space="preserve">
+    <value>Die Liste der Kreditkarten kann nicht abgerufen werden.</value>
+  </data>
+  <data name="ERROR_CC_LOAD" xml:space="preserve">
+    <value>Die Kreditkartendetails können nicht angezeigt werden.</value>
+  </data>
+  <data name="ERROR_CC_REMOVE" xml:space="preserve">
+    <value>Die Kreditkarte kann nicht von diesem Konto entfernt werden.</value>
+  </data>
+  <data name="ERROR_CC_UPDATE" xml:space="preserve">
+    <value>Die Angaben zur Kreditkarte können nicht bearbeitet werden.</value>
+  </data>
+  <data name="ERROR_DOWNLOAD_REPORTS" xml:space="preserve">
+    <value>Die Berichte können nicht heruntergeladen werden.</value>
+  </data>
+  <data name="ERROR_EMAIL_REQUIRED" xml:space="preserve">
+    <value>Sie müssen eine E-Mail-Adresse angeben.</value>
+  </data>
+  <data name="ERROR_END_DATE_BEFORE_START_DATE" xml:space="preserve">
+    <value>Das Enddatum muss nach dem Startdatum liegen.</value>
+  </data>
+  <data name="ERROR_LAST_LOGIN" xml:space="preserve">
+    <value>Die letzte Anmeldung für {0} war am {1}.  Seit der letzten erfolgreichen Anmeldung sind {2} Anmeldungen fehlgeschlagen.</value>
+  </data>
+  <data name="ERROR_LOGIN_INVALID" xml:space="preserve">
+    <value>Benutzername oder Kennwort sind ungültig.</value>
+  </data>
+  <data name="ERROR_LOGIN_LOCKED" xml:space="preserve">
+    <value>Ihr Konto wurde aus Sicherheitsgründen gesperrt. Bitte wenden Sie sich zur Behebung dieses Problems an den Kundendienst.</value>
+  </data>
+  <data name="ERROR_LOGIN_PASSWORD_EXPIRING" xml:space="preserve">
+    <value>Ihr Kennwort läuft in {0} Tag(en) ab. Möchten Sie es einfach gleich jetzt ändern?</value>
+  </data>
+  <data name="ERROR_MAIN_MENU" xml:space="preserve">
+    <value>Ungültige Menüdatei, verständigen Sie Ihren Systemadministrator.</value>
+  </data>
+  <data name="ERROR_MAKE_PAYMENT" xml:space="preserve">
+    <value>Ihre Zahlung konnte nicht durchgeführt werden. Bitte überprüfen Sie die Zahlungsdetails, und versuchen Sie es erneut. Sollte sich das Problem nicht beheben lassen, setzen Sie sich zur Abwicklung Ihrer Zahlung bitte mit uns in Verbindung.</value>
+  </data>
+  <data name="ERROR_NEVER_LOGGED" xml:space="preserve">
+    <value>Dieser Benutzer hat sich noch nie bei MetraView angemeldet.</value>
+  </data>
+  <data name="ERROR_NO_REPORTS_FOUND" xml:space="preserve">
+    <value>Es Wurden Keine Datensätze Gefunden</value>
+  </data>
+  <data name="ERROR_NOT_VALID_ACCOUNT" xml:space="preserve">
+    <value>Ungültiges Konto</value>
+  </data>
+  <data name="ERROR_PASSWORD_EXPIRED" xml:space="preserve">
+    <value>Ihr Kennwort ist abgelaufen.</value>
+  </data>
+  <data name="ERROR_PASSWORDS_DO_NOT_MATCH" xml:space="preserve">
+    <value>Die Kennwörter stimmen nicht überein.</value>
+  </data>
+  <data name="ERROR_REPORT_CONFIG" xml:space="preserve">
+    <value>Fehler in Konfigurationsdatei 'ReportFormat'</value>
+  </data>
+  <data name="ERROR_REPORT_FORMAT" xml:space="preserve">
+    <value>Fehler in Konfigurationsdatei 'ReportFormat'. Der Formattyp für den Bericht wurde nicht festgelegt.</value>
+  </data>
+  <data name="ERROR_REPORT_FORMAT_CONFIG" xml:space="preserve">
+    <value>Fehler in Konfigurationsdatei 'ReportFormat'. Die Dateistruktur ist nicht korrekt.</value>
+  </data>
+  <data name="ERROR_REPORT_IMAGE" xml:space="preserve">
+    <value>Fehler in Konfigurationsdatei 'ReportFormat'. Das Bild für den Bericht wurde nicht festgelegt.</value>
+  </data>
+  <data name="ERROR_REPORT_OPEN" xml:space="preserve">
+    <value>Der Bericht kann nicht geöffnet und gespeichert werden. </value>
+  </data>
+  <data name="ERROR_SECURITY_ANSWER_INVALID" xml:space="preserve">
+    <value>Geben Sie die Sicherheitsfrage oder die benutzerdefinierte Sicherheitsfrage an.</value>
+  </data>
+  <data name="ERROR_SECURITY_QUESTION_INVALID" xml:space="preserve">
+    <value>Es können nicht sowohl die Sicherheitsfrage als auch die benutzerdefinierte Sicherheitsfrage festgelegt werden.</value>
+  </data>
+  <data name="ERROR_SUBSCRIBER_NULL" xml:space="preserve">
+    <value>Sie müssen ein Konto erst verwalten, bevor Sie Aktionen durchführen können.</value>
+  </data>
+  <data name="ERROR_TEMP_LOCK" xml:space="preserve">
+    <value>Das System lässt nur {0} Anmeldeversuche zu. Danach wird das Konto vorübergehend für {1} Minuten gesperrt. Sie können die Kontosperre manuell aufheben.</value>
+  </data>
+  <data name="ERROR_UNABLE_TO_UNLOCK_ACCOUNT" xml:space="preserve">
+    <value>Das Konto kann nicht gesperrt werden. Haben Sie die entsprechende Berechtigung?</value>
+  </data>
+  <data name="ERROR_UPDATING_ACCOUNT" xml:space="preserve">
+    <value>Die Kontodaten können nicht aktualisiert werden.</value>
+  </data>
+  <data name="ERROR_USERNAME_INVALID" xml:space="preserve">
+    <value>Der Benutzername ist ungültig.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_DeleteSpecCharacteristic_Failed_deleting_spec_" xml:space="preserve">
+    <value>Die Eigenschaft konnte nicht entfernt werden.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_LoadSpecCharacteristics_Failed_getting_specs_" xml:space="preserve">
+    <value>Die Eigenschaften konnten nicht abgerufen werden.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_LoadSubCharacteristicValues_Failed_getting_entity_properties_" xml:space="preserve">
+    <value>Die Eigenschaften der Einheit konnten nicht abgerufen werden.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_SaveSpecCharacteristic_Failed_saving_spec_" xml:space="preserve">
+    <value>Die Eigenschaften konnten nicht gespeichert werden.</value>
+  </data>
+  <data name="SpecCharacteristicRepository_SpecCharacteristicRepository_Access_denied_" xml:space="preserve">
+    <value>Zugriff verweigert</value>
+  </data>
 </root>

@@ -163,37 +163,37 @@
     <value>Assinaturas em grupo</value>
   </data>
   <data name="TEXT_KEYTERM_NON_RECURRING_CHARGE" xml:space="preserve">
-    <value>CobranÃƒÂ§a nÃƒÂ£o recorrente</value>
+    <value>Cobrança não recorrente</value>
   </data>
   <data name="TEXT_KEYTERM_NON_RECURRING_CHARGES" xml:space="preserve">
-    <value>CobranÃƒÂ§as nÃƒÂ£o recorrentes</value>
+    <value>Cobranças não recorrentes</value>
   </data>
   <data name="TEXT_KEYTERM_NON_SHARED_PRICE_LIST" xml:space="preserve">
-    <value>Lista de preÃƒÂ§os nÃƒÂ£o compartilhada</value>
+    <value>Lista de preços não compartilhada</value>
   </data>
   <data name="TEXT_KEYTERM_NON_SHARED_PRICE_LISTS" xml:space="preserve">
-    <value>Listas de preÃƒÂ§os nÃƒÂ£o compartilhadas</value>
+    <value>Listas de preços não compartilhadas</value>
   </data>
   <data name="TEXT_KEYTERM_PARAMETER_TABLE" xml:space="preserve">
-    <value>Tabela de parÃƒÂ¢metros</value>
+    <value>Tabela de parâmetros</value>
   </data>
   <data name="TEXT_KEYTERM_PARAMETER_TABLES" xml:space="preserve">
-    <value>Tabelas de parÃƒÂ¢metros</value>
+    <value>Tabelas de parâmetros</value>
   </data>
   <data name="TEXT_KEYTERM_PERSONAL_RATE" xml:space="preserve">
     <value>Taxa personalizada</value>
   </data>
   <data name="TEXT_KEYTERM_PRICE_LIST" xml:space="preserve">
-    <value>Lista de preÃƒÂ§os</value>
+    <value>Lista de preços</value>
   </data>
   <data name="TEXT_KEYTERM_PRICE_LISTS" xml:space="preserve">
-    <value>Listas de preÃƒÂ§os</value>
+    <value>Listas de preços</value>
   </data>
   <data name="TEXT_KEYTERM_PRICEABLE_ITEM" xml:space="preserve">
-    <value>Item cobrÃƒÂ¡vel</value>
+    <value>Item cobrável</value>
   </data>
   <data name="TEXT_KEYTERM_PRICEABLE_ITEMS" xml:space="preserve">
-    <value>Itens cobrÃƒÂ¡veis</value>
+    <value>Itens cobráveis</value>
   </data>
   <data name="TEXT_KEYTERM_PRODUCT_OFFERING" xml:space="preserve">
     <value>Oferta de produto</value>
@@ -208,57 +208,57 @@
     <value>Agendas de taxa</value>
   </data>
   <data name="TEXT_KEYTERM_REBILL_NAME" xml:space="preserve">
-    <value>ReatribuiÃƒÂ§ÃƒÂ£o</value>
+    <value>Reatribuição</value>
   </data>
   <data name="TEXT_KEYTERM_REBILL_VERB" xml:space="preserve">
     <value>Reatribuir</value>
   </data>
   <data name="TEXT_KEYTERM_RECURRING_CHARGE" xml:space="preserve">
-    <value>CobranÃƒÂ§a recorrente</value>
+    <value>Cobrança recorrente</value>
   </data>
   <data name="TEXT_KEYTERM_RECURRING_CHARGES" xml:space="preserve">
-    <value>CobranÃƒÂ§as recorrentes</value>
+    <value>Cobranças recorrentes</value>
   </data>
   <data name="TEXT_KEYTERM_ROLE" xml:space="preserve">
-    <value>FunÃƒÂ§ÃƒÂ£o</value>
+    <value>Função</value>
   </data>
   <data name="TEXT_KEYTERM_ROLES" xml:space="preserve">
-    <value>FunÃƒÂ§ÃƒÂµes</value>
+    <value>Funções</value>
   </data>
   <data name="TEXT_KEYTERM_SERVICE_CHARGE" xml:space="preserve">
-    <value>Taxa de serviÃƒÂ§o</value>
+    <value>Taxa de serviço</value>
   </data>
   <data name="TEXT_KEYTERM_SERVICE_CHARGES" xml:space="preserve">
-    <value>Taxas de serviÃƒÂ§o</value>
+    <value>Taxas de serviço</value>
   </data>
   <data name="TEXT_KEYTERM_SERVICE_ENDPOINT" xml:space="preserve">
-    <value>Terminal de serviÃƒÂ§o</value>
+    <value>Terminal de serviço</value>
   </data>
   <data name="TEXT_KEYTERM_SERVICE_ENDPOINTS" xml:space="preserve">
-    <value>Terminais de serviÃƒÂ§o</value>
+    <value>Terminais de serviço</value>
   </data>
   <data name="TEXT_KEYTERM_SHARED_PRICE_LIST" xml:space="preserve">
-    <value>Lista de preÃƒÂ§os compartilhada</value>
+    <value>Lista de preços compartilhada</value>
   </data>
   <data name="TEXT_KEYTERM_SHARED_PRICE_LISTS" xml:space="preserve">
-    <value>Listas de preÃƒÂ§os compartilhadas</value>
+    <value>Listas de preços compartilhadas</value>
   </data>
   <data name="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGE" xml:space="preserve">
-    <value>CobranÃƒÂ§a recorrente dependente da unidade</value>
+    <value>Cobrança recorrente dependente da unidade</value>
   </data>
   <data name="TEXT_KEYTERM_UNIT_DEPENDENT_RECURRING_CHARGES" xml:space="preserve">
-    <value>CobranÃƒÂ§as recorrentes dependentes da unidade</value>
+    <value>Cobranças recorrentes dependentes da unidade</value>
   </data>
   <data name="TEXT_KEYTERM_USAGE_CHARGE" xml:space="preserve">
-    <value>Taxa de utilizaÃƒÂ§ÃƒÂ£o</value>
+    <value>Taxa de utilização</value>
   </data>
   <data name="TEXT_KEYTERM_USAGE_CHARGE_AGGREGATE" xml:space="preserve">
-    <value>Taxa de utilizaÃƒÂ§ÃƒÂ£o (Agregado)</value>
+    <value>Taxa de utilização (Agregado)</value>
   </data>
   <data name="TEXT_KEYTERM_USAGE_CHARGES" xml:space="preserve">
-    <value>Taxas de utilizaÃƒÂ§ÃƒÂ£o</value>
+    <value>Taxas de utilização</value>
   </data>
   <data name="TEXT_KEYTERM_USAGE_CHARGES_AGGREGATE" xml:space="preserve">
-    <value>Taxas de utilizaÃƒÂ§ÃƒÂ£o (Agregado)</value>
+    <value>Taxas de utilização (Agregado)</value>
   </data>
 </root>

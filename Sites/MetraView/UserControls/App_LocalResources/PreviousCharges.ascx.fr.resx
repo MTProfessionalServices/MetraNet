@@ -121,21 +121,21 @@
     <value>N/A</value>
   </data>
   <data name="PaymentsCreditsAdjustments.Text" xml:space="preserve">
-    <value>Paiements, crÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©dits et ajustements</value>
+    <value>Paiements, crédits et ajustements</value>
   </data>
   <data name="PaymentsReceived.Text" xml:space="preserve">
-    <value>Paiements reÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§us</value>
+    <value>Paiements reçus</value>
   </data>
   <data name="PostbillAdjustments.Text" xml:space="preserve">
-    <value>Ajustements aprÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨s facturation</value>
+    <value>Ajustements après facturation</value>
   </data>
   <data name="PostBillAdjustmentsTax.Text" xml:space="preserve">
-    <value>Taxe corrigÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©e</value>
+    <value>Taxe corrigée</value>
   </data>
   <data name="PreviousBalance.Text" xml:space="preserve">
-    <value>Solde prÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©cÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©dent</value>
+    <value>Solde précédent</value>
   </data>
   <data name="TotalBalanceForward.Text" xml:space="preserve">
-    <value>Solde reportÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â© total</value>
+    <value>Solde reporté total</value>
   </data>
 </root>

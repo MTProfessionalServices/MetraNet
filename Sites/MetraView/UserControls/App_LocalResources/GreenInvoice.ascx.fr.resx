@@ -121,7 +121,7 @@
     <value>Informations de paiement</value>
   </data>
   <data name="GoingGreen.Text" xml:space="preserve">
-    <value>Vous vous mettez au vertÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â ?</value>
+    <value>Vous vous mettez au vert ?</value>
   </data>
   <data name="LastPayment.Text" xml:space="preserve">
     <value>Dernier paiement</value>
@@ -139,7 +139,7 @@
     <value>facturation sans papier</value>
   </data>
   <data name="PaymentDue.Text" xml:space="preserve">
-    <value>Paiement dÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â»ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â :</value>
+    <value>Paiement dû :</value>
   </data>
   <data name="PayNow.Text" xml:space="preserve">
     <value>Effectuer un paiement</value>
@@ -148,6 +148,6 @@
     <value>Optez pour notre</value>
   </data>
   <data name="TotalAmountDue.Text" xml:space="preserve">
-    <value>Montant total dÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â»ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â :</value>
+    <value>Montant total dû :</value>
   </data>
 </root>

@@ -118,37 +118,37 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ddCardTypeResource1.Label" xml:space="preserve">
-    <value>Type de carte de crÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©dit</value>
+    <value>Type de carte de crédit</value>
   </data>
   <data name="ddExpMonthResource1.Label" xml:space="preserve">
-    <value>Date dÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢expiration</value>
+    <value>Date d’expiration</value>
   </data>
   <data name="ddExpYearResource1.Label" xml:space="preserve">
     <value>(s)</value>
   </data>
   <data name="ddPriorityResource1.Label" xml:space="preserve">
-    <value>PrioritÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©</value>
+    <value>Priorité</value>
   </data>
   <data name="lblErrorMessageResource1.Text" xml:space="preserve">
-    <value>Messages dÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢erreur</value>
+    <value>Messages d’erreur</value>
   </data>
   <data name="MTSection1Resource1.Text" xml:space="preserve">
-    <value>Informations sur la carte de crÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©dit</value>
+    <value>Informations sur la carte de crédit</value>
   </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Mettre ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â  jour la carte de crÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©dit</value>
+    <value>Mettre à jour la carte de crédit</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>Mettre ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â  jour la carte de crÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©dit</value>
+    <value>Mettre à jour la carte de crédit</value>
   </data>
   <data name="tbAddress2Resource1.Label" xml:space="preserve">
-    <value>Ligne dÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢adresseÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â 2</value>
+    <value>Ligne d’adresse 2</value>
   </data>
   <data name="tbAddressResource1.Label" xml:space="preserve">
-    <value>Ligne dÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢adresseÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â 1</value>
+    <value>Ligne d’adresse 1</value>
   </data>
   <data name="tbCCNumberResource1.Label" xml:space="preserve">
-    <value>NumÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©ro de la carte</value>
+    <value>Numéro de la carte</value>
   </data>
   <data name="tbCityResource1.Label" xml:space="preserve">
     <value>Ville</value>
@@ -157,21 +157,21 @@
     <value>Pays</value>
   </data>
   <data name="tbFirstNameResource1.Label" xml:space="preserve">
-    <value>PrÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©nom</value>
+    <value>Prénom</value>
   </data>
   <data name="tbLastNameResource1.Label" xml:space="preserve">
     <value>Nom</value>
   </data>
   <data name="tbMiddleInitialResource1.Label" xml:space="preserve">
-    <value>Initiale du second prÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©nom</value>
+    <value>Initiale du second prénom</value>
   </data>
   <data name="tbStateResource1.Label" xml:space="preserve">
-    <value>DÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©partement</value>
+    <value>Département</value>
   </data>
   <data name="tbZipCodeResource1.Label" xml:space="preserve">
     <value>Code postal</value>
   </data>
   <data name="UpdateCC.Text" xml:space="preserve">
-    <value>Mettre ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â  jour la carte de crÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©dit</value>
+    <value>Mettre à jour la carte de crédit</value>
   </data>
 </root>

@@ -118,24 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btnCancelResource1.Text" xml:space="preserve">
-    <value>NÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£o</value>
+    <value>Não</value>
   </data>
   <data name="btnOKResource1.Text" xml:space="preserve">
     <value>Sim</value>
   </data>
   <data name="lblConfirmResource1.Text" xml:space="preserve">
-    <value>Tem certeza que deseja excluir o cartÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£o de crÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©dito abaixo?</value>
+    <value>Tem certeza que deseja excluir o cartão de crédito abaixo?</value>
   </data>
   <data name="lblErrorMessageResource1.Text" xml:space="preserve">
     <value>Mensagens de erro</value>
   </data>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>Remover cartÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£o de crÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©dito</value>
+    <value>Remover cartão de crédito</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>Remover cartÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£o de crÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©dito</value>
+    <value>Remover cartão de crédito</value>
   </data>
   <data name="RemoveCC.Text" xml:space="preserve">
-    <value>Remover cartÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â£o de crÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©dito</value>
+    <value>Remover cartão de crédito</value>
   </data>
 </root>

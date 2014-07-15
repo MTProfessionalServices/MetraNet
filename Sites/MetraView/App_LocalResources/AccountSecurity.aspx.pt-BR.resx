@@ -118,9 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="MTTitle1Resource1.Text" xml:space="preserve">
-    <value>SeguranÃƒÆ’Ã‚Â§a da conta</value>
+    <value>Segurança da conta</value>
   </data>
   <data name="PageResource1.Title" xml:space="preserve">
-    <value>MetraCare - SeguranÃƒÆ’Ã‚Â§a de conta</value>
+    <value>MetraCare - Segurança de conta</value>
   </data>
 </root>

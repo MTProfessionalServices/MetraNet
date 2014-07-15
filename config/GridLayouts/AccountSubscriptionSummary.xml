@@ -43,7 +43,7 @@
     <SearchOnLoad>true</SearchOnLoad>
     <CustomImplementationFilePath></CustomImplementationFilePath>
     <SubGrid></SubGrid>
-    <CustomOverrideJavascriptIncludes></CustomOverrideJavascriptIncludes>
+    <CustomOverrideJavascriptIncludes>\MetraNet\Account\AccountLandingPage.aspx</CustomOverrideJavascriptIncludes>
     <Elements>
         <Element>
             <RecordElement>true</RecordElement>

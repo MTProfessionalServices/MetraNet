@@ -705,24 +705,13 @@ CLASS CFrameWork ' -- The FrameWork Class --
 	                if(not IsEmpty(Session("PAGE_LANGUAGE"))) then
                     Session(FRAMEWORK_APP_LANGUAGE) = Session("PAGE_LANGUAGE")
                   else                  
-                      Dim userLocale
-                        userLocale = request.ServerVariables("HTTP_ACCEPT_LANGUAGE")
-                        dim Languages
-                        if (not(IsNull(userLocale)) and not(IsEmpty(userLocale))) then
-                            Languages = Split(userLocale, ",", -1)
-                            dim L
-                            L = Languages(0)
-                            if(IsEmpty(L) or IsNull(L)) then L = FRAMEWORK_DEFAULT_LANGUAGE end if
-                              Session(FRAMEWORK_APP_LANGUAGE)           = L
-                        else
-                              Session(FRAMEWORK_APP_LANGUAGE)           = FRAMEWORK_DEFAULT_LANGUAGE
-                        end if 
+                    Session(FRAMEWORK_APP_LANGUAGE) = FRAMEWORK_DEFAULT_LANGUAGE                      
                   end if
-              
+            
               else
-              dim lang
-              lang = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 5)
-                Session(FRAMEWORK_APP_LANGUAGE) = lang
+                  dim lang
+                  lang = mid(Request.ServerVariables("QUERY_STRING"), instr(1, request.ServerVariables("QUERY_STRING"), "language%3d")+11, 5)
+                    Session(FRAMEWORK_APP_LANGUAGE) = lang
               end if
 
 	            Session    (FRAMEWORK_APP_FOLDER)     = Server.MapPath(Application(FRAMEWORK_APP_STARTPAGE))

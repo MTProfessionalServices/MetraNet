@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<texts id="MAM Static Texts" type="collection">
+  <texts id="MAM Static Texts" type="collection">
 	  <description>
       The file define most of the MAM static texts. The MAM/MDM use also the localization
       supplied by the MetraTech plate form.
@@ -225,13 +225,13 @@
       <value>Contas administradas por</value>
     	<description>Folders Owned By</description>
  </text>
-	  <text id="TEXT_ACCOUNT_OWNER_IMPERSONETED_BY">
+	<text id="TEXT_ACCOUNT_OWNER_IMPERSONETED_BY">
 		  <value>Proprietário da conta de </value>
 		  <description>owner</description>
-	  </text>
+	</text>
 	  <text id="TEXT_ACCOUNTS_PAID_FOR_BY">
-		  <value>Contas pagas por </value>
-		  <description></description>
+		  <value>Contas pagas pelo</value>
+		  <description>Contas pagas pelo</description>
 	  </text>
 
 	  <text id="TEXT_MOVING_ACCOUNTS">
@@ -707,7 +707,7 @@
         <value>Data de término</value>
         <description></description>
     </text> 
-	
+          
 	<text id="TEXT_PERIOD_OF_TIME">
 		<value>Período</value>
 	</text>
@@ -926,7 +926,7 @@
     </text>
 
     <text id="TEXT_NO_AUTH">
-        <value>Sua sessão expirou. Faça login novamente.</value>
+        <value>Sua sessão expirou.  Faça login novamente.</value>
         <description></description>
     </text>
 
@@ -1487,7 +1487,7 @@
     </text>
            
     <text id="TEXT_JAVASCRIPT_ERROR">
-        <value>Seu navegador não parece ter o JavaScript ativado. Siga esse link para corrigir a situação.</value>
+        <value>Seu navegador não parece ter o JavaScript ativado.  Siga esse link para corrigir a situação.</value>
         <description></description>
     </text>
 
@@ -1810,102 +1810,102 @@
   
   <text id="TEXT_RESULTS_ACCOUNTS">
     <value>Retornar uma lista de contas correspondentes aos critérios de pesquisa.</value>
-    <description/>
+    <description />
   </text>
   
   <text id="TEXT_RESULTS_SERVICE_ENDPOINTS">
     <value>Retorne uma lista de [TEXT_KEYTERM_SERVICE_ENDPOINTS] conectados a contas que correspondem aos critérios de pesquisa.</value>
-    <description/>
+    <description />
   </text>
   
   <text id="TEXT_RESULTS">
     <value>Resultados</value>
-    <description/>
+    <description />
   </text>
 
   <text id="TEXT_EVENT_DETAILS">
-    <value>Caracteres restantes para detalhes</value>
-    <description>Caption for event details</description>
+    <value>[pt-BR] Characters Left for Details</value>
+    <description>Legenda para detalhes de evento</description>
   </text>
 
   <text id="TEXT_EVENT_TYPE">
     <value>Tipo de evento</value>
-    <description/>
+    <description />
   </text>
 
   <text id="TEXT_NOTE">
     <value>Observação</value>
-    <description/>
+    <description />
   </text>
 
   <text id="TEXT_TELEPHONE_CALL">
     <value>Chamada telefônica</value>
-    <description/>
+    <description />
   </text>    
 
   <text id="TEXT_UNABLE_TO_LOAD_ACCOUNT">
     <value>Não é possível carregar a conta</value>
-    <description/>
+    <description />
   </text>   
   
   <text id="TEXT_PAYEE_DISPLAY_NAME">
     <value>Assinante</value>
-    <description/>
+    <description />
   </text>   
 
   <text id="TEXT_TAX_AMOUNT">
     <value>Valores do imposto</value>
-    <description/>
+    <description />
   </text>   
   
   <text id="TEXT_WARNING_EBCR_START_DATE_CHANGE">
     <value>Alterar essa data de início pode afetar negativamente as cobranças alinhadas com o ciclo de faturamento contidos na [TEXT_KEYTERM_PRODUCT_OFFERING]! associada.</value>
-    <description/>
+    <description />
   </text>
   
   <text id="TEXT_DELETE_ACCOUNT_TEMPLATE">
     <value>Excluir modelo de conta</value>
-    <description/>
+    <description />
   </text> 
   
   <text id="ADD_FOLDER_OWNER">
     <value>Adicionar administrador de conta</value>
-    <description/>
+    <description />
   </text> 
 
   <text id="ADD_ACCOUNT_FOR_ADMINISTRATION">
     <value>Adicionar conta para administração</value>
-    <description/>
+    <description />
   </text> 
 
   <text id="TEXT_FOLDER_OWNER">
     <value>Administrador de conta</value>
-    <description/>
+    <description />
   </text> 
 
   <text id="TEXT_DELETE_ACCOUNT_TEMPLATE_SUCCESS">
     <value>Modelo de conta excluído com sucesso.</value>
-    <description/>
+    <description />
   </text> 
 
   <text id="TEXT_TEMPLATE_OPTIONS">
     <value>Opções de modelo</value>
-    <description/>
+    <description />
   </text> 
   
   <text id="TEXT_DISPLAY_RESTRICTED_TO_1000_RESULTS">
     <value>Essa exibição está limitada a 1000 resultados. Use os critérios de filtro para ver os resultados não listados aqui.</value>
-    <description/>
+    <description />
   </text> 
     
   <text id="TEXT_ACCOUNT_ADDED_SUCCESSFULLY">
     <value>A conta foi adicionada com sucesso.</value>
-    <description/>
+    <description />
   </text> 
     
   <text id="TEXT_SUCCESSFUL">
     <value>Bem-sucedido</value>
-    <description/>
+    <description />
   </text>
 
     <text id="TEXT_MANAGE_AH_CANNOT_ASSIGNED_TO_ROLE">
@@ -1914,5 +1914,36 @@
     <text id="TEXT_OPTIONS">
       <value>Opções</value>
     </text>
+	
+  <text id="TEXT_VIEW_DEFAULT_SECURITY_OWNERS">
+    <value>[PT-BR]View Default Security Owners</value>    	
+  </text> 
+ 
+  <text id="TEXT_ADD_MEMBERS_TO_ROLE">
+    <value>[PT-BR]Add Members to Role</value>    	
+  </text>
 
-</texts>
+  <text id="TEXT_SELECT_ACCOUNTS">
+    <value>[PT-BR]Select Accounts</value>
+  </text>   
+  
+  <text id="TEXT_ACCOUNTS_TO_MOVE">
+    <value>Selecionar contas para mover</value>
+  </text> 
+  
+  <text id="TEXT_CAPABILITIES">
+     <value>{PT-BR}Capabilities</value>    	
+  </text>
+  
+    <text id="TEXT_PROG_ID">
+    <value>{PT-BR}ProgID</value>    	
+  </text>
+  
+  <text id="TEXT_NUMBER_OF_ATOMICS">
+    <value>{PT-BR}Number of Atomics</value>    	
+  </text>
+  
+  <text id="TEXT_REQUIRES_MANAGE_ACCOUNT_HIERARCHIES">
+    <value>{PT-BR}Requires Manage Account Hierarchies</value>    	
+  </text>
+ </texts>

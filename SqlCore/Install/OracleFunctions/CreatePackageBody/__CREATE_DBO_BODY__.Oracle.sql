@@ -1287,13 +1287,20 @@ BEGIN
             BEGIN
               /*  Monthly billing cycle type */
               IF ( DERIVEEBCRCYCLE.usageCycleType = 1) THEN
-                BEGIN                  
+                BEGIN
+                  FOR rec IN
+                  (SELECT day_of_month
+                  FROM t_usage_cycle uc
+                  WHERE uc.id_usage_cycle = DERIVEEBCRCYCLE.usageCycle_
+                  )
+                  LOOP
+                    endDay := rec.day_of_month ;
+                  END LOOP;
                   /*  infers the start month from the subscription start date    */
-                  /* CORE-8006 */
+                  /* CORE-6221 */
                     For rec in  
                     (
-                        select TO_NUMBER(TO_CHAR( tui.dt_start, 'DD')) tui_start_day,
-							TO_NUMBER(TO_CHAR( tui.dt_start, 'MM')) tui_start_month
+                        select TO_NUMBER(TO_CHAR( tui.dt_start, 'MM')) tui_dt_start
                           from t_usage_interval tui
                           join t_usage_cycle tuc on tuc.id_usage_cycle = tui.id_usage_cycle
                           where tui.id_usage_cycle = DERIVEEBCRCYCLE.usageCycle_
@@ -1301,10 +1308,25 @@ BEGIN
                             and tui.dt_end > DERIVEEBCRCYCLE.subStart_
                     )
                     LOOP
-					  DERIVEEBCRCYCLE.startDay := rec.tui_start_day;
-                      DERIVEEBCRCYCLE.startMonth := rec.tui_start_month;                   
+                      DERIVEEBCRCYCLE.startMonth := rec.tui_dt_start;                   
                     END LOOP;
-					
+                    
+                  /*  translates the end day to a start day since Monthly cycle types */
+                  /*  use end days and Quarterly and Annual cycle types use start days */
+                  DERIVEEBCRCYCLE.startDay := DERIVEEBCRCYCLE.endDay + 1;
+                  /*  wraps to beginning of month */
+                  /*  NOTE: it is important to have the start date of the EBCR cycle */
+                  /*  come after the sub start date so that certain RC charges  */
+                  /*  are generated. */
+                  IF ( DERIVEEBCRCYCLE.startDay > 31) THEN
+                    BEGIN
+                      DERIVEEBCRCYCLE.startDay       := 1;
+                      DERIVEEBCRCYCLE.startMonth     := DERIVEEBCRCYCLE.startMonth + 1;
+                      IF ( DERIVEEBCRCYCLE.startMonth > 12) THEN
+                        DERIVEEBCRCYCLE.startMonth   := 1;
+                      END IF;
+                    END;
+                  END IF;
                   DERIVEEBCRCYCLE.startMonth     := MOD(DERIVEEBCRCYCLE.startMonth, 3);
                   IF ( DERIVEEBCRCYCLE.startMonth = 0) THEN
                     DERIVEEBCRCYCLE.startMonth   := 3;
@@ -1352,13 +1374,23 @@ BEGIN
               BEGIN
                 /*  Monthly billing cycle type */
                 IF ( DERIVEEBCRCYCLE.usageCycleType = 1) THEN
-                  BEGIN                    
+                  BEGIN
+                    FOR rec IN
+                    (SELECT day_of_month
+                    FROM t_usage_cycle uc
+                    WHERE uc.id_usage_cycle = DERIVEEBCRCYCLE.usageCycle_
+                    )
+                    LOOP
+                      endDay := rec.day_of_month ;
+                    END LOOP;
+                    /*  translates the end day to a start day since Monthly cycle types */
+                    /*  use end days and Quarterly and Annual cycle types use start days */
+                    DERIVEEBCRCYCLE.startDay := DERIVEEBCRCYCLE.endDay + 1;
                     /*  infers the start month from the subscription start date    */
-                    /* CORE-8006 */
-                   For rec in  
+                    /* CORE-6221 */
+                    For rec in  
                     (
-                        select TO_NUMBER(TO_CHAR( tui.dt_start, 'DD')) tui_start_day,
-							TO_NUMBER(TO_CHAR( tui.dt_start, 'MM')) tui_start_month
+                        select TO_NUMBER(TO_CHAR( tui.dt_start, 'MM')) tui_dt_start
                           from t_usage_interval tui
                           join t_usage_cycle tuc on tuc.id_usage_cycle = tui.id_usage_cycle
                           where tui.id_usage_cycle = DERIVEEBCRCYCLE.usageCycle_
@@ -1366,9 +1398,27 @@ BEGIN
                             and tui.dt_end > DERIVEEBCRCYCLE.subStart_
                     )
                     LOOP
-					  DERIVEEBCRCYCLE.startDay := rec.tui_start_day;
-                      DERIVEEBCRCYCLE.startMonth := rec.tui_start_month;                   
-                    END LOOP;
+                      DERIVEEBCRCYCLE.startMonth := rec.tui_dt_start;                   
+                    END LOOP; 
+
+                    /*  wraps to beginning of the next month */
+                    /*  NOTE: it is important to have the start date of the EBCR cycle */
+                    /*  come after the sub start date so that certain RC charges  */
+                    /*  are generated. */
+                    endOfMonth := TO_NUMBER(TO_CHAR(LAST_DAY(DERIVEEBCRCYCLE.subStart_), 'DD'));
+                    /*Leap years are a problem.  If the last day of the month is the 29th, it's really the 28th for this purpose*/
+                    IF (endOfMonth = 29) THEN
+                      endOfMonth  := 28;
+                    END IF;
+                    IF ( DERIVEEBCRCYCLE.startDay > endOfMonth) THEN
+                      BEGIN
+                        DERIVEEBCRCYCLE.startDay       := 1;
+                        DERIVEEBCRCYCLE.startMonth     := DERIVEEBCRCYCLE.startMonth + 1;
+                        IF ( DERIVEEBCRCYCLE.startMonth > 12) THEN
+                          DERIVEEBCRCYCLE.startMonth   := 1;
+                        END IF;
+                      END;
+                    END IF;
                   END;
                 ELSE
                   /*  Quarterly or semiannual billing cycle type */
@@ -1406,28 +1456,42 @@ BEGIN
                 END LOOP;
               END;
             ELSE
-				/* SemiAnnual EBCR */
               IF ( DERIVEEBCRCYCLE.ebcrCycleType_ = 9) THEN
                 BEGIN
                   /*  Monthly billing cycle type */
                   IF ( DERIVEEBCRCYCLE.usageCycleType = 1) THEN
                     BEGIN
+                      FOR rec IN
+                      (SELECT day_of_month
+                      FROM t_usage_cycle uc
+                      WHERE uc.id_usage_cycle = DERIVEEBCRCYCLE.usageCycle_
+                      )
+                      LOOP
+                        endDay := rec.day_of_month ;
+                      END LOOP;
+                      /*  translates the end day to a start day since Monthly cycle types */
+                      /*  use end days and Quarterly and Annual cycle types use start days */
+                      DERIVEEBCRCYCLE.startDay := DERIVEEBCRCYCLE.endDay + 1;
                       /*  infers the start month from the subscription start date    */
-					  /* CORE-8006 */
-					   For rec in  
-						(
-							select TO_NUMBER(TO_CHAR( tui.dt_start, 'DD')) tui_start_day,
-								TO_NUMBER(TO_CHAR( tui.dt_start, 'MM')) tui_start_month
-							  from t_usage_interval tui
-							  join t_usage_cycle tuc on tuc.id_usage_cycle = tui.id_usage_cycle
-							  where tui.id_usage_cycle = DERIVEEBCRCYCLE.usageCycle_
-								and tui.dt_start <= DERIVEEBCRCYCLE.subStart_
-								and tui.dt_end > DERIVEEBCRCYCLE.subStart_
-						)
-						LOOP
-						  DERIVEEBCRCYCLE.startDay := rec.tui_start_day;
-						  DERIVEEBCRCYCLE.startMonth := rec.tui_start_month;                   
-						END LOOP;                   
+                      DERIVEEBCRCYCLE.startMonth := TO_NUMBER(TO_CHAR( DERIVEEBCRCYCLE.subStart_, 'MM'));
+                      /*  wraps to beginning of the next month */
+                      /*  NOTE: it is important to have the start date of the EBCR cycle */
+                      /*  come after the sub start date so that certain RC charges  */
+                      /*  are generated. */
+                      endOfMonth := TO_NUMBER(TO_CHAR(LAST_DAY(DERIVEEBCRCYCLE.subStart_), 'DD'));
+                      /*Leap years are a problem.  If the last day of the month is the 29th, it's really the 28th for this purpose*/
+                      IF (endOfMonth = 29) THEN
+                        endOfMonth  := 28;
+                      END IF;
+                      IF ( DERIVEEBCRCYCLE.startDay > endOfMonth) THEN
+                        BEGIN
+                          DERIVEEBCRCYCLE.startDay       := 1;
+                          DERIVEEBCRCYCLE.startMonth     := DERIVEEBCRCYCLE.startMonth + 1;
+                          IF ( DERIVEEBCRCYCLE.startMonth > 12) THEN
+                            DERIVEEBCRCYCLE.startMonth   := 1;
+                          END IF;
+                        END;
+                      END IF;
                     END;
                   ELSE
                     /*  Quarterly or annual billing cycle type */

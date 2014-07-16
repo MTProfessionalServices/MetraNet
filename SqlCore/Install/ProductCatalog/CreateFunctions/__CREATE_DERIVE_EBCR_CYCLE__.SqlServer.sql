@@ -154,16 +154,35 @@ BEGIN
       -- Monthly billing cycle type
       IF (@usageCycleType = 1)
       BEGIN
+         SELECT @endDay = day_of_month
+         FROM t_usage_cycle uc
+         WHERE uc.id_usage_cycle = @usageCycle
+
          -- infers the start month from the subscription start date   
-         /* CORE-8006 */ 
-         SELECT 
-			@startDay = DATEPART(day, tui.dt_start),
-			@startMonth = DATEPART(month, tui.dt_start)
-		 FROM t_usage_interval tui
-         JOIN t_usage_cycle tuc on tuc.id_usage_cycle = tui.id_usage_cycle
-         WHERE tui.id_usage_cycle = @usageCycle
-              AND tui.dt_start <= @subStart
-              AND tui.dt_end > @subStart  
+         /* ESR-6221 a port of ESR-5793 */ 
+         select @startMonth = DATEPART(month, tui.dt_start)
+			    from t_usage_interval tui
+			      join t_usage_cycle tuc on tuc.id_usage_cycle = tui.id_usage_cycle
+			      where tui.id_usage_cycle = @usageCycle
+			      and tui.dt_start <= @subStart
+			      and tui.dt_end > @subStart         
+
+         -- translates the end day to a start day since Monthly cycle types
+         -- use end days and Quarterly and Annual cycle types use start days
+         SET @startDay = @endDay + 1
+
+         -- wraps to beginning of month
+         -- NOTE: it is important to have the start date of the EBCR cycle
+         -- come after the sub start date so that certain RC charges 
+         -- are generated.
+         IF (@startDay > 31)
+         BEGIN 
+            SET @startDay = 1 
+            SET @startMonth = @startMonth + 1
+
+            IF (@startMonth > 12)
+              SET @startMonth = 1
+         END
   
          -- reduces start month to a value between 1 and 3 since there are
          -- really only 3 months of quarterly cycles:
@@ -205,17 +224,44 @@ BEGIN
       -- Monthly billing cycle type
       IF (@usageCycleType = 1)
       BEGIN
-        -- infers the start month from the subscription start date   
-         /* CORE-8006 */ 
-          SELECT 
-			@startDay = DATEPART(day, tui.dt_start),
-			@startMonth = DATEPART(month, tui.dt_start)
-		 FROM t_usage_interval tui
-         JOIN t_usage_cycle tuc on tuc.id_usage_cycle = tui.id_usage_cycle
-         WHERE tui.id_usage_cycle = @usageCycle
-              AND tui.dt_start <= @subStart
-              AND tui.dt_end > @subStart 
-      END
+         SELECT @endDay = day_of_month
+         FROM t_usage_cycle uc
+         WHERE uc.id_usage_cycle = @usageCycle
+
+         -- translates the end day to a start day since Monthly cycle types
+         -- use end days and Quarterly and Annual cycle types use start days
+         SET @startDay = @endDay + 1
+
+         -- infers the start month from the subscription start date   
+         /* ESR-6221 a port of ESR-5793 */ 
+         select @startMonth = DATEPART(month, tui.dt_start)
+			    from t_usage_interval tui
+			      join t_usage_cycle tuc on tuc.id_usage_cycle = tui.id_usage_cycle
+			      where tui.id_usage_cycle = @usageCycle
+			      and tui.dt_start <= @subStart
+			      and tui.dt_end > @subStart         
+
+         -- wraps to beginning of the next month
+         -- NOTE: it is important to have the start date of the EBCR cycle
+         -- come after the sub start date so that certain RC charges 
+         -- are generated.
+		 SET @endOfMonth = DATEPART(day, DATEADD(dd, -DAY(DATEADD(m,1,@subStart)), DATEADD(m,1,@subStart)))
+		 
+		 --Leap years are a problem.  If the last day of the month is the 29th, it's really the 28th for this purpose
+		 if (@endOfMonth = 29)
+		   SET @endOfMonth = 28
+		   
+         IF (@startDay > @endOfMonth)
+         BEGIN 
+            SET @startDay = 1 
+            SET @startMonth = @startMonth + 1
+
+            IF (@startMonth > 12)
+              SET @startMonth = 1
+         END
+
+      END   
+
       -- Quarterly billing cycle type (treat semiannual the same)
       ELSE IF (@usageCycleType IN (7, 9))
       BEGIN
@@ -224,14 +270,14 @@ BEGIN
             @startMonth = start_month  
          FROM t_usage_cycle uc
          WHERE uc.id_usage_cycle = @usageCycle
-
+		 
 		 --Fix for cases where quarterly billing would map to 2/29-31
          SET @tempDate = dateadd(mm, 101 * 12 + @startMonth - 1 , @startDay - 1)
 	     SET @endOfMonth = DATEPART(day, DATEADD(dd, -DAY(DATEADD(m,1,@tempDate)), DATEADD(m,1,@tempDate)))
-	     
-		 IF @startDay > @endOfMonth
+	     if @startDay > @endOfMonth
 	        SET @startDay = @endOfMonth
-      END      
+         END
+      
       
       SELECT @derivedEBCRCycle = ebcr.id_usage_cycle
       FROM t_usage_cycle ebcr
@@ -246,17 +292,38 @@ BEGIN
       -- Monthly billing cycle type
       IF (@usageCycleType = 1)
       BEGIN
-        -- infers the start month from the subscription start date   
-          /* CORE-8006 */ 
-         SELECT 
-			@startDay = DATEPART(day, tui.dt_start),
-			@startMonth = DATEPART(month, tui.dt_start)
-		 FROM t_usage_interval tui
-         JOIN t_usage_cycle tuc on tuc.id_usage_cycle = tui.id_usage_cycle
-         WHERE tui.id_usage_cycle = @usageCycle
-              AND tui.dt_start <= @subStart
-              AND tui.dt_end > @subStart
-      END
+         SELECT @endDay = day_of_month
+         FROM t_usage_cycle uc
+         WHERE uc.id_usage_cycle = @usageCycle
+
+         -- translates the end day to a start day since Monthly cycle types
+         -- use end days and Quarterly, Semiannual, and Annual cycle types use start days
+         SET @startDay = @endDay + 1
+
+         -- infers the start month from the subscription start date   
+         SET @startMonth = DATEPART(month, @subStart)
+
+         -- wraps to beginning of the next month
+         -- NOTE: it is important to have the start date of the EBCR cycle
+         -- come after the sub start date so that certain RC charges 
+         -- are generated.
+		 SET @endOfMonth = DATEPART(day, DATEADD(dd, -DAY(DATEADD(m,1,@subStart)), DATEADD(m,1,@subStart)))
+		 
+		 --Leap years are a problem.  If the last day of the month is the 29th, it's really the 28th for this purpose
+		 if (@endOfMonth = 29)
+		   SET @endOfMonth = 28
+		   
+         IF (@startDay > @endOfMonth)
+         BEGIN 
+            SET @startDay = 1 
+            SET @startMonth = @startMonth + 1
+
+            IF (@startMonth > 12)
+              SET @startMonth = 1
+         END
+
+      END   
+
       -- Quarterly or annual billing cycle type 
       ELSE IF (@usageCycleType in (7,8))
       BEGIN
@@ -265,12 +332,13 @@ BEGIN
             @startMonth = start_month  
          FROM t_usage_cycle uc
          WHERE uc.id_usage_cycle = @usageCycle
-
+		 
 		 --Fix for cases where quarterly billing would map to 2/29-31
          SET @tempDate = dateadd(mm, 101 * 12 + @startMonth - 1 , @startDay - 1)
 	     SET @endOfMonth = DATEPART(day, DATEADD(dd, -DAY(DATEADD(m,1,@tempDate)), DATEADD(m,1,@tempDate)))
 	     if @startDay > @endOfMonth
 	        SET @startDay = @endOfMonth
+
       END
       ELSE
          RETURN -3 -- ERROR: unsupported usage cycle combination
@@ -290,3 +358,4 @@ BEGIN
 
   RETURN @derivedEBCRCycle
 END
+		

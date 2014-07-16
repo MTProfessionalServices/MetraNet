@@ -804,7 +804,7 @@ public class DecisionInstance : MTListServicePage
 	}
   }
   
-  public string Title
+  public new string Title
   {
     get
     {

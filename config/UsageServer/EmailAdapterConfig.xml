@@ -39,8 +39,8 @@
   
   <Oraclequery>
    <![CDATA[
-    select UPPER(REVERSE(to_char(substr(REVERSE(to_char(ed1.nm_enum_data)),1, 
-				instr(reverse(to_char(ed1.nm_enum_data)),'/',1,1)-1)))as Language, 
+    select UPPER(REVERSE(to_char(substr(REVERSE(to_char(ed1.nm_enum_data)), 1,
+      instr(reverse(to_char(ed1.nm_enum_data)),'/',1,1)-1))))as Language, 
        avc.c_email as AddressedTo,
        amp.id_acc as AccountID,
        avc.c_firstname as FirstName,

@@ -24,8 +24,7 @@ public partial class Account_ContactGrid : MTPage
         {
           ButtonID = "AddContact",
           IconClass = "add",
-          JSHandlerFunction = "onAddContact",
-          ButtonText = Convert.ToString(GetLocalResourceObject("AddButtonText"))
+          JSHandlerFunction = "onAddContact"
         };
 
       var resourceObject = GetLocalResourceObject("AddButtonText");

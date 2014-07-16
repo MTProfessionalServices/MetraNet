@@ -159,13 +159,4 @@
   <data name="TEXT_APPROVAL_CHANGE_UNIQUE_ITEM_DISPLAYNAME" xml:space="preserve">
     <value>Modified Item</value>
   </data>
-  <data name="TEXT_APPROVAL_ALL_CHANGES" xml:space="preserve">
-    <value>All Changes</value>
-  </data>
-  <data name="TEXT_APPROVAL_FAILED_CHANGES" xml:space="preserve">
-    <value>Failed Changes</value>
-  </data>
-  <data name="TEXT_APPROVAL_PENDING_CHANGES" xml:space="preserve">
-    <value>Pending Changes</value>
-  </data>
 </root>

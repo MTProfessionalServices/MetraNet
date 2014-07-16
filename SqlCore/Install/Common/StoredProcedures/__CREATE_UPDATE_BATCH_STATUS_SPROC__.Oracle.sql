@@ -52,9 +52,6 @@ BEGIN
                           t_batch.n_completed + updatebatchstatus.n_completed_,
           t_batch.tx_status =
              CASE
-                WHEN (   UPPER(t_batch.tx_status) = 'A' and (t_batch.n_failed > 0)
-                     )
-                   THEN 'F'
                 WHEN (   (  t_batch.n_completed
                           + t_batch.n_failed
                           + nvl(t_batch.n_dismissed, 0)

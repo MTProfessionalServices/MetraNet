@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Query>
     <Action>Unknown</Action>
     <Implementations>
         <Implementation>SqlServer</Implementation>
         <Implementation>Oracle</Implementation>
     </Implementations>
-    <Parameters>        
+    <Parameters>
         <Parameter>
-           <Name>DESCENDENT</Name>
+            <Name>DESCENDENT</Name>
             <DataType>int32</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>
@@ -17,7 +17,7 @@
             <DataType>timestamp</DataType>
             <ReplacementType>DoublePercent</ReplacementType>
             <Description></Description>
-        </Parameter>                                
+        </Parameter>
         <Parameter>
             <Name>TYPE_SPACE</Name>
             <DataType>string</DataType>

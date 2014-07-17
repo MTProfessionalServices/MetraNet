@@ -112,7 +112,7 @@ CLASS CProductCatalogBillingCycle
     ' RETURNS			  :
     PUBLIC FUNCTION Form_Initialize(objForm) ' as Boolean
     
-    If COMObject.Instance.Kind = 20 Then ' For recurring charges we will enable the EBCR Mode, meaning you will see a new cycle option on the cycle section
+    If COMObject.Instance.Kind = 20 Or COMObject.Instance.Kind = 25 Then ' For recurring charges we will enable the EBCR Mode, meaning you will see a new cycle option on the cycle section
       mdm_GetDictionary().Add "ShowExtendedBillingCycleOption", TRUE
     Else
       mdm_GetDictionary().Add "ShowExtendedBillingCycleOption", FALSE

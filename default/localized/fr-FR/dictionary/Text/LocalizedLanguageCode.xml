@@ -1,30 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="Main" type="collection">
 
     <description>This is the name to display on the screen for a particular language code.</description>
     
     <text id="LANGUAGECODE_DISPLAYINFORMATION_US">
-        <value>[FR]English</value><description></description>
+        <value>Anglais</value><description></description>
     </text>    
 
     <text id="LANGUAGECODE_DISPLAYINFORMATION_DE">
-        <value>[FR]German</value><description></description>
+        <value>Allemand</value><description></description>
     </text>    
 
     <text id="LANGUAGECODE_DISPLAYINFORMATION_FR">
-        <value>[FR]French</value><description></description>
+        <value>Français</value><description></description>
     </text>    
 
     <text id="LANGUAGECODE_DISPLAYINFORMATION_IT">
-        <value>[FR]Italian</value><description></description>
+        <value>Italien</value><description></description>
     </text>    
 
     <text id="LANGUAGECODE_DISPLAYINFORMATION_JP">
-        <value>[FR]Japanese</value><description></description>
+        <value>Japonais</value><description></description>
     </text>    
         
 </texts>
-
-
-

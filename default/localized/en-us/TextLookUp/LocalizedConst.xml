@@ -230,8 +230,8 @@
 		  <description>owner</description>
 	  </text>
 	  <text id="TEXT_ACCOUNTS_PAID_FOR_BY">
-		  <value>Accounts paid for by </value>
-		  <description></description>
+		  <value>Accounts Paid for by </value>
+		  <description>Accounts Paid for by</description>
 	  </text>
 
 	  <text id="TEXT_MOVING_ACCOUNTS">
@@ -1945,5 +1945,10 @@
   
   <text id="TEXT_REQUIRES_MANAGE_ACCOUNT_HIERARCHIES">
     <value>Requires Manage Account Hierarchies</value>    	
-  </text>  
+  </text>
+    
+  <text id="TEXT_CHARACTERS_LEFT">
+     <value>characters left for</value>
+  </text>
+    
 </texts>

@@ -6,29 +6,27 @@
 </description>
 
     <!-- Subscription Effective Date Errors -->              
-<text id="MAM_ERROR_5000"><value>Vous ne pouvez pas laisser les champs Date de début et Date de fin vides.</value></text>
-<text id="MAM_ERROR_5001"><value>Vous ne pouvez pas laisser le champ Date de début vide.</value></text>
-<text id="MAM_ERROR_5002"><value>La date ne peut être dans la passé.</value></text>
-<text id="MAM_ERROR_5003"><value>La Date de fin ne peut être avant la Date de début.</value></text>
-<text id="MAM_ERROR_5004"><value>La Date de début et la Date de fin ne peuvent pas coincider et la Date de fin ne peut pas être dans le passé.</value></text>
-<text id="MAM_ERROR_5005"><value>La Date de début de l'inscription ne peut pas être avant la Date d'entrée en vigueur.</value></text>
-		<text id="MAM_ERROR_5006"><value>Le système ne peut calculer le prochain cycle de facturation après la date de début précisée pour cette inscription parce qu'elle se situe trop loin dans le passé ou le futur.Vous pouvez ajuster la date de début ou en faire une date absolue.</value></text>
-		<text id="MAM_ERROR_5007"><value>Le système ne peut calculer le prochain cycle de facturation après la date de fin précisée pour cette inscription parce qu'elle se situe trop loin dans le passé ou le futur.Vous pouvez ajuster la date de fin ou en faire une date absolue.</value></text>		
+    <text id="MAM_ERROR_5000"><value>Vous ne pouvez pas laisser les dates de début ou de fin vides.</value></text>
+    <text id="MAM_ERROR_5001"><value>Vous ne pouvez pas laisser la date de début vide.</value></text>
+    <text id="MAM_ERROR_5002"><value>Cette date ne peut pas être passée.</value></text>
+    <text id="MAM_ERROR_5003"><value>La date de fin ne peut pas être antérieure à la date de début.</value></text>
+    <text id="MAM_ERROR_5004"><value>La date de début et la date de fin ne peuvent pas représenter la même date, et la date de fin ne peut pas être passée.</value></text>
+    <text id="MAM_ERROR_5005"><value>La date de début d'abonnement ne peut pas être antérieure à la date de début</value></text>
+		<text id="MAM_ERROR_5006"><value>Le système ne peut pas calculer le prochain cycle de facturation après la date de début indiquée pour cet abonnement, car elle est trop éloignée (passée ou à venir). Vous pouvez régler la date de début ou en faire une date absolue.</value></text>
+		<text id="MAM_ERROR_5007"><value>Le système ne peut pas calculer le prochain cycle de facturation après la date de fin indiquée pour cet abonnement, car elle est trop éloignée (passée ou à venir). Vous pouvez régler la date de fin ou en faire une date absolue.</value></text>		
     
 
     <!-- Rate Schedule Effective Date Errors -->  
-<text id="MAM_ERROR_6001"><value>Si aucune Date de début n'est précisée, la Date de fin doit être postérieure à aujourd'hui.</value></text>
-<text id="MAM_ERROR_6002"><value>Si aucune Date de fin n'est précisée, la Date de début ne peut pas être dans le passé.</value></text>
-<text id="MAM_ERROR_6003"><value>La Date de fin ne peut pas être avant la Date de début.</value></text>
-<text id="MAM_ERROR_6004"><value>La Date de début et la Date de fin ne peuvent pas coincider.</value></text>
+    <text id="MAM_ERROR_6001"><value>Si aucune date de début n'est indiquée, la date de fin doit être postérieure à la date d'aujourd'hui.</value></text>
+    <text id="MAM_ERROR_6002"><value>Si aucune date de fin n'est indiquée, la date de début ne peut pas être passée.</value></text>
+    <text id="MAM_ERROR_6003"><value>La date de fin ne peut pas être antérieure à la date de début.</value></text>
+    <text id="MAM_ERROR_6004"><value>La date de début et la date de fin ne peuvent pas représenter la même date.</value></text>
 
     <!-- Format error -->
-<text id="MAM_ERROR_7004"><value>Format de date invalide.Voici un exemple d'un format valide : MM/JJ/AAAA HH:MM:SS.</value></text>    
+    <text id="MAM_ERROR_7004"><value>Format de date incorrect. Exemple de format valide : MM/JJ/AAAA HH:MM:SS).</value></text>    
     
-<text id="MAM_WARNING_8000"><value>ATTENTION-La Date de début est dans le passé.Appuyez à nouveau sur OK pour confirmer.</value></text>
-<text id="MAM_WARNING_8001"><value>ATTENTION-La Date de fin est dans le passé.Appuyez à nouveau sur OK pour confirmer.</value></text>
+    <text id="MAM_WARNING_8000"><value>AVERTISSEMENT-La date de début est passée. Appuyez de nouveau sur OK pour confirmer.</value></text>
+    <text id="MAM_WARNING_8001"><value>AVERTISSEMENT-La date de début est passée. Appuyez de nouveau sur OK pour confirmer.</value></text>
     
     
 </texts>
-
-  

@@ -58,7 +58,7 @@ FUNCTION Form_Initialize(EventArg) ' As Boolean
     
 	Service.Clear 	' Set all the property of the service to empty. 
 					        ' The Product view if allocated is cleared too.
-
+ Form.Page.NoRecordUserMessage   = mam_GetDictionary("PRODUCT_VIEW_BROWSER_NO_RECORDS_FOUND")
   ' Make sure to clear the service properties
 	Do while Service.Properties.count
 	  Service.Properties.Remove(1)

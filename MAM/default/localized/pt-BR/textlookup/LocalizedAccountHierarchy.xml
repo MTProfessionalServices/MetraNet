@@ -1,38 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="Account Hierarchy Terms" type="collection">
 
-    <description>Termos da hierarquia de conta</description>
+    <description>Account Hierarchy Terms</description>
 
 
     <text id="TEXT_DROP_ACCOUNTS">
       <value>Arraste e solte aqui...</value>
-      <description>arrastar e soltar</description>
+      <description>drag and drop</description>
     </text> 
 
     <text id="TEXT_LOADING_DONE">
       <value>Concluído</value>
-      <description>concluído</description>
+      <description>done</description>
     </text> 
 
     <text id="TEXT_LOADING_HIERARCHY">
       <value>Carregando o controle de hierarquia...</value>
-      <description>carregando o controle de hierarquia</description>
+      <description>loading hierarchy control</description>
     </text> 
 
     <text id="START_ACCOUNT_HIERARCHY_WEBSERVICE">
       <value>Verifique se o serviço da Web da hierarquia está em execução em:</value>
-      <description>verifique de o serviço da Web está executando a mensagem</description>
+      <description>make sure webservice is running message</description>
     </text> 
 
     <text id="TEXT_ALL_CORPORATE_ACCOUNTS">
       <value>Todas as contas corporativas</value>
-      <description>Todas as contas corporativas</description>
+      <description>All Corporate Accounts</description>
     </text> 
 
     <text id="TEXT_HIERARCHY">
       <value>Hierarquia</value>
-      <description>Hierarquia</description>
+      <description>Hierarchy</description>
     </text> 
 
     <text id="TEXT_MENU">
@@ -42,12 +41,12 @@
 
     <text id="TEXT_ACCOUNT_HIERARCHY">
       <value>Hierarquia de conta</value>
-      <description>Hierarquia de conta</description>
+      <description>Account Hierarchy</description>
     </text> 
     
     <text id="TEXT_CORPORATE_ACCOUNT">
       <value>Contas corporativas</value>
-      <description>Contas corporativas</description>
+      <description>Corporate Accounts</description>
     </text> 
 
     <text id="TEXT_ADD_TEMPLATE_AVAILABLE_GROUP_SUBSCRIPTION">
@@ -95,7 +94,7 @@
     </text>     
 
     <text id="TEXT_CTX_MENU_ISSUE_MISC_ADJUSTMENT">
-        <value>Emitir diversos Ajuste</value>
+        <value>Emitir ajuste diverso</value>
     </text>     
 
     <text id="TEXT_CTX_MENU_VIEW_ONLINE_BILL">

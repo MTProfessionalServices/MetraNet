@@ -88,7 +88,7 @@ PRIVATE FUNCTION Form_Initialize(EventArg) ' As Boolean
 
  	End if	
 		
-  mdm_GetDictionary().Add "ShowExtendedBillingCycleOption", FALSE
+  'mdm_GetDictionary().Add "ShowExtendedBillingCycleOption", FALSE  'Commented for ESR-6246 (CORE-7772)
   
   Form.Grids("ExtendedProperties").Enabled  = CBool(UCase(Request("EditMode")) = "TRUE") 'FALSE
   Service.Properties.Enabled 				  =  CBool(UCase(Request("EditMode")) = "TRUE")

@@ -1,54 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="Localized Tickeing" type="collection">
   <description>
     The file defines localized string for MAM ticketing functions.
   </description>
 
   <text id="TEXT_MPS_TICKET_FAILED">
-<value>Afficher la facture interactive -- Erreur</value>
+    <value>Afficher la facture interactive -- Erreur</value>
   </text>
   
   <text id="TEXT_MPS_TICKET_SUCCESS">
-<value>Afficher la facture interactive</value>
+    <value>Afficher la facture interactive</value>
   </text>
   
   <text id="TEXT_MPS_TICKET_SESSION_ENDED">
-<value>La session Afficher la facture interactive a pris fin</value>
+    <value>La session d'affichage de la facture interactive a pris fin.</value>
   </text>
   
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_1">
-<value>Une erreur s'est produite pendant l'ouverture de session de l'utilisateur, probablement en raison d'un justificatif d'identité incorrect ou d'un ticket non valide.</value>
+    <value>Une erreur s'est produite pendant l'ouverture de session de l'utilisateur. Cela peut être dû à des identifiants de connexion incorrects ou à un ticket non valide.</value>
   </text>
 <!--  <text id="TEXT_MPS_TICKET_FAIL_STATUS_2">
     <value></value>
   </text> -->
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_3">
-<value>Impossible d'ouvrir une session car le compte est en attente.</value>
+    <value>Impossible d'ouvrir la session car le compte est en attente.</value>
   </text>
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_4">
-<value>Impossible d'ouvrir une session car le compte est inactif.</value>
+    <value>Impossible d'ouvrir la session car le compte est inactif.</value>
   </text>
 <!--  <text id="TEXT_MPS_TICKET_FAIL_STATUS_5">
     <value></value>
   </text> -->
   
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_6">
-<value>Une erreur s'est produite pendant la création d'objets nécessaires.</value>
+    <value>Une erreur s'est produite pendant la création des objets requis.</value>
   </text>
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_7">
-<value>Impossible d'ouvrir une session car l'état du compte ne le permet pas.</value>
+    <value>Impossible d'ouvrir la session car cela n'est pas autorisé en raison de l'état du compte.</value>
   </text>
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_8">
-<value>Échec de la tentative de création d'un enregistrement COM sécurisé.</value>
+    <value>La tentative de création du magasin sécurisé COM a échoué.</value>
   </text>
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_9">
-<value>Impossible de créer un ticket.</value>
+    <value>Impossible de créer le ticket.</value>
   </text>
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_10">
-<value>Gateway.xml n'est pas un XML valide ou n'existe pas.</value>
+    <value>Gateway.xml n'est pas un fichier XML valide ou n'existe pas.</value>
   </text>
   <text id="TEXT_MPS_TICKET_FAIL_STATUS_11">
-<value>Impossible de trouver un site localisé pour l'ID de fournisseur fourni.</value>
+    <value>Impossible de trouver un site localisé pour l'ID de fournisseur spécifié.</value>
   </text>
 </texts>

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="Main" type="collection">
 
     <description></description>
@@ -13,14 +12,11 @@
 -->    
     
     <text id="TEXT_SELECT_USAGE_PRICEABLE_ITEM">
-        <value>[FR]Select One or More [TEXT_KEYTERM_USAGE_CHARGES] to Add to this [TEXT_KEYTERM_PRODUCT_OFFERING]</value><description></description>
+        <value>Sélectionnez un ou plusieurs [TEXT_KEYTERM_USAGE_CHARGES] à ajouter à ce [TEXT_KEYTERM_PRODUCT_OFFERING]</value><description></description>
     </text>    
 
     <text id="TEXT_SELECT_PRICELIST_MAPPING">
-        <value>[FR]Select [TEXT_KEYTERM_PRICE_LIST] for this [TEXT_KEYTERM_PARAMETER_TABLE]</value><description></description>
+        <value>Sélectionnez [TEXT_KEYTERM_PRICE_LIST] pour ce [TEXT_KEYTERM_PARAMETER_TABLE]</value><description></description>
     </text>    
         
 </texts>
-
-
-

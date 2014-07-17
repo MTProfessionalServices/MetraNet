@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="System Users" type="collection">
   <description>
-    O arquivo define a string localizada para usuário do sistema e para a hierarquia da força de vendas
+    The file defines localized string for system users and Sales Force Hierarchy
   </description>
 
   <text id="TEXT_SELECT_OWNED_ACCOUNT_MESSAGE">
-    <value>Como você não tem acesso superior às contas, sua exibição da hierarquia de contas está vazia no momento. Para exibir contas na hierarquia, acesse a guia do menu, selecione a tela 'Minhas contas' e selecione o ícone 'Encontrar conta na hierarquia' próximo à conta.&lt;br&gt;&lt;br&gt;</value>
+    <value>Como você não tem acesso de nível superior às contas, sua exibição de hierarquia de conta está vazia no momento. Para exibir contas na hierarquia, vá ao guia de menu, selecione a tela "Minhas Contas" e selecione o ícone "Encontrar conta na hierarquia" ao lado da conta.&lt;br&gt;&lt;br&gt;</value>
   </text>
   
   <text id="TEXT_DELETING_OWNED_ACCOUNTS">
@@ -26,7 +25,7 @@
   </text>
     
   <text id="TEXT_SYTEM_USER_UNABLE_TO_LOAD">
-    <value>Não é possível carregar o usuário do sistema.  Ele pode não estar na hierarquia no momento ou você pode não ter a segurança para gerenciá-lo.</value>
+    <value>Não é possível carregar o usuário do sistema. Ele pode não estar na hierarquia nesse momento, ou você pode não ter a segurança para gerenciá-lo.</value>
   </text>
   
   <text id="TEXT_SYSTEM_USER_ACCOUNT_SUMMARY">

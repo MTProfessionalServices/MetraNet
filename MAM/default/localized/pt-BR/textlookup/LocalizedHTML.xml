@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="Localized HTML" type="collection">
 
 <description>
-O arquivo define o código HTML para a página de log-out.
+The file defines the HTML code for the log out page.
 </description>
 
   <text id="TEXT_LOG_OUT_MESSAGE">
         <value>
         <![CDATA[
-            <center><b>Até logo.</b><br><br>Clique <a href='[START_PAGE]'>aqui</a> para efetuar login novamente.</center>
-        ]]>            
+            &lt;center&gt;&lt;b&gt;Até logo.&lt;/b&gt;&lt;br&gt;&lt;br&gt;Clique &lt;a href='[START_PAGE]'&gt;aqui&lt;/a&gt; para fazer o login novamente.&lt;/center&gt;
+        ]]>           
         </value>
         <description></description>
     </text>

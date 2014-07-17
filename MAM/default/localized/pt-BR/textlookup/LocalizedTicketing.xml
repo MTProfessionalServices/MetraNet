@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="Localized Tickeing" type="collection">
   <description>
-    O arquivo define a string localizada para funções de ticket do MAM.
+    The file defines localized string for MAM ticketing functions.
   </description>
 
   <text id="TEXT_MPS_TICKET_FAILED">

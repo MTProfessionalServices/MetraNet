@@ -1,153 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <texts id="Account Hierarchy Terms" type="collection">
 
     <description>Account Hierarchy Terms</description>
 
 
     <text id="TEXT_DROP_ACCOUNTS">
-<value>Faire glisser et déplacer ici...</value>
+      <value>Effectuer un glisser-déposer ici...</value>
       <description>drag and drop</description>
     </text> 
 
     <text id="TEXT_LOADING_DONE">
-<value>Terminé</value>
+      <value>Aucun(e)</value>
       <description>done</description>
     </text> 
 
     <text id="TEXT_LOADING_HIERARCHY">
-<value>Chargement du contrôle de la hiérarchie...</value>
+      <value>Chargement de la commande de hiérarchie en cours...</value>
       <description>loading hierarchy control</description>
     </text> 
 
     <text id="START_ACCOUNT_HIERARCHY_WEBSERVICE">
-<value>Veuillez vous assurer que votre service Web de hiérarchie de compte s'exécute à :</value>
+      <value>Vérifiez que votre service Web de hiérarchie de comptes est exécuté dans :</value>
       <description>make sure webservice is running message</description>
     </text> 
 
     <text id="TEXT_ALL_CORPORATE_ACCOUNTS">
-<value>Tous les comptes commerciaux</value>
+      <value>Tous les comptes d’entreprise</value>
       <description>All Corporate Accounts</description>
     </text> 
 
     <text id="TEXT_HIERARCHY">
-<value>Hiérarchie</value>
+      <value>Hiérarchie</value>
       <description>Hierarchy</description>
     </text> 
 
     <text id="TEXT_MENU">
-<value>Menu</value>
+      <value>Menu</value>
       <description>Menu</description>
     </text> 
 
     <text id="TEXT_ACCOUNT_HIERARCHY">
-<value>Hiérarchie de compte</value>
+      <value>Hiérarchie des comptes</value>
       <description>Account Hierarchy</description>
     </text> 
     
     <text id="TEXT_CORPORATE_ACCOUNT">
-<value>Comptes commerciaux</value>
+      <value>Comptes d’entreprise</value>
       <description>Corporate Accounts</description>
     </text> 
 
     <text id="TEXT_ADD_TEMPLATE_AVAILABLE_GROUP_SUBSCRIPTION">
-<value>Inscriptions de groupe disponibles</value>
+        <value>Abonnements groupés disponibles</value>
     </text> 
 		
     <text id="TEXT_SUBSCRIPTION_TEMPLATE_GROUP">
-<value>Groupe</value>
+        <value>Groupe</value>
     </text>
      
     <text id="TEXT_SUBSCRIPTION_TEMPLATE_GROUP_SUB_NAME">
-<value>Nom d'inscription du groupe</value>
+        <value>Nom de l’abonnement groupé</value>
     </text> 
     
     <text id="TEXT_ADD_ACCOUNTS_TO_ROLE">
-<value>Ajouter les comptes au Rôle</value>
+        <value>Ajouter des comptes à un rôle</value>
     </text>     
     
     <text id="TEXT_HIERARCHY_VIEW_DATE">
-<value>Afficher la date</value>
+        <value>Afficher la date</value>
     </text>     
     
     <text id="TEXT_CTX_MENU_ADD_ACCOUNT">
-<value>Ajouter le compte</value>
+        <value>Ajouter un compte</value>
     </text>     
     
     <text id="TEXT_CTX_MENU_MANAGE">
-<value>Gérer</value>
+        <value>Gérer</value>
     </text>     
 
     <text id="TEXT_CTX_MENU_NEW_CORPORATE">
-<value>Nouveau compte commercial</value>
+        <value>Nouvelle entreprise</value>
     </text>     
 
     <text id="TEXT_CTX_MENU_GROUP_SUBSCRIPTIONS">
-<value>Inscriptions de groupe</value>
+        <value>Abonnements groupés</value>
     </text>     
 
     <text id="TEXT_CTX_MENU_SEARCH">
-<value>Rechercher</value>
+        <value>Recherche</value>
     </text>     
 
     <text id="TEXT_CTX_MENU_OPERATIONS">
-<value>Opérations</value>
+        <value>Opérations</value>
     </text>     
 
     <text id="TEXT_CTX_MENU_ISSUE_MISC_ADJUSTMENT">
-<value>Problème DiversAjustement</value>
+        <value>Effectuer un ajustement divers</value>
     </text>     
 
     <text id="TEXT_CTX_MENU_VIEW_ONLINE_BILL">
-<value>Facture interactive</value>
+        <value>Facture interactive</value>
     </text>     
 
     <text id="TEXT_CTX_MENU_UPDATE_ACCOUNT">
-<value>Mettre le compte à jour</value>
+        <value>Mettre à jour le compte</value>
     </text>     
 
     <text id="TEXT_CTX_MENU_REFRESH">
-<value>Actualiser</value>
+        <value>Actualiser</value>
     </text>   
     
     <text id="TEXT_CTX_MENU_HIDE">
-<value>Masquer</value>
+        <value>Masquer</value>
     </text> 
       
     <text id="TEXT_CTX_MENU_SHOW_ONLY">
-<value>Afficher seulement</value>
+        <value>Afficher uniquement</value>
     </text>      
     
     <text id="TEXT_CTX_MENU_SHOWALL">
-<value>Afficher tous</value>
+        <value>Afficher tout</value>
     </text>   
     
     <text id="TEXT_HIERARCHY_LOADING">
-<value>Chargement...</value>
+        <value>Chargement en cours...</value>
     </text> 
     
    <text id="TEXT_HIERARCHY_DONE">
-<value>Terminé.</value>
+        <value>Terminé.</value>
     </text> 
     
    <text id="TEXT_REFRESH_CLICK">
-<value>Cliquez sur l'icone Actualiser pour charger la hiérarchie à partir de la date sélectionnée.</value>
+        <value>Cliquez sur l'icône d'actualisation pour charger la hiérarchie à compter de la date sélectionnée.</value>
    </text>          
 
    <text id="TEXT_CTX_MENU_OWNED_ACCOUNTS">
-<value>Comptes responsable</value>
+        <value>Comptes détenus</value>
    </text>          
    
    <text id="TEXT_CTX_MENU_SECURITY">
-<value>Sécurité</value>
+        <value>Sécurité</value>
    </text>          
 
    <text id="TEXT_CTX_MENU_ADD_USER">
-<value>Ajouter un utilisateur</value>
+        <value>Ajouter un utilisateur</value>
    </text>          
 
    <text id="TEXT_CTX_MENU_ADD_GSM">
-<value>Ajouter GSM</value>
+        <value>Ajouter un GSM</value>
    </text>     
    
 </texts>

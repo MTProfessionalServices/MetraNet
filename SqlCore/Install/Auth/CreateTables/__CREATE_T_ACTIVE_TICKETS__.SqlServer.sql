@@ -8,6 +8,5 @@
 				[n_lifespanminutes] [int] NOT NULL,
 				[dt_create] [datetime] NOT NULL,
 				[dt_expiration] [datetime] NOT NULL,
-				id_lang_code int NOT NULL DEFAULT 840,
 				CONSTRAINT [PK_t_active_tickets] PRIMARY KEY(id_ticket ASC))
 			

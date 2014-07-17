@@ -261,7 +261,7 @@ PUBLIC FUNCTION GetFrameworkAppLanguageFromPageLanguage(strPageLanguage)
   Dim dashIndex 
   dashIndex = INSTR(strPageLanguage,"-")
   IF ( dashIndex > 0)  THEN
-    GetFrameworkAppLanguageFromPageLanguage = CSTR(MID(strPageLanguage, dashIndex + 1, LEN(strPageLanguage)))
+    GetFrameworkAppLanguageFromPageLanguage = LCASE(CSTR(MID(strPageLanguage, dashIndex + 1, LEN(strPageLanguage))))
   ELSE
     GetFrameworkAppLanguageFromPageLanguage = strPageLanguage
   END IF
